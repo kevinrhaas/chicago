@@ -5,28 +5,29 @@
  "author": "not recorded (supplied by the project owner)",
  "date": "not recorded",
  "describes_date": "not recorded; styled as a portrait of about 1895-1905",
- "repository": "the project owner; kept verbatim in kevinrhaas/chicago-evidence at evidence/grey-likenesses-2026-11-12/pa1904_grey_mrs_w_l/owner_sarah_grey_likeness.png (SHA-256 effeb130741a53d87442567689773e82dc9b31f8866088b20efb2af9fba12dde, 1122 x 1402 px)",
+ "repository": "the project owner; kept verbatim in kevinrhaas/chicago-evidence at evidence/grey-likenesses-2026-11-12/pa1904_grey_mrs_w_l/owner_sarah_grey_likeness.png (SHA-256 effeb130741a53d87442567689773e82dc9b31f8866088b20efb2af9fba12dde, 1122 x 1402 px); and, of the same stand-in, the head turnaround sheet the owner supplied on 13 November 2026 (\"These might help\"; front, both sides and behind, in colour), kept beside it at evidence/grey-likenesses-2026-11-12/pa1904_grey_mrs_w_l/owner_sarah_grey_head_turnaround_2026-11-13.png (SHA-256 3e1e4d35449cd25291774d3cde732d58fb9b7efc8ba293544fa6b5ecd98c5008, 1254 x 1254 px; evidence commit 70d839be)",
  "url": "https://github.com/kevinrhaas/chicago-evidence/blob/4c262dd37f52a0e783cd17fd23ecba849a49e5e9/evidence/grey-likenesses-2026-11-12/pa1904_grey_mrs_w_l/owner_sarah_grey_likeness.png",
- "locator": "the full frame; the face is marked inside the crop recorded in data/humans/variation/portraits/pa1904_grey_mrs_w_l.json",
+ "locator": "the full frame; the face is marked inside the crop recorded in data/humans/variation/portraits/pa1904_grey_mrs_w_l.json; the sheet's four views of the head, as cropped in data/humans/variation/skins/pa1904_grey_mrs_w_l.json",
  "tier": 5,
  "rights_status": "cleared",
- "rights_note": "Supplied by the project owner for this project's own use as a likeness. The card shows a cut of it with a stand-in label burned on; the full picture is kept in the evidence repository, not served from the site.",
+ "rights_note": "Supplied by the project owner for this project's own use as a likeness. The card shows a cut of the portrait with a stand-in label burned on; the full pictures are kept in the evidence repository. Pixels of the turnaround sheet's four views of the head are baked into assets/humans/web/likeness/pa1904_grey_mrs_w_l_skin.jpg, which is served from the site as the figure's skin, hair and eyes (the owner, 2026-11-13: \"i want them photographic matched\"); no label can be burned on a skin, so the stand-in label is on the person's card.",
  "rights_checked": {
   "date": "2026-11-12",
   "method": "Supplied directly by the owner in the project thread with the instruction to use it as the likeness.",
   "outcome": "cleared for this project's use and derivation by the owner's instruction; the sitter and maker are not recorded"
  },
- "asset_use": "cross_check",
+ "asset_use": "texture",
  "verified": true,
- "access_notes": "Read by eye at full size and at 3x on the face. The file carries no capture or software metadata (EXIF: orientation and 72 dpi only), so where and when the picture was made cannot be read from it. asset_use is cross_check, not geometry: a tier-5 picture is not evidence of anyone's outline (docs/PROVENANCE.md). The model's face is fitted to it only because the owner chose it as the stand-in likeness; that face is a liberty graded reconstructed (docs/LIBERTIES.md, L-prairie-likenesses-3547), not a measurement of the person.",
+ "access_notes": "Read by eye at full size and at 3x on the face. The file carries no capture or software metadata (EXIF: orientation and 72 dpi only), so where and when the picture was made cannot be read from it. asset_use is texture, not geometry: a tier-5 picture is not evidence of anyone's outline (docs/PROVENANCE.md). The model's face is fitted to it, and the turnaround sheet's pictures are laid on that face as its skin, only because the owner chose them as the stand-in likeness; face and skin are liberties graded reconstructed (docs/LIBERTIES.md, L-prairie-likenesses-3547 and L-grey-photograph-skin-3553), not a measurement or a picture of the person. The sheet carries no capture metadata either, and was read by eye at full size.",
  "note": "THIS IS NOT A PHOTOGRAPH OF SARAH GREY. No photograph of Sarah Grey has been found (the household record's portrait search, docs/RESEARCH/prairie-portraits-3546). The owner chose this picture as the stand-in for Sarah Grey's face, hair and dress, as the Glessner household's stand-ins were chosen (T-3478). A sepia cabinet-style portrait, three-quarter length: a woman of middle age seated in an upholstered armchair before a painted studio backdrop of foliage, her hair drawn up from the face all round to a knot on the crown, small hoop earrings, a high lace collar fastened with a cameo brooch, and a dark lustrous day dress with a pin-tucked bodice, a row of covered buttons and full leg-of-mutton sleeves, a ring on her left hand. Her face is near-frontal, turned a little to her right, both eyes showing; about 89 px between the pupils.",
  "what_it_supplies": [
   "the proportions of the face the model of Sarah Grey is drawn with, a stand-in chosen by the owner",
-  "the hair, facial hair and dress the figure is drawn in"
+  "the hair, facial hair and dress the figure is drawn in",
+  "the skin, hair, eye colours and hair's outline the figure is drawn with (the turnaround sheet, in colour): the stand-in's, laid on the fitted face"
  ],
  "what_it_does_not_supply": [
   "Sarah Grey's own face, age, colouring or appearance: the sitter is not recorded",
-  "any colour (the picture is sepia)",
+  "any colour from the portrait (it is sepia; the figure's colours are the turnaround sheet's, and they are the stand-in's)",
   "the face's depth (one view only)"
  ]
 }

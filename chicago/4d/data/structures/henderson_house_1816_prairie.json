@@ -607,10 +607,10 @@
                     "variant": "k06.opening.sash_2over2_flat",
                     "width_m": 0.7,
                     "height_m": 1.4,
-                    "sill_m": 0.15
+                    "sill_m": 0.1
                   },
                   "surround_m": 0.15,
-                  "face_setback_m": 0.15,
+                  "face_setback_m": 0.05,
                   "at_m": 0.0
                 }
               ],
@@ -630,11 +630,11 @@
                     0.0
                   ],
                   [
-                    -1.34,
+                    -0.775,
                     1.0
                   ],
                   [
-                    1.34,
+                    0.775,
                     1.0
                   ],
                   [
@@ -649,35 +649,35 @@
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
-                      "clear_width_m": 0.6,
+                      "clear_width_m": 0.8,
                       "clear_height_m": 0.9,
                       "sill_m": 0.45,
                       "at": [
-                        0.131,
-                        0.869
+                        0.178,
+                        0.822
                       ],
                       "grille": {
                         "bars": 6,
                         "set_back_m": 0.05,
                         "ring_radius_m": 0.15
                       },
-                      "why_not_ordinary": "T-1886: the photograph's barred basement lights under the flank bay's windows, one in each face it shows (x 210-230 and 260-310 px), as wide as the windows over them and about 0.9 m high from about 0.45 m over grade in the stone under the water table (sill y 975 and head y 925 px at 53.6 px/m, grade at about 997)",
-                      "recess_m": 0.4
+                      "why_not_ordinary": "T-1886: the photograph's barred basement lights under the flank bay's windows, one in each face it shows (the south face's at x 205-225 px, the south-east cant's at 255-300), as wide as the windows over them, 0.75 m and 0.8 m, and about 0.9 m high from about 0.45 m over grade in the stone under the water table; its reveal 0.35 m deep, the deepest that stays in front of the house wall on so shallow a cant",
+                      "recess_m": 0.35
                     },
                     {
                       "opening": "k06.opening.sash_2over2_flat",
-                      "clear_width_m": 1.05,
+                      "clear_width_m": 0.75,
                       "clear_height_m": 0.9,
                       "sill_m": 0.45,
                       "at": [
                         0.5
                       ],
                       "grille": {
-                        "bars": 6,
+                        "bars": 5,
                         "set_back_m": 0.05,
                         "ring_radius_m": 0.15
                       },
-                      "why_not_ordinary": "T-1886: the photograph's barred basement lights under the flank bay's windows, one in each face it shows (x 210-230 and 260-310 px), as wide as the windows over them and about 0.9 m high from about 0.45 m over grade in the stone under the water table (sill y 975 and head y 925 px at 53.6 px/m, grade at about 997)"
+                      "why_not_ordinary": "T-1886: the photograph's barred basement lights under the flank bay's windows, one in each face it shows (the south face's at x 205-225 px, the south-east cant's at 255-300), as wide as the windows over them, 0.75 m and 0.8 m, and about 0.9 m high from about 0.45 m over grade in the stone under the water table"
                     }
                   ]
                 },
@@ -686,15 +686,15 @@
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
-                      "clear_width_m": 0.6,
-                      "clear_height_m": 3.15,
-                      "sill_m": 0.6,
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 2.8,
+                      "sill_m": 0.5,
                       "at": [
-                        0.131,
-                        0.869
+                        0.178,
+                        0.822
                       ],
-                      "recess_m": 0.4,
-                      "why_not_ordinary": "the photograph's tall principal-storey sash in the bays' faces, about 3.15 m high on the 4.8 m storey through its camera (the canted bay's south face at x 615-675 px, sill y 855 and head y 685 at 53.6 px/m)",
+                      "recess_m": 0.35,
+                      "why_not_ordinary": "T-1886 (2026-11-13): the photograph's principal-storey lights in the flank bay, read against the bay's own water table (y 900 px) and eave at its 51 px/m: sill y 873, head y 731, so 0.5 m over the floor and 2.8 m high, lower and shorter than the front bay's (3.15 m from 0.6 m); 0.8 m wide in the south-east cant (the print's about 1.0 m at x 255-300 px, nearly square to the camera; K08 keeps a cant light's recess clear of the house wall only at 0.8 m on so shallow a cant) and 0.75 m in the south face (x 205-225 px, seen at 56 degrees); its reveal 0.35 m deep, the deepest that stays in front of the house wall on so shallow a cant",
                       "crest": {
                         "width_m": 1.0,
                         "height_m": 0.35,
@@ -703,13 +703,13 @@
                     },
                     {
                       "opening": "k06.opening.sash_2over2_flat",
-                      "clear_width_m": 1.05,
-                      "sill_m": 0.6,
+                      "clear_width_m": 0.75,
+                      "sill_m": 0.5,
                       "at": [
                         0.5
                       ],
-                      "clear_height_m": 3.15,
-                      "why_not_ordinary": "the photograph's tall principal-storey sash in the bays' faces, about 3.15 m high on the 4.8 m storey through its camera (the canted bay's south face at x 615-675 px, sill y 855 and head y 685 at 53.6 px/m)",
+                      "clear_height_m": 2.8,
+                      "why_not_ordinary": "T-1886 (2026-11-13): the photograph's principal-storey lights in the flank bay, read against the bay's own water table (y 900 px) and eave at its 51 px/m: sill y 873, head y 731, so 0.5 m over the floor and 2.8 m high, lower and shorter than the front bay's (3.15 m from 0.6 m); 0.8 m wide in the south-east cant (the print's about 1.0 m at x 255-300 px, nearly square to the camera; K08 keeps a cant light's recess clear of the house wall only at 0.8 m on so shallow a cant) and 0.75 m in the south face (x 205-225 px, seen at 56 degrees)",
                       "crest": {
                         "width_m": 1.0,
                         "height_m": 0.35,
@@ -723,15 +723,15 @@
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
-                      "clear_width_m": 0.6,
-                      "clear_height_m": 3.0,
-                      "sill_m": 0.7,
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 2.25,
+                      "sill_m": 0.2,
                       "at": [
-                        0.131,
-                        0.869
+                        0.178,
+                        0.822
                       ],
-                      "recess_m": 0.4,
-                      "why_not_ordinary": "the photograph's upper sash in the bays' faces, about 3.0 m high on the 5.3 m second storey through its camera (sill y 590 and head y 430 at 53.6 px/m)",
+                      "recess_m": 0.35,
+                      "why_not_ordinary": "T-1886 (2026-11-13): the photograph's upper lights in the flank bay, read as the principal storey's: sill y 650 on the floor line's sill blocks, head y 528, so 0.2 m over the floor (the least the storey's clear wall over its floor band allows; the print's about 0.1) and 2.25 m high, where the front bay's stand 3.0 m from 0.7 m; the same widths as the storey under them; its reveal 0.35 m deep, the deepest that stays in front of the house wall on so shallow a cant",
                       "crest": {
                         "width_m": 1.0,
                         "height_m": 0.35,
@@ -740,13 +740,13 @@
                     },
                     {
                       "opening": "k06.opening.sash_2over2_flat",
-                      "clear_width_m": 1.05,
-                      "sill_m": 0.7,
+                      "clear_width_m": 0.75,
+                      "sill_m": 0.2,
                       "at": [
                         0.5
                       ],
-                      "clear_height_m": 3.0,
-                      "why_not_ordinary": "the photograph's upper sash in the bays' faces, about 3.0 m high on the 5.3 m second storey through its camera (sill y 590 and head y 430 at 53.6 px/m)",
+                      "clear_height_m": 2.25,
+                      "why_not_ordinary": "T-1886 (2026-11-13): the photograph's upper lights in the flank bay, read as the principal storey's: sill y 650 on the floor line's sill blocks, head y 528, so 0.2 m over the floor (the least the storey's clear wall over its floor band allows; the print's about 0.1) and 2.25 m high, where the front bay's stand 3.0 m from 0.7 m; the same widths as the storey under them",
                       "crest": {
                         "width_m": 1.0,
                         "height_m": 0.35,
@@ -761,7 +761,7 @@
                 "pitch": 0.1,
                 "covering": "slate_pennsylvania",
                 "mansard": {
-                  "rise_m": 4.0,
+                  "rise_m": 3.25,
                   "lower_pitch_deg": 76,
                   "cresting": {
                     "height_m": 0.6,
@@ -780,12 +780,12 @@
                   "gable_pitch_deg": 40,
                   "sash": {
                     "variant": "k06.opening.sash_2over2_flat",
-                    "width_m": 0.7,
+                    "width_m": 0.5,
                     "height_m": 1.4,
-                    "sill_m": 0.15
+                    "sill_m": 0.1
                   },
                   "surround_m": 0.15,
-                  "face_setback_m": 0.15,
+                  "face_setback_m": 0.05,
                   "at_m": 0.0
                 }
               ],
@@ -797,7 +797,7 @@
             "sanborn_1911_chicago_v3_sheet_28",
             "chicagology_1816_henderson_photo"
           ],
-          "note": "Two canted bays, each on the 1911 sheet's plan (s28fp-1816-b1 p2) and in the photograph: the street front's at its south corner, 6.87 m at the wall and 1.65 m out with 2.4 m of front, and the south flank's near its rear, 4.85 m at the wall and 1.0 m out with 2.68 m of front, each two storeys over the basement with a window in each face. T-2964: in the photograph both are carried up past the cornice, the bracketed cornice run round each, into a mansard of their own: the front's a raised crown whose deck stands over the main curb, the flank's lower; each under its own iron cresting. K08's mansard bay roof (roof.mansard) builds them: 4.4 m of lower face on the front's and 4.0 m on the flank's at 76 degrees, then a deck at a tenth. The rises are read through the photograph's camera as fractions of the wall under them (the front's crown about a third of the corner's height from grade to cornice, the flank's about two-fifths), so the crown's deck stands 0.4 m over the main curb, and are good to about half a metre; the pitch is the main mansard's near enough. The dormers in the bays' own faces are not built (the match record). T-1886: both bays stand on the house's stone basement, as the photograph shows them (the pale ashlar run round their faces to the water table at 2.0 m, a barred light under each window it sees): laid in the front's stone with brick over a 2.0 m basement storey (fabric front_stone, brick_above_m 2.0, T-2914), their principal-storey sash unmoved (sills 0.6 m over the floor). Both crowns' lower faces in the main mansard's slate (roof.slated_as_house), as the print draws all three alike, and one pedimented dormer on each crown's front face (mansard_dormers): the front crown's on its street face, the flank crown's on its south face, where the print shows them (x 600-690 and 175-240 px). T-1886 (2026-11-12): every light of both bays' two storeys over the basement carries K09's carved crest on its lintel (crest, the front hoods' own: 1.0 m wide or the lintel's top, 0.35 m high, 0.1 m proud), as the photograph draws the bays' hoods crested as the front's are (x 140-215 and 490-560 px); the carving is the kit's, the print resolving only a raised scrolled block. The flank crown's second dormer, in its south-east canted face, is not built: K08 lays a bay's dormers on its front face only (open on the match record; L-k01-1816-henderson-1886)."
+          "note": "Two canted bays, each on the 1911 sheet's plan (s28fp-1816-b1 p2) and in the photograph: the street front's at its south corner, 6.87 m at the wall and 1.65 m out with 2.4 m of front, and the south flank's near its rear, 4.85 m at the wall and 1.0 m out with 2.68 m of front, each two storeys over the basement with a window in each face. T-2964: in the photograph both are carried up past the cornice, the bracketed cornice run round each, into a mansard of their own: the front's a raised crown whose deck stands over the main curb, the flank's lower; each under its own iron cresting. K08's mansard bay roof (roof.mansard) builds them: 4.4 m of lower face on the front's and 4.0 m on the flank's at 76 degrees, then a deck at a tenth. The rises are read through the photograph's camera as fractions of the wall under them (the front's crown about a third of the corner's height from grade to cornice, the flank's about two-fifths), so the crown's deck stands 0.4 m over the main curb, and are good to about half a metre; the pitch is the main mansard's near enough. The dormers in the bays' own faces are not built (the match record). T-1886: both bays stand on the house's stone basement, as the photograph shows them (the pale ashlar run round their faces to the water table at 2.0 m, a barred light under each window it sees): laid in the front's stone with brick over a 2.0 m basement storey (fabric front_stone, brick_above_m 2.0, T-2914), their principal-storey sash unmoved (sills 0.6 m over the floor). Both crowns' lower faces in the main mansard's slate (roof.slated_as_house), as the print draws all three alike, and one pedimented dormer on each crown's front face (mansard_dormers): the front crown's on its street face, the flank crown's on its south face, where the print shows them (x 600-690 and 175-240 px). T-1886 (2026-11-12): every light of both bays' two storeys over the basement carries K09's carved crest on its lintel (crest, the front hoods' own: 1.0 m wide or the lintel's top, 0.35 m high, 0.1 m proud), as the photograph draws the bays' hoods crested as the front's are (x 140-215 and 490-560 px); the carving is the kit's, the print resolving only a raised scrolled block. The flank crown's second dormer, in its south-east canted face, is not built: K08 lays a bay's dormers on its front face only (open on the match record; L-k01-1816-henderson-1886). T-1886 (2026-11-13): the flank bay re-read with the photograph through its corrected camera, the sheet's 4.85 m at the wall and 1.0 m out kept. The print draws the bay's south-east cant 91 px wide (x 233-324) and its south face 34 px (x 199-233), where the sheet's 1.085 m cant and 2.68 m front drew them about equal (76 and 75 px): the print's widths want a cant about 1.8 m along the wall and a front about 1.25 m (91 and 34 px within 1 px), a cant as shallow as the front bay's own; no 45-degree cant fits them. The crown's pedimented dormer stands on that narrow front in the print, and K08 lays a crown dormer clear of the hips by 0.3 m at the curb, so the plan is the narrowest front that keeps it (its sash 0.5 m): a cant 1.65 m along the wall and a 1.55 m front, drawn about 89 and 44 px, the front about 0.3 m wider than the print's (the match record). The wide light the print shows is the cant's, so the cant carries the wide light, 0.8 m (the print's about 1.0 m; at 1.0 m its recess runs behind the house wall on so shallow a cant), and the front a 0.75 m one, and both storeys' lights stand lower and shorter than the front bay's, as the print draws them (the windows' why_not_ordinary). The crown's lower face rises 3.25 m, not 4.0: through the corrected camera its curb's top stands at y 205 px in the print, about 40 px under the 4.0 m crown's, about 0.75 m at the crown. The whole bay draws about 28 px east of the print's along the flank, the plan and the camera's fit disagreeing there (the match record), so the reading is of its faces' widths and heights, not its place. Both crowns' dormers stand as the main mansard's now do (face 0.05 m in from the fascia, sash on a 0.1 m sill): the print draws the flank crown's sitting on the crown's cornice (its foot at y 400 px), where the build's stood about 0.6 m over it."
         },
         "mansard": {
           "value": {
@@ -813,10 +813,10 @@
                   "variant": "k06.opening.sash_2over2_flat",
                   "width_m": 0.8,
                   "height_m": 1.5,
-                  "sill_m": 0.15
+                  "sill_m": 0.1
                 },
                 "surround_m": 0.15,
-                "face_setback_m": 0.15,
+                "face_setback_m": 0.05,
                 "head": "gable",
                 "gable_pitch_deg": 40
               },
@@ -827,24 +827,24 @@
                   "variant": "k06.opening.sash_2over2_flat",
                   "width_m": 0.8,
                   "height_m": 1.5,
-                  "sill_m": 0.15
+                  "sill_m": 0.1
                 },
                 "surround_m": 0.15,
-                "face_setback_m": 0.15,
+                "face_setback_m": 0.05,
                 "head": "gable",
                 "gable_pitch_deg": 40
               },
               {
                 "face": "south",
-                "along_m": 7.4,
+                "along_m": 6.6,
                 "sash": {
                   "variant": "k06.opening.sash_2over2_flat",
                   "width_m": 0.8,
                   "height_m": 1.5,
-                  "sill_m": 0.15
+                  "sill_m": 0.1
                 },
                 "surround_m": 0.15,
-                "face_setback_m": 0.15,
+                "face_setback_m": 0.05,
                 "head": "gable",
                 "gable_pitch_deg": 40
               }
@@ -863,7 +863,7 @@
           "sources": [
             "chicagology_1816_henderson_photo"
           ],
-          "note": "A slated mansard over the cornice, its lower faces steep and slightly swelling, with dormers in them: two on the street face, over the door and over the north windows, and one on the south face, where the photograph shows them (set 9.0, 12.5 and 7.4 m along their faces). T-2964: the photograph's dormers are square-headed under pediments, built as K01's gabled dormer head (head: gable, 40 degrees; their carved cheeks are not modelled), and iron cresting runs along the curb of every deck it shows, as 1801's deck carries it (mansard.deck.cresting, K10's iron ridge cresting, its pattern the kit's): along the main deck's street curb, and round the two bays' crowns (bays). The main deck's south curb, behind the flank bay's crown, shows none in the print, and its north and rear curbs are out of the camera's sight, so none of the three carries it: about 840 triangles a metre of iron are spent only where a picture shows them."
+          "note": "A slated mansard over the cornice, its lower faces steep and slightly swelling, with dormers in them: two on the street face, over the door and over the north windows, and one on the south face, where the photograph shows them (set 9.0, 12.5 and 7.4 m along their faces). T-2964: the photograph's dormers are square-headed under pediments, built as K01's gabled dormer head (head: gable, 40 degrees; their carved cheeks are not modelled), and iron cresting runs along the curb of every deck it shows, as 1801's deck carries it (mansard.deck.cresting, K10's iron ridge cresting, its pattern the kit's): along the main deck's street curb, and round the two bays' crowns (bays). The main deck's south curb, behind the flank bay's crown, shows none in the print, and its north and rear curbs are out of the camera's sight, so none of the three carries it: about 840 triangles a metre of iron are spent only where a picture shows them. T-1886 (2026-11-13): through the corrected camera the print stands every main dormer's sill on the cornice (the south one's at y 370 px, the cornice's top there 365-375), where the build's stood about 1 m over it (its sill at 280, the cornice 335): the three dormers' faces are brought out to 0.05 m in from the fascia's face and their sashes onto a 0.1 m sill, the kit's least, which lowers them about half a metre. The south dormer stands at u 6.6, not 7.4: the print draws it at x 335-385 px, close east of the flank crown, and the build's at 385-415; read against the south-east corner (the camera's anchor) it is 1.0 m west, against the flank bay (which itself draws 28 px east of the print's) 0.4 m, so 0.8 m splits them, each within about 10 px."
         },
         "rear_wings": {
           "value": [
