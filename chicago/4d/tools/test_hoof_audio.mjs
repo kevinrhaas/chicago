@@ -117,7 +117,40 @@ test('six-voice 1812 budget keeps all four mechanicals and adds two rate-one fin
   assert.equal(s.engine.state.voiceLimit, 6); assert.equal(s.engine.state.decodedByteLimit, 10 * 1024 * 1024);
   s.engine.dispose();
 });
-test('1835 and 1904 keep four voices / 8MiB and never fetch or sample hoofs', async () => {
+test('T-3587: every year\'s actual team is heard hoof by hoof, at each scene\'s seasonal dates', () => {
+  const catalog = JSON.parse(fs.readFileSync(new URL('renderers/web/audio/catalog.json', root)));
+  const asset = catalog.assets.find(a => a.id === R.id);
+  assert.deepEqual(asset.approved_eras, ['1812', '1835', '1904']);
+  assert.ok(asset.scene_placement.gain <= .3 && asset.scene_placement.max_distance_m <= 48);
+  const teams = { 1835: 'western_hotel_driven_wagon_loop_1835', 1904: 'prairie_driven_brougham_loop_1904' };
+  for (const [year, id] of Object.entries(teams)) for (const [season, day] of
+    Object.entries({ summer: '07-01', spring: '04-15', fall: '10-15', winter: '02-15' })) {
+    const env = { camera: { position: { x: 0, y: 1, z: 5 } }, season, time: { date: `${year}-${day}` },
+      transport: [{ ...actor(id), scene: year }] };
+    const heard = hoofCandidates(asset, env, year);
+    assert.equal(heard.length, 1, `${year} ${season}`);
+    // ~5 m off: a hoof is plainly louder than a robin (~.05-.12) and under the placement's cap.
+    assert.ok(heard[0].gain > .2 && heard[0].gain <= asset.scene_placement.gain, String(heard[0].gain));
+    env.transport[0].id = ids[0]; assert.deepEqual(hoofCandidates(asset, env, year), [], 'an 1812 team never walks another year');
+    env.transport[0].id = id; env.time.date = `${year}-08-15`;
+    assert.deepEqual(hoofCandidates(asset, env, year), [], 'no arbitrary date');
+  }
+});
+test('a year with an approved hoof recording takes the six-voice budget; one without keeps four', async () => {
+  const s = setup(), hoof = s.assets.find(a => a.id === R.id), id = 'prairie_driven_brougham_loop_1904';
+  hoof.approved_eras = ['1812', '1904'];
+  hoof.scene_placement.bindings = [...hoof.scene_placement.bindings,
+    { scene: '1904', season: 'summer', scene_date: '1904-07-01', actor_ids: [id] }];
+  for (const m of s.assets.filter(a => a !== hoof)) m.scene_placement.bindings = [{ scene: '1904', scene_date: '1904-07-01', actor_ids: [id] }];
+  s.env.time.date = '1904-07-01'; s.env.transport = [{ ...actor(id), scene: '1904' }];
+  s.sync(true, '1904'); await settled(s); s.sync(true, '1904'); await settled(s); s.sync(true, '1904');
+  s.frame(0, true, '1904'); await settled(s); s.frame(16, true, '1904');
+  assert.equal(s.engine.state.voiceLimit, 6); assert.equal(s.engine.state.decodedByteLimit, 10 * 1024 * 1024);
+  s.move(.22); s.frame(32, true, '1904');
+  assert.ok(s.engine.state.contactVoices > 0, 'the brougham pair is heard');
+  s.engine.dispose();
+});
+test('a year with no approved hoof recording keeps four voices / 8MiB and never fetches or samples hoofs', async () => {
   for (const year of ['1835', '1904']) {
     const s = setup(); s.env.time.date = `${year}-07-01`; for (const a of s.env.transport) a.scene = year;
     s.sync(true, year); await settled(s); s.sync(true, year); await settled(s); s.sync(true, year);
