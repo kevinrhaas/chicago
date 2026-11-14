@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2979, ts: '2026-11-14T17:06:19.566Z', date: 'Nov 14, 2026, 11:06 AM CT', title: 'Everyone talks with teeth, and Sarah Grey smiles', kind: 'improvement',
+    items: [
+      'Everyone, in every year, now has teeth. When a person is talking and you stand within about 20 feet, their jaw moves and you see teeth behind their lips: the young show their upper teeth, the old their lower. These teeth are drawn, not photographed, and are recorded as a liberty.',
+      'Mouths at rest look better too. The pale line that showed between closed lips is now the dark parting it should be.',
+      'Sarah Grey of 2010 Prairie (1904) now smiles at you when you stand in front of her, and when she greets someone, as William does. The smile and the upper teeth are from a photograph of her stand-in smiling. At rest her mouth is shut, and her card\'s picture is unchanged.',
+      'Nobody has a voice yet. The mouths are ready for one. The Greys keep their photographs\' upper teeth; lower teeth for them, and a tongue for anyone, are not drawn yet.',
+    ] },
   { v: 2978, ts: '2026-11-14T16:12:57.530Z', date: 'Nov 14, 2026, 10:12 AM CT', title: '1801 Prairie\'s slate over its south return runs on to the gable', kind: 'improvement',
     items: [
       'On the Kimball house at 1801 Prairie, the slate over the stone return beside the round bay\'s balcony now runs on as one face to the gable, topped by the ridge of the short roof behind the gable, as the 1965 survey photograph shows. The extra fold of slate that rose from the return to the hood beside the gable is gone.',
