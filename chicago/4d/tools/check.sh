@@ -1559,6 +1559,12 @@ step "a canted bay's own mansard may carry dormers on its front run (T-3283)" \
 step "a bay light's lintel may carry the front's carved crest (T-1886)" \
   python3 tools/test_k08_bay_crest.py
 
+# T-3370. 1936 Prairie's balconies as Chicagology's photograph draws them: a corner porch's
+# cornice on modillions down to its arches' crowns, its entablature and balustrade (and a stone
+# hood's railing) in the front's trim stone; refused past the crowns or out past the cornice.
+step "a corner porch's cornice may stand on modillions, its balcony in the trim stone (T-3370)" \
+  python3 tools/test_k01_porch_balcony.py
+
 # T-3283. 1945 Prairie's corner block under a mansard about a storey over the rest (the Tribune's
 # 1928 photograph): a crown over a stretch of the street front with no projection under it, cut
 # on a canted corner's line when it runs onto it, carrying its own street and cant dormers; the
