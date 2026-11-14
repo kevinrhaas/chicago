@@ -73,8 +73,21 @@ export async function loadVariationKit(base, fetchImpl = fetch) {
     const header = await res.json();
     const bres = await fetchImpl(new URL(header.bin, jsonURL));
     if (!bres.ok) return null;
-    return parseVariationKit(header, await bres.arrayBuffer());
+    const kit = parseVariationKit(header, await bres.arrayBuffer());
+    kit.base = jsonURL.href;   // T-3553: what a person's row names beside the kit (a skin sheet) is fetched from here
+    return kit;
   } catch { return null; }
+}
+
+/**
+ * T-3553: a person's own skin sheet (their row's `skin`; tools/bake_likeness_skin.py bakes it
+ * from pictures of them onto the face fitted to those pictures), with its address beside the
+ * kit. human-skin.js draws it. Null for everyone without one, and for a kit read from no URL.
+ */
+export function likenessSkin(kit, variation) {
+  const skin = variation?.skin;
+  if (!skin?.map || !kit?.base) return null;
+  try { return { ...skin, url: new URL(skin.map, kit.base).href }; } catch { return null; }
 }
 
 /**
@@ -163,7 +176,9 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
   return { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, height, values, option,
     trace: face?.trace ?? null, grade: face?.grade ?? 'reconstructed', sceneYear,
     // T-3553: a standing collar worn lower on the neck than the body's own (`dress.collar`).
-    collar: record?.dress?.collar ?? null };
+    collar: record?.dress?.collar ?? null,
+    // T-3553: their own skin sheet, baked on this fitted face (likenessSkin).
+    skin: face?.values && record?.skin ? record.skin : null };
 }
 
 /** The axes a scope may use. */
@@ -498,13 +513,13 @@ function bodyMap(kit, mesh) {
 }
 
 /** A geometry like `src` with these positions (and its normals turned to match). */
-function variantGeometry(src, mesh, cacheKey, raw, out, before = null) {
+function variantGeometry(src, mesh, cacheKey, raw, out, before = null, morphs = null) {
   const n = raw.length / 3, pos = src.attributes.position;
   const g = new THREE.BufferGeometry();
   g.name = `${src.name || mesh.name}~${cacheKey}`;
   g.setIndex(src.index);
   for (const [k, a] of Object.entries(src.attributes)) g.setAttribute(k, a);
-  g.morphAttributes = src.morphAttributes;
+  g.morphAttributes = morphs ?? src.morphAttributes;
   g.morphTargetsRelative = src.morphTargetsRelative;
   for (const grp of src.groups) g.addGroup(grp.start, grp.count, grp.materialIndex);
   g.setAttribute('position', quantised(pos, out));
@@ -595,6 +610,14 @@ function loweredCollar(name, at, collar, body) {
 }
 
 /**
+ * T-3553: how a face that wears its own skin sheet rests its lids. human-skin.js owns the
+ * blink's shape, so it hands its `restedBlink` in here as it loads (this module reads three
+ * alone); with none handed in, the lids rest as the body's own.
+ */
+let lidRest = null;
+export function setLidRest(fn) { lidRest = typeof fn === 'function' ? fn : null; }
+
+/**
  * Give a freshly cloned figure (bones still at rest) this person's body and face.
  * Returns { meshes, height, grade } or null where the figure is not an hm08 body.
  *
@@ -606,8 +629,11 @@ function loweredCollar(name, at, collar, body) {
  */
 export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
   if (!kit || !variation || scope === 'none') return null;
+  // T-3553: the skin sheet goes with the fitted face, at every level of detail (human-skin.js reads it).
+  const like = likenessSkin(kit, variation);
+  if (like) scene.userData.chiLikenessSkin = like;
   scene.updateMatrixWorld(true);
-  const key = `${variation.key}|${scope}|${kit.header.bin_sha256.slice(0, 12)}`;
+  const key = `${variation.key}|${scope}|${kit.header.bin_sha256.slice(0, 12)}${like?.lid > 0 ? `|lid${like.lid}` : ''}`;
   const skinned = [];
   scene.traverse((o) => { if (o.isSkinnedMesh) skinned.push(o); });
   const isBody = (m) => (m.material?.name ?? '').split('__')[0] === 'skin';
@@ -639,8 +665,15 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
         const v = d[map[i] * 3 + c]; if (v) moved = true;
         out[i * 3 + c] = at.raw[i * 3 + c] + v / at.q.s;
       }
+      // T-3553: a face that wears its own skin sheet rests its lids as its front picture shows
+      // them: that much of the blink goes into the face's rest shape, and the blink keeps the rest.
+      const lids = like?.lid > 0 ? lidRest?.(mesh, scene, like.lid, variation.age) ?? null : null;
+      if (lids) {
+        moved = true;
+        for (const t of lids.targets) for (let i = 0; i < at.n; i++) for (let c = 0; c < 3; c++) out[i * 3 + c] += lids.rest * t.getComponent(i, c);
+      }
       if (moved) fit.rawNormals ??= vertexNormals(at.raw, src.index?.array ?? null, at.n);
-      g = moved ? variantGeometry(src, mesh, key, at.raw, out, fit.rawNormals) : null;
+      g = moved ? variantGeometry(src, mesh, key, at.raw, out, fit.rawNormals, lids?.morphAttributes) : null;
       remember(src, key, g);
     }
     assign(mesh, g);

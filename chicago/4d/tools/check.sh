@@ -760,6 +760,8 @@ step "Every person gets their own face, height and build: no two of 400 alike, a
   node tools/test_human_variation.mjs
 step "A named resident's face fitted to a cited portrait reproduces from its marks, and the card's still is of this fit (T-3413)" \
   python3 tools/fit_portrait_face.py --check
+step "A pictured stand-in's skin, hair and eyes sheet is the bytes its record names, laid out as the app reads it, under a liberty and a source cleared for use as a texture (T-3553)" \
+  python3 tools/bake_likeness_skin.py --check
 step "Each driver's wardrobe binds to the real driver by bone name, skins where it was draped, and its spring tails lag and settle, LOD0 and LOD3 (T-3398, T-3409)" \
   node tools/test_driver_livery.mjs
 step "People are judged beside period pictures: reference sets cite their sources, the rig is 3 m and 10 m, and no verdict outlives its figure (T-3417)" \

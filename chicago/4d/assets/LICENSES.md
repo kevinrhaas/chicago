@@ -2590,6 +2590,14 @@ humans/web/portraits/pa1904_grey_w_l_model.json
 humans/web/portraits/pa1904_grey_w_l_portrait.jpg
 ```
 
+`pa1904_grey_w_l_skin.jpg` and `pa1904_grey_mrs_w_l_skin.jpg` (T-3553) are baked by `tools/bake_likeness_skin.py` from the head turnaround sheets the project owner supplied on 2026-11-13 of the same two stand-ins (front, both sides and behind, in colour; source records `owner_grey_likeness_william_2026`, `owner_grey_likeness_sarah_2026`; the sheets are kept in kevinrhaas/chicago-evidence, `evidence/grey-likenesses-2026-11-12/`). Each is the four views of a stand-in's head laid onto the body's skin layout as the figure's skin, hair and eyes, with the tool's own small blocks beside them (where the sheet covers, how far the hair stands out and which way it faces, and each iris drawn from the front view). They are pictures of STAND-INS, not of the Greys: who sat for them and who made them are not recorded. Cleared by the owner for this project's own use and derivation; **not openly licensed** (all rights as the owner holds them). No label can be burned on a skin: the stand-in label is on each person's card. The crops, cameras and what is left out are recorded in
+`data/humans/variation/skins/pa1904_grey_w_l.json` and `pa1904_grey_mrs_w_l.json`.
+
+```text
+humans/web/likeness/pa1904_grey_mrs_w_l_skin.jpg
+humans/web/likeness/pa1904_grey_w_l_skin.jpg
+```
+
 `pa1904_glessner_john_j_c1900_christine_nelson_portrait.jpg` (T-3481) is cut and scaled from Bohusläns museum's copy of Ossian Berggren's cabinet card of the housemaid Anna Åkerman, 1890-1895 (UMFA53226:1855; source record `bhm_umfa53226_1855_hembitrade_anna_akerman`), a STAND-IN, not Christine Nelson; the museum marks it Public Domain Mark 1.0: **public domain**. The stand-in label is burned on the picture. The crop box is recorded in
 `data/humans/variation/portraits/pa1904_glessner_john_j_c1900_christine_nelson.json`. `pa1904_glessner_john_j_c1900_christine_nelson_model.jpg` (and its `.json` sidecar) is
 rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.

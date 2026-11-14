@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1122,
+  "count": 1123,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -73400,6 +73400,10 @@
         {
           "label": "Later work stand-ins chosen by the owner, 2026-11-12",
           "text": "No photograph of William L. Grey or of Sarah Grey (2010 Prairie Avenue) was found. The owner supplied two sepia portraits and asked that they be used as the Greys' likenesses (\"since we do not have photos of them you can use these likenesses\"; \"their faces must match exactly\"; \"their build match is important\"). Their sitters, makers and dates are not recorded, so both are stand-ins, as the Glessner household's are, graded reconstructed, and each card shows its picture labelled \"STAND-IN, NOT\" the person. The faces are fitted to about 400 points a face-landmark model finds on each picture, each tied to a vertex of the body's face by rendering that face at five turns and finding the same points on the renders (the face landmark correspondence tool); the fitted face, rendered and measured the same way, lands within about 3% of the eye span of the picture's points. The owner then supplied turnaround sheets of both stand-ins (2026-11-13, \"These might help\": each head from the front, both sides and behind, and the whole dressed figure the same way; kevinrhaas/chicago-evidence, beside the portraits); the sheets' faces are taken as the same stand-ins as the portraits, which they plainly are. A per-vertex trace was tried first (the trace portrait face tool and the trace portrait profile tool: the points' misses on a render, and the render's line against the sky on the side view, each moving the skin near it) and is withdrawn (owner, 2026-11-13: \"her jaw is ragged and her nose is bad, and he looks like a caveman, totally squashed nose and no nose brim\"; \"he has no chin and almost no nose\"): the profile line landed within about a millimetre, but spot moves made where one view disagreed with a face fitted from the other left lumps beside the line (a pout beside her mouth, a stepped jaw, his nose standing out from a flat face). Instead the face's shapes are fitted to the pictures together, each with its own camera (the fit portrait face tool, fit views in the portrait record): the portrait's points; for Sarah the sheet's square-on front view as well (owner: \"her cheeks are seen well in the face on view\"); and each sheet's side view, placed by the visible eye and the lips' height and turned as the sheet reads by eye, its outline matched by the face's own outline seen from that side, from the brow down to the neck for her and to just under the nose for him (his beard hides the rest). The side view reads what one near-frontal picture cannot: how far the nose, the chin and the mouth stand out (nose depth, chin prominence, prognathism, fitted now, the nose allowed past MakeHuman's largest where the side view asks for it). Her cheek and jowl shapes, which had been set by eye, and his, are fitted from these views too. The faces stay MakeHuman faces, smooth everywhere: the side outline lands within about 1.1 mm (hers) and 0.4 mm (his, brow to nose), the front points within about 3.4 px on the portraits. What no view of these pictures shows (the cheeks' depth between the front and the side) is the face shapes' and the reader's. The brows are not fitted (the model finds their hairs, not the skin under them); they are set by eye over the refitted faces, his on the brow bone close over the eyes as the sheet shows. Sarah's lips are held by eye: thin, the lower one thinned in height by MakeHuman's own lower-lip height target, added to the face kit for her as an axis nobody else draws (the painted lip keeps its height under the volume targets), and her nose tip level, not turned up. Each is drawn at the age the picture shows (about 50 and 45), not their 1904 census ages of 64 and 54, so the face is the picture's; their records keep the census ages. Their builds are read by eye (he heavy-set and thick-necked, she full and sturdy). The hair (his swept back from the brow and falling in loose waves over the ears to below the jaw and the collar, full at the sides, with a full trimmed beard, close at the sides of the jaw and longer to a rounded point at the chin as the turnaround sheet shows it (owner, 2026-11-13: \"make sure their jaw lines are correct too\"), and a heavy moustache drawn hair by hair, curling, a share of them grey, and thinning to stubble up the cheeks, in a grizzled russet a shade warmer and lighter than his hair, the moustache falling over the upper lip to the mouth's line, the lower lip and the skin under it left clear, and the beard's line running up the cheek from the moustache's ends to the sideburns (owner, 2026-11-13: \"the beards in particular could be improved significantly\"; \"his lips are covered with hair and there is no space around his chin\"; \"look at the beard line\"); hers drawn up to a knot on the crown, the lady's body's own bun turned up from the nape, its brown cap greyed toward the picture's), the brows set at the pictures' height over the eyes, the hair colours read from sepia tones and then from the turnaround sheets, which are in colour (his hair a mid-to-dark brown going grey, her eyes blue-grey, his blue-grey), and the cloth colours (a dark brown three-piece suit; a dark brown day dress, its white lace collar the lady's own shirtwaist collar and jabot) follow the pictures. The cameo brooch, earrings, watch chain, the cut of the sack coat and sleeves and the skin's own marks are not modelled."
+        },
+        {
+          "label": "Later work the stand-ins' photographs worn as skin, 2026-11-14",
+          "text": "The sentence above that \"the skin's own marks are not modelled\" held until now. The owner asked for more (2026-11-13: \"i want them photographic matched\"), and both Greys now wear the turnaround sheets' photographs themselves as skin, hair and eyes; what that is, how it is made and what it leaves out is “The Greys wear their stand-ins' photographs as skin, hair and eyes”. The fitted faces under the skin, their grades and the cards' \"STAND-IN, NOT\" labels are unchanged."
         }
       ],
       "work_refs": [
@@ -74127,6 +74131,40 @@
       ],
       "work_refs": [
         "T-3587"
+      ]
+    },
+    {
+      "id": "L-grey-photograph-skin-3553",
+      "title": "The Greys wear their stand-ins' photographs as skin, hair and eyes",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-13: *\"can you take a swing at doing another photo match and see if you can tune both him and her to perfect, add what is needed to the face model to make it work and eventually speak, i want them photographic matched\"*. Until now a face fitted to pictures took its shape from them and its skin from the one drawn skin every figure shares. William L. and Sarah Grey of 2010 Prairie Avenue (1904) now wear the pictures themselves. the likeness skin generator lays the four views of each stand-in's head turnaround sheet (front, both sides, behind; supplied by the owner 2026-11-13) onto the fitted head as one sheet a person (the likeness model, 768 x 1024): each view through a camera found on the fitted face (the front by the picture's landmark points, the sides at the turn the face was fitted at, by the visible eye, the lips and the outline), blended by which way each patch of skin faces, with the collar, coat and earrings left out and filled from the skin beside them and the rest of the body toned to match. Hair: where the pictures show hair and not skin (told by colour, the face's own skin tone against the tones outside the bare head's outline) the skin itself stands out to the pictures' outline, by at most 7 cm for him and 11 cm for her, kept off the face and clear of the ears, and is lit as hair; the drawn hair cap, bun, scalp cards, brows, lashes, moustache and beard are not drawn on these two. Under a hat the hair lies within 6 mm of the head from the band up. Eyes: the lids rest as far shut as the front picture shows (the picture's opening between its lid points against the fitted face's between its lids' edges: 0.14 of a blink for her, 0.29 for him) and blink from there. Each iris is drawn from the front picture as rings about its centre (the middle colour at each distance, read below the upper lid's shadow); the whites take the picture's colour at half its strength; the cornea mirrors less sky, the picture carrying its own light. The note under “Resident workwear studies on a licensed human base” that the skin shader \"adds no texture\" because the 1904 phone is at its memory ceiling is answered by the sheet's size: one small sheet for each of two people, drawn at half size on a phone. All of it is the stand-ins' appearance, graded reconstructed. It is no evidence of how either Grey looked, and their cards keep the \"STAND-IN, NOT\" label and now say the skin is the stand-in's too."
+        },
+        {
+          "label": "Not invented",
+          "text": "who the Greys were and where they lived (their household records); the pictures, which are the owner's and are used as he supplied them; the fitted faces under the skin (“Prairie Avenue appearances”)."
+        },
+        {
+          "label": "Left out on purpose",
+          "text": "his loose curls beside the ears and on the collar and the full height of her knot (the skin is kept clear of the ears and above the collar, so the hair sits closer than the pictures'); his open grin (the model's mouth is shut: the picture's lips are drawn onto it, its teeth are not); her earrings; each iris's own pattern and the catchlights."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a photograph of either Grey, which would replace the stand-in; the owner withdrawing the pictures; a refit of the head's shape, after which the sheets are baked again."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-14."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
       ]
     },
     {
