@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2959, ts: '2026-11-14T02:46:28.963Z', date: 'Nov 13, 2026, 8:46 PM CT', title: 'The built-so-far walk now stops at 1824 Prairie', kind: 'change',
+    items: [
+      'The Prairie Avenue walk of finished houses gains a stop at the Pomeroy-Marsh house, 1824 Prairie, between 1812 and 1828. The house itself is unchanged. A light wall beside its bay in the automobile photograph had seemed to run at an angle to the street. Read again beside the block\'s second photograph, it is the house\'s south side wall as built, so the house now counts as matching its picture. 1828\'s front is still being worked to its photograph.',
+    ] },
   { v: 2958, ts: '2026-11-14T02:27:55.054Z', date: 'Nov 13, 2026, 8:27 PM CT', title: 'Nobody stands inside a stoop\'s steps any more', kind: 'fix',
     items: [
       'In 1904, people no longer stand inside the bottom steps of a front stoop or beside its rails. Every stair counts from its first step now.',
