@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2984, ts: '2026-11-14T22:16:08.193Z', date: 'Nov 14, 2026, 4:16 PM CT', title: 'Mr. Glessner waits at his front door when a jaunt starts', kind: 'fix',
+    items: [
+      'Starting the Glessner Household jaunt from the home page (either grade version) left John Glessner talking from inside the house: he stood at his mark but was never drawn.',
+      'His morning had him away at the office, and the tour took him before his day was loaded, so the day sent him back in.',
+      'A host with a day of their own is now always taken through that day, so the first host stands at the door on phones and computers.',
+    ] },
+  { v: 2983, ts: '2026-11-14T21:17:21.027Z', date: 'Nov 14, 2026, 3:17 PM CT', title: 'Mrs. Helm\'s dress and cloak in folds on the Fort Dearborn monument', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), Margaret Helm\'s skirt is no longer a smooth cone: it falls from her waist in long folds over the knee she sinks on and spreads on the rock, as the c. 1900 photograph shows it.',
+      'An overskirt is caught up over her left hip, its hem slanting down across the front, and her cloak hangs off her right forearm in a heavy fold gathered at its foot.',
+    ] },
   { v: 2982, ts: '2026-11-14T21:12:06.656Z', date: 'Nov 14, 2026, 3:12 PM CT', title: '1828 Prairie\'s front gains the stone range south of its bay', kind: 'feature',
     items: [
       '1828 Prairie (the Shipman house) now has a plain, windowless stone range at the south end of its front, beside the canted bay and full height under the cornice, as the street photograph of about 1900 shows it. The 1893 Rand McNally street view draws the same strip, and the 1876 permit\'s 35 ft front leaves room for it. The 1911 fire map does not show it, and the liberty says so.',

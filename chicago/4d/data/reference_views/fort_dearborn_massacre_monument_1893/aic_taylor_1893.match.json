@@ -2,7 +2,7 @@
   "structure_id": "fort_dearborn_massacre_monument_1893",
   "view": "aic_taylor_1893",
   "glb": "assets/gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb",
-  "glb_sha256": "89eb9376384069ae04fc2e7e34581a88278b89833f9a62083c9823e64766b46b",
+  "glb_sha256": "6ae6d9d6c55e0df81d673adab3a848a16678c8e22f994b76254a81c60f4665f4",
   "camera_sha256": "7b063a09f2205f420cce6176a8c7382a45287add0bdab32956f5b5b330a11419",
   "photo_sha256": "4a3526daf3d99feda753e5fbcb7b704429949d7ab39f93d3dfef84d1a2189029",
   "side_by_side": "docs/RESEARCH/photo-match/fort_dearborn_massacre_monument_1893/aic_taylor_1893-side-by-side.jpg",
@@ -61,7 +61,7 @@
       "status": "fixed"
     },
     {
-      "what": "the faces, hair, dress and undress, ornaments and weapons as sculpted: since T-3588 the bodies are the people rigs (hm08, posed to the joints read here), so each figure has a body, hands, feet and a head with the rig's neutral face and short hair, and the warrior and Black Partridge their rigs' breechcloths, Black Partridge his leggings, Mrs. Helm her rig's gown, the surgeon his coat and pantaloons and the child his jacket and trousers, all cast in the one bronze; none of it is yet modelled to the sculpted faces, hair, drapery, ornaments and weapons (T-3589, L-fort-dearborn-monument-3567)",
+      "what": "the faces, hair, dress and undress, ornaments and weapons as sculpted: since T-3588 the bodies are the people rigs (hm08, posed to the joints read here), so each figure has a body, hands, feet and a head with the rig's neutral face and short hair, and the warrior and Black Partridge their rigs' breechcloths, Black Partridge his leggings, Mrs. Helm her rig's gown, the surgeon his coat and pantaloons and the child his jacket and trousers, all cast in the one bronze; none of it is yet modelled to the sculpted faces, hair, drapery, ornaments and weapons (T-3589, L-fort-dearborn-monument-3567) [T-3594: Mrs. Helm's drapery modelled since: her skirt falls from the waist in long folds over the knee she sinks on and spreads on the rock, folds deepening to the hem; an overskirt is caught up over her left hip, its hem slanting down across the front to below her right knee; and the cloak hangs off her right forearm in a heavy fold gathered at its foot, in place of the cone and the two members the poses kept. Still to model: the faces, the hair, Black Partridge's headdress and the feathers, the ornaments and the weapons as sculpted, and the other figures' dress]",
       "status": "open"
     },
     {
@@ -81,7 +81,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the figures' masses: since T-3588 each figure is a posed people rig, not tapered limbs and balls; the warrior's long lunge, Black Partridge's raised hand and the child's kneel read through this camera as bodies. Still open (T-3589): Mrs. Helm's dress is the rig's slim gown inside the cone of skirt the poses kept, the folds and the cloak smooth masses; Black Partridge reads straighter and squarer than the print's",
+      "what": "the figures' masses: since T-3588 each figure is a posed people rig, not tapered limbs and balls; the warrior's long lunge, Black Partridge's raised hand and the child's kneel read through this camera as bodies. Still open (T-3589): Mrs. Helm's dress is the rig's slim gown inside the cone of skirt the poses kept, the folds and the cloak smooth masses; Black Partridge reads straighter and squarer than the print's [T-3594: Mrs. Helm's dress is no longer a smooth cone: the skirt, overskirt and cloak are drapery in folds (above), the skirt's hem at the plate's place and width. Black Partridge's straightness and the warrior's upright torso stay open]",
       "status": "open"
     }
   ],

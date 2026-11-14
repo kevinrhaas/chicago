@@ -2,7 +2,7 @@
   "structure_id": "fort_dearborn_massacre_monument_1893",
   "view": "detroit_det_4a08066",
   "glb": "assets/gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb",
-  "glb_sha256": "89eb9376384069ae04fc2e7e34581a88278b89833f9a62083c9823e64766b46b",
+  "glb_sha256": "6ae6d9d6c55e0df81d673adab3a848a16678c8e22f994b76254a81c60f4665f4",
   "camera_sha256": "f442661842cd73a16ed87d59d1b81b37aaf93a1f242e235c75f946dd56a5c401",
   "photo_sha256": "297e4d7b05312c70ddea6e5dbb24a74cffd0db743f3bb9cdcbb1f4c0edc5f4fb",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "89eb9376384069ae04fc2e7e34581a88278b89833f9a62083c9823e64766b46b"
+      "glb_sha256": "6ae6d9d6c55e0df81d673adab3a848a16678c8e22f994b76254a81c60f4665f4"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -83,7 +83,7 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "a40b2ffeb8f2e145bc3d26ba98eabed2a0ce3965af940560ad298a44eb71c91c",
+  "group_sha256": "cc092168990406e4ca8589cb83fd0a82f0c9d4a225e4b86567afd01dd56f3562",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
