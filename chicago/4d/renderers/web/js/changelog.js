@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2984, ts: '2026-11-14T22:16:08.193Z', date: 'Nov 14, 2026, 4:16 PM CT', title: 'Mr. Glessner waits at his front door when a jaunt starts', kind: 'fix',
+    items: [
+      'Starting the Glessner Household jaunt from the home page (either grade version) left John Glessner talking from inside the house: he stood at his mark but was never drawn.',
+      'His morning had him away at the office, and the tour took him before his day was loaded, so the day sent him back in.',
+      'A host with a day of their own is now always taken through that day, so the first host stands at the door on phones and computers.',
+    ] },
   { v: 2983, ts: '2026-11-14T21:17:21.027Z', date: 'Nov 14, 2026, 3:17 PM CT', title: 'Mrs. Helm\'s dress and cloak in folds on the Fort Dearborn monument', kind: 'improvement',
     items: [
       'On the Fort Dearborn monument (18th Street, 1904), Margaret Helm\'s skirt is no longer a smooth cone: it falls from her waist in long folds over the knee she sinks on and spreads on the rock, as the c. 1900 photograph shows it.',
