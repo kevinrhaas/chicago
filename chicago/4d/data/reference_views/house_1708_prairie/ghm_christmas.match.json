@@ -2,7 +2,7 @@
   "structure_id": "house_1708_prairie",
   "view": "ghm_christmas",
   "glb": "assets/gltf/house_1708_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b2c0aa9da2efb90f7ca21650ff7ef4b048e4fe49933bd63cb762d1244c7c949a",
+  "glb_sha256": "8065af9ca0cd66058012abd3222715aceb1002460aa52bf74c7f9ecdea7b5ad4",
   "camera_sha256": "4893b771de1fcf78fddee6fc5dbaa01fb16b33750e37c58a8956117510cefc7f",
   "photo_sha256": "d691b958d2cffc522407f1ac1443c91d7d51f740e348c5773cc348d6d90f7f63",
   "side_by_side": "docs/RESEARCH/photo-match/house_1708_prairie/ghm_christmas-side-by-side.jpg",
@@ -67,6 +67,11 @@
       "what": "the iron fence and posts along the street line in the foreground, the walk in to the stair",
       "status": "not shown",
       "how": "T-3205: this frame holds 1708's stair only at its left edge and its fence falls outside it; the fence, gate and walk are compared in chicagology_townhouses and the street stills (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
+    },
+    {
+      "what": "the walls' weathering: soot under the cornice, damp at the foot and trails below the sills",
+      "status": "within tolerance",
+      "how": "T-2365: the walls now take the K14 condition kit at 1901 (3 years standing, a = 0.075) in place of K03's fixed full-age masks, so the front is a shade cleaner (the front brick's _TONE mean 0.982 -> 0.999 in the web tier). The print shows a new, evenly toned front with no streak or stain a street visitor would see; re-rendered through this camera the front brick's grey level is unchanged (49.9 before and after, the side wall 50.0, a 70x30 px patch between the upper windows), so the colour ruling of T-3244 stands."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

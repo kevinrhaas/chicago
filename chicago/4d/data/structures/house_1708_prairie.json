@@ -618,6 +618,18 @@
       "glessner_blog_1700_1706_construction_1901_photo"
      ],
      "note": "T-3244: the front's brick over its stone basement prints as dark as 1700/1706's red brick in the Christmas print and in the 1901 construction photograph (147-157 against their 153-156 in the same light), darker than its own stone; laid in the same K03 red-brown panel. The side walls, which no picture shows, stay the common brick. Write-up: docs/RESEARCH/colour-1700-block-T-3244/README.md."
+    },
+    "condition": {
+     "value": {
+      "kit": "data/components/prairie_1904/k14_condition.json",
+      "built": 1901
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "robinson_1886_chicago_plate_10",
+      "glessner_blog_1700_1706_construction_1901_photo"
+     ],
+     "note": "T-2365: the house weathers to its own age on 1904-07-01 from the K14 condition kit (T-2324) rather than wearing K03's fixed full-age soot and damp, on all four of its brick walls and on its stone dressings, the block's newer neighbour shown beside 1808 Prairie (built 1886). BUILT 1901 is a bound, not a date: Robinson's 1886 atlas, plate 10 (robinson_1886_chicago_plate_10), draws lot 1708 EMPTY between the stone-fronted mansion at 1700-1706 and the house at 1712 (read through its committed fit, data/traces/gcp/robinson_1886_plate_10_gcps.json, 4.54 m RMS; T-2364's finding), so the house was built after 1886; and the Glessner House Museum's photograph of 1700-1706 under construction in the summer of 1901 (glessner_blog_1700_1706_construction_1901_photo, T-3212's camera) shows 1708's canted bay, hooded door and railing standing finished at its left edge, so it stood by 1901. No permit, directory or dated view yet narrows the fifteen years between. The kit is evaluated at the later bound, the youngest the evidence allows, as 1608's was at its plate's: 3 years standing, age factor 0.075 (the kit's own 'new work' band, a = 0 to 0.1), so the front reads nearly clean beside 1808's 0.45, and any earlier completion year would only darken it, to 0.45 at most for a house of 1886. Damp at the wall foot, soot under the soffit, and a trail below every K06 sill and down the wall behind each downpipe, scaled by the fabric (the rough red-brown brick 1.0, the stone dressings as the kit's dressed trim 1.2). Every layer's value is the kit's reconstruction (L-k14-condition-kit-2324); taking the photograph's bound as the completion year is this ticket's (L-k14-1708-newer-2365). A building permit, a directory first listing or an earlier dated photograph of 1708 Prairie replaces it."
     }
    }
   }
