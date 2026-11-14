@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2976, ts: '2026-11-14T15:36:21.257Z', date: 'Nov 14, 2026, 9:36 AM CT', title: '1936 Prairie\'s balconies built as the photograph shows them', kind: 'improve',
+    items: [
+      'The balcony over 1936 Prairie\'s verandah now sits down on its arches as in the old photograph: a pale stone balustrade on a cornice carried by a row of small brackets, where a plain slab in the wall\'s colour had stood about two feet too high.',
+      'The balcony over the entrance porch rises to the photograph\'s height, its pale stone railing just under the two windows above, so the porch beneath it stands tall on its columns.',
+    ] },
   { v: 2975, ts: '2026-11-14T15:17:00.730Z', date: 'Nov 14, 2026, 9:17 AM CT', title: 'From the front, the Greys show their front photographs', kind: 'improvement',
     items: [
       'William and Sarah Grey of 2010 Prairie (1904): stand in front of either and the hair beside the face and the ears are now the front photograph itself, lock for lock. Walk round and the side photographs take over, as before.',
