@@ -4327,6 +4327,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/lay_driven_carriages_1904.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/lay_driven_wagons_1812.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5714,6 +5718,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_coachwork.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_compile_jaunts.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6987,6 +6995,10 @@
       "wrote_ignored": []
     },
     "tools/test_transport_clearance.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_transport_crossings.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

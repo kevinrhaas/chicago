@@ -39,13 +39,16 @@ function env(year = '1835') {
   const unrelated = env('1812'); unrelated.time.date = '1812-08-15';
   assert.deepEqual(transportCandidates(catalog, unrelated, '1812'), [], 'no battle-day or arbitrary-date transfer');
   const brougham = transportCandidates(catalog, env('1904'), '1904');
-  assert.deepEqual(brougham.map(c => c.asset.id).sort(), ['horse-harness', 'wood-wagon'], 'the 1904 brougham is heard rolling (T-3587)');
+  // T-3555: three 1904 broughams; the nearest two (TRANSPORT_AUDIO_LIMITS.actors) are heard, each rolling.
+  const heardTeams = year => Math.min(TRANSPORT_AUDIO_LIMITS.actors, rows.filter(r => r.scene === year).length);
+  assert.deepEqual(brougham.map(c => c.asset.id).sort(), Array.from({ length: heardTeams('1904') }, () => ['horse-harness', 'wood-wagon']).flat().sort(), 'the 1904 brougham is heard rolling (T-3587)');
+  for (const id of new Set(brougham.map(c => c.actor))) assert.equal(brougham.filter(c => c.actor === id).length, 2, `${id}: harness and wheels`);
   const wheels = id => brougham.find(c => c.asset.id === id).gain;
   const wagon1835 = transportCandidates(catalog, env('1835'), '1835').find(c => c.asset.id === 'wood-wagon');
   assert(wheels('wood-wagon') < wagon1835.gain * .7, 'a light carriage on paving is quieter than a loaded 1835 wagon');
   for (const date of ['1835-04-15', '1835-10-15', '1835-02-15', '1904-04-15', '1904-10-15', '1904-02-15']) {
     const y = date.slice(0, 4), seasonal = env(y); seasonal.time.date = date;
-    assert.equal(transportCandidates(catalog, seasonal, y).length, 2, `${date}: the team is heard in every season`);
+    assert.equal(transportCandidates(catalog, seasonal, y).length, 2 * heardTeams(y), `${date}: the team is heard in every season`);
   }
   const e = env(), near = transportCandidates(catalog, e, '1835');
   // T-3587 levels: a team passing a few metres off is plainly louder than a robin (~.05-.12),

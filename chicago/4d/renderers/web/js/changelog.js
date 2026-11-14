@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2957, ts: '2026-11-14T01:39:44.553Z', date: 'Nov 13, 2026, 7:39 PM CT', title: 'The 1904 check counts 1721 Prairie\'s frame house; narration stands in', kind: 'chore',
+    items: [
+      'The automated walk-through\'s list of what stands in 1904 now includes Wirt Dexter\'s 1863 frame house behind 1721 Prairie\'s brick front, which arrived without its entry.',
+      'The automated walk-through no longer reports an error because the narration host turns away its local test address: it uses an empty index, as though no tour has been voiced yet. What you see and hear is unchanged.',
+    ] },
+  { v: 2956, ts: '2026-11-14T01:39:44.553Z', date: 'Nov 13, 2026, 7:39 PM CT', title: 'Two more carriages drive round Prairie Avenue, and give way at crossings', kind: 'feature',
+    items: [
+      'Henry Windish, the Pullmans\' coachman, drives round 16th to 18th Street, and Joseph Daniels, the Armours\', round 20th to 22nd; each pulls up at his employer\'s door.',
+      'All three loops run counter-clockwise; Hans meets each newcomer head on along 18th or 20th, and where their turns cross one team waits for the other to pass.',
+      'Each coach is its own: mostly black, with its own panels, wheel colours, trim, shine, road dust, mud and scuffs.',
+      'Each team has its own horses, and each coachman his own face, age and house colours.',
+    ] },
   { v: 2955, ts: '2026-11-14T01:15:53.623Z', date: 'Nov 13, 2026, 7:15 PM CT', title: '1936 Prairie\'s tower windows crowned as the photograph shows', kind: 'improve',
     items: [
       'The pair of windows over 1936 Prairie\'s entrance porch now wears the photograph\'s tall carved hoods: a deeper stone hood with a carved crest that rises past the floor band into the blind stage above, about a metre over the windows, where it had stopped short at half that.',

@@ -92,9 +92,13 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
     assert.deepEqual(globalThis.__townLazyTools, { imports: 0, loader: 0, hitch: 0, factory: 0 });
     assert.equal(directoryReads, 0); assert.equal(assetReads, 0); assert.equal(heightReads, 0);
     await town.ready(); town.ensureNear(new THREE.Vector3(1335, 5, 3340), true); await town.ready();
-    assert.deepEqual(globalThis.__townLazyTools, { imports: 2, loader: 1, hitch: 1, factory: 1 });
-    assert.equal(directoryReads, 1); assert(localProblems.some(s => s.includes('ELIGIBLE_LAZY_ASSEMBLY_SENTINEL')));
-    assert.equal(cardPreparations, 1, 'eligible near assembly prepares its existing person card at Light too');
+    // One factory call (and one card preparation) per 1904 carriage: Hans's and the two more (T-3555).
+    const carriages1904 = JSON.parse(readFileSync(new URL('transport/driven/loops.json', configRoot))).rows.filter(r => r.scene === '1904').length;
+    assert.equal(carriages1904, 3);
+    assert.deepEqual(globalThis.__townLazyTools, { imports: 2, loader: 1, hitch: 1, factory: carriages1904 });
+    // Each assembly asks the scene's own directory loader (main.js's caches it).
+    assert.equal(directoryReads, carriages1904); assert(localProblems.some(s => s.includes('ELIGIBLE_LAZY_ASSEMBLY_SENTINEL')));
+    assert.equal(cardPreparations, carriages1904, 'eligible near assembly prepares its existing person card at Light too');
     town.dispose();
 
     // Real supported-scene metadata with no eligible rows remains empty at every tier.

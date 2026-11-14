@@ -164,7 +164,9 @@
             "scene": "1904",
             "scene_date": "1904-07-01",
             "actor_ids": [
-              "prairie_driven_brougham_loop_1904"
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904"
             ]
           },
           {
@@ -223,7 +225,9 @@
             "scene_date": "1904-04-15",
             "season": "spring",
             "actor_ids": [
-              "prairie_driven_brougham_loop_1904"
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904"
             ]
           },
           {
@@ -231,7 +235,9 @@
             "scene_date": "1904-10-15",
             "season": "fall",
             "actor_ids": [
-              "prairie_driven_brougham_loop_1904"
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904"
             ]
           },
           {
@@ -239,7 +245,9 @@
             "scene_date": "1904-02-15",
             "season": "winter",
             "actor_ids": [
-              "prairie_driven_brougham_loop_1904"
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904"
             ]
           }
         ],
@@ -603,7 +611,9 @@
             "scene": "1904",
             "scene_date": "1904-07-01",
             "actor_ids": [
-              "prairie_driven_brougham_loop_1904"
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904"
             ],
             "gain": 0.18
           },
@@ -612,7 +622,9 @@
             "scene_date": "1904-04-15",
             "season": "spring",
             "actor_ids": [
-              "prairie_driven_brougham_loop_1904"
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904"
             ],
             "gain": 0.18
           },
@@ -621,7 +633,9 @@
             "scene_date": "1904-10-15",
             "season": "fall",
             "actor_ids": [
-              "prairie_driven_brougham_loop_1904"
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904"
             ],
             "gain": 0.18
           },
@@ -630,7 +644,9 @@
             "scene_date": "1904-02-15",
             "season": "winter",
             "actor_ids": [
-              "prairie_driven_brougham_loop_1904"
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904"
             ],
             "gain": 0.18
           }
@@ -1712,7 +1728,9 @@
             "scene_date": "1904-07-01",
             "season": "summer",
             "actor_ids": [
-              "prairie_driven_brougham_loop_1904"
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904"
             ]
           },
           {
@@ -1720,7 +1738,9 @@
             "scene_date": "1904-04-15",
             "season": "spring",
             "actor_ids": [
-              "prairie_driven_brougham_loop_1904"
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904"
             ]
           },
           {
@@ -1728,7 +1748,9 @@
             "scene_date": "1904-10-15",
             "season": "fall",
             "actor_ids": [
-              "prairie_driven_brougham_loop_1904"
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904"
             ]
           },
           {
@@ -1736,7 +1758,9 @@
             "scene_date": "1904-02-15",
             "season": "winter",
             "actor_ids": [
-              "prairie_driven_brougham_loop_1904"
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904"
             ]
           }
         ],
