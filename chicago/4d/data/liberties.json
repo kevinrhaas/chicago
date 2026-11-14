@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1129,
+  "count": 1130,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -74365,6 +74365,48 @@
       ],
       "work_refs": [
         "T-3553"
+      ]
+    },
+    {
+      "id": "L-k14-1708-newer-2365",
+      "title": "1708 Prairie, the block's newer neighbour, weathered by the K14 kit at the 1901 photograph's bound",
+      "section": "per_subject",
+      "subjects": [
+        "house_1708_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_1708_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.condition"
+        }
+      ],
+      "recorded": "2026-11-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "1708 Prairie is the first house built after 1886 to take its condition from the K14 kit, and the newer neighbour the kit is compared against 1808 Prairie with (built 1886). Until now its walls wore K03's fixed full-age soot and damp, the condition of a forty-year-old house; they now weather to its own age on 1904-07-01. The record names the kit with a completion year of 1901, so every wall layer stands at 0.075 of its full-age strength (the kit's own \"new work\" band, 0 to 0.1) against 1808's 0.45: damp at the foot, soot under the cornice and a trail below every K06 sill and behind each downpipe on all four brick walls, the rough red-brown front brick at the kit's 1.0 and the stone dressings as its dressed trim at 1.2. In the published app the front reads nearly clean beside 1808's stone front a block south, under the same sun. **What is attested.** Only the two bounds. Robinson's 1886 atlas, plate 10 (Robinson, E. Robinson's Atlas of the City of Chicago), read through its committed fit (4.54 m RMS), draws lot 1708 empty between the stone-fronted mansion at 1700-1706 and the house at 1712, so the house is later than 1886; the Glessner House Museum's photograph of 1700-1706 under construction in the summer of 1901 (Homes for George Glessner and Frances Glessner Lee, 1700-1706 S. Prairie…, 's camera) shows 1708's canted bay, hooded door and railing standing finished, so it stood by 1901. **What is invented.** Taking the later bound as the completion year. It is the youngest the evidence allows, so the weathering shown is a floor; any year from 1887 to 1900 would darken it, to 0.45 at most. **What would replace it.** A building permit, a directory's first listing at 1708 or an earlier dated photograph of the house, giving its completion year and the staining of its walls."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_1708_prairie.as_mapped_1904.form.condition`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 1708 newer."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-14 (T-2365)."
+        }
+      ],
+      "work_refs": [
+        "T-2324",
+        "T-3212",
+        "T-2365",
+        "T-2361"
       ]
     },
     {
