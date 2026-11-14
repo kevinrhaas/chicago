@@ -5114,11 +5114,11 @@ class Assembly:
         side = lambda u, v, y: n[0] * (u - c0[0]) + n[1] * (v - c0[1]) + n[2] * (y - c0[2])
         far = side(D + 2.0, s1 + 2.0, ct)
 
-        def solid(ya, yb, north):
+        def solid(ya, yb, north, west=D - 6.0):
             rings = []
             for y in (ya, yb):   # `north` may lean: a callable of the height
                 nv = north(y) if callable(north) else north
-                box = [(D - 6.0, nv), (D + 2.0, nv), (D + 2.0, s1 + 2.0), (D - 6.0, s1 + 2.0)]
+                box = [(west, nv), (D + 2.0, nv), (D + 2.0, s1 + 2.0), (west, s1 + 2.0)]
                 f = [side(u, v, y) * far for u, v in box]
                 ring = []
                 for i in range(4):
@@ -5160,7 +5160,59 @@ class Assembly:
         v_top = v_deck - 0.05
         lean = lambda y: vc - 0.02 + (v_top - (vc - 0.02)) * (y - y_wt) / (y_curb - y_wt)
         self.meta_return["over_top"] = {"deck_v_m": round(v_deck, 4), "lean_top_v_m": round(v_top, 4)}
-        return [solid(ct - 0.01, y_wt, vc - reach), solid(y_wt - 0.01, y_curb - 0.05, lean)]
+        out = [solid(ct - 0.01, y_wt, vc - reach), solid(y_wt - 0.01, y_curb - 0.05, lean)]
+        # T-1890 (HABS photograph 1, read again at full size, 2026-11-14): where the pavilion's
+        # cross roof runs back over the corner (1801's), the slate over the return carries on
+        # west to the gable as that roof's south slope, its top the cross roof's ridge: the
+        # print's white coping (x 570-728) meets the gable's rake 27 px right of and 49 px under
+        # the apex, where the ridge projects 24 px right and 29 px under (a level line at the
+        # curb over the deck's foot would meet it 67 px right). Leaning only to the deck's foot
+        # left a wedge of the street slope standing out in front of the cross roof's slope,
+        # which showed as a front-facing face folded up from the return to the deck's corner
+        # beside the gable. West of the deck's street curb the lean is therefore carried on to
+        # the cross roof's slope at the curb, 2 cm out from it, so under the curb it stands
+        # behind the cross roof, which shows from its eave to its ridge. East of that curb the
+        # deck's corner stands over the slate, so the lean there stays at the deck's foot (cut
+        # back further, the corner would overhang a slot); the step between the two is a short
+        # upright face under the curb's corner, under the cross roof's hood (the print's narrow
+        # band under the hood, x 732-790)
+        xr_ = (self.p.mansard.get("deck") or {}).get("cross_roof")
+        if xr_ is not None and xr_.get("over_bay") == b["id"]:
+            y_xt = math.fsum(float(s_["height_m"]) for s_ in bv["storeys"]) + \
+                (0.0 if bv.get("base", "grade") == "grade" else float(bv["base"]))
+            v_hi, v_mid, y_rg = float(xr_["v_m"][1]), float(xr_["ridge_v_m"]), float(xr_["ridge_m"])
+            yt = y_curb - 0.05
+            v_x = v_hi + (v_mid - v_hi) * (yt - y_xt) / (y_rg - y_xt) + 0.02
+            u_k = float(self.p.mansard["deck"]["curb"][1])
+            if not (v_mid < v_x < v_top and D - 6.0 < u_k < D):
+                raise ValueError(f"{b['id']}: the slate over a chamfer's return leans in to its cross roof's south "
+                                 f"slope at the curb, between the ridge and the deck's foot ({v_x:.3f} m), west "
+                                 f"of the deck's street curb")
+            deep = lambda y: vc - 0.02 + (v_x - (vc - 0.02)) * (y - y_wt) / (y_curb - y_wt)
+            on_n = lambda v, y: c0[0] - (n[1] * (v - c0[1]) + n[2] * (y - c0[2])) / n[0]   # the cut plane's u
+            lo, hi_ = y_wt, yt
+            if not (abs(n[0]) > 1e-9 and on_n(deep(yt), yt) < u_k < on_n(deep(y_wt), y_wt)):
+                raise ValueError(f"{b['id']}: the deeper lean's corner at the curb's line crosses the cut plane "
+                                 f"between the return's top and the curb")
+            for _ in range(40):   # where the cut plane crosses the curb's line on the deeper lean
+                mid = (lo + hi_) / 2
+                lo, hi_ = (mid, hi_) if on_n(deep(mid), mid) > u_k else (lo, mid)
+            y_b = hi_
+            # under it, a solid whose west side IS the cut plane, so the deeper lean runs on from
+            # the return's top with no ledge; over it the box stops at the curb's line, as above
+            low = []
+            for y in (y_wt - 0.01, y_b + 0.03):
+                nv = deep(y)
+                if not side(D + 2.0, s1 + 2.0, y) * far > 0.0:
+                    raise ValueError(f"{b['id']}: the return's cut plane leaves the corner's box at {y:.3f} m")
+                low.append((y, [(u, -v) for u, v in [(on_n(nv, y), nv), (D + 2.0, nv), (D + 2.0, s1 + 2.0),
+                                                     (on_n(s1 + 2.0, y), s1 + 2.0)]]))
+            out.append(k5.ring_stack(low, ["covering"], "covering", "covering"))
+            y_from = y_b + 0.01
+            out.append(solid(y_from, yt, deep, west=u_k))
+            self.meta_return["over_top"].update({"cross_roof_v_m": round(v_x, 4), "west_of_u_m": round(u_k, 4),
+                                                 "from_m": round(y_from, 4)})
+        return out
 
     @staticmethod
     def chamfer_top(b):
