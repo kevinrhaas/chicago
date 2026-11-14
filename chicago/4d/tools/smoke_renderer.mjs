@@ -16543,7 +16543,7 @@ for (const [label, viewport, touch] of [
     // >>> T-2656: the Settings app (DESIGN §07). Light or dark is Settings › Display's two-way
     // choice and the HUD holds no chip for it; the four machines are tiles, the one in use
     // marked, and a tap on another switches the machine and its tone; Auto names this device's
-    // levels; Sound has four levels and examples beside their own controls; About opens What's new;
+    // levels; Sound has five levels and examples beside their own controls; About opens What's new;
     // and at Text size 140 % every Navigator app reflows with nothing past its edge and no line
     // cut short (QA-18), the choice stored. Everything is put back as found. Waits are generous:
     // a starved runner takes seconds between frames.
@@ -16559,9 +16559,11 @@ for (const [label, viewport, touch] of [
         skin: html.dataset.skin, tileOn: document.querySelector('#s-skins .skin-tile.is-on')?.dataset.skinChoice ?? null,
         auto: document.getElementById('s-perf-auto-line')?.textContent ?? '',
         autoShown: document.getElementById('s-perf-auto')?.closest('.field')?.hidden === false,
-        sound: ['master', 'effects', 'ambience', 'music'].filter((s) => document.getElementById(`s-sound-${s}`)?.type === 'range').length,
+        // T-3597: five sliders since T-3578 put Narration (the jaunt voices) under Music, with its
+        // own example line like Effects and Ambience.
+        sound: ['master', 'effects', 'ambience', 'music', 'narration'].filter((s) => document.getElementById(`s-sound-${s}`)?.type === 'range').length,
         soundTotal: document.querySelectorAll('#s-sound input[type="range"]').length,
-        soundHelp: Object.fromEntries(['effects', 'ambience'].map((key) => {
+        soundHelp: Object.fromEntries(['effects', 'ambience', 'narration'].map((key) => {
           const slider = document.getElementById(`s-sound-${key}`);
           const help = document.getElementById(`s-sound-${key}-help`);
           const group = slider?.closest('.sound-control');
@@ -16643,12 +16645,13 @@ for (const [label, viewport, touch] of [
       settingsApp.tiles.join(',') === 'control-room,brass,worlds-fair,deep-space' && settingsApp.tileOn === settingsApp.skin
       && settingsApp.switched && settingsApp.restored,
       JSON.stringify({ tiles: settingsApp.tiles, on: settingsApp.tileOn, skin: settingsApp.skin, switched: settingsApp.switched }));
-    check(`${label}: Auto names this device's levels, Sound has four sliders with their own Ambience/Effects examples and no extra notes, About opens What's new (T-2656, T-3544)`,
+    check(`${label}: Auto names this device's levels, Sound has five sliders with their own Ambience/Effects/Narration examples and no extra notes, About opens What's new (T-2656, T-3544, T-3578)`,
       settingsApp.autoShown && /^Auto for this device: (Full|Balanced|Light) detail, (Low|Medium|High) sharpness, adaptive pacing\.$/.test(settingsApp.auto)
-      && settingsApp.sound === 4 && settingsApp.soundTotal === 4 && settingsApp.soundNotesAbsent
+      && settingsApp.sound === 5 && settingsApp.soundTotal === 5 && settingsApp.soundNotesAbsent
       && Object.values(settingsApp.soundHelp).every((h) => h.ownGroup && h.described)
       && /wind, lake waves, birds and insects/.test(settingsApp.soundHelp.ambience.text)
       && /^Nearby actions: hoofbeats, wagon wheels and hammering\.$/.test(settingsApp.soundHelp.effects.text)
+      && /read aloud/.test(settingsApp.soundHelp.narration.text)
       && settingsApp.whatsNew,
       JSON.stringify({ auto: settingsApp.auto, autoShown: settingsApp.autoShown, sound: settingsApp.sound,
         total: settingsApp.soundTotal, help: settingsApp.soundHelp, notesAbsent: settingsApp.soundNotesAbsent, whatsNew: settingsApp.whatsNew }));
