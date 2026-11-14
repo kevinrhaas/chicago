@@ -127,16 +127,23 @@ TARGETS = {
 }
 
 #: The parts of monument.FIGURES the rigs do not have, kept as they were: feathers, the
-#: tomahawk, the hip ornament, Mrs. Helm's knot of hair, the cloak off her arm and her
-#: skirt's fall to the rock (the rig's gown is a slim 1812 one; both photographs show the
-#: skirt full, in folds spreading over the rock), Black Partridge's headdress and musket.
+#: tomahawk, the hip ornament, Mrs. Helm's knot of hair, Black Partridge's headdress and
+#: musket. (Her cloak and her skirt's fall to the rock were members here too until T-3594
+#: modelled them as drapery: `DRAPED` below.)
 #: Indices into each figure's list there.
 PROPS = {
     "warrior": (1, 6, 12, 13),
-    "helm": (1, 4, 5, 6),
+    "helm": (1,),
     "black_partridge": (1, 2, 3, 4, 19, 20),
     "surgeon": (),
     "child": (),
+}
+
+#: The drapery modelled to the sculpture (T-3594): `monument.DRAPERY` pieces per figure. Mrs.
+#: Helm's skirt, overskirt and cloak replace the cone of skirt and the cloak's two members
+#: the poses had kept (her `FIGURES` parts 4, 5 and 6).
+DRAPED = {
+    "helm": ("helm_skirt", "helm_overskirt", "helm_cloak"),
 }
 
 #: The rest pose's head centre over the `head` joint (hm08: the joint is at the skull's

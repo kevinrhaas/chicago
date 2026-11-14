@@ -35432,6 +35432,8 @@ bay's carry into the mansard; a placement ruling for the wall south of the bay.
 
 **Revised 2026-11-13 (T-1887, the flanks' stone):** the three-storey block's north and south flanks are laid in the front's Lemont ashlar for 14.0 m back from the front, and the canted bay on the south flank in the same stone (K01's `stone_front.flanks` with its new `to_m`): the 1911 sheet edges that block's north, east and south walls in one blue (stone) band with its brick inside a dashed line, and the two-storey range behind in plain pink, and the automobile photograph shows light coursed stone at its left edge, where the build had buff brick. The sheet's block is 13.9 m deep; the stone is held to 14.0 so it meets the flank bay the sheet draws inside the band. Read, not invented: which walls are stone and how far back. Invented there: the flanks' coursing and dressing (the front's, smooth; no picture sees a flank square-on), and the brick behind the stone, as before. Still open: the automobile print's face south of the bay, which reads frontal and windowless across its left edge where the stone flank recedes with its two windows.
 
+**Revised 2026-11-14 (T-1887, the stone range south of the bay):** the print's stretch of light stone south of the front bay is built, as a plain stone range on the south flank at the front (K08's flat-topped `range` projection, `bays.south_front_range`): 2.25 m out from the south wall and 4.0 m along it, its street face 0.3 m behind the front's corner, full height under the front's moulded cornice and a tin deck, laid in the front's Lemont ashlar with no window. **Read:** its width, from the automobile photograph through its camera (the range's south corner at about x 44 px, v -2.25 in the footprint's frame), and that its street face is windowless and coursed, with a water table level with the bay's. It departs from the 1911 sheet, which runs the south wall straight past the front bay, because two pictures and a document put fabric there: the Rand McNally view of 1893 (`rand_mcnally_1893_views_prairie_west_1816_1936`) draws a plain windowless strip at the south end of 1828's front beside the bay's windows, and D. B. Shipman's permit (Chicago Tribune, 9 July 1876, transcribed on Chicagology's page, `chicagology_1828_shipman_automobile`) gives a 35 ft (10.67 m) front against the sheet's 8.2 m, 2.47 m more. **Invented:** its depth along the flank (4.0 m), its flat roof, its south and rear faces and their being blank, and the smooth dressing (the print's face is channelled; K01 has no channelled bay face yet, so that item stays open on the match record). The side gate's pier moves from v -1.8 to -2.35 and the south flank's downpipe from s 18.9 to 14.2, clear of it. **How to resolve:** a 1904 picture of the south flank, or a sheet earlier than 1911 that draws the front's south end.
+
 ### L-pullman-glasshouses-1800-calumet-3164 — Pullman's glasshouse ranges and lodge across 18th Street, read off the 1911 sheet and glazed from the K13 kit
 
 **Decision:** the 1904 scene gains the Pullman estate's glasshouse ground at 1800 S. Calumet Avenue,
@@ -43779,12 +43781,13 @@ Taylor's 1893 view), with the group's height read through ICHi-19208's camera (2
   joints and baked to bronze (`generators/archetypes/monument_figures.py`), as the owner suggested
   on 2026-11-13. The rigs are an armature and a body only: their faces are the rig's neutral face,
   not the sculpted ones and not anyone's portrait; of their dress only what the sculpture also
-  shows is kept (the breechcloths, Black Partridge's leggings, Mrs. Helm's gown under the full
-  skirt the poses keep, the surgeon's coat and pantaloons, the child's jacket and trousers), as
+  shows is kept (the breechcloths, Black Partridge's leggings, Mrs. Helm's gown under the
+  skirt, overskirt and cloak later work models in folds as both photographs show them (the
+  folds' count and depth are this project's, the hems' places and widths the plate's), the surgeon's coat and pantaloons, the child's jacket and trousers), as
   starting shapes, not as the sculpted drapery; the project's Native dress rules do not apply to a
   sculpture. **Two placings are ours outright:** Mrs. Helm's legs, under her skirt in both
   photographs, stand under its hem, and the surgeon's left arm, which neither photograph shows,
-  lies along his side. Faces, hair, dress folds, the feathers' number, the weapons' detail and the
+  lies along his side. Faces, hair, the dress folds of every figure but Mrs. Helm, the feathers' number, the weapons' detail and the
   whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of
   1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the
   photographs are monochrome.
