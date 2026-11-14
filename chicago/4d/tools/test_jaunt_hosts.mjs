@@ -125,6 +125,28 @@ console.log('PASS a host with no day walks to the mark, greets once there, and g
 }
 console.log('PASS human-days takes a host out of her day, out by the nearest door, and gives her back');
 
+// ---- T-3553: a jaunt started from Home asks for its first host before any frame of the days has
+// run. A host with a day is still taken through it, and the day does not then put him indoors.
+{
+  const john = figure('john', { instance: { behaviour: { day: [{ spans: [
+    { from: 0, to: 24, indoors: true, away: true, doing: 'at the office' }] }] } } });
+  john.e = 9; john.n = 5;
+  const humans = { actors: [john], isHeld: () => false, get: (id) => (id === 'john' ? john : null) };
+  const days = createHumanDays({ humans, hour: () => 10, date: () => '1904-04-15', visitor: () => ({ e: 9, n: 8 }) });
+  assert.deepEqual(days.host('john', { e: 9, n: 5 }, { heading: 0 }), { ok: true }, 'found before the first frame');
+  assert.equal(days.isHosted(john), true);
+  for (let i = 0; i < 5; ++i) days.update(0.1);
+  assert.equal(john.indoors, false, 'his day (away at the office) leaves the host at his mark');
+  // And jaunt-hosts never walks a figure with a day by hand when the days cannot find them.
+  const lost = figure('lost', { instance: { behaviour: { day: [{ spans: [{ from: 0, to: 24, indoors: true, where: 'x' }] }] } } });
+  const h = createJauntHosts({ humans: { get: () => lost }, days: { host: () => ({ ok: false, why: 'no such person' }) } });
+  h.sync([{ person: 'lost', local_e: 1, local_n: 1 }], { stand: { e: 1, n: 3 } });
+  assert.deepEqual(h.active, [], 'not taken as dayless');
+  assert.deepEqual(h.waiting, ['lost'], 'still wanted, retried by update');
+  assert.equal(lost.jauntHost, undefined);
+}
+console.log('PASS a host with a day is found before the first frame, and is never walked by hand as dayless');
+
 // ---- by a T-3524 passage door: she comes down its stair, the door opening, then on to the mark.
 {
   const kate = figure('kate', { instance: { behaviour: { day: [{ spans: [

@@ -898,6 +898,14 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     }, PASSAGE.busy_s);
   }
 
+  /** The people as the town has them now. update() does this each frame; a jaunt started from
+   *  Home asks for its first host before the first frame has, and must find them. T-3553 (owner,
+   *  2026-11-14, Grades 3–5 Glessner jaunt: "I did not see John show even after he started
+   *  speaking"): John was taken as a figure with no day, and his day then put him in the house. */
+  function roster() {
+    if (humans && humans.actors.length !== seen) { collect(); if (!doorThings.length) makeDoors(); }
+  }
+
   function collect() {
     const actors = humans.actors, active = new Set(actors);
     const previous = new Map(people.map(p => [p.actor, p]));
@@ -1888,7 +1896,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     /** One frame, after humans.update and the duties. */
     update(dt) {
       if (!humans || !(dt > 0)) return;
-      if (humans.actors.length !== seen) { collect(); if (!doorThings.length) makeDoors(); }
+      roster();
       dt = Math.min(dt, 0.25);
       clock += dt;
       stepSocials();
@@ -2002,6 +2010,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
      * granted only after an actual synchronous camera cut, before its first destination frame.
      */
     host(personOrInstance, mark, { heading = null, onArrive = null, safeTravel = false, atCut = false } = {}) {
+      roster();
       const p = people.find((x) => x.actor.personId === personOrInstance || x.id === personOrInstance);
       if (!p || p.entry) return { ok: false, why: 'no such person' };
       if (p.absent) return { ok: false, why: 'not here on this date' };
