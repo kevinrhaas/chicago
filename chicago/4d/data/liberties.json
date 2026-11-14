@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1128,
+  "count": 1129,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -74319,6 +74319,40 @@
         {
           "label": "Re-opens on",
           "text": "a photograph of Sarah Grey; a picture of the stand-in smiling taken with the sheet (level, from the front, in its light), which would need no laying on; the owner withdrawing the pictures; a refit of the head, after which the smile is fitted and the sheet baked again; a voice for her, which the jaw then follows (`mouth.say`)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-14."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
+      "id": "L-everyone-teeth-3553",
+      "title": "Everyone has drawn teeth behind their lips, and talks with their jaw",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The owner, 2026-11-14, with the photograph Sarah Grey's smile is made from: \"to make everyone else speak can you fill in their teeth and structure now for that and we will add voices... so if you want to render teeth sensibly now and put in whatever is needed later\". Until now only the two Greys had anything behind their lips. Every other body's mouth was the MakeHuman base's empty pouch, painted a lit salmon, and a pale line showed between resting lips, which do not seal. Three things change, for every person in every year. (1) The inside of every mouth lies in shade (mouth shade, the walkthrough's human skin code: it keeps 15 percent of its light, with no pores, no glow of blood and no glint), so the parting of resting lips is a dark line. (2) Every figure with a jaw bone has a mouth (`createMouth`, the walkthrough's human mouth code): told by the action layer that the person is talking, it turns the jaw in the same run of syllables as the Greys' (7 degrees at most, 3.6 a second), and `say(level)` is where a voice will take the jaw. (3) Every person with no picture of their teeth has drawn ones (`drawnTeeth`): two rows of nine points across, the upper carried by the head and the lower by the jaw, standing at least 2.5 mm (the lower 4 mm) behind the lips' inner edge as it is found on the person's own face at that level of detail (39 vertices by their place on the body's map, all of them found on each of the 35 bodies at the nearest level, 31 to 39 at the second, 17 to 23 at the third and 8 to 13 at the fourth), each row's height set by its own lip's edge. Three girls' bodies at the fourth level (child girl 1812, child girl 1904, potawatomi girl 1812) keep no vertex of the lower lip's own there and have no rows at that level, which is drawn from 22 m off at the nearest and so never within the distance teeth are shown at. How much shows is by age: at 25 or younger 2.5 mm of the upper teeth below the upper lip and none of the lower; at 65 or older 0.5 mm of the upper and 1.5 mm of the lower; between, in proportion. The age is the one the figure is drawn at: a record's, or where the record has none the one “Every person drawn gets their own height, build and face” draws for it; a figure built with no age at all counts as 40. The upper lip is taken to hang 1.5 mm past its inner edge and the lower to stand 0.3 mm past its own (measured on the 35 bodies at the nearest level, within 8 mm of the face's middle, as the lip's lowest or highest point against the mean height of its inner edge there: 1.2 to 1.7 mm, and 0.1 to 0.8 mm). The teeth are drawn by the skin's shader from numbers alone, with no picture (drawn teeth): on each side two incisors, a canine and a premolar in the upper row and narrower ones in the lower, ivory (linear 0.80, 0.72, 0.56) keeping 55 percent of its light at the row's middle and 25 at its ends, in one of eight sets (the teeth's sizes and the heights of their edges) and four tones (each a step duller and yellower: times 0.96, 0.92, 0.84), a person's set by their id (an unnamed figure's by its own instance's, the key its face and build are drawn by) and their tone by their age and id. They are a mesh of 36 vertices of their own, lit and shaded as the face is, drawn only while the jaw is more than 0.3 degrees open and the visitor stands within 6 m, or for a still picture: behind shut lips, and far off, nothing is drawn."
+        },
+        {
+          "label": "Not invented",
+          "text": "the bodies and their lips (MakeHuman's base mesh, CC0, as exported); the owner's ask; the ages on the persons' records, where they have them; that people have teeth."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "all of it is reconstructed, and none of it is evidence of any person's teeth. No source says who in 1812, 1835 or 1904 had lost teeth, and nobody is drawn with one missing, though many had. That the young show their upper teeth and the old their lower is common observation; the figures for it are ours, as are the colours, the eight sets, the tones, the shade of the mouth and every distance. The rows are flat strips, not teeth with thickness. There is no tongue, the lips and the cheeks do not shape themselves for speech, and there are no shapes for vowels and consonants: the jaw alone moves. When a person talks is the day's rounds' and the garrison's stations' (L-other work-rounds, “Where each man of Heald's company stands on the afternoon of 14 August 1812”); this adds a moving jaw, and teeth, to the latter's \"Talk is a moving hand and turned heads, never words (“No people, anywhere”)\", and still no words. The jaw's rhythm is the Greys' (“William Grey rests with his mouth shut and smiles into his front photograph's grin, with its teeth”). The Greys keep the upper teeth of their photographs and have no lower ones drawn."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a voice for anybody (the jaw then follows `mouth.say`, and mouth shapes for speech become worth building: the MakeHuman community publishes viseme packs as CC0, which are not vendored here, and whose licence is to be read again at the copy taken); a picture of a person's own teeth (a likeness skin with a teeth patch replaces the drawn rows for that person, as it does for the Greys); a source for a particular person's missing teeth; modelled teeth (the MakeHuman community's teeth base, published as CC0 in its system assets pack and likewise not vendored here) if the flat rows read as flat."
         },
         {
           "label": "Recorded",

@@ -219,6 +219,7 @@ LIPS_LOWER = (95, 88, 178, 87, 14, 317, 402, 318, 324)   # ...the lower lip's, t
 LIPS_CORNERS = (78, 308)                                 # ...and the two corners between them
 MOUTH_NEAR_M = 0.06                           # the mouth is drawn from the triangles within this of the lips' middle, and the inner mouth
 MOUTH_BAG_UV = (0.75, 0.86, 0.93, 1.0)        # the inner mouth's own island of the body's map (u0, v0, u1, v1)
+MOUTH_SHADE_U0 = 0.7545                       # ...which the renderer shades from here: the left hand's island reaches into that rectangle's near corner (human-skin.js MOUTH_SHADE)
 MOUTH_PAD_PX = 24                             # ...in a window of the picture this much wider than its lips
 MOUTH_ZOOM = 2                                # ...drawn at this many times the picture's size
 MOUTH_HOLDS = (1.5, 4.0)                      # an open mouth is baked only where the drawn opening's edge lies within this of the picture's (mm), and the lips' outer ring within this (mm, rms)
@@ -2570,7 +2571,7 @@ def check():
     # The renderer moves the skin out along the same line the bake measured along, and splits it as finely.
     js = (ROOT / 'renderers/web/js/human-skin.js').read_text()
     for needs in ('from.y = clamp( vChiSkinP.y, from.y - chiLikeAxis, from.y );', 'g.axis_m > 0 ? g.axis_m : 0', 'fineCells(g.fine, skin.size_px)',
-                  'teethStrip(skin.teeth)', f'MOUTH_SHADE = Object.freeze({{ u0: {MOUTH_BAG_UV[0]}, u1: {MOUTH_BAG_UV[2]}, v0: {MOUTH_BAG_UV[1]},', 'float bag = step( ${MOUTH_SHADE.u0}, vMapUv.x )',
+                  'teethStrip(skin.teeth)', f'MOUTH_SHADE = Object.freeze({{ u0: {MOUTH_SHADE_U0}, u1: {MOUTH_BAG_UV[2]}, v0: {MOUTH_BAG_UV[1]},', 'float bag = step( ${MOUTH_SHADE.u0}, vMapUv.x )',
                   'vChiLikeFront = vec2( dot( chiLikeFrontU.xyz, chiGrown ) + chiLikeFrontU.w, dot( chiLikeFrontV.xyz, chiGrown ) + chiLikeFrontV.w );',
                   'front: grows ? frontPicture(skin.front) : null', 'four(front.colour_px) || !four(front.shown_px) || !four(front.kind_px)'):
         if needs not in js:

@@ -127,6 +127,8 @@ for (const lod of [0, 3]) {
   const p = V.personVariation({ kit, key: 'pa1904_otis_f_r_c1900_hans_johnson', record: persons.pa1904_otis_f_r_c1900_hans_johnson, assetId: 'anonymous_working_driver_1904' });
   const r = V.applyVariation(scene, kit, p, { scope: 'face' });
   assert(r && r.height === 1 && scene.scale.x === 1);
+  // T-3553: the key the figure was drawn by is left on its root, for the layers that are told no name (an unnamed figure's teeth).
+  assert.equal(scene.userData.chiVariationKey, 'pa1904_otis_f_r_c1900_hans_johnson');
   const after = snapshot(scene);
   let faceMove = 0;
   for (const [name, b] of before) {

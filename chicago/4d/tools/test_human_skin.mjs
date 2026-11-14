@@ -16,7 +16,7 @@ const threeURL = new URL('renderers/web/vendor/three-0.185.1/three.module.js', h
 // file with 'three' resolved to the vendored copy, not from a data: URL.
 registerHooks({ resolve: (specifier, context, next) => (specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context)) });
 const THREE = await import(threeURL);
-const { surfaceFor, dressSkin, restMatrix, SKIN, EYES, AGE, restingLid, likenessLayout, likenessSheetsReady, LIKENESS, MOUTH_SHADE, FRONT_VIEW, HAIR_UNDER, frontPicture } = await import(new URL('renderers/web/js/human-skin.js', here));
+const { surfaceFor, dressSkin, restMatrix, SKIN, EYES, AGE, restingLid, likenessLayout, likenessSheetsReady, LIKENESS, MOUTH_SHADE, DRAWN_TEETH, FRONT_VIEW, HAIR_UNDER, frontPicture } = await import(new URL('renderers/web/js/human-skin.js', here));
 
 const materialNames = async asset => {
   const bytes = await fs.readFile(new URL(`assets/humans/web/${asset}.glb`, here));
@@ -312,7 +312,8 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
   }
   // A mouth that opens (T-3553, human-mouth.js): a sheet with teeth adds their strip to the skin's
   // own geometry at every level, after the finer head's rows, carried by the bone it names; a
-  // face with the smile is given its mouth's play, left on the figure; nobody else gets either.
+  // figure whose face has the smile, or who has a jaw, is given its mouth's play, left on the
+  // figure; one with neither has none.
   {
     const teeth = { grid: [3, 2], bone: 'head', at_m: [[-.01, .005, .09], [0, .005, .091], [.01, .005, .09], [-.01, -.005, .09], [0, -.005, .091], [.01, -.005, .09]],
       uv: [[.76, .87], [.8, .87], [.84, .87], [.76, .9], [.8, .9], [.84, .9]] };
@@ -352,20 +353,63 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
       for (let k = 0; k < 90; k++) mouth.apply(1 / 30, { facing: true });
       assert.equal(mesh.morphTargetInfluences[2], 1, 'and it plays the smile');
     }
-    assert.equal(wear(head(), 'stand_in_body_0_lod0', toothed, false).root.userData.chiMouth, undefined, 'a level whose face does not move has no mouth to play');
-    const plainHead = head(), plain = wear(plainHead, 'stand_in_body_0_lod3', sheet);
+    assert.equal(wear(head(), 'stand_in_body_0_lod0', toothed, false).root.userData.chiMouth, undefined, 'a level with no face that moves and no jaw has no mouth to play');
+    const plainHead = head(), plain = wear(plainHead, 'stand_in_body_0_lod3', sheet, false);
     assert.equal(plain.mesh.geometry, plainHead, 'a sheet with no teeth adds none');
     assert.equal(plain.root.userData.chiMouth, undefined, 'and no mouth');
-    // The inside of the mouth is shaded for a face with teeth to show, and for nobody else; the
-    // teeth lie in the same shade until the face moves into its smile (its last shape).
+    // A figure with a jaw and no smile has a mouth all the same (it talks); and a ball of a
+    // head, with no lips' edge to find, is given no drawn teeth.
+    { const spine = new THREE.Bone(), skull = Object.assign(new THREE.Bone(), { name: 'head' }), jaw = Object.assign(new THREE.Bone(), { name: 'jaw' });
+      const mesh = Object.assign(new THREE.SkinnedMesh(head(), Object.assign(new THREE.MeshStandardMaterial(), { name: 'skin' })), { name: 'talker_body_0_lod2' });
+      const root = new THREE.Group(); spine.add(skull); skull.add(jaw); root.add(spine, mesh); root.updateMatrixWorld(true);
+      mesh.bind(new THREE.Skeleton([spine, skull, jaw]), mesh.matrixWorld);
+      dressSkin(root, { person: 'talker' });
+      const mouth = root.userData.chiMouth;
+      assert(mouth?.bound, 'a jaw alone is given a mouth');
+      dressSkin(root, { person: 'talker' });
+      assert.equal(root.userData.chiMouth, mouth, 'the same one at every rebuild');
+      assert.equal(root.children.filter(o => o.userData.chiTeeth === true).length, 0, 'and a head with no lips has no drawn teeth'); }
+    // The inside of the mouth is shaded for everyone; the pictured teeth of a face that has
+    // them lie in the same shade until the face moves into its smile (its last shape).
     const shadeOf = m => compile(m.material).uniforms.chiLikeTeeth.value.toArray();
     const rect = shadeOf(wear(head(), 'stand_in_body_0_lod0', toothed).mesh);
     assert(rect[0] < .76 && rect[2] > .84 && rect[1] < .87 && rect[3] > .9 && rect[2] - rect[0] < .081 && rect[3] - rect[1] < .031, `a sheet with teeth names their part of the map (${rect})`);
-    assert.deepEqual(shadeOf(plain.mesh), [2, 2, -1, -1], 'a sheet with none leaves the mouth as the body drew it');
+    assert.deepEqual(shadeOf(plain.mesh), [2, 2, -1, -1], 'a sheet with none names no part of the map');
     const { u0, u1, v0, hand_u, hand_v, dark, lit_by } = MOUTH_SHADE;
     for (const line of [`float bag = step( ${u0}, vMapUv.x ) * step( vMapUv.x, ${u1} ) * step( ${v0}, vMapUv.y )`, `* max( step( ${hand_u}, vMapUv.x ), step( ${hand_v}, vMapUv.y ) );`,
-      `c *= 1.0 - ${dark} * step( chiLikeTeeth.x, chiLikeTeeth.z ) * max( bag, teeth * ( 1.0 - smoothstep( 0.0, ${lit_by}, vChiSmile ) ) );`])
+      `c *= 1.0 - ${dark} * bag;`, `c *= 1.0 - ${dark} * teeth * ( 1.0 - smoothstep( 0.0, ${lit_by}, vChiSmile ) );`])
       assert.equal(s.fragmentShader.split(line).length, 2, `the mouth's shade, once: ${line}`);
+    // Everyone's: the mouth's own shade stands outside the block a person's sheet is read in.
+    const blockEnd = s.fragmentShader.indexOf('chiLikeN = facing;'), bagAt = s.fragmentShader.indexOf(`c *= 1.0 - ${dark} * bag;`), sheetAt = s.fragmentShader.indexOf('if ( chiLikeMask.w > 0.5 ) {');
+    assert(sheetAt > 0 && blockEnd > sheetAt && bagAt > blockEnd && bagAt < s.fragmentShader.indexOf('diffuseColor.rgb = c;', bagAt), "the inside of the mouth is shaded after a sheet's pictures are laid, whoever wears the skin");
+    // Drawn teeth (everyone with no picture of theirs): drawn by the one skin program from their
+    // place outside the map, where no sheet and no body has anything; no pores, no blood, wet.
+    const { TEETH_DRAWN } = await import(new URL('renderers/web/js/human-mouth.js', here));
+    const fl = x => (Number.isInteger(x) ? x.toFixed(1) : String(x)), T = TEETH_DRAWN;
+    assert.deepEqual([T.u0, T.v0, T.set_u, T.tone_v, T.row_v, T.pad], [2, 2, 2, 4, 2, 0.05], 'the layout of a tooth\'s place on the map (tools/test_human_mouth.mjs reads it back the same way)');
+    assert(T.set_u >= 2 && T.row_v >= 1 + 2 * T.pad && T.tone_v >= 2 * T.row_v, 'a set, a row and a tone each have room');
+    for (const line of [
+      // ...its place read back: which set (a hair inside it, so a place on a set's first edge is that set's), tone and row,
+      `float su = vMapUv.x - ${fl(T.u0)}, set = floor( ( su + 1e-4 ) / ${fl(T.set_u)} );`,
+      `float sv = vMapUv.y - ${fl(T.v0)}, tone = floor( sv / ${fl(T.tone_v)} ), row = sv - ${fl(T.tone_v)} * tone, lower = step( ${fl(T.row_v)}, row );`,
+      // ...how far across and from gum to edge, and the tooth drawn there over whatever the map gave;
+      `c = chiDrawnTeeth( clamp( su - ${fl(T.set_u)} * set, 0.0, 1.0 ), clamp( ( row - ${fl(T.row_v)} * lower - ${T.pad} ) / ${1 - 2 * T.pad}, 0.0, 1.0 ), lower, set, tone );`,
+      'chiSkinLip = 0.0; chiSkinCrease = 0.0; ageH = 0.0; pore = 0.0; lines = 0.0; grain = 0.0;',
+      // ...the drawing itself: a tooth to its edge and its sides, gum to ivory, and the mouth's dark past it.
+      `float tooth = ( 1.0 - smoothstep( longs - 0.03, longs, along ) ) * smoothstep( 0.0, ${DRAWN_TEETH.gap}, side );`,
+      `vec3 c = mix( vec3( ${DRAWN_TEETH.gums.join(', ')} ), ivory, smoothstep( ${DRAWN_TEETH.gum[0]}, ${DRAWN_TEETH.gum[1]}, along ) );`,
+      `return mix( vec3( ${DRAWN_TEETH.dark.join(', ')} ), c, tooth );`,
+      'vec3 chiDrawnTeeth( float across, float along, float lower, float set, float tone ) {', `if ( vMapUv.x > ${TEETH_DRAWN.u0 - 0.5} ) {`, 
+      `roughnessFactor = mix( roughnessFactor, ${DRAWN_TEETH.gloss}, chiSkinTooth );`, 'vec3 soft = vec3( 0.6, 0.38, 0.25 ) * chiSkin.w * ( 1.0 - chiLikeHair ) * ( 1.0 - chiSkinIn );', '* vec3( 0.24, 0.07, 0.035 ) * chiSkin.w * ( 1.0 - chiLikeHair ) * ( 1.0 - chiSkinIn );', 'chiRim * 3.0 * ( 1.0 - chiSkinIn );', 'chiSkinIn = bag;', `float inMouth = chiSkinIn * ( 1.0 - ${DRAWN_TEETH.shine} * chiSkinTooth );`, 'reflectedLight.indirectSpecular *= 1.0 - inMouth;', 'reflectedLight.directSpecular *= 1.0 - inMouth;', 'pore *= 1.0 - bag; lines *= 1.0 - bag; grain *= 1.0 - bag; ageH *= 1.0 - bag;', 'chiSkinTooth = 1.0; chiSkinIn = 1.0;'])
+      assert.equal(s.fragmentShader.split(line).length, 2, `drawn teeth, once: ${line}`);
+    assert(s.fragmentShader.indexOf('c = chiDrawnTeeth(') > bagAt, 'drawn over whatever the map gave that place');
+    assert(TEETH_DRAWN.u0 - 0.5 > 1 && TEETH_DRAWN.v0 > 1, 'their place lies outside the map');
+    const D = DRAWN_TEETH;
+    for (const edges of [D.upper, D.lower]) assert(edges.length === 4 && edges.every((e, i) => e > (edges[i - 1] ?? 0)) && edges[2] * (1 + 1.5 * D.size) < 1, `three teeth and part of a fourth show on a side (${edges})`);
+    assert(D.lower[0] < D.upper[0], 'a lower incisor is narrower than an upper');
+    assert(D.long.length === 5 && D.long.every(l => l > .7 && l <= 1) && D.long[1] < D.long[0], 'the side incisors are shorter');
+    assert(D.ivory.every((c, i) => c * Math.max(...D.lit) < .6 && c >= (D.ivory[i + 1] ?? 0)) && D.stain.every(x => x > .6 && x < 1), 'ivory in the mouth, never white; a tone further is duller and yellower');
+    assert(D.dark.every(c => c < .1) && D.gloss < .5 && D.shine > 0 && D.shine < .5 && D.gum[0] < D.gum[1] && D.gum[1] < .3);
     assert.equal(s.vertexShader.split('vChiSmile = morphTargetInfluences[ MORPHTARGETS_COUNT - 1 ];').length, 2, 'the smile is read as the last shape of a face that moves');
     assert(s.vertexShader.indexOf('vChiSmile = 0.0;') < s.vertexShader.indexOf('#ifdef USE_MORPHTARGETS\n    vChiSmile ='), 'and is none on a face that does not');
     assert(dark > .5 && dark < 1 && lit_by > 0 && lit_by <= .4, 'lit before the smile kept while talking is reached');
@@ -435,8 +479,8 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
 }
 
 // T-3553: the shaded part of the map (MOUTH_SHADE) holds the inside of the mouth and nothing else, on
-// the real bodies that wear a sheet, at every level: a triangle that reaches into it is carried
-// by the head or the jaw (the left hand's island lies against it; a fingertip was shaded once).
+// every real body, at every level: a triangle that reaches into it is carried by the head or
+// the jaw (the left hand's island lies against it; a fingertip was shaded once).
 {
   const vendor = new URL('renderers/web/vendor/three-0.185.1/', here);
   const { GLTFLoader } = await import(new URL('addons/loaders/GLTFLoader.js', vendor));
@@ -465,6 +509,9 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
     return Math.abs(area) / 2;
   };
   const { u0, u1, v0, hand_u, hand_v } = MOUTH_SHADE, shaded = [[hand_u, v0, u1, 2], [u0, hand_v, hand_u, 2]], corner = [u0, v0, hand_u, hand_v];
+  // The mouth's own island: the head's and the jaw's triangles in this part of the map (the
+  // hand's fingertip lies against it). All of it is to be shaded, not most of it.
+  const island = [0.75, v0, u1, 1], whole = tri => Math.abs((tri[1][0] - tri[0][0]) * (tri[2][1] - tri[0][1]) - (tri[2][0] - tri[0][0]) * (tri[1][1] - tri[0][1])) / 2;
   // ...and the teeth's own part of the map (the strip's, from the record) holds nothing of the
   // body at all: what is shaded there with the mouth shut is the strip and only the strip.
   const persons = JSON.parse(await fs.readFile(new URL('assets/humans/web/hm08_variation_persons.json', here), 'utf8')).persons;
@@ -476,9 +523,11 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
   assert(herRect && herRect[2] > herRect[0] && herRect[3] > herRect[1], 'Sarah Grey\'s record has teeth, and their part of the map');
   assert.equal(likenessLayout({ ...persons.pa1904_grey_mrs_w_l.skin, teeth: undefined, url: 'http://example.invalid/s_bare.jpg' }).teeth, null, 'a record with no teeth has none');
   let cornered = 0;
-  for (const asset of ['glessner_john_j_1904', 'glessner_frances_m_1904']) for (const lod of [0, 1, 2, 3]) {
+  const bodies = (await fs.readdir(new URL('assets/humans/web/', here))).filter(f => /\.lod0\.glb$/.test(f) && !/^c4d_fixture\./.test(f)).map(f => f.replace(/\.lod0\.glb$/, '')).sort();
+  assert(bodies.length >= 35 && bodies.includes('glessner_john_j_1904') && bodies.includes('glessner_frances_m_1904'), `${bodies.length} bodies`);
+  for (const asset of bodies) for (const lod of [0, 1, 2, 3]) {
     const gltf = await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(bare(await fs.readFile(new URL(`assets/humans/web/${asset}.lod${lod}.glb`, here))), '');
-    let skins = 0, inMouth = 0;
+    let skins = 0, inMouth = 0, lined = 0;
     gltf.scene.traverse((o) => {
       if (!o.isSkinnedMesh || surfaceFor(o.material) !== 'skin') return;
       skins++;
@@ -489,13 +538,88 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
         const head = names.every(n => n === 'head' || n === 'jaw');
         const area = shaded.reduce((a, r) => a + within(tri, r), 0);
         if (area > 0) { assert(head, `${asset} lod${lod}: a triangle of ${names.join(', ')} lies in the mouth's shade`); inMouth += area; }
+        if (head && tri.every(([u, w]) => u >= island[0] && u <= island[2] && w >= island[1] && w <= island[3])) {
+          assert(Math.abs(whole(tri) - area) < 1e-9, `${asset} lod${lod}: a triangle of the mouth's inside lies partly out of its shade (${tri.map(q => q.map(x => x.toFixed(4)).join(' ')).join(' | ')}: ${((1 - area / whole(tri)) * 100).toFixed(1)} percent of it)`);
+          lined++;
+        }
         if (!head && within(tri, corner) > 0) cornered++;
         for (const rect of [toothRect, herRect]) assert.equal(within(tri, rect), 0, `${asset} lod${lod}: a triangle of ${names.join(', ')} lies in the teeth's part of the map`);
       }
     });
-    assert(skins > 0 && inMouth > 0.01, `${asset} lod${lod}: the inside of the mouth is in its shade (${inMouth.toFixed(4)} of the map)`);
+    assert(skins > 0 && inMouth > 0.01 && lined >= 8, `${asset} lod${lod}: the inside of the mouth is in its shade (${inMouth.toFixed(4)} of the map, ${lined} triangles)`);
   }
   assert(cornered > 0, 'the corner left out is the one the hand reaches into');
+
+  // Everyone's drawn teeth: a real body with no sheet is given a small mesh of two rows beside
+  // its skin, in the skin's own material and on its skeleton, made hidden; its mouth shows it.
+  const { TEETH_DRAWN: T } = await import(new URL('renderers/web/js/human-mouth.js', here));
+  for (const [asset, lod] of [['glessner_john_j_1904', 0], ['woman_working_1812', 1], ['child_toddler_1904', 3]]) {
+    const gltf = await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(bare(await fs.readFile(new URL(`assets/humans/web/${asset}.lod${lod}.glb`, here))), '');
+    const root = gltf.scene, what = `${asset} lod${lod}`;
+    root.updateMatrixWorld(true);
+    const all = () => { const out = []; root.traverse(o => { if (o.isMesh) out.push(o); }); return out; };
+    const before = all(), skin = before.find(o => o.isSkinnedMesh && surfaceFor(o.material) === 'skin'), body = skin.geometry;
+    const dressed = dressSkin(root, { age: 40, person: 'someone' });
+    const teeth = all().filter(o => o.userData.chiTeeth === true);
+    assert.equal(teeth.length, 1, `${what}: one mesh of teeth`);
+    const t = teeth[0];
+    assert(t.isSkinnedMesh && t.name === 'teeth' && t.parent === skin.parent && all().length === before.length + 1, `${what}: beside the skin`);
+    assert(t.material === skin.material && t.skeleton === skin.skeleton && t.bindMatrix.equals(skin.bindMatrix), `${what}: in the skin's material, on its skeleton`);
+    assert(t.matrixWorld.equals(skin.matrixWorld) || (root.updateMatrixWorld(true), t.matrixWorld.equals(skin.matrixWorld)), `${what}: standing where the skin stands`);
+    assert(t.visible === false && t.frustumCulled === false && !t.castShadow, `${what}: made hidden, and never dropped for its rest pose's bound`);
+    assert.equal(t.geometry.attributes.position.count, 36, `${what}: two rows of nine points, twice`);
+    // The upper rows on the head's bone and the lower on the jaw's, their place on the map outside it.
+    { const names = j => skin.skeleton.bones[t.geometry.attributes.skinIndex.getX(j)].name, tuv = t.geometry.attributes.uv;
+      assert.deepEqual([names(0), names(17), names(18), names(35)], ['head', 'head', 'jaw', 'jaw'], `${what}: the upper teeth go with the head and the lower with the jaw`);
+      for (let j = 0; j < 36; j++) assert(tuv.getX(j) >= T.u0 && tuv.getY(j) >= T.v0, `${what}: drawn from a place outside the map`); }
+    // The skin's own count of morph targets, so the one program draws both; and its shadows.
+    assert.deepEqual(Object.fromEntries(Object.entries(t.geometry.morphAttributes).map(([k, l]) => [k, l.length])), Object.fromEntries(Object.entries(body.morphAttributes).map(([k, l]) => [k, l.length])), `${what}: as many morph targets as the skin has`);
+    assert.equal(t.morphTargetInfluences?.length, skin.morphTargetInfluences?.length, `${what}: and as many weights`);
+    for (const lit of [true, false]) { skin.receiveShadow = lit; t.onBeforeRender(); assert.equal(t.receiveShadow, lit, `${what}: in the skin's shade as it is drawn`); }
+    assert.equal(skin.geometry, body, `${what}: the body's own geometry is the skin's still`);
+    assert.equal(dressed.skin, 'skin');
+    // Shown by the mouth's play to a visitor near, and for a still.
+    const mouth = root.userData.chiMouth;
+    assert(mouth?.bound, `${what}: the figure has its mouth`);
+    mouth.pose({ jaw: 4 });
+    assert.equal(t.visible, true, `${what}: a still shows them`);
+    // Dressed again: the same mesh and the same rows; another age, the same mesh with that age's rows.
+    const g0 = t.geometry;
+    dressSkin(root, { age: 40, person: 'someone' });
+    assert.deepEqual([all().filter(o => o.userData.chiTeeth === true), t.geometry === g0, root.userData.chiMouth === mouth], [[t], true, true], `${what}: dressed again, nothing is added`);
+    // An old face shows less of its upper teeth and more of its lower: both rows' edges stand higher.
+    const metres = restMatrix(skin, root), edges = g => [T.cols + 4, 2 * T.cols + 4].map(j => new THREE.Vector3().fromBufferAttribute(g.attributes.position, j).applyMatrix4(metres).y);
+    const mid = edges(g0);
+    dressSkin(root, { age: 80, person: 'someone' });
+    assert(all().filter(o => o.userData.chiTeeth === true).length === 1 && t.geometry !== g0 && t.geometry.attributes.position.count === 36, `${what}: an old face has rows of its own`);
+    const aged = edges(t.geometry);
+    assert(aged[0] > mid[0] + 2e-4 && aged[1] > mid[1] + 2e-4, `${what}: an old face's rows stand higher, upper and lower (${aged.map((y, k) => ((y - mid[k]) * 1000).toFixed(2))} mm)`);
+    assert(t.material === skin.material, `${what}: and its material is the skin's as it is now`);
+    // Whose teeth: the person's own set, by their id; an unnamed figure's by the key its
+    // variation was drawn by (human-variation.js leaves it on the root), so two strangers differ.
+    { const { drawnLook } = await import(new URL('renderers/web/js/human-mouth.js', here));
+      const ids = Array.from({ length: 40 }, (_, k) => `stranger_${k}`), a = ids[0], b = ids.find(id => drawnLook({ id, age: 40 }).set !== drawnLook({ id: a, age: 40 }).set);
+      const us = () => Array.from({ length: 36 }, (_, j) => t.geometry.attributes.uv.getX(j));
+      dressSkin(root, { age: 40, person: a }); const ua = us();
+      dressSkin(root, { age: 40, person: b }); const ub = us();
+      assert.notDeepEqual(ua, ub, `${what}: another person, another set of teeth`);
+      root.userData.chiVariationKey = a; dressSkin(root, { age: 40 });
+      assert.deepEqual(us(), ua, `${what}: an unnamed figure's are by its own key`);
+      root.userData.chiVariationKey = b; dressSkin(root, { age: 40 });
+      assert.deepEqual(us(), ub);
+      delete root.userData.chiVariationKey; }
+    // A copy of a dressed figure carries a plain record where the mouth was: it is made again, not called.
+    { root.userData.chiMouth = JSON.parse(JSON.stringify(root.userData.chiMouth));
+      dressSkin(root, { age: 40, person: 'someone' });
+      assert(typeof root.userData.chiMouth?.bind === 'function' && root.userData.chiMouth.bound && all().filter(o => o.userData.chiTeeth === true).length === 1, `${what}: a copied figure is given a mouth of its own`); }
+    // A sheet with its own teeth takes the drawn ones away.
+    if (lod === 0) {
+      root.userData.chiLikenessSkin = { ...persons.pa1904_grey_w_l.skin, url: 'http://example.invalid/w_skin.jpg' };
+      dressSkin(root, { age: 61, person: 'pictured' });
+      assert.equal(all().filter(o => o.userData.chiTeeth === true).length, 0, `${what}: a face with pictured teeth has no drawn ones`);
+      assert(skin.geometry.userData.chiTeeth?.added > 0, 'its strip is in the skin itself');
+    }
+  }
 }
 // Every person, not only drivers: humans.js dresses each body it builds.
 const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
