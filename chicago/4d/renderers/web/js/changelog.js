@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 2965, ts: '2026-11-14T07:25:43.614Z', date: 'Nov 14, 2026, 1:25 AM CT', title: '1835 on a phone holds less memory', kind: 'fix',
+    items: [
+      '1835 could close itself on a phone a little after it loaded. The plank walks and the road now let go of about 26 MB the phone kept for nothing, and more is freed as you walk.',
+    ] },
+  { v: 2964, ts: '2026-11-14T06:58:48.305Z', date: 'Nov 14, 2026, 12:58 AM CT', title: 'Field, Kellogg and Armour houses faced in red brick all round', kind: 'fix',
+    items: [
+      '1905 (Marshall Field), 1923 (Kellogg) and 1945 (Armour/Corwith) Prairie no longer show buff or salmon common brick on their sides: every wall, bay and corner is now the same pressed red as the front.',
+      'Field\'s photographs show its conservatory side in the front\'s brick; Armour\'s Twentieth Street side faces a street. The other houses keep common brick on their sides, as the photographed flanks on the street show.',
+    ] },
+  { v: 2963, ts: '2026-11-14T05:11:29.978Z', date: 'Nov 13, 2026, 11:11 PM CT', title: 'The Greys wear their photographs: skin, hair, beard and eyes', kind: 'feature',
+    items: [
+      'William and Sarah Grey of 2010 Prairie (1904) now wear the owner\'s turnaround photographs as their own skin, on every side of the head.',
+      'Their hair and his beard stand out from the head in the photographs\' own shape and colour; the drawn hair cap, bun and strand cards give way to it, and it tucks under a hat.',
+      'Their eyelids rest as far shut as the front photograph shows, and blink from there.',
+      'Each iris, pupil and the whites of the eyes are read from the front photograph instead of the model\'s flat colours.',
+      'Both remain declared stand-ins: the photographs are of the owner\'s models, not of the Greys.',
+    ] },
   { v: 2962, ts: '2026-11-14T04:51:35.054Z', date: 'Nov 13, 2026, 10:51 PM CT', title: '1816 Prairie\'s side bay and dormers redrawn to its photograph', kind: 'change',
     items: [
       '1816 Prairie\'s side bay now matches the old photograph. Its corner face, which looks toward the street, is broader and holds a wide window, and its windows sit lower and are shorter. Its little mansard is shorter, and every dormer on the roof now rests on the cornice, as the photograph shows.',

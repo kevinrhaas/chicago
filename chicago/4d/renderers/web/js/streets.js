@@ -2187,6 +2187,9 @@ export async function createStreets({ terrain, records = [], confidence = null, 
       bytes: replay.index.bins[replay.layout].bytes, surfaces: resources.length });
     replay.bin = null;
     replay.index = null;
+    // T-3595: and the pieces, each a view over that buffer, which `surfaces` (kept by
+    // this scope's closures) would otherwise hold, and the whole buffer with them.
+    for (const [, buf] of surfaces) buf.pieces = null;
   }
   // Which change of detail is the latest; an older one still on the pool when a
   // newer one is asked for is dropped when it lands rather than drawn.
