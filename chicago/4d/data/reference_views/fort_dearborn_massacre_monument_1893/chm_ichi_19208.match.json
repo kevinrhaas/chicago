@@ -2,7 +2,7 @@
   "structure_id": "fort_dearborn_massacre_monument_1893",
   "view": "chm_ichi_19208",
   "glb": "assets/gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb",
-  "glb_sha256": "24758ee21bab612766d50619e0fb6b937dcb49ada9c29d05dedea0f8f7e03764",
+  "glb_sha256": "89eb9376384069ae04fc2e7e34581a88278b89833f9a62083c9823e64766b46b",
   "camera_sha256": "1fb8567be2a086825d2a95769465268bdae263f362f6071e1726f33d6c9d4d24",
   "photo_sha256": "7ec1f304bc3d8a9929791313a647f18ff2b5cfbac5006b7ed8e579820c0de16b",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "24758ee21bab612766d50619e0fb6b937dcb49ada9c29d05dedea0f8f7e03764"
+      "glb_sha256": "89eb9376384069ae04fc2e7e34581a88278b89833f9a62083c9823e64766b46b"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b"
     }
   ],
-  "group_sha256": "66299577fae19fe08d98eda7138df329ff17dc766e6b458587fa0b2cb69f9ef7",
+  "group_sha256": "9516db74916d5131006ea4e4aed5a02aba37144149795bb4b829c43de7fe0c1e",
   "side_by_side": "docs/RESEARCH/photo-match/fort_dearborn_massacre_monument_1893/chm_ichi_19208-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -81,12 +81,12 @@
       "status": "within tolerance"
     },
     {
-      "what": "the front panel's tone: in this plate (c. 1900) the panel reads paler than the die's granite, its relief weathered light; the render's is near-black bronze, darker than the granite (Taylor's 1893 print shows it fresh and dark: the change is the weathering between them)",
-      "status": "open"
+      "what": "the front panel's tone: in this plate (c. 1900) the panel reads paler than the die's granite, its relief weathered light; the render's is near-black bronze, darker than the granite (Taylor's 1893 print shows it fresh and dark: the change is the weathering between them) [T-3589: the panels are drawn in a pale weathered tone since, and the render's panel reads 0.60 of white against the plate's 0.71, the die round it 0.30 against about 0.3: paler than the granite, as the plate has it]",
+      "status": "fixed"
     },
     {
-      "what": "the lettering under the panel, three lines (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM), pale cut letters on the dark die: not cut in the render",
-      "status": "open"
+      "what": "the lettering under the panel, three lines (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM), pale cut letters on the dark die: not cut in the render [T-3589: cut since, the three lines centred on the die at the plate's widths and heights (line 1 x 479-712, y 667-680; line 2 x 575-617, y 682-687; line 3 x 525-664, y 689-696), pale on the granite; the letters are block capitals where the cutter's are a seriffed roman, under the bar at this size]",
+      "status": "fixed"
     },
     {
       "what": "dark bronze group on mid-grey granite: the render's tones read the same way",
