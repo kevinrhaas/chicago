@@ -1775,6 +1775,11 @@ step "a stone cornice runs under a mansard; a K08 head frieze and gable panel (T
 step "side_bays take read windows; a read round head on a stone side face has no flat arch (T-3097)" \
   python3 tools/test_k01_side_read_windows.py
 
+# T-3562. ...and the street front's upper storeys the same way: 1815 Prairie's narrow light
+# over the door, read off the square-on photograph, laid once at its own sill and size.
+step "front_bays_by_storey takes a light read off the picture on an upper storey (T-3562)" \
+  python3 tools/test_k01_front_read_light.py
+
 # T-2900. ...and what 1801 Prairie's east range needed, held on its record: a K01 wing may run
 # past its host wall's ends when it says `past_host` (still standing on 1.0 m of that wall),
 # with a front wall of its own drawn only past the host and its roof cut only along it; and a
