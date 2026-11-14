@@ -127,6 +127,8 @@ for (const lod of [0, 3]) {
   const p = V.personVariation({ kit, key: 'pa1904_otis_f_r_c1900_hans_johnson', record: persons.pa1904_otis_f_r_c1900_hans_johnson, assetId: 'anonymous_working_driver_1904' });
   const r = V.applyVariation(scene, kit, p, { scope: 'face' });
   assert(r && r.height === 1 && scene.scale.x === 1);
+  // T-3553: the key the figure was drawn by is left on its root, for the layers that are told no name (an unnamed figure's teeth).
+  assert.equal(scene.userData.chiVariationKey, 'pa1904_otis_f_r_c1900_hans_johnson');
   const after = snapshot(scene);
   let faceMove = 0;
   for (const [name, b] of before) {
@@ -239,11 +241,13 @@ for (const [key, d] of Object.entries(summary)) assert(Math.max(...d) - Math.min
   }
 }
 
-// T-3553: a smile the face moves into (`skin.smile`, William Grey). At a level whose face moves
-// it is one more morph target of the body after the body's own, each vertex its kit vertex's
-// move, named on the mesh and resting; the source's targets are not touched; a far level, and
-// anyone without a smile, gets none.
-{ const key = 'pa1904_grey_w_l', asset = 'glessner_john_j_1904', rec = persons[key], sm = rec?.skin?.smile;
+// T-3553: a smile the face moves into (`skin.smile`: William Grey's from his sheet's front
+// picture, Sarah Grey's from a picture of her own smile). At a level whose face moves it is one
+// more morph target of the body after the body's own, each vertex its kit vertex's move, named
+// on the mesh and resting; the source's targets are not touched; a far level, and anyone
+// without a smile, gets none.
+for (const [key, asset] of [['pa1904_grey_w_l', 'glessner_john_j_1904'], ['pa1904_grey_mrs_w_l', 'glessner_frances_m_1904']]) {
+  const rec = persons[key], sm = rec?.skin?.smile;
   assert(sm?.vertices?.length > 100 && sm.delta.length === sm.vertices.length * 3, `${key} has a smile`);
   const sheets = { ...kit, base: 'http://localhost/assets/humans/web/hm08_variation_kit.json' };   // a kit read from a URL (likenessSkin)
   let most = 0;
@@ -273,9 +277,10 @@ for (const [key, d] of Object.entries(summary)) assert(Math.max(...d) - Math.min
     const again = await figure(asset, lod), twin = skinOf(again);
     twin.geometry = src;
     V.applyVariation(again, sheets, V.personVariation({ kit, key, record: rec, assetId: asset }), { scope: 'full' });
-    assert(twin.geometry === g && twin.morphTargetDictionary[V.SMILE] === at && twin.morphTargetInfluences.length === had + 1, `lod${lod}: a second figure of him smiles the same way`);
+    assert(twin.geometry === g && twin.morphTargetDictionary[V.SMILE] === at && twin.morphTargetInfluences.length === had + 1, `lod${lod}: a second figure of ${key} smiles the same way`);
   }
-  for (const [who, k, r] of [['a neighbour', 'crowd_3', null], ['his wife', 'pa1904_grey_mrs_w_l', persons.pa1904_grey_mrs_w_l]]) {
+  assert(!persons.pa1904_field_marshall.skin?.smile, 'a neighbour whose face is fitted and has no smile');
+  for (const [who, k, r] of [['someone of the crowd', 'crowd_3', null], ['a neighbour with a fitted face', 'pa1904_field_marshall', persons.pa1904_field_marshall]]) {
     const scene = await figure(asset, 0), body = skinOf(scene);
     V.applyVariation(scene, sheets, V.personVariation({ kit, key: k, record: r, assetId: asset }), { scope: 'full' });
     assert.equal(body.morphTargetDictionary[V.SMILE], undefined, `${who} has no smile`);
