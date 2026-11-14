@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "464cdaf671b0c5edfb36e58437e1df0b2ea8776ef0d5fe2a9d71084b4c2a39d4",
+  "glb_sha256": "e866f90086cb2c30c4620201d4089b28bb9b33982bc8754f5ff7216547313188",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -38,7 +38,8 @@
     },
     {
       "what": "the mansard's curb and cresting: the print's curb, under its cresting, stands about 0.8 m higher on this view than the build's; and the gabled dormer on the south flank's mansard (x 1820-1880 px), built by T-3562 just behind the stack (13.9 m from the rear, where it stood out of frame at 9.0 m), its sash and gable about 1 m lower than the print's with the curb",
-      "status": "open"
+      "status": "open",
+      "how": "T-3562 lays the K10 kit's 0.45 m iron cresting on the street and south flank curbs and the cross on the pavilion's crown (the square-on's record); they render on the build's curb and crown, so the curb's height stays the open question here and on the square-on (its deck)"
     },
     {
       "what": "the main cornice's stone consoles, round the corner onto the flank",

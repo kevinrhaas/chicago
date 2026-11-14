@@ -44075,3 +44075,35 @@ Sarah Grey's pictures show her mouth shut wherever they show it (the front and b
 **Re-opens on:** a photograph of William Grey; the owner withdrawing the pictures or asking for one fixed expression; a refit of the head, after which the smile is fitted and the sheet baked again; a voice for him, which the jaw then follows (`mouth.say`).
 **Ticket:** T-3553.
 **Recorded:** 2026-11-14.
+
+### L-k01-1815-roof-iron-3562 — 1815 Prairie's roof iron: the curb's cresting, the pavilion's cross and the street dormer's finial read off the square-on print, their patterns reconstructed
+
+**Covers:** `sears_meeker_house_1815_prairie.as_mapped_1904.form.mansard`
+**Decision:** the mansard of Joseph Sears's house at 1815 Prairie (T-3562, piece 2 of T-1893) takes
+the iron the square-on photograph (`chicagology_1815_sears_two_views`, the left print) shows on its
+roof, where the build had none of it, and its street dormer is re-read to the print's height.
+**What is read, not invented.** Through T-3155's solved camera (66.7 px a metre on the mansard's
+face): along the curb a pierced iron band, its top rail a dark line at y 146-150 px with hung
+ornaments under it and its foot on a dark line at y 178 over the slates, about 0.45 m, the sky
+straight over its rail; the oblique print shows the same band on the south flank's curb. On the
+pavilion crown's apex a cross over a square block and a flared cap, y 30-93 px, about 0.9 m: the
+block about 0.14 m across, the cap about 0.4 m, the cross from 0.6 of its height, its arms near the
+top. On the street dormer's gable a finial about 0.45 m, y 93-130 px. The dormer's light y 230-347 px
+(about 1.7 m; the build's 1.35) and its gable's foot and apex at y 187 and 135 (a pitch of about 42
+degrees; the build's 50). **What is invented.** The cresting's pattern is the K10 kit's
+(`k10.cresting.iron_ridge`: posts, C-scrolls and spears) stretched to the print's height, where the
+print's are hung trefoils under a rail; it runs on the two curbs the prints show (the street's and
+the south flank's) and on neither of the two they do not, and stops 0.1 m short of the crown's
+slates where the crown stands through the curb (`k01_mansard_deck.crown_gap`). The cross's sections
+are square, its proportions this module's from the print's outline (`k01_mansard_deck.cross`). The
+dormer's finial is the dormer ornament's turned one, where the print's is a three-lobed fleur-de-lis
+of the same height and width. The dormer's light is 1.65 m and its frieze 0.05 m, 0.15 m short of
+the print's together: K01 holds a lower-face dormer's head 0.1 m under the curb, and the print's
+gable rises through the cresting.
+**Not changed here.** The curb's height: the build's stands about 0.2 m high on the square-on print
+and about 0.8 m low on the oblique, and its low deck shows dark through and over the cresting where
+the square-on print shows sky (both match records keep it open).
+**Re-opens on:** a clearer print of the roof; the curb's height solved across the two views, after
+which the cresting and the dormer are re-read on it.
+**Ticket:** T-3562.
+**Recorded:** 2026-11-14.
