@@ -5431,7 +5431,8 @@ for (const [label, viewport, touch] of [
       // metre, and `underWharf` below names the dock it is under.
       // T-3553 — the stairs' merged decks (house-floors.js) answer per point by
       // `heightAt` over an outline that files every stoop in town, and their walls
-      // deck is a rail people are never stood on: read them as the walker does.
+      // deck is a rail people are never stood on: read them as the walker does
+      // (deck-surface.js deckHeightAt), or the merged outline reads as one slab.
       const deckAt = (e, n) => {
         let y = null;
         for (const d of a.decks ?? []) {
