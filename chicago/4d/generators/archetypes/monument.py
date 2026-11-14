@@ -32,11 +32,13 @@ record's `group_h_m` less the rock. From the left: the warrior in his long lunge
 tomahawk raised; Margaret Helm, staggering back in her long skirt, her arm across to him;
 Black Partridge behind her, his open hand raised against the blow, the musket slanting
 past his hip; the post surgeon fallen under them, one leg stretched to the west edge; the
-child kneeling at the right front, both arms out. The feathers, the tomahawk, the musket,
-and the headdresses are still the members below (`monument_figures.PROPS`); Mrs. Helm's skirt, overskirt
-and cloak are drapery lofted in folds since T-3594 (`DRAPERY`).
-The sculpted faces, the other figures' dress folds, the feathers' number and the panels' reliefs are
-not modelled (the record's liberty says so);
+child kneeling at the right front, both arms out. Mrs. Helm's skirt, overskirt and cloak
+are drapery lofted in folds since T-3594 (`DRAPERY`), and the weapons and ornaments are
+modelled as the plates show them (`ORNAMENTS`): the warrior's pipe tomahawk, his feather
+and the fringed pouch at his hip, Black Partridge's headband with its knot, standing
+feather and streamer, and his musket. Only Mrs. Helm's knot of hair is still a member
+below (`monument_figures.PROPS`). The sculpted faces and hair, the other figures' dress
+folds and the panels' reliefs are not modelled (the record's liberty says so);
 the rear, which no photograph used here shows, is the same masses seen from behind.
 """
 
@@ -637,10 +639,287 @@ def _drape(m, d, place, conf, rings=DRAPE_RINGS, sides=DRAPE_SIDES):
                 m.tri(M_BRONZE, cm, ring[k2], ring[kk])
 
 
+# The weapons and ornaments as sculpted (T-3594), in place of the rods, balls and cones
+# the poses kept for them. Each is read on both plates at once: on ICHi-19208 for its
+# outline across the front and on J. W. Taylor's 1893 print for its depth, every point put
+# where the two cameras' rays pass closest. The two fits disagree on the group's height
+# by about a tenth (the match record says so), so a point's absolute depth is not held,
+# only its place in its piece: each piece is hung on the posed body that carries it (the
+# warrior's fist, a head's centre and its frame, `monument_figures.anchors`), and every
+# offset below is in pose units off that anchor (`k` scales them to metres like the
+# poses). What the plates show, which these model:
+# - the warrior's TOMAHAWK, a pipe tomahawk held near the top of its haft, a short butt
+#   standing over the fist, the haft running down past it; on its lower half a flat blade
+#   flaring out to the right to an edge nearly along the haft, and opposite it the
+#   bowl, a knob on the haft's other side (ICHi x 511-545, y 155-205; Taylor x 473-497,
+#   y 163-244);
+# - the warrior's FEATHER, one broad feather off the back of his head, out to the upper
+#   right (ICHi x 545-561, y 198-209);
+# - the warrior's POUCH, the "fringed ornament" at his hip: a flap off his belt out to the
+#   west, slanting down, its end cut into four tails that splay (ICHi x 457-498,
+#   y 300-314);
+# - Black Partridge's HEADDRESS, a wide band wrapped round the head with a knot at the back
+#   of the crown; out of the knot a long broad feather rises to the upper left (the
+#   group's highest point, ICHi y 130), and a long thin one streams back and down to the
+#   right, its end hooked (ICHi x 640-714, y 130-182; Taylor x 687-780, y 178-277);
+# - his MUSKET, along the line T-3582 read (from behind his left shoulder past his right
+#   hip): a slim barrel from the muzzle, the lock and a narrow wrist, and the butt
+#   flaring to its comb and toe with the trigger guard under the wrist (ICHi x 655-722,
+#   y 287-337; Taylor x 750-805, y 390-510).
+ORNAMENTS = {
+    "warrior": {
+        "tomahawk": {
+            "at": "grip_r", "butt": (-0.046, -0.098, 0.077), "end": (0.098, 0.269, -0.142),
+            "neck": (0.074, 0.199, -0.052), "edge": ((0.117, 0.159, -0.011), (0.145, 0.278, -0.052)),
+            "bowl": (0.042, 0.181, -0.122), "haft_r": 0.013,
+        },
+        "feather": {"at": "head", "path": ((0.05, 0.07, 0.09), (0.10, 0.085, 0.125), (0.154, 0.10, 0.163)),
+                    "w": (0.006, 0.020, 0.016, 0.002)},
+        "pouch": {"flap": ((-0.63, -0.17, 0.94), (-0.70, -0.21, 0.905), (-0.77, -0.24, 0.87)),
+                  "w": (0.030, 0.034, 0.030),
+                  "tails": ((-0.875, -0.17, 0.92), (-0.885, -0.19, 0.89), (-0.88, -0.20, 0.86),
+                            (-0.865, -0.20, 0.835))},
+    },
+    "black_partridge": {
+        # the band in the head's own frame: (height up its axis, half-width across, half
+        # length front to back), in metres, round the rig's head and hair (hm08's head is
+        # 0.15 m across and 0.21 m front to back at its centre, measured on the posed mesh)
+        "band": ((-0.020, 0.088, 0.116), (0.012, 0.087, 0.113), (0.046, 0.078, 0.099)),
+        "knot": {"at": "head", "c": (0.03, 0.05, 0.10), "r": (0.032, 0.030, 0.026)},
+        "feather": {"at": "head", "path": ((0.12, 0.07, 0.043), (0.04, 0.06, 0.13), (-0.04, 0.04, 0.245)),
+                    "w": (0.006, 0.026, 0.034, 0.026, 0.002)},
+        "streamer": {"at": "head", "path": ((0.08, 0.07, 0.06), (0.153, 0.09, 0.031), (0.283, 0.195, -0.003),
+                                            (0.445, 0.209, -0.022), (0.47, 0.21, 0.01)),
+                     "r": (0.010, 0.008, 0.007, 0.005, 0.003)},
+        "musket": {"muzzle": (0.16, 0.184, 1.904), "butt": (0.756, -0.61, 0.649), "lock": 0.735},
+    },
+}
+ORN_SIDES = 8
+ORN_STEPS = 6
+
+
+def _v(a, b, s=1.0):
+    return (a[0] + s * b[0], a[1] + s * b[1], a[2] + s * b[2])
+
+
+def _dot(a, b):
+    return math.fsum(a[i] * b[i] for i in range(3))
+
+
+def _scale(a, s):
+    return (a[0] * s, a[1] * s, a[2] * s)
+
+
+def _perp(v, axis):
+    """v with its share along `axis` taken out, as a unit vector."""
+    return _norm(_v(v, axis, -_dot(v, axis)))
+
+
+def _loft(m, rings, conf, caps=(True, True)):
+    """A surface through rings of equal count, each (centre, [points]); normals out from
+    the ring's centre, the ends closed when asked."""
+    sides = len(rings[0][1])
+    rows = []
+    for c, pts in rings:
+        rows.append([m.vert(M_BRONZE, q, _norm(_sub(q, c)), conf) for q in pts])
+    for j in range(len(rows) - 1):
+        for kk in range(sides):
+            k2 = (kk + 1) % sides
+            a, b, cc, dd = rows[j][kk], rows[j][k2], rows[j + 1][k2], rows[j + 1][kk]
+            m.tri(M_BRONZE, a, b, cc)
+            m.tri(M_BRONZE, a, cc, dd)
+    for j, closed in ((0, caps[0]), (len(rings) - 1, caps[1])):
+        if not closed:
+            continue
+        c, pts = rings[j]
+        other = rings[1][0] if j == 0 else rings[-2][0]
+        n = _norm(_sub(c, other))
+        cm = m.vert(M_BRONZE, c, n, conf)
+        ring = [m.vert(M_BRONZE, q, n, conf) for q in pts]
+        for kk in range(sides):
+            k2 = (kk + 1) % sides
+            if j == 0:
+                m.tri(M_BRONZE, cm, ring[k2], ring[kk])
+            else:
+                m.tri(M_BRONZE, cm, ring[kk], ring[k2])
+
+
+def _tangents(pts):
+    out = []
+    for i in range(len(pts)):
+        a, b = pts[max(0, i - 1)], pts[min(len(pts) - 1, i + 1)]
+        out.append(_norm(_sub(b, a)))
+    return out
+
+
+def _smooth(pts, steps=ORN_STEPS):
+    """A path through `pts` (Catmull-Rom), `steps` points to a span."""
+    if len(pts) < 3:
+        return [_v(pts[0], _sub(pts[1], pts[0]), j / steps) for j in range(steps + 1)]
+    out = []
+    ext = [_v(pts[0], _sub(pts[0], pts[1]))] + list(pts) + [_v(pts[-1], _sub(pts[-1], pts[-2]))]
+    for i in range(1, len(ext) - 2):
+        p0, p1, p2, p3 = ext[i - 1], ext[i], ext[i + 1], ext[i + 2]
+        for j in range(steps if i < len(ext) - 3 else steps + 1):
+            t = j / steps
+            out.append(tuple(0.5 * (2 * p1[q] + (p2[q] - p0[q]) * t
+                                    + (2 * p0[q] - 5 * p1[q] + 4 * p2[q] - p3[q]) * t * t
+                                    + (3 * p1[q] - p0[q] + p3[q] - 3 * p2[q]) * t * t * t) for q in range(3)))
+    return out
+
+
+def _widths(w, n):
+    """`w` (values at evenly spaced stations) read at n points along the path."""
+    out = []
+    for i in range(n):
+        x = (len(w) - 1) * i / (n - 1)
+        j = min(int(x), len(w) - 2)
+        f = x - j
+        out.append(w[j] * (1 - f) + w[j + 1] * f)
+    return out
+
+
+def _tube(m, pts, radii, conf, sides=ORN_SIDES, caps=(True, True)):
+    """A round member along a path, its radius read along it from `radii`."""
+    path = _smooth(pts) if len(pts) > 2 else list(pts)
+    rs = _widths(radii, len(path))
+    rings = []
+    u_prev = None
+    for c, t, r in zip(path, _tangents(path), rs):
+        u = _perp(u_prev, t) if u_prev else _frame(t)[0]
+        v = _cross(t, u)
+        u_prev = u
+        rings.append((c, [_v(c, _v(_scale(u, math.cos(a)), v, math.sin(a)), r)
+                          for a in (2 * math.pi * kk / sides for kk in range(sides))]))
+    _loft(m, rings, conf, caps)
+
+
+def _vane(m, pts, widths, face, thick, conf):
+    """A flat member along a path (a feather, a strap): half-widths read along it from
+    `widths`, broad to `face`, `thick` through."""
+    path = _smooth(pts)
+    ws = _widths(widths, len(path))
+    rings = []
+    for c, t, w in zip(path, _tangents(path), ws):
+        n = _perp(face, t)
+        s = _cross(t, n)
+        h = thick * (0.4 + 0.6 * min(1.0, w / max(widths)))
+        sec = [(1.0, 0.0), (0.55, 1.0), (-0.55, 1.0), (-1.0, 0.0), (-0.55, -1.0), (0.55, -1.0)]
+        rings.append((c, [_v(_v(c, s, a * w), n, b * h) for a, b in sec]))
+    _loft(m, rings, conf)
+
+
+def _ornaments(m, name, k, place, at, conf):
+    """`ORNAMENTS[name]`: `place` puts pose units in the archetype's frame, `at(point)` puts
+    metres off the rock's centre there, and `monument_figures.anchors` hangs them."""
+    o = ORNAMENTS.get(name)
+    if not o:
+        return
+    a = monument_figures.anchors(name, k)
+    toward_street = (0.0, -1.0, 0.0)
+
+    def on_head(q):
+        """Pose units off the posed head's centre, as metres off the rock's centre."""
+        return _v(a["head"], _scale(q, k))
+
+    if "tomahawk" in o:
+        t = o["tomahawk"]
+        g = a[t["at"]]
+        off = lambda q: _v(g, _scale(q, k))  # noqa: E731
+        butt, end = off(t["butt"]), off(t["end"])
+        h = _norm(_sub(end, butt))
+        r = k * t["haft_r"]
+        _tube(m, [at(butt), at(end)], (r * 1.15, r, r), conf)
+        neck = off(t["neck"])
+        e0, e1 = off(t["edge"][0]), off(t["edge"][1])
+        mid_edge = _scale(_v(e0, e1), 0.5)
+        side = _perp(_sub(mid_edge, neck), h)
+        neck = _v(butt, h, _dot(_sub(neck, butt), h))      # on the haft's axis
+        reach = _dot(_sub(mid_edge, neck), side)
+        half_edge = 0.5 * abs(_dot(_sub(e1, e0), h))
+        n = _cross(h, side)
+        rings = []
+        for j in range(ORN_STEPS + 1):
+            f = j / ORN_STEPS
+            c = _v(_v(neck, side, f * reach), h, f * _dot(_sub(mid_edge, neck), h))
+            half = 0.6 * r + (half_edge - 0.6 * r) * f ** 1.6
+            th = k * (0.009 - 0.006 * f)
+            rings.append((at(c), [at(_v(_v(c, h, x * half), n, y * th))
+                                  for x, y in ((1, 0), (0.6, 1), (-0.6, 1), (-1, 0), (-0.6, -1), (0.6, -1))]))
+        _loft(m, rings, conf)
+        bowl = off(t["bowl"])
+        on_haft = _v(butt, h, _dot(_sub(bowl, butt), h))
+        bside = _perp(_sub(bowl, on_haft), h)
+        cup = _v(on_haft, bside, 2.6 * r)
+        _tube(m, [at(on_haft), at(cup)], (0.8 * r, 0.9 * r), conf)
+        rb = 1.6 * r
+        _ell(m, at(cup), (rb, rb, rb), conf)
+    for key in ("feather",):
+        if key in o:
+            f = o[key]
+            pts = [on_head(q) for q in f["path"]]
+            _vane(m, [at(q) for q in pts], tuple(k * w for w in f["w"]), toward_street, k * 0.005, conf)
+    if "pouch" in o:
+        f = o["pouch"]
+        _vane(m, [place(q) for q in f["flap"]], tuple(k * w for w in f["w"]), toward_street, k * 0.008, conf)
+        end = f["flap"][-1]
+        for tip in f["tails"]:
+            root = _v(end, _sub(tip, end), -0.15)
+            _tube(m, [place(root), place(_v(end, _sub(tip, end), 0.5)), place(tip)],
+                  (k * 0.011, k * 0.008, k * 0.003), conf, sides=6)
+    if "band" in o:
+        rings = []
+        for hgt, rx, rf in o["band"]:
+            c = _v(a["head"], a["head_up"], hgt)
+            pts = []
+            for kk in range(24):
+                ang = 2 * math.pi * kk / 24
+                pts.append(_v(_v(c, a["head_right"], rx * math.cos(ang)), a["head_fwd"], rf * math.sin(ang)))
+            rings.append((at(c), [at(q) for q in pts]))
+        _loft(m, rings, conf, caps=(False, False))
+    if "knot" in o:
+        f = o["knot"]
+        _ell(m, at(on_head(f["c"])), tuple(k * r for r in f["r"]), conf)
+    if "streamer" in o:
+        f = o["streamer"]
+        _tube(m, [at(on_head(q)) for q in f["path"]], tuple(k * r for r in f["r"]), conf, sides=6)
+    if "musket" in o:
+        f = o["musket"]
+        mz, bt = place(f["muzzle"]), place(f["butt"])
+        ax = _norm(_sub(bt, mz))
+        length = math.sqrt(_dot(_sub(bt, mz), _sub(bt, mz)))
+        toe = _norm(_cross(ax, toward_street))
+        if toe[2] > 0:
+            toe = _scale(toe, -1.0)
+        side = _cross(ax, toe)
+        along = lambda s: _v(mz, ax, s * length)  # noqa: E731
+        # the barrel, muzzle to breech
+        lk = f["lock"]
+        _tube(m, [along(0.0), along(lk + 0.02)], (k * 0.011, k * 0.013), conf)
+        # the stock: the fore-end under the barrel, the wrist, the butt flaring to its comb
+        # (straight, along the barrel's line) and its toe
+        stations = ((lk - 0.33, 0.013, 0.013, 0.010), (lk - 0.06, 0.015, 0.016, 0.012),
+                    (lk + 0.02, 0.016, 0.020, 0.013), (lk + 0.07, 0.014, 0.015, 0.010),
+                    (lk + 0.12, 0.016, 0.021, 0.015), (lk + 0.20, 0.018, 0.030, 0.024),
+                    (0.995, 0.019, 0.036, 0.030), (1.0, 0.016, 0.033, 0.030))
+        rings = []
+        for s, hw, hd, drop in stations:
+            c = _v(along(s), toe, k * drop)
+            rings.append((c, [_v(_v(c, side, k * hw * math.cos(t)), toe, k * hd * math.sin(t))
+                              for t in (2 * math.pi * kk / ORN_SIDES for kk in range(ORN_SIDES))]))
+        _loft(m, rings, conf)
+        # the lock plate on the side, and the trigger guard's loop under the wrist
+        plate = _v(_v(along(lk), side, k * 0.016), toe, k * 0.010)
+        _ell(m, plate, (k * 0.024, k * 0.024, k * 0.024), conf)
+        guard = [_v(along(s), toe, k * d) for s, d in ((lk + 0.01, 0.022), (lk + 0.03, 0.040),
+                                                        (lk + 0.06, 0.036), (lk + 0.08, 0.018))]
+        _tube(m, guard, (k * 0.004,) * 3, conf, sides=5)
+
+
 def _group(m: _Mesh, p: MonumentParams, cx: float, cy: float, z0: float) -> None:
     """The five figures: each body a people rig posed to its joints (T-3583,
-    `monument_figures`), and the parts of `FIGURES` the rigs have not got (feathers,
-    weapons, the cloak, the knot of hair) as they were."""
+    `monument_figures`), Mrs. Helm's drapery (`DRAPERY`), the weapons and ornaments hung on
+    the posed bodies (`ORNAMENTS`), and her knot of hair, the one part of `FIGURES` kept."""
     conf = p.worst_conf("group_h_m")
     k = (p.group_h_m - p.rock_h_m) / POSE_TOP_M
     # the poses' y runs back from the front, which is the archetype's +y (north)
@@ -663,6 +942,7 @@ def _group(m: _Mesh, p: MonumentParams, cx: float, cy: float, z0: float) -> None
                 _cone(m, place(part[1]), place(part[2]), k * part[3], k * part[4], conf)
         for piece in monument_figures.DRAPED.get(name, ()):
             _drape(m, DRAPERY[piece], place, conf)
+        _ornaments(m, name, k, place, lambda q: (cx + q[0], cy + q[1], z0 + q[2]), conf)
 
 
 def mesh(params: MonumentParams) -> _Mesh:

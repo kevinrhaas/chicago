@@ -43787,7 +43787,13 @@ Taylor's 1893 view), with the group's height read through ICHi-19208's camera (2
   starting shapes, not as the sculpted drapery; the project's Native dress rules do not apply to a
   sculpture. **Two placings are ours outright:** Mrs. Helm's legs, under her skirt in both
   photographs, stand under its hem, and the surgeon's left arm, which neither photograph shows,
-  lies along his side. Faces, hair, the dress folds of every figure but Mrs. Helm, the feathers' number, the weapons' detail and the
+  lies along his side. **The weapons and ornaments** are modelled since T-3594 as the two plates show
+  them, each read on ICHi-19208 for its outline and on Taylor's print for its depth and hung on the
+  posed body that carries it: the warrior's pipe tomahawk, his feather and the fringed pouch at his
+  hip, Black Partridge's headband with its knot, standing feather and streamer, and his musket. Their
+  outlines, places and lengths are the plates'; their sections and thicknesses, the blade's and the
+  butt's profiles across, the band's wrap round the back of the head and the pouch's four tails as
+  the whole of its fringe are this project's. Faces, hair, the dress folds of every figure but Mrs. Helm and the
   whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of
   1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the
   photographs are monochrome.
