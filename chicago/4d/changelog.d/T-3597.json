@@ -1,9 +1,0 @@
-{
-  "title": "On a phone, the map sits in its corner again",
-  "kind": "fix",
-  "items": [
-    "The Window key is now a small round phone icon beside the fly key, so the round map and compass stay tucked into the top-right corner instead of drifting 57 px in.",
-    "With the map back in place, the RESEARCHER label no longer runs into the year chip, and the controls take up less of a phone's screen again (9.7 %, down from just over the 10 % limit).",
-    "The checks for Settings › Sound now expect the Narration slider that jaunt voices brought."
-  ]
-}

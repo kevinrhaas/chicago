@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2974, ts: '2026-11-14T14:46:46.895Z', date: 'Nov 14, 2026, 8:46 AM CT', title: 'On a phone, the map sits in its corner again', kind: 'fix',
+    items: [
+      'The Window key is now a small round phone icon beside the fly key, so the round map and compass stay tucked into the top-right corner instead of drifting 57 px in.',
+      'With the map back in place, the RESEARCHER label no longer runs into the year chip, and the controls take up less of a phone\'s screen again (9.7 %, down from just over the 10 % limit).',
+      'The checks for Settings › Sound now expect the Narration slider that jaunt voices brought.',
+    ] },
   { v: 2973, ts: '2026-11-14T14:09:04.733Z', date: 'Nov 14, 2026, 8:09 AM CT', title: '1816 Prairie\'s south flank window, upper storey only, as photographed', kind: 'fix',
     items: [
       'The south flank of 1816 Prairie now has one window, on the upper storey under its carved, crested hood, with plain brick below it down to the stone base, as the Chicagology photograph shows. The build had a window on each storey there.',
