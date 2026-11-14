@@ -1,0 +1,266 @@
+{
+  "method": "Actual published /1904/ app, normal boot; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 5 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "load_ms_to_ready": 65768,
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "data/gltf/house_1708_prairie__as_mapped_1904.glb",
+          "status": 200,
+          "bytes": 0
+        }
+      ],
+      "stands": [
+        {
+          "name": "1708-front",
+          "detail": "full",
+          "problems": [
+            "fort_dearborn_massacre_monument_1893: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "drawCalls": 1255,
+            "rendererCalls": 278,
+            "multiDraw": true,
+            "triangles": 1316328,
+            "programs": 133,
+            "geometries": 647,
+            "textures": 1231,
+            "batches": 461,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 75,
+                "rough_red_brown_running": 27
+              }
+            },
+            "structures": 286,
+            "structuresExpected": 286,
+            "structuresStanding": 286,
+            "bytes": 87222364,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4700000
+            },
+            "withinBudget": true,
+            "farBudget": {
+              "triangles": 6670000,
+              "drawCalls": 8500
+            }
+          },
+          "frame_ms_median": 7039,
+          "camera": [
+            1405.54,
+            -3108.04,
+            5.69
+          ],
+          "target": [
+            1381.34,
+            -3108.28,
+            9.99
+          ]
+        },
+        {
+          "name": "1708-oblique",
+          "detail": "full",
+          "problems": [
+            "fort_dearborn_massacre_monument_1893: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "drawCalls": 1714,
+            "rendererCalls": 456,
+            "multiDraw": true,
+            "triangles": 1879174,
+            "programs": 133,
+            "geometries": 722,
+            "textures": 1370,
+            "batches": 461,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 75,
+                "rough_red_brown_running": 27
+              }
+            },
+            "structures": 286,
+            "structuresExpected": 286,
+            "structuresStanding": 286,
+            "bytes": 87222364,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4700000
+            },
+            "withinBudget": true,
+            "farBudget": {
+              "triangles": 6670000,
+              "drawCalls": 8500
+            }
+          },
+          "frame_ms_median": 7958.2,
+          "camera": [
+            1397.7,
+            -3123.87,
+            5.69
+          ],
+          "target": [
+            1377.54,
+            -3108.57,
+            9.99
+          ]
+        }
+      ],
+      "tones": {
+        "1708": {
+          "full": {
+            "rough_stone_trim": {
+              "vertices": 209,
+              "min": 0.976,
+              "mean": 0.9958
+            },
+            "brick": {
+              "vertices": 1001,
+              "min": 0.98,
+              "mean": 0.9952
+            },
+            "limestone_trim": {
+              "vertices": 3582,
+              "min": 0.977,
+              "mean": 0.9967
+            },
+            "brick_unit_body": {
+              "vertices": 6320,
+              "min": 1,
+              "mean": 1
+            },
+            "brick_unit_salmon_soft": {
+              "vertices": 2880,
+              "min": 1,
+              "mean": 1
+            },
+            "brick_unit_grey_tan": {
+              "vertices": 2360,
+              "min": 1,
+              "mean": 1
+            },
+            "brick_unit_hard_burnt": {
+              "vertices": 1440,
+              "min": 1,
+              "mean": 1
+            },
+            "bay_stone": {
+              "vertices": 878,
+              "min": 0.976,
+              "mean": 0.9982
+            },
+            "bay_brick": {
+              "vertices": 396,
+              "min": 1,
+              "mean": 1
+            },
+            "brick_front": {
+              "vertices": 160,
+              "min": 0.985,
+              "mean": 0.9991
+            }
+          },
+          "web": {
+            "brick": {
+              "vertices": 555,
+              "min": 0.74,
+              "mean": 0.9171
+            },
+            "brick_unit_body": {
+              "vertices": 6320,
+              "min": 0.866,
+              "mean": 0.9638
+            },
+            "brick_unit_salmon_soft": {
+              "vertices": 2880,
+              "min": 0.866,
+              "mean": 0.9584
+            },
+            "brick_unit_grey_tan": {
+              "vertices": 2360,
+              "min": 0.867,
+              "mean": 0.9607
+            },
+            "brick_unit_hard_burnt": {
+              "vertices": 1440,
+              "min": 0.866,
+              "mean": 0.9616
+            },
+            "bay_brick": {
+              "vertices": 198,
+              "min": 1,
+              "mean": 1
+            },
+            "brick_front": {
+              "vertices": 94,
+              "min": 0.8,
+              "mean": 0.9821
+            }
+          },
+          "bytes": {
+            "full": 3777224,
+            "web": 3223652
+          }
+        }
+      },
+      "before": "../../../../../../../../tmp/before/web.glb"
+    }
+  ]
+}
