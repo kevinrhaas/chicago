@@ -812,7 +812,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     const on = onWays.get(pass.id) ?? [];
     on.push({ p, dir, at: clock });
     onWays.set(pass.id, on);
-    p.passing = { door: pass, since: clock };
+    p.passing = { door: pass, dir, since: clock };
   }
   /** Off the way and no longer holding its door (done, or let go). */
   function offWay(p) {
@@ -1749,6 +1749,20 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     },
     canAsk(id) {
       return people.some((p) => (p.id === id || p.actor.personId === id) && !p.absent && (!p.span?.away || recallHome(p)) && p.actor.indoors && !p.social && !p.called && !p.hosted && !held(p.actor) && !humans.isHeld?.(p.actor));
+    },
+    /**
+     * T-3553: on a door's way now, going in or out (a passage: the doorway, its vestibule and
+     * its stoop, partly inside the house): { id, structure, step: {e, n}, outward_deg, dir } of
+     * that door, else null. The owner, 2026-11-13: Find and Follow "should wait until they get
+     * outside for us to land": nobody is landed by, or followed through, a doorway.
+     */
+    doorway(id) {
+      const p = people.find((q) => q.id === id || q.actor.personId === id);
+      const pass = p?.passing?.door;
+      if (!pass || p.actor.disposed) return null;
+      const t = doorThings.find((x) => x.door.id === pass.id);
+      return { id: pass.id, structure: t?.structure ?? null, step: t ? pt(t.door.step) : null,
+        outward_deg: t?.door.outward_deg ?? null, dir: p.passing.dir ?? null };
     },
     /**
      * T-3573: whether `id` is in town and at home now (indoors, present, free), so that Find

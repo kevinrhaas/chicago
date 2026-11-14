@@ -1,0 +1,9 @@
+{
+  "title": "Find and Follow wait outside for someone to come out",
+  "kind": "fix",
+  "items": [
+    "Finding or following someone at home now sets you down outside their front door, facing it, never inside the house.",
+    "Follow starts once they are out of the doorway, and stops at their door when they go back in.",
+    "2000 and 2010 Prairie's front doors are on their front blocks now, and people come out at the foot of the porch steps."
+  ]
+}

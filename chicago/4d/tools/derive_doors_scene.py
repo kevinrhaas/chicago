@@ -227,6 +227,29 @@ def wheres(scene: str) -> set[str]:
     return out
 
 
+FRONT_SKIRT_M = 0.35        # the doorway's line: its half-width and a skirt's either side
+FRONT_REACH_M = 12.0        # how far before the front the model's building is read
+FRONT_GROUND_M = 0.1        # a top lower than this is ground work (walk stones, kerbs), not in the way
+FRONT_GAP_M = 0.6          # open ground this wide in the doorway's line ends what is built before the front
+FRONT_PASSED = ('fence', 'gate', 'walk', 'pier', 'kerb', 'curb')   # the lot's front line and its walk: passed by a gate, walked on
+
+
+def frame_house_front_door(sc: dict):
+    """A frame house record's own front door (k16_timber.py `frame_house` blocks): the first door
+    hung on a block's east wall, the street side of a Prairie plan, as (u, v, clear width) in the
+    model's plan, or None. An east wall runs from its block's (u1, v0) corner toward +v and a
+    door's `centre_m` is measured along it (k16_timber.py SIDE_RUN, side_frame)."""
+    fh = (((sc.get('attributes') or {}).get('frame_house') or {}).get('value') or {})
+    for b in fh.get('blocks') or []:
+        for w in b.get('walls') or []:
+            if w.get('side') != 'east' or not w.get('doors'):
+                continue
+            u0, v0, u1, v1 = b['rect_uv']
+            d = w['doors'][0]
+            return float(u1), float(v0) + float(d['centre_m']), float(d.get('clear_width_m') or 1.0)
+    return None
+
+
 def prairie_doors(sc: dict, glb: Path, parts=None, got=None) -> tuple[list[dict], list[str]]:
     """Prairie plans run u toward the street. Read the built front leaf and stoop.
 
@@ -281,18 +304,42 @@ def prairie_doors(sc: dict, glb: Path, parts=None, got=None) -> tuple[list[dict]
                  'the answering place is on open ground before the front. Walking and doorstep use are reconstructed.')
     elif candidates:
         basis = 'Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed.'
+    elif (hung := frame_house_front_door(sc)) is not None:
+        u, v, width = hung
+        basis = ("The front door the frame house record hangs on its street wall (frame_house blocks), which "
+                 'the model builds there; the answering place is at the foot of what the model builds before it. '
+                 'Walking and doorstep use are reconstructed.')
     else:
         u, v = float(poly[:, 0].max()), float((poly[:, 1].min() + poly[:, 1].max()) / 2)
         width = 1.2
         basis = 'No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here.'
     out_u = max(u, float(poly[:, 0].max()))
+    # T-3553 (Kevin, 2026-11-13): Find on Mrs. Grey set him down inside 2010 Prairie. Its entrance
+    # was put on the footprint's front, which stands inside the front block the model builds
+    # before it: a hollow room the barrier mask (walls only) reads as free. So the answering place
+    # stands past everything the model builds above the ground in the doorway's line and joined
+    # to the front (front blocks, bays, porches and their steps), not a gap further on (the lot's
+    # fence and gate posts, passed by its gate).
+    spans = []
     for name, t in parts:
-        if name.lower() != 'stoop_stone':
+        low = name.lower()
+        if low == 'stoop_stone':
+            pts = t.reshape(-1, 3)
+            near = pts[(np.abs(-pts[:, 2] - v) < max(width, 2.5)) & (pts[:, 0] >= u)]
+            if len(near):
+                out_u = max(out_u, float(near[:, 0].max()))
             continue
-        pts = t.reshape(-1, 3)
-        near = pts[(np.abs(-pts[:, 2] - v) < max(width, 2.5)) & (pts[:, 0] >= u)]
-        if len(near):
-            out_u = max(out_u, float(near[:, 0].max()))
+        if any(k in low for k in FRONT_PASSED):
+            continue
+        tu, tv, ty = t[:, :, 0], -t[:, :, 2], t[:, :, 1]
+        hw = width / 2 + FRONT_SKIRT_M
+        keep = ((tv.max(1) >= v - hw) & (tv.min(1) <= v + hw) & (ty.max(1) > FRONT_GROUND_M)
+                & (tu.max(1) >= u - .05) & (tu.min(1) <= u + FRONT_REACH_M))
+        spans += zip(tu.min(1)[keep].tolist(), tu.max(1)[keep].tolist())
+    for lo, hi in sorted(spans):
+        if lo > out_u + FRONT_GAP_M:
+            break
+        out_u = max(out_u, hi)
     # T-3554: the answering place stands clear of whatever the model builds before this front
     # (a draft's front rooms and bays reach past its footprint), a skirt's width off it.
     step_u = out_u + STEP_M
