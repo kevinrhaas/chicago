@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1122,
+  "count": 1123,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -69892,6 +69892,42 @@
       ]
     },
     {
+      "id": "L-k03-face-brick-all-round",
+      "title": "Field's, Kellogg's and Armour's houses faced in the front's brick on every side",
+      "section": "per_subject",
+      "subjects": [
+        "marshall_field_house_1905_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-13, looking at 1905 (Field), 1945 (Armour/Corwith) and 1923 (Kellogg) in 1904, where a pressed red front stood over buff or salmon common flanks and a red brick bay stood out of a buff flank: *\"i doubt these house would have had common brown brick like that on the side it would have had full red brick it seems, and not vary the bay part those faces would be red brick all around particularly armour and fields they would be nice and fancy and high end\"*, then *\"consistent brick with the front, not necessarily red brick just cause... the fields and armour house definitiely seem need to change for consistent brick all around\"*. A record's face brick may now say all round: true: every brick wall the house has (both flanks, the rear, a canted corner, its wings, bays and stacks) is laid in the front's face brick instead of a common run. Worn by 1905, 1923 and 1945, all pressed red."
+        },
+        {
+          "label": "Not invented",
+          "text": "Field's flank behind the conservatory, which the Chicagology print and the 1893 Rand McNally plate both show in the same tone as the front's brick, with no paler wall (1905 Prairie Avenue — the Marshall Field house (Second Empire) face brick); Armour's south flank on Twentieth Street, a street front, which the 1928 Tribune halftone prints as dark as its Prairie Avenue front. The fronts' pressed red is “Prairie Avenue's brick told house by house: a period face brick on each brick front, a common run on each house's flanks, as tints over the two K03 panels”'s."
+        },
+        {
+          "label": "Invented",
+          "text": "the colour of Field's far (north) flank and rear, Armour's north flank and rear and all of Kellogg's flanks, which no picture shows: they follow the front by the owner's ruling. The period's usual practice was a common brick on side and party walls ('s photographs of 1637, 1812, 1816's north flank and 1834 read pale commons), so these three are the free-standing exceptions, not the rule; every other house keeps its common sides. The owner also saw a reddish common, \"not high end brick\", on a brick side wall at the Kimball house: common side walls were real on this street, so the ruling is held to these three houses."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a photograph or description of any of these flanks, or of a rear wall, showing a common brick."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-13."
+        }
+      ],
+      "work_refs": [
+        "T-3385"
+      ]
+    },
+    {
       "id": "L-k01-1700-1706-roof-3384",
       "title": "1700 and 1706 Prairie under one mansard, the party wall carried up through it",
       "section": "per_subject",
@@ -74005,6 +74041,41 @@
       ]
     },
     {
+      "id": "L-1904-more-carriages-3555",
+      "title": "Two more broughams on loops round Prairie Avenue, each its own coach, team and coachman",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-13: *\"for 1904 we should have another 2 carriages going on different loops around prairie avenue and at least one of them should be counter clockwise and they should potentially cross paths and one will wait for the other to cross while they proceed\"*, then *\"make the carriages look differnt... the horses will vary and the coachmen will vary and be as real as possible... i imagine they were typically black\"*. Two more driven broughams now go round the blocks either side of Hans Johnson's (Indiana–18th–Prairie–20th): Henry Windish round Indiana–16th–Prairie–18th and Joseph Daniels round Indiana–20th–Prairie–22nd, laid by the lay driven carriages 1904 tool into the loops data. All three go counter-clockwise, keeping to the right of the road, so every corner is a left turn across the crossing street; a clockwise loop's right turns would hug the inside kerb tighter than the brougham's 8° steering and 18 m corners allow. Where two loops' turns cross (Indiana and Prairie at 18th and at 20th), whichever team reaches the crossing first goes and the other pulls up and waits until it is clear (the walkthrough's transport crossings code). Each coachman pulls up for about 45 seconds at his employer's door. Each coach has its own paint, gloss, road dust, wheel mud and scuffs (vehicle finish, the walkthrough's coachwork code): the Pullmans' black with deep claret panels, carmine running gear and gilt trim, kept clean; the Armours' all black with blue-black panels and nickel trim, dulled and dirtier; Hans's keeps its catalogue green and black with the road on it. Each coachman wears the box coat of the shared draped livery in his own house colour; the horses are a dark-bay pair (Pullman) and a chestnut pair (Armour) under the existing coat rules (“individual coats and markings (1812, 1835, 1904)”)."
+        },
+        {
+          "label": "Not invented",
+          "text": "the two coachmen, who are named as coachmen in these households in the 1900 census (Twelfth Census of the United States, 1900: Schedule No. 1, Population, read for the household cards); their ages and their reconstructed faces and looks are their own records' (“Prairie Avenue appearances”); the brougham type (Studebaker Brothers Manufacturing Company); the streets and their widths (the 1904 street grid, Sanborn 1911 sheets)."
+        },
+        {
+          "label": "Reconstructed",
+          "text": "that these men drove these coaches in 1904 (the census is four years before the scene), the coaches themselves, their colours and wear, the horses, the livery colours, the rounds, the door stops and the timing. The two coachmen sit the seated export proved for Hans's body; their seat, reins and coat fit that body, which is the same model for all three, and their faces, hair, skin and age are their own."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a photograph, inventory or livery book of the Pullman, Armour or another Prairie Avenue stable, which replaces that coach's finish or coachman's colours; a record of a household's carriage or its routine, which replaces a round."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-13."
+        }
+      ],
+      "work_refs": [
+        "T-3555",
+        "T-3558"
+      ]
+    },
+    {
       "id": "L-wind-gusts-3586",
       "title": "One gust rhythm for the swaying plants and the wind you hear",
       "section": "per_subject",
@@ -74068,42 +74139,6 @@
       ],
       "work_refs": [
         "T-3587"
-      ]
-    },
-    {
-      "id": "L-k03-face-brick-all-round",
-      "title": "Field's, Kellogg's and Armour's houses faced in the front's brick on every side",
-      "section": "per_subject",
-      "subjects": [
-        "marshall_field_house_1905_prairie"
-      ],
-      "covers": [],
-      "recorded": "2026-11-13",
-      "revised": null,
-      "fields": [
-        {
-          "label": "Decision",
-          "text": "the owner, 2026-11-13, looking at 1905 (Field), 1945 (Armour/Corwith) and 1923 (Kellogg) in 1904, where a pressed red front stood over buff or salmon common flanks and a red brick bay stood out of a buff flank: *\"i doubt these house would have had common brown brick like that on the side it would have had full red brick it seems, and not vary the bay part those faces would be red brick all around particularly armour and fields they would be nice and fancy and high end\"*, then *\"consistent brick with the front, not necessarily red brick just cause... the fields and armour house definitiely seem need to change for consistent brick all around\"*. A record's face brick may now say all round: true: every brick wall the house has (both flanks, the rear, a canted corner, its wings, bays and stacks) is laid in the front's face brick instead of a common run. Worn by 1905, 1923 and 1945, all pressed red."
-        },
-        {
-          "label": "Not invented",
-          "text": "Field's flank behind the conservatory, which the Chicagology print and the 1893 Rand McNally plate both show in the same tone as the front's brick, with no paler wall (1905 Prairie Avenue — the Marshall Field house (Second Empire) face brick); Armour's south flank on Twentieth Street, a street front, which the 1928 Tribune halftone prints as dark as its Prairie Avenue front. The fronts' pressed red is “Prairie Avenue's brick told house by house: a period face brick on each brick front, a common run on each house's flanks, as tints over the two K03 panels”'s."
-        },
-        {
-          "label": "Invented",
-          "text": "the colour of Field's far (north) flank and rear, Armour's north flank and rear and all of Kellogg's flanks, which no picture shows: they follow the front by the owner's ruling. The period's usual practice was a common brick on side and party walls ('s photographs of 1637, 1812, 1816's north flank and 1834 read pale commons), so these three are the free-standing exceptions, not the rule; every other house keeps its common sides. The owner also saw a reddish common, \"not high end brick\", on a brick side wall at the Kimball house: common side walls were real on this street, so the ruling is held to these three houses."
-        },
-        {
-          "label": "Re-opens on",
-          "text": "a photograph or description of any of these flanks, or of a rear wall, showing a common brick."
-        },
-        {
-          "label": "Recorded",
-          "text": "2026-11-13."
-        }
-      ],
-      "work_refs": [
-        "T-3385"
       ]
     },
     {

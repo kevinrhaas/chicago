@@ -146,6 +146,28 @@ for (const row of rows) {
     const bonesAfter = []; scene.traverse(o => { if (o.isBone) bonesAfter.push(o); });
     assert.deepEqual(bonesAfter, bonesBefore, `${tag} LOD${lod}: undo removes every tail bone`);
     for (const [m, c] of colours) assert(m.material.color.equals(c), `${tag} LOD${lod}: undo restores ${m.material.name}`);
+    // Kevin, 2026-11-13: each coachman his own house colours on the same draped file. The dye
+    // reaches his own pieces and his own copy of the re-dyed garment, never the shared material.
+    if (row.driver_livery_colours) {
+      const shared = new Map(meshes.map(m => [m, m.material]));
+      const own = dressInLivery(body, livery, { colours: row.driver_livery_colours });
+      const pieces = body.meshes.slice(meshes.length);
+      const linear = rgb => new THREE.Color().setRGB(...rgb, THREE.LinearSRGBColorSpace);
+      for (const [name, rgb] of Object.entries(row.driver_livery_colours)) {
+        const worn = [...pieces, ...meshes].filter(m => m.material.name === name);
+        assert(worn.length, `${row.id} LOD${lod}: ${name} is worn`);
+        assert(worn.every(m => m.material.color.equals(linear(rgb))), `${row.id} LOD${lod}: ${name} in his own colour`);
+      }
+      for (const [m, material] of shared) {
+        if (row.driver_livery_colours[material.name]) assert(m.material !== material, `${row.id} LOD${lod}: his own copy of ${material.name}`);
+      }
+      for (const [m, c] of colours) assert(shared.get(m).color.equals(c), `${row.id} LOD${lod}: the shared ${m.material.name} is untouched`);
+      own();
+      for (const [m, material] of shared) assert.equal(m.material, material, `${row.id} LOD${lod}: undo gives back the shared material`);
+      assert.throws(() => dressInLivery(body, livery, { colours: { no_such_material: [0, 0, 0] } }), /no material/);
+      assert.throws(() => dressInLivery(body, livery, { colours: { garment_outer__box_coat_wool: [2, 0, 0] } }), /linear channels/);
+      console.log(`${row.id} LOD${lod}: his own colours on ${Object.keys(row.driver_livery_colours).length} materials, the shared body untouched, undone cleanly`);
+    }
     console.log(`${tag} LOD${lod}: ${added.length} meshes bound by name, seated skinning within ${(worst * 1000).toFixed(2)} mm of the drape${note}`);
   }
 }

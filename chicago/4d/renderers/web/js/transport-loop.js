@@ -174,7 +174,7 @@ export function createTransportLoop({
   root_ahead_of_rear_axle_m, driver_local_m, wheel_radii_m,
   heightAt, clear = () => true, initial_distance_m = 0, steering_limit_deg,
   initial_total_distance_m = 0, initial_wheel_rotation_rad = [0, 0, 0, 0], initial_state = 'moving', person_id = null,
-  stops = [], initial_dwell_s = 0,
+  stops = [], initial_dwell_s = 0, gate = null,
 }) {
   if (!id || !name || typeof route?.at !== 'function' || !assembly?.pose) throw Error('transport loop: id, name, route and assembly required');
   if (typeof heightAt !== 'function' || typeof clear !== 'function') throw Error('transport loop: ground and clearance readers required');
@@ -193,6 +193,10 @@ export function createTransportLoop({
   if (!Array.isArray(stops) || !stops.every(s => Number.isFinite(s?.distance_m) && Number.isFinite(s?.dwell_s) && s.dwell_s >= 0)) throw Error('transport loop: stops need a finite distance and dwell');
   const stopList = stops.map(s => ({ ...s, distance_m: wrap(s.distance_m, route.length) }));
   finite(initial_dwell_s, 'saved dwell');
+  // Kevin, 2026-11-13: where roads cross, one team waits for the other (transport-crossings.js).
+  // The gate says how far this team may go; waiting there is still the 'moving' journey.
+  if (gate !== null && (typeof gate?.allow !== 'function' || typeof gate.moved !== 'function')) throw Error('transport loop: a crossing gate needs allow and moved');
+  let giving = false;
   let dwell = Math.max(0, initial_dwell_s), dwellingAt = dwell > 0 ? stopList.find(s => Math.abs(s.distance_m - wrap(initial_distance_m, route.length)) < 1e-6) ?? null : null;
   let distance = wrap(initial_distance_m, route.length), totalDistance = initial_total_distance_m;
   let state = initial_state, reason = null, disposed = false, visible = false;
@@ -243,6 +247,8 @@ export function createTransportLoop({
     get state() { return state; },
     /** T-3497: the stop the team stands at, while it dwells there; null on the road. */
     get dwelling() { return dwell > 0 ? dwellingAt : null; },
+    /** The team it is pulled up for at a crossing, while it waits; null on the road. */
+    get givingWayTo() { return giving ? gate?.waitingFor ?? null : null; },
     get visible() { return visible && !disposed; },
     get disposed() { return disposed; },
     // Read only actual admitted motion, never the nominal journey state (which
@@ -309,6 +315,15 @@ export function createTransportLoop({
           if (ahead > 1e-6 && ahead <= ds && (!arriving || ahead < arriving.ahead)) arriving = { stop: s, ahead };
         }
         if (arriving) { ds = arriving.ahead; tick = ds / speed_m_s; }
+        if (gate) {
+          const allowed = gate.allow(distance, ds);
+          giving = allowed < ds - 1e-9;
+          if (giving) {
+            arriving = null;
+            if (!(allowed > 1e-6)) { assembly.stop?.(); break; }
+            ds = allowed; tick = ds / speed_m_s;
+          }
+        }
         const next = readNext(ds);
         if (!next) { out.stop('obstruction'); break; }
         // Exact rear/front arc lengths for the independent wheel centres. Spinning
@@ -320,6 +335,7 @@ export function createTransportLoop({
           wheelRotation[i] = wrap(wheelRotation[i] + ds * ratio / wheel_radii_m[i], TAU);
         }
         distance = next.distance; totalDistance += ds; travelled += ds;
+        gate?.moved(ds);
         assembly.advance?.(tick, ds);
         draw(); remaining -= tick;
         if (arriving) {
@@ -335,11 +351,13 @@ export function createTransportLoop({
         assembly_state: assembly.snapshot?.() ?? null,
         yaw_rad: lastPose.yaw, steering_rad: lastPose.steering,
         wheel_rotation_rad: [...wheelRotation], wheel_gap_m: lastPose.wheelGap,
-        dwell_s: dwell, dwelling: dwell > 0 ? dwellingAt?.label ?? null : null };
+        dwell_s: dwell, dwelling: dwell > 0 ? dwellingAt?.label ?? null : null,
+        ...(gate ? { giving_way_to: out.givingWayTo } : {}) };
     },
     dispose() {
       if (disposed) return;
       disposed = true; visible = false; state = 'disposed';
+      gate?.drop?.();
       assembly.dispose?.();
     },
   };

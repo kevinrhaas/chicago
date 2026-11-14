@@ -95,7 +95,7 @@ import { createHumanDuties } from './human-duties.js';
 import { createHumanDays, createDayRouter, clearWayOf } from './human-days.js';
 import { createJauntHosts } from './jaunt-hosts.js';
 import { createHumanSpacing, BODY_R_M } from './human-spacing.js';
-import { createHouseBarriers } from './house-barriers.js';
+import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
@@ -4010,7 +4010,11 @@ async function boot() {
     lodgeWalls = (doors?.structures ?? []).flatMap((row) => (row.walls ?? []).map((ring, i) => ({ id: `${row.structure}:walls${i + 1}`, pts: ring })));
     // T-3554: a 1904 house's stoop, area walls, railings and bays, which a day's walk keeps a
     // skirt's width off and nobody is stepped aside into (house-barriers.js).
-    houseBarriers = daysScene === '1904' ? createHouseBarriers([...(doors?.structures ?? []), ...(doors?.barriers ?? [])]) : null;
+    // T-3554 (owner, 2026-11-13: "she cannot stand where there are stairs like that, no one
+    // should be able to"): a stoop from its bottom tread, the back yards' stoops, and 1835's
+    // street-front stoops and mounting blocks (doors_1835.json `barriers`) too.
+    const barrierRows = [...(doors?.structures ?? []), ...(doors?.barriers ?? [])].filter((row) => row?.barrier);
+    houseBarriers = barrierRows.length ? createHouseBarriers(barrierRows) : null;
     api.houseBarriers = houseBarriers;
     // The gathering's people who are carded and not drawn (inside_1812.json): a figure is
     // built for a small nearby rotation or a door call, from the dress their entry
@@ -4048,6 +4052,8 @@ async function boot() {
       passages: api.houseDoors ?? null,
       // T-3573: someone who stepped out for Find or Follow walks on while the visitor follows.
       followed: (actor) => !!api.follow?.personId && api.follow.personId === (actor.personId ?? actor.id),
+      // T-3554: every place a day stands someone, clear of every stair (and of a building).
+      standClear: houseBarriers ? (q) => houseBarriers.clearOf(q.e, q.n, BARRIER_STAND_M, (r) => dayClear(r, r)) : null,
       problems: layerProblems('humans') });
     // The kit is generated from its dated work record; only 1812 loads this
     // controller. The small GLB is deferred until its actual worker is nearby.
@@ -4069,6 +4075,9 @@ async function boot() {
   api.spacing = createHumanSpacing({ humans: api.humans,
     visitor: () => ({ e: walker.state.e, n: walker.state.n }),
     blockedAt: (e, n) => !!houseBarriers?.near(e, n, BODY_R_M) || (api.router?.built ? api.router.blockedAt(e, n) : false),
+    // T-3554: anyone standing in a stair steps out of it (never into a building).
+    clearOf: houseBarriers ? (e, n) => houseBarriers.clearOf(e, n, BODY_R_M,
+      (q) => !(api.router?.built && api.router.blockedAt(q.e, q.n))) : null,
     keepOut: lodgeWalls });
   /**
    * T-3439 (owner, 2026-11-07): Settings › Show › People and › Carriages and horses. A

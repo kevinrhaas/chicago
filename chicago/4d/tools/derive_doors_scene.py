@@ -62,6 +62,7 @@ WAY_HEAD_M = 1.8           # ... to a head's height over it is in the way
 WAY_SKIRT_M = 0.35         # a skirt's half-width: the way keeps this far off a drop or a rail
 WAY_EASE_M = 0.12          # house-doors.js RISER_EASE_M: the rise eased this far each side
 WAY_GROUND_M = 0.12        # a top lower than this is the ground (the caller's ground answers)
+STOOP_PAD_M = 0.3          # a back stoop's flight past its laid run_m (back-yards.js fits it to the ground)
 WAY_BEFORE_M = 0.45        # house-doors.js PASSAGE_BEFORE_M: where one stops before the leaf
 PAIR_OVER_M = 1.6          # an opening wider than this is hung as a pair of leaves
 GROUND_MATS = ('turf', 'earth', 'lawn', 'grass')
@@ -378,6 +379,56 @@ def back_doors(scene: str) -> dict[str, dict]:
     return out
 
 
+def box_row(rid: str, e: float, n: float, bearing: float, u0: float, u1: float, half: float, what: str) -> dict:
+    """A barrier row for one built box beside no house model (a back stoop, a street-front stoop
+    or mounting block): its plan runs u out along `bearing` from (e, n), v along its face, the
+    box covering u0..u1 out and `half` either side, on prairie_barriers' cell grid (whole cells,
+    never less than the box)."""
+    c = pb.CELL_M
+    ni, nj = max(1, math.ceil((u1 - u0) / c - 1e-6)), max(1, math.ceil(2 * half / c - 1e-6))
+    return {"structure": rid, "placement": {"local_e": round(e, 3), "local_n": round(n, 3),
+                                            "rotation_deg": round((bearing - 90) % 360, 3)},
+            "barrier": {"cell": c, "u0": round(u0 + c / 2, 3), "v0": round(-half + c / 2, 3), "count": 1,
+                        "rects": f"0 {ni} 0 {nj}"},
+            "what": what}
+
+
+def stoop_rows(scene: str) -> list[dict]:
+    """T-3554 (owner, 2026-11-13, of a maid standing half inside the bottom steps of a front stoop:
+    "she cannot stand where there are stairs like that, no one should be able to"): the stairs no
+    house model carries, as barrier rows. 1904: each back door's stoop as the back yards lay it
+    (landing and flight, from the wall out run_m, STOOP_PAD_M more for the flight the renderer
+    fits to the ground there). 1835: every part of a street-front fitting standing higher than a
+    riser (prairie_barriers.KNEE_M: a stoop's landing and step, a mounting block's two steps, a
+    tie rail), not the wagon aprons' planks laid on the walk."""
+    rows = []
+    if scene == "1904":
+        f = ROOT / "data/back_yards/1904.json"
+        for lot in json.loads(f.read_text()).get("lots", []) if f.exists() else []:
+            for d in lot.get("doors") or []:
+                st = d.get("stoop") or {}
+                if not st.get("run_m") or not all(isinstance(d.get(k), (int, float)) for k in ("e", "n", "facing_deg")):
+                    continue
+                rows.append(box_row(d["id"] + ":stoop", d["e"], d["n"], float(d["facing_deg"]), 0.0,
+                                    float(st["run_m"]) + STOOP_PAD_M, max(float(st.get("width_m") or 1.2), float(d.get("width_m") or 0.95)) / 2,
+                                    "back stoop"))
+    if scene == "1835":
+        fits = []
+        for f in sorted((ROOT / "data/frontage").glob("*.json")):
+            doc = json.loads(f.read_text())
+            if isinstance(doc, dict) and str(doc.get("scene", scene)) == scene:
+                fits += doc.get("fittings") or []
+        for fit in fits:
+            for part in fit.get("parts") or []:
+                at = part.get("at_local_enu_m")
+                if not at or float(part.get("top_m") or 0) <= pb.KNEE_M or not part.get("len_m"):
+                    continue
+                depth = float(part.get("depth_m") or part.get("thick_m") or 0.1)
+                rows.append(box_row(f"{fit['id']}:{part['part']}", at[0], at[1], float(fit.get("facade_bearing_deg") or 0),
+                                    -depth / 2, depth / 2, float(part["len_m"]) / 2, fit.get("kind") or "fitting"))
+    return rows
+
+
 def val(sc: dict, name: str):
     v = (sc.get("attributes") or {}).get(name)
     return v["value"] if isinstance(v, dict) and "value" in v else v
@@ -430,7 +481,7 @@ def glessner_doors(sc: dict) -> list[dict]:
     return out
 
 
-BARRIERS = "prairie_barriers/2"   # bump when prairie_barriers.py reads a model differently
+BARRIERS = "prairie_barriers/3"   # bump when prairie_barriers.py reads a model differently
 
 
 def barrier_cache(scene: str) -> dict:
@@ -541,6 +592,13 @@ def derive(scene: str) -> tuple[dict, list[str]]:
                                 "u0 + i*cell, v0 + j*cell of the model's plan (u = x, v = -z), turned into local E/N "
                                 "by the placement. `barriers` carries them for the built Prairie houses no day goes into.")
         out["barriers"] = barrier_rows(scene, rows, cache)
+    stoops = stoop_rows(scene)
+    if stoops:
+        out["stoops_note"] = ("T-3554 (owner, 2026-11-13: \"no one should be able to\" stand in stairs): the stairs "
+                              "no house model carries, as `barriers` rows of one box each (derive_doors_scene.py "
+                              "stoop_rows; `what` says which): " + ("the back yards' stoops." if scene == "1904" else
+                              "the street fronts' stoops, mounting blocks and tie rails."))
+        out["barriers"] = out.get("barriers", []) + stoops
     return out, problems
 
 

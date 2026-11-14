@@ -118,7 +118,7 @@
 
 import http from 'node:http';
 import fs from 'node:fs';
-import { createAudioReplay } from './audio_smoke_replay.mjs';
+import { createAudioReplay, standInNarrationIndex } from './audio_smoke_replay.mjs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -1531,6 +1531,9 @@ for (const [label, viewport, touch] of [
     });
     console.log(`  audio: ${audioReplay.mode}; live R2/CORS is a separate browser check`);
   }
+  // T-3579: the hosted narration index is mutable and the bucket refuses localhost, so
+  // the published app's boot logged a CORS console.error; stand in an empty one.
+  if (wantPublished) await standInNarrationIndex(ctx, { origin: `http://127.0.0.1:${PORT}` });
   const page = await ctx.newPage();
   // A few checks import an app module directly to exercise a pure function. The
   // path to those modules differs between the source tree and the published
@@ -20304,6 +20307,8 @@ for (const [label, viewport, touch] of [
         // T-2352 added its east side: thirty-three more.
         // T-2443 stood one more on the 16th-18th east side, the Forsyth house at 1635, and
         // its PR (#771) left it off this list, so stage 14 was red on dev until T-2468.
+        // T-3566 stood Dexter's 1863 frame house behind 1721's brick front, and its PRs
+        // (#1962, #1968) left it off this list too, so stage 14 was red on dev until T-3579.
         const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
           'shortall_gregory_house_1638_prairie_front',
           'edson_keith_house_1906_prairie',
@@ -20375,6 +20380,7 @@ for (const [label, viewport, touch] of [
           'walker_house_1720_prairie_coach_house',
           'wheeler_house_1812_prairie_coach_house',
           'dexter_house_1721_prairie',
+          'dexter_house_1721_prairie_frame_house',
           'dexter_house_1721_prairie_coach_house',
           'hibbard_house_1701_prairie',
           'hibbard_house_1701_prairie_coach_house',
@@ -21337,6 +21343,9 @@ for (const [label, viewport, touch] of [
     const ctx14 = await browser.newContext({
       viewport, hasTouch: touch, isMobile: false, deviceScaleFactor: touch ? 2 : 1,
     });
+    // T-3579: this context counts every console.error, and the hosted narration index
+    // is CORS-refused at localhost; the same empty stand-in the main context has.
+    if (wantPublished) await standInNarrationIndex(ctx14, { origin: `http://127.0.0.1:${PORT}` });
     // Every change of the arrival's year, with whether the scene was ready when it
     // showed. Recorded from the first byte, before any page script can run.
     await ctx14.addInitScript(() => {
