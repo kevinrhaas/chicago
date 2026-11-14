@@ -61,11 +61,11 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   const config = { ...loadConfig(), narrators: { essayist: { voice: 'AAAAAAAAAAAAAAAAAAAA', label: 'Cultivated Essayist' }, storyteller: { voice: null, label: 'Midwestern Storyteller' } },
     voices: { glessner_john_j: { voice: 'BBBBBBBBBBBBBBBBBBBB', voice_settings: { style: 0.3 } }, glessner_frances_m: 'Frances Voice' } };
   const scripts = await scriptsFor(config, { only: 'glessner-household-tour' });
-  assert.equal(scripts.length, 12, 'the opening and the ending once for each narrator, each stop once');
+  assert.equal(scripts.length, 11, 'the opening and the ending once for each narrator, each stop once (seven stops since T-3590)');
   const first = plan(scripts, config, { version: 1, clips: {} });
   assert.deepEqual(first.todo.map(s => s.id), ['opening', 'john', 'finish'], 'every chosen voice with no clip is voiced');
   assert.deepEqual(first.todo.map(s => s.key.slice(64)), ['~essayist', '', '~essayist']);
-  assert.equal(first.skipped.length, 9);
+  assert.equal(first.skipped.length, 8);
   assert.match(first.skipped.find(s => s.id === 'frances').reason, /needs ELEVENLABS_API_KEY/, 'a voice name needs the key to resolve');
   assert.equal(first.chars, first.todo.reduce((n, s) => n + s.text.length, 0));
   const named = plan(scripts, config, { version: 1, clips: {} }, new Map([['frances voice', 'CCCCCCCCCCCCCCCCCCCC']]));

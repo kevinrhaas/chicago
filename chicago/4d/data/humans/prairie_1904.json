@@ -3967,9 +3967,13 @@
   {
    "person": "pa1904_glessner_john_j_c1900_kate_ryan",
    "home": "glessner_house",
-   "status": "existing",
+   "status": "absent",
    "age_1904": 54,
-   "portrait": "verified"
+   "portrait": "verified",
+   "asset_id": "ryan_kate_1904_cook",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "cook"
   },
   {
    "person": "pa1904_armour_mrs_philip_d_c1900_lizzie_ryan",

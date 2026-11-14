@@ -2,7 +2,7 @@
   "structure_id": "fort_dearborn_massacre_monument_1893",
   "view": "aic_taylor_1893",
   "glb": "assets/gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb",
-  "glb_sha256": "0094605bbdac0e5c979941817fd628c52c724b789dd68adffa4c6762662f0dab",
+  "glb_sha256": "24758ee21bab612766d50619e0fb6b937dcb49ada9c29d05dedea0f8f7e03764",
   "camera_sha256": "7b063a09f2205f420cce6176a8c7382a45287add0bdab32956f5b5b330a11419",
   "photo_sha256": "4a3526daf3d99feda753e5fbcb7b704429949d7ab39f93d3dfef84d1a2189029",
   "side_by_side": "docs/RESEARCH/photo-match/fort_dearborn_massacre_monument_1893/aic_taylor_1893-side-by-side.jpg",
@@ -61,7 +61,7 @@
       "status": "fixed"
     },
     {
-      "what": "the faces, hair, dress and undress, ornaments and weapons as sculpted: not modelled (the figures are joined from tapered limbs and balls, L-fort-dearborn-monument-3567)",
+      "what": "the faces, hair, dress and undress, ornaments and weapons as sculpted: since T-3588 the bodies are the people rigs (hm08, posed to the joints read here), so each figure has a body, hands, feet and a head with the rig's neutral face and short hair, and the warrior and Black Partridge their rigs' breechcloths, Black Partridge his leggings, Mrs. Helm her rig's gown, the surgeon his coat and pantaloons and the child his jacket and trousers, all cast in the one bronze; none of it is yet modelled to the sculpted faces, hair, drapery, ornaments and weapons (T-3589, L-fort-dearborn-monument-3567)",
       "status": "open"
     },
     {
@@ -81,7 +81,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the figures' masses (T-3583): each figure is still joined from tapered round limbs, balls and a cone of skirt, so the musculature, Mrs. Helm's drapery and cloak, the breechcloths and leggings, Black Partridge's headband and the child's dress read as smooth masses, and Black Partridge's torso reads broader and squarer than the picture's; any figure that departs from the sculpture is open",
+      "what": "the figures' masses: since T-3588 each figure is a posed people rig, not tapered limbs and balls; the warrior's long lunge, Black Partridge's raised hand and the child's kneel read through this camera as bodies. Still open (T-3589): Mrs. Helm's dress is the rig's slim gown inside the cone of skirt the poses kept, the folds and the cloak smooth masses; Black Partridge reads straighter and squarer than the print's",
       "status": "open"
     }
   ],

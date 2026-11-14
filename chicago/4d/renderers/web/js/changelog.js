@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2961, ts: '2026-11-14T03:56:05.406Z', date: 'Nov 13, 2026, 9:56 PM CT', title: 'Glessner household tour for grades 3–5; jaunts tagged by grade', kind: 'feature',
+    items: [
+      'New: The Glessner Household, Grades 3–5 — the same seven people, doors and facts in plain words, listed right after the household tour.',
+      'Every jaunt card now shows the school grades it is written for (most read at grades 6–8), measured from its own words.',
+      'Kate Ryan is off the household tour and out of the 1904 town: Bill Tyre of Glessner House says she was the summer cook while Mattie was in New Hampshire, and the Glessners only ever had one cook at a time. Her best facts now sit in Mattie\'s and Christine\'s stops.',
+    ] },
+  { v: 2960, ts: '2026-11-14T03:09:06.420Z', date: 'Nov 13, 2026, 9:09 PM CT', title: 'The Fort Dearborn monument\'s figures are bodies now', kind: 'improvement',
+    items: [
+      'On 18th Street in 1904, the five bronze figures of the Fort Dearborn Massacre monument are no longer joined from rods and balls: each is one of the walkthrough\'s own people, posed joint by joint to the two photographs of the sculpture and cast in the same bronze.',
+      'Still to do: their faces are the people\'s plain ones, not the sculpted faces, and the hair, drapery, inscription and weathered front panel are not yet modelled.',
+    ] },
   { v: 2959, ts: '2026-11-14T02:46:28.963Z', date: 'Nov 13, 2026, 8:46 PM CT', title: 'The built-so-far walk now stops at 1824 Prairie', kind: 'change',
     items: [
       'The Prairie Avenue walk of finished houses gains a stop at the Pomeroy-Marsh house, 1824 Prairie, between 1812 and 1828. The house itself is unchanged. A light wall beside its bay in the automobile photograph had seemed to run at an angle to the street. Read again beside the block\'s second photograph, it is the house\'s south side wall as built, so the house now counts as matching its picture. 1828\'s front is still being worked to its photograph.',

@@ -2,7 +2,7 @@
   "structure_id": "fort_dearborn_massacre_monument_1893",
   "view": "chm_ichi_19208",
   "glb": "assets/gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb",
-  "glb_sha256": "0094605bbdac0e5c979941817fd628c52c724b789dd68adffa4c6762662f0dab",
+  "glb_sha256": "24758ee21bab612766d50619e0fb6b937dcb49ada9c29d05dedea0f8f7e03764",
   "camera_sha256": "1fb8567be2a086825d2a95769465268bdae263f362f6071e1726f33d6c9d4d24",
   "photo_sha256": "7ec1f304bc3d8a9929791313a647f18ff2b5cfbac5006b7ed8e579820c0de16b",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "0094605bbdac0e5c979941817fd628c52c724b789dd68adffa4c6762662f0dab"
+      "glb_sha256": "24758ee21bab612766d50619e0fb6b937dcb49ada9c29d05dedea0f8f7e03764"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b"
     }
   ],
-  "group_sha256": "fdba01da3d85c4d764e76e055f5744e7156207fdaf24c515c0904db3efd8e2a6",
+  "group_sha256": "66299577fae19fe08d98eda7138df329ff17dc766e6b458587fa0b2cb69f9ef7",
   "side_by_side": "docs/RESEARCH/photo-match/fort_dearborn_massacre_monument_1893/chm_ichi_19208-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -117,7 +117,7 @@
       "status": "fixed"
     },
     {
-      "what": "the faces, hair, dress and undress, ornaments and weapons as sculpted: not modelled (the figures are joined from tapered limbs and balls, L-fort-dearborn-monument-3567)",
+      "what": "the faces, hair, dress and undress, ornaments and weapons as sculpted: since T-3588 the bodies are the people rigs (hm08, posed to the joints read here), so each figure has a body, hands, feet and a head with the rig's neutral face and short hair, and the warrior and Black Partridge their rigs' breechcloths, Black Partridge his leggings, Mrs. Helm her rig's gown, the surgeon his coat and pantaloons and the child his jacket and trousers, all cast in the one bronze; none of it is yet modelled to the sculpted faces, hair, drapery, ornaments and weapons (T-3589, L-fort-dearborn-monument-3567)",
       "status": "open"
     },
     {
@@ -137,7 +137,7 @@
       "status": "not shown"
     },
     {
-      "what": "the figures' masses (T-3583): each figure is still joined from tapered round limbs, balls and a cone of skirt, so the musculature, Mrs. Helm's drapery and cloak, the breechcloths and leggings, Black Partridge's headband and the child's dress read as smooth masses, and Black Partridge's torso reads broader and squarer than the picture's; any figure that departs from the sculpture is open",
+      "what": "the figures' masses: since T-3588 each figure is a posed people rig, not tapered limbs and balls, and the five read as bodies in the plate's places and attitudes. Still open (T-3589): Black Partridge stands straighter than the plate's (his torso does not bend to the warrior as far, so his head is a little high and his chest broad and square-on); Mrs. Helm's dress is the rig's slim gown inside the cone of skirt the poses kept, so its folds and her cloak are smooth masses; the warrior's torso reads upright where the plate's twists to the woman",
       "status": "open"
     }
   ],
