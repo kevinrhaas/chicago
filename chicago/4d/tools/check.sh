@@ -670,6 +670,12 @@ step "Driven assembly retains named drivers, vehicle ownership and exact current
   node tools/test_driven_assembly.mjs
 step "The 1812 fort wagons' rows are what their layer writes: roads, stops and hours (T-3497)" \
   node tools/lay_driven_wagons_1812.mjs --check
+step "The two more 1904 carriages' rows are what their layer writes: lanes off the street grid, counter-clockwise, their coachmen, stops and finishes (T-3555)" \
+  node tools/lay_driven_carriages_1904.mjs --check
+step "Where the 1904 carriages' roads cross one gives way and waits for the other: no overlap, no lock, everyone keeps going round (T-3555)" \
+  node tools/test_transport_crossings.mjs
+step "Each 1904 carriage its own paint, wear and marks on one program, no texture, glass and the inside clean (T-3558)" \
+  node tools/test_coachwork.mjs
 step "The 1812 crossing boats are what their layer writes: on dry banks, afloat at the stern, a path deep enough to float them over (T-3510)" \
   python3 tools/lay_crossing_boats_1812.py --check
 step "Every 1812 boat builds, rests bow up the bank, and carries a visitor across and back with no jump, and the wharf's deck sits on its crib (T-3510)" \

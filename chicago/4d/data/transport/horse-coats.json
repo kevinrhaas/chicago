@@ -120,6 +120,8 @@
     "1835:western_hotel_driven_wagon_loop_1835": "chestnut",
     "1835:western_hotel_yard_standing_horse_01": "iron_grey",
     "1904:prairie_driven_brougham_loop_1904": "iron_grey",
+    "1904:prairie_driven_brougham_north_loop_1904": "dark_bay",
+    "1904:prairie_driven_brougham_south_loop_1904": "chestnut",
     "1904:prairie_parked_studebaker_brougham": "bay"
   },
   "individual_policy": "Palette keyed by scene/team row; blaze, four sock tops and dapple phase keyed by scene/row/individual side. Stable across reload and visibility/LOD reacquisition. No time, camera or random seed.",
@@ -554,5 +556,5 @@
   },
   "source_protection": "Original geometry/UV/skin/IBMs/joints/clips/maps unchanged; shader colour only. Derived anchors do not replace complete-hoof classifiers.",
   "native_all_path_visual_qualification": "UNRUN",
-  "recipe_sha256": "f7ceb0de2e60e3f9555746ef43cd6495f58d4fd39cc393b4607840fd13be791e"
+  "recipe_sha256": "6479ceef6e72dac33a8ed84cee679e1fcb3a56727334bc6b56f21bb7c0f34181"
 }
