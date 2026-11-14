@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2981, ts: '2026-11-14T20:04:36.826Z', date: 'Nov 14, 2026, 2:04 PM CT', title: '1708 Prairie weathers to its own age beside an older neighbour', kind: 'improvement',
+    items: [
+      '1708 Prairie, built between 1886 and 1901, now carries only three years of soot and damp, where it wore a forty-year-old house\'s grime.',
+      'Its front reads nearly clean, a visible contrast with 1808 Prairie\'s weathered stone a block south, which has stood since 1886.',
+      'The year is a bound, not a date: the 1886 atlas shows the lot empty and a 1901 photograph shows the house finished. The completion year is reconstructed, and it is recorded as a liberty.',
+    ] },
   { v: 2980, ts: '2026-11-14T18:37:45.748Z', date: 'Nov 14, 2026, 12:37 PM CT', title: 'The boot budget re-measured after four days of the town\'s people', kind: 'fix',
     items: [
       'The first visit to the 1835 street now downloads 44.9 MB, 0.2 MB more than on November 10. Nearly all of it is the people\'s code and records: their mouths, faces and dress, and the new sign-in and window controls. The budget moves to 45.2 MB, with what grew written down file by file, so every pull request\'s build can go green again.',
