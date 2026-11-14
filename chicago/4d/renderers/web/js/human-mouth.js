@@ -3,8 +3,8 @@
 //
 // The owner, 2026-11-13, of the Greys' stand-in likenesses: "add what is needed to the face
 // model to make it work and eventually speak, i want them photographic matched". A person
-// whose front picture grins rests with their mouth shut, as their other pictures show it, and
-// moves into the grin: human-variation.js gives their body a morph target for it (SMILE), from
+// whose front picture grins (or who has a picture of their smile of its own) rests with their
+// mouth shut, as their other pictures show it, and moves into the grin: human-variation.js gives their body a morph target for it (SMILE), from
 // the smile their record fitted to that picture (tools/bake_likeness_skin.py). Two things here:
 //
 // The teeth. Between parted lips something has to stand. The record (`texture.teeth`) gives a
@@ -32,7 +32,7 @@
 // human-actions.js, which knows when the person greets and talks, tells it each frame.
 // `say(level)` is where a voice goes when one speaks for them: it takes the jaw outright, a
 // level at a time, in place of that run. Everyone without a smile is left exactly as drawn.
-// Reconstructed motion: liberty L-grey-smile-3553.
+// Reconstructed motion: liberties L-grey-smile-3553 and L-grey-sarah-smile-3553.
 import * as THREE from 'three';
 import { rawView, isWhole, fullOf } from './human-fine.js';
 import { SMILE, seededRandom } from './human-variation.js';

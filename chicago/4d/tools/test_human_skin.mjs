@@ -470,7 +470,11 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
   const persons = JSON.parse(await fs.readFile(new URL('assets/humans/web/hm08_variation_persons.json', here), 'utf8')).persons;
   const toothRect = likenessLayout({ ...persons.pa1904_grey_w_l.skin, url: 'http://example.invalid/w_skin.jpg' })?.teeth?.rect;
   assert(toothRect && toothRect[2] > toothRect[0] && toothRect[3] > toothRect[1], 'William Grey\'s record has teeth, and their part of the map');
-  assert.equal(likenessLayout({ ...persons.pa1904_grey_mrs_w_l.skin, url: 'http://example.invalid/s_skin.jpg' }).teeth, null, 'Sarah Grey\'s has none');
+  // Sarah Grey's are her own photograph of the smile's, in the same part of her sheet; a record
+  // without teeth has none.
+  const herRect = likenessLayout({ ...persons.pa1904_grey_mrs_w_l.skin, url: 'http://example.invalid/s_skin.jpg' })?.teeth?.rect;
+  assert(herRect && herRect[2] > herRect[0] && herRect[3] > herRect[1], 'Sarah Grey\'s record has teeth, and their part of the map');
+  assert.equal(likenessLayout({ ...persons.pa1904_grey_mrs_w_l.skin, teeth: undefined, url: 'http://example.invalid/s_bare.jpg' }).teeth, null, 'a record with no teeth has none');
   let cornered = 0;
   for (const asset of ['glessner_john_j_1904', 'glessner_frances_m_1904']) for (const lod of [0, 1, 2, 3]) {
     const gltf = await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(bare(await fs.readFile(new URL(`assets/humans/web/${asset}.lod${lod}.glb`, here))), '');
@@ -486,7 +490,7 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
         const area = shaded.reduce((a, r) => a + within(tri, r), 0);
         if (area > 0) { assert(head, `${asset} lod${lod}: a triangle of ${names.join(', ')} lies in the mouth's shade`); inMouth += area; }
         if (!head && within(tri, corner) > 0) cornered++;
-        assert.equal(within(tri, toothRect), 0, `${asset} lod${lod}: a triangle of ${names.join(', ')} lies in the teeth's part of the map`);
+        for (const rect of [toothRect, herRect]) assert.equal(within(tri, rect), 0, `${asset} lod${lod}: a triangle of ${names.join(', ')} lies in the teeth's part of the map`);
       }
     });
     assert(skins > 0 && inMouth > 0.01, `${asset} lod${lod}: the inside of the mouth is in its shade (${inMouth.toFixed(4)} of the map)`);

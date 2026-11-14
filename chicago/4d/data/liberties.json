@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1127,
+  "count": 1128,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -74295,6 +74295,40 @@
         {
           "label": "Re-opens on",
           "text": "a photograph of either Grey; photographs of the stand-ins from above or below; the owner withdrawing the pictures; a refit of a head, after which its sheet and its front picture are baked again."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-14."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
+      "id": "L-grey-sarah-smile-3553",
+      "title": "Sarah Grey smiles into a photograph of her stand-in's smile, with its teeth",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "“William Grey rests with his mouth shut and smiles into his front photograph's grin, with its teeth” left Sarah Grey without a smile, because the sheet's pictures of her stand-in show the mouth shut; this entry supersedes that sentence. On 2026-11-14 the owner supplied a photograph of the same stand-in smiling, her upper teeth showing (\"Here are her teeth\"), and asked whether she could speak as William Grey does. the likeness skin generator now takes a picture of the smile of its own, named in the person's skin record (smile view) and handed over with `--smile`. The photograph is not one of the sheet's: it was taken out of doors, close to and from a little below, with the head tilted 34 degrees. It is levelled and cut to the head, a face detector's points are found on it, and its camera is placed by the points above the nose's base (8.5 degrees round and 10.6 degrees up from straight ahead). A real photograph of a face does not lie on a face fitted to other pictures: its points stood 3.5 mm from the fitted face's on average, and fitted to it as it stood the smile came out lopsided, with a crease down one cheek. So the photograph is first laid on the fitted face at rest (read smile view): each of the 308 points more than 10 mm from the lips is moved onto the fitted face's own point, and the picture between them is carried smoothly with them (a thin-plate spline; the furthest any point of the picture is carried is 15.8 mm, at the chin, which the near lens draws low). What is then left different is the mouth, and the smile is fitted to that as William Grey's is to his sheet's front picture: the same ten MakeHuman mouth shapes, then the face within the picture's plane, then the lips. The drawn opening and the photograph's share 97 percent of their area, their edges lie 0.09 mm apart on average, and the 331 points of the cheeks, nose and lids lie 0.5 mm from the photograph's on the smiling face against 1.0 mm on the resting one. Behind her lips stands the same strip of 17 by 5 points, coloured from the photograph's opening, so the upper teeth are her stand-in's. The photograph was taken in open shade and the sheet in a warmer light, so its colour is first brought to the sheet's by the same skin in both, from 3.5 to 15 mm round the lips (red times 1.16, green 0.93, blue 0.66). The photograph is laid on no skin: her skin, at rest and smiling, is the sheet's. In the app she gives the smile as William Grey does: to a visitor within 3.2 m in front of her and with her greeting, four tenths of it while she talks, her jaw moving in the same uneven run of syllables. Her card's still keeps the resting face, and her card now says that the smile and its teeth come from a separate photograph."
+        },
+        {
+          "label": "Not invented",
+          "text": "the photograph and the sheet; the fitted face (“Prairie Avenue appearances”); MakeHuman's shapes; who the Greys were."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "all of it is the stand-in's smile and teeth, graded reconstructed, and no evidence of how Sarah Grey smiled or whether she did. Laying the photograph on the fitted face changes it: the smile is the photograph's as far as the mouth goes, on a face that is the sheet's, and whatever of the smile the photograph shows in the cheeks and round the eyes beyond what the detector's points carry is lost. The teeth's colour is the photograph's under a correction read from skin, not from teeth. When she smiles, for how long, how much of it she keeps while talking and the jaw's rhythm are ours, as William Grey's are. The lower teeth and the tongue are not modelled."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a photograph of Sarah Grey; a picture of the stand-in smiling taken with the sheet (level, from the front, in its light), which would need no laying on; the owner withdrawing the pictures; a refit of the head, after which the smile is fitted and the sheet baked again; a voice for her, which the jaw then follows (`mouth.say`)."
         },
         {
           "label": "Recorded",
