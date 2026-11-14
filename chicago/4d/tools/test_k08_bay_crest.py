@@ -13,7 +13,10 @@ the same carving on a bay light's lintel. This holds the kit and the record to i
     and one rising past its storey;
   * 1816's record: every light of both bays' two storeys over the basement crested, none in
     the basement; each bay builds with one crest per light, each standing on its light's
-    lintel, no wider than it, and under the storey over it.
+    lintel, no wider than it, and under the storey over it;
+  * T-3370: `past_band: true` lets a crest rise past its storey's band into the storey over it
+    (1936's tower pair), refused when it is not true, on a top storey, past the storey over it,
+    or onto a light of the storey over it; 1936's tower pair builds so, into its blind stage.
 
     python3 tools/test_k08_bay_crest.py
 """
@@ -102,6 +105,50 @@ for b in p.bays:
               f"{b['id']}: no crest stands taller than its 0.35 m over the highest lintel")
         check(min(q[1] for q in cv.pos) >= min(q[1] for q in heads) - 1e-6,
               f"{b['id']}: every crest stands on a lintel, none below one")
+
+# -- T-3370: a crest let past its storey's band ------------------------------------------------
+refused(lambda b: upper(b)["crest"].update(past_band=False), "a crest's past_band that is not true")
+refused(lambda b: b["storeys"][-1]["windows"][0].setdefault("crest", dict(upper(b)["crest"])).update(past_band=True)
+        if b["storeys"][-1]["windows"] else (_ for _ in ()).throw(ValueError("no top light")),
+        "a crest let past the band on the top storey")
+SID2 = "house_1918_prairie"
+st2 = json.loads((ROOT / "data" / "structures" / f"{SID2}.json").read_text())
+ph2 = next(ph for ph in st2["phases"] if ph["form"].get("bays"))
+p2 = KP.from_phase(ph2, st2)
+tw = [b for b in p2.bays if any((w.get("crest") or {}).get("past_band")
+                               for s_ in b["variant"]["storeys"] for w in s_["windows"])]
+check(len(tw) == 1, "1936 has one bay whose crests are let past its band (the tower)")
+if tw:
+    v2 = tw[0]["variant"]
+    k2 = next(k for k, s_ in enumerate(v2["storeys"]) if any((w.get("crest") or {}).get("past_band") for w in s_["windows"]))
+    check(not v2["storeys"][k2 + 1]["windows"], "the storey over the tower pair is blind")
+    built2 = K8.Bay(v2, K8.load(), "full").build(board=False)
+    # the whole stage over the cornice takes the bay's meta for its own, so read the carving
+    lv = built2.meta.get("levels_m")
+    cv2 = [q for q in built2.prims["carving"].pos] if "carving" in built2.prims else []
+    check(lv is not None and any(lv[k2 + 1] + 0.1 < q[1] < lv[k2 + 2] for q in cv2),
+          "the tower pair's crests rise past the storey's band into the blind stage")
+    check(lv is not None and all(q[1] < lv[k2 + 2] - 0.05 for q in cv2 if q[1] > lv[k2]),
+          "and stop under the blind stage's top")
+
+    def deeper(mut):
+        s2 = copy.deepcopy(st2)
+        ph = next(ph for ph in s2["phases"] if ph["form"].get("bays"))
+        b = next(b for b in ph["form"]["bays"]["value"] if b["id"] == tw[0]["id"])
+        mut(b)
+        v3 = next(x for x in KP.from_phase(ph, s2).bays if x["id"] == tw[0]["id"])["variant"]
+        K8.Bay(v3, K8.load(), "full").build(board=False)
+
+    def taller_storey_over(b):
+        b["storeys"][k2 + 1]["windows"] = [dict(next(w for w in b["storeys"][k2]["windows"] if w.get("crest")),
+                                                sill_m=0.1, clear_height_m=1.2)]
+        b["storeys"][k2 + 1]["windows"][0].pop("crest")
+        b["storeys"][k2 + 1]["windows"][0].pop("surround", None)
+    try:
+        deeper(taller_storey_over)
+        check(False, "refused: a crest let past the band onto a light of the storey over it")
+    except (KP.ParamError, ValueError):
+        check(True, "refused: a crest let past the band onto a light of the storey over it")
 
 a = K1.build(p, SID)
 check(a is not None, "1816 builds")

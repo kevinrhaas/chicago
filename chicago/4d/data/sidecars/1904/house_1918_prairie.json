@@ -696,16 +696,17 @@
                     0.524,
                     0.696
                   ],
-                  "why_not_ordinary": "the 1869 Tribune's dressing room in the tower, 'lighted by two windows over main entrance': paired over the door (T-3367), as the photograph draws two lights over the porch. T-3370 (eleventh pass): the photograph draws the pair over the porch under heavy carved hoods crested as the front's chamber lights are (x about 1690-1810 px, y 500-540): each light in a moulded brownstone surround (K08's T-2931 jambs 0.1 m broad, as the pair's narrow pier between them allows, under a 0.25 m head 0.12 m proud) with K09's carved crest on its head, 0.9 m wide and 0.32 m high, as tall as the storey's band over it allows (K08 refuses a crest into the band); the print's hood and crest rise about 1.2 m over the lights' heads where the build's reach about 0.6 m, which stays open in the match record (sizes reconstructed off the print, liberty L-k01-1936-allerton-1901)",
+                  "why_not_ordinary": "the 1869 Tribune's dressing room in the tower, 'lighted by two windows over main entrance': paired over the door (T-3367), as the photograph draws two lights over the porch. T-3370 (eleventh pass): the photograph draws the pair over the porch under heavy carved hoods crested as the front's chamber lights are (x about 1690-1810 px, y 500-540): each light in a moulded brownstone surround (K08's T-2931 jambs 0.1 m broad, as the pair's narrow pier between them allows, under a 0.25 m head 0.12 m proud) with K09's carved crest on its head, 0.9 m wide; T-3370 (twelfth pass): the print's hoods and crests rise about 1.15 m over the lights' heads (the left crest's top at about y 510 px over heads near 555, on the tower front's 39.6 px a metre), up into the blind stage over the storey, so each surround's head is the deep hood K08 allows (0.4 m) and its crest 0.6 m high is let past the storey's band (crest.past_band, as K08's scrolled pediment may rise; the blind stage over it has no light for it to reach), hood and crest about 1.0 m over the heads where they had stopped at 0.57 m under the band (sizes reconstructed off the print, liberty L-k01-1936-allerton-1901)",
                   "crest": {
                     "width_m": 0.9,
-                    "height_m": 0.32,
-                    "proud_m": 0.1
+                    "height_m": 0.6,
+                    "proud_m": 0.1,
+                    "past_band": true
                   },
                   "surround": {
                     "band_m": 0.1,
                     "proud_m": 0.04,
-                    "head_m": 0.25,
+                    "head_m": 0.4,
                     "head_proud_m": 0.12
                   }
                 }
