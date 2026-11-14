@@ -1647,12 +1647,25 @@ class Bay:
                         wd = min(w["crest"]["width_m"], hx1 - hx0)
                         cx = (hx0 + hx1) / 2
                         top = crest(flat, w["crest"], cx, hy, wd)
-                        if top > hi - (band["height_m"] / 2 if k + 1 < len(v["storeys"]) else 0.0) - 0.02:
+                        if w["crest"].get("past_band") and k + 1 < len(v["storeys"]):
+                            # T-3370: a crest let past its storey's floor band (1936's tower pair,
+                            # the Chicagology photograph), as a scrolled pediment may: never onto a
+                            # light of the storey over it, never past that storey
+                            for w2, s2 in per_run[i][k + 1]:
+                                o2 = window(w2, s2, levels[k + 1] + w2["sill_m"], w2.get("recess_m", recess))
+                                q2 = [q for pr_ in o2.prims.values() for q in pr_.pos]
+                                if min(q[0] for q in q2) < cx + wd / 2 + 0.05 and max(q[0] for q in q2) > cx - wd / 2 - 0.05 \
+                                        and min(q[1] for q in q2) < top + 0.05:
+                                    raise ValueError(f"{v['id']}: a crest at s = {s:.3f} rises to {top:.3f} m, "
+                                                     f"onto the light over it at s = {s2:.3f}")
+                            if top > hi + (levels[k + 2] - hi if k + 2 < len(levels) else 0.0) - 0.05:
+                                raise ValueError(f"{v['id']}: a crest at s = {s:.3f} rises past the storey over it")
+                        elif top > hi - (band["height_m"] / 2 if k + 1 < len(v["storeys"]) else 0.0) - 0.02:
                             raise ValueError(f"{v['id']}: a crest at s = {s:.3f} rises to {top:.3f} m, "
                                              f"into the band at {hi:.3f}")
                         self.meta["crests"] = self.meta.get("crests", 0) + 1
                         if v.get("masonry"):
-                            trim_holes.append((cx - wd / 2 - .002, cx + wd / 2 + .002, hy - .002, top + .002, (), True))
+                            trim_holes.append((cx - wd / 2 - .002, cx + wd / 2 + .002, hy - .002, min(top, hi) + .002, (), True))
                     if v.get("masonry"):
                         for role in ("sill", "head"):
                             pts = o.prims[role].pos

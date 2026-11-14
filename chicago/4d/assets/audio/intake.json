@@ -142,8 +142,8 @@
       "scene_placement": {
         "mode": "moving-transport",
         "anchor": "harness",
-        "gain": 0.15,
-        "max_distance_m": 32,
+        "gain": 0.3,
+        "max_distance_m": 48,
         "bindings": [
           {
             "scene": "1812",
@@ -193,9 +193,57 @@
               "shore_road_wagon_haul_1812"
             ],
             "season": "winter"
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-04-15",
+            "season": "spring",
+            "actor_ids": [
+              "western_hotel_driven_wagon_loop_1835"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-10-15",
+            "season": "fall",
+            "actor_ids": [
+              "western_hotel_driven_wagon_loop_1835"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-02-15",
+            "season": "winter",
+            "actor_ids": [
+              "western_hotel_driven_wagon_loop_1835"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-04-15",
+            "season": "spring",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-10-15",
+            "season": "fall",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-02-15",
+            "season": "winter",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904"
+            ]
           }
         ],
-        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed. The 1812 spring/fall/winter dates follow the existing seasonal viewing choices, only while those actual teams are visible and moving; this is not historical presence attestation on those dates."
+        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed. The 1812 spring/fall/winter dates follow the existing seasonal viewing choices, only while those actual teams are visible and moving; this is not historical presence attestation on those dates. T-3587 (owner, 2026-11-13: \"i could barely hear them\"): the 1835 and 1904 teams sound at each scene's spring/fall/winter viewing dates too, only while those actual teams are visible and moving; this is not historical presence attestation on those dates. Level and reach are listening choices (L-team-sounds-3587)."
       }
     },
     {
@@ -467,7 +515,8 @@
       ],
       "approved_eras": [
         "1812",
-        "1835"
+        "1835",
+        "1904"
       ],
       "seasons_proposed": [
         "spring",
@@ -481,8 +530,8 @@
       "scene_placement": {
         "mode": "moving-transport",
         "anchor": "wagon",
-        "gain": 0.22,
-        "max_distance_m": 40,
+        "gain": 0.3,
+        "max_distance_m": 48,
         "bindings": [
           {
             "scene": "1812",
@@ -525,9 +574,68 @@
               "shore_road_wagon_haul_1812"
             ],
             "season": "winter"
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-04-15",
+            "season": "spring",
+            "actor_ids": [
+              "western_hotel_driven_wagon_loop_1835"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-10-15",
+            "season": "fall",
+            "actor_ids": [
+              "western_hotel_driven_wagon_loop_1835"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-02-15",
+            "season": "winter",
+            "actor_ids": [
+              "western_hotel_driven_wagon_loop_1835"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-07-01",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904"
+            ],
+            "gain": 0.18
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-04-15",
+            "season": "spring",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904"
+            ],
+            "gain": 0.18
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-10-15",
+            "season": "fall",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904"
+            ],
+            "gain": 0.18
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-02-15",
+            "season": "winter",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904"
+            ],
+            "gain": 0.18
           }
         ],
-        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed. The source describes a large wooden wagon rolling downhill; use is a mechanical-texture proxy, not a claim about Chicago road surface. Excluded from the 1904 brougham. The 1812 spring/fall/winter dates follow the existing seasonal viewing choices, only while those actual teams are visible and moving; this is not historical presence attestation on those dates."
+        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed. The source describes a large wooden wagon rolling downhill; use is a mechanical-texture proxy, not a claim about Chicago road surface. The 1904 brougham (T-3587) takes it at a lower binding gain, a light carriage rolling on the street paving: a wheel-rumble proxy, not a recording of rubber or iron tyres on asphalt or brick. The 1812 spring/fall/winter dates follow the existing seasonal viewing choices, only while those actual teams are visible and moving; this is not historical presence attestation on those dates. T-3587 (owner, 2026-11-13: \"i could barely hear them\"): the 1835 and 1904 teams sound at each scene's spring/fall/winter viewing dates too, only while those actual teams are visible and moving; this is not historical presence attestation on those dates. Level and reach are listening choices (L-team-sounds-3587)."
       }
     },
     {
@@ -1513,7 +1621,9 @@
         "1904"
       ],
       "approved_eras": [
-        "1812"
+        "1812",
+        "1835",
+        "1904"
       ],
       "seasons_proposed": [
         "spring",
@@ -1526,8 +1636,8 @@
       "fauna_references": [],
       "scene_placement": {
         "mode": "hoof-contact",
-        "gain": 0.24,
-        "max_distance_m": 32,
+        "gain": 0.3,
+        "max_distance_m": 40,
         "bindings": [
           {
             "scene": "1812",
@@ -1564,9 +1674,73 @@
               "fort_wagon_loop_1812",
               "shore_road_wagon_haul_1812"
             ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-07-01",
+            "season": "summer",
+            "actor_ids": [
+              "western_hotel_driven_wagon_loop_1835"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-04-15",
+            "season": "spring",
+            "actor_ids": [
+              "western_hotel_driven_wagon_loop_1835"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-10-15",
+            "season": "fall",
+            "actor_ids": [
+              "western_hotel_driven_wagon_loop_1835"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-02-15",
+            "season": "winter",
+            "actor_ids": [
+              "western_hotel_driven_wagon_loop_1835"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-07-01",
+            "season": "summer",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-04-15",
+            "season": "spring",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-10-15",
+            "season": "fall",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-02-15",
+            "season": "winter",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904"
+            ]
           }
         ],
-        "note": "Reconstructed short dirt-contact proxies on the two visible moving 1812 wagon teams, timed by each actual horse gait. Non-summer dates are existing seasonal viewing reconstructions, not attested presence on those dates. Actual renderer snow-look amount damps and low-passes the dirt recording; this is not a real snow recording or measured local snow depth. No extra mechanical voices are removed."
+        "note": "Reconstructed short dirt-contact proxies on the two visible moving 1812 wagon teams, timed by each actual horse gait. Non-summer dates are existing seasonal viewing reconstructions, not attested presence on those dates. Actual renderer snow-look amount damps and low-passes the dirt recording; this is not a real snow recording or measured local snow depth. No extra mechanical voices are removed. T-3587: the 1835 Western Hotel wagon team and the 1904 Prairie Avenue brougham pair are heard hoof by hoof the same way; on the 1904 asphalt and brick the dirt recording is a declared proxy for a harder street, not a recording of it. T-3587 (owner, 2026-11-13: \"i could barely hear them\"): the 1835 and 1904 teams sound at each scene's spring/fall/winter viewing dates too, only while those actual teams are visible and moving; this is not historical presence attestation on those dates. Level and reach are listening choices (L-team-sounds-3587)."
       },
       "runtime_contact_processing": {
         "delivery_sha256": "1e9d75c58b4bb7bc87bd8251433afd60ccdfbda20571efce62262b23d598836c",

@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2954, ts: '2026-11-14T00:51:53.436Z', date: 'Nov 13, 2026, 6:51 PM CT', title: 'Horses and carriages you can hear as they pass', kind: 'feature',
+    items: [
+      'Driven teams are now clearly audible as they roll by, louder than the birds and wind, and fade out down the block.',
+      'Hoofbeats now sound in 1835 and 1904 too, not only 1812, timed to each horse\'s steps.',
+      'The 1904 Prairie Avenue carriage now has its wheels, quieter than a loaded wagon. Teams are heard in every season, not only summer.',
+    ] },
+  { v: 2953, ts: '2026-11-14T00:08:14.282Z', date: 'Nov 13, 2026, 6:08 PM CT', title: 'Find and Follow wait outside for someone to come out', kind: 'fix',
+    items: [
+      'Finding or following someone at home now sets you down outside their front door, facing it, never inside the house.',
+      'Follow starts once they are out of the doorway, and stops at their door when they go back in.',
+      '2000 and 2010 Prairie\'s front doors are on their front blocks now, and people come out at the foot of the porch steps.',
+    ] },
   { v: 2952, ts: '2026-11-13T23:22:11.137Z', date: 'Nov 13, 2026, 5:22 PM CT', title: '1801 Prairie\'s slate over its south return is one face, as photographed', kind: 'improvement',
     items: [
       'On the Kimball house at 1801 Prairie, the slate over the stone return beside the round bay\'s balcony now rises as one face from the return\'s capped top to the corner of the roof, and the roof\'s corner line runs straight down from the hood on the deck past the return to the balcony, as the 1965 survey photograph shows. The extra fold of slate and the upright slate strip that stood over the return are gone.',

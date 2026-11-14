@@ -2,7 +2,7 @@
   "structure_id": "house_1918_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_1918_prairie__as_mapped_1904.glb",
-  "glb_sha256": "dcf7e08473c67caf619ed88082b63882cbfd3a355fc8ccff09d38744dab05751",
+  "glb_sha256": "5aa9739e01b7d772af1c91048eef340ca4642f9d27645a81aa9429868146486c",
   "camera_sha256": "c5c49af27eec1d98bff1ffde086b8c22674806b06a0ed68eafa2bfba3072f1db",
   "photo_sha256": "7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a",
   "side_by_side": "docs/RESEARCH/photo-match/house_1918_prairie/chicagology_photo-side-by-side.jpg",
@@ -109,7 +109,11 @@
       "status": "fixed"
     },
     {
-      "what": "the tower's pair over the entrance porch: the print's carved hoods and crests rise about 1.2 m over the lights' heads (the left crest's top at about y 510 px over heads near 555), into the blind stage over the storey; the build's surround head and crest reach about 0.6 m (crest tops at y about 523 px), because K08 stops a light's crest under the storey's band (a crest that crosses the band, as K08's scrolled pediment may, is a kit change)",
+      "what": "the tower's pair over the entrance porch: the print's carved hoods and crests rise about 1.2 m over the lights' heads (the left crest's top at about y 510 px over heads near 555), into the blind stage over the storey; the build's surround head and crest reach about 0.6 m (crest tops at y about 523 px), because K08 stops a light's crest under the storey's band (a crest that crosses the band, as K08's scrolled pediment may, is a kit change). T-3370 (twelfth pass): K08 now lets a light's crest past its storey's band (crest.past_band, never onto a light of the storey over it, never past that storey, as the scrolled pediment may), and the pair's surround heads are the deep 0.4 m hood under a 0.6 m crest let up into the blind stage: the render's crest tops stand at about y 505 px over heads near 547 (about 1.0 m), against the print's 510 over 555 (about 1.15 m), the 5 px between them inside the camera's spread",
+      "status": "fixed"
+    },
+    {
+      "what": "the verandah's and the entrance porch's balconies (seen on T-3370's twelfth pass, not built here): the print draws each over a corbelled entablature as a pale moulded balustrade (the verandah's x about 1420-1640 px, y 637-680; the porch's x 1690-1820, y 650-690), the dark wall showing between its balusters and the corbels' shadows under it; the render's reads as one plain slab in the walls' tone, about 1.7 m deep (y about 607-673 over the verandah), no balusters, corbels or mouldings resolving, and its top about 30 px (0.75 m) over the print's, though the record gives the corner porch a 0.55 m entablature and a 0.9 m balustrade",
       "status": "open"
     }
   ],
