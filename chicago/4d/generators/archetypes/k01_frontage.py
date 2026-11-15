@@ -4327,6 +4327,7 @@ class Assembly:
                           "top_m": round(y3, 4),
                           **({"columns": len(cols.get("at_s_m", (0, 0)))} if cols else {}),
                           **({"arches": self._arch_count} if cols and h.get("arches") else {}),
+                          **({"flutes": cols["flutes"]} if cols and cols.get("flutes") else {}),
                           **({"fabric": "stone"} if mat == "bay_stone" else {}),
                           **({"railing_fabric": h["railing_fabric"]} if h.get("railing_fabric") else {})}
 
@@ -4369,7 +4370,7 @@ class Assembly:
         T-3186: or each capital carved, a bell of leaves under its abacus (`carved`).
         T-3210: or under an arcade (`arches`), the capitals at its springing.
         T-1887: and a third column at a splayed end's back (`splay`), against a bay's cheek,
-        with no respond behind it."""
+        with no respond behind it. T-1902: or each shaft fluted (`flutes`)."""
         dia, (pw, ph), cap, rsp = co["diameter_m"], co["plinth_m"], co["capital_m"], co["respond_m"]
         cv = co.get("carved")
         yl = op.sill_m                                   # the landing, the door's own sill
@@ -4393,10 +4394,15 @@ class Assembly:
                     self.bell("carved_trim", C, R, N, C[1] + lo, C[1] + hi, r + 0.01 + 0.02 * t,
                               r + 0.05 + 0.025 * t, seed, conf)
             ya, yb = yl + ph, ys - cap
-            for k in range(seg):
-                a0, a1 = 2 * math.pi * k / seg, 2 * math.pi * (k + 1) / seg
+            # T-1902: a fluted shaft rings an arris at the radius with a flute's hollow under it,
+            # `flutes` of each round (the verandah's, k01_porte_cochere._fluted)
+            nf = co.get("flutes")
+            n_, rk = (2 * nf, lambda i: 1.0 if i % 2 == 0 else 0.9) if nf else (seg, lambda i: 1.0)
+            for k in range(n_):
+                a0, a1 = 2 * math.pi * k / n_, 2 * math.pi * (k + 1) / n_
                 am = (a0 + a1) / 2
-                q = [(cs + r * math.cos(a), cd + r * math.sin(a)) for a in (a0, a1)]
+                q = [(cs + r * rk(i) * math.cos(a), cd + r * rk(i) * math.sin(a))
+                     for i, a in ((k, a0), ((k + 1) % n_, a1))]
                 quad([P(q[0][0], ya, q[0][1]), P(q[1][0], ya, q[1][1]), P(q[1][0], yb, q[1][1]), P(q[0][0], yb, q[0][1])],
                      self._hood_dir(P, am), bf)
             # the respond: a flat pilaster on the wall behind the column, landing to soffit

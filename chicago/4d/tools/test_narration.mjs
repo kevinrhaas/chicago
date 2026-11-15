@@ -255,8 +255,10 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
     el.dispatchEvent(new Event('playing'));
     assert.deepEqual(v.voice(), { speaker: 'glessner_john_j', level: 1 }, 'and theirs again when it plays');
     el.dispatchEvent(new Event('waiting'));
-    el.readyState = 2; el.dispatchEvent(new Event('timeupdate'));
-    assert.equal(v.voice(), null, 'time told with no data in hand is still waiting');
+    for (const state of [0, 1, 2]) {
+      el.readyState = state; el.dispatchEvent(new Event('timeupdate'));
+      assert.equal(v.voice(), null, `time told with no data for the next moment in hand (${state}) is still waiting`);
+    }
     el.readyState = 3; el.dispatchEvent(new Event('timeupdate'));
     assert.equal(v.voice()?.speaker, 'glessner_john_j', 'time moving with data for the next moment in hand (3) is playing');
     el.dispatchEvent(new Event('waiting'));
