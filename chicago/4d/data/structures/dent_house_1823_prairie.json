@@ -160,7 +160,7 @@
             "downpipes": [
               {
                 "wall": "k01.wall.side.south",
-                "s_m": 0.6
+                "s_m": 1.2
               },
               {
                 "wall": "k01.wall.rear_service",
@@ -169,7 +169,7 @@
             ]
           },
           "confidence": "reconstructed",
-          "note": "Reconstructed (T-3162): K05's copper half-round gutter and round downpipes; neither picture shows a downpipe."
+          "note": "Reconstructed (T-3162): K05's copper half-round gutter and round downpipes; neither picture shows a downpipe. T-1894: the north flank's pipe moved from s 0.6 m to 1.2 m, the blank pier between the 0.25 m and 2.15 m window columns, so it no longer runs across the basement light under the 0.25 m column."
         },
         "stair_landing_depth_m": {
           "value": 1.5,
@@ -341,6 +341,13 @@
         "side_bays": {
           "value": [
             0.25,
+            {
+              "s_m": 0.48,
+              "sill_m": 0.45,
+              "width_m": 0.75,
+              "height_m": 1.0,
+              "head": "plain"
+            },
             2.15,
             {
               "s_m": 2.15,
@@ -376,7 +383,7 @@
           "sources": [
             "chicagology_1823_dent_engraving"
           ],
-          "note": "The north flank's five window columns over the main body, read off the Chicagology engraving through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json) at x 257-292, 305-332, 375-402, 435-465 and 537-570 px on the chamber storey: u 0.25, 2.15, 5.0, 7.35 and 11.0 m from the main body's rear on the north wall's line (T-3162 had read four, at 2.1, 4.3, 8.4 and 10.9 m, through a camera whose pavilion corners were about 60 px out). On the principal storey the print's wall is blank at 5.0 m beside the box bay, so that column is laid once, on the chamber storey at its storey's sill and sash; the 7.35 m column's principal window stands behind the box bay and is not cut. K01 calls the north flank its 'south' wall. T-1894: the basement's lights read off the same print, square-headed in the brick: under the 2.15 m column (x 310-332 px), under the box bay (x 404-438 px; until the bay stood on its corbels this light was cut in the bay's own foot) and under the 11.0 m column (x 530-565 px), each 0.45-1.45 m over grade (the print's y 915-965 px). The light under the bay is centred at u 6.05 m, where the print puts it under the bay's front, and laid 1.15 m across (the contract's widest sash), as the print draws it broader than the others; the two beside it are the contract's narrowest, 0.75 m. Their sills and heights are read; their sash is the flank's own. Still open: the print's lights under the 0.25 m column (x 265-285 px), which K01 cannot lay so near the wall's end, and under the rear range's column (x 230-250 px), which a wing lays only round-headed."
+          "note": "The north flank's five window columns over the main body, read off the Chicagology engraving through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json) at x 257-292, 305-332, 375-402, 435-465 and 537-570 px on the chamber storey: u 0.25, 2.15, 5.0, 7.35 and 11.0 m from the main body's rear on the north wall's line (T-3162 had read four, at 2.1, 4.3, 8.4 and 10.9 m, through a camera whose pavilion corners were about 60 px out). On the principal storey the print's wall is blank at 5.0 m beside the box bay, so that column is laid once, on the chamber storey at its storey's sill and sash; the 7.35 m column's principal window stands behind the box bay and is not cut. K01 calls the north flank its 'south' wall. T-1894: the basement's lights read off the same print, square-headed in the brick: under the 2.15 m column (x 310-332 px), under the box bay (x 404-438 px; until the bay stood on its corbels this light was cut in the bay's own foot) and under the 11.0 m column (x 530-565 px), each 0.45-1.45 m over grade (the print's y 915-965 px). The light under the bay is centred at u 6.05 m, where the print puts it under the bay's front, and laid 1.15 m across (the contract's widest sash), as the print draws it broader than the others; the two beside it are the contract's narrowest, 0.75 m. Their sills and heights are read; their sash is the flank's own. The print's light under the 0.25 m column (x 265-285 px) is laid at s 0.48 m, the same 0.75 m light 0.45-1.45 m over grade, its south edge 0.1 m inside the main body's rear: K01 keeps a read light 0.45 m off a wall's end, but here the rear range carries the flank on flush past it (the 1911 sheet's unbroken north wall), so that end is no corner and K01 lets the light stand 0.1 m inside it; the print centres it about 0.2 m further south, within the bar. The light under the rear range's column is the range's own (rear_wings)."
         },
         "north_bays": {
           "value": [
@@ -781,6 +788,14 @@
                   4.7
                 ]
               },
+              "basement_lights": {
+                "south": {
+                  "sill_m": 0.45,
+                  "width_m": 0.75,
+                  "height_m": 1.0,
+                  "head": "plain"
+                }
+              },
               "roof": {
                 "kind": "flat",
                 "overhang_m": 0.15,
@@ -806,7 +821,7 @@
             "chicagology_1823_dent_engraving",
             "newberry_new_chicago_album_1883_residences"
           ],
-          "note": "The 1911 sheet's rear range ('rear2B'): its trace narrows the house on the south side behind lot u 20.8 (to lot v 4.4) and runs the north wall on unbroken to the rear at u 14.1, 6.7 m deep and 12.1 m wide, two storeys at the main body's floor heights under a flat tin roof. The engraving's north flank shows one window column over it (x 225-250 px, 1.15 m behind the main body; T-3163, which read the wall from x 140 to 225 px blank on every storey where T-3162 had laid three) and its cornice dropping a little where it begins; the 1883 vignette draws the mansard stopping short of the flank's rear over it. Its windows' places on the south flank and the rear are reconstruction. T-1894: the tall stack the engraving draws at the flank's rear (x 170-235 px, its top at y 188 px, a band about two-thirds up and a corbelled cap) and the vignette at the flank's rear corner stands on the range's deck, read through the engraving's camera at u -4.8 m, 0.3 m inside the north wall, 0.9 x 0.75 m in plan (the main stack's, which the same camera puts within 10 px of its own reading) and 16.6 m high; its band and corbelling are not modelled."
+          "note": "The 1911 sheet's rear range ('rear2B'): its trace narrows the house on the south side behind lot u 20.8 (to lot v 4.4) and runs the north wall on unbroken to the rear at u 14.1, 6.7 m deep and 12.1 m wide, two storeys at the main body's floor heights under a flat tin roof. The engraving's north flank shows one window column over it (x 225-250 px, 1.15 m behind the main body; T-3163, which read the wall from x 140 to 225 px blank on every storey where T-3162 had laid three) and its cornice dropping a little where it begins; the 1883 vignette draws the mansard stopping short of the flank's rear over it. Its windows' places on the south flank and the rear are reconstruction. T-1894: the tall stack the engraving draws at the flank's rear (x 170-235 px, its top at y 188 px, a band about two-thirds up and a corbelled cap) and the vignette at the flank's rear corner stands on the range's deck, read through the engraving's camera at u -4.8 m, 0.3 m inside the north wall, 0.9 x 0.75 m in plan (the main stack's, which the same camera puts within 10 px of its own reading) and 16.6 m high; its band and corbelling are not modelled. T-1894: the basement light the engraving draws under the range's flank column (x 230-250 px, y 915-965 px), square-headed as the main body's are: laid under the range's south-side window at s 5.25 m, 0.75 m across and 0.45-1.45 m over grade, the size of the main body's three read off the same print (a wing's basement_lights now take head: plain)."
         },
         "boundary": {
           "value": {
