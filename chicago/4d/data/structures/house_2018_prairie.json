@@ -257,13 +257,12 @@
               "id": "north_step",
               "variant": "k08.projection.full_height",
               "wall": "k01.wall.side.north",
-              "s_m": 3.3,
+              "s_m": 3.0,
               "flush_corner": "left",
               "fabric": "front_stone",
               "plan": {
-                "width_m": 6.6,
-                "proud_m": 0.75,
-                "shallow": true
+                "width_m": 6.0,
+                "proud_m": 0.75
               },
               "storeys": [
                 {
@@ -495,7 +494,7 @@
           "sources": [
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "The K08 bays where the 1911 sheet draws them, read at full size: the stone bow on the front ('2', a curved bay 5.95 m on its chord from the south corner, standing 1.95 m out; built 5.45 m on its chord and 1.9 m out, its south end 0.3 m in from the corner, the kit's least pier), the front block's step 0.75 m out on the north flank for its last 6.6 m (the sheet colours it stone across its front, so the projection is stone-fronted), a canted brick bay on each flank (the north one 5.0 m on its chord at u 4.28-9.29, 0.84 m out; the south one 4.08 m at u 10.04-14.12, 0.65 m out) and the one-storey frame bay the sheet draws in yellow on the north flank (2.8 m at u 12.82-15.61, 0.75 m out). The flank bays' storeys are not printed: two storeys under hipped caps, and the frame bay's one, are reconstructed; so is every window."
+          "note": "The K08 bays where the 1911 sheet draws them, read at full size: the stone bow on the front ('2', a curved bay 5.95 m on its chord from the south corner, standing 1.95 m out; built 5.45 m on its chord and 1.9 m out, its south end 0.3 m in from the corner, the kit's least pier), the front block's step 0.75 m out on the north flank (the sheet draws it 6.6 m long; built 6.0 m, the longest pavilion K08 stands flush with a corner, and stone-faced, as the sheet colours the front), a canted brick bay on each flank (the north one 5.0 m on its chord at u 4.28-9.29, 0.84 m out; the south one 4.08 m at u 10.04-14.12, 0.65 m out) and the one-storey frame bay the sheet draws in yellow on the north flank (2.8 m at u 12.82-15.61, 0.75 m out). The flank bays' storeys are not printed: two storeys under hipped caps, and the frame bay's one, are reconstructed; so is every window."
         },
         "side_bays": {
           "value": [

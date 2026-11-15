@@ -25156,9 +25156,9 @@ each flank; the one-storey frame bay on the north flank and the one-storey frame
 4.0, 3.6 and 3.3 m storeys); the walls' thickness; the stone (brown sandstone, smooth, two rusticated
 base courses) and the side brick's colour and bond; every window's kind, size and place and every head;
 the door, stoop, columns, porch cornice and balustrade; the flank bays' two storeys and hipped caps and
-the frame bay's one; the bow's sash and tin cap; the north step stopping 0.4 m under the cornice's bed
-moulding (the kit will not carry the cornice across a step this long), its windows and its stone face
-returned along the flank; the cornice and brackets; the flat roof's form, fall, parapets and tin; the
+the frame bay's one; the bow's sash and tin cap; the north step built 6.0 m long where the sheet draws 6.6 m (the
+longest pavilion K08 stands flush with a corner) and stopping 0.4 m under the cornice's bed moulding,
+its windows and its stone face returned along the flank; the cornice and brackets; the flat roof's form, fall, parapets and tin; the
 three stacks; the open front with a flagged walk and the yard's north edge (the parcel is one lot for
 2000, 2010 and 2018). No picture of 2018 is held.
 **How to resolve:** a photograph, plate or description of 2018 Prairie, ingested as a source, replaces

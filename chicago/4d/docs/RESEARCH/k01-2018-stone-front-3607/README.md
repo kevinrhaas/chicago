@@ -33,9 +33,11 @@ bites out of the house, as T-3346 found on the east side.
 
 - K08 keeps 0.3 m of wall between a bay and a corner, so the bow is 5.45 m on its chord, not the
   sheet's 5.95 m, and starts 0.3 m in from the south corner.
-- The front block's 0.75 m step on the north is a shallow K08 projection flush with the front corner.
-  K10 will not carry the cornice across one this long, so the step stops 0.4 m under the bed moulding.
-  Its face is stone, as the sheet colours the front, and the stone returns along its 6.6 m of flank.
+- The front block's 0.75 m step on the north is a K08 projection flush with the front corner, built
+  6.0 m long where the sheet draws 6.6 m: a longer one is a `shallow` pavilion, and the bay kit's gate
+  (T-2307) refuses a shallow one flush at a corner (its band stands open behind the host wall). It
+  stops 0.4 m under the cornice's bed moulding, which K10 will not carry across it. Its face is stone,
+  as the sheet colours the front, and the stone returns along its 6.0 m of flank.
 - The porch is K07's stoop under a stone hood on two columns, its floor a 2.3 m landing with a terrace
   either side of the 1.4 m flight; the hood runs 0.69 m past the main body's north corner, in front
   of the step's face, as the sheet draws the porch.
