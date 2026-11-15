@@ -100,6 +100,12 @@ keys.forEach((key, i) => {
   const record = key === 'base' ? null : persons[key] ?? null;
   if (key !== 'base') {
     const v = personVariation({ kit, key, record, assetId: bodyOf.get(key), sceneYear: Number(record?.scene) || null });
+    // &faces=off (T-3553): nobody takes a face from the library; &faces=3,-1,7: the figures in
+    // order take those faces of the kit's list (-1: the body's own), whatever the rule would give.
+    const F = kit.header.faces, asked = q.get('faces') === 'off' ? -1 : q.get('faces') ? Number(q.get('faces').split(',')[i] ?? NaN) : NaN;
+    if (asked === -1) v.lib = null;
+    else if (F?.faces?.[asked] && F.bodies?.[bodyOf.get(key)]) v.lib = { url: new URL(F.map, kit.base).href, index: asked, id: F.faces[asked].id, cols: F.cols, size_px: F.size_px, tile_px: F.tile_px,
+      gain: F.bodies[bodyOf.get(key)].gain, lines: F.lines[F.faces[asked].age] };
     const r = applyVariation(fig, kit, v, { scope });
     window.__variations = [...(window.__variations ?? []), { key, ...v, applied: r }];
   }
