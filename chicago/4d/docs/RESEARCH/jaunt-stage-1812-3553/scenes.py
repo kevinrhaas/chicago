@@ -261,16 +261,34 @@ def battle(b):
     # warriors wait behind the bank, lying, kneeling, crouched; Wells comes hurrying back from the
     # front; the warriors rise and the soldiers turn to face the bank. Nothing further is staged.
     east = (bearing(shore(0, 30), shore(0, 0)))
+    walking = ['heald_rebekah', 'helm_margaret', 'holt_mrs', 'needs_mrs', 'cooper_isabella', 'simmons_susan_millhouse', 'lee_mrs', 'cicely', 'lee_son']
     order = (['heald_nathan', 'kinzie_john_elder', 'helm_linai', 'ronan_george', 'van_voorhis_isaac'] + MUSIC
              + soldiers(b, 60, skip=('fury_john',))
-             + ['heald_rebekah', 'helm_margaret', 'holt_mrs', 'corbin_mrs', 'needs_mrs', 'cooper_isabella', 'simmons_susan_millhouse',
-                'burns_mrs', 'lee_mrs', 'cicely', 'burns_child_a', 'burns_child_b', 'holt_child', 'needs_child', 'lee_daughter', 'lee_son']
-             + [f'garrison_child_unnamed_{i}' for i in range(1, 8)]
+             + [('WAGON', 0, walking[:4]), ('WAGON', 1, walking[4:8])] + walking[8:]
              + ['burns_thomas', 'lee_charles', 'simmons_david', 'cooper_joseph'] + [f'chicago_militia_unnamed_{i}' for i in range(1, 7)])
-    order = [w for w in order if b.castable(w)]
-    cast = []
-    for i, who in enumerate(order):
-        rank, file = divmod(i, 2)
+    order = [w for w in order if isinstance(w, tuple) or b.castable(w)]
+    cast, teams, slot, i = [], [], 0, 0
+    for who in order:
+        if isinstance(who, tuple):
+            _, k, beside = who
+            team, riders = WAGONS[k]
+            slot += slot % 2
+            rank = slot // 2
+            u_end = -9.0 - 1.7 * rank - TEAM_AHEAD; u0 = u_end - 34.0
+            a, z = shore(u0, 9.6), shore(u_end, 9.6)
+            t, seated = wagon(b, team, riders, a, [z], bearing(a, z))
+            teams.append(t); cast += seated
+            for j, w in enumerate(x for x in beside if b.castable(x)):
+                du = TEAM_AHEAD - 1.2 - 1.7 * j
+                wa, wz = shore(u0 + du, 11.0), shore(u_end + du, 11.0)
+                beats = [{'t': 0.0, 'walk': [P(*wz)], 'pace': MARCH}]
+                if w in ('heald_rebekah', 'helm_margaret') or j % 2 == 0:
+                    beats += [{'t': 41 + 0.2 * j, 'face': P(*shore(u_end - 8, 40))}]
+                cast.append(member(w, P(*wa), heading=bearing(wa, wz), tier='desktop' if j % 2 else None, beats=beats))
+            slot += 2 * TEAM_RANKS
+            continue
+        rank, file = divmod(slot, 2)
+        slot += 1
         u_end = -9.0 - 1.7 * rank; u0 = u_end - 34.0
         v = 9.0 + 1.2 * file
         a, z = shore(u0, v), shore(u_end, v)
@@ -284,6 +302,7 @@ def battle(b):
         if who == 'heald_nathan':
             beats += [{'t': 30, 'face': 'wells_william'}, {'t': 33, 'talk': True}, {'t': 38, 'talk': False}]
         cast.append(member(who, P(*a), heading=bearing(a, z), tier='desktop' if i % 3 == 2 and who != 'heald_nathan' else None, beats=beats))
+        i += 1
     w0 = shore(26.0, 10.0)
     cast.append(member('wells_william', P(*w0), heading=bearing(w0, shore(60, 10)), beats=[
         {'t': 0.0, 'walk': [P(*shore(34.0, 10.0))], 'pace': MARCH}, {'t': 14, 'face': P(*shore(10, 40))},
@@ -303,7 +322,7 @@ def battle(b):
         cast.append(member(who, P(*at), heading=(east + (i % 7) * 4 - 12) % 360, pose=pose, tier='desktop' if i % 3 else None,
                            beats=[{'t': 36 + 0.25 * (i % 13), 'pose': 'stand', 'ease': 1.1 + 0.1 * (i % 4)},
                                   {'t': 41 + 0.2 * (i % 9), 'walk': [P(*shore(u + (i % 3) - 1, v - 6.0))], 'heading': east}]))
-    st['the-bank'] = {'caption': "Watch the column come down the beach and halt, the warriors waiting behind the bank, and Wells hurry back.", 'cast': cast}
+    st['the-bank'] = {'caption': "Watch the column come down the beach and halt, the wagons with it, the warriors waiting behind the bank, and Wells hurry back.", 'cast': cast, 'teams': teams}
 
     # 10 — the small elevation, about half past ten. Heald's men who are left, standing,
     # kneeling, sitting with their wounds; Black Bird walks out to Heald and they shake hands;
@@ -378,31 +397,80 @@ TRAIL = [(1148.0, -300.0), (1148.0, -370.0), (1139.0, -412.0), (1141.0, -433.0),
          (1151.0, -475.0), (1149.0, -496.0), (1144.0, -527.0), (1143.0, -540.0), (1141.0, -600.0), (1140.0, -640.0)]
 MARCH = 1.3
 
+# The column's wagons (T-3553): the town's own two teams (data/transport/driven/loops.json),
+# driven by the men who drive them every day, Mills and Moffett, walking at the near horse.
+# The accounts (Helm's narrative, Wau-Bun) put the children and some of the women in the baggage wagons. Who sits in which is
+# reconstruction (L-1812-staged-jaunts-3553). Seats are vehicle-local metres on the farm box's
+# bed (farm-box-near.glb: bed boards top 0.955 m, sides to 1.5 m, inside x within 0.48 m,
+# z within 1.5 m): two across, four rows, all facing ahead, sitting on the baggage with their legs out.
+WAGONS = [
+    ('fort_wagon_loop_1812', ['burns_mrs', 'burns_child_a', 'burns_child_b', 'holt_child', 'needs_child',
+                              'garrison_child_unnamed_1', 'garrison_child_unnamed_2']),
+    ('shore_road_wagon_haul_1812', ['corbin_mrs', 'lee_daughter', 'garrison_child_unnamed_3', 'garrison_child_unnamed_4',
+                                    'garrison_child_unnamed_5', 'garrison_child_unnamed_6', 'garrison_child_unnamed_7']),
+]
+RIDERS = {w for _, riders in WAGONS for w in riders}
+SEAT_Y = 1.15  # the bed boards (0.955 m) and the bundles they sit on: 'sit' puts the hips at its foot
+SEATS = [(0.24, SEAT_Y, 1.05), (-0.24, SEAT_Y, 1.05), (0.24, SEAT_Y, 0.35), (-0.24, SEAT_Y, 0.35),
+         (0.24, SEAT_Y, -0.35), (-0.24, SEAT_Y, -0.35), (0.24, SEAT_Y, -1.05), (-0.24, SEAT_Y, -1.05)]
+TEAM_AHEAD = 4.8   # the lead horses' noses ahead of the vehicle root, near enough (envelope 5.1 m)
+TEAM_RANKS = 5     # the ranks of two a team and its wagon take in the column
+
+
+def wagon(b, team, riders, start, way, heading, pace=MARCH):
+    """A town team taken for the column, and the people sitting in it."""
+    P, member = b.P, b.member
+    t = {'team': team, 'at': P(*start), 'heading': round(heading % 360, 1),
+         'beats': [{'t': 0.0, 'walk': [P(*p) for p in way], 'pace': pace}]}
+    seated = [member(who, P(*start), heading=heading, pose='sit', ride={'team': team, 'seat': list(SEATS[k])})
+              for k, who in enumerate(w for w in riders if b.castable(w))]
+    return t, seated
+
 
 def column(b):
     P, member = b.P, b.member
     line = polyline(TRAIL)
+    walking = ['heald_rebekah', 'helm_margaret', 'holt_mrs', 'needs_mrs', 'cicely', 'cooper_isabella', 'simmons_susan_millhouse', 'lee_mrs', 'lee_son']
     order = (['wells_william'] + MIAMI[:14] + MUSIC + ['heald_nathan', 'kinzie_john_elder', 'helm_linai', 'ronan_george', 'van_voorhis_isaac']
              + soldiers(b, 60)
-             + ['heald_rebekah', 'helm_margaret', 'holt_mrs', 'corbin_mrs', 'needs_mrs', 'cicely', 'cooper_isabella', 'simmons_susan_millhouse',
-                'burns_mrs', 'lee_mrs', 'burns_child_a', 'burns_child_b', 'holt_child', 'needs_child', 'lee_daughter', 'lee_son',
-                ] + [f'garrison_child_unnamed_{i}' for i in range(1, 8)]
+             + [('WAGON', 0, walking[:4]), ('WAGON', 1, walking[4:8])] + walking[8:]
              + ['burns_thomas', 'lee_charles', 'simmons_david', 'cooper_joseph'] + [f'chicago_militia_unnamed_{i}' for i in range(1, 7)]
              + MIAMI[14:])
-    order = [w for w in order if b.castable(w)]
+    order = [w for w in order if isinstance(w, tuple) or b.castable(w)]
     s_vis = min(line, key=lambda p: math.hypot(p[1] - 1150.0, p[2] + 490.0))[0]
     head0 = s_vis - 50.0  # the head starts about 45 m north of the visitor
     head_end = line[-1][0] - 2.0
-    cast = []
-    for i, who in enumerate(order):
-        rank, file = divmod(i, 2) if i else (0, 0)
+    cast, teams, slot, i = [], [], 0, 0
+    for who in order:
+        if isinstance(who, tuple):
+            _, k, beside = who
+            team, riders = WAGONS[k]
+            slot += slot % 2
+            rank = slot // 2
+            s0 = head0 - 1.7 * (rank + 2) - TEAM_AHEAD
+            s1 = head_end - 1.7 * (rank + 2) - TEAM_AHEAD
+            start = along(line, s0, 3.3)
+            way = sub(line, s0, s1, 3.3)[1:]
+            t, seated = wagon(b, team, riders, start, way, b.bearing(start, way[0]))
+            teams.append(t); cast += seated
+            # The rest of the women walk beside it, on the side away from the teamster.
+            for j, w in enumerate(x for x in beside if b.castable(x)):
+                a0 = s0 + TEAM_AHEAD - 1.2 - 1.7 * j
+                a = along(line, a0, 4.9)
+                cast.append(member(w, P(*a), heading=b.bearing(a, way[0]), tier='desktop' if j % 2 else None,
+                                   beats=[{'t': 0.0, 'walk': [P(*p) for p in sub(line, a0, s1 + TEAM_AHEAD - 1.2 - 1.7 * j, 4.9)[1:]], 'pace': MARCH}]))
+            slot += 2 * TEAM_RANKS
+            continue
+        rank, file = divmod(slot, 2) if slot else (0, 0)
         if who == 'wells_william': rank, file = -2, 0.5
+        slot += 1
         s0 = head0 - 1.7 * (rank + 2)
         s1 = head_end - 1.7 * (rank + 2)
         side = (4.0 if file == 0 else 2.6) if file != 0.5 else 3.3
         start = along(line, s0, side)
         way = sub(line, s0, s1, side)[1:]
         tier = 'desktop' if (i % 3 == 2 and who not in ('heald_nathan', 'wells_william', 'kinzie_john_elder')) else None
+        i += 1
         cast.append(member(who, P(*start), heading=b.bearing(start, way[0]), tier=tier, beats=[{'t': 0.0, 'walk': [P(*p) for p in way], 'pace': MARCH}]))
     # The Potawatomi escort walks with them out on the prairie, at a distance.
     for i, who in enumerate(b.take(b.MEN, 24, stride=17, offset=11)):
@@ -414,7 +482,7 @@ def column(b):
         way = sub(line, s0, min(s1, line[-1][0]), side)[1:]
         cast.append(member(who, P(*start), heading=b.bearing(start, way[0]), tier='desktop' if i % 6 else None,
                            beats=[{'t': 0.0, 'walk': [P(*p) for p in way], 'pace': MARCH}]))
-    return {'caption': "Watch the column come down from the fort and pass you: Wells and the Miamis, the band, the regulars, the families, the militia.", 'cast': cast}
+    return {'caption': "Watch the column come down from the fort and pass you: Wells and the Miamis, the band, the regulars, the wagons with the children, the families, the militia.", 'cast': cast, 'teams': teams}
 
 
 def lalime(b):

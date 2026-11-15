@@ -1033,6 +1033,35 @@
                       "additionalProperties": false
                     },
                     "maxItems": 24
+                  },
+                  "ride": {
+                    "description": "T-3553: this castmate rides one of the stage's teams, sitting at `seat` (vehicle-local metres: x to the left, y up from the vehicle root, z ahead), turned `heading` degrees from the team's facing.",
+                    "type": "object",
+                    "properties": {
+                      "team": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]+$",
+                        "maxLength": 90
+                      },
+                      "seat": {
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        },
+                        "minItems": 3,
+                        "maxItems": 3
+                      },
+                      "heading": {
+                        "type": "number",
+                        "minimum": -180,
+                        "maximum": 360
+                      }
+                    },
+                    "required": [
+                      "team",
+                      "seat"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "required": [
@@ -1066,6 +1095,92 @@
               },
               "minItems": 1,
               "maxItems": 200
+            },
+            "teams": {
+              "description": "T-3553: the town's horse teams (data/transport/driven/loops.json rows, by id) this stage takes from their rounds for the scene: each team's vehicle root stands `at` a mark, faces `heading`, and walks its beats (`walk`, `pace`) as a castmate does; its own driver drives it. Given back to its round when the stage ends.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "team": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9_]+$",
+                    "maxLength": 90
+                  },
+                  "at": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                  },
+                  "heading": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 360
+                  },
+                  "beats": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "t": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 900
+                        },
+                        "walk": {
+                          "type": "array",
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "minItems": 1,
+                          "maxItems": 40
+                        },
+                        "pace": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0.4,
+                              "maximum": 2.6
+                            },
+                            {
+                              "enum": [
+                                "walk",
+                                "brisk",
+                                "hurry",
+                                "slow"
+                              ]
+                            }
+                          ]
+                        },
+                        "heading": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 360
+                        }
+                      },
+                      "required": [
+                        "t"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "maxItems": 24
+                  }
+                },
+                "required": [
+                  "team",
+                  "at"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 6
             }
           },
           "required": [
