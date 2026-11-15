@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3012, ts: '2026-11-15T20:33:37.221Z', date: 'Nov 15, 2026, 2:33 PM CT', title: 'The jaunt voices tell their stories with feeling', kind: 'improvement',
+    items: [
+      'Every voiced line in The Glessner Household, its Grades 3–5 telling and Meet the Glessner House is recorded again, with pauses, laughs, sighs, whispers and warmth where the story calls for them.',
+      'The words are the same as the ones you read in the panel.',
+    ] },
   { v: 3011, ts: '2026-11-15T19:47:08.906Z', date: 'Nov 15, 2026, 1:47 PM CT', title: 'Fort Dearborn monument: Black Partridge\'s fringed breechcloth, the child\'s smock', kind: 'improvement',
     items: [
       'On the Fort Dearborn monument (18th Street, 1904), Black Partridge\'s breechcloth is now a short apron off his belt, cut into a ragged fringe at the tops of his thighs. Both photographs show it that way. Before, it hung to his knee.',
