@@ -1025,7 +1025,6 @@ export async function createCrossings({
   }
 
   /** Lay the paddle or oars for stroke phase `ph` (0..1), working on `side` (+1 starboard). */
-  const qTmp = new THREE.Quaternion();
   function workTools(entry, tools, ph, side, working) {
     const { kind } = entry.boat;
     const L = entry.boat.hull.length_m;
