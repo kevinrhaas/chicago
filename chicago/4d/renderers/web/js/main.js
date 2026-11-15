@@ -95,6 +95,7 @@ import { createHumanDuties } from './human-duties.js';
 import { createHumanDays, createDayRouter, clearWayOf } from './human-days.js';
 import { createJauntHosts } from './jaunt-hosts.js';
 import { createJauntStage } from './jaunt-stage.js';
+import * as humanFight from './human-fight.js'; // the adults jaunts' weapons, motions and gun smoke
 import { createHumanSpacing, BODY_R_M } from './human-spacing.js';
 import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
@@ -5726,6 +5727,8 @@ async function boot() {
         preferredMode: (jaunt) => jauntModeFor(hud.gettingThere, jaunt),
         modeNote: (jaunt) => jauntWay(jaunt).note,
         license, narration,
+        // The owner, 2026-11-15: the adults-only jaunts, listed only once Move › Adults-only jaunts is on.
+        allowAdults: () => hud.adultJaunts === true,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext', 'replay'].map(name => [name, (...args) => {
         // T-3578: Next, Previous and End are the visitor moving on: the voice still speaking stops
@@ -5820,7 +5823,9 @@ async function boot() {
               resolve: (id) => api.stagePerson?.(id) ?? null, tier: () => api.humans?.tier ?? 'full',
               eye: () => camera.getWorldPosition(new THREE.Vector3()),
               // The town's own horse teams, taken for a scene (the 1812 column's wagons).
-              teams: { get: (id) => api.townTransport?.actorById?.(id) ?? null, load: () => { void api.townTransport?.ready?.()?.catch?.(() => {}); } } });
+              teams: { get: (id) => api.townTransport?.actorById?.(id) ?? null, load: () => { void api.townTransport?.ready?.()?.catch?.(() => {}); } },
+              // The adults jaunts (2026-11-15): weapons in the hand, and the guns' flash and smoke.
+              fight: humanFight });
             api.jauntStage.sync(stop, { arrived });
             gateFrame.invalidate();
           },

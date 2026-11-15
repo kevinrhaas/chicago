@@ -18,6 +18,8 @@ export default register('hud', {
   'move.mode': 'How you move',
   // T-2727: Move › When you pick a place, and a Jaunt that cannot go the visitor's way.
   'move.jaunts': 'Jaunts use my choice',
+  'move.adultJaunts': '18+ jaunts: I am 18 or over',
+  'move.adultJauntsHelp': 'Lists the jaunts that show the 1812 fighting graphically: killings, wounds and blood. Not for students.',
   'move.arrive.note': 'Applies to Go to and the map.',
   'jaunt.keeps': 'Your choice ({way}) is not a way this Jaunt can be travelled, so it keeps the way it recommends.',
   'sources.list': 'Source list',

@@ -2575,6 +2575,9 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .jaunt-length:empty { display: none; }
 .jaunt-light { white-space: nowrap; color: var(--accent, currentColor); }
 /* T-3590: the school grades a jaunt is written for. */
+/* The owner, 2026-11-15: an adults-only jaunt says so on its card, and what it shows. */
+.jaunt-adults { white-space: nowrap; border: 1px solid color-mix(in srgb, var(--alert, #e0703a) 70%, transparent); color: var(--alert, #e0703a); border-radius: 999px; padding: 0 6px; font-weight: 600; }
+.jaunt-warning { margin: 4px 0 0; font-size: 12px; line-height: 1.35; color: var(--alert, #e0703a); }
 .jaunt-grade { white-space: nowrap; border: 1px solid color-mix(in srgb, var(--ink-dim) 45%, transparent); border-radius: 999px; padding: 0 6px; }
 .jaunt-held { color: var(--ink-dim); border: 1px dashed var(--edge); border-radius: 999px; padding: 0 6px; }
 /* T-2631: a route's plate (a credited picture of its stops), its keepsake, and the outing
