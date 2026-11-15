@@ -93,7 +93,10 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
     assert.equal(directoryReads, 0); assert.equal(assetReads, 0); assert.equal(heightReads, 0);
     await town.ready(); town.ensureNear(new THREE.Vector3(1335, 5, 3340), true); await town.ready();
     // One factory call (and one card preparation) per 1904 carriage: Hans's and the two more (T-3555).
-    const carriages1904 = JSON.parse(readFileSync(new URL('transport/driven/loops.json', configRoot))).rows.filter(r => r.scene === '1904').length;
+    // The Glessner brougham (T-3557) is on call: not made until it is asked for.
+    const rows1904 = JSON.parse(readFileSync(new URL('transport/driven/loops.json', configRoot))).rows.filter(r => r.scene === '1904');
+    assert.equal(rows1904.length, 4); assert.deepEqual(rows1904.filter(r => r.on_call).map(r => r.id), ['prairie_driven_brougham_glessner_1904']);
+    const carriages1904 = rows1904.filter(r => !r.on_call).length;
     assert.equal(carriages1904, 3);
     assert.deepEqual(globalThis.__townLazyTools, { imports: 2, loader: 1, hitch: 1, factory: carriages1904 });
     // Each assembly asks the scene's own directory loader (main.js's caches it).
@@ -200,7 +203,11 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
           'blockedAt', 'placeVisitor',
           // T-3557: the ride's readers (where the eye is, the ground to get down to, the standing
           // eye, reduced motion, the reins' words) and the boarding hook (ends a Go to / follow).
-          'visitorEye', 'groundAt', 'walkEye', 'reducedMotion', 'reinsHint', 'onBoard'].sort());
+          'visitorEye', 'groundAt', 'walkEye', 'reducedMotion', 'reinsHint', 'onBoard',
+          // T-3557: the Glessner ride's parked twin, coach house and off-road floor.
+          'parked', 'coachHouse', 'pathHeightAt'].sort());
+        assert.equal(options.parked, null, 'no parked layer in this boot: the ride has no stand-in');
+        assert.equal(options.coachHouse(), undefined); assert.equal(typeof options.pathHeightAt, 'function');
         // T-3475: Step back reads the router's walkable grid (none yet: nothing blocks) and moves the walker.
         assert.equal(typeof options.placeVisitor, 'function'); assert.equal(options.blockedAt(0, 0), false);
         assert.equal(options.preparePersonCard, year === '1835' ? null : prepareSceneDirectoryPerson,

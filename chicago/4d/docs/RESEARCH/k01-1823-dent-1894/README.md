@@ -135,3 +135,28 @@ here (it would move the stoop that both records mark fixed).
 
 The other open items (the broad dormer through the curb, the box bay's corbelled foot, the pavilion
 attic's slated cheeks) are unchanged.
+
+## T-1894, 2026-11-15 (second piece) — the box bay on its corbels, and the flank's basement lights
+
+Both pictures stand the north flank's box bay on a corbelled block under its broad light, with a
+basement light in the flank's wall beneath it; the build had carried the bay to grade 0.5 m proud
+with that light in its own foot, because K08's corbelled oriel stood only on an upper floor.
+
+- **K01** (`k01_frontage_params.resolve_bays`) now lets an oriel stand on the principal floor too,
+  when its corbel courses (or its apron's foot) still clear grade by a metre. Nothing else changes:
+  every other K01 house's resolved parameters are as they were, and `validate.py --stale` reads 0
+  stale.
+- **The Dent house**: the bay is `k08.oriel.canted_corbelled` on the principal floor at 2.35 m, its
+  plan the bay's own 2.4 m by 0.5 m, its one storey the principal one with its paired light, on three
+  0.2 m courses, so its foot stands at 1.75 m. Through the engraving's camera the build's block is at
+  y 865-900 px against the print's 857-895 px.
+- **The flank's basement lights**, read off the engraving at y 915-965 px (0.45-1.45 m over grade),
+  square-headed in the brick: under the bay (x 404-438 px, laid at u 6.05 m where the print puts it
+  under the bay's front, 1.15 m across), under the 2.15 m column (x 310-332 px) and under the 11.0 m
+  column (x 530-565 px). The render's land within about 8 px of each. The print draws two more,
+  under the 0.25 m column (x 265-285 px) and under the rear range's column (x 230-250 px); K01 lays
+  a read window no nearer than 0.45 m to a wall's end, and a rear wing's basement lights only
+  round-headed, so those two are recorded open.
+
+Still open, as before: the triple group's broad pedimented dormer over the curb, the pavilion attic's
+slated cheeks, and the landing's length.

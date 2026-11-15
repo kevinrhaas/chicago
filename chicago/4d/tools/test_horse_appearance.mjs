@@ -83,7 +83,11 @@ try {
 const loops = json('data/transport/driven/loops.json');
 const standing = json('data/transport/parked/standing-horses.json');
 const parked = json('data/transport/parked/placements.json');
-const individuals = loops.rows.flatMap(row => ['left', 'right'].map(individual => ({ scene: row.scene, row: row.id, individual })));
+// T-3557: a driven row that stands in for a parked team (the Glessner brougham) drives that
+// team's own two horses (`horse_coat_row`), not two more.
+const parkedTeams = Object.entries(parked.scenes).flatMap(([scene, rows]) => rows.filter(r => r.stationary_team).map(r => `${scene}:${r.id}`));
+for (const row of loops.rows) if (row.horse_coat_row) assert(parkedTeams.includes(`${row.scene}:${row.horse_coat_row}`), `${row.id} drives a parked team of its scene`);
+const individuals = loops.rows.filter(row => !row.horse_coat_row).flatMap(row => ['left', 'right'].map(individual => ({ scene: row.scene, row: row.id, individual })));
 for (const [scene, rows] of Object.entries(standing.scenes)) for (const row of rows) individuals.push({ scene, row: row.id, individual: 'single' });
 for (const [scene, rows] of Object.entries(parked.scenes)) for (const row of rows) if (row.stationary_team) {
   assert.equal(row.stationary_team.horse_appearance.scene, scene);
@@ -101,7 +105,7 @@ for (let n = 0; n < identities.length; n++) {
 }
 for (const scene of recipe.scenes) assert(new Set(identities.filter(i => i.key.startsWith(scene+':')).map(i => i.palette)).size >= 2, 'each era has coat diversity');
 for (const row of loops.rows) {
-  const pair = identities.filter(i => i.key.startsWith(row.scene+':'+row.id+':'));
+  const pair = identities.filter(i => i.key.startsWith(row.scene+':'+(row.horse_coat_row ?? row.id)+':'));
   assert.equal(pair[0].palette, pair[1].palette, 'matched team palette');
   assert.notDeepEqual(pair[0].phase, pair[1].phase, 'individual pattern differs');
   assert.notDeepEqual([pair[0].socks_m, pair[0].blaze], [pair[1].socks_m, pair[1].blaze]);

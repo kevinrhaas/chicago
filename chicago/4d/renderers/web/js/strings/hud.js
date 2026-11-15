@@ -40,6 +40,12 @@ export default register('hud', {
   'ride.returning': 'heading back',
   'ride.still': 'reduced motion: standing',
   'ride.held': 'held: {why}',
+  // T-3557: inside the Glessner brougham's cab, and the coachman's way home and out again.
+  'ride.inside': 'Riding in',
+  'ride.getOut': 'Get out',
+  'ride.home': 'driving home to the coach house',
+  'ride.out': 'coming out of the coach house',
+  'ride.stood': 'in the coach house',
   // T-2629: Settings › About.
   'about.title': 'About',
   'about.dev': 'DEV',

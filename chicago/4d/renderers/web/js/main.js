@@ -3144,6 +3144,35 @@ async function boot() {
   api.stairDecks = stairDecks;
   decks.push(...stairSurface(stairDecks));
   api.houseDoors = houseDoors;
+  // ---- T-3557 coach house (coach-house.js): Glessner's 18th Street carriage leaves swing, the man
+  // door opens for people, a dark room behind; api.coachHouse.drivePath()/clearFor() for the ride.
+  // Swung, rebound and freed with the house doors (houseDoors.attach). Null where no coach house.
+  api.coachHouse = null;
+  try {
+    const { createCoachHouse } = await import('./coach-house.js');
+    api.coachHouse = createCoachHouse({ registry: loaded.registry, buildings, footprints, decks, interactions,
+      visitor: () => (walker.state.flying || api.townTransport?.ride?.actor ? null : { e: walker.state.e, n: walker.state.n }),
+      carriageways: streetGrid.grid?.carriageways ?? [], drives: streetGrid.section?.carriage_drives?.drives ?? [],
+      reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, confidence, problems });
+    if (api.coachHouse) { scene3d.add(api.coachHouse.group); houseDoors.attach(api.coachHouse); }
+  } catch (error) {
+    problems.push(`coach house: ${error.message}`);
+    // The buildings layer lifted the baked leaves for this layer; if it failed, put them back
+    // shut where they were baked, so the coach house never stands with no doors.
+    try {
+      const pieces = buildings.doorLeaves?.get?.('glessner_house:coach') ?? [];
+      const at = buildings.matrixOf?.('glessner_house');
+      if (pieces.length && at) {
+        const shut = new THREE.Group();
+        shut.name = 'coach-house-leaves-shut';
+        shut.matrixAutoUpdate = false;
+        shut.matrix.copy(at);
+        for (const piece of pieces) shut.add(new THREE.Mesh(piece.geometry, piece.material));
+        scene3d.add(shut);
+      }
+    } catch (again) { problems.push(`coach house leaves: ${again.message}`); }
+  }
+  // ---- end T-3557 coach house
   bootController.end('ground');
   bootController.start('flora');
   await yieldToPaint();
@@ -4189,6 +4218,13 @@ async function boot() {
         reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
         reinsHint: () => (backends.name === 'touch' || (backends.name === 'none' && coarse)
           ? t('hud.ride.reins.touch') : t('hud.ride.reins.keys')),
+        // T-3557: the Glessner brougham waits as the parked carriage at its stand until asked
+        // for; its coachman drives it home to the coach house (api.coachHouse, wired above) and
+        // out again. Off the carriageway (the drive, the doorway, the room) the ground is the
+        // coach house's floor, else the walk's.
+        parked: api.parkedTransport ?? null,
+        coachHouse: () => api.coachHouse,
+        pathHeightAt: (e, n) => api.coachHouse?.floorAt?.(e, n) ?? figureGround(e, n),
         onBoard: (actor, on) => {
           if (!on) return;
           // Boarding ends a Go to or a walk with someone, as stepping into a boat does.
@@ -6255,12 +6291,18 @@ async function boot() {
       if (a.blocked) notes.push(t('hud.ride.held', { why: a.blocked }));
       notes.push(t(touch ? 'hud.ride.stick' : 'hud.ride.keys'));
     } else if (a.mode === 'returning') notes.push(t('hud.ride.returning'));
+    else if (a.mode === 'path' || a.mode === 'backing' || a.mode === 'parked') {
+      // T-3557: in, standing in, or out of the coach house (out: backed into 18th, then on forward).
+      const phase = api.townTransport?.trips?.[a.id];
+      notes.push(t(phase === 'out' || phase === 'forward-out' ? 'hud.ride.out' : a.mode === 'parked' ? 'hud.ride.stood' : 'hud.ride.home'));
+    }
     if (ride.reducedMotion()) notes.push(t('hud.ride.still'));
     // The team's short name (its row's ride_name): on a phone the long one was cut to "Carriage
     // driver on Pra…". The long one stays the bar's tooltip.
     const short = interactions.get(`driver:${a.id}`)?.rideName;
-    const state = { kind: 'ride', verb: t(a.mode === 'reins' ? 'hud.ride.driving' : 'hud.ride.aboard'),
-      dest: short || a.name, destTitle: a.name, note: notes.join(' · '), stop: t('hud.ride.getDown') };
+    // T-3557: inside a closed carriage's cab, Riding in … · Get out.
+    const state = { kind: 'ride', verb: t(a.mode === 'reins' ? 'hud.ride.driving' : ride.inCab ? 'hud.ride.inside' : 'hud.ride.aboard'),
+      dest: short || a.name, destTitle: a.name, note: notes.join(' · '), stop: t(ride.inCab ? 'hud.ride.getOut' : 'hud.ride.getDown') };
     const key = JSON.stringify(state);
     // Repainted on a change, and twice a second besides (a Go to's bar may have taken it).
     if (key === ridePainted && (ridePaintAt += elapsed) < .5) return;
