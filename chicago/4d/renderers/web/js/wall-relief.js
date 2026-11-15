@@ -71,12 +71,11 @@
 
 import * as THREE from 'three';
 import { captureHooks, registerPatch } from './batch-material.js';
-import { structureFrameGLSL } from './compact-attributes.js';
+import { structureFrameGLSL, SCALARS_GLSL } from './compact-attributes.js';
 import { resolveBases } from './scene-loader.js';
 import { wallRelief } from './wall-grain.js';
 import { packOrl } from './relief-pack.js';
 import { countSheet, ktx2State, loadCompressed } from './ktx2.js';
-import { SCALARS_GLSL } from './compact-attributes.js';
 
 const LIBRARY = 'textures/chicago_1835_pbr/';
 

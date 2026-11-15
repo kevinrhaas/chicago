@@ -1340,6 +1340,13 @@ step "today's streets clip holds its shape and lands on the OSM control corners 
 step "today's street and house number read off the City's block ranges, both sides' parity (T-2741)" \
   node tools/test_modern_streets.mjs
 
+# T-3601. The Today window: Google Street View, today, from where you stand. The scene's metres
+# go back to latitude/longitude (UTM 16N less the datum origin, checked against pyproj and the
+# Prairie & 18th control corner) and grid bearings to true headings; the window loads nothing
+# while hidden, asks for a panorama only every few metres, and keeps to a keyless link with no key.
+step "the Today window's spot and heading match the datum, and it stays quiet while hidden (T-3601)" \
+  node tools/test_today_view.mjs
+
 # T-1728. ...and what that grid is paved with. data/street_surfaces/1904.json is AUTHORED:
 # every carriageway, alley and sidewalk band names a material, a tier, its sources and a
 # range that bounds 1 July 1904. The contract holds it to the grid (nothing drawn without

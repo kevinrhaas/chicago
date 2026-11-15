@@ -291,9 +291,32 @@
         <div class="instrument-below" id="instrument-below">
         <div id="street-readout" class="street-readout" aria-live="polite" hidden>
           <span class="street-line street-era"><b>Then</b><strong id="street-historic"></strong></span>
-          <span class="street-line street-today"><b>Today</b><span class="street-modern" id="street-modern"></span></span>
+          <!-- T-3601: the TODAY tag is also the Today window's switch. -->
+          <span class="street-line street-today"><button type="button" class="street-today-key" id="street-today-key"
+            aria-pressed="false" aria-controls="today-view" title="Today's street view: show or hide"
+            aria-label="Today's street view: show or hide"><b>Today</b><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2.5"/><circle cx="12" cy="12.5" r="3.2"/><path d="M8.5 6l1.4-2.2h4.2L15.5 6"/></svg></button><span class="street-modern" id="street-modern"></span></span>
           <span class="street-approach" id="street-approach" hidden></span>
         </div>
+        <!-- T-3601: the Today window — Google Street View, today, from where you stand and the
+             way you face, turning and moving with you (js/today-view.js). Nothing from Google
+             loads until it is first shown; with no key it is a card with Google Maps' link. -->
+        <section id="today-view" class="today-view" data-size="small" data-mode="off" hidden
+          aria-label="Today: Street View from where you stand">
+          <header class="today-head">
+            <b class="today-tag">Today</b>
+            <span class="today-where" id="today-where"></span>
+            <button type="button" class="today-btn" id="today-expand" aria-pressed="false"
+              aria-label="Make the Today window big" title="Make the Today window big"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="today-grow" d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/><path class="today-shrink" d="M19 11h-6V5M5 13h6v6M13 11l7-7M11 13l-7 7"/></svg></button>
+            <a class="today-btn" id="today-open" href="https://www.google.com/maps" target="_blank" rel="noopener"
+              aria-label="Open this view in Google Maps" title="Open this view in Google Maps"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+            <button type="button" class="today-btn" id="today-close"
+              aria-label="Hide the Today window" title="Hide the Today window"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+          </header>
+          <div class="today-body">
+            <div class="today-pano" id="today-pano" hidden></div>
+            <p class="today-note" id="today-note"></p>
+          </div>
+        </section>
         </div>
       </div>
     </div>
@@ -685,6 +708,9 @@
           <input type="checkbox" id="s-overview-map"></label>
         <label class="field row check-field"><span id="s-street-names-label">Street names, then and today</span>
           <input type="checkbox" id="s-street-names"></label>
+        <!-- T-3601: the Today window, Google Street View from where you stand (off by default). -->
+        <label class="field row check-field"><span>Today window: Street View from where you stand</span>
+          <input type="checkbox" id="s-today-view"></label>
         <label class="field row check-field"><span>Name of what you look at</span>
           <input type="checkbox" id="s-look-tag"></label>
         <!-- T-2942: where that name shows, and whether it fades. -->
