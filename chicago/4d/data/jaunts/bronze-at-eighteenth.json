@@ -1,0 +1,700 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "True stories",
+  "menu_group": "Stories",
+  "grade_band": "6-8",
+  "review_required": false,
+  "id": "bronze-at-eighteenth",
+  "scene": "1904",
+  "title": "The Bronze at Eighteenth Street",
+  "premise": "George Pullman set up a bronze of the battle of 1812 at his own door. A year later the army came to Chicago again, this time for his own workers. A walk about history, and who gets to cast it.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "afternoon",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: THE BRONZE AT EIGHTEENTH STREET. A Monday afternoon in November 1904, at the corner of Eighteenth Street and Prairie Avenue.\n\nFour stops round one street corner. There is a battlefield under the pavement, a bronze that tells a story about it, the house of the man who paid for the bronze, and the house that stared back at him. Every stop is a question about what really happened, and who decided how it would be remembered.\n\nStart where the street starts: the ground where the battle was fought.",
+    "read_s": 23
+  },
+  "stops": [
+    {
+      "id": "ground",
+      "destination": {
+        "kind": "anchor",
+        "id": "haunted_battle_ground"
+      },
+      "text": "Prairie Avenue at Eighteenth Street. Before the houses, this was sand hills by the lake. On 15 August 1812 the Battle of Fort Dearborn was fought across them, and the dead \"lay in the sand, half buried where they were killed, until 1816\". For a century a big cottonwood tree marked the spot. In 1900 a Tribune writer swore that the Pullman house in front of this corner \"stands about where the massacre took place\". Now look at the street in 1904: brick, granite, gas lamps, a schoolteacher bringing her class to see the sights. The battle is ninety-two years gone, and it has become a lesson. The question is who wrote the lesson. Walk east along Eighteenth Street to the bronze.",
+      "evidence": [
+        "battle-ground",
+        "battle-bones",
+        "day",
+        "stage"
+      ],
+      "next": "bronze",
+      "read_s": 32,
+      "stage": {
+        "caption": "A teacher leads a line of schoolchildren along Eighteenth Street toward the monument.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "teacher",
+            "dress": "lady_1904",
+            "name": "A schoolteacher (unnamed)",
+            "at": [
+              1394.0,
+              -3204.0
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1408.0,
+                    -3205.0
+                  ],
+                  [
+                    1444.0,
+                    -3206.0
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 8,
+                "talk": true
+              },
+              {
+                "t": 20,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "extra": "pupil_1",
+            "dress": "child_boy_1904",
+            "name": "A pupil (unnamed)",
+            "at": [
+              1391.5,
+              -3203.4
+            ],
+            "beats": [
+              {
+                "t": 0.6,
+                "walk": [
+                  [
+                    1406.0,
+                    -3204.4
+                  ],
+                  [
+                    1442.0,
+                    -3205.4
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          },
+          {
+            "extra": "pupil_2",
+            "dress": "child_girl_1904",
+            "name": "A pupil (unnamed)",
+            "at": [
+              1390.5,
+              -3204.6
+            ],
+            "beats": [
+              {
+                "t": 1.2,
+                "walk": [
+                  [
+                    1405.0,
+                    -3205.4
+                  ],
+                  [
+                    1441.0,
+                    -3206.4
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          },
+          {
+            "extra": "pupil_3",
+            "dress": "teen_boy_1904",
+            "name": "An older pupil (unnamed)",
+            "at": [
+              1389.0,
+              -3203.8
+            ],
+            "beats": [
+              {
+                "t": 1.8,
+                "walk": [
+                  [
+                    1403.5,
+                    -3204.6
+                  ],
+                  [
+                    1439.5,
+                    -3205.6
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          },
+          {
+            "extra": "pupil_4",
+            "dress": "child_girl_1904",
+            "name": "A pupil (unnamed)",
+            "at": [
+              1387.6,
+              -3204.8
+            ],
+            "beats": [
+              {
+                "t": 2.4,
+                "walk": [
+                  [
+                    1402.0,
+                    -3205.6
+                  ],
+                  [
+                    1438.0,
+                    -3206.6
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bronze",
+      "destination": {
+        "kind": "structure",
+        "id": "fort_dearborn_massacre_monument_1893"
+      },
+      "text": "The monument. George Pullman paid for it and set it up in 1893, near his own front door: Carl Rohl-Smith's bronze of the Potawatomi chief Black Partridge saving Margaret Helm, an officer's wife. It is dramatic and noble, and it may never have happened. \"Some historians regard the incident as the product of romantic imagination instead of eyewitness testimony\", and they say \"Mrs. Helm rode her horse to the shore of Lake Michigan where she found refuge.\" The sculptor found his models at Fort Sheridan, among survivors of Wounded Knee, whom he called \"Indians of the most untamed sort\". One historian says the figures \"may have owed more to Buffalo Bill Cody's Wild West Show than to actual research.\" The teacher is reading the plaque aloud. Now look at the house the bronze stands guard over.",
+      "evidence": [
+        "battle-statue",
+        "statue-doubt",
+        "statue-models",
+        "stage"
+      ],
+      "next": "strike",
+      "read_s": 36,
+      "stage": {
+        "caption": "The teacher reads to her class at the foot of the monument while the children look up at the bronze.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "teacher",
+            "dress": "lady_1904",
+            "name": "A schoolteacher (unnamed)",
+            "at": [
+              1497.82,
+              -3205.21
+            ],
+            "heading": 25.6,
+            "beats": [
+              {
+                "t": 2,
+                "talk": true
+              },
+              {
+                "t": 28,
+                "talk": false
+              },
+              {
+                "t": 29,
+                "face": "pupil_3"
+              }
+            ]
+          },
+          {
+            "extra": "pupil_1",
+            "dress": "child_boy_1904",
+            "name": "A pupil (unnamed)",
+            "at": [
+              1495.06,
+              -3204.9
+            ],
+            "heading": 49.1
+          },
+          {
+            "extra": "pupil_2",
+            "dress": "child_girl_1904",
+            "name": "A pupil (unnamed)",
+            "at": [
+              1495.99,
+              -3206.33
+            ],
+            "heading": 35.2
+          },
+          {
+            "extra": "pupil_3",
+            "dress": "teen_boy_1904",
+            "name": "An older pupil (unnamed)",
+            "at": [
+              1497.19,
+              -3207.73
+            ],
+            "heading": 21.7
+          },
+          {
+            "extra": "pupil_4",
+            "dress": "child_girl_1904",
+            "name": "A pupil (unnamed)",
+            "at": [
+              1498.71,
+              -3207.37
+            ],
+            "heading": 11.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "strike",
+      "destination": {
+        "kind": "structure",
+        "id": "pullman_house_1729_prairie"
+      },
+      "text": "1729 Prairie, the Pullman house. The man who paid for the bronze built sleeping cars, and a company town south of the city where his workers paid him rent. In 1894 he cut their wages, but \"he didn't reduce the rent in Pullman\", and they struck. And here is the twist the bronze cannot tell: \"a year after the statue's dedication\", the Seventh Cavalry, the regiment of Wounded Knee, \"came to Chicago to quell the Pullman riots of 1894.\" The regiment came to Chicago to put down a strike against the man who had put a battle of 1812 at his door. Pullman died in 1897. The house will be razed in 1922. Cross Prairie to the house that stared at his.",
+      "evidence": [
+        "pullman-strike",
+        "cavalry-1894",
+        "pullman-raise",
+        "pullman-razed",
+        "stage"
+      ],
+      "next": "grave",
+      "read_s": 32,
+      "stage": {
+        "caption": "Two working men carrying tools stop on the far walk to look at the Pullman house, then go on.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "worker_a",
+            "dress": "working_driver_1904",
+            "name": "A working man (unnamed)",
+            "at": [
+              1402.98,
+              -3195.26
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1402.67,
+                    -3179.26
+                  ]
+                ],
+                "pace": "walk"
+              },
+              {
+                "t": 9,
+                "face": [
+                  1428.63,
+                  -3176.77
+                ]
+              },
+              {
+                "t": 10,
+                "talk": true
+              },
+              {
+                "t": 20,
+                "talk": false
+              },
+              {
+                "t": 22,
+                "walk": [
+                  [
+                    1402.18,
+                    -3153.27
+                  ]
+                ],
+                "pace": "walk"
+              }
+            ]
+          },
+          {
+            "extra": "worker_b",
+            "dress": "stable_helper_1904",
+            "name": "A second working man (unnamed)",
+            "at": [
+              1402.0,
+              -3196.28
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1401.69,
+                    -3180.28
+                  ]
+                ],
+                "pace": "walk"
+              },
+              {
+                "t": 9,
+                "face": "worker_a"
+              },
+              {
+                "t": 22,
+                "walk": [
+                  [
+                    1401.2,
+                    -3154.29
+                  ]
+                ],
+                "pace": "walk"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "grave",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_house"
+      },
+      "text": "The Glessner corner, diagonally across from Pullman. Pullman hated this house: \"I do not know what I have ever done to have that thing staring me in the face every time I go out of my door\". He spent his last years between the bronze and the granite. When he died, his family was afraid that his body would be dug up by robbers, or by men who had worked for him. They buried him in a \"lead-lined mahogany coffin, which was then sealed inside a block of concrete\", under steel rails \"bolted together at right angles\". One historian is honest about the legends: \"Whether it's true or not, we don't really know.\" That is the lesson of this corner. Bronze, granite and concrete, and under all of it, the sand.",
+      "evidence": [
+        "pullman-glare",
+        "pullman-grave",
+        "neighbours",
+        "stage"
+      ],
+      "next": "sand",
+      "read_s": 34,
+      "stage": {
+        "caption": "The class files past the Glessner corner on its way home, and the teacher looks back at the Pullman house.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "teacher",
+            "dress": "lady_1904",
+            "name": "A schoolteacher (unnamed)",
+            "at": [
+              1400,
+              -3212
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1395,
+                    -3215
+                  ],
+                  [
+                    1393.4,
+                    -3250
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 14,
+                "face": [
+                  1428.63,
+                  -3176.77
+                ]
+              }
+            ]
+          },
+          {
+            "extra": "pupil_1",
+            "dress": "child_boy_1904",
+            "name": "A pupil (unnamed)",
+            "at": [
+              1401.6,
+              -3210.5
+            ],
+            "beats": [
+              {
+                "t": 0.6,
+                "walk": [
+                  [
+                    1394.4,
+                    -3216
+                  ],
+                  [
+                    1392.6,
+                    -3252
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          },
+          {
+            "extra": "pupil_2",
+            "dress": "child_girl_1904",
+            "name": "A pupil (unnamed)",
+            "at": [
+              1403,
+              -3209
+            ],
+            "beats": [
+              {
+                "t": 1.2,
+                "walk": [
+                  [
+                    1395.4,
+                    -3216.8
+                  ],
+                  [
+                    1393.8,
+                    -3253
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          },
+          {
+            "extra": "pupil_3",
+            "dress": "teen_boy_1904",
+            "name": "An older pupil (unnamed)",
+            "at": [
+              1404.4,
+              -3207.6
+            ],
+            "beats": [
+              {
+                "t": 1.8,
+                "walk": [
+                  [
+                    1394.6,
+                    -3218
+                  ],
+                  [
+                    1392.8,
+                    -3254
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          },
+          {
+            "extra": "pupil_4",
+            "dress": "child_girl_1904",
+            "name": "A pupil (unnamed)",
+            "at": [
+              1405.8,
+              -3206.2
+            ],
+            "beats": [
+              {
+                "t": 2.4,
+                "walk": [
+                  [
+                    1395.2,
+                    -3219
+                  ],
+                  [
+                    1393.6,
+                    -3255
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "legs": [
+    {
+      "story": "East along Eighteenth Street to the bronze at the Pullman fence.",
+      "evidence": [
+        "battle-statue"
+      ],
+      "story_evidence": [
+        "battle-statue"
+      ]
+    },
+    {
+      "story": "Back round the Pullman grounds to the front of the house on Prairie Avenue.",
+      "evidence": [
+        "pullman-strike"
+      ],
+      "story_evidence": [
+        "cavalry-1894"
+      ]
+    },
+    {
+      "story": "Across to the Glessner corner, diagonally opposite Pullman's door.",
+      "evidence": [
+        "neighbours"
+      ],
+      "story_evidence": [
+        "pullman-glare"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "sand",
+      "text": "End of the walk. In 1904 the bronze still stands at Eighteenth Street, telling its story one way. Some historians doubt the rescue it shows ever happened. Pullman lies at Graceland under his concrete, the strike he broke is in every history book, and the ground under this corner still holds the sand of 1812. A monument tells you who paid for it. The rest you have to dig for.",
+      "read_s": 18,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "bronze-at-eighteenth-card",
+    "title": "The Monument Question",
+    "text": "An interpretive card about the 1893 monument at Eighteenth Street and the history behind it, not a historical artifact."
+  },
+  "evidence": [
+    {
+      "id": "battle-ground",
+      "text": "The Battle of Fort Dearborn occurred in the area that is now the northern section of the street.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_prairie_avenue"
+      ],
+      "locator": "The history section."
+    },
+    {
+      "id": "battle-bones",
+      "text": "The dead of 15 August 1812 'lay in the sand, half buried where they were killed, until 1816'; the site, in the sand hills of the lake shore between 16th and 18th streets near the north-east corner of 18th and Prairie (accounts differ), 'was marked by for over a century by a large cottonwood tree'. A Tribune article of 1900 says the Pullman house 'stands about where the massacre took place'.",
+      "confidence": "attested",
+      "sources": [
+        "chicagoandcook_2017_1812_massacre_site"
+      ],
+      "locator": "The post's paragraphs on the site, its tree and the Tribune of 1900."
+    },
+    {
+      "id": "day",
+      "text": "The Bronze at Eighteenth Street: the day, Monday 21 November 1904, the hour and the order of the walk are this jaunt's framing, chosen because the stories meet on it (three days after Arthur Caton's death, a Monday of the Reading Class, before Kimball's death in December). No visit on that day is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "stage",
+      "text": "The Bronze at Eighteenth Street: who is seen at each stop, where they stand, what they do and when are reconstructed. People with cards in the town play themselves; people the town has no card for (and the unnamed servants, callers and passers-by) are unnamed figures in period dress, and no likeness is claimed. No word anyone says is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "battle-statue",
+      "text": "George Pullman commissioned Carl Rohl-Smith's bronze of the Potawatomi chief Black Partridge saving Margaret Helm, the wife of an army officer, placed in 1893 'near the intersection of Prairie Avenue and 18th Street'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_fort_dearborn_massacre_monument",
+        "chicagoandcook_2017_1812_massacre_site"
+      ],
+      "locator": "The monument article's history; the cemetery post's paragraph on the 1893 statue, removed in 1931."
+    },
+    {
+      "id": "statue-doubt",
+      "text": "'Some historians regard the incident as the product of romantic imagination instead of eyewitness testimony, stating that Margaret Helm was not the beneficiary of Black Partridge's dramatic rescue. In fact, before the battle turned into a massacre, Mrs. Helm rode her horse to the shore of Lake Michigan where she found refuge.'",
+      "confidence": "attested",
+      "sources": [
+        "karamanski_2004_monuments_lost_nation_p6"
+      ],
+      "locator": "Page 6 of the essay."
+    },
+    {
+      "id": "statue-models",
+      "text": "Rohl-Smith obtained his models at Fort Sheridan, where he met survivors of Wounded Knee, whom he described as 'Indians of the most untamed sort'. His figures 'may have owed more to Buffalo Bill Cody's Wild West Show than to actual research.'",
+      "confidence": "attested",
+      "sources": [
+        "karamanski_2004_monuments_lost_nation_p6"
+      ],
+      "locator": "Page 6 of the essay."
+    },
+    {
+      "id": "pullman-strike",
+      "text": "In 1894 Pullman cut his workers' wages, but 'he didn't reduce the rent in Pullman', his company town; he 'died of a heart attack' on 19 October 1897.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_george_pullman"
+      ],
+      "locator": "The biography's paragraphs on the strike and his death."
+    },
+    {
+      "id": "cavalry-1894",
+      "text": "'a year after the statue's dedication', the Seventh Cavalry, 'which had fought Indians so fiercely at Little Big Horn and Wounded Knee, came to Chicago to quell the Pullman riots of 1894.'",
+      "confidence": "attested",
+      "sources": [
+        "karamanski_2004_monuments_lost_nation_p6"
+      ],
+      "locator": "Page 6 of the essay."
+    },
+    {
+      "id": "pullman-raise",
+      "text": "Pullman's firm raised Chicago buildings out of the mud 'on average six feet without causing them any damage'; his first sleeping car 'was finished in 1864'; Lincoln's body went home to Springfield in a sleeper while 'hundreds of thousands of people lined the route in homage'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_george_pullman"
+      ],
+      "locator": "The biography's paragraphs on building-raising, the sleeping car and Lincoln's funeral."
+    },
+    {
+      "id": "pullman-razed",
+      "text": "George M. Pullman Residence, 1729 S. Prairie Avenue: razed 1922.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1729 S. Prairie Avenue entry."
+    },
+    {
+      "id": "pullman-glare",
+      "text": "George Pullman, across the street, complained of the Glessner house: 'I do not know what I have ever done to have that thing staring me in the face every time I go out of my door'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_glessner_house"
+      ],
+      "locator": "The design section."
+    },
+    {
+      "id": "pullman-grave",
+      "text": "Fearing his body would be dug up, the family had him buried in a 'lead-lined mahogany coffin, which was then sealed inside a block of concrete', under steel rails 'bolted together at right angles', at Graceland Cemetery. An 1897 New York Times account gives a 'lead-lined box wrapped in tar paper' and 'an inch of asphaltum'; behind it, 'a lot of high-profile grave robberies lately' and the fear that 'some of the employees weren't quite done getting revenge'. The historian Adam Selzer: 'Whether it's true or not, we don't really know.'",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_george_pullman",
+        "wttw_pullman_grave"
+      ],
+      "locator": "The biography's paragraph on the burial; the WTTW piece on the grave."
+    },
+    {
+      "id": "neighbours",
+      "text": "Glessner built at the corner of Eighteenth Street and Prairie Avenue, diagonally opposite Pullman's mansion.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "locator": "Data page 3, Part I.B."
+    }
+  ],
+  "liberties": [
+    "L-1904-story-jaunts"
+  ]
+}

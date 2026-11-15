@@ -1,0 +1,461 @@
+{
+ "goodman_house_1612_prairie": {
+  "stand": [
+   1408.41,
+   -2987.46
+  ],
+  "front": [
+   1380.49,
+   -2987.22
+  ],
+  "bearing_deg": 89.36,
+  "width": 11.27,
+  "centre": [
+   1370.58,
+   -2987.33
+  ],
+  "distance": 34.53
+ },
+ "house_1608_prairie": {
+  "stand": [
+   1408.41,
+   -2977.46
+  ],
+  "front": [
+   1380.04,
+   -2976.54
+  ],
+  "bearing_deg": 89.36,
+  "width": 6.77,
+  "centre": [
+   1370.41,
+   -2976.65
+  ],
+  "distance": 31.25
+ },
+ "house_1616_prairie": {
+  "stand": [
+   1408.41,
+   -3000.46
+  ],
+  "front": [
+   1380.36,
+   -3000.8
+  ],
+  "bearing_deg": 89.36,
+  "width": 6.52,
+  "centre": [
+   1368.61,
+   -3000.93
+  ],
+  "distance": 36.61
+ },
+ "house_1613_prairie": {
+  "stand": [
+   1390.41,
+   -2983.46
+  ],
+  "front": [
+   1413.27,
+   -2984.25
+  ],
+  "bearing_deg": 269.29,
+  "width": 6.62,
+  "centre": [
+   1419.53,
+   -2984.17
+  ],
+  "distance": 23.03
+ },
+ "glessner_lee_house_1700_prairie": {
+  "stand": [
+   1409.41,
+   -3089.46
+  ],
+  "front": [
+   1381.11,
+   -3087.88
+  ],
+  "bearing_deg": 89.36,
+  "width": 11.21,
+  "centre": [
+   1374.55,
+   -3087.95
+  ],
+  "distance": 27.14
+ },
+ "george_glessner_house_1706_prairie": {
+  "stand": [
+   1409.41,
+   -3098.46
+  ],
+  "front": [
+   1381.22,
+   -3099
+  ],
+  "bearing_deg": 89.36,
+  "width": 11.06,
+  "centre": [
+   1374.66,
+   -3099.07
+  ],
+  "distance": 27.01
+ },
+ "hibbard_house_1701_prairie": {
+  "stand": [
+   1391.41,
+   -3082.46
+  ],
+  "front": [
+   1418.19,
+   -3081.03
+  ],
+  "bearing_deg": 269.29,
+  "width": 14.77,
+  "centre": [
+   1424.48,
+   -3080.95
+  ],
+  "distance": 29.79
+ },
+ "kellogg_house_1709_prairie": {
+  "stand": [
+   1392.41,
+   -3110.46
+  ],
+  "front": [
+   1418.35,
+   -3107.96
+  ],
+  "bearing_deg": 269.29,
+  "width": 12.95,
+  "centre": [
+   1425.95,
+   -3107.87
+  ],
+  "distance": 30.55
+ },
+ "dexter_house_1721_prairie": {
+  "stand": [
+   1392.41,
+   -3141.46
+  ],
+  "front": [
+   1425.09,
+   -3141.05
+  ],
+  "bearing_deg": 269.29,
+  "width": 17.64,
+  "centre": [
+   1429.01,
+   -3141
+  ],
+  "distance": 29.66
+ },
+ "house_1726_prairie": {
+  "stand": [
+   1409.41,
+   -3159.46
+  ],
+  "front": [
+   1381.83,
+   -3162.1
+  ],
+  "bearing_deg": 89.36,
+  "width": 8.42,
+  "centre": [
+   1371.03,
+   -3162.22
+  ],
+  "distance": 35.02
+ },
+ "pullman_house_1729_prairie": {
+  "stand": [
+   1392.41,
+   -3177.46
+  ],
+  "front": [
+   1428.63,
+   -3176.77
+  ],
+  "bearing_deg": 269.29,
+  "width": 18.08,
+  "centre": [
+   1442.56,
+   -3176.6
+  ],
+  "distance": 48.62
+ },
+ "pullman_house_1729_prairie_conservatory": {
+  "stand": [
+   1426.81,
+   -3171.2
+  ],
+  "front": [
+   1455.48,
+   -3169.68
+  ],
+  "bearing_deg": 269.29,
+  "width": 13,
+  "centre": [
+   1464.9,
+   -3170.73
+  ],
+  "distance": 38.1
+ },
+ "glessner_house": {
+  "stand": [
+   1411.41,
+   -3228.46
+  ],
+  "front": [
+   1387.72,
+   -3228.58
+  ],
+  "bearing_deg": 89.42,
+  "width": 22.57,
+  "centre": [
+   1371.88,
+   -3230.22
+  ],
+  "distance": 78.2
+ },
+ "kimball_house_1801_prairie": {
+  "stand": [
+   1393.41,
+   -3222.46
+  ],
+  "front": [
+   1419.64,
+   -3223.17
+  ],
+  "bearing_deg": 269.42,
+  "width": 11.01,
+  "centre": [
+   1429.89,
+   -3223.06
+  ],
+  "distance": 35.18
+ },
+ "keith_house_1808_prairie": {
+  "stand": [
+   1411.41,
+   -3244.46
+  ],
+  "front": [
+   1387.91,
+   -3245.09
+  ],
+  "bearing_deg": 89.42,
+  "width": 10.46,
+  "centre": [
+   1370.55,
+   -3245.27
+  ],
+  "distance": 53.09
+ },
+ "coleman_ames_house_1811_prairie": {
+  "stand": [
+   1394.41,
+   -3248.46
+  ],
+  "front": [
+   1419.8,
+   -3248.06
+  ],
+  "bearing_deg": 269.42,
+  "width": 10.4,
+  "centre": [
+   1423.58,
+   -3248.02
+  ],
+  "distance": 21.54
+ },
+ "ream_house_1901_prairie": {
+  "stand": [
+   1394.41,
+   -3331.46
+  ],
+  "front": [
+   1422.41,
+   -3330.74
+  ],
+  "bearing_deg": 269.42,
+  "width": 15.21,
+  "centre": [
+   1433.61,
+   -3330.62
+  ],
+  "distance": 40.44
+ },
+ "elbridge_keith_house_1900_prairie": {
+  "stand": [
+   1412.41,
+   -3347.46
+  ],
+  "front": [
+   1384.6,
+   -3347.59
+  ],
+  "bearing_deg": 89.42,
+  "width": 12.31,
+  "centre": [
+   1374.65,
+   -3347.69
+  ],
+  "distance": 35.41
+ },
+ "marshall_field_house_1905_prairie": {
+  "stand": [
+   1394.41,
+   -3365.46
+  ],
+  "front": [
+   1422.76,
+   -3365.2
+  ],
+  "bearing_deg": 269.42,
+  "width": 16.81,
+  "centre": [
+   1433.26,
+   -3365.1
+  ],
+  "distance": 40.21
+ },
+ "edson_keith_house_1906_prairie": {
+  "stand": [
+   1412.41,
+   -3365.46
+  ],
+  "front": [
+   1383.89,
+   -3365.99
+  ],
+  "bearing_deg": 89.42,
+  "width": 16.52,
+  "centre": [
+   1373.01,
+   -3366.1
+  ],
+  "distance": 40.81
+ },
+ "house_1910_calumet": {
+  "stand": [
+   1530.41,
+   -3386.46
+  ],
+  "front": [
+   1519.66,
+   -3388.8
+  ],
+  "bearing_deg": 77.53,
+  "width": 15.47,
+  "centre": [
+   1509.28,
+   -3391.09
+  ],
+  "distance": 34.23
+ },
+ "house_1900_calumet": {
+  "stand": [
+   1483.42,
+   -3366.7
+  ],
+  "front": [
+   1506.09,
+   -3361.69
+  ],
+  "bearing_deg": 257.53,
+  "width": 17.76,
+  "centre": [
+   1514.2,
+   -3359.9
+  ],
+  "distance": 31.52
+ },
+ "moulton_lowden_house_1912_prairie": {
+  "stand": [
+   1412.41,
+   -3394.46
+  ],
+  "front": [
+   1386.15,
+   -3394.37
+  ],
+  "bearing_deg": 89.42,
+  "width": 13.02,
+  "centre": [
+   1375.92,
+   -3394.47
+  ],
+  "distance": 36.56
+ },
+ "marshall_field_jr_house_1919_prairie": {
+  "stand": [
+   1395.41,
+   -3411.46
+  ],
+  "front": [
+   1421.78,
+   -3409.22
+  ],
+  "bearing_deg": 269.42,
+  "width": 9.91,
+  "centre": [
+   1430.98,
+   -3409.12
+  ],
+  "distance": 31.97
+ },
+ "fort_dearborn_massacre_monument_1893": {
+  "stand": [
+   1487.41,
+   -3217.46
+  ],
+  "front": [
+   1500.02,
+   -3200.61
+  ],
+  "bearing_deg": 214.22,
+  "width": 4.75,
+  "centre": [
+   1501.29,
+   -3198.75
+  ],
+  "distance": 12.97
+ },
+ "house_1801_indiana": {
+  "stand": [
+   1274.41,
+   -3221.46
+  ],
+  "front": [
+   1284.15,
+   -3221.38
+  ],
+  "bearing_deg": 269.32,
+  "width": 5.5,
+  "centre": [
+   1288.65,
+   -3221.32
+  ],
+  "distance": 18.77
+ },
+ "house_1913_indiana": {
+  "stand": [
+   1276.41,
+   -3392.46
+  ],
+  "front": [
+   1288.12,
+   -3392.66
+  ],
+  "bearing_deg": 269.32,
+  "width": 7.02,
+  "centre": [
+   1294.75,
+   -3392.58
+  ],
+  "distance": 24.2
+ }
+}

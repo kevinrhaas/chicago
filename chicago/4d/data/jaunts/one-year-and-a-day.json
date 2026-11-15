@@ -1,0 +1,635 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "True stories",
+  "menu_group": "Stories",
+  "grade_band": "6-8",
+  "review_required": false,
+  "id": "one-year-and-a-day",
+  "scene": "1904",
+  "title": "One Year and a Day",
+  "premise": "Marshall Field Jr. has a wife, three children, a new wing on his house and the biggest fortune in Chicago coming to him. On this November afternoon he has one year and a day left.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "afternoon",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: ONE YEAR AND A DAY. A Monday afternoon, 21 November 1904, at the Field houses on Prairie Avenue.\n\nFour stops between two houses: the father's and the son's. Marshall Field built one of the great stores of America and the biggest fortune in Chicago. His only surviving son lives two doors away. He is 36 and rich, and he has spent his whole life waiting to become the man his father is. Count the days with him. Exactly one year and one day from now, a shot will be fired in the house at 1919.\n\nStart at the son's front door.",
+    "read_s": 27
+  },
+  "stops": [
+    {
+      "id": "son",
+      "destination": {
+        "kind": "structure",
+        "id": "marshall_field_jr_house_1919_prairie"
+      },
+      "text": "1919 Prairie, the house of Mr. and Mrs. Marshall Field Jr. He bought it in 1890, and two years ago D. H. Burnham & Company built \"a huge addition\" for him. He married Albertine Huck, and they have three children: Henry, Marshall III and little Gwendolyn. Look at them on the front walk this afternoon, the nurse with the youngest, the boys in their coats. Everything a man could want is on this walk. Everything except his own name, which belongs to his father. He has been Junior all his life. Walk north, two doors up, to the house where the name lives.",
+      "evidence": [
+        "fieldjr-marker",
+        "fieldjr-listing",
+        "field-heirs",
+        "day",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "pa1904_field_marshall_jr",
+          "label": "Marshall Field jr."
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_field_mrs_marshall_jr",
+          "label": "Albertine Huck Field"
+        }
+      ],
+      "next": "father",
+      "read_s": 27,
+      "stage": {
+        "caption": "Marshall Field Jr. and his wife come out to the walk where the nurse is waiting with their children.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_field_marshall_jr",
+            "at": [
+              1420.22,
+              -3409.75
+            ],
+            "heading": 268.2,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 3,
+                "show": true
+              },
+              {
+                "t": 5,
+                "walk": [
+                  [
+                    1415.27,
+                    -3410.58
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 13,
+                "face": "pa1904_field_henry"
+              },
+              {
+                "t": 15,
+                "talk": true
+              },
+              {
+                "t": 26,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "person": "pa1904_field_mrs_marshall_jr",
+            "at": [
+              1420.23,
+              -3408.65
+            ],
+            "heading": 259.8,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 4,
+                "show": true
+              },
+              {
+                "t": 6,
+                "walk": [
+                  [
+                    1415.34,
+                    -3408.96
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 14,
+                "face": "pa1904_field_gwendolyn"
+              }
+            ]
+          },
+          {
+            "extra": "field_nurse",
+            "dress": "maid_1904",
+            "name": "The children's nurse (unnamed)",
+            "at": [
+              1413.02,
+              -3407.76
+            ],
+            "heading": 103.5
+          },
+          {
+            "person": "pa1904_field_gwendolyn",
+            "at": [
+              1413.29,
+              -3408.54
+            ],
+            "heading": 97.5
+          },
+          {
+            "person": "pa1904_field_henry",
+            "at": [
+              1412.95,
+              -3411.58
+            ],
+            "heading": 72.2
+          },
+          {
+            "person": "pa1904_field_marshall_iii",
+            "at": [
+              1412.25,
+              -3410.43
+            ],
+            "heading": 82.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "father",
+      "destination": {
+        "kind": "structure",
+        "id": "marshall_field_house_1905_prairie"
+      },
+      "text": "1905 Prairie, the father's house, where the son grew up. It was \"the first in Chicago to be completely wired for electricity\". There was a first son, Louis, who died a baby; this one lived, and was raised to inherit the store that taught America to \"Give the lady what she wants\". His father is \"the wealthiest and most powerful businessman in Chicago\". The father does not hand over power. He is planning to hand it past his son entirely: his will is going to put the fortune in trust for forty years, for the grandsons playing on the walk at 1919. The son walks up to his father's door for his Monday call. Benson the butler lets him in. The house will be razed in 1955.",
+      "evidence": [
+        "field-children",
+        "field-rich",
+        "field-heirs",
+        "field-razed",
+        "field-staff",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "pa1904_field_marshall",
+          "label": "Marshall Field"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_field_marshall_c1900_thomas_benson",
+          "label": "Thomas Benson"
+        }
+      ],
+      "next": "talk",
+      "read_s": 33,
+      "stage": {
+        "caption": "Marshall Field Jr. walks up to his father's door, and Thomas Benson opens it for him.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_field_marshall_jr",
+            "at": [
+              1412.14,
+              -3341.3
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1412.35,
+                    -3364.3
+                  ],
+                  [
+                    1419.76,
+                    -3365.23
+                  ]
+                ],
+                "pace": "walk"
+              },
+              {
+                "t": 18,
+                "face": "pa1904_field_marshall_c1900_thomas_benson"
+              },
+              {
+                "t": 22,
+                "walk": [
+                  [
+                    1421.36,
+                    -3365.21
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 24,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "pa1904_field_marshall_c1900_thomas_benson",
+            "at": [
+              1420.95,
+              -3364.22
+            ],
+            "heading": 261.6,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 14,
+                "show": true
+              },
+              {
+                "t": 17,
+                "greet": true
+              },
+              {
+                "t": 25,
+                "hide": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "talk",
+      "destination": {
+        "kind": "anchor",
+        "id": "field_house"
+      },
+      "text": "Up the street, look back at the two houses. This is what the street sees: a dutiful son making his call. Here is what the street says, behind its curtains. The Levee is three blocks west, and the Everleigh Club on Dearborn Street counts the richest young men in Chicago among its guests; the gossips name Marshall Field Jr. among them. Nobody has proved it, and nobody ever will. But a year and a day from now, the story they tell will be this: \"The most popular story is that he was in fact shot at the Everleigh Club\", and carried home to look like an accident. Other people will say he did it himself. Go back to 1919.",
+      "evidence": [
+        "fieldjr-rumour",
+        "everleigh-clients",
+        "fieldjr-shot",
+        "stage"
+      ],
+      "next": "shot",
+      "read_s": 31,
+      "stage": {
+        "caption": "A gentleman and a lady walk past the Field houses, and the gentleman tips his head toward 1919.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "gossip_m",
+            "dress": "gentleman_1904",
+            "name": "A gentleman of the street (unnamed)",
+            "at": [
+              1411.6,
+              -3378.0
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1411.2,
+                    -3338.0
+                  ],
+                  [
+                    1411.0,
+                    -3308.0
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 4,
+                "talk": true
+              },
+              {
+                "t": 18,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "extra": "gossip_f",
+            "dress": "lady_1904",
+            "name": "A lady of the street (unnamed)",
+            "at": [
+              1412.6,
+              -3378.5
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1412.2,
+                    -3338.5
+                  ],
+                  [
+                    1412.0,
+                    -3308.5
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 9,
+                "face": "gossip_m"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shot",
+      "destination": {
+        "kind": "structure",
+        "id": "marshall_field_jr_house_1919_prairie"
+      },
+      "text": "1919 again, as the afternoon goes. The children have gone in. On Wednesday, 22 November 1905, one year and a day from this afternoon, Marshall Field Jr. will be shot in this house. He will live five days. At Mercy Hospital he will say, \"I shot myself with that revolver – accidentally\". The coroner's jury will agree that he \"had shot himself unintentionally while examining a revolver\". Two reporters will be tipped that he spent the evening at the Everleigh Club; the sisters will deny it, and nobody will confirm it. The house will go on standing. Look at the lit windows. The son of the richest man in Chicago is home for dinner, with one year and a day left.",
+      "evidence": [
+        "fieldjr-shot",
+        "fieldjr-rumour",
+        "stage"
+      ],
+      "next": "six-weeks",
+      "read_s": 32,
+      "stage": {
+        "caption": "A maid draws the curtains at 1919 as the light goes, and the nurse takes the children in.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "field_nurse",
+            "dress": "maid_1904",
+            "name": "The children's nurse (unnamed)",
+            "at": [
+              1415.67,
+              -3408.13
+            ],
+            "beats": [
+              {
+                "t": 1,
+                "walk": [
+                  [
+                    1420.35,
+                    -3408.94
+                  ]
+                ],
+                "pace": "walk"
+              },
+              {
+                "t": 9,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "pa1904_field_gwendolyn",
+            "at": [
+              1415.14,
+              -3408.98
+            ],
+            "beats": [
+              {
+                "t": 1.2,
+                "walk": [
+                  [
+                    1420.39,
+                    -3409.34
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 10,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "pa1904_field_henry",
+            "at": [
+              1414.47,
+              -3410.64
+            ],
+            "beats": [
+              {
+                "t": 2,
+                "walk": [
+                  [
+                    1420.42,
+                    -3409.74
+                  ]
+                ],
+                "pace": "walk"
+              },
+              {
+                "t": 9,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "pa1904_field_marshall_iii",
+            "at": [
+              1413.79,
+              -3409.7
+            ],
+            "beats": [
+              {
+                "t": 3,
+                "walk": [
+                  [
+                    1420.4,
+                    -3409.54
+                  ]
+                ],
+                "pace": "walk"
+              },
+              {
+                "t": 10,
+                "hide": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "legs": [
+    {
+      "story": "North two doors, past the Moulton house, to the father's door at 1905.",
+      "evidence": [
+        "field-children"
+      ],
+      "story_evidence": [
+        "field-heirs"
+      ]
+    },
+    {
+      "story": "North along the walk to look back at both Field houses the way the street does.",
+      "evidence": [
+        "fieldjr-rumour"
+      ],
+      "story_evidence": [
+        "fieldjr-rumour"
+      ]
+    },
+    {
+      "story": "Back south along the walk to 1919, as the lamps come on.",
+      "evidence": [
+        "fieldjr-shot"
+      ],
+      "story_evidence": [
+        "fieldjr-shot"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "six-weeks",
+      "text": "End of the walk. Marshall Field Jr. died at Mercy Hospital on Monday 27 November 1905. His father was 71 and had just remarried. On New Year's Day he went out to play golf, caught pneumonia, and \"Six weeks later, Marshall Field, Sr. was dead.\" The fortune went in trust to the boys from the front walk at 1919, just as the will had planned. The son never got to be anything but Junior. His sons got everything.",
+      "read_s": 21,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "one-year-and-a-day-card",
+    "title": "The Field Inheritance",
+    "text": "An interpretive card of the Field family on Prairie Avenue in 1904, not a historical artifact."
+  },
+  "evidence": [
+    {
+      "id": "fieldjr-marker",
+      "text": "Marshall Field Jr. Residence: enlarged and improved several times, the last in 1902, when D. H. Burnham & Company built a huge addition for Marshall Field Jr., who had acquired the property in 1890.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1919 S. Prairie Avenue entry."
+    },
+    {
+      "id": "fieldjr-listing",
+      "text": "The 1904 Blue Book lists Mr. and Mrs. Marshall Field jr. at 1919 Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "locator": "The street-and-number list, PRAIRIE AV., as data/residents_1904/households/hh_field_marshall_jr.json reads it."
+    },
+    {
+      "id": "field-heirs",
+      "text": "Marshall Field Jr. (1868-1905) married Albertine Huck, and they were the parents of Henry Field, Marshall Field III and Gwendolyn. Field's will held his remaining estate in trust for 40 years for his two grandsons, 60 percent to Marshall Field III and 40 percent to Henry, who died in 1917.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_marshall_field"
+      ],
+      "locator": "Family; Death and legacy."
+    },
+    {
+      "id": "day",
+      "text": "One Year and a Day: the day, Monday 21 November 1904, the hour and the order of the walk are this jaunt's framing, chosen because the stories meet on it (three days after Arthur Caton's death, a Monday of the Reading Class, before Kimball's death in December). No visit on that day is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "stage",
+      "text": "One Year and a Day: who is seen at each stop, where they stand, what they do and when are reconstructed. People with cards in the town play themselves; people the town has no card for (and the unnamed servants, callers and passers-by) are unnamed figures in period dress, and no likeness is claimed. No word anyone says is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "field-children",
+      "text": "Marshall and Nannie Field had three children: Louis, who died in infancy, and Marshall, Jr. and Ethel, raised at 1905 Prairie, 'the first in Chicago to be completely wired for electricity', built in 1876 at a cost of some $2 million.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_other_mrs_field"
+      ],
+      "locator": "The post's second paragraph."
+    },
+    {
+      "id": "field-rich",
+      "text": "Marshall Field: 'Give the lady what she wants'; 'the wealthiest and most powerful businessman in Chicago', his fortune valued at $125 million in 1905. His son Marshall Field Jr. was shot on 22 November 1905; Field himself died of pneumonia on 16 January 1906, caught after a New Year's Day golf game with, among others, Robert Todd Lincoln.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_marshall_field"
+      ],
+      "locator": "The biography's paragraphs on the store, his wealth, his son and his death."
+    },
+    {
+      "id": "field-razed",
+      "text": "Marshall Field Residence, 1905 S. Prairie Avenue: later converted to an aeronautical university. Razed 1955.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_east"
+      ],
+      "locator": "The 1905 S. Prairie Avenue entry."
+    },
+    {
+      "id": "field-staff",
+      "text": "The census of 1 June 1900 enumerated John Dunford, coachman, born in England, as the head of his own household in the rear building behind 1905 Prairie, and Thomas Benson, butler, born in Ireland, in the house.",
+      "confidence": "attested",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "locator": "ED 40, sheet 4A, lines 38-39, leaf n800."
+    },
+    {
+      "id": "fieldjr-rumour",
+      "text": "'The most popular story is that he was in fact shot at the Everleigh Club', a brothel, and brought home to look like an accident; other accounts say suicide.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_blog_2012_10_shadows_on_the_street"
+      ],
+      "locator": "The post's paragraph on the Marshall Field Jr. house."
+    },
+    {
+      "id": "everleigh-clients",
+      "text": "The blog names actor John Barrymore, authors Ring Lardner and Theodore Dreiser, and Marshall Field, Jr. among the club's famed clients, and says rumours persisted for years that the young Field had been shot there; Wikipedia: 'A rival madam maliciously accused the Everleigh sisters of murdering Field.'",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_other_ladies",
+        "wikipedia_everleigh_club"
+      ],
+      "locator": "Other Ladies: the clients paragraph; Wikipedia: Scandals."
+    },
+    {
+      "id": "fieldjr-shot",
+      "text": "On Wednesday 22 November 1905 Marshall Field Jr. was shot at 1919 Prairie, his parents' house next door at 1905; he died at Mercy Hospital on Monday 27 November, saying 'I shot myself with that revolver – accidentally', and the coroner's jury found he 'had shot himself unintentionally while examining a revolver'. Two reporters were tipped that he had spent the evening at the Everleigh Club, 2131-33 S. Dearborn; the sisters denied it and nobody confirmed it.",
+      "confidence": "attested",
+      "sources": [
+        "classic_chicago_2020_field_jr_death"
+      ],
+      "locator": "The account of the shooting and the rumours."
+    },
+    {
+      "id": "field-six-weeks",
+      "text": "'Despite the aid of Chicago's best surgeons, Field died of what the Tribune termed an accidentally self-inflicted gunshot wound. Six weeks later, Marshall Field, Sr. was dead.'",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_other_ladies"
+      ],
+      "locator": "The clients paragraph."
+    },
+    {
+      "id": "london",
+      "text": "The marriage licence acquired in London in 1905 gave Delia as 46 and Field as 70. They married at St. Margaret's, Westminster; 'The ceremony was quiet, and attended only by a few friends.' Field died in 1906 of pneumonia after a round of golf in a foursome that included Robert Todd Lincoln. Delia was left $1 million and the Field mansion on Prairie Avenue, moved to Washington, D.C., where her house was known as the Pink Palace, and died in 1937.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_second_mrs_field",
+        "wikipedia_marshall_field"
+      ],
+      "locator": "Second Mrs. Field: the paragraphs on the marriage and after; Wikipedia: the death on 16 January 1906."
+    }
+  ],
+  "liberties": [
+    "L-1904-story-jaunts"
+  ]
+}

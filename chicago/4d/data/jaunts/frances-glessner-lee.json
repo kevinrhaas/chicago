@@ -1,0 +1,693 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "True stories",
+  "menu_group": "Stories",
+  "grade_band": "6-8",
+  "review_required": false,
+  "id": "frances-glessner-lee",
+  "scene": "1904",
+  "title": "The Daughter Who Made Things",
+  "premise": "At 26, Frances Glessner Lee has a lawyer husband, two children and a fine new house her parents built. Her hands want something else, and a block south her mother has just found it.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: THE DAUGHTER WHO MADE THINGS. A grey Monday morning, 21 November 1904, at the north end of the Glessner family's world.\n\nFour stops, from the twin houses the Glessners built for their two children, down to the great stone house at Eighteenth Street where the daughter grew up. Frances Glessner Lee is 26. She was taught at home, married at 19, and she is the last person on this street anyone would expect to change the way murders are investigated. Watch her hands.\n\nStart at 1700 Prairie, at the door of the young Lees.",
+    "read_s": 25
+  },
+  "stops": [
+    {
+      "id": "lees",
+      "destination": {
+        "kind": "structure",
+        "id": "glessner_lee_house_1700_prairie"
+      },
+      "text": "1700 Prairie, the north half of a pair of twin townhouses. John and Frances Glessner built them for their two children, and the young families moved in in 1902. This one belongs to their daughter Frances and her husband Blewett Lee, a lawyer. She was born in 1878, the youngest child and only daughter, \"tutored at home\" in the stone house down the street, and she toured Europe at 18. On 9 February 1898, at 19, she married Lee in her parents' house; the cook baked the wedding cake. Now there is a boy, John, who is six, and a baby girl born last year. Watch the front door. Her husband is leaving for his office, and she stays on the step. Next door lives her brother.",
+      "evidence": [
+        "lee-twins",
+        "fanny-young",
+        "lee-at-19",
+        "mattie-cake",
+        "twins-1902",
+        "day",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "pa1904_lee_frances_glessner",
+          "label": "Frances Glessner Lee"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_lee_blewett",
+          "label": "Blewett Lee"
+        }
+      ],
+      "next": "george",
+      "read_s": 33,
+      "stage": {
+        "caption": "Blewett Lee comes down his steps and sets off for his office; his wife and their son stay at the door.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_lee_blewett",
+            "at": [
+              1382.74,
+              -3087.47
+            ],
+            "heading": 97.0,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 2,
+                "show": true
+              },
+              {
+                "t": 5,
+                "walk": [
+                  [
+                    1385.13,
+                    -3087.6
+                  ],
+                  [
+                    1391.18,
+                    -3086.94
+                  ],
+                  [
+                    1393.37,
+                    -3058.52
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ]
+          },
+          {
+            "person": "pa1904_lee_frances_glessner",
+            "at": [
+              1382.57,
+              -3088.56
+            ],
+            "heading": 88.6,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 3,
+                "show": true
+              },
+              {
+                "t": 6,
+                "walk": [
+                  [
+                    1384.07,
+                    -3088.65
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 12,
+                "face": [
+                  1393.09,
+                  -3063.51
+                ]
+              },
+              {
+                "t": 26,
+                "face": [
+                  1390.1,
+                  -3088.38
+                ]
+              }
+            ]
+          },
+          {
+            "person": "pa1904_lee_john_glessner",
+            "at": [
+              1383.22,
+              -3089.6
+            ],
+            "heading": 79.9,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 4,
+                "show": true
+              },
+              {
+                "t": 13,
+                "face": [
+                  1393.09,
+                  -3063.51
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "george",
+      "destination": {
+        "kind": "structure",
+        "id": "george_glessner_house_1706_prairie"
+      },
+      "text": "1706 Prairie, the other twin, shares a wall with the Lees. Here lives her brother George Glessner, his wife Alice and their four children, Elizabeth, Frances, John and the new baby, Emily, born this year. George takes photographs the way other men breathe; he photographed these very houses going up in 1901, and in 1902 he was made a manager at International Harvester. His is the kind of life the street understands: a job, a camera, a nursery full of children. His sister's life is supposed to look the same from the sidewalk, and it does. But her son will say, years later, that what broke her marriage was her \"creative urge coupled with high manual dexterity—the desire to make things—which [Lee] did not share.\" Walk south a block to find out where that urge came from.",
+      "evidence": [
+        "george-family",
+        "twins-1902",
+        "lee-son",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "pa1904_glessner_george_m",
+          "label": "George M. Glessner"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_glessner_alice_hamlin",
+          "label": "Alice Hamlin Glessner"
+        }
+      ],
+      "next": "mother",
+      "read_s": 36,
+      "stage": {
+        "caption": "George and Alice Glessner come out with their children for a morning walk.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_glessner_george_m",
+            "at": [
+              1382.81,
+              -3098.57
+            ],
+            "heading": 92.0,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 3,
+                "show": true
+              },
+              {
+                "t": 6,
+                "walk": [
+                  [
+                    1385.71,
+                    -3098.51
+                  ],
+                  [
+                    1391.2,
+                    -3097.81
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 15,
+                "face": "pa1904_glessner_elizabeth"
+              }
+            ]
+          },
+          {
+            "person": "pa1904_glessner_alice_hamlin",
+            "at": [
+              1382.73,
+              -3099.57
+            ],
+            "heading": 84.4,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 4,
+                "show": true
+              },
+              {
+                "t": 7,
+                "walk": [
+                  [
+                    1385.73,
+                    -3099.51
+                  ],
+                  [
+                    1391.23,
+                    -3099.21
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 16,
+                "talk": true
+              },
+              {
+                "t": 26,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "person": "pa1904_glessner_elizabeth",
+            "at": [
+              1383.59,
+              -3097.35
+            ],
+            "heading": 102.6,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 5,
+                "show": true
+              },
+              {
+                "t": 8,
+                "walk": [
+                  [
+                    1391.37,
+                    -3096.41
+                  ]
+                ],
+                "pace": "walk"
+              }
+            ]
+          },
+          {
+            "person": "pa1904_glessner_frances",
+            "at": [
+              1383.65,
+              -3100.75
+            ],
+            "heading": 73.7,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 6,
+                "show": true
+              },
+              {
+                "t": 9,
+                "walk": [
+                  [
+                    1391.65,
+                    -3100.6
+                  ]
+                ],
+                "pace": "walk"
+              }
+            ]
+          },
+          {
+            "person": "pa1904_glessner_john",
+            "at": [
+              1384.22,
+              -3098.94
+            ],
+            "heading": 88.9,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 7,
+                "show": true
+              },
+              {
+                "t": 10,
+                "walk": [
+                  [
+                    1391.01,
+                    -3098.41
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "mother",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_door"
+      },
+      "text": "1800 Prairie, the house she grew up in, built like a fortress at Eighteenth Street. Her mother, Frances Glessner, is 56, and this year she has done something few ladies of Prairie Avenue would do. In 1904 she set up a workbench in the basement and began to make silver with her own hands. She takes lessons from Annibale Fogliata, a master jewelry craftsman of Hull House, and from Madeline Yale Wynne, a Chicago silversmith. Every piece she makes carries her mark, \"a G encircling a honeybee\", because she keeps bees as well. She has kept a journal since 1879; she misses nothing. The daughter comes to the door. Inside is a mother who has decided, at 56, to learn a trade.",
+      "evidence": [
+        "silversmith",
+        "journal-silver",
+        "frances-born",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "glessner_frances_m",
+          "label": "Frances M. Glessner"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_lee_frances_glessner",
+          "label": "Frances Glessner Lee"
+        }
+      ],
+      "next": "court",
+      "read_s": 32,
+      "stage": {
+        "caption": "Frances Glessner Lee comes down the walk to her mother's door, and her mother opens it herself.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_lee_frances_glessner",
+            "at": [
+              1395.9,
+              -3205.3
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1393.0,
+                    -3221.3
+                  ],
+                  [
+                    1391.0,
+                    -3227.1
+                  ]
+                ],
+                "pace": "walk"
+              },
+              {
+                "t": 14,
+                "face": "glessner_frances_m"
+              },
+              {
+                "t": 16,
+                "greet": true
+              }
+            ]
+          },
+          {
+            "person": "glessner_frances_m",
+            "at": [
+              1388.8,
+              -3227.9
+            ],
+            "heading": 82.6,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 11,
+                "show": true
+              },
+              {
+                "t": 15,
+                "greet": true
+              },
+              {
+                "t": 17,
+                "talk": true
+              },
+              {
+                "t": 30,
+                "talk": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "court",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_hall_bow"
+      },
+      "text": "The courtyard, the sunny private heart of the fortress. The mother shows the daughter what her hands have made. It is easy to see what the daughter sees: a woman of 56 who was given permission by nobody, doing exact, patient, beautiful work at a bench. Frances Glessner Lee is clever, and she is bored, and her marriage is \"not a happy one\". Her son will say that she had the \"creative urge coupled with high manual dexterity\" that her husband never shared. Everything that happens to her next starts with what she is looking at now: small things, made precisely, by hand, in a house where every detail is a clue. She will have one more child. Then she will leave, and she will build something nobody on this street could ever have imagined.",
+      "evidence": [
+        "lee-son",
+        "lee-twins",
+        "silversmith",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "glessner_frances_m",
+          "label": "Frances M. Glessner"
+        }
+      ],
+      "next": "nutshell",
+      "read_s": 36,
+      "stage": {
+        "caption": "Mother and daughter stand together in the courtyard, and the cook looks out from the service door.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "glessner_frances_m",
+            "at": [
+              1369.06,
+              -3235.99
+            ],
+            "heading": 174.8,
+            "beats": [
+              {
+                "t": 2,
+                "talk": true
+              },
+              {
+                "t": 20,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "person": "pa1904_lee_frances_glessner",
+            "at": [
+              1369.26,
+              -3237.99
+            ],
+            "heading": 354.3,
+            "beats": [
+              {
+                "t": 21,
+                "talk": true
+              },
+              {
+                "t": 32,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "person": "glessner_williamson_martha_l",
+            "at": [
+              1361.46,
+              -3236.19
+            ],
+            "heading": 95.9
+          }
+        ]
+      }
+    }
+  ],
+  "legs": [
+    {
+      "story": "Next door, through the shared wall, to the brother's half of the twin houses.",
+      "evidence": [
+        "george-family"
+      ],
+      "story_evidence": [
+        "twins-1902"
+      ]
+    },
+    {
+      "story": "South a block along Prairie Avenue to the stone house at Eighteenth Street.",
+      "evidence": [
+        "silversmith"
+      ],
+      "story_evidence": [
+        "silversmith"
+      ]
+    },
+    {
+      "story": "Through the house to the courtyard, where the windows are wide.",
+      "evidence": [
+        "narrow-windows"
+      ],
+      "story_evidence": [
+        "narrow-windows"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "nutshell",
+      "text": "End of the walk. Martha was born in 1906. In 1914 the Lees divorced. Years later Frances Glessner Lee made the Nutshell Studies of Unexplained Death: tiny, exact rooms where a death has happened, built at one inch to a foot, every clue in place. She wrote to an adviser, \"I found myself constantly tempted to add more clues and details…stop me when I go too far.\" In 1931 she gave Harvard $250,000 for legal medicine, and in 1943 New Hampshire made her the first woman state police captain in the country. Detectives still train on her rooms. The girl who was tutored at home taught the police how to look.",
+      "read_s": 29,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "frances-glessner-lee-card",
+    "title": "A Honeybee Hallmark",
+    "text": "An interpretive card of Frances Glessner Lee and her mother in 1904, not a historical artifact."
+  },
+  "evidence": [
+    {
+      "id": "lee-twins",
+      "text": "Within a few years of the wedding the Lees moved one block north into 1700 S. Prairie Avenue (demolished), one of two twin townhouses that John and Frances Glessner built for their children; their children were John Glessner Lee (1898), Frances Lee (1903) and Martha Lee (1906). 'The marriage was not a happy one and the couple divorced in 1914.'",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Glessner Lee."
+    },
+    {
+      "id": "fanny-young",
+      "text": "Fanny Glessner was born on 25 March 1878, the youngest child and only daughter, and was tutored at home. She toured Europe for fourteen months in 1896 and 1897 with her aunt Helen Macbeth, made her debut in November 1897, and on 9 February 1898 married Blewett Lee, a law partner of one of her brother George's friends.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Glessner Lee."
+    },
+    {
+      "id": "lee-at-19",
+      "text": "She married a young attorney, Blewett Lee, at 19. 'The couple had three children and at first appeared happy, but Glessner Lee eventually received a divorce.'",
+      "confidence": "attested",
+      "sources": [
+        "harvard_magazine_2005_glessner_lee"
+      ],
+      "locator": "The article's fourth paragraph."
+    },
+    {
+      "id": "mattie-cake",
+      "text": "Mattie Williamson baked the wedding cake for Frances Glessner and Blewett Lee, married at the house on 9 February 1898.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_blog_mattie_williamson_2020"
+      ],
+      "locator": "The post's account of 1897-98."
+    },
+    {
+      "id": "twins-1902",
+      "text": "George Glessner photographed the pair at 1700-1706 Prairie under construction in the summer of 1901, a year before the Glessner and Lee families moved in (1902).",
+      "confidence": "attested",
+      "sources": [
+        "glessner_blog_1700_1706_construction_1901_photo"
+      ],
+      "locator": "The photograph and its caption."
+    },
+    {
+      "id": "day",
+      "text": "The Daughter Who Made Things: the day, Monday 21 November 1904, the hour and the order of the walk are this jaunt's framing, chosen because the stories meet on it (three days after Arthur Caton's death, a Monday of the Reading Class, before Kimball's death in December). No visit on that day is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "stage",
+      "text": "The Daughter Who Made Things: who is seen at each stop, where they stand, what they do and when are reconstructed. People with cards in the town play themselves; people the town has no card for (and the unnamed servants, callers and passers-by) are unnamed figures in period dress, and no likeness is claimed. No word anyone says is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "george-family",
+      "text": "George Glessner married Alice Hamlin in June 1898; their children were Elizabeth (1899), Frances (1900), John (1902) and Emily (1904). Photography was his lifelong passion, and in 1902 he was named utility manager of International Harvester.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of George Macbeth Glessner."
+    },
+    {
+      "id": "lee-son",
+      "text": "Their son attributed the failed marriage partly to her 'creative urge coupled with high manual dexterity—the desire to make things—which [Lee] did not share.'",
+      "confidence": "attested",
+      "sources": [
+        "harvard_magazine_2005_glessner_lee"
+      ],
+      "locator": "The article's fourth paragraph."
+    },
+    {
+      "id": "silversmith",
+      "text": "In 1904 Frances Glessner set up a workbench in the basement of Glessner House and began producing simple and elegant objects; her pieces bear her hallmark, 'a G encircling a honeybee', for her bee keeping. She studied with Annibale Fogliata, a master jewelry craftsman of Hull House, and Madeline Yale Wynne, a noted Chicago silversmith.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Macbeth Glessner."
+    },
+    {
+      "id": "journal-silver",
+      "text": "Frances Macbeth Glessner kept a journal from 1879, and in 1904 set up a silversmith's workbench in the basement of the house; she also kept bees.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Macbeth Glessner."
+    },
+    {
+      "id": "frances-born",
+      "text": "Sarah Frances Macbeth was born on 1 January 1848 in Urbana, Ohio, and married John Glessner on 7 December 1870.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Macbeth Glessner."
+    },
+    {
+      "id": "narrow-windows",
+      "text": "Passers-by remarked on the narrow windows in the north side along 18th Street, just enough to light the narrow corridors, not realizing that on the courtyard side Richardson had put generous windows.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 15."
+    },
+    {
+      "id": "lee-later",
+      "text": "In 1931 Frances Glessner Lee gave $250,000 to Harvard to create a chair in legal medicine; in 1943 New Hampshire appointed her State Police Captain, the first woman state police captain in the country. Her twenty miniature crime scenes, the Nutshell Studies of Unexplained Death, became the teaching tool of the Seminars in Homicide Investigation, and Erle Stanley Gardner dedicated a Perry Mason novel to her. She died at The Rocks on 27 January 1962.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Glessner Lee."
+    },
+    {
+      "id": "nutshell-made",
+      "text": "The Nutshells were built at one inch to a foot with dental tools and a carpenter's help; she wrote to an adviser, 'I found myself constantly tempted to add more clues and details…stop me when I go too far.'",
+      "confidence": "attested",
+      "sources": [
+        "harvard_magazine_2005_glessner_lee"
+      ],
+      "locator": "The article's picture caption."
+    },
+    {
+      "id": "lee-nutshell",
+      "text": "Frances Glessner Lee, the Glessners' daughter, later built eighteen miniature crime-scene dioramas, the Nutshell Studies of Unexplained Death, still used in training investigators.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page",
+        "nlm_visible_proofs_frances_glessner_lee"
+      ],
+      "locator": "The family page's biography of Frances Glessner Lee; the NLM biography paragraph."
+    }
+  ],
+  "liberties": [
+    "L-1904-story-jaunts"
+  ]
+}

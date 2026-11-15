@@ -1,0 +1,491 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "True stories",
+  "menu_group": "Stories",
+  "grade_band": "6-8",
+  "review_required": false,
+  "id": "scandal-at-1612",
+  "scene": "1904",
+  "title": "The Scandal at 1612 Prairie",
+  "premise": "A carriage-maker's showplace has become the most talked-about house on the block: a society divorce, a judge's order, a violin in a broken automobile, and a small boy in the middle of it all.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "afternoon",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: THE SCANDAL AT 1612 PRAIRIE. A Monday afternoon in November 1904, at the quiet north end of Prairie Avenue.\n\nFour stops along one short block. The house at 1612 has been a showplace for twenty years. This year it is a battlefield. A husband has gone to court, a judge has handed the house to the wife, and in November the husband stood up in open court and said things about her that the whole city has now read in the Tribune. The neighbours keep their curtains closed and their ears open.\n\nStart next door, where you can see the house the way it used to be.",
+    "read_s": 28
+  },
+  "stops": [
+    {
+      "id": "showplace",
+      "destination": {
+        "kind": "structure",
+        "id": "house_1608_prairie"
+      },
+      "text": "1608 Prairie, and beside it the big square house at 1612. Twenty years ago it belonged to a Studebaker, of the Studebaker Brothers carriage works, and it was the brightest house on the street. In February 1884 some two hundred guests came here from a family wedding, and \"The large residence was brilliantly illuminated, and every room was elaborately decorated with smilax and cut flowers.\" A society column of 1887 noticed the traffic: \"Morning and night, a showy turnout is noticed before the squarely-built house, with the number 1612 over the portals.\" A carriage-maker's house should have the finest carriages at its door, and it did. Look at it now. No turnout stands at the curb this afternoon. A maid from next door is watching it from her steps. Walk to the gate of 1612.",
+      "evidence": [
+        "studebaker-1884",
+        "studebaker-1887",
+        "day",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "goodman_house_1612_prairie",
+          "label": "1612 Prairie"
+        }
+      ],
+      "next": "decree",
+      "read_s": 36,
+      "stage": {
+        "caption": "A maid at 1608 sweeps her steps and keeps one eye on the house next door.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "maid_1608",
+            "dress": "maid_1904",
+            "name": "A maid at 1608 Prairie (unnamed)",
+            "at": [
+              1382.65,
+              -2976.42
+            ],
+            "heading": 175.6,
+            "beats": [
+              {
+                "t": 6,
+                "heading": 93.7
+              },
+              {
+                "t": 14,
+                "face": [
+                  1383.49,
+                  -2987.25
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "decree",
+      "destination": {
+        "kind": "structure",
+        "id": "goodman_house_1612_prairie"
+      },
+      "text": "1612 Prairie. The Tribune has the story, and so does everybody else. Last May the husband, Charles E. Brown, filed a bill for divorce. His wife Catherine is 27, \"the daughter of Gen. Graves, a wealthy resident of Buffalo\". The grounds were \"Habitual drunkenness and statutory charges\". Then Judge Tuley gave Mrs. Brown possession of this house, where she and her husband and their son had lived, and $200 a month while the suit was pending. So the wife holds the fortress and the husband is outside it. Behind those windows live a woman the papers have made famous and a small boy. The house will stand until it is razed circa 1960. Step next door and hear what the husband said in November.",
+      "evidence": [
+        "brown-suit",
+        "goodman-razed",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "source",
+          "id": "chicagology_1612_prairie_occupants",
+          "label": "The 1612 Prairie occupants"
+        }
+      ],
+      "next": "charges",
+      "read_s": 33,
+      "stage": {
+        "caption": "A lady comes out onto the steps of 1612, looks up and down the street, and goes back in before anyone can stop her.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "catherine_brown",
+            "dress": "lady_1904",
+            "name": "Catherine G. Brown (no card in the town; an unnamed figure plays her)",
+            "at": [
+              1381.99,
+              -2987.23
+            ],
+            "heading": 90.5,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 4,
+                "show": true
+              },
+              {
+                "t": 6,
+                "walk": [
+                  [
+                    1384.09,
+                    -2986.85
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 10,
+                "heading": 21.6
+              },
+              {
+                "t": 14,
+                "heading": 159.4
+              },
+              {
+                "t": 19,
+                "walk": [
+                  [
+                    1381.99,
+                    -2987.23
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 22,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "extra": "brown_maid",
+            "dress": "maid_1904",
+            "name": "A maid of 1612 (unnamed)",
+            "at": [
+              1382.38,
+              -2988.74
+            ],
+            "heading": 78.6,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 5,
+                "show": true
+              },
+              {
+                "t": 21,
+                "hide": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "charges",
+      "destination": {
+        "kind": "structure",
+        "id": "house_1616_prairie"
+      },
+      "text": "1616 Prairie, the next door south, where the neighbours read the Tribune with their coffee. In November Mr. Brown went back to court and charged that his wife \"had conducted herself in a disgraceful manner, had been habitually intoxicated, and had done many freakish things, such as playing a violin in a broken automobile while a man pushed the machine along a public highway, and dancing about the rear of their home clothed only in a nightrobe.\" There was more. He named a man: \"E. C. Edsall, an automobile salesman.\" With Edsall, the husband charged, she ran off to an eastern summer resort and later to New York City. It is the most delicious scandal on Prairie Avenue in years, and two maids on these steps are making the most of it. But a divorce is not only about two people. Look for the boy.",
+      "evidence": [
+        "brown-november",
+        "brown-edsall",
+        "stage"
+      ],
+      "next": "boy",
+      "read_s": 38,
+      "stage": {
+        "caption": "Two maids on the steps of 1616 share the newspaper and look over at 1612.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "maid_1616",
+            "dress": "maid_1904",
+            "name": "A maid at 1616 Prairie (unnamed)",
+            "at": [
+              1383.15,
+              -3000.07
+            ],
+            "heading": 6.0,
+            "beats": [
+              {
+                "t": 2,
+                "talk": true
+              },
+              {
+                "t": 16,
+                "face": "cook_1616"
+              },
+              {
+                "t": 30,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "extra": "cook_1616",
+            "dress": "cook_1904",
+            "name": "A cook at 1616 Prairie (unnamed)",
+            "at": [
+              1383.17,
+              -3001.67
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "face": "maid_1616"
+              },
+              {
+                "t": 17,
+                "talk": true
+              },
+              {
+                "t": 30,
+                "talk": false
+              },
+              {
+                "t": 31,
+                "face": [
+                  1384.49,
+                  -2987.25
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "boy",
+      "destination": {
+        "kind": "structure",
+        "id": "house_1613_prairie"
+      },
+      "text": "Across the street at 1613, look back at the west side of the block. The boy is Charles Edward Brown, the couple's only son, and he is the real prize in this fight. A nurse walks him along the sidewalk past his own front door; his mother has the house, and his father wants it back, and wants him. The court has not decided. In the newspapers he is a line at the end of every story. On this walk he is the only person in the whole affair who has done nothing at all. The Tribune will report the end of it in March 1905. By then the house, the boy and the woman will each have gone a different way.",
+      "evidence": [
+        "brown-decree",
+        "brown-suit",
+        "stage"
+      ],
+      "next": "march",
+      "read_s": 32,
+      "stage": {
+        "caption": "A nurse walks a small boy along the far sidewalk past the door of 1612, and he stops to look up at it.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "charles_edward",
+            "dress": "child_boy_1904",
+            "name": "Charles Edward Brown, the son (no card in the town; an unnamed figure plays him)",
+            "at": [
+              1390.36,
+              -2966.87
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1390.51,
+                    -2985.31
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 9,
+                "face": [
+                  1382.49,
+                  -2987.24
+                ]
+              },
+              {
+                "t": 15,
+                "walk": [
+                  [
+                    1390.48,
+                    -3010.68
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          },
+          {
+            "extra": "nurse_1612",
+            "dress": "maid_1904",
+            "name": "A nurse of the Brown household (unnamed)",
+            "at": [
+              1390.99,
+              -2965.89
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1391.12,
+                    -2984.31
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 9,
+                "face": "charles_edward"
+              },
+              {
+                "t": 14,
+                "walk": [
+                  [
+                    1391.07,
+                    -3009.67
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "legs": [
+    {
+      "story": "A few steps south to the gate of 1612, the house the whole street is watching.",
+      "evidence": [
+        "brown-suit"
+      ],
+      "story_evidence": [
+        "brown-suit"
+      ]
+    },
+    {
+      "story": "Next door south, to the neighbours with the morning's Tribune.",
+      "evidence": [
+        "brown-november"
+      ],
+      "story_evidence": [
+        "brown-november"
+      ]
+    },
+    {
+      "story": "Across Prairie Avenue to look back at the west side of the block.",
+      "evidence": [
+        "brown-decree"
+      ],
+      "story_evidence": [
+        "brown-decree"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "march",
+      "text": "End of the walk. After a bitter fight, early in 1905, the husband won: the divorce, the house on Prairie Avenue and the custody of the boy. On 8 March 1905 he sold the house to Charles Palmerston Anderson, the Episcopal bishop of Chicago. That same week the Tribune found Catherine Brown in a police cell, arrested at 3667 Wabash Avenue, where the police said she had been living as Kittie Casey, and fined $85. \"I am penniless,\" she said. \"I cannot pay the fine.\" In her cell she said: \"It's all because a woman is jealous of me, I guess.\" The general's daughter from Buffalo had held 1612 Prairie for less than a year.",
+      "read_s": 30,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "scandal-at-1612-card",
+    "title": "The 1612 Court Papers",
+    "text": "An interpretive card of the Brown divorce of 1904 and 1905 as the Tribune reported it, not a historical artifact."
+  },
+  "evidence": [
+    {
+      "id": "studebaker-1884",
+      "text": "On 21 February 1884 about 200 of the intimate friends and relatives of the bride and groom were received at the residence of W. F. Studebaker, No. 1612 Prairie avenue, after the Studebaker-Innis wedding. 'The large residence was brilliantly illuminated, and every room was elaborately decorated with smilax and cut flowers.'",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_1612_prairie_occupants"
+      ],
+      "locator": "Chicago Tribune, 22 February 1884, 'Wedding Bells', as transcribed."
+    },
+    {
+      "id": "studebaker-1887",
+      "text": "Inter Ocean, 2 January 1887: 'Morning and night, a showy turnout is noticed before the squarely-built house, with the number 1612 over the portals.' Its owner was one of the Studebaker Brothers, the carriage makers.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_1612_prairie_occupants"
+      ],
+      "locator": "Inter Ocean, 2 January 1887, as transcribed."
+    },
+    {
+      "id": "day",
+      "text": "The Scandal at 1612 Prairie: the day, Monday 21 November 1904, the hour and the order of the walk are this jaunt's framing, chosen because the stories meet on it (three days after Arthur Caton's death, a Monday of the Reading Class, before Kimball's death in December). No visit on that day is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "stage",
+      "text": "The Scandal at 1612 Prairie: who is seen at each stop, where they stand, what they do and when are reconstructed. People with cards in the town play themselves; people the town has no card for (and the unnamed servants, callers and passers-by) are unnamed figures in period dress, and no likeness is claimed. No word anyone says is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "brown-suit",
+      "text": "Catherine G. Brown was the 'former wife of Charles E. Brown, 1612 Prairie avenue'. Mrs. Brown, who is 27 years old and the daughter of Gen. Graves, a wealthy resident of Buffalo, first attracted notoriety in May, 1904, when her husband filed a bill for divorce. By a court order issued by Judge Tuley Mrs. Brown was given possession of the residence, 1612 Prairie avenue, where she and her husband and their son had lived, and was granted temporary alimony amounting to $200 a month while the suit was pending. Habitual drunkenness and statutory charges were the grounds.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_1612_prairie_occupants"
+      ],
+      "locator": "Chicago Tribune, 11 March 1905, 'Story of Divorce Case', as transcribed."
+    },
+    {
+      "id": "goodman-razed",
+      "text": "Joseph Goodman Residence, 1612 S. Prairie Avenue: razed circa 1960.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1612 S. Prairie Avenue entry."
+    },
+    {
+      "id": "brown-november",
+      "text": "In November Mr. Brown appeared in court and charged that his wife had conducted herself in a disgraceful manner, had been habitually intoxicated, and had done many freakish things, such as playing a violin in a broken automobile while a man pushed the machine along a public highway, and dancing about the rear of their home clothed only in a nightrobe.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_1612_prairie_occupants"
+      ],
+      "locator": "Chicago Tribune, 11 March 1905, 'Story of Divorce Case', as transcribed."
+    },
+    {
+      "id": "brown-edsall",
+      "text": "He also charged her with receiving the attentions of E. C. Edsall, an automobile salesman. With Edsall, the husband charged, Mrs. Brown ran away to an eastern summer resort and later to New York City.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_1612_prairie_occupants"
+      ],
+      "locator": "Chicago Tribune, 11 March 1905, as transcribed."
+    },
+    {
+      "id": "brown-decree",
+      "text": "After a bitter fight Mr. Brown was granted a divorce about six weeks before 11 March 1905, and given possession of the Prairie avenue property, and the custody of the one son, Charles Edward Brown.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_1612_prairie_occupants"
+      ],
+      "locator": "Chicago Tribune, 11 March 1905, the last paragraph, as transcribed."
+    },
+    {
+      "id": "brown-arrest",
+      "text": "In March 1905 Mrs. Catherine G. Brown was arrested at 3667 Wabash avenue, where she had been living under the name of Kittie Casey, according to the police, and fined $85 for disorderly conduct. 'I am penniless,' she said. 'I cannot pay the fine.' In her cell she said: 'It's all because a woman is jealous of me, I guess.' Justice Hurley called her 'a problem in humanity to me.'",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_1612_prairie_occupants"
+      ],
+      "locator": "Chicago Tribune, 11 March 1905, as transcribed."
+    },
+    {
+      "id": "brown-sale",
+      "text": "On 8 March 1905 the lot at 1612 Prairie passed from Brown (printed 'Chas. S. Brown') to the Rt. Rev. Chas. Palmerston Anderson, bishop of the Protestant Episcopal church in the diocese of Chicago.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_1612_prairie_occupants"
+      ],
+      "locator": "Chicago Tribune, 14 March 1905, the transfer list, as transcribed."
+    }
+  ],
+  "liberties": [
+    "L-1904-story-jaunts"
+  ]
+}

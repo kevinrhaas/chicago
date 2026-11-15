@@ -1,0 +1,26 @@
+{
+  "id": "ann_arbor_argus_1896_09_25_keith",
+  "type": "newspaper",
+  "citation": "'Found Death in the Lake', Ann Arbor Argus, 25 September 1896, datelined Chicago, 22 September. Ann Arbor District Library, Old News (aadl.org/node/140760). Read 15 November 2026.",
+  "author": "Ann Arbor Argus (a wire report from Chicago)",
+  "date": "1896-09-25",
+  "describes_date": "1896-09-21",
+  "repository": "Ann Arbor District Library, Old News, OCR text of the issue (public domain).",
+  "url": "https://aadl.org/node/140760",
+  "locator": "The whole item, from the OCR text the library prints.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "An 1896 newspaper item; the library marks it public domain. Cited in words only.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-15 (the 1904 story jaunts) from the library's OCR text; a few letters are misread by the OCR ('insorania' for insomnia) and are read for sense.",
+  "note": "Edson Keith, 'for forty years one of the prominent and influential citizens of Chicago, threw himself into the lake at the foot of Thirteenth street early Monday morning'; 'He disappeared from his home at 1906 Prairie avenue about 6 o'clock in the morning'; the family found the evidence only on Tuesday, and 'the lake is now being dragged'; he had been 'for some days so peculiarly depressed'; he was of Edson Keith & Co., wholesale millinery and notions, Wabash Avenue and Monroe Street, of Keith Bros., hats, and of Keith & Co.'s elevator; 'He was 63 years old and came to Chicago in 1854.' Postcard History (postcardhistory_2023_edson_keith) puts the water's edge at the foot of 16th Street: the papers differ, and a jaunt says so.",
+  "what_it_supplies": [
+    "that Edson Keith left 1906 Prairie about 6 a.m. on Monday 21 September 1896",
+    "his age, firms and arrival in Chicago",
+    "the foot of Thirteenth Street, as this report has it"
+  ],
+  "what_it_does_not_supply": [
+    "his hat and coat on the beach (that is Postcard History's)"
+  ]
+}

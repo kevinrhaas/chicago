@@ -1,0 +1,647 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "True stories",
+  "menu_group": "Stories",
+  "grade_band": "6-8",
+  "review_required": false,
+  "id": "field-and-mrs-caton",
+  "scene": "1904",
+  "title": "The Merchant and Mrs. Caton",
+  "premise": "Three days after Arthur Caton died in a New York hotel, the whole street is whispering about his widow Delia and the richest man in Chicago, whose house stands just across the alley.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: THE MERCHANT AND MRS. CATON. Monday morning, 21 November 1904. A telegram has come from New York, and the blinds are down in a house on Calumet Avenue.\n\nFour stops, on foot, from the widow's door, through the back yards the servants share, to the front steps of Marshall Field, the merchant prince of Chicago. Everybody on Prairie Avenue knows this story. Nobody says it out loud. Thirty years of dinners, voyages and rumours are about to come to an end, and this morning the only people talking are the ones who carry the coal.\n\nStart at Calumet Avenue, at the house with the drawn blinds.",
+    "read_s": 28
+  },
+  "stops": [
+    {
+      "id": "widow",
+      "destination": {
+        "kind": "structure",
+        "id": "house_1910_calumet"
+      },
+      "text": "Calumet Avenue, behind Prairie. This is the Caton house, and its blinds are drawn. On Friday Arthur J. Caton died at New York's Waldorf-Astoria hotel, and nobody can quite say of what. \"Some said he succumbed to liver failure. Others ascribed the demise to peritonitis.\" A newspaper downstate will hint that he took his own life. He was a judge's son, a lawyer who loved golf and polo and bred horses and dogs on the family farm. His wife Delia, a hardware heiress he married in 1876, gave the best parties in town: Arthur Meeker's mother \"always declared that nobody ever gave such wonderful parties as Delia Caton\". There were no children. This morning there is a widow, a house full of servants, and a caller on the steps. Go round the back, to the yards between Calumet and Prairie.",
+      "evidence": [
+        "caton-death",
+        "caton-family",
+        "caton-parties",
+        "day",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "house_1910_calumet",
+          "label": "The Caton house"
+        }
+      ],
+      "next": "yards",
+      "read_s": 37,
+      "stage": {
+        "caption": "A maid opens the Caton door to an early caller, and the coachman waits at the curb with his hat in his hand.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "caton_maid",
+            "dress": "maid_1904",
+            "name": "A maid of the Caton house (no card in the town; an unnamed figure)",
+            "at": [
+              1521.1,
+              -3387.87
+            ],
+            "heading": 82.4,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 4,
+                "show": true
+              },
+              {
+                "t": 9,
+                "greet": true
+              },
+              {
+                "t": 10,
+                "talk": true
+              },
+              {
+                "t": 22,
+                "talk": false
+              },
+              {
+                "t": 26,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "extra": "caton_caller",
+            "dress": "gentleman_1904",
+            "name": "A caller leaving his card (unnamed)",
+            "at": [
+              1527.52,
+              -3377.88
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1527.82,
+                    -3383.95
+                  ],
+                  [
+                    1522.81,
+                    -3387.3
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 9,
+                "face": "caton_maid",
+                "talk": true
+              },
+              {
+                "t": 21,
+                "talk": false
+              },
+              {
+                "t": 24,
+                "walk": [
+                  [
+                    1528.24,
+                    -3385.91
+                  ],
+                  [
+                    1531.49,
+                    -3398.5
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          },
+          {
+            "extra": "caton_coachman",
+            "dress": "coachman_livery_1904",
+            "name": "The Caton coachman (no card in the town; an unnamed figure)",
+            "at": [
+              1529.02,
+              -3391.37
+            ],
+            "heading": 288.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "yards",
+      "destination": {
+        "kind": "structure",
+        "id": "house_1900_calumet"
+      },
+      "text": "The back yards, where Calumet meets Prairie at the rear fence. Turn round and the Field house is right there, its coach house on the alley. The servants of the two houses have shared this ground for years, and they have heard the talk. Arthur Meeker, who grew up on this street, wrote it down: \"it was even absurdly asserted that an underground tunnel connected the Caton house on Calumet with the Field house on Prairie, which was just in front of it, or just back.\" Meeker called it absurd, and it was. But a society diarist recorded that \"Delia sometimes traveled to Europe with Marshall Field without Arthur accompanying them.\" Now Arthur is dead, Field's wife has been dead eight years, and a laundress from the Field house is leaning on the fence. Walk on to Prairie Avenue and find the man himself.",
+      "evidence": [
+        "tunnel",
+        "europe",
+        "nannie",
+        "field-staff",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "marshall_field_house_1905_prairie",
+          "label": "The Marshall Field house"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_field_marshall_c1900_karolina_hall",
+          "label": "Karolina Hall"
+        }
+      ],
+      "next": "field",
+      "read_s": 38,
+      "stage": {
+        "caption": "Karolina Hall comes over from the Field yard to the fence, where a Caton maid is waiting with the news.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_field_marshall_c1900_karolina_hall",
+            "at": [
+              1465.51,
+              -3372.71
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1477.44,
+                    -3371.09
+                  ],
+                  [
+                    1490.08,
+                    -3359.7
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 19,
+                "face": "caton_laundress",
+                "talk": true
+              },
+              {
+                "t": 33,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "extra": "caton_laundress",
+            "dress": "maid_1904",
+            "name": "A Caton laundress (no card in the town; an unnamed figure)",
+            "at": [
+              1499.59,
+              -3350.84
+            ],
+            "beats": [
+              {
+                "t": 1,
+                "walk": [
+                  [
+                    1495.36,
+                    -3354.84
+                  ],
+                  [
+                    1491.19,
+                    -3358.22
+                  ]
+                ],
+                "pace": "walk"
+              },
+              {
+                "t": 14,
+                "face": "pa1904_field_marshall_c1900_karolina_hall"
+              },
+              {
+                "t": 20,
+                "talk": true
+              },
+              {
+                "t": 34,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "person": "pa1904_field_marshall_c1900_maggie_fitzsimmons",
+            "at": [
+              1472.45,
+              -3376.29
+            ],
+            "heading": 47.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "field",
+      "destination": {
+        "kind": "structure",
+        "id": "marshall_field_house_1905_prairie"
+      },
+      "text": "1905 Prairie, the Marshall Field house: built in 1876 for some $2 million, \"the first in Chicago to be completely wired for electricity\". Field is the richest merchant in the city. Years ago he proposed to his first wife by jumping aboard her train as it left Chicago; one account says that \"Mrs. Field led Marshall Field a hell-on-earth life\", and Nannie Field died in France in 1896. Meeker put the rest plainly: \"he fell in love with his friend's wife years before he was able to marry her.\" And: \"In the Nineties, divorce was unthinkable: they had to wait for him (Arthur Caton) to die, which, distressingly, he didn't do until 1904.\" That was Friday. Thomas Benson, the butler, has the door; John Dunford, the coachman, comes round from the stable. The house will be razed in 1955.",
+      "evidence": [
+        "field-children",
+        "nannie",
+        "fell-in-love",
+        "field-staff",
+        "field-razed",
+        "field-rich",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "pa1904_field_marshall",
+          "label": "Marshall Field"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_field_marshall_c1900_thomas_benson",
+          "label": "Thomas Benson"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_field_marshall_c1900_john_dunford",
+          "label": "John Dunford"
+        }
+      ],
+      "next": "talk",
+      "read_s": 37,
+      "stage": {
+        "caption": "Marshall Field comes out of his door, and stops on the steps to look east, toward Calumet Avenue, before his coachman reaches him.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_field_marshall",
+            "at": [
+              1421.36,
+              -3365.21
+            ],
+            "heading": 269.5,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 3,
+                "show": true
+              },
+              {
+                "t": 5,
+                "walk": [
+                  [
+                    1418.57,
+                    -3365.84
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 10,
+                "heading": 89.5
+              },
+              {
+                "t": 19,
+                "face": "pa1904_field_marshall_c1900_john_dunford"
+              },
+              {
+                "t": 23,
+                "walk": [
+                  [
+                    1411.77,
+                    -3366.8
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          },
+          {
+            "person": "pa1904_field_marshall_c1900_thomas_benson",
+            "at": [
+              1420.95,
+              -3363.62
+            ],
+            "heading": 257.0
+          },
+          {
+            "person": "pa1904_field_marshall_c1900_john_dunford",
+            "at": [
+              1413.63,
+              -3351.28
+            ],
+            "beats": [
+              {
+                "t": 6,
+                "walk": [
+                  [
+                    1413.21,
+                    -3360.29
+                  ],
+                  [
+                    1413.26,
+                    -3364.99
+                  ]
+                ],
+                "pace": "walk"
+              },
+              {
+                "t": 18,
+                "face": "pa1904_field_marshall"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "talk",
+      "destination": {
+        "kind": "anchor",
+        "id": "field_house"
+      },
+      "text": "From up the street the Field house looks like any other on the row. It is not. Field never liked making speeches, and one night at one of the Catons' grand dinners he was called on to say a few words. Delia sprang to her feet and spoke for him: \"Mr. Field just wants me to remind you that the White Sale starts next Monday.\" It was a joke about his store, made by another man's wife, at her husband's table, and the guests who told it afterwards told it as the night everybody saw how close those two were. The ladies passing the Field house this morning are not looking at it, and they are talking about nothing else. Arthur Caton is not yet buried. Everyone can guess what happens next, and nobody can say it.",
+      "evidence": [
+        "white-sale",
+        "caton-parties",
+        "london",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "source",
+          "id": "chicago_treasure_houses_2017_second_mrs_field",
+          "label": "The Second Mrs. Field"
+        }
+      ],
+      "next": "london",
+      "read_s": 36,
+      "stage": {
+        "caption": "Two ladies of the street walk past the Field house with their heads together, and do not look at it.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "lady_left",
+            "dress": "lady_1904",
+            "name": "A lady of the street (unnamed)",
+            "at": [
+              1409.8,
+              -3318
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1410.6,
+                    -3340
+                  ],
+                  [
+                    1411.2,
+                    -3372
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 1,
+                "talk": true
+              }
+            ]
+          },
+          {
+            "extra": "lady_right",
+            "dress": "lady_1904",
+            "name": "A second lady of the street (unnamed)",
+            "at": [
+              1411.4,
+              -3317
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1412.2,
+                    -3340
+                  ],
+                  [
+                    1412.8,
+                    -3372
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "legs": [
+    {
+      "story": "Through the gap to the rear yards: the Caton fence on one side, Marshall Field's coach house on the other.",
+      "evidence": [
+        "tunnel"
+      ],
+      "story_evidence": [
+        "tunnel"
+      ]
+    },
+    {
+      "story": "Round by the side path to Prairie Avenue and the front of 1905, the house the gossip pointed at.",
+      "evidence": [
+        "field-children"
+      ],
+      "story_evidence": [
+        "tunnel"
+      ]
+    },
+    {
+      "story": "North along the walk to look back at the Field house the way the neighbours do.",
+      "evidence": [
+        "white-sale"
+      ],
+      "story_evidence": [
+        "white-sale"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "london",
+      "text": "End of the walk. They waited less than a year. In 1905 they married in London, at St. Margaret's, Westminster; the licence gave Delia as 46 and Field as 70. \"The ceremony was quiet, and attended only by a few friends.\" They came home to Chicago as man and wife, and in January 1906 Marshall Field was dead of pneumonia, caught on a New Year's golf course with Robert Todd Lincoln. After thirty years of waiting they had a few months. Delia got $1 million and the house, moved to Washington, where her mansion was called the Pink Palace, and lived until 1937.",
+      "read_s": 27,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "field-and-mrs-caton-card",
+    "title": "A Widow's Calling Card",
+    "text": "An interpretive card of the Caton and Field households in November 1904, not a historical artifact."
+  },
+  "evidence": [
+    {
+      "id": "caton-death",
+      "text": "Arthur J. Caton died 'November 18, 1904, at New York's Waldorf-Astoria hotel'. 'The cause of death was inexact. Some said he succumbed to liver failure. Others ascribed the demise to peritonitis.' An Ottawa, Illinois Times story suggested he may have taken his own life.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_other_mrs_field"
+      ],
+      "locator": "The post's last paragraph."
+    },
+    {
+      "id": "caton-family",
+      "text": "Delia Spencer, the daughter of one of the founders of the Hibbard, Spencer & Bartlett hardware firm, married Arthur Caton in 1876. He was the son of Judge John Dean Caton, one of Illinois' first chief justices; a lawyer, sportsman and clubman, he loved golf and polo and bred horses and dogs on the family's Ottawa farm.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_other_mrs_field",
+        "chicago_treasure_houses_2017_second_mrs_field"
+      ],
+      "locator": "Other Mrs. Field: the paragraphs on Delia and the Catons; Second Mrs. Field: 'Delia Spencer married Arthur Caton in 1876.'"
+    },
+    {
+      "id": "caton-parties",
+      "text": "Arthur Meeker's mother 'always declared that nobody ever gave such wonderful parties as Delia Caton'. The Catons had no children and entertained in 'their big, elaborate house on Calumet Avenue'.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_second_mrs_field"
+      ],
+      "locator": "The paragraph quoting Meeker on the Catons' entertaining."
+    },
+    {
+      "id": "day",
+      "text": "The Merchant and Mrs. Caton: the day, Monday 21 November 1904, the hour and the order of the walk are this jaunt's framing, chosen because the stories meet on it (three days after Arthur Caton's death, a Monday of the Reading Class, before Kimball's death in December). No visit on that day is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "stage",
+      "text": "The Merchant and Mrs. Caton: who is seen at each stop, where they stand, what they do and when are reconstructed. People with cards in the town play themselves; people the town has no card for (and the unnamed servants, callers and passers-by) are unnamed figures in period dress, and no likeness is claimed. No word anyone says is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "tunnel",
+      "text": "Arthur Meeker: 'The gossip of the day cast the worst light on the affair; it was even absurdly asserted that an underground tunnel connected the Caton house on Calumet with the Field house on Prairie, which was just in front of it, or just back.'",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_second_mrs_field",
+        "chicago_treasure_houses_2017_other_mrs_field"
+      ],
+      "locator": "Second Mrs. Field: the Meeker paragraph; Other Mrs. Field: the Beveridge Chronicle's 'subterranean tunnel'."
+    },
+    {
+      "id": "europe",
+      "text": "There were rumours that Field and Delia Caton were lovers for nearly 30 years, and 'Delia sometimes traveled to Europe with Marshall Field without Arthur accompanying them.'",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_other_mrs_field"
+      ],
+      "locator": "The paragraph quoting The Chronicle of Catherine Eddy Beveridge."
+    },
+    {
+      "id": "nannie",
+      "text": "Field proposed to Nannie Douglas Scott by jumping aboard her train as it left Chicago; he got off at the next stop and walked back to work. Their marriage foundered: by Longstreet's account 'Mrs. Field led Marshall Field a hell-on-earth life'. Nannie took to the South of France, and died in France in 1896.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_other_mrs_field"
+      ],
+      "locator": "The post's opening paragraphs and the paragraph on Nannie's death."
+    },
+    {
+      "id": "field-staff",
+      "text": "The census of 1 June 1900 enumerated John Dunford, coachman, born in England, as the head of his own household in the rear building behind 1905 Prairie, and Thomas Benson, butler, born in Ireland, in the house.",
+      "confidence": "attested",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "locator": "ED 40, sheet 4A, lines 38-39, leaf n800."
+    },
+    {
+      "id": "field-children",
+      "text": "Marshall and Nannie Field had three children: Louis, who died in infancy, and Marshall, Jr. and Ethel, raised at 1905 Prairie, 'the first in Chicago to be completely wired for electricity', built in 1876 at a cost of some $2 million.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_other_mrs_field"
+      ],
+      "locator": "The post's second paragraph."
+    },
+    {
+      "id": "fell-in-love",
+      "text": "Meeker: 'he fell in love with his friend's wife years before he was able to marry her.' And: 'In the Nineties, divorce was unthinkable: they had to wait for him (Arthur Caton) to die, which, distressingly, he didn't do until 1904.'",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_second_mrs_field"
+      ],
+      "locator": "The Meeker paragraphs."
+    },
+    {
+      "id": "field-razed",
+      "text": "Marshall Field Residence, 1905 S. Prairie Avenue: later converted to an aeronautical university. Razed 1955.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_east"
+      ],
+      "locator": "The 1905 S. Prairie Avenue entry."
+    },
+    {
+      "id": "field-rich",
+      "text": "Marshall Field: 'Give the lady what she wants'; 'the wealthiest and most powerful businessman in Chicago', his fortune valued at $125 million in 1905. His son Marshall Field Jr. was shot on 22 November 1905; Field himself died of pneumonia on 16 January 1906, caught after a New Year's Day golf game with, among others, Robert Todd Lincoln.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_marshall_field"
+      ],
+      "locator": "The biography's paragraphs on the store, his wealth, his son and his death."
+    },
+    {
+      "id": "white-sale",
+      "text": "Field was reluctant to make a speech at one of the Catons' grand dinners, and Delia sprang to her feet and said: Mr. Field just wants me to remind you that the White Sale starts next Monday.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_second_mrs_field"
+      ],
+      "locator": "The paragraph quoting Meeker, Chicago, With Love."
+    },
+    {
+      "id": "london",
+      "text": "The marriage licence acquired in London in 1905 gave Delia as 46 and Field as 70. They married at St. Margaret's, Westminster; 'The ceremony was quiet, and attended only by a few friends.' Field died in 1906 of pneumonia after a round of golf in a foursome that included Robert Todd Lincoln. Delia was left $1 million and the Field mansion on Prairie Avenue, moved to Washington, D.C., where her house was known as the Pink Palace, and died in 1937.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_second_mrs_field",
+        "wikipedia_marshall_field"
+      ],
+      "locator": "Second Mrs. Field: the paragraphs on the marriage and after; Wikipedia: the death on 16 January 1906."
+    }
+  ],
+  "liberties": [
+    "L-1904-story-jaunts"
+  ]
+}

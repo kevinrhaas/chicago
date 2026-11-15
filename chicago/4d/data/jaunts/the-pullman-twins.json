@@ -1,0 +1,649 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "True stories",
+  "menu_group": "Stories",
+  "grade_band": "6-8",
+  "review_required": false,
+  "id": "the-pullman-twins",
+  "scene": "1904",
+  "title": "The Last Pullman Twin",
+  "premise": "George Pullman left his twin sons $3,000 a year and a name they could not live up to. One is dead. At dusk in 1904 the other is still riding hard, and his mother is still paying.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "dusk",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: THE LAST PULLMAN TWIN. Dusk on a Monday in November 1904. The lamps are coming on along Prairie Avenue.\n\nFour stops, from the biggest house on the street to the house of the one Pullman child who turned out the way her father wanted. George Pullman built sleeping cars, a company town and a fortune. He could not build sons. His twins, George Jr. and Sanger, were born in 1875 into more money than almost anyone in America, and spent their lives showing the city what that does to a boy.\n\nStart at the Pullman house, where the widow lives with the shades half drawn.",
+    "read_s": 28
+  },
+  "stops": [
+    {
+      "id": "widow",
+      "destination": {
+        "kind": "structure",
+        "id": "pullman_house_1729_prairie"
+      },
+      "text": "1729 Prairie, the Pullman house, the biggest pile on the block. Harriett Sanger married George Pullman in 1867, and they had four children: Florence, Harriett, and in 1875 the twins, George Jr. and Walter Sanger, whom everyone calls Sanger. George Pullman died in 1897 and left his widow this house, which she still keeps. To the twins he left a judgment, written into his will: \"Pullman's will stipulated that the twins were to be given a yearly stipend of only $3,000.\" Their father knew them. Mrs. Pullman's carriage is at the door; Henry Windish, the coachman, has it ready, and Miss Robinson, her companion, is with her. The house will be razed in 1922. Go round to the glasshouse, where the boys grew up.",
+      "evidence": [
+        "pullman-children",
+        "twins-will",
+        "pullman-widow",
+        "pullman-coachman",
+        "pullman-razed",
+        "pullman-strike",
+        "day",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "pa1904_pullman_mrs_george_m",
+          "label": "Harriet Sanger Pullman"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_robinson_miss_r_s",
+          "label": "Miss R. S. Robinson"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_pullman_mrs_george_m_c1900_henry_windish",
+          "label": "Henry Windish"
+        }
+      ],
+      "next": "boys",
+      "read_s": 33,
+      "stage": {
+        "caption": "Harriett Pullman comes out on the arm of her companion to her waiting carriage, and the housekeeper watches from the door.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_pullman_mrs_george_m",
+            "at": [
+              1427.04,
+              -3177.4
+            ],
+            "heading": 273.6,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 3,
+                "show": true
+              },
+              {
+                "t": 5,
+                "walk": [
+                  [
+                    1423.64,
+                    -3177.47
+                  ],
+                  [
+                    1415.0,
+                    -3175.43
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 26,
+                "face": [
+                  1408.59,
+                  -3174.65
+                ]
+              }
+            ]
+          },
+          {
+            "person": "pa1904_robinson_miss_r_s",
+            "at": [
+              1427.22,
+              -3176.2
+            ],
+            "heading": 264.4,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 4,
+                "show": true
+              },
+              {
+                "t": 6,
+                "walk": [
+                  [
+                    1423.62,
+                    -3176.27
+                  ],
+                  [
+                    1415.38,
+                    -3174.02
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          },
+          {
+            "person": "pa1904_pullman_mrs_george_m_c1900_emma_scott",
+            "at": [
+              1426.66,
+              -3178.61
+            ],
+            "heading": 283.4,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 5,
+                "show": true
+              }
+            ]
+          }
+        ],
+        "teams": [
+          {
+            "team": "prairie_driven_brougham_north_loop_1904",
+            "at": [
+              1406.2,
+              -3180
+            ],
+            "heading": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "boys",
+      "destination": {
+        "kind": "structure",
+        "id": "pullman_house_1729_prairie_conservatory"
+      },
+      "text": "The Pullman conservatory, glass and palms at the side of the house. The twins grew up here. They were schooled at home on Prairie Avenue, and the story went round that they were \"arranging and promoting pit bull fights\". As teenagers they \"frequently were seen riding around Chicago in cabs filled with champagne bottles.\" Their father sent them east to a training school for Harvard, where \"Sanger and George were ranked 147 and 148 out of a class of 148 students.\" Last and next to last, side by side, as close as twins should be. And the cleverer twin was Sanger: \"widely acknowledged as the smarter of the 2\". It never helped him. Cross the street to look at the house where the other twin's story ended.",
+      "evidence": [
+        "twins-boys",
+        "sanger-money",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "pa1904_pullman_mrs_george_m_c1900_samuel_whatter_jr",
+          "label": "Samuel Whatter Jr."
+        }
+      ],
+      "next": "george",
+      "read_s": 33,
+      "stage": {
+        "caption": "Samuel Whatter Jr., the groom, leans on the stable gate beside the glasshouse and talks with a stable hand.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_pullman_mrs_george_m_c1900_samuel_whatter_jr",
+            "at": [
+              1452.8,
+              -3175.83
+            ],
+            "heading": 195.4,
+            "beats": [
+              {
+                "t": 2,
+                "talk": true
+              },
+              {
+                "t": 18,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "extra": "pullman_hand",
+            "dress": "stable_helper_1904",
+            "name": "A Pullman stable hand (unnamed)",
+            "at": [
+              1451.33,
+              -3178.31
+            ],
+            "heading": 30.7,
+            "beats": [
+              {
+                "t": 19,
+                "talk": true
+              },
+              {
+                "t": 30,
+                "talk": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "george",
+      "destination": {
+        "kind": "structure",
+        "id": "house_1726_prairie"
+      },
+      "text": "From the west side of the street, look back at the Pullman house in the dusk. The other twin is gone. George Jr. secretly married Lynn Fernald, \"his brother's betrothed\": he stole his own twin's bride. A man named Frederick Bowers sued him for $100,000, \"eventually settling for $50,000.\" Then in November 1901 George died of pneumonia, at 26. The World printed a headline: \"Death of George Pullman a Warning to Rich Fathers.\" So Sanger is the last of the twins. He is 29 now, and still poor with money: thrown out of the New York Athletic Club for unpaid dues, and his debts so tangled that a creditor once held his sister-in-law's luggage for five months. His mother has paid before. Walk south to the sister who never needed paying for.",
+      "evidence": [
+        "george-jr",
+        "sanger-death",
+        "sanger-money",
+        "stage"
+      ],
+      "next": "sister",
+      "read_s": 35,
+      "stage": {
+        "caption": "A pair of gentlemen stroll past the Pullman house and turn to look at it.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "stroller_a",
+            "dress": "gentleman_1904",
+            "name": "A gentleman of the street (unnamed)",
+            "at": [
+              1418.73,
+              -3202.96
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1418.27,
+                    -3178.97
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 12,
+                "face": [
+                  1426.63,
+                  -3176.81
+                ]
+              },
+              {
+                "t": 13,
+                "talk": true
+              },
+              {
+                "t": 24,
+                "talk": false
+              },
+              {
+                "t": 26,
+                "walk": [
+                  [
+                    1417.74,
+                    -3150.97
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          },
+          {
+            "extra": "stroller_b",
+            "dress": "gentleman_1904",
+            "name": "A second gentleman (unnamed)",
+            "at": [
+              1417.75,
+              -3203.98
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1417.29,
+                    -3179.99
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 12,
+                "face": "stroller_a"
+              },
+              {
+                "t": 26,
+                "walk": [
+                  [
+                    1416.76,
+                    -3151.99
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "sister",
+      "destination": {
+        "kind": "structure",
+        "id": "moulton_lowden_house_1912_prairie"
+      },
+      "text": "1912 Prairie, the Lowden house. Florence, the eldest Pullman child, married Frank Orren Lowden, a lawyer, and here they live with their children. Lowden is a lawyer, and when trouble comes to the family, it tends to come to his office. Their mother once \"paid the unnamed woman $10,000 to leave Sanger and never return.\" The children play at their nurse's feet on a quiet Monday evening, the way the twins once did on this same street. The house will be razed in 1939. And the last twin is still out there, riding hard.",
+      "evidence": [
+        "lowden-house",
+        "sanger-money",
+        "lowden-razed",
+        "pullman-children",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "pa1904_lowden_frank_orren",
+          "label": "Frank Orren Lowden"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_lowden_mrs_frank_orren",
+          "label": "Florence Pullman Lowden"
+        }
+      ],
+      "next": "ride",
+      "read_s": 25,
+      "stage": {
+        "caption": "Frank Lowden comes home on foot; Florence meets him on the steps while the nurse brings the children in.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_lowden_frank_orren",
+            "at": [
+              1396.82,
+              -3374.41
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1396.75,
+                    -3393.41
+                  ],
+                  [
+                    1390.15,
+                    -3393.98
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 16,
+                "face": "pa1904_lowden_mrs_frank_orren"
+              },
+              {
+                "t": 17,
+                "greet": true
+              }
+            ]
+          },
+          {
+            "person": "pa1904_lowden_mrs_frank_orren",
+            "at": [
+              1387.75,
+              -3394.68
+            ],
+            "heading": 87.8,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 9,
+                "show": true
+              },
+              {
+                "t": 11,
+                "walk": [
+                  [
+                    1389.15,
+                    -3394.78
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 16,
+                "face": "pa1904_lowden_frank_orren"
+              },
+              {
+                "t": 18,
+                "talk": true
+              },
+              {
+                "t": 30,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "person": "pa1904_lowden_frank_orren_c1900_anna_peterson",
+            "at": [
+              1392.14,
+              -3397.89
+            ],
+            "heading": 0.2
+          },
+          {
+            "person": "pa1904_lowden_frank_orren_c1900_pullman_lowden",
+            "at": [
+              1392.94,
+              -3395.89
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "face": "pa1904_lowden_frank_orren_c1900_anna_peterson"
+              }
+            ]
+          },
+          {
+            "person": "pa1904_lowden_frank_orren_c1900_florence_lowden",
+            "at": [
+              1392.54,
+              -3396.59
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "face": "pa1904_lowden_frank_orren_c1900_anna_peterson"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "legs": [
+    {
+      "story": "Along the side of the house to the conservatory, the glasshouse where the twins were boys.",
+      "evidence": [
+        "twins-boys"
+      ],
+      "story_evidence": [
+        "twins-boys"
+      ]
+    },
+    {
+      "story": "Across Prairie Avenue to look back at the house the twins grew up in.",
+      "evidence": [
+        "george-jr"
+      ],
+      "story_evidence": [
+        "george-jr"
+      ]
+    },
+    {
+      "story": "South two blocks to 1912 Prairie, the house of the eldest Pullman daughter.",
+      "evidence": [
+        "lowden-house"
+      ],
+      "story_evidence": [
+        "lowden-house"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "ride",
+      "text": "End of the walk. Sanger Pullman lived nine more months. In August 1905 he \"died after being thrown from a horse and carriage after yet another wild ride\". His mother had now buried her husband and both her sons; her husband lay in Graceland under a \"lead-lined mahogany coffin, which was then sealed inside a block of concrete\", so that nobody could ever get at him. Nobody could get at the boys, either, not their father, not their money, not their mother's $10,000. The World had said it in 1901, and it was still true: \"a Warning to Rich Fathers.\"",
+      "read_s": 26,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "the-pullman-twins-card",
+    "title": "The Pullman Allowance",
+    "text": "An interpretive card of the Pullman family in 1904, not a historical artifact."
+  },
+  "evidence": [
+    {
+      "id": "pullman-children",
+      "text": "George M. Pullman married Harriett Sanger on 13 June 1867. Their children were Florence (1868-1937), Harriett (1869-1956) and the twins George, Jr. (1875-1901) and Walter Sanger, known as Sanger (1875-1905).",
+      "confidence": "attested",
+      "sources": [
+        "pullman_museum_twins_page"
+      ],
+      "locator": "The page's first paragraph."
+    },
+    {
+      "id": "twins-will",
+      "text": "'Pullman's will stipulated that the twins were to be given a yearly stipend of only $3,000.'",
+      "confidence": "attested",
+      "sources": [
+        "pullman_museum_twins_page"
+      ],
+      "locator": "The page's fourth paragraph."
+    },
+    {
+      "id": "pullman-widow",
+      "text": "The 1904 Blue Book lists Mrs. George M. Pullman at 1729 Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "locator": "The street-and-number list, PRAIRIE AV., printed pp. 186-187 (PDF pp. 188-189), as data/residents_1904/households/hh_pullman_mrs_george_m.json reads it."
+    },
+    {
+      "id": "pullman-coachman",
+      "text": "The census of 1 June 1900 enumerated Henry Windish, coachman, born in Germany, as the head of his own household in the dwelling behind 1729 Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "locator": "ED 40, sheet 1A, line 3, leaf n794."
+    },
+    {
+      "id": "pullman-razed",
+      "text": "George M. Pullman Residence, 1729 S. Prairie Avenue: razed 1922.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1729 S. Prairie Avenue entry."
+    },
+    {
+      "id": "pullman-strike",
+      "text": "In 1894 Pullman cut his workers' wages, but 'he didn't reduce the rent in Pullman', his company town; he 'died of a heart attack' on 19 October 1897.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_george_pullman"
+      ],
+      "locator": "The biography's paragraphs on the strike and his death."
+    },
+    {
+      "id": "day",
+      "text": "The Last Pullman Twin: the day, Monday 21 November 1904, the hour and the order of the walk are this jaunt's framing, chosen because the stories meet on it (three days after Arthur Caton's death, a Monday of the Reading Class, before Kimball's death in December). No visit on that day is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "stage",
+      "text": "The Last Pullman Twin: who is seen at each stop, where they stand, what they do and when are reconstructed. People with cards in the town play themselves; people the town has no card for (and the unnamed servants, callers and passers-by) are unnamed figures in period dress, and no likeness is claimed. No word anyone says is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "twins-boys",
+      "text": "As boys the twins were schooled at their home on Prairie Avenue, allegedly 'arranging and promoting pit bull fights'; as teenagers they 'frequently were seen riding around Chicago in cabs filled with champagne bottles.' Sent to Harvard Training School, 'Sanger and George were ranked 147 and 148 out of a class of 148 students.'",
+      "confidence": "attested",
+      "sources": [
+        "pullman_museum_twins_page"
+      ],
+      "locator": "The page's third paragraph."
+    },
+    {
+      "id": "sanger-money",
+      "text": "Sanger, 'while widely acknowledged as the smarter of the 2, was very poor with money.' He was expelled from the New York Athletic Club for non-payment of dues, and in 1901 his sister-in-law's luggage was held for five months by a creditor of his. His mother 'paid the unnamed woman $10,000 to leave Sanger and never return.'",
+      "confidence": "attested",
+      "sources": [
+        "pullman_museum_twins_page"
+      ],
+      "locator": "The page's fourth and sixth paragraphs; the date of the payment is not given."
+    },
+    {
+      "id": "george-jr",
+      "text": "George, Jr. secretly married Lynn Fernald, 'his brother's betrothed'. Frederick Bowers sued George for $100,000, 'eventually settling for $50,000.' George died of complications from pneumonia in November, 1901.",
+      "confidence": "attested",
+      "sources": [
+        "pullman_museum_twins_page"
+      ],
+      "locator": "The page's fourth, sixth and eighth paragraphs."
+    },
+    {
+      "id": "sanger-death",
+      "text": "Sanger 'died after being thrown from a horse and carriage after yet another wild ride in August, 1905.' A 1901 headline in the World: 'Death of George Pullman a Warning to Rich Fathers.'",
+      "confidence": "attested",
+      "sources": [
+        "pullman_museum_twins_page"
+      ],
+      "locator": "The page's last paragraph."
+    },
+    {
+      "id": "lowden-house",
+      "text": "The 1904 Blue Book lists Mr. and Mrs. Frank Orren Lowden at 1912 Prairie; Florence Pullman married Frank Lowden.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "pullman_museum_children_page"
+      ],
+      "locator": "Blue Book, Prairie Av. street list, '1912 Mr. & Mrs. Frank Orren Lowden'; the children page."
+    },
+    {
+      "id": "lowden-razed",
+      "text": "Bryan P. Moulton Residence, 1912 S. Prairie Avenue: razed 1939.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1912 S. Prairie Avenue entry."
+    },
+    {
+      "id": "pullman-grave",
+      "text": "Fearing his body would be dug up, the family had him buried in a 'lead-lined mahogany coffin, which was then sealed inside a block of concrete', under steel rails 'bolted together at right angles', at Graceland Cemetery. An 1897 New York Times account gives a 'lead-lined box wrapped in tar paper' and 'an inch of asphaltum'; behind it, 'a lot of high-profile grave robberies lately' and the fear that 'some of the employees weren't quite done getting revenge'. The historian Adam Selzer: 'Whether it's true or not, we don't really know.'",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_george_pullman",
+        "wttw_pullman_grave"
+      ],
+      "locator": "The biography's paragraph on the burial; the WTTW piece on the grave."
+    }
+  ],
+  "liberties": [
+    "L-1904-story-jaunts"
+  ]
+}
