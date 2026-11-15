@@ -240,6 +240,8 @@ export function createHouseErrands({ days = null, humans, houseDoors, interactio
     if (!houseDoors.get(doorId)) { problems.push(`${actor.id}: ${doorId} is not hung in this scene — he cannot be sent home`); continue; }
     const name = person.name ?? actor.id;
     const hosted = () => !!actor.jauntHost || !!days?.isHosted?.(actor);
+    // T-3557: out in a vehicle (on its box, or riding in its cab): not here to greet or ask for.
+    const away = () => !!humans.external?.(actor.personId);
     const door = () => houseDoors.get(doorId);
     let way = null, arrived = false, refused = false, walking = false;
     const walk = (points, heading) => {
@@ -279,6 +281,7 @@ export function createHouseErrands({ days = null, humans, houseDoors, interactio
       kind: 'person',
       personId: actor.personId,
       actor,
+      get away() { return away(); },
       door: doorId,
       name,
       states: ['out', 'home'],
@@ -287,10 +290,10 @@ export function createHouseErrands({ days = null, humans, houseDoors, interactio
       set state(value) { this._state = value; },
       /** Where he is; indoors, with people hidden (Settings › Show › People), or held out
        *  by a jaunt that does not call for him (T-3495), nowhere a visitor can reach. */
-      get at() { return actor.indoors || actor.disposed || humans.shown === false || humans.isHeld?.(actor) || hosted() ? null : [actor.e, actor.n]; },
+      get at() { return actor.indoors || actor.disposed || humans.shown === false || humans.isHeld?.(actor) || hosted() || away() ? null : [actor.e, actor.n]; },
       reach: PERSON_REACH_M,
       actions: {
-        get out() { return hosted() ? [] : [
+        get out() { return hosted() || away() ? [] : [
           { id: 'greet', label: 'Greet', icon: '👋', to: 'out', said: '',
             steps: [{ label: 'Greeting', seconds: GREET_S, run: (t) => {
               if (t === 0) { if (scheduled) days.pause(actor.id); greet(); }
@@ -329,7 +332,7 @@ export function createHouseErrands({ days = null, humans, houseDoors, interactio
           })) : []),
           ...strolls,
         ]; },
-        get home() { return hosted() ? [] : [
+        get home() { return hosted() || away() ? [] : [
           // T-3444: asked for at the door (the door's own action starts this).
           { id: 'come_out', label: 'Come to the door', to: 'out', said: () => `${name} comes to the door`,
             steps: [
@@ -370,7 +373,7 @@ export function createHouseErrands({ days = null, humans, houseDoors, interactio
   for (const doorId of new Set(errands.map((t) => t.door))) {
     const d = houseDoors.get(doorId);
     const base = d.actions;
-    const asks = () => errands.filter((t) => t.door === doorId && t.state === 'home' && (!days || !Array.isArray(t.actor.instance?.behaviour?.day) || days.canAsk(t.actor.id)) && !t.running).map((t) => ({
+    const asks = () => errands.filter((t) => t.door === doorId && t.state === 'home' && (!days || !Array.isArray(t.actor.instance?.behaviour?.day) || days.canAsk(t.actor.id)) && !t.running && !t.away).map((t) => ({
       id: `ask:${t.personId}`, label: `Ask for ${t.name}`, said: '',
       steps: [{ label: 'Knocking', seconds: 0, run: (x) => { if (x === 0) interactions.act(t, 'come_out'); } }],
     }));

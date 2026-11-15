@@ -2,7 +2,54 @@
 /** A rear-axle circle, measured in local ENU metres. No renderer or input ownership. */
 import { driveLimits, easeControls, easeReverse, bicycleStep, sampleOf, wheelArcRatios, pursuitSteering,
   trackingSteering, routeError, refineRouteDistance, refusalWord, bestRejoinDistance, rejoinCost } from './team-drive.js';
+// (routeDistanceNear is defined below and used by branchAt.)
 const TAU = 2 * Math.PI;
+/** T-3557: the most an admitted carriage drive's kerb ramp may tip the coach's wheels apart, metres. */
+const RAMP_GAP_M = .3;
+/**
+ * T-3557: an open way (a coach house's drive) read as a road is read: at(s) gives the rear
+ * axle's sample s metres along it. Its yaw and curvature are the given ones where the way
+ * carries them (coach-house.js drivePath), else read off its points.
+ */
+export function wayOf(points) {
+  const at = [0];
+  for (let i = 1; i < points.length; i++) at.push(at[i - 1] + Math.hypot(points[i].e - points[i - 1].e, points[i].n - points[i - 1].n));
+  const length = at.at(-1);
+  const yawAt = i => {
+    if (Number.isFinite(points[i].yaw)) return points[i].yaw;
+    const a = points[Math.max(0, i - 1)], b = points[Math.min(points.length - 1, i + 1)];
+    return Math.atan2(b.e - a.e, -(b.n - a.n));
+  };
+  const yaws = points.map((_, i) => yawAt(i));
+  const ks = points.map((p, i) => {
+    if (Number.isFinite(p.k)) return p.k;
+    if (i === 0 || i === points.length - 1) return 0;
+    const d = at[i + 1] - at[i - 1];
+    let dy = yaws[i + 1] - yaws[i - 1]; dy = Math.atan2(Math.sin(dy), Math.cos(dy));
+    return d > 1e-9 ? dy / d : 0;
+  });
+  return {
+    length,
+    at(s) {
+      const x = Math.max(0, Math.min(length, s));
+      let i = 0, j = at.length - 1;
+      while (j - i > 1) { const m = (i + j) >> 1; if (at[m] <= x) i = m; else j = m; }
+      const f = at[j] > at[i] ? (x - at[i]) / (at[j] - at[i]) : 0;
+      let dy = yaws[j] - yaws[i]; dy = Math.atan2(Math.sin(dy), Math.cos(dy));
+      const yaw = yaws[i] + dy * f;
+      // Past either end, straight on.
+      const over = s - x, e = points[i].e + (points[j].e - points[i].e) * f + Math.sin(yaw) * over;
+      const n = points[i].n + (points[j].n - points[i].n) * f - Math.cos(yaw) * over;
+      // A way that carries its own curvature (coach-house.js drivePath, exitWay) gives each point
+      // the curvature of the step that ends there: within a step it is that step's, not a blend,
+      // else the last turn's lock was held on into the straight after it and the team, swung,
+      // was refused its drive (the leaders' hooves off it) at the Glessner coach house's kerb.
+      const own = Number.isFinite(points[j].k);
+      return { e, n, yaw, forwardE: Math.sin(yaw), forwardN: -Math.cos(yaw),
+        curvature: over ? 0 : own ? (f > 0 ? ks[j] : ks[i]) : ks[i] + (ks[j] - ks[i]) * f };
+    },
+  };
+}
 const finite = (n, label) => { if (!Number.isFinite(n)) throw Error(`transport loop: finite ${label} required`); return n; };
 const wrap = (n, total) => ((n % total) + total) % total;
 
@@ -178,6 +225,7 @@ export function createTransportLoop({
   initial_total_distance_m = 0, initial_wheel_rotation_rad = [0, 0, 0, 0], initial_state = 'moving', person_id = null,
   stops = [], initial_dwell_s = 0, gate = null,
   passenger_local_m = null, passenger_eye_m = .8, why = null, road = null,
+  cab_seat_local_m = null, cab_eye_m = null, initial_reason = null, admit = null, pathHeightAt = null,
 }) {
   if (!id || !name || typeof route?.at !== 'function' || !assembly?.pose) throw Error('transport loop: id, name, route and assembly required');
   if (typeof heightAt !== 'function' || typeof clear !== 'function') throw Error('transport loop: ground and clearance readers required');
@@ -204,6 +252,16 @@ export function createTransportLoop({
   // and a dwell; the team pulls up exactly there, stands, then goes on. Dwelling is still the
   // 'moving' journey — only a visitor's Stop or an obstruction makes it 'stopped'.
   if (!Array.isArray(stops) || !stops.every(s => Number.isFinite(s?.distance_m) && Number.isFinite(s?.dwell_s) && s.dwell_s >= 0)) throw Error('transport loop: stops need a finite distance and dwell');
+  // T-3557 (the Glessner ride): the seat INSIDE a closed carriage's cab, where the row has one
+  // (vehicle-root local: x, z the eye's place in plan, y the cushion), and the eye above it.
+  if (cab_seat_local_m !== null && (!Array.isArray(cab_seat_local_m) || cab_seat_local_m.length !== 3
+    || !cab_seat_local_m.every(Number.isFinite) || !(cab_eye_m > 0))) throw Error('transport loop: a cab seat needs a finite place and eye height');
+  // `admit(from, to)`: true where something outside the road's own rules lets a driven pose
+  // through (the Glessner coach house's open doorway and drive, coach-house.js clearFor): the
+  // kerb rule gives way to it there, the ground is read by `pathHeightAt`, and the carriage
+  // may pitch on its ramp. The walls it crosses are `clear`'s to admit (town-transport.js).
+  if (admit !== null && typeof admit !== 'function') throw Error('transport loop: an optional admission reader must be a function');
+  if (pathHeightAt !== null && typeof pathHeightAt !== 'function') throw Error('transport loop: an optional path ground reader must be a function');
   const stopList = stops.map(s => ({ ...s, distance_m: wrap(s.distance_m, route.length) }));
   finite(initial_dwell_s, 'saved dwell');
   // Kevin, 2026-11-13: where roads cross, one team waits for the other (transport-crossings.js).
@@ -212,14 +270,14 @@ export function createTransportLoop({
   let giving = false;
   let dwell = Math.max(0, initial_dwell_s), dwellingAt = dwell > 0 ? stopList.find(s => Math.abs(s.distance_m - wrap(initial_distance_m, route.length)) < 1e-6) ?? null : null;
   let distance = wrap(initial_distance_m, route.length), totalDistance = initial_total_distance_m;
-  let state = initial_state, reason = null, disposed = false, visible = false;
+  let state = initial_state, reason = initial_state === 'stopped' ? initial_reason : null, disposed = false, visible = false;
   let lastPose = null, motionReset = true, audioSpeed = 0;
   const wheelRotation = [...initial_wheel_rotation_rad];
   const localToEnu = (p, x, z) => [p.e + Math.cos(p.yaw) * x + Math.sin(p.yaw) * z,
     p.n + Math.sin(p.yaw) * x - Math.cos(p.yaw) * z];
   // The vehicle-root pose of a rear-axle sample: the route's (poseAt) or, while the team is
   // driven, the live one the bicycle model steps (T-3557), through the same ground reading.
-  const poseOf = (rear, steering, s) => {
+  const poseOf = (rear, steering, s, ramp = false) => {
     const [e, n] = localToEnu(rear, 0, root_ahead_of_rear_axle_m);
     const origin = { ...rear, e, n };
     const frontX = track_m / 2 * Math.cos(steering);
@@ -230,12 +288,22 @@ export function createTransportLoop({
       [frontX, wheelbase_m - root_ahead_of_rear_axle_m - frontZ],
       [-frontX, wheelbase_m - root_ahead_of_rear_axle_m + frontZ],
     ];
-    const grounds = wheelLocal.map(([x, z]) => heightAt(...localToEnu(origin, x, z)));
+    const ground = ramp && pathHeightAt ? (x, y) => { const h = heightAt(x, y); return Number.isFinite(h) ? h : pathHeightAt(x, y); } : heightAt;
+    const grounds = wheelLocal.map(([x, z]) => ground(...localToEnu(origin, x, z)));
     if (!grounds.every(Number.isFinite)) throw Error('transport loop: no rendered ground beneath all four wheels');
-    const height = Math.max(...grounds), wheelGap = height - Math.min(...grounds);
-    if (wheelGap > 0.03) throw Error('transport loop: wheel plane exceeds 30mm rendered-ground variation');
+    let height = Math.max(...grounds), wheelGap = height - Math.min(...grounds), pitch = 0;
+    if (wheelGap > 0.03) {
+      // T-3557: over a carriage drive's kerb ramp (admitted, never on the road) the coach
+      // pitches with its axles: each axle on its own higher wheel, the root between them.
+      if (!ramp || wheelGap > RAMP_GAP_M) throw Error('transport loop: wheel plane exceeds 30mm rendered-ground variation');
+      const back = Math.max(grounds[0], grounds[1]), front = Math.max(grounds[2], grounds[3]);
+      pitch = -Math.atan2(front - back, wheelbase_m);
+      height = back + (front - back) * root_ahead_of_rear_axle_m / wheelbase_m;
+      wheelGap = Math.max(Math.abs(grounds[0] - grounds[1]), Math.abs(grounds[2] - grounds[3]));
+      if (wheelGap > RAMP_GAP_M) throw Error('transport loop: wheel plane exceeds the ramp bound');
+    }
     return { ...origin, height, wheelGap, rootAhead: root_ahead_of_rear_axle_m,
-      steering,
+      steering, ...(ramp ? { ramp: true, pitch } : {}),
       driverAt: localToEnu(origin, driver_local_m[0], driver_local_m[2]),
       distance: s, totalDistance,
     };
@@ -269,12 +337,21 @@ export function createTransportLoop({
   let mode = 'route', blocked = null, rear = null, speed = 0, steering = 0;
   let control = { throttle: 0, steer: 0 }, inputAge = Infinity, tracking = false, searchAge = 0;
   let reversing = false, backHold = 0, recover = null, refusedFor = 0, attempts = 0;
+  // T-3557: off the round on a given way (a coach house's drive): 'path' drives it forward,
+  // 'backing' backs out along the way it came in, 'parked' stands at its end.
+  let path = null, trace = [], branch = null, branchArrived = false;
   const refused = () => { try { return why?.() ?? null; } catch { return null; } };
   /** Would the team, at this rear-axle sample and steering, put a wheel or hoof over the kerb? */
   const offRoad = (sample, steer) => {
     if (!road) return false;
     const [e, n] = localToEnu(sample, 0, root_ahead_of_rear_axle_m);
     try { return road({ e, n, yaw: sample.yaw, steering: steer }) === false; } catch { return false; }
+  };
+  /** The vehicle-root pose of a rear sample, for the admission reader (no ground read). */
+  const rootOf = (sample, steer) => { const [e, n] = localToEnu(sample, 0, root_ahead_of_rear_axle_m); return { e, n, yaw: sample.yaw, steering: steer }; };
+  const admits = (sample, steer) => {
+    if (!admit || mode === 'route') return false;
+    try { return admit(lastPose, rootOf(sample, steer)) === true; } catch { return false; }
   };
   const nearestNow = () => {
     const coarse = routeDistanceNear(route, rear.e, rear.n, .5);
@@ -297,8 +374,9 @@ export function createTransportLoop({
     if (ds !== 0) {
       const sample = bicycleStep(rear, nextSteer, ds, wheelbase_m), run = Math.abs(ds);
       let next = null, word = null;
-      if (offRoad(sample, nextSteer)) word = 'the kerb';
-      else try { next = { ...poseOf(sample, nextSteer, distance), reversing: ds < 0 }; } catch (error) { word = refusalWord(error); }
+      const admitted = admits(sample, nextSteer);
+      if (!admitted && offRoad(sample, nextSteer)) word = 'the kerb';
+      else try { next = { ...poseOf(sample, nextSteer, distance, admitted), reversing: ds < 0 }; } catch (error) { word = refusalWord(error); }
       if (next && !clear(lastPose, next)) { word = refused() ?? 'a wall'; next = null; }
       if (next) {
         const ratios = wheelArcRatios(k, track_m, wheelbase_m);
@@ -319,8 +397,9 @@ export function createTransportLoop({
       let next = null;
       // The team swings with the front axle: a lock that would walk a horse up the kerb is
       // refused where it stands (unless it already stands over it, and may turn off it).
-      if (offRoad(sample, nextSteer) && !offRoad(rear, steering)) blocked = 'the kerb';
-      else try { next = poseOf(sample, nextSteer, distance); } catch (error) { blocked = refusalWord(error); }
+      const admitted = admits(sample, nextSteer);
+      if (!admitted && offRoad(sample, nextSteer) && !offRoad(rear, steering)) blocked = 'the kerb';
+      else try { next = poseOf(sample, nextSteer, distance, admitted); } catch (error) { blocked = refusalWord(error); }
       if (next && commit(next, wheelRotation, totalDistance)) { rear = sample; steering = nextSteer; }
     }
     return 0;
@@ -360,15 +439,111 @@ export function createTransportLoop({
       : pursuitSteering(rear, route.at(distance + limits.lookahead_m), limits);
     return { throttle: limits.route_m_s / limits.max_m_s, steer: -want / limits.steer_max_rad };
   };
+  /** T-3557: the driver's hands on a given way (a coach house's drive): its own curvature fed
+   *  forward, offset and heading corrected (trackingSteering, as a rejoining team keeps its
+   *  road), slowing to a stand at its end. `remaining` is the metres of it left. */
+  const pathInput = () => {
+    path.s = refineRouteDistance(path.way, rear.e, rear.n, path.s, 2, .1).distance_m;
+    const remaining = Math.max(0, path.way.length - path.s);
+    const want = trackingSteering(path.way, rear, Math.min(path.s, path.way.length), limits);
+    const v = Math.min(path.speed, Math.sqrt(2 * limits.brake_m_s2 * .5 * remaining));
+    return { throttle: remaining <= 0 ? 0 : v / limits.max_m_s, steer: -want / limits.steer_max_rad, remaining };
+  };
+  /** T-3557: a given way that carries its own yaw and curvature (coach-house.js drivePath, made
+   *  for the bicycle model) is driven exactly, as a road is: the rear axle on it, the lock its
+   *  curvature's. Where the team leaves its own lane for it, the offset between them is eased
+   *  out over `PATH_EASE_M` (a smooth lane change), so nothing jumps. */
+  const PATH_EASE_M = 12;
+  const pathSample = s1 => {
+    const w = path.way.at(s1);
+    const x = s1 - path.s0, u = Math.min(1, Math.max(0, x / PATH_EASE_M)), easing = x < PATH_EASE_M;
+    // Offset (left of the way) and its first two derivatives along it: (1 - smoothstep).
+    const f = 1 - u * u * (3 - 2 * u), df = easing ? -6 * u * (1 - u) / PATH_EASE_M : 0;
+    const ddf = easing ? -(6 - 12 * u) / (PATH_EASE_M * PATH_EASE_M) : 0;
+    const lat = path.lat0 * f, slope = path.lat0 * df, bend = path.lat0 * ddf;
+    const yaw = w.yaw + Math.atan(slope);
+    // Left of the way: (-forwardN, forwardE).
+    const e = w.e - w.forwardN * lat, n = w.n + w.forwardE * lat;
+    const k = w.curvature + bend * Math.pow(Math.cos(Math.atan(slope)), 3);
+    return sampleOf(e, n, yaw, k);
+  };
+  const pathTick = tick => {
+    const remaining = Math.max(0, path.way.length - path.s);
+    const want = Math.min(path.speed, Math.sqrt(2 * limits.brake_m_s2 * .5 * remaining));
+    speed = speed < want ? Math.min(want, speed + limits.accel_m_s2 * tick) : Math.max(want, speed - limits.brake_m_s2 * tick);
+    const ds = Math.min(speed * tick, remaining);
+    if (remaining <= .01) return { done: true, moved: 0 };
+    if (ds <= 1e-9) { speed = Math.max(speed, .05); return { moved: 0 }; }
+    const sample = pathSample(path.s + ds), nextSteer = Math.max(-limits.steer_max_rad, Math.min(limits.steer_max_rad, Math.atan(wheelbase_m * sample.curvature)));
+    const admitted = admits(sample, nextSteer);
+    let next = null, word = null;
+    if (!admitted && offRoad(sample, nextSteer)) word = 'the kerb';
+    else try { next = poseOf(sample, nextSteer, distance, admitted); } catch (error) { word = refusalWord(error); }
+    if (next && !clear(lastPose, next)) { word = refused() ?? 'a wall'; next = null; }
+    if (next) {
+      const ratios = wheelArcRatios(sample.curvature, track_m, wheelbase_m);
+      const wheels = wheelRotation.map((r, i) => wrap(r + ds * ratios[i] / wheel_radii_m[i], TAU));
+      assembly.advance?.(tick, ds);
+      if (commit({ ...next, totalDistance: totalDistance + ds }, wheels, totalDistance + ds)) {
+        rear = sample; steering = nextSteer; totalDistance += ds; path.s += ds;
+        wheels.forEach((r, i) => { wheelRotation[i] = r; });
+        blocked = null; return { moved: ds };
+      }
+      word = 'rough ground';
+    }
+    // Held (someone in the way, the leaves not open): it waits there, and goes on when it can.
+    speed = 0; blocked = word; assembly.stop?.();
+    return { moved: 0 };
+  };
+  /** Back one tick along the way it came in (the trace of its own admitted poses), exactly. */
+  const backTick = tick => {
+    let want = limits.reverse_m_s * tick, moved = 0, k = trace.length - 1;
+    while (k > 0 && moved < want) { moved += Math.hypot(trace[k].rear.e - trace[k - 1].rear.e, trace[k].rear.n - trace[k - 1].rear.n); k--; }
+    if (k === trace.length - 1) return 0;
+    const to = trace[k], admitted = admits(to.rear, to.steering);
+    let next = null, word = null;
+    try { next = { ...poseOf(to.rear, to.steering, distance, admitted), reversing: true }; } catch (error) { word = refusalWord(error); }
+    if (next && !clear(lastPose, next)) { word = refused() ?? 'a wall'; next = null; }
+    if (next) {
+      const ratios = wheelArcRatios(Math.tan(to.steering) / wheelbase_m, track_m, wheelbase_m);
+      const wheels = wheelRotation.map((r, i) => wrap(r - moved * ratios[i] / wheel_radii_m[i], TAU));
+      assembly.advance?.(tick, -moved);
+      if (commit({ ...next, totalDistance: totalDistance + moved }, wheels, totalDistance + moved)) {
+        rear = to.rear; steering = to.steering; totalDistance += moved; speed = -moved / tick;
+        wheels.forEach((r, i) => { wheelRotation[i] = r; });
+        trace.length = k + 1; blocked = null;
+        return moved;
+      }
+      word = 'rough ground';
+    }
+    speed = 0; blocked = word; assembly.stop?.();
+    return 0;
+  };
+  const arrive = () => {
+    const done = path?.onArrive;
+    mode = 'parked'; speed = 0; state = 'stopped'; reason = 'parked'; motionReset = true; assembly.stop?.();
+    if (path) path.done = true;
+    try { done?.(); } catch { /* the caller's own */ }
+  };
   const driveFrame = dt => {
+    if (mode === 'parked') return 0;
     // The input given before this frame drives this frame, however long it is: aged first, a
     // frame slower than INPUT_STALE_S (a 3 fps phone, a hitch) dropped the reins every frame.
     const held = inputAge > INPUT_STALE_S ? { throttle: 0, steer: 0 } : control;
     inputAge += dt;
     if (mode === 'returning' && !visible && rejoin(true)) return 0;
     let remaining = Math.min(dt, .25), travelled = 0;
-    while (remaining > 1e-10 && mode !== 'route') {
+    while (remaining > 1e-10 && mode !== 'route' && mode !== 'parked') {
       const tick = Math.min(remaining, .05); remaining -= tick;
+      if (mode === 'backing') {
+        const moved = backTick(tick);
+        travelled += moved;
+        // Backed far enough (the caller's `until`: the team clear of a doorway): it stands there.
+        let far = false;
+        if (moved > 0 && path?.until) { try { far = !!path.until({ ...rear }); } catch { far = false; } }
+        if (trace.length <= 1 || far) { arrive(); break; }
+        continue;
+      }
       if (mode === 'returning' && recover) {
         // The driver backs off what refused him: opposite lock, eased, and to a stand at the end.
         const stopping = speed * speed / (2 * limits.brake_m_s2);
@@ -382,7 +557,15 @@ export function createTransportLoop({
         }
         continue;
       }
-      const input = mode === 'returning' ? returnInput(tick) : held;
+      if (mode === 'path' && path.exact) {
+        const r = pathTick(tick);
+        travelled += r.moved;
+        if (r.moved) trace.push({ rear: { ...rear }, steering });
+        if (r.done) { arrive(); break; }
+        continue;
+      }
+      const input = mode === 'returning' ? returnInput(tick) : mode === 'path' ? pathInput() : held;
+      if (mode === 'path' && input.remaining <= .08 && speed <= .05) { arrive(); break; }
       let eased;
       if (mode === 'reins' && reversing) {
         // Backing under the reins: pulled, it backs; let go or walked on, it comes to a stand.
@@ -400,6 +583,7 @@ export function createTransportLoop({
       if (mode === 'reins' && speed === 0 && !reversing && !(input.throttle > 0)) blocked = null;
       const moved = driveTick(tick, eased.steering, speed * tick);
       travelled += Math.abs(moved);
+      if (mode === 'path' && moved !== 0) trace.push({ rear: { ...rear }, steering });
       if (mode === 'returning') {
         // Nose-first at a wall on full lock, the pursuit alone never gets out: after
         // RECOVER_AFTER_S refused, back a few metres on the opposite lock (bounded tries).
@@ -459,14 +643,19 @@ export function createTransportLoop({
       return dwell > 0 || giving ? 0 : speed_m_s;
     },
     /** The visitor's eye on the seat beside the driver (world ENU; y the absolute eye height). */
-    seat() {
+    seat(kind = 'box') {
       if (disposed || !lastPose) return null;
+      if (kind === 'cab') {
+        if (!cab_seat_local_m) return null;
+        const [e, n] = localToEnu(lastPose, cab_seat_local_m[0], cab_seat_local_m[2]);
+        return { e, n, y: lastPose.height + cab_seat_local_m[1] + cab_eye_m, yaw_rad: lastPose.yaw, heading_deg: out.heading_deg, kind: 'cab' };
+      }
       const [e, n] = localToEnu(lastPose, passenger[0], passenger[2]);
       return { e, n, y: lastPose.height + passenger[1] + passenger_eye_m, yaw_rad: lastPose.yaw, heading_deg: out.heading_deg };
     },
     /** T-3553: taken for a jaunt's scene. Refused while the visitor holds the reins. */
     stage() {
-      if (disposed || mode === 'reins' || mode === 'returning') return false;
+      if (disposed || mode === 'reins' || mode === 'returning' || mode === 'path' || mode === 'backing' || mode === 'parked') return false;
       if (mode === 'staged') return true;
       gate?.drop?.(); giving = false; dwell = 0; dwellingAt = null;
       mode = 'staged'; state = 'moving'; reason = null; blocked = null; stagedAt = null; audioSpeed = 0;
@@ -507,6 +696,7 @@ export function createTransportLoop({
     takeReins() {
       if (disposed || mode === 'staged') return false;
       if (mode === 'reins') return true;
+      if (mode === 'path' || mode === 'backing' || mode === 'parked') { path = null; trace = []; speed = Math.max(0, speed); }
       if (mode === 'route') {
         // Off the round: the crossing keeper lets go of whatever this team held.
         // It carries on at the pace it had: its round's, or standing if it stood.
@@ -529,8 +719,78 @@ export function createTransportLoop({
       inputAge = 0;
       return true;
     },
+    /**
+     * T-3557: leave the round onto a given way (`points`, [{e, n}] or [[e, n]], for the rear
+     * axle: a coach house's drive), driven by the driver at `speed_m_s`; at its end the team
+     * stands ('parked') and `onArrive` is called. Refused (false) while the reins are the
+     * visitor's or a way of fewer than two points is given.
+     */
+    followPath(points, { speed_m_s: pace = .8, onArrive = null, yaw_rad = null, curvature_per_m = null } = {}) {
+      if (disposed || mode === 'reins' || mode === 'staged' || !Array.isArray(points) || points.length < 2) return false;
+      const pts = points.map((p, i) => ({ ...(Array.isArray(p) ? { e: p[0], n: p[1] } : { e: p.e, n: p.n }),
+        yaw: yaw_rad?.[i], k: curvature_per_m?.[i] }));
+      if (!pts.every(p => Number.isFinite(p.e) && Number.isFinite(p.n))) return false;
+      if (mode === 'route') {
+        gate?.drop?.(); giving = false; dwell = 0; dwellingAt = null;
+        const r = route.at(distance);
+        rear = sampleOf(r.e, r.n, r.yaw, r.curvature); steering = lastPose.steering; speed = 0;
+      }
+      path = { points: pts, way: wayOf(pts), s: 0, speed: Math.min(Math.max(pace, .2), limits.max_m_s), onArrive, done: false,
+        exact: Array.isArray(yaw_rad) && Array.isArray(curvature_per_m), lat0: 0 };
+      if (path.exact) {
+        // Where the rear axle stands against the way's start: along it (taken up by starting
+        // there), and to its left (eased out over the first metres).
+        const w0 = path.way.at(0);
+        path.s = path.s0 = Math.max(0, Math.min(path.way.length / 2, (rear.e - w0.e) * w0.forwardE + (rear.n - w0.n) * w0.forwardN));
+        const w = path.way.at(path.s);
+        path.lat0 = (rear.e - w.e) * -w.forwardN + (rear.n - w.n) * w.forwardE;
+        if (Math.abs(path.lat0) > 3 || Math.abs(Math.atan2(Math.sin(rear.yaw - w.yaw), Math.cos(rear.yaw - w.yaw))) > 10 * Math.PI / 180) { path = null; return false; }
+      }
+      trace = [{ rear: { ...rear }, steering }];
+      mode = 'path'; state = 'moving'; reason = null; blocked = null; tracking = false; motionReset = true;
+      reversing = false; backHold = 0; recover = null; refusedFor = 0; attempts = 0;
+      return true;
+    },
+    /** T-3557: back out along the way it came in, to where it left its road, or only until
+     *  `until(rear)` (the rear-axle sample {e, n, yaw}) is true; then it stands there. Backed out
+     *  part way, a second backOut() backs on along the rest. */
+    backOut({ onArrive = null, until = null } = {}) {
+      if (disposed || mode !== 'parked' || trace.length < 2) return false;
+      path = { ...(path ?? { points: [] }), onArrive, done: false, until: typeof until === 'function' ? until : null };
+      mode = 'backing'; state = 'moving'; reason = null; blocked = null; motionReset = true; speed = 0;
+      return true;
+    },
+    /** T-3557: pull up where the round passes nearest (e, n), to leave it there (reason 'branch').
+     *  Null when the round passes no nearer than `within_m`. */
+    branchAt(e, n, { within_m = 4 } = {}) {
+      if (disposed || mode !== 'route') return null;
+      const near = routeDistanceNear(route, e, n, .25);
+      if (near.off_m > within_m) return null;
+      const d = refineRouteDistance(route, e, n, near.distance_m, .5, .05);
+      branch = { label: 'branch', distance_m: wrap(d.distance_m, route.length), dwell_s: 0 };
+      branchArrived = false;
+      // Already standing there: arrived.
+      if (Math.abs(wrap(branch.distance_m - distance + route.length / 2, route.length) - route.length / 2) < .05) {
+        branch = null; branchArrived = true; state = 'stopped'; reason = 'branch';
+      }
+      return { distance_m: d.distance_m, off_m: d.off_m };
+    },
+    cancelBranch() { branch = null; branchArrived = false; },
+    /** Where it is off its round: 'path' | 'backing' | 'parked' (with the way's end reached), else null. */
+    get way() { return mode === 'path' || mode === 'backing' || mode === 'parked' ? { mode, done: !!path?.done, traced: trace.length } : null; },
+    get branched() { return branchArrived && reason === 'branch' && state === 'stopped'; },
+    /** A vehicle-root local point ([x, y, z], y up from the wheels' ground) in world ENU and height. */
+    toWorld([x, y, z]) {
+      if (disposed || !lastPose) return null;
+      const [e, n] = localToEnu(lastPose, x, z);
+      return { e, n, y: lastPose.height + y + (lastPose.pitch ? -Math.sin(lastPose.pitch) * z : 0) };
+    },
+    get hasCab() { return !!cab_seat_local_m; },
     handBack() {
       if (disposed || mode === 'route' || mode === 'staged') return false;
+      if (mode === 'path' || mode === 'backing' || mode === 'parked') {
+        mode = 'reins'; path = null; trace = []; speed = Math.max(0, speed);
+      }
       if (mode === 'reins') {
         mode = 'returning'; state = 'moving'; reason = null; tracking = false; searchAge = 0;
         reversing = false; backHold = 0; recover = null; refusedFor = 0; attempts = 0;
@@ -614,7 +874,7 @@ export function createTransportLoop({
         let tick = Math.min(remaining, 0.05), ds = tick * speed_m_s;
         // T-3497: pull up exactly at the next stop ahead (a stop just left lies behind).
         let arriving = null;
-        for (const s of stopList) {
+        for (const s of branch ? [...stopList, branch] : stopList) {
           const ahead = wrap(s.distance_m - distance, route.length);
           if (ahead > 1e-6 && ahead <= ds && (!arriving || ahead < arriving.ahead)) arriving = { stop: s, ahead };
         }
@@ -644,6 +904,13 @@ export function createTransportLoop({
         draw(); remaining -= tick;
         if (arriving) {
           distance = arriving.stop.distance_m;
+          // T-3557: a stand (`hold`) or a turning off the round (a branch) is stood at until
+          // the journey is resumed or the team is taken off its road there.
+          if (arriving.stop.hold || arriving.stop === branch) {
+            state = 'stopped'; reason = arriving.stop === branch ? 'branch' : 'stand'; motionReset = true; assembly.stop?.();
+            if (arriving.stop === branch) { branch = null; branchArrived = true; }
+            break;
+          }
           if (arriving.stop.dwell_s > 0) { dwell = arriving.stop.dwell_s; dwellingAt = arriving.stop; assembly.stop?.(); break; }
         }
       }

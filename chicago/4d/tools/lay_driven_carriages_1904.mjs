@@ -54,10 +54,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { routeFor, routeDistanceNear } from '../renderers/web/js/transport-loop.js';
+import { refineRouteDistance } from '../renderers/web/js/team-drive.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FILE = path.join(ROOT, 'data/transport/driven/loops.json');
 const GRID = path.join(ROOT, 'data/street_grid/1904.json');
+const PLACEMENTS = path.join(ROOT, 'data/transport/parked/placements.json');
 const TEMPLATE = 'prairie_driven_brougham_loop_1904';
 const HANS = 'pa1904_otis_f_r_c1900_hans_johnson';
 const LIBERTY = 'L-1904-more-carriages-3555';
@@ -260,10 +262,151 @@ const CARRIAGES = [
     note: "Joseph Daniels, coachman in Mrs. Philip D. Armour's household at 2115 Prairie Avenue in the 1900 census, drives a brougham clockwise round Prairie, 20th Street, Calumet and 22nd Street. The census names him there four years before the scene; this coach, its colours, its team, his livery and the round are reconstructed.",
   },
 ];
+/**
+ * T-3557 (Kevin, 2026-11-15: build the rest of the Glessner ride). The waiting Glessner
+ * brougham (data/transport/parked/placements.json `prairie_parked_studebaker_brougham`, on
+ * Prairie's west side south of 18th, before the house) is this row while the visitor rides:
+ * Charles Nelson, coachman in John J. Glessner's household at 1800 Prairie in the 1900 census,
+ * on its box, Mr. Glessner inside. It is ON CALL: not loaded until asked for, and loaded where
+ * the parked one stands, the same coach, coats and harness, so one takes over from the other.
+ *
+ * Its round is the block west of Prairie, CLOCKWISE (every corner a right turn, its corners
+ * 10 m): down Prairie from the house, right along 20th, right up Indiana, right along 18th past
+ * the coach-house doors and right again onto Prairie. Hans goes round the same block the other
+ * way, in the far lane of each street; Henry Windish shares its lane of 18th from Indiana to
+ * Prairie (his left turn in, its right turn in at Indiana, then his left out and its right out
+ * at Prairie); Joseph Daniels's right turn into 20th lies across Prairie from its own. Where any
+ * two footprints can meet, one waits (transport-crossings.js).
+ *
+ * The stand: Prairie's lane is 2.5 m right of its crown, the parked coach 4.29 m (by the kerb).
+ * Its road leaves the lane for a straight lay-by through the parked coach's own root, on its
+ * own bearing, a few metres of it either side of the rear axle, and eases back after; the
+ * team holds there (`hold`) until the visitor is in. Everything of the ride is reconstructed.
+ */
+const GLESSNER_LIBERTY = 'L-glessner-ride-3557';
+const PARKED_ID = 'prairie_parked_studebaker_brougham';
+const GLESSNER = {
+  id: 'prairie_driven_brougham_glessner_1904',
+  name: 'The Glessner brougham, Charles Nelson driving',
+  ride_name: 'Glessner brougham',
+  person_id: 'pa1904_glessner_john_j_c1900_charles_nelson',
+  replace_human_instance: 'hi_pa1904_glessner_john_j_c1900_charles_nelson_1904',
+  // Lanes 2 m right of each crown (Prairie's 2.5): 3 m (Hans's) puts a hoof on the walk at its right turns.
+  legs: [['prairie_18_20', 'south', 2.5], ['e20th_indiana_calumet', 'west', 2],
+    ['indiana_18_20', 'north', 2], ['e18th_indiana_prairie', 'east', 2]],
+  corner_radius_m: 10,
+  speed_m_s: 1.2,
+  // The lay-by: its straight from `behind_m` before the rear axle at the stand to `ahead_m` after.
+  stand: { behind_m: 5, ahead_m: 8, radius_m: [60, 100], approach: [[-18.5, 0, 20]], leave: [[190, 0.8, 100], [215, 0, 40]], label: 'the Glessner house' },
+  livery: {
+    // His own colours as he stands at the stand (data/humans/recipes/coachman_livery_1904.json):
+    // the bottle-green coat, white breeches, white-metal buttons and white cotton gloves, so the
+    // coachman who drives off is the one who stood there.
+    garment_outer__box_coat_wool: [0.014, 0.026, 0.019],
+    garment_lower__highwaist_pantaloons: [0.66, 0.64, 0.58],
+    accessory__brass_livery_buttons: [0.62, 0.62, 0.6],
+    accessory__pale_driving_gloves: [0.72, 0.71, 0.68],
+  },
+  // The coach keeps its own paint, as the parked twin it stands in for shows it; the road on it only.
+  finish: { seed: 'glessner-brougham-1904', gloss: 0.88, dust: 0.3, scuffs: 0.2 },
+  note: "Charles Nelson, coachman in John J. Glessner's household at 1800 Prairie Avenue in the 1900 census, drives the Glessner brougham round Prairie, 20th Street, Indiana and 18th Street, and home to the coach house on 18th. The census names him there four years before the scene; Mr. Glessner riding with the visitor, this round, the coach and its team are reconstructed.",
+  // The cab (brougham-near.glb, measured: tools/test_glessner_ride.mjs). Vehicle-root metres.
+  cab_seat_local_m: [-0.27, 1.296, -0.45],
+  cab_eye_m: 0.58,
+  // The eye's way in (vehicle-root [x, y, z], y over the road): from the kerb's edge (the walk is
+  // 0.15 m up) forward of the open leaf, onto the step, stooping through the doorway, to the seat.
+  cab_via_local_m: [[-1.4, 1.75, 0.3], [-0.95, 1.75, 0.08], [-0.62, 1.7, -0.05], [-0.35, 1.8, -0.4]],
+  cab_stand_local_xz_m: [-1.4, 0.3],
+  passengers: [{
+    person_id: 'glessner_john_j', short_name: 'Mr. Glessner', asset_id: 'glessner_john_j_1904',
+    instance_id: 'hi_glessner_john_j_1904', seat_local_m: [0.2, 1.307, -0.72], sink_m: 0.06,
+    basis: "John J. Glessner (1843-1936) of 1800 Prairie Avenue, his own 1904 figure and record, seated in his household's brougham beside the visitor. That he rides, when and where, is reconstructed play; his figure plays the coachmen's seated clip (sit_drive_look_v2), bent to the cab's lower seat and roof, hat off (renderers/web/js/cab-passenger.js).",
+  }],
+};
+
+/** The cab door: cut from the body at runtime (renderers/web/js/cab-door.js) after ROOT's right-door study. */
+const CAB_DOOR_STUDY = 'evidence/transport/T2797 right-door study v3 (chicago-brougham-right-door-study-v3)';
+const CAB_DOOR = {
+  hinge_local_m: [-0.655, 0, -0.43], open_deg: -65, duration_s: 1.6,
+  regions: [{ x_m: [-0.95, -0.47], y_m: [0.93, 2.04] }, { x_m: [-0.95, -0.5], y_m: [0.87, 0.93] }, { x_m: [-0.95, -0.40], y_m: [0.3, 0.87] }],
+};
+
+/** The study's door outline in the body's side, (y, z) vehicle-root metres, its `aperture_profile_yz_m`. */
+const CAB_DOOR_PROFILE = [[0.4899,-0.0875], [0.4901,-0.1178], [0.4915,-0.1488], [0.4947,-0.1794], [0.5001,-0.2088], [0.5083,-0.2359], [0.5191,-0.2608], [0.5322,-0.2842], [0.5478,-0.3058], [0.5659,-0.3256], [0.5867,-0.3434], [0.6088,-0.3592], [0.6322,-0.3732], [0.6589,-0.3854], [0.6908,-0.3955], [0.7299,-0.4036], [0.7762,-0.4092], [0.8282,-0.4124], [0.8861,-0.4138], [1.206,-0.4169], [1.3083,-0.4171], [1.3966,-0.4121], [2.0025,-0.3617], [2.0784,-0.1224], [2.1013,0.0708], [2.0458,0.2324], [1.3927,0.2926], [1.306,0.2899], [0.8478,0.2524], [0.7996,0.2473], [0.7552,0.2399], [0.7152,0.2303], [0.6802,0.2192], [0.6494,0.2063], [0.6218,0.1916], [0.5965,0.1749], [0.5736,0.156], [0.5539,0.135], [0.5371,0.1122], [0.5229,0.0879], [0.5111,0.0622], [0.5021,0.0345], [0.4961,0.0048], [0.4925,-0.0261], [0.4906,-0.0571]];
+
+function laybyRoute(grid, spec, parked) {
+  const { route, sources } = loopOf(grid, spec.legs, spec.corner_radius_m);
+  const b = parked.bearing_deg * Math.PI / 180, d = [Math.sin(b), Math.cos(b)];
+  const ra = 1.15; // the brougham's root is 1.15 m ahead of its rear axle (the template row's)
+  const rear = [parked.at_local_enu_m[0] - d[0] * ra, parked.at_local_enu_m[1] - d[1] * ra];
+  const at = k => [Math.round((rear[0] + d[0] * k) * 1e4) / 1e4, Math.round((rear[1] + d[1] * k) * 1e4) / 1e4];
+  // Back onto the lane (leg 0, from corner 0 to corner 1) `ease_m` past the lay-by's end.
+  const [c0, c1] = route.points_enu_m;
+  const u = [c1[0] - c0[0], c1[1] - c0[1]], len = Math.hypot(...u), un = [u[0] / len, u[1] / len];
+  const along = p => (p[0] - c0[0]) * un[0] + (p[1] - c0[1]) * un[1];
+  // `approach` and `leave`: [metres from the rear axle at the stand, share of the way from the
+  // lane to the lay-by, the bend's radius] — wide bends, so the team (which leads, and swings
+  // with the lock) is never turned toward the kerb near it; the stand's own two bends `radius_m`.
+  const lay = along(rear), off = [rear[0] - (c0[0] + un[0] * lay), rear[1] - (c0[1] + un[1] * lay)];
+  const blend = (k, f) => [Math.round((c0[0] + un[0] * (lay + k) + off[0] * f) * 1e4) / 1e4,
+    Math.round((c0[1] + un[1] * (lay + k) + off[1] * f) * 1e4) / 1e4];
+  const { approach, leave, behind_m, ahead_m, radius_m } = spec.stand;
+  route.points_enu_m = [c0, ...approach.map(([k, f]) => blend(k, f)), at(-behind_m), at(ahead_m),
+    ...leave.map(([k, f]) => blend(k, f)), ...route.points_enu_m.slice(1)];
+  const r = spec.corner_radius_m;
+  route.corner_radii_m = [r, ...approach.map(x => x[2]), ...radius_m, ...leave.map(x => x[2]), r, r, r];
+  return { route, sources, rear };
+}
+
+function glessnerRow(base, grid, placements) {
+  const spec = GLESSNER;
+  const parked = Object.values(placements.scenes).flat().find(r => r.id === PARKED_ID);
+  if (!parked) throw Error(`lay_driven_carriages_1904: no parked ${PARKED_ID}`);
+  const { route, sources, rear } = laybyRoute(grid, spec, parked);
+  const road = routeFor(route);
+  const near = routeDistanceNear(road, ...rear, .05);
+  const stand = refineRouteDistance(road, rear[0], rear[1], near.distance_m, .5, .01);
+  if (stand.off_m > .005) throw Error(`${spec.id}: its road misses the parked coach's rear axle by ${stand.off_m.toFixed(3)} m`);
+  const distance_m = Math.round(stand.distance_m * 1000) / 1000;
+  const cab = {
+    hinge_local_m: CAB_DOOR.hinge_local_m, open_deg: CAB_DOOR.open_deg, duration_s: CAB_DOOR.duration_s,
+    profile_yz_m: CAB_DOOR_PROFILE, regions: CAB_DOOR.regions, uncut_materials: 'iron',
+    basis: `Right (kerbside) leaf, rear-hung, opened ${-CAB_DOOR.open_deg} degrees: its outline, hinge line and angle are ${CAB_DOOR_STUDY}'s; here it is cut from the coach's own body at runtime and its step left fixed. Reconstructed.`,
+    liberty: GLESSNER_LIBERTY,
+  };
+  return {
+    ...base,
+    id: spec.id, name: spec.name, ride_name: spec.ride_name, scene: '1904',
+    speed_m_s: spec.speed_m_s, route,
+    stops: [{ label: spec.stand.label, distance_m, dwell_s: 0, hold: true }],
+    initial_distance_m: distance_m, initial_state: 'stopped', initial_reason: 'stand',
+    on_call: true, stand_in_for: PARKED_ID, coach_house: { house: 'glessner_house', from: 'west' },
+    horse_coat_row: PARKED_ID,
+    person_id: spec.person_id, replace_human_instance: spec.replace_human_instance,
+    driver_export_person_id: HANS,
+    driver_livery_colours: spec.livery,
+    vehicle_finish: { ...spec.finish, grade: 'reconstructed', liberty: GLESSNER_LIBERTY },
+    driver_instance: {
+      person_id: spec.person_id,
+      interaction: { opens: 'resident_card', selectable: true },
+      provenance: { grade: 'reconstructed', basis: spec.note, liberty: GLESSNER_LIBERTY },
+      review_required: false,
+    },
+    cab_seat_local_m: spec.cab_seat_local_m, cab_eye_m: spec.cab_eye_m,
+    cab_via_local_m: spec.cab_via_local_m, cab_stand_local_xz_m: spec.cab_stand_local_xz_m,
+    cab_basis: 'Inside the brougham, on the kerbside half of its seat (brougham-near.glb: cushion top 1.296 m, roof lining 2.046 m over it), the eye 0.58 m over the cushion: lower than a man sits upright, as the cab is lower than one (tools/test_glessner_ride.mjs measures its clearance to the roof, walls and door).',
+    cab_door: cab,
+    passengers: spec.passengers.map(p => ({ ...p, liberty: GLESSNER_LIBERTY })),
+    source_ids: ['studebaker_1893_illustrated_souvenir', 'census_1900_chicago_t623_roll245', ...sources],
+    note: spec.note, liberty: GLESSNER_LIBERTY,
+  };
+}
+
 // Hans's own coach keeps its catalogue green and black; it gets the road on it too.
 const HANS_FINISH = { seed: 'otis-brougham-1904', gloss: 0.85, dust: 0.4, scuffs: 0.3 };
 
-export function buildRows(config = JSON.parse(fs.readFileSync(FILE, 'utf8')), grid = JSON.parse(fs.readFileSync(GRID, 'utf8'))) {
+export function buildRows(config = JSON.parse(fs.readFileSync(FILE, 'utf8')), grid = JSON.parse(fs.readFileSync(GRID, 'utf8')),
+  placements = JSON.parse(fs.readFileSync(PLACEMENTS, 'utf8'))) {
   const template = config.rows.find(row => row.id === TEMPLATE);
   if (!template || template.person_id !== HANS) throw Error('lay_driven_carriages_1904: Hans\'s brougham row is the template');
   const { vehicle_finish: _, ...base } = template;
@@ -293,6 +436,7 @@ export function buildRows(config = JSON.parse(fs.readFileSync(FILE, 'utf8')), gr
       note: spec.note, liberty: LIBERTY,
     };
   });
+  rows.push(glessnerRow(base, grid, placements));
   for (const key of ['source_lane_intersections_enu_m']) for (const row of rows) delete row[key];
   const hans = { ...template, vehicle_finish: { ...HANS_FINISH, grade: 'reconstructed', liberty: LIBERTY } };
   // The brougham's lock, and each row's envelope swept to the lock its own road asks for.
@@ -309,7 +453,7 @@ export function buildRows(config = JSON.parse(fs.readFileSync(FILE, 'utf8')), gr
   return { hans, rows };
 }
 
-/** loops.json with Hans's finish and the two rows straight after his; every other row untouched. */
+/** loops.json with Hans's finish and the three rows straight after his; every other row untouched. */
 export function nextConfig(config) {
   const { hans, rows } = buildRows(config);
   const ids = new Set(rows.map(row => row.id));
@@ -327,7 +471,7 @@ function main() {
       console.error('lay_driven_carriages_1904: the 1904 carriage rows of loops.json differ; run node tools/lay_driven_carriages_1904.mjs');
       process.exit(1);
     }
-    console.log('lay_driven_carriages_1904: Hans\'s finish and 2 more 1904 carriage rows current');
+    console.log('lay_driven_carriages_1904: Hans\'s finish and 3 more 1904 carriage rows current (the Glessner brougham on call)');
     return;
   }
   fs.writeFileSync(FILE, `${JSON.stringify(next, null, 2)}\n`);

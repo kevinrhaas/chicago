@@ -34,22 +34,28 @@ function play(rows, seconds, { dt = 1 / 10, routes = rows.map(r => routeFor(r.ro
   return { crossings, actors, waits, open, worstOverlap };
 }
 
-// The three 1904 carriages: Hans's and the two the layer writes, as loops.json holds them.
+// The 1904 carriages: Hans's and the three the layer writes (the Glessner brougham, T-3557,
+// on call at its stand), as loops.json holds them.
 const rows1904 = loops.rows.filter(r => r.scene === '1904');
 assert.deepEqual(rows1904.map(r => r.id), ['prairie_driven_brougham_loop_1904',
-  'prairie_driven_brougham_north_loop_1904', 'prairie_driven_brougham_south_loop_1904']);
+  'prairie_driven_brougham_north_loop_1904', 'prairie_driven_brougham_south_loop_1904',
+  'prairie_driven_brougham_glessner_1904']);
 const { rows: written } = buildRows();
-assert.deepEqual(rows1904.slice(1), written, 'the two new rows are what tools/lay_driven_carriages_1904.mjs writes');
+assert.deepEqual(rows1904.slice(1), written, 'the three new rows are what tools/lay_driven_carriages_1904.mjs writes');
 // Hans's and Henry Windish's rounds are counter-clockwise (every corner a left turn, positive
 // curvature); Joseph Daniels's is clockwise (Kevin, 2026-11-14: every corner a right turn).
 // The team keeps right either way.
-const turns = { prairie_driven_brougham_loop_1904: 1, prairie_driven_brougham_north_loop_1904: 1, prairie_driven_brougham_south_loop_1904: -1 };
+// The Glessner brougham's round (T-3557) is clockwise too; only the wide bends of its lay-by
+// at the house (none sharper than a 40 m radius) turn the other way.
+const turns = { prairie_driven_brougham_loop_1904: 1, prairie_driven_brougham_north_loop_1904: 1, prairie_driven_brougham_south_loop_1904: -1,
+  prairie_driven_brougham_glessner_1904: -1 };
+const layBy = { prairie_driven_brougham_glessner_1904: 1 / 40 + 1e-9 };
 for (const row of rows1904) {
   const route = routeFor(row.route);
   let turned = 0;
   for (let s = 0; s < route.length; s += 1) {
     const k = route.at(s).curvature;
-    assert(k * turns[row.id] >= -1e-12, `${row.id} turns the wrong way at ${s} m`);
+    assert(k * turns[row.id] >= -1e-12 || Math.abs(k) <= (layBy[row.id] ?? 0), `${row.id} turns the wrong way at ${s} m`);
     if (Math.abs(k) > 1e-9) turned++;
   }
   assert(turned > 20, `${row.id} turns its corners`);
@@ -61,7 +67,8 @@ assert(routeFor(rows1904[2].route).maxCurvature > Math.tan(8 * Math.PI / 180) / 
 // The lock is the coach's own: its front wheels clear the body at 16°, and the check bites at 25°.
 const brougham = new URL(`../renderers/web/${rows1904[0].vehicle_file}`, import.meta.url).pathname;
 assert(frontWheelsClear(brougham, 16) && !frontWheelsClear(brougham, 25), 'front-wheel lock read off the brougham');
-const zones = conflictZones(rows1904.map(row => ({ id: row.id, row, route: routeFor(row.route) })));
+const rows3 = rows1904.filter(r => !r.on_call);
+const zones = conflictZones(rows3.map(row => ({ id: row.id, row, route: routeFor(row.route) })));
 // Hans crosses Henry twice a lap (at Indiana and at Prairie). Joseph's clockwise round, east
 // of Prairie, shares no lane and no turn with either.
 const pairs = zones.map(z => `${z.a}|${z.b}`).sort();
@@ -73,15 +80,33 @@ for (const z of zones) for (const [a, b] of Object.values(z.at)) assert(b - a > 
 // Opposing lanes on 18th pass clear: no zone runs along a shared street.
 console.log(`1904 conflict zones PASS: ${zones.length}, two crossings a lap between Hans and Henry; two rounds counter-clockwise, one clockwise`);
 
+// T-3557: the Glessner brougham, on its round, meets Hans at the four corners of their shared
+// block (his wide left turns sweep across its right ones), and follows Henry Windish's side of 18th from Indiana to Prairie; it never meets Joseph Daniels.
+{
+  const all = conflictZones(rows1904.map(row => ({ id: row.id, row, route: routeFor(row.route) })));
+  const gless = all.filter(z => [z.a, z.b].includes('prairie_driven_brougham_glessner_1904'));
+  assert.deepEqual(gless.map(z => `${z.a}|${z.b}`).sort(), [
+    ...Array(4).fill('prairie_driven_brougham_loop_1904|prairie_driven_brougham_glessner_1904'),
+    'prairie_driven_brougham_north_loop_1904|prairie_driven_brougham_glessner_1904']);
+  const g = rows1904.find(r => r.on_call), stand = g.stops[0].distance_m, length = routeFor(g.route).length;
+  for (const z of gless) {
+    const [a, b] = z.at[g.id];
+    // Standing at the house, it holds no crossing (it has driven clear of the one before it).
+    assert(!(a <= stand && stand <= b) && !(b < a && (stand >= a || stand <= b)), `zone ${z.id} holds the stand`);
+  }
+  assert.deepEqual(all.filter(z => !gless.includes(z)).map(z => z.id), zones.map(z => z.id), 'the three rounds keep their own crossings');
+  console.log(`Glessner round crossings PASS: ${gless.length} zones (${gless.map(z => { const [a, b] = z.at[g.id]; return `${(((b - a) % length + length) % length).toFixed(0)} m`; }).join(', ')}); the stand is clear of all`);
+}
+
 const TWO_HOURS = 7200;
-const run = play(rows1904, TWO_HOURS);
+const run = play(rows3, TWO_HOURS);
 assert.equal(run.worstOverlap, null, `teams overlap: ${JSON.stringify(run.worstOverlap)}`);
 assert(run.waits.length >= 3, `only ${run.waits.length} waits in two hours`);
 assert(run.waits.every(w => w.for_s <= 30), `a wait too long: ${JSON.stringify(run.waits.find(w => w.for_s > 30))}`);
 const first = run.waits[0];
 assert(first.at_s < 600 && first.for_s >= 2, `the first give-way comes within ten minutes and is seen: ${JSON.stringify(first)}`);
 for (const [i, actor] of run.actors.entries()) {
-  const row = rows1904[i], dwell = (row.stops ?? []).reduce((sum, s) => sum + s.dwell_s, 0);
+  const row = rows3[i], dwell = (row.stops ?? []).reduce((sum, s) => sum + s.dwell_s, 0);
   const lap = routeFor(row.route).length / row.speed_m_s + dwell;
   const free = TWO_HOURS / lap * routeFor(row.route).length;
   assert(actor.snapshot().total_distance_m > free * .95, `${row.id} fell behind: ${actor.snapshot().total_distance_m} of ${free}`);

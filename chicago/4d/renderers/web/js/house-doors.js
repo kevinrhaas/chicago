@@ -319,6 +319,66 @@ export function glessnerNorthEntryPlan(sidecar) {
   return plan;
 }
 
+// ---------------------------------------------------------------- the coach house (T-3557)
+//
+// Glessner's coach-house doors on Eighteenth Street, the two diagonal-boarded leaves the owner
+// ruled from his photographs 10-11 (T-3564), with the man door in the viewer's left leaf. This
+// layer only reads them and lets the buildings layer lift their baked triangles (takeDoorLeaf);
+// coach-house.js hangs and swings them. WHAT IS THE RECORD'S, read as masonry_house_params.py
+// frames it and masonry_house_v4_north.py `boarded_leaves` builds it:
+//   - the doorway, `openings_stable_doors` W 134.9-147.0 on the north face, 0-12.6 ft over north
+//     grade; the casing `casing_m` inside it; the leaves from the casing to the middle, 0.012 m
+//     over the sill to the casing's head, their stiles 0.245-0.30 m behind the face and their
+//     iron latch to 0.205 m;
+//   - the man door, `carriage_leaves.man_door`: `width_share` of the east leaf (u runs to the
+//     viewer's left on this face, so the viewer's left leaf is the high-u, east one) from its
+//     jamb edge, up to `head_m` over the sill, its latch on its free (west) edge.
+// WHAT IS OURS (docs/LIBERTIES.md L-glessner-coach-house-3557): each leaf hung on its own jamb
+// and swinging inward, the man door hung on the jamb side of its leaf — read off the photographs
+// (inferred) — and how far and how fast they swing (reconstructed).
+export const COACH_LEAF_BACK_M = 0.30;
+export const COACH_LEAF_FRONT_M = 0.205;
+export const COACH_OPEN_DEG = 90;
+const COACH_LEAF_FOOT_M = 0.012;
+
+/**
+ * The coach-house doors in the structure frame (as glessnerFrontPlan; d out of the north face,
+ * s along it to the right of someone outside facing the doors, i.e. west, s = -u). A PAIR: the
+ * east leaf (k 0) hangs on the east jamb, the west leaf (k 1) on the west. Null when the record
+ * does not carry them.
+ */
+export function glessnerCoachPlan(sidecar) {
+  const f = frameOf(sidecar);
+  const leaves = val(sidecar, 'v4_detail', {})?.['north_stable_fabric']?.['carriage_leaves'];
+  const block = val(sidecar, 'openings_stable_doors', {});
+  const door = (block?.['items'] ?? []).find((o) => o?.['style'] === 'stable_carriage_doors');
+  if (!f || !leaves || !door || (block['face'] ?? 'north') !== 'north') return null;
+  const face = f.y(block['at'] ?? 0);
+  const [u0, u1] = span2(f.x(door['at'][0]), f.x(door['at'][1]));
+  const datum = block['datum'] ?? 'ng';
+  const sill = f.z([door['z'][0], datum]), head = f.z([door['z'][1], datum]);
+  const cas = Number(leaves['casing_m']);
+  const la = u0 + cas, lc = u1 - cas, centre = (la + lc) / 2;
+  const man = leaves['man_door'];
+  // boarded_leaves: on this face the man door runs from the east leaf's jamb edge (lc) in by
+  // width_share of the leaf, up to head_m over the sill.
+  const manIn = man ? lc - (lc - centre) * Number(man['width_share']) : null;
+  return {
+    id: 'glessner_house:coach', structureId: sidecar.id, name: 'Coach-house doors', coach: true, pair: true,
+    origin: [0, face], outward: [0, 1], along: [-1, 0],
+    jambs: [-u1, -u0], sill, head, casing: cas,
+    leaf: { front: -COACH_LEAF_FRONT_M, back: -COACH_LEAF_BACK_M, s: [-lc, -la],
+      foot: sill + COACH_LEAF_FOOT_M, top: head - cas },
+    hinge: 'left', openDeg: COACH_OPEN_DEG,
+    revealBack: -COACH_LEAF_BACK_M - 0.01,
+    leafBoxBack: -COACH_LEAF_BACK_M - 0.03,
+    leafMaterials: ['painted_wood', 'glass_dark', 'iron'],
+    man: man ? { s: [-lc, -manIn], foot: sill + COACH_LEAF_FOOT_M, head: sill + Number(man['head_m']), hinge: 'left',
+      latch: -(manIn + 0.11) } : null,
+    grades: { leaf: 'reconstructed', hinge: 'inferred', swing: 'inferred', angle: 'reconstructed', room: 'reconstructed' },
+  };
+}
+
 /** T-3554: passages a doors file carries (derive_doors_scene.py), by structure id. */
 const registered = new Map();
 
@@ -348,8 +408,8 @@ export function doorPlansOf(record) {
   const extra = registered.get(record.id) ?? [];
   if (!HOUSE_DOORS[record.id]) return extra;
   if (record.id === 'glessner_house') {
-    return [glessnerFrontPlan(record.sidecar), glessnerCourtPlan(record.sidecar), glessnerNorthEntryPlan(record.sidecar), ...extra]
-      .filter(Boolean);
+    return [glessnerFrontPlan(record.sidecar), glessnerCourtPlan(record.sidecar), glessnerNorthEntryPlan(record.sidecar),
+      glessnerCoachPlan(record.sidecar), ...extra].filter(Boolean);
   }
   return extra;
 }
@@ -500,7 +560,9 @@ export function takeDoorLeaf(record, mesh, matrix) {
   const out = [];
   const lifted = new Uint8Array(count / 3);
   for (const plan of plans) {
-    if (plan.leafMaterials && !plan.leafMaterials.includes(material?.name)) continue;
+    // A plan lifts only its own materials (LEAF_MATERIALS unless it names others): T-3557's
+    // painted coach leaves must not let the front door's box take painted wood.
+    if (!(plan.leafMaterials ?? [...LEAF_MATERIALS]).includes(material?.name)) continue;
     const box = leafBox(plan);
     const inBox = (k) => world[3 * k] >= box.x[0] && world[3 * k] <= box.x[1]
       && world[3 * k + 1] >= box.y[0] && world[3 * k + 1] <= box.y[1]
@@ -850,6 +912,8 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
     const record = registry.get(id);
     if (!record) continue;                            // not in this year's scene
     for (const plan of doorPlansOf(record)) {
+      // T-3557: the coach-house doors are hung by coach-house.js (attached below).
+      if (plan.coach) continue;
       if (plan.passage) { hangPassage(plan, record); continue; }
       const m = buildings?.matrixOf?.(id);
       const fp = footprints.find((f) => f.id === id);
@@ -985,10 +1049,18 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
     return { ok: true, started: action };
   }
 
+  /** T-3557: layers that hang doors of their own (coach-house.js), swung, rebound and freed with these. */
+  const attached = [];
+
   return {
     group,
     doors,
     get,
+    /** T-3557: another door layer rides this one's frame: its update(dt), rebind(layer), dispose(). */
+    attach(layer) {
+      if (layer && !attached.includes(layer)) attached.push(layer);
+      return layer;
+    },
     /** T-3524: the doors drawn people open (the header): by id, and all of them. */
     passages,
     passage: (id) => passages.find((x) => x.id === id) ?? null,
@@ -1001,6 +1073,7 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
     /** One frame: each passage swings toward open while anyone holds it, else shut. */
     update(dt) {
       if (!(dt > 0)) return;
+      for (const layer of attached) layer.update?.(dt);
       for (const x of passages) {
         const want = x.holders.size ? 1 : 0;
         if (x.swing === want) continue;
@@ -1020,11 +1093,13 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
         if (!hangLeaf(entry, layer)) problems.push(`${entry.plan.id}: the rebuilt house carries no leaf to hang`);
         entry.thing.setSwing(entry.thing.swing);
       }
+      for (const a of attached) a.rebind?.(layer);
     },
     /** The leaf's geometry and materials are the buildings layer's, freed with it. */
     dispose() {
       group.traverse((o) => { if (o.isMesh && o.name.startsWith('house-door-vestibule')) o.geometry.dispose(); });
       vestibuleMaterial.dispose();
+      for (const layer of attached.splice(0)) layer.dispose?.();
     },
   };
 }

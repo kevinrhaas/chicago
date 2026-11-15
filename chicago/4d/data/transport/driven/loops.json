@@ -1109,6 +1109,628 @@
       }
     },
     {
+      "speed_m_s": 1.2,
+      "steering_limit_deg": 15,
+      "track_m": 1.34,
+      "wheelbase_m": 2.3,
+      "root_ahead_of_rear_axle_m": 1.15,
+      "driver_local_m": [
+        0,
+        1.77585,
+        0.76
+      ],
+      "passenger_local_m": [
+        0.34,
+        1.765,
+        0.76
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Beside the coachman on the brougham box (brougham-near.glb box cushion top 1.765 m, x ±0.54 m, z 0.565–0.955 m); he sits its centre, the visitor 0.34 m to his left, as far over as a seated hip goes inside the box's side rail (x 0.515 m): the eye clears his top hat's brim (0.128 m to each side of his head, 0.164 m fore and aft, its base 10 cm above the eye) by 0.18 m however he turns his head. Reconstructed play (L-board-drive-3557).",
+      "wheel_radii_m": [
+        0.65,
+        0.65,
+        0.528,
+        0.528
+      ],
+      "team_half_spacing_m": 0.65,
+      "id": "prairie_driven_brougham_glessner_1904",
+      "name": "The Glessner brougham, Charles Nelson driving",
+      "ride_name": "Glessner brougham",
+      "scene": "1904",
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 10,
+        "points_enu_m": [
+          [
+            1399.38,
+            -3208.95
+          ],
+          [
+            1399.4942,
+            -3220.333
+          ],
+          [
+            1397.7916,
+            -3233.851
+          ],
+          [
+            1398.0207,
+            -3246.8489
+          ],
+          [
+            1400.1461,
+            -3428.837
+          ],
+          [
+            1401.837,
+            -3453.8213
+          ],
+          [
+            1402,
+            -3470.07
+          ],
+          [
+            1271.12,
+            -3471.38
+          ],
+          [
+            1268.01,
+            -3210.47
+          ]
+        ],
+        "corner_radii_m": [
+          10,
+          20,
+          60,
+          100,
+          100,
+          40,
+          10,
+          10,
+          10
+        ]
+      },
+      "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+      "driver_asset": "anonymous_working_driver_1904",
+      "driver_clip": "sit_drive_look_v2",
+      "person_id": "pa1904_glessner_john_j_c1900_charles_nelson",
+      "driver_seat_node_m": [
+        0,
+        1.77585,
+        0.76
+      ],
+      "source_ids": [
+        "studebaker_1893_illustrated_souvenir",
+        "census_1900_chicago_t623_roll245",
+        "chicago_revised_municipal_code_1905",
+        "sanborn_1911_chicago_v3_sheet_28",
+        "sanborn_1911_chicago_v3_sheet_27"
+      ],
+      "note": "Charles Nelson, coachman in John J. Glessner's household at 1800 Prairie Avenue in the 1900 census, drives the Glessner brougham round Prairie, 20th Street, Indiana and 18th Street, and home to the coach house on 18th. The census names him there four years before the scene; Mr. Glessner riding with the visitor, this round, the coach and its team are reconstructed.",
+      "horse_offset_m": [
+        0,
+        0,
+        3.08
+      ],
+      "driver_binding": {
+        "scene": "1904",
+        "asset_id": "anonymous_working_driver_1904",
+        "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+        "vehicle_glb_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
+        "vehicle_sidecar_sha256": "768f849182bb8ca7aa9d28db98a5d2cb3d502ea6c23c6f0b8fbf2a5b329e541f",
+        "root_offset_m": [
+          0,
+          0,
+          0
+        ]
+      },
+      "driver_instance": {
+        "person_id": "pa1904_glessner_john_j_c1900_charles_nelson",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Charles Nelson, coachman in John J. Glessner's household at 1800 Prairie Avenue in the 1900 census, drives the Glessner brougham round Prairie, 20th Street, Indiana and 18th Street, and home to the coach house on 18th. The census names him there four years before the scene; Mr. Glessner riding with the visitor, this round, the coach and its team are reconstructed.",
+          "liberty": "L-glessner-ride-3557"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "studebaker_brougham_1893",
+        "web_assets": true
+      },
+      "driver_livery_file": "transport/driven/driver-livery-1904.json",
+      "driver_livery_sha256": "95ca007afd5677d88afc063c7320fcb7740c2ed7cf585d83d4e72d9a2b9cded9",
+      "driver_livery_body_sha256": "c3b285d0305559ee5fbe13695985df86cde4c38ca8d7efd8419fcdd2d97bc4b8",
+      "driver_palm_bindings_by_lod": {
+        "0": {
+          "l": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 0,
+            "asset_sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
+            "side": "l",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod0",
+            "actual_point_vehicle_local_m": [
+              0.16613275455330426,
+              2.125940669929468,
+              1.3020159104816145
+            ],
+            "actual_triangle_indices": [
+              12482,
+              12478,
+              12483
+            ],
+            "barycentric": [
+              0.6747075445278921,
+              0.003801117992967784,
+              0.3214913374791401
+            ],
+            "source_palm_surface_seed_m": [
+              0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 0.000014809138227174935,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          },
+          "r": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 0,
+            "asset_sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
+            "side": "r",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod0",
+            "actual_point_vehicle_local_m": [
+              -0.16613275455330428,
+              2.125940669929468,
+              1.3020159104816145
+            ],
+            "actual_triangle_indices": [
+              7726,
+              7730,
+              7731
+            ],
+            "barycentric": [
+              0.0038011179929643424,
+              0.674707544527892,
+              0.32149133747914366
+            ],
+            "source_palm_surface_seed_m": [
+              -0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 0.000014809138227180565,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          }
+        },
+        "3": {
+          "l": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 3,
+            "asset_sha256": "6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4",
+            "side": "l",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod3",
+            "actual_point_vehicle_local_m": [
+              0.16601491981319236,
+              2.1252945934052874,
+              1.302017317600189
+            ],
+            "actual_triangle_indices": [
+              1678,
+              1677,
+              1679
+            ],
+            "barycentric": [
+              0.21410503822600924,
+              0.7192326792834032,
+              0.06666228249058762
+            ],
+            "source_palm_surface_seed_m": [
+              0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 0.0006419334463286249,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          },
+          "r": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 3,
+            "asset_sha256": "6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4",
+            "side": "r",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod3",
+            "actual_point_vehicle_local_m": [
+              -0.16601491981319236,
+              2.125294593405288,
+              1.302017317600189
+            ],
+            "actual_triangle_indices": [
+              1149,
+              1150,
+              1151
+            ],
+            "barycentric": [
+              0.7192326792834027,
+              0.2141050382260076,
+              0.06666228249058972
+            ],
+            "source_palm_surface_seed_m": [
+              -0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 0.000641933446328188,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          }
+        }
+      },
+      "envelope_local_xz_m": [
+        -1.9451,
+        -1.8366,
+        1.9451,
+        4.8028
+      ],
+      "envelope_basis": "Actual native assembled mesh vertices incl hitch instances, both driverLOD0+3, steering-8/0/+8, WALK0/.5/1.3/1.6. Add clearance15cm margin; actual world/between-sample envelope remains a qualification question. Fore-carriage (team, pole, front gear) swung to ±13.0° about the front axle, this road's sharpest lock (tools/lay_driven_carriages_1904.mjs).",
+      "liberty": "L-glessner-ride-3557",
+      "envelope_measured_local_xz_m": [
+        -1.1971540112566856,
+        -1.8365528583526611,
+        1.1971540112566856,
+        4.622850165367126
+      ],
+      "stops": [
+        {
+          "label": "the Glessner house",
+          "distance_m": 35.698,
+          "dwell_s": 0,
+          "hold": true
+        }
+      ],
+      "initial_distance_m": 35.698,
+      "initial_state": "stopped",
+      "initial_reason": "stand",
+      "on_call": true,
+      "stand_in_for": "prairie_parked_studebaker_brougham",
+      "coach_house": {
+        "house": "glessner_house",
+        "from": "west"
+      },
+      "horse_coat_row": "prairie_parked_studebaker_brougham",
+      "replace_human_instance": "hi_pa1904_glessner_john_j_c1900_charles_nelson_1904",
+      "driver_export_person_id": "pa1904_otis_f_r_c1900_hans_johnson",
+      "driver_livery_colours": {
+        "garment_outer__box_coat_wool": [
+          0.014,
+          0.026,
+          0.019
+        ],
+        "garment_lower__highwaist_pantaloons": [
+          0.66,
+          0.64,
+          0.58
+        ],
+        "accessory__brass_livery_buttons": [
+          0.62,
+          0.62,
+          0.6
+        ],
+        "accessory__pale_driving_gloves": [
+          0.72,
+          0.71,
+          0.68
+        ]
+      },
+      "vehicle_finish": {
+        "seed": "glessner-brougham-1904",
+        "gloss": 0.88,
+        "dust": 0.3,
+        "scuffs": 0.2,
+        "grade": "reconstructed",
+        "liberty": "L-glessner-ride-3557"
+      },
+      "cab_seat_local_m": [
+        -0.27,
+        1.296,
+        -0.45
+      ],
+      "cab_eye_m": 0.58,
+      "cab_via_local_m": [
+        [
+          -1.4,
+          1.75,
+          0.3
+        ],
+        [
+          -0.95,
+          1.75,
+          0.08
+        ],
+        [
+          -0.62,
+          1.7,
+          -0.05
+        ],
+        [
+          -0.35,
+          1.8,
+          -0.4
+        ]
+      ],
+      "cab_stand_local_xz_m": [
+        -1.4,
+        0.3
+      ],
+      "cab_basis": "Inside the brougham, on the kerbside half of its seat (brougham-near.glb: cushion top 1.296 m, roof lining 2.046 m over it), the eye 0.58 m over the cushion: lower than a man sits upright, as the cab is lower than one (tools/test_glessner_ride.mjs measures its clearance to the roof, walls and door).",
+      "cab_door": {
+        "hinge_local_m": [
+          -0.655,
+          0,
+          -0.43
+        ],
+        "open_deg": -65,
+        "duration_s": 1.6,
+        "profile_yz_m": [
+          [
+            0.4899,
+            -0.0875
+          ],
+          [
+            0.4901,
+            -0.1178
+          ],
+          [
+            0.4915,
+            -0.1488
+          ],
+          [
+            0.4947,
+            -0.1794
+          ],
+          [
+            0.5001,
+            -0.2088
+          ],
+          [
+            0.5083,
+            -0.2359
+          ],
+          [
+            0.5191,
+            -0.2608
+          ],
+          [
+            0.5322,
+            -0.2842
+          ],
+          [
+            0.5478,
+            -0.3058
+          ],
+          [
+            0.5659,
+            -0.3256
+          ],
+          [
+            0.5867,
+            -0.3434
+          ],
+          [
+            0.6088,
+            -0.3592
+          ],
+          [
+            0.6322,
+            -0.3732
+          ],
+          [
+            0.6589,
+            -0.3854
+          ],
+          [
+            0.6908,
+            -0.3955
+          ],
+          [
+            0.7299,
+            -0.4036
+          ],
+          [
+            0.7762,
+            -0.4092
+          ],
+          [
+            0.8282,
+            -0.4124
+          ],
+          [
+            0.8861,
+            -0.4138
+          ],
+          [
+            1.206,
+            -0.4169
+          ],
+          [
+            1.3083,
+            -0.4171
+          ],
+          [
+            1.3966,
+            -0.4121
+          ],
+          [
+            2.0025,
+            -0.3617
+          ],
+          [
+            2.0784,
+            -0.1224
+          ],
+          [
+            2.1013,
+            0.0708
+          ],
+          [
+            2.0458,
+            0.2324
+          ],
+          [
+            1.3927,
+            0.2926
+          ],
+          [
+            1.306,
+            0.2899
+          ],
+          [
+            0.8478,
+            0.2524
+          ],
+          [
+            0.7996,
+            0.2473
+          ],
+          [
+            0.7552,
+            0.2399
+          ],
+          [
+            0.7152,
+            0.2303
+          ],
+          [
+            0.6802,
+            0.2192
+          ],
+          [
+            0.6494,
+            0.2063
+          ],
+          [
+            0.6218,
+            0.1916
+          ],
+          [
+            0.5965,
+            0.1749
+          ],
+          [
+            0.5736,
+            0.156
+          ],
+          [
+            0.5539,
+            0.135
+          ],
+          [
+            0.5371,
+            0.1122
+          ],
+          [
+            0.5229,
+            0.0879
+          ],
+          [
+            0.5111,
+            0.0622
+          ],
+          [
+            0.5021,
+            0.0345
+          ],
+          [
+            0.4961,
+            0.0048
+          ],
+          [
+            0.4925,
+            -0.0261
+          ],
+          [
+            0.4906,
+            -0.0571
+          ]
+        ],
+        "regions": [
+          {
+            "x_m": [
+              -0.95,
+              -0.47
+            ],
+            "y_m": [
+              0.93,
+              2.04
+            ]
+          },
+          {
+            "x_m": [
+              -0.95,
+              -0.5
+            ],
+            "y_m": [
+              0.87,
+              0.93
+            ]
+          },
+          {
+            "x_m": [
+              -0.95,
+              -0.4
+            ],
+            "y_m": [
+              0.3,
+              0.87
+            ]
+          }
+        ],
+        "uncut_materials": "iron",
+        "basis": "Right (kerbside) leaf, rear-hung, opened 65 degrees: its outline, hinge line and angle are evidence/transport/T2797 right-door study v3 (chicago-brougham-right-door-study-v3)'s; here it is cut from the coach's own body at runtime and its step left fixed. Reconstructed.",
+        "liberty": "L-glessner-ride-3557"
+      },
+      "passengers": [
+        {
+          "person_id": "glessner_john_j",
+          "short_name": "Mr. Glessner",
+          "asset_id": "glessner_john_j_1904",
+          "instance_id": "hi_glessner_john_j_1904",
+          "seat_local_m": [
+            0.2,
+            1.307,
+            -0.72
+          ],
+          "sink_m": 0.06,
+          "basis": "John J. Glessner (1843-1936) of 1800 Prairie Avenue, his own 1904 figure and record, seated in his household's brougham beside the visitor. That he rides, when and where, is reconstructed play; his figure plays the coachmen's seated clip (sit_drive_look_v2), bent to the cab's lower seat and roof, hat off (renderers/web/js/cab-passenger.js).",
+          "liberty": "L-glessner-ride-3557"
+        }
+      ]
+    },
+    {
       "speed_m_s": 1.3,
       "steering_limit_deg": 8,
       "track_m": 1.21,

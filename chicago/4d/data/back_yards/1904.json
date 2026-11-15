@@ -12803,12 +12803,12 @@
        -3272.82
       ],
       [
-       1354.4,
-       -3272.89
+       1354.96,
+       -3272.88
       ],
       [
-       1354.35,
-       -3267.92
+       1354.91,
+       -3267.91
       ]
      ],
      "along_deg": 179.42,
@@ -12823,19 +12823,19 @@
      "material": "cement",
      "polygon_local_m": [
       [
-       1355.55,
+       1356.05,
        -3270.04
       ],
       [
-       1355.66,
+       1356.16,
        -3279.99
       ],
       [
-       1354.46,
+       1354.96,
        -3280.0
       ],
       [
-       1354.35,
+       1354.85,
        -3270.05
       ]
      ],
@@ -12859,11 +12859,11 @@
        -3279.81
       ],
       [
-       1354.46,
+       1354.96,
        -3280.0
       ],
       [
-       1354.44,
+       1354.94,
        -3278.8
       ]
      ],
@@ -12881,19 +12881,19 @@
      "e": 1361.04,
      "n": -3270.34,
      "facing_deg": 269.42,
-     "sill_m": 1.5,
+     "sill_m": 1.0,
      "width_m": 0.95,
      "height_m": 2.2,
      "leaf": true,
      "stoop": {
       "depth_m": 1.1,
       "width_m": 1.6,
-      "risers": 8,
-      "run_m": 3.06,
+      "risers": 6,
+      "run_m": 2.5,
       "material": "stone"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.50 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.00 m up, 6 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
    "posts": [],

@@ -513,7 +513,8 @@ const teamRow = { wheelbase_m: 2, root_ahead_of_rear_axle_m: 1, track_m: 1.2, te
   const config = JSON.parse(readFileSync(new URL('../data/transport/driven/loops.json', import.meta.url)));
   const reader = createCarriagewayReader(grid.carriageways);
   const roads = config.rows.filter(r => r.scene === '1904');
-  ok(roads.length === 3, 'three 1904 teams');
+  // Hans's, the two more (T-3555) and the Glessner brougham on call (T-3557).
+  ok(roads.length === 4, 'four 1904 teams');
   const onRoadStrict = createCarriagewayReader(grid.carriageways, { wheel_room_m: 0, hoof_room_m: 0 });
   for (const row of roads) {
     const r = routeFor(row.route);

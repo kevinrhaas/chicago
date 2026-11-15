@@ -2,7 +2,7 @@
   "structure_id": "dent_house_1823_prairie",
   "view": "chicagology_engraving",
   "glb": "assets/gltf/dent_house_1823_prairie__as_mapped_1904.glb",
-  "glb_sha256": "785d2a9272a225636ca587ac7a3a92efaab51efd22ac4f6af3ac5a4bbb078a2a",
+  "glb_sha256": "38be27b5f2134fa597a63de004f998b8290690ff954e2c6cbad40566aeebacd8",
   "camera_sha256": "2a2bc061e8cab56a2fdc01a696a638d330188106d263058ad63d7546b3f97355",
   "photo_sha256": "ef58522d4ac8f90422e4ebf253aec05a27bc06f7b47a255829684a2a2bc5bd0e",
   "side_by_side": "docs/RESEARCH/photo-match/dent_house_1823_prairie/chicagology_engraving-side-by-side.jpg",
@@ -35,7 +35,8 @@
     },
     {
       "what": "the box bay's foot: the print corbels it out at about 1.8 m (y 895 px); the build carries it to grade 0.5 m proud: K08's corbelled oriel stands only on an upper floor, and the bay's 0.5 m is the least K08's window recesses fit in",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1894: the bay stands on its corbels: K08's corbelled oriel on the principal floor at 2.35 m (K01 now lets an oriel stand there when its courses clear grade by a metre), three 0.2 m courses stepped back into the wall, its foot at 1.75 m; the render's foot at y 900 px, the print's y 895 px, its block y 865-900 px against the print's 857-895 px"
     },
     {
       "what": "the mansard's lower faces, the curb and the cresting on it (y 60-170 px)",
@@ -140,6 +141,21 @@
     {
       "what": "the landing's length: the print's landing face runs north to about x 897 px, the build's to x 943 px (landing v 5.3-7.1 m), about 1 m short, while the print's flight is shorter (its foot about x 760 px, the build's x 743 px) and its landing's top edge stands lower (y 905 px against the build's 865 px), as if the landing stood a few risers under the door; the 1883 vignette also draws the landing longer",
       "status": "open"
+    },
+    {
+      "what": "the flank's basement lights under the 2.15 m and 11.0 m columns and under the box bay (x 310-332, 530-565 and 404-438 px, y 915-965 px): the build laid none in the flank's wall, only the one in the bay's foot",
+      "status": "fixed",
+      "how": "T-1894: square-headed lights in the brick, 0.45-1.45 m over grade, read off the print (side_bays): the render's at about x 312-325, 545-565 and 405-430 px; the one under the bay at u 6.05 m, under the bay's front where the print puts it"
+    },
+    {
+      "what": "the width of the light under the box bay: the print draws it about 35 px across, the build's 1.15 m (the contract's widest sash) reads about 25 px",
+      "status": "within tolerance",
+      "how": "the print draws every opening on this flank broader than the camera puts them (the chamber window beside it reads 22 px against the build's 12 px), so the light stands in the same proportion to its neighbours as the print's; the camera's foreshortening of the flank, not the light"
+    },
+    {
+      "what": "two more basement lights in the print, under the 0.25 m column (x 265-285 px) and under the rear range's flank column (x 230-250 px)",
+      "status": "open",
+      "how": "K01 lays a read window no nearer than 0.45 m to the wall's end, and the 0.25 m column's centre is 0.25 m from the junction with the rear range; a rear wing lays its basement lights only round-headed, where the print's are square"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

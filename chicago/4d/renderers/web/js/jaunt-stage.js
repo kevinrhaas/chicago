@@ -145,6 +145,8 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       behaviour: { state: 'standing' }, interaction: { selectable: false, radius_m: 0, opens: 'none' }, lod: { policy: 'auto' },
       display: 'shown', review_required: false };
     if (c.person) {
+      // T-3557: never a second of someone a vehicle has (riding in a carriage, on its box).
+      if (humans?.external?.(c.person)) return null;
       const real = humans?.get?.(c.person);
       const own = real?.instance ?? resolve(c.person)?.instance ?? null;
       if (!own) return null;
