@@ -2,7 +2,7 @@
   "structure_id": "fort_dearborn_massacre_monument_1893",
   "view": "detroit_det_4a08066",
   "glb": "assets/gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb",
-  "glb_sha256": "f42a5cb54a7cac22d6d221ab639f9299d6d6faf05ee91b1e3e90f5d44b96ca29",
+  "glb_sha256": "bedf856691bb4cf6413c74903d4dc3534603f3ca9196f8a1346cd9de5ec0a65c",
   "camera_sha256": "f442661842cd73a16ed87d59d1b81b37aaf93a1f242e235c75f946dd56a5c401",
   "photo_sha256": "297e4d7b05312c70ddea6e5dbb24a74cffd0db743f3bb9cdcbb1f4c0edc5f4fb",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "f42a5cb54a7cac22d6d221ab639f9299d6d6faf05ee91b1e3e90f5d44b96ca29"
+      "glb_sha256": "bedf856691bb4cf6413c74903d4dc3534603f3ca9196f8a1346cd9de5ec0a65c"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -83,7 +83,7 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "97f1e9cc3fa2b32779e286f6f1ac8f6000e4925c8287b7b2645851303abb10ac",
+  "group_sha256": "0364aaac76e94efb20b77d062ba16ae5ed6cbbe9bde1b2a5e5810c63c0c05495",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -169,7 +169,7 @@
       "status": "open"
     },
     {
-      "what": "THE GROUP IS NOT ON THE PEDESTAL in this print: the lettered die stands with the stable's lit wall, a window and the tree's branches above it, and nothing over the cap; the render draws the group. Barnes-Crosby's ICHi-19208 (c. 1900), the 1905 Views of Chicago and the Detroit print LC-D4-12551 (detroit_det_4a08065, 1893-1901) all show it standing, so the print records a time the bronze was off its pedestal, which no text read here explains or dates (the Library of Congress dates the print c. 1900). The 1904 scene keeps the group; this stays open until the print's date or the reason is found [T-3594: the weapons and ornaments are modelled on the group since (the tomahawk, the feathers, the headband, the hip ornament, the musket); a few pixels at this distance, nothing in this view moved]",
+      "what": "THE GROUP IS NOT ON THE PEDESTAL in this print: the lettered die stands with the stable's lit wall, a window and the tree's branches above it, and nothing over the cap; the render draws the group. Barnes-Crosby's ICHi-19208 (c. 1900), the 1905 Views of Chicago and the Detroit print LC-D4-12551 (detroit_det_4a08065, 1893-1901) all show it standing, so the print records a time the bronze was off its pedestal, which no text read here explains or dates (the Library of Congress dates the print c. 1900). The 1904 scene keeps the group; this stays open until the print's date or the reason is found [T-3594: the weapons and ornaments are modelled on the group since (the tomahawk, the feathers, the headband, the hip ornament, the musket); a few pixels at this distance, nothing in this view moved] [T-3594: the warrior's and Black Partridge's heads and chests are turned as the plates show since; at this distance 23-52 px of the group change and nothing else in this view moved]",
       "status": "open"
     },
     {

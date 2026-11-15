@@ -21,9 +21,16 @@ the photographs read it:
 
 - the TORSO (pelvis, spine, clavicles) is turned so its rest axis, pelvis to neck, lies
   along the figure's pelvis-to-neck reading and its shoulder line along the shoulders
-  read, and stretched along that axis to reach the neck;
+  read, and stretched along that axis to reach the neck. Where a figure twists (`hips`,
+  T-3594: the warrior's hips face his lunge while his chest turns to Mrs. Helm) the
+  pelvis takes the hips' line instead and the spine carries the turn up to the
+  shoulders a third at a time, every piece about the same pelvis-to-neck axis, so the
+  pelvis and neck stay where they were read;
 - the NECK and HEAD are aimed at the head's centre, unstretched (a stretched head is a
-  different face);
+  different face). Where the plates show what a figure looks at (`look`, T-3594) the
+  face is turned about the neck's own axis toward it and the head nodded on the neck's
+  top to face it: the warrior bowed to Mrs. Helm, Black Partridge in profile to the
+  warrior;
 - each ARM and LEG is a chain from where the torso puts its root: the upper bone aimed at
   the elbow or knee and stretched along itself to reach it, the lower one aimed at the
   wrist or ankle and stretched to it, the hand carried rigid with the forearm and the foot
@@ -82,11 +89,17 @@ RIGS = {
 # figure's own right and left. Every figure faces the street, so its right is at -x: the
 # side each limb is put on is the one its root stands on in the photographs.
 TARGETS = {
-    # tomahawk in the right hand, over his head; the right leg stretched back to the west edge
+    # tomahawk in the right hand, over his head; the right leg stretched back to the west edge.
+    # T-3594: his shoulders' depths turned so the chest faces Mrs. Helm (both plates show
+    # his chest and belly turned to her; the 0.13 m the old depths put his right shoulder
+    # behind his left is inside Taylor's 0.15 m depth resolution, and their x and height,
+    # read on ICHi-19208, are unchanged), his hips facing the lunge, front and a little left
+    # as the breechcloth and belt face in both plates, and his face bowed to her shoulder
     "warrior": {
         "P": (-0.60, -0.10, 0.93), "C": (-0.52, -0.38, 1.25), "H": (-0.36, -0.28, 1.42),
-        "sh_r": (-0.62, -0.25, 1.31), "el_r": (-0.71, -0.34, 1.60), "wr_r": (-0.50, -0.03, 1.80),
-        "sh_l": (-0.44, -0.38, 1.19), "el_l": (-0.29, -0.47, 1.11), "wr_l": (-0.12, -0.60, 1.07),
+        "look": (0.03, -0.72, 1.10), "hips": (-0.97, 0.26, 0.0),
+        "sh_r": (-0.62, -0.425, 1.31), "el_r": (-0.71, -0.34, 1.60), "wr_r": (-0.50, -0.03, 1.80),
+        "sh_l": (-0.44, -0.205, 1.19), "el_l": (-0.29, -0.47, 1.11), "wr_l": (-0.12, -0.60, 1.07),
         "kn_r": (-0.73, 0.30, 0.53), "an_r": (-0.86, 0.39, 0.17), "to_r": (-0.93, 0.36, 0.10),
         "kn_l": (-0.44, -0.60, 0.44), "an_l": (-0.43, -0.11, 0.11), "to_l": (-0.49, -0.17, 0.05),
     },
@@ -99,11 +112,14 @@ TARGETS = {
         "kn_l": (0.11, -0.78, 0.47), "an_l": (0.12, -0.66, 0.08), "to_l": (0.13, -0.78, 0.03),
     },
     # the open hand raised to the upper left (his right, as he faces the street); the other
-    # arm round her; striding to the right
+    # arm round her; striding to the right. T-3594: his chest turned a third of the way to
+    # the warrior (square-on to Taylor's print, three-quarter on ICHi-19208; the shoulders'
+    # x and height unchanged) and his face in profile to the warrior's head, as both show
     "black_partridge": {
         "P": (0.42, -0.62, 0.93), "C": (0.32, -0.53, 1.49), "H": (0.27, -0.55, 1.63),
-        "sh_r": (0.16, -0.46, 1.49), "el_r": (-0.09, -0.63, 1.57), "wr_r": (-0.31, -0.65, 1.69),
-        "sh_l": (0.56, -0.58, 1.39), "el_l": (0.63, -0.13, 1.26), "wr_l": (0.27, -0.55, 1.18),
+        "look": (-0.36, -0.28, 1.42),
+        "sh_r": (0.16, -0.405, 1.49), "el_r": (-0.09, -0.63, 1.57), "wr_r": (-0.31, -0.65, 1.69),
+        "sh_l": (0.56, -0.635, 1.39), "el_l": (0.63, -0.13, 1.26), "wr_l": (0.27, -0.55, 1.18),
         "kn_r": (0.30, -0.47, 0.47), "an_r": (0.34, -0.32, 0.05), "to_r": (0.34, -0.40, 0.01),
         "kn_l": (0.58, -0.44, 0.50), "an_l": (0.83, 0.26, 0.12), "to_l": (0.92, 0.20, 0.05),
     },
@@ -255,6 +271,35 @@ def _rot_between(a, b):
     return np.eye(3) + k + _mat(k, k) / (1.0 + c)
 
 
+def _spin_to(axis, have, want):
+    """The rotation about `axis` taking direction `have` onto `want`, both seen across the
+    axis (Rodrigues)."""
+    a = _unit(axis)
+    h = _unit(have - float(np.sum(have * a)) * a)
+    w = _unit(want - float(np.sum(want * a)) * a)
+    sin = float(np.sum(a * _cross(h, w)))
+    cos = float(np.sum(h * w))
+    k = np.array([[0.0, -a[2], a[1]], [a[2], 0.0, -a[0]], [-a[1], a[0], 0.0]])
+    return np.eye(3) + sin * k + (1.0 - cos) * _mat(k, k)
+
+
+def _spin(axis, ang):
+    """The rotation by `ang` radians about `axis` (Rodrigues)."""
+    a = _unit(axis)
+    k = np.array([[0.0, -a[2], a[1]], [a[2], 0.0, -a[0]], [-a[1], a[0], 0.0]])
+    return np.eye(3) + float(np.sin(ang)) * k + (1.0 - float(np.cos(ang))) * _mat(k, k)
+
+
+def _twist(rot_a, rot_b, axis):
+    """The angle about `axis` from the right-hand side `rot_a` turns to the one `rot_b` turns
+    (both share the axis as their up)."""
+    a = _unit(axis)
+    x = np.array([-1.0, 0.0, 0.0])
+    h, w = _apply(rot_a, x), _apply(rot_b, x)
+    h, w = h - float(np.sum(h * a)) * a, w - float(np.sum(w * a)) * a
+    return float(np.arctan2(float(np.sum(a * _cross(h, w))), float(np.sum(h * w))))
+
+
 def _frame(r, u):
     u = _unit(u)
     r = _unit(r - float(np.sum(r * u)) * u)
@@ -318,26 +363,44 @@ def _posed(figure: str, k: float):
     Ft = _frame(right, up)
     rot_t = _mat(Ft, F0.T)
     sig_t = np.sqrt(float(np.sum(up * up))) / np.sqrt(float(np.sum(u0 * u0)))
-    b.set("pelvis", rot_t, _mat(rot_t, _axial(u0, sig_t)), J["pelvis"], T["P"])
-    for n in ("root", "spine_01", "spine_02", "spine_03", "clavicle_l", "clavicle_r"):
-        b.copy(n, "pelvis")
+    # the hips' own line where the figure twists (T-3594): the pelvis turned to it about
+    # P-to-C, the spine carrying the twist up to the shoulders a third at a time; every
+    # piece turns about the same axis, so P and C stay where they were read
+    rot_h = _mat(_frame(T["hips"], up), F0.T) if "hips" in T else rot_t
+    phi = _twist(rot_h, rot_t, up)
+    for n, frac in (("pelvis", 0.0), ("spine_01", 1.0 / 3.0), ("spine_02", 2.0 / 3.0)):
+        rot = _mat(_spin(up, phi * frac), rot_h)
+        b.set(n, rot, _mat(rot, _axial(u0, sig_t)), J["pelvis"], T["P"])
+    b.copy("root", "pelvis")
+    b.set("spine_03", rot_t, _mat(rot_t, _axial(u0, sig_t)), J["pelvis"], T["P"])
+    for n in ("clavicle_l", "clavicle_r"):
+        b.copy(n, "spine_03")
 
     # the neck and head, aimed at the head's centre and not stretched
     hc0 = J["head"] + np.array([0.0, 0.0, HEAD_CENTRE_UP_M])
-    neck_at = b.at("pelvis", J["neck_01"])
+    neck_at = b.at("spine_03", J["neck_01"])
     r = _mat(_rot_between(_apply(rot_t, hc0 - J["neck_01"]), T["H"] - neck_at), rot_t)
+    if "look" in T:
+        # the face turned about the neck's own axis to what the figure looks at (T-3594);
+        # the axis runs through the head's centre, so the head stays where it was read
+        r = _mat(_spin_to(T["H"] - neck_at, _apply(r, np.array([0.0, -1.0, 0.0])), T["look"] - T["H"]), r)
     b.set("neck_01", r, r, J["neck_01"], neck_at)
-    for n in ("head", "jaw", "eye_l", "eye_r"):
-        b.copy(n, "neck_01")
+    b.copy("head", "neck_01")
+    if "look" in T:
+        # and the head nodded on the neck's top to face it, the neck left aimed as read
+        rh = _mat(_rot_between(_apply(r, np.array([0.0, -1.0, 0.0])), T["look"] - T["H"]), r)
+        b.set("head", rh, rh, J["head"], b.at("neck_01", J["head"]))
+    for n in ("jaw", "eye_l", "eye_r"):
+        b.copy(n, "head")
 
     for s in ("l", "r"):
         rot, here = _chain(b, J, rot_t, [f"upperarm_{s}", f"lowerarm_{s}", f"hand_{s}"],
-                           [T[f"el_{s}"], T[f"wr_{s}"]], b.at("pelvis", J[f"upperarm_{s}"]), (True, True))
+                           [T[f"el_{s}"], T[f"wr_{s}"]], b.at("spine_03", J[f"upperarm_{s}"]), (True, True))
         b.set(f"hand_{s}", rot, rot, J[f"hand_{s}"], here)
         for n in names:
             if n.endswith(f"_{s}") and n.split("_")[0] in ("thumb", "index", "middle", "ring", "pinky"):
                 b.copy(n, f"hand_{s}")
-        rot, here = _chain(b, J, rot_t, [f"thigh_{s}", f"calf_{s}", f"foot_{s}"],
+        rot, here = _chain(b, J, rot_h, [f"thigh_{s}", f"calf_{s}", f"foot_{s}"],
                            [T[f"kn_{s}"], T[f"an_{s}"]], b.at("pelvis", J[f"thigh_{s}"]), (True, True))
         _chain(b, J, rot, [f"foot_{s}", f"ball_{s}"], [T[f"to_{s}"]], here, (False,))
         b.copy(f"ball_{s}", f"foot_{s}")
