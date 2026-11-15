@@ -290,8 +290,13 @@ const run = (m, seconds, state, each) => { for (let t = 0; t < seconds; t += 1 /
     m.apply(0, { talk: w }); m.apply(0, { talk: w });
     assert.equal(m.snapshot().hushed, true, 'a held frame (no time in it) is not a new talk');
     again = 0;
-    for (let i = 0; i < 180; i++) { w += (1 - w) * (1 - Math.exp(-3.2 / 30)); m.apply(1 / 30, { talk: w }); again = Math.max(again, f.deg()); }
-    assert.equal(m.snapshot().hushed, false, 'the talk comes up again: the hush is over');
+    for (let i = 0; i < 180; i++) {
+      w += (1 - w) * (1 - Math.exp(-3.2 / 30)); m.apply(1 / 30, { talk: w }); again = Math.max(again, f.deg());
+      // ...at once: on the first frame the hand comes up again, not when it is nearly up
+      // (a hush that waited for nine tenths left a host mute for the first half second).
+      if (i === 0) assert(m.snapshot().hushed === false && w < .5, 'the talk comes up again: the hush is over on that frame');
+    }
+    assert.equal(m.snapshot().hushed, false, 'and stays over');
     assert(again > MOUTH.jaw_deg * .5, `and it runs in its own syllables (${again})`);
     // The same with the hand still wholly up: a host let go into a turn of their own talk
     // before the hand has begun to fall. The level stands at 1 and never rises.

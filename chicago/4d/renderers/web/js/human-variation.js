@@ -109,7 +109,7 @@ export function likenessSkin(kit, variation) {
  * door is one person, and the body's tone gave one of them a face for each. What a face is
  * multiplied by to meet the skin round it (`gain`) is still the body's own. The sex and the
  * age are the caller's: personVariation gives the record's, and the body's where the record
- * has none (most of a third of the people drawn have no sex recorded, a tenth no age), so for
+ * has none (nearly two in five of the people drawn have no sex recorded, a tenth no age), so for
  * them it is the records, which draw a person on bodies of one sex and size, that keep one
  * face on every body; tools/test_human_variation.mjs holds it over every row there is.
  * A freckled face (`light_only`) is only
