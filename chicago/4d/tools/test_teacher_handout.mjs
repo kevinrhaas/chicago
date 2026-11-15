@@ -95,6 +95,8 @@ assert.deepEqual(suggestJaunts(fixture).map((r) => r.id), ['Alpha', 'Zeta', 'Mid
   'featured first, then the fewest stops, then A to Z; an unavailable Jaunt is never suggested');
 assert.deepEqual(suggestJaunts(fixture.filter((r) => !r.featured)).map((r) => r.id), ['Short'], 'fewer than three: all there are');
 assert.deepEqual(suggestJaunts(null), [], 'no catalog, no Jaunts');
+assert.deepEqual(suggestJaunts([row('Grim', true, 2, { audience: 'adults', content_warning: 'For adults.' }), ...fixture]).map((r) => r.id), ['Alpha', 'Zeta', 'Mid'],
+  'an adults telling is never put in a teacher\'s handout (owner, 2026-11-15)');
 assert.deepEqual(fixture.map((r) => r.id), ['Zeta', 'Alpha', 'Long', 'Short', 'Broken', 'Mid'], 'the catalog itself is left in its order');
 
 // ---- the rule, on the committed catalogs ------------------------------------------------

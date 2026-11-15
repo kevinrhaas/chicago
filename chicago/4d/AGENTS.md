@@ -214,8 +214,14 @@ or blood shown).
 - A jaunt stop may stage its history with its people (`stage`, renderers/web/js/jaunt-stage.js): each castmate
   their own carded figure, or an unnamed figure labelled as such. Where they stand, when they move and how they
   hold themselves is reconstruction, declared under L-1812-staged-jaunts-3553.
-- **No blow, shot or blood is ever staged.** The moment itself is left to the stop's text; the dead are shown
-  only lying still afterwards. Native men waiting before the attack are each their own card, the unnamed
+- **No blow, shot or blood is ever staged in a jaunt for students** (any jaunt without `audience: "adults"`).
+  The moment itself is left to the stop's text; the dead are shown only lying still afterwards. The owner,
+  2026-11-15, for the adults tellings of the 1812 battle and the Lalime killing: *"this one is targeted at
+  adults and shows everything incredibly graphically"*, *"We can alter some of these internal rules to
+  accomplish this goal"*. An adults jaunt (hidden until the visitor says in Settings they are 18 or over,
+  warned before it starts, never in a teacher's handout; shown to the visitor as "18+") may stage the fighting
+  from its accounts (L-1812-adult-jaunts), and the scalping of the dead (owner, 2026-11-15: *"Yes scalpings did
+  occur so we want to be honest about it"*), but still shows no child struck; other mutilation of the dead is told. Native men waiting before the attack are each their own card, the unnamed
   graded "likely" as their card already says.
 
 The owner's 2026-10-18 transport request includes period-clothed drivers, riders,

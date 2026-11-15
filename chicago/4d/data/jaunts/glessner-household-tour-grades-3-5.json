@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "content_version": 1,
+ "content_version": 2,
  "category": "Neighbors",
  "menu_group": "People",
  "grade_band": "3-5",
@@ -14,7 +14,7 @@
  "long_form": true,
  "id": "glessner-household-tour-grades-3-5",
  "scene": "1904",
- "title": "The Glessner Household, Grades 3–5",
+ "title": "The Glessner Household",
  "premise": "Meet the Glessners and the people who worked in their house on a spring morning in 1904, told for grades 3 to 5.",
  "default_mode": "walk",
  "allowed_modes": [

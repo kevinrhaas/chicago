@@ -107,6 +107,38 @@ const text = byId['prairie-walk'].textContent;
 assert(/Prairie Walk/.test(text) && /Walk the avenue\./.test(text) && /3 stops/.test(text) && /10 min/.test(text),
   `title, premise, stops and minutes: ${text}`);
 
+// T-3604 (owner, 2026-11-15: "include grade level filters for the jaunts"): a row of grade pills,
+// one per band the year's jaunts have; a pill shows only that band, and Clear filters lets it go.
+{
+  const graded = [
+    { ...rows[0], id: 'tour', title: 'The Tour', grade_band: '6-8', menu_group: 'People' },
+    { ...rows[0], id: 'tour-young', title: 'The Tour', grade_band: '3-5', menu_group: 'People', version_of: 'tour' },
+    { ...rows[1], id: 'style', title: 'A Style Walk', grade_band: '9-10', menu_group: 'Architecture' },
+  ];
+  const groot = document.createElement('div');
+  createJauntMenu({ root: groot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {} }).show(graded);
+  const row = groot.querySelectorAll('.jaunt-grades')[0];
+  assert(row && !row.hidden, 'a grade row when the jaunts have more than one band');
+  const pills = row.querySelectorAll('.jaunt-grade-pill');
+  assert.deepEqual(pills.map((p) => p.textContent), ['All', '3–5', '6–8', '9–10'], 'All, then the bands present, youngest first');
+  assert.deepEqual(pills.map((p) => p.getAttribute('aria-label')), ['All grades', 'Grades 3–5', 'Grades 6–8', 'Grades 9–10']);
+  const shown = () => groot.querySelectorAll('.jaunt-card').map((c) => c.dataset.jaunt);
+  assert.deepEqual(shown(), ['tour', 'tour-young', 'style'], 'the retelling sits under the jaunt it retells');
+  pills[1].click();
+  assert.deepEqual(shown(), ['tour-young'], 'Grades 3–5 shows only the grades 3–5 jaunts');
+  assert.equal(pills[1].getAttribute('aria-pressed'), 'true');
+  pills[2].click();
+  assert.deepEqual(shown(), ['tour'], 'Grades 6–8');
+  const clear = groot.querySelectorAll('.jaunt-clear')[0];
+  assert(!clear.hidden, 'a grade filter can be cleared');
+  clear.click();
+  assert.deepEqual(shown(), ['tour', 'tour-young', 'style'], 'Clear filters lets the grade go');
+  assert.equal(pills[0].getAttribute('aria-pressed'), 'true', 'All grades again');
+  const one = document.createElement('div');
+  createJauntMenu({ root: one, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {} }).show([graded[0]]);
+  assert(one.querySelectorAll('.jaunt-grades')[0].hidden, 'one band only: no grade row to choose from');
+}
+
 // ---- the Continue card in jaunt-preview.js ------------------------------------------------
 const preview = read('renderers/web/js/jaunt-preview.js');
 assert(/`Continue · Stop \$\{at \+ 1\} of \$\{stops\.length \|\| at \+ 1\}`/.test(preview), 'CONTINUE · STOP n OF m');
@@ -168,4 +200,10 @@ console.log('test_nav_jaunt_cards: credited plates of the stops or none, keepsak
   const g35 = filterJaunts(catalog('1904'), 'grades 3–5');
   assert(g35.some((r) => r.id === 'glessner-household-tour-grades-3-5'), 'the grade band is searchable');
   assert(g35.every((r) => r.grade_band === '3-5'), 'a grade search returns only that band');
+  // T-3604: the grade filter, alone and with a group; the retelling keeps the tour's own name.
+  const f35 = filterJaunts(catalog('1904'), '', '', '3-5');
+  assert(f35.some((r) => r.id === 'glessner-household-tour-grades-3-5') && f35.every((r) => r.grade_band === '3-5'), 'the grade filter');
+  const people68 = filterJaunts(catalog('1904'), '', 'People', '6-8');
+  assert(people68.some((r) => r.id === 'glessner-household-tour') && people68.every((r) => r.grade_band === '6-8' && r.menu_group === 'People'), 'grade and group together');
+  assert.equal(r1904[1].title, r1904[0].title, 'the grades 3-5 retelling is named as the tour it retells; its grade tag tells them apart');
 }

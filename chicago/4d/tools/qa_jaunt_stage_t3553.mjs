@@ -42,6 +42,8 @@ const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABL
   args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
 const viewport = desktop ? { width: 1280, height: 800 } : { width: 390, height: 780 };
 const context = await browser.newContext({ viewport, deviceScaleFactor: 1, isMobile: !desktop, hasTouch: !desktop });
+// An 18+ jaunt is listed and started only once the visitor has said so in Settings (T-3553).
+if (JAUNT.endsWith('-adults')) await context.addInitScript(() => { try { const k = 'chicago4d.settings'; localStorage.setItem(k, JSON.stringify({ ...JSON.parse(localStorage.getItem(k) || '{}'), adultJaunts: true })); } catch { /* none */ } });
 const page = await context.newPage(); page.setDefaultTimeout(BOOT_MS);
 const errors = []; page.on('pageerror', (e) => errors.push(String(e)));
 const tag = desktop ? 'desktop' : 'phone', report = { scene: SCENE, jaunt: JAUNT, tag, stops: [] }, fail = [];

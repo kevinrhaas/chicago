@@ -65,6 +65,19 @@
       "pattern": "^[a-z0-9-]+$",
       "description": "T-3590: this jaunt retells another of the same scene for a different grade band (the same walk in other words); the menu lists it beside the jaunt it retells."
     },
+    "audience": {
+      "enum": [
+        "all",
+        "adults"
+      ],
+      "description": "Who the jaunt is for. `adults` (the owner, 2026-11-15: \"this one is targeted at adults and shows everything incredibly graphically\") stages the fighting itself, blows, shots and the wounded (stage beats `arm` and `act`), and is listed only for a visitor who has turned on Settings › Move › Adults-only jaunts (18 or over); it never appears in a teacher handout. Absent means all."
+    },
+    "content_warning": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 400,
+      "description": "Required when audience is adults: what the visitor will see, shown on the jaunt's card and its route preview before it starts."
+    },
     "menu_rank": {
       "type": "integer",
       "minimum": 1,
@@ -851,7 +864,7 @@
           "uniqueItems": true
         },
         "stage": {
-          "description": "T-3553: this stop's history played by its people (renderers/web/js/jaunt-stage.js): the cast, each a person of the scene or an unnamed figure in a dress, at a mark (local ENU metres), turned, in a pose, with beats timed in seconds from the visitor's arrival (walk a way, turn or face, take a pose, talk, greet, go out of sight or come back). Built while the visitor travels, played on arrival; Watch again replays it. The owner's ruling for students (2026-11-14): build-up and aftermath, never a blow, a shot or blood. `tier: desktop` castmates are left out at the Light tier (phones keep the rest). The staging is reconstruction: `liberty` names its record.",
+          "description": "T-3553: this stop's history played by its people (renderers/web/js/jaunt-stage.js): the cast, each a person of the scene or an unnamed figure in a dress, at a mark (local ENU metres), turned, in a pose, with beats timed in seconds from the visitor's arrival (walk a way, turn or face, take a pose, talk, greet, go out of sight or come back). Built while the visitor travels, played on arrival; Watch again replays it. The owner's ruling for students (2026-11-14): build-up and aftermath, never a blow, a shot or blood; only an `audience: adults` jaunt (2026-11-15) stages the fighting, with `arm` and `act`. `tier: desktop` castmates are left out at the Light tier (phones keep the rest). The staging is reconstruction: `liberty` names its record.",
           "type": "object",
           "properties": {
             "caption": {
@@ -914,8 +927,21 @@
                       "crouch",
                       "sit",
                       "prone",
-                      "lie"
+                      "lie",
+                      "fallen"
                     ]
+                  },
+                  "arm": {
+                    "enum": [
+                      "none",
+                      "tomahawk",
+                      "club",
+                      "knife",
+                      "pistol",
+                      "musket",
+                      "rifle"
+                    ],
+                    "description": "Adults jaunts only: what the castmate holds in the right hand from the start (a musket in both, at the port). Reconstructed, as the accounts arm them."
                   },
                   "tier": {
                     "enum": [
@@ -998,7 +1024,8 @@
                             "crouch",
                             "sit",
                             "prone",
-                            "lie"
+                            "lie",
+                            "fallen"
                           ]
                         },
                         "ease": {
@@ -1011,6 +1038,29 @@
                         },
                         "greet": {
                           "type": "boolean"
+                        },
+                        "arm": {
+                          "enum": [
+                            "none",
+                            "tomahawk",
+                            "club",
+                            "knife",
+                            "pistol",
+                            "musket",
+                            "rifle"
+                          ],
+                          "description": "Adults jaunts only: take up (or put down: none) what the right hand holds."
+                        },
+                        "act": {
+                          "enum": [
+                            "strike",
+                            "stab",
+                            "fire",
+                            "aim",
+                            "lower",
+                            "struck"
+                          ],
+                          "description": "Adults jaunts only: a blow with what the hand holds (strike: overhand, a tomahawk or club; stab: a knife thrust), a shot (aim brings a pistol or musket up and holds it; fire shoots it, with its flash and smoke), lower puts it down again; struck is the jolt of being hit. Turned toward `face` when it is given."
                         },
                         "hide": {
                           "type": "boolean"
