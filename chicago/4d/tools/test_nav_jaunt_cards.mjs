@@ -163,5 +163,9 @@ console.log('test_nav_jaunt_cards: credited plates of the stops or none, keepsak
   assert.equal(band['glessner-household-tour-grades-3-5'], '3-5');
   assert.equal(r1904[1].version_of, 'glessner-household-tour');
   assert.equal(gradeLabel('3-5'), 'Grades 3–5'); assert.equal(gradeLabel('9-10'), 'Grades 9–10'); assert.equal(gradeLabel(undefined), '');
-  assert.deepEqual(filterJaunts(catalog('1904'), 'grades 3–5').map((r) => r.id), ['glessner-household-tour-grades-3-5'], 'the grade band is searchable');
+  // The search finds the band, not a fixed list: the generated build-log jaunt is re-measured on
+  // every landing and sits on the 3-5 / 6-8 line (grade 5.9-6.0), so it may join either band.
+  const g35 = filterJaunts(catalog('1904'), 'grades 3–5');
+  assert(g35.some((r) => r.id === 'glessner-household-tour-grades-3-5'), 'the grade band is searchable');
+  assert(g35.every((r) => r.grade_band === '3-5'), 'a grade search returns only that band');
 }

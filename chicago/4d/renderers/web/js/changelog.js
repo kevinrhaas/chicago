@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2998, ts: '2026-11-15T08:43:51.427Z', date: 'Nov 15, 2026, 2:43 AM CT', title: 'One face per person, on the carriage box and at the door', kind: 'fix',
+    items: [
+      'Joseph Daniels, who drives the Armour brougham in 1904, wore one face on the box and a freckled one standing at his own door. He now has one face wherever he is drawn, and so does anyone else drawn on more than one body.',
+      'Why it happened: a person\'s face was chosen partly by the skin of the body they were drawn on, and those two bodies wear different skins. The choice now reads the person and nothing of the body.',
+      'The count of who wears a face from the library is corrected: 832 of the 1,212 people drawn. Another 354 keep their body\'s own skin, and 26 have a face fitted to pictures of them.',
+      'His skin still reads lighter at his door than on the box, because the two bodies wear different skins under the same complexion. That is older than the faces and is not changed here.',
+      'The check that guards the face library now proves itself against 21 broken copies of it, among them a face repainted in part and a sheet saved with its colour halved.',
+    ] },
+  { v: 2997, ts: '2026-11-15T08:28:35.680Z', date: 'Nov 15, 2026, 2:28 AM CT', title: '1816 Prairie\'s two roof crowns gain their moulded curb cornices', kind: 'feature',
+    items: [
+      '1816 Prairie (the Henderson house): both raised mansard crowns now finish in a moulded cornice under their iron cresting, a band about 0.7 m deep with a projecting cap, as the house\'s photograph draws them; before, the slate ran straight up to a bare edge.',
+    ] },
   { v: 2996, ts: '2026-11-15T07:45:54.955Z', date: 'Nov 15, 2026, 1:45 AM CT', title: 'Watch the 1812 jaunts unfold, played by the people who were there', kind: 'feature',
     items: [
       'Twenty-one stops of the Battle of Fort Dearborn and Killing of Jean Lalime jaunts now stage their history with their own people.',

@@ -70809,7 +70809,7 @@
       "subjects": [],
       "covers": [],
       "recorded": "2026-11-07",
-      "revised": "2026-11-13",
+      "revised": "2026-11-14",
       "fields": [
         {
           "label": "Decision",
@@ -70858,6 +70858,18 @@
         {
           "label": "Still not built",
           "text": "the flank crown's moulded curb, about 0.7 m deep (K08 has none); the south flank's window drawn in the print on the upper storey only (the build lights both storeys there). The 1874 Land Owner engraving is still not read. The south-east-face crown dormer listed above was a misreading (the match record)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-14 (T-1886): both crowns' curbs are moulded cornices. The photograph draws the flank crown's curb as a band about 0.7 m deep (y 205-245 px) under the cresting, its top projecting over its face, and the front crown's the same through the trees; K08 had laid a bare curb with the slate running up to it. K08 gains `roof.mansard.curb_mould` (new here): a fascia hanging `depth_m` from the curb, its face `proud_m` out from the curb line and closed underneath back to the lower face, under a cap `cap_m` high and `cap_proud_m` further out, its top level with the curb, every tier mitred round the hips."
+        },
+        {
+          "label": "Read",
+          "text": "the band's depth and its projecting top."
+        },
+        {
+          "label": "Invented",
+          "text": "the profile, two plain grades (a 0.45 m fascia 0.13 m past the lower face at its foot, a 0.25 m cap 0.12 m beyond it) standing for mouldings the print does not resolve, and its paint, the eaves' own (the print is monochrome)."
         }
       ],
       "work_refs": [
@@ -74537,7 +74549,7 @@
       "subjects": [],
       "covers": [],
       "recorded": "2026-11-14",
-      "revised": null,
+      "revised": "2026-11-15",
       "fields": [
         {
           "label": "Decision",
@@ -74558,6 +74570,10 @@
         {
           "label": "Recorded",
           "text": "2026-11-14."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-15 (T-3553): a person's tone, by which the nearer faces are the likelier, is now read from the skin most bodies of their sex wear (the record's `texture.person_tone`: the skin of 17 of the 19 men's bodies and of 13 of the 14 women's; a person recorded as neither sex is read as a woman, as for the face they wear), under their recorded complexion, and no longer from the body they happen to be drawn on. A third review of this entry's work found why it matters: six people are drawn on two bodies, and the three coachmen of 1904, who sit a carriage's box on one body and stand at their own door on another of a lighter skin, could draw two faces. Joseph Daniels did: one face on the box and a freckled one at his door, against this entry's \"the same face on every visit\". The draw now reads nothing of the body, so a person wears one face on every body they are drawn as, and only the multiplication that brings the face to the skin around it is each body's own. Which skin stands for a sex is ours: a count of the bodies as they are, not a finding about anybody; a body added later can move it, and with it some people's faces. The count above missed those three coachmen, and it called everyone without a library face a keeper of their body's own: as the records stand today 1,212 people are drawn, of whom 832 take a face from the library, 354 keep their body's own skin by the draw, and 26 have a face fitted to pictures of them (the two Greys among them, on sheets of their own). And the record's row on the three near-copies left out said the pack's order of its files decided which of each pair was kept; it did not (the left-out skin comes first in all three pairs): the one kept is the atlas with the lower number in its own file name, never the pack's name for either."
         }
       ],
       "work_refs": [
