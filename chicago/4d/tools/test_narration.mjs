@@ -9,7 +9,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { narrationScripts, openingScript, textKey, clipFor, clipKey, silentWav, createNarration, NARRATOR, NARRATORS, DEFAULT_NARRATOR, VOICE, voiceLevel } from '../renderers/web/js/narration.js';
-import { loadConfig, scriptsFor, voiceFor, plan, voice, synthesize, verify, ROOT } from './narrate_jaunts.mjs';
+import { loadConfig, scriptsFor, voiceFor, plan, voice, synthesize, verify, ROOT, spokenWords, sameWords, loadDirection, directionProblems } from './narrate_jaunts.mjs';
 
 const sha = s => createHash('sha256').update(s).digest('hex');
 const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jaunts/glessner-household-tour.json'), 'utf8'));
@@ -67,7 +67,7 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   assert.deepEqual(first.todo.map(s => s.key.slice(64)), ['~essayist', '', '~essayist']);
   assert.equal(first.skipped.length, 8);
   assert.match(first.skipped.find(s => s.id === 'frances').reason, /needs ELEVENLABS_API_KEY/, 'a voice name needs the key to resolve');
-  assert.equal(first.chars, first.todo.reduce((n, s) => n + s.text.length, 0));
+  assert.equal(first.chars, first.todo.reduce((n, s) => n + s.spoken.length, 0), 'what is sent (the performed words) is what is counted');
   const named = plan(scripts, config, { version: 1, clips: {} }, new Map([['frances voice', 'CCCCCCCCCCCCCCCCCCCC']]));
   assert.equal(named.todo.find(s => s.id === 'frances').voice.params.voice_id, 'CCCCCCCCCCCCCCCCCCCC', 'a name resolves to its id');
   assert.equal(voiceFor(config, 'glessner_john_j').params.voice_settings.style, 0.3, 'a speaker may override the settings');
@@ -82,7 +82,8 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   const { index, made } = await voice(first.todo, old, out, 'test-key', { fetcher: fake, now: () => '2026-11-13T00:00:00Z' });
   assert.equal(calls.length, 3);
   assert.match(calls[0].url, /\/v1\/text-to-speech\/AAAAAAAAAAAAAAAAAAAA\?output_format=mp3_44100_64$/);
-  assert.equal(calls[0].body.text, scripts[0].text); assert.equal(calls[0].body.model_id, config.model_id);
+  assert.equal(calls[0].body.text, scripts[0].spoken, 'the performance is sent'); assert.equal(calls[0].body.model_id, config.model_id);
+  assert.ok(scripts[0].directed && scripts[0].spoken !== scripts[0].text && sameWords(scripts[0].spoken, scripts[0].text), 'performed from its direction, with the same words');
   assert.equal(calls[0].key, 'test-key');
   assert.ok(index.clips.keep, 'the index only gains clips: an older build still finds its own');
   for (const file of made) assert.ok(fs.existsSync(path.join(out, file)));
@@ -95,6 +96,10 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   assert.deepEqual(revoiced.todo.map(s => `${s.id}~${s.narrator}`), ['opening~storyteller', 'finish~storyteller'], 'a newly chosen narrator voices only its own scripts');
   const edited = scripts.map(s => s.id === 'john' ? { ...s, text: s.text + ' Good day.', text_sha256: sha(s.text + ' Good day.'), key: sha(s.text + ' Good day.') } : s);
   assert.deepEqual(plan(edited, config, index).todo.map(s => s.id), ['john'], 'changed words re-voice only that stop');
+  const redirected = scripts.map(s => s.id === 'john' ? { ...s, spoken: s.spoken.replace('[chuckles]', '[laughs]'), spoken_sha256: sha(s.spoken.replace('[chuckles]', '[laughs]')) } : s);
+  assert.deepEqual(plan(redirected, config, index).todo.map(s => s.id), ['john'], 'a changed direction re-voices only that stop');
+  const plainIndex = { ...index, clips: Object.fromEntries(Object.entries(index.clips).map(([k, c]) => [k, { ...c, spoken_sha256: undefined }])) };
+  assert.ok(plan(scripts, config, plainIndex).todo.length > 0, 'a clip read from the plain words is re-voiced once its script is directed');
   // Verify reads the public host: the bytes and the index must both be served.
   const served = new Map([...made.map(f => [f, fs.readFileSync(path.join(out, f))]), ['narration/index.json', fs.readFileSync(path.join(out, 'narration/index.json'))]]);
   const host = async url => { const key = new URL(url).pathname.slice(1); return served.has(key) ? new Response(served.get(key)) : new Response('', { status: 404 }); };
@@ -106,6 +111,24 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   const busy = async () => (++n < 3 ? new Response('busy', { status: 429 }) : new Response(Buffer.alloc(2000), { status: 200 }));
   assert.equal((await synthesize('k', first.todo[0], busy, { wait: async () => {} })).length, 2000);
   await assert.rejects(synthesize('k', first.todo[0], async () => new Response('no', { status: 401 }), { wait: async () => {} }), /HTTP 401/);
+}
+
+// ---- direction: the same words, performed ----------------------------------------------
+{
+  assert.deepEqual(spokenWords("[warmly] Good morning... I'm John — 1887!"), ['good', 'morning', 'i', 'm', 'john', '1887']);
+  assert.ok(sameWords("Hello! I'm here.", "[cheerfully] Hello... [laughs] I'm — here!"), 'tags, pauses and punctuation are the performance');
+  assert.ok(!sameWords('Hello there.', '[cheerfully] Hello over there.'), 'a word added is refused');
+  const scripts = [{ jaunt: 'j', part: 'stop', id: 'a', text: 'One two.' }, { jaunt: 'j', part: 'stop', id: 'b', text: 'Three.' }];
+  assert.deepEqual(directionProblems(scripts, { j: { 'stop:a': '[sighs] One... two.' } }), []);
+  assert.match(directionProblems(scripts, { j: { 'stop:a': 'One two three.' } })[0], /words differ/);
+  assert.match(directionProblems(scripts, { j: { 'stop:z': 'Four.' } })[0], /does not have/);
+  // Every voiced jaunt's direction still matches the words its panel shows. A script edited
+  // without its direction fails here: bring the direction along (same words, tags kept).
+  const config = loadConfig(), all = await scriptsFor(config);
+  const problems = directionProblems(all, Object.fromEntries(config.jaunts.map(id => [id, loadDirection(id)])));
+  assert.deepEqual(problems, [], `data/narration/direction/ is out of step with the jaunts:\n${problems.join('\n')}`);
+  assert.equal(config.model_id, 'eleven_v3', 'directions carry v3 audio tags, which only eleven_v3 performs');
+  assert.ok([0, 0.5, 1].includes(config.voice_settings.stability), 'eleven_v3 takes stability 0, 0.5 or 1');
 }
 
 // ---- the player ------------------------------------------------------------------------
