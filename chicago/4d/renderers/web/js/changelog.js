@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2993, ts: '2026-11-15T04:49:57.521Z', date: 'Nov 14, 2026, 10:49 PM CT', title: 'The Fort Dearborn monument\'s tomahawk, musket, feathers and headdress as sculpted', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), the warrior\'s tomahawk is no longer a rod and a ball: it is a pipe tomahawk, its haft through his raised fist, the flat blade flaring out on its lower half and the bowl opposite.',
+      'Black Partridge wears a wide headband knotted at the crown, with a broad feather rising out of it and a long thin one streaming back, its end hooked, as both photographs show them.',
+      'His musket has a slim barrel, the lock, the trigger guard and a butt to its comb and toe, and lies outside his thigh where the photographs put it.',
+      'The warrior\'s feather and the fringed pouch at his hip are modelled too, in place of the spikes and the bar they were.',
+    ] },
   { v: 2992, ts: '2026-11-15T04:25:50.618Z', date: 'Nov 14, 2026, 10:25 PM CT', title: '1823 Prairie\'s arched doorway under the stoop', kind: 'improvement',
     items: [
       'The Dent house at 1823 Prairie now has the round-arched basement doorway that both of its pictures show under the stoop\'s landing, about a metre across and closed by an iron grille.',
