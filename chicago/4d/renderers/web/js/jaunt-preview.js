@@ -6,7 +6,7 @@ import { t } from './strings/index.js';
 import './strings/license.js';
 import { loadReaderText, readerCopy } from './reader-text.js';
 
-export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, onDismiss = () => {}, getSession = () => null, estimate = () => null, storage, plateFor = () => null, preferredMode = () => null, modeNote = () => '', license = null, narration = null }) {
+export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, onDismiss = () => {}, getSession = () => null, estimate = () => null, storage, plateFor = () => null, preferredMode = () => null, modeNote = () => '', license = null, narration = null, allowAdults = () => false }) {
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
   let catalogPromise, daybookPromise, journal = null, serial = 0, outcomeSeen = null;
   const contents = new Map();
@@ -25,6 +25,10 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
   const backButton = action => {
     const el = button('Back to Jaunts', action); el.classList.add('jaunt-back'); el.prepend(icon('back', 16)); return el;
   };
+  // The owner, 2026-11-15: an adults jaunt (audience adults, the 1812 fighting shown) is listed,
+  // previewed and started only for a visitor who has turned on Move › 18+ jaunts.
+  const allowed = (row) => row?.audience !== 'adults' || allowAdults() === true;
+  const shown = (rows) => (Array.isArray(rows) ? rows.filter(allowed) : rows);
   async function json(name, options) {
     const response = await fetcher(new URL(name, base), options);
     if (name === 'catalog.json' && response.status === 404) return { scene: String(scene), jaunts: [] };
@@ -189,7 +193,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       // In progress, it leads the list; an outcome follows the daybook chip as before.
       if (session.phase === 'menu') prefix.unshift(note); else prefix.push(note);
     }
-    menu.show(rows, prefix, returnId, focusStart);
+    menu.show(shown(rows), prefix, returnId, focusStart);
     // T-3432: a fresh Outing complete is seen at the top, with the list right under it.
     if (session?.phase === 'outcome' && outcomeSeen !== session.session) {
       outcomeSeen = session.session; const scroller = root.closest('.welcome-region') || root; scroller.scrollTop = 0;
@@ -198,7 +202,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
 
   async function load(id, options) {
     const rows = await catalog();
-    if (!rows.some(row => row.id === id && row.availability === 'available') || !/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test(id)) throw new Error('Jaunt unavailable');
+    if (!rows.some(row => row.id === id && row.availability === 'available' && allowed(row)) || !/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test(id)) throw new Error('Jaunt unavailable');
     let content = contents.get(id);
     if (!content) {
       content = await json(`${id}.json`, options);
@@ -219,7 +223,8 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       if (request !== serial) return;
       const title = node('h3', content.title);
       root.replaceChildren(backButton(() => { ++serial; list(api.catalog, row.id); }), title,
-        node('p', 'Route preview', 'jaunt-meta'), ...String(content.opening.text).split(/\n\s*\n/).map(text => node('p', text.trim())));
+        node('p', 'Route preview', 'jaunt-meta'), ...(content.audience === 'adults' && content.content_warning ? [node('p', `18+ · ${content.content_warning}`, 'jaunt-warning')] : []),
+        ...String(content.opening.text).split(/\n\s*\n/).map(text => node('p', text.trim())));
       const stops = node('ol', '', 'jaunt-stops');
       for (const stop of content.stops) {
         const item = node('li', '');

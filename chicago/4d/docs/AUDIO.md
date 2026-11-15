@@ -102,6 +102,19 @@ narrator not yet voiced falls back to the essayist. The two lists (`narration.js
 `voices.json` `narrators`) are held equal by `tools/test_narration.mjs`. Model, output format (`mp3_44100_64`, mono speech at 64 kbit/s,
 about 0.5 MB a minute), voice settings and a per-run character cap live there too.
 
+**Direction.** The owner, 2026-11-15: the voices were "a bit robotic without pauses or tags for
+direction". Each voiced script is now performed from `data/narration/direction/<jaunt>.json`
+(keyed `<part>:<id>`): the same words the panel shows, with ElevenLabs v3 audio tags in square
+brackets (`[warmly]`, `[laughs]`, `[sighs]`, `[whispers]`, `[short pause]` …) and ellipses and
+dashes for breath. The model is `eleven_v3`, the one that performs the tags (its `stability` takes
+0, 0.5 or 1; we use 0.5, natural). The words may not drift: `narrate_jaunts.mjs` compares a
+direction's words with the script's (tags, case and punctuation aside), voices the plain words
+when they differ and says so in the run, and `tools/test_narration.mjs` fails, so a script edited
+without its direction is caught at the gate. A clip is still found by the shown words' SHA-256;
+the index also records the performed text's (`spoken_sha256`), so a changed direction re-voices
+that clip alone. A laugh or a whisper is a reading, not evidence of how anyone spoke
+(L-jaunt-voices-3578).
+
 **Voicing.** `.github/workflows/chicago-4d-narration.yml` runs on a push to dev that touches a
 compiled jaunt, the voice file or the script function, and by hand (plan / voice / list-voices).
 `tools/narrate_jaunts.mjs` reads the media host's `narration/index.json` and sends ElevenLabs

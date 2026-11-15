@@ -34,6 +34,14 @@
  * crowd), so a person is never drawn twice. Nothing here says a word: the words are the
  * stop's text; the hand that talks is the only speech.
  *
+ * An adults jaunt (the owner, 2026-11-15: "targeted at adults and shows everything incredibly
+ * graphically") also stages the fighting the student jaunts leave to their text: a castmate holds
+ * a weapon (`arm`: a tomahawk, a war club, a knife, a pistol, a musket) and makes its motions
+ * (`act`: strike, stab, aim, fire, lower; `struck` when hit), turned to whoever `face` names;
+ * the fallen go down (kneel2, then lie or `fallen`, face down). The weapons, the motions and the
+ * smoke are human-fight.js's, handed in as `fight` (none: nothing is held, as in the gate's
+ * harness). The compiler refuses `arm` and `act` in any jaunt not for adults.
+ *
  *   sync(stop, { arrived })  build `stop`'s stage (or keep it), and play it once arrived
  *   replay()                 from the beginning again
  *   release()                take every staged figure away
@@ -42,7 +50,7 @@
  */
 
 export const PACES = Object.freeze({ walk: null, brisk: 1.75, hurry: 2.2, slow: 0.9 });
-export const POSES = Object.freeze(['stand', 'kneel', 'kneel2', 'crouch', 'sit', 'prone', 'lie']);
+export const POSES = Object.freeze(['stand', 'kneel', 'kneel2', 'crouch', 'sit', 'prone', 'lie', 'fallen']);
 /** How far beyond the people layer's animation range a posed figure keeps its pose drawn. */
 export const STAGE_ANIMATE_M = 160;
 
@@ -67,7 +75,8 @@ export function castFor(stop, tier = 'full') {
  */
 export function castAt(c, t, { walkSpeed = 1.3 } = {}) {
   const at = pt(c.at);
-  const s = { e: at.e, n: at.n, heading: Number.isFinite(c.heading) ? c.heading : 0, pose: c.pose ?? 'stand', hidden: !!c.hidden, talk: !!c.talk };
+  const s = { e: at.e, n: at.n, heading: Number.isFinite(c.heading) ? c.heading : 0, pose: c.pose ?? 'stand', hidden: !!c.hidden, talk: !!c.talk,
+    arm: c.arm ?? 'none', act: null };
   for (const b of sortedBeats(c)) {
     if (b.t > t) break;
     const to = pt(b.place);
@@ -88,6 +97,8 @@ export function castAt(c, t, { walkSpeed = 1.3 } = {}) {
     if (b.hide) s.hidden = true;
     if (b.show) s.hidden = false;
     if (typeof b.talk === 'boolean') s.talk = b.talk;
+    if (b.arm) s.arm = b.arm;
+    if (b.act) s.act = { act: b.act, t: b.t };
   }
   return s;
 }
@@ -132,8 +143,10 @@ export function stageLength(stop, { walkSpeed = 1.3 } = {}) {
  * scene not drawn in town (a gathering's inside-only resident), or null; `tier()` the people
  * tier now; `eye()` the eye (a world Vector3) each figure is updated from.
  */
-export function createJauntStage({ humans, parent = null, resolve = () => null, tier = () => 'full', eye = () => null, teams = null } = {}) {
+export function createJauntStage({ humans, parent = null, resolve = () => null, tier = () => 'full', eye = () => null, teams = null, fight = null } = {}) {
   let stopKey = null, stop = null, cast = [], clock = 0, playing = false;
+  // Adults jaunts: the guns' flash and smoke (human-fight.js createFightFx), made once.
+  const fx = fight?.createFightFx && parent ? fight.createFightFx(parent) : null;
   // T-3553: the town teams this stage has taken: { c, actor, heading } (actor once loaded).
   let wagons = [], askedLoad = -Infinity;
   const TURN_DEG_S = 30;
@@ -171,6 +184,38 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     actor.place?.();
   }
 
+  /** What the castmate's right hand holds: the weapon drawn in it, and the hand told. */
+  function arm(m, kind) {
+    m.arm = kind && kind !== 'none' ? kind : 'none';
+    if (m.weapon) { m.weapon.removeFromParent(); m.weapon = null; }
+    if (m.arm !== 'none' && fight?.weaponGroup) {
+      m.weapon = fight.weaponGroup(m.arm);
+      if (m.weapon) { m.weapon.visible = false; parent?.add?.(m.weapon); }
+    }
+    m.actor.actions?.wield?.(m.arm);
+  }
+
+  /** After the figure's frame: its weapon where its hand is, a soldier's own slung musket out of
+   *  sight while he holds one, and a shot's flash and smoke. */
+  function wieldFrame(m) {
+    const a = m.actor, actions = a.actions;
+    if (!actions?.wield) return;
+    if (actions.fight?.arm !== m.arm) actions.wield(m.arm);
+    if (m.pendingAct && actions.act) { actions.act(m.pendingAct); m.pendingAct = null; }
+    const gun = m.arm === 'musket' || m.arm === 'rifle';
+    if (gun !== !!m.slungHidden) {
+      a.root.traverse((o) => { if (o.name === 'garrison_musket') o.visible = !gun; });
+      m.slungHidden = gun;
+    }
+    if (m.weapon) {
+      const frame = a.root.visible && !a.indoors ? actions.gripFrame?.('r') : null;
+      m.weapon.visible = !!frame;
+      if (frame) fight.placeWeapon(m.weapon, frame);
+    }
+    const shots = actions.takeShot?.() ?? 0;
+    if (shots && m.weapon && fx) { const z = fight.muzzleOf(m.weapon); if (z) for (let i = 0; i < shots; i++) fx.shoot(z.at, z.dir); }
+  }
+
   function build(next) {
     teardown();
     stop = next;
@@ -196,6 +241,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
         actor.setPosture?.(c.pose ?? 'sit', { seconds: 0 });
       }
       begin(c, actor);
+      arm(m, castAt(c, 0).arm);
       cast.push(m);
     });
     wagons = teamsFor(next).map((c) => ({ c, actor: null, heading: castAt(c, 0).heading, pose: null }));
@@ -203,7 +249,8 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
   }
 
   function teardown() {
-    for (const m of cast) { try { m.actor.dispose(); } catch { /* gone already */ } }
+    for (const m of cast) { m.weapon?.removeFromParent?.(); try { m.actor.dispose(); } catch { /* gone already */ } }
+    fx?.clear();
     for (const w of wagons) { try { w.actor?.unstage?.(); } catch { /* gone already */ } }
     cast = []; wagons = []; stop = null; playing = false; clock = 0;
   }
@@ -265,6 +312,9 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     if (b.pose) a.setPosture?.(b.pose, { seconds: Number.isFinite(b.ease) ? b.ease : 0.9 });
     if (typeof b.talk === 'boolean') a.actions?.setTalk?.(b.talk);
     if (b.greet) a.actions?.greet?.();
+    if (b.arm) arm(m, b.arm);
+    // A motion is begun on the hands once they are there (a figure still loading takes it then).
+    if (b.act) { if (a.actions?.act) { a.actions.wield?.(m.arm); a.actions.act(b.act); } else m.pendingAct = b.act; }
   }
 
   const api = {
@@ -301,14 +351,18 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       const at = eye();
       for (const m of cast) {
         if (m.ride) seatRider(m);
-        if (!shown) { m.actor.root.visible = false; continue; }
+        if (!shown) { m.actor.root.visible = false; if (m.weapon) m.weapon.visible = false; continue; }
         if (at) m.actor.update(step, at, step);
+        wieldFrame(m);
       }
+      fx?.update(step);
     },
     snapshot() {
       return { stop: stopKey, playing, clock: +clock.toFixed(2), cast: cast.map((m) => ({ person: m.c.person ?? null, extra: m.c.extra ?? null,
         e: +m.actor.e.toFixed(2), n: +m.actor.n.toFixed(2), heading: +m.actor.heading.toFixed(1), posture: m.actor.posture?.kind ?? 'stand',
-        hidden: !!m.actor.indoors, drawn: !!m.actor.root.visible, lod: m.actor.lod, ...(m.ride ? { ride: m.ride.team } : {}) })),
+        hidden: !!m.actor.indoors, drawn: !!m.actor.root.visible, lod: m.actor.lod, ...(m.ride ? { ride: m.ride.team } : {}),
+        ...(m.arm && m.arm !== 'none' ? { arm: m.arm, armed: !!m.weapon?.visible, act: m.actor.actions?.fight?.act ?? null } : {}) })),
+        smoke: fx?.count ?? 0,
         teams: wagons.map((w) => ({ team: w.c.team, taken: !!w.actor, e: w.pose ? +w.pose.e.toFixed(2) : null,
           n: w.pose ? +w.pose.n.toFixed(2) : null, heading: w.pose ? +w.pose.heading.toFixed(1) : null })) };
     },
