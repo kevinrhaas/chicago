@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 3003, ts: '2026-11-15T14:12:43.778Z', date: 'Nov 15, 2026, 8:12 AM CT', title: 'The Fort Dearborn monument\'s warrior and Black Partridge turn as sculpted', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), the warrior no longer throws his head back: it is bowed toward Mrs. Helm, as both photographs show it.',
+      'His chest now turns to her while his hips stay with his lunge, so his body twists through the waist the way the bronze does.',
+      'Black Partridge no longer faces the street square-on. His chest turns partway toward the warrior, and his face is in profile to him.',
+    ] },
+  { v: 3002, ts: '2026-11-15T14:12:43.778Z', date: 'Nov 15, 2026, 8:12 AM CT', title: 'The face check guards the faces\' source record; one claim corrected', kind: 'fix',
+    items: [
+      'A correction to the note "Corrections to the one-face note; the face check sees small repaints". It said the check that guards the face library tries a case on itself for every comparison it makes. It did not: a reviewer loosened 28 more of its comparisons, one at a time, and 19 went unnoticed.',
+      'It now tries 120 cases on itself, up from 80, and each refusal it can give has a case that draws it.',
+      'The record of where each face came from is held to the copy written when the packs were read: a change made to it by hand is refused, and building the sheet again no longer accepts it.',
+      'Nobody\'s face changes with this.',
+    ] },
   { v: 3001, ts: '2026-11-15T11:56:10.921Z', date: 'Nov 15, 2026, 5:56 AM CT', title: 'Corrections to the one-face note; the face check sees small repaints', kind: 'fix',
     items: [
       'Two corrections to the note "One face per person, on the carriage box and at the door". It said a face is chosen from the person "and nothing of the body". That holds for the body\'s skin. A person whose record gives no sex or no age (465 and 131 of the 1,212 drawn) still takes those from the body they stand on.',
