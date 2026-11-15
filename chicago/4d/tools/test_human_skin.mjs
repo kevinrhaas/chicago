@@ -98,7 +98,7 @@ for (const marker of ['chiSkinH = ( - chiSkin.x * pore', 'roughnessFactor = clam
 assert(s.fragmentShader.indexOf('#include <lights_physical_pars_fragment>') < s.fragmentShader.indexOf('void chiSkinDirect('));
 assert(s.vertexShader.includes('vChiSkinP = ( chiSkinRest * vec4( position, 1.0 ) ).xyz;'));
 assert.deepEqual(Object.keys(s.uniforms).sort(), ['chiBrowTint', 'chiFace', 'chiFaceLib', 'chiFaceLibAt', 'chiFaceLibGain', 'chiFaceLook', 'chiFaceMarks', 'chiLike', 'chiLikeAxis', 'chiLikeBack', 'chiLikeFront', 'chiLikeFrontAt', 'chiLikeFrontTo', 'chiLikeFrontU', 'chiLikeFrontV',
-  'chiLikeGrow', 'chiLikeHat', 'chiLikeMap', 'chiLikeMask', 'chiLikeTeeth', 'chiLikeTint', 'chiLikeUv', 'chiSkin', 'chiSkinLipTone', 'chiSkinRest', 'chiSkinSheen']);
+  'chiLikeGrow', 'chiLikeHat', 'chiLikeMap', 'chiLikeMask', 'chiLikeTeeth', 'chiLikeTint', 'chiLikeUv', 'chiSkin', 'chiSkinEven', 'chiSkinLipTone', 'chiSkinRest', 'chiSkinSheen']);
 // T-3553 (Kevin, 2026-11-12: "when the sun is behind people their lips have a pink line too much"):
 // lips found in the map's own colour (the complexion divided out) and turned partway to the skin's
 // hue; the parting shaded in the light step. Every skin, every period: one program.
@@ -155,7 +155,8 @@ const faceMask = (u, v) => {
     'c = mix( c, fc * chiFaceLibGain.rgb * diffuse, fa );'])
     assert.equal(s.fragmentShader.split(marker).length, 2, `the library's face, once: ${marker}`);
   const at = marker => s.fragmentShader.indexOf(marker);
-  assert(at('vec3 c = diffuseColor.rgb;') < at('c = mix( c, fc * chiFaceLibGain.rgb * diffuse, fa );') && at('c = mix( c, fc * chiFaceLibGain.rgb * diffuse, fa );') < at('vec3 tex = c / max( diffuse, vec3( 1e-3 ) );'),
+  assert.deepEqual(s.uniforms.chiSkinEven.value.toArray(), [1, 1, 1], 'a plain skin is its body\'s own');
+  assert(at('vec3 c = diffuseColor.rgb * chiSkinEven;') < at('c = mix( c, fc * chiFaceLibGain.rgb * diffuse, fa );') && at('c = mix( c, fc * chiFaceLibGain.rgb * diffuse, fa );') < at('vec3 tex = c / max( diffuse, vec3( 1e-3 ) );'),
     'laid on the body\'s colour first, so the lips, the age and the brows work on the face it gave');
   // The mask: whole over the face, nothing at the ears or past the box a face of the sheet covers.
   const [u0, v0, u1, v1] = L.box;
@@ -705,6 +706,21 @@ const faceMask = (u, v) => {
       assert.equal(compile(skin.material).uniforms.chiFaceLibGain.value.w, 0, `${what}: a face the sheet has not is not worn`);
       assert.equal(compile(skin.material).uniforms.chiFaceLook.value.x, drawn, `${what}: and the drawn lines are whole again`);
       root.userData.chiFaceSkin = face;
+      // T-3553 (Kevin, 2026-11-15): a coachman wears the box's skin at his door too: the
+      // body's skin is brought to it, a look of its own; a ratio that is not one is none.
+      dressSkin(root, { age: 70, person: 'someone' });
+      const faced = skin.material;
+      root.userData.chiSkinEven = [0.9, 0.67, 0.52];
+      dressSkin(root, { age: 70, person: 'someone' });
+      assert.notEqual(skin.material, faced, `${what}: another body's skin, another material`);
+      assert.deepEqual(compile(skin.material).uniforms.chiSkinEven.value.toArray().map(x => +x.toFixed(6)), [0.9, 0.67, 0.52], `${what}: the skin brought to the one he wears`);
+      assert.deepEqual(compile(skin.material).uniforms.chiFaceLibGain.value.toArray(), [1.39, 1.86, 2.43, 1], `${what}: the face as before`);
+      for (const bad of [[1, 1, 1], [0.9, 0.67], [0.9, -1, 0.5], 'abc']) {
+        root.userData.chiSkinEven = bad;
+        dressSkin(root, { age: 70, person: 'someone' });
+        assert.deepEqual(compile(skin.material).uniforms.chiSkinEven.value.toArray(), [1, 1, 1], `${what}: ${JSON.stringify(bad)} brings nothing`);
+      }
+      delete root.userData.chiSkinEven;
     }
     // A sheet with its own teeth takes the drawn ones away.
     if (lod === 0) {
