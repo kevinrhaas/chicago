@@ -155,6 +155,19 @@ HOST_REACH_M = 12
 # T-3553: how far from a stop's stand its stage may reach: a column seen coming from a distance.
 STAGE_REACH_M = 260
 
+def figure_ids(root):
+    """T-3606: every figure a staged extra can wear, by asset id: each recipe's own name, its
+    `asset_id`, and the ids of the variants it builds (data/humans/recipes; no GLB is read)."""
+    ids = set()
+    for f in sorted((root / 'data/humans/recipes').glob('*.json')):
+        ids.add(f.stem)
+        try: r = json.loads(f.read_text())
+        except ValueError: continue
+        if isinstance(r.get('asset_id'), str): ids.add(r['asset_id'])
+        for v in r.get('proof_variants') or []:
+            if isinstance(v, dict) and isinstance(v.get('id'), str): ids.add(v['id'])
+    return ids
+
 def unique(rows, label):
     result = {r['id']: r for r in rows}
     require(len(result) == len(rows), f'duplicate {label} id')
@@ -180,6 +193,10 @@ class Compiler:
             (self.root / 'docs/LIBERTIES.md').read_text(errors='replace'), re.M))
         html = (self.root / 'renderers/web/index.html').read_text()
         self.refs['topic'] = {key: {} for key in re.findall(r'data-topic="([a-z-]+)"', html)}
+
+    def figures(self):
+        if not hasattr(self, '_figures'): self._figures = figure_ids(self.root)
+        return self._figures
 
     def resolve(self, ref, destination=False):
         kind, key = ref['kind'], ref['id']
@@ -311,8 +328,11 @@ class Compiler:
                     if c.get('person'): self.resolve({'kind': 'person', 'id': c['person']})
                     else:
                         # A figure is its recipe (the GLB is built from it); the changelog fold's
-                        # sparse checkout carries no GLBs, so the recipe is what it can see.
-                        require((self.root / f"data/humans/recipes/{c['dress']}.json").exists(), f'{stop["id"]}: {who} wears {c["dress"]}, which is not a figure')
+                        # sparse checkout carries no GLBs, so the recipe is what it can see. T-3606:
+                        # the dress is the figure's asset id, which is the recipe's own name (1812's
+                        # figures, 1904's children) or the asset a recipe builds (1904's adult
+                        # dresses build `glessner_frances_m_1904` and the like: figures().
+                        require(c['dress'] in self.figures(), f'{stop["id"]}: {who} wears {c["dress"]}, which is not a figure')
                         if c.get('dress_of'): self.resolve({'kind': 'person', 'id': c['dress_of']})
                     marks = [c['at']] + [p for b in c.get('beats', []) for p in b.get('walk', []) + ([b['place']] if 'place' in b else [])]
                     if a:

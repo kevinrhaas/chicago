@@ -54,7 +54,7 @@
         "cast": [
           {
             "extra": "caton_maid",
-            "dress": "maid_1904",
+            "dress": "reynolds_mary_1904_maid",
             "name": "A maid of the Caton house (no card in the town; an unnamed figure)",
             "at": [
               1521.1,
@@ -87,7 +87,7 @@
           },
           {
             "extra": "caton_caller",
-            "dress": "gentleman_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A caller leaving his card (unnamed)",
             "at": [
               1527.52,
@@ -135,7 +135,7 @@
           },
           {
             "extra": "caton_coachman",
-            "dress": "coachman_livery_1904",
+            "dress": "nelson_charles_1904_coachman",
             "name": "The Caton coachman (no card in the town; an unnamed figure)",
             "at": [
               1529.02,
@@ -181,20 +181,20 @@
           {
             "person": "pa1904_field_marshall_c1900_karolina_hall",
             "at": [
-              1465.51,
-              -3372.71
+              1467.25,
+              -3371.3
             ],
             "beats": [
               {
                 "t": 0,
                 "walk": [
                   [
-                    1477.44,
-                    -3371.09
+                    1478.97,
+                    -3368.71
                   ],
                   [
-                    1490.08,
-                    -3359.7
+                    1491.92,
+                    -3365.23
                   ]
                 ],
                 "pace": "brisk"
@@ -212,23 +212,23 @@
           },
           {
             "extra": "caton_laundress",
-            "dress": "maid_1904",
+            "dress": "reynolds_mary_1904_maid",
             "name": "A Caton laundress (no card in the town; an unnamed figure)",
             "at": [
-              1499.59,
-              -3350.84
+              1503.15,
+              -3371.56
             ],
             "beats": [
               {
                 "t": 1,
                 "walk": [
                   [
-                    1495.36,
-                    -3354.84
+                    1498.6,
+                    -3369.49
                   ],
                   [
-                    1491.19,
-                    -3358.22
+                    1493.48,
+                    -3366.73
                   ]
                 ],
                 "pace": "walk"
@@ -250,10 +250,10 @@
           {
             "person": "pa1904_field_marshall_c1900_maggie_fitzsimmons",
             "at": [
-              1472.45,
-              -3376.29
+              1488.93,
+              -3362.82
             ],
-            "heading": 47.0
+            "heading": 127.7
           }
         ]
       }
@@ -406,7 +406,7 @@
         "cast": [
           {
             "extra": "lady_left",
-            "dress": "lady_1904",
+            "dress": "glessner_frances_m_1904",
             "name": "A lady of the street (unnamed)",
             "at": [
               1409.8,
@@ -435,7 +435,7 @@
           },
           {
             "extra": "lady_right",
-            "dress": "lady_1904",
+            "dress": "glessner_frances_m_1904",
             "name": "A second lady of the street (unnamed)",
             "at": [
               1411.4,

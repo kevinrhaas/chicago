@@ -101,10 +101,18 @@ def cast(pid, at_, **kw):
     return m
 
 
+def figure(recipe):
+    """The figure a 1904 recipe builds, by asset id: the recipe's own name (the children), its
+    asset_id, or its first proof variant (lady_1904 builds glessner_frances_m_1904, worn by
+    every lady of the town; an unnamed figure keyed by its own id gets its own face)."""
+    r = json.loads((ROOT / f'data/humans/recipes/{recipe}.json').read_text())
+    for a in (recipe, r.get('asset_id'), (r.get('proof_variants') or [{}])[0].get('id')):
+        if a and (ROOT / f'assets/humans/{a}.lod0.glb').exists(): return a
+    raise SystemExit(f'{recipe}: builds no figure')
+
+
 def extra(slug, dress, name, at_, **kw):
-    if not (ROOT / f'data/humans/recipes/{dress}.json').exists():
-        raise SystemExit(f'{slug}: no dress {dress}')
-    m, face = _member({'extra': slug, 'dress': dress, 'name': name}, at_, **kw)
+    m, face = _member({'extra': slug, 'dress': figure(dress), 'name': name}, at_, **kw)
     if isinstance(face, str):
         m.setdefault('beats', []).insert(0, {'t': 0, 'face': face})
     return m

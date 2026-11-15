@@ -280,4 +280,12 @@ class JauntTests(unittest.TestCase):
         self.assertEqual({e['claim'] for e in edges}, expected)
         self.assertTrue(all(e['entity_type']=='jaunt' and e['entity_id']==pilot['id'] for e in edges))
 
+    def test_stage_figures_are_assets_recipes_build(self):
+        # T-3606: an unnamed staged figure wears a figure by its asset id: a recipe's own name
+        # (1812's, 1904's children) or the asset a 1904 adult recipe builds; anything else is no figure.
+        figures = self.compiler.figures()
+        for a in ('potawatomi_man_1812', 'child_boy_1904', 'glessner_frances_m_1904', 'anonymous_working_driver_1904', 'reynolds_mary_1904_maid'):
+            self.assertIn(a, figures)
+        self.assertNotIn('no_such_dress_1904', figures)
+
 if __name__ == '__main__': unittest.main()

@@ -47,7 +47,7 @@
         "cast": [
           {
             "extra": "gent_a",
-            "dress": "gentleman_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A gentleman out for the evening (unnamed)",
             "at": [
               1400.5,
@@ -80,7 +80,7 @@
           },
           {
             "extra": "gent_b",
-            "dress": "gentleman_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A second gentleman (unnamed)",
             "at": [
               1399.5,
@@ -126,7 +126,7 @@
         "cast": [
           {
             "extra": "gent_c",
-            "dress": "gentleman_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A gentleman on the corner (unnamed)",
             "at": [
               1280.2,
@@ -159,7 +159,7 @@
           },
           {
             "extra": "cabman",
-            "dress": "working_driver_1904",
+            "dress": "anonymous_working_driver_1904",
             "name": "A cabman waiting for a fare (unnamed)",
             "at": [
               1274.71,
@@ -191,7 +191,7 @@
         "cast": [
           {
             "extra": "maid_x",
-            "dress": "maid_1904",
+            "dress": "reynolds_mary_1904_maid",
             "name": "A maid going home (unnamed)",
             "at": [
               1282.71,
@@ -220,7 +220,7 @@
           },
           {
             "extra": "maid_y",
-            "dress": "cook_1904",
+            "dress": "ryan_kate_1904_cook",
             "name": "A cook going home (unnamed)",
             "at": [
               1281.69,
@@ -263,7 +263,7 @@
         "cast": [
           {
             "extra": "elder",
-            "dress": "gentleman_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A church member (unnamed)",
             "at": [
               1279.6,
@@ -296,7 +296,7 @@
           },
           {
             "extra": "elder_wife",
-            "dress": "lady_1904",
+            "dress": "glessner_frances_m_1904",
             "name": "His wife (unnamed)",
             "at": [
               1280.8,
