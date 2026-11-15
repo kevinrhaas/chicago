@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 3005, ts: '2026-11-15T14:45:32.007Z', date: 'Nov 15, 2026, 8:45 AM CT', title: '1823 Prairie\'s box bay on its corbels', kind: 'improvement',
+    items: [
+      'The Dent house\'s bay on its north side now stands on a stepped stone foot about 1.8 m up, as both old pictures draw it, instead of running down to the ground.',
+      'Basement windows are added along that side: one under the bay and one under each of two other window columns, placed from the engraving.',
+    ] },
+  { v: 3004, ts: '2026-11-15T14:45:32.007Z', date: 'Nov 15, 2026, 8:45 AM CT', title: 'Ride inside the Glessner brougham, and home to the coach house', kind: 'feature',
+    items: [
+      'Ask Charles Nelson for a ride at the waiting Glessner carriage on Prairie: the door opens and you sit inside beside Mr. Glessner.',
+      'He drives a round of the block, down Prairie, along 20th, up Indiana and back along 18th, giving way to the other carriages at the corners.',
+      'Stop or Get out at any time, by key or touch; you can still climb up beside him and take the reins.',
+      'Home to the coach house: he drives in off 18th Street through its doors, which open first and shut behind, and brings it round again when asked.',
+    ] },
   { v: 3003, ts: '2026-11-15T14:12:43.778Z', date: 'Nov 15, 2026, 8:12 AM CT', title: 'The Fort Dearborn monument\'s warrior and Black Partridge turn as sculpted', kind: 'improvement',
     items: [
       'On the Fort Dearborn monument (18th Street, 1904), the warrior no longer throws his head back: it is bowed toward Mrs. Helm, as both photographs show it.',
