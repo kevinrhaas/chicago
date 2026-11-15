@@ -752,9 +752,10 @@ const faceMask = (u, v) => {
       const after = person(late, 10);
       assert.deepEqual([of(late).length, worn([after]), sheetOf(after) === sheetOf(a[0]), timers.length], [1, [1], true, 0], 'one built afterwards wears it at once, with no other request');
 
-      // An arrival switches a face on only for a material that still holds that sheet: one
-      // whose uniforms have since been pointed at another sheet, or at none, would show the
-      // wrong picture, or the face's gain over no picture at all.
+      // An arrival switches a face on only for a material that still holds that sheet. Nothing
+      // in the app points a material's uniforms at another sheet today (setLibraryFace sets them
+      // once, on new uniforms); the guard is for the day something does: such a material would
+      // show the wrong picture, or the face's gain over no picture at all.
       { const first = 'http://example.invalid/faces/first.jpg', other = 'http://example.invalid/faces/other.jpg';
         const moved = person(first, 3), bare = person(first, 4), stays = person(first, 5), there = person(other, 6);
         moved.chiFaceLib.value = sheetOf(there);
