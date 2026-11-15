@@ -42,6 +42,7 @@ from plat_corridors import corridors, intrusion  # noqa: E402
 from plat_occupancy import world_polygon, footprints, overlap_area  # noqa: E402
 from inferred_occupancy import occupancy  # noqa: E402
 from normalise_structure_function import canonical  # noqa: E402
+from siding_stock import deal_records  # noqa: E402
 
 CORRIDOR_LINE = "drawn"
 CORRIDOR_LINE_WHY = ("The rows stand on platted block faces, so the block grid's own drawn "
@@ -265,6 +266,9 @@ def records_from_inputs():
         for laid in lay_face(face, blocks[face["block_id"]], datum, standing):
             seq += 1
             records.append(make_record(seq, face, laid, table, datum, people))
+    # Every invented clapboard wall wears a dealt stock (T-0112, deal_siding_stock.py
+    # --check): the drawing is far too small to show a board, so the stock is the deal's.
+    deal_records(records)
     return records, validate(records, recipe, datum)
 
 
