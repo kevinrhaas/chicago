@@ -661,6 +661,9 @@ def masonry_cells(o, holes, length, low, high, spec, trim_holes=()):
     """
     import random
     rng = random.Random(1883)
+    if spec.get("dressing") == "channelled":
+        channelled_cells(o, holes, length, low, high, spec, trim_holes)
+        return
     ch, bw, joint, relief = (spec[k] for k in ("course_m", "block_m", "joint_m", "relief_m"))
     wall_cells(o, "wall", holes, 0., length, low, high)
     # T-1881: a round-headed light keeps its stones off its whole head: its cells stop at the
@@ -711,6 +714,39 @@ def masonry_cells(o, holes, length, low, high, spec, trim_holes=()):
                                           o.P(*inner[j], depth), o.P(*inner[i], depth)], (0, 0, 1))
             o.plane("masonry_relief", inner, depth)
 
+
+
+def channelled_cells(o, holes, length, low, high, spec, trim_holes=()):
+    """T-1887: channelled ashlar over the wall: courses `course_m` (or fewer, evened to the
+    storey) running the run's whole length with no vertical joint, each stone flat-faced
+    `relief_m` proud and chamfered back on all four arrises at 45 degrees, so its beds read
+    as channels `joint_m` wide at the floor (the wall behind) and `joint_m + 2 relief_m` at
+    the face. A light crossing a course parts it there, as the rock-faced cells are parted.
+    Built on the full tier only (the light tier keeps the plain wall and its texture)."""
+    ch, joint, relief = (spec[k] for k in ("course_m", "joint_m", "relief_m"))
+    wall_cells(o, "wall", holes, 0., length, low, high)
+    holes = [h if h[-1] else (h[0], h[1], h[2], max([h[3], *[q[1] for q in h[4]]]), h[4], True)
+             for h in holes]
+    holes = [*holes, *trim_holes]
+    n = max(1, round((high - low) / ch))
+    lines = [low + (high - low) * i / n for i in range(n + 1)]
+    rows = sorted({*lines, *[y for h in holes for y in (h[2], h[3]) if low < y < high]})
+    for ya, yb in zip(rows, rows[1:]):
+        cy = (ya + yb) / 2
+        active = [h for h in holes if h[2] < cy < h[3]]
+        cuts = sorted({0., length, *[x for h in active for x in h[:2] if 0 < x < length]})
+        for xa, xb in zip(cuts, cuts[1:]):
+            cx = (xa + xb) / 2
+            if any(h[0] < cx < h[1] for h in active) or min(xb - xa, yb - ya) < joint + 2 * relief + .02:
+                continue
+            outer = K6.box(xa + joint / 2, xb - joint / 2, ya + joint / 2, yb - joint / 2)
+            inner = K6.box(xa + joint / 2 + relief, xb - joint / 2 - relief,
+                           ya + joint / 2 + relief, yb - joint / 2 - relief)
+            for i in range(4):
+                j = (i + 1) % 4
+                o.face("masonry_relief", [o.P(*outer[i], 0), o.P(*outer[j], 0),
+                                          o.P(*inner[j], -relief), o.P(*inner[i], -relief)], (0, 0, 1))
+            o.plane("masonry_relief", inner, -relief)
 
 
 def ledge(o, role, run, y, z0, z1, hint):

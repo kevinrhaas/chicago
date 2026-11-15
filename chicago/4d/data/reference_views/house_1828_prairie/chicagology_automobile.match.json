@@ -2,11 +2,11 @@
   "structure_id": "house_1828_prairie",
   "view": "chicagology_automobile",
   "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
-  "glb_sha256": "853c9da1afeacf824c9dc7643a0154501c6478ea5ceb291f72a3af991d936e02",
+  "glb_sha256": "6d2bfc23a310c9559770388627ea9bece6b156b58233f921e503fc5454d8642a",
   "camera_sha256": "c5db781be13c8f38279e02b2deb16a970c6995b2397cc02e886addbafc8d281e",
   "photo_sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957",
   "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/chicagology_automobile-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: a light stone front over a raised basement, the principal storey and the foot of the second, the canted bay and the recessed north part with the porch, seen square-on",
@@ -105,9 +105,9 @@
       "how": "this print shows an iron fence on a curb; glessner_partial reads as a low solid wall; the fence is kept (L-k14-walks-1800-block-3206)"
     },
     {
-      "what": "the range's street face is channelled in the print (horizontal joints a few centimetres deep, about 0.6 m apart, read across x 90-140 in shade) and smooth in the render",
-      "status": "open",
-      "how": "T-1887 (2026-11-14): the range is laid in the front's smooth Lemont ashlar. K01 dresses a stone front and its flanks only smooth or rock-faced (stone_front.dressing), and a K08 bay's face takes no channelled dressing, so the print's channelling is not built yet. It is the same light stone and the same plain face, but a visitor at the curb would see the joints, so the item stays open."
+      "what": "the range's street face is channelled in the print (deep horizontal bed joints, no vertical joint that reads, across x 10-140 in shade) and was smooth in the render",
+      "status": "fixed",
+      "how": "T-1887 (2026-11-14): K08's bay masonry takes a 'channelled' dressing: flat-faced courses the run's whole length, each 25 mm proud and chamfered back to a 12 mm channel floor. The print's bed joints were measured on their brightness profile down x 10-40 and 95-140 (y 100-480): 27-28 px apart, about 0.45 m at the band's 62 px/m (not the 0.6 m first read), so the range is laid in 0.45 m courses, evened to 0.44 and 0.46 m in its storeys; the render's channels fall about 26.5 px apart across the same band."
     },
     {
       "what": "the range's south face and corner: the print shows light stone receding from about x 44 to the frame's edge (x 8); the render turns the corner at x 37 and shows its south face only as a sliver, with sky beyond",
