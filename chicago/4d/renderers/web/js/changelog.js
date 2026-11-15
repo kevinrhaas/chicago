@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3000, ts: '2026-11-15T11:53:48.622Z', date: 'Nov 15, 2026, 5:53 AM CT', title: '1936 Prairie: fluted entrance columns, and a full-height back range', kind: 'improvement',
+    items: [
+      'The Allerton house\'s entrance porch now stands on fluted stone columns with carved Corinthian capitals, as the 1869 Tribune describes them.',
+      'Its kitchen range at the back rises to the Tribune\'s 37 feet, with the house\'s bracketed cornice carried round it. Before, it stopped short under a flat roof.',
+      'Seen from the corner of 20th Street, the range\'s cornice now lines up with the one in the old winter photograph.',
+    ] },
   { v: 2999, ts: '2026-11-15T10:53:37.563Z', date: 'Nov 15, 2026, 4:53 AM CT', title: '1815 Prairie\'s roof gets its ironwork', kind: 'improvement',
     items: [
       '1815 Prairie\'s mansard now carries the iron cresting its photographs show along the front and south curbs, stopping either side of the pavilion\'s steep roof, with a cross on that roof\'s peak and a finial on the front dormer\'s gable; the dormer itself is taller, to the photograph.',
