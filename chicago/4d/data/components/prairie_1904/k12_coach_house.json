@@ -54,6 +54,14 @@
       "confidence": "reconstructed",
       "note": "A plain gable roof over the coach house, ridge parallel to the alley: rafters, boards and covering as one 0.25 m slab, 0.4 m eaves, a 0.3 m verge at the open gable. Coverings, gutters and flashing are K04's; the shell is K05's to replace when the kit is put on a house."
     },
+    "hip_deck": {
+      "inset_range_m": [0.6, 3.0],
+      "min_deck_m": 2.0,
+      "deck_covering_m": 0.03,
+      "covering_in_m": 0.05,
+      "confidence": "reconstructed",
+      "note": "T-1935: a hip cut off level at a deck, the roof a variant asks for with roof_form 'hip_deck' where its sheet draws a dashed deck line inside the walls with a diagonal into every corner (1912 Prairie's barn on sheet 28), in place of the gable and the party wall: four walls, their tops level at the eave. The variant states deck_inset_m, how far in from the wall lines the deck's edge stands, which must lie inside inset_range_m and leave at least min_deck_m of deck across; the slopes keep the roof's pitch, thickness and eave, so the deck stands deck_inset_m x tan(pitch) over the eave line. The deck is covered in tarred felt, a 0.06 m sheet let 0.03 m into the slab and 0.05 m in from its edge. The felt, the 45-degree hips on plan and the four equal insets are the kit's (reconstructed); a source showing a rail, cresting or skylight on the deck authors it. The kit fits no ramp, stair, lean-to, wing or range to a hipped coach house."
+    },
     "party_wall": {
       "parapet_m": 0.45,
       "return_m": 0.5,

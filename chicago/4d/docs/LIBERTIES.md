@@ -24442,7 +24442,10 @@ brick, window mark and fire-wall sign the sheet draws; its draft attributes are 
 **1906's alley building retired from this liberty by T-1935 (2026-11-05):** `edson_keith_house_1906_prairie_coach_house`
 now stands as the K12 coach house under `L-k12-1906-barn-1935`, under the same id, on the outline, storeys,
 brick, window marks and one-storey range the sheet draws; its draft attributes are gone.
-**Retired in part:** 1912 the Moulton/Lowden house by T-3277 (piece 1 of T-1899), which refined it in place on the K01 frontage kit under `L-k01-1912-moulton-3277`; its coach house is still this draft's.
+**Retired in part:** 1912 the Moulton/Lowden house by T-3277 (piece 1 of T-1899), which refined it in place on the K01 frontage kit under `L-k01-1912-moulton-3277`; its alley building by T-1935, on the K12 coach-house kit under `L-k12-1912-barn-1935`.
+**1912's alley building retired from this liberty by T-1935 (2026-11-15):** `moulton_lowden_house_1912_prairie_coach_house`
+now stands as the K12 coach house under `L-k12-1912-barn-1935`, under the same id, on the outline, storeys,
+brick, window mark and hip-and-deck roof plan the sheet draws; its draft attributes are gone.
 **Retired in part:** 1936 the Thompson/Allerton house (the sheet's '1918 (1936)') by T-1901 (piece 1), which refined it in place on the K01 frontage kit under `L-k01-1936-allerton-1901`; its coach house is still this draft's.
 **Ticket:** T-2329 (piece 1 of T-2159, the district draft's 18th-20th block).
 **Review:** `docs/RESEARCH/prairie-draft-west-2329/README.md`.
@@ -40600,6 +40603,56 @@ not the alley.
 **Covers:** `jones_house_1834_prairie_coach_house.as_standing_1904.form.coach_house`, `jones_house_1834_prairie_coach_house.as_standing_1904.form.stories`, `jones_house_1834_prairie_coach_house.as_standing_1904.form.construction`
 **Ticket:** T-1935.
 **Recorded:** 2026-11-02 (T-1935).
+
+### L-k12-1912-barn-1935 — The brick barn on the alley behind 1912 Prairie, built from the K12 kit on the outline the 1911 sheet draws, its window mark and its hip-and-deck roof plan
+
+**Decision:** the district draft's alley building behind 1912 Prairie Avenue, the Moulton/Lowden house (T-1935),
+is refined in place, under its own id `moulton_lowden_house_1912_prairie_coach_house`, onto the K12 coach-house
+kit (L-k12-coach-house-kit-2320): the sixth of T-1935's seven alley buildings on the west side of Prairie Avenue,
+18th to 20th, after 1816's, 1824's, 1834's, 1900's and 1906's (L-k12-1816-stable-1935, L-k12-1824-stable-1935,
+L-k12-1834-stable-1935, L-k12-1900-stable-1935, L-k12-1906-barn-1935). It is the first of them roofed as its sheet
+draws it rather than with the kit's gable: this ticket adds the kit's `roof_form` 'hip_deck', four walls level at
+the eave under a hip cut off at a flat deck, and no party wall.
+**What is read.** From sheet 28 of the 1911 Sanborn: the building's outline, one rectangle 10.442 m deep from the
+alley line and 17.531 m along it, measured between line centres on the committed raster (median darkness profiles:
+the alley line at column 561.61 at the middle row and the east wall at 768.14; the north wall at row 4532.80, on
+the line it shares with 1906's one-storey range, the reading 1906's record takes and this one confirms to 0.03 m;
+the south wall at row 4879.55, on the line it shares with the one-storey building south of it) and carried by the
+sheet's fitted similarity; '2' storeys and the letters BARN; the brick; '12' across both end lines; one of the
+key's window marks on the alley wall, a cross with two dots, 8.251 m south of the north wall (row 4696.0); a
+dashed line inside the walls, 1.6 m in from the north wall, 1.4 m from the east and 1.77 m from the
+south (mean darkness profiles, the line being dashed), with a diagonal from each of its corners into the
+building's corners, which the sheet uses for the plan of a roof's deck and hips (as read on 1912's house and
+1936's: T-2934); and the west face of the house's two-storey brick rear range 7.901 m east of the yard wall
+(column 924.25, rows 4686.4-4822.06). The draft had stood a 9.25 x 16.25 m block of its own fitting under a
+gable. Inferred for 1904 as every reading of these sheets is.
+**The date.** Robinson's 1886 plate 10 stops at 18th Street, so nothing read here dates the building before the
+1911 sheet; that it stood by 1904 is the census's carry-back, which the district draft already made.
+**What is invented.** The use: BARN is the sheet's word for a stable (as at 1834 and 1906), carried back to 1904,
+so the barn is built as the house's stable and coach house. The roof's section: the sheet gives its plan, not its
+pitch, so the hips rise at the kit's 40 degrees and the deck stands 1.33 m over the eave line; the deck's edge is
+built 1.59 m in on all four sides, the mean of the three dashed runs (a hand-drawn dash is not read finer than
+that), and on the alley side, where the sheet draws no dashed run, at the place both alley-side diagonals end;
+the hips at 45 degrees on plan, the slate on them (the ring inside the south-west corner is the key's
+slate-or-tin sign) and the tarred felt on the deck are the kit's. The ends: both neighbours are one storey, so
+the barn's two storeys stand clear above them with plain brick end walls and no party wall; the sheet marks no
+opening on either end, and none is built. The mark is built as a stable sash with a loft sash over it. Every
+other opening is the kit's laid out for a barn this long: on the alley, two carriage bays 3.0 m clear with the
+loft hatch and hoist over the northern one and a loft sash over the other, a man door, and a stable sash and loft
+sash toward the south end; on the yard side, five stable sash with loft sash over them and a door where the walk
+meets it. The kit's storey heights (3.6 m and 2.7 m to the eave) and its basement. The workyard is paved from the
+yard door to the rear range's west face, the walk on that range's middle, 2.43 m south of the barn's.
+Flat colours. The alley's utility pole #05, which stood under the barn's eave, is re-laid by the street-furniture
+layer's own rule (L-prairie-utility-poles-3202), 2.4 m in from the alley's east edge, where its wires clear the
+roof.
+**What is not.** The outline, its place on the lot, the storeys, the brick, the mark's place and the roof's plan
+are the map's.
+**How to resolve:** a photograph of the alley behind 1834-1912 Prairie, or a building permit for the building,
+entered as a source, gives its openings, roof section, ends, use and date their true form. The pictures T-1935's
+image gate names for it (Clark's c. 1905 view north from 1936; the New Chicago Album's 1883 vignette of
+B. F. Moulton's house) show the house fronts and not the alley.
+**Recorded:** 2026-11-15 (T-1935).
+**Covers:** `moulton_lowden_house_1912_prairie_coach_house.as_standing_1904.form.coach_house`, `moulton_lowden_house_1912_prairie_coach_house.as_standing_1904.form.stories`, `moulton_lowden_house_1912_prairie_coach_house.as_standing_1904.form.construction`
 
 ### L-k12-1906-barn-1935 — The brick barn on the alley behind 1906 Prairie and its one-storey range, built from the K12 kit on the outline the 1911 sheet draws and its two window marks
 

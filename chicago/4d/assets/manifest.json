@@ -3854,14 +3854,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "moulton_lowden_house_1912_prairie"
     },
-    "moulton_lowden_house_1912_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "moulton_lowden_house_1912_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 78604,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "ecd9573abb5119bc866006285df5af7db33e186f4d07ee4262a12d56338fcc74",
+      "bytes": 166908,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "041e054fdb98e29ed1befbd3fa6f95c26abb22b9753a7bd0565f8975b502f3d6",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "moulton_lowden_house_1912_prairie_coach_house"
     },
     "murdoch_house_2130_prairie__draft_1904.glb": {
