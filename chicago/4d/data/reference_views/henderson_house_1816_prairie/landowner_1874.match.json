@@ -1,0 +1,98 @@
+{
+  "structure_id": "henderson_house_1816_prairie",
+  "view": "landowner_1874",
+  "glb": "assets/gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
+  "glb_sha256": "377c7f4a591632d2c991d83be024ce7c5207b2137e96b71b1233b3f9083336e3",
+  "camera_sha256": "dd6de1231875e5a76777fac48f979a1d17d32da8eabf2cfb231efcb129ec0e00",
+  "photo_sha256": "27f5d5eb4c4da9feb36b835eb4e3698f09c99f869569263ffa8e51fa07df9ece",
+  "side_by_side": "docs/RESEARCH/photo-match/henderson_house_1816_prairie/landowner_1874-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing: two tall storeys over a raised basement under a mansard, the lit street front and the shaded south flank meeting at the corner (x 370 px), the flank's canted bay near its rear (x 177-252)",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-15): the camera is fitted to these (its solve); through it the corner's wall head, water table and grade, and the flank bay's junction and outer corner, draw within 3-9 px of the print's"
+    },
+    {
+      "what": "the south flank's one window, on the upper storey only (x 260-282, y 350-435 px), plain wall under it to the water table",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-14, from the photograph, which draws the same): side_bays 6.4 on the upper storey only; it renders on the print's"
+    },
+    {
+      "what": "the flank bay: a light in each face on both storeys and barred basement lights under them, the cornice carried round it, and over it a mansard of its own with a dormer in its south face, its curb lower than the main deck's (y 200-211 px)",
+      "status": "fixed",
+      "how": "T-2964 and T-1886 from the photograph: K08's flank bay carried up under its own 3.25 m mansard and dormer; through this camera its lights draw within about 7 px of the print's and its curb about 15 px (0.6 m) lower than the print's, within tolerance with the main mansard's height below"
+    },
+    {
+      "what": "the main mansard's south dormer just east of the flank bay's roof (x 252-277 px)",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-13, from the photograph): mansard.dormers[2] at u 6.6; it renders at about x 255-280"
+    },
+    {
+      "what": "a tall stack rising from the south flank's cornice straight up the main mansard's south face to stand over the deck (x 302-325 px); built on the south wall's inner face at u 9.0, v 1.2, standing only over the deck about 15-25 px east",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-15): the stack stands on the cornice astride the south wall (chimneys.stacks[0].on_cornice, T-2406, as 1620's engraved stack) at u 8.6, v 0.1, rising from the wall head through the slate; it renders as a breast up the south face at x 300-328, and through the photograph's camera at x 431-495 where the print's shaft stands at about 450-500. The deck's curb rule lets a cornice stack cross a side curb no rail runs on (the south curb has none, the photograph's)"
+    },
+    {
+      "what": "the rear range beyond the flank bay, lower than the house, under a moulded cornice (its top at y 393 px, about 7.5 m over grade through this camera) with one upper light (y 430-470, sill about 4.3 m, head about 6.0 m); built to 9.6 m on the main body's 2.0 m floor, its cornice about 55 px over the print's",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-15): rear_wings[0] on a 1.0 m floor with storeys of 3.0 and 3.2 m to a 7.2 m wall head under its 0.3 m fascia, the upper lights 0.4 m over their floor and 1.6 m high; its top now draws about 8 px (0.3 m) over the print's cornice and its upper light on the print's. The engraving is the only picture of the range's face"
+    },
+    {
+      "what": "the rear range's length: the print closes the range in a cornice return at x 125 px, about 8 m behind the main body through this camera, where the 1911 sheet's plan draws it 11.9 m (its far end at x 63, where the print draws a tree with sky above it)",
+      "status": "within tolerance",
+      "how": "T-1886 (2026-11-15): the measured plan (the 1911 sheet) and the engraving disagree about the range's far 4 m, and the engraver's vignette closes on that tree; the sheet's plan is kept (T-3153: a gap two sources disagree about). The photograph, whose camera sees only that far end, is argued in its own record"
+    },
+    {
+      "what": "the range's lower storey and the lot line in front of it: a board fence (x 60-180, y 480-680 px) hides them",
+      "status": "not shown",
+      "how": "T-1886 (2026-11-15): the print cannot say what the lower storey's openings were; the board fence is of 1874 and the 1904 boundary is built to the photograph and the sheet"
+    },
+    {
+      "what": "no raised crown over the street front's south end: the main mansard runs on unbroken from the corner to the north end, with three pedimented dormers evenly spaced in its street face (x 420-455, 485-520, 555-595 px)",
+      "status": "not shown",
+      "how": "T-1886 (2026-11-15): the engraving is of May 1874, the year after the house was built, and cannot say what stood in 1904; the undated later photograph (chicagology_photo, after 1873) shows the front's canted bay carried up into a raised crown over that end, standing higher than the main roof, with its own dormer, and two dormers in the main street face beside it, so the crown is read as an alteration after 1874, and the 1904 scene is built to it; the three dormers' places are the 1874 roof's"
+    },
+    {
+      "what": "no iron cresting on any curb",
+      "status": "not shown",
+      "how": "T-1886 (2026-11-15): the engraving is of May 1874, the year after the house was built, and cannot say what stood in 1904; the undated later photograph (chicagology_photo, after 1873) shows iron cresting along the main deck's street curb and round both crowns, and the 1904 scene is built to it"
+    },
+    {
+      "what": "over the entrance a bracketed entablature with no railing on it and a sash window over it (x 550-570, y 340-415 px); the build carries an iron balcony on the porch and a French door over it",
+      "status": "not shown",
+      "how": "T-1886 (2026-11-15): the engraving is of May 1874, the year after the house was built, and cannot say what stood in 1904; the undated later photograph (chicagology_photo, after 1873) shows the balcony's iron guard on the porch and the door onto it, and the 1904 scene is built to it"
+    },
+    {
+      "what": "no fence on the street line: the lawn runs down to the walk in front of the house, past a gas lamp and boxed parkway trees; the build stands an iron fence on a stone curb 7.4 m before the front",
+      "status": "not shown",
+      "how": "T-1886 (2026-11-15): the engraving is of May 1874, the year after the house was built, and cannot say what stood in 1904; the undated later photograph (chicagology_photo, after 1873) shows the iron fence on its curb with its gate at the stoop's foot, and the 1904 scene is built to it"
+    },
+    {
+      "what": "the main mansard drawn taller: its curb at the corner at about y 135 px, where the build's draws at about y 196 (some 2.3 m at the corner's scale)",
+      "status": "within tolerance",
+      "how": "T-1886 (2026-11-15): the photograph's camera, fitted on its own horizon, draws the 4.0 m mansard on the print's eave and curb, and this solve is an engraver's near-parallel construction with its eye 18 m up (its solve); two pictures disagree about the roof's rise, so the photograph's is kept (T-3153)"
+    },
+    {
+      "what": "the street front between the corner and the entrance: one light a storey in the face beside the corner (x 385-420 px) where the build's canted bay's south-east light draws (about x 412); the rest, and whether the bay stood there in 1874, behind a parkway tree (x 425-520)",
+      "status": "within tolerance",
+      "how": "T-1886 (2026-11-15): the visible light stands within about 10 px of the build's; what the tree hides is not shown"
+    },
+    {
+      "what": "the entrance: a door between pilasters under the entablature (x 520-580 px), reached by a flight down to the east between solid cheeks to the walk (its foot about x 690)",
+      "status": "fixed",
+      "how": "T-2963 from the photograph: K01's porch on two turned columns and its flight straight down to the walk; through this camera its columns draw about 20 px left of the print's door jambs, the porch's place the photograph's record also leaves within tolerance (the camera's door-sill residual)"
+    },
+    {
+      "what": "the north stack over the deck",
+      "status": "not shown",
+      "how": "T-1886 (2026-11-15): through this camera its top draws at about y 170 px, under the print's taller roof line, so the print cannot show it"
+    },
+    {
+      "what": "materials and colour: the basement drawn in level courses to a water table and the walls in an engraver's plain tone",
+      "status": "not shown",
+      "how": "the engraving is monochrome; the stone basement's extent agrees with the build's (T-1886's stone_front and side_base)"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
