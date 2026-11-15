@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2989, ts: '2026-11-15T00:41:07.793Z', date: 'Nov 14, 2026, 6:41 PM CT', title: 'Tidier code under the town, nothing on screen changed', kind: 'chore',
+    items: [
+      'Removed leftover code the app no longer used: unused helpers, values it worked out and threw away, and imports it never read.',
+      'The yard goods now share the business signs\' half-size phone picture instead of keeping a second copy of it.',
+      'Every year looks and behaves exactly as before, on phones and computers.',
+    ] },
+  { v: 2988, ts: '2026-11-15T00:12:32.784Z', date: 'Nov 14, 2026, 6:12 PM CT', title: '1828 Prairie\'s stone range wears its channelled face', kind: 'improvement',
+    items: [
+      'The plain stone range south of 1828 Prairie\'s front bay is now laid in channelled stone, deep level joints about 45 cm apart with no upright joints, as the automobile photograph shows it. The bay beside it stays smooth. With that, both of 1828\'s photographs and both of 1824\'s match the model.',
+    ] },
   { v: 2987, ts: '2026-11-14T23:55:29.709Z', date: 'Nov 14, 2026, 5:55 PM CT', title: 'A Today window shows the same spot in Google Street View', kind: 'feature',
     items: [
       'Tap TODAY under the compass to open a small window on the same spot today, in Google Street View. It turns as you turn and follows you as you walk, in 1812, 1835 and 1904.',

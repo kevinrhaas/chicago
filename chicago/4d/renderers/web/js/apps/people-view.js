@@ -341,7 +341,6 @@ async function drawPerson(st, id) {
   if (!row) { back(st); return; }
   const a = st.ctx.actions ?? {};
   const h = householdOf(st.model, id);
-  const placed = (pid) => typeof a.inTown === 'function' && !!a.inTown(pid);
   const render = (m) => {
     // Find and Follow are live for someone placed in town now, greyed with the reason for
     // anyone else (T-3531); Go to house is the way to where they live.

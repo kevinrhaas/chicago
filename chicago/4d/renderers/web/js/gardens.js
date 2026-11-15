@@ -753,7 +753,6 @@ export const CROPS = {
   /** Indian corn, two stalks to a hill (M'Mahon: "two grains in each place"), tasselled,
    *  an ear silking on most. */
   corn(lb, sb, r, lod, _arg, look = {}) {
-    const near = lod === 'near';
     const dry = look.stage === 'dry';
     hills(sb, r, 0.3, 0.09, lod);
     const stalks = 2;
@@ -1118,7 +1117,6 @@ export const CROPS = {
 
   /** Raspberry canes: this year's arching green canes and last year's brown, spent. */
   raspberry(lb, sb, r, lod, _arg, look = {}) {
-    const near = lod === 'near';
     const canes = q(lod, 7, 4);
     const grow = (lod === 'near' ? 1 : lod === 'mid' ? 1.2 : 1.5) * (look.leafScale ?? 1);
     for (let c = 0; c < canes; c += 1) {
@@ -1171,7 +1169,6 @@ export const CROPS = {
 
   /** Asparagus in its summer fern: feathery stems a man's height, the crowns left to grow. */
   asparagus(lb, sb, r, lod, _arg, look = {}) {
-    const near = lod === 'near';
     if (look.stage === 'spears') {
       // mid-April: the first spears through the dressed bed, a hand high, green to purple
       const n = q(lod, 7, 4, 2);
@@ -1222,7 +1219,6 @@ export const CROPS = {
 
   /** A clump of sage or thyme: low grey-green mounds. */
   herb(lb, sb, r, lod) {
-    const near = lod === 'near';
     const n = q(lod, 14, 6);
     for (let i = 0; i < n; i += 1) {
       const a = r() * Math.PI * 2, d = r() * 0.18;
