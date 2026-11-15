@@ -30,7 +30,7 @@ function audioAnchors(root, vehicle, horse) {
  */
 export function createDrivenAssembly({ vehicle, driver, horse, confidence,
   driverSeat_m, driverRootOffset_m = [0, 0, 0], horseOffset_m,
-  disposeVehicle, hitch = null, patchMaterial = () => {} }) {
+  disposeVehicle, hitch = null, patchMaterial = () => {}, passengers = [], door = null }) {
   if (!vehicle?.getObjectByName || !driver?.root || !horse?.root
     || (typeof horse.advance !== 'function' && typeof horse.poseVehicle !== 'function') || typeof horse.stop !== 'function'
     || typeof disposeVehicle !== 'function') throw Error('town transport: real vehicle, seated driver, distance-driven horse and ownership required');
@@ -52,6 +52,8 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
   driver.root.position.set(...driverRootOffset_m);
   horse.root.position.set(...horseOffset_m);
   root.add(driver.root, horse.root);
+  // T-3557: people riding inside the cab (cab-passenger.js), on the vehicle as the driver is.
+  for (const p of passengers) if (p?.root) root.add(p.root);
   root.traverse(node => {
     if (!node.isMesh || node.material?.visible === false) return;
     node.castShadow = true; node.receiveShadow = true;
@@ -74,14 +76,18 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
     horse.root.position.set(pivot.x + c * dx + s * dz, horseOffset_m[1], pivot.z - s * dx + c * dz);
   };
   let priorHorse = null, stopped = true, disposed = false, visualReset = true;
-  let lastPose = null, posed = false;
+  let lastPose = null, posed = false, reducedMotion = false;
   return {
-    root,
+    root, door, passengers,
+    /** T-3557: prefers-reduced-motion for the door's swing (it is set, not swung). */
+    setReducedMotion(on) { reducedMotion = !!on; },
     audioAnchors: () => disposed ? null : audioAnchors(root, vehicle, horse),
     pose(pose) {
       if (disposed) return;
       lastPose = pose; posed = true;
-      root.position.set(pose.e, pose.height, -pose.n); root.rotation.y = pose.yaw;
+      root.position.set(pose.e, pose.height, -pose.n);
+      // T-3557: over a carriage drive's kerb ramp the coach pitches with its axles.
+      if (pose.pitch) root.rotation.set(pose.pitch, pose.yaw, 0, 'YXZ'); else root.rotation.set(0, pose.yaw, 0, 'XYZ');
       steer.rotation.y = steerRest + pose.steering;
       swing(pose.steering);
       if (!horse.poseVehicle) {
@@ -94,7 +100,8 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
       if (horse.poseVehicle) {
         horse.poseVehicle(pose); root.updateMatrixWorld(true);
         const connection = hitch?.update(pose);
-        if (connection?.valid === false) throw Error('town transport: actual hitch exceeds its declared connection bound');
+        // On an admitted ramp the traces stretch a little with the pitch; the road's bound stands.
+        if (connection?.valid === false && !pose.ramp) throw Error('town transport: actual hitch exceeds its declared connection bound');
         return;
       }
       const current = horse.root.getWorldPosition(horse.root.position.clone());
@@ -120,6 +127,9 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
       // turn) and whether the team is moving; a stopped carriage is still a ride.
       if (lastPose) driver.move?.(lastPose, posed && !stopped);
       driver.updateVisual(held || visualReset ? 0 : dt, held ? null : viewer);
+      // T-3557: a cab's passengers and door move on the same visual clock.
+      for (const p of passengers) p.update?.(held || visualReset ? 0 : dt, held ? null : viewer, lastPose, posed && !stopped);
+      door?.update(held ? 0 : dt, { reducedMotion });
       visualReset = held;
       // The reins follow his hands. A moving carriage re-fits them in pose() next
       // frame; a stopped one is not posed, so they are re-fitted here.
@@ -141,6 +151,8 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
       if (disposed) return;
       disposed = true; priorHorse = null;
       root.removeFromParent(); hitch?.dispose(); driver.dispose?.(); horse.dispose?.();
+      for (const p of passengers) { p.dispose?.(); p.root?.removeFromParent(); }
+      door?.dispose();
       // Remove independently owned skinned children before vehicle texture release.
       driver.root.removeFromParent(); horse.root.removeFromParent(); disposeVehicle();
     },
@@ -251,13 +263,20 @@ const TEAM_MARGIN_M = .3;
  * a driven team is refused the kerb by it. A scene without carriageway data passes none. */
 export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssembly = null, heightAt,
   clear, routeClear = clear, routeSupport = null, clearWhy = null, carriageway = null, detail = 'full',
-  reach = { full: 90, balanced: 60, light: 45 }, problems = [], onActorsChanged = () => {} }) {
+  reach = { full: 90, balanced: 60, light: 45 }, problems = [], onActorsChanged = () => {},
+  admit = null, pathHeightAt = null }) {
   // T-3542: a tier draws the teams when its reach is above zero; since the owner's ruling
   // (2026-11-10) Light's is, so a phone keeps its horses, carriages and wagons, nearer.
   const draws = t => (reach[t] ?? 0) > 0;
   if (!Array.isArray(rows) || typeof makeAssembly !== 'function' || typeof clear !== 'function') throw Error('town transport: scene rows, assembly loader and clearance reader required');
   if (prepareAssembly !== null && typeof prepareAssembly !== 'function') throw Error('town transport: optional assembly preparation callback required');
   if (carriageway !== null && typeof carriageway !== 'function') throw Error('town transport: optional carriageway reader must be a function');
+  // T-3557: `admit(row, from, to)` lets a driven team through what its road's rules refuse (the
+  // Glessner coach house's open doorway and drive); `pathHeightAt` is the ground off the road.
+  if (admit !== null && typeof admit !== 'function') throw Error('town transport: optional admission reader must be a function');
+  // T-3557: a row `on_call` (the Glessner brougham, waiting at its door as a parked carriage)
+  // is not loaded with the others: `summon(id)` brings it, `putAway(id)` lets it go again.
+  const summoned = new Set();
   const actors = [], roots = [];
   const saved = new Map();
   const pendingApproaches = new Map();
@@ -299,16 +318,27 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
     let self = null, word = null;
     const check = (from, to) => {
       word = null;
+      let admitted = false;
       if (!clear(row, from, to)) {
         let blocker = null;
         try { blocker = clearWhy?.(row) ?? null; } catch { blocker = null; }
-        word = blocker === 'visitor' ? 'someone in the way' : 'a wall';
-        heldByTeam.delete(row.id); return false;
+        // T-3557: off its round, a way the scene admits (the coach house's open doorway and
+        // drive) passes the walls it crosses; never a visitor, nor another team.
+        try { admitted = blocker !== 'visitor' && !!self && self.mode !== 'route' && admit?.(row, from, to) === true; } catch { admitted = false; }
+        if (!admitted) {
+          word = blocker === 'visitor' ? 'someone in the way' : 'a wall';
+          heldByTeam.delete(row.id); return false;
+        }
       }
       if (!teamsClear(row, self, from, to)) { word = 'another team'; heldByTeam.add(row.id); return false; }
       heldByTeam.delete(row.id);
-      if (self && self.mode !== 'route' && routeSupport && row.horse_offset_m) {
-        try { routeSupport(row, to); } catch { word = 'rough ground'; return false; }
+      // An admitted pose's hooves are the admitting way's to read (on its drive and floor). The
+      // way admits a pose where no wall refuses it too: on the drive the horses are over the walk
+      // and its ramp before the coach reaches the doorway, off the road's support domain.
+      if (!admitted && self && self.mode !== 'route' && routeSupport && row.horse_offset_m) {
+        let onWay = false;
+        try { onWay = admit?.(row, from, to) === true; } catch { onWay = false; }
+        if (!onWay) { try { routeSupport(row, to); } catch { word = 'rough ground'; return false; } }
       }
       return true;
     };
@@ -327,6 +357,7 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
         for (const row of rows) {
           if (disposed || ownGeneration !== generation) break;
           if (row.scene !== sceneId || failed.has(row.id) || actors.some(actor => actor.id === row.id)) continue;
+          if (row.on_call && !summoned.has(row.id)) continue;
           let assembly;
           try {
             const waiting = deferred.get(row.id);
@@ -355,9 +386,11 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
             const reading = liveClear(row);
             const actor = createTransportLoop({ ...liveRow, route, assembly, heightAt,
               clear: reading.check, why: reading.why, gate: crossingsFor().gateFor(row.id),
-              road: carriageway ? pose => carriageway(row, pose) : null });
+              road: carriageway ? pose => carriageway(row, pose) : null,
+              admit: admit ? (from, to) => admit(row, from, to) : null, pathHeightAt });
             reading.bind(actor);
             actor.updateVisual = assembly.updateVisual;
+            actor.assembly = assembly;
             // Consume only after this generation owns a successfully created actor.
             const approach = pendingApproaches.get(row.person_id);
             if (approach?.rowId === row.id) {
@@ -416,6 +449,7 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
         const away = hidden || (actor.mode !== 'staged' && offHours(rowById.get(actor.id)?.hours, hour));
         if (heldByTeam.has(actor.id) && actor.mode === 'route' && actor.state === 'stopped'
           && actor.reason === 'obstruction' && !away && !paused && actor.canResume()) actor.resume();
+        actor.assembly?.setReducedMotion?.(reducedMotion);
         actor.update(dt, { enabled: !away, drawn, paused, reducedMotion, elapsedFrame, motionFrame });
         // Synthetic visibility replays cannot prime the independent driver clock.
         if (!elapsedFrame || motionFrame) actor.updateVisual?.(visualDt, { paused: paused || reducedMotion || away, viewer: cameraPosition });
@@ -425,7 +459,9 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       tier = next;
       if (!draws(next)) {
         generation++; routeReadings.clear(); deferred.clear(); failed.clear();
-        for (const actor of actors) { saved.set(actor.id, actor.snapshot()); actor.dispose(); }
+        // An on-call team is put away (its stand's parked carriage takes its place), never saved.
+        for (const actor of actors) { if (!rowById.get(actor.id)?.on_call) saved.set(actor.id, actor.snapshot()); actor.dispose(); }
+        summoned.clear();
         actors.length = 0; roots.length = 0; onActorsChanged([]);
         const pending = load; load = null;
         if (pending) await pending;
@@ -445,6 +481,32 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       }
       return nearest;
     },
+    /** T-3557: bring an on-call row's team (loaded where its row starts); resolves to its actor or null. */
+    async summon(id) {
+      const row = rowById.get(id);
+      if (disposed || !row?.on_call || failed.has(id) || !draws(tier)) return null;
+      const live = out.actorById(id);
+      if (live) return live;
+      summoned.add(id);
+      load = null;
+      await out.ready();
+      return out.actorById(id);
+    },
+    /** T-3557: let an on-call team go (it is disposed; its parked carriage shows again). */
+    putAway(id) {
+      const row = rowById.get(id);
+      if (!row?.on_call) return false;
+      summoned.delete(id); saved.delete(id); deferred.delete(id);
+      const i = actors.findIndex(actor => actor.id === id);
+      if (i < 0) return false;
+      const [actor] = actors.splice(i, 1);
+      const r = roots.indexOf(actor.assembly?.root);
+      if (r >= 0) roots.splice(r, 1);
+      actor.dispose();
+      onActorsChanged([...actors]);
+      return true;
+    },
+    isOnCall(id) { return !!rowById.get(id)?.on_call; },
     /** T-3557: a scene's loaded team by its row id (the seat, the reins), or null. */
     actorById(id) { return disposed ? null : actors.find(actor => actor.id === id && !actor.disposed) ?? null; },
     driverForPerson(personId) { return actors.find(actor => actor.personId === personId) ?? null; },
@@ -454,7 +516,8 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       if (disposed || !['full', 'balanced'].includes(tier) || !personId) return null;
       const actor = out.driverForPerson(personId);
       if (actor && !actor.disposed) return { at: actor.at, yaw_rad: actor.snapshot().yaw_rad, actor };
-      const circuit = circuits.find(item => item.row.person_id === personId);
+      // An on-call team not brought round is not where its driver is (he stands at his post).
+      const circuit = circuits.find(item => item.row.person_id === personId && (!item.row.on_call || summoned.has(item.id)));
       const row = circuit?.row;
       if (!row?.driver_asset || row.driver_instance?.person_id !== personId
         || row.driver_instance?.interaction?.selectable !== true

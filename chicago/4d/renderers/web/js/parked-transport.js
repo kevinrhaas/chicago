@@ -173,6 +173,9 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
   // T-3439: Settings › Show › Carriages and horses. Hidden, no vehicle (nor the yard's old
   // stand-in it replaces) is drawn, fetched or picked.
   let shown = true;
+  // T-3557: parked vehicles another layer stands in for (the Glessner brougham while its driven
+  // twin is out, town-transport-scene.js): not drawn, picked or animated until given back.
+  const standIns = new Set();
   const ray = new THREE.Raycaster();
   const deferred = Number.isFinite(loadWithin) && loadWithin >= 0;
   const requested = new Set(), finished = new Set();
@@ -190,6 +193,24 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
       }
     },
     setFallback(callback) { fallback = callback; },
+    /** T-3557: hide (`shown` false) or give back one parked vehicle, its team and its pick. */
+    setStandIn(id, shownAgain) {
+      const had = standIns.has(id);
+      if (shownAgain === false) standIns.add(id); else standIns.delete(id);
+      const instance = instances.find(i => i.row.id === id);
+      if (instance && shownAgain === false) instance.group.visible = false;
+      if (had && shownAgain !== false && lastCamera) out.update(lastCamera);
+      return !!instance;
+    },
+    isStoodIn: id => standIns.has(id),
+    /** T-3557: a parked vehicle's stand: its root (ENU), bearing, rendered base and whether its team is up. */
+    standOf(id) {
+      const instance = instances.find(i => i.row.id === id);
+      const row = instance?.row ?? rows.find(r => r.id === id);
+      if (!row) return null;
+      return { id, at_local_enu_m: [...row.at_local_enu_m], bearing_deg: row.bearing_deg,
+        base_m: instance ? instance.group.position.y : null, team: !!instance?.team, loaded: !!instance };
+    },
     get shown() { return shown; },
     setShown(on) {
       shown = on !== false;
@@ -213,7 +234,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
         void load(row => horizontalDistance(camera, row) < within);
       }
       for (const instance of instances) {
-        const visible = (REACH[tier] ?? REACH.full) > 0
+        const visible = (REACH[tier] ?? REACH.full) > 0 && !standIns.has(instance.row.id)
           && camera.position.distanceTo(instance.group.position) < REACH[tier];
         instance.group.visible = visible;
         if (instance.team && horizontalDistance(camera, instance.row) > (REACH[tier] ?? 0) + (loadWithin ?? 0)) {

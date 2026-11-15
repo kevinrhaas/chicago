@@ -468,6 +468,8 @@ step "the named commandant gallery preserves its fifteen openings and clears the
   python3 tools/test_second_fort_commandants_gallery.py
 step "Glessner's front door swings open, and a visitor and a drawn person walk up its steps to it (T-3442)" \
   node tools/test_house_doors.mjs
+step "Glessner's coach-house doors swing, the man door lets people in, and a carriage drives in over its drive (T-3557)" \
+  node tools/test_coach_house.mjs
 step "John J. Glessner on his front walk is greeted, and goes home up his steps, through his door and in (T-3443)" \
   node tools/test_house_errands.mjs
 step "Walking people keep their Interact menu, explicit picks persist, and dismissal releases them (T-3543)" \
@@ -798,6 +800,8 @@ step "The shared interaction key and touch control stop and resume the existing 
   node tools/test_transport_interactions.mjs
 step "A visitor climbs up beside any driver, takes and hands back the reins, and gets down beside the team (T-3557)" \
   node tools/test_transport_boarding.mjs
+step "Ask the Glessner coachman for a ride: in beside Mr. Glessner, round the block, home to the coach house and out (T-3557)" \
+  node tools/test_glessner_ride.mjs
 step "Every person placed in town is named by the look tag, found, and followed beside them (T-3404)" \
   node tools/test_person_interaction.mjs
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \

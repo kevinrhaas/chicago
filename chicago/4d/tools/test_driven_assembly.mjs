@@ -441,10 +441,10 @@ function actualAssemblyCallback(code, catalog = null) {
   let gets = 0, nativeLoaderCalls = 0;
   const nativeLoader = options => { nativeLoaderCalls++; return async row => resolveHumanIdentity({ ...row.driver_instance, scene: row.scene }, { sceneId: '1904', people: options.people }); };
   const nativeHitch = () => {};
-  const make = new Function('modelFor', 'people', 'getPeople', 'makeByHorse', 'createDrivenAssemblyLoader', 'sceneId', 'config', 'humans', 'confidence', 'heightAt', 'supportByHorse', 'makeHitch', 'coarse', 'getAssemblyTools', `return (${method});`)(
+  const make = new Function('modelFor', 'people', 'getPeople', 'makeByHorse', 'createDrivenAssemblyLoader', 'sceneId', 'config', 'humans', 'confidence', 'heightAt', 'supportByHorse', 'makeHitch', 'coarse', 'getAssemblyTools', 'pathHeightAt', `return (${method});`)(
     row => row.horse_model, catalog, async () => { gets++; return actualPeople1904; }, new Map(), nativeLoader,
     '1904', actualRoutes, { assets: {} }, null, () => 0, new Map(), nativeHitch, false,
-    async () => ({ createDrivenAssemblyLoader: nativeLoader, makeHitch: nativeHitch, coatRecipe: null }));
+    async () => ({ createDrivenAssemblyLoader: nativeLoader, makeHitch: nativeHitch, coatRecipe: null }), null);
   return { make, get gets() { return gets; }, get nativeLoaderCalls() { return nativeLoaderCalls; } };
 }
 const lazy = actualAssemblyCallback(sceneBindingSource);
@@ -900,7 +900,14 @@ console.log('seated driver visual clock: stop, holds, range, Light restoration a
 
   // Both actual configured identities: no load at request, stop before publication,
   // no later automatic resume, and no change to the route/seat side-stand owner.
-  for (const row of config.rows) {
+  // T-3557: a team on call (the Glessner brougham, waiting as a parked carriage) is not where
+  // its coachman is until it is brought round: Go to finds him standing at his post instead.
+  for (const row of config.rows.filter(r => r.on_call)) {
+    const f = fixture(row);
+    assert.equal(f.town.driverAnchorForPerson(row.person_id), null, `${row.id}: on call, no driving anchor`);
+    assert.equal(f.town.isOnCall(row.id), true);
+  }
+  for (const row of config.rows.filter(r => !r.on_call)) {
     const f = fixture(row), original = JSON.stringify(row), visits = [];
     const cold = f.town.driverAnchorForPerson(row.person_id);
     const go = makeGo(f.town, { go(destination, callbacks) { visits.push({destination, callbacks}); return true; } });

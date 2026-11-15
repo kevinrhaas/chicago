@@ -1080,7 +1080,9 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
     /** T-3495: the person ids a jaunt keeps, or null when nobody is held. */
     get crowdKept() { return keep ? [...keep] : null; },
     /** T-3495: whether a jaunt is holding this figure out of the scene. */
-    isHeld(actor) { return !!actor && actors.has(actor.id) && !kept(actor); },
+    // T-3557: and a standing figure whose person a vehicle has taken (withhold: a coachman on
+    // his box, Mr. Glessner in his cab) is held too: not drawn, advanced, met or asked for.
+    isHeld(actor) { return !!actor && ((actors.has(actor.id) && !kept(actor)) || [...withheld.values()].some(t => t.actor === actor)); },
 
     /** Stand one figure in the group. Refuses a second instance of one person (§ 11). */
     add(instance, { person = null, profile = null, identity: validatedIdentity = null } = {}) {
