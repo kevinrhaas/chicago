@@ -1,4 +1,33 @@
 export const CHANGELOG = [ // newest first
+  { v: 2993, ts: '2026-11-15T04:49:57.521Z', date: 'Nov 14, 2026, 10:49 PM CT', title: 'The Fort Dearborn monument\'s tomahawk, musket, feathers and headdress as sculpted', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), the warrior\'s tomahawk is no longer a rod and a ball: it is a pipe tomahawk, its haft through his raised fist, the flat blade flaring out on its lower half and the bowl opposite.',
+      'Black Partridge wears a wide headband knotted at the crown, with a broad feather rising out of it and a long thin one streaming back, its end hooked, as both photographs show them.',
+      'His musket has a slim barrel, the lock, the trigger guard and a butt to its comb and toe, and lies outside his thigh where the photographs put it.',
+      'The warrior\'s feather and the fringed pouch at his hip are modelled too, in place of the spikes and the bar they were.',
+    ] },
+  { v: 2992, ts: '2026-11-15T04:25:50.618Z', date: 'Nov 14, 2026, 10:25 PM CT', title: '1823 Prairie\'s arched doorway under the stoop', kind: 'improvement',
+    items: [
+      'The Dent house at 1823 Prairie now has the round-arched basement doorway that both of its pictures show under the stoop\'s landing, about a metre across and closed by an iron grille.',
+    ] },
+  { v: 2991, ts: '2026-11-15T04:25:50.618Z', date: 'Nov 14, 2026, 10:25 PM CT', title: '1619 Prairie\'s card no longer claims a picture of it', kind: 'fix',
+    items: [
+      '1619 Prairie was marked as pictured on the 1886 Hamline and Farwell drawing. That plate shows only the edge of the house standing there in 1886, which the four-storey stone front of 1904 replaced. The card now grades the house as known from maps, and the drawing\'s side-by-side is kept on record.',
+    ] },
+  { v: 2990, ts: '2026-11-15T02:22:07.408Z', date: 'Nov 14, 2026, 8:22 PM CT', title: 'Climb aboard any carriage or wagon and drive the team', kind: 'feature',
+    items: [
+      'Walk up to a driven team in 1812, 1835 or 1904 and press Interact (R): Climb up beside the driver or coachman, or onto the 1812 fort wagon.',
+      'Take the reins: W/S or the arrow keys to go and whoa, A/D to steer. On a phone, the stick does it: up to go, down to whoa, sideways to steer.',
+      'Hand back the reins and the driver takes his team back to its round.',
+      'Get down from the bar at the bottom or the Interact key: the team pulls up and you step off beside it.',
+      'Riding and driving are play, not history: where you take a team is yours, not its driver\'s.',
+    ] },
+  { v: 2989, ts: '2026-11-15T00:41:07.793Z', date: 'Nov 14, 2026, 6:41 PM CT', title: 'Tidier code under the town, nothing on screen changed', kind: 'chore',
+    items: [
+      'Removed leftover code the app no longer used: unused helpers, values it worked out and threw away, and imports it never read.',
+      'The yard goods now share the business signs\' half-size phone picture instead of keeping a second copy of it.',
+      'Every year looks and behaves exactly as before, on phones and computers.',
+    ] },
   { v: 2988, ts: '2026-11-15T00:12:32.784Z', date: 'Nov 14, 2026, 6:12 PM CT', title: '1828 Prairie\'s stone range wears its channelled face', kind: 'improvement',
     items: [
       'The plain stone range south of 1828 Prairie\'s front bay is now laid in channelled stone, deep level joints about 45 cm apart with no upright joints, as the automobile photograph shows it. The bay beside it stays smooth. With that, both of 1828\'s photographs and both of 1824\'s match the model.',

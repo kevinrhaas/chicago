@@ -2002,7 +2002,6 @@ function zoneGlsl(zones, lakeShore = null) {
   // lakeshore.js softExtentWeight gives the sward, so neither draws a beach.
   zones = zones.filter((z) => z.extent?.kind !== 'lake_shore' || lakeShore);
   if (!zones.length) return '';
-  const F = ZONE_EDGE_RAMP_M.toFixed(1);
   const f = (v) => (Number.isInteger(v) ? v.toFixed(1) : String(v));
   const v3 = (c) => `vec3(${c.r.toFixed(6)}, ${c.g.toFixed(6)}, ${c.b.toFixed(6)})`;
   const blocks = zones.map((z) => (softExtentGlsl(z.extent) ? `
