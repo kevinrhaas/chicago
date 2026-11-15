@@ -752,6 +752,18 @@ const faceMask = (u, v) => {
       const after = person(late, 10);
       assert.deepEqual([of(late).length, worn([after]), sheetOf(after) === sheetOf(a[0]), timers.length], [1, [1], true, 0], 'one built afterwards wears it at once, with no other request');
 
+      // An arrival switches a face on only for a material that still holds that sheet: one
+      // whose uniforms have since been pointed at another sheet, or at none, would show the
+      // wrong picture, or the face's gain over no picture at all.
+      { const first = 'http://example.invalid/faces/first.jpg', other = 'http://example.invalid/faces/other.jpg';
+        const moved = person(first, 3), bare = person(first, 4), stays = person(first, 5), there = person(other, 6);
+        moved.chiFaceLib.value = sheetOf(there);
+        bare.chiFaceLib.value = null;
+        of(first)[0].ok(); await settle();
+        assert.deepEqual(worn([moved, bare, stays, there]), [0, 0, 1, 0], 'the first sheet arrives: only the one still holding it wears a face');
+        of(other)[0].ok(); await settle();
+        assert.deepEqual(worn([moved, bare, stays, there]), [0, 0, 1, 1], 'the other arrives: its own waiter wears it'); }
+
       // The first try is dropped, the second brings it: those built before the failure, during
       // the wait and after it all wear their faces, on the one texture they were given.
       const drop = 'http://example.invalid/faces/dropped.jpg', b = [person(drop, 11), person(drop, 12)];

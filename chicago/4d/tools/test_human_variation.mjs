@@ -300,6 +300,16 @@ let faceCensus = '';
   assert(F.faces.every(f => f.tone > 0.1 && f.tone < 0.7 && /^[a-z0-9_]+$/.test(f.id)) && new Set(F.faces.map(f => f.id)).size === F.faces.length);
   assert(Object.keys(F.bodies).length >= 35 && Object.values(F.bodies).every(b => b.gain.length === 3 && b.gain.every(g => g > 0.8 && g < 3) && b.tone_rgb.length === 3), 'every body has its gain');
   assert(F.younger_likelier > 0 && F.younger_likelier < 1 && F.lines.young === 1 && F.lines.middle < 1 && F.lines.old < F.lines.middle && F.lines.old > 0);
+  // A person's tone is read from the skin most bodies of their sex wear (a body recorded as
+  // neither sex is counted for neither), not from the body they happen to be drawn on.
+  { const most = (sex) => { const n = new Map();
+      for (const [id, b] of Object.entries(F.bodies)) if ((header.assets[id]?.sex ?? 'male') === sex) n.set(String(b.tone_rgb), (n.get(String(b.tone_rgb)) ?? 0) + 1);
+      const [first, second] = [...n].sort((a, b) => b[1] - a[1]);
+      assert(first && (!second || first[1] > second[1]), `one skin is worn by most ${sex} bodies`);
+      return first[0]; };
+    assert.deepEqual(Object.keys(F.person_tone_rgb).sort(), ['female', 'male']);
+    for (const sex of ['female', 'male']) assert.equal(String(F.person_tone_rgb[sex]), most(sex), `a ${sex} person's tone is the skin most ${sex} bodies wear`);
+    assert.notEqual(String(F.person_tone_rgb.male), String(F.person_tone_rgb.female)); }
   const thirds = ['young', 'middle', 'old'];
   const crowd = (over, n = 600) => Array.from({ length: n }, (_, k) => V.libraryFace(based, { key: `face_${k}`, assetId: 'bardwell_otis_1835', sex: 'male', age: 30, complexion: 'fair', ...over }));
   const count = (list, test) => list.filter(f => f && test(F.faces[f.index])).length;
@@ -346,15 +356,52 @@ let faceCensus = '';
     ['face_4', { assetId: 'child_boy_1904', sex: 'male', age: 8, complexion: 'light' }, 'young_lightskinned_female_2'],
     ['face_5', { assetId: 'bardwell_otis_1835', sex: 'male', age: 64, complexion: null }, 'onlytheghosts_old_male']])
     assert.equal(V.libraryFace(based, { key, ...ask })?.id ?? null, id, `${key}: the face this person has always had`);
-  // The body's own skin is one of the draw, as likely as its own tone is near the person's.
+  // The body's own skin is one of the draw, as likely as the person's tone is near itself
+  // under their complexion: by the person's tone (the skin most bodies of their sex wear), so
+  // the share is the same on a body of that skin and on one of another.
   { const luma = (rgb, tint = [1, 1, 1]) => 0.2126 * rgb[0] * tint[0] + 0.7152 * rgb[1] * tint[1] + 0.0722 * rgb[2] * tint[2];
-    const bell = d => Math.exp(-d * d / (2 * F.nearer_tone_likelier ** 2)), body = F.bodies.bardwell_otis_1835;
-    for (const complexion of ['fair', 'copper', null]) {
-      const tone = luma(body.tone_rgb, F.complexions[complexion]), own = bell(Math.log2(luma(body.tone_rgb) / tone));
-      const worn = F.faces.filter(f => f.sex === 'male' && f.age === 'young' && Math.log2(f.tone / tone) >= -F.never_darker_than && (!f.light_only || F.light_only_for.includes(complexion)));
-      const want = own / (own + worn.reduce((a, f) => a + bell(Math.log2(f.tone / tone)), 0)), n = 3000;
-      const got = crowd({ complexion }, n).filter(f => f === null).length / n;
-      assert(want > 0.1 && want < 0.5 && Math.abs(got - want) < 0.03, `${complexion}: ${(got * 100).toFixed(1)}% keep the body's own skin, the draw says ${(want * 100).toFixed(1)}%`);
+    const bell = d => Math.exp(-d * d / (2 * F.nearer_tone_likelier ** 2));
+    for (const [sex, usual, other] of [['male', 'bardwell_otis_1835', 'nelson_charles_1904_coachman'], ['female', 'potawatomi_woman_1812', 'flynn_mary_1835_dress_study']]) {
+      const skin = F.person_tone_rgb[sex];
+      assert.deepEqual(F.bodies[usual].tone_rgb, skin);
+      assert.notDeepEqual(F.bodies[other].tone_rgb, skin, `a ${sex} body of another skin than most`);
+      for (const complexion of ['fair', 'copper', null]) {
+        const tone = luma(skin, F.complexions[complexion]), own = bell(Math.log2(luma(skin) / tone));
+        const worn = F.faces.filter(f => f.sex === sex && f.age === 'young' && Math.log2(f.tone / tone) >= -F.never_darker_than && (!f.light_only || F.light_only_for.includes(complexion)));
+        const want = own / (own + worn.reduce((a, f) => a + bell(Math.log2(f.tone / tone)), 0)), n = 3000;
+        for (const assetId of [usual, other]) {
+          const got = crowd({ sex, complexion, assetId }, n).filter(f => f === null).length / n;
+          assert(want > 0.1 && want < 0.5 && Math.abs(got - want) < 0.03, `a ${sex}, ${complexion}, on ${assetId}: ${(got * 100).toFixed(1)}% keep the body's own skin, the draw says ${(want * 100).toFixed(1)}%`);
+        }
+      }
+    } }
+  // One person, one face, on every body they are drawn as: the three 1904 coachmen sit a box
+  // on one body and stand at their door on another of another skin. The face is the same; the
+  // gain that brings it to the skin around it is each body's own.
+  { const tones = new Map();
+    for (const [id, b] of Object.entries(F.bodies)) if (header.assets[id]?.sex === 'male' && !tones.has(String(b.tone_rgb))) tones.set(String(b.tone_rgb), id);
+    assert(tones.size >= 2, 'men are drawn on bodies of more than one skin');
+    assert.notDeepEqual(F.bodies.anonymous_working_driver_1904.tone_rgb, F.bodies.nelson_charles_1904_coachman.tone_rgb);
+    assert.notDeepEqual(F.bodies.anonymous_working_driver_1904.gain, F.bodies.nelson_charles_1904_coachman.gain);
+    let asked = 0, wearing = 0;
+    for (const complexion of [...Object.keys(F.complexions), null]) for (const age of [20, 34, 42, 50, 70]) for (let k = 0; k < 60; k++) {
+      const on = (assetId) => V.libraryFace(based, { key: `two_bodies_${k}`, assetId, sex: 'male', age, complexion });
+      const box = on('anonymous_working_driver_1904'), door = on('nelson_charles_1904_coachman');
+      asked++;
+      assert.equal(box?.id ?? null, door?.id ?? null, `two_bodies_${k}, ${age}, ${complexion}: one face on the box and at the door`);
+      if (!box) continue;
+      wearing++;
+      assert.deepEqual([box.gain, door.gain], [F.bodies.anonymous_working_driver_1904.gain, F.bodies.nelson_charles_1904_coachman.gain], 'each body its own gain');
+    }
+    assert(wearing > asked / 2);
+    // A kit made before the person's tone was recorded reads the body's skin, as it then did:
+    // it still hands faces out, and there the two bodies may differ.
+    for (const without of [undefined, null, {}, { male: [0.6, 0.3], female: 'no' }, { male: [0.6, NaN, 0.1] }]) {
+      const older = { ...based, header: { ...header, faces: { ...F, person_tone_rgb: without } } };
+      const on = (assetId, k) => V.libraryFace(older, { key: `two_bodies_${k}`, assetId, sex: 'male', age: 42, complexion: 'ruddy' })?.id ?? null;
+      const pairs = Array.from({ length: 400 }, (_, k) => [on('anonymous_working_driver_1904', k), on('nelson_charles_1904_coachman', k)]);
+      assert(pairs.filter(([a]) => a).length > 200, 'a kit with no person\'s tone still hands faces out');
+      assert(pairs.some(([a, b]) => a !== b), 'and reads the body\'s own skin, so two bodies may differ');
     } }
   // Tone: a freckled face only for the complexions the record names (fair, light, ruddy), not
   // by nearness of tone: a tan or olive person is near those faces and still takes none, and
@@ -379,6 +426,16 @@ let faceCensus = '';
     const any = Array.from({ length: 600 }, (_, k) => V.libraryFace(more, { key: `face_${k}`, assetId: 'bardwell_otis_1835', sex: 'male', age: 30, complexion: 'fair' }));
     assert(any.every(f => f?.id !== 'far_darker'), 'a fair man never takes a face far darker than he is');
     assert(Array.from({ length: 600 }, (_, k) => V.libraryFace(more, { key: `face_${k}`, assetId: 'bardwell_otis_1835', sex: 'male', age: 30, complexion: 'deep_brown' })).some(f => f?.id === 'far_darker'), 'a man of deep brown complexion may'); }
+  // The bar stands at one doubling of light, to the hair: of two faces added, one a little
+  // under a doubling darker than a fair man and one a little over, he may take the first and
+  // never the second.
+  { const tone = [0.2126, 0.7152, 0.0722].reduce((a, w, k) => a + w * F.person_tone_rgb.male[k] * F.complexions.fair[k], 0);
+    assert.equal(F.never_darker_than, 1);
+    const more = { ...based, header: { ...header, faces: { ...F, faces: [...F.faces,
+      { id: 'just_within', sex: 'male', age: 'young', tone: tone * 2 ** -0.97 }, { id: 'just_beyond', sex: 'male', age: 'young', tone: tone * 2 ** -1.03 }] } } };
+    const any = Array.from({ length: 1500 }, (_, k) => V.libraryFace(more, { key: `face_${k}`, assetId: 'bardwell_otis_1835', sex: 'male', age: 30, complexion: 'fair' })?.id);
+    assert(any.includes('just_within'), 'a face a little under one doubling darker may be his');
+    assert(!any.includes('just_beyond'), 'a face a little over one doubling darker never is'); }
   // None: a face fitted to pictures, a body the library does not know, a kit with no address or no library.
   const ask = { key: 'face_1', assetId: 'bardwell_otis_1835', sex: 'male', age: 30, complexion: 'fair' };
   for (const [why, k, over] of [['a face of its own', based, { own: true }], ['an unknown body', based, { assetId: 'c4d_fixture' }], ['a kit with no address', kit, {}],
@@ -406,30 +463,44 @@ let faceCensus = '';
     const grey = await figure('glessner_john_j_1904', 2), gv = V.personVariation({ kit: based, key: 'pa1904_grey_w_l', record: persons.pa1904_grey_w_l, assetId: 'glessner_john_j_1904' });
     V.applyVariation(grey, based, gv, { scope: 'full' });
     assert(grey.userData.chiLikenessSkin?.url && grey.userData.chiFaceSkin === undefined, 'a person with a sheet of their own wears it, and no face from the library'); }
-  // Everybody the scenes draw, each on the body they are drawn as: nobody recorded a man or a
+  // Everybody the scenes draw, on every body they are drawn as (a row of a household file, a
+  // figure of their own, or the driver of a carriage or wagon): nobody recorded a man or a
   // woman wears the other's face, nobody a face older than they are, a child a young woman's,
-  // and a freckled face only a fair, light or ruddy person.
+  // a freckled face only a fair, light or ruddy person; and a person drawn on two bodies wears
+  // one face on both.
   { const docs = new Map(), read = async (file) => { if (!docs.has(file)) docs.set(file, JSON.parse(await fs.readFile(new URL(file, here)))); return docs.get(file); };
-    let seen = 0, wear = 0;
+    const bodyOf = (doc, row) => row == null ? doc.appearance?.asset_id : doc.people?.find(p => p.person === row)?.asset_id ?? doc.rows?.find(r => r.id === row && r.driver_asset)?.driver_asset;
+    let seen = 0, wear = 0, twice = 0, own = 0, plain = 0;
     for (const [key, record] of Object.entries(persons)) {
-      const [file, row] = (record.drawn_as?.[0] ?? '').split('#');
-      if (!file) continue;
-      const doc = await read(file), assetId = row == null ? doc.appearance?.asset_id : doc.people?.find(p => p.person === row)?.asset_id;
-      if (!assetId) continue;
-      const v = V.personVariation({ kit: based, key, record, assetId, sceneYear: Number(record.scene) || null });
+      const worn = [];
+      for (const at of record.drawn_as ?? []) {
+        const [file, row] = at.split('#'), assetId = bodyOf(await read(file), row);
+        assert(assetId && F.bodies[assetId], `${key}: ${at} names a body the library knows`);
+        if (file.endsWith('loops.json')) assert.equal((await read(file)).rows.find(r => r.id === row).person_id, key, `${at} is driven by ${key}`);
+        const v = V.personVariation({ kit: based, key, record, assetId, sceneYear: Number(record.scene) || null });
+        worn.push(v.lib?.id ?? null);
+        if (!v.lib) continue;
+        const f = F.faces[v.lib.index], sex = record.sex ?? header.assets[assetId]?.sex ?? 'male', complexion = record.looks?.complexion?.drawn ?? null;
+        assert(!record.face?.values && !record.skin, `${key}: a person with a face or a sheet of their own takes none`);
+        assert.deepEqual(v.lib.gain, F.bodies[assetId].gain, `${key}: the gain of the body they are drawn on`);
+        const third = !Number.isFinite(v.age) || v.age < F.ages.middle_from ? 0 : v.age < F.ages.old_from ? 1 : 2;
+        assert(thirds.indexOf(f.age) <= third, `${key}, ${v.age}, wears a face older than they are (${f.id})`);
+        if (v.age < F.ages.child_under) assert(f.sex === 'female' && f.age === 'young', `${key}, a child, wears ${f.id}`);
+        else if (sex === 'male' || sex === 'female') assert.equal(f.sex, sex, `${key}, recorded ${sex}, wears ${f.id}`);
+        if (f.light_only) assert(F.light_only_for.includes(complexion), `${key}, of ${complexion ?? 'no'} complexion, wears the freckled ${f.id}`);
+      }
+      if (!worn.length) continue;
+      assert.equal(new Set(worn).size, 1, `${key} wears one face on every body they are drawn as (${worn.join(', ')})`);
       seen++;
-      if (!v.lib) continue;
-      wear++;
-      const f = F.faces[v.lib.index], sex = record.sex ?? header.assets[assetId]?.sex ?? 'male', complexion = record.looks?.complexion?.drawn ?? null;
-      assert(!record.face?.values && !record.skin, `${key}: a person with a face or a sheet of their own takes none`);
-      const third = !Number.isFinite(v.age) || v.age < F.ages.middle_from ? 0 : v.age < F.ages.old_from ? 1 : 2;
-      assert(thirds.indexOf(f.age) <= third, `${key}, ${v.age}, wears a face older than they are (${f.id})`);
-      if (v.age < F.ages.child_under) assert(f.sex === 'female' && f.age === 'young', `${key}, a child, wears ${f.id}`);
-      else if (sex === 'male' || sex === 'female') assert.equal(f.sex, sex, `${key}, recorded ${sex}, wears ${f.id}`);
-      if (f.light_only) assert(F.light_only_for.includes(complexion), `${key}, of ${complexion ?? 'no'} complexion, wears the freckled ${f.id}`);
+      if (worn.length > 1) twice++;
+      if (worn[0]) wear++; else if (record.face?.values || record.skin) own++; else plain++;
     }
+    for (const key of ['pa1904_armour_mrs_philip_d_c1900_joseph_daniels', 'pa1904_otis_f_r_c1900_hans_johnson', 'pa1904_pullman_mrs_george_m_c1900_henry_windish'])
+      assert.equal(persons[key].drawn_as?.length, 2, `${key}, a coachman, is drawn on the box and at his door`);
+    assert(twice >= 6, `${twice} people are drawn on two bodies`);
+    assert.equal(wear + own + plain, seen);
     assert(seen > 1000 && wear / seen > 0.6 && wear / seen < 0.85, `${wear} of ${seen} people drawn wear a face from the library`);
-    faceCensus = `${wear} of ${seen} drawn people wear a library face`; }
+    faceCensus = `${wear} of ${seen} drawn people wear a library face, ${plain} keep their body's own skin by the draw, ${own} have a face or a sheet of their own; ${twice} are drawn on two bodies`; }
 }
 
 // One variant per person and LOD: a second figure reuses it; freeing the source frees it.

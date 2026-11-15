@@ -101,9 +101,13 @@ export function likenessSkin(kit, variation) {
  * a younger one, each third younger `younger_likelier` as likely (a young atlas under the
  * drawn lines of age is what every body wore before); never an older face than the person; a
  * child's is a young woman's, which is smooth. Among those, one whose own measured tone is
- * nearer the person's, their body's skin under their recorded complexion, is likelier, by a
- * bell `nearer_tone_likelier` doublings of light wide; a face more than `never_darker_than`
- * doublings darker than the person is never theirs. A freckled face (`light_only`) is only
+ * nearer the person's is likelier, by a bell `nearer_tone_likelier` doublings of light wide; a
+ * face more than `never_darker_than` doublings darker than the person is never theirs. The
+ * person's tone is the skin most bodies of their sex wear (`person_tone_rgb`) under their
+ * recorded complexion, and not the skin of the body they are drawn on: a coachman drawn on the
+ * box of a carriage and at his own door is one person, and the body's tone gave one of them a
+ * face for each. What a face is multiplied by to meet the skin round it (`gain`) is still the
+ * body's own. A freckled face (`light_only`) is only
  * for a person whose recorded complexion is one of `light_only_for` (fair, light, ruddy):
  * nobody of another complexion, or with none recorded, takes one, however near in tone (a
  * bar by tone alone let one onto a woman of the 1812 gathering recorded light brown). The
@@ -121,11 +125,14 @@ export function libraryFace(kit, { key, assetId, sex, age, complexion = null, ow
   const third = !Number.isFinite(age) || age < F.ages.middle_from ? 0 : age < F.ages.old_from ? 1 : 2;
   const wears = child || sex !== 'male' ? 'female' : 'male';
   const tint = F.complexions?.[complexion] ?? [1, 1, 1];
-  const tone = LUMA.reduce((a, w, k) => a + w * body.tone_rgb[k] * tint[k], 0);
+  // A kit made before `person_tone_rgb` falls back on the body's skin, as it then read.
+  const given = F.person_tone_rgb?.[sex === 'male' ? 'male' : 'female'];
+  const skin = Array.isArray(given) && given.length === 3 && given.every(Number.isFinite) ? given : body.tone_rgb;
+  const tone = LUMA.reduce((a, w, k) => a + w * skin[k] * tint[k], 0);
   const bell = (d) => Math.exp(-d * d / (2 * F.nearer_tone_likelier * F.nearer_tone_likelier));
   const freckles = Array.isArray(F.light_only_for) ? F.light_only_for : [];
   // The body's own skin first, then each face that may be worn, each with its likelihood.
-  const draw = [[-1, bell(Math.log2(LUMA.reduce((a, w, k) => a + w * body.tone_rgb[k], 0) / tone))]];
+  const draw = [[-1, bell(Math.log2(LUMA.reduce((a, w, k) => a + w * skin[k], 0) / tone))]];
   F.faces.forEach((f, i) => {
     const younger = third - THIRDS.indexOf(f.age);
     if (f.sex !== wears || younger < 0 || younger > third) return;

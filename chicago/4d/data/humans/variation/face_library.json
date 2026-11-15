@@ -49,7 +49,7 @@
    "ruddy"
   ],
   "seed": "chicago4d:face-library:v1:",
-  "basis": "Who may wear which, all of it ours. A person takes a face of their own sex, and of their age's third (young under 36, middle-aged under 60, old from there) or of a younger one, each third younger half as likely: a young atlas on an older person is what every body wore before, the lines of age drawn over it. Nobody takes a face older than they are. A child under 13 takes a young woman's, which is smooth. Among those, a face whose own measured tone is nearer the person's (their body's skin under their recorded complexion) is likelier, by a bell one doubling of light wide; a face more than a doubling darker than the person is never taken. A freckled face (`light_only`) is only for a person whose recorded complexion is fair, light or ruddy (`light_only_for`); nobody of another complexion, or with none recorded, takes one. The body's own skin stands in the draw as one more face. The pick is seeded by the person's id, so it is the same on every visit. `lines`: how much of the drawn age lines (human-skin.js) a face keeps, by the face's own age, the middle-aged and old atlases having painted their own."
+  "basis": "Who may wear which, all of it ours. A person takes a face of their own sex, and of their age's third (young under 36, middle-aged under 60, old from there) or of a younger one, each third younger half as likely: a young atlas on an older person is what every body wore before, the lines of age drawn over it. Nobody takes a face older than they are. A child under 13 takes a young woman's, which is smooth. Among those, a face whose own measured tone is nearer the person's is likelier (the person's tone is the skin most bodies of their sex wear, `texture.person_tone`, under their recorded complexion; a person recorded as neither sex is read as a woman, as for the face they wear; it is not the skin of the body they happen to be drawn on, so a person drawn on two bodies of different skins wears one face on both), by a bell one doubling of light wide; a face more than a doubling darker than the person is never taken. A freckled face (`light_only`) is only for a person whose recorded complexion is fair, light or ruddy (`light_only_for`); nobody of another complexion, or with none recorded, takes one. The body's own skin stands in the draw as one more face. The pick is seeded by the person's id and reads nothing of the body, so it is the same on every visit and on every body the person is drawn as; only the gain that brings the face to the skin around it is the body's own. `lines`: how much of the drawn age lines (human-skin.js) a face keeps, by the face's own age, the middle-aged and old atlases having painted their own."
  },
  "left_out": {
   "basis": "The three packs hold 59 skins by their own records (kept beside the cuts as <pack>.original.json) and 22 are kept. What each of the other 37 was left out for, by our own look at its face (2026-11-14) except where a row says it was not looked at. The seven darkest were cut and tried and are the ones to come back for: brought to the tone of the bodies' skin and laid under the app's complexions their faces came out lighter and yellower than the neck beside them, with pale lips, the dark stubble painted round each face having entered the measure of where face meets skin. So the library holds no face painted for a dark skin yet: a person of dark complexion wears the same faces as everyone else under their own complexion, as they wore the bodies' one skin before. That is a gap in the library, not a ruling about anybody.",
@@ -80,7 +80,7 @@
      "young_asian_female",
      "middleage_asian_male"
     ],
-    "why": "the same painting as one that is kept (young_caucasian_male2, young_caucasian_female2 and middleage_caucasian_male in turn), painted again only at the upper eyelids and the nostrils: cut and compared on 2026-11-14, the two of each pair differ inside the mask by 0.5, 2.3 and 2.0 levels of 255 on average, nearer than any two faces that are kept (2.6 at the nearest; the middle of all the kept pairs is 13). tools/face_library.py --check holds that no two kept faces are nearer than 2.4. They were kept at first, and the one painting was then twice as likely to be drawn as any other. Which of a pair is kept is by the pack's order of its files, not by its name for either"
+    "why": "the same painting as one that is kept (young_caucasian_male2, young_caucasian_female2 and middleage_caucasian_male in turn), painted again only at the upper eyelids and the nostrils: cut and compared on 2026-11-14, the two of each pair differ inside the mask by 0.5, 2.3 and 2.0 levels of 255 on average, nearer than any two faces that are kept (2.6 at the nearest; the middle of all the kept pairs is 13). tools/face_library.py --check holds that no two kept faces are nearer than 2.4. They were kept at first, and the one painting was then twice as likely to be drawn as any other. Of each pair the one kept is the atlas with the lower number in its own file name, not the pack's name for either: young_lightskinned_male_diffuse2.png kept and young_lightskinned_male_diffuse3.png left out, young_lightskinned_female_diffuse2.png and young_lightskinned_female_diffuse3.png, middleage_lightskinned_male_diffuse.png and middleage_lightskinned_male_diffuse2.png (the left-out files' names as the pack was downloaded on 2026-11-14; those files are not kept here). An earlier wording of this row said the pack's order of its files decided it; in the pack's own record the left-out skin comes first in all three pairs"
    },
    {
     "pack": "skins01",
@@ -963,6 +963,26 @@
      0.3313,
      0.1648
     ]
+   }
+  },
+  "person_tone": {
+   "male": {
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ],
+    "bodies": 17,
+    "of": 19
+   },
+   "female": {
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ],
+    "bodies": 13,
+    "of": 14
    }
   },
   "complexions": {

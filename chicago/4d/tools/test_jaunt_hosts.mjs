@@ -242,11 +242,18 @@ console.log('PASS human-days takes a host out of her day, out by the nearest doo
   assert.equal(john.indoors, false, 'his day (away at the office) leaves the host at his mark');
   // And jaunt-hosts never walks a figure with a day by hand when the days cannot find them.
   const lost = figure('lost', { instance: { behaviour: { day: [{ spans: [{ from: 0, to: 24, indoors: true, where: 'x' }] }] } } });
-  const h = createJauntHosts({ humans: { get: () => lost }, days: { host: () => ({ ok: false, why: 'no such person' }) } });
+  // (A router that plans, so it is the rule that stops the walk and not the want of a way.)
+  const h = createJauntHosts({ humans: { get: () => lost }, days: { host: () => ({ ok: false, why: 'no such person' }) }, router: planned });
   h.sync([{ person: 'lost', local_e: 1, local_n: 1 }], { stand: { e: 1, n: 3 } });
   assert.deepEqual(h.active, [], 'not taken as dayless');
   assert.deepEqual(h.waiting, ['lost'], 'still wanted, retried by update');
   assert.equal(lost.jauntHost, undefined);
+  assert.equal(lost.path ?? null, null, 'and not set walking');
+  // The same figure with no day of their own is walked by hand, by the same router.
+  const dayless = figure('dayless');
+  const h0 = createJauntHosts({ humans: { get: () => dayless }, days: { host: () => ({ ok: false, why: 'no such person' }) }, router: planned });
+  h0.sync([{ person: 'dayless', local_e: 1, local_n: 1 }], { stand: { e: 1, n: 3 } });
+  assert.deepEqual([h0.active, dayless.jauntHost, dayless.path?.pts.at(-1)], [['dayless'], true, { e: 1, n: 1 }], 'a figure with no day is taken by hand and walked to the mark');
 }
 console.log('PASS a host with a day is found before the first frame, and is never walked by hand as dayless');
 
