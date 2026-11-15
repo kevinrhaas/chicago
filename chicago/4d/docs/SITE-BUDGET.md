@@ -172,7 +172,7 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 45.2 MB**, consciously re-budgeted on 2026-11-14 by T-3599 for four days of the owner's people and town code past § 18's room (§ 4n). It had been set at 44.9 MB on 2026-11-10 for the early masonry maps (§ 18), after the measured retained street (§ 4m). It was re-set to 40.2 MB on 2026-11-06 by T-3425 for five days of the
+**The boot payload budget is 45.5 MB**, consciously re-budgeted on 2026-11-15 by T-3605 for the 19 stores and blocks of Gifford's Tremont House drawing that the owner asked for (§ 4o). It had been set at 45.2 MB on 2026-11-14 by T-3599 for four days of the owner's people and town code past § 18's room (§ 4n). It had been set at 44.9 MB on 2026-11-10 for the early masonry maps (§ 18), after the measured retained street (§ 4m). It was re-set to 40.2 MB on 2026-11-06 by T-3425 for five days of the
 owner's town past T-3300's room (§ 4l). T-3300 had set it at 39.6 MB on 2026-11-01 for two weeks of the
 owner's town landing unmeasured (§ 4k). T-2711 had set it at 36.2 MB on 2026-10-17 for the prebuilt
 yards (§ 4j). T-2710 had set it at 33.7 MB the same day for the prebuilt streets (§ 4i), and
@@ -188,9 +188,9 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 45.2 MB budget
-node tools/measure_boot_payload.mjs --against docs/measurements/T-3599-boot-payload-entries.json
-                                           # what grew since § 4n's reading, file by file
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 45.5 MB budget
+node tools/measure_boot_payload.mjs --against docs/measurements/T-3605-boot-payload-entries.json
+                                           # what grew since § 4o's reading, file by file
 ```
 
 The nightly `chicago-4d-bake.yml` enforces this with `--check` in the desktop
@@ -830,10 +830,35 @@ the prebuilt layers: modules the 1835 street imports eagerly that a first visit 
 ticket, and the reading to beat is this one:
 `node tools/measure_boot_payload.mjs --against docs/measurements/T-3599-boot-payload-entries.json`.
 
+### 4o. The Gifford street faces, measured 2026-11-15 (T-3605), and the budget is 45.5 MB
+
+The content build's desktop `1-2` leg went red on PR #2093 (run 43766993479): **BOOT PAYLOAD OVER
+BUDGET, 45.264 MB > 45.200 MB**. Re-read on the branch, published by `publish.sh` and measured by
+`--check`, it is **45.264 MB across 1,255 requests** (47,463,203 wire bytes), the same to the byte
+on two runs. Against § 4n's reading (`T-3599-boot-payload-entries.json`) it is +0.328 MB:
+
+| | on the wire | where it came from |
+|---|---|---|
+| this PR's 19 roofs | +0.122 MB | the `recon_1835_gifford_*` GLBs, 0.006 MB each: the 16 stores and 3 blocks the owner asked to have built from Gifford's drawing of the Tremont House street ("photo match build the rest of that street face") |
+| a day of dev | +0.206 MB | the people's records (`hm08_variation_persons.json` +0.058 MB), the yards layer (+0.044 MB), and new and grown walk code (team-drive, today-view, transport loops and the people's modules), less the sidecars and frontage (−0.038 MB) |
+
+Nothing in it is a careless import or an unmetered fetch (§ 4b's test): every arrival is a roof
+the 1835 street shows where the visitor stands, or code and records dev had already merged. The
+roofs are the parcel itself, so under AGENTS.md's ruling on budgets ("just raise it", never
+silently, measure then move) this is **a conscious re-budget, not an assertion weakened to clear a
+red: 45.264 MB measured plus 0.236 MB of room, 45.5 MB.** The check, its unit and the measurement
+are unchanged.
+
+**Said plainly, what 45.5 surrenders.** The owner's next pick spreads the drawing's density over
+the commercial core (about 60 stores), and at 0.006 MB a roof that is roughly 0.4 MB more, past
+this room. That parcel takes its own number before it deals and argues its own re-budget here;
+this one is not raised ahead of it. The reading to beat is this one:
+`node tools/measure_boot_payload.mjs --against docs/measurements/T-3605-boot-payload-entries.json`.
+
 ## 5. What the gate does now
 
 - **Refuses** over 416 MiB (T-3170; measured re-budgets in §8, §9, §11 and §13) — the repository-hygiene guard, not the visitor-cost
-  budget; the visitor-cost budget is the 45.2 MB boot payload budget in § 4,
+  budget; the visitor-cost budget is the 45.5 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
   the report again.
