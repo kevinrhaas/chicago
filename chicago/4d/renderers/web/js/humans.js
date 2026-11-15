@@ -34,6 +34,7 @@ import * as THREE from 'three';
 import { resolveHumanIdentity, humanRoleCard } from './human-identity.js';
 import { createHumanLife, POSTURES } from './human-life.js';
 import { createHumanActions } from './human-actions.js';
+import * as fightMotions from './human-fight.js';
 import { createHumanGait } from './human-gait.js';
 import { createHumanSkirt } from './human-skirt.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -463,7 +464,7 @@ export class HumanActor {
     // T-3523: a soldier's musket is carried in a held hand, as a basket is.
     carry ??= garrisonCarry(next.garrison);
     if (this.actions) this.actions.bind(next.scene);
-    else this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene, greeting: dressed ? 'nod' : 'brow', skirt: dressed, carry });
+    else this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene, greeting: dressed ? 'nod' : 'brow', skirt: dressed, carry, fightMotions });
     if (this.gait) this.gait.bind(next.scene);
     else {
       // Who walks: this person's sex and age where the variation kit drew them (T-3412).

@@ -107,7 +107,8 @@ export function likenessSkin(kit, variation) {
  * boy's the men's, everybody else's the women's) under their recorded complexion, and not the
  * skin of the body they are drawn on: a coachman drawn on the box of a carriage and at his own
  * door is one person, and the body's tone gave one of them a face for each. What a face is
- * multiplied by to meet the skin round it (`gain`) is still the body's own. The sex and the
+ * multiplied by to meet the skin round it (`gain`) is still the body's own, or, for a person
+ * who wears another body's skin on this one (`skinOf`, skinEven), that body's. The sex and the
  * age are the caller's: personVariation gives the record's, and the body's where the record
  * has none (nearly two in five of the people drawn have no sex recorded, a tenth no age), so for
  * them it is the records, which draw a person on bodies of one sex and size, that keep one
@@ -123,7 +124,7 @@ export function likenessSkin(kit, variation) {
  * `lines` is what the face keeps of the drawn age lines, by the face's own age.
  */
 const LUMA = [0.2126, 0.7152, 0.0722], THIRDS = ['young', 'middle', 'old'];
-export function libraryFace(kit, { key, assetId, sex, age, complexion = null, own = false }) {
+export function libraryFace(kit, { key, assetId, sex, age, complexion = null, own = false, skinOf = null }) {
   const F = kit?.header?.faces, body = F?.bodies?.[assetId];
   if (!F || !body || !kit.base || own || !Array.isArray(F.faces)) return null;
   const child = Number.isFinite(age) && age < F.ages.child_under;
@@ -150,8 +151,25 @@ export function libraryFace(kit, { key, assetId, sex, age, complexion = null, ow
   if (index < 0) return null;
   try {
     return { url: new URL(F.map, kit.base).href, index, id: F.faces[index].id, cols: F.cols, size_px: F.size_px, tile_px: F.tile_px,
-      gain: body.gain.slice(), lines: F.lines?.[F.faces[index].age] ?? 1 };
+      gain: (skinEven(kit, assetId, skinOf) ? F.bodies[skinOf] : body).gain.slice(), lines: F.lines?.[F.faces[index].age] ?? 1 };
   } catch { return null; }
+}
+
+/**
+ * T-3553: what the skin of the body a person is drawn on is multiplied by to be the skin of
+ * the body they wear it from (`skin_of`, tools/human_variation_kit.py), linear RGB; null where
+ * it is the same body, or either is one the library does not know. The owner, 2026-11-15, of
+ * the 1904 coachmen, each drawn on the box of his carriage and at his door on a body of a
+ * lighter skin: one skin on both bodies. It is the ratio of the two skins where they meet the
+ * library's face (each body's `gain`), so the skin round a face is the same on both; the face
+ * itself is multiplied by the gain of the body the skin is from (libraryFace), and is the same
+ * face on both. human-skin.js multiplies the body's skin by it (`chiSkinEven`).
+ */
+export function skinEven(kit, assetId, skinOf) {
+  const B = kit?.header?.faces?.bodies, from = B?.[skinOf], on = B?.[assetId];
+  if (!skinOf || skinOf === assetId || !from || !on) return null;
+  const even = from.gain.map((g, k) => g / on.gain[k]);
+  return even.every((x) => Number.isFinite(x) && x > 0) ? even : null;
 }
 
 /**
@@ -268,7 +286,10 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     skin: face?.values && record?.skin ? record.skin : null,
     // ...or, with no fitted face, a face from the library (libraryFace): by the record's sex
     // and age, and the body's where the record has none; nothing of the body's skin.
-    lib: libraryFace(kit, { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, complexion: record?.looks?.complexion?.drawn ?? null, own: !!face?.values }) };
+    lib: libraryFace(kit, { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, complexion: record?.looks?.complexion?.drawn ?? null, own: !!face?.values, skinOf: record?.skin_of ?? null }),
+    // ...and, for a person drawn on bodies of more than one skin, this body's skin brought to
+    // the one they wear on all of them (skinEven).
+    even: face?.values && record?.skin ? null : skinEven(kit, assetId, record?.skin_of ?? null) };
 }
 
 /** The axes a scope may use. */
@@ -762,6 +783,8 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
   if (like) scene.userData.chiLikenessSkin = like;
   // ...and a face from the library for a person with none of their own (libraryFace).
   else if (variation.lib) scene.userData.chiFaceSkin = variation.lib;
+  // ...and the skin of the body they wear on every body they are drawn on (skinEven).
+  if (!like && variation.even) scene.userData.chiSkinEven = variation.even.slice();
   // ...and who this is (a person's id, or an unnamed figure's own): human-skin.js draws an
   // unnamed figure's teeth and the run of its talk by it, so two strangers differ.
   if (typeof variation.key === 'string') scene.userData.chiVariationKey = variation.key;
