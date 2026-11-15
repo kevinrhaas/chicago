@@ -27175,14 +27175,19 @@ window, the porch's columns, entablature and balcony, the mansard and its dormer
 Every height rests on the camera's distance (its `solve`).
 **What is invented.** The walls' thickness and the brick's tone (the print is monochrome); the
 mansard's deck and its pitch; the eave's overhang; the treads; the rear and north walls' windows
-(no picture sees them); the stacks' places; the rainwater; the sash pattern; the rear range's storeys,
-windows and flat deck.
+(no picture sees them); the north stack's place; the rainwater; the sash pattern; the rear range's
+lower-storey and rear windows and flat deck. (T-1886, 2026-11-15: the rear range's height and upper
+lights and the south stack's place on the cornice are read off the 1874 Land Owner engraving through
+its camera, `data/reference_views/henderson_house_1816_prairie/landowner_1874.json`, and are no
+longer invented.)
 **What is not built.** The raised crown over the front's south end, the south bay's own mansard and
 dormers, the cresting, the pedimented dormers, the carved hoods and capitals, the balcony's pierced
 panels, the fence's scrolled panels, and the porch's place about 1 m south of the trace's in the
 print: open on the match record for T-2964.
 **How to resolve:** T-2964 builds those, reads the 1874 Land Owner engraving through a camera of its
-own, and brings both match records to `matches`.
+own, and brings both match records to `matches`. (Done by T-1886 on 2026-11-15: the engraving's camera is solved and both
+records read `matches`; the raised front crown, cresting, balcony and fence the photograph shows and
+the engraving does not are argued there as alterations after 1874.)
 **Covers:** `henderson_house_1816_prairie.as_mapped_1904.form.wall_thickness_front_m`, `henderson_house_1816_prairie.as_mapped_1904.form.wall_thickness_side_m`, `henderson_house_1816_prairie.as_mapped_1904.form.service_wall_brick`, `henderson_house_1816_prairie.as_mapped_1904.form.roof_pitch_deg`, `henderson_house_1816_prairie.as_mapped_1904.form.eave_overhang_m`, `henderson_house_1816_prairie.as_mapped_1904.form.stair_tread_m`, `henderson_house_1816_prairie.as_mapped_1904.form.rear_bays`, `henderson_house_1816_prairie.as_mapped_1904.form.north_bays`, `henderson_house_1816_prairie.as_mapped_1904.form.chimneys`, `henderson_house_1816_prairie.as_mapped_1904.form.rainwater`, `henderson_house_1816_prairie.as_mapped_1904.form.window_kit`
 **Ticket:** T-2963 (piece 1 of T-1886).
 **Review:** `docs/RESEARCH/k01-1816-henderson-2963/README.md`.

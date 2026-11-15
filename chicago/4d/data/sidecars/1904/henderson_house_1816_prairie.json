@@ -319,8 +319,9 @@
         "cap_depth_m": 0.15,
         "stacks": [
           {
-            "u_m": 9.0,
-            "v_m": 1.2
+            "u_m": 8.6,
+            "v_m": 0.1,
+            "on_cornice": true
           },
           {
             "u_m": 3.0,
@@ -329,7 +330,7 @@
         ]
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: the photograph shows one tall stack behind the front's south end; it is placed on the south wall's inner face, and a second on the north wall, which no picture sees."
+      "note": "RECONSTRUCTED: the photograph shows one tall stack behind the front's south end; a second stands on the north wall, which no picture sees. The south one's place and form are read off both pictures (T-1886, 2026-11-15): the 1874 Land Owner engraving draws it as a breast rising from the south flank's cornice straight up the main mansard's south face to stand over the deck, its shaft about x 302-325 px through that picture's camera, and the photograph draws its shaft over the flank crown about x 450-500 px. So it stands on the cornice astride the south wall (on_cornice, T-2406, as 1620's engraved front stack), rising from the wall head, at u 8.6, v 0.1, where it draws at about x 313 and 468 through the two cameras: 0.4 m west of and 1.1 m nearer the flank than the reconstruction's stack on the wall's inner face (u 9.0, v 1.2). Its section and height stay the kit's."
     },
     "rainwater": {
       "value": {
@@ -887,21 +888,21 @@
             5.02,
             12.62
           ],
-          "floor_m": 2.0,
+          "floor_m": 1.0,
           "storey_heights_m": [
-            4.0,
-            3.6
+            3.0,
+            3.2
           ],
           "sash_by_storey": [
             {
               "sill_above_floor_m": 0.75,
               "width_m": 1.0,
-              "height_m": 2.3
+              "height_m": 2.0
             },
             {
-              "sill_above_floor_m": 0.7,
+              "sill_above_floor_m": 0.4,
               "width_m": 1.0,
-              "height_m": 1.9
+              "height_m": 1.6
             }
           ],
           "windows": {
@@ -924,9 +925,10 @@
       ],
       "confidence": "inferred",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_28"
+        "sanborn_1911_chicago_v3_sheet_28",
+        "land_owner_1874_05_homes_of_chicago_1816_henderson"
       ],
-      "note": "The 1911 sheet's rear range behind the main body (s28fp-1816-b1 p2, 'rear2B': u 22.4 to 34.3 m and v 0.3 to 7.9 m in the lot's frame), two storeys under a flat tin deck; no picture shows it, so its storeys, windows and roof are reconstructed. The sheet's small step between it and the south flank (about 2.1 by 3.2 m) is left to T-2964."
+      "note": "The 1911 sheet's rear range behind the main body (s28fp-1816-b1 p2, 'rear2B': u 22.4 to 34.3 m and v 0.3 to 7.9 m in the lot's frame), two storeys over a basement under a flat tin deck. Its HEIGHT is read off the one picture that shows it, the Land Owner's engraving of May 1874 (T-1886), through that picture's solved camera (data/reference_views/henderson_house_1816_prairie/landowner_1874.json): the range stands to the left of the south flank's canted bay, its south face lit, under a moulded cornice whose top draws at y 393 px where grade on that face draws at about y 570, about 7.5 m over grade at 23.5 px/m; its upper storey's one visible light draws from y 430 to 470, a sill about 4.3 m and a head about 6.0 m over grade; its lower storey is hidden by the board fence along the lot line. So the range stands lower than the main body, its basement 1.0 m out of the ground, the principal storey 3.0 m and the upper 3.2 m to a wall head at 7.2 m under the deck's 0.3 m fascia, the upper lights 0.4 m over their floor and 1.6 m high, which put them on the engraving's (the reconstruction had carried the main body's 2.0 m floor and stood it at 9.6 m). The floors are fitted to the engraving's two readings and are good to about half a metre; the lower storey's lights, the rear wall's, the plan and the flat deck are still the reconstruction's (L-k01-1816-henderson-2963). The engraving draws the range's south-west corner about 8 m behind the main body where the 1911 sheet draws 11.9 m: the sheet's plan is kept (the match record)."
     },
     "yard": {
       "value": {
@@ -1023,6 +1025,26 @@
       ]
     },
     {
+      "source_id": "land_owner_1874_05_homes_of_chicago_1816_henderson",
+      "citation": "'C. M. Henderson.' Wood engraving of the Charles M. Henderson residence, 1816 Prairie Avenue, Chicago, from the oblique front, in 'The Homes of Chicago', The Land Owner (Chicago: J. M. Wing), May 1874; unknown engraver. Reproduced on chicagology.com, Prairie Avenue, 1816 S. Prairie.",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1816prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the rear range's height and its upper storey's lights, the only picture of it",
+        "the house as first built: the mansard without the raised front crown, cresting, balcony or fence the later photograph shows",
+        "the south flank's single upper-storey light and its canted bay's mansard and dormer, against the photograph's",
+        "the south stack's place on the flank"
+      ],
+      "what_it_does_not_supply": [
+        "colour: the engraving is monochrome",
+        "the front between the corner and the entrance, behind a tree",
+        "the north wall and the rear",
+        "what changed between 1874 and 1904: the later photograph and the 1911 sheet are read for that"
+      ]
+    },
+    {
       "source_id": "sanborn_1911_chicago_v3_sheet_28",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
       "url": "https://www.loc.gov/item/sanborn01790_020/",
@@ -1043,7 +1065,7 @@
       ]
     }
   ],
-  "research_note": "Refined from the district draft (T-2329) in place by T-2963 (piece 1 of T-1886), under the draft's own id, as a K01 brick frontage read off the one photograph of the house (chicagology_1816_henderson_photo, undated, after 1873) against the 1911 sheet's plan: the front block with its canted front bay and the porch beside it, the canted bay on the south flank, the rear range, and the mansard. The photograph's camera and match record are in data/reference_views/henderson_house_1816_prairie/; what it shows that is not built yet is open there for T-2964, with the 1874 Land Owner engraving.",
+  "research_note": "Refined from the district draft (T-2329) in place by T-2963 (piece 1 of T-1886), under the draft's own id, as a K01 brick frontage read off the one photograph of the house (chicagology_1816_henderson_photo, undated, after 1873) against the 1911 sheet's plan: the front block with its canted front bay and the porch beside it, the canted bay on the south flank, the rear range, and the mansard. The photograph's camera and match record are in data/reference_views/henderson_house_1816_prairie/; what it shows that is not built yet is open there for T-2964, with the 1874 Land Owner engraving. The 1874 Land Owner engraving (land_owner_1874_05_homes_of_chicago_1816_henderson) has its own camera and match record there since T-1886 (2026-11-15): it gives the rear range's height and the south stack's place on the cornice, and draws the house before its raised front crown, cresting, balcony and fence.",
   "research_doc": "",
   "review_required": false
 }
