@@ -415,7 +415,7 @@ export function polygonSamples(poly, step = 0.05, grid = 0.25) {
 export function createCoachHouse({ registry, buildings, footprints = [], decks = [], interactions = null,
   visitor = null, carriageways = [], drives = [], reducedMotion = () => false, confidence = null, problems = [] } = {}) {
   const record = registry?.get?.('glessner_house');
-  const plan = record?.sidecar ? glessnerCoachPlan(record.sidecar) : null;
+  const plan = !record?.sidecar ? null : glessnerCoachPlan(record.sidecar);
   if (!plan) return null;
   const matrix = buildings?.matrixOf?.(record.id)?.clone?.() ?? null;
   if (!matrix) {
