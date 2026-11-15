@@ -2667,8 +2667,18 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                      f"same wall (`over_corner`: of, corner left or right), its base_m one of "
                                      f"that projection's storey lines {lines}")
                 over = (host, oc["corner"])
+            # T-1894: or on the principal floor, where its corbel courses (or its apron's foot)
+            # still clear grade by a metre (1823's box bay on the north flank, the engraving's
+            # corbelled foot at about 1.8 m under its broad light), so the basement wall and its
+            # light stand under it
             elif not any(abs(base - y) < 1e-6 for y in floors[1:]):
-                raise ParamError(f"bays: {e['id']} is an oriel; its base_m stands on one of the upper floors {floors[1:]}")
+                low = (float(e["apron"]["foot_m"]) if "apron" in e else
+                       base - int((e.get("corbel") or v.get("corbel") or {}).get("courses", 0))
+                       * float(json.loads(BAY_KIT.read_text())["parts"]["corbel"]["course_height_m"]))
+                if not (abs(base - floors[0]) < 1e-6 and low >= 1.0):
+                    raise ParamError(f"bays: {e['id']} is an oriel; its base_m stands on one of the upper floors "
+                                     f"{floors[1:]}, or on the principal floor {floors[0]} with its corbel courses' "
+                                     f"(or apron's) foot at least 1.0 m over grade")
             v["base"] = base
             if "corbel" in e:
                 v["corbel"] = {"courses": int(e["corbel"]["courses"])}
