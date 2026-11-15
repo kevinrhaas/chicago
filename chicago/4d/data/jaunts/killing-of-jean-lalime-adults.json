@@ -1,0 +1,2042 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Fort Dearborn",
+  "menu_group": "Stories",
+  "grade_band": "6-8",
+  "featured": false,
+  "review_required": false,
+  "id": "killing-of-jean-lalime-adults",
+  "version_of": "killing-of-jean-lalime",
+  "audience": "adults",
+  "content_warning": "18+. A killing staged as the witnesses described it: a pistol fired at close range and a man stabbed to death with a knife.",
+  "scene": "1812",
+  "title": "Chicago's First Murder (18+)",
+  "premise": "18+: 17 June 1812, sunset, the fort gate: Chicago's first recorded murder, with the pistol shot and the knife staged as the witnesses described them. The victim, interpreter Jean Lalime. The killer, John Kinzie, 'The Father of Chicago'. Nine stops.",
+  "default_mode": "fly",
+  "allowed_modes": [
+    "fly",
+    "instantly"
+  ],
+  "opening": {
+    "text": "JAUNT: CHICAGO'S FIRST MURDER. Chicago in 1812 is a small, crowded place: a garrison of about fifty soldiers under Captain Nathan Heald, a government trading house, and a few houses on the north bank. Everyone knows everyone, and the two men who will meet at the gate have been rivals for years: over a house, over the soldiers' trade, and over how to treat their neighbours as war with Britain comes closer.\n\nNine stops: the killing first, then from 1804 to the night of the killing and the morning after, with the time of day and the season set for each. Three versions are told side by side: the Kinzie family's, told for a century; a girl's who watched from inside the fort; and the letters the factor and the surgeon's mate sent to Washington within weeks.\n\nThis telling is 18+: outside the gate, the pistol shot and the knife are staged as the witnesses described them.\n\nThe story starts at the end: outside the gate of Fort Dearborn, at sunset on 17 June 1812.",
+    "read_s": 50
+  },
+  "stops": [
+    {
+      "id": "cold-open",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_gate"
+      },
+      "text": "17 June 1812, sunset, outside the gate of Fort Dearborn. Jean Lalime, the fort's interpreter, lies dead in the dust, stabbed. The man walking away, 'covered with blood', is John Kinzie, the trader who sells to the garrison, the man later histories would call 'The Father of Chicago'. Who did it has never been in doubt. Why, and whether it was murder, depends on whom you believe. To see how it came to this, go back eight years, across the river, to the best house in Chicago.",
+      "read_s": 25,
+      "evidence": [
+        "porthier",
+        "irwin-saw",
+        "father",
+        "hubbard"
+      ],
+      "next": "du-sable-house",
+      "hour": "sunset",
+      "date": "1812-06-17",
+      "hour_evidence": [
+        "porthier"
+      ],
+      "stage": {
+        "caption": "Lalime lies where he fell; Kinzie walks away.",
+        "liberty": "L-1812-adult-jaunts",
+        "cast": [
+          {
+            "person": "lalime_john",
+            "at": [
+              1146.4,
+              194.6
+            ],
+            "heading": 250,
+            "pose": "lie"
+          },
+          {
+            "person": "kinzie_john_elder",
+            "at": [
+              1150.5,
+              195.2
+            ],
+            "heading": 95,
+            "beats": [
+              {
+                "t": 1,
+                "walk": [
+                  [
+                    1158.0,
+                    195.0
+                  ],
+                  [
+                    1171.0,
+                    198.0
+                  ],
+                  [
+                    1176.0,
+                    212.0
+                  ],
+                  [
+                    1180.0,
+                    236.0
+                  ]
+                ],
+                "pace": "slow",
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "helm_linai",
+            "at": [
+              1148.8,
+              199.0
+            ],
+            "heading": 208.6
+          },
+          {
+            "person": "mirandeau_victoire_1812",
+            "at": [
+              1150.4,
+              199.8
+            ],
+            "heading": 217.6
+          },
+          {
+            "person": "irwin_matthew",
+            "at": [
+              1125.0,
+              193.0
+            ],
+            "heading": 85.7
+          }
+        ]
+      }
+    },
+    {
+      "id": "du-sable-house",
+      "since": "Eight years earlier",
+      "destination": {
+        "kind": "anchor",
+        "id": "kinzie_house_front"
+      },
+      "text": "May 1804, morning. This is the best house in Chicago, built by Jean Baptiste Point du Sable, the trader who settled here first. In 1800 he sold out, and the deed recorded in Detroit names the buyer as Jean Lalime, a French interpreter and trader, with the money from their shared employer, the fur trader William Burnett. The witness who signed it was John Kinzie, another of Burnett's traders. Now Kinzie moves his family in and makes it his. No record of any sale from Lalime to Kinzie has been found. The family later said Kinzie bought the place from a 'Le Mai', and historians long treated 'Lalime' as a misspelling of that name. Lalime did not leave. He moved a few doors west, close enough to watch Kinzie live in his house.",
+      "read_s": 38,
+      "evidence": [
+        "deed",
+        "family-version",
+        "winter",
+        "dates-frame"
+      ],
+      "next": "lalime-house",
+      "hour": "10:00",
+      "date": "1804-05-20",
+      "hour_evidence": [
+        "dates-frame"
+      ],
+      "stage": {
+        "caption": "Watch the Kinzies move into the du Sable house, and Lalime look on from along the bank.",
+        "liberty": "L-1812-adult-jaunts",
+        "cast": [
+          {
+            "person": "kinzie_john_elder",
+            "at": [
+              1160.0,
+              304.0
+            ],
+            "heading": 340,
+            "beats": [
+              {
+                "t": 1,
+                "walk": [
+                  [
+                    1152.0,
+                    318.0
+                  ],
+                  [
+                    1151.1,
+                    337.9
+                  ]
+                ],
+                "heading": 0
+              },
+              {
+                "t": 24,
+                "face": "lalime_john"
+              },
+              {
+                "t": 30,
+                "walk": [
+                  [
+                    1150.5,
+                    339.5
+                  ]
+                ],
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "kinzie_eleanor",
+            "at": [
+              1161.4,
+              302.6
+            ],
+            "heading": 340,
+            "beats": [
+              {
+                "t": 2,
+                "walk": [
+                  [
+                    1153.4,
+                    317.0
+                  ],
+                  [
+                    1150.5,
+                    339.5
+                  ]
+                ],
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "kinzie_engage_1812",
+            "at": [
+              1163.0,
+              301.0
+            ],
+            "heading": 330,
+            "beats": [
+              {
+                "t": 6,
+                "walk": [
+                  [
+                    1154.0,
+                    317.0
+                  ],
+                  [
+                    1150.5,
+                    339.5
+                  ]
+                ],
+                "hide": true
+              },
+              {
+                "t": 34,
+                "show": true
+              },
+              {
+                "t": 35,
+                "walk": [
+                  [
+                    1163.0,
+                    301.0
+                  ]
+                ]
+              },
+              {
+                "t": 58,
+                "walk": [
+                  [
+                    1154.0,
+                    317.0
+                  ],
+                  [
+                    1150.5,
+                    339.5
+                  ]
+                ],
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "kinzie_boatman_1812",
+            "at": [
+              1164.2,
+              300.2
+            ],
+            "heading": 330,
+            "beats": [
+              {
+                "t": 10,
+                "walk": [
+                  [
+                    1154.8,
+                    317.0
+                  ],
+                  [
+                    1150.5,
+                    339.5
+                  ]
+                ],
+                "hide": true
+              },
+              {
+                "t": 38,
+                "show": true
+              },
+              {
+                "t": 39,
+                "walk": [
+                  [
+                    1164.2,
+                    300.2
+                  ]
+                ]
+              },
+              {
+                "t": 62,
+                "walk": [
+                  [
+                    1154.8,
+                    317.0
+                  ],
+                  [
+                    1150.5,
+                    339.5
+                  ]
+                ],
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "kinzie_servant_second",
+            "at": [
+              1165.4,
+              299.4
+            ],
+            "heading": 330,
+            "beats": [
+              {
+                "t": 14,
+                "walk": [
+                  [
+                    1155.6,
+                    317.0
+                  ],
+                  [
+                    1150.5,
+                    339.5
+                  ]
+                ],
+                "hide": true
+              },
+              {
+                "t": 42,
+                "show": true
+              },
+              {
+                "t": 43,
+                "walk": [
+                  [
+                    1165.4,
+                    299.4
+                  ]
+                ]
+              },
+              {
+                "t": 66,
+                "walk": [
+                  [
+                    1155.6,
+                    317.0
+                  ],
+                  [
+                    1150.5,
+                    339.5
+                  ]
+                ],
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "lalime_john",
+            "at": [
+              1143.0,
+              329.0
+            ],
+            "heading": 35.5,
+            "beats": [
+              {
+                "t": 26,
+                "face": "kinzie_john_elder"
+              },
+              {
+                "t": 40,
+                "walk": [
+                  [
+                    1130.0,
+                    330.0
+                  ],
+                  [
+                    1102.0,
+                    331.0
+                  ],
+                  [
+                    1080.0,
+                    333.0
+                  ]
+                ],
+                "hide": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "lalime-house",
+      "since": "Seven years later",
+      "destination": {
+        "kind": "anchor",
+        "id": "lalime_house_front"
+      },
+      "text": "26 May 1811, afternoon. Lalime had wintered in the big house in 1803-04 with the fort's first surgeon, who called him 'a very decent man and a good companion'. When Kinzie took it, Lalime moved here, to a smaller house west along the bank, and became the fort's interpreter, the man who speaks for the garrison with its neighbours. Today he writes to Governor William Clark at St. Louis: 'An Indian from the Peorias passed here yesterday' with word of horses stolen from the southern settlements. His letters show, Kirkland wrote, 'a man of ability and education'. Across the river, a new arrangement is about to make Kinzie richer, and Lalime his enemy.",
+      "read_s": 32,
+      "evidence": [
+        "winter",
+        "letters",
+        "dates-frame"
+      ],
+      "next": "factory",
+      "hour": "afternoon",
+      "date": "1811-05-26",
+      "hour_evidence": [
+        "dates-frame"
+      ],
+      "stage": {
+        "caption": "Lalime at his own door, writing to Governor Clark.",
+        "liberty": "L-1812-adult-jaunts",
+        "cast": [
+          {
+            "person": "lalime_john",
+            "at": [
+              1101.2,
+              341.8
+            ],
+            "heading": 170,
+            "pose": "sit",
+            "beats": [
+              {
+                "t": 18,
+                "face": "ouilmette_antoine"
+              },
+              {
+                "t": 21,
+                "greet": true
+              },
+              {
+                "t": 28,
+                "heading": 170
+              }
+            ]
+          },
+          {
+            "person": "ouilmette_antoine",
+            "at": [
+              1128.0,
+              333.5
+            ],
+            "heading": 270,
+            "beats": [
+              {
+                "t": 4,
+                "walk": [
+                  [
+                    1106.0,
+                    337.8
+                  ],
+                  [
+                    1088.0,
+                    336.0
+                  ]
+                ]
+              },
+              {
+                "t": 19,
+                "greet": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "factory",
+      "since": "Nine months later",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_factory_front"
+      },
+      "text": "10 March 1812, morning, at the factory. This is the government's own trading house, run at cost by the factor, Matthew Irwin. The sutler is different: a private merchant licensed to sell to the soldiers. In January Captain Nathan Heald, the fort's commander, made 'Messrs. Kinzie & Forsyth', Kinzie's trading firm, the garrison's only sutlers. Today Irwin writes to Washington that the pair had offered someone '400$ per annum' to win them the post. Two men side with Irwin: the young surgeon's mate, Isaac Van Voorhis, and the interpreter, Lalime. Kinzie, an older officer once wrote, was 'a man of ungovernable temper'. Within weeks, a quarrel over money becomes talk of killing.",
+      "read_s": 32,
+      "evidence": [
+        "sutler",
+        "dates-frame"
+      ],
+      "next": "bad-blood",
+      "hour": "09:00",
+      "date": "1812-03-10",
+      "hour_evidence": [
+        "dates-frame"
+      ],
+      "stage": {
+        "caption": "Irwin at his factory door with Van Voorhis and Lalime; Kinzie and Helm watching from the path.",
+        "liberty": "L-1812-adult-jaunts",
+        "cast": [
+          {
+            "person": "irwin_matthew",
+            "at": [
+              1072.8,
+              218.0
+            ],
+            "heading": 90,
+            "beats": [
+              {
+                "t": 2,
+                "talk": true
+              },
+              {
+                "t": 14,
+                "talk": false
+              },
+              {
+                "t": 30,
+                "face": "kinzie_john_elder"
+              }
+            ]
+          },
+          {
+            "person": "van_voorhis_isaac",
+            "at": [
+              1075.0,
+              216.6
+            ],
+            "heading": 302.5,
+            "beats": [
+              {
+                "t": 15,
+                "talk": true
+              },
+              {
+                "t": 24,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "person": "lalime_john",
+            "at": [
+              1075.1,
+              219.4
+            ],
+            "heading": 238.7,
+            "beats": [
+              {
+                "t": 25,
+                "talk": true
+              },
+              {
+                "t": 33,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "person": "kinzie_john_elder",
+            "at": [
+              1088.0,
+              208.0
+            ],
+            "heading": 305.5,
+            "beats": [
+              {
+                "t": 10,
+                "talk": true
+              },
+              {
+                "t": 16,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "person": "helm_linai",
+            "at": [
+              1089.4,
+              209.6
+            ],
+            "heading": 298.6,
+            "beats": [
+              {
+                "t": 12,
+                "face": "kinzie_john_elder"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bad-blood",
+      "since": "Five weeks later",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_officers_quarters"
+      },
+      "text": "16 April 1812, the officers' barracks. Ten days ago men 'supposed to be Winnebagoes' killed two farmhands at Hardscrabble, up the South Branch. Fear has turned on everyone. Irwin writes today that 'Propositions were openly made to murder' neighbours who had always been peaceable, French settlers among them, and names who pushed hardest: 'the Suttler for this garrison & his Son-in law—Lt Helm'. That is Kinzie and Lieutenant Linai Helm, the fort's second officer, married to Kinzie's stepdaughter. Ensign George Ronan, the youngest officer, threatens to shoot Lalime. Helm swears to scalp the factor. In May, Heald arrests Helm for plotting to kill six Sauk men who had come in peace, then lets him go. By June everyone at the fort has chosen a side. On the evening of the 17th they are all on the parade.",
+      "read_s": 39,
+      "evidence": [
+        "bad-blood",
+        "heald-april",
+        "dates-frame"
+      ],
+      "next": "the-quarrel",
+      "hour": "afternoon",
+      "date": "1812-04-16",
+      "hour_evidence": [
+        "dates-frame"
+      ],
+      "stage": {
+        "caption": "Helm, Kinzie and Ronan talking hot; Ronan turns on Lalime as he passes with Irwin.",
+        "liberty": "L-1812-adult-jaunts",
+        "cast": [
+          {
+            "person": "helm_linai",
+            "at": [
+              1146.2,
+              221.8
+            ],
+            "heading": 110,
+            "beats": [
+              {
+                "t": 1,
+                "talk": true
+              },
+              {
+                "t": 12,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "person": "kinzie_john_elder",
+            "at": [
+              1148.6,
+              223.0
+            ],
+            "heading": 220,
+            "beats": [
+              {
+                "t": 12,
+                "talk": true
+              },
+              {
+                "t": 20,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "person": "ronan_george",
+            "at": [
+              1148.4,
+              220.6
+            ],
+            "heading": 300,
+            "beats": [
+              {
+                "t": 24,
+                "face": "lalime_john"
+              },
+              {
+                "t": 26,
+                "talk": true
+              },
+              {
+                "t": 34,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "person": "irwin_matthew",
+            "at": [
+              1138.6,
+              209.4
+            ],
+            "heading": 40,
+            "beats": [
+              {
+                "t": 2,
+                "walk": [
+                  [
+                    1143.0,
+                    214.0
+                  ],
+                  [
+                    1151.0,
+                    213.0
+                  ]
+                ]
+              },
+              {
+                "t": 26,
+                "face": "ronan_george"
+              }
+            ]
+          },
+          {
+            "person": "lalime_john",
+            "at": [
+              1137.6,
+              208.4
+            ],
+            "heading": 40,
+            "beats": [
+              {
+                "t": 2.5,
+                "walk": [
+                  [
+                    1142.4,
+                    212.6
+                  ],
+                  [
+                    1149.8,
+                    211.8
+                  ]
+                ]
+              },
+              {
+                "t": 27,
+                "face": "ronan_george"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-quarrel",
+      "since": "Two months later",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_parade"
+      },
+      "text": "17 June 1812, about six in the evening, inside the fort. Tomorrow, in Washington, Congress will declare war on Britain; the news will not reach this fort until the middle of July. On the parade Helm rails against the factor, and ends, as Van Voorhis wrote, 'by saying he would give a very handsome treat if the Factory would be done away!' Kinzie backs his son-in-law. Lalime stands up for Irwin's store: he 'defended the pure motives and just dealings of the Institution'. Voices rise. Then Kinzie and Lalime walk out of the gate together. The gates are about to close for the night. Only one of the two men will walk back.",
+      "read_s": 32,
+      "evidence": [
+        "quarrel",
+        "porthier",
+        "war-declared"
+      ],
+      "next": "the-gate",
+      "hour": "18:00",
+      "date": "1812-06-17",
+      "hour_evidence": [
+        "quarrel"
+      ],
+      "stage": {
+        "caption": "Watch the quarrel on the parade: Helm, then Lalime, then Kinzie; then Kinzie and Lalime walk out together.",
+        "liberty": "L-1812-adult-jaunts",
+        "cast": [
+          {
+            "person": "helm_linai",
+            "at": [
+              1157.0,
+              222.6
+            ],
+            "heading": 285,
+            "beats": [
+              {
+                "t": 1,
+                "talk": true
+              },
+              {
+                "t": 12,
+                "talk": false
+              },
+              {
+                "t": 26,
+                "face": "kinzie_john_elder"
+              }
+            ]
+          },
+          {
+            "person": "kinzie_john_elder",
+            "at": [
+              1157.6,
+              224.8
+            ],
+            "heading": 265,
+            "beats": [
+              {
+                "t": 22,
+                "talk": true
+              },
+              {
+                "t": 30,
+                "talk": false
+              },
+              {
+                "t": 32,
+                "walk": [
+                  [
+                    1154.0,
+                    216.0
+                  ],
+                  [
+                    1149.4,
+                    204.5
+                  ],
+                  [
+                    1149.4,
+                    199.6
+                  ]
+                ],
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "lalime_john",
+            "at": [
+              1153.2,
+              223.6
+            ],
+            "heading": 95,
+            "beats": [
+              {
+                "t": 12,
+                "talk": true
+              },
+              {
+                "t": 21,
+                "talk": false
+              },
+              {
+                "t": 22,
+                "face": "kinzie_john_elder"
+              },
+              {
+                "t": 32.5,
+                "walk": [
+                  [
+                    1152.6,
+                    216.4
+                  ],
+                  [
+                    1148.6,
+                    204.5
+                  ],
+                  [
+                    1148.6,
+                    199.6
+                  ]
+                ],
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "irwin_matthew",
+            "at": [
+              1152.4,
+              221.6
+            ],
+            "heading": 80
+          },
+          {
+            "person": "van_voorhis_isaac",
+            "at": [
+              1152.8,
+              226.0
+            ],
+            "heading": 110,
+            "beats": [
+              {
+                "t": 14,
+                "face": "helm_linai"
+              }
+            ]
+          },
+          {
+            "person": "mirandeau_victoire_1812",
+            "at": [
+              1150.5,
+              220.2
+            ],
+            "heading": 70
+          },
+          {
+            "person": "hays_otho",
+            "at": [
+              1159.4,
+              227.0
+            ],
+            "heading": 231.0
+          },
+          {
+            "person": "crozier_john",
+            "at": [
+              1159.2,
+              219.8
+            ],
+            "heading": 313.5,
+            "tier": "desktop"
+          },
+          {
+            "person": "griffith_william",
+            "at": [
+              1151.0,
+              226.8
+            ],
+            "heading": 127.3
+          },
+          {
+            "person": "forth_thomas",
+            "at": [
+              1156.0,
+              218.6
+            ],
+            "heading": 350.9,
+            "tier": "desktop"
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-gate",
+      "since": "An hour later",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_gate"
+      },
+      "text": "17 June, sunset, outside the main gate. Victoire Porthier, a girl inside the fort, remembered: 'It was sunset, when they used to shut the gates of the fort.' She heard Helm call out to Kinzie to look out for Lalime, 'as he had a pistol.' 'Quick we saw the men come together. We heard the pistol go off and saw the smoke.' The ball struck Kinzie, 'cutting the side of his neck', his family said; 'Blood was running from his shoulder', said Porthier. 'After Lalime shot him and Kinzie got his arms around him, he (Lalime) pulled out his dirk, and as they fell he was stabbed with his own knife.' Kinzie, 'closing with Lalime, stabbed him'. Irwin, the factor, saw it all from twenty or thirty yards. Van Voorhis wrote that 'it was a perfect assassination and can be proven to be such'. The Kinzie family called it self-defence.",
+      "read_s": 43,
+      "evidence": [
+        "porthier",
+        "irwin-saw",
+        "hubbard",
+        "father",
+        "porthier-knife"
+      ],
+      "next": "the-flight",
+      "hour": "sunset",
+      "date": "1812-06-17",
+      "hour_evidence": [
+        "porthier"
+      ],
+      "stage": {
+        "caption": "Watch Kinzie and Lalime outside the gate at sunset: the pistol, the knife, and the two men going down together.",
+        "liberty": "L-1812-adult-jaunts",
+        "cast": [
+          {
+            "person": "kinzie_john_elder",
+            "at": [
+              1149.4,
+              198.8
+            ],
+            "heading": 200,
+            "beats": [
+              {
+                "t": 1,
+                "walk": [
+                  [
+                    1147.7,
+                    194.7
+                  ]
+                ]
+              },
+              {
+                "t": 5,
+                "face": "lalime_john"
+              },
+              {
+                "t": 6,
+                "talk": true
+              },
+              {
+                "t": 15,
+                "talk": false
+              },
+              {
+                "t": 18.95,
+                "act": "struck"
+              },
+              {
+                "t": 19.45,
+                "walk": [
+                  [
+                    1146.81,
+                    194.52
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 21.05,
+                "arm": "knife",
+                "face": "lalime_john"
+              },
+              {
+                "t": 21.25,
+                "face": "lalime_john",
+                "act": "stab"
+              },
+              {
+                "t": 22.2,
+                "face": "lalime_john",
+                "act": "stab"
+              },
+              {
+                "t": 23.15,
+                "face": "lalime_john",
+                "act": "stab"
+              },
+              {
+                "t": 24.15,
+                "pose": "kneel2",
+                "ease": 0.9
+              },
+              {
+                "t": 29.15,
+                "pose": "stand",
+                "ease": 1.4,
+                "arm": "none"
+              },
+              {
+                "t": 31.15,
+                "walk": [
+                  [
+                    1158.0,
+                    195.0
+                  ],
+                  [
+                    1171.0,
+                    198.0
+                  ],
+                  [
+                    1176.0,
+                    212.0
+                  ],
+                  [
+                    1180.0,
+                    236.0
+                  ]
+                ],
+                "pace": "slow",
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "lalime_john",
+            "at": [
+              1148.4,
+              198.6
+            ],
+            "heading": 200,
+            "beats": [
+              {
+                "t": 1.2,
+                "walk": [
+                  [
+                    1146.2,
+                    194.4
+                  ]
+                ]
+              },
+              {
+                "t": 5,
+                "face": "kinzie_john_elder"
+              },
+              {
+                "t": 9,
+                "talk": true
+              },
+              {
+                "t": 17,
+                "talk": false
+              },
+              {
+                "t": 17.4,
+                "arm": "pistol"
+              },
+              {
+                "t": 17.6,
+                "face": "kinzie_john_elder",
+                "arm": "pistol"
+              },
+              {
+                "t": 18.2,
+                "act": "fire"
+              },
+              {
+                "t": 19.85,
+                "arm": "knife"
+              },
+              {
+                "t": 21.05,
+                "arm": "none",
+                "act": "struck"
+              },
+              {
+                "t": 24.15,
+                "pose": "kneel2",
+                "ease": 0.8
+              },
+              {
+                "t": 25.35,
+                "heading": 250
+              },
+              {
+                "t": 25.55,
+                "pose": "lie",
+                "ease": 1.8
+              }
+            ]
+          },
+          {
+            "person": "helm_linai",
+            "at": [
+              1149.0,
+              203.0
+            ],
+            "heading": 180,
+            "beats": [
+              {
+                "t": 10,
+                "walk": [
+                  [
+                    1149.2,
+                    199.4
+                  ]
+                ]
+              },
+              {
+                "t": 13,
+                "face": "kinzie_john_elder"
+              },
+              {
+                "t": 14,
+                "talk": true
+              },
+              {
+                "t": 18,
+                "talk": false
+              },
+              {
+                "t": 36.0,
+                "walk": [
+                  [
+                    1147.0,
+                    196.2
+                  ]
+                ],
+                "heading": 200
+              }
+            ]
+          },
+          {
+            "person": "mirandeau_victoire_1812",
+            "at": [
+              1150.3,
+              203.9
+            ],
+            "heading": 190,
+            "beats": [
+              {
+                "t": 12,
+                "walk": [
+                  [
+                    1150.5,
+                    200.0
+                  ]
+                ]
+              },
+              {
+                "t": 16,
+                "face": "lalime_john"
+              }
+            ]
+          },
+          {
+            "person": "irwin_matthew",
+            "at": [
+              1125.0,
+              193.0
+            ],
+            "heading": 85.7,
+            "beats": [
+              {
+                "t": 38.0,
+                "walk": [
+                  [
+                    1137.0,
+                    194.0
+                  ]
+                ],
+                "heading": 90
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-flight",
+      "since": "Four hours later",
+      "destination": {
+        "kind": "anchor",
+        "id": "kinzie_house_across_river"
+      },
+      "text": "17 June, about 11:20 at night. Irwin's account: Ensign Ronan told Kinzie to run, Helm hid him in the garrison about four hours, then walked him down to the river's edge, shook his hand and let him go. The family's account: Kinzie 'returned to the house covered with blood', and his wife took him into the woods, where 'she dressed his wounds' and kept him hidden for days. Porthier's account: 'In the night he packed up some things and my father took him to Milwaukee'. Three versions of one night. At the gate, Lalime's body is still lying where it fell.",
+      "read_s": 29,
+      "evidence": [
+        "irwin-saw",
+        "hubbard",
+        "porthier",
+        "flight-hour"
+      ],
+      "next": "the-grave",
+      "hour": "23:20",
+      "date": "1812-06-17",
+      "hour_evidence": [
+        "flight-hour"
+      ],
+      "stage": {
+        "caption": "In the dark: Helm walks Kinzie down to the water, shakes his hand, and lets him go across the river.",
+        "liberty": "L-1812-adult-jaunts",
+        "cast": [
+          {
+            "person": "kinzie_john_elder",
+            "at": [
+              1147.0,
+              238.0
+            ],
+            "heading": 350,
+            "beats": [
+              {
+                "t": 0.5,
+                "walk": [
+                  [
+                    1144.4,
+                    248.6
+                  ],
+                  [
+                    1140.8,
+                    254.4
+                  ]
+                ]
+              },
+              {
+                "t": 15,
+                "face": "helm_linai"
+              },
+              {
+                "t": 17,
+                "greet": true
+              },
+              {
+                "t": 24,
+                "walk": [
+                  [
+                    1140.6,
+                    255.4
+                  ]
+                ],
+                "hide": true
+              },
+              {
+                "t": 44,
+                "place": [
+                  1145.5,
+                  297.5
+                ],
+                "show": true,
+                "heading": 5
+              },
+              {
+                "t": 45,
+                "walk": [
+                  [
+                    1149.0,
+                    312.0
+                  ],
+                  [
+                    1150.0,
+                    338.6
+                  ]
+                ],
+                "pace": "slow",
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "helm_linai",
+            "at": [
+              1148.4,
+              237.2
+            ],
+            "heading": 350,
+            "beats": [
+              {
+                "t": 0.7,
+                "walk": [
+                  [
+                    1146.0,
+                    248.0
+                  ],
+                  [
+                    1142.0,
+                    253.2
+                  ]
+                ]
+              },
+              {
+                "t": 15,
+                "face": "kinzie_john_elder"
+              },
+              {
+                "t": 17,
+                "greet": true
+              },
+              {
+                "t": 30,
+                "face": [
+                  1145.5,
+                  297.5
+                ]
+              },
+              {
+                "t": 60,
+                "walk": [
+                  [
+                    1148.0,
+                    238.0
+                  ]
+                ],
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "ronan_george",
+            "at": [
+              1137.5,
+              241.0
+            ],
+            "heading": 40
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-grave",
+      "since": "Nine hours later",
+      "destination": {
+        "kind": "anchor",
+        "id": "west_of_kinzie_house"
+      },
+      "text": "18 June, morning. The townspeople want an inquest, a public inquiry into the death. Irwin wrote that instead 'a file of soldiers headed by Lt. Helm carried it away by force'. Lalime was buried on this bank, about 'two hundred yards west of the Kinzie house', inside a picket fence, in plain view of the house he had once owned on paper. In 1891 men digging a cellar near Cass and Illinois streets found a skeleton in 'a rude pine coffin', and the bones went to the Chicago Historical Society.",
+      "read_s": 26,
+      "evidence": [
+        "grave",
+        "stand-west",
+        "hubbard",
+        "dates-frame"
+      ],
+      "next": "$end",
+      "hour": "08:00",
+      "date": "1812-06-18",
+      "hour_evidence": [
+        "dates-frame"
+      ],
+      "stage": {
+        "caption": "Watch Helm's file of soldiers bring Lalime to his grave, while the townspeople who wanted an inquest look on.",
+        "liberty": "L-1812-adult-jaunts",
+        "cast": [
+          {
+            "person": "lalime_john",
+            "hidden": true,
+            "at": [
+              991.0,
+              344.0
+            ],
+            "heading": 95,
+            "pose": "lie",
+            "beats": [
+              {
+                "t": 34,
+                "show": true
+              }
+            ]
+          },
+          {
+            "person": "hays_otho",
+            "at": [
+              1040.0,
+              364.0
+            ],
+            "heading": 270,
+            "beats": [
+              {
+                "t": 2.0,
+                "walk": [
+                  [
+                    1008.0,
+                    356.0
+                  ],
+                  [
+                    993.0,
+                    343.4
+                  ]
+                ],
+                "pace": 0.8
+              },
+              {
+                "t": 36,
+                "walk": [
+                  [
+                    989.0,
+                    342.2
+                  ]
+                ],
+                "heading": 48.0
+              },
+              {
+                "t": 44,
+                "pose": "crouch",
+                "ease": 1.0
+              }
+            ]
+          },
+          {
+            "person": "crozier_john",
+            "at": [
+              1040.0,
+              365.0
+            ],
+            "heading": 270,
+            "beats": [
+              {
+                "t": 2.3,
+                "walk": [
+                  [
+                    1008.0,
+                    357.0
+                  ],
+                  [
+                    993.0,
+                    344.4
+                  ]
+                ],
+                "pace": 0.8
+              },
+              {
+                "t": 36,
+                "walk": [
+                  [
+                    991.0,
+                    342.2
+                  ]
+                ],
+                "heading": 0.0
+              }
+            ]
+          },
+          {
+            "person": "griffith_william",
+            "at": [
+              1041.0,
+              364.0
+            ],
+            "heading": 270,
+            "beats": [
+              {
+                "t": 2.6,
+                "walk": [
+                  [
+                    1009.0,
+                    356.0
+                  ],
+                  [
+                    994.0,
+                    343.4
+                  ]
+                ],
+                "pace": 0.8
+              },
+              {
+                "t": 36,
+                "walk": [
+                  [
+                    993.0,
+                    342.2
+                  ]
+                ],
+                "heading": 312.0
+              }
+            ]
+          },
+          {
+            "person": "forth_thomas",
+            "at": [
+              1041.0,
+              365.0
+            ],
+            "heading": 270,
+            "beats": [
+              {
+                "t": 2.9,
+                "walk": [
+                  [
+                    1009.0,
+                    357.0
+                  ],
+                  [
+                    994.0,
+                    344.4
+                  ]
+                ],
+                "pace": 0.8
+              },
+              {
+                "t": 36,
+                "walk": [
+                  [
+                    989.0,
+                    345.8
+                  ]
+                ],
+                "heading": 132.0
+              },
+              {
+                "t": 44,
+                "pose": "crouch",
+                "ease": 1.0
+              }
+            ]
+          },
+          {
+            "person": "bowen_joseph",
+            "at": [
+              1042.0,
+              364.0
+            ],
+            "heading": 270,
+            "beats": [
+              {
+                "t": 3.2,
+                "walk": [
+                  [
+                    1010.0,
+                    356.0
+                  ],
+                  [
+                    995.0,
+                    343.4
+                  ]
+                ],
+                "pace": 0.8
+              },
+              {
+                "t": 36,
+                "walk": [
+                  [
+                    991.0,
+                    345.8
+                  ]
+                ],
+                "heading": 180.0
+              }
+            ]
+          },
+          {
+            "person": "allin_john",
+            "at": [
+              1042.0,
+              365.0
+            ],
+            "heading": 270,
+            "beats": [
+              {
+                "t": 3.5,
+                "walk": [
+                  [
+                    1010.0,
+                    357.0
+                  ],
+                  [
+                    995.0,
+                    344.4
+                  ]
+                ],
+                "pace": 0.8
+              },
+              {
+                "t": 36,
+                "walk": [
+                  [
+                    993.0,
+                    345.8
+                  ]
+                ],
+                "heading": 228.0
+              }
+            ]
+          },
+          {
+            "person": "helm_linai",
+            "at": [
+              1044.0,
+              362.0
+            ],
+            "heading": 250,
+            "beats": [
+              {
+                "t": 1,
+                "walk": [
+                  [
+                    1010.0,
+                    354.0
+                  ],
+                  [
+                    995.4,
+                    341.4
+                  ]
+                ],
+                "pace": 0.8
+              },
+              {
+                "t": 40,
+                "face": "irwin_matthew"
+              }
+            ]
+          },
+          {
+            "person": "irwin_matthew",
+            "at": [
+              1052.0,
+              370.0
+            ],
+            "heading": 270,
+            "beats": [
+              {
+                "t": 6.0,
+                "walk": [
+                  [
+                    997.0,
+                    348.0
+                  ]
+                ],
+                "heading": 236.3
+              },
+              {
+                "t": 40,
+                "face": "helm_linai"
+              },
+              {
+                "t": 41,
+                "talk": true
+              },
+              {
+                "t": 50,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "person": "van_voorhis_isaac",
+            "at": [
+              1053.6,
+              371.0
+            ],
+            "heading": 270,
+            "beats": [
+              {
+                "t": 6.6,
+                "walk": [
+                  [
+                    998.4,
+                    348.8
+                  ]
+                ],
+                "heading": 237.0
+              }
+            ]
+          },
+          {
+            "person": "ouilmette_antoine",
+            "at": [
+              1055.2,
+              370.0
+            ],
+            "heading": 270,
+            "beats": [
+              {
+                "t": 7.2,
+                "walk": [
+                  [
+                    999.8,
+                    348.0
+                  ]
+                ],
+                "heading": 245.6
+              }
+            ]
+          },
+          {
+            "person": "leclerc_pierre",
+            "at": [
+              1056.8,
+              371.0
+            ],
+            "heading": 270,
+            "beats": [
+              {
+                "t": 7.8,
+                "walk": [
+                  [
+                    1001.2,
+                    348.8
+                  ]
+                ],
+                "heading": 244.8
+              }
+            ]
+          },
+          {
+            "person": "mirandeau_jean_baptiste",
+            "at": [
+              1058.4,
+              370.0
+            ],
+            "heading": 270,
+            "beats": [
+              {
+                "t": 8.4,
+                "walk": [
+                  [
+                    1002.6,
+                    348.0
+                  ]
+                ],
+                "heading": 251.0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "legs": [
+    {
+      "note": "Eight years back, and across the river: this leg goes Instantly.",
+      "mode": "instantly",
+      "evidence": [
+        "porthier"
+      ]
+    },
+    {
+      "story": "A few steps west along the bank, past Ouilmette's.",
+      "evidence": [
+        "winter"
+      ],
+      "story_evidence": [
+        "winter"
+      ]
+    },
+    {
+      "note": "Across the river: there is no bridge in 1812. Fly, or go Instantly.",
+      "evidence": [
+        "sutler"
+      ]
+    },
+    {
+      "story": "Through the main gate onto the parade, to the officers' barracks.",
+      "evidence": [
+        "bad-blood"
+      ],
+      "story_evidence": [
+        "bad-blood"
+      ]
+    },
+    {
+      "story": "Two months on, the same parade.",
+      "evidence": [
+        "quarrel"
+      ],
+      "story_evidence": [
+        "quarrel"
+      ]
+    },
+    {
+      "story": "Out through the main gate, the way the two men went.",
+      "evidence": [
+        "porthier"
+      ],
+      "story_evidence": [
+        "porthier"
+      ]
+    },
+    {
+      "note": "Across the river to the Kinzie house.",
+      "story": "Kinzie crosses the river in the dark.",
+      "evidence": [
+        "irwin-saw"
+      ],
+      "story_evidence": [
+        "irwin-saw"
+      ]
+    },
+    {
+      "story": "West along the bank, past Ouilmette's and Lalime's own house.",
+      "evidence": [
+        "grave"
+      ],
+      "story_evidence": [
+        "grave"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "verdict",
+      "default": true,
+      "completion_eligible": true,
+      "read_s": 96,
+      "text": "That night Heald ordered the factor to help arrest Kinzie. Irwin refused and was turned out of the garrison; Heald's own letter says why: 'a Citizen who had but a few days previous stabed an other citizen to the heart in your presence'. Irwin left on 5 July and was taken prisoner at Mackinac. Van Voorhis died on the lake shore on 15 August. Kinzie lived, came back in 1816, and his family told the story for a century. \n\nSo was it murder? Historians still disagree, and they disagree sharply. \n\nTHE CASE AGAINST KINZIE. Irwin, writing after the fall of the fort, accused him of worse than murder: of helping bring on the disaster of 15 August, and so 'destroying the Witnesses to the murder of Lalime'. Milo Quaife, the historian who found Irwin's letters, warned in 1915 that to readers who saw Kinzie 'as a kind of demigod', that charge 'will come as a distinct shock'. The Chicago Reader in 2018 called the self-defence story 'a popular lie': Lalime was 'stabbed to death in broad daylight and cold blood', one of 'three forgotten men who tried and failed to end the corruption, bribery, and smuggling' at the fort. 'Kinzie was behind it all, the doctor and factor alleged.' \n\nTHE CASE FOR KINZIE. In the family's telling, Lalime, 'insanely jealous over Kinzie's success as a trader, treacherously attacked him'. Currey (1912) says an officers' inquiry found 'a verdict of justifiable homicide', and Hubbard said 'Mr. Kinzie deeply regretted the killing of Lalime'. Porthier, the girl at the gate: 'You see Kinzie wasn't to blame at all.' And then: 'That is what they all said.' \n\nWHO TOLD IT. Quaife: only the version 'originating with the relatives and friends of the slayer gained the public ear', and it 'put the onus of the affray on the slain'. The Reader: 'The winners didn't write the history books.' \n\nLalime's bones are still in a box in the Chicago History Museum's storage. You have stood where he fell. Decide for yourself."
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "lalime-verdict",
+    "title": "Quaife's verdict on the Lalime killing, 1913",
+    "text": "'The fact of La Lime's death at the hands of Kinzie is clear; the responsibility for it cannot, in the light of existing information, be determined.'"
+  },
+  "evidence": [
+    {
+      "id": "father",
+      "text": "The Chicago Reader (2018) calls Lalime 'Chicago's first murder victim', 'a French interpreter who was stabbed to death in broad daylight and cold blood by the man that a century's worth of history books would call a founding father of the city of Chicago.' The killings at Hardscrabble in April came first, but 'since it wasn't Chicago at the time, Lalime is still considered the city's first murder victim.' Currey (1912): 'John Kinzie has been called \"The Father of Chicago,\" and also \"Chicago's Pioneer.\"' His granddaughter's 1910 book was titled John Kinzie, the Father of Chicago. Quaife (1913) disagreed: 'The propriety of designating Kinzie the \"father of Chicago\" is dubious.'",
+      "confidence": "attested",
+      "sources": [
+        "dailing_2018_chicago_reader_lalime",
+        "currey_1912_story_of_old_fort_dearborn",
+        "quaife_1913"
+      ],
+      "locator": "Chicago Reader, 18 October 2018, the paragraphs beginning 'In an undisclosed location', 'Jean Lalime's journey' and 'In April 1812'; Currey ch. II, the paragraph beginning 'John Kinzie has been called'; Quaife, the paragraph beginning 'The propriety of designating Kinzie'"
+    },
+    {
+      "id": "deed",
+      "text": "The Chicago Reader (2018) on the land record: 'The Wayne County Register of Deeds in Detroit ... Their records show Lalime, not Le Mai, bought Du Sable's trading post in 1800, bankrolled by Lalime and Kinzie's mutual boss, fur trader William Burnett. It couldn't have been confusion; Kinzie signed as witness.' No archive it asked 'could find any record for this story of the next time the property changed hands'. 'So as not to contradict the prominent Kinzie family, a convention developed that \"Lalime\" was \"Le Mai\" misspelled.' Kinzie bought the land from the government as unclaimed land in 1830.",
+      "confidence": "attested",
+      "sources": [
+        "dailing_2018_chicago_reader_lalime"
+      ],
+      "locator": "Chicago Reader, 18 October 2018, the paragraphs beginning 'The Wayne County Register of Deeds', 'Neither Wayne County' and 'So as not to contradict'"
+    },
+    {
+      "id": "family-version",
+      "text": "The family's version. Wau-Bun (1856): du Sable's improvements 'were taken possession of by a Frenchman named Le Mai', and 'After a few years Le Mai's establishment was purchased by John Kinzie, Esq.' Currey (1912): Le Mai 'occupied the house until 1804, when he in turn sold it to John Kinzie, who arrived with his family at Chicago in the fall of that year.' Quaife (1913) still has the house 'occupied by Le Mai, who had bought out Du Sable'.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "currey_1912_story_of_old_fort_dearborn",
+        "quaife_1913"
+      ],
+      "locator": "Wau-Bun ch. XVII (Gutenberg #12183); Currey ch. II, before the plate 'Residence of John Kinzie'; Quaife, the chapter on the first settlers (Gutenberg #69274)"
+    },
+    {
+      "id": "winter",
+      "text": "Quaife (1913): when the troops came in 1803 the fourth house 'apparently, belonged to Kinzie and was at this time vacant. Doctor Smith, the first surgeon at Fort Dearborn, and John La Lime shortly secured possession of it for the winter and fitted it up in a comfortable manner for their joint occupancy.' 'The fourth name entered in Kinzie's account book after his removal to Chicago in May, 1804, is that of La Lime.' Dr. Smith called La Lime 'a very decent man and a good companion.' By 1808 'La Lime was living in one of the four houses on the north side of the river and acting as government Indian interpreter.' Jouett, the agent, named a son after him.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, the chapter on the first settlers (Gutenberg #69274 plain text, the paragraphs on Fettle and on La Lime and Nash)"
+    },
+    {
+      "id": "letters",
+      "text": "Lalime's own letters (Kirkland 1893): to Governor Clark, 26 May 1811, 'An Indian from the Peorias passed here yesterday and has given me information that the Indians about that place have been about the settlements of Kaskasia and Vincennes and have stolen from fifteen to twenty horses'; to John Johnson, 7 July 1811, of 'depredations and murders committed about the settlement of Cahokia'. Kirkland: the letters 'show that he was a man of ability and education', and an 1821 treaty reserved land for 'John B. Lalime, son of Noke-no-qua.'",
+      "confidence": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre"
+      ],
+      "locator": "Appendix F, 'The Bones of John Lalime', Project Gutenberg eBook #59624 plain text lines 6120-6540"
+    },
+    {
+      "id": "sutler",
+      "text": "The Chicago Reader (2018): 'on January 17, 1812, Whistler's replacement, Captain Nathan Heald, issued a garrison order making \"Messrs. Kinzie & Forsyth\" the exclusive fort sutlers.' The factor, Matthew Irwin, ran the government's trading house; the sutler sold to the soldiers. Irwin's letter of 10 March, as the Reader quotes it: he had 'lately ascertained it to be an absolute fact that Messrs. Kinzie & Forsyth, offered a gentleman 400$ per annum to get them appointed at Washington the Suttlers for this place.' 'Irwin found two allies as horrified by the sutler contract as he was: surgeon's mate Dr. Isaac Van Voorhis and fort interpreter Jean Lalime.' Quaife (1913) gives the older feud: in 1810 Kinzie and Irwin had stood together against Captain Whistler over the garrison trade, and Cooper 'described the trader as a man of ungovernable temper, who frequently engaged in bitter quarrels.'",
+      "confidence": "attested",
+      "sources": [
+        "dailing_2018_chicago_reader_lalime",
+        "quaife_1913"
+      ],
+      "locator": "Chicago Reader, 18 October 2018, the paragraphs beginning 'Just over two years later' to 'Irwin detailed'; Quaife, the 1810 feud"
+    },
+    {
+      "id": "bad-blood",
+      "text": "Irwin to the War Department, 16 April 1812, as the Chicago Reader quotes it, after the killings at Lee's Place: 'Propositions were openly made to murder them as well as some French persons (with Indian wives) who have, ever since they have been here, manifested peaceable dispositions,' and 'The principal persons who advised & insisted upon such measures being carried into effect, were the Suttler for this garrison & his Son-in law—Lt Helm.' The Reader: 'Ronan threatened to shoot Lalime and Helm \"swore 'he would take the Scalp of the Factor'\"'; and 'Heald did arrest Helm in May for plotting to murder six Sauk who had come to the fort in peace', releasing him 'after he apologized.'",
+      "confidence": "attested",
+      "sources": [
+        "dailing_2018_chicago_reader_lalime"
+      ],
+      "locator": "Chicago Reader, 18 October 2018, the paragraphs beginning 'In April 1812' to 'Kinzie was behind it all'"
+    },
+    {
+      "id": "quarrel",
+      "text": "Van Voorhis to the War Department, 30 June 1812, as the Chicago Reader tells and quotes it: on 17 June, around 6 p.m., inside the fort, Helm went on a tirade about Irwin, 'concluding ... by saying he would give a very handsome treat if the Factory would be done away!' Kinzie took his son-in-law's side. '[T]he unfortunate Interpreter defended the pure motives and just dealings of the Institution,' Van Voorhis wrote (the Reader prints 'lnstitution').",
+      "confidence": "attested",
+      "sources": [
+        "dailing_2018_chicago_reader_lalime"
+      ],
+      "locator": "Chicago Reader, 18 October 2018, the paragraphs beginning 'The situation reached a head' and '[T]he unfortunate Interpreter'"
+    },
+    {
+      "id": "porthier",
+      "text": "Victoire Porthier, a girl inside the fort, as Andreas printed her and Kirkland reprints: 'My sister Madeline and I saw the fight between John Kinzie and Lalime, when Lalime was killed. It was sunset, when they used to shut the gates of the fort. Kinzie and Lalime came out together, and soon we heard Lieutenant Helm call out for Mr. Kinzie to look out for Lalime, as he had a pistol. Quick we saw the men come together. We heard the pistol go off and saw the smoke. Then they fell down together. I don't know as Lalime got up at all, but Kinzie got home pretty quick. Blood was running from his shoulder, where Lalime had shot him. In the night he packed up some things and my father took him to Milwaukee'. 'I don't know what the quarrel was about. It was an old one--business, I guess.'",
+      "confidence": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre"
+      ],
+      "locator": "Appendix F, 'The Bones of John Lalime', Project Gutenberg eBook #59624 plain text lines 6120-6540, Mrs. Porthier's statement"
+    },
+    {
+      "id": "hubbard",
+      "text": "Gurdon Hubbard to John Wentworth, 25 June 1881, giving what Mrs. Kinzie and Mrs. Helm told him (Kirkland 1893): 'Lalime met him outside the garrison and shot him, the ball cutting the side of his neck.' 'Mr. Kinzie, closing with Lalime, stabbed him and returned to the house covered with blood.' His wife 'with him retreated to the woods, where as soon as possible she dressed his wounds'. 'For several days he was hid in the bush and cared for by his wife.' Lalime 'should be buried near Kinzie's house, in plain view from his front door and piazza. The grave was enclosed in a picket fence'. Hubbard believed Kinzie acted 'in self-defence', and that the officers 'acquitted Mr. Kinzie'.",
+      "confidence": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre"
+      ],
+      "locator": "Appendix F, 'The Bones of John Lalime', Project Gutenberg eBook #59624 plain text lines 6120-6540, Hubbard's letter"
+    },
+    {
+      "id": "irwin-saw",
+      "text": "The Chicago Reader (2018), from Irwin's report: 'Kinzie saw that Irwin had seen the whole thing from 20 to 30 yards away, and called out that he was a \"lost man\"'; 'Ronan told Kinzie to run. Helm helped Kinzie. Heald did nothing.' Van Voorhis, 30 June 1812: 'suffice it to say that it was a perfect assassination and can be proven to be such'. 'After the murder, Kinzie hid in the fort garrison for about four hours, until Lieutenant Helm walked him to the river's edge, shook his hand, and let the future father of Chicago run free.' A sentinel later saw Helm carrying him food and wine.",
+      "confidence": "attested",
+      "sources": [
+        "dailing_2018_chicago_reader_lalime"
+      ],
+      "locator": "Chicago Reader, 18 October 2018, the paragraphs beginning 'A knife came out', 'I need not trouble you', 'Lalime's body lay' and 'Although Kinzie was seen'"
+    },
+    {
+      "id": "grave",
+      "text": "Irwin, July 1812, as the Chicago Reader quotes him: 'The Citizens were anxious an inquest should be held in the body, but a file of soldiers headed by Lt. Helm carried it away by force.' Kirkland (1893) puts the fenced grave, by Hubbard's account, 'two hundred yards west of the Kinzie house'. Fernando Jones, who came in 1835, saw 'a grave situated a little to the north of our path and several hundred feet west of the Kinzie house. The grave was surrounded by a neat white picket fence.' On 29 April 1891 cellar diggers at the south-west corner of Cass and Illinois streets found a skeleton and 'fragments, nearly crumbled away, of a rude pine coffin'; Kirkland gave the bones to the Chicago Historical Society.",
+      "confidence": "attested",
+      "sources": [
+        "dailing_2018_chicago_reader_lalime",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "locator": "Chicago Reader, 18 October 2018, the paragraph beginning 'Irwin never said anything about the grave'; Kirkland Appendix F, 'The Bones of John Lalime', Project Gutenberg eBook #59624 plain text lines 6120-6540"
+    },
+    {
+      "id": "stand-west",
+      "text": "This stand is about 180 m, Hubbard's 'two hundred yards', west of the Kinzie house on the north bank, looking back east along the bank to the houses; it marks the distance he gave, not a found grave.",
+      "confidence": "inferred",
+      "sources": [
+        "kirkland_1893_chicago_massacre"
+      ],
+      "reasoning": "Hubbard's figure through Kirkland, Appendix F; Fernando Jones has 'several hundred feet west'. The anchor west_of_kinzie_house is a camera, not a claim of the grave's place."
+    },
+    {
+      "id": "after",
+      "text": "Heald to Irwin, as the Chicago Reader quotes him: 'be good enough to inform him that it was in Consequence of your refusing to obey my orders when Called on to assist in apprehending a Citizen who had but a few days previous stabed an other citizen to the heart in your presence'. 'Irwin left Fort Dearborn on July 5 to hire a new interpreter. He arrived at Fort Mackinac just in time to become a British prisoner of war.' Irwin on 12 October: 'if he fulfilled his part as emissary, he had it much in his power to preserve his own life by destroying the Witnesses to the murder of Lalime.' Van Voorhis died in the attack of 15 August (Heald's report). Quaife (1913): 'The fact of La Lime's death at the hands of Kinzie is clear; the responsibility for it cannot, in the light of existing information, be determined.' The bones are kept by the Chicago History Museum in off-site storage (the Reader).",
+      "confidence": "attested",
+      "sources": [
+        "dailing_2018_chicago_reader_lalime",
+        "quaife_1913"
+      ],
+      "locator": "Chicago Reader, 18 October 2018, the paragraphs beginning 'And, when you report', 'Irwin left Fort Dearborn', 'The plots entered into' and the opening paragraphs; Quaife, the paragraph on La Lime's death"
+    },
+    {
+      "id": "heald-april",
+      "text": "Captain Nathan Heald, writing from Chicago on 15 April 1812: 'On the 6th instant, a little before sunset, a party of eleven Indians, supposed to be Winnebagoes, came to Messrs. Russell and Lee's cabin, in a field on the Portage branch of the Chicago river, about three miles from the garrison, where they murdered two men, one by the name of Liberty White, an American, and the other a Canadian Frenchman whose name I do not know.' The 1895 editors add the name [Debou] in brackets.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 43, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 6876-6890 (machine OCR of the 1895 printing, read as corrected: Heald's letter of 15 April 1812)"
+    },
+    {
+      "id": "dates-frame",
+      "text": "Stops that tell a record are set on its date: Kinzie's first season at Chicago (May 1804, the month his account book there begins), Lalime's letter of 26 May 1811, Irwin's letters of 10 March and 16 April 1812, and the morning after the killing. The hours of those stops are the jaunt's, chosen for daylight; no source gives them.",
+      "confidence": "inferred",
+      "sources": [
+        "quaife_1913",
+        "kirkland_1893_chicago_massacre",
+        "dailing_2018_chicago_reader_lalime"
+      ],
+      "reasoning": "Each date is the date of the document the stop tells; the hours are pacing, not records."
+    },
+    {
+      "id": "flight-hour",
+      "text": "Sunset at the gate, then 'about four hours' hidden in the garrison before Helm walked Kinzie to the river: this stop is set at twenty past eleven that night. Porthier says only 'In the night'.",
+      "confidence": "inferred",
+      "sources": [
+        "dailing_2018_chicago_reader_lalime",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "reasoning": "The Reader's 'about four hours' from Irwin's report, counted from sunset on 17 June (about 7:20 local solar time at Chicago); an estimate."
+    },
+    {
+      "id": "war-declared",
+      "text": "Quaife (1913): 'Meanwhile war had been declared by Congress on June 18'. 'News of the declaration of war was received at Fort Dearborn toward the middle of July.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, the chapter on the evacuation (Gutenberg #69274 plain text, the paragraphs on Hull's march and on the news reaching Fort Dearborn)"
+    },
+    {
+      "id": "historians",
+      "text": "The Chicago Reader (2018): 'The story of Lalime's 1812 murder at the hands of early settler John Kinzie is a popular lie'; the self-defence version was 'traced back to Kinzie's wife and one of their servants'. Irwin's and Van Voorhis's letters 'tell the story of three forgotten men who tried and failed to end the corruption, bribery, and smuggling that defined life at the fort that became Chicago.' 'Kinzie was behind it all, the doctor and factor alleged.' 'The winners didn't write the history books. The books ... were how the Kinzies made themselves the winners.' 'Cracks started to form in the story in the 20th century, when Quaife found a few of Irwin's letters'. Quaife, 1915, as the Reader quotes him: 'To those who subscribe to a traditional estimate local to Chicago which pictures Kinzie as a kind of demigod, Irwin's charge that in addition to being a murderer and a traitor he contrived the massacre of the garrison and settlers in order to destroy the witnesses of his crime will come as a distinct shock'. Porthier, as the Reader quotes her: 'You see Kinzie wasn't to blame at all.' 'That is what they all said.' Peter Alter of the Chicago History Museum: 'What I do know is that a lot is not known'.",
+      "confidence": "attested",
+      "sources": [
+        "dailing_2018_chicago_reader_lalime"
+      ],
+      "locator": "Chicago Reader, 18 October 2018, the paragraphs beginning 'The story of Lalime's 1812 murder', 'The real story', 'Kinzie was behind it all', 'The winners didn't', 'You see Kinzie', 'Cracks started to form', 'To those who subscribe' and 'What I do know'"
+    },
+    {
+      "id": "quaife-tradition",
+      "text": "Quaife (1913): 'La Lime's side of the story has not been preserved, except in the form of unreliable verbal tradition, which pictures Kinzie in the light of aggressor and murderer.' 'The Kinzie family tradition represents that La Lime, insanely jealous over Kinzie's success as a trader, treacherously attacked him, armed with a pistol and dirk, and was stabbed to death by Kinzie in self-defense. Practically all writers on Chicago history hitherto have accepted this version, but it is as little worthy of credence as the contrary one.' 'When in a later generation interest in his fate was revived only the version of it originating with the relatives and friends of the slayer gained the public ear, and this, for obvious reasons, put the onus of the affray on the slain.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, the paragraph beginning 'In the summer of 1812, a few weeks before the massacre' (Gutenberg #69274 plain text)"
+    },
+    {
+      "id": "currey-verdict",
+      "text": "Currey (1912): 'An inquiry into all the circumstances of the affair was made by the officers of the garrison, and a verdict of justifiable homicide was reached.' 'It was said by Gurdon S. Hubbard in later years that Mr. Kinzie deeply regretted the killing of Lalime, and further, that he firmly believed the deed was committed in self-defence.'",
+      "confidence": "attested",
+      "sources": [
+        "currey_1912_story_of_old_fort_dearborn"
+      ],
+      "locator": "Currey ch. II, the paragraphs beginning 'An inquiry into all the circumstances' and 'It was said by Gurdon S. Hubbard'"
+    },
+    {
+      "id": "porthier-knife",
+      "confidence": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre"
+      ],
+      "text": "Victoire Porthier went on, as Andreas printed her and Kirkland reprints: 'You see, Kinzie wasn't to blame at all. He didn't have any pistol nor knife--nothing. After Lalime shot him and Kinzie got his arms around him, he (Lalime) pulled out his dirk, and as they fell he was stabbed with his own knife. That is what they all said. I didn't see the knife at all.'",
+      "locator": "Appendix F, The Bones of John Lalime, Mrs. Porthier's statement, Project Gutenberg eBook #59624 plain text lines 6283-6298"
+    }
+  ],
+  "liberties": [
+    "L-1812-staged-jaunts-3553",
+    "L-1812-adult-jaunts"
+  ],
+  "long_form": true
+}

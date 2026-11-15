@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1139,
+  "count": 1140,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -74542,6 +74542,36 @@
         {
           "label": "Recorded",
           "text": "2026-11-14 (T-3553)."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
+      "id": "L-1812-adult-jaunts",
+      "title": "The adults tellings of the two 1812 story jaunts: the fighting staged, and what is still held back",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-15: *\"add a jaunt for the 1812 thst shows battle of fort Dearborn with more of the actual conflicts in place, the knifing of la lime, people being attacked, tomahawks, this one is targeted at adults and shows everything incredibly graphically\"*; *\"Both the murder and battle jaunts\"*; *\"We can alter some of these internal rules to accomplish this goal\"*. Two jaunts, *The Battle of Fort Dearborn (18+)* and *Chicago's First Murder (18+)* (the owner, 2026-11-15: *\"That adults band you can call 18+\"*), are each a version of its students' jaunt with `audience: \"adults\"` and a content warning; the app lists them only once the visitor has said in Settings that they are 18 or over, shows the warning on the card and before the start, and never suggests them in a teacher's handout. They play the students' scenes (“The 1812 story jaunts played by their people: who stands where at each stop, when they move, and what is left out”) with the fighting added: weapons in the hand (`arm`) and what is done with them (`act`: strike, stab, aim, fire, lower, struck), the fallen going down where they are hit, written by the research notes on jaunt stage 1812 (words in the adult texts tool). **What is read.** Every event staged is in an eyewitness account Kirkland (1893) prints: at Lee's place the two shots and White's knife wounds (Heald's letter of 15 April; Mrs. Kinzie's narrative); on the beach the volley from the sand-hills, the company's one round and its charge, the veteran falling, Ronan fighting on one knee, the surgeon wounded and then tomahawked, the blow on Mrs. Helm's shoulder and Black Partridge carrying her into the lake (Margaret Helm's story); Hays and Nau-non-gee killing each other (Wau-Bun); the militia cut down at the wagons (Quaife); Wells shot through the lungs, taking his niece's hand, firing and killing one, and shot dead, and Mrs. Heald wounded (Rebekah Heald's story, through her son); at the gate Lalime's pistol and the knife, and the two men falling together (Porthier; Mrs. Kinzie through Hubbard). Which soldiers fall is each soldier's card (Quaife's count). **What is invented.** Who strikes whom and when beyond those accounts; every weapon each man of the gathering holds (one in three a gun, the rest tomahawks, war clubs and knives) and which of them fall (about as many as Heald's \"about fifteen\"); every hand-to-hand pairing; that Wells and Mrs. Heald, who rode, are on foot (no saddle horse is drawn) and that Wells, pinned by his horse in the account, goes down on one knee; how often the knife strikes; that the knife at the gate passes from Lalime's hand to Kinzie's as they close (Porthier: \"That is what they all said. I didn't see the knife at all.\"). The weapons are drawn plain (the walkthrough's human fight code), no particular piece. **Scalping.** The owner, 2026-11-15: *\"Yes scalpings did occur so we want to be honest about it\"*. The dead are scalped where they fall, seen from the stop and not close to: a man kneels at the body with his knife and cuts. The accounts for it: Heald's letter (the Frenchman at Lee's place 'shot through the neck and scalped'), A. H. Edwards's letter (Cooper's daughter 'saw her father's scalp'), Mrs. Helm (Pee-so-tum holding Wells's scalp), and the Niles letter that the British commander 'bought the scalps of our murdered garrison'. Which of the dead are scalped on the stage, and by whom, is invented. **What is held back on purpose, even at 18+.** No child is shown struck or scalped: the young man who climbed into the baggage wagon is shown reaching it, and its children stay seated; the scalped Cooper girl is told, not shown. The worst of what was done to the dead (White's wounds, Wells's body cut open and his heart) is told in the stop's text and not staged. Blood and wounds on the figures are not yet drawn."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a fuller account of who fought whom on the beach puts them there; drawn blood and wounds, and a saddle horse, replace what is left out."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on jaunt stage 1812 (the adults tool, the adult texts tool)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-15 (T-3553)."
         }
       ],
       "work_refs": [

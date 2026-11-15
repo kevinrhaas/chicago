@@ -408,6 +408,11 @@
            written around its own way of going. -->
       <label class="field row check-field"><span data-str="hud.move.jaunts">Jaunts use my choice</span>
         <input type="checkbox" id="s-jaunts-choice"></label>
+      <!-- The owner, 2026-11-15: the jaunts that stage the 1812 fighting graphically (killings,
+           wounds, blood), for adults only. Off by default; on, they are listed with the rest. -->
+      <label class="field row check-field"><span data-str="hud.move.adultJaunts">18+ jaunts: I am 18 or over</span>
+        <input type="checkbox" id="s-adult-jaunts" aria-describedby="s-adult-jaunts-help"></label>
+      <p class="legend-note" id="s-adult-jaunts-help" data-str="hud.move.adultJauntsHelp">Lists the jaunts that show the 1812 fighting graphically: killings, wounds and blood. Not for students.</p>
       <!-- T-2652: one choice for every way of picking a place. The map's own Go (T-2654) goes
            by goToTarget like Go to, so it takes this choice too. -->
       <p class="legend-note" id="arrive-note" data-str="hud.move.arrive.note">Applies to Go to and the map.</p>

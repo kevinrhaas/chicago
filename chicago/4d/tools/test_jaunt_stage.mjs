@@ -248,3 +248,53 @@ for (const st of [column, bank]) {
 const wagonPassed = teamsFor(column).filter((c) => castAt(c, 0).n > anchorEN[1] && castAt(c, 600).n < anchorEN[1]);
 assert.equal(wagonPassed.length, 2, 'the wagons come down from the north and pass the visitor with the column');
 console.log('PASS the two 1812 story jaunts stage their own people, keep them on phones, pass the column by, and never show a child fallen');
+
+// ---- the adults tellings (owner, 2026-11-15: "targeted at adults and shows everything incredibly
+// graphically"): each a version of its students' jaunt for the adults audience, behind its
+// warning, staging the fighting with weapons in the hand; and still no child struck or fallen,
+// and no blow ever aimed at one. The students' jaunts above keep their beats to moves and words.
+const schema = read('data/jaunts/schema.json');
+const castSchema = schema.$defs.stop.properties.stage.properties.cast.items;
+const ARMS = castSchema.properties.arm.enum, ACTS = castSchema.properties.beats.items.properties.act.enum;
+for (const [name, base] of [['battle-of-fort-dearborn-adults', 'battle-of-fort-dearborn'], ['killing-of-jean-lalime-adults', 'killing-of-jean-lalime']]) {
+  const jaunt = read(`data/jaunts/${name}.json`), student = read(`data/jaunts/${base}.json`);
+  assert.equal(jaunt.version_of, base, `${name}: a version of the students' ${base}`);
+  assert.equal(jaunt.audience, 'adults', `${name}: for adults`);
+  assert.ok(jaunt.content_warning?.length >= 40 && !jaunt.featured, `${name}: warned, and never featured`);
+  assert.ok(student.audience !== 'adults' && !('content_warning' in student), `${base}: the students' telling stays theirs`);
+  assert.ok(jaunt.liberties.includes('L-1812-adult-jaunts') && jaunt.liberties.includes('L-1812-staged-jaunts-3553'), `${name}: both stagings declared`);
+  assert.deepEqual(jaunt.stops.map((s) => s.id), student.stops.map((s) => s.id), `${name}: the same stops as the students'`);
+  let acts = 0, shots = 0, blows = 0;
+  for (const st of jaunt.stops.filter((s) => s.stage)) {
+    const where = `${name}/${st.id}`;
+    const ids = stageIds(st);
+    assert.equal(new Set(ids).size, ids.length, `${where}: nobody twice in one scene`);
+    for (const id of ids) assert.ok(people.has(id), `${where}: ${id} is a person of 1812`);
+    assert.ok(castFor(st, 'light').length <= 90, `${where}: a phone's stage stays within its people (${castFor(st, 'light').length})`);
+    assert.ok(stageLength(st) < 300, `${where}: the scene plays out in minutes`);
+    const childIds = new Set(st.stage.cast.filter((c) => c.person && young.test(c.person)).map((c) => c.person));
+    for (const c of st.stage.cast) {
+      const beats = c.beats || [];
+      if (c.arm) assert.ok(ARMS.includes(c.arm), `${where}: ${c.arm} is a weapon`);
+      for (const b of beats) {
+        if (b.arm) assert.ok(ARMS.includes(b.arm), `${where}: ${b.arm} is a weapon`);
+        if (b.act) { assert.ok(ACTS.includes(b.act), `${where}: ${b.act} is a motion`); acts++; }
+        if (b.act === 'fire') shots++;
+        if (b.act === 'strike' || b.act === 'stab') blows++;
+        if (['strike', 'stab', 'fire', 'aim'].includes(b.act) && typeof b.face === 'string') assert.ok(!childIds.has(b.face), `${where}: no blow or shot is aimed at a child (${b.face})`);
+      }
+      if (c.person && young.test(c.person)) {
+        const poses = [c.pose, ...beats.map((x) => x.pose)].filter(Boolean);
+        assert.ok(!poses.includes('lie') && !poses.includes('fallen'), `${where}: no child is shown fallen (${c.person})`);
+        assert.ok(!beats.some((x) => x.act || x.arm), `${where}: no child is struck or armed (${c.person})`);
+      }
+    }
+  }
+  assert.ok(acts >= 5 && shots >= 1 && blows >= 1, `${name}: the fighting is staged (${acts} motions, ${shots} shots, ${blows} blows)`);
+}
+const gate = read('data/jaunts/killing-of-jean-lalime-adults.json').stops.find((s) => s.id === 'the-gate').stage.cast;
+const lalime = gate.find((c) => c.person === 'lalime_john'), kinzie = gate.find((c) => c.person === 'kinzie_john_elder');
+assert.ok(lalime.beats.some((b) => b.act === 'fire') && lalime.beats.some((b) => b.arm === 'knife'), 'at the gate Lalime fires his pistol and draws his dirk (Porthier)');
+assert.ok(kinzie.beats.some((b) => b.act === 'struck') && kinzie.beats.some((b) => b.act === 'stab'), 'Kinzie is hit, closes and stabs (Hubbard; Porthier)');
+assert.ok(lalime.beats.some((b) => b.pose === 'lie') && castAt(kinzie, 600).hidden, 'Lalime lies where he fell; Kinzie goes');
+console.log('PASS the adults tellings stage the fighting behind their warning, and still never strike or fell a child');

@@ -88,6 +88,8 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     const meta = node('p', '', 'jaunt-tags');
     meta.append(node('span', group, 'jaunt-family'), node('span', `${row.stop_count} stops`), length);
     // T-3590: the school grades its words are written for.
+    // The owner, 2026-11-15: an adults jaunt says so, and what it shows, before it is started.
+    if (row.audience === 'adults') { const tag = node('span', '18+', 'jaunt-adults'); tag.title = row.content_warning || '18+: the fighting is shown'; meta.append(tag); }
     const grades = gradeLabel(row.grade_band);
     if (grades) { const tag = node('span', grades, 'jaunt-grade'); tag.title = `Written for US school ${grades.toLowerCase()}`; meta.append(tag); }
     const light = ambienceLabel(row.ambience);
@@ -95,6 +97,7 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     // T-2631: the keepsake, once earned, on the outing's own card.
     if (kept(row)) meta.append(node('span', 'Keepsake earned', 'jaunt-kept'));
     body.append(head, node('p', row.premise, 'jaunt-premise'), meta);
+    if (row.audience === 'adults' && row.content_warning) body.append(node('p', row.content_warning, 'jaunt-warning'));
     if (plate?.src) { const credit = node('p', `Picture: ${plate.credit}`, 'jaunt-credit'); credit.title = plate.full; body.append(credit); }
     const actions = node('div', '', 'jaunt-actions');
     const details = node('div', '', 'jaunt-details'); details.id = `jaunt-more-${section}-${row.id}`;
