@@ -17,6 +17,7 @@
  * local trial, `localStorage['chicago4d.todayKey']` names a key for that browser only.
  */
 export const TODAY_VIEW = {
-  googleMapsKey: '',
+  // The owner's key (2026-11-15), restricted to the hosts below in Google Cloud.
+  googleMapsKey: 'AIzaSyC7yDo_XYAcZQNk_S3EcKlYmJrReYm-bOc',
   hosts: ['chicago.polecat.live', 'dev.chicago.polecat.live'],
 };
