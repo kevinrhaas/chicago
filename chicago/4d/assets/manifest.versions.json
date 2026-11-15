@@ -10,7 +10,7 @@
       "phase_id": "frame_1834",
       "structure_id": "bates_auction_room",
       "version_label": "fixture",
-      "web_master_sha256": "3458a2a4497ffa18ea1e977c4170db8142ae0e12b97b8c0e478a8ca698e1a2cc"
+      "web_master_sha256": "7d6d5d017b49a2f5d15fda7e842cc6c697016b5203f149b35c39f843bb0e23f9"
     },
     "versions/glessner_house/pre-v4/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
@@ -21,7 +21,7 @@
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "version_label": "pre-v4",
-      "web_master_sha256": "352f187c0879b3188ff3f63bd78fb046a7cfdc89d9c980343fcaa29d25167410"
+      "web_master_sha256": "918937c8d7bbe568c5a444dd664bdc80fec45de5710d7daa7f92b2b24f5eabd8"
     },
     "versions/glessner_house/v2/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
@@ -32,7 +32,7 @@
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "version_label": "v2",
-      "web_master_sha256": "951b64e0914b57c79db7386a534bf501aea9da586deceb43f639b7112c43d39e"
+      "web_master_sha256": "4efd9b2ca60cdcddc10ba7664475cf3e31141b8d31f298ac043a1ae05c68d2e3"
     },
     "versions/glessner_house/v3/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
@@ -43,7 +43,7 @@
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "version_label": "v3",
-      "web_master_sha256": "f1b011b292bf59eed7ed5ba789051fcacefedd05f439bf8832dd0679b27da2d2"
+      "web_master_sha256": "b7ca4637959ce45ee3104bdb80d442c9d0b3687fcc957e23b5d39a10a0c598c2"
     },
     "versions/tremont_house_1/gale-reading/tremont_house_1__frame_1833.glb": {
       "archetype": "frame_tavern",
