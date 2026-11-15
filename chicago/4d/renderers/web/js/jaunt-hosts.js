@@ -81,6 +81,10 @@ export function createJauntHosts({ humans, days = null, router = null, visitor =
       return h;
     }
     if (day?.retryable) return null; // another activity retains ownership; update retries
+    // T-3553: someone with a day of their own is never walked as a dayless figure. If their day
+    // does not have them yet, wait for it: taken by hand, the day would put them back in the house
+    // the next frame, out of sight at the mark while their stop is read.
+    if (day && day.why === 'no such person' && Array.isArray(actor.instance?.behaviour?.day)) return null;
     if (day && day.why !== 'no such person') { skipped.add(host.person); return null; } // absent is not a dayless figure
     // No day of their own: walk them there, and remember where they were.
     h.via = 'self';

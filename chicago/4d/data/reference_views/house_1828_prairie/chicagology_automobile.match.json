@@ -2,11 +2,11 @@
   "structure_id": "house_1828_prairie",
   "view": "chicagology_automobile",
   "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
-  "glb_sha256": "ad8fd4539600fd1fce14dde4f7c4925ade12a0eaa5dc44e99ebd8960d638cb87",
+  "glb_sha256": "6d2bfc23a310c9559770388627ea9bece6b156b58233f921e503fc5454d8642a",
   "camera_sha256": "c5db781be13c8f38279e02b2deb16a970c6995b2397cc02e886addbafc8d281e",
   "photo_sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957",
   "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/chicagology_automobile-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: a light stone front over a raised basement, the principal storey and the foot of the second, the canted bay and the recessed north part with the porch, seen square-on",
@@ -71,8 +71,8 @@
     },
     {
       "what": "the light stone face south of the bay's cheek at the print's left edge (x 0-150 px) with a pilaster at x 40-60: the print shows front wall south of the bay, where the 1911 sheet's trace starts the bay's cheek at the house's south corner",
-      "status": "open",
-      "how": "built to the sheet: the cheek from 0.3 m inside the corner, rendering about 50 px left of the print's junction (x 100 against 150), and the flanks in the front's stone 14 m back as the 1911 sheet edges them in blue. T-1887 measured the print's face (each band of courses sheared until its edges stack sharpest): across x 8-48 the courses rise to the right, slopes 0.16-0.20 at y 30-360 (they meet the horizon near x -1200 to -2500, where 1824's light flank frieze meets it, x -1380 here and -1473 in T-3166's reading); across x 90-140 they fall to the right, 0.08-0.16 (meeting the horizon near x +2600); the lit strip at x 47-87 stands between. So the face is not frontal and not one plane: it is convex, turned away on both sides of the lit strip, as a round or many-sided stone mass would be. No level camera square to the front shows 1828's flank there: with the principal point at the print's edge the flank's courses would vanish at x 0, nearly upright at x 30; moved 300 px left (eye 4.8 m further south) the flank does fill x 0-150, but its courses fall at 0.6, the stoop's foot lands at x 800 against 750, and 900 px left it lands at 960. Neither 1834 next door (its north wall 3.9 m further south, brick over a stone basement) nor the sheet's round flank bay (14.5 m back) is in the band through either camera. Still a plan question: a convex light stone mass south of the bay's cheek that the 1911 sheet does not draw at the corner. What the print does settle is that this band has no opening in it, so T-1887 takes out the two south-flank windows in front of the canted flank bay (side_bays); through T-3166's camera the canted flank bay's own lights still render at x 100-130 (the principal point's open question), and through the camera moved 300 px left the band renders as blank coursed stone, as the print shows it."
+      "status": "fixed",
+      "how": "T-1887 (2026-11-14): built as a plain stone range on the south flank at the front, 2.25 m out and 4.0 m along the flank, full height under the front's cornice, with no window in its street face (house_1828_prairie bays.south_front_range; L-k01-1828-shipman-1887). The 1911 sheet does not draw it, but three sources do: this print; the Rand McNally view of 1893 (rand_mcnally_1893_views_prairie_west_1816_1936), which draws a plain windowless strip at the south end of 1828's front beside the bay's windows, with the shaded south flank behind it; and D. B. Shipman's permit (Chicago Tribune, 9 July 1876, on Chicagology's page), which gives the house a 35 ft (10.67 m) front against the sheet's 8.2 m, 2.47 m more where this print reads 2.25. That also settles the earlier 'convex' reading. The lit strip at x 47-87 is the range's street face at its south corner, catching the sun past the street trees whose shadow covers x 90-145. Its courses across x 8-48 rise to the right and vanish with 1824's south-flank frieze (x -1200 to -2500 against -1380 and -1473), which is what a face running back along the flanks does: the range's south face. Re-rendered: a light, windowless stone face from x 37 to the bay's cheek at x 175, full height, where the print shows one from its corner at about x 44 to the cheek at 145."
     },
     {
       "what": "the second storey and the mansard: the frame cuts them off",
@@ -103,6 +103,26 @@
       "what": "the boundary's kind",
       "status": "within tolerance",
       "how": "this print shows an iron fence on a curb; glessner_partial reads as a low solid wall; the fence is kept (L-k14-walks-1800-block-3206)"
+    },
+    {
+      "what": "the range's street face is channelled in the print (deep horizontal bed joints, no vertical joint that reads, across x 10-140 in shade) and was smooth in the render",
+      "status": "fixed",
+      "how": "T-1887 (2026-11-14): K08's bay masonry takes a 'channelled' dressing: flat-faced courses the run's whole length, each 25 mm proud and chamfered back to a 12 mm channel floor. The print's bed joints were measured on their brightness profile down x 10-40 and 95-140 (y 100-480): 27-28 px apart, about 0.45 m at the band's 62 px/m (not the 0.6 m first read), so the range is laid in 0.45 m courses, evened to 0.44 and 0.46 m in its storeys; the render's channels fall about 26.5 px apart across the same band."
+    },
+    {
+      "what": "the range's south face and corner: the print shows light stone receding from about x 44 to the frame's edge (x 8); the render turns the corner at x 37 and shows its south face only as a sliver, with sky beyond",
+      "status": "within tolerance",
+      "how": "the principal point's open question (T-3166's square camera puts it at the print's edge, which makes a face running along the flanks vanish at x 0; the courses here and 1824's frieze vanish near x -1450). Two camera fits disagree about it (T-3153). The corner itself, x 37 against about 44, is 7 px, about 0.1 m."
+    },
+    {
+      "what": "the cheek's junction with the range: print x 145, render x 175",
+      "status": "within tolerance",
+      "how": "30 px, about 0.5 m at the bay; it is the trade between the bay cheek's width and the eye's v that T-3166's solve records (10-15 px per 4 m of eye), and the 1911 sheet's 0.3 m corner pier the K01 bay keeps. Two camera fits disagree about it, so it does not move the plan."
+    },
+    {
+      "what": "the front's belt course between the storeys carried across the range's street face (render y about 135), which the print does not show on the band",
+      "status": "within tolerance",
+      "how": "a course a few centimetres proud, under 0.3 m, in the trees' shade in the print."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
