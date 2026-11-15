@@ -33,7 +33,22 @@ export const canBoard = actor => typeof actor?.seat === 'function' && typeof act
   && typeof actor.handBack === 'function' && typeof actor.drive === 'function';
 
 /** Seconds of the climb up, the climb down, and the longest wait for a driven team to pull up. */
-export const RIDE_S = Object.freeze({ climb: 1.1, alight: 0.9, pullUp: 4 });
+export const RIDE_S = Object.freeze({ climb: 1.1, alight: 0.9, pullUp: 4, board: 2.4, unboard: 2, door: 3 });
+
+/** T-3557: an eye's way along keyframes (world { e, n, y, bearing }), eased, at t in 0..1. */
+export function alongKeys(keys, t) {
+  if (!keys.length) return null;
+  if (keys.length === 1) return { ...keys[0] };
+  const f = smooth(Math.max(0, Math.min(1, t)));
+  const lengths = keys.slice(1).map((k, i) => Math.hypot(k.e - keys[i].e, k.n - keys[i].n, k.y - keys[i].y) || 1e-6);
+  const total = lengths.reduce((a, b) => a + b, 0);
+  let s = f * total, i = 0;
+  while (i < lengths.length - 1 && s > lengths[i]) { s -= lengths[i]; i++; }
+  const u = Math.min(1, s / lengths[i]), a = keys[i], b = keys[i + 1];
+  const bearing = a.bearing === null || b.bearing === null ? (b.bearing ?? a.bearing)
+    : (a.bearing + turn(a.bearing, b.bearing) * u + 360) % 360;
+  return { e: lerp(a.e, b.e, u), n: lerp(a.n, b.n, u), y: lerp(a.y, b.y, u), bearing };
+}
 
 /**
  * The visitor aboard a team: at most one team per scene. Readers, all optional:
@@ -47,14 +62,17 @@ export const RIDE_S = Object.freeze({ climb: 1.1, alight: 0.9, pullUp: 4 });
 export function createTeamRide({ visitor = () => null, standFor = () => null, groundAt = () => NaN,
   walkEye = () => 1.6, onBoard = () => {}, reducedMotion = () => false } = {}) {
   let actor = null, phase = null, eye = null, landing = null, pulling = false;
+  // T-3557: which seat: 'box' (beside the driver) or 'cab' (inside a closed carriage, by its
+  // door: `via` the eye's way in, vehicle-local [x, y, z] keyframes from outside the door).
+  let seatKind = 'box', via = null, outside = null;
   // The pace (0..1 of the drive cap) the team walks on at under the reins, until whoa. Null
   // until the reins are taken: then it starts at the pace the team had, so taking them from a
   // team on its round lets it walk on as it was rather than ease to a stand.
   let cruise = null;
   let from = null, lastHeading = null, still = 0, lastAt = null;
-  const seatOf = a => {
+  const seatOf = (a, kind = seatKind) => {
     try {
-      const s = a?.seat?.();
+      const s = a?.seat?.(kind);
       return s && [s.e, s.n, s.y].every(Number.isFinite) ? s : null;
     } catch { return null; }
   };
@@ -77,14 +95,32 @@ export function createTeamRide({ visitor = () => null, standFor = () => null, gr
   const end = (why, land) => {
     const a = actor;
     if (land) {
-      const s = phase === 'alighting' && from?.stand ? from.stand : standOf(a);
+      // Out of a cab: by its door, to the stand outside it.
+      const door = seatKind === 'cab' && outside ? a?.toWorld?.([outside[0], 0, outside[1]]) : null;
+      const s = phase === 'alighting' && from?.stand ? from.stand
+        : door && Number.isFinite(door.e) ? { e: door.e, n: door.n } : standOf(a);
       landing = s ?? null;
     }
     // The visitor's hands leave the reins with them: the driver takes his team home.
     if (a && (a.mode === 'reins' || a.mode === 'returning') && !a.disposed) { try { a.handBack(); } catch { /* the actor stays authoritative */ } }
     actor = null; phase = null; eye = null; pulling = false; lastHeading = null; from = null;
+    seatKind = 'box'; via = null; outside = null;
     onBoard(a, false, why);
     return true;
+  };
+  /** The cab's way in as world keyframes: the visitor's eye now, the keyframes, the seat's eye. */
+  const cabKeys = (a, start) => {
+    const heading = headingOf(a) ?? start?.bearing ?? 0;
+    const facing = (heading + 270) % 360; // toward the carriage from its right (curbside) door
+    const keys = [];
+    if (start) keys.push({ e: start.e, n: start.n, y: start.y, bearing: start.bearing ?? facing });
+    for (const [i, p] of (via ?? []).entries()) {
+      const w = a.toWorld?.(p);
+      if (w) keys.push({ e: w.e, n: w.n, y: w.y, bearing: i === via.length - 1 ? heading : facing });
+    }
+    const s = seatOf(a, 'cab');
+    if (s) keys.push({ e: s.e, n: s.n, y: s.y, bearing: heading });
+    return keys;
   };
   const ride = {
     get actor() { return actor; },
@@ -92,19 +128,35 @@ export function createTeamRide({ visitor = () => null, standFor = () => null, gr
     get aboard() { return phase === 'seated' ? actor : null; },
     get driving() { return phase === 'seated' && actor?.mode === 'reins'; },
     get pullingUp() { return pulling; },
+    /** T-3557: 'cab' while the visitor rides inside a closed carriage, else 'box'. */
+    get seatKind() { return seatKind; },
+    get inCab() { return !!actor && seatKind === 'cab'; },
     get landing() { return landing; },
     reducedMotion: () => !!reducedMotion(),
     seatOf,
 
-    /** Climb: the eye eases from where the visitor stands, up over the wheel, onto the seat. */
-    climb(a, t) {
+    /** Climb: the eye eases from where the visitor stands, up over the wheel, onto the seat.
+     *  T-3557: `{ kind: 'cab', via, stand }` gets in by the cab's door instead: up its step,
+     *  stooping through the doorway, onto the seat inside (`via`: vehicle-local eye keyframes;
+     *  `stand`: vehicle-local [x, z] outside the door, where getting out lands). */
+    climb(a, t, { kind = 'box', via: way = null, stand = null } = {}) {
       if (actor !== a || phase !== 'climbing') {
         if (actor && actor !== a) return false;
         if (phase === 'seated') return true;
         const v = visitor();
         actor = a; phase = 'climbing'; landing = null; pulling = false;
+        seatKind = kind === 'cab' && typeof a?.seat === 'function' && seatOf(a, 'cab') ? 'cab' : 'box';
+        via = seatKind === 'cab' && Array.isArray(way) ? way : null;
+        outside = seatKind === 'cab' && Array.isArray(stand) ? stand : null;
         from = v && [v.e, v.n, v.y].every(Number.isFinite) ? { e: v.e, n: v.n, y: v.y, bearing: v.bearing ?? 0 } : null;
         onBoard(a, true, 'climb');
+      }
+      if (seatKind === 'cab') {
+        const keys = cabKeys(a, from);
+        if (!keys.length) return false;
+        eye = alongKeys(keys, t);
+        if (t >= 1) { phase = 'seated'; eye = null; lastHeading = headingOf(a); }
+        return true;
       }
       const s = seatOf(a);
       if (!s) return false;
@@ -139,6 +191,26 @@ export function createTeamRide({ visitor = () => null, standFor = () => null, gr
     /** Get down, second part: the eye eases from the seat down to a clear stand beside the team. */
     alight(a, t) {
       if (actor !== a) return false;
+      if (seatKind === 'cab') {
+        // Out by the door the way in, backwards, down to the stand outside it.
+        if (t === 0 || phase !== 'alighting') {
+          phase = 'alighting'; pulling = false;
+          const at = outside && a.toWorld?.([outside[0], 0, outside[1]]);
+          const to = at && Number.isFinite(at.e) ? { e: at.e, n: at.n } : standOf(a);
+          if (!to) return false;
+          from = { ...(from ?? {}), stand: to };
+        }
+        const to = from.stand, keys = cabKeys(a, null).reverse();
+        keys.push({ e: to.e, n: to.n, y: eyeOn(to.e, to.n), bearing: keys.at(-1)?.bearing ?? null });
+        eye = alongKeys(keys, t);
+        if (t >= 1) {
+          landing = { e: to.e, n: to.n }; actor = null; phase = null; eye = null; from = null; lastHeading = null;
+          seatKind = 'box'; via = null; outside = null;
+          if (a.mode === 'reins' && !a.disposed) { try { a.handBack(); } catch { /* the actor stays authoritative */ } }
+          onBoard(a, false, 'get-down');
+        }
+        return true;
+      }
       if (t === 0 || phase !== 'alighting') {
         const s = seatOf(a), to = standOf(a);
         if (!to) return false;
@@ -293,7 +365,8 @@ export function boardStand({ actor, row, blockedAt = () => false, ahead_m = 12 }
 }
 
 export function registerTransportInteraction(interactions, actor, { reach = 6, giveRoom = null, vehicle = 'wagon',
-  driver = 'driver', onFoot = false, ride = null, reinsHint = () => 'You have the reins', rideName = null } = {}) {
+  driver = 'driver', onFoot = false, ride = null, reinsHint = () => 'You have the reins', rideName = null,
+  cab = null, home = null } = {}) {
   if (!interactions?.add || !actor?.id || !actor?.name
       || typeof actor.stop !== 'function' || typeof actor.resume !== 'function'
       || typeof actor.canResume !== 'function' || !(Number.isFinite(reach) && reach > 0)
@@ -384,8 +457,72 @@ export function registerTransportInteraction(interactions, actor, { reach = 6, g
     ],
     said: () => `Down beside the ${vehicle}`,
   };
+  // T-3557: a closed carriage's cab (the Glessner brougham): get in by its door beside the
+  // passenger already inside, ride its round, get out by the door. `cab` is the row's:
+  // { via, stand, with } (the eye's way in, the stand outside the door, who rides inside).
+  // `home` (optional) takes the carriage home to its coach house and brings it out again.
+  const doorOf = () => live?.assembly?.door ?? null;
+  const doorStep = (label, want) => ({ label, timeout: RIDE_S.door,
+    run(t) { if (t === 0) { const d = doorOf(); if (d) void (want === 'open' ? d.open() : d.close()); } },
+    until: () => { const d = doorOf(); return !d || d.state === (want === 'open' ? 'open' : 'shut'); } });
+  let cabWasMoving = false;
+  const getIn = cab && {
+    id: 'get-in', label: cab.with ? `Get in beside ${cab.with}` : `Get in the ${vehicle}`,
+    refuse() {
+      if (ride.actor && ride.actor !== live) return 'Already aboard';
+      if (live.way && live.way.mode !== 'parked') return `The ${driver} is driving it in`;
+      return ride.seatOf(live, 'cab') ? null : `No seat in this ${vehicle}`;
+    },
+    steps: [
+      { label: 'Pulling up', timeout: RIDE_S.pullUp,
+        run(t) { if (t === 0 && live) { cabWasMoving = live.mode === 'route' && live.state === 'moving'; if (cabWasMoving) live.stop('boarding'); } },
+        until: () => !live || ride.stilled(live) },
+      doorStep('Opening the door', 'open'),
+      { label: 'Getting in', seconds: RIDE_S.board, run(t) { if (live) ride.climb(live, t, { kind: 'cab', via: cab.via, stand: cab.stand }); } },
+      doorStep('Closing the door', 'shut'),
+      { label: 'Off', seconds: 0, run: run(a => {
+        // The round begins (or goes on): from its stand, or where it was pulled up for them.
+        if (!ride.reducedMotion() && a.mode === 'route' && a.canResume()) a.resume();
+        cabWasMoving = false;
+      }) },
+    ],
+    said: () => `In beside ${cab.with ?? 'the passenger'}${still()}`,
+  };
+  const getOut = cab && { id: 'get-down', label: 'Get out',
+    refuse: () => (mine() && ride.phase === 'seated' ? null : 'Not aboard'),
+    steps: [
+      { label: 'Pulling up', timeout: RIDE_S.pullUp,
+        run(t) { if (t === 0 && live) { cabWasMoving = live.mode === 'route' && live.state === 'moving'; ride.pullUp(live); } },
+        until: () => !live || ride.stilled(live) },
+      doorStep('Opening the door', 'open'),
+      { label: 'Getting out', seconds: RIDE_S.unboard, run(t) { if (live) ride.alight(live, t); } },
+      doorStep('Closing the door', 'shut'),
+      { label: 'Down', seconds: 0, run: run(a => {
+        if (cabWasMoving && a.mode === 'route' && a.canResume()) a.resume();
+        cabWasMoving = false;
+      }) },
+    ],
+    said: () => `Out beside the ${vehicle}`,
+  };
+  const goHome = home && { id: 'home', label: 'Home to the coach house',
+    refuse: () => home.whyNotHome?.(live) ?? null,
+    steps: [{ label: 'Turning for home', seconds: 0, run: run(a => { home.goHome(a); }) }],
+    said: () => `The ${driver} drives home to the coach house` };
+  const bringOut = home && { id: 'bring-out', label: `Bring the ${vehicle} round`,
+    refuse: () => home.whyNotOut?.(live) ?? null,
+    steps: [{ label: 'Bringing it round', seconds: 0, run: run(a => { home.bringOut(a); }) }],
+    said: () => `The ${driver} brings the ${vehicle} round to the door` };
+  const homeActions = () => {
+    if (!home) return [];
+    if (home.isHome?.(live)) return [bringOut];
+    return home.canGoHome?.(live) ? [goHome] : [];
+  };
   const aboardActions = () => {
     const mode = live.mode;
+    if (cab && ride.inCab) {
+      const journey = mode === 'route' ? (live.state === 'moving' ? stop : live.canResume() ? resume : null) : null;
+      return [...(journey ? [journey] : []), getOut, ...homeActions()];
+    }
     if (mode === 'reins') return [handBack, getDown];
     if (mode === 'returning') return [reins, getDown];
     const journey = live.state === 'moving' ? stop : live.canResume() ? resume : null;
@@ -404,7 +541,11 @@ export function registerTransportInteraction(interactions, actor, { reach = 6, g
     },
     /** Aboard, the team is worked from the seat: always the nearest thing to the visitor. */
     get spots() {
-      if (!mine()) return [];
+      if (!mine()) {
+        // T-3557: a carriage in its coach house is worked from its doors, and a cab from its door.
+        const spot = home?.spot?.(live) ?? (cab?.stand && live?.toWorld ? live.toWorld([cab.stand[0], 0, cab.stand[1]]) : null);
+        return spot && Number.isFinite(spot.e ?? spot[0]) ? [Array.isArray(spot) ? spot : [spot.e, spot.n]] : [];
+      }
       const s = ride.seatOf(live);
       return s ? [[s.e, s.n]] : [];
     },
@@ -418,8 +559,16 @@ export function registerTransportInteraction(interactions, actor, { reach = 6, g
       }
       // Aboard another team: this one is not worked from there.
       if (ride?.actor) return {};
-      const board = boardable() ? [climb] : [];
-      return { moving: [stop, ...board], stopped: [live.canResume() ? resume : blocked, ...board] };
+      const board = boardable() ? [...(getIn ? [getIn] : []), climb] : [];
+      // T-3557: off its round (in at the coach house, or on its way there or out) it is the
+      // coachman's: only Bring it round, once it stands inside.
+      if (live.way) {
+        const list = live.way.mode === 'parked' ? homeActions() : [];
+        return { moving: list, stopped: list };
+      }
+      const at = live.state === 'stopped' && live.reason === 'stand';
+      const journey = at ? [] : [live.canResume() ? resume : blocked];
+      return { moving: [stop, ...board], stopped: [...journey, ...board, ...homeActions()] };
     },
   };
   interactions.add(thing);

@@ -14,13 +14,33 @@ import { loadLivery, dressInLivery } from './driver-livery.js';
 import { acquireDraftHorse } from './draft-horse-assets.js';
 import { applyHorseAppearance } from './horse-appearance.js';
 import { applyCoachwork } from './coachwork.js';
+import { createCabDoor } from './cab-door.js';
+import { seatInCab, passengerRoot } from './cab-passenger.js';
+
+/** T-3557: hoof support over an admitted carriage drive (a kerb ramp, a coach-house floor):
+ *  the same nine samples as fitHorseSupport, their plane, with no standing bound (it is a
+ *  step up or down, walked, not stood on); the hoofs rest on its highest sample. */
+function rampSupport({ e, n, yaw, heightAt, half_width_m = .35, half_length_m = .89 }) {
+  const c = Math.cos(yaw), s = Math.sin(yaw), samples = [];
+  for (const x of [-half_width_m, 0, half_width_m]) for (const z of [-half_length_m, 0, half_length_m]) {
+    const h = heightAt(e + c * x + s * z, n + s * x - c * z);
+    if (!Number.isFinite(h)) throw Error('driven assembly: no ground under the team on the drive');
+    samples.push({ x, z, h });
+  }
+  const mean = samples.reduce((a, p) => a + p.h, 0) / samples.length;
+  const a = samples.reduce((t, p) => t + p.x * (p.h - mean), 0) / samples.reduce((t, p) => t + p.x * p.x, 0);
+  const b = samples.reduce((t, p) => t + p.z * (p.h - mean), 0) / samples.reduce((t, p) => t + p.z * p.z, 0);
+  const top = Math.max(...samples.map(p => p.h - (mean + a * p.x + b * p.z)));
+  const length = Math.hypot(a, 1, b);
+  return { height_m: mean + top, normal_local_xyz: [-a / length, 1 / length, -b / length], ramp: true };
+}
 
 let nextHoofAssembly = 0;
 
 /** Actual portable assets, never an identity/wardrobe or idle-only fallback. */
 export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], humanAssets,
   confidence, heightAt, horseSpec, horseSupportDomain, coatRecipe = null, makeHitch, adoptPerson = () => () => {},
-  moduleBase = new URL('../', import.meta.url), driverLod = 0, createWalker = null }) {
+  moduleBase = new URL('../', import.meta.url), driverLod = 0, createWalker = null, rampHeightAt = null }) {
   if (!humanAssets || typeof makeHitch !== 'function') throw Error('driven assembly: portable humans and actual visible hitch loader required');
   const horseSpecCopy = { ...horseSpec };
   if (!Number.isFinite(horseSpecCopy.stride_m) || horseSpecCopy.stride_m <= 0 || !horseSpecCopy.walk_clip) throw Error('driven assembly: explicit in-place WALK travel contract required');
@@ -87,8 +107,9 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       const root = cloneSkinned(template.scene), horse = { root };
       horses.push(horse); // Error cleanup owns this skeleton before decoration.
       root.traverse(node => { if (node.isMesh) node.frustumCulled = false; });
+      // T-3557: a row may wear another's coats (the Glessner team, driven, is the parked pair).
       horse.appearance = applyHorseAppearance(root, { recipe: coatRecipe,
-        sourceSha: horseSpecCopy.sha256, scene: sceneId, row: row.id,
+        sourceSha: horseSpecCopy.sha256, scene: sceneId, row: row.horse_coat_row ?? row.id,
         individual: side === 1 ? 'left' : 'right', confidence });
       root.position.set(side * row.team_half_spacing_m, 0, 0);
       group.add(root);
@@ -115,8 +136,14 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
           group.updateWorldMatrix(true, true);
           const current = horse.root.getWorldPosition(new THREE.Vector3());
           const localYaw = horse.root.rotation.y;
-          const support = fitHorseSupport({ e: current.x, n: -current.z,
-            yaw: pose.yaw + turn + localYaw, heightAt, ...horseSupportDomain });
+          const at = { e: current.x, n: -current.z, yaw: pose.yaw + turn + localYaw };
+          let support;
+          if (pose.ramp) {
+            // T-3557: on the coach house's drive the team walks over the kerb ramp.
+            const ground = (x, y) => { const h = heightAt(x, y); return Number.isFinite(h) ? h : rampHeightAt?.(x, y); };
+            try { support = fitHorseSupport({ ...at, heightAt: ground, ...horseSupportDomain }); }
+            catch { support = rampSupport({ ...at, heightAt: ground, ...horseSupportDomain }); }
+          } else support = fitHorseSupport({ ...at, heightAt, ...horseSupportDomain });
           horse.root.position.y = support.height_m - pose.height;
           const tilt = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0),
             new THREE.Vector3().fromArray(support.normal_local_xyz));
@@ -249,6 +276,47 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       restore?.(); throw error;
     }
   };
+  /**
+   * T-3557: a passenger in the cab, from their own record (`spec.person_id`, `spec.asset_id`,
+   * `spec.instance_id`: the scene's standing figure, withheld while they ride). The coachman's
+   * seated clip (`clip`) is played on their own body and moved to the cab seat; the figure is
+   * bent to fit the cab there (cab-passenger.js); a driver-life layer breathes and looks.
+   */
+  const makeRider = async (row, spec, clip, clipName) => {
+    if (!clip || !spec?.person_id || !spec.asset_id || !spec.instance_id) throw Error('driven assembly: a passenger needs a person, figure, standing instance and the seated clip');
+    const instance = { id: spec.instance_id, contract_version: 1, display: 'shown', scene: sceneId,
+      person_id: spec.person_id, appearance: { asset_id: spec.asset_id },
+      placement: { local_e: 0, local_n: 0, heading_deg: 180, anchor: 'terrain' }, behaviour: { state: 'seated' },
+      animation: { clip: clipName, loop: true, phase: 0 }, lod: { policy: 'fixed', fixed: driverLod },
+      interaction: { opens: 'resident_card', selectable: true },
+      provenance: { grade: 'reconstructed', basis: spec.basis ?? '', liberty: spec.liberty ?? row.liberty } };
+    const identity = resolveHumanIdentity(instance, { sceneId, people, profiles });
+    const rider = new HumanActor({ instance, identity, person: identity.person, assets: humanAssets, heightAt: () => 0,
+      tier: 'full', variation: 'face', clipLibrary: [clip] });
+    try {
+      await rider.setLod(driverLod);
+      if (!rider.body || !rider.play(clipName, { fade: 0, time: 0 })) throw Error('driven assembly: the passenger cannot take the seated clip');
+      rider.root.position.fromArray(passengerRoot({ seat_local_m: spec.seat_local_m, clip_seat_local_m: row.driver_seat_node_m, sink_m: spec.sink_m ?? 0 }));
+      rider.body.mixer.update(0); rider.root.updateMatrixWorld(true);
+      const seat = seatInCab(rider.body.scene, spec.pose ?? undefined, rider.root);
+      seat.apply(); rider.root.updateMatrixWorld(true);
+      for (const mesh of rider.body.meshes) mesh.skeleton.update();
+      const bounds = new THREE.Box3().setFromObject(rider.body.scene, true);
+      const size = bounds.getSize(new THREE.Vector3()), centre = bounds.getCenter(new THREE.Vector3());
+      rider.proxy.scale.set(size.x / .6, size.y, size.z / .45);
+      rider.proxy.position.set(centre.x - rider.root.position.x, bounds.min.y - rider.root.position.y, centre.z - rider.root.position.z);
+      clothHuman(rider.body.scene);
+      const life = createDriverLife({ root: rider.root, scene: rider.body.scene, id: spec.person_id,
+        faces: rider.body.faces ?? [], gaitCycle_m: horseSpecCopy.stride_m });
+      return { root: rider.root, actor: rider, instance, seat,
+        update(dt, viewer, pose, moving) {
+          if (rider.disposed || !rider.body) return;
+          seat.restore(); rider.body.mixer.update(dt); seat.apply();
+          life?.apply(dt, { distance_m: pose?.totalDistance ?? null, curvature: pose?.curvature ?? 0, moving: !!moving }, viewer);
+        },
+        dispose() { rider.dispose(); } };
+    } catch (error) { rider.dispose(); throw error; }
+  };
   return async row => {
     if (row.scene !== sceneId) throw Error('driven assembly: wrong scene');
     if (row.driver_mode === 'on_foot') return makeTeamster(row);
@@ -262,6 +330,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
     };
     const identity = resolveHumanIdentity(instance, { sceneId, people, profiles });
     let vehicle = null, actor = null, template = null, team = null, hitch = null, restore = null, inspectionLease = false, coachwork = null;
+    let door = null; const riders = [], restores = [];
     try {
       const binding = row.driver_binding;
       if (!binding || binding.scene !== sceneId || binding.asset_id !== row.driver_asset
@@ -342,6 +411,11 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         snapshot() { return { clip: driverClip, time_s: actor.body?.mixer.time ?? 0, life: life?.snapshot() ?? null }; },
         dispose() { undress?.(); actor.dispose(); } };
       if (driverClip === 'sit_drive_look_v2') driver.updateVisual = driver.update;
+      // T-3557: the cab's door (cab-door.js), cut from this assembly's own parse of the vehicle.
+      if (row.cab_door) door = createCabDoor(vehicle.scene, row.cab_door);
+      // T-3557: people riding inside (Mr. Glessner, from his own record and figure), seated by
+      // the coachman's own clip moved onto the cab seat and bent there (cab-passenger.js).
+      for (const spec of row.passengers ?? []) riders.push(await makeRider(row, spec, actor.body.clips.get(driverClip), driverClip));
       const hitchRow = { ...row };
       const palmBindings = row.driver_palm_bindings_by_lod?.[String(driverLod)];
       const updatePalms = () => {
@@ -384,24 +458,43 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         if (!geometry.hasAttribute('_confidence')) geometry.setAttribute('_confidence',
           new THREE.Float32BufferAttribute(new Float32Array(geometry.getAttribute('position').count).fill(1), 1));
       });
+      for (const rider of riders) rider.root.traverse(node => {
+        if (!node.isMesh || node.material?.visible === false) return;
+        if (!node.geometry.hasAttribute('_confidence')) node.geometry.setAttribute('_confidence',
+          new THREE.Float32BufferAttribute(new Float32Array(node.geometry.getAttribute('position').count).fill(1), 1));
+      });
       const assembly = createDrivenAssembly({ vehicle: vehicle.scene, driver, horse: team, hitch,
         confidence, driverSeat_m: row.driver_seat_node_m, driverRootOffset_m: [0, 0, 0],
-        horseOffset_m: row.horse_offset_m, disposeVehicle: () => { coachwork?.dispose(); disposeLoadedAsset(vehicle); } });
+        horseOffset_m: row.horse_offset_m, disposeVehicle: () => { coachwork?.dispose(); disposeLoadedAsset(vehicle); },
+        passengers: riders, door });
       restore = adoptPerson(instance, actor);
+      for (const rider of riders) restores.push(adoptPerson(rider.instance, rider.actor));
       const dispose = assembly.dispose;
-      assembly.dispose = () => { dispose(); if (restore) { restore(); restore = null; } };
+      assembly.dispose = () => { dispose(); if (restore) { restore(); restore = null; } for (const r of restores.splice(0)) r?.(); };
       const ray = new THREE.Raycaster();
       assembly.pickDriverAt = (ndc, camera) => {
         if (actor.disposed || !actor.body) return null;
         for (let node = actor.root; node; node = node.parent) if (!node.visible) return null;
-        actor.root.updateWorldMatrix(true, true); ray.setFromCamera(ndc ?? new THREE.Vector2(), camera);
-        const hit = ray.intersectObject(actor.proxy, false)[0];
-        return hit ? { actor, personId: actor.personId, instanceId: actor.id, state: actor.state,
-          identityKind: actor.identity.kind, person: actor.person, opens: 'resident_card',
-          distance: hit.distance, point: hit.point.clone() } : null;
+        ray.setFromCamera(ndc ?? new THREE.Vector2(), camera);
+        let best = null;
+        // T-3557: Mr. Glessner in the cab is picked as the driver is, to his own card.
+        for (const who of [actor, ...riders.map(r => r.actor)]) {
+          if (who.disposed || !who.body) continue;
+          who.root.updateWorldMatrix(true, true);
+          const hit = ray.intersectObject(who.proxy, false)[0];
+          if (hit && (!best || hit.distance < best.hit.distance)) best = { who, hit };
+        }
+        if (!best) return null;
+        const { who, hit } = best;
+        return { actor: who, personId: who.personId, instanceId: who.id, state: who.state,
+          identityKind: who.identity.kind, person: who.person, opens: 'resident_card',
+          distance: hit.distance, point: hit.point.clone() };
       };
       return assembly;
     } catch (error) {
+      for (const rider of riders) rider.dispose();
+      door?.dispose();
+      for (const r of restores.splice(0)) r?.();
       if (inspectionLease) humanAssets.release(row.driver_asset, driverLod);
       coachwork?.dispose();
       hitch?.dispose(); team?.dispose(); actor?.dispose();

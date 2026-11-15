@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1133,
+  "count": 1135,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -74528,6 +74528,59 @@
       ],
       "work_refs": [
         "T-3553"
+      ]
+    },
+    {
+      "id": "L-glessner-coach-house-3557",
+      "title": "The Glessner coach-house doors swing inward on their jambs, a dark carriage room behind them, and a carriage's way in off 18th Street",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work (the owner, 2026-11-12, of his photographs of the coach-house doors: \"the main coach house door can open and a horse and carriage can enter according to normal standards of how that would work\"). The two leaves later work built (“The Glessner coach house's 18th Street doors as the owner ruled them”) swing open and shut, the man door in the left leaf opens for people, and a carriage drives in over the carriage drive (“A carriage drive before the Glessner coach house's 18th Street doors”) to a stand inside (the walkthrough's coach house code). **What is read (inferred).** The hinges, from the owner's photographs 10 and 11 (chicago-evidence evidence/glessner-kevin-photos-2026-11-10/): no hinge knuckle, strap or pintle shows anywhere on the street face of either leaf or of the man door, and the leaves stand at the back of the reveal behind the casing that laps their edges, so the knuckles are on the inside and the doors open away from the street. Each leaf is hung on its own jamb (they meet in the middle on a centre stile), and the man door on the jamb side of its leaf, its latch being on its free, west edge in photograph 11. An inward swing is also what a door opening onto the public walk had to do. The present doors date from the 1946 replacement HABS records, so this reads the owner's ruled design, not a 1904 fitting. **What is invented (reconstructed).** The angle (90 degrees, each leaf standing square to the wall along its jamb), the times (3 s for the leaves, 1.2 s for the man door), and the man door shutting before the leaves swing. The room: a plain, unlit carriage room 9 m deep behind the leaves and 1.3 m past each jamb, its ceiling 0.5 m over the lintel, so the opening reads as a room and the brougham and pair can stand inside clear of the leaves; nothing read draws the coach house's 1904 rooms (HABS sheet 2 names stable, carriage room and harness room, not their partitions). The way in: from its own lane (keep right) a team drifts gently across toward the north kerb on two 80 m arcs (about 8 degrees from the westbound lane, 18 from the eastbound), turns in on an 8.9 m radius (14.5 degrees of lock on the brougham's 15) and runs straight for the last 5.9 m before the face, so it is square to the doorway before the horses pass under the lintel. A tighter swing away from the doors and back puts the leaders' hooves over the north kerb, which is why the line drifts. Every wheel and hoof stays on the carriageway, the drive or the room's floor with the kerb rule's room and about 0.14 m more. The doorway clears the brougham's measured envelope (the loops data) by about 0.48 m a side at the casing, 0.62 m at the 11.9-ft width and 0.37 m between the open leaves, and the 12.6-ft lintel the coachman's hat (an estimate, 2.85 m) by about 1 m."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph or account of the coach house before 1946 (the doors, the room behind them), or a plan with its partitions."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-15."
+        }
+      ],
+      "work_refs": [
+        "T-3557",
+        "T-3564"
+      ]
+    },
+    {
+      "id": "L-glessner-ride-3557",
+      "title": "A ride in the Glessner brougham: Charles Nelson on the box, Mr. Glessner inside, a round of the block and home to the coach house",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work (the owner, 2026-11-15: build the rest of the Glessner ride). The waiting Glessner brougham before 1800 Prairie (the parked carriage “catalogue-guided parked Brougham in 1904”, its stationary team “the waiting team outside Glessner House” and its standing coachman) can be asked for a ride. The parked carriage hands over to a driven one of the same coach, coats and harness at the same stand (its road passes through the parked coach's own root on its own bearing), the visitor gets in by the kerbside door and sits inside the cab beside Mr. Glessner, and Charles Nelson drives a round of the block from the box and back to the door, or home to the coach house on 18th Street (“The Glessner coach-house doors swing inward on their jambs, a dark carriage room behind them, and a carriage's way in off 18th Street”) and out again (the loops data prairie driven brougham glessner 1904, laid by the lay driven carriages 1904 tool). **What is read.** Charles Nelson is the coachman in John J. Glessner's household at 1800 Prairie in the 1900 census, four years before the scene, as for his standing figure; John J. Glessner is his own 1904 record and figure (glessner john j 1904). The coach is the 1893 Studebaker catalogue's brougham the parked one already is. The cab's own surfaces are measured off the brougham's geometry (the brougham near model): cushion top 1.296 m over the wheels' ground, roof lining about 2.05 m over the seat, floor 0.373 m under the cushion, the step 0.486 m under the floor. **What is invented (reconstructed).** That Mr. Glessner rides, when, with whom and where: this is play from his own record, not an account of any drive. The round (down Prairie, along 20th, up Indiana, along 18th past the coach house; clockwise, its lanes 2 m right of each crown (2.5 m on Prairie), its corners 10 m, a lay-by at the house) and its pace (1.2 m/s), as for the other carriages (“Two more broughams on loops round Prairie Avenue, each its own coach, team and coachman”). The door: one kerbside leaf, rear-hung, opening 65 degrees in 1.6 s, its outline, hinge line and angle ROOT's right-door study (chicago-evidence evidence/transport/, an unqualified source proposal there), cut out of the coach's body at runtime with its step left where it is; no door hardware is drawn. The seat: the cab is lower than a man sits upright (its lining is 0.75 m over the cushion, a seated man's head about 0.95 m), so Mr. Glessner, who plays the coachmen's seated clip (no figure carries a passenger's), sits bent forward, thighs raised for the low seat, hat off indoors, and the visitor's eye is 0.58 m over the cushion, stooped too. The way in and out of the cab is a camera path (the step, the doorway, the seat), not a climbing figure. Charles Nelson wears his standing figure's colours (the bottle-green coat, white breeches, white-metal buttons, white gloves) on the driven coachmen's draped livery, and the coach keeps its own paint with only a seeded road wear on it (vehicle finish); his driving and the coachman's way home and out (he drives in forward; coming out he backs only until the whole team stands 3 m past the kerb in 18th Street, then drives forward on a 10 m turn and a shallow glide into the round's lane) are reconstructed."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph, diary entry or account of the Glessners' carriage, their coachman's routes or their own drives; the brougham's real door hardware and interior (a surviving coach of the type, or the maker's drawings)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-15."
+        }
+      ],
+      "work_refs": [
+        "T-3557"
       ]
     },
     {

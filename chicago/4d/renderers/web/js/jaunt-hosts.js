@@ -69,6 +69,9 @@ export function createJauntHosts({ humans, days = null, router = null, visitor =
 
   function take(host, stand, cut = false) {
     const mark = markOf(host);
+    // T-3557: out in a vehicle (Mr. Glessner riding in his brougham): his depiction is the
+    // vehicle's; the stop waits for him to be back (update retries), never walks him out of it.
+    if (humans?.external?.(host.person)) return null;
     const actor = humans?.get?.(host.person);
     if (!mark || !actor || actor.disposed) { skipped.add(host.person); return null; }
     const heading = stand ? bearing(stand.e - mark.e, stand.n - mark.n) : null;
