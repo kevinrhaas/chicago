@@ -432,9 +432,11 @@ let faceCensus = '';
         }
       }
     } }
-  // One person, one face, on every body they are drawn as: the three 1904 coachmen sit a box
-  // on one body and stand at their door on another of another skin. The face is the same; the
-  // gain that brings it to the skin around it is each body's own.
+  // One person, one face, on every body they are drawn as: the 1904 coachmen sit a box on one
+  // body and stand at their door on another of another skin. The face is the same; the gain
+  // that brings it to the skin around it is each body's own, or, for a person who wears one
+  // body's skin on both (`skinOf`, Kevin 2026-11-15), that body's, and the other body's skin
+  // is brought to it (skinEven).
   { const tones = new Map();
     for (const [id, b] of Object.entries(F.bodies)) if (header.assets[id]?.sex === 'male' && !tones.has(String(b.tone_rgb))) tones.set(String(b.tone_rgb), id);
     assert(tones.size >= 2, 'men are drawn on bodies of more than one skin');
@@ -449,8 +451,19 @@ let faceCensus = '';
       if (!box) continue;
       wearing++;
       assert.deepEqual([box.gain, door.gain], [F.bodies.anonymous_working_driver_1904.gain, F.bodies.nelson_charles_1904_coachman.gain], 'each body its own gain');
+      const one = (assetId) => V.libraryFace(based, { key: `two_bodies_${k}`, assetId, sex: 'male', age, complexion, skinOf: 'anonymous_working_driver_1904' });
+      assert.deepEqual([one('anonymous_working_driver_1904'), one('nelson_charles_1904_coachman')], [box, { ...door, gain: box.gain }], 'one skin on both: the same face, at the gain of the body the skin is from');
     }
     assert(wearing > asked / 2);
+    { const even = V.skinEven(based, 'nelson_charles_1904_coachman', 'anonymous_working_driver_1904');
+      even.forEach((e, k) => assert(Math.abs(e * F.bodies.nelson_charles_1904_coachman.gain[k] - F.bodies.anonymous_working_driver_1904.gain[k]) < 1e-9));
+      assert(even.every(e => e < 1), 'the door body\'s lighter skin is brought down to the box\'s');
+      for (const [on, from] of [['anonymous_working_driver_1904', 'anonymous_working_driver_1904'], ['anonymous_working_driver_1904', null], ['anonymous_working_driver_1904', 'no_such_body'], ['no_such_body', 'anonymous_working_driver_1904']])
+        assert.equal(V.skinEven(based, on, from), null, `nothing brought on ${on} from ${from}`);
+      assert.equal(V.skinEven(null, 'nelson_charles_1904_coachman', 'anonymous_working_driver_1904'), null, 'no kit, nothing brought');
+      // A fitted face keeps the skin it was fitted in.
+      const own = V.personVariation({ kit: based, key: 'one_skin_fitted', record: { skin_of: 'anonymous_working_driver_1904', face: { values: {} }, skin: { url: 'x' } }, assetId: 'nelson_charles_1904_coachman' });
+      assert.equal(own.even, null, 'a fitted face with its own sheet: nothing brought'); }
     // A kit made before the person's tone was recorded reads the body's skin, as it then did:
     // it still hands faces out, and there the two bodies may differ.
     // (For a man and for a woman; a tone that is not a list of three numbers is no tone.)
@@ -584,10 +597,15 @@ let faceCensus = '';
         if (file.endsWith('loops.json')) assert.equal((await read(file)).rows.find(r => r.id === row).person_id, key, `${at} is driven by ${key}`);
         const v = V.personVariation({ kit: based, key, record, assetId, sceneYear: Number(record.scene) || null });
         worn.push(v.lib?.id ?? null); on.push(assetId);
+        // T-3553 (Kevin, 2026-11-15): the skin they wear on every body. On the body it is from
+        // nothing is brought; on another, the skin round the face is brought to that body's.
+        const skinOf = record.skin_of ?? null;
+        if (!skinOf || skinOf === assetId) assert.equal(v.even, null, `${key}: on ${assetId}, their own skin's body, nothing brought`);
+        else v.even.forEach((e, k) => assert(Math.abs(e * F.bodies[assetId].gain[k] - F.bodies[skinOf].gain[k]) < 1e-9, `${key}: on ${assetId}, the skin round the face is ${skinOf}'s`));
         if (!v.lib) continue;
         const f = F.faces[v.lib.index], sex = record.sex ?? header.assets[assetId]?.sex ?? 'male', complexion = record.looks?.complexion?.drawn ?? null;
         assert(!record.face?.values && !record.skin, `${key}: a person with a face or a sheet of their own takes none`);
-        assert.deepEqual(v.lib.gain, F.bodies[assetId].gain, `${key}: the gain of the body they are drawn on`);
+        assert.deepEqual(v.lib.gain, F.bodies[skinOf ?? assetId].gain, `${key}: the gain of the body whose skin they wear`);
         const third = !Number.isFinite(v.age) || v.age < F.ages.middle_from ? 0 : v.age < F.ages.old_from ? 1 : 2;
         assert(thirds.indexOf(f.age) <= third, `${key}, ${v.age}, wears a face older than they are (${f.id})`);
         if (v.age < F.ages.child_under) assert(f.sex === 'female' && f.age === 'young', `${key}, a child, wears ${f.id}`);
@@ -599,11 +617,21 @@ let faceCensus = '';
       seen++;
       if (worn.length > 1) twice++;
       if (new Set(on).size > 1) apart++;
+      // Drawn on bodies of more than one skin: the kit names the one they wear on all, the
+      // one most bodies of their sex wear (the person's tone) where one of theirs does.
+      const skins = new Set(on.map(b => String(F.bodies[b].gain)));
+      if (skins.size > 1) {
+        assert(on.includes(record.skin_of), `${key}, drawn on ${[...new Set(on)].join(' and ')}, wears the skin of one of them (${record.skin_of})`);
+        const tone = F.person_tone_rgb[(record.sex ?? header.assets[on[0]]?.sex ?? 'male') === 'male' ? 'male' : 'female'];
+        if (on.some(b => String(F.bodies[b].tone_rgb) === String(tone))) assert.deepEqual(F.bodies[record.skin_of].tone_rgb, tone, `${key} wears the skin most bodies of their sex wear`);
+      } else assert.equal(record.skin_of, undefined, `${key}, drawn on one skin, names none`);
       drawnOn.set(key, on); wornBy.set(key, worn);
       if (worn[0]) wear++; else if (record.face?.values || record.skin) own++; else plain++;
     }
-    for (const key of ['pa1904_armour_mrs_philip_d_c1900_joseph_daniels', 'pa1904_otis_f_r_c1900_hans_johnson', 'pa1904_pullman_mrs_george_m_c1900_henry_windish'])
+    for (const key of ['pa1904_armour_mrs_philip_d_c1900_joseph_daniels', 'pa1904_otis_f_r_c1900_hans_johnson', 'pa1904_pullman_mrs_george_m_c1900_henry_windish', 'pa1904_glessner_john_j_c1900_charles_nelson']) {
       assert.deepEqual([...drawnOn.get(key)].sort(), ['anonymous_working_driver_1904', 'nelson_charles_1904_coachman'], `${key}, a coachman, is drawn on the box and at his door, on two bodies`);
+      assert.equal(persons[key].skin_of, 'anonymous_working_driver_1904', `${key}, a coachman, wears the box's skin at his door too`);
+    }
     // (The others drawn twice stand on one body both times: a figure of their own and the
     // wagon's driver that takes its place.)
     assert(twice >= 6 && apart >= 3, `${twice} people are drawn twice, ${apart} of them on two bodies`);
@@ -629,6 +657,16 @@ let faceCensus = '';
   let disposed = 0; for (const g of g2) if (!sources.has(g)) g.addEventListener('dispose', () => disposed++);
   V.disposeVariants(sources);
   assert(disposed >= 4, 'disposeVariants frees them with their source'); }
+
+// T-3553 (Kevin, 2026-11-15): a coachman at his door, on a body of a lighter skin than the
+// box's, is given the box's skin to wear (human-skin.js reads it); on the box, nothing.
+{ const daniels = 'pa1904_armour_mrs_philip_d_c1900_joseph_daniels', record = persons[daniels];
+  for (const [asset, brought] of [['nelson_charles_1904_coachman', true], ['anonymous_working_driver_1904', false]]) {
+    const s1 = await figure(asset, 2);
+    V.applyVariation(s1, kit, V.personVariation({ kit, key: daniels, record, assetId: asset, sceneYear: 1904 }));
+    if (brought) assert.deepEqual(s1.userData.chiSkinEven, V.skinEven(kit, asset, record.skin_of), 'at his door: the box\'s skin');
+    else assert.equal(s1.userData.chiSkinEven, undefined, 'on the box: his own body\'s skin');
+  } }
 
 // T-3572: the fit a source keeps for all its wearers, and the bounded search for where a
 // garment sits on the varied body, give exactly what a first fit gives: a person built on a
