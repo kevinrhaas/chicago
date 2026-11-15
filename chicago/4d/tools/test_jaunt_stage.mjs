@@ -11,7 +11,8 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createJaunts, stagedIds, crowdKept } from '../renderers/web/js/jaunts.js';
-import { createJauntStage, castAt, castFor, stageIds, stageLength, POSES } from '../renderers/web/js/jaunt-stage.js';
+import { createJauntStage, castAt, castFor, stageIds, stageLength, teamsFor, seatAt, POSES } from '../renderers/web/js/jaunt-stage.js';
+import { createTransportLoop, routeFor } from '../renderers/web/js/transport-loop.js';
 
 const read = (p) => JSON.parse(fs.readFileSync(new URL(`../${p}`, import.meta.url)));
 const near = (a, b, msg) => assert.ok(Math.abs(a - b) < 1e-6, `${msg}: ${a} vs ${b}`);
@@ -124,6 +125,70 @@ console.log('PASS the controller builds a stop\'s stage on the way, plays it on 
 }
 console.log('PASS the stage makes its own figures, poses them, plays their beats on arrival, plays again, and drops the desktop crowd on phones');
 
+// ---- a stage takes a town team: its wagon goes the stage's way, its riders sit in it (T-3553).
+{
+  // The town's own loop, taken: 'staged' moves only by the stage, turns its wheels by the ground
+  // covered, refuses the reins, and goes back on its round where it left it.
+  const posed = [];
+  let advanced = 0, stopped = 0;
+  const assembly = { pose(p) { posed.push(p); }, advance(dt, ds) { advanced += ds; }, stop() { stopped++; }, visible() {} };
+  const loop = createTransportLoop({ id: 'fort', name: 'Fort wagon', route: routeFor({ kind: 'circle', center_enu_m: [0, 0], radius_m: 18 }), assembly,
+    speed_m_s: 1.3, wheelbase_m: 2.35, track_m: 1.21, root_ahead_of_rear_axle_m: 1.175, driver_local_m: [1.3, 0, 4.4],
+    wheel_radii_m: [0.685, 0.685, 0.535, 0.535], heightAt: (e) => e * 0.01, steering_limit_deg: 30 });
+  const round = loop.pose;
+  assert.equal(loop.stage(), true); assert.equal(loop.mode, 'staged');
+  assert.equal(loop.takeReins(), false, 'the visitor cannot take the reins of a team in a scene');
+  assert.equal(loop.stageTo({ e: 100, n: 50, heading_deg: 180, dt: 0.1 }), true);
+  assert.deepEqual([loop.pose.e, loop.pose.n], [100, 50]);
+  assert.ok(Math.abs(loop.heading_deg - 180) < 1e-9, 'it faces the way the stage says');
+  loop.stageTo({ e: 100, n: 48.7, heading_deg: 180, dt: 1 });
+  assert.ok(Math.abs(advanced - 1.3) < 1e-9, 'its gait goes by the ground it covers');
+  const wheels = loop.snapshot().wheel_rotation_rad;
+  assert.ok(Math.abs(wheels[0] - 1.3 / 0.685) < 1e-9 && Math.abs(wheels[2] - 1.3 / 0.535) < 1e-9, 'the wheels turn by it');
+  assert.ok(loop.pose.height >= 100 * 0.01, 'on uneven ground it rides on its highest wheel, refused nowhere');
+  loop.update(5, { drawn: true });
+  assert.deepEqual([loop.pose.e, loop.pose.n], [100, 48.7], 'the frame never moves a staged team');
+  loop.stageTo({ e: 100, n: 48.7, heading_deg: 180, dt: 1 });
+  assert.ok(stopped > 0, 'standing, the team stands');
+  assert.equal(loop.unstage(), true); assert.equal(loop.mode, 'route');
+  assert.ok(Math.hypot(loop.pose.e - round.e, loop.pose.n - round.n) < 1e-9, 'given back, it is on its round where it left it');
+
+  // The stage drives a stand-in team and seats a rider on it.
+  const team = { mode: 'route', disposed: false, pose: null, places: [], released: 0,
+    stage() { this.mode = 'staged'; return true; }, unstage() { this.mode = 'route'; this.released++; return true; },
+    stageTo(p) { this.places.push(p); this.pose = { e: p.e, n: p.n, height: 2 }; return true; } };
+  let loaded = 0, ready = false;
+  const made = [];
+  const humans = { shown: true, get: () => null,
+    createActor(instance) { const a = { instance, e: 0, n: 0, heading: 0, standY: null, root: { visible: true }, path: null,
+      setState() {}, place() {}, setIndoors() {}, setPosture(kind) { this.posture = kind; }, turnTo() {}, walkPath() {}, actions: {}, update() {}, dispose() { this.disposed = true; } };
+      made.push(a); return a; } };
+  const stop = { id: 'col', stage: { caption: 'x', liberty: 'L-x', cast: [
+    { extra: 'girl', dress: 'garrison_child_1812', name: 'A girl', at: [0, 10], pose: 'sit', ride: { team: 'fort', seat: [0.24, 0.955, 1.05] } }],
+  teams: [{ team: 'fort', at: [0, 10], heading: 180, beats: [{ t: 0, walk: [[0, -20]], pace: 1.3 }] }] } };
+  assert.equal(teamsFor(stop).length, 1);
+  assert.ok(stageLength(stop) > 23, 'a team\'s way counts in how long the scene plays');
+  const st = createJauntStage({ humans, eye: () => ({ x: 0, y: 1.6, z: 0 }), teams: { get: (id) => (ready && id === 'fort' ? team : null), load: () => { loaded++; } } });
+  st.sync(stop, { arrived: false });
+  st.update(0.1);
+  assert.equal(loaded, 1, 'a team not yet loaded is asked for');
+  ready = true;
+  st.update(0.1);
+  assert.equal(team.mode, 'staged', 'then taken for the scene');
+  assert.deepEqual([team.places.at(-1).e, team.places.at(-1).n], [0, 10], 'standing at its mark until the visitor arrives');
+  st.sync(stop, { arrived: true });
+  st.update(10);
+  assert.ok(Math.abs(team.places.at(-1).n - (10 - 13)) < 1e-6, 'it goes the stage\'s way at its pace');
+  const girl = made[0], seat = seatAt({ e: 0, n: -3, heading: 180, height: 2 }, [0.24, 0.955, 1.05]);
+  assert.ok(Math.abs(girl.e - seat.e) < 1e-9 && Math.abs(girl.n - seat.n) < 1e-9 && Math.abs(girl.standY - 2.955) < 1e-9, 'the rider sits at her seat on it');
+  assert.ok(Math.abs(seat.n - (-3 - 1.05)) < 1e-9 && Math.abs(seat.e - 0.24) < 1e-9, 'a seat ahead is ahead the way the team faces; +x is its left');
+  assert.equal(girl.posture, 'sit');
+  assert.equal(st.snapshot().teams[0].taken, true);
+  st.release();
+  assert.equal(team.mode, 'route', 'the scene over, the team goes back to its round');
+}
+console.log('PASS a stage takes a town team for its scene: the wagon goes the stage\'s way, its riders sit in it, and it goes back to its round after');
+
 // ---- the staged 1812 jaunts: their people, their marks, and the ruling.
 const people = new Set(read('data/sidecars/1812/people.json').people.map((p) => p.id));
 // A wagon's driver is drawn on the wagon all day (data/transport/driven/loops.json): never cast.
@@ -164,4 +229,22 @@ assert.ok(passed.length >= 60, `the column comes down from the north and passes 
 const bank = battle.stops.find((x) => x.id === 'the-bank');
 const waiting = bank.stage.cast.filter((c) => ['prone', 'kneel', 'kneel2', 'crouch', 'sit'].includes(c.pose));
 assert.ok(waiting.length >= 30, 'the warriors wait behind the bank lying, kneeling and crouched');
+// The column's wagons (Kevin, 2026-11-14: the women and children in wagons): the town's two
+// teams, driven by their own drivers, with the children and some of the women sitting in them.
+const rows = JSON.parse(loops).rows;
+for (const st of [column, bank]) {
+  const taken = teamsFor(st).map((x) => x.team).sort();
+  assert.deepEqual(taken, ['fort_wagon_loop_1812', 'shore_road_wagon_haul_1812'], `${st.id}: both of the town's wagons go with the column`);
+  for (const id of taken) assert.ok(rows.some((r) => r.id === id && r.scene === '1812' && r.person_id), `${st.id}: ${id} is a team of 1812 with its own driver`);
+  const riders = st.stage.cast.filter((c) => c.ride);
+  assert.ok(riders.length >= 12, `${st.id}: the children and some women ride (${riders.length})`);
+  assert.ok(riders.every((c) => taken.includes(c.ride.team) && c.pose === 'sit' && !c.tier), `${st.id}: every rider sits in a wagon the stage takes, on phones too`);
+  assert.ok(riders.filter((c) => young.test(c.person)).length >= 10, `${st.id}: the children are in the wagons`);
+  for (const team of taken) {
+    const seats = riders.filter((c) => c.ride.team === team).map((c) => c.ride.seat.join());
+    assert.equal(new Set(seats).size, seats.length, `${st.id}: one rider a seat in ${team}`);
+  }
+}
+const wagonPassed = teamsFor(column).filter((c) => castAt(c, 0).n > anchorEN[1] && castAt(c, 600).n < anchorEN[1]);
+assert.equal(wagonPassed.length, 2, 'the wagons come down from the north and pass the visitor with the column');
 console.log('PASS the two 1812 story jaunts stage their own people, keep them on phones, pass the column by, and never show a child fallen');

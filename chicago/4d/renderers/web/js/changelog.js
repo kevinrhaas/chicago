@@ -1,4 +1,29 @@
 export const CHANGELOG = [ // newest first
+  { v: 2996, ts: '2026-11-15T07:45:54.955Z', date: 'Nov 15, 2026, 1:45 AM CT', title: 'Watch the 1812 jaunts unfold, played by the people who were there', kind: 'feature',
+    items: [
+      'Twenty-one stops of the Battle of Fort Dearborn and Killing of Jean Lalime jaunts now stage their history with their own people.',
+      'At Lee\'s place eleven men come to the cabin while Kelso and the Lee boy slip across the river to the haystacks.',
+      'The column comes down the shore from the fort and passes you; at the sand bank the warriors wait lying, kneeling and crouched, then rise.',
+      'Lalime and Kinzie quarrel on the parade and walk out to the gate; Helm walks Kinzie to the water that night.',
+      'For students the scenes show the build-up and the aftermath only: no blow, shot or blood, and the fallen lie still.',
+      'Watch again plays a stop\'s scene from the beginning; phones keep every scene with a smaller crowd.',
+    ] },
+  { v: 2995, ts: '2026-11-15T07:45:54.955Z', date: 'Nov 15, 2026, 1:45 AM CT', title: 'The 1812 column brings its wagons, with the women and children', kind: 'feature',
+    items: [
+      'The fort\'s two wagons now roll in the evacuation column, driven by Privates Mills and Moffett.',
+      'Mrs. Burns, Mrs. Corbin, Mrs. Lee\'s daughter and the garrison children ride in them, as Helm\'s account and Wau-Bun tell it.',
+      'The other women walk beside the wagons, from the river mouth down to the sand bank.',
+      'The wagons\' wheels turn as they roll and they come to a halt with the column.',
+    ] },
+  { v: 2994, ts: '2026-11-15T07:45:54.955Z', date: 'Nov 15, 2026, 1:45 AM CT', title: 'Jaunt hosts talk with their voices; people wear twenty-two new faces', kind: 'feature',
+    items: [
+      'On a jaunt with voices, the person telling a stop now talks while their voice plays: their jaw opens and shuts in time with the recording, their teeth show, a hand comes up, and they keep their eyes on you. Before, they stood with a shut mouth while their voice played.',
+      'Their mouth shuts the moment the voice stops, pauses or you walk on, and the hand comes down after it. The narrator\'s parts move nobody. The mouth keeps time with how loud the voice is; lips do not yet shape the words.',
+      'Until now everyone except the Greys shared three painted skins, so under their own shape of face people had the same lips, eyelids and skin. Most people (831 of 1,209) now wear one of 22 faces instead, in 1812, 1835 and 1904.',
+      'The faces are handed out to fit: a man\'s or a woman\'s, young, middle-aged or old, and nearer the person\'s own skin tone. Each person keeps the same face on every visit, under their own complexion, hair, brows, eyes and teeth. Older faces bring their own painted lines, and some people recorded fair, light or ruddy now have freckles.',
+      'The faces come from the free MakeHuman skin collection. No photograph of a real person is used, and no face is a likeness of the person wearing it.',
+      'Not yet: the collection\'s darkest skins did not blend with our complexions and were left out, so people of dark complexion share the same faces under their own skin colour.',
+    ] },
   { v: 2993, ts: '2026-11-15T04:49:57.521Z', date: 'Nov 14, 2026, 10:49 PM CT', title: 'The Fort Dearborn monument\'s tomahawk, musket, feathers and headdress as sculpted', kind: 'improvement',
     items: [
       'On the Fort Dearborn monument (18th Street, 1904), the warrior\'s tomahawk is no longer a rod and a ball: it is a pipe tomahawk, its haft through his raised fist, the flat blade flaring out on its lower half and the bowl opposite.',
