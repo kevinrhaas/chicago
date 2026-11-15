@@ -791,13 +791,20 @@
             "sash": {
               "variant": "k06.opening.sash_2over2_flat",
               "width_m": 1.15,
-              "height_m": 1.35,
+              "height_m": 1.65,
               "sill_m": 0.15
             },
             "surround_m": 0.3,
             "face_setback_m": 0.05,
             "head": "gable",
-            "gable_pitch_deg": 50
+            "gable_pitch_deg": 42,
+            "ornament": {
+              "finial": {
+                "height_m": 0.45,
+                "radius_m": 0.08
+              }
+            },
+            "frieze_m": 0.05
           },
           {
             "face": "north",
@@ -821,14 +828,29 @@
           "overhang_m": 0.5,
           "pitch_deg": 52,
           "end_pitch_deg": 52,
-          "attic_m": 2.35
+          "attic_m": 2.35,
+          "finial": {
+            "height_m": 0.9,
+            "radius_m": 0.2,
+            "form": "cross"
+          }
+        },
+        "deck": {
+          "cresting": {
+            "height_m": 0.45,
+            "inset_m": 0.08,
+            "sides": [
+              "street",
+              "north"
+            ]
+          }
         }
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_1815_sears_two_views"
       ],
-      "note": "The slated mansard's curb under its cresting at y 150 px (12.4 m) on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px), 2.9 m over the wall head; the gabled dormer centred at x 535 px, its sash x 498-580 px and y 345-230 px; a gabled dormer on the south flank in the oblique. The pavilion's steep roof (apex y 75 px, 13.5 m) is K01's hipped crown over it, raised by T-3156 onto the attic storey's wall head: its eave at y 210 px (11.6 m, 2.35 m over the main eave), the crown's eave 0.5 m past the attic's face (the print's x 165-360 px), its faces at 52 degrees so the apex stands about 13.8 m (the print's apex 13.5 m, read in front of the ridge's set-back). T-3562: the south flank's dormer read off the oblique, where it stands just east of the tall south stack (the stack's shaft x 1740-1820 px, the dormer's gable x 1820-1880 px): its centre about 1.4 m behind the stack's (the stack's 1.1 m shaft spans 80 px there), at 13.9 m from the rear, its body clear of the stack (it stood at 9.0 m, read off no picture, and so out of the oblique's frame)."
+      "note": "The slated mansard's curb under its cresting at y 150 px (12.4 m) on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px), 2.9 m over the wall head; the gabled dormer centred at x 535 px, its sash x 498-580 px and y 345-230 px; a gabled dormer on the south flank in the oblique. The pavilion's steep roof (apex y 75 px, 13.5 m) is K01's hipped crown over it, raised by T-3156 onto the attic storey's wall head: its eave at y 210 px (11.6 m, 2.35 m over the main eave), the crown's eave 0.5 m past the attic's face (the print's x 165-360 px), its faces at 52 degrees so the apex stands about 13.8 m (the print's apex 13.5 m, read in front of the ridge's set-back). T-3562: the south flank's dormer read off the oblique, where it stands just east of the tall south stack (the stack's shaft x 1740-1820 px, the dormer's gable x 1820-1880 px): its centre about 1.4 m behind the stack's (the stack's 1.1 m shaft spans 80 px there), at 13.9 m from the rear, its body clear of the stack (it stood at 9.0 m, read off no picture, and so out of the oblique's frame). T-3562: the curb's iron cresting, the pavilion's cross and the street dormer re-read off the square-on print (66.7 px/m on the mansard's face): along the curb a pierced iron band, its top rail a dark line at y 146-150 px with hung ornaments under it and its foot on a dark line at y 178 over the slates, about 0.45 m, the sky showing over its rail and no deck behind it; built as the K10 kit's iron cresting 0.45 m high on the street curb and the south flank's (K01's north side; the oblique shows the curb under its cresting there), stopped short either side of the pavilion's crown where the crown stands through the curb (k01_mansard_deck.crown_gap); its pattern, hung trefoils in the print, is the kit's. On the crown's apex a cross over a square block and a flared cap, y 30-93 px, about 0.9 m: the block about 0.14 m across, the cap about 0.4 m, the cross's head from 0.6 of its height, its arms near the top (k01_mansard_deck.cross). The street dormer: its light y 230-347 px, about 1.7 m (it was built 1.35, its head 27 px low), built 1.65 m with a 0.05 m frieze between the surround's head and the gable's foot, the gable pitched 42 degrees (the print's foot at y 187 px and apex at y 135, a 52 px rise; the build's 50 degrees rose 68). The print's gable rises through the curb's cresting, about 0.15 m more light and frieze than the kit allows: it holds a lower-face dormer's head 0.1 m under the curb, and this one stands at 3.09 m against the curb's 3.2, and on the apex a finial y 93-130 px, about 0.45 m (a three-lobed iron fleur-de-lis in the print, built as the dormer ornament's turned finial)."
     },
     "rear_wings": {
       "value": [
