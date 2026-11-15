@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1132,
+  "count": 1135,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -42256,11 +42256,11 @@
         }
       ],
       "recorded": "2026-10-26",
-      "revised": "2026-10-26",
+      "revised": "2026-11-15",
       "fields": [
         {
           "label": "Decision",
-          "text": "the house at 1823 Prairie Avenue, Thomas Dent's, is no longer a district draft. It stands, under the draft's own id 1823 Prairie Avenue — Thomas Dent house, as a k01 frontage record built by the k01 emit generator, against its two pictures: the Chicagology engraving after a photograph ([1823 S. Prairie Ave., the Thomas Dent residence.] Halftone engraving after a…, undated; rights check required: forms and proportions only) and the 1883 New Chicago Album vignette of the same view ('Private Residences of Chicago.' Plate in The New Chicago Album (Chicago…, no known restrictions). A smooth light stone front on brick flanks, two storeys over a raised basement under a slated mansard with dormers; a pavilion at the front's south end, flush with the south wall, under a steep hipped crown (since, an attic under a coped gable); a group of three windows to a storey in the front's north part; the door beside the pavilion up its stoop; a moulded cornice; tall stacks; a two-storey rear range. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1823-b1, census s28-1823-front and s28-1823-wing): the front block's place and plan (13.88 m along the front between the north wall at lot v -7.71 and the south wall at 6.17, the front's main plane at lot u 32.85), the pavilion's projection (lot v 0.43-6.15, 1.12 m forward), the rear range's narrowing and depth, 'brick', '3B; rear2B'. From the engraving, through its camera (the chicagology engraving data): the principal floor, the storey heights and the wall head, the street windows' places, the pavilion's windows, the north flank's window columns, the dormers' places, the mansard's curb, the north stack's place and top (re-read the openings through a re-solved camera, and the box bay, the cresting, the stoop's run and the moulded heads off both pictures). From the vignette: the stone front against the brick flank, and the same composition dated 1883. **What is invented.** The walls' thickness; which stone (K02's Bedford limestone: the pictures say light and smooth, and K02's Lemont profile cannot course a 2.35 m base) and its two-course base; the brick's colour; the south flank's and the rear's windows (no picture sees them); the rear range's windows on its south flank and rear and its flat deck; the mansard's deck; the south stack's place; the stacks' plans; the rainwater; the sash pattern. **What is not built.** The triple group's broad carved dormer, whose pediment both pictures draw rising over the curb (K05's dormer is at most 2.0 m wide and stops under it); the stack at the north flank's rear, over the rear range, where K01 stands no stack; the grilled arched basement doorway under the landing; the narrow light beside the door on the principal storey; the slated cheeks the vignette draws either side of the pavilion's pedimented attic; the box bay's corbelled foot, built to grade: open on the match records."
+          "text": "the house at 1823 Prairie Avenue, Thomas Dent's, is no longer a district draft. It stands, under the draft's own id 1823 Prairie Avenue — Thomas Dent house, as a k01 frontage record built by the k01 emit generator, against its two pictures: the Chicagology engraving after a photograph ([1823 S. Prairie Ave., the Thomas Dent residence.] Halftone engraving after a…, undated; rights check required: forms and proportions only) and the 1883 New Chicago Album vignette of the same view ('Private Residences of Chicago.' Plate in The New Chicago Album (Chicago…, no known restrictions). A smooth light stone front on brick flanks, two storeys over a raised basement under a slated mansard with dormers; a pavilion at the front's south end, flush with the south wall, under a steep hipped crown (since, an attic under a coped gable); a group of three windows to a storey in the front's north part; the door beside the pavilion up its stoop; a moulded cornice; tall stacks; a two-storey rear range. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1823-b1, census s28-1823-front and s28-1823-wing): the front block's place and plan (13.88 m along the front between the north wall at lot v -7.71 and the south wall at 6.17, the front's main plane at lot u 32.85), the pavilion's projection (lot v 0.43-6.15, 1.12 m forward), the rear range's narrowing and depth, 'brick', '3B; rear2B'. From the engraving, through its camera (the chicagology engraving data): the principal floor, the storey heights and the wall head, the street windows' places, the pavilion's windows, the north flank's window columns, the dormers' places, the mansard's curb, the north stack's place and top (re-read the openings through a re-solved camera, and the box bay, the cresting, the stoop's run and the moulded heads off both pictures). From the vignette: the stone front against the brick flank, and the same composition dated 1883. **What is invented.** The walls' thickness; which stone (K02's Bedford limestone: the pictures say light and smooth, and K02's Lemont profile cannot course a 2.35 m base) and its two-course base; the brick's colour; the south flank's and the rear's windows (no picture sees them); the rear range's windows on its south flank and rear and its flat deck; the mansard's deck; the south stack's place; the stacks' plans; the rainwater; the sash pattern. **What is not built.** The triple group's broad carved dormer, whose pediment both pictures draw rising over the curb (K05's dormer is at most 2.0 m wide and stops under it); the stack at the north flank's rear, over the rear range, where K01 stands no stack; the grilled arched basement doorway under the landing (built since, 2026-11-15); the narrow light beside the door on the principal storey; the slated cheeks the vignette draws either side of the pavilion's pedimented attic; the box bay's corbelled foot, built to grade: open on the match records."
         },
         {
           "label": "Revised",
@@ -42269,6 +42269,10 @@
         {
           "label": "Invented by later work",
           "text": "the box bay's 0.5 m depth and its foot carried to grade (the pictures corbel it out at about 1.8 m); the pavilion attic's height and the gable's pitch; the cresting's pattern (K10's kit) and height; the dormers' sash sizes; the cornice hoods' profiles; the stoop's landing length and its cheek's stone."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-15 (T-1894). The grilled round-arched basement doorway both pictures draw under the landing is built: K01's side stoop takes an arch in its landing's street face, 1.05 m across under the door, its crown about 1.13 m up, read through the engraving's camera. Invented: its iron, drawn as K08's basement grille (uprights, foot and spring bars, a ring in the head) where the engraving's halftone shows scrolls whose pattern cannot be read; the void's 0.4 m depth. Both pictures draw the landing about 1 m longer to the north than the build's, and lower: open on the match records."
         },
         {
           "label": "How to resolve",
@@ -70805,7 +70809,7 @@
       "subjects": [],
       "covers": [],
       "recorded": "2026-11-07",
-      "revised": "2026-11-13",
+      "revised": "2026-11-14",
       "fields": [
         {
           "label": "Decision",
@@ -70854,6 +70858,18 @@
         {
           "label": "Still not built",
           "text": "the flank crown's moulded curb, about 0.7 m deep (K08 has none); the south flank's window drawn in the print on the upper storey only (the build lights both storeys there). The 1874 Land Owner engraving is still not read. The south-east-face crown dormer listed above was a misreading (the match record)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-14 (T-1886): both crowns' curbs are moulded cornices. The photograph draws the flank crown's curb as a band about 0.7 m deep (y 205-245 px) under the cresting, its top projecting over its face, and the front crown's the same through the trees; K08 had laid a bare curb with the slate running up to it. K08 gains `roof.mansard.curb_mould` (new here): a fascia hanging `depth_m` from the curb, its face `proud_m` out from the curb line and closed underneath back to the lower face, under a cap `cap_m` high and `cap_proud_m` further out, its top level with the curb, every tier mitred round the hips."
+        },
+        {
+          "label": "Read",
+          "text": "the band's depth and its projecting top."
+        },
+        {
+          "label": "Invented",
+          "text": "the profile, two plain grades (a 0.45 m fascia 0.13 m past the lower face at its foot, a 0.25 m cap 0.12 m beyond it) standing for mouldings the print does not resolve, and its paint, the eaves' own (the print is monochrome)."
         }
       ],
       "work_refs": [
@@ -73651,7 +73667,7 @@
         },
         {
           "label": "Two placings are ours outright",
-          "text": "Mrs. Helm's legs, under her skirt in both photographs, stand under its hem, and the surgeon's left arm, which neither photograph shows, lies along his side. Faces, hair, the dress folds of every figure but Mrs. Helm, the feathers' number, the weapons' detail and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of 1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the photographs are monochrome. - **The panels' reliefs** are flat plates. Since later work they are drawn pale, as ICHi-19208 (c. 1900) shows them weathered lighter than the die, where Taylor's 1893 print has them fresh and dark: the 1904 scene takes the later plate. Their faint green-grey is ours; the plate is monochrome. - **The lettering** under the front panel (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is cut since later work at the widths, heights and places ICHi-19208 gives each line, pale on the granite. The letters are the town's block capitals squeezed to those widths, not the cutter's seriffed roman, and they stand flat on the die rather than sunk into it. The second line is about 4 px tall on the plate; its words are the record's. - **Its place** is set by later work through cameras on the Detroit print (east and west) and ICHi-19208 (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where ICHi-19208 shows its end, which is open in that view's match record. The figures are period sculpture, built as the sculptor made them; the record carries review required with its reason, and the card says how the work was received."
+          "text": "Mrs. Helm's legs, under her skirt in both photographs, stand under its hem, and the surgeon's left arm, which neither photograph shows, lies along his side. **The weapons and ornaments** are modelled since later work as the two plates show them, each read on ICHi-19208 for its outline and on Taylor's print for its depth and hung on the posed body that carries it: the warrior's pipe tomahawk, his feather and the fringed pouch at his hip, Black Partridge's headband with its knot, standing feather and streamer, and his musket. Their outlines, places and lengths are the plates'; their sections and thicknesses, the blade's and the butt's profiles across, the band's wrap round the back of the head and the pouch's four tails as the whole of its fringe are this project's. Faces, hair, the dress folds of every figure but Mrs. Helm and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of 1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the photographs are monochrome. - **The panels' reliefs** are flat plates. Since later work they are drawn pale, as ICHi-19208 (c. 1900) shows them weathered lighter than the die, where Taylor's 1893 print has them fresh and dark: the 1904 scene takes the later plate. Their faint green-grey is ours; the plate is monochrome. - **The lettering** under the front panel (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is cut since later work at the widths, heights and places ICHi-19208 gives each line, pale on the granite. The letters are the town's block capitals squeezed to those widths, not the cutter's seriffed roman, and they stand flat on the die rather than sunk into it. The second line is about 4 px tall on the plate; its words are the record's. - **Its place** is set by later work through cameras on the Detroit print (east and west) and ICHi-19208 (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where ICHi-19208 shows its end, which is open in that view's match record. The figures are period sculpture, built as the sculptor made them; the record carries review required with its reason, and the card says how the work was received."
         },
         {
           "label": "Recorded",
@@ -73662,6 +73678,7 @@
         "T-3582",
         "T-3568",
         "T-3588",
+        "T-3594",
         "T-3589",
         "T-3567",
         "T-3565"
@@ -74466,6 +74483,36 @@
       ]
     },
     {
+      "id": "L-1812-staged-jaunts-3553",
+      "title": "The 1812 story jaunts played by their people: who stands where at each stop, when they move, and what is left out",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-14: *\"place all the right people at the right scenes from history so we can witness the events, the attack on lees, them fleeing, the people at the murder site, etc. you should be able to watch the event unfold, like the argument between la lime and kiznie, you should see the column coming down the shore and they can come from the distance and pass you, for the natives they can be in groups collected, laying down or kneeling in preparation for the attack\"*; and, for students, his pick the same day of *\"Build-up and aftermath\"*: the lead-up is watched, the fallen are shown lying still afterwards, and no blow, shot or blood is staged. Twenty-one stops of the two 1812 story jaunts (*The Battle of Fort Dearborn*, *The Killing of Jean Lalime*) carry a `stage`: a cast and the beats they play, run by the walkthrough's jaunt stage code and written by the research notes on jaunt stage 1812 and the scenes tool. **What is read.** Who is present at each event, and what they do, from the stop's own text and its sources: the eleven men at Lee's place, White and Cardin going in, Kelso and the Lee boy crossing and making for the haystacks (Heald's and Kinzie's letters); Ronan's party bringing Mrs. Burns off by water; Heald reading Hull's order and his officers' objections; the council on the esplanade; the goods given out at the factory; the powder and liquor carried down the covered way; Wells and his Miamis coming in on the 14th and Black Partridge's medal; the column's order of march (Heald's report, Wau-Bun); the halt at the bank and Wells riding back; Black Bird's handshake on the elevation; the guard on the Kinzie green; the searchers at the Ouilmette house; Helm's and Irwin's accounts of the quarrel, the meeting at the gate, Kinzie's flight across the river and Lalime's burial by soldiers headed by Helm. Who died in the battle and who lived is each soldier's card (Quaife's count). **What is invented.** Every mark: where each person stands, the ways they walk, when each beat falls, their speeds; the size of every crowd and which carded people of the gathering fill it (men already graded *likely among the warriors*, “Names, histories and the part on 15 August for every Potawatomi and Miami card of 1812, and three named men who came after the 14th”); the eleven men's and the Wabash searchers' dress (a carded man's, as dress of) and their being drawn at all as men with no recorded names; poses (lying, kneeling, crouched, sitting) for waiting, wounded and dead; which of the women and children ride in the column's wagons and where each sits (the town's own two wagons, the fort wagon and the shore-road haul, driven by Privates Mills and Moffett as every day: the accounts (Helm's narrative, Wau-Bun) put the children, and some of the women, in the baggage wagons, and say nothing of who sat where), and that the rest walk beside them (Wells, Mrs. Heald and Mrs. Helm rode; no saddle horse is drawn, so they walk); the column halting where it does; who carries Mrs. Burns. **What is left out on purpose.** The fighting itself, the killings at Lee's place, the blow and the shots at the gate, the attack on the wagons, and any dead child."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a fuller account placing any of these people at a stop puts them where it says; a drawn saddle horse or canoe for the column and the crossings replaces the walking."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on jaunt stage 1812 (the build tool, the scenes tool)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-14 (T-3553)."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
       "id": "L-finery-3553",
       "title": "The women's finery of 1904 and the figured cloth of 1812",
       "section": "per_subject",
@@ -74485,6 +74532,78 @@
         {
           "label": "How to resolve",
           "text": "A photograph or record of a named resident's dress replaces her reconstructed one. New garment shapes (pouched bodice, bishop sleeves, trains, coats and furs) need new canonical pieces."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-14."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
+      "id": "L-face-library-3553",
+      "title": "People with no pictures of their own wear one of twenty-two faces",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-14",
+      "revised": "2026-11-15",
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The owner, 2026-11-14, on the people who are not yet photographic: \"you can probably download find generate a collection photographic of people and those faces could be reusable to start so build a library with variations that will work\", and, asked which faces to begin from, chose \"MakeHuman skins only for now\" (the free skins, no photographs of anybody). Until now every drawn person wore one of three skin atlases, so under their own shape of face and their own complexion everybody had the same lips, lids and skin. Now the face of each of 22 more CC0 skin atlases (eleven of MakeHuman's own system skins and eleven of its community's, the face library model) lies on one sheet (the hm08 faces image, 1280 pixels square, 22 faces of 256), and a person with no pictures of their own may wear one in place of their body's own face: inside a rounded rectangle of the body's map, from under the hairline to under the chin and across to in front of the ears (face library, the walkthrough's human skin code), brought to the tone of the body's skin where the two meet, under the person's own recorded complexion, with their own shape of face, lips' toning, drawn lines of age, brows, hair, eyes and teeth as before. Who wears which (`libraryFace`, the walkthrough's human variation code; the rule is the record's, the face library data): a face of the person's own sex, and of their age's third (young under 36, middle-aged under 60, old from there) or of a younger one, each third younger half as likely; a child under 13 a young woman's; among those a face whose own tone is nearer the person's is likelier, a face more than one doubling of light darker than the person is never taken, and a freckled one is for people recorded fair, light or ruddy and nobody else (nobody of another complexion, and nobody with none recorded, however near in tone); the body's own skin stands in the draw as one more face. The draw is seeded by the person's id, so it is the same face on every visit. As the records stood on the day, 831 of the 1,209 people who are drawn take a face from the library and 378 keep their body's own. A face from an older atlas keeps a part of the drawn lines of age (0.6 middle-aged, 0.3 old), having painted its own. The Greys, and everyone whose face is fitted to pictures of them, keep the skin they were fitted in."
+        },
+        {
+          "label": "Not invented",
+          "text": "the atlases (CC0, each pinned in the folder's the source data with its licence evidence; one, callharvey3d midtoned female, comes with a material file that is MakeHuman's 2016 one for the skin it was made from, reused under its AGPLv3 header, and the record's licence note says on which two statements its atlas is read as CC0 all the same); the map every hm08 body shares, on which each atlas's face lies at one place; the owner's ask and his choice; each person's sex, age and complexion, as graded on their own record."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "all of it is reconstructed, and no face is anybody's likeness or evidence of how anybody looked. Which face a person wears is a seeded draw, not a finding: the same draw could have given them any other, and a face added to the library later changes the draw, so some people would then wear another. That sex, age and tone bound the draw, the three thirds of age, the weights, the bar on darker faces, the mask's shape and every figure are ours. A face is brought to the body's tone by one multiplication, measured where face meets skin, so its own colouring within (lips, lids, cheeks) is kept and its overall tone is not. A child wears a young woman's face because those are the smooth ones; the packs hold no child's skin. A pack's own name for a skin (some name an age, a sex, a continent or a people) is never read as a fact about its wearer and gives nobody a face; the faces go by plain ids here. **The library holds no face painted for a dark skin.** The packs' seven darkest skins were cut and tried and left out: brought to the tone of the bodies' skin and laid under the app's complexions they came out lighter and yellower than the neck beside them, with pale lips. So people of dark complexion wear the same 22 faces as everyone else under their own complexion, as they wore the bodies' one skin before; that is a gap in the library and says nothing about anybody. The three packs hold 59 skins by their own records; of the other 30 left out, 24 carry makeup, a beard, tattoos, a scar or a wound, an open mouth, have no face, or are already the bodies' own; three (a cartoon skin and two painted as a suit, by the pack's own names) were not fetched and not looked at; and three are the same painting as a kept one, painted again only at the upper eyelids and the nostrils (inside the mask they differ from it by 0.5, 2.3 and 2.0 levels of 255, nearer than any two that are kept): kept at first, they made the one painting twice as likely as any other, and a second review of this entry's work caught it (the record's left out gives each its reason). The twenty-two are not twenty-two unrelated paintings either: the community's skins are reworkings of MakeHuman's own, so some pairs differ by freckles, brows, lips or tone more than by features (the nearest two kept differ by 2.6 levels where the middle of all the pairs is 13). Freckles stop at the mask's edge: a freckled face has a plain neck and ears. That freckles go by recorded complexion is ours too: a bar by tone alone had let a freckled face onto a woman of the 1812 gathering recorded light brown. The sheet is fetched once for everybody; where a phone's connection drops the request it is asked for again (nine tries over about six minutes), and until it comes the body's own face shows."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a way to carry a dark atlas's own colour under the complexions (the first thing to come back for); photographs for the library (the owner's \"download find generate\": each needs its rights cleared, and no living person's face is put on a historical person without the owner's say); a picture of a particular person (they then take a face fitted to it, as the Greys have, and leave the library); a child's skin; the faces reading soft beside the neck at the nearest distance (a face is 256 of its atlas's 512 pixels across; the size is one figure in the record)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-14."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-15 (T-3553): a person's tone, by which the nearer faces are the likelier, is now read from the skin most bodies of their sex wear (the record's `texture.person_tone`: the skin of 17 of the 19 men's bodies and of 13 of the 14 women's; a person recorded as neither sex is read as a woman, as for the face they wear), under their recorded complexion, and no longer from the body they happen to be drawn on. A third review of this entry's work found why it matters: six people are drawn on two bodies, and the three coachmen of 1904, who sit a carriage's box on one body and stand at their own door on another of a lighter skin, could draw two faces. Joseph Daniels did: one face on the box and a freckled one at his door, against this entry's \"the same face on every visit\". The draw now reads nothing of the body, so a person wears one face on every body they are drawn as, and only the multiplication that brings the face to the skin around it is each body's own. Which skin stands for a sex is ours: a count of the bodies as they are, not a finding about anybody; a body added later can move it, and with it some people's faces. The count above missed those three coachmen, and it called everyone without a library face a keeper of their body's own: as the records stand today 1,212 people are drawn, of whom 832 take a face from the library, 354 keep their body's own skin by the draw, and 26 have a face fitted to pictures of them (the two Greys among them, on sheets of their own). And the record's row on the three near-copies left out said the pack's order of its files decided which of each pair was kept; it did not (the left-out skin comes first in all three pairs): the one kept is the atlas with the lower number in its own file name, never the pack's name for either."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
+      "id": "L-host-speaks-3553",
+      "title": "A jaunt's host moves their mouth with the voice that reads their stop",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The owner, 2026-11-14, the day everyone was given a talking jaw: \"With the talking now does the Glessner household jaunt with people can you see them talking?\" They could not: a stop's host came to the mark, turned and greeted the visitor, then stood with a shut mouth while a voice read their words (“The jaunt scripts read aloud in synthetic voices”). Now, while a stop's clip plays, the person it speaks for (the stop's first host, the one whose voice it is) talks, once they stand at their mark: the talking hand comes up (“Where each man of Heald's company stands on the afternoon of 14 August 1812”'s hand), they keep their eyes on the visitor, and their jaw opens with the loudness of the voice as it plays (`voice`, the walkthrough's narration code: the root mean square of about a fiftieth of a second of the clip, listened to before the visitor's volume, so a quiet setting does not quiet the mouth; `speak`, the walkthrough's jaunt hosts code; `mouth.say`, the walkthrough's human mouth code). Their jaw shuts the moment the voice stops, is paused, waits for data that has stopped arriving, or passes to another speaker, or the visitor walks on (`mouth.hush`: without it the talk's own syllables mouthed on in silence for the second the hand takes to come down), and the hand comes down after it. A visitor who turns the sound off stops the clip within about a quarter of a second, and the mouth with it. The narrator's parts (a jaunt's opening and endings, and a stop with no host) move nobody. Where a browser cannot listen to the clip (it has no ear for it, or the ear has heard nothing at all two seconds into a clip that is playing), the speaker's jaw keeps the talk's own run of syllables for as long as the voice plays."
+        },
+        {
+          "label": "Not invented",
+          "text": "the words and whose they are (the jaunt's text and its hosts, unchanged); the recorded clips; the jaw, the teeth and the talking hand, each as its own entry has it (“Everyone has drawn teeth behind their lips, and talks with their jaw”)."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "the mouth follows loudness and nothing else. The lips shape no vowel and no consonant, so what is seen is a jaw keeping time with a voice, not a person forming those words; a hiss or a breath in the clip opens the jaw a little as a syllable does. How loud is a shut mouth and how loud a wide one are ours, set on the household tour's first two clips as recorded (John's and Frances Glessner's, in windows of a fiftieth of a second, counting only those where the voice sounds: the middle of John's is 0.13 of full scale and of Frances's 0.12, nine tenths of each lie under 0.20 and ninety-nine parts in a hundred under 0.27; 0.012 and under is shut, 0.3 is the widest). The voice is a synthetic one the owner chose (“The jaunt scripts read aloud in synthetic voices”); that it now comes out of a moving mouth makes it no more the person's own. With the sound off nobody talks: a stop's words are then only read, and its host stands by them. A second host at a stop listens and does not speak, since the clip has one voice."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "mouth shapes for speech (“Everyone has drawn teeth behind their lips, and talks with their jaw”'s viseme packs), which would want the clip's words in time and not only its loudness; a stop whose words are shared between two voices; a wish for hosts to talk while a visitor reads with the sound off."
         },
         {
           "label": "Recorded",

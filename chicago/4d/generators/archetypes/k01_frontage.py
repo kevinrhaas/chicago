@@ -4002,6 +4002,10 @@ class Assembly:
             v["stair"]["side"] = {"run": ss["run"], "landing_s_m": ends, "out_m": ss["out_m"],
                                   **({"cheek_above_nosing_m": ss["cheek_above_nosing_m"]}
                                      if "cheek_above_nosing_m" in ss else {})}
+            if ss.get("arch"):    # T-1894: the basement arch under the landing, centred in run coordinates
+                A = dict(ss["arch"])
+                A["s_m"] = k * (A.pop("v_m") - door.s_m)
+                v["stair"]["side"]["arch"] = A
         return v
 
     def door_reveal(self) -> float:
