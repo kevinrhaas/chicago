@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 3014, ts: '2026-11-15T20:57:09.137Z', date: 'Nov 15, 2026, 2:57 PM CT', title: 'Jaunts menu: filter by school grade', kind: 'feature',
+    items: [
+      'A row of grade pills under the jaunt groups (All, 3–5, 6–8, 9–10) shows only the jaunts written for those grades; Clear filters lets it go.',
+      'The grades 3–5 Glessner tour is named The Glessner Household, like the tour it retells; its Grades 3–5 tag tells them apart.',
+    ] },
+  { v: 3013, ts: '2026-11-15T20:57:09.137Z', date: 'Nov 15, 2026, 2:57 PM CT', title: 'A coachman\'s skin is the same on his carriage and at his door', kind: 'fix',
+    items: [
+      'Joseph Daniels, Hans Johnson, Henry Windish and Charles Nelson were a shade lighter at their own door than on the box of their carriage, because the two figures were made from bodies of different skin. Each now wears the carriage driver\'s skin on both, with the same face.',
+      'Anyone else drawn on two bodies of different skin is treated the same way.',
+    ] },
   { v: 3012, ts: '2026-11-15T20:33:37.221Z', date: 'Nov 15, 2026, 2:33 PM CT', title: 'The jaunt voices tell their stories with feeling', kind: 'improvement',
     items: [
       'Every voiced line in The Glessner Household, its Grades 3–5 telling and Meet the Glessner House is recorded again, with pauses, laughs, sighs, whispers and warmth where the story calls for them.',
