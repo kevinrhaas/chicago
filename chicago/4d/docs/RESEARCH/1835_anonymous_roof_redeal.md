@@ -4,12 +4,12 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
-- audited: **560** anonymous roofs
-- keep: **560** (5 kept over a policy breach because they are seated, 9 because nothing they could become is wanted here)
+- audited: **579** anonymous roofs
+- keep: **579** (5 kept over a policy breach because they are seated, 9 because nothing they could become is wanted here)
 - refamily: **0** (0 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 668 stand, so the town is 0 roofs short before this audit and 0 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 687 roofs and 687 stand, so the town is 0 roofs short before this audit and 0 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
@@ -26,7 +26,7 @@ The programme wants 668 roofs and 668 stand, so the town is 0 roofs short before
 | `structures/institutional_public/south` | 5 | 5 | 0 | 0 | 5 | 0 |
 | `structures/institutional_public/west` | 1 | 1 | 0 | 0 | 1 | 0 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | 3 | 0 |
-| `structures/larger_boarding_houses/south` | 28 | 28 | 27 | 0 | 28 | 0 |
+| `structures/larger_boarding_houses/south` | 31 | 31 | 30 | 0 | 31 | 0 |
 | `structures/larger_boarding_houses/west` | 6 | 6 | 6 | 0 | 6 | 0 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 6 | 0 | 8 | 0 |
 | `structures/ordinary_dwellings/south` | 176 | 176 | 167 | 0 | 176 | 0 |
@@ -36,7 +36,7 @@ The programme wants 668 roofs and 668 stand, so the town is 0 roofs short before
 | `structures/small_outbuildings/west` | 14 | 14 | 14 | 0 | 14 | 0 |
 | `structures/small_outbuildings/north` | 20 | 20 | 17 | 0 | 20 | 0 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | 3 | 0 |
-| `structures/stores_mixed_use/south` | 42 | 42 | 26 | 0 | 42 | 0 |
+| `structures/stores_mixed_use/south` | 58 | 58 | 42 | 0 | 58 | 0 |
 | `structures/stores_mixed_use/west` | 6 | 6 | 5 | 0 | 6 | 0 |
 | `structures/stores_mixed_use/north` | 4 | 4 | 3 | 0 | 4 | 0 |
 | `structures/stores_mixed_use/fort` | 1 | 1 | 0 | 0 | 1 | 0 |

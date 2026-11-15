@@ -219,5 +219,17 @@
     "weather_rate": 0.75,
     "lay_m": 0.004,
     "confidence": "reconstructed"
+  },
+  "lodging": {
+    "class": null,
+    "beds_ordinary": null,
+    "beds_crowded": null,
+    "ceiling": 35,
+    "clamped_at_1840_maximum": false,
+    "enclosed_floor_m2": null,
+    "confidence": "reconstructed",
+    "note": "Raised to a drawing of the street (the inventory's pictured_roofs, T-3605), not to house the town model's people, so the bed bracket does not count it and no beds are dealt here. Its rooms are recorded so a seating pass knows they exist.",
+    "replaceable_by": "",
+    "occupancy": null
   }
 }

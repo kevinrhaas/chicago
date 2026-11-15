@@ -47,6 +47,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 import family_bands  # noqa: E402
 import ridge_model  # noqa: E402
+from measure_band_claims import drawn_views  # noqa: E402
 
 FT = 0.3048
 BASELINE = ROOT / "tools" / "ridge_band_baseline.json"
@@ -116,11 +117,21 @@ def measure() -> dict:
     tested = 0
     unmodelled: dict[str, int] = {}
     unbanded = 0
+    drawn = 0
+    matched = drawn_views()
 
     for doc in records():
         fam = doc["reconstruction"]["family"]
         spec = fams.get(fam)
         if spec is None:
+            continue
+        # T-3605: a roof built to a drawing stands on the drawing's frontage, storeys and
+        # roof, so its ridge is the drawing's too; the image gate defends it, not the
+        # band. Only while a reference view with a "matches" verdict renders it —
+        # measure_band_claims.drawn_views is the one definition of that.
+        drawn_src = (doc["reconstruction"].get("drawn") or {}).get("source_id")
+        if drawn_src and doc["id"] in matched.get(drawn_src, set()):
+            drawn += 1
             continue
         band = family_bands.ridge_band_m(spec.get("ridge_ft"))
         if band is None:
@@ -175,6 +186,7 @@ def measure() -> dict:
     return {
         "tested": tested,
         "unbanded": unbanded,
+        "drawn": drawn,
         "unmodelled": unmodelled,
         "findings": findings,
         "drift": drift,

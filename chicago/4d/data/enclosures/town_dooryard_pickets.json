@@ -783,19 +783,19 @@
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE HOUSE LOT: blk_lake_market lot 4 of the platted grid, holding recon_1835_blk_lake_market_d4_02 (two_room_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE PLOT IS THIS HOUSE'S OWN (T-3476): 10.23 x 8.32 m behind the house, set along the lot left side line, at least 0.914 m inside the lot lines and 3.048 m or more clear of the house's own back face, laid out 'new_ground' (tools/dooryard_layouts.py) and closed with flat-topped pickets a pale's width apart, the record's own form. Its lines come from data/traces/vectors/thompson_lots.json and this building's committed footprint; its SIZE, which follows the house's class (two_room_frame_cottage), its layout and its fence are the invention, read off a hash of the lot so no two lots match. docs/LIBERTIES.md L129 claims the plot, L-t3476-dooryard-gardens its size, beds and fence.",
+      "note": "THE HOUSE LOT: blk_lake_market lot 4 of the platted grid, holding recon_1835_blk_lake_market_d4_02 (two_room_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE PLOT IS THIS HOUSE'S OWN (T-3476): 10.23 x 8.32 m behind the house, set along the lot left side line, at least 0.914 m inside the lot lines and 3.048 m or more clear of the house's own back face, laid out 'long_beds' (tools/dooryard_layouts.py) and closed with flat-topped pickets a pale's width apart, the record's own form. Its lines come from data/traces/vectors/thompson_lots.json and this building's committed footprint; its SIZE, which follows the house's class (two_room_frame_cottage), its layout and its fence are the invention, read off a hash of the lot so no two lots match. docs/LIBERTIES.md L129 claims the plot, L-t3476-dooryard-gardens its size, beds and fence.",
       "form": {
         "height_m": {
           "value": 1.22,
           "confidence": "reconstructed"
         },
         "post_spacing_m": {
-          "value": 2.74,
+          "value": 2.44,
           "confidence": "reconstructed"
         }
       },
       "garden": {
-        "style": "new_ground",
+        "style": "long_beds",
         "fence": "picket",
         "frame": {
           "origin": [147.78, -143.42],
@@ -805,40 +805,73 @@
         "size_m": [10.23, 8.32],
         "beds": [
           {
-            "plan": "potato",
+            "plan": "bushes",
             "poly": [
-              [0.3, 0.7],
-              [9.93, 0.7],
-              [9.93, 2.84],
-              [0.3, 2.84]
+              [0.3, 6.82],
+              [9.93, 6.82],
+              [9.93, 8.02],
+              [0.3, 8.02]
+            ]
+          },
+          {
+            "plan": "roots",
+            "poly": [
+              [0.3, 1.39],
+              [1.63, 1.39],
+              [1.63, 6.37],
+              [0.3, 6.37]
             ]
           },
           {
             "plan": "potato",
             "poly": [
-              [0.3, 3.29],
-              [9.93, 3.29],
-              [9.93, 5.43],
-              [0.3, 5.43]
+              [2.08, 1.39],
+              [4.01, 1.39],
+              [4.01, 6.37],
+              [2.08, 6.37]
+            ]
+          },
+          {
+            "plan": "onion_salad",
+            "poly": [
+              [4.46, 1.39],
+              [5.63, 1.39],
+              [5.63, 6.37],
+              [4.46, 6.37]
+            ]
+          },
+          {
+            "plan": "corn",
+            "poly": [
+              [6.08, 1.39],
+              [7.98, 1.39],
+              [7.98, 6.37],
+              [6.08, 6.37]
             ]
           },
           {
             "plan": "cabbage",
             "poly": [
-              [0.3, 5.88],
-              [9.93, 5.88],
-              [9.93, 8.02],
-              [0.3, 8.02]
+              [8.43, 1.39],
+              [9.93, 1.39],
+              [9.93, 6.37],
+              [8.43, 6.37]
             ]
           }
         ]
       },
       "walks_local_enu_m": [
         [
-          [156.34, -143.49],
-          [156.97, -143.49],
-          [156.96, -144.19],
-          [156.33, -144.19]
+          [148.07, -143.82],
+          [157.7, -143.9],
+          [157.7, -144.62],
+          [148.07, -144.54]
+        ],
+        [
+          [156.21, -143.49],
+          [157.11, -143.49],
+          [157.1, -143.89],
+          [156.2, -143.89]
         ]
       ]
     },

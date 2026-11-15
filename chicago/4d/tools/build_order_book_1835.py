@@ -5933,8 +5933,11 @@ def cmd_self_test() -> int:
     # 315 -> 316 on 2026-10-10 (T-2254, on top of T-2268): four of block 82's requests are
     # raised and adopted, and the block keeps two slots (a D1 and an H1, T-2270's), so the
     # platted deal seats one household more (220 -> 221 platted, 95 off-plat, L270).
+    # 316 -> 321 on 2026-11-15 (T-3605): the register firms street-face adoption moved into
+    # the stores built to Gifford's drawing leave five platted roofs, and five waiting
+    # households are dealt them (221 -> 226 platted, 95 off-plat, L270).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 316
+        data["inventory"], data["programme"], occ))["seated"] == 321
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

@@ -4678,8 +4678,8 @@
     "recon_1835_blk_lake_market_d4_02__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 55732,
-      "inputs_sha256": "723826ad699615dfaa47f6b3fa420e0b8ad5b36ac3c0ac04fc31866037668023",
+      "bytes": 55104,
+      "inputs_sha256": "65af88ae46226b6141e75d0c826ba5184016271097fea32259b8e37589fab630",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_lake_market_d4_02"
@@ -4733,7 +4733,7 @@
       "archetype": "frame_dwelling",
       "baked_ao": false,
       "bytes": 69156,
-      "inputs_sha256": "e3af09c219d1738e188422e70ba297a02d7e0b08a8ffe5ca46fe8e26b5f400c2",
+      "inputs_sha256": "3e55b4e1bdb6f90db345615f28949a9d3ba3e7dfb356b98523f8505989c31c43",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_clark_d6_04"
@@ -4984,8 +4984,8 @@
     "recon_1835_blk_randolph_dearborn_d3_15__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 44668,
-      "inputs_sha256": "0c125378fac1f7576a2ae890519c405e268351c4995e34a6745a91a36e7341a9",
+      "bytes": 44044,
+      "inputs_sha256": "15fdf2a811eaf36ae1bcd1cd9f81b96e80962152fbc9fae243e1c2fc7006b116",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_dearborn_d3_15"
