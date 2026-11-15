@@ -2390,6 +2390,13 @@
       "measured": "2026-11-11",
       "finding": "In an isolated fixture, two actual writes retained all 5 output hashes and advanced mtimes; a deliberately damaged output was restored. Application output hashes remained unchanged. Exact tool and output hashes are in docs/RESEARCH/prairie-portraits-3546/writer-measurement.json.",
       "placed": "Prairie people follows compile_scene.py and portrait records and precedes human_variation_kit.py. Child recipes follow authored prepared bodies and precede remote canonical exports. These new ordering edges have not yet been inserted into the full rederive manifest."
+    },
+    "face_library.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-14",
+      "finding": "Reproduces: two bare writes on the tree rewrote assets/humans/web/faces/hm08_faces.jpg (280493 bytes) and the `texture` block of data/humans/variation/face_library.json with identical bytes; both files' mtimes advanced and the SHA-256 of every one of the tree's 21854 tracked and untracked files was unchanged. A sheet with 400 bytes flipped and its last 5000 cut off, beside a record naming a wrong sheet hash, failed --check and was restored byte for byte by the bare write. The second write mode, --ingest, takes the three unpacked MakeHuman packs, which are not in the repository, so it cannot run here and is not a rebuild: run from the packs the same day it wrote the 22 cuts and SOURCE.json again with identical bytes (T-3553).",
+      "placed": "not yet \u2014 measured to reproduce. It reads its own record, the 22 cuts and SOURCE.json under assets/authored/humans/face_library/, the complexions in renderers/web/js/human-looks.js, the mask in human-skin.js, the vendored MakeHuman skin it measures tones against and the GLB of every hm08 body under assets/humans/web/. tools/human_variation_kit.py imports it and writes its sheet's layout into hm08_variation_kit.json, so its slot follows whatever exports the bodies and precedes human_variation_kit.py, itself pending; the manifest's order is its own measured pass, so it is not appended blind (T-3553)."
     }
   }
 }

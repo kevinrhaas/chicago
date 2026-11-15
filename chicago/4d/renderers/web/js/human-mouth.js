@@ -337,7 +337,7 @@ const DEG = Math.PI / 180;
 
 export function createMouth({ id = 'human', scene = null } = {}) {
   const rand = seededRandom(`mouth:${id}`);
-  let faces = [], jaw = null, teeth = [], shown = false, time = rand() * 40, smile = 0, after = 0, open = 0, said = null;
+  let faces = [], jaw = null, teeth = [], shown = false, time = rand() * 40, smile = 0, after = 0, open = 0, said = null, rest = false, last = 0;
   const off = [rand() * 6.283, rand() * 6.283], turn = new THREE.Quaternion();
   // The jaw's bone is the clip's to pose: what it holds is taken as found each frame, unless it
   // is what this left there, and the opening is turned on over it.
@@ -371,7 +371,14 @@ export function createMouth({ id = 'human', scene = null } = {}) {
     },
     get bound() { return faces.length > 0 || jaw !== null; },
     /** A voice's level now (0..1) turns the jaw in place of the talk's own run; null gives it back. */
-    say(level) { said = Number.isFinite(level) ? Math.min(1, Math.max(0, level)) : null; return api; },
+    say(level) { said = Number.isFinite(level) ? Math.min(1, Math.max(0, level)) : null; rest = false; return api; },
+    /**
+     * The voice has stopped: the jaw is given back and rests. The talking hand takes about a
+     * second to come down, and the talk's own run of syllables would mouth through it in
+     * silence, so there is none until that talk is over, or another is taken up (the talk's
+     * level no longer falling), or a voice or `say(null)` comes.
+     */
+    hush() { said = null; rest = true; return api; },
     /** Hold the face so (a still): `smile` 0..1 of the smile, `jaw` degrees open; its drawn teeth are in view where the jaw is open, until the next `apply`. */
     pose({ smile: s = smile, jaw: j = open } = {}) {
       smile = Math.min(1, Math.max(0, Number(s) || 0)); open = Math.max(0, Number(j) || 0); shown = true;
@@ -381,10 +388,10 @@ export function createMouth({ id = 'human', scene = null } = {}) {
     /** Carry on from another mouth of the same person (the level drawn before this one). */
     follow(prev) {
       const s = prev?.state?.();
-      if (s) { ({ time, smile, after, open, said, shown = false } = s); show(); }
+      if (s) { ({ time, smile, after, open, said, shown = false, rest = false, last = 0 } = s); show(); }
       return api;
     },
-    state() { return { time, smile, after, open, said, shown }; },
+    state() { return { time, smile, after, open, said, shown, rest, last }; },
     /**
      * A frame of `dt` seconds. `greeting`: the person is greeting someone; `talk`: how much they
      * are talking (0..1); `viewer` (a world position) and `root` (the figure's own root, which
@@ -407,15 +414,21 @@ export function createMouth({ id = 'human', scene = null } = {}) {
       facing = facing === true;
       after = greeting ? MOUTH.after_s : Math.max(0, after - dt);
       const talking = Math.min(1, Math.max(0, talk));
+      // A hush lasts for the talk the voice went with: until it is over, or another is taken up.
+      // With the talk off its level falls on every frame that has time in it (human-actions.js
+      // eases it down), so a level that does not fall is a talk that is on: one taken up while
+      // the hand was coming down, or at once, the hand still wholly up.
+      if (rest && (talking <= 1e-3 || (dt > 1e-3 && talking >= last))) rest = false;
+      last = talking;
       // (A mouth with no smile to give keeps none: its jaw is all of it.)
-      const want = !faces.length ? 0 : greeting || after > 0 || facing ? 1 : talking > .05 || said > 0 ? MOUTH.talk * (said > 0 ? 1 : talking) : 0;
+      const want = !faces.length ? 0 : greeting || after > 0 || facing ? 1 : (talking > .05 && !rest) || said > 0 ? MOUTH.talk * (said > 0 ? 1 : talking) : 0;
       smile += (want - smile) * (1 - Math.exp(-dt / (want > smile ? MOUTH.in_s : MOUTH.out_s)));
       if (Math.abs(want - smile) < 1e-3) smile = want;
       // Talk with no words: syllables at about the rate of speech, uneven in height, with a
       // breath between phrases.
       let to = 0;
       if (said !== null) to = MOUTH.say_deg * said;
-      else if (talking > 1e-3) {
+      else if (talking > 1e-3 && !rest) {
         const beat = .5 - .5 * Math.cos(time * 2 * Math.PI * MOUTH.syllable_hz);
         const height = .6 + .4 * Math.sin(time * 1.9 + off[0]);
         const phrase = Math.min(1, Math.max(0, 1.6 + 2.2 * Math.sin(time * .7 + off[1])));
@@ -425,7 +438,7 @@ export function createMouth({ id = 'human', scene = null } = {}) {
       if (open < 1e-3 && to === 0) open = 0;
       show();
     },
-    snapshot() { return { smile: +smile.toFixed(3), jaw_deg: +open.toFixed(3), faces: faces.length, said }; },
+    snapshot() { return { smile: +smile.toFixed(3), jaw_deg: +open.toFixed(3), faces: faces.length, said, hushed: rest }; },
   };
   if (scene) api.bind(scene);
   return api;

@@ -16,6 +16,9 @@
  *    while it speaks. It follows the outing: with sound on and Narration up, each stop's
  *    voice starts when you arrive (after the one still speaking finishes).
  *
+ * T-3553 — and the person a clip speaks for moves their mouth with it: `voice()` says who is
+ * speaking now and how loud (jaunt-hosts.js `speak` gives it to that host's jaw and hand).
+ *
  * The clips and their index live with the other recorded audio on the media host
  * (tools/audio-hosting.json; docs/AUDIO.md § Narration). With no index — a local build, an
  * unreachable host, a jaunt not yet voiced — nothing is offered and nothing fails.
@@ -82,6 +85,27 @@ export function clipFor(index, textSha, speaker = null, narrator = DEFAULT_NARRA
   return null;
 }
 
+/**
+ * T-3553: how loud a voice is now, for the mouth of the person it speaks for. `window`: the
+ * samples listened to (about a fiftieth of a second, so a low voice's own beat does not show
+ * in it); a level under `floor` (the root mean square of the samples, of 1) is a shut mouth
+ * and one at `full` a jaw as far open as a voice turns it (human-mouth.js `say_deg`). Ours,
+ * set on the household tour's first two voices as they were recorded (John and Frances
+ * Glessner, in windows of this length, counting only those over the floor: the middle of
+ * John's is 0.13 and of Frances's 0.12, nine tenths of each lie under 0.20 and ninety-nine
+ * in a hundred under 0.27), so that a syllable opens the jaw about as far as the talk without
+ * a voice does and only the loudest opens it wide. `deaf_s`: an ear that has heard nothing
+ * at all this long into a clip is taken to be unable to listen (the level is then not known).
+ */
+export const VOICE = Object.freeze({ window: 1024, floor: 0.012, full: 0.3, deaf_s: 2 });
+/** A window of a voice's samples (bytes, 128 at rest) as a level, 0..1. */
+export function voiceLevel(samples) {
+  let sum = 0;
+  for (let i = 0; i < samples.length; i++) { const x = (samples[i] - 128) / 128; sum += x * x; }
+  const rms = Math.sqrt(sum / Math.max(1, samples.length));
+  return Math.min(1, Math.max(0, (rms - VOICE.floor) / (VOICE.full - VOICE.floor)));
+}
+
 /** A 1/10 s silent WAV: played inside a tap, it lets the element speak later without one
  *  (WebKit, so iPhone Chrome, counts a media element as allowed once it has played in a gesture). */
 export function silentWav(rate = 8000, samples = 800) {
@@ -114,7 +138,7 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
   speech = () => null, wake = async () => {}, duck = () => {}, media = () => new Audio(), narrator = () => DEFAULT_NARRATOR,
   subtle = globalThis.crypto?.subtle, onChange = () => {}, location = null } = {}) {
   let index = null, indexUrl = null, loading = null, failed = false;
-  let el = null, routed = null, primed = false, playing = null, queued = null, at = null, error = null;
+  let el = null, routed = null, primed = false, playing = null, queued = null, at = null, error = null, starved = false;
   let heard = false;               // the part `at` names has been played or queued once
   let opening = null;              // an outing's opening it showed that has not been heard yet
   const keys = new Map();          // `${jaunt}:${part}:${id}` → { sha, speaker } of the words shown there
@@ -163,7 +187,10 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     el.addEventListener?.('ended', () => finish(true));
     el.addEventListener?.('error', () => { if (playing) { error = 'Narration could not play.'; finish(false); } });
     // Muting Narration or all sound, or leaving the page, ends the voice rather than leaving it speaking silently.
-    el.addEventListener?.('timeupdate', () => { if (playing && speech()?.audible === false) stop(); });
+    el.addEventListener?.('timeupdate', () => { if (playing && speech()?.audible === false) stop(); if (starved && el.readyState >= 3) starved = false; });
+    // T-3553: a clip whose data stops arriving waits, unpaused and silent (`voice()`).
+    el.addEventListener?.('waiting', () => { starved = true; });
+    el.addEventListener?.('playing', () => { starved = false; });
     return el;
   }
   /** Call inside a trusted tap: the element plays a moment of silence, so a later stop's voice may start unprompted. */
@@ -183,7 +210,12 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     if (routed?.ctx !== out.ctx) {
       try { routed?.node.disconnect(); } catch {}
       const node = out.ctx.createMediaElementSource(element());
-      node.connect(out.bus); routed = { ctx: out.ctx, node };
+      node.connect(out.bus);
+      // T-3553: and an ear on the voice before the bus's volume, for the speaker's mouth
+      // (`voice()`). It feeds nothing; a page whose audio has no analyser simply has none.
+      let ear = null;
+      try { if (typeof out.ctx.createAnalyser === 'function') { ear = out.ctx.createAnalyser(); ear.fftSize = VOICE.window; node.connect(ear); } } catch { ear = null; }
+      routed = { ctx: out.ctx, node, ear, samples: ear ? new Uint8Array(VOICE.window) : null, heard: false };
     }
     return true;
   }
@@ -194,6 +226,8 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     // A clip's file is named from the host's root, as the index's own path is (INDEX_PATH).
     a.src = new URL(c.file, new URL('../', indexUrl)).href;
     playing = key; duck(true); changed();
+    routed.heard = false;   // the ear has heard nothing of this clip yet (`voice()`)
+    starved = false;
     const own = key;
     a.play()?.catch?.(e => { if (playing === own) { error = e?.name === 'NotAllowedError' ? 'Tap Listen to hear the narration.' : 'Narration could not play.'; finish(false); } });
     return true;
@@ -214,6 +248,26 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     get state() { return { index: index ? Object.keys(index.clips).length : failed ? 'unavailable' : 'pending', playing, queued, at, error, primed }; },
     on(fn) { listeners.add(fn); return () => listeners.delete(fn); },
     isPlaying: (jaunt, part, id) => playing === slot(jaunt, part, id),
+    /**
+     * T-3553: who is speaking now, and how loud: { speaker, level } while a clip sounds, else
+     * null. `speaker` is the person the clip speaks for (a stop's first host) or NARRATOR;
+     * `level` is 0..1 (VOICE), or null where the page cannot listen to the clip (no analyser,
+     * one that throws, or one that has heard nothing at all `deaf_s` into a clip that is
+     * playing), so the mouth keeps its own run of syllables. A clip held paused (a media key,
+     * a call, a play the browser refused), or waiting for data that has stopped arriving, is
+     * nobody's voice until it sounds again.
+     */
+    voice() {
+      if (!playing || el?.paused || starved) return null;
+      const speaker = keys.get(playing)?.speaker ?? NARRATOR;
+      if (!routed?.ear) return { speaker, level: null };
+      try {
+        routed.ear.getByteTimeDomainData(routed.samples);
+        // An ear that listens reads something other than rest within the clip's first moments.
+        if (!routed.heard && !(routed.heard = routed.samples.some(x => x !== 128))) return { speaker, level: el?.currentTime > VOICE.deaf_s ? null : 0 };
+        return { speaker, level: voiceLevel(routed.samples) };
+      } catch { return { speaker, level: null }; }
+    },
     /** The part an outing now shows. Arriving at a new one with narration audible plays it,
      *  or queues it behind a voice still speaking. Null (travelling) changes nothing. */
     at(jaunt, part, id) {
