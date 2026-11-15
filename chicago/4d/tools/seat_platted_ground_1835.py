@@ -173,7 +173,11 @@ ADOPTIONS = DATA / "research" / "newspapers" / "street_face_adoptions.json"
 # 44 -> 45 on 2026-10-08 (T-2174): the F2 warehouse behind the stores at South Water and
 # Dearborn fronts South Water, so the street-face adoption seats a firm on it. A warehouse
 # seats no household in this deal, so the cost below is unchanged (L270).
-BUSINESS_DEAL_HOLDS = 45
+# 45 -> 47 on 2026-11-15 (T-3605): the street-face adoption moves the firms the papers place
+# only on Lake or Dearborn into the stores raised to Gifford's drawing of the first Tremont
+# House, two of which stand on platted lots, so the business deal holds two more plat roofs
+# (L270).
+BUSINESS_DEAL_HOLDS = 47
 # 1 -> 2 on 2026-10-05 (T-2130): the nine roofs it raised on blk_washington_dearborn and
 # blk_washington_clark are not in the business deal's pool, so the hold stays 40; but with them
 # standing beside T-2129's Market block the deal hands hh_bennet_lyman on, and a release would
@@ -218,7 +222,10 @@ BUSINESS_DEAL_HOLDS = 45
 # recon_1835_blk_randolph_market_d2_09, ten reconstructed South households step one roof down
 # the queue, and hh_rc_woodruff_ruth is handed on; a release of the business deal's roofs now
 # seats nine households. The hold is unchanged at 45 (L270).
-BUSINESS_DEAL_COSTS = 9
+# 9 -> 4 on 2026-11-15 (T-3605): the roofs the adopted firms left are dealt as houses, which
+# moves the queues a release would draw on, so a release of the business deal's roofs now
+# seats four households (L270).
+BUSINESS_DEAL_COSTS = 4
 
 TICKET = "T-1613"
 PARENT = "T-1199"
