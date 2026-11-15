@@ -416,7 +416,18 @@
               5.3,
               7.1
             ],
-            "out_m": 0.3
+            "out_m": 0.3,
+            "arch": {
+              "v_m": 6.2,
+              "span_m": 1.05,
+              "spring_m": 0.6,
+              "depth_m": 0.4,
+              "grille": {
+                "bars": 5,
+                "set_back_m": 0.1,
+                "ring_radius_m": 0.3
+              }
+            }
           }
         }
       },
@@ -426,7 +437,7 @@
         "newberry_new_chicago_album_1883_residences",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "K07's panelled door up a stoop, the front 10.25 m behind the street line (the 1911 sheet's trace: the front's main plane at lot u 32.85, the street line at 43.1). T-3163: the stoop climbs from the north, as both pictures draw it, along the front to a landing at v 5.3-7.1 m before the door (K01's side stoop, 1621's), 0.3 m clear of the face. The grilled round-arched basement doorway the pictures draw under the landing is not built: open."
+      "note": "K07's panelled door up a stoop, the front 10.25 m behind the street line (the 1911 sheet's trace: the front's main plane at lot u 32.85, the street line at 43.1). T-3163: the stoop climbs from the north, as both pictures draw it, along the front to a landing at v 5.3-7.1 m before the door (K01's side stoop, 1621's), 0.3 m clear of the face. T-1894: the grilled round-arched basement doorway both pictures draw in the landing's street face. Read through the engraving's camera against the render: the arch at x 925-980 px, its crown at y 938 px (the build's at 0.8 m spring stood 15 px, about 0.27 m, higher), about 0.57 of the landing face's drawn width and a little north of its middle; the vignette draws it about 0.62 of the face's width, a little south of the middle, its crown a little over half the face's height. So 1.05 m across, centred under the door at v 6.2 m (the mean of the two pictures' places), its jambs 0.6 m over grade under a half-round head, its crown about 1.13 m up (between the engraving's 1.05 m and the vignette's 1.27 m); a 0.4 m void. The iron in it is K08's basement-grille form (five uprights, a foot bar, a spring bar and a ring in the head standing for the engraving's scrolls): the scrolls' pattern is under the halftone and is reconstruction."
     },
     "bays": {
       "value": [
