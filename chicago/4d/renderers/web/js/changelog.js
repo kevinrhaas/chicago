@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2997, ts: '2026-11-15T08:28:35.680Z', date: 'Nov 15, 2026, 2:28 AM CT', title: '1816 Prairie\'s two roof crowns gain their moulded curb cornices', kind: 'feature',
+    items: [
+      '1816 Prairie (the Henderson house): both raised mansard crowns now finish in a moulded cornice under their iron cresting, a band about 0.7 m deep with a projecting cap, as the house\'s photograph draws them; before, the slate ran straight up to a bare edge.',
+    ] },
   { v: 2996, ts: '2026-11-15T07:45:54.955Z', date: 'Nov 15, 2026, 1:45 AM CT', title: 'Watch the 1812 jaunts unfold, played by the people who were there', kind: 'feature',
     items: [
       'Twenty-one stops of the Battle of Fort Dearborn and Killing of Jean Lalime jaunts now stage their history with their own people.',
