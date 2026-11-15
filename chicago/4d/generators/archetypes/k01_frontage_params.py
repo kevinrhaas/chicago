@@ -1127,10 +1127,15 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
     # the Doane photograph), the deck's turning (k01_mansard_deck) at the same bounds
     fn = c.get("finial")
     if fn is not None:
-        if set(fn) != {"height_m", "radius_m"} or not 0.8 <= float(fn["height_m"]) <= 3.0 \
-                or not 0.05 <= float(fn["radius_m"]) <= 0.2:
+        if not {"height_m", "radius_m"} <= set(fn) <= {"height_m", "radius_m", "form"} \
+                or not 0.8 <= float(fn["height_m"]) <= 3.0 or not 0.05 <= float(fn["radius_m"]) <= 0.2:
             raise ParamError("mansard.crown.finial: height_m 0.8-3.0 m and radius_m 0.05-0.2 m")
-        fn = {"height_m": float(fn["height_m"]), "radius_m": float(fn["radius_m"])}
+        form = fn.get("form", "turned")
+        # T-3562: or a cross on a block and its cap (1815's pavilion, Chicagology's square-on print)
+        if form not in ("turned", "cross"):
+            raise ParamError(f"mansard.crown.finial.form {form!r}: turned (the default) or cross")
+        fn = {"height_m": float(fn["height_m"]), "radius_m": float(fn["radius_m"]),
+              **({"form": form} if form != "turned" else {})}
     return {"over_bay": bay["id"], "form": "hip", "x0": round(x1 - cd, 4), "x1": round(x1, 4),
             "z0": round(-b, 4), "z1": round(-a, 4), "pitch_deg": side, "end_pitch_deg": end,
             "overhang_m": co, "ridge_m": round(E + rise, 4),
