@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2999, ts: '2026-11-15T10:53:37.563Z', date: 'Nov 15, 2026, 4:53 AM CT', title: '1815 Prairie\'s roof gets its ironwork', kind: 'improvement',
+    items: [
+      '1815 Prairie\'s mansard now carries the iron cresting its photographs show along the front and south curbs, stopping either side of the pavilion\'s steep roof, with a cross on that roof\'s peak and a finial on the front dormer\'s gable; the dormer itself is taller, to the photograph.',
+    ] },
   { v: 2998, ts: '2026-11-15T08:43:51.427Z', date: 'Nov 15, 2026, 2:43 AM CT', title: 'One face per person, on the carriage box and at the door', kind: 'fix',
     items: [
       'Joseph Daniels, who drives the Armour brougham in 1904, wore one face on the box and a freckled one standing at his own door. He now has one face wherever he is drawn, and so does anyone else drawn on more than one body.',
