@@ -449,7 +449,9 @@ def jaunts(h):
     ))
 
     # ── 8 ── The Everleigh sisters ──────────────────────────────────────────────────────────
-    I1, I2 = 'house_1801_indiana', 'house_1913_indiana'
+    # Indiana's own fronts stand only ~10 m from their walk and the arrival looks up past
+    # anyone on it; a coach house behind frames the house front from the far walk.
+    I1, I2 = 'house_1809_indiana_coach_house', 'house_1829_indiana_coach_house'
     CO = anchor('glessner_tour_corner')
     FP = anchor('first_presbyterian')
     out.append(dict(
@@ -472,16 +474,16 @@ def jaunts(h):
                  evidence=['everleigh-sisters', 'levee'],
                  caption="A cab horse clops past on Indiana Avenue, and a gentleman on the corner checks his watch and turns west.",
                  cast=lambda: [
-                     extra('gent_c', 'gentleman_1904', 'A gentleman on the corner (unnamed)', at(I1, 4, 6), face=at(I1, 9, 0), beats=[beat(8, face=at(I1, 30, -6)), beat(14, walk=[at(I1, 7, -6), at(I1, 45, -7)], pace='brisk')]),
-                     extra('cabman', 'working_driver_1904', 'A cabman waiting for a fare (unnamed)', at(I1, 9.4, -5), face=at(I1, 9.4, 10)),
+                     extra('gent_c', 'gentleman_1904', 'A gentleman on the corner (unnamed)', at(I1, 41.5, 2), face=at(I1, 44, -2), beats=[beat(8, face=at(I1, 60, 14)), beat(14, walk=[at(I1, 45, 5), at(I1, 62, 22)], pace='brisk')]),
+                     extra('cabman', 'working_driver_1904', 'A cabman waiting for a fare (unnamed)', at(I1, 44.2, -4), face=at(I1, 44.2, 10)),
                  ]),
             dict(id='rooms', dest=('structure', I2),
                  text="Further south along Indiana, with the Levee two blocks west. Inside the Everleigh Club are fifty rooms across two mansions: a Japanese Throne Room, a Mirror Room, a Silver Parlor, \"a $15,000 gold-leafed piano for the Music Room\" and \"$650 gold cuspidors\". A bottle of champagne costs $12, \"in an era when an entire meal could be had for fifty cents\", and the entrance fee alone is $50. Ada keeps the books and hires the women. Minna meets the guests. In March 1902 Prince Henry of Prussia came, and when a slipper flew off during a dance and spilled champagne, one of his party drank from it, and a whole custom began. The club keeps 15 to 25 cooks and maids, and its women are called \"butterflies\".",
                  evidence=['everleigh-rooms', 'everleigh-roles', 'prince-henry'],
                  caption="Two maids hurry home along Indiana Avenue at dusk, keeping close to the houses.",
                  cast=lambda: [
-                     extra('maid_x', 'maid_1904', 'A maid going home (unnamed)', at(I2, 5, 24), beats=[beat(0, walk=[at(I2, 5.4, -30)], pace='brisk'), beat(1, talk=True), beat(15, talk=False)]),
-                     extra('maid_y', 'cook_1904', 'A cook going home (unnamed)', at(I2, 6, 25), beats=[beat(0, walk=[at(I2, 6.4, -29)], pace='brisk')]),
+                     extra('maid_x', 'maid_1904', 'A maid going home (unnamed)', at(I2, 40.6, 24), beats=[beat(0, walk=[at(I2, 40.8, -30)], pace='brisk'), beat(1, talk=True), beat(15, talk=False)]),
+                     extra('maid_y', 'cook_1904', 'A cook going home (unnamed)', at(I2, 41.4, 25), beats=[beat(0, walk=[at(I2, 41.6, -29)], pace='brisk')]),
                  ]),
             dict(id='church', dest=('anchor', 'first_presbyterian'),
                  text="First Presbyterian Church, at Indiana and Twenty-first Street. It stands at the Levee's eastern edge, close enough to hear it on a summer night. The club's famed clients, the stories say, include the actor John Barrymore and the authors Ring Lardner and Theodore Dreiser, and gossips name the young Marshall Field Jr., who lives a few blocks from here, among them. \"A rival madam maliciously accused the Everleigh sisters\" of far worse, later, and the rumour never died. The minister's door is lit. So is the club's. Tonight, as every night, the Levee is busier.",

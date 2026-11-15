@@ -110,7 +110,7 @@
       "id": "sisters",
       "destination": {
         "kind": "structure",
-        "id": "house_1801_indiana"
+        "id": "house_1809_indiana_coach_house"
       },
       "text": "Indiana Avenue, a block west. Keep walking and in three more blocks there is Dearborn Street, and at 2131 and 2133 Dearborn, the Everleigh Club. Its owners are two sisters, Ada and Minna. They say they are from Kentucky; that was \"another story concocted by the sisters\". They were born Simms, in Virginia, in 1864 and 1866. With about $35,000 they ran a house in Omaha, then came to Chicago and bought out a madam's house on Dearborn. They took a new name from their grandmother, who signed her letters \"Everly yours\". The club opened on 1 February 1900, and on the first night they turned many callers away. In this business, the Everleighs understood, saying no is how you make a price.",
       "evidence": [
@@ -129,28 +129,28 @@
             "dress": "glessner_john_j_1904",
             "name": "A gentleman on the corner (unnamed)",
             "at": [
-              1280.2,
-              -3227.41
+              1280.69,
+              -3253.93
             ],
-            "heading": 319.7,
+            "heading": 322.1,
             "beats": [
               {
                 "t": 8,
                 "face": [
-                  1254.1,
-                  -3215.63
+                  1263.51,
+                  -3267.75
                 ]
               },
               {
                 "t": 14,
                 "walk": [
                   [
-                    1277.1,
-                    -3215.44
+                    1277.51,
+                    -3257.27
                   ],
                   [
-                    1239.09,
-                    -3214.75
+                    1262.33,
+                    -3275.91
                   ]
                 ],
                 "pace": "brisk"
@@ -162,10 +162,10 @@
             "dress": "anonymous_working_driver_1904",
             "name": "A cabman waiting for a fare (unnamed)",
             "at": [
-              1274.71,
-              -3216.46
+              1277.39,
+              -3248.24
             ],
-            "heading": 179.5
+            "heading": 174.1
           }
         ]
       }
@@ -174,7 +174,7 @@
       "id": "rooms",
       "destination": {
         "kind": "structure",
-        "id": "house_1913_indiana"
+        "id": "house_1829_indiana_coach_house"
       },
       "text": "Further south along Indiana, with the Levee two blocks west. Inside the Everleigh Club are fifty rooms across two mansions: a Japanese Throne Room, a Mirror Room, a Silver Parlor, \"a $15,000 gold-leafed piano for the Music Room\" and \"$650 gold cuspidors\". A bottle of champagne costs $12, \"in an era when an entire meal could be had for fifty cents\", and the entrance fee alone is $50. Ada keeps the books and hires the women. Minna meets the guests. In March 1902 Prince Henry of Prussia came, and when a slipper flew off during a dance and spilled champagne, one of his party drank from it, and a whole custom began. The club keeps 15 to 25 cooks and maids, and its women are called \"butterflies\".",
       "evidence": [
@@ -194,16 +194,16 @@
             "dress": "reynolds_mary_1904_maid",
             "name": "A maid going home (unnamed)",
             "at": [
-              1282.71,
-              -3416.57
+              1287.13,
+              -3338.05
             ],
             "beats": [
               {
                 "t": 0,
                 "walk": [
                   [
-                    1283.23,
-                    -3362.57
+                    1278.38,
+                    -3284.76
                   ]
                 ],
                 "pace": "brisk"
@@ -223,16 +223,16 @@
             "dress": "ryan_kate_1904_cook",
             "name": "A cook going home (unnamed)",
             "at": [
-              1281.69,
-              -3417.55
+              1286.5,
+              -3339.16
             ],
             "beats": [
               {
                 "t": 0,
                 "walk": [
                   [
-                    1282.22,
-                    -3363.55
+                    1277.75,
+                    -3285.87
                   ]
                 ],
                 "pace": "brisk"

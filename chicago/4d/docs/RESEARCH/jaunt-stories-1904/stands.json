@@ -424,40 +424,6 @@
   ],
   "distance": 12.97
  },
- "house_1801_indiana": {
-  "stand": [
-   1274.41,
-   -3221.46
-  ],
-  "front": [
-   1284.15,
-   -3221.38
-  ],
-  "bearing_deg": 269.32,
-  "width": 5.5,
-  "centre": [
-   1288.65,
-   -3221.32
-  ],
-  "distance": 18.77
- },
- "house_1913_indiana": {
-  "stand": [
-   1276.41,
-   -3392.46
-  ],
-  "front": [
-   1288.12,
-   -3392.66
-  ],
-  "bearing_deg": 269.32,
-  "width": 7.02,
-  "centre": [
-   1294.75,
-   -3392.58
-  ],
-  "distance": 24.2
- },
  "house_1910_calumet_coach_house": {
   "stand": [
    1529.41,
@@ -474,5 +440,39 @@
    -3392.76
   ],
   "distance": 26.22
+ },
+ "house_1809_indiana_coach_house": {
+  "stand": [
+   1275.41,
+   -3252.46
+  ],
+  "front": [
+   1321.77,
+   -3247.72
+  ],
+  "bearing_deg": 269.32,
+  "width": 7.01,
+  "centre": [
+   1325.89,
+   -3247.67
+  ],
+  "distance": 19.09
+ },
+ "house_1829_indiana_coach_house": {
+  "stand": [
+   1276.41,
+   -3315.46
+  ],
+  "front": [
+   1323.42,
+   -3307.92
+  ],
+  "bearing_deg": 269.32,
+  "width": 16.01,
+  "centre": [
+   1327.18,
+   -3307.87
+  ],
+  "distance": 27.67
  }
 }
