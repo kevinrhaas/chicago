@@ -552,7 +552,12 @@
           0.5
          ],
          "capital_m": 0.5,
-         "respond_m": 0.2
+         "respond_m": 0.2,
+         "carved": {
+          "tiers": 2,
+          "abacus_m": 0.12
+         },
+         "flutes": 24
         },
         "railing_fabric": "trim",
         "fabric": "stone"
@@ -572,7 +577,7 @@
       "chicago_tribune_1869_10_30_thompson_residence",
       "chicagology_1936_prairie_exterior_photo"
      ],
-     "note": "The 1869 Tribune: the steps 'covered by a stone porch, with fluted stone Corinthian columns, and from these columns spring stone brackets, which support a Corinthian cornice of stone'; the photograph shows that porch's columns under the tower's north part and its flight running north along the front from it (x 1655-1950, y 700-960 px). K07's door under 1906's columned hood stands for it, on the tower's face (T-3367); its landing runs along the face under the hood (v 7.55-9.75) and the flight leaves its north end parallel to the front (a side stoop, T-2530's), down to the walk. The fluting and capitals are T-1902's. T-3370: the landing moves with the door and the tower, to v 9.55-11.75. T-3370 (thirteenth pass): the porch's balcony as the photograph draws it over the columns (x 1690-1820 px): its cornice's foot at y about 693 px and its railing's top at about 650, level with the foot of the dressing room's pair over it (sill 7.08 m), where the build's hood hung its soffit at 5.2 m (y 730) under a 0.5 m fascia, so the porch stood about 0.85 m lower and squatter than the print's. The soffit rises to 6.0 m over a 0.2 m fascia and a 0.2 m cornice, the deck at 6.4 m, about the chamber floor's (6.33), and the railing 0.65 m high to 7.05 m, just under the pair's sills; its balusters and rail in the front's trim stone, pale as the print's over the porch's stone (reconstructed off the print, liberty L-k01-1936-allerton-1901)."
+     "note": "The 1869 Tribune: the steps 'covered by a stone porch, with fluted stone Corinthian columns, and from these columns spring stone brackets, which support a Corinthian cornice of stone'; the photograph shows that porch's columns under the tower's north part and its flight running north along the front from it (x 1655-1950, y 700-960 px). K07's door under 1906's columned hood stands for it, on the tower's face (T-3367); its landing runs along the face under the hood (v 7.55-9.75) and the flight leaves its north end parallel to the front (a side stoop, T-2530's), down to the walk. The fluting and capitals are T-1902's: built (T-1902) as the Tribune's, each shaft fluted with 24 flutes as the verandah's columns are (T-3356) and each capital carved as two tiers of leaves under a 0.12 m abacus (K01's carved bell, T-3186's), the photograph resolving neither at its few pixels; the count of flutes and the tiers are reconstructed. T-3370: the landing moves with the door and the tower, to v 9.55-11.75. T-3370 (thirteenth pass): the porch's balcony as the photograph draws it over the columns (x 1690-1820 px): its cornice's foot at y about 693 px and its railing's top at about 650, level with the foot of the dressing room's pair over it (sill 7.08 m), where the build's hood hung its soffit at 5.2 m (y 730) under a 0.5 m fascia, so the porch stood about 0.85 m lower and squatter than the print's. The soffit rises to 6.0 m over a 0.2 m fascia and a 0.2 m cornice, the deck at 6.4 m, about the chamber floor's (6.33), and the railing 0.65 m high to 7.05 m, just under the pair's sills; its balusters and rail in the front's trim stone, pale as the print's over the porch's stone (reconstructed off the print, liberty L-k01-1936-allerton-1901)."
     },
     "corner_porch": {
      "value": {
@@ -1146,7 +1151,8 @@
        "floor_m": 1.83,
        "storey_heights_m": [
         3.96,
-        3.66
+        3.66,
+        1.53
        ],
        "sash_by_storey": [
         {
@@ -1158,7 +1164,8 @@
          "sill_above_floor_m": 0.6,
          "width_m": 1.0,
          "height_m": 2.2
-        }
+        },
+        null
        ],
        "windows": {
         "rear": [
@@ -1176,9 +1183,45 @@
        },
        "roof": {
         "kind": "flat",
-        "overhang_m": 0.3,
+        "overhang_m": 0.75,
         "fascia_m": 0.3,
-        "covering": "painted_tin_sheet"
+        "covering": "painted_tin_sheet",
+        "cornice": "k10.cornice.bracketed_timber"
+       },
+       "windows_by_storey": {
+        "rear": [
+         [
+          2.0,
+          5.6
+         ],
+         [
+          2.0,
+          5.6
+         ],
+         []
+        ],
+        "south": [
+         [
+          3.0,
+          7.0
+         ],
+         [
+          3.0,
+          7.0
+         ],
+         []
+        ],
+        "north": [
+         [
+          3.0,
+          7.0
+         ],
+         [
+          3.0,
+          7.0
+         ],
+         []
+        ]
        }
       }
      ],
@@ -1187,7 +1230,7 @@
       "sanborn_1911_chicago_v3_sheet_28",
       "chicago_tribune_1869_10_30_thompson_residence"
      ],
-     "note": "The sheet's two-storey brick range behind the house ('rear2B'; s28fp-1918-b1, u -10.15 to 0, v 2.26 to 9.86). The 1869 Tribune: the kitchen 13 ft and the second story over it 12 ft (3.96, 3.66 m), 'the rear part is thirty-seven feet high from ground line to top of cornice' (11.28 m); built to its second storey's head (9.45 m) under a flat roof, the 1.8 m between them, an attic or a parapet no picture shows, is not built (liberty L-k01-1936-allerton-1901); the kitchen's rear exit is on the west."
+     "note": "The sheet's two-storey brick range behind the house ('rear2B'; s28fp-1918-b1, u -10.15 to 0, v 2.26 to 9.86). The 1869 Tribune: the kitchen 13 ft and the second story over it 12 ft (3.96, 3.66 m), 'the rear part is thirty-seven feet high from ground line to top of cornice' (11.28 m); T-1902 builds it to that height: over the second storey's head (9.45 m) a blind attic storey 1.53 m high under the house's own bracketed timber cornice carried round the range's three walls (K10, as 1701's range carries it, T-3257), its deck's top at 11.28 m, as the main block's frieze-lit attic stands under its cornice at the Tribune's 44 ft; that the 1.53 m is an attic and not a parapet, that it is blind, and the cornice's kit are reconstructed, since no picture shows the range (liberty L-k01-1936-allerton-1901); the kitchen's rear exit is on the west."
     },
     "boundary": {
      "value": {

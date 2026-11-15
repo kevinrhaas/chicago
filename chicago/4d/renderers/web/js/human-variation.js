@@ -103,11 +103,16 @@ export function likenessSkin(kit, variation) {
  * child's is a young woman's, which is smooth. Among those, one whose own measured tone is
  * nearer the person's is likelier, by a bell `nearer_tone_likelier` doublings of light wide; a
  * face more than `never_darker_than` doublings darker than the person is never theirs. The
- * person's tone is the skin most bodies of their sex wear (`person_tone_rgb`) under their
- * recorded complexion, and not the skin of the body they are drawn on: a coachman drawn on the
- * box of a carriage and at his own door is one person, and the body's tone gave one of them a
- * face for each. What a face is multiplied by to meet the skin round it (`gain`) is still the
- * body's own. A freckled face (`light_only`) is only
+ * person's tone is the skin most bodies of their sex wear (`person_tone_rgb`: a man's or a
+ * boy's the men's, everybody else's the women's) under their recorded complexion, and not the
+ * skin of the body they are drawn on: a coachman drawn on the box of a carriage and at his own
+ * door is one person, and the body's tone gave one of them a face for each. What a face is
+ * multiplied by to meet the skin round it (`gain`) is still the body's own. The sex and the
+ * age are the caller's: personVariation gives the record's, and the body's where the record
+ * has none (most of a third of the people drawn have no sex recorded, a tenth no age), so for
+ * them it is the records, which draw a person on bodies of one sex and size, that keep one
+ * face on every body; tools/test_human_variation.mjs holds it over every row there is.
+ * A freckled face (`light_only`) is only
  * for a person whose recorded complexion is one of `light_only_for` (fair, light, ruddy):
  * nobody of another complexion, or with none recorded, takes one, however near in tone (a
  * bar by tone alone let one onto a woman of the 1812 gathering recorded light brown). The
@@ -261,7 +266,8 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     collar: record?.dress?.collar ?? null,
     // T-3553: their own skin sheet, baked on this fitted face (likenessSkin).
     skin: face?.values && record?.skin ? record.skin : null,
-    // ...or, with no fitted face, a face from the library (libraryFace).
+    // ...or, with no fitted face, a face from the library (libraryFace): by the record's sex
+    // and age, and the body's where the record has none; nothing of the body's skin.
     lib: libraryFace(kit, { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, complexion: record?.looks?.complexion?.drawn ?? null, own: !!face?.values }) };
 }
 

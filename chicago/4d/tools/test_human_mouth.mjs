@@ -300,26 +300,40 @@ const run = (m, seconds, state, each) => { for (let t = 0; t < seconds; t += 1 /
     again = 0; run(m, 6, { talk: 1 }, () => { again = Math.max(again, f.deg()); });
     assert.equal(m.snapshot().hushed, false, 'a talk that is on, its level not falling, ends the hush');
     assert(again > MOUTH.jaw_deg * .5, `and is not left mute (${again})`);
-    // The same on a display of 240 frames a second, where a frame is four thousandths of a
-    // second: the hush ends there too. A frame with next to no time in it (half a thousandth:
-    // two calls in one frame of the page) is not taken for a talk that is on.
-    m.say(.6); run(m, 4, { talk: 1 }); m.hush();
-    m.apply(.0005, { talk: 1 }); m.apply(.0005, { talk: 1 });
-    assert.equal(m.snapshot().hushed, true, 'a frame with next to no time in it is not a new talk');
-    m.apply(1 / 240, { talk: 1 });
-    assert.equal(m.snapshot().hushed, false, 'a talk that is on ends the hush at 240 frames a second');
-    again = 0;
-    for (let i = 0; i < 240 * 6; i++) { m.apply(1 / 240, { talk: 1 }); again = Math.max(again, f.deg()); }
-    assert(again > MOUTH.jaw_deg * .5, `and runs in its own syllables there (${again})`);
-    // And a hand coming down at 240 frames a second keeps the hush to the end of it.
+    // The same on a fast display. At 240 frames a second a frame is four thousandths of a
+    // second, at 540 under two, at 900 a little over one: the hush ends there too. A frame with
+    // next to no time in it (half a thousandth, or nine tenths of one: two calls in one frame
+    // of the page) is not taken for a talk that is on. The rates hold the guard on time between
+    // nine tenths and eleven tenths of a thousandth of a second, and "not falling" to the
+    // hand's fall of three and a half parts in a thousand a frame at 900, the least fall there
+    // is in a frame the guard lets through.
+    for (const fps of [240, 540, 900]) {
+      m.say(.6); run(m, 4, { talk: 1 }); m.hush();
+      m.apply(.0005, { talk: 1 }); m.apply(.0009, { talk: 1 }); m.apply(.0005, { talk: 1 });
+      assert.equal(m.snapshot().hushed, true, 'a frame with next to no time in it is not a new talk');
+      m.apply(1 / fps, { talk: 1 });
+      assert.equal(m.snapshot().hushed, false, `a talk that is on ends the hush at ${fps} frames a second`);
+      again = 0;
+      for (let i = 0; i < fps * 6; i++) { m.apply(1 / fps, { talk: 1 }); again = Math.max(again, f.deg()); }
+      assert(again > MOUTH.jaw_deg * .5, `and runs in its own syllables there (${again})`);
+      // And a hand coming down at that rate keeps the hush to the end of it.
+      m.say(.6); run(m, 2, { talk: 1 }); m.hush();
+      { let w = 1, worst = 0;
+        for (let i = 0; i < fps * 3; i++) {
+          w *= Math.exp(-3.2 / fps); m.apply(1 / fps, { talk: w });
+          if (i >= fps / 4) worst = Math.max(worst, f.deg()); // a quarter of a second for the jaw to shut
+          if (w > 2e-3) assert.equal(m.snapshot().hushed, true, `hushed while the hand comes down at ${fps} frames a second (${w})`);
+        }
+        assert(worst < MOUTH.teeth_deg, `the mouth stays shut through it at ${fps} frames a second (${worst})`); }
+      run(m, 3, {});
+    }
+    // A voice, or the jaw given back by name, ends a hush at once, whatever the hand is doing.
     m.say(.6); run(m, 2, { talk: 1 }); m.hush();
-    { let w = 1, worst = 0;
-      for (let i = 0; i < 240 * 3; i++) {
-        w *= Math.exp(-3.2 / 240); m.apply(1 / 240, { talk: w });
-        if (i >= 60) worst = Math.max(worst, f.deg()); // a quarter of a second for the jaw to shut
-        if (w > 2e-3) assert.equal(m.snapshot().hushed, true, `hushed while the hand comes down (${w})`);
-      }
-      assert(worst < MOUTH.teeth_deg, `the mouth stays shut through it (${worst})`); }
+    assert.equal(m.snapshot().hushed, true);
+    assert.equal(m.say(null).snapshot().hushed, false, 'the jaw given back ends the hush');
+    m.hush();
+    assert.equal(m.say(.4).snapshot().hushed, false, 'a voice ends the hush');
+    m.say(null);
     run(m, 3, {}); }
   m.say(null); run(m, 6, {});
   assert.deepEqual(m.snapshot(), { smile: 0, jaw_deg: 0, faces: 1, said: null, hushed: false });

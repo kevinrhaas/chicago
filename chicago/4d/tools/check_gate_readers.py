@@ -54,6 +54,8 @@ READERS = {
         "the 1835 library's normal maps are handed as named, OpenGL and DirectX (T-2299)",
         # T-3553: measures each cut's tone and gain again and compares the sheet tile by tile.
         "The face library's cuts are the bytes its source record pins, each under CC0 evidence and in the licence register; its sheet, tones and gains rebuild as the record and the kit hold them, under the mask the app draws (T-3553)",
+        # ...and its self-test, which without Pillow skips every case that reads the sheet.
+        "…and the face library's check refuses a broken copy: one painting kept twice, a face repainted in part, the sheet's colour halved, a count or a licence note with nothing behind it (T-3553)",
     ]),
     "numpy": ("numpy", [
         "…every step PIL names above — each needs both",
@@ -62,6 +64,7 @@ READERS = {
         "the 1904 street normals are OpenGL-handed, as the renderer binds them (T-2296)",
         "the 1835 library's normal maps are handed as named, OpenGL and DirectX (T-2299)",
         "The face library's cuts are the bytes its source record pins, each under CC0 evidence and in the licence register; its sheet, tones and gains rebuild as the record and the kit hold them, under the mask the app draws (T-3553)",
+        "…and the face library's check refuses a broken copy: one painting kept twice, a face repainted in part, the sheet's colour halved, a count or a licence note with nothing behind it (T-3553)",
         "the traced forks still carry what their generator writes",
         "the traced North Branch still carries what its generator writes",
         "the traced South Branch still carries what its generator writes",
