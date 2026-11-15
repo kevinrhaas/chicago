@@ -300,6 +300,26 @@ const run = (m, seconds, state, each) => { for (let t = 0; t < seconds; t += 1 /
     again = 0; run(m, 6, { talk: 1 }, () => { again = Math.max(again, f.deg()); });
     assert.equal(m.snapshot().hushed, false, 'a talk that is on, its level not falling, ends the hush');
     assert(again > MOUTH.jaw_deg * .5, `and is not left mute (${again})`);
+    // The same on a display of 240 frames a second, where a frame is four thousandths of a
+    // second: the hush ends there too. A frame with next to no time in it (half a thousandth:
+    // two calls in one frame of the page) is not taken for a talk that is on.
+    m.say(.6); run(m, 4, { talk: 1 }); m.hush();
+    m.apply(.0005, { talk: 1 }); m.apply(.0005, { talk: 1 });
+    assert.equal(m.snapshot().hushed, true, 'a frame with next to no time in it is not a new talk');
+    m.apply(1 / 240, { talk: 1 });
+    assert.equal(m.snapshot().hushed, false, 'a talk that is on ends the hush at 240 frames a second');
+    again = 0;
+    for (let i = 0; i < 240 * 6; i++) { m.apply(1 / 240, { talk: 1 }); again = Math.max(again, f.deg()); }
+    assert(again > MOUTH.jaw_deg * .5, `and runs in its own syllables there (${again})`);
+    // And a hand coming down at 240 frames a second keeps the hush to the end of it.
+    m.say(.6); run(m, 2, { talk: 1 }); m.hush();
+    { let w = 1, worst = 0;
+      for (let i = 0; i < 240 * 3; i++) {
+        w *= Math.exp(-3.2 / 240); m.apply(1 / 240, { talk: w });
+        if (i >= 60) worst = Math.max(worst, f.deg()); // a quarter of a second for the jaw to shut
+        if (w > 2e-3) assert.equal(m.snapshot().hushed, true, `hushed while the hand comes down (${w})`);
+      }
+      assert(worst < MOUTH.teeth_deg, `the mouth stays shut through it (${worst})`); }
     run(m, 3, {}); }
   m.say(null); run(m, 6, {});
   assert.deepEqual(m.snapshot(), { smile: 0, jaw_deg: 0, faces: 1, said: null, hushed: false });

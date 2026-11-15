@@ -5782,7 +5782,9 @@ async function boot() {
             if (!api.humans) return;
             api.jauntStage ??= createJauntStage({ humans: api.humans, parent: api.humans.group,
               resolve: (id) => api.stagePerson?.(id) ?? null, tier: () => api.humans?.tier ?? 'full',
-              eye: () => camera.getWorldPosition(new THREE.Vector3()) });
+              eye: () => camera.getWorldPosition(new THREE.Vector3()),
+              // The town's own horse teams, taken for a scene (the 1812 column's wagons).
+              teams: { get: (id) => api.townTransport?.actorById?.(id) ?? null, load: () => { void api.townTransport?.ready?.()?.catch?.(() => {}); } } });
             api.jauntStage.sync(stop, { arrived });
             gateFrame.invalidate();
           },
