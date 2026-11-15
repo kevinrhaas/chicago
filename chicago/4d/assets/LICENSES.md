@@ -1492,6 +1492,85 @@ authored/humans/skin_mh_old_lightskinned_male/old_lightskinned_male_bald_crown.p
 ```
 
 
+### Face library — `authored/humans/face_library/` and `humans/web/faces/hm08_faces.jpg` (T-3553)
+
+The face of each of 22 skin atlases MakeHuman and its community publish as **CC0-1.0**, for
+the people who have no pictures of their own (owner, 2026-11-14: "MakeHuman skins only for
+now"; liberty `L-face-library-3553`). Three packs, each fetched on 2026-11-14 from the
+MakeHuman community's own server:
+<https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip>
+(MakeHuman's own system skins; CC0 by the statement in each skin's material file,
+"explicitly released as CC0 in september 2020", Data Collection AB, Joel Palmius, Jonas
+Hauquier; the files kept unchanged in `materials/`),
+<https://files2.makehumancommunity.org/asset_packs/skins01/skins01_cc0.zip> and
+<https://files2.makehumancommunity.org/asset_packs/skins02/skins02_cc0.zip> (community
+skins; CC0 in each pack's own record of the asset, kept unchanged as
+`skins01.original.json` and `skins02.original.json`; the community material files are not
+kept and not used, but each is read once for a licence line of its own, and `SOURCE.json`
+keeps its hash and any line found). The system pack's own record is kept unchanged too, as
+`makehuman_system_assets.original.json`, so the three packs' 59 skins can be counted against
+the 22 kept and the 37 left out. `SOURCE.json` pins all three records by SHA-256. Each `faces/<id>.png` is the unchanged 512 by 512 pixel box
+`[1504, 800, 2016, 1312]` of its 2048 by 2048 atlas; the atlases are not kept, and
+`SOURCE.json` pins each by size, CRC-32 and SHA-256. No photograph of any person is among
+them. These components convey no historical likeness, and a pack's own name for a skin is
+not a fact about anyone who wears its face.
+
+| File | Creator and source | Rights |
+|---|---|---|
+| `authored/humans/face_library/faces/young_lightskinned_female.png` | MakeHuman system skin `young_caucasian_female` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `b2a6ac8cd4f9febdb447368e29c76cd68410bb66e46d9dcfa2d5f75126eea8fc` |
+| `authored/humans/face_library/faces/young_lightskinned_female_2.png` | MakeHuman system skin `young_caucasian_female2` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `8d1fb3ceedf142fad32a3504eca1feb4539aecca6de66acde1514b9a61fc7ba0` |
+| `authored/humans/face_library/faces/middleage_lightskinned_female.png` | MakeHuman system skin `middleage_caucasian_female` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `bcb9c2c8ace23880bc4407602a249abbcf4608b6ba0894e423b031913012a363` |
+| `authored/humans/face_library/faces/middleage_lightskinned_female_2.png` | MakeHuman system skin `middleage_asian_female` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `39c505ca224387bef0b20cd2bf513c3997c27c7e7434447228c9991b87cb8d01` |
+| `authored/humans/face_library/faces/old_lightskinned_female.png` | MakeHuman system skin `old_caucasian_female` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `00c45246c145562b917371e92de44a1fe394bc5f4bd91418addf24b6adff5e9d` |
+| `authored/humans/face_library/faces/old_lightskinned_female_2.png` | MakeHuman system skin `old_asian_female` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `e0c6317c2354ee54c16ad5f871293121e4eee697d16423536bb1db3641d56bc9` |
+| `authored/humans/face_library/faces/young_lightskinned_male.png` | MakeHuman system skin `young_caucasian_male` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `862a26e335e958b70534cb5f0d7c47ef30ab148a56c42b3e9da969cf76f12963` |
+| `authored/humans/face_library/faces/young_lightskinned_male_2.png` | MakeHuman system skin `young_caucasian_male2` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `03efe1f6b0ae52429649dcefc9dcaef6058032f874a251169cc3e2ed473c3874` |
+| `authored/humans/face_library/faces/middleage_lightskinned_male.png` | MakeHuman system skin `middleage_caucasian_male` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `3f94f3f6a5cab92dedf5cce392a87332312fc435f1cb44c6e7b897daef9a5fbb` |
+| `authored/humans/face_library/faces/old_lightskinned_male.png` | MakeHuman system skin `old_caucasian_male` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `dfb2310ed3e0ad024ea7a3ad321215e2e9e2994cca64043d9f3d07c6543ec847` |
+| `authored/humans/face_library/faces/old_lightskinned_male_2.png` | MakeHuman system skin `old_asian_male` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `8b3232676c5b271b4f44ead68845155d93f15de641b6819561781e16701a6c59` |
+| `authored/humans/face_library/faces/callharvey3d_midtoned_female.png` | callharvey3d, `callharvey3d_midtoned_female` (skins01), http://www.makehumancommunity.org/node/802 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `dd0e953bb1ec3eee3d4956853599372c8faf5ba69982f0b4c3cc220b70cb0be0`. The pack's material file for this skin (not kept, not used) is MakeHuman's 2016 material for its `young_african_female` skin reused with its header ("This file is licensed AGPLv3"); the atlas is read as CC0 on the pack's record and on MakeHuman's September 2020 CC0 release of the skin it was made from (`licence_note` in `data/humans/variation/face_library.json`) |
+| `authored/humans/face_library/faces/cutoff3d_female.png` | CutOff3D, `cutoff3d_indian_female_skin` (skins01), http://www.makehumancommunity.org/node/3013 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `09ec5071c5be9c3e1d36b52675eb053152796b3f75abc2e96853a277174856a8` |
+| `authored/humans/face_library/faces/onlytheghosts_young_female.png` | OnlyTheGhosts, `onlytheghosts_young_eurasian_female` (skins01), http://www.makehumancommunity.org/node/1578 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `e4547a04bab2244d8ec6bcb1d239f4cddb83f145d4ce2a5c7734ec514c8bebcf` |
+| `authored/humans/face_library/faces/onlytheghosts_middleage_female.png` | OnlyTheGhosts, `onlytheghosts_middle_aged_eurasian_female` (skins01), http://www.makehumancommunity.org/node/1579 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `621d572153231348c5ff1248a72721109f5b4855215c895cb15d2991a22fff84` |
+| `authored/humans/face_library/faces/onlytheghosts_old_female.png` | OnlyTheGhosts, `onlytheghosts_old_eurasian_female` (skins01), http://www.makehumancommunity.org/node/1580 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `ff3e6ceba012b6be73f168b01145aeb4925f7db45b4790ab71b33a28e7ce644b` |
+| `authored/humans/face_library/faces/toigo_freckles_female.png` | MargaretToigo, `toigo_light_skin_female_freckles` (skins01), http://www.makehumancommunity.org/node/1134 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `8d8b7dac34f97ebdd8605b51d527ac6863685054b33e1004b3e309599542beaf` |
+| `authored/humans/face_library/faces/toigo_ginger_female.png` | MargaretToigo, `toigo_light_skin_female_ginger` (skins01), http://www.makehumancommunity.org/node/1130 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `8b547a325983272838738b58a5992f032f3cb065ce137699f94211e96ead13b1` |
+| `authored/humans/face_library/faces/toigo_ginger_female_2.png` | MargaretToigo, `toigo_light_skin_female_ginger_2` (skins01), http://www.makehumancommunity.org/node/1132 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `6a644aa688dfe2451579533a578b63ee1d0785ab900b43d172d0f005f21d8a55` |
+| `authored/humans/face_library/faces/onlytheghosts_old_male.png` | OnlyTheGhosts, `onlytheghosts_old_eurasian_male` (skins02), http://www.makehumancommunity.org/node/1581 | CC0-1.0 in the pack's own record, kept as `skins02.original.json`; atlas SHA-256 `923dee56ac9527886ab8b0498566bea15442a37ea4b4adaf88e40138ab38a0d4` |
+| `authored/humans/face_library/faces/toigo_freckles_male.png` | MargaretToigo, `toigo_light_skin_male_freckles` (skins02), http://www.makehumancommunity.org/node/1137 | CC0-1.0 in the pack's own record, kept as `skins02.original.json`; atlas SHA-256 `32d33fab52bda1b6bc8cd134bb34f2980a77d2b51c9f048e8ea00c861b4da604` |
+| `authored/humans/face_library/faces/toigo_ginger_male.png` | MargaretToigo, `toigo_light_skin_male_ginger` (skins02), http://www.makehumancommunity.org/node/1135 | CC0-1.0 in the pack's own record, kept as `skins02.original.json`; atlas SHA-256 `795eec22b27ba5a2527d99e60a31be61e06a45a39250c39b24b36438e963c4aa` |
+
+`humans/web/faces/hm08_faces.jpg` is the sheet the app reads: those 22 cuts, each scaled to
+256 pixels and multiplied to one tone where it meets the skin round it, laid side by side by
+`tools/face_library.py` (a CC0-1.0 derivative of the CC0 cuts above; its SHA-256 is in
+`data/humans/variation/face_library.json`). SOURCE and README are project-authored CC0.
+`evidence/young_african_female.mhmat` is MakeHuman's own material file for a skin that is not
+used here, kept unchanged (CC0 by its own header) because the licence note for
+`callharvey3d_midtoned_female` cites it: that face's atlas was made from that skin.
+
+Additional exact covered CC0 source-metadata and documentary paths:
+
+```text
+authored/humans/face_library/README.md
+authored/humans/face_library/SOURCE.json
+authored/humans/face_library/evidence/young_african_female.mhmat
+authored/humans/face_library/makehuman_system_assets.original.json
+authored/humans/face_library/materials/middleage_asian_female.mhmat
+authored/humans/face_library/materials/middleage_caucasian_female.mhmat
+authored/humans/face_library/materials/middleage_caucasian_male.mhmat
+authored/humans/face_library/materials/old_asian_female.mhmat
+authored/humans/face_library/materials/old_asian_male.mhmat
+authored/humans/face_library/materials/old_caucasian_female.mhmat
+authored/humans/face_library/materials/old_caucasian_male.mhmat
+authored/humans/face_library/materials/young_caucasian_female.mhmat
+authored/humans/face_library/materials/young_caucasian_female2.mhmat
+authored/humans/face_library/materials/young_caucasian_male.mhmat
+authored/humans/face_library/materials/young_caucasian_male2.mhmat
+authored/humans/face_library/skins01.original.json
+authored/humans/face_library/skins02.original.json
+```
+
+
 ### Skin material component — `authored/humans/skin_toigo_bronze_female/`
 
 MargaretToigo, *young light-skinned female, bronze variation* (2017, changed 2019),

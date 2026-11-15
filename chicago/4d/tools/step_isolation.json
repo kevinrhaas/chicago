@@ -4051,6 +4051,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/face_library.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/fergus_1839_street_faces.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6298,11 +6302,11 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_jaunt_stage.mjs": {
+    "tools/test_jaunt_mechanics.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_jaunt_mechanics.mjs": {
+    "tools/test_jaunt_stage.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

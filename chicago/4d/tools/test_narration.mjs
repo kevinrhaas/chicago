@@ -8,7 +8,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
-import { narrationScripts, openingScript, textKey, clipFor, clipKey, silentWav, createNarration, NARRATOR, NARRATORS, DEFAULT_NARRATOR } from '../renderers/web/js/narration.js';
+import { narrationScripts, openingScript, textKey, clipFor, clipKey, silentWav, createNarration, NARRATOR, NARRATORS, DEFAULT_NARRATOR, VOICE, voiceLevel } from '../renderers/web/js/narration.js';
 import { loadConfig, scriptsFor, voiceFor, plan, voice, synthesize, verify, ROOT } from './narrate_jaunts.mjs';
 
 const sha = s => createHash('sha256').update(s).digest('hex');
@@ -196,9 +196,114 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
     assert.equal(h.state.playing, `${jaunt.id}:stop:john`, 'after Next the stop speaks, the opening does not come back');
     h.stop(); assert.equal(h.state.playing, null, 'Next Stop cuts the voice off'); assert.equal(h.state.queued, null);
   }
+  // T-3553: who is speaking now and how loud, for their mouth (jaunt-hosts.js `speak`). The
+  // level is listened for on the voice itself, before the bus's volume; a stop's voice is its
+  // first host's, the opening's the narrator's.
+  {
+    // The figures the liberty states (L-host-speaks-3553: "0.012 and under is shut, 0.3 is the
+    // widest", "about a fiftieth of a second"): a change here is a change to say there.
+    assert.deepEqual({ ...VOICE }, { window: 1024, floor: 0.012, full: 0.3, deaf_s: 2 });
+    const wave = amp => Uint8Array.from({ length: VOICE.window }, (_, i) => 128 + Math.round(127 * amp * Math.sin(i / 3)));
+    const still = new Uint8Array(VOICE.window).fill(128), loud = wave(0.6);
+    assert.equal(voiceLevel(still), 0, 'silence is a shut mouth');
+    assert.equal(voiceLevel(loud), 1, 'a full voice is a full level');
+    const soft = voiceLevel(wave(0.19));   // a root mean square of 0.13: the middle of the recorded voices
+    assert(soft > 0.3 && soft < 0.5, `a voice at its middle opens the jaw part of the way (${soft})`);
+    assert(voiceLevel(wave(0.1)) < soft && voiceLevel(wave(0.3)) > soft, 'louder is wider');
+    assert.equal(voiceLevel(new Uint8Array(0)), 0);
+    // "0.012 and under is shut": a hiss at the floor moves nothing, and the level is counted from there.
+    const rms = amp => Math.sqrt(wave(amp).reduce((a, x) => a + ((x - 128) / 128) ** 2, 0) / VOICE.window);
+    assert(rms(0.016) > 0.008 && rms(0.016) <= VOICE.floor && voiceLevel(wave(0.016)) === 0, `a sound at the floor is a shut mouth (${rms(0.016)})`);
+    assert(Math.abs(voiceLevel(wave(0.19)) - (rms(0.19) - VOICE.floor) / (VOICE.full - VOICE.floor)) < 1e-9, 'and a level is what the sound is over the floor');
+    const k0 = await textKey(narrationScripts(jaunt)[0].text);
+    const withOpening = { version: 1, clips: { ...index.clips, [`${k0}~${DEFAULT_NARRATOR}`]: { text_sha256: k0, file: 'narration/o.mp3' } } };
+    const media = () => { el = new FakeAudio(); el.currentTime = 0; return el; };
+    const where = Promise.resolve(new URL('https://media.test/narration/index.json'));
+    let heard = still, ears = 0, fed = [], cut = 0;
+    const hearing = () => ({ createMediaElementSource: () => ({ connect: to => fed.push(to), disconnect() { cut++; } }),
+      createAnalyser: () => { ears++; return { fftSize: 0, getByteTimeDomainData: out => out.set(heard) }; } });
+    let context = hearing();
+    audible = true;
+    const v = createNarration({ fetcher: async () => new Response(JSON.stringify(withOpening)), location: where, media, speech: () => ({ ctx: context, bus: 'bus', audible }) });
+    await v.prepare(jaunt);
+    assert.equal(v.voice(), null, 'nobody speaks before a clip plays');
+    // The usual first minute: the narrator's opening plays, John's stop is shown and queued behind it.
+    v.at(jaunt, 'opening', 'opening');
+    v.at(jaunt, 'stop', 'john');
+    assert.deepEqual([v.state.playing, v.state.queued, v.state.at], ['glessner-household-tour:opening:opening', 'glessner-household-tour:stop:john', 'glessner-household-tour:stop:john']);
+    heard = loud;
+    assert.deepEqual(v.voice(), { speaker: NARRATOR, level: 1 }, 'the voice is the clip that sounds, not the part shown or the one queued: the opening is the narrator\'s');
+    assert.equal(ears, 1, 'one ear on the voice');
+    assert.deepEqual([fed[0], fed[1].fftSize], ['bus', VOICE.window], 'the voice goes to the bus as before, and to the ear beside it');
+    heard = still;
+    el.dispatchEvent(new Event('ended'));
+    assert.equal(v.state.playing, 'glessner-household-tour:stop:john');
+    assert.deepEqual(v.voice(), { speaker: 'glessner_john_j', level: 0 }, 'then the stop\'s voice is its first host\'s; nothing heard of it yet, the level is none');
+    assert.deepEqual([ears, fed.length, cut], [1, 2, 0], 'the next clip is heard by the same ear: none is added, nothing re-wired');
+    heard = loud;
+    assert.deepEqual(v.voice(), { speaker: 'glessner_john_j', level: 1 });
+    // Held paused from outside (a media key, a call): nobody's voice, and theirs again when it sounds.
+    el.paused = true;
+    assert.equal(v.voice(), null, 'a clip that is not sounding is nobody\'s voice');
+    assert.equal(v.state.playing, 'glessner-household-tour:stop:john', 'the player still has it');
+    el.paused = false;
+    assert.equal(v.voice()?.speaker, 'glessner_john_j');
+    // A clip whose data stops arriving waits, unpaused and silent: nobody's voice until it plays
+    // again (by the element's word, or by its time moving with data in hand).
+    el.dispatchEvent(new Event('waiting'));
+    assert.deepEqual([v.voice(), el.paused, v.state.playing], [null, false, 'glessner-household-tour:stop:john'], 'a clip waiting for data is nobody\'s voice, and the player still has it');
+    el.dispatchEvent(new Event('playing'));
+    assert.deepEqual(v.voice(), { speaker: 'glessner_john_j', level: 1 }, 'and theirs again when it plays');
+    el.dispatchEvent(new Event('waiting'));
+    el.readyState = 2; el.dispatchEvent(new Event('timeupdate'));
+    assert.equal(v.voice(), null, 'time told with no data in hand is still waiting');
+    el.readyState = 4; el.dispatchEvent(new Event('timeupdate'));
+    assert.equal(v.voice()?.speaker, 'glessner_john_j', 'time moving with data in hand is playing');
+    el.dispatchEvent(new Event('waiting'));
+    v.stop(); v.at(jaunt, 'stop', 'frances'); v.toggle(jaunt, 'stop', 'john'); await Promise.resolve(); await Promise.resolve();
+    assert.equal(v.voice()?.speaker, 'glessner_john_j', 'a clip begun afresh is not held to the last one\'s wait');
+    v.stop();
+    assert.equal(v.voice(), null, 'a stopped voice is nobody\'s');
+    // The page's sound made anew (another context): the old wiring is cut and a new ear listens.
+    context = hearing();
+    v.toggle(jaunt, 'stop', 'john'); await new Promise(r => setTimeout(r));
+    assert.deepEqual([ears, cut, v.voice()?.speaker], [2, 1, 'glessner_john_j']);
+    v.end();
+    // An ear that hears nothing at all (every sample at rest) while the clip plays cannot listen:
+    // the mouth is shut for the clip's first moments, then the level is not known. What it hears
+    // later counts, and each clip is judged afresh.
+    heard = still;
+    v.toggle(jaunt, 'stop', 'john'); await new Promise(r => setTimeout(r));
+    el.currentTime = VOICE.deaf_s - 0.5;
+    assert.deepEqual(v.voice(), { speaker: 'glessner_john_j', level: 0 });
+    el.currentTime = VOICE.deaf_s + 0.5;
+    assert.deepEqual(v.voice(), { speaker: 'glessner_john_j', level: null }, 'an ear that has heard nothing this far in is deaf: the mouth keeps its own run of syllables');
+    heard = wave(0.19);
+    assert(v.voice().level > 0.3, 'what it hears after all is the level');
+    heard = still;
+    assert.deepEqual(v.voice(), { speaker: 'glessner_john_j', level: 0 }, 'and a pause in a voice it has heard is a shut mouth, however late');
+    v.stop();
+    v.toggle(jaunt, 'stop', 'john'); await new Promise(r => setTimeout(r));
+    el.currentTime = VOICE.deaf_s + 0.5;
+    assert.equal(v.voice().level, null, 'the next clip is judged afresh');
+    v.end();
+    // A page whose audio has no analyser: the speaker is known, the level is not.
+    const deaf = createNarration({ fetcher, location: where, media, speech: () => ({ ctx, bus: 'bus', audible }) });
+    await deaf.prepare(jaunt);
+    deaf.at(jaunt, 'stop', 'john');
+    assert.deepEqual(deaf.voice(), { speaker: 'glessner_john_j', level: null }, 'with no ear the mouth keeps its own run of syllables');
+    // ...one whose analyser cannot be made is the same, and so is one whose read throws: the
+    // frame that asks is never thrown out of.
+    for (const ear of [() => { throw Error('no'); }, () => ({ fftSize: 0, getByteTimeDomainData() { throw Error('no'); } })]) {
+      const b = createNarration({ fetcher, location: where, media, speech: () => ({ ctx: { createMediaElementSource: () => ({ connect() {}, disconnect() {} }), createAnalyser: ear }, bus: 'bus', audible }) });
+      await b.prepare(jaunt);
+      b.at(jaunt, 'stop', 'john');
+      assert.deepEqual(b.voice(), { speaker: 'glessner_john_j', level: null });
+    }
+  }
   const none = createNarration({ fetcher: async () => new Response('', { status: 404 }), location: Promise.resolve(new URL('https://media.test/narration/index.json')) });
   await none.prepare(jaunt);
   assert.equal(none.clip(jaunt, 'stop', 'john'), null); assert.equal(none.state.index, 'unavailable', 'no index: nothing offered, nothing thrown');
 }
 
-console.log('NARRATION PASS — one script for app and voicer, keyed by its words; only changed words or voices are voiced; the index only grows; the player follows, queues, ducks and stops on mute');
+console.log('NARRATION PASS — one script for app and voicer, keyed by its words; only changed words or voices are voiced; the index only grows; the player follows, queues, ducks and stops on mute, and says who is speaking and how loud');

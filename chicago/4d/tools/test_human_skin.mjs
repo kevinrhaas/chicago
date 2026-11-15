@@ -6,7 +6,8 @@
 // key that names the chain; share one skin and one hair program across bodies; read each
 // body's bind pose in metres however it was quantised; and be wired into humans.js's build.
 // T-3553: the one texture it reads is a person's own skin sheet, as uniforms of that same
-// program, on that person's material alone.
+// program, on that person's material alone; or, for a person with none, the library's sheet
+// of faces (FACE_LIBRARY), one face of it inside the face's part of the body's map.
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { registerHooks } from 'node:module';
@@ -16,7 +17,7 @@ const threeURL = new URL('renderers/web/vendor/three-0.185.1/three.module.js', h
 // file with 'three' resolved to the vendored copy, not from a data: URL.
 registerHooks({ resolve: (specifier, context, next) => (specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context)) });
 const THREE = await import(threeURL);
-const { surfaceFor, dressSkin, restMatrix, SKIN, EYES, AGE, restingLid, likenessLayout, likenessSheetsReady, LIKENESS, MOUTH_SHADE, DRAWN_TEETH, FRONT_VIEW, HAIR_UNDER, frontPicture } = await import(new URL('renderers/web/js/human-skin.js', here));
+const { surfaceFor, dressSkin, restMatrix, SKIN, EYES, AGE, restingLid, likenessLayout, likenessSheetsReady, LIKENESS, MOUTH_SHADE, DRAWN_TEETH, FRONT_VIEW, HAIR_UNDER, frontPicture, FACE_LIBRARY, libraryFaceLayout, SHEET_FETCH } = await import(new URL('renderers/web/js/human-skin.js', here));
 
 const materialNames = async asset => {
   const bytes = await fs.readFile(new URL(`assets/humans/web/${asset}.glb`, here));
@@ -96,7 +97,7 @@ for (const marker of ['chiSkinH = ( - chiSkin.x * pore', 'roughnessFactor = clam
 // The wrapper must follow three's own definition, and the normal step the begin step.
 assert(s.fragmentShader.indexOf('#include <lights_physical_pars_fragment>') < s.fragmentShader.indexOf('void chiSkinDirect('));
 assert(s.vertexShader.includes('vChiSkinP = ( chiSkinRest * vec4( position, 1.0 ) ).xyz;'));
-assert.deepEqual(Object.keys(s.uniforms).sort(), ['chiBrowTint', 'chiFace', 'chiFaceLook', 'chiFaceMarks', 'chiLike', 'chiLikeAxis', 'chiLikeBack', 'chiLikeFront', 'chiLikeFrontAt', 'chiLikeFrontTo', 'chiLikeFrontU', 'chiLikeFrontV',
+assert.deepEqual(Object.keys(s.uniforms).sort(), ['chiBrowTint', 'chiFace', 'chiFaceLib', 'chiFaceLibAt', 'chiFaceLibGain', 'chiFaceLook', 'chiFaceMarks', 'chiLike', 'chiLikeAxis', 'chiLikeBack', 'chiLikeFront', 'chiLikeFrontAt', 'chiLikeFrontTo', 'chiLikeFrontU', 'chiLikeFrontV',
   'chiLikeGrow', 'chiLikeHat', 'chiLikeMap', 'chiLikeMask', 'chiLikeTeeth', 'chiLikeTint', 'chiLikeUv', 'chiSkin', 'chiSkinLipTone', 'chiSkinRest', 'chiSkinSheen']);
 // T-3553 (Kevin, 2026-11-12: "when the sun is behind people their lips have a pink line too much"):
 // lips found in the map's own colour (the complexion divided out) and turned partway to the skin's
@@ -131,6 +132,62 @@ assert.equal(hair.customProgramCacheKey(), '|chicago-hair-v1');
 // Bodies differ by uniforms, never code: one skin program for two bodies.
 const a = compile(dressOne('skin')), b = compile(dressOne('skin__other'));
 assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShader, 'one skin program text');
+
+// T-3553: a face from the library (FACE_LIBRARY; tools/face_library.py builds the sheet). One
+// face of the sheet is laid inside a rounded rectangle of the body's map, in the body's skin
+// tone and under the person's complexion, before the lips, the age and the brows are worked.
+// The same in the shader's text and here.
+const faceMask = (u, v) => {
+  const L = FACE_LIBRARY, qx = Math.abs(u - L.centre[0]) - (L.half[0] - L.round), qy = Math.abs(v - L.centre[1]) - (L.half[1] - L.round);
+  const d = Math.hypot(Math.max(qx, 0), Math.max(qy, 0)) + Math.min(Math.max(qx, qy), 0) - L.round, t = Math.min(1, Math.max(0, (d + L.feather) / L.feather));
+  return 1 - t * t * (3 - 2 * t);
+};
+{
+  const L = FACE_LIBRARY, fl = x => (Number.isInteger(x) ? x.toFixed(1) : String(x));
+  assert.equal(s.uniforms.chiFaceLib.value, null, 'a plain skin reads no sheet of faces');
+  assert.deepEqual(s.uniforms.chiFaceLibGain.value.toArray(), [1, 1, 1, 0], 'and wears none');
+  assert.deepEqual(s.uniforms.chiFaceLibAt.value.toArray(), [0, 0, 0, 0]);
+  for (const marker of ['if ( chiFaceLibGain.w > 0.5 ) {',
+    `vec2 fq = abs( vMapUv - vec2( ${fl(L.centre[0])}, ${fl(L.centre[1])} ) ) - vec2( ${fl(L.half[0] - L.round)}, ${fl(L.half[1] - L.round)} );`,
+    `float fd = length( max( fq, 0.0 ) ) + min( max( fq.x, fq.y ), 0.0 ) - ${fl(L.round)};`,
+    `float fa = 1.0 - smoothstep( ${fl(-L.feather)}, 0.0, fd );`,
+    `vec3 fc = texture2D( chiFaceLib, chiFaceLibAt.xy + ( vMapUv - vec2( ${fl(L.box[0])}, ${fl(L.box[1])} ) ) * chiFaceLibAt.zw ).rgb;`,
+    'c = mix( c, fc * chiFaceLibGain.rgb * diffuse, fa );'])
+    assert.equal(s.fragmentShader.split(marker).length, 2, `the library's face, once: ${marker}`);
+  const at = marker => s.fragmentShader.indexOf(marker);
+  assert(at('vec3 c = diffuseColor.rgb;') < at('c = mix( c, fc * chiFaceLibGain.rgb * diffuse, fa );') && at('c = mix( c, fc * chiFaceLibGain.rgb * diffuse, fa );') < at('vec3 tex = c / max( diffuse, vec3( 1e-3 ) );'),
+    'laid on the body\'s colour first, so the lips, the age and the brows work on the face it gave');
+  // The mask: whole over the face, nothing at the ears or past the box a face of the sheet covers.
+  const [u0, v0, u1, v1] = L.box;
+  assert(Math.abs((u1 - u0) - (v1 - v0)) < 1e-12 && u0 >= 0 && v0 >= 0 && u1 <= 1 && v1 <= 1, 'a face of the sheet is a square of the map');
+  assert(L.centre[0] - L.half[0] >= u0 && L.centre[0] + L.half[0] <= u1 && L.centre[1] - L.half[1] >= v0 && L.centre[1] + L.half[1] <= v1, 'the mask lies within the square the sheet holds');
+  assert(L.round > L.feather && L.feather > 0 && L.round <= Math.min(...L.half), 'a rounded rectangle with a soft rim inside it');
+  // Measured on the bodies' map (T-3553): the midline, the eyes, the brow's top, the chin's point, the temples.
+  for (const [what, u, v] of [['between the eyes', 0.838, 0.5167], ['an eye', 0.838, 0.47], ['the other eye', 0.838, 0.565], ['the mouth', 0.92, 0.5167], ['the chin', 0.9595, 0.5167], ['a temple', 0.838, 0.442], ['the other temple', 0.838, 0.591]])
+    assert(faceMask(u, v) > 0.999, `${what} wears the library's face whole (${faceMask(u, v)})`);
+  for (const [what, u, v] of [['an ear', 0.86, 0.36], ['the other ear', 0.86, 0.67], ['the crown', 0.7526, 0.5167], ['under the jaw', 0.99, 0.5167], ['a hand', 0.3, 0.3]])
+    assert.equal(faceMask(u, v), 0, `${what} keeps the body's own skin`);
+  assert(faceMask(L.centre[0] - L.half[0] + L.feather / 2, L.centre[1]) > 0.4 && faceMask(L.centre[0] - L.half[0] + L.feather / 2, L.centre[1]) < 0.6, 'and gives way across its rim');
+  // What human-variation.js leaves on a figure, as the shader's uniforms.
+  const face = { url: 'http://example.invalid/faces.jpg', index: 7, cols: 5, size_px: [1280, 1280], tile_px: 256, gain: [1.25, 1.3, 1.4], lines: 0.6 };
+  const lay = libraryFaceLayout(face);
+  assert.deepEqual(lay.at.map(x => +x.toFixed(9)), [2 * 256 / 1280, 1 * 256 / 1280, +(256 / 1280 / (u1 - u0)).toFixed(9), +(256 / 1280 / (v1 - v0)).toFixed(9)], 'the eighth face is the third of the second row');
+  // The box's corner reads the tile's corner, the box's far corner the tile's far corner.
+  assert(Math.abs(lay.at[0] + (u1 - u0) * lay.at[2] - 3 * 256 / 1280) < 1e-12 && Math.abs(lay.at[1] + (v1 - v0) * lay.at[3] - 2 * 256 / 1280) < 1e-12);
+  assert.deepEqual([lay.url, lay.gain, lay.lines], [face.url, face.gain, 0.6]);
+  assert.notEqual(lay.gain, face.gain, 'its own copy of the gain');
+  assert.notEqual(libraryFaceLayout({ ...face, index: 8 }).key, lay.key, 'another face is another look');
+  assert.notEqual(libraryFaceLayout({ ...face, url: `${face.url}?2` }).key, lay.key, 'and so is the same place on another sheet');
+  assert.notEqual(libraryFaceLayout({ ...face, gain: [1.25, 1.3, 1.5] }).key, lay.key, 'and so is another body\'s gain');
+  assert.notEqual(libraryFaceLayout({ ...face, lines: 0.3 }).key, lay.key);
+  assert.equal(libraryFaceLayout({ ...face, lines: undefined }).lines, 1, 'a face that says nothing of its lines keeps the drawn ones');
+  assert.equal(libraryFaceLayout({ ...face, lines: 7 }).lines, 1);
+  for (const [why, bad] of [['none', null], ['none', undefined], ['no sheet', { ...face, url: '' }], ['the body\'s own (-1)', { ...face, index: -1 }], ['a face past the sheet', { ...face, index: 25 }],
+    ['half a face', { ...face, index: 1.5 }], ['no columns', { ...face, cols: 0 }], ['no size', { ...face, size_px: null }], ['no tile', { ...face, tile_px: 0 }], ['a gain of two', { ...face, gain: [1, 1] }],
+    ['a gain of nothing', { ...face, gain: [1, 0, 1] }], ['a gain that is no number', { ...face, gain: [1, NaN, 1] }]])
+    assert.equal(libraryFaceLayout(bad), null, `${why}: no face is laid`);
+  assert.notEqual(libraryFaceLayout({ ...face, index: 24 }), null, 'the last face of a five by five sheet is on it');
+}
 
 // T-3553: a person's own skin sheet (tools/bake_likeness_skin.py). Its layout is uniforms of
 // the one skin program; a body with none reads no sheet; and a person who wears one never
@@ -522,12 +579,17 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
   const herRect = likenessLayout({ ...persons.pa1904_grey_mrs_w_l.skin, url: 'http://example.invalid/s_skin.jpg' })?.teeth?.rect;
   assert(herRect && herRect[2] > herRect[0] && herRect[3] > herRect[1], 'Sarah Grey\'s record has teeth, and their part of the map');
   assert.equal(likenessLayout({ ...persons.pa1904_grey_mrs_w_l.skin, teeth: undefined, url: 'http://example.invalid/s_bare.jpg' }).teeth, null, 'a record with no teeth has none');
+  // T-3553: and the library's face (FACE_LIBRARY) lies over the head and nothing else: every
+  // triangle that reaches into its rectangle of the map is carried by the head or the jaw, and
+  // the face fills that rectangle but for its rounded corners.
+  const faceRect = [FACE_LIBRARY.centre[0] - FACE_LIBRARY.half[0], FACE_LIBRARY.centre[1] - FACE_LIBRARY.half[1], FACE_LIBRARY.centre[0] + FACE_LIBRARY.half[0], FACE_LIBRARY.centre[1] + FACE_LIBRARY.half[1]];
+  const faceArea = (faceRect[2] - faceRect[0]) * (faceRect[3] - faceRect[1]);
   let cornered = 0;
   const bodies = (await fs.readdir(new URL('assets/humans/web/', here))).filter(f => /\.lod0\.glb$/.test(f) && !/^c4d_fixture\./.test(f)).map(f => f.replace(/\.lod0\.glb$/, '')).sort();
   assert(bodies.length >= 35 && bodies.includes('glessner_john_j_1904') && bodies.includes('glessner_frances_m_1904'), `${bodies.length} bodies`);
   for (const asset of bodies) for (const lod of [0, 1, 2, 3]) {
     const gltf = await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(bare(await fs.readFile(new URL(`assets/humans/web/${asset}.lod${lod}.glb`, here))), '');
-    let skins = 0, inMouth = 0, lined = 0;
+    let skins = 0, inMouth = 0, lined = 0, faced = 0;
     gltf.scene.traverse((o) => {
       if (!o.isSkinnedMesh || surfaceFor(o.material) !== 'skin') return;
       skins++;
@@ -543,10 +605,13 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
           lined++;
         }
         if (!head && within(tri, corner) > 0) cornered++;
+        const onFace = within(tri, faceRect);
+        if (onFace > 0) { assert(head, `${asset} lod${lod}: a triangle of ${names.join(', ')} lies under the library's face`); faced += onFace; }
         for (const rect of [toothRect, herRect]) assert.equal(within(tri, rect), 0, `${asset} lod${lod}: a triangle of ${names.join(', ')} lies in the teeth's part of the map`);
       }
     });
     assert(skins > 0 && inMouth > 0.01 && lined >= 8, `${asset} lod${lod}: the inside of the mouth is in its shade (${inMouth.toFixed(4)} of the map, ${lined} triangles)`);
+    assert(faced > 0.9 * faceArea && faced <= faceArea + 1e-9, `${asset} lod${lod}: the face fills the library's rectangle (${(faced / faceArea * 100).toFixed(1)} percent of it)`);
   }
   assert(cornered > 0, 'the corner left out is the one the hand reaches into');
 
@@ -612,12 +677,158 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
     { root.userData.chiMouth = JSON.parse(JSON.stringify(root.userData.chiMouth));
       dressSkin(root, { age: 40, person: 'someone' });
       assert(typeof root.userData.chiMouth?.bind === 'function' && root.userData.chiMouth.bound && all().filter(o => o.userData.chiTeeth === true).length === 1, `${what}: a copied figure is given a mouth of its own`); }
+    // T-3553: a face from the library on a real body is a look of its own: its material's
+    // uniforms carry the face and the body's gain, and the age's drawn lines are scaled by
+    // what the face keeps of them (an older atlas has painted its own).
+    const face = { url: 'http://example.invalid/faces.jpg', index: 12, cols: 5, size_px: [1280, 1280], tile_px: 256, gain: [1.39, 1.86, 2.43], lines: 0.3 };
+    {
+      dressSkin(root, { age: 70, person: 'someone' });
+      const plainSkin = skin.material, drawn = compile(plainSkin).uniforms.chiFaceLook.value.x;
+      const a0 = Math.min(1, Math.max(0, (70 - AGE.from) / (AGE.full - AGE.from)));
+      assert(drawn > 0 && drawn === Math.round(a0 * 20) / 20, `${what}: a face of seventy has drawn lines`);
+      assert.equal(compile(plainSkin).uniforms.chiFaceLibGain.value.w, 0, `${what}: with no face from the library it wears none`);
+      root.userData.chiFaceSkin = face;
+      dressSkin(root, { age: 70, person: 'someone' });
+      const u = compile(skin.material).uniforms;
+      assert.notEqual(skin.material, plainSkin, `${what}: a face from the library is a look of its own`);
+      assert.deepEqual(u.chiFaceLibGain.value.toArray(), [1.39, 1.86, 2.43, 1], `${what}: the body's gain, and the face is worn`);
+      assert.deepEqual(u.chiFaceLibAt.value.toArray().map(x => +x.toFixed(9)), [0.4, 0.4, 0.8, 0.8], `${what}: the thirteenth face's place on the sheet`);
+      assert.equal(u.chiFaceLib.value, null, 'with no page there is no image to fetch');
+      assert(u.chiFaceLook.value.x === Math.round(a0 * face.lines * 20) / 20 && u.chiFaceLook.value.x < drawn, `${what}: an old face from the library keeps a part of the drawn lines (${u.chiFaceLook.value.x} of ${drawn})`);
+      assert.equal(all().find(o => o.userData.chiTeeth === true)?.material, skin.material, `${what}: its teeth are in its skin's material still`);
+      const worn = skin.material;
+      root.userData.chiFaceSkin = { ...face, index: 13 };
+      dressSkin(root, { age: 70, person: 'someone' });
+      assert.notEqual(skin.material, worn, `${what}: another face, another material`);
+      root.userData.chiFaceSkin = { ...face, index: 99 };
+      dressSkin(root, { age: 70, person: 'someone' });
+      assert.equal(compile(skin.material).uniforms.chiFaceLibGain.value.w, 0, `${what}: a face the sheet has not is not worn`);
+      assert.equal(compile(skin.material).uniforms.chiFaceLook.value.x, drawn, `${what}: and the drawn lines are whole again`);
+      root.userData.chiFaceSkin = face;
+    }
     // A sheet with its own teeth takes the drawn ones away.
     if (lod === 0) {
       root.userData.chiLikenessSkin = { ...persons.pa1904_grey_w_l.skin, url: 'http://example.invalid/w_skin.jpg' };
       dressSkin(root, { age: 61, person: 'pictured' });
+      assert.equal(compile(skin.material).uniforms.chiFaceLibGain.value.w, 0, `${what}: a person's own sheet is worn, not a face from the library`);
       assert.equal(all().filter(o => o.userData.chiTeeth === true).length, 0, `${what}: a face with pictured teeth has no drawn ones`);
       assert(skin.geometry.userData.chiTeeth?.added > 0, 'its strip is in the skin itself');
+    }
+  }
+
+  // T-3553: on a page the sheet is fetched, and a fetch that fails is tried again
+  // (SHEET_FETCH). A stand-in page, image loader and timer: every request and every wait is
+  // held here, to answer as a network might. One texture for an address, for good; one run of
+  // tries at a time; everybody waiting wears their face the moment the sheet is here.
+  {
+    const SK = await import(new URL('addons/utils/SkeletonUtils.js', vendor));
+    const gltf = await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(bare(await fs.readFile(new URL('assets/humans/web/bardwell_otis_1835.lod2.glb', here))), '');
+    const calls = [], timers = [], real = { load: THREE.ImageLoader.prototype.load, setTimeout: globalThis.setTimeout };
+    const settle = () => new Promise(r => setImmediate(r));
+    assert.equal(typeof document, 'undefined');
+    globalThis.document = { createElement: () => { throw new Error('no canvas here'); } };
+    THREE.ImageLoader.prototype.load = function (url, onLoad, onProgress, onError) { calls.push({ url, ok: () => onLoad({ width: 1280, height: 1280 }), fail: () => onError(new Error('dropped')) }); return {}; };
+    globalThis.setTimeout = (fn, ms) => { timers.push({ fn, ms }); return timers.length; };
+    try {
+      const person = (url, i, gain = [1.25, 1.25, 1.26]) => {
+        const root = SK.clone(gltf.scene);
+        root.userData.chiFaceSkin = { url, index: i, cols: 5, size_px: [1280, 1280], tile_px: 256, gain, lines: 1 };
+        root.updateMatrixWorld(true);
+        dressSkin(root, { age: 30, person: `sheet ${url} ${i}` });
+        let skin; root.traverse(o => { if (o.isSkinnedMesh && surfaceFor(o.material) === 'skin' && !o.userData.chiTeeth) skin ??= o; });
+        return compile(skin.material).uniforms;
+      };
+      const worn = us => us.map(u => u.chiFaceLibGain.value.w), sheetOf = u => u.chiFaceLib.value;
+      const of = url => calls.filter(c => c.url === url);
+      assert.deepEqual([SHEET_FETCH.wait_s, SHEET_FETCH.ready_tries], [[2, 8, 30, 60, 60, 60, 60, 60], 3]);
+
+      // The sheet arrives late: asked for once, worn by all once it is here, and by those built after.
+      const late = 'http://example.invalid/faces/late.jpg', a = [person(late, 7), person(late, 8), person(late, 9)];
+      assert.deepEqual([of(late).length, worn(a)], [1, [0, 0, 0]], 'three people built before the sheet is here: one request, the body\'s own face showing');
+      assert(sheetOf(a[0]).isTexture && !sheetOf(a[0]).image && a.every(u => sheetOf(u) === sheetOf(a[0])), 'one texture for the three');
+      of(late)[0].ok(); await settle();
+      assert.deepEqual(worn(a), [1, 1, 1], 'the sheet arrives: all three wear their faces');
+      assert(sheetOf(a[0]).image?.width === 1280 && sheetOf(a[0]).version > 0);
+      const after = person(late, 10);
+      assert.deepEqual([of(late).length, worn([after]), sheetOf(after) === sheetOf(a[0]), timers.length], [1, [1], true, 0], 'one built afterwards wears it at once, with no other request');
+
+      // The first try is dropped, the second brings it: those built before the failure, during
+      // the wait and after it all wear their faces, on the one texture they were given.
+      const drop = 'http://example.invalid/faces/dropped.jpg', b = [person(drop, 11), person(drop, 12)];
+      of(drop)[0].fail(); await settle();
+      assert.deepEqual([of(drop).length, timers.map(x => x.ms), worn(b)], [1, [2000], [0, 0]], 'a dropped request is asked again in two seconds, not at once');
+      b.push(person(drop, 13));
+      assert.deepEqual([of(drop).length, timers.length], [1, 1], 'a person built during the wait starts no request of their own');
+      timers.shift().fn();
+      assert.equal(of(drop).length, 2, 'the second try');
+      of(drop)[1].ok(); await settle();
+      assert.deepEqual(worn(b), [1, 1, 1], 'it arrives: everyone who was waiting wears their face');
+      assert(b.every(u => sheetOf(u) === sheetOf(b[0]) && sheetOf(u).image), 'on the texture they were given before it failed');
+      assert.deepEqual([worn([person(drop, 11)]), of(drop).length, timers.length], [[1], 2, 0], 'the same person built again wears it, and nothing more is asked');
+
+      // An address that never answers: nine tries, each after its wait; a still waits for the
+      // first three only; then nothing, until a body asks again, which begins a new run.
+      const gone = 'http://example.invalid/faces/gone.jpg', c = [person(gone, 1)];
+      let ready = false;
+      likenessSheetsReady().then(() => { ready = true; });
+      const waits = [];
+      for (let k = 0; k < SHEET_FETCH.wait_s.length + 1; k++) {
+        assert.equal(of(gone).length, k + 1, `try ${k + 1}`);
+        await settle();
+        assert.equal(ready, k >= SHEET_FETCH.ready_tries, `after ${k} failures a still ${k >= SHEET_FETCH.ready_tries ? 'goes on' : 'still waits'}`);
+        of(gone)[k].fail(); await settle();
+        if (timers.length) { const w = timers.shift(); waits.push(w.ms / 1000); c.push(person(gone, 2 + k)); assert.equal(of(gone).length, k + 1, 'nobody built meanwhile asks'); w.fn(); }
+      }
+      assert.deepEqual([waits, of(gone).length, timers.length, ready], [[...SHEET_FETCH.wait_s], 9, 0, true], 'nine tries, at the waits named, then no more');
+      assert(worn(c).every(w => w === 0), 'nobody wears a face that never came');
+      await likenessSheetsReady();   // nothing is under way: it resolves
+      c.push(person(gone, 20));
+      assert.equal(of(gone).length, 10, 'the next body to ask begins again');
+      of(gone)[9].ok(); await settle();
+      assert(worn(c).every(w => w === 1) && c.every(u => sheetOf(u) === sheetOf(c[0])), 'and when it comes at last, everyone built since the first wears their face');
+
+      // A crowd built before the sheet is here (some six hundred people wear a library face
+      // in 1812): past the 256 at which the waiting list is swept of materials since let go,
+      // everyone still wears their face when it comes, here after a dropped try.
+      const many = 'http://example.invalid/faces/crowd.jpg';
+      const crowd = Array.from({ length: 300 }, (_, k) => person(many, k % 22, [1.2 + k * 0.001, 1.25, 1.26]));
+      const sum = us => worn(us).reduce((a, b) => a + b, 0);
+      assert.deepEqual([new Set(crowd.map(u => u.chiFaceLibGain.value)).size, of(many).length, sum(crowd)], [300, 1, 0], 'three hundred people, each their own material, one request, nobody wearing a face yet');
+      of(many)[0].fail(); await settle(); timers.shift().fn(); of(many)[1].ok(); await settle();
+      assert.deepEqual([sum(crowd), new Set(crowd.map(sheetOf)).size, of(many).length, timers.length], [300, 1, 2, 0], 'the sheet comes on the second try: all three hundred wear their faces');
+
+      // A person's own sheet (the Greys') goes through the same loader: the skin sheet, the
+      // front picture, and the eyes' part of the sheet. Each dropped once; a second body of
+      // the same person built meanwhile asks nothing; then both arrive.
+      { const grey = await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(bare(await fs.readFile(new URL('assets/humans/web/glessner_john_j_1904.lod0.glb', here))), '');
+        const skinUrl = 'http://example.invalid/likeness/w_skin.jpg', frontUrl = 'http://example.invalid/likeness/w_front.jpg', s = persons.pa1904_grey_w_l.skin;
+        assert(s?.front && s?.eyes, 'the Greys\' sheet has a front picture and eyes');
+        const dressed = () => {
+          const root = SK.clone(grey.scene);
+          root.userData.chiLikenessSkin = { ...s, url: skinUrl, front: { ...s.front, url: frontUrl } };
+          root.updateMatrixWorld(true);
+          dressSkin(root, { age: 61, person: 'pa1904_grey_w_l' });
+          let skin; const eyes = [];
+          root.traverse(o => { if (o.isSkinnedMesh && surfaceFor(o.material) === 'skin' && !o.userData.chiTeeth) skin ??= o; if (o.isMesh && /__(iris|pupil)$/.test(o.material?.name ?? '') && o.material.map) eyes.push(o.material.map); });
+          return { u: compile(skin.material).uniforms, part: eyes[0] };
+        };
+        const { u, part } = dressed();
+        assert(u.chiLike.value?.isTexture && !u.chiLike.value.image && u.chiLikeFront.value?.isTexture && !u.chiLikeFront.value.image && u.chiLike.value !== u.chiLikeFront.value, 'the skin sheet and the front picture are each asked for');
+        assert(part?.isTexture && part !== u.chiLike.value && u.chiFaceLibGain.value.w === 0, 'the eyes read a part of the sheet; no face of the library is worn');
+        assert.deepEqual([of(skinUrl).length, of(frontUrl).length], [1, 1]);
+        const before = [u.chiLike.value.version, u.chiLikeFront.value.version, part.version];
+        of(skinUrl)[0].fail(); of(frontUrl)[0].fail(); await settle();
+        const second = dressed();
+        assert(second.u.chiLike.value === u.chiLike.value && second.u.chiLikeFront.value === u.chiLikeFront.value, 'another body of the same person holds the same two textures');
+        assert.deepEqual([of(skinUrl).length, of(frontUrl).length, timers.length], [1, 1, 2], 'and asks for nothing while the first run waits');
+        while (timers.length) timers.shift().fn();
+        assert.deepEqual([of(skinUrl).length, of(frontUrl).length], [2, 2]);
+        of(skinUrl)[1].ok(); of(frontUrl)[1].ok(); await settle();
+        assert(u.chiLike.value.image && u.chiLikeFront.value.image, 'both arrive on the second try, on the textures the materials already hold');
+        assert(u.chiLike.value.version > before[0] && u.chiLikeFront.value.version > before[1] && part.version > before[2] && part.image === u.chiLike.value.image, 'each is flagged to be sent to the card, and the eyes\' part with its sheet');
+        await likenessSheetsReady(); }
+    } finally {
+      THREE.ImageLoader.prototype.load = real.load; globalThis.setTimeout = real.setTimeout; delete globalThis.document;
     }
   }
 }
@@ -630,4 +841,4 @@ assert(/const scene = cloneSkinned\(gltf\.scene\);[\s\S]{0,1700}dressSkin\(scene
 // T-3493: the person's age reaches the skin, and the face's cards join the face's morphs.
 assert(/dressSkin\(scene, \{ age: this\.variation\?\.age/.test(humans), 'build() passes the person\'s age');
 assert(/faces\.push\(hair\.face\)/.test(humans), 'brows and lashes move with the face');
-console.log('human-skin: skin, hair and eyes only, no texture but a person\'s own sheet, spliced at every anchor, chained key, rest pose in metres, every body: PASS');
+console.log('human-skin: skin, hair and eyes only, no texture but a person\'s own sheet or a face of the library\'s, spliced at every anchor, chained key, rest pose in metres, every body: PASS');
