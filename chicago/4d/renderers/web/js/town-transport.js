@@ -332,9 +332,13 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       }
       if (!teamsClear(row, self, from, to)) { word = 'another team'; heldByTeam.add(row.id); return false; }
       heldByTeam.delete(row.id);
-      // An admitted pose's hooves are the admitting way's to read (on its drive and floor).
+      // An admitted pose's hooves are the admitting way's to read (on its drive and floor). The
+      // way admits a pose where no wall refuses it too: on the drive the horses are over the walk
+      // and its ramp before the coach reaches the doorway, off the road's support domain.
       if (!admitted && self && self.mode !== 'route' && routeSupport && row.horse_offset_m) {
-        try { routeSupport(row, to); } catch { word = 'rough ground'; return false; }
+        let onWay = false;
+        try { onWay = admit?.(row, from, to) === true; } catch { onWay = false; }
+        if (!onWay) { try { routeSupport(row, to); } catch { word = 'rough ground'; return false; } }
       }
       return true;
     };

@@ -40,7 +40,13 @@ export function wayOf(points) {
       // Past either end, straight on.
       const over = s - x, e = points[i].e + (points[j].e - points[i].e) * f + Math.sin(yaw) * over;
       const n = points[i].n + (points[j].n - points[i].n) * f - Math.cos(yaw) * over;
-      return { e, n, yaw, forwardE: Math.sin(yaw), forwardN: -Math.cos(yaw), curvature: over ? 0 : ks[i] + (ks[j] - ks[i]) * f };
+      // A way that carries its own curvature (coach-house.js drivePath, exitWay) gives each point
+      // the curvature of the step that ends there: within a step it is that step's, not a blend,
+      // else the last turn's lock was held on into the straight after it and the team, swung,
+      // was refused its drive (the leaders' hooves off it) at the Glessner coach house's kerb.
+      const own = Number.isFinite(points[j].k);
+      return { e, n, yaw, forwardE: Math.sin(yaw), forwardN: -Math.cos(yaw),
+        curvature: over ? 0 : own ? (f > 0 ? ks[j] : ks[i]) : ks[i] + (ks[j] - ks[i]) * f };
     },
   };
 }

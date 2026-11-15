@@ -531,6 +531,10 @@ export function createCoachHouse({ registry, buildings, footprints = [], decks =
   // ---- where things stand
   const rectDS = (d0, d1, s0, s1) => [[d0, s0], [d1, s0], [d1, s1], [d0, s1]].map(([d, s]) => fromDS(d, s));
   const sweepLeaves = rectDS(dims.leavesBack - VISITOR_RADIUS_M, -0.1 + VISITOR_RADIUS_M, dims.ls0 - VISITOR_RADIUS_M, dims.ls1 + VISITOR_RADIUS_M);
+  // What the leaves themselves sweep (no visitor's radius round it): a carriage stood at
+  // drivePath's stand clears it by STAND_MARGIN_M less the 0.05 m past the free edges, where the
+  // visitor-sized sweep took its back and the leaves never shut on it (the setBlocker reader).
+  const sweepTeam = rectDS(dims.leavesBack, 0, dims.ls0, dims.ls1);
   const sweepMan = plan.man ? rectDS(dims.back - dims.manWidth - 0.05 - VISITOR_RADIUS_M, -0.1 + VISITOR_RADIUS_M,
     plan.man.s[0] - VISITOR_RADIUS_M, plan.man.s[1] + VISITOR_RADIUS_M) : null;
   const inRoom = (e, n) => { const [d, s] = toDS(e, n); return d < dims.back && d >= dims.roomBack - 0.5 && s >= dims.r0 - 0.5 && s <= dims.r1 + 0.5; };
@@ -543,7 +547,7 @@ export function createCoachHouse({ registry, buildings, footprints = [], decks =
     }
     if (which === 'leaves' && blocker) {
       let why = null;
-      try { why = blocker(sweepLeaves.map((p) => [...p])); } catch { why = null; }
+      try { why = blocker(sweepTeam.map((p) => [...p])); } catch { why = null; }
       if (why) return typeof why === 'string' ? why : 'Something stands in the doorway';
     }
     return null;
@@ -574,7 +578,10 @@ export function createCoachHouse({ registry, buildings, footprints = [], decks =
   const atDS = (d, s) => fromDS(d, s);
   const leavesThing = {
     id: plan.id, kind: 'door', structureId: record.id, name: plan.name, states: ['closed', 'open'], state: 'closed',
-    at: atDS(0.6, dims.mid), spots: [atDS(dims.leavesBack - 0.6, dims.mid)], reach: COACH_REACH_M, plan,
+    // 0.8 m out, a hand's breadth beyond the household's own knock at this doorway (human-days.js
+    // `glessner_house:stable`, its step 0.7 m out): Interact from the street opens these doors,
+    // where the knock, nearer, took every press (the north door is the house's knock).
+    at: atDS(0.8, dims.mid), spots: [atDS(dims.leavesBack - 0.6, dims.mid)], reach: COACH_REACH_M, plan,
     actions: {
       closed: [{ id: 'open', label: 'Open the coach-house doors', to: 'open',
         refuse: () => (man.swing > 0 ? refusal('man') : null),

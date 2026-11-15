@@ -406,6 +406,11 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
       const a = town.actorById(row.id);
       if (a && !parked.isStoodIn?.(row.stand_in_for)) parked.setStandIn(row.stand_in_for, false);
       if (!a) { if (parked.isStoodIn?.(row.stand_in_for)) parked.setStandIn(row.stand_in_for, true); idle.delete(row.id); continue; }
+      // Got out of mid-round: the visitor lands by the cab's door, inside the team's clearance, so
+      // the Down step's resume is refused; the coachman drives on round once they are clear of it
+      // (else it stood in the street for good, never back at its stand to be put away).
+      if (a.mode === 'route' && a.state === 'stopped' && a.reason === 'alighting' && ride.actor !== a
+        && !interactions?.get?.(`driver:${row.id}`)?.running && !ride.reducedMotion() && a.canResume()) a.resume();
       // At its stand, nobody aboard, nothing running: after a while (or out of sight), put away.
       const resting = a.mode === 'route' && a.state === 'stopped' && a.reason === 'stand' && !tripOf(row)
         && ride.actor !== a && !interactions?.get?.(`driver:${row.id}`)?.running;
@@ -509,14 +514,12 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
   });
   const dispose = town.dispose, update = town.update;
   registerCalls();
-  return Object.assign(town, { group, ride,
+  Object.assign(town, { group, ride,
     refreshInteractions() { registration?.refresh(); },
     update(dt, cameraPosition, options) {
       update(dt, cameraPosition, options);
       try { afterUpdate(Number.isFinite(dt) ? dt : 0, cameraPosition); } catch (error) { problems.push(`town transport on call: ${error.message}`); }
     },
-    /** T-3557: the coachman's trip home or out (the smoke and the console). */
-    get trips() { return Object.fromEntries([...trips].map(([id, trip]) => [id, trip.phase])); },
     dispose() {
       ride.release('gone'); registration?.dispose(); registration = null;
       for (const thing of callThings.splice(0)) interactions.remove?.(thing.id);
@@ -525,4 +528,9 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
       dispose(); group.removeFromParent();
     },
   });
+  // T-3557: the coachman's trip home or out (the ride bar, the smoke and the console). Defined,
+  // not assigned: Object.assign copies a getter's value once ({}), never the getter.
+  Object.defineProperty(town, 'trips', { configurable: true, enumerable: true,
+    get: () => Object.fromEntries([...trips].map(([id, trip]) => [id, trip.phase])) });
+  return town;
 }
