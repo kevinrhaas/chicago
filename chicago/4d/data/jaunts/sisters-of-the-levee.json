@@ -121,32 +121,32 @@
       "next": "rooms",
       "read_s": 32,
       "stage": {
-        "caption": "A cab horse clops past on Indiana Avenue, and a gentleman on the corner checks his watch and turns west.",
+        "caption": "A gentleman comes down the steps of an Indiana Avenue house, checks his watch and turns west toward the Levee, and the maid at the door watches him go.",
         "liberty": "L-1904-story-jaunts",
         "cast": [
           {
             "extra": "gent_c",
             "dress": "glessner_john_j_1904",
-            "name": "A gentleman on the corner (unnamed)",
+            "name": "A gentleman going out for the evening (unnamed)",
             "at": [
               1280.69,
               -3253.93
             ],
-            "heading": 322.1,
+            "heading": 264.1,
             "beats": [
               {
-                "t": 8,
+                "t": 4,
                 "face": [
-                  1263.51,
-                  -3267.75
+                  1276.82,
+                  -3260.36
                 ]
               },
               {
-                "t": 14,
+                "t": 9,
                 "walk": [
                   [
-                    1277.51,
-                    -3257.27
+                    1278.01,
+                    -3257.22
                   ],
                   [
                     1262.33,
@@ -158,14 +158,23 @@
             ]
           },
           {
-            "extra": "cabman",
-            "dress": "anonymous_working_driver_1904",
-            "name": "A cabman waiting for a fare (unnamed)",
+            "extra": "maid_d",
+            "dress": "reynolds_mary_1904_maid",
+            "name": "A maid at the door (unnamed)",
             "at": [
-              1277.39,
-              -3248.24
+              1283.74,
+              -3255.23
             ],
-            "heading": 174.1
+            "heading": 276.4,
+            "beats": [
+              {
+                "t": 12,
+                "face": [
+                  1273.05,
+                  -3262.75
+                ]
+              }
+            ]
           }
         ]
       }
@@ -186,7 +195,7 @@
       "next": "church",
       "read_s": 33,
       "stage": {
-        "caption": "Two maids hurry home along Indiana Avenue at dusk, keeping close to the houses.",
+        "caption": "Two maids, done for the day, come up the side passage to Indiana Avenue and hurry north, talking.",
         "liberty": "L-1904-story-jaunts",
         "cast": [
           {
@@ -194,26 +203,30 @@
             "dress": "reynolds_mary_1904_maid",
             "name": "A maid going home (unnamed)",
             "at": [
-              1287.13,
-              -3338.05
+              1303.7,
+              -3311.28
             ],
             "beats": [
               {
                 "t": 0,
                 "walk": [
                   [
-                    1278.38,
-                    -3284.76
+                    1283.96,
+                    -3314.45
+                  ],
+                  [
+                    1280.23,
+                    -3300.67
                   ]
                 ],
-                "pace": "brisk"
+                "pace": "walk"
               },
               {
                 "t": 1,
                 "talk": true
               },
               {
-                "t": 15,
+                "t": 16,
                 "talk": false
               }
             ]
@@ -223,19 +236,23 @@
             "dress": "ryan_kate_1904_cook",
             "name": "A cook going home (unnamed)",
             "at": [
-              1286.5,
-              -3339.16
+              1305.35,
+              -3311.43
             ],
             "beats": [
               {
-                "t": 0,
+                "t": 0.4,
                 "walk": [
                   [
-                    1277.75,
-                    -3285.87
+                    1284.45,
+                    -3314.98
+                  ],
+                  [
+                    1280.82,
+                    -3301.18
                   ]
                 ],
-                "pace": "brisk"
+                "pace": "walk"
               }
             ]
           }
