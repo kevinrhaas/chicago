@@ -796,7 +796,13 @@ class Entrance(Opening):
         F = t1 + (n - 1) * g
         yF = -(n - 1) * r + hc
         # the landing faced to grade along its street edge and across its far end
-        self.quad("stair_end", [(S(t0), -R, D), (S(t1), -R, D), (S(t1), 0, D), (S(t0), 0, D)], OUT)
+        A = sd.get("arch")
+        if A:   # T-1894: with a grilled round-arched basement doorway in that face (1823's)
+            self._arch_face(A, S, t0, t1, A["s_m"], R, D, role="stair_end")
+            if A.get("grille"):
+                self._arch_grille(A, S, A["s_m"], R, D)
+        else:
+            self.quad("stair_end", [(S(t0), -R, D), (S(t1), -R, D), (S(t1), 0, D), (S(t0), 0, D)], OUT)
         self.quad("stair_end", [(S(t0), -R, 0), (S(t0), -R, D), (S(t0), 0, D), (S(t0), 0, 0)], X(-1.0))
         self.probe(S((t0 + t1) / 2), -R / 2, D, ("stair_end",), "the landing's street face")
         self.probe(S(t0), -R / 2, D / 2, ("stair_end",), "the landing's far end")
@@ -889,20 +895,21 @@ class Entrance(Opening):
             self.meta["loggia"] = self._loggia(lg, m, side, s_deck, S, L)
 
     # T-2500: the loggia on a terrace, and the basement arch under it ---------------------
-    def _arch_face(self, A, m, s0, s1, ca, R, L):
+    def _arch_face(self, A, m, s0, s1, ca, R, L, role="terrace_face"):
         """The terrace's front from s0 to s1, faced to grade, with a round-headed arch in it
         centred on ca, under the loggia's middle: the jambs `spring_m` over grade, the head a
-        half round, its void `depth_m` deep and closed by the backing."""
+        half round, its void `depth_m` deep and closed by the backing. T-1894: a side stoop's
+        landing faces its own arch in its `role` (1823's)."""
         hw = A["span_m"] / 2
         ys = -R + A["spring_m"]
         if not (s0 + 0.2 <= ca - hw and ca + hw <= s1 - 0.2 and ys + hw <= -0.15):
             raise ValueError("the basement arch does not stand inside the terrace's face")
         k = A.get("segments", 12)
         arc = [(ca - hw * math.cos(math.pi * i / k), ys + hw * math.sin(math.pi * i / k)) for i in range(k + 1)]
-        self.quad("terrace_face", [(m(s0), -R, L), (m(arc[0][0]), -R, L), (m(arc[0][0]), 0, L), (m(s0), 0, L)], OUT)
-        self.quad("terrace_face", [(m(arc[-1][0]), -R, L), (m(s1), -R, L), (m(s1), 0, L), (m(arc[-1][0]), 0, L)], OUT)
+        self.quad(role, [(m(s0), -R, L), (m(arc[0][0]), -R, L), (m(arc[0][0]), 0, L), (m(s0), 0, L)], OUT)
+        self.quad(role, [(m(arc[-1][0]), -R, L), (m(s1), -R, L), (m(s1), 0, L), (m(arc[-1][0]), 0, L)], OUT)
         for (a, ya), (b, yb) in zip(arc, arc[1:]):
-            self.quad("terrace_face", [(m(a), ya, L), (m(b), yb, L), (m(b), 0, L), (m(a), 0, L)], OUT)
+            self.quad(role, [(m(a), ya, L), (m(b), yb, L), (m(b), 0, L), (m(a), 0, L)], OUT)
         d = A["depth_m"]
         outline = [(arc[0][0], -R)] + arc + [(arc[-1][0], -R)]
         for (a, ya), (b, yb) in zip(outline, outline[1:]):
@@ -911,7 +918,36 @@ class Entrance(Opening):
                       (-m(mx) if abs(mx) > 1e-9 else 0.0, -my if a != b else 0.0, 0.0))
         self.quad("arch_back", [(m(x), y, L - d) for x, y in outline], OUT)
         self.probe(m(ca), ys, L - d, ("arch_back",), "the basement arch's void")
-        self.probe(m(s0 + 0.1), -R / 2, L, ("terrace_face",), "the terrace's face beside the arch")
+        self.probe(m(s0 + 0.1), -R / 2, L, (role,), "the terrace's face beside the arch" if role == "terrace_face"
+                   else "the landing's street face beside the arch")
+
+
+    def _arch_grille(self, A, m, ca, R, L):
+        """T-1894: the iron in a basement arch's void (1823's, the engraving's scrolled grille,
+        drawn as K08's basement grille is, T-2525): `bars` square uprights clipped to the head,
+        a foot bar and a bar at the spring, and a ring of `ring_radius_m` hanging under the
+        crown in place of the scrolls, all `set_back_m` behind the face."""
+        g, hw = A["grille"], A["span_m"] / 2
+        b, d = 0.022, g["set_back_m"]
+        ys = -R + A["spring_m"]
+        o1, o0 = L - d, L - d - b
+        lo, hi = sorted((m(ca - hw + 0.003), m(ca + hw - 0.003)))
+        for y in (-R + 0.06, ys - 0.03):            # the foot bar and the spring bar
+            self._box("hardware", lo, hi, y, y + b, o0, o1)
+        n = g["bars"]
+        for i in range(1, n + 1):                   # the uprights, behind the bars across
+            x = ca - hw + 2 * hw * i / (n + 1)
+            top = ys + math.sqrt(max(0.0, hw * hw - (x - ca) ** 2)) - 0.003
+            a_, b_ = sorted((m(x - b / 2), m(x + b / 2)))
+            self._box("hardware", a_, b_, -R + 0.003, top, o0 - b - 0.002, o0 - 0.002)
+        r = g["ring_radius_m"]      # concentric with the head, standing on the spring bar
+        k = 16
+        path = [(m(ca + r * math.cos(math.pi * j / k)), ys - 0.03 + b + r * math.sin(math.pi * j / k),
+                 L - d + b / 2) for j in range(k + 1)]
+        self._tube("hardware", path, b / 2, (0.0, 0.0, 1.0), 6)
+        self.probe(m(ca), -R + 0.06 + b / 2, o1, ("hardware",), "the basement arch's grille")
+        self.meta["basement_arch"] = {"s_m": round(m(ca), 4), "span_m": A["span_m"], "spring_m": A["spring_m"],
+                                      "depth_m": A["depth_m"], "grille_bars": n}
 
     # T-2910: a loggia behind the arch (1801's corner loggia, the Taylor photograph) -----
     def _loggia_room(self, lg, arc, s0, s1, a, b, Hd):

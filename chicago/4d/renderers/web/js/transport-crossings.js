@@ -196,8 +196,25 @@ export function createCrossings(circuits, options = {}) {
         st.claim.remaining -= ds;
         if (st.claim.remaining <= 0) release(st);
       },
-      /** Let go of everything (the team is gone: disposed, a tier dropped it). */
+      /** Let go of everything (the team is gone: disposed, a tier dropped it, the visitor took the reins). */
       drop() { release(st); st.waitingFor = null; },
+      /**
+       * T-3557: the team comes back onto its road at `distance` after being driven. Inside a
+       * cluster it takes that cluster, unless another team holds one of its zones: then it may
+       * not rejoin there yet (false), and waits as it would at the cluster's edge.
+       */
+      rejoin(distance) {
+        release(st); st.waitingFor = null; primed = true;
+        for (const c of st.clusters) {
+          const into = wrap(distance - c.start, st.length);
+          if (into >= c.end - c.start) continue;
+          const others = free(st, c);
+          if (others.length) { if (st.waitingFor !== others[0]) st.waits++; st.waitingFor = others[0]; return false; }
+          take(st, c, c.end - c.start - into);
+          return true;
+        }
+        return true;
+      },
       get waitingFor() { return st.waitingFor; },
       snapshot() { return { holding: st.claim ? [...st.claim.cluster.ids] : [], waiting_for: st.waitingFor, waits: st.waits }; },
     };

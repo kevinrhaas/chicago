@@ -676,6 +676,8 @@ step "The two more 1904 carriages' rows are what their layer writes: lanes off t
   node tools/lay_driven_carriages_1904.mjs --check
 step "Where the 1904 carriages' roads cross one gives way and waits for the other: no overlap, no lock, everyone keeps going round (T-3555)" \
   node tools/test_transport_crossings.mjs
+step "Every driven team can be taken by the reins: eased speed and steering within its lock, pulls up at a wall, a kerb or another team, handed back onto its round, saved on its road (T-3557)" \
+  node tools/test_team_drive.mjs
 step "Each 1904 carriage its own paint, wear and marks on one program, no texture, glass and the inside clean (T-3558)" \
   node tools/test_coachwork.mjs
 step "The 1812 crossing boats are what their layer writes: on dry banks, afloat at the stern, a path deep enough to float them over (T-3510)" \
@@ -788,6 +790,8 @@ step "A figure's distance levels are parked and reused, not reloaded; People hid
   node tools/test_human_lod_park.mjs
 step "The shared interaction key and touch control stop and resume the existing transport actor (T-2804)" \
   node tools/test_transport_interactions.mjs
+step "A visitor climbs up beside any driver, takes and hands back the reins, and gets down beside the team (T-3557)" \
+  node tools/test_transport_boarding.mjs
 step "Every person placed in town is named by the look tag, found, and followed beside them (T-3404)" \
   node tools/test_person_interaction.mjs
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
