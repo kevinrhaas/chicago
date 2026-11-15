@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1138,
+  "count": 1139,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -42260,7 +42260,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the house at 1823 Prairie Avenue, Thomas Dent's, is no longer a district draft. It stands, under the draft's own id 1823 Prairie Avenue — Thomas Dent house, as a k01 frontage record built by the k01 emit generator, against its two pictures: the Chicagology engraving after a photograph ([1823 S. Prairie Ave., the Thomas Dent residence.] Halftone engraving after a…, undated; rights check required: forms and proportions only) and the 1883 New Chicago Album vignette of the same view ('Private Residences of Chicago.' Plate in The New Chicago Album (Chicago…, no known restrictions). A smooth light stone front on brick flanks, two storeys over a raised basement under a slated mansard with dormers; a pavilion at the front's south end, flush with the south wall, under a steep hipped crown (since, an attic under a coped gable); a group of three windows to a storey in the front's north part; the door beside the pavilion up its stoop; a moulded cornice; tall stacks; a two-storey rear range. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1823-b1, census s28-1823-front and s28-1823-wing): the front block's place and plan (13.88 m along the front between the north wall at lot v -7.71 and the south wall at 6.17, the front's main plane at lot u 32.85), the pavilion's projection (lot v 0.43-6.15, 1.12 m forward), the rear range's narrowing and depth, 'brick', '3B; rear2B'. From the engraving, through its camera (the chicagology engraving data): the principal floor, the storey heights and the wall head, the street windows' places, the pavilion's windows, the north flank's window columns, the dormers' places, the mansard's curb, the north stack's place and top (re-read the openings through a re-solved camera, and the box bay, the cresting, the stoop's run and the moulded heads off both pictures). From the vignette: the stone front against the brick flank, and the same composition dated 1883. **What is invented.** The walls' thickness; which stone (K02's Bedford limestone: the pictures say light and smooth, and K02's Lemont profile cannot course a 2.35 m base) and its two-course base; the brick's colour; the south flank's and the rear's windows (no picture sees them); the rear range's windows on its south flank and rear and its flat deck; the mansard's deck; the south stack's place; the stacks' plans; the rainwater; the sash pattern. **What is not built.** The triple group's broad carved dormer, whose pediment both pictures draw rising over the curb (K05's dormer is at most 2.0 m wide and stops under it); the stack at the north flank's rear, over the rear range, where K01 stands no stack; the grilled arched basement doorway under the landing (built since, 2026-11-15); the narrow light beside the door on the principal storey; the slated cheeks the vignette draws either side of the pavilion's pedimented attic; the box bay's corbelled foot (built since, 2026-11-15, second revision); the flank's basement lights under its 0.25 m column and under the rear range: open on the match records."
+          "text": "the house at 1823 Prairie Avenue, Thomas Dent's, is no longer a district draft. It stands, under the draft's own id 1823 Prairie Avenue — Thomas Dent house, as a k01 frontage record built by the k01 emit generator, against its two pictures: the Chicagology engraving after a photograph ([1823 S. Prairie Ave., the Thomas Dent residence.] Halftone engraving after a…, undated; rights check required: forms and proportions only) and the 1883 New Chicago Album vignette of the same view ('Private Residences of Chicago.' Plate in The New Chicago Album (Chicago…, no known restrictions). A smooth light stone front on brick flanks, two storeys over a raised basement under a slated mansard with dormers; a pavilion at the front's south end, flush with the south wall, under a steep hipped crown (since, an attic under a coped gable); a group of three windows to a storey in the front's north part; the door beside the pavilion up its stoop; a moulded cornice; tall stacks; a two-storey rear range. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1823-b1, census s28-1823-front and s28-1823-wing): the front block's place and plan (13.88 m along the front between the north wall at lot v -7.71 and the south wall at 6.17, the front's main plane at lot u 32.85), the pavilion's projection (lot v 0.43-6.15, 1.12 m forward), the rear range's narrowing and depth, 'brick', '3B; rear2B'. From the engraving, through its camera (the chicagology engraving data): the principal floor, the storey heights and the wall head, the street windows' places, the pavilion's windows, the north flank's window columns, the dormers' places, the mansard's curb, the north stack's place and top (re-read the openings through a re-solved camera, and the box bay, the cresting, the stoop's run and the moulded heads off both pictures). From the vignette: the stone front against the brick flank, and the same composition dated 1883. **What is invented.** The walls' thickness; which stone (K02's Bedford limestone: the pictures say light and smooth, and K02's Lemont profile cannot course a 2.35 m base) and its two-course base; the brick's colour; the south flank's and the rear's windows (no picture sees them); the rear range's windows on its south flank and rear and its flat deck; the mansard's deck; the south stack's place; the stacks' plans; the rainwater; the sash pattern. **What is not built.** The triple group's broad carved dormer, whose pediment both pictures draw rising over the curb (K05's dormer is at most 2.0 m wide and stops under it); the stack at the north flank's rear, over the rear range, where K01 stands no stack; the grilled arched basement doorway under the landing (built since, 2026-11-15); the narrow light beside the door on the principal storey; the slated cheeks the vignette draws either side of the pavilion's pedimented attic; the box bay's corbelled foot (built since, 2026-11-15, second revision); the flank's basement lights under its 0.25 m column and under the rear range (built since, 2026-11-15, third revision): open on the match records."
         },
         {
           "label": "Revised",
@@ -42277,6 +42277,10 @@
         {
           "label": "Revised",
           "text": "2026-11-15 (T-1894, second revision). The north flank's box bay stands on its corbels as both pictures draw it, not on a foot carried to grade: K08's corbelled oriel on the principal floor (2.35 m), three courses, its foot at 1.75 m against the engraving's about 1.8 m. The basement light that was cut in the bay's foot is now in the flank's wall under the bay, and two more of the flank's basement lights are laid (under the 2.15 m and 11.0 m columns), square-headed, each read off the engraving. Invented: the courses' number and profile (the print shows a moulded block about 0.6 m deep); the lights' sash, the flank's own; the light under the bay laid at the contract's widest 1.15 m. Still open: the lights under the 0.25 m column, which K01 cannot lay that near the wall's end, and under the rear range's column, which a wing lays only round-headed."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-15 (T-1894, third revision). The flank's last two basement lights are laid, square-headed as the print draws all five: under the 0.25 m column at s 0.48 m, since the rear range carries the flank on flush past the main body's rear and K01 now lets a read light stand 0.1 m inside such an end (it keeps 0.45 m off a true corner), and under the rear range's flank column, a wing's basement lights now taking a plain head. Invented: both lights' 0.75 m width and 0.45-1.45 m height, the other three's; the first stands about 0.2 m south of where the print centres it. The reconstructed north downpipe moved from s 0.6 m to 1.2 m, off the new light."
         },
         {
           "label": "How to resolve",
@@ -74697,6 +74701,40 @@
         {
           "label": "Recorded",
           "text": "2026-11-14."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
+      "id": "L-photo-faces-3553",
+      "title": "A person's own four-view pictures as their face, by one command",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-14, of the people after the Greys: he will want it easy \"to add or generate a bunch of people photos for you to apply to the existing people faces\". the photo face tool (page: the project's notes on photo faces) takes a drawn person, a four-view sheet of a head (front, both sides, behind, on a white ground) and the sheet's source record, and makes their face as the Greys' were made: MediaPipe Face Landmarker's points on the front view as the portrait record's marks, the face fitted to them on the body the point table is calibrated on for the person's sex, the sheet baked onto that face as skin, hair and eyes (“The Greys wear their stand-ins' photographs as skin, hair and eyes”), and the town's persons file written again. A face made this way rests on one front picture's points: its profile is the fit's prior and the body's, where the Greys' was also held to a traced side view and to values read by eye. Each such person is graded reconstructed. Where the pictures are of someone else, their card carries the stand-in label the command is given."
+        },
+        {
+          "label": "Not invented",
+          "text": "the pictures (each one's source record says whose they are and that its rights are cleared for use as a texture); who the person is (their household record)."
+        },
+        {
+          "label": "Left out on purpose",
+          "text": "writing a source record (always a person's own reading of the pictures); a card's portrait still; the photo match after the first bake."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a photograph of the person themselves, where the pictures were a stand-in's; the owner withdrawing a sheet."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-15."
         }
       ],
       "work_refs": [

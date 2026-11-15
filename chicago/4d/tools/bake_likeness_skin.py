@@ -206,6 +206,9 @@ EYES = {'px': (528, 838), 'size': 96}         # each eye's own iris, drawn from 
 EYE_CHROMA = (0.5, 0.8)                       # an iris shows where the picture has under this share of the cheek's chroma; the white, this
 EYE_ABOVE = 0.15                              # ...read from this share of its radius above its centre, and all below
 EYE_WHITE_COLOUR = 0.5                        # the whites keep this share of the colour read for them
+EYE_SHUT_PX = 2                               # no skin takes the front picture's eye openings, nor this many pixels round them (the lashes' line)
+EYE_SKIN_M = (0.004, 0.007)                   # ...and the lids are skin, never hair: what lies this much past each opening's corners, and above and below it
+EYE_LID_COLOUR = 0.6                          # ...and take this share of the colour read for them (the lid lies in the brow's shade, which the renderer warms)
 EYE_DISC = 0.455                              # the iris fills this much of its square, centre to rim (the eye meshes' own UVs)
 EYE_RIMS = (                                  # MediaPipe: each eye's opening, its iris's middle and the iris's ring; the body's left first
     ((263, 249, 390, 373, 374, 380, 381, 382, 362, 398, 384, 385, 386, 387, 388, 466), 473, (474, 475, 476, 477)),
@@ -938,6 +941,28 @@ def read_eyes(front):
         whites.append(white)
         radii.append(R)
     return {'squares': squares, 'white': np.mean(whites, 0), 'iris_px': radii}
+
+
+def lid_colours(front):
+    """Each eye's lid skin in the front picture (the body's left eye first): the lighter half of
+    what lies a little outside its opening, past the lashes' line. Nothing where the picture has
+    no points for the eyes."""
+    from PIL import Image, ImageDraw
+    from scipy import ndimage
+    pts, img = front['pts'], front['img']
+    if pts is None or len(pts) < 478:
+        return []
+    out = []
+    for rim, _, _ in EYE_RIMS:
+        im = Image.new('L', front['size'], 0)
+        ImageDraw.Draw(im).polygon([tuple(q) for q in pts[list(rim)]], fill=1)
+        hole = np.asarray(im, bool)
+        band = ndimage.binary_dilation(hole, iterations=EYE_SHUT_PX + 6) & ~ndimage.binary_dilation(hole, iterations=EYE_SHUT_PX + 2)
+        px = img[band]
+        light = to_lab(px)[:, 0]
+        lid = px[light >= np.median(light)].mean(0)
+        out.append((rim, lid.mean() + (lid - lid.mean()) * EYE_LID_COLOUR))
+    return out
 
 
 def weld(rest):
@@ -2005,6 +2030,14 @@ def bake(rec, sheet, head, smile_at=None):
     # The hair's own shape: the skin pushed out to the pictures' outlines, and the pictures
     # laid on that (the cameras were found on the bare, fitted head).
     head['hair'], read = hair_shown(views, head, T, centre)
+    # With `lid_skin`, a lid is skin, whatever its colour: the front picture's lashes and iris
+    # read as hair, and lit as hair round each eye they darkened it (William Grey, 2026-11-15).
+    for rim, _, _ in EYE_RIMS if rec.get('lid_skin') else ():
+        ring = X0[[mp[i] for i in rim if i in mp]]
+        if len(ring) >= 6:
+            c, half = (ring.max(0) + ring.min(0)) / 2, (ring.max(0) - ring.min(0)) / 2
+            r = ((X0[:, 0] - c[0]) / (half[0] + EYE_SKIN_M[0])) ** 2 + ((X0[:, 1] - c[1]) / (half[1] + EYE_SKIN_M[1])) ** 2
+            head['hair'] = np.where((r < 1) & (np.abs(X0[:, 2] - c[2]) < 0.02), 0.0, head['hair'])
     thick, mid = grow(rec, views, head, T, centre)
     X = X0 + away(X0, mid) * thick[:, None]
     group = weld(head['rest'])
@@ -2053,6 +2086,15 @@ def bake(rec, sheet, head, smile_at=None):
                     src[use.index(i)] = at
             v['warp'] = RBFInterpolator(src, dst - src, kernel='thin_plate_spline', smoothing=2.0)
             Pw[hv] = P[hv] + v['warp'](P[hv])
+            # A record with `lid_skin`: the picture's eye openings, and the lashes round them, are
+            # the eyes' and never the lids'. Laid on William Grey's lids, which rest lower over the
+            # eye than the picture's, they stood as a dark band over each eye from the front
+            # (2026-11-15); laid on Sarah's they are what makes her eyes the picture's, so she has none.
+            if rec.get('lid_skin') and len(v['pts']) >= 478:
+                im = Image.new('L', v['size'], 0)
+                for rim, _, _ in EYE_RIMS:
+                    ImageDraw.Draw(im).polygon([tuple(q) for q in v['pts'][list(rim)]], fill=1)
+                v['eyes_px'] = ndimage.binary_dilation(np.asarray(im, bool), iterations=EYE_SHUT_PX).astype(np.float32)
         low = v['img'].min(2)
         ground = ndimage.binary_dilation((low > HAIR_GROUND[0]) & (v['img'].max(2) - low < HAIR_GROUND[1]), iterations=2)
         v.update(P=P, Pw=Pw, z=z, zb=ndimage.maximum_filter(zb, 3), nz=((normals(Xv) if smiling else N) @ F.rot(*v['cam'][:3]).T)[:, 2], ground=ground.astype(np.float32))
@@ -2067,6 +2109,8 @@ def bake(rec, sheet, head, smile_at=None):
     stand = np.zeros((TH, TW), np.float32)
     hairy = np.zeros((TH, TW), np.float32)
     facing = np.zeros((TH, TW, 3), np.float32)
+    lidded = np.zeros((TH, TW), np.float32)
+    across = np.zeros((TH, TW), np.float32)
     chin = X[lm['menton'], 1]
     ears_z = max(X0[lm[k], 2] for k in ('ear_top_l', 'ear_top_r', 'ear_lobe_l', 'ear_lobe_r'))
     tops_y = min(X0[lm['ear_top_l'], 1], X0[lm['ear_top_r'], 1])
@@ -2085,6 +2129,7 @@ def bake(rec, sheet, head, smile_at=None):
         lat = np.abs(pos[:, 0] - xmid)
         th = (thick[t] * b).sum(1)
         raw, square, cols, graze = [], [], [], []
+        lid_here = np.zeros(len(pos))
         for v in views:
             W, H = v['size']
             p = (v['P'][t] * b[:, :, None]).sum(1)
@@ -2095,11 +2140,15 @@ def bake(rec, sheet, head, smile_at=None):
             w = w * smooth(0.6, 1.0, sample(v['good'][:, :, None], pw)[:, 0])
             # ...and where the hair stands out, not the sheet's white ground seen through it
             w = w * (1 - smooth(0.002, 0.004, th) * smooth(0.1, 0.4, sample(v['ground'][:, :, None], pw)[:, 0]))
-            graze.append(w * smooth(GRAZE[0], GRAZE[1], nz) * (1 - sample(v['open_px'][:, :, None], pw)[:, 0] if 'open_px' in v else 1.0))
+            shut = np.ones(len(pw))
+            for k in ('open_px', 'eyes_px'):
+                if k in v:
+                    shut = shut * (1 - sample(v[k][:, :, None], pw)[:, 0])
+            graze.append(w * smooth(GRAZE[0], GRAZE[1], nz) * shut)
             if v['name'] == 'front':
-                w = w * smooth(0.12, 0.45, nz)
-                if 'open_px' in v:
-                    w = w * (1 - sample(v['open_px'][:, :, None], pw)[:, 0])
+                w = w * smooth(0.12, 0.45, nz) * shut
+                if 'eyes_px' in v:
+                    lid_here = sample(v['eyes_px'][:, :, None], pw)[:, 0] * (zz > v['zb'][yi, xi] - 0.012)
             elif v['name'] == 'back':
                 w = w * smooth(0.10, 0.5, nz)
             else:
@@ -2157,6 +2206,8 @@ def bake(rec, sheet, head, smile_at=None):
         seen[y0:y1, x0:x1][m] = np.clip(tot, 0, 1)
         cover[y0:y1, x0:x1][m] = True
         front[y0:y1, x0:x1][m] = ws[:, 0]
+        lidded[y0:y1, x0:x1][m] = lid_here
+        across[y0:y1, x0:x1][m] = pos[:, 0] - xmid
         lateral[y0:y1, x0:x1][m] = lat
         height[y0:y1, x0:x1][m] = pos[:, 1]
         stand[y0:y1, x0:x1][m] = th
@@ -2186,6 +2237,12 @@ def bake(rec, sheet, head, smile_at=None):
         tex = mirror_fill(tex, hole & hairs, hairs & ~hole)
         hole &= ~hairs
     tex = diffuse_fill(tex, hole | ~cover, known=cover & ~hole)
+    # The lids the front picture's eye openings fell on take its own lids' skin, one colour for
+    # each eye: filled from beside them they took the lashes' and the crease's shade.
+    for rim, colour in lid_colours(views[0]) if rec.get('lid_skin') else ():
+        c = X0[[mp[i] for i in rim if i in mp]][:, 0].mean() - xmid
+        on = cover & (np.sign(across) == np.sign(c))
+        tex[on] = tex[on] * (1 - smooth(0.25, 0.75, lidded[on]))[:, None] + colour * smooth(0.25, 0.75, lidded[on])[:, None]
     # The mask draws in from where the pictures stop, feathered, and bleeds past each island's edge.
     alpha = np.where(cover, ndimage.minimum_filter(np.where(cover, alpha, 1.0), 9), 0)
     soft = ndimage.gaussian_filter(np.where(cover, alpha, 0), 4.0) / np.maximum(ndimage.gaussian_filter(cover.astype(np.float32), 4.0), 1e-3)
@@ -2511,6 +2568,8 @@ def check():
         if g.get('reach_m', 0) > 0 and not (isinstance(fine, dict) and fine.get('cell_px') == FINE_CELL_PX and fine.get('edge_m') == FINE_EDGE_M
                                             and len(base64.b64decode(fine.get('cells', ''))) * 8 == (TEXTURE_PX[0] // FINE_CELL_PX) * (TEXTURE_PX[1] // FINE_CELL_PX)):
             bad.append(f'{person}: where the hair stands out is not recorded as this tool records it; bake again')
+        if rec.get('lid_skin') not in (None, True, False):
+            bad.append(f'{person}: `lid_skin` is true or false')
         lids = t.get('lids')
         if lids is not None and not (0 <= lids.get('rest', -1) <= LID_REST_MOST):
             bad.append(f'{person}: the lids\' rest is not one this tool gives; bake again')
