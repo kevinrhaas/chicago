@@ -4181,6 +4181,20 @@ async function boot() {
         blockedAt: (e, n) => api.router?.blockedAt(e, n) ?? false,
         placeVisitor: (e, n) => { if (!walker.state.flying) walker.teleport({ local_e: e, local_n: n,
           yaw_deg: walker.bearingDeg, pitch_deg: walker.state.pitch / DEG }); },
+        // T-3557: Climb up / Take the reins / Get down. The ride holds the eye on the seat
+        // (ride.hold in the frame); getting down lands on the ground a visitor stands on.
+        visitorEye: () => ({ e: walker.state.e, n: walker.state.n, y: walker.state.eyeY, bearing: walker.bearingDeg }),
+        groundAt: (e, n) => figureGround(e, n),
+        walkEye: () => WALK.eyeHeight,
+        reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+        reinsHint: () => (backends.name === 'touch' || (backends.name === 'none' && coarse)
+          ? t('hud.ride.reins.touch') : t('hud.ride.reins.keys')),
+        onBoard: (actor, on) => {
+          if (!on) return;
+          // Boarding ends a Go to or a walk with someone, as stepping into a boat does.
+          api.travel?.stop?.('boarding');
+          if (api.follow?.active) api.follow.stop('boarding');
+        },
       });
       if (api.townTransport) scene3d.add(api.townTransport.group);
     } catch (error) { problems.push(`town transport: ${error.message}`); }
@@ -4296,7 +4310,8 @@ async function boot() {
     people,
     positionOf: structurePosition,
     visitor: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg }),
-    onTravelStop: () => { api.townTransport?.cancelDriverApproaches(); travel?.stop('button'); },
+    // T-3557: aboard a team, the bar's key is Get down (api.getDown, below).
+    onTravelStop: () => { if (api.getDown?.()) return; api.townTransport?.cancelDriverApproaches(); travel?.stop('button'); },
     isTouch: prefersTouch(),
     resolvedDetail: detailLevel,
     resolvedQuality: crashBoot.lowered.quality ? crashBoot.quality : qualityGuess,
@@ -6216,6 +6231,40 @@ async function boot() {
     say: text => hud.say(text), enabled: () => !gateOpen, keys: window, isTyping,
   });
   api.interactKey = interactKey;
+  /** T-3557: Get down, from the travel bar's key: true when the visitor was aboard. */
+  api.getDown = () => {
+    const aboard = api.townTransport?.ride?.aboard;
+    if (!aboard) return false;
+    const res = interactions.act(`driver:${aboard.id}`, 'get-down');
+    if (res.refused) hud.say(res.why);
+    return true;
+  };
+  /** T-3557: the travel bar while the visitor rides a team: Aboard or Driving, the keys, Get down. */
+  let ridePainted = '', ridePaintAt = 0;
+  function paintRide(ride, elapsed) {
+    const a = ride?.aboard;
+    if (!a) {
+      if (ridePainted) { ridePainted = ''; if (travel?.state?.phase === 'idle') hud.travelBanner(null); }
+      return;
+    }
+    const touch = backends.name === 'touch' || (backends.name === 'none' && coarse);
+    const notes = [];
+    if (a.mode === 'reins') {
+      if (a.blocked) notes.push(t('hud.ride.held', { why: a.blocked }));
+      notes.push(t(touch ? 'hud.ride.stick' : 'hud.ride.keys'));
+    } else if (a.mode === 'returning') notes.push(t('hud.ride.returning'));
+    if (ride.reducedMotion()) notes.push(t('hud.ride.still'));
+    // The team's short name (its row's ride_name): on a phone the long one was cut to "Carriage
+    // driver on Pra…". The long one stays the bar's tooltip.
+    const short = interactions.get(`driver:${a.id}`)?.rideName;
+    const state = { kind: 'ride', verb: t(a.mode === 'reins' ? 'hud.ride.driving' : 'hud.ride.aboard'),
+      dest: short || a.name, destTitle: a.name, note: notes.join(' · '), stop: t('hud.ride.getDown') };
+    const key = JSON.stringify(state);
+    // Repainted on a change, and twice a second besides (a Go to's bar may have taken it).
+    if (key === ridePainted && (ridePaintAt += elapsed) < .5) return;
+    ridePainted = key; ridePaintAt = 0;
+    hud.travelBanner(state);
+  }
   const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   transportReducedMotion.addEventListener('change', resetVisualClock);
   let interactPaintAt = 0;
@@ -6639,6 +6688,15 @@ async function boot() {
     if (asked && popup.openId) popup.close();
     else if (asked && inspectingByHand()) releaseInspect();
     else if (asked) inspect(asked.point ? new THREE.Vector2(asked.point.x, asked.point.y) : null, { by: 'hand' });
+    // T-3557: aboard a team, a Go to or a walk with someone takes the visitor off it where they
+    // sit; otherwise the movement keys are the team's reins (or nothing) and never walk.
+    const teamRide = api.townTransport?.ride ?? null;
+    if (teamRide?.actor && (travel.state.phase !== 'idle' || follow.active)) teamRide.release('travel', { land: false });
+    // The touch stick writes the intent only when the thumb moves, so the walk is kept from it
+    // for this frame and it is put back after: a thumb held to the side keeps the team turning.
+    const heldStick = teamRide?.actor && backends.name === 'touch'
+      ? { forward: intent.forward, strafe: intent.strafe, sprint: intent.sprint } : null;
+    teamRide?.drive(intent);
     const walkSteps = Math.max(1, Math.ceil(frameDt / 0.05));
     const walkDt = frameDt / walkSteps;
     if (!gateOpen) for (let i = 0; i < walkSteps; i++) {
@@ -6650,8 +6708,10 @@ async function boot() {
       follow.afterWalk(intent);
       travel.afterWalk(intent, walkDt);
     }
+    if (heldStick) Object.assign(intent, heldStick);
     // T-3510: while a crossing runs, the visitor sits in the boat whatever the walk did.
     crossings.holdVisitor(walker, WALK);
+    teamRide?.hold(walker, WALK);
     // T-3575: in a headset, the reference space follows the walker (controls/xr.js).
     if (xrMode.presenting) xrMode.sync();
     // Before the render, after the walker: the near plane is a function of where
@@ -6698,6 +6758,9 @@ async function boot() {
       hour: (() => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; })(),
     });
     api.townTransport?.refreshInteractions();
+    // T-3557: the team has moved this frame; the eye goes with it, and the bar says so.
+    if (teamRide?.hold(walker, WALK)) { setNearFor(walker.state.altitude); world.follow(camera.position); }
+    paintRide(teamRide, elapsed);
     // Contacts follow the loaded horses' accepted gait advance in this frame.
     // Held/hidden frames clear the baseline rather than replaying missed steps.
     api.sound?.transportFrame({ active: !visualHeld && visualDt > 0 });

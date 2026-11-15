@@ -206,6 +206,8 @@ const CARRIAGES = [
   {
     id: 'prairie_driven_brougham_north_loop_1904',
     name: 'Carriage driver on Prairie Avenue, 16th to 18th Street',
+    // T-3557: the ride bar's short name (a phone cuts the long one).
+    ride_name: 'Pullman brougham',
     person_id: 'pa1904_pullman_mrs_george_m_c1900_henry_windish',
     legs: [['e18th_indiana_prairie', 'east', 3], ['prairie_16_18', 'north', 2.5],
       ['e16th_indiana_prairie', 'west', 2.5], ['indiana_16_18', 'south', 3]],
@@ -234,6 +236,7 @@ const CARRIAGES = [
   {
     id: 'prairie_driven_brougham_south_loop_1904',
     name: 'Carriage driver on Prairie Avenue and Calumet, 20th to 22nd Street',
+    ride_name: 'Armour brougham',
     person_id: 'pa1904_armour_mrs_philip_d_c1900_joseph_daniels',
     // Clockwise (Kevin, 2026-11-14): every corner a right turn, round the block east of Prairie.
     legs: [['prairie_20_22', 'north', 2], ['e20th_indiana_calumet', 'east', 2],
@@ -274,7 +277,7 @@ export function buildRows(config = JSON.parse(fs.readFileSync(FILE, 'utf8')), gr
     });
     return {
       ...base,
-      id: spec.id, name: spec.name, scene: '1904',
+      id: spec.id, name: spec.name, ride_name: spec.ride_name, scene: '1904',
       speed_m_s: spec.speed_m_s, route, stops, initial_distance_m: spec.initial_distance_m,
       person_id: spec.person_id,
       driver_export_person_id: HANS,

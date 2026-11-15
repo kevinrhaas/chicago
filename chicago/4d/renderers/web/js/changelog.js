@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2990, ts: '2026-11-15T02:22:07.408Z', date: 'Nov 14, 2026, 8:22 PM CT', title: 'Climb aboard any carriage or wagon and drive the team', kind: 'feature',
+    items: [
+      'Walk up to a driven team in 1812, 1835 or 1904 and press Interact (R): Climb up beside the driver or coachman, or onto the 1812 fort wagon.',
+      'Take the reins: W/S or the arrow keys to go and whoa, A/D to steer. On a phone, the stick does it: up to go, down to whoa, sideways to steer.',
+      'Hand back the reins and the driver takes his team back to its round.',
+      'Get down from the bar at the bottom or the Interact key: the team pulls up and you step off beside it.',
+      'Riding and driving are play, not history: where you take a team is yours, not its driver\'s.',
+    ] },
   { v: 2989, ts: '2026-11-15T00:41:07.793Z', date: 'Nov 14, 2026, 6:41 PM CT', title: 'Tidier code under the town, nothing on screen changed', kind: 'chore',
     items: [
       'Removed leftover code the app no longer used: unused helpers, values it worked out and threw away, and imports it never read.',
