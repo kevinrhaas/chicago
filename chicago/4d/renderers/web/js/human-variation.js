@@ -95,6 +95,54 @@ export function likenessSkin(kit, variation) {
 }
 
 /**
+ * T-3553: the face a person with no pictures of their own takes from the library (the kit's
+ * `faces`, tools/face_library.py; human-skin.js FACE_LIBRARY draws it). Ours, all of it
+ * (liberty L-face-library-3553): a face of the person's own sex, and of their age's third or
+ * a younger one, each third younger `younger_likelier` as likely (a young atlas under the
+ * drawn lines of age is what every body wore before); never an older face than the person; a
+ * child's is a young woman's, which is smooth. Among those, one whose own measured tone is
+ * nearer the person's, their body's skin under their recorded complexion, is likelier, by a
+ * bell `nearer_tone_likelier` doublings of light wide; a face more than `never_darker_than`
+ * doublings darker than the person is never theirs. A freckled face (`light_only`) is only
+ * for a person whose recorded complexion is one of `light_only_for` (fair, light, ruddy):
+ * nobody of another complexion, or with none recorded, takes one, however near in tone (a
+ * bar by tone alone let one onto a woman of the 1812 gathering recorded light brown). The
+ * body's own skin stands in the draw as one more face
+ * (null). Seeded by the person's id, so it is the same face on every visit. A pack's own
+ * name for a skin is never read. Null too with no library, for a body it does not know, and
+ * for `own`: a face fitted to pictures of the person keeps the skin it was fitted in.
+ * `lines` is what the face keeps of the drawn age lines, by the face's own age.
+ */
+const LUMA = [0.2126, 0.7152, 0.0722], THIRDS = ['young', 'middle', 'old'];
+export function libraryFace(kit, { key, assetId, sex, age, complexion = null, own = false }) {
+  const F = kit?.header?.faces, body = F?.bodies?.[assetId];
+  if (!F || !body || !kit.base || own || !Array.isArray(F.faces)) return null;
+  const child = Number.isFinite(age) && age < F.ages.child_under;
+  const third = !Number.isFinite(age) || age < F.ages.middle_from ? 0 : age < F.ages.old_from ? 1 : 2;
+  const wears = child || sex !== 'male' ? 'female' : 'male';
+  const tint = F.complexions?.[complexion] ?? [1, 1, 1];
+  const tone = LUMA.reduce((a, w, k) => a + w * body.tone_rgb[k] * tint[k], 0);
+  const bell = (d) => Math.exp(-d * d / (2 * F.nearer_tone_likelier * F.nearer_tone_likelier));
+  const freckles = Array.isArray(F.light_only_for) ? F.light_only_for : [];
+  // The body's own skin first, then each face that may be worn, each with its likelihood.
+  const draw = [[-1, bell(Math.log2(LUMA.reduce((a, w, k) => a + w * body.tone_rgb[k], 0) / tone))]];
+  F.faces.forEach((f, i) => {
+    const younger = third - THIRDS.indexOf(f.age);
+    if (f.sex !== wears || younger < 0 || younger > third) return;
+    const d = Math.log2(f.tone / tone);
+    if (d < -F.never_darker_than || (f.light_only && !freckles.includes(complexion))) return;
+    draw.push([i, bell(d) * (F.younger_likelier ?? 0) ** younger]);
+  });
+  let at = seededRandom(`${F.seed}${key}`)() * draw.reduce((a, d) => a + d[1], 0), index = -1;
+  for (const [i, w] of draw) { index = i; if ((at -= w) < 0) break; }
+  if (index < 0) return null;
+  try {
+    return { url: new URL(F.map, kit.base).href, index, id: F.faces[index].id, cols: F.cols, size_px: F.size_px, tile_px: F.tile_px,
+      gain: body.gain.slice(), lines: F.lines?.[F.faces[index].age] ?? 1 };
+  } catch { return null; }
+}
+
+/**
  * T-3553: a smile the face moves into. A person whose front picture grins rests with their
  * mouth shut, as their other pictures show it, and their row (`skin.smile`, fitted to the front
  * picture by tools/bake_likeness_skin.py) holds how the face moves from there into the grin: a
@@ -205,7 +253,9 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     // T-3553: a standing collar worn lower on the neck than the body's own (`dress.collar`).
     collar: record?.dress?.collar ?? null,
     // T-3553: their own skin sheet, baked on this fitted face (likenessSkin).
-    skin: face?.values && record?.skin ? record.skin : null };
+    skin: face?.values && record?.skin ? record.skin : null,
+    // ...or, with no fitted face, a face from the library (libraryFace).
+    lib: libraryFace(kit, { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, complexion: record?.looks?.complexion?.drawn ?? null, own: !!face?.values }) };
 }
 
 /** The axes a scope may use. */
@@ -697,6 +747,8 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
   // T-3553: the skin sheet goes with the fitted face, at every level of detail (human-skin.js reads it).
   const like = likenessSkin(kit, variation);
   if (like) scene.userData.chiLikenessSkin = like;
+  // ...and a face from the library for a person with none of their own (libraryFace).
+  else if (variation.lib) scene.userData.chiFaceSkin = variation.lib;
   // ...and who this is (a person's id, or an unnamed figure's own): human-skin.js draws an
   // unnamed figure's teeth and the run of its talk by it, so two strangers differ.
   if (typeof variation.key === 'string') scene.userData.chiVariationKey = variation.key;
