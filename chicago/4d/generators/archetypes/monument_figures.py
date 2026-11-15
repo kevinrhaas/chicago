@@ -7,8 +7,9 @@ T-3582 read on ICHi-19208 and J. W. Taylor's 1893 print (`TARGETS` below, the sa
 as `monument.FIGURES`), skinned, and baked to a static mesh in the monument's frame. T-3565's
 ruling stands: the rigs are an ARMATURE and a body only. Of each rig's dress only the pieces
 the sculpture also shows are kept, as starting shapes cast in the same bronze (the
-breechcloths, Black Partridge's leggings, Mrs. Helm's gown, the surgeon's coat and
-pantaloons, the child's jacket and trousers); the project's dress and variation rules do
+warrior's breechcloth, the belts, Black Partridge's leggings, Mrs. Helm's gown, the
+surgeon's coat and pantaloons; since T-3594 Black Partridge's breechcloth and the child's
+smock are drapery modelled to the plates, `DRAPED`); the project's dress and variation rules do
 not apply to a sculpture (`dress_1812_native.json` is not read), and no face is fitted to a
 portrait of anyone — the faces are the rig's neutral hm08 face, which is what this ticket
 leaves to be modelled to the sculpted ones.
@@ -72,15 +73,13 @@ RIGS = {
              ("body_0", "short04_hair", "gown_bodice", "gown_skirt", "gown_waist_band", "closed_shoes",
               "eyes__sclera")),
     "black_partridge": ("potawatomi_man_1812",
-                        ("body_0", "short04_hair", "breechcloth", "stroud_leggings", "leather_belt",
-                         "closed_shoes", "eyes__sclera")),
+                        ("body_0", "short04_hair", "stroud_leggings", "leather_belt", "closed_shoes",
+                         "eyes__sclera")),
     "surgeon": ("surgeons_mate_first_infantry_1812",
                 ("body_0", "short04_hair", "black_leather_stock", "coat_collar", "coat_body",
                  "coat_cuffs_scarlet", "coat_skirts", "coat_turnbacks_white", "white_waistcoat",
                  "white_pantaloons", "boot_shafts", "closed_shoes", "eyes__sclera")),
-    "child": ("child_boy_1812",
-              ("body_0", "short04_hair", "skeleton_jacket", "shirt_collar", "skeleton_trousers",
-               "closed_shoes", "eyes__sclera")),
+    "child": ("child_boy_1812", ("body_0", "short04_hair", "eyes__sclera")),
 }
 
 # The joints, in monument.FIGURES' pose units (x along the front to the right as the street
@@ -158,9 +157,13 @@ PROPS = {
 
 #: The drapery modelled to the sculpture (T-3594): `monument.DRAPERY` pieces per figure. Mrs.
 #: Helm's skirt, overskirt and cloak replace the cone of skirt and the cloak's two members
-#: the poses had kept (her `FIGURES` parts 4, 5 and 6).
+#: the poses had kept (her `FIGURES` parts 4, 5 and 6); Black Partridge's short fringed
+#: breechcloth replaces his rig's knee-length one, and the child's smock his rig's jacket,
+#: collar, trousers and shoes (`RIGS` no longer keeps them).
 DRAPED = {
     "helm": ("helm_skirt", "helm_overskirt", "helm_cloak"),
+    "black_partridge": ("black_partridge_breechcloth",),
+    "child": ("child_smock",),
 }
 
 #: The rest pose's head centre over the `head` joint (hm08: the joint is at the skull's

@@ -80,10 +80,10 @@
         -32.937383464227544
       ],
       "rotation_y": -3.141749733222473,
-      "glb_sha256": "bedf856691bb4cf6413c74903d4dc3534603f3ca9196f8a1346cd9de5ec0a65c"
+      "glb_sha256": "7c882e349b3b3e7a295a461b790863296d34a3cd77a34ffcb4c55ea995f58bcd"
     }
   ],
-  "group_sha256": "e774bd6ad37317aed5fe356f5a991ac296a4fdcd6e8d8dbe2df5db045797528f",
+  "group_sha256": "7ffc937252a689a8c92630c9eb828a1e734fb06ffe93e17790baa6df8e575c81",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -256,7 +256,7 @@
       "how": "compared render against render at full size; nothing over the bar moved"
     },
     {
-      "what": "the Fort Dearborn Massacre monument (fort_dearborn_massacre_monument_1893, drawn with the house since T-3568), right foreground: at the print's bearing (x 787 against 800) but drawn at 0.57 of its size, because this camera does not hold its foreground (its solve), and with its bronze group, where the print shows the lettered pedestal with no group on it. Both are argued in the monument's own record for this print (data/reference_views/fort_dearborn_massacre_monument_1893/detroit_det_4a08066.match.json); nothing of the house changed [T-3589: the monument's inscription and pale panels are drawn since; nothing else in this view moved] [T-3594: the weapons and ornaments are modelled on the group since (the tomahawk, the feathers, the headband, the hip ornament, the musket); a few pixels at this distance, nothing in this view moved] [T-3594: the warrior's and Black Partridge's heads and chests are turned as the plates show since; at this distance 23-52 px of the group change and nothing else in this view moved]",
+      "what": "the Fort Dearborn Massacre monument (fort_dearborn_massacre_monument_1893, drawn with the house since T-3568), right foreground: at the print's bearing (x 787 against 800) but drawn at 0.57 of its size, because this camera does not hold its foreground (its solve), and with its bronze group, where the print shows the lettered pedestal with no group on it. Both are argued in the monument's own record for this print (data/reference_views/fort_dearborn_massacre_monument_1893/detroit_det_4a08066.match.json); nothing of the house changed [T-3589: the monument's inscription and pale panels are drawn since; nothing else in this view moved] [T-3594: the weapons and ornaments are modelled on the group since (the tomahawk, the feathers, the headband, the hip ornament, the musket); a few pixels at this distance, nothing in this view moved] [T-3594: the warrior's and Black Partridge's heads and chests are turned as the plates show since; at this distance 23-52 px of the group change and nothing else in this view moved] [T-3594: Black Partridge's short fringed breechcloth and the child's smock are modelled since; at this distance 20 px of the group change and nothing else in this view moved]",
       "status": "open"
     }
   ],

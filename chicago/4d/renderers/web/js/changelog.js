@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3009, ts: '2026-11-15T18:45:11.084Z', date: 'Nov 15, 2026, 12:45 PM CT', title: '1823 Prairie\'s flank gets its last two basement lights', kind: 'improvement',
+    items: [
+      'The Dent house\'s north flank now shows all five square basement lights the Chicagology engraving draws. The two new ones sit under the window column by the rear range and under the rear range\'s own window. The reconstructed downpipe moves off the first of them.',
+    ] },
   { v: 3008, ts: '2026-11-15T18:13:21.528Z', date: 'Nov 15, 2026, 12:13 PM CT', title: 'William Grey\'s eyes look like his photograph from the front', kind: 'fix',
     items: [
       'A dark band over each of William Grey\'s eyes is gone: his lids now show the skin of his photograph\'s lids, not its lashes.',
