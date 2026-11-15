@@ -8528,9 +8528,18 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if (val("mansard") or {}).get("deck"):
         # T-3000: the deck's cresting, finials and corner hoods (1801's, Taylor's photograph)
         from .k01_mansard_deck import ParamError as DeckError, resolve as resolve_deck
+        # T-1886: a stack on a side wall's cornice (T-2406) is carried up the mansard's face
+        # through the curb (1816's south stack, its 1874 engraving); it may cross a side curb
+        # that no rail runs on, so the deck's curb rule asks only after the others
+        dk_ = val("mansard")["deck"]
+        cr_ = dk_.get("cresting")
+        railed = set() if not cr_ else set(cr_.get("sides") or ("south", "north", "street", "rear"))
+        deck_chimneys = [c for c in chimneys
+                         if not ((c["v_m"] - c["plan_m"][1] / 2 < 0.0 and "south" not in railed)
+                                 or (c["v_m"] + c["plan_m"][1] / 2 > width and "north" not in railed))]
         try:
-            mansard_roof["deck"] = resolve_deck(val("mansard")["deck"], mansard_roof, depth, width,
-                                                float(val("eave_overhang_m")), pitch, chimneys, bays=bays)
+            mansard_roof["deck"] = resolve_deck(dk_, mansard_roof, depth, width,
+                                                float(val("eave_overhang_m")), pitch, deck_chimneys, bays=bays)
         except DeckError as e:
             raise ParamError(str(e)) from None
 
