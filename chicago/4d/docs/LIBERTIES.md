@@ -44133,3 +44133,12 @@ Three things in the sheet itself. What no photograph sees squarely (the undersid
 
 **Ticket:** T-3553.
 **Recorded:** 2026-11-14.
+
+### L-t1896-doane-crown-porch-roundel — 1827 Prairie's pavilion crown closed to a short pyramid, its porch's south end and its tower roundel, read off the Doane photograph (T-1896, 2026-11-15)
+
+**Decision:** The sign-off of 1827 Prairie (T-1896) works the three differences T-3191 left open on the Chicagology photograph (`chicagology_1827_doane_exterior`, through its solved camera). The pavilion's crown is no longer a hip run 5.5 m back into the main roof: the print, read on its contrast-stretched crop, shows a short steep pyramid whose slates rise from well inside its cornice, its south face narrow past the south-west hip. So the crown's sides stand on a ledge of the cornice 1.35 m in from its edge, pitched at 62 degrees, and the crown closes to one point 2.4 m deep. The porch's south end stands on a column against the wall in place of its flat respond, with a low parapet between its pedestals. The corner tower carries a carved roundel between its principal floor's pair, over their hoods.
+**What is read, not invented.** The crown's point, the south-west hip's foot and the width of its south face at the cornice; the ledge; the porch's back column and its parapet; the roundel's place and size. All are read through the camera, so they rest on its `solve`.
+**What is invented.** How far the crown runs back. It is read only from the south face's width in this one picture, and the back face's pitch (about 64.7 degrees) follows from it; no picture shows the crown's back. The ledge's 0.03 m weathering. The parapet's height (0.35 m) and the roundel's carving (a ring round a plain boss), which the print is too small to resolve. The roundel on the tower's unseen south-east face, given as its pair of lights is given under `L-k01-1827-doane-3171`.
+**How to resolve:** A second picture of the house from the north or the rear, or one from higher, would give the crown's depth and its back; a closer picture of the porch or the tower would give the parapet's and the roundel's detail.
+**Ticket:** T-1896.
+**Recorded:** 2026-11-15.

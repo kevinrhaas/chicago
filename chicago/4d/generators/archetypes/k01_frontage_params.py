@@ -1089,7 +1089,10 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
         if not (lo < x <= hi):
             raise ParamError(f"mansard.crown.{what} {x}: a hipped crown is slated, over {lo} and up to {hi} degrees")
     w = b - a
-    if cd <= w:
+    point = c.get("point", False)
+    if point is not True and point is not False:
+        raise ParamError(f"mansard.crown.point {point!r}: true or false")
+    if cd <= w and not point:
         raise ParamError(f"mansard.crown.depth_m {cd}: a hipped crown runs its ridge back, deeper than its {w} m")
     # T-3156: the pavilion may be carried up an ATTIC storey past the main eave (1815's, its
     # paired lights in the wall between the main cornice and its own eave), the crown's fascia
@@ -1107,10 +1110,17 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
     if not soffit <= top <= soffit + 0.1:
         raise ParamError(f"mansard.crown: {bay['id']} stops at {top:.3f} m; under a hipped crown it rises "
                          f"to the crown's soffit at {soffit:.3f} m, and at most 0.1 m into it")
-    half = w / 2 + co
-    rise = half * math.tan(math.radians(side))
+    # T-1896: the sides' slates may rise from inside the crown's cornice, on a ledge of it
+    # (1827's, the Doane photograph: about 0.6 m in from its edge), steeper for the same point
+    from . import k05_roofs as k5_roofs
+    si = float(c.get("side_inset_m", 0.0))
+    if si and not 0.1 <= si <= min(1.5, w / 4):
+        raise ParamError(f"mansard.crown.side_inset_m {si}: 0.1 m to the lesser of 1.5 m and a quarter of its {w} m")
+    ledge = k5_roofs.CROWN_LEDGE_M if si else 0.0
+    half = w / 2 + co - si
+    rise = ledge + half * math.tan(math.radians(side))
     x1 = depth + proud
-    apex = x1 + co - rise / math.tan(math.radians(end))
+    apex = x1 + co - (rise - ledge) / math.tan(math.radians(end))
     if attic + rise < m["lower_rise_m"] + 0.3:
         raise ParamError(f"mansard.crown: its ridge {attic + rise:.2f} m over the eave is not 0.3 m over the main "
                          f"curb's {m['lower_rise_m']} m")
@@ -1120,8 +1130,20 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
     if at_curb < curb + 0.2:
         raise ParamError(f"mansard.crown: its end meets the main curb's height at x {at_curb:.2f}, not 0.2 m "
                          f"in front of the curb at {curb:.2f}; steepen end_pitch_deg")
-    back = x1 - cd - co + rise / math.tan(math.radians(side))
-    if back > apex - 0.5:
+    # T-1896: or closed to a point (1827's, the Doane photograph: a short steep pyramid, its
+    # south face narrow past the hip, its point about 1.2 m behind the face), the back pitched
+    # to meet the street end there; the back stays in K05's steep range like the others
+    back_pitch = side
+    if point:
+        run_back = cd + 2 * co - (rise - ledge) / math.tan(math.radians(end))
+        back_pitch = math.degrees(math.atan2(rise - ledge, run_back)) if run_back > 0 else 90.0
+        if not (lo < back_pitch <= hi):
+            raise ParamError(f"mansard.crown.depth_m {cd}: a crown closed to a point would pitch its back at "
+                             f"{back_pitch:.1f} degrees, outside K05's slated {lo}-{hi}")
+    back = x1 - cd - co + (rise - ledge) / math.tan(math.radians(back_pitch))
+    if point:
+        back = apex
+    elif back > apex - 0.5:
         raise ParamError(f"mansard.crown.depth_m {cd}: its ridge would run {apex - back:.2f} m, under 0.5")
     # T-3175: and a turned iron finial on the ridge's street end (1827's, over its pavilion in
     # the Doane photograph), the deck's turning (k01_mansard_deck) at the same bounds
@@ -1133,7 +1155,8 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
         fn = {"height_m": float(fn["height_m"]), "radius_m": float(fn["radius_m"])}
     return {"over_bay": bay["id"], "form": "hip", "x0": round(x1 - cd, 4), "x1": round(x1, 4),
             "z0": round(-b, 4), "z1": round(-a, 4), "pitch_deg": side, "end_pitch_deg": end,
-            "overhang_m": co, "ridge_m": round(E + rise, 4),
+            "overhang_m": co, "ridge_m": round(E + rise, 4), **({"side_inset_m": si} if si else {}),
+            **({"point": True, "back_pitch_deg": back_pitch} if point else {}),
             "ridge_x_m": (round(back, 4), round(apex, 4)),
             **({"attic_m": attic, "eave_m": round(E, 4)} if attic else {}),
             **({"finial": fn} if fn else {})}
@@ -1167,7 +1190,12 @@ def mansard_cover(m: dict, depth: float, width: float, eave: float, pitch: float
             X0, X1, Z0, Z1 = cr["x0"] - co, cr["x1"] + co, cr["z0"] - co, cr["z1"] + co
             if X0 <= u <= X1 and Z0 <= z <= Z1:
                 ts, te = math.tan(math.radians(cr["pitch_deg"])), math.tan(math.radians(cr["end_pitch_deg"]))
-                y = max(y, cr.get("eave_m", eave) + min((u - X0) * ts, (X1 - u) * te, (z - Z0) * ts, (Z1 - z) * ts))
+                from . import k05_roofs as k5_roofs
+                si = cr.get("side_inset_m", 0.0)   # T-1896: sides off a ledge, k05.hip_crown_element's
+                lg = k5_roofs.CROWN_LEDGE_M if si else 0.0
+                tb = math.tan(math.radians(cr.get("back_pitch_deg", cr["pitch_deg"])))
+                y = max(y, cr.get("eave_m", eave) + min((u - X0) * tb, (X1 - u) * te,
+                                                        lg + max(min(z - Z0, Z1 - z) - si, 0.0) * ts))
         return y
     return cover
 
@@ -3490,6 +3518,29 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             st["head_frieze"] = {"run": int(hf["run"]), "at": float(hf["at"]), "roundel": {
                 "radius_m": float(rd["radius_m"]), "ring_m": float(rd["ring_m"]), "proud_m": float(rd["proud_m"]),
                 "segments": int(rd["segments"])}, **{k: float(hf[k]) for k in ("from_m", "to_m", "border_m", "proud_m")}}
+        # T-1896: carved roundels on a storey's wall over its lights (1827's corner tower, the
+        # Doane photograph: one between its principal floor's pair, over their hoods); where each
+        # stands against the lights and the band is k08_bays.Bay._roundel's to refuse
+        for st in v["storeys"]:
+            rns = st.get("roundels")
+            if rns is None:
+                continue
+            rk = {"run", "at", "centre_m", "radius_m", "ring_m", "proud_m", "segments"}
+            if not isinstance(rns, list) or not rns or any(
+                    not isinstance(rn, dict) or set(rn) != rk
+                    or not (0 <= int(rn["run"]) and 0.0 < float(rn["at"]) < 1.0
+                            and 0.08 <= float(rn["radius_m"]) <= 0.4
+                            and 0.02 <= float(rn["ring_m"]) <= float(rn["radius_m"]) - 0.03
+                            and 0.01 <= float(rn["proud_m"]) <= 0.06 and 12 <= int(rn["segments"]) <= 48
+                            and float(rn["radius_m"]) + 0.05 <= float(rn["centre_m"])
+                            <= float(st["height_m"]) - float(rn["radius_m"]) - 0.05)
+                    for rn in rns):
+                raise ParamError(f"bays: {e['id']}'s roundels are a list of {sorted(rk)} (radius 0.08-0.4 m, a ring "
+                                 f"0.02 m to 0.03 m under it, 0.01-0.06 m proud, 12-48 segments, inside the storey), "
+                                 f"not {rns}")
+            st["roundels"] = [{"run": int(rn["run"]), "segments": int(rn["segments"]),
+                               **{k_: float(rn[k_]) for k_ in ("at", "centre_m", "radius_m", "ring_m", "proud_m")}}
+                              for rn in rns]
         # T-1881: a banded pier between a storey's windows with an oculus in its head (1729's 18th
         # Street pavilion, Taylor's photograph no. 1445): on a stone bay, clear of its lights
         for st in v["storeys"]:
@@ -7906,11 +7957,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             # `spring_m` off the capitals, under a spandrel wall to the soffit
             if "arches" in hd:
                 ar = hd["arches"]
-                if not {"faces", "spring_m", "rise_m"} <= set(ar) <= {"faces", "spring_m", "rise_m", "over"} or \
+                if not {"faces", "spring_m", "rise_m"} <= set(ar) <= {"faces", "spring_m", "rise_m", "over",
+                                                                     "end_columns", "end_parapet_m"} or \
                         not ar["faces"] or not set(ar["faces"]) <= {"front", "left", "right"} or \
                         len(set(ar["faces"])) != len(ar["faces"]):
                     raise ParamError("entrance_kit.hood.arches takes faces (front, left, right), spring_m and "
-                                     "rise_m, and optionally over")
+                                     "rise_m, and optionally over, end_columns and end_parapet_m")
                 sp, ri = float(ar["spring_m"]), float(ar["rise_m"])
                 floor = float(val("principal_floor_m"))
                 if not 0.1 <= ri <= 1.5 or sp - cap < floor + ph + 0.5 or sp + ri > float(hd["soffit_m"]) - 0.05:
@@ -7918,6 +7970,24 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                      f"clear the columns' plinths with a shaft and stand under the soffit "
                                      f"({hd['soffit_m']} m) by 0.05 m")
                 door_kit["hood"]["arches"] = {"faces": list(ar["faces"]), "spring_m": sp, "rise_m": ri}
+                # T-1896: an arched end's back on a column against the wall, in place of the flat
+                # respond, and a low parapet across it between its pedestals (1827's south end,
+                # the Doane photograph); on an end, and the parapet under the pedestals' tops
+                ends_ = [f for f in ar["faces"] if f != "front"]
+                if "end_columns" in ar:
+                    if ar["end_columns"] is not True or not ends_ or "splay" in hd:
+                        raise ParamError("entrance_kit.hood.arches.end_columns: true, on an arched end that is "
+                                         "not splayed")
+                    if hd["out_m"] < 2 * pw + 0.8:
+                        raise ParamError("entrance_kit.hood.arches.end_columns: the hood is too shallow for a "
+                                         "column at each end of an end's arch")
+                    door_kit["hood"]["arches"]["end_columns"] = True
+                if "end_parapet_m" in ar:
+                    pp = float(ar["end_parapet_m"])
+                    if not ends_ or not 0.15 <= pp <= ph:
+                        raise ParamError(f"entrance_kit.hood.arches.end_parapet_m {pp}: 0.15 m up to the "
+                                         f"pedestals' {ph} m, on an arched end")
+                    door_kit["hood"]["arches"]["end_parapet_m"] = pp
                 # T-3283: or only over the spans `over` names, counted from 0 between the columns
                 # in order, the spandrel left whole over the rest: a porch on PAIRED columns
                 # (1923's, the 1898 Tribune sketch) arches the wide span between its pairs, not

@@ -1727,6 +1727,12 @@ class Bay:
                     c_, r_ = run.L * sp_["at"], sp_["oculus"]["radius_m"] + .002
                     y_ = levels[k] + sp_["oculus"]["centre_m"]
                     trim_holes.append((c_ - r_, c_ + r_, y_ - r_, y_ + r_, (), True))
+                rns = [rn for rn in v["storeys"][k].get("roundels", ()) if rn["run"] == i]
+                if v.get("masonry") and self.tier == "full":
+                    for rn in rns:   # T-1896: no coursed cell over a carved roundel's face
+                        c_, r_ = run.L * rn["at"], rn["radius_m"] + .002
+                        y_ = levels[k] + rn["centre_m"]
+                        trim_holes.append((c_ - r_, c_ + r_, y_ - r_, y_ + r_, (), True))
                 if v.get("masonry") and self.tier == "full" and hi <= v["masonry"].get("to_m", math.inf) + 1e-6:
                     masonry_cells(flat, holes, run.L, lo, hi, v["masonry"], trim_holes)
                 else:
@@ -1741,6 +1747,8 @@ class Bay:
                 hf = v["storeys"][k].get("head_frieze")
                 if hf and i == hf["run"]:
                     self._head_frieze(flat, run, levels[k], hf)
+                for rn in rns:
+                    self._roundel(flat, run, i, k, levels[k], hi - (band["height_m"] / 2 if k + 1 < len(v["storeys"]) else 0.0), rn)
                 if k == 0 and v.get("apron_band"):
                     self._apron_band(flat, run, levels[0], v["apron_band"])
                 sp = v["storeys"][k].get("pier")
@@ -3204,6 +3212,34 @@ class Bay:
         flat.plane("band", boss, -pr - rp * 0.6)
         flat.tube("band", boss, -pr, -pr - rp * 0.6, inward=False)
         m["roundel"] = {"s_m": round(cs, 4), "y_m": round(yc, 4), "radius_m": R}
+
+    def _roundel(self, flat, run, i, k, y_floor, y_under, rn):
+        """T-1896: a carved roundel on a storey's wall over its lights (1827's corner tower, the
+        Doane photograph: one between its principal floor's pair, over their hoods and under the
+        string course): a ring `ring_m` wide inside `radius_m` round a boss, standing `proud_m`
+        from the wall's face, `at` along the run and `centre_m` over the storey's floor. It must
+        stand clear of the run's ends, of the band over the storey (`y_under`, its underside),
+        and of every light and hood of this storey it shares any width with. The light tier
+        drops it, as it drops a head frieze's."""
+        R, w, rp, kk = rn["radius_m"], rn["ring_m"], rn["proud_m"], rn["segments"]
+        cs, yc = run.L * rn["at"], y_floor + rn["centre_m"]
+        if not (cs - R >= 0.05 and cs + R <= run.L - 0.05 and yc + R <= y_under - 0.02):
+            raise ValueError(f"{self.v['id']}: a roundel at run {i}, {cs:.3f} m, {yc:.3f} m stands off its "
+                             f"{run.L:.2f} m run or into the band at {y_under:.3f} m")
+        for wr in self.windows:
+            if wr["run"] == i and wr["storey"] == k and wr["s_extent"][0] < cs + R and cs - R < wr["s_extent"][1] \
+                    and wr["y_all"][0] < yc + R and yc - R < wr["y_all"][1] + 0.02:
+                raise ValueError(f"{self.v['id']}: a roundel at run {i}, {cs:.3f} m, {yc:.3f} m meets the light "
+                                 f"at {wr['s']} m (to {wr['y_all'][1]} m)")
+        self.meta.setdefault("roundels", []).append({"run": i, "storey": k, "s_m": round(cs, 4),
+                                                     "y_m": round(yc, 4), "radius_m": R})
+        if self.tier == "light":
+            return
+        self._ring(flat, cs, yc, R, w, kk, 0.0, -rp)
+        boss = [(cs + (R - w - 0.01) * math.cos(2 * math.pi * t / kk), yc + (R - w - 0.01) * math.sin(2 * math.pi * t / kk))
+                for t in range(kk)]
+        flat.plane("band", boss, -rp * 0.6)
+        flat.tube("band", boss, 0.0, -rp * 0.6, inward=False)
 
     def _pier(self, flat, run, y_floor, y_top, sp):
         """T-1881: a banded pier standing on a run between its windows, with an oculus in its

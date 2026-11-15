@@ -2,11 +2,11 @@
   "structure_id": "doane_house_1827_prairie",
   "view": "glessner_blog_print",
   "glb": "assets/gltf/doane_house_1827_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0b3709ac14fb649ba247c22aced5a8a88dcb3395e470c1c3c36f4fc41cb2a7a4",
+  "glb_sha256": "802296770f855c478a30417ab54ec0f77c9f423edbacc01b404511bbfc64bb80",
   "camera_sha256": "768e7da5ef45226b6733e3a3f0d558002255ef85f960e36c6d211388749ca623",
   "photo_sha256": "9c2686002d5fd54c90cc027c2a49a442050867e9f2d55617e437c8d7acf7d720",
   "side_by_side": "docs/RESEARCH/photo-match/doane_house_1827_prairie/glessner_blog_print-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "everything the Chicagology copy shows: it is the same negative (1,656 SIFT matches on one affine map, 0.40 px RMS), so every reading of chicagology_doane_exterior.match.json holds here at a third of the size",
@@ -23,5 +23,5 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

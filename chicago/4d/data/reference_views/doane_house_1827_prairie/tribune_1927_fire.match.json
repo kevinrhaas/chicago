@@ -2,7 +2,7 @@
   "structure_id": "doane_house_1827_prairie",
   "view": "tribune_1927_fire",
   "glb": "assets/gltf/doane_house_1827_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0b3709ac14fb649ba247c22aced5a8a88dcb3395e470c1c3c36f4fc41cb2a7a4",
+  "glb_sha256": "802296770f855c478a30417ab54ec0f77c9f423edbacc01b404511bbfc64bb80",
   "camera_sha256": "469be2a068f4e7d25eb48b65a759e0856e5a436cb61cd78d2a61033d4154a2d9",
   "photo_sha256": "b6c408eb91f0dfdb60fa7fc2d30c50975cc4352606fe5f36a4e90ab5d4ad0181",
   "side_by_side": "docs/RESEARCH/photo-match/doane_house_1827_prairie/tribune_1927_fire-side-by-side.jpg",
@@ -46,7 +46,12 @@
       "what": "the date: the night of 31 December 1926, twenty-two years after the 1904 scene, the house then occupied by a printing concern",
       "status": "not shown",
       "how": "what it shows of the roofs and the tower is what the 1880s photograph shows, so it is read as evidence of the same building, not of a later alteration"
+    },
+    {
+      "what": "the crown, closed to a short pyramid by T-1896: its point and finial where the print's stand (x 300-345 px)",
+      "status": "fixed",
+      "how": "T-1896: re-rendered after the crown was closed to a point; its outline still stands at the print's"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

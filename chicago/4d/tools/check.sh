@@ -1592,6 +1592,12 @@ step "a corner porch's cornice may stand on modillions, its balcony in the trim 
 step "a mansard crown may stand over a stretch of the front and turn a canted corner (T-3283)" \
   python3 tools/test_k01_front_crown.py
 
+# T-1896. 1827 Prairie's sign-off against the Doane photograph: a hipped crown on a ledge of its
+# cornice, closed to one point; a carved roundel on a K08 storey over its lights; an arched porch
+# end on a column against the wall with a low parapet; each refused where it would not fit.
+step "a hipped crown may close to a point, K08 carves roundels, a porch end stands on a column (T-1896)" \
+  python3 tools/test_k01_doane_crown_porch_roundel.py
+
 # T-1890. 1801 Prairie's street face leans back further than its side faces (the Taylor print
 # and HABS photograph 2 put its curb's north-west corner about 1 m further back): the K05 ring
 # stack's street rings scaled to their own run, every face planar, no other mansard moved; the

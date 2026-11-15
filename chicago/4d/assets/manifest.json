@@ -312,9 +312,9 @@
     "doane_house_1827_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 9725736,
+      "bytes": 9772092,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "7f15013e3eb321e7ba4213e5b9df91b78aa9fdec8392cbe4f9a4a983e26e2870",
+      "inputs_sha256": "abc99b28fc3abd8716de5862adbe3ba78f0312e5d2ae08e31b055dc782c31b0e",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "doane_house_1827_prairie"

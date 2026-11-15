@@ -4365,7 +4365,11 @@ class Assembly:
         T-3186: or each capital carved, a bell of leaves under its abacus (`carved`).
         T-3210: or under an arcade (`arches`), the capitals at its springing.
         T-1887: and a third column at a splayed end's back (`splay`), against a bay's cheek,
-        with no respond behind it."""
+        with no respond behind it.
+        T-1896: or a column against the wall at the back of each arched end, in place of its
+        respond (`arches.end_columns`, 1827's south end in the Doane photograph, standing proud
+        of the wall beside the pavilion), and a low parapet across each arched end between its
+        pedestals, `arches.end_parapet_m` over the landing."""
         dia, (pw, ph), cap, rsp = co["diameter_m"], co["plinth_m"], co["capital_m"], co["respond_m"]
         cv = co.get("carved")
         yl = op.sill_m                                   # the landing, the door's own sill
@@ -4375,7 +4379,11 @@ class Assembly:
         ys = arches["spring_m"] if arches else y0        # the capitals' top
         at = [op.s_m + a for a in co["at_s_m"]] if co.get("at_s_m") else (s0 + pw / 2 + 0.05, s1 - pw / 2 - 0.05)
         spc = (op.s_m + splay["column_s_m"], splay["column_out_m"]) if splay else None
-        for cs, cd_ in [(x, cd) for x in at] + ([spc] if spc else []):
+        ends = [x for side, x in (("left", min(at)), ("right", max(at))) if side in arches["faces"]] \
+            if arches and arches.get("end_columns") else []
+        bd = pw / 2 + 0.01   # T-1896: an end's back column, its plinth against the wall
+        backs = [(x, bd) for x in ends]
+        for cs, cd_ in [(x, cd) for x in at] + ([spc] if spc else []) + backs:
             if (cs, cd_) != spc and not s0 + pw / 2 + 0.05 - 1e-6 <= cs <= s1 - pw / 2 - 0.05 + 1e-6:
                 raise ValueError(f"the hood's column at s {cs:.3f} stands past its ends ({s0:.3f}-{s1:.3f})")
             cd = cd_
@@ -4396,11 +4404,17 @@ class Assembly:
                 quad([P(q[0][0], ya, q[0][1]), P(q[1][0], ya, q[1][1]), P(q[1][0], yb, q[1][1]), P(q[0][0], yb, q[0][1])],
                      self._hood_dir(P, am), bf)
             # the respond: a flat pilaster on the wall behind the column, landing to soffit
-            if (cs, cd_) != spc:
+            # (T-1896: none behind an end whose own column stands against the wall)
+            if (cs, cd_) != spc and (cs, cd_) not in backs and not any(abs(cs - x) < 1e-9 for x in ends):
                 box(cs - pw / 2 + 0.05, cs + pw / 2 - 0.05, yl, y0, 0.0, rsp, skip=("back", "bottom", "top"))
         cd = out - pw / 2 - 0.05
+        if arches and arches.get("end_parapet_m"):   # T-1896: each arched end's low parapet
+            for x in [x for side, x in (("left", min(at)), ("right", max(at))) if side in arches["faces"]]:
+                d0 = bd + pw / 2 if ends else rsp
+                box(x - cw, x + cw, yl, yl + arches["end_parapet_m"], d0, cd - pw / 2, skip=("bottom",))
         if arches:
-            self._arch_count = self._hood_arcade(arches, P, quad, bf, bh, be, sorted(at), s0, s1, cd, cw, rsp, y0,
+            self._arch_count = self._hood_arcade(arches, P, quad, bf, bh, be, sorted(at), s0, s1, cd, cw,
+                                                 bd + cw if ends else rsp, y0,
                                                  splay=(splay["side"], spc) if splay else None)
 
     def _hood_arcade(self, A, P, quad, bf, bh, be, at, s0, s1, cd, cw, rsp, y0, splay=None):
@@ -4591,7 +4605,9 @@ class Assembly:
         cr = (m or {}).get("crown")
         if cr and cr.get("form") == "hip":   # T-2465: a crown hipped to its own ridge
             crown, _, _ = k5.hip_crown_element(cr["x0"], cr["x1"], cr["z0"], cr["z1"], cr.get("eave_m", E), cr["pitch_deg"],
-                                               cr["end_pitch_deg"], cr["overhang_m"], f)
+                                               cr["end_pitch_deg"], cr["overhang_m"], f,
+                                               side_inset=cr.get("side_inset_m", 0.0),
+                                               back_deg=cr.get("back_pitch_deg"))
             solids.append(crown)
         elif cr:  # T-2404: the pavilion's crown, a taller mansard joined into the main one
             # T-3283: a crown over the front's stretch onto a canted corner is cut on its line too
