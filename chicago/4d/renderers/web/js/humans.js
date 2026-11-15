@@ -32,7 +32,7 @@
  */
 import * as THREE from 'three';
 import { resolveHumanIdentity, humanRoleCard } from './human-identity.js';
-import { createHumanLife } from './human-life.js';
+import { createHumanLife, POSTURES } from './human-life.js';
 import { createHumanActions } from './human-actions.js';
 import { createHumanGait } from './human-gait.js';
 import { createHumanSkirt } from './human-skirt.js';
@@ -46,7 +46,8 @@ import { enuToWorld } from './terrain.js';
 import { dressSkin, restingLid } from './human-skin.js';
 import { dressHair, dressHeadcloth } from './human-hair.js';
 import { hairFor } from './human-hair-styles.js';
-import { dressLooks, dressCloth, looksHairStyle } from './human-looks.js';
+import { dressLooks, dressCloth, looksHairStyle, dressInSeason } from './human-looks.js';
+import { dressFinery } from './human-finery.js';
 import { dressHat } from './human-hats.js';
 import { dressSpectacles } from './human-spectacles.js';
 import { fitWaist } from './human-waist.js';
@@ -256,6 +257,9 @@ export function pendingBuilds() { return buildQueue.length; }
  * `heightAt(e, n)` stands it on the ground; `clipLibrary` (AnimationClips on the contract
  * skeleton, § 7) adds clips the body's own file does not carry.
  */
+/** T-3553: the season people are dressed for (Settings › Season), set by the layer. */
+let dressSeason = 'summer';
+
 export class HumanActor {
   constructor({ instance, person = null, identity = null, assets, heightAt = () => 0, clipLibrary = [], tier = 'full', variation = 'full', prepare = null }) {
     this.instance = instance;
@@ -332,7 +336,40 @@ export class HumanActor {
     // T-3504: a step aside from whoever else stands here, local metres (human-spacing.js).
     this.spaceE = 0;
     this.spaceN = 0;
+    // T-3553: a posture held off the feet (human-life.js POSTURES): { kind, w, to, rate }, w
+    // easing toward `to` (1 in it, 0 back on the feet). `animateM` lets a jaunt's staged
+    // figure hold a kneel beyond ANIMATE_M, where nobody else is animated.
+    this.posture = null;
+    this.animateM = null;
+    this.root.rotation.order = 'YXZ';
     this.place();
+  }
+
+  /**
+   * T-3553: kneel, crouch, sit, lie down (prone or face up) or stand again, easing into it
+   * over `seconds` (0: at once). Returns false for a posture this layer does not know.
+   */
+  setPosture(kind = 'stand', { seconds = 0.9 } = {}) {
+    if (kind !== 'stand' && !POSTURES[kind]) return false;
+    if (kind === 'stand') {
+      if (!this.posture) return true;
+      this.posture.to = 0; this.posture.rate = seconds > 0 ? 1 / seconds : Infinity;
+    } else {
+      const was = this.posture?.kind === kind ? this.posture.w : 0;
+      this.posture = { kind, w: seconds > 0 ? was : 1, to: 1, rate: seconds > 0 ? 1 / seconds : Infinity };
+    }
+    if (seconds <= 0 && kind === 'stand') this.posture = null;
+    this.place();
+    return true;
+  }
+
+  /** T-3553: one frame of a posture's easing; the root's tip follows its weight. */
+  stepPosture(dt) {
+    const p = this.posture;
+    if (!p) return;
+    const step = Number.isFinite(p.rate) ? p.rate * Math.max(0, dt) : 1;
+    p.w = p.to > p.w ? Math.min(p.to, p.w + step) : Math.max(p.to, p.w - step);
+    if (p.to === 0 && p.w <= 0) this.posture = null;
   }
 
   /** Where it stands, in local ENU metres, with its feet on the ground. */
@@ -349,7 +386,14 @@ export class HumanActor {
       const e = this.e + (this.spaceE ?? 0), n = this.n + (this.spaceN ?? 0);
       enuToWorld(e, n, this.heightAt(e, n), this.root.position);
     }
-    this.root.rotation.y = headingToYaw(this.heading);
+    // T-3553: lying down tips the whole figure about its feet, face down along its heading
+    // (+90) or face up with its head to its heading (-90), lifted by the body's depth.
+    const lying = this.posture && POSTURES[this.posture.kind]?.root ? POSTURES[this.posture.kind] : null;
+    const w = lying ? this.posture.w : 0;
+    const face = lying && lying.root < 0 ? 180 : 0;
+    this.root.rotation.y = headingToYaw((this.heading + face * (w > 0 ? 1 : 0)) % 360);
+    this.root.rotation.x = lying ? lying.root * (Math.PI / 180) * w : 0;
+    if (lying) this.root.position.y += lying.lift * w;
   }
 
   /**
@@ -429,12 +473,26 @@ export class HumanActor {
     }
     if (this.skirt) this.skirt.bind(next.scene);
     else this.skirt = createHumanSkirt({ id: this.personId ?? this.id, scene: next.scene });
-    if (prev) { this.counters.swaps++; this.park(prev); }
+    // T-3553: a level dressed for another season is let go, never kept for a swap back.
+    if (prev) { this.counters.swaps++; if (prev.season && prev.season !== dressSeason) this.teardown(prev); else this.park(prev); }
     this.costs = '';
     this.applyCosts();
     this.applyFace(this.expression);
     this.prune();
     return next;
+  }
+
+  /**
+   * T-3553: the Season setting changed and this figure dresses by season: let go of the levels
+   * kept for a swap back and load the level drawn now again, in the new season's dress.
+   */
+  redress() {
+    if (!this.body?.season || this.body.season === dressSeason) return false;
+    this.prune(true);
+    this.lod = -1;
+    this.wanted = -1;
+    this.recheck = 0;
+    return true;
   }
 
   /** Take `body` out of the scene and keep it for a swap back (T-3439). */
@@ -482,9 +540,13 @@ export class HumanActor {
     // skin and iris, before dressSkin patches them.
     const looks = variation?.persons?.[this.personId]?.looks ?? null;
     const looked = looks ? dressLooks(scene, looks) : [];
-    // T-3506: their own cloth colours and the pieces they wear today (human-looks.js).
-    const dress = variation?.persons?.[this.personId]?.dress ?? null;
+    // T-3506: their own cloth colours and pieces worn (human-looks.js); T-3553: for the
+    // season, with its pattern and trimming (human-finery.js) on their own clones. A jaunt's
+    // unnamed staged figure may wear a carded person's dress (`dress_of`).
+    const recorded = variation?.persons?.[this.instance.appearance?.dress_of ?? this.personId]?.dress ?? null;
+    const dress = dressInSeason(recorded, dressSeason);
     if (dress) looked.push(...dressCloth(scene, dress));
+    if (dress?.finery) looked.push(...dressFinery(scene, dress.finery, looked));
     // ...and his own hair colour and cut, for the hair layer below (and any tail below a tie).
     const style = looks ? looksHairStyle(looks, hairFor(this.personId ?? null, Number(this.instance.scene) || null)) : null;
     if (style && dress?.tail_cm) style.tail_cm = dress.tail_cm;
@@ -526,7 +588,8 @@ export class HumanActor {
     if (hair?.face?.morphTargetDictionary && Object.keys(hair.face.morphTargetDictionary).length) faces.push(hair.face);
     const mixer = new THREE.AnimationMixer(scene);
     mixer.addEventListener('finished', (ev) => { if (ev.action === this.body?.oneShot) this.endGesture(); });
-    return { lod, scene, meshes, faces, mixer, clips, hair, looked, extras, garrison: dress?.garrison ?? null, action: null, oneShot: null, assetId: this.instance.appearance.asset_id };
+    return { lod, scene, meshes, faces, mixer, clips, hair, looked, extras, garrison: dress?.garrison ?? null, action: null, oneShot: null, assetId: this.instance.appearance.asset_id,
+      season: recorded?.seasons ? dressSeason : null };
   }
 
   teardown(body) {
@@ -827,8 +890,9 @@ export class HumanActor {
     // T-3472: the ground covered this frame, which is what the gait's phase advances by.
     const moved = Math.hypot(this.e - e0, this.n - n0);
     const b = this.body;
+    if (this.posture) { this.stepPosture(dt); this.place(); }
     if (!b) { this.visualIdleBody = null; return true; }
-    if (this.distance < ANIMATE_M) {
+    if (this.distance < (this.animateM ?? ANIMATE_M)) {
       const naturalStanding = this.state === 'standing' && this.clipName === 'idle_natural_v1' && !b.oneShot;
       const idleDt = Number.isFinite(visualDt) && visualDt >= 0 ? visualDt : 0;
       const clipDt = naturalStanding ? (this.visualIdleBody === b ? idleDt : 0) : dt;
@@ -837,9 +901,11 @@ export class HumanActor {
       const gait = this.gait?.bound && !b.oneShot ? this.gait : null;
       if (gait) gait.apply(clipDt, { state: this.state, root: this.root, moved });
       // Life rides the clip's own clock, so a held clip holds it too.
-      if (this.life?.bound && !b.oneShot) this.life.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition, gait });
+      if (this.life?.bound && !b.oneShot) this.life.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition, gait, posture: this.posture });
       if (this.actions?.bound && !b.oneShot) {
-        this.actions.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition, gait });
+        // T-3553: kneeling or seated, the hands reach from where the body is, and leave their standing poses.
+        const posed = this.posture ? this.posture.w : 0;
+        this.actions.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition, gait, sink: this.life?.sink ?? 0, posed });
         if (this.actions.takeNod()) this.life?.nod();
       }
       // Last, the skirt over wherever the legs went.
@@ -854,7 +920,8 @@ export class HumanActor {
       const t = this.blinkClock % 4;
       // T-3493: an older face's upper lids rest a little lower (restingLid), and blink from there.
       const rest = restingLid(this.variation?.age);
-      const w = rest + (1 - rest) * (this.life?.bound ? this.life.blink : t < 0.15 ? Math.sin((t / 0.15) * Math.PI) : 0);
+      const still = this.posture && POSTURES[this.posture.kind]?.still ? this.posture.w : 0;
+      const w = Math.max(still, rest + (1 - rest) * (this.life?.bound ? this.life.blink : t < 0.15 ? Math.sin((t / 0.15) * Math.PI) : 0));
       this.applyFace({ ...this.expression, eyeBlinkLeft: w, eyeBlinkRight: w });
       this.counters.faced++;
     }
@@ -1084,6 +1151,18 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
       a.dispose();
       return true;
     },
+
+    /** T-3553: the detail tier the figures are drawn at now. */
+    get tier() { return tier; },
+
+    /** T-3553: dress everyone for `season` (summer, spring, fall, winter). */
+    setSeason(season) {
+      if (typeof season !== 'string' || season === dressSeason) return false;
+      dressSeason = season;
+      for (const a of actors.values()) a.redress();
+      return true;
+    },
+    get season() { return dressSeason; },
 
     setTier(next) {
       if (!HUMAN_TIERS[next]) return false;

@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 /** A rear-axle circle, measured in local ENU metres. No renderer or input ownership. */
+import { driveLimits, easeControls, easeReverse, bicycleStep, sampleOf, wheelArcRatios, pursuitSteering,
+  trackingSteering, routeError, refineRouteDistance, refusalWord, bestRejoinDistance, rejoinCost } from './team-drive.js';
 const TAU = 2 * Math.PI;
 const finite = (n, label) => { if (!Number.isFinite(n)) throw Error(`transport loop: finite ${label} required`); return n; };
 const wrap = (n, total) => ((n % total) + total) % total;
@@ -175,6 +177,7 @@ export function createTransportLoop({
   heightAt, clear = () => true, initial_distance_m = 0, steering_limit_deg,
   initial_total_distance_m = 0, initial_wheel_rotation_rad = [0, 0, 0, 0], initial_state = 'moving', person_id = null,
   stops = [], initial_dwell_s = 0, gate = null,
+  passenger_local_m = null, passenger_eye_m = .8, why = null, road = null,
 }) {
   if (!id || !name || typeof route?.at !== 'function' || !assembly?.pose) throw Error('transport loop: id, name, route and assembly required');
   if (typeof heightAt !== 'function' || typeof clear !== 'function') throw Error('transport loop: ground and clearance readers required');
@@ -182,6 +185,16 @@ export function createTransportLoop({
   if (speed_m_s <= 0 || speed_m_s > 1.5 || wheelbase_m <= 0 || track_m <= 0 || route.maxCurvature * track_m / 2 >= 1) throw Error('transport loop: invalid vehicle pace or geometry');
   if (steering_limit_deg <= 0 || steering_limit_deg >= 90 || Math.atan(wheelbase_m * route.maxCurvature) > steering_limit_deg * Math.PI / 180 + 1e-12) throw Error('transport loop: route exceeds authored vehicle steering limit');
   if (!Array.isArray(driver_local_m) || driver_local_m.length !== 3 || !driver_local_m.every(Number.isFinite)) throw Error('transport loop: physical driver anchor required');
+  // T-3557: the seat a visitor climbs up to, beside the driver (vehicle-root local; y = the
+  // cushion). A row that names none is read as the driver's seat mirrored across the team.
+  const passenger = passenger_local_m ?? [-driver_local_m[0], driver_local_m[1], driver_local_m[2]];
+  if (!Array.isArray(passenger) || passenger.length !== 3 || !passenger.every(Number.isFinite)
+    || !Number.isFinite(passenger_eye_m) || passenger_eye_m < 0) throw Error('transport loop: finite passenger seat required');
+  if (why !== null && typeof why !== 'function') throw Error('transport loop: an optional refusal reader must be a function');
+  // T-3557: the scene's carriageways, where it has them: `road(pose)` is false when a wheel or a
+  // hoof of the team at that vehicle-root pose would leave them (team-drive.js
+  // createCarriagewayReader), true on them, null while unread. Asked only of a driven team.
+  if (road !== null && typeof road !== 'function') throw Error('transport loop: an optional carriageway reader must be a function');
   if (!Array.isArray(wheel_radii_m) || wheel_radii_m.length !== 4 || !wheel_radii_m.every(r => Number.isFinite(r) && r > 0)) throw Error('transport loop: four wheel radii required');
   finite(initial_total_distance_m, 'saved travelled distance');
   if (!['moving', 'stopped'].includes(initial_state) || initial_total_distance_m < 0
@@ -204,11 +217,11 @@ export function createTransportLoop({
   const wheelRotation = [...initial_wheel_rotation_rad];
   const localToEnu = (p, x, z) => [p.e + Math.cos(p.yaw) * x + Math.sin(p.yaw) * z,
     p.n + Math.sin(p.yaw) * x - Math.cos(p.yaw) * z];
-  const poseAt = s => {
-    const rear = route.at(s);
+  // The vehicle-root pose of a rear-axle sample: the route's (poseAt) or, while the team is
+  // driven, the live one the bicycle model steps (T-3557), through the same ground reading.
+  const poseOf = (rear, steering, s) => {
     const [e, n] = localToEnu(rear, 0, root_ahead_of_rear_axle_m);
     const origin = { ...rear, e, n };
-    const steering = Math.atan(wheelbase_m * rear.curvature);
     const frontX = track_m / 2 * Math.cos(steering);
     const frontZ = track_m / 2 * Math.sin(steering);
     const wheelLocal = [
@@ -227,6 +240,10 @@ export function createTransportLoop({
       distance: s, totalDistance,
     };
   };
+  const poseAt = s => {
+    const rear = route.at(s);
+    return poseOf(rear, Math.atan(wheelbase_m * rear.curvature), s);
+  };
   const readNext = ds => {
     const next = poseAt(wrap(distance + ds, route.length));
     return clear(lastPose ?? poseAt(distance), next) ? next : null;
@@ -239,12 +256,231 @@ export function createTransportLoop({
   if (!clear(spawn, spawn)) throw new TransportSpawnObstructedError(spawn);
   draw();
 
+  // T-3557: the reins. 'route' is the round above, untouched. In 'reins' the visitor drives:
+  // a live rear-axle sample (`rear`) is stepped by the bicycle model each <= .05 s tick and
+  // posed through the same poseOf. In 'returning' the driver steers it back onto the road,
+  // then it rejoins there. A refused step never throws and never moves: the team pulls up.
+  // Backing: under the reins, a team standing with the reins held pulled for back_hold_s backs
+  // (speed < 0, at most reverse_m_s); steered home, the driver backs it off a wall that has
+  // refused him for RECOVER_AFTER_S, on the opposite lock, a few metres at a time.
+  const limits = driveLimits({ speed_m_s, steering_limit_deg, wheelbase_m });
+  const INPUT_STALE_S = .3, DEG = Math.PI / 180;
+  const RECOVER_AFTER_S = 2, RECOVER_ATTEMPTS = 6, RECOVER_BACK_M = [2, 3, 4];
+  let mode = 'route', blocked = null, rear = null, speed = 0, steering = 0;
+  let control = { throttle: 0, steer: 0 }, inputAge = Infinity, tracking = false, searchAge = 0;
+  let reversing = false, backHold = 0, recover = null, refusedFor = 0, attempts = 0;
+  const refused = () => { try { return why?.() ?? null; } catch { return null; } };
+  /** Would the team, at this rear-axle sample and steering, put a wheel or hoof over the kerb? */
+  const offRoad = (sample, steer) => {
+    if (!road) return false;
+    const [e, n] = localToEnu(sample, 0, root_ahead_of_rear_axle_m);
+    try { return road({ e, n, yaw: sample.yaw, steering: steer }) === false; } catch { return false; }
+  };
+  const nearestNow = () => {
+    const coarse = routeDistanceNear(route, rear.e, rear.n, .5);
+    return refineRouteDistance(route, rear.e, rear.n, coarse.distance_m, .5, .1);
+  };
+  /** Pose the assembly at a candidate; on a refusal re-pose the last good one and say so. */
+  const commit = (pose, wheels, travelledTotal) => {
+    try { assembly.pose({ ...pose, totalDistance: travelledTotal, wheelRotation: [...wheels] }); }
+    catch {
+      try { assembly.pose({ ...lastPose, totalDistance, wheelRotation: [...wheelRotation] }); } catch { /* the last good pose stands */ }
+      return false;
+    }
+    lastPose = pose; return true;
+  };
+  /** One driven tick: steer to `nextSteer`, then roll `ds` metres (ds < 0 backs). Returns the
+   *  signed metres travelled. Backing turns each wheel back by its own arc; the travelled total
+   *  (and the driver's ride clock that reads it) counts the metres either way. */
+  const driveTick = (tick, nextSteer, ds) => {
+    const k = Math.tan(nextSteer) / wheelbase_m;
+    if (ds !== 0) {
+      const sample = bicycleStep(rear, nextSteer, ds, wheelbase_m), run = Math.abs(ds);
+      let next = null, word = null;
+      if (offRoad(sample, nextSteer)) word = 'the kerb';
+      else try { next = { ...poseOf(sample, nextSteer, distance), reversing: ds < 0 }; } catch (error) { word = refusalWord(error); }
+      if (next && !clear(lastPose, next)) { word = refused() ?? 'a wall'; next = null; }
+      if (next) {
+        const ratios = wheelArcRatios(k, track_m, wheelbase_m);
+        const wheels = wheelRotation.map((r, i) => wrap(r + ds * ratios[i] / wheel_radii_m[i], TAU));
+        assembly.advance?.(tick, ds);
+        if (commit({ ...next, totalDistance: totalDistance + run }, wheels, totalDistance + run)) {
+          rear = sample; steering = nextSteer; totalDistance += run;
+          wheels.forEach((r, i) => { wheelRotation[i] = r; });
+          blocked = null; return ds;
+        }
+        word = 'rough ground';
+      }
+      // Pulled up. The wheels may still be turned where the team stands.
+      speed = 0; blocked = word; assembly.stop?.();
+    }
+    if (Math.abs(nextSteer - steering) > 1e-12) {
+      const sample = sampleOf(rear.e, rear.n, rear.yaw, k);
+      let next = null;
+      // The team swings with the front axle: a lock that would walk a horse up the kerb is
+      // refused where it stands (unless it already stands over it, and may turn off it).
+      if (offRoad(sample, nextSteer) && !offRoad(rear, steering)) blocked = 'the kerb';
+      else try { next = poseOf(sample, nextSteer, distance); } catch (error) { blocked = refusalWord(error); }
+      if (next && commit(next, wheelRotation, totalDistance)) { rear = sample; steering = nextSteer; }
+    }
+    return 0;
+  };
+  /** Back on the road at its nearest distance: 'route' again, the crossing gate restored. */
+  const rejoin = force => {
+    let d = distance;
+    if (force) d = nearestNow().distance_m;
+    else {
+      const err = routeError(route, rear, d);
+      if (Math.abs(err.lateral_m) > .08 || Math.abs(err.heading_rad) > 1.5 * DEG
+        || Math.abs(steering - Math.atan(wheelbase_m * err.curvature)) > 2.5 * DEG) return false;
+    }
+    let pose;
+    try { pose = poseAt(d); } catch { return false; }
+    if (!clear(force ? pose : lastPose, pose)) { if (!force) blocked = refused() ?? 'a wall'; return false; }
+    if (gate?.rejoin && !gate.rejoin(d)) { blocked = 'another team'; return false; }
+    if (!commit(pose, wheelRotation, totalDistance)) { gate?.drop?.(); return false; }
+    distance = d; mode = 'route'; rear = null; speed = 0; steering = pose.steering;
+    blocked = null; tracking = false; giving = false; motionReset = true; inputAge = Infinity;
+    reversing = false; backHold = 0; recover = null; refusedFor = 0; attempts = 0;
+    return true;
+  };
+  /** The driver's own hands on the reins: pure pursuit far off, a settling law near the road. */
+  const returnInput = tick => {
+    searchAge += tick;
+    distance = refineRouteDistance(route, rear.e, rear.n, distance, 3).distance_m;
+    if (searchAge >= 1) {
+      // Another stretch of the road may have become the better one; switch only for a clear gain.
+      searchAge = 0;
+      const other = bestRejoinDistance(route, rear);
+      if (other.cost < rejoinCost(route, rear, distance) - 2) { distance = other.distance_m; tracking = false; }
+    }
+    const err = routeError(route, rear, distance), off = Math.abs(err.lateral_m), turn = Math.abs(err.heading_rad);
+    if (tracking ? off > 2.5 || turn > 40 * DEG : off < 1.5 && turn < 25 * DEG) tracking = !tracking;
+    const want = tracking ? trackingSteering(route, rear, distance, limits)
+      : pursuitSteering(rear, route.at(distance + limits.lookahead_m), limits);
+    return { throttle: limits.route_m_s / limits.max_m_s, steer: -want / limits.steer_max_rad };
+  };
+  const driveFrame = dt => {
+    // The input given before this frame drives this frame, however long it is: aged first, a
+    // frame slower than INPUT_STALE_S (a 3 fps phone, a hitch) dropped the reins every frame.
+    const held = inputAge > INPUT_STALE_S ? { throttle: 0, steer: 0 } : control;
+    inputAge += dt;
+    if (mode === 'returning' && !visible && rejoin(true)) return 0;
+    let remaining = Math.min(dt, .25), travelled = 0;
+    while (remaining > 1e-10 && mode !== 'route') {
+      const tick = Math.min(remaining, .05); remaining -= tick;
+      if (mode === 'returning' && recover) {
+        // The driver backs off what refused him: opposite lock, eased, and to a stand at the end.
+        const stopping = speed * speed / (2 * limits.brake_m_s2);
+        const eased = easeReverse({ speed, steering }, { throttle: recover.left_m > stopping + 1e-6 ? -1 : 0, steer: recover.steer }, limits, tick);
+        speed = eased.speed;
+        const moved = Math.abs(driveTick(tick, eased.steering, speed * tick));
+        travelled += moved; recover.left_m -= moved;
+        // Refused while backing, or backed far enough and stood: walk on toward the road again.
+        if ((moved === 0 && speed === 0 && blocked) || (recover.left_m <= stopping + 1e-6 && speed === 0)) {
+          recover = null; speed = 0; refusedFor = 0; searchAge = 1; tracking = false;
+        }
+        continue;
+      }
+      const input = mode === 'returning' ? returnInput(tick) : held;
+      let eased;
+      if (mode === 'reins' && reversing) {
+        // Backing under the reins: pulled, it backs; let go or walked on, it comes to a stand.
+        const back = input.throttle < 0;
+        eased = easeReverse({ speed, steering }, back ? input : { throttle: 0, steer: input.steer }, limits, tick);
+        if (!back && eased.speed === 0) reversing = false;
+      } else {
+        eased = easeControls({ speed, steering }, input, limits, tick);
+        if (mode === 'reins' && input.throttle < 0 && eased.speed === 0) {
+          backHold += tick;
+          if (backHold >= limits.back_hold_s - 1e-9) { reversing = true; backHold = 0; }
+        } else backHold = 0;
+      }
+      speed = eased.speed;
+      if (mode === 'reins' && speed === 0 && !reversing && !(input.throttle > 0)) blocked = null;
+      const moved = driveTick(tick, eased.steering, speed * tick);
+      travelled += Math.abs(moved);
+      if (mode === 'returning') {
+        // Nose-first at a wall on full lock, the pursuit alone never gets out: after
+        // RECOVER_AFTER_S refused, back a few metres on the opposite lock (bounded tries).
+        // A person in the way is waited for, never backed away from.
+        if (moved === 0 && blocked && blocked !== 'someone in the way' && input.throttle > 0) {
+          refusedFor += tick;
+          if (refusedFor >= RECOVER_AFTER_S - 1e-9 && attempts < RECOVER_ATTEMPTS) {
+            const side = input.steer !== 0 ? -Math.sign(input.steer) : (attempts % 2 ? 1 : -1);
+            recover = { left_m: RECOVER_BACK_M[attempts % RECOVER_BACK_M.length], steer: side };
+            attempts++; refusedFor = 0; speed = 0;
+          }
+        } else if (moved !== 0) refusedFor = 0;
+        if (!recover && rejoin(false)) break;
+      }
+    }
+    return travelled;
+  };
+
   const out = {
     id, name, personId: person_id,
     get at() { return [...lastPose.driverAt]; },
     /** T-3404: the compass bearing the team faces (forward is +z of the vehicle root). */
     get heading_deg() { return ((180 - lastPose.yaw * 180 / Math.PI) % 360 + 360) % 360; },
     get state() { return state; },
+    /** Why it was last stopped ('interaction', 'obstruction', ...), null while it goes. */
+    get reason() { return reason; },
+    /** The vehicle-root pose last drawn (read only): where its envelope stands now. */
+    get pose() { return lastPose; },
+    /** T-3557: 'route' (its own round), 'reins' (the visitor drives) or 'returning'. */
+    get mode() { return mode; },
+    /** True while the team backs (under the reins, or the driver backing it off a wall). */
+    get reversing() { return mode !== 'route' && !disposed && (speed < 0 || (mode === 'reins' && reversing) || !!recover); },
+    /** While driven: the short word for what pulled it up ('a wall', 'the kerb', ...), else null. */
+    get blocked() { return mode === 'route' ? null : blocked; },
+    /** The rear axle's current pace, m/s (never negative): the round's while it goes, the reins' while driven. */
+    get speed_m_s() {
+      if (disposed || state !== 'moving') return 0;
+      if (mode !== 'route') return Math.abs(speed);
+      return dwell > 0 || giving ? 0 : speed_m_s;
+    },
+    /** The visitor's eye on the seat beside the driver (world ENU; y the absolute eye height). */
+    seat() {
+      if (disposed || !lastPose) return null;
+      const [e, n] = localToEnu(lastPose, passenger[0], passenger[2]);
+      return { e, n, y: lastPose.height + passenger[1] + passenger_eye_m, yaw_rad: lastPose.yaw, heading_deg: out.heading_deg };
+    },
+    takeReins() {
+      if (disposed) return false;
+      if (mode === 'reins') return true;
+      if (mode === 'route') {
+        // Off the round: the crossing keeper lets go of whatever this team held.
+        // It carries on at the pace it had: its round's, or standing if it stood.
+        speed = state === 'moving' && dwell === 0 && !giving ? speed_m_s : 0;
+        gate?.drop?.(); giving = false; dwell = 0; dwellingAt = null;
+        const r = route.at(distance);
+        rear = sampleOf(r.e, r.n, r.yaw, r.curvature); steering = lastPose.steering;
+      }
+      mode = 'reins'; state = 'moving'; reason = null; blocked = null; tracking = false;
+      control = { throttle: 0, steer: 0 }; inputAge = Infinity; motionReset = true;
+      reversing = false; backHold = 0; recover = null; refusedFor = 0; attempts = 0;
+      // Read the road where it stands now, so a scene's carriageways are in hand before it moves.
+      if (road && lastPose) { try { road(lastPose); } catch { /* unread: today's rules */ } }
+      return true;
+    },
+    drive({ throttle = 0, steer = 0 } = {}) {
+      if (disposed || mode !== 'reins') return false;
+      control = { throttle: Number.isFinite(throttle) ? Math.max(-1, Math.min(1, throttle)) : 0,
+        steer: Number.isFinite(steer) ? Math.max(-1, Math.min(1, steer)) : 0 };
+      inputAge = 0;
+      return true;
+    },
+    handBack() {
+      if (disposed || mode === 'route') return false;
+      if (mode === 'reins') {
+        mode = 'returning'; state = 'moving'; reason = null; tracking = false; searchAge = 0;
+        reversing = false; backHold = 0; recover = null; refusedFor = 0; attempts = 0;
+        if (speed < 0) speed = 0; // a backing team stands before the driver takes it on
+        distance = bestRejoinDistance(route, rear).distance_m;
+      }
+      return true;
+    },
     /** T-3497: the stop the team stands at, while it dwells there; null on the road. */
     get dwelling() { return dwell > 0 ? dwellingAt : null; },
     /** The team it is pulled up for at a crossing, while it waits; null on the road. */
@@ -259,11 +495,12 @@ export function createTransportLoop({
     previewAt(s) { return poseAt(wrap(s, route.length)); },
     stop(why = 'interaction') {
       if (disposed) return false;
-      state = 'stopped'; reason = why; motionReset = true; audioSpeed = 0;
+      state = 'stopped'; reason = why; motionReset = true; audioSpeed = 0; speed = 0;
       assembly.stop?.();
       return true;
     },
     canResume() {
+      if (!disposed && mode !== 'route') return true; // the reins (or the driver) take it on
       return !disposed && !!readNext(speed_m_s * 0.25);
     },
     resume() {
@@ -281,6 +518,8 @@ export function createTransportLoop({
       visible = enabled && drawn;
       if (elapsedFrame && visible && !wasVisible) motionReset = true;
       assembly.visible?.(visible);
+      // T-3557: put up while being steered home (hidden, off hours): nobody sees it rejoin.
+      if (mode === 'returning' && !enabled) rejoin(true);
       // Draw reach only culls rendering. A loaded journey keeps approaching the
       // visitor offscreen, with the same bounded ground/clearance and gait steps.
       // Scene holds, hidden tabs and reduced motion still suspend the journey.
@@ -292,6 +531,11 @@ export function createTransportLoop({
       if (elapsedFrame) {
         if (!motionFrame) return;
         if (motionReset) { motionReset = false; return; }
+      }
+      if (mode !== 'route') {
+        const travelled = driveFrame(dt);
+        if (state === 'moving' && dt > 0) audioSpeed = travelled / dt;
+        return;
       }
       // T-3497: standing at a stop. The clock runs down here; the team stands (its
       // distance-driven gait holds its phase) until it is spent.
@@ -346,7 +590,11 @@ export function createTransportLoop({
       if (state === 'moving' && dwell === 0 && dt > 0) audioSpeed = travelled / dt;
     },
     snapshot() {
-      return { id, state, reason, visible: out.visible, disposed, distance_m: distance,
+      // T-3557: a driven team is saved at its nearest place on its own road, so a tier or year
+      // change restores it onto the route, never off it.
+      const onRoute = mode !== 'route' && rear ? nearestNow().distance_m : distance;
+      return { id, state, reason, mode, ...(mode !== 'route' ? { blocked, speed_m_s: Math.abs(speed), reversing: out.reversing } : {}),
+        visible: out.visible, disposed, distance_m: onRoute,
         total_distance_m: totalDistance, at_enu_m: out.at,
         assembly_state: assembly.snapshot?.() ?? null,
         yaw_rad: lastPose.yaw, steering_rad: lastPose.steering,

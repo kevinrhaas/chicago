@@ -284,6 +284,12 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
       const historicalClaims = stop.narrative ? stop.evidence.filter(id => state.jaunt.evidence.find(c => c.id === id)?.confidence !== 'reconstructed') : stop.evidence;
       prose(body, stop.text, historicalClaims, historicalClaims?.every(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'), [], stop.since);
       if (stop.narrative) prose(body, stop.narrative, stop.evidence.filter(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'), true);
+      // T-3553: a stop played by its people (jaunt-stage.js) can be watched again from the start.
+      if (stop.stage?.cast?.length && actions.replay) {
+        const again = button('Watch again', () => actions.replay()); again.dataset.action = 'replay'; again.className = 'jaunt-replay';
+        const what = stop.stage.caption ? node('p', stop.stage.caption, 'jaunt-stage-caption') : null;
+        const row = node('div', '', 'jaunt-stage'); if (what) row.append(what); row.append(again); body.append(row);
+      }
       if (state.context?.lines.length) {
         const notes = node('details', '', 'jaunt-road-history'); notes.append(node('summary', 'On the way')); contextLines(notes);
         // T-2946: a long block reads as a list, not a wall of twenty addresses.

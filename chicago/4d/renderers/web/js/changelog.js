@@ -1,4 +1,72 @@
 export const CHANGELOG = [ // newest first
+  { v: 2993, ts: '2026-11-15T04:49:57.521Z', date: 'Nov 14, 2026, 10:49 PM CT', title: 'The Fort Dearborn monument\'s tomahawk, musket, feathers and headdress as sculpted', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), the warrior\'s tomahawk is no longer a rod and a ball: it is a pipe tomahawk, its haft through his raised fist, the flat blade flaring out on its lower half and the bowl opposite.',
+      'Black Partridge wears a wide headband knotted at the crown, with a broad feather rising out of it and a long thin one streaming back, its end hooked, as both photographs show them.',
+      'His musket has a slim barrel, the lock, the trigger guard and a butt to its comb and toe, and lies outside his thigh where the photographs put it.',
+      'The warrior\'s feather and the fringed pouch at his hip are modelled too, in place of the spikes and the bar they were.',
+    ] },
+  { v: 2992, ts: '2026-11-15T04:25:50.618Z', date: 'Nov 14, 2026, 10:25 PM CT', title: '1823 Prairie\'s arched doorway under the stoop', kind: 'improvement',
+    items: [
+      'The Dent house at 1823 Prairie now has the round-arched basement doorway that both of its pictures show under the stoop\'s landing, about a metre across and closed by an iron grille.',
+    ] },
+  { v: 2991, ts: '2026-11-15T04:25:50.618Z', date: 'Nov 14, 2026, 10:25 PM CT', title: '1619 Prairie\'s card no longer claims a picture of it', kind: 'fix',
+    items: [
+      '1619 Prairie was marked as pictured on the 1886 Hamline and Farwell drawing. That plate shows only the edge of the house standing there in 1886, which the four-storey stone front of 1904 replaced. The card now grades the house as known from maps, and the drawing\'s side-by-side is kept on record.',
+    ] },
+  { v: 2990, ts: '2026-11-15T02:22:07.408Z', date: 'Nov 14, 2026, 8:22 PM CT', title: 'Climb aboard any carriage or wagon and drive the team', kind: 'feature',
+    items: [
+      'Walk up to a driven team in 1812, 1835 or 1904 and press Interact (R): Climb up beside the driver or coachman, or onto the 1812 fort wagon.',
+      'Take the reins: W/S or the arrow keys to go and whoa, A/D to steer. On a phone, the stick does it: up to go, down to whoa, sideways to steer.',
+      'Hand back the reins and the driver takes his team back to its round.',
+      'Get down from the bar at the bottom or the Interact key: the team pulls up and you step off beside it.',
+      'Riding and driving are play, not history: where you take a team is yours, not its driver\'s.',
+    ] },
+  { v: 2989, ts: '2026-11-15T00:41:07.793Z', date: 'Nov 14, 2026, 6:41 PM CT', title: 'Tidier code under the town, nothing on screen changed', kind: 'chore',
+    items: [
+      'Removed leftover code the app no longer used: unused helpers, values it worked out and threw away, and imports it never read.',
+      'The yard goods now share the business signs\' half-size phone picture instead of keeping a second copy of it.',
+      'Every year looks and behaves exactly as before, on phones and computers.',
+    ] },
+  { v: 2988, ts: '2026-11-15T00:12:32.784Z', date: 'Nov 14, 2026, 6:12 PM CT', title: '1828 Prairie\'s stone range wears its channelled face', kind: 'improvement',
+    items: [
+      'The plain stone range south of 1828 Prairie\'s front bay is now laid in channelled stone, deep level joints about 45 cm apart with no upright joints, as the automobile photograph shows it. The bay beside it stays smooth. With that, both of 1828\'s photographs and both of 1824\'s match the model.',
+    ] },
+  { v: 2987, ts: '2026-11-14T23:55:29.709Z', date: 'Nov 14, 2026, 5:55 PM CT', title: 'A Today window shows the same spot in Google Street View', kind: 'feature',
+    items: [
+      'Tap TODAY under the compass to open a small window on the same spot today, in Google Street View. It turns as you turn and follows you as you walk, in 1812, 1835 and 1904.',
+      'The window has keys to make it big, to open the view in Google Maps, and to hide it. Settings › Show › Today window does the same.',
+      'Nothing from Google loads until you open the window, so a phone that never opens it keeps all its memory for the town.',
+      'Until the site\'s Google key is added, the window names the heading and links to Street View at that spot in Google Maps.',
+    ] },
+  { v: 2986, ts: '2026-11-14T23:48:02.126Z', date: 'Nov 14, 2026, 5:48 PM CT', title: 'The checks on the Settings and Navigator screens stop drawing the town', kind: 'fix',
+    items: [
+      'Nothing you can see changes. One part of the checks that run on every change kept running out of time on the test machines: it went through Settings, the Navigator, Jump, the Field Check and Go to, and every step also waited for the whole 3D town to be redrawn, which takes several seconds a picture there. None of those checks looks at the picture, so they now pause the drawing while they read the screens, as the People, Businesses and Evidence checks already do. The town is drawn again before any check that does look at it.',
+    ] },
+  { v: 2985, ts: '2026-11-14T23:19:18.084Z', date: 'Nov 14, 2026, 5:19 PM CT', title: 'Prairie Avenue\'s ladies dress in their own fine, seasonal clothes', kind: 'feature',
+    items: [
+      'Every lady of 1904 has her own dress: silk afternoon dresses, white lingerie dresses, walking suits, velvets and shirtwaists.',
+      'Lace yokes and cuffs, ribbon and velvet bands, braid, tucks, flounces, jet beading, stripes, dots and damask.',
+      'Picture hats, straw sailors and toques, trimmed with ostrich plumes, silk flowers and bows.',
+      'Each changes with the season: light summer silks and whites, suits for spring and fall, velvets in winter.',
+      'Maids, cooks, companions and girls are varied too; the cook\'s print dress and checked apron show their print and check.',
+      'In 1812 the calico gowns, checked kerchiefs and striped petticoats show their prints, checks and stripes.',
+    ] },
+  { v: 2984, ts: '2026-11-14T22:16:08.193Z', date: 'Nov 14, 2026, 4:16 PM CT', title: 'Mr. Glessner waits at his front door when a jaunt starts', kind: 'fix',
+    items: [
+      'Starting the Glessner Household jaunt from the home page (either grade version) left John Glessner talking from inside the house: he stood at his mark but was never drawn.',
+      'His morning had him away at the office, and the tour took him before his day was loaded, so the day sent him back in.',
+      'A host with a day of their own is now always taken through that day, so the first host stands at the door on phones and computers.',
+    ] },
+  { v: 2983, ts: '2026-11-14T21:17:21.027Z', date: 'Nov 14, 2026, 3:17 PM CT', title: 'Mrs. Helm\'s dress and cloak in folds on the Fort Dearborn monument', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), Margaret Helm\'s skirt is no longer a smooth cone: it falls from her waist in long folds over the knee she sinks on and spreads on the rock, as the c. 1900 photograph shows it.',
+      'An overskirt is caught up over her left hip, its hem slanting down across the front, and her cloak hangs off her right forearm in a heavy fold gathered at its foot.',
+    ] },
+  { v: 2982, ts: '2026-11-14T21:12:06.656Z', date: 'Nov 14, 2026, 3:12 PM CT', title: '1828 Prairie\'s front gains the stone range south of its bay', kind: 'feature',
+    items: [
+      '1828 Prairie (the Shipman house) now has a plain, windowless stone range at the south end of its front, beside the canted bay and full height under the cornice, as the street photograph of about 1900 shows it. The 1893 Rand McNally street view draws the same strip, and the 1876 permit\'s 35 ft front leaves room for it. The 1911 fire map does not show it, and the liberty says so.',
+    ] },
   { v: 2981, ts: '2026-11-14T20:04:36.826Z', date: 'Nov 14, 2026, 2:04 PM CT', title: '1708 Prairie weathers to its own age beside an older neighbour', kind: 'improvement',
     items: [
       '1708 Prairie, built between 1886 and 1901, now carries only three years of soot and damp, where it wore a forty-year-old house\'s grime.',

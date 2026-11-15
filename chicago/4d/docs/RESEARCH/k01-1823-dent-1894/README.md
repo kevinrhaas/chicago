@@ -116,3 +116,22 @@ Two of the six open differences, each a small addition to K01:
 Still open, each needing K01 to do something it does not: the triple group's broad dormer whose
 pediment rises over the curb, the grilled arched doorway under the landing, the box bay's
 corbelled foot, and (on the vignette) the slated cheeks either side of the pavilion's attic.
+
+## T-1894, 2026-11-15 — the grilled arched doorway under the landing
+
+K01's side stoop (`entrance_kit.side_stoop`) takes an optional `arch` — `v_m`, `span_m`, `spring_m`,
+`depth_m`, and an optional `grille` of `bars`, `set_back_m` and `ring_radius_m` — and K07 cuts a
+round-headed basement arch in the landing's street face (`Entrance._arch_face`, T-2500's terrace arch,
+now taking the face's role) with iron in its void (`Entrance._arch_grille`, after K08's basement
+grille, T-2525). The Dent house carries one: 1.05 m across under the door at v 6.2 m, jambs 0.6 m over
+grade under a half-round head, a 0.4 m void, five uprights and a ring in the head.
+
+Read through the engraving's camera against the render: the print's arch at x 925-980 px, its crown at
+y 938 px. A first bake with the jambs at 0.8 m put the crown 15 px (about 0.27 m) high; at 0.6 m it
+lands at y 935 px. The 1883 vignette draws the arch a little larger, which its half-metre scale does
+not resolve. Both pictures draw the landing's face about 1 m longer to the north than the build's
+1.8 m, the flight shorter and the landing's top lower: recorded open on both match records, not built
+here (it would move the stoop that both records mark fixed).
+
+The other open items (the broad dormer through the curb, the box bay's corbelled foot, the pavilion
+attic's slated cheeks) are unchanged.

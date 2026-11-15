@@ -152,6 +152,8 @@ def leg_mode(doc, i):
 
 # T-3525: how far from a stop's stand its host may stand: near enough to meet, clear of the visitor.
 HOST_REACH_M = 12
+# T-3553: how far from a stop's stand its stage may reach: a column seen coming from a distance.
+STAGE_REACH_M = 260
 
 def unique(rows, label):
     result = {r['id']: r for r in rows}
@@ -293,6 +295,31 @@ class Compiler:
                     far = math.hypot(h['local_e'] - a['local_e'], h['local_n'] - a['local_n'])
                     require(0.8 <= far <= HOST_REACH_M, f'{stop["id"]}: host {h["person"]} stands {far:.1f} m from the stand; '
                             f'a host stands 0.8-{HOST_REACH_M:g} m from it')
+            # T-3553: a stop's stage is played by people of this scene, each once, and by unnamed
+            # figures in a dress that exists; within STAGE_REACH_M of an anchor's stand; its
+            # reconstruction declared among the jaunt's liberties. A stop is hosted or staged.
+            stage = stop.get('stage')
+            if stage:
+                require(not hosts, f'{stop["id"]}: a stop has hosts or a stage, not both')
+                require(stage['liberty'] in doc['liberties'], f'{stop["id"]}: the stage\'s liberty {stage["liberty"]} is not declared by the jaunt')
+                cast = stage['cast']
+                unique([{'id': c.get('person') or 'extra:' + c['extra']} for c in cast], f'{stop["id"]} stage cast')
+                d = stop['destination']
+                a = self.refs['anchor'].get(d['id']) if d['kind'] == 'anchor' else None
+                for c in cast:
+                    who = c.get('person') or c['extra']
+                    if c.get('person'): self.resolve({'kind': 'person', 'id': c['person']})
+                    else:
+                        require((self.root / f"assets/humans/web/{c['dress']}.lod3.glb").exists(), f'{stop["id"]}: {who} wears {c["dress"]}, which is not a figure')
+                        if c.get('dress_of'): self.resolve({'kind': 'person', 'id': c['dress_of']})
+                    marks = [c['at']] + [p for b in c.get('beats', []) for p in b.get('walk', []) + ([b['place']] if 'place' in b else [])]
+                    if a:
+                        for m in marks:
+                            far = math.hypot(m[0] - a['local_e'], m[1] - a['local_n'])
+                            require(far <= STAGE_REACH_M, f'{stop["id"]}: {who} goes {far:.0f} m from the stand; a stage reaches {STAGE_REACH_M} m')
+                    for b in c.get('beats', []):
+                        if isinstance(b.get('face'), str):
+                            require(any(b['face'] in (x.get('person'), x.get('extra')) for x in cast), f'{stop["id"]}: {who} faces {b["face"]}, who is not in the cast')
             choices = stop.get('choices', [])
             unique(choices, 'choice')
             transitions = list(choices) + ([{'next': stop['next']}] if 'next' in stop else [])

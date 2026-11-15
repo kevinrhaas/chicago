@@ -29,6 +29,8 @@ import argparse, hashlib, json, pathlib, sys
 
 import numpy as np
 
+import finery_words  # T-3553: a dress's own words drawn as its cloth
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 MH = ROOT / 'assets/authored/humans/makehuman_hm08'
 AXES = ROOT / 'data/humans/variation/axes.json'
@@ -401,7 +403,13 @@ def persons():
         dress = dresses().get(pid)
         if dress:
             # T-3506: their own cloth colours and pieces worn, and their hair's tie and colour.
-            rec['dress'] = {k: dress[k] for k in ('colours', 'hide', 'pieces', 'hat', 'worn', 'garrison', 'collar') if dress.get(k)}
+            rec['dress'] = {k: dress[k] for k in ('colours', 'hide', 'pieces', 'hat', 'worn', 'garrison', 'collar', 'finery', 'seasons') if dress.get(k)}
+            # T-3553: a record's own words drawn as its cloth: a calico's figure, a check, a
+            # stripe (tools/finery_words.py), where the dress file did not set its finery itself.
+            if not rec['dress'].get('finery'):
+                words = finery_words.finery_from_worn(pid, dress)
+                if words:
+                    rec['dress']['finery'] = words
             rec['dress']['grade'] = 'reconstructed'
             # T-3522: a townsperson's handkerchief round the head is their dress's, not their hair's.
             if isinstance(dress.get('headcloth'), list):
@@ -414,10 +422,16 @@ def persons():
             if rec.get('looks', {}).get('hair'):
                 rec['looks']['hair'] = {**rec['looks']['hair'], **{k: hair[k] for k in ('cut', 'drawn') if hair.get(k)}}
         out[pid] = rec
-    return (json.dumps({'format': 'chicago4d_human_variation_persons_v1', 'ticket': 'T-3412',
-                        'generated_by': 'tools/human_variation_kit.py',
-                        '_doc': 'Each drawn person\'s age (from their own record: a birth date, else an age band), any face fitted to a picture of them, any skin sheet baked on that face (T-3553), and any looks (complexion, hair, eyes, stature; T-3491). renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.',
-                        'persons': out}, indent=1) + '\n').encode()
+    # T-3553: one person a line, each compact. With every woman's season dresses the indented
+    # file grew past 3.8 MB of whitespace the renderer fetches and a phone parses; a line a
+    # person keeps a diff readable person by person at 2.6 MB.
+    head = {'format': 'chicago4d_human_variation_persons_v1', 'ticket': 'T-3412',
+            'generated_by': 'tools/human_variation_kit.py',
+            '_doc': 'Each drawn person\'s age (from their own record: a birth date, else an age band), any face fitted to a picture of them, any skin sheet baked on that face (T-3553), any looks (complexion, hair, eyes, stature; T-3491), and their dress (T-3506, T-3553). One person a line. renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.'}
+    lines = [f' {json.dumps(k)}: {json.dumps(v, separators=(",", ":"), ensure_ascii=False)}' for k, v in out.items()]
+    text = json.dumps(head, indent=1, ensure_ascii=False)[:-2] + ',\n "persons": {\n' + ',\n'.join(lines) + '\n }\n}\n'
+    json.loads(text)
+    return text.encode()
 
 
 def main():

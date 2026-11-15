@@ -126,17 +126,25 @@ TARGETS = {
     },
 }
 
-#: The parts of monument.FIGURES the rigs do not have, kept as they were: feathers, the
-#: tomahawk, the hip ornament, Mrs. Helm's knot of hair, the cloak off her arm and her
-#: skirt's fall to the rock (the rig's gown is a slim 1812 one; both photographs show the
-#: skirt full, in folds spreading over the rock), Black Partridge's headdress and musket.
-#: Indices into each figure's list there.
+#: The parts of monument.FIGURES the rigs do not have, kept as they were: Mrs. Helm's knot of
+#: hair. (Her cloak and her skirt's fall to the rock were members here too until T-3594
+#: modelled them as drapery, `DRAPED` below; so were the feathers, the tomahawk, the hip
+#: ornament, Black Partridge's headdress and musket, until T-3594 modelled them as the
+#: plates show them, `monument.ORNAMENTS`, hung on `anchors`.) Indices into each
+#: figure's list there.
 PROPS = {
-    "warrior": (1, 6, 12, 13),
-    "helm": (1, 4, 5, 6),
-    "black_partridge": (1, 2, 3, 4, 19, 20),
+    "warrior": (),
+    "helm": (1,),
+    "black_partridge": (),
     "surgeon": (),
     "child": (),
+}
+
+#: The drapery modelled to the sculpture (T-3594): `monument.DRAPERY` pieces per figure. Mrs.
+#: Helm's skirt, overskirt and cloak replace the cone of skirt and the cloak's two members
+#: the poses had kept (her `FIGURES` parts 4, 5 and 6).
+DRAPED = {
+    "helm": ("helm_skirt", "helm_overskirt", "helm_cloak"),
 }
 
 #: The rest pose's head centre over the `head` joint (hm08: the joint is at the skull's
@@ -292,8 +300,8 @@ def _chain(b: _Bones, J, parent_rot, bones, targets, root_to, stretch):
     return rot, here
 
 
-def pose(figure: str, k: float):
-    """The figure posed in metres off the rock's centre: (positions, normals, triangles)."""
+def _posed(figure: str, k: float):
+    """The figure's bones posed to its joints: (bone names, rest joints, rest meshes, bones)."""
     rig, keep = RIGS[figure]
     names, J, meshes = _rest(rig, keep)
     T = {key: np.array(v, dtype=np.float64) * k for key, v in TARGETS[figure].items()}
@@ -337,6 +345,31 @@ def pose(figure: str, k: float):
     missing = [n for n in names if n not in b.L]
     if missing:
         raise ValueError(f"{figure}: bones with no transform: {missing}")
+    return names, J, meshes, b
+
+
+def anchors(figure: str, k: float) -> dict:
+    """Where the posed figure's head and hands are, in metres off the rock's centre, for
+    what the sculpture hangs on them (`monument.ORNAMENTS`, T-3594): the head's centre and
+    its frame (up, forward to the face, and the figure's right), and each hand's grip (the
+    middle finger's root) and its frame (along the hand, and toward its thumb)."""
+    _names, J, _meshes, b = _posed(figure, k)
+    out = {}
+    rot = b.R["head"]
+    out["head"] = b.at("head", J["head"] + np.array([0.0, 0.0, HEAD_CENTRE_UP_M]))
+    out["head_up"] = _unit(_apply(rot, np.array([0.0, 0.0, 1.0])))
+    out["head_fwd"] = _unit(_apply(rot, np.array([0.0, -1.0, 0.0])))
+    out["head_right"] = _unit(_apply(rot, np.array([-1.0, 0.0, 0.0])))
+    for s in ("l", "r"):
+        out[f"grip_{s}"] = b.at(f"hand_{s}", J[f"middle_01_{s}"])
+        out[f"hand_{s}_along"] = _unit(_apply(b.R[f"hand_{s}"], J[f"middle_01_{s}"] - J[f"hand_{s}"]))
+        out[f"hand_{s}_thumb"] = _unit(_apply(b.R[f"hand_{s}"], J[f"thumb_01_{s}"] - J[f"pinky_01_{s}"]))
+    return {key: tuple(float(x) for x in v) for key, v in out.items()}
+
+
+def pose(figure: str, k: float):
+    """The figure posed in metres off the rock's centre: (positions, normals, triangles)."""
+    names, J, meshes, b = _posed(figure, k)
     L = np.stack([b.L[n] for n in names])
     t = np.stack([b.t[n] for n in names])
     R = np.stack([b.R[n] for n in names])

@@ -55,6 +55,9 @@ const DEFAULT_SETTINGS = {
   // § BASE_EXPOSURE and ROADMAP K24.
   brightness: 0,
   compass: true, overviewMap: true, streetNames: true, units: 'imperial',
+  // T-3601 (owner, 2026-11-14): the Today window, Google Street View from where you stand,
+  // turning with you. Off by default: nothing from Google loads until a visitor opens it.
+  todayView: false, todayViewBig: false,
   // T-2736 (owner, 2026-10-17): the tag naming the building in the reticle; on by default,
   // and a visitor who finds it in the way turns it off under Settings › Show.
   lookTag: true,
@@ -653,6 +656,7 @@ export function createHud({
   wireToggle('s-compass', 'compass');
   wireToggle('s-overview-map', 'overviewMap');
   wireToggle('s-street-names', 'streetNames');
+  wireToggle('s-today-view', 'todayView');
   wireToggle('s-look-tag', 'lookTag');
   wireSelect('s-look-tag-place', 'lookTagPlace', 'right');
   wireSelect('s-look-tag-hold', 'lookTagHold', 'fade');
@@ -815,8 +819,14 @@ export function createHud({
     if (!state) { banner.setAttribute('hidden', ''); return; }
     const verb = $('travel-verb'); const dest = $('travel-dest'); const dist = $('travel-dist');
     if (verb) verb.textContent = state.verb ?? str('hud.going');
-    if (dest) dest.textContent = state.dest ?? '';
-    if (dist) dist.textContent = Number.isFinite(state.dist_m) ? formatDistance(state.dist_m, settings.units) : '';
+    if (dest) { dest.textContent = state.dest ?? ''; dest.title = state.destTitle ?? ''; }
+    // T-3557: aboard a team the same bar says what the visitor is doing there (a short note in
+    // place of the distance) and its key gets them down.
+    if (dist) dist.textContent = typeof state.note === 'string' ? state.note
+      : Number.isFinite(state.dist_m) ? formatDistance(state.dist_m, settings.units) : '';
+    const stopKey = $('travel-stop');
+    if (stopKey) stopKey.textContent = state.stop ?? 'Stop';
+    banner.dataset.kind = state.kind ?? 'travel';
     banner.removeAttribute('hidden');
   }
   $('travel-stop')?.addEventListener('click', () => onTravelStop?.());
@@ -893,7 +903,7 @@ export function createHud({
      *  the checkbox, the stored choice and the scene all move together. */
     setToggle(key, on) {
       settings[key] = !!on;
-      const box = { streetNames: 's-street-names', compass: 's-compass', overviewMap: 's-overview-map' }[key];
+      const box = { streetNames: 's-street-names', compass: 's-compass', overviewMap: 's-overview-map', todayView: 's-today-view' }[key];
       if (box && $(box)) $(box).checked = !!on;
       onSetting?.(key, settings[key]);
       store(SET_KEY, JSON.stringify(settings));

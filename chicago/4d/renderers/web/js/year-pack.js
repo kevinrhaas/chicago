@@ -62,10 +62,6 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
     return res ? res.json() : null;
   }
 
-  async function digest(bytes) {
-    return hex(await crypto.subtle.digest('SHA-256', bytes)).slice(0, 16);
-  }
-
   /** The published list. Cache-busted, so a CDN copy older than the files it lists cannot answer. */
   async function publishedPack() {
     const res = await fetch(url(`packs/${year}.json?t=${Date.now()}`), { cache: 'no-store' });

@@ -355,6 +355,30 @@ for (const [asset, lod, clip] of [['bardwell_otis_1835', 0, 'idle_natural_v1'], 
   console.log(`private_first_infantry_1812 LOD0: rank hold for 70 s; talking ${up} hand up ${(h.z - quiet[up].z).toFixed(2)} m before him, moving ${travel.toFixed(3)} m: PASS`);
 }
 
+// T-3553: kneeling, the body is lower than the landmarks the hands are placed from. Before,
+// a soldier kneeling with his hands on his hips held them up where his hips had been, above
+// his head, like a man surrendering; the hands now come down with the body, leave their
+// standing poses, and a talking hand comes up before him from where he kneels.
+{
+  const { POSTURES } = await import(data((await js('human-life.js')).replace("from './driver-life.js'", `from '${driverLife}'`)));
+  const r = await rig('private_first_infantry_1812', 0, 'idle');
+  const life = createHumanLife({ id: 'kneel', scene: r.scene }), acts = createHumanActions({ id: 'kneel', scene: r.scene });
+  const posture = { kind: 'kneel', w: 1 }, stand = { state: 'standing', root: r.root };
+  acts.hold('hips');
+  for (let i = 0; i < 60; i++) step(r, life, acts, 1 / 30, stand);
+  const kneelStep = () => { r.mixer.update(1 / 30); life.apply(1 / 30, { ...stand, posture }); acts.apply(1 / 30, { ...stand, sink: life.sink, posed: 1 }); r.root.updateMatrixWorld(true); };
+  for (let i = 0; i < 60; i++) kneelStep();
+  assert(POSTURES.kneel && life.sink > 0.3, `kneeling brings the pelvis down (${life.sink.toFixed(2)} m)`);
+  const shoulder = (s) => figure(r, world(r.bone(`upperarm_${s}`))).y, hand = (s) => figure(r, world(r.bone(`hand_${s}`))).y;
+  for (const s of ['l', 'r']) assert(hand(s) < shoulder(s) - 0.15, `kneeling, the ${s} hand hangs below the shoulder (hand ${hand(s).toFixed(2)}, shoulder ${shoulder(s).toFixed(2)})`);
+  acts.setTalk(true);
+  for (let i = 0; i < 60; i++) kneelStep();
+  const talking = Math.max(hand('l'), hand('r')), pelvis = figure(r, world(r.bone('pelvis'))).y;
+  assert(talking < Math.min(shoulder('l'), shoulder('r')) && talking > pelvis - 0.05, `kneeling, the talking hand is before him between waist and shoulder (${talking.toFixed(2)})`);
+  acts.setTalk(false); acts.hold(null);
+  console.log(`private_first_infantry_1812 LOD0: kneeling ${life.sink.toFixed(2)} m down, the hands hang below the shoulders and talk from there: PASS`);
+}
+
 // Walking: the arms swing opposite the legs, as far as the stride.
 {
   const r = await rig('bardwell_otis_1835', 1, 'walk');

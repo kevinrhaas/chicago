@@ -94,6 +94,7 @@ import { mountHumans } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
 import { createHumanDays, createDayRouter, clearWayOf } from './human-days.js';
 import { createJauntHosts } from './jaunt-hosts.js';
+import { createJauntStage } from './jaunt-stage.js';
 import { createHumanSpacing, BODY_R_M } from './human-spacing.js';
 import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
@@ -170,6 +171,7 @@ import { createFrameGovernor, describeGovernor } from './frame-governor.js';
 import { mountPacingRead } from './pacing-read.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 import { advanceGust, syncGustUniform } from './wind-gust.js';
+import { createTodayView } from './today-view.js';
 
 const VERSION = '0.1.0';
 
@@ -2806,6 +2808,8 @@ async function boot() {
     paintChipDay(timeState.transient?.date);
     paintTime();
     contextCity.setSeason?.(s);
+    // T-3553: the people's season dress (humans.js), once they are mounted.
+    api.humans?.setSeason?.(s);
     // T-3460: the kitchen garden's crops and its snow.
     gardens.setSeason?.(s);
     // T-3488: the back yards' kitchen rows replanted for the day (their paving's snow is a uniform).
@@ -3976,6 +3980,8 @@ async function boot() {
     // before it is drawn, so walking up to someone is not a stall on her skin's programs.
     prepare: (object) => renderer.compileAsync(object, camera, scene3d),
   });
+  // T-3553: people dress for the season the visitor chose (a summer lawn, a winter velvet).
+  api.humans.setSeason?.(api.season?.current ?? 'summer');
   api.humans.on('open', ({ personId, approach }) => {
     if (!api.people) return;
     // T-3521 (the owner, 2026-11-08: "when you click and select someone i think that person
@@ -4046,6 +4052,16 @@ async function boot() {
         display: 'shown', review_required: true, provenance: entry.provenance ?? null,
       };
       return api.humans.add(rec, { person: byPerson.get(entry.person) ?? { id: entry.person, name: entry.name } });
+    };
+    // T-3553: a gathering's inside-only resident cast in a jaunt's stage is built from the
+    // same record a door call builds (their dress, their card).
+    const insideBy = new Map((inside?.people ?? []).map((row) => [row.person, row]));
+    api.stagePerson = (id) => {
+      const entry = insideBy.get(id);
+      if (!entry?.asset_id) return null;
+      return { person: byPerson.get(id) ?? { id, name: entry.name },
+        instance: { id: `hi_inside_${id}`, contract_version: 1, scene: daysScene, person_id: id, appearance: { asset_id: entry.asset_id },
+          placement: { local_e: 0, local_n: 0, heading_deg: 0, anchor: 'terrain' }, provenance: entry.provenance ?? null } };
     };
     const dayClear = clearWayOf(footprints.concat(lodgeWalls), { barriers: houseBarriers });
     api.days = createHumanDays({ humans: api.humans, three: THREE, hour: sunHour, date: () => world.sunDate ?? null,
@@ -4165,6 +4181,20 @@ async function boot() {
         blockedAt: (e, n) => api.router?.blockedAt(e, n) ?? false,
         placeVisitor: (e, n) => { if (!walker.state.flying) walker.teleport({ local_e: e, local_n: n,
           yaw_deg: walker.bearingDeg, pitch_deg: walker.state.pitch / DEG }); },
+        // T-3557: Climb up / Take the reins / Get down. The ride holds the eye on the seat
+        // (ride.hold in the frame); getting down lands on the ground a visitor stands on.
+        visitorEye: () => ({ e: walker.state.e, n: walker.state.n, y: walker.state.eyeY, bearing: walker.bearingDeg }),
+        groundAt: (e, n) => figureGround(e, n),
+        walkEye: () => WALK.eyeHeight,
+        reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+        reinsHint: () => (backends.name === 'touch' || (backends.name === 'none' && coarse)
+          ? t('hud.ride.reins.touch') : t('hud.ride.reins.keys')),
+        onBoard: (actor, on) => {
+          if (!on) return;
+          // Boarding ends a Go to or a walk with someone, as stepping into a boat does.
+          api.travel?.stop?.('boarding');
+          if (api.follow?.active) api.follow.stop('boarding');
+        },
       });
       if (api.townTransport) scene3d.add(api.townTransport.group);
     } catch (error) { problems.push(`town transport: ${error.message}`); }
@@ -4280,7 +4310,8 @@ async function boot() {
     people,
     positionOf: structurePosition,
     visitor: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg }),
-    onTravelStop: () => { api.townTransport?.cancelDriverApproaches(); travel?.stop('button'); },
+    // T-3557: aboard a team, the bar's key is Get down (api.getDown, below).
+    onTravelStop: () => { if (api.getDown?.()) return; api.townTransport?.cancelDriverApproaches(); travel?.stop('button'); },
     isTouch: prefersTouch(),
     resolvedDetail: detailLevel,
     resolvedQuality: crashBoot.lowered.quality ? crashBoot.quality : qualityGuess,
@@ -4338,6 +4369,8 @@ async function boot() {
         navigation.setMapVisible(value);
       } else if (key === 'streetNames') {
         navigation.setStreetVisible(value);
+      } else if (key === 'todayView') {
+        api.todayView?.setShown(value, { quiet: true });
       } else if (key === 'lookTag') {
         api.targetTag?.setTagShown(value);
       } else if (key === 'lookTagPlace') {
@@ -4680,6 +4713,15 @@ async function boot() {
     navigation.setModern(m);
     api.modernStreets = m;
   });
+  // T-3601: the Today window — Google Street View, today, from where you stand. Its keys
+  // (the TODAY tag, its own close and expand) store the choice as Settings › Show does.
+  const todayView = createTodayView({
+    onShownChange: (on) => hud.setToggle('todayView', on),
+    onExpandedChange: (big) => { hud.settings.todayViewBig = big; hud.setToggle('todayView', hud.settings.todayView); },
+  });
+  todayView.setExpanded(hud.settings.todayViewBig === true, { quiet: true });
+  todayView.setShown(hud.settings.todayView === true, { quiet: true });
+  api.todayView = todayView;
 
   // ---- input ------------------------------------------------------------ //
 
@@ -5649,7 +5691,7 @@ async function boot() {
         modeNote: (jaunt) => jauntWay(jaunt).note,
         license, narration,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
-      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => {
+      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext', 'replay'].map(name => [name, (...args) => {
         // T-3578: Next, Previous and End are the visitor moving on: the voice still speaking stops
         // (and nothing it had queued plays), rather than talking over the next part.
         if (['next', 'prev', 'end'].includes(name)) narration.stop();
@@ -5734,6 +5776,19 @@ async function boot() {
           },
           release: () => { api.jauntHosts?.release(); gateFrame.invalidate(); },
         },
+        // T-3553: a stop's history played by its people (jaunt-stage.js).
+        stage: {
+          sync: (stop, { arrived }) => {
+            if (!api.humans) return;
+            api.jauntStage ??= createJauntStage({ humans: api.humans, parent: api.humans.group,
+              resolve: (id) => api.stagePerson?.(id) ?? null, tier: () => api.humans?.tier ?? 'full',
+              eye: () => camera.getWorldPosition(new THREE.Vector3()) });
+            api.jauntStage.sync(stop, { arrived });
+            gateFrame.invalidate();
+          },
+          replay: () => { const ok = api.jauntStage?.replay() ?? false; gateFrame.invalidate(); return ok; },
+          release: () => { api.jauntStage?.release(); gateFrame.invalidate(); },
+        },
         showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
         closeDetail: jauntCards.close,
         openDetail: jauntCards.open, onError: jauntError,
@@ -5754,7 +5809,7 @@ async function boot() {
     modeFor: (jaunt) => jauntWay(jaunt),
     async daybook() { await ensureJaunts(); return jauntPreview.daybook(); },
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
-    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
+    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext', 'replay'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
   // T-2561: "Keep <year> on this device" on the welcome — the year's pack in Cache
   // Storage behind a service worker, so a kept year boots from disk, offline too.
@@ -5867,8 +5922,8 @@ async function boot() {
       .catch(() => { humanPersons = null; return null; });
     // T-3491: and how he looks (`looks`), for the card's Looks section.
     // T-3508: the base goes back even with no face, for a card's own portrait (Shabbona's).
-    // T-3522: and what they wear today (`dress.worn`), a row of that section.
-    return humanPersons.then((d) => { const r = d?.persons?.[id]; return { face: r?.face ?? null, looks: r?.looks ? { ...r.looks, worn: r?.dress?.worn ?? '' } : null, base: String(base) }; });
+    // T-3522: and what they wear today (`dress.worn`), a row of that section; T-3553: in this season.
+    return humanPersons.then((d) => { const r = d?.persons?.[id]; return { face: r?.face ?? null, looks: r?.looks ? { ...r.looks, worn: (r?.dress?.seasons?.[api.season?.current ?? 'summer']?.worn ?? r?.dress?.worn) ?? '' } : null, base: String(base) }; });
   }
   // A nearby occupied driver can be inspected as soon as its model is ready.
   // Warm only the existing card code/metadata; never open Navigator or acquire a model.
@@ -6176,6 +6231,40 @@ async function boot() {
     say: text => hud.say(text), enabled: () => !gateOpen, keys: window, isTyping,
   });
   api.interactKey = interactKey;
+  /** T-3557: Get down, from the travel bar's key: true when the visitor was aboard. */
+  api.getDown = () => {
+    const aboard = api.townTransport?.ride?.aboard;
+    if (!aboard) return false;
+    const res = interactions.act(`driver:${aboard.id}`, 'get-down');
+    if (res.refused) hud.say(res.why);
+    return true;
+  };
+  /** T-3557: the travel bar while the visitor rides a team: Aboard or Driving, the keys, Get down. */
+  let ridePainted = '', ridePaintAt = 0;
+  function paintRide(ride, elapsed) {
+    const a = ride?.aboard;
+    if (!a) {
+      if (ridePainted) { ridePainted = ''; if (travel?.state?.phase === 'idle') hud.travelBanner(null); }
+      return;
+    }
+    const touch = backends.name === 'touch' || (backends.name === 'none' && coarse);
+    const notes = [];
+    if (a.mode === 'reins') {
+      if (a.blocked) notes.push(t('hud.ride.held', { why: a.blocked }));
+      notes.push(t(touch ? 'hud.ride.stick' : 'hud.ride.keys'));
+    } else if (a.mode === 'returning') notes.push(t('hud.ride.returning'));
+    if (ride.reducedMotion()) notes.push(t('hud.ride.still'));
+    // The team's short name (its row's ride_name): on a phone the long one was cut to "Carriage
+    // driver on Pra…". The long one stays the bar's tooltip.
+    const short = interactions.get(`driver:${a.id}`)?.rideName;
+    const state = { kind: 'ride', verb: t(a.mode === 'reins' ? 'hud.ride.driving' : 'hud.ride.aboard'),
+      dest: short || a.name, destTitle: a.name, note: notes.join(' · '), stop: t('hud.ride.getDown') };
+    const key = JSON.stringify(state);
+    // Repainted on a change, and twice a second besides (a Go to's bar may have taken it).
+    if (key === ridePainted && (ridePaintAt += elapsed) < .5) return;
+    ridePainted = key; ridePaintAt = 0;
+    hud.travelBanner(state);
+  }
   const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   transportReducedMotion.addEventListener('change', resetVisualClock);
   let interactPaintAt = 0;
@@ -6599,6 +6688,15 @@ async function boot() {
     if (asked && popup.openId) popup.close();
     else if (asked && inspectingByHand()) releaseInspect();
     else if (asked) inspect(asked.point ? new THREE.Vector2(asked.point.x, asked.point.y) : null, { by: 'hand' });
+    // T-3557: aboard a team, a Go to or a walk with someone takes the visitor off it where they
+    // sit; otherwise the movement keys are the team's reins (or nothing) and never walk.
+    const teamRide = api.townTransport?.ride ?? null;
+    if (teamRide?.actor && (travel.state.phase !== 'idle' || follow.active)) teamRide.release('travel', { land: false });
+    // The touch stick writes the intent only when the thumb moves, so the walk is kept from it
+    // for this frame and it is put back after: a thumb held to the side keeps the team turning.
+    const heldStick = teamRide?.actor && backends.name === 'touch'
+      ? { forward: intent.forward, strafe: intent.strafe, sprint: intent.sprint } : null;
+    teamRide?.drive(intent);
     const walkSteps = Math.max(1, Math.ceil(frameDt / 0.05));
     const walkDt = frameDt / walkSteps;
     if (!gateOpen) for (let i = 0; i < walkSteps; i++) {
@@ -6610,8 +6708,10 @@ async function boot() {
       follow.afterWalk(intent);
       travel.afterWalk(intent, walkDt);
     }
+    if (heldStick) Object.assign(intent, heldStick);
     // T-3510: while a crossing runs, the visitor sits in the boat whatever the walk did.
     crossings.holdVisitor(walker, WALK);
+    teamRide?.hold(walker, WALK);
     // T-3575: in a headset, the reference space follows the walker (controls/xr.js).
     if (xrMode.presenting) xrMode.sync();
     // Before the render, after the walker: the near plane is a function of where
@@ -6658,6 +6758,9 @@ async function boot() {
       hour: (() => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; })(),
     });
     api.townTransport?.refreshInteractions();
+    // T-3557: the team has moved this frame; the eye goes with it, and the bar says so.
+    if (teamRide?.hold(walker, WALK)) { setNearFor(walker.state.altitude); world.follow(camera.position); }
+    paintRide(teamRide, elapsed);
     // Contacts follow the loaded horses' accepted gait advance in this frame.
     // Held/hidden frames clear the baseline rather than replaying missed steps.
     api.sound?.transportFrame({ active: !visualHeld && visualDt > 0 });
@@ -6682,6 +6785,8 @@ async function boot() {
     }
     api.days?.update(frameDt);
     api.jauntHosts?.update(frameDt);
+    // T-3553: a jaunt stop's staged history plays on the same clock as the people.
+    api.jauntStage?.update(frameDt);
     // T-3524: the doors people hold open swing toward open, or shut behind them.
     api.houseDoors?.update?.(frameDt);
     // T-3504: and then nobody stands in anybody else (human-spacing.js).
@@ -6729,6 +6834,7 @@ async function boot() {
     api.player.flying = st.flying;
     hud.setAltitude(st.altitude);
     navigation.update({ e: st.e, n: st.n, bearingDeg: walker.bearingDeg });
+    api.todayView?.update({ e: st.e, n: st.n, bearingDeg: walker.bearingDeg, pitchDeg: st.pitch * 180 / Math.PI });
     if (!gateOpen) { target?.tick(performance.now()); navigatorUi?.update(); }
 
     // Wall-clock, not the clamped dt: a clamped dt reports a healthy 20 fps on

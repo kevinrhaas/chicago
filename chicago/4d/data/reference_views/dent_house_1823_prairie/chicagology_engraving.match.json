@@ -2,7 +2,7 @@
   "structure_id": "dent_house_1823_prairie",
   "view": "chicagology_engraving",
   "glb": "assets/gltf/dent_house_1823_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e1a457e0c129c85f95664dedfc57764dee33d20fd4cc73665f13e4638e50cc63",
+  "glb_sha256": "785d2a9272a225636ca587ac7a3a92efaab51efd22ac4f6af3ac5a4bbb078a2a",
   "camera_sha256": "2a2bc061e8cab56a2fdc01a696a638d330188106d263058ad63d7546b3f97355",
   "photo_sha256": "ef58522d4ac8f90422e4ebf253aec05a27bc06f7b47a255829684a2a2bc5bd0e",
   "side_by_side": "docs/RESEARCH/photo-match/dent_house_1823_prairie/chicagology_engraving-side-by-side.jpg",
@@ -87,7 +87,8 @@
     },
     {
       "what": "the grilled round-arched basement doorway under the landing (x 925-975 px, y 935-990 px): not built",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1894: K01's side stoop takes an arch in its landing's street face (K07's basement arch, T-2500's, with K08's basement-grille iron in it): 1.05 m across under the door at v 6.2 m, a half-round head on jambs 0.6 m over grade, a 0.4 m void; through this camera its crown lands at y 935 px against the print's 938 and its jambs at x 935-978 px against 925-980"
     },
     {
       "what": "the narrow light beside the door on the principal storey (x 960-980 px): T-1894 lays it at v 7.4 m at the storey's sash, as the chamber storey's",
@@ -130,6 +131,15 @@
       "what": "the dormers' paired casements: only the first light of each pair was cut through the dormer's face, the second standing glazed behind it",
       "status": "fixed",
       "how": "T-3297: each of K06's lights is cut through the face now (k01_frontage.round_dormer_body), so both lights of each pair open as the picture draws them"
+    },
+    {
+      "what": "the arch's width: the print draws it 55 px across, the build's 1.05 m reads about 45 px, because the print's landing face is drawn wider (x 897-1010 px against the build's 943-1015); the arch is the same 0.57 of the face in both",
+      "status": "within tolerance",
+      "how": "about 0.25 m at this scale, under the 0.3 m bar; the face's own length is the difference below"
+    },
+    {
+      "what": "the landing's length: the print's landing face runs north to about x 897 px, the build's to x 943 px (landing v 5.3-7.1 m), about 1 m short, while the print's flight is shorter (its foot about x 760 px, the build's x 743 px) and its landing's top edge stands lower (y 905 px against the build's 865 px), as if the landing stood a few risers under the door; the 1883 vignette also draws the landing longer",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

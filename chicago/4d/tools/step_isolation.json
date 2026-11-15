@@ -6094,6 +6094,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_finery.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_fixture_scope.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6291,6 +6295,10 @@
       "wrote_ignored": []
     },
     "tools/test_jaunt_hosts.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_jaunt_stage.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6938,6 +6946,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_team_drive.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_ticket_after.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -7006,6 +7018,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_today_view.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_tour.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -7015,6 +7031,10 @@
       "wrote_ignored": []
     },
     "tools/test_transport_audio.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_transport_boarding.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
