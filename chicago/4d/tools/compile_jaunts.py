@@ -310,7 +310,9 @@ class Compiler:
                     who = c.get('person') or c['extra']
                     if c.get('person'): self.resolve({'kind': 'person', 'id': c['person']})
                     else:
-                        require((self.root / f"assets/humans/web/{c['dress']}.lod3.glb").exists(), f'{stop["id"]}: {who} wears {c["dress"]}, which is not a figure')
+                        # A figure is its recipe (the GLB is built from it); the changelog fold's
+                        # sparse checkout carries no GLBs, so the recipe is what it can see.
+                        require((self.root / f"data/humans/recipes/{c['dress']}.json").exists(), f'{stop["id"]}: {who} wears {c["dress"]}, which is not a figure')
                         if c.get('dress_of'): self.resolve({'kind': 'person', 'id': c['dress_of']})
                     marks = [c['at']] + [p for b in c.get('beats', []) for p in b.get('walk', []) + ([b['place']] if 'place' in b else [])]
                     if a:
@@ -320,6 +322,24 @@ class Compiler:
                     for b in c.get('beats', []):
                         if isinstance(b.get('face'), str):
                             require(any(b['face'] in (x.get('person'), x.get('extra')) for x in cast), f'{stop["id"]}: {who} faces {b["face"]}, who is not in the cast')
+                # T-3553: the town teams a stage takes are the scene's own (loops.json rows), each
+                # once, within reach like any castmate; a rider rides one of them.
+                rows = {r['id']: r for r in json.loads((self.root / 'data/transport/driven/loops.json').read_text())['rows']}
+                taken = stage.get('teams', [])
+                unique([{'id': t['team']} for t in taken], f'{stop["id"]} stage teams')
+                for t in taken:
+                    row = rows.get(t['team'])
+                    require(row is not None, f'{stop["id"]}: the stage takes {t["team"]}, which is not a town team')
+                    require(str(row['scene']) == str(doc['scene']), f'{stop["id"]}: {t["team"]} is a team of {row["scene"]}, not {doc["scene"]}')
+                    marks = [t['at']] + [p for b in t.get('beats', []) for p in b.get('walk', [])]
+                    if a:
+                        for m in marks:
+                            far = math.hypot(m[0] - a['local_e'], m[1] - a['local_n'])
+                            require(far <= STAGE_REACH_M, f'{stop["id"]}: {t["team"]} goes {far:.0f} m from the stand; a stage reaches {STAGE_REACH_M} m')
+                    require(row.get('person_id') not in [c.get('person') for c in cast], f'{stop["id"]}: {row.get("person_id")} drives {t["team"]}; he is not cast as well')
+                for c in cast:
+                    if 'ride' in c:
+                        require(c['ride']['team'] in [t['team'] for t in taken], f'{stop["id"]}: {c.get("person") or c.get("extra")} rides {c["ride"]["team"]}, which the stage does not take')
             choices = stop.get('choices', [])
             unique(choices, 'choice')
             transitions = list(choices) + ([{'next': stop['next']}] if 'next' in stop else [])
