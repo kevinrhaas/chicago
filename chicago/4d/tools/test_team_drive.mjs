@@ -5,8 +5,8 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { circleRoute, createTransportLoop, routeDistanceNear, routeFor } from '../renderers/web/js/transport-loop.js';
-import { driveLimits, easeControls, bicycleStep, sampleOf, pursuitSteering, refineRouteDistance,
-  wheelArcRatios, footprintOfPose } from '../renderers/web/js/team-drive.js';
+import { driveLimits, easeControls, easeReverse, bicycleStep, sampleOf, pursuitSteering, refineRouteDistance,
+  wheelArcRatios, footprintOfPose, teamGroundPoints, createCarriagewayReader, KERB_ROOM_M } from '../renderers/web/js/team-drive.js';
 import { overlaps, createCrossings } from '../renderers/web/js/transport-crossings.js';
 import { createTownTransport } from '../renderers/web/js/town-transport.js';
 
@@ -60,12 +60,12 @@ near(limits.steer_max_rad, 15 * DEG);
 
 // --- a driven loop -----------------------------------------------------------------------
 const route = circleRoute({ center_enu_m: [0, 0], radius_m: 20 });
-function setup({ clear = () => true, heightAt = () => 2, why = null, gate = null, row = {} } = {}) {
+function setup({ clear = () => true, heightAt = () => 2, why = null, gate = null, road = null, row = {} } = {}) {
   const poses = [], advances = [];
   const assembly = { pose(p) { poses.push(p); }, advance(dt, ds) { advances.push({ dt, ds }); }, stop() {}, visible() {}, dispose() {} };
   const actor = createTransportLoop({ id: 'test', name: 'Driver', route, assembly,
     speed_m_s: 1.3, wheelbase_m: 2, track_m: 1.2, root_ahead_of_rear_axle_m: 1, steering_limit_deg: 12,
-    wheel_radii_m: [.7, .7, .5, .5], driver_local_m: [.3, 1.58, .65], heightAt, clear, why, gate, ...row });
+    wheel_radii_m: [.7, .7, .5, .5], driver_local_m: [.3, 1.58, .65], heightAt, clear, why, gate, road, ...row });
   return { actor, poses, advances };
 }
 const frames = (actor, seconds, input = null, flags = {}) => {
@@ -318,6 +318,242 @@ const frames = (actor, seconds, input = null, flags = {}) => {
   }
 }
 
+// --- backing up --------------------------------------------------------------------------
+// The test team's footprint, sampled round its envelope every quarter metre (vehicle-root local).
+const ENV = [-1, -2, 1, 4];
+const perimeter = (() => {
+  const pts = [], [x0, z0, x1, z1] = ENV;
+  for (let x = x0; x <= x1 + 1e-9; x += .25) pts.push([x, z0], [x, z1]);
+  for (let z = z0; z <= z1 + 1e-9; z += .25) pts.push([x0, z], [x1, z]);
+  return pts;
+})();
+const printOf = p => perimeter.map(([x, z]) => [p.e + Math.cos(p.yaw) * x + Math.sin(p.yaw) * z, p.n + Math.sin(p.yaw) * x - Math.cos(p.yaw) * z]);
+/** A wall: an axis-aligned box [w, s, e, n] the team's footprint may not enter. */
+const wallClear = box => (from, to) => printOf(to).every(([e, n]) => !(e > box[0] && e < box[2] && n > box[1] && n < box[3]));
+const inBox = (p, box) => printOf(p).some(([e, n]) => e > box[0] && e < box[2] && n > box[1] && n < box[3]);
+
+{
+  // pure: backing eases to at most .4 m/s, and comes to a stand when let go.
+  let c = { speed: 0, steering: 0 };
+  for (let i = 0; i < 200; i++) c = easeReverse(c, { throttle: -1, steer: 0 }, limits, .05);
+  near(c.speed, -.4, 1e-12, 'backing is capped at .4 m/s');
+  c = easeReverse(c, { throttle: 0, steer: 0 }, limits, .05);
+  ok(c.speed > -.4 && c.speed < 0, 'let go, it eases to a stand');
+  for (let i = 0; i < 20; i++) c = easeReverse(c, { throttle: 1, steer: 0 }, limits, .05);
+  near(c.speed, 0, 0, 'walked on, backing stops (never forward from here)');
+  // the bicycle model backs along its own heading, and backing on right lock swings the nose left.
+  const b = bicycleStep(sampleOf(0, 0, 0, 0), -10 * DEG, -1, 2);
+  ok(b.n > 0 && b.yaw > 0, 'backing on right lock: back along the heading, nose swings left (yaw up)');
+}
+
+{
+  // Driven nose-first into a wall (north of it), the team can back out a few steps.
+  const wall = [10, 12, 30, 13];
+  const { actor, poses, advances } = setup({ clear: wallClear(wall), why: () => 'a wall' });
+  actor.takeReins();
+  frames(actor, 15, { throttle: 1, steer: 0 });
+  ok(actor.blocked === 'a wall', `walked into the wall (${actor.blocked})`);
+  const at = actor.at, rotation = actor.snapshot().wheel_rotation_rad, total = actor.snapshot().total_distance_m;
+  frames(actor, 2, { throttle: 1, steer: 0 });
+  assert.deepEqual(actor.at, at, 'pushing on into the wall goes nowhere'); count++;
+  // A short pull is whoa, not back: it stands for about .4 s first.
+  frames(actor, .3, { throttle: -1, steer: 0 });
+  assert.deepEqual(actor.at, at, 'a short pull only stands it'); count++;
+  ok(!actor.reversing, 'not yet backing');
+  let topBack = 0, n0 = actor.pose.n, yaw0 = actor.pose.yaw;
+  for (let i = 0; i < 30 * 6; i++) { actor.drive({ throttle: -1, steer: 0 }); actor.update(1 / 30); topBack = Math.max(topBack, actor.speed_m_s); }
+  ok(actor.reversing, 'held pulled, it backs');
+  ok(actor.pose.n < n0 - 1.5, `it backed away from the wall (${(n0 - actor.pose.n).toFixed(2)} m)`);
+  near(topBack, .4, 1e-9, 'never faster than .4 m/s backing');
+  ok(actor.speed_m_s >= 0, 'speed_m_s reads a pace, never negative');
+  near(angle(actor.pose.yaw - yaw0), 0, 1e-6, 'straight back keeps its heading');
+  ok(actor.snapshot().total_distance_m > total + 1.5, 'the travelled total counts the backed metres');
+  const rolled = actor.snapshot().wheel_rotation_rad;
+  frames(actor, .5, { throttle: -1, steer: 0 });
+  // .2 m back: each wheel turns back by .2 m over its own radius.
+  actor.snapshot().wheel_rotation_rad.forEach((r, i) => near(angle(r - rolled[i]), -.4 * .5 / [.7, .7, .5, .5][i], 2e-3, `wheel ${i} turns backwards by its arc`));
+  ok(rotation.length === 4, 'four wheels');
+  ok(advances.some(a => a.ds < 0) && advances.every(a => Number.isFinite(a.ds) && a.dt > 0), 'the gait is advanced by the signed metres');
+  ok(poses.every(p => Number.isFinite(p.e + p.n + p.yaw + p.height + p.totalDistance) && p.wheelRotation.every(Number.isFinite)), 'no NaN in any pose');
+  ok(poses.some(p => p.reversing === true), 'the pose says it is backing');
+  // Backing on the right lock swings the nose left (counter-clockwise).
+  const yawBack = actor.pose.yaw;
+  frames(actor, 3, { throttle: -1, steer: 1 });
+  ok(angle(actor.pose.yaw - yawBack) > 3 * DEG, 'backing on right lock swings the nose left');
+  // Let go: it comes to a stand at once and stops backing.
+  frames(actor, .5, { throttle: 0, steer: 0 });
+  near(actor.speed_m_s, 0, 0, 'let go, the backing stops');
+  ok(!actor.reversing, 'and it is no longer backing');
+  // Then it walks on, turned away from the wall, and clear of it.
+  const away = actor.at;
+  frames(actor, 6, { throttle: 1, steer: -1 });
+  ok(Math.hypot(actor.at[0] - away[0], actor.at[1] - away[1]) > 2, 'it walks on away from the wall');
+  ok(poses.every(p => !inBox(p, wall)), 'and never once stood in the wall');
+  // Walking on while backing stops the backing too (it stands before going forward).
+  frames(actor, 1, { throttle: -1, steer: 0 }); frames(actor, 2, { throttle: -1, steer: 0 });
+  ok(actor.reversing, 'backing again');
+  actor.drive({ throttle: 1, steer: 0 }); actor.update(1 / 30);
+  ok(actor.reversing && actor.speed_m_s < .4, 'walk on: it first eases out of the backing');
+  frames(actor, 1, { throttle: 1, steer: 0 });
+  ok(!actor.reversing, 'then the backing has stopped');
+}
+
+{
+  // Backing has the same refusals: a wall behind pulls it up with the word, never a throw.
+  const behind = [10, -30, 30, -1.6];
+  const { actor } = setup({ clear: wallClear(behind), why: () => 'a wall' });
+  actor.takeReins();
+  const at = actor.at;
+  assert.doesNotThrow(() => frames(actor, 10, { throttle: -1, steer: 0 })); count++;
+  ok(actor.blocked === 'a wall', `backing into a wall is refused (${actor.blocked})`);
+  near(actor.speed_m_s, 0, 0);
+  ok(!inBox(actor.pose, behind) && actor.pose.n <= at[1], 'it backed up to the wall and no further');
+}
+
+// --- returning recovers from a nose-first wall ----------------------------------------------
+{
+  // An open plane with one wall across the way the team was driven. Handed back nose-first at
+  // it, the driver wants full left lock and cannot go forward; he backs off and works round it.
+  const wall = [18.5, 12, 30, 13];
+  const { actor, poses } = setup({ clear: wallClear(wall), why: () => 'a wall' });
+  actor.takeReins();
+  frames(actor, 15, { throttle: 1, steer: 0 });
+  ok(actor.blocked === 'a wall', 'nose-first at the wall');
+  ok(actor.handBack(), 'hands back');
+  let t = 0, backed = 0, episodes = 0, was = false;
+  while (actor.mode !== 'route' && t < 240) {
+    actor.update(1 / 30); t += 1 / 30;
+    if (actor.reversing && !was) episodes++;
+    was = actor.reversing; if (was) backed++;
+  }
+  ok(actor.mode === 'route', `returning recovers and rejoins its round (${t.toFixed(1)} s, ${episodes} back-ups)`);
+  ok(episodes >= 1 && episodes <= 6, 'it backed off the wall, a bounded number of times');
+  ok(poses.every(p => !inBox(p, wall)), 'never in the wall');
+  // And it goes on round from there.
+  const total = actor.snapshot().total_distance_m;
+  frames(actor, 60);
+  near(actor.snapshot().total_distance_m - total, 60 * 1.3, 1e-6, 'its round runs on, unrefused');
+  console.log(`  nose-first wall: rejoined in ${t.toFixed(1)} s after ${episodes} back-up(s)`);
+}
+{
+  // Everything refused (boxed in): bounded tries, then it waits where it stands, no throw;
+  // the snap-when-not-drawn still puts it back once the road is clear.
+  let boxed = false;
+  const { actor } = setup({ clear: (from, to) => !boxed || Math.hypot(to.e - from.e, to.n - from.n) < 1e-12, why: () => 'a wall' });
+  actor.takeReins();
+  frames(actor, 4, { throttle: 1, steer: 0 });
+  boxed = true;
+  actor.handBack();
+  const at = actor.at;
+  let episodes = 0, was = false;
+  assert.doesNotThrow(() => { for (let i = 0; i < 30 * 40; i++) { actor.update(1 / 30); if (actor.reversing && !was) episodes++; was = actor.reversing; } }); count++;
+  ok(episodes === 6, `it tries six back-ups and no more (${episodes})`);
+  ok(actor.mode === 'returning' && actor.blocked === 'a wall', 'then it waits, saying why');
+  assert.deepEqual(actor.at, at); count++;
+  boxed = false;
+  actor.update(1 / 30, { drawn: false });
+  ok(actor.mode === 'route', 'out of sight it is put back on its round');
+}
+{
+  // A person in the way is waited for, never backed away from.
+  let person = false;
+  const { actor } = setup({ clear: (from, to) => !person || Math.hypot(to.e - from.e, to.n - from.n) < 1e-12, why: () => 'someone in the way' });
+  actor.takeReins();
+  frames(actor, 4, { throttle: 1, steer: 0 });
+  person = true; actor.handBack();
+  let backs = false;
+  for (let i = 0; i < 30 * 10; i++) { actor.update(1 / 30); backs ||= actor.reversing; }
+  ok(!backs && actor.blocked === 'someone in the way', 'a person in the way: the driver waits');
+}
+
+// --- the kerb ------------------------------------------------------------------------------
+const teamRow = { wheelbase_m: 2, root_ahead_of_rear_axle_m: 1, track_m: 1.2, team_half_spacing_m: .65, horse_offset_m: [0, 0, 3.1] };
+{
+  // A fake north-south carriageway, 12 m kerb to kerb, the team in it going north at e = 20.
+  const street = [[14, -60], [26, -60], [26, 60], [14, 60]];
+  const reader = createCarriagewayReader([{ id: 'fake', polygon_local_m: street }]);
+  const inside = ([e, n]) => e > 14 && e < 26 && n > -60 && n < 60;
+  const { actor, poses } = setup({ road: pose => reader(teamRow, pose) });
+  // On its own round's start it is on the road; a steady right turn walks it to the east kerb.
+  actor.takeReins();
+  assert.doesNotThrow(() => frames(actor, 30, { throttle: 1, steer: 1 })); count++;
+  ok(actor.blocked === 'the kerb', `a hoof or wheel at the kerb is refused as the kerb (${actor.blocked})`);
+  near(actor.speed_m_s, 0, 0, 'it pulls up there');
+  const points = poses.flatMap(p => { const g = teamGroundPoints(teamRow, p); return [...g.wheels, ...g.hooves]; });
+  ok(points.every(inside), 'no wheel or hoof ever left the carriageway');
+  ok(points.some(([e]) => e > 25), 'it was turned right up to the kerb');
+  // Swinging the team toward the kerb where it stands is refused too; away from it is not.
+  const steer0 = actor.pose.steering;
+  frames(actor, 1, { throttle: 0, steer: 1 });
+  ok(poses.every(p => teamGroundPoints(teamRow, p).hooves.every(inside)), 'the team is never swung up the kerb');
+  frames(actor, 2, { throttle: 0, steer: -1 });
+  ok(actor.pose.steering > steer0, 'it can be turned away from the kerb');
+  // Backing works within the carriageway too.
+  frames(actor, 4, { throttle: -1, steer: 0 });
+  ok(actor.reversing, 'and backed off it');
+  // An unread carriageway (null) keeps today's rules.
+  const { actor: unread } = setup({ road: () => null });
+  unread.takeReins();
+  frames(unread, 30, { throttle: 1, steer: 1 });
+  ok(unread.blocked === null && unread.speed_m_s > 1, 'an unread carriageway refuses nothing');
+  // A hoof is what leaves first: a road wide enough for the wheels' room but not the team's.
+  const narrow = createCarriagewayReader([{ polygon_local_m: [[18.5, -60], [21.5, -60], [21.5, 60], [18.5, 60]] }]);
+  const hoofOnly = { e: 20, n: 1, yaw: 0, steering: 0 };
+  ok(narrow({ ...teamRow, horse_offset_m: undefined, team_half_spacing_m: undefined }, hoofOnly), 'the wheels alone fit');
+  ok(!narrow({ ...teamRow, team_half_spacing_m: 1.2 }, hoofOnly), 'a hoof over the kerb refuses');
+  ok(narrow(teamRow, hoofOnly), 'and the team fits');
+  ok(!narrow(teamRow, { ...hoofOnly, steering: -15 * DEG }), 'a team swung on full lock puts a hoof over it');
+  near(KERB_ROOM_M.wheel, .2); near(KERB_ROOM_M.hoof, .15);
+}
+{
+  // The real 1904 carriageways (data/street_grid/1904.json): every 1904 road, posed at 5 cm
+  // steps as transport-loop.js poses it, is on them (the round a team returns to is never
+  // refused); a steady right turn off Hans's lane is refused as the kerb before a hoof leaves.
+  const grid = JSON.parse(readFileSync(new URL('../data/street_grid/1904.json', import.meta.url)));
+  const config = JSON.parse(readFileSync(new URL('../data/transport/driven/loops.json', import.meta.url)));
+  const reader = createCarriagewayReader(grid.carriageways);
+  const roads = config.rows.filter(r => r.scene === '1904');
+  ok(roads.length === 3, 'three 1904 teams');
+  const onRoadStrict = createCarriagewayReader(grid.carriageways, { wheel_room_m: 0, hoof_room_m: 0 });
+  for (const row of roads) {
+    const r = routeFor(row.route);
+    const preview = createTransportLoop({ ...row, route: r, assembly: { pose() {} }, heightAt: () => 0 });
+    let refused = 0;
+    for (let s = 0; s < r.length; s += .05) if (!reader(row, preview.previewAt(s))) refused++;
+    ok(refused === 0, `${row.id}: its own road is never refused by the kerb rule (${refused})`);
+    preview.dispose();
+    const poses = [];
+    const actor = createTransportLoop({ ...row, route: r, assembly: { pose(p) { poses.push(p); }, advance() {}, stop() {} },
+      heightAt: () => 0, road: pose => reader(row, pose) });
+    actor.takeReins();
+    assert.doesNotThrow(() => frames(actor, 40, { throttle: 1, steer: 1 })); count++;
+    ok(actor.blocked === 'the kerb', `${row.id}: a steady right turn is refused at the kerb (${actor.blocked})`);
+    ok(poses.every(p => onRoadStrict(row, p)), `${row.id}: no wheel or hoof ever left the carriageway`);
+    actor.handBack();
+    let t = 0;
+    while (actor.mode !== 'route' && t < 240) { actor.update(1 / 30); t += 1 / 30; }
+    ok(actor.mode === 'route', `${row.id}: handed back from the kerb, it rejoins its round (${t.toFixed(1)} s)`);
+    ok(poses.every(p => onRoadStrict(row, p)), `${row.id}: and never left the carriageway on the way`);
+    console.log(`  ${row.id}: kerb refused the turn; back on its round in ${t.toFixed(1)} s`);
+  }
+}
+{
+  // town-transport passes its carriageway reader to each team, with the team's own row.
+  const seen = [];
+  const row = { id: 'k', name: 'k', scene: 't', route: { center_enu_m: [0, 0], radius_m: 20 }, speed_m_s: 1.3, wheelbase_m: 2,
+    track_m: 1.2, root_ahead_of_rear_axle_m: 1, steering_limit_deg: 12, wheel_radii_m: [.7, .7, .5, .5], driver_local_m: [0, 1.5, .6] };
+  const town = createTownTransport({ rows: [row], sceneId: 't', heightAt: () => 2, clear: () => true,
+    carriageway: (r, pose) => { seen.push(r.id); return pose.e < 21.5; },
+    async makeAssembly() { return { root: {}, pose() {}, advance() {}, stop() {}, visible() {}, dispose() {} }; } });
+  await town.ready();
+  const k = town.actorById('k');
+  k.takeReins();
+  for (let i = 0; i < 30 * 20; i++) { k.drive({ throttle: 1, steer: 1 }); town.update(1 / 30, { x: 0, z: 0 }); }
+  ok(seen.length > 0 && seen.every(id => id === 'k'), 'the reader is asked with the team\'s own row');
+  ok(k.blocked === 'the kerb', `town-transport: the kerb (${k.blocked})`);
+  town.dispose();
+}
+
 // A slow page (a 3 fps phone, a hitch): the input given before a long frame still drives it.
 {
   const { actor } = setup();
@@ -329,4 +565,4 @@ const frames = (actor, seconds, input = null, flags = {}) => {
   actor.dispose();
 }
 
-console.log(`T-3557 team drive: reins, steering, speed cap, refusals (wall, ground, kerb, support), hand back, save, gate, team-vs-team: ${count} checks PASS`);
+console.log(`T-3557 team drive: reins, steering, speed cap, refusals (wall, ground, kerb, support), backing, hand back (with backing off a wall), the carriageway kerb, save, gate, team-vs-team: ${count} checks PASS`);

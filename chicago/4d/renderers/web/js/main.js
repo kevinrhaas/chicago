@@ -6214,8 +6214,11 @@ async function boot() {
       notes.push(t(touch ? 'hud.ride.stick' : 'hud.ride.keys'));
     } else if (a.mode === 'returning') notes.push(t('hud.ride.returning'));
     if (ride.reducedMotion()) notes.push(t('hud.ride.still'));
+    // The team's short name (its row's ride_name): on a phone the long one was cut to "Carriage
+    // driver on Pra…". The long one stays the bar's tooltip.
+    const short = interactions.get(`driver:${a.id}`)?.rideName;
     const state = { kind: 'ride', verb: t(a.mode === 'reins' ? 'hud.ride.driving' : 'hud.ride.aboard'),
-      dest: a.name, note: notes.join(' · '), stop: t('hud.ride.getDown') };
+      dest: short || a.name, destTitle: a.name, note: notes.join(' · '), stop: t('hud.ride.getDown') };
     const key = JSON.stringify(state);
     // Repainted on a change, and twice a second besides (a Go to's bar may have taken it).
     if (key === ridePainted && (ridePaintAt += elapsed) < .5) return;
@@ -6649,6 +6652,10 @@ async function boot() {
     // sit; otherwise the movement keys are the team's reins (or nothing) and never walk.
     const teamRide = api.townTransport?.ride ?? null;
     if (teamRide?.actor && (travel.state.phase !== 'idle' || follow.active)) teamRide.release('travel', { land: false });
+    // The touch stick writes the intent only when the thumb moves, so the walk is kept from it
+    // for this frame and it is put back after: a thumb held to the side keeps the team turning.
+    const heldStick = teamRide?.actor && backends.name === 'touch'
+      ? { forward: intent.forward, strafe: intent.strafe, sprint: intent.sprint } : null;
     teamRide?.drive(intent);
     const walkSteps = Math.max(1, Math.ceil(frameDt / 0.05));
     const walkDt = frameDt / walkSteps;
@@ -6661,6 +6668,7 @@ async function boot() {
       follow.afterWalk(intent);
       travel.afterWalk(intent, walkDt);
     }
+    if (heldStick) Object.assign(intent, heldStick);
     // T-3510: while a crossing runs, the visitor sits in the boat whatever the walk did.
     crossings.holdVisitor(walker, WALK);
     teamRide?.hold(walker, WALK);

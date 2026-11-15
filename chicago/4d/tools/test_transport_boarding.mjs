@@ -12,6 +12,7 @@ import { readFile } from 'node:fs/promises';
 import { createInteractions } from '../renderers/web/js/interact.js';
 import { registerTransportInteraction, createTeamRide, canBoard, boardStand, riderOffTeam, RIDE_S }
   from '../renderers/web/js/transport-interactions.js';
+import { DRIVE_SPEED_CAP_M_S } from '../renderers/web/js/team-drive.js';
 import { createTransportClearance, transportEnvelope } from '../renderers/web/js/transport-clearance.js';
 
 const ids = thing => (thing.actions[thing.state] ?? []).map(a => a.id);
@@ -72,8 +73,22 @@ for (const row of config.rows) {
   const [x, , z] = row.passenger_local_m, [l, b, r, f] = row.envelope_local_xz_m;
   assert(x > l && x < r && z > b && z < f, `${row.id}: the seat is inside the team's own envelope`);
   if (row.driver_mode !== 'on_foot') assert(Math.abs(x - row.driver_local_m[0]) >= 0.3, `${row.id}: beside the driver, not in his lap`);
+  // The ride bar's short name: a phone at 390 px cut "Carriage driver on Pra…".
+  assert(typeof row.ride_name === 'string' && row.ride_name.length >= 4 && row.ride_name.length <= 20, `${row.id}: a short ride_name`);
+  assert(row.ride_name.length < row.name.length, `${row.id}: ride_name is shorter than its name`);
 }
-console.log('transport boarding: all six driven rows carry a measured passenger seat inside their envelope PASS');
+assert.equal(new Set(config.rows.map(r => r.ride_name)).size, config.rows.length, 'every team has its own ride name');
+// The seat beside a seated driver clears his hat's brim however he turns his head (its widest
+// radius about his head: W01 felt hat 0.19 m, brougham top hat 0.164 m, from the wardrobes'
+// own hat meshes), and stays on the board or inside the box's side rail (x 0.515 m).
+for (const [id, brim, inside] of [['western_hotel_driven_wagon_loop_1835', 0.19, 0.59],
+  ['prairie_driven_brougham_loop_1904', 0.164, 0.515], ['prairie_driven_brougham_north_loop_1904', 0.164, 0.515],
+  ['prairie_driven_brougham_south_loop_1904', 0.164, 0.515]]) {
+  const row = config.rows.find(r => r.id === id), x = Math.abs(row.passenger_local_m[0] - row.driver_local_m[0]);
+  assert(x - brim >= 0.17, `${id}: the eye clears his hat's brim (${(x - brim).toFixed(3)} m)`);
+  assert(Math.abs(row.passenger_local_m[0]) < inside, `${id}: the seat is on the board`);
+}
+console.log('transport boarding: all six driven rows carry a measured passenger seat inside their envelope, clear of the driver\'s hat, and a short ride name PASS');
 
 // 1. No drive API (today's actor), even with a ride: exactly today's actions.
 {
@@ -119,8 +134,12 @@ console.log('transport boarding: all six driven rows carry a measured passenger 
   tick(engine, RIDE_S.climb / 2, 0.05, () => { ride.hold(walker, { eyeHeight: 1.6 }); eyes.push([walker.state.e, walker.state.n, walker.state.eyeY]); });
   assert(eyes.length > 5 && new Set(eyes.map(String)).size > 5, 'the climb is eased, not a jump');
   assert(Math.max(...eyes.map(p => p[2])) > 1.6, 'up over the wheel');
-  tick(engine, RIDE_S.climb, 0.05, () => ride.hold(walker, { eyeHeight: 1.6 }));
+  // The press that comes the moment the visitor is seated works the seat: nothing of the climb
+  // is left running to swallow it (a zero-second "Moving off" step did, for a frame).
+  for (let i = 0; i < 100 && ride.phase !== 'seated'; i++) { ride.hold(walker, { eyeHeight: 1.6 }); engine.update(0.05); }
   assert.equal(ride.phase, 'seated');
+  assert.equal(h.thing.running, null, 'seated, the climb is over in the same frame');
+  assert.equal(engine.offer(h.thing).busy, false);
   assert.equal(ride.aboard, actor);
   assert.deepEqual(actor.calls.at(-1), ['resume'], 'then it goes on round');
   ride.hold(walker, { eyeHeight: 1.6 });
@@ -150,17 +169,35 @@ console.log('transport boarding: all six driven rows carry a measured passenger 
   assert.deepEqual(actor.calls.at(-1), ['takeReins']);
   assert.equal(ride.driving, true);
   assert.deepEqual(ids(h.thing), ['hand-back', 'get-down']);
+  // Taking the reins of a team on its round does not brake it: it walks on at its pace (1.3 of
+  // the 1.5 m/s cap) until told otherwise.
+  ride.drive({ forward: 0, strafe: 0 });
+  assert(Math.abs(actor.inputs.at(-1).throttle - 1.3 / DRIVE_SPEED_CAP_M_S) < 1e-9, 'the reins taken, the team walks on as it was');
+  assert.equal(actor.inputs.at(-1).steer, 0);
   const keys = { forward: 1, strafe: -1, rise: 0, sprint: false };
   ride.drive(keys);
-  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: -1 });
+  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: -1 }, 'W+A on the keys: full pace, turning');
   assert.deepEqual([keys.forward, keys.strafe], [0, 0], 'and they do not walk the visitor off the seat');
   ride.drive({ forward: 0, strafe: 0.5 });
   assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: 0.5 }, 'let go, the team walks on at its pace');
   ride.drive({ forward: 0.6, strafe: 0 });
   ride.drive({ forward: 0, strafe: 0 });
   assert.deepEqual(actor.inputs.at(-1), { throttle: 0.6, steer: 0 }, "a stick's tilt is the pace it keeps");
-  ride.drive({ forward: -0.4, strafe: 3 });
-  assert.deepEqual(actor.inputs.at(-1), { throttle: -1, steer: 1 }, 'a pull back is whoa; steering clamped');
+  // A diagonal thumb: within 45° of straight ahead it sets the pace by how far it is pushed
+  // (not by its forward share); held mostly sideways it only steers, the pace left as it was.
+  ride.drive({ forward: 0.6, strafe: 0.5 });
+  assert(Math.abs(actor.inputs.at(-1).throttle - Math.hypot(0.6, 0.5)) < 1e-9 && actor.inputs.at(-1).steer === 0.5, 'a forward-dominant stick: the pace is its push');
+  ride.drive({ forward: 1, strafe: 0 });
+  ride.drive({ forward: 0.38, strafe: 0.92 });
+  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: 0.92 }, 'a sideways stick steers; the team keeps its full pace');
+  ride.drive({ forward: -0.3, strafe: -0.9 });
+  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: -0.9 }, 'sideways and a little back still only steers');
+  ride.drive({ forward: 0, strafe: 0 });
+  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: 0 });
+  ride.drive({ forward: -1, strafe: 3 });
+  assert.deepEqual(actor.inputs.at(-1), { throttle: -1, steer: 1 }, 'a pull back is whoa (S+D too); steering clamped');
+  ride.drive({ forward: -0.5, strafe: 0.2 });
+  assert.equal(actor.inputs.at(-1).throttle, -1, 'held back, it is held back (standing, the team backs)');
   ride.drive({ forward: 0, strafe: 0 });
   assert.deepEqual(actor.inputs.at(-1), { throttle: 0, steer: 0 }, 'after whoa it stands');
   assert.equal(engine.act(h.thing, 'hand-back').ok, true);
@@ -176,9 +213,13 @@ console.log('transport boarding: all six driven rows carry a measured passenger 
   assert.equal(engine.act(h.thing, 'get-down').ok, true);
   assert.equal(ride.pullingUp, true);
   for (let i = 0; i < 10 && ride.phase === 'seated'; i++) { ride.drive({ forward: 1, strafe: 0 }); engine.update(0.05); }
-  assert(actor.inputs.slice(before).every(input => input.throttle === -1 && input.steer === 0), 'pulled up, whatever keys are held');
+  const pulled = actor.inputs.slice(before);
+  assert(pulled.length >= 3 && pulled.every(input => input.steer === 0 && (input.throttle === -1 || input.throttle === 0)), 'pulled up, whatever keys are held');
+  assert.equal(pulled[0].throttle, -1, 'whoa while it goes on');
   assert.equal(actor.speed_m_s, 0);
   assert.equal(ride.phase, 'alighting');
+  ride.drive({ forward: -1, strafe: 1 });
+  assert.deepEqual(actor.inputs.at(-1), { throttle: 0, steer: 0 }, 'climbing down, nothing is held back: a standing team is never backed under them');
   tick(engine, RIDE_S.alight + 0.1, 0.05, () => ride.hold(walker, { eyeHeight: 1.6 }));
   assert.equal(ride.actor, null);
   assert.deepEqual(boarded.at(-1), ['team', false, 'get-down']);
@@ -301,6 +342,33 @@ console.log('transport boarding: all six driven rows carry a measured passenger 
   assert.equal(actor.state, 'stopped', 'not resumed under reduced motion');
   assert.match(said.at(-1), /reduced motion/);
   h.dispose();
+}
+
+// 8b. Reins taken from a team that stands: it stands until told to walk on. The ride bar's
+// name is the row's short ride_name, else the team's own name; the bar lets a thumb through.
+{
+  const engine = createInteractions(), walker = makeWalker(2.5, 0.5);
+  const actor = makeActor({ row: brougham });
+  actor.state = 'stopped'; actor.speed_m_s = 0;
+  const ride = createTeamRide({ visitor: () => ({ e: 2.5, n: 0.5, y: 1.6, bearing: 0 }) });
+  const h = registerTransportInteraction(engine, actor, { ride, rideName: brougham.ride_name });
+  assert.equal(h.thing.rideName, "Hans's brougham");
+  assert.equal(registerTransportInteraction(createInteractions(), makeActor({ id: 'plain', row: brougham }), { ride: createTeamRide() }).thing.rideName,
+    'Carriage driver', 'no ride_name: the team\'s own name');
+  engine.act(h.thing, 'climb-up'); tick(engine, RIDE_S.climb + 0.1, 0.05, () => ride.hold(walker, { eyeHeight: 1.6 }));
+  assert.equal(ride.phase, 'seated'); assert.equal(h.thing.running, null);
+  actor.state = 'stopped'; actor.speed_m_s = 0;
+  engine.act(h.thing, 'take-reins'); engine.update(0);
+  actor.speed_m_s = 0;
+  ride.drive({ forward: 0, strafe: 0.4 });
+  assert.deepEqual(actor.inputs.at(-1), { throttle: 0, steer: 0.4 }, 'a standing team stays standing under the reins');
+  h.dispose();
+  const main = await readFile(new URL('../renderers/web/js/main.js', import.meta.url), 'utf8');
+  assert.match(main, /interactions\.get\(`driver:\$\{a\.id\}`\)\?\.rideName/, 'main.js paints the ride bar with the short name');
+  const css = await readFile(new URL('../renderers/web/css/drawer.css', import.meta.url), 'utf8');
+  assert.match(css, /\.travel-banner\[data-kind="ride"\] \{ pointer-events: none; \}/, 'the ride bar passes a thumb through to the stick');
+  assert.match(css, /\.travel-banner\[data-kind="ride"\] \.tb-stop \{ pointer-events: auto; \}/, 'its Get down key still takes a touch');
+  console.log('transport boarding: the reins keep the pace the team had, a sideways stick only steers, the climb leaves nothing running, the bar names the team short PASS');
 }
 
 // 9. The team the visitor rides is not stopped by them; every other team still is.

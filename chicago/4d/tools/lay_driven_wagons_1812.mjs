@@ -54,6 +54,8 @@ const VEHICLE = {
 const loop = {
   id: 'fort_wagon_loop_1812',
   name: 'Fort wagon going round the outbuildings',
+  // T-3557: the ride bar's short name (a phone cuts the long one).
+  ride_name: 'Fort wagon',
   person_id: 'mills_elias',
   replace_human_instance: 'hi_mills_elias_1812',
   route: { kind: 'rounded_block', bounds_enu_m: [1078, 85, 1198, 147], corner_radius_m: 18, clockwise: false },
@@ -68,6 +70,7 @@ const loop = {
 const haul = {
   id: 'shore_road_wagon_haul_1812',
   name: "Fort wagon on the shore road to Lee's place",
+  ride_name: 'Shore-road wagon',
   person_id: 'moffett_william',
   replace_human_instance: 'hi_moffett_william_1812',
   route: {
@@ -97,7 +100,7 @@ export function buildRows() {
     });
     return {
       ...VEHICLE,
-      id: spec.id, name: spec.name, scene: '1812', driver_mode: 'on_foot',
+      id: spec.id, name: spec.name, ride_name: spec.ride_name, scene: '1812', driver_mode: 'on_foot',
       route: spec.route, stops, initial_distance_m: spec.initial_distance_m,
       // His hours (hi_*_1812 behaviour.hours, human-duties.js): out 5:30 to 21:00; the wagon is put up between.
       hours: [5.5, 21],

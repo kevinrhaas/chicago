@@ -20,6 +20,7 @@
  */
 import { bearingToYaw } from './angles.js';
 import { giveRoomStand } from './transport-clearance.js';
+import { DRIVE_SPEED_CAP_M_S } from './team-drive.js';
 
 const retired = new WeakSet();
 const smooth = t => t * t * (3 - 2 * t);
@@ -46,7 +47,10 @@ export const RIDE_S = Object.freeze({ climb: 1.1, alight: 0.9, pullUp: 4 });
 export function createTeamRide({ visitor = () => null, standFor = () => null, groundAt = () => NaN,
   walkEye = () => 1.6, onBoard = () => {}, reducedMotion = () => false } = {}) {
   let actor = null, phase = null, eye = null, landing = null, pulling = false;
-  let cruise = 0;   // the pace the team walks on at under the reins, until whoa
+  // The pace (0..1 of the drive cap) the team walks on at under the reins, until whoa. Null
+  // until the reins are taken: then it starts at the pace the team had, so taking them from a
+  // team on its round lets it walk on as it was rather than ease to a stand.
+  let cruise = null;
   let from = null, lastHeading = null, still = 0, lastAt = null;
   const seatOf = a => {
     try {
@@ -176,19 +180,37 @@ export function createTeamRide({ visitor = () => null, standFor = () => null, gr
      * (sideways; +1 right), anything else is dropped. Look stays the visitor's.
      */
     drive(intent) {
-      if (!actor || !intent) { cruise = 0; return false; }
+      if (!actor || !intent) { cruise = null; return false; }
       const a = actor;
-      if (a.mode !== 'reins') cruise = 0;
+      if (a.mode !== 'reins') cruise = null;
+      else if (cruise === null) {
+        const pace = Number.isFinite(a.speed_m_s) ? a.speed_m_s / DRIVE_SPEED_CAP_M_S : 0;
+        cruise = Math.max(0, Math.min(1, pace));
+      }
       if (phase === 'seated' && (a.mode === 'reins' || pulling)) {
         // A team walks on until it is told to whoa: a push forward sets the pace (a stick's
-        // tilt is the pace), letting go keeps it, a pull back pulls up. Nobody has to hold a
-        // key or a thumb down to cross a block, on a phone above all.
-        const f = clamp1(intent.forward);
-        if (pulling || f < -0.15) cruise = 0;
-        else if (f > 0.15) cruise = f;
-        const input = pulling ? { throttle: -1, steer: 0 }
-          : { throttle: f < -0.15 ? -1 : cruise, steer: clamp1(intent.strafe) };
+        // tilt is the pace), letting go keeps it, a pull back pulls up (and, standing, backs
+        // it). Nobody has to hold a key or a thumb down to cross a block, on a phone above all.
+        // Only a stick within 45° of straight ahead (or back) sets the pace, by how far it is
+        // pushed; one held mostly sideways only steers, so a thumb turning a corner does not
+        // slow the team to the forward share of its push. W+A on a keyboard is still ahead.
+        const f = clamp1(intent.forward), s = clamp1(intent.strafe);
+        const push = Math.min(1, Math.hypot(f, s));
+        const along = push > 0.15 && Math.abs(f) >= Math.abs(s) - 1e-9;
+        const ahead = along && f > 0, back = along && f < 0;
+        if (pulling || back) cruise = 0;
+        else if (ahead) cruise = push;
+        // Pulling up to get down: whoa while it goes on, then nothing held, so a team that has
+        // stood is never backed (a held pull back backs a standing team, team-drive.js) while
+        // the visitor climbs down.
+        const going = Number.isFinite(a.speed_m_s) && a.speed_m_s > 1e-6 && !a.reversing;
+        const input = pulling ? { throttle: going ? -1 : 0, steer: 0 }
+          : { throttle: back ? -1 : cruise ?? 0, steer: s };
         try { a.drive(input); } catch { /* a refused step pulls the team up inside the actor */ }
+      } else if (phase === 'alighting' && a.mode === 'reins') {
+        // Climbing down from a team that has stood: nothing held, so the last whoa of the pull
+        // up is not read as a pull back held (which backs a standing team, team-drive.js).
+        try { a.drive({ throttle: 0, steer: 0 }); } catch { /* the actor stays authoritative */ }
       }
       intent.forward = 0; intent.strafe = 0; intent.rise = 0; intent.sprint = false;
       return true;
@@ -271,7 +293,7 @@ export function boardStand({ actor, row, blockedAt = () => false, ahead_m = 12 }
 }
 
 export function registerTransportInteraction(interactions, actor, { reach = 6, giveRoom = null, vehicle = 'wagon',
-  driver = 'driver', onFoot = false, ride = null, reinsHint = () => 'You have the reins' } = {}) {
+  driver = 'driver', onFoot = false, ride = null, reinsHint = () => 'You have the reins', rideName = null } = {}) {
   if (!interactions?.add || !actor?.id || !actor?.name
       || typeof actor.stop !== 'function' || typeof actor.resume !== 'function'
       || typeof actor.canResume !== 'function' || !(Number.isFinite(reach) && reach > 0)
@@ -328,8 +350,16 @@ export function registerTransportInteraction(interactions, actor, { reach = 6, g
     },
     steps: [
       { label: 'Pulling up', seconds: 0, run: run(a => { wasMoving = a.state === 'moving'; if (wasMoving) a.stop('boarding'); ride.climb(a, 0); }) },
-      { label: 'Climbing up', seconds: RIDE_S.climb, run(t) { if (live) ride.climb(live, t); } },
-      { label: 'Moving off', seconds: 0, run: run(a => { if (wasMoving && !ride.reducedMotion() && a.canResume()) a.resume(); wasMoving = false; }) },
+      // Seated, the team moves off in the same step, and the climb ends there: a press the
+      // moment the visitor is up works the seat (no zero-second step left running to swallow it).
+      { label: 'Climbing up', seconds: RIDE_S.climb, run(t) {
+        if (!live) return;
+        ride.climb(live, t);
+        if (t < 1) return;
+        if (wasMoving && live.visible && !ride.reducedMotion() && live.canResume()) live.resume();
+        wasMoving = false;
+        refresh();
+      } },
     ],
     said: () => `Aboard${still()}`,
   };
@@ -364,6 +394,8 @@ export function registerTransportInteraction(interactions, actor, { reach = 6, g
 
   const thing = {
     id: `driver:${actor.id}`, name: actor.name, kind: 'vehicle',
+    // T-3557: the team's short name for the ride bar (its row's `ride_name`), else its own name.
+    rideName: typeof rideName === 'string' && rideName.trim() ? rideName.trim() : actor.name,
     states: ['moving', 'stopped'], state: state(), reach,
     get at() {
       if (!live?.visible) return null;

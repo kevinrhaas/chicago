@@ -815,7 +815,7 @@ export function createHud({
     if (!state) { banner.setAttribute('hidden', ''); return; }
     const verb = $('travel-verb'); const dest = $('travel-dest'); const dist = $('travel-dist');
     if (verb) verb.textContent = state.verb ?? str('hud.going');
-    if (dest) dest.textContent = state.dest ?? '';
+    if (dest) { dest.textContent = state.dest ?? ''; dest.title = state.destTitle ?? ''; }
     // T-3557: aboard a team the same bar says what the visitor is doing there (a short note in
     // place of the distance) and its key gets them down.
     if (dist) dist.textContent = typeof state.note === 'string' ? state.note

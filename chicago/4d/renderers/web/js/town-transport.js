@@ -245,15 +245,19 @@ const envelopeOf = row => Array.isArray(row?.envelope_local_xz_m) ? row.envelope
 const TEAM_MARGIN_M = .3;
 
 /** One instance per scene. The static parked layer remains independently owned.
- * `clearWhy(row)` (optional) names what last refused `clear(row, ...)`: 'visitor' or a footprint id. */
+ * `clearWhy(row)` (optional) names what last refused `clear(row, ...)`: 'visitor' or a footprint id.
+ * `carriageway(row, pose)` (optional, T-3557): false when a wheel or hoof of that row's team at a
+ * vehicle-root pose leaves the scene's carriageways, true on them, null while they are unread;
+ * a driven team is refused the kerb by it. A scene without carriageway data passes none. */
 export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssembly = null, heightAt,
-  clear, routeClear = clear, routeSupport = null, clearWhy = null, detail = 'full',
+  clear, routeClear = clear, routeSupport = null, clearWhy = null, carriageway = null, detail = 'full',
   reach = { full: 90, balanced: 60, light: 45 }, problems = [], onActorsChanged = () => {} }) {
   // T-3542: a tier draws the teams when its reach is above zero; since the owner's ruling
   // (2026-11-10) Light's is, so a phone keeps its horses, carriages and wagons, nearer.
   const draws = t => (reach[t] ?? 0) > 0;
   if (!Array.isArray(rows) || typeof makeAssembly !== 'function' || typeof clear !== 'function') throw Error('town transport: scene rows, assembly loader and clearance reader required');
   if (prepareAssembly !== null && typeof prepareAssembly !== 'function') throw Error('town transport: optional assembly preparation callback required');
+  if (carriageway !== null && typeof carriageway !== 'function') throw Error('town transport: optional carriageway reader must be a function');
   const actors = [], roots = [];
   const saved = new Map();
   const pendingApproaches = new Map();
@@ -350,7 +354,8 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
             if (disposed || ownGeneration !== generation || !draws(tier)) { assembly.dispose(); break; }
             const reading = liveClear(row);
             const actor = createTransportLoop({ ...liveRow, route, assembly, heightAt,
-              clear: reading.check, why: reading.why, gate: crossingsFor().gateFor(row.id) });
+              clear: reading.check, why: reading.why, gate: crossingsFor().gateFor(row.id),
+              road: carriageway ? pose => carriageway(row, pose) : null });
             reading.bind(actor);
             actor.updateVisual = assembly.updateVisual;
             // Consume only after this generation owns a successfully created actor.

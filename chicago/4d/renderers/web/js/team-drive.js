@@ -10,6 +10,8 @@
  * visitor's `steer` is +1 = right, the other way round, and is turned into an angle here.
  */
 export const DRIVE_SPEED_CAP_M_S = 1.5;
+/** Backing: at most this pace, after the reins are held pulled this long at a stand. */
+export const REVERSE_CAP_M_S = .4, BACK_HOLD_S = .4;
 const DEG = Math.PI / 180;
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 const wrap = (n, total) => ((n % total) + total) % total;
@@ -34,6 +36,9 @@ export function driveLimits({ speed_m_s, steering_limit_deg, wheelbase_m }) {
     max_m_s: Math.min(DRIVE_SPEED_CAP_M_S, Math.max(speed_m_s, DRIVE_SPEED_CAP_M_S)),
     route_m_s: Math.min(speed_m_s, DRIVE_SPEED_CAP_M_S),
     accel_m_s2: .5, ease_m_s2: .6, brake_m_s2: 1.5,
+    // Backing a few steps (a teamster backs his team off a wall): slow, eased, and only after
+    // the team has stood a moment with the reins pulled.
+    reverse_m_s: REVERSE_CAP_M_S, reverse_accel_m_s2: .3, back_hold_s: BACK_HOLD_S,
     steer_max_rad, steer_rate_rad_s: Math.max(steer_max_rad / .75, 10 * DEG),
     wheelbase_m, min_radius_m,
     // Pure pursuit looks this far down the road; near it, a tracking law settles the team
@@ -45,7 +50,7 @@ export function driveLimits({ speed_m_s, steering_limit_deg, wheelbase_m }) {
 export const easeToward = (value, target, rate, dt) => value + clamp(target - value, -rate * dt, rate * dt);
 
 /**
- * One eased control step. throttle -1..1 (>0 walk on, faster; <0 pull up; no reversing): the
+ * One eased control step. throttle -1..1 (>0 walk on, faster; <0 pull up; backing is easeReverse's): the
  * speed eases toward max(0, throttle) * max. steer -1..1 (+1 right): the steering angle eases,
  * rate-limited, toward the lock, and back to straight when let go.
  */
@@ -60,7 +65,23 @@ export function easeControls({ speed, steering }, { throttle = 0, steer = 0 } = 
   };
 }
 
-/** Bicycle model on the rear axle: an exact arc of curvature tan(steering)/wheelbase. */
+/**
+ * One eased step while the team backs. throttle < 0 backs it, eased to -throttle * the reverse
+ * cap; anything else (let go, walk on) eases it to a stand at the brake rate. The speed is
+ * negative while backing. Steering is eased exactly as easeControls eases it.
+ */
+export function easeReverse({ speed, steering }, { throttle = 0, steer = 0 } = {}, limits, dt) {
+  const t = clamp(Number.isFinite(throttle) ? throttle : 0, -1, 1), s = clamp(Number.isFinite(steer) ? steer : 0, -1, 1);
+  const target = t < 0 ? t * limits.reverse_m_s : 0;
+  const rate = target < speed ? limits.reverse_accel_m_s2 : limits.brake_m_s2;
+  return {
+    speed: clamp(easeToward(speed, target, rate, dt), -limits.reverse_m_s, 0),
+    steering: clamp(easeToward(steering, -s * limits.steer_max_rad, limits.steer_rate_rad_s, dt),
+      -limits.steer_max_rad, limits.steer_max_rad),
+  };
+}
+
+/** Bicycle model on the rear axle: an exact arc of curvature tan(steering)/wheelbase (ds < 0 backs it). */
 export function bicycleStep(sample, steering, ds, wheelbase_m) {
   const k = Math.tan(steering) / wheelbase_m, y0 = sample.yaw;
   if (Math.abs(k * ds) < 1e-9) return sampleOf(sample.e + Math.sin(y0) * ds, sample.n - Math.cos(y0) * ds, y0, k);
@@ -157,4 +178,63 @@ export function refusalWord(error) {
   const m = String(error?.message ?? error ?? '');
   if (/30mm|wheel plane/.test(m)) return 'the kerb';
   return 'rough ground';
+}
+
+/**
+ * Where a team stands on the ground at a vehicle-root pose (e, n, yaw, steering): its four
+ * wheel centres and, when the row has a team, eight hoof points of the two horses swung with
+ * the front axle. The same points, in the same frame, that tools/lay_driven_carriages_1904.mjs
+ * auditRoad walks each 1904 road with, so the live drive and the laid roads ask one question.
+ */
+export function teamGroundPoints(row, pose) {
+  const L = row.wheelbase_m, ra = row.root_ahead_of_rear_axle_m, half = row.track_m / 2, pivot = L - ra;
+  const c = Math.cos(pose.steering ?? 0), sn = Math.sin(pose.steering ?? 0);
+  const cy = Math.cos(pose.yaw), sy = Math.sin(pose.yaw);
+  const toEnu = ([x, z]) => [pose.e + cy * x + sy * z, pose.n + sy * x - cy * z];
+  const wheels = [[half, -ra], [-half, -ra], [half * c, pivot - half * sn], [-half * c, pivot + half * sn]].map(toEnu);
+  const hooves = [];
+  if (Number.isFinite(row.team_half_spacing_m) && Array.isArray(row.horse_offset_m) && Number.isFinite(row.horse_offset_m[2])) {
+    const swing = (x, z) => [c * x + sn * (z - pivot), pivot - sn * x + c * (z - pivot)];
+    for (const side of [-1, 1]) for (const dz of [-.9, .9]) for (const dx of [-.2, .2]) {
+      hooves.push(toEnu(swing(side * row.team_half_spacing_m + dx, row.horse_offset_m[2] + dz)));
+    }
+  }
+  return { wheels, hooves };
+}
+
+const insidePoly = (e, n, poly) => {
+  let yes = false;
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    const a = poly[i], b = poly[j];
+    if ((a[1] > n) !== (b[1] > n) && e < (b[0] - a[0]) * (n - a[1]) / (b[1] - a[1]) + a[0]) yes = !yes;
+  }
+  return yes;
+};
+/**
+ * The live kerb rule. Room to the kerb, metres: the laying tool's (wheel .25, hoof .2) less
+ * 5 cm, so a laid road, posed anywhere between the tool's quarter-metre samples, is never
+ * refused by it, while a wheel or hoof that is about to leave the carriageway is.
+ */
+export const KERB_ROOM_M = Object.freeze({ wheel: .2, hoof: .15 });
+/**
+ * `(row, pose) => boolean`: is every wheel and hoof of the team, each with its room, on a
+ * carriageway? `carriageways` are polygons in ENU metres (data/street_grid/<scene>.json
+ * carriageways[].polygon_local_m).
+ */
+export function createCarriagewayReader(carriageways, { wheel_room_m = KERB_ROOM_M.wheel, hoof_room_m = KERB_ROOM_M.hoof } = {}) {
+  const polys = (Array.isArray(carriageways) ? carriageways : [])
+    .map(c => c?.polygon_local_m ?? c)
+    .filter(p => Array.isArray(p) && p.length >= 3 && p.every(q => Array.isArray(q) && Number.isFinite(q[0]) && Number.isFinite(q[1])))
+    .map(p => ({ p, w: Math.min(...p.map(q => q[0])), e: Math.max(...p.map(q => q[0])),
+      s: Math.min(...p.map(q => q[1])), n: Math.max(...p.map(q => q[1])) }));
+  if (!polys.length) throw Error('team drive: carriageway polygons required');
+  const D = Math.SQRT1_2;
+  const ring = room => [[0, 0], [room, 0], [-room, 0], [0, room], [0, -room], [room * D, room * D], [-room * D, room * D], [room * D, -room * D], [-room * D, -room * D]];
+  const wheelRing = ring(wheel_room_m), hoofRing = ring(hoof_room_m);
+  const onRoad = (e, n) => polys.some(q => e >= q.w && e <= q.e && n >= q.s && n <= q.n && insidePoly(e, n, q.p));
+  const discOn = ([e, n], r) => r.every(([de, dn]) => onRoad(e + de, n + dn));
+  return (row, pose) => {
+    const { wheels, hooves } = teamGroundPoints(row, pose);
+    return wheels.every(p => discOn(p, wheelRing)) && hooves.every(p => discOn(p, hoofRing));
+  };
 }
