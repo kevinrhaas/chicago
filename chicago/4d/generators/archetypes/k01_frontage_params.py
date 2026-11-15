@@ -5240,6 +5240,22 @@ WING_FABRICS = ("brick", "frame")
 FRAME_WALL_M = 0.15
 
 
+def _flush_wing_end(wings, wall_id: str, width: float, top: float) -> bool:
+    """T-1894: whether a rear wing carries a main flank wall (`k01.wall.side.south` at v 0, or
+    `k01.wall.side.north` at v `width`) on flush past the main body's rear, its walls standing
+    at least 0.45 m over `top`, so the flank's rear end is no corner up to there."""
+    for w in wings:
+        u0, u1, v0, v1 = (float(x) for x in w.get("rect") or (0, 0, 0, 0))
+        if abs(u1) > 1e-6 or "floor_m" not in w or not w.get("storey_heights_m"):
+            continue
+        if float(w["floor_m"]) + sum(float(x) for x in w["storey_heights_m"]) < top + 0.45:
+            continue
+        if (wall_id == "k01.wall.side.south" and abs(v0) < 1e-6) or \
+                (wall_id == "k01.wall.side.north" and abs(v1 - width) < 1e-6):
+            return True
+    return False
+
+
 def wing_walls(w: dict) -> dict:
     """A rear wing's three outer walls, each as (origin, along) in the assembly's frame,
     +X east (u) and -Z north (v), read left to right from outside as the main walls are:
@@ -5693,21 +5709,29 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
             length = walls[side][2]
             bl = bls.get(side)
             if bl is not None:
-                if set(bl) != {"sill_m", "width_m", "height_m"}:
-                    raise ParamError(f"rear_wings: {wid}'s basement_lights.{side} takes sill_m, width_m and height_m")
+                if not {"sill_m", "width_m", "height_m"} <= set(bl) <= {"sill_m", "width_m", "height_m", "head"} \
+                        or bl.get("head", "round") not in ("round", "plain"):
+                    raise ParamError(f"rear_wings: {wid}'s basement_lights.{side} takes sill_m, width_m and height_m, "
+                                     f"and may take head (round or plain)")
                 bs, bw, bh = (float(bl[k]) for k in ("sill_m", "width_m", "height_m"))
+                # T-1894: or square-headed, a plain hole as the main body's read basement lights
+                # are (1823's rear range, under its flank column on the Chicagology engraving)
+                square = bl.get("head") == "plain"
                 first = floors[0] + float(sash[0]["sill_above_floor_m"])
-                if not 0.5 <= bw <= cw[1] or bs < 0.15 or bh < bw / 2 + 0.2 or bs + bh + 0.45 > first:
+                if not 0.5 <= bw <= cw[1] or bs < 0.15 or bh < (0.3 if square else bw / 2 + 0.2) \
+                        or bs + bh + 0.45 > first:
                     raise ParamError(f"rear_wings: {wid}'s basement_lights.{side} stand 0.5-{cw[1]} m across, "
-                                     f"their sill at least 0.15 m up, their spring 0.2 m over it and their crown "
-                                     f"0.45 m under the first floor's sills at {first:.2f} m")
+                                     f"their sill at least 0.15 m up, a square head 0.3 m or a round one's spring "
+                                     f"0.2 m over it, and their head 0.45 m under the first floor's sills at "
+                                     f"{first:.2f} m")
                 for s in ss:
                     s = float(s)
                     if s - bw / 2 < 0.30 or s + bw / 2 > length - 0.30:
                         raise ParamError(f"rear_wings: {wid}'s {side} basement light at s {s} stands closer "
                                          f"than 0.30 m to a corner of its {length:.3f} m wall")
-                    ops.append(Opening(ROUND_PLAIN, f"k01.wall.wing.{wid}.{side}", s, round(bs, 4), bw, bh,
-                                       False, plain=True, narrow=bw < cw[0]))
+                    ops.append(Opening("k01.opening.sash_flat" if square else ROUND_PLAIN,
+                                       f"k01.wall.wing.{wid}.{side}", s, round(bs, 4), bw, bh,
+                                       square, plain=True, narrow=bw < cw[0]))
             comp = ROUND_HOODED if side in rheads else msides.get(side, "k01.opening.sash_flat")
             for k, row in enumerate(sash):
                 if row is None:   # T-1902: a blind storey
@@ -6877,8 +6901,19 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(f"{what}: a round head's spring stands at least 0.2 m over its sill")
         if sill + h + 0.30 > soffit - 0.05:
             raise ParamError(f"{what}'s lintel runs into the soffit at {soffit:.2f} m")
-        if s - wd / 2 < 0.45 or s + wd / 2 > span - 0.45:
-            raise ParamError(f"{what} stands within 0.45 m of the wall's ends")
+        # T-1894: a flank's rear end is no corner where a rear wing carries the wall on flush
+        # past it over the light's head (1823's north flank, running on unbroken into its rear
+        # range on the 1911 sheet): there a read light stands 0.1 m inside the end, in the main
+        # body's own wall, as the Chicagology engraving's light under the 0.25 m column does
+        lo_end, hi_end = 0.45, span - 0.45
+        if _flush_wing_end(val("rear_wings") or (), wall_id, width, sill + h):
+            if wall_id == "k01.wall.side.south":
+                lo_end = 0.1
+            else:
+                hi_end = span - 0.1
+        if s - wd / 2 < lo_end or s + wd / 2 > hi_end:
+            raise ParamError(f"{what} stands within 0.45 m of the wall's ends (0.1 m of one a rear wing "
+                             f"carries on flush)")
         for a0, a1, b0, b1 in read.setdefault(wall_id, []):
             if s - wd / 2 < a1 + 0.3 and s + wd / 2 > a0 - 0.3 and sill < b1 + 0.45 and sill + h > b0 - 0.45:
                 raise ParamError(f"{what} meets another read window, or its lintel")

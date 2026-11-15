@@ -5,6 +5,7 @@
     python3 tools/fit_portrait_face.py --check    refit in memory; fail if a fit file, or the card's
                                                   still of it (tools/portrait_still.mjs), is stale
     python3 tools/fit_portrait_face.py --overlay OUT.png PERSON CROP   the fitted landmarks over a local copy of the crop
+    python3 tools/fit_portrait_face.py --person PERSON   fit (or with --check, check) one person only
 
 What it reads. A portrait record, data/humans/variation/portraits/<person>.json, holds where
 a reader marked facial landmarks on a picture of the person (pixel x, y on a named scan, each
@@ -802,6 +803,8 @@ def main():
     ap.add_argument('--find-outline', action='store_true',
                     help='search each side view outline afresh and write it into its portrait record (fit_views)')
     ap.add_argument('--overlay', nargs=3, metavar=('OUT', 'PERSON', 'CROP_IMAGE'))
+    ap.add_argument('--person', metavar='PERSON', help="fit (or check) this person's portrait alone (T-3553, tools/photo_face.py): "
+                    "the others' committed fits are left as they are, since a refit's last digits follow the machine")
     args = ap.parse_args()
     if args.overlay:
         overlay(args.overlay[1], args.overlay[0], args.overlay[2])
@@ -814,8 +817,13 @@ def main():
                 write_found(path, fit(path.stem)['found'])
         FIND_OUTLINE = False
     bad = []
+    if args.person and not (PORTRAITS / f'{args.person}.json').exists():
+        print(f'FAIL no portrait record data/humans/variation/portraits/{args.person}.json')
+        return 1
     for path in sorted(PORTRAITS.glob('*.json')):
         person = path.stem
+        if args.person and person != args.person:
+            continue
         f = fit(person)
         rec = record(person, f)
         text = json.dumps(rec, indent=1) + '\n'
