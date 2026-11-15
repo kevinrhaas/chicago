@@ -1,0 +1,25 @@
+{
+ "id": "met_ci_1900_striped_summer_dress",
+ "type": "photograph",
+ "citation": "Dress, American, ca. 1900, cotton, silk. The Metropolitan Museum of Art, The Costume Institute, C.I.58.28a, b, Gift of Mrs. Charles Eckel, 1958; the museum's open-access object photograph C.I.58.28ab_TQL1.jpg.",
+ "author": "The Metropolitan Museum of Art (object photographs)",
+ "date": "ca. 1900",
+ "describes_date": "ca. 1900",
+ "repository": "The Metropolitan Museum of Art, The Costume Institute; object 85425 in the museum's collection API (isPublicDomain: true), images at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/85425",
+ "locator": "The primary object photograph (front or three-quarter front, on a dress form or hat stand).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Used only as a reference for the kinds of trimming, cloth and hats the 1904 women's dress is drawn with (T-3553); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-14 (T-3553) from the museum's open-access image and object record: a pale green striped cotton and silk summer dress: black velvet ribbon bows down the bodice and in lines down the skirt, a ruffled cape collar, the skirt ending in gathered flounces. A real garment, American, not of Chicago and not of anyone drawn in the town.",
+ "note": "One of the T-3553 finery references (docs/RESEARCH/finery-3553/README.md): the striped summer dress.",
+ "what_it_supplies": [
+  "a striped summer cloth trimmed with black velvet ribbon and bows, and a flounced hem"
+ ],
+ "what_it_does_not_supply": [
+  "how any Prairie Avenue woman dressed, or the colour of any dress she owned",
+  "how often such a dress was worn on a Chicago street in 1904"
+ ]
+}

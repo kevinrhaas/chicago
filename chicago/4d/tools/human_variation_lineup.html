@@ -22,7 +22,9 @@ import { loadMeshoptDecoder } from '../renderers/web/js/scene-loader.js';
 import { loadVariationKit, personVariation, applyVariation } from '../renderers/web/js/human-variation.js';
 import { dressSkin, restingLid, likenessSheetsReady } from '../renderers/web/js/human-skin.js';
 import { dressHair, dressHeadcloth } from '../renderers/web/js/human-hair.js';
-import { dressLooks, dressCloth, looksHairStyle } from '../renderers/web/js/human-looks.js';
+import { dressLooks, dressCloth, looksHairStyle, dressInSeason } from '../renderers/web/js/human-looks.js';
+import { dressFinery } from '../renderers/web/js/human-finery.js';
+import { clothHuman } from '../renderers/web/js/fabric.js';
 import { dressHat } from '../renderers/web/js/human-hats.js';
 import { hairFor } from '../renderers/web/js/human-hair-styles.js';
 import { dressSpectacles } from '../renderers/web/js/human-spectacles.js';
@@ -35,6 +37,10 @@ const scope = q.get('scope') ?? 'full', view = q.get('view') ?? 'body';
 const keys = q.get('keys')?.split(',') ?? Array.from({ length: Number(q.get('n') ?? 6) }, (_, i) => `lineup_${i + 1}`);
 const kit = await loadVariationKit(new URL('../assets/humans/web/', location.href));
 const persons = (await fetch('../assets/humans/web/hm08_variation_persons.json').then((r) => r.json())).persons;
+// &trial=<url> (T-3553): a JSON of { key: dress } laid over the persons file's dresses, to look
+// at a dress before it is generated; &season=winter dresses them for a season.
+if (q.get('trial')) for (const [k, d] of Object.entries(await fetch(q.get('trial')).then((r) => r.json()))) persons[k] = { ...(persons[k] ?? {}), dress: d };
+const season = q.get('season') ?? 'summer';
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
 renderer.setPixelRatio(devicePixelRatio);
@@ -66,6 +72,12 @@ const loader = new GLTFLoader().setMeshoptDecoder(await loadMeshoptDecoder());
 const assetOf = async (key) => {
   if (asset !== 'auto') return asset;
   const inst = persons[key]?.drawn_as?.[0];
+  // A Prairie Avenue resident built on a door call (T-3548) names her row in inside_1904.json.
+  if (inst?.includes('#')) {
+    const [file, id] = inst.split('#');
+    const doc = await fetch(`../${file}`).then((r) => r.json());
+    return [...(doc.people ?? []), ...(doc.care ?? [])].find((x) => x.person === id)?.asset_id ?? 'glessner_frances_m_1904';
+  }
   return inst ? (await fetch(`../${inst}`).then((r) => r.json())).appearance.asset_id : 'settler_1812';
 };
 const gltfs = new Map();
@@ -97,13 +109,16 @@ keys.forEach((key, i) => {
     // T-3522: their looks, cloth, hat and headcloth, as humans.js build() puts them on.
     const rec = key === 'base' ? null : persons[key] ?? null, year = Number(q.get('year') ?? rec?.scene ?? 1904);
     if (rec?.looks) dressLooks(fig, rec.looks);
-    if (rec?.dress) dressCloth(fig, rec.dress);
+    const dress = dressInSeason(rec?.dress ?? null, season);
+    const owned = dress ? dressCloth(fig, dress) : [];
+    if (dress?.finery) dressFinery(fig, dress.finery, owned);
     dressSkin(fig, { age: window.__variations?.find((x) => x.key === key)?.age ?? null, person: key === 'base' ? null : key, year });
     const style = rec?.looks ? looksHairStyle(rec.looks, hairFor(key, year)) : null;
     if (style && rec?.dress?.tail_cm) style.tail_cm = rec.dress.tail_cm;
     const hair = dressHair(fig, { lod, person: key === 'base' ? null : key, year, style });
     if (rec?.dress?.headcloth) dressHeadcloth(fig, rec.dress.headcloth, { person: key });
-    if (rec?.dress?.hat) dressHat(fig, rec.dress.hat, { person: key, lod });
+    if (dress?.hat) dressHat(fig, dress.hat, { person: key, lod });
+    clothHuman(fig);
     const specs = dressSpectacles(fig, { lod, person: key === 'base' ? null : key });
     window.__dressed = [...(window.__dressed ?? []), { key, hair: hair ? { cut: hair.style.cut, grown: hair.grown } : null, spectacles: !!specs }];
   }

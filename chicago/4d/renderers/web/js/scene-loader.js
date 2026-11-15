@@ -293,7 +293,7 @@ export async function loadScene(year, bases = resolveBases(), {
   keepEncodedImages = false,
   encodedImagesAsBlobs = false,
 } = {}) {
-  const { dataBase, assetBase } = bases;
+  const { dataBase } = bases;
   const problems = [];
 
   const [scene, datum] = await Promise.all([

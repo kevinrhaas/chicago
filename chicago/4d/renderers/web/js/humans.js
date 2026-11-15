@@ -46,7 +46,8 @@ import { enuToWorld } from './terrain.js';
 import { dressSkin, restingLid } from './human-skin.js';
 import { dressHair, dressHeadcloth } from './human-hair.js';
 import { hairFor } from './human-hair-styles.js';
-import { dressLooks, dressCloth, looksHairStyle } from './human-looks.js';
+import { dressLooks, dressCloth, looksHairStyle, dressInSeason } from './human-looks.js';
+import { dressFinery } from './human-finery.js';
 import { dressHat } from './human-hats.js';
 import { dressSpectacles } from './human-spectacles.js';
 import { fitWaist } from './human-waist.js';
@@ -256,6 +257,9 @@ export function pendingBuilds() { return buildQueue.length; }
  * `heightAt(e, n)` stands it on the ground; `clipLibrary` (AnimationClips on the contract
  * skeleton, § 7) adds clips the body's own file does not carry.
  */
+/** T-3553: the season people are dressed for (Settings › Season), set by the layer. */
+let dressSeason = 'summer';
+
 export class HumanActor {
   constructor({ instance, person = null, identity = null, assets, heightAt = () => 0, clipLibrary = [], tier = 'full', variation = 'full', prepare = null }) {
     this.instance = instance;
@@ -429,12 +433,26 @@ export class HumanActor {
     }
     if (this.skirt) this.skirt.bind(next.scene);
     else this.skirt = createHumanSkirt({ id: this.personId ?? this.id, scene: next.scene });
-    if (prev) { this.counters.swaps++; this.park(prev); }
+    // T-3553: a level dressed for another season is let go, never kept for a swap back.
+    if (prev) { this.counters.swaps++; if (prev.season && prev.season !== dressSeason) this.teardown(prev); else this.park(prev); }
     this.costs = '';
     this.applyCosts();
     this.applyFace(this.expression);
     this.prune();
     return next;
+  }
+
+  /**
+   * T-3553: the Season setting changed and this figure dresses by season: let go of the levels
+   * kept for a swap back and load the level drawn now again, in the new season's dress.
+   */
+  redress() {
+    if (!this.body?.season || this.body.season === dressSeason) return false;
+    this.prune(true);
+    this.lod = -1;
+    this.wanted = -1;
+    this.recheck = 0;
+    return true;
   }
 
   /** Take `body` out of the scene and keep it for a swap back (T-3439). */
@@ -482,9 +500,12 @@ export class HumanActor {
     // skin and iris, before dressSkin patches them.
     const looks = variation?.persons?.[this.personId]?.looks ?? null;
     const looked = looks ? dressLooks(scene, looks) : [];
-    // T-3506: their own cloth colours and the pieces they wear today (human-looks.js).
-    const dress = variation?.persons?.[this.personId]?.dress ?? null;
+    // T-3506: their own cloth colours and pieces worn (human-looks.js); T-3553: for the
+    // season, with its pattern and trimming (human-finery.js) on their own clones.
+    const recorded = variation?.persons?.[this.personId]?.dress ?? null;
+    const dress = dressInSeason(recorded, dressSeason);
     if (dress) looked.push(...dressCloth(scene, dress));
+    if (dress?.finery) looked.push(...dressFinery(scene, dress.finery, looked));
     // ...and his own hair colour and cut, for the hair layer below (and any tail below a tie).
     const style = looks ? looksHairStyle(looks, hairFor(this.personId ?? null, Number(this.instance.scene) || null)) : null;
     if (style && dress?.tail_cm) style.tail_cm = dress.tail_cm;
@@ -526,7 +547,8 @@ export class HumanActor {
     if (hair?.face?.morphTargetDictionary && Object.keys(hair.face.morphTargetDictionary).length) faces.push(hair.face);
     const mixer = new THREE.AnimationMixer(scene);
     mixer.addEventListener('finished', (ev) => { if (ev.action === this.body?.oneShot) this.endGesture(); });
-    return { lod, scene, meshes, faces, mixer, clips, hair, looked, extras, garrison: dress?.garrison ?? null, action: null, oneShot: null, assetId: this.instance.appearance.asset_id };
+    return { lod, scene, meshes, faces, mixer, clips, hair, looked, extras, garrison: dress?.garrison ?? null, action: null, oneShot: null, assetId: this.instance.appearance.asset_id,
+      season: recorded?.seasons ? dressSeason : null };
   }
 
   teardown(body) {
@@ -1084,6 +1106,15 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
       a.dispose();
       return true;
     },
+
+    /** T-3553: dress everyone for `season` (summer, spring, fall, winter). */
+    setSeason(season) {
+      if (typeof season !== 'string' || season === dressSeason) return false;
+      dressSeason = season;
+      for (const a of actors.values()) a.redress();
+      return true;
+    },
+    get season() { return dressSeason; },
 
     setTier(next) {
       if (!HUMAN_TIERS[next]) return false;

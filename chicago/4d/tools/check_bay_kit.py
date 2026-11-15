@@ -753,7 +753,7 @@ def rule_light(full, light, data, v=None):
     # glazed or curved bay cannot claim it; held to a plain block's few triangles instead
     blank = not pier and v is not None and v.get("kind") == "projection" \
         and (v.get("plan") or {}).get("kind") == "polyline" \
-        and not any(st.get("windows") for st in v.get("storeys") or ())
+        and not any(st.get("windows") for st in v.get("storeys") or ()) and not v.get("masonry")
 
     def box(b):
         ps = [p for r, pr in b.prims.items() if r not in K.BOARD_ROLES for p in pr.pos]
