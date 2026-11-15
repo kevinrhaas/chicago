@@ -3,7 +3,7 @@
  "ticket": "T-3553",
  "person_id": "pa1904_grey_w_l",
  "scene": "1904",
- "_doc": "A stand-in's photographs as the skin, hair and eyes of the face fitted to them (T-3553; tools/bake_likeness_skin.py bakes `texture` from `sheet` and `views`, and tools/human_variation_kit.py carries `texture` to the person's row of assets/humans/web/hm08_variation_persons.json as `skin`). `views`: each picture on the sheet (`crop_px`, sheet pixels), with MediaPipe Face Landmarker's 478 points on it (`points_px`, sheet pixels, written by `--detect`); a side view names the turn it shows by eye (`turn_deg`, negative when the face points to the viewer's left), used only where the face's fit has no side camera of its own: the bake turns a side view as the fit did; the front view of a face that smiles is placed by the points above the nose's base alone (`camera: \"upper_face\"`). `smile_view`: a picture of the smile of its own, where the sheet's front view rests with the mouth shut (`scan` and `sha256`; `level_deg` the turn that levels it and `crop_px` the cut then taken, pixels of the levelled picture; `points_px` on that cut): handed to the tool with `--smile`, laid on the fitted face at rest by the points away from the mouth, and the smile fitted to it; its teeth are brought to the sheet's light, and it is laid on no skin. `grow`: how the hair stands out from the skin where the pictures show hair (`max_cm` the most it may; `beard` lets it grow below the nose; `ear_cm` how near an ear it stops; `view_power` and `smooth` as the tool's defaults). `cameras`, `texture` and `fit_values_sha256` are the tool's own, written at each bake: `texture.grow` (the furthest the hair stands, where from, where the sheet keeps the grown surface's facing, and the skin and hair colours read), `texture.lids` (the eyes' opening in the front picture and on the fitted face, and how far the lids rest shut to match) and `texture.eyes` (where the sheet keeps each iris, and the colour of the whites).",
+ "_doc": "A stand-in's photographs as the skin, hair and eyes of the face fitted to them (T-3553; tools/bake_likeness_skin.py bakes `texture` from `sheet` and `views`, and tools/human_variation_kit.py carries `texture` to the person's row of assets/humans/web/hm08_variation_persons.json as `skin`). `views`: each picture on the sheet (`crop_px`, sheet pixels), with MediaPipe Face Landmarker's 478 points on it (`points_px`, sheet pixels, written by `--detect`); a side view names the turn it shows by eye (`turn_deg`, negative when the face points to the viewer's left), used only where the face's fit has no side camera of its own: the bake turns a side view as the fit did; the front view of a face that smiles is placed by the points above the nose's base alone (`camera: \"upper_face\"`). `smile_view`: a picture of the smile of its own, where the sheet's front view rests with the mouth shut (`scan` and `sha256`; `level_deg` the turn that levels it and `crop_px` the cut then taken, pixels of the levelled picture; `points_px` on that cut): handed to the tool with `--smile`, laid on the fitted face at rest by the points away from the mouth, and the smile fitted to it; its teeth are brought to the sheet's light, and it is laid on no skin. `grow`: how the hair stands out from the skin where the pictures show hair (`max_cm` the most it may; `beard` lets it grow below the nose; `ear_cm` how near an ear it stops; `view_power` and `smooth` as the tool's defaults). `cameras`, `texture` and `fit_values_sha256` are the tool's own, written at each bake: `texture.grow` (the furthest the hair stands, where from, where the sheet keeps the grown surface's facing, and the skin and hair colours read), `texture.lids` (the eyes' opening in the front picture and on the fitted face, and how far the lids rest shut to match) and `texture.eyes` (where the sheet keeps each iris, and the colour of the whites). `lid_skin` (2026-11-15): the front picture's eye openings and the lashes round them are kept off the lids, which take the picture's own lid skin and are never lit as hair (his lids rest lower over the eye than the picture's, and the picture's lashes and iris laid on them stood as a dark band over each eye).",
  "source": "owner_grey_likeness_william_2026",
  "grade": "reconstructed",
  "liberty": "L-grey-photograph-skin-3553",
@@ -5806,6 +5806,7 @@
   "the loose curls beside the ears and on the collar (the hair is the skin stood out to the pictures' outline, kept clear of the ears and above the collar, so it sits closer than the pictures')",
   "each iris mark for mark, and the catchlights (an iris is drawn from the front picture as rings about its centre: its colours at each distance, not its pattern)"
  ],
+ "lid_skin": true,
  "grow": {
   "max_cm": 7,
   "beard": true,
@@ -5926,8 +5927,8 @@
    768,
    1024
   ],
-  "sha256": "2c93d004fa8d42b1ed798e3311300ba1b536e814821af70a0bf8cd0f81c5671b",
-  "bytes": 181356,
+  "sha256": "22f2656237ed762ca86a4b25250ea9581d78078509cc467c11edd6357a90deeb",
+  "bytes": 183184,
   "rects": [
    {
     "name": "head",
@@ -6899,8 +6900,8 @@
   },
   "front": {
    "file": "assets/humans/web/likeness/pa1904_grey_w_l_front.jpg",
-   "sha256": "e7d9fdbdecf2e0441685ac83a8091a9ca6cd0d3541e6899c2dcd00d45eddfc91",
-   "bytes": 66857,
+   "sha256": "e2e0e514cb6afdb9fd91283f4d6fa4cc255822d2fb678677187b2ce0c5d106f1",
+   "bytes": 66943,
    "size_px": [
     640,
     512
