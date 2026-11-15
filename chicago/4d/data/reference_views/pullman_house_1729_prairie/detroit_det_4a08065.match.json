@@ -42,10 +42,10 @@
         -32.937383464227544
       ],
       "rotation_y": -3.141749733222473,
-      "glb_sha256": "bedf856691bb4cf6413c74903d4dc3534603f3ca9196f8a1346cd9de5ec0a65c"
+      "glb_sha256": "7c882e349b3b3e7a295a461b790863296d34a3cd77a34ffcb4c55ea995f58bcd"
     }
   ],
-  "group_sha256": "915e0ea52a93a177063aed9e541a0e44f319c1501e17d66d2ab402024662f327",
+  "group_sha256": "7ed7a641dde997ff28e2580b1689a43e34b73a8a6e6cf31b8134a220ce122824",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -384,7 +384,7 @@
       "how": "compared render against render at full size; nothing over the bar moved"
     },
     {
-      "what": "the Fort Dearborn Massacre monument (fort_dearborn_massacre_monument_1893, drawn with the house since T-3568) at the far end of 18th Street by Calumet: the print's pedestal and group at x about 912 px, the render's at about 915, a few pixels high at that distance [T-3589: the monument's inscription and pale panels are drawn since; nothing else in this view moved] [T-3594: the weapons and ornaments are modelled on the group since (the tomahawk, the feathers, the headband, the hip ornament, the musket); a few pixels at this distance, nothing in this view moved] [T-3594: the warrior's and Black Partridge's heads and chests are turned as the plates show since; at this distance 23-52 px of the group change and nothing else in this view moved]",
+      "what": "the Fort Dearborn Massacre monument (fort_dearborn_massacre_monument_1893, drawn with the house since T-3568) at the far end of 18th Street by Calumet: the print's pedestal and group at x about 912 px, the render's at about 915, a few pixels high at that distance [T-3589: the monument's inscription and pale panels are drawn since; nothing else in this view moved] [T-3594: the weapons and ornaments are modelled on the group since (the tomahawk, the feathers, the headband, the hip ornament, the musket); a few pixels at this distance, nothing in this view moved] [T-3594: the warrior's and Black Partridge's heads and chests are turned as the plates show since; at this distance 23-52 px of the group change and nothing else in this view moved] [T-3594: Black Partridge's short fringed breechcloth and the child's smock are modelled since; at this distance 1 px of the group change and nothing else in this view moved]",
       "status": "within tolerance"
     }
   ],
