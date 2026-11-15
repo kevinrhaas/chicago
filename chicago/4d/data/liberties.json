@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1131,
+  "count": 1132,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -74385,6 +74385,42 @@
       ],
       "work_refs": [
         "T-3553"
+      ]
+    },
+    {
+      "id": "L-board-drive-3557",
+      "title": "The visitor climbs up beside a driver and takes the reins of his team",
+      "section": "per_subject",
+      "subjects": [
+        "western_hotel"
+      ],
+      "covers": [],
+      "recorded": "2026-11-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-14: *\"One of the things with carriages and horses and wagons was we wanted to be able to board and drive the team around.\"* Every driven team in every year (the 1812 fort wagons, the 1835 Western Hotel wagon, the three 1904 Prairie Avenue broughams) can be boarded from its Interact key: Climb up beside the driver or coachman (onto the wagon, where the 1812 teamster walks at his horses' heads), then Take the reins and drive it with the movement keys or the touch stick, Hand back the reins (the driver steers back onto his own round and goes on), and Get down (a moving team pulls up first; the visitor lands on a clear stand beside it, outside the team and any building). The visitor's seat is measured on each vehicle's own model and recorded on its row (passenger local (m), passenger eye (m), passenger basis in the loops data): beside the driver on the W01 wagon's seat board (top 1.58 m, at its near end 0.5 m from him, clear of his hat's brim), beside the coachman on the brougham's box (cushion top 1.765 m, 0.34 m to his left, inside its side rail), and on the 1812 farm-box's bed boards (top 0.955 m, centre line, 0.4 m forward of the middle); the eye is 0.78 m above the seat."
+        },
+        {
+          "label": "Not invented",
+          "text": "the vehicles, their seats and boards as modelled; the teams, their drivers and their rounds as their own liberties record them (“Reconstructed occupied town circuits”, “Two of the fort's wagons on the move on 14 August 1812, each led by a private on foot”, “Two more broughams on loops round Prairie Avenue, each its own coach, team and coachman”)."
+        },
+        {
+          "label": "Reconstructed",
+          "text": "all of it is play, not evidence. No source says any of these men gave anyone a ride, let a stranger take his reins, or drove anywhere but the reconstructed rounds; the routes a visitor drives are the visitor's own, not anyone's journey. Which side of the driver the visitor sits, where on the wagon bed, the seated eye height, the climb and the pull-up are ours. The team is driven at walking pace at most (1.5 m/s), and it pulls up for walls, kerbs, rough ground, people and other teams rather than passing through them."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a source for how a coachman's box or a teamster's wagon carried a second person in these years (a footman's place, a lazy board), which replaces the seat; an owner ruling on faster driving."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-14."
+        }
+      ],
+      "work_refs": [
+        "T-3557"
       ]
     },
     {

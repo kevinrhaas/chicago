@@ -124,10 +124,15 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
           horse.support = support;
           group.updateWorldMatrix(true, true);
           horse.root.getWorldPosition(current);
-          if (horse.prior) horse.distance += current.distanceTo(horse.prior);
+          // T-3557: a team backed under the visitor's reins steps backwards. The heard hoof
+          // distance only grows (audio reads it as metres walked); the gait's own phase is signed.
+          const step = horse.prior ? current.distanceTo(horse.prior) : 0;
+          horse.distance += step;
+          horse.gait = (horse.gait ?? horse.distance) + (pose.reversing ? -step : step);
           horse.prior = current;
           horse.action.paused = false;
-          horse.mixer.setTime((horse.distance / horseSpecCopy.stride_m % 1) * walk.duration);
+          const phase = ((horse.gait / horseSpecCopy.stride_m) % 1 + 1) % 1;
+          horse.mixer.setTime(phase * walk.duration);
           horse.action.paused = true;
         }
       },

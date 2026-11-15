@@ -197,7 +197,10 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
         assert.equal(calls.length, 1); const options = calls[0];
         assert.deepEqual(Object.keys(options).sort(), ['sceneId', 'dataBase', 'people', 'getPeople', 'preparePersonCard', 'humans', 'confidence',
           'heightAt', 'footprints', 'visitor', 'interactions', 'detail', 'coarse', 'problems',
-          'blockedAt', 'placeVisitor'].sort());
+          'blockedAt', 'placeVisitor',
+          // T-3557: the ride's readers (where the eye is, the ground to get down to, the standing
+          // eye, reduced motion, the reins' words) and the boarding hook (ends a Go to / follow).
+          'visitorEye', 'groundAt', 'walkEye', 'reducedMotion', 'reinsHint', 'onBoard'].sort());
         // T-3475: Step back reads the router's walkable grid (none yet: nothing blocks) and moves the walker.
         assert.equal(typeof options.placeVisitor, 'function'); assert.equal(options.blockedAt(0, 0), false);
         assert.equal(options.preparePersonCard, year === '1835' ? null : prepareSceneDirectoryPerson,
