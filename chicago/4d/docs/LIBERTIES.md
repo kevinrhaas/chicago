@@ -44232,6 +44232,16 @@ which the cresting and the dormer are re-read on it.
 **Ticket:** T-3553.
 **Recorded:** 2026-11-14.
 
+### L-photo-faces-3553 — A person's own four-view pictures as their face, by one command
+
+**Decision:** the owner, 2026-11-14, of the people after the Greys: he will want it easy "to add or generate a bunch of people photos for you to apply to the existing people faces". `tools/photo_face.py` (page: `docs/PHOTO-FACES.md`) takes a drawn person, a four-view sheet of a head (front, both sides, behind, on a white ground) and the sheet's source record, and makes their face as the Greys' were made: MediaPipe Face Landmarker's points on the front view as the portrait record's marks, the face fitted to them on the body the point table is calibrated on for the person's sex, the sheet baked onto that face as skin, hair and eyes (L-grey-photograph-skin-3553), and the town's persons file written again.
+A face made this way rests on one front picture's points: its profile is the fit's prior and the body's, where the Greys' was also held to a traced side view and to values read by eye. Each such person is graded reconstructed. Where the pictures are of someone else, their card carries the stand-in label the command is given.
+**Not invented:** the pictures (each one's source record says whose they are and that its rights are cleared for use as a texture); who the person is (their household record).
+**Left out on purpose:** writing a source record (always a person's own reading of the pictures); a card's portrait still; the photo match after the first bake.
+**Re-opens on:** a photograph of the person themselves, where the pictures were a stand-in's; the owner withdrawing a sheet.
+**Ticket:** T-3553.
+**Recorded:** 2026-11-15.
+
 ### L-t1896-doane-crown-porch-roundel — 1827 Prairie's pavilion crown closed to a short pyramid, its porch's south end and its tower roundel, read off the Doane photograph (T-1896, 2026-11-15)
 
 **Decision:** The sign-off of 1827 Prairie (T-1896) works the three differences T-3191 left open on the Chicagology photograph (`chicagology_1827_doane_exterior`, through its solved camera). The pavilion's crown is no longer a hip run 5.5 m back into the main roof: the print, read on its contrast-stretched crop, shows a short steep pyramid whose slates rise from well inside its cornice, its south face narrow past the south-west hip. So the crown's sides stand on a ledge of the cornice 1.35 m in from its edge, pitched at 62 degrees, and the crown closes to one point 2.4 m deep. The porch's south end stands on a column against the wall in place of its flat respond, with a low parapet between its pedestals. The corner tower carries a carved roundel between its principal floor's pair, over their hoods.

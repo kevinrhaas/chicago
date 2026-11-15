@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1139,
+  "count": 1140,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -74697,6 +74697,40 @@
         {
           "label": "Recorded",
           "text": "2026-11-14."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
+      "id": "L-photo-faces-3553",
+      "title": "A person's own four-view pictures as their face, by one command",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-14, of the people after the Greys: he will want it easy \"to add or generate a bunch of people photos for you to apply to the existing people faces\". the photo face tool (page: the project's notes on photo faces) takes a drawn person, a four-view sheet of a head (front, both sides, behind, on a white ground) and the sheet's source record, and makes their face as the Greys' were made: MediaPipe Face Landmarker's points on the front view as the portrait record's marks, the face fitted to them on the body the point table is calibrated on for the person's sex, the sheet baked onto that face as skin, hair and eyes (“The Greys wear their stand-ins' photographs as skin, hair and eyes”), and the town's persons file written again. A face made this way rests on one front picture's points: its profile is the fit's prior and the body's, where the Greys' was also held to a traced side view and to values read by eye. Each such person is graded reconstructed. Where the pictures are of someone else, their card carries the stand-in label the command is given."
+        },
+        {
+          "label": "Not invented",
+          "text": "the pictures (each one's source record says whose they are and that its rights are cleared for use as a texture); who the person is (their household record)."
+        },
+        {
+          "label": "Left out on purpose",
+          "text": "writing a source record (always a person's own reading of the pictures); a card's portrait still; the photo match after the first bake."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a photograph of the person themselves, where the pictures were a stand-in's; the owner withdrawing a sheet."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-15."
         }
       ],
       "work_refs": [
