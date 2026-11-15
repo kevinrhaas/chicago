@@ -5,6 +5,7 @@
  "license": "CC0-1.0",
  "_doc": "The faces people wear who have no pictures of their own (owner, 2026-11-14: 'MakeHuman skins only for now'). Each is the face of one CC0 MakeHuman skin atlas, cut from the same place on the map every hm08 body shares, brought to one tone, and laid under the wearer's own complexion (renderers/web/js/human-skin.js FACE_LIBRARY). `faces` is the editorial list, in the sheet's order: which atlas, which sex's and which age's people may wear it, and `light_only` for freckled skins. A pack's own name for an atlas (in `entry`) is the pack's word, not a fact about anybody who wears it: nobody is given a face by it. tools/face_library.py builds the sheet and writes `texture`; renderers/web/js/human-variation.js (libraryFace) hands the faces out. Edit `faces`, `mask`, `rule`; never `texture`.",
  "sources": "assets/authored/humans/face_library/SOURCE.json",
+ "source_sha256": "de4d6523cc4bd60a01f450cf3f9057eb79a511d2cdbcc78df2fdae2463c19805",
  "map_px": 2048,
  "box_px": [
   1504,
@@ -1032,7 +1033,6 @@
     0.21
    ]
   },
-  "source_sha256": "de4d6523cc4bd60a01f450cf3f9057eb79a511d2cdbcc78df2fdae2463c19805",
   "reference": {
    "file": "assets/authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png",
    "meets_rgb": [

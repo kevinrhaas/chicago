@@ -335,6 +335,12 @@ let faceCensus = '';
   assert(crowd({ sex: 'female', assetId: 'glessner_frances_m_1904' }).every(f => f === null || (F.faces[f.index].sex === 'female' && F.faces[f.index].age === 'young')));
   for (const sex of ['male', 'female', 'either']) assert(crowd({ sex, age: 8, assetId: 'child_boy_1904' }, 200).every(f => f === null || (F.faces[f.index].sex === 'female' && F.faces[f.index].age === 'young')), 'a child wears a young woman\'s face');
   assert(crowd({ age: null }, 200).every(f => f === null || F.faces[f.index].age === 'young'));
+  for (const age of [null, undefined, NaN]) assert(crowd({ age }, 200).every(f => f === null || F.faces[f.index].sex === 'male'), 'a man of no known age is a young man, not a child: he wears a man\'s face');
+  // A person with no recorded complexion is read under no tint: whatever the named ones are.
+  { const tinted = { ...based, header: { ...header, faces: { ...F, complexions: Object.fromEntries(Object.keys(F.complexions).map(k => [k, [0.3, 0.3, 0.3]])) } } };
+    const worn = (k, complexion) => Array.from({ length: 400 }, (_, i) => V.libraryFace(k, { key: `untinted_${i}`, assetId: 'bardwell_otis_1835', sex: 'male', age: 30, complexion })?.id ?? null);
+    assert.deepEqual(worn(tinted, null), worn(based, null), 'no complexion recorded: no tint');
+    assert.notDeepEqual(worn(tinted, 'fair'), worn(based, 'fair')); }
   // The thirds turn at the kit's own ages, to the day: a child until thirteen, young until
   // thirty-six, old from sixty; and a grown person recorded as neither sex wears a woman's.
   assert.deepEqual(F.ages, { middle_from: 36, old_from: 60, child_under: 13 });
@@ -399,17 +405,31 @@ let faceCensus = '';
   // How much less likely a younger face is: each third younger `younger_likelier` (a half) as
   // likely. A middle-aged man's share of young faces, and an old man's of young and of
   // middle-aged ones, are the draw's own figures.
+  // ...and both that figure and the width of the bell of tone are the kit's own, as the bar on
+  // darker faces is: a kit that says a quarter, or a bell half as wide, is drawn by what it
+  // says, and one that does not say how likely a younger face is hands out none.
   { const luma = (rgb, tint = [1, 1, 1]) => 0.2126 * rgb[0] * tint[0] + 0.7152 * rgb[1] * tint[1] + 0.0722 * rgb[2] * tint[2];
-    const bell = d => Math.exp(-d * d / (2 * F.nearer_tone_likelier ** 2));
-    assert.equal(F.younger_likelier, 0.5);
-    for (const [age, third] of [[45, 1], [70, 2]]) for (const complexion of ['copper', null]) {
-      const tone = luma(F.person_tone_rgb.male, F.complexions[complexion]);
-      const may = F.faces.filter(f => f.sex === 'male' && thirds.indexOf(f.age) <= third && Math.log2(f.tone / tone) >= -F.never_darker_than && (!f.light_only || F.light_only_for.includes(complexion)));
-      const weight = f => bell(Math.log2(f.tone / tone)) * F.younger_likelier ** (third - thirds.indexOf(f.age));
-      const all = may.reduce((a, f) => a + weight(f), 0), got = crowd({ age, complexion }, 4000).filter(Boolean);
-      for (const of of thirds.slice(0, third + 1)) {
-        const want = may.filter(f => f.age === of).reduce((a, f) => a + weight(f), 0) / all, share = count(got, f => f.age === of) / got.length;
-        assert(want > 0.05 && Math.abs(share - want) < 0.03, `a man of ${age}, ${complexion}: ${(share * 100).toFixed(1)}% of the faces worn are ${of}, the draw says ${(want * 100).toFixed(1)}%`);
+    assert.deepEqual([F.younger_likelier, F.nearer_tone_likelier], [0.5, 1]);
+    for (const [what, G] of [['the kit as built', F], ['a kit where a younger face is a quarter as likely', { ...F, younger_likelier: 0.25 }],
+      ['a kit that does not say how likely a younger face is', { ...F, younger_likelier: undefined }], ['a kit whose bell of tone is half as wide', { ...F, nearer_tone_likelier: 0.5 }]]) {
+      const of_kit = G === F ? based : { ...based, header: { ...header, faces: G } };
+      const bell = d => Math.exp(-d * d / (2 * G.nearer_tone_likelier ** 2));
+      for (const [age, third] of [[45, 1], [70, 2]]) for (const complexion of ['copper', null]) {
+        const tone = luma(G.person_tone_rgb.male, G.complexions[complexion]);
+        const may = G.faces.filter(f => f.sex === 'male' && thirds.indexOf(f.age) <= third && Math.log2(f.tone / tone) >= -G.never_darker_than && (!f.light_only || G.light_only_for.includes(complexion)));
+        const weight = f => bell(Math.log2(f.tone / tone)) * (G.younger_likelier ?? 0) ** (third - thirds.indexOf(f.age));
+        const all = may.reduce((a, f) => a + weight(f), 0);
+        const got = Array.from({ length: 4000 }, (_, k) => V.libraryFace(of_kit, { key: `face_${k}`, assetId: 'bardwell_otis_1835', sex: 'male', age, complexion })).filter(Boolean);
+        for (const of of thirds.slice(0, third + 1)) {
+          const want = may.filter(f => f.age === of).reduce((a, f) => a + weight(f), 0) / all, share = count(got, f => f.age === of) / got.length;
+          assert((G !== F || want > 0.05) && Math.abs(share - want) < 0.03, `${what}: a man of ${age}, ${complexion}: ${(share * 100).toFixed(1)}% of the faces worn are ${of}, the draw says ${(want * 100).toFixed(1)}%`);
+        }
+        // Within a third, too, the nearer tone is the likelier, by the bell's own width.
+        const [near, far] = may.filter(f => thirds.indexOf(f.age) === third).sort((a, b) => weight(b) - weight(a)).filter((f, i, l) => i === 0 || i === l.length - 1);
+        if (far && weight(near) / all > 0.08) {
+          const share = count(got, f => f.id === near.id) / got.length;
+          assert(Math.abs(share - weight(near) / all) < 0.03, `${what}: a man of ${age}, ${complexion}: ${(share * 100).toFixed(1)}% wear ${near.id}, the nearest in tone, the draw says ${(weight(near) / all * 100).toFixed(1)}%`);
+        }
       }
     } }
   // One person, one face, on every body they are drawn as: the three 1904 coachmen sit a box
@@ -522,7 +542,8 @@ let faceCensus = '';
     assert.equal(sexes({ ...grown, sex: 'male' }, 'potawatomi_woman_1812'), 'male', 'the record\'s sex is read before the body\'s');
     assert.equal(sexes(grown, 'potawatomi_woman_1812'), 'female', 'no sex recorded: the body\'s');
     assert.equal(sexes(grown, 'bardwell_otis_1835'), 'male', 'no sex recorded: the body\'s');
-    assert.equal(header.assets.glessner_john_j_1904, undefined);
+    assert.equal(sexes({ ...grown, sex: 'male' }, 'child_toddler_1904'), 'male', 'the record\'s sex is read before that of a body for either sex');
+    assert.equal(header.assets.glessner_john_j_1904, undefined, 'the one body of the library the kit does not list (if it is listed now, say so in liberty L-face-library-3553, whose second Revised line counts the people it stands for)');
     assert.equal(sexes(grown, 'glessner_john_j_1904'), 'male', 'no sex recorded, on a body the kit does not list: a man\'s');
     const [from, to] = header.age.default_band_years, boy = header.assets.child_boy_1904.base_age_years;
     assert(boy < F.ages.child_under && from >= F.ages.child_under);
@@ -530,7 +551,22 @@ let faceCensus = '';
     const small = of({ sex: 'male' }, 'child_boy_1904');
     assert(small.every(v => v.age === boy) && small.filter(v => v.lib).length > 100 && small.every(v => !v.lib || (F.faces[v.lib.index].sex === 'female' && F.faces[v.lib.index].age === 'young')),
       'no age recorded, on a child\'s body: a child, who wears a young woman\'s face');
-    assert(of({ sex: 'male', age: { years: 41 } }, 'child_boy_1904').every(v => v.age === 41 && (!v.lib || F.faces[v.lib.index].sex === 'male')), 'the record\'s age is read before the body\'s'); }
+    assert(of({ sex: 'male', age: { years: 41 } }, 'child_boy_1904').every(v => v.age === 41 && (!v.lib || F.faces[v.lib.index].sex === 'male')), 'the record\'s age is read before the body\'s');
+    assert(of({ sex: 'male', age: { band: [14, 14] } }, 'child_boy_1904').every(v => v.age === 14 && (!v.lib || F.faces[v.lib.index].sex === 'male')), 'and so is a recorded span of ages');
+    // An age inside a recorded span is the person's own draw over the whole of it; the face
+    // goes by the age as it is, not rounded; a stand-in drawn at another age wears that age's.
+    const span = of({ sex: 'male', age: { band: [20, 60] } }, 'bardwell_otis_1835').map(v => v.age);
+    assert(span.every(a => a >= 20 && a <= 60) && Math.min(...span) < 24 && Math.max(...span) > 56 && new Set(span).size > 250, 'an age is drawn over the whole of a recorded span');
+    assert(of({ sex: 'male', age: { years: F.ages.middle_from - 0.4 } }, 'bardwell_otis_1835').every(v => !v.lib || F.faces[v.lib.index].age === 'young'), 'a man some months short of the middle third wears no middle-aged face');
+    assert(of({ sex: 'male', age: { years: 70 }, looks: { drawn_age: { years: 30 } } }, 'bardwell_otis_1835').every(v => v.age === 30 && (!v.lib || F.faces[v.lib.index].age === 'young')), 'a stand-in drawn at thirty wears a young face, whatever his own age');
+    // No sex recorded, on a body for either sex: not a man. Their tone is the women's skin.
+    assert.equal(header.assets.child_toddler_1904.sex, 'either');
+    const worn = (k) => Array.from({ length: 400 }, (_, i) => V.personVariation({ kit: k, key: `either_${i}`, record: { looks: { complexion: { drawn: 'fair' } } }, assetId: 'child_toddler_1904' }).lib?.id ?? null);
+    const dark = (which) => ({ ...based, header: { ...header, faces: { ...F, person_tone_rgb: { ...F.person_tone_rgb, [which]: F.person_tone_rgb[which].map(x => x * 0.45) } } } });
+    const as_is = worn(based);
+    assert(as_is.filter(Boolean).length > 100);
+    assert.equal(worn(dark('male')).filter((id, i) => id !== as_is[i]).length, 0, 'no sex recorded, on a body for either sex: not read by the men\'s skin');
+    assert(worn(dark('female')).filter((id, i) => id !== as_is[i]).length > 40, 'no sex recorded, on a body for either sex: read by the women\'s skin'); }
   // Everybody the scenes draw, on every body they are drawn as (a row of a household file, a
   // figure of their own, or the driver of a carriage or wagon): nobody recorded a man or a
   // woman wears the other's face, nobody a face older than they are, a child a young woman's,
@@ -539,7 +575,7 @@ let faceCensus = '';
   { const docs = new Map(), read = async (file) => { if (!docs.has(file)) docs.set(file, JSON.parse(await fs.readFile(new URL(file, here)))); return docs.get(file); };
     const bodyOf = (doc, row) => row == null ? doc.appearance?.asset_id : doc.people?.find(p => p.person === row)?.asset_id ?? doc.rows?.find(r => r.id === row && r.driver_asset)?.driver_asset;
     let seen = 0, wear = 0, twice = 0, apart = 0, own = 0, plain = 0;
-    const drawnOn = new Map();
+    const drawnOn = new Map(), wornBy = new Map();
     for (const [key, record] of Object.entries(persons)) {
       const worn = [], on = [];
       for (const at of record.drawn_as ?? []) {
@@ -555,7 +591,7 @@ let faceCensus = '';
         const third = !Number.isFinite(v.age) || v.age < F.ages.middle_from ? 0 : v.age < F.ages.old_from ? 1 : 2;
         assert(thirds.indexOf(f.age) <= third, `${key}, ${v.age}, wears a face older than they are (${f.id})`);
         if (v.age < F.ages.child_under) assert(f.sex === 'female' && f.age === 'young', `${key}, a child, wears ${f.id}`);
-        else if (sex === 'male' || sex === 'female') assert.equal(f.sex, sex, `${key}, recorded ${sex}, wears ${f.id}`);
+        else if (sex === 'male' || sex === 'female') assert.equal(f.sex, sex, `${key}, ${record.sex ? 'recorded' : 'drawn on the body of a'} ${sex}, wears ${f.id}`);
         if (f.light_only) assert(F.light_only_for.includes(complexion), `${key}, of ${complexion ?? 'no'} complexion, wears the freckled ${f.id}`);
       }
       if (!worn.length) continue;
@@ -563,14 +599,20 @@ let faceCensus = '';
       seen++;
       if (worn.length > 1) twice++;
       if (new Set(on).size > 1) apart++;
-      drawnOn.set(key, on);
+      drawnOn.set(key, on); wornBy.set(key, worn);
       if (worn[0]) wear++; else if (record.face?.values || record.skin) own++; else plain++;
     }
     for (const key of ['pa1904_armour_mrs_philip_d_c1900_joseph_daniels', 'pa1904_otis_f_r_c1900_hans_johnson', 'pa1904_pullman_mrs_george_m_c1900_henry_windish'])
       assert.deepEqual([...drawnOn.get(key)].sort(), ['anonymous_working_driver_1904', 'nelson_charles_1904_coachman'], `${key}, a coachman, is drawn on the box and at his door, on two bodies`);
     // (The others drawn twice stand on one body both times: a figure of their own and the
     // wagon's driver that takes its place.)
-    assert(twice >= 6 && apart >= 3 && apart <= twice, `${twice} people are drawn twice, ${apart} of them on two bodies`);
+    assert(twice >= 6 && apart >= 3, `${twice} people are drawn twice, ${apart} of them on two bodies`);
+    // The four people the one-face rule moved, each by name and face, as the liberty's second
+    // Revised line tells it (a face added to the library, or a change to the draw, moves
+    // people: then the liberty wants another line, and these the new names).
+    for (const [key, id] of [['pa1904_armour_mrs_philip_d_c1900_joseph_daniels', 'middleage_lightskinned_male'], ['pa1904_buckingham_clarence', null],
+      ['pa1904_mcbirney_george_d', null], ['pa1904_lowden_frank_orren_c1900_clarence_clough', 'young_lightskinned_male']])
+      assert.deepEqual([...new Set(wornBy.get(key))], [id], `${key} wears ${id ?? 'the skin of the body they are drawn on'}, as liberty L-face-library-3553 says`);
     assert(seen > 1000 && wear / seen > 0.6 && wear / seen < 0.85, `${wear} of ${seen} people drawn wear a face from the library`);
     faceCensus = `${wear} of ${seen} drawn people wear a library face, ${plain} keep their body's own skin by the draw, ${own} have a face or a sheet of their own; ${twice} are drawn twice, ${apart} of them on two different bodies`; }
 }

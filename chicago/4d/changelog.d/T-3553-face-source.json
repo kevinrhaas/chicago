@@ -1,0 +1,10 @@
+{
+  "title": "The face check guards the faces' source record; one claim corrected",
+  "kind": "fix",
+  "items": [
+    "A correction to the note \"Corrections to the one-face note; the face check sees small repaints\". It said the check that guards the face library tries a case on itself for every comparison it makes. It did not: a reviewer loosened 28 more of its comparisons, one at a time, and 19 went unnoticed.",
+    "It now tries 120 cases on itself, up from 80, and each refusal it can give has a case that draws it.",
+    "The record of where each face came from is held to the copy written when the packs were read: a change made to it by hand is refused, and building the sheet again no longer accepts it.",
+    "Nobody's face changes with this."
+  ]
+}
