@@ -215,9 +215,20 @@ def straight(t):
     return t.replace('\u201c', '"').replace('\u201d', '"').replace('\u2019', "'")
 
 
+def opening_script(doc):
+    """renderers/web/js/narration.js openingScript: the title, then the welcome without its
+    leading "JAUNT: ITS TITLE." line, which the title replaces."""
+    import re
+    paras = [t.strip() for t in re.split(r'\n\s*\n', doc['opening']['text']) if t.strip()]
+    if paras: paras[0] = re.sub(r'^JAUNT:\s*[^.!?]*[.!?]\s*', '', paras[0])
+    body = '\n\n'.join(p for p in paras if p)
+    return f"{doc['title'].strip()}.\n\n{body}" if body else ''
+
+
 def direction(doc):
-    """The performance copy of each narrator script (T-3578 format), its words the panel's own."""
-    texts = {'opening:opening': doc['opening']['text'], **{f'stop:{s["id"]}': s['text'] for s in doc['stops']},
+    """The performance copy of each narrator script (T-3578 format), its words the voiced
+    script's own (narration.js narrationScripts: the opening leads with the title)."""
+    texts = {'opening:opening': opening_script(doc), **{f'stop:{s["id"]}': s['text'] for s in doc['stops']},
              **{f'ending:{e["id"]}': e['text'] for e in doc['endings']}}
     plan, scripts, misses = D.DIRECTIONS[doc['id']], {}, []
     for key, text in texts.items():
