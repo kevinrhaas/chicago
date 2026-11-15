@@ -103,6 +103,8 @@ export const POSTURES = Object.freeze({
   prone: { root: 90, lift: 0.14, look: 34 },
   // Lying face up and still.
   lie: { root: -90, lift: 0.11, look: 0, still: true },
+  // Fallen face down and still, the head down on the ground (the adults jaunts, 2026-11-15).
+  fallen: { root: 90, lift: 0.12, look: -6, still: true },
 });
 export const POSTURE_NAMES = Object.freeze(Object.keys(POSTURES));
 

@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 3011, ts: '2026-11-15T19:47:08.906Z', date: 'Nov 15, 2026, 1:47 PM CT', title: 'Fort Dearborn monument: Black Partridge\'s fringed breechcloth, the child\'s smock', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), Black Partridge\'s breechcloth is now a short apron off his belt, cut into a ragged fringe at the tops of his thighs. Both photographs show it that way. Before, it hung to his knee.',
+      'The kneeling child now wears the short smock the bronze shows, with bare arms, shins and feet, instead of a jacket and trousers.',
+    ] },
+  { v: 3010, ts: '2026-11-15T19:47:08.906Z', date: 'Nov 15, 2026, 1:47 PM CT', title: '18+ tellings of the 1812 battle and the Lalime killing', kind: 'feature',
+    items: [
+      'Two new 18+ jaunts show the fighting as the eyewitnesses described it: The Battle of Fort Dearborn (18+) and Chicago\'s First Murder (18+).',
+      'Lalime fires his pistol at Kinzie at the gate; the two close, and Kinzie stabs him with the knife.',
+      'At Lee\'s Place, White and the Canadian are shot down. On the beach, a volley comes from the bank, the soldiers fire back and charge with the bayonet, and men fight hand to hand with tomahawks and clubs.',
+      'Wells takes his niece\'s hand, fires his last shot and is killed. Mrs. Helm is struck and carried into the lake. The dead are scalped, as the accounts record.',
+      'They stay hidden until you turn on 18+ jaunts in Settings. Each shows a warning first, and teacher handouts never suggest them. No child is shown being harmed. The student jaunts are unchanged.',
+    ] },
   { v: 3009, ts: '2026-11-15T18:45:11.084Z', date: 'Nov 15, 2026, 12:45 PM CT', title: '1823 Prairie\'s flank gets its last two basement lights', kind: 'improvement',
     items: [
       'The Dent house\'s north flank now shows all five square basement lights the Chicagology engraving draws. The two new ones sit under the window column by the rear range and under the rear range\'s own window. The reconstructed downpipe moves off the first of them.',
