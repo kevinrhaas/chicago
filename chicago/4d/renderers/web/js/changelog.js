@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2992, ts: '2026-11-15T04:25:50.618Z', date: 'Nov 14, 2026, 10:25 PM CT', title: '1823 Prairie\'s arched doorway under the stoop', kind: 'improvement',
+    items: [
+      'The Dent house at 1823 Prairie now has the round-arched basement doorway that both of its pictures show under the stoop\'s landing, about a metre across and closed by an iron grille.',
+    ] },
+  { v: 2991, ts: '2026-11-15T04:25:50.618Z', date: 'Nov 14, 2026, 10:25 PM CT', title: '1619 Prairie\'s card no longer claims a picture of it', kind: 'fix',
+    items: [
+      '1619 Prairie was marked as pictured on the 1886 Hamline and Farwell drawing. That plate shows only the edge of the house standing there in 1886, which the four-storey stone front of 1904 replaced. The card now grades the house as known from maps, and the drawing\'s side-by-side is kept on record.',
+    ] },
   { v: 2990, ts: '2026-11-15T02:22:07.408Z', date: 'Nov 14, 2026, 8:22 PM CT', title: 'Climb aboard any carriage or wagon and drive the team', kind: 'feature',
     items: [
       'Walk up to a driven team in 1812, 1835 or 1904 and press Interact (R): Climb up beside the driver or coachman, or onto the 1812 fort wagon.',
