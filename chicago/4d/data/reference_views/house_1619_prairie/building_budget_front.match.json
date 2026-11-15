@@ -1,0 +1,80 @@
+{
+  "structure_id": "house_1619_prairie",
+  "view": "building_budget_front",
+  "glb": "assets/gltf/house_1619_prairie__as_mapped_1904.glb",
+  "glb_sha256": "bfa971576a8986551a2a8431ad638da5701a795dea52ba2092cd5db9318949b5",
+  "camera_sha256": "e0e073022791adb6c57e88ffd3ef30fb550b2cdc31a133b2fea08f33cc34b531",
+  "photo_sha256": "1cfa3530dc7d503da3dbdce12040859675ae7f1142f9336c1102d4b55f8c6f57",
+  "rendered_members": [
+    {
+      "structure_id": "house_1619_prairie",
+      "glb": "assets/gltf/house_1619_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1426.608,
+        "local_n": -2995.719,
+        "rotation_deg": 179.607,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "bfa971576a8986551a2a8431ad638da5701a795dea52ba2092cd5db9318949b5"
+    },
+    {
+      "structure_id": "house_1621_prairie",
+      "glb": "assets/gltf/house_1621_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1426.786,
+        "local_n": -3004.431,
+        "rotation_deg": 179.603,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        -0.11823941914582893,
+        0,
+        -8.713015978394617
+      ],
+      "rotation_y": 6.981317007961047e-05,
+      "glb_sha256": "a8bc10d0fa2d41abf8e180690aaa605c8d6ca8120de3dd9a27db4447aa4bf9f3"
+    }
+  ],
+  "group_sha256": "dc07657f4b7d441f9c3b577e8112e28b10591311418c67d3579810c95a433406",
+  "side_by_side": "docs/RESEARCH/photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "which house: the plate draws, at its left edge (panel x 0-230), the south end of the front north of Hamline's house in 1886: two storeys over a high basement to a bracketed cornice at about Hamline's balcony (about 8.5 m over grade, y about 235), a round-headed upper light under a hood mould with label stops, a round-arched doorway with a radial fanlight at the south end of the front, and no bay in the 3-4 m the frame shows; the 1904 build is T-2434's four-storey rock-faced stone front, its bow rising the full height at the south end of the front to a cornice at about 16 m, the door in the north strip, outside the frame",
+      "status": "not shown",
+      "how": "The plate is dated June 188- (probably 1886) and draws the front that stood at 1619 then: the 14-room 'Mansard roof, brick dwelling' offered for sale in October 1880 and Joseph McBirney's house of 1884-89 (cgn-1619-text). In July 1891 J. Foster Rhodes paid $18,000 for the lot, 33.5 ft, and 'contemplates improving' it (the same page), and the 1911 sheet draws a different house there: four storeys, a stone (blue) front and a broad curved bay over the south half of the front (v 3.79-7.55), exactly where the plate draws a flat wall with the doorway. The two cannot both be the 1904 front; the build follows the survey nearer the scene (T-2434, L-k01-1619-stone-front-2434), so what the plate draws at 1619 is the house that front replaced, not the 1904 target, and is not copied. The reading this rests on: that Rhodes built in the 1890s, before the scene, which no permit read so far dates; the 1904 and 1905 Blue Books put Howard E. Perry in the house and say nothing of its age."
+    },
+    {
+      "what": "the stoop: the plate draws a high stoop climbing NORTH beside the front behind a solid cheek, iron rails on its flights, and a round-arched basement light with a fan of voussoirs under its landing; the build's K07 stoop serves the door in the north strip, outside the frame",
+      "status": "not shown",
+      "how": "the 1886 house's stoop, with its front (above): not the 1904 target"
+    },
+    {
+      "what": "the roof storey: over the drawn cornice the plate draws only a faint wall line rising behind (a mansard is likely, by the 1880 advertisement, but is not drawn); the build has K01's flat roof over four storeys",
+      "status": "not shown",
+      "how": "the plate does not draw the 1886 house's roof, and the 1904 house is not in it"
+    },
+    {
+      "what": "the party line: the plate sets the neighbour's front against Hamline's north strip with no gap between them and in the same plane; the build's south wall stands on the lot line 0.25 m from 1621's north wall and its front 0.12 m before 1621's, so the two read as one row as drawn. Through the carried camera the line between the fronts lands about 55 px left of the drawn one (about 1.2 m at the front's plane)",
+      "status": "within tolerance",
+      "how": "the width disagreement 1621's own record argues (its north strip's outer edge about 45 px left of the drawing's: the 1911 sheet's 6.2 m front against the plate's about 5.1 m); the plate's 1886 widths are not the 1904 survey's and the sheet controls the plan. Nothing is fitted to the neighbour, so this is the residual of one station point carried two houses north"
+    },
+    {
+      "what": "colour and material: the plate is a monochrome pen drawing and leaves the neighbour's wall blank, neither coursed nor hatched as stone",
+      "status": "not shown",
+      "how": "the 1904 front's rock-faced Lemont limestone and brick are reconstructed (L-k01-1619-stone-front-2434); the 1880 advertisement's 'brick dwelling' is the 1886 house's"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "_reviewed": "T-1868, 2026-11-15: compared element by element. 1621, rendered beside 1619 from the same carried station point, lands where its own record's side-by-side puts it, so the carry is sound; what the plate draws at 1619 is the 1886 house, not the 1904 one. data/structure_grades.json rules this plate out of 1619's grade for the same reason (a picture of the house it replaced), and the camera is kept to record that reading."
+}
