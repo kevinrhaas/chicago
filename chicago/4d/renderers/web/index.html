@@ -864,6 +864,11 @@
           <span id="s-about-build"></span></p>
         <p class="legend-note" id="s-about-dev-note" hidden><span data-str="hud.about.devNote">A preview build: not production, and not indexed.</span>
           <a href="/4d/" data-str="hud.about.production">Open production</a></p>
+        <!-- T-3603: who is signed in, and the way out (js/sign-in.js showAccount). Hidden
+             unless the sign-in gate let someone in. -->
+        <div class="field row account-row" id="s-account" hidden><span class="account-who">Signed in as
+          <b id="s-account-who"></b> <span id="s-account-how"></span></span>
+          <button class="setting-button" id="s-sign-out" type="button">Sign out</button></div>
         <!-- T-2656: What's new, from About (T-3563: also its own tab, the next one along). -->
         <div class="field row"><span data-str="settings.whatsnew.line">Release notes</span>
           <button class="setting-button" id="s-open-whatsnew" type="button" data-str="hud.tab.whatsnew">What's new</button></div>

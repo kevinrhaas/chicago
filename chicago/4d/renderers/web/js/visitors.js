@@ -8,7 +8,7 @@
  * page can be looked at, and smoked, before the project exists.
  */
 import { SIGN_IN } from './sign-in-config.js';
-import { configured, signedInUser } from './sign-in.js';
+import { configured, signedInUser, METHOD_LABEL } from './sign-in.js';
 import { listVisitors, listVisits } from './visitor-store.js';
 
 const $ = id => document.getElementById(id);
@@ -19,8 +19,8 @@ const central = new Intl.DateTimeFormat('en-US', {
   timeZone: 'America/Chicago', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit',
 });
 const centralDay = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago', year: 'numeric', month: '2-digit', day: '2-digit' });
-// T-3580: how each person signed in, in the words the table and the tiles use.
-export const METHOD_LABEL = { google: 'Google', microsoft: 'Microsoft', password: 'Email + password', email: 'Email only' };
+// T-3580: how each person signed in, in the words the table and the tiles use (sign-in.js).
+export { METHOD_LABEL };
 const methodLabel = m => METHOD_LABEL[m] || m || '—';
 const when = iso => (iso ? central.format(new Date(iso)) + ' CT' : '—');
 
