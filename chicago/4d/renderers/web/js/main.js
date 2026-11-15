@@ -170,6 +170,7 @@ import { createFrameGovernor, describeGovernor } from './frame-governor.js';
 import { mountPacingRead } from './pacing-read.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 import { advanceGust, syncGustUniform } from './wind-gust.js';
+import { createTodayView } from './today-view.js';
 
 const VERSION = '0.1.0';
 
@@ -2806,6 +2807,8 @@ async function boot() {
     paintChipDay(timeState.transient?.date);
     paintTime();
     contextCity.setSeason?.(s);
+    // T-3553: the people's season dress (humans.js), once they are mounted.
+    api.humans?.setSeason?.(s);
     // T-3460: the kitchen garden's crops and its snow.
     gardens.setSeason?.(s);
     // T-3488: the back yards' kitchen rows replanted for the day (their paving's snow is a uniform).
@@ -3976,6 +3979,8 @@ async function boot() {
     // before it is drawn, so walking up to someone is not a stall on her skin's programs.
     prepare: (object) => renderer.compileAsync(object, camera, scene3d),
   });
+  // T-3553: people dress for the season the visitor chose (a summer lawn, a winter velvet).
+  api.humans.setSeason?.(api.season?.current ?? 'summer');
   api.humans.on('open', ({ personId, approach }) => {
     if (!api.people) return;
     // T-3521 (the owner, 2026-11-08: "when you click and select someone i think that person
@@ -4353,6 +4358,8 @@ async function boot() {
         navigation.setMapVisible(value);
       } else if (key === 'streetNames') {
         navigation.setStreetVisible(value);
+      } else if (key === 'todayView') {
+        api.todayView?.setShown(value, { quiet: true });
       } else if (key === 'lookTag') {
         api.targetTag?.setTagShown(value);
       } else if (key === 'lookTagPlace') {
@@ -4695,6 +4702,15 @@ async function boot() {
     navigation.setModern(m);
     api.modernStreets = m;
   });
+  // T-3601: the Today window — Google Street View, today, from where you stand. Its keys
+  // (the TODAY tag, its own close and expand) store the choice as Settings › Show does.
+  const todayView = createTodayView({
+    onShownChange: (on) => hud.setToggle('todayView', on),
+    onExpandedChange: (big) => { hud.settings.todayViewBig = big; hud.setToggle('todayView', hud.settings.todayView); },
+  });
+  todayView.setExpanded(hud.settings.todayViewBig === true, { quiet: true });
+  todayView.setShown(hud.settings.todayView === true, { quiet: true });
+  api.todayView = todayView;
 
   // ---- input ------------------------------------------------------------ //
 
@@ -5882,8 +5898,8 @@ async function boot() {
       .catch(() => { humanPersons = null; return null; });
     // T-3491: and how he looks (`looks`), for the card's Looks section.
     // T-3508: the base goes back even with no face, for a card's own portrait (Shabbona's).
-    // T-3522: and what they wear today (`dress.worn`), a row of that section.
-    return humanPersons.then((d) => { const r = d?.persons?.[id]; return { face: r?.face ?? null, looks: r?.looks ? { ...r.looks, worn: r?.dress?.worn ?? '' } : null, base: String(base) }; });
+    // T-3522: and what they wear today (`dress.worn`), a row of that section; T-3553: in this season.
+    return humanPersons.then((d) => { const r = d?.persons?.[id]; return { face: r?.face ?? null, looks: r?.looks ? { ...r.looks, worn: (r?.dress?.seasons?.[api.season?.current ?? 'summer']?.worn ?? r?.dress?.worn) ?? '' } : null, base: String(base) }; });
   }
   // A nearby occupied driver can be inspected as soon as its model is ready.
   // Warm only the existing card code/metadata; never open Navigator or acquire a model.
@@ -6792,6 +6808,7 @@ async function boot() {
     api.player.flying = st.flying;
     hud.setAltitude(st.altitude);
     navigation.update({ e: st.e, n: st.n, bearingDeg: walker.bearingDeg });
+    api.todayView?.update({ e: st.e, n: st.n, bearingDeg: walker.bearingDeg, pitchDeg: st.pitch * 180 / Math.PI });
     if (!gateOpen) { target?.tick(performance.now()); navigatorUi?.update(); }
 
     // Wall-clock, not the clamped dt: a clamped dt reports a healthy 20 fps on

@@ -35432,6 +35432,8 @@ bay's carry into the mansard; a placement ruling for the wall south of the bay.
 
 **Revised 2026-11-13 (T-1887, the flanks' stone):** the three-storey block's north and south flanks are laid in the front's Lemont ashlar for 14.0 m back from the front, and the canted bay on the south flank in the same stone (K01's `stone_front.flanks` with its new `to_m`): the 1911 sheet edges that block's north, east and south walls in one blue (stone) band with its brick inside a dashed line, and the two-storey range behind in plain pink, and the automobile photograph shows light coursed stone at its left edge, where the build had buff brick. The sheet's block is 13.9 m deep; the stone is held to 14.0 so it meets the flank bay the sheet draws inside the band. Read, not invented: which walls are stone and how far back. Invented there: the flanks' coursing and dressing (the front's, smooth; no picture sees a flank square-on), and the brick behind the stone, as before. Still open: the automobile print's face south of the bay, which reads frontal and windowless across its left edge where the stone flank recedes with its two windows.
 
+**Revised 2026-11-14 (T-1887, the stone range south of the bay):** the print's stretch of light stone south of the front bay is built, as a plain stone range on the south flank at the front (K08's flat-topped `range` projection, `bays.south_front_range`): 2.25 m out from the south wall and 4.0 m along it, its street face 0.3 m behind the front's corner, full height under the front's moulded cornice and a tin deck, laid in the front's Lemont ashlar with no window. **Read:** its width, from the automobile photograph through its camera (the range's south corner at about x 44 px, v -2.25 in the footprint's frame), and that its street face is windowless and coursed, with a water table level with the bay's. It departs from the 1911 sheet, which runs the south wall straight past the front bay, because two pictures and a document put fabric there: the Rand McNally view of 1893 (`rand_mcnally_1893_views_prairie_west_1816_1936`) draws a plain windowless strip at the south end of 1828's front beside the bay's windows, and D. B. Shipman's permit (Chicago Tribune, 9 July 1876, transcribed on Chicagology's page, `chicagology_1828_shipman_automobile`) gives a 35 ft (10.67 m) front against the sheet's 8.2 m, 2.47 m more. **Invented:** its depth along the flank (4.0 m), its flat roof, its south and rear faces and their being blank, and their channelled dressing, which carries the street face's round the corner. **Revised 2026-11-14 (T-1887, the range's channelled face):** the range is laid in channelled ashlar (K08 masonry `channelled`), as the print shows its street face: the 0.45 m course is measured off the print's bed joints (27-28 px at 62 px/m); **invented:** the channels' section, 25 mm deep, chamfered to a 12 mm floor, which a print at this scale cannot measure. The side gate's pier moves from v -1.8 to -2.35 and the south flank's downpipe from s 18.9 to 14.2, clear of it. **How to resolve:** a 1904 picture of the south flank, or a sheet earlier than 1911 that draws the front's south end.
+
 ### L-pullman-glasshouses-1800-calumet-3164 — Pullman's glasshouse ranges and lodge across 18th Street, read off the 1911 sheet and glazed from the K13 kit
 
 **Decision:** the 1904 scene gains the Pullman estate's glasshouse ground at 1800 S. Calumet Avenue,
@@ -43779,12 +43781,13 @@ Taylor's 1893 view), with the group's height read through ICHi-19208's camera (2
   joints and baked to bronze (`generators/archetypes/monument_figures.py`), as the owner suggested
   on 2026-11-13. The rigs are an armature and a body only: their faces are the rig's neutral face,
   not the sculpted ones and not anyone's portrait; of their dress only what the sculpture also
-  shows is kept (the breechcloths, Black Partridge's leggings, Mrs. Helm's gown under the full
-  skirt the poses keep, the surgeon's coat and pantaloons, the child's jacket and trousers), as
+  shows is kept (the breechcloths, Black Partridge's leggings, Mrs. Helm's gown under the
+  skirt, overskirt and cloak later work models in folds as both photographs show them (the
+  folds' count and depth are this project's, the hems' places and widths the plate's), the surgeon's coat and pantaloons, the child's jacket and trousers), as
   starting shapes, not as the sculpted drapery; the project's Native dress rules do not apply to a
   sculpture. **Two placings are ours outright:** Mrs. Helm's legs, under her skirt in both
   photographs, stand under its hem, and the surgeon's left arm, which neither photograph shows,
-  lies along his side. Faces, hair, dress folds, the feathers' number, the weapons' detail and the
+  lies along his side. Faces, hair, the dress folds of every figure but Mrs. Helm, the feathers' number, the weapons' detail and the
   whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of
   1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the
   photographs are monochrome.
@@ -44117,4 +44120,25 @@ Three things in the sheet itself. What no photograph sees squarely (the undersid
 **Reconstructed:** all of it is play, not evidence. No source says any of these men gave anyone a ride, let a stranger take his reins, or drove anywhere but the reconstructed rounds; the routes a visitor drives are the visitor's own, not anyone's journey. Which side of the driver the visitor sits, where on the wagon bed, the seated eye height, the climb and the pull-up are ours. The team is driven at walking pace at most (1.5 m/s), and it pulls up for walls, kerbs, rough ground, people and other teams rather than passing through them.
 **Re-opens on:** a source for how a coachman's box or a teamster's wagon carried a second person in these years (a footman's place, a lazy board), which replaces the seat; an owner ruling on faster driving.
 **Ticket:** T-3557.
+**Recorded:** 2026-11-14.
+
+### L-k14-1708-newer-2365 — 1708 Prairie, the block's newer neighbour, weathered by the K14 kit at the 1901 photograph's bound
+
+**Decision:** 1708 Prairie is the first house built after 1886 to take its condition from the K14 kit (T-2324), and the newer neighbour the kit is compared against 1808 Prairie with (built 1886). Until now its walls wore K03's fixed full-age soot and damp, the condition of a forty-year-old house; they now weather to its own age on 1904-07-01. The record names the kit with a completion year of 1901, so every wall layer stands at 0.075 of its full-age strength (the kit's own "new work" band, 0 to 0.1) against 1808's 0.45: damp at the foot, soot under the cornice and a trail below every K06 sill and behind each downpipe on all four brick walls, the rough red-brown front brick at the kit's 1.0 and the stone dressings as its dressed trim at 1.2. In the published app the front reads nearly clean beside 1808's stone front a block south, under the same sun. **What is attested.** Only the two bounds. Robinson's 1886 atlas, plate 10 (`robinson_1886_chicago_plate_10`), read through its committed fit (4.54 m RMS), draws lot 1708 empty between the stone-fronted mansion at 1700-1706 and the house at 1712, so the house is later than 1886; the Glessner House Museum's photograph of 1700-1706 under construction in the summer of 1901 (`glessner_blog_1700_1706_construction_1901_photo`, T-3212's camera) shows 1708's canted bay, hooded door and railing standing finished, so it stood by 1901. **What is invented.** Taking the later bound as the completion year. It is the youngest the evidence allows, so the weathering shown is a floor; any year from 1887 to 1900 would darken it, to 0.45 at most. **What would replace it.** A building permit, a directory's first listing at 1708 or an earlier dated photograph of the house, giving its completion year and the staining of its walls.
+**Covers:** `house_1708_prairie.as_mapped_1904.form.condition`
+**Ticket:** T-2365 (piece 2 of T-2361, K14).
+**Review:** `docs/RESEARCH/k14-1708-newer-2365/README.md`.
+**Recorded:** 2026-11-14 (T-2365).
+
+### L-finery-3553 — The women's finery of 1904 and the figured cloth of 1812 (T-3553, 2026-11-14)
+
+**Decision:** The owner asked, 2026-11-14, for finer and more varied women's clothing ("Give the women some variation in their clothing appearance"). Every Prairie Avenue lady of 1904 is dealt, by her id, her own summer, spring/fall and winter dress: a walking suit, a silk afternoon dress, a white lingerie dress, a shirtwaist and skirt, a velvet afternoon dress or (for women of sixty or more, mostly) half-mourning silk with jet; with lace, ribbon or velvet bands, soutache braid, tucks, flounces, embroidery or a woven figure, and a picture hat, straw sailor or toque trimmed with plumes, flowers or a bow. Maids, cooks, companions and girls are varied the same way within their roles. Every choice of dress, colour, trim, figure, hat and season for any named woman is reconstructed; no garment of any resident is claimed, and the bodies' garment shapes are unchanged.
+
+**1812 and 1835:** A garment whose record's words name a check, stripe, ticking, calico, print or sprig is drawn with that figure, its mean colour held to the record's own colour. Where the words give one colour, the figure's colour and every figure's scale are seeded reconstructions. The one drawn woman of 1835 is unchanged.
+
+**Basis:** Eleven dated Costume Institute garments and hats of 1899–1905 (the Met, open access; `data/sources/met_ci_*`, listed in `docs/RESEARCH/finery-3553/README.md`) with the existing lady's references (`met_ci_1902_black_wool_suit`, `loc_detroit_1904_easter_crowds_fifth_avenue`, `loc_johnston_1905_fairbanks_cornerstone_address`). None shows Chicago or anyone drawn here; they are cross-checks for the kinds of trimming and cloth, never traced or sampled.
+
+**How to resolve:** A photograph or record of a named resident's dress replaces her reconstructed one. New garment shapes (pouched bodice, bishop sleeves, trains, coats and furs) need new canonical pieces.
+
+**Ticket:** T-3553.
 **Recorded:** 2026-11-14.

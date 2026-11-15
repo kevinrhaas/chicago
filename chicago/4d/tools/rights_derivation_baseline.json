@@ -2092,6 +2092,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "house_1708_prairie/as_mapped_1904/form.condition": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1700_1706_construction_1901_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "house_1708_prairie/as_mapped_1904/form.construction": {
       "kind": "structure",
       "blocked_sources": [
@@ -2452,7 +2460,7 @@
         "chicagology_1828_shipman_automobile",
         "glessner_blog_1828_shipman_partial"
       ],
-      "sole_support": true,
+      "sole_support": false,
       "confidence": "inferred"
     },
     "house_1828_prairie/as_mapped_1904/form.stoop_width_m": {

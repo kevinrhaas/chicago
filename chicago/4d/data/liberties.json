@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1130,
+  "count": 1132,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -59324,6 +59324,26 @@
         {
           "label": "Revised 2026-11-13 (the flanks' stone)",
           "text": "the three-storey block's north and south flanks are laid in the front's Lemont ashlar for 14.0 m back from the front, and the canted bay on the south flank in the same stone (K01's stone front flanks with its new to (m)): the 1911 sheet edges that block's north, east and south walls in one blue (stone) band with its brick inside a dashed line, and the two-storey range behind in plain pink, and the automobile photograph shows light coursed stone at its left edge, where the build had buff brick. The sheet's block is 13.9 m deep; the stone is held to 14.0 so it meets the flank bay the sheet draws inside the band. Read, not invented: which walls are stone and how far back. Invented there: the flanks' coursing and dressing (the front's, smooth; no picture sees a flank square-on), and the brick behind the stone, as before. Still open: the automobile print's face south of the bay, which reads frontal and windowless across its left edge where the stone flank recedes with its two windows."
+        },
+        {
+          "label": "Revised 2026-11-14 (the stone range south of the bay)",
+          "text": "the print's stretch of light stone south of the front bay is built, as a plain stone range on the south flank at the front (K08's flat-topped `range` projection, bays.south front range): 2.25 m out from the south wall and 4.0 m along it, its street face 0.3 m behind the front's corner, full height under the front's moulded cornice and a tin deck, laid in the front's Lemont ashlar with no window."
+        },
+        {
+          "label": "Read",
+          "text": "its width, from the automobile photograph through its camera (the range's south corner at about x 44 px, v -2.25 in the footprint's frame), and that its street face is windowless and coursed, with a water table level with the bay's. It departs from the 1911 sheet, which runs the south wall straight past the front bay, because two pictures and a document put fabric there: the Rand McNally view of 1893 ('Prairie Avenue (Looking North West) (Between 20th & 18th Streets).'…) draws a plain windowless strip at the south end of 1828's front beside the bay's windows, and D. B. Shipman's permit (Chicago Tribune, 9 July 1876, transcribed on Chicagology's page, 1828 S. Prairie Ave. About 1897. [Daniel B. Shipman house, with an electric…) gives a 35 ft (10.67 m) front against the sheet's 8.2 m, 2.47 m more."
+        },
+        {
+          "label": "Invented",
+          "text": "its depth along the flank (4.0 m), its flat roof, its south and rear faces and their being blank, and their channelled dressing, which carries the street face's round the corner."
+        },
+        {
+          "label": "Revised 2026-11-14 (the range's channelled face)",
+          "text": "the range is laid in channelled ashlar (K08 masonry `channelled`), as the print shows its street face: the 0.45 m course is measured off the print's bed joints (27-28 px at 62 px/m); **invented:** the channels' section, 25 mm deep, chamfered to a 12 mm floor, which a print at this scale cannot measure. The side gate's pier moves from v -1.8 to -2.35 and the south flank's downpipe from s 18.9 to 14.2, clear of it."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a 1904 picture of the south flank, or a sheet earlier than 1911 that draws the front's south end."
         }
       ],
       "work_refs": [
@@ -73627,11 +73647,11 @@
         },
         {
           "label": "These are this project's",
-          "text": "- **The depths** were the widths less margins until later work read them through a camera on Taylor's 1893 view (base 2.85 m, plinth 1.8, die 1.6): that part of this liberty is retired. - **The figures' modelling.** Each figure stands in the pose the photographs show, every joint read on ICHi-19208 through its camera and put in depth by Taylor's, to about 0.15 m in depth. Since later work each BODY is one of the project's people rigs (MakeHuman hm08: the warrior and Black Partridge on potawatomi man 1812, Mrs. Helm on lady 1812, the surgeon on surgeons mate first infantry 1812, the child on child boy 1812), posed bone by bone to those joints and baked to bronze (the monument figures generator), as the owner suggested on 2026-11-13. The rigs are an armature and a body only: their faces are the rig's neutral face, not the sculpted ones and not anyone's portrait; of their dress only what the sculpture also shows is kept (the breechcloths, Black Partridge's leggings, Mrs. Helm's gown under the full skirt the poses keep, the surgeon's coat and pantaloons, the child's jacket and trousers), as starting shapes, not as the sculpted drapery; the project's Native dress rules do not apply to a sculpture."
+          "text": "- **The depths** were the widths less margins until later work read them through a camera on Taylor's 1893 view (base 2.85 m, plinth 1.8, die 1.6): that part of this liberty is retired. - **The figures' modelling.** Each figure stands in the pose the photographs show, every joint read on ICHi-19208 through its camera and put in depth by Taylor's, to about 0.15 m in depth. Since later work each BODY is one of the project's people rigs (MakeHuman hm08: the warrior and Black Partridge on potawatomi man 1812, Mrs. Helm on lady 1812, the surgeon on surgeons mate first infantry 1812, the child on child boy 1812), posed bone by bone to those joints and baked to bronze (the monument figures generator), as the owner suggested on 2026-11-13. The rigs are an armature and a body only: their faces are the rig's neutral face, not the sculpted ones and not anyone's portrait; of their dress only what the sculpture also shows is kept (the breechcloths, Black Partridge's leggings, Mrs. Helm's gown under the skirt, overskirt and cloak later work models in folds as both photographs show them (the folds' count and depth are this project's, the hems' places and widths the plate's), the surgeon's coat and pantaloons, the child's jacket and trousers), as starting shapes, not as the sculpted drapery; the project's Native dress rules do not apply to a sculpture."
         },
         {
           "label": "Two placings are ours outright",
-          "text": "Mrs. Helm's legs, under her skirt in both photographs, stand under its hem, and the surgeon's left arm, which neither photograph shows, lies along his side. Faces, hair, dress folds, the feathers' number, the weapons' detail and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of 1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the photographs are monochrome. - **The panels' reliefs** are flat plates. Since later work they are drawn pale, as ICHi-19208 (c. 1900) shows them weathered lighter than the die, where Taylor's 1893 print has them fresh and dark: the 1904 scene takes the later plate. Their faint green-grey is ours; the plate is monochrome. - **The lettering** under the front panel (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is cut since later work at the widths, heights and places ICHi-19208 gives each line, pale on the granite. The letters are the town's block capitals squeezed to those widths, not the cutter's seriffed roman, and they stand flat on the die rather than sunk into it. The second line is about 4 px tall on the plate; its words are the record's. - **Its place** is set by later work through cameras on the Detroit print (east and west) and ICHi-19208 (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where ICHi-19208 shows its end, which is open in that view's match record. The figures are period sculpture, built as the sculptor made them; the record carries review required with its reason, and the card says how the work was received."
+          "text": "Mrs. Helm's legs, under her skirt in both photographs, stand under its hem, and the surgeon's left arm, which neither photograph shows, lies along his side. Faces, hair, the dress folds of every figure but Mrs. Helm, the feathers' number, the weapons' detail and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of 1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the photographs are monochrome. - **The panels' reliefs** are flat plates. Since later work they are drawn pale, as ICHi-19208 (c. 1900) shows them weathered lighter than the die, where Taylor's 1893 print has them fresh and dark: the 1904 scene takes the later plate. Their faint green-grey is ours; the plate is monochrome. - **The lettering** under the front panel (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is cut since later work at the widths, heights and places ICHi-19208 gives each line, pale on the granite. The letters are the town's block capitals squeezed to those widths, not the cutter's seriffed roman, and they stand flat on the die rather than sunk into it. The second line is about 4 px tall on the plate; its words are the record's. - **Its place** is set by later work through cameras on the Detroit print (east and west) and ICHi-19208 (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where ICHi-19208 shows its end, which is open in that view's match record. The figures are period sculpture, built as the sculptor made them; the record carries review required with its reason, and the card says how the work was received."
         },
         {
           "label": "Recorded",
@@ -74401,6 +74421,78 @@
       ],
       "work_refs": [
         "T-3557"
+      ]
+    },
+    {
+      "id": "L-k14-1708-newer-2365",
+      "title": "1708 Prairie, the block's newer neighbour, weathered by the K14 kit at the 1901 photograph's bound",
+      "section": "per_subject",
+      "subjects": [
+        "house_1708_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_1708_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.condition"
+        }
+      ],
+      "recorded": "2026-11-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "1708 Prairie is the first house built after 1886 to take its condition from the K14 kit, and the newer neighbour the kit is compared against 1808 Prairie with (built 1886). Until now its walls wore K03's fixed full-age soot and damp, the condition of a forty-year-old house; they now weather to its own age on 1904-07-01. The record names the kit with a completion year of 1901, so every wall layer stands at 0.075 of its full-age strength (the kit's own \"new work\" band, 0 to 0.1) against 1808's 0.45: damp at the foot, soot under the cornice and a trail below every K06 sill and behind each downpipe on all four brick walls, the rough red-brown front brick at the kit's 1.0 and the stone dressings as its dressed trim at 1.2. In the published app the front reads nearly clean beside 1808's stone front a block south, under the same sun. **What is attested.** Only the two bounds. Robinson's 1886 atlas, plate 10 (Robinson, E. Robinson's Atlas of the City of Chicago), read through its committed fit (4.54 m RMS), draws lot 1708 empty between the stone-fronted mansion at 1700-1706 and the house at 1712, so the house is later than 1886; the Glessner House Museum's photograph of 1700-1706 under construction in the summer of 1901 (Homes for George Glessner and Frances Glessner Lee, 1700-1706 S. Prairie…, 's camera) shows 1708's canted bay, hooded door and railing standing finished, so it stood by 1901. **What is invented.** Taking the later bound as the completion year. It is the youngest the evidence allows, so the weathering shown is a floor; any year from 1887 to 1900 would darken it, to 0.45 at most. **What would replace it.** A building permit, a directory's first listing at 1708 or an earlier dated photograph of the house, giving its completion year and the staining of its walls."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_1708_prairie.as_mapped_1904.form.condition`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 1708 newer."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-14 (T-2365)."
+        }
+      ],
+      "work_refs": [
+        "T-2324",
+        "T-3212",
+        "T-2365",
+        "T-2361"
+      ]
+    },
+    {
+      "id": "L-finery-3553",
+      "title": "The women's finery of 1904 and the figured cloth of 1812",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The owner asked, 2026-11-14, for finer and more varied women's clothing (\"Give the women some variation in their clothing appearance\"). Every Prairie Avenue lady of 1904 is dealt, by her id, her own summer, spring/fall and winter dress: a walking suit, a silk afternoon dress, a white lingerie dress, a shirtwaist and skirt, a velvet afternoon dress or (for women of sixty or more, mostly) half-mourning silk with jet; with lace, ribbon or velvet bands, soutache braid, tucks, flounces, embroidery or a woven figure, and a picture hat, straw sailor or toque trimmed with plumes, flowers or a bow. Maids, cooks, companions and girls are varied the same way within their roles. Every choice of dress, colour, trim, figure, hat and season for any named woman is reconstructed; no garment of any resident is claimed, and the bodies' garment shapes are unchanged. **1812 and 1835:** A garment whose record's words name a check, stripe, ticking, calico, print or sprig is drawn with that figure, its mean colour held to the record's own colour. Where the words give one colour, the figure's colour and every figure's scale are seeded reconstructions. The one drawn woman of 1835 is unchanged."
+        },
+        {
+          "label": "Basis",
+          "text": "Eleven dated Costume Institute garments and hats of 1899–1905 (the Met, open access; the met ci data, listed in the research notes on finery) with the existing lady's references (Suit, French, 1902, wool and silk: bodice, skirt and coat, Detroit Publishing Co., Easter crowds on Fifth Avenue, New York, glass…, Frances Benjamin Johnston, [Mrs. Fairbanks making address at the laying of the…). None shows Chicago or anyone drawn here; they are cross-checks for the kinds of trimming and cloth, never traced or sampled."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A photograph or record of a named resident's dress replaces her reconstructed one. New garment shapes (pouched bodice, bishop sleeves, trains, coats and furs) need new canonical pieces."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-14."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
       ]
     },
     {

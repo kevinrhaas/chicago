@@ -458,6 +458,9 @@ const COVERAGE = [
   // T-2741: today's street and house number under the compass, and the street names'
   // record of where you are in the scene's year, read where the street readout is.
   ['renderers/web/js/modern-streets.js', [7], 'today\'s street and house number, under the compass'],
+  ['renderers/web/js/today-view.js', [7], 'the Today window under the compass readout (T-3601)'],
+  ['renderers/web/js/today-view-config.js', [7], 'the Today window\'s key and hosts (T-3601)'],
+  ['renderers/web/js/today-geo.js', [7], 'the Today window\'s latitude, longitude and heading (T-3601)'],
   ['data/modern/', [7], 'today\'s streets (the City\'s centrelines), under the compass and on the maps'],
 
   // --- PART 9: what the light does to the town

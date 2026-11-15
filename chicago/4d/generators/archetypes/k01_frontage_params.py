@@ -2742,7 +2742,16 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         v["id"] = f"{structure_id}|{e['id']}"
         if e.get("masonry"):
             m = e["masonry"]
-            if set(m) - {"coursing", "to_m"} != {"course_m", "block_m", "joint_m", "relief_m"} or not (.2 <= m["course_m"] <= .6 and .4 <= m["block_m"] <= 1.5 and .004 <= m["joint_m"] <= .02 and .008 <= m["relief_m"] <= .06):
+            if m.get("dressing") == "channelled":
+                # T-1887: or CHANNELLED ashlar, as 1828's stone range south of its front bay shows
+                # in the automobile photograph: flat-faced courses the run's whole length, no
+                # vertical joint, each bed a channel `joint_m` wide at its floor, chamfered back
+                # `relief_m` deep; no coursing rhythm and no rock-faced stop
+                if set(m) != {"dressing", "course_m", "joint_m", "relief_m"} or not (
+                        .2 <= m["course_m"] <= .8 and .004 <= m["joint_m"] <= .03 and .01 <= m["relief_m"] <= .05):
+                    raise ParamError("bays.masonry: channelled ashlar takes course_m 0.2-0.8, joint_m "
+                                     "0.004-0.03 and relief_m 0.01-0.05, and nothing else")
+            elif set(m) - {"coursing", "to_m"} != {"course_m", "block_m", "joint_m", "relief_m"} or not (.2 <= m["course_m"] <= .6 and .4 <= m["block_m"] <= 1.5 and .004 <= m["joint_m"] <= .02 and .008 <= m["relief_m"] <= .06):
                 raise ParamError("bays.masonry: bounded coursed rock-faced ashlar")
             # T-2919: or rock-faced only up to one of its storey lines, smooth ashlar over it
             # (1811's bay on its plate, rock-faced to the first floor's sill course)

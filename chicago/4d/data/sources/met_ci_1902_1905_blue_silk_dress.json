@@ -1,0 +1,26 @@
+{
+ "id": "met_ci_1902_1905_blue_silk_dress",
+ "type": "photograph",
+ "citation": "Dress, American, 1902–5, silk. The Metropolitan Museum of Art, The Costume Institute, C.I.45.79.57a–c, Gift of Estate of Mary Le Boutillier, 1945; the museum's open-access object photograph C.I.45.79.57ab_F.JPG.",
+ "author": "The Metropolitan Museum of Art (object photographs)",
+ "date": "1902–5",
+ "describes_date": "1902–5",
+ "repository": "The Metropolitan Museum of Art, The Costume Institute; object 106569 in the museum's collection API (isPublicDomain: true), images at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/106569",
+ "locator": "The primary object photograph (front or three-quarter front, on a dress form or hat stand).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Used only as a reference for the kinds of trimming, cloth and hats the 1904 women's dress is drawn with (T-3553); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-14 (T-3553) from the museum's open-access image and object record: a pale blue-green silk dress: a tall lace standing collar and lace yoke, cream lace motifs applied down the bodice and on the skirt, lace undersleeves at the wrist, the skirt gored to a full hem with rows of tucks and a band above it. A real garment, American, not of Chicago and not of anyone drawn in the town.",
+ "note": "One of the T-3553 finery references (docs/RESEARCH/finery-3553/README.md): the coloured silk afternoon dress.",
+ "what_it_supplies": [
+  "a lace yoke and standing collar, and lace at the wrist, on a coloured silk day dress",
+  "lace motifs applied to a skirt, and tucks and a band above its hem"
+ ],
+ "what_it_does_not_supply": [
+  "how any Prairie Avenue woman dressed, or the colour of any dress she owned",
+  "how often such a dress was worn on a Chicago street in 1904"
+ ]
+}

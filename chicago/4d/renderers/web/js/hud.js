@@ -55,6 +55,9 @@ const DEFAULT_SETTINGS = {
   // § BASE_EXPOSURE and ROADMAP K24.
   brightness: 0,
   compass: true, overviewMap: true, streetNames: true, units: 'imperial',
+  // T-3601 (owner, 2026-11-14): the Today window, Google Street View from where you stand,
+  // turning with you. Off by default: nothing from Google loads until a visitor opens it.
+  todayView: false, todayViewBig: false,
   // T-2736 (owner, 2026-10-17): the tag naming the building in the reticle; on by default,
   // and a visitor who finds it in the way turns it off under Settings › Show.
   lookTag: true,
@@ -653,6 +656,7 @@ export function createHud({
   wireToggle('s-compass', 'compass');
   wireToggle('s-overview-map', 'overviewMap');
   wireToggle('s-street-names', 'streetNames');
+  wireToggle('s-today-view', 'todayView');
   wireToggle('s-look-tag', 'lookTag');
   wireSelect('s-look-tag-place', 'lookTagPlace', 'right');
   wireSelect('s-look-tag-hold', 'lookTagHold', 'fade');
@@ -899,7 +903,7 @@ export function createHud({
      *  the checkbox, the stored choice and the scene all move together. */
     setToggle(key, on) {
       settings[key] = !!on;
-      const box = { streetNames: 's-street-names', compass: 's-compass', overviewMap: 's-overview-map' }[key];
+      const box = { streetNames: 's-street-names', compass: 's-compass', overviewMap: 's-overview-map', todayView: 's-today-view' }[key];
       if (box && $(box)) $(box).checked = !!on;
       onSetting?.(key, settings[key]);
       store(SET_KEY, JSON.stringify(settings));

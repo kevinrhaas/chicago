@@ -102,6 +102,8 @@ import { loadTimberRelief } from './frontage.js';
 import { layerPick } from './gpu-pick.js';
 import { ktx2Beside, loadSheet } from './ktx2.js';
 import { compactStreams, COLOR_LANE_CONFIDENCE } from './compact-streams.js';
+// T-2152: the phone's half-size atlas, the same drawing-down the sign atlas takes.
+import { shrinkForPhone } from './signage.js';
 
 const {
   compactNormals, setColorsAndConfidence, compactUnitUvs, quantizeMeshPositions, createBoxTable,
@@ -530,29 +532,6 @@ function paintMark(ctx, x, y, mark, shape, aspect) {
  * timber, which is the layer as T-0040 shipped it and is a degradation rather
  * than a failure.
  */
-/**
- * A PHONE TAKES THE ATLAS AT HALF SIZE (T-2152). The atlas is painted at full
- * size, so the layout, every cell and every uv are unchanged, and then drawn
- * down onto a canvas a quarter of the area, which is what is uploaded; the
- * full-size canvas is emptied so its backing store goes. On an iPhone the tab
- * is killed for memory, and this atlas was one of its largest single costs
- * (the canvas plus the GPU copy with its mip chain). At a phone's screen size a
- * board seen from the footway samples well below this resolution anyway.
- */
-function shrinkForPhone(canvas, factor = 2) {
-  const small = document.createElement('canvas');
-  small.width = Math.max(1, Math.round(canvas.width / factor));
-  small.height = Math.max(1, Math.round(canvas.height / factor));
-  const sctx = small.getContext('2d');
-  if (!sctx) return canvas;
-  sctx.imageSmoothingEnabled = true;
-  sctx.imageSmoothingQuality = 'high';
-  sctx.drawImage(canvas, 0, 0, small.width, small.height);
-  canvas.width = 0;
-  canvas.height = 0;
-  return small;
-}
-
 function buildMarkAtlas(wanted, lowSpec = false) {
   if (typeof document === 'undefined') return null;
   const keys = [...wanted.keys()].sort();

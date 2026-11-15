@@ -1,4 +1,55 @@
 export const CHANGELOG = [ // newest first
+  { v: 2989, ts: '2026-11-15T00:41:07.793Z', date: 'Nov 14, 2026, 6:41 PM CT', title: 'Tidier code under the town, nothing on screen changed', kind: 'chore',
+    items: [
+      'Removed leftover code the app no longer used: unused helpers, values it worked out and threw away, and imports it never read.',
+      'The yard goods now share the business signs\' half-size phone picture instead of keeping a second copy of it.',
+      'Every year looks and behaves exactly as before, on phones and computers.',
+    ] },
+  { v: 2988, ts: '2026-11-15T00:12:32.784Z', date: 'Nov 14, 2026, 6:12 PM CT', title: '1828 Prairie\'s stone range wears its channelled face', kind: 'improvement',
+    items: [
+      'The plain stone range south of 1828 Prairie\'s front bay is now laid in channelled stone, deep level joints about 45 cm apart with no upright joints, as the automobile photograph shows it. The bay beside it stays smooth. With that, both of 1828\'s photographs and both of 1824\'s match the model.',
+    ] },
+  { v: 2987, ts: '2026-11-14T23:55:29.709Z', date: 'Nov 14, 2026, 5:55 PM CT', title: 'A Today window shows the same spot in Google Street View', kind: 'feature',
+    items: [
+      'Tap TODAY under the compass to open a small window on the same spot today, in Google Street View. It turns as you turn and follows you as you walk, in 1812, 1835 and 1904.',
+      'The window has keys to make it big, to open the view in Google Maps, and to hide it. Settings › Show › Today window does the same.',
+      'Nothing from Google loads until you open the window, so a phone that never opens it keeps all its memory for the town.',
+      'Until the site\'s Google key is added, the window names the heading and links to Street View at that spot in Google Maps.',
+    ] },
+  { v: 2986, ts: '2026-11-14T23:48:02.126Z', date: 'Nov 14, 2026, 5:48 PM CT', title: 'The checks on the Settings and Navigator screens stop drawing the town', kind: 'fix',
+    items: [
+      'Nothing you can see changes. One part of the checks that run on every change kept running out of time on the test machines: it went through Settings, the Navigator, Jump, the Field Check and Go to, and every step also waited for the whole 3D town to be redrawn, which takes several seconds a picture there. None of those checks looks at the picture, so they now pause the drawing while they read the screens, as the People, Businesses and Evidence checks already do. The town is drawn again before any check that does look at it.',
+    ] },
+  { v: 2985, ts: '2026-11-14T23:19:18.084Z', date: 'Nov 14, 2026, 5:19 PM CT', title: 'Prairie Avenue\'s ladies dress in their own fine, seasonal clothes', kind: 'feature',
+    items: [
+      'Every lady of 1904 has her own dress: silk afternoon dresses, white lingerie dresses, walking suits, velvets and shirtwaists.',
+      'Lace yokes and cuffs, ribbon and velvet bands, braid, tucks, flounces, jet beading, stripes, dots and damask.',
+      'Picture hats, straw sailors and toques, trimmed with ostrich plumes, silk flowers and bows.',
+      'Each changes with the season: light summer silks and whites, suits for spring and fall, velvets in winter.',
+      'Maids, cooks, companions and girls are varied too; the cook\'s print dress and checked apron show their print and check.',
+      'In 1812 the calico gowns, checked kerchiefs and striped petticoats show their prints, checks and stripes.',
+    ] },
+  { v: 2984, ts: '2026-11-14T22:16:08.193Z', date: 'Nov 14, 2026, 4:16 PM CT', title: 'Mr. Glessner waits at his front door when a jaunt starts', kind: 'fix',
+    items: [
+      'Starting the Glessner Household jaunt from the home page (either grade version) left John Glessner talking from inside the house: he stood at his mark but was never drawn.',
+      'His morning had him away at the office, and the tour took him before his day was loaded, so the day sent him back in.',
+      'A host with a day of their own is now always taken through that day, so the first host stands at the door on phones and computers.',
+    ] },
+  { v: 2983, ts: '2026-11-14T21:17:21.027Z', date: 'Nov 14, 2026, 3:17 PM CT', title: 'Mrs. Helm\'s dress and cloak in folds on the Fort Dearborn monument', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), Margaret Helm\'s skirt is no longer a smooth cone: it falls from her waist in long folds over the knee she sinks on and spreads on the rock, as the c. 1900 photograph shows it.',
+      'An overskirt is caught up over her left hip, its hem slanting down across the front, and her cloak hangs off her right forearm in a heavy fold gathered at its foot.',
+    ] },
+  { v: 2982, ts: '2026-11-14T21:12:06.656Z', date: 'Nov 14, 2026, 3:12 PM CT', title: '1828 Prairie\'s front gains the stone range south of its bay', kind: 'feature',
+    items: [
+      '1828 Prairie (the Shipman house) now has a plain, windowless stone range at the south end of its front, beside the canted bay and full height under the cornice, as the street photograph of about 1900 shows it. The 1893 Rand McNally street view draws the same strip, and the 1876 permit\'s 35 ft front leaves room for it. The 1911 fire map does not show it, and the liberty says so.',
+    ] },
+  { v: 2981, ts: '2026-11-14T20:04:36.826Z', date: 'Nov 14, 2026, 2:04 PM CT', title: '1708 Prairie weathers to its own age beside an older neighbour', kind: 'improvement',
+    items: [
+      '1708 Prairie, built between 1886 and 1901, now carries only three years of soot and damp, where it wore a forty-year-old house\'s grime.',
+      'Its front reads nearly clean, a visible contrast with 1808 Prairie\'s weathered stone a block south, which has stood since 1886.',
+      'The year is a bound, not a date: the 1886 atlas shows the lot empty and a 1901 photograph shows the house finished. The completion year is reconstructed, and it is recorded as a liberty.',
+    ] },
   { v: 2980, ts: '2026-11-14T18:37:45.748Z', date: 'Nov 14, 2026, 12:37 PM CT', title: 'The boot budget re-measured after four days of the town\'s people', kind: 'fix',
     items: [
       'The first visit to the 1835 street now downloads 44.9 MB, 0.2 MB more than on November 10. Nearly all of it is the people\'s code and records: their mouths, faces and dress, and the new sign-in and window controls. The budget moves to 45.2 MB, with what grew written down file by file, so every pull request\'s build can go green again.',
