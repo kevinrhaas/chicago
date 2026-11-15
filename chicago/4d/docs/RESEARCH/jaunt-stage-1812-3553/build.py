@@ -148,6 +148,8 @@ def write(check=False):
                     if who and not castable(who):
                         raise SystemExit(f'{name}/{stop["id"]}: {who} has no figure in 1812')
                 stop['stage'] = {'caption': stage['caption'], 'liberty': LIBERTY, 'cast': stage['cast']}
+                if stage.get('teams'):
+                    stop['stage']['teams'] = stage['teams']
         if LIBERTY not in doc['liberties']:
             doc['liberties'].append(LIBERTY)
         doc['content_version'] = dev_version(path) + 1

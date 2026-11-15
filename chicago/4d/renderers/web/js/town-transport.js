@@ -445,7 +445,8 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
         const drawn = distance > 0 && Math.hypot(at[0] - cameraPosition.x, -at[1] - cameraPosition.z) < distance;
         // T-3497: a team with `hours` (its teamster's, as human-duties.js keeps them) is put
         // up outside them: not drawn, not moving, its place on the road kept for the morning.
-        const away = hidden || offHours(rowById.get(actor.id)?.hours, hour);
+        // T-3553: a team a jaunt's stage has taken keeps no hours: it is where the scene needs it.
+        const away = hidden || (actor.mode !== 'staged' && offHours(rowById.get(actor.id)?.hours, hour));
         if (heldByTeam.has(actor.id) && actor.mode === 'route' && actor.state === 'stopped'
           && actor.reason === 'obstruction' && !away && !paused && actor.canResume()) actor.resume();
         actor.assembly?.setReducedMotion?.(reducedMotion);

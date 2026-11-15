@@ -226,7 +226,117 @@ const run = (m, seconds, state, each) => { for (let t = 0; t < seconds; t += 1 /
   assert(Math.abs(f.deg() - MOUTH.say_deg) < .01, 'a level is held to one');
   m.say(null); run(m, 6, {});
   assert.deepEqual([f.w[f.at[SMILE]], f.deg()], [0, 0]);
-  assert.deepEqual(m.snapshot(), { smile: 0, jaw_deg: 0, faces: 1, said: null });
+  assert.deepEqual(m.snapshot(), { smile: 0, jaw_deg: 0, faces: 1, said: null, hushed: false });
+  // T-3553: a voice that stops (hush) leaves the jaw at rest while the talking hand comes down
+  // (human-actions.js eases the talk off over about a second): the talk's own syllables do not
+  // mouth on through the silence, as they would if the jaw were only given back.
+  const easeOff = (after) => { let w = 1, worst = 0; for (let i = 0; i < 75; i++) { w *= Math.exp(-3.2 / 30); m.apply(1 / 30, { talk: w }); if (i >= 5) worst = Math.max(worst, f.deg()); after?.(i, w); } return worst; };
+  m.say(.6); run(m, .5, { talk: 1 });
+  assert(f.deg() > MOUTH.say_deg * .5, 'the voice has the jaw open');
+  m.say(null);
+  assert(easeOff() > 1, 'a jaw only given back mouths the talk\'s own syllables while the hand comes down');
+  run(m, 3, {});
+  m.say(.6); run(m, .5, { talk: 1 });
+  m.hush();
+  assert.equal(m.snapshot().hushed, true);
+  const silent = easeOff();
+  assert(silent < .1, `hushed, the jaw shuts and stays shut while the hand comes down (${silent})`);
+  assert.deepEqual([f.deg(), m.snapshot().hushed, m.snapshot().said], [0, false, null], 'and the hush is over with that talk');
+  // At any moment of the mouth's own run, not one: a voice stopped after each of these leads.
+  // Beside it, a second mouth of the same person carried on from the same moment and only
+  // given back: it mouths on, and keeps the talk's part of the smile, where the hushed one does not.
+  { let mumbled = 0, smiled = 0, most = 0;
+    for (const lead of [.3, .9, 1.6, 2.2, 3.1, 4.4, 5.8, 7.3]) {
+      run(m, 3, {});
+      m.say(.6); run(m, lead, { talk: 1 });
+      const fb = face(), back = createMouth({ id: 'x', scene: fb.scene }).follow(m);
+      back.say(null); m.hush();
+      let w = 1, worst = 0, given = 0, lead_smile = 0;
+      for (let i = 0; i < 75; i++) {
+        w *= Math.exp(-3.2 / 30);
+        m.apply(1 / 30, { talk: w }); back.apply(1 / 30, { talk: w });
+        if (i >= 5) { worst = Math.max(worst, f.deg()); given = Math.max(given, fb.deg()); }
+        if (i === 8) lead_smile = back.snapshot().smile - m.snapshot().smile;
+        assert.equal(m.snapshot().hushed, w > 1e-3, `the hush lasts as long as the hand is coming down, and no longer (lead ${lead}, frame ${i}, talk ${w})`);
+      }
+      assert(worst < .1, `a voice stopped ${lead} s in: the hushed jaw stays shut (${worst})`);
+      if (given > MOUTH.teeth_deg) mumbled++;
+      most = Math.max(most, given);
+      if (lead_smile > .02) smiled++;
+    }
+    assert(mumbled >= 3 && most > 1, `a jaw only given back mouths on, its teeth showing, where the talk is not between phrases (${mumbled} of 8, as far as ${most} degrees)`);
+    assert.equal(smiled, 8, 'and a hushed mouth lets the talk\'s part of the smile go at once, where one given back keeps it'); }
+  // The next talk has its own syllables again; so has a talk whose voice is not known (say(null)),
+  // and a voice that comes back takes the jaw at once.
+  let again = 0;
+  run(m, 6, { talk: 1 }, () => { again = Math.max(again, f.deg()); });
+  assert(again > MOUTH.jaw_deg * .5, `the next talk runs in syllables again (${again})`);
+  m.say(.5); run(m, .3, { talk: 1 }); m.hush(); m.say(null);
+  again = 0; run(m, 6, { talk: 1 }, () => { again = Math.max(again, f.deg()); });
+  assert(again > MOUTH.jaw_deg * .5, 'a jaw given back after a hush is the talk\'s own');
+  m.hush(); m.say(.5); run(m, .5, { talk: 1 });
+  assert(Math.abs(f.deg() - MOUTH.say_deg * .5) < .01, 'a voice after a hush opens the jaw');
+  // A hush is carried to the next level of detail's mouth with the rest.
+  m.hush();
+  const next = createMouth({ id: 'x', scene: face().scene }).follow(m);
+  assert.equal(next.snapshot().hushed, true, 'the hush follows the person to their next level');
+  next.apply(1 / 30, { talk: .9 });
+  assert.equal(next.snapshot().hushed, true, 'and holds there while the same talk goes on coming down');
+  // A talk taken up again while the hand is still coming down (a host let go straight into a
+  // chat of their own day) is not left mute for the length of it.
+  { let w = 1;
+    for (let i = 0; i < 10; i++) { w *= Math.exp(-3.2 / 30); m.apply(1 / 30, { talk: w }); }
+    assert(m.snapshot().hushed === true && w > .3 && f.deg() < MOUTH.teeth_deg, 'a third of a second on, the hand half down, the mouth is still hushed');
+    m.apply(0, { talk: w }); m.apply(0, { talk: w });
+    assert.equal(m.snapshot().hushed, true, 'a held frame (no time in it) is not a new talk');
+    again = 0;
+    for (let i = 0; i < 180; i++) { w += (1 - w) * (1 - Math.exp(-3.2 / 30)); m.apply(1 / 30, { talk: w }); again = Math.max(again, f.deg()); }
+    assert.equal(m.snapshot().hushed, false, 'the talk comes up again: the hush is over');
+    assert(again > MOUTH.jaw_deg * .5, `and it runs in its own syllables (${again})`);
+    // The same with the hand still wholly up: a host let go into a turn of their own talk
+    // before the hand has begun to fall. The level stands at 1 and never rises.
+    m.say(.6); run(m, 4, { talk: 1 }); m.hush();
+    assert.equal(m.snapshot().hushed, true);
+    again = 0; run(m, 6, { talk: 1 }, () => { again = Math.max(again, f.deg()); });
+    assert.equal(m.snapshot().hushed, false, 'a talk that is on, its level not falling, ends the hush');
+    assert(again > MOUTH.jaw_deg * .5, `and is not left mute (${again})`);
+    // The same on a fast display. At 240 frames a second a frame is four thousandths of a
+    // second, at 540 under two, at 900 a little over one: the hush ends there too. A frame with
+    // next to no time in it (half a thousandth, or nine tenths of one: two calls in one frame
+    // of the page) is not taken for a talk that is on. The rates hold the guard on time between
+    // nine tenths and eleven tenths of a thousandth of a second, and "not falling" to the
+    // hand's fall of three and a half parts in a thousand a frame at 900, the least fall there
+    // is in a frame the guard lets through.
+    for (const fps of [240, 540, 900]) {
+      m.say(.6); run(m, 4, { talk: 1 }); m.hush();
+      m.apply(.0005, { talk: 1 }); m.apply(.0009, { talk: 1 }); m.apply(.0005, { talk: 1 });
+      assert.equal(m.snapshot().hushed, true, 'a frame with next to no time in it is not a new talk');
+      m.apply(1 / fps, { talk: 1 });
+      assert.equal(m.snapshot().hushed, false, `a talk that is on ends the hush at ${fps} frames a second`);
+      again = 0;
+      for (let i = 0; i < fps * 6; i++) { m.apply(1 / fps, { talk: 1 }); again = Math.max(again, f.deg()); }
+      assert(again > MOUTH.jaw_deg * .5, `and runs in its own syllables there (${again})`);
+      // And a hand coming down at that rate keeps the hush to the end of it.
+      m.say(.6); run(m, 2, { talk: 1 }); m.hush();
+      { let w = 1, worst = 0;
+        for (let i = 0; i < fps * 3; i++) {
+          w *= Math.exp(-3.2 / fps); m.apply(1 / fps, { talk: w });
+          if (i >= fps / 4) worst = Math.max(worst, f.deg()); // a quarter of a second for the jaw to shut
+          if (w > 2e-3) assert.equal(m.snapshot().hushed, true, `hushed while the hand comes down at ${fps} frames a second (${w})`);
+        }
+        assert(worst < MOUTH.teeth_deg, `the mouth stays shut through it at ${fps} frames a second (${worst})`); }
+      run(m, 3, {});
+    }
+    // A voice, or the jaw given back by name, ends a hush at once, whatever the hand is doing.
+    m.say(.6); run(m, 2, { talk: 1 }); m.hush();
+    assert.equal(m.snapshot().hushed, true);
+    assert.equal(m.say(null).snapshot().hushed, false, 'the jaw given back ends the hush');
+    m.hush();
+    assert.equal(m.say(.4).snapshot().hushed, false, 'a voice ends the hush');
+    m.say(null);
+    run(m, 3, {}); }
+  m.say(null); run(m, 6, {});
+  assert.deepEqual(m.snapshot(), { smile: 0, jaw_deg: 0, faces: 1, said: null, hushed: false });
   // A clip that moves the jaw itself is followed: the opening is turned on over what it holds now.
   const held = new THREE.Quaternion().setFromEuler(new THREE.Euler(.1, .2, 0));
   f.jaw.quaternion.copy(held);

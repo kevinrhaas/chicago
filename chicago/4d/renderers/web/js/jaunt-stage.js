@@ -20,7 +20,11 @@
  * (`talk`), greet, go out of sight (`hide`: into a house, a boat) and come back (`show`), or
  * be found somewhere else (`place`, out of sight: across the river after a crossing). The stage is built at
  * the beginning (t = 0) while the visitor travels to the stop and plays when they arrive;
- * Watch again plays it from the beginning. A `tier: "desktop"` castmate is left out at the
+ * Watch again plays it from the beginning. A stage may also take the town's horse teams
+ * (`teams`: a team by its row id in data/transport/driven/loops.json, with its own mark and
+ * walking beats, its vehicle root walked along them): the 1812 column's wagons, driven by the
+ * men who drive them every day, and castmates who `ride` one sit at a seat on it (vehicle-local
+ * metres) and go where it goes. A `tier: "desktop"` castmate is left out at the
  * Light tier (phones), so a phone keeps the scene with fewer of its crowd (the owner,
  * 2026-11-10: people are never dropped on phones; fewer is not none).
  *
@@ -88,6 +92,19 @@ export function castAt(c, t, { walkSpeed = 1.3 } = {}) {
   return s;
 }
 
+/** The town teams a stop's stage takes (each by its row id, with a mark and beats). */
+export function teamsFor(stop) {
+  return (Array.isArray(stop?.stage?.teams) ? stop.stage.teams : []).filter((c) => c && typeof c.team === 'string' && pt(c.at));
+}
+
+/** A seat on a team posed at (e, n) facing `heading` (deg): vehicle-local [x, y, z] -> ENU, the
+ *  same turn as transport-loop.js localToEnu (+z ahead, +x to the left). */
+export function seatAt(pose, seat) {
+  const yaw = Math.PI - (pose.heading * Math.PI) / 180, [x, y, z] = seat;
+  return { e: pose.e + Math.cos(yaw) * x + Math.sin(yaw) * z, n: pose.n + Math.sin(yaw) * x - Math.cos(yaw) * z,
+    y: (Number.isFinite(pose.height) ? pose.height : 0) + y };
+}
+
 function sortedBeats(c) {
   return (Array.isArray(c?.beats) ? c.beats : []).filter((b) => b && Number.isFinite(b.t)).slice().sort((a, b) => a.t - b.t);
 }
@@ -95,7 +112,7 @@ function sortedBeats(c) {
 /** How long a stage runs: its last beat, and the longest walk at a walking pace after it. */
 export function stageLength(stop, { walkSpeed = 1.3 } = {}) {
   let end = 0;
-  for (const c of castFor(stop)) {
+  for (const c of [...castFor(stop), ...teamsFor(stop)]) {
     let here = pt(c.at);
     for (const b of sortedBeats(c)) {
       let t = b.t;
@@ -115,8 +132,11 @@ export function stageLength(stop, { walkSpeed = 1.3 } = {}) {
  * scene not drawn in town (a gathering's inside-only resident), or null; `tier()` the people
  * tier now; `eye()` the eye (a world Vector3) each figure is updated from.
  */
-export function createJauntStage({ humans, parent = null, resolve = () => null, tier = () => 'full', eye = () => null } = {}) {
+export function createJauntStage({ humans, parent = null, resolve = () => null, tier = () => 'full', eye = () => null, teams = null } = {}) {
   let stopKey = null, stop = null, cast = [], clock = 0, playing = false;
+  // T-3553: the town teams this stage has taken: { c, actor, heading } (actor once loaded).
+  let wagons = [], askedLoad = -Infinity;
+  const TURN_DEG_S = 30;
 
   function instanceFor(c, i) {
     const at = pt(c.at);
@@ -171,14 +191,54 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       if (posed) actor.animateM = STAGE_ANIMATE_M;
       parent?.add?.(actor.root);
       const m = { c, actor, beats: sortedBeats(c), next: 0 };
+      if (c.ride && typeof c.ride.team === 'string' && Array.isArray(c.ride.seat) && c.ride.seat.length === 3) {
+        m.ride = c.ride;
+        actor.setPosture?.(c.pose ?? 'sit', { seconds: 0 });
+      }
       begin(c, actor);
       cast.push(m);
     });
+    wagons = teamsFor(next).map((c) => ({ c, actor: null, heading: castAt(c, 0).heading, pose: null }));
+    askedLoad = -Infinity;
   }
 
   function teardown() {
     for (const m of cast) { try { m.actor.dispose(); } catch { /* gone already */ } }
-    cast = []; stop = null; playing = false; clock = 0;
+    for (const w of wagons) { try { w.actor?.unstage?.(); } catch { /* gone already */ } }
+    cast = []; wagons = []; stop = null; playing = false; clock = 0;
+  }
+
+  /** Take each team once it is loaded, and stand it where the stage has it now. */
+  function driveTeams(step) {
+    if (!wagons.length) return;
+    let missing = false;
+    for (const w of wagons) {
+      if (!w.actor || w.actor.disposed || w.actor.mode !== 'staged') {
+        const actor = teams?.get?.(w.c.team) ?? null;
+        if (!actor || !actor.stage?.()) { w.actor = null; missing = true; continue; }
+        w.actor = actor; w.heading = castAt(w.c, clock).heading; w.pose = null;
+      }
+      const s = castAt(w.c, clock);
+      // The team swings round a bend at a horse's pace, not on the spot.
+      const d = ((s.heading - w.heading + 540) % 360) - 180, most = TURN_DEG_S * step;
+      w.heading = (w.heading + (w.pose ? Math.max(-most, Math.min(most, d)) : d) + 360) % 360;
+      w.actor.stageTo({ e: s.e, n: s.n, heading_deg: w.heading, dt: step });
+      const p = w.actor.pose;
+      w.pose = { e: s.e, n: s.n, heading: w.heading, height: p?.height ?? null };
+    }
+    // Asked again every two seconds of the page's own time (a held stage's frames carry none).
+    const now = Date.now();
+    if (missing && now - askedLoad >= 2000) { askedLoad = now; try { teams?.load?.(); } catch { /* asked again later */ } }
+  }
+
+  /** A rider sits where their seat on the team is now. */
+  function seatRider(m) {
+    const w = wagons.find((x) => x.c.team === m.ride.team);
+    if (!w?.pose || !Number.isFinite(w.pose.height)) return;
+    const at = seatAt(w.pose, m.ride.seat), a = m.actor;
+    a.path = null; a.e = at.e; a.n = at.n; a.standY = at.y;
+    a.heading = (w.pose.heading + (Number.isFinite(m.ride.heading) ? m.ride.heading : 0) + 360) % 360;
+    a.place?.();
   }
 
   function faceOf(m, b) {
@@ -228,7 +288,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     },
     release() { teardown(); stopKey = null; },
     update(dt) {
-      if (!cast.length) return;
+      if (!cast.length && !wagons.length) return;
       const step = Number.isFinite(dt) && dt > 0 ? dt : 0;
       const shown = humans?.shown !== false;
       if (playing) {
@@ -237,8 +297,10 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
           while (m.next < m.beats.length && m.beats[m.next].t <= clock) play(m, m.beats[m.next++]);
         }
       }
+      driveTeams(step);
       const at = eye();
       for (const m of cast) {
+        if (m.ride) seatRider(m);
         if (!shown) { m.actor.root.visible = false; continue; }
         if (at) m.actor.update(step, at, step);
       }
@@ -246,7 +308,9 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     snapshot() {
       return { stop: stopKey, playing, clock: +clock.toFixed(2), cast: cast.map((m) => ({ person: m.c.person ?? null, extra: m.c.extra ?? null,
         e: +m.actor.e.toFixed(2), n: +m.actor.n.toFixed(2), heading: +m.actor.heading.toFixed(1), posture: m.actor.posture?.kind ?? 'stand',
-        hidden: !!m.actor.indoors, drawn: !!m.actor.root.visible, lod: m.actor.lod })) };
+        hidden: !!m.actor.indoors, drawn: !!m.actor.root.visible, lod: m.actor.lod, ...(m.ride ? { ride: m.ride.team } : {}) })),
+        teams: wagons.map((w) => ({ team: w.c.team, taken: !!w.actor, e: w.pose ? +w.pose.e.toFixed(2) : null,
+          n: w.pose ? +w.pose.n.toFixed(2) : null, heading: w.pose ? +w.pose.heading.toFixed(1) : null })) };
     },
   };
   return api;

@@ -602,6 +602,24 @@ export function createTransportLoop({
     return travelled;
   };
 
+  // T-3553: a jaunt's stage takes the team for a scene (the 1812 column): 'staged' is neither
+  // its round nor the reins. The stage says where the vehicle root stands and how it faces
+  // (stageTo); the wheels turn by the ground it covers and the gait follows, the driver walks
+  // or drives as ever. Uneven ground is not refused: the stage's way is its own, so the body
+  // rides on the highest wheel. Unstaged, it is back on its round where it left it.
+  let stagedAt = null, stageError = null;
+  const stagedPose = (e, n, yaw) => {
+    const origin = { e, n, yaw };
+    const wheelLocal = [
+      [track_m / 2, -root_ahead_of_rear_axle_m], [-track_m / 2, -root_ahead_of_rear_axle_m],
+      [track_m / 2, wheelbase_m - root_ahead_of_rear_axle_m], [-track_m / 2, wheelbase_m - root_ahead_of_rear_axle_m],
+    ];
+    const grounds = wheelLocal.map(([x, z]) => heightAt(...localToEnu(origin, x, z))).filter(Number.isFinite);
+    const height = grounds.length ? Math.max(...grounds) : (lastPose?.height ?? 0);
+    return { ...origin, height, wheelGap: grounds.length ? height - Math.min(...grounds) : 0, rootAhead: root_ahead_of_rear_axle_m,
+      steering: 0, curvature: 0, staged: true, driverAt: localToEnu(origin, driver_local_m[0], driver_local_m[2]), distance, totalDistance };
+  };
+
   const out = {
     id, name, personId: person_id,
     get at() { return [...lastPose.driverAt]; },
@@ -612,12 +630,12 @@ export function createTransportLoop({
     get reason() { return reason; },
     /** The vehicle-root pose last drawn (read only): where its envelope stands now. */
     get pose() { return lastPose; },
-    /** T-3557: 'route' (its own round), 'reins' (the visitor drives) or 'returning'. */
+    /** T-3557: 'route' (its own round), 'reins' (the visitor drives) or 'returning'; T-3553: 'staged'. */
     get mode() { return mode; },
     /** True while the team backs (under the reins, or the driver backing it off a wall). */
-    get reversing() { return mode !== 'route' && !disposed && (speed < 0 || (mode === 'reins' && reversing) || !!recover); },
+    get reversing() { return mode !== 'route' && mode !== 'staged' && !disposed && (speed < 0 || (mode === 'reins' && reversing) || !!recover); },
     /** While driven: the short word for what pulled it up ('a wall', 'the kerb', ...), else null. */
-    get blocked() { return mode === 'route' ? null : blocked; },
+    get blocked() { return mode === 'route' || mode === 'staged' ? null : blocked; },
     /** The rear axle's current pace, m/s (never negative): the round's while it goes, the reins' while driven. */
     get speed_m_s() {
       if (disposed || state !== 'moving') return 0;
@@ -635,8 +653,48 @@ export function createTransportLoop({
       const [e, n] = localToEnu(lastPose, passenger[0], passenger[2]);
       return { e, n, y: lastPose.height + passenger[1] + passenger_eye_m, yaw_rad: lastPose.yaw, heading_deg: out.heading_deg };
     },
+    /** T-3553: taken for a jaunt's scene. Refused while the visitor holds the reins. */
+    stage() {
+      if (disposed || mode === 'reins' || mode === 'returning' || mode === 'path' || mode === 'backing' || mode === 'parked') return false;
+      if (mode === 'staged') return true;
+      gate?.drop?.(); giving = false; dwell = 0; dwellingAt = null;
+      mode = 'staged'; state = 'moving'; reason = null; blocked = null; stagedAt = null; audioSpeed = 0;
+      return true;
+    },
+    /** T-3553: stand the vehicle root at (e, n), facing `heading_deg`; `dt` the frame. */
+    stageTo({ e, n, heading_deg, dt = 0 }) {
+      if (disposed || mode !== 'staged' || ![e, n, heading_deg].every(Number.isFinite)) return false;
+      const yaw = Math.PI - heading_deg * Math.PI / 180;
+      let ds = 0;
+      if (stagedAt) {
+        const de = e - stagedAt.e, dn = n - stagedAt.n;
+        ds = de * Math.sin(yaw) - dn * Math.cos(yaw);
+        if (Math.hypot(de, dn) > 25) ds = 0; // a jump (a replay), not a roll
+      }
+      stagedAt = { e, n };
+      speed = dt > 0 ? Math.abs(ds) / dt : 0;
+      if (Math.abs(ds) > 1e-5) {
+        for (let i = 0; i < 4; i++) wheelRotation[i] = wrap(wheelRotation[i] + ds / wheel_radii_m[i], TAU);
+        totalDistance += Math.abs(ds);
+      }
+      const pose = stagedPose(e, n, yaw);
+      try { assembly.pose({ ...pose, totalDistance, wheelRotation: [...wheelRotation] }); } catch (error) { stageError = error?.message ?? String(error); return false; }
+      lastPose = pose; stageError = null;
+      if (Math.abs(ds) > 1e-5 && dt > 0) { assembly.advance?.(dt, ds); audioSpeed = visible ? Math.abs(ds) / dt : 0; }
+      else { assembly.stop?.(); audioSpeed = 0; }
+      return true;
+    },
+    /** T-3553: why the stage's last pose was refused by the assembly, or null. */
+    get stageError() { return stageError; },
+    /** T-3553: back on its round, where it left it. */
+    unstage() {
+      if (disposed || mode !== 'staged') return false;
+      mode = 'route'; stagedAt = null; speed = 0; state = 'moving'; reason = null; motionReset = true; audioSpeed = 0;
+      try { draw(); } catch { /* the round's pose is drawn on its next step */ }
+      return true;
+    },
     takeReins() {
-      if (disposed) return false;
+      if (disposed || mode === 'staged') return false;
       if (mode === 'reins') return true;
       if (mode === 'path' || mode === 'backing' || mode === 'parked') { path = null; trace = []; speed = Math.max(0, speed); }
       if (mode === 'route') {
@@ -668,7 +726,7 @@ export function createTransportLoop({
      * visitor's or a way of fewer than two points is given.
      */
     followPath(points, { speed_m_s: pace = .8, onArrive = null, yaw_rad = null, curvature_per_m = null } = {}) {
-      if (disposed || mode === 'reins' || !Array.isArray(points) || points.length < 2) return false;
+      if (disposed || mode === 'reins' || mode === 'staged' || !Array.isArray(points) || points.length < 2) return false;
       const pts = points.map((p, i) => ({ ...(Array.isArray(p) ? { e: p[0], n: p[1] } : { e: p.e, n: p.n }),
         yaw: yaw_rad?.[i], k: curvature_per_m?.[i] }));
       if (!pts.every(p => Number.isFinite(p.e) && Number.isFinite(p.n))) return false;
@@ -729,7 +787,7 @@ export function createTransportLoop({
     },
     get hasCab() { return !!cab_seat_local_m; },
     handBack() {
-      if (disposed || mode === 'route') return false;
+      if (disposed || mode === 'route' || mode === 'staged') return false;
       if (mode === 'path' || mode === 'backing' || mode === 'parked') {
         mode = 'reins'; path = null; trace = []; speed = Math.max(0, speed);
       }
@@ -772,7 +830,7 @@ export function createTransportLoop({
       elapsedFrame = false, motionFrame = true } = {}) {
       finite(dt, 'frame time');
       if (dt < 0) throw Error('transport loop: negative frame time');
-      audioSpeed = 0;
+      if (mode !== 'staged') audioSpeed = 0;
       if (disposed) return;
       const wasVisible = visible;
       visible = enabled && drawn;
@@ -780,6 +838,8 @@ export function createTransportLoop({
       assembly.visible?.(visible);
       // T-3557: put up while being steered home (hidden, off hours): nobody sees it rejoin.
       if (mode === 'returning' && !enabled) rejoin(true);
+      // T-3553: a staged team is moved by its stage alone (stageTo), not by the frame.
+      if (mode === 'staged') return;
       // Draw reach only culls rendering. A loaded journey keeps approaching the
       // visitor offscreen, with the same bounded ground/clearance and gait steps.
       // Scene holds, hidden tabs and reduced motion still suspend the journey.

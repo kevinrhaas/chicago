@@ -137,6 +137,16 @@ export const FRONT_VIEW = Object.freeze({ from: 0.72, full: 0.94, faces: 0.3, in
 // down by more than `from` (the down part of its facing), it is lit as its side is: the way
 // straight out from the head's middle line, tipped down by `down`; all of it by `full`.
 export const HAIR_UNDER = Object.freeze({ from: 0.25, full: 0.75, down: 0.2 });
+// T-3553: a face from the library (tools/face_library.py; the owner, 2026-11-14: "build a
+// library with variations that will work", then "MakeHuman skins only for now"). Everyone with
+// no pictures of their own wore one of three skin atlases; a person the library gives a face
+// (human-variation.js libraryFace) wears that atlas's face in place of the body's own, inside
+// this rounded rectangle of the body's map (its units): from under the hairline to under the
+// chin and across to in front of the ears, whole within and giving way to the body's skin
+// across `feather`. Every hm08 atlas has its face there. The face lies under the person's own
+// complexion and under the lips', the age's and the brow's work below, which read it as they
+// read the body's map. `box` is the square of the map one face of the sheet covers.
+export const FACE_LIBRARY = Object.freeze({ box: Object.freeze([0.734375, 0.390625, 0.984375, 0.640625]), centre: Object.freeze([0.8875, 0.515625]), half: Object.freeze([0.096875, 0.125]), round: 0.07, feather: 0.025 });
 const LIKE_VERTEX_DECLARE = `
 uniform sampler2D chiLike;
 uniform vec4 chiLikeUv[ 3 ];
@@ -249,6 +259,9 @@ uniform vec4 chiLikeTeeth;      // the teeth's patch on the body's map (u0, v0, 
 uniform sampler2D chiLikeFront; // the person's front picture, as a picture (FRONT_VIEW), or nothing
 uniform vec4 chiLikeFrontAt[ 3 ]; // on it: the picture's own rectangle, the one that says where it is shown, and the one that says where it shows hair (x, y, w, h as shares)
 uniform vec4 chiLikeFrontTo;    // toward where the picture was taken from (bind pose), and 1 where the person has one
+uniform sampler2D chiFaceLib;   // the library's sheet of faces (FACE_LIBRARY), or nothing
+uniform vec4 chiFaceLibAt;      // this person's face on it: where its box's corner lies (xy), and the sheet's share for one unit of the body's map (zw)
+uniform vec4 chiFaceLibGain;    // what the face is multiplied by to meet this body's skin, and 1 once the sheet is here
 varying vec2 vChiLikeFront;     // where this place lies on that picture
 varying float vChiSmile;        // how far the face has moved into its smile
 varying vec3 vChiLikeX;
@@ -303,6 +316,17 @@ const SKIN_COLOR = `
     // Small darker spots, sparse: moles and freckles at a millimetre or two.
     float spot = smoothstep( 0.80, 0.93, chiSkinNoise( p * 420.0 + 7.7 ) ) * clamp( 1.5 - pix * 420.0, 0.0, 1.0 );
     vec3 c = diffuseColor.rgb;
+    // T-3553: a face from the library in place of the body's own (FACE_LIBRARY), in the
+    // person's complexion. First of all, so the lips, the age and the brows below work on it.
+    #ifdef USE_MAP
+    if ( chiFaceLibGain.w > 0.5 ) {
+      vec2 fq = abs( vMapUv - vec2( ${glsl(FACE_LIBRARY.centre[0])}, ${glsl(FACE_LIBRARY.centre[1])} ) ) - vec2( ${glsl(FACE_LIBRARY.half[0] - FACE_LIBRARY.round)}, ${glsl(FACE_LIBRARY.half[1] - FACE_LIBRARY.round)} );
+      float fd = length( max( fq, 0.0 ) ) + min( max( fq.x, fq.y ), 0.0 ) - ${glsl(FACE_LIBRARY.round)};
+      float fa = 1.0 - smoothstep( ${glsl(-FACE_LIBRARY.feather)}, 0.0, fd );
+      vec3 fc = texture2D( chiFaceLib, chiFaceLibAt.xy + ( vMapUv - vec2( ${glsl(FACE_LIBRARY.box[0])}, ${glsl(FACE_LIBRARY.box[1])} ) ) * chiFaceLibAt.zw ).rgb;
+      c = mix( c, fc * chiFaceLibGain.rgb * diffuse, fa );
+    }
+    #endif
     // Lips (Kevin, 2026-11-12: "when the sun is behind people their lips have a pink line too
     // much"): the shared MakeHuman maps paint the lips a saturated pink, far redder than the
     // skin round them (green over red 0.17 against the skin's 0.43, linear). Found by that
@@ -633,8 +657,12 @@ function patchSkin(material, rest, look = NO_LOOK) {
     chiLikeFrontV: { value: new THREE.Vector4() },
     chiLikeFrontAt: { value: [0, 1, 2].map(() => new THREE.Vector4()) },
     chiLikeFrontTo: { value: new THREE.Vector4() },
+    chiFaceLib: { value: null },
+    chiFaceLibAt: { value: new THREE.Vector4() },
+    chiFaceLibGain: { value: new THREE.Vector4(1, 1, 1, 0) },
   };
   setLikeness(uniforms, look.like);
+  setLibraryFace(uniforms, look.lib);
   chain(material, KEY.skin, uniforms, shader => {
     shader.vertexShader = VERTEX_DECLARE + LIKE_VERTEX_DECLARE + shader.vertexShader.replace('#include <begin_vertex>', `#include <begin_vertex>${VERTEX}${LIKE_VERTEX}`);
     shader.fragmentShader = SKIN_DECLARE + shader.fragmentShader
@@ -954,7 +982,7 @@ export function restingLid(age) {
   return AGE.lid_most * Math.min(1, Math.max(0, (age - AGE.lid_from) / (AGE.lid_full - AGE.lid_from)));
 }
 export const BROW = Object.freeze({ shade: .8, pieces: Object.freeze(['brows_fine']) });
-const NO_LOOK = Object.freeze({ age: 0, brow: 0, face: new THREE.Matrix4(), marks: [-4.5, -6.3, 2.5, 1.8], tint: [1, 1, 1], like: null, key: 'none' });
+const NO_LOOK = Object.freeze({ age: 0, brow: 0, face: new THREE.Matrix4(), marks: [-4.5, -6.3, 2.5, 1.8], tint: [1, 1, 1], like: null, lib: null, key: 'none' });
 
 /** The midline's marks, in the face's frame (cm): the subnasale and the mouth's line. */
 function midlineMarks(mesh, root, f) {
@@ -984,7 +1012,10 @@ function lookOf(mesh, root, { age = null, person = null, year = null } = {}) {
   // T-3553: a person's own skin sheet, where human-variation.js left one on the figure.
   const like = likenessLayout(root.userData?.chiLikenessSkin);
   if (!f) return like ? { ...NO_LOOK, like, key: `none|like:${like.url}` } : NO_LOOK;
-  const a = Number.isFinite(age) ? Math.min(1, Math.max(0, (age - AGE.from) / (AGE.full - AGE.from))) : 0;
+  // ...or, for a person with none, the face the library gave them (FACE_LIBRARY); it keeps
+  // only `lines` of the drawn age lines, an older atlas having painted its own.
+  const lib = like ? null : libraryFaceLayout(root.userData?.chiFaceSkin);
+  const a = (Number.isFinite(age) ? Math.min(1, Math.max(0, (age - AGE.from) / (AGE.full - AGE.from))) : 0) * (lib?.lines ?? 1);
   const style = person || year ? hairFor(person, year) : null;
   const fine = style?.facial?.some(k => BROW.pieces.includes(k));
   const hc = fine ? HAIR_COLOURS[style.brow_colour ?? style.colour] : null;
@@ -996,8 +1027,8 @@ function lookOf(mesh, root, { age = null, person = null, year = null } = {}) {
   const marks = [mid[0], mid[1], 2.5, 1.8];
   // The pictures on a sheet carry the person's own brows: no shade is drawn under them.
   const ageStep = Math.round(a * 20) / 20, brow = hc && !like ? BROW.shade : 0;
-  return { age: ageStep, brow, face, marks, tint, like,
-    key: `${ageStep}|${brow}|${tint.map(t => t.toFixed(2))}|${f.o.toArray().map(t => Math.round(t * 500)).join(',')}${like ? `|like:${like.url}` : ''}` };
+  return { age: ageStep, brow, face, marks, tint, like, lib,
+    key: `${ageStep}|${brow}|${tint.map(t => t.toFixed(2))}|${f.o.toArray().map(t => Math.round(t * 500)).join(',')}${like ? `|like:${like.url}` : ''}${lib ? `|face:${lib.key}` : ''}` };
 }
 
 function setLook(uniforms, look) {
@@ -1070,40 +1101,67 @@ export function frontPicture(front) {
   return at.every(Boolean) ? { url: front.url, u: front.u.slice(), v: front.v.slice(), to: t.slice(), at } : null;
 }
 
-// One texture per sheet, shared by every body of that person (each level of detail, each
-// rebuild). Fetched on first use; until it arrives the sampler reads nothing and the mask is
-// empty, so the body's own map shows in the sheet's tone.
-const sheets = new Map(), arriving = new Set();
-/** Resolves once every skin sheet asked for so far has arrived or failed: a still waits on it. */
+// One texture per sheet, for as long as the page lives, shared by every body that reads it
+// (each level of detail, each rebuild; for the library's sheet of faces, everybody). Fetched
+// on first use; until it arrives the sampler reads nothing and the mask is empty, so the
+// body's own map shows in the sheet's tone.
+//
+// A fetch that fails is asked for again (SHEET_FETCH): a phone on a poor connection drops a
+// request now and then, and the library's one sheet is every drawn person's face. The texture
+// is kept through a failure, so the materials already holding it show the sheet the moment a
+// later try brings it; a material made over (a look is cached by its key) would never have
+// asked again. One run of tries at a time for an address; a run that ends without the sheet
+// is begun again by the next body that asks for it.
+export const SHEET_FETCH = Object.freeze({
+  wait_s: Object.freeze([2, 8, 30, 60, 60, 60, 60, 60]),   // before each further try: nine tries over about six minutes
+  ready_tries: 3,                                         // a still (likenessSheetsReady) waits for this many, not for the rest
+});
+const sheets = new Map(), arriving = new Set(), fetching = new Set(), waiting = new Map();
+/** Resolves once every skin sheet asked for so far has arrived, or failed its first tries: a still waits on it. */
 export function likenessSheetsReady() { return Promise.all([...arriving]).then(() => undefined); }
 function likenessSheet(url) {
   if (typeof document === 'undefined') return null;   // no page (a unit test): the uniforms alone
   let t = sheets.get(url);
-  if (t) return t;
-  t = new THREE.Texture();
-  t.flipY = false;                      // the sheet's rows are the body map's: v down
-  t.colorSpace = THREE.SRGBColorSpace;
-  t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping;
-  t.minFilter = THREE.LinearMipmapLinearFilter;
-  t.anisotropy = 4;
-  sheets.set(url, t);
-  const arrival = new Promise((done) => {
-    new THREE.ImageLoader().load(url, (img) => {
-      // A phone keeps the sheet at half size (a quarter of the memory): its screen cannot show more.
-      if (smallScreen()) {
-        const c = document.createElement('canvas');
-        c.width = img.width >> 1; c.height = img.height >> 1;
-        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
-        t.image = c;
-      } else t.image = img;
-      t.needsUpdate = true;
-      for (const part of parts.get(url)?.values() ?? []) part.needsUpdate = true;
-      done();
-    }, undefined, () => { sheets.delete(url); done(); });   // a sheet that fails is asked for again by the next body
+  if (!t) {
+    t = new THREE.Texture();
+    t.flipY = false;                      // the sheet's rows are the body map's: v down
+    t.colorSpace = THREE.SRGBColorSpace;
+    t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping;
+    t.minFilter = THREE.LinearMipmapLinearFilter;
+    t.anisotropy = 4;
+    sheets.set(url, t);
+  }
+  if (!t.image && !fetching.has(url)) fetchSheet(url, t);
+  return t;
+}
+function fetchSheet(url, t) {
+  fetching.add(url);
+  let tries = 0, settle;
+  const arrival = new Promise((done) => { settle = done; });
+  const ask = () => new THREE.ImageLoader().load(url, (img) => {
+    // A phone keeps the sheet at half size (a quarter of the memory): its screen cannot show more.
+    if (smallScreen()) {
+      const c = document.createElement('canvas');
+      c.width = img.width >> 1; c.height = img.height >> 1;
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      t.image = c;
+    } else t.image = img;
+    t.needsUpdate = true;
+    for (const part of parts.get(url)?.values() ?? []) part.needsUpdate = true;
+    // Everybody who was waiting for their face from this sheet wears it now.
+    for (const ref of waiting.get(url) ?? []) { const u = ref.deref(); if (u?.chiFaceLib?.value === t) u.chiFaceLibGain.value.w = 1; }
+    waiting.delete(url);
+    fetching.delete(url);
+    settle(true);
+  }, undefined, () => {
+    const wait = SHEET_FETCH.wait_s[tries++];
+    if (tries >= SHEET_FETCH.ready_tries || wait === undefined) settle(false);
+    if (wait === undefined) fetching.delete(url);     // the next body that asks begins again
+    else setTimeout(ask, wait * 1000);
   });
   arriving.add(arrival);
   arrival.then(() => arriving.delete(arrival));
-  return t;
+  ask();
 }
 
 /**
@@ -1156,6 +1214,44 @@ function likenessEyes(m, mesh, root, like) {
     own.set(key, twin);
   }
   return twin;
+}
+
+/**
+ * T-3553: the face the library gave a person (FACE_LIBRARY), as human-variation.js left it on
+ * the figure (libraryFace): { url, index, cols, size_px, tile_px, gain, lines }. Returns what
+ * the shader needs, or null where there is none or it does not parse: where the face's box
+ * lies on the sheet and the sheet's share for one unit of the body's map, what the face is
+ * multiplied by to meet the body's skin, and how much of the drawn age lines it keeps.
+ */
+export function libraryFaceLayout(face) {
+  const [W, H] = face?.size_px ?? [], t = face?.tile_px, n = face?.index, cols = face?.cols, g = face?.gain;
+  if (!face?.url || !(W > 0) || !(H > 0) || !(t > 0) || !Number.isInteger(n) || n < 0 || !Number.isInteger(cols) || cols < 1
+    || !(Array.isArray(g) && g.length === 3 && g.every(x => Number.isFinite(x) && x > 0))) return null;
+  const x = (n % cols) * t, y = Math.floor(n / cols) * t;
+  if (x + t > W || y + t > H) return null;
+  const [u0, v0, u1, v1] = FACE_LIBRARY.box;
+  const lines = Number.isFinite(face.lines) ? Math.min(1, Math.max(0, face.lines)) : 1;
+  return { url: face.url, at: [x / W, y / H, t / W / (u1 - u0), t / H / (v1 - v0)], gain: g.slice(), lines,
+    key: `${face.url}#${n}:${g.map(x => x.toFixed(3))}:${lines}` };   // the sheet too: the same place on another sheet is another face
+}
+
+function setLibraryFace(uniforms, lib) {
+  const gain = uniforms.chiFaceLibGain.value;
+  gain.set(...(lib?.gain ?? [1, 1, 1]), 0);
+  uniforms.chiFaceLibAt.value.set(...(lib?.at ?? [0, 0, 0, 0]));
+  uniforms.chiFaceLib.value = null;
+  if (!lib) return;
+  // With no page (a unit test) there is no sheet: the uniforms alone, as if it were here.
+  if (typeof document === 'undefined') { gain.w = 1; return; }
+  // Until the sheet arrives the body's own face shows, and it is worn the moment it does,
+  // on whichever try (fetchSheet); a sheet that never comes leaves the body's own showing.
+  const sheet = uniforms.chiFaceLib.value = likenessSheet(lib.url);
+  if (sheet?.image) { gain.w = 1; return; }
+  if (!sheet) return;
+  let who = waiting.get(lib.url);
+  if (!who) waiting.set(lib.url, who = new Set());
+  if (who.size >= 256) for (const ref of who) if (!ref.deref()) who.delete(ref);   // materials since let go
+  who.add(new WeakRef(uniforms));
 }
 
 function setLikeness(uniforms, like) {

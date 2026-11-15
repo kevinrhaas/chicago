@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_square_on",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "464cdaf671b0c5edfb36e58437e1df0b2ea8776ef0d5fe2a9d71084b4c2a39d4",
+  "glb_sha256": "e866f90086cb2c30c4620201d4089b28bb9b33982bc8754f5ff7216547313188",
   "camera_sha256": "cda2578ea5c93de1ed5400ca1f83da8339ea23c273224c6ad760394f98b0fdee",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_square_on-side-by-side.jpg",
@@ -31,7 +31,7 @@
     {
       "what": "the gabled dormer in the mansard over the window column (x 470-600 px)",
       "status": "fixed",
-      "how": "T-3155: a gabled dormer at 6.1 m on the street face"
+      "how": "T-3155: a gabled dormer at 6.1 m on the street face. T-3562 re-read its height: the print's light runs y 230-347 px (about 1.7 m on the mansard's face, 66.7 px/m) and its gable's foot and apex stand at y 187 and 135, where the build's light (1.35 m) had its head at y 257 and its apex at y 157; the light is now 1.65 m on a 0.05 m frieze under a 42-degree gable, and renders at y 233-347 with its gable's foot at y 197 and apex at y 143, within about 10 px. The print's gable rises through the curb's cresting: K01 holds a lower-face dormer's head 0.1 m under the curb, which is the last 0.12 m"
     },
     {
       "what": "the pavilion: the photograph's is about 4.0 m wide (x 160-445 px) with the door in its south half; the build's is 2.2 m wide, 0.3 m in from the north corner and clear of the door, because K01 cannot cut a door through a projection; so the attic storey over it stands about 0.5-0.7 m north of the print's",
@@ -91,8 +91,9 @@
       "how": "T-3562: the stack names its own pots (pot: false, a K15 per-stack override), so it stands bare as the print draws it"
     },
     {
-      "what": "the mansard's cresting, the dormer's finial and the pavilion roof's cross finial (K01's deck cresting cannot stand on a mansard that carries a crown, k01_mansard_deck.resolve)",
-      "status": "open"
+      "what": "the mansard's cresting, the dormer's finial and the pavilion roof's cross finial",
+      "status": "fixed",
+      "how": "T-3562: K01's deck now stands on a mansard under a hipped crown (k01_mansard_deck.crown_gap stops each run short of the crown's slates where it stands through the curb): the K10 kit's iron cresting, 0.45 m, along the street curb and the south flank's, as the print's band from its rail at y 146-150 px to its foot at y 178; it renders at y 140-165, the curb's own height on this view (below). The crown carries a cross over a square block and a flared cap, 0.9 m (k01_mansard_deck.cross), rendering at y 23-87 against the print's 30-93; the street dormer's apex a 0.45 m turned finial where the print's is a fleur-de-lis of the same height and width, its three lobes under a foot (the cresting's hung trefoils are likewise the kit's pattern, L-k01-1815-roof-iron-3562)"
     },
     {
       "what": "the leaded upper lights of the principal-storey windows and the bay's lights",
@@ -146,6 +147,10 @@
       "what": "the south stack (x 780-830 px, its cap at y 55-65 px, about 14.4 m)",
       "status": "fixed",
       "how": "T-3561: the stone stack on the south cornice, its head and pots as on the oblique; it stands on the build's south wall, about 0.75 m south of the print's main wall (the corner bay's set-out, open above)"
+    },
+    {
+      "what": "the deck over the curb: the print shows sky straight over the cresting's rail (y 146 px), where the build's low-pitched deck shows dark through and over its cresting (y 120-165 px); the build's curb stands about 0.2 m high on this view and about 0.8 m low on the oblique's, so the curb's height and the deck's pitch are one question across the two views",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -14,6 +14,8 @@
  *   sync(hosts, { stand, arrived })   hosts = [{ person, local_e, local_n }] wanted now;
  *                                     `stand` ({ e, n }) is where the visitor will stand, so
  *                                     each turns to it; `arrived` greets them (once a stop)
+ *   speak(voice)                      every frame: the voice reading the stop aloud now
+ *                                     (narration.js `voice()`), or null; its host talks
  *   release()                         every host back to their day
  *   active                            the person ids held as hosts now
  *
@@ -21,8 +23,14 @@
  * `days.unhost`. Walking up to a host does not open their card (`actor.jauntHost`): the stop's
  * text is their introduction, and its person link opens the card. One without (a figure standing at its placement, or walking a looped route)
  * is walked to the mark by its own `walkPath` and back to where it was taken from after; a
- * route walker then takes up its route again. Nothing here says a word: the words are the
- * stop's text, and the figure only turns, looks and greets (human-actions.js), as anywhere.
+ * route walker then takes up its route again. The words are the stop's text, read aloud by
+ * the stop's first host's voice where it has been voiced (narration.js): while that voice
+ * plays, the host it speaks for talks (T-3553: the owner, 2026-11-14, "With the talking now
+ * does the Glessner household jaunt with people can you see them talking?"). Their hand comes
+ * up and moves (human-actions.js `setTalk`), they keep their eyes on the visitor, and their
+ * jaw opens with the loudness of the voice itself (human-mouth.js `say`), so it shuts in the
+ * voice's own pauses. The lips shape no words. Otherwise the figure only turns, looks and
+ * greets, as anywhere.
  */
 
 const bearing = (de, dn) => ((Math.atan2(de, dn) * 180) / Math.PI + 360) % 360;
@@ -65,6 +73,21 @@ export function createJauntHosts({ humans, days = null, router = null, visitor =
     const e = eye();
     if (e) a.life?.attend?.(e, 6);
     a.actions?.greet?.();
+  }
+
+  /**
+   * A host who was speaking stops: the hand comes down and the jaw rests. The mouth is hushed,
+   * not only given back (human-mouth.js `hush`), or the talk's own syllables would mouth on in
+   * silence for the second the hand takes to come down.
+   */
+  function hush(h) {
+    if (!h.speaking) return;
+    h.speaking = false;
+    const a = h.actor;
+    if (!a || a.disposed) return;
+    a.actions?.setTalk?.(false);
+    const mouth = a.actions?.mouth;
+    if (mouth?.hush) mouth.hush(); else mouth?.say?.(null);
   }
 
   function take(host, stand, cut = false) {
@@ -140,6 +163,7 @@ export function createJauntHosts({ humans, days = null, router = null, visitor =
   function give(person, h) {
     held.delete(person);
     h.released = true;
+    hush(h);
     const a = h.actor;
     if (!a || a.disposed) return;
     a.jauntHost = false;
@@ -185,6 +209,25 @@ export function createJauntHosts({ humans, days = null, router = null, visitor =
       retryAt = clock + 0.5;
       for (const [person, h] of returning) returnHome(person, h);
       takeWanted();
+      // A host who is speaking keeps their eyes on the visitor.
+      for (const h of held.values()) if (h.speaking && !h.actor?.disposed) { const e = eye(); if (e) h.actor.life?.attend?.(e, 1.5); }
+    },
+    /**
+     * T-3553: the voice reading a stop aloud now: { speaker, level } (narration.js `voice()`),
+     * or null. Called every frame. The host it speaks for, once at their mark, talks: the
+     * talking hand, and the jaw by the voice's level (0..1), or by the mouth's own run of
+     * syllables where the level is not known (null). Nobody else is touched, and a host is
+     * hushed the frame the voice stops, passes to another, or they are let go.
+     */
+    speak(voice = null) {
+      const who = typeof voice?.speaker === 'string' ? voice.speaker : null;
+      for (const [person, h] of held) {
+        const a = h.actor;
+        if (person !== who || !h.arrived || !a || a.disposed) { hush(h); continue; }
+        h.speaking = true;
+        a.actions?.setTalk?.(true);
+        a.actions?.mouth?.say?.(Number.isFinite(voice.level) ? voice.level : null);
+      }
     },
     release() {
       wanted.clear(); skipped.clear(); readyCallback = null;

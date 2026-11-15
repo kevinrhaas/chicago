@@ -96,6 +96,109 @@ figure.greets = 0; figure.attended = 0;
 }
 console.log('PASS a host with no day walks to the mark, greets once there, and goes back; a route walker resumes her route');
 
+// ---- T-3553 (owner, 2026-11-14: "With the talking now does the Glessner household jaunt with
+// people can you see them talking?"): the host whose voice reads the stop talks while it does.
+{
+  const said = [];
+  const speaker = id => figure(id, { actions: { greet() {}, setTalk(on) { said.push([id, 'talk', on]); },
+    mouth: { say(level) { said.push([id, 'say', level]); }, hush() { said.push([id, 'hush']); } } } });
+  const john = speaker('john'), frances = speaker('frances'), eyes = [];
+  john.life = { attend: (e, s) => eyes.push(['john', s]) }; frances.life = { attend: (e, s) => eyes.push(['frances', s]) };
+  const humans = { get: id => ({ john, frances })[id] ?? null };
+  const h = createJauntHosts({ humans, router: planned, visitor: () => ({ e: 0, n: 10 }), eye: () => ({ x: 0, y: 1.6, z: 0 }) });
+  const stop = [{ person: 'john', local_e: 0, local_n: 6 }, { person: 'frances', local_e: 2, local_n: 6 }];
+  h.sync(stop, { stand: { e: 0, n: 10 } });
+  h.speak({ speaker: 'john', level: 0.5 });
+  assert.deepEqual(said, [], 'a host still on the way to the mark does not talk');
+  john.arrive(); frances.arrive();
+  // At the mark he speaks whether or not the visitor has arrived to be greeted (a Listen tap on the way).
+  h.speak({ speaker: 'john', level: 0.5 });
+  assert.deepEqual(said, [['john', 'talk', true], ['john', 'say', 0.5]], 'the host the voice speaks for talks, the jaw by the voice; the other host does not');
+  said.length = 0;
+  h.speak(null);
+  assert.deepEqual(said, [['john', 'talk', false], ['john', 'hush']], 'the voice stops: the hand comes down and the mouth is hushed, not left to its own syllables');
+  said.length = 0;
+  h.speak({ speaker: 'narrator', level: 0.9 });
+  h.speak({ speaker: 'nobody here', level: 0.9 });
+  h.speak({ speaker: 0, level: 0.9 }); h.speak({ level: 0.9 }); h.speak({});
+  assert.deepEqual(said, [], 'silence, the narrator, a voice for someone else and a voice with no speaker move nobody');
+  h.speak({ speaker: 'john', level: 0 });
+  assert.deepEqual(said, [['john', 'talk', true], ['john', 'say', 0]], 'between words the jaw shuts and the hand stays up');
+  said.length = 0;
+  for (const unknown of [null, undefined, NaN, Infinity, '0.5']) h.speak({ speaker: 'john', level: unknown });
+  assert.deepEqual(said.filter(x => x[1] === 'say'), Array(5).fill(['john', 'say', null]), 'a level not known leaves the jaw to the mouth\'s own run of syllables');
+  // Speaking, he keeps his eyes on the visitor for as long as he speaks (asked again each half second).
+  eyes.length = 0;
+  for (let t = 0; t < 2.01; t += 0.1) h.update(0.1);
+  assert.ok(eyes.length >= 3 && eyes.every(e => e[0] === 'john' && e[1] === 1.5), `the speaker looks at the visitor throughout; the silent host is left to her own eyes (${eyes.length})`);
+  // The voice passes to the other host: he is hushed once, she talks.
+  said.length = 0;
+  h.speak({ speaker: 'frances', level: 0.25 });
+  assert.deepEqual(said, [['john', 'talk', false], ['john', 'hush'], ['frances', 'talk', true], ['frances', 'say', 0.25]]);
+  // It stops: she is hushed once, and nobody is told anything while nobody speaks.
+  said.length = 0;
+  h.speak(null); h.speak(null); h.speak(undefined);
+  assert.deepEqual(said, [['frances', 'talk', false], ['frances', 'hush']], 'hushed once when the voice stops');
+  // The stop changes under a speaking host (the visitor walks on): he is hushed as he is let go.
+  h.speak({ speaker: 'john', level: 0.7 });
+  said.length = 0;
+  h.sync([{ person: 'frances', local_e: 2, local_n: 6 }], { stand: { e: 2, n: 10 } });
+  assert.deepEqual(said, [['john', 'talk', false], ['john', 'hush']], 'let go by the next stop, the speaker is hushed');
+  h.speak({ speaker: 'john', level: 0.7 });
+  assert.equal(said.length, 2, 'a host who was let go is not made to talk');
+  // Let go at the jaunt's end mid-word.
+  h.speak({ speaker: 'frances', level: 0.7 });
+  said.length = 0;
+  h.release();
+  assert.deepEqual(said, [['frances', 'talk', false], ['frances', 'hush']], 'let go at the end, the speaker is hushed');
+  // A host with a day of their own (every host of the household tour) goes back through their
+  // day: hushed first, mid-word or not, by the end of the jaunt and by the next stop alike.
+  for (const letGo of ['release', 'sync']) {
+    const kate = speaker('kate'), order = [];
+    let arrive = null;
+    const days = { host: (person, mark, { onArrive }) => { arrive = () => onArrive(kate); return { ok: true }; }, unhost: person => order.push(['unhost', person, said.length]) };
+    const h3 = createJauntHosts({ humans: { get: id => (id === 'kate' ? kate : null) }, days, router: planned, visitor: () => ({ e: 0, n: 10 }), eye: () => null });
+    h3.sync([{ person: 'kate', local_e: 0, local_n: 6 }], { stand: { e: 0, n: 10 }, arrived: true });
+    arrive();
+    h3.speak({ speaker: 'kate', level: 0.6 });
+    said.length = 0;
+    if (letGo === 'release') h3.release(); else h3.sync([], { stand: null });
+    assert.deepEqual(said, [['kate', 'talk', false], ['kate', 'hush']], `a host with a day is hushed when let go (${letGo})`);
+    assert.deepEqual(order, [['unhost', 'kate', 2]], 'and only then given back to her day');
+  }
+  // A mouth with no hush of its own (an older figure) is given its jaw back.
+  const old = figure('old', { actions: { greet() {}, setTalk(on) { said.push(['old', 'talk', on]); }, mouth: { say(level) { said.push(['old', 'say', level]); } } } });
+  // A figure with no mouth or no actions is passed over without a throw; a figure gone is not touched.
+  const plain = figure('plain'); plain.actions = null;
+  const gone = speaker('gone'); gone.life = { attend: () => eyes.push(['gone']) };
+  const h2 = createJauntHosts({ humans: { get: id => ({ plain, gone, old })[id] ?? null }, router: planned, visitor: () => ({ e: 0, n: 10 }), eye: () => ({ x: 0, y: 1.6, z: 0 }) });
+  h2.sync([{ person: 'plain', local_e: 0, local_n: 6 }, { person: 'gone', local_e: 2, local_n: 6 }, { person: 'old', local_e: 4, local_n: 6 }], { stand: { e: 0, n: 10 } });
+  plain.arrive(); gone.arrive(); old.arrive();
+  said.length = 0;
+  h2.speak({ speaker: 'old', level: 0.4 }); h2.speak(null);
+  assert.deepEqual(said, [['old', 'talk', true], ['old', 'say', 0.4], ['old', 'talk', false], ['old', 'say', null]]);
+  h2.speak({ speaker: 'plain', level: 0.4 });
+  h2.speak({ speaker: 'gone', level: 0.4 });
+  said.length = 0; eyes.length = 0;
+  gone.disposed = true;
+  h2.update(0.6);   // the frame's order (main.js): update, then speak
+  h2.speak({ speaker: 'gone', level: 0.4 });
+  h2.update(0.6);
+  h2.speak(null);
+  assert.deepEqual([said, eyes], [[], []], 'a figure that has gone is not told to talk, to hush or to look');
+}
+console.log('PASS the host a voice speaks for talks while it does: hand up, jaw by the voice, eyes on the visitor; hushed when it stops, passes on, or they are let go');
+
+// T-3553: the frame loop is what makes any of it happen: each frame, after the hosts' own
+// update, the voice that sounds now is handed to them (main.js).
+{
+  const main = fs.readFileSync(new URL('../renderers/web/js/main.js', import.meta.url), 'utf8');
+  const at = main.indexOf('api.jauntHosts?.update(frameDt);');
+  assert.ok(at > 0 && /^\s*(?:\/\/[^\n]*\n\s*)*api\.jauntHosts\?\.speak\(api\.narration\?\.voice\?\.\(\) \?\? null\);/.test(main.slice(at + 'api.jauntHosts?.update(frameDt);'.length)),
+    'main.js hands the hosts the sounding voice each frame, right after their update');
+}
+console.log('PASS the frame loop hands the hosts the voice that sounds');
+
 // ---- human-days.js: a host is taken out of their day, out of the house by its door, and given back.
 {
   const kate = figure('kate', { instance: { behaviour: { day: [{ spans: [
@@ -139,11 +242,25 @@ console.log('PASS human-days takes a host out of her day, out by the nearest doo
   assert.equal(john.indoors, false, 'his day (away at the office) leaves the host at his mark');
   // And jaunt-hosts never walks a figure with a day by hand when the days cannot find them.
   const lost = figure('lost', { instance: { behaviour: { day: [{ spans: [{ from: 0, to: 24, indoors: true, where: 'x' }] }] } } });
-  const h = createJauntHosts({ humans: { get: () => lost }, days: { host: () => ({ ok: false, why: 'no such person' }) } });
+  // (A router that plans, so it is the rule that stops the walk and not the want of a way.)
+  const h = createJauntHosts({ humans: { get: () => lost }, days: { host: () => ({ ok: false, why: 'no such person' }) }, router: planned });
   h.sync([{ person: 'lost', local_e: 1, local_n: 1 }], { stand: { e: 1, n: 3 } });
   assert.deepEqual(h.active, [], 'not taken as dayless');
   assert.deepEqual(h.waiting, ['lost'], 'still wanted, retried by update');
   assert.equal(lost.jauntHost, undefined);
+  assert.equal(lost.path ?? null, null, 'and not set walking');
+  // The same figure with no day of their own is walked by hand, by the same router.
+  const dayless = figure('dayless');
+  const h0 = createJauntHosts({ humans: { get: () => dayless }, days: { host: () => ({ ok: false, why: 'no such person' }) }, router: planned });
+  h0.sync([{ person: 'dayless', local_e: 1, local_n: 1 }], { stand: { e: 1, n: 3 } });
+  assert.deepEqual([h0.active, dayless.jauntHost, dayless.path?.pts.at(-1)], [['dayless'], true, { e: 1, n: 1 }], 'a figure with no day is taken by hand and walked to the mark');
+  // A person the days know and will not give (away, in another year) is neither: not waited
+  // for, since no later frame will bring them, and not walked by hand, with a day or without.
+  for (const who of [figure('away', { instance: { behaviour: { day: [{ spans: [{ from: 0, to: 24, indoors: true, where: 'x' }] }] } } }), figure('away_dayless')]) {
+    const h1 = createJauntHosts({ humans: { get: () => who }, days: { host: () => ({ ok: false, why: 'away' }) }, router: planned });
+    h1.sync([{ person: who.id, local_e: 1, local_n: 1 }], { stand: { e: 1, n: 3 } });
+    assert.deepEqual([h1.active, h1.waiting, who.jauntHost, who.path ?? null], [[], [], undefined, null], `${who.id}: refused by the days for a reason of their own, neither waited for nor walked`);
+  }
 }
 console.log('PASS a host with a day is found before the first frame, and is never walked by hand as dayless');
 

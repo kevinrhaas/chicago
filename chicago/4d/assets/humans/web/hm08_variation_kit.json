@@ -1439,5 +1439,672 @@
     "max_m": 0.0859
    }
   }
- ]
+ ],
+ "faces": {
+  "map": "faces/hm08_faces.jpg",
+  "size_px": [
+   1280,
+   1280
+  ],
+  "tile_px": 256,
+  "cols": 5,
+  "box": [
+   0.734375,
+   0.390625,
+   0.984375,
+   0.640625
+  ],
+  "mask": {
+   "centre": [
+    0.8875,
+    0.515625
+   ],
+   "half": [
+    0.096875,
+    0.125
+   ],
+   "round": 0.07,
+   "feather": 0.025
+  },
+  "ages": {
+   "middle_from": 36,
+   "old_from": 60,
+   "child_under": 13
+  },
+  "lines": {
+   "young": 1,
+   "middle": 0.6,
+   "old": 0.3
+  },
+  "younger_likelier": 0.5,
+  "nearer_tone_likelier": 1.0,
+  "never_darker_than": 1.0,
+  "light_only_for": [
+   "fair",
+   "light",
+   "ruddy"
+  ],
+  "seed": "chicago4d:face-library:v1:",
+  "liberty": "L-face-library-3553",
+  "faces": [
+   {
+    "id": "young_lightskinned_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.5046
+   },
+   {
+    "id": "young_lightskinned_female_2",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.4858
+   },
+   {
+    "id": "middleage_lightskinned_female",
+    "sex": "female",
+    "age": "middle",
+    "tone": 0.4526
+   },
+   {
+    "id": "middleage_lightskinned_female_2",
+    "sex": "female",
+    "age": "middle",
+    "tone": 0.4913
+   },
+   {
+    "id": "old_lightskinned_female",
+    "sex": "female",
+    "age": "old",
+    "tone": 0.4451
+   },
+   {
+    "id": "old_lightskinned_female_2",
+    "sex": "female",
+    "age": "old",
+    "tone": 0.3849
+   },
+   {
+    "id": "young_lightskinned_male",
+    "sex": "male",
+    "age": "young",
+    "tone": 0.4616
+   },
+   {
+    "id": "young_lightskinned_male_2",
+    "sex": "male",
+    "age": "young",
+    "tone": 0.3983
+   },
+   {
+    "id": "middleage_lightskinned_male",
+    "sex": "male",
+    "age": "middle",
+    "tone": 0.4122
+   },
+   {
+    "id": "old_lightskinned_male",
+    "sex": "male",
+    "age": "old",
+    "tone": 0.468
+   },
+   {
+    "id": "old_lightskinned_male_2",
+    "sex": "male",
+    "age": "old",
+    "tone": 0.2608
+   },
+   {
+    "id": "callharvey3d_midtoned_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.2139
+   },
+   {
+    "id": "cutoff3d_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.342
+   },
+   {
+    "id": "onlytheghosts_young_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.5089
+   },
+   {
+    "id": "onlytheghosts_middleage_female",
+    "sex": "female",
+    "age": "middle",
+    "tone": 0.4758
+   },
+   {
+    "id": "onlytheghosts_old_female",
+    "sex": "female",
+    "age": "old",
+    "tone": 0.4174
+   },
+   {
+    "id": "toigo_freckles_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.4163,
+    "light_only": true
+   },
+   {
+    "id": "toigo_ginger_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.4421,
+    "light_only": true
+   },
+   {
+    "id": "toigo_ginger_female_2",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.4441,
+    "light_only": true
+   },
+   {
+    "id": "onlytheghosts_old_male",
+    "sex": "male",
+    "age": "old",
+    "tone": 0.3578
+   },
+   {
+    "id": "toigo_freckles_male",
+    "sex": "male",
+    "age": "young",
+    "tone": 0.4582,
+    "light_only": true
+   },
+   {
+    "id": "toigo_ginger_male",
+    "sex": "male",
+    "age": "young",
+    "tone": 0.4477,
+    "light_only": true
+   }
+  ],
+  "bodies": {
+   "anonymous_working_driver_1904": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "bardwell_otis_1835": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "billings_august_1904_stable_helper": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "child_boy_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "child_boy_1904": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "child_girl_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "child_girl_1904": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "child_toddler_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "child_toddler_1904": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "engage_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "flynn_mary_1835_dress_study": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "glessner_frances_m_1904": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "glessner_john_j_1904": {
+    "gain": [
+     1.3923,
+     1.8607,
+     2.4331
+    ],
+    "tone_rgb": [
+     0.7667,
+     0.404,
+     0.2277
+    ]
+   },
+   "lady_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "mahoney_patrick_1835": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "nelson_charles_1904_coachman": {
+    "gain": [
+     1.3923,
+     1.8607,
+     2.4331
+    ],
+    "tone_rgb": [
+     0.7667,
+     0.404,
+     0.2277
+    ]
+   },
+   "nelson_christine_1904_errand": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "officer_first_infantry_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "officer_first_infantry_1812_lieutenant": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "peck_philip_1835": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "potawatomi_boy_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "potawatomi_girl_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "potawatomi_man_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "potawatomi_woman_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "private_first_infantry_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "reynolds_mary_1904_maid": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "ryan_kate_1904_cook": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "settler_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "surgeons_mate_first_infantry_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "teen_boy_1904": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "teen_girl_1904": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "trader_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "williamson_mattie_1904_cook_study": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "woman_country_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "woman_working_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   }
+  },
+  "complexions": {
+   "fair": [
+    1.04,
+    1.0,
+    0.97
+   ],
+   "light": [
+    1.0,
+    0.95,
+    0.9
+   ],
+   "ruddy": [
+    1.03,
+    0.86,
+    0.8
+   ],
+   "dark": [
+    0.84,
+    0.74,
+    0.64
+   ],
+   "brown": [
+    0.76,
+    0.63,
+    0.5
+   ],
+   "olive": [
+    0.9,
+    0.79,
+    0.65
+   ],
+   "tan": [
+    0.8,
+    0.65,
+    0.49
+   ],
+   "copper": [
+    0.62,
+    0.46,
+    0.33
+   ],
+   "deep_brown": [
+    0.43,
+    0.3,
+    0.21
+   ]
+  },
+  "person_tone_rgb": {
+   "male": [
+    0.6692,
+    0.2687,
+    0.1201
+   ],
+   "female": [
+    0.795,
+    0.3313,
+    0.1648
+   ]
+  }
+ }
 }

@@ -1,0 +1,1045 @@
+{
+ "format": "chicago4d_face_library_v1",
+ "ticket": "T-3553",
+ "liberty": "L-face-library-3553",
+ "license": "CC0-1.0",
+ "_doc": "The faces people wear who have no pictures of their own (owner, 2026-11-14: 'MakeHuman skins only for now'). Each is the face of one CC0 MakeHuman skin atlas, cut from the same place on the map every hm08 body shares, brought to one tone, and laid under the wearer's own complexion (renderers/web/js/human-skin.js FACE_LIBRARY). `faces` is the editorial list, in the sheet's order: which atlas, which sex's and which age's people may wear it, and `light_only` for freckled skins. A pack's own name for an atlas (in `entry`) is the pack's word, not a fact about anybody who wears it: nobody is given a face by it. tools/face_library.py builds the sheet and writes `texture`; renderers/web/js/human-variation.js (libraryFace) hands the faces out. Edit `faces`, `mask`, `rule`; never `texture`.",
+ "sources": "assets/authored/humans/face_library/SOURCE.json",
+ "map_px": 2048,
+ "box_px": [
+  1504,
+  800,
+  2016,
+  1312
+ ],
+ "mask": {
+  "centre": [
+   0.8875,
+   0.515625
+  ],
+  "half": [
+   0.096875,
+   0.125
+  ],
+  "round": 0.07,
+  "feather": 0.025,
+  "basis": "A rounded rectangle on the body's map, in its units: the face from under the hairline (the atlases paint cropped hair above it, each its own colour) to under the chin, and across to in front of the ears. The library's face is whole inside it and gives way to the body's own skin across the feather."
+ },
+ "tile_px": 256,
+ "cols": 5,
+ "headroom": 0.8,
+ "jpeg_quality": 90,
+ "rule": {
+  "ages": {
+   "middle_from": 36,
+   "old_from": 60,
+   "child_under": 13
+  },
+  "lines": {
+   "young": 1,
+   "middle": 0.6,
+   "old": 0.3
+  },
+  "younger_likelier": 0.5,
+  "nearer_tone_likelier": 1.0,
+  "never_darker_than": 1.0,
+  "light_only_for": [
+   "fair",
+   "light",
+   "ruddy"
+  ],
+  "seed": "chicago4d:face-library:v1:",
+  "basis": "Who may wear which, all of it ours. A person takes a face of their own sex, and of their age's third (young under 36, middle-aged under 60, old from there) or of a younger one, each third younger half as likely: a young atlas on an older person is what every body wore before, the lines of age drawn over it. Nobody takes a face older than they are. A child under 13 takes a young woman's, which is smooth. Among those, a face whose own measured tone is nearer the person's is likelier (the person's tone is the skin most bodies of their sex wear, `texture.person_tone`, under their recorded complexion: a man's or a boy's is the men's, everybody else's the women's; it is not the skin of the body they happen to be drawn on, so a person drawn on two bodies of different skins wears one face on both), by a bell one doubling of light wide; a face more than a doubling darker than the person is never taken. A freckled face (`light_only`) is only for a person whose recorded complexion is fair, light or ruddy (`light_only_for`); nobody of another complexion, or with none recorded, takes one. The body's own skin stands in the draw as one more face. The pick is seeded by the person's id, so it is the same on every visit. It reads nothing of the body's skin; only the gain that brings the face to the skin around it is the body's own. The person's sex and age are their record's, and the body's where the record has none (on 2026-11-15, 465 of the 1,212 people drawn have no sex recorded and 131 neither an age nor a span of ages; a body for either sex, a toddler's, is read as a woman's): such a person wears one face on every body because their records draw them on bodies of one sex and size, which tools/test_human_variation.mjs holds over every row, and not by this rule. `lines`: how much of the drawn age lines (human-skin.js) a face keeps, by the face's own age, the middle-aged and old atlases having painted their own."
+ },
+ "left_out": {
+  "basis": "The three packs hold 59 skins by their own records (kept beside the cuts as <pack>.original.json) and 22 are kept. What each of the other 37 was left out for, by our own look at its face (2026-11-14) except where a row says it was not looked at. The seven darkest were cut and tried and are the ones to come back for: brought to the tone of the bodies' skin and laid under the app's complexions their faces came out lighter and yellower than the neck beside them, with pale lips, the dark stubble painted round each face having entered the measure of where face meets skin. So the library holds no face painted for a dark skin yet: a person of dark complexion wears the same faces as everyone else under their own complexion, as they wore the bodies' one skin before. That is a gap in the library, not a ruling about anybody.",
+  "skins": [
+   {
+    "pack": "makehuman_system_assets",
+    "skins": [
+     "young_african_female",
+     "young_african_male",
+     "middleage_african_female",
+     "middleage_african_male",
+     "old_african_female",
+     "old_african_male"
+    ],
+    "why": "tried; did not sit under the app's complexions (above)"
+   },
+   {
+    "pack": "skins02",
+    "skins": [
+     "mindfront_skin_male_african_middleage"
+    ],
+    "why": "tried; did not sit under the app's complexions (above)"
+   },
+   {
+    "pack": "makehuman_system_assets",
+    "skins": [
+     "young_asian_male",
+     "young_asian_female",
+     "middleage_asian_male"
+    ],
+    "why": "the same painting as one that is kept (young_caucasian_male2, young_caucasian_female2 and middleage_caucasian_male in turn), painted again only at the upper eyelids and the nostrils: cut and compared on 2026-11-14, the two of each pair differ inside the mask by 0.5, 2.3 and 2.0 levels of 255 on average, nearer than any two faces that are kept (2.6 at the nearest; the middle of all the kept pairs is 13). tools/face_library.py --check holds that no two kept faces are nearer than 2.4. They were kept at first, and the one painting was then twice as likely to be drawn as any other. Of each pair the one kept is the atlas with the lower number in its own file name, not the pack's name for either: young_lightskinned_male_diffuse2.png kept and young_lightskinned_male_diffuse3.png left out, young_lightskinned_female_diffuse2.png and young_lightskinned_female_diffuse3.png, middleage_lightskinned_male_diffuse.png and middleage_lightskinned_male_diffuse2.png (the left-out files' names as the pack was downloaded on 2026-11-14; those files are not kept here). An earlier wording of this row said the pack's order of its files decided it; in the pack's own record the left-out skin comes first in all three pairs"
+   },
+   {
+    "pack": "skins01",
+    "skins": [
+     "toigo_light_skin_female_bronze"
+    ],
+    "why": "already the skin thirteen of the bodies wear (assets/authored/humans/skin_toigo_bronze)"
+   },
+   {
+    "pack": "skins02",
+    "skins": [
+     "toigo_light_skin_male_bronze"
+    ],
+    "why": "already the skin twenty of the bodies wear (assets/authored/humans/skin_toigo_bronze)"
+   },
+   {
+    "pack": "skins01",
+    "skins": [
+     "toigo_light_skin_female_bronze_with_makeup",
+     "toigo_light_skin_female_ginger_with_makeup",
+     "toigo_light_skin_female_with_violet_makeup",
+     "toigo_light_skin_with_makeup",
+     "toigo_light_skin_with_natural_makeup",
+     "darthfurby_caucasian_female",
+     "flower-angel_red_head_skin",
+     "skalldyrssuppe_creamy_female",
+     "saltycowdawg_genuine_caucasian_female_with_genitals"
+    ],
+    "why": "painted makeup: lipstick, lined or shadowed lids, or blush"
+   },
+   {
+    "pack": "skins02",
+    "skins": [
+     "toigo_light_skin_male_with_emo_eyes",
+     "toigo_light_skin_male_with_eyeliner",
+     "toigo_light_skin_male_with_goth_makeup"
+    ],
+    "why": "painted makeup"
+   },
+   {
+    "pack": "skins02",
+    "skins": [
+     "jartur69_middleage_slavic_male_with_genitals_and_beard",
+     "jartur69_old_slavic_male_with_genitals_and_beard"
+    ],
+    "why": "a beard painted on the face; the app grows each person's own"
+   },
+   {
+    "pack": "skins02",
+    "skins": [
+     "ken1138_caucasian_male_tattooed_skin",
+     "rehmanpolanski_skin_viking_tattoos",
+     "mindfront_aksel_skin"
+    ],
+    "why": "tattoos, a scar or a wound painted on the face"
+   },
+   {
+    "pack": "skins01",
+    "skins": [
+     "spreadcore_alana_caucasian_female_with_genitals_skin"
+    ],
+    "why": "painted makeup, and a face spread over the map with nothing where the bodies' ears lie"
+   },
+   {
+    "pack": "skins01",
+    "skins": [
+     "nyloseth_zoeyskin"
+    ],
+    "why": "a crescent painted on the cheek"
+   },
+   {
+    "pack": "skins01",
+    "skins": [
+     "bobby_03_young_female_hairless"
+    ],
+    "why": "an open mouth and tongue painted on the lips, and no brows"
+   },
+   {
+    "pack": "skins01",
+    "skins": [
+     "cutoff3d_indian_female_enhanced"
+    ],
+    "why": "a darker copy of cutoff3d_indian_female_skin, which is kept, with an open mouth painted dark"
+   },
+   {
+    "pack": "skins01",
+    "skins": [
+     "blindsaypatten_uniform_skin_texture"
+    ],
+    "why": "one even texture with no face on it"
+   },
+   {
+    "pack": "makehuman_system_assets",
+    "skins": [
+     "toon01",
+     "young_caucasian_female_special_suit",
+     "young_caucasian_male_special_suit"
+    ],
+    "why": "not fetched and not looked at: by the pack's own names for them a cartoon skin and two skins painted as a suit, where the library takes plain skins"
+   }
+  ]
+ },
+ "faces": [
+  {
+   "id": "young_lightskinned_female",
+   "pack": "makehuman_system_assets",
+   "entry": "skins/young_caucasian_female/young_lightskinned_female_diffuse.png",
+   "material": "skins/young_caucasian_female/young_caucasian_female.mhmat",
+   "sex": "female",
+   "age": "young"
+  },
+  {
+   "id": "young_lightskinned_female_2",
+   "pack": "makehuman_system_assets",
+   "entry": "skins/young_caucasian_female2/young_lightskinned_female_diffuse2.png",
+   "material": "skins/young_caucasian_female2/young_caucasian_female2.mhmat",
+   "sex": "female",
+   "age": "young"
+  },
+  {
+   "id": "middleage_lightskinned_female",
+   "pack": "makehuman_system_assets",
+   "entry": "skins/middleage_caucasian_female/middleage_lightskinned_female_diffuse.png",
+   "material": "skins/middleage_caucasian_female/middleage_caucasian_female.mhmat",
+   "sex": "female",
+   "age": "middle"
+  },
+  {
+   "id": "middleage_lightskinned_female_2",
+   "pack": "makehuman_system_assets",
+   "entry": "skins/middleage_asian_female/middleage_lightskinned_female_diffuse2.png",
+   "material": "skins/middleage_asian_female/middleage_asian_female.mhmat",
+   "sex": "female",
+   "age": "middle"
+  },
+  {
+   "id": "old_lightskinned_female",
+   "pack": "makehuman_system_assets",
+   "entry": "skins/old_caucasian_female/old_lightskinned_female_diffuse.png",
+   "material": "skins/old_caucasian_female/old_caucasian_female.mhmat",
+   "sex": "female",
+   "age": "old"
+  },
+  {
+   "id": "old_lightskinned_female_2",
+   "pack": "makehuman_system_assets",
+   "entry": "skins/old_asian_female/old_lightskinned_female_diffuse2.png",
+   "material": "skins/old_asian_female/old_asian_female.mhmat",
+   "sex": "female",
+   "age": "old"
+  },
+  {
+   "id": "young_lightskinned_male",
+   "pack": "makehuman_system_assets",
+   "entry": "skins/young_caucasian_male/young_lightskinned_male_diffuse.png",
+   "material": "skins/young_caucasian_male/young_caucasian_male.mhmat",
+   "sex": "male",
+   "age": "young"
+  },
+  {
+   "id": "young_lightskinned_male_2",
+   "pack": "makehuman_system_assets",
+   "entry": "skins/young_caucasian_male2/young_lightskinned_male_diffuse2.png",
+   "material": "skins/young_caucasian_male2/young_caucasian_male2.mhmat",
+   "sex": "male",
+   "age": "young"
+  },
+  {
+   "id": "middleage_lightskinned_male",
+   "pack": "makehuman_system_assets",
+   "entry": "skins/middleage_caucasian_male/middleage_lightskinned_male_diffuse.png",
+   "material": "skins/middleage_caucasian_male/middleage_caucasian_male.mhmat",
+   "sex": "male",
+   "age": "middle"
+  },
+  {
+   "id": "old_lightskinned_male",
+   "pack": "makehuman_system_assets",
+   "entry": "skins/old_caucasian_male/old_lightskinned_male_diffuse.png",
+   "material": "skins/old_caucasian_male/old_caucasian_male.mhmat",
+   "sex": "male",
+   "age": "old"
+  },
+  {
+   "id": "old_lightskinned_male_2",
+   "pack": "makehuman_system_assets",
+   "entry": "skins/old_asian_male/old_lightskinned_male_diffuse2.png",
+   "material": "skins/old_asian_male/old_asian_male.mhmat",
+   "sex": "male",
+   "age": "old"
+  },
+  {
+   "id": "callharvey3d_midtoned_female",
+   "pack": "skins01",
+   "entry": "skins/callharvey3d_midtoned_female/harvey_midtoned_female_diffuse.png",
+   "pack_record": "callharvey3d_midtoned_female",
+   "sex": "female",
+   "age": "young",
+   "licence_note": "The pack's material file for this skin (not kept, not used) is MakeHuman's own 2016 material for its young_african_female skin, reused with its header: \"Copyright (C) 2016 Data Collection AB ... This file is licensed AGPLv3\"; and the pack's record calls the atlas a changed copy of that MakeHuman skin. The atlas is read as CC0 all the same, on two statements: the pack's record of this asset says \"license\": \"CC0\" (its author's choice at upload, kept in skins01.original.json), and MakeHuman released the skin it was made from as CC0 in September 2020 (the system assets pack's skins/young_african_female/young_african_female.mhmat, SHA-256 f7e0726cb1c4f1f3dd23e5143f2d91a7c69ddd782a8b1de153a36e1549028b5c: \"This asset was explicitly released as CC0 in september 2020\"). The 2016 header is that of a settings file copied as a template, older than both.",
+   "licence_note_evidence": {
+    "pack": "makehuman_system_assets",
+    "path": "skins/young_african_female/young_african_female.mhmat",
+    "says": "explicitly released as CC0"
+   }
+  },
+  {
+   "id": "cutoff3d_female",
+   "pack": "skins01",
+   "entry": "skins/cutoff3d_indian_female_skin/indian_skin2e.png",
+   "pack_record": "cutoff3d_indian_female_skin",
+   "sex": "female",
+   "age": "young"
+  },
+  {
+   "id": "onlytheghosts_young_female",
+   "pack": "skins01",
+   "entry": "skins/onlytheghosts_young_eurasian_female/young_eurasian_female_diffuse.png",
+   "pack_record": "onlytheghosts_young_eurasian_female",
+   "sex": "female",
+   "age": "young"
+  },
+  {
+   "id": "onlytheghosts_middleage_female",
+   "pack": "skins01",
+   "entry": "skins/onlytheghosts_middle_aged_eurasian_female/middleage_eurasian_female_diffuse.png",
+   "pack_record": "onlytheghosts_middle_aged_eurasian_female",
+   "sex": "female",
+   "age": "middle"
+  },
+  {
+   "id": "onlytheghosts_old_female",
+   "pack": "skins01",
+   "entry": "skins/onlytheghosts_old_eurasian_female/old_eurasian_female_diffuse.png",
+   "pack_record": "onlytheghosts_old_eurasian_female",
+   "sex": "female",
+   "age": "old"
+  },
+  {
+   "id": "toigo_freckles_female",
+   "pack": "skins01",
+   "entry": "skins/toigo_light_skin_female_freckles/young_lightskinned_female_diffuse_freckles.png",
+   "pack_record": "toigo_light_skin_female_freckles",
+   "sex": "female",
+   "age": "young",
+   "light_only": true
+  },
+  {
+   "id": "toigo_ginger_female",
+   "pack": "skins01",
+   "entry": "skins/toigo_light_skin_female_ginger/young_lightskinned_female_diffuse_ginger.png",
+   "pack_record": "toigo_light_skin_female_ginger",
+   "sex": "female",
+   "age": "young",
+   "light_only": true
+  },
+  {
+   "id": "toigo_ginger_female_2",
+   "pack": "skins01",
+   "entry": "skins/toigo_light_skin_female_ginger_2/young_lightskinned_female_diffuse_Ginger2.png",
+   "pack_record": "toigo_light_skin_female_ginger_2",
+   "sex": "female",
+   "age": "young",
+   "light_only": true
+  },
+  {
+   "id": "onlytheghosts_old_male",
+   "pack": "skins02",
+   "entry": "skins/onlytheghosts_old_eurasian_male/old_eurasian_male_diffuse.png",
+   "pack_record": "onlytheghosts_old_eurasian_male",
+   "sex": "male",
+   "age": "old"
+  },
+  {
+   "id": "toigo_freckles_male",
+   "pack": "skins02",
+   "entry": "skins/toigo_light_skin_male_freckles/young_lightskinned_male_diffuse_Freckles.png",
+   "pack_record": "toigo_light_skin_male_freckles",
+   "sex": "male",
+   "age": "young",
+   "light_only": true
+  },
+  {
+   "id": "toigo_ginger_male",
+   "pack": "skins02",
+   "entry": "skins/toigo_light_skin_male_ginger/young_lightskinned_male_diffuse_Ginger.png",
+   "pack_record": "toigo_light_skin_male_ginger",
+   "sex": "male",
+   "age": "young",
+   "light_only": true
+  }
+ ],
+ "texture": {
+  "file": "assets/humans/web/faces/hm08_faces.jpg",
+  "size_px": [
+   1280,
+   1280
+  ],
+  "sha256": "26a67e2dc089ceff67f7cbfaad3ce76fa76b75d39b291c06be9b4fdad734e0d1",
+  "built_with": {
+   "map_px": 2048,
+   "box_px": [
+    1504,
+    800,
+    2016,
+    1312
+   ],
+   "tile_px": 256,
+   "cols": 5,
+   "headroom": 0.8,
+   "jpeg_quality": 90,
+   "mask": {
+    "centre": [
+     0.8875,
+     0.515625
+    ],
+    "half": [
+     0.096875,
+     0.125
+    ],
+    "round": 0.07,
+    "feather": 0.025
+   }
+  },
+  "faces": [
+   {
+    "id": "young_lightskinned_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.5046
+   },
+   {
+    "id": "young_lightskinned_female_2",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.4858
+   },
+   {
+    "id": "middleage_lightskinned_female",
+    "sex": "female",
+    "age": "middle",
+    "tone": 0.4526
+   },
+   {
+    "id": "middleage_lightskinned_female_2",
+    "sex": "female",
+    "age": "middle",
+    "tone": 0.4913
+   },
+   {
+    "id": "old_lightskinned_female",
+    "sex": "female",
+    "age": "old",
+    "tone": 0.4451
+   },
+   {
+    "id": "old_lightskinned_female_2",
+    "sex": "female",
+    "age": "old",
+    "tone": 0.3849
+   },
+   {
+    "id": "young_lightskinned_male",
+    "sex": "male",
+    "age": "young",
+    "tone": 0.4616
+   },
+   {
+    "id": "young_lightskinned_male_2",
+    "sex": "male",
+    "age": "young",
+    "tone": 0.3983
+   },
+   {
+    "id": "middleage_lightskinned_male",
+    "sex": "male",
+    "age": "middle",
+    "tone": 0.4122
+   },
+   {
+    "id": "old_lightskinned_male",
+    "sex": "male",
+    "age": "old",
+    "tone": 0.468
+   },
+   {
+    "id": "old_lightskinned_male_2",
+    "sex": "male",
+    "age": "old",
+    "tone": 0.2608
+   },
+   {
+    "id": "callharvey3d_midtoned_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.2139
+   },
+   {
+    "id": "cutoff3d_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.342
+   },
+   {
+    "id": "onlytheghosts_young_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.5089
+   },
+   {
+    "id": "onlytheghosts_middleage_female",
+    "sex": "female",
+    "age": "middle",
+    "tone": 0.4758
+   },
+   {
+    "id": "onlytheghosts_old_female",
+    "sex": "female",
+    "age": "old",
+    "tone": 0.4174
+   },
+   {
+    "id": "toigo_freckles_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.4163,
+    "light_only": true
+   },
+   {
+    "id": "toigo_ginger_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.4421,
+    "light_only": true
+   },
+   {
+    "id": "toigo_ginger_female_2",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.4441,
+    "light_only": true
+   },
+   {
+    "id": "onlytheghosts_old_male",
+    "sex": "male",
+    "age": "old",
+    "tone": 0.3578
+   },
+   {
+    "id": "toigo_freckles_male",
+    "sex": "male",
+    "age": "young",
+    "tone": 0.4582,
+    "light_only": true
+   },
+   {
+    "id": "toigo_ginger_male",
+    "sex": "male",
+    "age": "young",
+    "tone": 0.4477,
+    "light_only": true
+   }
+  ],
+  "bodies": {
+   "anonymous_working_driver_1904": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "bardwell_otis_1835": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "billings_august_1904_stable_helper": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "child_boy_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "child_boy_1904": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "child_girl_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "child_girl_1904": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "child_toddler_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "child_toddler_1904": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "engage_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "flynn_mary_1835_dress_study": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "glessner_frances_m_1904": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "glessner_john_j_1904": {
+    "gain": [
+     1.3923,
+     1.8607,
+     2.4331
+    ],
+    "tone_rgb": [
+     0.7667,
+     0.404,
+     0.2277
+    ]
+   },
+   "lady_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "mahoney_patrick_1835": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "nelson_charles_1904_coachman": {
+    "gain": [
+     1.3923,
+     1.8607,
+     2.4331
+    ],
+    "tone_rgb": [
+     0.7667,
+     0.404,
+     0.2277
+    ]
+   },
+   "nelson_christine_1904_errand": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "officer_first_infantry_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "officer_first_infantry_1812_lieutenant": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "peck_philip_1835": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "potawatomi_boy_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "potawatomi_girl_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "potawatomi_man_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "potawatomi_woman_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "private_first_infantry_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "reynolds_mary_1904_maid": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "ryan_kate_1904_cook": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "settler_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "surgeons_mate_first_infantry_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "teen_boy_1904": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "teen_girl_1904": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "trader_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "williamson_mattie_1904_cook_study": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "woman_country_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "woman_working_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   }
+  },
+  "person_tone": {
+   "male": {
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ],
+    "bodies": 17,
+    "of": 19
+   },
+   "female": {
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ],
+    "bodies": 13,
+    "of": 14
+   }
+  },
+  "complexions": {
+   "fair": [
+    1.04,
+    1.0,
+    0.97
+   ],
+   "light": [
+    1.0,
+    0.95,
+    0.9
+   ],
+   "ruddy": [
+    1.03,
+    0.86,
+    0.8
+   ],
+   "dark": [
+    0.84,
+    0.74,
+    0.64
+   ],
+   "brown": [
+    0.76,
+    0.63,
+    0.5
+   ],
+   "olive": [
+    0.9,
+    0.79,
+    0.65
+   ],
+   "tan": [
+    0.8,
+    0.65,
+    0.49
+   ],
+   "copper": [
+    0.62,
+    0.46,
+    0.33
+   ],
+   "deep_brown": [
+    0.43,
+    0.3,
+    0.21
+   ]
+  },
+  "source_sha256": "de4d6523cc4bd60a01f450cf3f9057eb79a511d2cdbcc78df2fdae2463c19805",
+  "reference": {
+   "file": "assets/authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png",
+   "meets_rgb": [
+    0.7061,
+    0.2924,
+    0.1286
+   ]
+  }
+ }
+}

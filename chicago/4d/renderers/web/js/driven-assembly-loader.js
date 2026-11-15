@@ -138,12 +138,20 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
           const localYaw = horse.root.rotation.y;
           const at = { e: current.x, n: -current.z, yaw: pose.yaw + turn + localYaw };
           let support;
-          if (pose.ramp) {
-            // T-3557: on the coach house's drive the team walks over the kerb ramp.
-            const ground = (x, y) => { const h = heightAt(x, y); return Number.isFinite(h) ? h : rampHeightAt?.(x, y); };
-            try { support = fitHorseSupport({ ...at, heightAt: ground, ...horseSupportDomain }); }
-            catch { support = rampSupport({ ...at, heightAt: ground, ...horseSupportDomain }); }
-          } else support = fitHorseSupport({ ...at, heightAt, ...horseSupportDomain });
+          try {
+            if (pose.ramp) {
+              // T-3557: on the coach house's drive the team walks over the kerb ramp.
+              const ground = (x, y) => { const h = heightAt(x, y); return Number.isFinite(h) ? h : rampHeightAt?.(x, y); };
+              try { support = fitHorseSupport({ ...at, heightAt: ground, ...horseSupportDomain }); }
+              catch { support = rampSupport({ ...at, heightAt: ground, ...horseSupportDomain }); }
+            } else support = fitHorseSupport({ ...at, heightAt, ...horseSupportDomain });
+          } catch (error) {
+            // T-3553: a team a jaunt's stage walks off its certified road (the 1812 column on
+            // the beach) stands upright on the ground beneath it rather than not at all.
+            if (!pose.staged) throw error;
+            const ground = heightAt(current.x, -current.z);
+            support = { height_m: Number.isFinite(ground) ? ground : pose.height, normal_local_xyz: [0, 1, 0], staged: true };
+          }
           horse.root.position.y = support.height_m - pose.height;
           const tilt = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0),
             new THREE.Vector3().fromArray(support.normal_local_xyz));
