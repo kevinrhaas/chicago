@@ -160,3 +160,27 @@ with that light in its own foot, because K08's corbelled oriel stood only on an 
 
 Still open, as before: the triple group's broad pedimented dormer over the curb, the pavilion attic's
 slated cheeks, and the landing's length.
+
+## T-1894, 2026-11-15 (third piece) — the flank's last two basement lights
+
+The engraving draws five basement lights along the north flank's foot, all square-headed in the
+brick. The second piece laid three; the other two needed K01 to do two things it would not.
+
+- **K01, a flush wing's end** (`k01_frontage_params._flush_wing_end`). A light read off a picture
+  keeps 0.45 m off its wall's ends, so that a corner keeps its pier. At 1823 the main body's north
+  flank (K01's `side.south`) does not end at its rear: the rear range carries it on flush, past the
+  light's head, as the 1911 sheet's unbroken north wall gives it. Where a rear wing carries a flank
+  on flush like that, past the light's head plus 0.45 m, that end is no corner, and a read light may
+  stand 0.1 m inside it, still in the main body's own wall. Every other end still keeps 0.45 m.
+- **K01, a wing's square basement lights** (`rear_wings[].basement_lights.<side>.head: "plain"`).
+  A wing's basement lights were only round-headed (1811's, T-3133). They may now be square, a plain
+  hole as the main body's read lights are, at least 0.3 m high.
+- **The Dent house**: the light under the 0.25 m column (x 265-285 px) at s 0.48 m, its south edge
+  0.1 m inside the main body's rear (the print centres it about 0.2 m further south, within the
+  bar); the light under the rear range's flank column (x 230-250 px) at the range's s 5.25 m. Both
+  are 0.75 m across and 0.45-1.45 m over grade, the size of the other three. Through the engraving's
+  camera the render's land at about x 275-288 and 232-245 px. The reconstructed north downpipe,
+  which the first would have crossed, moves from s 0.6 m to the blank pier at 1.2 m.
+
+Both match records mark the flank's basement lights fixed. Still open: the triple group's broad
+pedimented dormer over the curb, the pavilion attic's slated cheeks, and the landing's length.
