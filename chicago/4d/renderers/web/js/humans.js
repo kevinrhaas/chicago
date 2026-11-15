@@ -140,7 +140,10 @@ function findClip(clips, want) {
  * Refcounted loads of `<asset_id>.lod<N>.glb`. One parse per file however many people wear
  * it; the parsed source is disposed when the last actor wearing it lets it go.
  */
-export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoader()), fetchImpl = fetch } = {}) {
+/** T-3556: the scenes whose townspeople's variation rows are a table of their own. */
+export const SCENE_PERSONS = Object.freeze(['1835']);
+
+export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoader()), fetchImpl = fetch, sceneId = null } = {}) {
   // T-3453: every figure carries the same hair, skin and eye pictures (published once under
   // humans/web/sheets/, T-3453); decode each once and hand every figure a clone of it, as
   // the houses do (T-2464). disposeLoadedAsset closes a bitmap only when its last user goes.
@@ -196,11 +199,20 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
      * face), fetched once. Never rejects: without them every figure is the asset as drawn.
      */
     variation() {
+      const persons = (name) => Promise.resolve(fetchImpl(new URL(`humans/web/${name}`, assetBase)))
+        .then((r) => (r.ok ? r.json() : null)).catch(() => null);
       variation ??= Promise.all([
         loadVariationKit(new URL('humans/web/', assetBase), fetchImpl),
-        Promise.resolve(fetchImpl(new URL('humans/web/hm08_variation_persons.json', assetBase)))
-          .then((r) => (r.ok ? r.json() : null)).catch(() => null),
-      ]).then(([kit, persons]) => (kit ? { kit, persons: persons?.persons ?? {} } : null), () => null);
+        persons('hm08_variation_persons.json'),
+        // T-3556: a scene's own townspeople (the 1835 town's thousands) in their own table, so
+        // the other years never fetch or hold them (tools/human_variation_kit.py SCENE_PERSONS).
+        SCENE_PERSONS.includes(String(sceneId)) ? persons(`hm08_variation_persons_${sceneId}.json`) : null,
+      ]).then(([kit, main, own]) => {
+        if (!kit) return null;
+        // The scene's table says its looks' one basis once (`looks_basis`), for every row of it.
+        if (own?.looks_basis) for (const r of Object.values(own.persons ?? {})) if (r.looks && !r.looks.basis) r.looks.basis = own.looks_basis;
+        return { kit, persons: { ...(own?.persons ?? {}), ...(main?.persons ?? {}) } };
+      }, () => null);
       return variation;
     },
     get loaded() { return [...entries.keys()]; },
@@ -959,7 +971,7 @@ function hashPhase(id) {
  * resident_card`). Nothing here is a conversation: L1 allows no invented dialogue, and the
  * card is the person record's own.
  */
-export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0, tier = 'full', clipLibrary = [], prepare = null } = {}) {
+export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0, tier = 'full', clipLibrary = [], prepare = null, sceneId = null } = {}) {
   const group = new THREE.Group();
   group.name = 'humans';
   const events = new EventTarget();
@@ -967,7 +979,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
   // A vehicle temporarily owns a person's depiction, never a second copy in town.
   const withheld = new Map();
   let disposed = false;
-  const store = assets ?? createHumanAssets({ assetBase });
+  const store = assets ?? createHumanAssets({ assetBase, sceneId });
   const raycaster = new THREE.Raycaster();
   const eyeProbe = new THREE.Vector3();
   const near = new Set();
@@ -1261,7 +1273,7 @@ export async function mountHumans({
   problems = [], fetchImpl = fetch, contract = null, groundHeight = null, prepare = null,
 } = {}) {
   const heightAt = groundHeight ?? (terrain ? (e, n) => terrain.surfaceHeight(e, n) : () => 0);
-  const layer = createHumanLayer({ assetBase, assets, heightAt, tier, prepare });
+  const layer = createHumanLayer({ assetBase, assets, heightAt, tier, prepare, sceneId });
   const out = Object.assign(layer, { records: [], withheld: [], refused: [] });
   if (!dataBase) return out;
 

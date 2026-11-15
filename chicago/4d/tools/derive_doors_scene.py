@@ -210,7 +210,7 @@ def passage_plan(sid: str, leaf_tris, parts, mats, free=lambda u, v: True) -> tu
     return plan, ''
 
 
-def wheres(scene: str) -> set[str]:
+def wheres(scene: str, inside_file: bool = True) -> set[str]:
     out = set()
     folder = ROOT / f"data/humans/instances/{scene}"
     for f in sorted(folder.glob("hi_*.json")):
@@ -222,9 +222,52 @@ def wheres(scene: str) -> set[str]:
                 if s.get("indoors") and s.get("where") and not s.get("away"):
                     out.add(s["where"])
     inside = ROOT / f"data/humans/inside_{scene}.json"
-    if inside.exists():
-        out.update(p['home'] for p in json.loads(inside.read_text()).get('people', []))
+    if inside_file and inside.exists():
+        doc = json.loads(inside.read_text())
+        for p in doc.get('people', []) + (doc.get('care', []) if scene == '1835' else []):
+            # T-3556: and the 1835 town's places of business they go in and out of by day, and
+            # the homes of its infants in household care (asked after at the door).
+            out.update(x for x in (p['home'], p.get('work')) if x)
     return out
+
+
+# T-3556 (owner, 2026-11-15: "include their ability to enter and exit their homes or places of
+# business"): an 1835 building a resident lives or works in whose model draws no door leaf on its
+# footprint's edge (a shanty built of board all round, a documented store drawn without one) is
+# entered at the middle of its side nearest a street, as a reconstructed entrance. Not a bridge,
+# a fort's palisade or a lighthouse tower: those are not gone in and out of as a house is.
+NOT_ENTERED = ("drawbridge", "palisade", "lighthouse")
+_STREET_PTS = None
+
+
+def street_points() -> np.ndarray:
+    """Every 1835 street centreline, sampled each metre (local E/N)."""
+    global _STREET_PTS
+    if _STREET_PTS is None:
+        pts = []
+        for st in json.loads((ROOT / "data/streets/1835.json").read_text())["streets"]:
+            path = st.get("path_local_enu_m") or []
+            for a, b in zip(path, path[1:]):
+                k = max(1, int(math.hypot(b[0] - a[0], b[1] - a[1])))
+                pts += [(a[0] + (b[0] - a[0]) * t / k, a[1] + (b[1] - a[1]) * t / k) for t in range(k)]
+        _STREET_PTS = np.array(pts, dtype=float)
+    return _STREET_PTS
+
+
+def street_door(sc: dict) -> dict | None:
+    """The reconstructed entrance of an 1835 building that draws no door (NOT_ENTERED aside)."""
+    poly = [tuple(map(float, q)) for q in (sc.get("footprint") or {}).get("polygon") or []]
+    if len(poly) < 3 or any(w in sc["id"] for w in NOT_ENTERED):
+        return None
+    pl = sc["placement"]
+    cu, cv = sum(q[0] for q in poly) / len(poly), sum(q[1] for q in poly) / len(poly)
+    ce, cn = d1812.to_world(cu, cv, pl)
+    pts = street_points()
+    k = int(np.argmin((pts[:, 0] - ce) ** 2 + (pts[:, 1] - cn) ** 2))
+    door = d1812.edge_door(sc, poly, (float(pts[k, 0]), float(pts[k, 1])),
+                           "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street")
+    door["width_m"] = 0.9
+    return door
 
 
 FRONT_SKIRT_M = 0.35        # the doorway's line: its half-width and a skirt's either side
@@ -603,6 +646,12 @@ def derive(scene: str) -> tuple[dict, list[str]]:
                 floor = floor_of(sc, glb, h, cache, parts)
             else:
                 doors, p = d1812.doors_of(sc, glb)
+                if scene == "1835":
+                    # A leaf the reader passes over as off the footprint's edge is not a door;
+                    # what matters is whether the building has one (else street_door below).
+                    p = [x for x in p if "off the footprint edge" not in x]
+                    if not doors:
+                        doors = [x for x in [street_door(sc)] if x]
             problems += p
             doors = [{k: (round(float(v), 2) if isinstance(v, float) or type(v).__name__.startswith("float") else v)
                       for k, v in x.items()} for x in doors]

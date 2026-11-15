@@ -4056,7 +4056,9 @@ async function boot() {
     const getOptional = (rel) => fetch(new URL(rel, bases.dataBase), { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
     const [doors, inside] = await Promise.all([getOptional(`humans/doors_${daysScene}.json`),
-      ['1812', '1904'].includes(daysScene) ? getOptional(`humans/inside_${daysScene}.json`) : null]);
+      // T-3556: and 1835's townspeople (tools/town_people_1835.py), each in and out of their home
+      // and place of business by the hour.
+      ['1812', '1835', '1904'].includes(daysScene) ? getOptional(`humans/inside_${daysScene}.json`) : null]);
     lodgeWalls = (doors?.structures ?? []).flatMap((row) => (row.walls ?? []).map((ring, i) => ({ id: `${row.structure}:walls${i + 1}`, pts: ring })));
     // T-3554: a 1904 house's stoop, area walls, railings and bays, which a day's walk keeps a
     // skirt's width off and nobody is stepped aside into (house-barriers.js).
@@ -4114,6 +4116,9 @@ async function boot() {
       followed: (actor) => !!api.follow?.personId && api.follow.personId === (actor.personId ?? actor.id),
       // T-3554: every place a day stands someone, clear of every stair (and of a building).
       standClear: houseBarriers ? (q) => houseBarriers.clearOf(q.e, q.n, BARRIER_STAND_M, (r) => dayClear(r, r)) : null,
+      // T-3556: 1835's town is thousands under its roofs, so more of them are out about the
+      // visitor at once; fewer on a lighter detail (a phone), never none (people are core).
+      residentsNear: daysScene === '1835' ? ({ full: 8, balanced: 6 }[detailLevel] ?? 4) : 3,
       problems: layerProblems('humans') });
     // The kit is generated from its dated work record; only 1812 loads this
     // controller. The small GLB is deferred until its actual worker is nearby.

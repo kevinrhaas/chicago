@@ -39,6 +39,9 @@ MANIFEST = MH / 'SOURCE-variation.json'
 OUT_BIN = ROOT / 'assets/humans/web/hm08_variation_kit.bin'
 OUT_JSON = ROOT / 'assets/humans/web/hm08_variation_kit.json'
 PERSONS = ROOT / 'assets/humans/web/hm08_variation_persons.json'  # beside the kit: humans.js reads both from its asset base
+# T-3556: a scene whose townspeople are thousands keeps their rows in a table of its own, which only
+# that scene fetches (humans.js SCENE_PERSONS): everyone drawn only from its inside file.
+SCENE_PERSONS = {'1835': ROOT / 'assets/humans/web/hm08_variation_persons_1835.json'}
 FITS = ROOT / 'data/humans/variation/fits'
 TRACES = ROOT / 'data/humans/variation/traces'   # T-3553
 LOOKS = ROOT / 'data/humans/variation/looks'   # T-3491: complexion, hair, eyes, stature
@@ -284,14 +287,38 @@ def drawn_people():
     return out
 
 
+_ROWS, _HOUSEHOLDS = {}, {}
+
+
 def person_record(pid, scene):
-    people = json.loads((ROOT / f'data/sidecars/{scene}/people.json').read_text())
-    rows = people['people'] if isinstance(people, dict) else people
-    row = next((r for r in rows if r['id'] == pid), None)
+    if scene not in _ROWS:
+        people = json.loads((ROOT / f'data/sidecars/{scene}/people.json').read_text())
+        _ROWS[scene] = {r['id']: r for r in (people['people'] if isinstance(people, dict) else people)}
+    row = _ROWS[scene].get(pid)
     if row is None:
         raise SystemExit(f'{pid}: not in data/sidecars/{scene}/people.json')
-    hh = json.loads((RESIDENTS[scene] / row['file']).read_text())
-    return next(p for p in hh['persons'] if p['id'] == pid), row['file']
+    key = (scene, row['file'])
+    if key not in _HOUSEHOLDS:
+        _HOUSEHOLDS[key] = json.loads((RESIDENTS[scene] / row['file']).read_text())
+    return next(p for p in _HOUSEHOLDS[key]['persons'] if p['id'] == pid), row['file']
+
+
+_LOOK_SETS = None
+
+
+def look_sets():
+    """T-3556: looks written a set to a file (data/humans/variation/looks_<scene>_*.json, the 1835
+    town's), each row with the set's own basis where it gives none."""
+    global _LOOK_SETS
+    if _LOOK_SETS is None:
+        _LOOK_SETS = {}
+        for f in sorted(DRESS.glob('looks_[0-9][0-9][0-9][0-9]_*.json')):
+            doc = json.loads(f.read_text())
+            for pid, rec in doc['persons'].items():
+                if pid in _LOOK_SETS:
+                    raise SystemExit(f'{pid} has looks in two files ({f.name} and another)')
+                _LOOK_SETS[pid] = (rec, f, doc.get('basis'))
+    return _LOOK_SETS
 
 
 _DRESSES = None
@@ -396,8 +423,11 @@ def persons():
                 # ...and its own irises (two squares of the sheet) and the colour of its eyes' whites.
                 rec['skin']['eyes'] = {'px': t['eyes']['px'], 'size': t['eyes']['size'], 'white_srgb': t['eyes']['white_srgb']}
         looks = LOOKS / f'{pid}.json'
-        if looks.exists():
-            lk = json.loads(looks.read_text())
+        in_set = None if looks.exists() else look_sets().get(pid)
+        if looks.exists() or in_set:
+            lk = json.loads(looks.read_text()) if not in_set else in_set[0]
+            if in_set:
+                looks = in_set[1]
             # `drawn_age` (T-3553): a stand-in drawn at the age its pictures show. It was written by
             # tools/prairie_people.py and read by human-variation.js but left out here, so the two
             # Greys were drawn at 64 and 54, not the 50 and 45 their faces were fitted at.
@@ -405,6 +435,11 @@ def persons():
                                                'reference', 'grade', 'liberty', 'drawn_age') if lk.get(k) is not None}
             rec['looks']['heritage'] = {'origin': lk['heritage']['origin']}
             rec['looks']['file'] = str(looks.relative_to(ROOT))
+            if in_set and own_table(drawn) and in_set[2] and rec['looks'].get('basis') in (None, in_set[2]):
+                # The set's one basis, said once at the head of the scene's table (humans.js).
+                rec['looks'].pop('basis', None)
+            elif in_set and in_set[2] and not rec['looks'].get('basis'):
+                rec['looks']['basis'] = in_set[2]
         dress = dresses().get(pid)
         if dress:
             # T-3506: their own cloth colours and pieces worn, and their hair's tie and colour.
@@ -426,17 +461,45 @@ def persons():
                 rec['dress']['headcloth'] = hair['headcloth']['rgb']
             if rec.get('looks', {}).get('hair'):
                 rec['looks']['hair'] = {**rec['looks']['hair'], **{k: hair[k] for k in ('cut', 'drawn') if hair.get(k)}}
+        if own_table(drawn):
+            # Their row in the scene's own table: the age's basis is the record's band, said
+            # once there; where they are drawn is that scene's inside file.
+            rec.pop('drawn_as', None)
+            rec.get('age', {}).pop('basis', None)
         out[pid] = rec
+    return out
+
+
+def own_table(drawn):
+    """Whether a person's row goes to their scene's own table (SCENE_PERSONS)."""
+    return drawn['scene'] in SCENE_PERSONS and bool(drawn['drawn_as']) and all(
+        d.startswith(f"data/humans/inside_{drawn['scene']}.json#") for d in drawn['drawn_as'])
+
+
+def persons_text(out, head, extra=None):
+    lines = [f' {json.dumps(k)}: {json.dumps(v, separators=(",", ":"), ensure_ascii=False)}' for k, v in out.items()]
+    text = json.dumps({**head, **(extra or {})}, indent=1, ensure_ascii=False)[:-2] + ',\n "persons": {\n' + ',\n'.join(lines) + '\n }\n}\n'
+    json.loads(text)
+    return text.encode()
+
+
+def persons_tables():
+    """{path: bytes}: the persons table, and each SCENE_PERSONS scene's own."""
+    drawn = drawn_people()
+    out = persons()
     # T-3553: one person a line, each compact. With every woman's season dresses the indented
     # file grew past 3.8 MB of whitespace the renderer fetches and a phone parses; a line a
     # person keeps a diff readable person by person at 2.6 MB.
     head = {'format': 'chicago4d_human_variation_persons_v1', 'ticket': 'T-3412',
             'generated_by': 'tools/human_variation_kit.py',
             '_doc': 'Each drawn person\'s age (from their own record: a birth date, else an age band), any face fitted to a picture of them, any skin sheet baked on that face (T-3553), any looks (complexion, hair, eyes, stature; T-3491), and their dress (T-3506, T-3553). One person a line. renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.'}
-    lines = [f' {json.dumps(k)}: {json.dumps(v, separators=(",", ":"), ensure_ascii=False)}' for k, v in out.items()]
-    text = json.dumps(head, indent=1, ensure_ascii=False)[:-2] + ',\n "persons": {\n' + ',\n'.join(lines) + '\n }\n}\n'
-    json.loads(text)
-    return text.encode()
+    tables = {PERSONS: persons_text({k: v for k, v in out.items() if not own_table(drawn[k])}, head)}
+    for scene, path in SCENE_PERSONS.items():
+        rows = {k: v for k, v in out.items() if own_table(drawn[k]) and drawn[k]['scene'] == scene}
+        bases = {lk[2] for pid, lk in look_sets().items() if pid in rows and lk[2]}
+        tables[path] = persons_text(rows, {**head, 'scene': scene, '_doc': head['_doc'] + f' This is the {scene} scene\'s own table: its townspeople drawn only from data/humans/inside_{scene}.json, fetched by that scene alone (renderers/web/js/humans.js SCENE_PERSONS). An age is its record\'s band; `looks_basis` is every row\'s looks basis.'},
+                                    {'looks_basis': ' '.join(sorted(bases))} if bases else None)
+    return tables
 
 
 def main():
@@ -448,9 +511,9 @@ def main():
         vendor(args.vendor, json.loads(AXES.read_text()))
         return 0
     blob, header = build()
-    people = persons()
+    tables = persons_tables()
     if args.check:
-        bad = [p.relative_to(ROOT) for p, b in ((OUT_BIN, blob), (OUT_JSON, header), (PERSONS, people)) if not p.exists() or p.read_bytes() != b]
+        bad = [p.relative_to(ROOT) for p, b in ((OUT_BIN, blob), (OUT_JSON, header), *tables.items()) if not p.exists() or p.read_bytes() != b]
         if bad:
             print('FAIL human variation kit is stale:', *bad, '— run python3 tools/human_variation_kit.py')
             return 1
@@ -458,7 +521,8 @@ def main():
         return 0
     OUT_BIN.write_bytes(blob)
     OUT_JSON.write_bytes(header)
-    PERSONS.write_bytes(people)
+    for path, b in tables.items():
+        path.write_bytes(b)
     print(f'wrote {OUT_BIN.relative_to(ROOT)} ({len(blob)} bytes) and {OUT_JSON.name}')
     return 0
 

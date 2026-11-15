@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1139,
+  "count": 1140,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -74739,6 +74739,40 @@
       ],
       "work_refs": [
         "T-3553"
+      ]
+    },
+    {
+      "id": "L-town-people-1835",
+      "title": "The 1835 town's people, each in and out of their own home and place of business by the hour",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-15: *\"Can you go ahead and fill out the 1835 people, include their ability to enter and exit their homes or places of business and add all interactions with them as possible\"*. Until now 1835 drew four people with a day (Philip Peck, Otis Bardwell, Mary Flynn, Patrick Mahoney); everyone else the residents layer holds present on 1 July 1835 had a roof and no day. the town people 1835 tool now gives each of them one: everyone present whose card's lives at or the housing deal's seat (the 1835 housing seats data, “The present housed: every household in the town on 1 July 1835 seated under a standing dwelling by a deal, the room deciding”) puts them under a roof with a door, 2,830 people, and 203 infants in the household's care. Each has a home, and where their own card's works at or the business register's premises (the businesses data, a proprietor, partner or hand of a house the register places at a standing building) names another building, a place of business. Their day (the inside 1835 data `routines`) is the period's working day for their household role and trade: a merchant or professional man opens his store, is at business, at its door at midday, home for dinner at noon and back; a keeper serves at his door; a tradesman works in the open before his shop in summer and at the bench; a labourer is about the town and the harbour (away, where is not recorded) between breakfast and dinner and dinner and supper, and at his door after each; a soldier drills, does fatigue duty about the fort and stands evening parade; the women keep the house, the yard, the washing, the water, a neighbour's talk at the door; a laundress is at her tubs; children play by the house with a grown-up of the household; each spell outside is half as long from November to April. Each person's day is moved by a seeded shift of up to three quarters of an hour. the walkthrough's human days code plays them as Prairie Avenue's are played (“Household figures, doors and days”): nobody is built until they are near the visitor at an hour their day has them out, or asked for at a door; up to eight are out about the visitor at once on a full detail, six on balanced and four on light (a phone), one at a time from any one door; asked for at their home's door while the hour has them home, or at their place of business's door while it has them there, they come out of that door; Find and Follow bring them out of where they are now. 369 homes and places of business have their doors read off their models (the doors 1835 data); a building drawn with no door leaf on its edge (a board shanty, a documented store drawn without one) is entered at the middle of its side nearest a street, as a reconstructed entrance."
+        },
+        {
+          "label": "Not invented",
+          "text": "who each person is, their household, their presence on the date, their age band, their recorded sex, trade and community (their own records); their roof (their card or the housing deal); a place of business where their card or the register names one; every building and door read off its model."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "all of the day is reconstructed: the hours, what each spell is spent at, where outside they stand (before their door, beside their house, before their place of business, clear of walls, fences and stoops), and the winter halving. The body each is drawn on comes from their household role, trade, age and community and is nobody's likeness: the merchant's tail coat (Peck's), the clerk's and tradesman's shirt and waistcoat (Bardwell's), the labourer's slouch hat (Mahoney's) or the 1812 settler's round hat, a plain dress (Mary Flynn's, its apron off for a woman of a merchant's or professional man's household), the working woman's short gown and cap of 1812, the Creole and Métis women's calico short gown and head handkerchief of 1812, the Potawatomi bodies of 1812 for the town's Native residents, and the 1812 garrison's coat as the Fifth Infantry's, its facings turned to the coat's own blue and its trousers white for summer or sky blue (the 1832 regulation's colours; the cap is still 1812's). Children wear the 1812 children's clothes. An age inside a record's band is seeded by the person's id; under 2 is in household care, 2-11 a child kept company by the household's grown-ups (the women of the house first; never a claim of parentage), 12-17 an adult body drawn smaller. A person whose record gives no sex is drawn by their relationship, else by their first name, else as a man. Cloth colours, complexion, hair, eyes, whiskers and stature are seeded in the period's range; the town's free Black, Native and Métis residents are drawn in the colouring their community names so that they are not drawn as everyone else, and no ancestry is inferred from a surname. Seven people whose door has no clear ground before it are left out for now (the file's left out counts them)."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a place of business for a person the records give none (the 1835 streetscape work is giving more of the town's residents one; this file is re-derived from the cards); a reading of anybody's hours, dress or appearance; an 1835 infantry cap; 1835 bodies for women of means and for children."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-15."
+        }
+      ],
+      "work_refs": [
+        "T-3556"
       ]
     },
     {

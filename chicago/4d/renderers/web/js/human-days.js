@@ -246,6 +246,54 @@ export function dayOn(behaviour, date, key = '') {
   return v;
 }
 
+/**
+ * T-3556 (owner, 2026-11-15: "fill out the 1835 people, include their ability to enter and exit
+ * their homes or places of business"): an inside file written as day TEMPLATES
+ * (data/humans/inside_1835.json, tools/town_people_1835.py, format chicago4d_inside_only_v2).
+ * Each person names a `routine` (`inside.routines`: day variants whose spans say `where`
+ * 'home' or 'work' and `at` one of the person's `points`, [local_e, local_n, heading_deg]) and
+ * a `shift` in hours that moves every hour of it but midnight. This gives each such entry its
+ * own `day` the first time it is read (a getter, kept), so a town of thousands holds only the
+ * days of the people the visitor has come near; and the file's shared `provenance` under each
+ * entry's own. A file without `routines` is returned as it is.
+ */
+export function expandInside(inside) {
+  if (!inside?.routines) return inside;
+  const common = inside.provenance ?? null;
+  for (const entry of [...(inside.people ?? []), ...(inside.care ?? [])]) {
+    if (common) entry.provenance = { ...common, ...(entry.provenance ?? {}) };
+    if (!entry.routine) continue;
+    let made = null;
+    Object.defineProperty(entry, 'day', { enumerable: true, configurable: true,
+      get() { made ??= dayOfTemplate(inside.routines[entry.routine], entry); return made; } });
+  }
+  return inside;
+}
+function dayOfTemplate(variants, entry) {
+  if (!Array.isArray(variants)) return null;
+  const pts = entry.points ?? {};
+  const shift = Number(entry.shift) || 0;
+  const t = (h) => (h <= 0 || h >= 24 ? h : Math.round((h + shift) * 100) / 100);
+  const place = (key) => { const q = pts[key]; return q ? { local_e: q[0], local_n: q[1], heading_deg: q[2] ?? 0 } : null; };
+  const end = (key) => { const q = pts[key]; return q ? { local_e: q[0], local_n: q[1] } : null; };
+  return variants.map((v) => ({ ...(v.dates ? { dates: v.dates } : {}), spans: v.spans.map((sp) => {
+    const out = { ...sp, from: t(sp.from), to: t(sp.to) };
+    if (sp.indoors) {
+      if (!sp.away) out.where = sp.where === 'work' ? (entry.work ?? entry.home) : entry.home;
+      return out;
+    }
+    // Out before their place of business, or before their own door when it is their home too.
+    const key = sp.at === 'work' && !pts.work ? 'front' : sp.at;
+    out.at = place(key) ?? place('front');
+    if (sp.to_point) {
+      const far = end(key === 'work' ? 'work_end' : sp.to_point);
+      if (far) out.to_point = far;
+      else { delete out.to_point; if (out.activity === 'walk') out.activity = 'work'; }
+    }
+    return out;
+  }) }));
+}
+
 /** The span of `day` at `hour` (0-24); the first span when the hour is unknown. */
 export function spanAt(day, hour) {
   const spans = day?.spans ?? [];
@@ -673,7 +721,7 @@ export function createDayRouter({ router, clear, buildWhenBlocked = false }) {
 export function createHumanDays({ humans, three = null, hour = () => null, date = () => null, doors = null,
   interactions = null, visitor = () => null, eye = () => null, router = null, hostRouter = null, problems = [],
   inside = null, spawn = null, despawn = null, openCard = () => {}, openResident = () => {}, clear = () => true, held = () => false, passages = null, followed = () => false,
-  standClear = null } = {}) {
+  standClear = null, residentsNear = 3 } = {}) {
   const Vec = three?.Vector3;
   let people = [];
   const workSourcePeople = new Map();
@@ -694,8 +742,19 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   };
   const doorThings = [];
   /** Lazy household residents, materialized for a nearby outing or a door call. */
+  expandInside(inside);
   const insideOnly = (inside?.people ?? []).filter((x) => x?.person && x.home);
   const householdCare = (inside?.care ?? []).filter(x => x?.person && x.home && x.care_only);
+  /**
+   * T-3556: the building an inside-only person is in now: their place of business (`work`) while
+   * their day has them in there, else their home. A building that is neither is never theirs.
+   */
+  const placeNow = (x) => {
+    if (!x.work) return x.home;
+    const span = spanAt(dayOn(x, date(), x.person), hour());
+    return span?.indoors && !span.away && span.where === x.work ? x.work : x.home;
+  };
+  const isTheirs = (x, structure) => (x.home === structure || x.work === structure) && placeNow(x) === structure;
   const spawned = [];
   const byStructure = new Map();
   for (const s of doors?.structures ?? []) byStructure.set(s.structure, s);
@@ -941,15 +1000,15 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
 
   /** Which door of its home an inside-only person answers at. */
   function doorOf(entry, doorsHere) {
-    if (entry.door) return doorsHere.find((t) => t.door.id === entry.door) ? entry.door : null;
-    if (!doorsHere.length) return null;
+    for (const id of [entry.door, entry.work_door]) if (id && doorsHere.find((t) => t.door.id === id)) return id;
+    if (!doorsHere.length || (entry.door && doorsHere[0].structure === entry.home)) return null;
     return doorsHere[Math.floor(seededRandom(`inside:${entry.person}`)() * doorsHere.length) % doorsHere.length].door.id;
   }
   /** Inside-only people in `structure` at the door `doorId` today, not already out. */
   function ghostsAt(structure, doorId) {
     const today = date();
     const here = doorThings.filter((t) => t.structure === structure);
-    return [...insideOnly, ...householdCare].filter((x) => x.home === structure && onDate(today, x.presence)
+    return [...insideOnly, ...householdCare].filter((x) => isTheirs(x, structure) && onDate(today, x.presence)
       && (humans.crowdKept == null || humans.crowdKept.includes(x.person))
       && !spanAt(dayOn(x, today, x.person), hour())?.away
       && !spawned.some((q) => q.entry === x) && doorOf(x, here) === doorId);
@@ -1536,7 +1595,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       if (p.b.shelter) wanted.add(p.b.shelter);
       for (const v of p.b.day ?? []) for (const s of v.spans ?? []) if (s.indoors && s.where) wanted.add(s.where);
     }
-    if (spawn) for (const x of [...insideOnly, ...householdCare]) wanted.add(x.home);
+    if (spawn) for (const x of [...insideOnly, ...householdCare]) { wanted.add(x.home); if (x.work) wanted.add(x.work); }
     for (const structure of wanted) {
       const rec = byStructure.get(structure);
       if (!rec) { problems.push(`human-days: no door is known for ${structure}; who is in it cannot be asked for`); continue; }
@@ -1592,7 +1651,8 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   // T-3540: generic 1812 people use their day engine's doors and ownership.
   // Registration follows the roster, including a lodge resident materialized later.
   function registerPerson(p) {
-    if (!interactions || (!p.entry && p.actor.instance?.scene !== '1812') || interactions.get?.(`person:${p.id}`)) return;
+    // T-3556: and 1835's drawn townspeople (Peck, Bardwell, Mary Flynn, Mahoney), as anyone of the town.
+    if (!interactions || (!p.entry && !['1812', '1835'].includes(String(p.actor.instance?.scene))) || interactions.get?.(`person:${p.id}`)) return;
     const a = p.actor;
     interactions.add({
       id: `person:${p.id}`, kind: 'person', personId: a.personId, actor: a, name: nameOf(p),
@@ -1609,6 +1669,9 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
           refuse() { const r = api.request(p.id, null, { inside: 'nearest' }); return r.ok ? null : r.why; } },
         ...(api.residence(p.id) ? [{ id: 'go_home', label: 'Go home', detail: 'Return to their residence', said: '', steps: [],
           refuse() { const r = api.request(p.id, null, { inside: 'home' }); return r.ok ? null : r.why; } }] : []),
+        // T-3556: someone of the 1835 town with a place of business of their own goes in at its door.
+        ...(p.entry?.work ? [{ id: 'go_work', label: 'Go to work', detail: 'Into their place of business', said: '', steps: [],
+          refuse() { const r = api.request(p.id, null, { inside: 'work' }); return r.ok ? null : r.why; } }] : []),
       ]; }, home: [] },
     });
   }
@@ -1624,10 +1687,13 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     for (const p of spawned) {
       if (p.autonomousUntil && clock >= p.autonomousUntil && !p.called && !p.social && !p.hosted && !p.override && !p.attending) restAfterTalk(p);
     }
-    if (spawned.length >= 3) return;
+    if (spawned.length >= residentsNear) return;
     const v = visitor();
     const candidates = insideOnly.filter(entry => {
-      if (entry.supervised && spawned.length > 1) return false; // reserve a place for the caregiver
+      if (entry.supervised && spawned.length > residentsNear - 2) return false; // reserve a place for the caregiver
+      // A templated town (T-3556) is thousands strong: only those whose places are within reach
+      // have their day read at all.
+      if (entry.points && !Object.values(entry.points).some((q) => Math.hypot(q[0] - v.e, q[1] - v.n) < 50)) return false;
       if (!entry.day || !onDate(date(), entry.presence) || spawned.some(p => p.entry === entry || p.entry.door === entry.door)) return false;
       const span = spanAt(dayOn(entry, date(), entry.person), hour());
       const last = rested.get(entry.person);
@@ -1637,7 +1703,10 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     // Stable per-person staggering, rotating among everyone eligible this hour.
     candidates.sort((a, b) => seededRandom(`resident:${date()}:${a.person}`)() - seededRandom(`resident:${date()}:${b.person}`)());
     for (const entry of candidates) {
-      const here = doorThings.filter(t => t.structure === entry.home);
+      // Out of their place of business when the hour has them out before it, else their home.
+      const span = spanAt(dayOn(entry, date(), entry.person), hour());
+      const from = entry.work && entry.points?.work && Math.hypot(span.at.local_e - entry.points.work[0], span.at.local_n - entry.points.work[1]) < 0.01 ? entry.work : entry.home;
+      const here = doorThings.filter(t => t.structure === from);
       const door = here.find(t => t.door.id === doorOf(entry, here));
       if (!door) continue;
       const p = summon(entry, door.door);
@@ -1683,10 +1752,11 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     if (!onDate(date(), entry.presence) || spanAt(dayOn(entry, date(), entry.person), hour())?.away) return { ok: false, why: 'not here on this date' };
     if (entry.care_only) return { ok: false, why: 'Carried, in the household\'s care' };
     if (!kept(entry.person)) return { ok: false, why: 'Not available just now' };
-    const here = doorThings.filter((t) => t.structure === entry.home);
+    const structure = placeNow(entry);
+    const here = doorThings.filter((t) => t.structure === structure);
     const door = here.find((t) => t.door.id === doorOf(entry, here));
     if (!door) return { ok: false, why: 'no door known' };
-    return { ok: true, entry, door, structure: entry.home, name: entry.name ?? entry.person };
+    return { ok: true, entry, door, structure, name: entry.name ?? entry.person };
   }
   /** Their own day's walk, when it is a real one (OUTING.own_min_m): a walk span, or null. */
   function ownWalkOf(p, entry) {
@@ -1737,7 +1807,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       if (!p) return null;
       // Only currently present households: an August camp is not an entrance in winter.
       const present = new Set(people.filter(q => !q.absent && onDate(date(), q.b.presence)).flatMap(q => [home(q), q.inside]));
-      for (const entry of insideOnly) if (onDate(date(), entry.presence)) present.add(entry.home);
+      for (const entry of insideOnly) if (onDate(date(), entry.presence)) { present.add(entry.home); if (entry.work) present.add(entry.work); }
       const candidates = doorThings.filter(t => present.has(t.structure))
         .sort((a, b) => dist(p.actor, pt(a.door.step)) - dist(p.actor, pt(b.door.step)));
       for (const t of candidates) {
@@ -1868,7 +1938,8 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       p.attending = null;
       const original = spanAt(dayOn(p.b, date(), keyOf(p)), hour());
       const entrance = activity === null && inside === 'nearest' ? api.nearestEntrance(id) : null;
-      const where = inside === 'nearest' ? entrance?.structure : inside === 'home' ? api.residence(id) : home(p);
+      const where = inside === 'nearest' ? entrance?.structure : inside === 'home' ? api.residence(id)
+        : inside === 'work' ? (p.entry?.work ?? null) : home(p);
       const span = activity === null ? (where && { from: 0, to: 24, indoors: true, where, door: entrance?.door.id, doing: 'inside at your request' })
         : api.outdoorActivities(id).find((s) => s.id === activity)?.span;
       if (!span) return { ok: false, why: 'No activity available' };
@@ -1943,7 +2014,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
         // T-3524: on a passage's stair or in its doorway, they finish it before anything else.
         if (p.passing) { if (clock - p.passing.since > PASSAGE.stuck_s) offWay(p); continue; }
         if (p.called) { stepCalled(p, dt); continue; }
-        if (p.entry && a.indoors && p.mode === 'in' && p.inside === p.entry.home) { retire(p); continue; }
+        if (p.entry && a.indoors && p.mode === 'in' && (p.inside === p.entry.home || (p.entry.work && p.inside === p.entry.work))) { retire(p); continue; }
         if (p.soldier && !p.override) continue;   // his hours are human-duties.js's
         // T-3573: a soldier out of quarters on a walk goes back in by their door before
         // human-duties.js has him again (it would put him in where he stands).
@@ -1984,10 +2055,11 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
         if (humans.crowdKept != null && !humans.crowdKept.includes(entry.person)) return { ok: false, why: 'Not available during this jaunt' };
         if (!onDate(date(), entry.presence) || spanAt(dayOn(entry, date(), entry.person), hour())?.away) return { ok: false, why: 'not here on this date' };
         if (spawned.some((q) => q.entry === entry)) return { ok: false, why: 'not indoors' };
-        const here = doorThings.filter((t) => t.structure === entry.home);
+        const structure = placeNow(entry);
+        const here = doorThings.filter((t) => t.structure === structure);
         const id = doorOf(entry, here);
         const door = here.find((t) => t.door.id === id);
-        if (!door) return { ok: false, why: `no door known for ${entry.home}` };
+        if (!door) return { ok: false, why: `no door known for ${structure}` };
         const q = summon(entry, door.door);
         if (!q) return { ok: false, why: 'could not be built' };
         return { ...callOut(q, door.door), door: door.id };

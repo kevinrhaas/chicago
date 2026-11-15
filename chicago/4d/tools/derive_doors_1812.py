@@ -264,7 +264,8 @@ def doors_of(sidecar: dict, glb: Path) -> tuple[list[dict], list[str]]:
     return [{"id": d.pop("id"), **d} for d in out], problems
 
 
-def edge_door(sidecar: dict, poly: list, toward: tuple[float, float]) -> dict:
+def edge_door(sidecar: dict, poly: list, toward: tuple[float, float],
+              why: str = "the model draws no door leaf on an edge; put at the middle of the side facing the parade") -> dict:
     """A door at the middle of the footprint edge whose outward side faces `toward`."""
     pl = sidecar["placement"]
     best = None
@@ -288,7 +289,7 @@ def edge_door(sidecar: dict, poly: list, toward: tuple[float, float]) -> dict:
     return {"id": f"{sidecar['id']}:front", "leaf": {"local_e": round(le, 2), "local_n": round(ln, 2)},
             "step": {"local_e": round(e, 2), "local_n": round(n, 2)},
             "outward_deg": round((math.degrees(math.atan2(de, dn)) + 360) % 360, 1), "width_m": None,
-            "reconstructed": "the model draws no door leaf on an edge; put at the middle of the side facing the parade"}
+            "reconstructed": why}
 
 
 def derive(previous: dict | None = None) -> tuple[dict, list[str]]:

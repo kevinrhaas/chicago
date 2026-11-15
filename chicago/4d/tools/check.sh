@@ -720,6 +720,10 @@ step "1835's and 1904's drawn people's days are what days.py writes (T-3516)" \
   python3 docs/RESEARCH/people-days-1835-1904/days.py --check
 step "The 1835 and 1904 buildings a day goes into are entered where the models and Glessner's record say (T-3516)" \
   python3 tools/derive_doors_scene.py --check
+step "The 1835 town's people, their homes, places of business, doors, days, dress and looks are what town_people_1835.py writes from their records (T-3556)" \
+  python3 tools/town_people_1835.py --check
+step "1835's townspeople go in and out of their homes and places of business by the hour: a day whole in summer and winter, asked for at the door of where they are, out of that door, several about the visitor and never more than the scene's number (T-3556)" \
+  node tools/test_town_people_1835.mjs
 step "The 1812 town's people (Kinzie, Lalime, the officers, women, children, Potawatomi and Miami) are what place_town.py writes from their day readings, every indoor span at a building with a door (T-3463..T-3467)" \
   python3 docs/RESEARCH/people-1812-town/place_town.py --check
 step "The cards of the 1812 town's people the 14 August sweep left out (Lalime, Irwin, the Mirandeaus, the camp families, the Miami escort) are what cards.py writes (T-3463..T-3467)" \
