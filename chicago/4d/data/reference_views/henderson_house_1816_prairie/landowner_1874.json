@@ -1,0 +1,27 @@
+{
+ "structure_id": "henderson_house_1816_prairie",
+ "source_id": "land_owner_1874_05_homes_of_chicago_1816_henderson",
+ "library_image": "cgn-1816-landowner-1874-henderson",
+ "photo": "../../sources/assets/henderson_1816_photo_t2963/henderson_1816_landowner_1874.jpg",
+ "image_px": [
+  928,
+  827
+ ],
+ "principal_px": [
+  578.4,
+  141.8
+ ],
+ "focal_px": 3820.9,
+ "eye": [
+  115.26,
+  -105.18,
+  18.22
+ ],
+ "yaw_deg": -41.4,
+ "sun_uvy": [
+  1.0,
+  0.35,
+  0.9
+ ],
+ "solve": "Fitted by T-1886 (2026-11-15) to the engraving alone, the image store's 928 x 827 px copy, against the 1911 sheet's plan (s28fp-1816-b1) in the same footprint frame as the photograph's camera (chicagology_photo.json): u east toward Prairie Avenue, v north, the front block u 0-12.0, v 0-14.82. POINTS, read on a 10-25 px grid over the print: the south-east corner where the shaded flank meets the lit front (x 370) at the brackets' foot (y 303, 11.9 m), the water table (y 561, 2.0 m) and grade (y 610); the south flank's canted bay where it leaves the flank (x 252) at the brackets' foot (y 310) and the water table (y 552); the bay's outer south-west corner at the water table (x 177, y 545); the street front's north end at the mansard's foot (x 610, y 272); the entrance's sill (x 550, y 555). A LEVEL pinhole with the eye, heading, lens and principal point all free fits them at 7.9 px RMS (the corner within 5 px, the flank bay within 9, the front's north end 14 px right and 10 low, the entrance 20 px left: the porch's place, which the photograph's camera also leaves open). Its eye stands 147 m off on the line of the corner, 18 m up, with the horizon at y 142 over the roof: an engraver's construction, not a standpoint. Held to a street-level horizon at the figures' heads (y 571-595, an eye 0.8-1.7 m up) the fit runs away to an all-but-parallel projection a kilometre off (11-24 px RMS), past the review renderer's 500 m far plane: the print is drawn nearly in parallel, its verticals vertical and its depth weak, so the free fit is kept and read only for what it places: the corner, both faces' runs and the heights along the flank. THROUGH IT the corner's wall head draws on the print's, the flank bay and its crown's dormer within about 10 px, the main mansard's south dormer and the flank's one upper light on the print's, and the rear range's south face (v 5.02) from x 63 to 162 behind the flank bay. Heights read on the flank and the range are good to about half a metre (23-27 px/m there). LIGHT: the front lit and the flank shaded in close vertical hatching, as engravers turn a face; no cast shadow is drawn to fix the sun, so sun_uvy lights the front and leaves the flank in shade (east-north-east, high), to match which faces the print lights and nothing more."
+}

@@ -2,7 +2,7 @@
   "structure_id": "henderson_house_1816_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
-  "glb_sha256": "93facfd35172f65a0654d8665e304666f2f34a9772fb7ffe99d89dbf7ce48168",
+  "glb_sha256": "377c7f4a591632d2c991d83be024ce7c5207b2137e96b71b1233b3f9083336e3",
   "camera_sha256": "2ea53525aa34f1cd163e87bd7f44c9cc601ce935b97adcc7cf1007c41311355e",
   "photo_sha256": "6cf57cac7e3076af06121b104b57a02b9a25ac3830f01ddafe9ac2f27eb96ca8",
   "side_by_side": "docs/RESEARCH/photo-match/henderson_house_1816_prairie/chicagology_photo-side-by-side.jpg",
@@ -201,6 +201,16 @@
       "what": "the walk and the entrance gate",
       "status": "fixed",
       "how": "T-3206 adds the K14 flagged walk from the stair to the public walk and stands the entrance gate open; the scroll fence on its curb is kept"
+    },
+    {
+      "what": "the south stack: its shaft over the main mansard's south face behind the flank crown (x about 450-500 px, its top about y 30), cut by the print's top edge; built on the south wall's inner face at u 9.0, v 1.2 (rendering about x 503-561)",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-15): read with the 1874 Land Owner engraving, which draws it rising from the flank's cornice up the slate: it stands on the cornice astride the south wall at u 8.6, v 0.1 (chimneys.stacks[0].on_cornice), and renders at about x 431-495 here and on the engraving's shaft there"
+    },
+    {
+      "what": "the rear range beyond the flank bay's west side (x 90-215 px): the print shows sky over it down to about y 720 and a low cornice along it at about y 740-760 (about 5.5 m over grade through this camera), where the build's range, lowered from 9.6 m to the 1874 engraving's 7.5 m, draws its top at about y 660",
+      "status": "within tolerance",
+      "how": "T-1886 (2026-11-15): this camera sees only the range's far 4 m, and the engraving, the one picture of the range's face, closes the range about 8 m back at 7.5 m and does not see that end; the two pictures disagree about the range's far end (a lower section there, or the low cornice a veranda's) and neither is read past the other (T-3153). The 9.6 m reconstruction stood against both, its top here about y 570 into the print's sky"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
