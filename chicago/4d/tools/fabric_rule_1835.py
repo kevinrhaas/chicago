@@ -571,6 +571,15 @@ def check() -> list[str]:
                 errors.append(f"{path.name}: an anonymous roof dealt a finish outside the rule")
             continue
         want = deal(rec["id"], recon["family"], rec.get("archetype", ""))
+        # T-3605: a roof built to a drawing keeps what the drawing shows. A value whose
+        # own sources name the drawing (reconstruction.drawn) was read off it, so the
+        # rule does not re-deal it, exactly as it leaves an attested or inferred one.
+        drawn_src = (recon.get("drawn") or {}).get("source_id")
+
+        def read_off_drawing(value) -> bool:
+            return bool(drawn_src) and isinstance(value, dict) \
+                and drawn_src in (value.get("sources") or [])
+
         for key in ("finish_key", "roof_condition", "age_state", "fabric_basis"):
             if recon.get(key) != want[key]:
                 errors.append(f"{path.name}: reconstruction.{key} is {recon.get(key)!r}, "
@@ -581,6 +590,8 @@ def check() -> list[str]:
                 cur = form.get(key)
                 if isinstance(cur, dict) and cur.get("confidence") != "reconstructed":
                     continue
+                if read_off_drawing(cur):
+                    continue
                 if key == "construction" and (cur or {}).get("value") not in FRAMES:
                     continue
                 if (cur or {}).get("value") != value:
@@ -588,6 +599,7 @@ def check() -> list[str]:
                                   f"{(cur or {}).get('value')!r}, the rule deals {value!r}")
             paint = (form.get("paint") or {})
             if paint and paint.get("confidence") == "reconstructed" \
+                    and not read_off_drawing(paint) \
                     and paint.get("value") != want["paint"]:
                 errors.append(f"{path.name}: form.paint is {paint.get('value')!r}, the "
                               f"rule deals {want['paint']!r}")

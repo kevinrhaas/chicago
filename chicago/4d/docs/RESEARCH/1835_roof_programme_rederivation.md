@@ -6,7 +6,7 @@ Ticket T-1196. An adjudication over committed derived files — no page of any s
 
 ## What moved
 
-The specification schedules **668 roofs**; this re-derivation adopts **668** — no group moves.
+The specification schedules **687 roofs**; this re-derivation adopts **687** — no group moves.
 
 The inventory's own defensible range is 565–765 roofs; the adopted total is inside it.
 
@@ -16,10 +16,10 @@ The inventory's own defensible range is 565–765 roofs; the adopted total is in
 | `fort_principal` | 10 | 10 | roofs against roofs | 10 | +0 |
 | `inns_taverns` | 10 | 10 | roofs against printed notices | 10 | +0 |
 | `institutional_public` | 9 | 9 | roofs outside the fort against roofs outside the fort | 9 | +0 |
-| `larger_boarding_houses` | 42 | 42 | roofs against roofs | 42 | +0 |
+| `larger_boarding_houses` | 45 | 42 | roofs against roofs | 45 | +0 |
 | `ordinary_dwellings` | 335 | 335 | roofs against roofs | 335 | +0 |
 | `small_outbuildings` | 85 | — | not modelled | 85 | +0 |
-| `stores_mixed_use` | 53 | — | roofs against establishments | 53 | +0 |
+| `stores_mixed_use` | 69 | — | roofs against establishments | 69 | +0 |
 | `warehouses_freight` | 20 | — | roofs against establishments | 20 | +0 |
 | `workshops` | 31 | — | roofs against establishments | 31 | +0 |
 
@@ -39,23 +39,23 @@ The inventory's own defensible range is 565–765 roofs; the adopted total is in
 
 **`small_outbuildings`** — Ancillary. The town model carries no figure for yards and outbuildings and the order book orders none; the ratio to principal roofs is T-1212's to deal. The spec stands untouched.
 
-**`stores_mixed_use`** — No model figure schedules this group on its own. The nearest comparandum is the 118–128 establishments the occupation model counts in the compared classes, against the 104 commercial, workshop and freight roofs the programme schedules together — more trades than roofs, which is the store-over-office and shop-house town these families already build. Nothing moves a single group off that.
+**`stores_mixed_use`** — No model figure schedules this group on its own. The nearest comparandum is the 118–128 establishments the occupation model counts in the compared classes, against the 120 commercial, workshop and freight roofs the programme schedules together — more trades than roofs, which is the store-over-office and shop-house town these families already build. Nothing moves a single group off that.
 
-**`warehouses_freight`** — No model figure schedules this group on its own. The nearest comparandum is the 118–128 establishments the occupation model counts in the compared classes, against the 104 commercial, workshop and freight roofs the programme schedules together — more trades than roofs, which is the store-over-office and shop-house town these families already build. Nothing moves a single group off that.
+**`warehouses_freight`** — No model figure schedules this group on its own. The nearest comparandum is the 118–128 establishments the occupation model counts in the compared classes, against the 120 commercial, workshop and freight roofs the programme schedules together — more trades than roofs, which is the store-over-office and shop-house town these families already build. Nothing moves a single group off that.
 
-**`workshops`** — No model figure schedules this group on its own. The nearest comparandum is the 118–128 establishments the occupation model counts in the compared classes, against the 104 commercial, workshop and freight roofs the programme schedules together — more trades than roofs, which is the store-over-office and shop-house town these families already build. Nothing moves a single group off that.
+**`workshops`** — No model figure schedules this group on its own. The nearest comparandum is the 118–128 establishments the occupation model counts in the compared classes, against the 120 commercial, workshop and freight roofs the programme schedules together — more trades than roofs, which is the store-over-office and shop-house town these families already build. Nothing moves a single group off that.
 
 ## The census's 398 dwellings, reconciled
 
 The order book orders more households than the programme schedules dwellings. How many households to a roof?
 
-- Dwelling roofs on the scene date: **377** (335 ordinary dwellings, 42 larger houses and boarding houses).
+- Dwelling roofs on the scene date: **380** (335 ordinary dwellings, 45 larger houses and boarding houses).
 - Households the order book orders: **645**.
-- Households to a dwelling, adopted: **1.711**.
+- Households to a dwelling, adopted: **1.697**.
 - The band the census brackets: **1.636–2.051** — 8.204 people per dwelling in the town census of November 1835, over the 1840 city's household size of 4.0–5.015 (median to mean).
 - Inside the bracket: **yes**.
 
-The census counted 398 dwellings in November 1835, four months after the scene, in the fastest-growing months the town had. A July programme of 377 dwelling roofs stands 5.3% below it, which is growth across that gap and not a hole in the schedule. The same date caution governs every class the trade-census crosswalk compares.
+The census counted 398 dwellings in November 1835, four months after the scene, in the fastest-growing months the town had. A July programme of 380 dwelling roofs stands 4.5% below it, which is growth across that gap and not a hole in the schedule. The same date caution governs every class the trade-census crosswalk compares.
 
 Source for the November figures: `andreas_1884_v1`.
 
@@ -63,7 +63,7 @@ Source for the November figures: `andreas_1884_v1`.
 
 Re-derived from `1835_building_inventory.json`'s `family_targets` and the crosswalk's own `priority_rule`. Authored content — archetypes, geometry bands, evidence and assumption notes — is untouched.
 
-Target 668 roofs · 48 instantiated in phase 1 · 620 remaining.
+Target 687 roofs · 48 instantiated in phase 1 · 639 remaining.
 
 | Rank | Family | Target | Phase 1 | Remaining | Band |
 |---:|---|---:|---:|---:|---|
@@ -77,14 +77,14 @@ Target 668 roofs · 48 instantiated in phase 1 · 620 remaining.
 | 8 | `A2` | 31 | 1 | 30 | P1 |
 | 9 | `A4` | 28 | 2 | 26 | P1 |
 | 10 | `D6` | 29 | 3 | 26 | P1 |
-| 11 | `H1` | 18 | 0 | 18 | P2 |
-| 12 | `D7` | 18 | 1 | 17 | P2 |
-| 13 | `A5` | 17 | 1 | 16 | P2 |
-| 14 | `C1` | 18 | 3 | 15 | P2 |
-| 15 | `C3` | 17 | 3 | 14 | P2 |
-| 16 | `H2` | 14 | 0 | 14 | P2 |
-| 17 | `C2` | 13 | 2 | 11 | P2 |
-| 18 | `H3` | 10 | 0 | 10 | P2 |
+| 11 | `C3` | 28 | 3 | 25 | P1 |
+| 12 | `H1` | 18 | 0 | 18 | P2 |
+| 13 | `D7` | 18 | 1 | 17 | P2 |
+| 14 | `A5` | 17 | 1 | 16 | P2 |
+| 15 | `C1` | 19 | 3 | 16 | P2 |
+| 16 | `C2` | 17 | 2 | 15 | P2 |
+| 17 | `H2` | 14 | 0 | 14 | P2 |
+| 18 | `H3` | 13 | 0 | 13 | P2 |
 | 19 | `M1` | 10 | 0 | 10 | P2 |
 | 20 | `F1` | 8 | 1 | 7 | P3 |
 | 21 | `W2` | 8 | 1 | 7 | P3 |

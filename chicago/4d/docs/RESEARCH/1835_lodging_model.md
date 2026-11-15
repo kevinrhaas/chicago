@@ -68,5 +68,8 @@ Built places at their apportioned capacity, plus the unbuilt slots at the model'
 
 ## Carried with no beds
 
+- **Reconstructed boarding house on Lake Street, as Gifford draws it** — Raised to a drawing of the street (the inventory's pictured_roofs, T-3605), not to house the town model's people, so the bed bracket does not count it and no beds are dealt here. Its rooms are recorded so a seating pass knows they exist.
+- **Reconstructed boarding house on Lake Street, as Gifford draws it** — Raised to a drawing of the street (the inventory's pictured_roofs, T-3605), not to house the town model's people, so the bed bracket does not count it and no beds are dealt here. Its rooms are recorded so a seating pass knows they exist.
+- **Reconstructed boarding house on Lake Street, as Gifford draws it** — Raised to a drawing of the street (the inventory's pictured_roofs, T-3605), not to house the town model's people, so the bed bracket does not count it and no beds are dealt here. Its rooms are recorded so a seating pass knows they exist.
 - **Dr Temple's Building, Lake Street** — Lodging the roof programme does not schedule and the town model's bed bracket does not count. Recorded so T-1371 knows the rooms are here; not apportioned, because apportioning it would spend beds the programme allotted to a boarding house somewhere else.
 - **Lake House (under construction)** — The record's own function says this building was still going up on 1835-07-01. A house that was not open held nobody, and giving it a capacity would put beds in a building site.

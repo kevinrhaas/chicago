@@ -15,8 +15,8 @@
         "note": "Drawn standing beside the first Tremont House (1833-1839) in Gifford's retrospective view of its street; taken as standing on 1 July 1835 on the owner's reading of the drawing (T-3605). No dated record of this building is known."
       },
       "position": {
-        "utm_e": 447749.508,
-        "utm_n": 4637350.367,
+        "utm_e": 447749.358,
+        "utm_n": 4637350.368,
         "rotation_deg": 90.356342,
         "symbolic_location": "Dearborn Street, dearborn west lake to alley: drawn store R6 of Gifford's row",
         "confidence": "reconstructed",
@@ -41,24 +41,24 @@
           ],
           [
             4.6,
-            9.0
+            9.15
           ],
           [
             0,
-            9.0
+            9.15
           ]
         ],
         "confidence": "reconstructed",
-        "note": "4.60 m of frontage proportioned from the drawn bays and 9.00 m deep inside the C2 typology band; neither is a measurement."
+        "note": "4.60 m of frontage proportioned from the drawn bays (gifford_tremont_house_no_1; the drawing's frontage stands over the C2 typology's own where the two differ), and 9.15 m deep, a depth the C2 typology allows. Neither is a measurement."
       },
       "form": {
         "stories": {
           "value": 1.5,
-          "confidence": "inferred",
+          "confidence": "reconstructed",
           "sources": [
             "gifford_tremont_house_no_1"
           ],
-          "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a lower story-and-a-half store, gable to the street, across the block alley. Inferred, because it is a picture of this building; the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605)."
+          "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a lower story-and-a-half store, gable to the street, across the block alley. Graded reconstructed, not inferred: the value is the drawing's, but which building of 1835 the drawn front was is ours (the roof is an invented count-unit), the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605). The drawn value stands over the family's typology band where the two differ."
         },
         "wall_height_m": {
           "value": 3.634,
@@ -86,11 +86,11 @@
         },
         "gable_front": {
           "value": true,
-          "confidence": "inferred",
+          "confidence": "reconstructed",
           "sources": [
             "gifford_tremont_house_no_1"
           ],
-          "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a lower story-and-a-half store, gable to the street, across the block alley. Inferred, because it is a picture of this building; the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605)."
+          "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a lower story-and-a-half store, gable to the street, across the block alley. Graded reconstructed, not inferred: the value is the drawing's, but which building of 1835 the drawn front was is ours (the roof is an invented count-unit), the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605). The drawn value stands over the family's typology band where the two differ."
         },
         "construction": {
           "value": "balloon_frame",
@@ -205,6 +205,6 @@
     ],
     "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on South Water Street AND NOTHING NARROWER — 1 printing, 1834-04-01 to 1834-04-01, claims chicago_democrat_1834_04_01#c004 — so it takes the STREET FACE and not a lot. THE ROOF'S PLATTED LOT FACES South Water Street, which is the plat's own answer to which street it fronts. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
   },
-  "research_note": "RECONSTRUCTED FROM A PICTURE. Gifford draws this store in the row beside the first Tremont House; the owner ruled on 2026-11-15 that the drawing is a reasonable view of 1835 and the street is to be built to it. The drawn form is inferred from the drawing; the building's presence in July 1835, its exact frontage and its station are reconstructed. Its occupants, if any, are dealt by the town's housing tools and graded by their own records.",
+  "research_note": "RECONSTRUCTED FROM A PICTURE. Gifford draws this store in the row beside the first Tremont House; the owner ruled on 2026-11-15 that the drawing is a reasonable view of 1835 and the street is to be built to it. The drawn form is read off the drawing and graded reconstructed; the building's presence in July 1835, its exact frontage and its station are reconstructed. Its occupants, if any, are dealt by the town's housing tools and graded by their own records.",
   "review_required": false
 }

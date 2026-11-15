@@ -58,40 +58,40 @@
     ],
     "confidence": "reconstructed",
     "sources": [],
-    "note": "15.20 m of frontage proportioned from the drawn bays and 13.00 m deep inside the H3 typology band; neither is a measurement."
+    "note": "15.20 m of frontage proportioned from the drawn bays (gifford_tremont_house_no_1; the drawing's frontage stands over the H3 typology's own where the two differ), and 13.00 m deep, a depth the H3 typology allows. Neither is a measurement."
   },
   "attributes": {
     "stories": {
       "value": 3,
-      "confidence": "inferred",
+      "confidence": "reconstructed",
       "sources": [
         "gifford_tremont_house_no_1"
       ],
-      "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a dark three-storey block standing up behind the low stores at the Clark end of the row, its flat-looking top and two stacks above them: read as the corner building across Clark. Inferred, because it is a picture of this building; the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605)."
+      "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a dark three-storey block standing up behind the low stores at the Clark end of the row, its flat-looking top and two stacks above them: read as the corner building across Clark. Graded reconstructed, not inferred: the value is the drawing's, but which building of 1835 the drawn front was is ours (the roof is an invented count-unit), the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605). The drawn value stands over the family's typology band where the two differ."
     },
     "wall_height_m": {
       "value": 9.0,
-      "confidence": "inferred",
+      "confidence": "reconstructed",
       "sources": [
         "gifford_tremont_house_no_1"
       ],
-      "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): three full storeys, about 3 m a storey. Inferred, because it is a picture of this building; the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605)."
+      "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): three full storeys, about 3 m a storey. Graded reconstructed, not inferred: the value is the drawing's, but which building of 1835 the drawn front was is ours (the roof is an invented count-unit), the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605). The drawn value stands over the family's typology band where the two differ."
     },
     "roof_type": {
       "value": "hip",
-      "confidence": "inferred",
+      "confidence": "reconstructed",
       "sources": [
         "gifford_tremont_house_no_1"
       ],
-      "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a dark three-storey block standing up behind the low stores at the Clark end of the row, its flat-looking top and two stacks above them: read as the corner building across Clark. Inferred, because it is a picture of this building; the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605)."
+      "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a dark three-storey block standing up behind the low stores at the Clark end of the row, its flat-looking top and two stacks above them: read as the corner building across Clark. Graded reconstructed, not inferred: the value is the drawing's, but which building of 1835 the drawn front was is ours (the roof is an invented count-unit), the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605). The drawn value stands over the family's typology band where the two differ."
     },
     "roof_pitch_deg": {
       "value": 18.0,
-      "confidence": "inferred",
+      "confidence": "reconstructed",
       "sources": [
         "gifford_tremont_house_no_1"
       ],
-      "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a dark three-storey block standing up behind the low stores at the Clark end of the row, its flat-looking top and two stacks above them: read as the corner building across Clark. Inferred, because it is a picture of this building; the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605)."
+      "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a low hipped roof, as drawn. Graded reconstructed, not inferred: the value is the drawing's, but which building of 1835 the drawn front was is ours (the roof is an invented count-unit), the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605). The drawn value stands over the family's typology band where the two differ."
     },
     "construction": {
       "value": "braced_frame",
@@ -103,11 +103,11 @@
     },
     "paint": {
       "value": "red",
-      "confidence": "inferred",
+      "confidence": "reconstructed",
       "sources": [
         "gifford_tremont_house_no_1"
       ],
-      "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a dark three-storey block standing up behind the low stores at the Clark end of the row, its flat-looking top and two stacks above them: read as the corner building across Clark. Inferred, because it is a picture of this building; the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605)."
+      "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a dark three-storey block standing up behind the low stores at the Clark end of the row, its flat-looking top and two stacks above them: read as the corner building across Clark. Graded reconstructed, not inferred: the value is the drawing's, but which building of 1835 the drawn front was is ours (the roof is an invented count-unit), the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605). The drawn value stands over the family's typology band where the two differ."
     },
     "chimneys": {
       "value": 2,
@@ -119,11 +119,11 @@
     },
     "upper_windows": {
       "value": 6,
-      "confidence": "inferred",
+      "confidence": "reconstructed",
       "sources": [
         "gifford_tremont_house_no_1"
       ],
-      "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a dark three-storey block standing up behind the low stores at the Clark end of the row, its flat-looking top and two stacks above them: read as the corner building across Clark. Inferred, because it is a picture of this building; the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605)."
+      "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a dark three-storey block standing up behind the low stores at the Clark end of the row, its flat-looking top and two stacks above them: read as the corner building across Clark. Graded reconstructed, not inferred: the value is the drawing's, but which building of 1835 the drawn front was is ours (the roof is an invented count-unit), the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605). The drawn value stands over the family's typology band where the two differ."
     },
     "function": {
       "value": "large_boarding_house",
@@ -179,7 +179,7 @@
       ]
     }
   ],
-  "research_note": "RECONSTRUCTED FROM A PICTURE. Gifford draws this store in the row beside the first Tremont House; the owner ruled on 2026-11-15 that the drawing is a reasonable view of 1835 and the street is to be built to it. The drawn form is inferred from the drawing; the building's presence in July 1835, its exact frontage and its station are reconstructed. Its occupants, if any, are dealt by the town's housing tools and graded by their own records.",
+  "research_note": "RECONSTRUCTED FROM A PICTURE. Gifford draws this store in the row beside the first Tremont House; the owner ruled on 2026-11-15 that the drawing is a reasonable view of 1835 and the street is to be built to it. The drawn form is read off the drawing and graded reconstructed; the building's presence in July 1835, its exact frontage and its station are reconstructed. Its occupants, if any, are dealt by the town's housing tools and graded by their own records.",
   "research_doc": "docs/RESEARCH/inferred_infill_1835.md",
   "review_required": false,
   "reconstruction": {

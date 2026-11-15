@@ -141,12 +141,15 @@ def lay_face(face: dict, block: dict, datum: dict, standing: dict) -> list[dict]
 
 
 def _drawn(value, why: str) -> dict:
-    return {"value": value, "confidence": "inferred", "sources": [DRAWING],
+    return {"value": value, "confidence": "reconstructed", "sources": [DRAWING],
             "note": ("READ OFF GIFFORD'S DRAWING of the first Tremont House and its street "
-                     f"({DRAWING}): {why}. Inferred, because it is a picture of this "
-                     "building; the drawing is retrospective, and taking it as the street "
-                     "on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, "
-                     "docs/LIBERTIES.md L-gifford-street-faces-3605).")}
+                     f"({DRAWING}): {why}. Graded reconstructed, not inferred: the value is "
+                     "the drawing's, but which building of 1835 the drawn front was is ours "
+                     "(the roof is an invented count-unit), the drawing is retrospective, and "
+                     "taking it as the street on 1 July 1835 is the owner's reading of "
+                     "2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605). "
+                     "The drawn value stands over the family's typology band where the two "
+                     "differ.")}
 
 
 def make_record(seq: int, face: dict, laid: dict, table: dict, datum: dict,
@@ -173,6 +176,9 @@ def make_record(seq: int, face: dict, laid: dict, table: dict, datum: dict,
         # the programme's stovepipes stand on a gable's two slopes; a drawn hip carries
         # its stacks as chimneys instead
         form.pop("stovepipes", None)
+        # and the drawn hip is a low one, lower than the family's gable pitches
+        form["roof_pitch_deg"] = _drawn(form["roof_pitch_deg"]["value"],
+                                        "a low hipped roof, as drawn")
     if spec["archetype"] == "frame_tavern" and form.get("stories", {}).get("value") == 3:
         form["wall_height_m"] = _drawn(round(3.0 * 3, 3), "three full storeys, about 3 m a storey")
     if spec["archetype"] == "frame_storefront" and form.get("stories", {}).get("value") == 2.0:
@@ -217,9 +223,11 @@ def make_record(seq: int, face: dict, laid: dict, table: dict, datum: dict,
             "footprint": {
                 "polygon": [[0, 0], [width, 0], [width, depth], [0, depth]],
                 "confidence": "reconstructed",
-                "note": (f"{width:.2f} m of frontage proportioned from the drawn bays and "
-                         f"{depth:.2f} m deep inside the {family} typology band; neither is "
-                         f"a measurement.")},
+                "note": (f"{width:.2f} m of frontage proportioned from the drawn bays "
+                         f"({DRAWING}; the drawing's frontage stands over the {family} "
+                         f"typology's own where the two differ), and {depth:.2f} m deep, "
+                         f"a depth the {family} typology allows. Neither is a "
+                         f"measurement.")},
             "form": form,
             "change_note": "T-3605 builds this store as Gifford draws it."}],
         "function": invented(function_term,
@@ -238,7 +246,7 @@ def make_record(seq: int, face: dict, laid: dict, table: dict, datum: dict,
         "research_note": ("RECONSTRUCTED FROM A PICTURE. Gifford draws this store in the row "
                           "beside the first Tremont House; the owner ruled on 2026-11-15 that "
                           "the drawing is a reasonable view of 1835 and the street is to be "
-                          "built to it. The drawn form is inferred from the drawing; the "
+                          "built to it. The drawn form is read off the drawing and graded reconstructed; the "
                           "building's presence in July 1835, its exact frontage and its "
                           "station are reconstructed. Its occupants, if any, are dealt by "
                           "the town's housing tools and graded by their own records."),

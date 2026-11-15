@@ -42,7 +42,7 @@
         -9.69100000000003
       ],
       "rotation_y": 1.5625790025172417,
-      "glb_sha256": "ce3b7de2e0b5a6aa160d105c0d9e6085ba3b407d3d4b378843f21afbc983968d"
+      "glb_sha256": "f85d64fdfe3f1fa3b16224e7e1a015a5e8aa91ab5737bf115670c4ba437a43eb"
     },
     {
       "structure_id": "recon_1835_gifford_c2_001",
@@ -80,45 +80,45 @@
         -16.971
       ],
       "rotation_y": 1.5625790025172417,
-      "glb_sha256": "ee71743ea404ccc14a076294f5ac0c303907caf1b954fa2ea8958fc4fd27ee4d"
+      "glb_sha256": "51ff61dc1178d3e238cb66df3d9f5efac93942c5860418089befe6d442847630"
     },
     {
       "structure_id": "recon_1835_gifford_c2_011",
       "glb": "assets/gltf/recon_1835_gifford_c2_011__inferred_1835.glb",
       "placement": {
-        "local_e": 676.594,
-        "local_n": -79.85,
+        "local_e": 676.444,
+        "local_n": -79.849,
         "rotation_deg": 90.356342,
         "scene": "1835",
         "target_date": "1835-07-01",
         "phase": "inferred_1835"
       },
       "position": [
-        20.696000000000012,
+        20.697000000000003,
         0,
-        -8.971999999999976
+        -9.122000000000067
       ],
       "rotation_y": 3.1353733124266516,
-      "glb_sha256": "01fac24de47e462873a971543df19205c3aca8cd85f9c9419c631f10fc00bb27"
+      "glb_sha256": "449d0c4d5bbae31f056934eef1ff9c30cfd7d7ca13a221a821ac61cd0ce210ba"
     },
     {
       "structure_id": "recon_1835_gifford_c2_016",
       "glb": "assets/gltf/recon_1835_gifford_c2_016__inferred_1835.glb",
       "placement": {
-        "local_e": 676.808,
-        "local_n": -45.433,
+        "local_e": 676.658,
+        "local_n": -45.432,
         "rotation_deg": 90.356342,
         "scene": "1835",
         "target_date": "1835-07-01",
         "phase": "inferred_1835"
       },
       "position": [
-        55.11300000000001,
+        55.114000000000004,
         0,
-        -8.758000000000028
+        -8.908000000000005
       ],
       "rotation_y": 3.1353733124266516,
-      "glb_sha256": "edfd0c4a4443b96e9c807ff52c142f9bdb955cb3690fbd29b780187b6f2b5c39"
+      "glb_sha256": "57fe27f493e928c33035568fd052aeed9d6ee741a6b8795ad6d6b744f43dec26"
     },
     {
       "structure_id": "recon_1835_gifford_c3_002",
@@ -232,7 +232,7 @@
         -23.62800000000004
       ],
       "rotation_y": 1.5625790025172417,
-      "glb_sha256": "1534ee683e0c26590d3896a1d9f9c89fd7383b4db42fb57e6cadff9030f45da2"
+      "glb_sha256": "7dbe7010f5f07095ff66b32cb4683ea08fdecd7c154cf119be65f032468f250f"
     },
     {
       "structure_id": "recon_1835_gifford_c3_012",
@@ -251,7 +251,7 @@
         -10.937000000000006
       ],
       "rotation_y": 3.1353733124266516,
-      "glb_sha256": "e15b03c54f8f5f6ebac79ea5dbad67a83de65d2b706c11c1089569dc7e767246"
+      "glb_sha256": "b52daad0688f4920c9114f22262c2622a0a0057c0100aaeb4db325f456bbc5b8"
     },
     {
       "structure_id": "recon_1835_gifford_c3_013",
@@ -270,7 +270,7 @@
         -10.902000000000038
       ],
       "rotation_y": 3.1353733124266516,
-      "glb_sha256": "287c1df6453cdcc28d9f826b995f0a3a1698819a5d0bf20a31ace22f91d1fc12"
+      "glb_sha256": "41919763b76cda249ce588184d520cf694e62378dc2834b7adaaac1207267ac7"
     },
     {
       "structure_id": "recon_1835_gifford_c3_014",
@@ -308,7 +308,7 @@
         -10.831999999999987
       ],
       "rotation_y": 3.1353733124266516,
-      "glb_sha256": "2a1d4a9345ad433066d22e6c65cc6b90dc59719ee04103d48a1362e1fb4d2199"
+      "glb_sha256": "f5a9b52d777e86cb4f0011bd4d3638df7ef77a28e5e7a6f4629a02dd9accdd85"
     },
     {
       "structure_id": "recon_1835_gifford_c3_017",
@@ -365,7 +365,7 @@
         -123.83900000000006
       ],
       "rotation_y": 1.5626188134774799,
-      "glb_sha256": "f2146450c69f6ef7d41c324b61c6b36948c1d2c9e92735dc6d1fb083df820061"
+      "glb_sha256": "26152434328613e2acd6180b834705ccb21d57020507af9d4dc69f41acab9539"
     },
     {
       "structure_id": "recon_1835_gifford_h3_019",
@@ -384,7 +384,7 @@
         -139.34699999999998
       ],
       "rotation_y": 1.5626188134774799,
-      "glb_sha256": "d562be6e5231f37c4c2b161841db1a8d4172d03124c091b3a0996d9238934c08"
+      "glb_sha256": "c78393d235ad278af219bce980da6f935fa11084ec558884477644c514bb19f6"
     },
     {
       "structure_id": "tremont_house_1_stable",
@@ -558,7 +558,7 @@
       "glb_sha256": "54a8adcd316b92f2f044cde09560215b7959056bb2c5fcb17cb06d7b58504fb7"
     }
   ],
-  "group_sha256": "adc1ba5f889a51147377a25f5ca9d8d974e2c7c3ed1b6a237e5db7d238c20d29",
+  "group_sha256": "4bb91249fc532a2672c5d800875b6f49913c0a45244276a31e7cf081c1e8cb4c",
   "side_by_side": "docs/RESEARCH/photo-match/tremont_house_1/gifford_street-side-by-side.jpg",
   "verdict": "matches",
   "differences": [

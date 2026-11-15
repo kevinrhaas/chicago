@@ -7280,7 +7280,7 @@
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 67080,
-      "inputs_sha256": "dc203e770c3e1982b3795b5554618f5769954e90c01cbb22dd3fa19fcee73e1b",
+      "inputs_sha256": "f605073dbb446c6f7f7704ce3f134e6635cd9c725039757a21612367c75dd590",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c1_010"
@@ -7289,7 +7289,7 @@
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 71016,
-      "inputs_sha256": "baf74d2b0a822cf214b833957899ce515db241269cf67c52654a0b0945db5232",
+      "inputs_sha256": "5d26b04f2756e8b43911bee701148da407883b3477f9b5fda6ddb0503e186039",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c2_001"
@@ -7298,7 +7298,7 @@
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 74428,
-      "inputs_sha256": "7ebc17620ae9240d221936a19cd105bde8d3c126617b072ceb73e02b1146b3d9",
+      "inputs_sha256": "b5fe698611cb7f8a64635618a723285e8d9e2a63dc4b8e71dfb3afaeaad0ac27",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c2_009"
@@ -7306,8 +7306,8 @@
     "recon_1835_gifford_c2_011__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 74448,
-      "inputs_sha256": "d54cff1629bd870a711d126544cd04d8a5abdff80267313dac419092946a98ec",
+      "bytes": 74456,
+      "inputs_sha256": "1c2ea9fe483842829648ad5fe0eb74be7f5c11f4c8c151956fe854e1d6936ed6",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c2_011"
@@ -7315,8 +7315,8 @@
     "recon_1835_gifford_c2_016__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 71928,
-      "inputs_sha256": "d580a6dc8b0e387beea2b1e49a69d1d467b807471b25702c730345d76f556364",
+      "bytes": 71936,
+      "inputs_sha256": "db2e6dad19cf9db4f1eca8a423326e9a2a99ab707db75b9e4a727f45823e1edf",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c2_016"
@@ -7325,7 +7325,7 @@
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 101628,
-      "inputs_sha256": "a1a5913a211df506559c8c4ad543b8391b64b3bf83538b7c9896ea5549e0c0e3",
+      "inputs_sha256": "92bc26559185aaf5d85676a534389c0e44a387a20cebbe2f7d638b3864ef8955",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c3_002"
@@ -7334,7 +7334,7 @@
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 104568,
-      "inputs_sha256": "6b8f5a437500f966557140097de4b76f966179a0e1282e29f0724174668c5354",
+      "inputs_sha256": "f15b21183d324c2446a8b66dc5bf356a66bcc8b4961a65397f108976f03ff8e2",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c3_003"
@@ -7343,7 +7343,7 @@
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 102068,
-      "inputs_sha256": "bc7c021e49aed069603c3cc72cf0082777d0861ef0f7720689b99a2a9a76db8f",
+      "inputs_sha256": "2fbb3b9bcf64bf9e21569f461dee4297662e27a24344eea7bdf00f3dca54bc85",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c3_005"
@@ -7352,7 +7352,7 @@
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 101916,
-      "inputs_sha256": "53cc375a6382de35be239018b92317b3006c687ffd010c6d925d37e109f8f874",
+      "inputs_sha256": "d80d4b305c60d46a52b432b69131e708efcb280143ad4298553e23b11a5856f2",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c3_006"
@@ -7361,7 +7361,7 @@
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 109868,
-      "inputs_sha256": "464e63c8e1448b2558cdf72584da741b87d6a40bc17d39008fdc325be82163cd",
+      "inputs_sha256": "8ed60accb379d6ea3edd0b6f1bcb1ab16ae3cdb13f7ed9317bcd5d0c4ce1aa7e",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c3_007"
@@ -7370,7 +7370,7 @@
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 105328,
-      "inputs_sha256": "937f4c40d0b3668ac6b68d67d5c23aa83a25eeab2c2f46d39f923630760420c4",
+      "inputs_sha256": "c5cf49855fb434902858a6e2bf915e661c9000e929a097c453f09b2d35d53018",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c3_008"
@@ -7379,7 +7379,7 @@
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 99308,
-      "inputs_sha256": "2f743f5a4bcf509ad260c0d1d1c2a59b56b9025f64243986832dfd7188b3aa41",
+      "inputs_sha256": "9761edf753a76d6b2ed2ddecfb42c275e0900b1eea379e02529345815d349e79",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c3_012"
@@ -7388,7 +7388,7 @@
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 99280,
-      "inputs_sha256": "e97afb9119bfba7e465ab1cfc7f6b52bd08746e090390d088ff737ea16c0bf0e",
+      "inputs_sha256": "d1bb073ccc0add39e4d953e5167b141fe11f395804363d732f88dd0efc8235d9",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c3_013"
@@ -7397,7 +7397,7 @@
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 99796,
-      "inputs_sha256": "9b44dc0afbc1744244592c46d1da12226ebdf74a72b2c8c177cf07cc101d8888",
+      "inputs_sha256": "7620cbc880a4aa0b6f063f2afc244b04dfec3115497ec61651ff0d6c604d0c33",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c3_014"
@@ -7406,7 +7406,7 @@
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 99300,
-      "inputs_sha256": "423d9137ec329afeee4855a476d19d8c28b5db0f37dae83769444ebddde27dab",
+      "inputs_sha256": "63ba0529a82ccaeefe8a9505c054dde26179e93f6f109c34a0ab28990cad95c5",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c3_015"
@@ -7415,7 +7415,7 @@
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 97612,
-      "inputs_sha256": "f41f4a3d81d227aaacb9c96f470a202163901bec69e710a8091792f7ef6f6e20",
+      "inputs_sha256": "82d93bbdb9e3eeec90ede2d3077ee7b954389e1e786a999383d6ad36d28bfc10",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_c3_017"
@@ -7424,7 +7424,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 174488,
-      "inputs_sha256": "4eccb4ffeb093766cd404e1336e1b51d4278ea78853b7f7000d14eb41a694d73",
+      "inputs_sha256": "9cf8e57c0caf3d6a3c5f353a945db4475b8cf90de1400b13220e261d8e0f3cd8",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_h3_004"
@@ -7433,7 +7433,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 174468,
-      "inputs_sha256": "eb29397298c28005ef3bc6140cfea9751ac441d39b1724999527de9b3d99b48c",
+      "inputs_sha256": "f42de49d5aca28ef4a2349378a0944894afebd3fac3e1b12fab4115a46265bfb",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_h3_018"
@@ -7442,7 +7442,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 139532,
-      "inputs_sha256": "f2df599df1059947f0be2979eebf8a65b6ed24d23ba211141497207d812af913",
+      "inputs_sha256": "9c2d9b84af6cca3aa93425b472cd5b34f31dbf30b79f2f7d08e64ac91dccc44d",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_gifford_h3_019"

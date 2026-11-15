@@ -2562,6 +2562,10 @@
       "name": "a narrow two-story warehouse"
     },
     {
+      "id": "recon_1835_gifford_*",
+      "name": "every reconstructed roof in the gifford group"
+    },
+    {
       "id": "recon_1835_north_*",
       "name": "every reconstructed roof in the north group"
     },
@@ -74752,7 +74756,20 @@
         "recon_1835_blk_south_water_lasalle_d3_03",
         "tremont_house_1"
       ],
-      "covers": [],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "recon_1835_gifford_*",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_gifford_*",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        }
+      ],
       "recorded": "2026-11-15",
       "revised": null,
       "fields": [
@@ -74775,6 +74792,10 @@
         {
           "label": "Re-opens on",
           "text": "a dated view or a directory that puts a known firm in one of these fronts; the drawing's original or a larger reproduction, where its signs can be read; a ruling that the drawing shows the street of 1837-1839 and not 1835."
+        },
+        {
+          "label": "Covers",
+          "text": "`recon_1835_gifford_*.inferred_1835.footprint`, `recon_1835_gifford_*.inferred_1835.position`."
         },
         {
           "label": "Recorded",
