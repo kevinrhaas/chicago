@@ -29,6 +29,7 @@ import argparse, hashlib, json, pathlib, sys
 
 import numpy as np
 
+import face_library
 import finery_words  # T-3553: a dress's own words drawn as its cloth
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -245,6 +246,10 @@ def build():
         'assets': {k: {kk: vv for kk, vv in v.items() if kk != 'basis'} for k, v in axes['assets'].items()},
         **toc, 'axes': out_axes,
     }
+    # T-3553: the library of faces for people with no pictures of their own (tools/face_library.py).
+    faces = face_library.kit_block()
+    if faces:
+        header['faces'] = faces
     return blob, (json.dumps(header, indent=1) + '\n').encode()
 
 

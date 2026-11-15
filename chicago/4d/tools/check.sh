@@ -448,6 +448,8 @@ step "Jaunts hold the everyday people out but for those each stop calls for, and
   node tools/test_jaunt_crowd.mjs
 step "A stop's hosts come to their marks, greet the visitor and go back about their day (T-3525)" \
   node tools/test_jaunt_hosts.mjs
+step "A jaunt stop's history is played by its people: the column passes, the warriors wait, nobody fallen is a child (T-3553)" \
+  node tools/test_jaunt_stage.mjs
 step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
 step "Street travel keeps each pace on its surface and clears buildings (T-2496)" \
@@ -774,6 +776,8 @@ step "A named resident's face fitted to a cited portrait reproduces from its mar
   python3 tools/fit_portrait_face.py --check
 step "A pictured stand-in's skin, hair and eyes sheet is the bytes its record names, laid out as the app reads it, under a liberty and a source cleared for use as a texture (T-3553)" \
   python3 tools/bake_likeness_skin.py --check
+step "The face library's cuts are the bytes its source record pins, each under CC0 evidence and in the licence register; its sheet, tones and gains rebuild as the record and the kit hold them, under the mask the app draws (T-3553)" \
+  python3 tools/face_library.py --check
 step "Each driver's wardrobe binds to the real driver by bone name, skins where it was draped, and its spring tails lag and settle, LOD0 and LOD3 (T-3398, T-3409)" \
   node tools/test_driver_livery.mjs
 step "People are judged beside period pictures: reference sets cite their sources, the rig is 3 m and 10 m, and no verdict outlives its figure (T-3417)" \
