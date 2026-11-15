@@ -44226,3 +44226,13 @@ which the cresting and the dormer are re-read on it.
 **Re-opens on:** mouth shapes for speech (L-everyone-teeth-3553's viseme packs), which would want the clip's words in time and not only its loudness; a stop whose words are shared between two voices; a wish for hosts to talk while a visitor reads with the sound off.
 **Ticket:** T-3553.
 **Recorded:** 2026-11-14.
+
+### L-photo-faces-3553 — A person's own four-view pictures as their face, by one command
+
+**Decision:** the owner, 2026-11-14, of the people after the Greys: he will want it easy "to add or generate a bunch of people photos for you to apply to the existing people faces". `tools/photo_face.py` (page: `docs/PHOTO-FACES.md`) takes a drawn person, a four-view sheet of a head (front, both sides, behind, on a white ground) and the sheet's source record, and makes their face as the Greys' were made: MediaPipe Face Landmarker's points on the front view as the portrait record's marks, the face fitted to them on the body the point table is calibrated on for the person's sex, the sheet baked onto that face as skin, hair and eyes (L-grey-photograph-skin-3553), and the town's persons file written again.
+A face made this way rests on one front picture's points: its profile is the fit's prior and the body's, where the Greys' was also held to a traced side view and to values read by eye. Each such person is graded reconstructed. Where the pictures are of someone else, their card carries the stand-in label the command is given.
+**Not invented:** the pictures (each one's source record says whose they are and that its rights are cleared for use as a texture); who the person is (their household record).
+**Left out on purpose:** writing a source record (always a person's own reading of the pictures); a card's portrait still; the photo match after the first bake.
+**Re-opens on:** a photograph of the person themselves, where the pictures were a stand-in's; the owner withdrawing a sheet.
+**Ticket:** T-3553.
+**Recorded:** 2026-11-15.
