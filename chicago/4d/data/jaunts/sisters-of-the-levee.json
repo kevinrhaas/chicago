@@ -121,7 +121,7 @@
       "next": "rooms",
       "read_s": 32,
       "stage": {
-        "caption": "A gentleman comes down the steps of an Indiana Avenue house, checks his watch and turns west toward the Levee, and the maid at the door watches him go.",
+        "caption": "A gentleman comes down the steps of an Indiana Avenue house, checks his watch and turns west toward the Levee.",
         "liberty": "L-1904-story-jaunts",
         "cast": [
           {
@@ -154,25 +154,6 @@
                   ]
                 ],
                 "pace": "brisk"
-              }
-            ]
-          },
-          {
-            "extra": "maid_d",
-            "dress": "reynolds_mary_1904_maid",
-            "name": "A maid at the door (unnamed)",
-            "at": [
-              1283.74,
-              -3255.23
-            ],
-            "heading": 276.4,
-            "beats": [
-              {
-                "t": 12,
-                "face": [
-                  1273.05,
-                  -3262.75
-                ]
               }
             ]
           }
