@@ -29,6 +29,17 @@ export default register('hud', {
   'fly.up': 'Free-fly — rise above the town (F)',
   'notes.failed': 'The release notes could not load. Reopen this tab to retry.',
   'going': 'Going to',
+  // T-3557: aboard a driven team (transport-interactions.js), on the travel bar and the hint line.
+  'ride.aboard': 'Aboard',
+  'ride.driving': 'Driving',
+  'ride.getDown': 'Get down',
+  'ride.keys': 'W/S go · whoa · A/D steer',
+  'ride.stick': 'Stick: go · steer',
+  'ride.reins.keys': 'Reins: W go · S whoa · A/D steer',
+  'ride.reins.touch': 'Reins: stick up go · down whoa · sideways steer',
+  'ride.returning': 'heading back',
+  'ride.still': 'reduced motion: standing',
+  'ride.held': 'held: {why}',
   // T-2629: Settings › About.
   'about.title': 'About',
   'about.dev': 'DEV',

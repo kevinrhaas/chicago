@@ -8026,10 +8026,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # behind a cheek on its street side (k07_entrances.Entrance._side_stoop)
     if "side_stoop" in door_kit_in:
         ss = door_kit_in["side_stoop"]
-        if not {"run", "landing_v_m", "out_m"} <= set(ss) <= {"run", "landing_v_m", "out_m", "cheek_above_nosing_m"} \
+        if not {"run", "landing_v_m", "out_m"} <= set(ss) <= {"run", "landing_v_m", "out_m", "cheek_above_nosing_m",
+                                                              "arch"} \
                 or ss["run"] not in ("right", "left"):
             raise ParamError("entrance_kit.side_stoop takes run ('right' or 'left'), landing_v_m [from, to], "
-                             "out_m and optionally cheek_above_nosing_m")
+                             "out_m and optionally cheek_above_nosing_m and arch")
         if {"terrace", "balustrade", "stoop_v_m", "cheeks"} & set(door_kit_in):
             raise ParamError("entrance_kit.side_stoop is its own stair: no terrace, balustrade, stoop_v_m or cheeks")
         a, b = sorted(float(x) for x in ss["landing_v_m"])
@@ -8065,9 +8066,42 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             if b0 < hi and lo < b1 and not float(bay["plan"]["rise_m"]) < o0:
                 raise ParamError(f"entrance_kit.side_stoop: the flight {o0} m out runs into the {bay['id']} bay, "
                                  f"which stands {bay['plan']['rise_m']} m proud")
+        # T-1894: a round-arched basement doorway in the landing's street face (1823's, both
+        # pictures draw it under the landing), centred at `v_m` on the front, `span_m` across,
+        # its jambs `spring_m` over grade and its void `depth_m` into the landing, with an
+        # optional iron grille of `bars` uprights `set_back_m` behind the face and a ring of
+        # `ring_radius_m` under the crown (k07_entrances.Entrance._arch_face)
+        arch = None
+        if "arch" in ss:
+            A = ss["arch"]
+            if not {"v_m", "span_m", "spring_m", "depth_m"} <= set(A) <= {"v_m", "span_m", "spring_m", "depth_m",
+                                                                           "grille"}:
+                raise ParamError("entrance_kit.side_stoop.arch takes v_m, span_m, spring_m, depth_m and optionally "
+                                 "grille")
+            arch = {q: float(A[q]) for q in ("v_m", "span_m", "spring_m", "depth_m")}
+            hw = arch["span_m"] / 2
+            if not (a + 0.2 <= arch["v_m"] - hw and arch["v_m"] + hw <= b - 0.2):
+                raise ParamError(f"entrance_kit.side_stoop.arch ({arch['span_m']} m at v {arch['v_m']}) does not "
+                                 f"stand inside the landing's face (v {a}-{b}, 0.2 m piers)")
+            if not (0.3 <= arch["spring_m"] and arch["spring_m"] + hw <= door_floor - 0.15):
+                raise ParamError(f"entrance_kit.side_stoop.arch: its crown ({arch['spring_m'] + hw:.2f} m) does not "
+                                 f"stand under the landing ({door_floor} m) with 0.15 m over it")
+            if not 0.1 <= arch["depth_m"] < o0 + float(val("stoop_width_m")) - 0.1:
+                raise ParamError(f"entrance_kit.side_stoop.arch: a {arch['depth_m']} m void does not stand in the "
+                                 f"landing")
+            if "grille" in A:
+                g = A["grille"]
+                if set(g) != {"bars", "set_back_m", "ring_radius_m"} or not 2 <= int(g["bars"]) <= 16 \
+                        or not 0.02 <= float(g["set_back_m"]) <= arch["depth_m"] - 0.05 \
+                        or not 0.05 < float(g["ring_radius_m"]) < hw - 0.05:
+                    raise ParamError("entrance_kit.side_stoop.arch.grille takes bars (2-16), set_back_m inside the "
+                                     "void and ring_radius_m inside the arch's half span")
+                arch["grille"] = {"bars": int(g["bars"]), "set_back_m": float(g["set_back_m"]),
+                                  "ring_radius_m": float(g["ring_radius_m"])}
         door_kit["side_stoop"] = {"run": ss["run"], "landing_v_m": [a, b], "out_m": o0,
                                   **({"cheek_above_nosing_m": float(ss["cheek_above_nosing_m"])}
-                                     if "cheek_above_nosing_m" in ss else {})}
+                                     if "cheek_above_nosing_m" in ss else {}),
+                                  **({"arch": arch} if arch else {})}
     # T-2313: chimney stacks from the K15 kit (data/components/prairie_1904/k15_chimneys.json),
     # each built by k15_chimneys.stack_solids in the house's own roof and joined into the K05
     # roof solid. The FORM (kit variant, flues, top) is `chimneys`; WHERE each stands is
