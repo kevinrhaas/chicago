@@ -117,7 +117,7 @@ try {
       // The app's own frames would run the stage's clock while the bodies build (one a frame,
       // and a frame here takes seconds): take the stage off the frame loop and run it here.
       await page.evaluate(() => { window.__chicago4d.jaunts.replay(); const st = window.__chicago4d.jauntStage; if (st && !st.byHand) { st.byHand = st.update; st.update = () => {}; } });
-      await page.waitForFunction(() => { const st = window.__chicago4d.jauntStage; st?.byHand(0); return !st || st.cast.every((a) => a.body || !a.root.parent || a.indoors); }, null, { timeout: 900000, polling: 1500 }).catch(() => fail.push(`${stopId}: bodies did not all load`));
+      await page.waitForFunction(() => { const st = window.__chicago4d.jauntStage; st?.byHand(0); return !st || (st.cast.every((a) => a.body || !a.root.parent || a.indoors || (a.distance ?? 0) > 135) && (st.snapshot().teams ?? []).every((x) => x.taken)); }, null, { timeout: 900000, polling: 1500 }).catch(() => fail.push(`${stopId}: bodies did not all load`));
       let played = 0;
       for (const t of TIMES) {
         await page.evaluate((dt) => { const st = window.__chicago4d.jauntStage; const n = Math.round(dt / 0.1); for (let i = 0; i < n; i++) st?.byHand(0.1); }, t - played);
@@ -134,12 +134,16 @@ try {
               state: x.state, path: !!x.path, route: !!x.route, inLayer: a.humans.get?.(x.personId) === x, e: +x.e.toFixed(2), n: +x.n.toFixed(2),
               pelvis_above_root: w ? +(w.y - x.root.position.y).toFixed(2) : null, tip: +x.root.rotation.x.toFixed(2) };
           });
-          return { ...(st?.snapshot() ?? {}), twice, posed, eye: { e: a.walker.state.e, n: a.walker.state.n, yaw: a.walker.state.yaw } };
+          const tt = a.townTransport;
+          const transport = tt ? { group: tt.group.visible, inScene: !!tt.group.parent, roots: tt.roots.length,
+            actors: tt.actors.map((x) => ({ id: x.id, mode: x.mode, visible: x.visible, at: x.at.map((v) => +v.toFixed(1)), height: +(x.pose?.height ?? NaN).toFixed(2), err: x.stageError ?? null })) } : null;
+          return { ...(st?.snapshot() ?? {}), twice, posed, transport, eye: { e: a.walker.state.e, n: a.walker.state.n, yaw: a.walker.state.yaw } };
         });
         snap.pss_mb = pssMb();
         snap.heap_mb = await page.evaluate(() => Math.round((performance.memory?.usedJSHeapSize ?? 0) / 1048576));
         console.log(JSON.stringify(snap.posed?.slice(0, 4)));
         console.log(`  ${stopId} t=${t} (clock ${snap.clock}): ${snap.cast?.length ?? 0} cast, ${snap.cast?.filter((c) => c.drawn).length ?? 0} drawn, pss ${snap.pss_mb} MB, heap ${snap.heap_mb} MB`);
+        if (snap.teams?.length) console.log(`  teams: ${JSON.stringify(snap.teams)}\n  transport: ${JSON.stringify(snap.transport)}`);
         if (snap.twice?.length) fail.push(`${stopId} t=${t}: drawn twice: ${snap.twice.join(', ')}`);
         row.times.push({ t, ...snap });
         await draw(`${JAUNT}-${String(want).padStart(2, '0')}-${stopId}-t${String(t).padStart(3, '0')}`, VIEW);

@@ -115,8 +115,17 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
           group.updateWorldMatrix(true, true);
           const current = horse.root.getWorldPosition(new THREE.Vector3());
           const localYaw = horse.root.rotation.y;
-          const support = fitHorseSupport({ e: current.x, n: -current.z,
-            yaw: pose.yaw + turn + localYaw, heightAt, ...horseSupportDomain });
+          let support;
+          try {
+            support = fitHorseSupport({ e: current.x, n: -current.z,
+              yaw: pose.yaw + turn + localYaw, heightAt, ...horseSupportDomain });
+          } catch (error) {
+            // T-3553: a team a jaunt's stage walks off its certified road (the 1812 column on
+            // the beach) stands upright on the ground beneath it rather than not at all.
+            if (!pose.staged) throw error;
+            const ground = heightAt(current.x, -current.z);
+            support = { height_m: Number.isFinite(ground) ? ground : pose.height, normal_local_xyz: [0, 1, 0], staged: true };
+          }
           horse.root.position.y = support.height_m - pose.height;
           const tilt = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0),
             new THREE.Vector3().fromArray(support.normal_local_xyz));
