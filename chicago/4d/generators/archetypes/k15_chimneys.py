@@ -328,8 +328,10 @@ def stack_solids(s: dict, F: Frame, data: dict, t: float, bottom: float | None =
             cc = c0 + (k + 0.5) * w / n
             for af, sg in ((a0, -1.0), (a1, 1.0)):
                 ea, eb = af - sg * pd, af + sg * 0.05
+                # T-3562: a stone stack's panel is sunk in its own stone (1815's south stack, the
+                # oblique print's panels in its ashlar face); a brick stack's in its brick
                 cutters.append(box(F, min(ea, eb), max(ea, eb), cov_hi + pbot, cov_hi + pbot + ph,
-                                   cc - pw / 2, cc + pw / 2, "panel"))
+                                   cc - pw / 2, cc + pw / 2, "shaft_stone" if mat == "stone" else "panel"))
 
     # flues: through a pot if the flue has one, else square in the cap
     pf = data["pot"]

@@ -1296,13 +1296,27 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
             uh = float(st_.get("panel_under_head_m", pn["under_head_m"]))
             if not 0.1 <= uh <= 2.0:
                 raise ParamError(f"chimney at ({u}, {v}): panel_under_head_m {uh}: 0.1-2.0 m")
-            ph = round(y_head - uh - hi - pn["above_roof_m"], 4)
+            above = pn["above_roof_m"]
+            # T-3562: a stack carried up on a wall's cornice, clear of the roof behind it, whose
+            # picture sinks its panels below that roof's highest covering names their foot over
+            # grade (1815's south stack: the oblique print's panels run down its flank face to
+            # about 11.35 m, where the mansard behind it stands 12.0 m high). The foot stays
+            # PANEL_FOOT_OVER_BASE_M over the stack's own foot on the cornice
+            pf = st_.get("panel_foot_m")
+            if pf is not None:
+                pf = float(pf)
+                if not st_.get("on_cornice") or not c["base_m"] + PANEL_FOOT_OVER_BASE_M <= pf < hi + above:
+                    raise ParamError(f"chimney at ({u}, {v}): panel_foot_m {pf} is a stack on a cornice's, "
+                                     f"{PANEL_FOOT_OVER_BASE_M} m or more over its foot ({c['base_m']} m) and under "
+                                     f"the house's panel foot over its roof ({hi + above:.2f} m)")
+                above = round(pf - hi, 4)
+            ph = round(y_head - uh - hi - above, 4)
             if ph < pn["min_height_m"]:
                 raise ParamError(f"chimney at ({u}, {v}): room for a {ph} m panel, under the {pn['min_height_m']} m "
                                  f"chimneys.k15.panels asks; mark the stack panelled: false")
             if not 0.1 <= int(pn["count"]) * pn["width_m"] <= wd - 0.2:
                 raise ParamError(f"chimneys.k15.panels.width_m {pn['width_m']}: 0.1 m inside each edge of {wd} m")
-            spec["panels"] = [int(pn["count"]), pn["width_m"], ph, pn["depth_m"], pn["above_roof_m"]]
+            spec["panels"] = [int(pn["count"]), pn["width_m"], ph, pn["depth_m"], above]
         c["k15_head"] = spec
         c["cover_high_m"] = round(hi, 4)
 
@@ -2579,6 +2593,8 @@ def _brick_belts(front: dict) -> tuple:
 
 
 BAY_FABRICS = ("stone", "brick", "front_stone", "frame")   # T-2350: front_stone, the K02 front's own fabric; T-2356: frame, a painted timber bay
+#: T-3562: a cornice stack's sunk panels stop this far over its foot on the cornice
+PANEL_FOOT_OVER_BASE_M = 0.6
 BAY_PIER_M = 0.30          # masonry left between a bay's junction and its wall's corner
 EAVE_FASCIA_M = 0.20       # the K05 eave's fascia on a K01 house: its soffit stands this far under the eaves line
 BRACKETED_CORNICE = "k10.cornice.bracketed_timber"

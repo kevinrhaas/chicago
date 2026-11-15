@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e866f90086cb2c30c4620201d4089b28bb9b33982bc8754f5ff7216547313188",
+  "glb_sha256": "bf23ebe5ca03fed8071fafb70f83dd02289c63cfb9ca333b1f3a4f39e6a3587f",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -77,8 +77,8 @@
     },
     {
       "what": "the stack's sunk panels on its south face (x 1765-1825 px, about 11.35-13.45 m)",
-      "status": "open",
-      "how": "not built: K15 lays a panel's recess in brick (k15_chimneys ROLE_MATERIAL 'panel'), which on a stone stack reads as brick strips; the kit module is an input to every K01 mesh, so the fix is a town rebake of its own"
+      "status": "fixed",
+      "how": "T-3562: built. Three narrow panels (0.15 m across, 0.05 m deep) sunk in the stack's south face from 11.35 m to 13.45 m, 0.3 m under the corbelled head, where the print draws three dark lines evenly across the shaded face (x 1765-1825 px). The stack stands on the flank's cornice clear of the mansard, so its panels run below the roof's highest covering under it (panel_foot_m); K15 now sinks a stone stack's panel in its own stone, so they read as stone and not as brick strips. The render draws the three beside the print's within a few pixels in height and run; the build's stack stands right of the print's with the south wall's open set-out, as before"
     },
     {
       "what": "the stack's pots: the print's stand about 1.1 m over the cap, three or four in a row",
