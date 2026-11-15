@@ -31,7 +31,7 @@
         "kind": "anchor",
         "id": "glessner_house"
       },
-      "text": "The corner of Eighteenth and Prairie. The house is granite, low and hard, with windows on the street side barely wide enough to light a corridor. Its architect, H. H. Richardson, died in 1886 before it was finished; it went up between June 1886 and December 1887. Not everyone liked it. George Pullman, just across the way, complained: \"I do not know what I have ever done to have that thing staring me in the face every time I go out of my door\". Pullman is seven years dead now, and the house is still staring. What the passers-by never see is the other side: generous windows onto a sunny courtyard, and a household that runs like a machine. The Glessner carriage is at the curb. The ladies are arriving on foot.",
+      "text": "The corner of Eighteenth and Prairie. The house is granite, low and hard, with windows on the street side barely wide enough to light a corridor. Its architect, H. H. Richardson, died in 1886 before it was finished; it went up between June 1886 and December 1887. Not everyone liked it. George Pullman, just across the way, complained: \"I do not know what I have ever done to have that thing staring me in the face every time I go out of my door\". Pullman is seven years dead now, and the house is still staring. What the passers-by never see is the other side: generous windows onto a sunny courtyard, and a household that runs like a machine. The ladies are arriving on foot.",
       "evidence": [
         "narrow-windows",
         "richardson-dates",
@@ -48,9 +48,9 @@
         }
       ],
       "next": "hostess",
-      "read_s": 35,
+      "read_s": 33,
       "stage": {
-        "caption": "Ladies come down Prairie Avenue in twos for the Monday class, past the Glessner carriage at the curb.",
+        "caption": "Ladies come down Prairie Avenue in twos for the Monday class.",
         "liberty": "L-1904-story-jaunts",
         "cast": [
           {
@@ -139,16 +139,6 @@
                 "pace": "walk"
               }
             ]
-          }
-        ],
-        "teams": [
-          {
-            "team": "prairie_driven_brougham_glessner_1904",
-            "at": [
-              1398.6,
-              -3238
-            ],
-            "heading": 180.0
           }
         ]
       }

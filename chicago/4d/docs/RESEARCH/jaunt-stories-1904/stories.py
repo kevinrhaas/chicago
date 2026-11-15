@@ -17,7 +17,7 @@ def jaunts(h):
     out = []
 
     # ── 1 ── Field and Mrs. Caton ───────────────────────────────────────────────────────────
-    F, C, A = 'marshall_field_house_1905_prairie', 'house_1910_calumet', 'house_1900_calumet'
+    F, C, A, CH = 'marshall_field_house_1905_prairie', 'house_1910_calumet', 'house_1900_calumet', 'house_1910_calumet_coach_house'
     out.append(dict(
         id='field-and-mrs-caton', title='The Merchant and Mrs. Caton', hour='morning',
         premise="Three days after Arthur Caton died in a New York hotel, the whole street is whispering about his widow Delia and the richest man in Chicago, whose house stands just across the alley.",
@@ -25,18 +25,17 @@ def jaunts(h):
         keepsake=('Neighbors', 'A Widow\'s Calling Card', 'An interpretive card of the Caton and Field households in November 1904, not a historical artifact.'),
         extra_evidence=['london'],
         stops=[
-            dict(id='widow', dest=('structure', C),
-                 text="Calumet Avenue, behind Prairie. This is the Caton house, and its blinds are drawn. On Friday Arthur J. Caton died at New York's Waldorf-Astoria hotel, and nobody can quite say of what. \"Some said he succumbed to liver failure. Others ascribed the demise to peritonitis.\" A newspaper downstate will hint that he took his own life. He was a judge's son, a lawyer who loved golf and polo and bred horses and dogs on the family farm. His wife Delia, a hardware heiress he married in 1876, gave the best parties in town: Arthur Meeker's mother \"always declared that nobody ever gave such wonderful parties as Delia Caton\". There were no children. This morning there is a widow, a house full of servants, and a caller on the steps. Go round the back, to the yards between Calumet and Prairie.",
+            dict(id='widow', dest=('structure', CH),
+                 text="Calumet Avenue, behind Prairie, at the side of the Caton house. Its blinds are drawn. On Friday Arthur J. Caton died at New York's Waldorf-Astoria hotel, and nobody can quite say of what. \"Some said he succumbed to liver failure. Others ascribed the demise to peritonitis.\" A newspaper downstate will hint that he took his own life. He was a judge's son, a lawyer who loved golf and polo and bred horses and dogs on the family farm. His wife Delia, a hardware heiress he married in 1876, gave the best parties in town: Arthur Meeker's mother \"always declared that nobody ever gave such wonderful parties as Delia Caton\". There were no children. This morning there is a widow, and in the side yard the news is going from the house to the stable. Go round the back, to the yards between Calumet and Prairie.",
                  evidence=['caton-death', 'caton-family', 'caton-parties'],
                  links=[('structure', C, 'The Caton house')],
-                 caption="A maid opens the Caton door to an early caller, and the coachman waits at the curb with his hat in his hand.",
+                 caption="In the Caton side yard a maid brings the news out to the coachman, who takes his hat off, and the groom stops work at the coach house door.",
                  cast=lambda: [
-                     extra('caton_maid', 'maid_1904', 'A maid of the Caton house (no card in the town; an unnamed figure)', at(C, 1.6, 0.6), face=at(C, 9, 0), hidden=True,
-                           beats=[beat(4, show=True), beat(9, greet=True), beat(10, talk=True), beat(22, talk=False), beat(26, hide=True)]),
-                     extra('caton_caller', 'gentleman_1904', 'A caller leaving his card (unnamed)', at(C, 10, 9),
-                           beats=[beat(0, walk=[at(C, 9, 3), at(C, 3.4, 0.8)], pace='slow'), beat(9, face='caton_maid', talk=True), beat(21, talk=False),
-                                  beat(24, walk=[at(C, 9, 1), at(C, 9.5, -12)], pace='slow')]),
-                     extra('caton_coachman', 'coachman_livery_1904', 'The Caton coachman (no card in the town; an unnamed figure)', at(C, 8.6, -4.5), face=at(C, 1, 0)),
+                     extra('caton_maid', 'maid_1904', 'A maid of the Caton house (no card in the town; an unnamed figure)', at(CH, 31, -9), face=at(CH, 33, 0),
+                           beats=[beat(2, walk=[at(CH, 32, -4), at(CH, 32.6, -1.2)], pace='brisk'), beat(9, face='caton_coachman'), beat(10, talk=True), beat(24, talk=False), beat(27, walk=[at(CH, 31, -9)], pace='walk')]),
+                     extra('caton_coachman', 'coachman_livery_1904', 'The Caton coachman (no card in the town; an unnamed figure)', at(CH, 33.4, 1.2), face=at(CH, 0, 0),
+                           beats=[beat(7, face='caton_maid'), beat(20, heading=h.hd(at(CH, 33, 1), at(CH, 0, 0)))]),
+                     extra('caton_groom', 'stable_helper_1904', 'A Caton groom (no card in the town; an unnamed figure)', at(CH, 6, 1.5), face=at(CH, 30, 0)),
                  ]),
             dict(id='yards', dest=('structure', A),
                  text="The back yards, where Calumet meets Prairie at the rear fence. Turn round and the Field house is right there, its coach house on the alley. The servants of the two houses have shared this ground for years, and they have heard the talk. Arthur Meeker, who grew up on this street, wrote it down: \"it was even absurdly asserted that an underground tunnel connected the Caton house on Calumet with the Field house on Prairie, which was just in front of it, or just back.\" Meeker called it absurd, and it was. But a society diarist recorded that \"Delia sometimes traveled to Europe with Marshall Field without Arthur accompanying them.\" Now Arthur is dead, Field's wife has been dead eight years, and a laundress from the Field house is leaning on the fence. Walk on to Prairie Avenue and find the man himself.",
@@ -222,11 +221,10 @@ def jaunts(h):
         extra_evidence=['frances-mind', 'class-harper', 'kimball-dying'],
         stops=[
             dict(id='fortress', dest=('anchor', 'glessner_house'),
-                 text="The corner of Eighteenth and Prairie. The house is granite, low and hard, with windows on the street side barely wide enough to light a corridor. Its architect, H. H. Richardson, died in 1886 before it was finished; it went up between June 1886 and December 1887. Not everyone liked it. George Pullman, just across the way, complained: \"I do not know what I have ever done to have that thing staring me in the face every time I go out of my door\". Pullman is seven years dead now, and the house is still staring. What the passers-by never see is the other side: generous windows onto a sunny courtyard, and a household that runs like a machine. The Glessner carriage is at the curb. The ladies are arriving on foot.",
+                 text="The corner of Eighteenth and Prairie. The house is granite, low and hard, with windows on the street side barely wide enough to light a corridor. Its architect, H. H. Richardson, died in 1886 before it was finished; it went up between June 1886 and December 1887. Not everyone liked it. George Pullman, just across the way, complained: \"I do not know what I have ever done to have that thing staring me in the face every time I go out of my door\". Pullman is seven years dead now, and the house is still staring. What the passers-by never see is the other side: generous windows onto a sunny courtyard, and a household that runs like a machine. The ladies are arriving on foot.",
                  evidence=['narrow-windows', 'richardson-dates', 'pullman-glare', 'neighbours'],
                  links=[('person', 'glessner_john_j', 'John J. Glessner')],
-                 caption="Ladies come down Prairie Avenue in twos for the Monday class, past the Glessner carriage at the curb.",
-                 teams=lambda: [dict(team='prairie_driven_brougham_glessner_1904', at=P(1398.6, -3238), heading=180.0)],
+                 caption="Ladies come down Prairie Avenue in twos for the Monday class.",
                  cast=lambda: [
                      extra('guest_a', 'lady_1904', 'A member of the Reading Class (unnamed)', P(1391.4, -3196), beats=[beat(0, walk=[P(1391.6, -3218), P(1392.2, -3226.6)], pace='slow'), beat(1, talk=True), beat(16, talk=False)]),
                      extra('guest_b', 'lady_1904', 'A second member of the class (unnamed)', P(1390.4, -3195), beats=[beat(0, walk=[P(1390.6, -3218), P(1391.2, -3227.6)], pace='slow')]),

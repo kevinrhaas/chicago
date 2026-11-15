@@ -29,9 +29,9 @@
       "id": "widow",
       "destination": {
         "kind": "structure",
-        "id": "house_1910_calumet"
+        "id": "house_1910_calumet_coach_house"
       },
-      "text": "Calumet Avenue, behind Prairie. This is the Caton house, and its blinds are drawn. On Friday Arthur J. Caton died at New York's Waldorf-Astoria hotel, and nobody can quite say of what. \"Some said he succumbed to liver failure. Others ascribed the demise to peritonitis.\" A newspaper downstate will hint that he took his own life. He was a judge's son, a lawyer who loved golf and polo and bred horses and dogs on the family farm. His wife Delia, a hardware heiress he married in 1876, gave the best parties in town: Arthur Meeker's mother \"always declared that nobody ever gave such wonderful parties as Delia Caton\". There were no children. This morning there is a widow, a house full of servants, and a caller on the steps. Go round the back, to the yards between Calumet and Prairie.",
+      "text": "Calumet Avenue, behind Prairie, at the side of the Caton house. Its blinds are drawn. On Friday Arthur J. Caton died at New York's Waldorf-Astoria hotel, and nobody can quite say of what. \"Some said he succumbed to liver failure. Others ascribed the demise to peritonitis.\" A newspaper downstate will hint that he took his own life. He was a judge's son, a lawyer who loved golf and polo and bred horses and dogs on the family farm. His wife Delia, a hardware heiress he married in 1876, gave the best parties in town: Arthur Meeker's mother \"always declared that nobody ever gave such wonderful parties as Delia Caton\". There were no children. This morning there is a widow, and in the side yard the news is going from the house to the stable. Go round the back, to the yards between Calumet and Prairie.",
       "evidence": [
         "caton-death",
         "caton-family",
@@ -47,9 +47,9 @@
         }
       ],
       "next": "yards",
-      "read_s": 37,
+      "read_s": 38,
       "stage": {
-        "caption": "A maid opens the Caton door to an early caller, and the coachman waits at the curb with his hat in his hand.",
+        "caption": "In the Caton side yard a maid brings the news out to the coachman, who takes his hat off, and the groom stops work at the coach house door.",
         "liberty": "L-1904-story-jaunts",
         "cast": [
           {
@@ -57,79 +57,46 @@
             "dress": "reynolds_mary_1904_maid",
             "name": "A maid of the Caton house (no card in the town; an unnamed figure)",
             "at": [
-              1521.1,
-              -3387.87
+              1516.58,
+              -3388.34
             ],
-            "heading": 82.4,
-            "hidden": true,
+            "heading": 350.5,
             "beats": [
               {
-                "t": 4,
-                "show": true
+                "t": 2,
+                "walk": [
+                  [
+                    1515.63,
+                    -3383.33
+                  ],
+                  [
+                    1515.14,
+                    -3380.51
+                  ]
+                ],
+                "pace": "brisk"
               },
               {
                 "t": 9,
-                "greet": true
+                "face": "caton_coachman"
               },
               {
                 "t": 10,
                 "talk": true
               },
               {
-                "t": 22,
-                "talk": false
-              },
-              {
-                "t": 26,
-                "hide": true
-              }
-            ]
-          },
-          {
-            "extra": "caton_caller",
-            "dress": "glessner_john_j_1904",
-            "name": "A caller leaving his card (unnamed)",
-            "at": [
-              1527.52,
-              -3377.88
-            ],
-            "beats": [
-              {
-                "t": 0,
-                "walk": [
-                  [
-                    1527.82,
-                    -3383.95
-                  ],
-                  [
-                    1522.81,
-                    -3387.3
-                  ]
-                ],
-                "pace": "slow"
-              },
-              {
-                "t": 9,
-                "face": "caton_maid",
-                "talk": true
-              },
-              {
-                "t": 21,
-                "talk": false
-              },
-              {
                 "t": 24,
+                "talk": false
+              },
+              {
+                "t": 27,
                 "walk": [
                   [
-                    1528.24,
-                    -3385.91
-                  ],
-                  [
-                    1531.49,
-                    -3398.5
+                    1516.58,
+                    -3388.34
                   ]
                 ],
-                "pace": "slow"
+                "pace": "walk"
               }
             ]
           },
@@ -138,10 +105,30 @@
             "dress": "nelson_charles_1904_coachman",
             "name": "The Caton coachman (no card in the town; an unnamed figure)",
             "at": [
-              1529.02,
-              -3391.37
+              1514.99,
+              -3377.98
             ],
-            "heading": 288.4
+            "heading": 246.0,
+            "beats": [
+              {
+                "t": 7,
+                "face": "caton_maid"
+              },
+              {
+                "t": 20,
+                "heading": 246.3
+              }
+            ]
+          },
+          {
+            "extra": "caton_groom",
+            "dress": "billings_august_1904_stable_helper",
+            "name": "A Caton groom (no card in the town; an unnamed figure)",
+            "at": [
+              1489.46,
+              -3387.95
+            ],
+            "heading": 71.6
           }
         ]
       }
