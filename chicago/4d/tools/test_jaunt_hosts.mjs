@@ -254,6 +254,13 @@ console.log('PASS human-days takes a host out of her day, out by the nearest doo
   const h0 = createJauntHosts({ humans: { get: () => dayless }, days: { host: () => ({ ok: false, why: 'no such person' }) }, router: planned });
   h0.sync([{ person: 'dayless', local_e: 1, local_n: 1 }], { stand: { e: 1, n: 3 } });
   assert.deepEqual([h0.active, dayless.jauntHost, dayless.path?.pts.at(-1)], [['dayless'], true, { e: 1, n: 1 }], 'a figure with no day is taken by hand and walked to the mark');
+  // A person the days know and will not give (away, in another year) is neither: not waited
+  // for, since no later frame will bring them, and not walked by hand, with a day or without.
+  for (const who of [figure('away', { instance: { behaviour: { day: [{ spans: [{ from: 0, to: 24, indoors: true, where: 'x' }] }] } } }), figure('away_dayless')]) {
+    const h1 = createJauntHosts({ humans: { get: () => who }, days: { host: () => ({ ok: false, why: 'away' }) }, router: planned });
+    h1.sync([{ person: who.id, local_e: 1, local_n: 1 }], { stand: { e: 1, n: 3 } });
+    assert.deepEqual([h1.active, h1.waiting, who.jauntHost, who.path ?? null], [[], [], undefined, null], `${who.id}: refused by the days for a reason of their own, neither waited for nor walked`);
+  }
 }
 console.log('PASS a host with a day is found before the first frame, and is never walked by hand as dayless');
 

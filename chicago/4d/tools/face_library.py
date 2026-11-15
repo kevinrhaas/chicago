@@ -54,9 +54,25 @@ SHEET_MEAN = 0.75       # ...and the whole sheet by this: a change over all of i
 SHEET_WORST = 16        # ...and no tile's worst thousandth of values by more than this (of 255): a mean over a tile
                         # cannot see a small repaint (a 24 px square painted 120 lighter read 1.0, under the 1.5);
                         # two JPEG libraries differ by a level or two a value
+SHEET_BLOCK = 3         # ...and no 8 px block of a tile, in its mean, by more than this (of 255): the worst
+                        # thousandth of a 256 px tile is 197 values, and a repaint of 64 px or fewer is 192, so an
+                        # 8 px square painted 120 lighter read 1 there; here it reads 30 off the JPEG's grid and
+                        # 120 on it. The sheet stored a second time reads 0.5.
+BLOCK_PX = 8
+# What these four still pass, measured 2026-11-15, and nothing here looks for: one face half a
+# part in a hundred darker (mean 1.0, block 2.3); a face softened by a blur of radius 1 (mean
+# 0.5, worst thousandth 10, block 1.4); a plain face blended halfway to a freckled one that is
+# near it (mean 1.0, worst thousandth 8, block 2.8). Nearer than that a change cannot be told
+# from another JPEG library's reading by these measures.
 SAME_PAINTING = 2.4     # two cuts nearer than this inside the mask (mean, of 255) are one painting: three skins left
                         # out for it read 0.5, 2.3 and 2.0 against a kept one; the nearest two kept read 2.6
 LICENCE_LINE = re.compile(r'licen[sc]e|copyright|AGPL|GPL|CC0|CC-BY', re.I)
+# What --ingest writes as a face's licence evidence, and --check holds a row to.
+EVIDENCE_MATERIAL = 'its material file\'s header: "This asset was explicitly released as CC0 in september 2020. ... The copyright holders at the point of the release to CC0 were: Data Collection AB, Joel Palmius, Jonas Hauquier."'
+
+
+def evidence_pack(kept_name):
+    return f"the pack's own record of the asset in {kept_name} (\"license\": \"CC0\"); its material file is not kept and not used"
 
 PACKS = {
     'makehuman_system_assets': {
@@ -166,6 +182,9 @@ def complexions():
     return out
 
 
+_BODY_TONES = {}    # a body's skin read once a run, by its bytes and the box and mask it is read under
+
+
 def build(record):
     """The sheet's bytes and the record's `texture`. Needs Pillow."""
     Image = image()
@@ -194,12 +213,15 @@ def build(record):
         raw = glb_skin(glb)
         if raw is None:
             continue
-        ring, inside = tones(linear(np.asarray(cut_of(Image, Image.open(io.BytesIO(raw)), record))), m_full)
+        key = (sha(raw), json.dumps([record['map_px'], record['box_px'], record['mask']], sort_keys=True))
+        if key not in _BODY_TONES:
+            _BODY_TONES[key] = tones(linear(np.asarray(cut_of(Image, Image.open(io.BytesIO(raw)), record))), m_full)
+        ring, inside = _BODY_TONES[key]
         bodies[glb.name[:-len('.lod0.glb')]] = {'gain': [round(float(x), 4) for x in ring / ref_ring / head],
                                                 'tone_rgb': [round(float(x), 4) for x in inside]}
     texture = {'file': str(SHEET.relative_to(ROOT)), 'size_px': [cols * tile, rows * tile], 'sha256': sha(out.getvalue()),
                'built_with': built_with(record), 'faces': listed, 'bodies': bodies, 'person_tone': person_tone(bodies),
-               'complexions': complexions(),
+               'complexions': complexions(), 'source_sha256': sha(SOURCE.read_bytes()),
                'reference': {'file': str(REFERENCE.relative_to(ROOT)), 'meets_rgb': [round(float(x), 4) for x in ref_ring]}}
     return out.getvalue(), texture, sheet
 
@@ -289,7 +311,7 @@ def ingest(record, pairs):
             kept.write_bytes(mh.read_bytes())
             row['material'] = {'path': f['material'], 'sha256': sha(mh.read_bytes()), 'kept_in_repo': str(kept.relative_to(AUTHORED)) + ' (unchanged)'}
             row['license'] = 'CC0-1.0'
-            row['license_evidence'] = 'its material file\'s header: "This asset was explicitly released as CC0 in september 2020. ... The copyright holders at the point of the release to CC0 were: Data Collection AB, Joel Palmius, Jonas Hauquier."'
+            row['license_evidence'] = EVIDENCE_MATERIAL
             if 'explicitly released as CC0' not in mh.read_text(errors='replace'):
                 raise SystemExit(f'{mh}: no CC0 statement in its header')
         else:
@@ -302,7 +324,7 @@ def ingest(record, pairs):
             row['pack_record'] = {'key': f['pack_record'], 'in': kept.name, 'sha256': sha(pack_json.read_bytes()),
                                   **{k: meta[k] for k in ('author', 'license', 'source', 'description', 'created', 'changed') if k in meta}}
             row['license'] = 'CC0-1.0'
-            row['license_evidence'] = f"the pack's own record of the asset in {kept.name} (\"license\": \"CC0\"); its material file is not kept and not used"
+            row['license_evidence'] = evidence_pack(kept.name)
             # ...but it is read: a licence line of its own that is not the pack's is a disagreement
             # between two statements about one asset, and is recorded with why CC0 is still read.
             mh = next((root / pathlib.Path(entry).parent).glob('*.mhmat'), None)
@@ -356,6 +378,9 @@ def check(record):
         bad.append('a face is listed twice')
     for k in sorted(set(source['faces']) - set(ids)):
         bad.append(f"SOURCE.json pins a face {k} the record does not keep: run --ingest")
+    # Where each pack is, its size and its hash, are this tool's own figures.
+    if source.get('packs') != json.loads(json.dumps(PACKS)):
+        bad.append("SOURCE.json's `packs` are not the packs this tool names (address, size, hash): run --ingest")
     for f in record['faces']:
         row = source['faces'].get(f['id'])
         cut = AUTHORED / 'faces' / f"{f['id']}.png"
@@ -368,6 +393,8 @@ def check(record):
             bad.append(f"{f['id']}: cut from another box or atlas than the record names: run --ingest")
         if row.get('license') != 'CC0-1.0' or not row.get('license_evidence'):
             bad.append(f"{f['id']}: no CC0 licence evidence")
+        elif row['license_evidence'] != (EVIDENCE_MATERIAL if row.get('material') else evidence_pack((row.get('pack_record') or {}).get('in'))):
+            bad.append(f"{f['id']}: its licence evidence is not in the words this tool writes for what stands behind it: run --ingest")
         # The evidence itself is read, not only named: a system skin's kept material file says
         # CC0 in its own words; a community skin's row in the pack's kept record does.
         if row.get('material'):
@@ -465,9 +492,12 @@ def check(record):
     if held and (f"the face of each of {len(ids)} more" not in readme or f"{total}, of which {len(ids)} are kept" not in readme or f"other {out} skins" not in readme):
         bad.append(f"{(AUTHORED / 'README.md').relative_to(ROOT)} does not give the counts ({len(ids)} faces; {total} skins, {len(ids)} kept, {out} left out)")
     # The gate may not stand on a banked reading: the readers' register names the step that runs this.
-    step = re.search(r'step "([^"]+)" \\\n\s*python3 tools/face_library\.py --check', (ROOT / 'tools/check.sh').read_text())
-    if not step or (ROOT / 'tools/check_gate_readers.py').read_text().count(f'"{step.group(1)}"') < 2:
-        bad.append('tools/check_gate_readers.py does not name this step under both Pillow and numpy')
+    # (The self-test's step too: without Pillow it skips the cases that read the sheet.)
+    gate, readers = (ROOT / 'tools/check.sh').read_text(), (ROOT / 'tools/check_gate_readers.py').read_text()
+    for kind, flag, what in (('step', '--check', 'this step'), ('selftest', '--self-test', "the self-test's step")):
+        step = re.search(kind + r' "([^"]+)" \\\n\s*python3 tools/face_library\.py ' + flag + r'\n', gate)
+        if not step or readers.count(f'"{step.group(1)}"') < 2:
+            bad.append(f'tools/check_gate_readers.py does not name {what} under both Pillow and numpy')
     t = record.get('texture')
     if not t:
         bad.append('no sheet built: run tools/face_library.py')
@@ -486,6 +516,17 @@ def check(record):
         on_disk = sorted(g.name[:-len('.lod0.glb')] for g in WEB.glob('*.lod0.glb') if glb_skin(g) is not None)
         if sorted(t['bodies']) != on_disk:
             bad.append('the bodies changed since the sheet was built: run tools/face_library.py')
+        # The source record is the one the sheet was built beside: what it alone holds of an
+        # atlas (its size and CRC-32 in the pack) has nothing else to be compared with.
+        if t.get('source_sha256') != (sha(SOURCE.read_bytes()) if SOURCE.exists() else None):
+            bad.append(f'{SOURCE.relative_to(ROOT)} is not the one the sheet was built beside: run tools/face_library.py')
+        # A person's tone is read from the skin most bodies of their sex wear, as the record holds
+        # it (read from the record and the kit's list of bodies: no picture is opened for it).
+        try:
+            if t.get('person_tone') != person_tone(t['bodies']):
+                bad.append("`person_tone` is not the skin most bodies of each sex wear: run tools/face_library.py")
+        except SystemExit as e:
+            bad.append(str(e))
         if image() is None:
             # Not a pass: tools/check_gate_readers.py names this step, and CI is red without Pillow.
             print('   skip: Pillow is not installed, so the tones, the gains and the sheet were not measured again (check_gate_readers.py names this)')
@@ -498,10 +539,6 @@ def check(record):
             for k, b in again['bodies'].items():
                 if not near(t['bodies'][k]['gain'], b['gain']) or not near(t['bodies'][k]['tone_rgb'], b['tone_rgb']):
                     bad.append(f'{k}: its skin changed since the sheet was built: run tools/face_library.py')
-            # A person's tone is read from the skin most bodies of their sex wear, as the record holds it.
-            mine = person_tone(t['bodies'])
-            if t.get('person_tone') != mine:
-                bad.append("`person_tone` is not the skin most bodies of each sex wear: run tools/face_library.py")
             Image = image()
             # No two faces are one painting (the record's `left_out` tells of three that were).
             inside = mask_over(record, record['box_px'][2] - record['box_px'][0]) >= INSIDE
@@ -532,12 +569,17 @@ def check(record):
                 if np.abs(kept_px - coded).mean() > SHEET_MEAN:
                     bad.append(f'the sheet as a whole is not the cuts laid out as the record says (mean difference {np.abs(kept_px - coded).mean():.2f} of 255): run tools/face_library.py')
                 for i, f in enumerate(record['faces']):
-                    apart = np.abs(at(kept_px, i) - at(coded, i))
+                    signed = at(kept_px, i) - at(coded, i)
+                    apart, whole = np.abs(signed), tile // BLOCK_PX * BLOCK_PX
                     err, worst = apart.mean(), float(np.quantile(apart, 0.999))
+                    block = float(np.abs(signed[:whole, :whole].reshape(whole // BLOCK_PX, BLOCK_PX, whole // BLOCK_PX, BLOCK_PX, 3).mean((1, 3))).max())
+                    # Each on its own: one refusal does not hide another.
                     if err > SHEET_TOLERANCE:
                         bad.append(f"{f['id']}: its tile of the sheet is not its cut laid out as the record says (mean difference {err:.2f} of 255): run tools/face_library.py")
-                    elif worst > SHEET_WORST:
+                    if worst > SHEET_WORST:
                         bad.append(f"{f['id']}: a part of its tile of the sheet is not its cut laid out as the record says (its worst thousandth differs by {worst:.0f} of 255): run tools/face_library.py")
+                    if block > SHEET_BLOCK:
+                        bad.append(f"{f['id']}: a small part of its tile of the sheet is not its cut laid out as the record says (an {BLOCK_PX} px block differs by {block:.1f} of 255 in its mean): run tools/face_library.py")
                     nearest = min(range(len(record['faces'])), key=lambda j: float(((at(kept_px, i) - at(built, j)) ** 2).mean()))
                     if nearest != i:
                         bad.append(f"{f['id']}: its tile of the sheet is nearer {record['faces'][nearest]['id']}'s cut than its own: run tools/face_library.py")
@@ -575,152 +617,414 @@ def _rebase(root):
     g['ROOT'] = root
 
 
+class _Stopped(BaseException):
+    """The self-test was told to stop (SIGTERM, as `timeout` sends): its copy is cleared away first."""
+
+
 def self_test():
     """Breaks a copy of the library each way the check must refuse, and sees each refused.
 
     The check passed a broken library more than once before a reviewer broke one on purpose
     (2026-11-14 and 15): two cuts that were one painting, a tile repainted in part, a count in
     the register, a licence note with nothing behind it. Each is a case here, with the plainer
-    ones. The copy is made in a temporary folder outside the tree and nothing in the tree is
-    written. Without Pillow the cases that need the sheet read are skipped, and said so
-    (tools/check_gate_readers.py makes CI red without it).
+    ones, and each comparison the check makes has a case that only it refuses. Where the check
+    stands on a bound, one case lies a little beyond it and is refused, and where a library
+    that is whole could be told from a broken one only by that bound, one lies a little within
+    and passes: a bound loosened or tightened by much is seen here. The copy is made in the
+    system's temporary folder, which must lie outside the repository, and nothing in the tree
+    is written; stopped by SIGTERM, the copy is cleared away first. Without Pillow the cases
+    that need the sheet read are skipped, and the last line says how many
+    (tools/check_gate_readers.py names this step, so CI is red without it).
     """
-    import contextlib, os, shutil, tempfile
+    import contextlib, os, shutil, signal, tempfile
     real, Image = ROOT, image()
-    with tempfile.TemporaryDirectory(prefix='face_library_self_test_') as tmp:
-        root = pathlib.Path(tmp)
+    top = next((d for d in (real, *real.parents) if (d / '.git').exists()), real)
+    base = pathlib.Path(tempfile.gettempdir()).resolve()
+    if base == top or top in base.parents:
+        print(f'FAIL the temporary folder ({base}) is inside the repository ({top}): the self-test would write its copy into the tree; set TMPDIR elsewhere')
+        return 1
 
-        def fresh(rel):
-            src, dst = real / rel, root / rel
-            if dst.is_dir():
-                shutil.rmtree(dst)
-            elif dst.exists():
-                dst.unlink()
-            dst.parent.mkdir(parents=True, exist_ok=True)
-            (shutil.copytree if src.is_dir() else shutil.copyfile)(src, dst)
+    def stopped(*_):
+        raise _Stopped()
+    before = signal.signal(signal.SIGTERM, stopped)
+    try:
+        with tempfile.TemporaryDirectory(prefix='face_library_self_test_') as tmp:
+            return _self_test_in(pathlib.Path(tmp), real, Image, contextlib, os, shutil)
+    except _Stopped:
+        print('   self-test: stopped before its end; its copy is cleared away')
+        return 143
+    finally:
+        _rebase(real)
+        signal.signal(signal.SIGTERM, before)
 
-        for src in [real / rel for rel in LINKED] + sorted(WEB.glob('*.lod0.glb')):
-            dst = root / src.relative_to(real)
-            dst.parent.mkdir(parents=True, exist_ok=True)
-            os.symlink(src, dst)
-        _rebase(root)
-        try:
-            for rel in COPIED:
-                fresh(rel)
-            record = json.loads(RECORD.read_text())
-            ids, tile, cols = [f['id'] for f in record['faces']], record['tile_px'], record['cols']
-            noted = next(f['id'] for f in record['faces'] if f.get('licence_note'))
-            freckled = next(f['id'] for f in record['faces'] if f.get('light_only'))
-            pack = next(iter(PACKS))
 
-            def data(rel, change):
-                p = root / rel
-                d = json.loads(p.read_text())
-                change(d)
-                p.write_text(json.dumps(d, indent=1) + '\n')
+def _self_test_in(root, real, Image, contextlib, os, shutil):
+    def fresh(rel):
+        src, dst = real / rel, root / rel
+        if dst.is_dir():
+            shutil.rmtree(dst)
+        elif dst.exists():
+            dst.unlink()
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        (shutil.copytree if src.is_dir() else shutil.copyfile)(src, dst)
 
-            def text(rel, old, new):
-                p = root / rel
-                s = p.read_text()
-                if old not in s:
-                    raise SystemExit(f'self-test: {rel} no longer holds {old!r}; bring the case up to date')
-                p.write_text(s.replace(old, new, 1))
+    for src in [real / rel for rel in LINKED] + sorted(WEB.glob('*.lod0.glb')):
+        dst = root / src.relative_to(real)
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        os.symlink(src, dst)
+    _rebase(root)
+    for rel in COPIED:
+        fresh(rel)
+    record, source = json.loads(RECORD.read_text()), json.loads(SOURCE.read_text())
+    ids, tile, cols = [f['id'] for f in record['faces']], record['tile_px'], record['cols']
+    noted = next(f['id'] for f in record['faces'] if f.get('licence_note'))
+    freckled = next(f['id'] for f in record['faces'] if f.get('light_only'))
+    of_system = next(k for k in ids if source['faces'][k].get('material'))
+    of_pack = next(k for k in ids if source['faces'][k].get('pack_record') and k != noted)
+    minor = next(k for k in sorted(record['texture']['bodies']) for sex in [json.loads(AXES.read_text())['assets'].get(k, {}).get('sex', 'male')]
+                 if sex in ('male', 'female') and record['texture']['bodies'][k]['tone_rgb'] != record['texture']['person_tone'][sex]['tone_rgb'])
+    pack = next(iter(PACKS))
+    n, out = len(ids), sum(len(row['skins']) for row in record['left_out']['skins'])
+    rec, auth, kit, register = 'data/humans/variation/face_library.json', 'assets/authored/humans/face_library', 'assets/humans/web/hm08_variation_kit.json', 'assets/LICENSES.md'
+    src = f'{auth}/SOURCE.json'
+    body = sorted(record['texture']['bodies'])[0]
 
-            def resheet(change=lambda px: px, subsampling=0):
-                """The sheet decoded, changed, stored again as the tool stores it, and named by the record."""
-                px = change(np.asarray(Image.open(SHEET).convert('RGB')).astype(float))
-                out = io.BytesIO()
-                Image.fromarray(np.clip(np.rint(px), 0, 255).astype(np.uint8)).save(out, 'JPEG', quality=record['jpeg_quality'], subsampling=subsampling)
-                SHEET.write_bytes(out.getvalue())
-                data('data/humans/variation/face_library.json', lambda d: d['texture'].__setitem__('sha256', sha(out.getvalue())))
+    def data(rel, change):
+        p = root / rel
+        d = json.loads(p.read_text())
+        change(d)
+        p.write_text(json.dumps(d, indent=1) + '\n')
 
-            def place(i):
-                return slice((i // cols) * tile, (i // cols + 1) * tile), slice((i % cols) * tile, (i % cols + 1) * tile)
+    def text(rel, old, new):
+        p = root / rel
+        s = p.read_text()
+        if old not in s:
+            raise SystemExit(f'self-test: {rel} no longer holds {old!r}; bring the case up to date')
+        p.write_text(s.replace(old, new, 1))
 
-            def swapped(px):
-                a, b = px[place(0)].copy(), px[place(1)].copy()
-                px[place(0)], px[place(1)] = b, a
-                return px
+    def sourced(change):
+        """SOURCE.json changed, and the record told so: for a case the check must refuse further on."""
+        data(src, change)
+        data(rec, lambda d: d['texture'].__setitem__('source_sha256', sha(SOURCE.read_bytes())))
 
-            def repainted(px):
-                rows, across = place(3)
-                px[rows.start + 116:rows.start + 140, across.start + 116:across.start + 140] += 120
-                return px
+    def both(change):
+        """The record's `texture` and the kit's copy of it changed alike."""
+        data(rec, lambda d: change(d['texture']))
+        data(kit, lambda d: change(d['faces']))
 
-            def one_painting():
-                px = np.asarray(Image.open(AUTHORED / 'faces' / f'{ids[0]}.png').convert('RGB')).copy()
-                px[:4, :4] ^= 1     # another file, the same painting
-                Image.fromarray(px).save(AUTHORED / 'faces' / f'{ids[1]}.png', 'PNG')
-                pin = sha((AUTHORED / 'faces' / f'{ids[1]}.png').read_bytes())
-                data('assets/authored/humans/face_library/SOURCE.json', lambda d: d['faces'][ids[1]]['cut'].__setitem__('sha256', pin))
+    def resheet(change=lambda px: px, subsampling=0):
+        """The sheet decoded, changed, stored again as the tool stores it, and named by the record."""
+        px = change(np.asarray(Image.open(SHEET).convert('RGB')).astype(float))
+        blob = io.BytesIO()
+        Image.fromarray(np.clip(np.rint(px), 0, 255).astype(np.uint8)).save(blob, 'JPEG', quality=record['jpeg_quality'], subsampling=subsampling)
+        SHEET.write_bytes(blob.getvalue())
+        data(rec, lambda d: d['texture'].__setitem__('sha256', sha(blob.getvalue())))
 
-            def twice(d):
-                row = d['left_out']['skins'][0]
-                row['skins'].append(row['skins'][0])
+    def place(i):
+        return slice((i // cols) * tile, (i // cols + 1) * tile), slice((i % cols) * tile, (i % cols + 1) * tile)
 
-            def turned(d):
-                t = d['texture']['person_tone']
-                t['male'], t['female'] = t['female'], t['male']
+    def swapped(px):
+        a, b = px[place(0)].copy(), px[place(1)].copy()
+        px[place(0)], px[place(1)] = b, a
+        return px
 
-            n, rec, auth = len(ids), 'data/humans/variation/face_library.json', 'assets/authored/humans/face_library'
-            cut = AUTHORED / 'faces' / f'{ids[2]}.png'
-            plain = [
-                ('a cut changed by one byte', 'the cut is not the bytes SOURCE.json pins', lambda: cut.write_bytes(cut.read_bytes() + b'\0')),
-                ('the sheet changed by one byte', 'is not the bytes the record names', lambda: SHEET.write_bytes(SHEET.read_bytes() + b'\0')),
-                ("a pack's own record changed by one byte", "is not the bytes SOURCE.json pins as the pack's own record",
-                 lambda: (AUTHORED / f'{pack}.original.json').write_bytes((AUTHORED / f'{pack}.original.json').read_bytes() + b' ')),
-                ('a face pinned in SOURCE.json that the record does not keep', 'SOURCE.json pins a face stray the record does not keep',
-                 lambda: data(f'{auth}/SOURCE.json', lambda d: d['faces'].__setitem__('stray', d['faces'][ids[0]]))),
-                ('a skin left out twice', 'is listed twice', lambda: data(rec, twice)),
-                ('a skin left out with no reason', 'no reason given', lambda: data(rec, lambda d: d['left_out']['skins'][0].__setitem__('why', ''))),
-                ('a licence note with no kept file behind it', 'its licence note cites no kept file',
-                 lambda: data(rec, lambda d: next(f for f in d['faces'] if f['id'] == noted).pop('licence_note_evidence'))),
-                ("a cut's row dropped from the register", f'assets/LICENSES.md does not list authored/humans/face_library/faces/{ids[2]}.png',
-                 lambda: text('assets/LICENSES.md', f'faces/{ids[2]}.png`', f'faces/{ids[2]}_gone.png`')),
-                ("the register's count of the faces changed", f'does not say the folder holds the faces of {n} skin atlases',
-                 lambda: text('assets/LICENSES.md', f'The face of each of {n} skin atlases', f'The face of each of {n + 3} skin atlases')),
-                ("the folder's page's count of the faces changed", 'README.md does not give the counts',
-                 lambda: text(f'{auth}/README.md', f'of which {n} are', f'of which {n + 3} are')),
-                ('a freckled face no longer marked for light complexions only', 'who may wear a face (sex, age, light_only) changed',
-                 lambda: data(rec, lambda d: next(f for f in d['faces'] if f['id'] == freckled).pop('light_only'))),
-                ("the kit's copy of the library altered", 'the kit does not carry this library',
-                 lambda: data('assets/humans/web/hm08_variation_kit.json', lambda d: d['faces']['person_tone_rgb']['male'].__setitem__(0, 0.5))),
-                ("the readers' register no longer naming the step", 'does not name this step under both Pillow and numpy',
-                 lambda: text('tools/check_gate_readers.py', "The face library's cuts", "The face library's cut")),
-            ]
-            read = [
-                ('the sheet stored a second time, unchanged', None, resheet),
-                ('two kept cuts that are one painting', 'are one painting', one_painting),
-                ('two faces of the sheet changed places', "cut than its own", lambda: resheet(swapped)),
-                ('the sheet two parts in a hundred darker', 'the sheet as a whole is not the cuts laid out', lambda: resheet(lambda px: px * 0.98)),
-                ('a 24 pixel square of one face painted 120 lighter', 'a part of its tile of the sheet is not its cut', lambda: resheet(repainted)),
-                ('the sheet stored with its colour at half size', 'does not keep its colour at full size', lambda: resheet(subsampling=2)),
-                ("a person's tone read from the other sex's bodies", '`person_tone` is not the skin most bodies of each sex wear', lambda: data(rec, turned)),
-            ]
-            if Image is None:
-                print(f'   skip: Pillow is not installed, so {len(read)} cases that read the sheet were not tried')
-            failed = 0
-            for name, expect, breaking in [('the copy as it stands', None, lambda: None)] + plain + (read if Image is not None else []):
-                breaking()
-                out = io.StringIO()
-                with contextlib.redirect_stdout(out):
-                    try:
-                        rc = check(json.loads(RECORD.read_text()))
-                    except SystemExit as e:
-                        rc = 1
-                        print(f'FAIL {e}')
-                said = out.getvalue()
-                ok = (rc == 0) if expect is None else (rc == 1 and expect in said)
-                failed += not ok
-                if expect is None:
-                    print(f"   {'ok  ' if ok else 'FAIL'} {name}: {'passes' if ok else 'is refused: ' + ' / '.join(said.strip().splitlines()[:3])}")
-                else:
-                    print(f"   {'ok  ' if ok else 'FAIL'} {name}: {'refused' if ok else 'not refused'} ({expect})")
-                for rel in COPIED:
-                    fresh(rel)
-        finally:
-            _rebase(real)
-    print(f"   self-test: {'FAILED: ' + str(failed) + ' case(s)' if failed else 'the face library check refuses every broken copy and passes the whole ones'}")
+    def square(side, lighter):
+        def change(px):
+            rows, across = place(3)
+            px[rows.start + 116:rows.start + 116 + side, across.start + 116:across.start + 116 + side] += lighter
+            return px
+        return change
+
+    def darker(levels):
+        def change(px):
+            px[place(3)] -= levels
+            return px
+        return change
+
+    def upper(levels):
+        def change(px):
+            px[:2 * tile] -= levels
+            return px
+        return change
+
+    def dimmed(px):
+        px[place(3)] *= 0.995
+        return px
+
+    def softened(px):
+        from PIL import ImageFilter
+        soft = Image.fromarray(px[place(3)].astype(np.uint8)).filter(ImageFilter.GaussianBlur(1))
+        px[place(3)] = np.asarray(soft, float)
+        return px
+
+    def near_copy(levels):
+        """The second cut made the first one, `levels` of 255 lighter all over: another file, the same painting or not."""
+        def change():
+            px = np.asarray(Image.open(AUTHORED / 'faces' / f'{ids[0]}.png').convert('RGB')).astype(int)
+            px = np.where(px + levels > 255, px - levels, px + levels).astype(np.uint8)
+            Image.fromarray(px).save(AUTHORED / 'faces' / f'{ids[1]}.png', 'PNG')
+            pin = sha((AUTHORED / 'faces' / f'{ids[1]}.png').read_bytes())
+            sourced(lambda d: d['faces'][ids[1]]['cut'].__setitem__('sha256', pin))
+        return change
+
+    def twice(d):
+        row = d['left_out']['skins'][0]
+        row['skins'].append(row['skins'][0])
+
+    def turned(d):
+        t = d['texture']['person_tone']
+        t['male'], t['female'] = t['female'], t['male']
+
+    def tied(d):
+        """As many women's bodies on one skin as on another."""
+        sexes = {k: v.get('sex', 'male') for k, v in json.loads(AXES.read_text())['assets'].items()}
+        bodies = d['texture']['bodies']
+        women = [k for k in sorted(bodies) if sexes.get(k, 'male') == 'female']
+        count = collections.Counter(tuple(bodies[k]['tone_rgb']) for k in women).most_common()
+        (most, many), (other, few) = count[0], count[1]
+        if (many - few) % 2:
+            bodies.pop(next(k for k in women if tuple(bodies[k]['tone_rgb']) == most))
+            many -= 1
+        for k in [k for k in women if k in bodies and tuple(bodies[k]['tone_rgb']) == most][:(many - few) // 2]:
+            bodies[k]['tone_rgb'] = list(other)
+
+    def unsaid():
+        """A kept material file that no longer says CC0, pinned again as it now is."""
+        kept = AUTHORED / 'materials' / pathlib.Path(source['faces'][of_system]['material']['path']).name
+        kept.write_bytes(kept.read_bytes().replace(b'explicitly released as CC0', b'explicitly released as CC9'))
+        sourced(lambda d: d['faces'][of_system]['material'].__setitem__('sha256', sha(kept.read_bytes())))
+
+    def cited():
+        kept = AUTHORED / 'evidence' / pathlib.Path(source['faces'][noted]['licence_note_evidence']['path']).name
+        kept.write_bytes(kept.read_bytes() + b' ')
+
+    def material():
+        return AUTHORED / 'materials' / pathlib.Path(source['faces'][of_system]['material']['path']).name
+
+    def renamed():
+        """A kept material file that says CC0 of another atlas, pinned again as it now is."""
+        atlas = pathlib.Path(next(f for f in record['faces'] if f['id'] == of_system)['entry']).name.encode()
+        if atlas not in material().read_bytes():
+            raise SystemExit(f'self-test: {material().name} no longer names its atlas; bring the case up to date')
+        material().write_bytes(material().read_bytes().replace(atlas, b'another_atlas.png'))
+        sourced(lambda d: d['faces'][of_system]['material'].__setitem__('sha256', sha(material().read_bytes())))
+
+    def noting(change):
+        """The noted face's row changed alike in the record and in SOURCE.json."""
+        data(rec, lambda d: change(next(f for f in d['faces'] if f['id'] == noted)))
+        data(src, lambda d: change(d['faces'][noted]))
+
+    def unhashed(row):
+        row['licence_note'] = row['licence_note'].replace(source['faces'][noted]['licence_note_evidence']['sha256'], 'its hash')
+
+    def kept_and_left(d):
+        for row in d['left_out']['skins']:
+            name = next((f.get('pack_record') or pathlib.Path(f['entry']).parent.name for f in d['faces'] if f['pack'] == row['pack']), None)
+            if name:
+                row['skins'].append(name)
+                return
+
+    def basis(old, new):
+        def change(d):
+            if old not in d['left_out']['basis']:
+                raise SystemExit(f'self-test: left_out.basis no longer holds {old!r}; bring the case up to date')
+            d['left_out']['basis'] = d['left_out']['basis'].replace(old, new, 1)
+        return lambda: data(rec, change)
+
+    def reordered(d):
+        f = d['texture']['faces']
+        f[0], f[1] = f[1], f[0]
+
+    def row_of_register(old, new):
+        """The register's row for one cut, with `old` made `new`."""
+        def change():
+            p = root / register
+            lines = p.read_text().split('\n')
+            at = next(i for i, l in enumerate(lines) if f'faces/{ids[2]}.png`' in l)
+            if old not in lines[at]:
+                raise SystemExit(f"self-test: the register's row for faces/{ids[2]}.png no longer holds {old!r}; bring the case up to date")
+            lines[at] = lines[at].replace(old, new)
+            p.write_text('\n'.join(lines))
+        return change
+    atlas_hash = source['faces'][ids[2]]['entry']['sha256']
+
+    def gain(share):
+        def change(t):
+            t['bodies'][body]['gain'] = [round(g * (1 + share), 4) for g in t['bodies'][body]['gain']]
+        return lambda: both(change)
+
+    def tone(share):
+        def change(t):
+            t['faces'][2]['tone'] = round(t['faces'][2]['tone'] * (1 + share), 4)
+        return lambda: both(change)
+
+    def own_tone(share):
+        """Of a body not on the skin most of its sex wear, so the person's tone stands as it was."""
+        def change(t):
+            t['bodies'][minor]['tone_rgb'] = [round(x * (1 + share), 4) for x in t['bodies'][minor]['tone_rgb']]
+        return lambda: both(change)
+
+    cut = AUTHORED / 'faces' / f'{ids[2]}.png'
+    # (what is broken, the refusal meant for it or None for a copy that must pass, how)
+    plain = [
+        ('a cut changed by one byte', 'the cut is not the bytes SOURCE.json pins', lambda: cut.write_bytes(cut.read_bytes() + b'\0')),
+        ('a cut gone from the folder', 'no cut or no source row', cut.unlink),
+        ('the sheet changed by one byte', 'is not the bytes the record names', lambda: SHEET.write_bytes(SHEET.read_bytes() + b'\0')),
+        ("a pack's own record changed by one byte", "is not the bytes SOURCE.json pins as the pack's own record",
+         lambda: (AUTHORED / f'{pack}.original.json').write_bytes((AUTHORED / f'{pack}.original.json').read_bytes() + b' ')),
+        ('a face listed twice', 'a face is listed twice', lambda: data(rec, lambda d: d['faces'].append(dict(d['faces'][0])))),
+        ('a face pinned in SOURCE.json that the record does not keep', 'SOURCE.json pins a face stray the record does not keep',
+         lambda: data(src, lambda d: d['faces'].__setitem__('stray', d['faces'][ids[0]]))),
+        ("a pack's address changed in SOURCE.json", "SOURCE.json's `packs` are not the packs this tool names",
+         lambda: data(src, lambda d: d['packs'][pack].__setitem__('url', d['packs'][pack]['url'] + '.old'))),
+        ("an atlas's size in its pack changed in SOURCE.json", 'SOURCE.json is not the one the sheet was built beside',
+         lambda: data(src, lambda d: d['faces'][ids[2]]['entry'].__setitem__('size', d['faces'][ids[2]]['entry']['size'] + 1))),
+        ("a cut's source row naming another box", 'cut from another box or atlas than the record names',
+         lambda: data(src, lambda d: d['faces'][ids[2]]['cut']['box_px'].__setitem__(0, d['faces'][ids[2]]['cut']['box_px'][0] + 1))),
+        ("a cut's source row naming another atlas", 'cut from another box or atlas than the record names',
+         lambda: data(src, lambda d: d['faces'][ids[2]]['entry'].__setitem__('path', d['faces'][ids[2]]['entry']['path'] + '.other'))),
+        ("a cut's source row naming another pack", 'cut from another box or atlas than the record names',
+         lambda: data(src, lambda d: d['faces'][ids[2]].__setitem__('pack', 'another_pack'))),
+        ("a cut's licence no longer CC0", 'no CC0 licence evidence', lambda: data(src, lambda d: d['faces'][ids[2]].__setitem__('license', 'CC-BY-4.0'))),
+        ("a cut's licence evidence emptied", 'no CC0 licence evidence', lambda: data(src, lambda d: d['faces'][ids[2]].__setitem__('license_evidence', ''))),
+        ("a cut's licence evidence in somebody's own words", 'its licence evidence is not in the words this tool writes',
+         lambda: data(src, lambda d: d['faces'][ids[2]].__setitem__('license_evidence', 'somebody said so'))),
+        ('a kept material file changed by one byte', 'its kept material file changed', lambda: material().write_bytes(material().read_bytes() + b' ')),
+        ('a kept material file that no longer says CC0', 'its kept material file does not say CC0 of this atlas', unsaid),
+        ('a kept material file that says CC0 of another atlas', 'its kept material file does not say CC0 of this atlas', renamed),
+        ('a system cut with no material file behind it', 'neither a kept material file nor a pack record stands behind its licence',
+         lambda: data(src, lambda d: d['faces'][of_system].pop('material'))),
+        ("a community pack's own record changed by one byte", "the pack's record it rests on",
+         lambda: (AUTHORED / source['faces'][of_pack]['pack_record']['in']).write_bytes((AUTHORED / source['faces'][of_pack]['pack_record']['in']).read_bytes() + b' ')),
+        ("a cut's source row giving another author than its pack's record", "the pack's kept record does not say CC0 of it, by the author and source",
+         lambda: data(src, lambda d: d['faces'][of_pack]['pack_record'].__setitem__('author', 'somebody else'))),
+        ("a cut's source row naming a skin its pack's record does not hold", "the pack's kept record has no row",
+         lambda: data(src, lambda d: d['faces'][of_pack]['pack_record'].__setitem__('key', 'no_such_skin'))),
+        ("a cut's source row with its pack's material file unread", 'was not read for a licence line', lambda: data(src, lambda d: d['faces'][of_pack].pop('pack_material'))),
+        ('a licence note changed in the record alone', 'carries a licence line of its own and no `licence_note`',
+         lambda: data(rec, lambda d: next(f for f in d['faces'] if f['id'] == noted).__setitem__('licence_note', next(f for f in d['faces'] if f['id'] == noted)['licence_note'] + ' (altered)'))),
+        ('the evidence a licence note cites changed in SOURCE.json alone', 'the evidence its licence note cites is not what SOURCE.json holds',
+         lambda: data(src, lambda d: d['faces'][noted]['licence_note_evidence'].__setitem__('says', 'something else'))),
+        ('a licence note citing words its file does not say', 'is not kept as pinned, or does not say',
+         lambda: noting(lambda row: row['licence_note_evidence'].__setitem__('says', 'released under no licence at all'))),
+        ('a licence note that no longer names its file by its hash', 'does not name the file it cites by its SHA-256', lambda: noting(unhashed)),
+        ('a face of an age the rule does not know', 'sex or age not one the rule knows', lambda: data(rec, lambda d: d['faces'][2].__setitem__('age', 'ancient'))),
+        ("a pack's own record gone", "is missing: the pack's own list of its skins", (AUTHORED / f'{pack}.original.json').unlink),
+        ('a licence note with no kept file behind it', 'its licence note cites no kept file',
+         lambda: data(rec, lambda d: next(f for f in d['faces'] if f['id'] == noted).pop('licence_note_evidence'))),
+        ('the file a licence note cites changed by one byte', 'is not kept as pinned, or does not say', cited),
+        ('a skin left out twice', 'is listed twice', lambda: data(rec, twice)),
+        ('a skin left out with no reason', 'no reason given', lambda: data(rec, lambda d: d['left_out']['skins'][0].__setitem__('why', ''))),
+        ("a pack's skin neither kept nor left out", "is neither kept nor in the record's left_out", lambda: data(rec, lambda d: d['left_out']['skins'][0]['skins'].pop())),
+        ("a skin left out that no pack's record lists", 'the record names a skin no_such_skin', lambda: data(rec, lambda d: d['left_out']['skins'][0]['skins'].append('no_such_skin'))),
+        ('a skin both kept and left out', 'is both kept and left out', lambda: data(rec, kept_and_left)),
+        ("the record's count of the packs' skins changed", 'left_out.basis does not say what the packs hold', basis(f'hold {n + out} skins', f'hold {n + out + 1} skins')),
+        ("the record's count of the faces kept changed", 'left_out.basis does not say what the packs hold', basis(f'{n} are kept', f'{n + 1} are kept')),
+        ("the record's count of the skins left out changed", 'left_out.basis does not say what the packs hold', basis(f'other {out} ', f'other {out + 1} ')),
+        ("SOURCE.json's count of the skins left out changed", 'SOURCE.json `not_used` does not say',
+         lambda: data(src, lambda d: d.__setitem__('not_used', d['not_used'].replace(f'The other {out} skins', f'The other {out + 1} skins')))),
+        ("a cut's row dropped from the register", f'{register} does not list authored/humans/face_library/faces/{ids[2]}.png',
+         lambda: text(register, f'faces/{ids[2]}.png`', f'faces/{ids[2]}_gone.png`')),
+        ("a register row with another hash for its atlas", "does not give CC0-1.0 and the atlas's SHA-256",
+         row_of_register(atlas_hash, ('0' if atlas_hash[0] != '0' else '1') + atlas_hash[1:])),
+        ('a register row no longer saying CC0-1.0', "does not give CC0-1.0 and the atlas's SHA-256", row_of_register('CC0-1.0', 'CC-BY-4.0')),
+        ("the register's count of the packs' skins changed", f"does not say the packs' {n + out} skins can be counted against",
+         lambda: text(register, f'{n + out} skins can be counted against', f'{n + out + 1} skins can be counted against')),
+        ("the register's count of the faces changed", f'does not say the folder holds the faces of {n} skin atlases',
+         lambda: text(register, f'The face of each of {n} skin atlases', f'The face of each of {n + 3} skin atlases')),
+        ("the register's count of the cuts changed", f'does not say the folder holds the faces of {n} skin atlases',
+         lambda: text(register, f'those {n} cuts', f'those {n + 3} cuts')),
+        ("the folder's page's count of the faces changed", 'README.md does not give the counts',
+         lambda: text(f'{auth}/README.md', f'the face of each of {n} more', f'the face of each of {n + 3} more')),
+        ("the folder's page's count of the faces kept changed", 'README.md does not give the counts',
+         lambda: text(f'{auth}/README.md', f'of which {n} are', f'of which {n + 3} are')),
+        ("the folder's page's count of the skins left out changed", 'README.md does not give the counts',
+         lambda: text(f'{auth}/README.md', f'other {out} skins', f'other {out + 3} skins')),
+        ('the record with no sheet built', 'no sheet built', lambda: data(rec, lambda d: d.pop('texture'))),
+        ('the sheet built at another size', 'the sheet was built for another list of faces',
+         lambda: data(rec, lambda d: d['texture']['size_px'].__setitem__(1, d['texture']['size_px'][1] + record['tile_px']))),
+        ('the sheet built for the faces in another order', 'the sheet was built for another list of faces', lambda: data(rec, reordered)),
+        ('a freckled face no longer marked for light complexions only', 'who may wear a face (sex, age, light_only) changed',
+         lambda: data(rec, lambda d: next(f for f in d['faces'] if f['id'] == freckled).pop('light_only'))),
+        ('the JPEG quality changed since the sheet was built', 'the box, mask, tile size, headroom or JPEG quality changed',
+         lambda: data(rec, lambda d: d.__setitem__('jpeg_quality', d['jpeg_quality'] - 1))),
+        ('a complexion changed since the sheet was built', 'the complexions changed since the sheet was built',
+         lambda: data(rec, lambda d: d['texture']['complexions'][sorted(d['texture']['complexions'])[0]].__setitem__(0, 0.5))),
+        ('a body gone from the record', 'the bodies changed since the sheet was built', lambda: data(rec, lambda d: d['texture']['bodies'].pop(body))),
+        ("the mask's feather changed in the record", 'does not draw the mask this tool measures under',
+         lambda: data(rec, lambda d: d['mask'].__setitem__('feather', d['mask']['feather'] * 2))),
+        ("a person's tone read from the other sex's bodies", '`person_tone` is not the skin most bodies of each sex wear', lambda: data(rec, turned)),
+        ("as many women's bodies on one skin as on another", 'no one skin is worn by most female bodies', lambda: data(rec, tied)),
+        ("the kit's copy of the library altered", 'the kit does not carry this library',
+         lambda: data(kit, lambda d: d['faces']['person_tone_rgb']['male'].__setitem__(0, 0.5))),
+        ("the readers' register no longer naming the check's step", 'does not name this step under both Pillow and numpy',
+         lambda: text('tools/check_gate_readers.py', "The face library's cuts", "The face library's cut")),
+        ("the readers' register no longer naming the self-test's step", "does not name the self-test's step under both Pillow and numpy",
+         lambda: text('tools/check_gate_readers.py', "the face library's check refuses", "the face library's check refused")),
+    ]
+    # These need the sheet read. Each bound has a case a little beyond it, refused by that bound
+    # alone, and a case a little within it that passes; the figures are what each read on
+    # 2026-11-15 against the bound, and a sheet decoded by the same JPEG library reads the same.
+    read = [
+        ('the sheet stored a second time, unchanged', None, resheet),
+        # SAME_PAINTING, 2.4: 2.0 and 3.0
+        ('two kept cuts two levels of 255 apart', 'are one painting', near_copy(2)),
+        ('two kept cuts three levels apart', ('not', 'are one painting'), near_copy(3)),
+        ('two faces of the sheet changed places', "cut than its own", lambda: resheet(swapped)),
+        # SHEET_MEAN, 0.75: 0.97 and 0.44
+        ('the whole sheet one level darker', 'the sheet as a whole is not the cuts laid out', lambda: resheet(lambda px: px - 1)),
+        ('the two upper rows of faces one level darker', None, lambda: resheet(upper(1))),
+        # SHEET_TOLERANCE, 1.5: 1.89 and 0.99
+        ('one face of the sheet two levels darker', 'its tile of the sheet is not its cut laid out as the record says (mean difference', lambda: resheet(darker(2))),
+        ('one face of the sheet half a part in a hundred darker', None, lambda: resheet(dimmed)),   # ...and its worst block 2.3 of 3
+        # SHEET_WORST, 16: 20 and 10
+        ('a 24 pixel square of one face painted 20 lighter', 'its worst thousandth differs by', lambda: resheet(square(24, 20))),
+        ('one face of the sheet softened, a blur of radius 1', None, lambda: resheet(softened)),
+        # SHEET_BLOCK, 3: 4.9 (and 2.3, above); and the small repaint the worst thousandth cannot see
+        ('a 24 pixel square of one face painted 5 lighter', 'px block differs by', lambda: resheet(square(24, 5))),
+        ('an 8 pixel square of one face painted 120 lighter', 'px block differs by', lambda: resheet(square(8, 120))),
+        ('the sheet stored with its colour at half size', 'does not keep its colour at full size', lambda: resheet(subsampling=2)),
+        # TOLERANCE, one part in a hundred: three and one in two hundred
+        ("a body's gain three parts in two hundred up", 'its skin changed since the sheet was built', gain(0.015)),
+        ("a body's gain one part in two hundred up", None, gain(0.005)),
+        ("a face's tone three parts in two hundred up", 'its tone is not what the record holds', tone(0.015)),
+        ("a body's own tone three parts in two hundred up", 'its skin changed since the sheet was built', own_tone(0.015)),
+        ('the sheet stored one row of pixels taller', 'the sheet is not the size the record builds', lambda: resheet(lambda px: np.concatenate([px, px[-1:]]))),
+    ]
+    if Image is None:
+        print(f'   skip: Pillow is not installed, so {len(read)} cases that read the sheet were not tried')
+    cases = [('the copy as it stands', None, lambda: None)] + plain + (read if Image is not None else [])
+    failed = 0
+    for name, expect, breaking in cases:
+        breaking()
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            try:
+                rc = check(json.loads(RECORD.read_text()))
+            except SystemExit as e:
+                rc = 1
+                print(f'FAIL {e}')
+        said = said.getvalue()
+        first = ' / '.join(said.strip().splitlines()[:3])
+        if expect is None:
+            ok = rc == 0
+            print(f"   {'ok  ' if ok else 'FAIL'} {name}: {'passes' if ok else 'is refused: ' + first}")
+        elif isinstance(expect, tuple):
+            ok = expect[1] not in said
+            print(f"   {'ok  ' if ok else 'FAIL'} {name}: {'not' if ok else 'wrongly'} refused as ({expect[1]})")
+        else:
+            ok = rc == 1 and expect in said
+            print(f"   {'ok  ' if ok else 'FAIL'} {name}: {'refused' if ok else 'not refused'} ({expect}){'' if ok or rc == 0 else '; it said: ' + first}")
+        failed += not ok
+        for rel in COPIED:
+            fresh(rel)
+    tried = f'{len(cases)} of {1 + len(plain) + len(read)} cases tried'
+    if failed:
+        print(f'   self-test: FAILED: {failed} case(s), {tried}')
+    elif Image is None:
+        print(f'   self-test: {tried}, each as it should be; the {len(read)} that read the sheet were NOT tried (no Pillow)')
+    else:
+        print(f'   self-test: {tried}: the face library check refuses every broken copy and passes the whole ones')
     return 1 if failed else 0
 
 
