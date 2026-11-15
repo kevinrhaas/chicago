@@ -25,7 +25,7 @@ delta on a straightened arm turns with the arm. No MakeHuman program logic is us
     python3 tools/human_variation_kit.py --vendor DIR   # copy the targets from a MakeHuman
                                                         # checkout at the pinned commit
 """
-import argparse, hashlib, json, pathlib, sys
+import argparse, functools, hashlib, json, pathlib, sys
 
 import numpy as np
 
@@ -259,17 +259,23 @@ def drawn_people():
     for path in sorted((ROOT / 'data/humans/instances').glob('*/hi_*.json')):
         inst = json.loads(path.read_text())
         if inst.get('person_id'):
-            out.setdefault(inst['person_id'], {'scene': str(inst['scene']), 'drawn_as': []})['drawn_as'].append(str(path.relative_to(ROOT)))
+            d = out.setdefault(inst['person_id'], {'scene': str(inst['scene']), 'drawn_as': []})
+            d['drawn_as'].append(str(path.relative_to(ROOT)))
+            d.setdefault('bodies', []).append((inst.get('appearance') or {}).get('asset_id'))
     loops = json.loads((ROOT / 'data/transport/driven/loops.json').read_text())
     for row in loops.get('rows', []):
         if row.get('person_id'):
-            out.setdefault(row['person_id'], {'scene': str(row['scene']), 'drawn_as': []})['drawn_as'].append(f"data/transport/driven/loops.json#{row['id']}")
+            d = out.setdefault(row['person_id'], {'scene': str(row['scene']), 'drawn_as': []})
+            d['drawn_as'].append(f"data/transport/driven/loops.json#{row['id']}")
+            d.setdefault('bodies', []).append(row.get('driver_asset'))
     # Carded people drawn only when asked for at their door (T-3500): their figure is built
     # then, from the same row as anyone's.
     for scene in RESIDENTS:
         inside = ROOT / f'data/humans/inside_{scene}.json'
         for row in json.loads(inside.read_text()).get('people', []) if inside.exists() else []:
-            out.setdefault(row['person'], {'scene': scene, 'drawn_as': []})['drawn_as'].append(f"data/humans/inside_{scene}.json#{row['person']}")
+            d = out.setdefault(row['person'], {'scene': scene, 'drawn_as': []})
+            d['drawn_as'].append(f"data/humans/inside_{scene}.json#{row['person']}")
+            d.setdefault('bodies', []).append(row.get('asset_id'))
     for path in sorted(FITS.glob('*.json')) if FITS.exists() else []:
         fit = json.loads(path.read_text())
         # A fitted face is carried for the person whether or not a figure draws them yet.
@@ -309,6 +315,34 @@ def dresses():
                     raise SystemExit(f'{pid} is dressed by two files ({f.name} and another dress file)')
                 _DRESSES[pid] = rec
     return _DRESSES
+
+
+@functools.lru_cache(maxsize=None)
+def kit_assets():
+    return json.loads(AXES.read_text())['assets']
+
+
+@functools.lru_cache(maxsize=None)
+def library():
+    return face_library.kit_block() or {}
+
+
+def skin_of(bodies, sex):
+    """T-3553: the body whose skin a person drawn on bodies of more than one skin wears on all of them.
+
+    Kevin, 2026-11-15, of the three 1904 coachmen, each drawn on the box of his carriage and at
+    his own door on another body of a lighter skin: one skin on both bodies. It is the skin most
+    bodies of the person's sex wear, which the face library reads the person's tone from
+    (tools/face_library.py person_tone), where one of their bodies wears it; else their first
+    body's. None for a person drawn on one skin, or on a body the library does not know.
+    human-variation.js brings each other body's skin to it (libraryFace `even`).
+    """
+    lib = library()
+    known = [b for b in dict.fromkeys(bodies) if b and b in lib.get('bodies', {})]
+    if len({tuple(lib['bodies'][b]['gain']) for b in known}) < 2:
+        return None
+    tone = (lib.get('person_tone_rgb') or {}).get('male' if sex == 'male' else 'female')
+    return next((b for b in known if lib['bodies'][b]['tone_rgb'] == tone), known[0])
 
 
 def persons():
@@ -426,13 +460,20 @@ def persons():
                 rec['dress']['headcloth'] = hair['headcloth']['rgb']
             if rec.get('looks', {}).get('hair'):
                 rec['looks']['hair'] = {**rec['looks']['hair'], **{k: hair[k] for k in ('cut', 'drawn') if hair.get(k)}}
+        # The sex the app draws them as: their record's, else their first body's (a body the kit
+        # does not list is a man's, as human-variation.js takes it).
+        bodies = drawn.get('bodies', [])
+        sex = rec.get('sex') or (kit_assets().get(bodies[0], {}).get('sex', 'male') if bodies else 'male')
+        skin = skin_of(bodies, sex)
+        if skin:
+            rec['skin_of'] = skin
         out[pid] = rec
     # T-3553: one person a line, each compact. With every woman's season dresses the indented
     # file grew past 3.8 MB of whitespace the renderer fetches and a phone parses; a line a
     # person keeps a diff readable person by person at 2.6 MB.
     head = {'format': 'chicago4d_human_variation_persons_v1', 'ticket': 'T-3412',
             'generated_by': 'tools/human_variation_kit.py',
-            '_doc': 'Each drawn person\'s age (from their own record: a birth date, else an age band), any face fitted to a picture of them, any skin sheet baked on that face (T-3553), any looks (complexion, hair, eyes, stature; T-3491), and their dress (T-3506, T-3553). One person a line. renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.'}
+            '_doc': 'Each drawn person\'s age (from their own record: a birth date, else an age band), any face fitted to a picture of them, any skin sheet baked on that face (T-3553), any looks (complexion, hair, eyes, stature; T-3491), their dress (T-3506, T-3553), and for a person drawn on bodies of more than one skin the body whose skin they wear on all of them (`skin_of`, T-3553). One person a line. renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.'}
     lines = [f' {json.dumps(k)}: {json.dumps(v, separators=(",", ":"), ensure_ascii=False)}' for k, v in out.items()]
     text = json.dumps(head, indent=1, ensure_ascii=False)[:-2] + ',\n "persons": {\n' + ',\n'.join(lines) + '\n }\n}\n'
     json.loads(text)
