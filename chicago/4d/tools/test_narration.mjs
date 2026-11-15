@@ -257,8 +257,12 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
     el.dispatchEvent(new Event('waiting'));
     el.readyState = 2; el.dispatchEvent(new Event('timeupdate'));
     assert.equal(v.voice(), null, 'time told with no data in hand is still waiting');
+    el.readyState = 3; el.dispatchEvent(new Event('timeupdate'));
+    assert.equal(v.voice()?.speaker, 'glessner_john_j', 'time moving with data for the next moment in hand (3) is playing');
+    el.dispatchEvent(new Event('waiting'));
+    assert.equal(v.voice(), null);
     el.readyState = 4; el.dispatchEvent(new Event('timeupdate'));
-    assert.equal(v.voice()?.speaker, 'glessner_john_j', 'time moving with data in hand is playing');
+    assert.equal(v.voice()?.speaker, 'glessner_john_j', 'and so is time moving with data enough to play through (4)');
     el.dispatchEvent(new Event('waiting'));
     v.stop(); v.at(jaunt, 'stop', 'frances'); v.toggle(jaunt, 'stop', 'john'); await Promise.resolve(); await Promise.resolve();
     assert.equal(v.voice()?.speaker, 'glessner_john_j', 'a clip begun afresh is not held to the last one\'s wait');

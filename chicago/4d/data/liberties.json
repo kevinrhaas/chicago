@@ -70809,7 +70809,7 @@
       "subjects": [],
       "covers": [],
       "recorded": "2026-11-07",
-      "revised": "2026-11-13",
+      "revised": "2026-11-14",
       "fields": [
         {
           "label": "Decision",
@@ -70858,6 +70858,18 @@
         {
           "label": "Still not built",
           "text": "the flank crown's moulded curb, about 0.7 m deep (K08 has none); the south flank's window drawn in the print on the upper storey only (the build lights both storeys there). The 1874 Land Owner engraving is still not read. The south-east-face crown dormer listed above was a misreading (the match record)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-14 (T-1886): both crowns' curbs are moulded cornices. The photograph draws the flank crown's curb as a band about 0.7 m deep (y 205-245 px) under the cresting, its top projecting over its face, and the front crown's the same through the trees; K08 had laid a bare curb with the slate running up to it. K08 gains `roof.mansard.curb_mould` (new here): a fascia hanging `depth_m` from the curb, its face `proud_m` out from the curb line and closed underneath back to the lower face, under a cap `cap_m` high and `cap_proud_m` further out, its top level with the curb, every tier mitred round the hips."
+        },
+        {
+          "label": "Read",
+          "text": "the band's depth and its projecting top."
+        },
+        {
+          "label": "Invented",
+          "text": "the profile, two plain grades (a 0.45 m fascia 0.13 m past the lower face at its foot, a 0.25 m cap 0.12 m beyond it) standing for mouldings the print does not resolve, and its paint, the eaves' own (the print is monochrome)."
         }
       ],
       "work_refs": [
@@ -74471,6 +74483,34 @@
       ]
     },
     {
+      "id": "L-k01-1815-roof-iron-3562",
+      "title": "1815 Prairie's roof iron: the curb's cresting, the pavilion's cross and the street dormer's finial read off the square-on print, their patterns reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the mansard of Joseph Sears's house at 1815 Prairie takes the iron the square-on photograph ([1815 S. Prairie Ave. (Joseph Sears house, the left print) shows on its roof, where the build had none of it, and its street dormer is re-read to the print's height. **What is read, not invented.** Through earlier work's solved camera (66.7 px a metre on the mansard's face): along the curb a pierced iron band, its top rail a dark line at y 146-150 px with hung ornaments under it and its foot on a dark line at y 178 over the slates, about 0.45 m, the sky straight over its rail; the oblique print shows the same band on the south flank's curb. On the pavilion crown's apex a cross over a square block and a flared cap, y 30-93 px, about 0.9 m: the block about 0.14 m across, the cap about 0.4 m, the cross from 0.6 of its height, its arms near the top. On the street dormer's gable a finial about 0.45 m, y 93-130 px. The dormer's light y 230-347 px (about 1.7 m; the build's 1.35) and its gable's foot and apex at y 187 and 135 (a pitch of about 42 degrees; the build's 50). **What is invented.** The cresting's pattern is the K10 kit's (k10.cresting.iron ridge: posts, C-scrolls and spears) stretched to the print's height, where the print's are hung trefoils under a rail; it runs on the two curbs the prints show (the street's and the south flank's) and on neither of the two they do not, and stops 0.1 m short of the crown's slates where the crown stands through the curb (k01 mansard deck crown gap). The cross's sections are square, its proportions this module's from the print's outline (k01 mansard deck cross). The dormer's finial is the dormer ornament's turned one, where the print's is a three-lobed fleur-de-lis of the same height and width. The dormer's light is 1.65 m and its frieze 0.05 m, 0.15 m short of the print's together: K01 holds a lower-face dormer's head 0.1 m under the curb, and the print's gable rises through the cresting. **Not changed here.** The curb's height: the build's stands about 0.2 m high on the square-on print and about 0.8 m low on the oblique, and its low deck shows dark through and over the cresting where the square-on print shows sky (both match records keep it open)."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a clearer print of the roof; the curb's height solved across the two views, after which the cresting and the dormer are re-read on it."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-14."
+        }
+      ],
+      "work_refs": [
+        "T-3562",
+        "T-1893",
+        "T-3155"
+      ]
+    },
+    {
       "id": "L-1812-staged-jaunts-3553",
       "title": "The 1812 story jaunts played by their people: who stands where at each stop, when they move, and what is left out",
       "section": "per_subject",
@@ -74537,7 +74577,7 @@
       "subjects": [],
       "covers": [],
       "recorded": "2026-11-14",
-      "revised": null,
+      "revised": "2026-11-15",
       "fields": [
         {
           "label": "Decision",
@@ -74558,6 +74598,10 @@
         {
           "label": "Recorded",
           "text": "2026-11-14."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-15 (T-3553): a person's tone, by which the nearer faces are the likelier, is now read from the skin most bodies of their sex wear (the record's `texture.person_tone`: the skin of 17 of the 19 men's bodies and of 13 of the 14 women's; a person recorded as neither sex is read as a woman, as for the face they wear), under their recorded complexion, and no longer from the body they happen to be drawn on. A third review of this entry's work found why it matters: six people are drawn on two bodies, and the three coachmen of 1904, who sit a carriage's box on one body and stand at their own door on another of a lighter skin, could draw two faces. Joseph Daniels did: one face on the box and a freckled one at his door, against this entry's \"the same face on every visit\". The draw now reads nothing of the body, so a person wears one face on every body they are drawn as, and only the multiplication that brings the face to the skin around it is each body's own. Which skin stands for a sex is ours: a count of the bodies as they are, not a finding about anybody; a body added later can move it, and with it some people's faces. The count above missed those three coachmen, and it called everyone without a library face a keeper of their body's own: as the records stand today 1,212 people are drawn, of whom 832 take a face from the library, 354 keep their body's own skin by the draw, and 26 have a face fitted to pictures of them (the two Greys among them, on sheets of their own). And the record's row on the three near-copies left out said the pack's order of its files decided which of each pair was kept; it did not (the left-out skin comes first in all three pairs): the one kept is the atlas with the lower number in its own file name, never the pack's name for either."
         }
       ],
       "work_refs": [
