@@ -43794,7 +43794,7 @@ Taylor's 1893 view), with the group's height read through ICHi-19208's camera (2
   hip, Black Partridge's headband with its knot, standing feather and streamer, and his musket. Their
   outlines, places and lengths are the plates'; their sections and thicknesses, the blade's and the
   butt's profiles across, the band's wrap round the back of the head and the pouch's four tails as
-  the whole of its fringe are this project's. Faces, hair, the dress folds of every figure but Mrs. Helm and the
+  the whole of its fringe are this project's. **Where two figures look and turn** is the plates' since later work: the warrior's face bowed to Mrs. Helm's shoulder and his chest turned to her over hips that face his lunge, Black Partridge's face in profile to the warrior and his chest turned a third of the way to him. The heads stay where they were read and are turned and nodded on the neck; the shoulders keep their read x and height. The depths that set the turns are this project's: the warrior's old reading put his right shoulder 0.13 m behind his left, inside Taylor's 0.15 m depth resolution, and both plates show his chest and belly turned the other way. So are the angles: the chest about 30 degrees right of the street and the hips about 15 degrees left, the spine carrying the difference a third at a time. Faces, hair, the dress folds of every figure but Mrs. Helm and the
   whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of
   1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the
   photographs are monochrome.
