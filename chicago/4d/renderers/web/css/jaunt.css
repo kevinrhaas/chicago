@@ -19,6 +19,8 @@
 .jaunt-resources { display: flex; flex-wrap: wrap; gap: 5px; list-style: none; padding: 0; margin: 8px 0 10px; }
 .jaunt-resources li { white-space: nowrap; font-size: .78rem; padding: 4px 7px; border: 1px solid #88968c; border-radius: 999px; background: #ffffff0d; }
 .jaunt-choices { display: grid; gap: 7px; }
+.jaunt-stage { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 8px 0; }
+.jaunt-stage-caption { flex: 1 1 14em; margin: 0; font-size: .86rem; opacity: .82; }
 .jaunt-choice { display: grid; grid-template-columns: minmax(112px, auto) 1fr; gap: 8px; align-items: center; }
 .jaunt-choice small { line-height: 1.3; opacity: .84; }
 .jaunt-choices [aria-pressed=true] { border-color: #ead09e; background: #c9a96233; }

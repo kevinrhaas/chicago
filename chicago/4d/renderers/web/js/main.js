@@ -94,6 +94,7 @@ import { mountHumans } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
 import { createHumanDays, createDayRouter, clearWayOf } from './human-days.js';
 import { createJauntHosts } from './jaunt-hosts.js';
+import { createJauntStage } from './jaunt-stage.js';
 import { createHumanSpacing, BODY_R_M } from './human-spacing.js';
 import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
@@ -4047,6 +4048,16 @@ async function boot() {
       };
       return api.humans.add(rec, { person: byPerson.get(entry.person) ?? { id: entry.person, name: entry.name } });
     };
+    // T-3553: a gathering's inside-only resident cast in a jaunt's stage is built from the
+    // same record a door call builds (their dress, their card).
+    const insideBy = new Map((inside?.people ?? []).map((row) => [row.person, row]));
+    api.stagePerson = (id) => {
+      const entry = insideBy.get(id);
+      if (!entry?.asset_id) return null;
+      return { person: byPerson.get(id) ?? { id, name: entry.name },
+        instance: { id: `hi_inside_${id}`, contract_version: 1, scene: daysScene, person_id: id, appearance: { asset_id: entry.asset_id },
+          placement: { local_e: 0, local_n: 0, heading_deg: 0, anchor: 'terrain' }, provenance: entry.provenance ?? null } };
+    };
     const dayClear = clearWayOf(footprints.concat(lodgeWalls), { barriers: houseBarriers });
     api.days = createHumanDays({ humans: api.humans, three: THREE, hour: sunHour, date: () => world.sunDate ?? null,
       doors, interactions, inside, spawn,
@@ -5649,7 +5660,7 @@ async function boot() {
         modeNote: (jaunt) => jauntWay(jaunt).note,
         license, narration,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
-      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => {
+      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext', 'replay'].map(name => [name, (...args) => {
         // T-3578: Next, Previous and End are the visitor moving on: the voice still speaking stops
         // (and nothing it had queued plays), rather than talking over the next part.
         if (['next', 'prev', 'end'].includes(name)) narration.stop();
@@ -5734,6 +5745,19 @@ async function boot() {
           },
           release: () => { api.jauntHosts?.release(); gateFrame.invalidate(); },
         },
+        // T-3553: a stop's history played by its people (jaunt-stage.js).
+        stage: {
+          sync: (stop, { arrived }) => {
+            if (!api.humans) return;
+            api.jauntStage ??= createJauntStage({ humans: api.humans, parent: api.humans.group,
+              resolve: (id) => api.stagePerson?.(id) ?? null, tier: () => api.humans?.tier ?? 'full',
+              eye: () => camera.getWorldPosition(new THREE.Vector3()) });
+            api.jauntStage.sync(stop, { arrived });
+            gateFrame.invalidate();
+          },
+          replay: () => { const ok = api.jauntStage?.replay() ?? false; gateFrame.invalidate(); return ok; },
+          release: () => { api.jauntStage?.release(); gateFrame.invalidate(); },
+        },
         showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
         closeDetail: jauntCards.close,
         openDetail: jauntCards.open, onError: jauntError,
@@ -5754,7 +5778,7 @@ async function boot() {
     modeFor: (jaunt) => jauntWay(jaunt),
     async daybook() { await ensureJaunts(); return jauntPreview.daybook(); },
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
-    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
+    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext', 'replay'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
   // T-2561: "Keep <year> on this device" on the welcome — the year's pack in Cache
   // Storage behind a service worker, so a kept year boots from disk, offline too.
@@ -6682,6 +6706,8 @@ async function boot() {
     }
     api.days?.update(frameDt);
     api.jauntHosts?.update(frameDt);
+    // T-3553: a jaunt stop's staged history plays on the same clock as the people.
+    api.jauntStage?.update(frameDt);
     // T-3524: the doors people hold open swing toward open, or shut behind them.
     api.houseDoors?.update?.(frameDt);
     // T-3504: and then nobody stands in anybody else (human-spacing.js).
