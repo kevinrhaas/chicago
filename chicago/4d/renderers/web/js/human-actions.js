@@ -245,7 +245,10 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
   // Figure-frame vector → world, and the scene's world frame.
   const sceneQ = new THREE.Quaternion(), sceneM = new THREE.Matrix4();
   const toWorldDir = (v) => v.clone().applyQuaternion(sceneQ);
-  const toWorldPos = (v) => v.clone().applyMatrix4(sceneM);
+  // T-3553: kneeling, crouched or seated (human-life.js POSTURES), the body is `sink` metres
+  // lower than the landmarks the hands are placed from, so every reach is taken down with it.
+  let sink = 0;
+  const toWorldPos = (v) => v.clone().setY(v.y - sink).applyMatrix4(sceneM);
   const qa = new THREE.Quaternion(), qb = new THREE.Quaternion(), va = new THREE.Vector3(), vb = new THREE.Vector3();
 
   /**
@@ -616,9 +619,12 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     greet() { if (greeting === 'nod') { nodRequest = 1; return api; } if (greet < 0) { greet = 0; nodRequest = 1; } return api; },
     /** One-shot: true once after a greeting starts, for the life layer to nod. */
     takeNod() { const n = nodRequest; nodRequest = 0; return n > 0; },
-    apply(dt, { state = 'standing', root: r = null, viewer = null, gait = null } = {}) {
+    apply(dt, { state = 'standing', root: r = null, viewer = null, gait = null, sink: down = 0, posed = 0 } = {}) {
       if (!bound) return;
       root = r;
+      sink = Number.isFinite(down) && down > 0 ? down : 0;
+      // T-3553: a held posture lets the standing hand poses go (the arms hang from the body).
+      const still = Number.isFinite(posed) ? Math.min(1, Math.max(0, posed)) : 0;
       dt = Number.isFinite(dt) && dt > 0 ? Math.min(dt, 0.1) : 0;
       time += dt;
       rebase();
@@ -733,8 +739,8 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         const wIn = smooth(poseW), wOut = 1 - wIn;
         for (const s of SIDES) {
           if ((greet >= 0 && s === 'r') || s === hold?.side) continue;
-          for (const [name, w] of [[prevPose, wOut], [pose, wIn]]) {
-            const t = poseTargets(name, s);
+          for (const [name, w0] of [[prevPose, wOut], [pose, wIn]]) {
+            const t = poseTargets(name, s), w = w0 * (1 - still);
             if (!t || !(w > 1e-3)) continue;
             reach(s, toWorldPos(t.wrist), toWorldDir(t.pole), w);
             bones[`lowerarm_${s}`].updateMatrixWorld(true);

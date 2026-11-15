@@ -317,4 +317,36 @@ async function gaitRun({ speed = 1.25, move = true, pass = true, weight = 1, fra
   runs[0].forEach((x, i) => assert(Math.abs(x - runs[1][i]) < 1e-12, 'same person, same motion'));
   assert(runs[0].some((x, i) => Math.abs(x - runs[2][i]) > 1e-4), 'two people move differently');
 }
+// T-3553 (owner, 2026-11-14: "laying down or kneeling in preparation for the attack"): a held
+// posture folds the legs and brings the pelvis down to where the planted leg holds it, on real
+// 1812 bodies: kneeling, the down knee and the planted foot on the ground; crouched and sitting,
+// the feet (and the seat) there; nothing below the ground; standing again, as before.
+{
+  const { POSTURES } = await import(data((await js('human-life.js')).replace("from './driver-life.js'", `from '${driverLife}'`)));
+  for (const [asset, lod] of [['potawatomi_man_1812', 1], ['potawatomi_woman_1812', 2], ['c4d_fixture', 1]]) {
+    const r = await rig(asset, lod, 'idle');
+    const life = createHumanLife({ id: `t3553:${asset}`, scene: r.scene });
+    const y = n => world(r.bone(n)).y - 0.3;
+    const at = (posture) => {
+      for (let i = 0; i < 30; i++) { r.mixer.update(1 / 30); life.apply(1 / 30, { state: 'standing', root: r.root, viewer: null, posture }); }
+      r.root.updateMatrixWorld(true);
+      return { pelvis: y('pelvis'), knee: { l: y('calf_l'), r: y('calf_r') }, ankle: { l: y('foot_l'), r: y('foot_r') } };
+    };
+    const stand = at(null);
+    const kneel = at({ kind: 'kneel', w: 1 });
+    assert(kneel.pelvis < stand.pelvis - 0.3, `${asset}: kneeling brings the pelvis down (${stand.pelvis.toFixed(2)} -> ${kneel.pelvis.toFixed(2)} m)`);
+    assert(kneel.knee.r > -0.02 && kneel.knee.r < 0.12, `${asset}: the down knee is on the ground (${kneel.knee.r.toFixed(3)} m)`);
+    assert(Math.abs(kneel.ankle.l - stand.ankle.l) < 0.05, `${asset}: the planted foot stays on the ground (${kneel.ankle.l.toFixed(3)} vs ${stand.ankle.l.toFixed(3)} m)`);
+    const two = at({ kind: 'kneel2', w: 1 });
+    assert(two.knee.l > -0.02 && two.knee.l < 0.12 && two.knee.r > -0.02 && two.knee.r < 0.12, `${asset}: on both knees, both on the ground`);
+    const crouch = at({ kind: 'crouch', w: 1 });
+    assert(crouch.pelvis < stand.pelvis - 0.35 && Math.min(crouch.ankle.l, crouch.ankle.r) > -0.03 && Math.max(crouch.ankle.l, crouch.ankle.r) < 0.15, `${asset}: crouched low, the feet on the ground (pelvis ${crouch.pelvis.toFixed(2)} m)`);
+    const sit = at({ kind: 'sit', w: 1 });
+    assert(sit.pelvis < 0.3 && sit.pelvis > 0.02, `${asset}: sitting on the ground (pelvis ${sit.pelvis.toFixed(2)} m)`);
+    const back = at(null);
+    assert(Math.abs(back.pelvis - stand.pelvis) < 0.03, `${asset}: up on the feet again`);
+    console.log(`posture ${asset} LOD${lod}: pelvis stand ${stand.pelvis.toFixed(2)} kneel ${kneel.pelvis.toFixed(2)} (knee ${kneel.knee.r.toFixed(2)}) crouch ${crouch.pelvis.toFixed(2)} sit ${sit.pelvis.toFixed(2)}: PASS`);
+  }
+  assert(POSTURES.prone.root === 90 && POSTURES.lie.root === -90 && POSTURES.lie.still, 'lying is a tip of the whole figure; lying still stills it');
+}
 console.log('human life: PASS');
