@@ -17206,6 +17206,23 @@ for (const [label, viewport, touch] of [
           streetSetting: a.hud.settings.streetNames, readoutHidden: document.getElementById('street-readout')?.hidden ?? null };
       });
       const ovStats = () => page.evaluate(() => { const a = window.__chicago4d; a.step(); const st = a.stats(); return { programs: st.programs, geometries: st.geometries, calls: st.drawCalls }; });
+      // T-3556: a figure about the visitor changes its level of detail after a teleport or as it
+      // walks, and a level loaded between the two readings is the figure's geometry, not the
+      // overlays'. Once no figure has a level in flight (two polls running), the figures are held
+      // where they are (the frame loop calls `humans.update`) until the second reading is taken.
+      const figuresSettled = () => page.waitForFunction(() => {
+        const a = window.__chicago4d; a.step();
+        const busy = (a.humans?.actors ?? []).some((x) => x.pending);
+        window.__ovQuiet = busy ? 0 : (window.__ovQuiet ?? 0) + 1;
+        if (window.__ovQuiet < 2) return false;
+        const h = a.humans;
+        if (h && !h.heldBySmoke) { h.heldBySmoke = h.update; h.update = () => {}; }
+        return true;
+      }, null, { timeout: 20000, polling: 400 }).catch(() => {});
+      const figuresLetGo = () => page.evaluate(() => {
+        const h = window.__chicago4d.humans; window.__ovQuiet = 0;
+        if (h?.heldBySmoke) { h.update = h.heldBySmoke; delete h.heldBySmoke; }
+      }).catch(() => {});
       const ovSwitch = async (id, want) => {
         const now = await page.evaluate((i) => document.getElementById(`cv-ov-${i}`)?.checked ?? null, id);
         if (now !== want) await clickChrome(`#cv-ov-${id}`);
@@ -17249,6 +17266,7 @@ for (const [label, viewport, touch] of [
         await page.evaluate(() => window.__chicago4d.navigator.dock());
         if (named) await standFacing(named.e, named.n, 35);
         await page.waitForTimeout(800);
+        await figuresSettled();
         const statsOff = await ovStats();
         await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
         await page.waitForTimeout(800);
@@ -17262,6 +17280,7 @@ for (const [label, viewport, touch] of [
         await page.waitForTimeout(300);
         const ovOn = await ovRead();
         const statsOn = await ovStats();
+        await figuresLetGo();
         const cap = (await page.evaluate(() => innerWidth)) <= 620 ? 6 : 12;
         check(`${label}: Building labels float named buildings in sight over the town — at least one, at most ${cap} (T-2650)`,
           !!named && ovOn.layerShown && ovOn.running === true && ovOn.labels >= 1 && ovOn.labels <= cap && ovOn.rows.labels.checked,
@@ -17313,8 +17332,9 @@ for (const [label, viewport, touch] of [
         check(`${label}: the overlay checks ran to their end (T-2650)`, false, String(err?.message ?? err));
       } finally {
         await page.evaluate(async (pose) => {
-          const a = window.__chicago4d, o = a.confidenceOverlays, d = a.days;
+          const a = window.__chicago4d, o = a.confidenceOverlays, d = a.days, h = a.humans;
           if (d?.heldBySmoke) { d.update = d.heldBySmoke; delete d.heldBySmoke; }
+          if (h?.heldBySmoke) { h.update = h.heldBySmoke; delete h.heldBySmoke; }
           for (const id of ['labels', 'people', 'route']) await o?.set(id, false);
           a.walker.teleport(pose);
           await a.navigator.select('home'); a.navigator.dock(); document.activeElement?.blur?.();
