@@ -43,10 +43,10 @@ export function ambienceLabel(ambience) {
   const season = ambience.season ? ambience.season[0].toUpperCase() + ambience.season.slice(1) : '';
   return [hour, season].filter(Boolean).join(' · ');
 }
-export function filterJaunts(rows, query = '', group = '') {
+export function filterJaunts(rows, query = '', group = '', grade = '') {
   const words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
   const byId = new Map(rows.map(row => [row.id, row]));
-  return rows.filter(row => (!group || groupOf(row) === group) && words.every(word =>
+  return rows.filter(row => (!group || groupOf(row) === group) && (!grade || row.grade_band === grade) && words.every(word =>
     `${row.title} ${row.premise} ${row.category} ${groupOf(row)} ${row.primary_family} ${gradeLabel(row.grade_band)}`.toLocaleLowerCase().includes(word)))
     .sort((a, b) => jauntOrder(a, b, row => byId.get(row.version_of)));
 }
@@ -56,8 +56,8 @@ export function filterJaunts(rows, query = '', group = '') {
 export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor = () => null, kept = () => false, preferredMode = () => null, modeNote = () => '' }) {
   const scroll = root.closest('.welcome-region') || root;
   const modes = new Map(), estimates = new Map(), open = new Set();
-  let query = '', family = '', offset = 0, savedScroll = 0, focusKey = null;
-  let rows = [], list, search, pills, clear, previous, more;
+  let query = '', family = '', grade = '', offset = 0, savedScroll = 0, focusKey = null;
+  let rows = [], list, search, pills, grades, clear, previous, more;
   const node = (tag, text = '', cls = '') => {
     const el = document.createElement(tag); el.textContent = text; el.className = cls; return el;
   };
@@ -163,13 +163,14 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
   }
   function windowRows({ focus = false } = {}) {
     // T-2944/T-3584: ranked first, then by group, featured first within each (jauntOrder); no second sort here.
-    const matches = filterJaunts(rows, query, family);
+    const matches = filterJaunts(rows, query, family, grade);
     offset = Math.min(offset, Math.max(0, Math.floor((matches.length - 1) / WINDOW_SIZE) * WINDOW_SIZE));
     list.replaceChildren(...matches.slice(offset, offset + WINDOW_SIZE).map(row => card(row, 'all')));
     if (!matches.length) list.append(node('p', rows.length ? 'No matching outings.' : 'No jaunts are available yet. You can explore on your own.', 'jaunt-empty'));
     previous.hidden = offset === 0; more.hidden = offset + WINDOW_SIZE >= matches.length;
-    clear.hidden = !query.trim() && !family;
+    clear.hidden = !query.trim() && !family && !grade;
     for (const pill of pills.children) if (pill.dataset.family !== undefined) pill.setAttribute('aria-pressed', String(pill.dataset.family === family));
+    for (const pill of grades.children) if (pill.dataset.grade !== undefined) pill.setAttribute('aria-pressed', String(pill.dataset.grade === grade));
     if (focus) {
       const target = list.querySelector('button, h3') || list;
       if (!target.matches('button')) target.tabIndex = -1;
@@ -189,15 +190,27 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
       pill.append(node('span', name || 'All')); pill.setAttribute('aria-label', name || 'All types');
       pill.dataset.family = name; pills.append(pill);
     }
+    // T-3604 (owner, 2026-11-15: "include grade level filters for the jaunts"): the school grades
+    // each jaunt is written for (its grade_band), only those this year's jaunts have.
+    grades = node('div', '', 'jaunt-categories jaunt-grades'); grades.setAttribute('role', 'group'); grades.setAttribute('aria-label', 'Grade levels');
+    grades.append(node('span', 'Grades', 'jaunt-grades-label'));
+    const bands = GRADE_BANDS.filter(b => rows.some(row => row.grade_band === b));
+    for (const band of ['', ...bands]) {
+      const pill = button('', () => { grade = grade === band ? '' : band; offset = 0; windowRows(); }, 'jaunt-pill jaunt-grade-pill');
+      pill.append(node('span', band ? band.replace('-', '–') : 'All'));
+      pill.setAttribute('aria-label', band ? gradeLabel(band) : 'All grades'); pill.title = band ? gradeLabel(band) : 'All grades';
+      pill.dataset.grade = band; grades.append(pill);
+    }
+    grades.hidden = bands.length < 2;
     search.addEventListener('input', () => { query = search.value; offset = 0; windowRows(); });
-    clear = button('Clear filters', () => { query = family = ''; offset = 0; search.value = ''; windowRows(); search.focus(); });
+    clear = button('Clear filters', () => { query = family = grade = ''; offset = 0; search.value = ''; windowRows(); search.focus(); });
     clear.classList.add('jaunt-clear'); pills.append(clear);
     const find = node('div', '', 'jaunt-find'); find.append(icon('search', 16), search);
     // The daybook rides on the search row rather than taking a line of its own.
     const chip = prefix.find(el => el.dataset?.action === 'daybook');
     if (chip) { prefix = prefix.filter(el => el !== chip); }
     const findRow = node('div', '', 'jaunt-find-row'); findRow.append(find, ...(chip ? [chip] : []));
-    const filters = node('div', '', 'jaunt-filters'); filters.append(findRow, pills);
+    const filters = node('div', '', 'jaunt-filters'); filters.append(findRow, pills, grades);
     list = node('div', '', 'jaunt-list'); list.setAttribute('aria-label', 'All jaunts');
     previous = button('Earlier outings', () => { offset -= WINDOW_SIZE; windowRows({ focus: true }); });
     more = button('More outings', () => { offset += WINDOW_SIZE; windowRows({ focus: true }); });
