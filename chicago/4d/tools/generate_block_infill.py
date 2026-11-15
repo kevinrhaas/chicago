@@ -2172,8 +2172,13 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
     # what now refuses a lot the programme has already filled.
     parcel = {sid for sid, _ in footprints(datum)
               if sid.startswith(f"{PREFIX}{block['block_id'][len('blk_'):]}_")}
+    # T-3605: the stores raised to Gifford's drawing stand at the street on Lake and
+    # Dearborn lots this parcel also deals, and a store at the street with a dwelling
+    # behind it on one lot is the owner's 2026-08-27 business-front clause. So they do not
+    # bar a lot here; the separation gate below still holds every roof clear of them.
+    drawn = {sid for sid, _ in footprints(datum) if sid.startswith("recon_1835_gifford_")}
     occupied = exclusive_lots({"blocks": [grid]}, datum,
-                              exclude=mine_ids | parcel).get(block["block_id"], {})
+                              exclude=mine_ids | parcel | drawn).get(block["block_id"], {})
     # The lots the owner's clause is HOLDING OPEN on this block — a documented store at
     # the street on a declared business-front lot, which `occupied` therefore does not
     # report. T-1053: while every declared front lot was also ground the run was dealt,

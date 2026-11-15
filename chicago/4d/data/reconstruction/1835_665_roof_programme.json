@@ -14,7 +14,7 @@
  ],
  "method": {
   "roof_not_record": "A structure record is not a roof. Bridges, piers, palisades, parade grounds, yards and a building the chronology puts outside July 1835 contribute nothing; the physical-roof reconciliation decides, record by record.",
-  "capacity": "3 principal roofs per platted lot plus ancillary at the programme's own 158:510 ratio (T-0079, the core density standard). The frontage rule is measured at the worst case: the smallest lot on the committed grid carries 23.56 m, the plat module keeps 1.5 m clear of a side line at each end of a run, and the eighteen committed party-line units average 6.072 m wide — so three fit on the meanest lot in the town and the fourth does not. It replaces one roof per lot, which five of the twelve core blocks already stood above. Capacity is a ceiling; `block_rooms` carries the restraint.",
+  "capacity": "3 principal roofs per platted lot plus ancillary at the programme's own 158:529 ratio (T-0079, the core density standard). The frontage rule is measured at the worst case: the smallest lot on the committed grid carries 23.56 m, the plat module keeps 1.5 m clear of a side line at each end of a run, and the eighteen committed party-line units average 6.072 m wide — so three fit on the meanest lot in the town and the fourth does not. It replaces one roof per lot, which five of the twelve core blocks already stood above. Capacity is a ceiling; `block_rooms` carries the restraint.",
   "lot_ceiling": "T-0834. `principal_room` is party-line units counted against whole lots, and the generator places by lots: an ordinary principal roof stands ON a free lot, one to a lot, and only a frontage run the recipe NAMES carries 3 of them. So every open unit states both numbers — `lot_ceiling_principal`, what it holds with no run on it (its free lots, less the one it keeps open), and `row_lots_required`, the fewest lots of frontage a run must be dealt for the principal roofs it WAS dealt to stand at all. Where the second is above zero the sizing is conditional and says so, instead of leaving the difference to be absorbed into the district balance unremarked; tools/generate_block_infill.py refuses a parcel that does not meet it.",
   "overrun": "Where evidence has put more roofs into a family than the target allows, the excess is reported and the remainder is reduced in the families with the most slack. A documented roof is never removed to protect a family cap.",
   "family_mix": "An apportionment of the district's remainder across its schedule units, not a claim about any block. Hamilton's method throughout, so every marginal closes exactly.",
@@ -71,28 +71,28 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 688,
+  "structure_records": 707,
   "physical_roofs": {
-   "min": 668,
-   "max": 669,
+   "min": 687,
+   "max": 688,
    "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
   },
   "by_source": {
-   "generated": 529,
+   "generated": 548,
    "inferred_household_programme": 7,
    "pre_existing": 101,
    "retired_household_roofs": 31
   },
   "by_district": {
-   "south": 365,
+   "south": 384,
    "west": 135,
    "north": 152,
    "fort": 16
   },
   "by_group": {
    "ordinary_dwellings": 335,
-   "larger_boarding_houses": 42,
-   "stores_mixed_use": 53,
+   "larger_boarding_houses": 45,
+   "stores_mixed_use": 69,
    "inns_taverns": 10,
    "workshops": 31,
    "warehouses_freight": 20,
@@ -107,9 +107,9 @@
    "A3": 40,
    "A4": 28,
    "A5": 17,
-   "C1": 19,
-   "C2": 14,
-   "C3": 16,
+   "C1": 20,
+   "C2": 18,
+   "C3": 27,
    "C4": 4,
    "D1": 57,
    "D2": 38,
@@ -124,7 +124,7 @@
    "F4": 2,
    "H1": 19,
    "H2": 14,
-   "H3": 9,
+   "H3": 12,
    "I1": 4,
    "I2": 2,
    "I3": 3,
@@ -165,7 +165,7 @@
  },
  "remaining": {
   "roofs": 0,
-  "of_target": 668,
+  "of_target": 687,
   "by_district": {
    "south": 0,
    "west": 0,
@@ -244,7 +244,7 @@
  "coverage": {
   "schedulable_on_committed_ground": 0,
   "gated_on_coverage": 0,
-  "statement": "0 of the 0 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 0 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "statement": "0 of the 0 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 0 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 687-roof programme is coverage, not recipes.",
   "platted_lots": 480,
   "blocks_named": 95,
   "southern_ground": {
@@ -346,7 +346,7 @@
    },
    "lots": 8,
    "capacity_roofs": 31,
-   "standing_roofs": 18,
+   "standing_roofs": 20,
    "free_lots": 0,
    "principal_room": 0,
    "ancillary_room": 0,
@@ -371,8 +371,8 @@
    },
    "lots": 8,
    "capacity_roofs": 31,
-   "standing_roofs": 13,
-   "free_lots": 1,
+   "standing_roofs": 30,
+   "free_lots": 0,
    "principal_room": 0,
    "ancillary_room": 0,
    "headroom": 0,

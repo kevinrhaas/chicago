@@ -2440,6 +2440,12 @@ step "Canal approach trade roofs match their bounded recipe" \
   python3 tools/generate_canal_approach_trade.py --check
 selftest "Canal trade placement refuses collisions and missing ground" \
   python3 tools/generate_canal_approach_trade.py --self-test
+# T-3605: the Lake and Dearborn street faces round the first Tremont House, built to the
+# Gifford drawing the Tremont was photo-matched to (L-number in docs/LIBERTIES.md).
+step "Gifford street-face roofs match their photo-matched recipe" \
+  python3 tools/generate_gifford_street_faces.py --check
+selftest "…and its validator refuses overlaps and roofs off the frontage" \
+  python3 tools/generate_gifford_street_faces.py --self-test
 step "Canal trade roofs have existing keepers without invented homes" \
   python3 tools/canal_approach_occupancy.py --check
 selftest "Canal trade occupancy preserves identities and lodging constraints" \

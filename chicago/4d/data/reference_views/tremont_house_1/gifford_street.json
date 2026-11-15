@@ -1,0 +1,59 @@
+{
+  "structure_id": "tremont_house_1",
+  "source_id": "gifford_tremont_house_no_1",
+  "photo": "../../../../reference/images/chicago/chicago_first_tremont_house_1833.jpg",
+  "image_px": [
+    1637,
+    796
+  ],
+  "principal_px": [
+    468.2747693455644,
+    460.63883228759966
+  ],
+  "focal_px": 1320.031937501163,
+  "eye": [
+    -47.51829894710495,
+    -37.89004630139154,
+    2.4453554996967415
+  ],
+  "yaw_deg": 28.15896409466343,
+  "sun_uvy": [
+    -1,
+    -0.4,
+    1.4
+  ],
+  "solve": "The Tremont House's own Gifford camera (gifford.json), unchanged, with the street it stands in rendered round it: the nineteen stores and blocks T-3605 raised to this drawing on Lake and Dearborn, and the Tremont's stable, Bates's auction room the two cottages behind the Lake row, and the stores and houses on the south side of Lake west of Dearborn, at the drawing's left edge. The hotel is the anchor, so the camera is in its footprint frame and moved with it when it was turned to 270. This view judges the rows, not the hotel; gifford.match.json stays the hotel's record.",
+  "diagnostic_only": true,
+  "library_image": "early-gifford-first-tremont",
+  "scene": "1835",
+  "also_render": [
+    "recon_1835_gifford_c1_010",
+    "recon_1835_gifford_c2_001",
+    "recon_1835_gifford_c2_009",
+    "recon_1835_gifford_c2_011",
+    "recon_1835_gifford_c2_016",
+    "recon_1835_gifford_c3_002",
+    "recon_1835_gifford_c3_003",
+    "recon_1835_gifford_c3_005",
+    "recon_1835_gifford_c3_006",
+    "recon_1835_gifford_c3_007",
+    "recon_1835_gifford_c3_008",
+    "recon_1835_gifford_c3_012",
+    "recon_1835_gifford_c3_013",
+    "recon_1835_gifford_c3_014",
+    "recon_1835_gifford_c3_015",
+    "recon_1835_gifford_c3_017",
+    "recon_1835_gifford_h3_004",
+    "recon_1835_gifford_h3_018",
+    "recon_1835_gifford_h3_019",
+    "tremont_house_1_stable",
+    "bates_auction_room",
+    "recon_1835_blk_south_water_clark_d4_02",
+    "recon_1835_blk_south_water_clark_d3_03",
+    "recon_1835_south_c3_015",
+    "recon_1835_south_d5_016",
+    "recon_1835_south_d4_014",
+    "inf_butcher_market",
+    "recon_1835_south_d3_013"
+  ]
+}

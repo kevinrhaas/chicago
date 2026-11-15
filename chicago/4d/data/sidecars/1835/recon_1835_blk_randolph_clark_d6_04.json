@@ -173,46 +173,49 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D6 family to satisfy the block's scheduled mix; no occupant or individual use is known."
-    },
-    "occupants": {
-      "value": "[tin, sheet iron and stove manufactory, proprietor not recovered] — tin, sheet iron and stove work",
-      "confidence": "reconstructed",
-      "sources": [
-        "chicago_democrat_1833_1835"
-      ],
-      "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on Dearborn Street AND NOTHING NARROWER — 1 printing, 1835-05-20 to 1835-05-20, claims chicago_democrat_1835_05_20#c019 — so it takes the STREET FACE and not a lot. THE ROOF ENDS ITS PLATTED TIER AGAINST Dearborn Street, so it is a corner building and stands on that street as well as on the one its lot faces — the owner's ruling of 2026-08-30 (T-0416). Nothing about the roof changed and no geometry was raised to seat this business. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
     }
   },
-  "residents": [],
-  "citations": [
+  "residents": [
     {
-      "source_id": "chicago_democrat_1833_1835",
-      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
-      "url": "",
-      "archived_url": "",
-      "tier": 1,
-      "tier_label": "period/eyewitness",
-      "what_it_supplies": [
-        "that a named trade was being carried on in Chicago in a named week, and often where",
-        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
-        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
-        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
-        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
-        "arrivals and clearances, which date the piers and the harbour as working structures",
-        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
-        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
-        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      "household": "hh_taylor_c",
+      "name": "The Mrs C. Taylor household — a house on Water Street",
+      "division": "unplaced",
+      "relation": "boarded here",
+      "why": "boarding in the division's least crowded dwelling",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
+      "persons": [
+        {
+          "name": "Mrs. C. Taylor",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "none_recorded",
+          "note": "A CONTEMPORARY CHICAGO PAPER PRINTS THIS WOMAN BY NAME, IN THE TOWN, KEEPING A HOUSE ON WATER STREET. The Chicago Democrat of 19 August 1835, page 3 column 2, over copy dated Chicago, 10 August 1835: \"The Ladies and Gen[t]lemen of the town of Chicago are respec[t]fully in[v]ited to attend a sale of the \\\"Juvenile Society's\\\" work, [at] 3 o'clock P.[M.] next Saturday, the 22d inst., at the hous[e] of Mrs. C. Taylor, Water-st.\" THE GRADE IS THE OWNER'S RATIFIED LADDER (T-0513), rung G1b: an 1833-1835 newspaper naming the person in Chicago is `attested` on its own, and this printing names her, the town and her house at once.\n\nWHY THE TOWN HAD NO CARD FOR HER, WHICH IS A FINDING ABOUT THE RULES AND NOT ABOUT HER. Her one appearance is not missing from the research tree — it is SPENT ON A MAN. data/research/residents/identity_master.json folds `person_taylor_mrs_c` into `id_taylor_charles` and grading_proposal.json lists it among that identity's evidence. R6 (T-0723, #998) exists to stop exactly this — \"a wife is not her husband and never merges onto him\" — but it is EXACT-MATCH ONLY by design: it fires where the honorific strip leaves the husband's forename tokens letter for letter, as `Mrs. Rufus B. Brown` does against `Brown, Rufus B.` Here the printed forename is an INITIAL. Stripped of \"Mrs.\" the reading is `Taylor, C.`, which is not identical to `Taylor, Charles`, so R6 never looks at it and M2 does — \"an initial-only forename attaches to the ONE full forename of that surname carrying the initial\" — and the one C-forename Taylor in the corpus is Charles. A female honorific carrying an initial is the shape R6 cannot see. The finding is recorded on T-0951, which already owns the two husband-name printings R6 cannot reach.\n\nIS SHE THE WIFE OF A TAYLOR THE TOWN ALREADY HOLDS? ASKED, AND THE ANSWER IS NO ON THE EVIDENCE HELD. `data/residents/households/` carries five Taylor heads — Anson H., Augustine Deodat, Edmund D, William and William H — and not one of them has a forename beginning with C, so under the period's own usage (\"Mrs. C. Taylor\" is the wife of a man whose forename begins with C) she is the wife of NONE OF THE FIVE HEADS. The only C-forename Taylor this project holds is Charles H. Taylor, and he is not a head: he is Anson's brother inside hh_taylor_anson. Whether she was HIS wife is not decided by anything in this dataset. R6's own standard is that a source must print both readings, and no source prints `Taylor, Charles` and `Taylor, Mrs. C.` as two entries of one list — the Democrat prints them in different issues, six weeks apart, about different things. The one place a wife of a Charles Taylor is named at all is data/structures/wolf_point_tavern.json, which has \"Charles and Mary Taylor\" keeping that house 1831-1833; hh_taylor_anson's own note REFUSES that identification outright, on the ground that the Taylor surname is carried by at least four distinct men in these sources. So no kin[] row is written here, and the absence is the finding: she stands as her own resident, which is what R6 would have done for her had it been able to see her.\n\nONE LATER RECORD THE CROSSWALK NOW REACHES, AND IT IS NOT AN 1835 FACT. Rebuilding data/research/church/second_presbyterian_crosswalk.json against this card matched it to a single roll line — `second_presb_0870`, printed page 203, as read: \"Taylor, Mrs. Charle's | Letter. | Januarys, 1843. | Dismissed.\" (the date token is the transcription's, unrepaired; the crosswalk reads the year as 1843). A woman entered on that roll under a man's forename, admitted by letter and afterwards dismissed. It says that the honorific shape read here is the shape this town's own paper used, and it is corroboration of nothing else: the roll is of 1842-1892, the ladder binds an 1843 appearance to CONTINUED RESIDENCE at best, and the town holds two men it could stand on — Charles H. Taylor the currier and the Charles Taylor Fergus 1843 prints as a merchant tailor on Clark Street. The match is left where the crosswalk put it, PROPOSED AND UNSPENT: no identity is asserted, the grade does not move, and this card cites the Democrat alone. \n\nWHAT IS RECONSTRUCTED: everything except the woman, her house's street and the source — no structure, no trade, no origin, no family, no party. No figure is drawn (L1). THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Taylor, Mrs. Charle's | Letter. | Januarys, 1843. | Dismissed.” (second_presb_0895, printed page 203), admitted 1843 by letter. Under the rule that decided it: Surname 'Taylor' folds to the same string as the roll line's, and the given name of both begins C. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” THE LINE IS A MARRIED WOMAN'S ENTRY, and the crosswalk's own Mrs rule governs what it can have met: “a line flagged a_married_womans_entry that meets a MAN in the 1835 layer has met his name, not him: it corroborates that the name was a Chicago name in the 1840s and it does not put that man on this roll.” The match is filed rather than suppressed, because a suppressed match is invisible and a flagged one can be argued with. THE SAME ROLL LINE IS MET BY OTHER TOWNSPEOPLE OF THIS NAME: second_presb_0895 is matched under this same rule to Charles H. Taylor (taylor_charles), so it is met by two townspeople of this name, and it says which of them it was about no more than it says it was about this one — the test that decided it is a surname and a given initial agreeing, which cannot tell them apart. This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once."
+        }
       ],
-      "what_it_does_not_supply": [
-        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
-        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
-        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
-        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
-        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
-        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
-        "a citation without an issue page and column"
-      ]
+      "research_note": "HAND-AUTHORED, NOT MINTED (T-0960). The three mint tools did not produce this card and could not have: the consolidation that feeds them folds this woman's only printing onto Charles Taylor by M2, so no identity of her own ever reached them — see the head's note. The card is written directly from the transcription in data/research/newspapers/extracted/chicago_democrat_1835_08_19.json, claim c007, which is on `dev` and unspent: no household in data/residents/ cites that locator or that record id. Nothing is taken off `taylor_charles` by writing this, because his card never cited the Democrat — his sources are Andreas, the IRAD poll lists, the land tract register and the 1840 census. THE SALVAGE: #925 wrote a version of this card and was never landed (its branch closed with T-0723 under #998); this one keeps its grade, rung and `uncertain` presence, dates the bound from the notice's own copy date rather than the printing date, and replaces its `lives_at` note — which read \"the lists that name this person give no address\" — with the street the notice actually gives."
     },
+    {
+      "household": "hh_wright_j",
+      "name": "The Wright household — a name the town's own records carry",
+      "division": "unplaced",
+      "relation": "boarded here",
+      "why": "boarding in the division's least crowded dwelling",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
+      "persons": [
+        {
+          "name": "J Wright",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "none_recorded",
+          "note": "A CONTEMPORARY CHICAGO PAPER OF 1833-1835 PRINTS THIS PERSON BY NAME IN THE TOWN. Read from newspaper_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 11 July 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. present_on_scene_date is `uncertain` for that reason. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
+    }
+  ],
+  "citations": [
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",
       "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",

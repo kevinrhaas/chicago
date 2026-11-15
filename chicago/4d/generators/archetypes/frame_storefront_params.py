@@ -269,7 +269,7 @@ CONSUMED = frozenset({
     "shopfront", "shopfront_bays", "shopfront_door_side",
     "goods_door", "goods_door_side", "goods_door_bays", "hoist_door",
     "ell", "ell_side", "ell_width_m", "ell_depth_m", "ell_stories", "ell_height_m",
-    "sign",
+    "sign", "false_front", "false_front_crest",
 })
 
 # Where this archetype touches the ground, read by tools/validate.py's ground
@@ -406,6 +406,18 @@ class FrameStorefrontParams:
     # advertisements, which are not sign boards — so painting one would be
     # manufacturing the most-photographed piece of evidence in the scene.
     sign: str | None = None
+
+    # A FALSE FRONT (T-3605): a flat board facade carried up past the eaves on the
+    # street wall, hiding the roof behind a square top. It is the drawn look of the
+    # store row in Gifford's view of the first Tremont House and its street
+    # (gifford_tremont_house_no_1): four of the ten stores west of the hotel stand
+    # behind square fronts, one of them crested with a shallow arch. The source is a
+    # retrospective drawing, so the parameter is offered to the rows built to it and
+    # its form is the drawing's, not a measurement: the board rises far enough to hide
+    # the gable (gable-front) or a storey's worth of roof (eaves to the street), and
+    # is capped by a plain cornice. `false_front_crest` is "flat" or "arched".
+    false_front: bool = False
+    false_front_crest: str = "flat"
 
     # The finish the 665-roof programme dealt this building, and how weathered its
     # roof is. NOT form attributes — they live in the record's `reconstruction`
@@ -680,6 +692,14 @@ class FrameStorefrontParams:
         if self.sign is not None and not str(self.sign).strip():
             raise ParamError("sign is present but empty — omit it, or say what it "
                              "carried")
+        if self.false_front_crest not in ("flat", "arched"):
+            raise ParamError(f"false_front_crest '{self.false_front_crest}' is not "
+                             f"'flat' or 'arched'")
+        if self.false_front_crest != "flat" and not self.false_front:
+            raise ParamError("a false-front crest is stated on a store with no false front")
+        if self.false_front and self.roof_type != "gable":
+            raise ParamError("a false front is built against a gable roof only; this "
+                             f"store's roof is '{self.roof_type}'")
         if self.sign and not self.shopfront:
             raise ParamError("a sign board is carried on the shopfront fascia, and this "
                              "record has no shopfront — either the store had a street "
@@ -1154,6 +1174,8 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameStorefrontParams
         ell_height_m=(None if val("ell_height_m") is None
                       else float(val("ell_height_m"))),
         sign=(None if sign is None else str(sign)),
+        false_front=bool(val("false_front", False)),
+        false_front_crest=str(val("false_front_crest", "flat")),
         # The programme's own finish deal, read off the record rather than the
         # phase. `wall_finish` in `common/materials.py` states the order these are
         # applied in and why a stated coating outranks them.

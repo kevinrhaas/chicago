@@ -135,13 +135,13 @@ The location limit is how far a firm's own evidence places it, published and the
 
 | Adjudicated grade | Businesses |
 | --- | ---: |
-| `street_only_adopted` | 45 |
-| `street_only_unseated` | 7 |
+| `street_only_adopted` | 47 |
+| `street_only_unseated` | 5 |
 | `structure_committed` | 53 |
 | `structure_pending` | 11 |
 | `unplaceable` | 60 |
 
-Businesses whose published limit moved during the spend: **0** — the spend seated what the evidence already reached and promoted nothing, so there is no firm to name here and no source to name it on. Seats a later reading may displace: **45**.
+Businesses whose published limit moved during the spend: **0** — the spend seated what the evidence already reached and promoted nothing, so there is no firm to name here and no source to name it on. Seats a later reading may displace: **47**.
 
 And the other direction — the people. **138** persons hold a trade, profession, employment or office that reaches 1835-07-01. Every one of them either resolves to a workplace or carries the printed reason none is resolvable (C6):
 

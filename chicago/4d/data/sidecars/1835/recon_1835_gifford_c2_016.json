@@ -1,0 +1,299 @@
+{
+  "id": "recon_1835_gifford_c2_016",
+  "phase": "inferred_1835",
+  "name": "Reconstructed store-residence on Dearborn Street, as Gifford draws it",
+  "aka": [],
+  "archetype": "frame_storefront",
+  "asset": "gltf/recon_1835_gifford_c2_016__inferred_1835.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "grade": {
+    "value": "reconstructed",
+    "why": "Placed by our reconstruction of the town; no source pictures or records it here.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1835-01-01",
+    "to": "1835-12-31",
+    "confidence": "reconstructed",
+    "sources": [
+      "gifford_tremont_house_no_1"
+    ],
+    "note": "Drawn standing beside the first Tremont House (1833-1839) in Gifford's retrospective view of its street; taken as standing on 1 July 1835 on the owner's reading of the drawing (T-3605). No dated record of this building is known."
+  },
+  "change_note": "T-3605 builds this store as Gifford draws it.",
+  "placement": {
+    "local_e": 676.808,
+    "local_n": -45.433,
+    "rotation_deg": 90.356342,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "gifford_tremont_house_no_1"
+    ],
+    "position_note": "Placed in the drawn order along the face, at stations 52.98-57.58 m of the face line (The block's Dearborn Street face, from the Lake corner north; the row stands on the line of the Tremont House's Dearborn side.), with 0.30 m between neighbours. Drawn at x 1555-1585 px of the 1637 px plate. The face is the drawing's (read through the Tremont's solved camera, data/reconstruction/1835_gifford_street_faces.json camera); the station is fitted, not measured.",
+    "symbolic_location": "Dearborn Street, dearborn west lake to alley: drawn store R6 of Gifford's row",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        4.6,
+        0
+      ],
+      [
+        4.6,
+        9.0
+      ],
+      [
+        0,
+        9.0
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "4.60 m of frontage proportioned from the drawn bays and 9.00 m deep inside the C2 typology band; neither is a measurement."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1.5,
+      "confidence": "inferred",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ],
+      "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a lower story-and-a-half store, gable to the street, across the block alley. Inferred, because it is a picture of this building; the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605)."
+    },
+    "wall_height_m": {
+      "value": 3.634,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "roof_pitch_deg": {
+      "value": 35.8,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "gable_front": {
+      "value": true,
+      "confidence": "inferred",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ],
+      "note": "READ OFF GIFFORD'S DRAWING of the first Tremont House and its street (gifford_tremont_house_no_1): a lower story-and-a-half store, gable to the street, across the block alley. Inferred, because it is a picture of this building; the drawing is retrospective, and taking it as the street on 1 July 1835 is the owner's reading of 2026-11-15 (T-3605, docs/LIBERTIES.md L-gifford-street-faces-3605)."
+    },
+    "construction": {
+      "value": "balloon_frame",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'recent'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+    },
+    "cladding": {
+      "value": "clapboard",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the C2 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+    },
+    "loft": {
+      "value": false,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the C2 family's key geometry parameters do not speak to chimneys, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+    },
+    "shopfront": {
+      "value": true,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "goods_door": {
+      "value": true,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the C2 family's key geometry parameters do not speak to a goods door, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+    },
+    "goods_door_side": {
+      "value": "end",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the C2 family's key geometry parameters do not speak to a goods-door side, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+    },
+    "function": {
+      "value": "store_residence",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. The C2 type, as the drawn front reads; no proprietor is recovered from the drawing."
+    },
+    "occupants": {
+      "value": "the New Store at the corner of Water and Clark streets — dry goods, crockery, hardware and cutlery",
+      "confidence": "reconstructed",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on South Water Street AND NOTHING NARROWER — 1 printing, 1834-04-01 to 1834-04-01, claims chicago_democrat_1834_04_01#c004 — so it takes the STREET FACE and not a lot. THE ROOF'S PLATTED LOT FACES South Water Street, which is the plat's own answer to which street it fronts. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
+    },
+    {
+      "source_id": "gifford_tremont_house_no_1",
+      "citation": "N. Roswell Gifford. View of the first Tremont House and the storefront row on its street — wash drawing, signed \"N. Roswell Gifford\" at the lower left. Reproduced on Chicagology, \"Tremont House\", captioned \"Tremont House No. 1\".",
+      "url": "https://chicagology.com/prefire/prefire021/",
+      "archived_url": "http://web.archive.org/web/20260411172619/https://chicagology.com/prefire/prefire021/",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "a continuous commercial frontage of one-and-a-half and two-storey stores standing shoulder to shoulder with shared party lines",
+        "a lettered signboard across the front of each store, some legible: H. WELLS, GROCERIES, BOOTS & SHOES, THOMPSON, & ALBEE",
+        "a raised board walk running the length of the frontage, with posts at the road edge",
+        "the first Tremont House as a three-storey shuttered block with a flagstaff, standing in the row rather than apart from it",
+        "gable-front and eaves-front stores alternating along one street rather than one repeated form",
+        "an unmade road of ruts and standing water in front of the row"
+      ],
+      "what_it_does_not_supply": [
+        "any coordinate, footprint outline or dimension — no scale, no baseline, no lettered street",
+        "which corner it is taken from: the caption names the building and not the viewpoint",
+        "awnings, which the brief lists and this plate does not legibly show",
+        "a date, either of the drawing or of the scene within the first Tremont's 1833-1839 life",
+        "the identity or trade of any store whose board is not legible"
+      ]
+    },
+    {
+      "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+      "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",
+      "url": "",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "A 665-roof production target with independently reconcilable group, district, level, and construction totals.",
+        "Thirty-five architectural family definitions with dimensional and massing bands.",
+        "District character, spacing, variation, finish, and chronology constraints for a July 1835 reconstruction.",
+        "A required distinction between named documentary landmarks and anonymous inferred infill."
+      ],
+      "what_it_does_not_supply": [
+        "A surviving July 1835 building census or parcel-by-parcel roof register.",
+        "Exact locations, dimensions, appearance, occupants, or construction dates for anonymous roofs.",
+        "Authority to replace stronger building-specific evidence already represented in the dataset."
+      ]
+    }
+  ],
+  "research_note": "RECONSTRUCTED FROM A PICTURE. Gifford draws this store in the row beside the first Tremont House; the owner ruled on 2026-11-15 that the drawing is a reasonable view of 1835 and the street is to be built to it. The drawn form is inferred from the drawing; the building's presence in July 1835, its exact frontage and its station are reconstructed. Its occupants, if any, are dealt by the town's housing tools and graded by their own records.",
+  "research_doc": "docs/RESEARCH/inferred_infill_1835.md",
+  "review_required": false,
+  "reconstruction": {
+    "status": "inferred_anonymous",
+    "family": "C2",
+    "district": "south",
+    "inventory_class": "principal_functional",
+    "programme_phase": "gifford_street_faces_1835",
+    "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+    "sequence": 16,
+    "finish_key": "weathered_timber",
+    "roof_condition": "weathered",
+    "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "silvered clapboard on a balloon frame under a weathered roof — a store-residence, a year old (rule F-T: a tradesman's by its type)"
+    },
+    "drawn": {
+      "source_id": "gifford_tremont_house_no_1",
+      "face": "dearborn_west_lake_to_alley",
+      "key": "r6",
+      "drawn_px": [
+        1555,
+        1585
+      ],
+      "read": "a lower story-and-a-half store, gable to the street, across the block alley"
+    }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "tradesman",
+    "age_state": "recent",
+    "weather_years": 1.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.006,
+    "confidence": "reconstructed"
+  }
+}

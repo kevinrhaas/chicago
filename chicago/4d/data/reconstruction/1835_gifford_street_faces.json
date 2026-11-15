@@ -1,0 +1,433 @@
+{
+  "$schema_note": "AUTHORED. The two street faces N. Roswell Gifford draws beside the first Tremont House, read building by building off the drawing and expanded into one structure record per building by tools/generate_gifford_street_faces.py, which tools/check.sh re-derives byte for byte. Widths, storeys, roof forms, fronts and the order along each face are READINGS of the drawing; every metre is still reconstructed, because the drawing carries no scale.",
+  "id": "gifford_street_faces_1835",
+  "target_date": "1835-07-01",
+  "ticket": "T-3605",
+  "source_id": "gifford_tremont_house_no_1",
+  "programme_source_id": "owner_chicago_1835_reconstruction_spec_2026",
+  "confidence": "reconstructed",
+  "owner_ruling": {
+    "on": "2026-11-15",
+    "words": "In looking at Tremont house photo and the excellent building match you did there I was noting the rest of the street around it looks different so can to. Look at that image as a reasonable view of 1835 and photo match build the rest of that street face and move replace relocate reconstructed buildings to fill in the accurate streetscape and reconsider the density of that and reapply that level of correct reasonable density and alignment to the rest of the streets in 1835",
+    "what_it_rules": "The drawing is read as a view of the town on 1 July 1835, although it is retrospective and may show the street as it stood up to the 1839 fire. That reading is the owner's and is recorded as liberty L-gifford-street-faces-3605 in docs/LIBERTIES.md; it supersedes, for these two faces only, the source record's earlier note that nothing in the dataset may take a position from the plate."
+  },
+  "camera": {
+    "from": "data/reference_views/tremont_house_1/gifford.json",
+    "how": "The image-gate camera solved on the Tremont House (3.5 px RMS on six envelope corners) is in the hotel's own footprint frame. Carried into the town through the hotel's placement (its pictured gable, the one carrying the name, on Lake Street and its pictured long side on Dearborn: rotation 270 about the Lake and Dearborn corner), the eye stands south-east of the crossing looking west-north-west, at local E 723.5 m, N -148.1 m, 2.4 m up, heading 298.2 degrees. Through it the drawing's left-hand row is the north side of Lake Street running west from the hotel, and its right-hand row the west side of Dearborn running north. The near stores of both rows land at 5-7.5 m frontages through this camera, which is what a party-line store of the period measured; the far end of the Lake row is drawn compressed (the camera would put its first stores 14-16 m wide and its end across Clark Street, which the drawing does not show), so the far stores keep the drawn ORDER and FORM and take frontages in proportion to their bay counts, and the row is fitted between Clark Street and the hotel.",
+    "eye_local_enu_m": [
+      723.456,
+      -148.064,
+      2.445
+    ],
+    "yaw_deg": 298.159
+  },
+  "faces": [
+    {
+      "id": "lake_north_clark_to_dearborn",
+      "block_id": "blk_south_water_clark",
+      "street": "lake",
+      "district": "south",
+      "line": {
+        "from": [
+          587.48,
+          -102.26
+        ],
+        "to": [
+          686.05,
+          -103.07
+        ],
+        "inset_m": 2.52,
+        "why": "The block's Lake Street face, from the Clark corner east; the row stands on the line the Tremont House's own Lake Street gable stands on, 2.52 m inside the platted face, so the plank walk passes in front of every door."
+      },
+      "start_m": 1.5,
+      "end_before": "tremont_house_1",
+      "end_clear_m": 0.5,
+      "faces_to": "south",
+      "buildings": [
+        {
+          "key": "c",
+          "drawn_px": [
+            202,
+            245
+          ],
+          "family": "C2",
+          "width_m": 6.4,
+          "depth_m": 10.0,
+          "read": "a story-and-a-half store with its gable to the street and a pedimented front, the first store east of Clark",
+          "form": {
+            "stories": 1.5,
+            "gable_front": true
+          }
+        },
+        {
+          "key": "d",
+          "drawn_px": [
+            247,
+            292
+          ],
+          "family": "C3",
+          "width_m": 7.6,
+          "depth_m": 12.0,
+          "read": "a two-storey store behind a square false front with a heavy cornice, three upper windows",
+          "form": {
+            "stories": 2.0,
+            "gable_front": true,
+            "false_front": true
+          }
+        },
+        {
+          "key": "e",
+          "drawn_px": [
+            292,
+            345
+          ],
+          "family": "C3",
+          "width_m": 7.6,
+          "depth_m": 12.0,
+          "read": "a two-storey store behind a lower square false front, three upper windows and a lettered fascia",
+          "form": {
+            "stories": 2.0,
+            "gable_front": false,
+            "false_front": true
+          }
+        },
+        {
+          "key": "f",
+          "drawn_px": [
+            345,
+            440
+          ],
+          "family": "H3",
+          "width_m": 15.2,
+          "depth_m": 12.0,
+          "read": "the largest building west of the hotel: three full storeys, six bays across the front, a low hipped roof and two stacks; a lettered board across its ground storey",
+          "form": {
+            "stories": 3,
+            "roof_type": "hip",
+            "upper_windows": 6
+          }
+        },
+        {
+          "key": "g",
+          "drawn_px": [
+            448,
+            505
+          ],
+          "family": "C3",
+          "width_m": 7.3,
+          "depth_m": 12.0,
+          "read": "a two-storey store, gable to the street, three bays, lettered board over the shop",
+          "form": {
+            "stories": 2.0,
+            "gable_front": true
+          }
+        },
+        {
+          "key": "h",
+          "drawn_px": [
+            505,
+            567
+          ],
+          "family": "C3",
+          "width_m": 7.3,
+          "depth_m": 12.0,
+          "read": "a two-storey store, gable to the street, three bays, lettered board over the shop",
+          "form": {
+            "stories": 2.0,
+            "gable_front": true
+          }
+        },
+        {
+          "key": "i",
+          "drawn_px": [
+            567,
+            633
+          ],
+          "family": "C3",
+          "width_m": 7.6,
+          "depth_m": 12.0,
+          "read": "a two-storey store behind a false front crested with a shallow arch",
+          "form": {
+            "stories": 2.0,
+            "gable_front": true,
+            "false_front": true,
+            "false_front_crest": "arched"
+          }
+        },
+        {
+          "key": "j",
+          "drawn_px": [
+            633,
+            705
+          ],
+          "family": "C3",
+          "width_m": 7.6,
+          "depth_m": 14.0,
+          "read": "a deep two-storey store, gable to the street, three bays, its long side and a big stack showing behind its lower neighbour; board lettered THOMPSON",
+          "form": {
+            "stories": 2.0,
+            "gable_front": true,
+            "chimneys": 1
+          },
+          "sign_as_drawn": "O. H. THOMPSON"
+        },
+        {
+          "key": "k",
+          "drawn_px": [
+            712,
+            776
+          ],
+          "family": "C2",
+          "width_m": 5.8,
+          "depth_m": 10.0,
+          "read": "a story-and-a-half store, gable to the street, door between two windows; board lettered BOOTS & SHOES",
+          "form": {
+            "stories": 1.5,
+            "gable_front": true
+          },
+          "sign_as_drawn": "BOOTS & SHOES"
+        },
+        {
+          "key": "l",
+          "drawn_px": [
+            778,
+            862
+          ],
+          "family": "C1",
+          "width_m": 6.4,
+          "depth_m": 9.0,
+          "read": "a one-storey grocery behind a square false front lettered H. WELLS, a wide shop window and the door at the hotel end; GROCERIES across the fascia",
+          "form": {
+            "stories": 1.0,
+            "gable_front": true,
+            "false_front": true,
+            "shopfront_door_side": "right"
+          },
+          "sign_as_drawn": "H. WELLS / GROCERIES"
+        }
+      ]
+    },
+    {
+      "id": "dearborn_west_lake_to_alley",
+      "block_id": "blk_south_water_clark",
+      "street": "dearborn",
+      "district": "south",
+      "line": {
+        "from": [
+          686.05,
+          -103.07
+        ],
+        "to": [
+          686.66,
+          -4.99
+        ],
+        "inset_m": 0.6,
+        "why": "The block's Dearborn Street face, from the Lake corner north; the row stands on the line of the Tremont House's Dearborn side."
+      },
+      "start_after": "tremont_house_1",
+      "start_clear_m": 0.5,
+      "faces_to": "east",
+      "buildings": [
+        {
+          "key": "r1",
+          "drawn_px": [
+            1256,
+            1316
+          ],
+          "family": "C2",
+          "width_m": 4.9,
+          "depth_m": 9.0,
+          "read": "a low story-and-a-half store, gable to the street, beside the hotel",
+          "form": {
+            "stories": 1.5,
+            "gable_front": true
+          }
+        },
+        {
+          "key": "r2",
+          "drawn_px": [
+            1318,
+            1382
+          ],
+          "family": "C3",
+          "width_m": 5.4,
+          "depth_m": 11.0,
+          "read": "a two-storey store, gable to the street; board lettered GROCERIES",
+          "form": {
+            "stories": 2.0,
+            "gable_front": true
+          },
+          "sign_as_drawn": "GROCERIES"
+        },
+        {
+          "key": "r3",
+          "drawn_px": [
+            1386,
+            1445
+          ],
+          "family": "C3",
+          "width_m": 5.5,
+          "depth_m": 11.0,
+          "read": "a two-storey store, gable to the street, a tall stack; board lettered STAPLE (the rest illegible)",
+          "form": {
+            "stories": 2.0,
+            "gable_front": true
+          },
+          "sign_as_drawn": "STAPLE GOODS"
+        },
+        {
+          "key": "r4",
+          "drawn_px": [
+            1445,
+            1505
+          ],
+          "family": "C3",
+          "width_m": 5.6,
+          "depth_m": 11.0,
+          "read": "a two-storey store, gable to the street, a lettered board",
+          "form": {
+            "stories": 2.0,
+            "gable_front": true
+          }
+        },
+        {
+          "key": "r5",
+          "drawn_px": [
+            1505,
+            1555
+          ],
+          "family": "C3",
+          "width_m": 5.3,
+          "depth_m": 11.0,
+          "read": "a two-storey store, gable to the street; board lettered GROCERIES",
+          "form": {
+            "stories": 2.0,
+            "gable_front": true
+          },
+          "sign_as_drawn": "GROCERIES"
+        },
+        {
+          "key": "r6",
+          "drawn_px": [
+            1555,
+            1585
+          ],
+          "family": "C2",
+          "width_m": 4.6,
+          "depth_m": 9.0,
+          "after_alley": true,
+          "read": "a lower story-and-a-half store, gable to the street, across the block alley",
+          "form": {
+            "stories": 1.5,
+            "gable_front": true
+          }
+        },
+        {
+          "key": "r7",
+          "drawn_px": [
+            1585,
+            1622
+          ],
+          "family": "C3",
+          "width_m": 5.6,
+          "depth_m": 11.0,
+          "read": "a two-storey store, gable to the street, at the picture's edge",
+          "form": {
+            "stories": 2.0,
+            "gable_front": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "lake_north_west_of_clark",
+      "block_id": "blk_south_water_lasalle",
+      "street": "lake",
+      "district": "south",
+      "line": {
+        "from": [
+          563.1,
+          -102.07
+        ],
+        "to": [
+          464.05,
+          -101.26
+        ],
+        "inset_m": 2.52,
+        "why": "The next block's Lake Street face, from the Clark corner west, on the same line as the row east of Clark."
+      },
+      "start_m": 1.5,
+      "faces_to": "south",
+      "buildings": [
+        {
+          "key": "b",
+          "drawn_px": [
+            200,
+            318
+          ],
+          "family": "H3",
+          "width_m": 15.2,
+          "depth_m": 13.0,
+          "read": "a dark three-storey block standing up behind the low stores at the Clark end of the row, its flat-looking top and two stacks above them: read as the corner building across Clark",
+          "form": {
+            "stories": 3,
+            "roof_type": "hip",
+            "roof_pitch_deg": 18.0,
+            "upper_windows": 6,
+            "paint": "red"
+          }
+        },
+        {
+          "key": "a",
+          "drawn_px": [
+            108,
+            200
+          ],
+          "family": "H3",
+          "width_m": 11.0,
+          "depth_m": 12.0,
+          "read": "a pale three-storey building, four bays, its roof too low to show, at the far end of the drawn row",
+          "form": {
+            "stories": 3,
+            "roof_type": "hip",
+            "roof_pitch_deg": 18.0,
+            "upper_windows": 4,
+            "paint": "white"
+          }
+        }
+      ]
+    }
+  ],
+  "relocated": [
+    {
+      "structure_id": "recon_1835_blk_south_water_clark_d4_02",
+      "by": "data/reconstruction/1835_platted_block_parcels.json",
+      "what": "its Lake Street setback 6.0 -> 22.0 m: the two-room cottage stands behind the drawn row as a rear dwelling, household and all"
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_clark_d3_03",
+      "by": "data/reconstruction/1835_platted_block_parcels.json",
+      "what": "its Lake Street setback 5.5 -> 22.0 m, the same move"
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_d3_03",
+      "by": "data/reconstruction/1835_platted_block_parcels.json",
+      "what": "its Lake Street setback moved back behind the three-storey corner block across Clark"
+    },
+    {
+      "structure_id": "tremont_house_1",
+      "by": "data/structures/tremont_house_1.json",
+      "what": "turned on its Lake and Dearborn corner (rotation 180 -> 270) so the drawing's pictured gable, with the name, faces Lake Street and its pictured long side faces Dearborn"
+    },
+    {
+      "structure_id": "tremont_house_1_stable",
+      "by": "data/structures/tremont_house_1_stable.json",
+      "what": "moved west off the Dearborn frontage the drawn stores take, to the rear of the hotel's lot by the alley"
+    },
+    {
+      "structure_id": "bates_auction_room",
+      "by": "data/structures/bates_auction_room.json",
+      "what": "slid north along the Dearborn face (its position along the face was never documented) to stand after the drawn stores"
+    }
+  ]
+}

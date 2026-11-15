@@ -667,8 +667,21 @@ def deal(inputs: dict) -> dict:
 
     carried_present, carried_ruled, carried_keepers = set(), set(), set()
     if allocation_basis:
-        for row in allocation_basis["seats"]:
+        for at, row in enumerate(allocation_basis["seats"]):
             hid, sid = row["household"], row["place"]
+            # T-3605: a keeper is carried with their house of trade, not with a roof. When
+            # the street-face adoption stands that house on another store (nineteen roofs
+            # raised to Gifford's drawing of Lake and Dearborn took eleven of them), the
+            # keeper's household moves with it; nothing else about the row is re-dealt.
+            if row["rung"] == "keeper":
+                own = [k["at"] for k in inputs["keepers"].get(hid, ())
+                       if k["at"] and k["at"] in standing and k["at"] not in stores_taken]
+                if own and sid not in own:
+                    sid = own[0]
+                    row = dict(row, place=sid, family=roofs[sid]["family"])
+                    allocation_basis["seats"][at] = dict(
+                        allocation_basis["seats"][at], place=sid, family=row["family"],
+                        followed_their_house_of_trade="T-3605")
             if hid not in cards or sid not in standing or hid in seated:
                 raise ValueError(f"carried housing assignment invalidated: {hid} at {sid}")
             current_ids = {p["id"] for p in cards[hid]["card"].get("persons", [])}

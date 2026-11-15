@@ -40,20 +40,20 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 204,
-   "free": 224,
-   "room": 52
+   "at_capacity": 210,
+   "free": 223,
+   "room": 47
   },
   "by_multi_building_rule": {
    "one_principal_roof": 412,
    "party_line_run": 68
   },
   "corner_lots": 205,
-  "lots_with_a_roof": 263,
-  "lots_barring_another_roof": 262,
+  "lots_with_a_roof": 264,
+  "lots_barring_another_roof": 263,
   "shared_business_fronts": 1,
-  "principal_roofs_standing": 326,
-  "lots_over_their_own_rule": 21
+  "principal_roofs_standing": 345,
+  "lots_over_their_own_rule": 24
  },
  "the_density_standard": {
   "rule": {
@@ -77,8 +77,8 @@
   },
   "multi_building_lot_rate_on_the_principal_streets": {
    "principal_street_lots": 68,
-   "carrying_more_than_one_principal_roof": 34,
-   "rate": 0.5,
+   "carrying_more_than_one_principal_roof": 39,
+   "rate": 0.5735,
    "standard": "three party-line units per lot where the rule fires — the schedule's capacity is a ceiling and not a target (1835_platted_block_parcels.json, `placement_rule.open_lots`)"
   }
  },
@@ -9250,14 +9250,22 @@
    "dry": true,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_gifford_c2_001",
+    "recon_1835_gifford_c3_002",
+    "recon_1835_gifford_c3_003"
+   ],
+   "standing_families": {
+    "recon_1835_gifford_c2_001": "C2",
+    "recon_1835_gifford_c3_002": "C3",
+    "recon_1835_gifford_c3_003": "C3"
+   },
+   "principal_roofs_standing": 3,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_clark#02",
@@ -9317,17 +9325,21 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "recon_1835_blk_south_water_clark_d4_02"
+    "recon_1835_blk_south_water_clark_d4_02",
+    "recon_1835_gifford_c3_005",
+    "recon_1835_gifford_h3_004"
    ],
    "standing_families": {
-    "recon_1835_blk_south_water_clark_d4_02": "D4"
+    "recon_1835_blk_south_water_clark_d4_02": "D4",
+    "recon_1835_gifford_c3_005": "C3",
+    "recon_1835_gifford_h3_004": "H3"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 3,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_clark#04",
@@ -9387,17 +9399,23 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "recon_1835_blk_south_water_clark_d3_03"
+    "recon_1835_blk_south_water_clark_d3_03",
+    "recon_1835_gifford_c3_006",
+    "recon_1835_gifford_c3_007",
+    "recon_1835_gifford_c3_008"
    ],
    "standing_families": {
-    "recon_1835_blk_south_water_clark_d3_03": "D3"
+    "recon_1835_blk_south_water_clark_d3_03": "D3",
+    "recon_1835_gifford_c3_006": "C3",
+    "recon_1835_gifford_c3_007": "C3",
+    "recon_1835_gifford_c3_008": "C3"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 4,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_clark#06",
@@ -9421,18 +9439,22 @@
    "principal_roofs_max": 3,
    "standing": [
     "bates_auction_room",
-    "madore_beaubien_house"
+    "madore_beaubien_house",
+    "recon_1835_gifford_c2_016",
+    "recon_1835_gifford_c3_017"
    ],
    "standing_families": {
     "bates_auction_room": "C1",
-    "madore_beaubien_house": "D1"
+    "madore_beaubien_house": "D1",
+    "recon_1835_gifford_c2_016": "C2",
+    "recon_1835_gifford_c3_017": "C3"
    },
-   "principal_roofs_standing": 2,
+   "principal_roofs_standing": 4,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_clark#07",
@@ -9455,19 +9477,33 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
+    "recon_1835_gifford_c1_010",
+    "recon_1835_gifford_c2_009",
+    "recon_1835_gifford_c2_011",
+    "recon_1835_gifford_c3_012",
+    "recon_1835_gifford_c3_013",
+    "recon_1835_gifford_c3_014",
+    "recon_1835_gifford_c3_015",
     "tremont_house_1",
     "tremont_house_1_stable"
    ],
    "standing_families": {
+    "recon_1835_gifford_c1_010": "C1",
+    "recon_1835_gifford_c2_009": "C2",
+    "recon_1835_gifford_c2_011": "C2",
+    "recon_1835_gifford_c3_012": "C3",
+    "recon_1835_gifford_c3_013": "C3",
+    "recon_1835_gifford_c3_014": "C3",
+    "recon_1835_gifford_c3_015": "C3",
     "tremont_house_1": "T2",
     "tremont_house_1_stable": "A1"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 8,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_dearborn#00",
@@ -10307,17 +10343,21 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "recon_1835_blk_south_water_lasalle_d3_03"
+    "recon_1835_blk_south_water_lasalle_d3_03",
+    "recon_1835_gifford_h3_018",
+    "recon_1835_gifford_h3_019"
    ],
    "standing_families": {
-    "recon_1835_blk_south_water_lasalle_d3_03": "D3"
+    "recon_1835_blk_south_water_lasalle_d3_03": "D3",
+    "recon_1835_gifford_h3_018": "H3",
+    "recon_1835_gifford_h3_019": "H3"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 3,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_market#00",

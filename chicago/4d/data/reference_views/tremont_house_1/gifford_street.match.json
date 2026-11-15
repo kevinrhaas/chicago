@@ -1,0 +1,591 @@
+{
+  "structure_id": "tremont_house_1",
+  "view": "gifford_street",
+  "glb": "assets/gltf/tremont_house_1__frame_1833.glb",
+  "glb_sha256": "63b1802b5a8d56ac7d300160fb5b472ec97f273d6ddebe9827291bd357150801",
+  "camera_sha256": "e41d08d5572552b3d293b37530cb0201cdb2d5ab5836c8ed27b30fa89c5a4e10",
+  "photo_sha256": "b45d60680a0a519e561a7293bec824675d6014a6cac4da31a38ddc70d1323e59",
+  "rendered_members": [
+    {
+      "structure_id": "tremont_house_1",
+      "glb": "assets/gltf/tremont_house_1__frame_1833.glb",
+      "placement": {
+        "local_e": 685.566,
+        "local_n": -100.546,
+        "rotation_deg": 270,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "frame_1833"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "63b1802b5a8d56ac7d300160fb5b472ec97f273d6ddebe9827291bd357150801"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c1_010",
+      "glb": "assets/gltf/recon_1835_gifford_c1_010__inferred_1835.glb",
+      "placement": {
+        "local_e": 675.875,
+        "local_n": -91.466,
+        "rotation_deg": 180.470818,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        9.080000000000014,
+        0,
+        -9.69100000000003
+      ],
+      "rotation_y": 1.5625790025172417,
+      "glb_sha256": "ce3b7de2e0b5a6aa160d105c0d9e6085ba3b407d3d4b378843f21afbc983968d"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c2_001",
+      "glb": "assets/gltf/recon_1835_gifford_c2_001__inferred_1835.glb",
+      "placement": {
+        "local_e": 595.483,
+        "local_n": -89.805,
+        "rotation_deg": 180.470818,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        10.741000000000016,
+        0,
+        -90.08300000000008
+      ],
+      "rotation_y": 1.5625790025172417,
+      "glb_sha256": "5ea0712de3ae4dbbbd3b16ae5ac85f69c8d9af2de4f089d884766f17f493e8c9"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c2_009",
+      "glb": "assets/gltf/recon_1835_gifford_c2_009__inferred_1835.glb",
+      "placement": {
+        "local_e": 668.595,
+        "local_n": -90.406,
+        "rotation_deg": 180.470818,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        10.140000000000004,
+        0,
+        -16.971
+      ],
+      "rotation_y": 1.5625790025172417,
+      "glb_sha256": "ee71743ea404ccc14a076294f5ac0c303907caf1b954fa2ea8958fc4fd27ee4d"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c2_011",
+      "glb": "assets/gltf/recon_1835_gifford_c2_011__inferred_1835.glb",
+      "placement": {
+        "local_e": 676.594,
+        "local_n": -79.85,
+        "rotation_deg": 90.356342,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        20.696000000000012,
+        0,
+        -8.971999999999976
+      ],
+      "rotation_y": 3.1353733124266516,
+      "glb_sha256": "01fac24de47e462873a971543df19205c3aca8cd85f9c9419c631f10fc00bb27"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c2_016",
+      "glb": "assets/gltf/recon_1835_gifford_c2_016__inferred_1835.glb",
+      "placement": {
+        "local_e": 676.808,
+        "local_n": -45.433,
+        "rotation_deg": 90.356342,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        55.11300000000001,
+        0,
+        -8.758000000000028
+      ],
+      "rotation_y": 3.1353733124266516,
+      "glb_sha256": "edfd0c4a4443b96e9c807ff52c142f9bdb955cb3690fbd29b780187b6f2b5c39"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c3_002",
+      "glb": "assets/gltf/recon_1835_gifford_c3_002__inferred_1835.glb",
+      "placement": {
+        "local_e": 603.988,
+        "local_n": -87.875,
+        "rotation_deg": 180.470818,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        12.67100000000002,
+        0,
+        -81.57799999999997
+      ],
+      "rotation_y": 1.5625790025172417,
+      "glb_sha256": "2b4d1d3bc66b9a89b955ca56c652a39950242c6e4a1cd2695a077bd3483b9de4"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c3_003",
+      "glb": "assets/gltf/recon_1835_gifford_c3_003__inferred_1835.glb",
+      "placement": {
+        "local_e": 612.477,
+        "local_n": -87.945,
+        "rotation_deg": 180.470818,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        12.601000000000028,
+        0,
+        -73.08900000000006
+      ],
+      "rotation_y": 1.5625790025172417,
+      "glb_sha256": "51f868b59406d6eb670ae434c93dc21039905093e72e3b5775f8a0c4602b8e0d"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c3_005",
+      "glb": "assets/gltf/recon_1835_gifford_c3_005__inferred_1835.glb",
+      "placement": {
+        "local_e": 636.755,
+        "local_n": -88.144,
+        "rotation_deg": 180.470818,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        12.40200000000001,
+        0,
+        -48.811000000000035
+      ],
+      "rotation_y": 1.5625790025172417,
+      "glb_sha256": "35fbad905ce4c597fdce65b77f5558e4c772004b37a067422933746367dd687b"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c3_006",
+      "glb": "assets/gltf/recon_1835_gifford_c3_006__inferred_1835.glb",
+      "placement": {
+        "local_e": 644.944,
+        "local_n": -88.212,
+        "rotation_deg": 180.470818,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        12.33400000000001,
+        0,
+        -40.62200000000007
+      ],
+      "rotation_y": 1.5625790025172417,
+      "glb_sha256": "d25c4c2bd4be8c77be005802b126d1fb94b083691e9b511d689d6b2ba2752970"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c3_007",
+      "glb": "assets/gltf/recon_1835_gifford_c3_007__inferred_1835.glb",
+      "placement": {
+        "local_e": 653.433,
+        "local_n": -88.281,
+        "rotation_deg": 180.470818,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        12.265000000000006,
+        0,
+        -32.13300000000004
+      ],
+      "rotation_y": 1.5625790025172417,
+      "glb_sha256": "81fc4561903dc698050e598290b35eb210a420b94886b28abe400d5033cc3557"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c3_008",
+      "glb": "assets/gltf/recon_1835_gifford_c3_008__inferred_1835.glb",
+      "placement": {
+        "local_e": 661.938,
+        "local_n": -86.351,
+        "rotation_deg": 180.470818,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        14.195000000000011,
+        0,
+        -23.62800000000004
+      ],
+      "rotation_y": 1.5625790025172417,
+      "glb_sha256": "1534ee683e0c26590d3896a1d9f9c89fd7383b4db42fb57e6cadff9030f45da2"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c3_012",
+      "glb": "assets/gltf/recon_1835_gifford_c3_012__inferred_1835.glb",
+      "placement": {
+        "local_e": 674.629,
+        "local_n": -74.253,
+        "rotation_deg": 90.356342,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        26.29300000000001,
+        0,
+        -10.937000000000006
+      ],
+      "rotation_y": 3.1353733124266516,
+      "glb_sha256": "e15b03c54f8f5f6ebac79ea5dbad67a83de65d2b706c11c1089569dc7e767246"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c3_013",
+      "glb": "assets/gltf/recon_1835_gifford_c3_013__inferred_1835.glb",
+      "placement": {
+        "local_e": 674.664,
+        "local_n": -68.568,
+        "rotation_deg": 90.356342,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        31.978000000000012,
+        0,
+        -10.902000000000038
+      ],
+      "rotation_y": 3.1353733124266516,
+      "glb_sha256": "287c1df6453cdcc28d9f826b995f0a3a1698819a5d0bf20a31ace22f91d1fc12"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c3_014",
+      "glb": "assets/gltf/recon_1835_gifford_c3_014__inferred_1835.glb",
+      "placement": {
+        "local_e": 674.7,
+        "local_n": -62.783,
+        "rotation_deg": 90.356342,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        37.763000000000005,
+        0,
+        -10.865999999999978
+      ],
+      "rotation_y": 3.1353733124266516,
+      "glb_sha256": "ac5b69a00303449429acbbcafab1a99e9f5af65d2478792a39262ba6f5bc014e"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c3_015",
+      "glb": "assets/gltf/recon_1835_gifford_c3_015__inferred_1835.glb",
+      "placement": {
+        "local_e": 674.734,
+        "local_n": -57.298,
+        "rotation_deg": 90.356342,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        43.248000000000005,
+        0,
+        -10.831999999999987
+      ],
+      "rotation_y": 3.1353733124266516,
+      "glb_sha256": "2a1d4a9345ad433066d22e6c65cc6b90dc59719ee04103d48a1362e1fb4d2199"
+    },
+    {
+      "structure_id": "recon_1835_gifford_c3_017",
+      "glb": "assets/gltf/recon_1835_gifford_c3_017__inferred_1835.glb",
+      "placement": {
+        "local_e": 674.845,
+        "local_n": -39.521,
+        "rotation_deg": 90.356342,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        61.025000000000006,
+        0,
+        -10.720999999999993
+      ],
+      "rotation_y": 3.1353733124266516,
+      "glb_sha256": "491ec83739487e97dac9c6fb9bc5e547546425ceba8cc68eb984c5a1d248025e"
+    },
+    {
+      "structure_id": "recon_1835_gifford_h3_004",
+      "glb": "assets/gltf/recon_1835_gifford_h3_004__inferred_1835.glb",
+      "placement": {
+        "local_e": 628.566,
+        "local_n": -88.077,
+        "rotation_deg": 180.470818,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        12.469000000000019,
+        0,
+        -57
+      ],
+      "rotation_y": 1.5625790025172417,
+      "glb_sha256": "c791eec0fc0029d5160bf13900cba2edd41d3a969bc1d0161ffaa320468afa92"
+    },
+    {
+      "structure_id": "recon_1835_gifford_h3_018",
+      "glb": "assets/gltf/recon_1835_gifford_h3_018__inferred_1835.glb",
+      "placement": {
+        "local_e": 561.727,
+        "local_n": -86.538,
+        "rotation_deg": 180.468537,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        14.008000000000033,
+        0,
+        -123.83900000000006
+      ],
+      "rotation_y": 1.5626188134774799,
+      "glb_sha256": "f2146450c69f6ef7d41c324b61c6b36948c1d2c9e92735dc6d1fb083df820061"
+    },
+    {
+      "structure_id": "recon_1835_gifford_h3_019",
+      "glb": "assets/gltf/recon_1835_gifford_h3_019__inferred_1835.glb",
+      "placement": {
+        "local_e": 546.219,
+        "local_n": -87.411,
+        "rotation_deg": 180.468537,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        13.13500000000003,
+        0,
+        -139.34699999999998
+      ],
+      "rotation_y": 1.5626188134774799,
+      "glb_sha256": "d562be6e5231f37c4c2b161841db1a8d4172d03124c091b3a0996d9238934c08"
+    },
+    {
+      "structure_id": "tremont_house_1_stable",
+      "glb": "assets/gltf/tremont_house_1_stable__stable_1833.glb",
+      "placement": {
+        "local_e": 662.9,
+        "local_n": -66.83,
+        "rotation_deg": 0,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "stable_1833"
+      },
+      "position": [
+        33.716000000000015,
+        0,
+        -22.666000000000047
+      ],
+      "rotation_y": 4.71238898038469,
+      "glb_sha256": "9d214e05b65af304ee4684eda2ac1aeb747a105a92768bd2d6f8cd627bf3d509"
+    },
+    {
+      "structure_id": "bates_auction_room",
+      "glb": "assets/gltf/bates_auction_room__frame_1834.glb",
+      "placement": {
+        "local_e": 677.285,
+        "local_n": -26.5,
+        "rotation_deg": 90,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "frame_1834"
+      },
+      "position": [
+        74.046,
+        0,
+        -8.281000000000049
+      ],
+      "rotation_y": 3.141592653589793,
+      "glb_sha256": "3458a2a4497ffa18ea1e977c4170db8142ae0e12b97b8c0e478a8ca698e1a2cc"
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_clark_d4_02",
+      "glb": "assets/gltf/recon_1835_blk_south_water_clark_d4_02__inferred_1835.glb",
+      "placement": {
+        "local_e": 625.737,
+        "local_n": -72.878,
+        "rotation_deg": 180.36,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        27.668000000000017,
+        0,
+        -59.82900000000006
+      ],
+      "rotation_y": 1.5645131414877167,
+      "glb_sha256": "a225b3f23ecff4b572ae84a09b5181d14f8489e95c26a3564e762cf270aa6795"
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_clark_d3_03",
+      "glb": "assets/gltf/recon_1835_blk_south_water_clark_d3_03__inferred_1835.glb",
+      "placement": {
+        "local_e": 650.462,
+        "local_n": -73.857,
+        "rotation_deg": 180.36,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        26.689000000000014,
+        0,
+        -35.104000000000035
+      ],
+      "rotation_y": 1.5645131414877167,
+      "glb_sha256": "e09fcdcd988bb2deb63881bd95fce1f6acc46626ad8d5145b39544f349006829"
+    },
+    {
+      "structure_id": "recon_1835_south_c3_015",
+      "glb": "assets/gltf/recon_1835_south_c3_015__inferred_1835.glb",
+      "placement": {
+        "local_e": 678.385,
+        "local_n": -140.72,
+        "rotation_deg": 0.465,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        -40.17399999999999,
+        0,
+        -7.181000000000047
+      ],
+      "rotation_y": 4.704273199362917,
+      "glb_sha256": "317dee55763beebb09c04c4d5cf106d6df5ff3d63628e41ac0e4739302fbbce4"
+    },
+    {
+      "structure_id": "recon_1835_south_d5_016",
+      "glb": "assets/gltf/recon_1835_south_d5_016__inferred_1835.glb",
+      "placement": {
+        "local_e": 671.682,
+        "local_n": -137.953,
+        "rotation_deg": 0.465,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        -37.407,
+        0,
+        -13.884000000000022
+      ],
+      "rotation_y": 4.704273199362917,
+      "glb_sha256": "6fe881a4479a231738db17d1d7bcf191a66a4ef6f0354f275f6a62b3700f2c6b"
+    },
+    {
+      "structure_id": "recon_1835_south_d4_014",
+      "glb": "assets/gltf/recon_1835_south_d4_014__inferred_1835.glb",
+      "placement": {
+        "local_e": 665.376,
+        "local_n": -136.334,
+        "rotation_deg": 0.465,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        -35.78799999999999,
+        0,
+        -20.19000000000006
+      ],
+      "rotation_y": 4.704273199362917,
+      "glb_sha256": "75ad586d784069038215252010fb3e14a8d8f690d8d398daa50da859ff4152bf"
+    },
+    {
+      "structure_id": "inf_butcher_market",
+      "glb": "assets/gltf/inf_butcher_market__inferred_1835.glb",
+      "placement": {
+        "local_e": 656.193,
+        "local_n": -135.934,
+        "rotation_deg": 0.465,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        -35.387999999999984,
+        0,
+        -29.373000000000054
+      ],
+      "rotation_y": 4.704273199362917,
+      "glb_sha256": "32082738dab26a405ade6332833a8da017d7da13239ae99a4a2a2adfb6b9d016"
+    },
+    {
+      "structure_id": "recon_1835_south_d3_013",
+      "glb": "assets/gltf/recon_1835_south_d3_013__inferred_1835.glb",
+      "placement": {
+        "local_e": 650.823,
+        "local_n": -134.896,
+        "rotation_deg": 0.465,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "inferred_1835"
+      },
+      "position": [
+        -34.34999999999997,
+        0,
+        -34.74300000000006
+      ],
+      "rotation_y": 4.704273199362917,
+      "glb_sha256": "54a8adcd316b92f2f044cde09560215b7959056bb2c5fcb17cb06d7b58504fb7"
+    }
+  ],
+  "group_sha256": "adc1ba5f889a51147377a25f5ca9d8d974e2c7c3ed1b6a237e5db7d238c20d29",
+  "side_by_side": "docs/RESEARCH/photo-match/tremont_house_1/gifford_street-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Left of the hotel, the north side of Lake Street: the drawing's ten fronts from the far end to the hotel (a two-storey store, two stores, the three-storey hipped block, four two-storey stores, a store-dwelling and a one-storey shop) stand in the render in the drawn order, storeys, roof forms and false fronts, shoulder to shoulder up to the hotel's Lake gable. Before T-3605 this face held two cottages and open ground.",
+      "status": "fixed"
+    },
+    {
+      "what": "Right of the hotel, the west side of Dearborn: the seven gable-fronted stores and store-dwellings run north from the hotel to the alley as drawn. Before T-3605 the hotel's stable and Bates's auction room stood on this frontage; both now stand behind or after the row.",
+      "status": "fixed"
+    },
+    {
+      "what": "The two tall blocks at the far left, across Clark Street, stand as three-storey blocks at the drawn place.",
+      "status": "fixed"
+    },
+    {
+      "what": "Widths of the far Lake stores: the drawing compresses the far end of the row, so the far stores take frontages in proportion to their bays between Clark Street and the hotel rather than the camera's 14-16 m; their order, storeys and roofs are as drawn, and the difference is in how far apart two readings of one drawn row put each party line.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Left foreground, the south side of Lake west of Dearborn: the drawing shows one corner building at its left edge (lettered '...NK & ALBEE') and open street before the far row; the render shows the corner store and the houses of the party-line row T-0077 raised there on the owner's ask of 2026-08-18 for 'more and denser buildings' at this corner, which hide the far left of the row from this eye. The camera is solved on the hotel alone, and the drawing's left edge, where its own walks and the Dearborn crossing do not share one perspective, is its least reliable part, so the eye's place there is the gap two fits would disagree about. Kept for the owner's density asks of 2026-08-18 and 2026-11-15.",
+      "status": "owner ruling"
+    },
+    {
+      "what": "Colour and signs: the wash drawing is monochrome, and the boards it letters over the fronts are too small to read; no wording is copied (the app's signage layer boards the fronts of the firms now housed in these stores, which this structures-only render does not draw).",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

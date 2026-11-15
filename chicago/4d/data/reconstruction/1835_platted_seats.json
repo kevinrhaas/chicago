@@ -32,67 +32,61 @@
  ],
  "counts": {
   "rows_in_scope": 1424,
-  "seated": 221,
-  "owed": 1203,
+  "seated": 226,
+  "owed": 1198,
   "by_how": {
-   "adopted": 221
+   "adopted": 226
   },
   "by_clause": {
-   "labourer_dwellings": 40,
+   "labourer_dwellings": 41,
    "lodging_near_the_landings": 2,
-   "merchant_and_professional_dwellings": 37,
-   "tradesman_dwellings": 142
+   "merchant_and_professional_dwellings": 38,
+   "tradesman_dwellings": 145
   },
   "by_district": {
    "north": 8,
-   "south": 171,
+   "south": 176,
    "west": 42
   },
   "by_family": {
-   "D1": 22,
+   "D1": 23,
    "D2": 18,
-   "D3": 44,
-   "D4": 45,
+   "D3": 45,
+   "D4": 46,
    "D5": 36,
-   "D6": 17,
+   "D6": 18,
    "D7": 15,
-   "H1": 13,
+   "H1": 14,
    "H2": 9,
    "H3": 2
   },
-  "lots_taken": 202,
-  "roofs_adopted": 221,
+  "lots_taken": 205,
+  "roofs_adopted": 226,
   "slots_requested": 0,
   "owed_by_band_clause": {
    "division_ground": 27,
    "farms_and_country_seats": 209,
    "heavy_and_noxious_trades": 2,
-   "labourer_dwellings": 90,
-   "merchant_and_professional_dwellings": 378,
-   "tradesman_dwellings": 497
+   "labourer_dwellings": 89,
+   "merchant_and_professional_dwellings": 377,
+   "tradesman_dwellings": 494
   },
   "owed_by_the_letter_list_ruling": 660,
-  "roofs_offered_for_adoption": 232,
-  "roofs_held_back": 62,
-  "roofs_held_by_the_business_deal": 45,
-  "seats_the_business_deal_costs": 9
+  "roofs_offered_for_adoption": 249,
+  "roofs_held_back": 64,
+  "roofs_held_by_the_business_deal": 47,
+  "seats_the_business_deal_costs": 4
  },
  "what_the_plat_could_not_hold": {
-  "rows": 1203,
+  "rows": 1198,
   "handed_to": "T-1614",
-  "statement": "the committed plat seats 221 of the 1424 households the address book leaves at a band. 660 of the rest are letter-list households the owner's ruling of 2026-08-30 (T-0379) refuses a roof, owed here with that reason (T-1645). The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
+  "statement": "the committed plat seats 226 of the 1424 households the address book leaves at a band. 660 of the rest are letter-list households the owner's ruling of 2026-08-30 (T-0379) refuses a roof, owed here with that reason (T-1645). The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
  },
  "the_business_deal_goes_first": {
   "ruling": "The street-face business deal (tools/adopt_street_faces.py, L212) deals before this one, and this pass takes what it leaves. Both deals spend one pool of anonymous roofs, so one of them has to go first, and the narrower placement does: a business the paper places on a street can stand on that one face and nowhere else, while a banded household may take any roof of an admitted family in its whole division. Which business goes on which roof of its face is that deal's allocation, as which roof a household takes is this one's. It is an allocation precedence between two of this project's own passes, with no source read on either side and no claim about 1835 either way, so a run settles it and writes down why (T-1669, on the reasoning T-1626 set out for refusal 7).",
-  "roofs_held": 45,
-  "roofs_held_that_are_houses_of_trade": 31,
+  "roofs_held": 47,
+  "roofs_held_that_are_houses_of_trade": 42,
   "roofs_a_release_would_fill": [
-   "recon_1835_blk_lake_franklin_d1_02",
-   "recon_1835_blk_lake_market_d4_02",
-   "recon_1835_blk_randolph_clark_d6_04",
-   "recon_1835_blk_randolph_dearborn_d1_16",
-   "recon_1835_blk_randolph_dearborn_d3_15",
-   "recon_1835_blk_randolph_dearborn_h1_14",
    "recon_1835_blk_randolph_wells_d2_07",
    "recon_1835_blk_randolph_wells_d4_04",
    "recon_1835_blk_south_water_franklin_d4_02",
@@ -100,38 +94,6 @@
    "recon_1835_blk_south_water_lasalle_d5_01"
   ],
   "households_it_costs": [
-   {
-    "id": "hh_clarke_w_b",
-    "clause": "merchant_and_professional_dwellings",
-    "district": "south",
-    "how": "adopted",
-    "would_take": "recon_1835_blk_randolph_dearborn_h1_14",
-    "lot_id": "blk_randolph_dearborn#01"
-   },
-   {
-    "id": "hh_montgomery_l_w",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "how": "adopted",
-    "would_take": "recon_1835_blk_randolph_wells_d4_04",
-    "lot_id": "blk_randolph_wells#06"
-   },
-   {
-    "id": "hh_morrison_amanda",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "how": "adopted",
-    "would_take": "recon_1835_blk_south_water_lasalle_d4_02",
-    "lot_id": "blk_south_water_lasalle#04"
-   },
-   {
-    "id": "hh_mosely_e_b",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "how": "adopted",
-    "would_take": "recon_1835_blk_south_water_lasalle_d5_01",
-    "lot_id": "blk_south_water_lasalle#04"
-   },
    {
     "id": "hh_mulford_e_h",
     "clause": "tradesman_dwellings",
@@ -163,18 +125,10 @@
     "how": "adopted",
     "would_take": "recon_1835_blk_randolph_clark_d6_04",
     "lot_id": "blk_randolph_clark#07"
-   },
-   {
-    "id": "hh_rc_woodruff_ruth",
-    "clause": "labourer_dwellings",
-    "district": "south",
-    "how": "adopted",
-    "would_take": "recon_1835_blk_lake_franklin_d1_02",
-    "lot_id": "blk_lake_franklin#04"
    }
   ],
-  "households_that_would_change_roof": 11,
-  "reading": "the business deal holds 45 roofs on the plat, 31 of them raised as houses of trade. Released, this deal would adopt 11 of them — 9 by a household seated nowhere today and 2 by households already seated, moving to a better-scored lot — and seat 9 more household(s) in all, counting any the moves leave a roof or a slot for; 11 seated household(s) would change roof or lot. So the precedence costs the households 9 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
+  "households_that_would_change_roof": 15,
+  "reading": "the business deal holds 47 roofs on the plat, 42 of them raised as houses of trade. Released, this deal would adopt 5 of them — 1 by a household seated nowhere today and 4 by households already seated, moving to a better-scored lot — and seat 4 more household(s) in all, counting any the moves leave a roof or a slot for; 15 seated household(s) would change roof or lot. So the precedence costs the households 4 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
  },
  "roofs_held_back": [
   {
@@ -342,15 +296,6 @@
    "business_id": "business_sarah_d_howe"
   },
   {
-   "structure_id": "recon_1835_blk_lake_franklin_d1_02",
-   "lot_id": "blk_lake_franklin#04",
-   "family": "D1",
-   "held_by": "street_face_business_deal",
-   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[uncertain: the dentist lodging near Lake Street, July 1834] — dentistry",
-   "business_id": "business_uncertain_the_dentist_lodging_near_lake_street_july_1834"
-  },
-  {
    "structure_id": "recon_1835_blk_lake_market_c2_01",
    "lot_id": "blk_lake_market#06",
    "family": "C2",
@@ -358,24 +303,6 @@
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
    "occupants": "William Clay — hat manufacturing and dealing",
    "business_id": "business_william_clay"
-  },
-  {
-   "structure_id": "recon_1835_blk_lake_market_d2_04",
-   "lot_id": "blk_lake_market#07",
-   "family": "D2",
-   "held_by": "street_face_business_deal",
-   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Miss Bayne's Boarding and Day School — boarding and day school for young ladies",
-   "business_id": "business_miss_bayne_s_boarding_and_day_school"
-  },
-  {
-   "structure_id": "recon_1835_blk_lake_market_d4_02",
-   "lot_id": "blk_lake_market#04",
-   "family": "D4",
-   "held_by": "street_face_business_deal",
-   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[boot, shoe and leather store, Lake street, proprietor not recovered] — boot and shoe manufacturing and leather dealing",
-   "business_id": "business_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered"
   },
   {
    "structure_id": "recon_1835_blk_randolph_clark_c2_01",
@@ -387,22 +314,13 @@
    "business_id": "business_j_l_wilson_co"
   },
   {
-   "structure_id": "recon_1835_blk_randolph_clark_d6_04",
-   "lot_id": "blk_randolph_clark#07",
-   "family": "D6",
-   "held_by": "street_face_business_deal",
-   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[tin, sheet iron and stove manufactory, proprietor not recovered] — tin, sheet iron and stove work",
-   "business_id": "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered"
-  },
-  {
    "structure_id": "recon_1835_blk_randolph_clark_w1_10",
    "lot_id": "blk_randolph_clark#07",
    "family": "W1",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Cooley and Halsman — tailors",
-   "business_id": "business_cooley_and_halsman"
+   "occupants": "[uncertain: W. H. Taylor], Dearborn Street boot and shoe store — boot, shoe and leather store, and boot and shoe making",
+   "business_id": "business_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store"
   },
   {
    "structure_id": "recon_1835_blk_randolph_clark_w2_09",
@@ -410,35 +328,8 @@
    "family": "W2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "S. Abell, attorney and counsellor — attorney, counsellor and land conveyancer",
-   "business_id": "business_s_abell_attorney_and_counsellor"
-  },
-  {
-   "structure_id": "recon_1835_blk_randolph_dearborn_d1_16",
-   "lot_id": "blk_randolph_dearborn#01",
-   "family": "D1",
-   "held_by": "street_face_business_deal",
-   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Cooley and Hol[b]man — tailoring",
-   "business_id": "business_cooley_and_hol_b_man"
-  },
-  {
-   "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
-   "lot_id": "blk_randolph_dearborn#01",
-   "family": "D3",
-   "held_by": "street_face_business_deal",
-   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "the Dearborn Street auction and commission rooms — auction and commission rooms",
-   "business_id": "business_the_dearborn_street_auction_and_commission_rooms"
-  },
-  {
-   "structure_id": "recon_1835_blk_randolph_dearborn_h1_14",
-   "lot_id": "blk_randolph_dearborn#01",
-   "family": "H1",
-   "held_by": "street_face_business_deal",
-   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "a wholesale wine and liquor store, Dearborn Street — wholesale wine and liquors",
-   "business_id": "business_a_wholesale_wine_and_liquor_store_dearborn_street"
+   "occupants": "Cooley and Halsman — tailors",
+   "business_id": "business_cooley_and_halsman"
   },
   {
    "structure_id": "recon_1835_blk_randolph_dearborn_w2_18",
@@ -446,8 +337,8 @@
    "family": "W2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[uncertain: W. H. Taylor], Dearborn Street boot and shoe store — boot, shoe and leather store, and boot and shoe making",
-   "business_id": "business_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store"
+   "occupants": "Elmira Fowler — millinery and dress making",
+   "business_id": "business_elmira_fowler"
   },
   {
    "structure_id": "recon_1835_blk_randolph_wells_d2_07",
@@ -522,15 +413,6 @@
    "business_id": "business_peter_cohen"
   },
   {
-   "structure_id": "recon_1835_blk_south_water_dearborn_d2_04",
-   "lot_id": "blk_south_water_dearborn#01",
-   "family": "D2",
-   "held_by": "street_face_business_deal",
-   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "George Holsman — tailoring",
-   "business_id": "business_george_holsman"
-  },
-  {
    "structure_id": "recon_1835_blk_south_water_dearborn_f2_11",
    "lot_id": "blk_south_water_dearborn#00",
    "family": "F2",
@@ -581,8 +463,8 @@
    "family": "D4",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "the New Store at the corner of Water and Clark streets — dry goods, crockery, hardware and cutlery",
-   "business_id": "business_the_new_store_at_the_corner_of_water_and_clark_streets"
+   "occupants": "[uncertain: DATID GAD], auction and commission merchant, South Water Street — auction and commission merchant",
+   "business_id": "business_uncertain_datid_gad_auction_and_commission_merchant_south_water_street"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
@@ -621,22 +503,13 @@
    "business_id": "business_a_filer_co"
   },
   {
-   "structure_id": "recon_1835_blk_south_water_lasalle_d2_09",
-   "lot_id": "blk_south_water_lasalle#00",
-   "family": "D2",
-   "held_by": "street_face_business_deal",
-   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[uncertain: J. I. Mulford], carriage and sleigh maker — carriage and sleigh making, and repairing",
-   "business_id": "business_uncertain_j_i_mulford_carriage_and_sleigh_maker"
-  },
-  {
    "structure_id": "recon_1835_blk_south_water_lasalle_d4_02",
    "lot_id": "blk_south_water_lasalle#04",
    "family": "D4",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[uncertain: DATID GAD], auction and commission merchant, South Water Street — auction and commission merchant",
-   "business_id": "business_uncertain_datid_gad_auction_and_commission_merchant_south_water_street"
+   "occupants": "J. Curtiss, Attorney and Counsellor at Law — law",
+   "business_id": "business_j_curtiss_attorney_and_counsellor_at_law"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d5_01",
@@ -644,8 +517,8 @@
    "family": "D5",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "E. L. Thrall — tailoring and ready made clothing",
-   "business_id": "business_e_l_thrall"
+   "occupants": "[uncertain: J. I. Mulford], carriage and sleigh maker — carriage and sleigh making, and repairing",
+   "business_id": "business_uncertain_j_i_mulford_carriage_and_sleigh_maker"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_f2_10",
@@ -680,8 +553,107 @@
    "family": "W2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Elmira Fowler — millinery and dress making",
-   "business_id": "business_elmira_fowler"
+   "occupants": "[tin, sheet iron and stove manufactory, proprietor not recovered] — tin, sheet iron and stove work",
+   "business_id": "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered"
+  },
+  {
+   "structure_id": "recon_1835_gifford_c1_010",
+   "lot_id": "blk_south_water_clark#07",
+   "family": "C1",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "S. Abell, attorney and counsellor — attorney, counsellor and land conveyancer",
+   "business_id": "business_s_abell_attorney_and_counsellor"
+  },
+  {
+   "structure_id": "recon_1835_gifford_c2_001",
+   "lot_id": "blk_south_water_clark#01",
+   "family": "C2",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "[uncertain: the dentist lodging near Lake Street, July 1834] — dentistry",
+   "business_id": "business_uncertain_the_dentist_lodging_near_lake_street_july_1834"
+  },
+  {
+   "structure_id": "recon_1835_gifford_c2_009",
+   "lot_id": "blk_south_water_clark#07",
+   "family": "C2",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "Fullerton & Botsford — pork and provisions",
+   "business_id": "business_fullerton_botsford"
+  },
+  {
+   "structure_id": "recon_1835_gifford_c2_011",
+   "lot_id": "blk_south_water_clark#07",
+   "family": "C2",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "a wholesale wine and liquor store, Dearborn Street — wholesale wine and liquors",
+   "business_id": "business_a_wholesale_wine_and_liquor_store_dearborn_street"
+  },
+  {
+   "structure_id": "recon_1835_gifford_c2_016",
+   "lot_id": "blk_south_water_clark#06",
+   "family": "C2",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "the New Store at the corner of Water and Clark streets — dry goods, crockery, hardware and cutlery",
+   "business_id": "business_the_new_store_at_the_corner_of_water_and_clark_streets"
+  },
+  {
+   "structure_id": "recon_1835_gifford_c3_002",
+   "lot_id": "blk_south_water_clark#01",
+   "family": "C3",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "[boot, shoe and leather store, Lake street, proprietor not recovered] — boot and shoe manufacturing and leather dealing",
+   "business_id": "business_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered"
+  },
+  {
+   "structure_id": "recon_1835_gifford_c3_012",
+   "lot_id": "blk_south_water_clark#07",
+   "family": "C3",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "the Dearborn Street auction and commission rooms — auction and commission rooms",
+   "business_id": "business_the_dearborn_street_auction_and_commission_rooms"
+  },
+  {
+   "structure_id": "recon_1835_gifford_c3_013",
+   "lot_id": "blk_south_water_clark#07",
+   "family": "C3",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "Cooley and Hol[b]man — tailoring",
+   "business_id": "business_cooley_and_hol_b_man"
+  },
+  {
+   "structure_id": "recon_1835_gifford_c3_014",
+   "lot_id": "blk_south_water_clark#07",
+   "family": "C3",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "George Holsman — tailoring",
+   "business_id": "business_george_holsman"
+  },
+  {
+   "structure_id": "recon_1835_gifford_c3_015",
+   "lot_id": "blk_south_water_clark#07",
+   "family": "C3",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "A. Garrett, auctioneer — auction of town lots and land",
+   "business_id": "business_a_garrett_auctioneer"
+  },
+  {
+   "structure_id": "recon_1835_gifford_c3_017",
+   "lot_id": "blk_south_water_clark#06",
+   "family": "C3",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "E. L. Thrall — tailoring and ready made clothing",
+   "business_id": "business_e_l_thrall"
   },
   {
    "structure_id": "recon_1835_south_c3_040",
@@ -689,8 +661,8 @@
    "family": "C3",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Fullerton & Botsford — pork and provisions",
-   "business_id": "business_fullerton_botsford"
+   "occupants": "Miss Bayne's Boarding and Day School — boarding and day school for young ladies",
+   "business_id": "business_miss_bayne_s_boarding_and_day_school"
   },
   {
    "structure_id": "recon_1835_south_f1_038",
@@ -1655,6 +1627,30 @@
    "policy_rule": "merchant_and_professional_dwellings",
    "order_book_draw": null,
    "seed": "hh_church_thomas|south|merchant|T-1512",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_clarke_w_b",
+   "kind": "household",
+   "name": "The Clarke household — a name the town's own records carry",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "south",
+   "band": "south/merchant_and_professional_dwellings",
+   "lot_id": "blk_randolph_dearborn#01",
+   "block_id": "blk_randolph_dearborn",
+   "lot_index": 1,
+   "fronts": "washington",
+   "street_class": "light",
+   "corner": true,
+   "how": "adopted",
+   "structure_id": "recon_1835_blk_randolph_dearborn_h1_14",
+   "family": "H1",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "merchant_and_professional_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_clarke_w_b|T-1522|division:c35993df5c4a|class:8b62b7f02fef",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
@@ -5066,6 +5062,78 @@
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
+   "id": "hh_montgomery_l_w",
+   "kind": "household",
+   "name": "The Montgomery household — a documented shoemaker, unplaced in the town",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "band": "south/tradesman_dwellings",
+   "lot_id": "blk_lake_market#04",
+   "block_id": "blk_lake_market",
+   "lot_index": 4,
+   "fronts": "lake",
+   "street_class": "principal",
+   "corner": false,
+   "how": "adopted",
+   "structure_id": "recon_1835_blk_lake_market_d4_02",
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "party_line_run",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_montgomery_l_w|T-1522|division:68cf29ab5e2b|class:f5bedd9b3526",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_morrison_amanda",
+   "kind": "household",
+   "name": "The Morrison household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "band": "south/tradesman_dwellings",
+   "lot_id": "blk_randolph_dearborn#01",
+   "block_id": "blk_randolph_dearborn",
+   "lot_index": 1,
+   "fronts": "washington",
+   "street_class": "light",
+   "corner": true,
+   "how": "adopted",
+   "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
+   "family": "D3",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_morrison_amanda|T-1522|division:c9e059ae864e|class:e3632cf84699",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_mosely_e_b",
+   "kind": "household",
+   "name": "The Mosely household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "band": "south/tradesman_dwellings",
+   "lot_id": "blk_randolph_clark#07",
+   "block_id": "blk_randolph_clark",
+   "lot_index": 7,
+   "fronts": "washington",
+   "street_class": "light",
+   "corner": true,
+   "how": "adopted",
+   "structure_id": "recon_1835_blk_randolph_clark_d6_04",
+   "family": "D6",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_mosely_e_b|T-1522|division:4851ae5f344b|class:d1b5ddfdf60e",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
    "id": "hh_barney_anne_maria",
    "kind": "household",
    "name": "The Barney household — a name the town's own records carry",
@@ -5648,6 +5716,30 @@
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
+   "lot_id": "blk_randolph_dearborn#01",
+   "block_id": "blk_randolph_dearborn",
+   "lot_index": 1,
+   "fronts": "washington",
+   "street_class": "light",
+   "corner": true,
+   "how": "adopted",
+   "structure_id": "recon_1835_blk_randolph_dearborn_d1_16",
+   "family": "D1",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "labourer_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_rc_fairbanks_amanda|south|laundress|T-1512",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_rc_fisk_esther",
+   "kind": "household",
+   "name": "Reconstructed household — Esther Fisk, a woman boarding with her family in the south division",
+   "clause": "labourer_dwellings",
+   "district": "south",
+   "band": "south/labourer_dwellings",
    "lot_id": "blk_south_water_wells#03",
    "block_id": "blk_south_water_wells",
    "lot_index": 3,
@@ -5662,13 +5754,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_fairbanks_amanda|south|laundress|T-1512",
+   "seed": "hh_rc_fisk_esther|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_fisk_esther",
+   "id": "hh_rc_flynn_mary",
    "kind": "household",
-   "name": "Reconstructed household — Esther Fisk, a woman boarding with her family in the south division",
+   "name": "Reconstructed household — Mary Flynn, a woman keeping her own house in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5686,13 +5778,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_fisk_esther|south|laundress|T-1512",
+   "seed": "hh_rc_flynn_mary|south|domestic|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_flynn_mary",
+   "id": "hh_rc_hayes_bridget",
    "kind": "household",
-   "name": "Reconstructed household — Mary Flynn, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Bridget Hayes, a woman keeping her own house in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5710,13 +5802,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_flynn_mary|south|domestic|T-1512",
+   "seed": "hh_rc_hayes_bridget|south|domestic|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_hayes_bridget",
+   "id": "hh_rc_mahoney_catherine",
    "kind": "household",
-   "name": "Reconstructed household — Bridget Hayes, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Catherine Mahoney, a woman boarding with her family in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5734,13 +5826,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_hayes_bridget|south|domestic|T-1512",
+   "seed": "hh_rc_mahoney_catherine|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_mahoney_catherine",
+   "id": "hh_rc_shea_margaret",
    "kind": "household",
-   "name": "Reconstructed household — Catherine Mahoney, a woman boarding with her family in the south division",
+   "name": "Reconstructed household — Margaret Shea, a woman keeping her own house in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5758,13 +5850,13 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_mahoney_catherine|south|laundress|T-1512",
+   "seed": "hh_rc_shea_margaret|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_shea_margaret",
+   "id": "hh_rc_wilcox_martha",
    "kind": "household",
-   "name": "Reconstructed household — Margaret Shea, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Martha Wilcox, a woman boarding with her family in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5782,13 +5874,13 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_shea_margaret|south|laundress|T-1512",
+   "seed": "hh_rc_wilcox_martha|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_wilcox_martha",
+   "id": "hh_rc_wilcox_sophronia",
    "kind": "household",
-   "name": "Reconstructed household — Martha Wilcox, a woman boarding with her family in the south division",
+   "name": "Reconstructed household — Sophronia Wilcox, a woman boarding with her family in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5806,13 +5898,37 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_wilcox_martha|south|laundress|T-1512",
+   "seed": "hh_rc_wilcox_sophronia|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_wilcox_sophronia",
+   "id": "hh_rc_woodruff_eliza",
    "kind": "household",
-   "name": "Reconstructed household — Sophronia Wilcox, a woman boarding with her family in the south division",
+   "name": "Reconstructed household — Eliza Woodruff, a woman boarding with her family in the south division",
+   "clause": "labourer_dwellings",
+   "district": "south",
+   "band": "south/labourer_dwellings",
+   "lot_id": "blk_lake_franklin#04",
+   "block_id": "blk_lake_franklin",
+   "lot_index": 4,
+   "fronts": "lake",
+   "street_class": "principal",
+   "corner": false,
+   "how": "adopted",
+   "structure_id": "recon_1835_blk_lake_franklin_d1_02",
+   "family": "D1",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "party_line_run",
+   "policy_rule": "labourer_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_rc_woodruff_eliza|south|laundress|T-1512",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_rc_woodruff_ruth",
+   "kind": "household",
+   "name": "Reconstructed household — Ruth Woodruff, a woman boarding with her family in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5830,31 +5946,7 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_wilcox_sophronia|south|laundress|T-1512",
-   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
-   "id": "hh_rc_woodruff_eliza",
-   "kind": "household",
-   "name": "Reconstructed household — Eliza Woodruff, a woman boarding with her family in the south division",
-   "clause": "labourer_dwellings",
-   "district": "south",
-   "band": "south/labourer_dwellings",
-   "lot_id": "blk_lake_dearborn#02",
-   "block_id": "blk_lake_dearborn",
-   "lot_index": 2,
-   "fronts": "lake",
-   "street_class": "principal",
-   "corner": false,
-   "how": "adopted",
-   "structure_id": "recon_1835_south_d1_018",
-   "family": "D1",
-   "stands_on": "lot",
-   "setback_class": "typology",
-   "multi_building_rule": "party_line_run",
-   "policy_rule": "labourer_dwellings",
-   "order_book_draw": null,
-   "seed": "hh_rc_woodruff_eliza|south|laundress|T-1512",
+   "seed": "hh_rc_woodruff_ruth|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
@@ -6652,15 +6744,6 @@
    "district": "south",
    "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. The deal reads the ruling before it deals (T-1645), so no roof is offered to this row and the roof it would have taken goes on to the next row of its clause order",
    "refused_by": "T-0379",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_clarke_w_b",
-   "kind": "household",
-   "band": "south/merchant_and_professional_dwellings",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "south",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
    "handed_to": "T-1614"
   },
   {
@@ -12197,15 +12280,6 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_montgomery_l_w",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_moody_robert",
    "kind": "household",
    "band": "west/tradesman_dwellings",
@@ -12255,15 +12329,6 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_morrison_amanda",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_morrow_jeremiah",
    "kind": "household",
    "band": "south/tradesman_dwellings",
@@ -12271,15 +12336,6 @@
    "district": "south",
    "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. The deal reads the ruling before it deals (T-1645), so no roof is offered to this row and the roof it would have taken goes on to the next row of its clause order",
    "refused_by": "T-0379",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_mosely_e_b",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
    "handed_to": "T-1614"
   },
   {
@@ -15125,15 +15181,6 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_rc_woodruff_ruth",
-   "kind": "household",
-   "band": "south/labourer_dwellings",
-   "clause": "labourer_dwellings",
-   "district": "south",
    "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
    "handed_to": "T-1614"
   },

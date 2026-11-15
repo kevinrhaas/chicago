@@ -1397,7 +1397,7 @@
     },
     {
       "ticket": "T-2193",
-      "records": 316,
+      "records": 318,
       "buckets": [
         "households/family_dwelling/north",
         "households/family_dwelling/south",
@@ -1514,7 +1514,7 @@
     },
     {
       "ticket": "T-2236",
-      "records": 19,
+      "records": 20,
       "buckets": [
         "households/store_residence/north",
         "households/store_residence/south",
@@ -1620,12 +1620,12 @@
     "households_known": 165,
     "households_known_records": 1387,
     "households_awaiting_a_household": 1222,
-    "households_to_reconstruct": 432,
+    "households_to_reconstruct": 435,
     "businesses_target": 109,
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
-    "roofs_target": 668,
-    "roofs_standing": 688,
+    "roofs_target": 687,
+    "roofs_standing": 707,
     "roofs_to_build": 0,
     "persons_standing": 2863,
     "persons_still_owed": 0,
@@ -1644,13 +1644,13 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1424,
-    "seated": 316,
-    "still_owed": 1108,
-    "roofs_adopted": 316,
+    "seated": 321,
+    "still_owed": 1103,
+    "roofs_adopted": 321,
     "slots_requested": 0,
-    "roofs_standing": 688,
-    "roofs_standing_unseated": 372,
-    "share_of_standing_roofs_seated": 0.4593,
+    "roofs_standing": 707,
+    "roofs_standing_unseated": 386,
+    "share_of_standing_roofs_seated": 0.454,
     "passes": [
       {
         "key": "platted",
@@ -1659,24 +1659,24 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1424,
-        "seated": 221,
-        "handed_on": 1203,
-        "roofs_adopted": 221,
+        "seated": 226,
+        "handed_on": 1198,
+        "roofs_adopted": 226,
         "slots_requested": 0,
-        "roofs_offered_for_adoption": 232,
-        "roofs_held_back": 62,
-        "ground_taken": 202,
+        "roofs_offered_for_adoption": 249,
+        "roofs_held_back": 64,
+        "ground_taken": 205,
         "ground_taken_unit": "lots",
         "by_district": {
           "north": 8,
-          "south": 171,
+          "south": 176,
           "west": 42
         },
         "by_clause": {
-          "labourer_dwellings": 40,
+          "labourer_dwellings": 41,
           "lodging_near_the_landings": 2,
-          "merchant_and_professional_dwellings": 37,
-          "tradesman_dwellings": 142
+          "merchant_and_professional_dwellings": 38,
+          "tradesman_dwellings": 145
         }
       },
       {
@@ -1685,9 +1685,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1203,
+        "rows_offered": 1198,
         "seated": 95,
-        "handed_on": 1108,
+        "handed_on": 1103,
         "roofs_adopted": 95,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 110,
@@ -1710,7 +1710,7 @@
     "requested_slots": [],
     "slot_blocks": [],
     "what_the_slots_wait_on": "no slot was requested: every seat is an adoption of a roof already standing.",
-    "what_is_left": "1,108 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_is_left": "1,103 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -1866,8 +1866,8 @@
         "store_roofs_standing": 42,
         "store_households_ordered": 62,
         "discharged": 20,
-        "kept_from_elsewhere": 8,
-        "keeper_not_held": 4,
+        "kept_from_elsewhere": 11,
+        "keeper_not_held": 0,
         "still_owed": 0
       },
       "west": {
@@ -1882,13 +1882,13 @@
     "store_roofs_standing": 52,
     "store_households_ordered": 77,
     "discharged": 25,
-    "kept_from_elsewhere": 8,
+    "kept_from_elsewhere": 11,
     "kept_from_elsewhere_by": "T-2244",
-    "keeper_not_held": 4,
+    "keeper_not_held": 0,
     "keeper_not_held_by": "T-2246",
     "still_owed": 0,
     "still_owed_by": "T-2246",
-    "measured": "The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged; 8 more stand a house of trade whose keeper the town places on another roof, so nobody lived over them; 4 stand a house of trade whose keeper the town holds no card for, so nobody is seated over them; and 0 are still owed: a keeper for a store roof that stands with nobody in it.",
+    "measured": "The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged; 11 more stand a house of trade whose keeper the town places on another roof, so nobody lived over them; 0 stand a house of trade whose keeper the town holds no card for, so nobody is seated over them; and 0 are still owed: a keeper for a store roof that stands with nobody in it.",
     "ruling": "BOTH. The book over-orders the store rows, by what it ordered above one household a store roof, and that is discharged here. And the index is short: the household quota counts houses off the residents index alone, so the trade households the reconstruction drew as heads of their own and seated on a roof, the readmitted and the underdocumented are outside the count. They are people the cards hold present, not an order to fill, and T-2236 forms the store households from the keepers of the houses of trade the town holds, over their own stores, rather than from anybody new; what it could not form is T-2246's.",
     "what_this_does_not_do": "It moves, mints and retires nobody, it does not re-apportion the discharged households to the dwelling rows, and it does not count the households outside the index: T-2237 counts those beside the held heads (count_held_head_dwellings_1835.py, `beyond_the_index`)."
   },
@@ -1896,23 +1896,23 @@
     "ticket": "T-2256",
     "asks": "The family_dwelling order outruns the held heads the housing seats put under a standing dwelling. Is that a household the town lacks?",
     "families_waiting_on_a_roof": {
-      "unplaced": 9
+      "unplaced": 1
     },
     "by_division": {
       "north": {
-        "held_heads_under_a_dwelling": 82,
+        "held_heads_under_a_dwelling": 84,
         "houses_other_stages_drew": 10,
-        "short_of_the_order": 4,
-        "waiting_families_share": 2,
-        "re_spread_from_full_cells": 2,
-        "discharged": 4,
-        "still_owed": 0
+        "short_of_the_order": 2,
+        "waiting_families_share": 0,
+        "re_spread_from_full_cells": 1,
+        "discharged": 1,
+        "still_owed": 1
       },
       "south": {
-        "held_heads_under_a_dwelling": 166,
+        "held_heads_under_a_dwelling": 173,
         "houses_other_stages_drew": 19,
         "short_of_the_order": 0,
-        "waiting_families_share": 5,
+        "waiting_families_share": 1,
         "re_spread_from_full_cells": 0,
         "discharged": 0,
         "still_owed": 0
@@ -1921,18 +1921,18 @@
         "held_heads_under_a_dwelling": 69,
         "houses_other_stages_drew": 11,
         "short_of_the_order": 9,
-        "waiting_families_share": 2,
-        "re_spread_from_full_cells": 3,
-        "discharged": 5,
-        "still_owed": 4
+        "waiting_families_share": 0,
+        "re_spread_from_full_cells": 0,
+        "discharged": 0,
+        "still_owed": 9
       }
     },
-    "short_of_the_order": 13,
-    "discharged": 9,
-    "re_spread_from_full_cells": 5,
+    "short_of_the_order": 11,
+    "discharged": 1,
+    "re_spread_from_full_cells": 1,
     "discharging_nothing": 0,
-    "still_owed": 4,
-    "measured": "The held heads fall 13 short of the family_dwelling order. The housing deal holds 9 families present on the scene date and waiting on a roof behind the census ceiling, none of them a letter-list household, 9 with no division on the card; spread pro rata on the cells' targets, as rule 2 spreads the unplaced known, with a share past its cell's shortfall spread on over the cells still short (5 so), they discharge 9 and 4 are still owed.",
+    "still_owed": 10,
+    "measured": "The held heads fall 11 short of the family_dwelling order. The housing deal holds 1 families present on the scene date and waiting on a roof behind the census ceiling, none of them a letter-list household, 1 with no division on the card; spread pro rata on the cells' targets, as rule 2 spreads the unplaced known, with a share past its cell's shortfall spread on over the cells still short (1 so), they discharge 1 and 10 are still owed.",
     "ruling": "NOT A HOUSEHOLD THE TOWN LACKS. Rule 2 never orders a replacement for somebody standing in the town, and these families stand in it on their own cards: what they lack is a roof, which the remaining dwelling builds raise, and the deal seats them where the room is when they do.",
     "what_this_does_not_do": "It seats, moves, mints and retires nobody, counts no waiting family as a fill, and re-admits no household the letter-list ruling (T-0379) refuses a roof.",
     "what_would_reopen_it": "a waiting family seated in another division, or a held head of this one boarded instead: either takes one from the share or adds one to the shortfall, and the cell owes again under its owning ticket."
@@ -1942,10 +1942,10 @@
     "asks": "The family_dwelling order still owes houses once the waiting families are spent. Is there anybody the book may put in them?",
     "by_division": {
       "north": {
-        "owed_after_the_waiting_families": 0,
+        "owed_after_the_waiting_families": 1,
         "family_persons_still_owed": 0,
         "houses_those_persons_could_people": 0,
-        "discharged": 0,
+        "discharged": 1,
         "still_owed": 0
       },
       "south": {
@@ -1956,19 +1956,19 @@
         "still_owed": 0
       },
       "west": {
-        "owed_after_the_waiting_families": 4,
+        "owed_after_the_waiting_families": 9,
         "family_persons_still_owed": 0,
         "houses_those_persons_could_people": 0,
-        "discharged": 4,
+        "discharged": 9,
         "still_owed": 0
       }
     },
-    "owed_after_the_waiting_families": 4,
-    "discharged": 4,
+    "owed_after_the_waiting_families": 10,
+    "discharged": 10,
     "still_owed": 0,
-    "households_the_book_orders": 595,
+    "households_the_book_orders": 598,
     "households_range_floor": 473,
-    "measured": "The waiting families leave 4 houses owed on the family_dwelling rows. Every family person cell of West reads 0 left, so 4 of those houses have nobody the book may draw into them without overfilling a person cell; discharged, the book orders 595 households, inside the model's range from 473, and 0 are still owed.",
+    "measured": "The waiting families leave 10 houses owed on the family_dwelling rows. Every family person cell of North and West reads 0 left, so 10 of those houses have nobody the book may draw into them without overfilling a person cell; discharged, the book orders 598 households, inside the model's range from 473, and 0 are still owed.",
     "ruling": "NOT A HOUSEHOLD THE TOWN LACKS. A house is the people in it, and the person side of the division is full: its families stand in the town in fewer houses than the households midpoint asks, and larger, which the model's range admits. The order past what the open family cells could people is discharged rather than met with a house nobody lives in.",
     "what_this_does_not_do": "It seats, moves, mints and retires nobody, counts no single person or boarders' roof as a household, and re-admits no household the letter-list ruling (T-0379) refuses a roof.",
     "what_would_reopen_it": "a family person cell of the division owing again (a re-cut that frees people for a house), or a held head of the division boarded instead: either adds to what the open cells can people or to the shortfall, and the cell owes again under its owning ticket."
@@ -4508,11 +4508,12 @@
           },
           "target": 123,
           "known": 27,
-          "to_reconstruct": 92,
-          "filled": 92,
+          "to_reconstruct": 94,
+          "filled": 94,
           "owning_ticket": "T-2286",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the north division",
-          "discharged_by_the_waiting_families": 4
+          "discharged_by_the_waiting_families": 1,
+          "discharged_by_the_full_family_cells": 1
         },
         {
           "key": "households/family_dwelling/south",
@@ -4539,8 +4540,7 @@
           "filled": 80,
           "owning_ticket": "T-2286",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the west division",
-          "discharged_by_the_waiting_families": 5,
-          "discharged_by_the_full_family_cells": 4
+          "discharged_by_the_full_family_cells": 9
         },
         {
           "key": "households/inn_tavern/north",
@@ -4616,13 +4616,12 @@
           },
           "target": 62,
           "known": 18,
-          "to_reconstruct": 12,
-          "filled": 12,
+          "to_reconstruct": 13,
+          "filled": 13,
           "owning_ticket": "T-2246",
           "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the south division",
           "discharged_by_the_store_ruling": 20,
-          "discharged_kept_from_elsewhere": 8,
-          "discharged_keeper_not_held": 4
+          "discharged_kept_from_elsewhere": 11
         },
         {
           "key": "households/store_residence/west",
@@ -5127,12 +5126,12 @@
       "title": "Structures",
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
-        "roof_target": 668,
-        "standing_records": 688,
-        "standing_with_an_occupant": 373,
-        "standing_without_an_occupant": 315,
+        "roof_target": 687,
+        "standing_records": 707,
+        "standing_with_an_occupant": 375,
+        "standing_without_an_occupant": 332,
         "to_build_total": 0,
-        "redeal_note": "A roof standing where the reconstruction plan has nobody to put in it is a SUBSTITUTION for other work, never a demolition: 315 of the 688 standing records carry no occupants block today, and other work re-audits them against this book."
+        "redeal_note": "A roof standing where the reconstruction plan has nobody to put in it is a SUBSTITUTION for other work, never a demolition: 332 of the 707 standing records carry no occupants block today, and other work re-audits them against this book."
       },
       "buckets": [
         {
@@ -5306,14 +5305,14 @@
             "group": "larger_boarding_houses",
             "division": "south"
           },
-          "target": 28,
-          "standing": 28,
+          "target": 31,
+          "standing": 31,
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-2270",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 28; the 668-roof programme leaves 0 of them to build"
+          "basis": "the inventory's district/group matrix sets 31; the 668-roof programme leaves 0 of them to build"
         },
         {
           "key": "structures/larger_boarding_houses/west",
@@ -5456,14 +5455,14 @@
             "group": "stores_mixed_use",
             "division": "south"
           },
-          "target": 42,
-          "standing": 42,
+          "target": 58,
+          "standing": 58,
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1694",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 42; the 668-roof programme leaves 0 of them to build"
+          "basis": "the inventory's district/group matrix sets 58; the 668-roof programme leaves 0 of them to build"
         },
         {
           "key": "structures/stores_mixed_use/west",
@@ -5653,7 +5652,7 @@
       "summary": {
         "roofs_on_committed_ground": 0,
         "roofs_gated_on_coverage": 0,
-        "statement": "0 of the 0 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 0 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "statement": "0 of the 0 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 0 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 687-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5945,11 +5944,11 @@
       "id": "people_per_roof",
       "owning_ticket": "T-1196",
       "model": 2549,
-      "programme": 668,
+      "programme": 687,
       "delta": 0,
       "programme_groups": [],
       "restates_the_programme": false,
-      "statement": "2,549 people under 668 roofs is the ratio the completed town must meet; the census's own reading for November 1835 is 8.204 people per dwelling over 398 dwellings."
+      "statement": "2,549 people under 687 roofs is the ratio the completed town must meet; the census's own reading for November 1835 is 8.204 people per dwelling over 398 dwellings."
     }
   ],
   "invariants": [
@@ -5979,7 +5978,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "315 of 688 standing records carry no occupants block."
+      "measured_now": "332 of 707 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
@@ -7034,7 +7033,7 @@
       "bucket": "households/family_dwelling/north",
       "ticket": "T-2193",
       "stage": "held_head_dwellings",
-      "records": 82,
+      "records": 84,
       "by": "tools/count_held_head_dwellings_1835.py --build"
     },
     {
@@ -7062,7 +7061,7 @@
       "bucket": "households/store_residence/south",
       "ticket": "T-2236",
       "stage": "store_households",
-      "records": 12,
+      "records": 13,
       "by": "tools/count_held_head_dwellings_1835.py --build"
     },
     {

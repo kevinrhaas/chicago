@@ -7,35 +7,35 @@
  "target_date": "1835-07-01",
  "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / placement.local_n use.",
  "counts": {
-  "dwellings": 400,
+  "dwellings": 407,
   "by_row": {
    "cabin": 42,
-   "cottage": 175,
+   "cottage": 179,
    "house": 92,
-   "keeper": 21,
+   "keeper": 24,
    "merchant": 37,
    "shanty": 32
   },
   "by_class": {
-   "keeper": 21,
+   "keeper": 24,
    "labourer": 89,
    "merchant": 37,
-   "tradesman": 252
+   "tradesman": 256
   },
   "by_basis": {
    "default": 17,
-   "fabric_rule": 351,
+   "fabric_rule": 358,
    "function": 6,
    "household_trade": 11,
    "reconstruction_occupation": 14
   },
   "items": {
-   "chopping_block": 367,
-   "cordwood": 419,
+   "chopping_block": 374,
+   "cordwood": 428,
    "log_heap": 42,
    "slab_heap": 32
   },
-  "piled": 399,
+  "piled": 406,
   "refused": 1
  },
  "existence": {
@@ -5844,8 +5844,8 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      649.13,
-      -89.59
+      649.24,
+      -73.09
      ],
      "bearing_deg": 180.36,
      "length_m": 1.76,
@@ -5857,8 +5857,8 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      648.71,
-      -88.19
+      648.82,
+      -71.69
      ],
      "bearing_deg": 180.36,
      "billets": 2,
@@ -5881,8 +5881,8 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      620.93,
-      -88.09
+      621.03,
+      -72.09
      ],
      "bearing_deg": 180.36,
      "length_m": 2.28,
@@ -5894,8 +5894,8 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      621.63,
-      -86.69
+      621.73,
+      -70.69
      ],
      "bearing_deg": 180.36,
      "billets": 1,
@@ -6482,10 +6482,10 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      551.25,
-      -89.38
+      549.09,
+      -78.48
      ],
-     "bearing_deg": 180.36,
+     "bearing_deg": 90.36,
      "length_m": 2.24,
      "depth_m": 0.61,
      "height_m": 0.61,
@@ -6495,10 +6495,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      551.93,
-      -87.98
+      547.69,
+      -77.81
      ],
-     "bearing_deg": 180.36,
+     "bearing_deg": 90.36,
      "billets": 2,
      "seed": 40678755
     }
@@ -9654,6 +9654,317 @@
      "bearing_deg": 180.05,
      "billets": 3,
      "seed": 1840369056
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_gifford_c2_001",
+   "name": "Reconstructed store-residence on Lake Street, as Gifford draws it",
+   "function": "store_residence",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "small",
+   "row": "cottage",
+   "rule": "Y-W3",
+   "confidence": "reconstructed",
+   "wall": "side",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      590.39,
+      -89.01
+     ],
+     "bearing_deg": 180.47,
+     "length_m": 1.9,
+     "depth_m": 0.61,
+     "height_m": 0.74,
+     "stick": "stove",
+     "seed": 949690659
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      590.9,
+      -87.61
+     ],
+     "bearing_deg": 180.47,
+     "billets": 1,
+     "seed": 1129146190
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_gifford_c2_009",
+   "name": "Reconstructed store-residence on Lake Street, as Gifford draws it",
+   "function": "store_residence",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "small",
+   "row": "cottage",
+   "rule": "Y-W3",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      667.16,
+      -89.64
+     ],
+     "bearing_deg": 180.47,
+     "length_m": 2.19,
+     "depth_m": 0.61,
+     "height_m": 0.72,
+     "stick": "stove",
+     "seed": 934981789
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      667.81,
+      -88.24
+     ],
+     "bearing_deg": 180.47,
+     "billets": 2,
+     "seed": 504876082
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_gifford_c2_011",
+   "name": "Reconstructed store-residence on Dearborn Street, as Gifford draws it",
+   "function": "store_residence",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "small",
+   "row": "cottage",
+   "rule": "Y-W3",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      675.82,
+      -83.37
+     ],
+     "bearing_deg": 90.36,
+     "length_m": 2.05,
+     "depth_m": 0.61,
+     "height_m": 0.93,
+     "stick": "stove",
+     "seed": 1024415519
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      674.42,
+      -82.79
+     ],
+     "bearing_deg": 90.36,
+     "billets": 1,
+     "seed": 1532238072
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_gifford_c2_016",
+   "name": "Reconstructed store-residence on Dearborn Street, as Gifford draws it",
+   "function": "store_residence",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "small",
+   "row": "cottage",
+   "rule": "Y-W3",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      676.04,
+      -46.83
+     ],
+     "bearing_deg": 90.36,
+     "length_m": 2.11,
+     "depth_m": 0.61,
+     "height_m": 0.87,
+     "stick": "stove",
+     "seed": 488646909
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      674.64,
+      -46.22
+     ],
+     "bearing_deg": 90.36,
+     "billets": 2,
+     "seed": 385524030
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_gifford_h3_004",
+   "name": "Reconstructed boarding house on Lake Street, as Gifford draws it",
+   "function": "large_boarding_house",
+   "household_class": "keeper",
+   "household_by": "fabric_rule",
+   "house": "small",
+   "row": "keeper",
+   "rule": "Y-W6",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      627.0,
+      -87.0
+     ],
+     "bearing_deg": 180.47,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 1.15,
+     "stick": "cord",
+     "seed": 805070180
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      624.21,
+      -86.98
+     ],
+     "bearing_deg": 180.47,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 1.07,
+     "stick": "cord",
+     "seed": 1522112877
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      627.79,
+      -85.3
+     ],
+     "bearing_deg": 180.47,
+     "billets": 3,
+     "seed": 1787346566
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_gifford_h3_018",
+   "name": "Reconstructed boarding house on Lake Street, as Gifford draws it",
+   "function": "large_boarding_house",
+   "household_class": "keeper",
+   "household_by": "fabric_rule",
+   "house": "small",
+   "row": "keeper",
+   "rule": "Y-W6",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      550.9,
+      -85.39
+     ],
+     "bearing_deg": 180.47,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 1.03,
+     "stick": "cord",
+     "seed": 481574271
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      548.11,
+      -85.37
+     ],
+     "bearing_deg": 180.47,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 1.19,
+     "stick": "cord",
+     "seed": 1837886963
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      551.68,
+      -83.69
+     ],
+     "bearing_deg": 180.47,
+     "billets": 3,
+     "seed": 1657981961
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_gifford_h3_019",
+   "name": "Reconstructed boarding house on Lake Street, as Gifford draws it",
+   "function": "large_boarding_house",
+   "household_class": "keeper",
+   "household_by": "fabric_rule",
+   "house": "small",
+   "row": "keeper",
+   "rule": "Y-W6",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      543.52,
+      -86.33
+     ],
+     "bearing_deg": 180.47,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 1.07,
+     "stick": "cord",
+     "seed": 1531663563
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      540.73,
+      -86.31
+     ],
+     "bearing_deg": 180.47,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 1.06,
+     "stick": "cord",
+     "seed": 718598303
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      537.94,
+      -86.28
+     ],
+     "bearing_deg": 180.47,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 1.07,
+     "stick": "cord",
+     "seed": 296271800
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      537.18,
+      -84.57
+     ],
+     "bearing_deg": 180.47,
+     "billets": 2,
+     "seed": 893590140
     }
    ]
   },
@@ -15440,10 +15751,10 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      684.0,
-      -90.35
+      675.37,
+      -86.88
      ],
-     "bearing_deg": 180.0,
+     "bearing_deg": 90.0,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 1.1,
@@ -15451,42 +15762,17 @@
      "seed": 2092343542
     },
     {
-     "kind": "cordwood",
-     "at_local_enu_m": [
-      681.21,
-      -90.35
-     ],
-     "bearing_deg": 180.0,
-     "length_m": 2.44,
-     "depth_m": 1.22,
-     "height_m": 1.21,
-     "stick": "cord",
-     "seed": 2117873508
-    },
-    {
-     "kind": "cordwood",
-     "at_local_enu_m": [
-      678.42,
-      -90.35
-     ],
-     "bearing_deg": 180.0,
-     "length_m": 2.44,
-     "depth_m": 1.22,
-     "height_m": 1.02,
-     "stick": "cord",
-     "seed": 1983344033
-    },
-    {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      677.65,
-      -88.64
+      673.66,
+      -87.65
      ],
-     "bearing_deg": 180.0,
+     "bearing_deg": 90.0,
      "billets": 1,
-     "seed": 524745992
+     "seed": 2117873508
     }
-   ]
+   ],
+   "cut_down": "dealt 3 ricks; 1 fit the wall"
   },
   {
    "structure_id": "wabansia_doctors_house",

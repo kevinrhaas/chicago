@@ -18,12 +18,12 @@
         "note": "COPIED FROM THE HOUSE IT SERVES (data/structures/tremont_house_1.json, phase frame_1833, 1833-01-01 to 1839-10-27). No source dates this building, because no source mentions it. The stable is taken to stand while the house kept travellers, because keeping a traveller's horse overnight was a priced service of a Chicago tavern from the county's first licences on (the 1831 order below). If the house kept its horses at a livery or a neighbour's barn instead, this range is wrong in the only way that matters: the building was not there. T-1776."
       },
       "position": {
-        "utm_e": 447746.4,
-        "utm_n": 4637329.2,
+        "utm_e": 447735.6,
+        "utm_n": 4637328.97,
         "rotation_deg": 0.0,
         "symbolic_location": "Rear of the first Tremont House's lot at the north-west corner of Lake and Dearborn, against the block's east-west alley.",
         "confidence": "reconstructed",
-        "note": "NOTHING PLACES THIS BUILDING AND THIS COORDINATE IS A CHOICE, bounded by the lot. The placement policy's ancillary clause (`ancillary_behind_its_own_roof`: stables 'go off the block alley behind the roof they serve') and the house's own footprint decide where it may go; inside that, it is the alley end of blk_south_water_clark lot #07, the Tremont's own corner lot: 1.5 m inside the alley line (plat_occupancy's LOT_MARGIN_M) and 1.5 m inside the lot's Dearborn line, under the house's east half. Checked against every committed footprint with a 1 m clearance and against the modelled water; nothing was hit. L317.",
+        "note": "NOTHING PLACES THIS BUILDING AND THIS COORDINATE IS A CHOICE, bounded by the lot. The placement policy's ancillary clause (`ancillary_behind_its_own_roof`: stables 'go off the block alley behind the roof they serve') and the house's own footprint decide where it may go; inside that, it is the alley end of blk_south_water_clark lot #07, the Tremont's own corner lot: 1.5 m inside the alley line (plat_occupancy's LOT_MARGIN_M) and 1.5 m inside the lot's Dearborn line, under the house's east half. Checked against every committed footprint with a 1 m clearance and against the modelled water; nothing was hit. L317. MOVED 2026-11-15 (T-3605): the drawn stores of Gifford's view take the hotel lot's Dearborn Street frontage, where this stable stood, so it stands further west at the same alley end of the lot, 1.5 m inside the alley line and 1.2 m inside the lot's west side line, behind the hotel and the stores. Still a choice inside the lot, not a reading.",
         "derivation": {
           "method": "not_derivable",
           "reason": "Placed against the lot it stands on (data/traces/vectors/thompson_lots.json) or, off the plat, against the house it serves — neither is a street line or a traced waterline that validate.py can re-derive a coordinate from. The reasoning is in position.note."

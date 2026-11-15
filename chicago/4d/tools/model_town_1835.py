@@ -70,6 +70,27 @@ class Fault(Exception):
 # a figure
 
 
+def household_matrix(inventory: dict) -> dict:
+    """The district/group matrix the HOUSEHOLD model weights on (T-3605).
+
+    The inventory's `district_group_matrix` counts every roof the town stands. Its
+    `pictured_roofs` block names the rows raised because a picture shows them (Gifford's
+    Lake and Dearborn street faces) rather than because the households needed them; they
+    stand in the roof count and are taken off here, so raising them re-weights no
+    household. The same function is in tools/build_order_book_1835.py, and the two must
+    agree."""
+    matrix = copy.deepcopy(inventory.get("district_group_matrix", {}))
+    for group, cells in ((inventory.get("pictured_roofs") or {}).get("by_group") or {}).items():
+        row = matrix.get(group)
+        if row is None:
+            continue
+        for division, n in cells.items():
+            row[division] = int(row.get(division) or 0) - int(n)
+            if "total" in row:
+                row["total"] = int(row["total"]) - int(n)
+    return matrix
+
+
 def figure(name: str, low, high, method: str, comparanda: list[str],
            derived_from: list[str], point=None) -> dict:
     """One bounded answer. A range whose ends are equal is a COUNT, not an estimate."""
@@ -194,7 +215,7 @@ def build_population(people: dict, census: dict, inventory: dict, comp: dict) ->
     ratio_adult = totals["males_per_100_females_aged_20_and_over"]
     child_share = totals["child_share"]
 
-    matrix = inventory["district_group_matrix"]["ordinary_dwellings"]
+    matrix = household_matrix(inventory)["ordinary_dwellings"]
     dwelling_total = matrix["total"]
     divisions = {d: matrix[d] for d in ("south", "west", "north")}
 
@@ -416,7 +437,7 @@ def build_households(comp: dict, census: dict, people: dict, inventory: dict, po
     layer_households = counts["households"]
     layer_people = named_people(counts)
 
-    matrix = inventory["district_group_matrix"]
+    matrix = household_matrix(inventory)
     figures = [
         figure("people_per_dwelling_november_1835", per_dwelling, per_dwelling,
                f"{nov_people:,} people in {nov_dwellings} dwellings. Against a 1840 mean "
@@ -492,7 +513,7 @@ def build_households(comp: dict, census: dict, people: dict, inventory: dict, po
 
 
 def build_lodging(inventory: dict, crosswalk: dict, comp: dict, pop: dict) -> dict:
-    matrix = inventory["district_group_matrix"]
+    matrix = household_matrix(inventory)
     boarding = matrix["larger_boarding_houses"]["total"]
     inns = matrix["inns_taverns"]["total"]
     institutional = matrix["institutional_public"]["total"]

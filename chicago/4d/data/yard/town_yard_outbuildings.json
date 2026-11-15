@@ -131,13 +131,13 @@
   },
   "wells": "None dealt. docs/RESEARCH/wells.md § 4 refuses a well class for the town — July 1835 Chicago drank from the lake by cart — and that ruling stands; data/wells/ draws only the wells a source places.",
   "counts": {
-    "dwelling_lots": 241,
+    "dwelling_lots": 242,
     "privies": 196,
-    "stables": 23,
+    "stables": 25,
     "privy_standing": 36,
     "stable_standing": 17,
-    "horse_households": 42,
-    "refused": 11,
+    "horse_households": 44,
+    "refused": 12,
     "dwellings_off_plat": 130
   },
   "dwellings_off_plat_note": "Dwellings standing on no platted lot have no lot line to put an alley behind; they are counted, not drawn.",
@@ -490,13 +490,59 @@
       "id": "privy_blk_south_water_lasalle_lot7",
       "kind": "privy",
       "lot": "blk_south_water_lasalle_lot7",
-      "belongs_to": "recon_1835_blk_south_water_lasalle_d3_03",
+      "belongs_to": "recon_1835_gifford_h3_018",
+      "households": [],
+      "household_class": "keeper",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        561.88,
+        -56.78
+      ],
+      "bearing_deg": -179.64,
+      "along_m": 1.52,
+      "depth_m": 1.22,
+      "eave_m": 2.0,
+      "head_m": 2.3,
+      "roof": "shed",
+      "weather": "weathered",
+      "confidence": "reconstructed",
+      "finish": "board"
+    },
+    {
+      "id": "stable_blk_south_water_lasalle_lot7",
+      "kind": "stable",
+      "lot": "blk_south_water_lasalle_lot7",
+      "belongs_to": "recon_1835_gifford_h3_018",
+      "households": [],
+      "household_class": "keeper",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        542.41,
+        -58.3
+      ],
+      "bearing_deg": -179.64,
+      "along_m": 6.1,
+      "depth_m": 4.27,
+      "eave_m": 2.6,
+      "head_m": 4.1,
+      "roof": "gable",
+      "weather": "weathered",
+      "confidence": "reconstructed",
+      "finish": "board_and_batten",
+      "stalls": 4,
+      "kept_a_horse_because": "keeper"
+    },
+    {
+      "id": "privy_blk_south_water_clark_lot1",
+      "kind": "privy",
+      "lot": "blk_south_water_clark_lot1",
+      "belongs_to": "recon_1835_gifford_c2_001",
       "households": [],
       "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        562.03,
-        -56.78
+        589.13,
+        -56.95
       ],
       "bearing_deg": -179.64,
       "along_m": 1.22,
@@ -504,7 +550,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -512,23 +558,47 @@
       "id": "privy_blk_south_water_clark_lot3",
       "kind": "privy",
       "lot": "blk_south_water_clark_lot3",
-      "belongs_to": "recon_1835_blk_south_water_clark_d4_02",
+      "belongs_to": "recon_1835_gifford_h3_004",
       "households": [],
-      "household_class": "tradesman",
+      "household_class": "keeper",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        613.77,
+        613.92,
         -57.25
       ],
       "bearing_deg": -179.64,
-      "along_m": 1.22,
+      "along_m": 1.52,
       "depth_m": 1.22,
-      "eave_m": 1.95,
-      "head_m": 2.2,
+      "eave_m": 2.0,
+      "head_m": 2.3,
       "roof": "shed",
-      "weather": "grey",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board"
+    },
+    {
+      "id": "stable_blk_south_water_clark_lot3",
+      "kind": "stable",
+      "lot": "blk_south_water_clark_lot3",
+      "belongs_to": "recon_1835_gifford_h3_004",
+      "households": [],
+      "household_class": "keeper",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        633.24,
+        -59.01
+      ],
+      "bearing_deg": -179.64,
+      "along_m": 6.1,
+      "depth_m": 4.27,
+      "eave_m": 2.6,
+      "head_m": 4.1,
+      "roof": "gable",
+      "weather": "fresh",
+      "confidence": "reconstructed",
+      "finish": "board_and_batten",
+      "stalls": 4,
+      "kept_a_horse_because": "keeper"
     },
     {
       "id": "privy_blk_south_water_clark_lot5",
@@ -579,34 +649,6 @@
       "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "whitewash"
-    },
-    {
-      "id": "privy_blk_south_water_clark_lot7",
-      "kind": "privy",
-      "lot": "blk_south_water_clark_lot7",
-      "belongs_to": "tremont_house_1",
-      "households": [
-        {
-          "id": "hh_couch_ira",
-          "held_as": "home",
-          "at": "tremont_house_1"
-        }
-      ],
-      "household_class": "keeper",
-      "class_read_from": "its function, hotel",
-      "at_local_enu_m": [
-        663.2,
-        -57.85
-      ],
-      "bearing_deg": -179.64,
-      "along_m": 1.52,
-      "depth_m": 1.22,
-      "eave_m": 2.0,
-      "head_m": 2.3,
-      "roof": "shed",
-      "weather": "weathered",
-      "confidence": "reconstructed",
-      "finish": "board"
     },
     {
       "id": "privy_blk_south_water_dearborn_lot1",
@@ -5092,6 +5134,12 @@
       "lot": "blk_south_water_clark_lot6",
       "kind": "stable",
       "belongs_to": "madore_beaubien_house",
+      "why": "a committed building stands in that corner"
+    },
+    {
+      "lot": "blk_south_water_clark_lot7",
+      "kind": "privy",
+      "belongs_to": "tremont_house_1",
       "why": "a committed building stands in that corner"
     },
     {

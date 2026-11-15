@@ -979,6 +979,28 @@ GROUND_TICKETS = {
 }
 
 
+def household_matrix(inventory: dict) -> dict:
+    """The district/group matrix the HOUSEHOLD model weights on (T-3605).
+
+    The inventory's `district_group_matrix` counts every roof the town stands. Its
+    `pictured_roofs` block names the rows raised because a picture shows them (Gifford's
+    Lake and Dearborn street faces) rather than because the households needed them; they
+    stand in the roof count and are taken off here, so raising them re-weights no
+    household. The same function is in tools/model_town_1835.py, and the two must
+    agree."""
+    matrix = copy.deepcopy(inventory.get("district_group_matrix", {}))
+    for group, cells in ((inventory.get("pictured_roofs") or {}).get("by_group") or {}).items():
+        row = matrix.get(group)
+        if row is None:
+            continue
+        for division, n in cells.items():
+            row[division] = int(row.get(division) or 0) - int(n)
+            if "total" in row:
+                row["total"] = int(row["total"]) - int(n)
+    return matrix
+
+
+
 class Fault(Exception):
     """A refusal. Never a warning: an order book with a hole in it is not a quota."""
 
@@ -1246,7 +1268,8 @@ def adult_men_ruling(buckets: list, measure: dict) -> dict:
 
 def store_residence_ruling(households: list, structures: list,
                            kept_elsewhere: dict | None = None,
-                           keeper_not_held: dict | None = None) -> dict | None:
+                           keeper_not_held: dict | None = None,
+                           pictured: dict | None = None) -> dict | None:
     """T-2194: the store households the book orders, set against the store roofs. In place.
 
     `household_buckets` weights each household type on the roofs of its group, and the
@@ -1277,6 +1300,11 @@ def store_residence_ruling(households: list, structures: list,
     keeper_not_held = keeper_not_held or {}
     roofs = {b["key"].rsplit("/", 1)[1]: int(b.get("standing") or 0) for b in structures
              if b["key"].startswith("structures/stores_mixed_use/")}
+    # T-3605: a store raised to a picture is not a store the household model ordered a
+    # keeper for (`household_matrix`), so it is not one this ruling sets the order against.
+    for division, n in (pictured or {}).items():
+        if division in roofs:
+            roofs[division] -= int(n)
     cells = [b for b in sorted(households, key=lambda b: b["key"])
              if b["axes"].get("household_type") == "store_residence"
              and b["axes"].get("division") in CIVIL_DIVISIONS]
@@ -1741,12 +1769,17 @@ def trade_participation(model: dict, composition: dict, root: Path = ROOT) -> di
 def division_shares(inventory: dict) -> dict[str, float]:
     """Where the civilian town was, taken from the roof programme's own district targets."""
     districts = inventory.get("districts", {})
+    # T-3605: less the roofs raised to a picture, which re-weight no household or person
+    # (`household_matrix`).
+    pictured = Counter()
+    for cells in ((inventory.get("pictured_roofs") or {}).get("by_group") or {}).values():
+        pictured.update({d: int(n) for d, n in cells.items()})
     weights = {}
     for d in CIVIL_DIVISIONS:
         target = districts.get(d, {}).get("target")
         if not target:
             raise Fault(f"the building inventory sets no roof target for the {d} division")
-        weights[d] = float(target)
+        weights[d] = float(target) - pictured[d]
     mass = sum(weights.values())
     return {k: v / mass for k, v in weights.items()}
 
@@ -2378,7 +2411,7 @@ def _apportioned_on(htype: str) -> str:
 def household_buckets(model: dict, inventory: dict, known: dict) -> dict:
     hh_fig = figure(model, "households_and_families", "households_on_1_july_1835")
     total, basis = point_of(hh_fig)
-    matrix = inventory.get("district_group_matrix", {})
+    matrix = household_matrix(inventory)
     if not matrix:
         raise Fault("the building inventory carries no district/group matrix")
 
@@ -3015,7 +3048,7 @@ def programme_deltas(model: dict, inventory: dict, programme: dict,
     the same thing the `boarding_houses` row beside it had been reporting as a
     pass for a year.
     """
-    matrix = inventory.get("district_group_matrix", {})
+    matrix = household_matrix(inventory)
 
     def group(*names: str) -> int:
         total = 0
@@ -3884,7 +3917,9 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
                   if data.get("adult_men") else None)
     store_ruling = store_residence_ruling(families[1]["buckets"], families[3]["buckets"],
                                           data.get("stores_kept_from_elsewhere"),
-                                          data.get("stores_keeper_not_held"))
+                                          data.get("stores_keeper_not_held"),
+                                          ((data["inventory"].get("pictured_roofs") or {})
+                                           .get("by_group") or {}).get("stores_mixed_use"))
     waiting_ruling = waiting_families_ruling(families[1]["buckets"], fills,
                                              data.get("family_held_by_division"),
                                              data.get("families_waiting_on_a_roof"))
