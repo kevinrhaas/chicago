@@ -1,0 +1,8 @@
+{
+  "title": "The Today window shows live Google Street View",
+  "kind": "improvement",
+  "items": [
+    "The Today window now carries the site's Google key, so it shows live Street View of the spot you stand on, turning and following you as you walk.",
+    "Nothing from Google loads until you open the window, as before."
+  ]
+}
