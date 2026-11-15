@@ -17211,6 +17211,11 @@ for (const [label, viewport, touch] of [
       };
       const pose0 = await page.evaluate(() => { const p = window.__chicago4d.player; return { local_e: p.e, local_n: p.n, yaw_deg: p.bearingDeg }; });
       const standFacing = (e, n, back) => page.evaluate(([pe, pn]) => { window.__chicago4d.walker.teleport({ local_e: pe, local_n: pn, yaw_deg: 0 }); }, [e, n - back]);
+      // T-3556: the 1835 townspeople come out of their doors about the visitor, and a figure built
+      // between the two readings below is the town's, not the overlays'. Their day is held still
+      // here (the frame loop calls `days.update`) and let go in the finally; a body already loading
+      // has the seconds before the first reading to land.
+      await page.evaluate(() => { const d = window.__chicago4d.days; if (d && !d.heldBySmoke) { d.heldBySmoke = d.update; d.update = () => {}; } }).catch(() => {});
       try {
         await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
         await page.waitForTimeout(1500);
@@ -17307,7 +17312,8 @@ for (const [label, viewport, touch] of [
         check(`${label}: the overlay checks ran to their end (T-2650)`, false, String(err?.message ?? err));
       } finally {
         await page.evaluate(async (pose) => {
-          const a = window.__chicago4d, o = a.confidenceOverlays;
+          const a = window.__chicago4d, o = a.confidenceOverlays, d = a.days;
+          if (d?.heldBySmoke) { d.update = d.heldBySmoke; delete d.heldBySmoke; }
           for (const id of ['labels', 'people', 'route']) await o?.set(id, false);
           a.walker.teleport(pose);
           await a.navigator.select('home'); a.navigator.dock(); document.activeElement?.blur?.();
