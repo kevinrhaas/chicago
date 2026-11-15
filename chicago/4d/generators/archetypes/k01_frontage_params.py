@@ -5566,9 +5566,12 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
             raise ParamError(f"rear_wings: {wid}'s roof is a {kind}; a K01 wing is decked flat, hipped or "
                              f"gabled ({', '.join(WING_ROOFS)})")
         ov, fas = float(roof["overhang_m"]), float(roof["fascia_m"])
-        if not (0.0 <= ov <= 0.6 and 0.1 <= fas <= 0.5):
+        # T-1902: a deck carrying the house's bracketed cornice reaches over its brackets, as
+        # far as a main eave may (1936's range, under brackets 0.7 m out)
+        ov_max = 0.8 if roof.get("cornice") is not None else 0.6
+        if not (0.0 <= ov <= ov_max and 0.1 <= fas <= 0.5):
             raise ParamError(f"rear_wings: {wid}'s deck overhangs {ov} m on a {fas} m fascia, outside "
-                             f"0-0.6 m and 0.1-0.5 m")
+                             f"0-{ov_max} m and 0.1-0.5 m")
         # T-3257: a flat wing may carry the house's bracketed timber cornice round its three
         # walls under its deck (1701's range, its rear photograph), the K10 kit the main wall
         # head names, paired as the house's are (k10_frontage.dress_wings)
@@ -5594,6 +5597,15 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
         sash = e["sash_by_storey"]
         if len(sash) != len(heights):
             raise ParamError(f"rear_wings: {wid}'s sash_by_storey needs one row per storey")
+        # T-1902: a blind storey (1936's range, an attic under its cornice) has no sash row,
+        # and every side lists it no lights (windows_by_storey); not the first, whose row
+        # places the basement lights
+        for k, row in enumerate(sash):
+            if row is None and (k == 0 or any(not (e.get("windows_by_storey") or {}).get(side)
+                                              or (e["windows_by_storey"][side][k:k + 1] or [None])[0] != []
+                                              for side in (e.get("windows") or {}))):
+                raise ParamError(f"rear_wings: {wid}'s storey {k} is blind (no sash row), so it is not the "
+                                 f"first and every side's windows_by_storey lists it no lights")
         walls = wing_walls({"rect": (u0, u1, v0, v1), "past_host": past})
         ops = []
         # T-3133: the sides whose lights a picture draws round-headed (1811's south flank on the
@@ -5672,6 +5684,8 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
                                        False, plain=True, narrow=bw < cw[0]))
             comp = ROUND_HOODED if side in rheads else msides.get(side, "k01.opening.sash_flat")
             for k, row in enumerate(sash):
+                if row is None:   # T-1902: a blind storey
+                    continue
                 sill = floors[k] + float(row["sill_above_floor_m"])
                 w_, h_ = float(row["width_m"]), float(row["height_m"])
                 _within(w_, cw, f"rear_wings.{wid}.sash_by_storey[{k}].width_m")
@@ -7856,9 +7870,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if "columns" in hd:
             co = hd["columns"]
             if not {"diameter_m", "plinth_m", "capital_m", "respond_m"} <= set(co) <= \
-                    {"diameter_m", "plinth_m", "capital_m", "respond_m", "at_v_m", "carved"}:
+                    {"diameter_m", "plinth_m", "capital_m", "respond_m", "at_v_m", "carved", "flutes"}:
                 raise ParamError("entrance_kit.hood.columns takes diameter_m, plinth_m [width, height], "
-                                 "capital_m and respond_m, and optionally at_v_m and carved")
+                                 "capital_m and respond_m, and optionally at_v_m, carved and flutes")
             dia, (pw, ph), cap, rsp = float(co["diameter_m"]), (float(x) for x in co["plinth_m"]), \
                 float(co["capital_m"]), float(co["respond_m"])
             if not (0.15 <= dia <= 0.6 and dia < pw <= 0.8 and 0.1 <= ph <= 0.8 and 0.1 <= cap <= 0.6
@@ -7904,6 +7918,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                     raise ParamError("entrance_kit.hood.columns.carved takes tiers (1 or 2) and abacus_m, 0.03 m "
                                      "up to 0.08 m short of the columns' capital")
                 door_kit["hood"]["columns"]["carved"] = {"tiers": int(cv["tiers"]), "abacus_m": float(cv["abacus_m"])}
+            # T-1902: the shafts fluted, `flutes` hollows round each between as many arrises, the
+            # verandah's fluting (T-3356) on a porch's columns (1936's "fluted stone Corinthian
+            # columns", the 1869 Tribune); without it a shaft stays the plain twelve-sided one
+            if "flutes" in co:
+                nf = co["flutes"]
+                if not isinstance(nf, int) or isinstance(nf, bool) or not 8 <= nf <= 32:
+                    raise ParamError("entrance_kit.hood.columns.flutes: a whole number of flutes, 8-32")
+                door_kit["hood"]["columns"]["flutes"] = nf
             # T-3210: a round-arched arcade on the columns (1827's porch, the Doane photograph):
             # on the front, an arch from capital to capital between each pair of columns; on an
             # end (`left` the low-v end, `right` the high-v), one from the respond on the wall to
