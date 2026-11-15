@@ -71,6 +71,7 @@ LEVELS = {
 }
 NAMES = jaunt_names.table(SCENE)
 # The owner, 2026-11-07: a stop at a house that was later torn down says so, briefly.
+NOT_PICTURED = json.loads((DATA / 'structure_grades.json').read_text()).get('not_pictured', [])
 RAZED = json.loads((DATA / 'jaunts/_names/demolished.json').read_text())['houses']
 
 
@@ -107,6 +108,17 @@ def centre(record):
     return (p['local_e'] + u * math.cos(r) - v * math.sin(r), p['local_n'] + u * math.sin(r) + v * math.cos(r))
 
 
+def ruled_out(structure_id, match_file):
+    """A solved picture data/structure_grades.json rules OUT of this structure (`not_pictured`:
+    it pictures the building this one replaced) is not "its picture" on the walk either. Its
+    camera is kept to record that reading (1620's coach house, T-1932; 1619 Prairie, T-1868),
+    and without this the stop would say "matched to its picture" beside "no picture of it"."""
+    camera = read(Path(str(match_file).replace('.match.json', '.json')))
+    names = {camera.get('library_image'), camera.get('source_id')} - {None}
+    return any(r['scene'] == SCENE and r['structure'] == structure_id and r['picture'] in names
+               for r in NOT_PICTURED)
+
+
 def rows():
     index = read(DATA / f'sidecars/{SCENE}/index.json')
     out = []
@@ -114,7 +126,8 @@ def rows():
         record = read(DATA / entry['sidecar'])
         if not worked(record):
             continue
-        verdicts = [read(p).get('verdict') for p in sorted((DATA / 'reference_views' / record['id']).glob('*.match.json'))]
+        verdicts = [read(p).get('verdict') for p in sorted((DATA / 'reference_views' / record['id']).glob('*.match.json'))
+                    if not ruled_out(record['id'], p)]
         e, n = centre(record)
         row = dict(id=record['id'], record=record, archetype=record['archetype'], views=len(verdicts),
                    matches=verdicts.count('matches'), attrs=len(record.get('attributes', {})), e=e, n=n,

@@ -302,6 +302,15 @@ body:is(.is-touch, .touch-first) .panel-close { margin-right: -6px; }
   transition: filter .12s;
 }
 .tb-stop:hover { filter: brightness(1.08); }
+/* T-3557: aboard a team the bar sits in the left thumb's half of a phone, where the touch
+   stick starts wherever the thumb lands; only its Get down key takes a touch, the rest of the
+   bar lets it through to the stick (and to look, on the right). */
+.travel-banner[data-kind="ride"] { pointer-events: none; }
+.travel-banner[data-kind="ride"] .tb-stop { pointer-events: auto; }
+/* The team's short name is read whole; the note gives way (it is also on the Interact key),
+   so a "held: someone in the way" never pushes Get down off a 390 px screen. */
+.travel-banner[data-kind="ride"] strong { flex: none; }
+.travel-banner[data-kind="ride"] .tb-dist { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 
 /* ---------------------------------------------------------- top-bar chips --- */
 /* Single-colour stroke glyphs in the pace chip: the same 16 px stroke family
