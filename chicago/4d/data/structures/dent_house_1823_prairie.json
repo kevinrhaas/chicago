@@ -97,6 +97,23 @@
           ],
           "note": "The principal floor 2.35 m over grade: the door's foot on the landing at 2.15-2.4 m and the stone base course's top at 2.4-2.5 m on the Chicagology engraving through its solved camera (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json; grade at y 975-995 px); the flank's principal-floor sills at 3.3 m; 2.35 rather than 2.4 so K07's stoop and K01's stair solve the rise in the same number of risers."
         },
+        "entrance_floor_m": {
+          "value": 1.7,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving",
+            "newberry_new_chicago_album_1883_residences"
+          ],
+          "note": "T-1894: the door does not open on the principal floor but a few risers under it, at the head of a shorter stoop. Read through the Chicagology engraving's camera (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json) against the render of a door on the 2.35 m floor: the print's flight is about 9 treads (its foot about x 760 px, its head where the iron rail turns level at x 897-907 px; the build's 13 treads ran x 743-943 px, about 51 px a metre along that line), and its landing's top edge stands at y 905 px where the build's stood at y 865 px, with the rail level about 0.9 m over it at y 870 px. Nine treads and ten risers of 0.17 m put the door's floor at 1.7 m, 0.65 m under the hall, which lowers the landing by the amount the print draws within about 0.3 m. The door opens on a vestibule whose inner flight climbs the rest indoors (1612's, T-2369): no picture sees inside, so the vestibule and its flight are reconstruction and not built (L-k01-1823-dent-1894)."
+        },
+        "door_clear_height_m": {
+          "value": 3.2,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving"
+          ],
+          "note": "T-1894: the doorway taller than K01's 2.70 m, as the Chicagology engraving draws it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json): the door's leaves from the landing at y 887 px to y 757 px and a transom light over them to y 697 px under a cornice hood, the hole about 3.5 m from the door's 1.7 m floor at the render's 54 px a metre on that face. With the door's floor lowered to 1.7 m (entrance_floor_m), a 2.70 m door's head stood at 4.4 m, 0.65 m under T-3163's, and the print's transom went unbuilt; 3.2 m is K01's tallest principal door, its head at 4.9 m, about 0.3 m under the print's. The transom's glazing and the hood are not built (open on the engraving's match record)."
+        },
         "storey_heights_m": {
           "value": [
             4.0,
@@ -441,14 +458,14 @@
               "side_stoop": {
                 "run": "left",
                 "landing_v_m": [
-                  5.3,
+                  4.4,
                   7.1
                 ],
                 "out_m": 0.3,
                 "arch": {
-                  "v_m": 6.2,
-                  "span_m": 1.05,
-                  "spring_m": 0.6,
+                  "v_m": 5.8,
+                  "span_m": 1.25,
+                  "spring_m": 0.5,
                   "depth_m": 0.4,
                   "grille": {
                     "bars": 5,
@@ -465,7 +482,7 @@
             "newberry_new_chicago_album_1883_residences",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "K07's panelled door up a stoop, the front 10.25 m behind the street line (the 1911 sheet's trace: the front's main plane at lot u 32.85, the street line at 43.1). T-3163: the stoop climbs from the north, as both pictures draw it, along the front to a landing at v 5.3-7.1 m before the door (K01's side stoop, 1621's), 0.3 m clear of the face. T-1894: the grilled round-arched basement doorway both pictures draw in the landing's street face. Read through the engraving's camera against the render: the arch at x 925-980 px, its crown at y 938 px (the build's at 0.8 m spring stood 15 px, about 0.27 m, higher), about 0.57 of the landing face's drawn width and a little north of its middle; the vignette draws it about 0.62 of the face's width, a little south of the middle, its crown a little over half the face's height. So 1.05 m across, centred under the door at v 6.2 m (the mean of the two pictures' places), its jambs 0.6 m over grade under a half-round head, its crown about 1.13 m up (between the engraving's 1.05 m and the vignette's 1.27 m); a 0.4 m void. The iron in it is K08's basement-grille form (five uprights, a foot bar, a spring bar and a ring in the head standing for the engraving's scrolls): the scrolls' pattern is under the halftone and is reconstruction."
+          "note": "K07's panelled door up a stoop, the front 10.25 m behind the street line (the 1911 sheet's trace: the front's main plane at lot u 32.85, the street line at 43.1). T-3163: the stoop climbs from the north, as both pictures draw it, along the front to a landing before the door (T-3163's at v 5.3-7.1 m) (K01's side stoop, 1621's), 0.3 m clear of the face. T-1894: the grilled round-arched basement doorway both pictures draw in the landing's street face. Read through the engraving's camera against the render: the arch at x 925-980 px, its crown at y 938 px (the build's at 0.8 m spring stood 15 px, about 0.27 m, higher), about 0.57 of the landing face's drawn width and a little north of its middle; the vignette draws it about 0.62 of the face's width, a little south of the middle, its crown a little over half the face's height. So 1.05 m across, centred under the door at v 6.2 m (the mean of the two pictures' places), its jambs 0.6 m over grade under a half-round head, its crown about 1.13 m up (between the engraving's 1.05 m and the vignette's 1.27 m); a 0.4 m void. The iron in it is K08's basement-grille form (five uprights, a foot bar, a spring bar and a ring in the head standing for the engraving's scrolls): the scrolls' pattern is under the halftone and is reconstruction. T-1894 (fourth revision): the landing runs from v 4.4 m to the pavilion at 7.1 m, 2.7 m, where both pictures draw it about 1 m longer to the north than T-3163's 1.8 m (the engraving's landing face from x 897 px, the vignette's about 2.5 m at 13 px a metre), and it stands at the door's 1.7 m floor (entrance_floor_m), so the flight is nine treads from the landing's north end, its foot at v 1.7 m as the print's (x 760 px). With the landing's face drawn to its length, the arch is read again: the engraving centres it at x 953 px and draws it about 53 px across, where the 1.05 m arch under the door at v 6.2 m rendered at x 952-995 px, about 0.45 m south and 0.25 m narrow; the vignette puts it a little south of the face's middle. So 1.25 m across centred at v 5.8 m (the face's middle is 5.75 m), no longer under the door, its jambs 0.5 m up so that its crown stays at about 1.13 m."
         },
         "bays": {
           "value": [

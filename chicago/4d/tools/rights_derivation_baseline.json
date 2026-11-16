@@ -113,6 +113,14 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "dent_house_1823_prairie/as_mapped_1904/form.door_clear_height_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1823_dent_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "dent_house_1823_prairie/as_mapped_1904/form.eave_overhang_m": {
       "kind": "structure",
       "blocked_sources": [
@@ -122,6 +130,14 @@
       "confidence": "inferred"
     },
     "dent_house_1823_prairie/as_mapped_1904/form.entrance_bay": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1823_dent_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "dent_house_1823_prairie/as_mapped_1904/form.entrance_floor_m": {
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1823_dent_engraving"
