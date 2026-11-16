@@ -114,7 +114,9 @@
       ],
       "heading_deg": 5,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION. The westernmost of the three schooners in the reach below the Dearborn drawbridge — the stretch image 3 of the 2026-08-18 brief shows crowded with masts. Her hull's west end lies about 52 m east of the drawbridge crossing line, well clear of the 30 m navigation clearance. The committed heightfield gives 2.9-3.0 m of water along her keel."
+      "note": "INVENTED POSITION. The westernmost of the three schooners in the reach below the Dearborn drawbridge — the stretch image 3 of the 2026-08-18 brief shows crowded with masts. Her hull's west end lies about 52 m east of the drawbridge crossing line, well clear of the 30 m navigation clearance. The committed heightfield gives 2.9-3.0 m of water along her keel.",
+      "superseded_by": "vessels_1835",
+      "superseded_note": "T-3612: this generic schooner is no longer drawn. data/boats/vessels_1835.json draws the five schooners the Marine Journal of 4 July 1835 enters at the port by name, three moored and two under sail, with planked hulls, topsail rigs and crews (renderers/web/js/vessels.js). The record is kept for the tools that read where a hull lay when the yards were laid out."
     },
     {
       "id": "boat_schooner_reach_2",
@@ -128,7 +130,9 @@
       ],
       "heading_deg": -8,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION. Mid-reach, about 45 m below her neighbour, heading a few degrees off hers — moored vessels in a river lie roughly with the channel and exactly alike only in a diagram. 2.7-2.8 m of water along the keel."
+      "note": "INVENTED POSITION. Mid-reach, about 45 m below her neighbour, heading a few degrees off hers — moored vessels in a river lie roughly with the channel and exactly alike only in a diagram. 2.7-2.8 m of water along the keel.",
+      "superseded_by": "vessels_1835",
+      "superseded_note": "T-3612: this generic schooner is no longer drawn. data/boats/vessels_1835.json draws the five schooners the Marine Journal of 4 July 1835 enters at the port by name, three moored and two under sail, with planked hulls, topsail rigs and crews (renderers/web/js/vessels.js). The record is kept for the tools that read where a hull lay when the yards were laid out."
     },
     {
       "id": "boat_schooner_reach_3",
@@ -142,7 +146,9 @@
       ],
       "heading_deg": 10,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION. The easternmost of the three, toward the bend at the fort reach. 2.9-3.1 m of water along the keel."
+      "note": "INVENTED POSITION. The easternmost of the three, toward the bend at the fort reach. 2.9-3.1 m of water along the keel.",
+      "superseded_by": "vessels_1835",
+      "superseded_note": "T-3612: this generic schooner is no longer drawn. data/boats/vessels_1835.json draws the five schooners the Marine Journal of 4 July 1835 enters at the port by name, three moored and two under sail, with planked hulls, topsail rigs and crews (renderers/web/js/vessels.js). The record is kept for the tools that read where a hull lay when the yards were laid out."
     },
     {
       "id": "boat_schooner_wolf_point_1",
@@ -156,7 +162,9 @@
       ],
       "heading_deg": 100,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION, AND THE BERTH IS DERIVED RATHER THAN CHOSEN. She lies head up the branch, 14.5 m off the west bank as the committed heightfield draws it, abreast the Wolf Point frontages the town already stands there — the Walker Meeting House and the Robinson and Caldwell cabins. The offset is not a taste: it is close to the westernmost line on this reach where the heightfield gives a light-laden 1.5 m schooner her draft plus the layer's 0.3 m under the keel along the whole hull, which comes out at 2.07-2.11 m of water. Any nearer the bank and the layer refuses her. WHAT SHE IS FOR: plate 11 of the 2026-08-11 prefire views and the Braunhold view both hang ship masts over the Wolf Point roofs, and until now the forks held nothing while the only masts in the scene stood 900 m east."
+      "note": "INVENTED POSITION, AND THE BERTH IS DERIVED RATHER THAN CHOSEN. She lies head up the branch, 14.5 m off the west bank as the committed heightfield draws it, abreast the Wolf Point frontages the town already stands there — the Walker Meeting House and the Robinson and Caldwell cabins. The offset is not a taste: it is close to the westernmost line on this reach where the heightfield gives a light-laden 1.5 m schooner her draft plus the layer's 0.3 m under the keel along the whole hull, which comes out at 2.07-2.11 m of water. Any nearer the bank and the layer refuses her. WHAT SHE IS FOR: plate 11 of the 2026-08-11 prefire views and the Braunhold view both hang ship masts over the Wolf Point roofs, and until now the forks held nothing while the only masts in the scene stood 900 m east.",
+      "superseded_by": "vessels_1835",
+      "superseded_note": "T-3612: this generic schooner is no longer drawn. data/boats/vessels_1835.json draws the five schooners the Marine Journal of 4 July 1835 enters at the port by name, three moored and two under sail, with planked hulls, topsail rigs and crews (renderers/web/js/vessels.js). The record is kept for the tools that read where a hull lay when the yards were laid out."
     },
     {
       "id": "boat_schooner_wolf_point_2",
@@ -170,7 +178,9 @@
       ],
       "heading_deg": 20,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION, DERIVED THE SAME WAY. She lies with the reach below the forks, 36 m off the west bank abreast Robert A. Kinzie's store — the landing T-0107 is open on — at close to the westernmost line the heightfield floats her: 1.81 m of water at her shallowest keel sample against the 1.80 m the layer demands. This reach is the one open water on the Green Tree Tavern's own eastward sight line, which is why a second hull stands here rather than beside the first."
+      "note": "INVENTED POSITION, DERIVED THE SAME WAY. She lies with the reach below the forks, 36 m off the west bank abreast Robert A. Kinzie's store — the landing T-0107 is open on — at close to the westernmost line the heightfield floats her: 1.81 m of water at her shallowest keel sample against the 1.80 m the layer demands. This reach is the one open water on the Green Tree Tavern's own eastward sight line, which is why a second hull stands here rather than beside the first.",
+      "superseded_by": "vessels_1835",
+      "superseded_note": "T-3612: this generic schooner is no longer drawn. data/boats/vessels_1835.json draws the five schooners the Marine Journal of 4 July 1835 enters at the port by name, three moored and two under sail, with planked hulls, topsail rigs and crews (renderers/web/js/vessels.js). The record is kept for the tools that read where a hull lay when the yards were laid out."
     },
     {
       "id": "boat_rowboat_water_1",
@@ -184,7 +194,9 @@
       ],
       "heading_deg": 80,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION. Lying off the South Water bank between the merchant landings — image 11 of the 2026-08-18 brief, the South Water 1834 view, draws rowboats on this water. About 2.3 m under her; kept off the wharf decks themselves, whose record draws no vessel."
+      "note": "INVENTED POSITION. Lying off the South Water bank between the merchant landings — image 11 of the 2026-08-18 brief, the South Water 1834 view, draws rowboats on this water. About 2.3 m under her; kept off the wharf decks themselves, whose record draws no vessel.",
+      "superseded_by": "vessels_1835",
+      "superseded_note": "T-3612: drawn now by renderers/web/js/vessels.js from data/boats/vessels_1835.json, at this same place and heading, as a planked boat (or bark) that a visitor can take out and row. The record is kept for the tools that read where a hull lay when the yards were laid out."
     },
     {
       "id": "boat_rowboat_water_2",
@@ -198,7 +210,9 @@
       ],
       "heading_deg": 60,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION. Her neighbour, a boat-length and a half east and swung to a different heading. About 3.1 m under her — 2.4 m until T-1630 widened this reach to Hathaway's line and put her further off the bank; she did not move — and some 24 m west of Jones's landing, which moved 9.5 m south and 1.7 m east with the bank."
+      "note": "INVENTED POSITION. Her neighbour, a boat-length and a half east and swung to a different heading. About 3.1 m under her — 2.4 m until T-1630 widened this reach to Hathaway's line and put her further off the bank; she did not move — and some 24 m west of Jones's landing, which moved 9.5 m south and 1.7 m east with the bank.",
+      "superseded_by": "vessels_1835",
+      "superseded_note": "T-3612: drawn now by renderers/web/js/vessels.js from data/boats/vessels_1835.json, at this same place and heading, as a planked boat (or bark) that a visitor can take out and row. The record is kept for the tools that read where a hull lay when the yards were laid out."
     },
     {
       "id": "boat_rowboat_bank_1",
@@ -212,7 +226,9 @@
       ],
       "heading_deg": 100,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION. Drawn up at the water's edge of the South Water bank, bow to the grass — the committed ground here lies at the waterline (+0.04 m), so her stern wets and her bow rides the bank, which is what image 11 draws. The hull sits on the terrain's own surface, sampled at load. MOVED 7.3 m SOUTH by T-1630: the bank she is hauled out on came in to Hathaway's line on the owner's ruling (docs/LIBERTIES.md L275), and she was left standing in 1.9 m of open water. She keeps her easting, her heading and her relation to the waterline; only the bank moved."
+      "note": "INVENTED POSITION. Drawn up at the water's edge of the South Water bank, bow to the grass — the committed ground here lies at the waterline (+0.04 m), so her stern wets and her bow rides the bank, which is what image 11 draws. The hull sits on the terrain's own surface, sampled at load. MOVED 7.3 m SOUTH by T-1630: the bank she is hauled out on came in to Hathaway's line on the owner's ruling (docs/LIBERTIES.md L275), and she was left standing in 1.9 m of open water. She keeps her easting, her heading and her relation to the waterline; only the bank moved.",
+      "superseded_by": "vessels_1835",
+      "superseded_note": "T-3612: drawn now by renderers/web/js/vessels.js from data/boats/vessels_1835.json, at this same place and heading, as a planked boat (or bark) that a visitor can take out and row. The record is kept for the tools that read where a hull lay when the yards were laid out."
     },
     {
       "id": "boat_rowboat_bank_2",
@@ -226,7 +242,9 @@
       ],
       "heading_deg": 85,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION. Beside her neighbour, a little higher up the bank on ground just proud of the water (+0.26 m) — two skiffs hauled out side by side read as a working bank, one alone reads as an accident. MOVED 8.3 m SOUTH by T-1630 with her neighbour and with the bank itself; she keeps the same step up from the waterline she was authored with."
+      "note": "INVENTED POSITION. Beside her neighbour, a little higher up the bank on ground just proud of the water (+0.26 m) — two skiffs hauled out side by side read as a working bank, one alone reads as an accident. MOVED 8.3 m SOUTH by T-1630 with her neighbour and with the bank itself; she keeps the same step up from the waterline she was authored with.",
+      "superseded_by": "vessels_1835",
+      "superseded_note": "T-3612: drawn now by renderers/web/js/vessels.js from data/boats/vessels_1835.json, at this same place and heading, as a planked boat (or bark) that a visitor can take out and row. The record is kept for the tools that read where a hull lay when the yards were laid out."
     },
     {
       "id": "boat_rowboat_wolf_point_1",
@@ -240,7 +258,9 @@
       ],
       "heading_deg": 115,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION. A skiff lying 8 m off the west bank inside the schooner's berth, where the heightfield gives 1.2 m of water — deep for a 0.2 m draft and shoal for anything else, which is the whole reason a landing on this bank worked by boat. Nothing attests this skiff; the type is the one image 11 of the 2026-08-18 brief draws on the water at South Water Street."
+      "note": "INVENTED POSITION. A skiff lying 8 m off the west bank inside the schooner's berth, where the heightfield gives 1.2 m of water — deep for a 0.2 m draft and shoal for anything else, which is the whole reason a landing on this bank worked by boat. Nothing attests this skiff; the type is the one image 11 of the 2026-08-18 brief draws on the water at South Water Street.",
+      "superseded_by": "vessels_1835",
+      "superseded_note": "T-3612: drawn now by renderers/web/js/vessels.js from data/boats/vessels_1835.json, at this same place and heading, as a planked boat (or bark) that a visitor can take out and row. The record is kept for the tools that read where a hull lay when the yards were laid out."
     },
     {
       "id": "boat_rowboat_wolf_point_2",
@@ -254,7 +274,9 @@
       ],
       "heading_deg": 70,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION. Hauled out on the west bank below the Wolf Point cabins, on committed ground 0.42 m above the water surface with the waterline four metres off her stern. The hull rides the terrain's own surface, sampled at load; no height is authored beside it."
+      "note": "INVENTED POSITION. Hauled out on the west bank below the Wolf Point cabins, on committed ground 0.42 m above the water surface with the waterline four metres off her stern. The hull rides the terrain's own surface, sampled at load; no height is authored beside it.",
+      "superseded_by": "vessels_1835",
+      "superseded_note": "T-3612: drawn now by renderers/web/js/vessels.js from data/boats/vessels_1835.json, at this same place and heading, as a planked boat (or bark) that a visitor can take out and row. The record is kept for the tools that read where a hull lay when the yards were laid out."
     },
     {
       "id": "boat_canoe_fort_1",
@@ -268,7 +290,9 @@
       ],
       "heading_deg": 155,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION. Drawn up on the bank below Fort Dearborn's rising ground, where the committed 2026-08-11 fort plates put bark canoes at the water. Unmanned, like everything on this layer — see the record's standing-constraint note. The bank track from the fort's north gate (T-0099) would come down to about this reach."
+      "note": "INVENTED POSITION. Drawn up on the bank below Fort Dearborn's rising ground, where the committed 2026-08-11 fort plates put bark canoes at the water. Unmanned, like everything on this layer — see the record's standing-constraint note. The bank track from the fort's north gate (T-0099) would come down to about this reach.",
+      "superseded_by": "vessels_1835",
+      "superseded_note": "T-3612: drawn now by renderers/web/js/vessels.js from data/boats/vessels_1835.json, at this same place and heading, as a planked boat (or bark) that a visitor can take out and row. The record is kept for the tools that read where a hull lay when the yards were laid out."
     },
     {
       "id": "boat_canoe_fort_2",
@@ -282,7 +306,9 @@
       ],
       "heading_deg": 140,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION. Beside the first, a shoulder higher on the bank and at its own angle — the plates draw canoes in company, not a lone exhibit."
+      "note": "INVENTED POSITION. Beside the first, a shoulder higher on the bank and at its own angle — the plates draw canoes in company, not a lone exhibit.",
+      "superseded_by": "vessels_1835",
+      "superseded_note": "T-3612: drawn now by renderers/web/js/vessels.js from data/boats/vessels_1835.json, at this same place and heading, as a planked boat (or bark) that a visitor can take out and row. The record is kept for the tools that read where a hull lay when the yards were laid out."
     }
   ]
 }

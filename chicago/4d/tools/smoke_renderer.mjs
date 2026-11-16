@@ -86,11 +86,11 @@
  *   a wharf carries a walker .... and since T-0058 the planks are a floor: off
  *                                 the bank, up the boarding stair and out over
  *                                 the water at every one of the seven docks
- *   the boats on the river ...... the first layer that RIDES the water: every
- *                                 afloat hull floats in its own depth, beached
- *                                 hulls sit at the bank, the drawbridge's
- *                                 navigation span stays clear, and a boat
- *                                 answers a pick with its own card
+ *   the vessels on the water .... the first layer that RIDES the water: every
+ *                                 afloat hull lies in its own depth, clear of the
+ *                                 piers and the drawbridge's span, two schooners
+ *                                 sail, a vessel answers a pick with its own card,
+ *                                 and the visitor takes a schooner's helm (T-3612)
  *   one terrain surface ......... walker, structures and flora share the rendered land
  *   streets drape + identify .... earth tracks share the heightfield and dated names
  *   the roads reach the screen .. and are distinguishable from the ground they
@@ -7831,121 +7831,82 @@ for (const [label, viewport, touch] of [
       dBank.worst >= 6 && dBank.mean >= 0.3,
       `signature distance worst ${dBank.worst?.toFixed(1)}, mean ${dBank.mean?.toFixed(2)}`);
 
-    // --- the boats on the river (T-0063) ---------------------------------
+    // --- the vessels on the river and the lake (T-0063, T-3612) -----------
     //
-    // The first layer that RIDES the water rather than standing in it, and its
-    // failure modes are new: an afloat hull whose keel is not under the water
-    // plane is flying, one whose bed is nearer than its own draft is aground,
-    // and a hull inside the drawbridge's clearance is a rule change nobody
-    // reviewed. All of it is decided at load out of the record and a terrain
-    // sample, so it is measured here against the terrain the browser actually
-    // loaded, and nowhere else.
-    const flotilla = await page.evaluate(() => {
-      const b = window.__chicago4d.boats;
-      const terrain = window.__chicago4d.terrain;
-      const mesh = b?.group?.children?.[0] ?? null;
-      const g = mesh?.geometry ?? null;
-      let ungraded = 0;
-      let notReconstructed = 0;
-      const conf = g?.getAttribute('_confidence');
-      if (conf) {
-        for (let i = 0; i < conf.count; i++) {
-          const v = conf.getX(i);
-          if (!(v >= 0 && v <= 1)) ungraded++;
-          else if (v < 1) notReconstructed++;
-        }
-      }
-      const rec = (b?.records ?? [])[0] ?? {};
-      const clearance = rec.clearances?.drawbridge_span_m?.value ?? 30;
-      const form = rec.form ?? {};
-      const stands = (b?.boats ?? []).map((boat) => {
-        const [e, n] = boat.position_local_enu_m;
-        const draft = form[boat.type]?.draft_m?.value ?? 0;
-        const bed = terrain.surfaceHeight(e, n);
-        return {
-          id: boat.id,
-          type: boat.type,
-          afloat: boat._drawn?.afloat ?? null,
-          keelY: boat._drawn?.keel_y_m ?? null,
-          wet: terrain.isWater(e, n),
-          bed,
-          draft,
-          clearOfSpan: n >= 120 || Math.abs(e - 699.17) >= clearance,
-        };
+    // The first layer that RIDES the water rather than standing in it. T-3612 put
+    // the T-0063 boats under data/boats/vessels_1835.json: the five schooners the
+    // American's Marine Journal of 4 July 1835 enters at this port, planked and
+    // rigged, one anchored in the offing with a Mackinaw boat lightering her, and
+    // the rowboats and canoes of the landings — and the visitor can take the helm
+    // of any of them. Its failure modes: an afloat hull out of its own water (aground
+    // or flying), a berth across the drawbridge's span or a pier, a sailing loop that
+    // stalls, a helm that will not take or will not give the visitor back ashore.
+    // All of it is decided at load from the record and the terrain the browser
+    // loaded, so it is measured here and nowhere else.
+    const flotilla = await page.evaluate(async () => {
+      const a = window.__chicago4d;
+      const v = a.vessels;
+      const terrain = a.terrain;
+      const { blockedAt } = await import(new URL('js/boat-pilot.js', location.href).href);
+      const nav = v?.nav ?? null;
+      const stands = (v?.vessels ?? []).map((x) => {
+        const beached = x.rec.mode === 'beached';
+        const why = beached || !nav ? null
+          : blockedAt(nav, { id: x.id, kind: x.rec.kind, masted: x.model.masted, length: x.L, beam: x.B, draft: x.rec.hull.draft_m },
+            x.pose.e, x.pose.n, x.pose.bearing, { ground: (e, n) => terrain.groundHeight(e, n) });
+        return { id: x.id, state: x.state, beached, y: x.pose.y, why,
+          bed: terrain.groundHeight(x.pose.e, x.pose.n), draft: x.rec.hull.draft_m };
       });
-      return {
-        census: b?.census ?? null,
-        keepOut: (b?.keepOut ?? []).length,
-        meshes: b?.group?.children?.length ?? 0,
-        verts: g?.getAttribute('position')?.count ?? 0,
-        hasConfidence: !!conf,
-        ungraded,
-        notReconstructed,
-        stands,
-      };
+      return { census: v?.census ?? null, keepOut: (v?.keepOut ?? []).length, stands,
+        beached: stands.filter((s) => s.beached).length, oldBoats: a.boats?.census?.boats ?? null,
+        crew: v?.crewState?.() ?? null };
     });
-    // Thirteen boats since T-0140 — three schooners in the reach below the
-    // drawbridge and TWO AT THE WOLF POINT LANDINGS, four rowboats at the South
-    // Water bank and two more at the west bank at the forks, two canoes at the
-    // fort landing — and ZERO refused: every authored position was chosen
-    // against the committed heightfield, so a refusal appearing here means the
-    // terrain moved under the record and the record was not re-read. FIVE
-    // planting keep-outs, one per BEACHED hull (the two South Water skiffs, the
-    // Wolf Point skiff and the two fort canoes); an afloat hull needs none.
-    check(`${label}: every authored boat is on the water`,
-      flotilla.census?.boats === 13 && flotilla.census?.refused === 0
-        && flotilla.census?.schooners === 5 && flotilla.census?.rowboats === 6
-        && flotilla.census?.canoes === 2 && flotilla.verts > 0
-        && flotilla.keepOut === 5,
-      `${flotilla.census?.boats} boat(s) (${flotilla.census?.schooners} schooner(s), `
-      + `${flotilla.census?.rowboats} rowboat(s), ${flotilla.census?.canoes} canoe(s)), `
-      + `${flotilla.census?.refused} refused, ${flotilla.verts} vertices, `
-      + `${flotilla.keepOut} planting keep-out(s)`);
-    check(`${label}: the whole boat layer is one draw call`,
-      flotilla.meshes === 1, `${flotilla.meshes} mesh(es) in the group`);
-    check(`${label}: every boat vertex is graded reconstructed`,
-      flotilla.hasConfidence && flotilla.ungraded === 0 && flotilla.notReconstructed === 0,
-      `attribute ${flotilla.hasConfidence ? 'present' : 'MISSING'}, ${flotilla.ungraded} out `
-      + `of range, ${flotilla.notReconstructed} claiming better than reconstructed`);
-    // An afloat hull floats: keel below the water plane by its own draft, bed
-    // below the keel by the record's under-keel margin, real water at the
-    // position. A beached hull sits on ground at the water's edge — not out on
-    // open water, not up on the prairie.
-    check(`${label}: every afloat hull floats in its own water`,
-      flotilla.stands.filter((s) => s.afloat).every((s) => s.wet
-        && s.keelY !== null && Math.abs(s.keelY + s.draft) < 1e-6
-        && s.bed <= s.keelY - 0.25),
-      flotilla.stands.filter((s) => s.afloat).map((s) => `${s.id} keel `
-        + `${s.keelY?.toFixed(2)} m, bed ${s.bed?.toFixed(2)} m`).join('; '));
-    check(`${label}: every beached hull sits on the bank, at the water`,
-      flotilla.stands.filter((s) => !s.afloat).every((s) => s.keelY !== null
-        && s.keelY >= -0.6 && s.keelY <= 1.5),
-      flotilla.stands.filter((s) => !s.afloat).map((s) => `${s.id} keel `
-        + `${s.keelY?.toFixed(2)} m`).join('; '));
-    check(`${label}: the drawbridge's navigation span stays clear`,
-      flotilla.stands.every((s) => s.clearOfSpan),
-      flotilla.stands.filter((s) => !s.clearOfSpan).map((s) => s.id).join(', ') || 'all clear');
+    // Fifteen vessels: five named schooners, the schooner in the offing and her
+    // lighter, six rowboats and two bark canoes, and ZERO refused — every berth was
+    // laid by tools/lay_vessels.py against the committed heightfield, so a refusal
+    // means the terrain moved under the record. One planting keep-out per beached
+    // hull. The T-0063 boat layer draws nothing now: every record names its
+    // successor.
+    check(`${label}: every vessel is laid and none refused`,
+      flotilla.census?.vessels === 15 && flotilla.census?.refused === 0
+        && flotilla.census?.schooners === 6 && flotilla.keepOut === flotilla.beached
+        && flotilla.beached === 5 && flotilla.oldBoats === 0,
+      `${flotilla.census?.vessels} vessel(s) (${flotilla.census?.schooners} schooner(s)), `
+      + `${flotilla.census?.refused} refused, ${flotilla.keepOut} keep-out(s) for `
+      + `${flotilla.beached} beached hull(s), ${flotilla.oldBoats} drawn by the old boat layer`);
+    // An afloat hull floats on the plane in its own water: clear of the bed by its
+    // draft (the harbour's dredged channel by its own depth), of every pier and
+    // wharf, and of the drawbridge's span. The pilot's own
+    // rule (boat-pilot.js blockedAt) is what answers, so the record and the helm
+    // cannot disagree about where a schooner may lie.
+    check(`${label}: every afloat vessel lies in its own water, clear of piers and the draw`,
+      flotilla.stands.filter((s) => !s.beached).every((s) => s.why === null && Math.abs(s.y) < 0.3),
+      flotilla.stands.filter((s) => !s.beached && (s.why !== null || Math.abs(s.y) >= 0.3))
+        .map((s) => `${s.id} ${s.why ?? ''} y ${s.y?.toFixed(2)} bed ${s.bed?.toFixed(2)}`).join('; ') || 'all afloat');
+    check(`${label}: two schooners are under sail on a summer day`,
+      flotilla.census?.sailing === 2, `${flotilla.census?.sailing} sailing`);
+    check(`${label}: the crews can come aboard`,
+      flotilla.crew && flotilla.crew.kit !== 'none', `crew kit ${flotilla.crew?.kit}`);
 
     // AND THE REACH READS AS A HARBOUR, which is what the owner asked for.
     // Stand on the south bank looking down the reach at the moored schooners
     // and hold the clock, so the water and the grass cannot supply the
-    // difference. Same bar as the fences, the boards, the goods and the docks.
+    // difference.
     await page.evaluate(() => window.__chicago4d.walker.teleport(
       { local_e: 765, local_n: 15, yaw_deg: 353, pitch_deg: -2 }));
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const boatWith = await page.evaluate(() => window.__chicago4d.capture());
-    await page.evaluate(() => { window.__chicago4d.boats.group.visible = false; });
+    await page.evaluate(() => { window.__chicago4d.vessels.group.visible = false; });
     const boatWithout = await page.evaluate(() => window.__chicago4d.capture());
-    await page.evaluate(() => { window.__chicago4d.boats.group.visible = true; });
+    await page.evaluate(() => { window.__chicago4d.vessels.group.visible = true; });
     const dBoat = signatureDistance(boatWith, boatWithout);
     check(`${label}: the schooners reach the screen from the bank`,
       dBoat.worst >= 6 && dBoat.mean >= 0.3,
       `cell delta mean ${dBoat.mean?.toFixed(2)}, worst ${dBoat.worst} (need worst>=6)`);
 
-    // A boat belongs to no structure, so aiming at one has to open its OWN
-    // card — the type, the size and what bounded the invention — rather than
-    // answering nothing or answering for a building behind it.
+    // A vessel belongs to no structure, so aiming at one has to open its OWN
+    // card — what the Marine Journal says of her and what was reconstructed.
     const boatPick = await page.evaluate(() => {
       const hits = [];
       for (const x of [-0.3, -0.15, 0, 0.15, 0.3]) {
@@ -7958,10 +7919,34 @@ for (const [label, viewport, touch] of [
       return { hits, title };
     });
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
-    check(`${label}: aiming at a schooner opens the boat's own card`,
-      boatPick.hits.some((id) => id.startsWith('boat_schooner')),
+    check(`${label}: aiming at a schooner opens the vessel's own card`,
+      boatPick.hits.some((id) => id.startsWith('vessel_schr')),
       `25 aims returned [${[...new Set(boatPick.hits)].join(', ') || 'nothing'}] `
       + `(last card: "${boatPick.title}")`);
+
+    // THE OWNER'S ASK: "Would be nice if I can board and pilot the schooners and
+    // all boats." Take the Hiram's helm, put way on her, step the helm by hand (the
+    // frame clock is the browser's, not the smoke's), and go ashore: she moves, she
+    // stays in her water, and the visitor lands on ground.
+    const helm = await page.evaluate(() => {
+      const a = window.__chicago4d;
+      const craft = a.vessels.craftOf('vessel_schr_hiram');
+      const took = a.pilot.take(craft);
+      const p0 = { ...craft.pose };
+      a.pilot.drive({ forward: 1, strafe: 0 });
+      for (let i = 0; i < 120; i++) a.pilot.update(0.1);
+      const p1 = { ...craft.pose };
+      const banner = document.body.innerText.includes('At the helm of');
+      const said = a.pilot.leave();
+      return { took, moved: Math.hypot(p1.e - p0.e, p1.n - p0.n), blocked: a.pilot.blocked ?? null,
+        wet: a.terrain.isWater(p1.e, p1.n), banner, said, active: a.pilot.active,
+        landed: a.terrain.isWater(a.walker.state.e, a.walker.state.n) === false };
+    });
+    check(`${label}: the visitor can take a schooner's helm and bring her back ashore`,
+      helm.took && helm.moved > 3 && helm.wet && helm.landed && !helm.active,
+      `took ${helm.took}, moved ${helm.moved?.toFixed(1)} m (blocked: ${helm.blocked ?? 'no'}), `
+      + `${helm.wet ? 'in' : 'OUT OF'} the water, ashore: ${helm.landed} ("${helm.said}")`);
+
 
     // --- the scene actually draws ----------------------------------------
     await page.evaluate(() => window.__chicago4d.frame('sauganash_hotel', 26));
