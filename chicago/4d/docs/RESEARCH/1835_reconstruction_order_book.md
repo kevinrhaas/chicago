@@ -3,14 +3,14 @@
 > DERIVED from `data/reconstruction/1835_reconstruction_order_book.json`. Regenerate with
 > `tools/build_order_book_1835.py --build`; `tools/check.sh` re-derives both. Do not hand-edit.
 
-**T-1166.** Known minus model, per bucket, with the ticket that owns filling it. The town converges to **2,549 people** in **645 households**, working **109 enumerated businesses**, under **745 roofs**.
+**T-1166.** Known minus model, per bucket, with the ticket that owns filling it. The town converges to **2,549 people** in **645 households**, working **109 enumerated businesses**, under **743 roofs**.
 
 | | target | known | to reconstruct |
 |---|---:|---:|---:|
 | Persons | 2,549 | 1,417 | 1,798 |
 | Households | 645 | 165 | 435 |
 | Businesses (enumerated classes) | 109 | 128 | 7 |
-| Roofs | 745 | 765 | 0 |
+| Roofs | 743 | 763 | 0 |
 
 **2,863 people stand in the layer today** and **0** are still owed after the counters, so the town this book converges to is **2,863** — inside the model's 2,370-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
@@ -403,7 +403,7 @@ Two committed passes have offered every banded household ground: the plat first,
 - offered ground: 1,424
 - seated: 325 — 325 by adopting a roof that already stands, 0 by asking for one
 - still on no ground at all: 1,099
-- of the 765 roofs the town already has, 325 now carry a reconstructed household
+- of the 763 roofs the town already has, 325 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
@@ -627,12 +627,12 @@ The December 1835 State census set against the register the town already holds.
 
 The roofs the 668-roof programme still owes, by archetype group and division.
 
-- `roof_target`: 745
-- `standing_records`: 765
+- `roof_target`: 743
+- `standing_records`: 763
 - `standing_with_an_occupant`: 383
-- `standing_without_an_occupant`: 382
+- `standing_without_an_occupant`: 380
 - `to_build_total`: 0
-- `redeal_note`: A roof standing where the reconstruction plan has nobody to put in it is a SUBSTITUTION for other work, never a demolition: 382 of the 765 standing records carry no occupants block today, and other work re-audits them against this book.
+- `redeal_note`: A roof standing where the reconstruction plan has nobody to put in it is a SUBSTITUTION for other work, never a demolition: 380 of the 763 standing records carry no occupants block today, and other work re-audits them against this book.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -657,7 +657,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/small_outbuildings/west` | 14 | 14 | 0 | 0 | T-2169 |
 | `structures/small_outbuildings/north` | 20 | 20 | 0 | 0 | T-2170 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | T-1204 |
-| `structures/stores_mixed_use/south` | 112 | 112 | 0 | 0 | T-1694 |
+| `structures/stores_mixed_use/south` | 110 | 110 | 0 | 0 | T-1694 |
 | `structures/stores_mixed_use/west` | 6 | 6 | 0 | 0 | T-2150 |
 | `structures/stores_mixed_use/north` | 4 | 4 | 0 | 0 | T-1205 |
 | `structures/stores_mixed_use/fort` | 1 | 1 | 0 | 0 | T-1204 |
@@ -676,7 +676,7 @@ The streets, terrain and lots a structure bucket waits on.
 
 - `roofs_on_committed_ground`: 0
 - `roofs_gated_on_coverage`: 0
-- `statement`: 0 of the 0 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 0 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 745-roof programme is coverage, not recipes.
+- `statement`: 0 of the 0 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 0 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 743-roof programme is coverage, not recipes.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -713,14 +713,14 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 | **boarding_houses** — NOT A CHECK: the model's 42 larger boarding houses ARE district group matrix larger boarding houses — model town 1835 build lodging reads the figure straight off the roof programme — so this row cannot disagree, and its zero says nothing about whether 42 is the right number of boarding roofs. An independent count is owed to other work with the re-cut. | 42 | 42 | +0 | `larger_boarding_houses` |
 | **inns_and_taverns** — NOT A CHECK: the model reads 9-10 inns and taverns and the programme schedules 10. The model's ceiling is the highest of the programme, the census and the business layer's count at the scene date, and while the layer's count stands at or below the programme's the ceiling IS the programme's figure, so this row cannot disagree until the layer passes it again. | 10 | 10 | +0 | `inns_taverns` |
 | **institutional_and_public** — NOT A CHECK: the model reads 9-19 institutional and public roofs — 9 outside the fort and 10 principal roofs inside it — and the programme schedules those same two groups, institutional public (9) and fort principal (10), for 19. Both ends of the model are read off that matrix, so the row cannot disagree. Until other work it reported a delta of ten by taking the fort's roofs on the model's side and not on the programme's, which is the schedule charged for ten roofs it already had. | 19 | 19 | +0 | `institutional_public`, `fort_principal` |
-| **people_per_roof** — 2,549 people under 745 roofs is the ratio the completed town must meet; the census's own reading for November 1835 is 8.204 people per dwelling over 398 dwellings. | 2,549 | 745 | +0 | — |
+| **people_per_roof** — 2,549 people under 743 roofs is the ratio the completed town must meet; the census's own reading for November 1835 is 8.204 people per dwelling over 398 dwellings. | 2,549 | 743 | +0 | — |
 
 ## The invariants the convergence tickets assert
 
 - **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 22 of 1387 present households name a lives at.
 - **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 50 of 1387 present households name a works at.
 - **every_business_has_staff** (T-1189) — Every business — attested, inferred or reconstructed — carries the staff other work's model implies for its kind. *Now:* not yet measurable: the authored business layer is other work.
-- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 382 of 765 standing records carry no occupants block.
+- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 380 of 763 standing records carry no occupants block.
 - **dwellings_ratio_within_its_bracket** (T-1215) — The town census's people-per-dwelling ratio is met within the model's bracket. *Now:* the book orders 2,549 people into 645 households.
 - **an_uncompared_class_orders_nothing** (T-1442) — A trade-census class the crosswalk rules `compared: false` carries its figures but orders no reconstruction: the difference between a census line and the register is only a shortfall where the crosswalk has ruled the two comparable. *Now:* carried uncompared: 1 of 18 enumerated business classes, each ordering nought.
 - **no_bucket_overfilled** (T-1166) — No bucket's `filled` exceeds its to reconstruct; a filler that bypasses the book is red in the project's gate. *Now:* enforced by --check on every gate run.

@@ -12,12 +12,12 @@
         "note": "Anonymous count-unit of the commercial core's row fill (T-3605): the owner's reading of Gifford's drawing of the first Tremont House's street, spread over South Water and Lake from Wells to State at about 70 % of each block front. No evidence establishes that this particular building existed, and no source names an occupant."
       },
       "position": {
-        "utm_e": 447459.844,
-        "utm_n": 4637256.323,
+        "utm_e": 447462.344,
+        "utm_n": 4637256.303,
         "rotation_deg": 0.464,
         "symbolic_location": "Anonymous reconstructed store on the south side of Lake Street, in the block west-bounded by Wells Street; one unit of the street's row",
         "confidence": "reconstructed",
-        "note": "PARTY-LINE FRONTAGE, DERIVED FROM THE COMMITTED PLAT (T-3605). It stands on the north face of blk_lake_wells, whose line and bearing are read from the block boundary in data/traces/vectors/thompson_lots.json, at stations 45.34-51.85 m from the face's west end, its front wall 1.50 m behind the lot line (the plat module's margin, as the block programme's own party-line runs stand). The bearing is the face's, so the front looks square at Lake Street. The station is the row-fill rule's (largest open stretch first, until the face is about 70 % built), not a measurement.",
+        "note": "PARTY-LINE FRONTAGE, DERIVED FROM THE COMMITTED PLAT (T-3605). It stands on the north face of blk_lake_wells, whose line and bearing are read from the block boundary in data/traces/vectors/thompson_lots.json, at stations 47.84-54.35 m from the face's west end, its front wall 1.50 m behind the lot line (the plat module's margin, as the block programme's own party-line runs stand). The bearing is the face's, so the front looks square at Lake Street. The station is the row-fill rule's (largest open stretch first, until the face is about 70 % built), not a measurement.",
         "derivation": {
           "method": "not_derivable",
           "reason": "No parcel-by-parcel July 1835 roof register survives in the supplied evidence, and no lot on this face is numbered."

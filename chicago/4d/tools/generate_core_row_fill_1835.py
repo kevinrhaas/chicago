@@ -39,6 +39,7 @@ from __future__ import annotations
 
 import argparse
 import copy
+import functools
 import json
 import math
 import re
@@ -58,6 +59,10 @@ from plat_occupancy import world_polygon, footprints, overlap_area  # noqa: E402
 from inferred_occupancy import occupancy  # noqa: E402
 from normalise_structure_function import canonical  # noqa: E402
 from siding_stock import deal_records  # noqa: E402
+
+CORRIDOR_LINE = "drawn"
+CORRIDOR_LINE_WHY = ("The row stands on platted block faces, so the block grid's own drawn "
+                     "line is the street edge it is held clear of.")
 
 LOTS = DATA / "traces" / "vectors" / "thompson_lots.json"
 PREFIX = "recon_1835_core_"
@@ -79,6 +84,17 @@ BUILT_BAND_M = 3.0         # a wall this close to the line holds the front
 CORNER_M = 1.50            # clear of the cross street's corner
 ROW_GAP_M = 0.10           # between two stores of one new row
 OTHER_GAP_M = 0.50         # between a new store and anything else
+#: the household layer's premises (tools/generate_inferred_households.py, the structures
+#: its ownership file says it still writes) keep 3 m from every building that does not name
+#: them as a party wall
+INVENTED_GAP_M = 3.0
+HOUSEHOLD_LAYER = DATA / "reconstruction" / "1835_inferred_household_pass_ownership.json"
+
+
+@functools.lru_cache(maxsize=None)
+def household_layer() -> frozenset[str]:
+    owns = load(HOUSEHOLD_LAYER)["passes"]["tools/generate_inferred_households.py"]["still_owns"]
+    return frozenset(owns["data/structures"]["ids"])
 DOOR_GROUND_M = 3.0        # open ground a cottage's street door keeps before the store's back
 BODY_BAND_M = SETBACK_M + 15.0 + DOOR_GROUND_M   # the deepest store body plus its clearance
 MOVE_TO_SETBACK_M = 22.0   # a blocking cottage goes back to the rear of its lot
@@ -191,7 +207,8 @@ def free_stretches(front: dict) -> tuple[list[tuple[float, float]], list[str]]:
         if o["front"] < -BUILT_BAND_M and is_movable(o["id"]):
             moves.append(o["id"])
             continue
-        hard.append((o["lo"] - OTHER_GAP_M - 0.05, o["hi"] + OTHER_GAP_M + 0.05))
+        gap = (INVENTED_GAP_M if o["id"] in household_layer() else OTHER_GAP_M) + 0.05
+        hard.append((o["lo"] - gap, o["hi"] + gap))
     hard += front.get("addressed", [])
     lo, hi = CORNER_M, front["length"] - CORNER_M
     stretches, s = [], lo
@@ -506,6 +523,11 @@ def validate(records: list[dict], moves: dict, datum: dict) -> list[str]:
         near = min(((_gap(poly, q), o) for o, q in others + moved), default=(99.0, None))
         if near[0] < OTHER_GAP_M - 2e-3:
             raise ValueError(f"{sid} stands {near[0]:.2f} m from {near[1]}")
+        invented = min(((_gap(poly, q), o) for o, q in others if o in household_layer()),
+                       default=(99.0, None))
+        if invented[0] < INVENTED_GAP_M - 2e-3:
+            raise ValueError(f"{sid} stands {invented[0]:.2f} m from {invented[1]}, the household "
+                             f"layer's premises, which keep {INVENTED_GAP_M} m")
         report.append(f"{sid}: nearest other {near[0]:.2f} m ({near[1]})")
     for sid, poly in moved:
         street, depth = intrusion(poly, lanes)

@@ -45,10 +45,10 @@
     "crossing_m": 2572.3,
     "fence_m": 1730.6,
     "walking_decks": 884,
-    "hitching_posts": 104,
+    "hitching_posts": 101,
     "fittings": {
       "mounting_block": 5,
-      "stoop": 93,
+      "stoop": 91,
       "tie_rail": 1,
       "wagon_apron": 7
     },
@@ -84,16 +84,16 @@
         "note": "35 street-lining fence run(s), on the lots the rule found improved and standing back from their own frontage line."
       },
       "hitching_posts": {
+        "value": 101,
+        "confidence": "reconstructed",
+        "sources": [],
+        "note": "101 post(s) at the road edge — two at an inn, one at each other trading frontage the rule accepts, a trade this project rules takes its custom from a stranger off the street, at whatever tier the trade is held, with a walk laid in front of it and dry ground clear of the track to stand on. Every frontage it refused is named in `refused` with the clause that refused it. No source states that a post stood at any of them; what the plates give is that the town's frontages had them at all (T-0090)."
+      },
+      "fittings": {
         "value": 104,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "104 post(s) at the road edge — two at an inn, one at each other trading frontage the rule accepts, a trade this project rules takes its custom from a stranger off the street, at whatever tier the trade is held, with a walk laid in front of it and dry ground clear of the track to stand on. Every frontage it refused is named in `refused` with the clause that refused it. No source states that a post stood at any of them; what the plates give is that the town's frontages had them at all (T-0090)."
-      },
-      "fittings": {
-        "value": 106,
-        "confidence": "reconstructed",
-        "sources": [],
-        "note": "What each business's front takes beyond the walk, dealt by its trade (T-1813): 5 mounting block(s), 93 stoop(s), 1 tie rail(s), 7 wagon apron(s). A stoop at a store's or an inn's door, a mounting block at an inn, a wagon apron at a forwarding house or warehouse, a tie rail at a works. Every one is invented carpentry laid by rule and names the business it serves; no source puts any of them at any door in 1835."
+        "note": "What each business's front takes beyond the walk, dealt by its trade (T-1813): 5 mounting block(s), 91 stoop(s), 1 tie rail(s), 7 wagon apron(s). A stoop at a store's or an inn's door, a mounting block at an inn, a wagon apron at a forwarding house or warehouse, a tie rail at a works. Every one is invented carpentry laid by rule and names the business it serves; no source puts any of them at any door in 1835."
       },
       "width_m": {
         "value": 1.83,
@@ -29476,8 +29476,8 @@
       "trade": "small_shop_or_office",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        629.87,
-        -124.02
+        638.46,
+        -124.08
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -29502,8 +29502,8 @@
       "trade": "store_residence",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        623.96,
-        -123.97
+        632.55,
+        -124.04
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -29517,19 +29517,19 @@
       "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #038, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_lake_clark_north_hitching_recon_1835_core_c3_040",
+      "id": "blk_lake_clark_north_hitching_recon_1835_core_c3_037",
       "belongs_to": "town_street_edge",
       "kind": "hitching_post",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_lake_clark_north_1",
-      "stands_at": "recon_1835_core_c3_040",
+      "stands_at": "recon_1835_core_c3_037",
       "trade": "narrow_two_story_store",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        635.94,
-        -124.06
+        626.5,
+        -123.99
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -29540,7 +29540,7 @@
       "business_class": "store",
       "clear_of_track_m": 3.88,
       "stands_on_m": 0.79,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #040, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #037, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_lake_clark_north_hitching_recon_1835_south_c3_015",
@@ -29596,19 +29596,19 @@
       "standing_chunk": "town_street_edge__west_bank__standing"
     },
     {
-      "id": "blk_lake_dearborn_north_hitching_recon_1835_core_c2_053",
+      "id": "blk_lake_dearborn_north_hitching_recon_1835_core_c1_052",
       "belongs_to": "town_street_edge",
       "kind": "hitching_post",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_lake_dearborn_north_2",
-      "stands_at": "recon_1835_core_c2_053",
-      "trade": "store_residence",
+      "stands_at": "recon_1835_core_c1_052",
+      "trade": "small_shop_or_office",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        749.57,
-        -124.99
+        758.05,
+        -125.06
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -29619,48 +29619,22 @@
       "business_class": "store",
       "clear_of_track_m": 3.88,
       "stands_on_m": 0.8,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #053, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C1 small shop, grocery, or land office #052, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `small_shop_or_office`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_lake_dearborn_north_hitching_recon_1835_core_c2_055",
+      "id": "blk_lake_dearborn_north_hitching_recon_1835_core_c3_051",
       "belongs_to": "town_street_edge",
       "kind": "hitching_post",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_lake_dearborn_north_2",
-      "stands_at": "recon_1835_core_c2_055",
-      "trade": "store_residence",
-      "trade_confidence": "reconstructed",
-      "at_local_enu_m": [
-        761.7,
-        -125.09
-      ],
-      "facade_bearing_deg": 0.5,
-      "post_height_m": 1.3,
-      "post_square_m": 0.16,
-      "cap_square_m": 0.22,
-      "cap_thickness_m": 0.07,
-      "along_frontage_frac": 0.28,
-      "business_class": "store",
-      "clear_of_track_m": 3.88,
-      "stands_on_m": 0.81,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #055, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.81 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
-    },
-    {
-      "id": "blk_lake_dearborn_north_hitching_recon_1835_core_c3_054",
-      "belongs_to": "town_street_edge",
-      "kind": "hitching_post",
-      "confidence": "reconstructed",
-      "street": "lake",
-      "street_name": "Lake Street",
-      "chunk": "blk_lake_dearborn_north_2",
-      "stands_at": "recon_1835_core_c3_054",
+      "stands_at": "recon_1835_core_c3_051",
       "trade": "narrow_two_story_store",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        755.53,
-        -125.04
+        752.12,
+        -125.01
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -29671,7 +29645,7 @@
       "business_class": "store",
       "clear_of_track_m": 3.88,
       "stands_on_m": 0.8,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #054, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #051, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_lake_franklin_north_hitching_recon_1835_blk_lake_franklin_c2_01",
@@ -29726,6 +29700,32 @@
       "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed physicians office (physician), for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `physicians_office`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
+      "id": "blk_lake_lasalle_north_hitching_recon_1835_core_c1_028",
+      "belongs_to": "town_street_edge",
+      "kind": "hitching_post",
+      "confidence": "reconstructed",
+      "street": "lake",
+      "street_name": "Lake Street",
+      "chunk": "blk_lake_lasalle_north_1",
+      "stands_at": "recon_1835_core_c1_028",
+      "trade": "small_shop_or_office",
+      "trade_confidence": "reconstructed",
+      "at_local_enu_m": [
+        492.97,
+        -122.9
+      ],
+      "facade_bearing_deg": 0.5,
+      "post_height_m": 1.3,
+      "post_square_m": 0.16,
+      "cap_square_m": 0.22,
+      "cap_thickness_m": 0.07,
+      "along_frontage_frac": 0.28,
+      "business_class": "store",
+      "clear_of_track_m": 3.88,
+      "stands_on_m": 0.78,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C1 small shop, grocery, or land office #028, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `small_shop_or_office`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.78 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+    },
+    {
       "id": "blk_lake_lasalle_north_hitching_recon_1835_core_c1_032",
       "belongs_to": "town_street_edge",
       "kind": "hitching_post",
@@ -29737,8 +29737,8 @@
       "trade": "small_shop_or_office",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        510.61,
-        -123.04
+        516.24,
+        -123.09
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -29763,8 +29763,8 @@
       "trade": "store_residence",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        492.64,
-        -122.89
+        498.27,
+        -122.94
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -29774,8 +29774,8 @@
       "along_frontage_frac": 0.28,
       "business_class": "store",
       "clear_of_track_m": 3.88,
-      "stands_on_m": 0.78,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #029, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.78 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "stands_on_m": 0.79,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #029, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_lake_lasalle_north_hitching_recon_1835_core_c2_031",
@@ -29789,8 +29789,8 @@
       "trade": "store_residence",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        504.99,
-        -123.0
+        510.62,
+        -123.04
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -29815,8 +29815,8 @@
       "trade": "narrow_two_story_store",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        498.86,
-        -122.95
+        504.49,
+        -122.99
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -29828,32 +29828,6 @@
       "clear_of_track_m": 3.88,
       "stands_on_m": 0.78,
       "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #030, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.78 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
-    },
-    {
-      "id": "blk_lake_lasalle_north_hitching_recon_1835_core_c3_033",
-      "belongs_to": "town_street_edge",
-      "kind": "hitching_post",
-      "confidence": "reconstructed",
-      "street": "lake",
-      "street_name": "Lake Street",
-      "chunk": "blk_lake_lasalle_north_1",
-      "stands_at": "recon_1835_core_c3_033",
-      "trade": "narrow_two_story_store",
-      "trade_confidence": "reconstructed",
-      "at_local_enu_m": [
-        515.94,
-        -123.09
-      ],
-      "facade_bearing_deg": 0.5,
-      "post_height_m": 1.3,
-      "post_square_m": 0.16,
-      "cap_square_m": 0.22,
-      "cap_thickness_m": 0.07,
-      "along_frontage_frac": 0.28,
-      "business_class": "store",
-      "clear_of_track_m": 3.88,
-      "stands_on_m": 0.79,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #033, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_lake_market_north_hitching_recon_1835_blk_lake_market_c2_01",
@@ -29971,8 +29945,8 @@
       "trade": "small_shop_or_office",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        383.5,
-        -122.01
+        386.0,
+        -122.03
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -29997,8 +29971,8 @@
       "trade": "small_shop_or_office",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        353.55,
-        -121.76
+        362.04,
+        -121.83
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -30012,32 +29986,6 @@
       "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C1 small shop, grocery, or land office #019, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `small_shop_or_office`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_lake_wells_north_hitching_recon_1835_core_c1_023",
-      "belongs_to": "town_street_edge",
-      "kind": "hitching_post",
-      "confidence": "reconstructed",
-      "street": "lake",
-      "street_name": "Lake Street",
-      "chunk": "blk_lake_wells_north_1",
-      "stands_at": "recon_1835_core_c1_023",
-      "trade": "small_shop_or_office",
-      "trade_confidence": "reconstructed",
-      "at_local_enu_m": [
-        413.33,
-        -122.25
-      ],
-      "facade_bearing_deg": 0.5,
-      "post_height_m": 1.3,
-      "post_square_m": 0.16,
-      "cap_square_m": 0.22,
-      "cap_thickness_m": 0.07,
-      "along_frontage_frac": 0.28,
-      "business_class": "store",
-      "clear_of_track_m": 3.88,
-      "stands_on_m": 0.8,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C1 small shop, grocery, or land office #023, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `small_shop_or_office`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
-    },
-    {
       "id": "blk_lake_wells_north_hitching_recon_1835_core_c2_017",
       "belongs_to": "town_street_edge",
       "kind": "hitching_post",
@@ -30049,8 +29997,8 @@
       "trade": "store_residence",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        395.59,
-        -122.1
+        398.09,
+        -122.12
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -30060,8 +30008,8 @@
       "along_frontage_frac": 0.28,
       "business_class": "store",
       "clear_of_track_m": 3.88,
-      "stands_on_m": 0.81,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #017, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.81 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "stands_on_m": 0.8,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #017, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_lake_wells_north_hitching_recon_1835_core_c2_020",
@@ -30075,8 +30023,8 @@
       "trade": "store_residence",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        359.04,
-        -121.81
+        367.53,
+        -121.88
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -30090,32 +30038,6 @@
       "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #020, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_lake_wells_north_hitching_recon_1835_core_c2_022",
-      "belongs_to": "town_street_edge",
-      "kind": "hitching_post",
-      "confidence": "reconstructed",
-      "street": "lake",
-      "street_name": "Lake Street",
-      "chunk": "blk_lake_wells_north_1",
-      "stands_at": "recon_1835_core_c2_022",
-      "trade": "store_residence",
-      "trade_confidence": "reconstructed",
-      "at_local_enu_m": [
-        371.18,
-        -121.91
-      ],
-      "facade_bearing_deg": 0.5,
-      "post_height_m": 1.3,
-      "post_square_m": 0.16,
-      "cap_square_m": 0.22,
-      "cap_thickness_m": 0.07,
-      "along_frontage_frac": 0.28,
-      "business_class": "store",
-      "clear_of_track_m": 3.88,
-      "stands_on_m": 0.81,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #022, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.81 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
-    },
-    {
       "id": "blk_lake_wells_north_hitching_recon_1835_core_c3_016",
       "belongs_to": "town_street_edge",
       "kind": "hitching_post",
@@ -30127,8 +30049,8 @@
       "trade": "narrow_two_story_store",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        389.11,
-        -122.05
+        391.61,
+        -122.07
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -30153,8 +30075,8 @@
       "trade": "narrow_two_story_store",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        401.73,
-        -122.15
+        356.23,
+        -121.79
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -30179,8 +30101,8 @@
       "trade": "narrow_two_story_store",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        364.96,
-        -121.86
+        415.93,
+        -122.27
       ],
       "facade_bearing_deg": 0.5,
       "post_height_m": 1.3,
@@ -30335,34 +30257,8 @@
       "trade": "small_shop_or_office",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        608.25,
-        -0.74
-      ],
-      "facade_bearing_deg": 0.9,
-      "post_height_m": 1.3,
-      "post_square_m": 0.16,
-      "cap_square_m": 0.22,
-      "cap_thickness_m": 0.07,
-      "along_frontage_frac": 0.28,
-      "business_class": "store",
-      "clear_of_track_m": 3.88,
-      "stands_on_m": 0.56,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C1 small shop, grocery, or land office #035, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `small_shop_or_office`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.56 m with 3.88 m still between it and the South Water Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
-    },
-    {
-      "id": "blk_south_water_clark_north_hitching_recon_1835_core_c2_036",
-      "belongs_to": "town_street_edge",
-      "kind": "hitching_post",
-      "confidence": "reconstructed",
-      "street": "south_water",
-      "street_name": "South Water Street",
-      "chunk": "blk_south_water_clark_north_1",
-      "stands_at": "recon_1835_core_c2_036",
-      "trade": "store_residence",
-      "trade_confidence": "reconstructed",
-      "at_local_enu_m": [
-        614.14,
-        -0.83
+        614.83,
+        -0.84
       ],
       "facade_bearing_deg": 0.9,
       "post_height_m": 1.3,
@@ -30373,7 +30269,59 @@
       "business_class": "store",
       "clear_of_track_m": 3.88,
       "stands_on_m": 0.57,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #036, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.57 m with 3.88 m still between it and the South Water Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C1 small shop, grocery, or land office #035, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `small_shop_or_office`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.57 m with 3.88 m still between it and the South Water Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_south_water_clark_north_hitching_recon_1835_core_c2_033",
+      "belongs_to": "town_street_edge",
+      "kind": "hitching_post",
+      "confidence": "reconstructed",
+      "street": "south_water",
+      "street_name": "South Water Street",
+      "chunk": "blk_south_water_clark_north_1",
+      "stands_at": "recon_1835_core_c2_033",
+      "trade": "store_residence",
+      "trade_confidence": "reconstructed",
+      "at_local_enu_m": [
+        602.64,
+        -0.65
+      ],
+      "facade_bearing_deg": 0.9,
+      "post_height_m": 1.3,
+      "post_square_m": 0.16,
+      "cap_square_m": 0.22,
+      "cap_thickness_m": 0.07,
+      "along_frontage_frac": 0.28,
+      "business_class": "store",
+      "clear_of_track_m": 3.88,
+      "stands_on_m": 0.56,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #033, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.56 m with 3.88 m still between it and the South Water Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_south_water_clark_north_hitching_recon_1835_core_c2_036",
+      "belongs_to": "town_street_edge",
+      "kind": "hitching_post",
+      "confidence": "reconstructed",
+      "street": "south_water",
+      "street_name": "South Water Street",
+      "chunk": "blk_south_water_clark_north_2",
+      "stands_at": "recon_1835_core_c2_036",
+      "trade": "store_residence",
+      "trade_confidence": "reconstructed",
+      "at_local_enu_m": [
+        663.41,
+        -1.63
+      ],
+      "facade_bearing_deg": 0.9,
+      "post_height_m": 1.3,
+      "post_square_m": 0.16,
+      "cap_square_m": 0.22,
+      "cap_thickness_m": 0.07,
+      "along_frontage_frac": 0.28,
+      "business_class": "store",
+      "clear_of_track_m": 3.88,
+      "stands_on_m": 0.47,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #036, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.47 m with 3.88 m still between it and the South Water Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_clark_north_hitching_recon_1835_core_c3_034",
@@ -30387,8 +30335,8 @@
       "trade": "narrow_two_story_store",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        602.45,
-        -0.64
+        609.03,
+        -0.75
       ],
       "facade_bearing_deg": 0.9,
       "post_height_m": 1.3,
@@ -30398,34 +30346,8 @@
       "along_frontage_frac": 0.28,
       "business_class": "store",
       "clear_of_track_m": 3.88,
-      "stands_on_m": 0.56,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #034, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.56 m with 3.88 m still between it and the South Water Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
-    },
-    {
-      "id": "blk_south_water_clark_north_hitching_recon_1835_core_c3_037",
-      "belongs_to": "town_street_edge",
-      "kind": "hitching_post",
-      "confidence": "reconstructed",
-      "street": "south_water",
-      "street_name": "South Water Street",
-      "chunk": "blk_south_water_clark_north_2",
-      "stands_at": "recon_1835_core_c3_037",
-      "trade": "narrow_two_story_store",
-      "trade_confidence": "reconstructed",
-      "at_local_enu_m": [
-        663.27,
-        -1.63
-      ],
-      "facade_bearing_deg": 0.9,
-      "post_height_m": 1.3,
-      "post_square_m": 0.16,
-      "cap_square_m": 0.22,
-      "cap_thickness_m": 0.07,
-      "along_frontage_frac": 0.28,
-      "business_class": "store",
-      "clear_of_track_m": 3.88,
-      "stands_on_m": 0.47,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #037, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.47 m with 3.88 m still between it and the South Water Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "stands_on_m": 0.57,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #034, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.57 m with 3.88 m still between it and the South Water Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_clark_south_hitching_recon_1835_gifford_c1_010",
@@ -30881,8 +30803,8 @@
       "trade": "small_shop_or_office",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        719.77,
-        -106.32
+        725.69,
+        -106.37
       ],
       "facade_bearing_deg": 180.5,
       "post_height_m": 1.3,
@@ -30896,19 +30818,19 @@
       "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C1 small shop, grocery, or land office #043, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `small_shop_or_office`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.89 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c1_051",
+      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c2_041",
       "belongs_to": "town_street_edge",
       "kind": "hitching_post",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_south_water_dearborn_south_1",
-      "stands_at": "recon_1835_core_c1_051",
-      "trade": "small_shop_or_office",
+      "stands_at": "recon_1835_core_c2_041",
+      "trade": "store_residence",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        758.42,
-        -106.63
+        713.54,
+        -106.27
       ],
       "facade_bearing_deg": 180.5,
       "post_height_m": 1.3,
@@ -30917,9 +30839,9 @@
       "cap_thickness_m": 0.07,
       "along_frontage_frac": 0.28,
       "business_class": "store",
-      "clear_of_track_m": 3.88,
-      "stands_on_m": 0.8,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C1 small shop, grocery, or land office #051, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `small_shop_or_office`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "clear_of_track_m": 3.89,
+      "stands_on_m": 0.79,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #041, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.89 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c2_044",
@@ -30933,8 +30855,8 @@
       "trade": "store_residence",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        725.45,
-        -106.36
+        731.36,
+        -106.41
       ],
       "facade_bearing_deg": 180.5,
       "post_height_m": 1.3,
@@ -30948,70 +30870,18 @@
       "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #044, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.89 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c3_042",
+      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c2_049",
       "belongs_to": "town_street_edge",
       "kind": "hitching_post",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_south_water_dearborn_south_1",
-      "stands_at": "recon_1835_core_c3_042",
-      "trade": "narrow_two_story_store",
+      "stands_at": "recon_1835_core_c2_049",
+      "trade": "store_residence",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        713.67,
-        -106.27
-      ],
-      "facade_bearing_deg": 180.5,
-      "post_height_m": 1.3,
-      "post_square_m": 0.16,
-      "cap_square_m": 0.22,
-      "cap_thickness_m": 0.07,
-      "along_frontage_frac": 0.28,
-      "business_class": "store",
-      "clear_of_track_m": 3.89,
-      "stands_on_m": 0.79,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #042, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.89 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
-    },
-    {
-      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c3_045",
-      "belongs_to": "town_street_edge",
-      "kind": "hitching_post",
-      "confidence": "reconstructed",
-      "street": "lake",
-      "street_name": "Lake Street",
-      "chunk": "blk_south_water_dearborn_south_1",
-      "stands_at": "recon_1835_core_c3_045",
-      "trade": "narrow_two_story_store",
-      "trade_confidence": "reconstructed",
-      "at_local_enu_m": [
-        731.9,
-        -106.42
-      ],
-      "facade_bearing_deg": 180.5,
-      "post_height_m": 1.3,
-      "post_square_m": 0.16,
-      "cap_square_m": 0.22,
-      "cap_thickness_m": 0.07,
-      "along_frontage_frac": 0.28,
-      "business_class": "store",
-      "clear_of_track_m": 3.89,
-      "stands_on_m": 0.79,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #045, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.89 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
-    },
-    {
-      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c3_050",
-      "belongs_to": "town_street_edge",
-      "kind": "hitching_post",
-      "confidence": "reconstructed",
-      "street": "lake",
-      "street_name": "Lake Street",
-      "chunk": "blk_south_water_dearborn_south_1",
-      "stands_at": "recon_1835_core_c3_050",
-      "trade": "narrow_two_story_store",
-      "trade_confidence": "reconstructed",
-      "at_local_enu_m": [
-        752.41,
+        752.44,
         -106.58
       ],
       "facade_bearing_deg": 180.5,
@@ -31023,7 +30893,33 @@
       "business_class": "store",
       "clear_of_track_m": 3.88,
       "stands_on_m": 0.8,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #050, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #049, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c3_042",
+      "belongs_to": "town_street_edge",
+      "kind": "hitching_post",
+      "confidence": "reconstructed",
+      "street": "lake",
+      "street_name": "Lake Street",
+      "chunk": "blk_south_water_dearborn_south_1",
+      "stands_at": "recon_1835_core_c3_042",
+      "trade": "narrow_two_story_store",
+      "trade_confidence": "reconstructed",
+      "at_local_enu_m": [
+        719.59,
+        -106.32
+      ],
+      "facade_bearing_deg": 180.5,
+      "post_height_m": 1.3,
+      "post_square_m": 0.16,
+      "cap_square_m": 0.22,
+      "cap_thickness_m": 0.07,
+      "along_frontage_frac": 0.28,
+      "business_class": "store",
+      "clear_of_track_m": 3.89,
+      "stands_on_m": 0.79,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #042, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.89 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_franklin_north_hitching_jh_kinzie_forwarding_store",
@@ -31312,18 +31208,18 @@
       "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #13, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.71 m with 3.88 m still between it and the South Water Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_south_water_lasalle_north_hitching_recon_1835_core_c3_024",
+      "id": "blk_south_water_lasalle_north_hitching_recon_1835_core_c2_022",
       "belongs_to": "town_street_edge",
       "kind": "hitching_post",
       "confidence": "reconstructed",
       "street": "south_water",
       "street_name": "South Water Street",
       "chunk": "blk_south_water_lasalle_north_1",
-      "stands_at": "recon_1835_core_c3_024",
-      "trade": "narrow_two_story_store",
+      "stands_at": "recon_1835_core_c2_022",
+      "trade": "store_residence",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        539.67,
+        539.81,
         -0.5
       ],
       "facade_bearing_deg": 359.5,
@@ -31335,7 +31231,33 @@
       "business_class": "store",
       "clear_of_track_m": 3.88,
       "stands_on_m": 0.63,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #024, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.63 m with 3.88 m still between it and the South Water Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #022, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.63 m with 3.88 m still between it and the South Water Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_south_water_lasalle_south_hitching_recon_1835_core_c1_024",
+      "belongs_to": "town_street_edge",
+      "kind": "hitching_post",
+      "confidence": "reconstructed",
+      "street": "lake",
+      "street_name": "Lake Street",
+      "chunk": "blk_south_water_lasalle_south_1",
+      "stands_at": "recon_1835_core_c1_024",
+      "trade": "small_shop_or_office",
+      "trade_confidence": "reconstructed",
+      "at_local_enu_m": [
+        485.34,
+        -104.41
+      ],
+      "facade_bearing_deg": 180.5,
+      "post_height_m": 1.3,
+      "post_square_m": 0.16,
+      "cap_square_m": 0.22,
+      "cap_thickness_m": 0.07,
+      "along_frontage_frac": 0.28,
+      "business_class": "store",
+      "clear_of_track_m": 3.88,
+      "stands_on_m": 0.78,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C1 small shop, grocery, or land office #024, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `small_shop_or_office`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.78 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_lasalle_south_hitching_recon_1835_core_c2_026",
@@ -31349,8 +31271,8 @@
       "trade": "store_residence",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        486.8,
-        -104.43
+        497.19,
+        -104.51
       ],
       "facade_bearing_deg": 180.5,
       "post_height_m": 1.3,
@@ -31360,23 +31282,23 @@
       "along_frontage_frac": 0.28,
       "business_class": "store",
       "clear_of_track_m": 3.88,
-      "stands_on_m": 0.78,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #026, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.78 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "stands_on_m": 0.79,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #026, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_south_water_lasalle_south_hitching_recon_1835_core_c3_027",
+      "id": "blk_south_water_lasalle_south_hitching_recon_1835_core_c3_025",
       "belongs_to": "town_street_edge",
       "kind": "hitching_post",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_south_water_lasalle_south_1",
-      "stands_at": "recon_1835_core_c3_027",
+      "stands_at": "recon_1835_core_c3_025",
       "trade": "narrow_two_story_store",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        492.96,
-        -104.48
+        490.79,
+        -104.46
       ],
       "facade_bearing_deg": 180.5,
       "post_height_m": 1.3,
@@ -31386,8 +31308,8 @@
       "along_frontage_frac": 0.28,
       "business_class": "store",
       "clear_of_track_m": 3.88,
-      "stands_on_m": 0.78,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #027, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.78 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "stands_on_m": 0.79,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #025, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_lasalle_south_hitching_thomas_church_store",
@@ -32274,8 +32196,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        632.0,
-        -127.17
+        640.59,
+        -127.24
       ],
       "facade_bearing_deg": 0.5,
       "along_frontage_frac": 0.655,
@@ -32283,8 +32205,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            632.0,
-            -127.44
+            640.59,
+            -127.51
           ],
           "len_m": 1.52,
           "depth_m": 0.75,
@@ -32293,8 +32215,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            632.0,
-            -126.91
+            640.59,
+            -126.98
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -32317,8 +32239,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        626.07,
-        -127.13
+        634.66,
+        -127.2
       ],
       "facade_bearing_deg": 0.5,
       "along_frontage_frac": 0.647,
@@ -32326,8 +32248,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            626.07,
-            -127.39
+            634.66,
+            -127.46
           ],
           "len_m": 1.52,
           "depth_m": 0.75,
@@ -32336,41 +32258,41 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            626.07,
-            -126.86
+            634.66,
+            -126.93
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
           "top_m": 0.22
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #038. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.65 of the building's own frontage along blk_lake_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #038. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.65 of the building's own frontage along blk_lake_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
-      "id": "blk_lake_clark_north_stoop_recon_1835_core_c3_040",
+      "id": "blk_lake_clark_north_stoop_recon_1835_core_c3_037",
       "belongs_to": "town_street_edge",
       "kind": "stoop",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_lake_clark_north_1",
-      "serves": "recon_1835_core_c3_040",
-      "serves_name": "Reconstructed C3 narrow two-story store #040",
+      "serves": "recon_1835_core_c3_037",
+      "serves_name": "Reconstructed C3 narrow two-story store #037",
       "trade": "narrow_two_story_store",
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        638.27,
-        -127.22
+        628.57,
+        -127.15
       ],
       "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.642,
+      "along_frontage_frac": 0.63,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            638.27,
-            -127.49
+            628.57,
+            -127.41
           ],
           "len_m": 1.52,
           "depth_m": 0.75,
@@ -32379,15 +32301,15 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            638.27,
-            -126.96
+            628.57,
+            -126.88
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
           "top_m": 0.22
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #040. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.64 of the building's own frontage along blk_lake_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #037. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.63 of the building's own frontage along blk_lake_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_clark_north_stoop_recon_1835_south_c3_015",
@@ -32433,30 +32355,30 @@
       "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #015. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.65 of the building's own frontage along blk_lake_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
-      "id": "blk_lake_dearborn_north_stoop_recon_1835_core_c2_053",
+      "id": "blk_lake_dearborn_north_stoop_recon_1835_core_c1_052",
       "belongs_to": "town_street_edge",
       "kind": "stoop",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_lake_dearborn_north_2",
-      "serves": "recon_1835_core_c2_053",
-      "serves_name": "Reconstructed C2 store-residence #053",
-      "trade": "store_residence",
+      "serves": "recon_1835_core_c1_052",
+      "serves_name": "Reconstructed C1 small shop, grocery, or land office #052",
+      "trade": "small_shop_or_office",
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        751.69,
-        -128.38
+        760.07,
+        -128.45
       ],
       "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.65,
+      "along_frontage_frac": 0.715,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            751.69,
-            -128.95
+            760.07,
+            -129.02
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -32465,8 +32387,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            751.69,
-            -128.27
+            760.07,
+            -128.33
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -32475,41 +32397,41 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            751.69,
-            -127.93
+            760.08,
+            -127.99
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #053. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.65 of the building's own frontage along blk_lake_dearborn's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.81 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop, grocery, or land office #052. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.71 of the building's own frontage along blk_lake_dearborn's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
-      "id": "blk_lake_dearborn_north_stoop_recon_1835_core_c3_054",
+      "id": "blk_lake_dearborn_north_stoop_recon_1835_core_c3_051",
       "belongs_to": "town_street_edge",
       "kind": "stoop",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_lake_dearborn_north_2",
-      "serves": "recon_1835_core_c3_054",
-      "serves_name": "Reconstructed C3 narrow two-story store #054",
+      "serves": "recon_1835_core_c3_051",
+      "serves_name": "Reconstructed C3 narrow two-story store #051",
       "trade": "narrow_two_story_store",
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        757.6,
-        -128.43
+        754.51,
+        -128.4
       ],
       "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.629,
+      "along_frontage_frac": 0.666,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            757.59,
-            -129.0
+            754.51,
+            -128.97
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -32518,8 +32440,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            757.6,
-            -128.31
+            754.51,
+            -128.29
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -32528,15 +32450,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            757.6,
-            -127.97
+            754.51,
+            -127.95
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #054. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.63 of the building's own frontage along blk_lake_dearborn's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.81 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #051. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.67 of the building's own frontage along blk_lake_dearborn's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.81 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_dearborn_north_stoop_st_marys_church",
@@ -32928,6 +32850,59 @@
       "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed physicians office (physician). WHY HERE is a rule and not a placement: the front's trade is `physicians_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_lasalle's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
+      "id": "blk_lake_lasalle_north_stoop_recon_1835_core_c1_028",
+      "belongs_to": "town_street_edge",
+      "kind": "stoop",
+      "confidence": "reconstructed",
+      "street": "lake",
+      "street_name": "Lake Street",
+      "chunk": "blk_lake_lasalle_north_1",
+      "serves": "recon_1835_core_c1_028",
+      "serves_name": "Reconstructed C1 small shop, grocery, or land office #028",
+      "trade": "small_shop_or_office",
+      "trade_confidence": "reconstructed",
+      "business_class": "store",
+      "at_local_enu_m": [
+        494.96,
+        -126.29
+      ],
+      "facade_bearing_deg": 0.5,
+      "along_frontage_frac": 0.695,
+      "parts": [
+        {
+          "part": "landing",
+          "at_local_enu_m": [
+            494.95,
+            -126.86
+          ],
+          "len_m": 1.52,
+          "depth_m": 1.07,
+          "top_m": 0.38
+        },
+        {
+          "part": "step",
+          "at_local_enu_m": [
+            494.96,
+            -126.17
+          ],
+          "len_m": 1.52,
+          "depth_m": 0.3,
+          "top_m": 0.22
+        },
+        {
+          "part": "boards",
+          "at_local_enu_m": [
+            494.96,
+            -125.83
+          ],
+          "len_m": 1.216,
+          "depth_m": 0.38,
+          "top_m": 0.11
+        }
+      ],
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop, grocery, or land office #028. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.70 of the building's own frontage along blk_lake_lasalle's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+    },
+    {
       "id": "blk_lake_lasalle_north_stoop_recon_1835_core_c1_032",
       "belongs_to": "town_street_edge",
       "kind": "stoop",
@@ -32941,8 +32916,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        512.55,
-        -126.43
+        518.18,
+        -126.48
       ],
       "facade_bearing_deg": 0.5,
       "along_frontage_frac": 0.672,
@@ -32950,8 +32925,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            512.54,
-            -127.0
+            518.17,
+            -127.05
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -32960,8 +32935,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            512.55,
-            -126.32
+            518.18,
+            -126.36
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -32970,8 +32945,8 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            512.55,
-            -125.98
+            518.18,
+            -126.02
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
@@ -32994,8 +32969,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        495.08,
-        -126.29
+        500.71,
+        -126.34
       ],
       "facade_bearing_deg": 0.5,
       "along_frontage_frac": 0.684,
@@ -33003,8 +32978,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            495.08,
-            -126.86
+            500.71,
+            -126.91
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -33013,8 +32988,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            495.08,
-            -126.17
+            500.71,
+            -126.22
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -33023,8 +32998,8 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            495.08,
-            -125.83
+            500.71,
+            -125.88
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
@@ -33047,8 +33022,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        507.13,
-        -126.39
+        512.76,
+        -126.43
       ],
       "facade_bearing_deg": 0.5,
       "along_frontage_frac": 0.659,
@@ -33056,8 +33031,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            507.12,
-            -126.96
+            512.76,
+            -127.0
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -33066,8 +33041,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            507.13,
-            -126.27
+            512.76,
+            -126.32
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -33076,8 +33051,8 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            507.13,
-            -125.93
+            512.76,
+            -125.98
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
@@ -33100,8 +33075,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        501.29,
-        -126.34
+        506.92,
+        -126.39
       ],
       "facade_bearing_deg": 0.5,
       "along_frontage_frac": 0.68,
@@ -33109,8 +33084,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            501.28,
-            -126.91
+            506.91,
+            -126.96
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -33119,8 +33094,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            501.29,
-            -126.23
+            506.92,
+            -126.27
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -33129,8 +33104,8 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            501.29,
-            -125.89
+            506.92,
+            -125.93
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
@@ -33138,59 +33113,6 @@
         }
       ],
       "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #030. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.68 of the building's own frontage along blk_lake_lasalle's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
-    },
-    {
-      "id": "blk_lake_lasalle_north_stoop_recon_1835_core_c3_033",
-      "belongs_to": "town_street_edge",
-      "kind": "stoop",
-      "confidence": "reconstructed",
-      "street": "lake",
-      "street_name": "Lake Street",
-      "chunk": "blk_lake_lasalle_north_1",
-      "serves": "recon_1835_core_c3_033",
-      "serves_name": "Reconstructed C3 narrow two-story store #033",
-      "trade": "narrow_two_story_store",
-      "trade_confidence": "reconstructed",
-      "business_class": "store",
-      "at_local_enu_m": [
-        518.06,
-        -126.48
-      ],
-      "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.65,
-      "parts": [
-        {
-          "part": "landing",
-          "at_local_enu_m": [
-            518.06,
-            -127.05
-          ],
-          "len_m": 1.52,
-          "depth_m": 1.07,
-          "top_m": 0.38
-        },
-        {
-          "part": "step",
-          "at_local_enu_m": [
-            518.06,
-            -126.36
-          ],
-          "len_m": 1.52,
-          "depth_m": 0.3,
-          "top_m": 0.22
-        },
-        {
-          "part": "boards",
-          "at_local_enu_m": [
-            518.06,
-            -126.02
-          ],
-          "len_m": 1.216,
-          "depth_m": 0.38,
-          "top_m": 0.11
-        }
-      ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #033. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.65 of the building's own frontage along blk_lake_lasalle's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_lasalle_north_wagon_apron_old_bank_building",
@@ -33511,8 +33433,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        385.41,
-        -125.4
+        387.91,
+        -125.42
       ],
       "facade_bearing_deg": 0.5,
       "along_frontage_frac": 0.658,
@@ -33520,8 +33442,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            385.41,
-            -125.97
+            387.91,
+            -125.99
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -33530,8 +33452,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            385.41,
-            -125.28
+            387.91,
+            -125.3
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -33540,11 +33462,11 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            385.41,
-            -124.94
+            387.91,
+            -124.96
           ],
           "len_m": 1.216,
-          "depth_m": 0.381,
+          "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
@@ -33564,8 +33486,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        355.42,
-        -125.15
+        363.91,
+        -125.22
       ],
       "facade_bearing_deg": 0.5,
       "along_frontage_frac": 0.642,
@@ -33573,8 +33495,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            355.41,
-            -125.72
+            363.9,
+            -125.79
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -33583,8 +33505,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            355.42,
-            -125.04
+            363.91,
+            -125.11
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -33593,68 +33515,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            355.42,
-            -124.7
+            363.91,
+            -124.77
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop, grocery, or land office #019. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.64 of the building's own frontage along blk_lake_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
-    },
-    {
-      "id": "blk_lake_wells_north_stoop_recon_1835_core_c1_023",
-      "belongs_to": "town_street_edge",
-      "kind": "stoop",
-      "confidence": "reconstructed",
-      "street": "lake",
-      "street_name": "Lake Street",
-      "chunk": "blk_lake_wells_north_1",
-      "serves": "recon_1835_core_c1_023",
-      "serves_name": "Reconstructed C1 small shop, grocery, or land office #023",
-      "trade": "small_shop_or_office",
-      "trade_confidence": "reconstructed",
-      "business_class": "store",
-      "at_local_enu_m": [
-        415.51,
-        -125.64
-      ],
-      "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.675,
-      "parts": [
-        {
-          "part": "landing",
-          "at_local_enu_m": [
-            415.5,
-            -126.21
-          ],
-          "len_m": 1.52,
-          "depth_m": 1.07,
-          "top_m": 0.38
-        },
-        {
-          "part": "step",
-          "at_local_enu_m": [
-            415.51,
-            -125.53
-          ],
-          "len_m": 1.52,
-          "depth_m": 0.3,
-          "top_m": 0.22
-        },
-        {
-          "part": "boards",
-          "at_local_enu_m": [
-            415.51,
-            -125.19
-          ],
-          "len_m": 1.216,
-          "depth_m": 0.38,
-          "top_m": 0.11
-        }
-      ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop, grocery, or land office #023. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.67 of the building's own frontage along blk_lake_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.81 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop, grocery, or land office #019. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.64 of the building's own frontage along blk_lake_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.81 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_wells_north_stoop_recon_1835_core_c2_017",
@@ -33670,8 +33539,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        397.63,
-        -125.5
+        400.13,
+        -125.52
       ],
       "facade_bearing_deg": 0.5,
       "along_frontage_frac": 0.62,
@@ -33679,8 +33548,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            397.63,
-            -126.07
+            400.13,
+            -126.09
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -33689,8 +33558,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            397.64,
-            -125.38
+            400.14,
+            -125.4
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -33699,8 +33568,8 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            397.64,
-            -125.04
+            400.14,
+            -125.06
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
@@ -33723,8 +33592,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        361.17,
-        -125.2
+        369.66,
+        -125.27
       ],
       "facade_bearing_deg": 0.5,
       "along_frontage_frac": 0.654,
@@ -33732,8 +33601,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            361.16,
-            -125.77
+            369.65,
+            -125.84
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -33742,8 +33611,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            361.17,
-            -125.09
+            369.66,
+            -125.15
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -33752,68 +33621,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            361.17,
-            -124.75
+            369.66,
+            -124.81
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #020. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.65 of the building's own frontage along blk_lake_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
-    },
-    {
-      "id": "blk_lake_wells_north_stoop_recon_1835_core_c2_022",
-      "belongs_to": "town_street_edge",
-      "kind": "stoop",
-      "confidence": "reconstructed",
-      "street": "lake",
-      "street_name": "Lake Street",
-      "chunk": "blk_lake_wells_north_1",
-      "serves": "recon_1835_core_c2_022",
-      "serves_name": "Reconstructed C2 store-residence #022",
-      "trade": "store_residence",
-      "trade_confidence": "reconstructed",
-      "business_class": "store",
-      "at_local_enu_m": [
-        373.5,
-        -125.3
-      ],
-      "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.639,
-      "parts": [
-        {
-          "part": "landing",
-          "at_local_enu_m": [
-            373.5,
-            -125.87
-          ],
-          "len_m": 1.52,
-          "depth_m": 1.07,
-          "top_m": 0.38
-        },
-        {
-          "part": "step",
-          "at_local_enu_m": [
-            373.5,
-            -125.19
-          ],
-          "len_m": 1.52,
-          "depth_m": 0.3,
-          "top_m": 0.22
-        },
-        {
-          "part": "boards",
-          "at_local_enu_m": [
-            373.5,
-            -124.85
-          ],
-          "len_m": 1.216,
-          "depth_m": 0.38,
-          "top_m": 0.11
-        }
-      ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #022. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.64 of the building's own frontage along blk_lake_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.81 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #020. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.65 of the building's own frontage along blk_lake_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.81 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_wells_north_stoop_recon_1835_core_c3_016",
@@ -33829,8 +33645,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        391.44,
-        -125.45
+        393.94,
+        -125.47
       ],
       "facade_bearing_deg": 0.5,
       "along_frontage_frac": 0.642,
@@ -33838,8 +33654,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            391.43,
-            -126.02
+            393.93,
+            -126.04
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -33848,8 +33664,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            391.44,
-            -125.33
+            393.94,
+            -125.35
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -33858,8 +33674,8 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            391.44,
-            -124.99
+            393.94,
+            -125.01
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
@@ -33882,8 +33698,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        403.82,
-        -125.55
+        358.32,
+        -125.18
       ],
       "facade_bearing_deg": 0.5,
       "along_frontage_frac": 0.64,
@@ -33891,8 +33707,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            403.82,
-            -126.12
+            358.32,
+            -125.75
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -33901,8 +33717,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            403.82,
-            -125.43
+            358.32,
+            -125.06
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -33911,15 +33727,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            403.83,
-            -125.09
+            358.33,
+            -124.72
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #018. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.64 of the building's own frontage along blk_lake_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.81 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #018. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.64 of the building's own frontage along blk_lake_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_wells_north_stoop_recon_1835_core_c3_021",
@@ -33935,8 +33751,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        367.03,
-        -125.25
+        418.01,
+        -125.66
       ],
       "facade_bearing_deg": 0.5,
       "along_frontage_frac": 0.633,
@@ -33944,8 +33760,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            367.03,
-            -125.82
+            418.0,
+            -126.23
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -33954,8 +33770,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            367.03,
-            -125.13
+            418.01,
+            -125.55
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -33964,8 +33780,8 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            367.04,
-            -124.79
+            418.01,
+            -125.21
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
@@ -34190,8 +34006,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        610.42,
-        -4.15
+        617.0,
+        -4.25
       ],
       "facade_bearing_deg": 0.9,
       "along_frontage_frac": 0.683,
@@ -34199,60 +34015,7 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            610.41,
-            -4.72
-          ],
-          "len_m": 1.52,
-          "depth_m": 1.07,
-          "top_m": 0.38
-        },
-        {
-          "part": "step",
-          "at_local_enu_m": [
-            610.42,
-            -4.03
-          ],
-          "len_m": 1.52,
-          "depth_m": 0.3,
-          "top_m": 0.22
-        },
-        {
-          "part": "boards",
-          "at_local_enu_m": [
-            610.43,
-            -3.69
-          ],
-          "len_m": 1.216,
-          "depth_m": 0.38,
-          "top_m": 0.11
-        }
-      ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop, grocery, or land office #035. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.68 of the building's own frontage along blk_south_water_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.67 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
-    },
-    {
-      "id": "blk_south_water_clark_north_stoop_recon_1835_core_c2_036",
-      "belongs_to": "town_street_edge",
-      "kind": "stoop",
-      "confidence": "reconstructed",
-      "street": "south_water",
-      "street_name": "South Water Street",
-      "chunk": "blk_south_water_clark_north_1",
-      "serves": "recon_1835_core_c2_036",
-      "serves_name": "Reconstructed C2 store-residence #036",
-      "trade": "store_residence",
-      "trade_confidence": "reconstructed",
-      "business_class": "store",
-      "at_local_enu_m": [
-        616.45,
-        -4.25
-      ],
-      "facade_bearing_deg": 0.9,
-      "along_frontage_frac": 0.644,
-      "parts": [
-        {
-          "part": "landing",
-          "at_local_enu_m": [
-            616.44,
+            617.0,
             -4.82
           ],
           "len_m": 1.52,
@@ -34262,8 +34025,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            616.45,
-            -4.13
+            617.01,
+            -4.14
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -34272,15 +34035,121 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            616.46,
-            -3.79
+            617.01,
+            -3.8
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #036. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.64 of the building's own frontage along blk_south_water_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.68 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop, grocery, or land office #035. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.68 of the building's own frontage along blk_south_water_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.68 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+    },
+    {
+      "id": "blk_south_water_clark_north_stoop_recon_1835_core_c2_033",
+      "belongs_to": "town_street_edge",
+      "kind": "stoop",
+      "confidence": "reconstructed",
+      "street": "south_water",
+      "street_name": "South Water Street",
+      "chunk": "blk_south_water_clark_north_1",
+      "serves": "recon_1835_core_c2_033",
+      "serves_name": "Reconstructed C2 store-residence #033",
+      "trade": "store_residence",
+      "trade_confidence": "reconstructed",
+      "business_class": "store",
+      "at_local_enu_m": [
+        604.95,
+        -4.06
+      ],
+      "facade_bearing_deg": 0.9,
+      "along_frontage_frac": 0.644,
+      "parts": [
+        {
+          "part": "landing",
+          "at_local_enu_m": [
+            604.94,
+            -4.63
+          ],
+          "len_m": 1.52,
+          "depth_m": 1.07,
+          "top_m": 0.38
+        },
+        {
+          "part": "step",
+          "at_local_enu_m": [
+            604.95,
+            -3.94
+          ],
+          "len_m": 1.52,
+          "depth_m": 0.3,
+          "top_m": 0.22
+        },
+        {
+          "part": "boards",
+          "at_local_enu_m": [
+            604.96,
+            -3.6
+          ],
+          "len_m": 1.216,
+          "depth_m": 0.38,
+          "top_m": 0.11
+        }
+      ],
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #033. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.64 of the building's own frontage along blk_south_water_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.67 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+    },
+    {
+      "id": "blk_south_water_clark_north_stoop_recon_1835_core_c2_036",
+      "belongs_to": "town_street_edge",
+      "kind": "stoop",
+      "confidence": "reconstructed",
+      "street": "south_water",
+      "street_name": "South Water Street",
+      "chunk": "blk_south_water_clark_north_2",
+      "serves": "recon_1835_core_c2_036",
+      "serves_name": "Reconstructed C2 store-residence #036",
+      "trade": "store_residence",
+      "trade_confidence": "reconstructed",
+      "business_class": "store",
+      "at_local_enu_m": [
+        665.71,
+        -5.05
+      ],
+      "facade_bearing_deg": 0.9,
+      "along_frontage_frac": 0.644,
+      "parts": [
+        {
+          "part": "landing",
+          "at_local_enu_m": [
+            665.71,
+            -5.62
+          ],
+          "len_m": 1.52,
+          "depth_m": 1.07,
+          "top_m": 0.38
+        },
+        {
+          "part": "step",
+          "at_local_enu_m": [
+            665.72,
+            -4.93
+          ],
+          "len_m": 1.52,
+          "depth_m": 0.3,
+          "top_m": 0.22
+        },
+        {
+          "part": "boards",
+          "at_local_enu_m": [
+            665.72,
+            -4.59
+          ],
+          "len_m": 1.216,
+          "depth_m": 0.38,
+          "top_m": 0.11
+        }
+      ],
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #036. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.64 of the building's own frontage along blk_south_water_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.57 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_clark_north_stoop_recon_1835_core_c3_034",
@@ -34296,8 +34165,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        604.55,
-        -4.05
+        611.13,
+        -4.16
       ],
       "facade_bearing_deg": 0.9,
       "along_frontage_frac": 0.653,
@@ -34305,8 +34174,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            604.54,
-            -4.62
+            611.12,
+            -4.73
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -34315,8 +34184,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            604.55,
-            -3.94
+            611.13,
+            -4.04
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -34325,8 +34194,8 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            604.55,
-            -3.6
+            611.14,
+            -3.7
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
@@ -34334,59 +34203,6 @@
         }
       ],
       "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #034. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.65 of the building's own frontage along blk_south_water_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.67 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
-    },
-    {
-      "id": "blk_south_water_clark_north_stoop_recon_1835_core_c3_037",
-      "belongs_to": "town_street_edge",
-      "kind": "stoop",
-      "confidence": "reconstructed",
-      "street": "south_water",
-      "street_name": "South Water Street",
-      "chunk": "blk_south_water_clark_north_2",
-      "serves": "recon_1835_core_c3_037",
-      "serves_name": "Reconstructed C3 narrow two-story store #037",
-      "trade": "narrow_two_story_store",
-      "trade_confidence": "reconstructed",
-      "business_class": "store",
-      "at_local_enu_m": [
-        665.31,
-        -5.04
-      ],
-      "facade_bearing_deg": 0.9,
-      "along_frontage_frac": 0.63,
-      "parts": [
-        {
-          "part": "landing",
-          "at_local_enu_m": [
-            665.3,
-            -5.61
-          ],
-          "len_m": 1.52,
-          "depth_m": 1.07,
-          "top_m": 0.38
-        },
-        {
-          "part": "step",
-          "at_local_enu_m": [
-            665.31,
-            -4.92
-          ],
-          "len_m": 1.52,
-          "depth_m": 0.3,
-          "top_m": 0.22
-        },
-        {
-          "part": "boards",
-          "at_local_enu_m": [
-            665.32,
-            -4.58
-          ],
-          "len_m": 1.216,
-          "depth_m": 0.38,
-          "top_m": 0.11
-        }
-      ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #037. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.63 of the building's own frontage along blk_south_water_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.57 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_clark_south_stoop_recon_1835_gifford_c1_010",
@@ -35363,8 +35179,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        719.84,
-        -102.94
+        725.76,
+        -102.99
       ],
       "facade_bearing_deg": 180.5,
       "along_frontage_frac": 0.288,
@@ -35372,8 +35188,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            719.85,
-            -102.37
+            725.76,
+            -102.42
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -35382,8 +35198,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            719.84,
-            -103.06
+            725.76,
+            -103.11
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -35392,8 +35208,8 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            719.84,
-            -103.4
+            725.76,
+            -103.45
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
@@ -35403,30 +35219,30 @@
       "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop, grocery, or land office #043. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.29 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
-      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c1_051",
+      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c2_041",
       "belongs_to": "town_street_edge",
       "kind": "stoop",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_south_water_dearborn_south_1",
-      "serves": "recon_1835_core_c1_051",
-      "serves_name": "Reconstructed C1 small shop, grocery, or land office #051",
-      "trade": "small_shop_or_office",
+      "serves": "recon_1835_core_c2_041",
+      "serves_name": "Reconstructed C2 store-residence #041",
+      "trade": "store_residence",
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        758.61,
-        -103.26
+        713.99,
+        -102.89
       ],
       "facade_bearing_deg": 180.5,
-      "along_frontage_frac": 0.313,
+      "along_frontage_frac": 0.352,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            758.62,
-            -102.69
+            713.99,
+            -102.32
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -35435,8 +35251,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            758.61,
-            -103.38
+            713.99,
+            -103.01
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -35445,15 +35261,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            758.61,
-            -103.72
+            713.98,
+            -103.35
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop, grocery, or land office #051. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.31 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #041. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.35 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c2_044",
@@ -35469,8 +35285,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        725.82,
-        -102.99
+        731.74,
+        -103.04
       ],
       "facade_bearing_deg": 180.5,
       "along_frontage_frac": 0.335,
@@ -35478,8 +35294,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            725.83,
-            -102.42
+            731.74,
+            -102.47
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -35488,8 +35304,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            725.82,
-            -103.11
+            731.74,
+            -103.15
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -35498,8 +35314,8 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            725.82,
-            -103.45
+            731.74,
+            -103.49
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
@@ -35507,6 +35323,59 @@
         }
       ],
       "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #044. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.34 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+    },
+    {
+      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c2_049",
+      "belongs_to": "town_street_edge",
+      "kind": "stoop",
+      "confidence": "reconstructed",
+      "street": "lake",
+      "street_name": "Lake Street",
+      "chunk": "blk_south_water_dearborn_south_1",
+      "serves": "recon_1835_core_c2_049",
+      "serves_name": "Reconstructed C2 store-residence #049",
+      "trade": "store_residence",
+      "trade_confidence": "reconstructed",
+      "business_class": "store",
+      "at_local_enu_m": [
+        752.92,
+        -103.21
+      ],
+      "facade_bearing_deg": 180.5,
+      "along_frontage_frac": 0.35,
+      "parts": [
+        {
+          "part": "landing",
+          "at_local_enu_m": [
+            752.92,
+            -102.64
+          ],
+          "len_m": 1.52,
+          "depth_m": 1.07,
+          "top_m": 0.38
+        },
+        {
+          "part": "step",
+          "at_local_enu_m": [
+            752.92,
+            -103.33
+          ],
+          "len_m": 1.52,
+          "depth_m": 0.3,
+          "top_m": 0.22
+        },
+        {
+          "part": "boards",
+          "at_local_enu_m": [
+            752.91,
+            -103.67
+          ],
+          "len_m": 1.216,
+          "depth_m": 0.38,
+          "top_m": 0.11
+        }
+      ],
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #049. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.35 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c3_042",
@@ -35522,8 +35391,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        714.04,
-        -102.89
+        719.95,
+        -102.94
       ],
       "facade_bearing_deg": 180.5,
       "along_frontage_frac": 0.334,
@@ -35531,8 +35400,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            714.04,
-            -102.32
+            719.96,
+            -102.37
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -35541,8 +35410,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            714.04,
-            -103.01
+            719.95,
+            -103.06
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -35551,8 +35420,8 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            714.03,
-            -103.35
+            719.95,
+            -103.4
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
@@ -35560,112 +35429,6 @@
         }
       ],
       "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #042. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.33 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
-    },
-    {
-      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c3_045",
-      "belongs_to": "town_street_edge",
-      "kind": "stoop",
-      "confidence": "reconstructed",
-      "street": "lake",
-      "street_name": "Lake Street",
-      "chunk": "blk_south_water_dearborn_south_1",
-      "serves": "recon_1835_core_c3_045",
-      "serves_name": "Reconstructed C3 narrow two-story store #045",
-      "trade": "narrow_two_story_store",
-      "trade_confidence": "reconstructed",
-      "business_class": "store",
-      "at_local_enu_m": [
-        732.45,
-        -103.05
-      ],
-      "facade_bearing_deg": 180.5,
-      "along_frontage_frac": 0.36,
-      "parts": [
-        {
-          "part": "landing",
-          "at_local_enu_m": [
-            732.46,
-            -102.48
-          ],
-          "len_m": 1.52,
-          "depth_m": 1.07,
-          "top_m": 0.38
-        },
-        {
-          "part": "step",
-          "at_local_enu_m": [
-            732.45,
-            -103.16
-          ],
-          "len_m": 1.52,
-          "depth_m": 0.3,
-          "top_m": 0.22
-        },
-        {
-          "part": "boards",
-          "at_local_enu_m": [
-            732.45,
-            -103.5
-          ],
-          "len_m": 1.216,
-          "depth_m": 0.38,
-          "top_m": 0.11
-        }
-      ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #045. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.36 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
-    },
-    {
-      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c3_050",
-      "belongs_to": "town_street_edge",
-      "kind": "stoop",
-      "confidence": "reconstructed",
-      "street": "lake",
-      "street_name": "Lake Street",
-      "chunk": "blk_south_water_dearborn_south_1",
-      "serves": "recon_1835_core_c3_050",
-      "serves_name": "Reconstructed C3 narrow two-story store #050",
-      "trade": "narrow_two_story_store",
-      "trade_confidence": "reconstructed",
-      "business_class": "store",
-      "at_local_enu_m": [
-        752.8,
-        -103.21
-      ],
-      "facade_bearing_deg": 180.5,
-      "along_frontage_frac": 0.338,
-      "parts": [
-        {
-          "part": "landing",
-          "at_local_enu_m": [
-            752.81,
-            -102.64
-          ],
-          "len_m": 1.52,
-          "depth_m": 1.07,
-          "top_m": 0.38
-        },
-        {
-          "part": "step",
-          "at_local_enu_m": [
-            752.8,
-            -103.33
-          ],
-          "len_m": 1.52,
-          "depth_m": 0.3,
-          "top_m": 0.22
-        },
-        {
-          "part": "boards",
-          "at_local_enu_m": [
-            752.8,
-            -103.67
-          ],
-          "len_m": 1.216,
-          "depth_m": 0.38,
-          "top_m": 0.11
-        }
-      ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #050. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.34 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_franklin_north_stoop_recon_1835_blk_south_water_franklin_c2_08",
@@ -36344,29 +36107,29 @@
       "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #13. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.65 of the building's own frontage along blk_south_water_lasalle's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.73 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
-      "id": "blk_south_water_lasalle_north_stoop_recon_1835_core_c3_024",
+      "id": "blk_south_water_lasalle_north_stoop_recon_1835_core_c2_022",
       "belongs_to": "town_street_edge",
       "kind": "stoop",
       "confidence": "reconstructed",
       "street": "south_water",
       "street_name": "South Water Street",
       "chunk": "blk_south_water_lasalle_north_1",
-      "serves": "recon_1835_core_c3_024",
-      "serves_name": "Reconstructed C3 narrow two-story store #024",
-      "trade": "narrow_two_story_store",
+      "serves": "recon_1835_core_c2_022",
+      "serves_name": "Reconstructed C2 store-residence #022",
+      "trade": "store_residence",
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        541.78,
+        542.18,
         -3.86
       ],
       "facade_bearing_deg": 359.5,
-      "along_frontage_frac": 0.623,
+      "along_frontage_frac": 0.639,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            541.78,
+            542.19,
             -4.43
           ],
           "len_m": 1.52,
@@ -36376,8 +36139,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            541.77,
-            -3.75
+            542.18,
+            -3.74
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -36386,15 +36149,68 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            541.77,
-            -3.41
+            542.18,
+            -3.4
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #024. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.62 of the building's own frontage along blk_south_water_lasalle's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.71 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #022. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.64 of the building's own frontage along blk_south_water_lasalle's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.71 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+    },
+    {
+      "id": "blk_south_water_lasalle_south_stoop_recon_1835_core_c1_024",
+      "belongs_to": "town_street_edge",
+      "kind": "stoop",
+      "confidence": "reconstructed",
+      "street": "lake",
+      "street_name": "Lake Street",
+      "chunk": "blk_south_water_lasalle_south_1",
+      "serves": "recon_1835_core_c1_024",
+      "serves_name": "Reconstructed C1 small shop, grocery, or land office #024",
+      "trade": "small_shop_or_office",
+      "trade_confidence": "reconstructed",
+      "business_class": "store",
+      "at_local_enu_m": [
+        485.55,
+        -101.04
+      ],
+      "facade_bearing_deg": 180.5,
+      "along_frontage_frac": 0.317,
+      "parts": [
+        {
+          "part": "landing",
+          "at_local_enu_m": [
+            485.55,
+            -100.47
+          ],
+          "len_m": 1.52,
+          "depth_m": 1.07,
+          "top_m": 0.38
+        },
+        {
+          "part": "step",
+          "at_local_enu_m": [
+            485.55,
+            -101.16
+          ],
+          "len_m": 1.52,
+          "depth_m": 0.3,
+          "top_m": 0.22
+        },
+        {
+          "part": "boards",
+          "at_local_enu_m": [
+            485.54,
+            -101.5
+          ],
+          "len_m": 1.216,
+          "depth_m": 0.38,
+          "top_m": 0.11
+        }
+      ],
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop, grocery, or land office #024. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.32 of the building's own frontage along blk_south_water_lasalle's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.78 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_lasalle_south_stoop_recon_1835_core_c2_026",
@@ -36410,8 +36226,8 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        487.28,
-        -101.05
+        497.68,
+        -101.14
       ],
       "facade_bearing_deg": 180.5,
       "along_frontage_frac": 0.358,
@@ -36419,8 +36235,8 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            487.29,
-            -100.48
+            497.68,
+            -100.57
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -36429,8 +36245,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            487.28,
-            -101.17
+            497.67,
+            -101.25
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -36439,41 +36255,41 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            487.28,
-            -101.51
+            497.67,
+            -101.59
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #026. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.36 of the building's own frontage along blk_south_water_lasalle's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.78 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #026. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.36 of the building's own frontage along blk_south_water_lasalle's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
-      "id": "blk_south_water_lasalle_south_stoop_recon_1835_core_c3_027",
+      "id": "blk_south_water_lasalle_south_stoop_recon_1835_core_c3_025",
       "belongs_to": "town_street_edge",
       "kind": "stoop",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_south_water_lasalle_south_1",
-      "serves": "recon_1835_core_c3_027",
-      "serves_name": "Reconstructed C3 narrow two-story store #027",
+      "serves": "recon_1835_core_c3_025",
+      "serves_name": "Reconstructed C3 narrow two-story store #025",
       "trade": "narrow_two_story_store",
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        493.5,
-        -101.11
+        491.29,
+        -101.09
       ],
       "facade_bearing_deg": 180.5,
-      "along_frontage_frac": 0.36,
+      "along_frontage_frac": 0.353,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            493.51,
-            -100.54
+            491.3,
+            -100.52
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -36482,8 +36298,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            493.5,
-            -101.22
+            491.29,
+            -101.2
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -36492,15 +36308,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            493.5,
-            -101.56
+            491.29,
+            -101.54
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #027. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.36 of the building's own frontage along blk_south_water_lasalle's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.78 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #025. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.35 of the building's own frontage along blk_south_water_lasalle's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_lasalle_south_stoop_thomas_church_store",
@@ -38204,7 +38020,7 @@
     {
       "structure_id": "blk_lake_clark_lot4",
       "wall": "blk_lake_clark north face, lot 4",
-      "why": "inf_butcher_market stands 0.80 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_core_c1_039 stands 0.80 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_lake_clark_lot6",
@@ -38249,7 +38065,7 @@
     {
       "structure_id": "blk_lake_dearborn_lot4",
       "wall": "blk_lake_dearborn north face, lot 4",
-      "why": "recon_1835_core_c1_056 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_core_c3_054 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_lake_dearborn_lot6",
@@ -38309,7 +38125,7 @@
     {
       "structure_id": "blk_lake_lasalle_lot4",
       "wall": "blk_lake_lasalle north face, lot 4",
-      "why": "recon_1835_core_c3_033 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_core_c2_031 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_lake_lasalle_lot6",
@@ -38519,7 +38335,7 @@
     {
       "structure_id": "blk_south_water_clark_lot0",
       "wall": "blk_south_water_clark north face, lot 0",
-      "why": "recon_1835_core_c1_035 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_core_c2_033 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_clark_lot1",
@@ -38539,7 +38355,7 @@
     {
       "structure_id": "blk_south_water_clark_lot4",
       "wall": "blk_south_water_clark north face, lot 4",
-      "why": "recon_1835_core_c3_037 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_blk_south_water_clark_d1_04 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_clark_lot5",
@@ -38549,7 +38365,7 @@
     {
       "structure_id": "blk_south_water_clark_lot6",
       "wall": "blk_south_water_clark north face, lot 6",
-      "why": "recon_1835_core_c3_037 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "madore_beaubien_house stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_clark_lot7",
@@ -38574,7 +38390,7 @@
     {
       "structure_id": "blk_south_water_dearborn_lot1",
       "wall": "blk_south_water_dearborn south face, lot 1",
-      "why": "recon_1835_core_c2_044 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_core_c3_042 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_dearborn_lot2",
@@ -38584,7 +38400,7 @@
     {
       "structure_id": "blk_south_water_dearborn_lot3",
       "wall": "blk_south_water_dearborn south face, lot 3",
-      "why": "recon_1835_core_c1_051 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_core_c2_049 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_dearborn_lot4",
@@ -38599,7 +38415,7 @@
     {
       "structure_id": "blk_south_water_dearborn_lot7",
       "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "recon_1835_core_c3_048 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_core_c3_045 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_dearborn_west_fences",
@@ -38664,7 +38480,7 @@
     {
       "structure_id": "blk_south_water_lasalle_lot1",
       "wall": "blk_south_water_lasalle south face, lot 1",
-      "why": "recon_1835_core_c2_026 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_core_c1_024 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_lasalle_lot2",
@@ -38674,7 +38490,7 @@
     {
       "structure_id": "blk_south_water_lasalle_lot3",
       "wall": "blk_south_water_lasalle south face, lot 3",
-      "why": "recon_1835_core_c3_027 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_core_c1_024 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_lasalle_lot4",
@@ -38689,7 +38505,7 @@
     {
       "structure_id": "blk_south_water_lasalle_lot6",
       "wall": "blk_south_water_lasalle north face, lot 6",
-      "why": "recon_1835_core_c3_024 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_core_c2_022 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_lasalle_lot7",
@@ -39059,87 +38875,92 @@
     {
       "structure_id": "recon_1835_core_c1_047",
       "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "no walk is laid at 85.4 m along this face, where a post off recon_1835_core_c1_047's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
+      "why": "no walk is laid at 92.0 m along this face, where a post off recon_1835_core_c1_047's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
     },
     {
       "structure_id": "recon_1835_core_c1_047",
       "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "no stoop at recon_1835_core_c1_047: no walk is laid at 85.4 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "why": "no stoop at recon_1835_core_c1_047: no walk is laid at 92.1 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
       "structure_id": "recon_1835_core_c1_056",
       "wall": "blk_lake_dearborn north face, lot 4",
-      "why": "no walk is laid at 57.5 m along this face, where a post off recon_1835_core_c1_056's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
+      "why": "no walk is laid at 71.1 m along this face, where a post off recon_1835_core_c1_056's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
     },
     {
       "structure_id": "recon_1835_core_c1_056",
       "wall": "blk_lake_dearborn north face, lot 4",
-      "why": "no stoop at recon_1835_core_c1_056: no walk is laid at 59.8 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
-    },
-    {
-      "structure_id": "recon_1835_core_c2_041",
-      "wall": "blk_south_water_dearborn north face, lot 4",
-      "why": "no walk is laid at 79.5 m along this face, where a post off recon_1835_core_c2_041's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
-    },
-    {
-      "structure_id": "recon_1835_core_c2_041",
-      "wall": "blk_south_water_dearborn north face, lot 4",
-      "why": "no stoop at recon_1835_core_c2_041: no walk is laid at 81.6 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "why": "no stoop at recon_1835_core_c1_056: no walk is laid at 73.4 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
       "structure_id": "recon_1835_core_c2_046",
       "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "no walk is laid at 79.4 m along this face, where a post off recon_1835_core_c2_046's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
+      "why": "no walk is laid at 86.1 m along this face, where a post off recon_1835_core_c2_046's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
     },
     {
       "structure_id": "recon_1835_core_c2_046",
       "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "no stoop at recon_1835_core_c2_046: no walk is laid at 80.0 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "why": "no stoop at recon_1835_core_c2_046: no walk is laid at 86.6 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
-      "structure_id": "recon_1835_core_c2_049",
-      "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "no walk is laid at 97.4 m along this face, where a post off recon_1835_core_c2_049's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
+      "structure_id": "recon_1835_core_c2_053",
+      "wall": "blk_lake_dearborn north face, lot 2",
+      "why": "no walk is laid at 52.9 m along this face, where a post off recon_1835_core_c2_053's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
     },
     {
-      "structure_id": "recon_1835_core_c2_049",
-      "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "no stoop at recon_1835_core_c2_049: no walk is laid at 97.9 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "structure_id": "recon_1835_core_c2_053",
+      "wall": "blk_lake_dearborn north face, lot 2",
+      "why": "no stoop at recon_1835_core_c2_053: no walk is laid at 55.0 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
       "structure_id": "recon_1835_core_c2_055",
-      "wall": "blk_lake_dearborn north face, lot 2",
-      "why": "no stoop at recon_1835_core_c2_055: no walk is laid at 53.8 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "wall": "blk_lake_dearborn north face, lot 4",
+      "why": "no walk is laid at 65.0 m along this face, where a post off recon_1835_core_c2_055's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
     },
     {
-      "structure_id": "recon_1835_core_c2_058",
+      "structure_id": "recon_1835_core_c2_055",
       "wall": "blk_lake_dearborn north face, lot 4",
-      "why": "no walk is laid at 69.8 m along this face, where a post off recon_1835_core_c2_058's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
+      "why": "no stoop at recon_1835_core_c2_055: no walk is laid at 67.4 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
-      "structure_id": "recon_1835_core_c2_058",
-      "wall": "blk_lake_dearborn north face, lot 4",
-      "why": "no stoop at recon_1835_core_c2_058: no walk is laid at 71.9 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "structure_id": "recon_1835_core_c3_040",
+      "wall": "blk_south_water_dearborn north face, lot 4",
+      "why": "no walk is laid at 79.7 m along this face, where a post off recon_1835_core_c3_040's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
+    },
+    {
+      "structure_id": "recon_1835_core_c3_040",
+      "wall": "blk_south_water_dearborn north face, lot 4",
+      "why": "no stoop at recon_1835_core_c3_040: no walk is laid at 82.0 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+    },
+    {
+      "structure_id": "recon_1835_core_c3_045",
+      "wall": "blk_south_water_dearborn south face, lot 7",
+      "why": "no walk is laid at 79.6 m along this face, where a post off recon_1835_core_c3_045's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
+    },
+    {
+      "structure_id": "recon_1835_core_c3_045",
+      "wall": "blk_south_water_dearborn south face, lot 7",
+      "why": "no stoop at recon_1835_core_c3_045: no walk is laid at 80.1 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
       "structure_id": "recon_1835_core_c3_048",
       "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "no walk is laid at 91.1 m along this face, where a post off recon_1835_core_c3_048's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
+      "why": "no walk is laid at 97.7 m along this face, where a post off recon_1835_core_c3_048's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
     },
     {
       "structure_id": "recon_1835_core_c3_048",
       "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "no stoop at recon_1835_core_c3_048: no walk is laid at 91.3 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "why": "no stoop at recon_1835_core_c3_048: no walk is laid at 98.0 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
-      "structure_id": "recon_1835_core_c3_057",
+      "structure_id": "recon_1835_core_c3_054",
       "wall": "blk_lake_dearborn north face, lot 4",
-      "why": "no walk is laid at 63.4 m along this face, where a post off recon_1835_core_c3_057's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
+      "why": "no walk is laid at 58.8 m along this face, where a post off recon_1835_core_c3_054's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
     },
     {
-      "structure_id": "recon_1835_core_c3_057",
+      "structure_id": "recon_1835_core_c3_054",
       "wall": "blk_lake_dearborn north face, lot 4",
-      "why": "no stoop at recon_1835_core_c3_057: no walk is laid at 65.8 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "why": "no stoop at recon_1835_core_c3_054: no walk is laid at 60.9 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
       "structure_id": "recon_1835_forks_freight_f2_001",

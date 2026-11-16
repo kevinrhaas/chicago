@@ -21,12 +21,12 @@
   },
   "change_note": "T-3605 raises this store in the commercial core's row fill; a better-evidenced named roof substitutes for it rather than adding to the town.",
   "placement": {
-    "local_e": 730.107,
-    "local_n": -90.186,
+    "local_e": 736.024,
+    "local_n": -90.234,
     "rotation_deg": 180.47,
     "position_confidence": "reconstructed",
     "position_sources": [],
-    "position_note": "PARTY-LINE FRONTAGE, DERIVED FROM THE COMMITTED PLAT (T-3605). It stands on the south face of blk_south_water_dearborn, whose line and bearing are read from the block boundary in data/traces/vectors/thompson_lots.json, at stations 13.27-19.56 m from the face's west end, its front wall 1.50 m behind the lot line (the plat module's margin, as the block programme's own party-line runs stand). The bearing is the face's, so the front looks square at Lake Street. The station is the row-fill rule's (largest open stretch first, until the face is about 70 % built), not a measurement.",
+    "position_note": "PARTY-LINE FRONTAGE, DERIVED FROM THE COMMITTED PLAT (T-3605). It stands on the south face of blk_south_water_dearborn, whose line and bearing are read from the block boundary in data/traces/vectors/thompson_lots.json, at stations 19.19-25.48 m from the face's west end, its front wall 1.50 m behind the lot line (the plat module's margin, as the block programme's own party-line runs stand). The bearing is the face's, so the front looks square at Lake Street. The station is the row-fill rule's (largest open stretch first, until the face is about 70 % built), not a measurement.",
     "symbolic_location": "Anonymous reconstructed store on the north side of Lake Street, in the block west-bounded by Dearborn Street; one unit of the street's row",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -175,12 +175,12 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. The C2 type, as a store on a commercial street front; no proprietor is recovered for it."
     },
     "occupants": {
-      "value": "the Dearborn Street auction and commission rooms — auction and commission rooms",
+      "value": "Cooley and Hol[b]man — tailoring",
       "confidence": "reconstructed",
       "sources": [
         "chicago_democrat_1833_1835"
       ],
-      "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on Dearborn Street AND NOTHING NARROWER — 1 printing, 1835-07-29 to 1835-07-29, claims chicago_democrat_1835_07_29#c004 — so it takes the STREET FACE and not a lot. THE ROOF ENDS ITS PLATTED TIER AGAINST Dearborn Street, so it is a corner building and stands on that street as well as on the one its lot faces — the owner's ruling of 2026-08-30 (T-0416). Nothing about the roof changed and no geometry was raised to seat this business. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
+      "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on Dearborn Street AND NOTHING NARROWER — 1 printing, 1835-08-05 to 1835-08-05, claims chicago_democrat_1835_08_05#c005 — so it takes the STREET FACE and not a lot. THE ROOF ENDS ITS PLATTED TIER AGAINST Dearborn Street, so it is a corner building and stands on that street as well as on the one its lot faces — the owner's ruling of 2026-08-30 (T-0416). Nothing about the roof changed and no geometry was raised to seat this business. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
     }
   },
   "residents": [],

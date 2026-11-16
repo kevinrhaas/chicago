@@ -9130,20 +9130,20 @@
    "structure": "recon_1835_south_d1_018",
    "name": "Reconstructed D1 older log dwelling #018",
    "placement": {
-    "local_e": 738.841,
-    "local_n": -157.23,
+    "local_e": 738.869,
+    "local_n": -153.756,
     "rotation_deg": 0.85
    },
    "doors": [
     {
      "id": "recon_1835_south_d1_018:front",
      "leaf": {
-      "local_e": 741.63,
-      "local_n": -149.88
+      "local_e": 741.65,
+      "local_n": -146.4
      },
      "step": {
-      "local_e": 741.64,
-      "local_n": -149.18
+      "local_e": 741.66,
+      "local_n": -145.7
      },
      "outward_deg": 0.9,
      "width_m": 1.26
@@ -11895,9 +11895,9 @@
     "rotation_deg": 0.34
    },
    "floor": {
-    "key": "dbc05c14911567fc",
+    "key": "56f5d19cb2be2192",
     "cell": 0.1,
-    "u0": 2.2,
+    "u0": 1.9,
     "v0": 8.6,
     "ni": 18,
     "nj": 9,
@@ -11915,7 +11915,7 @@
     "rotation_deg": 359.48
    },
    "floor": {
-    "key": "e938a93c41c82baa",
+    "key": "ebb5efbc198cbdb5",
     "cell": 0.1,
     "u0": 1.8,
     "v0": 8.4,
@@ -11935,9 +11935,9 @@
     "rotation_deg": 359.54
    },
    "floor": {
-    "key": "5e6bf6e48266111e",
+    "key": "2f0da95522f5751f",
     "cell": 0.1,
-    "u0": 2.2,
+    "u0": 2.5,
     "v0": 9.9,
     "ni": 18,
     "nj": 9,
@@ -12210,8 +12210,8 @@
   {
    "structure": "blk_lake_clark_north_stoop_recon_1835_core_c1_039:landing",
    "placement": {
-    "local_e": 632.0,
-    "local_n": -127.44,
+    "local_e": 640.59,
+    "local_n": -127.51,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12226,8 +12226,8 @@
   {
    "structure": "blk_lake_clark_north_stoop_recon_1835_core_c1_039:step",
    "placement": {
-    "local_e": 632.0,
-    "local_n": -126.91,
+    "local_e": 640.59,
+    "local_n": -126.98,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12242,8 +12242,8 @@
   {
    "structure": "blk_lake_clark_north_stoop_recon_1835_core_c2_038:landing",
    "placement": {
-    "local_e": 626.07,
-    "local_n": -127.39,
+    "local_e": 634.66,
+    "local_n": -127.46,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12258,8 +12258,8 @@
   {
    "structure": "blk_lake_clark_north_stoop_recon_1835_core_c2_038:step",
    "placement": {
-    "local_e": 626.07,
-    "local_n": -126.86,
+    "local_e": 634.66,
+    "local_n": -126.93,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12272,10 +12272,10 @@
    "what": "stoop"
   },
   {
-   "structure": "blk_lake_clark_north_stoop_recon_1835_core_c3_040:landing",
+   "structure": "blk_lake_clark_north_stoop_recon_1835_core_c3_037:landing",
    "placement": {
-    "local_e": 638.27,
-    "local_n": -127.49,
+    "local_e": 628.57,
+    "local_n": -127.41,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12288,10 +12288,10 @@
    "what": "stoop"
   },
   {
-   "structure": "blk_lake_clark_north_stoop_recon_1835_core_c3_040:step",
+   "structure": "blk_lake_clark_north_stoop_recon_1835_core_c3_037:step",
    "placement": {
-    "local_e": 638.27,
-    "local_n": -126.96,
+    "local_e": 628.57,
+    "local_n": -126.88,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12336,10 +12336,10 @@
    "what": "stoop"
   },
   {
-   "structure": "blk_lake_dearborn_north_stoop_recon_1835_core_c2_053:landing",
+   "structure": "blk_lake_dearborn_north_stoop_recon_1835_core_c1_052:landing",
    "placement": {
-    "local_e": 751.69,
-    "local_n": -128.95,
+    "local_e": 760.07,
+    "local_n": -129.02,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12352,10 +12352,10 @@
    "what": "stoop"
   },
   {
-   "structure": "blk_lake_dearborn_north_stoop_recon_1835_core_c2_053:step",
+   "structure": "blk_lake_dearborn_north_stoop_recon_1835_core_c1_052:step",
    "placement": {
-    "local_e": 751.69,
-    "local_n": -128.27,
+    "local_e": 760.07,
+    "local_n": -128.33,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12368,10 +12368,10 @@
    "what": "stoop"
   },
   {
-   "structure": "blk_lake_dearborn_north_stoop_recon_1835_core_c3_054:landing",
+   "structure": "blk_lake_dearborn_north_stoop_recon_1835_core_c3_051:landing",
    "placement": {
-    "local_e": 757.59,
-    "local_n": -129.0,
+    "local_e": 754.51,
+    "local_n": -128.97,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12384,10 +12384,10 @@
    "what": "stoop"
   },
   {
-   "structure": "blk_lake_dearborn_north_stoop_recon_1835_core_c3_054:step",
+   "structure": "blk_lake_dearborn_north_stoop_recon_1835_core_c3_051:step",
    "placement": {
-    "local_e": 757.6,
-    "local_n": -128.31,
+    "local_e": 754.51,
+    "local_n": -128.29,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12576,10 +12576,42 @@
    "what": "stoop"
   },
   {
+   "structure": "blk_lake_lasalle_north_stoop_recon_1835_core_c1_028:landing",
+   "placement": {
+    "local_e": 494.95,
+    "local_n": -126.86,
+    "rotation_deg": 270.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.485,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 11 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_lake_lasalle_north_stoop_recon_1835_core_c1_028:step",
+   "placement": {
+    "local_e": 494.96,
+    "local_n": -126.17,
+    "rotation_deg": 270.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.1,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 3 0 16"
+   },
+   "what": "stoop"
+  },
+  {
    "structure": "blk_lake_lasalle_north_stoop_recon_1835_core_c1_032:landing",
    "placement": {
-    "local_e": 512.54,
-    "local_n": -127.0,
+    "local_e": 518.17,
+    "local_n": -127.05,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12594,8 +12626,8 @@
   {
    "structure": "blk_lake_lasalle_north_stoop_recon_1835_core_c1_032:step",
    "placement": {
-    "local_e": 512.55,
-    "local_n": -126.32,
+    "local_e": 518.18,
+    "local_n": -126.36,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12610,8 +12642,8 @@
   {
    "structure": "blk_lake_lasalle_north_stoop_recon_1835_core_c2_029:landing",
    "placement": {
-    "local_e": 495.08,
-    "local_n": -126.86,
+    "local_e": 500.71,
+    "local_n": -126.91,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12626,8 +12658,8 @@
   {
    "structure": "blk_lake_lasalle_north_stoop_recon_1835_core_c2_029:step",
    "placement": {
-    "local_e": 495.08,
-    "local_n": -126.17,
+    "local_e": 500.71,
+    "local_n": -126.22,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12642,8 +12674,8 @@
   {
    "structure": "blk_lake_lasalle_north_stoop_recon_1835_core_c2_031:landing",
    "placement": {
-    "local_e": 507.12,
-    "local_n": -126.96,
+    "local_e": 512.76,
+    "local_n": -127.0,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12658,8 +12690,8 @@
   {
    "structure": "blk_lake_lasalle_north_stoop_recon_1835_core_c2_031:step",
    "placement": {
-    "local_e": 507.13,
-    "local_n": -126.27,
+    "local_e": 512.76,
+    "local_n": -126.32,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12674,8 +12706,8 @@
   {
    "structure": "blk_lake_lasalle_north_stoop_recon_1835_core_c3_030:landing",
    "placement": {
-    "local_e": 501.28,
-    "local_n": -126.91,
+    "local_e": 506.91,
+    "local_n": -126.96,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12690,40 +12722,8 @@
   {
    "structure": "blk_lake_lasalle_north_stoop_recon_1835_core_c3_030:step",
    "placement": {
-    "local_e": 501.29,
-    "local_n": -126.23,
-    "rotation_deg": 270.5
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": -0.1,
-    "v0": -0.71,
-    "count": 1,
-    "rects": "0 3 0 16"
-   },
-   "what": "stoop"
-  },
-  {
-   "structure": "blk_lake_lasalle_north_stoop_recon_1835_core_c3_033:landing",
-   "placement": {
-    "local_e": 518.06,
-    "local_n": -127.05,
-    "rotation_deg": 270.5
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": -0.485,
-    "v0": -0.71,
-    "count": 1,
-    "rects": "0 11 0 16"
-   },
-   "what": "stoop"
-  },
-  {
-   "structure": "blk_lake_lasalle_north_stoop_recon_1835_core_c3_033:step",
-   "placement": {
-    "local_e": 518.06,
-    "local_n": -126.36,
+    "local_e": 506.92,
+    "local_n": -126.27,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12866,8 +12866,8 @@
   {
    "structure": "blk_lake_wells_north_stoop_recon_1835_core_c1_015:landing",
    "placement": {
-    "local_e": 385.41,
-    "local_n": -125.97,
+    "local_e": 387.91,
+    "local_n": -125.99,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12882,8 +12882,8 @@
   {
    "structure": "blk_lake_wells_north_stoop_recon_1835_core_c1_015:step",
    "placement": {
-    "local_e": 385.41,
-    "local_n": -125.28,
+    "local_e": 387.91,
+    "local_n": -125.3,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12898,8 +12898,8 @@
   {
    "structure": "blk_lake_wells_north_stoop_recon_1835_core_c1_019:landing",
    "placement": {
-    "local_e": 355.41,
-    "local_n": -125.72,
+    "local_e": 363.9,
+    "local_n": -125.79,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12914,40 +12914,8 @@
   {
    "structure": "blk_lake_wells_north_stoop_recon_1835_core_c1_019:step",
    "placement": {
-    "local_e": 355.42,
-    "local_n": -125.04,
-    "rotation_deg": 270.5
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": -0.1,
-    "v0": -0.71,
-    "count": 1,
-    "rects": "0 3 0 16"
-   },
-   "what": "stoop"
-  },
-  {
-   "structure": "blk_lake_wells_north_stoop_recon_1835_core_c1_023:landing",
-   "placement": {
-    "local_e": 415.5,
-    "local_n": -126.21,
-    "rotation_deg": 270.5
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": -0.485,
-    "v0": -0.71,
-    "count": 1,
-    "rects": "0 11 0 16"
-   },
-   "what": "stoop"
-  },
-  {
-   "structure": "blk_lake_wells_north_stoop_recon_1835_core_c1_023:step",
-   "placement": {
-    "local_e": 415.51,
-    "local_n": -125.53,
+    "local_e": 363.91,
+    "local_n": -125.11,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12962,8 +12930,8 @@
   {
    "structure": "blk_lake_wells_north_stoop_recon_1835_core_c2_017:landing",
    "placement": {
-    "local_e": 397.63,
-    "local_n": -126.07,
+    "local_e": 400.13,
+    "local_n": -126.09,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12978,8 +12946,8 @@
   {
    "structure": "blk_lake_wells_north_stoop_recon_1835_core_c2_017:step",
    "placement": {
-    "local_e": 397.64,
-    "local_n": -125.38,
+    "local_e": 400.14,
+    "local_n": -125.4,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -12994,8 +12962,8 @@
   {
    "structure": "blk_lake_wells_north_stoop_recon_1835_core_c2_020:landing",
    "placement": {
-    "local_e": 361.16,
-    "local_n": -125.77,
+    "local_e": 369.65,
+    "local_n": -125.84,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -13010,40 +12978,8 @@
   {
    "structure": "blk_lake_wells_north_stoop_recon_1835_core_c2_020:step",
    "placement": {
-    "local_e": 361.17,
-    "local_n": -125.09,
-    "rotation_deg": 270.5
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": -0.1,
-    "v0": -0.71,
-    "count": 1,
-    "rects": "0 3 0 16"
-   },
-   "what": "stoop"
-  },
-  {
-   "structure": "blk_lake_wells_north_stoop_recon_1835_core_c2_022:landing",
-   "placement": {
-    "local_e": 373.5,
-    "local_n": -125.87,
-    "rotation_deg": 270.5
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": -0.485,
-    "v0": -0.71,
-    "count": 1,
-    "rects": "0 11 0 16"
-   },
-   "what": "stoop"
-  },
-  {
-   "structure": "blk_lake_wells_north_stoop_recon_1835_core_c2_022:step",
-   "placement": {
-    "local_e": 373.5,
-    "local_n": -125.19,
+    "local_e": 369.66,
+    "local_n": -125.15,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -13058,8 +12994,8 @@
   {
    "structure": "blk_lake_wells_north_stoop_recon_1835_core_c3_016:landing",
    "placement": {
-    "local_e": 391.43,
-    "local_n": -126.02,
+    "local_e": 393.93,
+    "local_n": -126.04,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -13074,8 +13010,8 @@
   {
    "structure": "blk_lake_wells_north_stoop_recon_1835_core_c3_016:step",
    "placement": {
-    "local_e": 391.44,
-    "local_n": -125.33,
+    "local_e": 393.94,
+    "local_n": -125.35,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -13090,8 +13026,8 @@
   {
    "structure": "blk_lake_wells_north_stoop_recon_1835_core_c3_018:landing",
    "placement": {
-    "local_e": 403.82,
-    "local_n": -126.12,
+    "local_e": 358.32,
+    "local_n": -125.75,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -13106,8 +13042,8 @@
   {
    "structure": "blk_lake_wells_north_stoop_recon_1835_core_c3_018:step",
    "placement": {
-    "local_e": 403.82,
-    "local_n": -125.43,
+    "local_e": 358.32,
+    "local_n": -125.06,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -13122,8 +13058,8 @@
   {
    "structure": "blk_lake_wells_north_stoop_recon_1835_core_c3_021:landing",
    "placement": {
-    "local_e": 367.03,
-    "local_n": -125.82,
+    "local_e": 418.0,
+    "local_n": -126.23,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -13138,8 +13074,8 @@
   {
    "structure": "blk_lake_wells_north_stoop_recon_1835_core_c3_021:step",
    "placement": {
-    "local_e": 367.03,
-    "local_n": -125.13,
+    "local_e": 418.01,
+    "local_n": -125.55,
     "rotation_deg": 270.5
    },
    "barrier": {
@@ -13282,8 +13218,8 @@
   {
    "structure": "blk_south_water_clark_north_stoop_recon_1835_core_c1_035:landing",
    "placement": {
-    "local_e": 610.41,
-    "local_n": -4.72,
+    "local_e": 617.0,
+    "local_n": -4.82,
     "rotation_deg": 270.9
    },
    "barrier": {
@@ -13298,8 +13234,40 @@
   {
    "structure": "blk_south_water_clark_north_stoop_recon_1835_core_c1_035:step",
    "placement": {
-    "local_e": 610.42,
-    "local_n": -4.03,
+    "local_e": 617.01,
+    "local_n": -4.14,
+    "rotation_deg": 270.9
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.1,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 3 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_north_stoop_recon_1835_core_c2_033:landing",
+   "placement": {
+    "local_e": 604.94,
+    "local_n": -4.63,
+    "rotation_deg": 270.9
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.485,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 11 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_north_stoop_recon_1835_core_c2_033:step",
+   "placement": {
+    "local_e": 604.95,
+    "local_n": -3.94,
     "rotation_deg": 270.9
    },
    "barrier": {
@@ -13314,8 +13282,8 @@
   {
    "structure": "blk_south_water_clark_north_stoop_recon_1835_core_c2_036:landing",
    "placement": {
-    "local_e": 616.44,
-    "local_n": -4.82,
+    "local_e": 665.71,
+    "local_n": -5.62,
     "rotation_deg": 270.9
    },
    "barrier": {
@@ -13330,8 +13298,8 @@
   {
    "structure": "blk_south_water_clark_north_stoop_recon_1835_core_c2_036:step",
    "placement": {
-    "local_e": 616.45,
-    "local_n": -4.13,
+    "local_e": 665.72,
+    "local_n": -4.93,
     "rotation_deg": 270.9
    },
    "barrier": {
@@ -13346,8 +13314,8 @@
   {
    "structure": "blk_south_water_clark_north_stoop_recon_1835_core_c3_034:landing",
    "placement": {
-    "local_e": 604.54,
-    "local_n": -4.62,
+    "local_e": 611.12,
+    "local_n": -4.73,
     "rotation_deg": 270.9
    },
    "barrier": {
@@ -13362,40 +13330,8 @@
   {
    "structure": "blk_south_water_clark_north_stoop_recon_1835_core_c3_034:step",
    "placement": {
-    "local_e": 604.55,
-    "local_n": -3.94,
-    "rotation_deg": 270.9
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": -0.1,
-    "v0": -0.71,
-    "count": 1,
-    "rects": "0 3 0 16"
-   },
-   "what": "stoop"
-  },
-  {
-   "structure": "blk_south_water_clark_north_stoop_recon_1835_core_c3_037:landing",
-   "placement": {
-    "local_e": 665.3,
-    "local_n": -5.61,
-    "rotation_deg": 270.9
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": -0.485,
-    "v0": -0.71,
-    "count": 1,
-    "rects": "0 11 0 16"
-   },
-   "what": "stoop"
-  },
-  {
-   "structure": "blk_south_water_clark_north_stoop_recon_1835_core_c3_037:step",
-   "placement": {
-    "local_e": 665.31,
-    "local_n": -4.92,
+    "local_e": 611.13,
+    "local_n": -4.04,
     "rotation_deg": 270.9
    },
    "barrier": {
@@ -13922,8 +13858,8 @@
   {
    "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c1_043:landing",
    "placement": {
-    "local_e": 719.85,
-    "local_n": -102.37,
+    "local_e": 725.76,
+    "local_n": -102.42,
     "rotation_deg": 90.5
    },
    "barrier": {
@@ -13938,8 +13874,8 @@
   {
    "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c1_043:step",
    "placement": {
-    "local_e": 719.84,
-    "local_n": -103.06,
+    "local_e": 725.76,
+    "local_n": -103.11,
     "rotation_deg": 90.5
    },
    "barrier": {
@@ -13952,10 +13888,10 @@
    "what": "stoop"
   },
   {
-   "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c1_051:landing",
+   "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c2_041:landing",
    "placement": {
-    "local_e": 758.62,
-    "local_n": -102.69,
+    "local_e": 713.99,
+    "local_n": -102.32,
     "rotation_deg": 90.5
    },
    "barrier": {
@@ -13968,10 +13904,10 @@
    "what": "stoop"
   },
   {
-   "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c1_051:step",
+   "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c2_041:step",
    "placement": {
-    "local_e": 758.61,
-    "local_n": -103.38,
+    "local_e": 713.99,
+    "local_n": -103.01,
     "rotation_deg": 90.5
    },
    "barrier": {
@@ -13986,8 +13922,8 @@
   {
    "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c2_044:landing",
    "placement": {
-    "local_e": 725.83,
-    "local_n": -102.42,
+    "local_e": 731.74,
+    "local_n": -102.47,
     "rotation_deg": 90.5
    },
    "barrier": {
@@ -14002,8 +13938,40 @@
   {
    "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c2_044:step",
    "placement": {
-    "local_e": 725.82,
-    "local_n": -103.11,
+    "local_e": 731.74,
+    "local_n": -103.15,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.1,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 3 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c2_049:landing",
+   "placement": {
+    "local_e": 752.92,
+    "local_n": -102.64,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.485,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 11 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c2_049:step",
+   "placement": {
+    "local_e": 752.92,
+    "local_n": -103.33,
     "rotation_deg": 90.5
    },
    "barrier": {
@@ -14018,8 +13986,8 @@
   {
    "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c3_042:landing",
    "placement": {
-    "local_e": 714.04,
-    "local_n": -102.32,
+    "local_e": 719.96,
+    "local_n": -102.37,
     "rotation_deg": 90.5
    },
    "barrier": {
@@ -14034,72 +14002,8 @@
   {
    "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c3_042:step",
    "placement": {
-    "local_e": 714.04,
-    "local_n": -103.01,
-    "rotation_deg": 90.5
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": -0.1,
-    "v0": -0.71,
-    "count": 1,
-    "rects": "0 3 0 16"
-   },
-   "what": "stoop"
-  },
-  {
-   "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c3_045:landing",
-   "placement": {
-    "local_e": 732.46,
-    "local_n": -102.48,
-    "rotation_deg": 90.5
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": -0.485,
-    "v0": -0.71,
-    "count": 1,
-    "rects": "0 11 0 16"
-   },
-   "what": "stoop"
-  },
-  {
-   "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c3_045:step",
-   "placement": {
-    "local_e": 732.45,
-    "local_n": -103.16,
-    "rotation_deg": 90.5
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": -0.1,
-    "v0": -0.71,
-    "count": 1,
-    "rects": "0 3 0 16"
-   },
-   "what": "stoop"
-  },
-  {
-   "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c3_050:landing",
-   "placement": {
-    "local_e": 752.81,
-    "local_n": -102.64,
-    "rotation_deg": 90.5
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": -0.485,
-    "v0": -0.71,
-    "count": 1,
-    "rects": "0 11 0 16"
-   },
-   "what": "stoop"
-  },
-  {
-   "structure": "blk_south_water_dearborn_south_stoop_recon_1835_core_c3_050:step",
-   "placement": {
-    "local_e": 752.8,
-    "local_n": -103.33,
+    "local_e": 719.95,
+    "local_n": -103.06,
     "rotation_deg": 90.5
    },
    "barrier": {
@@ -14464,9 +14368,9 @@
    "what": "stoop"
   },
   {
-   "structure": "blk_south_water_lasalle_north_stoop_recon_1835_core_c3_024:landing",
+   "structure": "blk_south_water_lasalle_north_stoop_recon_1835_core_c2_022:landing",
    "placement": {
-    "local_e": 541.78,
+    "local_e": 542.19,
     "local_n": -4.43,
     "rotation_deg": 269.5
    },
@@ -14480,11 +14384,43 @@
    "what": "stoop"
   },
   {
-   "structure": "blk_south_water_lasalle_north_stoop_recon_1835_core_c3_024:step",
+   "structure": "blk_south_water_lasalle_north_stoop_recon_1835_core_c2_022:step",
    "placement": {
-    "local_e": 541.77,
-    "local_n": -3.75,
+    "local_e": 542.18,
+    "local_n": -3.74,
     "rotation_deg": 269.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.1,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 3 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_lasalle_south_stoop_recon_1835_core_c1_024:landing",
+   "placement": {
+    "local_e": 485.55,
+    "local_n": -100.47,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.485,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 11 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_lasalle_south_stoop_recon_1835_core_c1_024:step",
+   "placement": {
+    "local_e": 485.55,
+    "local_n": -101.16,
+    "rotation_deg": 90.5
    },
    "barrier": {
     "cell": 0.1,
@@ -14498,8 +14434,8 @@
   {
    "structure": "blk_south_water_lasalle_south_stoop_recon_1835_core_c2_026:landing",
    "placement": {
-    "local_e": 487.29,
-    "local_n": -100.48,
+    "local_e": 497.68,
+    "local_n": -100.57,
     "rotation_deg": 90.5
    },
    "barrier": {
@@ -14514,8 +14450,8 @@
   {
    "structure": "blk_south_water_lasalle_south_stoop_recon_1835_core_c2_026:step",
    "placement": {
-    "local_e": 487.28,
-    "local_n": -101.17,
+    "local_e": 497.67,
+    "local_n": -101.25,
     "rotation_deg": 90.5
    },
    "barrier": {
@@ -14528,10 +14464,10 @@
    "what": "stoop"
   },
   {
-   "structure": "blk_south_water_lasalle_south_stoop_recon_1835_core_c3_027:landing",
+   "structure": "blk_south_water_lasalle_south_stoop_recon_1835_core_c3_025:landing",
    "placement": {
-    "local_e": 493.51,
-    "local_n": -100.54,
+    "local_e": 491.3,
+    "local_n": -100.52,
     "rotation_deg": 90.5
    },
    "barrier": {
@@ -14544,10 +14480,10 @@
    "what": "stoop"
   },
   {
-   "structure": "blk_south_water_lasalle_south_stoop_recon_1835_core_c3_027:step",
+   "structure": "blk_south_water_lasalle_south_stoop_recon_1835_core_c3_025:step",
    "placement": {
-    "local_e": 493.5,
-    "local_n": -101.22,
+    "local_e": 491.29,
+    "local_n": -101.2,
     "rotation_deg": 90.5
    },
    "barrier": {

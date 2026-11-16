@@ -645,7 +645,9 @@ CORE_ROW_MOVES = {
     # wall goes back too (tools/generate_core_row_fill_1835.py), so the ground before its
     # door is open and its household can come out of it.
     "recon_1835_south_d1_010": (-0.028, -3.446),
-    "recon_1835_south_d1_018": (-0.052, -6.474),
+    # 3.0 m, to 18.5 m, not to 22 m: further back its sill would stand 0.46 m off the
+    # falling ground, past the walker's step, and 3.0 m already leaves 3.6 m before its door.
+    "recon_1835_south_d1_018": (-0.024, -3.0, 18.5),
     "recon_1835_south_d4_006": (-0.04, -4.944),
     "recon_1835_south_d4_019": (-0.059, -7.289),
     "recon_1835_south_d5_007": (-0.043, -5.263),
@@ -654,13 +656,14 @@ CORE_ROW_MOVES = {
 
 def move_behind_core_row(records: list[dict]) -> None:
     for rec in records:
-        de, dn = CORE_ROW_MOVES.get(rec["id"], (0.0, 0.0))
+        de, dn, *back = CORE_ROW_MOVES.get(rec["id"], (0.0, 0.0))
         if not (de or dn):
             continue
+        back = back[0] if back else 22.0
         pos = rec["phases"][0]["position"]
         pos["utm_e"] = round(pos["utm_e"] + de, 3)
         pos["utm_n"] = round(pos["utm_n"] + dn, 3)
-        pos["note"] += (" It stands 22.0 m back from its street edge. T-3605: moved "
+        pos["note"] += (f" It stands {back:.1f} m back from its street edge. T-3605: moved "
                         f"{math.hypot(de, dn):.1f} m straight back, toward the rear of its "
                         "lot, so the commercial core's row stands at the street "
                         "(L-core-row-fill-3605).")
