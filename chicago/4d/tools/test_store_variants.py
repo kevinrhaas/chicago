@@ -112,6 +112,8 @@ def main(break_it: bool = False) -> int:
           for sid, _, ph in committed("C2")]
     stated_half = [(sid, p) for sid, p, ph in c2
                    if float((ph["form"].get("stories") or {}).get("value", 0)) == 1.5]
+    # FIFTEEN SINCE T-3605 (2026-11-15): Gifford's drawing of the first Tremont House
+    # raised four story-and-a-half C2 stores on Lake and Dearborn (recon_1835_gifford_c2_*).
     # ELEVEN SINCE T-1681 (2026-09-27), ten since T-1682 the same day, eight before the
     # pair. This number is a CENSUS of the committed tree and it moves every time the
     # programme raises or re-families a store-residence: T-1682 re-familied the Lake
@@ -121,8 +123,8 @@ def main(break_it: bool = False) -> int:
     # as a literal rather than derived on purpose — the count is what makes the check
     # below a statement about the whole town and not about whatever the sample happens to
     # hold — so a run that adds a C2 moves it here and says why.
-    check("eleven committed C2 records state a story-and-a-half",
-          len(stated_half) == 11, f"got {len(stated_half)}")
+    check("fifteen committed C2 records state a story-and-a-half",
+          len(stated_half) == 15, f"got {len(stated_half)}")
     check("...and every one of them RESOLVES at 1.5, not at 1",
           all(p.half_story for _, p in stated_half),
           ", ".join(f"{s}={p.stories}" for s, p in stated_half if not p.half_story))

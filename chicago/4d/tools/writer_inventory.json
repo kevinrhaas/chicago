@@ -2288,6 +2288,13 @@
       "finding": "Reproduces: the write mode rewrote all five settled outputs (mtime advanced), with identical SHA-256 for every file. Check and self-test modes were independently measured to write nothing in-tree. The complete 169-step manifest proof also exercised this writer.",
       "placed": "Immediately after canal_approach_occupancy and before compile_businesses/reconcile_665/compile_scene; geometry and occupants therefore precede downstream scene readers."
     },
+    "generate_gifford_street_faces.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-11-15",
+      "finding": "Reproduces: run bare twice on the T-3605 tree it rewrote its nineteen recon_1835_gifford_* records with identical SHA-256; --check and --self-test write nothing in-tree.",
+      "placed": "Immediately after generate_canal_approach_trade and before compile_businesses/reconcile_665/compile_scene; it writes structure records only, which those read."
+    },
     "place_landing_camps_1835.py": {
       "placement": "pending",
       "write_mode": "(bare)",
