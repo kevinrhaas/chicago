@@ -101,6 +101,13 @@ def stop_moment(stop):
         minutes = (math.ceil(event / 10) if at == 'rise' else math.floor(event / 10) if at == 'set' else round(event / 10)) * 10
     return dt.datetime.combine(day, dt.time()) + dt.timedelta(minutes=minutes)
 
+def crossing_boats():
+    """The drawn boats a castmate may cross in (T-3553), by id."""
+    if not hasattr(crossing_boats, 'ids'):
+        path = Path(__file__).resolve().parents[1] / 'data/boats/crossings_1812.json'
+        crossing_boats.ids = {b['id'] for b in json.loads(path.read_text())['boats']} if path.exists() else set()
+    return crossing_boats.ids
+
 def since_fits(phrase, before, after):
     """Whether a lead such as 'Four hours later' says the gap between two stop clocks.
     The vocabulary is small on purpose: a count of minutes, hours, days, weeks, months or
@@ -367,6 +374,14 @@ class Compiler:
                 for c in cast:
                     if 'ride' in c:
                         require(c['ride']['team'] in [t['team'] for t in taken], f'{stop["id"]}: {c.get("person") or c.get("extra")} rides {c["ride"]["team"]}, which the stage does not take')
+                # T-3553: a stage's open gates are gates a structure of this scene builds.
+                for gid in stage.get('open_gates', []):
+                    sid, side = gid.rsplit(':', 1)
+                    self.resolve({'kind': 'structure', 'id': sid})
+                    sides = ((self.refs['structure'].get(sid) or {}).get('attributes') or {}).get('gate_sides')
+                    sides = sides.get('value') if isinstance(sides, dict) else sides
+                    if sides is not None:
+                        require(side in sides, f'{stop["id"]}: {sid} has no {side} gate to open')
                 # T-3553, the burning of the fort (2026-11-16): what burns and what stands are
                 # structures of this scene, each once; its liberty is declared; a castmate puts a
                 # torch only to what burns, and has taken one up first. Not a blow: any audience.
@@ -385,6 +400,12 @@ class Compiler:
                             who = c.get('person') or c.get('extra')
                             require(fire is not None and b['ignite'] in fire['burns'], f'{stop["id"]}: {who} sets {b["ignite"]} alight, which the stage does not burn')
                             require(held, f'{stop["id"]}: {who} sets {b["ignite"]} alight with no torch in hand')
+                        # T-3553: a boat crossed in is a drawn one; a bier's bearers are on the stage.
+                        if 'cross' in b:
+                            require(b['cross'] in crossing_boats(), f'{stop["id"]}: {c.get("person") or c.get("extra")} crosses in {b["cross"]}, which is not a drawn boat (data/boats/crossings_1812.json)')
+                        if isinstance(b.get('borne'), list):
+                            ids = {x.get('person') or x.get('extra') for x in cast}
+                            for who in b['borne']: require(who in ids, f'{stop["id"]}: {who} bears the bier but is not on the stage')
             choices = stop.get('choices', [])
             unique(choices, 'choice')
             transitions = list(choices) + ([{'next': stop['next']}] if 'next' in stop else [])

@@ -132,6 +132,32 @@
       "inside_a_roof": null
     },
     {
+      "id": "lees_place_bank",
+      "local_e": -1612,
+      "local_n": -4232,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 0.312,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 2.5,
+      "inside_a_roof": null
+    },
+    {
+      "id": "lees_place_haystacks",
+      "local_e": -1612,
+      "local_n": -4318,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 1.31,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 35,
+      "inside_a_roof": null
+    },
+    {
       "id": "potawatomi_camp",
       "local_e": 798,
       "local_n": -22,
@@ -250,15 +276,15 @@
     },
     {
       "id": "first_fort_covered_way",
-      "local_e": 1188,
-      "local_n": 250,
+      "local_e": 1166.5,
+      "local_n": 227,
       "aerial": true,
       "inside": true,
-      "ground_m": 3.664,
+      "ground_m": 3.64,
       "dry": true,
       "stands_on": null,
       "deck_m": null,
-      "margin_m": 12.5,
+      "margin_m": 37.5,
       "inside_a_roof": null
     },
     {
@@ -380,11 +406,11 @@
     }
   ],
   "totals": {
-    "anchors": 27,
+    "anchors": 29,
     "outside_the_box": 0,
     "wet": 0,
     "in_a_roof": 0,
     "on_a_deck": 0,
-    "southernmost_n": -4317
+    "southernmost_n": -4318
   }
 }

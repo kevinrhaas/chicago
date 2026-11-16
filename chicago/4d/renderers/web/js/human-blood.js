@@ -263,22 +263,39 @@ export function createBloodFx(parent, { maxDrops = 320, maxSplats = 640, maxPool
     const slope = h(x, -z) - h(e0, n0);
     return feet + (Number.isFinite(slope) && Math.abs(slope) < 0.6 ? slope : 0);
   }
+  /** The ground's tilt under (x, z): a quaternion turning +Y to its normal (identity on the flat
+   *  or with no `heightAt`), so a splash or a pool lies on a slope instead of over it. */
+  const TILT_STEP_M = 0.25;
+  function tilt(actor, x, z, out) {
+    const h = actor.heightAt;
+    if (typeof h !== 'function') return out.identity();
+    const e = x, n = -z, d = TILT_STEP_M;
+    const dx = (h(e + d, n) - h(e - d, n)) / (2 * d), dn = (h(e, n + d) - h(e, n - d)) / (2 * d);
+    if (!Number.isFinite(dx) || !Number.isFinite(dn) || Math.abs(dx) > 1.2 || Math.abs(dn) > 1.2) return out.identity();
+    // In the parent's frame x is east and z is south (-n): the normal is (-dh/dx, 1, -dh/dz).
+    return out.setFromUnitVectors(UP, V().set(-dx, 1, dn).normalize());
+  }
 
   function throwDrops(actor, at, n, kind, count) {
     if (!drops) return;
-    const w = WOUND[kind], g = ground(actor, at.x, at.z);
+    const w = WOUND[kind];
     for (let i = 0; i < count; i++) {
       if (flying.length >= maxDrops) flying.shift();
       const v = n.clone().multiplyScalar(U(w.speed[0], w.speed[1]))
         .add(V().set(U(-0.6, 0.6), U(0.3, 1.3), U(-0.6, 0.6)).multiplyScalar(w.speed[1] * 0.4));
-      flying.push({ p: at.clone().addScaledVector(n, 0.02), v, ground: g, r: U(0.006, 0.014) });
+      flying.push({ p: at.clone().addScaledVector(n, 0.02), v, actor, r: U(0.006, 0.014) });
     }
   }
 
   function land(f) {
     if (!splats) return;
     const r = f.r * U(3.0, 5.5) * (1 + Math.min(1.5, f.v.length() * 0.25));
-    M.compose(P.set(f.p.x, f.ground + 0.004, f.p.z), Q.setFromAxisAngle(UP, U(0, Math.PI * 2)), S.set(r * U(0.8, 1.4), 1, r));
+    // Where it lands, on the ground there and lying with its slope (the owner, 2026-11-16,
+    // "Floating blood": every drop came down to the height of the ground under the wound, so
+    // on the dunes the ones that flew downhill hung in the air and the uphill ones were lost).
+    const spin = Q.setFromAxisAngle(UP, U(0, Math.PI * 2));
+    const q = tilt(f.actor, f.p.x, f.p.z, new THREE.Quaternion()).multiply(spin);
+    M.compose(P.set(f.p.x, f.p.y + 0.004, f.p.z), q, S.set(r * U(0.8, 1.4), 1, r));
     splats.setMatrixAt(splatN % maxSplats, M);
     splatN++;
     splats.count = Math.min(splatN, maxSplats);
@@ -327,7 +344,7 @@ export function createBloodFx(parent, { maxDrops = 320, maxSplats = 640, maxPool
       mesh.name = 'blood_pool';
       mesh.receiveShadow = true;
       mesh.position.set(at.x, ground(actor, at.x, at.z) + 0.006 + 0.0015 * (pools.length % 4), at.z);
-      mesh.rotation.y = U(0, Math.PI * 2);
+      mesh.quaternion.copy(tilt(actor, at.x, at.z, new THREE.Quaternion())).multiply(Q.setFromAxisAngle(UP, U(0, Math.PI * 2)));
       mesh.scale.setScalar(0.04);
       group.add(mesh);
       const pool = { mesh, r: 0.04, target: want, age: 0 };
@@ -373,7 +390,8 @@ export function createBloodFx(parent, { maxDrops = 320, maxSplats = 640, maxPool
         const f = flying[i];
         f.v.y -= GRAVITY * dt;
         f.p.addScaledVector(f.v, dt);
-        if (f.p.y <= f.ground + 0.003) { f.p.y = f.ground; land(f); flying.splice(i, 1); }
+        const g = ground(f.actor, f.p.x, f.p.z);
+        if (f.p.y <= g + 0.003) { f.p.y = g; land(f); flying.splice(i, 1); }
       }
       if (drops) {
         drops.count = flying.length;

@@ -45,10 +45,13 @@ export const FORT_GATES = Object.freeze({
   // 1835 — the second fort's two gates, north and south (Kinzie; Andreas).
   fort_dearborn_palisade: { n: 'North gate', s: 'South gate', e: 'East postern', w: 'West postern' },
   // 1812 — the first fort's main gate, through both rows of pickets (Whistler no. 7).
-  first_fort_dearborn_pickets_outer: { s: 'Main gate, outer row', w: 'West wicket, outer row' },
-  first_fort_dearborn_pickets_inner: { s: 'Main gate, inner row', w: 'West wicket, inner row' },
+  // T-3553: and the sally port, through both rows to the covered way (L-1812-sally-port).
+  first_fort_dearborn_pickets_outer: { s: 'Main gate, outer row', w: 'West wicket, outer row', n: 'Sally port, outer row' },
+  first_fort_dearborn_pickets_inner: { s: 'Main gate, inner row', w: 'West wicket, inner row', e: 'Sally port, inner row' },
   // 1812 — the commanding officer's garden, its walk in from the fort (T-3407).
   first_fort_outer_officers_garden: { n: 'Garden gate' },
+  // 1812 — the Kinzies' green, from the piazza and from the river side (T-3553).
+  kinzie_house_1812_green: { n: 'Green gate, by the door', s: 'Green gate, river side' },
 });
 
 /** How far a leaf swings from shut, and how long it takes. Ours (the header). */

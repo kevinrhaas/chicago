@@ -75,6 +75,20 @@
       "yaw_deg": 356.0
     },
     {
+      "id": "lees_place_bank",
+      "label": "Lee's Place on its own bank - the cabin's front and the canoes at the water",
+      "local_e": -1612.0,
+      "local_n": -4232.0,
+      "yaw_deg": 258.0
+    },
+    {
+      "id": "lees_place_haystacks",
+      "label": "Among the haystacks across the South Branch from Lee's Place, looking back at the cabin",
+      "local_e": -1612.0,
+      "local_n": -4318.0,
+      "yaw_deg": 335.0
+    },
+    {
       "id": "potawatomi_camp",
       "label": "Above the creek's mouth - the Potawatomi camp of August 1812",
       "local_e": 798.0,
@@ -141,12 +155,12 @@
     },
     {
       "id": "first_fort_covered_way",
-      "label": "Above the river bank north-east of the fort, looking down the covered way to the water",
-      "local_e": 1188.0,
-      "local_n": 250.0,
-      "yaw_deg": 245.0,
-      "altitude_m": 15.0,
-      "pitch_deg": -25.0
+      "label": "Above the fort's north-east corner, over the sally port, looking north down the covered way to the river",
+      "local_e": 1166.5,
+      "local_n": 227.0,
+      "yaw_deg": 5.0,
+      "altitude_m": 13.0,
+      "pitch_deg": -40.0
     },
     {
       "id": "first_fort_south_east",

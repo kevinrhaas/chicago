@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 3047, ts: '2026-11-16T21:51:02.340Z', date: 'Nov 16, 2026, 3:51 PM CT', title: '1812 jaunts: swinging doors, a sally port, and three new stops', kind: 'improvement',
+    items: [
+      'Staged people open doors to go in or come out, and the doors swing shut behind them.',
+      'The covered-way view sits over a new sally port; the carriers walk out through it, not the pickets.',
+      'New battle stops: Black Partridge\'s medal, the war party at the Kinzies\', and the haystacks across from Lee\'s Place.',
+      'Lee\'s Place now starts across the river; the soldier and the boy paddle over to the haystacks.',
+      'At the Burns house four soldiers carry Mrs. Burns out on her bed to the boat, and everyone stays in sight.',
+      'The Kinzies\' green has a gate on each side you can open and walk through.',
+      'In the murder jaunt Kinzie paddles across in his own pirogue, and soldiers carry Lalime on a bier.',
+      'The fallen lie on the ground with bent arms and legs, and blood lies on the ground where it falls.',
+    ] },
   { v: 3046, ts: '2026-11-16T21:15:57.498Z', date: 'Nov 16, 2026, 3:15 PM CT', title: 'Every Jaunt now comes in four reading levels', kind: 'feature',
     items: [
       'Every Jaunt in 1812, 1835 and 1904 now has a telling for grades 3-5, 6-8, 9-10 and 11-12, so the grade filters in the Jaunts menu find each one at every level. 146 new tellings follow the same stops, choices and sources as the original, with simpler or richer wording; each was measured to read inside its band.',
