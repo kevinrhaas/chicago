@@ -125,6 +125,34 @@ console.log('PASS the controller builds a stop\'s stage on the way, plays it on 
 }
 console.log('PASS the stage makes its own figures, poses them, plays their beats on arrival, plays again, and drops the desktop crowd on phones');
 
+// ---- T-3553 (the owner, 2026-11-16: "make sure there are interactive people"): a castmate is met.
+{
+  const fig = (instance) => { const a = { instance, e: 0, n: 0, heading: 0, posture: null, indoors: false, disposed: false, path: null, greets: 0,
+    root: { visible: true }, body: {}, person: instance.person_id ? { id: instance.person_id, name: 'Mr. A' } : null, proxy: { name: 'proxy' },
+    setState() {}, place() {}, setIndoors(v) { a.indoors = v; }, turnTo(h) { a.heading = h; },
+    setPosture(kind) { a.posture = kind === 'stand' ? null : { kind }; }, walkPath(pts) { a.path = pts; return true; },
+    actions: { talking: false, setTalk(v) { a.actions.talking = v; }, greet() { a.greets++; } }, update() {}, dispose() { a.disposed = true; } };
+    return a; };
+  const humans = { shown: true, get: (id) => ({ instance: { id: `hi_${id}`, scene: '1812', appearance: { asset_id: 'x' } }, person: { id, name: 'Mr. A' } }), createActor: (i) => fig(i) };
+  const st = createJauntStage({ humans, eye: () => ({ x: 0, y: 1.6, z: 0 }) });
+  st.sync({ id: 'm', stage: { cast: [{ person: 'a', at: [0, 10], heading: 90 }, { extra: 'w', dress: 'potawatomi_man_1812', name: 'One of the warriors; name not recorded', at: [3, 10], pose: 'kneel' }] } }, { arrived: true });
+  const [a, w] = st.cast;
+  const ray = (target) => ({ intersectObjects: (objects) => (objects.includes(target.proxy) ? [{ object: target.proxy, distance: 9, point: null }] : []) });
+  const hitA = st.pick(ray(a));
+  assert.equal(hitA.personId, 'a'); assert.equal(hitA.name, 'Mr. A'); assert.equal(hitA.distance, 9);
+  assert.equal(st.meet(hitA, { e: 0, n: 0 }), true, 'one standing free greets the visitor');
+  assert.equal(a.greets, 1); assert.equal(Math.round(a.heading), 180, 'turned to the visitor');
+  const hitW = st.pick(ray(w));
+  assert.equal(hitW.personId, null); assert.equal(hitW.name, 'One of the warriors; name not recorded', 'an unnamed figure says who it stands for');
+  assert.equal(st.meet(hitW, { e: 0, n: 0 }), false, 'one kneeling for the scene keeps their pose');
+  assert.equal(w.greets, 0);
+  w.indoors = true;
+  assert.equal(st.pick(ray(w)), null, 'one out of sight is not met');
+  assert.equal(st.pick(null), null);
+  st.release();
+}
+console.log('PASS a castmate is picked as anyone of the town is, and one standing free turns and greets the visitor');
+
 // ---- a stage takes a town team: its wagon goes the stage's way, its riders sit in it (T-3553).
 {
   // The town's own loop, taken: 'staged' moves only by the stage, turns its wheels by the ground

@@ -15,6 +15,10 @@
  *   3. The back yards: the walker climbs every back stoop from the yard to its landing at the
  *      door; where a stoop has rails, they stand past any step.
  *   4. A door is knocked at from the treads and landing of its stoop, not only from its foot.
+ *   5. 1835 (owner, 2026-11-16: "he is walking through stairs that block the door"): every house
+ *      model that builds a stoop at its door (frame_dwelling `_porch`, roofed or not) carries it as
+ *      a floor, so a figure walking in from the door's step to its leaf stands on the step and the
+ *      landing, not in them, and the walker climbs it from the street a tread at a time.
  */
 import fs from 'node:fs';
 import { register } from 'node:module';
@@ -212,10 +216,48 @@ let backs = 0;
   ok(it.nearest(5, 9, 0) === null, '... and not from far off');
 }
 
+// 5. 1835's house stoops, under the feet of a figure walking in at the door.
+let stoops1835 = 0;
+{
+  const doors = read('../data/humans/doors_1835.json');
+  const floors = new Map([...doors.structures, ...(doors.barriers ?? [])].filter((r) => r.floor).map((r) => [r.structure, r]));
+  const flat = { surfaceHeight: () => 0, isWater: () => false };
+  let stooped = 0;
+  for (const f of fs.readdirSync(new URL('../data/sidecars/1835/', import.meta.url)).filter((x) => x.endsWith('.json'))) {
+    const sc = read(`../data/sidecars/1835/${f}`);
+    if (sc?.archetype !== 'frame_dwelling' || !['stoop', 'roofed'].includes(sc.attributes?.porch?.value)) continue;
+    stooped++;
+    ok(floors.has(sc.id), `${sc.id}: its front stoop (${sc.attributes.porch.value}) is a floor`);
+  }
+  ok(stooped >= 150 && floors.size === stooped, `every 1835 house stoop is a floor (${floors.size} of ${stooped})`);
+  for (const row of doors.structures) {
+    if (!row.floor) continue;
+    const pl = row.placement;
+    const decks = stairSurface(floorDecks([row], () => Array.from(matrixOf(pl))));
+    const feet = (p) => deckGroundHeight(flat, decks, p.e, p.n);
+    const w = walkerFor(null, decks);
+    for (const door of row.doors) {
+      const { step, leaf } = door;
+      const along = (t) => ({ e: step.local_e + (leaf.local_e - step.local_e) * t, n: step.local_n + (leaf.local_n - step.local_n) * t });
+      if (feet(along(0)) < 0.12 && feet(along(0.5)) < 0.12) continue;   // a side door with no stoop
+      stoops1835++;
+      ok(feet(along(0)) >= 0.15, `${door.id}: a figure at the door's step stands on the stoop's tread (${feet(along(0)).toFixed(2)})`);
+      ok(feet(along(0.5)) >= 0.33, `${door.id}: ... and on its landing walking in (${feet(along(0.5)).toFixed(2)})`);
+      const th = (door.outward_deg ?? 0) * Math.PI / 180;
+      const out = { e: step.local_e + 2.5 * Math.sin(th), n: step.local_n + 2.5 * Math.cos(th) };
+      const ys = walkTo(w, out, along(0.5), 10);
+      const jumps = ys.slice(1).map((y, i) => y - ys[i]);
+      ok(w.state.groundY >= 0.33, `${door.id}: the walker climbs its stoop to the landing (${w.state.groundY.toFixed(2)})`);
+      ok(Math.max(...jumps) <= WALK.stepUp + 1e-6, `${door.id}: a tread at a time`);
+    }
+  }
+  ok(stoops1835 >= 150, `the doors at 1835's house stoops are walked in on their treads (${stoops1835})`);
+}
+
 if (fails.length) {
   console.error(`test_house_floors: FAIL (${fails.length} of ${checks})`);
   for (const f of fails.slice(0, 40)) console.error(`  - ${f}`);
   process.exit(1);
 }
 console.log(`test_house_floors: PASS (${checks} checks; ${houses} house floors in ${rects} rectangles, ${climbed} front stoops climbed, `
-  + `${walled} turned back at the side, ${backs} back stoops climbed)`);
+  + `${walled} turned back at the side, ${backs} back stoops climbed, ${stoops1835} 1835 house stoops under a door)`);

@@ -991,7 +991,18 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
   // T-3495: a jaunt's hold on the everyday people. null, nobody is held; a Set, only the
   // people it names (by person id or instance id) are drawn, advanced, met or picked.
   let keep = null;
-  const kept = (a) => !keep || keep.has(a.personId) || keep.has(a.id);
+  // T-3553 (the owner, 2026-11-16: "make sure there are people present ... in scene of jaunt
+  // all eras"): at a stop with no stage or hosts of its own, the town's own people about its
+  // stand stay in it (`area`: { e, n, r }, local ENU metres), going about their day; only those
+  // further off are held.
+  let area = null;
+  const inArea = (e, n) => !!area && Number.isFinite(e) && Number.isFinite(n) && Math.hypot(e - area.e, n - area.n) <= area.r;
+  const kept = (a) => !keep || keep.has(a.personId) || keep.has(a.id) || inArea(a.e, a.n);
+  const hide = (a) => {
+    a.root.visible = false;
+    if (near.delete(a)) emit('leave', a);
+    if (hovered === a) hovered = null;
+  };
 
   const detail = (actor) => ({
     personId: actor.personId, instanceId: actor.id, state: actor.state,
@@ -1073,25 +1084,30 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
      * and are not held. Settings › Show › People stays the master switch: hidden there,
      * nobody is drawn, held or not.
      */
-    holdCrowd(ids = []) {
+    holdCrowd(ids = [], { area: about = null } = {}) {
       keep = new Set(Array.from(ids ?? [], String));
+      area = about && [about.e, about.n, about.r].every(Number.isFinite) && about.r > 0
+        ? { e: about.e, n: about.n, r: about.r, structure: typeof about.structure === 'string' ? about.structure : null } : null;
       for (const a of actors.values()) {
-        if (kept(a)) { a.recheck = 0; continue; }
-        a.root.visible = false;
-        if (near.delete(a)) emit('leave', a);
-        if (hovered === a) hovered = null;
+        a.areaHeld = !kept(a);
+        if (!a.areaHeld) { a.recheck = 0; continue; }
+        hide(a);
       }
       return keep.size;
     },
     /** T-3495: give every held figure back to the scene. */
     releaseCrowd() {
       if (!keep) return false;
-      keep = null;
-      for (const a of actors.values()) a.recheck = 0;
+      keep = null; area = null;
+      for (const a of actors.values()) { a.recheck = 0; a.areaHeld = false; }
       return true;
     },
     /** T-3495: the person ids a jaunt keeps, or null when nobody is held. */
     get crowdKept() { return keep ? [...keep] : null; },
+    /** T-3553: the stand whose neighbourhood a jaunt keeps ({ e, n, r, structure }), or null. */
+    get crowdArea() { return keep && area ? { ...area } : null; },
+    /** T-3553: whether the jaunt lets person `id`, at (e, n), be about: true with nobody held. */
+    keeps(id, e = NaN, n = NaN) { return !keep || keep.has(String(id)) || inArea(e, n); },
     /** T-3495: whether a jaunt is holding this figure out of the scene. */
     // T-3557: and a standing figure whose person a vehicle has taken (withhold: a coachman on
     // his box, Mr. Glessner in his cab) is held too: not drawn, advanced, met or asked for.
@@ -1196,7 +1212,9 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
       const ve = visitor ? visitor.e : eye.x;
       const vn = visitor ? visitor.n : -eye.z;
       for (const a of actors.values()) {
-        if (!kept(a)) continue;
+        // T-3553: one who walks out of a stop's neighbourhood is held; one who walks in is drawn.
+        if (!kept(a)) { if (!a.areaHeld) { a.areaHeld = true; hide(a); } continue; }
+        if (a.areaHeld) { a.areaHeld = false; a.recheck = 0; }
         a.update(dt, eye, visualDt);
         const r = a.instance.interaction?.radius_m;
         if (!r || !a.inRange) continue;
