@@ -44,6 +44,18 @@ WHAT IT REFUSES, and says so on the record:
   * the dwellings standing off the platted lots. They have no lot line to put an alley
     behind, and inventing one is a different claim; they are counted, not drawn.
 
+AND THE BACK OF EVERY CORE STORE'S LOT (T-3605, the owner 2026-11-16: *"places in back
+of the stores and buildings for horses and wagons and loading and maybe there are workshops
+based on what kind of business it is"*). The commercial core's reconstructed row stores
+(`recon_1835_core_*`) name no firm and no household, so the two rules above never reached
+them. Each now gets ONE outbuilding in the ground behind it, dealt by the store's own
+family (`BACK_LOT`): a stable for the two-storey store and the boarding house, a workshop
+for the store-residence, a storehouse for the small shop. The stable stands at the back of
+the lot and the others a few steps behind the back door; `LOADING_M` of ground is always
+kept clear at the back wall, where the goods came in. The search is fixed — stations along
+the back lot from the far end or the near end, square behind the store first and then slid
+along its back — and refuses the same things the corners refuse, plus another lot's line.
+
 AND WELLS. T-1212 asks for *"a well where the lot's household class and the wells research
 allow"*. `docs/RESEARCH/wells.md` § 4 refuses a well CLASS for the town — July 1835 drank
 from the lake by cart — and that ruling stands; the layer it drove (`data/wells/`) draws
@@ -106,6 +118,55 @@ STABLE = {
 }
 WEATHER = {"new": "fresh", "recent": "seasoned", "established": "weathered",
            "older_frontier": "grey"}
+
+# THE BACK OF EVERY CORE STORE'S LOT (T-3605). The owner, 2026-11-16, of the commercial
+# core's row of reconstructed stores: *"I could see places in back of the stores and
+# buildings for horses and wagons and loading and maybe there are workshops based on what
+# kind of business it is but those areas behind the stores I imagine some would be divided
+# into work areas and others might be horse and wagons storage but check my history on
+# this so it is all accurate"*. His history is T-1212 (a stable for the households that
+# kept a horse, goods by trade) and the 2026-08-27 business-front clause (a store at the
+# street with its own ground behind it). The core stores (`recon_1835_core_*`) name no
+# firm and no household, so neither rule reached them and the ground behind them stood
+# bare. No source names what stood behind any of them; the store's own FAMILY is the only
+# thing the town knows about the business, so the family's crosswalk entry decides:
+#   * C3, the narrow two-storey store, carries the freight-opening vocabulary — the
+#     wholesale and forwarding trade that kept a horse and a wagon: a stable at the back of
+#     the lot, the ground between it and the back door left open as the wagon and loading
+#     yard;
+#   * H3, the boarding house, a keeper's stable (T-1212 lists the boarding houses);
+#   * C2, the store-residence ("shop below; attic rooms; rear lean-to"), the
+#     tradesman-shopkeeper's work room: a workshop a few steps behind the back door;
+#   * C1, the small shop, grocery or land office: a storehouse for its stock, where goods
+#     came off a cart at the back door.
+# Every one is reconstructed and claimed in docs/LIBERTIES.md L-store-back-lots-3605.
+STORE_PREFIX = "recon_1835_core_"
+BACK_LOT = {
+    "C3": {"kind": "stable", "end": "far", "size": STABLE["merchant"]["size"],
+           "stalls": STABLE["merchant"]["stalls"], "roof": "gable",
+           "finish": "board_and_batten",
+           # a row store's back lot can be narrower than a two-stall stable; one stall
+           # (12 ft square) is the stable a narrow lot was given instead
+           "narrow": {"size": [3.66, 3.66, 2.45, 3.60], "stalls": 1},
+           "use": ("horse and wagon: a stable at the back of the lot; the ground between "
+                   "it and the store's back door is the wagon and loading yard")},
+    "H3": {"kind": "stable", "end": "far", "size": STABLE["keeper"]["size"],
+           "stalls": STABLE["keeper"]["stalls"], "roof": "gable",
+           "finish": "board_and_batten",
+           "use": "the boarding house's stable at the back of the lot, for its boarders' horses"},
+    "C2": {"kind": "workshop", "end": "near", "size": [3.66, 3.05, 2.30, 2.90],
+           "roof": "shed", "finish": "board",
+           "use": "a work room: the tradesman-shopkeeper's workshop behind the back door"},
+    "C1": {"kind": "storehouse", "end": "near", "size": [3.05, 2.44, 2.15, 2.60],
+           "roof": "shed", "finish": "board",
+           "use": "a storehouse for the shop's stock, unloaded at the back door"},
+}
+LOADING_M = 4.0       # clear ground kept at a store's back wall, where goods came in
+BACK_REACH_M = 40.0   # how far behind the store its back lot is searched
+BACK_STEP_M = 0.5     # the search step along the back lot
+LOT_INSET_M = 0.75    # an outbuilding stands this far inside every line of its lot
+WALL_ROOM_M = 2.0     # and this far off any other building's wall, which keeps its
+                      # woodpile's room (tools/generate_woodpiles.py stacks against walls)
 
 
 def load(path: Path):
@@ -331,9 +392,148 @@ def build():
                 item["kept_a_horse_because"] = horse
             out.append(item)
 
+    store_items, store_refused = store_back_lots(entries, sidecars, footprints, wagons,
+                                                 doors, out)
+    for it in store_items:
+        stats["store_" + it["kind"] + "s"] = stats.get("store_" + it["kind"] + "s", 0) + 1
+    stats["store_back_lots"] = len(store_items)
+    out += store_items
+    refused += store_refused
     off_plat = sorted(s for s, sc in sidecars.items()
                       if s not in on_plat and is_dwelling(sc))
     return out, refused, stats, off_plat
+
+
+def item_shape(ob) -> list[tuple[float, float]]:
+    """An outbuilding's ground rectangle from its own record (the yard.js frame)."""
+    b = math.radians(ob["bearing_deg"])
+    # bearing_deg's inverse: out (ENU) is (sin b, cos b) and along is (cos b, -sin b).
+    out = (math.sin(b), math.cos(b))
+    al = (math.cos(b), -math.sin(b))
+    return rect(tuple(ob["at_local_enu_m"]), al, ob["along_m"] / 2, ob["depth_m"] / 2,
+                al, out)
+
+
+def store_back_lots(entries, sidecars, footprints, wagons, doors, placed):
+    """T-3605: the back of each core store's lot, dealt by the store's own family."""
+    items, refused = [], []
+    taken = [(item_shape(ob), fences.bbox(item_shape(ob))) for ob in placed]
+
+    def hits(shape, against) -> bool:
+        bb = fences.bbox(shape)
+        return any(not fences.bbox_apart(bb, b, 0.0) and convex_overlap(shape, f)
+                   for f, b in against)
+
+    def search(frame, size, end, lots, whys):
+        """The first clear stand for an outbuilding of `size` in the store's back lot."""
+        c0, back, front, ud, v_rear, u_lo, u_hi = frame
+        along, depth = size[0], size[1]
+        first = v_rear + LOADING_M + depth / 2
+        last = v_rear + BACK_REACH_M - depth / 2
+        stations = [first + i * BACK_STEP_M for i in range(int((last - first) / BACK_STEP_M) + 1)]
+        if end == "far":
+            stations.reverse()
+        # Square behind the store first, then slid along its back, never so far that its
+        # middle leaves the store's own width: a row store's back lot can straddle a
+        # platted lot line, and an outbuilding does not.
+        u_mid = (u_lo + u_hi) / 2
+        slides = [0.0] + [d * k * BACK_STEP_M for k in range(1, 40) for d in (1, -1)]
+        slides = [d for d in slides if u_lo <= u_mid + d <= u_hi]
+        for v in stations:
+            for du in slides:
+                u = u_mid + du
+                c = (c0[0] + back[0] * v + ud[0] * u, c0[1] + back[1] * v + ud[1] * u)
+                shape = rect(c, ud, along / 2, depth / 2, ud, front)
+                inset = rect(c, ud, along / 2 + LOT_INSET_M, depth / 2 + LOT_INSET_M,
+                             ud, front)
+                home = next((i for i, lot in enumerate(lots)
+                             if all(poly_contains(p, lot) for p in inset)), None)
+                if home is None:
+                    whys.append("off its lot")
+                    continue
+                grown = rect(c, ud, along / 2 + WALL_ROOM_M, depth / 2 + WALL_ROOM_M,
+                             ud, front)
+                if hits(grown, footprints):
+                    whys.append("a committed building stands there")
+                    continue
+                if hits(rect(c, ud, along / 2 + CLEAR_M, depth / 2 + CLEAR_M, ud, front),
+                        taken):
+                    whys.append("another outbuilding stands there")
+                    continue
+                if any(math.hypot(w[0] - c[0], w[1] - c[1]) < WAGON_CLEAR_M
+                       + max(along, depth) / 2 for w in wagons):
+                    whys.append("a wagon stands there")
+                    continue
+                if hits(shape, doors):
+                    whys.append("a door opens onto it")
+                    continue
+                return c, home, shape
+        return None
+
+    for e in entries:
+        lots = [lot["polygon"] for lot in e["block"]["lots"]]
+        lot_id = f"{e['block']['id']}_lot{e['index']}"
+        for sid in e["buildings"]:
+            if not sid.startswith(STORE_PREFIX):
+                continue
+            sc = sidecars[sid]
+            rec = sc.get("reconstruction") or {}
+            fam = rec.get("family")
+            spec = BACK_LOT.get(fam)
+            if not spec:
+                continue
+            fp = footprint_world(sc)
+            r = math.radians((sc.get("placement") or {}).get("rotation_deg") or 0.0)
+            # The store faces its street along (sin r, cos r), a compass bearing; its back
+            # lot runs the other way, and `along` is square to that.
+            front = (math.sin(r), math.cos(r))
+            back = (-front[0], -front[1])
+            ud = (math.cos(r), -math.sin(r))
+            c0 = (sum(p[0] for p in fp) / len(fp), sum(p[1] for p in fp) / len(fp))
+            vs = [(p[0] - c0[0]) * back[0] + (p[1] - c0[1]) * back[1] for p in fp]
+            us = [(p[0] - c0[0]) * ud[0] + (p[1] - c0[1]) * ud[1] for p in fp]
+            frame = (c0, back, front, ud, max(vs), min(us), max(us))
+            tries = [(spec["size"], spec.get("stalls"))]
+            if "narrow" in spec:
+                tries.append((spec["narrow"]["size"], spec["narrow"]["stalls"]))
+            spot, whys = None, []
+            for size, stalls in tries:
+                spot = search(frame, size, spec["end"], lots, whys)
+                if spot:
+                    break
+            if not spot:
+                refused.append({"lot": lot_id, "kind": spec["kind"], "belongs_to": sid,
+                                "why": "; ".join(dict.fromkeys(whys)) or "no ground"})
+                continue
+            c, home, shape = spot
+            taken.append((shape, fences.bbox(shape)))
+            along, depth, eave, head = size
+            age = rec.get("age_state") or "established"
+            item = {
+                "id": f"{spec['kind']}_{sid}",
+                "kind": spec["kind"],
+                "lot": f"{e['block']['id']}_lot{home}",
+                "belongs_to": sid,
+                "households": [],
+                "household_class": (rec.get("fabric_basis") or {}).get("class") or "merchant",
+                "class_read_from": "fabric_basis.class (L330)",
+                "store_family": fam,
+                "back_lot_use": spec["use"],
+                "at_local_enu_m": [round(c[0], 2), round(c[1], 2)],
+                "bearing_deg": bearing_deg(front),
+                "along_m": along,
+                "depth_m": depth,
+                "eave_m": eave,
+                "head_m": head,
+                "roof": spec["roof"],
+                "weather": WEATHER.get(age, "weathered"),
+                "confidence": "reconstructed",
+                "finish": spec["finish"],
+            }
+            if stalls:
+                item["stalls"] = stalls
+            items.append(item)
+    return items, refused
 
 
 def record(items, refused, stats, off_plat) -> dict:
@@ -354,7 +554,11 @@ def record(items, refused, stats, off_plat) -> dict:
                      "horse stabled it on its own lot. That much is the norm of the period, "
                      "not a reading of any yard here; WHICH corner, what size and what "
                      "finish are dealt by rule from the house's own class and age. "
-                     "docs/LIBERTIES.md L353."),
+                     "docs/LIBERTIES.md L353. Behind each of the commercial core's "
+                     "reconstructed row stores stands one more outbuilding, dealt by the "
+                     "store's own family — a stable, a workshop or a storehouse — with the "
+                     "ground at its back door left open for loading; no source names what "
+                     "stood behind any of them. docs/LIBERTIES.md L-store-back-lots-3605."),
         },
         "rule": {
             "privy": "every dwelling lot with a yard behind the house and no committed privy",
@@ -369,6 +573,17 @@ def record(items, refused, stats, off_plat) -> dict:
             "size_by_class": {k: v for k, v in PRIVY.items()},
             "stable_by_reason": {k: v for k, v in STABLE.items()},
             "weather_by_age_state": WEATHER,
+            "store_back_lot": {
+                "applies_to": f"the commercial core's row stores ({STORE_PREFIX}*), T-3605",
+                "by_family": {k: {kk: vv for kk, vv in v.items()} for k, v in BACK_LOT.items()},
+                "where": (f"behind the store, its door side toward the store's back wall, "
+                          f"{LOADING_M} m of loading ground kept clear at that wall; a stable "
+                          f"at the back of the lot, the rest as near the store as is clear; "
+                          f"at least {LOT_INSET_M} m inside every lot line and {WALL_ROOM_M} m "
+                          "clear of every committed wall (a woodpile's room); searched within "
+                          f"{BACK_REACH_M} m of the store in {BACK_STEP_M} m steps"),
+                "liberty": "docs/LIBERTIES.md L-store-back-lots-3605",
+            },
         },
         "wells": ("None dealt. docs/RESEARCH/wells.md § 4 refuses a well class for the town "
                   "— July 1835 Chicago drank from the lake by cart — and that ruling stands; "
@@ -395,7 +610,8 @@ def main() -> int:
                   "python3 tools/generate_yard_outbuildings.py")
             return 1
         print(f"ok   {OUT.relative_to(ROOT)} re-derives: {stats['privies']} privies, "
-              f"{stats['stables']} stables, {len(refused)} refused")
+              f"{stats['stables']} stables, {stats['store_back_lots']} store back lots, "
+              f"{len(refused)} refused")
         return 0
     OUT.write_text(text, encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}: {stats['privies']} privies, "
