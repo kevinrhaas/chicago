@@ -1,0 +1,9 @@
+{
+  "title": "Houses no longer load in plain white when a texture drops",
+  "kind": "fix",
+  "items": [
+    "A house's stone, brick and roof pictures are shared files, and one that failed to download used to leave its walls and roof flat white until you reloaded the page. 1904 on 16 November showed it at Glessner and its neighbours.",
+    "Each picture is now asked for up to four times, and a house that still lacks one is read again twice before the town opens.",
+    "If a picture still never arrives, the town tells you on the way in and suggests a reload, instead of standing there in white stone."
+  ]
+}

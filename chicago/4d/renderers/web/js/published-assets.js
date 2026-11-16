@@ -122,37 +122,107 @@ export function completeTextureBuffer(json, bufferIndex) {
   return imageOnly;
 }
 
-/** Official GLTFLoader extension boundary; embedded/geometry buffers keep the native path. */
-export function registerPublishedTextureBuffers(loader) {
+/**
+ * T-3617. A shared sheet that does not arrive must not become a white wall.
+ *
+ * Since T-3232 a published house GLB names most of its pictures as external buffers,
+ * `sheets/<sha256 prefix>.<ext>` beside it (tools/share_glb_sheets.mjs): Glessner's
+ * names thirty. GLTFLoader fetches each once, and a texture whose bytes fail is not an
+ * error to it: `loadTextureImage` catches and hands the material `null`, so the slot
+ * draws its plain base colour. On 2026-11-16 the owner's desktop booted dev's 1904 with
+ * Glessner and its neighbours' stone and roofs flat white (trees, people, carriage and
+ * street fine) and a reload cured it: a dropped request, of which a boot of hundreds in
+ * flight at once has always had a few (scene-loader.js `fetchAsset` retries the GLB
+ * itself for the same reason; its sheets had no such second ask).
+ *
+ * So a sheet buffer is fetched here, with RETRY_DELAYS_MS between asks, the later asks
+ * revalidating past the HTTP cache. Each body is held to the byte length its GLB
+ * declares, so a truncated or substituted response (an error page) is a failure to
+ * retry, not a picture. A file is asked for once however many views or GLBs want it
+ * while that ask is in flight. Any other external buffer keeps GLTFLoader's own path.
+ */
+export const RETRY_DELAYS_MS = Object.freeze([0, 500, 1500, 4000]);
+const SHEET_PATH = /\/sheets\/[a-f0-9]{16}\.[a-z0-9]+$/;
+
+/** One sheet's bytes, asked up to `delays.length` times. Exported for the self-test. */
+export async function fetchSheetBytes(url, byteLength, { fetchImpl = globalThis.fetch, delays = RETRY_DELAYS_MS,
+  wait = (ms) => new Promise((r) => { setTimeout(r, ms); }) } = {}) {
+  let last = null;
+  for (let attempt = 0; attempt < delays.length; attempt++) {
+    if (delays[attempt]) await wait(delays[attempt]);
+    try {
+      const response = await fetchImpl(url, attempt ? { cache: 'no-cache' } : undefined);
+      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+      const bytes = await response.arrayBuffer();
+      if (Number.isSafeInteger(byteLength) && bytes.byteLength !== byteLength)
+        throw new Error(`${bytes.byteLength} bytes, the GLB declares ${byteLength}`);
+      if (attempt) sheetRetries.recovered += 1;
+      return bytes;
+    } catch (error) { last = error; }
+  }
+  sheetRetries.failed.push(`${String(url).split('/').pop()}: ${last?.message ?? last}`);
+  throw new Error(`sheet ${String(url).split('/').pop()} did not arrive in ${delays.length} asks (${last?.message ?? last})`);
+}
+/** What the boot's sheet asks came to, for `__chicago4d` and the harness. */
+export const sheetRetries = { recovered: 0, failed: [] };
+
+/** Official GLTFLoader extension boundary; embedded/geometry buffers keep the native path.
+ * Shared sheets (T-3617) are fetched with retries whether or not a publication alias applies. */
+export function registerPublishedTextureBuffers(loader, { fetchSheet = fetchSheetBytes } = {}) {
   const pendingBuffers = new Map();
+  const share = (key, make) => {
+    let bytes = pendingBuffers.get(key);
+    if (!bytes) {
+      bytes = make();
+      pendingBuffers.set(key, bytes);
+      const clear = () => { if (pendingBuffers.get(key) === bytes) pendingBuffers.delete(key); };
+      bytes.then(clear, clear);
+    }
+    return bytes;
+  };
   loader.register((parser) => ({
     name: 'C4D_publication_texture_buffers',
     loadBufferView(index) {
       const view = parser.json.bufferViews?.[index];
       const buffer = parser.json.buffers?.[view?.buffer];
-      if (!buffer?.uri || !hasPublishedAssetPointer()) return null;
+      if (!buffer?.uri || /^data:/i.test(buffer.uri)) return null;
       const logical = new URL(buffer.uri, parser.options.path);
+      const sheet = SHEET_PATH.test(logical.pathname);
+      // A plain sheet: retried, then sliced to the view exactly as GLTFLoader would.
+      const plain = () => share(logical.href, () => fetchSheet(logical.href, buffer.byteLength)).then((bytes) => {
+        const offset = view.byteOffset ?? 0;
+        return bytes.slice(offset, offset + (view.byteLength ?? 0));
+      });
       // General external geometry is deliberately outside this contract.
-      if (!/^\/4d\/dev\/data\/gltf\/sheets\/[a-f0-9]{16}\.ktx2$/.test(logical.pathname)) return null;
+      if (!/^\/4d\/dev\/data\/gltf\/sheets\/[a-f0-9]{16}\.ktx2$/.test(logical.pathname) || !hasPublishedAssetPointer()) {
+        return sheet ? plain() : null;
+      }
       return publishedAssetAddress(logical).then(({ alias, source }) => {
-        if (!alias) return parser.loadBufferView(index);
+        if (!alias) return plain();
         if (!completeTextureBuffer(parser.json, view.buffer) || buffer.byteLength !== alias.bytes)
           throw new Error('Publication texture buffer must be a complete image-only KTX2 sheet');
-        const key = source.href;
-        let bytes = pendingBuffers.get(key);
-        if (!bytes) {
-          bytes = fetchPublishedAssetBytes(logical);
-          pendingBuffers.set(key, bytes);
-          const clear = () => { if (pendingBuffers.get(key) === bytes) pendingBuffers.delete(key); };
-          bytes.then(clear, clear);
-        }
         // The only allowed view covers the complete buffer. No geometry/offset
         // rewrite or copy: native image Source interning sees the same bytes.
-        return bytes;
+        return share(source.href, () => retried(() => fetchPublishedAssetBytes(logical), logical.href));
       });
     },
   }));
   return loader;
+}
+
+/** The alias path's verified fetch, asked as a plain sheet is (T-3617). */
+async function retried(ask, href, delays = RETRY_DELAYS_MS) {
+  let last = null;
+  for (let attempt = 0; attempt < delays.length; attempt++) {
+    if (delays[attempt]) await new Promise((r) => { setTimeout(r, delays[attempt]); });
+    try {
+      const bytes = await ask();
+      if (attempt) sheetRetries.recovered += 1;
+      return bytes;
+    } catch (error) { last = error; }
+  }
+  sheetRetries.failed.push(`${href.split('/').pop()}: ${last?.message ?? last}`);
+  throw last;
 }
 
 /** An installed pack may fetch a source URL, but its cache key remains the logical DEV URL. */

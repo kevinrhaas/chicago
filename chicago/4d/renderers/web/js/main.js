@@ -5748,6 +5748,12 @@ async function boot() {
     // T-1727: an address that asked for a structure version hears, on the way in, what
     // it got — above all when it did NOT get it, which must never pass silently.
     if (firstEntry) hud.announceStructureVersion();
+    // T-3617: a house still drawing without a picture after every read says so, once,
+    // on the way in, rather than standing there in white stone (the owner's 2026-11-16 boot).
+    if (firstEntry && api.texturesLost.length) {
+      hud.say(`${api.texturesLost.length === 1 ? 'One building' : `${api.texturesLost.length} buildings`} `
+        + 'did not get all their pictures (a network hiccup). Reload the page to fetch them again.', 12000);
+    }
     // T-2663: a Field Check left running before a reload picks up at the same step.
     if (firstEntry && !api.tour?.running) api.tour?.resume();
     // T-2664: the far year of a first Jump says, once, how to go back.
@@ -7452,6 +7458,10 @@ async function boot() {
     bankedAssets: { get: () => loaded.bankedAssets, enumerable: true },
     /** T-2597: the boot pool, and the most GLB bytes it held unparsed at once. */
     bootPool: { get: () => loaded.bootPool, enumerable: true },
+    /** T-3617: structures still drawing without a picture after every read, and the sheet asks. */
+    texturesLost: { get: () => [...loaded.registry.values()].filter((r) => r.texturesLost?.length)
+      .map((r) => ({ id: r.id, pictures: r.texturesLost })), enumerable: true },
+    sheetRetries: { get: () => loaded.sheetRetries, enumerable: true },
   });
   // T-2732: Settings' dev-only Read frame pacing, for the reading T-2733 takes on
   // a phone. Mounted after the live readings above, which it drives and restores.
