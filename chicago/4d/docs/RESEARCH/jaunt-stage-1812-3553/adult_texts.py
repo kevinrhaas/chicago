@@ -16,30 +16,24 @@ def stop(text, evidence):
     return {'text': text, 'read_s': round(words(text) / 3.5), 'evidence': evidence}
 
 
-WARNING_BATTLE = ("18+. Graphic violence from the eyewitness accounts: men and women shot, stabbed and struck down "
-                  "with tomahawks and the dead scalped, staged in the scenes; the worst mutilations described in the narration. "
-                  "No child is shown being killed.")
-WARNING_LALIME = ("18+. A killing staged as the witnesses described it: a pistol fired at close range and a man "
-                  "stabbed to death with a knife.")
+# The owner, 2026-11-16: no warning text on the list or in the telling ("keep the narrative
+# interesting from the user perspectives"); the 18+ tag on the card says it. The compiler still
+# wants a content_warning on an adults jaunt, and the tag's tooltip shows it: a few words only.
+WARNING_BATTLE = "Graphic violence."
+WARNING_LALIME = "Graphic violence."
 
 BATTLE = {
     'id': 'battle-of-fort-dearborn-adults',
-    'title': 'The Battle of Fort Dearborn (18+)',
+    'title': 'The Battle of Fort Dearborn',
     'grade_band': '6-8',
     'content_warning': WARNING_BATTLE,
-    'premise': ("18+: 6 April to 16 August 1812 in thirteen stops, with the killings at Lee's Place, the attack "
-                "on the beach and the death of Captain Wells staged as the witnesses described them."),
-    'opening': ("JAUNT: THE BATTLE OF FORT DEARBORN, 18+. Spring 1812, where the Chicago River meets Lake Michigan. "
+    'premise': ("6 April to 16 August 1812 in thirteen stops: the killings at Lee's Place, the attack on the beach "
+                "and the death of Captain Wells, as the people who lived through them told it."),
+    'opening': ("JAUNT: THE BATTLE OF FORT DEARBORN. Spring 1812, where the Chicago River meets Lake Michigan. "
                 "The nearest American post is Fort Wayne, far to the south-east; Detroit, where the general commands, is "
                 "farther still. War with Britain is coming, and every report that reaches the fort makes it feel smaller "
                 "and farther from help.\n\n"
-                "This telling is 18+. It walks the same thirteen stops as the students' jaunt, but at Lee's Place, "
-                "on the beach and on the prairie the killing is staged as the people who lived through it described it: "
-                "shots fired, knives and tomahawks used, men and women struck down, the dead scalped, and soldiers fighting "
-                "back with the bayonet. The worst of what was done to the bodies is told, not shown, and no child is shown "
-                "being harmed.\n\n"
-                "Thirteen stops in date order, with the time of day and the season set for each. Long rides go Instantly; "
-                "every place keeps its stop.\n\n"
+                "Thirteen stops in date order, with the time of day and the season set for each.\n\n"
                 "The story begins with the fort, on the afternoon of 6 April 1812."),
     'stops': {
         'hardscrabble': stop(
@@ -159,15 +153,13 @@ BATTLE = {
 
 LALIME = {
     'id': 'killing-of-jean-lalime-adults',
-    'title': "Chicago's First Murder (18+)",
+    'title': "Chicago's First Murder",
     'grade_band': '6-8',
     'content_warning': WARNING_LALIME,
-    'premise': ("18+: 17 June 1812, sunset, the fort gate: Chicago's first recorded murder, with the pistol shot and "
-                "the knife staged as the witnesses described them. The victim, interpreter Jean Lalime. The killer, John "
+    'premise': ("17 June 1812, sunset, the fort gate: Chicago's first recorded murder. The victim, interpreter Jean Lalime. The killer, John "
                 "Kinzie, 'The Father of Chicago'. Nine stops."),
-    'opening': None,   # the students' opening, with the line for adults put in (adults.py)
-    'opening_add': ("This telling is 18+: outside the gate, the pistol shot and the knife are staged as the "
-                    "witnesses described them."),
+    'opening': None,   # the students' opening as it stands (adults.py)
+    'opening_add': None,
     'stops': {
         'cold-open': stop(
             "17 June 1812, sunset, outside the gate of Fort Dearborn. Jean Lalime, the fort's interpreter, lies dead in "

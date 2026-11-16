@@ -302,8 +302,11 @@ def validate(records, recipe, datum) -> list[str]:
         cell = held.setdefault(group[rec["family"][0]], {})
         cell[rec["district"]] = cell.get(rec["district"], 0) + 1
     pictured = load(INVENTORY).get("pictured_roofs") or {}
-    if pictured.get("structure_prefix") != PREFIX or pictured.get("by_group") != held:
-        raise ValueError(f"the inventory's pictured_roofs block says {pictured.get('by_group')} "
+    # T-3605 phase 2: the block names more than one generator's roofs; this one's rows are
+    # its own entry in `by_prefix` (the readers subtract `by_group`, the sum).
+    mine = (pictured.get("by_prefix") or {PREFIX: pictured.get("by_group")}).get(PREFIX)
+    if pictured.get("structure_prefix") != PREFIX or mine != held:
+        raise ValueError(f"the inventory's pictured_roofs block says {mine} "
                          f"and the records hold {held}")
     lanes = corridors()
     refused = no_build_rings()

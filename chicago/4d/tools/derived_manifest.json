@@ -125,6 +125,7 @@
         "python3 tools/canal_approach_occupancy.py --build",
         "python3 tools/generate_canal_approach_trade.py",
         "python3 tools/generate_gifford_street_faces.py",
+        "python3 tools/generate_core_row_fill_1835.py",
         "python3 tools/compile_businesses.py --build",
         "python3 tools/audit_businesses.py --write",
         "python3 tools/compile_gazetteer.py --build",
@@ -1995,6 +1996,19 @@
       ]
     },
     {
+      "why": "T-3605 phase 2: regenerate the fifty-eight commercial-core row-fill stores (South Water's south side and both sides of Lake, Wells to State) from the measured block fronts, after the Gifford faces they measure around and before compiling businesses, the roof reconcile and the scene.",
+      "command": [
+        "python3",
+        "tools/generate_core_row_fill_1835.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/generate_core_row_fill_1835.py",
+        "--check"
+      ]
+    },
+    {
       "why": "THE TOWN COMPILED FROM THE LAYER: it reads finished cards and writes the town-level record, so it follows the layer and precedes the scene. PLACED BY LAYER, NOT BY A DERIVED DEPENDENCY (T-1302 batch 2, 2026-09-18). A dependency graph was built for this — write-sets MEASURED by running all 142 tools on a clean tree, reads taken from their source — and it was rejected by its own validation: against the 54 steps already here, an order people reached by hitting real failures, the graph contradicted 127 of 349 edges (36%; 32% at the finest granularity tried). These tools overwhelmingly read and write the same shared directories, so the graph saturates and cannot tell a real dependency from co-location. Only 6 of the 89 could be placed with evidence. A clean-tree `--run` goes green in ANY order because every one of them reproduces, so greenness is not evidence here either. This position is reasoned from what the tool reads and writes; it is not measured, and the honest test is the first time a change upstream of one of these fails to propagate. WRITES, BUT DOES NOT CLAIM, ITS OUTPUTS. `resolves` is not documentation: it declares that the manifest OWNS a file, so the lap settles a conflict there by REBUILDING rather than merging. Listing what these 89 tools touch took the owned set from 72 files to 1,899 — including 1,261 household cards — and a conflict in any of them would then be rebuilt over whatever a branch had actually written. Being run by the manifest and owning your outputs are separate decisions; this is the first, and the second is not taken here. rederive.mjs's own self-test caught it, on the assertion that `hh_taylor_c.json` is a file nobody derives.",
       "command": [
         "python3",
@@ -2417,6 +2431,7 @@
         "chicago/4d/data/sidecars/1835/sources/chicago_dpw_1891_streets.json",
         "chicago/4d/data/sidecars/1835/sources/chicago_elevation_benchmarks.json",
         "chicago/4d/data/sidecars/1835/sources/chicago_genealogist_1993_voter_lists.json",
+        "chicago/4d/data/sidecars/1835/sources/chicago_individual_landmarks_2026.json",
         "chicago/4d/data/sidecars/1835/sources/chicago_landmark_sauganash.json",
         "chicago/4d/data/sidecars/1835/sources/chicago_magazine_1857_kinzie_house_engraving.json",
         "chicago/4d/data/sidecars/1835/sources/chicago_newspapers_mulford_1835.json",
@@ -2994,6 +3009,7 @@
         "chicago/4d/data/sidecars/1835/sources/wikipedia_daniel_burnham.json",
         "chicago/4d/data/sidecars/1835/sources/wikipedia_ethel_beatty.json",
         "chicago/4d/data/sidecars/1835/sources/wikipedia_everleigh_club.json",
+        "chicago/4d/data/sidecars/1835/sources/wikipedia_fort_dearborn.json",
         "chicago/4d/data/sidecars/1835/sources/wikipedia_fort_dearborn_massacre_monument.json",
         "chicago/4d/data/sidecars/1835/sources/wikipedia_frances_glessner_lee.json",
         "chicago/4d/data/sidecars/1835/sources/wikipedia_frank_orren_lowden.json",

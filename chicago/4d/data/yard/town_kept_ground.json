@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "363 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "382 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
-    "lots": 264,
+    "lots": 267,
     "refused": 0,
-    "refuges": 377,
-    "paths": 363
+    "refuges": 398,
+    "paths": 382
   },
   "lots": [
     {
@@ -430,7 +430,10 @@
     {
       "lot": "blk_south_water_wells_lot0",
       "structures": [
-        "h_jones_store"
+        "h_jones_store",
+        "recon_1835_core_c1_047",
+        "recon_1835_core_c2_001",
+        "recon_1835_core_c3_048"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -458,13 +461,123 @@
           -46.73
         ]
       ],
-      "refuges_local_enu_m": []
+      "refuges_local_enu_m": [
+        [
+          [
+            342.5,
+            -49.78
+          ],
+          [
+            344.94,
+            -49.8
+          ],
+          [
+            344.96,
+            -47.36
+          ],
+          [
+            342.52,
+            -47.34
+          ]
+        ],
+        [
+          [
+            352.84,
+            -30.76
+          ],
+          [
+            352.87,
+            -24.19
+          ],
+          [
+            343.4,
+            -24.14
+          ],
+          [
+            343.36,
+            -30.7
+          ]
+        ],
+        [
+          [
+            357.14,
+            -25.34
+          ],
+          [
+            357.18,
+            -17.91
+          ],
+          [
+            343.44,
+            -17.82
+          ],
+          [
+            343.39,
+            -25.26
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_south_water_wells_lot1",
+      "structures": [
+        "recon_1835_core_c1_004",
+        "recon_1835_core_c2_005",
+        "recon_1835_core_h3_003"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          342.83,
+          -99.51
+        ],
+        [
+          365.7,
+          -99.69
+        ],
+        [
+          365.95,
+          -58.62
+        ],
+        [
+          363.53,
+          -56.18
+        ],
+        [
+          345.52,
+          -56.18
+        ],
+        [
+          343.06,
+          -58.62
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            366.59,
+            -55.57
+          ],
+          [
+            364.15,
+            -55.55
+          ],
+          [
+            364.13,
+            -57.99
+          ],
+          [
+            366.57,
+            -58.01
+          ]
+        ]
+      ]
     },
     {
       "lot": "blk_south_water_wells_lot2",
       "structures": [
         "carpenter_south_water_store",
-        "recon_1835_blk_south_water_wells_d1_05"
+        "recon_1835_blk_south_water_wells_d1_05",
+        "recon_1835_core_c3_002"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -517,7 +630,10 @@
       "lot": "blk_south_water_wells_lot3",
       "structures": [
         "recon_1835_blk_south_water_wells_d1_07",
-        "recon_1835_blk_south_water_wells_d2_06"
+        "recon_1835_blk_south_water_wells_d2_06",
+        "recon_1835_core_c2_007",
+        "recon_1835_core_c3_006",
+        "recon_1835_core_c3_011"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -552,34 +668,16 @@
             -55.57
           ],
           [
-            388.25,
+            388.55,
             -55.55
           ],
           [
-            388.23,
+            388.53,
             -57.99
           ],
           [
             390.97,
             -58.01
-          ]
-        ],
-        [
-          [
-            372.96,
-            -55.58
-          ],
-          [
-            366.86,
-            -55.54
-          ],
-          [
-            366.84,
-            -60.42
-          ],
-          [
-            372.94,
-            -60.46
           ]
         ],
         [
@@ -660,7 +758,9 @@
       "lot": "blk_south_water_wells_lot5",
       "structures": [
         "recon_1835_blk_south_water_wells_a2_09",
-        "recon_1835_blk_south_water_wells_d4_03"
+        "recon_1835_blk_south_water_wells_d4_03",
+        "recon_1835_core_c1_008",
+        "recon_1835_core_c1_012"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -731,7 +831,8 @@
       "lot": "blk_south_water_wells_lot6",
       "structures": [
         "brown_boarding_house",
-        "peck_store"
+        "peck_store",
+        "recon_1835_core_c3_050"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -813,6 +914,24 @@
             423.73,
             -23.29
           ]
+        ],
+        [
+          [
+            425.16,
+            -13.45
+          ],
+          [
+            425.11,
+            -20.98
+          ],
+          [
+            439.25,
+            -21.06
+          ],
+          [
+            439.3,
+            -13.53
+          ]
         ]
       ]
     },
@@ -820,7 +939,10 @@
       "lot": "blk_south_water_wells_lot7",
       "structures": [
         "recon_1835_blk_south_water_wells_a2_10",
-        "recon_1835_blk_south_water_wells_d3_04"
+        "recon_1835_blk_south_water_wells_d3_04",
+        "recon_1835_core_c2_010",
+        "recon_1835_core_c2_049",
+        "recon_1835_core_c3_009"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -884,6 +1006,24 @@
             421.63,
             -58.77
           ]
+        ],
+        [
+          [
+            425.94,
+            -81.44
+          ],
+          [
+            425.89,
+            -89.09
+          ],
+          [
+            438.85,
+            -89.16
+          ],
+          [
+            438.9,
+            -81.52
+          ]
         ]
       ]
     },
@@ -893,7 +1033,9 @@
         "recon_1835_blk_south_water_lasalle_a1_14",
         "recon_1835_blk_south_water_lasalle_c1_08",
         "recon_1835_blk_south_water_lasalle_d2_09",
-        "recon_1835_blk_south_water_lasalle_f2_10"
+        "recon_1835_blk_south_water_lasalle_f2_10",
+        "recon_1835_core_c1_051",
+        "recon_1835_core_c2_052"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -957,13 +1099,34 @@
             484.86,
             -45.59
           ]
+        ],
+        [
+          [
+            473.76,
+            -29.75
+          ],
+          [
+            473.8,
+            -23.64
+          ],
+          [
+            465.4,
+            -23.59
+          ],
+          [
+            465.36,
+            -29.7
+          ]
         ]
       ]
     },
     {
       "lot": "blk_south_water_lasalle_lot1",
       "structures": [
-        "lasalle_lake_house"
+        "lasalle_lake_house",
+        "recon_1835_core_c2_017",
+        "recon_1835_core_c3_018",
+        "recon_1835_core_c3_053"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -1008,6 +1171,24 @@
           [
             488.93,
             -58.01
+          ]
+        ],
+        [
+          [
+            478.95,
+            -87.86
+          ],
+          [
+            478.99,
+            -80.53
+          ],
+          [
+            465.06,
+            -80.45
+          ],
+          [
+            465.02,
+            -87.78
           ]
         ]
       ]
@@ -1089,7 +1270,8 @@
       "lot": "blk_south_water_lasalle_lot3",
       "structures": [
         "recon_1835_blk_south_water_lasalle_d2_05",
-        "recon_1835_blk_south_water_lasalle_d3_06"
+        "recon_1835_blk_south_water_lasalle_d3_06",
+        "recon_1835_core_c1_019"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -1162,7 +1344,8 @@
         "recon_1835_blk_south_water_lasalle_a3_07",
         "recon_1835_blk_south_water_lasalle_d1_04",
         "recon_1835_blk_south_water_lasalle_d4_02",
-        "recon_1835_blk_south_water_lasalle_d5_01"
+        "recon_1835_blk_south_water_lasalle_d5_01",
+        "recon_1835_core_c3_016"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -1214,6 +1397,7 @@
     {
       "lot": "blk_south_water_lasalle_lot5",
       "structures": [
+        "recon_1835_core_c2_020",
         "thomas_church_store"
       ],
       "kept_ring_local_enu_m": [
@@ -1242,12 +1426,32 @@
           -58.62
         ]
       ],
-      "refuges_local_enu_m": []
+      "refuges_local_enu_m": [
+        [
+          [
+            516.44,
+            -55.57
+          ],
+          [
+            514.0,
+            -55.55
+          ],
+          [
+            513.98,
+            -57.99
+          ],
+          [
+            516.42,
+            -58.01
+          ]
+        ]
+      ]
     },
     {
       "lot": "blk_south_water_lasalle_lot6",
       "structures": [
-        "chicago_democrat_office"
+        "chicago_democrat_office",
+        "recon_1835_core_c2_054"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -1275,7 +1479,44 @@
           -46.73
         ]
       ],
-      "refuges_local_enu_m": []
+      "refuges_local_enu_m": [
+        [
+          [
+            538.8,
+            -49.78
+          ],
+          [
+            541.24,
+            -49.8
+          ],
+          [
+            541.26,
+            -47.36
+          ],
+          [
+            538.82,
+            -47.34
+          ]
+        ],
+        [
+          [
+            551.52,
+            -21.58
+          ],
+          [
+            551.47,
+            -28.82
+          ],
+          [
+            562.68,
+            -28.89
+          ],
+          [
+            562.72,
+            -21.65
+          ]
+        ]
+      ]
     },
     {
       "lot": "blk_south_water_lasalle_lot7",
@@ -1368,8 +1609,63 @@
       ]
     },
     {
+      "lot": "blk_south_water_clark_lot0",
+      "structures": [
+        "recon_1835_core_c1_027",
+        "recon_1835_core_c3_026",
+        "recon_1835_core_c3_056"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          591.02,
+          -49.36
+        ],
+        [
+          609.26,
+          -49.58
+        ],
+        [
+          611.72,
+          -47.17
+        ],
+        [
+          611.98,
+          -4.54
+        ],
+        [
+          588.87,
+          -4.16
+        ],
+        [
+          588.6,
+          -46.89
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            604.41,
+            -29.1
+          ],
+          [
+            604.46,
+            -22.07
+          ],
+          [
+            588.88,
+            -21.97
+          ],
+          [
+            588.84,
+            -29.01
+          ]
+        ]
+      ]
+    },
+    {
       "lot": "blk_south_water_clark_lot1",
       "structures": [
+        "recon_1835_core_c1_055",
         "recon_1835_gifford_c2_001",
         "recon_1835_gifford_c3_002"
       ],
@@ -1417,6 +1713,24 @@
             590.34,
             -58.18
           ]
+        ],
+        [
+          [
+            597.65,
+            -87.88
+          ],
+          [
+            597.69,
+            -81.13
+          ],
+          [
+            588.51,
+            -81.07
+          ],
+          [
+            588.46,
+            -87.82
+          ]
         ]
       ]
     },
@@ -1425,7 +1739,8 @@
       "structures": [
         "pruyne_kimball_drugstore",
         "recon_1835_blk_south_water_clark_a3_07",
-        "recon_1835_blk_south_water_clark_c2_06"
+        "recon_1835_blk_south_water_clark_c2_06",
+        "recon_1835_core_c2_028"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -1570,7 +1885,8 @@
       "structures": [
         "recon_1835_blk_south_water_clark_a3_05",
         "recon_1835_blk_south_water_clark_d1_04",
-        "recon_1835_blk_south_water_clark_f2_01"
+        "recon_1835_blk_south_water_clark_f2_01",
+        "recon_1835_core_c3_029"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -2009,7 +2325,10 @@
       "lot": "blk_south_water_dearborn_lot1",
       "structures": [
         "recon_1835_blk_south_water_dearborn_a5_10",
-        "recon_1835_blk_south_water_dearborn_d2_04"
+        "recon_1835_blk_south_water_dearborn_d2_04",
+        "recon_1835_core_c1_039",
+        "recon_1835_core_c1_059",
+        "recon_1835_core_c3_040"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -2072,6 +2391,24 @@
           [
             718.44,
             -60.74
+          ]
+        ],
+        [
+          [
+            721.27,
+            -88.72
+          ],
+          [
+            721.31,
+            -81.66
+          ],
+          [
+            711.47,
+            -81.6
+          ],
+          [
+            711.42,
+            -88.66
           ]
         ]
       ]
@@ -2153,7 +2490,8 @@
       "lot": "blk_south_water_dearborn_lot3",
       "structures": [
         "mansion_house",
-        "mansion_house_stable"
+        "mansion_house_stable",
+        "recon_1835_core_c2_038"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -2184,20 +2522,20 @@
       "refuges_local_enu_m": [
         [
           [
-            739.52,
-            -57.8
+            739.22,
+            -57.79
           ],
           [
             736.78,
-            -57.78
+            -57.77
           ],
           [
             736.76,
-            -60.22
+            -60.21
           ],
           [
-            739.5,
-            -60.24
+            739.2,
+            -60.23
           ]
         ],
         [
@@ -2349,6 +2687,7 @@
       "lot": "blk_south_water_dearborn_lot6",
       "structures": [
         "chappel_infant_school",
+        "recon_1835_core_c2_033",
         "south_bank_shed_dearborn_e2"
       ],
       "kept_ring_local_enu_m": [
@@ -2380,6 +2719,24 @@
       "refuges_local_enu_m": [
         [
           [
+            788.66,
+            -52.95
+          ],
+          [
+            791.1,
+            -52.97
+          ],
+          [
+            791.12,
+            -50.53
+          ],
+          [
+            788.68,
+            -50.51
+          ]
+        ],
+        [
+          [
             803.55,
             -47.62
           ],
@@ -2394,6 +2751,61 @@
           [
             813.55,
             -47.62
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_south_water_dearborn_lot7",
+      "structures": [
+        "recon_1835_core_c1_035",
+        "recon_1835_core_c2_036",
+        "recon_1835_core_c3_034",
+        "recon_1835_core_c3_037"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          788.96,
+          -103.14
+        ],
+        [
+          813.35,
+          -103.34
+        ],
+        [
+          813.62,
+          -62.22
+        ],
+        [
+          811.2,
+          -59.73
+        ],
+        [
+          791.67,
+          -59.38
+        ],
+        [
+          789.22,
+          -61.77
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            814.26,
+            -59.16
+          ],
+          [
+            811.82,
+            -59.14
+          ],
+          [
+            811.8,
+            -61.58
+          ],
+          [
+            814.24,
+            -61.6
           ]
         ]
       ]
@@ -3736,6 +4148,8 @@
       "lot": "blk_lake_wells_lot0",
       "structures": [
         "inf_shoemaker_shop",
+        "recon_1835_core_c2_014",
+        "recon_1835_core_c3_013",
         "recon_1835_south_d2_005"
       ],
       "kept_ring_local_enu_m": [
@@ -3767,7 +4181,7 @@
       "refuges_local_enu_m": [
         [
           [
-            363.1,
+            363.4,
             -181.14
           ],
           [
@@ -3779,26 +4193,8 @@
             -178.72
           ],
           [
-            363.12,
+            363.42,
             -178.7
-          ]
-        ],
-        [
-          [
-            341.73,
-            -180.97
-          ],
-          [
-            347.83,
-            -181.01
-          ],
-          [
-            347.85,
-            -176.13
-          ],
-          [
-            341.75,
-            -176.09
           ]
         ],
         [
@@ -4018,7 +4414,8 @@
     {
       "lot": "blk_lake_wells_lot4",
       "structures": [
-        "inf_barber_shop"
+        "inf_barber_shop",
+        "recon_1835_core_c1_015"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -4245,6 +4642,7 @@
       "lot": "blk_lake_lasalle_lot0",
       "structures": [
         "old_bank_building",
+        "recon_1835_core_c2_025",
         "recon_1835_south_d4_009"
       ],
       "kept_ring_local_enu_m": [
@@ -4386,6 +4784,8 @@
     {
       "lot": "blk_lake_lasalle_lot2",
       "structures": [
+        "recon_1835_core_c2_022",
+        "recon_1835_core_c3_021",
         "recon_1835_south_d1_010"
       ],
       "kept_ring_local_enu_m": [
@@ -4418,19 +4818,37 @@
         [
           [
             488.47,
-            -182.17
+            -182.16
           ],
           [
-            490.76,
+            490.91,
             -182.18
           ],
           [
-            490.77,
-            -179.89
+            490.93,
+            -179.74
           ],
           [
-            488.48,
-            -179.88
+            488.49,
+            -179.72
+          ]
+        ],
+        [
+          [
+            490.61,
+            -152.05
+          ],
+          [
+            497.33,
+            -152.06
+          ],
+          [
+            497.34,
+            -143.85
+          ],
+          [
+            490.62,
+            -143.85
           ]
         ]
       ]
@@ -4471,6 +4889,8 @@
     {
       "lot": "blk_lake_lasalle_lot4",
       "structures": [
+        "recon_1835_core_c1_023",
+        "recon_1835_core_c3_024",
         "recon_1835_south_d5_011"
       ],
       "kept_ring_local_enu_m": [
@@ -4516,6 +4936,24 @@
           [
             535.27,
             -180.11
+          ]
+        ],
+        [
+          [
+            514.81,
+            -152.0
+          ],
+          [
+            522.23,
+            -151.86
+          ],
+          [
+            522.03,
+            -141.63
+          ],
+          [
+            514.61,
+            -141.78
           ]
         ]
       ]
@@ -4722,7 +5160,8 @@
         "recon_1835_blk_lake_clark_a3_04",
         "recon_1835_blk_lake_clark_c1_01",
         "recon_1835_blk_lake_clark_c2_02",
-        "recon_1835_blk_lake_clark_c3_03"
+        "recon_1835_blk_lake_clark_c3_03",
+        "recon_1835_core_c2_057"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -4767,6 +5206,24 @@
           [
             604.79,
             -178.85
+          ]
+        ],
+        [
+          [
+            599.49,
+            -152.34
+          ],
+          [
+            599.54,
+            -145.09
+          ],
+          [
+            588.1,
+            -145.02
+          ],
+          [
+            588.06,
+            -152.27
           ]
         ]
       ]
@@ -4863,7 +5320,10 @@
     {
       "lot": "blk_lake_clark_lot2",
       "structures": [
-        "inf_bakery_lake"
+        "inf_bakery_lake",
+        "recon_1835_core_c1_031",
+        "recon_1835_core_c2_030",
+        "recon_1835_core_c3_032"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -4891,7 +5351,26 @@
           -180.12
         ]
       ],
-      "refuges_local_enu_m": []
+      "refuges_local_enu_m": [
+        [
+          [
+            611.76,
+            -183.17
+          ],
+          [
+            614.2,
+            -183.19
+          ],
+          [
+            614.22,
+            -180.75
+          ],
+          [
+            611.78,
+            -180.73
+          ]
+        ]
+      ]
     },
     {
       "lot": "blk_lake_clark_lot3",
@@ -5015,6 +5494,7 @@
     {
       "lot": "blk_lake_clark_lot6",
       "structures": [
+        "recon_1835_core_c3_058",
         "recon_1835_south_a5_044",
         "recon_1835_south_c3_015",
         "recon_1835_south_d4_014",
@@ -5063,6 +5543,24 @@
           [
             661.07,
             -181.13
+          ]
+        ],
+        [
+          [
+            670.98,
+            -145.45
+          ],
+          [
+            670.93,
+            -152.97
+          ],
+          [
+            684.85,
+            -153.05
+          ],
+          [
+            684.9,
+            -145.54
           ]
         ],
         [
@@ -5264,6 +5762,9 @@
     {
       "lot": "blk_lake_dearborn_lot2",
       "structures": [
+        "recon_1835_core_c2_044",
+        "recon_1835_core_c2_046",
+        "recon_1835_core_c3_045",
         "recon_1835_south_d1_018"
       ],
       "kept_ring_local_enu_m": [
@@ -5296,19 +5797,37 @@
         [
           [
             735.99,
-            -184.19
+            -184.18
           ],
           [
-            738.28,
+            738.43,
             -184.2
           ],
           [
-            738.29,
-            -181.91
+            738.45,
+            -181.76
           ],
           [
-            736.0,
-            -181.9
+            736.01,
+            -181.74
+          ]
+        ],
+        [
+          [
+            738.27,
+            -151.36
+          ],
+          [
+            744.85,
+            -151.45
+          ],
+          [
+            744.97,
+            -142.89
+          ],
+          [
+            738.4,
+            -142.79
           ]
         ]
       ]
@@ -5349,6 +5868,9 @@
     {
       "lot": "blk_lake_dearborn_lot4",
       "structures": [
+        "recon_1835_core_c1_043",
+        "recon_1835_core_c2_041",
+        "recon_1835_core_c3_042",
         "recon_1835_south_d4_019"
       ],
       "kept_ring_local_enu_m": [
@@ -5394,6 +5916,24 @@
           [
             761.92,
             -181.95
+          ]
+        ],
+        [
+          [
+            764.8,
+            -152.05
+          ],
+          [
+            772.32,
+            -152.07
+          ],
+          [
+            772.34,
+            -142.25
+          ],
+          [
+            764.83,
+            -142.23
           ]
         ]
       ]

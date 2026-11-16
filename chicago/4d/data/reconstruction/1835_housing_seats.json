@@ -1988,12 +1988,12 @@
       {
         "household": "hh_botsford_j_k",
         "file": "households/hh_botsford_j_k.json",
-        "place": "recon_1835_gifford_c2_009",
+        "place": "recon_1835_core_c3_029",
         "rung": "keeper",
         "relation": "kept the store and lived here",
         "persons": 6,
         "division": "south",
-        "family": "C2",
+        "family": "C3",
         "presence": "ruled_in",
         "words": "keeping Fullerton & Botsford, over the store roof the business register or the street-face adoption stands that house of trade on",
         "followed_their_house_of_trade": "T-3605"
@@ -28344,70 +28344,68 @@
     "ruled_in_households_already_housed": 40,
     "ruled_in_households_owed_a_roof": 890,
     "of_them_only_at_work_on_a_roof": 0,
-    "seated": 1834,
+    "seated": 1842,
     "seated_by_presence": {
       "on_the_card": 951,
-      "ruled_in": 883
+      "ruled_in": 891
     },
     "refused": 0,
-    "persons_seated": 3091,
+    "persons_seated": 3116,
     "counted_apart": {
-      "absent_on_the_scene_date": 50,
-      "waiting_on_a_roof": 8
+      "absent_on_the_scene_date": 50
     },
     "persons_counted_apart": {
-      "absent_on_the_scene_date": 50,
-      "waiting_on_a_roof": 25
+      "absent_on_the_scene_date": 50
     },
     "by_rung": {
-      "boarder": 1356,
-      "dealt": 280,
+      "boarder": 1359,
+      "dealt": 285,
       "family": 170,
       "keeper": 20,
       "lodger": 8
     },
     "by_division": {
-      "north": 511,
-      "south": 951,
-      "west": 372
+      "north": 512,
+      "south": 957,
+      "west": 373
     },
     "by_family": {
       "C1": 3,
       "C2": 8,
       "C3": 6,
       "C4": 3,
-      "D1": 125,
-      "D2": 52,
-      "D3": 119,
-      "D4": 310,
-      "D5": 326,
-      "D6": 209,
+      "D1": 126,
+      "D2": 53,
+      "D3": 120,
+      "D4": 311,
+      "D5": 327,
+      "D6": 211,
       "D7": 228,
       "H1": 199,
-      "H2": 238,
+      "H2": 239,
       "H3": 8
     },
-    "roofs_in_the_pool": 125,
-    "roofs_the_deal_used": 345,
+    "roofs_in_the_pool": 127,
+    "roofs_the_deal_used": 348,
     "of_them_assigned_to_their_own_household": 22,
-    "named_household_roofs_offered_to_boarders": 210,
-    "boarders_with_a_named_household": 1129,
+    "named_household_roofs_offered_to_boarders": 214,
+    "boarders_with_a_named_household": 1136,
     "a_named_household_counted_as": 4
   },
   "the_ceiling": {
     "census_people_per_dwelling": 8.204,
     "source": "data/reconstruction/1835_town_model.json people_per_dwelling_november_1835 (3,265 people in 398 dwellings)",
     "the_ratio_is": "people under a roof / standing dwellings — the enumerator's own division, every dwelling counted whether this layer links anybody to it or not",
-    "standing_dwellings": 428,
-    "people_under_a_roof": 3507,
-    "people_per_dwelling": 8.194,
-    "inhabited_roofs": 379,
-    "people_per_inhabited_roof": 9.253,
+    "standing_dwellings": 450,
+    "people_under_a_roof": 3532,
+    "people_per_dwelling": 7.849,
+    "inhabited_roofs": 382,
+    "people_per_inhabited_roof": 9.246,
     "why_the_two_differ": "documented dwellings no card links and roofs whose record states a practice, a shop or anonymous stock stand in the first count and are refused by this deal (a named household's roof takes boarders and families, T-3494); who sleeps in them is T-1966's and T-1615's to settle, not a policy deal's",
     "most_crowded_roof": {
-      "structure_id": "recon_1835_blk_washington_dearborn_h2_05",
-      "people": 37,
-      "floor_m2": 217.15
+      "structure_id": "recon_1835_blk_randolph_wells_h2_01",
+      "people": 38,
+      "floor_m2": 196.83
     },
     "densest_roof": {
       "structure_id": "recon_1835_north_d1_054",
@@ -28430,14 +28428,14 @@
       "west": 5
     },
     "keepers_held": 180,
-    "store_roofs_offered": 14,
+    "store_roofs_offered": 66,
     "kept_from_elsewhere": {
       "ticket": "T-2244",
       "rule": "a generated store roof nobody sleeps or works in, standing a house of trade whose keeper (proprietor or partner) the town already places on another roof, is a store with nobody living over it: the keeper is not moved, and the book's order for a household over it is discharged (build_order_book_1835.py, store_residence_ruling)",
       "on_the_card": "a keeper who slept elsewhere and whose card puts their work nowhere else is listed on the store's card as having worked there; the rest of the household is not",
       "by_division": {
         "north": 0,
-        "south": 11,
+        "south": 14,
         "west": 0
       },
       "stores": [
@@ -28554,21 +28552,63 @@
           "words": "kept A. Garrett's business here and slept elsewhere in the town, in a house of their own; nobody lived over this store"
         },
         {
-          "structure_id": "recon_1835_gifford_c3_014",
+          "structure_id": "recon_1835_core_c1_027",
           "division": "south",
-          "business": "biz_george_holsman",
-          "name": "George Holsman",
-          "household": "hh_holsman_george",
-          "file": "households/hh_holsman_george.json",
-          "person_id": "holsman_george",
-          "keeper_placed_at": "recon_1835_blk_washington_clinton_h3_02",
-          "keeper_placed_as": "lodged here",
+          "business": "biz_j_curtiss_attorney_and_counsellor_at_law",
+          "name": "J. Curtiss, Attorney and Counsellor at Law",
+          "household": "hh_curtiss_j",
+          "file": "households/hh_curtiss_j.json",
+          "person_id": "curtiss_j",
+          "keeper_placed_at": "recon_1835_west_038",
+          "keeper_placed_as": "shared this roof",
           "listed_on_the_store_card": true,
           "relation": "worked here",
-          "words": "kept George Holsman's business here and slept elsewhere in the town, lodging in a boarding house; nobody lived over this store"
+          "words": "kept J. Curtiss, Attorney and Counsellor at Law's business here and slept elsewhere in the town, in a house they shared; nobody lived over this store"
         },
         {
-          "structure_id": "recon_1835_gifford_c3_015",
+          "structure_id": "recon_1835_core_c1_039",
+          "division": "south",
+          "business": "biz_s_abell_attorney_and_counsellor",
+          "name": "S. Abell, attorney and counsellor",
+          "household": "hh_abell_sidney",
+          "file": "households/hh_abell_sidney.json",
+          "person_id": "abell_sidney",
+          "keeper_placed_at": "recon_1835_blk_randolph_wells_h2_01",
+          "keeper_placed_as": "lived here",
+          "listed_on_the_store_card": true,
+          "relation": "worked here",
+          "words": "kept S. Abell, attorney and counsellor's business here and slept elsewhere in the town, in a house of their own; nobody lived over this store"
+        },
+        {
+          "structure_id": "recon_1835_core_c2_017",
+          "division": "south",
+          "business": "biz_james_grant",
+          "name": "James Grant",
+          "household": "hh_grant_james",
+          "file": "households/hh_grant_james.json",
+          "person_id": "grant_james",
+          "keeper_placed_at": "recon_1835_blk_washington_dearborn_d7_04",
+          "keeper_placed_as": "shared this roof",
+          "listed_on_the_store_card": true,
+          "relation": "worked here",
+          "words": "kept James Grant's business here and slept elsewhere in the town, in a house they shared; nobody lived over this store"
+        },
+        {
+          "structure_id": "recon_1835_core_c3_002",
+          "division": "south",
+          "business": "biz_e_l_thrall",
+          "name": "E. L. Thrall",
+          "household": "hh_thrall_e_l",
+          "file": "households/hh_thrall_e_l.json",
+          "person_id": "thrall_e_l",
+          "keeper_placed_at": "recon_1835_blk_washington_lasalle_d7_05",
+          "keeper_placed_as": "shared this roof",
+          "listed_on_the_store_card": true,
+          "relation": "worked here",
+          "words": "kept E. L. Thrall's business here and slept elsewhere in the town, in a house they shared; nobody lived over this store"
+        },
+        {
+          "structure_id": "recon_1835_gifford_c1_010",
           "division": "south",
           "business": "biz_a_garrett_auctioneer",
           "name": "A. Garrett, auctioneer",
@@ -28582,18 +28622,18 @@
           "words": "kept A. Garrett, auctioneer's business here and slept elsewhere in the town, in a house of their own; nobody lived over this store"
         },
         {
-          "structure_id": "recon_1835_gifford_c3_017",
+          "structure_id": "recon_1835_gifford_c2_009",
           "division": "south",
-          "business": "biz_e_l_thrall",
-          "name": "E. L. Thrall",
-          "household": "hh_thrall_e_l",
-          "file": "households/hh_thrall_e_l.json",
-          "person_id": "thrall_e_l",
-          "keeper_placed_at": "recon_1835_blk_washington_lasalle_d7_05",
-          "keeper_placed_as": "shared this roof",
+          "business": "biz_george_holsman",
+          "name": "George Holsman",
+          "household": "hh_holsman_george",
+          "file": "households/hh_holsman_george.json",
+          "person_id": "holsman_george",
+          "keeper_placed_at": "recon_1835_blk_washington_clinton_h3_02",
+          "keeper_placed_as": "lodged here",
           "listed_on_the_store_card": true,
           "relation": "worked here",
-          "words": "kept E. L. Thrall's business here and slept elsewhere in the town, in a house they shared; nobody lived over this store"
+          "words": "kept George Holsman's business here and slept elsewhere in the town, lodging in a boarding house; nobody lived over this store"
         }
       ]
     },
@@ -28659,15 +28699,13 @@
     "who": "households whose cards still read `uncertain` and whom T-1386's rule puts in the town (data/reconstruction/1835_presence_rulings.json): an attested or inferred resident is present unless evidence says otherwise",
     "order": "the ruling's leg, strongest first (on_the_day, spans, bracketed, carried), then the nearest last dated reading, then a seeded hash",
     "the_line_stops": "at the first household the census's people per dwelling cannot take; nobody behind it is seated, so a weaker ruling never takes a roof a stronger one waits for",
-    "admitted": 874,
+    "admitted": 882,
     "kept_a_store_before_the_line": 9,
-    "waiting": 8,
+    "waiting": 0,
     "admitted_by_leg": {
-      "carried": 26
+      "carried": 34
     },
-    "waiting_by_leg": {
-      "carried": 8
-    }
+    "waiting_by_leg": {}
   },
   "counted_apart_reasons": {
     "absent_on_the_scene_date": "the card, or the presence rulings' evidenced absences, put this household out of the town on 1 July 1835 (a death, a dated departure, or the persistence draw T-1172 ruled on): it is owed no roof in this scene",
@@ -28719,6 +28757,18 @@
       "persons": 2,
       "division": "west",
       "family": "D4",
+      "presence": "ruled_in",
+      "words": "the roof T-1613 dealt this household, joined here and not re-argued"
+    },
+    {
+      "household": "hh_abell_sidney",
+      "file": "households/hh_abell_sidney.json",
+      "place": "recon_1835_blk_randolph_wells_h2_01",
+      "rung": "dealt",
+      "relation": "lived here",
+      "persons": 5,
+      "division": "south",
+      "family": "H2",
       "presence": "ruled_in",
       "words": "the roof T-1613 dealt this household, joined here and not re-argued"
     },
@@ -29225,6 +29275,18 @@
       "family": "D1",
       "presence": "ruled_in",
       "words": "the roof T-1614 dealt this household, joined here and not re-argued"
+    },
+    {
+      "household": "hh_arquette_michel",
+      "file": "households/hh_arquette_michel.json",
+      "place": "recon_1835_blk_indiana_north_cass_d3_02",
+      "rung": "dealt",
+      "relation": "lived here",
+      "persons": 8,
+      "division": "north",
+      "family": "D3",
+      "presence": "ruled_in",
+      "words": "the roof T-1613 dealt this household, joined here and not re-argued"
     },
     {
       "household": "hh_arrasmith_james",
@@ -30693,12 +30755,12 @@
     {
       "household": "hh_botsford_j_k",
       "file": "households/hh_botsford_j_k.json",
-      "place": "recon_1835_gifford_c2_009",
+      "place": "recon_1835_core_c3_029",
       "rung": "keeper",
       "relation": "kept the store and lived here",
       "persons": 6,
       "division": "south",
-      "family": "C2",
+      "family": "C3",
       "presence": "ruled_in",
       "words": "keeping Fullerton & Botsford, over the store roof the business register or the street-face adoption stands that house of trade on",
       "followed_their_house_of_trade": "T-3605"
@@ -33788,6 +33850,18 @@
       "words": "boarding in the division's least crowded dwelling"
     },
     {
+      "household": "hh_duplas_joseph",
+      "file": "households/hh_duplas_joseph.json",
+      "place": "recon_1835_south_d5_023",
+      "rung": "dealt",
+      "relation": "lived here",
+      "persons": 7,
+      "division": "south",
+      "family": "D5",
+      "presence": "ruled_in",
+      "words": "the roof T-1613 dealt this household, joined here and not re-argued"
+    },
+    {
       "household": "hh_dustin_thomas",
       "file": "households/hh_dustin_thomas.json",
       "place": "recon_1835_blk_washington_wells_h2_07",
@@ -34158,6 +34232,18 @@
       "family": "D5",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
+    },
+    {
+      "household": "hh_everts_hiram",
+      "file": "households/hh_everts_hiram.json",
+      "place": "recon_1835_west_014",
+      "rung": "dealt",
+      "relation": "lived here",
+      "persons": 1,
+      "division": "west",
+      "family": "D1",
+      "presence": "ruled_in",
+      "words": "the roof T-1613 dealt this household, joined here and not re-argued"
     },
     {
       "household": "hh_ewing_w_l_d",
@@ -36142,12 +36228,12 @@
     {
       "household": "hh_hogue_william",
       "file": "households/hh_hogue_william.json",
-      "place": "recon_1835_gifford_c3_007",
+      "place": "recon_1835_core_c2_052",
       "rung": "keeper",
       "relation": "kept the store and lived here",
       "persons": 1,
       "division": "south",
-      "family": "C3",
+      "family": "C2",
       "presence": "ruled_in",
       "words": "keeping Wm. Hogue & Co., a house of trade the town holds and stands on no roof, over an empty store roof of the south division"
     },
@@ -39610,7 +39696,7 @@
     {
       "household": "hh_miller_catherine",
       "file": "households/hh_miller_catherine.json",
-      "place": "recon_1835_blk_south_water_lasalle_d2_09",
+      "place": "recon_1835_blk_lake_market_d2_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -40136,6 +40222,18 @@
       "words": "the roof T-1614 dealt this household, joined here and not re-argued"
     },
     {
+      "household": "hh_murray_catherine",
+      "file": "households/hh_murray_catherine.json",
+      "place": "recon_1835_blk_south_water_franklin_d4_02",
+      "rung": "dealt",
+      "relation": "lived here",
+      "persons": 1,
+      "division": "south",
+      "family": "D4",
+      "presence": "ruled_in",
+      "words": "the roof T-1613 dealt this household, joined here and not re-argued"
+    },
+    {
       "household": "hh_murray_john",
       "file": "households/hh_murray_john.json",
       "place": "recon_1835_blk_randolph_market_d1_10",
@@ -40424,6 +40522,18 @@
       "words": "a D3/D4/D5/D6 dwelling, as the tradesman_dwellings clause admits"
     },
     {
+      "household": "hh_nolan_michael",
+      "file": "households/hh_nolan_michael.json",
+      "place": "recon_1835_blk_randolph_clark_d6_04",
+      "rung": "boarder",
+      "relation": "boarded here",
+      "persons": 1,
+      "division": "south",
+      "family": "D6",
+      "presence": "ruled_in",
+      "words": "boarding in the division's least crowded dwelling"
+    },
+    {
       "household": "hh_norman_clarke",
       "file": "readmitted/hh_norman_clarke.json",
       "place": "recon_1835_north_h2_045",
@@ -40552,6 +40662,18 @@
       "persons": 1,
       "division": "west",
       "family": "D5",
+      "presence": "ruled_in",
+      "words": "boarding in the division's least crowded dwelling"
+    },
+    {
+      "household": "hh_omarra_james",
+      "file": "households/hh_omarra_james.json",
+      "place": "recon_1835_blk_south_water_dearborn_d2_04",
+      "rung": "boarder",
+      "relation": "boarded here",
+      "persons": 1,
+      "division": "south",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -46004,6 +46126,18 @@
       "words": "boarding in the division's least crowded dwelling"
     },
     {
+      "household": "hh_robi_marguerite",
+      "file": "households/hh_robi_marguerite.json",
+      "place": "recon_1835_blk_south_water_lasalle_d2_09",
+      "rung": "boarder",
+      "relation": "boarded here",
+      "persons": 1,
+      "division": "south",
+      "family": "D2",
+      "presence": "ruled_in",
+      "words": "boarding in the division's least crowded dwelling"
+    },
+    {
       "household": "hh_robian_daniel_o",
       "file": "households/hh_robian_daniel_o.json",
       "place": "recon_1835_blk_randolph_clark_h2_02",
@@ -47986,12 +48120,12 @@
     {
       "household": "hh_taylor_c",
       "file": "households/hh_taylor_c.json",
-      "place": "recon_1835_blk_lake_market_d2_04",
+      "place": "recon_1835_blk_randolph_clark_d6_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D6",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -50602,7 +50736,7 @@
     {
       "household": "hh_wright_j",
       "file": "households/hh_wright_j.json",
-      "place": "recon_1835_blk_south_water_dearborn_d2_04",
+      "place": "recon_1835_blk_randolph_wells_d2_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -50686,22 +50820,6 @@
   ],
   "refused": [],
   "counted_apart": [
-    {
-      "household": "hh_abell_sidney",
-      "file": "households/hh_abell_sidney.json",
-      "persons": 5,
-      "why": "waiting_on_a_roof",
-      "leg": "carried",
-      "queue_position": 27
-    },
-    {
-      "household": "hh_arquette_michel",
-      "file": "households/hh_arquette_michel.json",
-      "persons": 8,
-      "why": "waiting_on_a_roof",
-      "leg": "carried",
-      "queue_position": 31
-    },
     {
       "household": "hh_baxley_mary",
       "file": "households/hh_baxley_mary.json",
@@ -50803,14 +50921,6 @@
       "evidence": "NOT YET BORN ON THE DAY."
     },
     {
-      "household": "hh_duplas_joseph",
-      "file": "households/hh_duplas_joseph.json",
-      "persons": 7,
-      "why": "waiting_on_a_roof",
-      "leg": "carried",
-      "queue_position": 34
-    },
-    {
       "household": "hh_ebenezer_crane",
       "file": "readmitted/hh_ebenezer_crane.json",
       "persons": 1,
@@ -50819,14 +50929,6 @@
       "confidence": "reconstructed",
       "basis": "persistence_1835",
       "evidence": "The reading dates this name at 1833, 2.49 years before the scene date."
-    },
-    {
-      "household": "hh_everts_hiram",
-      "file": "households/hh_everts_hiram.json",
-      "persons": 1,
-      "why": "waiting_on_a_roof",
-      "leg": "carried",
-      "queue_position": 29
     },
     {
       "household": "hh_fisher_pitman",
@@ -50959,14 +51061,6 @@
       "evidence": "NOT YET BORN ON THE DAY."
     },
     {
-      "household": "hh_murray_catherine",
-      "file": "households/hh_murray_catherine.json",
-      "persons": 1,
-      "why": "waiting_on_a_roof",
-      "leg": "carried",
-      "queue_position": 28
-    },
-    {
       "household": "hh_murray_martha",
       "file": "households/hh_murray_martha.json",
       "persons": 1,
@@ -50975,14 +51069,6 @@
       "confidence": "inferred",
       "basis": "the_card's_own_reading",
       "evidence": "NOT YET BORN ON THE DAY."
-    },
-    {
-      "household": "hh_nolan_michael",
-      "file": "households/hh_nolan_michael.json",
-      "persons": 1,
-      "why": "waiting_on_a_roof",
-      "leg": "carried",
-      "queue_position": 30
     },
     {
       "household": "hh_omarra_bridget",
@@ -50995,14 +51081,6 @@
       "evidence": "NOT YET BORN ON THE DAY."
     },
     {
-      "household": "hh_omarra_james",
-      "file": "households/hh_omarra_james.json",
-      "persons": 1,
-      "why": "waiting_on_a_roof",
-      "leg": "carried",
-      "queue_position": 32
-    },
-    {
       "household": "hh_outhet_daniel",
       "file": "households/hh_outhet_daniel.json",
       "persons": 1,
@@ -51011,14 +51089,6 @@
       "confidence": "attested",
       "basis": "the_card's_own_reading",
       "evidence": "DEAD BEFORE THE DAY (T-2189)."
-    },
-    {
-      "household": "hh_robi_marguerite",
-      "file": "households/hh_robi_marguerite.json",
-      "persons": 1,
-      "why": "waiting_on_a_roof",
-      "leg": "carried",
-      "queue_position": 33
     },
     {
       "household": "hh_roi_joseph_claude",

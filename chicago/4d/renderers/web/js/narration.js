@@ -23,6 +23,7 @@
  * (tools/audio-hosting.json; docs/AUDIO.md § Narration). With no index — a local build, an
  * unreachable host, a jaunt not yet voiced — nothing is offered and nothing fails.
  */
+import { clipSeconds } from './jaunt-pace.js';
 // The app's own audio folder, as js/recorded-audio.js names it (not imported: this file stays light and Node-readable).
 export const AUDIO_BASE = new URL('../audio/', import.meta.url);
 
@@ -140,6 +141,7 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
   let index = null, indexUrl = null, loading = null, failed = false;
   let el = null, routed = null, primed = false, playing = null, queued = null, at = null, error = null, starved = false;
   let heard = false;               // the part `at` names has been played or queued once
+  let ended = null;                // the last clip that played to its end
   let opening = null;              // an outing's opening it showed that has not been heard yet
   const keys = new Map();          // `${jaunt}:${part}:${id}` → { sha, speaker } of the words shown there
   const prepared = new Map();      // jaunt id → the content it was prepared for
@@ -162,12 +164,18 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     })();
     return loading;
   }
-  /** Look up every script of a jaunt once (per content), then repaint. */
-  async function prepare(jaunt) {
-    if (!jaunt?.id) return;
+  /** Look up every script of a jaunt once (per content), then repaint. Every caller waits
+   *  for the same lookup (the flight to the start waits on it to know the opening's length). */
+  function prepare(jaunt) {
+    if (!jaunt?.id) return Promise.resolve();
     const content = `${jaunt.content_version ?? ''}:${jaunt.stops?.length ?? 0}`;
-    if (prepared.get(jaunt.id) === content) return;
-    prepared.set(jaunt.id, content);
+    const had = prepared.get(jaunt.id);
+    if (had?.content === content) return had.done;
+    const done = lookUp(jaunt);
+    prepared.set(jaunt.id, { content, done });
+    return done;
+  }
+  async function lookUp(jaunt) {
     const found = await readIndex();
     if (!found) return;
     let any = false;
@@ -184,7 +192,7 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
   function element() {
     if (el) return el;
     el = media(); el.preload = 'auto'; el.crossOrigin = 'anonymous';
-    el.addEventListener?.('ended', () => finish(true));
+    el.addEventListener?.('ended', () => { ended = playing; finish(true); });
     el.addEventListener?.('error', () => { if (playing) { error = 'Narration could not play.'; finish(false); } });
     // Muting Narration or all sound, or leaving the page, ends the voice rather than leaving it speaking silently.
     el.addEventListener?.('timeupdate', () => { if (playing && speech()?.audible === false) stop(); if (starved && el.readyState >= 3) starved = false; });
@@ -225,7 +233,7 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     const a = element(); queued = null; error = null;
     // A clip's file is named from the host's root, as the index's own path is (INDEX_PATH).
     a.src = new URL(c.file, new URL('../', indexUrl)).href;
-    playing = key; duck(true); changed();
+    playing = key; if (ended === key) ended = null; duck(true); changed();
     routed.heard = false;   // the ear has heard nothing of this clip yet (`voice()`)
     starved = false;
     const own = key;
@@ -248,6 +256,14 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     get state() { return { index: index ? Object.keys(index.clips).length : failed ? 'unavailable' : 'pending', playing, queued, at, error, primed }; },
     on(fn) { listeners.add(fn); return () => listeners.delete(fn); },
     isPlaying: (jaunt, part, id) => playing === slot(jaunt, part, id),
+    /** The owner, 2026-11-16: the closing scene waits for its ending's voice to finish. */
+    ended: (jaunt, part, id) => ended === slot(jaunt, part, id),
+    /** How long this part's voice will speak if it plays now (sound on, Narration up, a clip
+     *  for its words), in seconds; null when nothing would be heard. */
+    seconds(jaunt, part, id) {
+      const c = clip(jaunt, part, id);
+      return c && speech()?.audible ? clipSeconds(c) : null;
+    },
     /**
      * T-3553: who is speaking now, and how loud: { speaker, level } while a clip sounds, else
      * null. `speaker` is the person the clip speaks for (a stop's first host) or NARRATOR;

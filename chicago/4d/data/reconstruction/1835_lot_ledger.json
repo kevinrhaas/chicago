@@ -40,20 +40,20 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 210,
-   "free": 223,
-   "room": 47
+   "at_capacity": 233,
+   "free": 221,
+   "room": 26
   },
   "by_multi_building_rule": {
    "one_principal_roof": 412,
    "party_line_run": 68
   },
   "corner_lots": 205,
-  "lots_with_a_roof": 264,
-  "lots_barring_another_roof": 263,
-  "shared_business_fronts": 1,
-  "principal_roofs_standing": 345,
-  "lots_over_their_own_rule": 24
+  "lots_with_a_roof": 266,
+  "lots_barring_another_roof": 266,
+  "shared_business_fronts": 0,
+  "principal_roofs_standing": 404,
+  "lots_over_their_own_rule": 38
  },
  "the_density_standard": {
   "rule": {
@@ -77,8 +77,8 @@
   },
   "multi_building_lot_rate_on_the_principal_streets": {
    "principal_street_lots": 68,
-   "carrying_more_than_one_principal_roof": 39,
-   "rate": 0.5735,
+   "carrying_more_than_one_principal_roof": 56,
+   "rate": 0.8235,
    "standard": "three party-line units per lot where the rule fires — the schedule's capacity is a ceiling and not a target (1835_platted_block_parcels.json, `placement_rule.open_lots`)"
   }
  },
@@ -1905,18 +1905,20 @@
     "recon_1835_blk_lake_clark_a3_04",
     "recon_1835_blk_lake_clark_c1_01",
     "recon_1835_blk_lake_clark_c2_02",
-    "recon_1835_blk_lake_clark_c3_03"
+    "recon_1835_blk_lake_clark_c3_03",
+    "recon_1835_core_c2_057"
    ],
    "standing_families": {
     "recon_1835_blk_lake_clark_a3_04": "A3",
     "recon_1835_blk_lake_clark_c1_01": "C1",
     "recon_1835_blk_lake_clark_c2_02": "C2",
-    "recon_1835_blk_lake_clark_c3_03": "C3"
+    "recon_1835_blk_lake_clark_c3_03": "C3",
+    "recon_1835_core_c2_057": "C2"
    },
-   "principal_roofs_standing": 3,
+   "principal_roofs_standing": 4,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
    "state": "at_capacity"
   },
@@ -1976,17 +1978,21 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "inf_bakery_lake"
+    "inf_bakery_lake",
+    "recon_1835_core_c1_031",
+    "recon_1835_core_c2_030"
    ],
    "standing_families": {
-    "inf_bakery_lake": "C1"
+    "inf_bakery_lake": "C1",
+    "recon_1835_core_c1_031": "C1",
+    "recon_1835_core_c2_030": "C2"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 3,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_lake_clark#03",
@@ -2043,18 +2049,20 @@
    "principal_roofs_max": 3,
    "standing": [
     "inf_butcher_market",
+    "recon_1835_core_c3_032",
     "recon_1835_south_d3_013"
    ],
    "standing_families": {
     "inf_butcher_market": "C1",
+    "recon_1835_core_c3_032": "C3",
     "recon_1835_south_d3_013": "D3"
    },
-   "principal_roofs_standing": 2,
+   "principal_roofs_standing": 3,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_lake_clark#05",
@@ -2106,21 +2114,23 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
+    "recon_1835_core_c3_058",
     "recon_1835_south_a5_044",
     "recon_1835_south_c3_015",
     "recon_1835_south_d4_014",
     "recon_1835_south_d5_016"
    ],
    "standing_families": {
+    "recon_1835_core_c3_058": "C3",
     "recon_1835_south_a5_044": "A5",
     "recon_1835_south_c3_015": "C3",
     "recon_1835_south_d4_014": "D4",
     "recon_1835_south_d5_016": "D5"
    },
-   "principal_roofs_standing": 3,
+   "principal_roofs_standing": 4,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
    "state": "at_capacity"
   },
@@ -2588,17 +2598,23 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
+    "recon_1835_core_c2_044",
+    "recon_1835_core_c2_046",
+    "recon_1835_core_c3_045",
     "recon_1835_south_d1_018"
    ],
    "standing_families": {
+    "recon_1835_core_c2_044": "C2",
+    "recon_1835_core_c2_046": "C2",
+    "recon_1835_core_c3_045": "C3",
     "recon_1835_south_d1_018": "D1"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 4,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_lake_dearborn#03",
@@ -2654,17 +2670,23 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
+    "recon_1835_core_c1_043",
+    "recon_1835_core_c2_041",
+    "recon_1835_core_c3_042",
     "recon_1835_south_d4_019"
    ],
    "standing_families": {
+    "recon_1835_core_c1_043": "C1",
+    "recon_1835_core_c2_041": "C2",
+    "recon_1835_core_c3_042": "C3",
     "recon_1835_south_d4_019": "D4"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 4,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_lake_dearborn#05",
@@ -3061,18 +3083,20 @@
    "principal_roofs_max": 3,
    "standing": [
     "old_bank_building",
+    "recon_1835_core_c2_025",
     "recon_1835_south_d4_009"
    ],
    "standing_families": {
     "old_bank_building": "F2",
+    "recon_1835_core_c2_025": "C2",
     "recon_1835_south_d4_009": "D4"
    },
-   "principal_roofs_standing": 2,
+   "principal_roofs_standing": 3,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_lake_lasalle#01",
@@ -3130,17 +3154,21 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
+    "recon_1835_core_c2_022",
+    "recon_1835_core_c3_021",
     "recon_1835_south_d1_010"
    ],
    "standing_families": {
+    "recon_1835_core_c2_022": "C2",
+    "recon_1835_core_c3_021": "C3",
     "recon_1835_south_d1_010": "D1"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 3,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_lake_lasalle#03",
@@ -3196,17 +3224,21 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
+    "recon_1835_core_c1_023",
+    "recon_1835_core_c3_024",
     "recon_1835_south_d5_011"
    ],
    "standing_families": {
+    "recon_1835_core_c1_023": "C1",
+    "recon_1835_core_c3_024": "C3",
     "recon_1835_south_d5_011": "D5"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 3,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_lake_lasalle#05",
@@ -3605,18 +3637,22 @@
    "principal_roofs_max": 3,
    "standing": [
     "inf_shoemaker_shop",
+    "recon_1835_core_c2_014",
+    "recon_1835_core_c3_013",
     "recon_1835_south_d2_005"
    ],
    "standing_families": {
     "inf_shoemaker_shop": "W4",
+    "recon_1835_core_c2_014": "C2",
+    "recon_1835_core_c3_013": "C3",
     "recon_1835_south_d2_005": "D2"
    },
-   "principal_roofs_standing": 2,
+   "principal_roofs_standing": 4,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_lake_wells#01",
@@ -3743,18 +3779,20 @@
    "principal_roofs_max": 3,
    "standing": [
     "inf_barber_shop",
+    "recon_1835_core_c1_015",
     "recon_1835_south_d5_007"
    ],
    "standing_families": {
     "inf_barber_shop": "W4",
+    "recon_1835_core_c1_015": "C1",
     "recon_1835_south_d5_007": "D5"
    },
-   "principal_roofs_standing": 2,
+   "principal_roofs_standing": 3,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_lake_wells#05",
@@ -9218,17 +9256,23 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "harmon_loomis_store"
+    "harmon_loomis_store",
+    "recon_1835_core_c1_027",
+    "recon_1835_core_c3_026",
+    "recon_1835_core_c3_056"
    ],
    "standing_families": {
-    "harmon_loomis_store": "C3"
+    "harmon_loomis_store": "C3",
+    "recon_1835_core_c1_027": "C1",
+    "recon_1835_core_c3_026": "C3",
+    "recon_1835_core_c3_056": "C3"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 4,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_clark#01",
@@ -9251,19 +9295,21 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
+    "recon_1835_core_c1_055",
     "recon_1835_gifford_c2_001",
     "recon_1835_gifford_c3_002",
     "recon_1835_gifford_c3_003"
    ],
    "standing_families": {
+    "recon_1835_core_c1_055": "C1",
     "recon_1835_gifford_c2_001": "C2",
     "recon_1835_gifford_c3_002": "C3",
     "recon_1835_gifford_c3_003": "C3"
    },
-   "principal_roofs_standing": 3,
+   "principal_roofs_standing": 4,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
    "state": "at_capacity"
   },
@@ -9290,19 +9336,21 @@
    "standing": [
     "pruyne_kimball_drugstore",
     "recon_1835_blk_south_water_clark_a3_07",
-    "recon_1835_blk_south_water_clark_c2_06"
+    "recon_1835_blk_south_water_clark_c2_06",
+    "recon_1835_core_c2_028"
    ],
    "standing_families": {
     "pruyne_kimball_drugstore": "C1",
     "recon_1835_blk_south_water_clark_a3_07": "A3",
-    "recon_1835_blk_south_water_clark_c2_06": "C2"
+    "recon_1835_blk_south_water_clark_c2_06": "C2",
+    "recon_1835_core_c2_028": "C2"
    },
-   "principal_roofs_standing": 2,
+   "principal_roofs_standing": 3,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_clark#03",
@@ -9440,16 +9488,18 @@
    "standing": [
     "bates_auction_room",
     "madore_beaubien_house",
+    "recon_1835_core_c3_029",
     "recon_1835_gifford_c2_016",
     "recon_1835_gifford_c3_017"
    ],
    "standing_families": {
     "bates_auction_room": "C1",
     "madore_beaubien_house": "D1",
+    "recon_1835_core_c3_029": "C3",
     "recon_1835_gifford_c2_016": "C2",
     "recon_1835_gifford_c3_017": "C3"
    },
-   "principal_roofs_standing": 4,
+   "principal_roofs_standing": 5,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": true,
@@ -9564,18 +9614,24 @@
    "principal_roofs_max": 3,
    "standing": [
     "recon_1835_blk_south_water_dearborn_a5_10",
-    "recon_1835_blk_south_water_dearborn_d2_04"
+    "recon_1835_blk_south_water_dearborn_d2_04",
+    "recon_1835_core_c1_039",
+    "recon_1835_core_c1_059",
+    "recon_1835_core_c3_040"
    ],
    "standing_families": {
     "recon_1835_blk_south_water_dearborn_a5_10": "A5",
-    "recon_1835_blk_south_water_dearborn_d2_04": "D2"
+    "recon_1835_blk_south_water_dearborn_d2_04": "D2",
+    "recon_1835_core_c1_039": "C1",
+    "recon_1835_core_c1_059": "C1",
+    "recon_1835_core_c3_040": "C3"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 4,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_dearborn#02",
@@ -9638,13 +9694,15 @@
    "principal_roofs_max": 3,
    "standing": [
     "mansion_house",
-    "mansion_house_stable"
+    "mansion_house_stable",
+    "recon_1835_core_c2_038"
    ],
    "standing_families": {
     "mansion_house": "T1",
-    "mansion_house_stable": "A1"
+    "mansion_house_stable": "A1",
+    "recon_1835_core_c2_038": "C2"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 2,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
@@ -9745,18 +9803,20 @@
    "principal_roofs_max": 3,
    "standing": [
     "chappel_infant_school",
+    "recon_1835_core_c2_033",
     "south_bank_shed_dearborn_e2"
    ],
    "standing_families": {
     "chappel_infant_school": "D1",
+    "recon_1835_core_c2_033": "C2",
     "south_bank_shed_dearborn_e2": "F1"
    },
-   "principal_roofs_standing": 2,
+   "principal_roofs_standing": 3,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_dearborn#07",
@@ -9778,14 +9838,24 @@
    "dry": true,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_core_c1_035",
+    "recon_1835_core_c2_036",
+    "recon_1835_core_c3_034",
+    "recon_1835_core_c3_037"
+   ],
+   "standing_families": {
+    "recon_1835_core_c1_035": "C1",
+    "recon_1835_core_c2_036": "C2",
+    "recon_1835_core_c3_034": "C3",
+    "recon_1835_core_c3_037": "C3"
+   },
+   "principal_roofs_standing": 4,
+   "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_franklin#00",
@@ -10095,18 +10165,22 @@
     "recon_1835_blk_south_water_lasalle_a1_14",
     "recon_1835_blk_south_water_lasalle_c1_08",
     "recon_1835_blk_south_water_lasalle_d2_09",
-    "recon_1835_blk_south_water_lasalle_f2_10"
+    "recon_1835_blk_south_water_lasalle_f2_10",
+    "recon_1835_core_c1_051",
+    "recon_1835_core_c2_052"
    ],
    "standing_families": {
     "recon_1835_blk_south_water_lasalle_a1_14": "A1",
     "recon_1835_blk_south_water_lasalle_c1_08": "C1",
     "recon_1835_blk_south_water_lasalle_d2_09": "D2",
-    "recon_1835_blk_south_water_lasalle_f2_10": "F2"
+    "recon_1835_blk_south_water_lasalle_f2_10": "F2",
+    "recon_1835_core_c1_051": "C1",
+    "recon_1835_core_c2_052": "C2"
    },
-   "principal_roofs_standing": 3,
+   "principal_roofs_standing": 5,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
    "state": "at_capacity"
   },
@@ -10131,17 +10205,23 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "lasalle_lake_house"
+    "lasalle_lake_house",
+    "recon_1835_core_c2_017",
+    "recon_1835_core_c3_018",
+    "recon_1835_core_c3_053"
    ],
    "standing_families": {
-    "lasalle_lake_house": "D1"
+    "lasalle_lake_house": "D1",
+    "recon_1835_core_c2_017": "C2",
+    "recon_1835_core_c3_018": "C3",
+    "recon_1835_core_c3_053": "C3"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 4,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_lasalle#02",
@@ -10204,18 +10284,20 @@
    "principal_roofs_max": 3,
    "standing": [
     "recon_1835_blk_south_water_lasalle_d2_05",
-    "recon_1835_blk_south_water_lasalle_d3_06"
+    "recon_1835_blk_south_water_lasalle_d3_06",
+    "recon_1835_core_c1_019"
    ],
    "standing_families": {
     "recon_1835_blk_south_water_lasalle_d2_05": "D2",
-    "recon_1835_blk_south_water_lasalle_d3_06": "D3"
+    "recon_1835_blk_south_water_lasalle_d3_06": "D3",
+    "recon_1835_core_c1_019": "C1"
    },
-   "principal_roofs_standing": 2,
+   "principal_roofs_standing": 3,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_lasalle#04",
@@ -10277,12 +10359,14 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
+    "recon_1835_core_c2_020",
     "thomas_church_store"
    ],
    "standing_families": {
+    "recon_1835_core_c2_020": "C2",
     "thomas_church_store": "C3"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 2,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
@@ -10310,17 +10394,21 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "chicago_democrat_office"
+    "chicago_democrat_office",
+    "recon_1835_core_c2_054",
+    "recon_1835_core_c3_016"
    ],
    "standing_families": {
-    "chicago_democrat_office": "C3"
+    "chicago_democrat_office": "C3",
+    "recon_1835_core_c2_054": "C2",
+    "recon_1835_core_c3_016": "C3"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 3,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_lasalle#07",
@@ -10510,17 +10598,23 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "h_jones_store"
+    "h_jones_store",
+    "recon_1835_core_c1_047",
+    "recon_1835_core_c2_001",
+    "recon_1835_core_c3_048"
    ],
    "standing_families": {
-    "h_jones_store": "C1"
+    "h_jones_store": "C1",
+    "recon_1835_core_c1_047": "C1",
+    "recon_1835_core_c2_001": "C2",
+    "recon_1835_core_c3_048": "C3"
    },
-   "principal_roofs_standing": 1,
-   "bars_another_roof": false,
-   "shared_business_front": true,
-   "over_its_rule": false,
+   "principal_roofs_standing": 4,
+   "bars_another_roof": true,
+   "shared_business_front": false,
+   "over_its_rule": true,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_wells#01",
@@ -10542,14 +10636,22 @@
    "dry": true,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_core_c1_004",
+    "recon_1835_core_c2_005",
+    "recon_1835_core_h3_003"
+   ],
+   "standing_families": {
+    "recon_1835_core_c1_004": "C1",
+    "recon_1835_core_c2_005": "C2",
+    "recon_1835_core_h3_003": "H3"
+   },
+   "principal_roofs_standing": 3,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_wells#02",
@@ -10573,18 +10675,20 @@
    "principal_roofs_max": 3,
    "standing": [
     "carpenter_south_water_store",
-    "recon_1835_blk_south_water_wells_d1_05"
+    "recon_1835_blk_south_water_wells_d1_05",
+    "recon_1835_core_c3_002"
    ],
    "standing_families": {
     "carpenter_south_water_store": "C1",
-    "recon_1835_blk_south_water_wells_d1_05": "D1"
+    "recon_1835_blk_south_water_wells_d1_05": "D1",
+    "recon_1835_core_c3_002": "C3"
    },
-   "principal_roofs_standing": 2,
+   "principal_roofs_standing": 3,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_wells#03",
@@ -10608,18 +10712,24 @@
    "principal_roofs_max": 3,
    "standing": [
     "recon_1835_blk_south_water_wells_d1_07",
-    "recon_1835_blk_south_water_wells_d2_06"
+    "recon_1835_blk_south_water_wells_d2_06",
+    "recon_1835_core_c2_007",
+    "recon_1835_core_c3_006",
+    "recon_1835_core_c3_011"
    ],
    "standing_families": {
     "recon_1835_blk_south_water_wells_d1_07": "D1",
-    "recon_1835_blk_south_water_wells_d2_06": "D2"
+    "recon_1835_blk_south_water_wells_d2_06": "D2",
+    "recon_1835_core_c2_007": "C2",
+    "recon_1835_core_c3_006": "C3",
+    "recon_1835_core_c3_011": "C3"
    },
-   "principal_roofs_standing": 2,
+   "principal_roofs_standing": 5,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_wells#04",
@@ -10680,18 +10790,24 @@
    "principal_roofs_max": 3,
    "standing": [
     "recon_1835_blk_south_water_wells_a2_09",
-    "recon_1835_blk_south_water_wells_d4_03"
+    "recon_1835_blk_south_water_wells_d4_03",
+    "recon_1835_core_c1_008",
+    "recon_1835_core_c1_012",
+    "recon_1835_core_c3_009"
    ],
    "standing_families": {
     "recon_1835_blk_south_water_wells_a2_09": "A2",
-    "recon_1835_blk_south_water_wells_d4_03": "D4"
+    "recon_1835_blk_south_water_wells_d4_03": "D4",
+    "recon_1835_core_c1_008": "C1",
+    "recon_1835_core_c1_012": "C1",
+    "recon_1835_core_c3_009": "C3"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 4,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_wells#06",
@@ -10715,13 +10831,15 @@
    "principal_roofs_max": 3,
    "standing": [
     "brown_boarding_house",
-    "peck_store"
+    "peck_store",
+    "recon_1835_core_c3_050"
    ],
    "standing_families": {
     "brown_boarding_house": null,
-    "peck_store": "C3"
+    "peck_store": "C3",
+    "recon_1835_core_c3_050": "C3"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 2,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
@@ -10750,18 +10868,22 @@
    "principal_roofs_max": 3,
    "standing": [
     "recon_1835_blk_south_water_wells_a2_10",
-    "recon_1835_blk_south_water_wells_d3_04"
+    "recon_1835_blk_south_water_wells_d3_04",
+    "recon_1835_core_c2_010",
+    "recon_1835_core_c2_049"
    ],
    "standing_families": {
     "recon_1835_blk_south_water_wells_a2_10": "A2",
-    "recon_1835_blk_south_water_wells_d3_04": "D3"
+    "recon_1835_blk_south_water_wells_d3_04": "D3",
+    "recon_1835_core_c2_010": "C2",
+    "recon_1835_core_c2_049": "C2"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 3,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_wabansia_b_t1#00",
