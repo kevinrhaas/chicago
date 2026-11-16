@@ -225,7 +225,10 @@ BUSINESS_DEAL_HOLDS = 47
 # 9 -> 4 on 2026-11-15 (T-3605): the roofs the adopted firms left are dealt as houses, which
 # moves the queues a release would draw on, so a release of the business deal's roofs now
 # seats four households (L270).
-BUSINESS_DEAL_COSTS = 4
+# 4 -> 0 on 2026-11-16 (T-3605 phase 2): with the commercial core's 56 row-fill stores off the
+# household model's weights, the plat's queue reaches every household still waiting, so a
+# release of the business deal's roofs seats nobody not already seated (L270).
+BUSINESS_DEAL_COSTS = 0
 
 TICKET = "T-1613"
 PARENT = "T-1199"

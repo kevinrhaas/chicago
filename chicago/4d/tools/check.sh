@@ -818,6 +818,8 @@ step "Ask the Glessner coachman for a ride: in beside Mr. Glessner, round the bl
   node tools/test_glessner_ride.mjs
 step "Every person placed in town is named by the look tag, found, and followed beside them (T-3404)" \
   node tools/test_person_interaction.mjs
+step "Every person's name fits their floating name card; on by default, a tap opens their card (T-3614)" \
+  node tools/test_name_cards.mjs
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
   python3 tools/human_contract.py --self-test
 step "Every human GLB is the one the browser measured: sha256 and verdicts in data/humans/fixture.measure.json (T-1787)" \
@@ -2466,6 +2468,12 @@ step "Gifford street-face roofs match their photo-matched recipe" \
   python3 tools/generate_gifford_street_faces.py --check
 selftest "…and its validator refuses overlaps and roofs off the frontage" \
   python3 tools/generate_gifford_street_faces.py --self-test
+# T-3605 phase 2: the commercial core's block fronts filled toward 70 % at the density the
+# Gifford drawing shows (L-core-row-fill-3605).
+step "Commercial-core row-fill stores match their measured fronts" \
+  python3 tools/generate_core_row_fill_1835.py --check
+selftest "…and its validator refuses stores on one spot or off the frontage" \
+  python3 tools/generate_core_row_fill_1835.py --self-test
 step "Canal trade roofs have existing keepers without invented homes" \
   python3 tools/canal_approach_occupancy.py --check
 selftest "Canal trade occupancy preserves identities and lodging constraints" \

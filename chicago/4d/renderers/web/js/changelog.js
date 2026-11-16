@@ -1,4 +1,29 @@
 export const CHANGELOG = [ // newest first
+  { v: 3043, ts: '2026-11-16T20:17:56.157Z', date: 'Nov 16, 2026, 2:17 PM CT', title: 'The Confidence view\'s overlay check holds the town still while it counts', kind: 'fix',
+    items: [
+      'Nothing you can see changes. One of the checks that runs on every change turns on the Confidence view\'s building labels, people pins and Jaunt route, and confirms they add nothing to the 3D scene. Since the 1835 townspeople began coming and going from their doors, a figure arriving or loading a closer level of detail during that check was counted as the overlays\' work, so the check failed every time. It now hides the people and pauses the town between its two readings, and if it ever fails again it names the part of the scene that changed.',
+    ] },
+  { v: 3042, ts: '2026-11-16T20:00:09.201Z', date: 'Nov 16, 2026, 2:00 PM CT', title: 'South Water and Lake fill out as 1835\'s row of stores', kind: 'feature',
+    items: [
+      'In 1835 the block fronts of South Water and Lake Streets, Wells to State, are now built up toward seven tenths of their length, and the row turns the corner up Wells, LaSalle, Clark and Dearborn. 59 more reconstructed frame stores and a boarding house stand shoulder to shoulder at the street, the way Gifford drew the street round the first Tremont House.',
+      'No house was moved for them. A store never stands in front of a house, so every cottage set back behind the row keeps its own yard out to the street.',
+      'Every 1835 household has a roof, and most of the new stores stand empty, ready for keepers the sources can name.',
+    ] },
+  { v: 3041, ts: '2026-11-16T18:47:11.445Z', date: 'Nov 16, 2026, 12:47 PM CT', title: 'Jaunts open and close on their own words', kind: 'feature',
+    items: [
+      'A jaunt whose opening is read aloud flies you to its start for as long as the narrator speaks, over a high look across the town. Skip to the Start lands you at once.',
+      'Finishing the last stop opens a closing scene: the ending on screen, read aloud where it is voiced, while the view rises over the place the jaunt began. Outing complete follows by itself, or at Finish Jaunt.',
+      'A jaunt\'s first card drops its summary and heads its opening with the jaunt\'s name.',
+      'Lines about how the town was built, rather than its story, are gone from the Glessner Household, Fort Dearborn, Outfit for the West and the Italianate and Romanesque walks.',
+    ] },
+  { v: 3040, ts: '2026-11-16T18:41:39.972Z', date: 'Nov 16, 2026, 12:41 PM CT', title: 'Name cards float over every person; tap one to meet them', kind: 'feature',
+    items: [
+      'In 1812, 1835 and 1904 a small card hovers over each named person near you with their name, day or night: townspeople, drivers on their boxes, and a jaunt\'s hosts and castmates.',
+      'Click or tap a card to open that person\'s card, as clicking them does.',
+      'Each card\'s edge and light show the person\'s grade in your Confidence colours: gold attested, silver inferred, bronze reconstructed.',
+      'Cards ride clear of tall hats, wear the appearance you have chosen, wrap long names to two lines, and stack in a crowd.',
+      'Turn them off under Settings › Show › Name cards over people.',
+    ] },
   { v: 3039, ts: '2026-11-16T18:25:15.236Z', date: 'Nov 16, 2026, 12:25 PM CT', title: 'Houses no longer load in plain white when a texture drops', kind: 'fix',
     items: [
       'A house\'s stone, brick and roof pictures are shared files, and one that failed to download used to leave its walls and roof flat white until you reloaded the page. 1904 on 16 November showed it at Glessner and its neighbours.',

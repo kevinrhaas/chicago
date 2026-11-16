@@ -106,6 +106,7 @@ import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
+import { createNameCards, cardTheme, gradeOf } from './name-cards.js';
 import { supportsTownTransport } from './transport-scenes.js';
 import { createWells } from './wells.js';
 import { createTimeStream } from './time-stream.js';
@@ -3753,6 +3754,7 @@ async function boot() {
       railway.setDetail(level);
       refreshGlessnerOcclusion();
       api.humans?.setTier(level);
+      api.nameCards?.setTier(level);
       void parkedTransport.setTier(level);
       void standingHorses.setTier(level);
       void api.townTransport?.setTier(level);
@@ -3819,6 +3821,7 @@ async function boot() {
     railway.setDetail(level);
     // The figures' LOD ladder follows the tier (T-1788; docs/HUMAN-ASSET-CONTRACT.md § 8).
     api.humans?.setTier(level);
+    api.nameCards?.setTier(level);
     void parkedTransport.setTier(level);
     void standingHorses.setTier(level);
     void api.townTransport?.setTier(level);
@@ -4496,6 +4499,10 @@ async function boot() {
       } else if (key === 'people' || key === 'vehicles') {
         // T-3439: the people, and the carriages and horses, shown or hidden.
         setShownLayer(key, value !== 'hidden');
+      } else if (key === 'nameCards') {
+        // T-3614: the name cards over people, on or off.
+        api.nameCards?.setShown(value !== false);
+        gateFrame.invalidate();
       } else if (key === 'units') {
         navigation.setUnits(value);
       }
@@ -4526,6 +4533,34 @@ async function boot() {
   // T-3439: the stored Show choices for people and vehicles, before the first frame.
   if (hud.settings.people === 'hidden') setShownLayer('people', false);
   if (hud.settings.vehicles === 'hidden') setShownLayer('vehicles', false);
+  // T-3614 (owner, 2026-11-16): "a small 3d hovering card floating over each person of what
+  // their name is, clicking on the card brings up their detail" — in every year, for the town's
+  // people, the drivers on their boxes and a jaunt's hosts and castmates, at any hour. One
+  // instanced draw over one atlas (name-cards.js); Settings › Show › Name cards over people.
+  api.nameCards = createNameCards({
+    THREE, renderer, camera, tier: detailLevel, shown: hud.settings.nameCards !== false,
+    viewHeight: () => renderer.domElement.clientHeight,
+    // The card's edge and light: the person's grade in the Confidence view's colour for it.
+    gradeColors: () => Object.fromEntries(['attested', 'inferred', 'reconstructed'].map((l) => [l, confidence.grade(l)?.color ?? null])),
+    theme: () => {
+      const css = getComputedStyle(document.documentElement);
+      return cardTheme((k) => css.getPropertyValue(k), document.documentElement.dataset.skin ?? '');
+    },
+    list: () => {
+      const out = [];
+      for (const a of api.humans?.actors ?? []) {
+        if (a.identity?.kind !== 'person' || !a.instance?.interaction?.selectable) continue;
+        const name = a.person?.name ?? null;
+        if (name) out.push({ key: a.id, actor: a, name, personId: a.personId, grade: gradeOf(a.person) });
+      }
+      for (const m of api.jauntStage?.named ?? []) if (m.name) out.push(m);
+      return out;
+    },
+  });
+  scene3d.add(api.nameCards.group);
+  // A new appearance (Settings › Machine, or the dial) draws every card again in its colours.
+  new MutationObserver(() => api.nameCards?.refresh()).observe(document.documentElement,
+    { attributes: true, attributeFilter: ['data-skin', 'data-theme'] });
   // T-3331: Settings' own copy, so a later save keeps an hour set from code; then paint.
   timeState.hudSettings = hud.settings;
   paintTime();
@@ -5033,8 +5068,15 @@ async function boot() {
     windowMode.start();
   });
 
-  canvas.addEventListener('click', () => {
+  canvas.addEventListener('click', (ev) => {
     if (backends.active !== pointerlock || gateOpen) return;
+    // T-3614: with the mouse free, a click on a person's name card opens their card, where a
+    // click anywhere else takes the look (a touch tap reaches the same card through Interact).
+    if (!pointerlock.isLocked && api.nameCards?.shown) {
+      const r = canvas.getBoundingClientRect();
+      const ndc = new THREE.Vector2(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1);
+      if (api.nameCards.pickAt(ndc)) { inspect(ndc, { by: 'hand' }); return; }
+    }
     // A click on the scene with a card open is the release (T-2954): the card goes and
     // the same click takes the look back.
     if (popup.openId) popup.close();
@@ -5203,6 +5245,17 @@ async function boot() {
     const railHit = railway.pickAt(ndc, camera);
     if (railHit && railHit.record && (!hit || railHit.distance < hit.distance)) {
       hit = { ...railHit };
+    }
+    // T-3614: a person's name card opens their card, as the person does.
+    const nameCard = api.nameCards?.pickAt(ndc);
+    if (nameCard && (!hit || nameCard.depth < hit.distance)) {
+      popup.close();
+      if (nameCard.staged) {
+        api.jauntStage?.meet({ actor: nameCard.actor }, { e: walker.state.e, n: walker.state.n });
+        if (nameCard.personId) void openPersonCard(nameCard.personId);
+        else hud.say(nameCard.name);
+      } else api.humans.select({ actor: nameCard.actor });
+      return nameCard;
     }
     // A figure answers with its PERSON, not a card of its own (T-1788): the layer's
     // `open` event takes the visitor to the resident card the directory already draws.
@@ -5778,7 +5831,7 @@ async function boot() {
     jauntRoot.append(message);
   }
   function ensureJaunts() {
-    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js'), import('./jaunt-context.js'), import('./jaunt-cards.js'), import('./narration.js')]).then(([preview, runtime, panel, estimates, context, cards, voices]) => {
+    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js'), import('./jaunt-context.js'), import('./jaunt-cards.js'), import('./narration.js'), import('./jaunt-pace.js')]).then(([preview, runtime, panel, estimates, context, cards, voices, pace]) => {
       const resolveJaunt = target => {
         const resolved = destinations.resolve(target);
         return resolved?.structureId ? { kind: 'structure', id: resolved.structureId, label: resolved.label } : resolved;
@@ -5818,10 +5871,11 @@ async function boot() {
         // The owner, 2026-11-15: the adults-only jaunts, listed only once Move › Adults-only jaunts is on.
         allowAdults: () => hud.adultJaunts === true,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
-      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext', 'replay', 'kindle'].map(name => [name, (...args) => {
+      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext', 'replay', 'kindle', 'skip', 'finish'].map(name => [name, (...args) => {
         // T-3578: Next, Previous and End are the visitor moving on: the voice still speaking stops
-        // (and nothing it had queued plays), rather than talking over the next part.
-        if (['next', 'prev', 'end'].includes(name)) narration.stop();
+        // (and nothing it had queued plays), rather than talking over the next part. So are
+        // Skip to the Start and Finish Jaunt (2026-11-16), over the opening and the ending.
+        if (['next', 'prev', 'end', 'skip', 'finish'].includes(name)) narration.stop();
         if (['next', 'prev', 'straight'].includes(name)) narration.prime();
         return jauntRuntime[name](...args); }]));
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
@@ -5829,6 +5883,12 @@ async function boot() {
       actions.closeOverlay = jauntCards.close;
       jauntPanel = panel.createJauntPanel({ destinations, actions, narration,
         catalogRow: (id) => api.jaunts.catalog?.find((row) => row.id === id) ?? null }); // T-3432: the welcome's kind and premise
+      let closingTimer = null;
+      const closingClock = pace.createClosingClock({
+        voice: { playing: () => { const outing = jauntRuntime?.state; return !!outing?.outcome && narration.isPlaying(outing.jaunt, 'ending', outing.outcome.id); },
+          ended: () => { const outing = jauntRuntime?.state; return !!outing?.outcome && narration.ended(outing.jaunt, 'ending', outing.outcome.id); } },
+        flying: () => travel.state?.phase === 'gliding',
+        finish: () => jauntRuntime?.finish() });
       jauntRuntime = runtime.createJaunts({ scene: YEAR, load: jauntPreview.load, travel,
         preferredMode: (jaunt) => jauntModeFor(hud.gettingThere, jaunt),
         resolve: resolveJaunt, place: spawnAtDestination,
@@ -5839,10 +5899,39 @@ async function boot() {
           const from = enteredWorld ? { e: w.e, n: w.n, altitude: w.eyeY - w.groundY, yaw: w.yaw, pitch: w.pitch } : null;
           return { begin(callbacks) {
             const eye = walker.state, to = { e: eye.e, n: eye.n, altitude: eye.eyeY - eye.groundY, yaw: eye.yaw, pitch: eye.pitch };
+            // The owner, 2026-11-16: with its opening read aloud, the flight lasts as long as
+            // the voice, by way of a high look over the town behind the start (jaunt-pace.js).
+            const seconds = pace.openingFlightSeconds(callbacks.seconds);
+            if (seconds) {
+              const via = pace.openingOverlook(to, seconds);
+              const start = from ?? { e: to.e + (via.e - to.e) * 1.5, n: to.n + (via.n - to.n) * 1.5, altitude: via.altitude * 1.4, yaw: to.yaw, pitch: -20 * DEG };
+              return travel.glide(start, to, callbacks, { label: callbacks.label, seconds, via: from ? via : null });
+            }
             const start = from ?? { e: eye.e + Math.sin(eye.yaw) * 90, n: eye.n - Math.cos(eye.yaw) * 90,
               altitude: 45, yaw: eye.yaw, pitch: -20 * DEG };
             return travel.glide(start, to, callbacks, { label: callbacks.label });
           } };
+        },
+        // The owner, 2026-11-16: how long the voice reading a part will take, once the index
+        // has been looked up (or a moment has passed: then the plain flight).
+        voiceover: async (jaunt, part, id) => {
+          await Promise.race([narration.prepare(jaunt), new Promise((r) => setTimeout(r, 1500))]);
+          return narration.seconds(jaunt, part, id);
+        },
+        // The closing scene: up and back over the stand the jaunt began at, for about half the
+        // ending's voice, and held there in the air while it finishes (jaunt-pace.js).
+        closing: {
+          begin: (state, callbacks) => {
+            if (state.mode === 'instantly') return false;
+            const first = state.jaunt.stops[0], resolved = first ? destinations.resolve(first.destination, { card: false }) : null;
+            const off = resolved?.standOff;
+            if (!off || !Number.isFinite(off.e) || !Number.isFinite(off.n)) return false;
+            const stand = off.aim ? { e: off.e, n: off.n, aim: { e: off.aim.x, n: -off.aim.z } } : { e: off.e, n: off.n, bearing_deg: resolved.yaw_deg ?? 0 };
+            const to = pace.closingView(stand), w = walker.state;
+            const from = { e: w.e, n: w.n, altitude: w.eyeY - w.groundY, yaw: w.yaw, pitch: w.pitch };
+            const seconds = pace.closingFlightSeconds(narration.seconds(state.jaunt, 'ending', state.outcome.id));
+            return travel.glide(from, to, callbacks, { label: 'a last look', seconds, hover: true });
+          },
         },
         contextForRoute(state, route) {
           const to = runtime.currentStop(state), from = state.jaunt.stops.find(s => s.id === state.fromStopId);
@@ -5873,6 +5962,8 @@ async function boot() {
         },
         render: state => {
           jauntPanel.render(state);
+          closingClock.update(state); // the owner, 2026-11-16: the closing scene ends on its own
+          if (closingClock.active) closingTimer ??= setInterval(() => { if (!closingClock.tick() && closingClock.active) return; clearInterval(closingTimer); closingTimer = null; }, 400);
           // T-2664: at the first Jaunt's first stop, once per device, how a Jaunt goes on.
           if (state?.jaunt && state.phase === 'atStop') hints.show('jaunt');
         },
@@ -5964,7 +6055,7 @@ async function boot() {
     modeFor: (jaunt) => jauntWay(jaunt),
     async daybook() { await ensureJaunts(); return jauntPreview.daybook(); },
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
-    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext', 'replay', 'kindle'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
+    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext', 'replay', 'kindle', 'skip', 'finish'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
   // T-2561: "Keep <year> on this device" on the welcome — the year's pack in Cache
   // Storage behind a service worker, so a kept year boots from disk, offline too.
@@ -7007,6 +7098,8 @@ async function boot() {
     // T-3553 (owner, 2026-11-14: "you should not see inside people's heads and bodies"):
     // whatever put the eye where it is, nobody is drawn round it.
     api.humans?.hideAtEye?.(camera.getWorldPosition(eyeAtDraw));
+    // T-3614: the name cards over them, where they now stand.
+    api.nameCards?.update(gateOpen ? 0 : elapsed);
     // The day and spacing engines have finished moving the person. Hands, tool
     // and sound now share this frame's real contact, not a separate hammer timer.
     api.workActivity?.update(frameDt, { paused: visualHeld || transportReducedMotion.matches,

@@ -17208,23 +17208,43 @@ for (const [label, viewport, touch] of [
           streetSetting: a.hud.settings.streetNames, readoutHidden: document.getElementById('street-readout')?.hidden ?? null };
       });
       const ovStats = () => page.evaluate(() => { const a = window.__chicago4d; a.step(); const st = a.stats(); return { programs: st.programs, geometries: st.geometries, calls: st.drawCalls }; });
-      // T-3556: a figure about the visitor changes its level of detail after a teleport or as it
-      // walks, and a level loaded between the two readings is the figure's geometry, not the
-      // overlays'. Once no figure has a level in flight (two polls running), the figures are held
-      // where they are (the frame loop calls `humans.update`) until the second reading is taken.
-      const figuresSettled = () => page.waitForFunction(() => {
-        const a = window.__chicago4d; a.step();
-        const busy = (a.humans?.actors ?? []).some((x) => x.pending);
-        window.__ovQuiet = busy ? 0 : (window.__ovQuiet ?? 0) + 1;
-        if (window.__ovQuiet < 2) return false;
-        const h = a.humans;
+      // T-3613: the town is held STILL across the two readings, not waited on. T-3556 waited for
+      // no figure to have a level in flight and then held `humans.update`, and dev stayed red on
+      // it (+19 geometries and +19 draws desktop, every content build from f90dc7d7d on): a level
+      // already asked for lands from its own promise (Actor.setLod -> show), not from `update`,
+      // and that wait gave up silently after 20 s on a slow runner, holding nothing. So from the
+      // first reading to the second: the people's layer is not drawn at all (a figure that lands
+      // or comes out meanwhile is never uploaded, so it cannot be counted as the overlays'), its
+      // `update` is held (no level is asked for or let go), and the frame clock is held
+      // (setAnimationHold: traffic, the sun and every walk stand where they are). The overlays
+      // are a DOM layer with their own frame loop and read none of it. Held only after the
+      // teleport has settled, so the camera is already where the labels are read from.
+      const townHeld = () => page.evaluate(() => {
+        const a = window.__chicago4d, h = a.humans;
+        a.setAnimationHold(true);
         if (h && !h.heldBySmoke) { h.heldBySmoke = h.update; h.update = () => {}; }
-        return true;
-      }, null, { timeout: 20000, polling: 400 }).catch(() => {});
-      const figuresLetGo = () => page.evaluate(() => {
-        const h = window.__chicago4d.humans; window.__ovQuiet = 0;
-        if (h?.heldBySmoke) { h.update = h.heldBySmoke; delete h.heldBySmoke; }
+        if (h?.group && h.hiddenBySmoke == null) { h.hiddenBySmoke = h.group.visible; h.group.visible = false; }
       }).catch(() => {});
+      const townLetGo = () => page.evaluate(() => {
+        const a = window.__chicago4d, h = a.humans;
+        a.setAnimationHold(false);
+        if (h?.heldBySmoke) { h.update = h.heldBySmoke; delete h.heldBySmoke; }
+        if (h?.group && h.hiddenBySmoke != null) { h.group.visible = h.hiddenBySmoke; delete h.hiddenBySmoke; }
+      }).catch(() => {});
+      // What each top-level layer of the scene draws, read beside the stats, so a red reading
+      // names the layer whose geometry it was instead of leaving it to be guessed.
+      const sceneCensus = () => page.evaluate(() => {
+        const out = {};
+        for (const c of window.__chicago4d.scene3d?.children ?? []) {
+          let n = 0;
+          c.traverseVisible((o) => { if (o.geometry) n++; });
+          const k = c.name || c.type;
+          out[k] = (out[k] ?? 0) + n;
+        }
+        return out;
+      }).catch(() => null);
+      const censusMoved = (off, on) => (off && on ? Object.fromEntries([...new Set([...Object.keys(off), ...Object.keys(on)])]
+        .filter((k) => off[k] !== on[k]).map((k) => [k, [off[k] ?? 0, on[k] ?? 0]])) : null);
       const ovSwitch = async (id, want) => {
         const now = await page.evaluate((i) => document.getElementById(`cv-ov-${i}`)?.checked ?? null, id);
         if (now !== want) await clickChrome(`#cv-ov-${id}`);
@@ -17268,8 +17288,9 @@ for (const [label, viewport, touch] of [
         await page.evaluate(() => window.__chicago4d.navigator.dock());
         if (named) await standFacing(named.e, named.n, 35);
         await page.waitForTimeout(800);
-        await figuresSettled();
+        await townHeld();
         const statsOff = await ovStats();
+        const censusOff = await sceneCensus();
         await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
         await page.waitForTimeout(800);
         await ovSwitch('labels', true);
@@ -17282,14 +17303,15 @@ for (const [label, viewport, touch] of [
         await page.waitForTimeout(300);
         const ovOn = await ovRead();
         const statsOn = await ovStats();
-        await figuresLetGo();
+        const censusOn = await sceneCensus();
+        await townLetGo();
         const cap = (await page.evaluate(() => innerWidth)) <= 620 ? 6 : 12;
         check(`${label}: Building labels float named buildings in sight over the town — at least one, at most ${cap} (T-2650)`,
           !!named && ovOn.layerShown && ovOn.running === true && ovOn.labels >= 1 && ovOn.labels <= cap && ovOn.rows.labels.checked,
           JSON.stringify({ named, labels: ovOn.labels, drawn: ovOn.drawn, running: ovOn.running }));
         check(`${label}: three overlays on add no shader program and no geometry (T-2650)`,
           statsOn.programs === statsOff.programs && statsOn.geometries === statsOff.geometries,
-          JSON.stringify({ statsOff, statsOn }));
+          JSON.stringify({ statsOff, statsOn, layersMoved: censusMoved(censusOff, censusOn) }));
         // People pins: stand 60 m south of the first pinned address, facing it; its pin lists
         // who is there, and a name opens that person (People, in the Navigator).
         const pinAt = await page.evaluate(() => window.__chicago4d.confidenceOverlays.pinPlaces[0] ?? null);
@@ -17337,6 +17359,8 @@ for (const [label, viewport, touch] of [
           const a = window.__chicago4d, o = a.confidenceOverlays, d = a.days, h = a.humans;
           if (d?.heldBySmoke) { d.update = d.heldBySmoke; delete d.heldBySmoke; }
           if (h?.heldBySmoke) { h.update = h.heldBySmoke; delete h.heldBySmoke; }
+          if (h?.group && h.hiddenBySmoke != null) { h.group.visible = h.hiddenBySmoke; delete h.hiddenBySmoke; }
+          a.setAnimationHold(false);
           for (const id of ['labels', 'people', 'route']) await o?.set(id, false);
           a.walker.teleport(pose);
           await a.navigator.select('home'); a.navigator.dock(); document.activeElement?.blur?.();

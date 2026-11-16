@@ -68,6 +68,7 @@ Built places at their apportioned capacity, plus the unbuilt slots at the model'
 
 ## Carried with no beds
 
+- **Reconstructed H3 boarding house #003** — Raised to a drawing of the street (the inventory's pictured_roofs, T-3605), not to house the town model's people, so the bed bracket does not count it and no beds are dealt here. Its rooms are recorded so a seating pass knows they exist.
 - **Reconstructed H3 boarding house #004** — Raised to a drawing of the street (the inventory's pictured_roofs, T-3605), not to house the town model's people, so the bed bracket does not count it and no beds are dealt here. Its rooms are recorded so a seating pass knows they exist.
 - **Reconstructed H3 boarding house #018** — Raised to a drawing of the street (the inventory's pictured_roofs, T-3605), not to house the town model's people, so the bed bracket does not count it and no beds are dealt here. Its rooms are recorded so a seating pass knows they exist.
 - **Reconstructed H3 boarding house #019** — Raised to a drawing of the street (the inventory's pictured_roofs, T-3605), not to house the town model's people, so the bed bracket does not count it and no beds are dealt here. Its rooms are recorded so a seating pass knows they exist.
