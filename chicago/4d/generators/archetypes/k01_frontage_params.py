@@ -6936,8 +6936,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if dch.get("confidence", "reconstructed") == "reconstructed" or not dch.get("sources"):
             raise ParamError("door_clear_height_m moves the door's head off K01's 2.70 m; only a source can")
         door_h = float(dch["value"])
-        if not 2.0 <= door_h <= 3.2:
-            raise ParamError(f"door_clear_height_m {door_h} is not a principal door's: 2.0-3.2 m clear")
+        # T-1894: a door under a tall transom light its picture draws (`entrance_kit.transom`,
+        # 1823's) may stand to 3.6 m clear, its leaves held to a principal door's under the light
+        tallest = 3.6 if ((val("entrance_kit") or {}).get("k01.opening.door_leaf") or {}).get("transom") else 3.2
+        if not 2.0 <= door_h <= tallest:
+            raise ParamError(f"door_clear_height_m {door_h} is not a principal door's: 2.0-{tallest} m clear"
+                             + ("" if tallest > 3.2 else " (to 3.6 m under an entrance_kit.transom)"))
     # T-2817: a stone front's door arch may be cut broader and lower than K01's 1.2 by 2.7 m door
     # (1623's porch mouth, as broad as the window's arch beside it): `opening_m`, [width, height
     # to the crown over the door's floor], the door itself then standing at the porch's back
@@ -7644,6 +7648,23 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                              f"0.01-0.05 m, the field 0.02-0.12 m in and raised less than the sinking, a linear RGB")
         door_kit["leaf"] = {"panels": [cols, rows], "rails_y_m": ry, "panel_recess_m": rec,
                             "raised_field": {"margin_m": mg, "proud_m": up}, "color": col}
+    # T-1894: a flat-headed door's transom light where its picture draws it taller than K07's
+    # (1823's, the Chicagology engraving: a light about 1.1 m deep over the leaves under the
+    # door's cornice hood): `height_m` of the hole's top glazed over the transom bar, in
+    # `lights` lights across, the leaves under it still a principal door's 2.0-2.8 m
+    if "transom" in door_kit_in:
+        tr = door_kit_in["transom"]
+        if not isinstance(tr, dict) or set(tr) != {"height_m", "lights"}:
+            raise ParamError("entrance_kit.transom takes height_m and lights")
+        th, tl = float(tr["height_m"]), tr["lights"]
+        if door_arch or round_door or "opening_m" in door_kit_in or "fanlight_transom" in door_kit_in:
+            raise ParamError("entrance_kit.transom glazes a flat-headed door's hole; an arched door's head "
+                             "is its fanlight (fanlight_transom)")
+        if not 0.3 <= th <= 1.2 or not isinstance(tl, int) or not 1 <= tl <= 4 \
+                or not 2.0 <= door_h - th <= 2.8:
+            raise ParamError(f"entrance_kit.transom {tr}: a light 0.3-1.2 m deep in 1-4 lights, leaving "
+                             f"leaves of 2.0-2.8 m under it in the {door_h} m hole")
+        door_kit["transom"] = {"height_m": th, "lights": tl}
     # T-1914: a single door under a flat (elliptical or segmental) arch, its head glazed as a
     # fanlight over a plain transom bar `height_m` under the arch's spring (K07 glazes from the
     # bar up into the head) in `lights` lights, and the
