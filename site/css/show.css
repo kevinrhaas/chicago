@@ -349,3 +349,39 @@ dialog.player video{width:100%;aspect-ratio:16/9;background:#000}
 .today-pair .pair-imgs img{aspect-ratio:16/9}
 .today-pair .cap{margin-top:10px}
 @media(max-width:760px){.today-pair .pair-imgs{grid-template-columns:1fr}}
+
+/* How it's made: five stages, and sources travelling the wire between them (from the first home page). */
+.flow{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;padding-top:70px}
+.flow-wire{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.flow-wire path{fill:none;stroke:var(--edge-strong);stroke-width:2;stroke-dasharray:2 8;stroke-linecap:round}
+.flow-wire #flowGlow{stroke:var(--accent);stroke-dasharray:60 940;opacity:.75;animation:flow-wire 6s linear infinite}
+@keyframes flow-wire{to{stroke-dashoffset:-1000}}
+.stage{position:relative;z-index:1;display:flex;flex-direction:column;gap:8px;padding:22px 16px 18px;border:1px solid var(--edge);border-radius:var(--r);background:var(--panel-solid);transition:border-color .4s,box-shadow .4s}
+.stage.lit{border-color:color-mix(in srgb,var(--accent) 55%,var(--edge));box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 12%,transparent)}
+.st-n{position:absolute;top:-52px;left:50%;width:44px;height:44px;margin-left:-22px;border-radius:50%;display:grid;place-items:center;background:var(--page);border:1px solid var(--edge-strong);font:500 13px/1 var(--mono);color:var(--ink-dim)}
+.stage.lit .st-n{border-color:var(--accent);color:var(--accent)}
+.stage h3{margin:0;font:400 22px/1.15 var(--display);letter-spacing:-.01em}
+.st-tech{font:500 10.5px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sky)}
+.stage p{margin:2px 0 0;font-size:14px;color:var(--ink-dim);line-height:1.55}
+.st-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;padding-top:10px}
+.st-chips span{padding:4px 8px;border-radius:999px;border:1px solid var(--edge);font:400 10px/1 var(--mono);color:var(--ink-faint)}
+.st-media{position:relative;aspect-ratio:16/9;margin:2px 0 6px;border-radius:6px;overflow:hidden;background:var(--screen);border:1px solid var(--edge)}
+.st-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1.1s ease,transform 3.4s var(--ease)}
+.st-media img.on{opacity:1;transform:scale(1)}
+.packets{position:absolute;inset:0;pointer-events:none;z-index:2}
+.packet{position:absolute;left:0;top:0;transform:translate(-50%,-50%);display:flex;align-items:center;gap:7px;padding:6px 11px 6px 7px;border-radius:999px;white-space:nowrap;background:var(--ink);color:var(--page);font:500 11.5px/1 var(--sans,system-ui);box-shadow:0 10px 24px -10px rgba(0,0,0,.6);will-change:transform;opacity:0}
+.packet i{width:9px;height:9px;border-radius:50%;background:var(--pc);flex:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--pc) 35%,transparent)}
+.packet.has-img{padding-left:4px}
+.packet img{width:22px;height:22px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 0 2px var(--pc)}
+.flow.v .packet{padding:6px}.flow.v .packet span{display:none}.flow.v .packet img{width:18px;height:18px}
+@media(max-width:1000px){.flow{grid-template-columns:1fr;gap:26px;padding:0 0 0 64px}.st-n{top:22px;left:-64px;margin-left:0}}
+@media(prefers-reduced-motion:reduce){.packets{display:none}.flow-wire #flowGlow{animation:none}}
+
+/* Home + Jaunts: the burning of Fort Dearborn. */
+.hero.blaze{min-height:min(78vh,760px)}
+.hero.blaze::before{background:linear-gradient(180deg,var(--page) 0%,rgba(6,13,26,0) 22%,rgba(6,13,26,.2) 55%,var(--page) 100%),linear-gradient(90deg,rgba(6,13,26,.66),transparent 62%)}
+.hero.blaze h2{font:300 clamp(40px,6.4vw,92px)/.95 var(--display);letter-spacing:-.03em;margin:16px 0 18px;max-width:13ch;text-wrap:balance}
+.hero.blaze h2 em{color:var(--lamp)}
+.blaze-wide{margin:0 0 56px}
+.blaze-wide .film{aspect-ratio:21/9}
+@media(max-width:760px){.blaze-wide .film{aspect-ratio:16/9}}
