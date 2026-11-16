@@ -1468,8 +1468,8 @@ def _dormer_dress(dr: dict, what: str, sw: float, ring: float, frieze: float) ->
     the sash, `pilasters` {width_m, proud_m, cap_m}, from its sill to the cornice; and the
     cheeks painted as the face is (`cheeks`: painted) where a plain gable's are slated."""
     keys = {"cornice_m", "return_m", "rake", "pilasters", "cheeks"}
-    if not isinstance(dr, dict) or set(dr) != keys:
-        raise ParamError(f"{what}.dress takes {sorted(keys)}")
+    if not isinstance(dr, dict) or set(dr) - {"consoles"} != keys:
+        raise ParamError(f"{what}.dress takes {sorted(keys)} and may name consoles")
     h, pj = (float(x) for x in dr["cornice_m"])
     rt = float(dr["return_m"])
     if not 0.1 <= h <= 0.4 or not 0.1 <= pj <= 0.4 or not 0.05 <= rt <= 0.4:
@@ -1490,7 +1490,27 @@ def _dormer_dress(dr: dict, what: str, sw: float, ring: float, frieze: float) ->
                          f"0.02-0.08 m proud, a 0.04-0.2 m capital")
     if dr["cheeks"] not in ("painted", "slate"):
         raise ParamError(f"{what}.dress.cheeks: painted or slate")
-    return {"cornice_m": [h, pj], "return_m": rt, "rake": rake, "pilasters": pl, "cheeks": dr["cheeks"]}
+    out = {"cornice_m": [h, pj], "return_m": rt, "rake": rake, "pilasters": pl, "cheeks": dr["cheeks"]}
+    if "consoles" in dr:
+        # T-1894: a tall scrolled console against each side of the face, from the sash's sill to
+        # under the cornice (1823 Prairie's broad dormer, in the Chicagology engraving and the 1883
+        # vignette): its outer edge sweeping out from `top_m` at the cornice to `width_m` at its
+        # foot, where it ends in a roll `roll_m` in radius; `depth_m` of it runs back along the
+        # cheek and it stands `proud_m` out of the face. Its top stays under the cornice's
+        # projection, and it is tall enough for its roll and its sweep.
+        cs = dr["consoles"]
+        ck = {"width_m", "top_m", "roll_m", "depth_m", "proud_m"}
+        if not isinstance(cs, dict) or set(cs) != ck:
+            raise ParamError(f"{what}.dress.consoles takes {', '.join(sorted(ck))}")
+        cs = {k: float(v) for k, v in cs.items()}
+        if not (0.2 <= cs["width_m"] <= 0.8 and 0.05 <= cs["top_m"] <= min(pj, cs["width_m"] - 0.1)
+                and 0.08 <= cs["roll_m"] <= cs["width_m"] / 2 and 0.1 <= cs["depth_m"] <= 0.6
+                and 0.0 <= cs["proud_m"] <= 0.15):
+            raise ParamError(f"{what}.dress.consoles: 0.2-0.8 m wide at the foot, 0.05 m at the top up to the "
+                             f"cornice's {pj} m projection and 0.1 m short of the foot, a roll 0.08 m to half "
+                             f"the width, 0.1-0.6 m deep, 0-0.15 m proud of the face")
+        out["consoles"] = cs
+    return out
 
 
 def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool = False,
@@ -1549,12 +1569,23 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
         out["head_m"] = round(sht + ring + fz + (sw / 2 + ring) * math.tan(math.radians(gp)), 4)
         if "dress" in d and "ornament" in d:
             raise ParamError(f"{what}: a dressed pediment or an ornamented gable, not both")
+        if "over_curb" in d:
+            # T-1894: a pediment that rises over the mansard's curb (1823 Prairie's broad dormer
+            # over its triple group, about 1.3 m over the curb in the Chicagology engraving): the
+            # body is carried `back_m` behind the curb's line, over the deck, and closed there
+            # with a slated end; _mansard_dormers checks it stands on the street face and over
+            # the curb, and the deck's cresting stops either side of it (k01_mansard_deck)
+            oc = d["over_curb"]
+            if not isinstance(oc, dict) or set(oc) != {"back_m"} or not 0.5 <= float(oc["back_m"]) <= 3.0:
+                raise ParamError(f"{what}.over_curb takes back_m, 0.5-3.0 m behind the curb's line")
+            out["over_curb"] = {"back_m": float(oc["back_m"])}
         if "dress" in d:
             out["dress"] = _dormer_dress(d["dress"], what, sw, ring, fz)
         if "ornament" in d:
             out["ornament"] = _dormer_ornament(d["ornament"], what, out)
-    elif "ornament" in d:
-        raise ParamError(f"{what}.ornament: a gabled dormer's coping, crockets, pinnacles and finial")
+    elif "ornament" in d or "over_curb" in d:
+        raise ParamError(f"{what}.ornament / over_curb: a gabled dormer's coping, crockets, pinnacles and "
+                         f"finial, or its pediment over the curb")
     elif "dress" in d or "frieze_m" in d and head != "flat":
         raise ParamError(f"{what}: a dressed pediment and its frieze stand on a gable head")
     if head == "hip":
@@ -2252,7 +2283,13 @@ def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, 
             do, df = float(dp["overhang_m"]), float(dp["fascia_depth_m"])
             d = dict(d, overhang_m=do, fascia_m=df)
             top += df + (r + do) * math.tan(math.radians(d["hip_pitch_deg"]))
-        if top > m["lower_rise_m"] - 0.1:
+        oc = d.get("over_curb")
+        if oc:
+            # T-1894: a pediment over the curb, on the street face, its apex at most 2.5 m over it
+            if face != "street" or m.get("street_run_m") or not m["lower_rise_m"] + 0.2 <= top <= m["lower_rise_m"] + 2.5:
+                raise ParamError(f"{what}.over_curb: a dormer on an unleaned street face, its apex 0.2-2.5 m over the curb "
+                                 f"at {m['lower_rise_m']} m (its head at {top:.2f} m)")
+        elif top > m["lower_rise_m"] - 0.1:
             raise ParamError(f"{what}: its head at {top:.2f} m over the eave meets the curb at {m['lower_rise_m']} m")
         if d["head"] == "hood":
             # T-3000: the hood's top, fallen back by its lean, still stands 0.1 m proud of the
@@ -2267,7 +2304,8 @@ def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, 
             if face_height(m, face, run + 0.3) < top + 0.1:
                 raise ParamError(f"{what}: its body, run back {run + 0.3:.2f} m on the leaned street face, "
                                  f"comes out of the face over its {top:.2f} m top")
-        fa, ba = {"street": (depth + overhang, depth + overhang - min(frun, run) - 0.3),
+        bk = oc["back_m"] if oc else 0.3   # T-1894: carried back over the deck
+        fa, ba = {"street": (depth + overhang, depth + overhang - min(frun, run) - bk),
                   "rear": (-overhang, -overhang + run + 0.3),
                   "north": (width + overhang, width + overhang - run - 0.3),
                   "south": (-overhang, -overhang + run + 0.3)}[face]
