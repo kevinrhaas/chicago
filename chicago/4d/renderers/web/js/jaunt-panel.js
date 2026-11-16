@@ -4,6 +4,7 @@ import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
 import { groupIcon, groupOf, groupSlot, icon } from './menu-icons.js';
 import { ambienceLabel } from './jaunt-menu.js';
+import { clockText } from './jaunt-pace.js';
 
 /** T-3432: a jaunt's opening, in paragraphs, without the "JAUNT: ITS TITLE." its welcome
  *  already shows as a heading. */
@@ -67,6 +68,11 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   const barReturn = button('Return', () => { if (state?.phase === 'detail') actions.returnFromDetail(); else actions.closeOverlay(); }); barReturn.hidden = true; barReturn.dataset.action = 'return';
   const barEnd = button('End', actions.end); barEnd.setAttribute('aria-label', 'End Jaunt');
   bar.append(barLabel, barNext, barReturn, barEnd);
+  // The owner, 2026-11-16: a quiet meter of the jaunt, one hairline segment a stop, the
+  // stop under way filling as its scene plays (and, fainter, as the way to it is covered),
+  // with the scene's time left beside it. On the controls, and along the collapsed bar.
+  const meters = [makeMeter(true), makeMeter(false)];
+  controls.prepend(meters[0].el); bar.prepend(meters[1].el);
   root.append(collapse, body, controls, bar); document.body.append(root);
   // Native controls and translated/wrapped labels can make this row taller.
   // Reserve its measured height for cards and drawers instead of guessing it —
@@ -83,6 +89,29 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     document.documentElement.toggleAttribute('data-jaunt-collapsed', value);
     measureNav();
     if (focus) (value ? barLabel : collapse).focus({ preventScroll: true });
+  }
+  function makeMeter(withClock) {
+    const el = node('div', '', 'jaunt-meter'), track = node('span', '', 'jaunt-meter-stops'), clock = withClock ? node('span', '', 'jaunt-meter-clock') : null;
+    el.setAttribute('role', 'progressbar'); el.setAttribute('aria-label', 'Jaunt progress');
+    el.setAttribute('aria-valuemin', '0'); el.setAttribute('aria-valuemax', '100'); el.hidden = true;
+    el.append(track); if (clock) { clock.setAttribute('aria-hidden', 'true'); el.append(clock); }
+    let segs = [], shown = '';
+    function set(m) {
+      el.hidden = !m; if (!m) return;
+      if (segs.length !== m.count) {
+        segs = Array.from({ length: m.count }, () => { const seg = node('i'), fill = node('b'); seg.append(fill); return { seg, fill }; });
+        track.replaceChildren(...segs.map(x => x.seg));
+      }
+      segs.forEach(({ seg, fill }, i) => {
+        const v = i < m.index ? 1 : i > m.index ? 0 : m.value;
+        fill.style.transform = `scaleX(${v.toFixed(4)})`;
+        seg.classList.toggle('jaunt-meter-now', i === m.index); seg.classList.toggle('jaunt-meter-way', i === m.index && m.kind === 'way');
+      });
+      const pct = String(Math.round(m.overall * 100)), said = `Stop ${m.index + 1} of ${m.count}, ${pct} percent of the jaunt`;
+      if (said !== shown) { shown = said; el.setAttribute('aria-valuenow', pct); el.setAttribute('aria-valuetext', said); }
+      if (clock) { const t = clockText(m.left); clock.textContent = t; clock.title = t ? (m.kind === 'way' ? 'Time to the stop' : 'Time left in this scene') : ''; }
+    }
+    return { el, set };
   }
   root.addEventListener('keydown', e => e.stopPropagation());
   let state, key, overlayView = null, needsChoice = false;
@@ -399,5 +428,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     else if (state.phase === 'atStop' && (!same || old?.phase === 'travelling')) heading.focus({ preventScroll: true });
   }
   return { render, get collapsed() { return collapsed; }, collapse: value => setCollapsed(value, { focus: false }),
+    /** The owner, 2026-11-16: the meter, from jaunt-pace.js meterReading (null hides it). */
+    meter(m) { for (const x of meters) x.set(m); },
     destroy() { offNarration?.(); narration?.end(); observer.disconnect(); controlSize.disconnect(); root.remove(); sheet.remove(); document.documentElement.removeAttribute('data-jaunt-active'); document.documentElement.removeAttribute('data-jaunt-collapsed'); document.documentElement.style.removeProperty('--jaunt-nav'); } };
 }

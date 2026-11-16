@@ -241,4 +241,35 @@ assert.equal(pace.closingFlightSeconds(null), null);
   t += 0.2; quiet.tick(); assert.equal(finished, 2, 'then Outing complete');
 }
 console.log('PASS openings and closings: flown while read, a closing scene, then Outing complete');
-console.log('JAUNT START/FINISH PASS — glide clock, path and landings, welcome phase, final stop, readable road notes, openings and closings');
+{
+  // The owner, 2026-11-16: a quiet meter, the stop's scene in real time and the whole jaunt.
+  const near = (a, b, msg) => assert(Math.abs(a - b) < 1e-9, `${msg}: ${a} vs ${b}`);
+  let p = pace.sceneProgress([{ t: 10, d: 40 }, { t: 30, d: 60 }]);
+  near(p.value, 0.25, 'the slowest part paces the scene'); near(p.left, 30, 'and the longest says what is left');
+  assert.deepEqual(pace.sceneProgress([]), { value: 1, left: 0 }, 'a stop with nothing playing is done');
+  p = pace.sceneProgress([{ t: 99, d: 40 }, null, { t: 2, d: 0 }]); near(p.value, 1, 'clamped, and empty parts ignored');
+  let m = pace.meterReading({ phase: 'atStop', stopIndex: 1, count: 4, voice: { t: 15, d: 60 }, read: { t: 50, d: 41 }, stage: null });
+  near(m.value, 0.25, 'a heard voice paces the scene, not the reading time'); near(m.left, 45, 'its time left');
+  near(m.overall, (1 + 0.25) / 4, 'overall: stops behind plus this scene'); assert.equal(m.kind, 'scene');
+  m = pace.meterReading({ phase: 'atStop', stopIndex: 1, count: 4, voice: { t: 1, d: 1 }, read: { t: 5, d: 41 }, stage: { t: 30, d: 90 } });
+  near(m.value, 1 / 3, 'voice done, the stage still plays'); near(m.left, 60, 'the stage says what is left');
+  m = pace.meterReading({ phase: 'atStop', stopIndex: 2, count: 4, voice: null, read: { t: 20.5, d: 41 } });
+  near(m.value, 0.5, 'unheard: the reading time paces it');
+  m = pace.meterReading({ phase: 'travelling', stopIndex: 2, count: 4, way: { t: 300, d: 400 } });
+  assert.equal(m.kind, 'way'); near(m.value, 0.75, 'the way to the stop'); near(m.overall, 2 / 4, 'the way is not the scene'); assert.equal(m.left, 0, 'no clock on a walk (its estimate is on the card)');
+  m = pace.meterReading({ phase: 'opening', stopIndex: 0, count: 4, glide: { t: 20, d: 64 }, way: { t: 1, d: 2 } });
+  assert.equal(m.index, 0); near(m.value, 20 / 64, 'the opening flight, by its clock'); near(m.left, 44, 'with its time');
+  m = pace.meterReading({ phase: 'closing', stopIndex: 3, count: 4 }); near(m.overall, 1, 'closing: all of it done');
+  assert.equal(pace.meterReading({ phase: 'outcome', stopIndex: 3, count: 4 }), null, 'Outing complete has no meter');
+  assert.equal(pace.meterReading({}), null);
+  assert.equal(pace.clockText(0.4), ''); assert.equal(pace.clockText(42.2), '0:43'); assert.equal(pace.clockText(65), '1:05');
+  // The stage's length is its last beat; the narration says where its voice is.
+  const stageSrc = fs.readFileSync(new URL('../renderers/web/js/jaunt-stage.js', import.meta.url), 'utf8');
+  assert.match(stageSrc, /get length\(\)/, 'jaunt-stage exposes its length');
+  assert.match(fs.readFileSync(new URL('../renderers/web/js/narration.js', import.meta.url), 'utf8'), /\n    position\(jaunt, part, id\)/, 'the narration says how far its voice has spoken');
+  // chicago-4d-narration.yml checks out narration.js alone to voice the scripts; an import there
+  // broke the dev voicing run of #2118 (ERR_MODULE_NOT_FOUND jaunt-pace.js).
+  assert.doesNotMatch(fs.readFileSync(new URL('../renderers/web/js/narration.js', import.meta.url), 'utf8'), /^\s*import\s/m, 'narration.js imports nothing');
+}
+console.log('PASS meter: scene in real time, the jaunt as a row of stops');
+console.log('JAUNT START/FINISH PASS — glide clock, path and landings, welcome phase, final stop, readable road notes, openings and closings, meter');

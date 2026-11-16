@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 3045, ts: '2026-11-16T20:42:05.712Z', date: 'Nov 16, 2026, 2:42 PM CT', title: 'A quiet meter for every jaunt', kind: 'feature',
+    items: [
+      'A hairline meter above a jaunt\'s controls shows the whole outing as one short segment a stop: the stops behind are full, the one you are at fills in real time as its scene plays, and the ones ahead wait.',
+      'The stop\'s segment follows what is actually playing there: the narrator\'s voice where you hear it, otherwise the time it takes to read the stop, and any staged scene until its last moment, so it never reads full while a voice still speaks.',
+      'Beside it, in small figures, the time left in the scene (or in the flight to the first stop); on the way between stops the segment fills more faintly as the way is covered.',
+      'Fold the panel down and the same line runs along the top of the bar.',
+    ] },
+  { v: 3044, ts: '2026-11-16T20:42:05.712Z', date: 'Nov 16, 2026, 2:42 PM CT', title: 'John Glessner\'s film shows his oak front door', kind: 'fix',
+    items: [
+      'The film of John Glessner at his door, on the public site\'s home page and in the Temporal Observatory\'s 1904 clips, is filmed again: his front door is oak brown, as it stands in the town, not the pale blue an older build drew.',
+    ] },
+  { v: 3043, ts: '2026-11-16T20:17:56.157Z', date: 'Nov 16, 2026, 2:17 PM CT', title: 'The Confidence view\'s overlay check holds the town still while it counts', kind: 'fix',
+    items: [
+      'Nothing you can see changes. One of the checks that runs on every change turns on the Confidence view\'s building labels, people pins and Jaunt route, and confirms they add nothing to the 3D scene. Since the 1835 townspeople began coming and going from their doors, a figure arriving or loading a closer level of detail during that check was counted as the overlays\' work, so the check failed every time. It now hides the people and pauses the town between its two readings, and if it ever fails again it names the part of the scene that changed.',
+    ] },
   { v: 3042, ts: '2026-11-16T20:00:09.201Z', date: 'Nov 16, 2026, 2:00 PM CT', title: 'South Water and Lake fill out as 1835\'s row of stores', kind: 'feature',
     items: [
       'In 1835 the block fronts of South Water and Lake Streets, Wells to State, are now built up toward seven tenths of their length, and the row turns the corner up Wells, LaSalle, Clark and Dearborn. 59 more reconstructed frame stores and a boarding house stand shoulder to shoulder at the street, the way Gifford drew the street round the first Tremont House.',
