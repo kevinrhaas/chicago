@@ -293,6 +293,14 @@ def survey(inject: dict[str, dict[int, list[str]]] | None = None) -> list[dict]:
             continue
         mine = set(built.get(block_id, ()))
         seated = seated_lots({"blocks": [block]}, datum, exclude=mine).get(block_id, {})
+        # T-3605: the commercial core's street-front stores are a separate fill at the
+        # street, held to their own party lines by tools/generate_core_row_fill_1835.py,
+        # and generate_block_infill's own lot ceiling does not count them either; a corner
+        # store on the cross street stands on a corner lot this run was dealt without
+        # standing on the run's frontage.
+        seated = {i: [x for x in ids if not x.startswith("recon_1835_core_")]
+                  for i, ids in seated.items()}
+        seated = {i: ids for i, ids in seated.items() if ids}
         # every lot this run's own units seat on, by the same two tests
         theirs = seated_lots({"blocks": [block]}, datum).get(block_id, {})
         for index, ids in (inject.get(block_id) or {}).items():
