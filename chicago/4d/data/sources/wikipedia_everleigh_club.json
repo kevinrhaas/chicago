@@ -1,0 +1,25 @@
+{
+  "id": "wikipedia_everleigh_club",
+  "type": "website",
+  "citation": "Wikipedia, 'Everleigh Club'. Read 15 November 2026.",
+  "author": "Wikipedia contributors",
+  "date": "accessed 2026-11-15",
+  "describes_date": "1900-1933",
+  "url": "https://en.wikipedia.org/wiki/Everleigh_Club",
+  "locator": "The article's History, Interior layout, Scandals and Closing sections.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Wikipedia text (CC BY-SA 4.0); cited in words only, nothing copied beyond short quoted fragments.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-15 (the 1904 story jaunts) from the page's own text, fetched whole; this record is cited only for what that text says.",
+  "note": "The club operated from February 1900 until October 1911, owned by Ada and Minna Everleigh (born Simms in Greene County, Virginia, 1864 and 1866; the Kentucky childhood was 'another story concocted by the sisters'); they bought Effie Hankins's brothel at 2131-2133 South Dearborn; it had 'a $15,000 gold-leafed piano for the Music Room' and '$650 gold cuspidors'; it 'opened on February 1, 1900'; Ada kept the books and hired, Minna met the guests; Prince Henry of Prussia visited on 3 March 1902 and the slipper-champagne story began there; the club employed '15 to 25 cooks and maids'. Mayor Carter Harrison Jr. ordered it closed on 24 October 1911; Minna: 'If the Mayor says we must close, that settles it...I'll close up shop and walk out with a smile on my face.' The building was razed in July 1933. On 22 November 1905 Marshall Field Jr. was shot; 'there is some evidence that he was shot by a prostitute at the Everleigh Club', and 'A rival madam maliciously accused the Everleigh sisters of murdering Field.'",
+  "what_it_supplies": [
+    "the club's dates, address, owners and furnishings",
+    "its closing in 1911 and the sisters' words",
+    "the Field Jr. rumour, as rumour"
+  ],
+  "what_it_does_not_supply": [
+    "any Prairie Avenue client named as fact"
+  ]
+}
