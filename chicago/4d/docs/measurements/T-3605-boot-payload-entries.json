@@ -1,5 +1,5 @@
 {
- "total_bytes": 47463203,
+ "total_bytes": 47825270,
  "entries": [
   {
    "url": "/data/prebuilt/1835/ground.bin.gz",
@@ -91,7 +91,7 @@
   },
   {
    "url": "/data/humans/web/hm08_variation_persons.json",
-   "bytes": 257901
+   "bytes": 258408
   },
   {
    "url": "/walk/vendor/three-0.185.1/addons/libs/basis/basis_transcoder.wasm",
@@ -99,15 +99,19 @@
   },
   {
    "url": "/data/prebuilt/1835/ground.json",
-   "bytes": 235417
+   "bytes": 235418
   },
   {
    "url": "/data/sidecars/1835/boot/part-0.json",
-   "bytes": 206548
+   "bytes": 206543
   },
   {
    "url": "/data/textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orl.ktx2",
    "bytes": 201205
+  },
+  {
+   "url": "/data/humans/inside_1835.json",
+   "bytes": 181271
   },
   {
    "url": "/data/reconstruction/1835_address_book.json",
@@ -127,15 +131,19 @@
   },
   {
    "url": "/walk/js/main.js",
-   "bytes": 144573
+   "bytes": 144993
   },
   {
    "url": "/data/sidecars/1835/boot/part-13.json",
-   "bytes": 140721
+   "bytes": 140732
   },
   {
    "url": "/data/sidecars/1835/boot/part-2.json",
-   "bytes": 137351
+   "bytes": 137343
+  },
+  {
+   "url": "/data/humans/web/hm08_variation_persons_1835.json",
+   "bytes": 135510
   },
   {
    "url": "/walk/vendor/three-0.185.1/three.module.js",
@@ -147,11 +155,11 @@
   },
   {
    "url": "/data/sidecars/1835/boot/part-1.json",
-   "bytes": 118476
+   "bytes": 118497
   },
   {
    "url": "/data/sidecars/1835/boot/shared.json",
-   "bytes": 102115
+   "bytes": 102065
   },
   {
    "url": "/walk/js/trees.js",
@@ -171,7 +179,7 @@
   },
   {
    "url": "/data/frontage/town_street_edge.json",
-   "bytes": 80969
+   "bytes": 80970
   },
   {
    "url": "/data/textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_grain.webp",
@@ -191,7 +199,7 @@
   },
   {
    "url": "/data/sidecars/1835/index.json",
-   "bytes": 70068
+   "bytes": 70067
   },
   {
    "url": "/data/enclosures/town_entrance_aprons.json",
@@ -207,7 +215,7 @@
   },
   {
    "url": "/data/prebuilt/1835/streets.json",
-   "bytes": 58769
+   "bytes": 58770
   },
   {
    "url": "/walk/js/yard.js",
@@ -235,7 +243,7 @@
   },
   {
    "url": "/data/prebuilt/1835/frontage.json",
-   "bytes": 49422
+   "bytes": 49417
   },
   {
    "url": "/data/gltf/sheets/b12a3da2bbcc3dc2.ktx2",
@@ -286,12 +294,16 @@
    "bytes": 39404
   },
   {
+   "url": "/walk/js/human-days.js",
+   "bytes": 37928
+  },
+  {
    "url": "/walk/js/signage.js",
    "bytes": 37016
   },
   {
-   "url": "/walk/js/human-days.js",
-   "bytes": 36358
+   "url": "/data/humans/doors_1835.json",
+   "bytes": 36580
   },
   {
    "url": "/walk/js/buildings.js",
@@ -315,11 +327,11 @@
   },
   {
    "url": "/data/yard/town_woodpiles.json",
-   "bytes": 32050
+   "bytes": 32037
   },
   {
    "url": "/data/prebuilt/1835/yards.json",
-   "bytes": 31891
+   "bytes": 31888
   },
   {
    "url": "/data/reconstruction/1835_reconstruction_order_book.json",
@@ -343,7 +355,7 @@
   },
   {
    "url": "/data/sidecars/1835/boot/part-11.json",
-   "bytes": 29555
+   "bytes": 29557
   },
   {
    "url": "/walk/js/street-grid.js",
@@ -355,11 +367,11 @@
   },
   {
    "url": "/data/sidecars/1835/boot/part-12.json",
-   "bytes": 29126
+   "bytes": 29128
   },
   {
    "url": "/data/sidecars/1835/boot/part-5.json",
-   "bytes": 28303
+   "bytes": 28290
   },
   {
    "url": "/data/sidecars/1835/terrain.json",
@@ -379,7 +391,7 @@
   },
   {
    "url": "/data/sidecars/1835/boot/part-14.json",
-   "bytes": 27221
+   "bytes": 27218
   },
   {
    "url": "/walk/js/world.js",
@@ -387,7 +399,7 @@
   },
   {
    "url": "/data/sidecars/1835/boot/part-8.json",
-   "bytes": 25889
+   "bytes": 25908
   },
   {
    "url": "/walk/fonts/sign-old-standard-400-italic.woff2",
@@ -403,7 +415,7 @@
   },
   {
    "url": "/data/sidecars/1835/boot/part-3.json",
-   "bytes": 24412
+   "bytes": 24404
   },
   {
    "url": "/walk/fonts/sign-old-standard-700.woff2",
@@ -411,7 +423,7 @@
   },
   {
    "url": "/data/sidecars/1835/boot/part-6.json",
-   "bytes": 24008
+   "bytes": 24000
   },
   {
    "url": "/walk/fonts/sign-old-standard-400.woff2",
@@ -419,7 +431,7 @@
   },
   {
    "url": "/data/yard/town_trade_goods.json",
-   "bytes": 23448
+   "bytes": 23345
   },
   {
    "url": "/walk/fonts/barlow-semi-condensed-600.woff2",
@@ -427,15 +439,15 @@
   },
   {
    "url": "/data/sidecars/1835/boot/part-7.json",
-   "bytes": 22879
+   "bytes": 22892
   },
   {
    "url": "/data/sidecars/1835/boot/part-4.json",
-   "bytes": 22820
+   "bytes": 22837
   },
   {
    "url": "/walk/js/humans.js",
-   "bytes": 22404
+   "bytes": 22700
   },
   {
    "url": "/walk/fonts/barlow-400.woff2",
@@ -455,7 +467,7 @@
   },
   {
    "url": "/data/sidecars/1835/boot/part-9.json",
-   "bytes": 20237
+   "bytes": 20292
   },
   {
    "url": "/walk/js/human-actions.js",
@@ -503,7 +515,7 @@
   },
   {
    "url": "/data/sidecars/1835/boot/part-10.json",
-   "bytes": 18135
+   "bytes": 18143
   },
   {
    "url": "/walk/js/human-skirt.js",
@@ -822,6 +834,10 @@
    "bytes": 8187
   },
   {
+   "url": "/walk/js/human-blood.js",
+   "bytes": 8179
+  },
+  {
    "url": "/data/gltf/wabansia_doctors_barn__documented_1834.glb",
    "bytes": 8162
   },
@@ -950,6 +966,10 @@
    "bytes": 7604
   },
   {
+   "url": "/walk/js/jaunt-stage.js",
+   "bytes": 7596
+  },
+  {
    "url": "/data/gltf/recon_1835_blk_washington_dearborn_h2_05__inferred_1835.glb",
    "bytes": 7549
   },
@@ -1027,7 +1047,7 @@
   },
   {
    "url": "/walk/js/human-fight.js",
-   "bytes": 7444
+   "bytes": 7441
   },
   {
    "url": "/data/gltf/thomas_church_store__frame_1834.glb",
@@ -1216,10 +1236,6 @@
   {
    "url": "/data/gltf/recon_1835_north_h1_007__inferred_1835.glb",
    "bytes": 7105
-  },
-  {
-   "url": "/walk/js/jaunt-stage.js",
-   "bytes": 7093
   },
   {
    "url": "/data/gltf/recon_1835_north_c3_064__inferred_1835.glb",
@@ -2430,11 +2446,11 @@
    "bytes": 5180
   },
   {
-   "url": "/data/gltf/inf_labourer_shanty_north_a__inferred_1835.glb",
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d2_05__inferred_1835.glb",
    "bytes": 5179
   },
   {
-   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d2_05__inferred_1835.glb",
+   "url": "/data/gltf/inf_labourer_shanty_north_a__inferred_1835.glb",
    "bytes": 5179
   },
   {
@@ -2578,11 +2594,11 @@
    "bytes": 5113
   },
   {
-   "url": "/data/gltf/recon_1835_north_d4_087__inferred_1835.glb",
+   "url": "/data/gltf/recon_1835_blk_west_randolph_canal_d5_01__inferred_1835.glb",
    "bytes": 5110
   },
   {
-   "url": "/data/gltf/recon_1835_blk_west_randolph_canal_d5_01__inferred_1835.glb",
+   "url": "/data/gltf/recon_1835_north_d4_087__inferred_1835.glb",
    "bytes": 5110
   },
   {
@@ -2639,7 +2655,7 @@
   },
   {
    "url": "/data/prebuilt/1835/base.json",
-   "bytes": 5056
+   "bytes": 5057
   },
   {
    "url": "/data/gltf/recon_1835_south_d5_007__inferred_1835.glb",
@@ -3114,11 +3130,11 @@
    "bytes": 4719
   },
   {
-   "url": "/data/gltf/recon_1835_south_d1_003__inferred_1835.glb",
+   "url": "/data/gltf/recon_1835_south_d4_006__inferred_1835.glb",
    "bytes": 4719
   },
   {
-   "url": "/data/gltf/recon_1835_south_d4_006__inferred_1835.glb",
+   "url": "/data/gltf/recon_1835_south_d1_003__inferred_1835.glb",
    "bytes": 4719
   },
   {
@@ -3398,11 +3414,11 @@
    "bytes": 4526
   },
   {
-   "url": "/data/gltf/recon_1835_north_d3_055__inferred_1835.glb",
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a4_14__inferred_1835.glb",
    "bytes": 4521
   },
   {
-   "url": "/data/gltf/recon_1835_blk_washington_clinton_a4_14__inferred_1835.glb",
+   "url": "/data/gltf/recon_1835_north_d3_055__inferred_1835.glb",
    "bytes": 4521
   },
   {
@@ -3430,11 +3446,11 @@
    "bytes": 4498
   },
   {
-   "url": "/data/gltf/north_side_school_1833__log_1833.glb",
+   "url": "/data/gltf/inf_packer_dwelling__inferred_1835.glb",
    "bytes": 4492
   },
   {
-   "url": "/data/gltf/inf_packer_dwelling__inferred_1835.glb",
+   "url": "/data/gltf/north_side_school_1833__log_1833.glb",
    "bytes": 4492
   },
   {
@@ -3930,11 +3946,11 @@
    "bytes": 3540
   },
   {
-   "url": "/data/gltf/lasalle_slough_crossing__crossing_1835.glb",
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_a3_09__inferred_1835.glb",
    "bytes": 3533
   },
   {
-   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_a3_09__inferred_1835.glb",
+   "url": "/data/gltf/lasalle_slough_crossing__crossing_1835.glb",
    "bytes": 3533
   },
   {
@@ -4192,10 +4208,6 @@
   {
    "url": "/walk/js/transport-clearance.js",
    "bytes": 2960
-  },
-  {
-   "url": "/data/humans/doors_1835.json",
-   "bytes": 2954
   },
   {
    "url": "/data/frontage/lasalle_crossing_frontage.json",
@@ -4742,6 +4754,10 @@
    "bytes": 996
   },
   {
+   "url": "/walk/js/render-budget.js",
+   "bytes": 986
+  },
+  {
    "url": "/walk/js/sound-keys.js",
    "bytes": 961
   },
@@ -4808,10 +4824,6 @@
   {
    "url": "/walk/js/today-view-config.js",
    "bytes": 731
-  },
-  {
-   "url": "/walk/js/render-budget.js",
-   "bytes": 730
   },
   {
    "url": "/walk/js/apps/inspect.js",
@@ -5007,7 +5019,7 @@
   },
   {
    "url": "/packs/index.json",
-   "bytes": 154
+   "bytes": 153
   },
   {
    "url": "/data/humans/instances/1835/index.json",
@@ -5019,7 +5031,7 @@
   },
   {
    "url": "/data/prebuilt/index.json",
-   "bytes": 108
+   "bytes": 109
   }
  ]
 }
