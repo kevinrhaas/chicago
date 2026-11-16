@@ -86,6 +86,36 @@
         "pitch": -62,
         "yaw": 15
       }
+    },
+    {
+      "id": "dawn",
+      "label": "Fort Dearborn at sunrise, flying in from the west over the river (cut from the site film 1812-dawn, T-3611)",
+      "film": "1812-dawn",
+      "crop_y": 0.45
+    },
+    {
+      "id": "crossing",
+      "label": "Paddling the Kinzies' dugout across the river toward the fort (cut from the site film 1812-crossing, T-3611)",
+      "film": "1812-crossing",
+      "crop_y": 0.5
+    },
+    {
+      "id": "wagon",
+      "label": "The fort's wagon and its pair on the road by the garden (cut from the site film 1812-wagon, T-3611)",
+      "film": "1812-wagon",
+      "crop_y": 0.5
+    },
+    {
+      "id": "parade",
+      "label": "The garrison on the parade, 10 August 1812, from the battle jaunt (student telling) (cut from the site film 1812-order, T-3611)",
+      "film": "1812-order",
+      "crop_y": 0.55
+    },
+    {
+      "id": "winter",
+      "label": "Fort Dearborn under snow on a winter afternoon (cut from the site film 1812-winter, T-3611)",
+      "film": "1812-winter",
+      "crop_y": 0.45
     }
   ]
 }

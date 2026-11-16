@@ -287,3 +287,34 @@ html.booting .era:not(.resolved) .era-hold b{color:var(--ink-faint)}
 .device-meter[data-state="failed"] .dm-bar i{animation:none}
 @media(max-width:620px){.machine-page .telemetry .device-meter{flex:1 1 100%;border-right:0;border-bottom:1px solid var(--edge);padding:9px 12px 8px}.machine-page .telemetry-cell:nth-child(n+5){display:none}.machine-page .telemetry-cell:nth-child(4){display:grid;border-right:0}.machine-page .telemetry-cell:nth-child(3){border-right:1px solid var(--edge)}.device-meter .dm-read b,.device-meter .dm-read{font-size:14px}}
 @media(prefers-reduced-motion:reduce){.device-meter[data-state="assessing"] .dm-bar i{animation:none}}
+/* Owner, 2026-11-15: each destination lists what stands in its year as a scrolling technical
+   manifest, and on a phone the three destinations come first, all on the first screen, with the device meter
+   (T-2901) right under them so it stays on the first screen too. */
+.era-manifest{position:relative;height:96px;overflow:hidden;margin:2px 0 14px;border-radius:4px;background:var(--screen);box-shadow:var(--inset-bezel);font:400 9.5px/1.25 var(--font-mono);letter-spacing:.07em;color:var(--screen-ink);text-transform:uppercase}
+.era-manifest::before{content:attr(data-head);position:absolute;z-index:1;left:0;right:0;top:0;padding:6px 9px 5px;background:var(--screen);border-bottom:1px solid color-mix(in srgb,var(--screen-ink) 18%,transparent);font-size:8.5px;letter-spacing:.14em;opacity:.7}
+.era-manifest::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(transparent 68%,var(--screen)),repeating-linear-gradient(0deg,rgba(0,0,0,.2) 0 1px,transparent 1px 3px)}
+.era-manifest-roll{padding-top:20px;animation:era-manifest 52s linear infinite}
+.era-calibrating .era-manifest-roll{animation-duration:46s}
+.era:hover .era-manifest-roll,.era:focus-visible .era-manifest-roll{animation-play-state:paused}
+.era-manifest ul{list-style:none;margin:0;padding:0 9px}
+.era-manifest li{padding:2.5px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.era-manifest li::before{content:'> ';opacity:.5}
+@keyframes era-manifest{to{transform:translateY(-50%)}}
+@media(prefers-reduced-motion:reduce){.era-manifest{overflow-y:auto}.era-manifest-roll ul[aria-hidden]{display:none}}
+@media(max-width:620px){
+  .machine-page main{display:flex;flex-direction:column}
+  .machine-page .destinations{order:-1;margin-top:4px}
+  .machine-page .telemetry{order:0}.machine-page .console{order:1}
+  .machine-page .section-line{padding-bottom:8px}
+  .machine-page .era-grid{gap:8px}
+  .machine-page .era{display:grid;grid-template-columns:40% minmax(0,1fr);grid-template-rows:auto auto auto 1fr;column-gap:11px;padding:9px 11px 11px}
+  .machine-page .era:hover,.machine-page .era:focus-visible{transform:none}
+  .machine-page .era-top{grid-column:1/-1;font-size:8px}
+  .machine-page .era-plate{grid-column:1;grid-row:2/5;height:auto;min-height:0;margin:7px 0 0}
+  .machine-page .era-title{grid-column:2;grid-row:2;margin-top:4px}
+  .machine-page .era .year{font-size:38px;line-height:1}
+  .machine-page .era-arrow{font-size:20px}
+  .machine-page .era h3{grid-column:2;grid-row:3;margin:1px 0 5px;font-size:13px}
+  .machine-page .era-manifest{grid-column:2;grid-row:4;height:62px;margin:0}
+  .machine-page .era-hold,.machine-page .era-checks,.machine-page .era-foot{display:none}
+}
