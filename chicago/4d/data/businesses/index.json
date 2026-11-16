@@ -453,7 +453,13 @@
         "tier": "inferred",
         "from": "1835-08-22",
         "to": null,
-        "limit_reason": "The paper names Dearborn Street and nothing narrower; the paper gives no anchor."
+        "limit_reason": "The paper names Dearborn Street and nothing narrower; the paper gives no anchor.",
+        "housed_in": {
+          "structure_id": "recon_1835_gifford_c3_015",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1835-08-22",
@@ -714,7 +720,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'De[a]rborn Stree[t] Denrdorn Stree' names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_randolph_dearborn_h1_14",
+          "structure_id": "recon_1835_gifford_c2_011",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -1201,7 +1207,7 @@
         "to": null,
         "limit_reason": "The paper names Lake Street and nothing narrower; the paper gives no anchor.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_lake_market_d4_02",
+          "structure_id": "recon_1835_gifford_c3_002",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -2518,7 +2524,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the Eagle House' names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_randolph_clark_w1_10",
+          "structure_id": "recon_1835_blk_randolph_clark_w2_09",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -2608,7 +2614,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the Eagle Coffee House' names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_randolph_dearborn_d1_16",
+          "structure_id": "recon_1835_gifford_c3_013",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -3441,7 +3447,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_lasalle_d5_01",
+          "structure_id": "recon_1835_gifford_c3_017",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -4194,7 +4200,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the new bridge' names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_washington_dearborn_w2_10",
+          "structure_id": "recon_1835_blk_randolph_dearborn_w2_18",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -4462,7 +4468,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; a corner of 'Dearborn' and 'Lake-sts. corner of Dearborn and Lake-st', and the plat resolves both sides to ['dearborn', 'lake'].",
         "housed_in": {
-          "structure_id": "recon_1835_south_c3_040",
+          "structure_id": "recon_1835_gifford_c2_009",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -4841,7 +4847,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the Eagle Coffee House' names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_dearborn_d2_04",
+          "structure_id": "recon_1835_gifford_c3_014",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -6240,7 +6246,13 @@
         "tier": "inferred",
         "from": "1835-08-05",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"Jones, King & Co.'s store\" names nothing the committed town holds."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"Jones, King & Co.'s store\" names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_lasalle_d4_02",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1835-08-05",
@@ -8830,7 +8842,7 @@
         "to": null,
         "limit_reason": "The paper names Randolph Street and nothing narrower; the anchor is a reach of Dearborn Street and names nothing narrower.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_lake_market_d2_04",
+          "structure_id": "recon_1835_south_c3_040",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -10466,7 +10478,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the \"Eagle Coffee House\"' names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_randolph_clark_w2_09",
+          "structure_id": "recon_1835_gifford_c1_010",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -11741,7 +11753,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; the paper gives no anchor.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
+          "structure_id": "recon_1835_gifford_c3_012",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -12019,7 +12031,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; a corner of '[South] Water' and 'Clark-streets the New Store on the co[rn', and the plat resolves both sides to ['clark'].",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_franklin_d4_02",
+          "structure_id": "recon_1835_gifford_c2_016",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -12308,7 +12320,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; a corner of 'Dearborn' and 'Lake streets CORNER OF [DEARBORN] AND LA', and the plat resolves both sides to ['dearborn', 'lake'].",
         "housed_in": {
-          "structure_id": "recon_1835_blk_randolph_clark_d6_04",
+          "structure_id": "recon_1835_blk_washington_dearborn_w2_10",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -12427,7 +12439,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_lasalle_d4_02",
+          "structure_id": "recon_1835_blk_south_water_franklin_d4_02",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -12484,7 +12496,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_lasalle_d2_09",
+          "structure_id": "recon_1835_blk_south_water_lasalle_d5_01",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -12653,7 +12665,7 @@
         "to": null,
         "limit_reason": "The paper names Lake Street and nothing narrower; the anchor \"Dr. J. T. Temple's\" names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_lake_franklin_d1_02",
+          "structure_id": "recon_1835_gifford_c2_001",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -12764,7 +12776,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; the paper gives no anchor.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_randolph_dearborn_w2_18",
+          "structure_id": "recon_1835_blk_randolph_clark_w1_10",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false

@@ -9,7 +9,7 @@
    "name": "John Bates Jr.'s Auction Room",
    "placement": {
     "local_e": 677.285,
-    "local_n": -38.684,
+    "local_n": -26.5,
     "rotation_deg": 90.0
    },
    "doors": [
@@ -17,11 +17,11 @@
      "id": "bates_auction_room:front",
      "leaf": {
       "local_e": 684.94,
-      "local_n": -44.78
+      "local_n": -32.6
      },
      "step": {
       "local_e": 685.64,
-      "local_n": -44.78
+      "local_n": -32.6
      },
      "outward_deg": 90.0,
      "width_m": 1.04
@@ -30,11 +30,11 @@
      "id": "bates_auction_room:door2",
      "leaf": {
       "local_e": 680.63,
-      "local_n": -50.92
+      "local_n": -38.74
      },
      "step": {
       "local_e": 680.63,
-      "local_n": -51.62
+      "local_n": -39.44
      },
      "outward_deg": 180.0,
      "width_m": 0.92
@@ -43,17 +43,17 @@
      "id": "bates_auction_room:door3",
      "leaf": {
       "local_e": 681.56,
-      "local_n": -50.92
+      "local_n": -38.74
      },
      "step": {
       "local_e": 681.56,
-      "local_n": -51.62
+      "local_n": -39.44
      },
      "outward_deg": 180.0,
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "23c183fb75ae406fa650b72b45487d30759b681319419fdf97f6189ded587eaf"
+   "model_inputs_sha256": "ae743d31800641bc3ddeb1ff9fc1d677688ed699647e32067a7914a07c81b641"
   },
   {
    "structure": "brickyard_north_side",
@@ -155,7 +155,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "59197b5dd8f69e8865be055e05f4ed670897d720b7f91a3495a7b105d026be50"
+   "model_inputs_sha256": "c228abf3b3edf591e93e53b3a608cc17239f3d8b56975ba3e9eb6ee09869c2f3"
   },
   {
    "structure": "chicago_american_office",
@@ -206,7 +206,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "f97c48b9b6d8ff7758795b13575f321af9b10c6555f3c66638ed6274b8685315"
+   "model_inputs_sha256": "fa50a4c8137e822a5f6bc7d2f64feb31d17af99742d86713caf126232e27c716"
   },
   {
    "structure": "chicago_democrat_office",
@@ -257,7 +257,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "cfd5fc9856cac1f2c2dee949609500e1bf175bba454f7404c927d370836ce93d"
+   "model_inputs_sha256": "b81b085478b2bf8314562e471886117678d5ef5f5904d2927add5209c5630dde"
   },
   {
    "structure": "chicago_lighthouse_keepers_quarters",
@@ -458,7 +458,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "b6752e7ef3a456b0a78f13ffae1328e63f909860535869f34be019addd5e0546"
+   "model_inputs_sha256": "04518ea9263717d1b360e3c7cad9aa4f363555dc462f819037f40a98adbc06c7"
   },
   {
    "structure": "green_tree_tavern",
@@ -559,7 +559,7 @@
      "width_m": 1.04
     }
    ],
-   "model_inputs_sha256": "02715395096c4f74e9fb731801f2f0578e650666933197de1d14d1fcee3e284e"
+   "model_inputs_sha256": "681893ea51e51d09eea2632545b8b780870e3540145e8ad4783f45b5fc0d915f"
   },
   {
    "structure": "james_kinzie_house",
@@ -660,7 +660,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "84899d717589bfcf927ad0cc878b8ecde54b24bfcd9fcad4f5596372b2989ad1"
+   "model_inputs_sha256": "544f39dc05374390ffbd394aa71f754e6b834c9e5730aae0bf1dec5447ac7b14"
   },
   {
    "structure": "kimberly_residence",
@@ -1042,7 +1042,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "55923285abe356a59457ba04f35e0b3e9cf5ab541b4db004e0aa662706e9d1f5"
+   "model_inputs_sha256": "12ed6bd226886e2c3fb06766e5f3d9095936d849a01bc70170d0c69197b214a0"
   },
   {
    "structure": "pruyne_kimball_drugstore",
@@ -1093,7 +1093,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "b483c44c35c41f966ccc603a5d20288e887081b20400994f7ab980356a1c4fe8"
+   "model_inputs_sha256": "975f8d2f3a66c2f34fe2477193a903e4ac44082e418b9956c57d3f6b8866a24c"
   },
   {
    "structure": "recon_1835_blk_indiana_north_cass_d3_01",
@@ -1419,7 +1419,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "49e9edd0f3fe07550e158889b6c65953df72fcc5f7bb6c40c406fca1e600999f"
+   "model_inputs_sha256": "8ebfad5b07f549254022cacf4ddd22db9755857d72c826f026d1ed5cbab9efdb"
   },
   {
    "structure": "recon_1835_blk_lake_market_d1_05",
@@ -1520,7 +1520,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "78afc1b85d912c7af02b0d65046746ecc55a4194d83a8425bb39042384c22b6b"
+   "model_inputs_sha256": "b8efe01f2c14009ba0dfd79ea688d4dc0fac45527d72c2c0fba93a39f5b31c2c"
   },
   {
    "structure": "recon_1835_blk_randolph_clark_d1_06",
@@ -3458,20 +3458,20 @@
    "structure": "recon_1835_blk_south_water_clark_d3_03",
    "name": "Reconstructed D3 one-room frame cottage #03",
    "placement": {
-    "local_e": 650.359,
-    "local_n": -90.357,
+    "local_e": 650.462,
+    "local_n": -73.857,
     "rotation_deg": 180.36
    },
    "doors": [
     {
      "id": "recon_1835_blk_south_water_clark_d3_03:front",
      "leaf": {
-      "local_e": 648.89,
-      "local_n": -97.3
+      "local_e": 649.0,
+      "local_n": -80.8
      },
      "step": {
-      "local_e": 648.89,
-      "local_n": -98.0
+      "local_e": 648.99,
+      "local_n": -81.5
      },
      "outward_deg": 180.4,
      "width_m": 0.92
@@ -3483,26 +3483,26 @@
    "structure": "recon_1835_blk_south_water_clark_d4_02",
    "name": "Reconstructed D4 two-room frame cottage #02",
    "placement": {
-    "local_e": 625.638,
-    "local_n": -88.878,
+    "local_e": 625.737,
+    "local_n": -72.878,
     "rotation_deg": 180.36
    },
    "doors": [
     {
      "id": "recon_1835_blk_south_water_clark_d4_02:front",
      "leaf": {
-      "local_e": 622.85,
-      "local_n": -96.58
+      "local_e": 622.95,
+      "local_n": -80.58
      },
      "step": {
-      "local_e": 622.84,
-      "local_n": -97.28
+      "local_e": 622.94,
+      "local_n": -81.28
      },
      "outward_deg": 180.4,
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "1cbe2567cb574c13a8df336b466c01c2b1d117e411cd8a68948aa5b546645b7a"
+   "model_inputs_sha256": "c32654663b07775b487822a97528ba8bb4ac24b714aa2c7caa9ab8ee968443c3"
   },
   {
    "structure": "recon_1835_blk_south_water_dearborn_c3_02",
@@ -3553,7 +3553,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "4f102bc630a44633c74972e51e411954fc5e2379ff130372d862b3c2745c93b1"
+   "model_inputs_sha256": "3b33701ed70c3d57d22e2efdb5c7f62321ccd9b96b2099be8f5bdb63f134a8a1"
   },
   {
    "structure": "recon_1835_blk_south_water_dearborn_d1_05",
@@ -3654,7 +3654,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "29249cd3b6d3f4cf7c2185a15edcf11320fd27c95eec32e4e1e2c107e923b67e"
+   "model_inputs_sha256": "689cffdf688113740f1096384d9940f5ed450bebe6e0d5bab420e7df834a7175"
   },
   {
    "structure": "recon_1835_blk_south_water_franklin_c4_01",
@@ -3705,7 +3705,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "19dba8f3bec367d6a3486c9d8bc5c44c6f34b3a938a2046a639f4ba67e0203c5"
+   "model_inputs_sha256": "ef37946de9b6d92b2b6a7d9249a88075313e98cc46f224961eb0e739466b3a74"
   },
   {
    "structure": "recon_1835_blk_south_water_franklin_d1_04",
@@ -3882,7 +3882,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "dbcccd0973007837aec3ebe3f5a41090bac3d17713f9f2ee99e32a4622772196"
+   "model_inputs_sha256": "da8ea5ab1e7bca44ea0d8f956540eab0edad39e85f78340e36aaf585a3b27ae5"
   },
   {
    "structure": "recon_1835_blk_south_water_lasalle_d1_04",
@@ -3939,20 +3939,20 @@
    "structure": "recon_1835_blk_south_water_lasalle_d3_03",
    "name": "Reconstructed D3 one-room frame cottage #03",
    "placement": {
-    "local_e": 554.816,
-    "local_n": -90.158,
+    "local_e": 554.92,
+    "local_n": -73.658,
     "rotation_deg": 180.36
    },
    "doors": [
     {
      "id": "recon_1835_blk_south_water_lasalle_d3_03:front",
      "leaf": {
-      "local_e": 553.25,
-      "local_n": -96.52
+      "local_e": 553.36,
+      "local_n": -80.02
      },
      "step": {
-      "local_e": 553.25,
-      "local_n": -97.22
+      "local_e": 553.35,
+      "local_n": -80.72
      },
      "outward_deg": 180.4,
      "width_m": 0.92
@@ -5661,7 +5661,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "ba16ef0c391f2fa06985c2a50efbb132408e5f91af9109c58843356c6a1ce39a"
+   "model_inputs_sha256": "f43c34a0298e722533e08c807d20f9f5b8df5b8b0aab7b6cc5897c85b0d31add"
   },
   {
    "structure": "recon_1835_canal_trade_c4_002",
@@ -5712,7 +5712,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "6290deecbfc0840b93df0adc9bd4160cddef3597d45605d0ec92b1edaebb577c"
+   "model_inputs_sha256": "5ed6478262b5ecd4959fb31bf46bbe5e08320e882ed9b57994503a29433cf3c2"
   },
   {
    "structure": "recon_1835_north_c3_064",
@@ -5763,7 +5763,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "b0604f19548bfcd2354885620a41a0e1f934bd85377d1ebc6cf6f644e7c425af"
+   "model_inputs_sha256": "1bb03e6b5f52868ab3714575bf0077c0b505a225dad66faf6874f03232f6fa58"
   },
   {
    "structure": "recon_1835_north_c4_067",
@@ -5814,7 +5814,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "2ccd0f91e4a062199c426c6b9d9594cf0570ca2902f7682aa961feb5f98e2477"
+   "model_inputs_sha256": "97ff17dff35a2eaa975c4b400598dbce151f4f3fe4394a11e1335fbb3bc59b72"
   },
   {
    "structure": "recon_1835_north_d1_001",
@@ -7622,7 +7622,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "ff7328d6f348e86ba5ae0ede93d8d0bb15930fcb35a216d05efcaf4b7c78e7e6"
+   "model_inputs_sha256": "6b4c008737657402784fbe23213a08a0ec60705fa5d6ab314dc9837506fcfd8b"
   },
   {
    "structure": "recon_1835_south_d1_003",
@@ -8675,7 +8675,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "9b4deff9264eb0631cdbd3cea9d79efd788305225cea8cd109d46be5f3d32938"
+   "model_inputs_sha256": "59ff383459ee2ed305173d9158636002c18cc10c94af98966fdd55754ddb3d0d"
   },
   {
    "structure": "recon_1835_west_008",
@@ -8978,7 +8978,7 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "e9aafc0cb713bb40414a1f501c7b94106b35b9497b86e2856da60b880c12e9a6"
+   "model_inputs_sha256": "ecb23883ba98dd3fabb89b8809c700b26e9b8e904d99ef489d418880a8e93a41"
   },
   {
    "structure": "recon_1835_west_021",
@@ -9858,28 +9858,28 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "3b27a41262d2bbdb2f227fdbb6ca5f0c5dcad33217d44ba2cd6e33b07a20bf08"
+   "model_inputs_sha256": "737e0879e5d07aead6d930eaf2b824058c53c12485f3caba18f8dea337d9ab7f"
   },
   {
    "structure": "tremont_house_1",
    "name": "Tremont House (the first)",
    "placement": {
     "local_e": 685.566,
-    "local_n": -91.406,
-    "rotation_deg": 180.0
+    "local_n": -100.546,
+    "rotation_deg": 270.0
    },
    "doors": [
     {
      "id": "tremont_house_1:front",
      "leaf": {
-      "local_e": 677.95,
-      "local_n": -100.55
+      "local_e": 685.57,
+      "local_n": -92.93
      },
      "step": {
-      "local_e": 677.95,
-      "local_n": -101.25
+      "local_e": 686.27,
+      "local_n": -92.93
      },
-     "outward_deg": 180.0,
+     "outward_deg": 90.0,
      "width_m": 0.9,
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
@@ -10615,42 +10615,10 @@
    "what": "stoop"
   },
   {
-   "structure": "blk_south_water_clark_south_mounting_block_tremont_house_1:low_step",
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c1_010:landing",
    "placement": {
-    "local_e": 677.87,
-    "local_n": -105.83,
-    "rotation_deg": 90.5
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": -0.102,
-    "v0": -0.405,
-    "count": 1,
-    "rects": "0 4 0 10"
-   },
-   "what": "mounting_block"
-  },
-  {
-   "structure": "blk_south_water_clark_south_mounting_block_tremont_house_1:high_step",
-   "placement": {
-    "local_e": 677.86,
-    "local_n": -106.14,
-    "rotation_deg": 90.5
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": -0.102,
-    "v0": -0.405,
-    "count": 1,
-    "rects": "0 4 0 10"
-   },
-   "what": "mounting_block"
-  },
-  {
-   "structure": "blk_south_water_clark_south_stoop_tremont_house_1:landing",
-   "placement": {
-    "local_e": 677.94,
-    "local_n": -101.08,
+    "local_e": 671.62,
+    "local_n": -100.97,
     "rotation_deg": 90.5
    },
    "barrier": {
@@ -10663,10 +10631,266 @@
    "what": "stoop"
   },
   {
-   "structure": "blk_south_water_clark_south_stoop_tremont_house_1:step",
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c1_010:step",
    "placement": {
-    "local_e": 677.94,
-    "local_n": -101.77,
+    "local_e": 671.61,
+    "local_n": -101.65,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.1,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 3 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c2_001:landing",
+   "placement": {
+    "local_e": 591.22,
+    "local_n": -100.31,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.485,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 11 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c2_001:step",
+   "placement": {
+    "local_e": 591.21,
+    "local_n": -100.99,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.1,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 3 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c2_009:landing",
+   "placement": {
+    "local_e": 664.74,
+    "local_n": -100.91,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.485,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 11 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c2_009:step",
+   "placement": {
+    "local_e": 664.73,
+    "local_n": -101.59,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.1,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 3 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c3_002:landing",
+   "placement": {
+    "local_e": 599.3,
+    "local_n": -100.37,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.485,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 11 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c3_002:step",
+   "placement": {
+    "local_e": 599.29,
+    "local_n": -101.06,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.1,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 3 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c3_003:landing",
+   "placement": {
+    "local_e": 607.79,
+    "local_n": -100.44,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.485,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 11 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c3_003:step",
+   "placement": {
+    "local_e": 607.78,
+    "local_n": -101.13,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.1,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 3 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c3_005:landing",
+   "placement": {
+    "local_e": 632.07,
+    "local_n": -100.64,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.485,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 11 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c3_005:step",
+   "placement": {
+    "local_e": 632.06,
+    "local_n": -101.33,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.1,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 3 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c3_006:landing",
+   "placement": {
+    "local_e": 640.26,
+    "local_n": -100.71,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.485,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 11 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c3_006:step",
+   "placement": {
+    "local_e": 640.25,
+    "local_n": -101.39,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.1,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 3 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c3_007:landing",
+   "placement": {
+    "local_e": 648.75,
+    "local_n": -100.78,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.485,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 11 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c3_007:step",
+   "placement": {
+    "local_e": 648.74,
+    "local_n": -101.46,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.1,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 3 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c3_008:landing",
+   "placement": {
+    "local_e": 657.23,
+    "local_n": -100.85,
+    "rotation_deg": 90.5
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": -0.485,
+    "v0": -0.71,
+    "count": 1,
+    "rects": "0 11 0 16"
+   },
+   "what": "stoop"
+  },
+  {
+   "structure": "blk_south_water_clark_south_stoop_recon_1835_gifford_c3_008:step",
+   "placement": {
+    "local_e": 657.23,
+    "local_n": -101.53,
     "rotation_deg": 90.5
    },
    "barrier": {

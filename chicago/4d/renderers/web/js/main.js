@@ -174,6 +174,7 @@ import { mountPacingRead } from './pacing-read.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 import { advanceGust, syncGustUniform } from './wind-gust.js';
 import { createTodayView } from './today-view.js';
+import { createTaleTeller } from './tale-teller.js';
 
 const VERSION = '0.1.0';
 
@@ -860,7 +861,12 @@ const DETAIL_DECLARED = {
   // 1,190,000 (measured 1,154,091). General draw-call cap stays 330; the
   // separate light floor stays 90 (measured 89: only one call clear). Earlier notes
   // and measured strings below are retained as the history of these rungs.
-  full:     { triangles: 3470000, shadowReachM: 240, furnitureCastsShadow: true,
+  // T-3605, 2026-11-15: the owner's Gifford street faces (19 roofs round the
+  // first Tremont, Lake and Dearborn) read 3,476,313 at desktop West prairie in
+  // the content build's desktop part 5 (run 43766993479), 6,313 over. Same
+  // ruling, same margin: 3,476,313 + 18,059 = 3,494,372 -> 3,495,000. Balanced,
+  // Light and every draw-call limit are unchanged; nothing priced ahead.
+  full:     { triangles: 3495000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-3146: Full as well as Light runs T-2529's sun-pass test
               // (shadow-casters.js), unchanged: a structure piece is left out of
@@ -879,7 +885,10 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '3,470,000 set 2026-10-19: fresh production-step split diagnostic '
+              measured: '3,495,000 set 2026-11-15 (T-3605): the content build read '
+                + '3,476,313 at desktop West prairie with the owner-asked Gifford street '
+                + 'faces in (run 43766993479, part 5); +18,059 rounded up to 5,000. '
+                + 'Previously 3,470,000 set 2026-10-19: fresh production-step split diagnostic '
                 + 'pricing after T-2807 tree integration; 36 unique rows, six stands '
                 + 'at both viewports and all tiers, 27 initial plus 9 continuation. '
                 + 'At measured379e7d3d, tree modules match e5e726ba8; main differs by human '
@@ -6299,6 +6308,11 @@ async function boot() {
   api.atHome = atHome;
   // T-3521: a card's Find this person, by id (the harness tests it for everyone).
   api.findPerson = (id) => findSceneDirectoryPerson(id);
+  // T-3553: Tell me a story, after Greet, for everyone in every year; Find goes to whom a story names.
+  api.tales = createTaleTeller({ interactions, scene: YEAR, base: new URL('tales/', resolveBases().dataBase).href,
+    date: () => world.sunDate ?? loaded.scene.target_date ?? null, say: (text) => hud.say(text),
+    canFind: (id) => (api.townTransport?.driverAnchorForPerson?.(id) || personInTown(id) || atHome(id) ? true : 'Not out in town now'),
+    find: (id) => { void findSceneDirectoryPerson(id); } });
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     moreEl: document.getElementById('interact-more'),

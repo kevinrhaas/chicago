@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3024, ts: '2026-11-16T06:54:13.544Z', date: 'Nov 16, 2026, 12:54 AM CT', title: 'Lake and Dearborn round the first Tremont House, built to its drawing', kind: 'improvement',
+    items: [
+      'In 1835 the north side of Lake Street from Clark to Dearborn, and Dearborn north from Lake to the alley, are now the close rows of two-storey stores, false fronts and a tall hipped block that N. Roswell Gifford draws beside the Tremont House, where scattered cottages stood before.',
+      'The Tremont House now turns its named gable to Lake Street, as the drawing shows it. Its stable stands behind it by the alley, and the cottages that stood on these fronts now stand at the backs of their lots.',
+      'Firms the newspapers place only on these streets now keep the new stores, Fullerton & Botsford, who advertised from the Lake and Dearborn corner, among them. Which store each firm takes is our allocation, not a record.',
+      'Five households that had no roof in 1835 now live in the houses those firms left, among them the Montgomerys, the Moselys and the Clarkes.',
+    ] },
   { v: 3023, ts: '2026-11-16T04:24:20.831Z', date: 'Nov 15, 2026, 10:24 PM CT', title: 'The boot budget re-measured after the 1835 townspeople\'s comings and goings', kind: 'fix',
     items: [
       'The first visit to the 1835 street now downloads 45.4 MB, 0.5 MB more than two days ago. Most of it is the 1835 townspeople\'s days, who goes in and out of which door and who is inside a house or shop, with the new carriage ride, the Today window and the people\'s dress. The budget moves to 45.7 MB, with what grew written down file by file, so every pull request\'s build can go green again.',

@@ -86,6 +86,7 @@ const COPIES = [
   ['data/enclosures/', 'data/enclosures/'],
   // T-3332: a scene's night lights (lit windows by the hour, the lamps outside); night-lights.js reads them.
   ['data/night_lights/', 'data/night_lights/'],
+  ['data/tales/', 'data/tales/'],
   ['data/signage/', 'data/signage/'],
   ['data/yard/', 'data/yard/'],
   ['data/transport/horse-coats.json', 'data/transport/horse-coats.json'],
