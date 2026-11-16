@@ -474,6 +474,9 @@ export async function createBoats({
     out.census.records += 1;
     const clearance = record.clearances?.drawbridge_span_m?.value ?? 30;
     for (const boat of record.boats ?? []) {
+      // T-3612: a hull vessels.js now draws (planked, rigged, crewed, and taken out by the
+      // visitor) is not drawn here a second time; the record stays for the tools that read it.
+      if (boat.superseded_by) { out.census.superseded = (out.census.superseded ?? 0) + 1; continue; }
       const form = HULL_FORMS[boat.type];
       if (!form) {
         problems.push(`boats: ${boat.id} has unknown type '${boat.type}' — not drawn`);
@@ -508,7 +511,7 @@ export async function createBoats({
     }
   }
   if (!buf.pos.length) {
-    if (out.census.records) problems.push('boats: the record loaded and not one boat was drawn');
+    if (out.census.records && !out.census.superseded) problems.push('boats: the record loaded and not one boat was drawn');
     return out;
   }
 
