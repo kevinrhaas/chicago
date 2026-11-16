@@ -125,7 +125,8 @@ a.step(0,0); assert.equal(a.body.values.at(-1),0,'A held visual tick advances no
 actorDispose.call(a); const disposedCount=a.body; assert.equal(a.step(.05,50),false); assert.equal(a.body,disposedCount);
 const layerUpdate = required(engine.match(/\n    update\(dt, camera, visitor = null, visualDt = dt\) \{([\s\S]*?)\n    \},\n\n    \/\*\* The selectable/), 'human layer update')[1];
 // T-3495: `kept` is the jaunt's hold on the everyday people; a held figure is not updated either.
-const layerOf = (shown, kept = () => true) => new Function('actors','near','emit','THREE','shown','kept',`return function(dt,camera,visitor=null,visualDt=dt){${layerUpdate}}`)(new Map([['one',{inRange:true,instance:{},update(...args){forwarded.push(args);}}]]),new Set(),()=>{},{},shown,kept);
+// T-3553: `hide` takes a figure a stop's neighbourhood no longer keeps out of sight.
+const layerOf = (shown, kept = () => true) => new Function('actors','near','emit','THREE','shown','kept','hide',`return function(dt,camera,visitor=null,visualDt=dt){${layerUpdate}}`)(new Map([['one',{inRange:true,instance:{},root:{visible:true},update(...args){forwarded.push(args);}}]]),new Set(),()=>{},{},shown,kept,(a)=>{a.root.visible=false;});
 const forwarded=[]; const layer = layerOf(true);
 const eye={}; layer(.05,{position:eye},{e:1,n:2},3); assert.deepEqual(forwarded.at(-1),[.05,eye,3]);
 layer(.05,{position:eye}); assert.deepEqual(forwarded.at(-1),[.05,eye,.05],'Optional visual argument retains existing callers');
