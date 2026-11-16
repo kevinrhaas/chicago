@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 3,
+  "content_version": 4,
   "category": "Fort Dearborn",
   "menu_group": "Stories",
   "grade_band": "6-8",
@@ -12,14 +12,14 @@
   "content_warning": "18+. Graphic violence from the eyewitness accounts: men and women shot, stabbed and struck down with tomahawks and the dead scalped, staged in the scenes; the worst mutilations described in the narration. No child is shown being killed.",
   "scene": "1812",
   "title": "The Battle of Fort Dearborn (18+)",
-  "premise": "18+: 6 April to 16 August 1812 in thirteen stops, with the killings at Lee's Place, the attack on the beach and the death of Captain Wells staged as the witnesses described them.",
+  "premise": "18+: 6 April to 16 August 1812 in sixteen stops, with the killings at Lee's Place, the attack on the beach and the death of Captain Wells staged as the witnesses described them.",
   "default_mode": "fly",
   "allowed_modes": [
     "fly",
     "instantly"
   ],
   "opening": {
-    "text": "JAUNT: THE BATTLE OF FORT DEARBORN, 18+. Spring 1812, where the Chicago River meets Lake Michigan. The nearest American post is Fort Wayne, far to the south-east; Detroit, where the general commands, is farther still. War with Britain is coming, and every report that reaches the fort makes it feel smaller and farther from help.\n\nThis telling is 18+. It walks the same thirteen stops as the students' jaunt, but at Lee's Place, on the beach and on the prairie the killing is staged as the people who lived through it described it: shots fired, knives and tomahawks used, men and women struck down, the dead scalped, and soldiers fighting back with the bayonet. The worst of what was done to the bodies is told, not shown, and no child is shown being harmed.\n\nThirteen stops in date order, with the time of day and the season set for each. Long rides go Instantly; every place keeps its stop.\n\nThe story begins with the fort, on the afternoon of 6 April 1812.",
+    "text": "JAUNT: THE BATTLE OF FORT DEARBORN, 18+. Spring 1812, where the Chicago River meets Lake Michigan. The nearest American post is Fort Wayne, far to the south-east; Detroit, where the general commands, is farther still. War with Britain is coming, and every report that reaches the fort makes it feel smaller and farther from help.\n\nThis telling is 18+. It walks the same sixteen stops as the students' jaunt, but at Lee's Place, on the beach and on the prairie the killing is staged as the people who lived through it described it: shots fired, knives and tomahawks used, men and women struck down, the dead scalped, and soldiers fighting back with the bayonet. The worst of what was done to the bodies is told, not shown, and no child is shown being harmed.\n\nSixteen stops in date order, with the time of day and the season set for each. Long rides go Instantly; every place keeps its stop.\n\nThe story begins with the fort, on the afternoon of 6 April 1812.",
     "read_s": 49
   },
   "stops": [
@@ -91,17 +91,17 @@
                   ],
                   [
                     -1660.0,
-                    -4231.0
+                    -4233.0
                   ],
                   [
-                    -1655.5,
-                    -4241.0
+                    -1653.5,
+                    -4230.8
                   ]
                 ]
               },
               {
                 "t": 52.0,
-                "heading": 61.7
+                "heading": 24.1
               },
               {
                 "t": 54.0,
@@ -118,35 +118,35 @@
                 "t": 77.5,
                 "walk": [
                   [
-                    -1653.82,
-                    -4234.27
+                    -1653.57,
+                    -4232.5
                   ]
                 ],
                 "pace": "brisk"
               },
               {
-                "t": 81.86,
+                "t": 78.87,
                 "face": "white_liberty",
                 "pose": "kneel2",
                 "ease": 0.6
               },
               {
-                "t": 82.66,
+                "t": 79.67,
                 "face": "white_liberty",
                 "act": "stab"
               },
               {
-                "t": 83.66,
+                "t": 80.67,
                 "face": "white_liberty",
                 "act": "stab"
               },
               {
-                "t": 84.66,
+                "t": 81.67,
                 "face": "white_liberty",
                 "act": "stab"
               },
               {
-                "t": 85.66,
+                "t": 82.67,
                 "face": "white_liberty",
                 "act": "stab"
               }
@@ -172,17 +172,17 @@
                   ],
                   [
                     -1660.0,
-                    -4231.0
+                    -4233.0
                   ],
                   [
-                    -1653.0,
-                    -4242.5
+                    -1651.5,
+                    -4230.3
                   ]
                 ]
               },
               {
                 "t": 52.8,
-                "heading": 38.7
+                "heading": 0.7
               },
               {
                 "t": 54.8,
@@ -199,8 +199,8 @@
                 "t": 78.5,
                 "walk": [
                   [
-                    -1653.49,
-                    -4235.0
+                    -1652.7,
+                    -4232.08
                   ]
                 ],
                 "pace": "brisk"
@@ -227,17 +227,17 @@
                   ],
                   [
                     -1660.0,
-                    -4231.0
+                    -4233.0
                   ],
                   [
-                    -1645.0,
-                    -4242.0
+                    -1648.0,
+                    -4228.3
                   ]
                 ]
               },
               {
                 "t": 53.6,
-                "heading": 318.4
+                "heading": 301.1
               },
               {
                 "t": 55.6,
@@ -262,25 +262,25 @@
                 "arm": "knife"
               },
               {
-                "t": 84.43,
+                "t": 82.39,
                 "face": "cardin_john_b",
                 "pose": "kneel2",
                 "ease": 0.6
               },
               {
-                "t": 85.33,
+                "t": 83.29,
                 "act": "stab"
               },
               {
-                "t": 86.13,
+                "t": 84.09,
                 "act": "stab"
               },
               {
-                "t": 86.93,
+                "t": 84.89,
                 "act": "stab"
               },
               {
-                "t": 88.63,
+                "t": 86.59,
                 "pose": "stand",
                 "ease": 0.9
               }
@@ -306,17 +306,17 @@
                   ],
                   [
                     -1660.0,
-                    -4231.0
+                    -4233.0
                   ],
                   [
-                    -1642.5,
-                    -4240.5
+                    -1646.5,
+                    -4226.9
                   ]
                 ]
               },
               {
                 "t": 54.4,
-                "heading": 294.8
+                "heading": 277.8
               },
               {
                 "t": 56.4,
@@ -351,11 +351,11 @@
                   ],
                   [
                     -1660.0,
-                    -4231.0
+                    -4233.0
                   ],
                   [
-                    -1649.0,
-                    -4237.5
+                    -1651.45,
+                    -4226.22
                   ]
                 ],
                 "hide": true
@@ -414,11 +414,11 @@
                   ],
                   [
                     -1660.0,
-                    -4231.0
+                    -4233.0
                   ],
                   [
-                    -1649.0,
-                    -4237.5
+                    -1647.57,
+                    -4224.06
                   ]
                 ],
                 "hide": true
@@ -476,11 +476,11 @@
                   ],
                   [
                     -1660.0,
-                    -4231.0
+                    -4233.0
                   ],
                   [
-                    -1649.0,
-                    -4237.5
+                    -1654.99,
+                    -4228.17
                   ]
                 ],
                 "hide": true
@@ -508,11 +508,11 @@
                   ],
                   [
                     -1660.0,
-                    -4231.0
+                    -4233.0
                   ],
                   [
-                    -1649.0,
-                    -4237.5
+                    -1651.45,
+                    -4226.22
                   ]
                 ],
                 "hide": true
@@ -539,11 +539,11 @@
                   ],
                   [
                     -1660.0,
-                    -4231.0
+                    -4233.0
                   ],
                   [
-                    -1649.0,
-                    -4237.5
+                    -1647.57,
+                    -4224.06
                   ]
                 ],
                 "hide": true
@@ -571,11 +571,11 @@
                   ],
                   [
                     -1660.0,
-                    -4231.0
+                    -4233.0
                   ],
                   [
-                    -1649.0,
-                    -4237.5
+                    -1654.99,
+                    -4228.17
                   ]
                 ],
                 "hide": true
@@ -602,11 +602,11 @@
                   ],
                   [
                     -1660.0,
-                    -4231.0
+                    -4233.0
                   ],
                   [
-                    -1649.0,
-                    -4237.5
+                    -1651.45,
+                    -4226.22
                   ]
                 ],
                 "hide": true
@@ -619,7 +619,7 @@
               -1651.5,
               -4239.8
             ],
-            "heading": 316.0,
+            "heading": 308.7,
             "beats": [
               {
                 "t": 26,
@@ -637,8 +637,8 @@
                 "t": 46,
                 "walk": [
                   [
-                    -1649.0,
-                    -4237.5
+                    -1651.45,
+                    -4226.22
                   ]
                 ],
                 "hide": true
@@ -680,19 +680,19 @@
                 "ease": 0.8
               },
               {
-                "t": 83.1,
+                "t": 80.11,
                 "wound": "body"
               },
               {
-                "t": 84.1,
+                "t": 81.11,
                 "wound": "body"
               },
               {
-                "t": 85.1,
+                "t": 82.11,
                 "wound": "body"
               },
               {
-                "t": 86.1,
+                "t": 83.11,
                 "wound": "body"
               }
             ]
@@ -714,11 +714,11 @@
                 "walk": [
                   [
                     -1645.0,
-                    -4236.0
+                    -4232.0
                   ],
                   [
-                    -1649.0,
-                    -4237.5
+                    -1647.57,
+                    -4224.06
                   ]
                 ],
                 "hide": true
@@ -755,15 +755,15 @@
                 "ease": 0.7
               },
               {
-                "t": 85.77,
+                "t": 83.73,
                 "wound": "scalp"
               },
               {
-                "t": 86.57,
+                "t": 84.53,
                 "wound": "scalp"
               },
               {
-                "t": 87.37,
+                "t": 85.33,
                 "wound": "scalp"
               }
             ]
@@ -957,10 +957,10 @@
             "person": "burns_child_a",
             "hidden": true,
             "at": [
-              797.2,
-              102.4
+              797.15,
+              113.44
             ],
-            "heading": 180,
+            "heading": 0,
             "beats": [
               {
                 "t": 2,
@@ -968,17 +968,37 @@
               },
               {
                 "t": 3,
-                "face": [
-                  797.0,
-                  40.0
-                ]
-              },
-              {
-                "t": 9,
                 "walk": [
                   [
-                    798.5,
-                    103.6
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    802.6,
+                    104.6
+                  ],
+                  [
+                    801.6,
+                    103.2
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 185
+              },
+              {
+                "t": 13,
+                "walk": [
+                  [
+                    802.6,
+                    104.6
+                  ],
+                  [
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    797.15,
+                    113.44
                   ]
                 ],
                 "pace": "brisk",
@@ -986,19 +1006,22 @@
               },
               {
                 "t": 48,
-                "place": [
-                  799.6,
-                  102.6
-                ],
-                "show": true,
-                "heading": 160
+                "show": true
               },
               {
-                "t": 66,
+                "t": 49,
                 "walk": [
                   [
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    802.6,
+                    104.6
+                  ],
+                  [
                     803.5,
-                    96.0
+                    99.0
                   ],
                   [
                     805.0,
@@ -1013,47 +1036,69 @@
             "person": "burns_child_b",
             "hidden": true,
             "at": [
-              799.4,
-              102.2
+              797.15,
+              113.44
             ],
-            "heading": 190,
+            "heading": 0,
             "beats": [
               {
-                "t": 3,
+                "t": 3.5,
                 "show": true
               },
               {
-                "t": 4,
-                "face": [
-                  799.0,
-                  40.0
-                ]
-              },
-              {
-                "t": 12,
+                "t": 4.5,
                 "walk": [
                   [
-                    798.5,
-                    103.6
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    802.6,
+                    104.6
+                  ],
+                  [
+                    803.2,
+                    102.6
+                  ]
+                ],
+                "heading": 190
+              },
+              {
+                "t": 15,
+                "walk": [
+                  [
+                    802.6,
+                    104.6
+                  ],
+                  [
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    797.15,
+                    113.44
                   ]
                 ],
                 "hide": true
               },
               {
-                "t": 48,
-                "place": [
-                  797.5,
-                  102.3
-                ],
-                "show": true,
-                "heading": 160
+                "t": 49.5,
+                "show": true
               },
               {
-                "t": 67,
+                "t": 50.5,
                 "walk": [
                   [
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    802.6,
+                    104.6
+                  ],
+                  [
                     802.5,
-                    96.5
+                    98.5
                   ],
                   [
                     804.0,
@@ -1071,7 +1116,7 @@
               806.5,
               93.2
             ],
-            "heading": 322.4,
+            "heading": 335.2,
             "beats": [
               {
                 "t": 18.0,
@@ -1081,28 +1126,36 @@
                 "t": 19.0,
                 "walk": [
                   [
-                    804.0,
-                    99.0
+                    806.0,
+                    98.5
                   ],
                   [
-                    795.8,
-                    100.4
+                    803.4,
+                    101.0
                   ]
                 ],
-                "heading": 40.2
+                "heading": 330
               },
               {
-                "t": 32,
+                "t": 30,
                 "walk": [
                   [
-                    799.1,
-                    102.3
+                    802.6,
+                    104.6
+                  ],
+                  [
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    798.55,
+                    114.04
                   ]
                 ],
-                "heading": 0
+                "heading": 250
               },
               {
-                "t": 36,
+                "t": 38,
                 "talk": true
               },
               {
@@ -1113,19 +1166,27 @@
                 "t": 46,
                 "walk": [
                   [
-                    798.5,
-                    103.6
+                    797.15,
+                    113.44
                   ]
                 ],
                 "hide": true
               },
               {
-                "t": 58,
+                "t": 60,
                 "show": true
               },
               {
-                "t": 59,
+                "t": 61,
                 "walk": [
+                  [
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    802.6,
+                    104.6
+                  ],
                   [
                     806.5,
                     93.4
@@ -1143,7 +1204,7 @@
               807.4,
               93.2
             ],
-            "heading": 319.4,
+            "heading": 333.1,
             "beats": [
               {
                 "t": 18.6,
@@ -1153,38 +1214,49 @@
                 "t": 19.6,
                 "walk": [
                   [
-                    804.0,
-                    99.0
+                    806.0,
+                    98.5
                   ],
                   [
-                    797.2,
-                    100.4
+                    804.5,
+                    101.0
                   ]
                 ],
-                "heading": 22.1
+                "heading": 330
               },
               {
                 "t": 41,
                 "walk": [
                   [
-                    798.5,
-                    103.6
+                    802.6,
+                    104.6
+                  ],
+                  [
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    797.15,
+                    113.44
                   ]
                 ],
                 "hide": true
               },
               {
-                "t": 56,
-                "place": [
-                  798.5,
-                  102.6
-                ],
-                "show": true,
-                "heading": 160
+                "t": 53.4,
+                "show": true
               },
               {
-                "t": 57,
+                "t": 54.4,
                 "walk": [
+                  [
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    802.6,
+                    104.6
+                  ],
                   [
                     806.5,
                     95.0
@@ -1202,7 +1274,7 @@
               808.3,
               93.2
             ],
-            "heading": 316.7,
+            "heading": 331.2,
             "beats": [
               {
                 "t": 19.2,
@@ -1212,38 +1284,49 @@
                 "t": 20.2,
                 "walk": [
                   [
-                    804.0,
-                    99.0
+                    806.0,
+                    98.5
                   ],
                   [
-                    798.6,
-                    100.4
+                    805.6,
+                    101.0
                   ]
                 ],
-                "heading": 358.2
+                "heading": 330
               },
               {
                 "t": 42,
                 "walk": [
                   [
-                    798.5,
-                    103.6
+                    802.6,
+                    104.6
+                  ],
+                  [
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    797.15,
+                    113.44
                   ]
                 ],
                 "hide": true
               },
               {
-                "t": 56,
-                "place": [
-                  797.7,
-                  102.6
-                ],
-                "show": true,
-                "heading": 160
+                "t": 54.8,
+                "show": true
               },
               {
-                "t": 57,
+                "t": 55.8,
                 "walk": [
+                  [
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    802.6,
+                    104.6
+                  ],
                   [
                     805.7,
                     95.0
@@ -1261,7 +1344,7 @@
               806.5,
               94.1
             ],
-            "heading": 319.9,
+            "heading": 334.2,
             "beats": [
               {
                 "t": 19.8,
@@ -1271,38 +1354,49 @@
                 "t": 20.8,
                 "walk": [
                   [
-                    804.0,
-                    99.0
+                    806.0,
+                    98.5
                   ],
                   [
-                    795.8,
-                    101.3
+                    803.4,
+                    102.0
                   ]
                 ],
-                "heading": 49.6
+                "heading": 330
               },
               {
                 "t": 43,
                 "walk": [
                   [
-                    798.5,
-                    103.6
+                    802.6,
+                    104.6
+                  ],
+                  [
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    797.15,
+                    113.44
                   ]
                 ],
                 "hide": true
               },
               {
-                "t": 56,
-                "place": [
-                  798.5,
-                  101.2
-                ],
-                "show": true,
-                "heading": 160
+                "t": 56.2,
+                "show": true
               },
               {
-                "t": 57,
+                "t": 57.2,
                 "walk": [
+                  [
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    802.6,
+                    104.6
+                  ],
                   [
                     806.5,
                     93.6
@@ -1320,7 +1414,7 @@
               807.4,
               94.1
             ],
-            "heading": 316.9,
+            "heading": 332.1,
             "beats": [
               {
                 "t": 20.4,
@@ -1330,38 +1424,49 @@
                 "t": 21.4,
                 "walk": [
                   [
-                    804.0,
-                    99.0
+                    806.0,
+                    98.5
                   ],
                   [
-                    797.2,
-                    101.3
+                    804.5,
+                    102.0
                   ]
                 ],
-                "heading": 29.5
+                "heading": 330
               },
               {
                 "t": 44,
                 "walk": [
                   [
-                    798.5,
-                    103.6
+                    802.6,
+                    104.6
+                  ],
+                  [
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    797.15,
+                    113.44
                   ]
                 ],
                 "hide": true
               },
               {
-                "t": 56,
-                "place": [
-                  797.7,
-                  101.2
-                ],
-                "show": true,
-                "heading": 160
+                "t": 57.6,
+                "show": true
               },
               {
-                "t": 57,
+                "t": 58.6,
                 "walk": [
+                  [
+                    802.6,
+                    114.2
+                  ],
+                  [
+                    802.6,
+                    104.6
+                  ],
                   [
                     805.7,
                     93.6
@@ -1379,7 +1484,7 @@
               808.3,
               94.1
             ],
-            "heading": 314.1,
+            "heading": 330.0,
             "beats": [
               {
                 "t": 21.0,
@@ -1389,15 +1494,15 @@
                 "t": 22.0,
                 "walk": [
                   [
-                    804.0,
-                    99.0
+                    806.0,
+                    98.5
                   ],
                   [
-                    798.6,
-                    101.3
+                    805.6,
+                    102.0
                   ]
                 ],
-                "heading": 357.5
+                "heading": 330
               },
               {
                 "t": 60,
@@ -3273,14 +3378,14 @@
         "destroyed"
       ],
       "stage": {
-        "caption": "Watch the soldiers carry the powder and the whiskey down the covered way to the river.",
+        "caption": "Watch the soldiers carry the powder and the whiskey out by the sally port and down the covered way to the river.",
         "liberty": "L-1812-adult-jaunts",
         "cast": [
           {
             "person": "hays_otho",
             "at": [
-              1164.8,
-              262.8
+              1166.56,
+              263.4
             ],
             "heading": 0,
             "pose": "crouch",
@@ -3300,8 +3405,8 @@
           {
             "person": "crozier_john",
             "at": [
-              1166.0,
-              262.8
+              1167.36,
+              263.0
             ],
             "heading": 0,
             "pose": "crouch",
@@ -3321,8 +3426,8 @@
           {
             "person": "griffith_william",
             "at": [
-              1167.2,
-              262.8
+              1168.16,
+              263.4
             ],
             "heading": 0,
             "pose": "crouch",
@@ -3342,112 +3447,240 @@
           {
             "person": "forth_thomas",
             "at": [
-              1165.6,
-              236.5
+              1163.6,
+              229.1
             ],
-            "heading": 0,
+            "heading": 90,
             "beats": [
               {
                 "t": 0.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 26.0,
+                "t": 34.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 50.0,
+                "t": 68.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 76.0,
+                "t": 102.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 100.0,
+                "t": 136.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 126.0,
+                "t": 170.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 150.0,
+                "t": 204.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 176.0,
+                "t": 238.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               }
@@ -3456,112 +3689,240 @@
           {
             "person": "bowen_joseph",
             "at": [
-              1165.4,
-              237.1
+              1162.4,
+              229.5
             ],
-            "heading": 0,
+            "heading": 90,
             "beats": [
               {
-                "t": 2.5,
+                "t": 4.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 28.5,
+                "t": 38.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 52.5,
+                "t": 72.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 78.5,
+                "t": 106.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 102.5,
+                "t": 140.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 128.5,
+                "t": 174.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 152.5,
+                "t": 208.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 178.5,
+                "t": 242.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               }
@@ -3570,112 +3931,240 @@
           {
             "person": "allin_john",
             "at": [
-              1165.6,
-              237.7
+              1161.2,
+              229.1
             ],
-            "heading": 0,
+            "heading": 90,
             "beats": [
               {
-                "t": 5.0,
+                "t": 8.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 31.0,
+                "t": 42.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 55.0,
+                "t": 76.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 81.0,
+                "t": 110.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 105.0,
+                "t": 144.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 131.0,
+                "t": 178.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 155.0,
+                "t": 212.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 181.0,
+                "t": 246.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               }
@@ -3684,112 +4173,240 @@
           {
             "person": "adams_george",
             "at": [
-              1165.4,
-              238.3
+              1160.0,
+              229.5
             ],
-            "heading": 0,
+            "heading": 90,
             "beats": [
               {
-                "t": 7.5,
+                "t": 12.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 33.5,
+                "t": 46.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 57.5,
+                "t": 80.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 83.5,
+                "t": 114.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 107.5,
+                "t": 148.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 133.5,
+                "t": 182.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 157.5,
+                "t": 216.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 183.5,
+                "t": 250.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               }
@@ -3798,99 +4415,153 @@
           {
             "person": "andrews_prestly",
             "at": [
-              1165.6,
-              238.9
+              1158.8,
+              229.1
             ],
-            "heading": 0,
+            "heading": 90,
             "beats": [
               {
-                "t": 10.0,
+                "t": 16.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 36.0,
+                "t": 50.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 60.0,
+                "t": 84.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 86.0,
+                "t": 118.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 110.0,
+                "t": 152.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
-                  ]
-                ]
-              },
-              {
-                "t": 136.0,
-                "walk": [
-                  [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    229.5
                   ],
                   [
-                    1165.4,
-                    236.5
-                  ]
-                ]
-              },
-              {
-                "t": 160.0,
-                "walk": [
-                  [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    236.6
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
@@ -3898,12 +4569,86 @@
                 "t": 186.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
+                  ]
+                ]
+              },
+              {
+                "t": 220.0,
+                "walk": [
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
+                  ]
+                ]
+              },
+              {
+                "t": 254.0,
+                "walk": [
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               }
@@ -3912,117 +4657,249 @@
           {
             "person": "corbin_james",
             "at": [
-              1165.4,
-              239.5
+              1157.6,
+              229.5
             ],
-            "heading": 0,
+            "heading": 90,
             "beats": [
               {
-                "t": 12.5,
+                "t": 20.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 38.5,
+                "t": 54.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 62.5,
+                "t": 88.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 88.5,
+                "t": 122.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 112.5,
+                "t": 156.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 138.5,
+                "t": 190.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               },
               {
-                "t": 162.5,
+                "t": 224.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1165.0,
+                    229.5
                   ],
                   [
-                    1166.0,
-                    260.8
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    256.8
+                  ],
+                  [
+                    1167.36,
+                    261.8
                   ]
                 ]
               },
               {
-                "t": 188.5,
+                "t": 258.0,
                 "walk": [
                   [
-                    1165.4,
-                    240.5
+                    1167.36,
+                    256.8
                   ],
                   [
-                    1165.4,
-                    236.5
+                    1167.36,
+                    240.0
+                  ],
+                  [
+                    1167.36,
+                    236.6
+                  ],
+                  [
+                    1167.36,
+                    229.5
+                  ],
+                  [
+                    1165.0,
+                    229.5
+                  ],
+                  [
+                    1163.6,
+                    229.5
                   ]
                 ]
               }
             ]
           }
+        ],
+        "open_gates": [
+          "first_fort_dearborn_pickets_outer:n",
+          "first_fort_dearborn_pickets_inner:e"
         ]
       }
     },
@@ -4033,21 +4910,20 @@
         "kind": "anchor",
         "id": "first_fort_gate"
       },
-      "text": "14 August, sunset, at the main gate. Captain William Wells rides in from Fort Wayne with a Miami escort, Heald says 'about 30 Miamies'. Wells is Rebekah Heald's uncle; he has come to bring her and her husband out, but Wau-Bun says 'all too late'. That evening Black Partridge, a Potawatomi leader from the Illinois River, comes to Heald's quarters and hands back his peace medal: 'I will not wear a token of peace while I am compelled to act as an enemy.' It is the plainest warning anyone gives. At nine tomorrow the gate will open, and everyone inside will walk out of it.",
-      "read_s": 30,
+      "text": "14 August, sunset, at the main gate. Captain William Wells rides in from Fort Wayne with a Miami escort, Heald says 'about 30 Miamies'. Wells is Rebekah Heald's uncle; he has come to bring her and her husband out, but Wau-Bun says 'all too late': the ammunition is already destroyed. His niece and Heald take him in to Heald's quarters. At nine tomorrow the gate will open, and everyone inside will walk out of it.",
+      "read_s": 25,
       "evidence": [
         "wells",
-        "medal",
         "gate-evening"
       ],
-      "next": "river-mouth",
+      "next": "the-medal",
       "hour": "sunset",
       "date": "1812-08-14",
       "hour_evidence": [
         "gate-evening"
       ],
       "stage": {
-        "caption": "Watch Wells come in with his Miami escort, and Black Partridge come to hand back his medal.",
+        "caption": "Watch Wells come in with his Miami escort, and his niece and Heald take him in to Heald's quarters.",
         "liberty": "L-1812-adult-jaunts",
         "cast": [
           {
@@ -4075,23 +4951,27 @@
                 "talk": false
               },
               {
-                "t": 44,
-                "face": "black_partridge"
-              },
-              {
-                "t": 52,
-                "talk": true
-              },
-              {
-                "t": 60,
-                "talk": false
-              },
-              {
-                "t": 62,
+                "t": 37,
                 "walk": [
                   [
                     1149.0,
                     204.5
+                  ],
+                  [
+                    1149.3,
+                    208.4
+                  ],
+                  [
+                    1151.0,
+                    214.0
+                  ],
+                  [
+                    1158.6,
+                    221.0
+                  ],
+                  [
+                    1161.05,
+                    222.51
                   ]
                 ],
                 "hide": true
@@ -4120,6 +5000,22 @@
                   [
                     1149.0,
                     204.5
+                  ],
+                  [
+                    1149.3,
+                    208.4
+                  ],
+                  [
+                    1151.0,
+                    214.0
+                  ],
+                  [
+                    1158.6,
+                    221.0
+                  ],
+                  [
+                    1161.05,
+                    222.51
                   ]
                 ],
                 "hide": true
@@ -4161,11 +5057,27 @@
                 "talk": false
               },
               {
-                "t": 35,
+                "t": 35.5,
                 "walk": [
                   [
                     1149.0,
                     204.5
+                  ],
+                  [
+                    1149.3,
+                    208.4
+                  ],
+                  [
+                    1151.0,
+                    214.0
+                  ],
+                  [
+                    1158.6,
+                    221.0
+                  ],
+                  [
+                    1161.05,
+                    222.51
                   ]
                 ],
                 "hide": true
@@ -4463,58 +5375,197 @@
                 "heading": 60
               }
             ]
-          },
+          }
+        ],
+        "open_gates": [
+          "first_fort_dearborn_pickets_outer:s",
+          "first_fort_dearborn_pickets_inner:s"
+        ]
+      }
+    },
+    {
+      "id": "the-medal",
+      "since": "That evening",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_parade"
+      },
+      "text": "14 August, evening, at Heald's quarters on the parade. Black Partridge, 'a Pottawatomie chief from the Illinois River', has come to the fort. He 'entered the quarters of the commanding officer' and hands back his peace medal: 'I will not wear a token of peace while I am compelled to act as an enemy.' Helm and Griffith both record his warning, and 'Helm alone mentions the surrender of the medal.' It is the plainest warning anyone gives. At nine tomorrow the column marches.",
+      "read_s": 28,
+      "evidence": [
+        "medal",
+        "gate-evening"
+      ],
+      "next": "river-mouth",
+      "hour": "dusk",
+      "date": "1812-08-14",
+      "hour_evidence": [
+        "gate-evening"
+      ],
+      "stage": {
+        "caption": "Watch Black Partridge come to Heald's quarters to hand back his peace medal.",
+        "liberty": "L-1812-adult-jaunts",
+        "cast": [
           {
-            "person": "black_partridge",
+            "person": "heald_nathan",
             "hidden": true,
             "at": [
-              1112.0,
-              186.5
+              1161.05,
+              222.51
             ],
-            "heading": 80,
+            "heading": 270,
             "beats": [
               {
-                "t": 36,
+                "t": 9,
                 "show": true
               },
               {
-                "t": 37,
+                "t": 10,
                 "walk": [
                   [
-                    1135.0,
-                    192.0
-                  ],
-                  [
-                    1147.6,
-                    197.2
+                    1159.45,
+                    222.81
                   ]
                 ],
-                "heading": 60
+                "heading": 255
               },
               {
-                "t": 52,
-                "face": "heald_nathan"
+                "t": 16,
+                "face": "black_partridge"
               },
               {
-                "t": 54,
+                "t": 17,
+                "greet": true
+              },
+              {
+                "t": 24,
                 "talk": true
               },
               {
-                "t": 61,
+                "t": 30,
                 "talk": false
               },
               {
-                "t": 63,
+                "t": 42,
                 "walk": [
                   [
-                    1149.0,
-                    204.5
+                    1161.05,
+                    222.51
                   ]
                 ],
                 "hide": true
               }
             ]
+          },
+          {
+            "person": "helm_linai",
+            "at": [
+              1158.65,
+              220.91
+            ],
+            "heading": 240,
+            "beats": [
+              {
+                "t": 14,
+                "face": "black_partridge"
+              },
+              {
+                "t": 44,
+                "heading": 90
+              }
+            ]
+          },
+          {
+            "person": "black_partridge",
+            "at": [
+              1148.9,
+              206.0
+            ],
+            "heading": 20,
+            "beats": [
+              {
+                "t": 0.5,
+                "walk": [
+                  [
+                    1150.6,
+                    213.0
+                  ],
+                  [
+                    1156.0,
+                    219.5
+                  ],
+                  [
+                    1158.35,
+                    222.51
+                  ]
+                ],
+                "pace": "slow",
+                "heading": 75
+              },
+              {
+                "t": 19,
+                "greet": true
+              },
+              {
+                "t": 21,
+                "talk": true
+              },
+              {
+                "t": 28,
+                "talk": false
+              },
+              {
+                "t": 32,
+                "greet": true
+              },
+              {
+                "t": 34,
+                "talk": true
+              },
+              {
+                "t": 40,
+                "talk": false
+              },
+              {
+                "t": 43.5,
+                "walk": [
+                  [
+                    1161.05,
+                    222.51
+                  ]
+                ],
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "crozier_john",
+            "at": [
+              1148.5,
+              214.5
+            ],
+            "heading": 52.8
+          },
+          {
+            "person": "griffith_william",
+            "at": [
+              1151.5,
+              215.7
+            ],
+            "heading": 48.2
+          },
+          {
+            "person": "forth_thomas",
+            "at": [
+              1154.5,
+              214.5
+            ],
+            "heading": 30.8
           }
+        ],
+        "open_gates": [
+          "first_fort_dearborn_pickets_outer:s",
+          "first_fort_dearborn_pickets_inner:s"
         ]
       }
     },
@@ -19767,12 +20818,13 @@
         "kind": "anchor",
         "id": "kinzie_house_front"
       },
-      "text": "15 August, sunset, at the house of John Kinzie, the trader who sold to the garrison. His family is spared and brought home under guard: 'At their own mansion the family of Mr. Kinzie were closely guarded by their Indian friends.' Mrs. Heald, badly wounded, is ransomed by Kinzie's clerk for a mule, and Kinzie takes a ball from her arm 'with his penknife.' Next day a war party from the Wabash, faces blackened, sit down silent in the parlor. Then Billy Caldwell, the Sauganash, walks in 'with a calm step' and greets them as friends; they ask only for 'some white cotton in which to wrap their dead'. A few doors west, a wounded woman is hiding, and men are searching the houses.",
-      "read_s": 35,
+      "text": "15 August, sunset, at the house of John Kinzie, the trader who sold to the garrison. His family is spared and brought home under guard: 'At their own mansion the family of Mr. Kinzie were closely guarded by their Indian friends.' Mrs. Heald, badly wounded, is ransomed by Kinzie's clerk for a mule, and Kinzie takes a ball from her arm 'with his penknife.' The gate of the green is open. Across the river the fort stands empty; in the morning it will burn.",
+      "read_s": 28,
       "evidence": [
         "kinzie-house",
         "kinzie",
-        "kinzie-evening"
+        "kinzie-evening",
+        "burning"
       ],
       "next": "the-burning",
       "hour": "sunset",
@@ -19781,7 +20833,7 @@
         "kinzie-evening"
       ],
       "stage": {
-        "caption": "Watch the Kinzies on their green under guard, Kinzie kneeling to Mrs. Heald's wounded arm.",
+        "caption": "Watch the Kinzies on their green under guard, Kinzie kneeling to Mrs. Heald's wounded arm. The green's gate is open.",
         "liberty": "L-1812-adult-jaunts",
         "cast": [
           {
@@ -19896,6 +20948,9 @@
             ],
             "heading": 270
           }
+        ],
+        "open_gates": [
+          "kinzie_house_1812_green:s"
         ]
       }
     },
@@ -19913,7 +20968,7 @@
         "magazine-stands",
         "burning-hour"
       ],
-      "next": "ouilmette",
+      "next": "war-party",
       "hour": "08:00",
       "date": "1812-08-16",
       "hour_evidence": [
@@ -20018,7 +21073,7 @@
           {
             "extra": "fire_brand_02",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_far_west_026",
+            "dress_of": "gathering_1812_far_west_027",
             "name": "One of the young men of the gathering who burned the fort; name not recorded",
             "at": [
               1131.5,
@@ -20110,7 +21165,7 @@
           {
             "extra": "fire_brand_03",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_far_west_045",
+            "dress_of": "gathering_1812_far_west_050",
             "name": "One of the young men of the gathering who burned the fort; name not recorded",
             "at": [
               1130.0,
@@ -20206,7 +21261,7 @@
           {
             "extra": "fire_brand_04",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_head_west_008",
+            "dress_of": "gathering_1812_head_west_014",
             "name": "One of the young men of the gathering who burned the fort; name not recorded",
             "at": [
               1128.5,
@@ -20302,7 +21357,7 @@
           {
             "extra": "fire_brand_05",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_head_west_030",
+            "dress_of": "gathering_1812_head_west_037",
             "name": "One of the young men of the gathering who burned the fort; name not recorded",
             "at": [
               1133.0,
@@ -20398,7 +21453,7 @@
           {
             "extra": "fire_brand_06",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_head_west_050",
+            "dress_of": "gathering_1812_head_west_056",
             "name": "One of the young men of the gathering who burned the fort; name not recorded",
             "at": [
               1131.5,
@@ -20494,7 +21549,7 @@
           {
             "extra": "fire_brand_07",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_middle_040",
+            "dress_of": "gathering_1812_middle_048",
             "name": "One of the young men of the gathering who burned the fort; name not recorded",
             "at": [
               1130.0,
@@ -20539,7 +21594,7 @@
           {
             "extra": "fire_brand_08",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_mouth_032",
+            "dress_of": "gathering_1812_mouth_043",
             "name": "One of the young men of the gathering who burned the fort; name not recorded",
             "at": [
               1128.5,
@@ -20584,7 +21639,7 @@
           {
             "extra": "fire_brand_09",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_north_flat_002",
+            "dress_of": "gathering_1812_north_flat_013",
             "name": "One of the young men of the gathering who burned the fort; name not recorded",
             "at": [
               1133.0,
@@ -20633,7 +21688,7 @@
           {
             "extra": "fire_brand_10",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_north_flat_030",
+            "dress_of": "gathering_1812_north_flat_039",
             "name": "One of the young men of the gathering who burned the fort; name not recorded",
             "at": [
               1131.5,
@@ -20682,7 +21737,7 @@
           {
             "extra": "fire_watcher_01",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_north_flat_049",
+            "dress_of": "gathering_1812_prairie_west_005",
             "name": "One of the men of the gathering, come to watch; name not recorded",
             "at": [
               1110.0,
@@ -20713,7 +21768,7 @@
           {
             "extra": "fire_watcher_02",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_prairie_west_018",
+            "dress_of": "gathering_1812_prairie_west_032",
             "name": "One of the men of the gathering, come to watch; name not recorded",
             "at": [
               1114.3,
@@ -20776,7 +21831,7 @@
           {
             "extra": "fire_watcher_04",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_prairie_west_041",
+            "dress_of": "gathering_1812_prairie_west_054",
             "name": "One of the men of the gathering, come to watch; name not recorded",
             "at": [
               1122.9,
@@ -20808,7 +21863,7 @@
           {
             "extra": "fire_watcher_05",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_south_bend_026",
+            "dress_of": "gathering_1812_south_bend_038",
             "name": "One of the men of the gathering, come to watch; name not recorded",
             "at": [
               1127.2,
@@ -20871,7 +21926,7 @@
           {
             "extra": "fire_watcher_07",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_south_bend_052",
+            "dress_of": "gathering_1812_south_prairie_026",
             "name": "One of the men of the gathering, come to watch; name not recorded",
             "at": [
               1121.1,
@@ -20902,7 +21957,7 @@
           {
             "extra": "fire_watcher_08",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_south_prairie_036",
+            "dress_of": "gathering_1812_south_prairie_048",
             "name": "One of the men of the gathering, come to watch; name not recorded",
             "at": [
               1125.4,
@@ -20965,7 +22020,7 @@
           {
             "extra": "fire_watcher_10",
             "dress": "potawatomi_man_1812",
-            "dress_of": "gathering_1812_south_prairie_059",
+            "dress_of": "gathering_1812_south_reach_028",
             "name": "One of the men of the gathering, come to watch; name not recorded",
             "at": [
               1134.0,
@@ -21024,8 +22079,780 @@
       }
     },
     {
+      "id": "war-party",
+      "since": "Thirty minutes later",
+      "destination": {
+        "kind": "anchor",
+        "id": "kinzie_house_front"
+      },
+      "text": "16 August, morning, back at the Kinzie house, with the fort burning across the river. Black Partridge, Waubansee and Keepotah keep the porch as sentinels. Then a party from the Wabash, who have 'blackened their faces', come into the parlor and 'seated themselves upon the floor in silence'. Billy Caldwell, the Sauganash, 'entered the parlor with a calm step' and greets them as friends, and, 'thus taken by surprise', they say they came only for 'some white cotton in which to wrap their dead before interring them.' A few doors west, a wounded woman is hiding, and men are searching the houses.",
+      "read_s": 35,
+      "evidence": [
+        "kinzie-house",
+        "burning",
+        "wabash-hour"
+      ],
+      "next": "ouilmette",
+      "hour": "08:30",
+      "date": "1812-08-16",
+      "hour_evidence": [
+        "wabash-hour"
+      ],
+      "stage": {
+        "caption": "Watch the war party from the Wabash come in at the Kinzies' door, and Billy Caldwell walk in after them.",
+        "liberty": "L-1812-adult-jaunts",
+        "cast": [
+          {
+            "person": "black_partridge",
+            "at": [
+              1149.4,
+              331.6
+            ],
+            "heading": 200,
+            "beats": [
+              {
+                "t": 6,
+                "face": [
+                  1130.0,
+                  316.0
+                ]
+              },
+              {
+                "t": 58,
+                "face": [
+                  1162.0,
+                  316.0
+                ]
+              }
+            ]
+          },
+          {
+            "person": "waubansee",
+            "at": [
+              1154.6,
+              331.6
+            ],
+            "heading": 160,
+            "beats": [
+              {
+                "t": 7,
+                "face": [
+                  1130.0,
+                  316.0
+                ]
+              }
+            ]
+          },
+          {
+            "person": "keepotah",
+            "at": [
+              1156.8,
+              330.2
+            ],
+            "heading": 200,
+            "beats": [
+              {
+                "t": 8,
+                "face": [
+                  1135.0,
+                  316.0
+                ]
+              }
+            ]
+          },
+          {
+            "extra": "porch_sentinel_1",
+            "dress": "potawatomi_man_1812",
+            "dress_of": "gathering_1812_mouth_040",
+            "name": "One of the 'two other Indians' who kept the Kinzies' porch with Black Partridge; names not recorded",
+            "at": [
+              1146.6,
+              331.0
+            ],
+            "heading": 180
+          },
+          {
+            "extra": "porch_sentinel_2",
+            "dress": "potawatomi_man_1812",
+            "dress_of": "gathering_1812_north_flat_022",
+            "name": "One of the 'two other Indians' who kept the Kinzies' porch with Black Partridge; names not recorded",
+            "at": [
+              1145.2,
+              330.2
+            ],
+            "heading": 180
+          },
+          {
+            "extra": "wabash_party_1",
+            "dress": "potawatomi_man_1812",
+            "dress_of": "gathering_1812_south_prairie_059",
+            "name": "One of the war party from the Wabash, faces blackened; names not recorded",
+            "at": [
+              1124.0,
+              316.2
+            ],
+            "heading": 90,
+            "beats": [
+              {
+                "t": 0.0,
+                "walk": [
+                  [
+                    1150.6,
+                    316.4
+                  ],
+                  [
+                    1152.0,
+                    316.9
+                  ],
+                  [
+                    1152.0,
+                    319.0
+                  ],
+                  [
+                    1152.0,
+                    331.0
+                  ],
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.0,
+                    335.26
+                  ]
+                ],
+                "pace": 1.15,
+                "hide": true
+              },
+              {
+                "t": 84.0,
+                "show": true
+              },
+              {
+                "t": 85.0,
+                "walk": [
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.0,
+                    331.0
+                  ],
+                  [
+                    1152.0,
+                    319.0
+                  ],
+                  [
+                    1152.0,
+                    316.9
+                  ],
+                  [
+                    1140.0,
+                    316.0
+                  ],
+                  [
+                    1112.0,
+                    315.6
+                  ]
+                ],
+                "pace": 1.0,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "extra": "wabash_party_2",
+            "dress": "potawatomi_man_1812",
+            "dress_of": "gathering_1812_south_west_027",
+            "name": "One of the war party from the Wabash, faces blackened; names not recorded",
+            "at": [
+              1122.5,
+              315.6
+            ],
+            "heading": 90,
+            "beats": [
+              {
+                "t": 0.9,
+                "walk": [
+                  [
+                    1150.6,
+                    316.4
+                  ],
+                  [
+                    1152.0,
+                    316.9
+                  ],
+                  [
+                    1152.0,
+                    319.0
+                  ],
+                  [
+                    1152.0,
+                    331.0
+                  ],
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.0,
+                    335.26
+                  ]
+                ],
+                "pace": 1.15,
+                "hide": true
+              },
+              {
+                "t": 85.3,
+                "show": true
+              },
+              {
+                "t": 86.3,
+                "walk": [
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.0,
+                    331.0
+                  ],
+                  [
+                    1152.0,
+                    319.0
+                  ],
+                  [
+                    1152.0,
+                    316.9
+                  ],
+                  [
+                    1140.0,
+                    316.0
+                  ],
+                  [
+                    1110.6,
+                    316.2
+                  ]
+                ],
+                "pace": 1.0,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "extra": "wabash_party_3",
+            "dress": "potawatomi_man_1812",
+            "dress_of": "gathering_1812_upper_018",
+            "name": "One of the war party from the Wabash, faces blackened; names not recorded",
+            "at": [
+              1121.0,
+              316.2
+            ],
+            "heading": 90,
+            "beats": [
+              {
+                "t": 1.8,
+                "walk": [
+                  [
+                    1150.6,
+                    316.4
+                  ],
+                  [
+                    1152.0,
+                    316.9
+                  ],
+                  [
+                    1152.0,
+                    319.0
+                  ],
+                  [
+                    1152.0,
+                    331.0
+                  ],
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.0,
+                    335.26
+                  ]
+                ],
+                "pace": 1.15,
+                "hide": true
+              },
+              {
+                "t": 86.6,
+                "show": true
+              },
+              {
+                "t": 87.6,
+                "walk": [
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.0,
+                    331.0
+                  ],
+                  [
+                    1152.0,
+                    319.0
+                  ],
+                  [
+                    1152.0,
+                    316.9
+                  ],
+                  [
+                    1140.0,
+                    316.0
+                  ],
+                  [
+                    1109.2,
+                    315.6
+                  ]
+                ],
+                "pace": 1.0,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "extra": "wabash_party_4",
+            "dress": "potawatomi_man_1812",
+            "dress_of": "gathering_1812_far_west_014",
+            "name": "One of the war party from the Wabash, faces blackened; names not recorded",
+            "at": [
+              1119.5,
+              315.6
+            ],
+            "heading": 90,
+            "beats": [
+              {
+                "t": 2.7,
+                "walk": [
+                  [
+                    1150.6,
+                    316.4
+                  ],
+                  [
+                    1152.0,
+                    316.9
+                  ],
+                  [
+                    1152.0,
+                    319.0
+                  ],
+                  [
+                    1152.0,
+                    331.0
+                  ],
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.0,
+                    335.26
+                  ]
+                ],
+                "pace": 1.15,
+                "hide": true
+              },
+              {
+                "t": 87.9,
+                "show": true
+              },
+              {
+                "t": 88.9,
+                "walk": [
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.0,
+                    331.0
+                  ],
+                  [
+                    1152.0,
+                    319.0
+                  ],
+                  [
+                    1152.0,
+                    316.9
+                  ],
+                  [
+                    1140.0,
+                    316.0
+                  ],
+                  [
+                    1107.8,
+                    316.2
+                  ]
+                ],
+                "pace": 1.0,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "extra": "wabash_party_5",
+            "dress": "potawatomi_man_1812",
+            "dress_of": "gathering_1812_far_west_038",
+            "name": "One of the war party from the Wabash, faces blackened; names not recorded",
+            "at": [
+              1118.0,
+              316.2
+            ],
+            "heading": 90,
+            "tier": "desktop",
+            "beats": [
+              {
+                "t": 3.6,
+                "walk": [
+                  [
+                    1150.6,
+                    316.4
+                  ],
+                  [
+                    1152.0,
+                    316.9
+                  ],
+                  [
+                    1152.0,
+                    319.0
+                  ],
+                  [
+                    1152.0,
+                    331.0
+                  ],
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.0,
+                    335.26
+                  ]
+                ],
+                "pace": 1.15,
+                "hide": true
+              },
+              {
+                "t": 89.2,
+                "show": true
+              },
+              {
+                "t": 90.2,
+                "walk": [
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.0,
+                    331.0
+                  ],
+                  [
+                    1152.0,
+                    319.0
+                  ],
+                  [
+                    1152.0,
+                    316.9
+                  ],
+                  [
+                    1140.0,
+                    316.0
+                  ],
+                  [
+                    1106.4,
+                    315.6
+                  ]
+                ],
+                "pace": 1.0,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "extra": "wabash_party_6",
+            "dress": "potawatomi_man_1812",
+            "dress_of": "gathering_1812_head_west_005",
+            "name": "One of the war party from the Wabash, faces blackened; names not recorded",
+            "at": [
+              1116.5,
+              315.6
+            ],
+            "heading": 90,
+            "beats": [
+              {
+                "t": 4.5,
+                "walk": [
+                  [
+                    1150.6,
+                    316.4
+                  ],
+                  [
+                    1152.0,
+                    316.9
+                  ],
+                  [
+                    1152.0,
+                    319.0
+                  ],
+                  [
+                    1152.0,
+                    331.0
+                  ],
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.0,
+                    335.26
+                  ]
+                ],
+                "pace": 1.15,
+                "hide": true
+              },
+              {
+                "t": 90.5,
+                "show": true
+              },
+              {
+                "t": 91.5,
+                "walk": [
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.0,
+                    331.0
+                  ],
+                  [
+                    1152.0,
+                    319.0
+                  ],
+                  [
+                    1152.0,
+                    316.9
+                  ],
+                  [
+                    1140.0,
+                    316.0
+                  ],
+                  [
+                    1105.0,
+                    316.2
+                  ]
+                ],
+                "pace": 1.0,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "extra": "wabash_party_7",
+            "dress": "potawatomi_man_1812",
+            "dress_of": "gathering_1812_head_west_030",
+            "name": "One of the war party from the Wabash, faces blackened; names not recorded",
+            "at": [
+              1115.0,
+              316.2
+            ],
+            "heading": 90,
+            "tier": "desktop",
+            "beats": [
+              {
+                "t": 5.4,
+                "walk": [
+                  [
+                    1150.6,
+                    316.4
+                  ],
+                  [
+                    1152.0,
+                    316.9
+                  ],
+                  [
+                    1152.0,
+                    319.0
+                  ],
+                  [
+                    1152.0,
+                    331.0
+                  ],
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.0,
+                    335.26
+                  ]
+                ],
+                "pace": 1.15,
+                "hide": true
+              },
+              {
+                "t": 91.8,
+                "show": true
+              },
+              {
+                "t": 92.8,
+                "walk": [
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.0,
+                    331.0
+                  ],
+                  [
+                    1152.0,
+                    319.0
+                  ],
+                  [
+                    1152.0,
+                    316.9
+                  ],
+                  [
+                    1140.0,
+                    316.0
+                  ],
+                  [
+                    1103.6,
+                    315.6
+                  ]
+                ],
+                "pace": 1.0,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "extra": "billy_caldwell",
+            "dress": "trader_1812",
+            "dress_of": "gathering_1812_prairie_west_016",
+            "name": "Billy Caldwell (Sauganash); he has no figure of his own in 1812, and his dress is reconstructed",
+            "at": [
+              1172.0,
+              316.0
+            ],
+            "heading": 270,
+            "beats": [
+              {
+                "t": 30,
+                "walk": [
+                  [
+                    1153.4,
+                    316.4
+                  ],
+                  [
+                    1152.0,
+                    316.9
+                  ],
+                  [
+                    1152.0,
+                    319.0
+                  ],
+                  [
+                    1152.0,
+                    331.0
+                  ],
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.0,
+                    335.26
+                  ]
+                ],
+                "pace": 0.95,
+                "hide": true
+              },
+              {
+                "t": 92,
+                "show": true
+              },
+              {
+                "t": 93,
+                "walk": [
+                  [
+                    1152.0,
+                    333.0
+                  ],
+                  [
+                    1152.6,
+                    331.4
+                  ]
+                ],
+                "heading": 200
+              },
+              {
+                "t": 98,
+                "greet": true
+              }
+            ]
+          }
+        ],
+        "open_gates": [
+          "kinzie_house_1812_green:s",
+          "kinzie_house_1812_green:n"
+        ],
+        "fire": {
+          "burns": [
+            "first_fort_dearborn_soldiers_barracks_sw",
+            "first_fort_dearborn_soldiers_barracks_se",
+            "first_fort_dearborn_officers_barracks",
+            "first_fort_dearborn_commanding_officers_barracks",
+            "first_fort_dearborn_north_range",
+            "first_fort_dearborn_small_house_ne",
+            "first_fort_dearborn_small_house_sw",
+            "first_fort_dearborn_blockhouse_se",
+            "first_fort_dearborn_blockhouse_nw",
+            "first_fort_dearborn_pickets_outer",
+            "first_fort_dearborn_pickets_inner",
+            "first_fort_covered_way_terrace",
+            "first_fort_covered_way_bank_upper",
+            "first_fort_covered_way_bank_middle",
+            "first_fort_covered_way_bank_lower"
+          ],
+          "stands": [
+            "first_fort_dearborn_magazine"
+          ],
+          "liberty": "L-1812-burning-of-the-fort",
+          "strike_colours": true,
+          "lit": [
+            "first_fort_dearborn_soldiers_barracks_sw",
+            "first_fort_dearborn_soldiers_barracks_se",
+            "first_fort_dearborn_officers_barracks",
+            "first_fort_dearborn_commanding_officers_barracks",
+            "first_fort_dearborn_north_range",
+            "first_fort_dearborn_small_house_ne",
+            "first_fort_dearborn_small_house_sw",
+            "first_fort_dearborn_blockhouse_se",
+            "first_fort_dearborn_blockhouse_nw",
+            "first_fort_dearborn_pickets_outer",
+            "first_fort_dearborn_pickets_inner"
+          ],
+          "start_s": 60,
+          "visitor": false,
+          "open_gates": true
+        }
+      }
+    },
+    {
       "id": "ouilmette",
-      "since": "An hour later",
+      "since": "Thirty minutes later",
       "destination": {
         "kind": "anchor",
         "id": "ouilmette_house_front"
@@ -21496,6 +23323,15 @@
       ]
     },
     {
+      "story": "Through the open gate and across the parade to the commanding officer's quarters.",
+      "evidence": [
+        "medal"
+      ],
+      "story_evidence": [
+        "medal"
+      ]
+    },
+    {
       "note": "Half a mile to the river mouth: this leg goes Instantly.",
       "mode": "instantly",
       "story": "Down the river's bank, the way the column marched.",
@@ -21553,15 +23389,23 @@
       ]
     },
     {
-      "note": "Back across the river, to Ouilmette's house on the north bank: this leg goes Instantly.",
+      "note": "Back across the river to the Kinzie house: this leg goes Instantly.",
       "mode": "instantly",
-      "story": "Behind you, the fort burns; Black Partridge and his friends keep the Kinzies' porch, and a war party from the Wabash comes up to the houses.",
+      "story": "Behind you, the fort burns; Black Partridge and his friends keep the Kinzies' porch.",
       "evidence": [
-        "featherbed",
-        "burning"
+        "burning",
+        "kinzie-house"
       ],
       "story_evidence": [
-        "burning",
+        "burning"
+      ]
+    },
+    {
+      "story": "A few doors west along the bank, to Antoine Ouilmette's house, where the searchers are going.",
+      "evidence": [
+        "featherbed"
+      ],
+      "story_evidence": [
         "featherbed"
       ]
     }
@@ -21824,7 +23668,7 @@
         "kinzie_waubun_1856",
         "quaife_1913"
       ],
-      "reasoning": "Both accounts put the burning on the morning of the 16th, and Wau-Bun puts it before the Wabash party's coming and the search of the houses (the next stop, set at nine); the hour is an estimate."
+      "reasoning": "Both accounts put the burning on the morning of the 16th, and Wau-Bun puts it before the Wabash party's coming and the search of the houses (the Ouilmette stop, set at nine); the hour is an estimate."
     },
     {
       "id": "aftermath",
@@ -21969,6 +23813,15 @@
         "quaife_1913"
       ],
       "reasoning": "Heald's 'The next morning, they set fire to the fort' and Wau-Bun's placing of the search on the day after the battle; the hour is an estimate."
+    },
+    {
+      "id": "wabash-hour",
+      "text": "Wau-Bun has the Wabash party come to the Kinzie house after the fort was fired on the morning of the 16th ('all remained tranquil for a short space after the conflagration'), and the search of Ouilmette's house the same morning; this stop is set at half past eight, between the firing at eight and the search. No hour is recorded.",
+      "confidence": "inferred",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "reasoning": "Wau-Bun's order of the morning; the hour is a reading of 'a short space'."
     },
     {
       "id": "white-wounds",

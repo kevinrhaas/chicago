@@ -250,15 +250,15 @@
     },
     {
       "id": "first_fort_covered_way",
-      "local_e": 1188,
-      "local_n": 250,
+      "local_e": 1166.5,
+      "local_n": 227,
       "aerial": true,
       "inside": true,
-      "ground_m": 3.664,
+      "ground_m": 3.64,
       "dry": true,
       "stands_on": null,
       "deck_m": null,
-      "margin_m": 12.5,
+      "margin_m": 37.5,
       "inside_a_roof": null
     },
     {

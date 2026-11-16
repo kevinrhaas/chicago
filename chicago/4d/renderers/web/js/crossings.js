@@ -900,6 +900,9 @@ export async function createCrossings({
   /* --- the boats at rest, merged by neighbourhood -------------------------------- */
   const clusters = [];
   const m4 = new THREE.Matrix4();
+  // T-3553: the boats jaunt castmates are crossing in (out.carry), drawn on their own.
+  const carries = new Set();
+  function carried(entry) { for (const c of carries) if (c.entry === entry) return true; return false; }
   function rebuildClusters() {
     for (const c of clusters) {
       group.remove(c.group);
@@ -908,7 +911,7 @@ export async function createCrossings({
     }
     clusters.length = 0;
     for (const entry of out.boats) {
-      if (out.riding === entry) continue;
+      if (out.riding === entry || carried(entry)) continue;
       const { e, n } = entry.pose;
       let c = clusters.find((k) => Math.hypot(k.e - e, k.n - n) < CLUSTER_M);
       if (!c) { c = { e, n, members: [] }; clusters.push(c); }
@@ -1065,6 +1068,23 @@ export async function createCrossings({
     m.quaternion.setFromEuler(new THREE.Euler(side * 0.18, 0, lean, 'XYZ'));
   }
 
+  /** The poses of a crossing from bank `from` to `to`: at rest, backed off, launched, landing. */
+  function crossPlan(entry, from, to) {
+    const boat = entry.boat;
+    const d = boat.crossing.bearing;
+    const outBearing = from === 'a' ? d : (d + 180) % 360;
+    const ra = entry.rest[from], rb = entry.rest[to];
+    const la = afloatPose(boat, boat.banks[from].launch, outBearing);
+    const lb = afloatPose(boat, boat.banks[to].launch, outBearing);
+    const backDir = ra.bearing * DEG;
+    const backed = { ...afloatPose(boat, [ra.e - Math.sin(backDir) * boat.hull.length_m * 0.45, ra.n - Math.cos(backDir) * boat.hull.length_m * 0.45], ra.bearing) };
+    if (boat.banks[from].rest.afloat) {
+      backed.e = ra.e + Math.sin(outBearing * DEG) * 1.2;
+      backed.n = ra.n + Math.cos(outBearing * DEG) * 1.2;
+    }
+    return { ra, rb, la, lb, backed, outBearing };
+  }
+
   /** Begin a crossing from bank `from` to `to`. */
   function start(entry, from, to) {
     const boat = entry.boat;
@@ -1132,7 +1152,7 @@ export async function createCrossings({
       label: `Cross to ${boat.banks[to].name}`,
       to,
       said: () => `Across: ${boat.banks[to].name}`,
-      refuse: () => (pilot()?.active ? 'Already at the helm of a boat'
+      refuse: () => (carried(entry) ? 'Someone is crossing in it' : pilot()?.active ? 'Already at the helm of a boat'
         : out.riding && out.riding !== entry && !leftAt ? 'Already in a boat' : null),
       steps: [
         {
@@ -1371,7 +1391,104 @@ export async function createCrossings({
   }
 
   /** Draw only what is near enough to see. */
+  /* --- a boat a jaunt stage's castmate crosses in (T-3553) ------------------------- */
+  // The owner, 2026-11-16, of Kinzie's flight: "I would think he might take a boat across? ...
+  // Today he just disappears in front of your eyes". jaunt-stage.js's `cross` beat asks for a
+  // boat by id; it is pushed off, paddled or rowed across and run ashore on its own, the way the
+  // visitor's crossing goes, with no eye of the visitor's on it, and the castmate sits on its
+  // seat (`seat()`). `restore()` lays it back on the bank it set out from (Watch again, the stop
+  // let go), so the visitor finds every boat where the record leaves it.
+  function stepCarry(c, dt) {
+    const { entry, plan } = c, boat = entry.boat;
+    c.t += dt;
+    const tIn = STEP_S.in, tOff = tIn + STEP_S.off, tOver = tOff + c.seconds, tAshore = tOver + STEP_S.ashore;
+    let p;
+    if (c.t < tIn) {
+      const f = smooth(c.t / tIn);
+      p = { ...plan.ra, roll: (plan.ra.roll ?? 0) + Math.sin(f * Math.PI) * 2.5 * DEG };
+    } else if (c.t < tOff) {
+      const t = (c.t - tIn) / STEP_S.off;
+      p = mixPose(mixPose(plan.ra, plan.backed, smooth(clamp(t / 0.55, 0, 1))), plan.la, smooth(clamp((t - 0.3) / 0.7, 0, 1)));
+      p.roll = Math.sin(smooth(t) * Math.PI * 2) * 1.5 * DEG;
+      workTools(entry, c.tools, (t * 2) % 1, c.side, t > 0.35);
+    } else if (c.t < tOver) {
+      const time = c.t - tOff, t = time / c.seconds, a = 0.08;
+      const f = clamp(t < a ? (t * t) / (2 * a * (1 - a)) : t > 1 - a ? 1 - ((1 - t) * (1 - t)) / (2 * a * (1 - a)) : (t - a / 2) / (1 - a), 0, 1);
+      p = mixPose(plan.la, plan.lb, f);
+      const strokeS = STROKE_S[boat.kind], ph = (time / strokeS) % 1, n = Math.floor(time / strokeS);
+      c.side = boat.kind === 'skiff' ? 1 : (Math.floor(n / 4) % 2 === 0 ? 1 : -1);
+      p.bearing = (p.bearing + Math.sin(ph * Math.PI * 2) * (boat.kind === 'skiff' ? 0.4 : 1.6) * -c.side + 360) % 360;
+      p.roll = Math.sin(ph * Math.PI * 2) * (boat.kind === 'skiff' ? 0.6 : 1.4) * DEG * c.side;
+      p.y += Math.sin(time * 2.1) * 0.012;
+      p.pitch = Math.sin(time * 1.3) * 0.5 * DEG;
+      workTools(entry, c.tools, ph, c.side, t < 0.985);
+    } else if (c.t < tAshore) {
+      p = mixPose(plan.lb, plan.rb, smooth((c.t - tOver) / STEP_S.ashore));
+      workTools(entry, c.tools, 0, c.side, false);
+    } else {
+      landCarry(c);
+      return;
+    }
+    c.pose = p;
+    entry.pose = p;
+    matrixFor(p, c.g.matrix);
+    c.g.matrix.decompose(c.g.position, c.g.quaternion, c.g.scale);
+  }
+  function dropCarry(c) {
+    if (!c.g) return;
+    group.remove(c.g);
+    c.g.children.forEach((m) => m.geometry?.dispose());
+    c.g = null;
+  }
+  function landCarry(c) {
+    dropCarry(c);
+    carries.delete(c);
+    c.done = true;
+    c.entry.bank = c.to;
+    c.entry.pose = c.entry.rest[c.to];
+    c.pose = c.entry.pose;
+    rebuildClusters();
+  }
+  /** Cross boat `id` from bank `from` (where it is laid first if the visitor left it on the other)
+   *  to the other bank. Null when there is no such boat, or the visitor is in it. */
+  out.carry = (id, { from = null } = {}) => {
+    const entry = out.boats.find((x) => x.boat.id === id);
+    if (!entry || out.riding === entry || carried(entry)) return null;
+    const home = entry.bank, start = from === 'a' || from === 'b' ? from : entry.bank;
+    const to = start === 'a' ? 'b' : 'a';
+    entry.bank = start;
+    entry.pose = entry.rest[start];
+    const boat = entry.boat;
+    const plan = crossPlan(entry, start, to);
+    const { group: g, tools } = riderGroup(entry);
+    group.add(g);
+    const c = { entry, to, g, tools, plan, pose: { ...plan.ra }, t: 0, side: 1, done: false,
+      seconds: Math.max(8, boat.crossing.seconds ?? (boat.crossing.path_m / speed)) };
+    carries.add(c);
+    rebuildClusters();
+    stepCarry(c, 0);
+    const facing = boat.kind === 'skiff' ? 180 : 0;   // a rower sits facing the stern
+    return {
+      id,
+      get done() { return c.done; },
+      seconds: STEP_S.in + STEP_S.off + c.seconds + STEP_S.ashore,
+      /** Where the one in it sits: the seat's eye point and which way they face. */
+      seat: () => ({ ...seatOf(entry, c.pose), bearing: ((c.pose.bearing ?? 0) + facing + 360) % 360 }),
+      /** Where they step ashore. */
+      stand: () => [...boat.banks[c.to].stand],
+      restore: () => {
+        dropCarry(c);
+        carries.delete(c);
+        if (out.riding === entry) return;
+        entry.bank = home;
+        entry.pose = entry.rest[home];
+        rebuildClusters();
+      },
+    };
+  };
+
   out.update = (dt, camera) => {
+    for (const c of [...carries]) stepCarry(c, Math.min(Math.max(dt, 0), 0.25));
     if (!camera) return;
     const ce = camera.position.x, cn = -camera.position.z;
     // T-3612: a boat the visitor left afloat is drawn up on its own bank again once they are away.

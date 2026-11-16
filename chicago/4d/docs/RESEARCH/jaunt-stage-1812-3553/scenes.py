@@ -27,6 +27,28 @@ MUSIC = ['burnett_george', 'smith_john_jr', 'hamilton_john', 'mcpherson_hugh']
 LEADERS = ['topenebe', 'black_partridge', 'blackbird', 'waubansee', 'keepotah', 'naunongee', 'nuscotnemeg',
            'peesotum', 'waubeeneemah', 'winnemeg']
 MIAMI = [f'miami_escort_1812_{i:02d}' for i in range(1, 28)]
+# The fort's gates a scene opens while it plays (fort-gates.js ids).
+MAIN_GATE = ['first_fort_dearborn_pickets_outer:s', 'first_fort_dearborn_pickets_inner:s']
+GREEN_GATE_S, GREEN_GATE_N = 'kinzie_house_1812_green:s', 'kinzie_house_1812_green:n'   # the Kinzies' green
+SALLY_PORT = ['first_fort_dearborn_pickets_outer:n', 'first_fort_dearborn_pickets_inner:e']
+# The sally port (T-3553, L-1812-sally-port): a postern through the inner row's east curtain
+# north of the commanding officer's quarters, the passage between the rows north to the outer
+# row's north-east corner, and a postern there into the covered way (its middle, E 1167.36).
+SALLY_IN = (1163.6, 229.5)          # on the parade side of the inner postern
+SALLY_BAND = [(1165.0, 229.5), (1167.36, 229.5), (1167.36, 236.6)]
+COVERED_WAY_E = 1167.36
+COVERED_WAY_END = (1167.36, 263.4)  # its river end, at the water
+
+
+def door_at(b, did):
+    """Where one going in at a built door stands before it (data/humans/doors_1812.json `step`):
+    a walk that ends here goes on in through the door, which swings for them (jaunt-stage.js)."""
+    import json
+    for row in json.loads((b.ROOT / 'data/humans/doors_1812.json').read_text())['structures']:
+        for d in row['doors']:
+            if d['id'] == did:
+                return (d['step']['local_e'], d['step']['local_n'])
+    raise SystemExit(f'no door {did} in doors_1812.json')
 
 
 def fates(b):
@@ -95,11 +117,16 @@ def battle(b):
     # meets them and goes in with them; the soldier and the boy slip down to the canoes, cross,
     # are seen on this bank making for the haystacks, look back, and run. The killing is the
     # stop's text: White and Cardin are last seen going in.
-    door = (-1649.0, -4237.5); landing = (-1641.0, -4254.0)
+    # The cabin's three doors face the river (south-south-east); they go in by the middle one
+    # and the two beside it (T-3553: at its built doors, which swing for them).
+    doors3 = [door_at(b, f'lees_place_cabin_1812:{d}') for d in ('front', 'door2', 'door3')]
+    landing = (-1641.0, -4254.0)
     cast = []
     donors = b.take(b.MEN, 11, stride=37, offset=3)
-    approach = [(-1702.0, -4196.0), (-1681.0, -4214.0), (-1660.0, -4231.0)]
-    sit_at = [(-1655.5, -4241.0), (-1653.0, -4242.5), (-1645.0, -4242.0), (-1642.5, -4240.5)]
+    approach = [(-1702.0, -4196.0), (-1681.0, -4214.0), (-1660.0, -4233.0)]
+    # Out before the cabin's front, three to four metres off it (out = 151 deg, along = 61 deg).
+    sit_at = [(-1653.5, -4230.8), (-1651.5, -4230.3), (-1648.0, -4228.3), (-1646.5, -4226.9)]
+    door = doors3[1]
     for i, d in enumerate(donors):
         start = (approach[0][0] - 2.0 * i * 0.75, approach[0][1] + 2.0 * i * 0.65)
         path = [P(*approach[1]), P(*approach[2])]
@@ -108,14 +135,14 @@ def battle(b):
             beats = [{'t': 0.8 * i, 'walk': path + [P(*sit_at[i])]}, {'t': 0.8 * i + 52, 'heading': bearing(sit_at[i], door)},
                      {'t': 0.8 * i + 54, 'pose': 'sit', 'ease': 1.2}]
         else:
-            beats = [{'t': 0.8 * i, 'walk': path + [P(*door)], 'hide': True}]
+            beats = [{'t': 0.8 * i, 'walk': path + [P(*doors3[i % 3])], 'hide': True}]
         cast.append(member(f'extra:winnebago_{i + 1:02d}', P(*start), heading=bearing(start, approach[1]),
                            dress='potawatomi_man_1812', dress_of=d, beats=beats, tier='desktop' if i in (5, 7, 9) else None,
                            name="One of the eleven men Heald took for Winnebagoes (Ho-Chunk); name not recorded"))
     cast.append(member('white_liberty', P(-1651.5, -4239.8), face=approach[2], beats=[
         {'t': 26, 'greet': True}, {'t': 28, 'talk': True}, {'t': 44, 'talk': False}, {'t': 46, 'walk': [P(*door)], 'hide': True}]))
     cast.append(member('cardin_john_b', P(-1638.0, -4233.0), heading=300, beats=[
-        {'t': 24, 'face': 'winnebago_01'}, {'t': 50, 'walk': [P(-1645.0, -4236.0), P(*door)], 'hide': True}]))
+        {'t': 24, 'face': 'winnebago_01'}, {'t': 50, 'walk': [P(-1645.0, -4232.0), P(*doors3[2])], 'hide': True}]))
     flee = [{'t': 34, 'face': 'winnebago_02'}, {'t': 40, 'face': 'lee_son'}]
     cast.append(member('kelso_john', P(-1644.5, -4244.5), heading=300, beats=flee + [
         {'t': 46, 'walk': [P(-1643.0, -4249.0), P(*landing)], 'pace': 'brisk', 'hide': True},
@@ -134,27 +161,35 @@ def battle(b):
     # 2 — the Burns house, 6 April, dusk. The children come out at the shouting from the far
     # bank and run in to their mother (a day after her baby, abed). Ronan's party lands from the
     # scow, goes in, and carries her down to the boat, the children after.
-    door = (798.5, 103.6); boat = (806.5, 93.4)
+    # The house's one door is on its north side, away from the river (T-3553: the built door,
+    # which swings for them); the way to the boat runs round its east end.
+    door = door_at(b, 'burns_house_1812:front'); boat = (806.5, 93.4)
+    round_in = [P(802.6, 104.6), P(802.6, 114.2)]          # from the river side round to the door
+    round_out = [P(802.6, 114.2), P(802.6, 104.6)]
     cast = [
-        member('burns_child_a', P(797.2, 102.4), heading=180, hidden=True, beats=[
-            {'t': 2, 'show': True}, {'t': 3, 'face': P(797.0, 40.0)}, {'t': 9, 'walk': [P(*door)], 'pace': 'brisk', 'hide': True},
-            {'t': 48, 'place': P(799.6, 102.6), 'show': True, 'heading': 160}, {'t': 66, 'walk': [P(803.5, 96.0), P(boat[0] - 1.5, boat[1] + 0.8)], 'hide': True}]),
-        member('burns_child_b', P(799.4, 102.2), heading=190, hidden=True, beats=[
-            {'t': 3, 'show': True}, {'t': 4, 'face': P(799.0, 40.0)}, {'t': 12, 'walk': [P(*door)], 'hide': True},
-            {'t': 48, 'place': P(797.5, 102.3), 'show': True, 'heading': 160}, {'t': 67, 'walk': [P(802.5, 96.5), P(boat[0] - 2.5, boat[1] + 1.0)], 'hide': True}]),
+        member('burns_child_a', P(*door), heading=0, hidden=True, beats=[
+            {'t': 2, 'show': True}, {'t': 3, 'walk': round_out + [P(801.6, 103.2)], 'pace': 'brisk', 'heading': 185},
+            {'t': 13, 'walk': round_in + [P(*door)], 'pace': 'brisk', 'hide': True},
+            {'t': 48, 'show': True}, {'t': 49, 'walk': round_out + [P(803.5, 99.0), P(boat[0] - 1.5, boat[1] + 0.8)], 'hide': True}]),
+        member('burns_child_b', P(*door), heading=0, hidden=True, beats=[
+            {'t': 3.5, 'show': True}, {'t': 4.5, 'walk': round_out + [P(803.2, 102.6)], 'heading': 190},
+            {'t': 15, 'walk': round_in + [P(*door)], 'hide': True},
+            {'t': 49.5, 'show': True}, {'t': 50.5, 'walk': round_out + [P(802.5, 98.5), P(boat[0] - 2.5, boat[1] + 1.0)], 'hide': True}]),
     ]
     party = ['ronan_george'] + soldiers(b, 5, skip=('kelso_john',))
     for i, who in enumerate(party):
         land = (boat[0] + 0.9 * (i % 3), boat[1] - 0.2 + 0.9 * (i // 3))
         stand = (795.8 + 1.4 * (i % 3), 100.4 + 0.9 * (i // 3))
-        beats = [{'t': 18 + 0.6 * i, 'show': True}, {'t': 19 + 0.6 * i, 'walk': [P(804.0, 99.0), P(*stand)], 'heading': bearing(stand, door)}]
+        # They stand by the house's east end, where the way round to its door begins.
+        stand = (803.4 + 1.1 * (i % 3), 101.0 + 1.0 * (i // 3))
+        beats = [{'t': 18 + 0.6 * i, 'show': True}, {'t': 19 + 0.6 * i, 'walk': [P(806.0, 98.5), P(*stand)], 'heading': 330}]
         if who == 'ronan_george':
-            beats += [{'t': 32, 'walk': [P(door[0] + 0.6, door[1] - 1.3)], 'heading': 0}, {'t': 36, 'talk': True}, {'t': 44, 'talk': False},
-                      {'t': 46, 'walk': [P(*door)], 'hide': True}, {'t': 58, 'show': True}, {'t': 59, 'walk': [P(*boat)], 'pace': 'slow', 'hide': True}]
+            beats += [{'t': 30, 'walk': round_in + [P(door[0] + 1.4, door[1] + 0.6)], 'heading': 250}, {'t': 38, 'talk': True}, {'t': 44, 'talk': False},
+                      {'t': 46, 'walk': [P(*door)], 'hide': True}, {'t': 60, 'show': True}, {'t': 61, 'walk': round_out + [P(*boat)], 'pace': 'slow', 'hide': True}]
         elif i <= 4:
-            # four go in, and come out together carrying her bed, slowly, to the boat
-            beats += [{'t': 40 + i, 'walk': [P(*door)], 'hide': True}, {'t': 56, 'place': P(door[0] - 0.8 + 0.8 * (i % 2), door[1] - 1.0 - 1.4 * ((i - 1) // 2)), 'show': True, 'heading': 160},
-                      {'t': 57, 'walk': [P(boat[0] - 0.8 + 0.8 * (i % 2), boat[1] + 1.6 - 1.4 * ((i - 1) // 2))], 'pace': 0.7, 'hide': True}]
+            # four go in, and come out one after another carrying her bed, slowly, to the boat
+            beats += [{'t': 40 + i, 'walk': round_in + [P(*door)], 'hide': True}, {'t': 52 + 1.4 * i, 'show': True},
+                      {'t': 53 + 1.4 * i, 'walk': round_out + [P(boat[0] - 0.8 + 0.8 * (i % 2), boat[1] + 1.6 - 1.4 * ((i - 1) // 2))], 'pace': 0.7, 'hide': True}]
         else:
             beats += [{'t': 60, 'walk': [P(*land)], 'hide': True}]
         cast.append(member(who, P(*land), heading=bearing(land, door), hidden=True, beats=beats))
@@ -217,41 +252,70 @@ def battle(b):
 
     # 6 — the covered way, 13 August, evening, from above. Men carry the powder and the
     # liquor down the covered way; at the river end they stave in the barrels and pour.
-    top = (1165.4, 236.5); end = (1166.0, 262.0)
+    # T-3553 (the owner, 2026-11-16: "they currently walk through the pickets and they are split in
+    # half"): out of the fort by the sally port and down the middle of the covered way, between its
+    # two rows of pickets; three at the water's edge stave in the barrels.
+    end = COVERED_WAY_END
+    down = [P(*SALLY_IN)] + [P(*q) for q in SALLY_BAND] + [P(COVERED_WAY_E, 240.0), P(COVERED_WAY_E, 256.8), P(end[0], end[1] - 1.6)]
+    back = list(reversed(down))
     cast = []
     for i, who in enumerate(soldiers(b, 9, skip=('kelso_john',))):
         if i < 3:
-            at = (end[0] - 1.2 + 1.2 * i, end[1] + 0.8)
+            at = (end[0] - 0.8 + 0.8 * i, end[1] - 0.4 * (i % 2))
             cast.append(member(who, P(*at), heading=0, pose='crouch', beats=[{'t': 12 + 9 * i, 'pose': 'stand', 'ease': 0.8}, {'t': 16 + 9 * i, 'pose': 'crouch', 'ease': 0.8}]))
             continue
-        beats, t = [], 2.5 * (i - 3)
+        # Six carriers in file, each down and back up again, four times over.
+        beats, t = [], 4.0 * (i - 3)
         for k in range(4):
-            beats += [{'t': t, 'walk': [P(top[0], top[1] + 4), P(end[0], end[1] - 1.2)]}, {'t': t + 26, 'walk': [P(top[0], top[1] + 4), P(*top)]}]
-            t += 50
-        cast.append(member(who, P(top[0] + 0.2 * (i % 2), top[1] + 0.6 * (i - 3)), heading=0, beats=beats))
-    st['covered-way'] = {'caption': "Watch the soldiers carry the powder and the whiskey down the covered way to the river.", 'cast': cast}
+            beats += [{'t': t, 'walk': down[1:]}, {'t': t + 34, 'walk': back[1:]}]
+            t += 68
+        cast.append(member(who, P(SALLY_IN[0] - 1.2 * (i - 3), SALLY_IN[1] - 0.4 * (i % 2)), heading=90, beats=beats))
+    st['covered-way'] = {'caption': "Watch the soldiers carry the powder and the whiskey out by the sally port and down the covered way to the river.",
+                         'cast': cast, 'open_gates': SALLY_PORT}
 
     # 7 — the gate, 14 August, sunset. Wells comes in at the head of his Miamis (on foot here;
-    # no horse is drawn), his niece and Heald meet him; later Black Partridge comes to give back
-    # his medal, and goes in with Heald.
+    # no horse is drawn), his niece and Heald meet him at the open gate, and the three go in
+    # through both rows and across the parade to Heald's quarters (its built door, which swings
+    # for them). Black Partridge's medal is the next stop's.
+    quarters = door_at(b, 'first_fort_dearborn_commanding_officers_barracks:front')
+    inside = [P(*GATE_IN), P(1149.3, 208.4), P(1151.0, 214.0), P(1158.6, 221.0), P(*quarters)]
     cast = [member('heald_nathan', P(GATE_OUT[0] + 0.4, GATE_OUT[1] + 0.6), heading=250, beats=[
                 {'t': 17, 'face': 'wells_william'}, {'t': 19, 'greet': True}, {'t': 21, 'talk': True}, {'t': 30, 'talk': False},
-                {'t': 44, 'face': 'black_partridge'}, {'t': 52, 'talk': True}, {'t': 60, 'talk': False},
-                {'t': 62, 'walk': [P(*GATE_IN)], 'hide': True}]),
+                {'t': 37, 'walk': inside, 'hide': True}]),
             member('heald_rebekah', P(GATE_OUT[0] + 1.6, GATE_OUT[1] + 1.0), heading=240, beats=[{'t': 16, 'face': 'wells_william'}, {'t': 18, 'greet': True},
-                {'t': 34, 'walk': [P(*GATE_IN)], 'hide': True}]),
+                {'t': 34, 'walk': inside, 'hide': True}]),
             member('wells_william', P(1117.0, 191.5), heading=80, beats=[{'t': 1, 'walk': [P(1132.0, 194.0), P(GATE_OUT[0] - 1.5, GATE_OUT[1] - 0.6)], 'heading': 70},
-                {'t': 20, 'greet': True}, {'t': 22, 'talk': True}, {'t': 31, 'talk': False}, {'t': 35, 'walk': [P(*GATE_IN)], 'hide': True}])]
+                {'t': 20, 'greet': True}, {'t': 22, 'talk': True}, {'t': 31, 'talk': False}, {'t': 35.5, 'walk': inside, 'hide': True}])]
     for i, who in enumerate(MIAMI[:12]):
         row, k = divmod(i, 3)
         start = (1113.5 - 1.6 * row, 191.0 + 1.0 * k)
         stop = (1144.4 + 1.1 * (i % 6) + (3.6 if i % 6 >= 3 else 0.0), 196.6 + 1.3 * (i // 6))
         cast.append(member(who, P(*start), heading=80, tier='desktop' if i % 3 == 2 else None,
                            beats=[{'t': 1.5 + 0.4 * i, 'walk': [P(1128.0 - 1.6 * row, 193.4 + 1.0 * k), P(*stop)], 'heading': 60}]))
-    cast.append(member('black_partridge', P(1112.0, 186.5), heading=80, hidden=True, beats=[
-        {'t': 36, 'show': True}, {'t': 37, 'walk': [P(1135.0, 192.0), P(GATE_OUT[0] - 1.4, GATE_OUT[1] - 1.0)], 'heading': 60},
-        {'t': 52, 'face': 'heald_nathan'}, {'t': 54, 'talk': True}, {'t': 61, 'talk': False}, {'t': 63, 'walk': [P(*GATE_IN)], 'hide': True}]))
-    st['the-gate'] = {'caption': "Watch Wells come in with his Miami escort, and Black Partridge come to hand back his medal.", 'cast': cast}
+    st['the-gate'] = {'caption': "Watch Wells come in with his Miami escort, and his niece and Heald take him in to Heald's quarters.",
+                      'cast': cast, 'open_gates': MAIN_GATE}
+
+    # 7b — Heald's quarters, the same evening (the owner, 2026-11-16: "add a stop with where black
+    # partridge gives back the medal"). Wau-Bun: Black Partridge 'entered the quarters of the
+    # commanding officer'. He crosses the parade from the gate; Heald comes out to him with Helm,
+    # whose account alone records the medal; they speak at the door, and he goes in with Heald.
+    quarters = door_at(b, 'first_fort_dearborn_commanding_officers_barracks:front')
+    step_out = (quarters[0] - 1.6, quarters[1] + 0.3)
+    cast = [member('heald_nathan', P(*quarters), heading=270, hidden=True, beats=[
+                {'t': 9, 'show': True}, {'t': 10, 'walk': [P(*step_out)], 'heading': 255},
+                {'t': 16, 'face': 'black_partridge'}, {'t': 17, 'greet': True}, {'t': 24, 'talk': True}, {'t': 30, 'talk': False},
+                {'t': 42, 'walk': [P(*quarters)], 'hide': True}]),
+            member('helm_linai', P(quarters[0] - 2.4, quarters[1] - 1.6), heading=240, beats=[
+                {'t': 14, 'face': 'black_partridge'}, {'t': 44, 'heading': 90}]),
+            member('black_partridge', P(1148.9, 206.0), heading=20, beats=[
+                {'t': 0.5, 'walk': [P(1150.6, 213.0), P(1156.0, 219.5), P(step_out[0] - 1.1, step_out[1] - 0.3)], 'pace': 'slow', 'heading': 75},
+                {'t': 19, 'greet': True}, {'t': 21, 'talk': True}, {'t': 28, 'talk': False},
+                {'t': 32, 'greet': True}, {'t': 34, 'talk': True}, {'t': 40, 'talk': False},
+                {'t': 43.5, 'walk': [P(*quarters)], 'hide': True}])]
+    for i, who in enumerate(soldiers(b, 4, skip=('kelso_john',))[1:]):
+        at = (1148.5 + 3.0 * i, 214.5 + 1.2 * (i % 2))
+        cast.append(member(who, P(*at), face=step_out))
+    st['the-medal'] = {'caption': "Watch Black Partridge come to Heald's quarters to hand back his peace medal.", 'cast': cast, 'open_gates': MAIN_GATE}
 
     # 8 — the river's mouth, 15 August, nine in the morning: the column, from the north,
     # passes the visitor and goes on south along the beach (see column() below).
@@ -370,7 +434,46 @@ def battle(b):
         member('keepotah', P(1156.0, 331.0), heading=90, beats=[{'t': 30, 'face': 'kinzie_john_elder'}]),
         member('topenebe', P(1139.0, 330.0), heading=270),
     ]
-    st['kinzie-house'] = {'caption': "Watch the Kinzies on their green under guard, Kinzie kneeling to Mrs. Heald's wounded arm.", 'cast': cast}
+    # The owner, 2026-11-16: "I would like to be able to enter the garden front area": the
+    # green's river gate stands open, so the visitor can walk in among them.
+    st['kinzie-house'] = {'caption': "Watch the Kinzies on their green under guard, Kinzie kneeling to Mrs. Heald's wounded arm. The green's gate is open.",
+                          'cast': cast, 'open_gates': [GREEN_GATE_S]}
+
+    # 11b — the Kinzie house, 16 August, morning, the fort burning across the river (the owner,
+    # 2026-11-16: "separate the scene when the war party arrives, and then where Billy Caldwell
+    # arrives or if those can follow closely together and look dramatic and cool then keep them
+    # together"; one scene, in Wau-Bun's order). Black Partridge, Waubansee, Keepotah and two
+    # others keep the porch; the Wabash party come along the bank, through the green and in at the
+    # parlor door; Billy Caldwell comes after them 'with a calm step' and goes in; they come out
+    # and go, and he stands at the door to see them off. The parlor is not drawn: what is said
+    # inside is the stop's text. Billy Caldwell has no figure of his own in 1812 (his card says he
+    # was not drawn on the scene date): an unnamed figure stands for him, named for him.
+    parlor = door_at(b, 'kinzie_house_1812:door2')
+    through = [P(1152.0, 316.9), P(1152.0, 319.0), P(1152.0, 331.0), P(1152.0, 333.0), P(*parlor)]
+    back = [P(1152.0, 333.0), P(1152.0, 331.0), P(1152.0, 319.0), P(1152.0, 316.9)]
+    cast = [member('black_partridge', P(1149.4, 331.6), heading=200, beats=[{'t': 6, 'face': P(1130.0, 316.0)}, {'t': 58, 'face': P(1162.0, 316.0)}]),
+            member('waubansee', P(1154.6, 331.6), heading=160, beats=[{'t': 7, 'face': P(1130.0, 316.0)}]),
+            member('keepotah', P(1156.8, 330.2), heading=200, beats=[{'t': 8, 'face': P(1135.0, 316.0)}])]
+    for i, d in enumerate(b.take(b.MEN, 2, stride=31, offset=5)):
+        at = (1146.6 - 1.4 * i, 331.0 - 0.8 * i)
+        cast.append(member(f'extra:porch_sentinel_{i + 1}', P(*at), heading=180, dress='potawatomi_man_1812', dress_of=d,
+                           name="One of the 'two other Indians' who kept the Kinzies' porch with Black Partridge; names not recorded"))
+    for i, d in enumerate(b.take(b.MEN, 7, stride=23, offset=13)):
+        start = (1124.0 - 1.5 * i, 316.2 - 0.6 * (i % 2))
+        wait = (1112.0 - 1.4 * i, 315.6 + 0.6 * (i % 2))
+        beats = [{'t': 0.9 * i, 'walk': [P(1150.6, 316.4)] + through, 'pace': 1.15, 'hide': True},
+                 {'t': 84 + 1.3 * i, 'show': True}, {'t': 85 + 1.3 * i, 'walk': back + [P(1140.0, 316.0), P(*wait)], 'pace': 1.0, 'hide': True}]
+        cast.append(member(f'extra:wabash_party_{i + 1}', P(*start), heading=90, dress='potawatomi_man_1812', dress_of=d, tier='desktop' if i in (4, 6) else None,
+                           name='One of the war party from the Wabash, faces blackened; names not recorded', beats=beats))
+    sauganash = b.take(b.MEN, 1, stride=17, offset=21)[0]
+    cast.append(member('extra:billy_caldwell', P(1172.0, 316.0), heading=270, dress='trader_1812', dress_of=sauganash,
+                       name='Billy Caldwell (Sauganash); he has no figure of his own in 1812, and his dress is reconstructed', beats=[
+                           {'t': 30, 'walk': [P(1153.4, 316.4)] + through, 'pace': 0.95, 'hide': True},
+                           {'t': 92, 'show': True}, {'t': 93, 'walk': [P(1152.0, 333.0), P(1152.6, 331.4)], 'heading': 200}, {'t': 98, 'greet': True}]))
+    st['war-party'] = {'caption': "Watch the war party from the Wabash come in at the Kinzies' door, and Billy Caldwell walk in after them.",
+                       'cast': cast, 'open_gates': [GREEN_GATE_S, GREEN_GATE_N],
+                       # Across the river the fort is burning.
+                       'fire': dict(FIRE, lit=FORT_BURNS[:11], start_s=60, visitor=False, open_gates=True)}
 
     # 12 — the Ouilmette house, 16 August, morning. Searchers come; some go in, the rest wait
     # at the door; they come out and go. Mrs. Helm is under the feather bed inside, not shown.
@@ -589,18 +692,23 @@ def lalime(b):
     ]}
 
     # 1 — May 1804, the du Sable house: the Kinzies and their men bring their things up from the
-    # river and go in; Lalime watches from the west, then walks off along the bank.
-    door = (1150.5, 339.5)
-    cast = [member('kinzie_john_elder', P(1160.0, 304.0), heading=340, beats=[{'t': 1, 'walk': [P(1152.0, 318.0), P(door[0] + 0.6, door[1] - 1.6)], 'heading': 0},
-                                                                              {'t': 24, 'face': 'lalime_john'}, {'t': 30, 'walk': [P(*door)], 'hide': True}]),
-            member('kinzie_eleanor', P(1161.4, 302.6), heading=340, beats=[{'t': 2, 'walk': [P(1153.4, 317.0), P(*door)], 'hide': True}])]
+    # river and go in; Lalime watches from the west, then walks off along the bank. They come in by
+    # the green's gates and the parlor door (the owner, 2026-11-16: two of them walked through the
+    # green's pickets), and the door swings for each.
+    door = door_at(b, 'kinzie_house_1812:door2')
+    through = [P(1152.0, 316.9), P(1152.0, 319.0), P(1152.0, 331.0), P(1152.0, 333.0), P(*door)]
+    back = [P(1152.0, 333.0), P(1152.0, 331.0), P(1152.0, 319.0), P(1152.0, 316.9)]
+    cast = [member('kinzie_john_elder', P(1160.0, 304.0), heading=340, beats=[{'t': 1, 'walk': through[:3] + [P(1152.4, 330.6)], 'heading': 0},
+                                                                              {'t': 24, 'face': 'lalime_john'}, {'t': 30, 'walk': through[3:], 'hide': True}]),
+            member('kinzie_eleanor', P(1161.4, 302.6), heading=340, beats=[{'t': 2, 'walk': through, 'hide': True}])]
     for i, who in enumerate(['kinzie_engage_1812', 'kinzie_boatman_1812', 'kinzie_servant_second']):
         a = (1163.0 + 1.2 * i, 301.0 - 0.8 * i)
-        cast.append(member(who, P(*a), heading=330, beats=[{'t': 6 + 4 * i, 'walk': [P(1154.0 + 0.8 * i, 317.0), P(*door)], 'hide': True},
-                                                            {'t': 34 + 4 * i, 'show': True}, {'t': 35 + 4 * i, 'walk': [P(*a)]},
-                                                            {'t': 58 + 4 * i, 'walk': [P(1154.0 + 0.8 * i, 317.0), P(*door)], 'hide': True}]))
+        cast.append(member(who, P(*a), heading=330, beats=[{'t': 6 + 4 * i, 'walk': through, 'hide': True},
+                                                            {'t': 34 + 4 * i, 'show': True}, {'t': 35 + 4 * i, 'walk': back + [P(*a)]},
+                                                            {'t': 58 + 4 * i, 'walk': through, 'hide': True}]))
     cast.append(member('lalime_john', P(1143.0, 329.0), face=door, beats=[{'t': 26, 'face': 'kinzie_john_elder'}, {'t': 40, 'walk': [P(1130.0, 330.0), P(1102.0, 331.0), P(1080.0, 333.0)], 'hide': True}]))
-    st['du-sable-house'] = {'caption': "Watch the Kinzies move into the du Sable house, and Lalime look on from along the bank.", 'cast': cast}
+    st['du-sable-house'] = {'caption': "Watch the Kinzies move into the du Sable house, and Lalime look on from along the bank.", 'cast': cast,
+                            'open_gates': [GREEN_GATE_S, GREEN_GATE_N]}
 
     # 2 — May 1811, Lalime's house: he sits at his door with his letter; a neighbour passes.
     st['lalime-house'] = {'caption': "Lalime at his own door, writing to Governor Clark.", 'cast': [
@@ -625,15 +733,17 @@ def lalime(b):
         member('helm_linai', P(1146.2, 221.8), heading=110, beats=[{'t': 1, 'talk': True}, {'t': 12, 'talk': False}]),
         member('kinzie_john_elder', P(1148.6, 223.0), heading=220, beats=[{'t': 12, 'talk': True}, {'t': 20, 'talk': False}]),
         member('ronan_george', P(1148.4, 220.6), heading=300, beats=[{'t': 24, 'face': 'lalime_john'}, {'t': 26, 'talk': True}, {'t': 34, 'talk': False}]),
-        member('irwin_matthew', P(1138.6, 209.4), heading=40, beats=[{'t': 2, 'walk': [P(1143.0, 214.0), P(1151.0, 213.0)]}, {'t': 26, 'face': 'ronan_george'}]),
-        member('lalime_john', P(1137.6, 208.4), heading=40, beats=[{'t': 2.5, 'walk': [P(1142.4, 212.6), P(1149.8, 211.8)]}, {'t': 27, 'face': 'ronan_george'}]),
+        member('irwin_matthew', P(1140.2, 210.6), heading=40, beats=[{'t': 2, 'walk': [P(1143.0, 214.0), P(1151.0, 213.0)]}, {'t': 26, 'face': 'ronan_george'}]),
+        member('lalime_john', P(1139.4, 209.4), heading=40, beats=[{'t': 2.5, 'walk': [P(1142.4, 212.6), P(1149.8, 211.8)]}, {'t': 27, 'face': 'ronan_george'}]),
     ]}
 
     # 5 — 17 June, six in the evening, the parade: the quarrel. Helm rails against the
     # factory, Kinzie backs him, Lalime answers for it; Kinzie and Lalime walk out together.
     # In the stop's own view (the parade's north side, looking east), clear of the flagstaff.
-    out_k = [P(1154.0, 216.0), P(GATE_IN[0] + 0.4, GATE_IN[1]), P(GATE_OUT[0] + 0.4, GATE_OUT[1] + 1.4)]
-    out_l = [P(1152.6, 216.4), P(GATE_IN[0] - 0.4, GATE_IN[1]), P(GATE_OUT[0] - 0.4, GATE_OUT[1] + 1.4)]
+    # Out through the main gate, which stands open, on its line (E 1149.57; the owner, 2026-11-16:
+    # people walked through the pickets).
+    out_k = [P(1154.0, 216.0), P(1150.0, 210.0), P(1150.0, 204.5), P(1150.0, 199.6)]
+    out_l = [P(1152.6, 216.4), P(1149.2, 210.4), P(1149.2, 204.5), P(1149.2, 199.6)]
     st['the-quarrel'] = {'caption': "Watch the quarrel on the parade: Helm, then Lalime, then Kinzie; then Kinzie and Lalime walk out together.", 'cast': [
         member('helm_linai', P(1157.0, 222.6), heading=285, beats=[{'t': 1, 'talk': True}, {'t': 12, 'talk': False}, {'t': 26, 'face': 'kinzie_john_elder'}]),
         member('kinzie_john_elder', P(1157.6, 224.8), heading=265, beats=[{'t': 22, 'talk': True}, {'t': 30, 'talk': False},
@@ -644,7 +754,8 @@ def lalime(b):
         member('van_voorhis_isaac', P(1152.8, 226.0), heading=110, beats=[{'t': 14, 'face': 'helm_linai'}]),
         member('mirandeau_victoire_1812', P(1150.5, 220.2), heading=70),
     ] + [member(w, P(*at), face=(1155.2, 223.6), tier='desktop' if i % 2 else None)
-         for i, (w, at) in enumerate(zip(soldiers(b, 4, skip=('kelso_john',)), [(1159.4, 227.0), (1159.2, 219.8), (1151.0, 226.8), (1156.0, 218.6)]))]}
+         for i, (w, at) in enumerate(zip(soldiers(b, 4, skip=('kelso_john',)), [(1159.4, 227.0), (1159.2, 219.8), (1151.0, 226.8), (1156.0, 218.6)]))],
+        'open_gates': MAIN_GATE}
 
     # 6 — sunset, outside the gate: the argument, Helm's warning, then (no blow shown) the two
     # go down together; Kinzie gets up and goes; Lalime does not.
@@ -660,37 +771,67 @@ def lalime(b):
             {'t': 13, 'face': 'kinzie_john_elder'}, {'t': 14, 'talk': True}, {'t': 18, 'talk': False}, {'t': 32, 'walk': [P(body[0] + 0.6, body[1] + 1.6)], 'heading': 200}]),
         member('mirandeau_victoire_1812', P(GATE_IN[0] + 1.3, GATE_IN[1] - 0.6), heading=190, beats=[{'t': 12, 'walk': [P(GATE_OUT[0] + 1.5, GATE_OUT[1] + 1.8)]}, {'t': 16, 'face': 'lalime_john'}]),
         member('irwin_matthew', P(*IRWIN_WATCH), face=body, beats=[{'t': 34, 'walk': [P(1137.0, 194.0)], 'heading': 90}]),
-    ]}
+    ], 'open_gates': MAIN_GATE}
 
     # 7 — 11:20 at night, the river's edge before the fort: Helm walks Kinzie down to the
-    # water, shakes his hand and lets him go (Irwin's account); Ronan watches from the fort.
-    edge = (1140.4, 254.2)  # straight ahead of the visitor at the stop (1140, 250, looking north)
-    far = (1145.5, 297.5)
-    st['the-flight'] = {'caption': "In the dark: Helm walks Kinzie down to the water, shakes his hand, and lets him go across the river.", 'cast': [
-        member('kinzie_john_elder', P(1147.0, 238.0), heading=350, beats=[{'t': 0.5, 'walk': [P(1144.4, 248.6), P(edge[0] + 0.4, edge[1] + 0.2)]},
-            {'t': 15, 'face': 'helm_linai'}, {'t': 17, 'greet': True}, {'t': 24, 'walk': [P(edge[0] + 0.2, edge[1] + 1.2)], 'hide': True},
-            {'t': 44, 'place': P(*far), 'show': True, 'heading': 5}, {'t': 45, 'walk': [P(1149.0, 312.0), P(1150.0, 338.6)], 'pace': 'slow', 'hide': True}]),
-        member('helm_linai', P(1148.4, 237.2), heading=350, beats=[{'t': 0.7, 'walk': [P(1146.0, 248.0), P(edge[0] + 1.6, edge[1] - 1.0)]},
-            {'t': 15, 'face': 'kinzie_john_elder'}, {'t': 17, 'greet': True}, {'t': 30, 'face': P(*far)}, {'t': 60, 'walk': [P(1148.0, 238.0)], 'hide': True}]),
+    # water, shakes his hand and lets him go (Irwin's account); Ronan watches from the fort. He
+    # goes over in the Kinzies' second pirogue, which lies on the fort side, in front of the
+    # visitor (the owner, 2026-11-16: "I would think he might take a boat across? ... Today he
+    # just disappears in front of your eyes"). That he came over in it that evening, and went
+    # back in it, is ours: no account says how he crossed. He lands below his house and goes in
+    # at the green's gates and the parlor door.
+    PIROGUE = 'kinzie_pirogue_1812_b'
+    shore, landing = (1143.1, 258.17), (1143.47, 307.33)   # its stands, fort side and house side
+    home = [P(1146.0, 310.5), P(1151.0, 313.5), P(1152.0, 316.9), P(1152.0, 319.0), P(1152.0, 331.0), P(1152.0, 333.0),
+            P(*door_at(b, 'kinzie_house_1812:door2'))]
+    st['the-flight'] = {'caption': "In the dark: Helm walks Kinzie down to the water, shakes his hand, and lets him go across the river in his own pirogue.", 'cast': [
+        member('kinzie_john_elder', P(1147.0, 239.4), heading=350, beats=[{'t': 0.5, 'walk': [P(1144.4, 248.6), P(1143.4, 256.0)]},
+            {'t': 15, 'face': 'helm_linai'}, {'t': 17, 'greet': True}, {'t': 22, 'walk': [P(*shore)], 'heading': 186},
+            {'t': 24, 'cross': PIROGUE}, {'t': 58, 'place': P(*landing), 'walk': home, 'pace': 'slow', 'hide': True}]),
+        member('helm_linai', P(1148.4, 239.0), heading=350, beats=[{'t': 0.7, 'walk': [P(1146.0, 248.0), P(1145.0, 255.4)]},
+            {'t': 15, 'face': 'kinzie_john_elder'}, {'t': 17, 'greet': True}, {'t': 30, 'face': P(1144.0, 284.0)}, {'t': 64, 'walk': [P(1148.0, 239.2)], 'hide': True}]),
         member('ronan_george', P(1137.5, 241.0), heading=40),
-    ]}
+    ], 'open_gates': [GREEN_GATE_S, GREEN_GATE_N]}
 
     # 8 — 18 June, morning, two hundred yards west of the Kinzie house: soldiers headed by Helm
-    # bring the body to the grave; the townspeople who wanted an inquest stand by.
+    # bring the body to the grave; the townspeople who wanted an inquest stand by. Four of them
+    # carry him on a bier and set it down by the grave (the owner, 2026-11-16: "they should be
+    # carrying the body by hand"); what he was carried on is not recorded.
     grave = (991.0, 344.0)
-    cast = [member('lalime_john', P(*grave), heading=95, pose='lie', hidden=True, beats=[{'t': 34, 'show': True}])]
+    way = [(1030.0, 358.0), (1004.0, 350.0), (993.4, 344.0)]           # the bier's middle, east to west
+    def offset(pts, along, side):
+        """`pts` moved `along` the way (ahead +) and `side` metres to its right."""
+        out = []
+        for k, (e, n) in enumerate(pts):
+            a, c = (pts[max(k - 1, 0)], pts[min(k + 1, len(pts) - 1)])
+            de, dn = c[0] - a[0], c[1] - a[1]
+            d = (de * de + dn * dn) ** 0.5
+            ue, un = de / d, dn / d
+            out.append((round(e + ue * along + un * side, 2), round(n + un * along - ue * side, 2)))
+        return out
     bearers = soldiers(b, 6, skip=('kelso_john',))
-    for i, who in enumerate(bearers):
-        start = (1040.0 + 1.0 * (i // 2), 364.0 + 1.0 * (i % 2)); stand = (grave[0] - 2.0 + 2.0 * (i % 3), grave[1] - 1.8 + 3.6 * (i // 3))
-        via = (grave[0] + 2.0 + 1.0 * (i // 2), grave[1] - 0.6 + 1.0 * (i % 2))
-        beats = [{'t': 2 + 0.3 * i, 'walk': [P(1008.0 + 1.0 * (i // 2), 356.0 + 1.0 * (i % 2)), P(*via)], 'pace': 0.8}, {'t': 36, 'walk': [P(*stand)], 'heading': bearing(stand, grave)}]
+    four, files = bearers[:4], bearers[4:]
+    corners = [(1.15, -0.45), (1.15, 0.45), (-1.15, -0.45), (-1.15, 0.45)]   # front pair, then rear
+    cast = [member('lalime_john', P(*way[0]), heading=270, pose='lie', beats=[{'t': 0.1, 'borne': list(four)}, {'t': 36.5, 'borne': False}])]
+    for i, who in enumerate(four):
+        pts = offset(way, *corners[i])
+        stand = (grave[0] - 1.2 + 2.6 * (i % 2), grave[1] + (2.0 if i % 2 else -2.0) + (0.0 if i < 2 else 0.9 * (1 if i % 2 else -1)))
+        beats = [{'t': 2, 'walk': [P(*q) for q in pts[1:]], 'pace': 0.9, 'heading': 270},
+                 {'t': 39 + 0.4 * i, 'walk': [P(*stand)], 'heading': bearing(stand, grave)}]
         if i in (0, 3): beats += [{'t': 44, 'pose': 'crouch', 'ease': 1.0}]
-        cast.append(member(who, P(*start), heading=270, beats=beats))
-    cast.append(member('helm_linai', P(1044.0, 362.0), heading=250, beats=[{'t': 1, 'walk': [P(1010.0, 354.0), P(grave[0] + 4.4, grave[1] - 2.6)], 'pace': 0.8}, {'t': 40, 'face': 'irwin_matthew'}]))
+        cast.append(member(who, P(*pts[0]), heading=250, beats=beats))
+    for i, who in enumerate(files):
+        pts = offset(way, -3.6 - 1.2 * i, 0.0)
+        stand = (grave[0] + 3.0, grave[1] + (1.6 if i else -1.6))
+        cast.append(member(who, P(*pts[0]), heading=250, beats=[{'t': 2, 'walk': [P(*q) for q in pts[1:]], 'pace': 0.9},
+                                                               {'t': 40, 'walk': [P(*stand)], 'heading': bearing(stand, grave)}]))
+    lead = offset(way, 4.0, 0.0)
+    cast.append(member('helm_linai', P(*lead[0]), heading=250, beats=[{'t': 2, 'walk': [P(*q) for q in lead[1:-1]] + [P(grave[0] + 4.4, grave[1] - 2.6)], 'pace': 0.9},
+                                                                     {'t': 40, 'face': 'irwin_matthew'}]))
     for i, who in enumerate(['irwin_matthew', 'van_voorhis_isaac', 'ouilmette_antoine', 'leclerc_pierre', 'mirandeau_jean_baptiste']):
         start = (1052.0 + 1.6 * i, 370.0 + 1.0 * (i % 2)); stand = (grave[0] + 6.0 + 1.4 * i, grave[1] + 4.0 + 0.8 * (i % 2))
         beats = [{'t': 6 + 0.6 * i, 'walk': [P(*stand)], 'heading': bearing(stand, grave)}]
         if who == 'irwin_matthew': beats += [{'t': 40, 'face': 'helm_linai'}, {'t': 41, 'talk': True}, {'t': 50, 'talk': False}]
         cast.append(member(who, P(*start), heading=270, beats=beats))
-    st['the-grave'] = {'caption': "Watch Helm's file of soldiers bring Lalime to his grave, while the townspeople who wanted an inquest look on.", 'cast': cast}
+    st['the-grave'] = {'caption': "Watch four of Helm's soldiers carry Lalime to his grave on a bier, while the townspeople who wanted an inquest look on.", 'cast': cast}
     return st

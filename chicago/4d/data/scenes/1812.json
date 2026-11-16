@@ -141,12 +141,12 @@
     },
     {
       "id": "first_fort_covered_way",
-      "label": "Above the river bank north-east of the fort, looking down the covered way to the water",
-      "local_e": 1188.0,
-      "local_n": 250.0,
-      "yaw_deg": 245.0,
-      "altitude_m": 15.0,
-      "pitch_deg": -25.0
+      "label": "Above the fort's north-east corner, over the sally port, looking north down the covered way to the river",
+      "local_e": 1166.5,
+      "local_n": 227.0,
+      "yaw_deg": 5.0,
+      "altitude_m": 13.0,
+      "pitch_deg": -40.0
     },
     {
       "id": "first_fort_south_east",
