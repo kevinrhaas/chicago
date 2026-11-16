@@ -19,9 +19,22 @@ plat module's margin, as `tools/generate_block_infill.py` places its party-line 
 faces the street the face fronts. Sizes are sampled inside each family's authored band
 (`tools/family_bands.py`), so nothing here needs a drawn-value exemption.
 
-A reconstructed anonymous cottage set back a few metres behind an open front stands where a
-store's body would go. It is moved straight back to 22 m from its street edge, the back of
-its own lot, exactly as the drawn block's three cottages were; none is retired.
+The row turns the corner. The owner, offered 43 stores on South Water and Lake alone or more
+on the cross streets (2026-11-16), chose "Add Clark, Dearborn, Wells, LaSalle": the cross
+streets' fronts of the same blocks are filled the same way, after the main streets' rows are
+laid and measured with them, but only within CROSS_REACH_M of South Water or Lake (a
+Lake-Randolph block's south half fronts Randolph's end, not the core's) and never across an
+alley's mouth. State's fronts are not among them.
+
+No house is moved, and no store stands before one. Every building within DOORYARD_M of the
+line keeps the frontage before it open: a store goes neither on it nor across the ground
+between its door and the street it faces, so a house set back behind the row still has its own
+dooryard out to the street, with LANE_M of open ground beside it. The owner, 2026-11-16, of
+the first version, which had moved ten cottages straight back behind the new stores: "If
+those 10 cottages in the business district were moved in and are sitting oddly in the
+center of a property with no street facing etc please rework them unless that was a viable
+site plan for the block". They were walled in behind a solid row, so they stand where they
+stood, and the row leaves them their way to the street.
 
 WHAT IS INVENTED. Everything about each store: that it stood, its family, its frontage and
 depth, its station. The density is the owner's reading of a retrospective drawing, spread by
@@ -30,7 +43,7 @@ rule (docs/LIBERTIES.md L-core-row-fill-3605). These are NOT drawn buildings: no
 `pictured_roofs` (its `by_prefix` entry for this prefix), so they re-weight no household:
 they were raised for the street's look, not because the model's people needed more stores.
 
-    python3 tools/generate_core_row_fill_1835.py            write the records (and the moves)
+    python3 tools/generate_core_row_fill_1835.py            write the records
     python3 tools/generate_core_row_fill_1835.py --check    fail on drift
     python3 tools/generate_core_row_fill_1835.py --fronts   print the measured fronts
     python3 tools/generate_core_row_fill_1835.py --self-test
@@ -74,7 +87,16 @@ CROSS = ("wells", "lasalle", "clark", "dearborn")
 FACES = (("south_water", "north", "south_water", "south side"),
          ("south_water", "south", "lake", "north side"),
          ("lake", "north", "lake", "south side"))
-STREET_NAME = {"south_water": "South Water Street", "lake": "Lake Street"}
+#: the cross streets' fronts of the same blocks (the owner, 2026-11-16, offered 43 stores on
+#: South Water and Lake or more on the cross streets: "Add Clark, Dearborn, Wells, LaSalle"):
+#: a block's west face fronts its own cross street and its east face the next one east;
+#: State's fronts are not among them. A Lake-Randolph block's cross fronts are filled only
+#: between Lake and its alley, the half that belongs to Lake's core.
+NEXT_EAST = {"wells": "lasalle", "lasalle": "clark", "clark": "dearborn"}
+CROSS_FACES = tuple((prefix, face) for prefix in ("south_water", "lake") for face in ("west", "east"))
+STREET_NAME = {"south_water": "South Water Street", "lake": "Lake Street",
+               "wells": "Wells Street", "lasalle": "LaSalle Street", "clark": "Clark Street",
+               "dearborn": "Dearborn Street"}
 CROSS_NAME = {"wells": "Wells", "lasalle": "LaSalle", "clark": "Clark", "dearborn": "Dearborn"}
 #: the block Gifford draws, built to the drawing; never filled again here
 DRAWN_FACES = {("blk_south_water_clark", "south")}
@@ -95,10 +117,13 @@ HOUSEHOLD_LAYER = DATA / "reconstruction" / "1835_inferred_household_pass_owners
 def household_layer() -> frozenset[str]:
     owns = load(HOUSEHOLD_LAYER)["passes"]["tools/generate_inferred_households.py"]["still_owns"]
     return frozenset(owns["data/structures"]["ids"])
-DOOR_GROUND_M = 3.0        # open ground a cottage's street door keeps before the store's back
+DOOR_GROUND_M = 3.0        # open ground a building's street door keeps before a store's back
 BODY_BAND_M = SETBACK_M + 15.0 + DOOR_GROUND_M   # the deepest store body plus its clearance
-MOVE_TO_SETBACK_M = 22.0   # a blocking cottage goes back to the rear of its lot
-MOVABLE = re.compile(r"^recon_1835_.*_d[1-6]_\d+$")
+#: a building whose front wall stands within this of the line keeps the frontage before it
+#: open (its dooryard to the street); a store stands neither on it nor across its way out
+DOORYARD_M = 30.0
+LANE_M = 1.0               # open ground beside that dooryard, each side
+MIN_DOORYARD_M2 = 12.0     # a privy or a woodshed keeps no dooryard of its own
 #: the row's family rhythm; an H3 boarding house leads a long Lake Street stretch
 RHYTHM = ("C2", "C3", "C1", "C2", "C3", "C2", "C1", "C3")
 H3_MIN_STRETCH_M = 30.0
@@ -112,24 +137,92 @@ def _record(sid: str) -> dict:
     return load(DATA / "structures" / (sid + ".json"))
 
 
+def rear_ell(record: dict, datum: dict) -> list:
+    """The rear ell a frame tavern (an H3) builds outside its footprint polygon
+    (generate_dooryard_plantings.rear_ell_world, which check_structure_clearance.py reads),
+    in the scene's local frame, or []."""
+    from generate_dooryard_plantings import rear_ell_world  # noqa: E402
+    phase = next((ph for ph in record.get("phases") or []
+                  if (ph.get("documented_range") or {}).get("from", "0000") <= "1835-07-01"
+                  <= (ph.get("documented_range") or {}).get("to", "9999")), None)
+    if phase is None or not (phase.get("position") or {}).get("utm_e"):
+        return []
+    pos = phase["position"]
+    sidecar = {"id": record["id"], "archetype": record.get("archetype"), "phase": phase["id"],
+               "footprint": phase.get("footprint") or {},
+               "placement": {"local_e": float(pos["utm_e"]) - float(datum["origin_utm_e"]),
+                             "local_n": float(pos["utm_n"]) - float(datum["origin_utm_n"]),
+                             "rotation_deg": pos.get("rotation_deg") or 0.0}}
+    return rear_ell_world(sidecar, record)
+
+
 def standing_1835(datum: dict, exclude: set[str]) -> list[tuple[str, list]]:
+    """Every footprint standing on the scene date, and every frame tavern's rear ell."""
     in_1835 = {s["id"] for s in load(DATA / "sidecars" / "1835" / "index.json")["structures"]}
-    return [(sid, poly) for sid, poly in footprints(datum, exclude) if sid in in_1835]
+    out = [(sid, poly) for sid, poly in footprints(datum, exclude) if sid in in_1835]
+    for sid in {sid for sid, _ in out}:
+        rec = _record(sid)
+        if rec.get("archetype") == "frame_tavern":
+            ell = rear_ell(rec, datum)
+            if ell:
+                out.append((sid, ell))
+    return out
 
 
-def is_movable(sid: str) -> bool:
-    """A reconstructed anonymous cottage is a count-unit, and may stand anywhere on its lot."""
-    if not MOVABLE.match(sid):
-        return False
-    rec = _record(sid).get("reconstruction") or {}
-    return rec.get("status") == "inferred_anonymous" and str(rec.get("family", "")).startswith("D")
+@functools.lru_cache(maxsize=None)
+def bearings_1835() -> dict[str, float]:
+    """Each standing building's facade bearing on the scene date, where its record has one."""
+    out = {}
+    for path in (DATA / "structures").glob("*.json"):
+        for ph in load(path).get("phases") or []:
+            rng, pos = ph.get("documented_range") or {}, ph.get("position") or {}
+            if pos.get("rotation_deg") is None:
+                continue
+            if rng.get("from", "0000") <= "1835-07-01" <= rng.get("to", "9999"):
+                out[path.stem] = float(pos["rotation_deg"]) % 360.0
+                break
+    return out
+
+
+def faces_this_street(sid: str, frame: dict) -> bool:
+    """A building whose front looks at this face's street (within 45 degrees), or one whose
+    bearing is unknown, keeps its dooryard to it."""
+    bearing = bearings_1835().get(sid)
+    if bearing is None:
+        return True
+    return abs((bearing - frame["bearing"] + 180.0) % 360.0 - 180.0) <= 45.0
+
+
+def door_apron(sid: str, poly) -> list | None:
+    """The DOOR_GROUND_M of ground before a building's front wall, whichever street it faces:
+    a store laid on any face keeps off it, so no door opens onto a store's side or back."""
+    bearing = bearings_1835().get(sid)
+    if bearing is None or _area(poly) < MIN_DOORYARD_M2:
+        return None
+    out = (math.sin(math.radians(bearing)), math.cos(math.radians(bearing)))
+    reach = [p[0] * out[0] + p[1] * out[1] for p in poly]
+    front = [p for p, r in zip(poly, reach) if r >= max(reach) - 0.5]
+    side = (out[1], -out[0])
+    a = min(front, key=lambda p: p[0] * side[0] + p[1] * side[1])
+    b = max(front, key=lambda p: p[0] * side[0] + p[1] * side[1])
+    return [a, b, (b[0] + out[0] * DOOR_GROUND_M, b[1] + out[1] * DOOR_GROUND_M),
+            (a[0] + out[0] * DOOR_GROUND_M, a[1] + out[1] * DOOR_GROUND_M)]
+
+
+def _area(poly) -> float:
+    return abs(sum(p[0] * q[1] - q[0] * p[1] for p, q in zip(poly, poly[1:] + poly[:1]))) / 2.0
 
 
 def measure_face(frame: dict, standing) -> dict:
     """Built length within BUILT_BAND_M of the line, and every footprint in the body band."""
     length = frame["length"]
-    held, near = [], []
+    held, near, aprons = [], [], []
     for sid, poly in standing:
+        apron = door_apron(sid, poly)
+        if apron:
+            ap = [project(frame, p) for p in apron]
+            if max(q[1] for q in ap) >= -BODY_BAND_M and min(q[1] for q in ap) <= 0.5:
+                aprons.append((min(q[0] for q in ap), max(q[0] for q in ap)))
         pr = [project(frame, p) for p in poly]
         lo, hi = min(q[0] for q in pr), max(q[0] for q in pr)
         front = max(q[1] for q in pr)          # the wall nearest the street (outward +)
@@ -137,17 +230,33 @@ def measure_face(frame: dict, standing) -> dict:
             continue
         if front >= -BUILT_BAND_M:
             held.append((max(0.0, lo), min(length, hi)))
-        if front >= -BODY_BAND_M:
-            near.append({"id": sid, "lo": lo, "hi": hi, "front": front})
-    built, cur = 0.0, None
+        if front >= -DOORYARD_M:
+            near.append({"id": sid, "lo": lo, "hi": hi, "front": front, "area": _area(poly),
+                         "faces": faces_this_street(sid, frame)})
+    merged = []
     for a, b in sorted(held):
-        if cur is None or a > cur[1]:
-            built += (cur[1] - cur[0]) if cur else 0.0
-            cur = [a, b]
+        if merged and a <= merged[-1][1]:
+            merged[-1][1] = max(merged[-1][1], b)
         else:
-            cur[1] = max(cur[1], b)
-    built += (cur[1] - cur[0]) if cur else 0.0
-    return {"length": length, "built": built, "near": sorted(near, key=lambda o: o["lo"])}
+            merged.append([a, b])
+    built = sum(b - a for a, b in merged)
+    return {"length": length, "built": built, "held": merged, "aprons": aprons,
+            "near": sorted(near, key=lambda o: o["lo"])}
+
+
+def _minus(span: tuple[float, float], cuts) -> list[tuple[float, float]]:
+    out = [span]
+    for c0, c1 in cuts:
+        out = [piece for a, b in out for piece in ((a, min(b, c0)), (max(a, c1), b)) if piece[1] > piece[0]]
+    return out
+
+
+def open_share(front: dict) -> tuple[float, float]:
+    """(the face's length the row may stand on, how much of it is built): all of it, but on a
+    cross street's face less the alley's mouth and the half of a block that fronts Randolph."""
+    usable = _minus((0.0, front["length"]), front.get("closed", []))
+    built = sum(max(0.0, min(b, d) - max(a, c)) for a, b in usable for c, d in front["held"])
+    return sum(b - a for a, b in usable), built
 
 
 def street_lines(exclude: str = PREFIX) -> dict[tuple[str, str], float]:
@@ -179,37 +288,87 @@ def addressed_lots() -> list[list[tuple[float, float]]]:
     return [lot_addresses.lot_polygon(a) for a in load(lot_addresses.LEDGER).get("addresses", [])]
 
 
-def fronts(datum: dict, standing) -> list[dict]:
+def street_faces() -> list[tuple[str, str, str, str]]:
+    """(block, face, street, side) for every front the row fills, South Water's and Lake's first."""
+    out = [(f"blk_{prefix}_{cross}", face, street, side)
+           for cross in CROSS for prefix, face, street, side in FACES]
+    for cross in CROSS:
+        for prefix, face in CROSS_FACES:
+            street = cross if face == "west" else NEXT_EAST.get(cross)
+            if street:
+                out.append((f"blk_{prefix}_{cross}", face, street,
+                            "east side" if face == "west" else "west side"))
+    return out
+
+
+ALLEY_MOUTH_M = 1.0   # a cross-street row keeps the alley's mouth open, and this beside it
+CROSS_REACH_M = 25.0  # how far a main street's row turns the corner up a cross street
+
+
+def closed_stations(block: dict, frame: dict) -> list[tuple[float, float]]:
+    """On a cross street's face, the alley's mouth; and on a Lake-Randolph block, everything
+    south of the alley, which fronts Randolph's half of the block, not Lake's."""
+    if frame["bearing"] % 180.0 < 45.0 or frame["bearing"] % 180.0 > 135.0:
+        return []                                   # a north or south face: no alley mouth
+    alley = block.get("alley_local_enu_m") or []
+    if not alley:
+        return []
+    st = [project(frame, p)[0] for p in alley]
+    lo, hi = min(st) - ALLEY_MOUTH_M, max(st) + ALLEY_MOUTH_M
+    closed = [(lo, hi)]
+    if block["bounded_by"].get("north") == "lake":
+        north = max(block["boundary_local_enu_m"], key=lambda p: p[1])
+        if project(frame, north)[0] > hi:
+            closed.append((-1e9, hi))
+        else:
+            closed.append((lo, 1e9))
+    # the row turns the corner: only the stretch within CROSS_REACH_M of a main street
+    ends = [0.0, frame["length"]]
+    if block["bounded_by"].get("north") == "lake":
+        north = max(block["boundary_local_enu_m"], key=lambda p: p[1])
+        ends = [min(ends, key=lambda e: abs(e - project(frame, north)[0]))]
+    reach = sorted((max(0.0, e - CROSS_REACH_M), min(frame["length"], e + CROSS_REACH_M)) for e in ends)
+    gaps, s = [], -1e9
+    for a, b in reach:
+        if a > s:
+            gaps.append((s, a))
+        s = max(s, b)
+    gaps.append((s, 1e9))
+    return closed + gaps
+
+
+def fronts(datum: dict, standing, faces=None) -> list[dict]:
     blocks = {b["id"]: b for b in load(LOTS)["blocks"]}
     lines = street_lines()
     rings = addressed_lots()
     out = []
-    for cross in CROSS:
-        for prefix, face, street, side in FACES:
-            bid = f"blk_{prefix}_{cross}"
-            frame = face_frame(blocks[bid], face)
-            m = measure_face(frame, standing)
-            m["addressed"] = []
-            for ring in rings:
-                pr = [project(frame, p) for p in ring]
-                if max(q[1] for q in pr) > -BODY_BAND_M and min(q[1] for q in pr) < 0.5:
-                    m["addressed"].append((min(q[0] for q in pr), max(q[0] for q in pr)))
-            out.append({"block": bid, "face": face, "street": street, "side": side,
-                        "frame": frame, "setback": lines.get((bid, face), SETBACK_M), **m,
-                        "drawn": (bid, face) in DRAWN_FACES})
+    for bid, face, street, side in (faces or street_faces()):
+        frame = face_frame(blocks[bid], face)
+        m = measure_face(frame, standing)
+        m["addressed"] = []
+        for ring in rings:
+            pr = [project(frame, p) for p in ring]
+            if max(q[1] for q in pr) > -BODY_BAND_M and min(q[1] for q in pr) < 0.5:
+                m["addressed"].append((min(q[0] for q in pr), max(q[0] for q in pr)))
+        m["closed"] = closed_stations(blocks[bid], frame)
+        out.append({"block": bid, "face": face, "street": street, "side": side,
+                    "frame": frame, "setback": lines.get((bid, face), SETBACK_M), **m,
+                    "drawn": (bid, face) in DRAWN_FACES})
     return out
 
 
 def free_stretches(front: dict) -> tuple[list[tuple[float, float]], list[str]]:
-    """Open stations along the face once the movable cottages are set aside."""
-    hard, moves = [], []
+    """Open stations along the face: clear of every building a store's body would reach, and
+    of the dooryard before every building set back within DOORYARD_M of the line."""
+    hard = []
     for o in front["near"]:
-        if o["front"] < -BUILT_BAND_M and is_movable(o["id"]):
-            moves.append(o["id"])
-            continue
-        gap = (INVENTED_GAP_M if o["id"] in household_layer() else OTHER_GAP_M) + 0.05
-        hard.append((o["lo"] - gap, o["hi"] + gap))
-    hard += front.get("addressed", [])
+        if o["front"] >= -BODY_BAND_M:
+            gap = (INVENTED_GAP_M if o["id"] in household_layer() else OTHER_GAP_M) + 0.05
+            hard.append((o["lo"] - gap, o["hi"] + gap))
+        if o["area"] >= MIN_DOORYARD_M2 and o["faces"]:
+            hard.append((o["lo"] - LANE_M, o["hi"] + LANE_M))
+    hard += front.get("addressed", []) + front.get("closed", [])
+    hard += [(a - OTHER_GAP_M, b + OTHER_GAP_M) for a, b in front.get("aprons", [])]
     lo, hi = CORNER_M, front["length"] - CORNER_M
     stretches, s = [], lo
     for a, b in sorted(hard):
@@ -218,18 +377,51 @@ def free_stretches(front: dict) -> tuple[list[tuple[float, float]], list[str]]:
         s = max(s, b)
     if s < hi:
         stretches.append((s, hi))
-    return [(a, b) for a, b in stretches if b - a > 5.0], moves
+    return [(a, b) for a, b in stretches if b - a > 5.0], []
+
+
+#: how far inside its family's ridge band a store's modelled ridge (eave + run x tan
+#: pitch, tools/ridge_model.py, which the baked ridge meets to the millimetre) must stand
+RIDGE_CLEAR_M = 0.005
+
+
+def ridge_width(fam: str, spec: dict, sid: str, width: float, depth: float
+                ) -> tuple[float, float]:
+    """The sampled store, widened inside its family's width band where the sampled
+    frontage is too narrow for any pitch the family allows to carry its ridge into the
+    family's ridge band (tools/measure_ridge_band.py measures the baked one). The pitch
+    band and the ridge band are both the family's; the width is what gives way, and
+    never past the family's own widest."""
+    from family_bands import ridge_band_m
+    from ridge_model import ridge_run_m
+    band = ridge_band_m(spec.get("ridge_ft"))
+    if band is None:
+        return width, depth
+    hi_w = spec["band_ft"][2] * .3048
+    w = width
+    while True:
+        form = form_for(fam, spec, sid, w, depth, "unpainted")
+        val = lambda k: (form[k]["value"] if isinstance(form.get(k), dict) else form.get(k))
+        run = ridge_run_m(spec["archetype"], val("roof_type") or "gable", w, depth,
+                          val("gable_front"))
+        if run is None:
+            return width, depth
+        ridge = val("wall_height_m") + run * math.tan(math.radians(val("roof_pitch_deg")))
+        if ridge >= band[0] + RIDGE_CLEAR_M or w >= hi_w - 1e-6:
+            return round(w, 3), depth
+        w = min(hi_w, w + 0.05)
 
 
 def lay_front(front: dict, table: dict, seq0: int) -> tuple[list[dict], list[str]]:
     """The stores this face takes, largest open stretch first, until it reaches the target."""
     if front["drawn"]:
         return [], []
-    want = TARGET_SHARE * front["length"] - front["built"]
+    usable, built = open_share(front)
+    want = TARGET_SHARE * usable - built
     if want <= 3.0:
         return [], []
-    stretches, movable = free_stretches(front)
-    laid, used_moves, seq, added, beat = [], set(), seq0, 0.0, seq0  # each face enters the rhythm where the last left it
+    stretches, _ = free_stretches(front)
+    laid, seq, added, beat = [], seq0, 0.0, seq0  # each face enters the rhythm where the last left it
     for a, b in sorted(stretches, key=lambda st: st[1] - st[0], reverse=True):
         s = a
         while added < want:
@@ -238,7 +430,8 @@ def lay_front(front: dict, table: dict, seq0: int) -> tuple[list[dict], list[str
                     and not any(x["family"] == "H3" for x in laid)):
                 fam = "H3"
             sid = f"{PREFIX}{fam.lower()}_{seq + 1:03d}"
-            width, depth = dimensions_m(fam, table[fam]["band_ft"], sid)
+            width, depth = ridge_width(fam, table[fam], sid,
+                                       *dimensions_m(fam, table[fam]["band_ft"], sid))
             if s + width > b + 1e-9:
                 break
             seq += 1
@@ -249,14 +442,7 @@ def lay_front(front: dict, table: dict, seq0: int) -> tuple[list[dict], list[str
             added += width
         if added >= want:
             break
-    # only the cottages that stand behind a laid store's body move
-    for x in laid:
-        for o in front["near"]:
-            if o["id"] in movable and o["hi"] > x["station"][0] - OTHER_GAP_M \
-                    and o["lo"] < x["station"][1] + OTHER_GAP_M \
-                    and o["front"] > -(front["setback"] + x["depth"] + DOOR_GROUND_M):
-                used_moves.add(o["id"])
-    return laid, sorted(used_moves)
+    return laid, []
 
 
 def centre_of(front: dict, x: dict) -> tuple[float, float]:
@@ -291,7 +477,8 @@ def make_record(front: dict, x: dict, table: dict, datum: dict, people: dict, n:
                 "note": ("Anonymous count-unit of the commercial core's row fill (T-3605): the "
                          "owner's reading of Gifford's drawing of the first Tremont House's "
                          "street, spread over South Water and Lake from Wells to State at "
-                         "about 70 % of each block front. No evidence establishes that this "
+                         "about 70 % of each block front, and turning the corner up the "
+                         "cross streets' fronts for 25 m. No evidence establishes that this "
                          "particular building existed, and no source names an occupant.")},
             "position": {
                 "utm_e": round(datum["origin_utm_e"] + east, 3),
@@ -356,75 +543,42 @@ def make_record(front: dict, x: dict, table: dict, datum: dict, people: dict, n:
     }
 
 
-SETBACK_NOTE = re.compile(r"stands (\d+(?:\.\d+)?) m back from its street edge")
-
-
-def moved_record(sid: str, front: dict, datum: dict, obstacles: list) -> dict:
-    """The cottage moved straight back toward the rear of its lot: MOVE_TO_SETBACK_M from
-    its street edge, or the nearest setback behind the row that clears every other roof
-    by OTHER_GAP_M and stays on the lot's own side of the alley."""
-    record = copy.deepcopy(_record(sid))
-    phase = record["phases"][0]
-    poly = world_polygon(phase, datum)
-    fr = front["frame"]
-    now = -max(project(fr, p)[1] for p in poly)        # current setback of its front wall
-    deep = -min(project(fr, p)[1] for p in poly) - now  # its own depth across the face
-    if now >= MOVE_TO_SETBACK_M - 1e-3:
-        return record
-    lot_depth = float(next(b for b in load(LOTS)["blocks"]
-                           if b["id"] == front["block"])["depth_m"]) / 2.0
-    tried = sorted({round(MOVE_TO_SETBACK_M + d, 1) for d in
-                    [0, -2, 2, -4, 4, -6, 6, 8, 10, 12, 14]},
-                   key=lambda v: abs(v - MOVE_TO_SETBACK_M))
-    pos = phase["position"]
-    for target in tried:
-        if target + deep > lot_depth - 2.0 or target < SETBACK_M + 15.0:
-            continue
-        shift = target - now
-        cand = [(p[0] - fr["outward"][0] * shift, p[1] - fr["outward"][1] * shift) for p in poly]
-        if all(_gap(cand, q) >= (DOOR_GROUND_M if o.startswith(PREFIX) else OTHER_GAP_M + 0.05)
-               for o, q in obstacles if o != sid):
-            pos["utm_e"] = round(pos["utm_e"] - fr["outward"][0] * shift, 3)
-            pos["utm_n"] = round(pos["utm_n"] - fr["outward"][1] * shift, 3)
-            note = SETBACK_NOTE.sub(f"stands {target:.1f} m back from its street edge",
-                                    pos["note"], count=1)
-            if note == pos["note"]:
-                note += f" It stands {target:.1f} m back from its street edge."
-            pos["note"] = note + (f" T-3605: moved {shift:.1f} m straight back, toward the "
-                                  f"rear of its lot, so the commercial core's row stands at the "
-                                  f"street ({LIBERTY}).")
-            return record
-    raise ValueError(f"{sid}: no setback behind the row clears its lot's other roofs")
-
-
 def build(datum: dict | None = None):
     datum = datum or load(DATA / "datum.json")
     table, people = families(), occupancy()
     mine = {p.stem for p in (DATA / "structures").glob(PREFIX + "*.json")}
     standing = standing_1835(datum, mine)
-    fs = fronts(datum, standing)
     records, moves, seq, summary = [], {}, 0, []
-    for front in fs:
-        laid, mv = lay_front(front, table, seq)
-        seq += len(laid)
-        for x in laid:
-            records.append(make_record(front, x, table, datum, people,
-                                       int(x["id"].rsplit("_", 1)[1])))
-        laid_polys = [(r["id"], world_polygon(r["phases"][0], datum)) for r in records]
-        for sid in mv:
-            moved_polys = [(m, world_polygon(r["phases"][0], datum)) for m, r in moves.items()]
-            obstacles = [(o, q) for o, q in standing if o not in moves] + laid_polys + moved_polys
-            moves[sid] = moved_record(sid, front, datum, obstacles)
-        added = sum(x["width"] for x in laid)
-        summary.append({"block": front["block"], "face": front["face"],
-                        "street": f"{STREET_NAME[front['street']]} ({front['side']})",
-                        "length_m": round(front["length"], 1),
-                        "built_m": round(front["built"], 1),
-                        "built_pct": round(100 * front["built"] / front["length"], 1),
-                        "stores": len(laid),
-                        "families": [x["family"] for x in laid],
-                        "after_pct": round(100 * (front["built"] + added) / front["length"], 1),
-                        "moves": mv, "drawn": front["drawn"]})
+    faces = street_faces()
+    main = [f for f in faces if f[1] in ("north", "south")]
+    cross = [f for f in faces if f[1] in ("east", "west")]
+
+    def lay(fs):
+        nonlocal seq
+        for front in fs:
+            laid, mv = lay_front(front, table, seq)
+            seq += len(laid)
+            for x in laid:
+                records.append(make_record(front, x, table, datum, people,
+                                           int(x["id"].rsplit("_", 1)[1])))
+            usable, built = open_share(front)
+            added = sum(x["width"] for x in laid)
+            summary.append({"block": front["block"], "face": front["face"],
+                            "street": f"{STREET_NAME[front['street']]} ({front['side']})",
+                            "length_m": round(usable, 1),
+                            "built_m": round(built, 1),
+                            "built_pct": round(100 * built / usable, 1),
+                            "stores": len(laid),
+                            "families": [x["family"] for x in laid],
+                            "after_pct": round(100 * (built + added) / usable, 1),
+                            "moves": mv, "drawn": front["drawn"]})
+
+    lay(fronts(datum, standing, main))
+    # the cross streets' fronts are measured with the main streets' new rows standing, so a
+    # Lake or South Water corner store holds its corner on the cross street too
+    laid = [(r["id"], world_polygon(r["phases"][0], datum)) for r in records]
+    laid += [(r["id"], e) for r in records for e in [rear_ell(r, datum)] if e]
+    lay(fronts(datum, standing + laid, cross))
     deal_records(records)
     declare_ground(records, datum)
     report = validate(records, moves, datum)
@@ -491,6 +645,7 @@ def validate(records: list[dict], moves: dict, datum: dict) -> list[str]:
     # a committed row-fill store this run no longer writes is not another building
     others = [(o, q) for o, q in standing_1835(datum, ids) if not o.startswith(PREFIX)]
     own = [(r["id"], world_polygon(r["phases"][0], datum)) for r in records]
+    ells = [(r["id"], e) for r in records for e in [rear_ell(r, datum)] if e]
     moved = [(sid, world_polygon(r["phases"][0], datum)) for sid, r in moves.items()]
     # The inventory's `pictured_roofs` keeps these roofs off the household model's weights
     # (tools/model_town_1835.py household_matrix), as it keeps Gifford's; its entry for this
@@ -508,6 +663,7 @@ def validate(records: list[dict], moves: dict, datum: dict) -> list[str]:
         raise ValueError(f"the inventory's pictured_roofs entry for {PREFIX} says {said} "
                          f"and the records hold {held}")
     report = []
+    blocks, frames = {b["id"]: b for b in load(LOTS)["blocks"]}, {}
     for record, (sid, poly) in zip(records, own):
         importlib.import_module("archetypes." + record["archetype"] + "_params").from_phase(
             record["phases"][0], record)
@@ -517,7 +673,7 @@ def validate(records: list[dict], moves: dict, datum: dict) -> list[str]:
         for name, ring in refused.items():
             if overlap_area(ring, poly) > 1e-3:
                 raise ValueError(f"{sid} stands on refused ground {name}")
-        near_row = min((_gap(poly, q) for o, q in own if o != sid), default=99.0)
+        near_row = min((_gap(poly, q) for o, q in own + ells if o != sid), default=99.0)
         if near_row < ROW_GAP_M - 2e-3:  # positions round to the millimetre
             raise ValueError(f"{sid} stands {near_row:.2f} m from a neighbour in its own row")
         near = min(((_gap(poly, q), o) for o, q in others + moved), default=(99.0, None))
@@ -528,7 +684,29 @@ def validate(records: list[dict], moves: dict, datum: dict) -> list[str]:
         if invented[0] < INVENTED_GAP_M - 2e-3:
             raise ValueError(f"{sid} stands {invented[0]:.2f} m from {invented[1]}, the household "
                              f"layer's premises, which keep {INVENTED_GAP_M} m")
+        rec = record["reconstruction"]["frontage"]
+        frame = frames.setdefault((rec["block"], rec["face"]),
+                                  face_frame(blocks[rec["block"]], rec["face"]))
+        mine = [project(frame, p) for p in poly]
+        lo, hi = min(q[0] for q in mine), max(q[0] for q in mine)
+        for o, q in others + [x for x in own if x[0] != sid]:
+            apron = door_apron(o, q)
+            if apron and overlap_area(apron, poly) > 1e-3:
+                raise ValueError(f"{sid} stands on the ground before {o}'s front door")
+            if o.startswith(PREFIX) or _area(q) < MIN_DOORYARD_M2 or not faces_this_street(o, frame):
+                continue
+            pr = [project(frame, p) for p in q]
+            behind = max(t[1] for t in pr)
+            if -DOORYARD_M <= behind <= 0.5 and min(t[0] for t in pr) - LANE_M < hi - 2e-3 \
+                    and max(t[0] for t in pr) + LANE_M > lo + 2e-3:
+                raise ValueError(f"{sid} stands across the dooryard of {o}, whose front stands "
+                                 f"{-behind:.1f} m behind the line: its way to the street is shut")
         report.append(f"{sid}: nearest other {near[0]:.2f} m ({near[1]})")
+    for sid, ell in ells:
+        near = min(((_gap(ell, q), o) for o, q in others + [x for x in own if x[0] != sid]),
+                   default=(99.0, None))
+        if near[0] < ROW_GAP_M - 2e-3:
+            raise ValueError(f"{sid}'s rear ell stands {near[0]:.2f} m from {near[1]}")
     for sid, poly in moved:
         street, depth = intrusion(poly, lanes)
         if street:
@@ -554,6 +732,26 @@ def self_test() -> int:
     onto = copy.deepcopy(records)
     onto[0]["phases"][0]["position"] = copy.deepcopy(onto[1]["phases"][0]["position"])
     cases.append(("two stores on one spot", onto))
+    # a store slid along its face to stand before a set-back house's door
+    blocks = {b["id"]: b for b in load(LOTS)["blocks"]}
+    others = [(o, q) for o, q in standing_1835(datum, {r["id"] for r in records})
+              if not o.startswith(PREFIX) and _area(q) >= MIN_DOORYARD_M2]
+    for k, r in enumerate(records):
+        fr = r["reconstruction"]["frontage"]
+        frame = face_frame(blocks[fr["block"]], fr["face"])
+        mine = [project(frame, p) for p in world_polygon(r["phases"][0], datum)]
+        mid = (min(q[0] for q in mine) + max(q[0] for q in mine)) / 2
+        house = next(([project(frame, p) for p in q] for o, q in others
+                      if -DOORYARD_M <= max(project(frame, p)[1] for p in q) <= -BODY_BAND_M
+                      and 0 <= project(frame, q[0])[0] <= frame["length"]), None)
+        if house:
+            shift = (min(t[0] for t in house) + max(t[0] for t in house)) / 2 - mid
+            slid = copy.deepcopy(records)
+            pos = slid[k]["phases"][0]["position"]
+            pos["utm_e"] += frame["along"][0] * shift
+            pos["utm_n"] += frame["along"][1] * shift
+            cases.append(("a store across a house's dooryard", slid))
+            break
     for label, mutated in cases:
         try:
             validate(mutated, moves, datum)
@@ -599,7 +797,7 @@ def main() -> int:
     if drift:
         print("FAIL: core row-fill records drift: " + ", ".join(drift))
         return 1
-    print(f"PASS: {len(records)} core row-fill stores, {len(moves)} cottages moved back"
+    print(f"PASS: {len(records)} core row-fill stores, no house moved"
           + (" rederive exactly" if args.check else " written"))
     return 0
 

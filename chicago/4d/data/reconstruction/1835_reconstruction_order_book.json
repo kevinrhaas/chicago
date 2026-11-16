@@ -1624,8 +1624,8 @@
     "businesses_target": 109,
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
-    "roofs_target": 743,
-    "roofs_standing": 763,
+    "roofs_target": 746,
+    "roofs_standing": 766,
     "roofs_to_build": 0,
     "persons_standing": 2863,
     "persons_still_owed": 0,
@@ -1648,9 +1648,9 @@
     "still_owed": 1099,
     "roofs_adopted": 325,
     "slots_requested": 0,
-    "roofs_standing": 763,
-    "roofs_standing_unseated": 438,
-    "share_of_standing_roofs_seated": 0.426,
+    "roofs_standing": 766,
+    "roofs_standing_unseated": 441,
+    "share_of_standing_roofs_seated": 0.4243,
     "passes": [
       {
         "key": "platted",
@@ -1663,7 +1663,7 @@
         "handed_on": 1194,
         "roofs_adopted": 230,
         "slots_requested": 0,
-        "roofs_offered_for_adoption": 305,
+        "roofs_offered_for_adoption": 308,
         "roofs_held_back": 64,
         "ground_taken": 207,
         "ground_taken_unit": "lots",
@@ -5123,12 +5123,12 @@
       "title": "Structures",
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
-        "roof_target": 743,
-        "standing_records": 763,
+        "roof_target": 746,
+        "standing_records": 766,
         "standing_with_an_occupant": 383,
-        "standing_without_an_occupant": 380,
+        "standing_without_an_occupant": 383,
         "to_build_total": 0,
-        "redeal_note": "A roof standing where the reconstruction plan has nobody to put in it is a SUBSTITUTION for other work, never a demolition: 380 of the 763 standing records carry no occupants block today, and other work re-audits them against this book."
+        "redeal_note": "A roof standing where the reconstruction plan has nobody to put in it is a SUBSTITUTION for other work, never a demolition: 383 of the 766 standing records carry no occupants block today, and other work re-audits them against this book."
       },
       "buckets": [
         {
@@ -5302,14 +5302,14 @@
             "group": "larger_boarding_houses",
             "division": "south"
           },
-          "target": 35,
-          "standing": 35,
+          "target": 32,
+          "standing": 32,
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-2270",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 0 of them to build"
+          "basis": "the inventory's district/group matrix sets 32; the 668-roof programme leaves 0 of them to build"
         },
         {
           "key": "structures/larger_boarding_houses/west",
@@ -5452,14 +5452,14 @@
             "group": "stores_mixed_use",
             "division": "south"
           },
-          "target": 110,
-          "standing": 110,
+          "target": 116,
+          "standing": 116,
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1694",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 110; the 668-roof programme leaves 0 of them to build"
+          "basis": "the inventory's district/group matrix sets 116; the 668-roof programme leaves 0 of them to build"
         },
         {
           "key": "structures/stores_mixed_use/west",
@@ -5649,7 +5649,7 @@
       "summary": {
         "roofs_on_committed_ground": 0,
         "roofs_gated_on_coverage": 0,
-        "statement": "0 of the 0 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 0 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 743-roof programme is coverage, not recipes."
+        "statement": "0 of the 0 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 0 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 746-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5941,11 +5941,11 @@
       "id": "people_per_roof",
       "owning_ticket": "T-1196",
       "model": 2549,
-      "programme": 743,
+      "programme": 746,
       "delta": 0,
       "programme_groups": [],
       "restates_the_programme": false,
-      "statement": "2,549 people under 743 roofs is the ratio the completed town must meet; the census's own reading for November 1835 is 8.204 people per dwelling over 398 dwellings."
+      "statement": "2,549 people under 746 roofs is the ratio the completed town must meet; the census's own reading for November 1835 is 8.204 people per dwelling over 398 dwellings."
     }
   ],
   "invariants": [
@@ -5975,7 +5975,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "380 of 763 standing records carry no occupants block."
+      "measured_now": "383 of 766 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",

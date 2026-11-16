@@ -72,7 +72,7 @@
    "tradesman_dwellings": 490
   },
   "owed_by_the_letter_list_ruling": 660,
-  "roofs_offered_for_adoption": 305,
+  "roofs_offered_for_adoption": 308,
   "roofs_held_back": 64,
   "roofs_held_by_the_business_deal": 47,
   "seats_the_business_deal_costs": 0
@@ -473,31 +473,40 @@
    "business_id": "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered"
   },
   {
-   "structure_id": "recon_1835_core_c1_003",
-   "lot_id": "blk_south_water_wells#06",
+   "structure_id": "recon_1835_core_c1_004",
+   "lot_id": "blk_south_water_wells#01",
    "family": "C1",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Magie & Wilkinson — dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail",
-   "business_id": "business_magie_wilkinson"
+   "occupants": "[uncertain: the dentist lodging near Lake Street, July 1834] — dentistry",
+   "business_id": "business_uncertain_the_dentist_lodging_near_lake_street_july_1834"
   },
   {
-   "structure_id": "recon_1835_core_c1_024",
-   "lot_id": "blk_south_water_lasalle#01",
+   "structure_id": "recon_1835_core_c1_027",
+   "lot_id": "blk_south_water_clark#00",
    "family": "C1",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[unnamed] New Store, La Salle street — dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail",
-   "business_id": "business_unnamed_new_store_la_salle_street"
+   "occupants": "J. Curtiss, Attorney and Counsellor at Law — law",
+   "business_id": "business_j_curtiss_attorney_and_counsellor_at_law"
   },
   {
-   "structure_id": "recon_1835_core_c1_043",
+   "structure_id": "recon_1835_core_c1_039",
    "lot_id": "blk_south_water_dearborn#01",
    "family": "C1",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "the Dearborn Street auction and commission rooms — auction and commission rooms",
-   "business_id": "business_the_dearborn_street_auction_and_commission_rooms"
+   "occupants": "S. Abell, attorney and counsellor — attorney, counsellor and land conveyancer",
+   "business_id": "business_s_abell_attorney_and_counsellor"
+  },
+  {
+   "structure_id": "recon_1835_core_c1_059",
+   "lot_id": "blk_south_water_dearborn#01",
+   "family": "C1",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "Cooley and Hol[b]man — tailoring",
+   "business_id": "business_cooley_and_hol_b_man"
   },
   {
    "structure_id": "recon_1835_core_c2_001",
@@ -514,53 +523,26 @@
    "family": "C2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[uncertain: the dentist lodging near Lake Street, July 1834] — dentistry",
-   "business_id": "business_uncertain_the_dentist_lodging_near_lake_street_july_1834"
+   "occupants": "[boot, shoe and leather store, Lake street, proprietor not recovered] — boot and shoe manufacturing and leather dealing",
+   "business_id": "business_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered"
   },
   {
-   "structure_id": "recon_1835_core_c2_022",
-   "lot_id": "blk_south_water_lasalle#06",
+   "structure_id": "recon_1835_core_c2_010",
+   "lot_id": "blk_south_water_wells#07",
    "family": "C2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[uncertain: DATID GAD], auction and commission merchant, South Water Street — auction and commission merchant",
-   "business_id": "business_uncertain_datid_gad_auction_and_commission_merchant_south_water_street"
+   "occupants": "Magie & Wilkinson — dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail",
+   "business_id": "business_magie_wilkinson"
   },
   {
-   "structure_id": "recon_1835_core_c2_033",
-   "lot_id": "blk_south_water_clark#00",
+   "structure_id": "recon_1835_core_c2_017",
+   "lot_id": "blk_south_water_lasalle#01",
    "family": "C2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[uncertain: J. I. Mulford], carriage and sleigh maker — carriage and sleigh making, and repairing",
-   "business_id": "business_uncertain_j_i_mulford_carriage_and_sleigh_maker"
-  },
-  {
-   "structure_id": "recon_1835_core_c2_036",
-   "lot_id": "blk_south_water_clark#06",
-   "family": "C2",
-   "held_by": "street_face_business_deal",
-   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Fullerton & Botsford — pork and provisions",
-   "business_id": "business_fullerton_botsford"
-  },
-  {
-   "structure_id": "recon_1835_core_c2_041",
-   "lot_id": "blk_south_water_dearborn#01",
-   "family": "C2",
-   "held_by": "street_face_business_deal",
-   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "S. Abell, attorney and counsellor — attorney, counsellor and land conveyancer",
-   "business_id": "business_s_abell_attorney_and_counsellor"
-  },
-  {
-   "structure_id": "recon_1835_core_c2_044",
-   "lot_id": "blk_south_water_dearborn#01",
-   "family": "C2",
-   "held_by": "street_face_business_deal",
-   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Cooley and Hol[b]man — tailoring",
-   "business_id": "business_cooley_and_hol_b_man"
+   "occupants": "James Grant — attorney and counsellor at law",
+   "business_id": "business_james_grant"
   },
   {
    "structure_id": "recon_1835_core_c3_002",
@@ -572,40 +554,58 @@
    "business_id": "business_e_l_thrall"
   },
   {
-   "structure_id": "recon_1835_core_c3_006",
-   "lot_id": "blk_south_water_wells#01",
+   "structure_id": "recon_1835_core_c3_016",
+   "lot_id": "blk_south_water_lasalle#06",
    "family": "C3",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[boot, shoe and leather store, Lake street, proprietor not recovered] — boot and shoe manufacturing and leather dealing",
-   "business_id": "business_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered"
+   "occupants": "[uncertain: DATID GAD], auction and commission merchant, South Water Street — auction and commission merchant",
+   "business_id": "business_uncertain_datid_gad_auction_and_commission_merchant_south_water_street"
   },
   {
-   "structure_id": "recon_1835_core_c3_021",
-   "lot_id": "blk_lake_wells#06",
+   "structure_id": "recon_1835_core_c3_018",
+   "lot_id": "blk_south_water_lasalle#01",
    "family": "C3",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "James Grant — attorney and counsellor at law",
-   "business_id": "business_james_grant"
+   "occupants": "[unnamed] New Store, La Salle street — dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail",
+   "business_id": "business_unnamed_new_store_la_salle_street"
   },
   {
-   "structure_id": "recon_1835_core_c3_034",
+   "structure_id": "recon_1835_core_c3_026",
    "lot_id": "blk_south_water_clark#00",
    "family": "C3",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "J. Curtiss, Attorney and Counsellor at Law — law",
-   "business_id": "business_j_curtiss_attorney_and_counsellor_at_law"
+   "occupants": "[uncertain: J. I. Mulford], carriage and sleigh maker — carriage and sleigh making, and repairing",
+   "business_id": "business_uncertain_j_i_mulford_carriage_and_sleigh_maker"
   },
   {
-   "structure_id": "recon_1835_core_c3_042",
+   "structure_id": "recon_1835_core_c3_029",
+   "lot_id": "blk_south_water_clark#06",
+   "family": "C3",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "Fullerton & Botsford — pork and provisions",
+   "business_id": "business_fullerton_botsford"
+  },
+  {
+   "structure_id": "recon_1835_core_c3_040",
    "lot_id": "blk_south_water_dearborn#01",
    "family": "C3",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
    "occupants": "a wholesale wine and liquor store, Dearborn Street — wholesale wine and liquors",
    "business_id": "business_a_wholesale_wine_and_liquor_store_dearborn_street"
+  },
+  {
+   "structure_id": "recon_1835_core_c3_058",
+   "lot_id": "blk_lake_clark#06",
+   "family": "C3",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "the Dearborn Street auction and commission rooms — auction and commission rooms",
+   "business_id": "business_the_dearborn_street_auction_and_commission_rooms"
   },
   {
    "structure_id": "recon_1835_gifford_c1_010",

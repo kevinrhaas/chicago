@@ -4060,8 +4060,8 @@
     "peck_store__frame_1833.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 118624,
-      "inputs_sha256": "3b07fd92736315adca1b765b2ac37d5ca64c4f60d236fe74865ca80408875e08",
+      "bytes": 115804,
+      "inputs_sha256": "12ed6bd226886e2c3fb06766e5f3d9095936d849a01bc70170d0c69197b214a0",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "peck_store"
@@ -6190,8 +6190,8 @@
     "recon_1835_blk_south_water_wells_d4_03__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 57304,
-      "inputs_sha256": "920ec29cd06507497f87aae0c0cb40841ded2242c60483c8e5a3a8ea3cd5aacd",
+      "bytes": 59176,
+      "inputs_sha256": "28e4ed8c65a7cbc06fdb5858f5f04b90ea5ff22da0dc4623dcee53795ab96b01",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_wells_d4_03"
@@ -7267,14 +7267,14 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_canal_trade_w2_004"
     },
-    "recon_1835_core_c1_003__inferred_1835.glb": {
+    "recon_1835_core_c1_004__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 62772,
-      "inputs_sha256": "095cc34ecd0f4f9c9bb3478c3c50aa16cf4964b7206a398ed5b48c3e5454747a",
+      "bytes": 61804,
+      "inputs_sha256": "e636ac2f735543e16978390cf0b5841374f3fc3e2ab239d15716bb576bf723f4",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c1_003"
+      "structure_id": "recon_1835_core_c1_004"
     },
     "recon_1835_core_c1_008__inferred_1835.glb": {
       "archetype": "frame_storefront",
@@ -7288,8 +7288,8 @@
     "recon_1835_core_c1_012__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 63544,
-      "inputs_sha256": "ab07380e81b07549927c5d140d6250529364c19e2f51d249007c2ef95cb8de92",
+      "bytes": 62140,
+      "inputs_sha256": "8ff98506fdb59115bcc2e5835ffe18578c0d7c17b60fa08ba9bc5bd0b3605e9f",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c1_012"
@@ -7297,8 +7297,8 @@
     "recon_1835_core_c1_015__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 61988,
-      "inputs_sha256": "0823cf4367de50f28128fe371fe0b2223b0bb04940af70d51d2a7d204d2fbfa5",
+      "bytes": 65108,
+      "inputs_sha256": "d5ae1ddcf040ffa31add42c3961d21263fd16b8a2831165e030c4e4e52c123f2",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c1_015"
@@ -7306,38 +7306,38 @@
     "recon_1835_core_c1_019__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 62736,
-      "inputs_sha256": "91dc6c24634397f41f691c197652005a971fe8ac128a331b0054ebd915ea5f79",
+      "bytes": 61176,
+      "inputs_sha256": "751cc26d30e082221a8bb5873a0e89c76e64bd7983bc051d70f77def74d35087",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c1_019"
     },
-    "recon_1835_core_c1_024__inferred_1835.glb": {
+    "recon_1835_core_c1_023__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 61048,
-      "inputs_sha256": "cb1b30b6e98542a939738ccf8d358ce3fa3b4f89e4fbcdfb329eaf0079d18e62",
+      "bytes": 63384,
+      "inputs_sha256": "5ee9bb704ca5e7b1f394789901ca5b7b6c9c24492bd39b93e947dad902d8a452",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c1_024"
+      "structure_id": "recon_1835_core_c1_023"
     },
-    "recon_1835_core_c1_028__inferred_1835.glb": {
+    "recon_1835_core_c1_027__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 61204,
-      "inputs_sha256": "be8f60873cb90ae3d9d8c2f85e00ea17c632d9bc33c8968856a07471933ae0b6",
+      "bytes": 60416,
+      "inputs_sha256": "297bb13f5f08e579285ace5f1b879fe97e0212247acd62d87045c3236664ed1d",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c1_028"
+      "structure_id": "recon_1835_core_c1_027"
     },
-    "recon_1835_core_c1_032__inferred_1835.glb": {
+    "recon_1835_core_c1_031__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 65092,
-      "inputs_sha256": "1572a42843976e2b512799a85e0fcbc624dc7bc3e23bbf4371268825ffc1caf2",
+      "bytes": 61800,
+      "inputs_sha256": "d3c334e11325760e3e69efa431b6c3510756ccb2312845440a69c9b8fd3dcd04",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c1_032"
+      "structure_id": "recon_1835_core_c1_031"
     },
     "recon_1835_core_c1_035__inferred_1835.glb": {
       "archetype": "frame_storefront",
@@ -7375,29 +7375,38 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c1_047"
     },
-    "recon_1835_core_c1_052__inferred_1835.glb": {
+    "recon_1835_core_c1_051__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 63540,
-      "inputs_sha256": "acd20b66ab89fb39f8c51459ee3ae2165283e29761fe54d5d0eeb0cf0366d148",
+      "bytes": 63392,
+      "inputs_sha256": "3b52f5519d43ecdcca44de0a8dd562032b129ff4fd0a9e4bb3883462ec7ed71b",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c1_052"
+      "structure_id": "recon_1835_core_c1_051"
     },
-    "recon_1835_core_c1_056__inferred_1835.glb": {
+    "recon_1835_core_c1_055__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 60260,
-      "inputs_sha256": "0d3f5364be860cae1d136f872103a1543a586652727c889c1e544e76d9846679",
+      "bytes": 65092,
+      "inputs_sha256": "c226b925731bcb6b7c9f45a06e8b83eb6e998e83fdf9c067fbbdf4ac47cc82bd",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c1_056"
+      "structure_id": "recon_1835_core_c1_055"
+    },
+    "recon_1835_core_c1_059__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 59644,
+      "inputs_sha256": "8ddcb79bf8b244abd5a95447a0a086d2a75575907a3c3c45b57786bcdb46614a",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c1_059"
     },
     "recon_1835_core_c2_001__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 74144,
-      "inputs_sha256": "a94e12cb475153db6c320127c95708714b4160e975f564c3420e1e899fb7bfe1",
+      "bytes": 71960,
+      "inputs_sha256": "3644da0fe126459e4fe8150312e5e697e2dc266f112919dd065cc42bee56d36e",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c2_001"
@@ -7429,20 +7438,20 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c2_010"
     },
-    "recon_1835_core_c2_013__inferred_1835.glb": {
+    "recon_1835_core_c2_014__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 71032,
-      "inputs_sha256": "509775b1a3160b9e6184071f093ba60c16fea0f3c6c32bef4a44dc01249382f9",
+      "bytes": 70412,
+      "inputs_sha256": "f884b6aca9489b4e24a4d7a04ef63ae0b12be0646c2e0c8cbc9c47c6d6d2ac2e",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c2_013"
+      "structure_id": "recon_1835_core_c2_014"
     },
     "recon_1835_core_c2_017__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 72912,
-      "inputs_sha256": "f1ede700c68bfe8cabf3104a8a58ffe0e132acae5fa69e84d460f2a262799722",
+      "bytes": 74472,
+      "inputs_sha256": "7d0413f601262797f7b4424f8d6fe95476d9d3e7c1f0f16e834a19106901a124",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c2_017"
@@ -7459,38 +7468,38 @@
     "recon_1835_core_c2_022__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 73212,
-      "inputs_sha256": "ad8b2cf2c958c2b40145a157e65a2d4ea6f5e8531d5a408023f38fdcca481a90",
+      "bytes": 75396,
+      "inputs_sha256": "f925ea3eccb69e137613a994cb95121bafba4bf242329780c8947edd8232e1b4",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c2_022"
     },
-    "recon_1835_core_c2_026__inferred_1835.glb": {
+    "recon_1835_core_c2_025__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 71004,
-      "inputs_sha256": "9cb6e44f991c075bbf90a998c0fcb112182225af2b53b182971439c99a2fbe3c",
+      "bytes": 72752,
+      "inputs_sha256": "20b15488bc083518cadb651e2769ef4acab907421a4906a36ad8ac8b7397d455",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c2_026"
+      "structure_id": "recon_1835_core_c2_025"
     },
-    "recon_1835_core_c2_029__inferred_1835.glb": {
+    "recon_1835_core_c2_028__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 73224,
-      "inputs_sha256": "99a52e6033f8b95dade5574b18da1c644f7a7114f05173ea9fbe6b1603a1bc85",
+      "bytes": 73992,
+      "inputs_sha256": "ddf3edc30acb57480a6404c38905a193c5b8ba1743897cd291325101f827a415",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c2_029"
+      "structure_id": "recon_1835_core_c2_028"
     },
-    "recon_1835_core_c2_031__inferred_1835.glb": {
+    "recon_1835_core_c2_030__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 70408,
-      "inputs_sha256": "c55ec4a1bf0aba2fa4bd8c516ede0d03086879896e33f430f7ac8bbb4afc39bc",
+      "bytes": 71196,
+      "inputs_sha256": "71ed2b02d0e4550a56e7bfaaca7c51f5ae1f1a501a0b917e6cf1f6475fd12057",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c2_031"
+      "structure_id": "recon_1835_core_c2_030"
     },
     "recon_1835_core_c2_033__inferred_1835.glb": {
       "archetype": "frame_storefront",
@@ -7513,8 +7522,8 @@
     "recon_1835_core_c2_038__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 73196,
-      "inputs_sha256": "552c207a6322d83e4e3195f3904a9941ce54f68c3fb2cc6244377bb5d091531e",
+      "bytes": 69612,
+      "inputs_sha256": "b1b5972d5ba93358e3470c239459873177c91c500f5d5d9f8fcfc6ae2e5996e3",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c2_038"
@@ -7555,23 +7564,32 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c2_049"
     },
-    "recon_1835_core_c2_053__inferred_1835.glb": {
+    "recon_1835_core_c2_052__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 70540,
-      "inputs_sha256": "d2302062b016436342b3ee1944d876124bcff183e18674030c227b88b0fed448",
+      "bytes": 72108,
+      "inputs_sha256": "be0ac2fb8acbae3e9fa7a9e7b2a1d1887c3fe9e1f37da8c2662394ad1a0a9ce3",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c2_053"
+      "structure_id": "recon_1835_core_c2_052"
     },
-    "recon_1835_core_c2_055__inferred_1835.glb": {
+    "recon_1835_core_c2_054__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 69596,
-      "inputs_sha256": "7a1cb35e3b26ef8c22c89a15927eaee74e80be5e2cb1d93e6007905b34b68d5f",
+      "bytes": 73224,
+      "inputs_sha256": "3af9959626552a5ec93b91d9aabac9ac2c2369d17af0ce21c840c16fbc2dcc0e",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c2_055"
+      "structure_id": "recon_1835_core_c2_054"
+    },
+    "recon_1835_core_c2_057__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 73192,
+      "inputs_sha256": "0d6cc1f2ed0e3818c99ddf7d6c404c0d9a61cfab00d6199c06dc7c87bbb68ef4",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_057"
     },
     "recon_1835_core_c3_002__inferred_1835.glb": {
       "archetype": "frame_storefront",
@@ -7609,20 +7627,20 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c3_011"
     },
-    "recon_1835_core_c3_014__inferred_1835.glb": {
+    "recon_1835_core_c3_013__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
       "bytes": 98848,
-      "inputs_sha256": "5bf33e3ffde9d27e7a8d692d0512bb9044e5a2e7c3c4debcc08fae9898ba957c",
+      "inputs_sha256": "70082eb84af6b1691dbde004aa899a11b56b3a5a82d303943e3c2ec9dd6305b6",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c3_014"
+      "structure_id": "recon_1835_core_c3_013"
     },
     "recon_1835_core_c3_016__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 102700,
-      "inputs_sha256": "cddc3dca7f7738119ef7de344903e895e8706e789fb07bc4c9d284740c738b53",
+      "bytes": 106136,
+      "inputs_sha256": "07921fc525c45bd579e5a862bc52fcc299a2eedebe57e927c14afc50eb2c2ef2",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c3_016"
@@ -7630,8 +7648,8 @@
     "recon_1835_core_c3_018__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 101216,
-      "inputs_sha256": "0897eaddf13d8a1759413c721d70d72439525d418bbf7f85bf2b3e8bcbca1db9",
+      "bytes": 105432,
+      "inputs_sha256": "751abca7753b34dc924c5acf6d2f6c0e3d1a6f1de40b67a6237b64167f36751d",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c3_018"
@@ -7645,23 +7663,41 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c3_021"
     },
-    "recon_1835_core_c3_025__inferred_1835.glb": {
+    "recon_1835_core_c3_024__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 111280,
-      "inputs_sha256": "16305cfdf546fe9d8f598c4617bbce49720860a1a8464811e9fbbc8930be4bbc",
+      "bytes": 103868,
+      "inputs_sha256": "5b34ec95a0b3158bbacd649b386f8b5c83b7cd4e6189035ca20d2a0b56adaf1a",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c3_025"
+      "structure_id": "recon_1835_core_c3_024"
     },
-    "recon_1835_core_c3_030__inferred_1835.glb": {
+    "recon_1835_core_c3_026__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 103312,
-      "inputs_sha256": "a58f27e1589e0a1a09e0557b0b446371f720de113e408464129e6c157a97ac88",
+      "bytes": 110524,
+      "inputs_sha256": "15fb2df05bc3390731044d619d427647f94c22ee1d0ab372d99422152e2a669f",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c3_030"
+      "structure_id": "recon_1835_core_c3_026"
+    },
+    "recon_1835_core_c3_029__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 103244,
+      "inputs_sha256": "f9b0a799a8ddce2fbfb834fb9a0961c04397e41b898f7d50429ed0439724239f",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_029"
+    },
+    "recon_1835_core_c3_032__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 106836,
+      "inputs_sha256": "de69be7fa5f9dcfdae322ca296b9b584b808a2692f372b9a5b388fd973370f38",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_032"
     },
     "recon_1835_core_c3_034__inferred_1835.glb": {
       "archetype": "frame_storefront",
@@ -7693,8 +7729,8 @@
     "recon_1835_core_c3_042__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 106928,
-      "inputs_sha256": "373deea4c36b8a82768bc9bd8e312d6605abb982bcfa38a7d5afdb3512d017ec",
+      "bytes": 103340,
+      "inputs_sha256": "bccd1e6b03fc91868fbab4b247c2ff498c269a19075ae7d7b56ad8b2f4e3902e",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c3_042"
@@ -7717,59 +7753,50 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_core_c3_048"
     },
-    "recon_1835_core_c3_051__inferred_1835.glb": {
+    "recon_1835_core_c3_050__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 101764,
-      "inputs_sha256": "ecfcc14e076d22825ce2b01c0ba9c10b95467078a912abc66f108c1c679c09f4",
+      "bytes": 107088,
+      "inputs_sha256": "14c6a5a572f3f26e2148d91c9e704a18a02c81cbf3e17d05af32beb5740ec8dc",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c3_051"
+      "structure_id": "recon_1835_core_c3_050"
     },
-    "recon_1835_core_c3_054__inferred_1835.glb": {
+    "recon_1835_core_c3_053__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 102432,
-      "inputs_sha256": "001d6e2828468710a9b199eaa87903153732e060eaec59293beff8d7791a6cbb",
+      "bytes": 98856,
+      "inputs_sha256": "2f3aec3b074facac53a9863ccdc9adcc3529742570884299c104fa2d860b74b9",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_c3_054"
+      "structure_id": "recon_1835_core_c3_053"
     },
-    "recon_1835_core_h3_004__inferred_1835.glb": {
+    "recon_1835_core_c3_056__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 102460,
+      "inputs_sha256": "fb6e43b9c603a160db676fbce6f5ac3bb5536cd6897101bd55c6c31e6a21a837",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_056"
+    },
+    "recon_1835_core_c3_058__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 102688,
+      "inputs_sha256": "8e46531051de7309bfd70a678594af0057849e4a094a37ca37aba5c7c530e2a4",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_058"
+    },
+    "recon_1835_core_h3_003__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 152928,
-      "inputs_sha256": "05c092ab0ca56107a8119384ae9132c2058ec01e005a63b19332f846ea722ae3",
+      "bytes": 152324,
+      "inputs_sha256": "a2aae056dd3d603b260cd99545043785dee7f2af7dc0b095a27a45210ddb7006",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_h3_004"
-    },
-    "recon_1835_core_h3_023__inferred_1835.glb": {
-      "archetype": "frame_tavern",
-      "baked_ao": false,
-      "bytes": 153576,
-      "inputs_sha256": "a015792abb0c87cfeee02d24505930d83e0c778f067009c84a0f165b7b1c1851",
-      "kind": "generated",
-      "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_h3_023"
-    },
-    "recon_1835_core_h3_027__inferred_1835.glb": {
-      "archetype": "frame_tavern",
-      "baked_ao": false,
-      "bytes": 154820,
-      "inputs_sha256": "b328557ced6086fd8400e2700912c8139383eada7ffb37bdfeb1501122dca1d7",
-      "kind": "generated",
-      "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_h3_027"
-    },
-    "recon_1835_core_h3_050__inferred_1835.glb": {
-      "archetype": "frame_tavern",
-      "baked_ao": false,
-      "bytes": 153260,
-      "inputs_sha256": "c1cb47e21121a7158c4427f09b084c6b9599bc783252f0548b14b2b9969ba107",
-      "kind": "generated",
-      "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_core_h3_050"
+      "structure_id": "recon_1835_core_h3_003"
     },
     "recon_1835_forks_freight_f2_001__inferred_1835.glb": {
       "archetype": "frame_storefront",
@@ -9169,8 +9196,8 @@
     "recon_1835_south_d5_011__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 58508,
-      "inputs_sha256": "4e74450a78434452c24a70f921d6cde8157571334e73b8217cff9332a94478c6",
+      "bytes": 54764,
+      "inputs_sha256": "9557447b808064002568a6020a91d55caecb80e1f69c1d4688b63ca76ce5cbc9",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d5_011"
@@ -9214,8 +9241,8 @@
     "recon_1835_south_d6_012__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 66300,
-      "inputs_sha256": "19a87e52a2950ae314ebdc280148c085a218ae2d5b1ba408aeee19346eecd8e9",
+      "bytes": 70044,
+      "inputs_sha256": "81a81fd39d8ba474e8f1387b67448addc12944ba0f49b350c19df501abb0d4be",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d6_012"

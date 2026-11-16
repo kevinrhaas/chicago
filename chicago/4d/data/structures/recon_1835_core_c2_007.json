@@ -9,15 +9,15 @@
         "from": "1835-01-01",
         "to": "1835-12-31",
         "confidence": "reconstructed",
-        "note": "Anonymous count-unit of the commercial core's row fill (T-3605): the owner's reading of Gifford's drawing of the first Tremont House's street, spread over South Water and Lake from Wells to State at about 70 % of each block front. No evidence establishes that this particular building existed, and no source names an occupant."
+        "note": "Anonymous count-unit of the commercial core's row fill (T-3605): the owner's reading of Gifford's drawing of the first Tremont House's street, spread over South Water and Lake from Wells to State at about 70 % of each block front, and turning the corner up the cross streets' fronts for 25 m. No evidence establishes that this particular building existed, and no source names an occupant."
       },
       "position": {
-        "utm_e": 447442.934,
-        "utm_n": 4637307.601,
+        "utm_e": 447448.426,
+        "utm_n": 4637307.557,
         "rotation_deg": 180.464,
         "symbolic_location": "Anonymous reconstructed store on the north side of Lake Street, in the block west-bounded by Wells Street; one unit of the street's row",
         "confidence": "reconstructed",
-        "note": "PARTY-LINE FRONTAGE, DERIVED FROM THE COMMITTED PLAT (T-3605). It stands on the south face of blk_south_water_wells, whose line and bearing are read from the block boundary in data/traces/vectors/thompson_lots.json, at stations 21.95-28.07 m from the face's west end, its front wall 1.50 m behind the lot line (the plat module's margin, as the block programme's own party-line runs stand). The bearing is the face's, so the front looks square at Lake Street. The station is the row-fill rule's (largest open stretch first, until the face is about 70 % built), not a measurement.",
+        "note": "PARTY-LINE FRONTAGE, DERIVED FROM THE COMMITTED PLAT (T-3605). It stands on the south face of blk_south_water_wells, whose line and bearing are read from the block boundary in data/traces/vectors/thompson_lots.json, at stations 27.44-33.57 m from the face's west end, its front wall 1.50 m behind the lot line (the plat module's margin, as the block programme's own party-line runs stand). The bearing is the face's, so the front looks square at Lake Street. The station is the row-fill rule's (largest open stretch first, until the face is about 70 % built), not a measurement.",
         "derivation": {
           "method": "not_derivable",
           "reason": "No parcel-by-parcel July 1835 roof register survives in the supplied evidence, and no lot on this face is numbered."

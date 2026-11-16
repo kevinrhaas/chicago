@@ -1063,9 +1063,10 @@ def self_test() -> int:
     print()
     assert ROOF_FIXTURE.exists(), "tools/fixtures/substitution_candidate_roof.json is missing"
     found, _ = matches(candidate_read(load(ROOF_FIXTURE)))
-    # lot 07 since T-3605: the commercial core's row fill raised a store on lot 02 beside
-    # the dwelling the fixture used to retire, and an arrival is offered every roof on its lot
-    assert [m["record"]["id"] for m in found] == ["recon_1835_blk_south_water_wells_d3_04"], \
+    # blk_south_water_dearborn lot 05 since T-3605: the commercial core's row fill raised
+    # stores on blk_south_water_wells lots 02 and 07 beside the dwellings the fixture used
+    # to retire, and an arrival is offered every roof on its lot
+    assert [m["record"]["id"] for m in found] == ["recon_1835_blk_south_water_dearborn_h1_03"], \
         "the shipped roof no longer retires the anonymous dwelling on its lot: %s" % found
     assert dry_run(ROOF_FIXTURE) == 0
     print()

@@ -12,21 +12,21 @@
   "data/reconstruction/1835_presence_rulings.json"
  ],
  "buildings": {
-  "standing": 743,
-  "target": 743,
-  "records_in_scene": 762,
+  "standing": 746,
+  "target": 746,
+  "records_in_scene": 765,
   "basis": "Physical roofs credited by the roof reconciliation, not structure records: a bridge, a pier, a palisade and a parade ground are records that are not buildings.",
   "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading.",
   "dwellings": {
    "standing_low": 335,
-   "standing_high": 394,
+   "standing_high": 391,
    "by_group": {
     "ordinary_dwellings": 335,
-    "larger_boarding_houses": 49,
+    "larger_boarding_houses": 46,
     "inns_taverns": 10
    },
    "ordered_low": 335,
-   "ordered_high": 394,
+   "ordered_high": 391,
    "census": 398,
    "census_source": "andreas_1884_v1",
    "question": "How many of the town's dwellings stand, against the 398 the November 1835 census counted? The low end counts dwelling houses; the high end adds the boarding houses and taverns, because whether the enumerator's 'dwelling' took them in is not known (the 1835 town model data, lodging open questions).",

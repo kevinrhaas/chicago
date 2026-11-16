@@ -635,40 +635,6 @@ ALLEY_ADJUSTMENTS = {
 }
 
 
-# T-3605 phase 2 (L-core-row-fill-3605): the commercial core's row of stores on Lake's
-# south side stands at the street where this cottage's front stood, so it is moved
-# straight back to 22 m from its street edge, the rear of its own lot, and keeps its
-# household. Frozen like the alley holds above, for the same reason.
-CORE_ROW_MOVES = {
-    "recon_1835_south_d5_011": (-0.048, -5.857),   # blk_lake_lasalle, Lake's south side
-    # A cottage whose street door would open within DOOR_GROUND_M (3 m) of a store's back
-    # wall goes back too (tools/generate_core_row_fill_1835.py), so the ground before its
-    # door is open and its household can come out of it.
-    "recon_1835_south_d1_010": (-0.028, -3.446),
-    # 3.0 m, to 18.5 m, not to 22 m: further back its sill would stand 0.46 m off the
-    # falling ground, past the walker's step, and 3.0 m already leaves 3.6 m before its door.
-    "recon_1835_south_d1_018": (-0.024, -3.0, 18.5),
-    "recon_1835_south_d4_006": (-0.04, -4.944),
-    "recon_1835_south_d4_019": (-0.059, -7.289),
-    "recon_1835_south_d5_007": (-0.043, -5.263),
-}
-
-
-def move_behind_core_row(records: list[dict]) -> None:
-    for rec in records:
-        de, dn, *back = CORE_ROW_MOVES.get(rec["id"], (0.0, 0.0))
-        if not (de or dn):
-            continue
-        back = back[0] if back else 22.0
-        pos = rec["phases"][0]["position"]
-        pos["utm_e"] = round(pos["utm_e"] + de, 3)
-        pos["utm_n"] = round(pos["utm_n"] + dn, 3)
-        pos["note"] += (f" It stands {back:.1f} m back from its street edge. T-3605: moved "
-                        f"{math.hypot(de, dn):.1f} m straight back, toward the rear of its "
-                        "lot, so the commercial core's row stands at the street "
-                        "(L-core-row-fill-3605).")
-
-
 def hold_out_of_alleys(records: list[dict], datum: dict) -> None:
     for rec in records:
         de, dn = ALLEY_ADJUSTMENTS.get(rec["id"], (0.0, 0.0))
@@ -967,7 +933,6 @@ def records_from_inputs() -> list[dict]:
             records.append(record)
     place_on_frontage(records, parcel, datum)
     hold_out_of_alleys(records, datum)
-    move_behind_core_row(records)
     deal_siding(records)
     validate_programme(inventory, parcel, records)
     check_frontage(records, parcel, datum)

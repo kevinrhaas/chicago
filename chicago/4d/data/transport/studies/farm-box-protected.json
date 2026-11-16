@@ -129,8 +129,8 @@
   },
   "town_wagons": {
     "path": "data/yard/town_trade_goods.json",
-    "sha256": "2af6f3709fd1b1e3d72b1c2647872a441ed2aeb11fffc840aeae5a72e25bb693",
-    "record_count": 77,
+    "sha256": "770631ecdb4fda5b0f05e3f4dfbaa108bb6086d88d9f3bca0cbd557ea6f0fc4a",
+    "record_count": 75,
     "form_keys": [
       "barrel_height_m",
       "barrel_belly_diameter_m",
@@ -152,21 +152,27 @@
       "tickets": [
         "T-3605"
       ],
-      "reason": "T-3605 phase 2 (owner, 2026-11-15, 'Commercial core, about 60 stores'; re-pin approved by the owner the same day, 'Yes you can repin'): the commercial core's row-fill stores stand on Lake Street, and the trodden ground before their doors (town_entrance_aprons, T-1984) now covers the stand where town_wagon_lake_27 was parked and the left verge of town_wagon_lake_19's stand, so the rule refuses the one and sets the other on its right verge. One wagon fewer and its refusal written; every other wagon record, form, dimension and the placement rule are unchanged.",
+      "reason": "T-3605 phase 2 (owner, 2026-11-15, 'Commercial core, about 60 stores', and 2026-11-16, 'Add Clark, Dearborn, Wells, LaSalle'; re-pin approved by the owner on 2026-11-15, 'Yes you can repin'): the commercial core's row-fill stores stand on Lake Street, and the trodden ground before their doors (town_entrance_aprons, T-1984) now covers the stands where town_wagon_lake_19, town_wagon_lake_20 and town_wagon_lake_27 were parked, on both verges, so the rule refuses all three and writes why. Three wagons fewer and their refusals written; every other wagon record, form, dimension and the placement rule are unchanged.",
       "previous_record_count": 78,
-      "current_record_count": 77,
+      "current_record_count": 75,
       "changes": [
+        {
+          "stand": "lake 19",
+          "field": "wagon",
+          "before": "town_wagon_lake_19 at [365.89, -119.81]",
+          "after": "refused: on both verges it stands on the trodden ground in front of a door"
+        },
+        {
+          "stand": "lake 20",
+          "field": "wagon",
+          "before": "town_wagon_lake_20 at [414.0, -105.77]",
+          "after": "refused: on both verges it stands on the trodden ground in front of a door"
+        },
         {
           "stand": "lake 27",
           "field": "wagon",
           "before": "town_wagon_lake_27 at [749.87, -122.94]",
           "after": "refused: on its right verge it stands on the trodden ground in front of a door, and its left verge is under 0.60 m over the water"
-        },
-        {
-          "stand": "lake 19",
-          "field": "at_local_enu_m, bearing_deg",
-          "before": "[365.89, -119.81] at 269.0",
-          "after": "[366.0, -105.49] at 89.0, the other verge"
         }
       ],
       "previous_transition_preserved": {

@@ -17,17 +17,17 @@
     "to": "1835-12-31",
     "confidence": "reconstructed",
     "sources": [],
-    "note": "Anonymous count-unit of the commercial core's row fill (T-3605): the owner's reading of Gifford's drawing of the first Tremont House's street, spread over South Water and Lake from Wells to State at about 70 % of each block front. No evidence establishes that this particular building existed, and no source names an occupant."
+    "note": "Anonymous count-unit of the commercial core's row fill (T-3605): the owner's reading of Gifford's drawing of the first Tremont House's street, spread over South Water and Lake from Wells to State at about 70 % of each block front, and turning the corner up the cross streets' fronts for 25 m. No evidence establishes that this particular building existed, and no source names an occupant."
   },
   "change_note": "T-3605 raises this store in the commercial core's row fill; a better-evidenced named roof substitutes for it rather than adding to the town.",
   "placement": {
-    "local_e": 757.201,
-    "local_n": -90.406,
-    "rotation_deg": 180.47,
+    "local_e": 426.545,
+    "local_n": -82.054,
+    "rotation_deg": 90.337,
     "position_confidence": "reconstructed",
     "position_sources": [],
-    "position_note": "PARTY-LINE FRONTAGE, DERIVED FROM THE COMMITTED PLAT (T-3605). It stands on the south face of blk_south_water_dearborn, whose line and bearing are read from the block boundary in data/traces/vectors/thompson_lots.json, at stations 40.23-46.65 m from the face's west end, its front wall 1.50 m behind the lot line (the plat module's margin, as the block programme's own party-line runs stand). The bearing is the face's, so the front looks square at Lake Street. The station is the row-fill rule's (largest open stretch first, until the face is about 70 % built), not a measurement.",
-    "symbolic_location": "Anonymous reconstructed store on the north side of Lake Street, in the block west-bounded by Dearborn Street; one unit of the street's row",
+    "position_note": "PARTY-LINE FRONTAGE, DERIVED FROM THE COMMITTED PLAT (T-3605). It stands on the east face of blk_south_water_wells, whose line and bearing are read from the block boundary in data/traces/vectors/thompson_lots.json, at stations 12.50-18.93 m from the face's west end, its front wall 1.50 m behind the lot line (the plat module's margin, as the block programme's own party-line runs stand). The bearing is the face's, so the front looks square at LaSalle Street. The station is the row-fill rule's (largest open stretch first, until the face is about 70 % built), not a measurement.",
+    "symbolic_location": "Anonymous reconstructed store on the west side of LaSalle Street, in the block west-bounded by Wells Street; one unit of the street's row",
     "uncertainty_m": 20,
     "placement_provisional": false,
     "vertical_anchor": "terrain",
@@ -207,9 +207,9 @@
     "inventory_class": "principal_functional",
     "programme_phase": "core_row_fill_1835",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
-    "block_id": "blk_south_water_dearborn",
+    "block_id": "blk_south_water_wells",
     "stands_on": "frontage",
-    "fronts": "lake",
+    "fronts": "lasalle",
     "sequence": 49,
     "finish_key": "weathered_timber",
     "roof_condition": "darkened",
@@ -222,11 +222,11 @@
       "words": "silvered clapboard on a braced frame under a weather-darkened roof — a store-residence, from the 1832–33 town (rule F-T: a tradesman's by its type)"
     },
     "frontage": {
-      "block": "blk_south_water_dearborn",
-      "face": "south",
+      "block": "blk_south_water_wells",
+      "face": "east",
       "setback_m": 1.5,
       "abuts": null,
-      "why": "T-3605: the owner's 'Commercial core, about 60 stores' (2026-11-15) fills this face toward 70 % of its length, from 12% built (L-core-row-fill-3605)."
+      "why": "T-3605: the owner's 'Commercial core, about 60 stores' (2026-11-15) fills this face toward 70 % of its length, from 8% built (L-core-row-fill-3605)."
     }
   },
   "fabric_tone": {

@@ -16,6 +16,7 @@
   ],
   "belongs_to": [
     "chicago_american_office",
+    "chicago_democrat_office",
     "exchange_coffee_house",
     "harmon_log_cabin",
     "heacock_house_monroe",
@@ -133,6 +134,7 @@
     "recon_1835_blk_south_water_dearborn_c1_08",
     "recon_1835_blk_south_water_dearborn_c2_07",
     "recon_1835_blk_south_water_dearborn_d1_05",
+    "recon_1835_blk_south_water_dearborn_d2_04",
     "recon_1835_blk_south_water_dearborn_h1_03",
     "recon_1835_blk_south_water_franklin_c2_08",
     "recon_1835_blk_south_water_franklin_c4_01",
@@ -141,11 +143,13 @@
     "recon_1835_blk_south_water_franklin_d4_12",
     "recon_1835_blk_south_water_lasalle_c2_11",
     "recon_1835_blk_south_water_lasalle_c3_13",
+    "recon_1835_blk_south_water_lasalle_d2_05",
     "recon_1835_blk_south_water_lasalle_d2_09",
     "recon_1835_blk_south_water_lasalle_f2_10",
     "recon_1835_blk_south_water_market_h3_02",
+    "recon_1835_blk_south_water_wells_c2_01",
     "recon_1835_blk_south_water_wells_d1_05",
-    "recon_1835_blk_south_water_wells_d3_04",
+    "recon_1835_blk_south_water_wells_d4_03",
     "recon_1835_blk_washington_clark_d3_15",
     "recon_1835_blk_washington_clark_d4_02",
     "recon_1835_blk_washington_clark_d4_14",
@@ -209,28 +213,33 @@
     "recon_1835_blk_west_washington_canal_d5_02",
     "recon_1835_blk_west_washington_canal_d6_01",
     "recon_1835_blk_west_washington_canal_d7_05",
-    "recon_1835_core_c1_028",
-    "recon_1835_core_c1_032",
-    "recon_1835_core_c1_035",
+    "recon_1835_core_c1_008",
+    "recon_1835_core_c1_019",
+    "recon_1835_core_c1_023",
     "recon_1835_core_c2_001",
     "recon_1835_core_c2_005",
+    "recon_1835_core_c2_007",
     "recon_1835_core_c2_010",
-    "recon_1835_core_c2_013",
+    "recon_1835_core_c2_014",
     "recon_1835_core_c2_017",
-    "recon_1835_core_c2_026",
-    "recon_1835_core_c2_029",
+    "recon_1835_core_c2_020",
+    "recon_1835_core_c2_022",
+    "recon_1835_core_c2_025",
+    "recon_1835_core_c2_028",
+    "recon_1835_core_c2_030",
     "recon_1835_core_c2_033",
+    "recon_1835_core_c2_036",
     "recon_1835_core_c2_038",
+    "recon_1835_core_c2_041",
     "recon_1835_core_c2_044",
-    "recon_1835_core_c2_046",
-    "recon_1835_core_c2_049",
-    "recon_1835_core_c2_055",
-    "recon_1835_core_c3_014",
-    "recon_1835_core_c3_054",
-    "recon_1835_core_h3_023",
-    "recon_1835_core_h3_027",
-    "recon_1835_core_h3_050",
+    "recon_1835_core_c2_054",
+    "recon_1835_core_c3_011",
+    "recon_1835_core_c3_018",
+    "recon_1835_core_c3_021",
+    "recon_1835_core_c3_026",
+    "recon_1835_core_c3_040",
     "recon_1835_gifford_c2_001",
+    "recon_1835_gifford_c3_002",
     "recon_1835_gifford_c3_005",
     "recon_1835_gifford_c3_007",
     "recon_1835_gifford_h3_004",
@@ -246,7 +255,6 @@
     "recon_1835_south_d3_013",
     "recon_1835_south_d3_017",
     "recon_1835_south_d3_027",
-    "recon_1835_south_d4_006",
     "recon_1835_south_d4_014",
     "recon_1835_south_d5_011",
     "recon_1835_south_d5_023",
@@ -440,38 +448,74 @@
       ],
       [
         [
-          361.11,
+          361.49,
           -16.71
         ],
         [
-          360.3,
-          -16.28
+          360.69,
+          -16.27
         ],
         [
-          343.72,
-          -47.62
+          343.73,
+          -47.61
         ],
         [
           344.53,
-          -48.04
+          -48.05
         ]
       ],
       [
         [
-          356.47,
-          -86.83
+          360.86,
+          -15.09
         ],
         [
-          357.35,
-          -87.07
+          360.21,
+          -14.45
         ],
         [
-          365.59,
-          -57.66
+          350.5,
+          -24.36
         ],
         [
-          364.71,
-          -57.41
+          351.15,
+          -25.0
+        ]
+      ],
+      [
+        [
+          360.78,
+          -14.26
+        ],
+        [
+          360.24,
+          -13.53
+        ],
+        [
+          354.23,
+          -18.04
+        ],
+        [
+          354.78,
+          -18.77
+        ]
+      ],
+      [
+        [
+          361.03,
+          -86.93
+        ],
+        [
+          361.94,
+          -87.04
+        ],
+        [
+          365.72,
+          -57.6
+        ],
+        [
+          364.81,
+          -57.48
         ]
       ],
       [
@@ -494,110 +538,92 @@
       ],
       [
         [
-          385.77,
-          -88.55
+          374.77,
+          -87.91
         ],
         [
-          386.68,
-          -88.65
+          375.6,
+          -88.29
         ],
         [
-          390.13,
-          -57.59
+          389.83,
+          -57.72
         ],
         [
-          389.22,
-          -57.49
+          389.0,
+          -57.33
         ]
       ],
       [
         [
-          384.78,
-          -88.63
+          385.99,
+          -87.06
         ],
         [
-          385.69,
-          -88.56
+          386.9,
+          -86.94
         ],
         [
-          384.1,
-          -67.25
+          384.3,
+          -67.22
         ],
         [
-          383.19,
-          -67.32
+          383.39,
+          -67.34
         ]
       ],
       [
         [
-          383.79,
-          -88.71
+          411.45,
+          -16.38
         ],
         [
-          384.68,
-          -88.47
+          410.54,
+          -16.3
         ],
         [
-          382.09,
-          -78.61
+          408.03,
+          -43.11
         ],
         [
-          381.21,
-          -78.84
+          408.94,
+          -43.19
         ]
       ],
       [
         [
-          401.87,
-          -89.18
+          399.53,
+          -86.06
         ],
         [
-          402.74,
-          -88.92
+          400.42,
+          -85.84
         ],
         [
-          393.15,
-          -57.4
+          393.12,
+          -57.42
         ],
         [
-          392.27,
-          -57.67
+          392.23,
+          -57.65
         ]
       ],
       [
         [
-          408.86,
-          -87.05
+          407.26,
+          -92.48
         ],
         [
-          409.77,
-          -86.93
+          408.17,
+          -92.43
         ],
         [
-          407.49,
-          -70.41
+          407.02,
+          -70.44
         ],
         [
-          406.59,
-          -70.53
-        ]
-      ],
-      [
-        [
-          406.77,
-          -88.24
-        ],
-        [
-          407.56,
-          -87.78
-        ],
-        [
-          404.16,
-          -81.87
-        ],
-        [
-          403.37,
-          -82.32
+          406.11,
+          -70.49
         ]
       ],
       [
@@ -656,38 +682,56 @@
       ],
       [
         [
-          429.48,
-          -88.79
+          422.72,
+          -88.72
         ],
         [
-          430.36,
-          -89.02
+          423.54,
+          -89.11
         ],
         [
-          438.8,
-          -57.65
+          438.61,
+          -57.72
         ],
         [
-          437.92,
-          -57.42
+          437.79,
+          -57.33
         ]
       ],
       [
         [
-          428.15,
-          -88.95
+          421.07,
+          -88.81
         ],
         [
-          429.05,
-          -88.84
+          421.97,
+          -88.97
         ],
         [
-          426.86,
-          -71.08
+          425.08,
+          -71.21
         ],
         [
-          425.95,
-          -71.2
+          424.18,
+          -71.05
+        ]
+      ],
+      [
+        [
+          423.71,
+          -91.28
+        ],
+        [
+          424.26,
+          -92.01
+        ],
+        [
+          428.33,
+          -88.94
+        ],
+        [
+          427.77,
+          -88.22
         ]
       ],
       [
@@ -728,38 +772,56 @@
       ],
       [
         [
-          480.57,
-          -87.04
+          485.4,
+          -16.25
         ],
         [
-          481.46,
-          -87.24
+          484.88,
+          -15.5
         ],
         [
-          487.85,
-          -57.63
+          472.94,
+          -23.78
         ],
         [
-          486.96,
-          -57.44
+          473.46,
+          -24.53
         ]
       ],
       [
         [
-          477.08,
-          -87.26
+          479.25,
+          -89.02
         ],
         [
-          477.95,
+          480.14,
+          -89.24
+        ],
+        [
+          487.98,
+          -57.64
+        ],
+        [
+          487.09,
+          -57.42
+        ]
+      ],
+      [
+        [
+          481.11,
+          -91.86
+        ],
+        [
+          481.67,
+          -91.14
+        ],
+        [
+          476.34,
           -86.97
         ],
         [
-          469.28,
-          -60.44
-        ],
-        [
-          468.41,
-          -60.72
+          475.78,
+          -87.69
         ]
       ],
       [
@@ -800,56 +862,92 @@
       ],
       [
         [
-          499.99,
-          -89.78
+          500.01,
+          -89.13
         ],
         [
-          500.85,
-          -90.09
+          500.87,
+          -89.45
         ],
         [
-          512.65,
-          -57.69
+          512.75,
+          -57.53
         ],
         [
-          511.79,
-          -57.37
+          511.89,
+          -57.21
         ]
       ],
       [
         [
-          498.32,
-          -89.9
+          491.66,
+          -91.8
         ],
         [
-          499.23,
-          -89.93
-        ],
-        [
-          499.67,
-          -79.72
-        ],
-        [
-          498.75,
-          -79.68
-        ]
-      ],
-      [
-        [
-          499.32,
-          -89.82
-        ],
-        [
-          500.21,
-          -90.03
-        ],
-        [
-          505.58,
-          -67.17
+          492.48,
+          -92.2
         ],
         [
           504.69,
-          -66.96
+          -67.25
+        ],
+        [
+          503.87,
+          -66.85
+        ]
+      ],
+      [
+        [
+          523.27,
+          -88.52
+        ],
+        [
+          524.16,
+          -88.28
+        ],
+        [
+          515.85,
+          -57.42
+        ],
+        [
+          514.97,
+          -57.65
+        ]
+      ],
+      [
+        [
+          555.18,
+          -28.62
+        ],
+        [
+          554.45,
+          -28.09
+        ],
+        [
+          540.19,
+          -47.57
+        ],
+        [
+          540.93,
+          -48.11
+        ]
+      ],
+      [
+        [
+          557.9,
+          -12.67
+        ],
+        [
+          556.98,
+          -12.65
+        ],
+        [
+          556.73,
+          -22.06
+        ],
+        [
+          557.64,
+          -22.09
         ]
       ],
       [
@@ -908,20 +1006,20 @@
       ],
       [
         [
-          602.43,
-          -15.24
+          601.33,
+          -17.98
         ],
         [
-          601.58,
-          -14.91
+          600.53,
+          -17.54
         ],
         [
-          589.05,
-          -47.83
+          597.91,
+          -22.29
         ],
         [
-          589.9,
-          -48.15
+          598.71,
+          -22.73
         ]
       ],
       [
@@ -944,20 +1042,38 @@
       ],
       [
         [
-          616.93,
-          -12.47
+          595.92,
+          -89.01
         ],
         [
-          616.03,
-          -12.6
+          596.65,
+          -88.46
         ],
         [
-          620.67,
+          595.63,
+          -87.1
+        ],
+        [
+          594.9,
+          -87.65
+        ]
+      ],
+      [
+        [
+          617.27,
+          -16.83
+        ],
+        [
+          616.37,
+          -16.98
+        ],
+        [
+          620.66,
           -43.21
         ],
         [
-          621.58,
-          -43.07
+          621.56,
+          -43.06
         ]
       ],
       [
@@ -1250,56 +1366,56 @@
       ],
       [
         [
-          729.26,
-          -90.56
+          723.51,
+          -92.04
         ],
         [
-          730.06,
-          -90.12
+          724.38,
+          -91.73
         ],
         [
-          712.88,
-          -59.05
+          712.67,
+          -58.97
         ],
         [
-          712.08,
-          -59.49
+          711.81,
+          -59.28
         ]
       ],
       [
         [
-          730.15,
-          -90.21
+          728.83,
+          -88.72
         ],
         [
-          731.01,
-          -89.89
+          729.7,
+          -88.43
         ],
         [
-          721.91,
-          -65.53
+          721.84,
+          -65.55
         ],
         [
-          721.05,
-          -65.85
+          720.98,
+          -65.84
         ]
       ],
       [
         [
-          729.72,
-          -90.24
+          727.97,
+          -93.47
         ],
         [
-          730.55,
-          -89.86
+          728.48,
+          -92.71
         ],
         [
-          726.73,
-          -81.34
+          721.04,
+          -87.74
         ],
         [
-          725.9,
-          -81.71
+          720.53,
+          -88.5
         ]
       ],
       [
@@ -1340,12 +1456,12 @@
       ],
       [
         [
-          750.94,
-          -90.4
+          751.47,
+          -91.79
         ],
         [
-          751.78,
-          -90.04
+          752.31,
+          -91.43
         ],
         [
           738.73,
@@ -1358,12 +1474,12 @@
       ],
       [
         [
-          751.7,
-          -90.35
+          752.13,
+          -91.74
         ],
         [
-          752.57,
-          -90.09
+          753.0,
+          -91.48
         ],
         [
           745.27,
@@ -1430,6 +1546,24 @@
       ],
       [
         [
+          792.48,
+          -19.34
+        ],
+        [
+          791.57,
+          -19.28
+        ],
+        [
+          789.48,
+          -50.95
+        ],
+        [
+          790.4,
+          -51.01
+        ]
+      ],
+      [
+        [
           808.74,
           -13.57
         ],
@@ -1448,20 +1582,20 @@
       ],
       [
         [
-          799.63,
-          -91.82
+          804.16,
+          -90.89
         ],
         [
-          800.48,
-          -92.17
+          805.04,
+          -91.13
         ],
         [
-          813.15,
-          -61.29
+          813.26,
+          -61.24
         ],
         [
-          812.3,
-          -60.94
+          812.38,
+          -61.0
         ]
       ],
       [
@@ -1934,6 +2068,24 @@
       ],
       [
         [
+          363.96,
+          -136.37
+        ],
+        [
+          363.04,
+          -136.39
+        ],
+        [
+          364.15,
+          -179.18
+        ],
+        [
+          365.07,
+          -179.16
+        ]
+      ],
+      [
+        [
           349.71,
           -132.78
         ],
@@ -1988,56 +2140,20 @@
       ],
       [
         [
-          370.47,
-          -155.52
+          377.69,
+          -132.69
         ],
         [
-          369.56,
-          -155.43
+          376.87,
+          -132.29
         ],
         [
-          366.98,
-          -179.14
+          372.26,
+          -141.62
         ],
         [
-          367.89,
-          -179.24
-        ]
-      ],
-      [
-        [
-          378.08,
-          -132.66
-        ],
-        [
-          377.23,
-          -132.33
-        ],
-        [
-          371.74,
-          -146.59
-        ],
-        [
-          372.59,
-          -146.92
-        ]
-      ],
-      [
-        [
-          401.38,
-          -137.25
-        ],
-        [
-          400.5,
-          -137.51
-        ],
-        [
-          412.78,
-          -179.7
-        ],
-        [
-          413.66,
-          -179.45
+          373.08,
+          -142.02
         ]
       ],
       [
@@ -2132,38 +2248,20 @@
       ],
       [
         [
-          483.59,
-          -141.81
+          482.99,
+          -139.18
         ],
         [
-          482.76,
-          -141.43
+          482.15,
+          -138.83
         ],
         [
-          465.02,
-          -179.81
+          464.83,
+          -179.83
         ],
         [
-          465.85,
-          -180.2
-        ]
-      ],
-      [
-        [
-          486.65,
-          -141.68
-        ],
-        [
-          485.73,
-          -141.64
-        ],
-        [
-          484.19,
-          -177.08
-        ],
-        [
-          485.11,
-          -177.12
+          465.68,
+          -180.18
         ]
       ],
       [
@@ -2222,74 +2320,74 @@
       ],
       [
         [
-          498.92,
-          -137.83
+          505.51,
+          -139.08
         ],
         [
-          498.03,
-          -137.65
+          504.66,
+          -138.77
         ],
         [
-          489.41,
-          -180.1
+          489.55,
+          -180.04
         ],
         [
-          490.3,
-          -180.28
-        ]
-      ],
-      [
-        [
-          494.42,
-          -136.13
-        ],
-        [
-          493.51,
-          -136.13
-        ],
-        [
-          493.49,
-          -147.75
-        ],
-        [
-          494.41,
-          -147.76
-        ]
-      ],
-      [
-        [
-          521.65,
-          -157.01
-        ],
-        [
-          520.88,
-          -157.49
-        ],
-        [
-          535.63,
-          -180.84
-        ],
-        [
-          536.4,
+          490.4,
           -180.36
         ]
       ],
       [
         [
-          517.95,
-          -135.89
+          498.15,
+          -140.66
         ],
         [
-          517.04,
-          -135.94
+          497.34,
+          -140.25
         ],
         [
-          517.67,
-          -148.05
+          495.39,
+          -144.12
         ],
         [
-          518.59,
-          -148.0
+          496.2,
+          -144.53
+        ]
+      ],
+      [
+        [
+          521.23,
+          -151.2
+        ],
+        [
+          520.42,
+          -151.62
+        ],
+        [
+          535.69,
+          -180.81
+        ],
+        [
+          536.5,
+          -180.38
+        ]
+      ],
+      [
+        [
+          524.35,
+          -134.9
+        ],
+        [
+          523.52,
+          -134.52
+        ],
+        [
+          520.14,
+          -141.95
+        ],
+        [
+          520.97,
+          -142.32
         ]
       ],
       [
@@ -2402,6 +2500,24 @@
       ],
       [
         [
+          592.4,
+          -134.55
+        ],
+        [
+          591.49,
+          -134.67
+        ],
+        [
+          592.93,
+          -145.57
+        ],
+        [
+          593.83,
+          -145.45
+        ]
+      ],
+      [
+        [
           608.31,
           -220.41
         ],
@@ -2456,20 +2572,20 @@
       ],
       [
         [
-          631.93,
-          -138.48
+          626.63,
+          -138.25
         ],
         [
-          631.09,
-          -138.12
+          625.75,
+          -137.99
         ],
         [
-          612.89,
-          -181.04
+          612.78,
+          -181.08
         ],
         [
-          613.73,
-          -181.39
+          613.65,
+          -181.34
         ]
       ],
       [
@@ -2506,6 +2622,24 @@
         [
           662.83,
           -181.66
+        ]
+      ],
+      [
+        [
+          671.32,
+          -136.29
+        ],
+        [
+          670.52,
+          -136.73
+        ],
+        [
+          675.71,
+          -146.18
+        ],
+        [
+          676.51,
+          -145.74
         ]
       ],
       [
@@ -2600,92 +2734,74 @@
       ],
       [
         [
-          744.99,
-          -142.04
+          747.58,
+          -141.44
         ],
         [
-          744.09,
-          -141.89
+          746.69,
+          -141.22
         ],
         [
-          737.05,
-          -182.13
+          736.96,
+          -182.11
         ],
         [
-          737.95,
-          -182.29
+          737.84,
+          -182.32
         ]
       ],
       [
         [
-          747.79,
-          -141.87
+          745.69,
+          -141.11
         ],
         [
-          746.91,
-          -142.1
+          744.91,
+          -140.64
         ],
         [
-          756.93,
-          -179.44
+          743.45,
+          -143.12
         ],
         [
-          757.81,
-          -179.21
+          744.24,
+          -143.58
         ]
       ],
       [
         [
-          744.32,
-          -142.08
+          774.72,
+          -140.84
         ],
         [
-          743.44,
-          -141.83
+          773.84,
+          -140.61
         ],
         [
-          742.22,
-          -146.2
+          762.89,
+          -182.31
         ],
         [
-          743.1,
-          -146.44
+          763.77,
+          -182.54
         ]
       ],
       [
         [
-          775.59,
-          -140.08
+          773.11,
+          -140.44
         ],
         [
-          774.71,
-          -139.83
+          772.33,
+          -139.97
         ],
         [
-          762.9,
-          -182.3
+          770.82,
+          -142.49
         ],
         [
-          763.78,
-          -182.55
-        ]
-      ],
-      [
-        [
-          770.04,
-          -144.25
-        ],
-        [
-          769.13,
-          -144.15
-        ],
-        [
-          768.52,
-          -149.94
-        ],
-        [
-          769.43,
-          -150.04
+          771.6,
+          -142.96
         ]
       ],
       [
@@ -7111,6 +7227,16 @@
       "to": "privy_blk_south_water_wells_lot0"
     },
     {
+      "lot": "blk_south_water_wells_lot0",
+      "from": "recon_1835_core_c2_001",
+      "to": "recon_1835_core_c1_047"
+    },
+    {
+      "lot": "blk_south_water_wells_lot0",
+      "from": "recon_1835_core_c2_001",
+      "to": "recon_1835_core_c3_048"
+    },
+    {
       "lot": "blk_south_water_wells_lot1",
       "from": "recon_1835_core_c2_005",
       "to": "privy_blk_south_water_wells_lot1"
@@ -7122,33 +7248,28 @@
     },
     {
       "lot": "blk_south_water_wells_lot3",
-      "from": "recon_1835_core_c2_010",
+      "from": "recon_1835_core_c2_007",
       "to": "privy_blk_south_water_wells_lot3"
     },
     {
       "lot": "blk_south_water_wells_lot3",
-      "from": "recon_1835_core_c2_010",
+      "from": "recon_1835_core_c3_011",
       "to": "recon_1835_blk_south_water_wells_d1_07"
     },
     {
-      "lot": "blk_south_water_wells_lot3",
-      "from": "recon_1835_core_c2_010",
-      "to": "recon_1835_blk_south_water_wells_d2_06"
+      "lot": "blk_south_water_wells_lot4",
+      "from": "recon_1835_blk_south_water_wells_c2_01",
+      "to": "recon_1835_blk_south_water_wells_a3_08"
     },
     {
       "lot": "blk_south_water_wells_lot5",
-      "from": "recon_1835_core_c2_013",
+      "from": "recon_1835_blk_south_water_wells_d4_03",
       "to": "privy_blk_south_water_wells_lot5"
     },
     {
       "lot": "blk_south_water_wells_lot5",
-      "from": "recon_1835_core_c3_014",
+      "from": "recon_1835_core_c1_008",
       "to": "recon_1835_blk_south_water_wells_a2_09"
-    },
-    {
-      "lot": "blk_south_water_wells_lot5",
-      "from": "recon_1835_core_c3_014",
-      "to": "recon_1835_blk_south_water_wells_d4_03"
     },
     {
       "lot": "blk_south_water_wells_lot6",
@@ -7167,13 +7288,18 @@
     },
     {
       "lot": "blk_south_water_wells_lot7",
-      "from": "recon_1835_blk_south_water_wells_d3_04",
+      "from": "recon_1835_core_c2_010",
       "to": "privy_blk_south_water_wells_lot7"
     },
     {
       "lot": "blk_south_water_wells_lot7",
-      "from": "recon_1835_blk_south_water_wells_d3_04",
+      "from": "recon_1835_core_c2_010",
       "to": "recon_1835_blk_south_water_wells_a2_10"
+    },
+    {
+      "lot": "blk_south_water_wells_lot7",
+      "from": "recon_1835_core_c2_010",
+      "to": "recon_1835_core_c2_049"
     },
     {
       "lot": "blk_south_water_lasalle_lot0",
@@ -7186,14 +7312,19 @@
       "to": "recon_1835_blk_south_water_lasalle_a1_14"
     },
     {
+      "lot": "blk_south_water_lasalle_lot0",
+      "from": "recon_1835_blk_south_water_lasalle_f2_10",
+      "to": "recon_1835_core_c1_051"
+    },
+    {
       "lot": "blk_south_water_lasalle_lot1",
-      "from": "recon_1835_core_h3_023",
+      "from": "recon_1835_core_c2_017",
       "to": "privy_blk_south_water_lasalle_lot1"
     },
     {
       "lot": "blk_south_water_lasalle_lot1",
-      "from": "recon_1835_core_h3_023",
-      "to": "stable_blk_south_water_lasalle_lot1"
+      "from": "recon_1835_core_c3_018",
+      "to": "recon_1835_core_c3_053"
     },
     {
       "lot": "blk_south_water_lasalle_lot2",
@@ -7207,18 +7338,28 @@
     },
     {
       "lot": "blk_south_water_lasalle_lot3",
-      "from": "recon_1835_core_c2_026",
+      "from": "recon_1835_blk_south_water_lasalle_d2_05",
       "to": "privy_blk_south_water_lasalle_lot3"
     },
     {
       "lot": "blk_south_water_lasalle_lot3",
-      "from": "recon_1835_core_c2_026",
-      "to": "recon_1835_blk_south_water_lasalle_d2_05"
+      "from": "recon_1835_core_c1_019",
+      "to": "recon_1835_blk_south_water_lasalle_d3_06"
     },
     {
-      "lot": "blk_south_water_lasalle_lot3",
-      "from": "recon_1835_core_c2_026",
-      "to": "recon_1835_blk_south_water_lasalle_d3_06"
+      "lot": "blk_south_water_lasalle_lot5",
+      "from": "recon_1835_core_c2_020",
+      "to": "privy_blk_south_water_lasalle_lot5"
+    },
+    {
+      "lot": "blk_south_water_lasalle_lot6",
+      "from": "recon_1835_core_c2_054",
+      "to": "privy_blk_south_water_lasalle_lot6"
+    },
+    {
+      "lot": "blk_south_water_lasalle_lot6",
+      "from": "chicago_democrat_office",
+      "to": "recon_1835_core_c2_054"
     },
     {
       "lot": "blk_south_water_lasalle_lot7",
@@ -7237,8 +7378,8 @@
     },
     {
       "lot": "blk_south_water_clark_lot0",
-      "from": "recon_1835_core_c2_033",
-      "to": "privy_blk_south_water_clark_lot0"
+      "from": "recon_1835_core_c3_026",
+      "to": "recon_1835_core_c3_056"
     },
     {
       "lot": "blk_south_water_clark_lot1",
@@ -7246,8 +7387,13 @@
       "to": "privy_blk_south_water_clark_lot1"
     },
     {
+      "lot": "blk_south_water_clark_lot1",
+      "from": "recon_1835_gifford_c3_002",
+      "to": "recon_1835_core_c1_055"
+    },
+    {
       "lot": "blk_south_water_clark_lot2",
-      "from": "recon_1835_core_c1_035",
+      "from": "recon_1835_core_c2_028",
       "to": "recon_1835_blk_south_water_clark_a3_07"
     },
     {
@@ -7332,18 +7478,18 @@
     },
     {
       "lot": "blk_south_water_dearborn_lot1",
-      "from": "recon_1835_core_c2_044",
+      "from": "recon_1835_blk_south_water_dearborn_d2_04",
       "to": "privy_blk_south_water_dearborn_lot1"
     },
     {
       "lot": "blk_south_water_dearborn_lot1",
-      "from": "recon_1835_core_c2_044",
+      "from": "recon_1835_core_c3_040",
       "to": "recon_1835_blk_south_water_dearborn_a5_10"
     },
     {
       "lot": "blk_south_water_dearborn_lot1",
-      "from": "recon_1835_core_c2_044",
-      "to": "recon_1835_blk_south_water_dearborn_d2_04"
+      "from": "recon_1835_core_c3_040",
+      "to": "recon_1835_core_c1_059"
     },
     {
       "lot": "blk_south_water_dearborn_lot2",
@@ -7357,12 +7503,12 @@
     },
     {
       "lot": "blk_south_water_dearborn_lot3",
-      "from": "recon_1835_core_c2_049",
+      "from": "recon_1835_core_c2_038",
       "to": "privy_blk_south_water_dearborn_lot3"
     },
     {
       "lot": "blk_south_water_dearborn_lot3",
-      "from": "recon_1835_core_c2_049",
+      "from": "recon_1835_core_c2_038",
       "to": "mansion_house_stable"
     },
     {
@@ -7382,12 +7528,17 @@
     },
     {
       "lot": "blk_south_water_dearborn_lot6",
+      "from": "recon_1835_core_c2_033",
+      "to": "privy_blk_south_water_dearborn_lot6"
+    },
+    {
+      "lot": "blk_south_water_dearborn_lot6",
       "from": "south_bank_shed_dearborn_e2",
       "to": "chappel_infant_school"
     },
     {
       "lot": "blk_south_water_dearborn_lot7",
-      "from": "recon_1835_core_c2_046",
+      "from": "recon_1835_core_c2_036",
       "to": "privy_blk_south_water_dearborn_lot7"
     },
     {
@@ -7522,6 +7673,11 @@
     },
     {
       "lot": "blk_lake_wells_lot0",
+      "from": "recon_1835_core_c2_014",
+      "to": "privy_blk_lake_wells_lot0"
+    },
+    {
+      "lot": "blk_lake_wells_lot0",
       "from": "inf_shoemaker_shop",
       "to": "recon_1835_south_d2_005"
     },
@@ -7537,18 +7693,8 @@
     },
     {
       "lot": "blk_lake_wells_lot2",
-      "from": "recon_1835_south_d4_006",
-      "to": "privy_blk_lake_wells_lot2"
-    },
-    {
-      "lot": "blk_lake_wells_lot2",
       "from": "inf_tailor_shop",
       "to": "recon_1835_south_d4_006"
-    },
-    {
-      "lot": "blk_lake_wells_lot4",
-      "from": "recon_1835_core_c2_017",
-      "to": "privy_blk_lake_wells_lot4"
     },
     {
       "lot": "blk_lake_wells_lot6",
@@ -7577,13 +7723,8 @@
     },
     {
       "lot": "blk_lake_lasalle_lot0",
-      "from": "recon_1835_core_h3_027",
+      "from": "recon_1835_core_c2_025",
       "to": "privy_blk_lake_lasalle_lot0"
-    },
-    {
-      "lot": "blk_lake_lasalle_lot0",
-      "from": "recon_1835_core_h3_027",
-      "to": "stable_blk_lake_lasalle_lot0"
     },
     {
       "lot": "blk_lake_lasalle_lot0",
@@ -7602,12 +7743,12 @@
     },
     {
       "lot": "blk_lake_lasalle_lot2",
-      "from": "recon_1835_core_c2_029",
+      "from": "recon_1835_core_c2_022",
       "to": "privy_blk_lake_lasalle_lot2"
     },
     {
       "lot": "blk_lake_lasalle_lot2",
-      "from": "recon_1835_core_c1_028",
+      "from": "recon_1835_core_c3_021",
       "to": "recon_1835_south_d1_010"
     },
     {
@@ -7617,7 +7758,7 @@
     },
     {
       "lot": "blk_lake_lasalle_lot4",
-      "from": "recon_1835_core_c1_032",
+      "from": "recon_1835_core_c1_023",
       "to": "recon_1835_south_d5_011"
     },
     {
@@ -7651,6 +7792,11 @@
       "to": "recon_1835_blk_lake_clark_a3_04"
     },
     {
+      "lot": "blk_lake_clark_lot0",
+      "from": "recon_1835_blk_lake_clark_c1_01",
+      "to": "recon_1835_core_c2_057"
+    },
+    {
       "lot": "blk_lake_clark_lot1",
       "from": "recon_1835_south_h2_039",
       "to": "privy_blk_lake_clark_lot1"
@@ -7667,7 +7813,7 @@
     },
     {
       "lot": "blk_lake_clark_lot2",
-      "from": "recon_1835_core_c2_038",
+      "from": "recon_1835_core_c2_030",
       "to": "privy_blk_lake_clark_lot2"
     },
     {
@@ -7679,6 +7825,11 @@
       "lot": "blk_lake_clark_lot6",
       "from": "recon_1835_south_d4_014",
       "to": "privy_blk_lake_clark_lot6"
+    },
+    {
+      "lot": "blk_lake_clark_lot6",
+      "from": "recon_1835_south_d4_014",
+      "to": "recon_1835_core_c3_058"
     },
     {
       "lot": "blk_lake_clark_lot6",
@@ -7707,27 +7858,22 @@
     },
     {
       "lot": "blk_lake_dearborn_lot2",
-      "from": "recon_1835_core_h3_050",
+      "from": "recon_1835_core_c2_044",
       "to": "privy_blk_lake_dearborn_lot2"
     },
     {
       "lot": "blk_lake_dearborn_lot2",
-      "from": "recon_1835_core_h3_050",
-      "to": "stable_blk_lake_dearborn_lot2"
-    },
-    {
-      "lot": "blk_lake_dearborn_lot2",
-      "from": "recon_1835_core_h3_050",
+      "from": "recon_1835_core_c2_044",
       "to": "recon_1835_south_d1_018"
     },
     {
       "lot": "blk_lake_dearborn_lot4",
-      "from": "recon_1835_core_c2_055",
+      "from": "recon_1835_core_c2_041",
       "to": "privy_blk_lake_dearborn_lot4"
     },
     {
       "lot": "blk_lake_dearborn_lot4",
-      "from": "recon_1835_core_c3_054",
+      "from": "recon_1835_core_c2_041",
       "to": "recon_1835_south_d4_019"
     },
     {
