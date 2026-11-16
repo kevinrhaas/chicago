@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3034, ts: '2026-11-16T15:04:33.861Z', date: 'Nov 16, 2026, 9:04 AM CT', title: 'Taller chimney pots on 1815 Prairie\'s south chimney', kind: 'improvement',
+    items: [
+      'The Sears-Meeker house at 1815 Prairie now has the tall, slender clay pots that its photograph from the south-west shows on its south chimney. Each pot stands about 1.1 m above the chimney\'s cap, up from about 0.7 m.',
+    ] },
   { v: 3033, ts: '2026-11-16T13:54:47.604Z', date: 'Nov 16, 2026, 7:54 AM CT', title: 'Take the helm of any boat; 1835\'s schooners rebuilt with crews', kind: 'feature',
     items: [
       'Board any boat and steer it yourself on the river and the lake: the schooners, the Mackinaw boats, the rowboats, the canoes, and the 1812 crossing boats.',
