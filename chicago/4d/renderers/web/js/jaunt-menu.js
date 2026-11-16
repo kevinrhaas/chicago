@@ -97,7 +97,7 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     // T-2631: the keepsake, once earned, on the outing's own card.
     if (kept(row)) meta.append(node('span', 'Keepsake earned', 'jaunt-kept'));
     body.append(head, node('p', row.premise, 'jaunt-premise'), meta);
-    if (row.audience === 'adults' && row.content_warning) body.append(node('p', row.content_warning, 'jaunt-warning'));
+    // The owner, 2026-11-16: no warning text on the card; its 18+ tag says it (and names it on hover).
     if (plate?.src) { const credit = node('p', `Picture: ${plate.credit}`, 'jaunt-credit'); credit.title = plate.full; body.append(credit); }
     const actions = node('div', '', 'jaunt-actions');
     const details = node('div', '', 'jaunt-details'); details.id = `jaunt-more-${section}-${row.id}`;

@@ -102,7 +102,7 @@ try {
   assert.deepEqual(adults.false.cards,['kids'],'the adults telling is not listed until the visitor says they are 18 or over');
   assert.equal(adults.false.tag,null);assert(adults.false.refused,'and cannot be started');
   assert.deepEqual(adults.true.cards,['kids','grown'],'listed after its students\' telling once allowed');
-  assert.equal(adults.true.tag,'18+');assert(adults.true.warned,'its warning is on the card');
+  assert.equal(adults.true.tag,'18+');assert(!adults.true.warned,'no warning text on the card, only its 18+ tag (owner, 2026-11-16)');
   receipts.push({adults});
   fs.writeFileSync(path.join(out,'preview.json'),JSON.stringify(receipts,null,2)+'\n');
   console.log('JAUNT PREVIEW PASS — both viewports, production/dev bases, 0 boot requests, isolated retries, 5 stops, evidence, unavailable reasons and layouts');

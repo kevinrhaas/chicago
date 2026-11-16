@@ -223,7 +223,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       if (request !== serial) return;
       const title = node('h3', content.title);
       root.replaceChildren(backButton(() => { ++serial; list(api.catalog, row.id); }), title,
-        node('p', 'Route preview', 'jaunt-meta'), ...(content.audience === 'adults' && content.content_warning ? [node('p', `18+ · ${content.content_warning}`, 'jaunt-warning')] : []),
+        node('p', 'Route preview', 'jaunt-meta'),
         ...String(content.opening.text).split(/\n\s*\n/).map(text => node('p', text.trim())));
       const stops = node('ol', '', 'jaunt-stops');
       for (const stop of content.stops) {
