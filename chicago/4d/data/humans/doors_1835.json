@@ -1118,7 +1118,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "15d5d6c492a5c26370265196945d78e126762dc8530cfe4215cc6044652d4de7"
+   "model_inputs_sha256": "15d5d6c492a5c26370265196945d78e126762dc8530cfe4215cc6044652d4de7",
+   "floor": {
+    "key": "df5839761e075b8c",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 6.8,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_indiana_north_cass_d3_02",
@@ -1168,7 +1180,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "375f2749020590dbc68478567bafb05b3512080a76a005e27d9519b4c21864a6"
+   "model_inputs_sha256": "375f2749020590dbc68478567bafb05b3512080a76a005e27d9519b4c21864a6",
+   "floor": {
+    "key": "4fa78876a535bf6d",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 8.4,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 6 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_indiana_north_cass_d4_06",
@@ -1193,7 +1217,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "2e66941952a988cd48415c8a165aff16ce2e682012ab8e4ffdf75f7384328fa7"
+   "model_inputs_sha256": "2e66941952a988cd48415c8a165aff16ce2e682012ab8e4ffdf75f7384328fa7",
+   "floor": {
+    "key": "5d3290fccc3d723c",
+    "cell": 0.1,
+    "u0": 1.9,
+    "v0": 8.0,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_indiana_north_cass_h3_09",
@@ -1243,7 +1279,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "6134cefac1323b5c41f30d1ea4ec9f3d4170253a7a2e7c94d047ff35c0076500"
+   "model_inputs_sha256": "6134cefac1323b5c41f30d1ea4ec9f3d4170253a7a2e7c94d047ff35c0076500",
+   "floor": {
+    "key": "56db699a994cbbe5",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 6.9,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 3,
+    "walls": "0 5 0 1 138 10 11 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_indiana_north_wolcott_d3_02",
@@ -1268,7 +1316,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "09eac285c44c7204b133eb35182406fa7c1b64055bf1c8f98c2990b2da11de56"
+   "model_inputs_sha256": "09eac285c44c7204b133eb35182406fa7c1b64055bf1c8f98c2990b2da11de56",
+   "floor": {
+    "key": "646ebe44e1c9ae82",
+    "cell": 0.1,
+    "u0": 0.6,
+    "v0": 6.6,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 16 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_indiana_north_wolcott_d3_05",
@@ -1293,7 +1353,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "321c66cc4dec0d37821de09be6b325be818be0ca9d3ebebd373418922a03e46b"
+   "model_inputs_sha256": "321c66cc4dec0d37821de09be6b325be818be0ca9d3ebebd373418922a03e46b",
+   "floor": {
+    "key": "7dadf1fc7d17e450",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 6.4,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 3,
+    "walls": "0 5 0 1 138 10 11 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_indiana_north_wolcott_d3_06",
@@ -1343,7 +1415,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "759cc09394e567bfcea3e628e9d8cf74e5e79beb17aed424e6ac4ef1901d9ac9"
+   "model_inputs_sha256": "759cc09394e567bfcea3e628e9d8cf74e5e79beb17aed424e6ac4ef1901d9ac9",
+   "floor": {
+    "key": "d4541556569e2e8b",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 6.5,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_lake_clinton_d4_01",
@@ -1368,7 +1452,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "1ace36ef3170cab624bcf66814bb61fac6411167022ad1d5d081cd758f53fb6b"
+   "model_inputs_sha256": "1ace36ef3170cab624bcf66814bb61fac6411167022ad1d5d081cd758f53fb6b",
+   "floor": {
+    "key": "5acffa13a492d790",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 8.2,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_lake_market_c2_01",
@@ -1469,7 +1565,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "9d649443e350efdacf6fb558149382cd25acd8cd5e11ac7ae54c0382ff367154"
+   "model_inputs_sha256": "9d649443e350efdacf6fb558149382cd25acd8cd5e11ac7ae54c0382ff367154",
+   "floor": {
+    "key": "f4aa5fc885347fa1",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 6.8,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_randolph_clark_c2_01",
@@ -1645,7 +1753,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "8b44b69a9aa0cd1183018df36c6df904ea1ea931516f7912838f60dc80c7784b"
+   "model_inputs_sha256": "8b44b69a9aa0cd1183018df36c6df904ea1ea931516f7912838f60dc80c7784b",
+   "floor": {
+    "key": "5986429959a5eb3e",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 7.0,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_randolph_clinton_d4_02",
@@ -1670,7 +1790,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "6a674cdff6cff1a575cc599c15ad97f25d18ae97f000c39fc992cbb05ea4fdf9"
+   "model_inputs_sha256": "6a674cdff6cff1a575cc599c15ad97f25d18ae97f000c39fc992cbb05ea4fdf9",
+   "floor": {
+    "key": "2e4801131c7b03b6",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 7.8,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_randolph_clinton_d4_09",
@@ -1695,7 +1827,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "cf79c889c284b85b95c185cf9e31354a4a721624466d55d7b2c2d760dfa88aae"
+   "model_inputs_sha256": "cf79c889c284b85b95c185cf9e31354a4a721624466d55d7b2c2d760dfa88aae",
+   "floor": {
+    "key": "7ba2e389e0206eb4",
+    "cell": 0.1,
+    "u0": 1.8,
+    "v0": 8.1,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_randolph_clinton_d5_01",
@@ -1745,7 +1889,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "609ab115d7f968f3eb3b0e6c2926eb2b4e6e9967e9dda0a809a35a82bb42e07a"
+   "model_inputs_sha256": "609ab115d7f968f3eb3b0e6c2926eb2b4e6e9967e9dda0a809a35a82bb42e07a",
+   "floor": {
+    "key": "a115ac0eb67943fb",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 8.6,
+    "ni": 18,
+    "nj": 10,
+    "count": 3,
+    "rects": "1 2 2 7 38 2 16 7 10 19 2 17 1 7 38",
+    "wall_count": 3,
+    "walls": "0 1 1 2 138 1 2 0 2 138 2 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_randolph_dearborn_d1_04",
@@ -1846,7 +2002,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "38b7492466c3a6513b3c42c31cbab46d0976716f574a8795b586b985af692ec0"
+   "model_inputs_sha256": "38b7492466c3a6513b3c42c31cbab46d0976716f574a8795b586b985af692ec0",
+   "floor": {
+    "key": "6b044a63d3578c05",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 7.0,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 3,
+    "walls": "0 5 0 1 138 10 11 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_randolph_dearborn_d3_11",
@@ -1871,7 +2039,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "c5dffd95f5bc07b4592dec5a44750ba2b0f879d884322fa5126e783b1d36e7e9"
+   "model_inputs_sha256": "c5dffd95f5bc07b4592dec5a44750ba2b0f879d884322fa5126e783b1d36e7e9",
+   "floor": {
+    "key": "b4c6f152f0aeb98a",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 6.8,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_randolph_dearborn_d4_03",
@@ -1921,7 +2101,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "d4a2dc1356ac7e698663d7fca38a9c00fa84d6873301f1b21cbdebc0137dde7f"
+   "model_inputs_sha256": "d4a2dc1356ac7e698663d7fca38a9c00fa84d6873301f1b21cbdebc0137dde7f",
+   "floor": {
+    "key": "34a201d3307e8bc0",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 9.1,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 6 0 1 138 10 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_randolph_dearborn_d6_10",
@@ -2047,7 +2239,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "fb00a12edf6390591cff28049d0053917a9161f956c891f4824fd2974327cec2"
+   "model_inputs_sha256": "fb00a12edf6390591cff28049d0053917a9161f956c891f4824fd2974327cec2",
+   "floor": {
+    "key": "91c9ac18cdadbefa",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 8.5,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_randolph_franklin_d5_02",
@@ -2072,7 +2276,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "d41b8fdf58cb504c96aed8d28749e648ef90756de25bcbb76ca1f8ebb54544ee"
+   "model_inputs_sha256": "d41b8fdf58cb504c96aed8d28749e648ef90756de25bcbb76ca1f8ebb54544ee",
+   "floor": {
+    "key": "2164e50cfc5e21bf",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 9.7,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_randolph_franklin_d6_01",
@@ -2097,7 +2313,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "5feec574e8fb0abd8282a84f715c6f1f996fd5f9c83a8eeff6ac3b6824e0b569"
+   "model_inputs_sha256": "5feec574e8fb0abd8282a84f715c6f1f996fd5f9c83a8eeff6ac3b6824e0b569",
+   "floor": {
+    "key": "a2997b5d36caa64a",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 8.8,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 4,
+    "walls": "0 4 0 1 138 5 7 0 1 138 9 11 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_randolph_market_d1_10",
@@ -2198,7 +2426,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "538bfe2f25b0f50857727a3540cff4fb338a8e1aa6b0538fa2a50a1373c2ca1d"
+   "model_inputs_sha256": "538bfe2f25b0f50857727a3540cff4fb338a8e1aa6b0538fa2a50a1373c2ca1d",
+   "floor": {
+    "key": "ea3941d1bfd99bdd",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 7.7,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_randolph_market_d4_07",
@@ -2273,7 +2513,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "cd310b73f0fb320a44717aa97d50ab17afea42f13618694e82247f99ec6bc2e5"
+   "model_inputs_sha256": "cd310b73f0fb320a44717aa97d50ab17afea42f13618694e82247f99ec6bc2e5",
+   "floor": {
+    "key": "4bbe13e734926a41",
+    "cell": 0.1,
+    "u0": 2.5,
+    "v0": 9.2,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_randolph_market_d5_11",
@@ -2449,7 +2701,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "ff90188357578d3be6afac6cbadda2c27ee4318b5d310b4d926eb74f21967d9b"
+   "model_inputs_sha256": "ff90188357578d3be6afac6cbadda2c27ee4318b5d310b4d926eb74f21967d9b",
+   "floor": {
+    "key": "d23113042a20edb3",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 6.5,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_118_d4_03",
@@ -2474,7 +2738,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "e5d2116e424407b64aadf847174711c55827bebd40e6c3fc1737a5985d9c4d10"
+   "model_inputs_sha256": "e5d2116e424407b64aadf847174711c55827bebd40e6c3fc1737a5985d9c4d10",
+   "floor": {
+    "key": "486cc1ceaecab665",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 7.8,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 6 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_118_d4_04",
@@ -2499,7 +2775,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "51f8ab69fc65d0d65431e994bc80c0eeda86f4ec3044e7e00e2526e450c6311a"
+   "model_inputs_sha256": "51f8ab69fc65d0d65431e994bc80c0eeda86f4ec3044e7e00e2526e450c6311a",
+   "floor": {
+    "key": "add93b5706a807b0",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 7.9,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 6 0 1 138 10 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_118_d5_02",
@@ -2574,7 +2862,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "9669450ce5391fa5278043af51af09cce2c258194a964080a05d177c7d230bc5"
+   "model_inputs_sha256": "9669450ce5391fa5278043af51af09cce2c258194a964080a05d177c7d230bc5",
+   "floor": {
+    "key": "01e19e5e0ece1fdd",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 8.9,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_119_d3_05",
@@ -2674,7 +2974,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "c3d959e831fb8234db3e62646c4d192e01657971b844d7062b249f5d1913479b"
+   "model_inputs_sha256": "c3d959e831fb8234db3e62646c4d192e01657971b844d7062b249f5d1913479b",
+   "floor": {
+    "key": "dd183e4a1ad43c27",
+    "cell": 0.1,
+    "u0": 2.5,
+    "v0": 9.7,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_119_d5_06",
@@ -2699,7 +3011,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "f3c212026adc224a1d970ad18dcaa6c853b4e29c40eeae039eb3e9d13a82516b"
+   "model_inputs_sha256": "f3c212026adc224a1d970ad18dcaa6c853b4e29c40eeae039eb3e9d13a82516b",
+   "floor": {
+    "key": "397520d46857f0f4",
+    "cell": 0.1,
+    "u0": 2.2,
+    "v0": 9.4,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_119_d6_01",
@@ -2749,7 +3073,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "b416b6a3fe96feeba88492470ef467e34a861ee6d2d3fb377f10707b86d0368a"
+   "model_inputs_sha256": "b416b6a3fe96feeba88492470ef467e34a861ee6d2d3fb377f10707b86d0368a",
+   "floor": {
+    "key": "c9c6ac059387754b",
+    "cell": 0.1,
+    "u0": 2.5,
+    "v0": 8.5,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 2,
+    "walls": "0 7 0 1 138 11 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_81_d2_05",
@@ -2800,7 +3136,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "3ff767f7ab6b6a05774e1022d87f7fc9ade5a9d9efa91fa38e526f7704e69e4a"
+   "model_inputs_sha256": "3ff767f7ab6b6a05774e1022d87f7fc9ade5a9d9efa91fa38e526f7704e69e4a",
+   "floor": {
+    "key": "8217389e443b7e6d",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 8.8,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 3,
+    "walls": "0 4 0 1 138 5 7 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_81_d4_04",
@@ -2850,7 +3198,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "53d7840a769c632f04dd67ae67ef8c67319cf252031b6c5941efc53a962ed2f6"
+   "model_inputs_sha256": "53d7840a769c632f04dd67ae67ef8c67319cf252031b6c5941efc53a962ed2f6",
+   "floor": {
+    "key": "610f90362910e6a7",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 9.3,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_81_d5_02",
@@ -2875,7 +3235,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "9fcbd66b8c0937993dbc433496e30f223f29416a07543b433bd93ce151f555fd"
+   "model_inputs_sha256": "9fcbd66b8c0937993dbc433496e30f223f29416a07543b433bd93ce151f555fd",
+   "floor": {
+    "key": "c5c7ddb4f31a65aa",
+    "cell": 0.1,
+    "u0": 2.5,
+    "v0": 9.6,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 2,
+    "walls": "0 7 0 1 138 11 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_81_d5_07",
@@ -3001,7 +3373,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "5c0442f02a5647a943a4078a12e03ca575ab46bdf12c49c0346757b219e64793"
+   "model_inputs_sha256": "5c0442f02a5647a943a4078a12e03ca575ab46bdf12c49c0346757b219e64793",
+   "floor": {
+    "key": "a801431b485696df",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 7.7,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_82_d4_04",
@@ -3026,7 +3410,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "11cdf6d6f025a96fe6342cffea080bde3f3aed78db0af0fe578c3e0ecab62074"
+   "model_inputs_sha256": "11cdf6d6f025a96fe6342cffea080bde3f3aed78db0af0fe578c3e0ecab62074",
+   "floor": {
+    "key": "bddb07baa7ae09aa",
+    "cell": 0.1,
+    "u0": 1.9,
+    "v0": 8.1,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_82_d5_02",
@@ -3076,7 +3472,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "e160d0cb130d35810aad254750ca11a73925f005c5cc57d4e7a08aa9790868ef"
+   "model_inputs_sha256": "e160d0cb130d35810aad254750ca11a73925f005c5cc57d4e7a08aa9790868ef",
+   "floor": {
+    "key": "e0eaf97320a45f18",
+    "cell": 0.1,
+    "u0": 3.0,
+    "v0": 11.1,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_94_d3_05",
@@ -3101,7 +3509,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "8e460f3732be80d8932fab9c70b3a500c9a36d54d369e17602d076ba21b19cfe"
+   "model_inputs_sha256": "8e460f3732be80d8932fab9c70b3a500c9a36d54d369e17602d076ba21b19cfe",
+   "floor": {
+    "key": "9abc3264ffee16df",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 6.5,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 3,
+    "walls": "0 5 0 1 138 10 11 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_94_d4_04",
@@ -3126,7 +3546,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "65776d9d563841d55b10de9cd960d668038f83692534bd46023c006132cda9d6"
+   "model_inputs_sha256": "65776d9d563841d55b10de9cd960d668038f83692534bd46023c006132cda9d6",
+   "floor": {
+    "key": "c227520c87b17a0e",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 7.9,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_94_d5_01",
@@ -3151,7 +3583,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "77886d34448b86e8c5109af3de9243b1a9caec4bb9d2b6dd7df0560829d52857"
+   "model_inputs_sha256": "77886d34448b86e8c5109af3de9243b1a9caec4bb9d2b6dd7df0560829d52857",
+   "floor": {
+    "key": "64e70b9b5e83eb08",
+    "cell": 0.1,
+    "u0": 2.5,
+    "v0": 10.1,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 2,
+    "walls": "0 7 0 1 138 11 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_94_d5_02",
@@ -3176,7 +3620,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "d754bcd2b86e30ef518eacf276682aa2a70279e60351490161f09ff0d8d3a135"
+   "model_inputs_sha256": "d754bcd2b86e30ef518eacf276682aa2a70279e60351490161f09ff0d8d3a135",
+   "floor": {
+    "key": "6a98553dafb0a57b",
+    "cell": 0.1,
+    "u0": 1.9,
+    "v0": 9.0,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_94_d5_03",
@@ -3226,7 +3682,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "6b96ae67ad24022e21b3237d2ab5111b6a4c3f81faf904c2089306fc17d325f1"
+   "model_inputs_sha256": "6b96ae67ad24022e21b3237d2ab5111b6a4c3f81faf904c2089306fc17d325f1",
+   "floor": {
+    "key": "008a035a359c2458",
+    "cell": 0.1,
+    "u0": 2.5,
+    "v0": 9.6,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 2,
+    "walls": "0 5 0 1 138 13 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_94_h1_06",
@@ -3251,7 +3719,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "748cec0909ea45d5048f26acac93052875c8eed93d1189dcf7f8ce50a8905dd9"
+   "model_inputs_sha256": "748cec0909ea45d5048f26acac93052875c8eed93d1189dcf7f8ce50a8905dd9",
+   "floor": {
+    "key": "02a6872608a7b5e6",
+    "cell": 0.1,
+    "u0": 3.2,
+    "v0": 11.2,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_95_d2_05",
@@ -3327,7 +3807,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "e7366fa17dacf409ab3e0a9aa49496b5325db2991a6fd6e2c4114181848bf6cc"
+   "model_inputs_sha256": "e7366fa17dacf409ab3e0a9aa49496b5325db2991a6fd6e2c4114181848bf6cc",
+   "floor": {
+    "key": "98c6ec7fc296b9fb",
+    "cell": 0.1,
+    "u0": 1.9,
+    "v0": 8.7,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_95_d5_01",
@@ -3402,7 +3894,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "8f542162e87ea668c85f9217e735c5a959793d49ebec0a50c2eded859a83e951"
+   "model_inputs_sha256": "8f542162e87ea668c85f9217e735c5a959793d49ebec0a50c2eded859a83e951",
+   "floor": {
+    "key": "160479655b819865",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 10.1,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_school_section_tier_95_d6_07",
@@ -3427,7 +3931,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "56eee871ea96caf3e71f1f50fc31043d510632027bee8cd6a5606955abf287aa"
+   "model_inputs_sha256": "56eee871ea96caf3e71f1f50fc31043d510632027bee8cd6a5606955abf287aa",
+   "floor": {
+    "key": "72b62810c8dd7a48",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 9.8,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 4,
+    "walls": "0 4 0 1 138 5 7 0 1 138 9 11 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_south_water_clark_d1_04",
@@ -3477,7 +3993,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "a1f5d909bcaae493ffb5a49fd5edad953db35ab485c8310e2fb611a0e1c3604a"
+   "model_inputs_sha256": "a1f5d909bcaae493ffb5a49fd5edad953db35ab485c8310e2fb611a0e1c3604a",
+   "floor": {
+    "key": "b7796349e36f3c7f",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 7.0,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_south_water_clark_d4_02",
@@ -3502,7 +4030,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "c32654663b07775b487822a97528ba8bb4ac24b714aa2c7caa9ab8ee968443c3"
+   "model_inputs_sha256": "c32654663b07775b487822a97528ba8bb4ac24b714aa2c7caa9ab8ee968443c3",
+   "floor": {
+    "key": "746ebb7c9ae40770",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 7.8,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_south_water_dearborn_c3_02",
@@ -3603,7 +4143,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "cd86454ab4f566c5ca0e72894154813420a6aa5fecef3d4b20b879f4acbed922"
+   "model_inputs_sha256": "cd86454ab4f566c5ca0e72894154813420a6aa5fecef3d4b20b879f4acbed922",
+   "floor": {
+    "key": "5e4e395b59d0f29b",
+    "cell": 0.1,
+    "u0": 3.0,
+    "v0": 10.0,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_south_water_franklin_c2_08",
@@ -3806,7 +4358,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "bed9fb0ccdbbfae93bfe4cecaa490220c082bee92ae30dcf974ed392cd82fcd1"
+   "model_inputs_sha256": "bed9fb0ccdbbfae93bfe4cecaa490220c082bee92ae30dcf974ed392cd82fcd1",
+   "floor": {
+    "key": "117b1d33e243e7bc",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 6.8,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_south_water_franklin_d4_12",
@@ -3983,7 +4547,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "3361b4f470aaacedf5c6a745d81c6510e84b97e9dc3814082d8ea4f58acc7886"
+   "model_inputs_sha256": "3361b4f470aaacedf5c6a745d81c6510e84b97e9dc3814082d8ea4f58acc7886",
+   "floor": {
+    "key": "f87614856511a351",
+    "cell": 0.1,
+    "u0": 0.6,
+    "v0": 6.5,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 16 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_south_water_market_d5_01",
@@ -4108,7 +4684,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "28e4ed8c65a7cbc06fdb5858f5f04b90ea5ff22da0dc4623dcee53795ab96b01"
+   "model_inputs_sha256": "28e4ed8c65a7cbc06fdb5858f5f04b90ea5ff22da0dc4623dcee53795ab96b01",
+   "floor": {
+    "key": "7edf4bb376d14f71",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 8.7,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 3,
+    "walls": "0 4 0 1 138 5 7 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_clark_d3_15",
@@ -4158,7 +4746,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "0a95071fdcae92630dd8630e0d37102971657528a5d38641021a652fdcad2f4e"
+   "model_inputs_sha256": "0a95071fdcae92630dd8630e0d37102971657528a5d38641021a652fdcad2f4e",
+   "floor": {
+    "key": "435b6c5650befe8b",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 8.9,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_clark_d4_14",
@@ -4183,7 +4783,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "048b89de62a32b7b817228de6a6eda87dad9e1b5750eed48c803b02633c68694"
+   "model_inputs_sha256": "048b89de62a32b7b817228de6a6eda87dad9e1b5750eed48c803b02633c68694",
+   "floor": {
+    "key": "453b7588f6c40d29",
+    "cell": 0.1,
+    "u0": 1.8,
+    "v0": 8.5,
+    "ni": 18,
+    "nj": 10,
+    "count": 2,
+    "rects": "1 17 1 7 38 2 16 7 10 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_clark_d5_01",
@@ -4208,7 +4820,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "1a1340aed7a2f20177cd1e433f3ba29dc2db6c3bb9cd683606b5236bd70f4c24"
+   "model_inputs_sha256": "1a1340aed7a2f20177cd1e433f3ba29dc2db6c3bb9cd683606b5236bd70f4c24",
+   "floor": {
+    "key": "4c0c0c3013e983f1",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 9.9,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_clark_h3_05",
@@ -4358,7 +4982,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "27ad7be5d0ee804e36183a7be8560e2c9d84048c34fe2e4dd939c5f13b16b842"
+   "model_inputs_sha256": "27ad7be5d0ee804e36183a7be8560e2c9d84048c34fe2e4dd939c5f13b16b842",
+   "floor": {
+    "key": "6ea191a0a222053d",
+    "cell": 0.1,
+    "u0": 3.1,
+    "v0": 9.7,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_clinton_h2_01",
@@ -4383,7 +5019,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "05309c202ff47b4a326798390f26f3e2875ed21a881a3f78578f7ab5c005a64c"
+   "model_inputs_sha256": "05309c202ff47b4a326798390f26f3e2875ed21a881a3f78578f7ab5c005a64c",
+   "floor": {
+    "key": "f971d35c5625b8d1",
+    "cell": 0.1,
+    "u0": 3.1,
+    "v0": 10.6,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_clinton_h3_02",
@@ -4433,7 +5081,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "e29f6bd21dbe4f0b408403a4deb3cc9c5a5c53d2ebf3a963cedc4c713c27633a"
+   "model_inputs_sha256": "e29f6bd21dbe4f0b408403a4deb3cc9c5a5c53d2ebf3a963cedc4c713c27633a",
+   "floor": {
+    "key": "b4672a214d35d81a",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 7.0,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 3,
+    "walls": "0 5 0 1 138 10 11 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_dearborn_d4_09",
@@ -4458,7 +5118,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "74f2ad12ede50d5f1188441403ede046478a9f9aa3c633f4fc3532b079af1815"
+   "model_inputs_sha256": "74f2ad12ede50d5f1188441403ede046478a9f9aa3c633f4fc3532b079af1815",
+   "floor": {
+    "key": "dcbee659a77a91e5",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 8.9,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_dearborn_d7_04",
@@ -4483,7 +5155,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "52247a091601c934a3599512befc09c07e5fe41c78df8a64f09f43fd6c35f59e"
+   "model_inputs_sha256": "52247a091601c934a3599512befc09c07e5fe41c78df8a64f09f43fd6c35f59e",
+   "floor": {
+    "key": "15f0641927863aa9",
+    "cell": 0.1,
+    "u0": 2.2,
+    "v0": 8.8,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 3,
+    "walls": "0 1 0 2 138 1 17 0 1 138 17 18 0 2 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_dearborn_d7_06",
@@ -4508,7 +5192,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "a23b55557e87038a73bd577136dfb89ba5052b50cd68818b4638033c5aeef776"
+   "model_inputs_sha256": "a23b55557e87038a73bd577136dfb89ba5052b50cd68818b4638033c5aeef776",
+   "floor": {
+    "key": "a587b227398cd004",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 10.0,
+    "ni": 18,
+    "nj": 9,
+    "count": 3,
+    "rects": "1 2 2 6 38 2 16 6 9 19 2 17 1 6 38",
+    "wall_count": 4,
+    "walls": "0 1 1 2 138 1 2 0 2 138 2 17 0 1 138 17 18 0 2 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_dearborn_h2_05",
@@ -4533,7 +5229,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "c560b89e240c3c5a7ca97e578ab06bd18d4b96d5fa2ed7307c6fc61c5b30e9d6"
+   "model_inputs_sha256": "c560b89e240c3c5a7ca97e578ab06bd18d4b96d5fa2ed7307c6fc61c5b30e9d6",
+   "floor": {
+    "key": "e86b3f4c7fcfb68b",
+    "cell": 0.1,
+    "u0": 3.8,
+    "v0": 12.5,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_dearborn_h3_01",
@@ -4583,7 +5291,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "e7b6d6bfd5aed2916a15279a8a45eeb455a62642b38dbb0843a8fcad72e5b28f"
+   "model_inputs_sha256": "e7b6d6bfd5aed2916a15279a8a45eeb455a62642b38dbb0843a8fcad72e5b28f",
+   "floor": {
+    "key": "209354477d23b87c",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 6.8,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_franklin_d7_01",
@@ -4608,7 +5328,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "bd8d7e99c4b7944a4f678cad51bb11d1e164a935b7fced67c7547d00a8e8f4da"
+   "model_inputs_sha256": "bd8d7e99c4b7944a4f678cad51bb11d1e164a935b7fced67c7547d00a8e8f4da",
+   "floor": {
+    "key": "0ca4f3d00e7fc00a",
+    "cell": 0.1,
+    "u0": 2.5,
+    "v0": 9.0,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 2,
+    "walls": "0 5 0 1 138 13 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_franklin_d7_04",
@@ -4658,7 +5390,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "11973bee0026fd5a8e0fbc95a881d4166591ef33f9efea8e4ccdc982ad4a2d65"
+   "model_inputs_sha256": "11973bee0026fd5a8e0fbc95a881d4166591ef33f9efea8e4ccdc982ad4a2d65",
+   "floor": {
+    "key": "7cdf5cb8fda2ddcd",
+    "cell": 0.1,
+    "u0": 3.1,
+    "v0": 10.6,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_franklin_h2_02",
@@ -4683,7 +5427,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "6421e700a89837252a2f2d9408fa993d40971d3e52acb4e9a2c31120f9d944dd"
+   "model_inputs_sha256": "6421e700a89837252a2f2d9408fa993d40971d3e52acb4e9a2c31120f9d944dd",
+   "floor": {
+    "key": "22eb6acdcbcc4f0c",
+    "cell": 0.1,
+    "u0": 3.8,
+    "v0": 12.0,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_lasalle_d3_06",
@@ -4708,7 +5464,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "09ff44a5db6b3511269c9f117845dfcad7f56dd7394bc0837b60b22de5a3ee5c"
+   "model_inputs_sha256": "09ff44a5db6b3511269c9f117845dfcad7f56dd7394bc0837b60b22de5a3ee5c",
+   "floor": {
+    "key": "6ee2aa08c7f35881",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 7.0,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_lasalle_d3_07",
@@ -4783,7 +5551,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "3978e0b41dde4fc246e75800dfa08599d3657bc354d184ea94e0912a58453b74"
+   "model_inputs_sha256": "3978e0b41dde4fc246e75800dfa08599d3657bc354d184ea94e0912a58453b74",
+   "floor": {
+    "key": "d97633d944f0b04a",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 9.3,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 2,
+    "walls": "0 17 0 1 138 17 18 0 2 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_lasalle_h1_02",
@@ -4808,7 +5588,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "79fb83fe9873209ebd44975b4a2acde27ae696ed903c21d570eded18f75607d6"
+   "model_inputs_sha256": "79fb83fe9873209ebd44975b4a2acde27ae696ed903c21d570eded18f75607d6",
+   "floor": {
+    "key": "f1f4a90a15230aee",
+    "cell": 0.1,
+    "u0": 3.1,
+    "v0": 10.7,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_lasalle_h1_03",
@@ -4833,7 +5625,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "07cd4df117cac97e07498edf386c109a9002fc736ea60e123e94015f30a95f7a"
+   "model_inputs_sha256": "07cd4df117cac97e07498edf386c109a9002fc736ea60e123e94015f30a95f7a",
+   "floor": {
+    "key": "21519cd57e7f75d2",
+    "cell": 0.1,
+    "u0": 3.2,
+    "v0": 9.7,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 11 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_lasalle_h2_01",
@@ -4858,7 +5662,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "df8bb46f9008d0d63902450c6818c5a9d58652b8ef1db8198a6a1d004cc00288"
+   "model_inputs_sha256": "df8bb46f9008d0d63902450c6818c5a9d58652b8ef1db8198a6a1d004cc00288",
+   "floor": {
+    "key": "de879dc9a0b3cd15",
+    "cell": 0.1,
+    "u0": 3.7,
+    "v0": 10.3,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_market_d3_10",
@@ -4883,7 +5699,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "a98e1d063fc27448dabafe7be56a12ebe503b7974926ae2d025bd9ae61ca2120"
+   "model_inputs_sha256": "a98e1d063fc27448dabafe7be56a12ebe503b7974926ae2d025bd9ae61ca2120",
+   "floor": {
+    "key": "eb55f83c63532acf",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 6.8,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_market_d4_08",
@@ -4908,7 +5736,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "96fe14fb37752dd83402d8ffde0aed1ac66f3ed76786ca7c331cee4384dbddd0"
+   "model_inputs_sha256": "96fe14fb37752dd83402d8ffde0aed1ac66f3ed76786ca7c331cee4384dbddd0",
+   "floor": {
+    "key": "572f0879d4e7b131",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 7.8,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_market_d4_11",
@@ -4933,7 +5773,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "42246fd5da6fafc20c7313fbfa3fa9fbf48d4dcc21ff90f8438c5a620107f55f"
+   "model_inputs_sha256": "42246fd5da6fafc20c7313fbfa3fa9fbf48d4dcc21ff90f8438c5a620107f55f",
+   "floor": {
+    "key": "234734ac42c7be08",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 8.2,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_market_d7_09",
@@ -4958,7 +5810,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "25de48c8d5ef8fb9cb164aad4ad6c3c386f2f3585d76cbc38b68d5cebe057c01"
+   "model_inputs_sha256": "25de48c8d5ef8fb9cb164aad4ad6c3c386f2f3585d76cbc38b68d5cebe057c01",
+   "floor": {
+    "key": "37f0934383769b94",
+    "cell": 0.1,
+    "u0": 2.5,
+    "v0": 9.9,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 2,
+    "walls": "0 1 0 2 138 1 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_market_h1_07",
@@ -4983,7 +5847,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "4be4b2790a7795cc6f0d8ad8728fbba0e9ca3340d0978587a4fd4e6c786e8c20"
+   "model_inputs_sha256": "4be4b2790a7795cc6f0d8ad8728fbba0e9ca3340d0978587a4fd4e6c786e8c20",
+   "floor": {
+    "key": "770dd5e226c974e9",
+    "cell": 0.1,
+    "u0": 3.1,
+    "v0": 11.1,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 2,
+    "walls": "0 5 0 1 138 13 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_market_h3_01",
@@ -5108,7 +5984,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "00615dfdd04d5d35be97092de1fd04229736a447b5ade9e6d49d8802c6cdce91"
+   "model_inputs_sha256": "00615dfdd04d5d35be97092de1fd04229736a447b5ade9e6d49d8802c6cdce91",
+   "floor": {
+    "key": "c2f804c3f060cacf",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 10.1,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 2,
+    "walls": "0 5 0 1 138 13 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_wells_d7_04",
@@ -5133,7 +6021,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "838f8174ded74a34c92490e0986998ead63e97ae2599c56e5c2578b48d6f4421"
+   "model_inputs_sha256": "838f8174ded74a34c92490e0986998ead63e97ae2599c56e5c2578b48d6f4421",
+   "floor": {
+    "key": "ebd869d891ee2910",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 10.0,
+    "ni": 18,
+    "nj": 9,
+    "count": 4,
+    "rects": "1 2 2 6 38 2 16 1 6 38 2 16 6 9 19 16 17 2 6 38",
+    "wall_count": 7,
+    "walls": "0 1 1 2 138 1 2 0 2 138 2 5 0 1 138 10 12 0 1 138 13 16 0 1 138 16 17 0 2 138 17 18 1 2 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_wells_h1_02",
@@ -5158,7 +6058,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "e9920786e11a78976ae5939c033afca05ad646115dc0959907e5fe42f8e2bf08"
+   "model_inputs_sha256": "e9920786e11a78976ae5939c033afca05ad646115dc0959907e5fe42f8e2bf08",
+   "floor": {
+    "key": "7b317ad5aefad76d",
+    "cell": 0.1,
+    "u0": 3.1,
+    "v0": 9.7,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 2,
+    "walls": "0 5 0 1 138 13 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_wells_h1_03",
@@ -5183,7 +6095,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "f0f528a43aa9217fa50ab07f5e49d0c52851d12927cd32c1a13c820ba4c1c7f5"
+   "model_inputs_sha256": "f0f528a43aa9217fa50ab07f5e49d0c52851d12927cd32c1a13c820ba4c1c7f5",
+   "floor": {
+    "key": "92892aaa392bab45",
+    "cell": 0.1,
+    "u0": 3.1,
+    "v0": 11.1,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 2,
+    "walls": "0 8 0 1 138 12 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_washington_wells_h2_07",
@@ -5208,7 +6132,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "dc9a6c4878c037b993af240792a09a8cd4808d359e1041db709e82babc29d847"
+   "model_inputs_sha256": "dc9a6c4878c037b993af240792a09a8cd4808d359e1041db709e82babc29d847",
+   "floor": {
+    "key": "f25aae1891b52a76",
+    "cell": 0.1,
+    "u0": 3.7,
+    "v0": 12.1,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 3,
+    "walls": "0 5 0 1 138 6 7 0 1 138 12 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_west_lake_canal_d2_03",
@@ -5259,7 +6195,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "5ff8ea42b40efc8aaf9ebbdc94a17073fd445033ce19308e8068bdade85d84f5"
+   "model_inputs_sha256": "5ff8ea42b40efc8aaf9ebbdc94a17073fd445033ce19308e8068bdade85d84f5",
+   "floor": {
+    "key": "5d23b58cbff02eaf",
+    "cell": 0.1,
+    "u0": 1.9,
+    "v0": 8.6,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_west_lake_canal_d5_01",
@@ -5284,7 +6232,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "92c0368f10a91f361561e8d66b99f0e431e01a6c52689667819d1e09437564f1"
+   "model_inputs_sha256": "92c0368f10a91f361561e8d66b99f0e431e01a6c52689667819d1e09437564f1",
+   "floor": {
+    "key": "9e5aa9b4bb95b775",
+    "cell": 0.1,
+    "u0": 2.5,
+    "v0": 10.0,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_west_randolph_canal_d4_02",
@@ -5309,7 +6269,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "633347084bd998f1b93fa98ccbcbeec8d7c11b031fa86c8c0275a95ef6638c67"
+   "model_inputs_sha256": "633347084bd998f1b93fa98ccbcbeec8d7c11b031fa86c8c0275a95ef6638c67",
+   "floor": {
+    "key": "a2ea77b53e5e1d0b",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 8.9,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_west_randolph_canal_d5_01",
@@ -5359,7 +6331,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "7bd15e3eaf1ec20f17673cde32e0b232f88245c5453dc2fac951363eed6fc166"
+   "model_inputs_sha256": "7bd15e3eaf1ec20f17673cde32e0b232f88245c5453dc2fac951363eed6fc166",
+   "floor": {
+    "key": "b0e7c76c332c5b5f",
+    "cell": 0.1,
+    "u0": 2.2,
+    "v0": 9.8,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_west_randolph_canal_d6_04",
@@ -5510,7 +6494,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "2562c0862d39adf03755e0a41564f9b90eeba3417f6dc0f851b69a7817af7a18"
+   "model_inputs_sha256": "2562c0862d39adf03755e0a41564f9b90eeba3417f6dc0f851b69a7817af7a18",
+   "floor": {
+    "key": "077965ad1cef82e6",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 7.2,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_west_washington_canal_d4_03",
@@ -5535,7 +6531,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "102fb3581269860df66eee6ed28244127be509e31c941f57fdea6c88e74bae80"
+   "model_inputs_sha256": "102fb3581269860df66eee6ed28244127be509e31c941f57fdea6c88e74bae80",
+   "floor": {
+    "key": "91fac4be8b05ae4e",
+    "cell": 0.1,
+    "u0": 1.8,
+    "v0": 8.0,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_blk_west_washington_canal_d5_02",
@@ -5610,7 +6618,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "8fa963c605445d9156c4c80ed26d647b1e3cf6e747daa290828586efc95e0f3f"
+   "model_inputs_sha256": "8fa963c605445d9156c4c80ed26d647b1e3cf6e747daa290828586efc95e0f3f",
+   "floor": {
+    "key": "8be6cefac74d12ea",
+    "cell": 0.1,
+    "u0": 2.5,
+    "v0": 9.7,
+    "ni": 18,
+    "nj": 9,
+    "count": 4,
+    "rects": "1 2 2 6 38 2 16 1 6 38 2 16 6 9 19 16 17 2 6 38",
+    "wall_count": 5,
+    "walls": "0 1 1 2 138 1 2 0 2 138 2 16 0 1 138 16 17 0 2 138 17 18 1 2 138"
+   }
   },
   {
    "structure": "recon_1835_canal_trade_c3_001",
@@ -6171,7 +7191,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "09de72118102c693a3db736efd38fd814269e95dc1c2c3319774afcb409c7517"
+   "model_inputs_sha256": "09de72118102c693a3db736efd38fd814269e95dc1c2c3319774afcb409c7517",
+   "floor": {
+    "key": "7891ca22051accc8",
+    "cell": 0.1,
+    "u0": 0.6,
+    "v0": 7.0,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 16 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d3_006",
@@ -6196,7 +7228,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "b32b7531468f2c0635f90111139868a9ffd07c2e6396aac0eb34ae95ce7b6eec"
+   "model_inputs_sha256": "b32b7531468f2c0635f90111139868a9ffd07c2e6396aac0eb34ae95ce7b6eec",
+   "floor": {
+    "key": "90a62a5d10e3853e",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 6.6,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 16 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d3_016",
@@ -6221,7 +7265,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "42f09211f5f53f097efc8bb9f582f43f1aebc2a7c42f1ed885d6fa7086c0af41"
+   "model_inputs_sha256": "42f09211f5f53f097efc8bb9f582f43f1aebc2a7c42f1ed885d6fa7086c0af41",
+   "floor": {
+    "key": "2beaade866903324",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 6.6,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d3_020",
@@ -6271,7 +7327,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "bccdadae931d0598a4a0da89c14a8da298d2d371e5b9f617016e57446c27cf3b"
+   "model_inputs_sha256": "bccdadae931d0598a4a0da89c14a8da298d2d371e5b9f617016e57446c27cf3b",
+   "floor": {
+    "key": "3b7915543866ee50",
+    "cell": 0.1,
+    "u0": 0.6,
+    "v0": 7.1,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 16 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d3_038",
@@ -6296,7 +7364,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "fd62a9e5712d8556eb223e04034b40974af170792b295e48cc449725929d6059"
+   "model_inputs_sha256": "fd62a9e5712d8556eb223e04034b40974af170792b295e48cc449725929d6059",
+   "floor": {
+    "key": "bd4e613b2562c489",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 6.4,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 16 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d3_042",
@@ -6321,7 +7401,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "80d790ae431218975ebc72effbf90e2a6cbf0b85d8d83b3683d8548ef7d55e74"
+   "model_inputs_sha256": "80d790ae431218975ebc72effbf90e2a6cbf0b85d8d83b3683d8548ef7d55e74",
+   "floor": {
+    "key": "970dbec81d4e7a23",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 6.4,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d3_055",
@@ -6346,7 +7438,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "512eb8a1159e2ee50deb24ad37833d3da86431daad3de48c426a7abb64745e0b"
+   "model_inputs_sha256": "512eb8a1159e2ee50deb24ad37833d3da86431daad3de48c426a7abb64745e0b",
+   "floor": {
+    "key": "4cf6ba7887ce5e5b",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 6.6,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d3_073",
@@ -6371,7 +7475,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "06965aa27a39398540a9b30718395c7d998c20b3e93280b898eeef6a69d12f37"
+   "model_inputs_sha256": "06965aa27a39398540a9b30718395c7d998c20b3e93280b898eeef6a69d12f37",
+   "floor": {
+    "key": "1e4ac400d59c5628",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 6.6,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d3_081",
@@ -6446,7 +7562,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "946081d1617a665b124c01ab1d3988088a606e70e34545362429f564ca6b0649"
+   "model_inputs_sha256": "946081d1617a665b124c01ab1d3988088a606e70e34545362429f564ca6b0649",
+   "floor": {
+    "key": "47113e97b26a46da",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 7.8,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 6 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d4_005",
@@ -6521,7 +7649,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "434570a5e59b19d9d73cb77d88d5b0724565ac8269edb72b7bb3da4ac2bd4e54"
+   "model_inputs_sha256": "434570a5e59b19d9d73cb77d88d5b0724565ac8269edb72b7bb3da4ac2bd4e54",
+   "floor": {
+    "key": "31e63020a0271db2",
+    "cell": 0.1,
+    "u0": 2.2,
+    "v0": 8.1,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d4_017",
@@ -6571,7 +7711,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "23de722c122b0c4a2d3cce58f69c5005918d0c0cfe6ec439acc870fd46dbd3a8"
+   "model_inputs_sha256": "23de722c122b0c4a2d3cce58f69c5005918d0c0cfe6ec439acc870fd46dbd3a8",
+   "floor": {
+    "key": "07d9e4f3946476ec",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 8.7,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d4_025",
@@ -6596,7 +7748,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "ada9163bda5e1e8f21086faad01108e095ea9f60722eb62c8afbae66670a2efc"
+   "model_inputs_sha256": "ada9163bda5e1e8f21086faad01108e095ea9f60722eb62c8afbae66670a2efc",
+   "floor": {
+    "key": "8a96d1c25ef95b7e",
+    "cell": 0.1,
+    "u0": 1.9,
+    "v0": 8.4,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d4_039",
@@ -6646,7 +7810,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "4ee0c36414df33f2d6923f22cb164103288e6caae991784065b90faa860de70e"
+   "model_inputs_sha256": "4ee0c36414df33f2d6923f22cb164103288e6caae991784065b90faa860de70e",
+   "floor": {
+    "key": "b45ca0ac4605e4a0",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 8.3,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d4_056",
@@ -6671,7 +7847,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "8897668268399d25b6c6be8a0b2176428623b771eded0bc0b295a291ccdfe863"
+   "model_inputs_sha256": "8897668268399d25b6c6be8a0b2176428623b771eded0bc0b295a291ccdfe863",
+   "floor": {
+    "key": "338002eb2d787d05",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 8.4,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d4_069",
@@ -6721,7 +7909,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "3c1f780cd52770879dc28398b44899d3b423b7be4280d43203d39f9a08978a7a"
+   "model_inputs_sha256": "3c1f780cd52770879dc28398b44899d3b423b7be4280d43203d39f9a08978a7a",
+   "floor": {
+    "key": "4c03e9c707719fea",
+    "cell": 0.1,
+    "u0": 1.9,
+    "v0": 8.6,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d4_075",
@@ -6746,7 +7946,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "e34317e697217f66b30bafc0538da1dde868d30267f23afc0b6be6a2d2d80e98"
+   "model_inputs_sha256": "e34317e697217f66b30bafc0538da1dde868d30267f23afc0b6be6a2d2d80e98",
+   "floor": {
+    "key": "b4c9a2024c096b85",
+    "cell": 0.1,
+    "u0": 2.2,
+    "v0": 7.8,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d4_079",
@@ -6771,7 +7983,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "7815093ddd06c465b6066b9c22e9a68fc08292bc7b3aeb42f082f87032cb75c8"
+   "model_inputs_sha256": "7815093ddd06c465b6066b9c22e9a68fc08292bc7b3aeb42f082f87032cb75c8",
+   "floor": {
+    "key": "a29f9d6de942f193",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 8.2,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d4_083",
@@ -6821,7 +8045,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "456b565f83b6f99b6294b758791e836a3c785012f28882d3f948b293fe427811"
+   "model_inputs_sha256": "456b565f83b6f99b6294b758791e836a3c785012f28882d3f948b293fe427811",
+   "floor": {
+    "key": "f7776dccecb6ec49",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 8.2,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 3,
+    "walls": "0 4 0 1 138 5 7 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d4_090",
@@ -6871,7 +8107,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "10b9488546195f838ef1388c51fbf71588e35dce3aac40a985c081eace4fd26f"
+   "model_inputs_sha256": "10b9488546195f838ef1388c51fbf71588e35dce3aac40a985c081eace4fd26f",
+   "floor": {
+    "key": "4fe4c02f06562804",
+    "cell": 0.1,
+    "u0": 2.7,
+    "v0": 9.0,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d5_026",
@@ -6896,7 +8144,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "1abd49887dd6554e2137bc5c428b4763c28a420a5926c588ad9532fe261f9372"
+   "model_inputs_sha256": "1abd49887dd6554e2137bc5c428b4763c28a420a5926c588ad9532fe261f9372",
+   "floor": {
+    "key": "699d33a8a77508ad",
+    "cell": 0.1,
+    "u0": 2.7,
+    "v0": 10.2,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d5_037",
@@ -6946,7 +8206,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "d97669d6b8734c269f440f38965b1db6b6193f194904dc9b4a3f76c576e2cbaf"
+   "model_inputs_sha256": "d97669d6b8734c269f440f38965b1db6b6193f194904dc9b4a3f76c576e2cbaf",
+   "floor": {
+    "key": "fe1c62707988c777",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 9.9,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 4,
+    "walls": "0 4 0 1 138 5 7 0 1 138 9 11 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d5_057",
@@ -6971,7 +8243,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "5ce3db9b8a878dfa4f6bcc70b16b4e54962f4226ed928be9ca240e07b67bb159"
+   "model_inputs_sha256": "5ce3db9b8a878dfa4f6bcc70b16b4e54962f4226ed928be9ca240e07b67bb159",
+   "floor": {
+    "key": "c09c4df70fc6296e",
+    "cell": 0.1,
+    "u0": 2.2,
+    "v0": 9.8,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d5_068",
@@ -7021,7 +8305,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "1d49c4435be40a491cb620bceb23e7289994b95394d0f9a90da3ace41e2310c2"
+   "model_inputs_sha256": "1d49c4435be40a491cb620bceb23e7289994b95394d0f9a90da3ace41e2310c2",
+   "floor": {
+    "key": "581a69f34316dd0c",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 10.1,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d5_074",
@@ -7046,7 +8342,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "3f55d2c0b22aa871d66a5ef18bf5e22e781c7c44c0aa08a58185470e818dc311"
+   "model_inputs_sha256": "3f55d2c0b22aa871d66a5ef18bf5e22e781c7c44c0aa08a58185470e818dc311",
+   "floor": {
+    "key": "a573841010adba59",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 9.9,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d5_078",
@@ -7096,7 +8404,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "276b1b94dfd9a9b53d3bb63f4a4a98af80d529a4f89c8e45ba9615f5d60c2694"
+   "model_inputs_sha256": "276b1b94dfd9a9b53d3bb63f4a4a98af80d529a4f89c8e45ba9615f5d60c2694",
+   "floor": {
+    "key": "37e8e6bb4463dafc",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 9.0,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d5_086",
@@ -7146,7 +8466,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "ed9d34777390a2274fea7891c7c12e5028badceee9f1b430f5dca8198f185105"
+   "model_inputs_sha256": "ed9d34777390a2274fea7891c7c12e5028badceee9f1b430f5dca8198f185105",
+   "floor": {
+    "key": "09ee25a0fd8cbc12",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 9.3,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d6_021",
@@ -7171,7 +8503,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "f0e3c5ae9c14279bdff1366ceea3b6ec88c7cdf850bb280b132734b58f521a9b"
+   "model_inputs_sha256": "f0e3c5ae9c14279bdff1366ceea3b6ec88c7cdf850bb280b132734b58f521a9b",
+   "floor": {
+    "key": "f4e1368929ff1000",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 10.0,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 4,
+    "walls": "0 4 0 1 138 5 7 0 1 138 9 11 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d6_027",
@@ -7221,7 +8565,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "204b5577c353d13f0ed9d8e0000656ce373a2c2cbfed55d90ecb73739fe5a805"
+   "model_inputs_sha256": "204b5577c353d13f0ed9d8e0000656ce373a2c2cbfed55d90ecb73739fe5a805",
+   "floor": {
+    "key": "e8b354d60f57dc4a",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 9.1,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d6_058",
@@ -7271,7 +8627,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "5a428e73a32fb9a05488fa6f807a33f5302952aae3a6a8641a6cd7a5c52e6957"
+   "model_inputs_sha256": "5a428e73a32fb9a05488fa6f807a33f5302952aae3a6a8641a6cd7a5c52e6957",
+   "floor": {
+    "key": "dd89ef913cd47a74",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 9.2,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d6_080",
@@ -7296,7 +8664,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "2912e8cdb3b53043ac8c53e02fcce925d02fe72b031385ed5d172936618d4c95"
+   "model_inputs_sha256": "2912e8cdb3b53043ac8c53e02fcce925d02fe72b031385ed5d172936618d4c95",
+   "floor": {
+    "key": "bfb543f6457f4e34",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 8.7,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 4,
+    "walls": "0 4 0 1 138 5 7 0 1 138 9 11 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d6_084",
@@ -7321,7 +8701,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "d9487950e9a63f246fb87b294624ca93658d2851884913d5362af4c0ae27bd96"
+   "model_inputs_sha256": "d9487950e9a63f246fb87b294624ca93658d2851884913d5362af4c0ae27bd96",
+   "floor": {
+    "key": "c7b3caa8a22c6b04",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 8.6,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d6_093",
@@ -7346,7 +8738,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "7cbcfdff6fe914515f5f74f598ae5d0c3d9779fbb8952c0662c9cfed4efe7b15"
+   "model_inputs_sha256": "7cbcfdff6fe914515f5f74f598ae5d0c3d9779fbb8952c0662c9cfed4efe7b15",
+   "floor": {
+    "key": "cf163a7aec082091",
+    "cell": 0.1,
+    "u0": 2.2,
+    "v0": 8.6,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_d7_031",
@@ -7371,7 +8775,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "8e28a93cc2f55847f714d856f81a9486b389b871de8a6561ba7373e1233072c7"
+   "model_inputs_sha256": "8e28a93cc2f55847f714d856f81a9486b389b871de8a6561ba7373e1233072c7",
+   "floor": {
+    "key": "0aa548f0883386dc",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 9.3,
+    "ni": 18,
+    "nj": 9,
+    "count": 4,
+    "rects": "1 2 2 6 38 2 16 1 6 38 2 16 6 9 19 16 17 2 6 38",
+    "wall_count": 5,
+    "walls": "0 1 1 2 138 1 2 0 2 138 2 16 0 1 138 16 17 0 2 138 17 18 1 2 138"
+   }
   },
   {
    "structure": "recon_1835_north_d7_076",
@@ -7396,7 +8812,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "a83fe05fedf00a20bf263ecaefe9a5268c585f5479e41f5f354f5f02b6eddd02"
+   "model_inputs_sha256": "a83fe05fedf00a20bf263ecaefe9a5268c585f5479e41f5f354f5f02b6eddd02",
+   "floor": {
+    "key": "f47e8d5ceac56e9c",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 9.0,
+    "ni": 18,
+    "nj": 9,
+    "count": 3,
+    "rects": "1 2 2 6 38 2 16 6 9 19 2 17 1 6 38",
+    "wall_count": 7,
+    "walls": "0 1 1 2 138 1 2 0 2 138 2 5 0 1 138 6 8 0 1 138 10 12 0 1 138 13 17 0 1 138 17 18 0 2 138"
+   }
   },
   {
    "structure": "recon_1835_north_d7_088",
@@ -7421,7 +8849,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "da1ccfd1864dbb9c585343e7627f3bc400fb0d15ba9d073fa52f43660b6a4c5b"
+   "model_inputs_sha256": "da1ccfd1864dbb9c585343e7627f3bc400fb0d15ba9d073fa52f43660b6a4c5b",
+   "floor": {
+    "key": "3f1fa35dc59de1ff",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 9.8,
+    "ni": 18,
+    "nj": 9,
+    "count": 4,
+    "rects": "1 2 2 6 38 2 16 1 6 38 2 16 6 9 19 16 17 2 6 38",
+    "wall_count": 7,
+    "walls": "0 1 1 2 138 1 2 0 2 138 2 5 0 1 138 10 12 0 1 138 13 16 0 1 138 16 17 0 2 138 17 18 1 2 138"
+   }
   },
   {
    "structure": "recon_1835_north_h1_007",
@@ -7446,7 +8886,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "13d34ac21814eddb2660f035c910056ac15196e933c9558077c5dbf188153da6"
+   "model_inputs_sha256": "13d34ac21814eddb2660f035c910056ac15196e933c9558077c5dbf188153da6",
+   "floor": {
+    "key": "8f06f5abaa3a9e87",
+    "cell": 0.1,
+    "u0": 3.4,
+    "v0": 9.7,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_north_h2_022",
@@ -7849,7 +9301,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "dee7a4a0a3e9beb48769e5797fbb9bf06d6ea238141bbc2bcdb45fd3796e3312"
+   "model_inputs_sha256": "dee7a4a0a3e9beb48769e5797fbb9bf06d6ea238141bbc2bcdb45fd3796e3312",
+   "floor": {
+    "key": "abe92ec036b43b7b",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 6.6,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_d3_013",
@@ -7874,7 +9338,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "1651c42fce85011121a1db4c6c7e62f505e90b5579058edb7c210117125321de"
+   "model_inputs_sha256": "1651c42fce85011121a1db4c6c7e62f505e90b5579058edb7c210117125321de",
+   "floor": {
+    "key": "76b072a44e8a3207",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 7.0,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 4,
+    "walls": "0 4 0 1 138 5 6 0 1 138 9 10 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_d3_017",
@@ -7899,7 +9375,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "0cab67e3a77b6a87216d00b7072ce12abc07105e657abbffbef76867210d44b2"
+   "model_inputs_sha256": "0cab67e3a77b6a87216d00b7072ce12abc07105e657abbffbef76867210d44b2",
+   "floor": {
+    "key": "fb3e0cfa97ccb88d",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 6.5,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_d3_022",
@@ -7949,7 +9437,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "122cd04665243a0fabae35f31ba5e5812b5fa183f173a47d610810e39be6b255"
+   "model_inputs_sha256": "122cd04665243a0fabae35f31ba5e5812b5fa183f173a47d610810e39be6b255",
+   "floor": {
+    "key": "a125f9b0bc06e1ee",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 7.0,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 3,
+    "walls": "0 4 0 1 138 9 10 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_d4_002",
@@ -7999,7 +9499,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "581cd53f6c06c19b0b0301384e5f42625eddd5635d56f90c3e680b2af7270fbf"
+   "model_inputs_sha256": "581cd53f6c06c19b0b0301384e5f42625eddd5635d56f90c3e680b2af7270fbf",
+   "floor": {
+    "key": "a3cbb2622c1667a1",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 8.5,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 6 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_d4_009",
@@ -8049,7 +9561,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "5d58659e6a848af0b7acde1e97a8fdfde4009c7086a5fa98e9b5966da2ce3d86"
+   "model_inputs_sha256": "5d58659e6a848af0b7acde1e97a8fdfde4009c7086a5fa98e9b5966da2ce3d86",
+   "floor": {
+    "key": "a8fea9492aff54bc",
+    "cell": 0.1,
+    "u0": 2.2,
+    "v0": 8.3,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_d4_019",
@@ -8099,7 +9623,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "f0c789d45fc05d1c99d944b866d8db1f59e29efc5660c1422a73e3b8e8c7c217"
+   "model_inputs_sha256": "f0c789d45fc05d1c99d944b866d8db1f59e29efc5660c1422a73e3b8e8c7c217",
+   "floor": {
+    "key": "267e853f11ff8034",
+    "cell": 0.1,
+    "u0": 1.8,
+    "v0": 7.8,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_d4_026",
@@ -8124,7 +9660,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "2c923987f1bdc42851ad0f02028cf9850b38f853dcc8b94187e88de2f233a7c7"
+   "model_inputs_sha256": "2c923987f1bdc42851ad0f02028cf9850b38f853dcc8b94187e88de2f233a7c7",
+   "floor": {
+    "key": "c2ffd90108b791ed",
+    "cell": 0.1,
+    "u0": 2.2,
+    "v0": 8.2,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_d4_030",
@@ -8149,7 +9697,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "6a1c01d8b46b7a1057967504298a96868bf1fd8ecf27d70af87f7cfb7846352d"
+   "model_inputs_sha256": "6a1c01d8b46b7a1057967504298a96868bf1fd8ecf27d70af87f7cfb7846352d",
+   "floor": {
+    "key": "ff92b54472833bc8",
+    "cell": 0.1,
+    "u0": 1.9,
+    "v0": 8.4,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_d5_007",
@@ -8174,7 +9734,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "b026bf471faba4f374a949feecb6e70d6ef42da372516590b76650c52c2b0209"
+   "model_inputs_sha256": "b026bf471faba4f374a949feecb6e70d6ef42da372516590b76650c52c2b0209",
+   "floor": {
+    "key": "5a5c10f5686e72d7",
+    "cell": 0.1,
+    "u0": 1.9,
+    "v0": 9.6,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_d5_011",
@@ -8199,7 +9771,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "9557447b808064002568a6020a91d55caecb80e1f69c1d4688b63ca76ce5cbc9"
+   "model_inputs_sha256": "9557447b808064002568a6020a91d55caecb80e1f69c1d4688b63ca76ce5cbc9",
+   "floor": {
+    "key": "1e495e523a0b1462",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 9.1,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_d5_016",
@@ -8224,7 +9808,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "815f10eb58f1f5741d2a7677407b9d49fd83403e16ac3b15cb8c2d8535080ee4"
+   "model_inputs_sha256": "815f10eb58f1f5741d2a7677407b9d49fd83403e16ac3b15cb8c2d8535080ee4",
+   "floor": {
+    "key": "126e17d5a604de99",
+    "cell": 0.1,
+    "u0": 2.6,
+    "v0": 9.9,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_d5_023",
@@ -8299,7 +9895,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "b7082ca4ebdd40ae5785a7aa718296a08b34ac8083899ffe7e4defc3fc3c1ea9"
+   "model_inputs_sha256": "b7082ca4ebdd40ae5785a7aa718296a08b34ac8083899ffe7e4defc3fc3c1ea9",
+   "floor": {
+    "key": "6ee10a2394c51d3e",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 10.2,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_d6_012",
@@ -8324,7 +9932,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "81a81fd39d8ba474e8f1387b67448addc12944ba0f49b350c19df501abb0d4be"
+   "model_inputs_sha256": "81a81fd39d8ba474e8f1387b67448addc12944ba0f49b350c19df501abb0d4be",
+   "floor": {
+    "key": "b1c0983c143ae559",
+    "cell": 0.1,
+    "u0": 2.7,
+    "v0": 8.5,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 4,
+    "walls": "0 4 0 1 138 5 7 0 1 138 9 11 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_d6_020",
@@ -8399,7 +10019,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "637367334ead546381ff2400a243f3bd2fbbaa31884d34c3d5071dedffa79445"
+   "model_inputs_sha256": "637367334ead546381ff2400a243f3bd2fbbaa31884d34c3d5071dedffa79445",
+   "floor": {
+    "key": "5f73ed09342bf378",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 8.5,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 3,
+    "walls": "0 4 0 1 138 5 7 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_d7_035",
@@ -8449,7 +10081,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "47bd81e057f12ed6395255f819a5169875b1bfe29834093002242022db428c86"
+   "model_inputs_sha256": "47bd81e057f12ed6395255f819a5169875b1bfe29834093002242022db428c86",
+   "floor": {
+    "key": "761a468028fc9f5a",
+    "cell": 0.1,
+    "u0": 3.1,
+    "v0": 10.6,
+    "ni": 17,
+    "nj": 9,
+    "count": 3,
+    "rects": "1 3 2 6 38 2 16 6 9 19 3 17 1 6 38",
+    "wall_count": 4,
+    "walls": "0 2 1 2 138 2 3 0 2 138 3 7 0 1 138 12 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_south_h2_039",
@@ -8474,7 +10118,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "c117b6d5f1e5a93ed849cb7394510cb166f7ed5f6c7aa66a8cb57f545a1d926a"
+   "model_inputs_sha256": "c117b6d5f1e5a93ed849cb7394510cb166f7ed5f6c7aa66a8cb57f545a1d926a",
+   "floor": {
+    "key": "ecd960ebc46c5b50",
+    "cell": 0.1,
+    "u0": 3.4,
+    "v0": 10.7,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_west_001",
@@ -8574,7 +10230,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "b8e38557f4d0820534708fe1769165316ca7effa44ef76c508e4f07db1992f0c"
+   "model_inputs_sha256": "b8e38557f4d0820534708fe1769165316ca7effa44ef76c508e4f07db1992f0c",
+   "floor": {
+    "key": "95a1bba37058937a",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 9.2,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 6 0 1 138 10 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_west_005",
@@ -8599,7 +10267,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "3c3ff614499187c9694241617faee739fab2b7efc3fd6697274456a44af4e903"
+   "model_inputs_sha256": "3c3ff614499187c9694241617faee739fab2b7efc3fd6697274456a44af4e903",
+   "floor": {
+    "key": "379207bffcf8ae0c",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 9.2,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 4,
+    "walls": "0 4 0 1 138 5 7 0 1 138 9 11 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_west_006",
@@ -8624,7 +10304,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "bf44e5d955448c973bbcce9f00d78695576e9e2ccae84f35e13d7ff4d88146d4"
+   "model_inputs_sha256": "bf44e5d955448c973bbcce9f00d78695576e9e2ccae84f35e13d7ff4d88146d4",
+   "floor": {
+    "key": "db1ed375edff0565",
+    "cell": 0.1,
+    "u0": 3.0,
+    "v0": 10.4,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_west_007",
@@ -8725,7 +10417,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "918e3426ad03e8642ca7be8e3016bda808612af4a8f5e67c4039bc36022ac853"
+   "model_inputs_sha256": "918e3426ad03e8642ca7be8e3016bda808612af4a8f5e67c4039bc36022ac853",
+   "floor": {
+    "key": "9961a6177e35f701",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 9.2,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 6 0 1 138 10 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_west_010",
@@ -8750,7 +10454,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "a28097b4084075cc33225d3a64a8af111d41f470ade20fca45b47fd3edc7e868"
+   "model_inputs_sha256": "a28097b4084075cc33225d3a64a8af111d41f470ade20fca45b47fd3edc7e868",
+   "floor": {
+    "key": "9c4b9f9f9ff899f8",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 7.4,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_west_011",
@@ -8902,7 +10618,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "7ae2d02c857773c1006211df47dbb6543f12b0f6ea3ba2000ef9cc796a25755c"
+   "model_inputs_sha256": "7ae2d02c857773c1006211df47dbb6543f12b0f6ea3ba2000ef9cc796a25755c",
+   "floor": {
+    "key": "ffccfd48e55c262a",
+    "cell": 0.1,
+    "u0": 2.2,
+    "v0": 9.8,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_west_019",
@@ -8927,7 +10655,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "f5f993a77a844539bc9334e4a68c4593998d99fb0381168b297e5b49eb790cec"
+   "model_inputs_sha256": "f5f993a77a844539bc9334e4a68c4593998d99fb0381168b297e5b49eb790cec",
+   "floor": {
+    "key": "2950739a955a7daf",
+    "cell": 0.1,
+    "u0": 2.5,
+    "v0": 9.2,
+    "ni": 18,
+    "nj": 9,
+    "count": 4,
+    "rects": "1 2 2 6 38 2 16 1 6 38 2 16 6 9 19 16 17 2 6 38",
+    "wall_count": 6,
+    "walls": "0 1 1 2 138 1 2 0 2 138 2 7 0 1 138 11 16 0 1 138 16 17 0 2 138 17 18 1 2 138"
+   }
   },
   {
    "structure": "recon_1835_west_020",
@@ -9003,7 +10743,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "b9deb7d086debaa55f0a070630904e7589e395bba4a34d00ede48046d41adcd4"
+   "model_inputs_sha256": "b9deb7d086debaa55f0a070630904e7589e395bba4a34d00ede48046d41adcd4",
+   "floor": {
+    "key": "4ddc934b39b06423",
+    "cell": 0.1,
+    "u0": 2.2,
+    "v0": 10.1,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_west_026",
@@ -9104,7 +10856,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "eb99ab0888ff9f410b6e4d5ed4a75304193a07465b84109008f941fa7e8e1262"
+   "model_inputs_sha256": "eb99ab0888ff9f410b6e4d5ed4a75304193a07465b84109008f941fa7e8e1262",
+   "floor": {
+    "key": "c43d5d51f368ac4a",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 7.4,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_west_030",
@@ -9129,7 +10893,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "20da5693711fa5747a2e8730ce18314c2ee47c76368ec2a5662b0060e8b11d85"
+   "model_inputs_sha256": "20da5693711fa5747a2e8730ce18314c2ee47c76368ec2a5662b0060e8b11d85",
+   "floor": {
+    "key": "e1c912f63b2afda1",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 6.8,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_west_031",
@@ -9154,7 +10930,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "d9fabe2da51f1d86cbf21632e775d39f81c650bdf787951c4a9ac0bb5b734872"
+   "model_inputs_sha256": "d9fabe2da51f1d86cbf21632e775d39f81c650bdf787951c4a9ac0bb5b734872",
+   "floor": {
+    "key": "0fa24c10da2ff0e3",
+    "cell": 0.1,
+    "u0": 2.0,
+    "v0": 8.6,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 6 0 1 138 10 17 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_west_032",
@@ -9179,7 +10967,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "23318e436ed220945f11832787b32af39073e5f23cdff9a011155017fbcb677a"
+   "model_inputs_sha256": "23318e436ed220945f11832787b32af39073e5f23cdff9a011155017fbcb677a",
+   "floor": {
+    "key": "b2afc21a9662b667",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 8.6,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 4,
+    "walls": "0 4 0 1 138 5 7 0 1 138 9 11 0 1 138 12 16 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_west_033",
@@ -9204,7 +11004,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "b0bd12bebbcf9323537af1687a3562149283153ab5c0b74b6c57332d49e926e8"
+   "model_inputs_sha256": "b0bd12bebbcf9323537af1687a3562149283153ab5c0b74b6c57332d49e926e8",
+   "floor": {
+    "key": "26e5fba073d2e783",
+    "cell": 0.1,
+    "u0": 2.2,
+    "v0": 9.8,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_west_034",
@@ -9380,7 +11192,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "cfd58c55f2f111773dccf4058ae8bfa6139670bba27e6f3ba82c179aca046761"
+   "model_inputs_sha256": "cfd58c55f2f111773dccf4058ae8bfa6139670bba27e6f3ba82c179aca046761",
+   "floor": {
+    "key": "48d117b4ae52ce0d",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 6.8,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_west_043",
@@ -9405,7 +11229,19 @@
      "width_m": 0.92
     }
    ],
-   "model_inputs_sha256": "0b41db29676ea9a9b2bd8561735d51dd7423d41c6b912fc6a62be0dd5b89d934"
+   "model_inputs_sha256": "0b41db29676ea9a9b2bd8561735d51dd7423d41c6b912fc6a62be0dd5b89d934",
+   "floor": {
+    "key": "f1214e66eafda5ed",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 7.4,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
   },
   {
    "structure": "recon_1835_west_044",
@@ -9988,8 +11824,229 @@
    "model_inputs_sha256": "b8ebc8afe009ce2808b200d7cd8995aee747d877c9ea897adc620b076a3a8351"
   }
  ],
- "stoops_note": "T-3554 (owner, 2026-11-13: \"no one should be able to\" stand in stairs): the stairs no house model carries, as `barriers` rows of one box each (derive_doors_scene.py stoop_rows; `what` says which): the street fronts' stoops, mounting blocks and tie rails.",
+ "floors_by": "prairie_floors/5",
+ "floors_note": "The owner, 2026-11-16 (\"he is walking through stairs that block the door\"): a `floor` is the stoop a house model builds at its door (generators/frame_dwelling.py `_porch`), read off the model as 1904's are (tools/prairie_barriers.py floor, a top 0.3 m up or more, tops below 2.0 m): `rects` plan rectangles of one height, five integers each (i0 i1 j0 j1 half-open, then the top in centimetres over the model's ground), `walls` the same for what stands beside them. house-floors.js lays them as the decks a figure walking in at the door, and the visitor, climb. `barriers` carries the floors of the houses no day goes into.",
  "barriers": [
+  {
+   "structure": "recon_1835_blk_randolph_clark_d6_04",
+   "placement": {
+    "local_e": 677.084,
+    "local_n": -365.48,
+    "rotation_deg": 180.36
+   },
+   "floor": {
+    "key": "f50e06f879fc6020",
+    "cell": 0.1,
+    "u0": 2.3,
+    "v0": 9.7,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
+  },
+  {
+   "structure": "recon_1835_blk_randolph_dearborn_d3_15",
+   "placement": {
+    "local_e": 723.745,
+    "local_n": -373.266,
+    "rotation_deg": 180.47
+   },
+   "floor": {
+    "key": "a7b678afbdf149f5",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 6.8,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
+  },
+  {
+   "structure": "recon_1835_blk_randolph_dearborn_h1_14",
+   "placement": {
+    "local_e": 718.567,
+    "local_n": -370.229,
+    "rotation_deg": 180.47
+   },
+   "floor": {
+    "key": "308cb5270414cd83",
+    "cell": 0.1,
+    "u0": 3.5,
+    "v0": 9.8,
+    "ni": 16,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 16 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 16 0 1 138"
+   }
+  },
+  {
+   "structure": "recon_1835_blk_randolph_wells_d4_04",
+   "placement": {
+    "local_e": 425.205,
+    "local_n": -282.188,
+    "rotation_deg": 0.34
+   },
+   "floor": {
+    "key": "dbc05c14911567fc",
+    "cell": 0.1,
+    "u0": 2.2,
+    "v0": 8.6,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
+  },
+  {
+   "structure": "recon_1835_blk_south_water_franklin_d4_02",
+   "placement": {
+    "local_e": 301.698,
+    "local_n": -15.331,
+    "rotation_deg": 359.48
+   },
+   "floor": {
+    "key": "e938a93c41c82baa",
+    "cell": 0.1,
+    "u0": 1.8,
+    "v0": 8.4,
+    "ni": 18,
+    "nj": 10,
+    "count": 2,
+    "rects": "1 17 1 7 38 2 16 7 10 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
+  },
+  {
+   "structure": "recon_1835_blk_south_water_lasalle_d5_01",
+   "placement": {
+    "local_e": 530.795,
+    "local_n": -14.906,
+    "rotation_deg": 359.54
+   },
+   "floor": {
+    "key": "5e6bf6e48266111e",
+    "cell": 0.1,
+    "u0": 2.2,
+    "v0": 9.9,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
+  },
+  {
+   "structure": "recon_1835_blk_south_water_wells_d3_04",
+   "placement": {
+    "local_e": 431.729,
+    "local_n": -89.061,
+    "rotation_deg": 180.33
+   },
+   "floor": {
+    "key": "3c966da87ae0a362",
+    "cell": 0.1,
+    "u0": 0.7,
+    "v0": 6.5,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
+  },
+  {
+   "structure": "recon_1835_blk_washington_dearborn_d3_07",
+   "placement": {
+    "local_e": 750.874,
+    "local_n": -495.428,
+    "rotation_deg": 180.36
+   },
+   "floor": {
+    "key": "4a95d881e76858aa",
+    "cell": 0.1,
+    "u0": 0.6,
+    "v0": 7.0,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 16 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 17 0 1 138"
+   }
+  },
+  {
+   "structure": "recon_1835_blk_washington_franklin_d3_05",
+   "placement": {
+    "local_e": 258.509,
+    "local_n": -495.509,
+    "rotation_deg": 180.34
+   },
+   "floor": {
+    "key": "29e27acfeea7cdbd",
+    "cell": 0.1,
+    "u0": 0.6,
+    "v0": 6.9,
+    "ni": 17,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 16 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 17 0 1 138"
+   }
+  },
+  {
+   "structure": "recon_1835_blk_washington_franklin_d3_07",
+   "placement": {
+    "local_e": 307.314,
+    "local_n": -495.099,
+    "rotation_deg": 180.34
+   },
+   "floor": {
+    "key": "b8888591d12f2383",
+    "cell": 0.1,
+    "u0": 0.8,
+    "v0": 6.9,
+    "ni": 15,
+    "nj": 9,
+    "count": 2,
+    "rects": "0 15 1 6 38 1 15 6 9 19",
+    "wall_count": 2,
+    "walls": "0 4 0 1 138 12 15 0 1 138"
+   }
+  },
+  {
+   "structure": "recon_1835_south_d5_004",
+   "placement": {
+    "local_e": 292.154,
+    "local_n": -151.004,
+    "rotation_deg": -1.06
+   },
+   "floor": {
+    "key": "6a98cca38aaf4f9b",
+    "cell": 0.1,
+    "u0": 2.5,
+    "v0": 9.8,
+    "ni": 18,
+    "nj": 9,
+    "count": 2,
+    "rects": "1 17 1 6 38 2 16 6 9 19",
+    "wall_count": 1,
+    "walls": "0 18 0 1 138"
+   }
+  },
   {
    "structure": "blk_lake_clark_north_stoop_inf_bakery_lake:landing",
    "placement": {
@@ -11734,5 +13791,6 @@
    },
    "what": "mounting_block"
   }
- ]
+ ],
+ "stoops_note": "T-3554 (owner, 2026-11-13: \"no one should be able to\" stand in stairs): the stairs no house model carries, as `barriers` rows of one box each (derive_doors_scene.py stoop_rows; `what` says which): the street fronts' stoops, mounting blocks and tie rails."
 }

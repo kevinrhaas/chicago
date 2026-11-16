@@ -146,6 +146,14 @@ export const stagedIds = stop => (Array.isArray(stop?.stage?.cast) ? stop.stage.
 /** T-3553: who the crowd keeps now: the stop's people, but never one its stage plays (their
  *  staged figure is them), so nobody is drawn twice. */
 export const crowdKept = s => { const staged = new Set(stagedIds(currentStop(s))); return keptPeople(s).filter(id => !staged.has(id)); };
+/**
+ * T-3553 (the owner, 2026-11-16: "make sure there are people present and doing interactive works
+ * and daily activities and relevant actions and in scene of jaunt all eras"): a stop that plays
+ * no history of its own (no `stage`) and has nobody telling it (no `hosts`) keeps the town's own
+ * people about its stand, going about their day, where T-3495 held everyone out. The stop it is,
+ * or null where the stop's own people are the scene.
+ */
+export const localsStop = stop => (stop && !stop.stage?.cast?.length && !hostIds(stop).length ? stop : null);
 /** T-3459: the season a stop is shown in: its date's, else the jaunt's ambience, else null. */
 export const stopSeason = (jaunt, stop) => seasonOfDate(stop?.date) || jaunt?.ambience?.season || null;
 /** T-3459: the light a jaunt opens in, for its menu row and welcome: its ambience, else the
@@ -311,8 +319,9 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   // spring, a night walk in the fall): its hour stands at every stop without one of its
   // own, its season for the whole outing, and both are given back when it ends.
   hour = null, season = null,
-  // T-3495: the everyday people. `crowd.hold(ids)` keeps only the people named (a stop's
-  // `stopPeople`) and holds everyone else out of the scene; `crowd.restore()` gives them all
+  // T-3495: the everyday people. `crowd.hold(ids, { locals })` keeps only the people named (a
+  // stop's `stopPeople`), and at a `localsStop` (T-3553) the town's people about its stand too,
+  // and holds everyone else out of the scene; `crowd.restore()` gives them all
   // back. Held from the flight to the first stop until the jaunt ends, completes or goes to
   // the menu. Optional: a harness without it plays the jaunt with whoever stands there.
   crowd = null,
@@ -386,10 +395,11 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   const syncCrowd = () => {
     if (!crowd) return;
     if (!state.jaunt || ['menu', 'outcome'].includes(state.phase)) { restoreCrowd(); return; }
-    const ids = crowdKept(state), key = ids.join(' ');
+    const ids = crowdKept(state), locals = localsStop(currentStop(state));
+    const key = `${ids.join(' ')}${locals ? ` @${locals.id}` : ''}`;
     if (crowdHeld === key) return;
     crowdHeld = key;
-    try { crowd.hold(ids); } catch { /* the people stay as they were; the outing goes on */ }
+    try { crowd.hold(ids, { locals }); } catch { /* the people stay as they were; the outing goes on */ }
   };
   // T-3525: the stop whose hosts are out ('' = none), and whether the visitor has arrived.
   let hostsKey = null;

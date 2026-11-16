@@ -37,9 +37,11 @@ are drapery lofted in folds since T-3594 (`DRAPERY`), and so are Black Partridge
 breechcloth with its fringe and the child's smock; the weapons and ornaments are
 modelled as the plates show them (`ORNAMENTS`): the warrior's pipe tomahawk, his feather
 and the fringed pouch at his hip, Black Partridge's headband with its knot, standing
-feather and streamer, and his musket. Only Mrs. Helm's knot of hair is still a member
-below (`monument_figures.PROPS`). The sculpted faces and hair, the warrior's and the
-surgeon's dress and the panels' reliefs are not modelled (the record's liberty says so);
+feather and streamer, and his musket; and the hair the band lets fall, Black Partridge's
+long lock streaming back to his shoulder and the warrior's curl past his cheek. Only Mrs.
+Helm's knot of hair is still a member below (`monument_figures.PROPS`). The sculpted
+faces, the warrior's and the surgeon's dress and the panels' reliefs are not modelled
+(the record's liberty says so);
 the rear, which no photograph used here shows, is the same masses seen from behind.
 """
 
@@ -698,7 +700,15 @@ def _drape(m, d, place, conf, rings=DRAPE_RINGS, sides=DRAPE_SIDES):
 # - his MUSKET, along the line T-3582 read (from behind his left shoulder past his right
 #   hip): a slim barrel from the muzzle, the lock and a narrow wrist, and the butt
 #   flaring to its comb and toe with the trigger guard under the wrist (ICHi x 655-722,
-#   y 287-337; Taylor x 750-805, y 390-510).
+#   y 287-337; Taylor x 750-805, y 390-510);
+# - the HAIR (T-3594, since the poses' heads carried only the rig's short crop): Black
+#   Partridge's long hair, falling out from under the back of his band and streaming back
+#   and down behind his neck to the back of his left shoulder, a flat lock about 0.06 m
+#   across (ICHi x 655-708, y 178-215, its end over the shoulder's top; Taylor x 705-750,
+#   y 235-305); and the warrior's lock, hanging from under his band at the side of the
+#   bowed head past his cheek, curled at its end (ICHi x 512-524, y 220-241; Taylor
+#   x 465-482, y 275-300). Their outlines are ICHi-19208's; their depths split the two
+#   plates' readings (below).
 ORNAMENTS = {
     "warrior": {
         "tomahawk": {
@@ -708,6 +718,12 @@ ORNAMENTS = {
         },
         "feather": {"at": "head", "path": ((0.05, 0.07, 0.09), (0.10, 0.085, 0.125), (0.154, 0.10, 0.163)),
                     "w": (0.006, 0.020, 0.016, 0.002)},
+        # the lock off the head's centre in pose units, as the feathers: across and down
+        # as ICHi-19208 draws it at the head's depth, its depth the head's (Taylor's print
+        # puts the root 0.04 m behind it, inside its resolution)
+        "hair": {"path": ((-0.06, 0.02, 0.04), (-0.102, 0.035, 0.033), (-0.132, 0.02, -0.02),
+                          (-0.144, 0.01, -0.072), (-0.118, 0.0, -0.081)),
+                 "r": (0.016, 0.015, 0.012, 0.008, 0.004)},
         "pouch": {"flap": ((-0.63, -0.17, 0.94), (-0.70, -0.21, 0.905), (-0.77, -0.24, 0.87)),
                   "w": (0.030, 0.034, 0.030),
                   "tails": ((-0.875, -0.17, 0.92), (-0.885, -0.19, 0.89), (-0.88, -0.20, 0.86),
@@ -724,6 +740,17 @@ ORNAMENTS = {
         "streamer": {"at": "head", "path": ((0.08, 0.07, 0.06), (0.153, 0.09, 0.031), (0.283, 0.195, -0.003),
                                             (0.445, 0.209, -0.022), (0.47, 0.21, 0.01)),
                      "r": (0.010, 0.008, 0.007, 0.005, 0.003)},
+        # the fall, off the head's centre in pose units: its across and down are ICHi-19208's
+        # (the root at x 660, the middle at 683, the end at 705 px, at the depths below);
+        # its depth back from the head is between the two plates' readings: ICHi-19208 and
+        # the shoulder it ends over would hold the end about 0.2 m behind the head's centre,
+        # Taylor's print, its x read against the head's, about 0.6 m; at 0.35 m it falls
+        # within 23 px of the print across and 11 px up and down. Laid broad to the
+        # street, `w` its half-widths along it from the root, and its end turned up a little
+        # as ICHi-19208 shows it.
+        "hair": {"path": ((0.05, 0.03, 0.02), (0.125, 0.09, -0.018), (0.274, 0.24, -0.089),
+                          (0.417, 0.31, -0.153), (0.436, 0.32, -0.125)),
+                 "w": (0.030, 0.034, 0.030, 0.020, 0.008)},
         "musket": {"muzzle": (0.16, 0.184, 1.904), "butt": (0.756, -0.61, 0.649), "lock": 0.735},
     },
 }
@@ -892,6 +919,13 @@ def _ornaments(m, name, k, place, at, conf):
             f = o[key]
             pts = [on_head(q) for q in f["path"]]
             _vane(m, [at(q) for q in pts], tuple(k * w for w in f["w"]), toward_street, k * 0.005, conf)
+    if "hair" in o:
+        f = o["hair"]
+        pts = [at(on_head(q)) for q in f["path"]]
+        if "w" in f:
+            _vane(m, pts, tuple(k * w for w in f["w"]), toward_street, k * 0.012, conf)
+        else:
+            _tube(m, pts, tuple(k * r for r in f["r"]), conf, sides=6)
     if "pouch" in o:
         f = o["pouch"]
         _vane(m, [place(q) for q in f["flap"]], tuple(k * w for w in f["w"]), toward_street, k * 0.008, conf)

@@ -1,0 +1,114 @@
+# Temperaments for "Ask a question" and "Tell me a story" (T-3553). The owner, 2026-11-16:
+# "Give everyone a unique personality as well their words and perspectives are driven from their
+# history ... ideally the kinds of perspectives and language and story would be related to the
+# kinds of things they would discuss with you."
+#
+# tools/build_tales.py gives every figure one temperament, weighted by who their record says they
+# are (a soldier on the eve of the march leans wary, an Irish labourer wry, a land man shrewd), and
+# two or three things they like to talk about, from their record first. Both steer which questions
+# a person offers you and which stories they tell. A temperament's lines are how they come to an
+# answer, said of them, never put in their mouth: {he} {his} {him} are the teller's pronouns.
+#
+# `topics:` the things this temper drifts toward. Topic codes (build_tales.py TOPICS):
+#   trade  money, land, business, prices      kin    children, wives, husbands, family
+#   home   the place left behind, letters     faith  church, prayer, the spirits
+#   war    soldiers, the fort, fighting       wild   lake, river, prairie, beasts, hunting
+#   work   a trade, a day's labour            fun    music, dancing, games, a joke
+#   talk   news, politics, other people       past   old days, what used to be
+#   dread  fear, sickness, fire, danger
+
+## cheerful
+name: Cheerful
+topics: fun, kin
+{He} brightens at the question.
+{He} laughs before {he} answers.
+{He} answers as if you were an old friend.
+{He} grins, glad of the company.
+
+## wry
+name: Wry
+topics: fun, talk
+{He} smiles at one corner of {his} mouth.
+{He} gives you a long, amused look.
+{He} answers drily, eyes bright.
+{He} snorts, then answers after all.
+
+## wary
+name: Wary
+topics: dread, war
+{He} looks you over before {he} answers.
+{He} glances about first, then lowers {his} voice.
+{He} takes {his} time, weighing you.
+{He} answers carefully, watching your face.
+
+## earnest
+name: Earnest
+topics: work, faith
+{He} thinks about it seriously.
+{He} answers plainly, meaning every word.
+{He} nods slowly and gives it proper thought.
+{He} looks straight at you as {he} answers.
+
+## proud
+name: Proud
+topics: work, past
+{He} straightens a little.
+{He} answers with some pride.
+{He} lifts {his} chin before {he} speaks.
+{He} answers as if it were obvious.
+
+## talkative
+name: Talkative
+topics: talk, kin
+{He} has been waiting for someone to ask.
+{He} settles in for a good long talk.
+{He} is off before you finish the question.
+{He} leans in, delighted to tell you.
+
+## shy
+name: Shy
+topics: home, kin
+{He} hesitates, then answers softly.
+{He} looks down, then up at you.
+{He} answers quietly, a little pink.
+{He} twists {his} hands, then speaks.
+
+## gloomy
+name: Gloomy
+topics: dread, past
+{He} sighs before {he} answers.
+{He} looks away at the horizon.
+{He} answers heavily, as if it costs {him}.
+{He} shakes {his} head slowly first.
+
+## fiery
+name: Fiery
+topics: war, talk
+{He} answers sharply, eyes flashing.
+{His} voice rises as {he} answers.
+{He} jabs a finger to make {his} point.
+{He} answers hotly, then catches {himself}.
+
+## devout
+name: Devout
+topics: faith, kin
+{He} touches something at {his} throat before {he} answers.
+{He} answers gently, as if in church.
+{He} pauses, as though asking a blessing.
+{He} answers with a quiet certainty.
+
+## dreamy
+name: Dreamy
+topics: wild, home
+{He} gazes off for a moment first.
+{He} answers as if remembering a dream.
+{He} smiles at something far away.
+{He} takes a moment to come back to you.
+
+## shrewd
+name: Shrewd
+topics: trade, talk
+{He} sizes you up, then answers.
+{He} answers as if striking a bargain.
+{He} taps {his} nose before {he} speaks.
+{He} answers quickly, missing nothing.

@@ -21,7 +21,9 @@ try {
   const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(origin+'/4d/');await page.waitForFunction(()=>document.querySelectorAll('.era.resolved').length===3);
   assert.equal(await page.locator('.era').count(),3);
-  assert(await page.locator('[data-year="1812"]').innerText().then(t=>t.includes('SURVEY IN PROGRESS')));
+  // T-3611: on a phone the card drops its foot line so all three years fit the first screen;
+  // the 1812 card still says it is calibrating in its top line.
+  assert(await page.locator('[data-year="1812"]').innerText().then(t=>t.includes(width===390?'CALIBRATING':'SURVEY IN PROGRESS')));
   assert.equal(await page.locator('html').getAttribute('data-skin'),'control-room','the standard machine is the default');
   // T-2119: the front door is a working machine. The aperture is a message on its screen,
   // every coordinate shows a hold, and the operator's manual opens and closes.

@@ -1,4 +1,40 @@
 export const CHANGELOG = [ // newest first
+  { v: 3032, ts: '2026-11-16T12:13:45.354Z', date: 'Nov 16, 2026, 6:13 AM CT', title: 'Ask a question: everyone has five things to ask, and a personality', kind: 'feature',
+    items: [
+      'Greet anyone in 1812, 1835 or 1904, then Ask a question: five questions each, named people\'s own first.',
+      'Every answer has one or two follow-ups that reveal more, and many send you to someone else in town.',
+      'Some 350 questions, told from many sides: the same night, the same land sale, the same house, seen by different people.',
+      'Everyone now has a temperament and a line of who they are, from their own record.',
+      'Their temperament and history steer which questions they offer and which stories they tell.',
+    ] },
+  { v: 3031, ts: '2026-11-16T11:51:07.213Z', date: 'Nov 16, 2026, 5:51 AM CT', title: 'A new public site, with films of every year', kind: 'feature',
+    items: [
+      'chicago.polecat.live is now a short home page and six feature pages: Eras, Jaunts, People, Horses and boats, World and Evidence.',
+      'Each page shows new films recorded in the app: 1812\'s dawn and the march from the fort, 1835\'s town, Lake Street and the river at dusk, and 1904\'s carriages, hosts and seasons.',
+      'The way in, Enter 4D Chicago, is at the foot of every page.',
+      'On a phone the Temporal Observatory shows all three years on the first screen.',
+      'Each year\'s card scrolls a list of what it holds, from the first Fort Dearborn to Glessner House.',
+    ] },
+  { v: 3030, ts: '2026-11-16T11:51:07.213Z', date: 'Nov 16, 2026, 5:51 AM CT', title: 'Fort Dearborn monument: Black Partridge\'s long hair, the warrior\'s curl', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), Black Partridge\'s long hair now falls from under the back of his headband and streams back behind his neck to his left shoulder, as both photographs show it. Before, his head carried only a short crop.',
+      'The warrior has the lock of hair the photographs show hanging from under his headband past his cheek, curled at its end.',
+    ] },
+  { v: 3029, ts: '2026-11-16T11:51:07.213Z', date: 'Nov 16, 2026, 5:51 AM CT', title: '1815 Prairie\'s low iron railing across its north side yard', kind: 'improvement',
+    items: [
+      'The Sears-Meeker house at 1815 Prairie now has the low iron railing that its square-on photograph shows across the north side yard. The railing is about 0.8 m high, with a band of spear tips along its top, on a low stone curb. It stands about 2 m behind the front wall and runs from the lot line to the stair wing on the house\'s north side.',
+    ] },
+  { v: 3028, ts: '2026-11-16T10:20:02.268Z', date: 'Nov 16, 2026, 4:20 AM CT', title: 'People at every jaunt stop, in every year', kind: 'feature',
+    items: [
+      'A jaunt stop without a staged scene now keeps the town\'s own people about it, going about their day: 193 stops that stood empty (every 1835 jaunt, the 1812 fort tour, the 1904 walks) now have people you can greet, ask and follow.',
+      'Where nobody happens to be out, someone from a house near the stop comes out of their own door and works about it for a few minutes.',
+      'The people in a staged scene can be met too: click or tap one to open their card, and one standing free turns and greets you.',
+    ] },
+  { v: 3027, ts: '2026-11-16T09:45:33.713Z', date: 'Nov 16, 2026, 3:45 AM CT', title: 'Townspeople climb the 1835 cottages\' front steps', kind: 'fix',
+    items: [
+      'In 1835 a townsperson going in at a cottage door now walks up its front steps to the landing, where before they walked through the steps at ground level. All 164 house stoops are steps now, the 15 under a small porch roof among them, and you can climb them too.',
+      'The steps were always centred on their doors. Only the walk to the door was wrong.',
+    ] },
   { v: 3026, ts: '2026-11-16T08:41:31.033Z', date: 'Nov 16, 2026, 2:41 AM CT', title: '1823 Prairie\'s doorway drawn to its full height, under a cornice hood', kind: 'improvement',
     items: [
       'The Dent house at 1823 Prairie: the front door is now 3.5 m tall, the same as in the old engraving of the house. A tall glazed transom light sits over the door leaves, as the engraving draws it.',

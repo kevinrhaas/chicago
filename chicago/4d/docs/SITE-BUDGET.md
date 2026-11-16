@@ -1413,3 +1413,28 @@ two weeks' net rate of about 7.5 MiB a day, the room lasts about six weeks.
 Storage only: the boot payload budget, the frame, Light and memory limits, the 90 %
 warning and the duplicate guard are unchanged. A tree over 740 MiB needs a cut or the
 host move, not another raise.
+
+## 20. The public site's films leave Pages, 58.8 -> 6.3 MiB (T-3611, 2026-11-16)
+
+§19 left the landing page 22.7 MiB of room on production's site, and the landing films
+(`site/media/*.mp4`, #1829) were most of the landing's 58.8 MiB. The owner asked for a
+multi-page public site with many more films (thread "Rebuild the public site", 2026-11-16).
+Those films would not fit, so they no longer ship on Pages at all:
+
+- The MP4s live in `site-films/` at the repository root, which `deploy.yml` never
+  publishes. `.github/workflows/chicago-site-films.yml` uploads them to the media bucket
+  the narration already uses (§16), under `site/films/`, on every push that changes them.
+- Each file is named `<id>.<sha8>.mp4`, so a re-cut is a new URL and the bucket can cache
+  forever. `site/js/films.js` (written by `tools/site_films_ingest.mjs`) names the exact
+  files; the pages fall back to their poster stills when a film cannot load.
+- The old landing films and stills nothing linked to any more were deleted.
+
+Measured on this branch: the landing (everything under `site/` except `4d/` and the three
+atlas viewers) is **6.3 MiB**, down from 58.755 MiB on `dev`. Of that, the film posters
+(`site/media/films/`) are 2.6 MiB and the self-hosted fonts 0.18 MiB. The 740 MiB allowance
+for this tree is unchanged; production's other content falls from 190.9 to about 138.5 MiB, so
+the room left under the 1,000,000,000-byte deploy limit grows by the same 52 MiB.
+
+The Observatory's year clips (`renderers/web/portal/clips/`, inside this tree) are now cut
+from those same films by `tools/portal_clips.mjs` (`"film"` shots): fourteen clips, 1.34 MB,
+inside `test_portal_clips.mjs`'s 5 MB cap.

@@ -4087,10 +4087,6 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/generate_gifford_street_faces.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/generate_dooryard_pickets.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4120,6 +4116,10 @@
       "wrote_ignored": []
     },
     "tools/generate_fruit_plantings_1835.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/generate_gifford_street_faces.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5485,6 +5485,10 @@
       "wrote_ignored": []
     },
     "tools/sheet_census.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/site_films_ingest.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
