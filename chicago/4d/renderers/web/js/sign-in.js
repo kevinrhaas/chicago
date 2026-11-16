@@ -61,6 +61,7 @@ export function validEmail(value) {
 
 function read(storage, key) { try { return storage?.getItem(key) || ''; } catch { return ''; } }
 function write(storage, key, value) { try { storage?.setItem(key, value); } catch { /* private mode */ } }
+function forget(storage, key) { try { storage?.removeItem(key); } catch { /* private mode */ } }
 
 function timeout(promise, ms, what) {
   return Promise.race([promise, new Promise((_, reject) => setTimeout(() => reject(new Error(`${what} timed out`)), ms))]);
@@ -100,6 +101,8 @@ export function methodOf(user) {
   return METHOD_OF_PROVIDER[provider] || provider || 'other';
 }
 const METHOD_OF_PROVIDER = { 'google.com': 'google', 'microsoft.com': 'microsoft', password: 'password' };
+/** Each way in, in the words the visitors page and the About tab show (T-3580). */
+export const METHOD_LABEL = Object.freeze({ google: 'Google', microsoft: 'Microsoft', password: 'Email + password', email: 'Email only' });
 
 /** The ways in this config offers, in the panel's order. Google always comes first. */
 export function offered(config = SIGN_IN) {
@@ -289,8 +292,9 @@ export const AUTH_ERRORS = {
 const said = (err, fallback) => new Error(AUTH_ERRORS[err?.code] || fallback);
 
 /**
- * The gate. Resolves `{ how }` once the visitor may enter: 'off', 'robot', 'preview',
- * 'returning', 'google', 'microsoft', 'password', 'email' or 'fail-open'. Never rejects.
+ * The gate. Resolves `{ how, account }` once the visitor may enter. `how` is 'off', 'robot',
+ * 'preview', 'returning', 'google', 'microsoft', 'password', 'email' or 'fail-open';
+ * `account` ({ email, method, signOut }) is there when someone is signed in. Never rejects.
  */
 export async function signInGate({
   year,
@@ -312,7 +316,10 @@ export async function signInGate({
       reset: async () => 'If that email has an account, a reset link is on its way.',
       email: async email => { write(storage, EMAIL_KEY, email); return true; },
     } });
-    return { how: 'preview', chose: how };
+    return { how: 'preview', chose: how, account: {
+      email: read(storage, EMAIL_KEY), method: how,
+      signOut: async () => forget(storage, EMAIL_KEY),
+    } };
   }
 
   let fb;
@@ -346,11 +353,22 @@ export async function signInGate({
     }).catch(() => {});
   };
 
+  // T-3603: who is in, for the About tab's "Signed in as … · Sign out". Signing out ends the
+  // Firebase session and forgets the typed email, so the next year asks again.
+  const accountOf = (user, email) => (user ? {
+    email: email || user.email || user.providerData?.find(p => p.email)?.email || '',
+    method: methodOf(user),
+    signOut: async () => {
+      try { await authMod.signOut(auth); } catch (err) { console.warn('[4D Chicago] sign-out', err); }
+      forget(storage, EMAIL_KEY);
+    },
+  } : null);
+
   const current = auth.currentUser;
   const storedEmail = read(storage, EMAIL_KEY);
   if (current && (!current.isAnonymous || storedEmail)) {
     enter(current, current.isAnonymous ? storedEmail : '');
-    return { how: 'returning' };
+    return { how: 'returning', account: accountOf(current, current.isAnonymous ? storedEmail : '') };
   }
 
   // Google and Microsoft: a popup, or the whole page to the provider and back when the
@@ -417,7 +435,35 @@ export async function signInGate({
   });
   logLogin(how);
   enter(auth.currentUser, how === 'email' ? typed : '');
-  return { how };
+  return { how, account: accountOf(auth.currentUser, how === 'email' ? typed : '') };
+}
+
+const ACCOUNT_WITH = Object.freeze({ google: 'with Google', microsoft: 'with Microsoft', password: 'with a password' });
+
+/**
+ * T-3603: the About tab's account line (#s-account). Shown only when someone is signed in;
+ * Sign out ends the session and reloads, so the gate asks again before the year.
+ */
+export function showAccount(doc, account, { reload = () => globalThis.location?.reload() } = {}) {
+  const row = doc?.getElementById?.('s-account');
+  if (!row) return false;
+  if (!account) { row.hidden = true; return false; }
+  const who = doc.getElementById('s-account-who');
+  const how = doc.getElementById('s-account-how');
+  const button = doc.getElementById('s-sign-out');
+  if (who) who.textContent = account.email || 'this device';
+  if (how) how.textContent = ACCOUNT_WITH[account.method] || '';
+  if (button) {
+    button.disabled = false;
+    button.onclick = async () => {
+      button.disabled = true;
+      button.textContent = 'Signing out…';
+      await account.signOut();
+      reload();
+    };
+  }
+  row.hidden = false;
+  return true;
 }
 
 /** For the console and the visitors page: who is signed in on this device, and a way out. */
