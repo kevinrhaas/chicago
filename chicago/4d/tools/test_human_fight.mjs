@@ -239,3 +239,63 @@ for (const [asset, lod, clip] of [['bardwell_otis_1835', 0, 'idle_natural_v1'], 
   assert.equal(fx.wound({ root: new THREE.Group() }, 'body'), false); fx.update(0.1); fx.clear();
 }
 console.log('blood and wounds on the real figures: PASS');
+
+// ---- the burning of the fort (T-3553, the owner, 2026-11-16): a firebrand carried and put to the
+// logs (human-fight.js torch, kindle), and the burn (fort-fire.js): a building catches where the
+// brand touches it, blackens, falls in and leaves a heap; a neighbour catches from its heat; what
+// stands is only smoked; and when the stage is let go every piece is given back as it was.
+{
+  const torch = FM.weaponGroup('torch');
+  assert(torch && torch.userData.tip && torch.userData.tip.position.y > 0.45, 'a brand, its burning head at the top of the stick');
+  assert(FM.MOTIONS.kindle.for.includes('torch') && FM.MOTIONS.kindle.hit > 0.3 && FM.MOTIONS.kindle.hit < FM.motionLength('kindle', 'torch'),
+    'kindle: reached out to the logs, and the fire takes partway through');
+  const reach = FM.fightTargets({ arm: 'torch', act: 'kindle', t: 1.0 });
+  const ready = FM.fightTargets({ arm: 'torch' });
+  assert(reach.r.at[2] > ready.r.at[2] + 0.2 && reach.r.at[1] < ready.r.at[1], 'the brand goes out and down to the wall, from carried high before the body');
+  const F = await import(data(await js('fort-fire.js')));
+  const batch = new THREE.BatchedMesh(10, 2000, 4000, new THREE.MeshStandardMaterial());
+  const g1 = new THREE.BoxGeometry(6, 5, 4); g1.translate(0, 2.5, 0);
+  const g2 = new THREE.BoxGeometry(3, 3, 3); g2.translate(0, 1.5, 0);
+  const a = batch.addInstance(batch.addGeometry(g1)), b = batch.addInstance(batch.addGeometry(g2)), c = batch.addInstance(batch.addGeometry(g2));
+  batch.setMatrixAt(b, new THREE.Matrix4().makeTranslation(9, 0, 0)); batch.setMatrixAt(c, new THREE.Matrix4().makeTranslation(-5.5, 0, 0));
+  for (const i of [a, b, c]) batch.setColorAt(i, new THREE.Color(0.8, 0.7, 0.6));
+  batch.userData.batchIndex = ['house', 'shed', 'magazine'];
+  const scene = new THREE.Scene(); scene.add(batch);
+  const gate = new THREE.Group(); gate.matrixAutoUpdate = false; scene.add(gate);
+  let undone = 0;
+  const fire = F.createFortFire({ parent: scene, buildings: () => ({ batches: [batch] }), groundAt: () => 0, extras: (id) => (id === 'house' ? [gate] : []),
+    nameOf: (id) => `the ${id}`, setup: () => () => { undone++; } });
+  fire.start({ burns: ['house', 'shed'], stands: ['magazine'], liberty: 'L-x', visitor: true });
+  const cam = new THREE.PerspectiveCamera(); cam.position.set(0, 2, 30); cam.updateMatrixWorld();
+  const paint = () => batch.getColorAt(a, new THREE.Color()).r, height = (i) => batch.getMatrixAt(i, new THREE.Matrix4()).elements[5];
+  const at = (t) => { while (fire.clock < t - 1e-6) fire.update(0.25, cam); return fire.snapshot(); };
+  assert.deepEqual(fire.kindle(new THREE.Vector3(60, 1, 0), 30), { none: 'far', nearest: 'the shed', distance: 50 }, 'too far from any building to set it alight');
+  assert(fire.ignite('house', new THREE.Vector3(3, 1, 0)), 'the house catches at the brand');
+  let s = at(20);
+  assert(s.flames >= 6 && s.smoke > 20 && s.sparks > 20 && paint() < 0.75, `alight: flames, smoke and sparks, the logs darkening (${JSON.stringify({ ...s, burns: undefined })})`);
+  assert(s.burns.find((x) => x.id === 'shed').lit === null, 'the shed has not caught yet');
+  s = at(48);
+  assert(s.burns.find((x) => x.id === 'shed').lit !== null, 'the heat carries to the shed beside it');
+  assert(paint() < 0.1, `the house's logs are charred black (${paint().toFixed(3)})`);
+  s = at(110);
+  const house = s.burns.find((x) => x.id === 'house');
+  assert(house.down === 1 && house.heap && height(a) === 0, 'the house has fallen in, and lies as a heap');
+  assert(gate.matrix.elements[5] < 1 || !gate.visible, 'what hung on it (a gate) came down with it');
+  const mag = s.burns.find((x) => x.id === 'magazine');
+  assert(mag.char > 0.05 && height(c) === 1, `the magazine stands, smoked (${mag.char})`);
+  const heap = scene.getObjectByName('fort-fire:heap:house');
+  assert(heap && heap.scale.y > 0.99, 'the heap of charcoal and ash where it stood');
+  s = at(260);
+  assert(s.flames <= 2 && s.burns.every((x) => x.kind === 'stands' || x.down === 1), `burned out to ash, a little smoke still going up (${s.flames} flames, ${s.smoke} puffs)`);
+  assert.deepEqual(fire.kindle(new THREE.Vector3(0, 1, 5)), { none: 'all' }, 'nothing left that will burn');
+  fire.clear();
+  assert(paint() === 0.800000011920929 && height(a) === 1 && batch.getMatrixAt(b, new THREE.Matrix4()).elements[12] === 9 && gate.visible && undone === 1,
+    'let go: every piece back as it was, and the gates given back');
+  assert(!scene.getObjectByName('fort-fire:heap:house'), 'and no heap left');
+  // Already burning when the visitor comes: run on unseen to where it has got to.
+  fire.start({ burns: ['house', 'shed'], liberty: 'L-x', lit: ['house'], start_s: 70 });
+  s = fire.snapshot();
+  assert(s.clock === 0 && s.burns.find((x) => x.id === 'house').lit < -60 && s.burns.find((x) => x.id === 'shed').lit !== null, 'a fire seen from the next stop is well on when the visitor comes');
+  fire.dispose();
+}
+console.log('the burning of the fort: PASS');

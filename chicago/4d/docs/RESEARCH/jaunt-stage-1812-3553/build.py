@@ -150,6 +150,10 @@ def write(check=False):
                 stop['stage'] = {'caption': stage['caption'], 'liberty': LIBERTY, 'cast': stage['cast']}
                 if stage.get('teams'):
                     stop['stage']['teams'] = stage['teams']
+                if stage.get('fire'):
+                    stop['stage']['fire'] = stage['fire']
+                    if stage['fire']['liberty'] not in doc['liberties']:
+                        doc['liberties'].append(stage['fire']['liberty'])
         if LIBERTY not in doc['liberties']:
             doc['liberties'].append(LIBERTY)
         doc['content_version'] = dev_version(path) + 1

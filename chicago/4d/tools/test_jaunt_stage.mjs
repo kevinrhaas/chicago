@@ -240,8 +240,9 @@ for (const name of ['battle-of-fort-dearborn', 'killing-of-jean-lalime']) {
       const poses = [c.pose, ...(c.beats || []).map((x) => x.pose)].filter(Boolean);
       for (const p of poses) assert.ok(POSES.includes(p), `${where}: ${p} is a pose`);
       if (c.person && young.test(c.person)) assert.ok(!poses.includes('lie'), `${where}: no child is ever shown fallen (${c.person})`);
-      for (const b of c.beats || []) assert.deepEqual(Object.keys(b).filter((k) => !['t', 'walk', 'pace', 'heading', 'face', 'pose', 'ease', 'talk', 'greet', 'hide', 'show', 'place'].includes(k)), [],
-        `${where}: a beat is only a move, a turn, a pose, a word of the hand or a way in or out`);
+      for (const b of c.beats || []) assert.deepEqual(Object.keys(b).filter((k) => !['t', 'walk', 'pace', 'heading', 'face', 'pose', 'ease', 'talk', 'greet', 'hide', 'show', 'place', 'torch', 'ignite'].includes(k)), [],
+        `${where}: a beat is only a move, a turn, a pose, a word of the hand, a way in or out, or a torch put to a building`);
+      if ((c.beats || []).some((b) => b.torch || b.ignite)) assert.ok(st.stage.fire, `${where}: a torch only where the stop burns`);
     }
     assert.ok(stageLength(st) < 300, `${where}: the scene plays out in minutes`);
   }
@@ -276,6 +277,64 @@ for (const st of [column, bank]) {
 const wagonPassed = teamsFor(column).filter((c) => castAt(c, 0).n > anchorEN[1] && castAt(c, 600).n < anchorEN[1]);
 assert.equal(wagonPassed.length, 2, 'the wagons come down from the north and pass the visitor with the column');
 console.log('PASS the two 1812 story jaunts stage their own people, keep them on phones, pass the column by, and never show a child fallen');
+
+// ---- the burning of the fort (the owner, 2026-11-16: "witness and also join the party and help
+// light Fort Dearborn on fire"): the morning after the battle, before the gate; the young men of
+// the gathering put brands to the buildings, the visitor may too, the magazine stands; and from
+// Ouilmette's house an hour later the fort is still burning across the river. In both tellings.
+for (const name of ['battle-of-fort-dearborn', 'battle-of-fort-dearborn-adults']) {
+  const jaunt = read(`data/jaunts/${name}.json`), ids = jaunt.stops.map((x) => x.id);
+  const burn = jaunt.stops.find((x) => x.id === 'the-burning');
+  assert.ok(burn && ids.indexOf('the-burning') === ids.indexOf('kinzie-house') + 1 && burn.next === 'ouilmette', `${name}: the burning comes the morning after the battle, before the search at Ouilmette's`);
+  assert.equal(burn.date, '1812-08-16', `${name}: on the 16th (Heald: 'The next morning')`);
+  const fire = burn.stage.fire;
+  assert.ok(fire.visitor && fire.open_gates && jaunt.liberties.includes(fire.liberty), `${name}: the visitor holds a brand; the burning is a declared liberty`);
+  assert.deepEqual(fire.stands, ['first_fort_dearborn_magazine'], `${name}: the brick magazine 'alone defied the fire' (Quaife)`);
+  for (const id of ['first_fort_dearborn_officers_barracks', 'first_fort_dearborn_blockhouse_nw', 'first_fort_dearborn_blockhouse_se', 'first_fort_dearborn_pickets_outer', 'first_fort_dearborn_pickets_inner'])
+    assert.ok(fire.burns.includes(id), `${name}: ${id} burns`);
+  assert.ok(!fire.burns.some((id) => /outer_(factory|agents|stable|bake|armourers|merchants|interpreters)/.test(id)), `${name}: the outbuildings no account burns are left standing`);
+  const lit = burn.stage.cast.flatMap((c) => (c.beats || []).filter((b) => b.ignite).map((b) => ({ c, b })));
+  assert.ok(lit.length >= 8 && new Set(lit.map((x) => x.b.ignite)).size >= 8, `${name}: the brands go to the barracks, the blockhouses and the pickets (${lit.length})`);
+  for (const { c, b } of lit) {
+    assert.ok(fire.burns.includes(b.ignite), `${name}: ${c.extra} lights what burns`);
+    assert.ok((c.beats || []).some((x) => x.torch === true && x.t < b.t), `${name}: ${c.extra} carries a brand to it`);
+    assert.ok(!c.person, `${name}: who carried which brand is not recorded, so the men are unnamed`);
+  }
+  assert.ok(Math.min(...lit.map((x) => x.b.t)) < 35, `${name}: the first fire is set within the first half minute`);
+  assert.ok(castFor(burn, 'light').length >= 10, `${name}: a phone keeps the men with the brands`);
+  const after = jaunt.stops.find((x) => x.id === 'ouilmette').stage.fire;
+  assert.ok(after && !after.visitor && after.lit.length >= 9 && after.start_s >= 60, `${name}: from Ouilmette's the fort is still burning`);
+}
+// The stage hands the fire its buildings and the torches their moment: a castmate's ignite lights
+// the building at the brand when the motion reaches the logs; the visitor's kindle only at a stop
+// that offers it, once arrived; Watch again starts the fire over; and the stop let go gives it back.
+{
+  const calls = [];
+  const burn = { active: false, start(spec) { this.active = true; calls.push(['start', spec.burns.length]); }, ignite(id, at) { calls.push(['ignite', id, !!at]); return true; },
+    kindle(at) { calls.push(['kindle', at.x]); return { lit: 'b', name: 'barracks' }; }, holdTorch(on) { this.held = on; }, update(dt) { this.t = (this.t ?? 0) + dt; },
+    clear() { this.active = false; calls.push(['clear']); }, flameNow() {}, snapshot() { return { burns: [] }; } };
+  const fig = (instance) => ({ instance, e: 0, n: 0, heading: 0, posture: null, indoors: false, disposed: false, body: {}, root: { visible: true, position: { x: 1, y: 0, z: -2, clone() { return { ...this, set(x, y, z) { return { x, y, z }; } }; } } },
+    setState() {}, place() {}, setIndoors() {}, turnTo() {}, setPosture() {}, walkPath() { return true; }, update() {}, dispose() {}, actions: { wield() {}, act(k) { calls.push(['act', k]); } } });
+  const humans = { shown: true, get: () => null, createActor: (i) => fig(i) };
+  const stopFire = { id: 'b', stage: { caption: 'x', liberty: 'L-x', fire: { burns: ['b'], liberty: 'L-f', visitor: true }, cast: [
+    { extra: 'm', dress: 'potawatomi_man_1812', at: [1, 2], beats: [{ t: 0.2, torch: true }, { t: 1, ignite: 'b' }] }] } };
+  const st = createJauntStage({ humans, parent: { add() {} }, eye: () => ({ x: 0, y: 1.6, z: 0 }), fire: { create: () => burn }, view: () => null });
+  st.sync(stopFire, { arrived: false });
+  assert.equal(st.kindle({ x: 5 }), null, 'no torch for the visitor before they arrive');
+  st.sync(stopFire, { arrived: true });
+  st.update(1.2);
+  assert.deepEqual(calls.filter((x) => x[0] !== 'clear'), [['start', 1], ['act', 'kindle']], 'the brand goes to the logs at its beat');
+  st.update(0.5);
+  assert.ok(calls.some((x) => x[0] === 'ignite' && x[1] === 'b' && x[2]), 'and the building catches at the brand as it reaches them');
+  assert.ok(burn.held === true, 'the visitor holds a brand at a stop that offers one');
+  assert.deepEqual(st.kindle({ x: 5 }), { lit: 'b', name: 'barracks' }, 'and may put it to a building');
+  calls.length = 0;
+  st.replay();
+  assert.deepEqual(calls.slice(0, 2), [['clear'], ['start', 1]], 'Watch again starts the fire over');
+  st.release();
+  assert.ok(!burn.active, 'the stop let go gives the buildings back');
+}
+console.log('PASS the burning of the fort: the brands to the buildings, the visitor\'s torch, the magazine standing, in both tellings');
 
 // ---- the adults tellings (owner, 2026-11-15: "targeted at adults and shows everything incredibly
 // graphically"): each a version of its students' jaunt for the adults audience, behind its

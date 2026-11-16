@@ -288,7 +288,23 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
       if (stop.stage?.cast?.length && actions.replay) {
         const again = button('Watch again', () => actions.replay()); again.dataset.action = 'replay'; again.className = 'jaunt-replay';
         const what = stop.stage.caption ? node('p', stop.stage.caption, 'jaunt-stage-caption') : null;
-        const row = node('div', '', 'jaunt-stage'); if (what) row.append(what); row.append(again); body.append(row);
+        const row = node('div', '', 'jaunt-stage'); if (what) row.append(what); row.append(again);
+        // The burning of the fort (2026-11-16): the visitor holds a torch, and may put it to the
+        // nearest building that is not burning yet.
+        if (stop.stage.fire?.visitor && actions.kindle) {
+          const said = node('p', 'You hold a burning brand. Walk up to a building and put it to the logs.', 'jaunt-stage-caption jaunt-fire-note');
+          said.setAttribute('role', 'status'); said.setAttribute('aria-live', 'polite');
+          const light = button('Set it alight', () => {
+            const r = actions.kindle();
+            said.textContent = r?.lit ? `You put your torch to the ${r.name}. It catches.`
+              : r?.none === 'all' ? 'Everything that will burn is burning.'
+                : r?.none === 'far' ? `Too far to reach. Walk nearer the fort${r.nearest ? ` (the ${r.nearest} is ${r.distance} m off)` : ''}.`
+                  : 'Wait for the fire to begin.';
+          });
+          light.dataset.action = 'kindle'; light.className = 'jaunt-replay jaunt-kindle';
+          row.append(light, said);
+        }
+        body.append(row);
       }
       if (state.context?.lines.length) {
         const notes = node('details', '', 'jaunt-road-history'); notes.append(node('summary', 'On the way')); contextLines(notes);

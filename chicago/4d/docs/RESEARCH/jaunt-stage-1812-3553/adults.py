@@ -497,6 +497,7 @@ def adult_doc(base_name, stages, texts):
                     raise SystemExit(f'{doc["id"]}/{stop["id"]}: {who} has no figure in 1812')
             stop['stage'] = {'caption': s['caption'], 'liberty': LIBERTY, 'cast': s['cast']}
             if s.get('teams'): stop['stage']['teams'] = s['teams']
+            if s.get('fire'): stop['stage']['fire'] = s['fire']
     doc['liberties'] = [x for x in doc['liberties'] if x != b.LIBERTY] + [b.LIBERTY, LIBERTY]
     path = ROOT / f'data/jaunts/{doc["id"]}.json'
     v = on_dev(path)

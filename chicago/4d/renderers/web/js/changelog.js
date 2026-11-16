@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 3035, ts: '2026-11-16T15:07:50.342Z', date: 'Nov 16, 2026, 9:07 AM CT', title: 'The Battle of Fort Dearborn: the burning of the fort', kind: 'feature',
+    items: [
+      'A new stop in The Battle of Fort Dearborn, the morning after the battle, before the main gate: the young men of the gathering come up with brands and set the empty fort alight, as Heald and Wau-Bun tell it.',
+      'You can take a brand and set a building alight yourself with Set it alight.',
+      'Each building catches where the brand touches it. The fire runs over its walls and into its roof, the logs blacken, the roof falls in and the walls after it, and a smoking heap of charcoal and ash is left. The heat carries the fire to the buildings and pickets beside it.',
+      'Flames that lick and roll, thick wood smoke lit by the sun and by the fire under it, and sparks blown away over the lake. The brick magazine stands through it, smoked, as it did.',
+      'From Ouilmette\'s house an hour later the fort is still burning across the river. Both the student and the 18+ telling have the new stop.',
+    ] },
+  { v: 3034, ts: '2026-11-16T15:04:33.861Z', date: 'Nov 16, 2026, 9:04 AM CT', title: 'Taller chimney pots on 1815 Prairie\'s south chimney', kind: 'improvement',
+    items: [
+      'The Sears-Meeker house at 1815 Prairie now has the tall, slender clay pots that its photograph from the south-west shows on its south chimney. Each pot stands about 1.1 m above the chimney\'s cap, up from about 0.7 m.',
+    ] },
+  { v: 3033, ts: '2026-11-16T13:54:47.604Z', date: 'Nov 16, 2026, 7:54 AM CT', title: 'Take the helm of any boat; 1835\'s schooners rebuilt with crews', kind: 'feature',
+    items: [
+      'Board any boat and steer it yourself on the river and the lake: the schooners, the Mackinaw boats, the rowboats, the canoes, and the 1812 crossing boats.',
+      '1835\'s schooners are the five the Chicago American\'s Marine Journal entered that week: planked and rigged topsail schooners with hands at work aboard.',
+      'Two of them sail a circuit out between the piers and back by day, one lies anchored in the offing with a Mackinaw boat unloading her.',
+      'At night they ride at anchor with one man on watch; in winter they are laid up and the lake vessels are gone.',
+      '1812 has the Kinzies\' boat and the garrison\'s scow, where the battle jaunt finds them.',
+      'Along the Working Harbor names the schooners in port and the boats that unload at the bar.',
+    ] },
   { v: 3032, ts: '2026-11-16T12:13:45.354Z', date: 'Nov 16, 2026, 6:13 AM CT', title: 'Ask a question: everyone has five things to ask, and a personality', kind: 'feature',
     items: [
       'Greet anyone in 1812, 1835 or 1904, then Ask a question: five questions each, named people\'s own first.',
