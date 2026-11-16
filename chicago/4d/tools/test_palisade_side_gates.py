@@ -48,7 +48,7 @@ class SideGates(unittest.TestCase):
 
     def test_override_errors_are_not_silently_dropped(self):
         p = current("inner")
-        invalid = [[], {"q": {}}, {"e": {}}, {"w": None}, {"w": {"offest_m": 2}},
+        invalid = [[], {"q": {}}, {"n": {}}, {"w": None}, {"w": {"offest_m": 2}},
                    {"w": {"width_m": 1.49}}, {"w": {"width_m": 9}},
                    {"w": {"width_m": float("nan")}}, {"w": {"width_m": True}},
                    {"w": {"offset_m": float("inf")}}, {"w": {"offset_m": "10.53"}},

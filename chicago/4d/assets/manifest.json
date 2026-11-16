@@ -534,8 +534,8 @@
     "first_fort_dearborn_pickets_inner__first_fort_1803.glb": {
       "archetype": "palisade",
       "baked_ao": false,
-      "bytes": 661360,
-      "inputs_sha256": "4bd1815ffc5bb78d42b3e3f6ff314b3f569e96870e3dac9cd052a0c45c4fe69b",
+      "bytes": 656204,
+      "inputs_sha256": "ce107065b669f5d9f340d23ea8dd836b047b3ba2ebef7624a99fc7f722c3aa81",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_pickets_inner"
@@ -543,8 +543,8 @@
     "first_fort_dearborn_pickets_outer__first_fort_1803.glb": {
       "archetype": "palisade",
       "baked_ao": false,
-      "bytes": 799032,
-      "inputs_sha256": "4f36602e628299bb3a4deb767ec6de3c7a7d6b297cc7d8bf854365af45bd07e2",
+      "bytes": 792092,
+      "inputs_sha256": "f7c14cf883a007c60f542bd73b322ba25d0b09bc38032e5d1b3b516a911721b6",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_pickets_outer"
@@ -3432,8 +3432,8 @@
     "kinzie_house_1812_green__kinzie_1804.glb": {
       "archetype": "palisade",
       "baked_ao": false,
-      "bytes": 727208,
-      "inputs_sha256": "504b7f366cabbe8d00a2ea6fa4f3ca916b46d66a3093a1e4f2b52a2b16e23453",
+      "bytes": 708824,
+      "inputs_sha256": "6c38858268a019f006dc645ecccf205be92b5c47c235a66823c1832f208c7521",
       "kind": "generated",
       "phase_id": "kinzie_1804",
       "structure_id": "kinzie_house_1812_green"

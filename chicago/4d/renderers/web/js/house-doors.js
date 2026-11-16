@@ -185,6 +185,8 @@ export function glessnerFrontPlan(sidecar) {
 /** How far a passage door swings, and how long it takes (ours, the header). */
 export const PASSAGE_OPEN_DEG = 90;
 export const PASSAGE_SWING_S = 1.2;
+/** T-3553: how far proud of the wall's face a doorway's mouth stands (plan.mouth). */
+const MOUTH_PROUD_M = 0.004;
 /** A way starts this far out from the foot of the first step (derive_doors_scene.py STEP_M). */
 const PASSAGE_STEP_M = 0.7;
 /** The point a person stops at before the leaf, out from the wall face, and how far in they
@@ -740,6 +742,27 @@ export function doorPathPlan(plan, { inside: past = 0.6, from = null } = {}) {
 
 /** A dark box behind the opening, its faces turned inward, unlit: a room seen from the
  *  street, never daylight through the house. About 24 triangles. */
+/** T-3553: the dark of a doorway the model does not cut, a hair proud of the wall's face. */
+function mouthGeometry(plan) {
+  const d = MOUTH_PROUD_M, y0 = plan.sill, y1 = plan.head;
+  const P = (s, y) => { const [u, v] = planPoint(plan, d, s); return [u, y, -v]; };
+  const [s0, s1] = plan.jambs;
+  const a = P(s0, y0), b = P(s1, y0), c = P(s1, y1), e = P(s0, y1);
+  // Facing out of the wall (+d): wound so its normal is the outward one.
+  const out = planPoint(plan, 1, 0), at = planPoint(plan, 0, 0);
+  const n = [out[0] - at[0], 0, -(out[1] - at[1])];
+  const ab = [b[0] - a[0], b[1] - a[1], b[2] - a[2]], ae = [e[0] - a[0], e[1] - a[1], e[2] - a[2]];
+  const cr = [ab[1] * ae[2] - ab[2] * ae[1], ab[2] * ae[0] - ab[0] * ae[2], ab[0] * ae[1] - ab[1] * ae[0]];
+  const tri = cr[0] * n[0] + cr[2] * n[2] > 0 ? [a, b, c, a, c, e] : [a, c, b, a, e, c];
+  const pos = tri.flat(), col = [];
+  for (const q of tri) { const k = (q[1] - y0) / Math.max(0.01, y1 - y0); const g = 0.012 + 0.012 * (1 - k); col.push(g, g * 0.86, g * 0.72); }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
+  geo.computeBoundingSphere();
+  return geo;
+}
+
 function vestibuleGeometry(plan) {
   const back = plan.revealBack - VESTIBULE_DEPTH_M, front = plan.revealBack;
   const s0 = plan.jambs[0] - 0.02, s1 = plan.jambs[1] + 0.02;
@@ -860,6 +883,15 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
       vestibule.userData.structure_id = id;
       holder.add(vestibule);
     }
+    // T-3553: a model whose leaf hangs on an uncut wall (1812's log buildings) shows the dark of
+    // its doorway as a mouth over the wall's face while the leaf stands open (plan.mouth).
+    const mouth = plan.mouth ? new THREE.Mesh(mouthGeometry(plan), vestibuleMaterial) : null;
+    if (mouth) {
+      mouth.name = `house-door-vestibule:${plan.id}:mouth`;
+      mouth.userData.structure_id = id;
+      mouth.visible = false;
+      holder.add(mouth);
+    }
     const entry = { plan, holder, pivot: pivots[0], pivots, matrix: m.clone() };
     hangLeaf(entry, buildings);
     const v3 = new THREE.Vector3();
@@ -890,6 +922,7 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
     };
     passage.setSwing = (t) => {
       passage.swing = t;
+      if (mouth) mouth.visible = t > 0.01;
       const eased = t * t * (3 - 2 * t);
       pivots.forEach((pivot, k) => {
         const pose = leafPose(plan, eased, k);

@@ -36,7 +36,7 @@ from export_print_3mf import load_triangles  # noqa: E402
 
 OUT = ROOT / "data/humans/doors_1812.json"
 # Bump on any change to how doors are read: a cached row is kept only under the same format.
-FORMAT = "c4d-doors-1812/2"
+FORMAT = "c4d-doors-1812/3"   # /3 (T-3553): each built leaf door carries its passage `plan`
 SIDECARS = ROOT / "data/sidecars/1812"
 DOOR_MATERIALS = ("door", "door_panel", "board_door", "board_door_panel")
 # An outbuilding (generators/archetypes) hangs one plank door, its only `board`.
@@ -46,6 +46,15 @@ LINK_M = 0.6      # leaf triangles nearer than this are one door
 EDGE_M = 0.35     # a door lies on its footprint's edge
 STEP_M = 0.7      # where one who answers stands, out from the leaf
 MIN_WIDTH_M = 0.5
+# T-3553 (the owner, 2026-11-16: "people appear outside doors the doors don't open and close"):
+# a built leaf is a passage, hung by renderers/web/js/house-doors.js to swing open as someone
+# goes in or comes out, as 1904's are (derive_doors_scene.py passage_plan). These models hang
+# the leaf on an uncut wall (nothing is modelled behind it), so it swings OUT, as 1904's back
+# doors do, and the doorway's dark is a mouth over the wall's face while it stands open. The
+# way runs straight out from the leaf's middle, and one waits clear of its swing.
+WAY_CLEAR_M = 0.25       # past the swinging leaf's sweep, where one waits for it
+WAY_FOOT_M = 1.0         # the way's foot, past that again
+WAY_GROUND_M = 0.12      # a sill lower than this is the ground (the caller's ground answers)
 # Lived-in buildings whose model draws no door leaf on an edge: the door is put at the middle
 # of the footprint edge facing the given point (reconstructed; the model has no front). The
 # south-west small house of the fort (the Holts', T-3461) is a 1.7 x 2.4 m box clad all round
@@ -201,20 +210,53 @@ def clusters_within(points: np.ndarray, link: float) -> list[list[int]]:
     return out
 
 
-def doors_of(sidecar: dict, glb: Path) -> tuple[list[dict], list[str]]:
+def passage_plan(leaf, mats, normal) -> dict:
+    """A built leaf as house-doors.js hangs a passage, in the model's plan (u = x, v = -z):
+    d out of the wall along `normal`, s along it (`normal` turned a quarter left)."""
+    along = np.array([-normal[1], normal[0]])
+    uv = np.stack([leaf[:, :, 0].ravel(), -leaf[:, :, 2].ravel()], 1)
+    y = leaf[:, :, 1].ravel()
+    c = (uv.min(0) + uv.max(0)) / 2
+    d, s = (uv - c) @ normal, (uv - c) @ along
+    front, back = float(d.max()), float(d.min())
+    s0, s1 = float(s.min()), float(s.max())
+    sm = (s0 + s1) / 2
+    origin = c + normal * front + along * sm
+    sill, head = float(y.min()), float(y.max())
+    r = lambda x: round(float(x), 3)
+    clear = (s1 - s0) + WAY_CLEAR_M
+    at = lambda dd: [r(origin[0] + normal[0] * dd), r(origin[1] + normal[1] * dd)]
+    return {
+        'name': 'Door', 'origin': [r(origin[0]), r(origin[1])], 'outward': [r(normal[0]), r(normal[1])],
+        'along': [r(along[0]), r(along[1])],
+        'jambs': [r(s0 - sm - 0.01), r(s1 - sm + 0.01)], 'sill': r(sill), 'head': r(head),
+        'leaf': {'front': 0, 'back': r(back - front), 's': [r(s0 - sm), r(s1 - sm)], 'foot': r(sill), 'top': r(head)},
+        'hinge': 'right', 'pair': False, 'openDeg': -95, 'vestibule': False, 'mouth': True,
+        'revealBack': -0.005, 'leafBoxBack': r(back - front - 0.03),
+        'leafMaterials': sorted(mats),
+        'way': [at(clear + WAY_FOOT_M) + [None], at(clear) + [None if sill < WAY_GROUND_M else r(sill)]],
+        'grades': {'leaf': 'inferred', 'hinge': 'reconstructed', 'swing': 'reconstructed', 'vestibule': 'reconstructed', 'treads': 'reconstructed'},
+    }
+
+
+def doors_of(sidecar: dict, glb: Path, plans: bool = False) -> tuple[list[dict], list[str]]:
+    """`plans`: each built leaf also carries its passage plan (1812's doors file only)."""
     problems = []
     if sidecar.get("archetype") == "lodge_camp" or sidecar["id"].startswith("potawatomi_camp_1812"):
         return lodge_doors(sidecar, glb), problems
     poly = [tuple(map(float, p)) for p in (sidecar.get("footprint") or {}).get("polygon") or []]
     pl = sidecar["placement"]
     names = DOOR_MATERIALS + (OUTBUILDING_DOOR if sidecar.get("archetype") == "outbuilding" else ())
-    tris = [t for name, t in load_triangles(glb) if name.lower() in names]
+    got = [(name, t) for name, t in load_triangles(glb) if name.lower() in names]
+    tris = [t for _, t in got]
     if not tris or len(poly) < 3:
         return [], problems
     if sidecar["id"] in NO_LEAF:
         return [edge_door(sidecar, poly, NO_LEAF[sidecar["id"]])], problems
     T = np.concatenate(tris)
-    T = T[T[:, :, 1].min(axis=1) < SILL_M]
+    M = np.concatenate([[name] * len(t) for name, t in got])
+    low = T[:, :, 1].min(axis=1) < SILL_M
+    T, M = T[low], M[low]
     if not len(T):
         return [], problems
     # Each triangle's points, in the footprint's frame.
@@ -252,12 +294,20 @@ def doors_of(sidecar: dict, glb: Path) -> tuple[list[dict], list[str]]:
         th = math.radians(float(pl.get("rotation_deg") or 0.0))
         c, s = math.cos(th), math.sin(th)
         de, dn = normal[0] * c + normal[1] * s, -normal[0] * s + normal[1] * c
-        out.append({
+        row = {
             "leaf": {"local_e": round(le, 2), "local_n": round(ln, 2)},
             "step": {"local_e": round(e, 2), "local_n": round(n, 2)},
             "outward_deg": round((math.degrees(math.atan2(de, dn)) + 360) % 360, 1),
             "width_m": round(width, 2),
-        })
+        }
+        plan = passage_plan(T[grp], set(M[grp].tolist()), normal) if plans else None
+        if plan is not None:
+            row.update({"passage": True, "plan": plan,
+                        "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in "
+                                         "or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing "
+                                         "are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn "
+                                         "over the wall while it stands open."})
+        out.append(row)
     out.sort(key=lambda d: (-d["width_m"], d["leaf"]["local_e"], d["leaf"]["local_n"]))
     for i, d in enumerate(out):
         d["id"] = f"{sidecar['id']}:{'front' if i == 0 else f'door{i + 1}'}"
@@ -309,7 +359,7 @@ def derive(previous: dict | None = None) -> tuple[dict, list[str]]:
         if old and old.get("asset_sha256") == h and old.get("placement") == _placement(sc) and (not lodges or "walls" in old):
             rows.append(old)
             continue
-        doors, p = doors_of(sc, glb)
+        doors, p = doors_of(sc, glb, plans=True)
         problems += p
         if doors:
             row = {"structure": sc["id"], "name": sc.get("name") or sc["id"], "asset_sha256": h,
