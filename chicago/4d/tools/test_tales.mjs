@@ -2,8 +2,7 @@
 /**
  * T-3553 — "Tell me a story", for everyone in town, in every year.
  *
- *   - data/tales/<scene>.json is what tools/build_tales.py writes from
- *     docs/RESEARCH/tales-3553 (its --check);
+ *   - (that data/tales/<scene>.json re-derives is the gate's own step for tools/build_tales.py);
  *   - every teller's roles have stories (a toddler at least a few, everyone else many), every
  *     role in the library has a teller, every own story belongs to someone drawn, and
  *     everyone a story sends you to find is someone drawn in that scene;
@@ -20,7 +19,6 @@
  */
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
@@ -30,10 +28,6 @@ const { createInteractions, actionStyle } = await import('../renderers/web/js/in
 
 let checks = 0;
 const ok = (cond, msg) => { assert.ok(cond, msg); checks += 1; };
-
-// ── the files are what the builder writes ───────────────────────────────────────────
-const built = spawnSync('python3', ['tools/build_tales.py', '--check'], { cwd: ROOT, encoding: 'utf8' });
-ok(built.status === 0, `build_tales.py --check: ${built.stdout}${built.stderr}`);
 
 const SCENES = ['1812', '1835', '1904'];
 const libs = Object.fromEntries(SCENES.map((s) => [s, JSON.parse(fs.readFileSync(`${ROOT}data/tales/${s}.json`, 'utf8'))]));
