@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "474feaaf8c25354b8d614af96171d3842d14e5c0e85396ed8569f3a7ae5d9e4b",
+  "glb_sha256": "f3e8a8a58f11c515f4543150253b2c62ad8e1d828b71a5face42957df8ab24f0",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -81,9 +81,18 @@
       "how": "T-3562: built. Three narrow panels (0.15 m across, 0.05 m deep) sunk in the stack's south face from 11.35 m to 13.45 m, 0.3 m under the corbelled head, where the print draws three dark lines evenly across the shaded face (x 1765-1825 px). The stack stands on the flank's cornice clear of the mansard, so its panels run below the roof's highest covering under it (panel_foot_m); K15 now sinks a stone stack's panel in its own stone, so they read as stone and not as brick strips. The render draws the three beside the print's within a few pixels in height and run; the build's stack stands right of the print's with the south wall's open set-out, as before"
     },
     {
-      "what": "the stack's pots: the print's stand about 1.1 m over the cap, three or four in a row",
+      "what": "the stack's pots: the print's stand about 1.0-1.2 m over the cap, slender and fluted, in a row back from the street",
+      "status": "fixed",
+      "how": "T-3562: K15 gains a long pot, 1.1 m high and slimmer than the tall one (0.12 m at its foot, 0.08 m in its shaft, a 0.1 m lip), and the south stack names it (pot: long) on its three flues; all 52 K01 houses were rebuilt, 51 of them byte-identical, only their input hashes moved. Against the head (cap's top to the corbels' foot, 0.7 m) the build's pots now stand 1.24 times its height and the print's about 1.4 times, about 0.1-0.15 m apart, inside the bar (the kit's 0.72 m tall pot stood 0.3-0.5 m short). Their fluting is under the bar"
+    },
+    {
+      "what": "a fourth pot: a pale shape nearest the street on the stack's head (x 1717-1740 px, y 72-130 px), lit on its west side with a rim at its top, may be a fourth pot in the row or the head's lit side",
       "status": "open",
-      "how": "three of the kit's tallest pot (0.72 m) stand on it; the 1.1 m stack takes three of K15's 0.21 m flues. T-3562 re-read it: the dark pots stand about 63-73 px over the cap (x 1730-1800, y 72-145 px), about 1.0-1.1 m, slender and fluted, with a lit fourth shape nearest the street that may be a fourth pot or the lit side of the head. A longer pot is a new profile in K15's kit (k15_chimneys.json), which every K01 house hashes as a mesh input (generators/mesh_inputs.py), so it is a whole-district rebake rather than this house's: it stays open here"
+      "how": "the build keeps three: four of K15's 0.21 m flues need a 1.24 m face and the stack is 1.1 m along the flank as both prints read it (the flue spacing rule in k01_frontage_params._k15_heads), so a fourth pot is a wider stack or a smaller flue, and the shape's reading is not settled"
+    },
+    {
+      "what": "the band under the stack's head: the build's K15 soot band lays the top 0.45 m of the shaft under the corbels in dark brick, which renders red on this stone stack; the print shows the head's pale stone and its shadowed mouldings there (x 1730-1830 px, y 140-185 px)",
+      "status": "open"
     },
     {
       "what": "the rosettes over the cornice's consoles",
