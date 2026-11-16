@@ -7204,12 +7204,12 @@
     {
      "id": "house_2026_prairie:back",
      "leaf": {
-      "local_e": 1359.38,
-      "local_n": -3555.3
+      "local_e": 1359.36,
+      "local_n": -3558.05
      },
      "step": {
-      "local_e": 1355.62,
-      "local_n": -3555.33
+      "local_e": 1356.16,
+      "local_n": -3558.08
      },
      "outward_deg": 269.5,
      "width_m": 0.95,
@@ -15864,8 +15864,8 @@
   {
    "structure": "prairie_2026:back_door:stoop",
    "placement": {
-    "local_e": 1359.38,
-    "local_n": -3555.3,
+    "local_e": 1359.36,
+    "local_n": -3558.05,
     "rotation_deg": 179.47
    },
    "barrier": {
@@ -15873,7 +15873,7 @@
     "u0": 0.05,
     "v0": -0.75,
     "count": 1,
-    "rects": "0 34 0 16"
+    "rects": "0 28 0 16"
    },
    "what": "back stoop"
   },
