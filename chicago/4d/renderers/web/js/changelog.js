@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3042, ts: '2026-11-16T20:00:09.201Z', date: 'Nov 16, 2026, 2:00 PM CT', title: 'South Water and Lake fill out as 1835\'s row of stores', kind: 'feature',
+    items: [
+      'In 1835 the block fronts of South Water and Lake Streets, Wells to State, are now built up toward seven tenths of their length, and the row turns the corner up Wells, LaSalle, Clark and Dearborn. 59 more reconstructed frame stores and a boarding house stand shoulder to shoulder at the street, the way Gifford drew the street round the first Tremont House.',
+      'No house was moved for them. A store never stands in front of a house, so every cottage set back behind the row keeps its own yard out to the street.',
+      'Every 1835 household has a roof, and most of the new stores stand empty, ready for keepers the sources can name.',
+    ] },
   { v: 3041, ts: '2026-11-16T18:47:11.445Z', date: 'Nov 16, 2026, 12:47 PM CT', title: 'Jaunts open and close on their own words', kind: 'feature',
     items: [
       'A jaunt whose opening is read aloud flies you to its start for as long as the narrator speaks, over a high look across the town. Skip to the Start lands you at once.',
