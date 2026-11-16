@@ -248,3 +248,101 @@ for (const st of [column, bank]) {
 const wagonPassed = teamsFor(column).filter((c) => castAt(c, 0).n > anchorEN[1] && castAt(c, 600).n < anchorEN[1]);
 assert.equal(wagonPassed.length, 2, 'the wagons come down from the north and pass the visitor with the column');
 console.log('PASS the two 1812 story jaunts stage their own people, keep them on phones, pass the column by, and never show a child fallen');
+
+// ---- the adults tellings (owner, 2026-11-15: "targeted at adults and shows everything incredibly
+// graphically"): each a version of its students' jaunt for the adults audience, behind its
+// warning, staging the fighting with weapons in the hand; and still no child struck or fallen,
+// and no blow ever aimed at one. The students' jaunts above keep their beats to moves and words.
+const schema = read('data/jaunts/schema.json');
+const castSchema = schema.$defs.stop.properties.stage.properties.cast.items;
+const ARMS = castSchema.properties.arm.enum, ACTS = castSchema.properties.beats.items.properties.act.enum;
+const WOUNDS = castSchema.properties.beats.items.properties.wound.enum;
+for (const [name, base] of [['battle-of-fort-dearborn-adults', 'battle-of-fort-dearborn'], ['killing-of-jean-lalime-adults', 'killing-of-jean-lalime']]) {
+  const jaunt = read(`data/jaunts/${name}.json`), student = read(`data/jaunts/${base}.json`);
+  assert.equal(jaunt.version_of, base, `${name}: a version of the students' ${base}`);
+  assert.equal(jaunt.audience, 'adults', `${name}: for adults`);
+  assert.ok(jaunt.content_warning?.length >= 40 && !jaunt.featured, `${name}: warned, and never featured`);
+  assert.ok(student.audience !== 'adults' && !('content_warning' in student), `${base}: the students' telling stays theirs`);
+  assert.ok(jaunt.liberties.includes('L-1812-adult-jaunts') && jaunt.liberties.includes('L-1812-staged-jaunts-3553'), `${name}: both stagings declared`);
+  assert.deepEqual(jaunt.stops.map((s) => s.id), student.stops.map((s) => s.id), `${name}: the same stops as the students'`);
+  let acts = 0, shots = 0, blows = 0, wounds = 0;
+  for (const st of jaunt.stops.filter((s) => s.stage)) {
+    const where = `${name}/${st.id}`;
+    const ids = stageIds(st);
+    assert.equal(new Set(ids).size, ids.length, `${where}: nobody twice in one scene`);
+    for (const id of ids) assert.ok(people.has(id), `${where}: ${id} is a person of 1812`);
+    assert.ok(castFor(st, 'light').length <= 90, `${where}: a phone's stage stays within its people (${castFor(st, 'light').length})`);
+    assert.ok(stageLength(st) < 300, `${where}: the scene plays out in minutes`);
+    const childIds = new Set(st.stage.cast.filter((c) => c.person && young.test(c.person)).map((c) => c.person));
+    for (const c of st.stage.cast) {
+      const beats = c.beats || [];
+      if (c.arm) assert.ok(ARMS.includes(c.arm), `${where}: ${c.arm} is a weapon`);
+      for (const b of beats) {
+        if (b.arm) assert.ok(ARMS.includes(b.arm), `${where}: ${b.arm} is a weapon`);
+        if (b.act) { assert.ok(ACTS.includes(b.act), `${where}: ${b.act} is a motion`); acts++; }
+        if (b.act === 'fire') shots++;
+        if (b.act === 'strike' || b.act === 'stab') blows++;
+        if (['strike', 'stab', 'fire', 'aim'].includes(b.act) && typeof b.face === 'string') assert.ok(!childIds.has(b.face), `${where}: no blow or shot is aimed at a child (${b.face})`);
+        if (b.wound) { assert.ok(WOUNDS.includes(b.wound), `${where}: ${b.wound} is a wound`); wounds++; }
+      }
+      // Whoever is struck bleeds where it lands (human-blood.js); and only someone struck, fallen or scalped does.
+      const who = c.person ?? c.extra;
+      if (beats.some((x) => x.act === 'struck')) assert.ok(beats.some((x) => x.wound), `${where}: ${who} is struck and bleeds`);
+      if (beats.some((x) => x.wound)) {
+        const down = [c.pose, ...beats.map((x) => x.pose)].some((p) => p === 'fallen' || p === 'lie');
+        assert.ok(down || beats.some((x) => x.act === 'struck'), `${where}: ${who} bleeds only where struck or fallen`);
+      }
+      if (beats.some((x) => x.wound === 'scalp')) assert.ok(beats.some((x) => x.pose === 'fallen' || x.pose === 'lie'), `${where}: only the fallen are scalped (${who})`);
+      if (c.person && young.test(c.person)) {
+        const poses = [c.pose, ...beats.map((x) => x.pose)].filter(Boolean);
+        assert.ok(!poses.includes('lie') && !poses.includes('fallen'), `${where}: no child is shown fallen (${c.person})`);
+        assert.ok(!beats.some((x) => x.act || x.arm || x.wound), `${where}: no child is struck, armed or wounded (${c.person})`);
+      }
+    }
+  }
+  assert.ok(acts >= 5 && shots >= 1 && blows >= 1, `${name}: the fighting is staged (${acts} motions, ${shots} shots, ${blows} blows)`);
+  assert.ok(wounds >= 4, `${name}: and its blood (${wounds} wounds)`);
+}
+const gate = read('data/jaunts/killing-of-jean-lalime-adults.json').stops.find((s) => s.id === 'the-gate').stage.cast;
+const lalime = gate.find((c) => c.person === 'lalime_john'), kinzie = gate.find((c) => c.person === 'kinzie_john_elder');
+assert.ok(lalime.beats.some((b) => b.act === 'fire') && lalime.beats.some((b) => b.arm === 'knife'), 'at the gate Lalime fires his pistol and draws his dirk (Porthier)');
+assert.ok(kinzie.beats.some((b) => b.act === 'struck') && kinzie.beats.some((b) => b.act === 'stab'), 'Kinzie is hit, closes and stabs (Hubbard; Porthier)');
+assert.ok(lalime.beats.some((b) => b.pose === 'lie') && castAt(kinzie, 600).hidden, 'Lalime lies where he fell; Kinzie goes');
+assert.ok(lalime.beats.filter((b) => b.wound === 'body').length >= 3 && kinzie.beats.some((b) => b.wound === 'neck'), 'Lalime stabbed with his own knife; the ball cut the side of Kinzie\'s neck (Hubbard)');
+console.log('PASS the adults tellings stage the fighting behind their warning, and still never strike or fell a child');
+
+// ---- a wound beat bleeds the one hit (human-blood.js), from the side of the castmate armed nearest
+// him, and waits for a figure still loading; Watch again washes it away.
+{
+  const calls = [];
+  const blood = { createBloodFx: () => ({ wound: (actor, kind, o) => { calls.push([actor.instance.person_id ?? 'x', kind, o.from && [o.from.x, o.from.z]]); return true; },
+    update() {}, clear() { calls.push(['clear']); }, visible: true, counts: { wounded: 0 } }) };
+  const made = [];
+  const fig = (instance) => {
+    const a = { instance, e: 0, n: 0, heading: 0, posture: null, indoors: false, disposed: false, body: instance.person_id === 'v' ? null : {},
+      root: { visible: true, position: { clone() { return { x: a.e, z: -a.n }; } } },
+      setState() {}, place() {}, setIndoors() {}, turnTo() {}, setPosture() {}, walkPath() { return true; }, update() {}, dispose() { this.disposed = true; } };
+    made.push(a); return a;
+  };
+  const humans = { shown: true, get: (id) => ({ instance: { id: `hi_${id}`, scene: '1812', appearance: { asset_id: 'x' } }, person: { id } }), createActor: (i) => fig(i) };
+  const fights = { id: 'f', stage: { caption: 'x', liberty: 'L-x', cast: [
+    { person: 'w', at: [3, 4], arm: 'tomahawk', beats: [{ t: 1, act: 'strike', face: 'u' }] },
+    { person: 'u', at: [3, 5], beats: [{ t: 1.6, act: 'struck' }, { t: 1.6, wound: 'head' }] },
+    { person: 'v', at: [40, 40], beats: [{ t: 2, wound: 'body' }] },
+  ] } };
+  const st = createJauntStage({ humans, parent: { add() {} }, eye: () => ({ x: 0, y: 1.6, z: 0 }), blood });
+  st.sync(fights, { arrived: true });
+  calls.length = 0;
+  const [w, u, v] = made;
+  w.e = 3; w.n = 4; u.e = 3; u.n = 5; v.e = 40; v.n = 40;
+  st.update(1.7);
+  assert.deepEqual(calls, [['u', 'head', [3, -4]]], 'struck at 1.6 s, the blood comes from the side of the man with the tomahawk');
+  st.update(0.5);
+  assert.equal(calls.length, 1, 'a figure still loading bleeds once it is drawn, not before');
+  v.body = {};
+  st.update(0.1);
+  assert.deepEqual(calls.at(-1), ['v', 'body', [3, -4]], '... and then');
+  st.replay();
+  assert.ok(calls.some((c) => c[0] === 'clear'), 'Watch again washes the blood away');
+}
+console.log('PASS a wound beat bleeds the one hit, from the armed side, once the figure is drawn');

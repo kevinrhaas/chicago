@@ -155,6 +155,19 @@ HOST_REACH_M = 12
 # T-3553: how far from a stop's stand its stage may reach: a column seen coming from a distance.
 STAGE_REACH_M = 260
 
+def figure_ids(root):
+    """T-3606: every figure a staged extra can wear, by asset id: each recipe's own name, its
+    `asset_id`, and the ids of the variants it builds (data/humans/recipes; no GLB is read)."""
+    ids = set()
+    for f in sorted((root / 'data/humans/recipes').glob('*.json')):
+        ids.add(f.stem)
+        try: r = json.loads(f.read_text())
+        except ValueError: continue
+        if isinstance(r.get('asset_id'), str): ids.add(r['asset_id'])
+        for v in r.get('proof_variants') or []:
+            if isinstance(v, dict) and isinstance(v.get('id'), str): ids.add(v['id'])
+    return ids
+
 def unique(rows, label):
     result = {r['id']: r for r in rows}
     require(len(result) == len(rows), f'duplicate {label} id')
@@ -180,6 +193,10 @@ class Compiler:
             (self.root / 'docs/LIBERTIES.md').read_text(errors='replace'), re.M))
         html = (self.root / 'renderers/web/index.html').read_text()
         self.refs['topic'] = {key: {} for key in re.findall(r'data-topic="([a-z-]+)"', html)}
+
+    def figures(self):
+        if not hasattr(self, '_figures'): self._figures = figure_ids(self.root)
+        return self._figures
 
     def resolve(self, ref, destination=False):
         kind, key = ref['kind'], ref['id']
@@ -224,6 +241,10 @@ class Compiler:
         level = jaunt_reading_level.problem(doc)
         require(not level, level)
         require(doc.get('version_of') != doc['id'], 'a jaunt cannot be a version of itself')
+        # The owner, 2026-11-15: an adults jaunt stages the fighting; it says so before it starts.
+        adults = doc.get('audience') == 'adults'
+        require(not adults or doc.get('content_warning'), 'an adults jaunt needs its content_warning')
+        require(adults or 'content_warning' not in doc, 'a content_warning belongs to an adults jaunt')
         stops, ends = unique(doc['stops'], 'stop'), unique(doc['endings'], 'ending')
         require(not (set(stops) & set(ends) or {'Previous', '$end'} & (set(stops) | set(ends))), 'duplicate/reserved node id')
         claims = unique(doc['evidence'], 'evidence')
@@ -308,11 +329,17 @@ class Compiler:
                 a = self.refs['anchor'].get(d['id']) if d['kind'] == 'anchor' else None
                 for c in cast:
                     who = c.get('person') or c['extra']
+                    # Students see build-up and aftermath (2026-11-14): no weapon raised, no blow, no shot, no blood.
+                    fights = [k for k in ('arm', 'act', 'wound') if k in c or any(k in b for b in c.get('beats', []))]
+                    require(adults or not fights, f'{stop["id"]}: {who} has {"/".join(fights)}; only an adults jaunt stages the fighting')
                     if c.get('person'): self.resolve({'kind': 'person', 'id': c['person']})
                     else:
                         # A figure is its recipe (the GLB is built from it); the changelog fold's
-                        # sparse checkout carries no GLBs, so the recipe is what it can see.
-                        require((self.root / f"data/humans/recipes/{c['dress']}.json").exists(), f'{stop["id"]}: {who} wears {c["dress"]}, which is not a figure')
+                        # sparse checkout carries no GLBs, so the recipe is what it can see. T-3606:
+                        # the dress is the figure's asset id, which is the recipe's own name (1812's
+                        # figures, 1904's children) or the asset a recipe builds (1904's adult
+                        # dresses build `glessner_frances_m_1904` and the like: figures().
+                        require(c['dress'] in self.figures(), f'{stop["id"]}: {who} wears {c["dress"]}, which is not a figure')
                         if c.get('dress_of'): self.resolve({'kind': 'person', 'id': c['dress_of']})
                     marks = [c['at']] + [p for b in c.get('beats', []) for p in b.get('walk', []) + ([b['place']] if 'place' in b else [])]
                     if a:
@@ -444,7 +471,7 @@ class Compiler:
                 if light: row['ambience'] = light
                 # T-3584: the menu's group, the jaunts that lead it, and a card picture for an anchor-only route.
                 # T-3590: the school grades it is written for, and the jaunt it retells for them.
-                row.update(menu_group=doc['menu_group'], grade_band=doc['grade_band'], **{k: doc[k] for k in ('menu_rank', 'plate', 'version_of') if k in doc})
+                row.update(menu_group=doc['menu_group'], grade_band=doc['grade_band'], **{k: doc[k] for k in ('menu_rank', 'plate', 'version_of', 'audience', 'content_warning') if k in doc})
                 row.update(featured=doc.get('featured', False), stop_count=len(doc['stops']), primary_family=doc['keepsake']['family'], secondary_family=doc.get('secondary_family'),
                            timing={'opening_read_s': doc['opening']['read_s'], 'stops': [{'read_s': s['read_s'], 'action_s': s.get('action_s', 0), **leg_mode(doc, i)} for i, s in enumerate(doc['stops'])], 'endings_read_s': [e['read_s'] for e in doc['endings']]},
                            destinations=[s['destination'] for s in doc['stops']], availability='unavailable' if reasons else 'available', reason='; '.join(reasons) or None)
@@ -455,12 +482,14 @@ class Compiler:
             except (ValueError, KeyError, TypeError) as error:
                 errors.append(f'{path.name}: {error}')
         errors.extend(errors_facts)
-        # T-3590: a version retells a jaunt of this scene, never another version, in another grade band.
+        # T-3590: a version retells a jaunt of this scene, never another version, in another grade
+        # band, or (2026-11-15) for another audience: the adults telling of a student jaunt.
         by_id = {row['id']: row for row in catalog}
         for row in catalog:
             base = by_id.get(row.get('version_of')) if row.get('version_of') else None
-            if row.get('version_of') and not (base and not base.get('version_of') and base['grade_band'] != row['grade_band']):
-                errors.append(f"{row['id']}.json: version_of {row['version_of']} must name another grade band's jaunt of this scene")
+            other = base and (base['grade_band'] != row['grade_band'] or base.get('audience', 'all') != row.get('audience', 'all'))
+            if row.get('version_of') and not (base and not base.get('version_of') and other):
+                errors.append(f"{row['id']}.json: version_of {row['version_of']} must name another grade band's or audience's jaunt of this scene")
         files['catalog.json'] = packed({'schema_version': 1, 'scene': self.scene_id, 'jaunts': catalog})
         files['daybook.json'] = packed(self.daybook())
         return files, errors

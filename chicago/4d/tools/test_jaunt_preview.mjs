@@ -81,6 +81,29 @@ try {
   });
   assert.match(unavailable.text,/Unavailable — Consultation required/);assert.equal(unavailable.buttons,0);
   receipts.push({unavailable});
+  // The adults tellings (owner, 2026-11-15): listed only once the visitor has said in Settings that
+  // they are 18 or over, tagged and warned on the card, and refused at the start when the switch is off.
+  const adults=await page.evaluate(async()=>{
+    const {createJauntPreview}=await import('/walk/js/jaunt-preview.js');
+    const warning='18+. Graphic violence from the accounts, staged in the scenes.';
+    const rows=[{id:'kids',title:'For everyone',premise:'A story.',category:'Orientation',stop_count:2,primary_family:'Wayfinding',availability:'available'},
+      {id:'grown',title:'For adults',premise:'A hard story.',category:'Orientation',stop_count:2,primary_family:'Wayfinding',availability:'available',audience:'adults',version_of:'kids',content_warning:warning}];
+    const out={};
+    for (const allow of [false,true]) {
+      const root=document.createElement('div');document.body.replaceChildren(root);
+      const preview=createJauntPreview({root,dataBase:new URL('/data/',location.href),destinations:{},api:{},fetcher:async()=>({ok:true,json:async()=>({jaunts:rows})}),allowAdults:()=>allow});
+      await preview.open();
+      let refused=false;
+      try { await preview.load?.('grown'); } catch { refused=true; }
+      out[allow]={cards:[...root.querySelectorAll('[data-jaunt]')].map(e=>e.dataset.jaunt),tag:root.querySelector('.jaunt-adults')?.textContent??null,warned:root.textContent.includes(warning),refused};
+    }
+    return out;
+  });
+  assert.deepEqual(adults.false.cards,['kids'],'the adults telling is not listed until the visitor says they are 18 or over');
+  assert.equal(adults.false.tag,null);assert(adults.false.refused,'and cannot be started');
+  assert.deepEqual(adults.true.cards,['kids','grown'],'listed after its students\' telling once allowed');
+  assert.equal(adults.true.tag,'18+');assert(adults.true.warned,'its warning is on the card');
+  receipts.push({adults});
   fs.writeFileSync(path.join(out,'preview.json'),JSON.stringify(receipts,null,2)+'\n');
   console.log('JAUNT PREVIEW PASS — both viewports, production/dev bases, 0 boot requests, isolated retries, 5 stops, evidence, unavailable reasons and layouts');
 } finally {await browser.close();server.close();}

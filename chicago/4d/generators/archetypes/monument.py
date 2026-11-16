@@ -33,12 +33,13 @@ tomahawk raised; Margaret Helm, staggering back in her long skirt, her arm acros
 Black Partridge behind her, his open hand raised against the blow, the musket slanting
 past his hip; the post surgeon fallen under them, one leg stretched to the west edge; the
 child kneeling at the right front, both arms out. Mrs. Helm's skirt, overskirt and cloak
-are drapery lofted in folds since T-3594 (`DRAPERY`), and the weapons and ornaments are
+are drapery lofted in folds since T-3594 (`DRAPERY`), and so are Black Partridge's short
+breechcloth with its fringe and the child's smock; the weapons and ornaments are
 modelled as the plates show them (`ORNAMENTS`): the warrior's pipe tomahawk, his feather
 and the fringed pouch at his hip, Black Partridge's headband with its knot, standing
 feather and streamer, and his musket. Only Mrs. Helm's knot of hair is still a member
-below (`monument_figures.PROPS`). The sculpted faces and hair, the other figures' dress
-folds and the panels' reliefs are not modelled (the record's liberty says so);
+below (`monument_figures.PROPS`). The sculpted faces and hair, the warrior's and the
+surgeon's dress and the panels' reliefs are not modelled (the record's liberty says so);
 the rear, which no photograph used here shows, is the same masses seen from behind.
 """
 
@@ -546,7 +547,9 @@ def _cone(m, top, bottom, rt, rb, conf, sides=12):
 # round each ring, deepening from `amp[0]` at the top to `amp[1]` at the foot, `hem` the
 # foot's rise and fall round the ring (fabric lying on the rock), `cut` an overskirt's
 # slanting hem (the share of the length it reaches on the figure's right, at theta 180
-# degrees, and on her left, at 0), and `caps` whether the top and foot are closed.
+# degrees, and on her left, at 0), `caps` whether the top and foot are closed, and (since
+# the other figures' dress, below) `fringe` a foot cut into strands and `sides` the points
+# round each ring where 40 would not hold them.
 DRAPERY = {
     "helm_skirt": {
         "path": ((0.03, -0.72, 0.86), (-0.02, -0.80, 0.42), (-0.01, -0.70, 0.05)),
@@ -565,6 +568,29 @@ DRAPERY = {
         "rx": (0.09, 0.08, 0.055), "ry": (0.05, 0.085, 0.06),
         "folds": ((5, 0.9, 0.7), (3, 2.0, 0.3)),
         "amp": (0.10, 0.22), "hem": 0.015, "caps": (True, True),
+    },
+    # Black Partridge's breechcloth (T-3594): a short apron off his belt (ICHi-19208 y 272,
+    # z 1.0 here, where the rig's belt is) falling over the tops of his thighs and cut at
+    # its foot into a ragged fringe, the strands' tips at y 300-312 (z 0.84-0.78 at his
+    # front, through the plate's solved camera) and the same on Taylor's print, where it
+    # ends a quarter of the way down his thigh. The rig's own breechcloth hung to his knee
+    # (z 0.43), past what either plate shows. `fringe` is the strands: (count round the
+    # piece, their length), cut into the foot.
+    "black_partridge_breechcloth": {
+        "path": ((0.40, -0.635, 1.00), (0.41, -0.62, 0.90), (0.42, -0.60, 0.82)),
+        "rx": (0.150, 0.165, 0.185), "ry": (0.120, 0.125, 0.130),
+        "folds": ((5, 0.7, 0.5), (8, 2.0, 0.3)),
+        "amp": (0.03, 0.09), "hem": 0.0, "fringe": (19, 0.055), "sides": 95, "caps": (False, False),
+    },
+    # The child's smock (T-3594): both plates show a short shift from the shoulders to the
+    # middle of the thighs he kneels on (ICHi-19208 x 665-712, y 392-430; on Taylor's print
+    # it falls in loose folds over his lap), his arms, shins and feet bare. The rig's
+    # jacket, collar, trousers and shoes are not cast.
+    "child_smock": {
+        "path": ((0.565, -0.735, 0.29), (0.565, -0.745, 0.17), (0.57, -0.75, 0.075)),
+        "rx": (0.085, 0.105, 0.120), "ry": (0.070, 0.085, 0.100),
+        "folds": ((6, 0.5, 0.6), (9, 1.3, 0.3)),
+        "amp": (0.03, 0.15), "hem": 0.01, "caps": (True, True),
     },
 }
 DRAPE_RINGS = 14
@@ -586,11 +612,18 @@ def _drape_point(d, s, t):
     a = d["amp"][0] + (d["amp"][1] - d["amp"][0]) * s ** 1.3
     r = 1.0 + a * wave
     z = c[2] - d["hem"] * s * s * math.cos(d["folds"][0][0] * t + d["folds"][0][1])
+    if "fringe" in d:
+        # the strands: a tooth at the foot to each strand, its tip `length` below the gaps
+        # between them, the cut running a short way up the piece
+        n, length = d["fringe"]
+        f = (n * t / (2 * math.pi)) % 1.0
+        z -= length * (1.0 - abs(2.0 * f - 1.0)) * s ** 8
     return (c[0] + r * _quad(d["rx"], s) * math.cos(t), c[1] + r * _quad(d["ry"], s) * math.sin(t), z)
 
 
 def _drape(m, d, place, conf, rings=DRAPE_RINGS, sides=DRAPE_SIDES):
     """One piece of `DRAPERY`, lofted ring by ring, its normals off the surface itself."""
+    sides = d.get("sides", sides)
     def reach(t):
         if "cut" not in d:
             return 1.0

@@ -95,6 +95,10 @@ const DEFAULT_SETTINGS = {
   // it takes the getting-there choice where it can (js/getting-there.js § jauntChoice).
   // Replaces T-2652's hidden `arriveChosen` rule. Anything but a stored `true` reads as off.
   jauntsFollowChoice: false,
+  // The owner, 2026-11-15: Move › Adults-only jaunts (18 or over). The jaunts that stage the
+  // 1812 fighting graphically are listed only once a visitor turns this on. Anything but a
+  // stored `true` reads as off.
+  adultJaunts: false,
   // T-2653: a drag to look on a touch screen turns in steps (Move › Comfort).
   snapTurn: false,
   // T-3563: Settings › Look › Mouse (on a touch screen, Look) sensitivity, a multiple of
@@ -799,6 +803,16 @@ export function createHud({
       store(SET_KEY, JSON.stringify(settings));
     });
   }
+  // The owner, 2026-11-15: the adults-only jaunts, behind the visitor's own word that they are 18 or over.
+  const adultJaunts = $('s-adult-jaunts');
+  if (adultJaunts) {
+    adultJaunts.checked = settings.adultJaunts === true;
+    adultJaunts.addEventListener('change', () => {
+      settings.adultJaunts = adultJaunts.checked;
+      onSetting?.('adultJaunts', settings.adultJaunts);
+      store(SET_KEY, JSON.stringify(settings));
+    });
+  }
   moveSlider?.addEventListener('input', () => {
     const key = PACES[groundPace()].settingKey;
     settings[key] = Number(moveSlider.value);
@@ -911,6 +925,8 @@ export function createHud({
     setMoveMode,
     paintMove,
     /** The getting-there choice, for Go to, the Map and Jaunts (T-2652). */
+    /** The owner, 2026-11-15: whether the adults-only jaunts are listed (Move › Adults-only jaunts). */
+    get adultJaunts() { return settings.adultJaunts === true; },
     get gettingThere() { return { travelMode: settings.travelMode, pace: groundPace(), follow: settings.jauntsFollowChoice === true }; },
     /** Move's mode: 'fly' while flying, else the ground pace (T-2651). */
     get moveMode() { return flying ? 'fly' : groundPace(); },

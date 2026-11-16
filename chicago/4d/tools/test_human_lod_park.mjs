@@ -29,9 +29,10 @@ const stubGait = () => ({ bound: true, bind() { return true; }, apply() {}, spee
 const stubSkirt = () => null;
 // T-3523: a soldier's musket hand (human-garrison.js); these figures carry nothing.
 const stubGarrisonCarry = () => null;
-const HumanActor = new Function('THREE', 'createHumanLife', 'createHumanActions', 'createHumanGait', 'createHumanSkirt', 'enuToWorld', 'restingLid', 'garrisonCarry',
+// T-3553: the 18+ jaunts' fight motions (human-fight.js) handed to the hands; these figures fight nothing.
+const HumanActor = new Function('THREE', 'createHumanLife', 'createHumanActions', 'createHumanGait', 'createHumanSkirt', 'enuToWorld', 'restingLid', 'garrisonCarry', 'fightMotions',
   `${constants}\n${actorSource}\nreturn HumanActor;`)(THREE, stubLife, stubActions, stubGait, stubSkirt,
-  (e, n, h, out) => out.set(e, h, -n), restingLid, stubGarrisonCarry);
+  (e, n, h, out) => out.set(e, h, -n), restingLid, stubGarrisonCarry, null);
 
 // The asset store, counting what is parsed and let go.
 const acquired = [], released = [];

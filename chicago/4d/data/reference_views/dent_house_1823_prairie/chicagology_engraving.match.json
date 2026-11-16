@@ -2,7 +2,7 @@
   "structure_id": "dent_house_1823_prairie",
   "view": "chicagology_engraving",
   "glb": "assets/gltf/dent_house_1823_prairie__as_mapped_1904.glb",
-  "glb_sha256": "38be27b5f2134fa597a63de004f998b8290690ff954e2c6cbad40566aeebacd8",
+  "glb_sha256": "d304b6f61c132d8bc2e5963bef11e0b961befd002e0ceb054426d8c4874fe35e",
   "camera_sha256": "2a2bc061e8cab56a2fdc01a696a638d330188106d263058ad63d7546b3f97355",
   "photo_sha256": "ef58522d4ac8f90422e4ebf253aec05a27bc06f7b47a255829684a2a2bc5bd0e",
   "side_by_side": "docs/RESEARCH/photo-match/dent_house_1823_prairie/chicagology_engraving-side-by-side.jpg",
@@ -154,8 +154,8 @@
     },
     {
       "what": "two more basement lights in the print, under the 0.25 m column (x 265-285 px) and under the rear range's flank column (x 230-250 px)",
-      "status": "open",
-      "how": "K01 lays a read window no nearer than 0.45 m to the wall's end, and the 0.25 m column's centre is 0.25 m from the junction with the rear range; a rear wing lays its basement lights only round-headed, where the print's are square"
+      "status": "fixed",
+      "how": "T-1894: both laid square-headed in the brick, 0.75 m across and 0.45-1.45 m over grade as the other three are: under the 0.25 m column at s 0.48 m, its south edge 0.1 m inside the main body's rear, since the rear range carries the flank on flush there (K01's new flush-wing end; the print's light at x 265-285 px, the render's about x 275-288), and under the rear range's flank column at its s 5.25 m (a wing's basement_lights now take head: plain; the print's x 230-250 px, the render's about x 232-245). The reconstructed downpipe that would have crossed the first moved to the blank pier at s 1.2 m"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

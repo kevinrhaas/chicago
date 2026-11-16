@@ -262,6 +262,7 @@ uniform vec4 chiLikeFrontTo;    // toward where the picture was taken from (bind
 uniform sampler2D chiFaceLib;   // the library's sheet of faces (FACE_LIBRARY), or nothing
 uniform vec4 chiFaceLibAt;      // this person's face on it: where its box's corner lies (xy), and the sheet's share for one unit of the body's map (zw)
 uniform vec4 chiFaceLibGain;    // what the face is multiplied by to meet this body's skin, and 1 once the sheet is here
+uniform vec3 chiSkinEven;       // what the body's skin is multiplied by to be the skin the person wears on every body (skinEven)
 varying vec2 vChiLikeFront;     // where this place lies on that picture
 varying float vChiSmile;        // how far the face has moved into its smile
 varying vec3 vChiLikeX;
@@ -315,7 +316,8 @@ const SKIN_COLOR = `
     float tone = chiSkinNoise( p * 46.0 + 9.2 ) * 0.6 + chiSkinNoise( p * 140.0 + 4.4 ) * 0.4 - 0.5;
     // Small darker spots, sparse: moles and freckles at a millimetre or two.
     float spot = smoothstep( 0.80, 0.93, chiSkinNoise( p * 420.0 + 7.7 ) ) * clamp( 1.5 - pix * 420.0, 0.0, 1.0 );
-    vec3 c = diffuseColor.rgb;
+    // T-3553: a person drawn on bodies of more than one skin wears one of them on all (skinEven).
+    vec3 c = diffuseColor.rgb * chiSkinEven;
     // T-3553: a face from the library in place of the body's own (FACE_LIBRARY), in the
     // person's complexion. First of all, so the lips, the age and the brows below work on it.
     #ifdef USE_MAP
@@ -660,6 +662,7 @@ function patchSkin(material, rest, look = NO_LOOK) {
     chiFaceLib: { value: null },
     chiFaceLibAt: { value: new THREE.Vector4() },
     chiFaceLibGain: { value: new THREE.Vector4(1, 1, 1, 0) },
+    chiSkinEven: { value: new THREE.Vector3(...look.even) },
   };
   setLikeness(uniforms, look.like);
   setLibraryFace(uniforms, look.lib);
@@ -982,7 +985,13 @@ export function restingLid(age) {
   return AGE.lid_most * Math.min(1, Math.max(0, (age - AGE.lid_from) / (AGE.lid_full - AGE.lid_from)));
 }
 export const BROW = Object.freeze({ shade: .8, pieces: Object.freeze(['brows_fine']) });
-const NO_LOOK = Object.freeze({ age: 0, brow: 0, face: new THREE.Matrix4(), marks: [-4.5, -6.3, 2.5, 1.8], tint: [1, 1, 1], like: null, lib: null, key: 'none' });
+const NO_LOOK = Object.freeze({ age: 0, brow: 0, face: new THREE.Matrix4(), marks: [-4.5, -6.3, 2.5, 1.8], tint: [1, 1, 1], like: null, lib: null, even: [1, 1, 1], key: 'none' });
+
+/** T-3553: what human-variation.js left on the figure to bring its skin to the person's own (skinEven), or none. */
+function evenOf(root) {
+  const e = root.userData?.chiSkinEven;
+  return Array.isArray(e) && e.length === 3 && e.every(x => Number.isFinite(x) && x > 0) && e.some(x => x !== 1) ? e.slice() : null;
+}
 
 /** The midline's marks, in the face's frame (cm): the subnasale and the mouth's line. */
 function midlineMarks(mesh, root, f) {
@@ -1011,7 +1020,8 @@ function lookOf(mesh, root, { age = null, person = null, year = null } = {}) {
   const f = headFrame(mesh, root);
   // T-3553: a person's own skin sheet, where human-variation.js left one on the figure.
   const like = likenessLayout(root.userData?.chiLikenessSkin);
-  if (!f) return like ? { ...NO_LOOK, like, key: `none|like:${like.url}` } : NO_LOOK;
+  const even = like ? null : evenOf(root), evenKey = even ? `|even:${even.map(x => x.toFixed(3))}` : '';
+  if (!f) return like ? { ...NO_LOOK, like, key: `none|like:${like.url}` } : even ? { ...NO_LOOK, even, key: `none${evenKey}` } : NO_LOOK;
   // ...or, for a person with none, the face the library gave them (FACE_LIBRARY); it keeps
   // only `lines` of the drawn age lines, an older atlas having painted its own.
   const lib = like ? null : libraryFaceLayout(root.userData?.chiFaceSkin);
@@ -1027,8 +1037,8 @@ function lookOf(mesh, root, { age = null, person = null, year = null } = {}) {
   const marks = [mid[0], mid[1], 2.5, 1.8];
   // The pictures on a sheet carry the person's own brows: no shade is drawn under them.
   const ageStep = Math.round(a * 20) / 20, brow = hc && !like ? BROW.shade : 0;
-  return { age: ageStep, brow, face, marks, tint, like, lib,
-    key: `${ageStep}|${brow}|${tint.map(t => t.toFixed(2))}|${f.o.toArray().map(t => Math.round(t * 500)).join(',')}${like ? `|like:${like.url}` : ''}${lib ? `|face:${lib.key}` : ''}` };
+  return { age: ageStep, brow, face, marks, tint, like, lib, even: even ?? NO_LOOK.even,
+    key: `${ageStep}|${brow}|${tint.map(t => t.toFixed(2))}|${f.o.toArray().map(t => Math.round(t * 500)).join(',')}${like ? `|like:${like.url}` : ''}${lib ? `|face:${lib.key}` : ''}${evenKey}` };
 }
 
 function setLook(uniforms, look) {
@@ -1036,6 +1046,7 @@ function setLook(uniforms, look) {
   uniforms.chiFaceLook.value.set(look.age, look.brow, 0, 0);
   uniforms.chiFaceMarks.value.set(...look.marks);
   uniforms.chiBrowTint.value.set(...look.tint);
+  uniforms.chiSkinEven?.value.set(...(look.even ?? NO_LOOK.even));
 }
 
 /**

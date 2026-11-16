@@ -1,4 +1,72 @@
 export const CHANGELOG = [ // newest first
+  { v: 3019, ts: '2026-11-16T00:58:43.506Z', date: 'Nov 15, 2026, 6:58 PM CT', title: 'Ten new 1904 story jaunts, played by the people of the street', kind: 'feature',
+    items: [
+      'Under Jaunts > Stories, ten walks of Prairie Avenue on one Monday in November 1904, each with four or five stops that lead to the next and an ending.',
+      'The Merchant and Mrs. Caton, The Scandal at 1612 Prairie, The Daughter Who Made Things, Monday at the Fortress and The Last Pullman Twin.',
+      'Pullman\'s Other Son, The Bronze at Eighteenth Street, The Sisters of the Levee, One Year and a Day and The Walk to the Lake.',
+      'At every stop the people who lived and worked there step out of their doors and play the scene: Marshall Field on his steps, the Lees parting at 1700, the Reading Class arriving at the Glessners\'.',
+      'Every fact and quotation the narrator tells is cited to its source; who stands where, and the unnamed figures, are recorded as reconstruction.',
+    ] },
+  { v: 3018, ts: '2026-11-16T00:52:05.802Z', date: 'Nov 15, 2026, 6:52 PM CT', title: '18+ jaunts: blood and wounds', kind: 'feature',
+    items: [
+      'In the two 18+ jaunts, every blow, shot and scalping now draws blood where it lands. Drops fly from the wound and lie where they fall, a stain spreads on the clothing on the side the blow came from, and a pool spreads on the ground under the fallen.',
+      'The wounds follow the accounts where they say where: Kinzie and the Canadian in the neck, Mrs. Helm on the shoulder, the knife wounds of White and Lalime in the body. A scalping marks the crown of the head.',
+      'Someone wounded who is still standing or kneeling keeps bleeding a little.',
+      'No child is wounded. The student jaunts are unchanged.',
+    ] },
+  { v: 3017, ts: '2026-11-16T00:13:16.783Z', date: 'Nov 15, 2026, 6:13 PM CT', title: 'The grades 3–5 Glessner tour\'s narrator opens with feeling again', kind: 'fix',
+    items: [
+      'The narrator\'s opening for The Glessner Household (grades 3–5) is performed with its direction again, after the tour\'s name changed.',
+    ] },
+  { v: 3016, ts: '2026-11-15T23:36:28.605Z', date: 'Nov 15, 2026, 5:36 PM CT', title: '1835\'s townspeople come and go from their homes and shops', kind: 'feature',
+    items: [
+      '2,830 people of the 1835 town now keep a day: merchants open their stores, tradesmen work before their shops, labourers come home for dinner, soldiers drill, women keep house and yard, children play by the door.',
+      'Each goes in and out of their own home, and of their place of business where the records name one.',
+      'Knock at any door to ask for whoever is inside; Find and Follow bring someone out of where they are now.',
+      'Greet them, ask them to go home or inside; each has their own clothes, colouring and height.',
+      'Up to eight are out around you at once on a computer, four on a phone.',
+    ] },
+  { v: 3015, ts: '2026-11-15T23:36:28.605Z', date: 'Nov 15, 2026, 5:36 PM CT', title: '1815 Prairie\'s south chimney gains its sunk stone panels', kind: 'improvement',
+    items: [
+      '1815 Prairie\'s tall south chimney now shows the three narrow sunk panels the old photograph draws down its face, cut in the stack\'s own stone rather than read as brick strips',
+    ] },
+  { v: 3014, ts: '2026-11-15T20:57:09.137Z', date: 'Nov 15, 2026, 2:57 PM CT', title: 'Jaunts menu: filter by school grade', kind: 'feature',
+    items: [
+      'A row of grade pills under the jaunt groups (All, 3–5, 6–8, 9–10) shows only the jaunts written for those grades; Clear filters lets it go.',
+      'The grades 3–5 Glessner tour is named The Glessner Household, like the tour it retells; its Grades 3–5 tag tells them apart.',
+    ] },
+  { v: 3013, ts: '2026-11-15T20:57:09.137Z', date: 'Nov 15, 2026, 2:57 PM CT', title: 'A coachman\'s skin is the same on his carriage and at his door', kind: 'fix',
+    items: [
+      'Joseph Daniels, Hans Johnson, Henry Windish and Charles Nelson were a shade lighter at their own door than on the box of their carriage, because the two figures were made from bodies of different skin. Each now wears the carriage driver\'s skin on both, with the same face.',
+      'Anyone else drawn on two bodies of different skin is treated the same way.',
+    ] },
+  { v: 3012, ts: '2026-11-15T20:33:37.221Z', date: 'Nov 15, 2026, 2:33 PM CT', title: 'The jaunt voices tell their stories with feeling', kind: 'improvement',
+    items: [
+      'Every voiced line in The Glessner Household, its Grades 3–5 telling and Meet the Glessner House is recorded again, with pauses, laughs, sighs, whispers and warmth where the story calls for them.',
+      'The words are the same as the ones you read in the panel.',
+    ] },
+  { v: 3011, ts: '2026-11-15T19:47:08.906Z', date: 'Nov 15, 2026, 1:47 PM CT', title: 'Fort Dearborn monument: Black Partridge\'s fringed breechcloth, the child\'s smock', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), Black Partridge\'s breechcloth is now a short apron off his belt, cut into a ragged fringe at the tops of his thighs. Both photographs show it that way. Before, it hung to his knee.',
+      'The kneeling child now wears the short smock the bronze shows, with bare arms, shins and feet, instead of a jacket and trousers.',
+    ] },
+  { v: 3010, ts: '2026-11-15T19:47:08.906Z', date: 'Nov 15, 2026, 1:47 PM CT', title: '18+ tellings of the 1812 battle and the Lalime killing', kind: 'feature',
+    items: [
+      'Two new 18+ jaunts show the fighting as the eyewitnesses described it: The Battle of Fort Dearborn (18+) and Chicago\'s First Murder (18+).',
+      'Lalime fires his pistol at Kinzie at the gate; the two close, and Kinzie stabs him with the knife.',
+      'At Lee\'s Place, White and the Canadian are shot down. On the beach, a volley comes from the bank, the soldiers fire back and charge with the bayonet, and men fight hand to hand with tomahawks and clubs.',
+      'Wells takes his niece\'s hand, fires his last shot and is killed. Mrs. Helm is struck and carried into the lake. The dead are scalped, as the accounts record.',
+      'They stay hidden until you turn on 18+ jaunts in Settings. Each shows a warning first, and teacher handouts never suggest them. No child is shown being harmed. The student jaunts are unchanged.',
+    ] },
+  { v: 3009, ts: '2026-11-15T18:45:11.084Z', date: 'Nov 15, 2026, 12:45 PM CT', title: '1823 Prairie\'s flank gets its last two basement lights', kind: 'improvement',
+    items: [
+      'The Dent house\'s north flank now shows all five square basement lights the Chicagology engraving draws. The two new ones sit under the window column by the rear range and under the rear range\'s own window. The reconstructed downpipe moves off the first of them.',
+    ] },
+  { v: 3008, ts: '2026-11-15T18:13:21.528Z', date: 'Nov 15, 2026, 12:13 PM CT', title: 'William Grey\'s eyes look like his photograph from the front', kind: 'fix',
+    items: [
+      'A dark band over each of William Grey\'s eyes is gone: his lids now show the skin of his photograph\'s lids, not its lashes.',
+      'Seen from the front, his eyes open as wide as the photograph\'s.',
+    ] },
   { v: 3007, ts: '2026-11-15T17:03:10.834Z', date: 'Nov 15, 2026, 11:03 AM CT', title: 'The Today window shows live Google Street View', kind: 'improvement',
     items: [
       'The Today window now carries the site\'s Google key, so it shows live Street View of the spot you stand on, turning and following you as you walk.',
