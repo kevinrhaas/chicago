@@ -240,8 +240,8 @@ for (const name of ['battle-of-fort-dearborn', 'killing-of-jean-lalime']) {
       const poses = [c.pose, ...(c.beats || []).map((x) => x.pose)].filter(Boolean);
       for (const p of poses) assert.ok(POSES.includes(p), `${where}: ${p} is a pose`);
       if (c.person && young.test(c.person)) assert.ok(!poses.includes('lie'), `${where}: no child is ever shown fallen (${c.person})`);
-      for (const b of c.beats || []) assert.deepEqual(Object.keys(b).filter((k) => !['t', 'walk', 'pace', 'heading', 'face', 'pose', 'ease', 'talk', 'greet', 'hide', 'show', 'place', 'torch', 'ignite'].includes(k)), [],
-        `${where}: a beat is only a move, a turn, a pose, a word of the hand, a way in or out, or a torch put to a building`);
+      for (const b of c.beats || []) assert.deepEqual(Object.keys(b).filter((k) => !['t', 'walk', 'pace', 'heading', 'face', 'pose', 'ease', 'talk', 'greet', 'hide', 'show', 'place', 'torch', 'ignite', 'cross', 'borne'].includes(k)), [],
+        `${where}: a beat is only a move, a turn, a pose, a word of the hand, a way in or out, a boat crossed in, a bier carried, or a torch put to a building`);
       if ((c.beats || []).some((b) => b.torch || b.ignite)) assert.ok(st.stage.fire, `${where}: a torch only where the stop burns`);
     }
     assert.ok(stageLength(st) < 300, `${where}: the scene plays out in minutes`);
@@ -285,7 +285,7 @@ console.log('PASS the two 1812 story jaunts stage their own people, keep them on
 for (const name of ['battle-of-fort-dearborn', 'battle-of-fort-dearborn-adults']) {
   const jaunt = read(`data/jaunts/${name}.json`), ids = jaunt.stops.map((x) => x.id);
   const burn = jaunt.stops.find((x) => x.id === 'the-burning');
-  assert.ok(burn && ids.indexOf('the-burning') === ids.indexOf('kinzie-house') + 1 && burn.next === 'ouilmette', `${name}: the burning comes the morning after the battle, before the search at Ouilmette's`);
+  assert.ok(burn && ids.indexOf('the-burning') === ids.indexOf('kinzie-house') + 1 && burn.next === 'war-party', `${name}: the burning comes the morning after the battle, before the war party and the search at Ouilmette's`);
   assert.equal(burn.date, '1812-08-16', `${name}: on the 16th (Heald: 'The next morning')`);
   const fire = burn.stage.fire;
   assert.ok(fire.visitor && fire.open_gates && jaunt.liberties.includes(fire.liberty), `${name}: the visitor holds a brand; the burning is a declared liberty`);
@@ -335,6 +335,161 @@ for (const name of ['battle-of-fort-dearborn', 'battle-of-fort-dearborn-adults']
   assert.ok(!burn.active, 'the stop let go gives the buildings back');
 }
 console.log('PASS the burning of the fort: the brands to the buildings, the visitor\'s torch, the magazine standing, in both tellings');
+
+// ---- doors and gates (the owner, 2026-11-16: "people appear outside doors the doors don't open
+// and close"; "The fort also they vanish through the door"; "the gate is not possible to cross").
+// A castmate whose walk ends at a hung door goes on through it, holding it open while near and
+// letting it go once in; one shown at a door comes out of it once it has opened; a stage's
+// `open_gates` stand open while it plays and shut again when it is let go.
+{
+  const made = [];
+  const fig = (instance) => {
+    const a = { instance, e: 0, n: 0, heading: 0, posture: null, indoors: false, disposed: false, body: {}, path: null, walks: [],
+      root: { visible: true, position: { clone() { return { x: a.e, z: -a.n }; } } },
+      setState() {}, place() {}, setIndoors(v) { a.indoors = v; }, turnTo() {}, setPosture() {}, update() {}, dispose() {},
+      walkPath(pts, o = {}) { a.path = pts; a.walks.push(pts.map((q) => [q.e, q.n])); a.arrive = () => { a.path = null; const q = pts.at(-1); a.e = q.e; a.n = q.n; o.onArrive?.(); }; return true; } };
+    made.push(a); return a;
+  };
+  const humans = { shown: true, get: () => null, createActor: (i) => fig(i) };
+  const leaf = { e: 0, n: 0 };
+  const passage = { id: 'h:front', held: new Set(), hold(k) { this.held.add(k); }, release(k) { this.held.delete(k); }, isOpen() { return this.held.size > 0; },
+    way() { const w = [{ e: 0, n: -2 }, { e: 0, n: -1 }, leaf, { e: 0, n: 0.6 }]; w.door = 1; w.leaf = leaf; return w; } };
+  const gateCalls = [];
+  const gates = { open(ids) { gateCalls.push(['open', ...ids]); return () => gateCalls.push(['shut', ...ids]); } };
+  const stopDoors = { id: 'd', stage: { caption: 'x', liberty: 'L-x', open_gates: ['x_green:s'], cast: [
+    { extra: 'in', dress: 'potawatomi_man_1812', at: [6, -6], beats: [{ t: 0.5, walk: [[0, -1.6]], hide: true }] },
+    { extra: 'out', dress: 'potawatomi_man_1812', at: [0, -1.4], hidden: true, beats: [{ t: 0.5, show: true }] },
+  ] } };
+  const st = createJauntStage({ humans, parent: { add() {} }, eye: () => ({ x: 0, y: 1.6, z: 0 }), doors: () => ({ passages: [passage] }), gates });
+  st.sync(stopDoors, { arrived: true });
+  assert.deepEqual(gateCalls, [['open', 'x_green:s']], 'the stage opens its gates as it begins');
+  const [inn, out] = made;
+  inn.e = 6; inn.n = -6; out.e = 0; out.n = -1.4; out.indoors = true;
+  st.update(0.6);
+  assert.deepEqual(inn.walks.at(-1).at(-1), [0, 0.6], 'a walk ending at the door goes on in, past its leaf');
+  assert.ok(inn.walks.at(-1).some(([e, n]) => e === 0 && n === -1), '... by the place before it');
+  assert.ok(passage.held.size >= 1, 'the door is held for the one coming out');
+  st.update(0.05);
+  assert.deepEqual(out.walks.at(-1)[0], [0, 0.6], 'the one shown at the door comes out from inside it once it is open');
+  assert.ok(!out.indoors, '... and is out of doors');
+  out.arrive(); st.update(0.05);
+  inn.e = 0; inn.n = -1.5; st.update(0.05);
+  assert.ok([...passage.held].some((k) => k.endsWith(':0')), 'the one going in holds the door while near it');
+  inn.arrive(); st.update(0.1);
+  assert.ok(inn.indoors, 'through it, they are in');
+  st.update(0.5);
+  assert.equal(passage.held.size, 0, 'and the door is let go behind them');
+  st.release();
+  assert.deepEqual(gateCalls.at(-1), ['shut', 'x_green:s'], 'the gates shut when the stop is let go');
+}
+console.log('PASS a staged figure goes in and out by a swinging door, and a stop opens and shuts its gates');
+
+// A castmate crosses in a drawn boat, sitting in it, and steps ashore on the far bank; the boat
+// is laid back when the stop is let go. The dead are carried on a bier at the bearers' hands, head
+// first, and set down (the owner, 2026-11-16: "he just disappears in front of your eyes"; "they
+// should be carrying the body by hand").
+{
+  const made = [];
+  const fig = (instance) => {
+    const a = { instance, e: 0, n: 0, heading: 0, posture: null, indoors: false, disposed: false, body: {}, path: null, standY: null,
+      root: { visible: true, position: { clone() { return { x: a.e, z: -a.n }; } } }, heightAt: () => 2,
+      setState() {}, place() {}, setIndoors(v) { a.indoors = v; }, turnTo() {}, setPosture(k) { a.posture = { kind: k }; }, update() {}, dispose() {},
+      walkPath(pts) { a.path = pts; return true; } };
+    made.push(a); return a;
+  };
+  const humans = { shown: true, get: () => null, createActor: (i) => fig(i) };
+  let restored = 0, settled = 0, t = 0, asked = null;
+  const handle = { get done() { return t >= 3; }, seat: () => ({ e: 10, n: 20 + t, y: 3, bearing: 0 }), stand: () => [10, 40], restore() { restored++; }, settle() { settled++; } };
+  const boats = { carry: (id, o) => { asked = o; return id === 'p' ? handle : null; } };
+  const props = [];
+  const bier = () => { const o = { position: { set(x, y, z) { o.at = [x, y, z]; } }, rotation: { set() {} }, removeFromParent() { o.gone = true; } }; props.push(o); return o; };
+  const stopBoat = { id: 'b', stage: { caption: 'x', liberty: 'L-x', cast: [
+    { extra: 'k', dress: 'trader_1812', at: [10, 18], beats: [{ t: 0.1, cross: 'p' }, { t: 5, place: [10, 40], walk: [[10, 44]] }] },
+    { extra: 'dead', dress: 'trader_1812', at: [0, 0], pose: 'lie', beats: [{ t: 0.1, borne: ['f1', 'f2', 'r1', 'r2'] }, { t: 4, borne: false }] },
+    { extra: 'f1', dress: 'trader_1812', at: [-0.45, 1.15] }, { extra: 'f2', dress: 'trader_1812', at: [0.45, 1.15] },
+    { extra: 'r1', dress: 'trader_1812', at: [-0.45, -1.15] }, { extra: 'r2', dress: 'trader_1812', at: [0.45, -1.15] },
+  ] } };
+  const st = createJauntStage({ humans, parent: { add() {} }, eye: () => ({ x: 0, y: 1.6, z: 0 }), boats, bier });
+  st.sync(stopBoat, { arrived: true });
+  const [k, dead, f1, f2, r1, r2] = made;
+  [[f1, -0.45, 1.15], [f2, 0.45, 1.15], [r1, -0.45, -1.15], [r2, 0.45, -1.15]].forEach(([x, e, n]) => { x.e = e; x.n = n; });
+  st.update(0.2);
+  assert.ok(k.posture?.kind === 'sit' && !k.indoors && k.e === 10 && k.n === 20, 'in the boat, sitting on its seat, in sight');
+  assert.deepEqual(asked?.near, [10, 18], 'the boat sets out from the bank they stand on');
+  assert.equal(k.standY, 3 - 0.92, 'feet below the seat\'s eye');
+  t = 1.5; st.update(0.1);
+  assert.equal(k.n, 21.5, 'carried across with it');
+  t = 3; st.update(0.1);
+  assert.deepEqual([k.e, k.n, k.posture.kind], [10, 40, 'stand'], 'over, they stand up on the far bank');
+  assert.ok(props.length === 1 && Math.abs(dead.heading - 0) < 1e-9, 'a bier is made, the body lying head forward');
+  assert.ok(Math.abs(dead.n - (0 - 0.86)) < 1e-9 && Math.abs(dead.standY - (2 + 0.8)) < 0.05, `the body lies on the bier at the bearers' hands (${dead.n}, ${dead.standY})`);
+  [f1, f2, r1, r2].forEach((x) => { x.n += 5; });
+  st.update(0.1);
+  assert.ok(Math.abs(dead.n - (5 - 0.86)) < 1e-9 && Math.abs(props[0].at[2] + 5) < 1e-9, 'it goes where they go');
+  for (let i = 0; i < 60; i++) st.update(0.1);
+  assert.ok(dead.standY < 2 + 0.15, `set down, it comes to the ground (${dead.standY.toFixed(2)})`);
+  st.replay();
+  assert.ok(restored === 1 && props[0].gone, 'watched again, the boat is laid back where it set out and the bier taken away');
+  st.update(0.2);
+  st.release();
+  assert.ok(settled === 1 && restored === 1, 'left, the boat stays on the bank it went to');
+}
+console.log('PASS a castmate crosses the river in a drawn boat, and the dead are carried on a bier');
+
+// The 1812 story jaunts' people walk through gates, never through pickets (the owner, 2026-11-16:
+// "they currently walk through the pickets"; "in the murder jaunt stop 2 people walk through the
+// pickets of the house in front of the house"): every staged walk crosses the fort's two rows and
+// the Kinzies' green only at a gate, and only one its stop opens (or the burning's, which opens all).
+{
+  const fences = ['first_fort_dearborn_pickets_outer', 'first_fort_dearborn_pickets_inner', 'kinzie_house_1812_green'].map((id) => {
+    const sc = read(`data/sidecars/1812/${id}.json`), a = sc.attributes, pl = sc.placement;
+    assert.equal(pl.rotation_deg ?? 0, 0, `${id} is square to the grid`);
+    const xs = sc.footprint.polygon.map((p) => p[0]), ys = sc.footprint.polygon.map((p) => p[1]);
+    const r = { e0: pl.local_e + Math.min(...xs), e1: pl.local_e + Math.max(...xs), n0: pl.local_n + Math.min(...ys), n1: pl.local_n + Math.max(...ys) };
+    const over = a.gate_overrides?.value ?? {}, gates = {};
+    for (const side of a.gate_sides.value) {
+      const o = over[side], along = side === 'n' || side === 's';
+      const mid = along ? (r.e0 + r.e1) / 2 : (r.n0 + r.n1) / 2;
+      const off = o ? o.offset_m : (a.gate_offset_m?.value ?? 0);
+      gates[side] = { at: mid + off, half: (o ? o.width_m : a.gate_width_m.value) / 2 };
+    }
+    return { id, r, gates };
+  });
+  const crossings = (p, q, { r }) => {
+    const out = [];
+    for (const [side, v, axis] of [['s', r.n0, 1], ['n', r.n1, 1], ['w', r.e0, 0], ['e', r.e1, 0]]) {
+      if ((p[axis] - v) * (q[axis] - v) >= 0) continue;
+      const t = (v - p[axis]) / (q[axis] - p[axis]), x = p[1 - axis] + t * (q[1 - axis] - p[1 - axis]);
+      if (axis ? x >= r.e0 && x <= r.e1 : x >= r.n0 && x <= r.n1) out.push([side, x]);
+    }
+    return out;
+  };
+  let walks = 0;
+  for (const name of ['battle-of-fort-dearborn', 'battle-of-fort-dearborn-adults', 'killing-of-jean-lalime', 'killing-of-jean-lalime-adults']) {
+    for (const st of read(`data/jaunts/${name}.json`).stops) {
+      const g = st.stage; if (!g) continue;
+      const open = new Set(g.open_gates ?? []), all = !!g.fire?.open_gates;
+      for (const id of open) assert.ok(fences.some((f) => id.startsWith(`${f.id}:`)) || /^[a-z0-9_]+:[nesw]$/.test(id), `${name}/${st.id}: ${id} names a gate`);
+      for (const c of g.cast) {
+        let p = c.at;
+        for (const b of [...(c.beats ?? [])].sort((x, y) => x.t - y.t)) {
+          if (Array.isArray(b.place)) p = b.place;
+          for (const q of b.walk ?? []) {
+            walks++;
+            for (const f of fences) for (const [side, x] of crossings(p, q, f)) {
+              const gate = f.gates[side];
+              assert.ok(gate && Math.abs(x - gate.at) <= gate.half - 0.05, `${name}/${st.id}: ${c.person ?? c.extra} at ${b.t} s walks through ${f.id}'s ${side} pickets at ${x.toFixed(2)}, not its gate`);
+              assert.ok(all || open.has(`${f.id}:${side}`), `${name}/${st.id}: ${c.person ?? c.extra} at ${b.t} s goes through ${f.id}'s ${side} gate, which the stop leaves shut`);
+            }
+            p = q;
+          }
+        }
+      }
+    }
+  }
+  assert.ok(walks > 500, `the walks were read (${walks})`);
+}
+console.log('PASS the 1812 story jaunts walk through gates, never through pickets');
 
 // ---- the adults tellings (owner, 2026-11-15: "targeted at adults and shows everything incredibly
 // graphically"): each a version of its students' jaunt for the adults audience, behind its
