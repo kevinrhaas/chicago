@@ -7,7 +7,8 @@ const vendor = new URL('../renderers/web/vendor/three-0.185.1/three.module.js', 
 const confidenceSource = fs.readFileSync(new URL('../renderers/web/js/confidence.js', import.meta.url), 'utf8')
   .replace("from 'three'", `from '${vendor}'`);
 const { createConfidenceView } = await import('data:text/javascript;base64,' + Buffer.from(confidenceSource).toString('base64'));
-const full = Object.freeze({ drawCalls: 7800, triangles: 3470000 });
+// T-3605: ordinary Full 3,470,000 -> 3,495,000 (main.js, the Gifford street faces).
+const full = Object.freeze({ drawCalls: 7800, triangles: 3495000 });
 const expectedGhost = { drawCalls: 8900, triangles: 3760000 };
 let checks = 0;
 function check(name, fn) { fn(); checks++; console.log('PASS ' + name); }

@@ -5318,8 +5318,12 @@ for (const [label, viewport, touch] of [
     // stand where a person walking past them stands, 3.2 m off the wall, and
     // hold the clock so the grass cannot supply the difference. Same bar as the
     // two fence gates and the signboard: worst >= 6 and mean >= 0.3.
+    // T-3605 — the first Tremont turned to Gifford's drawing, and its facade now
+    // looks west into a 0.55 m gap at the next store's wall, so its casks are
+    // refused in writing. The stand moves two blocks east to the Mansion House,
+    // the next inn on Lake Street's north face, with the same seven-piece group.
     await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: 684.9, local_n: -104.3, yaw_deg: 0, pitch_deg: -10 }));
+      { local_e: 749.3, local_n: -104.5, yaw_deg: 0, pitch_deg: -10 }));
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const goodsWith = await page.evaluate(() => window.__chicago4d.capture());
@@ -5346,7 +5350,7 @@ for (const [label, viewport, touch] of [
     });
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
     check(`${label}: aiming at a barrel opens the business it stands at`,
-      goodsPick.includes('tremont_house_1'),
+      goodsPick.includes('mansion_house'),
       `25 aims returned [${[...new Set(goodsPick)].join(', ') || 'nothing'}]`);
 
     // --- the frontage layer: the Green Tree (T-0082) and the Sauganash (T-0090) ---
@@ -6142,7 +6146,11 @@ for (const [label, viewport, touch] of [
         // north fences renumbered round them) and T-2130 (#466) the Dearborn
         // block's two (blk_washington_dearborn_north_fence_36/_37, +2): 33 to 37.
         // T-2195 — the wedge's two improved lots each take a street fence run: 37 to 39.
-        && frontage.census?.posts === 53 && frontage.census?.fences === 39
+        // T-3605 — Gifford's Lake Street row: nine of its stores front Lake on a
+        // lot and take a post each (+9), the turned Tremont's two Lake posts retire
+        // because its facade now looks west (-2): 53 to 60. Two lot fences become
+        // the stores' own street wall, 39 to 37.
+        && frontage.census?.posts === 60 && frontage.census?.fences === 37
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
         // T-1647 puts one back, and it is a refusal the rule could not reach before.
@@ -6228,7 +6236,10 @@ for (const [label, viewport, touch] of [
         // Diffed 6e5a9ec2d -> facae8d01: -1, nothing added, walks/fences/posts/fittings
         // unchanged; #586 moved no refusal. 5+2+2+1 records' rows + 180 = 190.
         // T-3360 — four corner-crossing refusals retire as their crossings are laid: 186.
-        && frontage.census?.refused === 186
+        // T-3605 — +11 refusals: three lot fences behind the new street wall, the
+        // seven Dearborn-facing stores and the turned Tremont, whose doors do not
+        // look onto the Lake Street lot they stand on.
+        && frontage.census?.refused === 197
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -6661,11 +6672,14 @@ for (const [label, viewport, touch] of [
     // not move.
     // T-1823 makes it FIFTY-THREE: the fronts-only faces beyond the covered
     // streets stand the Western Hotel's two posts and three stores' one each.
-    check(`${label}: the fifty-three hitching posts stand on their own ground, carrying nothing`,
-      frontage.hitching.length === 53
-        && frontage.census?.hitching === 53
+    // T-3605 makes it SIXTY: nine of the stores built to Gifford's drawing front
+    // Lake Street on a lot (+9), and the first Tremont, turned to the drawing so
+    // its facade looks west, no longer fronts its Lake lot (-2).
+    check(`${label}: the sixty hitching posts stand on their own ground, carrying nothing`,
+      frontage.hitching.length === 60
+        && frontage.census?.hitching === 60
         && frontage.hitching.filter((h) => !h.street).length === 2
-        && frontage.hitching.filter((h) => h.street).length === 51
+        && frontage.hitching.filter((h) => h.street).length === 58
         && postsBad.length === 0
         // T-1580 — the clause this carried was `lettered === 1`, and what it is
         // FOR is that none of these eighteen is the boarded post: the layer's
@@ -6713,9 +6727,12 @@ for (const [label, viewport, touch] of [
     // thirty-eight stoops.
     // T-3360 — a church takes a stoop at its door (St. Mary's and First Presbyterian,
     // both onto Lake Street): 54, forty stoops.
-    check(`${label}: the fifty-four business-front fittings are drawn at their own fronts`,
-      frontage.census?.fittings === 54 && (frontage.fittings ?? []).length === 54
-        && fitKinds.stoop === 40 && fitKinds.mounting_block === 6
+    // T-3605 — nine Gifford stores' stoops on Lake Street (+9); the turned Tremont's
+    // stoop and mounting block retire with its Lake frontage (-2): 61, forty-eight
+    // stoops, five mounting blocks.
+    check(`${label}: the sixty-one business-front fittings are drawn at their own fronts`,
+      frontage.census?.fittings === 61 && (frontage.fittings ?? []).length === 61
+        && fitKinds.stoop === 48 && fitKinds.mounting_block === 5
         && fitKinds.wagon_apron === 7 && fitKinds.tie_rail === 1
         && fitBad.length === 0,
       `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}; `
@@ -16984,7 +17001,8 @@ for (const [label, viewport, touch] of [
         budget: { ...st.budget }, publicBudget: { ...a.budget } };
     });
     const confidenceBudgetPinned = (st) => {
-      const ordinary = { full: 3470000, balanced: 2675000, light: 1190000 }[st.detail];
+      // T-3605: ordinary Full re-priced 3,470,000 -> 3,495,000 for the Gifford street faces.
+      const ordinary = { full: 3495000, balanced: 2675000, light: 1190000 }[st.detail];
       const fullGhost = st.detail === 'full' && st.ghosting === true;
       const draws = fullGhost ? 8900 : 7800;
       // T-3535: current published X-RAY 3,737,315 + retained 18,059 margin,

@@ -192,7 +192,9 @@ def make_record(seq: int, face: dict, laid: dict, table: dict, datum: dict,
     function_term = FUNCTIONS.get(family) or canonical(spec["label"])
     record = {
         "id": sid,
-        "name": f"Reconstructed {spec['label'].lower()} on {street}, as Gifford draws it",
+        # The anonymous programme's own spelling (display-name.js SPEC): the card is
+        # titled for the building, and this stays the reference line under it.
+        "name": f"Reconstructed {family} {spec['label'].lower()} #{seq:03d}",
         "archetype": spec["archetype"],
         "phases": [{
             "id": "inferred_1835",

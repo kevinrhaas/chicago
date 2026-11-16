@@ -7,8 +7,8 @@
   "target_date": "1835-07-01",
   "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / local_n use.",
   "counts": {
-    "frontages": 29,
-    "objects": 158,
+    "frontages": 28,
+    "objects": 151,
     "wagons": 78,
     "wagons_by_kind": {
       "farm_box": 25,
@@ -20,8 +20,8 @@
     "wagon_stands_refused": 70,
     "benches": 1,
     "sheds": 0,
-    "marked_objects": 158,
-    "distinct_marks": 73
+    "marked_objects": 151,
+    "distinct_marks": 71
   },
   "existence": {
     "value": true,
@@ -3368,151 +3368,6 @@
       ]
     },
     {
-      "structure_id": "tremont_house_1",
-      "name": "Tremont House (the first)",
-      "trade": "hotel",
-      "trade_confidence": "attested",
-      "why_goods": "a public house takes its provisions in by the barrel and puts the empties back out",
-      "confidence": "reconstructed",
-      "facade_bearing_deg": 270.0,
-      "frontage_m": 15.24,
-      "usable_frontage_m": 14.24,
-      "standoff_m": 0.55,
-      "ground_quad_local_enu_m": [
-        [
-          685.57,
-          -100.55
-        ],
-        [
-          685.57,
-          -85.31
-        ],
-        [
-          676.43,
-          -85.31
-        ],
-        [
-          676.43,
-          -100.55
-        ]
-      ],
-      "items": [
-        {
-          "kind": "barrel",
-          "pose": "upright",
-          "at_local_enu_m": [
-            675.88,
-            -99.74
-          ],
-          "bearing_deg": 270.0,
-          "mark": {
-            "lines": [
-              "SALT"
-            ],
-            "letterform": "stencil",
-            "says": "commodity"
-          }
-        },
-        {
-          "kind": "barrel",
-          "pose": "upright",
-          "at_local_enu_m": [
-            675.88,
-            -99.12
-          ],
-          "bearing_deg": 270.0,
-          "mark": {
-            "lines": [
-              "WHISKEY"
-            ],
-            "letterform": "stencil",
-            "says": "commodity"
-          }
-        },
-        {
-          "kind": "barrel",
-          "pose": "upright",
-          "at_local_enu_m": [
-            675.88,
-            -98.5
-          ],
-          "bearing_deg": 270.0,
-          "mark": {
-            "lines": [
-              "TREMONT HOUSE"
-            ],
-            "letterform": "brand",
-            "says": "house"
-          }
-        },
-        {
-          "kind": "barrel",
-          "pose": "upright",
-          "at_local_enu_m": [
-            675.88,
-            -97.88
-          ],
-          "bearing_deg": 270.0,
-          "mark": {
-            "lines": [
-              "VINEGAR"
-            ],
-            "letterform": "stencil",
-            "says": "commodity"
-          }
-        },
-        {
-          "kind": "barrel",
-          "pose": "laid",
-          "at_local_enu_m": [
-            675.88,
-            -96.91
-          ],
-          "bearing_deg": 270.0,
-          "mark": {
-            "lines": [
-              "FLOUR"
-            ],
-            "letterform": "stencil",
-            "says": "commodity"
-          }
-        },
-        {
-          "kind": "crate",
-          "tier": 0,
-          "at_local_enu_m": [
-            675.88,
-            -95.58
-          ],
-          "bearing_deg": 270.0,
-          "mark": {
-            "lines": [
-              "TREMONT HOUSE",
-              "CHICAGO"
-            ],
-            "letterform": "shipping",
-            "says": "shipping"
-          }
-        },
-        {
-          "kind": "crate",
-          "tier": 1,
-          "at_local_enu_m": [
-            675.88,
-            -95.58
-          ],
-          "bearing_deg": 270.0,
-          "mark": {
-            "lines": [
-              "TEA"
-            ],
-            "letterform": "stencil",
-            "says": "commodity"
-          }
-        }
-      ]
-    },
-    {
       "structure_id": "western_hotel",
       "name": "Western Hotel",
       "trade": "tavern_inn",
@@ -5375,6 +5230,11 @@
       "structure_id": "recon_1835_west_020",
       "trade": "store_residence",
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or GOODS for an anonymous slot — names goods in as many words, and this record keeps it."
+    },
+    {
+      "structure_id": "tremont_house_1",
+      "trade": "hotel",
+      "why": "7 object(s) fell inside recon_1835_gifford_c1_010's committed footprint, which stands over this frontage's own strip; they are dropped rather than nudged, because a nudged coordinate is a placed one."
     }
   ],
   "wagons_refused": [

@@ -36,7 +36,7 @@ THE RULE, and every clause is doing work. A frontage gets goods iff
      corporation whose ordinance is the whole evidence here, and there is no public
      street in front of either of them;
   6. the strip in front of its facade is clear — nothing is placed where it would stand
-     inside another building's committed footprint.
+     inside another building's committed footprint, its own reach included (T-3605).
 
 WHERE THE GOODS STAND is then DERIVED, not placed, exactly as a board's anchor is.
 `docs/GLB-CONTRACT.md` fixes the frame: polygon `u` → +X, polygon `v` → −Z, and
@@ -575,6 +575,15 @@ def _poly_contains(pt, poly) -> bool:
     return inside
 
 
+def _reach_m(item) -> float:
+    """How far an object reaches from its centre on the ground, any direction (T-3605)."""
+    if item.get("kind") == "barrel":
+        return BARREL_H_M / 2 if item.get("pose") == "laid" else BARREL_BELLY_D_M / 2
+    if item.get("kind") == "crate":
+        return math.hypot(CRATE_L_M, CRATE_W_M) / 2
+    return 0.0
+
+
 def _dist_to_polygon(pt, poly) -> float:
     """Distance from a point to a polygon's boundary; negative when inside it."""
     x, y = pt
@@ -742,7 +751,13 @@ def build_frontages(ids: list[str], cars: dict) -> tuple[list, list]:
         kept, dropped = [], []
         for item in items:
             pt = tuple(item["at_local_enu_m"])
-            hit = next((oid for oid, w in others if _poly_contains(pt, w)), None)
+            # T-3605: a centre outside the wall is not enough — the first Tremont,
+            # turned to Gifford's drawing, put its casks' centres 0.03 m clear of
+            # the next store's wall and their bellies 0.24 m into it. An object is
+            # inside a neighbour when its own reach crosses that neighbour's wall.
+            reach = _reach_m(item)
+            hit = next((oid for oid, w in others
+                        if _dist_to_polygon(pt, w) < reach), None)
             if hit:
                 dropped.append(hit)
             else:
