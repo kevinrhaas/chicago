@@ -89,15 +89,21 @@
         },
         "gate_sides": {
           "value": [
-            "n"
+            "n",
+            "s"
           ],
           "confidence": "reconstructed",
-          "note": "Unattested. A gate before the door, so the piazza opens onto the green."
+          "note": "Unattested. A gate before the door, so the piazza opens onto the green; and (T-3553, the owner 2026-11-16: 'I would like to be able to enter the garden front area ... the gate is not possible to cross') one on the river side, on the same line, where a walk from the landing would come in. Both are reconstructed."
         },
         "gate_width_m": {
           "value": 1.5,
           "confidence": "reconstructed",
           "note": "Unattested. A walk's width, and the narrowest gate the archetype builds."
+        },
+        "gate_kind": {
+          "value": "wicket",
+          "confidence": "reconstructed",
+          "note": "Unattested (T-3553). A green's gate in a paling: two posts and one leaf of the fence's own pales, hung to swing in, as the commanding officer's garden's (T-3407); renderers/web/js/fort-gates.js hangs it, and Interact opens it."
         }
       }
     }

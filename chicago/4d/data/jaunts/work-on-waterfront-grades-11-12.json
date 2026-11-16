@@ -1,0 +1,615 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Employment",
+  "menu_group": "Work",
+  "grade_band": "11-12",
+  "review_required": false,
+  "id": "work-on-waterfront-grades-11-12",
+  "scene": "1835",
+  "title": "Work on the Waterfront",
+  "premise": "Examine the town's notices for laborers, inquire about employment at two Newberry and Dole warehouses and depart with a work chit or a promising lead.",
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: WORK ON THE WATERFRONT. On this particular morning you require employment, and the encouraging news is that Chicago in 1835 needs everybody: buildings rise as rapidly as lumber arrives, every vessel requires unloading, and the newspapers publish notices headed \"Wanted, immediately\". The discouraging news is that strangers continue arriving \"by land and by water\", and half of them seek work as well, an oversupply of labor that tempers the boom's promise.\n\nDetermine what you can offer, examine the notices, inquire at two of Newberry and Dole's establishments, and plan your strategy over breakfast.",
+    "read_s": 27
+  },
+  "variables": {
+    "skill": {
+      "min": 0,
+      "max": 3,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "chit": {
+      "min": 0,
+      "max": 1,
+      "initial": 0,
+      "unit": "count"
+    },
+    "lead": {
+      "min": 0,
+      "max": 1,
+      "initial": 0,
+      "unit": "count"
+    },
+    "plan": {
+      "min": 0,
+      "max": 3,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "notices",
+      "destination": {
+        "kind": "structure",
+        "id": "chicago_democrat_office"
+      },
+      "text": "John Calhoun's Democrat, printed here originally and since May above Jones and King's hardware, seeks \"an apprentice at this office to the printing business\". On 17 June Jones, King and Company published: \"Wanted, immediately, one copper smith, and one tin and sheet iron worker\". A town expanding this rapidly requires printers for its notices and tinsmiths for its stovepipes, since from 1833 every stovepipe penetrating a roof must be \"guarded by tin or sheet iron\", or the owner incurs a $5 penalty.",
+      "narrative": "Select the particular skill you are offering to prospective employers.",
+      "read_s": 26,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "chicago_democrat_office",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_jones_king_co",
+          "label": "Jones, King & Co.'s card"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the Democrat source"
+        }
+      ],
+      "evidence": [
+        "democrat-corner",
+        "democrat-moved",
+        "apprentice-wanted",
+        "metal-wanted",
+        "continuity",
+        "errand",
+        "mk-stovepipe"
+      ],
+      "choices": [
+        {
+          "id": "type",
+          "label": "Type and press",
+          "consequence": "You can compose type manually and operate a printing press.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "skill",
+              "value": 1
+            }
+          ],
+          "next": "packing"
+        },
+        {
+          "id": "metal",
+          "label": "Tin and copper",
+          "consequence": "You can fabricate sheet metal proficiently into stovepipes and kettles.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "skill",
+              "value": 2
+            }
+          ],
+          "next": "packing"
+        },
+        {
+          "id": "back",
+          "label": "A strong back",
+          "consequence": "You can lift, transport and load substantial freight from arriving vessels.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "skill",
+              "value": 3
+            }
+          ],
+          "next": "packing"
+        }
+      ]
+    },
+    {
+      "id": "packing",
+      "destination": {
+        "kind": "structure",
+        "id": "dole_warehouse_south"
+      },
+      "text": "Andreas situates George Dole's 1832 warehouse and slaughter yard near Lake and Dearborn. Dole inaugurated the town's packing trade here, \"the nucleus of one of those immense industries\" that made Chicago internationally famous. Packing, however, is seasonal winter labor, with hogs slaughtered in December, and by 1834 the partners had relocated their slaughtering to the South Branch. In the middle of July there is consequently nothing whatsoever to pack.",
+      "narrative": "Will you request to be remembered, or proceed to the river?",
+      "read_s": 23,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "dole_warehouse_south",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Read the Andreas source"
+        }
+      ],
+      "evidence": [
+        "dole-yard",
+        "packing-winter",
+        "continuity",
+        "errand",
+        "mk-packing"
+      ],
+      "choices": [
+        {
+          "id": "remember",
+          "label": "Ask to be remembered for the packing",
+          "consequence": "A commitment to inquire again when packing resumes.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "lead",
+              "value": 1
+            }
+          ],
+          "next": "forwarding"
+        },
+        {
+          "id": "go-on",
+          "label": "Go on to the river",
+          "consequence": "There is nothing worth requesting here in the middle of summer.",
+          "next": "forwarding"
+        }
+      ]
+    },
+    {
+      "id": "forwarding",
+      "destination": {
+        "kind": "structure",
+        "id": "newberry_dole_warehouse"
+      },
+      "text": "Newberry and Dole have advertised as forwarding and commission merchants since November 1833, and in June the American designated them agents for the steamboat Michigan to Detroit and Buffalo. When the schooner Illinois ascended through the new harbor cut in July 1834, she was cheered at their wharf. Every vessel since has required hands to unload her, and nobody advertises for such casual labor.",
+      "narrative": "Will you inquire about employment, or merely observe the activity along the wharf?",
+      "read_s": 22,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "newberry_dole_warehouse",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_newberry_dole",
+          "label": "Newberry & Dole's card"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_american_1835",
+          "label": "Read the American source"
+        }
+      ],
+      "evidence": [
+        "nd-trade",
+        "illinois-wharf",
+        "michigan-agents",
+        "nd-bank",
+        "continuity",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "offer",
+          "label": "Offer a day's carrying",
+          "consequence": "A chit promising a day's carrying when a vessel next unloads, although no wage is specified.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "chit",
+              "value": 1
+            }
+          ],
+          "next": "breakfast"
+        },
+        {
+          "id": "watch",
+          "label": "Watch the wharf and ask nothing",
+          "consequence": "You observe how merchandise comes off the water, and subsequently proceed.",
+          "next": "breakfast"
+        }
+      ]
+    },
+    {
+      "id": "breakfast",
+      "destination": {
+        "kind": "structure",
+        "id": "exchange_coffee_house"
+      },
+      "text": "Breakfast at the Exchange Coffee House at Lake and Wells, constructed by Mark Beaubien and operated by the Murphys since August 1834; the county's former tariff set breakfast at 25 cents. Review the morning's findings: two notices for skilled trades, a yard awaiting winter, and a wharf in perpetual motion.",
+      "narrative": "Where will you inquire initially tomorrow morning, and why?",
+      "read_s": 17,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "exchange_coffee_house",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "drloih_hotels",
+          "label": "Read the hotel chronology"
+        }
+      ],
+      "evidence": [
+        "exchange-house",
+        "continuity",
+        "errand",
+        "mk-tariff"
+      ],
+      "choices": [
+        {
+          "id": "answer",
+          "label": "Answer a printed notice",
+          "consequence": "You will apply wherever a notice requested hands.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "plan",
+              "value": 1
+            }
+          ],
+          "next": "$end"
+        },
+        {
+          "id": "boat",
+          "label": "Wait on the wharf for a vessel",
+          "consequence": "You will be stationed at the river whenever a sail appears.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "plan",
+              "value": 2
+            }
+          ],
+          "next": "$end"
+        },
+        {
+          "id": "around",
+          "label": "Keep asking around town",
+          "consequence": "You will personally canvass the stores and lumber yards, soliciting opportunities.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "plan",
+              "value": 3
+            }
+          ],
+          "next": "$end"
+        }
+      ]
+    }
+  ],
+  "legs": [
+    {
+      "from": "notices",
+      "to": "packing",
+      "note": "East along South Water Street to Dearborn, then a block south to Lake Street.",
+      "evidence": [
+        "dole-yard",
+        "continuity"
+      ],
+      "story": "Convey your particular skill along the river to the warehouses.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "packing",
+      "to": "forwarding",
+      "note": "Back north to the river and west along South Water Street to the river frontage.",
+      "evidence": [
+        "nd-bank",
+        "continuity"
+      ]
+    },
+    {
+      "from": "forwarding",
+      "to": "breakfast",
+      "note": "A block south to Lake Street at the corner of Wells.",
+      "evidence": [
+        "exchange-house",
+        "continuity"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "apprentice",
+      "text": "You will answer the Democrat's notice for an apprentice to the printing business. It was published on 20 May, six weeks ago, so the position may already be filled, but inquire regardless, and inquire early.",
+      "read_s": 13,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "skill",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "var": "plan",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "tin-and-copper",
+      "text": "You will offer your tin and copper skills to Jones, King and Company, whose notice of 17 June sought both trades immediately. A fortnight is ample time for a competitor to have responded first, so depart before breakfast cools.",
+      "read_s": 13,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "skill",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "var": "plan",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "no-notice-for-a-back",
+      "text": "No notice you examined requested a strong back, because the newspapers advertise skilled trades, while casual carrying is discovered on the wharf and solicited in person. Tomorrow, try the river first.",
+      "read_s": 11,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "skill",
+            "op": "==",
+            "value": 3
+          },
+          {
+            "var": "plan",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "chit-for-the-boat",
+      "text": "You carry a chit for a day's carrying when a vessel next unloads at the forwarding house, with no wage specified, so be stationed on the wharf when a sail appears.",
+      "read_s": 9,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "chit",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "var": "plan",
+            "op": "==",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "remembered-for-the-winter",
+      "text": "You requested to be remembered when packing resumes. That is a winter commitment, with no wage, no name and no date, something to sustain you until December, when the hogs arrive.",
+      "read_s": 9,
+      "completion_eligible": true,
+      "when": {
+        "var": "lead",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "a-days-work-in-prospect",
+      "text": "No employment today, but a strategy for tomorrow: two notices that requested skilled trades, a yard awaiting winter, and a firm that forwards freight by the boatload. Respectable employment is genuinely in prospect.",
+      "read_s": 9,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "Livelihood",
+    "id": "a-days-work-in-prospect-grades-11-12",
+    "title": "A Day's Work in Prospect",
+    "text": "A fictional note documenting a morning spent seeking employment: the notices that requested hands, and where to inquire again. No particular wage or definite offer is recorded on it."
+  },
+  "evidence": [
+    {
+      "id": "democrat-corner",
+      "text": "The Democrat’s first issue, 26 November 1833, gives its office as the building on the corner of South Water and Clark streets; John Calhoun printed it there.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "andreas_1884_v1"
+      ],
+      "locator": "26 Nov 1833 (Vol. I No. 1), the imprint; Andreas vol. 1, the press chapter on Calhoun’s office."
+    },
+    {
+      "id": "democrat-moved",
+      "text": "By 20 May 1835 the Democrat’s colophon gives the office as over Messrs. Jones & King’s hardware store, in South Water Street, so the corner is a former office on the scene date.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "20 May 1835 (Vol. II No. 5), p. 4, col. 6, the colophon (transcription lines 4177–4180). Transcription-mediated reading."
+    },
+    {
+      "id": "apprentice-wanted",
+      "text": "The Democrat printed: ‘Wanted immediately, an apprentice at this office to the printing business. A good opportunity is offered by an immediate application. May 20th, 1835.’",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "20 May 1835 (Vol. II No. 5), p. 3, col. 2 (transcription lines 2238–2243, interleaved; extracted claim chicago_democrat_1835_05_20#c007). Transcription-mediated reading. ‘This office’ is the paper’s own, which the same issue’s colophon places over Jones & King’s hardware."
+    },
+    {
+      "id": "metal-wanted",
+      "text": "Jones, King & Co. printed: ‘Wanted, immediately, one copper smith, and one tin and sheet iron worker. June 17, ’35.’",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "17 June 1835 (Vol. II No. 9), p. 3, col. 3 (transcription lines 1515–1519, interleaved; extracted claim chicago_democrat_1835_06_17#c010). Transcription-mediated reading; the first word of ‘IMMEDIATELY’ is partly lost."
+    },
+    {
+      "id": "nd-trade",
+      "text": "Newberry & Dole advertised in the Democrat’s first issue as forwarding and commission merchants, with an assortment of dry goods, hardware and crockery for cash.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "andreas_1884_v1"
+      ],
+      "locator": "26 Nov 1833 (Vol. I No. 1), p. 3, col. 4 (extracted claim chicago_democrat_1833_11_26#c013); Andreas vol. 1, scan p. 755, the summary of the paper’s early advertising columns."
+    },
+    {
+      "id": "illinois-wharf",
+      "text": "On 12 July 1834 the schooner Illinois, the first vessel through the new harbour cut, was cheered at Newberry & Dole’s wharf.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1, scan p. 503, the opening of the harbour."
+    },
+    {
+      "id": "michigan-agents",
+      "text": "A notice dated Chicago, 8 June 1835 says the steamboat Michigan will leave Chicago for Detroit and Buffalo, and that for freight or passage one may apply to the master on board or to Newberry & Dole.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_american_1835"
+      ],
+      "locator": "20 June 1835 (Vol. I No. 3), p. 3, col. 6 (transcription lines 366–367, interleaved; extracted claim chicago_american_1835_06_20#c014). Transcription-mediated reading; the day of the June sailing is lost, so the stop claims no vessel in port on the scene date."
+    },
+    {
+      "id": "nd-bank",
+      "text": "Where Newberry & Dole’s forwarding house stood is disputed: one dossier reads the south bank on South Water Street, Andreas puts the firm’s warehouse on the north bank east of the later Rush Street bridge. The scene places it on the south bank as a reconstruction, so the stop claims the firm, not the spot.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Follows the structure record newberry_dole_warehouse, whose position is reconstructed and whose note carries both readings without settling them. The stop says the bank is disputed and claims no front door."
+    },
+    {
+      "id": "dole-yard",
+      "text": "Andreas dates George W. Dole’s warehouse and slaughter yard to 1832 and places them close to the later site of the Tremont House, at Lake and Dearborn streets.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1, scan p. 261."
+    },
+    {
+      "id": "packing-winter",
+      "text": "Dole’s packing was winter work, and by July 1835 the killing had probably left this yard: Andreas records hogs packed in December 1832 and a slaughter-house Newberry & Dole built on the South Branch in 1834.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Andreas’s packing chapter dates Dole’s 1832 killing to the cold months (hogs in December; the passage is summarised in docs/research/08-fauna.md § 5.2) and the South Branch slaughter-house to 1834 (scan p. 1151); the structure record dole_warehouse_south doubts the yard’s use at the scene date for the same reason. So the stop says the yard has nothing to pack in July rather than staging any work there."
+    },
+    {
+      "id": "exchange-house",
+      "text": "Mark Beaubien built a new house on the north-west corner of Wells and Lake streets; in August 1834 Mr. and Mrs. Murphy took charge of it as a hotel, christened it the Exchange Coffee House, and remained until 1836.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "drloih_hotels"
+      ],
+      "locator": "Andreas vol. 1, printed p. 633, the hotel chapter; the life of Mark Beaubien; DRLOIH hotel chronology, Exchange Coffee House entry."
+    },
+    {
+      "id": "mk-stovepipe",
+      "text": "The trustees' first ordinance, of 6 November 1833, 'prohibited the passing of stove-pipes through the roof, partition or side of any building, unless guarded by tin or sheet iron, under penalty of $5'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 93, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12641-12646 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-packing",
+      "text": "'The year 1832 also witnessed the beginning of the slaughtering and packing business of Chicago by George W. Dole', with others, 'the nucleus of one of those immense industries which have raised Chicago to its present commercial pre-eminence'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 90, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12171-12177 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-tariff",
+      "text": "In 1831 the county authorities made a tariff of rates 'obligatory upon all inn-keepers': 25 cents for each breakfast and supper, 37½ for dinner, 25 for each horse feed, 50 for keeping a horse all night, 12½ for lodging for men, 25 for half a pint of wine, rum or brandy, 18¾ for gin, and 6¼ for a gill of whiskey.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 560, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 98764-98777 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-immigrants",
+      "text": "In 1834 the strangers came 'by land and by water', in prairie schooners and other wagons, 'on horseback and on foot', and 'Many immigrants passed through the town with a view to locating farther west'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 94, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12724-12751 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "continuity",
+      "text": "The four places are exterior stops in the 1 July 1835 scene. The Democrat’s corner is visited as its former office, Newberry & Dole’s house is a reconstructed placement, and no interior, front door, clerk, keeper or vessel in port on the morning is claimed.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "andreas_1884_v1",
+        "drloih_hotels"
+      ],
+      "reasoning": "Uses the existing structure records’ scene-date phases and positions. The notices are read from the papers, not from the places; the stops speak of what each firm did and when, not of anyone met at the door."
+    },
+    {
+      "id": "errand",
+      "text": "The visitor’s search for work, the choice of skill, the asking at the two warehouses, the chit for a day’s carrying, the request to be remembered for the packing, breakfast at the Exchange, the plan for tomorrow, the endings, the timing inputs and the A Day’s Work in Prospect keepsake are invented connective narrative. No firm is claimed to have offered work or named a wage.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-work-waterfront"
+    }
+  ],
+  "liberties": [
+    "L-jaunt-work-waterfront",
+    "L-jaunt-1835-light-and-stories"
+  ],
+  "version_of": "work-on-waterfront"
+}

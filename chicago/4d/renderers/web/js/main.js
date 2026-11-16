@@ -90,6 +90,7 @@ import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { createCrossings } from './crossings.js';
+import { createBier } from './stage-props.js';
 import { createVessels } from './vessels.js';
 import { createBoatPilot } from './boat-pilot.js';
 import { insideDeck } from './deck-surface.js';
@@ -2381,6 +2382,14 @@ async function boot() {
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
     registerDoorPlans(doorsFile1904);
   }
+  // T-3553 (the owner, 2026-11-16: "people appear outside doors the doors don't open and close"):
+  // 1812's built leaves are passages too (derive_doors_1812.py), swung as people go in and out.
+  let doorsFile1812 = null;
+  if (String(loaded.scene.id ?? YEAR) === '1812') {
+    doorsFile1812 = await fetch(new URL('humans/doors_1812.json', bases.dataBase), { cache: 'no-cache' })
+      .then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    registerDoorPlans(doorsFile1812);
+  }
   // The owner, 2026-11-16 ("he is walking through stairs that block the door"): 1835's house
   // models build their own front stoops (doors_1835.json `floor`s), climbed like 1904's below.
   const doorsFile1835 = String(loaded.scene.id ?? YEAR) === '1835'
@@ -4120,7 +4129,8 @@ async function boot() {
   if (['1812', '1835', '1904'].includes(daysScene)) {
     const getOptional = (rel) => fetch(new URL(rel, bases.dataBase), { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
-    const [doors, inside] = await Promise.all([daysScene === '1835' && doorsFile1835 ? doorsFile1835 : getOptional(`humans/doors_${daysScene}.json`),
+    const [doors, inside] = await Promise.all([daysScene === '1835' && doorsFile1835 ? doorsFile1835
+      : daysScene === '1812' && doorsFile1812 ? doorsFile1812 : getOptional(`humans/doors_${daysScene}.json`),
       // T-3556: and 1835's townspeople (tools/town_people_1835.py), each in and out of their home
       // and place of business by the hour.
       ['1812', '1835', '1904'].includes(daysScene) ? getOptional(`humans/inside_${daysScene}.json`) : null]);
@@ -5889,6 +5899,22 @@ async function boot() {
           ended: () => { const outing = jauntRuntime?.state; return !!outing?.outcome && narration.ended(outing.jaunt, 'ending', outing.outcome.id); } },
         flying: () => travel.state?.phase === 'gliding',
         finish: () => jauntRuntime?.finish() });
+      // The owner, 2026-11-16: the jaunt's meter, the stop's scene filling as it plays.
+      let meterTimer = null, meterLeg = null, meterWay = 0, meterSince = 0;
+      const meterNow = () => {
+        const outing = jauntRuntime?.state;
+        if (!outing?.jaunt || !['opening', 'travelling', 'paused', 'atStop', 'closing'].includes(outing.phase)) { jauntPanel.meter(null); return false; }
+        const leg = `${outing.session}:${outing.leg}:${outing.phase === 'atStop'}`, ride = travel.state;
+        if (leg !== meterLeg) { meterLeg = leg; meterWay = ride.dist_m ?? 0; meterSince = performance.now() / 1000; }
+        const here = outing.jaunt.stops[outing.stopIndex], heard = here && narration.position(outing.jaunt, 'stop', here.id);
+        const stage = api.jauntStage, staged = outing.phase === 'atStop' && stage?.playing && stage.length > 0;
+        jauntPanel.meter(pace.meterReading({ phase: outing.phase, stopIndex: outing.stopIndex, count: outing.jaunt.stops.length,
+          glide: ride.glide, way: ride.dist_m != null && meterWay > 0 ? { t: meterWay - ride.dist_m, d: meterWay } : null,
+          voice: heard ? (heard.done ? { t: 1, d: 1 } : heard) : null,
+          read: here ? { t: performance.now() / 1000 - meterSince, d: here.read_s || pace.readingSeconds(here.text) } : null,
+          stage: staged ? { t: stage.clock, d: stage.length } : null }));
+        return true;
+      };
       jauntRuntime = runtime.createJaunts({ scene: YEAR, load: jauntPreview.load, travel,
         preferredMode: (jaunt) => jauntModeFor(hud.gettingThere, jaunt),
         resolve: resolveJaunt, place: spawnAtDestination,
@@ -5964,6 +5990,7 @@ async function boot() {
           jauntPanel.render(state);
           closingClock.update(state); // the owner, 2026-11-16: the closing scene ends on its own
           if (closingClock.active) closingTimer ??= setInterval(() => { if (!closingClock.tick() && closingClock.active) return; clearInterval(closingTimer); closingTimer = null; }, 400);
+          if (meterNow()) meterTimer ??= setInterval(() => { if (meterNow()) return; clearInterval(meterTimer); meterTimer = null; }, 250);
           // T-2664: at the first Jaunt's first stop, once per device, how a Jaunt goes on.
           if (state?.jaunt && state.phase === 'atStop') hints.show('jaunt');
         },
@@ -6016,7 +6043,9 @@ async function boot() {
               // fort's gates thrown open while it burns (they are given back shut).
               fire: { create: () => createFortFire({ parent: scene3d, buildings: () => buildings,
                 groundAt: (x, z) => terrain.surfaceHeight(x, -z),
-                extras: (id) => [scene3d.getObjectByName(`fort-gates:${id}`)].filter(Boolean),
+                extras: (id) => [scene3d.getObjectByName(`fort-gates:${id}`),
+                  // T-3553: a building's hung doors (house-doors.js) burn and fall with it.
+                  ...(api.houseDoors?.group?.children ?? []).filter((h) => h.name.startsWith(`house-door:${id}:`))].filter(Boolean),
                 nameOf: (id) => String(loaded.registry.get(id)?.sidecar?.name ?? loaded.registry.get(id)?.name ?? id).replace(/^First Fort Dearborn\s*[—-]\s*/, ''),
                 tier: () => api.humans?.tier ?? 'full',
                 setup: (spec) => {
@@ -6026,7 +6055,19 @@ async function boot() {
                   const flown = flags.group.visible; if (spec.strike_colours) flags.group.visible = false;
                   return () => { for (const g of opened) { g.actions.open[0].steps[0].run(1); g.state = 'closed'; } flags.group.visible = flown; };
                 } }) },
-              view: () => camera });
+              view: () => camera,
+              // T-3553: the doors staged people go in and out of swing for them (house-doors.js
+              // passages), and a stage's `open_gates` stand open while it plays.
+              doors: () => api.houseDoors ?? null,
+              // T-3553: a castmate's `cross` beat takes a drawn boat across (crossings.js carry).
+              boats: { carry: (id, o) => crossings?.carry?.(id, o) ?? null },
+              // ... and the dead are carried on a bier (stage-props.js).
+              bier: createBier,
+              gates: { open: (ids) => {
+                const opened = fortGates.gates.filter((g) => ids.includes(g.id) && g.state === 'closed');
+                for (const g of opened) { g.actions.closed[0].steps[0].run(1); g.state = 'open'; }
+                return () => { for (const g of opened) { g.actions.open[0].steps[0].run(1); g.state = 'closed'; } };
+              } } });
             api.jauntStage.sync(stop, { arrived });
             gateFrame.invalidate();
           },

@@ -229,4 +229,28 @@ ok((doc.wharves ?? []).length === 1, 'the fort wharf has no deck row');
 const cardEntry = crossings.boats.find((e) => e.boat.existence.confidence === 'attested');
 ok(!!cardEntry, 'no attested boat to card');
 
+// T-3553: a jaunt stage's castmate crosses in a boat on their own (the owner, 2026-11-16, of
+// Kinzie's flight: "I would think he might take a boat across?"). It sets out from the bank asked,
+// goes across with the seat moving over the water, lands on the other bank, and is laid back
+// where it was when the stop lets it go; the visitor cannot take it while it is crossing.
+{
+  const entry = crossings.boats.find((e) => e.boat.id === 'kinzie_pirogue_1812_b');
+  ok(!!entry, 'the Kinzies\' second pirogue is drawn');
+  const home = entry.bank;
+  const h = crossings.carry('kinzie_pirogue_1812_b', { from: 'b' });
+  ok(!!h && !h.done && h.seconds > 20, 'carry gives a handle for a crossing of some seconds');
+  ok(crossings.carry('kinzie_pirogue_1812_b') === null, 'a boat already crossing is not taken twice');
+  const s0 = h.seat(), far = entry.boat.banks.a.stand;
+  let seats = 0;
+  for (let t = 0; t < h.seconds + 2 && !h.done; t += 0.2) { crossings.update(0.2, null); seats += 1; }
+  ok(h.done, 'the crossing ends on its own');
+  ok(entry.bank === 'a', 'the boat lies on the other bank once over');
+  const [se, sn] = h.stand();
+  ok(Math.hypot(se - far[0], sn - far[1]) < 1e-9, 'its rider steps ashore at that bank\'s stand');
+  ok(Math.abs(s0.n - entry.rest.b.n) < 3 && seats > 50, `the seat set out on the fort side (${s0.n.toFixed(1)})`);
+  h.restore();
+  ok(entry.bank === home, 'let go, it is laid back where it was');
+  ok(crossings.boats.every((e) => !e.boat.id || e.pose), 'every boat keeps a pose');
+}
+
 console.log(`test_crossings: ${checks} checks pass — ${crossings.boats.length} boats crossed both ways`);

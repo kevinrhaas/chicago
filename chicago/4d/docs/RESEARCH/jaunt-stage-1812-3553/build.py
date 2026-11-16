@@ -150,6 +150,8 @@ def write(check=False):
                 stop['stage'] = {'caption': stage['caption'], 'liberty': LIBERTY, 'cast': stage['cast']}
                 if stage.get('teams'):
                     stop['stage']['teams'] = stage['teams']
+                if stage.get('open_gates'):
+                    stop['stage']['open_gates'] = stage['open_gates']
                 if stage.get('fire'):
                     stop['stage']['fire'] = stage['fire']
                     if stage['fire']['liberty'] not in doc['liberties']:

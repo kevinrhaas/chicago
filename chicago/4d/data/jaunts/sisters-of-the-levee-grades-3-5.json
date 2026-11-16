@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "True stories",
+  "menu_group": "Stories",
+  "grade_band": "3-5",
+  "review_required": false,
+  "id": "sisters-of-the-levee-grades-3-5",
+  "scene": "1904",
+  "title": "The Sisters of the Levee",
+  "premise": "Three blocks west of the mansions, two sisters from Virginia run the most famous club in Chicago, with gold spittoons and a $15,000 piano. Prairie Avenue pretends not to know the way.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "dusk",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: THE SISTERS OF THE LEVEE. It is dusk on a Monday in November 1904, at Eighteenth Street and Prairie Avenue.\n\nThere are four stops. You walk west from the street of rich families toward the Levee, a rough part of town, and end at a church on its edge. Prairie Avenue is only three blocks from the most famous address in Chicago, and it is not a family home. In 1900 two sisters who called themselves Everleigh opened a club on Dearborn Street. Some of the richest men in the world find their way there.\n\nStart at the corner. Watch which way the cabs turn.",
+    "read_s": 28
+  },
+  "stops": [
+    {
+      "id": "corner",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_corner"
+      },
+      "text": "This is Eighteenth and Prairie, as the street lamps come on. Eighteenth Street is a border. To the north and east are the mansions. To the south and west, a few blocks away, is the Levee. It runs from Eighteenth Street to Twenty-second Street. It is full of clubs and saloons that break the law. The ladies of Prairie Avenue never talk about it. But for a while, one of the most famous of those houses stood right on Prairie Avenue. The two men hurrying around this corner are not going home. Follow them west.",
+      "evidence": [
+        "levee",
+        "vic-shaw",
+        "levee-near",
+        "day",
+        "stage"
+      ],
+      "next": "sisters",
+      "read_s": 25,
+      "stage": {
+        "caption": "Two men in evening coats come around the corner and walk fast to the west along Eighteenth Street.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "gent_a",
+            "dress": "glessner_john_j_1904",
+            "name": "A gentleman out for the evening (unnamed)",
+            "at": [
+              1400.5,
+              -3216
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1398.5,
+                    -3204
+                  ],
+                  [
+                    1364.5,
+                    -3203
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 2,
+                "talk": true
+              },
+              {
+                "t": 14,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "extra": "gent_b",
+            "dress": "glessner_john_j_1904",
+            "name": "A second gentleman (unnamed)",
+            "at": [
+              1399.5,
+              -3217.4
+            ],
+            "beats": [
+              {
+                "t": 0.3,
+                "walk": [
+                  [
+                    1397.3,
+                    -3205.2
+                  ],
+                  [
+                    1363.5,
+                    -3204.2
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "sisters",
+      "destination": {
+        "kind": "structure",
+        "id": "house_1809_indiana_coach_house"
+      },
+      "text": "This is Indiana Avenue, one block west. Three more blocks west is Dearborn Street, and the Everleigh Club. It is run by two sisters, Ada and Minna. They say they are from Kentucky, but that is a made-up story. They were really born in Virginia, with the last name Simms. They ran a house in another city first, then came to Chicago. They took a new last name from their grandmother, who signed her letters \"Everly yours\". The club opened on 1 February 1900. On the first night they turned many visitors away. The sisters knew that saying no makes people want something more.",
+      "evidence": [
+        "everleigh-sisters",
+        "levee",
+        "stage"
+      ],
+      "next": "rooms",
+      "read_s": 27,
+      "stage": {
+        "caption": "A man comes down the steps of a house on Indiana Avenue. He checks his watch and turns west toward the Levee.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "gent_c",
+            "dress": "glessner_john_j_1904",
+            "name": "A gentleman going out for the evening (unnamed)",
+            "at": [
+              1280.69,
+              -3253.93
+            ],
+            "heading": 264.1,
+            "beats": [
+              {
+                "t": 4,
+                "face": [
+                  1276.82,
+                  -3260.36
+                ]
+              },
+              {
+                "t": 9,
+                "walk": [
+                  [
+                    1278.01,
+                    -3257.22
+                  ],
+                  [
+                    1262.33,
+                    -3275.91
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "rooms",
+      "destination": {
+        "kind": "structure",
+        "id": "house_1829_indiana_coach_house"
+      },
+      "text": "Walk on south along Indiana. Inside the Everleigh Club are fifty rooms in two mansions. There is a Japanese room, a room of mirrors, and a silver parlor. There is a piano covered in gold that cost $15,000, and there are gold spittoons. One bottle of fancy wine costs $12, when a whole dinner could cost fifty cents. Just getting in the door costs $50. Ada keeps the money records. Minna greets the guests. In 1902 a German prince even came to visit. The club has up to 25 cooks and maids.",
+      "evidence": [
+        "everleigh-rooms",
+        "everleigh-roles",
+        "prince-henry",
+        "stage"
+      ],
+      "next": "church",
+      "read_s": 24,
+      "stage": {
+        "caption": "Two maids, done with work, come up the side path to Indiana Avenue and hurry north, talking.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "maid_x",
+            "dress": "reynolds_mary_1904_maid",
+            "name": "A maid going home (unnamed)",
+            "at": [
+              1303.7,
+              -3311.28
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1283.96,
+                    -3314.45
+                  ],
+                  [
+                    1280.23,
+                    -3300.67
+                  ]
+                ],
+                "pace": "walk"
+              },
+              {
+                "t": 1,
+                "talk": true
+              },
+              {
+                "t": 16,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "extra": "maid_y",
+            "dress": "ryan_kate_1904_cook",
+            "name": "A cook going home (unnamed)",
+            "at": [
+              1305.35,
+              -3311.43
+            ],
+            "beats": [
+              {
+                "t": 0.4,
+                "walk": [
+                  [
+                    1284.45,
+                    -3314.98
+                  ],
+                  [
+                    1280.82,
+                    -3301.18
+                  ]
+                ],
+                "pace": "walk"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "church",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_presbyterian"
+      },
+      "text": "This is First Presbyterian Church, at Indiana and Twenty-first Street. It stands at the edge of the Levee, close enough to hear the noise on a summer night. People say famous actors and writers visit the club. Some even say young Marshall Field Jr., who lives a few blocks away, is one of them. Later, a rival told a mean, false story about the sisters, and the rumor never went away. The minister's door is lit. So is the club's. Tonight, like every night, the Levee is busier.",
+      "evidence": [
+        "church-1904",
+        "everleigh-clients",
+        "levee",
+        "stage"
+      ],
+      "next": "close",
+      "read_s": 23,
+      "stage": {
+        "caption": "A family comes out of the church hall into the evening while a cab goes by the other way.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "elder",
+            "dress": "glessner_john_j_1904",
+            "name": "A church member (unnamed)",
+            "at": [
+              1279.6,
+              -3587.0
+            ],
+            "beats": [
+              {
+                "t": 2,
+                "walk": [
+                  [
+                    1276.0,
+                    -3595.0
+                  ],
+                  [
+                    1274.0,
+                    -3611.0
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 3,
+                "talk": true
+              },
+              {
+                "t": 16,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "extra": "elder_wife",
+            "dress": "glessner_frances_m_1904",
+            "name": "His wife (unnamed)",
+            "at": [
+              1280.8,
+              -3586.6
+            ],
+            "beats": [
+              {
+                "t": 2.4,
+                "walk": [
+                  [
+                    1277.2,
+                    -3594.6
+                  ],
+                  [
+                    1275.2,
+                    -3610.6
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          },
+          {
+            "extra": "elder_girl",
+            "dress": "teen_girl_1904",
+            "name": "Their daughter (unnamed)",
+            "at": [
+              1280.0,
+              -3585.0
+            ],
+            "beats": [
+              {
+                "t": 3,
+                "walk": [
+                  [
+                    1276.6,
+                    -3593.0
+                  ],
+                  [
+                    1274.6,
+                    -3609.0
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "legs": [
+    {
+      "story": "West along Eighteenth Street, past the last of the mansions, to Indiana Avenue.",
+      "evidence": [
+        "levee"
+      ],
+      "story_evidence": [
+        "levee-near"
+      ]
+    },
+    {
+      "story": "South along Indiana Avenue, with the noise of the Levee two blocks to the west.",
+      "evidence": [
+        "levee"
+      ],
+      "story_evidence": [
+        "everleigh-rooms"
+      ]
+    },
+    {
+      "story": "South to Twenty-first Street and the church at the edge of the Levee.",
+      "evidence": [
+        "church-1904"
+      ],
+      "story_evidence": [
+        "church-1904"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "close",
+      "text": "The walk ends here. The Everleigh Club lasted eleven years. On 24 October 1911 the mayor ordered it closed. Minna said she would close up shop and walk out with a smile on her face. The building was torn down in 1933. Prairie Avenue never once said it knew the way to Dearborn Street. It only ever knew the way back.",
+      "read_s": 16,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "sisters-of-the-levee-card-grades-3-5",
+    "title": "A Card from the Levee",
+    "text": "A card about Chicago's Levee and the Everleigh Club around 1904. It is a made-up keepsake, not an object from history."
+  },
+  "evidence": [
+    {
+      "id": "levee",
+      "text": "Chicago's Levee District ran from Eighteenth Street to the north to Twenty-second Street to the south, Wabash to the east and Clark to the west, 'several blocks away from Prairie Avenue'.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_other_ladies"
+      ],
+      "locator": "The post's first paragraphs."
+    },
+    {
+      "id": "vic-shaw",
+      "text": "The Everleigh Club and Vic Shaw's 'resort' were the preeminent brothels in Chicago, 'with Shaw's business existing on Prairie Avenue for a time.' Shaw lived until 1952 in a crumbling mansion at 2906 Prairie Avenue with a dog, cat and parrot.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_other_ladies"
+      ],
+      "locator": "The post's second and last paragraphs."
+    },
+    {
+      "id": "levee-near",
+      "text": "The Levee's eastern edge, Wabash Avenue, lay three blocks west of Prairie Avenue, with Indiana and Michigan Avenues between.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_treasure_houses_2017_other_ladies"
+      ],
+      "reasoning": "The blog gives the Levee's bounds as Eighteenth to Twenty-second, Wabash to Clark, 'several blocks away from Prairie Avenue'; the avenues between, Indiana and Michigan, are the city's grid west of Prairie."
+    },
+    {
+      "id": "day",
+      "text": "The Sisters of the Levee: the day, Monday 21 November 1904, the hour and the order of the walk are this jaunt's framing, chosen because the stories meet on it (three days after Arthur Caton's death, a Monday of the Reading Class, before Kimball's death in December). No visit on that day is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "stage",
+      "text": "The Sisters of the Levee: who is seen at each stop, where they stand, what they do and when are reconstructed. People with cards in the town play themselves; people the town has no card for (and the unnamed servants, callers and passers-by) are unnamed figures in period dress, and no likeness is claimed. No word anyone says is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "everleigh-sisters",
+      "text": "The sisters were born Simms (in Greene County, Virginia, Ada in 1864 and Minna in 1866; the Kentucky childhood was 'another story concocted by the sisters'). With an inheritance of some $35,000 they ran a house in Omaha, then bought Effie Hankins's brothel at 2131-2133 South Dearborn, and took the name Everleigh from their grandmother, who signed her letters 'Everly yours'. The club opened on February 1, 1900, and turned away many of its first callers.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_other_ladies",
+        "wikipedia_everleigh_club"
+      ],
+      "locator": "Other Ladies: the Everleigh paragraph; Wikipedia: History."
+    },
+    {
+      "id": "everleigh-rooms",
+      "text": "The club occupied two mansions, 50 rooms with themes such as the Japanese Throne Room, the Mirror Room and the Silver Parlor; it had 'a $15,000 gold-leafed piano for the Music Room' and '$650 gold cuspidors'. A bottle of champagne cost $12 'in an era when an entire meal could be had for fifty cents', and the entrance fee alone was $50.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_other_ladies",
+        "wikipedia_everleigh_club"
+      ],
+      "locator": "Other Ladies: the club paragraph; Wikipedia: History."
+    },
+    {
+      "id": "everleigh-roles",
+      "text": "Ada, the quieter sister, kept the books and hired the women; Minna met the guests. The club employed '15 to 25 cooks and maids', and its women were called 'butterflies'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_everleigh_club",
+        "chicago_treasure_houses_2017_other_ladies"
+      ],
+      "locator": "Wikipedia: The sisters' separate responsibilities, Interior layout; Other Ladies."
+    },
+    {
+      "id": "prince-henry",
+      "text": "On March 3, 1902, Prince Henry of Prussia visited the club; when a slipper came off during a dance and spilled champagne and one of his party drank from it, the custom of drinking champagne from a woman's shoe began.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_everleigh_club"
+      ],
+      "locator": "Interior layout."
+    },
+    {
+      "id": "church-1904",
+      "text": "First Presbyterian Church stood at Indiana Avenue and Twenty-first Street in 1904, two blocks west of Prairie Avenue and at the Levee's eastern edge.",
+      "confidence": "inferred",
+      "sources": [
+        "otis_1913_first_presbyterian_21st_indiana_1887",
+        "sanborn_1911_chicago_v3_sheet_35",
+        "chicago_treasure_houses_2017_other_ladies"
+      ],
+      "reasoning": "The church's own structure record dates it 1870-1873 to after 1911 and the 1911 Sanborn sheet draws it at Indiana and Twenty-first; the Levee ran east to Wabash, one block beyond Indiana and Michigan."
+    },
+    {
+      "id": "everleigh-clients",
+      "text": "The blog names actor John Barrymore, authors Ring Lardner and Theodore Dreiser, and Marshall Field, Jr. among the club's famed clients, and says rumours persisted for years that the young Field had been shot there; Wikipedia: 'A rival madam maliciously accused the Everleigh sisters of murdering Field.'",
+      "confidence": "attested",
+      "sources": [
+        "chicago_treasure_houses_2017_other_ladies",
+        "wikipedia_everleigh_club"
+      ],
+      "locator": "Other Ladies: the clients paragraph; Wikipedia: Scandals."
+    },
+    {
+      "id": "everleigh-close",
+      "text": "Mayor Carter Harrison Jr. ordered the club closed on October 24, 1911. Minna: 'If the Mayor says we must close, that settles it...I'll close up shop and walk out with a smile on my face.' The building was razed in July 1933.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_everleigh_club"
+      ],
+      "locator": "Closing."
+    }
+  ],
+  "liberties": [
+    "L-1904-story-jaunts"
+  ],
+  "version_of": "sisters-of-the-levee"
+}

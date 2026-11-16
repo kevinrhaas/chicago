@@ -1,0 +1,463 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "True stories",
+  "menu_group": "Stories",
+  "grade_band": "11-12",
+  "review_required": false,
+  "id": "pullmans-other-son-grades-11-12",
+  "scene": "1904",
+  "title": "Pullman's Other Son",
+  "premise": "A German sergeant maintained that George Pullman was his father. For four years he pursued the family, to the office, to the funeral, to the front steps, and ultimately to the wrong end of a judge's revolver.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "afternoon",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: PULLMAN'S OTHER SON. A Monday afternoon in November 1904, outside the Pullman mansion at Eighteenth Street.\n\nFour stops, encircling the Pullman residence and continuing down the avenue to the home of the family's son-in-law. George Pullman fathered twin sons whose names the entire city recognized. A third young man asserted a claim to that name. His mother disclosed on her deathbed the identity of his father, and he crossed an ocean to proclaim it to Pullman directly. The family dismissed him as deranged; the physicians repeatedly certified him sane.\n\nBegin at the front of the mansion, where his narrative originates.",
+    "read_s": 26
+  },
+  "stops": [
+    {
+      "id": "mother",
+      "destination": {
+        "kind": "structure",
+        "id": "pullman_house_1729_prairie"
+      },
+      "text": "1729 Prairie, the Pullman mansion. Imagine a German Army sergeant named Gustave Behring, twenty-eight years old, at his dying mother's bedside. She confided that his biological father was George M. Pullman. She had been employed as a governess in Chicago \"for a house on the west side\", she explained, and upon becoming pregnant, Pullman allegedly dispatched her to Germany with $500. Behring traveled to Chicago, where Pullman expelled him from his office. He was subsequently confined in an asylum and arrested six additional times for loitering outside the Pullman Building. Four days before Pullman's death, their confrontation was documented: \"BEHRING: You are my father! PULLMAN: You are a crazy man!\" The mansion will be demolished in 1922. Walk around to the front steps.",
+      "evidence": [
+        "behring-mother",
+        "behring-office",
+        "pullman-razed",
+        "day",
+        "stage"
+      ],
+      "next": "steps",
+      "read_s": 33,
+      "stage": {
+        "caption": "A stranger in a dark overcoat pauses at the Pullman gate, scrutinizes the mansion, and continues onward.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "stranger",
+            "dress": "glessner_john_j_1904",
+            "name": "A stranger at the gate (unnamed; nobody is known to have been here on this day)",
+            "at": [
+              1417.05,
+              -3198.99
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1416.67,
+                    -3179.0
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 9,
+                "face": [
+                  1427.63,
+                  -3176.79
+                ]
+              },
+              {
+                "t": 22,
+                "walk": [
+                  [
+                    1416.18,
+                    -3153.0
+                  ]
+                ],
+                "pace": "walk"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "steps",
+      "destination": {
+        "kind": "anchor",
+        "id": "pullman_house"
+      },
+      "text": "The front steps. Pullman succumbed to a heart attack in October 1897, and his family interred him beneath concrete and steel. \"Less than 12 hours after the funeral, Behring showed up at the family's residence on Prairie Avenue, demanding to speak to Mrs. Harriett Pullman\". He never reached the entrance. On these steps he was intercepted by Pullman's twin sons and the family's attorneys, and he was arrested yet again. On 29 October 1897 a specialist in insanity examined him and pronounced him sane: not a lunatic, therefore, but merely a man who declined to vanish. The Pullmans' housekeeper, Emma Scott, continues to answer this door. Walk around the corner to the conservatory.",
+      "evidence": [
+        "behring-steps",
+        "pullman-grave",
+        "pullman-strike",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "pa1904_pullman_mrs_george_m_c1900_emma_scott",
+          "label": "Emma Scott"
+        }
+      ],
+      "next": "ship",
+      "read_s": 30,
+      "stage": {
+        "caption": "Emma Scott, the housekeeper, opens the front door, surveys the deserted steps, and closes it again.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_pullman_mrs_george_m_c1900_emma_scott",
+            "at": [
+              1427.03,
+              -3176.8
+            ],
+            "heading": 268.9,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 5,
+                "show": true
+              },
+              {
+                "t": 7,
+                "walk": [
+                  [
+                    1425.43,
+                    -3176.83
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 11,
+                "heading": 205.5
+              },
+              {
+                "t": 16,
+                "walk": [
+                  [
+                    1427.03,
+                    -3176.8
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 19,
+                "hide": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ship",
+      "destination": {
+        "kind": "structure",
+        "id": "pullman_house_1729_prairie_conservatory"
+      },
+      "text": "The conservatory, the family's glass parlor. Behind these panes the Pullmans awaited their problem's departure, and in September 1898 it departed: detectives escorted Behring up the gangway of the Cunard liner Campania, bound for Bremen. Europe could retain him. Nevertheless he returned, because a man informed by his dying mother of his paternity does not remain deported. By 1901 the twins who had obstructed the steps confronted scandals of their own, and George Jr. would die of pneumonia that November. Florence Pullman's husband, Frank Lowden, practiced law, so when Behring reappeared, he approached Lowden. Walk south along Prairie to the Lowden residence.",
+      "evidence": [
+        "behring-ship",
+        "george-jr",
+        "lowden-house",
+        "stage"
+      ],
+      "next": "gun",
+      "read_s": 26,
+      "stage": {
+        "caption": "The groom, Samuel Whatter Jr., emerges from the stable yard beside the conservatory and stands surveying the avenue.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_pullman_mrs_george_m_c1900_samuel_whatter_jr",
+            "at": [
+              1452.96,
+              -3178.83
+            ],
+            "beats": [
+              {
+                "t": 2,
+                "walk": [
+                  [
+                    1450.65,
+                    -3172.94
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 12,
+                "face": [
+                  1428.93,
+                  -3141.05
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gun",
+      "destination": {
+        "kind": "structure",
+        "id": "moulton_lowden_house_1912_prairie"
+      },
+      "text": "1912 Prairie, where Frank Lowden resides with Florence and their children. Lowden is a methodical man, but even methodical men experience dramatic afternoons. \"On June 25, 1901, Behring was again arrested at the law offices of Frank Lowden (Florence Pullman's husband) demanding $5,000 in cash and $10,000 a month for 6 months\". Lowden's partner declined to await the authorities' diplomacy: \"Judge Davis, Lowden's partner, held Behring at gunpoint until the police arrived\". The residence will be demolished in 1939. Observe Lowden returning home this afternoon, glancing apprehensively down the avenue before entering.",
+      "evidence": [
+        "behring-1901",
+        "lowden-house",
+        "lowden-razed",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "pa1904_lowden_frank_orren",
+          "label": "Frank Orren Lowden"
+        }
+      ],
+      "next": "name",
+      "read_s": 25,
+      "stage": {
+        "caption": "Frank Lowden approaches his residence, pauses on the steps to look back along the avenue, and enters.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_lowden_frank_orren",
+            "at": [
+              1396.83,
+              -3372.41
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1396.75,
+                    -3393.41
+                  ],
+                  [
+                    1389.75,
+                    -3394.08
+                  ]
+                ],
+                "pace": "walk"
+              },
+              {
+                "t": 15,
+                "heading": 18.8
+              },
+              {
+                "t": 22,
+                "walk": [
+                  [
+                    1387.55,
+                    -3394.37
+                  ]
+                ],
+                "pace": "walk"
+              },
+              {
+                "t": 25,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "pa1904_lowden_frank_orren_c1900_john_halloran",
+            "at": [
+              1387.75,
+              -3395.58
+            ],
+            "heading": 80.9,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 13,
+                "show": true
+              },
+              {
+                "t": 25,
+                "hide": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "legs": [
+    {
+      "story": "Around to the front steps, where the twins and the attorneys intercepted him after the funeral.",
+      "evidence": [
+        "behring-steps"
+      ],
+      "story_evidence": [
+        "behring-steps"
+      ]
+    },
+    {
+      "story": "Along the side of the mansion to the conservatory.",
+      "evidence": [
+        "behring-ship"
+      ],
+      "story_evidence": [
+        "behring-ship"
+      ]
+    },
+    {
+      "story": "South along Prairie Avenue to 1912, the residence of the family's attorney.",
+      "evidence": [
+        "behring-1901"
+      ],
+      "story_evidence": [
+        "behring-1901"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "name",
+      "text": "The walk concludes here. Gustave Behring was arrested, institutionalized, examined, certified sane, deported and arrested once more, and as contemporary newspapers reported it, his narrative terminates at the muzzle of a judge's revolver. \"You are my father!\" \"You are a crazy man!\" Those two sentences constitute everything surviving from the only conversation the two men ever conducted. Evaluate the evidence, consider which party possessed the wealth and influence necessary to be believed, and determine for yourself which of them was telling the truth.",
+      "read_s": 22,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "pullmans-other-son-card-grades-11-12",
+    "title": "A Claim on the Pullman Name",
+    "text": "An interpretive card documenting the Behring affair of 1897 to 1901 as contemporary newspapers reported it; a reconstruction prepared for this walk, not a historical artifact."
+  },
+  "evidence": [
+    {
+      "id": "behring-mother",
+      "text": "Gustave Behring, 28, a sergeant in the German Army, was told on his mother's deathbed that his real father was George M. Pullman. She said she had been a governess in Chicago 'for a house on the west side'; when she became pregnant Pullman allegedly packed her off to Germany and supplied her with $500.",
+      "confidence": "attested",
+      "sources": [
+        "pullman_museum_behring_page"
+      ],
+      "locator": "The page's second paragraph, after the Cedar Rapids Evening Gazette, 14 December 1897."
+    },
+    {
+      "id": "behring-office",
+      "text": "At the Pullman building Pullman threw him out of his office; Behring was confined for a time in a mental institution, and was arrested six times more lurking outside the building. Four days before Pullman's death the conversation was recorded: BEHRING: You are my father! PULLMAN: You are a crazy man!",
+      "confidence": "attested",
+      "sources": [
+        "pullman_museum_behring_page"
+      ],
+      "locator": "The page's third paragraph."
+    },
+    {
+      "id": "pullman-razed",
+      "text": "George M. Pullman Residence, 1729 S. Prairie Avenue: razed 1922.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1729 S. Prairie Avenue entry."
+    },
+    {
+      "id": "day",
+      "text": "Pullman's Other Son: the day, Monday 21 November 1904, the hour and the order of the walk are this jaunt's framing, chosen because the stories meet on it (three days after Arthur Caton's death, a Monday of the Reading Class, before Kimball's death in December). No visit on that day is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "stage",
+      "text": "Pullman's Other Son: who is seen at each stop, where they stand, what they do and when are reconstructed. People with cards in the town play themselves; people the town has no card for (and the unnamed servants, callers and passers-by) are unnamed figures in period dress, and no likeness is claimed. No word anyone says is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "behring-steps",
+      "text": "'Less than 12 hours after the funeral, Behring showed up at the family's residence on Prairie Avenue, demanding to speak to Mrs. Harriett Pullman.' He was met on the steps by Pullman's sons and the family lawyers, and was eventually arrested again; on 29 October 1897 an insanity expert pronounced him sane.",
+      "confidence": "attested",
+      "sources": [
+        "pullman_museum_behring_page"
+      ],
+      "locator": "The page's fourth paragraph."
+    },
+    {
+      "id": "pullman-grave",
+      "text": "Fearing his body would be dug up, the family had him buried in a 'lead-lined mahogany coffin, which was then sealed inside a block of concrete', under steel rails 'bolted together at right angles', at Graceland Cemetery. An 1897 New York Times account gives a 'lead-lined box wrapped in tar paper' and 'an inch of asphaltum'; behind it, 'a lot of high-profile grave robberies lately' and the fear that 'some of the employees weren't quite done getting revenge'. The historian Adam Selzer: 'Whether it's true or not, we don't really know.'",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_george_pullman",
+        "wttw_pullman_grave"
+      ],
+      "locator": "The biography's paragraph on the burial; the WTTW piece on the grave."
+    },
+    {
+      "id": "pullman-strike",
+      "text": "In 1894 Pullman cut his workers' wages, but 'he didn't reduce the rent in Pullman', his company town; he 'died of a heart attack' on 19 October 1897.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_george_pullman"
+      ],
+      "locator": "The biography's paragraphs on the strike and his death."
+    },
+    {
+      "id": "behring-ship",
+      "text": "In September 1898 detectives escorted Behring to the Cunard liner Campania, bound for Bremen.",
+      "confidence": "attested",
+      "sources": [
+        "pullman_museum_behring_page"
+      ],
+      "locator": "The page's sixth paragraph, after the New York Times."
+    },
+    {
+      "id": "george-jr",
+      "text": "George, Jr. secretly married Lynn Fernald, 'his brother's betrothed'. Frederick Bowers sued George for $100,000, 'eventually settling for $50,000.' George died of complications from pneumonia in November, 1901.",
+      "confidence": "attested",
+      "sources": [
+        "pullman_museum_twins_page"
+      ],
+      "locator": "The page's fourth, sixth and eighth paragraphs."
+    },
+    {
+      "id": "lowden-house",
+      "text": "The 1904 Blue Book lists Mr. and Mrs. Frank Orren Lowden at 1912 Prairie; Florence Pullman married Frank Lowden.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "pullman_museum_children_page"
+      ],
+      "locator": "Blue Book, Prairie Av. street list, '1912 Mr. & Mrs. Frank Orren Lowden'; the children page."
+    },
+    {
+      "id": "behring-1901",
+      "text": "'on June 25, 1901, Behring was again arrested at the law offices of Frank Lowden (Florence Pullman's husband) demanding $5,000 in cash and $10,000 a month for 6 months. Judge Davis, Lowden's partner, held Behring at gunpoint until the police arrived'.",
+      "confidence": "attested",
+      "sources": [
+        "pullman_museum_behring_page"
+      ],
+      "locator": "The page's last paragraph."
+    },
+    {
+      "id": "lowden-razed",
+      "text": "Bryan P. Moulton Residence, 1912 S. Prairie Avenue: razed 1939.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1912 S. Prairie Avenue entry."
+    }
+  ],
+  "liberties": [
+    "L-1904-story-jaunts"
+  ],
+  "version_of": "pullmans-other-son"
+}

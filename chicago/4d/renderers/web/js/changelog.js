@@ -1,4 +1,36 @@
 export const CHANGELOG = [ // newest first
+  { v: 3047, ts: '2026-11-16T21:51:02.340Z', date: 'Nov 16, 2026, 3:51 PM CT', title: '1812 jaunts: swinging doors, a sally port, and three new stops', kind: 'improvement',
+    items: [
+      'Staged people open doors to go in or come out, and the doors swing shut behind them.',
+      'The covered-way view sits over a new sally port; the carriers walk out through it, not the pickets.',
+      'New battle stops: Black Partridge\'s medal, the war party at the Kinzies\', and the haystacks across from Lee\'s Place.',
+      'Lee\'s Place now starts across the river; the soldier and the boy paddle over to the haystacks.',
+      'At the Burns house four soldiers carry Mrs. Burns out on her bed to the boat, and everyone stays in sight.',
+      'The Kinzies\' green has a gate on each side you can open and walk through.',
+      'In the murder jaunt Kinzie paddles across in his own pirogue, and soldiers carry Lalime on a bier.',
+      'The fallen lie on the ground with bent arms and legs, and blood lies on the ground where it falls.',
+    ] },
+  { v: 3046, ts: '2026-11-16T21:15:57.498Z', date: 'Nov 16, 2026, 3:15 PM CT', title: 'Every Jaunt now comes in four reading levels', kind: 'feature',
+    items: [
+      'Every Jaunt in 1812, 1835 and 1904 now has a telling for grades 3-5, 6-8, 9-10 and 11-12, so the grade filters in the Jaunts menu find each one at every level. 146 new tellings follow the same stops, choices and sources as the original, with simpler or richer wording; each was measured to read inside its band.',
+      'The 1812 tellings for younger readers keep to the build-up and the aftermath, as the original student Jaunts do.',
+      'The new tellings are text only for now: they have no recorded narration yet.',
+    ] },
+  { v: 3045, ts: '2026-11-16T20:42:05.712Z', date: 'Nov 16, 2026, 2:42 PM CT', title: 'A quiet meter for every jaunt', kind: 'feature',
+    items: [
+      'A hairline meter above a jaunt\'s controls shows the whole outing as one short segment a stop: the stops behind are full, the one you are at fills in real time as its scene plays, and the ones ahead wait.',
+      'The stop\'s segment follows what is actually playing there: the narrator\'s voice where you hear it, otherwise the time it takes to read the stop, and any staged scene until its last moment, so it never reads full while a voice still speaks.',
+      'Beside it, in small figures, the time left in the scene (or in the flight to the first stop); on the way between stops the segment fills more faintly as the way is covered.',
+      'Fold the panel down and the same line runs along the top of the bar.',
+    ] },
+  { v: 3044, ts: '2026-11-16T20:42:05.712Z', date: 'Nov 16, 2026, 2:42 PM CT', title: 'John Glessner\'s film shows his oak front door', kind: 'fix',
+    items: [
+      'The film of John Glessner at his door, on the public site\'s home page and in the Temporal Observatory\'s 1904 clips, is filmed again: his front door is oak brown, as it stands in the town, not the pale blue an older build drew.',
+    ] },
+  { v: 3043, ts: '2026-11-16T20:17:56.157Z', date: 'Nov 16, 2026, 2:17 PM CT', title: 'The Confidence view\'s overlay check holds the town still while it counts', kind: 'fix',
+    items: [
+      'Nothing you can see changes. One of the checks that runs on every change turns on the Confidence view\'s building labels, people pins and Jaunt route, and confirms they add nothing to the 3D scene. Since the 1835 townspeople began coming and going from their doors, a figure arriving or loading a closer level of detail during that check was counted as the overlays\' work, so the check failed every time. It now hides the people and pauses the town between its two readings, and if it ever fails again it names the part of the scene that changed.',
+    ] },
   { v: 3042, ts: '2026-11-16T20:00:09.201Z', date: 'Nov 16, 2026, 2:00 PM CT', title: 'South Water and Lake fill out as 1835\'s row of stores', kind: 'feature',
     items: [
       'In 1835 the block fronts of South Water and Lake Streets, Wells to State, are now built up toward seven tenths of their length, and the row turns the corner up Wells, LaSalle, Clark and Dearborn. 59 more reconstructed frame stores and a boarding house stand shoulder to shoulder at the street, the way Gifford drew the street round the first Tremont House.',

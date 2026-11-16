@@ -1,7 +1,0 @@
-{
-  "title": "The Confidence view's overlay check holds the town still while it counts",
-  "kind": "fix",
-  "items": [
-    "Nothing you can see changes. One of the checks that runs on every change turns on the Confidence view's building labels, people pins and Jaunt route, and confirms they add nothing to the 3D scene. Since the 1835 townspeople began coming and going from their doors, a figure arriving or loading a closer level of detail during that check was counted as the overlays' work, so the check failed every time. It now hides the people and pauses the town between its two readings, and if it ever fails again it names the part of the scene that changed."
-  ]
-}

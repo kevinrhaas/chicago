@@ -21,7 +21,7 @@ window.CHICAGO_FILMS = {
     "1904-carriage": "1904-carriage.fbbfc677.mp4",
     "1904-dusk": "1904-dusk.e3d60b26.mp4",
     "1904-glessner": "1904-glessner.f16f5513.mp4",
-    "1904-host": "1904-host.84b6d161.mp4",
+    "1904-host": "1904-host.b25c1d25.mp4",
     "1904-stoops": "1904-stoops.dbfb6990.mp4",
     "1904-winter": "1904-winter.9faf9450.mp4",
     "hero": "hero.1c744901.mp4",
