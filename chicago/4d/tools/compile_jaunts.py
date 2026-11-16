@@ -312,8 +312,8 @@ class Compiler:
                 a = self.refs['anchor'].get(d['id']) if d['kind'] == 'anchor' else None
                 for c in cast:
                     who = c.get('person') or c['extra']
-                    # Students see build-up and aftermath (2026-11-14): no weapon raised, no blow, no shot.
-                    fights = [k for k in ('arm', 'act') if k in c or any(k in b for b in c.get('beats', []))]
+                    # Students see build-up and aftermath (2026-11-14): no weapon raised, no blow, no shot, no blood.
+                    fights = [k for k in ('arm', 'act', 'wound') if k in c or any(k in b for b in c.get('beats', []))]
                     require(adults or not fights, f'{stop["id"]}: {who} has {"/".join(fights)}; only an adults jaunt stages the fighting')
                     if c.get('person'): self.resolve({'kind': 'person', 'id': c['person']})
                     else:
