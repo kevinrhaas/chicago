@@ -96,12 +96,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Dearborn Street",
-   "model_seat": "recon_1835_gifford_c3_015",
+   "model_seat": "recon_1835_gifford_c1_010",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "dearborn",
    "printed_place": "Dearborn Street",
-   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c3_015', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c1_010', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_a_leather_stock_chicago_june_1835",
@@ -161,12 +161,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Dearborn Street",
-   "model_seat": "recon_1835_gifford_c2_011",
+   "model_seat": "recon_1835_core_c1_048",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "dearborn",
    "printed_place": "Denrdorn Stree",
-   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c2_011', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c1_048', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_an_iron_and_hardware_stock_chicago_june_1835",
@@ -226,12 +226,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Lake Street",
-   "model_seat": "recon_1835_gifford_c3_002",
+   "model_seat": "recon_1835_core_c3_006",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lake",
    "printed_place": "Lake Street",
-   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c3_002', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c3_006', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_briggs_humphrey",
@@ -408,12 +408,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Dearborn Street",
-   "model_seat": "recon_1835_gifford_c3_013",
+   "model_seat": "recon_1835_core_c2_050",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "dearborn",
    "printed_place": "on Dearhorn Street, nearly opposite the Pagte Coffee Houre",
-   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c3_013', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c2_050', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_d_carver_co",
@@ -538,12 +538,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "South Water Street",
-   "model_seat": "recon_1835_gifford_c3_017",
+   "model_seat": "recon_1835_core_c3_002",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "south_water",
    "printed_place": "South Water Street",
-   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c3_017', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c3_002', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_e_p_deacon",
@@ -707,12 +707,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Dearborn Street",
-   "model_seat": "recon_1835_gifford_c2_009",
+   "model_seat": "recon_1835_core_c3_037",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "dearborn",
    "printed_place": "corner of Dearborn and Lake-sts.",
-   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c2_009', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c3_037', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_fullerton_g_attorneys_and_counsellors",
@@ -772,12 +772,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Dearborn Street",
-   "model_seat": "recon_1835_gifford_c3_014",
+   "model_seat": "recon_1835_gifford_c2_009",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "dearborn",
    "printed_place": "on Deas. Lorn atreet, nearly opposite the Eagle Cof- fre House",
-   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c3_014', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c2_009', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_h_c_bennett",
@@ -954,12 +954,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "South Water Street",
-   "model_seat": "recon_1835_blk_south_water_lasalle_d4_02",
+   "model_seat": "recon_1835_core_c1_035",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "south_water",
    "printed_place": "in A Bre Ore Meters, Joms, Kina & Co,",
-   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d4_02', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c1_035', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_j_d_caton_attorney_and_counsellor_at_law",
@@ -1071,12 +1071,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "La Salle Street",
-   "model_seat": "recon_1835_blk_randolph_wells_d4_04",
+   "model_seat": "recon_1835_core_c2_026",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lasalle",
    "printed_place": "Offiea in the Store of Uubbard & Co,",
-   "clause": "The paper reaches 'La Salle Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_randolph_wells_d4_04', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'La Salle Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c2_026', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_john_bates_jr",
@@ -1318,12 +1318,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "La Salle Street",
-   "model_seat": "recon_1835_south_f1_038",
+   "model_seat": "recon_1835_core_c1_003",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lasalle",
    "printed_place": "re subscribers having taken the Ne\nStore, in La Salle street, a few do\nSouth of Hubbard & Co's. brick store, war",
-   "clause": "The paper reaches 'La Salle Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_south_f1_038', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'La Salle Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c1_003', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_matthias_mason_co",
@@ -1630,12 +1630,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Dearborn Street",
-   "model_seat": "recon_1835_gifford_c1_010",
+   "model_seat": "recon_1835_core_c2_047",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "dearborn",
    "printed_place": "aq Harmon. in Dearborn street,\nof the \"Eaglo Coffee House.\"",
-   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c1_010', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c2_047', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_s_abell_attorney_counsellor_at_law",
@@ -1825,12 +1825,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Dearborn Street",
-   "model_seat": "recon_1835_gifford_c3_012",
+   "model_seat": "recon_1835_core_c3_049",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "dearborn",
    "printed_place": "Dearborn Street",
-   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c3_012', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c3_049', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_the_livery_stable_at_the_point",
@@ -1890,12 +1890,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "South Water Street",
-   "model_seat": "recon_1835_gifford_c2_016",
+   "model_seat": "recon_1835_core_c2_001",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "south_water",
    "printed_place": "the New Store on the, ce\nA Water and. Clark-strests,",
-   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c2_016', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c2_001', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_the_stove_and_tin_ware_store_in_water_street_near_the_bridge",
@@ -1968,12 +1968,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "South Water Street",
-   "model_seat": "recon_1835_blk_south_water_franklin_d4_02",
+   "model_seat": "recon_1835_core_c3_024",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "south_water",
    "printed_place": "South Water Street",
-   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_d4_02', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c3_024', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_uncertain_j_i_mulford_carriage_and_sleigh_maker",
@@ -1981,12 +1981,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "South Water Street",
-   "model_seat": "recon_1835_blk_south_water_lasalle_d5_01",
+   "model_seat": "recon_1835_core_c3_034",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "south_water",
    "printed_place": "South Water Street",
-   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d5_01', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c3_034', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_uncertain_noble_wesencaft",
@@ -2020,12 +2020,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Lake Street",
-   "model_seat": "recon_1835_gifford_c2_001",
+   "model_seat": "recon_1835_core_c2_005",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lake",
    "printed_place": ", Hear Lake st, adjacent to}\nJ. T. Temple,",
-   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c2_001', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c2_005', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_uncertain_the_physician_lodging_at_the_mansion_house_july_1834",
@@ -2098,12 +2098,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "La Salle Street",
-   "model_seat": "recon_1835_blk_randolph_wells_d2_07",
+   "model_seat": "recon_1835_south_f1_038",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lasalle",
    "printed_place": "a daving’ ore, its La Malle etree, | wF thubbard 2 Cole.” brick atore,",
-   "clause": "The paper reaches 'La Salle Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_randolph_wells_d2_07', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'La Salle Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_south_f1_038', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_unsigned_boot_shoe_leather_store_two_doors_north_of_lake_street",

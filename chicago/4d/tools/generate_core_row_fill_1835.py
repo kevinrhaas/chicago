@@ -26,7 +26,9 @@ its own lot, exactly as the drawn block's three cottages were; none is retired.
 WHAT IS INVENTED. Everything about each store: that it stood, its family, its frontage and
 depth, its station. The density is the owner's reading of a retrospective drawing, spread by
 rule (docs/LIBERTIES.md L-core-row-fill-3605). These are NOT drawn buildings: no
-`reconstruction.drawn` block, and they are not in the inventory's `pictured_roofs`.
+`reconstruction.drawn` block. Like the drawn roofs, they are in the inventory's
+`pictured_roofs` (its `by_prefix` entry for this prefix), so they re-weight no household:
+they were raised for the street's look, not because the model's people needed more stores.
 
     python3 tools/generate_core_row_fill_1835.py            write the records (and the moves)
     python3 tools/generate_core_row_fill_1835.py --check    fail on drift
@@ -77,7 +79,8 @@ BUILT_BAND_M = 3.0         # a wall this close to the line holds the front
 CORNER_M = 1.50            # clear of the cross street's corner
 ROW_GAP_M = 0.10           # between two stores of one new row
 OTHER_GAP_M = 0.50         # between a new store and anything else
-BODY_BAND_M = SETBACK_M + 15.0 + OTHER_GAP_M   # the deepest store body plus its clearance
+DOOR_GROUND_M = 3.0        # open ground a cottage's street door keeps before the store's back
+BODY_BAND_M = SETBACK_M + 15.0 + DOOR_GROUND_M   # the deepest store body plus its clearance
 MOVE_TO_SETBACK_M = 22.0   # a blocking cottage goes back to the rear of its lot
 MOVABLE = re.compile(r"^recon_1835_.*_d[1-6]_\d+$")
 #: the row's family rhythm; an H3 boarding house leads a long Lake Street stretch
@@ -197,7 +200,7 @@ def lay_front(front: dict, table: dict, seq0: int) -> tuple[list[dict], list[str
         for o in front["near"]:
             if o["id"] in movable and o["hi"] > x["station"][0] - OTHER_GAP_M \
                     and o["lo"] < x["station"][1] + OTHER_GAP_M \
-                    and o["front"] > -(SETBACK_M + x["depth"] + OTHER_GAP_M):
+                    and o["front"] > -(SETBACK_M + x["depth"] + DOOR_GROUND_M):
                 used_moves.add(o["id"])
     return laid, sorted(used_moves)
 
@@ -322,7 +325,8 @@ def moved_record(sid: str, front: dict, datum: dict, obstacles: list) -> dict:
             continue
         shift = target - now
         cand = [(p[0] - fr["outward"][0] * shift, p[1] - fr["outward"][1] * shift) for p in poly]
-        if all(_gap(cand, q) >= OTHER_GAP_M + 0.05 for o, q in obstacles if o != sid):
+        if all(_gap(cand, q) >= (DOOR_GROUND_M if o.startswith(PREFIX) else OTHER_GAP_M + 0.05)
+               for o, q in obstacles if o != sid):
             pos["utm_e"] = round(pos["utm_e"] - fr["outward"][0] * shift, 3)
             pos["utm_n"] = round(pos["utm_n"] - fr["outward"][1] * shift, 3)
             note = SETBACK_NOTE.sub(f"stands {target:.1f} m back from its street edge",
@@ -430,6 +434,21 @@ def validate(records: list[dict], moves: dict, datum: dict) -> list[str]:
     others = standing_1835(datum, ids)
     own = [(r["id"], world_polygon(r["phases"][0], datum)) for r in records]
     moved = [(sid, world_polygon(r["phases"][0], datum)) for sid, r in moves.items()]
+    # The inventory's `pictured_roofs` keeps these roofs off the household model's weights
+    # (tools/model_town_1835.py household_matrix), as it keeps Gifford's; its entry for this
+    # prefix must say what is written here.
+    group = {"C": "stores_mixed_use", "H": "larger_boarding_houses"}
+    held: dict = {}
+    for r in records:
+        rec = r["reconstruction"]
+        cell = held.setdefault(group[rec["family"][0]], {})
+        cell[rec["district"]] = cell.get(rec["district"], 0) + 1
+    pictured = load(DATA / "reconstruction" / "1835_building_inventory.json").get(
+        "pictured_roofs") or {}
+    said = (pictured.get("by_prefix") or {}).get(PREFIX)
+    if said != held or PREFIX not in (pictured.get("structure_prefixes") or []):
+        raise ValueError(f"the inventory's pictured_roofs entry for {PREFIX} says {said} "
+                         f"and the records hold {held}")
     report = []
     for record, (sid, poly) in zip(records, own):
         importlib.import_module("archetypes." + record["archetype"] + "_params").from_phase(

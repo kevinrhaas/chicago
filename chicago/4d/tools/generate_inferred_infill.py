@@ -641,6 +641,14 @@ ALLEY_ADJUSTMENTS = {
 # household. Frozen like the alley holds above, for the same reason.
 CORE_ROW_MOVES = {
     "recon_1835_south_d5_011": (-0.048, -5.857),   # blk_lake_lasalle, Lake's south side
+    # A cottage whose street door would open within DOOR_GROUND_M (3 m) of a store's back
+    # wall goes back too (tools/generate_core_row_fill_1835.py), so the ground before its
+    # door is open and its household can come out of it.
+    "recon_1835_south_d1_010": (-0.028, -3.446),
+    "recon_1835_south_d1_018": (-0.052, -6.474),
+    "recon_1835_south_d4_006": (-0.04, -4.944),
+    "recon_1835_south_d4_019": (-0.059, -7.289),
+    "recon_1835_south_d5_007": (-0.043, -5.263),
 }
 
 

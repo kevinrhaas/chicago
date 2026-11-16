@@ -6190,8 +6190,8 @@
     "recon_1835_blk_south_water_wells_d4_03__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 59176,
-      "inputs_sha256": "28e4ed8c65a7cbc06fdb5858f5f04b90ea5ff22da0dc4623dcee53795ab96b01",
+      "bytes": 57304,
+      "inputs_sha256": "920ec29cd06507497f87aae0c0cb40841ded2242c60483c8e5a3a8ea3cd5aacd",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_wells_d4_03"
@@ -7266,6 +7266,528 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_canal_trade_w2_004"
+    },
+    "recon_1835_core_c1_003__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 62772,
+      "inputs_sha256": "095cc34ecd0f4f9c9bb3478c3c50aa16cf4964b7206a398ed5b48c3e5454747a",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c1_003"
+    },
+    "recon_1835_core_c1_008__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 61680,
+      "inputs_sha256": "d471d58496db604f0cb2626bc6853a1e4571a0cfe14c64d812b819f34f463d1c",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c1_008"
+    },
+    "recon_1835_core_c1_012__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 63544,
+      "inputs_sha256": "ab07380e81b07549927c5d140d6250529364c19e2f51d249007c2ef95cb8de92",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c1_012"
+    },
+    "recon_1835_core_c1_015__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 61988,
+      "inputs_sha256": "0823cf4367de50f28128fe371fe0b2223b0bb04940af70d51d2a7d204d2fbfa5",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c1_015"
+    },
+    "recon_1835_core_c1_019__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 62736,
+      "inputs_sha256": "91dc6c24634397f41f691c197652005a971fe8ac128a331b0054ebd915ea5f79",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c1_019"
+    },
+    "recon_1835_core_c1_023__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 61200,
+      "inputs_sha256": "b1e10d2f13db78699dd83eec97def051c3ffb3aed2846d0ab27bebe29bb01f5d",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c1_023"
+    },
+    "recon_1835_core_c1_032__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 63532,
+      "inputs_sha256": "a291a233572c96f7ca7921b063dda693d7005d6db948ec3f255a5479ea2e3be1",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c1_032"
+    },
+    "recon_1835_core_c1_035__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 63532,
+      "inputs_sha256": "c64b4f996fcaf41caeda6894e6828117bd7f1d85aa358676dd215c5b4154b33b",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c1_035"
+    },
+    "recon_1835_core_c1_039__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 62764,
+      "inputs_sha256": "d13ade57f801280b09413a1eb053653371758a594b70c2767b666963b2a4a18a",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c1_039"
+    },
+    "recon_1835_core_c1_044__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 65108,
+      "inputs_sha256": "642d926197b66a8d6ea7030a487af7d26f77f8bab638b79ccb91dba1488f72e9",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c1_044"
+    },
+    "recon_1835_core_c1_048__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 60428,
+      "inputs_sha256": "a406e90a79aaa99116db85a707be04bfbd8d7a5d0655a62e9635aeada035fc1e",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c1_048"
+    },
+    "recon_1835_core_c1_056__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 61820,
+      "inputs_sha256": "a338c1ae128403f455d7b1bc1f71aa916799e977f19556ed68744c416fa13305",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c1_056"
+    },
+    "recon_1835_core_c2_001__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 74144,
+      "inputs_sha256": "a94e12cb475153db6c320127c95708714b4160e975f564c3420e1e899fb7bfe1",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_001"
+    },
+    "recon_1835_core_c2_005__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 74940,
+      "inputs_sha256": "93d703846d53cafc190e6896d6276e9195ce13e681f2aaedcc4ed54dc4450137",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_005"
+    },
+    "recon_1835_core_c2_007__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 73376,
+      "inputs_sha256": "af3128de4b8f398cb3d0899aaa9338650cf88ea20a54666d19fdf49eddd28a59",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_007"
+    },
+    "recon_1835_core_c2_010__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 69608,
+      "inputs_sha256": "2d8a7aa38491a4eb1112f0001a98f9e43f5237de4ba55c170bc9469edef9a758",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_010"
+    },
+    "recon_1835_core_c2_013__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 71032,
+      "inputs_sha256": "509775b1a3160b9e6184071f093ba60c16fea0f3c6c32bef4a44dc01249382f9",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_013"
+    },
+    "recon_1835_core_c2_017__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 72912,
+      "inputs_sha256": "f1ede700c68bfe8cabf3104a8a58ffe0e132acae5fa69e84d460f2a262799722",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_017"
+    },
+    "recon_1835_core_c2_020__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 73380,
+      "inputs_sha256": "8889b7d076a5b2233d173544717a4ba67db59863920775130416e4bcbf85ae0a",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_020"
+    },
+    "recon_1835_core_c2_022__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 75396,
+      "inputs_sha256": "f925ea3eccb69e137613a994cb95121bafba4bf242329780c8947edd8232e1b4",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_022"
+    },
+    "recon_1835_core_c2_026__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 70224,
+      "inputs_sha256": "c9913cbfa362893b247c416ae0a9ea346924037c8dc8a344f69dee6efcc1e001",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_026"
+    },
+    "recon_1835_core_c2_029__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 75408,
+      "inputs_sha256": "bd2e47f7e1652093a84338e3a32dbae3043bc509bff32465054e86916150f157",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_029"
+    },
+    "recon_1835_core_c2_031__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 70408,
+      "inputs_sha256": "c55ec4a1bf0aba2fa4bd8c516ede0d03086879896e33f430f7ac8bbb4afc39bc",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_031"
+    },
+    "recon_1835_core_c2_036__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 72884,
+      "inputs_sha256": "6144d4b7231038886b9eb0fa2a10f8952e3d3c3ac16c90717488290e89ace582",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_036"
+    },
+    "recon_1835_core_c2_038__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 73196,
+      "inputs_sha256": "552c207a6322d83e4e3195f3904a9941ce54f68c3fb2cc6244377bb5d091531e",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_038"
+    },
+    "recon_1835_core_c2_041__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 74940,
+      "inputs_sha256": "66c6ea2488c168ef93472c2ece613d977993b5ab4c6782668a6758b479ce5ecd",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_041"
+    },
+    "recon_1835_core_c2_045__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 72576,
+      "inputs_sha256": "e893e27d4c8ade81272243ab026d010ca09203e2760d7e0f253e268c7773e6b6",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_045"
+    },
+    "recon_1835_core_c2_047__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 72260,
+      "inputs_sha256": "405ba782201fa6cf85a15d9e490eb4dec4d77a3515a16992c2e16bb8def007e0",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_047"
+    },
+    "recon_1835_core_c2_050__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 74144,
+      "inputs_sha256": "9b295ac94b1abcf72555f3a2cd34b17759a84140d3e4851538860065d08cae4e",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_050"
+    },
+    "recon_1835_core_c2_053__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 70540,
+      "inputs_sha256": "d2302062b016436342b3ee1944d876124bcff183e18674030c227b88b0fed448",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_053"
+    },
+    "recon_1835_core_c2_055__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 69596,
+      "inputs_sha256": "7a1cb35e3b26ef8c22c89a15927eaee74e80be5e2cb1d93e6007905b34b68d5f",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_055"
+    },
+    "recon_1835_core_c2_058__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 76184,
+      "inputs_sha256": "3cfa498aa6bf84ddf0ba13aee7b269954f4ff3851dab621532017debf16f0d33",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c2_058"
+    },
+    "recon_1835_core_c3_002__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 111292,
+      "inputs_sha256": "627aa9c9f12f4f01795d7def049bcf24ee52365831ffc406499d4364dccffd5a",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_002"
+    },
+    "recon_1835_core_c3_006__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 106064,
+      "inputs_sha256": "3d1dca67187fe85f174ebf1226cd1258cd7c12aec633935cdaed0c8ff1d50f46",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_006"
+    },
+    "recon_1835_core_c3_009__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 107060,
+      "inputs_sha256": "30013deea40a7c177d67318a09b5ba5b5c2ccb3901b8d3d2f4fd3abe5fc0e441",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_009"
+    },
+    "recon_1835_core_c3_011__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 108332,
+      "inputs_sha256": "a5f8aebf270e0472bf04f31f81e79f22423881bc362957674899baa4f72a3d3a",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_011"
+    },
+    "recon_1835_core_c3_014__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 98848,
+      "inputs_sha256": "5bf33e3ffde9d27e7a8d692d0512bb9044e5a2e7c3c4debcc08fae9898ba957c",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_014"
+    },
+    "recon_1835_core_c3_016__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 102700,
+      "inputs_sha256": "cddc3dca7f7738119ef7de344903e895e8706e789fb07bc4c9d284740c738b53",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_016"
+    },
+    "recon_1835_core_c3_018__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 101216,
+      "inputs_sha256": "0897eaddf13d8a1759413c721d70d72439525d418bbf7f85bf2b3e8bcbca1db9",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_018"
+    },
+    "recon_1835_core_c3_021__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 103244,
+      "inputs_sha256": "eaacfdbd604e9a3156c9c7b7e9ba71e1ecd41caf0b2d9efe49ab69abae347e12",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_021"
+    },
+    "recon_1835_core_c3_024__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 100280,
+      "inputs_sha256": "a87ed9eb4813374190ad6844347b9bd3c027421e145c7a3734fbeea1831f6229",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_024"
+    },
+    "recon_1835_core_c3_027__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 109868,
+      "inputs_sha256": "6c0f672c4571d7db67e909a387c77aacb1465a9177c6b182bf0ce24c34d761e4",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_027"
+    },
+    "recon_1835_core_c3_030__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 103312,
+      "inputs_sha256": "a58f27e1589e0a1a09e0557b0b446371f720de113e408464129e6c157a97ac88",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_030"
+    },
+    "recon_1835_core_c3_033__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 102592,
+      "inputs_sha256": "f2cad1e0aa3b7e8802a3925eae0a5f3d3b3b84bb625c3ce12a53f8a13d87c278",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_033"
+    },
+    "recon_1835_core_c3_034__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 101036,
+      "inputs_sha256": "43c0a8cc46dfeb74c1ea1ef31d04c98794158c82b87efa8242e2fc4063818e11",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_034"
+    },
+    "recon_1835_core_c3_037__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 98256,
+      "inputs_sha256": "e2c309b8d05254368478b54b48c699aaa3a08dc3f3f6e73eaa0eacccce553d78",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_037"
+    },
+    "recon_1835_core_c3_040__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 105360,
+      "inputs_sha256": "61318054a94852b31d454165ca240af863811eeca90fddc2b3f02f73acf036d1",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_040"
+    },
+    "recon_1835_core_c3_043__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 106932,
+      "inputs_sha256": "0137e42743dfb90e6ef877caf3f8c68aee91267a1764527d3a67b51cb78caa09",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_043"
+    },
+    "recon_1835_core_c3_046__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 103336,
+      "inputs_sha256": "4678ba6392eb3ad93d012c6ebb8b90fd1e6ff58e6eac8e6e4a9fafc550c191e2",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_046"
+    },
+    "recon_1835_core_c3_049__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 103064,
+      "inputs_sha256": "9216fef294926f81d106e8e25eb9f748d1461d5c0b1b76bb6469b0914eb2c3cc",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_049"
+    },
+    "recon_1835_core_c3_051__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 101764,
+      "inputs_sha256": "ecfcc14e076d22825ce2b01c0ba9c10b95467078a912abc66f108c1c679c09f4",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_051"
+    },
+    "recon_1835_core_c3_054__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 98844,
+      "inputs_sha256": "09aeea885a9df6d6bcb35f524be2b21e5668bf99215693aed01e4164418b94d4",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_054"
+    },
+    "recon_1835_core_c3_057__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 104120,
+      "inputs_sha256": "ddb5b0391ec2650f59d2623bb9411f4ea2af0d410428b34725c2f87cf7a6e209",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_c3_057"
+    },
+    "recon_1835_core_h3_004__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 152928,
+      "inputs_sha256": "05c092ab0ca56107a8119384ae9132c2058ec01e005a63b19332f846ea722ae3",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_h3_004"
+    },
+    "recon_1835_core_h3_025__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 152304,
+      "inputs_sha256": "913d105aee7edb2d0cad6f583a42afd31361c9888509b22ad258f33db4845c23",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_h3_025"
+    },
+    "recon_1835_core_h3_028__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 151052,
+      "inputs_sha256": "27329a225878a90e803b463b4b81cf59a44767d1319c3504c9e5abaf270d51eb",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_h3_028"
+    },
+    "recon_1835_core_h3_042__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 155756,
+      "inputs_sha256": "2c179695222e5ffc3e7c0f2671b2c6a81df002fe59b931d62d19a2ff877654d5",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_h3_042"
+    },
+    "recon_1835_core_h3_052__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 152328,
+      "inputs_sha256": "66bb8ff7a486c8aa1c03f778fd45c3e30f60b972906e6c33756c79a16fbe0059",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_core_h3_052"
     },
     "recon_1835_forks_freight_f2_001__inferred_1835.glb": {
       "archetype": "frame_storefront",
@@ -8665,8 +9187,8 @@
     "recon_1835_south_d5_011__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 54764,
-      "inputs_sha256": "9557447b808064002568a6020a91d55caecb80e1f69c1d4688b63ca76ce5cbc9",
+      "bytes": 58508,
+      "inputs_sha256": "4e74450a78434452c24a70f921d6cde8157571334e73b8217cff9332a94478c6",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d5_011"
@@ -8710,8 +9232,8 @@
     "recon_1835_south_d6_012__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 70044,
-      "inputs_sha256": "81a81fd39d8ba474e8f1387b67448addc12944ba0f49b350c19df501abb0d4be",
+      "bytes": 66300,
+      "inputs_sha256": "19a87e52a2950ae314ebdc280148c085a218ae2d5b1ba408aeee19346eecd8e9",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d6_012"

@@ -196,6 +196,14 @@
       "why": "T-3605: the owner's 'Commercial core, about 60 stores' (2026-11-15) fills this face toward 70 % of its length, from 51% built (L-core-row-fill-3605)."
     }
   },
+  "occupants": {
+    "value": "E. L. Thrall — tailoring and ready made clothing",
+    "confidence": "reconstructed",
+    "sources": [
+      "chicago_democrat_1833_1835"
+    ],
+    "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on South Water Street AND NOTHING NARROWER — 1 printing, 1834-06-04 to 1834-06-04, claims chicago_democrat_1834_06_04#c009 — so it takes the STREET FACE and not a lot. THE ROOF'S PLATTED LOT FACES South Water Street, which is the plat's own answer to which street it fronts. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
+  },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The density of this street front is the owner's reading of Gifford's retrospective drawing of the first Tremont House's street (T-3605); the store's presence, family, frontage, depth and station are interpretive. Its occupants, if any, are dealt by the town's housing tools and graded by their own records.",
   "review_required": false
 }
