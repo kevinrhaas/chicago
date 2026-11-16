@@ -2468,6 +2468,12 @@ step "Gifford street-face roofs match their photo-matched recipe" \
   python3 tools/generate_gifford_street_faces.py --check
 selftest "…and its validator refuses overlaps and roofs off the frontage" \
   python3 tools/generate_gifford_street_faces.py --self-test
+# T-3605 phase 2: the commercial core's block fronts filled toward 70 % at the density the
+# Gifford drawing shows (L-core-row-fill-3605).
+step "Commercial-core row-fill stores match their measured fronts" \
+  python3 tools/generate_core_row_fill_1835.py --check
+selftest "…and its validator refuses stores on one spot or off the frontage" \
+  python3 tools/generate_core_row_fill_1835.py --self-test
 step "Canal trade roofs have existing keepers without invented homes" \
   python3 tools/canal_approach_occupancy.py --check
 selftest "Canal trade occupancy preserves identities and lodging constraints" \

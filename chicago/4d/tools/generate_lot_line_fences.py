@@ -426,6 +426,11 @@ def yard_for(entry):
 
 def build(entries, sidecars):
     all_footprints = [footprint_world(sc) for sc in sidecars.values()]
+    # T-3605 — a frame tavern's rear ell stands outside its footprint polygon, and a fence
+    # through the ell is a fence through the house (tools/check_structure_clearance.py), so
+    # a line stops short of the ell as it does of the walls.
+    from generate_dooryard_plantings import rear_ell_world
+    all_footprints += [rear_ell_world(sc) for sc in sidecars.values()]
     all_footprints = [(fp, bbox(fp)) for fp in all_footprints if len(fp) >= 3]
     # T-1984 — NO FENCE ACROSS A DOOR. A stable's or a house's door that faces a lot
     # line had the line's fence run straight across its doorway, a step out from the

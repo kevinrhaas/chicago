@@ -1,0 +1,209 @@
+{
+  "id": "recon_1835_core_c1_027",
+  "name": "Reconstructed C1 small shop, grocery, or land office #027",
+  "archetype": "frame_storefront",
+  "phases": [
+    {
+      "id": "inferred_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit of the commercial core's row fill (T-3605): the owner's reading of Gifford's drawing of the first Tremont House's street, spread over South Water and Lake from Wells to State at about 70 % of each block front, and turning the corner up the cross streets' fronts for 25 m. No evidence establishes that this particular building existed, and no source names an occupant."
+      },
+      "position": {
+        "utm_e": 447680.029,
+        "utm_n": 4637382.185,
+        "rotation_deg": 0.93,
+        "symbolic_location": "Anonymous reconstructed store on the south side of South Water Street, in the block west-bounded by Clark Street; one unit of the street's row",
+        "confidence": "reconstructed",
+        "note": "PARTY-LINE FRONTAGE, DERIVED FROM THE COMMITTED PLAT (T-3605). It stands on the north face of blk_south_water_clark, whose line and bearing are read from the block boundary in data/traces/vectors/thompson_lots.json, at stations 19.38-24.90 m from the face's west end, its front wall 1.50 m behind the lot line (the plat module's margin, as the block programme's own party-line runs stand). The bearing is the face's, so the front looks square at South Water Street. The station is the row-fill rule's (largest open stretch first, until the face is about 70 % built), not a measurement.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "No parcel-by-parcel July 1835 roof register survives in the supplied evidence, and no lot on this face is numbered."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            5.516,
+            0
+          ],
+          [
+            5.516,
+            8.412
+          ],
+          [
+            0,
+            8.412
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "A 5.52 × 8.41 m rectangle sampled deterministically inside the C1 family's authored footprint band; no individual dimensions are documented."
+      },
+      "form": {
+        "stories": {
+          "value": 1.0,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "wall_height_m": {
+          "value": 3.033,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance. THE OTHER FORM ON OFFER IS REFUSED, AND HERE IS THE NUMBER. The C1 roof line offers \"front gable or shed, 5:12-9:12\", and this town builds only the gable. A shed is one plane over the whole 8.9 m of this plan where a gable climbs half of it, so across the 441 plans C1's own footprint band allows, 231 of them cannot reach the 15-20 ft ridge band the same family authors — at any eave in its 9-11 ft band and at any pitch between 22.6 and 36.9 degrees. This building's own plan is one of them."
+        },
+        "roof_pitch_deg": {
+          "value": 28.2,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "gable_front": {
+          "value": true,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "construction": {
+          "value": "balloon_frame",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'recent'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+        },
+        "cladding": {
+          "value": "clapboard",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the C1 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+        },
+        "loft": {
+          "value": false,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the C1 family's key geometry parameters do not speak to chimneys, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+        },
+        "shopfront": {
+          "value": true,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "goods_door": {
+          "value": true,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "goods_door_side": {
+          "value": "end",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C1 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "siding_exposure_m": {
+          "value": 0.152,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 6 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (5 in, 5.5 in or 6 in; T-1839, docs/LIBERTIES.md L352), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+        }
+      },
+      "change_note": "T-3605 raises this store in the commercial core's row fill; a better-evidenced named roof substitutes for it rather than adding to the town."
+    }
+  ],
+  "function": {
+    "value": "small_shop_or_office",
+    "confidence": "reconstructed",
+    "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+    ],
+    "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. The C1 type, as a store on a commercial street front; no proprietor is recovered for it."
+  },
+  "reconstruction": {
+    "status": "inferred_anonymous",
+    "family": "C1",
+    "district": "south",
+    "inventory_class": "principal_functional",
+    "programme_phase": "core_row_fill_1835",
+    "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+    "block_id": "blk_south_water_clark",
+    "stands_on": "frontage",
+    "fronts": "south_water",
+    "sequence": 27,
+    "finish_key": "weathered_timber",
+    "roof_condition": "weathered",
+    "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "type",
+      "household": null,
+      "words": "silvered clapboard on a balloon frame under a weathered roof — a small shop, grocery or land office, a year old (rule F-T: a tradesman's by its type)"
+    },
+    "frontage": {
+      "block": "blk_south_water_clark",
+      "face": "north",
+      "setback_m": 1.5,
+      "abuts": null,
+      "why": "T-3605: the owner's 'Commercial core, about 60 stores' (2026-11-15) fills this face toward 70 % of its length, from 49% built (L-core-row-fill-3605)."
+    }
+  },
+  "occupants": {
+    "value": "J. Curtiss, Attorney and Counsellor at Law — law",
+    "confidence": "reconstructed",
+    "sources": [
+      "chicago_democrat_1833_1835"
+    ],
+    "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on South Water Street AND NOTHING NARROWER — 1 printing, 1835-08-05 to 1835-08-05, claims chicago_democrat_1835_08_05#c017 — so it takes the STREET FACE and not a lot. THE ROOF'S PLATTED LOT FACES South Water Street, which is the plat's own answer to which street it fronts. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
+  },
+  "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The density of this street front is the owner's reading of Gifford's retrospective drawing of the first Tremont House's street (T-3605); the store's presence, family, frontage, depth and station are interpretive. Its occupants, if any, are dealt by the town's housing tools and graded by their own records.",
+  "review_required": false
+}

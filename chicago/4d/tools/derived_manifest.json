@@ -125,6 +125,7 @@
         "python3 tools/canal_approach_occupancy.py --build",
         "python3 tools/generate_canal_approach_trade.py",
         "python3 tools/generate_gifford_street_faces.py",
+        "python3 tools/generate_core_row_fill_1835.py",
         "python3 tools/compile_businesses.py --build",
         "python3 tools/audit_businesses.py --write",
         "python3 tools/compile_gazetteer.py --build",
@@ -1991,6 +1992,19 @@
       "verify": [
         "python3",
         "tools/generate_gifford_street_faces.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "T-3605 phase 2: regenerate the fifty-eight commercial-core row-fill stores (South Water's south side and both sides of Lake, Wells to State) from the measured block fronts, after the Gifford faces they measure around and before compiling businesses, the roof reconcile and the scene.",
+      "command": [
+        "python3",
+        "tools/generate_core_row_fill_1835.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/generate_core_row_fill_1835.py",
         "--check"
       ]
     },
