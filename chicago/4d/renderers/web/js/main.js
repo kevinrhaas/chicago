@@ -96,6 +96,7 @@ import { createHumanDays, createDayRouter, clearWayOf } from './human-days.js';
 import { createJauntHosts } from './jaunt-hosts.js';
 import { createJauntStage } from './jaunt-stage.js';
 import * as humanFight from './human-fight.js'; // the adults jaunts' weapons, motions and gun smoke
+import * as humanBlood from './human-blood.js'; // ... and their blood and wounds
 import { createHumanSpacing, BODY_R_M } from './human-spacing.js';
 import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
@@ -5830,7 +5831,7 @@ async function boot() {
               // The town's own horse teams, taken for a scene (the 1812 column's wagons).
               teams: { get: (id) => api.townTransport?.actorById?.(id) ?? null, load: () => { void api.townTransport?.ready?.()?.catch?.(() => {}); } },
               // The adults jaunts (2026-11-15): weapons in the hand, and the guns' flash and smoke.
-              fight: humanFight });
+              fight: humanFight, blood: humanBlood });
             api.jauntStage.sync(stop, { arrived });
             gateFrame.invalidate();
           },

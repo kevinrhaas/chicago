@@ -28,7 +28,7 @@
  * soldiers' muskets and bayonets, Wells's pistols, Lalime's pistol and his dirk (Kirkland 1893,
  * Helm's and Heald's narratives, the Porthier statement). Their shapes, the motions and the
  * smoke are reconstructed (liberty L-1812-adult-jaunts). Nothing here draws a wound: the fallen
- * fall, and blood follows in its own module.
+ * fall, and their blood is human-blood.js's.
  */
 import * as THREE from 'three';
 import { musketGroup } from './human-garrison.js';

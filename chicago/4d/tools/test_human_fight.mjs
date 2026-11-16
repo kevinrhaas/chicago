@@ -151,3 +151,91 @@ console.log('human fight on the real figures: PASS');
   assert(z && z.dir.z > 0.99 && z.at.z > 3.2, `a pistol's muzzle ahead along the hand (${f3(z.at)})`);
 }
 console.log('weapons laid in the hand: PASS');
+
+// ---- the blood (human-blood.js), on the same real figures: a wound stains the figure where the
+// blow came from, on its own clothing, carried by the bone under it; its drops fall and lie on
+// the ground; nothing pools under someone standing, and once they are down a pool spreads under
+// the wound, not under the feet; a change of level keeps the stains on the same bones; a figure
+// let go takes its stains; clear() washes it all away.
+const BL = await import(data(await js('human-blood.js')));
+{
+  const a = BL.blotAlpha(7), b = BL.blotAlpha(7), c = BL.blotAlpha(8);
+  assert.deepEqual(a, b, 'a blot is the same blot every time');
+  assert.notDeepEqual(a, c, 'another seed, another blot');
+  const at = (i, j) => a[(j * 64 + i) * 4 + 3];
+  assert(at(32, 32) === 255 && at(0, 0) === 0 && at(63, 63) === 0, 'solid in the middle, clear at the corners');
+}
+const UPV = new THREE.Vector3(0, 1, 0);
+for (const [asset, lod, clip] of [['bardwell_otis_1835', 0, 'idle_natural_v1'], ['bardwell_otis_1835', 3, 'idle'], ['c4d_fixture', 1, 'idle']]) {
+  const name = `${asset} LOD${lod}`;
+  const r = await rig(asset, lod, clip);
+  r.root.rotation.order = 'YXZ';
+  const parent = new THREE.Group(); parent.add(r.root); parent.updateMatrixWorld(true);
+  const skinned = (scene) => { const m = []; scene.traverse((o) => { if (o.isSkinnedMesh) m.push(o); }); return m; };
+  const actor = { root: r.root, body: { scene: r.scene, meshes: skinned(r.scene) }, posture: null, heightAt: () => 0.3, e: 4, n: 7, standY: null };
+  const fx = BL.createBloodFx(parent);
+  const ahead = new THREE.Vector3(0, 0, 1).applyAxisAngle(UPV, r.root.rotation.y);
+  const from = r.root.position.clone().addScaledVector(ahead, 2);
+  assert(fx.wound(actor, 'body', { from }), `${name}: wounded`);
+  let n = fx.counts;
+  assert(n.stains === 1 && n.drops === BL.WOUND.body.drops && n.pools === 0, `${name}: a stain and its drops (${JSON.stringify(n)})`);
+  const stain = r.scene.getObjectByName('wound_body');
+  assert(stain?.parent?.isBone && stain.parent.name === 'spine_03', `${name}: the stain is carried by the chest's bone (${stain?.parent?.name})`);
+  const chest = figure(r, world(r.bone('spine_03'))), sp = figure(r, world(stain));
+  assert(sp.z > chest.z + 0.04 && sp.z < chest.z + 0.32 && Math.abs(sp.y - chest.y) < 0.15, `${name}: on the front of the chest, toward the blow (${f3(sp)} by ${f3(chest)})`);
+  const facing = new THREE.Vector3(0, 0, 1).transformDirection(stain.matrixWorld);
+  assert(facing.dot(ahead) > 0.3, `${name}: laid on the surface, facing out toward the blow (${f3(facing)})`);
+  // On the figure's own surface: a ray in along the stain's facing meets the body within 2 cm.
+  const ray = new THREE.Raycaster(world(stain).addScaledVector(facing, 0.3), facing.clone().negate(), 0, 0.6);
+  const hit = ray.intersectObjects(actor.body.meshes, false)[0];
+  assert(hit && Math.abs(hit.distance - 0.3) < 0.02, `${name}: on the clothing itself (${hit?.distance?.toFixed(3)} m along a 0.3 m ray)`);
+  // The drops fall and lie where they land, on the ground, round the figure.
+  for (let t = 0; t < 2; t += 1 / 30) fx.update(1 / 30);
+  n = fx.counts;
+  assert(n.drops <= 1 && n.splats >= BL.WOUND.body.drops, `${name}: every drop thrown has landed; one still drips from him (${JSON.stringify(n)})`);
+  for (const s of fx.splatsAt) {
+    assert(Math.abs(s.y - 0.304) < 0.002, `${name}: a drop lies on the ground (${s.y.toFixed(3)})`);
+    assert(Math.hypot(s.x - r.root.position.x, s.z - r.root.position.z) < 3, `${name}: near the figure (${f3(s)})`);
+  }
+  // A head wound and a scalping: on the head's bone, the scalping on the crown.
+  fx.wound(actor, 'head', { from });
+  const head = r.scene.getObjectByName('wound_head'), hb = figure(r, world(r.bone('head')));
+  assert(head?.parent?.name === 'head' && figure(r, world(head)).z > hb.z + 0.03, `${name}: a blow to the head marks the face of the head`);
+  fx.wound(actor, 'scalp', { from });
+  const crown = figure(r, world(r.scene.getObjectByName('wound_scalp')));
+  assert(crown.y > hb.y + 0.12 && Math.hypot(crown.x - hb.x, crown.z - hb.z) < 0.12, `${name}: a scalping is on the crown (${f3(crown)} by the head's bone ${f3(hb)})`);
+  fx.update(0.1);
+  assert.equal(fx.counts.pools, 0, `${name}: nothing pools under someone standing`);
+  // Down, face down along the heading: a pool spreads under the chest, not the feet.
+  actor.posture = { kind: 'fallen', w: 1 };
+  r.root.rotation.x = Math.PI / 2; r.root.position.y = 0.42; r.root.updateMatrixWorld(true);
+  fx.update(0.1);
+  assert(fx.counts.pools >= 1, `${name}: once down, a pool`);
+  for (let t = 0; t < BL.POOL_GROW_S + 1; t += 0.5) fx.update(0.5);
+  const body = fx.pools.reduce((p, q) => (q.target > p.target ? q : p));
+  const off = new THREE.Vector3(body.x - r.root.position.x, 0, body.z - r.root.position.z);
+  assert(Math.abs(body.y - 0.306) < 0.01 && body.r > 0.4 && body.r <= 1.0 && Math.abs(body.r - body.target) < 1e-3, `${name}: spread to its size on the ground (r ${body.r.toFixed(2)} m)`);
+  assert(off.dot(ahead) > 0.6 && off.length() < 1.8, `${name}: under the fallen body, not the feet (${off.dot(ahead).toFixed(2)} m along the heading)`);
+  // A change of level: the stains go onto the same bones of the new body, where they were.
+  const before = stain.position.clone();
+  const r2 = await rig(asset, lod, clip);
+  r.root.remove(r.scene); r.root.add(r2.scene);
+  actor.body = { scene: r2.scene, meshes: skinned(r2.scene) };
+  fx.update(0.1);
+  assert(stain.parent?.isBone && stain.parent.name === 'spine_03' && r2.scene.getObjectById(stain.parent.id) && stain.position.distanceTo(before) < 1e-9,
+    `${name}: after a change of level the stain is on the new body's chest`);
+  assert.equal(fx.counts.stains, 3, `${name}: every stain kept`);
+  // Let go: its stains go with it; the ground keeps its blood until the stop is left.
+  actor.disposed = true; fx.update(0.1);
+  n = fx.counts;
+  assert(n.wounded === 0 && n.stains === 0 && !stain.parent && n.pools >= 1, `${name}: a figure let go takes its stains (${JSON.stringify(n)})`);
+  fx.clear();
+  n = fx.counts;
+  assert(n.pools === 0 && n.splats === 0 && n.drops === 0 && !parent.getObjectByName('blood_pool'), `${name}: cleared, nothing left`);
+}
+{
+  // Without a parent nothing is drawn and nothing breaks.
+  const fx = BL.createBloodFx(null);
+  assert.equal(fx.wound({ root: new THREE.Group() }, 'body'), false); fx.update(0.1); fx.clear();
+}
+console.log('blood and wounds on the real figures: PASS');
