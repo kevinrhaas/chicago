@@ -11,7 +11,8 @@ Each adults jaunt is a `version_of` its students' jaunt (audience 'adults', a co
 hidden until the visitor says they are 18 or over), and plays the students' scenes (scenes.py,
 built here in the same order, so every donor is the same) with the fighting added from the
 accounts Kirkland (1893) prints: weapons in the hand (`arm`) and what is done with them (`act`:
-strike, stab, aim, fire, lower, struck), the fallen going down where they are hit. Held even
+strike, stab, aim, fire, lower, struck), the fallen going down where they are hit, and the
+blood where each blow or ball lands (`wound`: body, head, neck, shoulder, scalp). Held even
 here: no child is shown struck (the young man who climbs into the baggage wagon is shown
 reaching it; the wagon's children stay seated), and what was done to the dead (White's wounds,
 Wells's heart) is told, not shown. Who strikes whom, and when, beyond the accounts is
@@ -85,17 +86,25 @@ def r1(t):
 
 
 # ── what a fight is made of ─────────────────────────────────────────────────────────────────
-def falls(c, t, pose='fallen', ease=0.7, drop_arm=True):
-    """Hit at `t`: the hands to the wound, then down."""
+def bleeds(c, t, wound):
+    """`c` is wounded at `t` (human-blood.js): once, whatever else lands then."""
+    if wound and not any(x.get('wound') and x['t'] == r1(t) for x in c.get('beats', [])):
+        add(c, {'t': r1(t), 'wound': wound})
+
+
+def falls(c, t, pose='fallen', ease=0.7, drop_arm=True, wound='body'):
+    """Hit at `t`: the wound, the hands to it, then down."""
     hit = {'t': r1(t), 'act': 'struck'}
     if drop_arm: hit['arm'] = 'none'
     add(c, hit, {'t': r1(t + 0.35), 'pose': pose, 'ease': ease})
+    bleeds(c, t, wound)
 
 
-def wounded(c, t, pose=None, ease=0.9):
+def wounded(c, t, pose=None, ease=0.9, wound='body'):
     """Hit at `t` and kept up (or down on a knee)."""
     add(c, {'t': r1(t), 'act': 'struck'})
     if pose: add(c, {'t': r1(t + 0.3), 'pose': pose, 'ease': ease})
+    bleeds(c, t, wound)
 
 
 def shoot(c, victim, t, gun='musket'):
@@ -114,10 +123,13 @@ def close(att, victim_at, t, gap=1.05, pace='hurry', arm=None):
     return t + dist(a, spot) / (HURRY if pace == 'hurry' else 1.75) + 0.4
 
 
-def blow(att, victim, t, kind='strike'):
-    """`att` (already there) turns to `victim` and strikes or stabs at `t`; returns when it lands."""
+def blow(att, victim, t, kind='strike', wound=''):
+    """`att` (already there) turns to `victim` and strikes or stabs at `t`; returns when it lands,
+    where it wounds (a tomahawk or club to the head, a knife to the body; None: turned aside)."""
     add(att, {'t': r1(t), 'face': key(victim), 'act': kind})
-    return t + (STRIKE_HIT if kind == 'strike' else STAB_HIT)
+    hit = t + (STRIKE_HIT if kind == 'strike' else STAB_HIT)
+    bleeds(victim, hit, ('head' if kind == 'strike' else 'body') if wound == '' else wound)
+    return hit
 
 
 def scalp(att, victim, t, side=(0.7, 0.3)):
@@ -132,6 +144,7 @@ def scalp(att, victim, t, side=(0.7, 0.3)):
     add(att, {'t': r1(there), 'face': key(victim), 'pose': 'kneel2', 'ease': 0.6})
     for j in range(3):
         add(att, {'t': r1(there + 0.9 + 0.8 * j), 'act': 'stab'})
+        bleeds(victim, there + 0.9 + 0.8 * j + STAB_HIT, 'scalp')
     add(att, {'t': r1(there + 4.2), 'pose': 'stand', 'ease': 0.9})
     return there + 4.2
 
@@ -163,7 +176,7 @@ def hardscrabble(st):
     add(s1, {'t': 68.5, 'place': P(*door), 'show': True, 'arm': 'musket'}, {'t': 68.8, 'walk': [P(-1650.4, -4235.6)]})
     add(s2, {'t': 69.2, 'place': P(*door), 'show': True, 'arm': 'musket'}, {'t': 69.5, 'walk': [P(-1647.4, -4235.4)]})
     falls(white, shoot(s1, 'white_liberty', 74.5), pose='kneel2', ease=0.5)
-    falls(cardin, shoot(s2, 'cardin_john_b', 76.0))
+    falls(cardin, shoot(s2, 'cardin_john_b', 76.0), wound='neck')
     add(white, {'t': 76.4, 'pose': 'fallen', 'ease': 0.8})
     # The four who sat by the door get up with their weapons; one goes to White with his knife.
     for i, arm in enumerate(('knife', 'tomahawk', 'club', 'tomahawk')):
@@ -256,7 +269,7 @@ def bank(st, killed):
             falls(s, blow(w, s, arrive, 'strike'))
             if len(scalpers) < 6: scalpers.append((w, s, arrive + 2.5))
         else:
-            blow(w, s, arrive, 'strike')
+            blow(w, s, arrive, 'strike', wound=None)
             add(s, {'t': r1(arrive + 0.9), 'face': key(w)})
             falls(w, blow(s, w, arrive + 1.2, 'stab'))
     # Sergeant Hays and Nau-non-gee: 'After Hays had received a ball through the body, this Indian
@@ -327,7 +340,7 @@ def bank(st, killed):
     mp = rest(helm, 50)
     young = nearest(melee, used, mp, ok=lambda w: arm_of[key(w)] == 'tomahawk' and w.get('tier') == helm.get('tier'))
     t = close(young, mp, 61.0, gap=1.0)
-    wounded(helm, blow(young, helm, t, 'strike'))
+    wounded(helm, blow(young, helm, t, 'strike', wound='shoulder'))
     add(helm, {'t': r1(t + 1.0), 'face': key(young)})
     bp_at = (mp[0] + 16.0 * WEST[0] - 3.0 * scenes.SHORE_S[0], mp[1] + 16.0 * WEST[1] - 3.0 * scenes.SHORE_S[1])
     bp = b.member('black_partridge', P(*bp_at), heading=bearing(bp_at, mp), pose='kneel', tier='desktop', beats=[
@@ -418,7 +431,7 @@ def the_gate(st):
     add(l, {'t': 17.4, 'arm': 'pistol'})
     hit = shoot(l, 'kinzie_john_elder', 18.2, 'pistol')
     l['beats'] = [x for x in l['beats'] if x.get('act') != 'lower']
-    wounded(k, hit)
+    wounded(k, hit, wound='neck')
     lp = rest(l, 18)
     add(k, {'t': r1(hit + 0.5), 'walk': [P(*toward(rest(k, 18), lp, 0.62))], 'pace': 'brisk'})
     add(l, {'t': r1(hit + 0.9), 'arm': 'knife'})
