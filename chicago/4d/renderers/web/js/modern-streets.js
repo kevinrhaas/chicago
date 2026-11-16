@@ -179,12 +179,35 @@ export function todayText(today) {
 }
 
 /** Today's streets from the data base, or null (the readout then says so and the scene is unharmed). */
-export async function loadModernStreets(dataBase) {
+/**
+ * Today's centrelines carried onto the scene's ground by a year's registration
+ * (today-register.js `toScene`), so today's name and number are read where the scene's
+ * own ground is, and today's lines on the map run where the period streets run. Each
+ * point moves; the order of a block's points, and so its house numbers, do not.
+ */
+export function registerSegments(doc, toScene) {
+  if (!toScene || !doc?.segments) return doc;
+  const segments = doc.segments.map((raw) => {
+    const flat = raw[9];
+    if (!Array.isArray(flat)) return raw;
+    const out = new Array(flat.length);
+    for (let i = 0; i + 1 < flat.length; i += 2) {
+      const [e, n] = toScene(flat[i], flat[i + 1]);
+      out[i] = Math.round(e * 10) / 10; out[i + 1] = Math.round(n * 10) / 10;
+    }
+    const copy = raw.slice();
+    copy[9] = out;
+    return copy;
+  });
+  return { ...doc, segments };
+}
+
+export async function loadModernStreets(dataBase, { toScene = null } = {}) {
   if (!dataBase) return null;
   try {
     const res = await fetch(new URL('modern/streets.json', dataBase), { cache: 'no-cache' });
     if (!res.ok) return null;
-    return createModernStreets(await res.json());
+    return createModernStreets(registerSegments(await res.json(), toScene));
   } catch {
     return null;
   }

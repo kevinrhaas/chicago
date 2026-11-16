@@ -5,8 +5,13 @@
 // library. Pure: no browser, no network, no key.
 import { localToLatLng, gridToTrueDeg, viewFromLocal, trueBearing, distanceM, streetViewUrl, DATUM }
   from '../renderers/web/js/today-geo.js';
-import { createTodayView, keyFor, imageDateText, cardinal16, MOVE_M, QUERY_MS }
+import { createTodayView, keyFor, imageDateText, cardinal16, onToday, MOVE_M, QUERY_MS }
   from '../renderers/web/js/today-view.js';
+import { latLngToLocal } from '../renderers/web/js/today-geo.js';
+import { createRegistration, CONTROLS } from '../renderers/web/js/today-register.js';
+import { createModernStreets, registerSegments, todayText } from '../renderers/web/js/modern-streets.js';
+import { deriveControls, controlTable } from './today_registration.mjs';
+import { readFileSync } from 'node:fs';
 
 const fails = [];
 const expect = (name, ok, got) => { if (!ok) fails.push(`${name}: ${JSON.stringify(got)}`); };
@@ -42,6 +47,65 @@ expect('the look target is 40 m ahead', near(m(v, v.target), 40, 0.1), m(v, v.ta
 expect('and on the heading', near(trueBearing(v, v.target), v.heading, 0.05), trueBearing(v, v.target));
 const url = streetViewUrl({ lat: 41.8579305, lng: -87.6207753, heading: 25.4, pitch: -3 });
 expect('the keyless link is Google Maps URLs Street View', url === 'https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=41.857931,-87.620775&heading=25&pitch=-3&fov=90', url);
+
+// --- the registration (Kevin, 2026-11-16) ----------------------------------------
+// "in today we are in the middle of the river near the north bank but in 1812 we are on
+// the south bank". The table today-register.js holds is the tool's, to the decimetre.
+const derived = controlTable(deriveControls().controls);
+expect('today-register.js CONTROLS is tools/today_registration.mjs\'s output (re-run it and paste)',
+  JSON.stringify(derived) === JSON.stringify(CONTROLS), { derived: derived.length, held: CONTROLS.length });
+expect('every year has street controls, and 1812 and 1835 their fort',
+  ['1812', '1835', '1904'].every((y) => createRegistration(y).count >= 60)
+  && CONTROLS.some((r) => r[0] === 'fort:first_fort_1803' && r[1] === '1812')
+  && CONTROLS.some((r) => r[0] === 'fort:picket_1816' && r[1] === '1835'), CONTROLS.length);
+const json = (p) => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), 'utf8'));
+const sites = json('data/modern/landmark_sites.json').sites;
+const ringCentre = (ring) => { const ps = ring.slice(0, -1); return [ps.reduce((a, p) => a + p[0], 0) / ps.length, ps.reduce((a, p) => a + p[1], 0) / ps.length]; };
+const inRing = ([x, y], ring) => { let c = false; for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+  const [xi, yi] = ring[i], [xj, yj] = ring[j];
+  if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) c = !c; } return c; };
+const fortRing = sites.find((s) => s.id === 'site_of_fort_dearborn').polygon_lnglat.map(([lng, lat]) => latLngToLocal(lat, lng));
+const glessnerRing = sites.find((s) => s.id === 'glessner_house').polygon_lnglat.map(([lng, lat]) => latLngToLocal(lat, lng));
+const modernDoc = json('data/modern/streets.json');
+const anchor = (y, id) => json(`data/scenes/${y}.json`).anchors.find((a) => a.id === id);
+for (const [y, fortId] of [['1812', 'fort:first_fort_1803'], ['1835', 'fort:picket_1816']]) {
+  const reg = createRegistration(y);
+  const row = CONTROLS.find((r) => r[0] === fortId);
+  expect(`${y}: the fort's south wall lands on the City's site of Fort Dearborn`, inRing(reg.toToday(row[2], row[3]), fortRing), reg.toToday(row[2], row[3]));
+  // Kevin's spot: the Lalime jaunt's stop 8, on the south bank across from the Kinzie house.
+  const a = anchor('1812', 'kinzie_house_across_river');
+  const ms = createModernStreets(registerSegments(modernDoc, reg.toScene));
+  const t = todayText(ms.at(a.local_e, a.local_n));
+  const num = Number(/^(\d+) N Michigan Ave$/.exec(t)?.[1]);
+  if (y === '1812') {
+    // The river was widened over the fort's site in 1856: the 1812 south bank, just north
+    // of the fort, is under the bridge's south half today, not near its north end.
+    expect('1812 stop 8 (south bank, across from the Kinzie house) reads the bridge\'s south half today (under 386 N Michigan), not 393 by the north bank',
+      num > 300 && num < 386, t);
+    const raw = createModernStreets(modernDoc).at(a.local_e, a.local_n);
+    expect('and without the registration it read 393 N Michigan, the photo Kevin sent', todayText(raw) === '393 N Michigan Ave', todayText(raw));
+  }
+}
+for (const y of ['1812', '1835', '1904']) {
+  const reg = createRegistration(y);
+  const back = [[1140, 250], [1405, -3300], [0, 0], [-1641.8, -4244.3], [995, 390]].map(([e, n]) => {
+    const [te, tn] = reg.toToday(e, n); const [se, sn] = reg.toScene(te, tn); return Math.hypot(se - e, sn - n);
+  });
+  expect(`${y}: toScene undoes toToday to 5 cm`, back.every((d) => d < 0.05), back);
+  // Prairie Avenue was georeferenced on the Sanborn sheets and agrees with today's grid:
+  // the registration leaves it within a few metres, and Glessner's door on its own lot.
+  const [ge, gn] = reg.toToday(1401.86, -3206.93);
+  expect(`${y}: Prairie & 18th moves under 3 m`, Math.hypot(ge - 1401.86, gn + 3206.93) < 3, [ge, gn]);
+  const g = json('data/structures/glessner_house.json').phases.find((p) => p.id === 'as_built_1887');
+  const gc = ringCentre(g.footprint.polygon.map(([u, v]) => { const th = (g.position.rotation_deg ?? 0) * Math.PI / 180;
+    return [g.position.utm_e - 447072.7 + u * Math.cos(th) + v * Math.sin(th), g.position.utm_n - 4637395.8 - u * Math.sin(th) + v * Math.cos(th)]; }).concat([[0, 0]]));
+  expect(`${y}: Glessner House stays on the City's Glessner House lot`, inRing(reg.toToday(gc[0], gc[1]), glessnerRing), reg.toToday(gc[0], gc[1]));
+}
+expect('a year with no controls is the identity', (() => { const r = createRegistration('1999'); const [e, n] = r.toToday(12, 34); return r.count === 0 && e === 12 && n === 34; })(), null);
+// The window turns with the registration: grid north at the fort stays near north.
+const fortLook = onToday(createRegistration('1812'), { e: 1140, n: 250, bearingDeg: 0 });
+expect('the look carried through the registration keeps its bearing within 15°', Math.min(fortLook.bearingDeg, 360 - fortLook.bearingDeg) < 15, fortLook);
+expect('and the spot moves south-west toward the fort\'s site, about 44 m', (() => { const d = Math.hypot(fortLook.e - 1140, fortLook.n - 250); return d > 35 && d < 55 && fortLook.n < 225; })(), fortLook);
 
 // --- small helpers ---------------------------------------------------------------
 expect('the key is used only on its hosts', keyFor({ config: { googleMapsKey: 'K', hosts: ['chicago.polecat.live'] }, hostname: 'chicago.polecat.live' }) === 'K'

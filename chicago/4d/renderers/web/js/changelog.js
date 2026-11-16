@@ -1,4 +1,29 @@
 export const CHANGELOG = [ // newest first
+  { v: 3039, ts: '2026-11-16T18:25:15.236Z', date: 'Nov 16, 2026, 12:25 PM CT', title: 'Houses no longer load in plain white when a texture drops', kind: 'fix',
+    items: [
+      'A house\'s stone, brick and roof pictures are shared files, and one that failed to download used to leave its walls and roof flat white until you reloaded the page. 1904 on 16 November showed it at Glessner and its neighbours.',
+      'Each picture is now asked for up to four times, and a house that still lacks one is read again twice before the town opens.',
+      'If a picture still never arrives, the town tells you on the way in and suggests a reload, instead of standing there in white stone.',
+    ] },
+  { v: 3038, ts: '2026-11-16T18:16:36.701Z', date: 'Nov 16, 2026, 12:16 PM CT', title: 'The Today window stands where you stand, in every year', kind: 'fix',
+    items: [
+      'By Fort Dearborn the Today window looked out from a boat near the river\'s north bank. It now opens on the Michigan Avenue bridge\'s south half, over the fort\'s old north end.',
+      'Each year\'s ground is lined up with today\'s map on the street corners that survive and on the City\'s marked site of the fort.',
+      'Today\'s street name and number, and today\'s streets on the map, line up the same way.',
+      'Only Google\'s own street imagery is shown, not visitors\' photos.',
+    ] },
+  { v: 3037, ts: '2026-11-16T17:38:07.213Z', date: 'Nov 16, 2026, 11:38 AM CT', title: 'The burning of Fort Dearborn on the public site', kind: 'feature',
+    items: [
+      'The home page, Jaunts and 1812 pages show new films of Fort Dearborn burning on 16 August 1812: the brands going in at the gate, the roofs ablaze, the fort from across the river and the roofs falling in.',
+      'The home page plays its moving town background again, and shows how a source travels from the archive to the street you walk.',
+    ] },
+  { v: 3036, ts: '2026-11-16T16:33:32.602Z', date: 'Nov 16, 2026, 10:33 AM CT', title: '1827 Prairie\'s crown, porch and tower match the Doane photograph', kind: 'polish',
+    items: [
+      'The pavilion\'s slate crown is now the photograph\'s short, steep pyramid on a ledge of its cornice, no longer a long hip running back into the roof.',
+      'The porch\'s south arch stands on a column against the house, with a low parapet between its pedestals.',
+      'A carved roundel sits between the corner tower\'s tall paired windows, over their hoods.',
+      'All three of the house\'s pictures now match the model.',
+    ] },
   { v: 3035, ts: '2026-11-16T15:07:50.342Z', date: 'Nov 16, 2026, 9:07 AM CT', title: 'The Battle of Fort Dearborn: the burning of the fort', kind: 'feature',
     items: [
       'A new stop in The Battle of Fort Dearborn, the morning after the battle, before the main gate: the young men of the gathering come up with brands and set the empty fort alight, as Heald and Wau-Bun tell it.',

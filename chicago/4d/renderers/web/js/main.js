@@ -178,6 +178,7 @@ import { mountPacingRead } from './pacing-read.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 import { advanceGust, syncGustUniform } from './wind-gust.js';
 import { createTodayView } from './today-view.js';
+import { createRegistration } from './today-register.js';
 import { createTaleTeller } from './tale-teller.js';
 
 const VERSION = '0.1.0';
@@ -4810,7 +4811,11 @@ async function boot() {
   // Today's streets (data/modern/streets.json, the City's centrelines), in every year.
   // Off the boot path: until they land the readout says no street, and a failed fetch
   // leaves it saying so rather than holding the scene.
-  void loadModernStreets(bases.dataBase).then((m) => {
+  // Both today's streets and the Today window go through the year's registration
+  // (today-register.js): the scene's ground and today's map lined up on surviving street
+  // crossings and the fort's site, so "today" names the place the scene shows.
+  const todayRegister = createRegistration(loaded.scene.id ?? YEAR);
+  void loadModernStreets(bases.dataBase, { toScene: todayRegister.toScene }).then((m) => {
     if (!m) { problems.push('modern streets: data/modern/streets.json did not load — today\'s names are not shown'); return; }
     navigation.setModern(m);
     api.modernStreets = m;
@@ -4818,6 +4823,7 @@ async function boot() {
   // T-3601: the Today window — Google Street View, today, from where you stand. Its keys
   // (the TODAY tag, its own close and expand) store the choice as Settings › Show does.
   const todayView = createTodayView({
+    register: todayRegister,
     onShownChange: (on) => hud.setToggle('todayView', on),
     onExpandedChange: (big) => { hud.settings.todayViewBig = big; hud.setToggle('todayView', hud.settings.todayView); },
   });
@@ -5748,6 +5754,12 @@ async function boot() {
     // T-1727: an address that asked for a structure version hears, on the way in, what
     // it got — above all when it did NOT get it, which must never pass silently.
     if (firstEntry) hud.announceStructureVersion();
+    // T-3617: a house still drawing without a picture after every read says so, once,
+    // on the way in, rather than standing there in white stone (the owner's 2026-11-16 boot).
+    if (firstEntry && api.texturesLost.length) {
+      hud.say(`${api.texturesLost.length === 1 ? 'One building' : `${api.texturesLost.length} buildings`} `
+        + 'did not get all their pictures (a network hiccup). Reload the page to fetch them again.', 12000);
+    }
     // T-2663: a Field Check left running before a reload picks up at the same step.
     if (firstEntry && !api.tour?.running) api.tour?.resume();
     // T-2664: the far year of a first Jump says, once, how to go back.
@@ -7452,6 +7464,10 @@ async function boot() {
     bankedAssets: { get: () => loaded.bankedAssets, enumerable: true },
     /** T-2597: the boot pool, and the most GLB bytes it held unparsed at once. */
     bootPool: { get: () => loaded.bootPool, enumerable: true },
+    /** T-3617: structures still drawing without a picture after every read, and the sheet asks. */
+    texturesLost: { get: () => [...loaded.registry.values()].filter((r) => r.texturesLost?.length)
+      .map((r) => ({ id: r.id, pictures: r.texturesLost })), enumerable: true },
+    sheetRetries: { get: () => loaded.sheetRetries, enumerable: true },
   });
   // T-2732: Settings' dev-only Read frame pacing, for the reading T-2733 takes on
   // a phone. Mounted after the live readings above, which it drives and restores.
