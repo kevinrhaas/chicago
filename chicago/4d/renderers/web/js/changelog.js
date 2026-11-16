@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 3019, ts: '2026-11-16T00:58:43.506Z', date: 'Nov 15, 2026, 6:58 PM CT', title: 'Ten new 1904 story jaunts, played by the people of the street', kind: 'feature',
+    items: [
+      'Under Jaunts > Stories, ten walks of Prairie Avenue on one Monday in November 1904, each with four or five stops that lead to the next and an ending.',
+      'The Merchant and Mrs. Caton, The Scandal at 1612 Prairie, The Daughter Who Made Things, Monday at the Fortress and The Last Pullman Twin.',
+      'Pullman\'s Other Son, The Bronze at Eighteenth Street, The Sisters of the Levee, One Year and a Day and The Walk to the Lake.',
+      'At every stop the people who lived and worked there step out of their doors and play the scene: Marshall Field on his steps, the Lees parting at 1700, the Reading Class arriving at the Glessners\'.',
+      'Every fact and quotation the narrator tells is cited to its source; who stands where, and the unnamed figures, are recorded as reconstruction.',
+    ] },
+  { v: 3018, ts: '2026-11-16T00:52:05.802Z', date: 'Nov 15, 2026, 6:52 PM CT', title: '18+ jaunts: blood and wounds', kind: 'feature',
+    items: [
+      'In the two 18+ jaunts, every blow, shot and scalping now draws blood where it lands. Drops fly from the wound and lie where they fall, a stain spreads on the clothing on the side the blow came from, and a pool spreads on the ground under the fallen.',
+      'The wounds follow the accounts where they say where: Kinzie and the Canadian in the neck, Mrs. Helm on the shoulder, the knife wounds of White and Lalime in the body. A scalping marks the crown of the head.',
+      'Someone wounded who is still standing or kneeling keeps bleeding a little.',
+      'No child is wounded. The student jaunts are unchanged.',
+    ] },
   { v: 3017, ts: '2026-11-16T00:13:16.783Z', date: 'Nov 15, 2026, 6:13 PM CT', title: 'The grades 3–5 Glessner tour\'s narrator opens with feeling again', kind: 'fix',
     items: [
       'The narrator\'s opening for The Glessner Household (grades 3–5) is performed with its direction again, after the tour\'s name changed.',

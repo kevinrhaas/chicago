@@ -1,0 +1,27 @@
+{
+  "id": "pullman_museum_behring_page",
+  "type": "website",
+  "citation": "Pullman State Historic Site (Friends of the Pullman State Historic Site), 'The Strange Case of Gustave Behring', pullman-museum.org. Read 15 November 2026.",
+  "author": "Friends of the Pullman State Historic Site",
+  "date": "accessed 2026-11-15",
+  "describes_date": "1897-1901",
+  "url": "https://pullman-museum.org/theMan/behring.html",
+  "locator": "The whole page, citing the Cedar Rapids Evening Gazette (14 December 1897), the Los Angeles Times, the Chicago Tribune (22 April 1898) and the New York Times (1898, 1901).",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Cited in words only; nothing copied beyond short quoted fragments.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-15 (the 1904 story jaunts) from the page's own text, fetched whole; this record is cited only for what that text says.",
+  "note": "Gustave Behring, 28, a sergeant in the German Army, was told on his mother's deathbed that his father was George M. Pullman; she said she had been a governess in Chicago 'for a house on the west side', that Pullman promised to marry her, and, when she became pregnant, packed her off to Germany with $500. Pullman threw him out of his office; Behring was arrested again and again. Four days before Pullman's death the conversation was recorded: 'BEHRING: You are my father! PULLMAN: You are a crazy man!' 'Less than 12 hours after the funeral, Behring showed up at the family's residence on Prairie Avenue, demanding to speak to Mrs. Harriett Pullman', and was met on the steps by Pullman's sons and the family lawyers; he was arrested, found sane on 29 October 1897 and again in April 1898; detectives escorted him to the Cunard liner Campania, bound for Bremen, in September 1898; 'on June 25, 1901, Behring was again arrested at the law offices of Frank Lowden (Florence Pullman's husband) demanding $5,000 in cash and $10,000 a month for 6 months. Judge Davis, Lowden's partner, held Behring at gunpoint until the police arrived'.",
+  "what_it_supplies": [
+    "Behring's claim and his mother's story",
+    "the recorded exchange with Pullman, October 1897",
+    "Behring on the Pullman steps after the funeral",
+    "the 1901 arrest at Frank Lowden's office"
+  ],
+  "what_it_does_not_supply": [
+    "whether the claim was true: the page asks it and does not answer it",
+    "anything of Behring after 1901"
+  ]
+}
