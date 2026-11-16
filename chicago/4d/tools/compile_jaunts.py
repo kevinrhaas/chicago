@@ -367,6 +367,24 @@ class Compiler:
                 for c in cast:
                     if 'ride' in c:
                         require(c['ride']['team'] in [t['team'] for t in taken], f'{stop["id"]}: {c.get("person") or c.get("extra")} rides {c["ride"]["team"]}, which the stage does not take')
+                # T-3553, the burning of the fort (2026-11-16): what burns and what stands are
+                # structures of this scene, each once; its liberty is declared; a castmate puts a
+                # torch only to what burns, and has taken one up first. Not a blow: any audience.
+                fire = stage.get('fire')
+                if fire:
+                    require(fire['liberty'] in doc['liberties'], f'{stop["id"]}: the fire\'s liberty {fire["liberty"]} is not declared by the jaunt')
+                    named = fire['burns'] + fire.get('stands', [])
+                    require(len(set(named)) == len(named), f'{stop["id"]}: a structure both burns and stands, or is named twice')
+                    for sid in named: self.resolve({'kind': 'structure', 'id': sid})
+                    for sid in fire.get('lit', []): require(sid in fire['burns'], f'{stop["id"]}: {sid} is lit but does not burn')
+                for c in cast:
+                    held = False
+                    for b in sorted(c.get('beats', []), key=lambda x: x['t']):
+                        if 'torch' in b: held = b['torch']
+                        if 'ignite' in b:
+                            who = c.get('person') or c.get('extra')
+                            require(fire is not None and b['ignite'] in fire['burns'], f'{stop["id"]}: {who} sets {b["ignite"]} alight, which the stage does not burn')
+                            require(held, f'{stop["id"]}: {who} sets {b["ignite"]} alight with no torch in hand')
             choices = stop.get('choices', [])
             unique(choices, 'choice')
             transitions = list(choices) + ([{'next': stop['next']}] if 'next' in stop else [])

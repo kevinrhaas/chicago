@@ -386,9 +386,95 @@ def battle(b):
         beats += [{'t': 50 + 0.5 * i, 'walk': [P(*start), P(start[0] - 12, start[1])], 'hide': True}]
         cast.append(member(f'extra:wabash_searcher_{i + 1}', P(*start), heading=80, dress='potawatomi_man_1812', dress_of=d,
                            name='One of the searchers, a war party from the Wabash; names not recorded', beats=beats))
-    st['ouilmette'] = {'caption': "Watch the searchers come to the Ouilmette house and go in, while Mrs. Helm lies hidden.", 'cast': cast}
+    st['ouilmette'] = {'caption': "Watch the searchers come to the Ouilmette house and go in, while Mrs. Helm lies hidden.", 'cast': cast,
+                       # Across the river the fort is still burning, an hour on.
+                       'fire': dict(FIRE, lit=FORT_BURNS[:11], start_s=95, visitor=False, open_gates=True)}
 
+    st['the-burning'] = burning(b)
     return st
+
+
+# ── the burning of the fort, 16 August 1812, the next morning ─────────────────────────────────
+# The owner, 2026-11-16: "start with one of the scenes there where you are at the fort and witness
+# the fort being burned and each person is reasonable correct in coming in and burning the fort
+# and then you can also light it on fire too". Wau-Bun (ch. XIX): 'The following morning, the work
+# of plunder being completed, the Indians set fire to the fort.' Who carries which brand to which
+# building, and the order, is reconstruction (L-1812-burning-of-the-fort); the burn itself is
+# renderers/web/js/fort-fire.js. Everything Whistler built inside the pickets burns, and the
+# pickets and the covered way; the brick magazine stands (Quaife: it 'alone defied the fire').
+FORT_BURNS = ['first_fort_dearborn_soldiers_barracks_sw', 'first_fort_dearborn_soldiers_barracks_se',
+              'first_fort_dearborn_officers_barracks', 'first_fort_dearborn_commanding_officers_barracks',
+              'first_fort_dearborn_north_range', 'first_fort_dearborn_small_house_ne', 'first_fort_dearborn_small_house_sw',
+              'first_fort_dearborn_blockhouse_se', 'first_fort_dearborn_blockhouse_nw',
+              'first_fort_dearborn_pickets_outer', 'first_fort_dearborn_pickets_inner',
+              'first_fort_covered_way_terrace', 'first_fort_covered_way_bank_upper', 'first_fort_covered_way_bank_middle',
+              'first_fort_covered_way_bank_lower']
+FIRE = {'burns': FORT_BURNS, 'stands': ['first_fort_dearborn_magazine'], 'liberty': 'L-1812-burning-of-the-fort',
+        'strike_colours': True}
+PARADE = (1149.4, 213.2)            # through both rows of pickets and between the soldiers' barracks
+GATE_WAY = [(1149.4, 199.0), (1149.4, 205.0), (1149.4, 209.0)]
+
+
+def burning(b):
+    P, member, bearing = b.P, b.member, b.bearing
+    # The young men of the gathering, not cast anywhere else in the jaunt (taken without marking,
+    # so every scene before keeps its people).
+    free = [p for p in b.MEN if p not in b._used]
+    donors = [free[(i * 13 + 5) % len(free)] for i in range(len(free))]
+    donors = list(dict.fromkeys(donors))
+    women = [p for p in b.WOMEN if p not in b._used]
+    camp = (1133.0, 191.5)          # come up from the camps on the prairie south-west of the fort
+    # Each brand: the way in, the mark beside the logs, the way it faces, the building.
+    inside = [
+        ('first_fort_dearborn_soldiers_barracks_sw', [PARADE], (1146.0, 212.6), 180),
+        ('first_fort_dearborn_soldiers_barracks_se', [PARADE], (1154.0, 212.6), 180),
+        ('first_fort_dearborn_officers_barracks', [PARADE, (1146.0, 218.0)], (1143.6, 220.0), 270),
+        ('first_fort_dearborn_commanding_officers_barracks', [PARADE, (1156.0, 219.0)], (1160.5, 222.6), 90),
+        ('first_fort_dearborn_north_range', [PARADE, (1152.5, 224.0)], (1156.0, 230.0), 0),
+        ('first_fort_dearborn_small_house_ne', [PARADE, (1157.5, 224.5)], (1163.9, 230.4), 0),
+    ]
+    outside = [
+        ('first_fort_dearborn_pickets_outer', [(1138.0, 199.0)], (1141.0, 202.7), 0),
+        ('first_fort_dearborn_blockhouse_se', [(1158.0, 197.5)], (1167.2, 201.7), 0),
+        ('first_fort_dearborn_blockhouse_nw', [(1129.0, 202.0), (1131.0, 226.0)], (1133.5, 236.2), 90),
+        ('first_fort_dearborn_pickets_inner', [(1173.0, 200.0), (1171.5, 214.0)], (1170.6, 219.0), 270),
+    ]
+    cast, t0 = [], 1.0
+    for i, (building, way, mark, face) in enumerate(inside + outside):
+        start = (camp[0] - 1.5 * (i % 4), camp[1] - 1.6 * (i // 4) + 0.6 * (i % 2))
+        path = [(1139.5, 195.0)] + (GATE_WAY if way[0] == PARADE else []) + way + [mark]
+        if way[0] != PARADE: path = way + [mark]
+        walked = sum(math.hypot(z[0] - a[0], z[1] - a[1]) for a, z in zip([start] + path, path))
+        go = t0 + 1.6 * i
+        at = go + walked / 1.3 + 1.2
+        back = (mark[0] - 2.6 * math.sin(math.radians(face)), mark[1] - 2.6 * math.cos(math.radians(face)))
+        beats = [{'t': 0.4, 'torch': True},
+                 {'t': round(go, 1), 'walk': [P(*x) for x in path], 'heading': face},
+                 {'t': round(at, 1), 'ignite': building},
+                 {'t': round(at + 3.2, 1), 'walk': [P(*back)], 'heading': face}]
+        if way[0] == PARADE:
+            # Out of the burning fort before it falls in, by the gate, to stand and watch it.
+            watch = (1137.5 - 1.5 * (i % 3), 191.5 - 1.6 * (i // 3))
+            beats += [{'t': round(at + 22 + 1.5 * i, 1), 'walk': [P(*PARADE), P(*GATE_WAY[1]), P(*GATE_WAY[0]), P(1142.0, 195.0), P(*watch)],
+                       'pace': 'brisk', 'heading': round(bearing(watch, (1152.0, 221.0)), 1)},
+                      {'t': round(at + 40 + 1.5 * i, 1), 'torch': False}]
+        cast.append(member(f'extra:fire_brand_{i + 1:02d}', P(*start), heading=bearing(start, path[0]),
+                           dress='potawatomi_man_1812', dress_of=donors[i],
+                           name='One of the young men of the gathering who burned the fort; name not recorded', beats=beats))
+    # The rest of the gathering come up to see it burn, and stand off on the open ground.
+    for i in range(10):
+        woman = i % 3 == 2
+        who = (women if woman else donors[len(inside + outside):])[i // 3 if woman else i - i // 3]
+        spot = (1124.0 + 3.1 * (i % 5) + 0.8 * (i // 5), 189.0 - 2.4 * (i // 5) + 0.7 * (i % 2))
+        start = (spot[0] - 14.0 + 1.2 * i, spot[1] - 16.0)
+        cast.append(member(f'extra:fire_watcher_{i + 1:02d}', P(*start), heading=bearing(start, spot),
+                           dress='potawatomi_woman_1812' if woman else 'potawatomi_man_1812', dress_of=who,
+                           tier='desktop' if i % 2 else None,
+                           name=('One of the women' if woman else 'One of the men') + ' of the gathering, come to watch; name not recorded',
+                           beats=[{'t': round(14 + 3.5 * i, 1), 'walk': [P(*spot)], 'heading': round(bearing(spot, (1152.0, 221.0)), 1)},
+                                  {'t': round(70 + 4 * i, 1), 'talk': True}, {'t': round(76 + 4 * i, 1), 'talk': False}]))
+    return {'caption': "Watch the young men of the gathering carry brands into the empty fort and set it alight; then take a brand and light it yourself.",
+            'cast': cast, 'fire': dict(FIRE, visitor=True, open_gates=True)}
 
 
 # The trail along the river's channel above its mouth, north to south (from the app's own view

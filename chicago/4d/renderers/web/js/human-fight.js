@@ -33,8 +33,10 @@
 import * as THREE from 'three';
 import { musketGroup } from './human-garrison.js';
 
-export const WEAPON_KINDS = Object.freeze(['none', 'tomahawk', 'club', 'knife', 'pistol', 'musket', 'rifle']);
+export const WEAPON_KINDS = Object.freeze(['none', 'tomahawk', 'club', 'knife', 'pistol', 'musket', 'rifle', 'torch']);
 export const FIGHT_ACTS = Object.freeze(['strike', 'stab', 'fire', 'aim', 'lower', 'struck']);
+/** T-3553, the burning of the fort: what a torch does (put to a wall, and held there). Not a blow. */
+export const TORCH_ACTS = Object.freeze(['kindle']);
 const TWO_HANDED = new Set(['musket', 'rifle']);
 /** Where the right fist closes on a long gun: the small of the stock, metres from the butt plate. */
 export const STOCK_WRIST_M = 0.35;
@@ -53,6 +55,7 @@ function mat(name) {
     const def = {
       wood: { color: 0x5e3f24, roughness: 0.78, metalness: 0 },
       dark: { color: 0x3a2716, roughness: 0.7, metalness: 0 },
+      pitch: { color: 0x1c130c, roughness: 0.92, metalness: 0, emissive: 0x2c0a00 },
       iron: { color: 0x4a4b4e, roughness: 0.42, metalness: 0.75 },
       edge: { color: 0x9a9da1, roughness: 0.28, metalness: 0.85 },
       brass: { color: 0x9b7b3a, roughness: 0.4, metalness: 0.8 },
@@ -136,6 +139,17 @@ const BUILD = {
     g.add(m);
     return g;
   },
+  // A firebrand (the burning of the fort, 16 August 1812): a split pine stick, the fist a third of
+  // the way up, a head of bark and pitch bound on its end; the flame is drawn at `tip` (fort-fire.js).
+  torch() {
+    const g = new THREE.Group();
+    g.add(mesh(new THREE.CylinderGeometry(0.015, 0.02, 0.66, 7), 'wood', [0, 0.12, 0]));
+    g.add(mesh(new THREE.CylinderGeometry(0.042, 0.032, 0.15, 8), 'pitch', [0, 0.47, 0]));
+    const tip = new THREE.Object3D(); tip.name = 'torch_tip'; tip.position.set(0, 0.53, 0);
+    g.add(tip);
+    g.userData.tip = tip;
+    return g;
+  },
 };
 BUILD.rifle = BUILD.musket;
 
@@ -173,6 +187,8 @@ const READY = {
   musket: { r: R([0.1, -0.36, 0.2], [0.52, 0.8, 0.3], [0.2, -0.3, -0.93]), l: 'fore' },
 };
 READY.rifle = READY.musket;
+// A torch carried up before the body, its head above the shoulder, clear of the face.
+READY.torch = R([0.04, -0.2, 0.3], [0.1, 0.85, 0.5], [1, 0, 0], [-0.9, -0.5, -0.1]);
 
 const AIMED = {
   // The arm out straight at the shoulder's height, the pistol level.
@@ -236,6 +252,18 @@ export const MOTIONS = Object.freeze({
     },
     shot: (w) => (TWO_HANDED.has(w) ? 0.8 : 0.7),
     hold: true,
+  },
+  // Put to a wall (the burning of the fort): reached out and down to the logs, held there while
+  // they catch (`hit`, when the fire takes), and brought back up.
+  kindle: {
+    for: ['torch'],
+    keys: () => [
+      { t: 0, r: READY.torch },
+      { t: 0.55, r: R([0.02, -0.36, 0.56], [0.05, 0.12, 0.99], [1, 0, 0], [-0.9, -0.4, 0]) },
+      { t: 1.7, r: R([0.02, -0.33, 0.58], [0.05, 0.18, 0.98], [1, 0, 0], [-0.9, -0.4, 0]) },
+      { t: 2.3, r: READY.torch },
+    ],
+    hit: 0.6,
   },
   // Back down to the ready.
   lower: {
