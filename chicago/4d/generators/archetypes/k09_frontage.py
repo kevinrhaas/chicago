@@ -113,7 +113,9 @@ def spec(params) -> dict | None:
 
 def _storey(params, op) -> int:
     floors = params.floors_m
-    return max(k for k, f in enumerate(floors) if op.sill_m >= f - 1e-6)
+    # T-1894: a door whose floor stands a few risers under the principal one (1823's, at 1.7 m
+    # under a 2.35 m hall) opens in the principal storey
+    return max((k for k, f in enumerate(floors) if op.sill_m >= f - 1e-6), default=0)
 
 
 def light(params, op) -> dict | None:
