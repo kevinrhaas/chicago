@@ -1,0 +1,92 @@
+{
+  "_doc": "Today's position of landmark sites the Today window's registration needs (renderers/web/js/today-register.js, tools/today_registration.mjs). Each polygon is copied, unchanged, from the City of Chicago's Individual Landmarks dataset (data/sources/chicago_individual_landmarks_2026.json), longitude then latitude as the City publishes them. A MODERN control, read only by the Today window and its test: nothing in a period layer is placed from it.",
+  "source": "chicago_individual_landmarks_2026",
+  "fetched": "2026-11-16",
+  "fetched_from": "https://data.cityofchicago.org/resource/uct4-hrvh.json?$limit=1000",
+  "sites": [
+    {
+      "id": "site_of_fort_dearborn",
+      "landmark_id": "L-185",
+      "name": "Site of Fort Dearborn",
+      "address": "at the intersection of Michigan Av & Wacker Dr",
+      "designated": "1971-09-15",
+      "marks": "the fort's southern perimeter",
+      "marks_sources": [
+        "wikipedia_fort_dearborn"
+      ],
+      "how_good": "The City's polygon for the site is the intersection of Michigan Avenue and Wacker Drive, about 43 by 42 m. It marks the fort's SOUTHERN PERIMETER: 'The southern perimeter of Fort Dearborn was located at what is now the intersection of Wacker Drive and Michigan Avenue' (wikipedia_fort_dearborn), the fort itself running north from it toward the river. So the control pairs the polygon's centre with the middle of each fort's south curtain, not the fort's centre, good to about 25 m.",
+      "polygon_lnglat": [
+        [
+          -87.62478452006759,
+          41.888185690725905
+        ],
+        [
+          -87.62468920993341,
+          41.888538803483094
+        ],
+        [
+          -87.62426257242134,
+          41.8885428072406
+        ],
+        [
+          -87.62430698334902,
+          41.888164892267966
+        ],
+        [
+          -87.62457842323185,
+          41.88816656788386
+        ],
+        [
+          -87.62478452006759,
+          41.888185690725905
+        ]
+      ]
+    },
+    {
+      "id": "glessner_house",
+      "landmark_id": "L-104",
+      "name": "John J. Glessner House",
+      "address": "1800 S Prairie Av",
+      "designated": "1970-10-14",
+      "how_good": "The City's polygon is the house's whole lot, 53 by 23 m, not its walls: a check that the registration leaves Prairie Avenue where it is, not a control.",
+      "polygon_lnglat": [
+        [
+          -87.62088596075417,
+          41.857627629586474
+        ],
+        [
+          -87.62153101887486,
+          41.857618785885485
+        ],
+        [
+          -87.62153208785999,
+          41.857668024202916
+        ],
+        [
+          -87.62153380447565,
+          41.857744874671575
+        ],
+        [
+          -87.62153552352636,
+          41.85782161441203
+        ],
+        [
+          -87.62089024238995,
+          41.85783051077205
+        ],
+        [
+          -87.62088859938369,
+          41.85775371657402
+        ],
+        [
+          -87.62088695698964,
+          41.857676867457776
+        ],
+        [
+          -87.62088596075417,
+          41.857627629586474
+        ]
+      ]
+    }
+  ]
+}

@@ -15,6 +15,10 @@
  * Avenue (zone 16's central meridian is 87° W; the town is 0.6° east of it). It is
  * measured, not assumed: the true azimuth of a short step due grid-north.
  *
+ * The projection is exact; where the scene's ground and today's disagree (the fort and
+ * river traced off the 1834 surveys stand about 60 m off today's site), the caller first
+ * carries the walker through the year's registration (today-register.js).
+ *
  * Today's view is a navigation aid like today's streets (modern-streets.js): nothing
  * in a period layer is read off it. Pure: no DOM, no THREE.
  */
@@ -113,4 +117,21 @@ export function streetViewUrl({ lat, lng, heading = 0, pitch = 0 }) {
   const pitchC = Math.max(-90, Math.min(90, pitch));
   return 'https://www.google.com/maps/@?api=1&map_action=pano'
     + `&viewpoint=${f(lat, 6)},${f(lng, 6)}&heading=${f(heading, 0)}&pitch=${f(pitchC, 0)}&fov=90`;
+}
+
+/**
+ * { lat, lng } back to the scene's local metres: the inverse of localToLatLng, by Newton's
+ * method on it (three steps reach a millimetre anywhere in the scenes).
+ */
+export function latLngToLocal(lat, lng, datum = DATUM) {
+  let e = 0, n = 0;
+  for (let i = 0; i < 6; i++) {
+    const p = localToLatLng(e, n, datum);
+    const pe = localToLatLng(e + 1, n, datum), pn = localToLatLng(e, n + 1, datum);
+    const a = pe.lng - p.lng, b = pn.lng - p.lng, c = pe.lat - p.lat, d = pn.lat - p.lat;
+    const dl = lng - p.lng, dp = lat - p.lat, det = a * d - b * c;
+    e += (dl * d - b * dp) / det;
+    n += (a * dp - c * dl) / det;
+  }
+  return [e, n];
 }

@@ -1,0 +1,15 @@
+{
+  "id": "chicago_individual_landmarks_2026",
+  "type": "dataset",
+  "citation": "City of Chicago, Department of Planning and Development. Individual Landmarks (Chicago Data Portal dataset uct4-hrvh), landmark site polygons, valid 2026-04-17; retrieved 2026-11-16.",
+  "date": "2026-04-17",
+  "describes_date": "2026",
+  "repository": "City of Chicago Data Portal",
+  "url": "https://data.cityofchicago.org/resource/uct4-hrvh.json",
+  "tier": 4,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "City of Chicago open data, published under the Data Portal's terms of use.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "MODERN control, not historical evidence: the City's own polygon for each designated landmark site, in WGS84. Used by the Today window's registration (data/modern/landmark_sites.json) to say where a site named in this dataset stands on today's ground. Nothing in a period layer is placed from it."
+}
