@@ -818,6 +818,8 @@ step "Ask the Glessner coachman for a ride: in beside Mr. Glessner, round the bl
   node tools/test_glessner_ride.mjs
 step "Every person placed in town is named by the look tag, found, and followed beside them (T-3404)" \
   node tools/test_person_interaction.mjs
+step "Every person's name fits their floating name card; on by default, a tap opens their card (T-3614)" \
+  node tools/test_name_cards.mjs
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
   python3 tools/human_contract.py --self-test
 step "Every human GLB is the one the browser measured: sha256 and verdicts in data/humans/fixture.measure.json (T-1787)" \
@@ -1619,6 +1621,12 @@ step "a corner porch's cornice may stand on modillions, its balcony in the trim 
 # cut, too short, across a hip, over the cut, with a stack in it.
 step "a mansard crown may stand over a stretch of the front and turn a canted corner (T-3283)" \
   python3 tools/test_k01_front_crown.py
+
+# T-1896. 1827 Prairie's sign-off against the Doane photograph: a hipped crown on a ledge of its
+# cornice, closed to one point; a carved roundel on a K08 storey over its lights; an arched porch
+# end on a column against the wall with a low parapet; each refused where it would not fit.
+step "a hipped crown may close to a point, K08 carves roundels, a porch end stands on a column (T-1896)" \
+  python3 tools/test_k01_doane_crown_porch_roundel.py
 
 # T-1890. 1801 Prairie's street face leans back further than its side faces (the Taylor print
 # and HABS photograph 2 put its curb's north-west corner about 1 m further back): the K05 ring

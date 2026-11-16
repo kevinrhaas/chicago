@@ -503,7 +503,7 @@ for (const [name, base] of [['battle-of-fort-dearborn-adults', 'battle-of-fort-d
   const jaunt = read(`data/jaunts/${name}.json`), student = read(`data/jaunts/${base}.json`);
   assert.equal(jaunt.version_of, base, `${name}: a version of the students' ${base}`);
   assert.equal(jaunt.audience, 'adults', `${name}: for adults`);
-  assert.ok(jaunt.content_warning?.length >= 40 && !jaunt.featured, `${name}: warned, and never featured`);
+  assert.ok(jaunt.content_warning?.length > 0 && !/18\+|no child|told, not|staged as/i.test(`${jaunt.premise}\n${jaunt.opening.text}`) && !jaunt.featured, `${name}: a short warning for the 18+ tag, no warning text in its telling (owner, 2026-11-16), and never featured`);
   assert.ok(student.audience !== 'adults' && !('content_warning' in student), `${base}: the students' telling stays theirs`);
   assert.ok(jaunt.liberties.includes('L-1812-adult-jaunts') && jaunt.liberties.includes('L-1812-staged-jaunts-3553'), `${name}: both stagings declared`);
   assert.deepEqual(jaunt.stops.map((s) => s.id), student.stops.map((s) => s.id), `${name}: the same stops as the students'`);

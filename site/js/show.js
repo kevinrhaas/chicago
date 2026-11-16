@@ -104,6 +104,72 @@
     apply();
   });
 
+  // How it's made (home): sources travel the wire through the five stages, each stage lighting as one
+  // passes and cycling its pictures. Ported from the first home page; nothing runs off screen.
+  (() => {
+    const flow = document.getElementById('flow');
+    if (!flow || reduced) return;
+    const path = document.getElementById('flowPath'), glow = document.getElementById('flowGlow');
+    const layer = document.getElementById('packets');
+    const stages = [...flow.querySelectorAll('.stage')];
+    const STORIES = [
+      ['#c9a46a', ['Sanborn map, 1911', 'Footprint traced', 'Attested · 3 sources', 'Model + its sources', 'Prairie Avenue, on screen'], 't-sanborn'],
+      ['#7ec8e3', ['1840 census page', 'Names read, line by line', 'Matched to a directory', 'Resident placed on a lot', 'Who lived here']],
+      ['#ff3b4f', ['HABS photograph', 'Camera solved', 'Model compared to it', 'Roof rebuilt', 'Matches the photo'], 't-habs'],
+      ['#e0a050', ['Robinson atlas, 1886', 'Pinned to the survey grid', 'Lots and addresses graded', 'Ground and roads built', 'Walkable 1904'], 't-plat'],
+      ['#9ad17a', ['Wau-Bun, 1856', 'Read scene by scene', 'Inferred · with a note', 'Note on the model', 'In the Kinzie record']],
+    ];
+    let nodes = [], at = [], len = 0, vertical = false, visible = false, raf = 0, last = 0;
+    const packets = [];
+    const layout = () => {
+      const fr = flow.getBoundingClientRect();
+      nodes = stages.map((s) => { const r = s.querySelector('.st-n').getBoundingClientRect(); return [r.left + r.width / 2 - fr.left, r.top + r.height / 2 - fr.top]; });
+      vertical = Math.abs(nodes[1][0] - nodes[0][0]) < 4; flow.classList.toggle('v', vertical);
+      const first = nodes[0], end = nodes[nodes.length - 1];
+      const pts = [vertical ? [first[0], first[1] - 40] : [first[0] - 60, first[1]], ...nodes, vertical ? [end[0], end[1] + 40] : [end[0] + 60, end[1]]];
+      const d = 'M' + pts.map((p) => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' L');
+      path.setAttribute('d', d); glow.setAttribute('d', d);
+      len = path.getTotalLength();
+      at = []; let acc = 0;
+      for (let i = 1; i < pts.length; i++) { acc += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); if (i <= nodes.length) at.push(acc); }
+    };
+    const spawn = (k, d) => {
+      const st = STORIES[k % STORIES.length], el = document.createElement('div');
+      el.className = 'packet' + (st[2] ? ' has-img' : ''); el.style.setProperty('--pc', st[0]);
+      el.innerHTML = (st[2] ? `<img src="media/flow/${st[2]}.jpg" alt="">` : '<i></i>') + '<span></span>';
+      layer.append(el);
+      packets.push({ el, label: el.querySelector('span'), story: st[1], d, stage: -2 });
+    };
+    const frame = (t) => {
+      raf = 0; if (!visible) return;
+      const dt = last ? Math.min(64, t - last) : 16; last = t;
+      const speed = len / 14000;          // a source crosses all five stages in about fourteen seconds
+      for (const p of packets) {
+        p.d += speed * dt;
+        if (p.d < 0) { p.el.style.opacity = 0; continue; }
+        if (p.d > len) { p.d = -len * 0.25; p.stage = -2; p.el.style.opacity = 0; continue; }
+        const pt = path.getPointAtLength(p.d);
+        let s = -1; for (let i = 0; i < at.length; i++) if (p.d >= at[i] - 30) s = i;
+        if (s !== p.stage) {
+          p.stage = s; p.label.textContent = p.story[Math.max(0, s)];
+          if (s >= 0) { const sg = stages[s]; sg.classList.add('lit'); clearTimeout(sg._t); sg._t = setTimeout(() => sg.classList.remove('lit'), 900); }
+        }
+        p.el.style.opacity = Math.max(0, Math.min(1, p.d / 40, (len - p.d) / 40)).toFixed(2);
+        p.el.style.transform = `translate(${pt.x.toFixed(1)}px,${(pt.y + (vertical ? 0 : -30)).toFixed(1)}px) translate(-50%,-50%)`;
+      }
+      raf = requestAnimationFrame(frame);
+    };
+    layout();
+    for (let k = 0; k < 5; k++) spawn(k, k * len / 5);
+    stages.forEach((sg, i) => {
+      const ims = [...sg.querySelectorAll('.st-media img')]; if (ims.length < 2) return;
+      let n = 0; setTimeout(() => setInterval(() => { if (!visible) return; ims[n].classList.remove('on'); n = (n + 1) % ims.length; ims[n].classList.add('on'); }, 3200), i * 550);
+    });
+    addEventListener('resize', layout);
+    document.fonts?.ready?.then(layout);
+    new IntersectionObserver((e) => { visible = e[0].isIntersecting; last = 0; if (visible && !raf) { layout(); raf = requestAnimationFrame(frame); } }, { threshold: 0.05 }).observe(flow);
+  })();
+
   // Season switcher: chips swap the stills of one camera.
   $$('.switcher').forEach(sw => {
     const imgs = $$('.film img', sw), chips = $$('.chip', sw);

@@ -473,7 +473,7 @@ def adult_doc(base_name, stages, texts):
     doc['premise'] = texts['premise']
     if texts.get('opening'):
         doc['opening']['text'] = texts['opening']
-    else:
+    elif texts.get('opening_add'):
         paras = base['opening']['text'].split('\n\n')
         doc['opening']['text'] = '\n\n'.join(paras[:-1] + [texts['opening_add'], paras[-1]])
     doc['opening']['read_s'] = round(len(doc['opening']['text'].split()) / 3.5)
