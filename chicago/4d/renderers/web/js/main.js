@@ -2375,6 +2375,12 @@ async function boot() {
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
     registerDoorPlans(doorsFile1904);
   }
+  // The owner, 2026-11-16 ("he is walking through stairs that block the door"): 1835's house
+  // models build their own front stoops (doors_1835.json `floor`s), climbed like 1904's below.
+  const doorsFile1835 = String(loaded.scene.id ?? YEAR) === '1835'
+    ? await fetch(new URL('humans/doors_1835.json', bases.dataBase), { cache: 'no-cache' })
+      .then((r) => (r.ok ? r.json() : null)).catch(() => null)
+    : null;
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     shadowCasters,
     preserveMaterials: inspectionLod,
@@ -3145,10 +3151,12 @@ async function boot() {
   houseDoors.adopt(api.backYards?.passages);
   // The owner, 2026-11-14: "Anywhere there are stairs I should be able to climb". Every 1904
   // house's stoop and porch tops, and the rails and cheeks beside them, as decks the walker
-  // climbs a tread at a time (house-floors.js); the back yards' stoops and 1835's street-front
-  // stoops and mounting blocks the same (back-yards.js, frontage.js `stairDecks`).
+  // climbs a tread at a time (house-floors.js); the stoops 1835's house models build at their
+  // doors the same (doors_1835.json); and the back yards' stoops and 1835's street-front
+  // stoops and mounting blocks (back-yards.js, frontage.js `stairDecks`).
   const stairDecks = [
-    ...floorDecks([...(doorsFile1904?.structures ?? []), ...(doorsFile1904?.barriers ?? [])],
+    ...floorDecks([...(doorsFile1904?.structures ?? []), ...(doorsFile1904?.barriers ?? []),
+      ...(doorsFile1835?.structures ?? []), ...(doorsFile1835?.barriers ?? [])],
       (id) => buildings.matrixOf(id)?.elements ?? null),
     ...(api.backYards?.stairDecks ?? []),
     ...(frontage.stairDecks ?? []),
@@ -4068,7 +4076,7 @@ async function boot() {
   if (['1812', '1835', '1904'].includes(daysScene)) {
     const getOptional = (rel) => fetch(new URL(rel, bases.dataBase), { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
-    const [doors, inside] = await Promise.all([getOptional(`humans/doors_${daysScene}.json`),
+    const [doors, inside] = await Promise.all([daysScene === '1835' && doorsFile1835 ? doorsFile1835 : getOptional(`humans/doors_${daysScene}.json`),
       // T-3556: and 1835's townspeople (tools/town_people_1835.py), each in and out of their home
       // and place of business by the hour.
       ['1812', '1835', '1904'].includes(daysScene) ? getOptional(`humans/inside_${daysScene}.json`) : null]);
