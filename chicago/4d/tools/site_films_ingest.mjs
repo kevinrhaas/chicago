@@ -8,11 +8,17 @@
  * deploy.yml; .github/workflows/chicago-site-films.yml uploads it to the media host), any
  * older cut of the same id is removed, its poster goes to site/media/films/<id>.jpg, and
  * site/js/films.js is rewritten to name the exact files.
+ *
+ * A film drawn at under 20 fps (a 1904 frame costs ~25 s under SwiftShader, so the slow
+ * years are drawn at 12) is motion-interpolated to 24 fps here. The camera moves are slow
+ * and smooth, so the in-between frames hold up; people and horses still move at their
+ * true speed, because the virtual clock advanced 1/12 s per drawn frame.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(HERE, '../../..');
@@ -65,7 +71,15 @@ fs.mkdirSync(STORE, { recursive: true });
 fs.mkdirSync(POSTERS, { recursive: true });
 const files = stored();
 for (const id of ids) {
-  const src = path.join(dir, `${id}.mp4`);
+  let src = path.join(dir, `${id}.mp4`);
+  const rate = execFileSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=r_frame_rate',
+    '-of', 'csv=p=0', src], { encoding: 'utf8' }).trim().split('/').map(Number);
+  if (rate[0] / (rate[1] || 1) < 20) {
+    const smooth = path.join(dir, `${id}.24fps.mp4`);
+    execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', src, '-vf', 'minterpolate=fps=24:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1',
+      '-c:v', 'libx264', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-crf', '26', '-preset', 'slow', '-movflags', '+faststart', '-an', smooth]);
+    src = smooth;
+  }
   const bytes = fs.readFileSync(src);
   const sha = crypto.createHash('sha256').update(bytes).digest('hex').slice(0, 8);
   const name = `${id}.${sha}.mp4`;
