@@ -5936,8 +5936,12 @@ def cmd_self_test() -> int:
     # 316 -> 321 on 2026-11-15 (T-3605): the register firms street-face adoption moved into
     # the stores built to Gifford's drawing leave five platted roofs, and five waiting
     # households are dealt them (221 -> 226 platted, 95 off-plat, L270).
-    assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 321
+    # 321 -> 325 on 2026-11-16 (T-3605 phase 2): with the commercial core's row-fill stores
+    # off the household model's weights the plat's queue reaches four more households
+    # (226 -> 230 platted, 95 off-plat, L270).
+    got = seats_against_roofs(data, structure_buckets(
+        data["inventory"], data["programme"], occ))["seated"]
+    assert got == 325, got
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
