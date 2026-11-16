@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 3020, ts: '2026-11-16T02:39:57.945Z', date: 'Nov 15, 2026, 8:39 PM CT', title: '1912 Prairie\'s alley barn, under the hip and deck its map draws', kind: 'improvement',
+    items: [
+      'The brick barn behind 1912 Prairie Avenue, the Moulton house, now stands as the 1911 fire-insurance map draws it: 17.5 m along the alley and 10.4 m deep, two storeys, with a sash where the map marks a window. Before, it was a rough block of the wrong size.',
+      'It is the first coach house on the avenue roofed the way its map shows rather than with a standard gable: the map\'s dashed line and corner strokes are the plan of a hipped roof cut off at a flat deck, so slate hips now rise from all four walls to a felted deck.',
+      'The alley\'s utility pole that stood under its eave steps half a metre out into the alley, clear of the roof.',
+    ] },
+  { v: 3019, ts: '2026-11-16T00:58:43.506Z', date: 'Nov 15, 2026, 6:58 PM CT', title: 'Ten new 1904 story jaunts, played by the people of the street', kind: 'feature',
+    items: [
+      'Under Jaunts > Stories, ten walks of Prairie Avenue on one Monday in November 1904, each with four or five stops that lead to the next and an ending.',
+      'The Merchant and Mrs. Caton, The Scandal at 1612 Prairie, The Daughter Who Made Things, Monday at the Fortress and The Last Pullman Twin.',
+      'Pullman\'s Other Son, The Bronze at Eighteenth Street, The Sisters of the Levee, One Year and a Day and The Walk to the Lake.',
+      'At every stop the people who lived and worked there step out of their doors and play the scene: Marshall Field on his steps, the Lees parting at 1700, the Reading Class arriving at the Glessners\'.',
+      'Every fact and quotation the narrator tells is cited to its source; who stands where, and the unnamed figures, are recorded as reconstruction.',
+    ] },
   { v: 3018, ts: '2026-11-16T00:52:05.802Z', date: 'Nov 15, 2026, 6:52 PM CT', title: '18+ jaunts: blood and wounds', kind: 'feature',
     items: [
       'In the two 18+ jaunts, every blow, shot and scalping now draws blood where it lands. Drops fly from the wound and lie where they fall, a stain spreads on the clothing on the side the blow came from, and a pool spreads on the ground under the fallen.',
