@@ -951,14 +951,24 @@
                 "to_s_m": 18.71,
                 "height_m": 0.25
               }
-            ]
+            ],
+            "passage_fence": {
+              "fence": "k11.fence.spear_on_curb",
+              "s_m": [
+                -4.35,
+                -1.33
+              ],
+              "x_m": 15.6,
+              "rail_top_m": 0.45,
+              "curb_height_m": 0.1
+            }
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_1815_sears_two_views",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The square-on photograph (chicagology_square_on.json) shows no fence: a low stone coping along the inner edge of the public walk, and a square stone post about 0.9 m high either side of the walk where it leaves the stair, the walk running straight out between them. K11's stone coping wall, 0.25 m, on the parcel's street line (9.33 m from the front; data/street_grid/1904.json prairie_1815), the posts as 0.3 m runs 0.9 m high. Through the solved camera the posts stand at s 1.96-2.22 and 3.83-4.10 (x 186-214 and 386-414 px on the 2000 px print); they are laid at s 2.16-2.46 and 4.26-4.56, square to the stair's axis (s 3.36), 0.2-0.45 m from that reading (recorded in the match record). The parkway's stone posts at the curb are not this boundary."
+          "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The square-on photograph (chicagology_square_on.json) shows no fence: a low stone coping along the inner edge of the public walk, and a square stone post about 0.9 m high either side of the walk where it leaves the stair, the walk running straight out between them. K11's stone coping wall, 0.25 m, on the parcel's street line (9.33 m from the front; data/street_grid/1904.json prairie_1815), the posts as 0.3 m runs 0.9 m high. Through the solved camera the posts stand at s 1.96-2.22 and 3.83-4.10 (x 186-214 and 386-414 px on the 2000 px print); they are laid at s 2.16-2.46 and 4.26-4.56, square to the stair's axis (s 3.36), 0.2-0.45 m from that reading (recorded in the match record). The parkway's stone posts at the curb are not this boundary. T-3562: the square-on photograph also draws a low iron railing across the north side yard, set back behind the wall: its spear band's tips at y 983 px, its top rail at y 995 px and its foot at y 1033 px where it meets the stair projection's street end (x 107 px), running out of the frame past x 0. Through the solved camera (eye 1.6 m, focal 1966 px, horizon y 926) that foot stands 29.4 m from the eye, so the fence's line is u 15.6, 1.9 m behind the front's plane, and it meets the north stair projection's flank (v -1.2, u 11.5-16.5); about 0.8 m high overall (52 px at 66.9 px/m). Built as the K11 kit's spear fence on a 0.1 m curb with its top rail 0.45 m over it (0.79 m to the spears' tips), from 0.12 m inside the north lot line to the projection's flank. The spear heads and the posts' spacing are the kit's (reconstructed): the print shows a band of finials at that height but not their shape. The pale braced stakes before it (x 43 and 78 px) are not read as part of it and are not built."
         },
         "yard": {
           "value": {
