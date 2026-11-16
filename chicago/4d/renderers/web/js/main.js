@@ -92,7 +92,7 @@ import { createBoats } from './boats.js';
 import { createCrossings } from './crossings.js';
 import { mountHumans } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
-import { createHumanDays, createDayRouter, clearWayOf } from './human-days.js';
+import { createHumanDays, createDayRouter, clearWayOf, JAUNT_LOCALS } from './human-days.js';
 import { createJauntHosts } from './jaunt-hosts.js';
 import { createJauntStage } from './jaunt-stage.js';
 import * as humanFight from './human-fight.js'; // the adults jaunts' weapons, motions and gun smoke
@@ -5142,6 +5142,15 @@ async function boot() {
     let figure = api.humans?.pickAt(ndc, camera);
     const driver = api.townTransport?.pickDriverAt(ndc, camera);
     if (driver && (!figure || driver.distance < figure.distance)) figure = driver;
+    // T-3553: one of a jaunt stop's staged people turns to the visitor, greets and opens their card.
+    const staged = pickStaged(ndc);
+    if (staged && (!figure || staged.distance < figure.distance) && (!hit || staged.distance < hit.distance)) {
+      popup.close();
+      api.jauntStage.meet(staged, { e: walker.state.e, n: walker.state.n });
+      if (staged.personId) void openPersonCard(staged.personId);
+      else hud.say(staged.name);
+      return staged;
+    }
     if (figure && (!hit || figure.distance < hit.distance)) {
       popup.close();
       api.humans.select(figure);
@@ -5802,7 +5811,14 @@ async function boot() {
         // T-3495: the everyday people held out while a jaunt is on, but for those its stop
         // calls for; Settings › Show › People hidden stays hidden either way.
         crowd: {
-          hold: (ids) => { api.humans?.holdCrowd?.(ids); gateFrame.invalidate(); },
+          hold: (ids, { locals = null } = {}) => {
+            // T-3553: a stop with no stage or hosts keeps the people about its stand.
+            const target = locals ? resolveJaunt(locals.destination) : null;
+            const stand = target ? travel.destinationOf(target, { mode: 'walk', card: false }) : null;
+            const area = stand && Number.isFinite(stand.e) && Number.isFinite(stand.n)
+              ? { e: stand.e, n: stand.n, r: JAUNT_LOCALS.r_m, structure: target.kind === 'structure' ? target.id : null } : null;
+            api.humans?.holdCrowd?.(ids, { area }); gateFrame.invalidate();
+          },
           restore: () => { api.humans?.releaseCrowd?.(); gateFrame.invalidate(); },
         },
         // T-3525: the people who tell a stop come to their marks, turned to its stand.
@@ -6167,6 +6183,14 @@ async function boot() {
   // T-2627 (§10): the HUD's target tag and the quick column's Inspect key — the same probe,
   // within 40 m, after a 400 ms dwell. Both open Inspect through the Navigator's registry
   // (Inspect's own screen since T-2638/T-2639), handing it this target.
+  // T-3553: the staged castmate of a jaunt stop under `ndc` (the crosshair when null), or null.
+  const stageRay = new THREE.Raycaster();
+  function pickStaged(ndc = null) {
+    if (!api.jauntStage?.pick) return null;
+    stageRay.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
+    stageRay.far = 220;
+    return api.jauntStage.pick(stageRay);
+  }
   // T-3404: the tag (and only the tag) also names a person under the crosshair — a driver
   // on their box, a figure on the walk — nearer than the building behind them.
   const peopleLook = createPeopleLook({
@@ -6176,6 +6200,10 @@ async function boot() {
       let hit = api.humans?.pickAt?.(null, camera) ?? null;
       const driver = api.townTransport?.pickDriverAt?.(null, camera) ?? null;
       if (driver && (!hit || driver.distance < hit.distance)) hit = driver;
+      const staged = pickStaged();
+      if (staged?.personId && (!hit || staged.distance < hit.distance)) {
+        return { personId: staged.personId, distance: staged.distance, label: staged.name ?? personInTown(staged.personId)?.name ?? null };
+      }
       if (!hit?.personId) return null;
       return { personId: hit.personId, distance: hit.distance, label: hit.person?.name ?? personInTown(hit.personId)?.name ?? null };
     },
