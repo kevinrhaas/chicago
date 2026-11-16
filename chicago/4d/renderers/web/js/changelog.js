@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3038, ts: '2026-11-16T18:16:36.701Z', date: 'Nov 16, 2026, 12:16 PM CT', title: 'The Today window stands where you stand, in every year', kind: 'fix',
+    items: [
+      'By Fort Dearborn the Today window looked out from a boat near the river\'s north bank. It now opens on the Michigan Avenue bridge\'s south half, over the fort\'s old north end.',
+      'Each year\'s ground is lined up with today\'s map on the street corners that survive and on the City\'s marked site of the fort.',
+      'Today\'s street name and number, and today\'s streets on the map, line up the same way.',
+      'Only Google\'s own street imagery is shown, not visitors\' photos.',
+    ] },
   { v: 3037, ts: '2026-11-16T17:38:07.213Z', date: 'Nov 16, 2026, 11:38 AM CT', title: 'The burning of Fort Dearborn on the public site', kind: 'feature',
     items: [
       'The home page, Jaunts and 1812 pages show new films of Fort Dearborn burning on 16 August 1812: the brands going in at the gate, the roofs ablaze, the fort from across the river and the roofs falling in.',
