@@ -48,6 +48,15 @@ export default register('hud', {
   'ride.home': 'driving home to the coach house',
   'ride.out': 'coming out of the coach house',
   'ride.stood': 'in the coach house',
+  // T-3612: at the helm of a boat (boat-pilot.js), on the travel bar.
+  'pilot.helm': 'At the helm of',
+  'pilot.oars': 'Rowing',
+  'pilot.paddle': 'Paddling',
+  'pilot.keys': 'W way on · S take way off, hold for astern · A/D helm',
+  'pilot.stick': 'Stick: up way on · down astern · sideways helm',
+  'pilot.ashore': 'Go ashore',
+  'pilot.speed': '{knots} knots',
+  'pilot.held': 'held: {why}',
   // T-2629: Settings › About.
   'about.title': 'About',
   'about.dev': 'DEV',

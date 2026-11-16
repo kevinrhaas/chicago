@@ -13,7 +13,14 @@
  *     have told you all theirs; a dated story waits for its dates; the memory survives a
  *     reload and a storage that throws;
  *   - Interact offers Tell me a story straight after Greet, only where Greet is, and the
- *     card shows the story, greys Find for someone not out in town, and closes.
+ *     card shows the story, greys Find for someone not out in town, and closes;
+ *   - Ask a question (the owner, 2026-11-16): every question has one or two follow-ups and
+ *     speaks no machine words and nothing past its year; everyone drawn is offered five (a
+ *     toddler at least three), their own first; the five stay until all are answered, then five
+ *     they have not answered; nobody asks you to find themselves; everyone has a persona whose
+ *     temperaments are known and whose topics are real, and named people have their own;
+ *     the persona leans which questions and stories come; Interact offers Ask a question after
+ *     Tell me a story and its card lists, answers, reveals a follow-up and goes back.
  *
  *   node tools/test_tales.mjs
  */
@@ -22,8 +29,9 @@ import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
-const { pickTale, noteTold, readTeller, createTales } = await import('../renderers/web/js/tales.js');
-const { withStory, storyAction, createTaleTeller } = await import('../renderers/web/js/tale-teller.js');
+const { pickTale, noteTold, readTeller, createTales, personaOf, mannerOf, leaning } = await import('../renderers/web/js/tales.js');
+const { withStory, storyAction, askAction, createTaleTeller } = await import('../renderers/web/js/tale-teller.js');
+const { pickAsks, noteAsked } = await import('../renderers/web/js/asks.js');
 const { createInteractions, actionStyle } = await import('../renderers/web/js/interact.js');
 
 let checks = 0;
@@ -161,7 +169,7 @@ const doc = { body: new Node('body'), createElement: (t) => new Node(t), listene
   const teller = createTaleTeller({ interactions, scene: '1904', base: './', doc, fetchJson: async () => libs['1904'], storage: null,
     canFind: (id) => (id === 'pa1904_lee_blewett' ? 'Not out in town now' : true), find: (id) => { found = id; } });
   const thing = interactions.get('person:pa1904_lee_frances_glessner');
-  ok(interactions.actionsOf(thing).map((a) => a.id).join() === 'greet,tale', 'the engine offers it on a registered person');
+  ok(interactions.actionsOf(thing).map((a) => a.id).join() === 'greet,tale,ask', 'the engine offers it, and Ask a question, on a registered person');
   ok(interactions.act(thing, 'tale').ok, 'and starts it');
   interactions.update(1);
   await new Promise((r) => setTimeout(r, 10));
@@ -180,6 +188,118 @@ const doc = { body: new Node('body'), createElement: (t) => new Node(t), listene
   teller.card.el.find('tale-close').click();
   ok(!teller.card.open && talking === false, 'X closes the card and the teller stops talking');
   void found;
+
+  // Ask a question on the same person.
+  ok(interactions.act(thing, 'ask').ok, 'Ask a question starts');
+  interactions.update(1);
+  await new Promise((r) => setTimeout(r, 10));
+  const ac = teller.askCard;
+  ok(ac.open && talking === true, 'the question card is open and she is talking');
+  ok(ac.el.find('tale-who').textContent === 'Ask Frances Glessner Lee', 'it names her');
+  ok(/Shrewd/.test(ac.el.find('ask-persona').textContent), `and says who she is (${ac.el.find('ask-persona').textContent})`);
+  const qs = ac.el.find('ask-list').children;
+  ok(qs.length === 5, 'five questions');
+  ok(ac.showing.asks[0].id === libs['1904'].personal_asks.pa1904_lee_frances_glessner[0].id, 'her own first');
+  qs[0].children[0].click();
+  ok(ac.el.find('ask-you').textContent === ac.showing.ask.q && ac.el.find('ask-manner')?.textContent, 'a tap answers, in her manner');
+  const follow = ac.el.find('ask-follow');
+  ok(follow, 'with a follow-up to ask');
+  follow.click();
+  ok(ac.el.find('ask-reveal') && !ac.el.find('ask-more').children.includes(follow), 'which reveals more');
+  ac.el.find('ask-back').click();
+  ok(ac.el.find('ask-tick'), 'Other questions goes back, the answered one ticked');
+  ok(teller.asks.state.by.pa1904_lee_frances_glessner.done[ac.showing.asks[0].id], 'and it is remembered');
+  ac.el.find('tale-close').click();
+  ok(!ac.open && talking === false, 'X closes it and she stops talking');
+}
+
+// ── Ask a question: the questions, the five, the personas ─────────────────────────────
+{
+  const person = { id: 'person:x', kind: 'person' };
+  const greet = { id: 'greet', label: 'Greet', steps: [{ seconds: 1, run() {} }] };
+  ok(withStory(person, [greet], () => {}, () => {}).map((a) => a.id).join() === 'greet,tale,ask', 'Ask a question follows Tell me a story');
+  ok(!askAction({ kind: 'door' }, [greet], () => {}), 'only for a person');
+  ok(actionStyle({ id: 'ask' }).icon === 'chat', 'with the talk icon');
+}
+for (const scene of SCENES) {
+  const lib = libs[scene];
+  const asks = [...lib.asks, ...Object.values(lib.personal_asks).flat()];
+  ok(lib.asks.length >= 60, `${scene}: at least 60 questions by role (${lib.asks.length})`);
+  const ids = new Set();
+  for (const a of asks) {
+    ok(!ids.has(a.id), `${scene}: ${a.id} is one question`);
+    ids.add(a.id);
+    ok(a.q && a.a.length && (a.more.length === 1 || a.more.length === 2) && a.more.every((m) => m.q && m.a.length), `${scene}: ${a.id} has an answer and one or two follow-ups`);
+    const words = [a.q, ...a.a, ...a.more.flatMap((m) => [m.q, ...m.a])].join(' ');
+    ok(!MACHINE.test(words), `${scene}: ${a.id} speaks no machine words (${words.match(MACHINE)?.[0]})`);
+    for (const y of words.match(/\b1[6-9]\d\d\b/g) ?? []) ok(Number(y) <= Number(scene), `${scene}: ${a.id} names ${y}, after its year`);
+    if (scene === '1812') ok(!GRAPHIC_1812.test(words), `1812: ${a.id} tells nothing graphically (${words.match(GRAPHIC_1812)?.[0]})`);
+    if (a.meet) ok(a.meet.person in lib.tellers && a.meet.name, `${scene}: ${a.id} sends you to someone drawn`);
+    ok(Array.isArray(a.k), `${scene}: ${a.id} knows its topics`);
+  }
+  // Never one answer twice in a scene: no two questions share a paragraph.
+  const paras = new Set();
+  for (const p of asks.flatMap((a) => [...a.a, ...a.more.flatMap((m) => m.a)])) { ok(!paras.has(p) || p.length < 25, `${scene}: an answer is told once (${p.slice(0, 40)})`); paras.add(p); }
+  for (const pid of Object.keys(lib.personal_asks)) ok(pid in lib.tellers, `${scene}: ${pid}'s own questions belong to someone drawn`);
+  // Everyone: five questions, a persona.
+  const topicsOk = new Set(['trade', 'kin', 'home', 'faith', 'war', 'wild', 'work', 'fun', 'talk', 'past', 'dread']);
+  let short = 0;
+  for (const pid of Object.keys(lib.tellers)) {
+    const state = {};
+    const got = pickAsks(lib, pid, state, { random: seq(pid.length) });
+    const toddler = readTeller(lib.tellers[pid]).roles.includes('toddler');
+    if (got.asks.length < 5) short += 1;
+    ok(got.asks.length >= (toddler ? 3 : 5), `${scene}: ${pid} is offered five questions (${got.asks.length})`);
+    ok(new Set(got.asks.map((a) => a.id)).size === got.asks.length, `${scene}: ${pid}'s five are five`);
+    ok(got.asks.every((a) => a.meet?.person !== pid), `${scene}: ${pid} never sends you to find themselves`);
+    const p = personaOf(lib, pid);
+    ok(p.tempers.length >= 1 && p.tempers.every((t) => lib.tempers[t]) && p.topics.length >= 2 && p.topics.every((t) => topicsOk.has(t)), `${scene}: ${pid} has a temperament and things to talk about`);
+    const m = mannerOf(lib, p, `${pid}:x`);
+    ok(m && !/[{}]/.test(m), `${scene}: ${pid} comes to an answer in their manner (${m})`);
+  }
+  ok(short <= 2, `${scene}: at most two little ones have fewer than five (${short})`);
+  const named = Object.keys(lib.personal_asks);
+  ok(named.filter((pid) => personaOf(lib, pid).who.length > 30).length >= named.length * 0.8, `${scene}: the named people have their own persona`);
+  const whos = new Set(Object.keys(lib.tellers).map((pid) => lib.persona[pid]));
+  ok(whos.size >= Object.keys(lib.tellers).length * 0.9, `${scene}: personas are nearly all different (${whos.size})`);
+}
+{
+  // The five stay until answered, then five more never answered before.
+  const lib = libs['1835'];
+  const pid = Object.keys(lib.tellers).find((p) => lib.tellers[p].startsWith('townsman,labourer/m'));
+  const state = {};
+  const first = pickAsks(lib, pid, state, { random: seq(3) }).asks.map((a) => a.id);
+  ok(pickAsks(lib, pid, state, { random: seq(9) }).asks.map((a) => a.id).join() === first.join(), 'the same five while any is unanswered');
+  for (const id of first.slice(0, 4)) noteAsked(state, pid, id);
+  ok(pickAsks(lib, pid, state, { random: seq(5) }).asks.map((a) => a.id).join() === first.join(), 'still the same five with one left');
+  noteAsked(state, pid, first[4]);
+  const next = pickAsks(lib, pid, state, { random: seq(7) }).asks.map((a) => a.id);
+  ok(next.length === 5 && next.every((id) => !first.includes(id)), 'then five never answered before');
+  // A second labourer is offered ones nobody has answered for you first.
+  const other = Object.keys(lib.tellers).filter((p) => lib.tellers[p].startsWith('townsman,labourer/m'))[7];
+  const theirs = pickAsks(lib, other, state, { random: seq(11) }).asks.map((a) => a.id);
+  ok(theirs.filter((id) => first.includes(id)).length === 0, 'a second labourer is not offered what you already had answered');
+  // The persona leans: over many people, what they are offered matches their topics more than chance.
+  let lean = 0, base = 0;
+  for (const p of Object.keys(lib.tellers).slice(0, 400)) {
+    const persona = personaOf(lib, p);
+    const got = pickAsks(lib, p, {}, { random: seq(p.length + 1) }).asks;
+    lean += got.reduce((s, a) => s + leaning(a, persona), 0) / Math.max(1, got.length);
+    const who = readTeller(lib.tellers[p]);
+    const pool = lib.asks.filter((a) => a.roles.some((r) => who.roles.includes(r)));
+    base += pool.reduce((s, a) => s + leaning(a, persona), 0) / Math.max(1, pool.length);
+  }
+  ok(lean > base * 1.1, `a person's temper and history lean what they are asked (${(lean / 400).toFixed(2)} vs ${(base / 400).toFixed(2)})`);
+  // And what they tell.
+  const soldiers = Object.keys(libs['1812'].tellers).filter((p) => libs['1812'].tellers[p] === 'soldier/m');
+  let tl = 0, tb = 0;
+  for (const p of soldiers) {
+    const persona = personaOf(libs['1812'], p);
+    for (let i = 0; i < 6; i++) tl += leaning(pickTale(libs['1812'], p, { n: 0, told: {}, by: {} }, { random: seq(i * 31 + p.length) }).tale, persona);
+    const pool = libs['1812'].tales.filter((t) => t.roles.includes('soldier'));
+    tb += 6 * pool.reduce((s, t) => s + leaning(t, persona), 0) / pool.length;
+  }
+  ok(tl > tb * 1.1, `and which stories they tell (${tl} vs ${tb.toFixed(0)})`);
 }
 
 console.log(`test_tales: ${checks} checks passed`);

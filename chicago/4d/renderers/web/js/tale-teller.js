@@ -1,17 +1,23 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 /**
- * T-3553: "Tell me a story" for everyone you can greet, in every year. Joins the shared
- * Interact engine (interact.js `extend`): wherever a person offers Greet, Tell me a story
- * follows it. The teller stops, turns to you, waves, and talks while the story is open.
+ * T-3553: "Tell me a story" and "Ask a question" for everyone you can greet, in every year.
+ * Joins the shared Interact engine (interact.js `extend`): wherever a person offers Greet, Tell
+ * me a story and Ask a question follow it. The person stops, turns to you, waves, and talks
+ * while the card is open. Each comes to you in their own temper, from their own history
+ * (tales.js personaOf), and that temper leans which stories and questions they offer.
  *
  * main.js hands in what it alone knows (the scene, where the data is, the HUD, Find);
- * the stories and the memory of what you heard are tales.js, the card tale-card.js.
+ * the stories and the memory of what you heard are tales.js, the questions asks.js, the cards
+ * tale-card.js and ask-card.js.
  */
 
-import { createTales } from './tales.js';
+import { createTales, personaOf, mannerOf } from './tales.js';
 import { createTaleCard } from './tale-card.js';
+import { createAsks } from './asks.js';
+import { createAskCard } from './ask-card.js';
 
 export const TALE_ACTION = 'tale';
+export const ASK_ACTION = 'ask';
 const TALK_S = 30;                     // the teller's mouth moves this long, then rests
 
 const FEMALE = /woman|girl|lady|wife|mrs|miss|maid|flynn_mary|frances|christine|mattie/i;
@@ -31,25 +37,35 @@ function sexOf(thing) {
  * belongs (not a person, or no Greet offered: out of reach, in a jaunt's hands).
  */
 export function storyAction(thing, base, tell) {
+  return talkAction(thing, base, tell, { id: TALE_ACTION, label: 'Tell me a story', detail: 'Hear a story of their life and times', step: 'Listening' });
+}
+
+/** The Ask a question action, where Tell me a story belongs. */
+export function askAction(thing, base, ask) {
+  return talkAction(thing, base, ask, { id: ASK_ACTION, label: 'Ask a question', detail: 'Five things to ask them, and what they will tell you', step: 'Asking' });
+}
+
+function talkAction(thing, base, go, { id, label, detail, step }) {
   if (thing?.kind !== 'person' || !Array.isArray(base)) return null;
   const greet = base.find((a) => a.id === 'greet');
   if (!greet) return null;
   return {
-    id: TALE_ACTION, label: 'Tell me a story', detail: 'Hear a story of their life and times', said: '',
-    steps: [{ label: 'Listening', seconds: 0.8, run(t) {
+    id, label, detail, said: '',
+    steps: [{ label: step, seconds: 0.8, run(t) {
       // Greet's own first beat: they stop, turn to you and wave.
       if (t === 0) greet.steps?.[0]?.run?.(0);
-      if (t >= 1) tell(thing);
+      if (t >= 1) go(thing);
     } }],
   };
 }
 
-/** Base actions with the story put straight after Greet. */
-export function withStory(thing, base, tell) {
+/** Base actions with the story (and, given `ask`, the questions) put straight after Greet. */
+export function withStory(thing, base, tell, ask = null) {
   const story = storyAction(thing, base, tell);
   if (!story) return base;
+  const extra = [story, ...(ask ? [askAction(thing, base, ask)] : [])];
   const at = base.findIndex((a) => a.id === 'greet');
-  return [...base.slice(0, at + 1), story, ...base.slice(at + 1)];
+  return [...base.slice(0, at + 1), ...extra, ...base.slice(at + 1)];
 }
 
 /**
@@ -72,25 +88,52 @@ export function createTaleTeller({ interactions, scene, base, date = () => null,
     talking?.actions?.setTalk?.(false);
     talking = null;
   };
+  const talk = (thing) => {
+    hush();
+    talking = thing.actor ?? null;
+    talking?.actions?.setTalk?.(true);
+    quiet = setTimeout(() => { talking?.actions?.setTalk?.(false); }, TALK_S * 1000);
+  };
+  const idOf = (thing) => thing.personId ?? thing.actor?.personId ?? String(thing.id).replace(/^person:/, '');
   let asked = null;
   const card = createTaleCard({ doc, canFind,
     find: (id) => { card.close(); find(id); },
     another: () => { if (asked) void tell(asked); },
     closed: hush,
   });
+  const asks = createAsks({ scene, load: () => tales.load(), ...(storage !== undefined ? { storage } : {}) });
+  const askCard = createAskCard({ doc, canFind,
+    find: (id) => { askCard.close(); find(id); },
+    answered: (pid, askId) => asks.asked(pid, askId),
+    closed: hush,
+  });
   async function tell(thing) {
     asked = thing;
-    const personId = thing.personId ?? thing.actor?.personId ?? String(thing.id).replace(/^person:/, '');
+    const personId = idOf(thing);
+    const sex = sexOf(thing);
     let got = null;
-    try { got = await tales.tell(personId, { sex: sexOf(thing) }); } catch { say('Stories could not be loaded just now'); return null; }
+    try { got = await tales.tell(personId, { sex }); } catch { say('Stories could not be loaded just now'); return null; }
     if (!got) { say(thing.name ? `${thing.name} has no story just now` : 'No story just now'); return null; }
-    hush();
-    talking = thing.actor ?? null;
-    talking?.actions?.setTalk?.(true);
-    quiet = setTimeout(() => { talking?.actions?.setTalk?.(false); }, TALK_S * 1000);
-    card.show({ teller: thing.name, personId, tale: got.tale, own: got.own });
+    askCard.close();
+    talk(thing);
+    const lib = await tales.load();
+    const persona = personaOf(lib, personId, sex);
+    card.show({ teller: thing.name, personId, tale: got.tale, own: got.own, persona,
+      manner: mannerOf(lib, persona, `${personId}:${got.tale.id}`) });
     return got;
   }
-  interactions.extend?.((thing, actions) => withStory(thing, actions, (t) => { void tell(t); }));
-  return { tales, card, tell };
+  async function ask(thing) {
+    const personId = idOf(thing);
+    const sex = sexOf(thing);
+    let got = null;
+    try { got = await asks.offer(personId, { sex }); } catch { say('Questions could not be loaded just now'); return null; }
+    if (!got.asks.length) { say(thing.name ? `${thing.name} has nothing to say just now` : 'Nothing to say just now'); return null; }
+    card.close();
+    talk(thing);
+    askCard.show({ teller: thing.name, personId, persona: got.persona, asks: got.asks, done: got.done,
+      manner: (askId) => mannerOf(got.lib, got.persona, `${personId}:${askId}`) });
+    return got;
+  }
+  interactions.extend?.((thing, actions) => withStory(thing, actions, (t) => { void tell(t); }, (t) => { void ask(t); }));
+  return { tales, card, tell, asks, askCard, ask };
 }
