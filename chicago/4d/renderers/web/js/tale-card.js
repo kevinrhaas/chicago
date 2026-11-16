@@ -33,6 +33,8 @@ export function createTaleCard({ doc = globalThis.document, parent = null, canFi
   shut.type = 'button';
   shut.setAttribute('aria-label', 'Close the story');
   head.append(tag, who, shut);
+  const persona = make('p', 'ask-persona');
+  persona.hidden = true;
   const title = make('h3', 'tale-title');
   const body = make('div', 'tale-body');
   const note = make('p', 'tale-note');
@@ -43,7 +45,7 @@ export function createTaleCard({ doc = globalThis.document, parent = null, canFi
   againKey.type = 'button';
   againKey.innerHTML = `${iconSvg('story', 16)}<span>Another story</span>`;
   keys.append(findKey, againKey);
-  card.append(head, title, body, note, keys);
+  card.append(head, persona, title, body, note, keys);
   (parent ?? doc.body).append(card);
 
   let showing = null;
@@ -74,12 +76,16 @@ export function createTaleCard({ doc = globalThis.document, parent = null, canFi
      * @param {string} o.personId
      * @param {object} o.tale       { id, title, text[], meet? }
      * @param {boolean} [o.own]     one of their own stories
+     * @param {{label: string, who: string}} [o.persona]   their temperament and who they are
+     * @param {string} [o.manner]   how they come to the telling
      */
-    show({ teller, personId, tale, own = false }) {
+    show({ teller, personId, tale, own = false, persona: p = null, manner = '' }) {
       showing = { teller, personId, tale, own };
       who.textContent = `${teller || 'Someone'} tells you a story`;
+      persona.textContent = [p?.label, p?.who].filter(Boolean).join('. ').replace(/\.\./g, '.');
+      persona.hidden = !persona.textContent;
       title.textContent = tale.title;
-      body.replaceChildren(...tale.text.map((t) => make('p', null, t)));
+      body.replaceChildren(...(manner ? [make('p', 'ask-manner', manner)] : []), ...tale.text.map((t) => make('p', null, t)));
       note.textContent = own
         ? 'A reconstructed telling, from what is known of their life.'
         : 'A reconstructed telling, true to their time and their kind of work.';

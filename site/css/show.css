@@ -343,3 +343,9 @@ dialog.player video{width:100%;aspect-ratio:16/9;background:#000}
 /* The jaunt catalogue shows twelve, then a button for the rest. */
 .more-row{display:flex;justify-content:center;margin-top:18px}
 .more-row[hidden]{display:none}
+
+/* World: the Today window, the same corner then and now. */
+.today-pair{margin:0 0 40px}
+.today-pair .pair-imgs img{aspect-ratio:16/9}
+.today-pair .cap{margin-top:10px}
+@media(max-width:760px){.today-pair .pair-imgs{grid-template-columns:1fr}}
