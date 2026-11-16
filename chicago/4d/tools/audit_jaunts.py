@@ -12,6 +12,9 @@ words a stop, a finite reachable graph. This proves the LIBRARY the owner asked 
   * every jaunt has 4-8 stops, and the reducer walk (tools/play_jaunt.mjs --all) reaches
     every declared ending with no failure and awards the keepsake on some path;
   * at least five quiet outings declare no resource at all;
+  * a grade-band version (`version_of`, T-3590/T-3621) is the same jaunt retold, so it
+    walks like any jaunt and keeps its base's title, but the roster, the duplicate
+    checks and the library counts below read the base jaunts only;
   * every daybook family holds at least three keepsakes, and every rank is reachable by
     distinct completions — the top one in 15 or fewer — since an award is idempotent per
     jaunt and a replay can never count;
@@ -81,20 +84,30 @@ def completions_for(threshold, rows, families):
 
 
 def audit(lib):
-    rows, findings = lib['rows'], []
-    by_id = {r['id']: r for r in rows}
+    walked, findings = lib['rows'], []
     shown = {c['id']: c for c in lib['catalog']}
+    versions = {c['id']: c['version_of'] for c in lib['catalog'] if c.get('version_of')}
+    rows = [r for r in walked if r['id'] not in versions]
+    by_id = {r['id']: r for r in rows}
     initial = [n for n, _ in lib['roster'] if n <= 25]
     named = {jid for _, jid in lib['roster']}
     if sorted(initial) != list(range(1, 26)) or len(named) != len(lib['roster']) or named != set(by_id):
         findings.append(f'roster: the brief names {len(initial)} of the initial 25 and {len(lib["roster"])} jaunts in all, '
                         f'the scene has {len(by_id)}; missing {sorted(named - set(by_id))}, unnamed {sorted(set(by_id) - named)}')
-    for jid in sorted(by_id):
+    for jid in sorted(versions):
+        base = shown.get(versions[jid])
+        if not base or base.get('version_of'):
+            findings.append(f'{jid}: a version of {versions[jid]}, which is not a base jaunt in the scene')
+        elif shown[jid]['title'] != base['title']:
+            findings.append(f'{jid}: version title "{shown[jid]["title"]}" is not its base\'s "{base["title"]}"')
+    for jid in sorted(set(by_id) | set(versions)):
         if shown.get(jid, {}).get('availability') != 'available':
             findings.append(f'{jid}: not available in the compiled catalog ({shown.get(jid, {}).get("reason") or "absent"})')
     for key in ('title', 'premise'):
         seen = {}
         for c in lib['catalog']:
+            if c['id'] in versions:
+                continue
             seen.setdefault(c[key].strip().lower(), []).append(c['id'])
         findings += [f'duplicate {key}: {", ".join(ids)}' for ids in seen.values() if len(ids) > 1]
     titles = {r['title']: r for r in rows}
@@ -105,7 +118,7 @@ def audit(lib):
             findings.append(f'priority: "{title}" is not a jaunt in the scene')
         elif not titles[title]['featured']:
             findings.append(f'priority: {titles[title]["id"]} is a § 5H priority jaunt and is not featured')
-    for r in rows:
+    for r in walked:
         if not STOPS[0] <= r['stops'] <= STOPS[1]:
             findings.append(f'{r["id"]}: {r["stops"]} stops, outside {STOPS[0]}-{STOPS[1]}')
         if r['failures']:
@@ -134,8 +147,9 @@ def audit(lib):
 
 def report(lib, findings, facts):
     rows = lib['rows']
-    print(f'JAUNT LIBRARY {SCENE} — {len(rows)} jaunts; {sum(r["paths"] for r in rows)} paths walked; '
-          f'{sum(r["featured"] for r in rows)} featured')
+    versions = {c['id'] for c in lib['catalog'] if c.get('version_of')}
+    print(f'JAUNT LIBRARY {SCENE} — {len(rows) - len(versions)} jaunts and {len(versions)} grade-band versions; '
+          f'{sum(r["paths"] for r in rows)} paths walked; {sum(r["featured"] for r in rows if r["id"] not in versions)} featured')
     print(f'  quiet, no resource declared ({len(facts["quiet"])}): {", ".join(facts["quiet"])}')
     print(f'  no resource shown ({sum(r["quiet"] for r in rows)}), hidden preferences allowed')
     for f, ids in facts['held'].items():
@@ -162,13 +176,25 @@ def self_test(lib):
 
     def first(bad):
         return bad['rows'][0]
+
+    def bases(bad):
+        return [c for c in bad['catalog'] if not c.get('version_of')]
+
+    def a_versions(bad):
+        return [c for c in bad['catalog'] if c.get('version_of')]
+
+    def a_version(bad):
+        return a_versions(bad)[0]
     cases = [
         (lambda b: b['roster'].pop(), 'roster:'),
         (lambda b: b['roster'].pop(0), 'roster:'),
         (lambda b: b['roster'].append((26, b['roster'][0][1])), 'roster:'),
         (lambda b: b['catalog'][0].update(availability='unavailable'), 'not available'),
-        (lambda b: b['catalog'][1].update(title=b['catalog'][0]['title']), 'duplicate title'),
-        (lambda b: next(r for r in b['rows'] if r['title'] == b['priority'][0]).update(featured=False), 'is not featured'),
+        (lambda b: bases(b)[1].update(title=bases(b)[0]['title']), 'duplicate title'),
+        (lambda b: a_version(b).update(title='Another Name'), 'is not its base'),
+        (lambda b: a_version(b).update(version_of='no-such-jaunt'), 'not a base jaunt'),
+        (lambda b: next(r for r in b['rows'] if r['title'] == b['priority'][0]
+                        and r['id'] not in {c['id'] for c in a_versions(b)}).update(featured=False), 'is not featured'),
         (lambda b: first(b).update(stops=9), 'outside 4-8'),
         (lambda b: first(b).update(failures=['x: state limit']), 'walk failed'),
         (lambda b: first(b)['endings_declared'].append('never'), 'endings never reached'),
