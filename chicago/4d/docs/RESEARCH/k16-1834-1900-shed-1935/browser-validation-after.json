@@ -1,0 +1,380 @@
+{
+  "method": "Actual published /1904/ app, normal boot (TAG after); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is the median of 3 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "load_ms_to_ready": 79103,
+      "js_heap_used_bytes": 105055132,
+      "js_heap_total_bytes": 109350912,
+      "draft_records_in_registry": 189,
+      "placed": [
+        "shed_1834_1900_prairie",
+        "elbridge_keith_house_1900_prairie_coach_house",
+        "jones_house_1834_prairie_coach_house"
+      ],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 1,
+        "bytes": 0
+      },
+      "stands": [
+        {
+          "name": "strip-north-east",
+          "detail": "full",
+          "problems": [
+            "fort_dearborn_massacre_monument_1893: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "drawCalls": 1468,
+            "rendererCalls": 303,
+            "multiDraw": true,
+            "triangles": 1206020,
+            "programs": 132,
+            "geometries": 723,
+            "textures": 1269,
+            "batches": 461,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 75,
+                "rough_red_brown_running": 27
+              }
+            },
+            "structures": 286,
+            "structuresExpected": 286,
+            "structuresStanding": 286,
+            "bytes": 84548268,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4700000
+            },
+            "withinBudget": true,
+            "farBudget": {
+              "triangles": 6670000,
+              "drawCalls": 8500
+            }
+          },
+          "frame_ms_median": 7453.2,
+          "camera": [
+            1355,
+            -3330,
+            6.19
+          ],
+          "target": [
+            1343,
+            -3339,
+            6.47
+          ]
+        },
+        {
+          "name": "alley-from-north",
+          "detail": "full",
+          "problems": [
+            "fort_dearborn_massacre_monument_1893: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "drawCalls": 2740,
+            "rendererCalls": 539,
+            "multiDraw": true,
+            "triangles": 2595794,
+            "programs": 133,
+            "geometries": 854,
+            "textures": 1493,
+            "batches": 461,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 75,
+                "rough_red_brown_running": 27
+              }
+            },
+            "structures": 286,
+            "structuresExpected": 286,
+            "structuresStanding": 286,
+            "bytes": 84548268,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4700000
+            },
+            "withinBudget": true,
+            "farBudget": {
+              "triangles": 6670000,
+              "drawCalls": 8500
+            }
+          },
+          "frame_ms_median": 9710.2,
+          "camera": [
+            1336.5,
+            -3322,
+            6.14
+          ],
+          "target": [
+            1339.5,
+            -3339,
+            6.96
+          ]
+        },
+        {
+          "name": "yard-face",
+          "detail": "full",
+          "problems": [
+            "fort_dearborn_massacre_monument_1893: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "drawCalls": 1239,
+            "rendererCalls": 290,
+            "multiDraw": true,
+            "triangles": 932674,
+            "programs": 133,
+            "geometries": 868,
+            "textures": 1508,
+            "batches": 461,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 75,
+                "rough_red_brown_running": 27
+              }
+            },
+            "structures": 286,
+            "structuresExpected": 286,
+            "structuresStanding": 286,
+            "bytes": 84548268,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4700000
+            },
+            "withinBudget": true,
+            "farBudget": {
+              "triangles": 6670000,
+              "drawCalls": 8500
+            }
+          },
+          "frame_ms_median": 7517.8,
+          "camera": [
+            1362,
+            -3339,
+            6.22
+          ],
+          "target": [
+            1345,
+            -3339,
+            6.47
+          ]
+        },
+        {
+          "name": "inside",
+          "detail": "full",
+          "problems": [
+            "fort_dearborn_massacre_monument_1893: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "drawCalls": 1092,
+            "rendererCalls": 271,
+            "multiDraw": true,
+            "triangles": 874232,
+            "programs": 133,
+            "geometries": 868,
+            "textures": 1508,
+            "batches": 461,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 75,
+                "rough_red_brown_running": 27
+              }
+            },
+            "structures": 286,
+            "structuresExpected": 286,
+            "structuresStanding": 286,
+            "bytes": 84548268,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4700000
+            },
+            "withinBudget": true,
+            "farBudget": {
+              "triangles": 6670000,
+              "drawCalls": 8500
+            }
+          },
+          "frame_ms_median": 8910,
+          "camera": [
+            1346.5,
+            -3337.6,
+            6.07
+          ],
+          "target": [
+            1339.6,
+            -3339.6,
+            6.66
+          ]
+        },
+        {
+          "name": "air",
+          "detail": "full",
+          "problems": [
+            "fort_dearborn_massacre_monument_1893: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "drawCalls": 2133,
+            "rendererCalls": 441,
+            "multiDraw": true,
+            "triangles": 2413640,
+            "programs": 133,
+            "geometries": 872,
+            "textures": 1539,
+            "batches": 461,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 75,
+                "rough_red_brown_running": 27
+              }
+            },
+            "structures": 286,
+            "structuresExpected": 286,
+            "structuresStanding": 286,
+            "bytes": 84548268,
+            "fps": 0,
+            "cameraNear": 1.6,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4700000
+            },
+            "withinBudget": true,
+            "farBudget": {
+              "triangles": 6670000,
+              "drawCalls": 8500
+            }
+          },
+          "frame_ms_median": 5530.7,
+          "camera": [
+            1372,
+            -3362,
+            44.53
+          ],
+          "target": [
+            1344,
+            -3339,
+            4.47
+          ]
+        }
+      ]
+    }
+  ]
+}

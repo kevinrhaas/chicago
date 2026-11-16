@@ -1,23 +1,24 @@
 {
   "id": "shed_1834_1900_prairie",
-  "name": "The shed on the strip between 1834 and 1900 Prairie Avenue (district draft; refined by T-1935)",
+  "name": "The strip between 1834 and 1900 Prairie Avenue: the one-storey open frame shed on the alley, K16",
   "aka": [
-    "1834-1900 S. Prairie Avenue"
+    "1834-1900 S. Prairie Avenue",
+    "1834-1900 S. Prairie Avenue, alley shed"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k16_timber",
   "function": {
-    "value": "barn_or_carriage_shed",
+    "value": "woodshed_or_storage_shed",
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The 1911 sheet reads 'A narrow unnumbered strip between 1834 and 1900 (the block number \"1\" printed on it), unbuilt at the street, with a one-storey frame shed (yellow) at its alley end'. Backcast to 1904 as a yard outbuilding on the census ruling."
+    "note": "The 1911 sheet draws a one-storey frame building at the alley end of the narrow unnumbered strip between 1834 and 1900, uncrossed (not the key's stable) and lettered with no use; the T-1841 census reads it 'a one-storey frame shed (yellow) at its alley end'. Walled only on the alley and standing against 1900's brick stable, open on its north and east sides (the sheet draws those two dashed), 3.9 m along the alley by 9.2 m deep, it is read as an open yard shed (wagons, wood, coal), INFERRED, carried back to 1904 with the building; no source names its use or who used it."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1935 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1834_1900-b1), the T-1841 census (s28-vacant-west-1834-1900) and the T-1837 register row none; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-west-2329).",
+  "research_note": "T-1935 refines the district draft (T-2329) in place under the same id onto the K16 timber kit's whole-house builder (T-2357), the kit 1630's frame shed on the next alley north stands on (T-1932): the last of the package's seven alley buildings on the west side of Prairie Avenue, 18th to 20th, still standing as the draft's, and the only frame one. The sheet census (census row s28-vacant-west-1834-1900, trace s28fp-1834_1900-b1) carries the building into 1904; the draft rules now skip that row. Read afresh off the committed sheet 28 raster by darkness profiles: one yellow (frame) building lettered 1, its alley (west) wall drawn solid on the alley line, its south wall the solid line it shares with 1900's brick stable (where the key's fire-wall sign stands at the alley end), and its north and east sides drawn DASHED, with the key's small cross (shingle roof) inside its south-east corner. The sheet's key explains no dashed outer wall; the sheet draws open porches dashed (1726's, on the same reading), so the two dashed sides are read as OPEN, INFERRED, and the K16 kit learns open sides on posts to build them. Robinson's 1886 atlas (plate 10) stops at 18th Street, so nothing read here dates the shed before 1911. The one picture the T-1935 image gate names for it (Clark's c. 1905 street view north from 1936) shows the house fronts on Prairie Avenue and not the alley. The reading is in docs/RESEARCH/k16-1834-1900-shed-1935/README.md.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_standing_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
@@ -25,48 +26,48 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "note": "The draft's claim, kept: the 1911 sheet draws the shed and the T-1841 census rules it present in 1904 (present_as_mapped). Robinson's 1886 plate 10 stops at 18th Street and nothing else read dates it, so the range claims the 1904 target and no more; a frame shed first seen in 1911 may postdate 1904. TO is the last day of the year the sheet was published, the latest date anything here shows it standing; it is not a demolition date.",
         "to_is": "seen"
       },
       "position": {
-        "utm_e": 448412.325,
-        "utm_n": 4634054.963,
+        "utm_e": 448411.966,
+        "utm_n": 4634056.725,
         "rotation_deg": -0.616,
-        "symbolic_location": "1834-1900 S. Prairie Avenue, parcel prairie_1834_1900 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
+        "symbolic_location": "1834-1900 S. Prairie Avenue: the narrow unnumbered strip between 1834 and 1900, parcel prairie_1834_1900 (data/street_grid/1904.json), west side of Prairie Avenue between 18th and 20th Streets; at the strip's alley end, its alley wall on the east line of the alley between Indiana and Prairie and its south side against 1900's brick stable.",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 0.250, v -3.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.616 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The middle of the shed's alley (west) wall at grade, read off the committed sheet 28 raster (chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_28.jpg) at pixel (567.47, 3586.46): the alley wall's line by median darkness profile at rows 3555-3575, 3580-3600 and 3600-3620 (567.52, 567.47, 567.34; the middle row's value taken), halfway between the shed's north side (row 3547.89, the dashed line, by mean darkness profile over columns 580-745, the row 1834's record reads for it) and its south wall (row 3625.03, the line it shares with 1900's stable, as 1900's record reads it). Peaks refined by a parabola through the three highest samples. Carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json): local E 1339.266, N -3339.075, plus the datum origin (447072.7, 4637395.8). The bearing is the parcel's own (its north and south lines run at 0.616 degrees north of east), as 1834's and 1900's buildings are.",
         "derivation": {
           "method": "not_derivable",
-          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
+          "reason": "The four derivation methods re-derive from the 1835 files; none reads a 1911 Sanborn sheet. This position is pixel (567.47, 3586.46) of the committed sheet 28 raster carried through the similarity in data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json (local_e = a*px + b*py + c, local_n = d*px + e*py + f) plus the datum origin, and the note carries the pixel and the result so the sum can be recomputed by hand."
         }
       },
       "footprint": {
         "polygon": [
           [
             0.0,
-            0.0
+            -1.95
           ],
           [
-            8.75,
-            0.0
+            9.201,
+            -1.95
           ],
           [
-            8.75,
-            3.75
+            9.201,
+            1.95
           ],
           [
             0.0,
-            3.75
+            1.95
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "About the middle of the alley wall, u east (into the lot) and v north. The sheet draws the shed from the alley line (pixel column 567.47 at its middle row) to its dashed east side (749.84, 749.46 and 749.43 by mean darkness profile at rows 3555-3575, 3580-3600 and 3600-3620; 749.46 at the middle row, in line with 1900's east wall below it), 181.99 pixels at the sheet's 0.050558 m a pixel, 9.20 m deep, and from its dashed north side (row 3547.89) to its south wall (3625.03, the line it shares with 1900's stable, which the sheet draws once), 77.14 pixels, 3.90 m along the alley. It is one rectangle. To its north an open strip about 3.6 m wide (to 1834's barn, row 3476.11) runs back from the alley; the draft's fitted 8.75 by 3.75 m rectangle is retired."
       },
       "form": {
         "stories": {
@@ -75,93 +76,87 @@
           "sources": [
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "The census reading 'A narrow unnumbered strip between 1834 and 1900 (the block number \"1\" printed on it), unbuilt at the street, with a one-storey frame shed (yellow) at its alley end': 1 storeys."
+          "note": "'1' lettered inside the building, just above its south wall line (the '2' just below that line is 1900's stable's): one storey.",
+          "geometry": "simplified"
         },
         "construction": {
           "value": "frame",
-          "confidence": "inferred",
+          "confidence": "attested",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "The trace's fabric colour on the main part: frame."
+          "note": "Drawn yellow, the sheet's colour for frame. Built board by board from the K16 timber kit at a frame wall's 0.15 m, never with a masonry wall's thickness.",
+          "geometry": "simplified"
         },
-        "draft_plan": {
+        "frame_house": {
           "value": {
-            "parts": [
+            "foundation_m": 0.2,
+            "return_m": 0.3,
+            "party_wall": {
+              "side": "south",
+              "with": "elbridge_keith_house_1900_prairie_coach_house"
+            },
+            "blocks": [
               {
-                "id": "r1",
-                "role": "main",
-                "storeys": 1,
-                "roof": "gable",
-                "rect": [
+                "id": "shed",
+                "rect_uv": [
                   0.0,
-                  0.0,
-                  8.75,
-                  3.75
+                  -1.95,
+                  9.201,
+                  1.95
                 ],
-                "from": "s28fp-1834_1900-b1 p1 (main, frame), rectangle 1 of that part; the part's rectangles cover 90% of its fill"
+                "against": "south",
+                "open": [
+                  "east",
+                  "north"
+                ],
+                "post_pitch_m": 3.2,
+                "wall_top_m": 2.9,
+                "frieze_m": 0.2,
+                "brackets": false,
+                "eave": {
+                  "projection_m": 0.25
+                },
+                "roof": {
+                  "kind": "gable",
+                  "pitch_deg": 30,
+                  "ridge": "u"
+                },
+                "walls": [
+                  {
+                    "side": "west"
+                  }
+                ]
               }
             ],
-            "lot_v": [
-              -0.4,
-              6.9
-            ],
-            "street_u": 53.672
-          },
-          "confidence": "inferred",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1834_1900-b1 p1 (main, frame), rectangle 1 of that part; the part's rectangles cover 90% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "service",
-            "seed": 713572318,
-            "principal_floor_m": 0.0,
-            "storey_heights_m": [
-              3.4,
-              2.8,
-              2.6
-            ],
-            "roof_pitch_deg": 40,
-            "mansard_lower_m": 3.0,
-            "front_bays": 2,
-            "entrance": "north",
-            "side_spacing_m": 2.6,
-            "chimneys": 0,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2329",
-              "refined_by": [
-                "T-1935"
+            "paint": {
+              "body": [
+                0.66,
+                0.6,
+                0.47
               ]
             }
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'service' Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 713572318 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-west-2329."
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "The whole shed from the K16 kit's whole-house builder (T-2357), as 1630's alley shed is (T-1932). READ from the sheet: the outline (9.20 m deep by 3.90 m along the alley, its west wall on the alley line, its south side on 1900's stable), one storey, frame, a shingle roof (the key's small cross, drawn inside its south-east corner), the alley wall drawn solid and the north and east sides drawn dashed. INFERRED: the dashed sides read as open (the key explains no dashed outer wall; the sheet draws open porches so), built on the kit's new `open` sides (T-1935): square posts on brick footings no more than 3.2 m apart under a plate, the roof boarded underneath, no wall. The south side stands `against` 1900's brick party wall (`party_wall`), which the K12 stable builds and this record does not. Everything else is RECONSTRUCTED and recorded as L-k16-1834-1900-shed-1935: clapboard on a water table over a 0.2 m foundation for the alley wall, a shallow 0.2 m frieze under a plain boxed eave 0.25 m deep with no brackets (`brackets: false`, an outbuilding's), a 30-degree gable with its ridge running back from the alley (u) so the gable faces the alley and the yard and the roof sheds north onto the open strip and south onto 1900's party wall's foot, the alley wall blank (no door: the open sides are the way in), and 1630's shed's fawn body paint. The sheet draws no window marks on a frame building, so no opening is read."
         },
-        "draft": {
+        "roof_covering": {
           "value": {
-            "pass": "T-2329",
-            "liberty": "L-draft-prairie-18-20-west-2329",
-            "register_row": null,
-            "census_ids": [
-              "s28-vacant-west-1834-1900"
-            ],
-            "trace_building": "s28fp-1834_1900-b1",
-            "seed": 713572318,
-            "replaceable_by": [
-              "T-1935"
-            ],
-            "card": "District draft — refined by T-1935."
+            "material": "wood shingle",
+            "color": [
+              0.13,
+              0.11,
+              0.095
+            ]
           },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "The key's small cross ('x' = shingle roof, sanborn_1911_vol3_key.jpg) drawn inside the shed's south-east corner: a wood shingle roof, ATTESTED by the sheet for 1911. The weathered cedar grey-brown is RECONSTRUCTED, the colour 1630's shed uses; the shingles themselves are not modelled."
         }
       }
     }
