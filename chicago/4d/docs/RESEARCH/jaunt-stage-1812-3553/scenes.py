@@ -210,9 +210,7 @@ def battle(b):
         return out
     corners = [(1.15, -0.45), (1.15, 0.45), (-1.15, -0.45), (-1.15, 0.45)]   # front pair, then rear
     four = party[1:5]
-    mother = b.take(b.WOMEN, 1, stride=9, offset=7)[0]
-    cast.append(member('extra:burns_mother', P(*bed[0]), heading=0, pose='lie', hidden=True, dress='woman_working_1812', dress_of=mother,
-                       name="Mrs. Burns, a day after her baby was born; her name and likeness are not recorded", beats=[
+    cast.append(member('burns_mrs', P(*bed[0]), heading=0, pose='lie', hidden=True, beats=[
                            {'t': 56.5, 'show': True, 'borne': list(four)}, {'t': 89, 'borne': False}]))
     for i, who in enumerate(party):
         land = (boat[0] + 0.9 * (i % 3), boat[1] - 0.2 + 0.9 * (i // 3))
