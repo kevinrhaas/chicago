@@ -700,14 +700,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 1045 -> 1046 on 2026-11-12 (T-3567): the Fort Dearborn Massacre monument of 1893 on 18th
 # Street, the first record of the new pure-Python `monument` archetype
 # (generators/monument_emit.py), restaling on none of the shared rows.
+# 1046 -> 1065, 742 -> 761 and 736 -> 755 on 2026-11-15 (T-3605): the nineteen stores and
+# boarding blocks on Lake and Dearborn built to Gifford's drawing of the first Tremont
+# House, each on the shared `frame_storefront` / `frame_tavern` path.
 #
 STATED = {
-    "assets": 1046,
+    "assets": 1065,
     "restales": {
-        "generators/common/*.py": 742,
+        "generators/common/*.py": 761,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 736,
+        "generators/emit.py": 755,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,

@@ -166,6 +166,8 @@ def build(params: FrameStorefrontParams, name: str):
     _skin(b, p, mx0, my0, mx1, my1, wall_z, c_clad, front_gap=shop)
 
     ridge_z = _roof(b, p, mx0, my0, mx1, my1, wall_z, c_roof)
+    if p.false_front:
+        _false_front(b, p, mx0, mx1, my1, wall_z, ridge_z, c_mass)
 
     # trim: the water table, the frieze, the corner boards, and — on a braced frame
     # only — the girt line at the second floor. See _trim for why the ABSENCE of
@@ -969,6 +971,59 @@ def _roof(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float,
         return _hip_roof(b, x0, y0, x1, y1, wall_z, p.roof_pitch_deg, conf)
     return b.add_gable_roof(x0, y0, x1, y1, wall_z, p.roof_pitch_deg, conf, M_ROOF,
                             ridge_along_x=_ridge_along_x(p))
+
+
+def _out_poly(b: MeshBuilder, pts: list, outward: tuple, conf: float, mat: int) -> None:
+    """One planar polygon wound so its normal points along `outward`."""
+    a, c, e = pts[0], pts[1], pts[2]
+    u = (c[0] - a[0], c[1] - a[1], c[2] - a[2])
+    v = (e[0] - a[0], e[1] - a[1], e[2] - a[2])
+    n = (u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0])
+    if n[0] * outward[0] + n[1] * outward[1] + n[2] * outward[2] < 0:
+        pts = list(reversed(pts))
+    b.add_poly(pts, conf, mat)
+
+
+def _false_front(b: MeshBuilder, p: FrameStorefrontParams, x0: float, x1: float,
+                 y1: float, wall_z: float, ridge_z: float, conf: float) -> None:
+    """A square board front carried past the eaves on the street wall (T-3605).
+
+    Built as a shallow box standing just proud of the facade and wide enough to cover
+    the roof's verge overhang, so from the street the store reads as a flat-topped
+    front with no gable showing; from behind, its back is plain boarding above the
+    roof. A gable-front store's board rises over the apex; a store with its eaves to
+    the street carries the board half way to its ridge. A plain cornice caps it, and
+    an "arched" crest adds the shallow segmental head Gifford draws on one front. The
+    form is the drawing's (gifford_tremont_house_no_1); its height is not a reading.
+    """
+    over = ROOF_OVERHANG_M + 0.03
+    fx0, fx1 = x0 - over, x1 + over
+    fy0, fy1 = y1 + 0.01, y1 + over + 0.04
+    if p.gable_front:
+        top = ridge_z + 0.45
+    else:
+        top = wall_z + max(1.2, 0.5 * (ridge_z - wall_z))
+    b.add_box(fx0, fy0, wall_z - 0.40, fx1, fy1, top, conf, M_WALL)
+    # the cornice, a moulded cap one board deep, proud of the front on three sides
+    b.add_box(fx0 - 0.10, fy0, top, fx1 + 0.10, fy1 + 0.12, top + 0.16, conf, M_TRIM)
+    # the frieze band under it, where the drawing letters the firm
+    b.add_box(fx0, fy1, top - 0.55, fx1, fy1 + 0.03, top - 0.47, conf, M_TRIM,
+              skip=("front",))
+    if p.false_front_crest == "arched":
+        cx = (x0 + x1) / 2.0
+        half = 0.28 * (x1 - x0)
+        rise = 0.55
+        zb = top + 0.16
+        n = 12
+        arc = [(cx + half * math.cos(math.pi * i / n), zb + rise * math.sin(math.pi * i / n))
+               for i in range(n + 1)]
+        yf, yb = fy1 + 0.04, fy1 - 0.08
+        _out_poly(b, [(x, yf, z) for x, z in arc], (0, 1, 0), conf, M_TRIM)
+        _out_poly(b, [(x, yb, z) for x, z in arc], (0, -1, 0), conf, M_TRIM)
+        for (xa, za), (xb, zb2) in zip(arc, arc[1:]):
+            mx, mz = (xa + xb) / 2.0 - cx, (za + zb2) / 2.0 - zb
+            _out_poly(b, [(xa, yb, za), (xa, yf, za), (xb, yf, zb2), (xb, yb, zb2)],
+                      (mx, 0.0, mz), conf, M_TRIM)
 
 
 def _hip_roof(b: MeshBuilder, x0: float, y0: float, x1: float, y1: float,
