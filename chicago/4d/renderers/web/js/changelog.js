@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3028, ts: '2026-11-16T10:20:02.268Z', date: 'Nov 16, 2026, 4:20 AM CT', title: 'People at every jaunt stop, in every year', kind: 'feature',
+    items: [
+      'A jaunt stop without a staged scene now keeps the town\'s own people about it, going about their day: 193 stops that stood empty (every 1835 jaunt, the 1812 fort tour, the 1904 walks) now have people you can greet, ask and follow.',
+      'Where nobody happens to be out, someone from a house near the stop comes out of their own door and works about it for a few minutes.',
+      'The people in a staged scene can be met too: click or tap one to open their card, and one standing free turns and greets you.',
+    ] },
   { v: 3027, ts: '2026-11-16T09:45:33.713Z', date: 'Nov 16, 2026, 3:45 AM CT', title: 'Townspeople climb the 1835 cottages\' front steps', kind: 'fix',
     items: [
       'In 1835 a townsperson going in at a cottage door now walks up its front steps to the landing, where before they walked through the steps at ground level. All 164 house stoops are steps now, the 15 under a small porch roof among them, and you can climb them too.',
