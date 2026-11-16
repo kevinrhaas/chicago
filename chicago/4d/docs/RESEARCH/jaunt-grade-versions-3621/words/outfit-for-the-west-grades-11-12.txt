@@ -1,0 +1,85 @@
+== premise
+Depart town with a practical kit, reliable equipment and sufficient capital for the journey.
+
+== opening
+JAUNT: OUTFIT FOR THE WEST. Daybreak in spring, and the roads westward are drying. Chicago is not your destination; for thousands it functions as a gateway, since "Many immigrants passed through the town with a view to locating farther west", arriving "by land and by water", in prairie schooners, "on horseback and on foot".
+
+You possess fifteen dollars and a considerable distance to traverse. Compose your inventory at the Green Tree, have harness and ironwork attended to at Lake and Canal, then cross the river for provisions and implements. Expend prudently, because the prairie offers no merchants.
+
+== stop the-list
+Commence outside the Green Tree, the public house at Lake and West Water, "so called from an oak tree standing close by". Early settlers recalled Chester Ingersoll operating it from 1834 to 1837. Westbound travelers congregate in establishments like this one, exchanging intelligence about the roads and the federal land offices ahead.
+
+== narrative the-list
+Compose a concise inventory: something to transport the load, several implements, provisions for the journey and dependable ironwork.
+
+== stop carrying
+A block west along Lake Street, at Canal, Goss and Cobb advertised saddles, harness, bridles and trunks in 1833, the year Silas B. Cobb arrived. The partnership dissolved in February 1835, and Cobb's advertisement announces that he will continue independently. Everything you possess must be transported somehow.
+
+== narrative carrying
+Determine initially how the load will travel, or conserve your money.
+
+== label carrying pack
+A pack and straps — $3
+
+== consequence carrying pack
+Economical, although the burden rides entirely on your own shoulders.
+
+== label carrying harness
+Harness mended for a team — $6
+
+== consequence carrying harness
+Costlier, but a hired wagon transports considerably more than you could.
+
+== stop ironwork
+At the same intersection stands Asahel Pierce's smithy, established in October 1833. Andreas records him performing the ironwork for the first Chicago-to-St Louis stage line and manufacturing "Bull" ploughs from 1834 onward, precisely the craftsman a westbound emigrant should consult before departing.
+
+== narrative ironwork
+Have the ironwork examined before the long road, or trust it in its present condition.
+
+== label ironwork repair
+Have the ironwork checked — $2
+
+== consequence ironwork repair
+Tires, hooks and chains inspected before the arduous journey.
+
+== stop provisions
+Across the river on South Water, a Jones grocery and provision store advertised in 1833, and Andreas adds forwarding and commission services by 1834. The Democrat's earliest numbers that year quoted flour at $6 a barrel, coffee at 17 cents and tea at up to $1.25 a pound. Even Jones's initial remains historically contested.
+
+== narrative provisions
+Provision yourself now, or plan to purchase along the route.
+
+== label provisions provisions
+Flour, pork and coffee — $5
+
+== consequence provisions provisions
+Sufficient provisions for the initial days of the journey.
+
+== stop tools
+A block east, Peck's store occupies the corner of South Water and LaSalle. His own advertisements, from December 1833 through 1834, enumerate dry goods, hardware, groceries, crockery, boots, shoes and hats, virtually everything a departing emigrant might have neglected.
+
+== narrative tools
+Final on the inventory: implements for the journey, or reliance upon what you already possess.
+
+== label tools tools
+An axe and a few tools — $4
+
+== consequence tools tools
+Hardware from the merchant's shelves rather than the blacksmith's forge.
+
+== leg 0
+Before purchasing anything, determine how the load will travel.
+
+== leg 1
+Harness and ironwork are attended to at the same intersection.
+
+== leg 2
+With the transport resolved, complete the load on the eastern bank.
+
+== ending prepared
+Your inventory is completed and the load is packed. You embark upon the western road prepared, with whatever remains of your capital and a settlement diminishing behind you on the featureless horizon.
+
+== ending light
+You depart lightly equipped, with money in hand and deficiencies in the kit. The road will have to furnish the remainder, and the road is hardly renowned for its merchants.
+
+== keepsake text
+A fictional supply inventory from five Chicago trades, completed for the journey westward.

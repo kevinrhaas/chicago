@@ -561,6 +561,8 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     get ids() { return stageIds(stop); },
     get playing() { return playing; },
     get clock() { return clock; },
+    /** The owner, 2026-11-16: how long the stage plays, to its last beat (the stop's meter). */
+    get length() { let end = 0; for (const m of cast) for (const b of m.beats ?? []) if (Number.isFinite(b.t) && b.t > end) end = b.t; return end; },
     get cast() { return cast.map((m) => m.actor); },
     /** T-3614: the castmates the name cards name: a person by their own name, an extra by the cast's. */
     get named() {

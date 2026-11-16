@@ -1,0 +1,58 @@
+== premise
+Examine what two South Water Street merchants advertised to wear, then decide how to present yourself at a social call at the Sauganash.
+
+== opening
+JAUNT: A DECENT COAT. You have a social call to pay at the Sauganash this evening and employment beginning tomorrow, and your only coat remains grey with road dust. In this town that may matter surprisingly little. At a Chicago ball in 1834 the New York writer Charles Hoffman encountered "a complete medley of all ranks, ages, professions, trades and occupations", and watched "a pair of Cinderella-like slippers" dancing opposite "a brace of thick-soled brogans".
+
+Nevertheless, you would prefer to look respectable. South Water Street sells clothing ready-made and cloth by the yard. Investigate what the merchants advertise, return to your boarding house to weigh the options, and determine what you will wear tonight.
+
+== stop ready-made
+Begin one door from Dearborn at John Holbrook's. On 10 June 1835 he advertised clothing, boots and shoes, wholesale and retail, as agent for the manufacturers, with fresh merchandise arriving "every fifteen or twenty days". This represents the modern way to dress in a boom town: coats manufactured in eastern workshops and shipped across the lakes, ready to wear this evening. No tailor, no fitting, no delay.
+
+== narrative ready-made
+Here is a coat you could wear tonight.
+
+== stop cloth
+One block west, at Clark, Harmon, Loomis and Company sell dry goods. Their winter advertisement listed broadcloths, cassimeres, satinets, flannels and goats' hair camlet, along with heavy Russia duck and canvas, and in June they continue advertising dry goods, wholesale and retail. Fine cloth produces a fine coat, but cloth is not yet a coat: somebody must still cut and sew it, a process requiring considerably more than one afternoon.
+
+== narrative cloth
+A superior coat, eventually, but not by this evening.
+
+== stop dress
+One more block west, to Mrs. Rufus Brown's log boarding house behind Peck's store. The store in front was the village's first two-story frame building, constructed of lumber "sawed from black walnut trees" and "brought from Detroit by a boat"; the town has grown considerably more polished since. Lay the decision out on the bed you share: tonight's call demands neatness, tomorrow's labor demands durability, and a single coat must satisfy both.
+
+== stop the-call
+Continue to Lake and Market and the Sauganash, white with bright-blue shutters in Juliette Kinzie's recollection, and repaired and newly fitted up this June. Its landlord, Mark Beaubien, is "the fiddler par excellence of the town", and when he plays, Judge Caton recalled, he could "set every heel and toe in the room in active motion". Nobody will scrutinize your coat for long. Decide what you will wear.
+
+== narrative the-call
+The call is tonight, regardless of what you wear.
+
+== label the-call made-coat
+Wear a ready-made coat
+
+== consequence the-call made-coat
+A plain manufactured coat of the sort Holbrook's advertisement offers, available tonight.
+
+== label the-call brushed-coat
+Brush the old coat
+
+== consequence the-call brushed-coat
+Appear neat in what you already own; cloth for a working coat can be made up later.
+
+== leg 0
+From manufactured clothing to the cloth from which clothing is made.
+
+== leg 1
+Back to your lodging to weigh the two occasions against each other.
+
+== leg 2
+Arrive at the town's newly refurbished public house for the call.
+
+== ending ready-tonight
+You attend the call in a plain manufactured coat, preserving the traveling coat for tomorrow's work. By the second tune nobody can distinguish a Holbrook coat from a New York tailor's, and by the third nobody cares.
+
+== ending brushed
+You attend the call brushed and neat in the coat you arrived in, with a length of quality broadcloth in mind for later. In a town of slippers and brogans, you blend in perfectly.
+
+== keepsake text
+A fictional note recording what you wore to a call at the Sauganash, and what you examined along South Water Street.

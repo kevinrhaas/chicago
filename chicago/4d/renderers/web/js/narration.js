@@ -23,7 +23,6 @@
  * (tools/audio-hosting.json; docs/AUDIO.md § Narration). With no index — a local build, an
  * unreachable host, a jaunt not yet voiced — nothing is offered and nothing fails.
  */
-import { clipSeconds } from './jaunt-pace.js';
 // The app's own audio folder, as js/recorded-audio.js names it (not imported: this file stays light and Node-readable).
 export const AUDIO_BASE = new URL('../audio/', import.meta.url);
 
@@ -135,6 +134,15 @@ export async function indexLocation({ fetcher, base = AUDIO_BASE } = {}) {
  * gesture); `wake()` is called inside a Listen tap to make sure sound is on and loaded, and
  * resolves once it is; `duck(on)` lowers music and ambience while a voice speaks.
  */
+/** T-3619: a clip's length in seconds from the narration index: its bytes at its constant bitrate
+ *  (`mp3_44100_64` is 64 kbit/s), else about 15 characters a second, else null. */
+export function clipSeconds(clip) {
+  if (!clip) return null;
+  const kbps = Number(/^mp3_\d+_(\d+)$/.exec(clip.output_format ?? '')?.[1]);
+  if (kbps > 0 && clip.bytes > 0) return clip.bytes / (kbps * 125);
+  return clip.chars > 0 ? clip.chars / 15 : null;
+}
+
 export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), base = AUDIO_BASE,
   speech = () => null, wake = async () => {}, duck = () => {}, media = () => new Audio(), narrator = () => DEFAULT_NARRATOR,
   subtle = globalThis.crypto?.subtle, onChange = () => {}, location = null } = {}) {
@@ -256,6 +264,16 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     get state() { return { index: index ? Object.keys(index.clips).length : failed ? 'unavailable' : 'pending', playing, queued, at, error, primed }; },
     on(fn) { listeners.add(fn); return () => listeners.delete(fn); },
     isPlaying: (jaunt, part, id) => playing === slot(jaunt, part, id),
+    /** The owner, 2026-11-16: how far this part's voice has spoken, for the stop's meter:
+     *  { t, d } seconds while it plays, { done: true } once it has played to its end, else null. */
+    position(jaunt, part, id) {
+      const key = slot(jaunt, part, id);
+      if (playing === key && el) {
+        const d = Number.isFinite(el.duration) && el.duration > 0 ? el.duration : clipSeconds(clipAt(key));
+        return { t: el.currentTime || 0, d };
+      }
+      return ended === key ? { done: true } : null;
+    },
     /** The owner, 2026-11-16: the closing scene waits for its ending's voice to finish. */
     ended: (jaunt, part, id) => ended === slot(jaunt, part, id),
     /** How long this part's voice will speak if it plays now (sound on, Narration up, a clip

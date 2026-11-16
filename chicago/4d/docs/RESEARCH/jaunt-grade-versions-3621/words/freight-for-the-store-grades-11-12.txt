@@ -1,0 +1,91 @@
+== premise
+Enumerate an invented consignment off Newberry and Dole's wharf, load the wagon, deliver to two merchants and return the tally to George Dole's warehouse with nothing misplaced.
+
+== opening
+JAUNT: FREIGHT FOR THE STORE. Daybreak at the wharf. Everything this settlement consumes, wears and constructs arrives by lake, and somebody must transport it from the vessel to the merchant. Today that responsibility is yours: a bill of lading enumerates three packages landed at Newberry and Dole's, two consigned to P. F. W. Peck's store and one to Thomas Church's establishment on Lake Street.
+
+Enumerate them, load the wagon, deliver them and return the tally to George Dole's former warehouse, remembering that a carter who misplaces a package is seldom employed twice.
+
+== stop wharf
+Newberry and Dole have advertised as forwarding and commission merchants since the Democrat's inaugural number in November 1833, receiving lake-borne goods on behalf of other merchants. In June the American designated them freight agents for the steamboat Michigan, bound for Detroit and Buffalo. Which bank their warehouse occupied remains contested, but this is indisputably where the settlement's merchandise begins its distribution. Three packages are awaiting you.
+
+== narrative wharf
+How will you load the three packages?
+
+== label wharf count-all
+Count all three, then load them
+
+== consequence wharf count-all
+Three packages enumerated and loaded, so the bill and the wagon correspond.
+
+== label wharf two-now
+Count, and take only Peck's two
+
+== consequence wharf two-now
+A lighter load, while Church's package awaits a subsequent trip at the wharf.
+
+== label wharf trust
+Load all three on the bill's word
+
+== consequence wharf trust
+Expedient, although nobody has verified the bill's accuracy.
+
+== stop store
+East to Peck's corner of LaSalle and South Water. His own advertisements of 1833 and 1834 enumerate dry goods, hardware, groceries, crockery, flannels and calicoes, with fifty barrels of superfine flour in stock. He constructed the village's first two-story frame with lumber "brought from Detroit by a boat", and he has been unloading vessels continuously ever since. His two packages correspond to those advertised lines of merchandise.
+
+== narrative store
+Will you verify his list, or unload immediately?
+
+== label store check
+Check the marks against his card
+
+== consequence store check
+Dry goods and hardware, both lines his advertisement specifies, and two packages delivered.
+
+== label store unload
+Unload both packages and go
+
+== consequence store unload
+Two packages unloaded, entirely unverified.
+
+== stop church
+Up to Lake Street, where the town's commerce is migrating: in 1834, Moses and Kirkland report, trade "which had heretofore been confined to South Water street" began "to extend to Lake street". Thomas Church arrived that year, and a modern note credits him with the street's first store building, a two-story frame, although it specifies neither his merchandise nor the year of construction.
+
+== narrative church
+Is Church's package aboard the wagon?
+
+== label church deliver
+Leave Church's package
+
+== consequence church deliver
+The wagon is finally emptied.
+
+== label church note
+Note the store for the second trip
+
+== consequence church note
+Church's package remains awaiting collection at the wharf.
+
+== stop tally
+Andreas situates George W. Dole's 1832 warehouse and slaughter yard near Lake and Dearborn. Dole is the Dole of Newberry and Dole, and in 1832 he inaugurated the town's slaughtering and packing trade, "the nucleus of one of those immense industries" for which Chicago would achieve worldwide fame. By 1834 the firm was slaughtering on the South Branch, so this original yard stands dormant. Reconcile the bill here.
+
+== narrative tally
+Submit the completed tally.
+
+== leg 0
+The wagon creaks eastward beneath its consignment.
+
+== ending second-trip
+The tally reconciles for two packages and states so candidly, while Church's package awaits a second, lighter trip at Newberry and Dole's. A meticulous carter with an honest tally will undoubtedly be employed again.
+
+== ending taken-on-trust
+All three packages are delivered, but the tally merely duplicates the bill, since nobody enumerated them at the wharf. Should a merchant discover one missing, there is no establishing where it disappeared, so enumerate first next time.
+
+== ending checked-and-counted
+Enumerated at the wharf, verified against Peck's own advertisement and delivered individually: two packages at Peck's, one at Church's. The tally corresponds to the bill down to the final package.
+
+== ending cargo-accounted-for
+Three packages enumerated off the wharf, two delivered to Peck's and one to Church's, and a tally corresponding exactly to the bill. Cargo accounted for.
+
+== keepsake text
+A fictional tally of an invented consignment: three packages off Newberry and Dole's wharf, and the destination of each. No authentic bill, freight charge or price is recorded on it.

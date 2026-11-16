@@ -1,0 +1,501 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Migration",
+  "menu_group": "Errands",
+  "grade_band": "11-12",
+  "featured": true,
+  "review_required": false,
+  "id": "outfit-for-the-west-grades-11-12",
+  "scene": "1835",
+  "title": "Outfit for the West",
+  "premise": "Depart town with a practical kit, reliable equipment and sufficient capital for the journey.",
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "daybreak",
+    "season": "spring"
+  },
+  "opening": {
+    "text": "JAUNT: OUTFIT FOR THE WEST. Daybreak in spring, and the roads westward are drying. Chicago is not your destination; for thousands it functions as a gateway, since \"Many immigrants passed through the town with a view to locating farther west\", arriving \"by land and by water\", in prairie schooners, \"on horseback and on foot\".\n\nYou possess fifteen dollars and a considerable distance to traverse. Compose your inventory at the Green Tree, have harness and ironwork attended to at Lake and Canal, then cross the river for provisions and implements. Expend prudently, because the prairie offers no merchants.",
+    "read_s": 27
+  },
+  "variables": {
+    "money": {
+      "min": 0,
+      "max": 1500,
+      "initial": 1500,
+      "unit": "cents"
+    },
+    "readiness": {
+      "min": 0,
+      "max": 4,
+      "initial": 0,
+      "unit": "count"
+    }
+  },
+  "stops": [
+    {
+      "id": "the-list",
+      "destination": {
+        "kind": "structure",
+        "id": "green_tree_tavern"
+      },
+      "text": "Commence outside the Green Tree, the public house at Lake and West Water, \"so called from an oak tree standing close by\". Early settlers recalled Chester Ingersoll operating it from 1834 to 1837. Westbound travelers congregate in establishments like this one, exchanging intelligence about the roads and the federal land offices ahead.",
+      "read_s": 20,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "green_tree_tavern",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "ingersoll_chester",
+          "label": "Chester Ingersoll"
+        }
+      ],
+      "evidence": [
+        "green-tree",
+        "continuity",
+        "errand",
+        "mk-green-tree"
+      ],
+      "next": "carrying",
+      "narrative": "Compose a concise inventory: something to transport the load, several implements, provisions for the journey and dependable ironwork."
+    },
+    {
+      "id": "carrying",
+      "destination": {
+        "kind": "structure",
+        "id": "goss_cobb_saddlery"
+      },
+      "text": "A block west along Lake Street, at Canal, Goss and Cobb advertised saddles, harness, bridles and trunks in 1833, the year Silas B. Cobb arrived. The partnership dissolved in February 1835, and Cobb's advertisement announces that he will continue independently. Everything you possess must be transported somehow.",
+      "read_s": 16,
+      "action_s": 4,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "goss_cobb_saddlery",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "cobb_silas_b",
+          "label": "S. B. Cobb"
+        }
+      ],
+      "evidence": [
+        "cobb-trade",
+        "cobb-continues",
+        "continuity",
+        "errand",
+        "mk-1833-arrivals"
+      ],
+      "choices": [
+        {
+          "id": "pack",
+          "label": "A pack and straps — $3",
+          "consequence": "Economical, although the burden rides entirely on your own shoulders.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 300
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -300
+            },
+            {
+              "op": "inc",
+              "var": "readiness",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "harness",
+          "label": "Harness mended for a team — $6",
+          "consequence": "Costlier, but a hired wagon transports considerably more than you could.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 600
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -600
+            },
+            {
+              "op": "inc",
+              "var": "readiness",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "next": "ironwork",
+      "narrative": "Determine initially how the load will travel, or conserve your money."
+    },
+    {
+      "id": "ironwork",
+      "destination": {
+        "kind": "structure",
+        "id": "pierce_blacksmith_shop"
+      },
+      "text": "At the same intersection stands Asahel Pierce's smithy, established in October 1833. Andreas records him performing the ironwork for the first Chicago-to-St Louis stage line and manufacturing \"Bull\" ploughs from 1834 onward, precisely the craftsman a westbound emigrant should consult before departing.",
+      "read_s": 16,
+      "action_s": 4,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "pierce_blacksmith_shop",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "pierce_asahel",
+          "label": "Asahel Pierce"
+        }
+      ],
+      "evidence": [
+        "pierce-work",
+        "continuity",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "repair",
+          "label": "Have the ironwork checked — $2",
+          "consequence": "Tires, hooks and chains inspected before the arduous journey.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 200
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -200
+            },
+            {
+              "op": "inc",
+              "var": "readiness",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "next": "provisions",
+      "narrative": "Have the ironwork examined before the long road, or trust it in its present condition."
+    },
+    {
+      "id": "provisions",
+      "destination": {
+        "kind": "structure",
+        "id": "h_jones_store"
+      },
+      "text": "Across the river on South Water, a Jones grocery and provision store advertised in 1833, and Andreas adds forwarding and commission services by 1834. The Democrat's earliest numbers that year quoted flour at $6 a barrel, coffee at 17 cents and tea at up to $1.25 a pound. Even Jones's initial remains historically contested.",
+      "read_s": 20,
+      "action_s": 4,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "h_jones_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_b_jones_grocery_and_provision_store",
+          "label": "The grocery's card"
+        }
+      ],
+      "evidence": [
+        "jones-trade",
+        "jones-place",
+        "errand",
+        "mk-prices"
+      ],
+      "choices": [
+        {
+          "id": "provisions",
+          "label": "Flour, pork and coffee — $5",
+          "consequence": "Sufficient provisions for the initial days of the journey.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 500
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -500
+            },
+            {
+              "op": "inc",
+              "var": "readiness",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "next": "tools",
+      "narrative": "Provision yourself now, or plan to purchase along the route."
+    },
+    {
+      "id": "tools",
+      "destination": {
+        "kind": "structure",
+        "id": "peck_store"
+      },
+      "text": "A block east, Peck's store occupies the corner of South Water and LaSalle. His own advertisements, from December 1833 through 1834, enumerate dry goods, hardware, groceries, crockery, boots, shoes and hats, virtually everything a departing emigrant might have neglected.",
+      "read_s": 14,
+      "action_s": 4,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "peck_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "peck_philip",
+          "label": "Philip F. W. Peck"
+        }
+      ],
+      "evidence": [
+        "peck-stock",
+        "continuity",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "tools",
+          "label": "An axe and a few tools — $4",
+          "consequence": "Hardware from the merchant's shelves rather than the blacksmith's forge.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 400
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -400
+            },
+            {
+              "op": "inc",
+              "var": "readiness",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "next": "$end",
+      "narrative": "Final on the inventory: implements for the journey, or reliance upon what you already possess."
+    }
+  ],
+  "legs": [
+    {
+      "from": "the-list",
+      "to": "carrying",
+      "note": "A block west along Lake Street to the Canal Street crossing, where the saddlery's corner is attested and its quadrant is not.",
+      "evidence": [
+        "cobb-trade"
+      ],
+      "story": "Before purchasing anything, determine how the load will travel.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "carrying",
+      "to": "ironwork",
+      "note": "A few steps: Pierce's documented junction is the same Lake and Canal crossing.",
+      "evidence": [
+        "pierce-work"
+      ],
+      "story": "Harness and ironwork are attended to at the same intersection.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "ironwork",
+      "to": "provisions",
+      "note": "The long leg, and the only crossing: east over the South Branch to the commercial block on South Water Street.",
+      "evidence": [
+        "jones-trade",
+        "jones-place"
+      ],
+      "story": "With the transport resolved, complete the load on the eastern bank.",
+      "story_evidence": [
+        "errand"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "prepared",
+      "text": "Your inventory is completed and the load is packed. You embark upon the western road prepared, with whatever remains of your capital and a settlement diminishing behind you on the featureless horizon.",
+      "read_s": 9,
+      "when": {
+        "var": "readiness",
+        "op": ">=",
+        "value": 3
+      },
+      "completion_eligible": true
+    },
+    {
+      "id": "light",
+      "text": "You depart lightly equipped, with money in hand and deficiencies in the kit. The road will have to furnish the remainder, and the road is hardly renowned for its merchants.",
+      "read_s": 8,
+      "default": true,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Provisions",
+    "id": "ready-for-the-road-grades-11-12",
+    "title": "Ready for the Road",
+    "text": "A fictional supply inventory from five Chicago trades, completed for the journey westward."
+  },
+  "evidence": [
+    {
+      "id": "green-tree",
+      "text": "The Green Tree was a public house at Lake and West Water; the old settlers' account gives Chester Ingersoll as its landlord from 1834 to 1837.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire127"
+      ],
+      "locator": "Inter Ocean, 1 July 1883, 'Old Chicago' early-hotels feature as transcribed by Chicagology; landlord chronology (Ingersoll, 1834–1837)."
+    },
+    {
+      "id": "cobb-trade",
+      "text": "Goss & Cobb advertised a saddle and harness shop at the corner of Lake and Canal streets, with saddles, harness, bridles, martingales and trunks, and repairs.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26"
+      ],
+      "locator": "26 Nov 1833 issue, Goss & Cobb advertisement headed 'Saddle & Harness Making', read from the scan."
+    },
+    {
+      "id": "cobb-continues",
+      "text": "The Goss & Cobb partnership was dissolved on 18 February 1835, and S. B. Cobb's card printed beside the notice says he will continue the business at his shop.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_american_1835"
+      ],
+      "locator": "13 June 1835 issue: dissolution notice dated 'Chicago, Feb. 18, 1835' (claim c015) and Cobb's continuation card (claim c016)."
+    },
+    {
+      "id": "peck-stock",
+      "text": "P. F. W. Peck advertised from the corner of LaSalle and South Water streets a stock of dry goods, hardware, groceries, crockery, boots and shoes, and hats.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "3 Dec 1833, p. 3, col. 4 (Peck's standing card, run to 10 Dec 1834); 2 July 1834, p. 4, col. 4 ('a full stock of fresh GOODS'). Transcription-mediated reading."
+    },
+    {
+      "id": "jones-trade",
+      "text": "A Jones grocery and provision store advertised in 1833; Andreas lists the same trade with forwarding and commission among the 1834 advertisers. The ad reads 'B. Jones', Andreas 'H. Jones'.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "andreas_1884_v1"
+      ],
+      "locator": "26 Nov 1833 issue, advertisement headed 'Grocery & Provision Store. B. JONES.'; Andreas vol. 1, the 1834 advertisers' summary ('grocery and provision store and forwarding and commission store by H. Jones')."
+    },
+    {
+      "id": "jones-place",
+      "text": "Neither source gives the store's street or lot; its position on South Water Street is a reconstruction.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-outfit-west"
+    },
+    {
+      "id": "pierce-work",
+      "text": "Asahel Pierce arrived on 8 October 1833 and built a blacksmith shop on Lake Street at the corner of Canal; he ironed the first stage line between Chicago and St Louis in January 1834 and made 'Bull' ploughs from spring 1834.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas, scan p. 1161, the Asahel Pierce paragraph (arrival, shop at Lake and Canal, Temple & Co. stage-line ironing, the 'Bull' plough)."
+    },
+    {
+      "id": "mk-immigrants",
+      "text": "In 1834 the strangers came 'by land and by water', in prairie schooners and other wagons, 'on horseback and on foot', and 'Many immigrants passed through the town with a view to locating farther west'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 94, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12724-12751 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-green-tree",
+      "text": "The Green Tree was 'so called from an oak tree standing close by', 'one of the most noted in those early days'; it stood until 1880, when it was moved to 33-37 Milwaukee Avenue, 'where it still stands, the oldest memento of early taverns'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 561, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 98792-98820 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-prices",
+      "text": "The first numbers of the Democrat, in 1833, quote flour at $6 a barrel, butter at 17 cents a pound, tea at 87 cents to $1.25 a pound, loaf sugar 20 cents, coffee 17, 'whiskey 40 cents a gallon', and calicos 'from 15 to 38 cents' a yard.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 93, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12620-12632 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-1833-arrivals",
+      "text": "Immigration in 1833 'assumed proportions surpassing all expectation'; the year's arrivals included John Dean Caton, Silas B. Cobb, Asahel Pierce and the Rev. Jeremiah Porter, and about 165 frame buildings went up.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 90, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12227-12245 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "continuity",
+      "text": "Each trade is carried to 1 July 1835 from evidence dated before it; none of the sources records a sale, a price or a customer on that day.",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire127",
+        "chicago_american_1835",
+        "chicago_democrat_1833_1835",
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Uses the structure records' own scene-date phases: Ingersoll's tenancy spans 1835, Cobb's continuation card runs in June 1835, Peck's card runs to December 1834 and Pierce's shop is attested from 1833 with later enlargement. The Green Tree and Peck positions are inferred; Cobb's and Pierce's corner quadrant is not attested."
+    },
+    {
+      "id": "errand",
+      "text": "The visitor's westward errand, the fifteen-dollar purse, every price, the readiness count, the two endings and the Ready for the Road keepsake are invented connective narrative, not historical events or prices.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-outfit-west"
+    }
+  ],
+  "liberties": [
+    "L-jaunt-outfit-west",
+    "L-jaunt-1835-light-and-stories"
+  ],
+  "version_of": "outfit-for-the-west"
+}

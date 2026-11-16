@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 3046, ts: '2026-11-16T21:15:57.498Z', date: 'Nov 16, 2026, 3:15 PM CT', title: 'Every Jaunt now comes in four reading levels', kind: 'feature',
+    items: [
+      'Every Jaunt in 1812, 1835 and 1904 now has a telling for grades 3-5, 6-8, 9-10 and 11-12, so the grade filters in the Jaunts menu find each one at every level. 146 new tellings follow the same stops, choices and sources as the original, with simpler or richer wording; each was measured to read inside its band.',
+      'The 1812 tellings for younger readers keep to the build-up and the aftermath, as the original student Jaunts do.',
+      'The new tellings are text only for now: they have no recorded narration yet.',
+    ] },
+  { v: 3045, ts: '2026-11-16T20:42:05.712Z', date: 'Nov 16, 2026, 2:42 PM CT', title: 'A quiet meter for every jaunt', kind: 'feature',
+    items: [
+      'A hairline meter above a jaunt\'s controls shows the whole outing as one short segment a stop: the stops behind are full, the one you are at fills in real time as its scene plays, and the ones ahead wait.',
+      'The stop\'s segment follows what is actually playing there: the narrator\'s voice where you hear it, otherwise the time it takes to read the stop, and any staged scene until its last moment, so it never reads full while a voice still speaks.',
+      'Beside it, in small figures, the time left in the scene (or in the flight to the first stop); on the way between stops the segment fills more faintly as the way is covered.',
+      'Fold the panel down and the same line runs along the top of the bar.',
+    ] },
+  { v: 3044, ts: '2026-11-16T20:42:05.712Z', date: 'Nov 16, 2026, 2:42 PM CT', title: 'John Glessner\'s film shows his oak front door', kind: 'fix',
+    items: [
+      'The film of John Glessner at his door, on the public site\'s home page and in the Temporal Observatory\'s 1904 clips, is filmed again: his front door is oak brown, as it stands in the town, not the pale blue an older build drew.',
+    ] },
   { v: 3043, ts: '2026-11-16T20:17:56.157Z', date: 'Nov 16, 2026, 2:17 PM CT', title: 'The Confidence view\'s overlay check holds the town still while it counts', kind: 'fix',
     items: [
       'Nothing you can see changes. One of the checks that runs on every change turns on the Confidence view\'s building labels, people pins and Jaunt route, and confirms they add nothing to the 3D scene. Since the 1835 townspeople began coming and going from their doors, a figure arriving or loading a closer level of detail during that check was counted as the overlays\' work, so the check failed every time. It now hides the people and pauses the town between its two readings, and if it ever fails again it names the part of the scene that changed.',

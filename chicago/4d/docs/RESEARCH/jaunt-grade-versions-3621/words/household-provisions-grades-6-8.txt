@@ -1,0 +1,103 @@
+== premise
+Stock a cupboard of your own from a single block of South Water Street, working from a short list with a small purse.
+
+== opening
+JAUNT: STOCK THE HOUSEHOLD. You have just found a share of a room at a boarding house behind Peck's store, and you have two dollars to begin a cupboard of your own. That will not go far. When the Democrat started printing in 1833, flour cost $6 a barrel, butter 17 cents a pound, coffee 17 cents and loaf sugar 20 cents.
+
+There are four stops, all on one block of South Water Street. First decide what your list is for, then fill it at the grocer's, the druggist's and Peck's corner store.
+
+== stop the-room
+Start behind Peck's store at Mrs Rufus Brown's log boarding house, where you share a room. Andreas, an early historian, names her as the keeper of one of the town's first-class boarding houses. A share of a room is not a kitchen, so whatever you keep has to fit on a shelf. Decide what your short list is for.
+
+== narrative the-room
+Choose what the list is for: the table or the room.
+
+== label the-room table
+A list for the table
+
+== consequence the-room table
+Something to drink in the morning, and something for baking.
+
+== label the-room room
+A list for the room
+
+== consequence the-room room
+Something warm for the night, and something for the washstand.
+
+== stop provisions
+Walk west along the block to Jones's grocery and provision store. His November 1833 advertisement says he keeps "tea, coffee and sugar" and most kinds of provisions on hand. No source says exactly where the store stood, and people even disagree about whether his first initial was B or H. The Democrat's 1833 prices put coffee at 17 cents a pound and tea at 87 cents to $1.25.
+
+== narrative provisions
+Buy something to drink, or save your money.
+
+== label provisions coffee
+Coffee and sugar — 50¢
+
+== consequence provisions coffee
+Your morning coffee pot is taken care of.
+
+== label provisions tea
+A paper of tea — 40¢
+
+== consequence provisions tea
+Tea for the evenings, with a little more left in your purse.
+
+== stop the-druggist
+Head back east to Philo Carpenter's drug store at the Sign of the Golden Mortar. He started selling medicines in 1832 in "a small log house standing near the river", then built here and added salt, sugar and hardware. His notice of 27 June 1835 lists cream of tartar, lemon syrup, black lead and tooth powder.
+
+== narrative the-druggist
+Pick one small thing from the druggist's list, or pass it by.
+
+== label the-druggist tartar
+Cream of tartar for the baking — 15¢
+
+== consequence the-druggist tartar
+A small paper of it goes on the cupboard shelf.
+
+== label the-druggist tooth-powder
+Tooth powder for the washstand — 20¢
+
+== consequence the-druggist tooth-powder
+A box of it sits beside the washbasin.
+
+== stop the-corner
+Finish at Peck's corner of LaSalle and South Water, a few steps from where you started. His store was the village's first two-story frame building, made of lumber "brought from Detroit by a boat". His card lists dry goods, hardware, groceries and crockery, and a December 1834 notice adds flannels and calicoes.
+
+== narrative the-corner
+Finish filling the basket, or keep what is left, then carry it around to the boarding house.
+
+== label the-corner crockery
+A crockery cup and plate — 30¢
+
+== consequence the-corner crockery
+Your very own cup at a shared table.
+
+== label the-corner flannel
+A length of flannel — 75¢
+
+== consequence the-corner flannel
+Warmth for the nights, but it takes most of what is left in your purse.
+
+== leg 0
+Start with what the list needs most.
+
+== leg 1
+Next, something small for the shelf or the washstand.
+
+== leg 2
+One last thing, and the basket will be full enough to carry.
+
+== ending table-laid
+Something to drink and a cup of your own to drink it from. Your place at the boarding-house table has begun, and so has your cupboard.
+
+== ending room-kept
+Flannel for the nights and tooth powder by the basin. Your share of the room is starting to feel like your own.
+
+== ending purse-kept
+You bought very little and kept most of your money. A household can begin with patience, and the stores on this block will still be here tomorrow.
+
+== ending basket-begun
+Your basket is not quite the list you started with, which is how most first days go. The cupboard is started, even if it is not finished yet.
+
+== keepsake text
+A fictional receipt for a first basket of household things, bought along one block of South Water Street and carried home to a boarding house.

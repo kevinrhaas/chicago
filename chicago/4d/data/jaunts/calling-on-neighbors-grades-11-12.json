@@ -1,0 +1,524 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Social life",
+  "menu_group": "People",
+  "grade_band": "11-12",
+  "review_required": false,
+  "id": "calling-on-neighbors-grades-11-12",
+  "scene": "1835",
+  "title": "Calling on Neighbors",
+  "premise": "Conduct several imagined social calls: present a letter of introduction from Brown's boarding house, interpret the Peck household from its card, locate where the town convenes at the Exchange, and deposit a calling card.",
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "daytime",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: CALLING ON NEIGHBORS. You have secured a room in town this summer and carry two letters of introduction, which in 1835 constitute the conventional mechanism by which a stranger becomes a neighbor. Chicago is emphatically a community of strangers, and the Democrat found them \"crowding every room of our public houses\": everybody is newly arrived, everybody is introducing themselves, and everybody deposits a card.\n\nPresent a letter, interpret a merchant's household, discover where the town convenes, and leave your card. Come winter, this town dances, and at one ball Charles Hoffman observed \"a veteran officer in full uniform balancing to a tradesman's daughter\", a mingling of ranks characteristic of the frontier, but in summer it attends to commerce. Observe the proprieties.",
+    "read_s": 34
+  },
+  "variables": {
+    "note": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "card": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "the-room",
+      "destination": {
+        "kind": "structure",
+        "id": "brown_boarding_house"
+      },
+      "text": "Commence behind Peck's store at Mrs Rufus Brown's log boarding house, which Andreas identifies among the first-class boarding houses of the town. You lodge here, carrying two letters of introduction from home. In a settlement where nearly every resident arrived within the previous three years, a letter from a respectable correspondent back east is how the community establishes who you are and whether you merit its confidence. Determine which to present first.",
+      "read_s": 22,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "brown_boarding_house",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "brown_mrs_rufus",
+          "label": "Mrs Rufus Brown"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Andreas, History of Chicago"
+        }
+      ],
+      "evidence": [
+        "brown",
+        "brown-place",
+        "continuity",
+        "calls"
+      ],
+      "choices": [
+        {
+          "id": "merchant-letter",
+          "label": "A letter from a merchant back east",
+          "consequence": "It introduces you to the town's commercial establishment.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "note",
+              "value": 1
+            }
+          ],
+          "next": "the-merchant"
+        },
+        {
+          "id": "minister-letter",
+          "label": "A letter from your minister at home",
+          "consequence": "It introduces you to the town's religious congregations.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "note",
+              "value": 2
+            }
+          ],
+          "next": "the-merchant"
+        }
+      ],
+      "narrative": "One letter first; the other can wait."
+    },
+    {
+      "id": "the-merchant",
+      "destination": {
+        "kind": "structure",
+        "id": "peck_store"
+      },
+      "text": "Several steps around to Peck's corner of South Water and LaSalle. P. F. W. Peck arrived in July 1831 with a stock of merchandise, and when the Reverend Jeremiah Porter came in 1833 Peck provided him \"a lodging place and study in the second story of his store building\", where \"one of the earliest Sunday-schools organized in the town\" convened, an illustration of how commerce and congregation shared quarters in the young settlement. This is also the year Peck marries Mary K. Wythe of Philadelphia. Interpret the household from its card.",
+      "read_s": 28,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "peck_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "peck_philip",
+          "label": "The Peck household"
+        },
+        {
+          "kind": "business",
+          "id": "biz_p_f_peck",
+          "label": "Peck's card"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Andreas, History of Chicago"
+        }
+      ],
+      "evidence": [
+        "peck-arrival",
+        "peck-loft",
+        "peck-home",
+        "peck-place",
+        "calls",
+        "mk-peck-porter",
+        "mk-peck-later"
+      ],
+      "next": "the-exchange",
+      "narrative": "Interpret the household at its card, not at its door."
+    },
+    {
+      "id": "the-exchange",
+      "destination": {
+        "kind": "structure",
+        "id": "exchange_coffee_house"
+      },
+      "text": "West to Lake and Wells and the Exchange Coffee House, operated by Mr and Mrs Murphy since August 1834. The town's Democrats convened here in April and again in June 1835 to nominate their candidates, and in 1834 the dancing master J. A. Marshall requested that prospective pupils deposit their addresses here. A frontier public house functions simultaneously as post office, notice board and assembly hall. Deposit your card, or carry it onward.",
+      "read_s": 22,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "exchange_coffee_house",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "murphy_john",
+          "label": "John Murphy"
+        },
+        {
+          "kind": "business",
+          "id": "biz_j_a_marshall_s_dancing_school",
+          "label": "The dancing master's card"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the source"
+        }
+      ],
+      "evidence": [
+        "exchange-house",
+        "exchange-meetings",
+        "exchange-address",
+        "exchange-place",
+        "calls"
+      ],
+      "choices": [
+        {
+          "id": "card-at-exchange",
+          "label": "Leave your card at the Exchange",
+          "consequence": "Deposited where the 1834 notice requested addresses be left, although no caller is documented.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "card",
+              "value": 1
+            }
+          ],
+          "next": "the-sauganash"
+        },
+        {
+          "id": "card-kept",
+          "label": "Keep it for the Sauganash",
+          "consequence": "The card accompanies you to the concluding call.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "card",
+              "value": 2
+            }
+          ],
+          "next": "the-sauganash"
+        }
+      ],
+      "narrative": "Where the town convenes, a card is discovered."
+    },
+    {
+      "id": "the-sauganash",
+      "destination": {
+        "kind": "structure",
+        "id": "sauganash_hotel"
+      },
+      "text": "Along Lake Street to Market stands the Sauganash, newly refurbished in June and, according to Moses and Kirkland, \"the most attractive hostlery the city possessed\". A week after the refurbishment the Democrat found strangers crowding every room in town, and each of them, like you, exists socially as merely a name on a card. A card remaining in your pocket is deposited here.",
+      "read_s": 20,
+      "action_s": 5,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "sauganash_hotel",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the source"
+        }
+      ],
+      "evidence": [
+        "sauganash-refit",
+        "crowded",
+        "sauganash-place",
+        "continuity",
+        "calls",
+        "mk-sauganash"
+      ],
+      "next": "$end",
+      "narrative": "A community of strangers, perpetually introducing themselves."
+    }
+  ],
+  "legs": [
+    {
+      "from": "the-room",
+      "to": "the-merchant",
+      "note": "A few steps from the boarding house round to the store in front of it.",
+      "evidence": [
+        "brown-place",
+        "peck-place"
+      ],
+      "story": "Letter in hand, around to the front of the block.",
+      "story_evidence": [
+        "calls"
+      ]
+    },
+    {
+      "from": "the-merchant",
+      "to": "the-exchange",
+      "note": "West along South Water Street to Wells and a block south to Lake.",
+      "evidence": [
+        "peck-place",
+        "exchange-place"
+      ],
+      "story": "With one household interpreted, proceed to where the town assembles.",
+      "story_evidence": [
+        "calls"
+      ]
+    },
+    {
+      "from": "the-exchange",
+      "to": "the-sauganash",
+      "note": "West along Lake Street to the Market Street corner by the South Branch.",
+      "evidence": [
+        "exchange-place",
+        "sauganash-place"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "merchant-at-the-exchange",
+      "text": "You have presented a merchant's letter and deposited your card at the Exchange, where the Democrats convene and the dancing master compiled his names. By next week the appropriate people will know precisely who you are.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "note",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "var": "card",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "minister-at-the-exchange",
+      "text": "You have presented a minister's letter and deposited your card at the Exchange, where the town assembles. With fortune, a congregation will call upon you before Sunday.",
+      "read_s": 8,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "note",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "var": "card",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "card-at-the-sauganash",
+      "text": "Your card is deposited at the Sauganash, among a summer's multitude of strangers. Within a year most of them will be established neighbors, and a fortunate few will be wealthy.",
+      "read_s": 8,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "an-introduction-made-grades-11-12",
+    "title": "An Introduction Made",
+    "text": "A fictional calling card from July 1835. No authentic introduction, caller or reply is inscribed upon it, and no named person is encountered."
+  },
+  "evidence": [
+    {
+      "id": "brown",
+      "text": "Andreas names Mrs Rufus Brown as keeper of one of the first-class boarding houses, and places Brown's log house as the first building in the rear of Peck's store.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed p. 132, boarding-house paragraph; p. 303, Jeremiah Porter biography."
+    },
+    {
+      "id": "brown-place",
+      "text": "The boarding house is placed directly behind Peck's store at the south-west corner of South Water and LaSalle; its distance behind the store is not documented.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Andreas gives the position only relative to Peck's store. The structure record sets the house directly south of the store's footprint on the same lot line and grades the coordinate reconstructed, so the stop calls the exact spot our placement."
+    },
+    {
+      "id": "peck-arrival",
+      "text": "P. F. W. Peck came to Chicago in July 1831 with a stock of goods, to open a store.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Follows the household record hh_peck_philip, which carries the arrival at month precision and the reason for coming from Andreas, and the structure record peck_store, which gives the same arrival with the goods shipped by schooner. The stop repeats the records' reading and adds nothing to it; no page is cited here because the records do not give one."
+    },
+    {
+      "id": "peck-loft",
+      "text": "Jeremiah Porter lodged in the unfinished loft of Peck's two-storey store in May 1833.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed p. 303, Jeremiah Porter biography; May 1833 arrival and temporary lodging."
+    },
+    {
+      "id": "peck-home",
+      "text": "The Peck household's card reads this store as Peck's home: a merchant of the period lived over or behind his store, and this one housed a lodger in its loft. No source states it of Peck himself.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Follows the household record hh_peck_philip, whose lives_at is graded inferred with exactly this reasoning. The stop sends the visitor to the card for the household and claims no member of it at home on the day, and no door."
+    },
+    {
+      "id": "peck-place",
+      "text": "Peck's store stood at the south-west corner of South Water and LaSalle streets; the corner is attested and the coordinate is derived from it.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_1835"
+      ],
+      "reasoning": "Andreas and Peck's own cards name the corner. The structure record peck_store derives the coordinate from the modern intersection and grades it inferred; the stop claims the corner, and claims no interior and no clerk."
+    },
+    {
+      "id": "exchange-house",
+      "text": "Mark Beaubien built a new house on the north-west corner of Wells and Lake streets; in August 1834 Mr. and Mrs. Murphy took charge of it as a hotel, christened it the Exchange Coffee House, and remained until 1836.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "drloih_hotels"
+      ],
+      "locator": "Andreas vol. 1, printed p. 633, the hotel chapter; the life of Mark Beaubien; DRLOIH hotel chronology, Exchange Coffee House entry."
+    },
+    {
+      "id": "exchange-meetings",
+      "text": "The Chicago Democrat reports a large meeting of the town's Democrats held at the Exchange Coffee House in April 1835, and in June 1835 a meeting of the Democratic party held there to nominate candidates for the coming town election.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "20 May 1835, p. 1, col. 3, 'Great Democratic Meeting', the meeting dated April 1835 (extracted claim chicago_democrat_1835_05_20#c001); 10 June 1835, p. 2, col. 5, 'Town Election', held '[Satu]rday evening last' (extracted claim chicago_democrat_1835_06_10#c002). Transcription-mediated readings of interleaved columns; the April day and weekday as transcribed do not agree, so the stop gives the month only."
+    },
+    {
+      "id": "exchange-address",
+      "text": "J. A. Marshall's notice of a dancing school, dated 19 November 1834, asked those wishing to become pupils to leave their address at the Exchange Coffee House.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "19 Nov 1834, p. 3, col. 2, the card headed 'DANCING.' (extracted claim chicago_democrat_1834_11_19#c004). Transcription-mediated reading of an interleaved column."
+    },
+    {
+      "id": "exchange-place",
+      "text": "The Exchange Coffee House stood at the north-west corner of Lake and Wells streets, fronting south onto Lake; the corner is attested and the coordinate is derived from it.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "drloih_hotels"
+      ],
+      "reasoning": "Andreas gives the corner twice, in two chapters. The structure record exchange_coffee_house derives the coordinate from the modern intersection and grades the position inferred; its facade bearing is the weakest part of the record. The stop claims the corner and no front door."
+    },
+    {
+      "id": "sauganash-refit",
+      "text": "The Chicago Democrat of 10 June 1835 reported that the Sauganash had been repaired, fitted up and furnished with neatness and taste.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "10 June 1835 (Vol. II No. 8), p. 2, col. 5, the paragraph on the town's public houses (claim chicago_democrat_1835_06_10#c001). Transcription-mediated reading."
+    },
+    {
+      "id": "crowded",
+      "text": "The Chicago Democrat of 17 June 1835 wrote of 'the immense congregation of strangers crowding every room of our public houses, and every room in which they can obtain accommodations, even to the extent of sleeping on the floor'.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "17 June 1835 (Vol. II No. 9), p. 2, col. 4, the editor's paragraph on the state of the streets (claim chicago_democrat_1835_06_17#c001). Transcription-mediated reading; the issue's interior editorial block prints 10 June."
+    },
+    {
+      "id": "mk-ball",
+      "text": "Charles F. Hoffman, at a Chicago ball in 1834, found 'a complete medley of all ranks, ages, professions, trades and occupations': 'a veteran officer in full uniform balancing to a tradesman's daughter, still in her short frock and trousers', while 'a pair of Cinderella-like slippers would chassez across with a brace of thick-soled brogans'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 100, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13421-13449 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-peck-porter",
+      "text": "Peck gave the Rev. Jeremiah Porter 'a lodging place and study in the second story of his store building', and there was held 'one of the earliest Sunday-schools organized in the town'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 571, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 99868-99876 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-peck-later",
+      "text": "In 1835 Peck joined the Pioneer Hook and Ladder Company and married Mary K. Wythe of Philadelphia; years later he was credited 'with having $40,000 in cash locked in an iron safe in his dwelling, and was considered nearly as wealthy as John Jacob Astor'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 571, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 99877-99917 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-sauganash",
+      "text": "Moses and Kirkland call the Sauganash 'the most attractive hostlery the city possessed', and its genial landlord, 'with his merry fiddle, the most popular of hosts'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 87, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 11879-11886 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "sauganash-place",
+      "text": "The Sauganash stood at the south-east corner of Lake and Market Streets, on the east bank of the South Branch.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_hotels",
+        "chicago_landmark_sauganash"
+      ],
+      "reasoning": "The corner is given by the hotel chronology and the Chicago Landmark designation; the building's coordinate in the scene is the structure record's platted-corner derivation and carries the georeference's uncertainty of about 20 m."
+    },
+    {
+      "id": "continuity",
+      "text": "The four buildings are exterior stops in the 1 July 1835 scene. A building's label is its identity, not proof of who was at home, and no door, keeper, host or reply on the day is claimed.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "drloih_hotels",
+        "chicago_democrat_1833_1835"
+      ],
+      "reasoning": "Uses the structure records' scene-date phases: the Murphys are attested at the Exchange from August 1834 to 1836, Peck is carried at his store across 1833-35, Brown's house rests on Andreas's account of 1833 carried to the scene year, and the Sauganash's 1835 keeper is only a lead, so no keeper is named for it. Brown's absolute placement is reconstructed; the other three positions are inferred."
+    },
+    {
+      "id": "calls",
+      "text": "The visitor, the room at Brown's, the two letters of introduction, the calls, the choice of where to leave a calling card, the route, the endings, the timing inputs and the Introduction Made keepsake are invented connective narrative. No introduction, caller, reply or encounter with any named person is documented.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-calling-on-neighbors"
+    }
+  ],
+  "liberties": [
+    "L-jaunt-calling-on-neighbors",
+    "L-jaunt-1835-light-and-stories"
+  ],
+  "version_of": "calling-on-neighbors"
+}
