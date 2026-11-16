@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3041, ts: '2026-11-16T18:47:11.445Z', date: 'Nov 16, 2026, 12:47 PM CT', title: 'Jaunts open and close on their own words', kind: 'feature',
+    items: [
+      'A jaunt whose opening is read aloud flies you to its start for as long as the narrator speaks, over a high look across the town. Skip to the Start lands you at once.',
+      'Finishing the last stop opens a closing scene: the ending on screen, read aloud where it is voiced, while the view rises over the place the jaunt began. Outing complete follows by itself, or at Finish Jaunt.',
+      'A jaunt\'s first card drops its summary and heads its opening with the jaunt\'s name.',
+      'Lines about how the town was built, rather than its story, are gone from the Glessner Household, Fort Dearborn, Outfit for the West and the Italianate and Romanesque walks.',
+    ] },
   { v: 3040, ts: '2026-11-16T18:41:39.972Z', date: 'Nov 16, 2026, 12:41 PM CT', title: 'Name cards float over every person; tap one to meet them', kind: 'feature',
     items: [
       'In 1812, 1835 and 1904 a small card hovers over each named person near you with their name, day or night: townspeople, drivers on their boxes, and a jaunt\'s hosts and castmates.',
