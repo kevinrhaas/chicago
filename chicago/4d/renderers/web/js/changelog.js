@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3018, ts: '2026-11-16T00:52:05.802Z', date: 'Nov 15, 2026, 6:52 PM CT', title: '18+ jaunts: blood and wounds', kind: 'feature',
+    items: [
+      'In the two 18+ jaunts, every blow, shot and scalping now draws blood where it lands. Drops fly from the wound and lie where they fall, a stain spreads on the clothing on the side the blow came from, and a pool spreads on the ground under the fallen.',
+      'The wounds follow the accounts where they say where: Kinzie and the Canadian in the neck, Mrs. Helm on the shoulder, the knife wounds of White and Lalime in the body. A scalping marks the crown of the head.',
+      'Someone wounded who is still standing or kneeling keeps bleeding a little.',
+      'No child is wounded. The student jaunts are unchanged.',
+    ] },
   { v: 3017, ts: '2026-11-16T00:13:16.783Z', date: 'Nov 15, 2026, 6:13 PM CT', title: 'The grades 3–5 Glessner tour\'s narrator opens with feeling again', kind: 'fix',
     items: [
       'The narrator\'s opening for The Glessner Household (grades 3–5) is performed with its direction again, after the tour\'s name changed.',
