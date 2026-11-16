@@ -2,7 +2,7 @@
   "structure_id": "house_2011_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_2011_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f64b2773f977f54088fc6a08527149ce787ae583147d3d3d37e9d6f015c9873e",
+  "glb_sha256": "0e72ab5e31a2a4498c8e9fd23c9d1da262cb816a06cd8ca17078eeb8b4c703c5",
   "camera_sha256": "2c3968a2f379a9b50967395fd9b22700712c9919303cffa4e493b730326f34ae",
   "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
   "rendered_flora": {
@@ -89,7 +89,7 @@
       "status": "fixed"
     },
     {
-      "what": "the round turret: its outline from x 1380 px, its tall ground-storey lights (sill y 1440, head y 1215), the near second-storey light at its north edge and the band of small square lights round a short top stage standing on the front's head course, all within about 25 px (0.3 m) of the photograph's",
+      "what": "the round turret: its outline from about x 1375 px, its tall ground-storey lights (sill y 1440, head y 1215), the near second-storey light at its north edge and the band of small square lights round a short top stage standing on the front's head course, all within about 25 px (0.3 m) of the photograph's",
       "status": "fixed"
     },
     {

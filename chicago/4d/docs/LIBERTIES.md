@@ -44404,7 +44404,7 @@ the coped street-line wall and the yard (the photograph's yard is strewn with bu
 goods are hung (K01 hangs none on a gable roof).
 
 **What is built otherwise than the evidence, and why.** The turret is K08's round tower, 2.0 m in radius on a
-centre in the wall's face, so it stands 2.0 m proud where the sheet's bow stands about 1.3 m: a smaller tower
+centre 0.15 m before the wall's face, so it stands 2.15 m proud where the sheet's bow stands about 1.3 m: a smaller tower
 would no longer fill the photograph's width. Its roof is one plain cone where the photograph shows two stages
 (a flared skirt, a ledge and a steeper upper cone): K08 cannot flare a tower's cone yet, and T-3616 builds it.
 The door is the kit's round-arched double door with its arch glazed, where the photograph shows a transom

@@ -380,7 +380,7 @@
               "fabric": "front_stone",
               "plan": {
                 "radius_m": 2.0,
-                "centre_proud_m": 0.0
+                "centre_proud_m": 0.15
               },
               "storeys": [
                 {
@@ -408,7 +408,7 @@
                       "clear_height_m": 1.95,
                       "sill_m": 0.85,
                       "at_deg": [
-                        -75,
+                        -68,
                         5
                       ],
                       "why_not_ordinary": "the turret's second-storey lights in the photograph (y 880-1060 px), either side of a broad pier"
@@ -422,7 +422,7 @@
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 0.6,
                       "clear_height_m": 0.8,
-                      "sill_m": 0.15,
+                      "sill_m": 0.25,
                       "at_deg": [
                         -75,
                         -45,
@@ -459,7 +459,7 @@
             "chicagology_2009_prairie_meyer_photo",
             "inland_architect_1895_02_reid_plate"
           ],
-          "note": "The rounded corner turret the register and the 1911 sheet name (the sheet's stone front bows out over the south part of the lot): in the photograph it fills the front from about 2.9 m to the party line with Reid, three stages to a slate cone with a finial — tall lights on the ground storey, two lights either side of a broad pier on the second (the near one turned well to the north, x 1390-1450 px), and a band of small square lights in a short top stage standing on the front's head course, its slate roof's eave at about 11.65 m. The Reid plate shows the same turret whole, its cone over the corner. Built 2.0 m in radius on a centre in the wall's face 4.85 m along the front, so it stands half clear, 2.0 m proud, reaching from 2.85 m to 6.85 m along the front (the kit keeps a pier at the corner), its lights laid over the photograph's within about 0.1 m through the photograph's camera: the photograph, which sees its north side from the north-west, puts its outline from about 2.9 m, and the sheet's bow stands about 1.3 m proud (px 908-909 against the front's 914-916), which K08's half-round tower cannot reach without shrinking past the photograph's width: the bow's 0.7 m is written in the match record. The cone's pitch is read loosely."
+          "note": "The rounded corner turret the register and the 1911 sheet name (the sheet's stone front bows out over the south part of the lot): in the photograph it fills the front from about 2.9 m to the party line with Reid, three stages to a slate cone with a finial — tall lights on the ground storey, two lights either side of a broad pier on the second (the near one turned well to the north, x 1390-1450 px), and a band of small square lights in a short top stage standing on the front's head course, its slate roof's eave at about 11.65 m. The Reid plate shows the same turret whole, its cone over the corner. Built 2.0 m in radius on a centre 0.15 m before the wall's face, 4.85 m along the front, so it stands a little more than half clear, 2.15 m proud, meeting the front from 2.86 m to 6.84 m (the kit keeps a pier at the corner), its lights laid over the photograph's within about 0.1 m through the photograph's camera: the photograph, which sees its north side from the north-west, puts its outline from about 2.9 m, and the sheet's bow stands about 1.3 m proud (px 908-909 against the front's 914-916), which K08's round tower cannot reach without shrinking past the photograph's width: the bow's 0.85 m is written in the liberty. The cone's pitch is read loosely."
         },
         "chimneys": {
           "value": {
