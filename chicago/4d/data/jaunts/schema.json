@@ -74,9 +74,9 @@
     },
     "content_warning": {
       "type": "string",
-      "minLength": 40,
-      "maxLength": 400,
-      "description": "Required when audience is adults: what the visitor will see, shown on the jaunt's card and its route preview before it starts."
+      "minLength": 8,
+      "maxLength": 120,
+      "description": "Required when audience is adults: a few words on what the visitor will see, the tooltip of the card's 18+ tag. The owner, 2026-11-16: no warning text on the card or in the telling."
     },
     "menu_rank": {
       "type": "integer",

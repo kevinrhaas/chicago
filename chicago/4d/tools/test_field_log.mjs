@@ -205,7 +205,8 @@ assert.ok(COUNTS.every((k) => kept.counts[k] === 1), JSON.stringify(kept.counts)
     ['js/apps/inspect-view.js', /function selectTab\([\s\S]{0,400}countField\('tab'\)/, 'tab: an Inspect tab'],
     // T-3432: the arrival at the start is the flight's landing, or at once (`land()`).
     ['js/jaunts.js', /\} else land\(\);\s*\n\s*countField\('jauntStarted'\)/, 'jauntStarted'],
-    ['js/jaunts.js', /state\.phase === 'outcome' && old\.phase !== 'outcome'\) \{\s*\n\s*countField\('jauntFinished'\)/, 'jauntFinished'],
+    // 2026-11-16: an outing is finished as its closing scene opens (or at Outing complete without one).
+    ['js/jaunts.js', /if \(done\(state\.phase\) && !done\(old\.phase\)\) \{\s*\n\s*countField\('jauntFinished'\)/, 'jauntFinished'],
     ['js/tour.js', /if \(!resumed\) countField\('tourStep'\)/, 'tourStep'],
     ['js/apps/confidence-view.js', /applyPreset\(p\.id, d\); countField\('confidencePreset'\)/, 'confidencePreset: a preset picked in the app'],
   ];
