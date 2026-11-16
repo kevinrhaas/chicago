@@ -27,13 +27,13 @@ BATTLE = {
     'title': 'The Battle of Fort Dearborn',
     'grade_band': '6-8',
     'content_warning': WARNING_BATTLE,
-    'premise': ("6 April to 16 August 1812 in thirteen stops: the killings at Lee's Place, the attack on the beach "
+    'premise': ("6 April to 16 August 1812 in seventeen stops: the killings at Lee's Place, the attack on the beach "
                 "and the death of Captain Wells, as the people who lived through them told it."),
     'opening': ("JAUNT: THE BATTLE OF FORT DEARBORN. Spring 1812, where the Chicago River meets Lake Michigan. "
                 "The nearest American post is Fort Wayne, far to the south-east; Detroit, where the general commands, is "
                 "farther still. War with Britain is coming, and every report that reaches the fort makes it feel smaller "
                 "and farther from help.\n\n"
-                "Thirteen stops in date order, with the time of day and the season set for each.\n\n"
+                "Seventeen stops in date order, with the time of day and the season set for each.\n\n"
                 "The story begins with the fort, on the afternoon of 6 April 1812."),
     'stops': {
         'hardscrabble': stop(

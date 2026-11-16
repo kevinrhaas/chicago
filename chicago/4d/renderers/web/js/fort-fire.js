@@ -631,7 +631,12 @@ export function createFortFire({ parent, buildings, groundAt = () => 0, extras =
     if (bb.isEmpty()) return null;
     const cx = (bb.min.x + bb.max.x) / 2, cz = (bb.min.z + bb.max.z) / 2;
     const ground = Math.max(bb.min.y, groundAt(cx, cz) - 0.3);
-    const ext = extras(id).map((o) => ({ o, matrix: o.matrix.clone(), auto: o.matrixAutoUpdate }));
+    const ext = extras(id).map((o) => {
+      // A house door's hung leaf (house-doors.js) blackens with its building's walls.
+      const paints = [];
+      o.traverse?.((m) => { if (m.isMesh && /^house-door-leaf:/.test(m.name) && m.material?.color && !paints.some((x) => x.mat === m.material)) paints.push({ mat: m.material, color: m.material.color.clone() }); });
+      return { o, matrix: o.matrix.clone(), auto: o.matrixAutoUpdate, paints };
+    });
     const lo = Math.min(...pieces.map((p) => p.cy)), hi = Math.max(...pieces.map((p) => p.cy));
     for (const p of pieces) p.hfrac = hi > lo ? (p.cy - lo) / (hi - lo) : 0.5; // 1 the roof's ridge, 0 the sills
     const b = { id, kind: PICKET_LIKE.test(id) ? 'pickets' : kind, pieces, extras: ext, box: bb, ground, lit: null, from: null,
@@ -692,7 +697,9 @@ export function createFortFire({ parent, buildings, groundAt = () => 0, extras =
       else if (kk === 0) p.batch.setMatrixAt(p.i, p.matrix);
       else p.batch.setMatrixAt(p.i, fallMatrix(b, kk, p.batch, m4).multiply(p.matrix));
     }
+    const leafChar = t < 0 ? 0 : smooth((t - 6) / ((b.involved ?? 20) * 0.6 + 18));
     for (const x of b.extras) {
+      for (const q of x.paints) q.mat.color.copy(q.color).lerp(col2.copy(q.color).multiply(CHAR), leafChar);
       if (b.down >= 0.999) { x.o.visible = false; continue; }
       x.o.visible = true;
       x.o.matrixAutoUpdate = false;
@@ -909,7 +916,7 @@ export function createFortFire({ parent, buildings, groundAt = () => 0, extras =
     clear() {
       for (const b of burns) {
         for (const p of b.pieces) { p.batch.setMatrixAt(p.i, p.matrix); if (p.paint) p.batch.setColorAt(p.i, p.paint); }
-        for (const x of b.extras) { x.o.matrix.copy(x.matrix); x.o.matrixAutoUpdate = x.auto; x.o.visible = true; x.o.updateMatrixWorld(true); }
+        for (const x of b.extras) { x.o.matrix.copy(x.matrix); x.o.matrixAutoUpdate = x.auto; x.o.visible = true; x.o.updateMatrixWorld(true); for (const q of x.paints) q.mat.color.copy(q.color); }
         if (b.heap) { b.heap.removeFromParent(); b.heap.traverse((o) => { if (o.isMesh) { o.geometry.dispose(); if (o.material !== b.heap.userData.material) o.material.dispose(); } }); heapMats.delete(b.heap.userData.material); b.heap.userData.material.dispose(); }
       }
       burns = []; spec = null; clock = 0; torchKindle = null; torchReach = 0;
