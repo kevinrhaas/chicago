@@ -106,6 +106,7 @@ import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
+import { createNameCards, cardTheme, gradeOf } from './name-cards.js';
 import { supportsTownTransport } from './transport-scenes.js';
 import { createWells } from './wells.js';
 import { createTimeStream } from './time-stream.js';
@@ -3753,6 +3754,7 @@ async function boot() {
       railway.setDetail(level);
       refreshGlessnerOcclusion();
       api.humans?.setTier(level);
+      api.nameCards?.setTier(level);
       void parkedTransport.setTier(level);
       void standingHorses.setTier(level);
       void api.townTransport?.setTier(level);
@@ -3819,6 +3821,7 @@ async function boot() {
     railway.setDetail(level);
     // The figures' LOD ladder follows the tier (T-1788; docs/HUMAN-ASSET-CONTRACT.md § 8).
     api.humans?.setTier(level);
+    api.nameCards?.setTier(level);
     void parkedTransport.setTier(level);
     void standingHorses.setTier(level);
     void api.townTransport?.setTier(level);
@@ -4496,6 +4499,10 @@ async function boot() {
       } else if (key === 'people' || key === 'vehicles') {
         // T-3439: the people, and the carriages and horses, shown or hidden.
         setShownLayer(key, value !== 'hidden');
+      } else if (key === 'nameCards') {
+        // T-3614: the name cards over people, on or off.
+        api.nameCards?.setShown(value !== false);
+        gateFrame.invalidate();
       } else if (key === 'units') {
         navigation.setUnits(value);
       }
@@ -4526,6 +4533,34 @@ async function boot() {
   // T-3439: the stored Show choices for people and vehicles, before the first frame.
   if (hud.settings.people === 'hidden') setShownLayer('people', false);
   if (hud.settings.vehicles === 'hidden') setShownLayer('vehicles', false);
+  // T-3614 (owner, 2026-11-16): "a small 3d hovering card floating over each person of what
+  // their name is, clicking on the card brings up their detail" — in every year, for the town's
+  // people, the drivers on their boxes and a jaunt's hosts and castmates, at any hour. One
+  // instanced draw over one atlas (name-cards.js); Settings › Show › Name cards over people.
+  api.nameCards = createNameCards({
+    THREE, renderer, camera, tier: detailLevel, shown: hud.settings.nameCards !== false,
+    viewHeight: () => renderer.domElement.clientHeight,
+    // The card's edge and light: the person's grade in the Confidence view's colour for it.
+    gradeColors: () => Object.fromEntries(['attested', 'inferred', 'reconstructed'].map((l) => [l, confidence.grade(l)?.color ?? null])),
+    theme: () => {
+      const css = getComputedStyle(document.documentElement);
+      return cardTheme((k) => css.getPropertyValue(k), document.documentElement.dataset.skin ?? '');
+    },
+    list: () => {
+      const out = [];
+      for (const a of api.humans?.actors ?? []) {
+        if (a.identity?.kind !== 'person' || !a.instance?.interaction?.selectable) continue;
+        const name = a.person?.name ?? null;
+        if (name) out.push({ key: a.id, actor: a, name, personId: a.personId, grade: gradeOf(a.person) });
+      }
+      for (const m of api.jauntStage?.named ?? []) if (m.name) out.push(m);
+      return out;
+    },
+  });
+  scene3d.add(api.nameCards.group);
+  // A new appearance (Settings › Machine, or the dial) draws every card again in its colours.
+  new MutationObserver(() => api.nameCards?.refresh()).observe(document.documentElement,
+    { attributes: true, attributeFilter: ['data-skin', 'data-theme'] });
   // T-3331: Settings' own copy, so a later save keeps an hour set from code; then paint.
   timeState.hudSettings = hud.settings;
   paintTime();
@@ -5033,8 +5068,15 @@ async function boot() {
     windowMode.start();
   });
 
-  canvas.addEventListener('click', () => {
+  canvas.addEventListener('click', (ev) => {
     if (backends.active !== pointerlock || gateOpen) return;
+    // T-3614: with the mouse free, a click on a person's name card opens their card, where a
+    // click anywhere else takes the look (a touch tap reaches the same card through Interact).
+    if (!pointerlock.isLocked && api.nameCards?.shown) {
+      const r = canvas.getBoundingClientRect();
+      const ndc = new THREE.Vector2(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1);
+      if (api.nameCards.pickAt(ndc)) { inspect(ndc, { by: 'hand' }); return; }
+    }
     // A click on the scene with a card open is the release (T-2954): the card goes and
     // the same click takes the look back.
     if (popup.openId) popup.close();
@@ -5203,6 +5245,17 @@ async function boot() {
     const railHit = railway.pickAt(ndc, camera);
     if (railHit && railHit.record && (!hit || railHit.distance < hit.distance)) {
       hit = { ...railHit };
+    }
+    // T-3614: a person's name card opens their card, as the person does.
+    const nameCard = api.nameCards?.pickAt(ndc);
+    if (nameCard && (!hit || nameCard.depth < hit.distance)) {
+      popup.close();
+      if (nameCard.staged) {
+        api.jauntStage?.meet({ actor: nameCard.actor }, { e: walker.state.e, n: walker.state.n });
+        if (nameCard.personId) void openPersonCard(nameCard.personId);
+        else hud.say(nameCard.name);
+      } else api.humans.select({ actor: nameCard.actor });
+      return nameCard;
     }
     // A figure answers with its PERSON, not a card of its own (T-1788): the layer's
     // `open` event takes the visitor to the resident card the directory already draws.
@@ -7007,6 +7060,8 @@ async function boot() {
     // T-3553 (owner, 2026-11-14: "you should not see inside people's heads and bodies"):
     // whatever put the eye where it is, nobody is drawn round it.
     api.humans?.hideAtEye?.(camera.getWorldPosition(eyeAtDraw));
+    // T-3614: the name cards over them, where they now stand.
+    api.nameCards?.update(gateOpen ? 0 : elapsed);
     // The day and spacing engines have finished moving the person. Hands, tool
     // and sound now share this frame's real contact, not a separate hammer timer.
     api.workActivity?.update(frameDt, { paused: visualHeld || transportReducedMotion.matches,
