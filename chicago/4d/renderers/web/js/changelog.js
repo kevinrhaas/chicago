@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3023, ts: '2026-11-16T04:24:20.831Z', date: 'Nov 15, 2026, 10:24 PM CT', title: 'The boot budget re-measured after the 1835 townspeople\'s comings and goings', kind: 'fix',
+    items: [
+      'The first visit to the 1835 street now downloads 45.4 MB, 0.5 MB more than two days ago. Most of it is the 1835 townspeople\'s days, who goes in and out of which door and who is inside a house or shop, with the new carriage ride, the Today window and the people\'s dress. The budget moves to 45.7 MB, with what grew written down file by file, so every pull request\'s build can go green again.',
+    ] },
+  { v: 3022, ts: '2026-11-16T04:24:20.831Z', date: 'Nov 15, 2026, 10:24 PM CT', title: '1823 Prairie\'s stoop: a longer landing a few steps under the door', kind: 'improvement',
+    items: [
+      'The Dent house at 1823 Prairie: the stoop\'s landing now runs the full 2.7 m to the pavilion and stands a few steps below the hall. The door opens onto it at 1.7 m, so the flight from the north is nine steps instead of thirteen, as both old pictures of the house draw it.',
+      'The grilled arch under the landing has moved to where both pictures put it, a little south of the landing\'s middle, and is a quarter of a metre broader. The doorway above it is now 3.2 m tall.',
+    ] },
   { v: 3021, ts: '2026-11-16T03:24:33.747Z', date: 'Nov 15, 2026, 9:24 PM CT', title: 'Sign out from Settings', kind: 'feature',
     items: [
       'Settings, About now shows who is signed in on this device.',

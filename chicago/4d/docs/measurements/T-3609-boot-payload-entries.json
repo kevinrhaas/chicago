@@ -1,5 +1,5 @@
 {
- "total_bytes": 47825270,
+ "total_bytes": 47643964,
  "entries": [
   {
    "url": "/data/prebuilt/1835/ground.bin.gz",
@@ -7,7 +7,7 @@
   },
   {
    "url": "/data/prebuilt/1835/frontage.bin.gz",
-   "bytes": 7137674
+   "bytes": 7146405
   },
   {
    "url": "/data/prebuilt/1835/streets.full.bin.gz",
@@ -15,7 +15,7 @@
   },
   {
    "url": "/data/prebuilt/1835/yards.bin.gz",
-   "bytes": 3393389
+   "bytes": 3347452
   },
   {
    "url": "/data/textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_normal_gl.ktx2",
@@ -103,7 +103,7 @@
   },
   {
    "url": "/data/sidecars/1835/boot/part-0.json",
-   "bytes": 206543
+   "bytes": 206347
   },
   {
    "url": "/data/textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orl.ktx2",
@@ -111,11 +111,11 @@
   },
   {
    "url": "/data/humans/inside_1835.json",
-   "bytes": 181271
+   "bytes": 181219
   },
   {
    "url": "/data/reconstruction/1835_address_book.json",
-   "bytes": 174975
+   "bytes": 175102
   },
   {
    "url": "/data/textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_orl.ktx2",
@@ -126,20 +126,20 @@
    "bytes": 159110
   },
   {
+   "url": "/data/sidecars/1835/boot/part-13.json",
+   "bytes": 153536
+  },
+  {
    "url": "/walk/js/flora.js",
    "bytes": 152883
   },
   {
    "url": "/walk/js/main.js",
-   "bytes": 144993
-  },
-  {
-   "url": "/data/sidecars/1835/boot/part-13.json",
-   "bytes": 140732
+   "bytes": 144802
   },
   {
    "url": "/data/sidecars/1835/boot/part-2.json",
-   "bytes": 137343
+   "bytes": 137318
   },
   {
    "url": "/data/humans/web/hm08_variation_persons_1835.json",
@@ -155,11 +155,11 @@
   },
   {
    "url": "/data/sidecars/1835/boot/part-1.json",
-   "bytes": 118497
+   "bytes": 118462
   },
   {
    "url": "/data/sidecars/1835/boot/shared.json",
-   "bytes": 102065
+   "bytes": 97555
   },
   {
    "url": "/walk/js/trees.js",
@@ -171,19 +171,19 @@
   },
   {
    "url": "/data/gardens/1835.json",
-   "bytes": 83245
+   "bytes": 85104
   },
   {
    "url": "/data/textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orl.ktx2",
    "bytes": 82691
   },
   {
-   "url": "/data/frontage/town_street_edge.json",
-   "bytes": 80970
-  },
-  {
    "url": "/data/textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_grain.webp",
    "bytes": 80407
+  },
+  {
+   "url": "/data/frontage/town_street_edge.json",
+   "bytes": 80188
   },
   {
    "url": "/data/gltf/chicago_lighthouse_1832__tower_1832.glb",
@@ -199,11 +199,11 @@
   },
   {
    "url": "/data/sidecars/1835/index.json",
-   "bytes": 70067
+   "bytes": 69737
   },
   {
    "url": "/data/enclosures/town_entrance_aprons.json",
-   "bytes": 66526
+   "bytes": 64869
   },
   {
    "url": "/data/gltf/fort_dearborn_palisade__picket_1816.glb",
@@ -215,7 +215,7 @@
   },
   {
    "url": "/data/prebuilt/1835/streets.json",
-   "bytes": 58770
+   "bytes": 58771
   },
   {
    "url": "/walk/js/yard.js",
@@ -230,12 +230,12 @@
    "bytes": 52676
   },
   {
-   "url": "/data/textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_normal_turned.webp",
-   "bytes": 51126
+   "url": "/data/signage/town_business_signboards.json",
+   "bytes": 51398
   },
   {
-   "url": "/data/signage/town_business_signboards.json",
-   "bytes": 50874
+   "url": "/data/textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_normal_turned.webp",
+   "bytes": 51126
   },
   {
    "url": "/data/textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_normal_turned.webp",
@@ -243,7 +243,7 @@
   },
   {
    "url": "/data/prebuilt/1835/frontage.json",
-   "bytes": 49417
+   "bytes": 49313
   },
   {
    "url": "/data/gltf/sheets/b12a3da2bbcc3dc2.ktx2",
@@ -255,11 +255,11 @@
   },
   {
    "url": "/data/reconstruction/1835_population_profile.json",
-   "bytes": 48288
+   "bytes": 48286
   },
   {
    "url": "/data/businesses/index.json",
-   "bytes": 47390
+   "bytes": 47366
   },
   {
    "url": "/walk/js/residents.js",
@@ -303,7 +303,7 @@
   },
   {
    "url": "/data/humans/doors_1835.json",
-   "bytes": 36580
+   "bytes": 36409
   },
   {
    "url": "/walk/js/buildings.js",
@@ -314,12 +314,20 @@
    "bytes": 35760
   },
   {
+   "url": "/data/enclosures/town_dooryard_pickets.json",
+   "bytes": 34766
+  },
+  {
    "url": "/data/residents/research_pilot.json",
    "bytes": 34343
   },
   {
-   "url": "/data/enclosures/town_dooryard_pickets.json",
-   "bytes": 34153
+   "url": "/data/sidecars/1835/boot/part-12.json",
+   "bytes": 33686
+  },
+  {
+   "url": "/data/prebuilt/1835/yards.json",
+   "bytes": 32100
   },
   {
    "url": "/walk/js/yards.js",
@@ -327,23 +335,15 @@
   },
   {
    "url": "/data/yard/town_woodpiles.json",
-   "bytes": 32037
-  },
-  {
-   "url": "/data/prebuilt/1835/yards.json",
-   "bytes": 31888
+   "bytes": 31498
   },
   {
    "url": "/data/reconstruction/1835_reconstruction_order_book.json",
-   "bytes": 31425
+   "bytes": 31416
   },
   {
    "url": "/data/enclosures/town_lot_line_rails.json",
    "bytes": 31326
-  },
-  {
-   "url": "/data/yard/town_kept_ground.json",
-   "bytes": 30333
   },
   {
    "url": "/walk/js/popup.js",
@@ -354,8 +354,8 @@
    "bytes": 29847
   },
   {
-   "url": "/data/sidecars/1835/boot/part-11.json",
-   "bytes": 29557
+   "url": "/data/yard/town_kept_ground.json",
+   "bytes": 29818
   },
   {
    "url": "/walk/js/street-grid.js",
@@ -366,32 +366,28 @@
    "bytes": 29187
   },
   {
-   "url": "/data/sidecars/1835/boot/part-12.json",
-   "bytes": 29128
-  },
-  {
    "url": "/data/sidecars/1835/boot/part-5.json",
-   "bytes": 28290
+   "bytes": 28428
   },
   {
    "url": "/data/sidecars/1835/terrain.json",
    "bytes": 28149
   },
   {
-   "url": "/data/enclosures/town_alley_lanes.json",
-   "bytes": 28009
-  },
-  {
    "url": "/data/sidecars/1835/exclusions.json",
    "bytes": 27975
+  },
+  {
+   "url": "/data/enclosures/town_alley_lanes.json",
+   "bytes": 27862
   },
   {
    "url": "/walk/js/railway.js",
    "bytes": 27319
   },
   {
-   "url": "/data/sidecars/1835/boot/part-14.json",
-   "bytes": 27218
+   "url": "/data/sidecars/1835/boot/part-10.json",
+   "bytes": 26784
   },
   {
    "url": "/walk/js/world.js",
@@ -399,7 +395,7 @@
   },
   {
    "url": "/data/sidecars/1835/boot/part-8.json",
-   "bytes": 25908
+   "bytes": 25935
   },
   {
    "url": "/walk/fonts/sign-old-standard-400-italic.woff2",
@@ -415,15 +411,19 @@
   },
   {
    "url": "/data/sidecars/1835/boot/part-3.json",
-   "bytes": 24404
+   "bytes": 24614
+  },
+  {
+   "url": "/data/sidecars/1835/boot/part-6.json",
+   "bytes": 24045
   },
   {
    "url": "/walk/fonts/sign-old-standard-700.woff2",
    "bytes": 24044
   },
   {
-   "url": "/data/sidecars/1835/boot/part-6.json",
-   "bytes": 24000
+   "url": "/data/sidecars/1835/boot/part-11.json",
+   "bytes": 23879
   },
   {
    "url": "/walk/fonts/sign-old-standard-400.woff2",
@@ -431,7 +431,7 @@
   },
   {
    "url": "/data/yard/town_trade_goods.json",
-   "bytes": 23345
+   "bytes": 23400
   },
   {
    "url": "/walk/fonts/barlow-semi-condensed-600.woff2",
@@ -439,11 +439,11 @@
   },
   {
    "url": "/data/sidecars/1835/boot/part-7.json",
-   "bytes": 22892
+   "bytes": 22863
   },
   {
    "url": "/data/sidecars/1835/boot/part-4.json",
-   "bytes": 22837
+   "bytes": 22709
   },
   {
    "url": "/walk/js/humans.js",
@@ -466,10 +466,6 @@
    "bytes": 20637
   },
   {
-   "url": "/data/sidecars/1835/boot/part-9.json",
-   "bytes": 20292
-  },
-  {
    "url": "/walk/js/human-actions.js",
    "bytes": 19679
   },
@@ -482,20 +478,16 @@
    "bytes": 19446
   },
   {
+   "url": "/data/enclosures/town_lot_line_pickets.json",
+   "bytes": 19309
+  },
+  {
    "url": "/walk/fonts/sign-alfa-slab-one-400.woff2",
    "bytes": 19080
   },
   {
    "url": "/data/flora/index.json",
-   "bytes": 19046
-  },
-  {
-   "url": "/data/enclosures/town_yard_paths.json",
-   "bytes": 18998
-  },
-  {
-   "url": "/data/enclosures/town_lot_line_pickets.json",
-   "bytes": 18910
+   "bytes": 19076
   },
   {
    "url": "/walk/js/people.js",
@@ -506,16 +498,20 @@
    "bytes": 18640
   },
   {
+   "url": "/data/enclosures/town_yard_paths.json",
+   "bytes": 18537
+  },
+  {
    "url": "/walk/js/house-doors.js",
    "bytes": 18426
   },
   {
-   "url": "/walk/js/enclosures.js",
-   "bytes": 18371
+   "url": "/data/sidecars/1835/boot/part-9.json",
+   "bytes": 18388
   },
   {
-   "url": "/data/sidecars/1835/boot/part-10.json",
-   "bytes": 18143
+   "url": "/walk/js/enclosures.js",
+   "bytes": 18371
   },
   {
    "url": "/walk/js/human-skirt.js",
@@ -547,7 +543,7 @@
   },
   {
    "url": "/walk/",
-   "bytes": 15516
+   "bytes": 15515
   },
   {
    "url": "/walk/js/coach-house.js",
@@ -574,10 +570,6 @@
    "bytes": 14700
   },
   {
-   "url": "/data/enclosures/town_lot_line_boards.json",
-   "bytes": 14521
-  },
-  {
    "url": "/data/gltf/green_tree_tavern__frame_1833.glb",
    "bytes": 14446
   },
@@ -592,6 +584,10 @@
   {
    "url": "/data/gltf/emigrant_camp_shore__camp_1835.glb",
    "bytes": 14002
+  },
+  {
+   "url": "/data/enclosures/town_lot_line_boards.json",
+   "bytes": 13282
   },
   {
    "url": "/walk/fonts/sign-abril-fatface-400.woff2",
@@ -758,10 +754,6 @@
    "bytes": 8988
   },
   {
-   "url": "/data/yard/town_yard_outbuildings.json",
-   "bytes": 8938
-  },
-  {
    "url": "/walk/js/human-hair-styles.js",
    "bytes": 8906
   },
@@ -772,6 +764,10 @@
   {
    "url": "/data/gltf/north_bank_shed_dearborn_e1__shed_1835.glb",
    "bytes": 8879
+  },
+  {
+   "url": "/data/yard/town_yard_outbuildings.json",
+   "bytes": 8855
   },
   {
    "url": "/walk/vendor/three-0.185.1/addons/utils/BufferGeometryUtils.js",
@@ -867,7 +863,7 @@
   },
   {
    "url": "/data/reconstruction/1835_hay_limits.json",
-   "bytes": 8089
+   "bytes": 8088
   },
   {
    "url": "/data/gltf/north_bank_shed_dearborn_w__shed_1835.glb",
@@ -956,10 +952,6 @@
   {
    "url": "/data/gltf/newberry_dole_packing_house_south_branch__works_1834.glb",
    "bytes": 7673
-  },
-  {
-   "url": "/data/gltf/recon_1835_gifford_c3_007__inferred_1835.glb",
-   "bytes": 7606
   },
   {
    "url": "/data/gltf/recon_1835_blk_school_section_tier_119_d7_07__inferred_1835.glb",
@@ -1086,11 +1078,11 @@
    "bytes": 7387
   },
   {
-   "url": "/data/gltf/newberry_dole_stock_shed_south_branch__works_1834.glb",
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_94_d7_07__inferred_1835.glb",
    "bytes": 7376
   },
   {
-   "url": "/data/gltf/recon_1835_blk_school_section_tier_94_d7_07__inferred_1835.glb",
+   "url": "/data/gltf/newberry_dole_stock_shed_south_branch__works_1834.glb",
    "bytes": 7376
   },
   {
@@ -1182,24 +1174,12 @@
    "bytes": 7224
   },
   {
-   "url": "/data/gltf/recon_1835_gifford_c3_003__inferred_1835.glb",
-   "bytes": 7218
-  },
-  {
    "url": "/data/gltf/recon_1835_blk_washington_clinton_a2_15__inferred_1835.glb",
    "bytes": 7216
   },
   {
    "url": "/data/gltf/recon_1835_blk_washington_clinton_a2_08__inferred_1835.glb",
    "bytes": 7195
-  },
-  {
-   "url": "/data/gltf/recon_1835_gifford_c3_008__inferred_1835.glb",
-   "bytes": 7192
-  },
-  {
-   "url": "/data/gltf/recon_1835_gifford_c3_002__inferred_1835.glb",
-   "bytes": 7179
   },
   {
    "url": "/data/gltf/recon_1835_north_d7_076__inferred_1835.glb",
@@ -1242,16 +1222,16 @@
    "bytes": 7087
   },
   {
-   "url": "/data/gltf/recon_1835_gifford_c3_015__inferred_1835.glb",
-   "bytes": 7072
-  },
-  {
    "url": "/data/gltf/fort_dearborn_commandants_quarters__brick_1816.glb",
    "bytes": 7070
   },
   {
    "url": "/data/gltf/recon_1835_blk_south_water_wells_c3_02__inferred_1835.glb",
    "bytes": 7066
+  },
+  {
+   "url": "/data/flora/zones/z11_lot_remnant.json",
+   "bytes": 7059
   },
   {
    "url": "/data/gltf/recon_1835_blk_lake_clark_c3_03__inferred_1835.glb",
@@ -1266,16 +1246,8 @@
    "bytes": 7038
   },
   {
-   "url": "/data/flora/zones/z11_lot_remnant.json",
-   "bytes": 7024
-  },
-  {
    "url": "/data/gltf/recon_1835_blk_washington_franklin_d7_04__inferred_1835.glb",
    "bytes": 7019
-  },
-  {
-   "url": "/data/gltf/recon_1835_gifford_c3_012__inferred_1835.glb",
-   "bytes": 7016
   },
   {
    "url": "/data/gltf/recon_1835_blk_south_water_dearborn_c3_01__inferred_1835.glb",
@@ -1284,10 +1256,6 @@
   {
    "url": "/data/gltf/recon_1835_blk_washington_dearborn_d7_06__inferred_1835.glb",
    "bytes": 6999
-  },
-  {
-   "url": "/data/gltf/recon_1835_gifford_c3_013__inferred_1835.glb",
-   "bytes": 6962
   },
   {
    "url": "/data/fauna/zones/f10_settled_town.json",
@@ -1302,20 +1270,12 @@
    "bytes": 6941
   },
   {
-   "url": "/data/gltf/recon_1835_gifford_c3_014__inferred_1835.glb",
-   "bytes": 6940
-  },
-  {
    "url": "/data/gltf/recon_1835_west_053__inferred_1835.glb",
    "bytes": 6929
   },
   {
    "url": "/data/gltf/recon_1835_blk_washington_franklin_d7_01__inferred_1835.glb",
    "bytes": 6925
-  },
-  {
-   "url": "/data/gltf/recon_1835_gifford_c3_005__inferred_1835.glb",
-   "bytes": 6924
   },
   {
    "url": "/data/gltf/recon_1835_blk_washington_lasalle_d7_04__inferred_1835.glb",
@@ -1332,10 +1292,6 @@
   {
    "url": "/data/gltf/recon_1835_blk_south_water_lasalle_c3_13__inferred_1835.glb",
    "bytes": 6884
-  },
-  {
-   "url": "/data/gltf/recon_1835_gifford_c3_006__inferred_1835.glb",
-   "bytes": 6879
   },
   {
    "url": "/data/gltf/recon_1835_blk_south_water_lasalle_c3_12__inferred_1835.glb",
@@ -1376,10 +1332,6 @@
   {
    "url": "/data/gltf/recon_1835_south_d7_035__inferred_1835.glb",
    "bytes": 6765
-  },
-  {
-   "url": "/data/gltf/recon_1835_gifford_c3_017__inferred_1835.glb",
-   "bytes": 6760
   },
   {
    "url": "/data/gltf/recon_1835_canal_trade_c3_001__inferred_1835.glb",
@@ -1522,10 +1474,6 @@
    "bytes": 6468
   },
   {
-   "url": "/data/gltf/recon_1835_gifford_h3_004__inferred_1835.glb",
-   "bytes": 6468
-  },
-  {
    "url": "/data/gltf/recon_1835_blk_washington_market_h1_07__inferred_1835.glb",
    "bytes": 6462
   },
@@ -1542,10 +1490,6 @@
    "bytes": 6433
   },
   {
-   "url": "/data/gltf/recon_1835_gifford_c2_011__inferred_1835.glb",
-   "bytes": 6408
-  },
-  {
    "url": "/data/gltf/recon_1835_blk_washington_lasalle_h1_03__inferred_1835.glb",
    "bytes": 6403
   },
@@ -1560,14 +1504,6 @@
   {
    "url": "/walk/js/standing-horses.js",
    "bytes": 6381
-  },
-  {
-   "url": "/data/gltf/recon_1835_gifford_h3_018__inferred_1835.glb",
-   "bytes": 6366
-  },
-  {
-   "url": "/data/gltf/recon_1835_gifford_c2_009__inferred_1835.glb",
-   "bytes": 6359
   },
   {
    "url": "/data/gltf/pierce_blacksmith_shop__shop_1833.glb",
@@ -1596,10 +1532,6 @@
   {
    "url": "/data/gltf/recon_1835_blk_south_water_franklin_c2_08__inferred_1835.glb",
    "bytes": 6329
-  },
-  {
-   "url": "/data/gltf/recon_1835_gifford_c2_016__inferred_1835.glb",
-   "bytes": 6327
   },
   {
    "url": "/walk/js/roof-relief.js",
@@ -1662,10 +1594,6 @@
    "bytes": 6168
   },
   {
-   "url": "/data/gltf/recon_1835_gifford_c2_001__inferred_1835.glb",
-   "bytes": 6168
-  },
-  {
    "url": "/data/gltf/recon_1835_blk_lake_market_c2_01__inferred_1835.glb",
    "bytes": 6165
   },
@@ -1676,10 +1604,6 @@
   {
    "url": "/walk/js/compact-attributes.js",
    "bytes": 6163
-  },
-  {
-   "url": "/data/gltf/recon_1835_gifford_c1_010__inferred_1835.glb",
-   "bytes": 6156
   },
   {
    "url": "/data/fauna/zones/f06_north_timber.json",
@@ -1738,11 +1662,11 @@
    "bytes": 6073
   },
   {
-   "url": "/data/yard/lot_building_material.json",
-   "bytes": 6058
+   "url": "/data/gltf/recon_1835_west_020__inferred_1835.glb",
+   "bytes": 6057
   },
   {
-   "url": "/data/gltf/recon_1835_west_020__inferred_1835.glb",
+   "url": "/data/yard/lot_building_material.json",
    "bytes": 6057
   },
   {
@@ -1764,10 +1688,6 @@
   {
    "url": "/data/fauna/zones/f09_river.json",
    "bytes": 5983
-  },
-  {
-   "url": "/data/gltf/recon_1835_gifford_h3_019__inferred_1835.glb",
-   "bytes": 5962
   },
   {
    "url": "/data/gltf/recon_1835_blk_school_section_tier_81_d6_06__inferred_1835.glb",
@@ -2002,19 +1922,15 @@
    "bytes": 5639
   },
   {
-   "url": "/data/gltf/recon_1835_blk_randolph_clark_d6_04__inferred_1835.glb",
-   "bytes": 5638
-  },
-  {
    "url": "/data/gltf/recon_1835_blk_randolph_wells_d2_07__inferred_1835.glb",
    "bytes": 5636
   },
   {
-   "url": "/data/gltf/brickyard_north_side__yard_1833.glb",
+   "url": "/data/gltf/recon_1835_blk_washington_franklin_a1_10__inferred_1835.glb",
    "bytes": 5635
   },
   {
-   "url": "/data/gltf/recon_1835_blk_washington_franklin_a1_10__inferred_1835.glb",
+   "url": "/data/gltf/brickyard_north_side__yard_1833.glb",
    "bytes": 5635
   },
   {
@@ -2022,15 +1938,19 @@
    "bytes": 5635
   },
   {
+   "url": "/data/gltf/recon_1835_blk_randolph_clark_d6_04__inferred_1835.glb",
+   "bytes": 5633
+  },
+  {
    "url": "/data/gltf/recon_1835_south_a1_046__inferred_1835.glb",
    "bytes": 5631
   },
   {
-   "url": "/data/gltf/pruyne_kimball_drugstore__frame_1830s.glb",
+   "url": "/data/gltf/recon_1835_blk_south_water_dearborn_a1_09__inferred_1835.glb",
    "bytes": 5630
   },
   {
-   "url": "/data/gltf/recon_1835_blk_south_water_dearborn_a1_09__inferred_1835.glb",
+   "url": "/data/gltf/pruyne_kimball_drugstore__frame_1830s.glb",
    "bytes": 5630
   },
   {
@@ -2230,10 +2150,6 @@
    "bytes": 5372
   },
   {
-   "url": "/data/gltf/recon_1835_blk_south_water_clark_d4_02__inferred_1835.glb",
-   "bytes": 5365
-  },
-  {
    "url": "/data/wells/fort_dearborn_well.json",
    "bytes": 5363
   },
@@ -2282,6 +2198,10 @@
    "bytes": 5301
   },
   {
+   "url": "/data/gltf/recon_1835_blk_south_water_clark_d4_02__inferred_1835.glb",
+   "bytes": 5295
+  },
+  {
    "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d5_02__inferred_1835.glb",
    "bytes": 5295
   },
@@ -2310,11 +2230,11 @@
    "bytes": 5263
   },
   {
-   "url": "/data/gltf/inf_sawyer_dwelling_b__inferred_1835.glb",
+   "url": "/data/gltf/recon_1835_blk_south_water_dearborn_d2_04__inferred_1835.glb",
    "bytes": 5262
   },
   {
-   "url": "/data/gltf/recon_1835_blk_south_water_dearborn_d2_04__inferred_1835.glb",
+   "url": "/data/gltf/inf_sawyer_dwelling_b__inferred_1835.glb",
    "bytes": 5262
   },
   {
@@ -2342,11 +2262,11 @@
    "bytes": 5244
   },
   {
-   "url": "/data/gltf/fort_dearborn_store_house__log_1816.glb",
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_d5_01__inferred_1835.glb",
    "bytes": 5243
   },
   {
-   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_d5_01__inferred_1835.glb",
+   "url": "/data/gltf/fort_dearborn_store_house__log_1816.glb",
    "bytes": 5243
   },
   {
@@ -2655,7 +2575,7 @@
   },
   {
    "url": "/data/prebuilt/1835/base.json",
-   "bytes": 5057
+   "bytes": 5058
   },
   {
    "url": "/data/gltf/recon_1835_south_d5_007__inferred_1835.glb",
@@ -2698,10 +2618,6 @@
    "bytes": 5034
   },
   {
-   "url": "/data/gltf/recon_1835_blk_lake_market_d4_02__inferred_1835.glb",
-   "bytes": 5031
-  },
-  {
    "url": "/data/gltf/recon_1835_north_d4_072__inferred_1835.glb",
    "bytes": 5031
   },
@@ -2734,11 +2650,11 @@
    "bytes": 5014
   },
   {
-   "url": "/data/gltf/fort_dearborn_us_factors_house__us_factors_house_1818.glb",
+   "url": "/data/gltf/recon_1835_blk_west_washington_canal_d5_02__inferred_1835.glb",
    "bytes": 5012
   },
   {
-   "url": "/data/gltf/recon_1835_blk_west_washington_canal_d5_02__inferred_1835.glb",
+   "url": "/data/gltf/fort_dearborn_us_factors_house__us_factors_house_1818.glb",
    "bytes": 5012
   },
   {
@@ -2866,6 +2782,10 @@
    "bytes": 4887
   },
   {
+   "url": "/data/gltf/recon_1835_blk_lake_market_d4_02__inferred_1835.glb",
+   "bytes": 4884
+  },
+  {
    "url": "/data/enclosures/wolf_point_tavern_yard.json",
    "bytes": 4882
   },
@@ -2990,11 +2910,11 @@
    "bytes": 4784
   },
   {
-   "url": "/data/gltf/brown_boarding_house__documented_1835.glb",
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_95_d4_04__inferred_1835.glb",
    "bytes": 4781
   },
   {
-   "url": "/data/gltf/recon_1835_blk_school_section_tier_95_d4_04__inferred_1835.glb",
+   "url": "/data/gltf/brown_boarding_house__documented_1835.glb",
    "bytes": 4781
   },
   {
@@ -3130,11 +3050,11 @@
    "bytes": 4719
   },
   {
-   "url": "/data/gltf/recon_1835_south_d4_006__inferred_1835.glb",
+   "url": "/data/gltf/recon_1835_south_d1_003__inferred_1835.glb",
    "bytes": 4719
   },
   {
-   "url": "/data/gltf/recon_1835_south_d1_003__inferred_1835.glb",
+   "url": "/data/gltf/recon_1835_south_d4_006__inferred_1835.glb",
    "bytes": 4719
   },
   {
@@ -3158,11 +3078,11 @@
    "bytes": 4712
   },
   {
-   "url": "/data/gltf/inf_boatman_cabin_north__inferred_1835.glb",
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d4_03__inferred_1835.glb",
    "bytes": 4710
   },
   {
-   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d4_03__inferred_1835.glb",
+   "url": "/data/gltf/inf_boatman_cabin_north__inferred_1835.glb",
    "bytes": 4710
   },
   {
@@ -3442,15 +3362,11 @@
    "bytes": 4505
   },
   {
-   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d3_15__inferred_1835.glb",
-   "bytes": 4498
-  },
-  {
-   "url": "/data/gltf/inf_packer_dwelling__inferred_1835.glb",
+   "url": "/data/gltf/north_side_school_1833__log_1833.glb",
    "bytes": 4492
   },
   {
-   "url": "/data/gltf/north_side_school_1833__log_1833.glb",
+   "url": "/data/gltf/inf_packer_dwelling__inferred_1835.glb",
    "bytes": 4492
   },
   {
@@ -3614,11 +3530,11 @@
    "bytes": 4399
   },
   {
-   "url": "/data/gltf/chicago_lighthouse_keepers_quarters__quarters_1832.glb",
+   "url": "/data/gltf/recon_1835_north_a4_052__inferred_1835.glb",
    "bytes": 4398
   },
   {
-   "url": "/data/gltf/recon_1835_north_a4_052__inferred_1835.glb",
+   "url": "/data/gltf/chicago_lighthouse_keepers_quarters__quarters_1832.glb",
    "bytes": 4398
   },
   {
@@ -3632,6 +3548,10 @@
   {
    "url": "/data/gltf/recon_1835_blk_randolph_wells_d3_05__inferred_1835.glb",
    "bytes": 4390
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d3_15__inferred_1835.glb",
+   "bytes": 4377
   },
   {
    "url": "/data/gltf/madore_beaubien_house__log_1831.glb",
@@ -4458,12 +4378,12 @@
    "bytes": 1917
   },
   {
-   "url": "/data/render/town_completion_1835.json",
-   "bytes": 1903
-  },
-  {
    "url": "/data/yard/index.json",
    "bytes": 1894
+  },
+  {
+   "url": "/data/render/town_completion_1835.json",
+   "bytes": 1862
   },
   {
    "url": "/walk/js/confidence-store.js",
@@ -5019,7 +4939,7 @@
   },
   {
    "url": "/packs/index.json",
-   "bytes": 153
+   "bytes": 154
   },
   {
    "url": "/data/humans/instances/1835/index.json",
@@ -5031,7 +4951,7 @@
   },
   {
    "url": "/data/prebuilt/index.json",
-   "bytes": 109
+   "bytes": 107
   }
  ]
 }

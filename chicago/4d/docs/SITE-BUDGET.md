@@ -172,7 +172,7 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 45.85 MB**, consciously re-budgeted on 2026-11-15 by T-3605 for the 19 stores and blocks of Gifford's Tremont House drawing and the 1835 townspeople's days (T-3556), both of which the owner asked for (§ 4o). It had been set at 45.2 MB on 2026-11-14 by T-3599 for four days of the owner's people and town code past § 18's room (§ 4n). It had been set at 44.9 MB on 2026-11-10 for the early masonry maps (§ 18), after the measured retained street (§ 4m). It was re-set to 40.2 MB on 2026-11-06 by T-3425 for five days of the
+**The boot payload budget is 45.7 MB**, consciously re-budgeted on 2026-11-16 by T-3609 for the 1835 townspeople's comings and goings (T-3556) and two days of the people's code past § 4n's room (§ 4o). It had been set at 45.2 MB on 2026-11-14 by T-3599 for four days of the owner's people and town code past § 18's room (§ 4n), and before that at 44.9 MB on 2026-11-10 for the early masonry maps (§ 18), after the measured retained street (§ 4m). It was re-set to 40.2 MB on 2026-11-06 by T-3425 for five days of the
 owner's town past T-3300's room (§ 4l). T-3300 had set it at 39.6 MB on 2026-11-01 for two weeks of the
 owner's town landing unmeasured (§ 4k). T-2711 had set it at 36.2 MB on 2026-10-17 for the prebuilt
 yards (§ 4j). T-2710 had set it at 33.7 MB the same day for the prebuilt streets (§ 4i), and
@@ -188,8 +188,8 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 45.85 MB budget
-node tools/measure_boot_payload.mjs --against docs/measurements/T-3605-boot-payload-entries.json
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 45.7 MB budget
+node tools/measure_boot_payload.mjs --against docs/measurements/T-3609-boot-payload-entries.json
                                            # what grew since § 4o's reading, file by file
 ```
 
@@ -830,46 +830,47 @@ the prebuilt layers: modules the 1835 street imports eagerly that a first visit 
 ticket, and the reading to beat is this one:
 `node tools/measure_boot_payload.mjs --against docs/measurements/T-3599-boot-payload-entries.json`.
 
-### 4o. The Gifford street faces and the townspeople's days, measured 2026-11-15 (T-3605), and the budget is 45.85 MB
+### 4o. Two days past § 4n's room, re-measured 2026-11-16 (T-3609), and the budget is 45.7 MB
 
-The content build's desktop `1-2` leg went red on PR #2093 (run 43766993479): **BOOT PAYLOAD OVER
-BUDGET, 45.264 MB > 45.200 MB**. Re-read on the branch, published by `publish.sh` and measured by
-`--check`, it is **45.264 MB across 1,255 requests** (47,463,203 wire bytes), the same to the byte
-on two runs. Against § 4n's reading (`T-3599-boot-payload-entries.json`) it is +0.328 MB:
+The content build's desktop `1-2` leg went red on PR #2062 (run 43782254713) and PR #2080 (run
+43781261707), two 1904-only diffs, at the same reading to the byte: **BOOT PAYLOAD OVER BUDGET,
+45.429 MB > 45.200 MB, 1237 requests**. dev's own content build at 23:26Z on 2026-11-15 (run
+43774799715) had read 45.092 MB, within budget, so the breach is dev's own and every PR's content
+build carries it, as with T-3599. Re-read on dev `e6334be4c`, published by `publish.sh` and measured
+by `--check --against` § 4n's committed entries, it is **45.437 MB across 1,238 requests**:
+**+0.501 MB and 11 requests in two days**:
 
 | | on the wire | where it came from |
 |---|---|---|
-| this PR's 19 roofs | +0.122 MB | the `recon_1835_gifford_*` GLBs, 0.006 MB each: the 16 stores and 3 blocks the owner asked to have built from Gifford's drawing of the Tremont House street ("photo match build the rest of that street face") |
-| a day of dev | +0.206 MB | the people's records (`hm08_variation_persons.json` +0.058 MB), the yards layer (+0.044 MB), and new and grown walk code (team-drive, today-view, transport loops and the people's modules), less the sidecars and frontage (−0.038 MB) |
+| the 1835 townspeople's days | +0.334 MB | T-3556 (#2088), 1835's townspeople come and go from their homes and places of business: `data/humans/inside_1835.json` arrives at 0.173 MB (the people carded inside a house or shop, read by `main.js` beside the days), `data/humans/web/hm08_variation_persons_1835.json` arrives at 0.129 MB (the 1835 persons' variation records), and `data/humans/doors_1835.json` grows 0.032 MB (the doors and ways they use) |
+| the people's records | +0.058 MB | `data/humans/web/hm08_variation_persons.json`: T-3553's skins and dress (a coachman's one skin on his carriage and at his door) |
+| walk code | +0.108 MB | 9 new modules — the Glessner carriage ride and any horse team to drive (`coach-house.js`, 0.015 MB, and `team-drive`, T-3557), the story jaunts' staging and the 18+ tellings' fighting and wounds (`jaunt-stage`, `human-fight`, `human-blood`, T-3553 #2083/#2092), the women's finery (`human-finery`) and the Today window (`today-view`, its config and `today-geo`, T-3601) — and growth in the driven transport (`transport-loop`, `transport-interactions`, `town-transport-scene`), `fabric`, `main.js` and the people's modules |
+| everything else | +0.001 MB | `loops.json`, the variation kit's index and the walk's CSS and page, against 12 files a few bytes smaller |
 
-Nothing in it is a careless import or an unmetered fetch (§ 4b's test): every arrival is a roof
-the 1835 street shows where the visitor stands, or code and records dev had already merged. The
-roofs are the parcel itself, so under AGENTS.md's ruling on budgets ("just raise it", never
-silently, measure then move) this is **a conscious re-budget, not an assertion weakened to clear a
-red: 45.264 MB measured plus 0.236 MB of room, 45.5 MB.** The check, its unit and the measurement
-are unchanged.
+**Nothing in it is a careless import or an unmetered fetch** — § 4b's test. The largest single
+arrival is `inside_1835.json` at 0.173 MB, and every arrival is a record or code the 1835 street
+runs where the visitor stands: the townspeople's days are read at boot because the people are on
+the street, going in and out of their doors, from the first frame. Nothing new is a texture, a mesh
+or a prebuilt layer. Making the 1835 doors, inside and persons records load on first use, the
+ticket's other route, would change how and when the townspeople appear — a figure that is not yet
+read cannot be standing in its doorway when the visitor arrives — and that is the owner's choice,
+not a budget's (§ 4n's caution). So this re-argues the number the way § 4n did, under AGENTS.md's
+standing ruling on budgets: **45.437 MB measured plus 0.263 MB of room, 45.7 MB.** This is a
+conscious re-budget, not an assertion weakened to clear a red: the check, its unit (MiB, read off
+the line above) and the measurement are unchanged.
 
-**Then dev moved under it, the same day.** T-3556 (the owner's "fill out the 1835 people …
-their ability to enter and exit their homes or places of business") merged first and put dev
-itself past 45.2 MB: re-read on this branch after merging dev, published and measured, it is
-**45.610 MB across 1,258 requests** (47,825,270 wire bytes), +0.346 MB on the reading above.
-All of it is the people's: `inside_1835.json` (+0.173 MB, every townsperson's day, read as the
-street boots), the 1835 persons table `hm08_variation_persons_1835.json` (+0.129 MB), the
-grown doors file (+0.032 MB) and `human-blood.js` (+0.008 MB). Nothing is a careless import;
-cutting any of it is a choice about the town's people, which is the owner's. So this section's
-number is re-argued once, on the merged tree: **45.610 MB measured plus 0.240 MB of room,
-45.85 MB.** The committed per-URL reading is that merged one.
-
-**Said plainly, what 45.85 surrenders.** The owner's next pick spreads the drawing's density over
-the commercial core (about 60 stores), and at 0.006 MB a roof that is roughly 0.4 MB more, past
-this room. That parcel takes its own number before it deals and argues its own re-budget here;
-this one is not raised ahead of it. The reading to beat is this one:
-`node tools/measure_boot_payload.mjs --against docs/measurements/T-3605-boot-payload-entries.json`.
+**Said plainly, what 45.7 surrenders.** Two-thirds of this growth is one parcel (T-3556) arriving
+whole; without it the pace is § 4n's, about 0.08 MB a day, and the room lasts about three days.
+§ 4n's lever is still the right one and still unpulled: modules the 1835 street imports eagerly
+that a first visit does not run (sign-in, the XR controls, narration, and now `human-fight` and
+`human-blood`, which only an 18+ telling reaches) could load on first use. That is a
+cut, so it is a separate ticket, and the reading to beat is this one:
+`node tools/measure_boot_payload.mjs --against docs/measurements/T-3609-boot-payload-entries.json`.
 
 ## 5. What the gate does now
 
 - **Refuses** over 416 MiB (T-3170; measured re-budgets in §8, §9, §11 and §13) — the repository-hygiene guard, not the visitor-cost
-  budget; the visitor-cost budget is the 45.85 MB boot payload budget in § 4,
+  budget; the visitor-cost budget is the 45.7 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
   the report again.
