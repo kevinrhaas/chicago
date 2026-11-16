@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 1,
+  "content_version": 2,
   "category": "Fort Dearborn",
   "menu_group": "Stories",
   "grade_band": "6-8",
@@ -666,6 +666,10 @@
                 "arm": "none"
               },
               {
+                "t": 75.35,
+                "wound": "body"
+              },
+              {
                 "t": 75.7,
                 "pose": "kneel2",
                 "ease": 0.5
@@ -674,6 +678,22 @@
                 "t": 76.4,
                 "pose": "fallen",
                 "ease": 0.8
+              },
+              {
+                "t": 83.1,
+                "wound": "body"
+              },
+              {
+                "t": 84.1,
+                "wound": "body"
+              },
+              {
+                "t": 85.1,
+                "wound": "body"
+              },
+              {
+                "t": 86.1,
+                "wound": "body"
               }
             ]
           },
@@ -726,9 +746,25 @@
                 "arm": "none"
               },
               {
+                "t": 76.85,
+                "wound": "neck"
+              },
+              {
                 "t": 77.2,
                 "pose": "fallen",
                 "ease": 0.7
+              },
+              {
+                "t": 85.77,
+                "wound": "scalp"
+              },
+              {
+                "t": 86.57,
+                "wound": "scalp"
+              },
+              {
+                "t": 87.37,
+                "wound": "scalp"
               }
             ]
           },
@@ -10960,6 +10996,10 @@
                 "act": "struck"
               },
               {
+                "t": 58.5,
+                "wound": "body"
+              },
+              {
                 "t": 58.8,
                 "pose": "kneel",
                 "ease": 0.9
@@ -10968,6 +11008,14 @@
                 "t": 65.07,
                 "face": "gathering_1812_north_flat_054",
                 "act": "stab"
+              },
+              {
+                "t": 67.07,
+                "wound": "head"
+              },
+              {
+                "t": 68.67,
+                "wound": "head"
               },
               {
                 "t": 68.67,
@@ -11004,9 +11052,17 @@
                 "act": "struck"
               },
               {
+                "t": 48.6,
+                "wound": "body"
+              },
+              {
                 "t": 48.9,
                 "pose": "kneel2",
                 "ease": 0.9
+              },
+              {
+                "t": 74.93,
+                "wound": "head"
               },
               {
                 "t": 74.93,
@@ -11175,6 +11231,10 @@
                 "act": "struck"
               },
               {
+                "t": 56.2,
+                "wound": "body"
+              },
+              {
                 "t": 61.33,
                 "face": "naunongee",
                 "act": "stab"
@@ -11183,6 +11243,10 @@
                 "t": 62.18,
                 "pose": "kneel2",
                 "ease": 0.8
+              },
+              {
+                "t": 64.84,
+                "wound": "head"
               },
               {
                 "t": 64.84,
@@ -11487,6 +11551,10 @@
               },
               {
                 "t": 58.24,
+                "wound": "head"
+              },
+              {
+                "t": 58.24,
                 "act": "struck",
                 "arm": "none"
               },
@@ -11494,6 +11562,18 @@
                 "t": 58.59,
                 "pose": "fallen",
                 "ease": 0.7
+              },
+              {
+                "t": 63.03,
+                "wound": "scalp"
+              },
+              {
+                "t": 63.83,
+                "wound": "scalp"
+              },
+              {
+                "t": 64.63,
+                "wound": "scalp"
               }
             ]
           },
@@ -11593,6 +11673,10 @@
                 "t": 47.4,
                 "act": "struck",
                 "arm": "none"
+              },
+              {
+                "t": 47.4,
+                "wound": "body"
               },
               {
                 "t": 47.75,
@@ -11836,6 +11920,10 @@
               },
               {
                 "t": 59.34,
+                "wound": "head"
+              },
+              {
+                "t": 59.34,
                 "act": "struck",
                 "arm": "none"
               },
@@ -11843,6 +11931,18 @@
                 "t": 59.69,
                 "pose": "fallen",
                 "ease": 0.7
+              },
+              {
+                "t": 64.0,
+                "wound": "scalp"
+              },
+              {
+                "t": 64.8,
+                "wound": "scalp"
+              },
+              {
+                "t": 65.6,
+                "wound": "scalp"
               }
             ]
           },
@@ -12193,6 +12293,10 @@
               },
               {
                 "t": 60.44,
+                "wound": "head"
+              },
+              {
+                "t": 60.44,
                 "act": "struck",
                 "arm": "none"
               },
@@ -12200,6 +12304,18 @@
                 "t": 60.79,
                 "pose": "fallen",
                 "ease": 0.7
+              },
+              {
+                "t": 65.12,
+                "wound": "scalp"
+              },
+              {
+                "t": 65.92,
+                "wound": "scalp"
+              },
+              {
+                "t": 66.72,
+                "wound": "scalp"
               }
             ]
           },
@@ -12372,6 +12488,10 @@
               },
               {
                 "t": 57.14,
+                "wound": "head"
+              },
+              {
+                "t": 57.14,
                 "act": "struck",
                 "arm": "none"
               },
@@ -12379,6 +12499,18 @@
                 "t": 57.49,
                 "pose": "fallen",
                 "ease": 0.7
+              },
+              {
+                "t": 61.89,
+                "wound": "scalp"
+              },
+              {
+                "t": 62.69,
+                "wound": "scalp"
+              },
+              {
+                "t": 63.49,
+                "wound": "scalp"
               }
             ]
           },
@@ -13085,6 +13217,10 @@
               },
               {
                 "t": 59.34,
+                "wound": "head"
+              },
+              {
+                "t": 59.34,
                 "act": "struck",
                 "arm": "none"
               },
@@ -13092,6 +13228,18 @@
                 "t": 59.69,
                 "pose": "fallen",
                 "ease": 0.7
+              },
+              {
+                "t": 63.95,
+                "wound": "scalp"
+              },
+              {
+                "t": 64.75,
+                "wound": "scalp"
+              },
+              {
+                "t": 65.55,
+                "wound": "scalp"
               }
             ]
           },
@@ -13803,6 +13951,10 @@
               },
               {
                 "t": 76.58,
+                "wound": "shoulder"
+              },
+              {
+                "t": 76.58,
                 "act": "struck"
               },
               {
@@ -14093,6 +14245,10 @@
               },
               {
                 "t": 82.08,
+                "wound": "head"
+              },
+              {
+                "t": 82.08,
                 "act": "struck",
                 "arm": "none"
               },
@@ -14177,6 +14333,10 @@
               },
               {
                 "t": 63.84,
+                "wound": "head"
+              },
+              {
+                "t": 63.84,
                 "act": "struck",
                 "arm": "none"
               },
@@ -14184,6 +14344,10 @@
                 "t": 64.19,
                 "pose": "fallen",
                 "ease": 0.7
+              },
+              {
+                "t": 65.64,
+                "wound": "head"
               }
             ]
           },
@@ -14228,6 +14392,10 @@
               },
               {
                 "t": 66.94,
+                "wound": "head"
+              },
+              {
+                "t": 66.94,
                 "act": "struck",
                 "arm": "none"
               },
@@ -14235,6 +14403,18 @@
                 "t": 67.29,
                 "pose": "fallen",
                 "ease": 0.7
+              },
+              {
+                "t": 71.93,
+                "wound": "scalp"
+              },
+              {
+                "t": 72.73,
+                "wound": "scalp"
+              },
+              {
+                "t": 73.53,
+                "wound": "scalp"
               }
             ]
           },
@@ -14278,6 +14458,10 @@
               },
               {
                 "t": 67.86,
+                "wound": "head"
+              },
+              {
+                "t": 67.86,
                 "act": "struck",
                 "arm": "none"
               },
@@ -14285,6 +14469,10 @@
                 "t": 68.21,
                 "pose": "fallen",
                 "ease": 0.7
+              },
+              {
+                "t": 69.66,
+                "wound": "head"
               }
             ]
           },
@@ -14328,6 +14516,10 @@
               },
               {
                 "t": 70.49,
+                "wound": "head"
+              },
+              {
+                "t": 70.49,
                 "act": "struck",
                 "arm": "none"
               },
@@ -14335,6 +14527,18 @@
                 "t": 70.84,
                 "pose": "fallen",
                 "ease": 0.7
+              },
+              {
+                "t": 75.45,
+                "wound": "scalp"
+              },
+              {
+                "t": 76.25,
+                "wound": "scalp"
+              },
+              {
+                "t": 77.05,
+                "wound": "scalp"
               }
             ]
           },
@@ -14379,6 +14583,10 @@
               },
               {
                 "t": 71.84,
+                "wound": "head"
+              },
+              {
+                "t": 71.84,
                 "act": "struck",
                 "arm": "none"
               },
@@ -14386,6 +14594,22 @@
                 "t": 72.19,
                 "pose": "fallen",
                 "ease": 0.7
+              },
+              {
+                "t": 73.64,
+                "wound": "head"
+              },
+              {
+                "t": 76.83,
+                "wound": "scalp"
+              },
+              {
+                "t": 77.63,
+                "wound": "scalp"
+              },
+              {
+                "t": 78.43,
+                "wound": "scalp"
               }
             ]
           },
@@ -14433,6 +14657,10 @@
               {
                 "t": 74.64,
                 "act": "lower"
+              },
+              {
+                "t": 76.24,
+                "wound": "head"
               },
               {
                 "t": 76.24,
@@ -14493,6 +14721,10 @@
               },
               {
                 "t": 77.67,
+                "wound": "head"
+              },
+              {
+                "t": 77.67,
                 "act": "struck",
                 "arm": "none"
               },
@@ -14500,6 +14732,10 @@
                 "t": 78.02,
                 "pose": "fallen",
                 "ease": 0.7
+              },
+              {
+                "t": 79.47,
+                "wound": "head"
               }
             ]
           },
@@ -14544,6 +14780,10 @@
               },
               {
                 "t": 80.49,
+                "wound": "head"
+              },
+              {
+                "t": 80.49,
                 "act": "struck",
                 "arm": "none"
               },
@@ -14551,6 +14791,18 @@
                 "t": 80.84,
                 "pose": "fallen",
                 "ease": 0.7
+              },
+              {
+                "t": 85.45,
+                "wound": "scalp"
+              },
+              {
+                "t": 86.25,
+                "wound": "scalp"
+              },
+              {
+                "t": 87.05,
+                "wound": "scalp"
               }
             ]
           },
@@ -14594,6 +14846,10 @@
               },
               {
                 "t": 82.47,
+                "wound": "head"
+              },
+              {
+                "t": 82.47,
                 "act": "struck",
                 "arm": "none"
               },
@@ -14601,6 +14857,10 @@
                 "t": 82.82,
                 "pose": "fallen",
                 "ease": 0.7
+              },
+              {
+                "t": 84.27,
+                "wound": "head"
               }
             ]
           },
@@ -14641,6 +14901,10 @@
               {
                 "t": 83.26,
                 "act": "lower"
+              },
+              {
+                "t": 84.86,
+                "wound": "head"
               },
               {
                 "t": 84.86,
@@ -15232,6 +15496,10 @@
               },
               {
                 "t": 60.93,
+                "wound": "body"
+              },
+              {
+                "t": 60.93,
                 "act": "struck",
                 "arm": "none"
               },
@@ -15335,6 +15603,10 @@
                 "t": 58.12,
                 "face": "mortt_august",
                 "act": "strike"
+              },
+              {
+                "t": 59.76,
+                "wound": "body"
               },
               {
                 "t": 59.76,
@@ -16297,6 +16569,10 @@
               },
               {
                 "t": 58.25,
+                "wound": "body"
+              },
+              {
+                "t": 58.25,
                 "act": "struck",
                 "arm": "none"
               },
@@ -16530,6 +16806,10 @@
               },
               {
                 "t": 61.48,
+                "wound": "body"
+              },
+              {
+                "t": 61.48,
                 "act": "struck",
                 "arm": "none"
               },
@@ -16749,6 +17029,10 @@
                 "t": 57.09,
                 "face": "griffith_william",
                 "act": "strike"
+              },
+              {
+                "t": 58.73,
+                "wound": "body"
               },
               {
                 "t": 58.73,
@@ -17253,6 +17537,10 @@
                 "arm": "none"
               },
               {
+                "t": 52.75,
+                "wound": "body"
+              },
+              {
                 "t": 53.1,
                 "pose": "fallen",
                 "ease": 0.7
@@ -17314,6 +17602,10 @@
                 "t": 59.29,
                 "face": "edson_nathan",
                 "act": "strike"
+              },
+              {
+                "t": 60.93,
+                "wound": "body"
               },
               {
                 "t": 60.93,
@@ -17793,6 +18085,10 @@
               },
               {
                 "t": 59.83,
+                "wound": "body"
+              },
+              {
+                "t": 59.83,
                 "act": "struck",
                 "arm": "none"
               },
@@ -18194,6 +18490,10 @@
               },
               {
                 "t": 59.83,
+                "wound": "body"
+              },
+              {
+                "t": 59.83,
                 "act": "struck",
                 "arm": "none"
               },
@@ -18457,6 +18757,10 @@
               },
               {
                 "t": 58.73,
+                "wound": "body"
+              },
+              {
+                "t": 58.73,
                 "act": "struck",
                 "arm": "none"
               },
@@ -18533,6 +18837,10 @@
                 "t": 61.77,
                 "act": "struck",
                 "arm": "none"
+              },
+              {
+                "t": 61.77,
+                "wound": "body"
               },
               {
                 "t": 62.12,
@@ -19154,6 +19462,10 @@
                 "act": "struck"
               },
               {
+                "t": 42.64,
+                "wound": "body"
+              },
+              {
                 "t": 42.94,
                 "pose": "kneel2",
                 "ease": 0.7
@@ -19228,9 +19540,25 @@
                 "arm": "none"
               },
               {
+                "t": 38.64,
+                "wound": "body"
+              },
+              {
                 "t": 38.99,
                 "pose": "fallen",
                 "ease": 0.9
+              },
+              {
+                "t": 49.32,
+                "wound": "scalp"
+              },
+              {
+                "t": 50.12,
+                "wound": "scalp"
+              },
+              {
+                "t": 50.92,
+                "wound": "scalp"
               }
             ]
           },
@@ -19316,6 +19644,10 @@
                 "t": 32.54,
                 "act": "struck",
                 "arm": "none"
+              },
+              {
+                "t": 32.54,
+                "wound": "body"
               },
               {
                 "t": 32.89,
