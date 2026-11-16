@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 2,
+  "content_version": 3,
   "category": "Fort Dearborn",
   "menu_group": "Stories",
   "grade_band": "6-8",
@@ -9,18 +9,18 @@
   "id": "killing-of-jean-lalime-adults",
   "version_of": "killing-of-jean-lalime",
   "audience": "adults",
-  "content_warning": "18+. A killing staged as the witnesses described it: a pistol fired at close range and a man stabbed to death with a knife.",
+  "content_warning": "Graphic violence.",
   "scene": "1812",
-  "title": "Chicago's First Murder (18+)",
-  "premise": "18+: 17 June 1812, sunset, the fort gate: Chicago's first recorded murder, with the pistol shot and the knife staged as the witnesses described them. The victim, interpreter Jean Lalime. The killer, John Kinzie, 'The Father of Chicago'. Nine stops.",
+  "title": "Chicago's First Murder",
+  "premise": "17 June 1812, sunset, the fort gate: Chicago's first recorded murder. The victim, interpreter Jean Lalime. The killer, John Kinzie, 'The Father of Chicago'. Nine stops.",
   "default_mode": "fly",
   "allowed_modes": [
     "fly",
     "instantly"
   ],
   "opening": {
-    "text": "JAUNT: CHICAGO'S FIRST MURDER. Chicago in 1812 is a small, crowded place: a garrison of about fifty soldiers under Captain Nathan Heald, a government trading house, and a few houses on the north bank. Everyone knows everyone, and the two men who will meet at the gate have been rivals for years: over a house, over the soldiers' trade, and over how to treat their neighbours as war with Britain comes closer.\n\nNine stops: the killing first, then from 1804 to the night of the killing and the morning after, with the time of day and the season set for each. Three versions are told side by side: the Kinzie family's, told for a century; a girl's who watched from inside the fort; and the letters the factor and the surgeon's mate sent to Washington within weeks.\n\nThis telling is 18+: outside the gate, the pistol shot and the knife are staged as the witnesses described them.\n\nThe story starts at the end: outside the gate of Fort Dearborn, at sunset on 17 June 1812.",
-    "read_s": 50
+    "text": "JAUNT: CHICAGO'S FIRST MURDER. Chicago in 1812 is a small, crowded place: a garrison of about fifty soldiers under Captain Nathan Heald, a government trading house, and a few houses on the north bank. Everyone knows everyone, and the two men who will meet at the gate have been rivals for years: over a house, over the soldiers' trade, and over how to treat their neighbours as war with Britain comes closer.\n\nNine stops: the killing first, then from 1804 to the night of the killing and the morning after, with the time of day and the season set for each. Three versions are told side by side: the Kinzie family's, told for a century; a girl's who watched from inside the fort; and the letters the factor and the surgeon's mate sent to Washington within weeks.\n\nThe story starts at the end: outside the gate of Fort Dearborn, at sunset on 17 June 1812.",
+    "read_s": 44
   },
   "stops": [
     {

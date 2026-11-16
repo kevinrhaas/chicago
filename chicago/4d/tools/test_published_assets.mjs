@@ -7,7 +7,8 @@ import vm from 'node:vm';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { validateAssetAliases, assetAliasIdInput, fetchPublishedAssetBytes, publishedAssetAddress,
-  verifiedPackAliases, publishedAssetCatalogue, completeTextureBuffer } from '../renderers/web/js/published-assets.js';
+  verifiedPackAliases, publishedAssetCatalogue, completeTextureBuffer, fetchSheetBytes, registerPublishedTextureBuffers,
+  sheetRetries } from '../renderers/web/js/published-assets.js';
 import { writeYearPacks, checkYearPacks, publicationAliases, glbOwners, yearFiles } from './write_year_packs.mjs';
 
 if (process.argv.slice(2).some((arg) => arg !== '--check')) throw new Error('Only --check is supported');
@@ -141,6 +142,28 @@ try {
   mode = 'full';
   const unchanged = await publishedAssetAddress(`${origin}/4d/dev/data/gltf/unlisted.glb`, environment);
   check(!unchanged.alias && unchanged.source.href === unchanged.logical.href, 'unknown asset keeps its logical network URL');
+  // T-3617: a shared sheet that fails is asked again, held to its declared length, and only
+  // a sheet that never arrives rejects (GLTFLoader would draw that slot untextured).
+  const noWait = { wait: async () => {} };
+  const flaky = (failures, body = 'abcdefgh') => { let n = 0; const fetchImpl = async () => (++n <= failures
+    ? (n % 2 ? Promise.reject(new TypeError('Failed to fetch')) : new Response('gone', { status: 503 })) : new Response(body));
+    return { fetchImpl, asked: () => n }; };
+  const recoveredBefore = sheetRetries.recovered;
+  const twice = flaky(2);
+  check(Buffer.from(await fetchSheetBytes('https://x.test/sheets/0123456789abcdef.ktx2', 8, { ...noWait, fetchImpl: twice.fetchImpl })).toString() === 'abcdefgh'
+    && twice.asked() === 3 && sheetRetries.recovered === recoveredBefore + 1, 'T-3617: a sheet dropped twice arrives on the third ask');
+  const short = flaky(0, 'abc');
+  await assert.rejects(fetchSheetBytes('https://x.test/sheets/0123456789abcdef.ktx2', 8, { ...noWait, fetchImpl: short.fetchImpl }), /did not arrive in 4 asks \(3 bytes/); checks++;
+  check(short.asked() === 4 && sheetRetries.failed.some((f) => f.startsWith('0123456789abcdef.ktx2')), 'T-3617: a short body is retried, then reported by name');
+  let plugin = null;
+  registerPublishedTextureBuffers({ register: (factory) => { plugin = factory; } }, { fetchSheet: async (href, length) => {
+    check(href === 'https://x.test/4d/data/gltf/sheets/0123456789abcdef.ktx2' && length === 8, 'T-3617: the sheet is asked for at its GLB-relative URL with its declared length');
+    return new TextEncoder().encode('abcdefgh').buffer; } });
+  const parser = plugin({ options: { path: 'https://x.test/4d/data/gltf/' }, json: {
+    buffers: [{ byteLength: 4 }, { uri: 'sheets/0123456789abcdef.ktx2', byteLength: 8 }, { uri: 'geometry.bin', byteLength: 8 }],
+    bufferViews: [{ buffer: 0, byteLength: 4 }, { buffer: 1, byteOffset: 2, byteLength: 4 }, { buffer: 2, byteLength: 8 }] } });
+  check(Buffer.from(await parser.loadBufferView(1)).toString() === 'cdef', 'T-3617: a sheet view is sliced as GLTFLoader slices it');
+  check(parser.loadBufferView(0) === null && parser.loadBufferView(2) === null, 'T-3617: the GLB chunk and non-sheet buffers keep GLTFLoader\'s own path');
   const capability = JSON.parse(execFileSync(process.execPath, [new URL('./write_year_packs.mjs', import.meta.url).pathname, '--asset-alias-capability']));
   check(capability.logicalPackSources && capability.ktx2Aliases && capability.logicalGltfResources && capability.textureBufferAliases, 'actual native capability handshake');
   console.log(JSON.stringify({ status: 'PASS', checks, realHTTP: true, browserOffline: 'separate required fixture', threeYears: Object.keys(summary), requestCount: requests.length }));

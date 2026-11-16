@@ -102,6 +102,9 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   // below the fold on a phone, so the outing read as stuck. Next Stop now says so and,
   // tapped, opens the panel and brings the first open option into view.
   function goNext() {
+    // The flight to the start, read to by the opening, may be skipped; the closing finished.
+    if (state?.phase === 'opening') return actions.skip?.();
+    if (state?.phase === 'closing') return actions.finish?.();
     if (!needsChoice) return actions.next();
     setCollapsed(false, { focus: false });
     const first = body.querySelector('[data-choice]:not(:disabled)');
@@ -186,8 +189,8 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     const words = node('div', '', 'jaunt-welcome-words');
     words.append(node('p', `Jaunt · ${state.jaunt.scene}${family ? ` · ${family}` : ''}`, 'jaunt-welcome-k'), node('h2', state.jaunt.title, 'jaunt-welcome-title'));
     hero.append(badge, words); body.append(hero);
-    const premise = state.jaunt.premise || row.premise;
-    if (premise) body.append(node('p', premise, 'jaunt-welcome-premise'));
+    // The owner, 2026-11-16: the first card drops the summary (the premise, which nobody reads
+    // aloud) and heads the opening with the jaunt's name, as the narrator says it.
     const facts = node('ul', '', 'jaunt-welcome-facts'); facts.setAttribute('aria-label', 'This jaunt');
     const fact = (name, text) => { if (!text) return null; const li = node('li', ''); li.append(icon(name, 16), node('span', text)); facts.append(li); return li; };
     fact('start', `${state.jaunt.stops.length} stops`);
@@ -204,11 +207,44 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     if (!paragraphs.length) return;
     const fresh = opening || state.visited.length === 1;
     const story = node(fresh ? 'section' : 'details', '', 'jaunt-welcome-story');
-    const head = node(fresh ? 'h3' : 'summary', '', 'jaunt-welcome-story-k'); head.append(icon('story', 16), node('span', 'Background'));
+    const head = node(fresh ? 'h3' : 'summary', '', 'jaunt-welcome-story-k'); head.append(icon('story', 16), node('span', state.jaunt.title));
     story.append(head);
     const hear = listen('opening', 'opening'); if (hear) story.append(hear);
     story.append(...paragraphs.map(text => node('p', text)));
     body.append(story);
+  }
+  /**
+   * The owner, 2026-11-16: "you should see that text as the final scene of the jaunt and then
+   * you get the end jaunt screen". The ending, on screen while it is read aloud and the eye
+   * rises to a last view of where the jaunt began (jaunt-pace.js); Finish Jaunt goes on to
+   * Outing complete at once, and it comes by itself when the scene is done.
+   */
+  function closingScene(old) {
+    const nextKey = `${state.session}:closing`, same = key === nextKey;
+    const scroll = same ? body.scrollTop : 0;
+    const listening = same && document.activeElement?.dataset.action === 'listen' && body.contains(document.activeElement);
+    root.classList.add('jaunt-final'); root.classList.add('jaunt-closing');
+    straight.hidden = true; mode.hidden = true; // nothing is left to travel by
+    const progress = node('p', '', 'jaunt-progress jaunt-stop-k jaunt-final-k');
+    progress.append(icon('finish', 15), node('span', 'Closing'));
+    const heading = node('h2', state.jaunt.title); heading.tabIndex = -1;
+    body.replaceChildren(progress, heading);
+    const hear = listen('ending', state.outcome.id); if (hear) body.append(hear);
+    body.append(...String(state.outcome.text).split(/\n\s*\n/).map(t => node('p', t.trim(), 'jaunt-closing-text')));
+    buttons.prev.disabled = true; buttons.next.disabled = barNext.disabled = false;
+    for (const b of [buttons.next, barNext]) {
+      b.textContent = 'Finish Jaunt'; b.classList.remove('jaunt-needs-choice'); b.classList.add('jaunt-finish', 'jaunt-closing-finish');
+    }
+    needsChoice = false;
+    barLabel.replaceChildren(node('span', `▴ ${state.jaunt.title}`), node('small', 'Closing'));
+    barLabel.classList.add('jaunt-final-k');
+    barLabel.setAttribute('aria-label', `Open the outing panel: ${state.jaunt.title}, closing`);
+    if (!same) setCollapsed(false, { focus: false });
+    body.hidden = false; root.classList.remove('jaunt-detail'); barNext.hidden = false; barReturn.hidden = true;
+    body.scrollTop = scroll; key = nextKey;
+    narration?.at(state.jaunt, 'ending', state.outcome.id);
+    if (listening) body.querySelector('[data-action="listen"]')?.focus({ preventScroll: true });
+    else if (!same) heading.focus({ preventScroll: true });
   }
   function render(next) {
     const old = state;
@@ -223,20 +259,21 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
       else narration?.end();
       key = null; overlayView = null; setCollapsed(false, { focus: false }); return;
     }
+    if (state.phase === 'closing') { closingScene(old); return; }
     const stop = currentStop(state), nextKey = `${state.session}:${stop.id}`, same = key === nextKey;
     if (old?.session !== state.session) {
       mode.replaceChildren(...state.jaunt.allowed_modes.map(id => {
         const option = node('option', PACES[id].label); option.value = id; return option;
       }));
     }
-    mode.value = shownMode(state);   // T-3405: the mode this leg really travels in
+    mode.hidden = false; mode.value = shownMode(state);   // T-3405: the mode this leg really travels in
     straight.hidden = !['travelling', 'paused'].includes(state.phase);
     mode.classList.toggle('jaunt-mode-wide', straight.hidden);
     const scroll = same ? (overlayView?.scroll ?? body.scrollTop) : 0, focused = document.activeElement?.dataset.choice;
     const listening = same && document.activeElement?.dataset.action === 'listen' && body.contains(document.activeElement);
     const opening = state.phase === 'opening' || (state.phase === 'detail' && state.detailPhase === 'opening');
     const final = !opening && isFinalStop(state), count = state.jaunt.stops.length;
-    root.classList.toggle('jaunt-final', final);
+    root.classList.toggle('jaunt-final', final); root.classList.remove('jaunt-closing');
     const heading = node('h2', stopName(state, stop));
     heading.tabIndex = -1;
     const progress = node('p', '', 'jaunt-progress jaunt-stop-k');
@@ -337,11 +374,12 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     }
     const here = state.visited[state.stopIndex];
     needsChoice = state.phase === 'atStop' && !canNext(state) && !here.committed && choicesFor(state).length > 0;
-    buttons.prev.disabled = state.stopIndex === 0; buttons.next.disabled = barNext.disabled = !canNext(state) && !needsChoice;
+    buttons.prev.disabled = state.stopIndex === 0; buttons.next.disabled = barNext.disabled = !canNext(state) && !needsChoice && !opening;
     // T-3432: at the last stop the one way on is to finish.
     const finish = final && canNext(state) && !needsChoice;
     for (const b of [buttons.next, barNext]) {
-      b.textContent = needsChoice ? 'Choose an Option' : finish ? 'Finish Jaunt' : 'Next Stop';
+      b.textContent = opening ? 'Skip to the Start' : needsChoice ? 'Choose an Option' : finish ? 'Finish Jaunt' : 'Next Stop';
+      b.classList.remove('jaunt-closing-finish');
       b.classList.toggle('jaunt-needs-choice', needsChoice); b.classList.toggle('jaunt-finish', finish);
     }
     const place = stopName(state, stop), where = final ? `Final stop · ${state.stopIndex + 1} of ${count}` : `Stop ${state.stopIndex + 1} of ${count}`;

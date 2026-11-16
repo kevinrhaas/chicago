@@ -8,7 +8,9 @@
  * A small window under the THEN / TODAY readout. It turns as you turn and moves as you
  * walk: the walker's local metres and grid bearing become latitude, longitude and a true
  * heading (today-geo.js), the nearest outdoor Street View panorama is found, and it is
- * aimed at the spot you are looking at. The expand key makes it big; the close key, the
+ * aimed at the spot you are looking at. The spot is first carried through the year's
+ * registration (today-register.js), so by the fort you stand by the fort's site today and
+ * not in the river beside it. The expand key makes it big; the close key, the
  * TODAY tag in the readout and Settings › Show › Today window all hide or show it.
  *
  * WHY GOOGLE. Apple's MapKit JS Look Around opens at a coordinate but takes no heading,
@@ -46,6 +48,21 @@ const KEY_STORE = 'chicago4d.todayKey';
 
 const CARDINALS = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
 export const cardinal16 = (deg) => CARDINALS[Math.round((((deg % 360) + 360) % 360) / 22.5) % 16];
+
+/**
+ * The walker's spot and bearing carried onto today's ground (today-register.js): the spot
+ * through the year's registration, the bearing from it to the spot AHEAD_M ahead, carried
+ * the same way, so a bend in the registration turns the look with it. No registration,
+ * no change.
+ */
+export function onToday(register, { e = 0, n = 0, bearingDeg = 0 } = {}) {
+  if (!register) return { e, n, bearingDeg };
+  const b = bearingDeg * Math.PI / 180;
+  const [te, tn] = register.toToday(e, n);
+  const [ae, an] = register.toToday(e + Math.sin(b) * AHEAD_M, n + Math.cos(b) * AHEAD_M);
+  const bt = Math.atan2(ae - te, an - tn) * 180 / Math.PI;
+  return { e: te, n: tn, bearingDeg: (bt + 360) % 360 };
+}
 
 /** The key to use here, or '' for the link-only card. */
 export function keyFor({ config = TODAY_VIEW, hostname = '', stored = '' } = {}) {
@@ -90,7 +107,7 @@ function loadStreetView(key, onAuthFailure) {
 
 export function createTodayView({
   root = document, config = TODAY_VIEW, hostname = globalThis.location?.hostname ?? '',
-  onShownChange = null, onExpandedChange = null, load = loadStreetView,
+  onShownChange = null, onExpandedChange = null, load = loadStreetView, register = null,
 } = {}) {
   const $ = (id) => root.getElementById?.(id) ?? root.querySelector?.(`#${id}`) ?? null;
   const box = $('today-view');
@@ -168,7 +185,9 @@ export function createTodayView({
         const res = await service.getPanorama({
           location: { lat: v.lat, lng: v.lng }, radius,
           preference: lib.StreetViewPreference?.NEAREST ?? 'nearest',
-          sources: [lib.StreetViewSource?.OUTDOOR ?? 'outdoor'],
+          // Google's own outdoor imagery only (several sources are their intersection):
+          // a visitor's photosphere is often aimed anywhere, or not of the street at all.
+          sources: [lib.StreetViewSource?.GOOGLE ?? 'google', lib.StreetViewSource?.OUTDOOR ?? 'outdoor'],
         });
         data = res?.data ?? res;
         if (data?.location?.pano) break;
@@ -226,7 +245,7 @@ export function createTodayView({
     pose = { e, n, bearingDeg, pitchDeg }; // kept while hidden, so opening is immediate
     if (!shown) return;
     const now = performance.now();
-    view = viewFromLocal({ e, n, bearingDeg }, AHEAD_M);
+    view = viewFromLocal(onToday(register, { e, n, bearingDeg }), AHEAD_M);
     if (now - lastLink > 400) { lastLink = now; paintWhere(); }
     if (!panorama || !service) return;
     if (!pending && (!queried || (distanceM(queried, view) > MOVE_M && now - lastQuery > QUERY_MS))) {
