@@ -815,6 +815,7 @@ export function createTravel({
         dist_m: ride ? remaining() : null,
         remaining_points: ride ? Math.max(0, ride.points.length - ride.index) : 0,
         started_at: ride?.startedAt ?? null,
+        glide: ride?.glide ? { t: ride.glide.elapsed, d: ride.glide.seconds } : null, // the jaunt meter
         flying: !!walker?.state?.flying,
         bob: walker?.state?.bob ?? 0,
       };
