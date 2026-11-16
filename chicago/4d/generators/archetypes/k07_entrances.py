@@ -803,8 +803,10 @@ class Entrance(Opening):
                 self._arch_grille(A, S, A["s_m"], R, D)
         else:
             self.quad("stair_end", [(S(t0), -R, D), (S(t1), -R, D), (S(t1), 0, D), (S(t0), 0, D)], OUT)
+            # with an arch, _arch_face probes the face beside it: the face's middle may be the
+            # arch's void (1823's, its landing 1.7 m up and the arch near the face's middle)
+            self.probe(S((t0 + t1) / 2), -R / 2, D, ("stair_end",), "the landing's street face")
         self.quad("stair_end", [(S(t0), -R, 0), (S(t0), -R, D), (S(t0), 0, D), (S(t0), 0, 0)], X(-1.0))
-        self.probe(S((t0 + t1) / 2), -R / 2, D, ("stair_end",), "the landing's street face")
         self.probe(S(t0), -R / 2, D / 2, ("stair_end",), "the landing's far end")
         # the cheek along the flight's street side, its top `hc` over the nosings
         prof = [(t1, -R), (F, -R), (F, yF), (t1, hc)]
