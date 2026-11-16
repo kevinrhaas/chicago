@@ -135,6 +135,7 @@
     "recon_1835_blk_south_water_dearborn_c1_08",
     "recon_1835_blk_south_water_dearborn_c2_07",
     "recon_1835_blk_south_water_dearborn_d1_05",
+    "recon_1835_blk_south_water_dearborn_h1_03",
     "recon_1835_blk_south_water_franklin_c2_08",
     "recon_1835_blk_south_water_franklin_c4_01",
     "recon_1835_blk_south_water_franklin_d2_05",
@@ -210,6 +211,7 @@
     "recon_1835_blk_west_washington_canal_d5_02",
     "recon_1835_blk_west_washington_canal_d6_01",
     "recon_1835_blk_west_washington_canal_d7_05",
+    "recon_1835_core_c1_051",
     "recon_1835_core_c1_056",
     "recon_1835_core_c2_001",
     "recon_1835_core_c2_005",
@@ -222,16 +224,14 @@
     "recon_1835_core_c2_029",
     "recon_1835_core_c2_036",
     "recon_1835_core_c2_038",
-    "recon_1835_core_c2_045",
-    "recon_1835_core_c2_050",
+    "recon_1835_core_c2_044",
+    "recon_1835_core_c2_049",
     "recon_1835_core_c2_058",
     "recon_1835_core_c3_014",
     "recon_1835_core_c3_027",
     "recon_1835_core_c3_033",
-    "recon_1835_core_c3_051",
     "recon_1835_core_h3_025",
     "recon_1835_core_h3_028",
-    "recon_1835_core_h3_042",
     "recon_1835_core_h3_052",
     "recon_1835_gifford_c2_001",
     "recon_1835_gifford_c3_005",
@@ -1252,56 +1252,56 @@
       ],
       [
         [
-          729.29,
-          -91.43
+          724.1,
+          -90.17
         ],
         [
-          730.09,
-          -91.0
+          724.95,
+          -89.83
         ],
         [
-          712.87,
-          -59.06
+          712.79,
+          -59.11
         ],
         [
-          712.07,
-          -59.49
+          711.94,
+          -59.45
         ]
       ],
       [
         [
-          730.23,
-          -91.37
+          725.31,
+          -90.09
         ],
         [
-          731.09,
-          -91.06
+          726.2,
+          -89.92
         ],
         [
-          721.88,
-          -65.54
+          721.52,
+          -65.61
         ],
         [
-          721.02,
-          -65.85
+          720.63,
+          -65.79
         ]
       ],
       [
         [
-          729.91,
-          -91.39
+          725.81,
+          -90.05
         ],
         [
-          730.75,
-          -91.04
+          726.72,
+          -89.96
         ],
         [
-          726.66,
-          -81.35
+          725.81,
+          -81.48
         ],
         [
-          725.82,
-          -81.7
+          724.9,
+          -81.58
         ]
       ],
       [
@@ -1360,20 +1360,20 @@
       ],
       [
         [
-          751.55,
-          -89.83
+          757.52,
+          -95.01
         ],
         [
-          752.42,
-          -89.57
+          758.35,
+          -94.65
         ],
         [
-          745.27,
-          -65.69
+          745.69,
+          -65.63
         ],
         [
-          744.4,
-          -65.95
+          744.85,
+          -66.0
         ]
       ],
       [
@@ -1396,38 +1396,38 @@
       ],
       [
         [
-          783.12,
-          -87.98
+          774.96,
+          -88.02
         ],
         [
-          784.03,
-          -88.09
+          775.81,
+          -88.37
         ],
         [
-          787.32,
-          -60.7
+          787.08,
+          -60.81
         ],
         [
-          786.42,
-          -60.59
+          786.23,
+          -60.46
         ]
       ],
       [
         [
-          778.83,
-          -88.21
+          771.66,
+          -88.27
         ],
         [
-          779.65,
-          -87.82
+          772.55,
+          -88.06
         ],
         [
-          767.84,
-          -63.12
+          766.63,
+          -62.61
         ],
         [
-          767.02,
-          -63.51
+          765.74,
+          -62.81
         ]
       ],
       [
@@ -1450,20 +1450,20 @@
       ],
       [
         [
-          803.82,
-          -91.42
+          809.49,
+          -90.64
         ],
         [
-          804.7,
-          -91.67
+          810.4,
+          -90.74
         ],
         [
-          813.26,
-          -61.25
+          813.41,
+          -61.18
         ],
         [
-          812.38,
-          -61.0
+          812.5,
+          -61.08
         ]
       ],
       [
@@ -7352,17 +7352,17 @@
     },
     {
       "lot": "blk_south_water_dearborn_lot1",
-      "from": "recon_1835_core_c2_050",
+      "from": "recon_1835_core_c2_044",
       "to": "privy_blk_south_water_dearborn_lot1"
     },
     {
       "lot": "blk_south_water_dearborn_lot1",
-      "from": "recon_1835_core_c2_050",
+      "from": "recon_1835_core_c2_044",
       "to": "recon_1835_blk_south_water_dearborn_a5_10"
     },
     {
       "lot": "blk_south_water_dearborn_lot1",
-      "from": "recon_1835_core_c2_050",
+      "from": "recon_1835_core_c2_044",
       "to": "recon_1835_blk_south_water_dearborn_d2_04"
     },
     {
@@ -7382,7 +7382,7 @@
     },
     {
       "lot": "blk_south_water_dearborn_lot3",
-      "from": "recon_1835_core_c3_051",
+      "from": "recon_1835_core_c1_051",
       "to": "mansion_house_stable"
     },
     {
@@ -7392,12 +7392,12 @@
     },
     {
       "lot": "blk_south_water_dearborn_lot5",
-      "from": "recon_1835_core_h3_042",
+      "from": "recon_1835_blk_south_water_dearborn_h1_03",
       "to": "privy_blk_south_water_dearborn_lot5"
     },
     {
       "lot": "blk_south_water_dearborn_lot5",
-      "from": "recon_1835_core_h3_042",
+      "from": "recon_1835_blk_south_water_dearborn_h1_03",
       "to": "stable_blk_south_water_dearborn_lot5"
     },
     {
@@ -7407,7 +7407,7 @@
     },
     {
       "lot": "blk_south_water_dearborn_lot7",
-      "from": "recon_1835_core_c2_045",
+      "from": "recon_1835_core_c2_049",
       "to": "privy_blk_south_water_dearborn_lot7"
     },
     {

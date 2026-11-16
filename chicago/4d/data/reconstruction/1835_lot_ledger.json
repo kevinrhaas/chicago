@@ -40,9 +40,9 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 230,
+   "at_capacity": 231,
    "free": 221,
-   "room": 29
+   "room": 28
   },
   "by_multi_building_rule": {
    "one_principal_roof": 412,
@@ -77,8 +77,8 @@
   },
   "multi_building_lot_rate_on_the_principal_streets": {
    "principal_street_lots": 68,
-   "carrying_more_than_one_principal_roof": 55,
-   "rate": 0.8088,
+   "carrying_more_than_one_principal_roof": 54,
+   "rate": 0.7941,
    "standard": "three party-line units per lot where the rule fires — the schedule's capacity is a ceiling and not a target (1835_platted_block_parcels.json, `placement_rule.open_lots`)"
   }
  },
@@ -9623,18 +9623,18 @@
    "standing": [
     "recon_1835_blk_south_water_dearborn_a5_10",
     "recon_1835_blk_south_water_dearborn_d2_04",
-    "recon_1835_core_c1_048",
-    "recon_1835_core_c2_047",
-    "recon_1835_core_c2_050",
-    "recon_1835_core_c3_049"
+    "recon_1835_core_c1_043",
+    "recon_1835_core_c2_044",
+    "recon_1835_core_c3_042",
+    "recon_1835_core_c3_045"
    ],
    "standing_families": {
     "recon_1835_blk_south_water_dearborn_a5_10": "A5",
     "recon_1835_blk_south_water_dearborn_d2_04": "D2",
-    "recon_1835_core_c1_048": "C1",
-    "recon_1835_core_c2_047": "C2",
-    "recon_1835_core_c2_050": "C2",
-    "recon_1835_core_c3_049": "C3"
+    "recon_1835_core_c1_043": "C1",
+    "recon_1835_core_c2_044": "C2",
+    "recon_1835_core_c3_042": "C3",
+    "recon_1835_core_c3_045": "C3"
    },
    "principal_roofs_standing": 5,
    "bars_another_roof": true,
@@ -9705,19 +9705,21 @@
    "standing": [
     "mansion_house",
     "mansion_house_stable",
-    "recon_1835_core_c3_051"
+    "recon_1835_core_c1_051",
+    "recon_1835_core_c3_050"
    ],
    "standing_families": {
     "mansion_house": "T1",
     "mansion_house_stable": "A1",
-    "recon_1835_core_c3_051": "C3"
+    "recon_1835_core_c1_051": "C1",
+    "recon_1835_core_c3_050": "C3"
    },
-   "principal_roofs_standing": 2,
+   "principal_roofs_standing": 3,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_dearborn#04",
@@ -9779,14 +9781,12 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "recon_1835_blk_south_water_dearborn_h1_03",
-    "recon_1835_core_h3_042"
+    "recon_1835_blk_south_water_dearborn_h1_03"
    ],
    "standing_families": {
-    "recon_1835_blk_south_water_dearborn_h1_03": "H1",
-    "recon_1835_core_h3_042": "H3"
+    "recon_1835_blk_south_water_dearborn_h1_03": "H1"
    },
-   "principal_roofs_standing": 2,
+   "principal_roofs_standing": 1,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
@@ -9851,16 +9851,16 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "recon_1835_core_c1_044",
-    "recon_1835_core_c2_045",
-    "recon_1835_core_c3_043",
-    "recon_1835_core_c3_046"
+    "recon_1835_core_c1_047",
+    "recon_1835_core_c2_046",
+    "recon_1835_core_c2_049",
+    "recon_1835_core_c3_048"
    ],
    "standing_families": {
-    "recon_1835_core_c1_044": "C1",
-    "recon_1835_core_c2_045": "C2",
-    "recon_1835_core_c3_043": "C3",
-    "recon_1835_core_c3_046": "C3"
+    "recon_1835_core_c1_047": "C1",
+    "recon_1835_core_c2_046": "C2",
+    "recon_1835_core_c2_049": "C2",
+    "recon_1835_core_c3_048": "C3"
    },
    "principal_roofs_standing": 4,
    "bars_another_roof": true,

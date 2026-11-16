@@ -720,7 +720,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'De[a]rborn Stree[t] Denrdorn Stree' names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_core_c1_048",
+          "structure_id": "recon_1835_core_c1_043",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -2614,7 +2614,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the Eagle Coffee House' names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_core_c2_050",
+          "structure_id": "recon_1835_core_c3_045",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -10478,7 +10478,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the \"Eagle Coffee House\"' names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_core_c2_047",
+          "structure_id": "recon_1835_core_c3_042",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -11753,7 +11753,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; the paper gives no anchor.",
         "housed_in": {
-          "structure_id": "recon_1835_core_c3_049",
+          "structure_id": "recon_1835_core_c2_044",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false

@@ -19,14 +19,14 @@
   "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading.",
   "dwellings": {
    "standing_low": 335,
-   "standing_high": 395,
+   "standing_high": 394,
    "by_group": {
     "ordinary_dwellings": 335,
-    "larger_boarding_houses": 50,
+    "larger_boarding_houses": 49,
     "inns_taverns": 10
    },
    "ordered_low": 335,
-   "ordered_high": 395,
+   "ordered_high": 394,
    "census": 398,
    "census_source": "andreas_1884_v1",
    "question": "How many of the town's dwellings stand, against the 398 the November 1835 census counted? The low end counts dwelling houses; the high end adds the boarding houses and taverns, because whether the enumerator's 'dwelling' took them in is not known (the 1835 town model data, lodging open questions).",

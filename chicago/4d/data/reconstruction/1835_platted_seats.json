@@ -491,7 +491,7 @@
    "business_id": "business_j_curtiss_attorney_and_counsellor_at_law"
   },
   {
-   "structure_id": "recon_1835_core_c1_048",
+   "structure_id": "recon_1835_core_c1_043",
    "lot_id": "blk_south_water_dearborn#01",
    "family": "C1",
    "held_by": "street_face_business_deal",
@@ -527,22 +527,13 @@
    "business_id": "business_james_grant"
   },
   {
-   "structure_id": "recon_1835_core_c2_047",
+   "structure_id": "recon_1835_core_c2_044",
    "lot_id": "blk_south_water_dearborn#01",
    "family": "C2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "S. Abell, attorney and counsellor — attorney, counsellor and land conveyancer",
-   "business_id": "business_s_abell_attorney_and_counsellor"
-  },
-  {
-   "structure_id": "recon_1835_core_c2_050",
-   "lot_id": "blk_south_water_dearborn#01",
-   "family": "C2",
-   "held_by": "street_face_business_deal",
-   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Cooley and Hol[b]man — tailoring",
-   "business_id": "business_cooley_and_hol_b_man"
+   "occupants": "the Dearborn Street auction and commission rooms — auction and commission rooms",
+   "business_id": "business_the_dearborn_street_auction_and_commission_rooms"
   },
   {
    "structure_id": "recon_1835_core_c3_002",
@@ -590,13 +581,22 @@
    "business_id": "business_fullerton_botsford"
   },
   {
-   "structure_id": "recon_1835_core_c3_049",
+   "structure_id": "recon_1835_core_c3_042",
    "lot_id": "blk_south_water_dearborn#01",
    "family": "C3",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "the Dearborn Street auction and commission rooms — auction and commission rooms",
-   "business_id": "business_the_dearborn_street_auction_and_commission_rooms"
+   "occupants": "S. Abell, attorney and counsellor — attorney, counsellor and land conveyancer",
+   "business_id": "business_s_abell_attorney_and_counsellor"
+  },
+  {
+   "structure_id": "recon_1835_core_c3_045",
+   "lot_id": "blk_south_water_dearborn#01",
+   "family": "C3",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "Cooley and Hol[b]man — tailoring",
+   "business_id": "business_cooley_and_hol_b_man"
   },
   {
    "structure_id": "recon_1835_gifford_c1_010",

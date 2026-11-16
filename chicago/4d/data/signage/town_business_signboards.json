@@ -662,17 +662,6 @@
         "done": "reshaped"
       },
       {
-        "structure_id": "recon_1835_core_c2_047",
-        "mounting": "wall_board",
-        "covered_an_opening_before": true,
-        "covered_before": [
-          "fascia",
-          "shop_door",
-          "show_window"
-        ],
-        "done": "lettered on the fascia"
-      },
-      {
         "structure_id": "recon_1835_core_c3_002",
         "mounting": "wall_board",
         "covered_an_opening_before": true,
@@ -681,6 +670,17 @@
           "show_window"
         ],
         "done": "reshaped"
+      },
+      {
+        "structure_id": "recon_1835_core_c3_042",
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "lettered on the fascia"
       },
       {
         "structure_id": "recon_1835_north_h1_007",
@@ -1066,8 +1066,8 @@
         },
         {
           "a": "mansion_house",
-          "b": "recon_1835_core_c2_047",
-          "gap_m": 30.5,
+          "b": "recon_1835_core_c3_042",
+          "gap_m": 30.7,
           "share": "mounting",
           "value": "wall_board",
           "allowed": true,
@@ -11899,133 +11899,6 @@
       }
     },
     {
-      "structure_id": "recon_1835_core_c2_047",
-      "name": "S. Abell, attorney and counsellor",
-      "sign_text": "S. ABELL / Attorney & Counsellor / Dearborn Street",
-      "sign_lines": [
-        {
-          "text": "S. ABELL",
-          "role": "name"
-        },
-        {
-          "text": "Attorney & Counsellor",
-          "role": "trade"
-        },
-        {
-          "text": "Dearborn Street",
-          "role": "place"
-        }
-      ],
-      "sign_identity": "Abell",
-      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put S. Abell, attorney and counsellor (biz_s_abell_attorney_and_counsellor) on Dearborn Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"attorney, counsellor and land conveyancer\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
-      "sign_text_confidence": "inferred",
-      "sign_text_sources": [
-        "chicago_newspapers_1833_1835"
-      ],
-      "trade": "small_shop_or_office",
-      "trade_confidence": "inferred",
-      "trade_class": "office",
-      "why_a_board": "a shop front or a consulting-room door, either of which a stranger has to be able to pick out",
-      "confidence": "reconstructed",
-      "mounting": "wall_board",
-      "mounting_note": "a bracket board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); a facade painted already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835)",
-      "style": {
-        "id": "white_on_blue",
-        "ground": "#22344f",
-        "letter": "#e9e6dc",
-        "face": "grotesque",
-        "panel": "plain",
-        "aspect": 2.2,
-        "note": "white block letters on a Prussian-blue ground"
-      },
-      "anchor_local_enu_m": [
-        715.12,
-        -101.8
-      ],
-      "facade_bearing_deg": 180.5,
-      "arm_height_m": 2.45,
-      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This name is lettered on the shopfront's fascia, so its head is the fascia's top less a lath",
-      "board_w_m": 3.21,
-      "board_h_m": 0.24,
-      "board_thickness_m": 0.05,
-      "geometry": {
-        "proud_m": 0.07,
-        "lines": [
-          "name"
-        ],
-        "capped": false
-      },
-      "reach_m": 1.73,
-      "wall_height_m": 3.48,
-      "wall_height_from": "the record",
-      "frontage_m": 6.42,
-      "ground_quad_local_enu_m": [
-        [
-          718.46,
-          -90.93
-        ],
-        [
-          712.04,
-          -90.88
-        ],
-        [
-          711.95,
-          -101.77
-        ],
-        [
-          718.37,
-          -101.82
-        ]
-      ],
-      "opening_fit": {
-        "action": "lettered on the fascia",
-        "covered_before": [
-          "fascia",
-          "shop_door",
-          "show_window"
-        ],
-        "fixed_to": {
-          "kind": "fascia",
-          "u0": 1.59,
-          "u1": 4.92,
-          "z0": 2.19,
-          "z1": 2.47
-        },
-        "note": "this front has no 2.23 m of blank face at any height a board can be read at — every band is taken by fascia and shop_door and show_window — so the name is lettered on the shop's fascia over the shopfront, 3.21 x 0.24 m, and never on the door or the glass",
-        "wall_span_local_m": [
-          0.0,
-          6.42
-        ],
-        "board_span_local_m": [
-          1.65,
-          4.86
-        ],
-        "openings": [
-          {
-            "kind": "show_window",
-            "u0": 1.82,
-            "u1": 3.57,
-            "z0": 0.74,
-            "z1": 2.06
-          },
-          {
-            "kind": "shop_door",
-            "u0": 3.67,
-            "u1": 4.69,
-            "z0": 0.0,
-            "z1": 2.19
-          },
-          {
-            "kind": "fascia",
-            "u0": 1.59,
-            "u1": 4.92,
-            "z0": 2.19,
-            "z1": 2.47
-          }
-        ]
-      }
-    },
-    {
       "structure_id": "recon_1835_core_c3_002",
       "name": "E. L. Thrall",
       "sign_text": "E. L. THRALL / Tailoring & Clothing",
@@ -12155,6 +12028,154 @@
             "u1": 5.71,
             "z0": 4.26,
             "z1": 5.56
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_core_c3_042",
+      "name": "S. Abell, attorney and counsellor",
+      "sign_text": "S. ABELL / Attorney & Counsellor / Dearborn Street",
+      "sign_lines": [
+        {
+          "text": "S. ABELL",
+          "role": "name"
+        },
+        {
+          "text": "Attorney & Counsellor",
+          "role": "trade"
+        },
+        {
+          "text": "Dearborn Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Abell",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put S. Abell, attorney and counsellor (biz_s_abell_attorney_and_counsellor) on Dearborn Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"attorney, counsellor and land conveyancer\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "small_shop_or_office",
+      "trade_confidence": "inferred",
+      "trade_class": "office",
+      "why_a_board": "a shop front or a consulting-room door, either of which a stranger has to be able to pick out",
+      "confidence": "reconstructed",
+      "mounting": "wall_board",
+      "mounting_note": "a facade painted already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835)",
+      "style": {
+        "id": "white_on_blue",
+        "ground": "#22344f",
+        "letter": "#e9e6dc",
+        "face": "grotesque",
+        "panel": "plain",
+        "aspect": 2.2,
+        "note": "white block letters on a Prussian-blue ground"
+      },
+      "anchor_local_enu_m": [
+        714.97,
+        -101.8
+      ],
+      "facade_bearing_deg": 180.5,
+      "arm_height_m": 2.88,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This name is lettered on the shopfront's fascia, so its head is the fascia's top less a lath",
+      "board_w_m": 3.21,
+      "board_h_m": 0.24,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.07,
+        "lines": [
+          "name"
+        ],
+        "capped": false
+      },
+      "reach_m": 1.73,
+      "wall_height_m": 5.91,
+      "wall_height_from": "the record",
+      "frontage_m": 6.27,
+      "ground_quad_local_enu_m": [
+        [
+          718.33,
+          -88.94
+        ],
+        [
+          712.06,
+          -88.89
+        ],
+        [
+          711.95,
+          -101.77
+        ],
+        [
+          718.23,
+          -101.82
+        ]
+      ],
+      "opening_fit": {
+        "action": "lettered on the fascia",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": {
+          "kind": "fascia",
+          "u0": 1.59,
+          "u1": 4.92,
+          "z0": 2.62,
+          "z1": 2.9
+        },
+        "note": "this front has no 2.23 m of blank face at any height a board can be read at — every band is taken by fascia and shop_door and show_window — so the name is lettered on the shop's fascia over the shopfront, 3.21 x 0.24 m, and never on the door or the glass",
+        "wall_span_local_m": [
+          0.0,
+          6.27
+        ],
+        "board_span_local_m": [
+          1.65,
+          4.86
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.82,
+            "u1": 3.57,
+            "z0": 0.74,
+            "z1": 2.49
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.67,
+            "u1": 4.69,
+            "z0": 0.0,
+            "z1": 2.62
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.59,
+            "u1": 4.92,
+            "z0": 2.62,
+            "z1": 2.9
+          },
+          {
+            "kind": "window",
+            "u0": 0.79,
+            "u1": 1.64,
+            "z0": 3.84,
+            "z1": 5.14
+          },
+          {
+            "kind": "window",
+            "u0": 2.83,
+            "u1": 3.68,
+            "z0": 3.84,
+            "z1": 5.14
+          },
+          {
+            "kind": "window",
+            "u0": 4.86,
+            "u1": 5.71,
+            "z0": 3.84,
+            "z1": 5.14
           }
         ]
       }
@@ -12418,14 +12439,19 @@
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
-      "structure_id": "recon_1835_core_c1_044",
+      "structure_id": "recon_1835_core_c1_043",
+      "trade": "small_shop_or_office",
+      "why": "the register firm the street-face adoption houses here, a wholesale wine and liquor store, Dearborn Street (biz_a_wholesale_wine_and_liquor_store_dearborn_street), keeps a trade — liquor_dealer — that ADOPTED_FIRM_TRADE hangs no board for (a school is outside both classes, by clause 2)."
+    },
+    {
+      "structure_id": "recon_1835_core_c1_047",
       "trade": "small_shop_or_office",
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
-      "structure_id": "recon_1835_core_c1_048",
+      "structure_id": "recon_1835_core_c1_051",
       "trade": "small_shop_or_office",
-      "why": "the register firm the street-face adoption houses here, a wholesale wine and liquor store, Dearborn Street (biz_a_wholesale_wine_and_liquor_store_dearborn_street), keeps a trade — liquor_dealer — that ADOPTED_FIRM_TRADE hangs no board for (a school is outside both classes, by clause 2)."
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
       "structure_id": "recon_1835_core_c1_056",
@@ -12493,14 +12519,19 @@
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
-      "structure_id": "recon_1835_core_c2_045",
+      "structure_id": "recon_1835_core_c2_044",
+      "trade": "store_residence",
+      "why": "the Dearborn Street auction and commission rooms (biz_the_dearborn_street_auction_and_commission_rooms) has no entry in ADOPTED_WORDING, so nothing is lettered until one is typed."
+    },
+    {
+      "structure_id": "recon_1835_core_c2_046",
       "trade": "store_residence",
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
-      "structure_id": "recon_1835_core_c2_050",
+      "structure_id": "recon_1835_core_c2_049",
       "trade": "store_residence",
-      "why": "Cooley and Hol[b]man (biz_cooley_and_hol_b_man) has no entry in ADOPTED_WORDING, so nothing is lettered until one is typed."
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
       "structure_id": "recon_1835_core_c2_053",
@@ -12583,22 +12614,17 @@
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
-      "structure_id": "recon_1835_core_c3_043",
+      "structure_id": "recon_1835_core_c3_045",
+      "trade": "narrow_two_story_store",
+      "why": "Cooley and Hol[b]man (biz_cooley_and_hol_b_man) has no entry in ADOPTED_WORDING, so nothing is lettered until one is typed."
+    },
+    {
+      "structure_id": "recon_1835_core_c3_048",
       "trade": "narrow_two_story_store",
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
-      "structure_id": "recon_1835_core_c3_046",
-      "trade": "narrow_two_story_store",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
-    },
-    {
-      "structure_id": "recon_1835_core_c3_049",
-      "trade": "narrow_two_story_store",
-      "why": "the Dearborn Street auction and commission rooms (biz_the_dearborn_street_auction_and_commission_rooms) has no entry in ADOPTED_WORDING, so nothing is lettered until one is typed."
-    },
-    {
-      "structure_id": "recon_1835_core_c3_051",
+      "structure_id": "recon_1835_core_c3_050",
       "trade": "narrow_two_story_store",
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },

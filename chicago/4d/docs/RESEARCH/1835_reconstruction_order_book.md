@@ -647,7 +647,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/institutional_public/south` | 5 | 5 | 0 | 0 | T-2170 |
 | `structures/institutional_public/west` | 1 | 1 | 0 | 0 | T-1785 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | T-1205 |
-| `structures/larger_boarding_houses/south` | 36 | 36 | 0 | 0 | T-2270 |
+| `structures/larger_boarding_houses/south` | 35 | 35 | 0 | 0 | T-2270 |
 | `structures/larger_boarding_houses/west` | 6 | 6 | 0 | 0 | T-1953 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 0 | 0 | T-1952 |
 | `structures/ordinary_dwellings/south` | 176 | 176 | 0 | 0 | T-2270 |
@@ -657,7 +657,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/small_outbuildings/west` | 14 | 14 | 0 | 0 | T-2169 |
 | `structures/small_outbuildings/north` | 20 | 20 | 0 | 0 | T-2170 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | T-1204 |
-| `structures/stores_mixed_use/south` | 111 | 111 | 0 | 0 | T-1694 |
+| `structures/stores_mixed_use/south` | 112 | 112 | 0 | 0 | T-1694 |
 | `structures/stores_mixed_use/west` | 6 | 6 | 0 | 0 | T-2150 |
 | `structures/stores_mixed_use/north` | 4 | 4 | 0 | 0 | T-1205 |
 | `structures/stores_mixed_use/fort` | 1 | 1 | 0 | 0 | T-1204 |

@@ -2574,16 +2574,12 @@
       "name": "a small shop, grocery, or land office"
     },
     {
-      "id": "recon_1835_core_c2_055",
+      "id": "recon_1835_core_c2_046",
       "name": "a store-residence"
     },
     {
-      "id": "recon_1835_core_c3_043",
-      "name": "a narrow two-story store"
-    },
-    {
-      "id": "recon_1835_core_h3_042",
-      "name": "a boarding house"
+      "id": "recon_1835_core_c2_055",
+      "name": "a store-residence"
     },
     {
       "id": "recon_1835_forks_freight_f2_001",
@@ -74928,9 +74924,8 @@
         "recon_1835_blk_south_water_wells_d2_06",
         "recon_1835_blk_south_water_wells_d4_03",
         "recon_1835_core_c1_056",
+        "recon_1835_core_c2_046",
         "recon_1835_core_c2_055",
-        "recon_1835_core_c3_043",
-        "recon_1835_core_h3_042",
         "recon_1835_south_d1_010",
         "recon_1835_south_d1_018",
         "recon_1835_south_d4_006",
@@ -74959,19 +74954,13 @@
         },
         {
           "domain": "structure",
+          "structure": "recon_1835_core_c2_046",
+          "phase": "inferred_1835",
+          "aspect": "ground_contact"
+        },
+        {
+          "domain": "structure",
           "structure": "recon_1835_core_c2_055",
-          "phase": "inferred_1835",
-          "aspect": "ground_contact"
-        },
-        {
-          "domain": "structure",
-          "structure": "recon_1835_core_c3_043",
-          "phase": "inferred_1835",
-          "aspect": "ground_contact"
-        },
-        {
-          "domain": "structure",
-          "structure": "recon_1835_core_h3_042",
           "phase": "inferred_1835",
           "aspect": "ground_contact"
         }
@@ -74989,7 +74978,7 @@
         },
         {
           "label": "Liberties within it",
-          "text": "every store is reconstructed. Its being there, its place along the face, its family and its width and depth are all reconstructed, and none of it is evidence. The stores are named `Reconstructed <family> <label> #NNN`, with ids recon 1835 core_<family>_<NNN>. The families follow a fixed rhythm (C2 C3 C1 C2 C3 C2 C1 C3) carried on from front to front, and an H3 boarding block leads the first stretch of a Lake front where that stretch is at least 30 m. Sizes are drawn inside each family's band. Each store stands 1.5 m behind its face line, facing the street, and fills a gap only: at least 0.1 m from its neighbour in the row and 0.5 m from anything else. Who kept each store is unknown, so no proprietor is named. No store is drawn. Like the drawn roofs they stand in the inventory's pictured roofs (its by prefix entry for recon 1835 core_), so they re-weight no household: the town's households keep the distribution the programme gave them, and the boarding blocks are recorded as lodging with no beds dealt. The block-infill gates read these stores as the street row they are: they do not bar a lot from its run, they do not count against a lot's three row units, and a block-infill roof keeps the same half metre from them. Four stores at the east end of the Dearborn block's two Lake fronts meet the the 1834 harbor cut ground ground more than the walker's 0.35 m step off (a small shop, grocery, or land office, c2 055, c3 043, h3 042). They declare ground contact: approach not modelled, because nothing says how a store front met that ground, so no sill or cut is drawn."
+          "text": "every store is reconstructed. Its being there, its place along the face, its family and its width and depth are all reconstructed, and none of it is evidence. The stores are named `Reconstructed <family> <label> #NNN`, with ids recon 1835 core_<family>_<NNN>. The families follow a fixed rhythm (C2 C3 C1 C2 C3 C2 C1 C3) carried on from front to front, and an H3 boarding block leads the first stretch of a Lake front where that stretch is at least 30 m. No store is raised on a lot that a printed lot address names (the lot addresses data), because an address places the one building standing on its lot: lot 7 of block 16, on Lake Street one lot east of Haddock's Tavern, keeps its large dwelling-house to itself. A store keeps the street line its face already has (the street line check), so on the Lake front of block 35 the row stands 0.80 m back like the earlier row there, and 1.50 m everywhere else. Sizes are drawn inside each family's band. Each store stands 1.5 m behind its face line, facing the street, and fills a gap only: at least 0.1 m from its neighbour in the row and 0.5 m from anything else. Who kept each store is unknown, so no proprietor is named. No store is drawn. Like the drawn roofs they stand in the inventory's pictured roofs (its by prefix entry for recon 1835 core_), so they re-weight no household: the town's households keep the distribution the programme gave them, and the boarding blocks are recorded as lodging with no beds dealt. The block-infill gates read these stores as the street row they are: they do not bar a lot from its run, they do not count against a lot's three row units, and a block-infill roof keeps the same half metre from them. Three stores at the east end of the Dearborn block's two Lake fronts meet the the 1834 harbor cut ground ground more than the walker's 0.35 m step off (a small shop, grocery, or land office, c2 046, c2 055). They declare ground contact: approach not modelled, because nothing says how a store front met that ground, so no sill or cut is drawn."
         },
         {
           "label": "What moved",
@@ -74997,11 +74986,11 @@
         },
         {
           "label": "Re-opens on",
-          "text": "any dated view, directory or deed that puts a known building or firm on one of these fronts, which replaces the store standing there; a ruling that 70% is too dense or too sparse for 1835; an 1835 underpinning, or a finer terrain epoch under the Dearborn block, for the four stores on uneven ground."
+          "text": "any dated view, directory or deed that puts a known building or firm on one of these fronts, which replaces the store standing there; a ruling that 70% is too dense or too sparse for 1835; an 1835 underpinning, or a finer terrain epoch under the Dearborn block, for the three stores on uneven ground."
         },
         {
           "label": "Covers",
-          "text": "`recon_1835_core_*.inferred_1835.footprint`, `recon_1835_core_*.inferred_1835.position`, `recon_1835_core_c1_056.inferred_1835.ground_contact`, `recon_1835_core_c2_055.inferred_1835.ground_contact`, `recon_1835_core_c3_043.inferred_1835.ground_contact`, `recon_1835_core_h3_042.inferred_1835.ground_contact`."
+          "text": "`recon_1835_core_*.inferred_1835.footprint`, `recon_1835_core_*.inferred_1835.position`, `recon_1835_core_c1_056.inferred_1835.ground_contact`, `recon_1835_core_c2_046.inferred_1835.ground_contact`, `recon_1835_core_c2_055.inferred_1835.ground_contact`."
         },
         {
           "label": "Recorded",

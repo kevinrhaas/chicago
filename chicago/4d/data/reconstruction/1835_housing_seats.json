@@ -28385,7 +28385,7 @@
       "H2": 239,
       "H3": 8
     },
-    "roofs_in_the_pool": 131,
+    "roofs_in_the_pool": 130,
     "roofs_the_deal_used": 348,
     "of_them_assigned_to_their_own_household": 22,
     "named_household_roofs_offered_to_boarders": 214,
@@ -28396,9 +28396,9 @@
     "census_people_per_dwelling": 8.204,
     "source": "data/reconstruction/1835_town_model.json people_per_dwelling_november_1835 (3,265 people in 398 dwellings)",
     "the_ratio_is": "people under a roof / standing dwellings — the enumerator's own division, every dwelling counted whether this layer links anybody to it or not",
-    "standing_dwellings": 453,
+    "standing_dwellings": 452,
     "people_under_a_roof": 3532,
-    "people_per_dwelling": 7.797,
+    "people_per_dwelling": 7.814,
     "inhabited_roofs": 382,
     "people_per_inhabited_roof": 9.246,
     "why_the_two_differ": "documented dwellings no card links and roofs whose record states a practice, a shop or anonymous stock stand in the first count and are refused by this deal (a named household's roof takes boarders and families, T-3494); who sleeps in them is T-1966's and T-1615's to settle, not a policy deal's",
@@ -28428,7 +28428,7 @@
       "west": 5
     },
     "keepers_held": 180,
-    "store_roofs_offered": 62,
+    "store_roofs_offered": 63,
     "kept_from_elsewhere": {
       "ticket": "T-2244",
       "rule": "a generated store roof nobody sleeps or works in, standing a house of trade whose keeper (proprietor or partner) the town already places on another roof, is a store with nobody living over it: the keeper is not moved, and the book's order for a household over it is discharged (build_order_book_1835.py, store_residence_ruling)",
@@ -28580,20 +28580,6 @@
           "words": "kept James Grant's business here and slept elsewhere in the town, in a house they shared; nobody lived over this store"
         },
         {
-          "structure_id": "recon_1835_core_c2_047",
-          "division": "south",
-          "business": "biz_s_abell_attorney_and_counsellor",
-          "name": "S. Abell, attorney and counsellor",
-          "household": "hh_abell_sidney",
-          "file": "households/hh_abell_sidney.json",
-          "person_id": "abell_sidney",
-          "keeper_placed_at": "recon_1835_blk_randolph_wells_h2_01",
-          "keeper_placed_as": "lived here",
-          "listed_on_the_store_card": true,
-          "relation": "worked here",
-          "words": "kept S. Abell, attorney and counsellor's business here and slept elsewhere in the town, in a house of their own; nobody lived over this store"
-        },
-        {
           "structure_id": "recon_1835_core_c3_002",
           "division": "south",
           "business": "biz_e_l_thrall",
@@ -28606,6 +28592,20 @@
           "listed_on_the_store_card": true,
           "relation": "worked here",
           "words": "kept E. L. Thrall's business here and slept elsewhere in the town, in a house they shared; nobody lived over this store"
+        },
+        {
+          "structure_id": "recon_1835_core_c3_042",
+          "division": "south",
+          "business": "biz_s_abell_attorney_and_counsellor",
+          "name": "S. Abell, attorney and counsellor",
+          "household": "hh_abell_sidney",
+          "file": "households/hh_abell_sidney.json",
+          "person_id": "abell_sidney",
+          "keeper_placed_at": "recon_1835_blk_randolph_wells_h2_01",
+          "keeper_placed_as": "lived here",
+          "listed_on_the_store_card": true,
+          "relation": "worked here",
+          "words": "kept S. Abell, attorney and counsellor's business here and slept elsewhere in the town, in a house of their own; nobody lived over this store"
         },
         {
           "structure_id": "recon_1835_gifford_c1_010",

@@ -26,9 +26,9 @@
     "confidence": "derived",
     "counts": {
       "runs_joined_to_a_household": 2,
-      "runs_bounding_structures_only": 86,
+      "runs_bounding_structures_only": 87,
       "households_that_gained_a_fence": 2,
-      "lots_named": 88,
+      "lots_named": 89,
       "households": [
         "hh_harmon_elijah_d",
         "hh_heacock_russel_e"
@@ -134,6 +134,134 @@
           [276.73, -82.85],
           [276.74, -82.15],
           [277.37, -82.15]
+        ]
+      ]
+    },
+    {
+      "id": "blk_south_water_dearborn_lot5",
+      "path_local_enu_m": [
+        [787.19, -84.18],
+        [770.64, -84.04],
+        [770.76, -69.4],
+        [787.3, -69.53],
+        [787.19, -84.18]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_south_water_dearborn_lot5",
+          "structures": [
+            "recon_1835_blk_south_water_dearborn_h1_03"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE HOUSE LOT: blk_south_water_dearborn lot 5 of the platted grid, holding recon_1835_blk_south_water_dearborn_h1_03 (larger_one_and_a_half_story_house) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE PLOT IS THIS HOUSE'S OWN (T-3476): 16.54 x 14.64 m behind the house, set along the lot left side line, at least 0.914 m inside the lot lines and 3.048 m or more clear of the house's own back face, laid out 'four_square' (tools/dooryard_layouts.py) and closed with pickets cut to a point. Its lines come from data/traces/vectors/thompson_lots.json and this building's committed footprint; its SIZE, which follows the house's class (larger_one_and_a_half_story_house), its layout and its fence are the invention, read off a hash of the lot so no two lots match. docs/LIBERTIES.md L129 claims the plot, L-t3476-dooryard-gardens its size, beds and fence.",
+      "form": {
+        "height_m": {
+          "value": 1.22,
+          "confidence": "reconstructed"
+        },
+        "point_height_m": {
+          "value": 0.07,
+          "confidence": "reconstructed"
+        },
+        "post_spacing_m": {
+          "value": 2.44,
+          "confidence": "reconstructed"
+        },
+        "top_shape": {
+          "value": "pointed",
+          "confidence": "reconstructed"
+        }
+      },
+      "garden": {
+        "style": "four_square",
+        "fence": "picket_pointed",
+        "frame": {
+          "origin": [787.19, -84.18],
+          "u": [-0.999967, 0.008102],
+          "v": [0.008102, 0.999967]
+        },
+        "size_m": [16.54, 14.64],
+        "beds": [
+          {
+            "plan": "bushes",
+            "poly": [
+              [0.3, 13.14],
+              [16.24, 13.14],
+              [16.24, 14.34],
+              [0.3, 14.34]
+            ]
+          },
+          {
+            "plan": "cabbage",
+            "poly": [
+              [0.3, 0.3],
+              [11.75, 0.3],
+              [11.75, 1.53],
+              [0.3, 1.53]
+            ]
+          },
+          {
+            "plan": "roots",
+            "poly": [
+              [0.3, 1.98],
+              [11.75, 1.98],
+              [11.75, 3.21],
+              [0.3, 3.21]
+            ]
+          },
+          {
+            "plan": "herb",
+            "poly": [
+              [0.3, 3.66],
+              [11.75, 3.66],
+              [11.75, 4.81],
+              [0.3, 4.81]
+            ]
+          },
+          {
+            "plan": "potato",
+            "poly": [
+              [13.55, 0.3],
+              [16.24, 0.3],
+              [16.24, 6.4],
+              [13.55, 6.4]
+            ]
+          },
+          {
+            "plan": "corn",
+            "poly": [
+              [0.3, 8.2],
+              [11.75, 8.2],
+              [11.75, 12.69],
+              [0.3, 12.69]
+            ]
+          },
+          {
+            "plan": "vines",
+            "poly": [
+              [13.55, 8.2],
+              [16.24, 8.2],
+              [16.24, 12.69],
+              [13.55, 12.69]
+            ]
+          }
+        ]
+      },
+      "walks_local_enu_m": [
+        [
+          [774.99, -84.08],
+          [774.09, -84.07],
+          [774.19, -71.38],
+          [775.09, -71.39]
+        ],
+        [
+          [786.94, -77.32],
+          [771.0, -77.2],
+          [771.01, -76.3],
+          [786.95, -76.42]
         ]
       ]
     },
@@ -8864,6 +8992,14 @@
         "swing_deg": 73.6
       },
       "opens_into_local_enu_m": [274.19, -79.8],
+      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is in the side that faces the back door, under the house; 3 ft 6 in is a person with a hoe or a basket, not a team. SINCE T-3476 about two gardens in three hang a leaf in it (tools/gate_kinds.py, a foot gate, L382) and the rest are a plain gap."
+    },
+    {
+      "id": "blk_south_water_dearborn_lot5_gate",
+      "on": "dooryard",
+      "at_local_enu_m": [774.53, -84.07],
+      "width_m": 1.067,
+      "confidence": "reconstructed",
       "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is in the side that faces the back door, under the house; 3 ft 6 in is a person with a hoe or a basket, not a team. SINCE T-3476 about two gardens in three hang a leaf in it (tools/gate_kinds.py, a foot gate, L382) and the rest are a plain gap."
     },
     {

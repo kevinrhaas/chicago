@@ -5302,14 +5302,14 @@
             "group": "larger_boarding_houses",
             "division": "south"
           },
-          "target": 36,
-          "standing": 36,
+          "target": 35,
+          "standing": 35,
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-2270",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 36; the 668-roof programme leaves 0 of them to build"
+          "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 0 of them to build"
         },
         {
           "key": "structures/larger_boarding_houses/west",
@@ -5452,14 +5452,14 @@
             "group": "stores_mixed_use",
             "division": "south"
           },
-          "target": 111,
-          "standing": 111,
+          "target": 112,
+          "standing": 112,
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1694",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 111; the 668-roof programme leaves 0 of them to build"
+          "basis": "the inventory's district/group matrix sets 112; the 668-roof programme leaves 0 of them to build"
         },
         {
           "key": "structures/stores_mixed_use/west",

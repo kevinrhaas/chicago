@@ -2207,10 +2207,9 @@
       "structures": [
         "recon_1835_blk_south_water_dearborn_a5_10",
         "recon_1835_blk_south_water_dearborn_d2_04",
-        "recon_1835_core_c1_048",
-        "recon_1835_core_c2_047",
-        "recon_1835_core_c2_050",
-        "recon_1835_core_c3_049"
+        "recon_1835_core_c1_043",
+        "recon_1835_core_c2_044",
+        "recon_1835_core_c3_042"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -2373,7 +2372,9 @@
       "structures": [
         "mansion_house",
         "mansion_house_stable",
-        "recon_1835_core_c3_051"
+        "recon_1835_core_c1_051",
+        "recon_1835_core_c3_045",
+        "recon_1835_core_c3_050"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -2499,8 +2500,7 @@
     {
       "lot": "blk_south_water_dearborn_lot5",
       "structures": [
-        "recon_1835_blk_south_water_dearborn_h1_03",
-        "recon_1835_core_h3_042"
+        "recon_1835_blk_south_water_dearborn_h1_03"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -2549,8 +2549,8 @@
         ],
         [
           [
-            770.02,
-            -58.32
+            768.8,
+            -58.31
           ],
           [
             762.7,
@@ -2558,11 +2558,11 @@
           ],
           [
             762.66,
-            -63.76
+            -63.15
           ],
           [
-            769.98,
-            -63.81
+            768.76,
+            -63.19
           ]
         ]
       ]
@@ -2623,10 +2623,10 @@
     {
       "lot": "blk_south_water_dearborn_lot7",
       "structures": [
-        "recon_1835_core_c1_044",
-        "recon_1835_core_c2_045",
-        "recon_1835_core_c3_043",
-        "recon_1835_core_c3_046"
+        "recon_1835_core_c1_047",
+        "recon_1835_core_c2_046",
+        "recon_1835_core_c2_049",
+        "recon_1835_core_c3_048"
       ],
       "kept_ring_local_enu_m": [
         [

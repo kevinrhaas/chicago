@@ -43,12 +43,12 @@
     "faces_laid": 99,
     "walk_m": 9156.0,
     "crossing_m": 2572.3,
-    "fence_m": 1720.1,
+    "fence_m": 1730.6,
     "walking_decks": 884,
-    "hitching_posts": 103,
+    "hitching_posts": 104,
     "fittings": {
       "mounting_block": 5,
-      "stoop": 92,
+      "stoop": 93,
       "tie_rail": 1,
       "wagon_apron": 7
     },
@@ -78,22 +78,22 @@
         "note": "110 run(s) of sidewalk on 99 platted block face(s), plus 2572.3 m of board crossing at 109 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
       },
       "fence_m": {
-        "value": 1720.1,
+        "value": 1730.6,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "34 street-lining fence run(s), on the lots the rule found improved and standing back from their own frontage line."
+        "note": "35 street-lining fence run(s), on the lots the rule found improved and standing back from their own frontage line."
       },
       "hitching_posts": {
-        "value": 103,
+        "value": 104,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "103 post(s) at the road edge — two at an inn, one at each other trading frontage the rule accepts, a trade this project rules takes its custom from a stranger off the street, at whatever tier the trade is held, with a walk laid in front of it and dry ground clear of the track to stand on. Every frontage it refused is named in `refused` with the clause that refused it. No source states that a post stood at any of them; what the plates give is that the town's frontages had them at all (T-0090)."
+        "note": "104 post(s) at the road edge — two at an inn, one at each other trading frontage the rule accepts, a trade this project rules takes its custom from a stranger off the street, at whatever tier the trade is held, with a walk laid in front of it and dry ground clear of the track to stand on. Every frontage it refused is named in `refused` with the clause that refused it. No source states that a post stood at any of them; what the plates give is that the town's frontages had them at all (T-0090)."
       },
       "fittings": {
-        "value": 105,
+        "value": 106,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "What each business's front takes beyond the walk, dealt by its trade (T-1813): 5 mounting block(s), 92 stoop(s), 1 tie rail(s), 7 wagon apron(s). A stoop at a store's or an inn's door, a mounting block at an inn, a wagon apron at a forwarding house or warehouse, a tie rail at a works. Every one is invented carpentry laid by rule and names the business it serves; no source puts any of them at any door in 1835."
+        "note": "What each business's front takes beyond the walk, dealt by its trade (T-1813): 5 mounting block(s), 93 stoop(s), 1 tie rail(s), 7 wagon apron(s). A stoop at a store's or an inn's door, a mounting block at an inn, a wagon apron at a forwarding house or warehouse, a tie rail at a works. Every one is invented carpentry laid by rule and names the business it serves; no source puts any of them at any door in 1835."
       },
       "width_m": {
         "value": 1.83,
@@ -26488,7 +26488,7 @@
   ],
   "fences": [
     {
-      "id": "blk_lake_clark_south_fence_10",
+      "id": "blk_lake_clark_south_fence_11",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -26518,7 +26518,7 @@
       "least_setback_m": 13.95,
       "openings": [
         {
-          "id": "blk_lake_clark_south_fence_10_gate_1",
+          "id": "blk_lake_clark_south_fence_11_gate_1",
           "on": "street",
           "serves": "recon_1835_south_h2_039",
           "at_local_enu_m": [
@@ -26530,7 +26530,7 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "picket",
-            "hinge": "a",
+            "hinge": "b",
             "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
@@ -26541,7 +26541,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_south_h2_039, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_lake_clark_south_fence_10_gate_2",
+          "id": "blk_lake_clark_south_fence_11_gate_2",
           "on": "street",
           "serves": "recon_1835_south_h2_039",
           "at_local_enu_m": [
@@ -26552,9 +26552,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "board",
+            "leaf_stock": "picket",
             "hinge": "a",
-            "swing_deg": 22.6
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             612.29,
@@ -26567,7 +26567,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_clark's own platted frontage line from 0.0 m to 36.3 m along the south face, covering lot(s) 1, 3 — every one of them improved by a committed building whose nearest wall stands 13.95 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_lake_clark_south_fence_11",
+      "id": "blk_lake_clark_south_fence_12",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -26596,7 +26596,7 @@
       "least_setback_m": 49.56,
       "openings": [
         {
-          "id": "blk_lake_clark_south_fence_11_gate_1",
+          "id": "blk_lake_clark_south_fence_12_gate_1",
           "on": "street",
           "serves": "recon_1835_south_d1_032",
           "at_local_enu_m": [
@@ -26607,9 +26607,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "picket",
+            "leaf_stock": "board",
             "hinge": "b",
-            "swing_deg": 0.0
+            "swing_deg": 76.2
           },
           "opens_into_local_enu_m": [
             659.42,
@@ -26622,7 +26622,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_clark's own platted frontage line from 57.1 m to 73.9 m along the south face, covering lot(s) 5 — every one of them improved by a committed building whose nearest wall stands 49.56 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_lake_dearborn_south_fence_12",
+      "id": "blk_lake_dearborn_south_fence_13",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -26653,7 +26653,7 @@
       "least_setback_m": 14.64,
       "openings": [
         {
-          "id": "blk_lake_dearborn_south_fence_12_gate_1",
+          "id": "blk_lake_dearborn_south_fence_13_gate_1",
           "on": "street",
           "serves": "recon_1835_south_c3_040",
           "at_local_enu_m": [
@@ -26666,8 +26666,8 @@
             "leaves": 2,
             "leaf_stock": "board",
             "swing_deg": [
-              76.1,
-              70.8
+              25.3,
+              89.4
             ]
           },
           "opens_into_local_enu_m": [
@@ -26678,7 +26678,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_south_c3_040, which is the building nearest the street on it. A trade's cart gate, a pair of leaves, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_lake_dearborn_south_fence_12_gate_2",
+          "id": "blk_lake_dearborn_south_fence_13_gate_2",
           "on": "street",
           "serves": "recon_1835_south_d5_034",
           "at_local_enu_m": [
@@ -26689,9 +26689,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "picket",
+            "leaf_stock": "board",
             "hinge": "a",
-            "swing_deg": 28.5
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             751.07,
@@ -26701,7 +26701,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_south_d5_034, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_lake_dearborn_south_fence_12_gate_3",
+          "id": "blk_lake_dearborn_south_fence_13_gate_3",
           "on": "street",
           "serves": "recon_1835_south_a4_048",
           "at_local_enu_m": [
@@ -26713,8 +26713,8 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "board",
-            "hinge": "a",
-            "swing_deg": 0.0
+            "hinge": "b",
+            "swing_deg": 80.1
           },
           "opens_into_local_enu_m": [
             781.0,
@@ -26727,7 +26727,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_dearborn's own platted frontage line from 0.0 m to 72.6 m along the south face, covering lot(s) 1, 3, 5 — every one of them improved by a committed building whose nearest wall stands 14.64 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_lake_franklin_north_fence_5",
+      "id": "blk_lake_franklin_north_fence_6",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -26757,7 +26757,7 @@
       "least_setback_m": 18.45,
       "openings": [
         {
-          "id": "blk_lake_franklin_north_fence_5_gate_1",
+          "id": "blk_lake_franklin_north_fence_6_gate_1",
           "on": "street",
           "serves": "recon_1835_south_d4_002",
           "at_local_enu_m": [
@@ -26770,7 +26770,7 @@
             "leaves": 1,
             "leaf_stock": "board",
             "hinge": "a",
-            "swing_deg": 0.0
+            "swing_deg": 32.5
           },
           "opens_into_local_enu_m": [
             243.29,
@@ -26780,7 +26780,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Lake Street, in front of recon_1835_south_d4_002, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_lake_franklin_north_fence_5_gate_2",
+          "id": "blk_lake_franklin_north_fence_6_gate_2",
           "on": "street",
           "serves": "recon_1835_south_d4_002",
           "at_local_enu_m": [
@@ -26792,7 +26792,7 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "board",
-            "hinge": "a",
+            "hinge": "b",
             "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
@@ -26806,7 +26806,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_franklin's own platted frontage line from 0.0 m to 48.9 m along the north face, covering lot(s) 0, 2 — every one of them improved by a committed building whose nearest wall stands 18.45 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_lake_franklin_south_fence_7",
+      "id": "blk_lake_franklin_south_fence_8",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -26837,7 +26837,7 @@
       "least_setback_m": 11.57,
       "openings": [
         {
-          "id": "blk_lake_franklin_south_fence_7_gate_1",
+          "id": "blk_lake_franklin_south_fence_8_gate_1",
           "on": "street",
           "serves": "recon_1835_south_d6_036",
           "at_local_enu_m": [
@@ -26850,7 +26850,7 @@
             "leaves": 1,
             "leaf_stock": "board",
             "hinge": "a",
-            "swing_deg": 13.2
+            "swing_deg": 28.6
           },
           "opens_into_local_enu_m": [
             242.06,
@@ -26860,7 +26860,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_south_d6_036, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_lake_franklin_south_fence_7_gate_2",
+          "id": "blk_lake_franklin_south_fence_8_gate_2",
           "on": "street",
           "serves": "recon_1835_south_d6_036",
           "at_local_enu_m": [
@@ -26871,9 +26871,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "board",
-            "hinge": "b",
-            "swing_deg": 0.0
+            "leaf_stock": "picket",
+            "hinge": "a",
+            "swing_deg": 41.1
           },
           "opens_into_local_enu_m": [
             244.66,
@@ -26883,7 +26883,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_south_d6_036, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_lake_franklin_south_fence_7_gate_3",
+          "id": "blk_lake_franklin_south_fence_8_gate_3",
           "on": "street",
           "serves": "recon_1835_south_a1_046",
           "at_local_enu_m": [
@@ -26894,9 +26894,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "board",
-            "hinge": "a",
-            "swing_deg": 21.4
+            "leaf_stock": "picket",
+            "hinge": "b",
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             285.28,
@@ -26909,7 +26909,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_franklin's own platted frontage line from 0.0 m to 73.2 m along the south face, covering lot(s) 1, 3, 5 — every one of them improved by a committed building whose nearest wall stands 11.57 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_lake_lasalle_south_fence_9",
+      "id": "blk_lake_lasalle_south_fence_10",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -26941,7 +26941,7 @@
       "least_setback_m": 4.99,
       "openings": [
         {
-          "id": "blk_lake_lasalle_south_fence_9_gate_1",
+          "id": "blk_lake_lasalle_south_fence_10_gate_1",
           "on": "street",
           "serves": "recon_1835_south_f1_038",
           "at_local_enu_m": [
@@ -26954,8 +26954,8 @@
             "leaves": 2,
             "leaf_stock": "board",
             "swing_deg": [
-              88.4,
-              89.8
+              0.0,
+              0.0
             ]
           },
           "opens_into_local_enu_m": [
@@ -26966,7 +26966,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_south_f1_038, which is the building nearest the street on it. A trade's cart gate, a pair of leaves, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_lake_lasalle_south_fence_9_gate_2",
+          "id": "blk_lake_lasalle_south_fence_10_gate_2",
           "on": "street",
           "serves": "recon_1835_south_f1_038",
           "at_local_enu_m": [
@@ -26979,8 +26979,8 @@
             "leaves": 2,
             "leaf_stock": "board",
             "swing_deg": [
-              88.4,
-              72.4
+              0.0,
+              0.0
             ]
           },
           "opens_into_local_enu_m": [
@@ -26991,7 +26991,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_south_f1_038, which is the building nearest the street on it. A trade's cart gate, a pair of leaves, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_lake_lasalle_south_fence_9_gate_3",
+          "id": "blk_lake_lasalle_south_fence_10_gate_3",
           "on": "street",
           "serves": "recon_1835_south_a2_047",
           "at_local_enu_m": [
@@ -27002,9 +27002,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "picket",
-            "hinge": "b",
-            "swing_deg": 0.0
+            "leaf_stock": "board",
+            "hinge": "a",
+            "swing_deg": 28.4
           },
           "opens_into_local_enu_m": [
             535.68,
@@ -27014,7 +27014,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_south_a2_047, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_lake_lasalle_south_fence_9_gate_4",
+          "id": "blk_lake_lasalle_south_fence_10_gate_4",
           "on": "street",
           "serves": "wright_building_to_let_b",
           "at_local_enu_m": [
@@ -27027,7 +27027,7 @@
             "leaves": 1,
             "leaf_stock": "picket",
             "hinge": "a",
-            "swing_deg": 75.5
+            "swing_deg": 34.8
           },
           "opens_into_local_enu_m": [
             549.84,
@@ -27040,7 +27040,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_lasalle's own platted frontage line from 0.0 m to 99.0 m along the south face, covering lot(s) 1, 3, 5, 7 — every one of them improved by a committed building whose nearest wall stands 4.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_lake_market_north_fence_4",
+      "id": "blk_lake_market_north_fence_5",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -27070,7 +27070,7 @@
       "least_setback_m": 7.0,
       "openings": [
         {
-          "id": "blk_lake_market_north_fence_4_gate_1",
+          "id": "blk_lake_market_north_fence_5_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_lake_market_d3_03",
           "at_local_enu_m": [
@@ -27081,8 +27081,8 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "board",
-            "hinge": "a",
+            "leaf_stock": "picket",
+            "hinge": "b",
             "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
@@ -27093,7 +27093,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Lake Street, in front of recon_1835_blk_lake_market_d3_03, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_lake_market_north_fence_4_gate_2",
+          "id": "blk_lake_market_north_fence_5_gate_2",
           "on": "street",
           "serves": "recon_1835_blk_lake_market_d4_02",
           "at_local_enu_m": [
@@ -27105,8 +27105,8 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "board",
-            "hinge": "b",
-            "swing_deg": 0.0
+            "hinge": "a",
+            "swing_deg": 71.0
           },
           "opens_into_local_enu_m": [
             157.46,
@@ -27119,7 +27119,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_market's own platted frontage line from 24.4 m to 73.3 m along the north face, covering lot(s) 2, 4 — every one of them improved by a committed building whose nearest wall stands 7.00 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_lake_market_south_fence_6",
+      "id": "blk_lake_market_south_fence_7",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -27149,7 +27149,7 @@
       "least_setback_m": 5.48,
       "openings": [
         {
-          "id": "blk_lake_market_south_fence_6_gate_1",
+          "id": "blk_lake_market_south_fence_7_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_lake_market_d1_05",
           "at_local_enu_m": [
@@ -27161,8 +27161,8 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "picket",
-            "hinge": "b",
-            "swing_deg": 29.6
+            "hinge": "a",
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             156.28,
@@ -27172,7 +27172,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_blk_lake_market_d1_05, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_lake_market_south_fence_6_gate_2",
+          "id": "blk_lake_market_south_fence_7_gate_2",
           "on": "street",
           "serves": "recon_1835_blk_lake_market_d2_04",
           "at_local_enu_m": [
@@ -27183,9 +27183,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "board",
-            "hinge": "b",
-            "swing_deg": 0.0
+            "leaf_stock": "picket",
+            "hinge": "a",
+            "swing_deg": 37.4
           },
           "opens_into_local_enu_m": [
             184.17,
@@ -27198,7 +27198,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_market's own platted frontage line from 48.6 m to 97.5 m along the south face, covering lot(s) 5, 7 — every one of them improved by a committed building whose nearest wall stands 5.48 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_lake_wells_south_fence_8",
+      "id": "blk_lake_wells_south_fence_9",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -27230,7 +27230,7 @@
       "least_setback_m": 4.99,
       "openings": [
         {
-          "id": "blk_lake_wells_south_fence_8_gate_1",
+          "id": "blk_lake_wells_south_fence_9_gate_1",
           "on": "street",
           "serves": "recon_1835_south_a2_037",
           "at_local_enu_m": [
@@ -27243,7 +27243,7 @@
             "leaves": 1,
             "leaf_stock": "board",
             "hinge": "b",
-            "swing_deg": 12.8
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             364.43,
@@ -27253,7 +27253,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_south_a2_037, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_lake_wells_south_fence_8_gate_2",
+          "id": "blk_lake_wells_south_fence_9_gate_2",
           "on": "street",
           "serves": "recon_1835_south_a2_037",
           "at_local_enu_m": [
@@ -27265,8 +27265,8 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "board",
-            "hinge": "a",
-            "swing_deg": 32.6
+            "hinge": "b",
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             366.66,
@@ -27276,7 +27276,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_south_a2_037, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_lake_wells_south_fence_8_gate_3",
+          "id": "blk_lake_wells_south_fence_9_gate_3",
           "on": "street",
           "serves": "recon_1835_south_d4_026",
           "at_local_enu_m": [
@@ -27287,9 +27287,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "board",
+            "leaf_stock": "picket",
             "hinge": "b",
-            "swing_deg": 78.6
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             409.69,
@@ -27299,7 +27299,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_south_d4_026, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_lake_wells_south_fence_8_gate_4",
+          "id": "blk_lake_wells_south_fence_9_gate_4",
           "on": "street",
           "serves": "wright_building_to_let_a",
           "at_local_enu_m": [
@@ -27310,9 +27310,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "picket",
-            "hinge": "a",
-            "swing_deg": 0.0
+            "leaf_stock": "board",
+            "hinge": "b",
+            "swing_deg": 80.2
           },
           "opens_into_local_enu_m": [
             426.64,
@@ -27325,7 +27325,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_wells's own platted frontage line from 0.0 m to 97.6 m along the south face, covering lot(s) 1, 3, 5, 7 — every one of them improved by a committed building whose nearest wall stands 4.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_clark_north_fence_17",
+      "id": "blk_randolph_clark_north_fence_18",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -27355,7 +27355,7 @@
       "least_setback_m": 5.0,
       "openings": [
         {
-          "id": "blk_randolph_clark_north_fence_17_gate_1",
+          "id": "blk_randolph_clark_north_fence_18_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_randolph_clark_h1_03",
           "at_local_enu_m": [
@@ -27378,7 +27378,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_blk_randolph_clark_h1_03, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_randolph_clark_north_fence_17_gate_2",
+          "id": "blk_randolph_clark_north_fence_18_gate_2",
           "on": "street",
           "serves": "recon_1835_blk_randolph_clark_h2_02",
           "at_local_enu_m": [
@@ -27389,9 +27389,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "board",
-            "hinge": "a",
-            "swing_deg": 86.8
+            "leaf_stock": "picket",
+            "hinge": "b",
+            "swing_deg": 18.6
           },
           "opens_into_local_enu_m": [
             648.03,
@@ -27404,7 +27404,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_clark's own platted frontage line from 36.3 m to 74.1 m along the north face, covering lot(s) 2, 4 — every one of them improved by a committed building whose nearest wall stands 5.00 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_clark_south_fence_25",
+      "id": "blk_randolph_clark_south_fence_26",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -27435,7 +27435,7 @@
       "least_setback_m": 5.49,
       "openings": [
         {
-          "id": "blk_randolph_clark_south_fence_25_gate_1",
+          "id": "blk_randolph_clark_south_fence_26_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_randolph_clark_d1_06",
           "at_local_enu_m": [
@@ -27446,8 +27446,8 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "picket",
-            "hinge": "a",
+            "leaf_stock": "board",
+            "hinge": "b",
             "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
@@ -27458,7 +27458,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_randolph_clark_d1_06, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_randolph_clark_south_fence_25_gate_2",
+          "id": "blk_randolph_clark_south_fence_26_gate_2",
           "on": "street",
           "serves": "recon_1835_blk_randolph_clark_d2_05",
           "at_local_enu_m": [
@@ -27469,9 +27469,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "board",
+            "leaf_stock": "picket",
             "hinge": "a",
-            "swing_deg": 0.0
+            "swing_deg": 81.2
           },
           "opens_into_local_enu_m": [
             645.36,
@@ -27481,7 +27481,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_randolph_clark_d2_05, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_randolph_clark_south_fence_25_gate_3",
+          "id": "blk_randolph_clark_south_fence_26_gate_3",
           "on": "street",
           "serves": "recon_1835_blk_randolph_clark_d6_04",
           "at_local_enu_m": [
@@ -27494,7 +27494,7 @@
             "leaves": 1,
             "leaf_stock": "board",
             "hinge": "b",
-            "swing_deg": 87.5
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             673.51,
@@ -27507,7 +27507,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_clark's own platted frontage line from 24.6 m to 98.6 m along the south face, covering lot(s) 3, 5, 7 — every one of them improved by a committed building whose nearest wall stands 5.49 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_dearborn_north_fence_18",
+      "id": "blk_randolph_dearborn_north_fence_19",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -27537,7 +27537,7 @@
       "least_setback_m": 4.5,
       "openings": [
         {
-          "id": "blk_randolph_dearborn_north_fence_18_gate_1",
+          "id": "blk_randolph_dearborn_north_fence_19_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_randolph_dearborn_d3_01",
           "at_local_enu_m": [
@@ -27548,7 +27548,7 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "picket",
+            "leaf_stock": "board",
             "hinge": "b",
             "swing_deg": 0.0
           },
@@ -27560,7 +27560,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_blk_randolph_dearborn_d3_01, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_randolph_dearborn_north_fence_18_gate_2",
+          "id": "blk_randolph_dearborn_north_fence_19_gate_2",
           "on": "street",
           "serves": "recon_1835_blk_randolph_dearborn_d5_02",
           "at_local_enu_m": [
@@ -27572,8 +27572,8 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "board",
-            "hinge": "b",
-            "swing_deg": 12.1
+            "hinge": "a",
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             747.25,
@@ -27586,7 +27586,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_dearborn's own platted frontage line from 0.0 m to 51.9 m along the north face, covering lot(s) 0, 2 — every one of them improved by a committed building whose nearest wall stands 4.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_dearborn_south_fence_26",
+      "id": "blk_randolph_dearborn_south_fence_27",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -27615,7 +27615,7 @@
       "least_setback_m": 4.0,
       "openings": [
         {
-          "id": "blk_randolph_dearborn_south_fence_26_gate_1",
+          "id": "blk_randolph_dearborn_south_fence_27_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_randolph_dearborn_d1_04",
           "at_local_enu_m": [
@@ -27627,7 +27627,7 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "picket",
-            "hinge": "a",
+            "hinge": "b",
             "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
@@ -27641,7 +27641,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_dearborn's own platted frontage line from 25.8 m to 51.8 m along the south face, covering lot(s) 3 — every one of them improved by a committed building whose nearest wall stands 4.00 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_franklin_north_fence_14",
+      "id": "blk_randolph_franklin_north_fence_15",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -27670,7 +27670,7 @@
       "least_setback_m": 7.49,
       "openings": [
         {
-          "id": "blk_randolph_franklin_north_fence_14_gate_1",
+          "id": "blk_randolph_franklin_north_fence_15_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_randolph_franklin_d4_03",
           "at_local_enu_m": [
@@ -27681,7 +27681,7 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "board",
+            "leaf_stock": "picket",
             "hinge": "b",
             "swing_deg": 0.0
           },
@@ -27696,7 +27696,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_franklin's own platted frontage line from 0.0 m to 24.5 m along the north face, covering lot(s) 0 — every one of them improved by a committed building whose nearest wall stands 7.49 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_franklin_north_fence_15",
+      "id": "blk_randolph_franklin_north_fence_16",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -27726,7 +27726,7 @@
       "least_setback_m": 6.99,
       "openings": [
         {
-          "id": "blk_randolph_franklin_north_fence_15_gate_1",
+          "id": "blk_randolph_franklin_north_fence_16_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_randolph_franklin_d5_02",
           "at_local_enu_m": [
@@ -27737,8 +27737,8 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "picket",
-            "hinge": "b",
+            "leaf_stock": "board",
+            "hinge": "a",
             "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
@@ -27749,7 +27749,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_blk_randolph_franklin_d5_02, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_randolph_franklin_north_fence_15_gate_2",
+          "id": "blk_randolph_franklin_north_fence_16_gate_2",
           "on": "street",
           "serves": "recon_1835_blk_randolph_franklin_d6_01",
           "at_local_enu_m": [
@@ -27760,9 +27760,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "board",
-            "hinge": "b",
-            "swing_deg": 84.9
+            "leaf_stock": "picket",
+            "hinge": "a",
+            "swing_deg": 81.3
           },
           "opens_into_local_enu_m": [
             305.98,
@@ -27775,7 +27775,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_franklin's own platted frontage line from 48.8 m to 97.6 m along the north face, covering lot(s) 4, 6 — every one of them improved by a committed building whose nearest wall stands 6.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_franklin_south_fence_22",
+      "id": "blk_randolph_franklin_south_fence_23",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -27806,7 +27806,7 @@
       "least_setback_m": 5.49,
       "openings": [
         {
-          "id": "blk_randolph_franklin_south_fence_22_gate_1",
+          "id": "blk_randolph_franklin_south_fence_23_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_randolph_franklin_d1_06",
           "at_local_enu_m": [
@@ -27817,9 +27817,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "picket",
-            "hinge": "b",
-            "swing_deg": 34.3
+            "leaf_stock": "board",
+            "hinge": "a",
+            "swing_deg": 21.1
           },
           "opens_into_local_enu_m": [
             256.54,
@@ -27829,7 +27829,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_randolph_franklin_d1_06, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_randolph_franklin_south_fence_22_gate_2",
+          "id": "blk_randolph_franklin_south_fence_23_gate_2",
           "on": "street",
           "serves": "recon_1835_blk_randolph_franklin_d2_05",
           "at_local_enu_m": [
@@ -27840,9 +27840,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "picket",
+            "leaf_stock": "board",
             "hinge": "b",
-            "swing_deg": 0.0
+            "swing_deg": 81.7
           },
           "opens_into_local_enu_m": [
             277.44,
@@ -27852,7 +27852,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_randolph_franklin_d2_05, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_randolph_franklin_south_fence_22_gate_3",
+          "id": "blk_randolph_franklin_south_fence_23_gate_3",
           "on": "street",
           "serves": "recon_1835_blk_randolph_franklin_d3_04",
           "at_local_enu_m": [
@@ -27865,7 +27865,7 @@
             "leaves": 1,
             "leaf_stock": "board",
             "hinge": "a",
-            "swing_deg": 79.8
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             305.35,
@@ -27878,7 +27878,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_franklin's own platted frontage line from 24.3 m to 97.6 m along the south face, covering lot(s) 3, 5, 7 — every one of them improved by a committed building whose nearest wall stands 5.49 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_market_north_fence_13",
+      "id": "blk_randolph_market_north_fence_14",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -27908,7 +27908,7 @@
       "least_setback_m": 5.0,
       "openings": [
         {
-          "id": "blk_randolph_market_north_fence_13_gate_1",
+          "id": "blk_randolph_market_north_fence_14_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_randolph_market_d5_01",
           "at_local_enu_m": [
@@ -27919,9 +27919,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "picket",
-            "hinge": "b",
-            "swing_deg": 33.9
+            "leaf_stock": "board",
+            "hinge": "a",
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             110.35,
@@ -27931,7 +27931,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_blk_randolph_market_d5_01, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_randolph_market_north_fence_13_gate_2",
+          "id": "blk_randolph_market_north_fence_14_gate_2",
           "on": "street",
           "serves": "recon_1835_blk_randolph_market_d6_02",
           "at_local_enu_m": [
@@ -27943,8 +27943,8 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "board",
-            "hinge": "a",
-            "swing_deg": 0.0
+            "hinge": "b",
+            "swing_deg": 24.4
           },
           "opens_into_local_enu_m": [
             131.73,
@@ -27957,7 +27957,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_market's own platted frontage line from 0.0 m to 48.9 m along the north face, covering lot(s) 0, 2 — every one of them improved by a committed building whose nearest wall stands 5.00 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_market_south_fence_20",
+      "id": "blk_randolph_market_south_fence_21",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -27986,7 +27986,7 @@
       "least_setback_m": 4.5,
       "openings": [
         {
-          "id": "blk_randolph_market_south_fence_20_gate_1",
+          "id": "blk_randolph_market_south_fence_21_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_randolph_market_d4_03",
           "at_local_enu_m": [
@@ -27999,7 +27999,7 @@
             "leaves": 1,
             "leaf_stock": "board",
             "hinge": "b",
-            "swing_deg": 70.4
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             134.6,
@@ -28012,7 +28012,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_market's own platted frontage line from 24.3 m to 48.8 m along the south face, covering lot(s) 3 — every one of them improved by a committed building whose nearest wall stands 4.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_market_south_fence_21",
+      "id": "blk_randolph_market_south_fence_22",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -28041,7 +28041,7 @@
       "least_setback_m": 5.99,
       "openings": [
         {
-          "id": "blk_randolph_market_south_fence_21_gate_1",
+          "id": "blk_randolph_market_south_fence_22_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_randolph_market_d3_04",
           "at_local_enu_m": [
@@ -28053,7 +28053,7 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "board",
-            "hinge": "b",
+            "hinge": "a",
             "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
@@ -28067,7 +28067,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_market's own platted frontage line from 73.0 m to 97.5 m along the south face, covering lot(s) 7 — every one of them improved by a committed building whose nearest wall stands 5.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_wells_north_fence_16",
+      "id": "blk_randolph_wells_north_fence_17",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -28099,7 +28099,7 @@
       "least_setback_m": 4.5,
       "openings": [
         {
-          "id": "blk_randolph_wells_north_fence_16_gate_1",
+          "id": "blk_randolph_wells_north_fence_17_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_randolph_wells_h2_01",
           "at_local_enu_m": [
@@ -28112,7 +28112,7 @@
             "leaves": 1,
             "leaf_stock": "picket",
             "hinge": "b",
-            "swing_deg": 0.0
+            "swing_deg": 35.1
           },
           "opens_into_local_enu_m": [
             353.27,
@@ -28122,7 +28122,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_blk_randolph_wells_h2_01, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_randolph_wells_north_fence_16_gate_2",
+          "id": "blk_randolph_wells_north_fence_17_gate_2",
           "on": "street",
           "serves": "recon_1835_blk_randolph_wells_h1_02",
           "at_local_enu_m": [
@@ -28135,7 +28135,7 @@
             "leaves": 1,
             "leaf_stock": "board",
             "hinge": "b",
-            "swing_deg": 83.8
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             379.17,
@@ -28145,7 +28145,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_blk_randolph_wells_h1_02, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_randolph_wells_north_fence_16_gate_3",
+          "id": "blk_randolph_wells_north_fence_17_gate_3",
           "on": "street",
           "serves": "recon_1835_blk_randolph_wells_d5_03",
           "at_local_enu_m": [
@@ -28158,7 +28158,7 @@
             "leaves": 1,
             "leaf_stock": "board",
             "hinge": "a",
-            "swing_deg": 72.0
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             400.07,
@@ -28168,7 +28168,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Randolph Street, in front of recon_1835_blk_randolph_wells_d5_03, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_randolph_wells_north_fence_16_gate_4",
+          "id": "blk_randolph_wells_north_fence_17_gate_4",
           "on": "street",
           "serves": "recon_1835_blk_randolph_wells_d4_04",
           "at_local_enu_m": [
@@ -28179,8 +28179,8 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "picket",
-            "hinge": "a",
+            "leaf_stock": "board",
+            "hinge": "b",
             "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
@@ -28194,7 +28194,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_wells's own platted frontage line from 0.0 m to 97.6 m along the north face, covering lot(s) 0, 2, 4, 6 — every one of them improved by a committed building whose nearest wall stands 4.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_wells_south_fence_23",
+      "id": "blk_randolph_wells_south_fence_24",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -28224,7 +28224,7 @@
       "least_setback_m": 4.0,
       "openings": [
         {
-          "id": "blk_randolph_wells_south_fence_23_gate_1",
+          "id": "blk_randolph_wells_south_fence_24_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_randolph_wells_d3_05",
           "at_local_enu_m": [
@@ -28235,9 +28235,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "board",
-            "hinge": "b",
-            "swing_deg": 30.0
+            "leaf_stock": "picket",
+            "hinge": "a",
+            "swing_deg": 87.8
           },
           "opens_into_local_enu_m": [
             354.14,
@@ -28247,7 +28247,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_randolph_wells_d3_05, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_randolph_wells_south_fence_23_gate_2",
+          "id": "blk_randolph_wells_south_fence_24_gate_2",
           "on": "street",
           "serves": "recon_1835_blk_randolph_wells_d1_06",
           "at_local_enu_m": [
@@ -28259,8 +28259,8 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "board",
-            "hinge": "b",
-            "swing_deg": 27.7
+            "hinge": "a",
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             376.03,
@@ -28273,7 +28273,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_wells's own platted frontage line from 0.0 m to 48.8 m along the south face, covering lot(s) 1, 3 — every one of them improved by a committed building whose nearest wall stands 4.00 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_randolph_wells_south_fence_24",
+      "id": "blk_randolph_wells_south_fence_25",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -28302,7 +28302,7 @@
       "least_setback_m": 5.0,
       "openings": [
         {
-          "id": "blk_randolph_wells_south_fence_24_gate_1",
+          "id": "blk_randolph_wells_south_fence_25_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_randolph_wells_d2_07",
           "at_local_enu_m": [
@@ -28314,8 +28314,8 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "picket",
-            "hinge": "a",
-            "swing_deg": 87.8
+            "hinge": "b",
+            "swing_deg": 31.3
           },
           "opens_into_local_enu_m": [
             428.34,
@@ -28326,6 +28326,61 @@
         }
       ],
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_randolph_wells's own platted frontage line from 73.1 m to 97.6 m along the south face, covering lot(s) 7 — every one of them improved by a committed building whose nearest wall stands 5.00 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_south_water_dearborn_south_fence_4",
+      "belongs_to": "town_street_edge",
+      "kind": "board_fence",
+      "confidence": "reconstructed",
+      "street": "lake",
+      "street_name": "Lake Street",
+      "chunk": "blk_south_water_dearborn_south_1",
+      "path_local_enu_m": [
+        [
+          762.19,
+          -103.68
+        ],
+        [
+          772.64,
+          -103.77
+        ]
+      ],
+      "height_m": 1.37,
+      "board_width_m": 0.305,
+      "board_gap_m": 0.006,
+      "post_spacing_m": 2.44,
+      "post_square_m": 0.12,
+      "rail_courses": 2,
+      "lots": [
+        5
+      ],
+      "least_setback_m": 5.49,
+      "openings": [
+        {
+          "id": "blk_south_water_dearborn_south_fence_4_gate_1",
+          "on": "street",
+          "serves": "recon_1835_blk_south_water_dearborn_h1_03",
+          "at_local_enu_m": [
+            771.51,
+            -103.76
+          ],
+          "width_m": 1.067,
+          "gate": {
+            "kind": "foot_gate",
+            "leaves": 1,
+            "leaf_stock": "picket",
+            "hinge": "a",
+            "swing_deg": 0.0
+          },
+          "opens_into_local_enu_m": [
+            771.54,
+            -99.76
+          ],
+          "confidence": "reconstructed",
+          "note": "INVENTED (T-2112): the way into this lot from Lake Street, in front of recon_1835_blk_south_water_dearborn_h1_03, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
+        }
+      ],
+      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_south_water_dearborn's own platted frontage line from 51.7 m to 62.2 m along the south face, covering lot(s) 5 — every one of them improved by a committed building whose nearest wall stands 5.49 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_franklin_south_fence_2",
@@ -28383,7 +28438,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_south_water_franklin's own platted frontage line from 24.3 m to 48.8 m along the south face, covering lot(s) 3 — every one of them improved by a committed building whose nearest wall stands 5.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_south_water_market_north_fence_19",
+      "id": "blk_south_water_market_north_fence_20",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -28412,7 +28467,7 @@
       "least_setback_m": 3.22,
       "openings": [
         {
-          "id": "blk_south_water_market_north_fence_19_gate_1",
+          "id": "blk_south_water_market_north_fence_20_gate_1",
           "on": "street",
           "serves": "newberry_dole_warehouse",
           "at_local_enu_m": [
@@ -28425,8 +28480,8 @@
             "leaves": 2,
             "leaf_stock": "board",
             "swing_deg": [
-              0.0,
-              74.8
+              13.8,
+              71.3
             ]
           },
           "opens_into_local_enu_m": [
@@ -28574,7 +28629,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_south_water_wells's own platted frontage line from 73.1 m to 97.6 m along the south face, covering lot(s) 7 — every one of them improved by a committed building whose nearest wall stands 5.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_washington_clark_north_fence_32",
+      "id": "blk_washington_clark_north_fence_33",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -28604,7 +28659,7 @@
       "least_setback_m": 4.99,
       "openings": [
         {
-          "id": "blk_washington_clark_north_fence_32_gate_1",
+          "id": "blk_washington_clark_north_fence_33_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_washington_clark_d4_14",
           "at_local_enu_m": [
@@ -28616,7 +28671,7 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "board",
-            "hinge": "b",
+            "hinge": "a",
             "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
@@ -28627,7 +28682,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_washington_clark_d4_14, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_washington_clark_north_fence_32_gate_2",
+          "id": "blk_washington_clark_north_fence_33_gate_2",
           "on": "street",
           "serves": "recon_1835_blk_washington_clark_d5_01",
           "at_local_enu_m": [
@@ -28639,8 +28694,8 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "board",
-            "hinge": "b",
-            "swing_deg": 79.8
+            "hinge": "a",
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             645.68,
@@ -28653,7 +28708,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_washington_clark's own platted frontage line from 24.7 m to 74.1 m along the north face, covering lot(s) 2, 4 — every one of them improved by a committed building whose nearest wall stands 4.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_washington_dearborn_north_fence_33",
+      "id": "blk_washington_dearborn_north_fence_34",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -28682,7 +28737,7 @@
       "least_setback_m": 5.49,
       "openings": [
         {
-          "id": "blk_washington_dearborn_north_fence_33_gate_1",
+          "id": "blk_washington_dearborn_north_fence_34_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_washington_dearborn_d7_04",
           "at_local_enu_m": [
@@ -28695,7 +28750,7 @@
             "leaves": 1,
             "leaf_stock": "board",
             "hinge": "a",
-            "swing_deg": 0.0
+            "swing_deg": 24.6
           },
           "opens_into_local_enu_m": [
             723.0,
@@ -28708,7 +28763,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_washington_dearborn's own platted frontage line from 0.0 m to 26.0 m along the north face, covering lot(s) 0 — every one of them improved by a committed building whose nearest wall stands 5.49 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_washington_dearborn_north_fence_34",
+      "id": "blk_washington_dearborn_north_fence_35",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -28737,7 +28792,7 @@
       "least_setback_m": 6.0,
       "openings": [
         {
-          "id": "blk_washington_dearborn_north_fence_34_gate_1",
+          "id": "blk_washington_dearborn_north_fence_35_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_washington_dearborn_h2_05",
           "at_local_enu_m": [
@@ -28748,9 +28803,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "board",
+            "leaf_stock": "picket",
             "hinge": "a",
-            "swing_deg": 24.6
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             771.8,
@@ -28763,7 +28818,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_washington_dearborn's own platted frontage line from 51.8 m to 72.5 m along the north face, covering lot(s) 4 — every one of them improved by a committed building whose nearest wall stands 6.00 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_washington_franklin_north_fence_29",
+      "id": "blk_washington_franklin_north_fence_30",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -28795,7 +28850,7 @@
       "least_setback_m": 4.99,
       "openings": [
         {
-          "id": "blk_washington_franklin_north_fence_29_gate_1",
+          "id": "blk_washington_franklin_north_fence_30_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_washington_franklin_d7_01",
           "at_local_enu_m": [
@@ -28807,8 +28862,8 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "board",
-            "hinge": "b",
-            "swing_deg": 39.5
+            "hinge": "a",
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             231.97,
@@ -28818,7 +28873,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_washington_franklin_d7_01, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_washington_franklin_north_fence_29_gate_2",
+          "id": "blk_washington_franklin_north_fence_30_gate_2",
           "on": "street",
           "serves": "recon_1835_blk_washington_franklin_h2_02",
           "at_local_enu_m": [
@@ -28830,8 +28885,8 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "picket",
-            "hinge": "b",
-            "swing_deg": 73.0
+            "hinge": "a",
+            "swing_deg": 26.1
           },
           "opens_into_local_enu_m": [
             253.38,
@@ -28841,7 +28896,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_washington_franklin_h2_02, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_washington_franklin_north_fence_29_gate_3",
+          "id": "blk_washington_franklin_north_fence_30_gate_3",
           "on": "street",
           "serves": "recon_1835_blk_washington_franklin_h1_03",
           "at_local_enu_m": [
@@ -28853,8 +28908,8 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "board",
-            "hinge": "b",
-            "swing_deg": 0.0
+            "hinge": "a",
+            "swing_deg": 26.6
           },
           "opens_into_local_enu_m": [
             280.78,
@@ -28864,7 +28919,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_washington_franklin_h1_03, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_washington_franklin_north_fence_29_gate_4",
+          "id": "blk_washington_franklin_north_fence_30_gate_4",
           "on": "street",
           "serves": "recon_1835_blk_washington_franklin_d7_04",
           "at_local_enu_m": [
@@ -28877,7 +28932,7 @@
             "leaves": 1,
             "leaf_stock": "board",
             "hinge": "b",
-            "swing_deg": 0.0
+            "swing_deg": 89.0
           },
           "opens_into_local_enu_m": [
             302.18,
@@ -28890,7 +28945,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_washington_franklin's own platted frontage line from 0.0 m to 97.6 m along the north face, covering lot(s) 0, 2, 4, 6 — every one of them improved by a committed building whose nearest wall stands 4.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_washington_lasalle_north_fence_31",
+      "id": "blk_washington_lasalle_north_fence_32",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -28922,7 +28977,7 @@
       "least_setback_m": 4.5,
       "openings": [
         {
-          "id": "blk_washington_lasalle_north_fence_31_gate_1",
+          "id": "blk_washington_lasalle_north_fence_32_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_washington_lasalle_h2_01",
           "at_local_enu_m": [
@@ -28935,7 +28990,7 @@
             "leaves": 1,
             "leaf_stock": "board",
             "hinge": "b",
-            "swing_deg": 0.0
+            "swing_deg": 29.6
           },
           "opens_into_local_enu_m": [
             474.62,
@@ -28945,7 +29000,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_washington_lasalle_h2_01, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_washington_lasalle_north_fence_31_gate_2",
+          "id": "blk_washington_lasalle_north_fence_32_gate_2",
           "on": "street",
           "serves": "recon_1835_blk_washington_lasalle_h1_02",
           "at_local_enu_m": [
@@ -28956,7 +29011,7 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "board",
+            "leaf_stock": "picket",
             "hinge": "b",
             "swing_deg": 0.0
           },
@@ -28968,7 +29023,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_washington_lasalle_h1_02, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_washington_lasalle_north_fence_31_gate_3",
+          "id": "blk_washington_lasalle_north_fence_32_gate_3",
           "on": "street",
           "serves": "recon_1835_blk_washington_lasalle_h1_03",
           "at_local_enu_m": [
@@ -28979,8 +29034,8 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "board",
-            "hinge": "b",
+            "leaf_stock": "picket",
+            "hinge": "a",
             "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
@@ -28991,7 +29046,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_washington_lasalle_h1_03, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_washington_lasalle_north_fence_31_gate_4",
+          "id": "blk_washington_lasalle_north_fence_32_gate_4",
           "on": "street",
           "serves": "recon_1835_blk_washington_lasalle_d7_04",
           "at_local_enu_m": [
@@ -29003,8 +29058,8 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "picket",
-            "hinge": "b",
-            "swing_deg": 24.7
+            "hinge": "a",
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             550.8,
@@ -29017,7 +29072,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_washington_lasalle's own platted frontage line from 0.0 m to 98.9 m along the north face, covering lot(s) 0, 2, 4, 6 — every one of them improved by a committed building whose nearest wall stands 4.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_washington_market_north_fence_27",
+      "id": "blk_washington_market_north_fence_28",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -29047,7 +29102,7 @@
       "least_setback_m": 4.99,
       "openings": [
         {
-          "id": "blk_washington_market_north_fence_27_gate_1",
+          "id": "blk_washington_market_north_fence_28_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_washington_market_h1_07",
           "at_local_enu_m": [
@@ -29058,9 +29113,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "board",
-            "hinge": "b",
-            "swing_deg": 25.6
+            "leaf_stock": "picket",
+            "hinge": "a",
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             107.05,
@@ -29070,7 +29125,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_washington_market_h1_07, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_washington_market_north_fence_27_gate_2",
+          "id": "blk_washington_market_north_fence_28_gate_2",
           "on": "street",
           "serves": "recon_1835_blk_washington_market_d4_08",
           "at_local_enu_m": [
@@ -29081,9 +29136,9 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "picket",
-            "hinge": "b",
-            "swing_deg": 84.4
+            "leaf_stock": "board",
+            "hinge": "a",
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             134.43,
@@ -29096,7 +29151,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_washington_market's own platted frontage line from 0.0 m to 48.9 m along the north face, covering lot(s) 0, 2 — every one of them improved by a committed building whose nearest wall stands 4.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_washington_market_north_fence_28",
+      "id": "blk_washington_market_north_fence_29",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -29125,7 +29180,7 @@
       "least_setback_m": 4.99,
       "openings": [
         {
-          "id": "blk_washington_market_north_fence_28_gate_1",
+          "id": "blk_washington_market_north_fence_29_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_washington_market_d7_09",
           "at_local_enu_m": [
@@ -29136,7 +29191,7 @@
           "gate": {
             "kind": "foot_gate",
             "leaves": 1,
-            "leaf_stock": "picket",
+            "leaf_stock": "board",
             "hinge": "a",
             "swing_deg": 0.0
           },
@@ -29151,7 +29206,7 @@
       "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_washington_market's own platted frontage line from 73.2 m to 97.5 m along the north face, covering lot(s) 6 — every one of them improved by a committed building whose nearest wall stands 4.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_washington_wells_north_fence_30",
+      "id": "blk_washington_wells_north_fence_31",
       "belongs_to": "town_street_edge",
       "kind": "board_fence",
       "confidence": "reconstructed",
@@ -29183,7 +29238,7 @@
       "least_setback_m": 4.5,
       "openings": [
         {
-          "id": "blk_washington_wells_north_fence_30_gate_1",
+          "id": "blk_washington_wells_north_fence_31_gate_1",
           "on": "street",
           "serves": "recon_1835_blk_washington_wells_d7_01",
           "at_local_enu_m": [
@@ -29195,8 +29250,8 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "picket",
-            "hinge": "b",
-            "swing_deg": 38.1
+            "hinge": "a",
+            "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
             350.97,
@@ -29206,7 +29261,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_washington_wells_d7_01, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_washington_wells_north_fence_30_gate_2",
+          "id": "blk_washington_wells_north_fence_31_gate_2",
           "on": "street",
           "serves": "recon_1835_blk_washington_wells_h1_02",
           "at_local_enu_m": [
@@ -29218,7 +29273,7 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "picket",
-            "hinge": "b",
+            "hinge": "a",
             "swing_deg": 0.0
           },
           "opens_into_local_enu_m": [
@@ -29229,7 +29284,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_washington_wells_h1_02, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_washington_wells_north_fence_30_gate_3",
+          "id": "blk_washington_wells_north_fence_31_gate_3",
           "on": "street",
           "serves": "recon_1835_blk_washington_wells_h1_03",
           "at_local_enu_m": [
@@ -29241,8 +29296,8 @@
             "kind": "foot_gate",
             "leaves": 1,
             "leaf_stock": "board",
-            "hinge": "b",
-            "swing_deg": 0.0
+            "hinge": "a",
+            "swing_deg": 34.9
           },
           "opens_into_local_enu_m": [
             399.27,
@@ -29252,7 +29307,7 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_washington_wells_h1_03, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         },
         {
-          "id": "blk_washington_wells_north_fence_30_gate_4",
+          "id": "blk_washington_wells_north_fence_31_gate_4",
           "on": "street",
           "serves": "recon_1835_blk_washington_wells_d7_04",
           "at_local_enu_m": [
@@ -29265,7 +29320,7 @@
             "leaves": 1,
             "leaf_stock": "picket",
             "hinge": "b",
-            "swing_deg": 77.0
+            "swing_deg": 41.1
           },
           "opens_into_local_enu_m": [
             427.68,
@@ -30815,18 +30870,18 @@
       "note": "A POST AT THE ROAD EDGE OUTSIDE Mansion House, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `tavern_inn`, which the street edge's table of businesses reads as an inn (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands 2 posts, at the thirds of the front as the Sauganash's own two do, and this is post 2. The trade is held `attested` — on evidence. WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.72 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c1_048",
+      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c1_043",
       "belongs_to": "town_street_edge",
       "kind": "hitching_post",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_south_water_dearborn_south_1",
-      "stands_at": "recon_1835_core_c1_048",
+      "stands_at": "recon_1835_core_c1_043",
       "trade": "small_shop_or_office",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        719.82,
+        719.77,
         -106.32
       ],
       "facade_bearing_deg": 180.5,
@@ -30838,22 +30893,22 @@
       "business_class": "store",
       "clear_of_track_m": 3.89,
       "stands_on_m": 0.79,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C1 small shop, grocery, or land office #048, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `small_shop_or_office`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.89 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C1 small shop, grocery, or land office #043, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `small_shop_or_office`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.89 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c2_047",
+      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c1_051",
       "belongs_to": "town_street_edge",
       "kind": "hitching_post",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_south_water_dearborn_south_1",
-      "stands_at": "recon_1835_core_c2_047",
-      "trade": "store_residence",
+      "stands_at": "recon_1835_core_c1_051",
+      "trade": "small_shop_or_office",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        713.71,
-        -106.27
+        758.42,
+        -106.63
       ],
       "facade_bearing_deg": 180.5,
       "post_height_m": 1.3,
@@ -30862,49 +30917,23 @@
       "cap_thickness_m": 0.07,
       "along_frontage_frac": 0.28,
       "business_class": "store",
-      "clear_of_track_m": 3.89,
-      "stands_on_m": 0.79,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #047, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.89 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "clear_of_track_m": 3.88,
+      "stands_on_m": 0.8,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C1 small shop, grocery, or land office #051, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `small_shop_or_office`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c2_050",
+      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c2_044",
       "belongs_to": "town_street_edge",
       "kind": "hitching_post",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_south_water_dearborn_south_1",
-      "stands_at": "recon_1835_core_c2_050",
+      "stands_at": "recon_1835_core_c2_044",
       "trade": "store_residence",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        731.14,
-        -106.41
-      ],
-      "facade_bearing_deg": 180.5,
-      "post_height_m": 1.3,
-      "post_square_m": 0.16,
-      "cap_square_m": 0.22,
-      "cap_thickness_m": 0.07,
-      "along_frontage_frac": 0.28,
-      "business_class": "store",
-      "clear_of_track_m": 3.89,
-      "stands_on_m": 0.79,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #050, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.89 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
-    },
-    {
-      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c3_049",
-      "belongs_to": "town_street_edge",
-      "kind": "hitching_post",
-      "confidence": "reconstructed",
-      "street": "lake",
-      "street_name": "Lake Street",
-      "chunk": "blk_south_water_dearborn_south_1",
-      "stands_at": "recon_1835_core_c3_049",
-      "trade": "narrow_two_story_store",
-      "trade_confidence": "reconstructed",
-      "at_local_enu_m": [
-        725.09,
+        725.45,
         -106.36
       ],
       "facade_bearing_deg": 180.5,
@@ -30916,21 +30945,73 @@
       "business_class": "store",
       "clear_of_track_m": 3.89,
       "stands_on_m": 0.79,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #049, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.89 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C2 store-residence #044, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `store_residence`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.89 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
-      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c3_051",
+      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c3_042",
       "belongs_to": "town_street_edge",
       "kind": "hitching_post",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_south_water_dearborn_south_1",
-      "stands_at": "recon_1835_core_c3_051",
+      "stands_at": "recon_1835_core_c3_042",
       "trade": "narrow_two_story_store",
       "trade_confidence": "reconstructed",
       "at_local_enu_m": [
-        752.4,
+        713.67,
+        -106.27
+      ],
+      "facade_bearing_deg": 180.5,
+      "post_height_m": 1.3,
+      "post_square_m": 0.16,
+      "cap_square_m": 0.22,
+      "cap_thickness_m": 0.07,
+      "along_frontage_frac": 0.28,
+      "business_class": "store",
+      "clear_of_track_m": 3.89,
+      "stands_on_m": 0.79,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #042, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.89 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c3_045",
+      "belongs_to": "town_street_edge",
+      "kind": "hitching_post",
+      "confidence": "reconstructed",
+      "street": "lake",
+      "street_name": "Lake Street",
+      "chunk": "blk_south_water_dearborn_south_1",
+      "stands_at": "recon_1835_core_c3_045",
+      "trade": "narrow_two_story_store",
+      "trade_confidence": "reconstructed",
+      "at_local_enu_m": [
+        731.9,
+        -106.42
+      ],
+      "facade_bearing_deg": 180.5,
+      "post_height_m": 1.3,
+      "post_square_m": 0.16,
+      "cap_square_m": 0.22,
+      "cap_thickness_m": 0.07,
+      "along_frontage_frac": 0.28,
+      "business_class": "store",
+      "clear_of_track_m": 3.89,
+      "stands_on_m": 0.79,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #045, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.89 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_south_water_dearborn_south_hitching_recon_1835_core_c3_050",
+      "belongs_to": "town_street_edge",
+      "kind": "hitching_post",
+      "confidence": "reconstructed",
+      "street": "lake",
+      "street_name": "Lake Street",
+      "chunk": "blk_south_water_dearborn_south_1",
+      "stands_at": "recon_1835_core_c3_050",
+      "trade": "narrow_two_story_store",
+      "trade_confidence": "reconstructed",
+      "at_local_enu_m": [
+        752.41,
         -106.58
       ],
       "facade_bearing_deg": 180.5,
@@ -30942,7 +31023,7 @@
       "business_class": "store",
       "clear_of_track_m": 3.88,
       "stands_on_m": 0.8,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #051, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C3 narrow two-story store #050, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `narrow_two_story_store`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_franklin_north_hitching_jh_kinzie_forwarding_store",
@@ -35269,29 +35350,29 @@
       "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Mansion House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 2.76 m back of the lot line at the door, so the stoop spans 3.01 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 1.64 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
-      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c1_048",
+      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c1_043",
       "belongs_to": "town_street_edge",
       "kind": "stoop",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_south_water_dearborn_south_1",
-      "serves": "recon_1835_core_c1_048",
-      "serves_name": "Reconstructed C1 small shop, grocery, or land office #048",
+      "serves": "recon_1835_core_c1_043",
+      "serves_name": "Reconstructed C1 small shop, grocery, or land office #043",
       "trade": "small_shop_or_office",
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        720.04,
+        719.84,
         -102.94
       ],
       "facade_bearing_deg": 180.5,
-      "along_frontage_frac": 0.32,
+      "along_frontage_frac": 0.288,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            720.05,
+            719.85,
             -102.37
           ],
           "len_m": 1.52,
@@ -35301,7 +35382,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            720.04,
+            719.84,
             -103.06
           ],
           "len_m": 1.52,
@@ -35311,7 +35392,7 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            720.04,
+            719.84,
             -103.4
           ],
           "len_m": 1.216,
@@ -35319,33 +35400,33 @@
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop, grocery, or land office #048. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.32 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop, grocery, or land office #043. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.29 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
-      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c2_047",
+      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c1_051",
       "belongs_to": "town_street_edge",
       "kind": "stoop",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_south_water_dearborn_south_1",
-      "serves": "recon_1835_core_c2_047",
-      "serves_name": "Reconstructed C2 store-residence #047",
-      "trade": "store_residence",
+      "serves": "recon_1835_core_c1_051",
+      "serves_name": "Reconstructed C1 small shop, grocery, or land office #051",
+      "trade": "small_shop_or_office",
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        714.18,
-        -102.9
+        758.61,
+        -103.26
       ],
       "facade_bearing_deg": 180.5,
-      "along_frontage_frac": 0.349,
+      "along_frontage_frac": 0.313,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            714.19,
-            -102.33
+            758.62,
+            -102.69
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -35354,8 +35435,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            714.18,
-            -103.01
+            758.61,
+            -103.38
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -35364,93 +35445,40 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            714.18,
-            -103.35
+            758.61,
+            -103.72
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #047. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.35 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop, grocery, or land office #051. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.31 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
-      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c2_050",
+      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c2_044",
       "belongs_to": "town_street_edge",
       "kind": "stoop",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_south_water_dearborn_south_1",
-      "serves": "recon_1835_core_c2_050",
-      "serves_name": "Reconstructed C2 store-residence #050",
+      "serves": "recon_1835_core_c2_044",
+      "serves_name": "Reconstructed C2 store-residence #044",
       "trade": "store_residence",
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        731.59,
-        -103.04
-      ],
-      "facade_bearing_deg": 180.5,
-      "along_frontage_frac": 0.347,
-      "parts": [
-        {
-          "part": "landing",
-          "at_local_enu_m": [
-            731.6,
-            -102.47
-          ],
-          "len_m": 1.52,
-          "depth_m": 1.07,
-          "top_m": 0.38
-        },
-        {
-          "part": "step",
-          "at_local_enu_m": [
-            731.59,
-            -103.15
-          ],
-          "len_m": 1.52,
-          "depth_m": 0.3,
-          "top_m": 0.22
-        },
-        {
-          "part": "boards",
-          "at_local_enu_m": [
-            731.59,
-            -103.49
-          ],
-          "len_m": 1.216,
-          "depth_m": 0.38,
-          "top_m": 0.11
-        }
-      ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #050. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.35 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
-    },
-    {
-      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c3_049",
-      "belongs_to": "town_street_edge",
-      "kind": "stoop",
-      "confidence": "reconstructed",
-      "street": "lake",
-      "street_name": "Lake Street",
-      "chunk": "blk_south_water_dearborn_south_1",
-      "serves": "recon_1835_core_c3_049",
-      "serves_name": "Reconstructed C3 narrow two-story store #049",
-      "trade": "narrow_two_story_store",
-      "trade_confidence": "reconstructed",
-      "business_class": "store",
-      "at_local_enu_m": [
-        725.5,
+        725.82,
         -102.99
       ],
       "facade_bearing_deg": 180.5,
-      "along_frontage_frac": 0.345,
+      "along_frontage_frac": 0.335,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            725.5,
+            725.83,
             -102.42
           ],
           "len_m": 1.52,
@@ -35460,8 +35488,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            725.5,
-            -103.1
+            725.82,
+            -103.11
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -35470,32 +35498,32 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            725.49,
-            -103.44
+            725.82,
+            -103.45
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #049. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.35 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #044. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.34 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
-      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c3_051",
+      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c3_042",
       "belongs_to": "town_street_edge",
       "kind": "stoop",
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
       "chunk": "blk_south_water_dearborn_south_1",
-      "serves": "recon_1835_core_c3_051",
-      "serves_name": "Reconstructed C3 narrow two-story store #051",
+      "serves": "recon_1835_core_c3_042",
+      "serves_name": "Reconstructed C3 narrow two-story store #042",
       "trade": "narrow_two_story_store",
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        752.77,
-        -103.21
+        714.04,
+        -102.89
       ],
       "facade_bearing_deg": 180.5,
       "along_frontage_frac": 0.334,
@@ -35503,7 +35531,113 @@
         {
           "part": "landing",
           "at_local_enu_m": [
-            752.77,
+            714.04,
+            -102.32
+          ],
+          "len_m": 1.52,
+          "depth_m": 1.07,
+          "top_m": 0.38
+        },
+        {
+          "part": "step",
+          "at_local_enu_m": [
+            714.04,
+            -103.01
+          ],
+          "len_m": 1.52,
+          "depth_m": 0.3,
+          "top_m": 0.22
+        },
+        {
+          "part": "boards",
+          "at_local_enu_m": [
+            714.03,
+            -103.35
+          ],
+          "len_m": 1.216,
+          "depth_m": 0.38,
+          "top_m": 0.11
+        }
+      ],
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #042. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.33 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+    },
+    {
+      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c3_045",
+      "belongs_to": "town_street_edge",
+      "kind": "stoop",
+      "confidence": "reconstructed",
+      "street": "lake",
+      "street_name": "Lake Street",
+      "chunk": "blk_south_water_dearborn_south_1",
+      "serves": "recon_1835_core_c3_045",
+      "serves_name": "Reconstructed C3 narrow two-story store #045",
+      "trade": "narrow_two_story_store",
+      "trade_confidence": "reconstructed",
+      "business_class": "store",
+      "at_local_enu_m": [
+        732.45,
+        -103.05
+      ],
+      "facade_bearing_deg": 180.5,
+      "along_frontage_frac": 0.36,
+      "parts": [
+        {
+          "part": "landing",
+          "at_local_enu_m": [
+            732.46,
+            -102.48
+          ],
+          "len_m": 1.52,
+          "depth_m": 1.07,
+          "top_m": 0.38
+        },
+        {
+          "part": "step",
+          "at_local_enu_m": [
+            732.45,
+            -103.16
+          ],
+          "len_m": 1.52,
+          "depth_m": 0.3,
+          "top_m": 0.22
+        },
+        {
+          "part": "boards",
+          "at_local_enu_m": [
+            732.45,
+            -103.5
+          ],
+          "len_m": 1.216,
+          "depth_m": 0.38,
+          "top_m": 0.11
+        }
+      ],
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #045. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.36 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+    },
+    {
+      "id": "blk_south_water_dearborn_south_stoop_recon_1835_core_c3_050",
+      "belongs_to": "town_street_edge",
+      "kind": "stoop",
+      "confidence": "reconstructed",
+      "street": "lake",
+      "street_name": "Lake Street",
+      "chunk": "blk_south_water_dearborn_south_1",
+      "serves": "recon_1835_core_c3_050",
+      "serves_name": "Reconstructed C3 narrow two-story store #050",
+      "trade": "narrow_two_story_store",
+      "trade_confidence": "reconstructed",
+      "business_class": "store",
+      "at_local_enu_m": [
+        752.8,
+        -103.21
+      ],
+      "facade_bearing_deg": 180.5,
+      "along_frontage_frac": 0.338,
+      "parts": [
+        {
+          "part": "landing",
+          "at_local_enu_m": [
+            752.81,
             -102.64
           ],
           "len_m": 1.52,
@@ -35513,7 +35647,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            752.76,
+            752.8,
             -103.33
           ],
           "len_m": 1.52,
@@ -35523,7 +35657,7 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            752.76,
+            752.8,
             -103.67
           ],
           "len_m": 1.216,
@@ -35531,7 +35665,7 @@
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #051. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.33 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #050. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.34 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_franklin_north_stoop_recon_1835_blk_south_water_franklin_c2_08",
@@ -38440,7 +38574,7 @@
     {
       "structure_id": "blk_south_water_dearborn_lot1",
       "wall": "blk_south_water_dearborn south face, lot 1",
-      "why": "recon_1835_core_c1_048 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_core_c2_044 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_dearborn_lot2",
@@ -38450,17 +38584,12 @@
     {
       "structure_id": "blk_south_water_dearborn_lot3",
       "wall": "blk_south_water_dearborn south face, lot 3",
-      "why": "recon_1835_core_c3_051 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_core_c1_051 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_dearborn_lot4",
       "wall": "blk_south_water_dearborn north face, lot 4",
       "why": "recon_1835_blk_south_water_dearborn_c3_01 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
-    },
-    {
-      "structure_id": "blk_south_water_dearborn_lot5",
-      "wall": "blk_south_water_dearborn south face, lot 5",
-      "why": "recon_1835_core_c3_043 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_dearborn_lot6",
@@ -38470,7 +38599,7 @@
     {
       "structure_id": "blk_south_water_dearborn_lot7",
       "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "recon_1835_core_c3_043 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_core_c3_048 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_dearborn_west_fences",
@@ -38928,14 +39057,14 @@
       "why": "recon_1835_branch_freight_f2_001 is a narrow_two_story_warehouse — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
     },
     {
-      "structure_id": "recon_1835_core_c1_044",
+      "structure_id": "recon_1835_core_c1_047",
       "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "no walk is laid at 85.0 m along this face, where a post off recon_1835_core_c1_044's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
+      "why": "no walk is laid at 85.4 m along this face, where a post off recon_1835_core_c1_047's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
     },
     {
-      "structure_id": "recon_1835_core_c1_044",
+      "structure_id": "recon_1835_core_c1_047",
       "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "no stoop at recon_1835_core_c1_044: no walk is laid at 85.3 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "why": "no stoop at recon_1835_core_c1_047: no walk is laid at 85.4 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
       "structure_id": "recon_1835_core_c1_056",
@@ -38958,14 +39087,24 @@
       "why": "no stoop at recon_1835_core_c2_041: no walk is laid at 81.6 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
-      "structure_id": "recon_1835_core_c2_045",
+      "structure_id": "recon_1835_core_c2_046",
       "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "no walk is laid at 90.9 m along this face, where a post off recon_1835_core_c2_045's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
+      "why": "no walk is laid at 79.4 m along this face, where a post off recon_1835_core_c2_046's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
     },
     {
-      "structure_id": "recon_1835_core_c2_045",
+      "structure_id": "recon_1835_core_c2_046",
       "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "no stoop at recon_1835_core_c2_045: no walk is laid at 91.5 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "why": "no stoop at recon_1835_core_c2_046: no walk is laid at 80.0 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+    },
+    {
+      "structure_id": "recon_1835_core_c2_049",
+      "wall": "blk_south_water_dearborn south face, lot 7",
+      "why": "no walk is laid at 97.4 m along this face, where a post off recon_1835_core_c2_049's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
+    },
+    {
+      "structure_id": "recon_1835_core_c2_049",
+      "wall": "blk_south_water_dearborn south face, lot 7",
+      "why": "no stoop at recon_1835_core_c2_049: no walk is laid at 97.9 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
       "structure_id": "recon_1835_core_c2_055",
@@ -38983,24 +39122,14 @@
       "why": "no stoop at recon_1835_core_c2_058: no walk is laid at 71.9 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
-      "structure_id": "recon_1835_core_c3_043",
-      "wall": "blk_south_water_dearborn south face, lot 5",
-      "why": "no walk is laid at 78.9 m along this face, where a post off recon_1835_core_c3_043's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
-    },
-    {
-      "structure_id": "recon_1835_core_c3_043",
-      "wall": "blk_south_water_dearborn south face, lot 5",
-      "why": "no stoop at recon_1835_core_c3_043: no walk is laid at 79.1 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
-    },
-    {
-      "structure_id": "recon_1835_core_c3_046",
+      "structure_id": "recon_1835_core_c3_048",
       "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "no walk is laid at 97.1 m along this face, where a post off recon_1835_core_c3_046's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
+      "why": "no walk is laid at 91.1 m along this face, where a post off recon_1835_core_c3_048's own frontage would stand — a post stands in the verge OUTSIDE a walk, and there is no walk here to stand outside of."
     },
     {
-      "structure_id": "recon_1835_core_c3_046",
+      "structure_id": "recon_1835_core_c3_048",
       "wall": "blk_south_water_dearborn south face, lot 7",
-      "why": "no stoop at recon_1835_core_c3_046: no walk is laid at 97.3 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "why": "no stoop at recon_1835_core_c3_048: no walk is laid at 91.3 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
       "structure_id": "recon_1835_core_c3_057",
