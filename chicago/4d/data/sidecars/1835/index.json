@@ -13632,16 +13632,22 @@
       "asset": "gltf/recon_1835_core_c1_039__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_core_c1_044",
-      "name": "Reconstructed C1 small shop, grocery, or land office #044",
-      "sidecar": "sidecars/1835/recon_1835_core_c1_044.json",
-      "asset": "gltf/recon_1835_core_c1_044__inferred_1835.glb"
+      "id": "recon_1835_core_c1_043",
+      "name": "Reconstructed C1 small shop, grocery, or land office #043",
+      "sidecar": "sidecars/1835/recon_1835_core_c1_043.json",
+      "asset": "gltf/recon_1835_core_c1_043__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_core_c1_048",
-      "name": "Reconstructed C1 small shop, grocery, or land office #048",
-      "sidecar": "sidecars/1835/recon_1835_core_c1_048.json",
-      "asset": "gltf/recon_1835_core_c1_048__inferred_1835.glb"
+      "id": "recon_1835_core_c1_047",
+      "name": "Reconstructed C1 small shop, grocery, or land office #047",
+      "sidecar": "sidecars/1835/recon_1835_core_c1_047.json",
+      "asset": "gltf/recon_1835_core_c1_047__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_core_c1_051",
+      "name": "Reconstructed C1 small shop, grocery, or land office #051",
+      "sidecar": "sidecars/1835/recon_1835_core_c1_051.json",
+      "asset": "gltf/recon_1835_core_c1_051__inferred_1835.glb"
     },
     {
       "id": "recon_1835_core_c1_056",
@@ -13734,22 +13740,22 @@
       "asset": "gltf/recon_1835_core_c2_041__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_core_c2_045",
-      "name": "Reconstructed C2 store-residence #045",
-      "sidecar": "sidecars/1835/recon_1835_core_c2_045.json",
-      "asset": "gltf/recon_1835_core_c2_045__inferred_1835.glb"
+      "id": "recon_1835_core_c2_044",
+      "name": "Reconstructed C2 store-residence #044",
+      "sidecar": "sidecars/1835/recon_1835_core_c2_044.json",
+      "asset": "gltf/recon_1835_core_c2_044__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_core_c2_047",
-      "name": "Reconstructed C2 store-residence #047",
-      "sidecar": "sidecars/1835/recon_1835_core_c2_047.json",
-      "asset": "gltf/recon_1835_core_c2_047__inferred_1835.glb"
+      "id": "recon_1835_core_c2_046",
+      "name": "Reconstructed C2 store-residence #046",
+      "sidecar": "sidecars/1835/recon_1835_core_c2_046.json",
+      "asset": "gltf/recon_1835_core_c2_046__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_core_c2_050",
-      "name": "Reconstructed C2 store-residence #050",
-      "sidecar": "sidecars/1835/recon_1835_core_c2_050.json",
-      "asset": "gltf/recon_1835_core_c2_050__inferred_1835.glb"
+      "id": "recon_1835_core_c2_049",
+      "name": "Reconstructed C2 store-residence #049",
+      "sidecar": "sidecars/1835/recon_1835_core_c2_049.json",
+      "asset": "gltf/recon_1835_core_c2_049__inferred_1835.glb"
     },
     {
       "id": "recon_1835_core_c2_053",
@@ -13860,28 +13866,28 @@
       "asset": "gltf/recon_1835_core_c3_040__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_core_c3_043",
-      "name": "Reconstructed C3 narrow two-story store #043",
-      "sidecar": "sidecars/1835/recon_1835_core_c3_043.json",
-      "asset": "gltf/recon_1835_core_c3_043__inferred_1835.glb"
+      "id": "recon_1835_core_c3_042",
+      "name": "Reconstructed C3 narrow two-story store #042",
+      "sidecar": "sidecars/1835/recon_1835_core_c3_042.json",
+      "asset": "gltf/recon_1835_core_c3_042__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_core_c3_046",
-      "name": "Reconstructed C3 narrow two-story store #046",
-      "sidecar": "sidecars/1835/recon_1835_core_c3_046.json",
-      "asset": "gltf/recon_1835_core_c3_046__inferred_1835.glb"
+      "id": "recon_1835_core_c3_045",
+      "name": "Reconstructed C3 narrow two-story store #045",
+      "sidecar": "sidecars/1835/recon_1835_core_c3_045.json",
+      "asset": "gltf/recon_1835_core_c3_045__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_core_c3_049",
-      "name": "Reconstructed C3 narrow two-story store #049",
-      "sidecar": "sidecars/1835/recon_1835_core_c3_049.json",
-      "asset": "gltf/recon_1835_core_c3_049__inferred_1835.glb"
+      "id": "recon_1835_core_c3_048",
+      "name": "Reconstructed C3 narrow two-story store #048",
+      "sidecar": "sidecars/1835/recon_1835_core_c3_048.json",
+      "asset": "gltf/recon_1835_core_c3_048__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_core_c3_051",
-      "name": "Reconstructed C3 narrow two-story store #051",
-      "sidecar": "sidecars/1835/recon_1835_core_c3_051.json",
-      "asset": "gltf/recon_1835_core_c3_051__inferred_1835.glb"
+      "id": "recon_1835_core_c3_050",
+      "name": "Reconstructed C3 narrow two-story store #050",
+      "sidecar": "sidecars/1835/recon_1835_core_c3_050.json",
+      "asset": "gltf/recon_1835_core_c3_050__inferred_1835.glb"
     },
     {
       "id": "recon_1835_core_c3_054",
@@ -13912,12 +13918,6 @@
       "name": "Reconstructed H3 boarding house #028",
       "sidecar": "sidecars/1835/recon_1835_core_h3_028.json",
       "asset": "gltf/recon_1835_core_h3_028__inferred_1835.glb"
-    },
-    {
-      "id": "recon_1835_core_h3_042",
-      "name": "Reconstructed H3 boarding house #042",
-      "sidecar": "sidecars/1835/recon_1835_core_h3_042.json",
-      "asset": "gltf/recon_1835_core_h3_042__inferred_1835.glb"
     },
     {
       "id": "recon_1835_core_h3_052",

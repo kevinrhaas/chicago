@@ -153,15 +153,31 @@ def street_lines(exclude: str = PREFIX) -> dict[tuple[str, str], float]:
     return out
 
 
+def addressed_lots() -> list[list[tuple[float, float]]]:
+    """The lots a printed lot address names (data/research/newspapers/lot_addresses.json).
+    An address places the one building that stands on its lot (tools/lot_addresses.py), so
+    the row fill raises nothing on one: a second roof would unplace the first."""
+    import lot_addresses  # noqa: E402
+    if not lot_addresses.LEDGER.exists():
+        return []
+    return [lot_addresses.lot_polygon(a) for a in load(lot_addresses.LEDGER).get("addresses", [])]
+
+
 def fronts(datum: dict, standing) -> list[dict]:
     blocks = {b["id"]: b for b in load(LOTS)["blocks"]}
     lines = street_lines()
+    rings = addressed_lots()
     out = []
     for cross in CROSS:
         for prefix, face, street, side in FACES:
             bid = f"blk_{prefix}_{cross}"
             frame = face_frame(blocks[bid], face)
             m = measure_face(frame, standing)
+            m["addressed"] = []
+            for ring in rings:
+                pr = [project(frame, p) for p in ring]
+                if max(q[1] for q in pr) > -BODY_BAND_M and min(q[1] for q in pr) < 0.5:
+                    m["addressed"].append((min(q[0] for q in pr), max(q[0] for q in pr)))
             out.append({"block": bid, "face": face, "street": street, "side": side,
                         "frame": frame, "setback": lines.get((bid, face), SETBACK_M), **m,
                         "drawn": (bid, face) in DRAWN_FACES})
@@ -176,6 +192,7 @@ def free_stretches(front: dict) -> tuple[list[tuple[float, float]], list[str]]:
             moves.append(o["id"])
             continue
         hard.append((o["lo"] - OTHER_GAP_M - 0.05, o["hi"] + OTHER_GAP_M + 0.05))
+    hard += front.get("addressed", [])
     lo, hi = CORNER_M, front["length"] - CORNER_M
     stretches, s = [], lo
     for a, b in sorted(hard):
@@ -454,7 +471,8 @@ def validate(records: list[dict], moves: dict, datum: dict) -> list[str]:
         raise ValueError("two row-fill stores share an id")
     lanes, refused = corridors(), no_build_rings()
     ids = {r["id"] for r in records} | set(moves)
-    others = standing_1835(datum, ids)
+    # a committed row-fill store this run no longer writes is not another building
+    others = [(o, q) for o, q in standing_1835(datum, ids) if not o.startswith(PREFIX)]
     own = [(r["id"], world_polygon(r["phases"][0], datum)) for r in records]
     moved = [(sid, world_polygon(r["phases"][0], datum)) for sid, r in moves.items()]
     # The inventory's `pictured_roofs` keeps these roofs off the household model's weights
