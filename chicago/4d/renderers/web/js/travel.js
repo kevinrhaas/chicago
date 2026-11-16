@@ -687,8 +687,17 @@ export function createTravel({
   function landGlide(r) {
     const to = r?.glide?.to;
     if (!to) return;
+    // The owner, 2026-11-16: a jaunt's closing flight ends on a view over the place it began,
+    // and stays up there (`hover`); every other glide sets the visitor down.
+    if (r.glide.hover) { poseGlide(to); return; }
     setFly?.(false);
     teleport?.({ local_e: to.e, local_n: to.n, yaw_deg: yawToBearing(to.yaw), pitch_deg: to.pitch / DEG });
+  }
+  /** Where a glide is at `t`: on its one leg, or (with a `via`) on the first leg and then the
+   *  second, each taking its share of the clock (by length, neither under a quarter). */
+  function glideAt(g, t) {
+    if (!g.via) return glidePose(g.from, g.to, t);
+    return t < g.split ? glidePose(g.from, g.via, t / g.split) : glidePose(g.via, g.to, (t - g.split) / (1 - g.split));
   }
   /**
    * T-3432: fly from `from` to `to` ({ e, n, altitude, yaw, pitch }: the eye's height above
@@ -696,16 +705,20 @@ export function createTravel({
    * `to` exactly. Returns false, and moves nothing, when there is nothing to fly or the
    * visitor asked for reduced motion; the caller then simply stands at `to`.
    */
-  function glide(from, to, callbacks = null, { label = null } = {}) {
-    const d = Math.hypot(to.e - from.e, to.n - from.n);
-    const seconds = glideSeconds(d);
+  function glide(from, to, callbacks = null, { label = null, seconds: asked = null, via = null, hover = false } = {}) {
+    const d1 = via ? Math.hypot(via.e - from.e, via.n - from.n) : 0, d2 = Math.hypot(to.e - (via ?? from).e, to.n - (via ?? from).n);
+    const d = d1 + d2, rise = Math.abs((to.altitude ?? 0) - (from.altitude ?? 0));
+    // The owner, 2026-11-16: a jaunt's opening is flown for as long as its voice reads it
+    // (`seconds`, jaunt-pace.js), and its closing rises to a view: both may outlast the cap.
+    let seconds = glideSeconds(Math.max(d, rise));
+    if (Number.isFinite(asked) && asked > 0 && (seconds > 0 || hover)) seconds = Math.max(seconds, asked);
     if (!(seconds > 0) || reduceMotion?.matches) return false;
     if (phase !== 'idle') stop('replaced');
     setFly?.(true);
     ride = newRide({ kind: 'glide', label: label ?? 'the start' }, { e: to.e, n: to.n }, [[to.e, to.n]], 'fly', callbacks);
-    ride.glide = { from, to, seconds, elapsed: 0, t0: now() };
+    ride.glide = { from, to, via, split: via ? clamp(d1 / Math.max(d, 1), 0.25, 0.6) : 1, hover, seconds, elapsed: 0, t0: now() };
     phase = 'gliding';
-    poseGlide(glidePose(from, to, 0));
+    poseGlide(glideAt(ride.glide, 0));
     paintBanner();
     return true;
   }
@@ -744,7 +757,7 @@ export function createTravel({
       const g = ride.glide;
       g.elapsed = Math.max(g.elapsed + dt, (now() - g.t0) / 1000);
       if (g.elapsed >= g.seconds) { landGlide(ride); complete(); return; }
-      poseGlide(glidePose(g.from, g.to, g.elapsed / g.seconds));
+      poseGlide(glideAt(g, g.elapsed / g.seconds));
     }
     if (ride.done) { complete(); return; }
     ride.bannerT += dt;
