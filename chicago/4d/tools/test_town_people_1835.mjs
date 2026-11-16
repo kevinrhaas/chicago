@@ -84,14 +84,14 @@ function actorOf(entry, door) {
   };
   return a;
 }
-function town({ hour, visitor, residentsNear = 4 }) {
+function town({ hour, visitor, residentsNear = 4, standClear = null }) {
   const actors = [];
   const humans = { actors, shown: true };
   const ix = createInteractions();
   const built = [];
   const problems = [];
   const life = createHumanDays({ humans, three, hour: () => hour.at, date: () => SUMMER, doors, interactions: ix,
-    visitor: () => visitor.at, inside: expandInside(structuredClone(raw)), residentsNear, problems,
+    visitor: () => visitor.at, inside: expandInside(structuredClone(raw)), residentsNear, problems, standClear,
     spawn(entry, door) { const a = actorOf(entry, door); actors.push(a); built.push(entry.person); return a; },
     despawn(a) { const i = actors.indexOf(a); if (i >= 0) actors.splice(i, 1); } });
   const step = (n, dt = 0.1) => { for (let i = 0; i < n; i++) {
@@ -102,7 +102,7 @@ function town({ hour, visitor, residentsNear = 4 }) {
     }
     life.update(dt); ix.update(dt);
   } };
-  return { actors, ix, life, built, problems, step };
+  return { actors, ix, life, built, problems, step, humans };
 }
 const asks = (ix, id) => ix.actionsOf(ix.get(`door:${id}`)).map((a) => a.id);
 
@@ -163,5 +163,57 @@ const homeHour = wDay.spans.find((s) => s.indoors && s.where === worker.home && 
   assert(most >= 3, `several are out about the visitor (${most})`);
   assert(most <= 5, `never more than the scene's number at once (${most})`);
   assert(t.actors.every((a) => !a.disposed), 'the ones out are live figures');
+}
+// T-3553 (the owner, 2026-11-16: "make sure there are people present ... in scene of jaunt all
+// eras"): at a jaunt stop with no stage or hosts the people about its stand stay out; where none
+// are out (the small hours), some of those at home near it come out of their own doors, adults,
+// up to the stop's number, and a jaunt holding everyone (a staged stop) brings nobody out.
+{
+  const { JAUNT_LOCALS } = await import(data(await js('human-days.js')));
+  const at3 = inside.people.filter((e) => spanAt(dayOn(e, SUMMER, e.person), 3).indoors).length;
+  assert.equal(at3, inside.people.length, 'at three in the morning everyone is in');
+  // A stand among the most houses.
+  const steps = [...byStructure.values()].flatMap((s) => s.doors.map((d) => ({ structure: s.structure, e: d.step.local_e, n: d.step.local_n })));
+  const homes = new Set(inside.people.map((e) => e.home));
+  const near = (p) => steps.filter((q) => homes.has(q.structure) && Math.hypot(q.e - p.e, q.n - p.n) < JAUNT_LOCALS.door_m).length;
+  const stand = steps.reduce((best, p) => (near(p) > near(best) ? p : best), steps[0]);
+  // The town's stoops and mounting blocks: nobody called out stands on one (T-3554).
+  const { createHouseBarriers, BARRIER_STAND_M } = await import('../renderers/web/js/house-barriers.js');
+  const barriers = createHouseBarriers([...doors.structures, ...(doors.barriers ?? [])].filter((r) => r?.barrier));
+  const standClear = (q) => barriers.clearOf(q.e, q.n, BARRIER_STAND_M);
+  const run = () => town({ hour: { at: 3 }, visitor: { at: { e: stand.e + 4, n: stand.n } }, residentsNear: 4, standClear });
+  for (const [label, area] of [['staged', null], ['plain', { e: stand.e + 4, n: stand.n, r: JAUNT_LOCALS.r_m, structure: stand.structure }]]) {
+    const t = run();
+    const humans = t.humans;
+    humans.crowdKept = []; humans.crowdArea = area;
+    humans.keeps = (id, e, n) => !!area && Number.isFinite(e) && Math.hypot(e - area.e, n - area.n) <= area.r;
+    humans.isHeld = (a) => !humans.keeps(a.personId, a.e, a.n);
+    for (let i = 0; i < 40; i++) t.step(10, 0.1);
+    const out = t.actors.filter((a) => !a.indoors);
+    if (!area) { assert.equal(out.length, 0, 'a staged stop holds the town: nobody comes out'); continue; }
+    assert(out.length >= JAUNT_LOCALS.min_full, `a quiet stop has people about it (${out.length})`);
+    if (process.env.QA_VERBOSE) console.log(out.map((a) => `${a.person.name} ${a.state} ${Math.hypot(a.e - area.e, a.n - area.n).toFixed(1)} m`));
+    for (const a of out) {
+      assert(!/(^|_)(child|boy|girl|toddler)(_|$)/.test(a.instance.appearance.asset_id ?? ''), `${a.person.name}: an adult is called out`);
+      assert(Math.hypot(a.e - area.e, a.n - area.n) <= area.r, `${a.person.name} stays about the stand`);
+      const first = a.walks.find((w) => w.length)?.at(-1);
+      assert(first && !barriers.near(first[0], first[1], BARRIER_STAND_M), `${a.person.name} comes out to a place clear of any stoop`);
+    }
+    const offers = t.ix.actionsOf(t.ix.get(`person:${out[0].id}`)).map((x) => x.id);
+    assert(offers.includes('greet'), `one called out can be greeted (${offers})`);
+  }
+  // A stand with no door near it: those called out from further off walk an errand toward it.
+  {
+    const far = { e: stand.e + 45, n: stand.n, r: JAUNT_LOCALS.r_m, structure: null };
+    const t = town({ hour: { at: 3 }, visitor: { at: { e: far.e, n: far.n } }, residentsNear: 4, standClear });
+    const humans = t.humans;
+    humans.crowdKept = []; humans.crowdArea = far;
+    humans.keeps = (id, e, n) => Number.isFinite(e) && Math.hypot(e - far.e, n - far.n) <= far.r;
+    humans.isHeld = (a) => !humans.keeps(a.personId, a.e, a.n);
+    let errand = 0;
+    for (let i = 0; i < 40; i++) { t.step(10, 0.1); errand = Math.max(errand, t.actors.filter((a) => !a.indoors && a.walks.some((w) => Math.hypot(w.at(-1)[0] - far.e, w.at(-1)[1] - far.n) < JAUNT_LOCALS.errand_m + 1)).length); }
+    assert(t.actors.filter((a) => !a.indoors).length >= 1, 'a stand away from the doors still has people about it');
+    if (process.env.QA_VERBOSE) console.log('errands toward a far stand:', errand);
+  }
 }
 console.log(`1835 town people: ${inside.people.length} people and ${inside.care.length} in care, ${atWork} with a place of business; days whole in summer and winter, asked for at home or at work by the hour, out of the right door, several about the visitor and no more than the scene's number`);

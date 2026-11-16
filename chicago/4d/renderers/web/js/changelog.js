@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3027, ts: '2026-11-16T09:45:33.713Z', date: 'Nov 16, 2026, 3:45 AM CT', title: 'Townspeople climb the 1835 cottages\' front steps', kind: 'fix',
+    items: [
+      'In 1835 a townsperson going in at a cottage door now walks up its front steps to the landing, where before they walked through the steps at ground level. All 164 house stoops are steps now, the 15 under a small porch roof among them, and you can climb them too.',
+      'The steps were always centred on their doors. Only the walk to the door was wrong.',
+    ] },
   { v: 3026, ts: '2026-11-16T08:41:31.033Z', date: 'Nov 16, 2026, 2:41 AM CT', title: '1823 Prairie\'s doorway drawn to its full height, under a cornice hood', kind: 'improvement',
     items: [
       'The Dent house at 1823 Prairie: the front door is now 3.5 m tall, the same as in the old engraving of the house. A tall glazed transom light sits over the door leaves, as the engraving draws it.',
