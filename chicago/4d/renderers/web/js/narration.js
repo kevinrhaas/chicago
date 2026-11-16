@@ -256,6 +256,16 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     get state() { return { index: index ? Object.keys(index.clips).length : failed ? 'unavailable' : 'pending', playing, queued, at, error, primed }; },
     on(fn) { listeners.add(fn); return () => listeners.delete(fn); },
     isPlaying: (jaunt, part, id) => playing === slot(jaunt, part, id),
+    /** The owner, 2026-11-16: how far this part's voice has spoken, for the stop's meter:
+     *  { t, d } seconds while it plays, { done: true } once it has played to its end, else null. */
+    position(jaunt, part, id) {
+      const key = slot(jaunt, part, id);
+      if (playing === key && el) {
+        const d = Number.isFinite(el.duration) && el.duration > 0 ? el.duration : clipSeconds(clipAt(key));
+        return { t: el.currentTime || 0, d };
+      }
+      return ended === key ? { done: true } : null;
+    },
     /** The owner, 2026-11-16: the closing scene waits for its ending's voice to finish. */
     ended: (jaunt, part, id) => ended === slot(jaunt, part, id),
     /** How long this part's voice will speak if it plays now (sound on, Narration up, a clip
