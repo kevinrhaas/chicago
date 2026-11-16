@@ -18,8 +18,9 @@
  *
  * Which story, for person P:
  *   1. one of P's own that P has not told you yet, at random;
- *   2. else from the library for P's roles, one nobody has told you yet, at random, so that
- *      forty soldiers tell forty different stories;
+ *   2. else from the library for P's roles, one nobody has told you yet, at random but leaning
+ *      to what P's temperament and history make them talk about, so that forty soldiers tell
+ *      forty different stories, each his own kind;
  *   3. else one P has not told you, the one you heard longest ago from anyone;
  *   4. else (P has told you all of them) the one P told you longest ago.
  * A tale with a date window (`from` / `to`, ISO dates) is told only inside it while any
@@ -40,6 +41,58 @@ export function readTeller(key) {
 
 const inWindow = (t, date) => !date || ((!t.from || date >= t.from) && (!t.to || date <= t.to));
 
+/** A small stable hash (FNV-1a) of a string, for choices that must not change between visits. */
+export function hash(str) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+  return h >>> 0;
+}
+
+const PRONOUNS = {
+  m: { He: 'He', he: 'he', His: 'His', his: 'his', him: 'him', himself: 'himself' },
+  f: { He: 'She', he: 'she', His: 'Her', his: 'her', him: 'her', himself: 'herself' },
+};
+
+/**
+ * T-3553 (the owner, 2026-11-16: "Give everyone a unique personality as well their words and
+ * perspectives are driven from their history"). A person's temperament(s), the things they talk
+ * about, and who their record says they are, from `persona` ("temper+second|topic.topic|who").
+ * A figure the library does not know gets a temperament from a hash of their id.
+ * @returns {{ tempers: string[], topics: string[], who: string, label: string, sex: 'm'|'f' }}
+ */
+export function personaOf(lib, personId, sex = null) {
+  const row = lib?.persona?.[personId];
+  const codes = Object.keys(lib?.tempers ?? {});
+  const teller = lib?.tellers?.[personId] ? readTeller(lib.tellers[personId]) : null;
+  const s = teller?.sex ?? (sex === 'f' ? 'f' : 'm');
+  let tempers, topics = [], who = '';
+  if (row) {
+    const [t = '', k = '', ...w] = row.split('|');
+    tempers = t.split('+').filter((x) => lib.tempers?.[x]);
+    topics = k.split('.').filter(Boolean);
+    who = w.join('|');
+  } else {
+    tempers = codes.length ? [codes[hash(String(personId)) % codes.length]] : [];
+  }
+  const names = tempers.map((x) => lib.tempers[x].name);
+  const label = names.length > 1 ? `${names[0]}, a little ${names[1].toLowerCase()}` : (names[0] ?? '');
+  return { tempers, topics, who, label, sex: s };
+}
+
+/** How this person comes to an answer: one of their temperaments' lines, chosen by `key`. */
+export function mannerOf(lib, persona, key) {
+  const t = persona?.tempers ?? [];
+  if (!t.length) return '';
+  const h = hash(`${key}`);
+  const temper = lib.tempers[t[(h % 3 === 2 && t[1]) ? 1 : 0]];
+  const line = temper.lines[(h >>> 3) % temper.lines.length];
+  const p = PRONOUNS[persona.sex === 'f' ? 'f' : 'm'];
+  return line.replace(/\{(He|he|His|his|him|himself)\}/g, (_, w) => p[w]);
+}
+
+/** How much a tale or question is the kind of thing this person talks about (0..3). */
+export const leaning = (item, persona) => (item?.k ?? []).filter((k) => persona?.topics?.includes(k)).length;
+
 /**
  * Pick a tale for `personId` from a loaded library. Pure: the caller keeps `heard`.
  * @param {object} lib      a data/tales/<scene>.json
@@ -53,9 +106,18 @@ const inWindow = (t, date) => !date || ((!t.from || date >= t.from) && (!t.to ||
  */
 export function pickTale(lib, personId, heard, { sex = null, date = null, random = Math.random } = {}) {
   if (!lib) return null;
+  const persona = personaOf(lib, personId, sex);
   const mine = heard.by?.[personId] ?? {};
   const told = heard.told ?? {};
   const any = (list) => list.length ? list[Math.floor(random() * list.length) % list.length] : null;
+  // From several, the ones nearer what this person talks about are likelier (T-3553 personas).
+  const likely = (list) => {
+    if (!list.length) return null;
+    const w = list.map((t) => 1 + 2 * leaning(t, persona));
+    let r = random() * w.reduce((a, b) => a + b, 0);
+    for (let i = 0; i < list.length; i++) { r -= w[i]; if (r < 0) return list[i]; }
+    return list[list.length - 1];
+  };
   const dated = (list) => { const d = list.filter((t) => inWindow(t, date)); return d.length ? d : list; };
   const oldest = (list, seen) => list.reduce((a, t) => ((seen[t.id] ?? -1) < (seen[a.id] ?? -1) ? t : a), list[0]);
 
@@ -71,7 +133,7 @@ export function pickTale(lib, personId, heard, { sex = null, date = null, random
   if (!pool.length) pool = dated(lib.tales.filter((t) => t.roles.some((r) => who.roles.includes(r)) && t.meet?.person !== personId));
   const untold = pool.filter((t) => !(t.id in mine));
   const unheard = untold.filter((t) => !(t.id in told));
-  if (unheard.length) return { tale: any(unheard), own: false };
+  if (unheard.length) return { tale: likely(unheard), own: false };
   if (untold.length) return { tale: oldest(untold, told), own: false };
   const all = [...own, ...pool];
   if (!all.length) return null;

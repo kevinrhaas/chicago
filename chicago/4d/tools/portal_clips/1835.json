@@ -16,21 +16,6 @@
       }
     },
     {
-      "id": "sauganash",
-      "label": "The Sauganash at Lake and Market, a low swing round its Lake Street front",
-      "orbit": {
-        "center": [
-          106,
-          -127
-        ],
-        "radius": 34,
-        "alt": 9,
-        "look_y": 5,
-        "bearing": 160,
-        "swing": 25
-      }
-    },
-    {
       "id": "river-drift",
       "label": "Down the main river between the wharves, drifting east",
       "pose": {
@@ -95,6 +80,30 @@
         "yaw": 92,
         "pitch": -5
       }
+    },
+    {
+      "id": "town",
+      "label": "The forks of the river and the town of 1835 from above (cut from the site film 1835-town, T-3611)",
+      "film": "1835-town",
+      "crop_y": 0.5
+    },
+    {
+      "id": "tremont",
+      "label": "The first Tremont House at Lake and Dearborn (cut from the site film 1835-lake, T-3611)",
+      "film": "1835-lake",
+      "crop_y": 0.45
+    },
+    {
+      "id": "river-dusk",
+      "label": "Down the main river at dusk, the wharves on the right (cut from the site film 1835-dusk, T-3611)",
+      "film": "1835-dusk",
+      "crop_y": 0.45
+    },
+    {
+      "id": "sauganash",
+      "label": "The Sauganash Hotel at Lake and Market (cut from the site film 1835-sauganash, T-3611)",
+      "film": "1835-sauganash",
+      "crop_y": 0.5
     }
   ]
 }

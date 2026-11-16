@@ -4738,6 +4738,11 @@ step "source browser counts and filters" \
 step "home page destination clips: named, in both formats, inside the cap (T-2685)" \
   node tools/test_portal_clips.mjs
 
+# The public site's films (T-3611) live in site-films/ and on the media host, never on Pages;
+# site/js/films.js names each by the hash of its bytes, and every film has its poster.
+step "public site films: films.js, site-films/ and the posters agree (T-3611)" \
+  node tools/site_films_ingest.mjs --check
+
 step "shared destinations and safe stand-offs (T-1277)" \
   node tools/test_destinations.mjs
 
