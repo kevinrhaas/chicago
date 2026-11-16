@@ -1,0 +1,70 @@
+== premise
+Take a quiet walk around the streets you know. See a store, the corner where the town's newspaper began, and two inns. There is nothing to count or carry.
+
+== opening
+JAUNT: AN EVENING STROLL. It is dusk on 1 July 1835. The land buyers have gone in to supper. The river has gone quiet. For once there is nothing you need to do. Chicago has been a town for less than two years. When it first voted, only thirteen men cast votes. Now new people come in by the boatload.
+
+Take a slow walk around the streets you know. Start at the Sauganash inn. Pass the town's first wooden store and the corner where its first newspaper was printed. End at the hotel where the town holds its meetings. Then decide where the evening ends.
+
+== stop the-sauganash
+Start at the Sauganash, at Lake and Market Streets above the river. It is white and two stories tall, with bright blue shutters, and it was fixed up new this June. Mark Beaubien built it. He has done many jobs in this town. A history book says he played the fiddle, ran the inn, sold goods, rowed the ferry and loved horse races. He was the life of every party. In May 1833 a priest held his first church service here in a log cabin that belonged to Mark Beaubien.
+
+== narrative the-sauganash
+Set out from the inn's front door.
+
+== stop the-shopfront
+Go over to the river and east along South Water Street to LaSalle Street. Here is Peck's store. It was the town's first two-story wooden building, made of boards cut from black walnut trees. Peck sells cloth, tools, food, dishes, boots, shoes and hats. He is a careful man with his money. Years from now people will say he kept a lot of cash locked in an iron safe at home. They will think he is nearly as rich as the richest man in the country.
+
+== narrative the-shopfront
+A store on the busy trading street.
+
+== stop the-printing-office
+Go one block east, to South Water and Clark Streets. John Calhoun began printing the Chicago Democrat newspaper here in 1833. Later it moved to an office over a hardware store along this street. The paper comes out on Wednesdays. When the mail came in, the town had another way to get the news. Someone with a loud voice would stand up on a box and read it out loud. If people were arguing about voting, there were two boxes and two readers.
+
+== narrative the-printing-office
+This is where the town's newspaper began.
+
+== stop the-exchange
+Walk south to Lake Street and west to Wells Street. Here is the Exchange Coffee House, another house Mark Beaubien built. Mr. and Mrs. Murphy have run it as a hotel since August 1834. People in town met here this spring to choose who to vote for. Last winter a dance teacher signed up students here. Choose where the evening ends.
+
+== narrative the-exchange
+A second inn, and a choice of where to stop.
+
+== label the-exchange end-here
+End at the Exchange
+
+== consequence the-exchange end-here
+Finish your walk at the Murphys' corner of Lake and Wells Streets.
+
+== label the-exchange walk-back
+Walk back to the Sauganash
+
+== consequence the-exchange walk-back
+Walk west along Lake Street to the door you started from.
+
+== leg 0
+Go from the inn to the trading street, as the shutters close.
+
+== note 0
+Walk north to the river, then east along South Water Street to LaSalle Street.
+
+== leg 1
+Walk a few doors on, to the printer's first corner.
+
+== note 1
+Walk one block east along South Water Street, from LaSalle to Clark.
+
+== leg 2
+Turn back toward the end of the evening.
+
+== note 2
+Walk south on Clark to Lake Street, then west to the corner of Wells.
+
+== ending at-the-exchange
+You end your walk at the corner of Lake and Wells in the last of the light. You passed the town's first wooden store, its first newspaper corner and two of Mark Beaubien's houses. Not bad for a town that is not two years old.
+
+== ending where-you-began
+You walk back west along Lake Street to the Sauganash. You end your walk where it began. If the windows are open, you may hear the fiddle.
+
+== keepsake text
+A made-up note about a quiet evening walk past a store, the corner where the newspaper began and two inns.

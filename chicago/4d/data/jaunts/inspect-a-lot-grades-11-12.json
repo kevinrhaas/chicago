@@ -1,0 +1,559 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Land",
+  "menu_group": "Errands",
+  "grade_band": "11-12",
+  "review_required": false,
+  "id": "inspect-a-lot-grades-11-12",
+  "scene": "1835",
+  "title": "Look Before You Buy a Lot",
+  "premise": "Scrutinize a land notice, observe the room where lots are auctioned, locate your corner and evaluate the terrain before committing any money.",
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "daytime",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: LOOK BEFORE YOU BUY A LOT. Chicago in the summer of 1835 is consumed by speculative mania, and \"The opening of a land office in May, 1835, added fuel to the already brilliant blaze of excitement\". Lots that sold for $10 to $50 in 1830 now command \"twenty or thirty times as much\", and a portion of the town that sold for $20,000 last summer resold this May for $100,000.\n\nSales are conducted by public auction, and a crier in scarlet on a white horse parades through town announcing the hour, and \"Crowds flocked around and followed him and hung upon his entrancing words\". Before you join them, scrutinize what is genuinely being offered: the room, the notices, the corner and the terrain itself.",
+    "read_s": 35
+  },
+  "variables": {
+    "notice": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "decision": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "auction",
+      "destination": {
+        "kind": "structure",
+        "id": "bates_auction_room"
+      },
+      "text": "Commence on Dearborn Street at John Bates Junior's new auction room. On 12 and 13 June the Democrat's notice offered fifty town lots of Marseilles here, with fifty more to follow, although Marseilles constitutes an entirely separate town. During this speculative boom, Moses and Kirkland observe, \"The whole land seemed staked out and peopled on paper\", and \"But few of these paper towns ever came to anything\". Reread the advertisement considerably more attentively.",
+      "read_s": 22,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "bates_auction_room",
+          "label": "About this place"
+        }
+      ],
+      "evidence": [
+        "bates-room",
+        "bates-new",
+        "marseilles-sale",
+        "bates-place",
+        "errand",
+        "mk-paper-towns"
+      ],
+      "choices": [
+        {
+          "id": "chicago-lots",
+          "label": "It sold Chicago lots",
+          "consequence": "Reread it: the lots belonged to Marseilles, because the auction room is merely a marketplace, not the property itself.",
+          "next": "notice"
+        },
+        {
+          "id": "another-town",
+          "label": "It sold another town's lots",
+          "consequence": "Correct: a Chicago auction room, conducting a sale for an entirely different location.",
+          "next": "notice"
+        }
+      ],
+      "narrative": "What property did that advertisement actually offer for sale?"
+    },
+    {
+      "id": "notice",
+      "destination": {
+        "kind": "structure",
+        "id": "chicago_democrat_office"
+      },
+      "text": "West to Clark, where the Democrat was printed from 1833 until, by 20 May, its office had relocated above Jones and King's hardware. Your copy contains two land notices: Hubbard's lots in the School Section and the original town, and Fell's land along the proposed canal route. Valuations have become extraordinary: this spring Gurdon Hubbard and his partners purchased eighty acres for $5,000, platted them in New York and \"sold half the lots at auction for $80,000\", a sixteenfold return on half the property.",
+      "read_s": 26,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "chicago_democrat_office",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "The Chicago Democrat"
+        }
+      ],
+      "evidence": [
+        "democrat-corner",
+        "democrat-moved",
+        "hubbard-lots",
+        "fell-land",
+        "errand",
+        "mk-hubbard-acres"
+      ],
+      "choices": [
+        {
+          "id": "town-lots",
+          "label": "Follow Hubbard's town lots",
+          "consequence": "You will investigate a lot within the town itself.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "notice",
+              "value": 1
+            }
+          ],
+          "next": "corner"
+        },
+        {
+          "id": "canal-land",
+          "label": "Follow Fell's canal-route land",
+          "consequence": "You will investigate land beyond the town, along the projected canal alignment.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "notice",
+              "value": 2
+            }
+          ],
+          "next": "corner"
+        }
+      ],
+      "narrative": "Select which of the two advertisements you will pursue."
+    },
+    {
+      "id": "corner",
+      "destination": {
+        "kind": "structure",
+        "id": "peck_store"
+      },
+      "text": "Continue west to LaSalle, where Peck's two-story frame store occupies the corner his own advertisements identify. A lot is defined by its corners and street lines, so establish your orientation: the river lies north, and the town's lots extend south. Philo Carpenter, who arrived in 1832, paid for \"two lots on South Water street, forty feet frontage, at a cost of $75\". During the speculative frenzy, \"Lot 1, block 2, sold in June for $5,000 and resold in August for $10,000\".",
+      "read_s": 26,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "peck_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "peck_philip",
+          "label": "Philip F. W. Peck"
+        }
+      ],
+      "evidence": [
+        "peck-stock",
+        "peck",
+        "bearings",
+        "errand",
+        "mk-carpenter-lots",
+        "mk-resale"
+      ],
+      "next": "ground",
+      "narrative": "Locate the surveyed corner and face south, toward the rows of platted lots."
+    },
+    {
+      "id": "ground",
+      "destination": {
+        "kind": "structure",
+        "id": "lasalle_slough_crossing"
+      },
+      "text": "Several steps east, a modest drain passes beneath South Water to the river, and the street traverses it on logs. An account of the early town characterizes the South Division as generally low and marshy, wetter still along the river, and covered with tall grass, reeds and rushes. The schoolmaster Granville Sproat recalled mud \"half a leg deep, up to the hubs of the carts and wagons\". Determine what the condition of the terrain communicates about its value.",
+      "read_s": 25,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "lasalle_slough_crossing",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "wright_1834",
+          "label": "Wright's 1834 map"
+        }
+      ],
+      "evidence": [
+        "drain",
+        "crossing",
+        "marshy",
+        "errand",
+        "mk-mud"
+      ],
+      "choices": [
+        {
+          "id": "inquire",
+          "label": "Inquire about one lot first",
+          "consequence": "You will investigate a particular lot and traverse its actual terrain.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "decision",
+              "value": 1
+            }
+          ],
+          "next": "$end"
+        },
+        {
+          "id": "hold",
+          "label": "Hold your money",
+          "consequence": "You retain your capital for the present, awaiting more reliable information.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "decision",
+              "value": 2
+            }
+          ],
+          "next": "$end"
+        }
+      ],
+      "narrative": "Will you investigate a particular property further, or retain your money?"
+    }
+  ],
+  "legs": [
+    {
+      "from": "auction",
+      "to": "notice",
+      "note": "North up Dearborn to South Water Street and west along it to the Clark Street corner.",
+      "evidence": [
+        "bates-place",
+        "democrat-corner"
+      ],
+      "story": "Depart the sale room for the newspaper that advertised it.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "notice",
+      "to": "corner",
+      "note": "West along South Water Street, one block, to the LaSalle corner.",
+      "evidence": [
+        "peck-stock"
+      ],
+      "story": "Convey your advertisement to a surveyed corner you can genuinely trust.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "corner",
+      "to": "ground",
+      "note": "A few steps east along South Water Street to where the drain meets the river.",
+      "evidence": [
+        "drain"
+      ],
+      "story": "Now direct your attention downward, at the terrain itself.",
+      "story_evidence": [
+        "errand"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "inquire-town",
+      "text": "You will investigate one particular lot from Hubbard's notice and stand upon its actual terrain before paying. In a town where valuations double between June and August, such diligence makes you the rarest purchaser in Chicago.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "notice",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "var": "decision",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "inquire-canal",
+      "text": "You will apply at the New York House, as Fell's notice directs, for the terms of one parcel along the canal route, and traverse it before committing payment. Everyone insists the canal is imminent, so verify that the land is equally substantial.",
+      "read_s": 12,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "notice",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "var": "decision",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "held",
+      "text": "You retain your money, since a notice, a sale room and a waterlogged street have instructed you sufficiently for one day. Remember it when the speculative bubble collapses: after 1836, nearly every purchaser at the first canal-lot sale forfeits his lots, and only Peck completes his second payment.",
+      "read_s": 14,
+      "default": true,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "read-the-ground-grades-11-12",
+    "title": "Read the Ground",
+    "text": "A fictional note documenting a land notice scrutinized, a sale room observed and the terrain walked before any money changed hands."
+  },
+  "evidence": [
+    {
+      "id": "democrat-corner",
+      "text": "The Democrat's first issue, 26 November 1833, gives its office as the building on the corner of South Water and Clark streets; John Calhoun printed it there.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "andreas_1884_v1"
+      ],
+      "locator": "26 Nov 1833 (Vol. I No. 1), the imprint; Andreas vol. 1, the press chapter on Calhoun's office."
+    },
+    {
+      "id": "democrat-moved",
+      "text": "By 20 May 1835 the Democrat's colophon gives the office as over Messrs. Jones & King's hardware store, in South Water Street, so the corner is a former office on the scene date.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "20 May 1835 (Vol. II No. 5), p. 4, col. 6, the colophon (transcription lines 4177–4180). Transcription-mediated reading."
+    },
+    {
+      "id": "hubbard-lots",
+      "text": "A notice headed 'Lots for Sale' and signed E. K. Hubbard offers, on liberal terms, a number of lots eligibly situated in the School Section, on the river, and in the original town. It names no particular lot and no price.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "27 May 1835, p. 3, col. 4 (transcription lines 2414–2419; extracted claim chicago_democrat_1835_05_27#c010), dated Chicago, May 1[9], 1835. Transcription-mediated reading."
+    },
+    {
+      "id": "fell-land",
+      "text": "A notice headed 'Chicago Lands For Sale' and signed J. W. Fell, dated 16 June 1835, offers half-quarter sections 'near the Town of Chicago, on the canal route' in sections 28 and 30 of township 39 north, range 14 east, and in township 40 north, range 12 east, terms on application at the N. Y. House. It names no price.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "17 June 1835, p. 3, col. 3 (transcription lines 1472–1485; extracted claim chicago_democrat_1835_06_17#c012). Transcription-mediated reading; the section number of the last parcel is partly lost ('3[0]')."
+    },
+    {
+      "id": "bates-room",
+      "text": "Andreas records a wooden structure erected in 1833 or 1834 by John Bates for an auction-room, on the west side of Dearborn Street between Lake and South Water.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas, History of Chicago vol. 1, the early-buildings account of Dearborn Street ('a wooden structure, erected in 1833 or 1834, by John Bates, for an auction-room'), as quoted in the bates_auction_room structure record."
+    },
+    {
+      "id": "bates-new",
+      "text": "The Democrat of 17 June 1835 announces the first annual Fair of the Ladies of the Protestant Episcopal Church, to be held at Bates' new auction room on Thursday the 18th.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "17 June 1835, p. 2, col. 4 (extracted claim chicago_democrat_1835_06_17#c005). Transcription-mediated reading."
+    },
+    {
+      "id": "marseilles-sale",
+      "text": "A notice headed 'Important Public Sale' announces that fifty of the town lots of Marseilles will be sold at public auction at the Auction Room, Dearborn Street, Chicago, on the 12th and 13th of June, and fifty other lots in the same town later in the month.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "10 June 1835, p. 3, col. 3 (transcription lines 2420–2424; extracted claim chicago_democrat_1835_06_10#c012). Transcription-mediated reading: the possessive before 'Auction Room' and the date of the second sale are lost at the column edge; the room is read as Bates' from the 17 June notice."
+    },
+    {
+      "id": "bates-place",
+      "text": "The auction room is placed at the middle of the west block face of Dearborn Street between Lake and South Water, fronting east.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "osm_streets_2026"
+      ],
+      "reasoning": "Andreas fixes the side of the street and the two cross streets but not the point along the block, so the structure record centres the building on the 126 m face; along the street the position is uncertain by about half the block. The stop names the street and claims no front door."
+    },
+    {
+      "id": "peck-stock",
+      "text": "P. F. W. Peck advertised from the corner of LaSalle and South Water streets a stock of dry goods, hardware, groceries, crockery, boots and shoes, and hats.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "3 Dec 1833, p. 3, col. 4 (Peck's standing card, run to 10 Dec 1834); 2 July 1834, p. 4, col. 4 ('a full stock of fresh GOODS'). Transcription-mediated reading."
+    },
+    {
+      "id": "peck",
+      "text": "Jeremiah Porter lodged in the unfinished loft of Peck's two-storey store in May 1833.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed p. 303, Jeremiah Porter biography; May 1833 arrival and temporary lodging."
+    },
+    {
+      "id": "bearings",
+      "text": "South Water Street ran along the south bank of the main river, so at LaSalle the river lies to the north and the platted town's blocks and lots run south.",
+      "confidence": "inferred",
+      "sources": [
+        "wright_1834",
+        "osm_streets_2026"
+      ],
+      "reasoning": "Wright's 1834 survey draws South Water Street as the river frontage of the south side with the block and lot grid south of it, and the project's street record equates it with today's Wacker Drive along the south bank. The bearing is read from the map, not from any account of a purchase."
+    },
+    {
+      "id": "drain",
+      "text": "Wright's 1834 map draws a drain entering the main river just east of LaSalle Street, on the south bank, where South Water Street meets it.",
+      "confidence": "inferred",
+      "sources": [
+        "wright_1834"
+      ],
+      "reasoning": "The drain's mouth is the south-shore re-entrant traced from Wright's survey into the project's terrain record (lasalle_slough_lower). Wright stops the drain at the street line; carrying it under the street to the river follows the owner's 2026-08-21 ruling and is reconstruction, recorded at L195."
+    },
+    {
+      "id": "crossing",
+      "text": "The log crossing that carries South Water Street over the drain is a reconstruction: no source records a bridge, culvert or fill at this place.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L195"
+    },
+    {
+      "id": "marshy",
+      "text": "An account of the early town describes the South Division as generally low and marshy ground, with a strip along the river shore still more marshy, where land and water mingled, covered with tall grass, reeds and rushes.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire273"
+      ],
+      "locator": "Chicagology, 'Wolf's Point and the Town of Chicago', the description of the South Division's ground ('generally low and marshy ground'; 'still more marshy, where land and water mingled'), transcribed at docs/research/01-terrain-hydrology.md § 2.2."
+    },
+    {
+      "id": "mk-land-office",
+      "text": "'The opening of a land office in May, 1835, added fuel to the already brilliant blaze of excitement'; crowds of buyers and speculators 'filled the streets and overflowed improvised camps on the adjacent prairies'. Sales of land 'to the amount of 370,043 acres were made in 1835'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 97-98, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13137-13162 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-lot-prices",
+      "text": "'Lots which had been sold in 1830 for from $10 to $50 soon came to be worth $200, and when the craze came on in 1835-6 brought twenty or thirty times as much.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 98, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13188-13196 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-crier",
+      "text": "'The favorite way of making sales was at auction.' A Black crier in gaudy colours, with a scarlet flag, riding a white horse with harness of scarlet, rode through the town announcing the hour of the sale; 'Crowds flocked around and followed him and hung upon his entrancing words.' Then 'there were no bounds to which enthusiastic, nay, mad bidders would not go.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 98, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13197-13212 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-resale",
+      "text": "'Lots were frequently sold and resold, always bringing increased prices': 'Lot 1, block 2, sold in June for $5,000 and resold in August for $10,000'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 98, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13212-13218 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-butler",
+      "text": "In the summer of 1834 David Hunter sold part of the town to Arthur Bronson and associates for $20,000; Charles Butler, who had declined to join, bought the same property in May 1835 'paying therefore $100,000', and William B. Ogden's auction of not more than a third of it realized over $100,000.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 98, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13223-13244 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-hubbard-acres",
+      "text": "In the spring of 1835 Gurdon S. Hubbard and Russell & Mather bought eighty acres for $5,000; Hubbard platted them in New York and 'sold half the lots at auction for $80,000'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 98, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13245-13253 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-paper-towns",
+      "text": "In the speculation of 1835-36 'The whole land seemed staked out and peopled on paper', and 'But few of these paper towns ever came to anything'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 98, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13169-13183 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-carpenter-lots",
+      "text": "Carpenter bought 'two lots on South Water street, forty feet frontage, at a cost of $75, and a lot on LaSalle street, 25x180 feet, for $25. Such were ruling prices of Chicago lots in the thirties.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 573, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 100155-100163 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-mud",
+      "text": "Granville T. Sproat, the schoolmaster, remembered the village streets: 'It lay in many places half a leg deep, up to the hubs of the carts and wagons in the middle of the streets, and the only sidewalk we had was a single plank stretched from one building to another. The smaller scholars I used to bring to school and take home on my back, not daring to trust them on the slippery plank.' Once he fell into the mire with a child in his arms and lost 'both overshoes'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 94, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12682-12701 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-peck-panic",
+      "text": "Peck bought lots at the first canal-trustees' sale, one quarter cash and the rest in instalments; 'The financial reverses of 1836 caused every buyer, except Mr. Peck, to forfeit his purchases.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 571, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 99895-99905 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "errand",
+      "text": "The visitor's errand, the choice of notice, the reading of the sale, the ride on horseback (the recommended mode), the decision to inquire or hold, the three endings, the timing inputs and the Read the Ground keepsake are invented connective narrative. No lot, owner, price, title or purchase is claimed, and no named person is met.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-inspect-a-lot"
+    }
+  ],
+  "liberties": [
+    "L-jaunt-inspect-a-lot",
+    "L195",
+    "L-jaunt-1835-light-and-stories"
+  ],
+  "version_of": "inspect-a-lot"
+}

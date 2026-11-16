@@ -1,0 +1,115 @@
+== premise
+Read the town's notices for working hands, inquire about work at two Newberry and Dole warehouses and leave with a work chit or a sensible next lead.
+
+== opening
+JAUNT: WORK ON THE WATERFRONT. On this particular morning you need a job, and the encouraging news is that Chicago in 1835 needs everybody: buildings rise as fast as lumber arrives, every boat needs unloading, and the papers carry notices headed "Wanted, immediately". The bad news is that strangers keep arriving "by land and by water", and half of them want work too.
+
+Choose what you can do, read the notices, inquire at two of Newberry and Dole's houses, and plan your next move over breakfast.
+
+== stop notices
+John Calhoun's Democrat, printed here at first and since May above Jones and King's hardware, wants "an apprentice at this office to the printing business". On 17 June Jones, King and Company printed: "Wanted, immediately, one copper smith, and one tin and sheet iron worker". A town building this rapidly needs printers for its notices and tinsmiths for its stovepipes, since from 1833 every stovepipe through a roof must be "guarded by tin or sheet iron", or the owner pays $5.
+
+== narrative notices
+Choose the particular skill you are offering to employers.
+
+== label notices type
+Type and press
+
+== consequence notices type
+You can set type by hand and operate a printing press.
+
+== label notices metal
+Tin and copper
+
+== consequence notices metal
+You can work sheet metal skillfully into stovepipes and kettles.
+
+== label notices back
+A strong back
+
+== consequence notices back
+You can lift, carry and load heavy freight from arriving vessels.
+
+== stop packing
+Andreas places George Dole's 1832 warehouse and slaughter yard near Lake and Dearborn. Dole began the town's packing trade here, "the nucleus of one of those immense industries" that made Chicago famous. Packing, however, is winter work, with hogs killed in December, and by 1834 the partners had moved their slaughtering to the South Branch. In the middle of July there is consequently nothing to pack.
+
+== narrative packing
+Will you ask to be remembered, or continue to the river?
+
+== label packing remember
+Ask to be remembered for the packing
+
+== consequence packing remember
+A promise to inquire again when there is packing to be done.
+
+== label packing go-on
+Go on to the river
+
+== consequence packing go-on
+There is nothing worth requesting here in the middle of summer.
+
+== stop forwarding
+Newberry and Dole have advertised as forwarding and commission merchants since November 1833, and in June the American named them agents for the steamboat Michigan to Detroit and Buffalo. When the schooner Illinois came up through the new harbor cut in July 1834, she was cheered at their wharf. Every vessel since has needed hands to unload her, and nobody advertises for those.
+
+== narrative forwarding
+Will you inquire about employment, or simply observe the activity on the wharf?
+
+== label forwarding offer
+Offer a day's carrying
+
+== consequence forwarding offer
+A chit promising a day's carrying when a vessel next unloads, although no wage is written on it.
+
+== label forwarding watch
+Watch the wharf and ask nothing
+
+== consequence forwarding watch
+You observe how merchandise comes off the water, and then move on.
+
+== stop breakfast
+Breakfast at the Exchange Coffee House at Lake and Wells, built by Mark Beaubien and kept by the Murphys since August 1834; the county's old tariff set breakfast at 25 cents. Review the morning: two notices for trades, a yard waiting on winter, and a wharf that never stops.
+
+== narrative breakfast
+Where will you inquire first tomorrow morning, and why?
+
+== label breakfast answer
+Answer a printed notice
+
+== consequence breakfast answer
+You will apply where a notice requested hands.
+
+== label breakfast boat
+Wait on the wharf for a vessel
+
+== consequence breakfast boat
+You will be at the river whenever a sail appears.
+
+== label breakfast around
+Keep asking around town
+
+== consequence breakfast around
+You will personally visit the stores and lumber yards, asking for opportunities.
+
+== leg 0
+Carry your particular skill along the river to the warehouses.
+
+== ending apprentice
+You will answer the Democrat's notice for an apprentice to the printing business. It was printed on 20 May, six weeks ago, so the position may already be filled, but ask anyway, and ask early.
+
+== ending tin-and-copper
+You will take your tin and copper to Jones, King and Company, whose notice of 17 June wanted both trades immediately. A fortnight is long enough for someone to have answered first, so go before breakfast is cold.
+
+== ending no-notice-for-a-back
+No notice you read requested a strong back, because the papers advertise trades, while carrying is found on the wharf and requested in person. Tomorrow, try the river first.
+
+== ending chit-for-the-boat
+You carry a chit for a day's carrying when a vessel next unloads at the forwarding house, with no wage written on it, so be on the wharf when a sail appears.
+
+== ending remembered-for-the-winter
+You asked to be remembered whenever there is packing to be done, and that is a winter promise, with no wage, no name and no date, something to hold on to until December, when the hogs arrive.
+
+== ending a-days-work-in-prospect
+No work today, but a plan for tomorrow: two notices that requested trades, a yard waiting on the winter, and a firm that forwards freight by the boatload. Respectable employment is genuinely in prospect.
+
+== keepsake text
+A fictional note of a morning spent looking for work: the notices that asked for hands, and where to ask again. No particular wage or definite offer is written on it.

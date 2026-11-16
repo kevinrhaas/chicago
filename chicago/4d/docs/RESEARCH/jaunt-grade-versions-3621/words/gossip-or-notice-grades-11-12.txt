@@ -1,0 +1,97 @@
+== premise
+Two rumors are circulating at the forks of the river; convey them past the Exchange to the town's two printing offices, examine what the newspapers actually reported, and determine what you will relay.
+
+== opening
+JAUNT: GOSSIP OR PRINTED NOTICE? Morning at the forks, and two rumors are already circulating: the land sale allegedly generated a million dollars, and a bank is reportedly opening in a brick house on the square. In a community this speculative, rumors propagate faster than the mail, which arrives "often irregular and long delayed", and when it finally appears, "some one with a good voice would mount a dry goods box" and proclaim the news aloud.
+
+This summer the town supports two competing newspapers, so convey the rumors to both printing offices and examine what the papers actually reported before you repeat a syllable.
+
+== stop the-forks
+Commence at the forks, beneath the Wolf Point Tavern's painted wolf sign, displayed by approximately 1833. One account has William Walters operating the house until 1836, whereas another maintains it ceased accepting guests in 1834. At the door the conversation concerns exclusively money: a million dollars allegedly collected at the land sale, and a bank opening on the square imminently. Since the federal land office opened in May, the entire community discusses nothing else.
+
+== narrative the-forks
+Attend carefully to the rumors, but credit neither until you possess corroborating evidence.
+
+== stop the-exchange
+Across the river stands the Exchange Coffee House, which Mark Beaubien constructed at Lake and Wells and which Mr and Mrs Murphy have operated since August 1834. The rumors have preceded you here, and they have expanded considerably in transit. Somebody at the door insists on knowing whether they are accurate.
+
+== narrative the-exchange
+Hear the rumors again, one river later and considerably inflated.
+
+== label the-exchange promise
+Promise to find out
+
+== consequence the-exchange promise
+You will owe an answer once your investigation concludes.
+
+== label the-exchange just-listen
+Just listen
+
+== consequence the-exchange just-listen
+You incur no obligation whatsoever.
+
+== stop the-democrat
+At South Water and Clark stood the Democrat's original office, although by 20 May it was printing above Jones and King's hardware. Today's number concedes it cannot specify what the Land Office collected, and is merely "led to believe" it was between five and some hundred thousand dollars; the surviving copy has lost the second figure. Whichever figure is accurate, it is demonstrably not a million dollars.
+
+== narrative the-democrat
+Locate the first rumor within the newspaper's printed columns.
+
+== label the-democrat note-the-guess
+Note the paper's guess, doubt and all
+
+== consequence the-democrat note-the-guess
+Not a million, and not certain, as the newspaper itself acknowledges.
+
+== label the-democrat skip-the-sale
+Leave the land sale to the talkers
+
+== consequence the-democrat skip-the-sale
+Nothing is documented in your notes at this office.
+
+== stop the-american
+Near the drawbridge stands the office of Davis's American, a publication merely three weeks old. Its 27 June number reprints the Sangamon Journal: the State Bank's directors have resolved upon a branch at Chicago, although its officers remain undetermined. The brick building on the square near the court house belongs to Springfield, not Chicago. Half of the rumor is accurate, which renders it the most treacherous variety of misinformation.
+
+== narrative the-american
+Determine what information you will responsibly relay to the forks.
+
+== label the-american carry-the-print
+Carry back what was printed, doubts and all
+
+== consequence the-american carry-the-print
+Exclusively what you read, retaining the newspapers' own qualifications.
+
+== label the-american not-settled
+Carry back that nothing is settled
+
+== consequence the-american not-settled
+Uncertainty, articulated explicitly and responsibly.
+
+== label the-american say-nothing
+Carry back nothing for now
+
+== consequence the-american say-nothing
+The rumors continue circulating independently of you.
+
+== leg 0
+Two rumors, propagating considerably faster than any pedestrian.
+
+== leg 1
+Locate a newspaper against which to evaluate each circulating rumor.
+
+== ending true-to-the-page
+You relay both items precisely as printed: a land-sale total the Democrat would only estimate, and a branch bank authorized with no officers named and no building in Chicago yet. It is less sensational than the forks claimed but faithful to the documentary record, and before the year concludes the census will enumerate one bank in town, "a branch of the State bank".
+
+== ending one-checked
+You relay the bank item as printed and leave the land sale unaddressed, because you did not document it. It constitutes half a correction, although an honest and responsible one.
+
+== ending not-yet-known
+You relay that nothing is settled: one newspaper would only estimate, and the other identifies neither officer nor building. Acknowledged uncertainty is a legitimate answer.
+
+== ending owed-an-answer
+You promised an answer at the Exchange but relay none, so the rumors will be repeated there without correction until Saturday's American or next week's Democrat publishes further.
+
+== ending held-tongue
+You remain silent, and the rumors continue circulating without your participation. Saturday's American and next week's Democrat will publish further, and until then, discretion is an eminently reasonable approach to the news.
+
+== keepsake text
+A fictional note documenting two rumors heard at the forks in July 1835, juxtaposed with what the Democrat and the American printed. No real person uttered either rumor, and no newspaper is made to resolve what it left uncertain.

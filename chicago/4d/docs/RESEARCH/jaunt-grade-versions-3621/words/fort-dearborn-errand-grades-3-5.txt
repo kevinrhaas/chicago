@@ -1,0 +1,82 @@
+== premise
+Carry a short list for supplies around the fort's work buildings and out to its shop.
+
+== opening
+JAUNT: FORT DEARBORN ERRAND. It is a winter morning where the river meets the lake. The lake is iron grey. The boats have stopped. One man remembered that nothing could come into town, and nothing could be sent out. Out on the grassland, he said, there were lots of wolves all around the town. Inside the tall fence of logs, the fort keeps its supplies.
+
+You carry a note. Choose a small supply at the fort's store. Check the bundle against your note at the store house. Then take it out to the fort's shop by the lake.
+
+== stop errand
+This is the fort's south gate. Soldiers have kept the fort since June 1832. Juliette Kinzie lived inside in 1831. She wrote about its tall log fence and its big gates on the north and south sides. A man drew a map in 1827. It shows the guard house and the store house on either side of this gate. In a frozen winter, what is in the store house is all there is until spring.
+
+== narrative errand
+Say what you came for, and go on to the fort's store.
+
+== stop supply
+East of the north gate stands the trader's store. It sells things that the soldiers' food and supplies did not include. A map from 1827 put it here. An old photo from 1855 still labels it the store. Nobody knows who ran it in 1835.
+
+== narrative supply
+Choose one supply, or go on without it.
+
+== label supply candles
+A bundle of candles
+
+== consequence supply candles
+Light for short winter evenings at a work bench.
+
+== label supply thread
+Thread and a paper of needles
+
+== consequence supply thread
+Small and light, and someone always needs more.
+
+== stop account
+East of the south gate is the store house, where the army keeps food. Army notices from 1834 talk about it. Fresh beef came in big pieces up to three times a week. That was probably about four hundred pounds every week. Check your bundle against your note.
+
+== narrative account
+Check the bundle before it leaves the fort.
+
+== label account tally
+Tally the parcel against the note
+
+== consequence account tally
+What the note asked for is in the bundle, and you write it down.
+
+== stop deliver
+Outside the log fence toward the lake, a map from 1830 shows a building marked Shop. It does not say what kind of shop, so it was a workshop. It may be this one. A minister named Jeremiah Porter gave a church talk in the fort's carpenter shop on 19 May 1833. Set the bundle down.
+
+== narrative deliver
+Hand over what the note asked for, or carry back what is missing.
+
+== label deliver hand-over
+Set the tallied parcel down at the shop
+
+== consequence deliver hand-over
+The job is done. The note goes back folded in your pocket.
+
+== leg 0
+The first line on the note says one small supply from the fort's store.
+
+== note 0
+Walk across the fort to the buildings east of the north gate.
+
+== leg 1
+Before the bundle leaves the fort, check it against the note.
+
+== note 1
+Walk back to the south gate, to the building on its east side.
+
+== leg 2
+The last line on the note says carry the bundle out to the shop.
+
+== note 2
+This is the longest walk. Go out past the corner of the log fence toward the lake shore.
+
+== ending accounted
+You chose a supply, checked the bundle and set it down at the shop. The fort is a busy neighbor where the river meets the lake. It has supplies to keep and a long winter to keep them through.
+
+== ending unfinished
+Part of the note goes back with you. The fort's work buildings will be here tomorrow. So will the rest of the list, and so will the snow.
+
+== keepsake text
+A made-up supply note, checked outside Fort Dearborn's store house and carried to the shop outside the fort.

@@ -1,0 +1,82 @@
+== premise
+Evaluate four of the town's lodging establishments from the street and determine where a modest purse should inquire first.
+
+== opening
+JAUNT: A BED FOR THE NIGHT. The sun is descending on the most frenetic summer Chicago has ever experienced, and you possess no accommodation. Since the federal land office opened in May, purchasers and speculators have "filled the streets and overflowed improvised camps on the adjacent prairies", and the American enumerated some hundreds of strangers in addition to the town's own two or three thousand inhabitants.
+
+Four houses that accommodate strangers lie between the wagon yards of the west side and Lake Street. Evaluate what each offers, establish whether economy or convenience takes precedence, and choose where to knock, mindful that in this overcrowded town "full meant three in a bed sometimes, with the floor covered besides".
+
+== stop west-side
+Commence at the Western Hotel, at Randolph and Canal, which W.H. Stow constructed with a forty-foot front, a sixty-foot wing and a wagon yard as the customary stopping place for farmers and teamsters arriving from the western prairies; he dates it 1834, whereas a chronology specifies 1835. In 1831 the county regulated what an innkeeper could charge: 12½ cents for a man's lodging, 25 for supper, and 50 for stabling a horse overnight. Amid this summer's speculative frenzy, discovering a bed at such regulated prices would be extraordinary.
+
+== narrative west-side
+Economy or convenience: resolve the question before you knock.
+
+== label west-side cost
+Cost comes first
+
+== consequence west-side cost
+You will inquire after the plainer, more economical bed.
+
+== label west-side convenience
+Convenience comes first
+
+== consequence west-side convenience
+You will inquire after a bed proximate to the town's commercial center.
+
+== stop the-sauganash
+Across the South Branch at Lake and Market stands the Sauganash, repaired and newly furnished in June. A week afterward the Democrat described "the immense congregation of strangers crowding every room of our public houses", some "sleeping on the floor". The proprietor, Mark Beaubien, devised his own solution to overcrowding: he enjoyed declaring that he "kept hotel like —" a destination unmentionable in polite society, and recounted how he would settle a man on the floor with a blanket and, once the traveler was "slumbering soundly", reclaim it for the subsequent guest.
+
+== narrative the-sauganash
+A newly furnished house, and a proprietor who counts his blankets.
+
+== stop the-boarding-house
+East to LaSalle, behind Peck's store, stands Mrs Rufus Brown's log house, which Andreas ranks among the first-class boarding houses. A boarding house provides weekly lodging and meals at a common table, and this establishment is saturated: "full meant three in a bed sometimes, with the floor covered besides". On 13 June the American reported strangers occupying both the public houses and the streets, with store houses thrown open for emigrants who possessed no shelter whatsoever.
+
+== narrative the-boarding-house
+A bed and a table by the week: the plainer alternative.
+
+== stop lake-street
+Continue along Lake to Dearborn and the Mansion House, Dexter Graves's log tavern of 1831, which acquired a frame front extending to the street line two years subsequently. Haddock, his son-in-law, operated it until 1835, when Abram Markle assumed management; because nobody documented the month of transfer, either man may be presiding tonight. Almost directly opposite stands the first Tremont House. The moment for decision has arrived.
+
+== narrative lake-street
+Choose where to inquire first, acknowledging that nobody guarantees a vacant room.
+
+== label lake-street ask-browns
+Ask first at Brown's
+
+== consequence lake-street ask-browns
+A boarding-house place behind Peck's, should one remain available.
+
+== label lake-street ask-here
+Ask first here on Lake Street
+
+== consequence lake-street ask-here
+A tavern bed at the Mansion House, should one remain available.
+
+== label lake-street ask-sauganash
+Ask first at the Sauganash
+
+== consequence lake-street ask-sauganash
+A bed in the newly furnished house, should one remain available.
+
+== leg 0
+Cross from the wagon trade to the river corner.
+
+== leg 1
+From a hotel to a boarding house, which offers an altogether different arrangement.
+
+== leg 2
+The final establishment, followed by your decision.
+
+== ending thrift
+Economy first, so you knock initially at Mrs Brown's. If any fraction of a bed remains, it is yours, although you may share it, since in June 1835 every establishment in town was saturated.
+
+== ending close-at-hand
+Convenience first, so you inquire initially on Lake Street. Should the house be full, the floor remains available, and in June 1835 innumerable strangers slept upon it.
+
+== ending second-thoughts
+You departed prioritizing one consideration and ultimately chose according to another, which an overcrowded town readily encourages. Sleep with one hand securing your blanket, because Mark Beaubien is hardly the only proprietor who counts them.
+
+== keepsake text
+A fictional note recording where you intended to inquire for a bed in July 1835. It is not a receipt for a room.

@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Architectural style",
+  "menu_group": "Architecture",
+  "grade_band": "9-10",
+  "featured": false,
+  "review_required": false,
+  "id": "prairie-style-italianate-grades-9-10",
+  "scene": "1904",
+  "title": "Italianate style walk",
+  "premise": "Round-headed windows, bracketed cornices and elevated stoops: five Italianate houses from 1612 to 2031 Prairie, representing the avenue's earliest generation of fronts.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: ITALIANATE STYLE. An autumn morning, 1904. Before the mansards and the granite, Prairie Avenue was built in the Italianate manner: houses dressed like villas on a Tuscan hillside, the prevailing fashion of the 1860s, when the first substantial houses rose along this street.\n\nLook for three features: tall round-headed windows, deep cornices supported on carved brackets, and high stoops elevating the front door above the street. Five houses on foot, from 1612 to 2031 Prairie, all from the avenue's oldest generation.\n\nBegin at 1612, with the finest Italianate façade on the street.",
+    "read_s": 29
+  },
+  "stops": [
+    {
+      "id": "goodman",
+      "destination": {
+        "kind": "structure",
+        "id": "goodman_house_1612_prairie"
+      },
+      "text": "1612 Prairie, Joseph Goodman's house of 1869, built two years before the Great Fire. Its photograph shows the Italianate formula executed in stone: three bays, every window round-headed beneath an elongated keystone, a belt course marking the principal floor, and an arched portico on columns crowning a high stoop. The stoop is essential to the design: a caller ascends well above the street, and above the dust of its carriages, before the door even opens. The house will stand until it is demolished around 1960. Walk one block south, where the same year's style acquires a famous architect.",
+      "read_s": 28,
+      "evidence": [
+        "goodman-marker",
+        "goodman-photo",
+        "goodman-style",
+        "goodman-razed",
+        "tour"
+      ],
+      "next": "hibbard"
+    },
+    {
+      "id": "hibbard",
+      "destination": {
+        "kind": "structure",
+        "id": "hibbard_house_1701_prairie"
+      },
+      "text": "1701 Prairie, William G. Hibbard's house, also from 1869, designed by William Le Baron Jenney for the president of a major wholesale hardware firm. The district register classifies it as Italianate: a low hipped roof on bracketed eaves above a stone-based body, with a rear wing added in 1874. Jenney would later engineer the first skyscraper; this house will be demolished in 1932. Two doors south stands something rarer on this street: an Italianate house constructed of wood.",
+      "read_s": 22,
+      "evidence": [
+        "hibbard-marker",
+        "hibbard-draft",
+        "hibbard-razed",
+        "tour"
+      ],
+      "next": "walker"
+    },
+    {
+      "id": "walker",
+      "destination": {
+        "kind": "structure",
+        "id": "walker_house_1720_prairie"
+      },
+      "text": "1720 Prairie, the Tyrrell and Walker house, which the district register identifies as an Italianate house built of timber: a low hip on deep bracketed eaves, a central gable, a canted bay and a porch spanning the full width. The brick and stone fronts crowding around it reveal the direction the street ultimately took. In 1910 wreckers will make it the first of many Prairie Avenue houses demolished, as residences yield to offices, warehouses and factories. Compare its wooden brackets with the stone examples nearby. Cross Eighteenth Street to a house that updated its wardrobe.",
+      "read_s": 26,
+      "evidence": [
+        "walker-draft",
+        "walker-razed",
+        "tour"
+      ],
+      "next": "jones"
+    },
+    {
+      "id": "jones",
+      "destination": {
+        "kind": "structure",
+        "id": "jones_house_1834_prairie"
+      },
+      "text": "1834 Prairie, Fernando Jones's house, designed by John M. Van Osdel and built in 1866 for \"one of Chicago's earliest pioneers - Fernando Jones\". It was originally Italianate. Two decades later the entire street had adopted mansards, so in 1886 Jones added a mansard \"to bring it into fashion with many of its neighbors\". Here, then, is an Italianate house wearing a newer hat, which it will keep until demolition in 1942. Prairie Avenue was a fiercely competitive street. One final stop lies past Twentieth.",
+      "read_s": 24,
+      "evidence": [
+        "jones-marker",
+        "tour",
+        "vanosdel-first",
+        "jones-razed"
+      ],
+      "next": "tolman"
+    },
+    {
+      "id": "tolman",
+      "destination": {
+        "kind": "structure",
+        "id": "tolman_house_2031_prairie"
+      },
+      "text": "2031 Prairie, the northern house of a row of three built in 1869 with pale Lemont limestone fronts. The district register classifies it as Italianate: a flat roof concealed behind a bracketed cornice, above three stories. The three houses share a single cornice line, resembling one unified palazzo, yet each retains its own door. Look for where the brackets pause and resume.",
+      "read_s": 18,
+      "evidence": [
+        "tolman-draft",
+        "tour"
+      ],
+      "next": "finish"
+    }
+  ],
+  "legs": [
+    {
+      "story": "South through the 1600 block.",
+      "evidence": [
+        "hibbard-marker"
+      ],
+      "story_evidence": [
+        "hibbard-marker"
+      ]
+    },
+    {
+      "story": "Two doors south.",
+      "evidence": [
+        "walker-draft"
+      ],
+      "story_evidence": [
+        "walker-draft"
+      ]
+    },
+    {
+      "story": "Across Eighteenth Street, down the west sidewalk.",
+      "evidence": [
+        "jones-marker"
+      ],
+      "story_evidence": [
+        "jones-marker"
+      ]
+    },
+    {
+      "story": "South past Twentieth Street.",
+      "evidence": [
+        "tolman-draft"
+      ],
+      "story_evidence": [
+        "tolman-draft"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "finish",
+      "text": "The Italianate walk ends here. Count the brackets you passed: these are the avenue's oldest fronts, constructed before the fire and before the enormous fortunes that followed it.\n\nBy 1904 they already appear dated beside the mansards and the granite. Walk the Second Empire or Romanesque routes to discover what came next.",
+      "read_s": 14,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "prairie-italianate-note-grades-9-10",
+    "title": "Italianate field note",
+    "text": "A modern field note on the style's brackets and round-headed windows; not a period document."
+  },
+  "evidence": [
+    {
+      "id": "goodman-marker",
+      "text": "Joseph Goodman Residence. Built 1869; architect unknown.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1612 S. Prairie Avenue entry's name line."
+    },
+    {
+      "id": "goodman-photo",
+      "text": "The photograph shows a three-bay stone front, every window round-headed under voussoirs with a long keystone, a belt course at the principal floor, and an arched portico on columns at the head of a high stoop.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "locator": "The whole print: the stone street front from its south corner to its north corner, the stoop and the portico."
+    },
+    {
+      "id": "goodman-style",
+      "text": "The front is read as Italianate.",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "reasoning": "Round-headed windows under keystoned voussoirs, a belt course and an arched portico on a high stoop are the Italianate vocabulary of an 1869 stone front; the T-1837 register files the house Italianate stone-front masonry."
+    },
+    {
+      "id": "hibbard-draft",
+      "text": "The district draft reads the Hibbard house from the T-1837 register as an Italianate mansion with a rear addition: a low hip on bracketed eaves over a stone-based body, and the 1874 rear range.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-16-18-east-2335"
+    },
+    {
+      "id": "hibbard-marker",
+      "text": "William G. Hibbard Residence. Built 1869; William Le Baron Jenney, architect; Hibbard was president of a large wholesale hardware firm (read in paraphrase).",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1701 S. Prairie Avenue entry: its name line, and its description as read in paraphrase."
+    },
+    {
+      "id": "jones-marker",
+      "text": "Fernando Jones Residence. Built 1866; John M. Van Osdel, architect. In 1886, the Italianate residence received a mansard addition to bring it into fashion with many of its neighbors.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1834 S. Prairie Avenue entry."
+    },
+    {
+      "id": "tolman-draft",
+      "text": "The district draft reads 2031 Prairie as the north house of an 1869 Lemont-limestone row: an Italianate flat roof behind a bracketed cornice over three storeys; the row shares one cornice line, and its doors differ.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-20-22-east-2352"
+    },
+    {
+      "id": "tour",
+      "text": "The route, its order, its autumn morning, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on a day in 1904 is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-prairie-walks"
+    },
+    {
+      "id": "walker-draft",
+      "text": "The district draft reads the Tyrrell/Walker house from the T-1837 register as an Italianate frame house: a low hip on deep bracketed eaves, with a central gable, a canted bay and a full-width porch.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-16-18-west-2334"
+    },
+    {
+      "id": "vanosdel-first",
+      "text": "Van Osdel designed two houses on Prairie Avenue; 'The first of these, at 1834 S. Prairie Avenue, was built in 1866 for one of Chicago's earliest pioneers - Fernando Jones'.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "locator": "The post on Van Osdel."
+    },
+    {
+      "id": "goodman-razed",
+      "text": "Joseph Goodman Residence, 1612 S. Prairie Avenue: razed circa 1960.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1612 S. Prairie Avenue entry."
+    },
+    {
+      "id": "hibbard-razed",
+      "text": "William G. Hibbard Residence, 1701 S. Prairie Avenue: in 1921 the house was bought by the American Terra Cotta & Ceramic Co., which gave the architect Louis Sullivan free office space there until his death in 1924. Razed 1932.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1701 S. Prairie Avenue entry."
+    },
+    {
+      "id": "walker-razed",
+      "text": "In 1910 wreckers destroyed the mansion at 1720 Prairie, the first of many Prairie Avenue homes to be torn down, as the street's residences increasingly gave way to offices, warehouses and factories.",
+      "confidence": "attested",
+      "sources": [
+        "encyclopedia_chicago_worlds_of_prairie_avenue"
+      ],
+      "locator": "The essay's closing paragraphs on the street's decline."
+    },
+    {
+      "id": "jones-razed",
+      "text": "Fernando Jones Residence, 1834 S. Prairie Avenue: razed 1942.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1834 S. Prairie Avenue entry."
+    }
+  ],
+  "liberties": [
+    "L-draft-prairie-16-18-east-2335",
+    "L-draft-prairie-16-18-west-2334",
+    "L-draft-prairie-20-22-east-2352",
+    "L-jaunt-prairie-walks"
+  ],
+  "version_of": "prairie-style-italianate"
+}

@@ -1,0 +1,73 @@
+== premise
+Carry a modest supply request around the fort's everyday service buildings and out to its workshop.
+
+== opening
+JAUNT: FORT DEARBORN ERRAND. A winter morning at the river mouth, with the lake iron grey and the boats laid up for the season, and one settler remembered that "There was nothing coming in, and there was no means of sending anything out of the town". Out on the prairie, "Wolves were in great plenty all around the town". Inside the pickets, the fort maintains its stores.
+
+You carry a note: choose a small supply at the sutler's, check the parcel against the note at the store-house, and deliver it to the fort's shop by the lake.
+
+== stop errand
+This is the fort's south gate, continuously occupied by federal troops since June 1832. Juliette Kinzie, who lived inside in 1831, described high pickets and large gates to the north and south, and Hubbard placed the guard-house and store-house on either side of this gate in 1827. In a frozen season, whatever the stores contain is all there is until spring reopens the lake.
+
+== narrative errand
+State your errand to the sentry and continue across the parade to the sutler's.
+
+== stop supply
+East of the north gate stands the sutler's store, the post trader's shop, which sold whatever the official ration did not supply. Hubbard placed it here in 1827, and an 1855 photograph key still labels it the Sutler's, although its keeper in 1835 is unknown.
+
+== narrative supply
+Choose one supply for the note, or proceed without purchasing anything.
+
+== label supply candles
+A bundle of candles
+
+== consequence supply candles
+Light for the abbreviated winter evenings at a workbench.
+
+== label supply thread
+Thread and a paper of needles
+
+== consequence supply thread
+Small and lightweight, yet perpetually in short supply somewhere in the garrison.
+
+== stop account
+East of the south gate is the store-house, which the Army's 1834 beef notices call the subsistence store house: fresh beef arrived in quarters, up to three times a week, probably amounting to 400 pounds weekly. Compare your parcel against the requisition before proceeding further.
+
+== narrative account
+Account for every item in the parcel before it leaves the pickets.
+
+== label account tally
+Tally the parcel against the note
+
+== consequence account tally
+Everything the note requested is in the parcel, and you record it.
+
+== stop deliver
+Outside the pickets toward the lake, the 1830 plan draws a building labeled Shop. Because no trade is named, this is a general workshop rather than a smithy. It may have been this one where Jeremiah Porter, "the pioneer Protestant minister of Chicago", "preached a sermon in the carpenter's shop of the garrison on the 19th of May, 1833". Set the parcel down inside the door.
+
+== narrative deliver
+Deliver what the note requested, or carry back whatever is missing.
+
+== label deliver hand-over
+Set the tallied parcel down at the shop
+
+== consequence deliver hand-over
+With the errand complete, the note returns folded in your pocket.
+
+== leg 0
+The requisition's first line requests one modest supply from the sutler's.
+
+== leg 1
+Before the parcel leaves the fort, verify its contents against the requisition.
+
+== leg 2
+The requisition's final line instructs you to deliver the parcel to the workshop.
+
+== ending accounted
+Supply chosen, parcel tallied and delivered to the shop. The fort is a working neighbor at the river mouth, with stores to maintain and a long winter through which to maintain them.
+
+== ending unfinished
+Part of the requisition returns with you, unfulfilled. The fort's service buildings will still be here tomorrow, along with the remainder of the list, and the snow.
+
+== keepsake text
+A fictional supply note, tallied outside Fort Dearborn's store-house and carried to the shop on the outer ground.
