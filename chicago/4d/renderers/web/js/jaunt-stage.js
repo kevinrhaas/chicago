@@ -414,6 +414,11 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     get playing() { return playing; },
     get clock() { return clock; },
     get cast() { return cast.map((m) => m.actor); },
+    /** T-3614: the castmates the name cards name: a person by their own name, an extra by the cast's. */
+    get named() {
+      return cast.map((m) => ({ key: m.actor.id, actor: m.actor, personId: m.c.person ?? null, staged: true,
+        name: m.c.person ? (m.actor.person?.name ?? null) : (m.c.name ?? null) }));
+    },
     sync(next, { arrived = false } = {}) {
       const key = next?.stage?.cast?.length ? String(next.id ?? '') : null;
       if (!key) { if (stop) teardown(); stopKey = null; return api; }

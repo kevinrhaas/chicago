@@ -818,6 +818,8 @@ step "Ask the Glessner coachman for a ride: in beside Mr. Glessner, round the bl
   node tools/test_glessner_ride.mjs
 step "Every person placed in town is named by the look tag, found, and followed beside them (T-3404)" \
   node tools/test_person_interaction.mjs
+step "Every person's name fits their floating name card; on by default, a tap opens their card (T-3614)" \
+  node tools/test_name_cards.mjs
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
   python3 tools/human_contract.py --self-test
 step "Every human GLB is the one the browser measured: sha256 and verdicts in data/humans/fixture.measure.json (T-1787)" \
