@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3033, ts: '2026-11-16T13:54:47.604Z', date: 'Nov 16, 2026, 7:54 AM CT', title: 'Take the helm of any boat; 1835\'s schooners rebuilt with crews', kind: 'feature',
+    items: [
+      'Board any boat and steer it yourself on the river and the lake: the schooners, the Mackinaw boats, the rowboats, the canoes, and the 1812 crossing boats.',
+      '1835\'s schooners are the five the Chicago American\'s Marine Journal entered that week: planked and rigged topsail schooners with hands at work aboard.',
+      'Two of them sail a circuit out between the piers and back by day, one lies anchored in the offing with a Mackinaw boat unloading her.',
+      'At night they ride at anchor with one man on watch; in winter they are laid up and the lake vessels are gone.',
+      '1812 has the Kinzies\' boat and the garrison\'s scow, where the battle jaunt finds them.',
+      'Along the Working Harbor names the schooners in port and the boats that unload at the bar.',
+    ] },
   { v: 3032, ts: '2026-11-16T12:13:45.354Z', date: 'Nov 16, 2026, 6:13 AM CT', title: 'Ask a question: everyone has five things to ask, and a personality', kind: 'feature',
     items: [
       'Greet anyone in 1812, 1835 or 1904, then Ask a question: five questions each, named people\'s own first.',
