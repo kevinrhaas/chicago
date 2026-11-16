@@ -124,8 +124,9 @@ try {
     if (desktop) await page.mouse.click(x, y); else await page.touchscreen.tap(x, y);
     await sleep(6000);
     report.opened = await page.evaluate(() => {
-      const pane = document.querySelector('.insp-pane[data-person], .insp-pane') ?? document.querySelector('#people-directory');
-      return { text: (pane?.innerText ?? '').replace(/\s+/g, ' ').slice(0, 400) };
+      // Inspect's person card (1812, 1904) or the drawer's (1835): whichever pane is showing.
+      const panes = [...document.querySelectorAll('.insp-pane, #people-directory')].filter((p) => p.offsetParent);
+      return { text: panes.map((p) => p.innerText).join(' ').replace(/\s+/g, ' ').slice(0, 2000) };
     });
     if (!report.opened.text.includes(card.name.split(' ').slice(-1)[0])) fail.push(`clicking ${card.name}'s card did not open their card`);
     await shot('clicked');

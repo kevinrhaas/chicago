@@ -42,8 +42,37 @@ export const NAME_SIZES = Object.freeze([32, 30, 28, 26]);
 export const NAME_SIZES_2 = Object.freeze([26, 24, 22, 20]);
 /** A slot's height on screen, CSS pixels, near and at reach. */
 export const CARD_PX = Object.freeze({ near: 40, far: 30 });
-/** Metres above the top of the head to the foot of the notch. */
-export const LIFT_M = 0.2;
+/** Metres from the top of the head, or of the hat, hair or plume on it, to the foot of the notch. */
+export const LIFT_M = 0.12;
+/** Where the top of a bare head is above the head bone, metres (the crown measured where a figure
+ *  wears nothing there). */
+export const HEAD_TOP_M = 0.2;
+/** What is worn on the head and stands above it: a hat (its band and trim), a plume, the hair. */
+export const CROWN_MATERIAL = /^(headwear(__|_|$)|hair($|__)|accessory__.*(hat|plume|feather|head|bonnet|cap))/;
+
+/**
+ * The highest point of what is worn on the head, world y: each crown mesh's bind-pose box carried
+ * as the head bone carries it now (a hat is weighted to the head bone alone, so it moves rigidly
+ * with it), its eight corners' highest. `crowns` are { mesh, head } with `head` the index of the
+ * head bone in the mesh's skeleton. A box corner is never lower than the hat, so the card clears
+ * it, a tilted hat included.
+ */
+export function crownTop(crowns, THREE, m = new THREE.Matrix4(), v = new THREE.Vector3()) {
+  let top = -Infinity;
+  for (const { mesh, head } of crowns) {
+    if (!mesh.visible || !mesh.skeleton?.bones?.[head]) continue;
+    const g = mesh.geometry;
+    if (!g.boundingBox) g.computeBoundingBox();
+    const b = g.boundingBox;
+    if (!b || b.isEmpty()) continue;
+    m.multiplyMatrices(mesh.skeleton.bones[head].matrixWorld, mesh.skeleton.boneInverses[head]).multiply(mesh.bindMatrix);
+    for (let i = 0; i < 8; i++) {
+      v.set(i & 1 ? b.max.x : b.min.x, i & 2 ? b.max.y : b.min.y, i & 4 ? b.max.z : b.min.z).applyMatrix4(m);
+      if (v.y > top) top = v.y;
+    }
+  }
+  return top;
+}
 /** Seconds between choosing who is carded; and a new card's fade, in and out. */
 export const CHOOSE_S = 0.2;
 export const FADE_S = 0.25;
@@ -216,9 +245,36 @@ function roundRect(ctx, x, y, w, h, r, chamfer) {
   ctx.closePath();
 }
 
+/** A grade card's edge, atlas pixels: wider than the plain edge, so the colour reads. */
+export const GRADE_BORDER = 4;
+/** The grades a card's edge shows, as the Confidence view names them. */
+export const GRADES = Object.freeze(['attested', 'inferred', 'reconstructed']);
+/** Who stands in no record of their own (a jaunt's unnamed extra) is reconstructed. */
+export const gradeOf = (person, extra = false) => (GRADES.includes(person?.grade) ? person.grade : extra ? 'reconstructed' : null);
+
+const hex = (c) => { const m = /^#?([0-9a-f]{6})$/i.exec(String(c ?? '').trim()); return m ? parseInt(m[1], 16) : null; };
+/** `a` mixed `t` of the way to `b` (both '#rrggbb'), as '#rrggbb'; `a` when either is not one. */
+export function mixHex(a, b, t) {
+  const x = hex(a), y = hex(b);
+  if (x == null || y == null) return a;
+  const ch = (v, s) => (v >> s) & 255;
+  const out = [16, 8, 0].map((sh) => Math.round(ch(x, sh) + (ch(y, sh) - ch(x, sh)) * t));
+  return `#${out.map((v) => v.toString(16).padStart(2, '0')).join('')}`;
+}
+/** The grade's colour, lightened: a quarter of the way to white on a dark panel; kept on a light one. */
+export function softGrade(grade, theme) {
+  const lum = (c) => { const v = hex(c); return v == null ? 0 : (0.2126 * ((v >> 16) & 255) + 0.7152 * ((v >> 8) & 255) + 0.0722 * (v & 255)) / 255; };
+  return lum(theme.panel) < 0.5 ? mixHex(grade.color, '#ffffff', 0.25) : grade.color;
+}
+
 /** Draw one card into `ctx` (a SLOT_W × SLOT_H canvas): its body, edge, light, notch and name. */
-export function drawCard(ctx, fit, theme) {
+export function drawCard(ctx, fit, theme, grade = null) {
   const w = cardWidth(fit), h = BODY_H, b = BORDER / 2;
+  // T-3614 (owner, 2026-11-16: "a light color border on the card if they are attested or
+  // reconstructed or inferred based on setting colors ... some other gentle style so you can see
+  // who is for real"): the edge and the status light take the person's grade, in the colour the
+  // Confidence view gives it, softened toward the panel's ink so it reads as a light edge.
+  const gradeEdge = grade ? softGrade(grade, theme) : null;
   ctx.clearRect(0, 0, SLOT_W, SLOT_H);
   ctx.save();
   // The notch, under the body's middle, pointing down at the person.
@@ -226,16 +282,16 @@ export function drawCard(ctx, fit, theme) {
   ctx.beginPath();
   ctx.moveTo(mid - NOTCH_H, h - 2); ctx.lineTo(mid, h + NOTCH_H - 1); ctx.lineTo(mid + NOTCH_H, h - 2); ctx.closePath();
   ctx.fillStyle = theme.panel; ctx.fill();
-  ctx.lineWidth = BORDER; ctx.strokeStyle = theme.edge; ctx.stroke();
+  ctx.lineWidth = BORDER; ctx.strokeStyle = gradeEdge ?? theme.edge; ctx.stroke();
   // The body: the appearance's own panel, edge and corner.
   roundRect(ctx, b, b, w - BORDER, h - BORDER, Math.max(0, theme.radius - b), theme.chamfer);
   ctx.globalAlpha = 0.94; ctx.fillStyle = theme.panel; ctx.fill(); ctx.globalAlpha = 1;
-  ctx.lineWidth = BORDER; ctx.strokeStyle = theme.edge; ctx.stroke();
+  ctx.lineWidth = gradeEdge ? GRADE_BORDER : BORDER; ctx.strokeStyle = gradeEdge ?? theme.edge; ctx.stroke();
   // The notch's join with the body is the panel's, not a line across it.
   ctx.fillStyle = theme.panel; ctx.fillRect(mid - NOTCH_H + 3, h - BORDER - 1, NOTCH_H * 2 - 6, BORDER + 2);
-  // The status light: the appearance's accent, as the machine's own lamps are.
+  // The status light: the grade's own colour, or the appearance's accent for a card with none.
   ctx.beginPath(); ctx.arc(PAD_L + LIGHT_D / 2, h / 2, LIGHT_D / 2, 0, Math.PI * 2);
-  ctx.fillStyle = theme.accent; ctx.fill();
+  ctx.fillStyle = grade ? grade.color : theme.accent; ctx.fill();
   // The name.
   ctx.fillStyle = theme.ink;
   ctx.font = `${theme.weight} ${fit.size}px ${theme.font}`;
@@ -251,7 +307,7 @@ export function drawCard(ctx, fit, theme) {
  * staged }` where `actor` is a HumanActor (its root, body, proxy and head are read); `theme()`
  * returns the appearance in force (cardTheme); `viewHeight()` is the canvas's CSS height.
  */
-export function createNameCards({ THREE, renderer, camera, list, theme, viewHeight = () => 780,
+export function createNameCards({ THREE, renderer, camera, list, theme, viewHeight = () => 780, gradeColors = () => null,
   tier = 'full', shown = true, doc = globalThis.document ?? null, now = () => performance.now() / 1000 } = {}) {
   const group = new THREE.Group();
   group.name = 'name-cards';
@@ -269,8 +325,17 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
   const entries = new Map();       // key -> { key, actor, name, personId, staged, slot, w, alpha, want, drawn, theme }
   let free = [];
   let chooseIn = 0, look = null, fontsWaiting = false, disposed = false;
+  // The Confidence view's grade colours, and their signature: a change there draws every card again.
+  let colors = null, colorsKey = '';
+  const readColors = () => {
+    let c = null;
+    try { c = gradeColors() ?? null; } catch { c = null; }
+    const key = JSON.stringify(c);
+    if (key !== colorsKey) { colorsKey = key; colors = c; refresh(); }
+  };
   let picked = [];                 // the drawn cards' screen rects, for pickAt
-  const heads = new WeakMap();     // body -> head bone
+  const heads = new WeakMap();     // body -> { bone, crowns }
+  const crownM = new THREE.Matrix4(), crownV = new THREE.Vector3();
   const tmp = new THREE.Vector3(), view = new THREE.Vector3(), headV = new THREE.Vector3(), eyeV = new THREE.Vector3();
   const frustum = new THREE.Frustum(), pv = new THREE.Matrix4();
   const counters = { drawn: 0, uploads: 0, chosen: 0 };
@@ -330,7 +395,8 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
       Promise.resolve(doc.fonts.load(font, e.name)).catch(() => {}).then(() => { fontsWaiting = false; refresh(); });
     }
     const fit = fitName(e.name, (s, z) => measure(s, z, t));
-    e.w = drawCard(ctx, fit, t);
+    const color = e.grade ? colors?.[e.grade] : null;
+    e.w = drawCard(ctx, fit, t, color ? { level: e.grade, color } : null);
     e.fit = fit;
     const [x, y] = slotXY(e.slot);
     scratchTex.needsUpdate = true;
@@ -340,15 +406,37 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
     return true;
   }
 
+  /** The meshes worn on a body's head (CROWN_MATERIAL alone), each with its head bone's index. */
+  function crownsOf(scene) {
+    const crowns = [];
+    scene.traverse((o) => {
+      if (!o.isSkinnedMesh || !o.skeleton) return;
+      const names = (Array.isArray(o.material) ? o.material : [o.material]).map((x) => x?.name ?? '');
+      if (!names.length || !names.every((n) => CROWN_MATERIAL.test(n))) return;
+      const head = o.skeleton.bones.findIndex((b) => b.name === 'head');
+      if (head >= 0) crowns.push({ mesh: o, head });
+    });
+    return crowns;
+  }
+
+  /** The top of the person: their head, or the hat, hair or plume on it, whichever stands higher. */
   function headOf(actor) {
     const body = actor.body;
     if (!body?.scene) return null;
-    let bone = heads.get(body);
-    if (bone === undefined) {
-      bone = body.scene.getObjectByName?.('head') ?? null;
-      heads.set(body, bone);
+    let found = heads.get(body);
+    const clock = now();
+    if (found === undefined) {
+      found = { bone: body.scene.getObjectByName?.('head') ?? null, crowns: crownsOf(body.scene), at: clock, looks: 1 };
+      heads.set(body, found);
+    } else if (clock - found.at > 2 && found.looks < 4) {
+      // A hat or hair laid on after the body was first read (human-hats.js, the strand hair).
+      found.crowns = crownsOf(body.scene); found.at = clock; found.looks++;
     }
-    if (bone) { bone.getWorldPosition(headV); return headV.setY(headV.y + 0.16); }
+    if (found.bone) {
+      found.bone.getWorldPosition(headV);
+      const top = found.crowns.length ? crownTop(found.crowns, THREE, crownM, crownV) : -Infinity;
+      return headV.setY(Math.max(headV.y + HEAD_TOP_M, top));
+    }
     return actor.proxy ? actor.proxy.localToWorld(headV.set(0, 1.0, 0)) : actor.root.getWorldPosition(headV).setY(headV.y + 1.75);
   }
 
@@ -388,11 +476,12 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
           if (!worst) continue;
           entries.delete(worst.key); free.push(worst.slot);
         }
-        e = { key: c.key, actor: c.actor, name: c.name, personId: c.personId ?? null, staged: !!c.staged,
+        e = { key: c.key, actor: c.actor, name: c.name, personId: c.personId ?? null, staged: !!c.staged, grade: c.grade ?? null,
           slot: free.pop(), w: 0, alpha: 0, want: 1, drawn: null, phase: (entries.size * 0.37) % 1 };
         entries.set(c.key, e);
       }
       e.want = 1;
+      if ((c.grade ?? null) !== (e.grade ?? null)) { e.grade = c.grade ?? null; e.drawn = null; }
       e.personId = c.personId ?? e.personId;
       e.staged = !!c.staged;
     }
@@ -409,7 +498,7 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
     mesh.visible = true;
     const step = Number.isFinite(dt) && dt > 0 ? Math.min(dt, 0.25) : 0;
     chooseIn -= step;
-    if (chooseIn <= 0 || !entries.size) { chooseIn = CHOOSE_S; choose(); }
+    if (chooseIn <= 0 || !entries.size) { chooseIn = CHOOSE_S; readColors(); choose(); }
     const t = look ?? (look = theme());
     let draws = 0;
     const eye = camera.getWorldPosition(eyeV);
@@ -496,7 +585,7 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
       return { shown: on, tier: Object.keys(NAME_CARD_TIERS).find((k) => NAME_CARD_TIERS[k] === limits), slots: slotsN,
         atlas: atlas ? [atlas.image.width, atlas.image.height] : null, ...counters,
         cards: picked.map((c) => ({ name: c.name, personId: c.personId, distance: +c.distance.toFixed(1),
-          ndc: [+c.cx.toFixed(3), +c.cy.toFixed(3)], cut: entries.get(c.key)?.fit?.cut ?? false,
+          grade: entries.get(c.key)?.grade ?? null, ndc: [+c.cx.toFixed(3), +c.cy.toFixed(3)], cut: entries.get(c.key)?.fit?.cut ?? false,
           size: entries.get(c.key)?.fit?.size ?? null })) };
     },
     dispose() { disposed = true; teardown(); scratchTex?.dispose(); group.removeFromParent(); },

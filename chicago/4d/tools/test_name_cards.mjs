@@ -114,6 +114,59 @@ for (const year of ['1812', '1835', '1904']) {
   ok(Math.max(...m.stackCards(crowd)) <= 4 * (0.06 + 0.008) + 1e-9, 'a crowd stacks at most four cards high');
 }
 
+// 5c. A tall hat: the card clears its crown, wherever the head is and however it is tipped.
+{
+  const THREE = await import(pathToFileURL(path.join(root, 'renderers/web/vendor/three-0.185.1/three.core.js')).href);
+  const root3 = new THREE.Group();
+  const hips = new THREE.Bone(); hips.name = 'hips';
+  const head = new THREE.Bone(); head.name = 'head'; head.position.set(0, 1.55, 0);
+  hips.add(head); root3.add(hips);
+  root3.updateMatrixWorld(true);
+  // A silk hat, 0.18 m of crown from 0.12 m over the head bone, made in bind (model) space.
+  const g = new THREE.BoxGeometry(0.2, 0.18, 0.2).translate(0, 1.55 + 0.12 + 0.09, 0);
+  const n = g.attributes.position.count;
+  g.setAttribute('skinIndex', new THREE.Uint16BufferAttribute(new Uint16Array(n * 4).map((_, i) => (i % 4 ? 0 : 1)), 4));
+  g.setAttribute('skinWeight', new THREE.Float32BufferAttribute(new Float32Array(n * 4).map((_, i) => (i % 4 ? 0 : 1)), 4));
+  const hat = new THREE.SkinnedMesh(g, new THREE.MeshBasicMaterial({ name: 'headwear__silk_hat' }));
+  root3.add(hat);
+  hat.bind(new THREE.Skeleton([hips, head]));
+  ok(m.CROWN_MATERIAL.test('headwear__silk_hat') && m.CROWN_MATERIAL.test('accessory__picture_hat_trim_t3553') && m.CROWN_MATERIAL.test('hair')
+    && !m.CROWN_MATERIAL.test('skin') && !m.CROWN_MATERIAL.test('cloth__coat'), 'hats, their trim and hair count as the crown; skin and clothes do not');
+  const top0 = m.crownTop([{ mesh: hat, head: 1 }], THREE);
+  ok(Math.abs(top0 - (1.55 + 0.30)) < 1e-6, `standing: the hat's top is ${top0.toFixed(3)} m (head bone 1.55 + 0.30)`);
+  root3.position.set(10, 0.5, -3); root3.updateMatrixWorld(true);
+  const top1 = m.crownTop([{ mesh: hat, head: 1 }], THREE);
+  ok(Math.abs(top1 - (0.5 + 1.85)) < 1e-6, 'it moves with the person (on a step, a seat)');
+  head.rotation.x = 0.3; root3.updateMatrixWorld(true);
+  const tipped = m.crownTop([{ mesh: hat, head: 1 }], THREE);
+  // The highest point of the hat, tipped forward 0.3 rad round the head bone.
+  let truth = -Infinity;
+  const pos = g.attributes.position, v = new THREE.Vector3();
+  for (let i = 0; i < pos.count; i++) { v.fromBufferAttribute(pos, i).sub(new THREE.Vector3(0, 1.55, 0)).applyAxisAngle(new THREE.Vector3(1, 0, 0), 0.3); truth = Math.max(truth, v.y + 1.55 + 0.5); }
+  ok(tipped >= truth - 1e-6, `tipped forward, the card still clears the hat (${tipped.toFixed(3)} >= ${truth.toFixed(3)})`);
+  hat.visible = false;
+  ok(m.crownTop([{ mesh: hat, head: 1 }], THREE) === -Infinity, 'a hat not drawn (hidden for a dressed one) does not count');
+  ok(m.LIFT_M > 0.05, `the card's notch stands ${m.LIFT_M} m clear of the crown`);
+}
+
+// 5d. Who is for real: the card's edge and light take the person's grade, in the Confidence colours.
+{
+  ok(m.gradeOf({ grade: 'attested' }) === 'attested' && m.gradeOf({ grade: 'inferred' }) === 'inferred'
+    && m.gradeOf({ grade: 'reconstructed' }) === 'reconstructed', "a person's own grade is their card's");
+  ok(m.gradeOf(null, true) === 'reconstructed' && m.gradeOf({}) === null, "an unnamed extra is reconstructed; a record with no grade shows none");
+  for (const year of ['1812', '1835', '1904']) {
+    const people = JSON.parse(fs.readFileSync(path.join(root, 'data/sidecars', year, 'people.json'), 'utf8')).people ?? [];
+    const none = people.filter((p) => !m.gradeOf(p));
+    ok(none.length === 0, `${year}: every person has a grade for their card (${none.length} without)`);
+  }
+  const dark = m.cardTheme(() => '', 'control-room'), light = { ...dark, panel: '#F8F4EA' };
+  ok(m.mixHex('#000000', '#ffffff', 0.5) === '#808080' && m.mixHex('nope', '#fff', 0.5) === 'nope', 'colours mix');
+  ok(m.softGrade({ color: '#d4af37' }, dark) !== '#d4af37' && m.softGrade({ color: '#d4af37' }, light) === '#d4af37',
+    'on a dark panel the grade is lightened to a soft edge; on a light one it keeps its own colour');
+  const main = fs.readFileSync(path.join(root, 'renderers/web/js/main.js'), 'utf8');
+  ok(/gradeColors: \(\) => [^\n]*confidence\.grade\(l\)\?\.color/.test(main), "the colours are the Confidence view's, as the visitor set them");
+}
+
 // 6. The Settings switch: on by default, in Settings › Show, wired to the layer.
 {
   const hud = fs.readFileSync(path.join(root, 'renderers/web/js/hud.js'), 'utf8');
@@ -127,6 +180,8 @@ for (const year of ['1812', '1835', '1904']) {
   ok(/key === 'nameCards'[\s\S]{0,120}nameCards\?\.setShown/.test(main), 'a change turns the cards on or off at once');
   ok(/nameCards\?\.pickAt\(ndc\)/.test(main) && /api\.humans\.select\(\{ actor: nameCard\.actor \}\)/.test(main), 'a click or tap on a card opens the person as clicking them does');
   ok(/jauntStage\?\.named/.test(main), "a jaunt stop's castmates are carded too");
+  ok(/!pointerlock\.isLocked && api\.nameCards\?\.shown[\s\S]{0,400}api\.nameCards\.pickAt\(ndc\)\) \{ inspect\(ndc, \{ by: 'hand' \}\); return; \}/.test(main),
+    'on a desktop with the mouse free, a click on a card opens the person instead of taking the look');
 }
 
 // 7. A phone's atlas stays small.

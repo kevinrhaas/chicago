@@ -106,7 +106,7 @@ import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
-import { createNameCards, cardTheme } from './name-cards.js';
+import { createNameCards, cardTheme, gradeOf } from './name-cards.js';
 import { supportsTownTransport } from './transport-scenes.js';
 import { createWells } from './wells.js';
 import { createTimeStream } from './time-stream.js';
@@ -4539,6 +4539,8 @@ async function boot() {
   api.nameCards = createNameCards({
     THREE, renderer, camera, tier: detailLevel, shown: hud.settings.nameCards !== false,
     viewHeight: () => renderer.domElement.clientHeight,
+    // The card's edge and light: the person's grade in the Confidence view's colour for it.
+    gradeColors: () => Object.fromEntries(['attested', 'inferred', 'reconstructed'].map((l) => [l, confidence.grade(l)?.color ?? null])),
     theme: () => {
       const css = getComputedStyle(document.documentElement);
       return cardTheme((k) => css.getPropertyValue(k), document.documentElement.dataset.skin ?? '');
@@ -4548,7 +4550,7 @@ async function boot() {
       for (const a of api.humans?.actors ?? []) {
         if (a.identity?.kind !== 'person' || !a.instance?.interaction?.selectable) continue;
         const name = a.person?.name ?? null;
-        if (name) out.push({ key: a.id, actor: a, name, personId: a.personId });
+        if (name) out.push({ key: a.id, actor: a, name, personId: a.personId, grade: gradeOf(a.person) });
       }
       for (const m of api.jauntStage?.named ?? []) if (m.name) out.push(m);
       return out;
@@ -5060,8 +5062,15 @@ async function boot() {
     windowMode.start();
   });
 
-  canvas.addEventListener('click', () => {
+  canvas.addEventListener('click', (ev) => {
     if (backends.active !== pointerlock || gateOpen) return;
+    // T-3614: with the mouse free, a click on a person's name card opens their card, where a
+    // click anywhere else takes the look (a touch tap reaches the same card through Interact).
+    if (!pointerlock.isLocked && api.nameCards?.shown) {
+      const r = canvas.getBoundingClientRect();
+      const ndc = new THREE.Vector2(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1);
+      if (api.nameCards.pickAt(ndc)) { inspect(ndc, { by: 'hand' }); return; }
+    }
     // A click on the scene with a card open is the release (T-2954): the card goes and
     // the same click takes the look back.
     if (popup.openId) popup.close();
