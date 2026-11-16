@@ -1072,6 +1072,16 @@
                           ],
                           "description": "Adults jaunts only: the castmate is hit here, now (a blow lands, a ball strikes, a scalping knife cuts): the blood thrown, a stain where it struck, and a pool under them once they are down (human-blood.js). Never on a child."
                         },
+                        "torch": {
+                          "type": "boolean",
+                          "description": "The burning of the fort (2026-11-16): take up a burning brand in the right hand (true) or throw it down (false). Any jaunt: burning an empty building is not a blow."
+                        },
+                        "ignite": {
+                          "type": "string",
+                          "pattern": "^[a-z0-9][a-z0-9_]*$",
+                          "maxLength": 90,
+                          "description": "The burning of the fort: put the torch to this structure (one of the stage's `fire.burns`); it catches where the torch touches it (renderers/web/js/fort-fire.js)."
+                        },
                         "hide": {
                           "type": "boolean"
                         },
@@ -1241,6 +1251,64 @@
                 "additionalProperties": false
               },
               "maxItems": 6
+            },
+            "fire": {
+              "description": "T-3553, the burning of the first fort (the owner, 2026-11-16: 'witness and also join the party and help light Fort Dearborn on fire'): the structures that burn (`burns`), catching where a castmate's `ignite` or the visitor's torch puts them, or from the heat of a neighbour, each blackening, falling in and lying as a heap of ash (renderers/web/js/fort-fire.js); those that stand through it (`stands`), smoked. `lit` are already burning `start_s` seconds before the visitor comes (a fire seen from the next stop). `visitor`: the visitor holds a brand and may set a building alight. `open_gates`: the fort's gates stand open while it burns; `strike_colours`: no flag flies. How it burns is reconstruction: `liberty` names its record.",
+              "type": "object",
+              "properties": {
+                "burns": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9_]*$",
+                    "maxLength": 90
+                  },
+                  "maxItems": 40,
+                  "minItems": 1
+                },
+                "stands": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9_]*$",
+                    "maxLength": 90
+                  },
+                  "maxItems": 40
+                },
+                "lit": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9_]*$",
+                    "maxLength": 90
+                  },
+                  "maxItems": 40
+                },
+                "start_s": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 900
+                },
+                "visitor": {
+                  "type": "boolean"
+                },
+                "open_gates": {
+                  "type": "boolean"
+                },
+                "strike_colours": {
+                  "type": "boolean"
+                },
+                "liberty": {
+                  "type": "string",
+                  "pattern": "^L[-A-Za-z0-9_]+$",
+                  "maxLength": 90
+                }
+              },
+              "required": [
+                "burns",
+                "liberty"
+              ],
+              "additionalProperties": false
             }
           },
           "required": [
