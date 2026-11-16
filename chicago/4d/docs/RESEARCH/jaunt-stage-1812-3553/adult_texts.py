@@ -27,18 +27,18 @@ BATTLE = {
     'title': 'The Battle of Fort Dearborn (18+)',
     'grade_band': '6-8',
     'content_warning': WARNING_BATTLE,
-    'premise': ("18+: 6 April to 16 August 1812 in sixteen stops, with the killings at Lee's Place, the attack "
+    'premise': ("18+: 6 April to 16 August 1812 in seventeen stops, with the killings at Lee's Place, the attack "
                 "on the beach and the death of Captain Wells staged as the witnesses described them."),
     'opening': ("JAUNT: THE BATTLE OF FORT DEARBORN, 18+. Spring 1812, where the Chicago River meets Lake Michigan. "
                 "The nearest American post is Fort Wayne, far to the south-east; Detroit, where the general commands, is "
                 "farther still. War with Britain is coming, and every report that reaches the fort makes it feel smaller "
                 "and farther from help.\n\n"
-                "This telling is 18+. It walks the same sixteen stops as the students' jaunt, but at Lee's Place, "
+                "This telling is 18+. It walks the same seventeen stops as the students' jaunt, but at Lee's Place, "
                 "on the beach and on the prairie the killing is staged as the people who lived through it described it: "
                 "shots fired, knives and tomahawks used, men and women struck down, the dead scalped, and soldiers fighting "
                 "back with the bayonet. The worst of what was done to the bodies is told, not shown, and no child is shown "
                 "being harmed.\n\n"
-                "Sixteen stops in date order, with the time of day and the season set for each. Long rides go Instantly; "
+                "Seventeen stops in date order, with the time of day and the season set for each. Long rides go Instantly; "
                 "every place keeps its stop.\n\n"
                 "The story begins with the fort, on the afternoon of 6 April 1812."),
     'stops': {

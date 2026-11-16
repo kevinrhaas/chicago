@@ -1449,12 +1449,15 @@ export async function createCrossings({
     c.pose = c.entry.pose;
     rebuildClusters();
   }
-  /** Cross boat `id` from bank `from` (where it is laid first if the visitor left it on the other)
-   *  to the other bank. Null when there is no such boat, or the visitor is in it. */
-  out.carry = (id, { from = null } = {}) => {
+  /** Cross boat `id` from bank `from` (or the bank whose stand is nearest `near` [e, n]; else
+   *  where it lies), where it is laid first if it lies on the other, to the other bank. Null when
+   *  there is no such boat, or the visitor is in it. */
+  out.carry = (id, { from = null, near = null } = {}) => {
     const entry = out.boats.find((x) => x.boat.id === id);
     if (!entry || out.riding === entry || carried(entry)) return null;
-    const home = entry.bank, start = from === 'a' || from === 'b' ? from : entry.bank;
+    const banks = entry.boat.banks, d = (k) => Math.hypot(banks[k].stand[0] - near[0], banks[k].stand[1] - near[1]);
+    const nearest = Array.isArray(near) && near.length >= 2 ? (d('a') <= d('b') ? 'a' : 'b') : null;
+    const home = entry.bank, start = from === 'a' || from === 'b' ? from : nearest ?? entry.bank;
     const to = start === 'a' ? 'b' : 'a';
     entry.bank = start;
     entry.pose = entry.rest[start];
@@ -1476,6 +1479,8 @@ export async function createCrossings({
       seat: () => ({ ...seatOf(entry, c.pose), bearing: ((c.pose.bearing ?? 0) + facing + 360) % 360 }),
       /** Where they step ashore. */
       stand: () => [...boat.banks[c.to].stand],
+      /** Over at once, if it is still crossing: the boat lies on the bank it was going to. */
+      settle: () => { if (!c.done && carries.has(c)) landCarry(c); },
       restore: () => {
         dropCarry(c);
         carries.delete(c);

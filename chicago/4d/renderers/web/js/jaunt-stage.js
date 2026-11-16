@@ -341,8 +341,8 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     else (m.pendingWounds ??= []).push(kind);
   }
 
-  function build(next) {
-    teardown();
+  function build(next, again = false) {
+    teardown(again);
     stop = next;
     const list = castFor(next, tier());
     cast = [];
@@ -378,10 +378,12 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     }
   }
 
-  function teardown() {
+  /** Let the stage go. A boat crossed in is left on the bank it was going to (the story goes on
+   *  from there), or laid back where it set out when the stop is watched `again`. */
+  function teardown(again = false) {
     for (const m of cast) { leaveDoor(m); if (m.emerging) m.emerging.p.release?.(doorKey(m)); m.weapon?.removeFromParent?.(); try { m.actor.dispose(); } catch { /* gone already */ } }
     ways = new Map();
-    for (const h of crossed) { try { h.restore(); } catch { /* gone already */ } }
+    for (const h of crossed) { try { if (again) h.restore(); else h.settle?.(); } catch { /* gone already */ } }
     crossed = [];
     for (const b of biers) b.removeFromParent?.();
     biers = [];
@@ -472,7 +474,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     if (typeof b.cross === 'string') {
       // Into a drawn boat and across in it (crossings.js), sitting; with no boat drawn, gone
       // from sight as before. The beat after it places them on the far bank.
-      const h = boats?.carry?.(b.cross) ?? null;
+      const h = boats?.carry?.(b.cross, { near: [a.e, a.n] }) ?? null;
       if (h) { crossed.push(h); m.boat = h; a.path = null; a.setIndoors?.(false); a.setPosture?.('sit', { seconds: 0.8 }); }
       else a.setIndoors?.(true);
     }
@@ -570,7 +572,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     replay() {
       if (!stop) return false;
       const again = stop;
-      build(again);
+      build(again, true);
       playing = true; clock = 0;
       return true;
     },

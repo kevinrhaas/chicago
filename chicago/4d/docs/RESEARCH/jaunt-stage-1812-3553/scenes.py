@@ -143,20 +143,35 @@ def battle(b):
         {'t': 26, 'greet': True}, {'t': 28, 'talk': True}, {'t': 44, 'talk': False}, {'t': 46, 'walk': [P(*door)], 'hide': True}]))
     cast.append(member('cardin_john_b', P(-1638.0, -4233.0), heading=300, beats=[
         {'t': 24, 'face': 'winnebago_01'}, {'t': 50, 'walk': [P(-1645.0, -4232.0), P(*doors3[2])], 'hide': True}]))
-    flee = [{'t': 34, 'face': 'winnebago_02'}, {'t': 40, 'face': 'lee_son'}]
-    cast.append(member('kelso_john', P(-1644.5, -4244.5), heading=300, beats=flee + [
-        {'t': 46, 'walk': [P(-1643.0, -4249.0), P(*landing)], 'pace': 'brisk', 'hide': True},
-        {'t': 62, 'place': P(-1641.5, -4293.5), 'show': True, 'heading': 120},
-        {'t': 63, 'walk': [P(-1626.0, -4297.5), P(-1613.0, -4304.0)], 'pace': 'brisk'},
-        {'t': 78, 'face': P(-1649.0, -4237.0)},
-        {'t': 82, 'walk': [P(-1590.0, -4296.0), P(-1545.0, -4292.0)], 'pace': 'hurry', 'hide': True}]))
-    cast.append(member('lee_son', P(-1643.0, -4245.5), heading=300, beats=[{'t': 34, 'face': 'winnebago_03'}, {'t': 40, 'face': 'kelso_john'},
-        {'t': 47, 'walk': [P(-1642.0, -4249.5), P(landing[0] + 1.2, landing[1] - 0.4)], 'pace': 'brisk', 'hide': True},
-        {'t': 62, 'place': P(-1640.0, -4294.6), 'show': True, 'heading': 120},
-        {'t': 63, 'walk': [P(-1625.0, -4299.0), P(-1611.5, -4305.5)], 'pace': 'brisk'},
-        {'t': 78, 'face': P(-1649.0, -4237.0)},
-        {'t': 82.5, 'walk': [P(-1589.0, -4297.5), P(-1545.0, -4293.5)], 'pace': 'hurry', 'hide': True}]))
-    st['hardscrabble'] = {'caption': "Watch the eleven men come to the cabin, and the soldier and the boy slip away across the river.", 'cast': cast}
+    # They go down to 'the two canoes tied by the bank' (Wau-Bun) and paddle over, one in each
+    # (the owner, 2026-11-16: "follow them across the river however they did it"); on the far
+    # bank they make for the haystacks and are gone behind them. The visitor watches from the
+    # cabin's own bank (lees_place_bank); the next stop is among the haystacks.
+    CANOES = {'kelso_john': 'lees_place_pirogue_1812', 'lee_son': 'lees_place_canoe_1812'}
+    banks_a = {'kelso_john': (-1643.85, -4249.88), 'lee_son': (-1641.15, -4248.21)}   # the canoes' stands, cabin side
+    banks_b = {'kelso_john': (-1624.33, -4288.3), 'lee_son': (-1619.47, -4284.31)}     # ... and haystack side
+    cover = {'kelso_john': (-1599.6, -4303.4), 'lee_son': (-1598.4, -4302.2)}        # behind the first haystack
+    for who, t0, look in (('kelso_john', 46, 'lee_son'), ('lee_son', 47, 'kelso_john')):
+        at = (-1644.5, -4244.5) if who == 'kelso_john' else (-1643.0, -4245.5)
+        beats = ([{'t': 34, 'face': 'winnebago_02'}, {'t': 40, 'face': look}] if who == 'kelso_john' else
+                 [{'t': 34, 'face': 'winnebago_03'}, {'t': 40, 'face': look}])
+        beats += [{'t': t0, 'walk': [P(*banks_a[who])], 'pace': 'brisk', 'heading': 152},
+                  {'t': t0 + 3.5, 'cross': CANOES[who]},
+                  {'t': t0 + 32, 'place': P(*banks_b[who]), 'walk': [P(-1610.0, -4296.0), P(*cover[who])], 'pace': 'brisk', 'hide': True}]
+        cast.append(member(who, P(*at), heading=300, beats=beats))
+    st['hardscrabble'] = {'caption': "Watch the eleven men come to the cabin, and the soldier and the boy slip down to the canoes and paddle across.", 'cast': cast}
+
+    # 1b — the same evening, a few minutes on, among the haystacks across the river. The two
+    # have landed and crouch behind the stacks, look back at the cabin, and take to the woods.
+    # What happens in the cabin is the stop's text, not shown.
+    cast = []
+    for who, start, hide_at, i in (('kelso_john', banks_b['kelso_john'], cover['kelso_john'], 0), ('lee_son', banks_b['lee_son'], cover['lee_son'], 1)):
+        cast.append(member(who, P(*start), heading=140, beats=[
+            {'t': 0.5 + 0.4 * i, 'walk': [P(-1610.0, -4296.0), P(*hide_at)], 'pace': 'brisk'},
+            {'t': 14 + i, 'face': P(-1648.0, -4225.0)}, {'t': 16 + i, 'pose': 'crouch', 'ease': 0.8},
+            {'t': 28 + 0.5 * i, 'pose': 'stand', 'ease': 0.6},
+            {'t': 30 + 0.5 * i, 'walk': [P(-1590.0 + i, -4297.0 - i), P(-1545.0, -4292.5 - i)], 'pace': 'hurry', 'hide': True}]))
+    st['the-haystacks'] = {'caption': "Watch the soldier and the boy land, hide behind the haystacks, look back at the cabin, and run for the woods.", 'cast': cast}
 
     # 2 — the Burns house, 6 April, dusk. The children come out at the shouting from the far
     # bank and run in to their mother (a day after her baby, abed). Ronan's party lands from the
@@ -170,28 +185,56 @@ def battle(b):
         member('burns_child_a', P(*door), heading=0, hidden=True, beats=[
             {'t': 2, 'show': True}, {'t': 3, 'walk': round_out + [P(801.6, 103.2)], 'pace': 'brisk', 'heading': 185},
             {'t': 13, 'walk': round_in + [P(*door)], 'pace': 'brisk', 'hide': True},
-            {'t': 48, 'show': True}, {'t': 49, 'walk': round_out + [P(803.5, 99.0), P(boat[0] - 1.5, boat[1] + 0.8)], 'hide': True}]),
+            {'t': 79, 'show': True}, {'t': 80, 'walk': round_out + [P(799.6, 104.2), P(799.8, 100.4)], 'heading': 40}]),
         member('burns_child_b', P(*door), heading=0, hidden=True, beats=[
             {'t': 3.5, 'show': True}, {'t': 4.5, 'walk': round_out + [P(803.2, 102.6)], 'heading': 190},
             {'t': 15, 'walk': round_in + [P(*door)], 'hide': True},
-            {'t': 49.5, 'show': True}, {'t': 50.5, 'walk': round_out + [P(802.5, 98.5), P(boat[0] - 2.5, boat[1] + 1.0)], 'hide': True}]),
+            {'t': 80.5, 'show': True}, {'t': 81.5, 'walk': round_out + [P(798.8, 104.0), P(798.9, 100.0)], 'heading': 50}]),
     ]
     party = ['ronan_george'] + soldiers(b, 5, skip=('kelso_john',))
+    # Her bed comes out on a bier (stage-props.js), the front pair first, set north of the door
+    # and clear of it; four carry it round the east end to the boat and set it down there.
+    # Everyone stays in sight at the boat at the end (the owner, 2026-11-16: the soldiers
+    # seemed to disappear into the building).
+    # They set it down by the river side of the house, in the stop's view, the boat a few steps on.
+    bed = [(door[0], door[1] + 2.2), (door[0], door[1] + 4.0), (803.6, door[1] + 4.0), (803.6, 104.4), (801.4, 101.6)]
+    def offset(pts, along, side):
+        """`pts` moved `along` the way (ahead +) and `side` metres to its right."""
+        out = []
+        for k, (e, n) in enumerate(pts):
+            a, c = (pts[max(k - 1, 0)], pts[min(k + 1, len(pts) - 1)])
+            de, dn = c[0] - a[0], c[1] - a[1]
+            d = (de * de + dn * dn) ** 0.5
+            ue, un = de / d, dn / d
+            out.append((round(e + ue * along + un * side, 2), round(n + un * along - ue * side, 2)))
+        return out
+    corners = [(1.15, -0.45), (1.15, 0.45), (-1.15, -0.45), (-1.15, 0.45)]   # front pair, then rear
+    four = party[1:5]
+    mother = b.take(b.WOMEN, 1, stride=9, offset=7)[0]
+    cast.append(member('extra:burns_mother', P(*bed[0]), heading=0, pose='lie', hidden=True, dress='woman_working_1812', dress_of=mother,
+                       name="Mrs. Burns, a day after her baby was born; her name and likeness are not recorded", beats=[
+                           {'t': 56.5, 'show': True, 'borne': list(four)}, {'t': 89, 'borne': False}]))
     for i, who in enumerate(party):
         land = (boat[0] + 0.9 * (i % 3), boat[1] - 0.2 + 0.9 * (i // 3))
-        stand = (795.8 + 1.4 * (i % 3), 100.4 + 0.9 * (i // 3))
         # They stand by the house's east end, where the way round to its door begins.
         stand = (803.4 + 1.1 * (i % 3), 101.0 + 1.0 * (i // 3))
         beats = [{'t': 18 + 0.6 * i, 'show': True}, {'t': 19 + 0.6 * i, 'walk': [P(806.0, 98.5), P(*stand)], 'heading': 330}]
         if who == 'ronan_george':
             beats += [{'t': 30, 'walk': round_in + [P(door[0] + 1.4, door[1] + 0.6)], 'heading': 250}, {'t': 38, 'talk': True}, {'t': 44, 'talk': False},
-                      {'t': 46, 'walk': [P(*door)], 'hide': True}, {'t': 60, 'show': True}, {'t': 61, 'walk': round_out + [P(*boat)], 'pace': 'slow', 'hide': True}]
+                      {'t': 46, 'walk': [P(*door)], 'hide': True}, {'t': 54, 'show': True}, {'t': 55, 'walk': [P(door[0] + 1.6, door[1] + 1.2)], 'heading': 0},
+                      {'t': 58.5, 'walk': round_out + [P(802.8, 102.4)], 'pace': 0.9, 'heading': 225}]
         elif i <= 4:
-            # four go in, and come out one after another carrying her bed, slowly, to the boat
-            beats += [{'t': 40 + i, 'walk': round_in + [P(*door)], 'hide': True}, {'t': 52 + 1.4 * i, 'show': True},
-                      {'t': 53 + 1.4 * i, 'walk': round_out + [P(boat[0] - 0.8 + 0.8 * (i % 2), boat[1] + 1.6 - 1.4 * ((i - 1) // 2))], 'pace': 0.7, 'hide': True}]
+            # four go in, and come out with her bed: the front pair first
+            k = i - 1
+            pts = offset(bed, *corners[k])
+            end = offset(bed, corners[k][0], corners[k][1] * 2.8)[-1]          # a step aside from the bed
+            beats += [{'t': 40 + i, 'walk': round_in + [P(*door)], 'hide': True}, {'t': 50 + 1.1 * k, 'show': True},
+                      {'t': 51 + 1.1 * k, 'walk': [P(*pts[0])], 'heading': 0},
+                      {'t': 58, 'walk': [P(*q) for q in pts[1:]], 'pace': 0.8},
+                      {'t': 91 + 0.4 * k, 'walk': [P(*end)], 'heading': bearing(end, bed[-1])}]
         else:
-            beats += [{'t': 60, 'walk': [P(*land)], 'hide': True}]
+            wait = (804.4, 104.8)
+            beats += [{'t': 60, 'walk': [P(*wait)], 'heading': 225}]
         cast.append(member(who, P(*land), heading=bearing(land, door), hidden=True, beats=beats))
     st['burns'] = {'caption': "Watch the Burns children answer the shouting, and Ensign Ronan's party carry their mother down to the boat.", 'cast': cast}
 

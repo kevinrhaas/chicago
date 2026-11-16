@@ -348,5 +348,7 @@ async function gaitRun({ speed = 1.25, move = true, pass = true, weight = 1, fra
     console.log(`posture ${asset} LOD${lod}: pelvis stand ${stand.pelvis.toFixed(2)} kneel ${kneel.pelvis.toFixed(2)} (knee ${kneel.knee.r.toFixed(2)}) crouch ${crouch.pelvis.toFixed(2)} sit ${sit.pelvis.toFixed(2)}: PASS`);
   }
   assert(POSTURES.prone.root === 90 && POSTURES.lie.root === -90 && POSTURES.lie.still, 'lying is a tip of the whole figure; lying still stills it');
+  // The owner, 2026-11-16: the lying figures were stiff, arms at the sides and legs straight.
+  for (const k of ['prone', 'lie', 'fallen']) assert(POSTURES[k].limbs && Object.keys(POSTURES[k].limbs).some((n) => n.startsWith('upperarm')) && Object.keys(POSTURES[k].limbs).some((n) => n.startsWith('thigh')), `${k}: the arms and legs are laid, not left straight`);
 }
 console.log('human life: PASS');

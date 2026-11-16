@@ -9,14 +9,14 @@
   "id": "battle-of-fort-dearborn",
   "scene": "1812",
   "title": "The Battle of Fort Dearborn",
-  "premise": "6 April to 16 August 1812 in sixteen stops: the fort, the killings at Hardscrabble, the order to leave, the march down the beach, the surrender, and the houses where the Kinzies and Mrs. Helm hid.",
+  "premise": "6 April to 16 August 1812 in seventeen stops: the fort, the killings at Hardscrabble, the order to leave, the march down the beach, the surrender, and the houses where the Kinzies and Mrs. Helm hid.",
   "default_mode": "fly",
   "allowed_modes": [
     "fly",
     "instantly"
   ],
   "opening": {
-    "text": "JAUNT: THE BATTLE OF FORT DEARBORN. Spring 1812, where the Chicago River meets Lake Michigan. The nearest American post is Fort Wayne, far to the south-east; Detroit, where the general commands, is farther still. War with Britain is coming, and every report that reaches the fort makes it feel smaller and farther from help.\n\nSixteen stops in date order, with the time of day and the season set for each. Long rides go Instantly; every place keeps its stop.\n\nThe story begins with the fort, on the afternoon of 6 April 1812.",
+    "text": "JAUNT: THE BATTLE OF FORT DEARBORN. Spring 1812, where the Chicago River meets Lake Michigan. The nearest American post is Fort Wayne, far to the south-east; Detroit, where the general commands, is farther still. War with Britain is coming, and every report that reaches the fort makes it feel smaller and farther from help.\n\nSeventeen stops in date order, with the time of day and the season set for each. Long rides go Instantly; every place keeps its stop.\n\nThe story begins with the fort, on the afternoon of 6 April 1812.",
     "read_s": 26
   },
   "stops": [
@@ -47,23 +47,23 @@
       "since": "A few hours later",
       "destination": {
         "kind": "anchor",
-        "id": "lees_place_cabin"
+        "id": "lees_place_bank"
       },
-      "text": "6 April 1812, a little before sunset. Three miles up the river's South Branch is a farm called Lee's Place, later known as Hardscrabble. Charles Lee, who 'did not live on the premises, but occupied a house near the fort', owns it; it grows food the garrison buys. In the log house are Liberty White, who runs the farm, a discharged soldier, a Canadian hand and Lee's young son. Eleven armed men walk in and sit down. Captain Heald wrote ten days later that they were 'supposed to be Winnebagoes'. Sensing trouble, the soldier and the boy slip across the river, as if to fodder the cattle at the haystacks, and run. Behind them they hear two shots. White and the Canadian are killed. Downriver, a family with a day-old baby has no idea what is coming.",
+      "text": "6 April 1812, a little before sunset. Three miles up the river's South Branch is a farm called Lee's Place, later known as Hardscrabble. Charles Lee, who 'did not live on the premises, but occupied a house near the fort', owns it; it grows food the garrison buys. In the log house are Liberty White, who runs the farm, a discharged soldier, a Canadian hand and Lee's young son. Eleven armed men walk in and sit down. Captain Heald wrote ten days later that they were 'supposed to be Winnebagoes'. Sensing trouble, the soldier 'pointed to the cattle which were standing among the haystacks on the opposite bank, and made signs that they must go and fodder them'. He and the boy walk down to the canoes and paddle across.",
       "read_s": 39,
       "evidence": [
         "heald-april",
         "waubun-escape",
         "hardscrabble"
       ],
-      "next": "burns",
+      "next": "the-haystacks",
       "hour": "sunset",
       "date": "1812-04-06",
       "hour_evidence": [
         "heald-april"
       ],
       "stage": {
-        "caption": "Watch the eleven men come to the cabin, and the soldier and the boy slip away across the river.",
+        "caption": "Watch the eleven men come to the cabin, and the soldier and the boy slip down to the canoes and paddle across.",
         "liberty": "L-1812-staged-jaunts-3553",
         "cast": [
           {
@@ -522,60 +522,34 @@
                 "t": 46,
                 "walk": [
                   [
-                    -1643.0,
-                    -4249.0
-                  ],
-                  [
-                    -1641.0,
-                    -4254.0
+                    -1643.85,
+                    -4249.88
                   ]
                 ],
                 "pace": "brisk",
-                "hide": true
+                "heading": 152
               },
               {
-                "t": 62,
-                "place": [
-                  -1641.5,
-                  -4293.5
-                ],
-                "show": true,
-                "heading": 120
-              },
-              {
-                "t": 63,
-                "walk": [
-                  [
-                    -1626.0,
-                    -4297.5
-                  ],
-                  [
-                    -1613.0,
-                    -4304.0
-                  ]
-                ],
-                "pace": "brisk"
+                "t": 49.5,
+                "cross": "lees_place_pirogue_1812"
               },
               {
                 "t": 78,
-                "face": [
-                  -1649.0,
-                  -4237.0
-                ]
-              },
-              {
-                "t": 82,
+                "place": [
+                  -1624.33,
+                  -4288.3
+                ],
                 "walk": [
                   [
-                    -1590.0,
+                    -1610.0,
                     -4296.0
                   ],
                   [
-                    -1545.0,
-                    -4292.0
+                    -1599.6,
+                    -4303.4
                   ]
                 ],
-                "pace": "hurry",
+                "pace": "brisk",
                 "hide": true
               }
             ]
@@ -600,53 +574,166 @@
                 "t": 47,
                 "walk": [
                   [
-                    -1642.0,
-                    -4249.5
+                    -1641.15,
+                    -4248.21
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 152
+              },
+              {
+                "t": 50.5,
+                "cross": "lees_place_canoe_1812"
+              },
+              {
+                "t": 79,
+                "place": [
+                  -1619.47,
+                  -4284.31
+                ],
+                "walk": [
+                  [
+                    -1610.0,
+                    -4296.0
                   ],
                   [
-                    -1639.8,
-                    -4254.4
+                    -1598.4,
+                    -4302.2
                   ]
                 ],
                 "pace": "brisk",
                 "hide": true
-              },
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-haystacks",
+      "since": "Ten minutes later",
+      "destination": {
+        "kind": "anchor",
+        "id": "lees_place_haystacks"
+      },
+      "text": "6 April, sunset, across the river from Lee's Place. Out of sight behind the haystacks, the soldier and the boy do not stop to fodder anything: 'they took to the woods' and make for the fort, three miles away. Behind them they hear two shots. In the cabin White and the Canadian are killed. The two run on downriver in the dusk, and a family with a day-old baby has no idea what is coming.",
+      "read_s": 30,
+      "evidence": [
+        "waubun-escape",
+        "heald-april",
+        "haystacks-hour"
+      ],
+      "next": "burns",
+      "hour": "18:30",
+      "date": "1812-04-06",
+      "hour_evidence": [
+        "haystacks-hour"
+      ],
+      "stage": {
+        "caption": "Watch the soldier and the boy land, hide behind the haystacks, look back at the cabin, and run for the woods.",
+        "liberty": "L-1812-staged-jaunts-3553",
+        "cast": [
+          {
+            "person": "kelso_john",
+            "at": [
+              -1624.33,
+              -4288.3
+            ],
+            "heading": 140,
+            "beats": [
               {
-                "t": 62,
-                "place": [
-                  -1640.0,
-                  -4294.6
-                ],
-                "show": true,
-                "heading": 120
-              },
-              {
-                "t": 63,
+                "t": 0.5,
                 "walk": [
                   [
-                    -1625.0,
-                    -4299.0
+                    -1610.0,
+                    -4296.0
                   ],
                   [
-                    -1611.5,
-                    -4305.5
+                    -1599.6,
+                    -4303.4
                   ]
                 ],
                 "pace": "brisk"
               },
               {
-                "t": 78,
+                "t": 14,
                 "face": [
-                  -1649.0,
-                  -4237.0
+                  -1648.0,
+                  -4225.0
                 ]
               },
               {
-                "t": 82.5,
+                "t": 16,
+                "pose": "crouch",
+                "ease": 0.8
+              },
+              {
+                "t": 28.0,
+                "pose": "stand",
+                "ease": 0.6
+              },
+              {
+                "t": 30.0,
+                "walk": [
+                  [
+                    -1590.0,
+                    -4297.0
+                  ],
+                  [
+                    -1545.0,
+                    -4292.5
+                  ]
+                ],
+                "pace": "hurry",
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "lee_son",
+            "at": [
+              -1619.47,
+              -4284.31
+            ],
+            "heading": 140,
+            "beats": [
+              {
+                "t": 0.9,
+                "walk": [
+                  [
+                    -1610.0,
+                    -4296.0
+                  ],
+                  [
+                    -1598.4,
+                    -4302.2
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 15,
+                "face": [
+                  -1648.0,
+                  -4225.0
+                ]
+              },
+              {
+                "t": 17,
+                "pose": "crouch",
+                "ease": 0.8
+              },
+              {
+                "t": 28.5,
+                "pose": "stand",
+                "ease": 0.6
+              },
+              {
+                "t": 30.5,
                 "walk": [
                   [
                     -1589.0,
-                    -4297.5
+                    -4298.0
                   ],
                   [
                     -1545.0,
@@ -663,7 +750,7 @@
     },
     {
       "id": "burns",
-      "since": "Forty minutes later",
+      "since": "Thirty minutes later",
       "destination": {
         "kind": "anchor",
         "id": "burns_house_from_river"
@@ -739,11 +826,11 @@
                 "hide": true
               },
               {
-                "t": 48,
+                "t": 79,
                 "show": true
               },
               {
-                "t": 49,
+                "t": 80,
                 "walk": [
                   [
                     802.6,
@@ -754,15 +841,15 @@
                     104.6
                   ],
                   [
-                    803.5,
-                    99.0
+                    799.6,
+                    104.2
                   ],
                   [
-                    805.0,
-                    94.2
+                    799.8,
+                    100.4
                   ]
                 ],
-                "hide": true
+                "heading": 40
               }
             ]
           },
@@ -816,11 +903,11 @@
                 "hide": true
               },
               {
-                "t": 49.5,
+                "t": 80.5,
                 "show": true
               },
               {
-                "t": 50.5,
+                "t": 81.5,
                 "walk": [
                   [
                     802.6,
@@ -831,15 +918,44 @@
                     104.6
                   ],
                   [
-                    802.5,
-                    98.5
+                    798.8,
+                    104.0
                   ],
                   [
-                    804.0,
-                    94.4
+                    798.9,
+                    100.0
                   ]
                 ],
-                "hide": true
+                "heading": 50
+              }
+            ]
+          },
+          {
+            "extra": "burns_mother",
+            "hidden": true,
+            "dress": "woman_working_1812",
+            "dress_of": "gathering_1812_mouth_028",
+            "name": "Mrs. Burns, a day after her baby was born; her name and likeness are not recorded",
+            "at": [
+              797.15,
+              115.64
+            ],
+            "heading": 0,
+            "pose": "lie",
+            "beats": [
+              {
+                "t": 56.5,
+                "show": true,
+                "borne": [
+                  "hays_otho",
+                  "crozier_john",
+                  "griffith_william",
+                  "forth_thomas"
+                ]
+              },
+              {
+                "t": 89,
+                "borne": false
               }
             ]
           },
@@ -907,11 +1023,21 @@
                 "hide": true
               },
               {
-                "t": 60,
+                "t": 54,
                 "show": true
               },
               {
-                "t": 61,
+                "t": 55,
+                "walk": [
+                  [
+                    798.75,
+                    114.64
+                  ]
+                ],
+                "heading": 0
+              },
+              {
+                "t": 58.5,
                 "walk": [
                   [
                     802.6,
@@ -922,12 +1048,12 @@
                     104.6
                   ],
                   [
-                    806.5,
-                    93.4
+                    802.8,
+                    102.4
                   ]
                 ],
-                "pace": "slow",
-                "hide": true
+                "pace": 0.9,
+                "heading": 225
               }
             ]
           },
@@ -977,27 +1103,50 @@
                 "hide": true
               },
               {
-                "t": 53.4,
+                "t": 50.0,
                 "show": true
               },
               {
-                "t": 54.4,
+                "t": 51.0,
                 "walk": [
                   [
-                    802.6,
-                    114.2
-                  ],
-                  [
-                    802.6,
-                    104.6
-                  ],
-                  [
-                    806.5,
-                    95.0
+                    796.7,
+                    116.79
                   ]
                 ],
-                "pace": 0.7,
-                "hide": true
+                "heading": 0
+              },
+              {
+                "t": 58,
+                "walk": [
+                  [
+                    798.14,
+                    118.18
+                  ],
+                  [
+                    804.51,
+                    116.61
+                  ],
+                  [
+                    803.89,
+                    103.2
+                  ],
+                  [
+                    801.04,
+                    100.42
+                  ]
+                ],
+                "pace": 0.8
+              },
+              {
+                "t": 91.0,
+                "walk": [
+                  [
+                    801.68,
+                    99.92
+                  ]
+                ],
+                "heading": 350.5
               }
             ]
           },
@@ -1047,27 +1196,50 @@
                 "hide": true
               },
               {
-                "t": 54.8,
+                "t": 51.1,
                 "show": true
               },
               {
-                "t": 55.8,
+                "t": 52.1,
                 "walk": [
                   [
-                    802.6,
-                    114.2
-                  ],
-                  [
-                    802.6,
-                    104.6
-                  ],
-                  [
-                    805.7,
-                    95.0
+                    797.6,
+                    116.79
                   ]
                 ],
-                "pace": 0.7,
-                "hide": true
+                "heading": 0
+              },
+              {
+                "t": 58,
+                "walk": [
+                  [
+                    798.38,
+                    117.32
+                  ],
+                  [
+                    803.71,
+                    116.21
+                  ],
+                  [
+                    803.0,
+                    103.32
+                  ],
+                  [
+                    800.34,
+                    100.97
+                  ]
+                ],
+                "pace": 0.8
+              },
+              {
+                "t": 91.4,
+                "walk": [
+                  [
+                    799.7,
+                    101.47
+                  ]
+                ],
+                "heading": 85.6
               }
             ]
           },
@@ -1117,27 +1289,50 @@
                 "hide": true
               },
               {
-                "t": 56.2,
+                "t": 52.2,
                 "show": true
               },
               {
-                "t": 57.2,
+                "t": 53.2,
                 "walk": [
                   [
-                    802.6,
-                    114.2
-                  ],
-                  [
-                    802.6,
-                    104.6
-                  ],
-                  [
-                    806.5,
-                    93.6
+                    796.7,
+                    114.49
                   ]
                 ],
-                "pace": 0.7,
-                "hide": true
+                "heading": 0
+              },
+              {
+                "t": 58,
+                "walk": [
+                  [
+                    795.92,
+                    117.56
+                  ],
+                  [
+                    803.49,
+                    118.67
+                  ],
+                  [
+                    804.2,
+                    105.48
+                  ],
+                  [
+                    802.46,
+                    102.23
+                  ]
+                ],
+                "pace": 0.8
+              },
+              {
+                "t": 91.8,
+                "walk": [
+                  [
+                    803.1,
+                    101.73
+                  ]
+                ],
+                "heading": 265.6
               }
             ]
           },
@@ -1187,27 +1382,50 @@
                 "hide": true
               },
               {
-                "t": 57.6,
+                "t": 53.3,
                 "show": true
               },
               {
-                "t": 58.6,
+                "t": 54.3,
                 "walk": [
                   [
-                    802.6,
-                    114.2
-                  ],
-                  [
-                    802.6,
-                    104.6
-                  ],
-                  [
-                    805.7,
-                    93.6
+                    797.6,
+                    114.49
                   ]
                 ],
-                "pace": 0.7,
-                "hide": true
+                "heading": 0
+              },
+              {
+                "t": 58,
+                "walk": [
+                  [
+                    796.16,
+                    116.7
+                  ],
+                  [
+                    802.69,
+                    118.27
+                  ],
+                  [
+                    803.31,
+                    105.6
+                  ],
+                  [
+                    801.76,
+                    102.78
+                  ]
+                ],
+                "pace": 0.8
+              },
+              {
+                "t": 92.2,
+                "walk": [
+                  [
+                    801.12,
+                    103.28
+                  ]
+                ],
+                "heading": 170.5
               }
             ]
           },
@@ -1242,11 +1460,11 @@
                 "t": 60,
                 "walk": [
                   [
-                    808.3,
-                    94.1
+                    804.4,
+                    104.8
                   ]
                 ],
-                "hide": true
+                "heading": 225
               }
             ]
           }
@@ -1592,7 +1810,7 @@
         "kind": "anchor",
         "id": "first_fort_esplanade"
       },
-      "text": "12 August, afternoon (Quaife thinks the 13th), on this open ground outside the pickets. Heald wrote that the Potawatomi of the country round 'came in from all quarters in order to receive the goods in the factory store'. He meets their leaders in council here and promises them the goods. His own officers will not come: 'Captain Heald alone attended on the part of the military.' Instead they take the blockhouses that overlook this esplanade, open the port-holes and point the cannon 'so as to command the whole assembly.' It is a council held under the guns. He has promised the goods. He has not said what he means to do with the guns and the whiskey.",
+      "text": "12 August, afternoon, on this open ground outside the pickets. Heald wrote that the Potawatomi of the country round 'came in from all quarters in order to receive the goods in the factory store'. He meets their leaders in council here and promises them the goods. His own officers will not come: 'Captain Heald alone attended on the part of the military.' Instead they take the blockhouses that overlook this esplanade, open the port-holes and point the cannon 'so as to command the whole assembly.' It is a council held under the guns. He has promised the goods. He has not said what he means to do with the guns and the whiskey.",
       "read_s": 33,
       "evidence": [
         "council"
@@ -19142,6 +19360,17 @@
       ]
     },
     {
+      "note": "Across the river to the haystacks: this leg goes Instantly.",
+      "mode": "instantly",
+      "story": "The two canoes land below the haystacks on the far bank.",
+      "evidence": [
+        "waubun-escape"
+      ],
+      "story_evidence": [
+        "waubun-escape"
+      ]
+    },
+    {
       "note": "Three miles down the river to the fort: this leg goes Instantly.",
       "mode": "instantly",
       "story": "The soldier and the boy run downriver in the dusk.",
@@ -19371,7 +19600,7 @@
     },
     {
       "id": "council",
-      "text": "Heald's report: 'The neighboring Indians got the information as early as I did, and came in from all quarters in order to receive the goods in the factory store, which they understood were to be given them.' His warriors on the 15th were 'mostly of the Potawatamie nation' (the Potawatomi, as the name is now written). Wau-Bun puts a council on the afternoon of the 12th: 'Captain Heald alone attended on the part of the military.' His officers 'took command of the block-houses which overlooked the esplanade on which the council was held, opened the port-holes, and pointed the cannon so as to command the whole assembly.' Quaife thinks the council was 'probably' on the 13th.",
+      "text": "Heald's report: 'The neighboring Indians got the information as early as I did, and came in from all quarters in order to receive the goods in the factory store, which they understood were to be given them.' His warriors on the 15th were 'mostly of the Potawatamie nation' (the Potawatomi, as the name is now written). Wau-Bun puts a council on the afternoon of the 12th: 'Captain Heald alone attended on the part of the military.' His officers 'took command of the block-houses which overlooked the esplanade on which the council was held, opened the port-holes, and pointed the cannon so as to command the whole assembly.'",
       "confidence": "attested",
       "sources": [
         "quaife_1913",
@@ -19699,6 +19928,16 @@
         "kinzie_waubun_1856"
       ],
       "reasoning": "Wau-Bun's order of the morning; the hour is a reading of 'a short space'."
+    },
+    {
+      "id": "haystacks-hour",
+      "text": "Heald puts the visitors' coming to the cabin 'a little before sunset'; the two left soon after and crossed by canoe to the haystacks before running for the fort. This stop is set at half past six, ten minutes after the sunset the cabin stop shows. The hour is not recorded.",
+      "confidence": "inferred",
+      "sources": [
+        "kinzie_waubun_1856",
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "reasoning": "Wau-Bun's order of the escape after Heald's 'a little before sunset'; the ten minutes is an estimate of a canoe's crossing and the walk to the stacks."
     }
   ],
   "liberties": [

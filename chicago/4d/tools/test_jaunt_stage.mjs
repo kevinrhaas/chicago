@@ -398,9 +398,9 @@ console.log('PASS a staged figure goes in and out by a swinging door, and a stop
     made.push(a); return a;
   };
   const humans = { shown: true, get: () => null, createActor: (i) => fig(i) };
-  let restored = 0, t = 0;
-  const handle = { get done() { return t >= 3; }, seat: () => ({ e: 10, n: 20 + t, y: 3, bearing: 0 }), stand: () => [10, 40], restore() { restored++; } };
-  const boats = { carry: (id) => (id === 'p' ? handle : null) };
+  let restored = 0, settled = 0, t = 0, asked = null;
+  const handle = { get done() { return t >= 3; }, seat: () => ({ e: 10, n: 20 + t, y: 3, bearing: 0 }), stand: () => [10, 40], restore() { restored++; }, settle() { settled++; } };
+  const boats = { carry: (id, o) => { asked = o; return id === 'p' ? handle : null; } };
   const props = [];
   const bier = () => { const o = { position: { set(x, y, z) { o.at = [x, y, z]; } }, rotation: { set() {} }, removeFromParent() { o.gone = true; } }; props.push(o); return o; };
   const stopBoat = { id: 'b', stage: { caption: 'x', liberty: 'L-x', cast: [
@@ -415,6 +415,7 @@ console.log('PASS a staged figure goes in and out by a swinging door, and a stop
   [[f1, -0.45, 1.15], [f2, 0.45, 1.15], [r1, -0.45, -1.15], [r2, 0.45, -1.15]].forEach(([x, e, n]) => { x.e = e; x.n = n; });
   st.update(0.2);
   assert.ok(k.posture?.kind === 'sit' && !k.indoors && k.e === 10 && k.n === 20, 'in the boat, sitting on its seat, in sight');
+  assert.deepEqual(asked?.near, [10, 18], 'the boat sets out from the bank they stand on');
   assert.equal(k.standY, 3 - 0.92, 'feet below the seat\'s eye');
   t = 1.5; st.update(0.1);
   assert.equal(k.n, 21.5, 'carried across with it');
@@ -427,8 +428,11 @@ console.log('PASS a staged figure goes in and out by a swinging door, and a stop
   assert.ok(Math.abs(dead.n - (5 - 0.86)) < 1e-9 && Math.abs(props[0].at[2] + 5) < 1e-9, 'it goes where they go');
   for (let i = 0; i < 60; i++) st.update(0.1);
   assert.ok(dead.standY < 2 + 0.15, `set down, it comes to the ground (${dead.standY.toFixed(2)})`);
+  st.replay();
+  assert.ok(restored === 1 && props[0].gone, 'watched again, the boat is laid back where it set out and the bier taken away');
+  st.update(0.2);
   st.release();
-  assert.ok(restored === 1 && props[0].gone, 'let go, the boat is laid back and the bier taken away');
+  assert.ok(settled === 1 && restored === 1, 'left, the boat stays on the bank it went to');
 }
 console.log('PASS a castmate crosses the river in a drawn boat, and the dead are carried on a bier');
 
