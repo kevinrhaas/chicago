@@ -2648,6 +2648,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/build_tales.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/build_trade_table_1839.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6963,6 +6967,10 @@
       "wrote_ignored": []
     },
     "tools/test_sub_pixel.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_tales.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

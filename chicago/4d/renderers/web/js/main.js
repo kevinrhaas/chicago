@@ -174,6 +174,7 @@ import { mountPacingRead } from './pacing-read.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 import { advanceGust, syncGustUniform } from './wind-gust.js';
 import { createTodayView } from './today-view.js';
+import { createTaleTeller } from './tale-teller.js';
 
 const VERSION = '0.1.0';
 
@@ -6279,6 +6280,11 @@ async function boot() {
   api.atHome = atHome;
   // T-3521: a card's Find this person, by id (the harness tests it for everyone).
   api.findPerson = (id) => findSceneDirectoryPerson(id);
+  // T-3553: Tell me a story, after Greet, for everyone in every year; Find goes to whom a story names.
+  api.tales = createTaleTeller({ interactions, scene: YEAR, base: new URL('tales/', resolveBases().dataBase).href,
+    date: () => world.sunDate ?? loaded.scene.target_date ?? null, say: (text) => hud.say(text),
+    canFind: (id) => (api.townTransport?.driverAnchorForPerson?.(id) || personInTown(id) || atHome(id) ? true : 'Not out in town now'),
+    find: (id) => { void findSceneDirectoryPerson(id); } });
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     moreEl: document.getElementById('interact-more'),
