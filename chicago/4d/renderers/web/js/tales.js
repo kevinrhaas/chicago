@@ -65,9 +65,10 @@ export function pickTale(lib, personId, heard, { sex = null, date = null, random
 
   const row = lib.tellers?.[personId];
   const who = row ? readTeller(row) : { roles: [lib.fallback?.[sex === 'f' ? 'f' : 'm']].filter(Boolean), sex: sex === 'f' ? 'f' : 'm' };
-  const fits = (t) => t.roles.some((r) => who.roles.includes(r)) && (!t.sex || t.sex === who.sex);
+  // Nobody sends you to find themselves.
+  const fits = (t) => t.roles.some((r) => who.roles.includes(r)) && (!t.sex || t.sex === who.sex) && t.meet?.person !== personId;
   let pool = dated(lib.tales.filter(fits));
-  if (!pool.length) pool = dated(lib.tales.filter((t) => t.roles.some((r) => who.roles.includes(r))));
+  if (!pool.length) pool = dated(lib.tales.filter((t) => t.roles.some((r) => who.roles.includes(r)) && t.meet?.person !== personId));
   const untold = pool.filter((t) => !(t.id in mine));
   const unheard = untold.filter((t) => !(t.id in told));
   if (unheard.length) return { tale: any(unheard), own: false };

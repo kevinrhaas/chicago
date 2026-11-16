@@ -115,6 +115,9 @@ const seq = (seed = 1) => () => { seed = (seed * 16807) % 2147483647; return (se
     { id: 'b', roles: ['x'], title: 'B', text: ['b b b b b b b b b b b b b b b b b'] }], personal: {}, tellers: { p: 'x/m' } };
   ok(pickTale(lib, 'p', {}, { date: '1812-08-14', random: () => 0 }).tale.id === 'b', 'a story from after the day waits');
   ok(pickTale(lib, 'p', {}, { date: '1812-08-16', random: () => 0 }).tale.id === 'a', 'and is told once its day has come');
+  const self = { tales: [{ id: 'me', roles: ['x'], title: 'M', text: ['m m m m m m m m m m m m m m m m m'], meet: { person: 'p', name: 'P' } },
+    { id: 'b', roles: ['x'], title: 'B', text: ['b b b b b b b b b b b b b b b b b'] }], personal: {}, tellers: { p: 'x/m' } };
+  ok([0, 0.6, 0.99].every((r) => pickTale(self, 'p', {}, { random: () => r }).tale.id === 'b'), 'nobody sends you to find themselves');
   ok(pickTale({ ...lib, tellers: {}, fallback: { m: 'x', f: 'x' } }, 'nobody', {}, { random: () => 0.9 }).tale.id === 'b',
     'a figure with no row tells the town\'s stories');
 }
