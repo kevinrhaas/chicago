@@ -181,3 +181,20 @@ html[data-jaunt-active]:has(#panel:not([hidden])) #popup { visibility: hidden; }
 .jaunt-panel.jaunt-final { border-color: var(--accent, #ead09e); box-shadow: 0 8px 30px #0007, inset 0 3px 0 var(--accent, #ead09e); }
 .jaunt-panel button.jaunt-finish { color: var(--accent-ink, var(--panel-solid, #182326)); background: var(--accent, #ead09e); border-color: var(--accent, #ead09e); font-weight: 600; }
 .jaunt-bar-label.jaunt-final-k small { opacity: 1; }
+/* The owner, 2026-11-16: "a meter you can see not too shouty be slick and elegant". One
+   hairline segment a stop: those behind full, the one under way filling as its scene plays
+   (fainter while the way to it is covered), those ahead a bare track; the scene's time left
+   beside it in small tabular figures. Along the top of the collapsed bar it is the line alone. */
+.jaunt-meter { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; height: 10px; margin: -2px 2px 0; }
+.jaunt-meter[hidden] { display: none; }
+.jaunt-meter-stops { flex: 1; min-width: 0; display: flex; gap: 3px; }
+.jaunt-meter-stops i { flex: 1; height: 2px; border-radius: 1px; overflow: hidden; background: color-mix(in srgb, currentColor 22%, transparent); }
+.jaunt-meter-stops b { display: block; height: 100%; transform-origin: left center; transform: scaleX(0);
+  background: color-mix(in srgb, var(--accent, #ead09e) 62%, transparent); transition: transform .3s linear; }
+.jaunt-meter-stops .jaunt-meter-now b { background: var(--accent, #ead09e); }
+.jaunt-meter-stops .jaunt-meter-way b { background: color-mix(in srgb, var(--accent, #ead09e) 38%, transparent); }
+.jaunt-meter-clock { flex: none; min-width: 2.6em; text-align: right; font: 600 10px/1 var(--font-mono, ui-monospace, monospace);
+  font-variant-numeric: tabular-nums; letter-spacing: .04em; opacity: .62; }
+.jaunt-bar { position: relative; }
+.jaunt-bar .jaunt-meter { position: absolute; top: 0; left: 10px; right: 10px; height: 2px; margin: 0; }
+@media (prefers-reduced-motion: reduce) { .jaunt-meter-stops b { transition: none; } }

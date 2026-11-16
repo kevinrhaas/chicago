@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Architectural style",
+  "menu_group": "Architecture",
+  "grade_band": "3-5",
+  "featured": false,
+  "review_required": false,
+  "id": "prairie-style-romanesque-grades-3-5",
+  "scene": "1904",
+  "title": "Romanesque style walk",
+  "premise": "Rough stone, deep round arches and towers: four Romanesque houses from Eighteenth Street to Twenty-first.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "afternoon",
+    "season": "winter"
+  },
+  "opening": {
+    "text": "JAUNT: ROMANESQUE STYLE. It is a winter afternoon in 1904. The elm trees are bare, so you can see the stone. In the 1880s an architect from Boston, Henry Richardson, made heavy stone houses popular again. He used rough blocks, deep round arches like a castle gate, and towers. Chicago loved it. For a few years, rich people here wanted houses like forts.\n\nThere are four houses on foot, from 1800 to 2110 Prairie. Look for rough stone, arches that seem to sink into the wall, and towers.\n\nStart with the house that started it all, the one its neighbors hated.",
+    "read_s": 31
+  },
+  "stops": [
+    {
+      "id": "glessner",
+      "destination": {
+        "kind": "structure",
+        "id": "glessner_house"
+      },
+      "text": "This is 1800 Prairie, the Glessner House, the first of this style on the street. Its walls are brick covered with big slabs of granite. The slabs are cut deeper around the doors and windows, so the whole wall looks like solid rock. The roof has red tiles. Richardson was a very big man. He said city windows were not for looking out of. So the street side has few windows, and the family rooms open onto a courtyard in back. George Pullman, across the corner, called it \"that thing staring me in the face\". Across the street and a little south, the style caught on.",
+      "read_s": 30,
+      "evidence": [
+        "glessner-marker",
+        "glessner-fabric",
+        "tour",
+        "big",
+        "not-to-look-out",
+        "granite-skin",
+        "pullman-glare"
+      ],
+      "next": "ames"
+    },
+    {
+      "id": "ames",
+      "destination": {
+        "kind": "structure",
+        "id": "coleman_ames_house_1811_prairie"
+      },
+      "text": "This is 1811 Prairie, the Coleman house, built in 1886. Its architects were famous for this style. The front is rough brown sandstone. An old picture shows the style's best trick. There is a deep round arch on bunched columns over a wide stair. Above it, a window box sticks out like a lookout on a castle wall. Notice that the arch is the door. In this style, the way in is like a tunnel into the stone. Walk south past Twentieth Street for two smaller forts.",
+      "read_s": 24,
+      "evidence": [
+        "ames-marker",
+        "ames-plate",
+        "tour"
+      ],
+      "next": "r2011"
+    },
+    {
+      "id": "r2011",
+      "destination": {
+        "kind": "structure",
+        "id": "house_2011_prairie"
+      },
+      "text": "This is 2011 Prairie, next to the Mayer house. It has a rough stone front, a round arched doorway, and a round tower on the corner with a pointed cap. A tower on a city house is just for show. It is a castle tower on a town house! Across the street and one block on, the last house fits this style onto one narrow lot.",
+      "read_s": 18,
+      "evidence": [
+        "r2011-draft",
+        "tour"
+      ],
+      "next": "rees"
+    },
+    {
+      "id": "rees",
+      "destination": {
+        "kind": "structure",
+        "id": "rees_house_2110_prairie"
+      },
+      "text": "This is 2110 Prairie, Harriet Rees's narrow house, built in 1888. The same architects who built the Coleman house built this one too. Here they used pale limestone, under a tall pointed roof facing the street. Compare the two houses. They are by the same builders, but one is dark and one is light.",
+      "read_s": 15,
+      "evidence": [
+        "rees-draft",
+        "tour"
+      ],
+      "next": "finish"
+    }
+  ],
+  "legs": [
+    {
+      "story": "Across Prairie Avenue and south.",
+      "evidence": [
+        "ames-marker"
+      ],
+      "story_evidence": [
+        "ames-marker"
+      ]
+    },
+    {
+      "story": "South past Twentieth Street.",
+      "evidence": [
+        "r2011-draft"
+      ],
+      "story_evidence": [
+        "r2011-draft"
+      ]
+    },
+    {
+      "story": "Across the street and on to the 2100 block.",
+      "evidence": [
+        "rees-draft"
+      ],
+      "story_evidence": [
+        "rees-draft"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "finish",
+      "text": "That is the end of the Romanesque walk. Rough stone, round arches and towers were the fashion of the 1880s on this street.\n\nRichardson's stone fort outlasted almost every house around it, and it is still standing. Walk back up to Eighteenth Street and look at it once more in the winter light.",
+      "read_s": 14,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "prairie-romanesque-note-grades-3-5",
+    "title": "Romanesque field note",
+    "text": "A modern field note about this style. It is not an object from history."
+  },
+  "evidence": [
+    {
+      "id": "ames-marker",
+      "text": "Joseph G. Coleman Residence. Built 1886; Cobb & Frost, architects. Cobb & Frost were well known for their designs in the Romanesque style, executed here in rough-faced brown sandstone.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1811 S. Prairie Avenue entry."
+    },
+    {
+      "id": "ames-plate",
+      "text": "The 1888 plate shows a rock-faced brown-stone front with a deep round arch on clustered columns over a broad stair, and a corbelled oriel over the arch.",
+      "confidence": "attested",
+      "sources": [
+        "inland_architect_1888_10_ames_residence"
+      ],
+      "locator": "The whole plate: the street front and south flank from the roadway south-west of the house."
+    },
+    {
+      "id": "glessner-fabric",
+      "text": "Glessner describes unglazed red roof tiles and granite street walls as part of the house's construction.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS transcription, data pages 13-15; construction description, not the 1923 garage conversion."
+    },
+    {
+      "id": "glessner-marker",
+      "text": "John Glessner Residence. Built 1887; Henry Hobson Richardson, architect. Designed in the Richardsonian Romanesque style, the house is wrapped around a spacious light-filled courtyard.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1800 S. Prairie Avenue entry."
+    },
+    {
+      "id": "r2011-draft",
+      "text": "The district draft reads 2011 Prairie from the T-1837 register as Romanesque: a rough ashlar front, a round-arched entrance and a rounded corner turret under a conical cap.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-20-22-east-2352"
+    },
+    {
+      "id": "rees-draft",
+      "text": "The district draft reads the Harriet Rees house (Cobb & Frost, 1888) from the T-1837 register as Romanesque: a limestone front under a tall gable facing the avenue; its carved tympanum, loggia and bowed oriel are later refinements.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-20-22-west-2351"
+    },
+    {
+      "id": "tour",
+      "text": "The route, its order, its winter afternoon, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on a day in 1904 is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-prairie-walks"
+    },
+    {
+      "id": "big",
+      "text": "Glessner remembered Richardson weighing three hundred and seventy pounds: 'big-minded, big-bodied, big-hearted'.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 17."
+    },
+    {
+      "id": "not-to-look-out",
+      "text": "Richardson held that the windows of a city house were 'not to look out of', since people shroud them in shades and curtains.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 14."
+    },
+    {
+      "id": "granite-skin",
+      "text": "The street walls are brick faced with alternately six- and eight-inch sheets of granite, with deeper slabs returned at the openings to imply a wall entirely of stone.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "locator": "Data page 21, Part II.B.2, Wall construction."
+    },
+    {
+      "id": "pullman-glare",
+      "text": "George Pullman, across the street, complained of the Glessner house: 'I do not know what I have ever done to have that thing staring me in the face every time I go out of my door'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_glessner_house"
+      ],
+      "locator": "The design section."
+    }
+  ],
+  "liberties": [
+    "L-draft-prairie-20-22-east-2352",
+    "L-draft-prairie-20-22-west-2351",
+    "L-jaunt-prairie-walks"
+  ],
+  "version_of": "prairie-style-romanesque"
+}

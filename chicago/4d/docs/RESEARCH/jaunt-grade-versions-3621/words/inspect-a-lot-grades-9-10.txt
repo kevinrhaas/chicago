@@ -1,0 +1,88 @@
+== premise
+Read a land notice, view the room where lots are auctioned, locate your corner and examine the ground before you pay.
+
+== opening
+JAUNT: LOOK BEFORE YOU BUY A LOT. Chicago in the summer of 1835 has gone land mad, and "The opening of a land office in May, 1835, added fuel to the already brilliant blaze of excitement". Lots that sold for $10 to $50 in 1830 now bring "twenty or thirty times as much", and a piece of the town that sold for $20,000 last summer sold again this May for $100,000.
+
+Sales are conducted by public auction, and a crier in scarlet on a white horse rides through town announcing the hour, and "Crowds flocked around and followed him and hung upon his entrancing words". Before you join them, examine what is genuinely for sale: the room, the notices, the corner and the ground itself.
+
+== stop auction
+Begin on Dearborn Street at John Bates Junior's new auction room. On 12 and 13 June the Democrat's notice offered fifty town lots of Marseilles here, with fifty more to follow, although Marseilles is another town altogether. During this boom, Moses and Kirkland observe, "The whole land seemed staked out and peopled on paper", and "But few of these paper towns ever came to anything". Read the advertisement again, considerably more carefully this time.
+
+== narrative auction
+What property did that advertisement actually offer for sale?
+
+== label auction chicago-lots
+It sold Chicago lots
+
+== consequence auction chicago-lots
+Read it again: the lots belonged to Marseilles, because the room is a market, not the land itself.
+
+== label auction another-town
+It sold another town's lots
+
+== consequence auction another-town
+Correct: a Chicago room, conducting a sale for somewhere else entirely.
+
+== stop notice
+West to Clark, where the Democrat was printed from 1833 until, by 20 May, its office had moved above Jones and King's hardware. Your copy carries two land notices: Hubbard's lots in the School Section and the original town, and Fell's land along the canal route. Prices have become extraordinary: this spring Gurdon Hubbard and his partners bought eighty acres for $5,000, platted them in New York and "sold half the lots at auction for $80,000".
+
+== narrative notice
+Choose which of the two advertisements you will pursue.
+
+== label notice town-lots
+Follow Hubbard's town lots
+
+== consequence notice town-lots
+You will search for a lot within the town itself.
+
+== label notice canal-land
+Follow Fell's canal-route land
+
+== consequence notice canal-land
+You will examine land outside the town, along the proposed canal line.
+
+== stop corner
+Continue west to LaSalle, where Peck's two-story frame store occupies the corner his own advertisements name. A lot is purchased by its corners and street lines, so establish your bearings: the river lies north, and the town's lots run south. Philo Carpenter, who arrived in 1832, paid for "two lots on South Water street, forty feet frontage, at a cost of $75". During the craze, "Lot 1, block 2, sold in June for $5,000 and resold in August for $10,000".
+
+== narrative corner
+Locate the surveyed corner and face south, into the rows of lots.
+
+== stop ground
+A few steps east, a small drain runs beneath South Water to the river, and the street crosses it on logs. An account of the early town describes the South Division as generally low and marshy, wetter still along the river, and covered with tall grass, reeds and rushes. The schoolmaster Granville Sproat remembered mud "half a leg deep, up to the hubs of the carts and wagons". Decide what the condition of the ground is telling you about its value.
+
+== narrative ground
+Will you inquire further about a particular property, or hold your money?
+
+== label ground inquire
+Inquire about one lot first
+
+== consequence ground inquire
+You will ask about a particular lot and walk its actual ground.
+
+== label ground hold
+Hold your money
+
+== consequence ground hold
+You retain your money for the present, awaiting better information.
+
+== leg 0
+Leave the sale room for the newspaper that advertised it.
+
+== leg 1
+Carry your advertisement to a surveyed corner you can genuinely trust.
+
+== leg 2
+Now look downward, examining the actual condition of the ground itself.
+
+== ending inquire-town
+You will ask about one particular lot from Hubbard's notice and stand on its actual ground before paying. In a town where lots double in value between June and August, that makes you the rarest buyer in Chicago.
+
+== ending inquire-canal
+You will apply at the New York House, as Fell's notice instructs, for the terms of one parcel along the canal route, and walk it before you pay. Everyone insists the canal is coming, so make certain the land is too.
+
+== ending held
+You keep your money, since a notice, a sale room and a wet street have taught you enough for one day. Remember it when the bubble bursts: after 1836, nearly every buyer at the first canal-lot sale forfeits his lots, and only Peck makes his second payment.
+
+== keepsake text
+A fictional note of a land notice read, a sale room seen and the ground walked before any money changed hands.

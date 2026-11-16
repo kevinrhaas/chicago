@@ -5889,6 +5889,22 @@ async function boot() {
           ended: () => { const outing = jauntRuntime?.state; return !!outing?.outcome && narration.ended(outing.jaunt, 'ending', outing.outcome.id); } },
         flying: () => travel.state?.phase === 'gliding',
         finish: () => jauntRuntime?.finish() });
+      // The owner, 2026-11-16: the jaunt's meter, the stop's scene filling as it plays.
+      let meterTimer = null, meterLeg = null, meterWay = 0, meterSince = 0;
+      const meterNow = () => {
+        const outing = jauntRuntime?.state;
+        if (!outing?.jaunt || !['opening', 'travelling', 'paused', 'atStop', 'closing'].includes(outing.phase)) { jauntPanel.meter(null); return false; }
+        const leg = `${outing.session}:${outing.leg}:${outing.phase === 'atStop'}`, ride = travel.state;
+        if (leg !== meterLeg) { meterLeg = leg; meterWay = ride.dist_m ?? 0; meterSince = performance.now() / 1000; }
+        const here = outing.jaunt.stops[outing.stopIndex], heard = here && narration.position(outing.jaunt, 'stop', here.id);
+        const stage = api.jauntStage, staged = outing.phase === 'atStop' && stage?.playing && stage.length > 0;
+        jauntPanel.meter(pace.meterReading({ phase: outing.phase, stopIndex: outing.stopIndex, count: outing.jaunt.stops.length,
+          glide: ride.glide, way: ride.dist_m != null && meterWay > 0 ? { t: meterWay - ride.dist_m, d: meterWay } : null,
+          voice: heard ? (heard.done ? { t: 1, d: 1 } : heard) : null,
+          read: here ? { t: performance.now() / 1000 - meterSince, d: here.read_s || pace.readingSeconds(here.text) } : null,
+          stage: staged ? { t: stage.clock, d: stage.length } : null }));
+        return true;
+      };
       jauntRuntime = runtime.createJaunts({ scene: YEAR, load: jauntPreview.load, travel,
         preferredMode: (jaunt) => jauntModeFor(hud.gettingThere, jaunt),
         resolve: resolveJaunt, place: spawnAtDestination,
@@ -5964,6 +5980,7 @@ async function boot() {
           jauntPanel.render(state);
           closingClock.update(state); // the owner, 2026-11-16: the closing scene ends on its own
           if (closingClock.active) closingTimer ??= setInterval(() => { if (!closingClock.tick() && closingClock.active) return; clearInterval(closingTimer); closingTimer = null; }, 400);
+          if (meterNow()) meterTimer ??= setInterval(() => { if (meterNow()) return; clearInterval(meterTimer); meterTimer = null; }, 250);
           // T-2664: at the first Jaunt's first stop, once per device, how a Jaunt goes on.
           if (state?.jaunt && state.phase === 'atStop') hints.show('jaunt');
         },

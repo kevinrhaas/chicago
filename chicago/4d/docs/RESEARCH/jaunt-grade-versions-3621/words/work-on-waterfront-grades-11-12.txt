@@ -1,0 +1,115 @@
+== premise
+Examine the town's notices for laborers, inquire about employment at two Newberry and Dole warehouses and depart with a work chit or a promising lead.
+
+== opening
+JAUNT: WORK ON THE WATERFRONT. On this particular morning you require employment, and the encouraging news is that Chicago in 1835 needs everybody: buildings rise as rapidly as lumber arrives, every vessel requires unloading, and the newspapers publish notices headed "Wanted, immediately". The discouraging news is that strangers continue arriving "by land and by water", and half of them seek work as well, an oversupply of labor that tempers the boom's promise.
+
+Determine what you can offer, examine the notices, inquire at two of Newberry and Dole's establishments, and plan your strategy over breakfast.
+
+== stop notices
+John Calhoun's Democrat, printed here originally and since May above Jones and King's hardware, seeks "an apprentice at this office to the printing business". On 17 June Jones, King and Company published: "Wanted, immediately, one copper smith, and one tin and sheet iron worker". A town expanding this rapidly requires printers for its notices and tinsmiths for its stovepipes, since from 1833 every stovepipe penetrating a roof must be "guarded by tin or sheet iron", or the owner incurs a $5 penalty.
+
+== narrative notices
+Select the particular skill you are offering to prospective employers.
+
+== label notices type
+Type and press
+
+== consequence notices type
+You can compose type manually and operate a printing press.
+
+== label notices metal
+Tin and copper
+
+== consequence notices metal
+You can fabricate sheet metal proficiently into stovepipes and kettles.
+
+== label notices back
+A strong back
+
+== consequence notices back
+You can lift, transport and load substantial freight from arriving vessels.
+
+== stop packing
+Andreas situates George Dole's 1832 warehouse and slaughter yard near Lake and Dearborn. Dole inaugurated the town's packing trade here, "the nucleus of one of those immense industries" that made Chicago internationally famous. Packing, however, is seasonal winter labor, with hogs slaughtered in December, and by 1834 the partners had relocated their slaughtering to the South Branch. In the middle of July there is consequently nothing whatsoever to pack.
+
+== narrative packing
+Will you request to be remembered, or proceed to the river?
+
+== label packing remember
+Ask to be remembered for the packing
+
+== consequence packing remember
+A commitment to inquire again when packing resumes.
+
+== label packing go-on
+Go on to the river
+
+== consequence packing go-on
+There is nothing worth requesting here in the middle of summer.
+
+== stop forwarding
+Newberry and Dole have advertised as forwarding and commission merchants since November 1833, and in June the American designated them agents for the steamboat Michigan to Detroit and Buffalo. When the schooner Illinois ascended through the new harbor cut in July 1834, she was cheered at their wharf. Every vessel since has required hands to unload her, and nobody advertises for such casual labor.
+
+== narrative forwarding
+Will you inquire about employment, or merely observe the activity along the wharf?
+
+== label forwarding offer
+Offer a day's carrying
+
+== consequence forwarding offer
+A chit promising a day's carrying when a vessel next unloads, although no wage is specified.
+
+== label forwarding watch
+Watch the wharf and ask nothing
+
+== consequence forwarding watch
+You observe how merchandise comes off the water, and subsequently proceed.
+
+== stop breakfast
+Breakfast at the Exchange Coffee House at Lake and Wells, constructed by Mark Beaubien and operated by the Murphys since August 1834; the county's former tariff set breakfast at 25 cents. Review the morning's findings: two notices for skilled trades, a yard awaiting winter, and a wharf in perpetual motion.
+
+== narrative breakfast
+Where will you inquire initially tomorrow morning, and why?
+
+== label breakfast answer
+Answer a printed notice
+
+== consequence breakfast answer
+You will apply wherever a notice requested hands.
+
+== label breakfast boat
+Wait on the wharf for a vessel
+
+== consequence breakfast boat
+You will be stationed at the river whenever a sail appears.
+
+== label breakfast around
+Keep asking around town
+
+== consequence breakfast around
+You will personally canvass the stores and lumber yards, soliciting opportunities.
+
+== leg 0
+Convey your particular skill along the river to the warehouses.
+
+== ending apprentice
+You will answer the Democrat's notice for an apprentice to the printing business. It was published on 20 May, six weeks ago, so the position may already be filled, but inquire regardless, and inquire early.
+
+== ending tin-and-copper
+You will offer your tin and copper skills to Jones, King and Company, whose notice of 17 June sought both trades immediately. A fortnight is ample time for a competitor to have responded first, so depart before breakfast cools.
+
+== ending no-notice-for-a-back
+No notice you examined requested a strong back, because the newspapers advertise skilled trades, while casual carrying is discovered on the wharf and solicited in person. Tomorrow, try the river first.
+
+== ending chit-for-the-boat
+You carry a chit for a day's carrying when a vessel next unloads at the forwarding house, with no wage specified, so be stationed on the wharf when a sail appears.
+
+== ending remembered-for-the-winter
+You requested to be remembered when packing resumes. That is a winter commitment, with no wage, no name and no date, something to sustain you until December, when the hogs arrive.
+
+== ending a-days-work-in-prospect
+No employment today, but a strategy for tomorrow: two notices that requested skilled trades, a yard awaiting winter, and a firm that forwards freight by the boatload. Respectable employment is genuinely in prospect.
+
+== keepsake text
+A fictional note documenting a morning spent seeking employment: the notices that requested hands, and where to inquire again. No particular wage or definite offer is recorded on it.

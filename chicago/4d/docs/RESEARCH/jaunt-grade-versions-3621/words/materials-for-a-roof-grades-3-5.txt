@@ -1,0 +1,73 @@
+== premise
+Make a builder's list for one small roof. See what comes by boat to Newberry and Dole's. Choose nails at Peck's corner. Decide on brick at the town's first brickyard. Then look at where the Lake House is going up.
+
+== opening
+JAUNT: MATERIALS FOR A ROOF. You are building a small wooden house, and you are doing it the new Chicago way. The old way, with heavy beams, was too slow. So the town builds with a new kind of frame. It was first used here by George Snow. It uses light boards two inches by four inches, nailed together. People said these houses would blow away in the first strong wind. They were wrong.
+
+The roof comes next. See what comes in by boat. Choose your nails at Peck's corner. Look in at the first brickyard. End at the Lake House, the grandest building in town, still being built.
+
+== stop the-wharf
+Start at Newberry and Dole's warehouse on the river. In the paper on 1 July 1835, they said they store goods and send them on. The new kind of frame needs barrels full of nails. Nails, glass and iron do not grow on the grassland. What the town cannot make comes in by boat across the lake. It lands at places like this one.
+
+== narrative the-wharf
+What the town cannot make, the lake brings.
+
+== stop the-ironwork
+Walk along South Water Street to Peck's corner at LaSalle Street. In September 1834 his ad listed nails, iron rods for making nails, bars of iron and steel. He said it all just came from New York. A roof needs nails. A house built the new way needs a great many more. Choose how to buy them.
+
+== narrative the-ironwork
+Pick your nails before your bricks.
+
+== label the-ironwork cut-nails
+A keg of nails, ready to drive
+
+== consequence the-ironwork cut-nails
+Nails go on the list.
+
+== label the-ironwork nail-rods
+Nail rods, for a smith to head
+
+== consequence the-ironwork nail-rods
+Rods go on the list. A blacksmith will turn them into nails later.
+
+== stop the-brickyard
+Cross the river to the North Side. A history book puts the town's first brickyard here near the bank, in the spring of 1833. Henry Lampman was surely the first brick maker. The first brick building outside the fort went up that same year, next to where the Lake House is now going up. The town had one hundred sixty-five new wooden houses. One brick house was big news. One shed stands for the brickyard.
+
+== narrative the-brickyard
+Brick or no brick, and your list is done.
+
+== label the-brickyard brick-chimney
+Brick for a chimney
+
+== consequence the-brickyard brick-chimney
+Brick goes on the list.
+
+== label the-brickyard no-brick
+No brick this season
+
+== consequence the-brickyard no-brick
+The chimney can wait for another summer.
+
+== stop the-lake-house
+Walk east along the bank to Rush Street and the Lake House. A history book tells what it will be like when it is done. It will be brick, three stories tall with a basement, and it will open in the fall of 1836. It was meant only for the richest guests. Before it was even finished, a church service was held inside. A famous English writer named Harriet Martineau was there. Look from the street at the walls going up.
+
+== narrative the-lake-house
+Nobody wrote down whose bricks went into it.
+
+== leg 0
+With the boat goods in mind, go on to the nails and iron.
+
+== leg 2
+You decided about bricks. Now see what a whole lot of them become.
+
+== ending nails-and-brick
+Nails to hammer and brick for a chimney. Your list is short and complete. The Lake House will need a great deal more of both.
+
+== ending rods-and-brick
+Nail rods for a blacksmith and brick for a chimney. Your list is done, but some of the work still has to be hammered out.
+
+== ending a-plain-roof
+Nails for the roof and no brick this season. A plain roof first, and the chimney another year. It will stand up to the first strong wind.
+
+== keepsake text
+A made-up list of what one small roof needed in July 1835. No real order or price from any store or brick maker is written on it.
