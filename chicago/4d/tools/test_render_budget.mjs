@@ -9,7 +9,7 @@ const confidenceSource = fs.readFileSync(new URL('../renderers/web/js/confidence
 const { createConfidenceView } = await import('data:text/javascript;base64,' + Buffer.from(confidenceSource).toString('base64'));
 // T-3605: ordinary Full 3,470,000 -> 3,495,000 (main.js, the Gifford street faces).
 const full = Object.freeze({ drawCalls: 7800, triangles: 3495000 });
-const expectedGhost = { drawCalls: 8900, triangles: 3760000 };
+const expectedGhost = { drawCalls: 8900, triangles: 3785000 };
 let checks = 0;
 function check(name, fn) { fn(); checks++; console.log('PASS ' + name); }
 check('Full active Ghost uses independently measured draw and triangle pins', () => {
@@ -21,7 +21,10 @@ check('Full active Ghost uses independently measured draw and triangle pins', ()
   assert.equal(priorBAllowance, 3750000);
   assert.equal(priorBAllowance - 3737315, 12685);
   assert.equal(Math.ceil((3737315 + 18059) / 5000) * 5000, 3760000);
-  assert.equal(expectedGhost.triangles - 3737315, 22685);
+  // T-3556: the reading with two 1835 townspeople out at their far rung, + the same margin.
+  assert.equal(3737315 + 13836 + 13811, 3764962);
+  assert.equal(Math.ceil((3764962 + 18059) / 5000) * 5000, 3785000);
+  assert.equal(expectedGhost.triangles - 3764962, 20038);
   assert.deepEqual(renderBudget(full, 'full', true), expectedGhost);
 });
 check('the resolver does not mutate or drop other base policy fields', () => {

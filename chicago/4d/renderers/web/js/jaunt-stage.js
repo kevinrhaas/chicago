@@ -42,6 +42,11 @@
  * smoke are human-fight.js's, handed in as `fight` (none: nothing is held, as in the gate's
  * harness). The compiler refuses `arm` and `act` in any jaunt not for adults.
  *
+ * And what the blows do: a `wound` beat (body, head, neck, shoulder, scalp) on the one hit, at
+ * the moment it lands, throws the blood, stains the body there and, once they are down, pools
+ * under them (human-blood.js, handed in as `blood`). The compiler refuses `wound` outside an
+ * adults jaunt too, and the gate refuses one on a child.
+ *
  *   sync(stop, { arrived })  build `stop`'s stage (or keep it), and play it once arrived
  *   replay()                 from the beginning again
  *   release()                take every staged figure away
@@ -143,10 +148,12 @@ export function stageLength(stop, { walkSpeed = 1.3 } = {}) {
  * scene not drawn in town (a gathering's inside-only resident), or null; `tier()` the people
  * tier now; `eye()` the eye (a world Vector3) each figure is updated from.
  */
-export function createJauntStage({ humans, parent = null, resolve = () => null, tier = () => 'full', eye = () => null, teams = null, fight = null } = {}) {
+export function createJauntStage({ humans, parent = null, resolve = () => null, tier = () => 'full', eye = () => null, teams = null, fight = null, blood = null } = {}) {
   let stopKey = null, stop = null, cast = [], clock = 0, playing = false;
   // Adults jaunts: the guns' flash and smoke (human-fight.js createFightFx), made once.
   const fx = fight?.createFightFx && parent ? fight.createFightFx(parent) : null;
+  // ... and their blood (human-blood.js createBloodFx), made once too.
+  const gore = blood?.createBloodFx && parent ? blood.createBloodFx(parent) : null;
   // T-3553: the town teams this stage has taken: { c, actor, heading } (actor once loaded).
   let wagons = [], askedLoad = -Infinity;
   const TURN_DEG_S = 30;
@@ -216,6 +223,24 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     if (shots && m.weapon && fx) { const z = fight.muzzleOf(m.weapon); if (z) for (let i = 0; i < shots; i++) fx.shoot(z.at, z.dir); }
   }
 
+  /** Where the blow that wounds `m` came from: the nearest castmate with a weapon in hand. */
+  function woundFrom(m) {
+    let best = null, far = Infinity;
+    for (const x of cast) {
+      if (x === m || !x.arm || x.arm === 'none') continue;
+      const d = Math.hypot(x.actor.e - m.actor.e, x.actor.n - m.actor.n);
+      if (d < far) { far = d; best = x; }
+    }
+    return best && far < 60 ? best.actor.root.position.clone() : null;
+  }
+
+  /** `m` is hit: its blood, now if its figure is drawn, else once it is. */
+  function wound(m, kind) {
+    if (!gore) return;
+    if (m.actor.body && m.actor.root.visible) gore.wound(m.actor, kind, { from: woundFrom(m) });
+    else (m.pendingWounds ??= []).push(kind);
+  }
+
   function build(next) {
     teardown();
     stop = next;
@@ -251,6 +276,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
   function teardown() {
     for (const m of cast) { m.weapon?.removeFromParent?.(); try { m.actor.dispose(); } catch { /* gone already */ } }
     fx?.clear();
+    gore?.clear();
     for (const w of wagons) { try { w.actor?.unstage?.(); } catch { /* gone already */ } }
     cast = []; wagons = []; stop = null; playing = false; clock = 0;
   }
@@ -315,6 +341,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     if (b.arm) arm(m, b.arm);
     // A motion is begun on the hands once they are there (a figure still loading takes it then).
     if (b.act) { if (a.actions?.act) { a.actions.wield?.(m.arm); a.actions.act(b.act); } else m.pendingAct = b.act; }
+    if (b.wound) wound(m, b.wound);
   }
 
   const api = {
@@ -354,8 +381,10 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
         if (!shown) { m.actor.root.visible = false; if (m.weapon) m.weapon.visible = false; continue; }
         if (at) m.actor.update(step, at, step);
         wieldFrame(m);
+        if (m.pendingWounds && m.actor.body && m.actor.root.visible) { const due = m.pendingWounds; m.pendingWounds = null; for (const k of due) wound(m, k); }
       }
       fx?.update(step);
+      if (gore) { gore.visible = shown; gore.update(step); }
     },
     snapshot() {
       return { stop: stopKey, playing, clock: +clock.toFixed(2), cast: cast.map((m) => ({ person: m.c.person ?? null, extra: m.c.extra ?? null,
@@ -363,6 +392,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
         hidden: !!m.actor.indoors, drawn: !!m.actor.root.visible, lod: m.actor.lod, ...(m.ride ? { ride: m.ride.team } : {}),
         ...(m.arm && m.arm !== 'none' ? { arm: m.arm, armed: !!m.weapon?.visible, act: m.actor.actions?.fight?.act ?? null } : {}) })),
         smoke: fx?.count ?? 0,
+        ...(gore ? { blood: gore.counts } : {}),
         teams: wagons.map((w) => ({ team: w.c.team, taken: !!w.actor, e: w.pose ? +w.pose.e.toFixed(2) : null,
           n: w.pose ? +w.pose.n.toFixed(2) : null, heading: w.pose ? +w.pose.heading.toFixed(1) : null })) };
     },

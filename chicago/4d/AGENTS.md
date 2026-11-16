@@ -221,7 +221,8 @@ or blood shown).
   accomplish this goal"*. An adults jaunt (hidden until the visitor says in Settings they are 18 or over,
   warned before it starts, never in a teacher's handout; shown to the visitor as "18+") may stage the fighting
   from its accounts (L-1812-adult-jaunts), and the scalping of the dead (owner, 2026-11-15: *"Yes scalpings did
-  occur so we want to be honest about it"*), but still shows no child struck; other mutilation of the dead is told. Native men waiting before the attack are each their own card, the unnamed
+  occur so we want to be honest about it"*), and their blood and wounds (`wound` beats, human-blood.js), but still
+  shows no child struck or wounded; other mutilation of the dead is told. Native men waiting before the attack are each their own card, the unnamed
   graded "likely" as their card already says.
 
 The owner's 2026-10-18 transport request includes period-clothed drivers, riders,
