@@ -408,8 +408,8 @@
     "exchange_coffee_house__frame_1834.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 107408,
-      "inputs_sha256": "b076dc722a0e1cfb7ec56cde144c80258e5162b431367c0b8eb9d3b9ff371130",
+      "bytes": 105844,
+      "inputs_sha256": "f843418053657752ff464ec9f884a6494c4f170fd0c5919a41db8cfa408ce697",
       "kind": "generated",
       "phase_id": "frame_1834",
       "structure_id": "exchange_coffee_house"
@@ -1078,8 +1078,8 @@
     "h_jones_store__frame_1833.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 72552,
-      "inputs_sha256": "e122b8a0ad811a832667d83848b60d4f78f559cddcbf33bc3f219c31f074d1f2",
+      "bytes": 68652,
+      "inputs_sha256": "6d8c9c2eabf31655a1ce3642029c68834a84b991750da52f79632462ffdf20ed",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "h_jones_store"
@@ -3504,8 +3504,8 @@
     "lasalle_lake_house__documented_1834.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 62832,
-      "inputs_sha256": "a37aed452604b3adf445a1c26f5cb0239d0705d1e3a4aef49ff266cf935e204b",
+      "bytes": 58152,
+      "inputs_sha256": "0a422929b18046213292f2ffc9a128645ffc9588bbaa99843d058d4ad27ef0f8",
       "kind": "generated",
       "phase_id": "documented_1834",
       "structure_id": "lasalle_lake_house"
@@ -3887,8 +3887,8 @@
     "new_york_house__frame_1834.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 106732,
-      "inputs_sha256": "cb4bab3f5913132bcaaca64d4690a4f4fac8fc3ce3a90811f4161786e13e387a",
+      "bytes": 108296,
+      "inputs_sha256": "6bbf02092565963b9258bc3aea63471f69e5d376d73b8ff404cfc78d3949b3b1",
       "kind": "generated",
       "phase_id": "frame_1834",
       "structure_id": "new_york_house"
@@ -4060,8 +4060,8 @@
     "peck_store__frame_1833.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 115804,
-      "inputs_sha256": "12ed6bd226886e2c3fb06766e5f3d9095936d849a01bc70170d0c69197b214a0",
+      "bytes": 118624,
+      "inputs_sha256": "3b07fd92736315adca1b765b2ac37d5ca64c4f60d236fe74865ca80408875e08",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "peck_store"
@@ -10061,8 +10061,8 @@
     "st_marys_church__frame_1833.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 206184,
-      "inputs_sha256": "315cb02a9fcb94873803aa52d08e8a0fc30472762f8f0c3683f7254864d3e9b6",
+      "bytes": 199004,
+      "inputs_sha256": "0b41a0021b55f72c8e1b24b417355164ef4d93b2f6f6067188244bd91e889c7e",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "st_marys_church"

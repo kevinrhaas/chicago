@@ -134,8 +134,28 @@ def measure_face(frame: dict, standing) -> dict:
     return {"length": length, "built": built, "near": sorted(near, key=lambda o: o["lo"])}
 
 
+def street_lines(exclude: str = PREFIX) -> dict[tuple[str, str], float]:
+    """The setback every other generator's frontage row already stands at on a face: a
+    block face carries one street line (tools/measure_street_line.py), so the row-fill
+    stores stand on the line a face already has, and on SETBACK_M only where it has none."""
+    lines: dict[tuple[str, str], set] = {}
+    for path in (DATA / "structures").glob("*.json"):
+        if path.stem.startswith(exclude):
+            continue
+        fr = ((load(path).get("reconstruction") or {}).get("frontage") or {})
+        if fr.get("block") and fr.get("face") and fr.get("setback_m") is not None:
+            lines.setdefault((fr["block"], fr["face"]), set()).add(round(float(fr["setback_m"]), 3))
+    out = {}
+    for key, found in lines.items():
+        if len(found) != 1:
+            raise ValueError(f"{key} already carries {len(found)} street lines {sorted(found)}")
+        out[key] = found.pop()
+    return out
+
+
 def fronts(datum: dict, standing) -> list[dict]:
     blocks = {b["id"]: b for b in load(LOTS)["blocks"]}
+    lines = street_lines()
     out = []
     for cross in CROSS:
         for prefix, face, street, side in FACES:
@@ -143,7 +163,7 @@ def fronts(datum: dict, standing) -> list[dict]:
             frame = face_frame(blocks[bid], face)
             m = measure_face(frame, standing)
             out.append({"block": bid, "face": face, "street": street, "side": side,
-                        "frame": frame, **m,
+                        "frame": frame, "setback": lines.get((bid, face), SETBACK_M), **m,
                         "drawn": (bid, face) in DRAWN_FACES})
     return out
 
@@ -200,7 +220,7 @@ def lay_front(front: dict, table: dict, seq0: int) -> tuple[list[dict], list[str
         for o in front["near"]:
             if o["id"] in movable and o["hi"] > x["station"][0] - OTHER_GAP_M \
                     and o["lo"] < x["station"][1] + OTHER_GAP_M \
-                    and o["front"] > -(SETBACK_M + x["depth"] + DOOR_GROUND_M):
+                    and o["front"] > -(front["setback"] + x["depth"] + DOOR_GROUND_M):
                 used_moves.add(o["id"])
     return laid, sorted(used_moves)
 
@@ -208,7 +228,7 @@ def lay_front(front: dict, table: dict, seq0: int) -> tuple[list[dict], list[str
 def centre_of(front: dict, x: dict) -> tuple[float, float]:
     fr = front["frame"]
     mid = (x["station"][0] + x["station"][1]) / 2.0
-    off = SETBACK_M + x["depth"] / 2.0
+    off = front["setback"] + x["depth"] / 2.0
     return (fr["origin"][0] + fr["along"][0] * mid - fr["outward"][0] * off,
             fr["origin"][1] + fr["along"][1] * mid - fr["outward"][1] * off)
 
@@ -252,9 +272,12 @@ def make_record(front: dict, x: dict, table: dict, datum: dict, people: dict, n:
                          f"and bearing are read from the block boundary in "
                          f"data/traces/vectors/thompson_lots.json, at stations "
                          f"{x['station'][0]:.2f}-{x['station'][1]:.2f} m from the face's west "
-                         f"end, its front wall {SETBACK_M:.2f} m behind the lot line (the plat "
-                         f"module's margin, as the block programme's own party-line runs "
-                         f"stand). The bearing is the face's, so the front looks square at "
+                         f"end, its front wall {front['setback']:.2f} m behind the lot line ("
+                         + ("the plat module's margin, as the block programme's own party-line "
+                            "runs stand" if front["setback"] == SETBACK_M else
+                            "the street line this face's earlier row already stands on; a "
+                            "block face carries one") +
+                         f"). The bearing is the face's, so the front looks square at "
                          f"{street}. The station is the row-fill rule's (largest open stretch "
                          f"first, until the face is about 70 % built), not a measurement."),
                 "derivation": {"method": "not_derivable",
@@ -283,7 +306,7 @@ def make_record(front: dict, x: dict, table: dict, datum: dict, people: dict, n:
             "roof_condition": fabric["roof_condition"], "age_state": fabric["age_state"],
             "fabric_basis": fabric["fabric_basis"],
             "frontage": {"block": front["block"], "face": front["face"],
-                         "setback_m": SETBACK_M, "abuts": None,
+                         "setback_m": front["setback"], "abuts": None,
                          "why": (f"T-3605: the owner's 'Commercial core, about 60 stores' "
                                  f"(2026-11-15) fills this face toward {int(TARGET_SHARE * 100)} "
                                  f"% of its length, from {front['built'] / front['length']:.0%} "
