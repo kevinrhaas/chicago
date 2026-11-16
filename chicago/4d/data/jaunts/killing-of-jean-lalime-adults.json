@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 1,
+  "content_version": 2,
   "category": "Fort Dearborn",
   "menu_group": "Stories",
   "grade_band": "6-8",
@@ -972,6 +972,10 @@
                 "act": "struck"
               },
               {
+                "t": 18.95,
+                "wound": "neck"
+              },
+              {
                 "t": 19.45,
                 "walk": [
                   [
@@ -1087,6 +1091,18 @@
                 "t": 21.05,
                 "arm": "none",
                 "act": "struck"
+              },
+              {
+                "t": 21.69,
+                "wound": "body"
+              },
+              {
+                "t": 22.64,
+                "wound": "body"
+              },
+              {
+                "t": 23.59,
+                "wound": "body"
               },
               {
                 "t": 24.15,

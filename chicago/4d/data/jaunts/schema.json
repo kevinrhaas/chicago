@@ -1062,6 +1062,16 @@
                           ],
                           "description": "Adults jaunts only: a blow with what the hand holds (strike: overhand, a tomahawk or club; stab: a knife thrust), a shot (aim brings a pistol or musket up and holds it; fire shoots it, with its flash and smoke), lower puts it down again; struck is the jolt of being hit. Turned toward `face` when it is given."
                         },
+                        "wound": {
+                          "enum": [
+                            "body",
+                            "head",
+                            "neck",
+                            "shoulder",
+                            "scalp"
+                          ],
+                          "description": "Adults jaunts only: the castmate is hit here, now (a blow lands, a ball strikes, a scalping knife cuts): the blood thrown, a stain where it struck, and a pool under them once they are down (human-blood.js). Never on a child."
+                        },
                         "hide": {
                           "type": "boolean"
                         },
