@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3032, ts: '2026-11-16T12:13:45.354Z', date: 'Nov 16, 2026, 6:13 AM CT', title: 'Ask a question: everyone has five things to ask, and a personality', kind: 'feature',
+    items: [
+      'Greet anyone in 1812, 1835 or 1904, then Ask a question: five questions each, named people\'s own first.',
+      'Every answer has one or two follow-ups that reveal more, and many send you to someone else in town.',
+      'Some 350 questions, told from many sides: the same night, the same land sale, the same house, seen by different people.',
+      'Everyone now has a temperament and a line of who they are, from their own record.',
+      'Their temperament and history steer which questions they offer and which stories they tell.',
+    ] },
   { v: 3031, ts: '2026-11-16T11:51:07.213Z', date: 'Nov 16, 2026, 5:51 AM CT', title: 'A new public site, with films of every year', kind: 'feature',
     items: [
       'chicago.polecat.live is now a short home page and six feature pages: Eras, Jaunts, People, Horses and boats, World and Evidence.',
