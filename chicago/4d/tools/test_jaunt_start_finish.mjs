@@ -267,6 +267,9 @@ console.log('PASS openings and closings: flown while read, a closing scene, then
   const stageSrc = fs.readFileSync(new URL('../renderers/web/js/jaunt-stage.js', import.meta.url), 'utf8');
   assert.match(stageSrc, /get length\(\)/, 'jaunt-stage exposes its length');
   assert.match(fs.readFileSync(new URL('../renderers/web/js/narration.js', import.meta.url), 'utf8'), /\n    position\(jaunt, part, id\)/, 'the narration says how far its voice has spoken');
+  // chicago-4d-narration.yml checks out narration.js alone to voice the scripts; an import there
+  // broke the dev voicing run of #2118 (ERR_MODULE_NOT_FOUND jaunt-pace.js).
+  assert.doesNotMatch(fs.readFileSync(new URL('../renderers/web/js/narration.js', import.meta.url), 'utf8'), /^\s*import\s/m, 'narration.js imports nothing');
 }
 console.log('PASS meter: scene in real time, the jaunt as a row of stops');
 console.log('JAUNT START/FINISH PASS — glide clock, path and landings, welcome phase, final stop, readable road notes, openings and closings, meter');

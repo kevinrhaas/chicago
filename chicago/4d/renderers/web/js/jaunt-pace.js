@@ -13,6 +13,7 @@
  * the Outing complete card come. Pure, so Node tests read the same numbers the app flies.
  */
 import { bearingToYaw } from './angles.js';
+import { clipSeconds } from './narration.js';
 
 /** Seconds a voiced opening may hold the flight (the longest voiced one is about 74 s). */
 export const OPENING_MAX_S = 90;
@@ -38,14 +39,9 @@ export function readingSeconds(text) {
   return Math.max(READ_MIN_S, words(text) / READ_WPS + 1.5);
 }
 
-/** A clip's length in seconds from the narration index: its bytes at its constant bitrate
- *  (`mp3_44100_64` is 64 kbit/s), else about 15 characters a second, else null. */
-export function clipSeconds(clip) {
-  if (!clip) return null;
-  const kbps = Number(/^mp3_\d+_(\d+)$/.exec(clip.output_format ?? '')?.[1]);
-  if (kbps > 0 && clip.bytes > 0) return clip.bytes / (kbps * 125);
-  return clip.chars > 0 ? clip.chars / 15 : null;
-}
+/** A clip's length in seconds (narration.js, which must import nothing: the voicing workflow
+ *  checks out that one file). */
+export { clipSeconds };
 
 /** How long the flight to the first stop takes while its opening is read: the voice's length
  *  less a second (so the eye lands as the narrator finishes), within OPENING_MAX_S; null for a
