@@ -53,7 +53,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "3458a2a4497ffa18ea1e977c4170db8142ae0e12b97b8c0e478a8ca698e1a2cc"
+   "model_inputs_sha256": "ae743d31800641bc3ddeb1ff9fc1d677688ed699647e32067a7914a07c81b641"
   },
   {
    "structure": "brickyard_north_side",
@@ -79,7 +79,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "8abfb4d77188244cd3ab975b665b453bec3f53b7a2aa0716ba61321d0a3f7ed8"
+   "model_inputs_sha256": "d3393b28e0ecedf199dfd47a1e884d8a7466d91165a50a46c55684045acaee00"
   },
   {
    "structure": "brown_boarding_house",
@@ -104,7 +104,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "dd8ed0ef19eaa89a0179fc49405addedd64a2c9035dae976d20bf5a5be93e5e2"
+   "model_inputs_sha256": "037132ccc33228764e6ab4486d84067872fd384b26cc3729537bd6e5819e8384"
   },
   {
    "structure": "carpenter_south_water_store",
@@ -155,7 +155,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "0a442101123749771ec67f0a5852e84629e8be96bb8956d51a351c205882ae1b"
+   "model_inputs_sha256": "c228abf3b3edf591e93e53b3a608cc17239f3d8b56975ba3e9eb6ee09869c2f3"
   },
   {
    "structure": "chicago_american_office",
@@ -206,7 +206,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "cac3cd0dfccd884af0dff49c773d3433d9c16edbc0722a8ee1c1afce7d714829"
+   "model_inputs_sha256": "fa50a4c8137e822a5f6bc7d2f64feb31d17af99742d86713caf126232e27c716"
   },
   {
    "structure": "chicago_democrat_office",
@@ -257,7 +257,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "00591813b3c5ef290d842e836f3a3f424c8414260c055a422037dd736402a992"
+   "model_inputs_sha256": "b81b085478b2bf8314562e471886117678d5ef5f5904d2927add5209c5630dde"
   },
   {
    "structure": "chicago_lighthouse_keepers_quarters",
@@ -282,7 +282,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "60395dcbd927c5d242e94e2ace6ab08076af82a41c2a116e7ff4dd868085c354"
+   "model_inputs_sha256": "6e094830d09fb5ae1f95b2b9ea43754c7f935edb878650bdcb8f9acc7201cf0f"
   },
   {
    "structure": "clybourn_slaughterhouse",
@@ -307,7 +307,7 @@
      "width_m": 1.33
     }
    ],
-   "asset_sha256": "05a699db19949887193567bbecc6573f2f1ede228eba4995a001e816ed5cfbbc"
+   "model_inputs_sha256": "98a2dd3f28f4a7ec208e3ff93a5269edf99d4420c4f135bab121d84dbb7fd000"
   },
   {
    "structure": "exchange_coffee_house",
@@ -332,7 +332,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "55d65b5924517e94abeb382e80ef1a2febde25bd83b18b1b2a17fe19a1116352"
+   "model_inputs_sha256": "b076dc722a0e1cfb7ec56cde144c80258e5162b431367c0b8eb9d3b9ff371130"
   },
   {
    "structure": "fort_dearborn_barracks",
@@ -357,7 +357,7 @@
      "width_m": 1.1
     }
    ],
-   "asset_sha256": "ef648a9670ec7a9df934938c68dbc37ecfdbb09cdf34ef451c047ae48d88d108"
+   "model_inputs_sha256": "8d01139b52f1bc8d984bfa7fa759bb79163ab7a0099a714864747474fdff6030"
   },
   {
    "structure": "fort_dearborn_commandants_quarters",
@@ -382,7 +382,7 @@
      "width_m": 1.1
     }
    ],
-   "asset_sha256": "84df2871b2cd34396dc9df80f8b484a2623341f51400122e112fd00da9ae0ee6"
+   "model_inputs_sha256": "ac558ae650f53fade29458f5fa01438d39c174260ee347756abcaa43d0ee6839"
   },
   {
    "structure": "fort_dearborn_sutlers_store",
@@ -407,7 +407,7 @@
      "width_m": 1.1
     }
    ],
-   "asset_sha256": "cf9b8e7880bdd6090cad861d5316771747700954bb79831fcc3841f12d2b27d9"
+   "model_inputs_sha256": "678fba486eb643a3c708e5cf36f5a2d43907839de1e81d86873b281b5873eb28"
   },
   {
    "structure": "goss_cobb_saddlery",
@@ -458,7 +458,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "65ddad1ac29c0c15c7e0d1925baad9e23a33fd6b0ef0ae359a80d3b6257b7ae9"
+   "model_inputs_sha256": "04518ea9263717d1b360e3c7cad9aa4f363555dc462f819037f40a98adbc06c7"
   },
   {
    "structure": "green_tree_tavern",
@@ -483,7 +483,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "114b98c2dc057bbc47f66ce158bc984be438399e0c4984222b93e810d542714f"
+   "model_inputs_sha256": "f3a11cddc8c59e3fa2e3eddb55daf14dd5ddd26c040a75837fa737e3c923c764"
   },
   {
    "structure": "heacock_house_monroe",
@@ -508,7 +508,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "d45cbf03064763c03d8b10b4f17eefc519a7f8466ed46440e8749dc9ad83fc6a"
+   "model_inputs_sha256": "b3b4ee26da05f706de95cc3ad53f44cfac82e0a20c7e3c9785bf223420646298"
   },
   {
    "structure": "hogan_store",
@@ -534,7 +534,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "0fe873bebed5a3454892ce34673b21188b4f06be12fe0faa4f80f05ef24c378e"
+   "model_inputs_sha256": "4521341287aa8bf12fa10aeb0e8687a1016b3b5f44ba57a915f6f1222ab2c5a2"
   },
   {
    "structure": "inf_bakery_lake",
@@ -559,7 +559,7 @@
      "width_m": 1.04
     }
    ],
-   "asset_sha256": "761c9316eae454bf3e4262071ff8e78254b02b868d96dd2ed6c6ddd85487b501"
+   "model_inputs_sha256": "681893ea51e51d09eea2632545b8b780870e3540145e8ad4783f45b5fc0d915f"
   },
   {
    "structure": "james_kinzie_house",
@@ -584,7 +584,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "7fa3e5f3c2ce6b587bdc85a3bee37e749b92aa16fc2fe1dc983c41d6004b4586"
+   "model_inputs_sha256": "c517f0bd8d4bce65dcd09aede63b2dfe83779e056b20920d42723610b3557b70"
   },
   {
    "structure": "jb_beaubien_homestead",
@@ -609,7 +609,7 @@
      "width_m": 1.28
     }
    ],
-   "asset_sha256": "222fce99d7bb2e79450483fac535c70ca3e2caf790071533bf6edbef63c11a60"
+   "model_inputs_sha256": "951ec0b6f176d214144f0949fdcef839685de4b700c2b37301c5b716c0fcc1f8"
   },
   {
    "structure": "jh_kinzie_forwarding_store",
@@ -660,7 +660,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "6c6de3f35b74272a945e273fc1a3de3d418c149c3f594f7bec0616acbeb98e9d"
+   "model_inputs_sha256": "544f39dc05374390ffbd394aa71f754e6b834c9e5730aae0bf1dec5447ac7b14"
   },
   {
    "structure": "kimberly_residence",
@@ -685,7 +685,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "aa192e3b57a72850264c7621ad35697f0b065565b3ebd4a8d459bd2e5b927b1c"
+   "model_inputs_sha256": "ef5cec8a6cb982579e73a271a5438260661f43994ccaf59566a4038a747f06d0"
   },
   {
    "structure": "madore_beaubien_house",
@@ -710,7 +710,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "a7502d5ffd15b8e050160975af57dea42acb07d5279bbda5235a95ed40e93906"
+   "model_inputs_sha256": "c3ee71a764a2abc4beddae4dc252562b2fc50a164368065e0ccc43d47024f2ca"
   },
   {
    "structure": "mansion_house",
@@ -735,7 +735,7 @@
      "width_m": 1.28
     }
    ],
-   "asset_sha256": "ccf4b66e6de77d5669a29405545e683549b14a842f328fbc160b0de581269760"
+   "model_inputs_sha256": "1d7d0ea2e11e029eb48a956094a703d188fdc203f099fd4f9f38f870a9dac3c1"
   },
   {
    "structure": "mason_blacksmith_shop",
@@ -916,7 +916,7 @@
      "width_m": 1.35
     }
    ],
-   "asset_sha256": "12ec7295d8de3f242295bc5a9242d694e9c7d8dd05d32074a0a87289391f4a93"
+   "model_inputs_sha256": "e90f52b440a443766fc15334731e6f87418b5d7d7e20c622480995014852b7f2"
   },
   {
    "structure": "miller_tannery",
@@ -941,7 +941,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "2b2ebf0d66c34044fd6b9f5a27178706209fc4364ff01668507dfbdb3b92b607"
+   "model_inputs_sha256": "5d86cfa7b31fe9c8f5990ab9b3f5e78b1f0be75aebf4c6175777008624d82170"
   },
   {
    "structure": "new_york_house",
@@ -966,7 +966,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "990274f1fa5074f2015f9482da8d9f33524e3b69898c44866f506e656ebd77fd"
+   "model_inputs_sha256": "cb4bab3f5913132bcaaca64d4690a4f4fac8fc3ce3a90811f4161786e13e387a"
   },
   {
    "structure": "north_side_school_1833",
@@ -991,7 +991,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "8ac6a845ee108fff20751c0b0735ba50f5b0f521bbb90ba0974f736e65ec5e4e"
+   "model_inputs_sha256": "a1d573330cfa48ec02bd9223cf6f0010373c691ef1cce7a3bed35e8108b9c4d5"
   },
   {
    "structure": "peck_store",
@@ -1042,7 +1042,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "1f8acb85cc3090d79383f8c22f9a091f02ca0a50a867cd9d63634c1b265391a0"
+   "model_inputs_sha256": "12ed6bd226886e2c3fb06766e5f3d9095936d849a01bc70170d0c69197b214a0"
   },
   {
    "structure": "pruyne_kimball_drugstore",
@@ -1093,7 +1093,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "4229632a5ee00ae06b385a2dd7847f043ddbbac580eab6eae911303e94e4c703"
+   "model_inputs_sha256": "975f8d2f3a66c2f34fe2477193a903e4ac44082e418b9956c57d3f6b8866a24c"
   },
   {
    "structure": "recon_1835_blk_indiana_north_cass_d3_01",
@@ -1118,7 +1118,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "38d85d0a1e77dc4a61d2b7172c3e072c3730d560d4347341edcac98e1a3184bb"
+   "model_inputs_sha256": "15d5d6c492a5c26370265196945d78e126762dc8530cfe4215cc6044652d4de7"
   },
   {
    "structure": "recon_1835_blk_indiana_north_cass_d3_02",
@@ -1143,7 +1143,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "deabf2102f87d2df46e10b641c2d282f58461ef3438deedd4e7503a86f242b01"
+   "model_inputs_sha256": "594044eee119856754d64c9c745627a13b4453228c023eec52e73beed375a897"
   },
   {
    "structure": "recon_1835_blk_indiana_north_cass_d4_05",
@@ -1168,7 +1168,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f321f22c0b4194f37daf69a2c01665410a69b0b0af507ba163be01520d6b4eea"
+   "model_inputs_sha256": "375f2749020590dbc68478567bafb05b3512080a76a005e27d9519b4c21864a6"
   },
   {
    "structure": "recon_1835_blk_indiana_north_cass_d4_06",
@@ -1193,7 +1193,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "e9dcf974c83daef0aee3f1113972f92feb099477fbade4d448efa28db8df55bd"
+   "model_inputs_sha256": "2e66941952a988cd48415c8a165aff16ce2e682012ab8e4ffdf75f7384328fa7"
   },
   {
    "structure": "recon_1835_blk_indiana_north_cass_h3_09",
@@ -1218,7 +1218,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "1702727873a262f258a9c336f7384143b755b1dfe7070405cac08c0e6f4d000d"
+   "model_inputs_sha256": "c4f511244cdfe43ca6f80382cc380e4e8cae2d8e2d1aee486c669b16da5c501c"
   },
   {
    "structure": "recon_1835_blk_indiana_north_wolcott_d3_01",
@@ -1243,7 +1243,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "c8497a33dad4bb5a4577017861ac3cd488c79f5c61fdc5b2ec994b2d3443f509"
+   "model_inputs_sha256": "6134cefac1323b5c41f30d1ea4ec9f3d4170253a7a2e7c94d047ff35c0076500"
   },
   {
    "structure": "recon_1835_blk_indiana_north_wolcott_d3_02",
@@ -1268,7 +1268,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "e9f810e1bc09a4b38110f185be1fa58b35e95faac1a4dcb376491e2f221092ce"
+   "model_inputs_sha256": "09eac285c44c7204b133eb35182406fa7c1b64055bf1c8f98c2990b2da11de56"
   },
   {
    "structure": "recon_1835_blk_indiana_north_wolcott_d3_05",
@@ -1293,7 +1293,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "ceedb45b83e0dc37b4bc4c25d461026b865becaf9fa3152ea6cb547d2cd5081c"
+   "model_inputs_sha256": "321c66cc4dec0d37821de09be6b325be818be0ca9d3ebebd373418922a03e46b"
   },
   {
    "structure": "recon_1835_blk_indiana_north_wolcott_d3_06",
@@ -1318,7 +1318,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "c1292af8dfb6286992565a8ea28c5efc441e087043cc3c3c7b379998aab5793d"
+   "model_inputs_sha256": "dc7fd011911a3b067b8b2a2af34582ca69856f96f60c1a89988ada799d12a60f"
   },
   {
    "structure": "recon_1835_blk_lake_clinton_d3_02",
@@ -1343,7 +1343,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "b96927c3a6ab232008d4d5f98f2a5b5af6abb1c2f370893edd040997ed17c2d2"
+   "model_inputs_sha256": "759cc09394e567bfcea3e628e9d8cf74e5e79beb17aed424e6ac4ef1901d9ac9"
   },
   {
    "structure": "recon_1835_blk_lake_clinton_d4_01",
@@ -1368,7 +1368,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "7956df7a014f695a0e36e9a3245f52dd82f42b7f70bde62e7c55859d5223d8c9"
+   "model_inputs_sha256": "1ace36ef3170cab624bcf66814bb61fac6411167022ad1d5d081cd758f53fb6b"
   },
   {
    "structure": "recon_1835_blk_lake_market_c2_01",
@@ -1419,7 +1419,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "24f9b495aea9623e4c5907d0cfb035c23e542a01bdb8713905cb5e355384d687"
+   "model_inputs_sha256": "8ebfad5b07f549254022cacf4ddd22db9755857d72c826f026d1ed5cbab9efdb"
   },
   {
    "structure": "recon_1835_blk_lake_market_d1_05",
@@ -1444,7 +1444,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "a6fd83600d297356d2beb9d0145c61d02bc27369cf5c35dba1b8f1dca27aa0db"
+   "model_inputs_sha256": "2a885889f4e2143011f0cdc231992a5f7b9c19c0cf570d3cdafa46000d6314e0"
   },
   {
    "structure": "recon_1835_blk_lake_market_d3_03",
@@ -1469,7 +1469,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "96d2ae1fbbd10d873d7e1217a388c002c9be8264d0c9aa053d7b844273443f6b"
+   "model_inputs_sha256": "9d649443e350efdacf6fb558149382cd25acd8cd5e11ac7ae54c0382ff367154"
   },
   {
    "structure": "recon_1835_blk_randolph_clark_c2_01",
@@ -1520,7 +1520,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "3421d8e1e490ab04b8796f8438b9e2e9f02f1fffbed785696bc5743c6facc8e9"
+   "model_inputs_sha256": "b8efe01f2c14009ba0dfd79ea688d4dc0fac45527d72c2c0fba93a39f5b31c2c"
   },
   {
    "structure": "recon_1835_blk_randolph_clark_d1_06",
@@ -1545,7 +1545,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "bebe29baba89ed0313c301c18320709ae5faa31cc07ea22c790dc45a23401a41"
+   "model_inputs_sha256": "40d72874d70a16b52c9472372a80204de1339fa6d9c4e8d2ad887fa6fc75bbec"
   },
   {
    "structure": "recon_1835_blk_randolph_clark_h1_03",
@@ -1570,7 +1570,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "dcd80dd218e79fc81da8fd81421c97179842100f1d27e1c1df217d148b4ec36c"
+   "model_inputs_sha256": "39aa43422abe38669432769d75cd8417b8425e39e684e0eea15bf3ce905c5c96"
   },
   {
    "structure": "recon_1835_blk_randolph_clark_h2_02",
@@ -1595,7 +1595,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "2f26ff76f90073c245d21437cc5e175f169dc2887dc21f7c194e1a60458246b5"
+   "model_inputs_sha256": "c476235affb869ea70c9be9120615700e0b40aff2066556b5b505b7834edfff2"
   },
   {
    "structure": "recon_1835_blk_randolph_clinton_d1_03",
@@ -1620,7 +1620,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "44b5f16cb26f03915212345b5a9c6b2993aea4054c6f91b7ee374db5288a7545"
+   "model_inputs_sha256": "859d9234beaa2717d1ada1d2aefab60116480aac6e1e2632197634286b7ec9bf"
   },
   {
    "structure": "recon_1835_blk_randolph_clinton_d3_04",
@@ -1645,7 +1645,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "fae672ac31a21f04c80d74e2242610f83af00476eb7d8ef52ddebeb32475fb0e"
+   "model_inputs_sha256": "8b44b69a9aa0cd1183018df36c6df904ea1ea931516f7912838f60dc80c7784b"
   },
   {
    "structure": "recon_1835_blk_randolph_clinton_d4_02",
@@ -1670,7 +1670,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "b260420d4b58658a796568a4a5b2c301f95be096d33634c83be43056d4881875"
+   "model_inputs_sha256": "6a674cdff6cff1a575cc599c15ad97f25d18ae97f000c39fc992cbb05ea4fdf9"
   },
   {
    "structure": "recon_1835_blk_randolph_clinton_d4_09",
@@ -1695,7 +1695,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "28f57f2321fa0b1a6ec7a8c860ceaf9fcfa8eb51528721cc7f035696ddb1e4bc"
+   "model_inputs_sha256": "cf79c889c284b85b95c185cf9e31354a4a721624466d55d7b2c2d760dfa88aae"
   },
   {
    "structure": "recon_1835_blk_randolph_clinton_d5_01",
@@ -1720,7 +1720,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "350cbca38fdb505af37ecc8a70a05549ac8c7629a6c0ddc6e935aba5ffb5ea89"
+   "model_inputs_sha256": "679e80df239ede574dab7405a99a966946b7058356b23f334f5d23149b7a7b7b"
   },
   {
    "structure": "recon_1835_blk_randolph_clinton_d7_08",
@@ -1745,7 +1745,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "724bd2added87b616c4d7e7e91697b8d5b63e9222aabfd2004528a7f393ace24"
+   "model_inputs_sha256": "609ab115d7f968f3eb3b0e6c2926eb2b4e6e9967e9dda0a809a35a82bb42e07a"
   },
   {
    "structure": "recon_1835_blk_randolph_dearborn_d1_04",
@@ -1770,7 +1770,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "26e4c910c3604fe8ba72d6565a890ae9c58f605e7f17fca5a3e808bb76d4345a"
+   "model_inputs_sha256": "3be31a5ccf3219fb3824c6f5438ccbd2601a5f852adb2f3e07b26b590d1f9727"
   },
   {
    "structure": "recon_1835_blk_randolph_dearborn_d1_12",
@@ -1795,7 +1795,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "4af2e221c0e01dad51e453f677570dbeeee9362ec13f8eca7a24aaec83fc1249"
+   "model_inputs_sha256": "c461c33e9df005cc1d76ea1c6cd8c0a09a1a9577127ba6be9bc0dc39b69d3c22"
   },
   {
    "structure": "recon_1835_blk_randolph_dearborn_d2_05",
@@ -1821,7 +1821,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "9c44614e55c4e7669ec4cfe45f07c8c157c15554de5d4fc8ee5fffcf1f367e51"
+   "model_inputs_sha256": "163d0e0a0452d0d86a58417a1b29685319b6dab711db71d3aa126150455a1513"
   },
   {
    "structure": "recon_1835_blk_randolph_dearborn_d3_01",
@@ -1846,7 +1846,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "2f33e6ea5c0f20f0e7dd37567e2ac9370da016b85054fe24f68ca01b93e3b6d9"
+   "model_inputs_sha256": "38b7492466c3a6513b3c42c31cbab46d0976716f574a8795b586b985af692ec0"
   },
   {
    "structure": "recon_1835_blk_randolph_dearborn_d3_11",
@@ -1871,7 +1871,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "d55e84e6c124e2aa1bc5039044a5e4d0dbedf1dce1ac2921c7023cf119d36989"
+   "model_inputs_sha256": "c5dffd95f5bc07b4592dec5a44750ba2b0f879d884322fa5126e783b1d36e7e9"
   },
   {
    "structure": "recon_1835_blk_randolph_dearborn_d4_03",
@@ -1896,7 +1896,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "cd94322f932aed21aa670a15f8e53c02579eb108ad26ff6b9f1d8d52d4bfee00"
+   "model_inputs_sha256": "891a50ee704c8c395be4c668c2daa2bd10132666ad40b12589ffdde87969d09e"
   },
   {
    "structure": "recon_1835_blk_randolph_dearborn_d5_02",
@@ -1921,7 +1921,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f89f7fafd1e8aed30a0fa297dd5b2532862d17b83c39c41152a36c4adc018bff"
+   "model_inputs_sha256": "d4a2dc1356ac7e698663d7fca38a9c00fa84d6873301f1b21cbdebc0137dde7f"
   },
   {
    "structure": "recon_1835_blk_randolph_dearborn_d6_10",
@@ -1946,7 +1946,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "a9dbc73eeb4caf31b4e674d1ee4b378efed3511fd83f0f3556a07fe2dc4bf97a"
+   "model_inputs_sha256": "2d54a3a04b9633a5e7e857a672c968bb90ba0ce253788a795774b12a0b16de7d"
   },
   {
    "structure": "recon_1835_blk_randolph_franklin_d1_06",
@@ -1971,7 +1971,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "9bf41e8294dc5f12782cab6417de434cd607799c34449c432181d3d7c84aeae2"
+   "model_inputs_sha256": "3eff694dc4f54fbd8a0d97924eb84b7253f53787d55f9c865634ba249098b928"
   },
   {
    "structure": "recon_1835_blk_randolph_franklin_d2_05",
@@ -1997,7 +1997,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "6403f7b523580ccce3f39e73dd2d3d7a3772b821fb2ea65e6f12a73ccbc5b3aa"
+   "model_inputs_sha256": "9e5bb694cf086d3dad2ec1670e4587fbb29ad07f237c94a88b6fe6c026f6418b"
   },
   {
    "structure": "recon_1835_blk_randolph_franklin_d3_04",
@@ -2022,7 +2022,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "59954027b3c96ba00bb547671d95c4b89f07c8a0f46b5ab52a869c5d9ed8fefc"
+   "model_inputs_sha256": "6aacfffb16c17efdce0da2f08f017de9a80398eeb92a2241138e1fa5872cc418"
   },
   {
    "structure": "recon_1835_blk_randolph_franklin_d4_03",
@@ -2047,7 +2047,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "ec1837c2563e5a958ef01939c30378935299b2eed9d53a031ed77ce803761ce3"
+   "model_inputs_sha256": "fb00a12edf6390591cff28049d0053917a9161f956c891f4824fd2974327cec2"
   },
   {
    "structure": "recon_1835_blk_randolph_franklin_d5_02",
@@ -2072,7 +2072,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "2c8a033d814f03ec19df4c50f6e9ced94b80eed1b4c600594e7aac0a9b38ee1a"
+   "model_inputs_sha256": "d41b8fdf58cb504c96aed8d28749e648ef90756de25bcbb76ca1f8ebb54544ee"
   },
   {
    "structure": "recon_1835_blk_randolph_franklin_d6_01",
@@ -2097,7 +2097,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "3f74a4c22f4ccaa5a5b10c3d5350024b0e69dc54b4a869b684c5947ea5ae6c92"
+   "model_inputs_sha256": "5feec574e8fb0abd8282a84f715c6f1f996fd5f9c83a8eeff6ac3b6824e0b569"
   },
   {
    "structure": "recon_1835_blk_randolph_market_d1_10",
@@ -2122,7 +2122,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "385f7719b4c267c795aec298caeb116cea3ac72a1a21cfd374dc8f0c43892342"
+   "model_inputs_sha256": "9cf82a7b252b3517fd1f6cb7f5bb4201db8c8cd4f17dfee8ff7d8b2b27b788eb"
   },
   {
    "structure": "recon_1835_blk_randolph_market_d2_09",
@@ -2148,7 +2148,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "750ff084e798fe4d2ea21972cf4d88416a1a3515e72c4b06bb2ff12169ef645b"
+   "model_inputs_sha256": "362463d9c34c9c03741188616b7587d9e638f00b012e0f6fb20d4ac71e60351a"
   },
   {
    "structure": "recon_1835_blk_randolph_market_d3_04",
@@ -2173,7 +2173,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "3f6419d8480fb724ad455b5e9f19bf5d997b64ee7f07620a25cddee2545ed9b7"
+   "model_inputs_sha256": "3a0d9b33e6be3f0ecada587ad84b217d097f4f7757e04847d8167fe2baf5f101"
   },
   {
    "structure": "recon_1835_blk_randolph_market_d4_03",
@@ -2198,7 +2198,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "d20d273ee35fe52da510f49d7e70313f7360126c90197373759c344986ffe3f8"
+   "model_inputs_sha256": "538bfe2f25b0f50857727a3540cff4fb338a8e1aa6b0538fa2a50a1373c2ca1d"
   },
   {
    "structure": "recon_1835_blk_randolph_market_d4_07",
@@ -2223,7 +2223,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "fea8247820c78b3de15835076129e74eb880d2f9c6eb5880c2a6bbf206b72c52"
+   "model_inputs_sha256": "cd730ef08103853010f86c544ad4c65c5718e45c1e3a98ec933c0c5d98600d7c"
   },
   {
    "structure": "recon_1835_blk_randolph_market_d4_12",
@@ -2248,7 +2248,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "d3970102fbed547028d52e886aeff30fe4a1c588d8a21c7b1e8ca0c95afc186c"
+   "model_inputs_sha256": "91e18483d32fbce3424e4c3b5dc4e6338f5eeaf0197b547540e145747dee2540"
   },
   {
    "structure": "recon_1835_blk_randolph_market_d5_01",
@@ -2273,7 +2273,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "9cb92fe735271342f894d4933f013066676a7c95df5c2f4bdee3505842f43431"
+   "model_inputs_sha256": "cd310b73f0fb320a44717aa97d50ab17afea42f13618694e82247f99ec6bc2e5"
   },
   {
    "structure": "recon_1835_blk_randolph_market_d5_11",
@@ -2298,7 +2298,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "48e1f99b9d2cbb16520d7a0bad8e4b3c6460207d4397123ecda4146e6476b8ae"
+   "model_inputs_sha256": "1697e3b22553f81393059436110a8c27a7af2e646f31ffc973921c176b7377e0"
   },
   {
    "structure": "recon_1835_blk_randolph_market_d6_02",
@@ -2323,7 +2323,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "4fab40f13984d9e8a4cf5779cee8fa5912a9b72b64384a6bbfde7d8170f8f0b1"
+   "model_inputs_sha256": "9c053cdb12f641643a1178ecca0f3a5ea86e0efd134bed54dcb84f8f36fc7558"
   },
   {
    "structure": "recon_1835_blk_randolph_wells_d5_03",
@@ -2348,7 +2348,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "11cc2201bbc320a89b8b4539355221b93ee890ec913054b3e16f46fbd00ee3ac"
+   "model_inputs_sha256": "d38bf3b0172c48c3a81305a4374b8585496236884f2c26bc79bd117b51d01a73"
   },
   {
    "structure": "recon_1835_blk_randolph_wells_h1_02",
@@ -2373,7 +2373,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "6762d3fee47d76a5b723381624e2291cf2a37459f5fcd4eb98a3d61538b2185b"
+   "model_inputs_sha256": "a3df99968b71ec3c09f823977d7f0b19675215e7df76d031a9464626d05442a9"
   },
   {
    "structure": "recon_1835_blk_randolph_wells_h2_01",
@@ -2398,7 +2398,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "e77154f912730201c40435d834c89b3807ba044a40c390ab6474fe0c6f133721"
+   "model_inputs_sha256": "8089ea014be0e993a32bb03feca1ac075f840e1253d22268914ed5405ef8702a"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_118_d2_01",
@@ -2424,7 +2424,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "a682be9650750ee2e7ade783c228b16ac35b8a5874bd4e49c7c2f4481d772731"
+   "model_inputs_sha256": "57f60c8f4b37b603fb6483b43b5108e24da6f6d19938d7e6bc74978dc5908899"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_118_d3_05",
@@ -2449,7 +2449,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "6dfb958d2ed1c797492a19300fab2cfb2990cbf036d47b29d02df56b720e1719"
+   "model_inputs_sha256": "ff90188357578d3be6afac6cbadda2c27ee4318b5d310b4d926eb74f21967d9b"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_118_d4_03",
@@ -2474,7 +2474,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "afcf0a223f53b560f5c630c51771887720a435ee3e366543e94a8fda853533eb"
+   "model_inputs_sha256": "e5d2116e424407b64aadf847174711c55827bebd40e6c3fc1737a5985d9c4d10"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_118_d4_04",
@@ -2499,7 +2499,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "b5e3efbf60c87a540e13bdf9a197874bce1b58bd3cd9793e387cb3a5ccfeacf1"
+   "model_inputs_sha256": "51f8ab69fc65d0d65431e994bc80c0eeda86f4ec3044e7e00e2526e450c6311a"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_118_d5_02",
@@ -2524,7 +2524,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "860481bf0041c42cc1f5c53654ea3d914ed1dae3027125aab8482fc657723edc"
+   "model_inputs_sha256": "a760ad084f8a283947fe98a5ad15801ca443faea3f84665e0fc3d112a2972a48"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_118_d5_07",
@@ -2549,7 +2549,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f48b79e2a6655c7743e8925b372ab25905e2f89482419d1710ad7c51670fb552"
+   "model_inputs_sha256": "9a5a2d92f1d766e70f50bdacfca50264d62d2e76f0632654bb83f7580d689d39"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_118_d6_06",
@@ -2574,7 +2574,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "fbcf36a529fa1c83125bcce5d8822fe84743f4816f477b2a704caec89698ad7b"
+   "model_inputs_sha256": "9669450ce5391fa5278043af51af09cce2c258194a964080a05d177c7d230bc5"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_119_d3_05",
@@ -2599,7 +2599,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "208d0ebb7e92bb9acb41a96bbe15e87ad10afd1f5f1bb2f06a3f713d1c2d7a36"
+   "model_inputs_sha256": "f97fc22054f277add77dcc0ced5ad7f2d37b45b40ff1b5e0658752c83a4349d3"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_119_d4_03",
@@ -2624,7 +2624,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "c45592f01a2b05cd5ae0d28883df832cd80572a5f03541daa6bc3058cd9bd17f"
+   "model_inputs_sha256": "3ae44e92a80ced405a6bae96ab6620e2ca1e16281ac433e0afcd52c3090a4139"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_119_d4_04",
@@ -2649,7 +2649,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f49cf19bf127184174a4b3fa6cf721fd3621d500066295a561c3f343367f0e53"
+   "model_inputs_sha256": "9dc8524557d627d31c38377b767b50c7f1c84788a93ebd1d97277fcb9a4c0a9c"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_119_d5_02",
@@ -2674,7 +2674,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "5e09167ee902b0bf6f8e2911d8b226e83ed4cd47bce815b63da04388ec4881aa"
+   "model_inputs_sha256": "c3d959e831fb8234db3e62646c4d192e01657971b844d7062b249f5d1913479b"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_119_d5_06",
@@ -2699,7 +2699,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "6731836591275bd67110c938a7fc3a557f40505f0f8360426649bde7141d2037"
+   "model_inputs_sha256": "f3c212026adc224a1d970ad18dcaa6c853b4e29c40eeae039eb3e9d13a82516b"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_119_d6_01",
@@ -2724,7 +2724,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "b8b02ea55a33604b44d9c4eea1bb3ec17650f7d7db2de003f4532c1937aca176"
+   "model_inputs_sha256": "7bcf92540688689ba4d630a96a7026e1e2cddb320dc457be2f7d04f63aa47c43"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_119_d7_07",
@@ -2749,7 +2749,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "40e0affc8603d94a0ec52b762184c5a64306d0cdaf87f9a8ceb2b8e10e9b2c92"
+   "model_inputs_sha256": "b416b6a3fe96feeba88492470ef467e34a861ee6d2d3fb377f10707b86d0368a"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_81_d2_05",
@@ -2775,7 +2775,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "9141eb4d7307a2521b3cff9992d1321c7d1daadc20a79eae427740fb8d91b0c7"
+   "model_inputs_sha256": "18b1fa997ec49ce1ce45f37bd1b3f8d1e847b8f3a54f0bf3517a40e6467dd0a4"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_81_d4_03",
@@ -2800,7 +2800,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "8c66a3f9f1fc8233da3d62c9be645cc7ef53e435bd566b1fd3004f6f4278fc3c"
+   "model_inputs_sha256": "3ff767f7ab6b6a05774e1022d87f7fc9ade5a9d9efa91fa38e526f7704e69e4a"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_81_d4_04",
@@ -2825,7 +2825,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "9547e401fce91c224ddf0f736b75f9ce260462d38eb7e7af670eaa3d2a786cb4"
+   "model_inputs_sha256": "1b3086c57aa84d6740c6a2e9d30df0e11ace4f0faf17b175e9cb663f44516bb3"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_81_d5_01",
@@ -2850,7 +2850,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "0f2b4aa348ec62b81d00b1be91ab9fd63b62c4bb36270f20de954bb7dcbeaf9f"
+   "model_inputs_sha256": "53d7840a769c632f04dd67ae67ef8c67319cf252031b6c5941efc53a962ed2f6"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_81_d5_02",
@@ -2875,7 +2875,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "255bc848c9e1f788a7183ac90c6dd0753b61375f15716504d7e4b48a43dd4206"
+   "model_inputs_sha256": "9fcbd66b8c0937993dbc433496e30f223f29416a07543b433bd93ce151f555fd"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_81_d5_07",
@@ -2900,7 +2900,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f14116b720eff76e05cecade684fd37062c9be8e70a11a7783630d85209e25de"
+   "model_inputs_sha256": "3151aadcea16378c4ef96ba11bd4c1db46d89ff34a348917c7b83f7b0acb5bc7"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_81_d6_06",
@@ -2925,7 +2925,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "6020fa8b83f725fac5eaa7b4190ce8a62051da4fe58528f11aa189c65a7f817d"
+   "model_inputs_sha256": "f5520fcac3476cc55c5f22c5077e2f6bf79b9e063c0c08a289f358535633bef8"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_82_d1_05",
@@ -2950,7 +2950,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "dc24ef836e2643292bd623971b9db69f85146f6e619af97de4c12b8c443a5d6d"
+   "model_inputs_sha256": "886cce06a3c2d275ad7b688399d1e4a22ef2ff0472bfebd7aa087b658bd90611"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_82_d2_01",
@@ -2976,7 +2976,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "1eb4289a3cd6bb829dff9d5facd8964c0bf5316d50e25ca3125f16fcd9ea6486"
+   "model_inputs_sha256": "4d7e0b32aa5526a1f1ccace1d0aabd8402351cba05bf5ce2117f802d185f03d3"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_82_d4_03",
@@ -3001,7 +3001,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "4cff2398437ed341cc33a8e4a5f66e4077de184777a1d0158e81f093f6106afe"
+   "model_inputs_sha256": "5c0442f02a5647a943a4078a12e03ca575ab46bdf12c49c0346757b219e64793"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_82_d4_04",
@@ -3026,7 +3026,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "e4869d34c3ea18efd63a91c92de587113aa16baf41f07589450a7913961776e5"
+   "model_inputs_sha256": "11cdf6d6f025a96fe6342cffea080bde3f3aed78db0af0fe578c3e0ecab62074"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_82_d5_02",
@@ -3051,7 +3051,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "97b9769346fb235ef954be9c227428ece07380444015f3e96824fa0e94ac275d"
+   "model_inputs_sha256": "b18b1304f08c8365041778176e85320b06b5488640b5169d9452fed4f16dba2e"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_82_h1_06",
@@ -3076,7 +3076,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "69766f40ab5b97c6bd7abb236964175b108331c4f6afb34423d6f21715c7d9b0"
+   "model_inputs_sha256": "e160d0cb130d35810aad254750ca11a73925f005c5cc57d4e7a08aa9790868ef"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_94_d3_05",
@@ -3101,7 +3101,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "89a25575d68fefd1a2296c7ebc8c5f7f7c7b52749d3af5cb74bf98fbe76564e3"
+   "model_inputs_sha256": "8e460f3732be80d8932fab9c70b3a500c9a36d54d369e17602d076ba21b19cfe"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_94_d4_04",
@@ -3126,7 +3126,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "ba4d2e5d5adad95ff7c40b1964c6eb07192ac18b55ae4a428c9d8a9dd9dde037"
+   "model_inputs_sha256": "65776d9d563841d55b10de9cd960d668038f83692534bd46023c006132cda9d6"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_94_d5_01",
@@ -3151,7 +3151,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "bb0d6eb75894923d0b46b9b200d0e818e5f31fdba763eeba92f08d0b35f9312b"
+   "model_inputs_sha256": "77886d34448b86e8c5109af3de9243b1a9caec4bb9d2b6dd7df0560829d52857"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_94_d5_02",
@@ -3176,7 +3176,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "706329d7440fce1ee2e97de828fe63fc32e85eb41e41f457324aac52099c9ac9"
+   "model_inputs_sha256": "d754bcd2b86e30ef518eacf276682aa2a70279e60351490161f09ff0d8d3a135"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_94_d5_03",
@@ -3201,7 +3201,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "edd88380f6fbc521d1b31870628f36b5ad168ef3fe513f629deb9c18d862cf1c"
+   "model_inputs_sha256": "15ec9526d5d4e19de0786e81fef4312fe328514572796de63e2f02de4f1a4e8d"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_94_d7_07",
@@ -3226,7 +3226,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f0ce01e5cf4c62a5d8b27be823bca9735795e664bf6298cef6e082cdd5198344"
+   "model_inputs_sha256": "6b96ae67ad24022e21b3237d2ab5111b6a4c3f81faf904c2089306fc17d325f1"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_94_h1_06",
@@ -3251,7 +3251,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "c648898fcee2bd2d88190925afd6ba284ade44eb787d2e5931dc26c52f94c224"
+   "model_inputs_sha256": "748cec0909ea45d5048f26acac93052875c8eed93d1189dcf7f8ce50a8905dd9"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_95_d2_05",
@@ -3277,7 +3277,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "be3ee76996794cb070c38ad31cd3c9b5de5e2117e5b40f8e6e20b7f111500efb"
+   "model_inputs_sha256": "5ed997753284ace4c03daf38326528d3cfef3487cb18cd41c27716d91073b397"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_95_d4_03",
@@ -3302,7 +3302,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "0c8d11395827a16dfac85ba5af1f3cfc34b94a3abde0b08119d23d0a1da6fa05"
+   "model_inputs_sha256": "930a2e1e84a41a67488be150b94f95a33720e2d5a5fb85d24bd26c1d1ac38ff1"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_95_d4_04",
@@ -3327,7 +3327,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "ce2c1c2d841aba5621b1f107f37bf977fef21aa2a44b6349527021fbb587326b"
+   "model_inputs_sha256": "e7366fa17dacf409ab3e0a9aa49496b5325db2991a6fd6e2c4114181848bf6cc"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_95_d5_01",
@@ -3352,7 +3352,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f16e5555d40e0dd10ec72f45a8300dcc52ed2077c3ef978e2d0ae20046aa997c"
+   "model_inputs_sha256": "7a31d53bf6b6f40e8562b415b2f10300a341eaccb990d5fd414e7f101794dba4"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_95_d5_02",
@@ -3377,7 +3377,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "1d78414e52351bbc925d54117f6c1c492b2bf5c1b51cc4c5b0427b7fe7bf7da9"
+   "model_inputs_sha256": "20949083440187ac0da78cac0f4617e0b4d4170e613c9f9b7703999d43ec750d"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_95_d6_06",
@@ -3402,7 +3402,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "b346d28175f5d5ca38d1b9499f5a64b678f70b96b9428476d2e2f5bfbdddd96f"
+   "model_inputs_sha256": "8f542162e87ea668c85f9217e735c5a959793d49ebec0a50c2eded859a83e951"
   },
   {
    "structure": "recon_1835_blk_school_section_tier_95_d6_07",
@@ -3427,7 +3427,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "1b22b0f2a4d313890117f46669ace3f5e288dfc34e04c293a65b5ecdb53269e9"
+   "model_inputs_sha256": "56eee871ea96caf3e71f1f50fc31043d510632027bee8cd6a5606955abf287aa"
   },
   {
    "structure": "recon_1835_blk_south_water_clark_d1_04",
@@ -3452,7 +3452,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "01ec0c10c95e4bd8dd6e938880ffa974aba3ff98cfbb075297af4b07bb7e2c9e"
+   "model_inputs_sha256": "607527e15a53a7795ea6914c53761e64f1f21f66e24017e5e7f88631193b2108"
   },
   {
    "structure": "recon_1835_blk_south_water_clark_d3_03",
@@ -3477,7 +3477,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "e09fcdcd988bb2deb63881bd95fce1f6acc46626ad8d5145b39544f349006829"
+   "model_inputs_sha256": "a1f5d909bcaae493ffb5a49fd5edad953db35ab485c8310e2fb611a0e1c3604a"
   },
   {
    "structure": "recon_1835_blk_south_water_clark_d4_02",
@@ -3502,7 +3502,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "a225b3f23ecff4b572ae84a09b5181d14f8489e95c26a3564e762cf270aa6795"
+   "model_inputs_sha256": "c32654663b07775b487822a97528ba8bb4ac24b714aa2c7caa9ab8ee968443c3"
   },
   {
    "structure": "recon_1835_blk_south_water_dearborn_c3_02",
@@ -3553,7 +3553,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "df6910a70bc6f6145c8188143bde73494e5dc9e92227fc4b4c83777cbc91ac2c"
+   "model_inputs_sha256": "3b33701ed70c3d57d22e2efdb5c7f62321ccd9b96b2099be8f5bdb63f134a8a1"
   },
   {
    "structure": "recon_1835_blk_south_water_dearborn_d1_05",
@@ -3578,7 +3578,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "5b02cc0ac2b259b5a60897786a6e2ea4f1a7928d373e0c68fd3f6e99d1f8e976"
+   "model_inputs_sha256": "40eb265378a5f4623bab7c43d76773d01af155b81c64fd1b0f74040027ca3cbf"
   },
   {
    "structure": "recon_1835_blk_south_water_dearborn_h1_03",
@@ -3603,7 +3603,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "7500f64db071db29da3e5cd5fb09b7183bd3b193047cb802431205f4b5d7afde"
+   "model_inputs_sha256": "cd86454ab4f566c5ca0e72894154813420a6aa5fecef3d4b20b879f4acbed922"
   },
   {
    "structure": "recon_1835_blk_south_water_franklin_c2_08",
@@ -3654,7 +3654,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "c2351e317b6eadebc0fc348357a04fbdf2991279d05a19954729c47cdfbc6c8a"
+   "model_inputs_sha256": "689cffdf688113740f1096384d9940f5ed450bebe6e0d5bab420e7df834a7175"
   },
   {
    "structure": "recon_1835_blk_south_water_franklin_c4_01",
@@ -3705,7 +3705,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "a8ef1b1adddce7319f042c00da9f534d1ba6a44cfce451b43bc6c1c44bd45f5b"
+   "model_inputs_sha256": "ef37946de9b6d92b2b6a7d9249a88075313e98cc46f224961eb0e739466b3a74"
   },
   {
    "structure": "recon_1835_blk_south_water_franklin_d1_04",
@@ -3730,7 +3730,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "64a41946b19b3959c4a75d2c7ce8082bea184e20ec2a1581fac63e2a999bc963"
+   "model_inputs_sha256": "a0280aeb336a68115edb0af6dcbd55711b38d9140a4107d61ba6af4cabef4d70"
   },
   {
    "structure": "recon_1835_blk_south_water_franklin_d2_05",
@@ -3756,7 +3756,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "ece5b8e50f4a99009735fc1b2934fbc52ad9bbec3af8c491fc81369aef7cf221"
+   "model_inputs_sha256": "dfd8f73eeea2550249c81923452f38ec346374d9ea7b05199944cf8f5bf237fe"
   },
   {
    "structure": "recon_1835_blk_south_water_franklin_d3_03",
@@ -3781,7 +3781,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "d8b72cdfc8f2c4c6c2a6cf1428ef2f80c4b195fd42df05b779ca3f5bce13640b"
+   "model_inputs_sha256": "140614bb431b0f9b2ffe86694683b468d56069cf2e6ac606799fd6234169cdc1"
   },
   {
    "structure": "recon_1835_blk_south_water_franklin_d3_13",
@@ -3806,7 +3806,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "3bcf6bdf758ceb0976b42ac9306e6ad58e84b1f45eeb74012743866c7f0ad13f"
+   "model_inputs_sha256": "bed9fb0ccdbbfae93bfe4cecaa490220c082bee92ae30dcf974ed392cd82fcd1"
   },
   {
    "structure": "recon_1835_blk_south_water_franklin_d4_12",
@@ -3831,7 +3831,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "10a48552e49f2a8ca1ecc1416e4656eb92c92b3b8086c5d00238e4c51ac61fca"
+   "model_inputs_sha256": "6d10a70ef4a53cb5f40b1576e3901bb47b93fbacb3c682011330b7b3da39c594"
   },
   {
    "structure": "recon_1835_blk_south_water_lasalle_c2_11",
@@ -3882,7 +3882,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "a2515ee26912a069673bfcc10c21778e5cf694091dead05211a5975d9796808a"
+   "model_inputs_sha256": "da8ea5ab1e7bca44ea0d8f956540eab0edad39e85f78340e36aaf585a3b27ae5"
   },
   {
    "structure": "recon_1835_blk_south_water_lasalle_d1_04",
@@ -3907,7 +3907,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "b8184b274831a2ac14e70b9c23146872701b0049cd5bb5c35de15a2bb73fa891"
+   "model_inputs_sha256": "8fa451f0b2eebbfff677a071d21a35f8835d8de11fe42f9177ed0d1f8f0beb8b"
   },
   {
    "structure": "recon_1835_blk_south_water_lasalle_d2_05",
@@ -3933,7 +3933,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "cf5c1e86990955b7303cbcb6108925af9138984ffab90f0c77745c2b78536628"
+   "model_inputs_sha256": "bf0370835ea3dd391888cc1a6a5e9e7258eb8fd2132dbe32353f893737ac73c7"
   },
   {
    "structure": "recon_1835_blk_south_water_lasalle_d3_03",
@@ -3958,7 +3958,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "df7cb2ef50020fe9de22383ae4c8026a599c932c60a480e76994b2e830a64ac0"
+   "model_inputs_sha256": "f8c4a0f0e361bbdcae589fae16cdd2b2c92435850175285c5459ee948235437c"
   },
   {
    "structure": "recon_1835_blk_south_water_lasalle_d3_06",
@@ -3983,7 +3983,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "aaa7f7991965a1b6a39c0575d2afbd00ad8bbebdd9ba14a455ff56ddfeaeb841"
+   "model_inputs_sha256": "3361b4f470aaacedf5c6a745d81c6510e84b97e9dc3814082d8ea4f58acc7886"
   },
   {
    "structure": "recon_1835_blk_south_water_market_d5_01",
@@ -4008,7 +4008,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "4f50f24d23bd56440b0ae44842eb5f98bc7cef36f9d5c775b4e0d7d2f9e16f36"
+   "model_inputs_sha256": "bbe676e14c7342412d958e7866ec33d647c254591dfd77585b964f6db57bba97"
   },
   {
    "structure": "recon_1835_blk_south_water_market_h3_02",
@@ -4033,7 +4033,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "ad7c4acc730aff3c3916ea73c508b70f09c90cd4f9063db796861cf60e18c726"
+   "model_inputs_sha256": "2a7be8aa5bf07a44b23dcb08c475140994925041fd3633eaa3422d3deea93804"
   },
   {
    "structure": "recon_1835_blk_south_water_wells_d1_05",
@@ -4058,7 +4058,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "a826c49dfdeb3f8c222b4d61c526b085cce819bb4d64dc6e03cb920d1863389e"
+   "model_inputs_sha256": "e90c2826556f99ed7f5188608bdd9f4e1810b31682c3a135df61f48867efeb92"
   },
   {
    "structure": "recon_1835_blk_south_water_wells_d1_07",
@@ -4083,7 +4083,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "b57589d66427795c519569c896cbc673225e7a8310d1eb5f1f85e6dc4124af08"
+   "model_inputs_sha256": "2607eafba9e268f64649d1a537ccea36dc91fd9a86f450fb7d1630e6fa779bc4"
   },
   {
    "structure": "recon_1835_blk_south_water_wells_d4_03",
@@ -4108,7 +4108,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "67f640a76b30e1bb286ac357c92aa7e68488e0833dce64074a68bd3e1f771ecf"
+   "model_inputs_sha256": "28e4ed8c65a7cbc06fdb5858f5f04b90ea5ff22da0dc4623dcee53795ab96b01"
   },
   {
    "structure": "recon_1835_blk_washington_clark_d3_15",
@@ -4133,7 +4133,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "1b3829a8cb4316bad72a69e3fcbf89c80d2f172d5bef20011cf726c870f21a94"
+   "model_inputs_sha256": "575998ea74e11146b072d7264f9ff96e7b62a011ef7701204368b9b3e3cbbe6e"
   },
   {
    "structure": "recon_1835_blk_washington_clark_d4_02",
@@ -4158,7 +4158,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "ddf033846ecb424dcfaebe9835e2a1437ce89ce8ec9ca439802be074439b5384"
+   "model_inputs_sha256": "0a95071fdcae92630dd8630e0d37102971657528a5d38641021a652fdcad2f4e"
   },
   {
    "structure": "recon_1835_blk_washington_clark_d4_14",
@@ -4183,7 +4183,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "ee267c2c1c66305733d0901bad34aa418517b09c5abffa430f62c7acfb20cab1"
+   "model_inputs_sha256": "048b89de62a32b7b817228de6a6eda87dad9e1b5750eed48c803b02633c68694"
   },
   {
    "structure": "recon_1835_blk_washington_clark_d5_01",
@@ -4208,7 +4208,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "88a6b9f1d287a3846559d678eb8c3104d0e88a9d6497bbd8ec0c0e9b3bb2fc5a"
+   "model_inputs_sha256": "1a1340aed7a2f20177cd1e433f3ba29dc2db6c3bb9cd683606b5236bd70f4c24"
   },
   {
    "structure": "recon_1835_blk_washington_clark_h3_05",
@@ -4233,7 +4233,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "ec271a3c0865034ed80c3e62aa10cfba95affced519dbfa11d70e5e2cf6d9607"
+   "model_inputs_sha256": "04bc53b0a2c0e99e86b1409edf56755dea2d9aad705d11a4c709d48d14acddfa"
   },
   {
    "structure": "recon_1835_blk_washington_clark_h3_06",
@@ -4258,7 +4258,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "c3be2b1c2944f3d1aa55a99e79e1beb021ea87cc478080b0a459f9770bf598d0"
+   "model_inputs_sha256": "157cdd81dce85a17699d66d6b8948a1e0b550eb1f8e16a9bbed9e90cf2c77d40"
   },
   {
    "structure": "recon_1835_blk_washington_clark_h3_11",
@@ -4283,7 +4283,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "f1667d1a10c46a88b6a71918671b80589755dd194813825c7627803d1dc9ac45"
+   "model_inputs_sha256": "13c3b385093a8d69f6fe762200f7a110bde982e0fd7099be9e0046cde6c44c94"
   },
   {
    "structure": "recon_1835_blk_washington_clinton_d4_04",
@@ -4308,7 +4308,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "38a7231b85cb2e38a3b6d43597e5ba8c6912e1f80506b8dcceb714d9f48fa364"
+   "model_inputs_sha256": "bf33aec4f5835593803ab6acfd9f2a4c846bf5bb6e0674f988a877c34cd7579b"
   },
   {
    "structure": "recon_1835_blk_washington_clinton_d5_03",
@@ -4333,7 +4333,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "3b040b26b9c5fb375dbb98d88fada9b6150793a0f13f8720f534660e74fc2498"
+   "model_inputs_sha256": "78d0f0348cd458e355e2f12ba2f77773630c332cf02d9f9e81990bd2ea9310d7"
   },
   {
    "structure": "recon_1835_blk_washington_clinton_h1_05",
@@ -4358,7 +4358,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "5df35484b3b87f5d0790de1e19d8696f59c10f24c3979ebe81c26a3034b97ed1"
+   "model_inputs_sha256": "27ad7be5d0ee804e36183a7be8560e2c9d84048c34fe2e4dd939c5f13b16b842"
   },
   {
    "structure": "recon_1835_blk_washington_clinton_h2_01",
@@ -4383,7 +4383,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f105a58c90ca06fd01e2127de82cc66b0edb2f233bfb7318b2d8a9c3e2702afc"
+   "model_inputs_sha256": "05309c202ff47b4a326798390f26f3e2875ed21a881a3f78578f7ab5c005a64c"
   },
   {
    "structure": "recon_1835_blk_washington_clinton_h3_02",
@@ -4408,7 +4408,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "2a32698a1ca0b48fd8863fe062b5bb6227a0140e41ebcd0b2bdf59eb618f1209"
+   "model_inputs_sha256": "9f40f9121f820c97a64c888b3530ae666f44414524b6559d9f921dd109df377c"
   },
   {
    "structure": "recon_1835_blk_washington_dearborn_d3_08",
@@ -4433,7 +4433,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "33f4ceb3c225adcc7dc7b58fe3bdf0f710f205f82ac6888b978448cf12036ed9"
+   "model_inputs_sha256": "e29f6bd21dbe4f0b408403a4deb3cc9c5a5c53d2ebf3a963cedc4c713c27633a"
   },
   {
    "structure": "recon_1835_blk_washington_dearborn_d4_09",
@@ -4458,7 +4458,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "0f9ccd6f9b2a752db37e0d807f08b77864200f54a76c4d00a0ccd980f884fc76"
+   "model_inputs_sha256": "74f2ad12ede50d5f1188441403ede046478a9f9aa3c633f4fc3532b079af1815"
   },
   {
    "structure": "recon_1835_blk_washington_dearborn_d7_04",
@@ -4483,7 +4483,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "2d8c55c035cb9e467c991d5196e22978dbf1d74286e2784ab98a2704a55bd0ee"
+   "model_inputs_sha256": "52247a091601c934a3599512befc09c07e5fe41c78df8a64f09f43fd6c35f59e"
   },
   {
    "structure": "recon_1835_blk_washington_dearborn_d7_06",
@@ -4508,7 +4508,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "2ff89e918d06bf1dbbb5cad0051593f0ad9abdf91c9389c5688514f54ad89b70"
+   "model_inputs_sha256": "a23b55557e87038a73bd577136dfb89ba5052b50cd68818b4638033c5aeef776"
   },
   {
    "structure": "recon_1835_blk_washington_dearborn_h2_05",
@@ -4533,7 +4533,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "3cce02bd25a3657b4870d3308717d8c79e4b6289076eb05904c13c3f95a2b855"
+   "model_inputs_sha256": "c560b89e240c3c5a7ca97e578ab06bd18d4b96d5fa2ed7307c6fc61c5b30e9d6"
   },
   {
    "structure": "recon_1835_blk_washington_dearborn_h3_01",
@@ -4558,7 +4558,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "5bfa78896049e56f6573d64ae3ab9185cc8c951294622bc912b6ba04f7830acd"
+   "model_inputs_sha256": "21113fbfc70dcbc55e58cd6d20cb00138afa3bfd03cc8ce3fbb48c4cda2f6e73"
   },
   {
    "structure": "recon_1835_blk_washington_franklin_d3_06",
@@ -4583,7 +4583,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "b110dbee15dbb0b2cd52cf13bc18e3746cb151d9b950581a024c11a8e89d1c32"
+   "model_inputs_sha256": "e7b6d6bfd5aed2916a15279a8a45eeb455a62642b38dbb0843a8fcad72e5b28f"
   },
   {
    "structure": "recon_1835_blk_washington_franklin_d7_01",
@@ -4608,7 +4608,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "9bf396eaae90dcea88a634237e8136d6cde6ab1c7bf9ce724a123aa156129beb"
+   "model_inputs_sha256": "bd8d7e99c4b7944a4f678cad51bb11d1e164a935b7fced67c7547d00a8e8f4da"
   },
   {
    "structure": "recon_1835_blk_washington_franklin_d7_04",
@@ -4633,7 +4633,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "a5e746d49cedf72371733f8dd2a9913129603644bba500be19059969b278414b"
+   "model_inputs_sha256": "d121128f8aff6d74412dad622aa8a09fd2c8b634bead80a489e56e0d0f84a263"
   },
   {
    "structure": "recon_1835_blk_washington_franklin_h1_03",
@@ -4658,7 +4658,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "cdf0172b57f175724fe37c1f2b607f844b4e0ff3d310e61841a864571fe5172d"
+   "model_inputs_sha256": "11973bee0026fd5a8e0fbc95a881d4166591ef33f9efea8e4ccdc982ad4a2d65"
   },
   {
    "structure": "recon_1835_blk_washington_franklin_h2_02",
@@ -4683,7 +4683,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "c9abb7f98a8e1a2a1378af2d41c32790bdfa7f2c166c1261d37b96c2da0caf2d"
+   "model_inputs_sha256": "6421e700a89837252a2f2d9408fa993d40971d3e52acb4e9a2c31120f9d944dd"
   },
   {
    "structure": "recon_1835_blk_washington_lasalle_d3_06",
@@ -4708,7 +4708,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "0146065f0c6fa8ae50d285a6fffb794d9da15363f8df99e8d7b3acbf20e29006"
+   "model_inputs_sha256": "09ff44a5db6b3511269c9f117845dfcad7f56dd7394bc0837b60b22de5a3ee5c"
   },
   {
    "structure": "recon_1835_blk_washington_lasalle_d3_07",
@@ -4733,7 +4733,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "c2ebba4a365e609d28450b890d18e7f2dcb2e225d2616ed12826c877c04b4d49"
+   "model_inputs_sha256": "aa1fc03d9990a93de62d536714d4d704a08580286b150142169ea6e5dc30e54e"
   },
   {
    "structure": "recon_1835_blk_washington_lasalle_d7_04",
@@ -4758,7 +4758,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "8c445eba18656e8a4898c313befcf4c76a5bcb050fc143b6a4aba089da8abec5"
+   "model_inputs_sha256": "b5ffe0c054cc01d3738a930b7134e3b0f88a8816317560cdbb8d24edf5c2c368"
   },
   {
    "structure": "recon_1835_blk_washington_lasalle_d7_05",
@@ -4783,7 +4783,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "68d9a1d5e2d2168bedfe0e621f538c26f0f7be1f68aba7c772b99f3d2f097be5"
+   "model_inputs_sha256": "3978e0b41dde4fc246e75800dfa08599d3657bc354d184ea94e0912a58453b74"
   },
   {
    "structure": "recon_1835_blk_washington_lasalle_h1_02",
@@ -4808,7 +4808,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "8f7dd4e80403e0705480d4cb2f455446bff7433603af5a306cfe5ffdceea9b5c"
+   "model_inputs_sha256": "79fb83fe9873209ebd44975b4a2acde27ae696ed903c21d570eded18f75607d6"
   },
   {
    "structure": "recon_1835_blk_washington_lasalle_h1_03",
@@ -4833,7 +4833,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "494924a5fffe6109ab8a83d37f1f5e02d45ea12df638989c944763f1ec17a5c2"
+   "model_inputs_sha256": "07cd4df117cac97e07498edf386c109a9002fc736ea60e123e94015f30a95f7a"
   },
   {
    "structure": "recon_1835_blk_washington_lasalle_h2_01",
@@ -4858,7 +4858,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "320651f24bdc8107bd71c2e2b121291e5e667cce02794ffbee3e2b6e86f97dbe"
+   "model_inputs_sha256": "df8bb46f9008d0d63902450c6818c5a9d58652b8ef1db8198a6a1d004cc00288"
   },
   {
    "structure": "recon_1835_blk_washington_market_d3_10",
@@ -4883,7 +4883,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "d4d0e557c213c94978ae6bd7cd198cc25f10fd993a80699b1fb4858e852afa31"
+   "model_inputs_sha256": "a98e1d063fc27448dabafe7be56a12ebe503b7974926ae2d025bd9ae61ca2120"
   },
   {
    "structure": "recon_1835_blk_washington_market_d4_08",
@@ -4908,7 +4908,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "8f12688d37cf2da4c52b5182a87b96897924bf0a6e9d1ac3936d1c2e62743736"
+   "model_inputs_sha256": "96fe14fb37752dd83402d8ffde0aed1ac66f3ed76786ca7c331cee4384dbddd0"
   },
   {
    "structure": "recon_1835_blk_washington_market_d4_11",
@@ -4933,7 +4933,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "de3239e43fdc709e832b21634b091318aa9d211152ac1e0ba530243cec717f26"
+   "model_inputs_sha256": "42246fd5da6fafc20c7313fbfa3fa9fbf48d4dcc21ff90f8438c5a620107f55f"
   },
   {
    "structure": "recon_1835_blk_washington_market_d7_09",
@@ -4958,7 +4958,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "b83922090df18a40a93183b0f77e67e8400759b71bf8c040afe5c9ecd93c57a2"
+   "model_inputs_sha256": "25de48c8d5ef8fb9cb164aad4ad6c3c386f2f3585d76cbc38b68d5cebe057c01"
   },
   {
    "structure": "recon_1835_blk_washington_market_h1_07",
@@ -4983,7 +4983,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "d7318d2dd0476669678b48e5637c36e54af88dcf276e19f60392e690057d28c0"
+   "model_inputs_sha256": "4be4b2790a7795cc6f0d8ad8728fbba0e9ca3340d0978587a4fd4e6c786e8c20"
   },
   {
    "structure": "recon_1835_blk_washington_market_h3_01",
@@ -5008,7 +5008,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "74758173225631869374f109843ea53331edb4b2a6cfe05f5c1a17b9fb95f7e4"
+   "model_inputs_sha256": "dfe61df1e13f490ecb884eb51cc1c65b0f00e01ce9456a3c596f098c0aab1249"
   },
   {
    "structure": "recon_1835_blk_washington_market_h3_04",
@@ -5033,7 +5033,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "b0b4a2a9c822ac8055a01a96e348bbc4594db2fc9eed19e37f8a17697a3d0502"
+   "model_inputs_sha256": "09267a890eba09016954bc78488e7a217795e967f3b64c8f21d609d4698f87c3"
   },
   {
    "structure": "recon_1835_blk_washington_wells_d3_05",
@@ -5058,7 +5058,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "59c36104091b4e286cbb68783c95a337716fc73ad0a5e13558ca52d38b7aca16"
+   "model_inputs_sha256": "312349253fca9823138887f592edbaee599cf6a2ad27b9d042b4f2b1c4524d0c"
   },
   {
    "structure": "recon_1835_blk_washington_wells_d3_06",
@@ -5083,7 +5083,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "92894d24bf9b9c530cdfb96245cf039974b07c1ff02b10788a1501ef5126bb6f"
+   "model_inputs_sha256": "5e9d6d21c68f4449027c88e4ea1eb0a39452a00d5694801d230c2e5e91735b4a"
   },
   {
    "structure": "recon_1835_blk_washington_wells_d7_01",
@@ -5108,7 +5108,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "8fe2f8f3649f392e22766c367828ec7636c6cd39982279f9f446e47521566fa5"
+   "model_inputs_sha256": "00615dfdd04d5d35be97092de1fd04229736a447b5ade9e6d49d8802c6cdce91"
   },
   {
    "structure": "recon_1835_blk_washington_wells_d7_04",
@@ -5133,7 +5133,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "267ea81c7821cf30d6751bc46133efc74f3929f2310286438449aa4c896e9cd7"
+   "model_inputs_sha256": "838f8174ded74a34c92490e0986998ead63e97ae2599c56e5c2578b48d6f4421"
   },
   {
    "structure": "recon_1835_blk_washington_wells_h1_02",
@@ -5158,7 +5158,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "44dd95c609a6e1e51965e4f0411d04265c8c1c860ff5a5eef36d4555a78922ef"
+   "model_inputs_sha256": "e9920786e11a78976ae5939c033afca05ad646115dc0959907e5fe42f8e2bf08"
   },
   {
    "structure": "recon_1835_blk_washington_wells_h1_03",
@@ -5183,7 +5183,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f15552965edc855b6c98f36393e4999066fabba4bfea831317080ba81700336e"
+   "model_inputs_sha256": "f0f528a43aa9217fa50ab07f5e49d0c52851d12927cd32c1a13c820ba4c1c7f5"
   },
   {
    "structure": "recon_1835_blk_washington_wells_h2_07",
@@ -5208,7 +5208,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "cb142e6bae517541c2aee32e5805fe9fe07684a591ceb89ba74aed04ae3b10b5"
+   "model_inputs_sha256": "dc9a6c4878c037b993af240792a09a8cd4808d359e1041db709e82babc29d847"
   },
   {
    "structure": "recon_1835_blk_west_lake_canal_d2_03",
@@ -5234,7 +5234,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "145be52ceb4d78720f9f2cfca38e2e5d9e4a6adfed907fee1a2279a36646b691"
+   "model_inputs_sha256": "d2ae0a92963492d426ce0d12f36b572a95272e5ddfa2b50a39b51dda0edd545e"
   },
   {
    "structure": "recon_1835_blk_west_lake_canal_d4_02",
@@ -5259,7 +5259,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "0e3aa505ceadf799708a4b552d3be18ce7fa667f55983b31d235b18f33d1849d"
+   "model_inputs_sha256": "5ff8ea42b40efc8aaf9ebbdc94a17073fd445033ce19308e8068bdade85d84f5"
   },
   {
    "structure": "recon_1835_blk_west_lake_canal_d5_01",
@@ -5284,7 +5284,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "ea483e579ff845d8476205b9abff89a112a51c008a64ac3cf87b075fcb40b75e"
+   "model_inputs_sha256": "92c0368f10a91f361561e8d66b99f0e431e01a6c52689667819d1e09437564f1"
   },
   {
    "structure": "recon_1835_blk_west_randolph_canal_d4_02",
@@ -5309,7 +5309,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "e5d967b30d043a8b2ac8861ec23efe9ec2d5c346e741ef7c176b118e83e5742f"
+   "model_inputs_sha256": "633347084bd998f1b93fa98ccbcbeec8d7c11b031fa86c8c0275a95ef6638c67"
   },
   {
    "structure": "recon_1835_blk_west_randolph_canal_d5_01",
@@ -5334,7 +5334,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "d6d2332da9fc7b0eaa6c0846cea488013edbf63fcaf8b5b1c1ffc70d46dc3dc2"
+   "model_inputs_sha256": "bf25cfa9545fb8c49d471d94fb6654be167e9370168c6053583a1def17f8d02f"
   },
   {
    "structure": "recon_1835_blk_west_randolph_canal_d5_03",
@@ -5359,7 +5359,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f4593ea3fdd3674bf7928fd6f1d8c6753d9c001c97cd7f249da0aafe8f5cd710"
+   "model_inputs_sha256": "7bd15e3eaf1ec20f17673cde32e0b232f88245c5453dc2fac951363eed6fc166"
   },
   {
    "structure": "recon_1835_blk_west_randolph_canal_d6_04",
@@ -5384,7 +5384,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "6585c2d01c861b1c56de604f6ad38b1995ad19d5387bee4bb37ba5fb266c3e4d"
+   "model_inputs_sha256": "2edfeb12eed8fa70e83ec932d40a3a742dd647df6cdc3b4199e30ef2335a8076"
   },
   {
    "structure": "recon_1835_blk_west_randolph_des_plaines_d4_02",
@@ -5409,7 +5409,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "8e792bcfa526f4dc8444e545bde3cef09919b800e1e57160d7aefa431de7fb7c"
+   "model_inputs_sha256": "5af7d8fac09cab06cbe7d39d72c392801f9cdfea8f655bae730220fd5da24e3e"
   },
   {
    "structure": "recon_1835_blk_west_randolph_des_plaines_d5_04",
@@ -5434,7 +5434,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "6efb879f5133311f69314e4517a85ca6b50561124b2e3a7e07ac529ff529bb74"
+   "model_inputs_sha256": "67406a1ccdad5d0a2cf299ba7734ec812ad6f59e93a3634c41ef9930f4554cda"
   },
   {
    "structure": "recon_1835_blk_west_randolph_des_plaines_d6_03",
@@ -5459,7 +5459,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "3992e8414fd5c9524abe558106c48ea5467e90d52c0a8b98c7286eb016fe9b95"
+   "model_inputs_sha256": "1d9e40aae01c0aa4a99ce24b867d1329e3c9332f4347c7b03e6333f53f61fce0"
   },
   {
    "structure": "recon_1835_blk_west_washington_canal_d2_06",
@@ -5485,7 +5485,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "14a5af0667eee5fbf2b7bd8e2e71461ffbbf561fe265f4545c0d6989fd721375"
+   "model_inputs_sha256": "e738f101573fd422439850badbe7e32e6d2c6bfbce2612021556084b4d980295"
   },
   {
    "structure": "recon_1835_blk_west_washington_canal_d3_04",
@@ -5510,7 +5510,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "c3785debcebe666146401cbf22de90dcc438b4b8dc5390eb24e17b834ceda5e1"
+   "model_inputs_sha256": "2562c0862d39adf03755e0a41564f9b90eeba3417f6dc0f851b69a7817af7a18"
   },
   {
    "structure": "recon_1835_blk_west_washington_canal_d4_03",
@@ -5535,7 +5535,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "6e67a1941cce2e81f891efa1cf82ca17ae9e301e6cbcaf1c7b40495700c0a594"
+   "model_inputs_sha256": "102fb3581269860df66eee6ed28244127be509e31c941f57fdea6c88e74bae80"
   },
   {
    "structure": "recon_1835_blk_west_washington_canal_d5_02",
@@ -5560,7 +5560,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "92788c45fd6860961e984f1a951caef531f269010928cfe5b36c764421dca51e"
+   "model_inputs_sha256": "2e2b016952ec6f9d5bfac45d5fb4c42cfc7df215c13e5044cdae161b9e84e253"
   },
   {
    "structure": "recon_1835_blk_west_washington_canal_d6_01",
@@ -5585,7 +5585,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "5bcbe40f34470fe7f085840a2c949c2ce1893a03e6e584a2a7d6c92b7f170b64"
+   "model_inputs_sha256": "6ef85f74fbac1883fce52aa35952c97b0c341ff608418125d02a8ec06f30a22e"
   },
   {
    "structure": "recon_1835_blk_west_washington_canal_d7_05",
@@ -5610,7 +5610,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "c0ea3e4f1db73948b97a35720cc703245d5987bec3b2a93f18c8ebeaba7b6100"
+   "model_inputs_sha256": "8fa963c605445d9156c4c80ed26d647b1e3cf6e747daa290828586efc95e0f3f"
   },
   {
    "structure": "recon_1835_canal_trade_c3_001",
@@ -5661,7 +5661,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "6b0931e0707cb641cf4a85eb9fa2e2e83143efa18606afa9a112652f89ee2336"
+   "model_inputs_sha256": "f43c34a0298e722533e08c807d20f9f5b8df5b8b0aab7b6cc5897c85b0d31add"
   },
   {
    "structure": "recon_1835_canal_trade_c4_002",
@@ -5712,7 +5712,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "6774871bf714b5780d38e35ef957a7f4b891ba693fc2335458537a00ff0a01d4"
+   "model_inputs_sha256": "5ed6478262b5ecd4959fb31bf46bbe5e08320e882ed9b57994503a29433cf3c2"
   },
   {
    "structure": "recon_1835_north_c3_064",
@@ -5763,7 +5763,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "e4e2e266e5b6ee036632fb2f31a361b1348c92c2b4e719f7506c8cefd2f2c549"
+   "model_inputs_sha256": "1bb03e6b5f52868ab3714575bf0077c0b505a225dad66faf6874f03232f6fa58"
   },
   {
    "structure": "recon_1835_north_c4_067",
@@ -5814,7 +5814,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "10fde2e041c593c3e7155fb625847dc869aec3c70f7da21989f7a592f2cddc92"
+   "model_inputs_sha256": "97ff17dff35a2eaa975c4b400598dbce151f4f3fe4394a11e1335fbb3bc59b72"
   },
   {
    "structure": "recon_1835_north_d1_001",
@@ -5839,7 +5839,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "ecb05906983fc14cec7317fcae28154a185bb4130a73d88f754a4db808ebf1f4"
+   "model_inputs_sha256": "da1dd9a53b3b7758484494bcfc144b13d265180308bd4b6cccfe9d31dca46b4a"
   },
   {
    "structure": "recon_1835_north_d1_013",
@@ -5864,7 +5864,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "7e1df4d921f9c410a064cbefdcc82aff09e826c78c694cf041a5c62cc748ec60"
+   "model_inputs_sha256": "0265651ec0b1dd64f99345cfed7383a24429da116d3193431be1611ab5a1b093"
   },
   {
    "structure": "recon_1835_north_d1_023",
@@ -5889,7 +5889,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "908ed764da1c9d92b1f0e537e5afd4ffa1f2f5db000d9904dce8285be3a68905"
+   "model_inputs_sha256": "8c59877584ecac94f7c41304b57699511cdb4f4fa752a2be477452f35b71baad"
   },
   {
    "structure": "recon_1835_north_d1_053",
@@ -5914,7 +5914,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "c1369182b8429b6be370c6c29dc8e7282aac5197bfded5961f9f65a24a134727"
+   "model_inputs_sha256": "7764c7691bee76dc57f2534277d79d2d5d399a2e2362689a8e23183578f65569"
   },
   {
    "structure": "recon_1835_north_d1_054",
@@ -5939,7 +5939,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "eef2ef347114b327ac1f386a119ec92da8b1bd20a0005d56eb4c752aa84cec42"
+   "model_inputs_sha256": "41954d59ba8a61159c379397dfa8258230e360289b6b8e967aca3dd19af99d1f"
   },
   {
    "structure": "recon_1835_north_d1_060",
@@ -5964,7 +5964,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "580dd54268a41688cfe2c22e62a34c51a918059dd74da260b94210267f676408"
+   "model_inputs_sha256": "a2516e83656dc054dce90b16a6fb5aa83893026d5d3b886e188f54b206eca431"
   },
   {
    "structure": "recon_1835_north_d2_003",
@@ -5990,7 +5990,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "d1d24e00380c75389e1591e8775ac2894411f065191501048d1fbab973a2c72d"
+   "model_inputs_sha256": "dab3b3b16353ab0ce66a7841c62e5918a6ca825a31a6c4f9c7d9919ab99a346d"
   },
   {
    "structure": "recon_1835_north_d2_014",
@@ -6016,7 +6016,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "9941215a3fb9522280b0d3428b4740dda4325020e1b9da772656355239eecfb1"
+   "model_inputs_sha256": "f00ef547baff9007d847bbed021af9e6dae2de23ce1c2b307a0ced76bd95ee05"
   },
   {
    "structure": "recon_1835_north_d2_029",
@@ -6042,7 +6042,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "dc612940f04a019705f9e58ab6330a5bc74975f44e31b02e96bc7096281cca1a"
+   "model_inputs_sha256": "43c54af73ea85dec65be94cfd685b598b7bd4be7715297dedc875006b01e298e"
   },
   {
    "structure": "recon_1835_north_d2_046",
@@ -6068,7 +6068,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "972ab544a968c7d0a41ad8965508cfe3a857a915e95c2d92f02ed2e34014ceb9"
+   "model_inputs_sha256": "01da831d5f92b16d7af039e6b1f5499bb087bf9811a38fe12c25229010f6c6c9"
   },
   {
    "structure": "recon_1835_north_d2_077",
@@ -6094,7 +6094,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "650944bacc09b8b8963445c08b91a587906565024700daa5b0fb53da31797467"
+   "model_inputs_sha256": "1a4b513a59ee5ea111d7e64f2687f1e01e1df5b1e3a40a89c9e6964cecf18595"
   },
   {
    "structure": "recon_1835_north_d2_085",
@@ -6120,7 +6120,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "f3ea9ede6b5ccfdfd69545ca5ada2e9cb1fa24a3a9b7d18af5be4439bdb7e7d8"
+   "model_inputs_sha256": "f551cb6a167fdef02ee2dc296a2a1323d4c384b475802670acc9c7a3f3c9edc4"
   },
   {
    "structure": "recon_1835_north_d2_091",
@@ -6146,7 +6146,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "7513456d4fd73ab335bbca0de4dd062df2832fcd9c5535027e0c12a186b7dfb2"
+   "model_inputs_sha256": "1fe9d01ec96eb0fb7021c09500648c83a5454686364ff659386c0db89f62f632"
   },
   {
    "structure": "recon_1835_north_d3_002",
@@ -6171,7 +6171,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "b5b4f89f244aae035120e323d376d0ce144f2605790e03ac55deaf69daab6e5a"
+   "model_inputs_sha256": "09de72118102c693a3db736efd38fd814269e95dc1c2c3319774afcb409c7517"
   },
   {
    "structure": "recon_1835_north_d3_006",
@@ -6196,7 +6196,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "6c51b1c38ff874a1c55e2db07e3a8882894ecae4910808d05c9d860f036dde6d"
+   "model_inputs_sha256": "b32b7531468f2c0635f90111139868a9ffd07c2e6396aac0eb34ae95ce7b6eec"
   },
   {
    "structure": "recon_1835_north_d3_016",
@@ -6221,7 +6221,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "00ddacd2f3fff306b45fcd2226cd1f91f56fce6ce2e6c0b06a3451e3f4dc1338"
+   "model_inputs_sha256": "42f09211f5f53f097efc8bb9f582f43f1aebc2a7c42f1ed885d6fa7086c0af41"
   },
   {
    "structure": "recon_1835_north_d3_020",
@@ -6246,7 +6246,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "43b702a3030ee513c3ef8c4b359eb001ea33554f155a46e0c9070188f03a5043"
+   "model_inputs_sha256": "567f4d46c8b0a0635d42f2b681fcbe60bd6db9212ded0eda19a6c66fd631b28d"
   },
   {
    "structure": "recon_1835_north_d3_024",
@@ -6271,7 +6271,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "caf65af5baa2048054a9ffcd6ff0bdc6bbe54f9d3990596a1aec2400f46aa003"
+   "model_inputs_sha256": "bccdadae931d0598a4a0da89c14a8da298d2d371e5b9f617016e57446c27cf3b"
   },
   {
    "structure": "recon_1835_north_d3_038",
@@ -6296,7 +6296,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "a99cdfde253e72748d11f801a6f97cbc1eecf005a52c5c75e592dafd07e621bb"
+   "model_inputs_sha256": "fd62a9e5712d8556eb223e04034b40974af170792b295e48cc449725929d6059"
   },
   {
    "structure": "recon_1835_north_d3_042",
@@ -6321,7 +6321,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "52494aad32cda1641f93e595d1103f1638247264af63991617998bf7d70fe55e"
+   "model_inputs_sha256": "80d790ae431218975ebc72effbf90e2a6cbf0b85d8d83b3683d8548ef7d55e74"
   },
   {
    "structure": "recon_1835_north_d3_055",
@@ -6346,7 +6346,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "475026828a4c2cae706885d57616f8d62a49313458c76fe96a1b60c60d0eccc9"
+   "model_inputs_sha256": "512eb8a1159e2ee50deb24ad37833d3da86431daad3de48c426a7abb64745e0b"
   },
   {
    "structure": "recon_1835_north_d3_073",
@@ -6371,7 +6371,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "7d8e45d50a4703ea74b7b218cf70c54759f6d3cd5fcdaea91e05e0184fc20125"
+   "model_inputs_sha256": "06965aa27a39398540a9b30718395c7d998c20b3e93280b898eeef6a69d12f37"
   },
   {
    "structure": "recon_1835_north_d3_081",
@@ -6396,7 +6396,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "43cdd0fcf660ea11985a02ac25f42a3cb4f5e081b9b4440eaa35a83612dfbbff"
+   "model_inputs_sha256": "d23fed9b8e467e54d8c8e76eb0fe53f58adc4f6d46ed51fa68587bd6aaea781e"
   },
   {
    "structure": "recon_1835_north_d3_089",
@@ -6421,7 +6421,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f34dc6b351668e76512e00ebcb1464816fe8ad89c05921ccc417d888c2885141"
+   "model_inputs_sha256": "8c028e3a83b2f5b494d070b8b294484560ef14117d2a6cb59514512c2dbd946d"
   },
   {
    "structure": "recon_1835_north_d4_004",
@@ -6446,7 +6446,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "7a96050dee281c371260f3ebdf3c64d4a1b5186a1f8a92bf3c4cf98921034c60"
+   "model_inputs_sha256": "946081d1617a665b124c01ab1d3988088a606e70e34545362429f564ca6b0649"
   },
   {
    "structure": "recon_1835_north_d4_005",
@@ -6471,7 +6471,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "dc4b1f1378a4ff5d7f7b3316e63073123b5a062304d4853ceb134249de56bed4"
+   "model_inputs_sha256": "f97b7dcf6f1cec22d8a6d85340af95712be4a9aacf01c8ab2e00fa3de7a9085b"
   },
   {
    "structure": "recon_1835_north_d4_012",
@@ -6496,7 +6496,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "74732065813a61cd45da1565ac852aced0e16823585d9dff902dba1202013e77"
+   "model_inputs_sha256": "754e4600084df660bae475f5b74b56cacd6f00e9303edc0decb085ed95e45c09"
   },
   {
    "structure": "recon_1835_north_d4_015",
@@ -6521,7 +6521,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "bb0f2c8cdaecc627fd610a8477c35575595a84445c43ca560a8b6dd21a23dc59"
+   "model_inputs_sha256": "434570a5e59b19d9d73cb77d88d5b0724565ac8269edb72b7bb3da4ac2bd4e54"
   },
   {
    "structure": "recon_1835_north_d4_017",
@@ -6546,7 +6546,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "794392f6489091f816b8facbf09cd07458cfc23734c1af6d1657dfd3032904dd"
+   "model_inputs_sha256": "67cac879426833d7bbb35019f8ed28468aa9f3b7163bea4b41d5259dcaedf27c"
   },
   {
    "structure": "recon_1835_north_d4_018",
@@ -6571,7 +6571,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "35230bd12eaa956b45a9aba91d6a7ea5e67564d4b8707b683803d557f9063e9c"
+   "model_inputs_sha256": "23de722c122b0c4a2d3cce58f69c5005918d0c0cfe6ec439acc870fd46dbd3a8"
   },
   {
    "structure": "recon_1835_north_d4_025",
@@ -6596,7 +6596,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "9db7aef99b675ebe03fbc6cf93be48a0f69fa929dc9aa031d1c4b9f430842243"
+   "model_inputs_sha256": "ada9163bda5e1e8f21086faad01108e095ea9f60722eb62c8afbae66670a2efc"
   },
   {
    "structure": "recon_1835_north_d4_039",
@@ -6621,7 +6621,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f6eef3de2040f9301ae0bdbb09bae73529152a1ca960fae2be222ff922f93ab0"
+   "model_inputs_sha256": "dbe81d28f1f343dce4fdbb986741001acf2890bbce7ffab22a2cecb40ceeb7d5"
   },
   {
    "structure": "recon_1835_north_d4_043",
@@ -6646,7 +6646,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "10d12127223a19319654ada7814acc030ec6d73bd5a82aadf864fc1a16d276ee"
+   "model_inputs_sha256": "4ee0c36414df33f2d6923f22cb164103288e6caae991784065b90faa860de70e"
   },
   {
    "structure": "recon_1835_north_d4_056",
@@ -6671,7 +6671,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "4c22c8c7f5a9189748857d967d2cb9b1f3cc58f8e327fb9ad15978f6439eca1d"
+   "model_inputs_sha256": "8897668268399d25b6c6be8a0b2176428623b771eded0bc0b295a291ccdfe863"
   },
   {
    "structure": "recon_1835_north_d4_069",
@@ -6696,7 +6696,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "ee431d27f448b8c6eb8e14b66f9b38a4fd0e67c91dcdab8f6df1b0506094e23b"
+   "model_inputs_sha256": "9fa6e054264833301bae54c32cd3a13476b8cbee17e491981e2af3da28c70fb6"
   },
   {
    "structure": "recon_1835_north_d4_072",
@@ -6721,7 +6721,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "3e4f7dabca8e6d3bc24289b6ccf304822626240beaccd6ef4305281c0788eca8"
+   "model_inputs_sha256": "3c1f780cd52770879dc28398b44899d3b423b7be4280d43203d39f9a08978a7a"
   },
   {
    "structure": "recon_1835_north_d4_075",
@@ -6746,7 +6746,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "7e5b9e7867ebb3d5b75a68513477e85b200f523997f18e9e9d0a4a2cd21c6222"
+   "model_inputs_sha256": "e34317e697217f66b30bafc0538da1dde868d30267f23afc0b6be6a2d2d80e98"
   },
   {
    "structure": "recon_1835_north_d4_079",
@@ -6771,7 +6771,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "21c2dec49b0958cd107f47e1477e7a6d7eb5d5ed3ee6334b86a2565a5ee77fbe"
+   "model_inputs_sha256": "7815093ddd06c465b6066b9c22e9a68fc08292bc7b3aeb42f082f87032cb75c8"
   },
   {
    "structure": "recon_1835_north_d4_083",
@@ -6796,7 +6796,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "2e8ce173776b6d19b93c3d15d731341cb5474b22b9d92fa9474f60a68a724361"
+   "model_inputs_sha256": "e1d423bf4b601715b79156bea835124da86eb69077c8e5be28de80bedfface90"
   },
   {
    "structure": "recon_1835_north_d4_087",
@@ -6821,7 +6821,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f7bc6fb3886fa9380a744e84df212557af8e37dbe451b5e0d9cdff86bb913f10"
+   "model_inputs_sha256": "456b565f83b6f99b6294b758791e836a3c785012f28882d3f948b293fe427811"
   },
   {
    "structure": "recon_1835_north_d4_090",
@@ -6846,7 +6846,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "2a2720fbad849c7fbf0d3640e6016ddcc6f592efce0300009beedc3095cc8288"
+   "model_inputs_sha256": "3863b7c6563da1dc16b05caac6eeb8759d667ad07cb94bab63f175ec2d876dfb"
   },
   {
    "structure": "recon_1835_north_d5_019",
@@ -6871,7 +6871,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "83cd3ca6342bc50f3d6f1ec9f97d14eb81f092f555c8cb0273c93aa510f39fc2"
+   "model_inputs_sha256": "10b9488546195f838ef1388c51fbf71588e35dce3aac40a985c081eace4fd26f"
   },
   {
    "structure": "recon_1835_north_d5_026",
@@ -6896,7 +6896,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "c5b7ccf0baafe5647deaec19ac7575f904ef18957bfb27a5f1d915d1cd24a8b7"
+   "model_inputs_sha256": "1abd49887dd6554e2137bc5c428b4763c28a420a5926c588ad9532fe261f9372"
   },
   {
    "structure": "recon_1835_north_d5_037",
@@ -6921,7 +6921,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f27c75c844b9360ba6996b91ee9a01ef49b64bdef512fc76903b1e2f48832cfe"
+   "model_inputs_sha256": "d4dc71cc29b6bd8204fdbef8f0e729b941329e66d74c5f013fc1568506aa52a3"
   },
   {
    "structure": "recon_1835_north_d5_041",
@@ -6946,7 +6946,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "5c89cc29c987db905ecb137295540d7a4383f49aa22a8fe96cf324cdc53c253f"
+   "model_inputs_sha256": "d97669d6b8734c269f440f38965b1db6b6193f194904dc9b4a3f76c576e2cbaf"
   },
   {
    "structure": "recon_1835_north_d5_057",
@@ -6971,7 +6971,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "64f063f3eefc89db684eda5b95ccc8136590e0d91ced64f11481067dcd0a73fe"
+   "model_inputs_sha256": "5ce3db9b8a878dfa4f6bcc70b16b4e54962f4226ed928be9ca240e07b67bb159"
   },
   {
    "structure": "recon_1835_north_d5_068",
@@ -6996,7 +6996,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "9015695e0f5110cbf64d85e538ef7fa22e157ccde3f0809b4170181228139653"
+   "model_inputs_sha256": "a62747c378867ff3e0b99cc1eb6e305d25ff6ec52931dc0946b27bf1f55eb241"
   },
   {
    "structure": "recon_1835_north_d5_071",
@@ -7021,7 +7021,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "358ef54a55128f88013bce6bc7f1602f4c676ff07cfb6e4824e24ca8f899df25"
+   "model_inputs_sha256": "1d49c4435be40a491cb620bceb23e7289994b95394d0f9a90da3ace41e2310c2"
   },
   {
    "structure": "recon_1835_north_d5_074",
@@ -7046,7 +7046,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "93af5a4b09a2be68aeb1e1224cde31e8d9ab154f61bbcf3666b6ca55f6da4595"
+   "model_inputs_sha256": "3f55d2c0b22aa871d66a5ef18bf5e22e781c7c44c0aa08a58185470e818dc311"
   },
   {
    "structure": "recon_1835_north_d5_078",
@@ -7071,7 +7071,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "9673242bbd1e9bfe305833bb193e9fe476ac7087c888f1e9a80a4e27d30f50f8"
+   "model_inputs_sha256": "cfd58cb3f59ec09d338d6e86753795fa5cf5cfedcde543e7f7c13ffc31ba54f5"
   },
   {
    "structure": "recon_1835_north_d5_082",
@@ -7096,7 +7096,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "bdb7f7cdb0c0d178ddf02fd0f892453ae4227f8d81d5ad187ca61ccf076cccf4"
+   "model_inputs_sha256": "276b1b94dfd9a9b53d3bb63f4a4a98af80d529a4f89c8e45ba9615f5d60c2694"
   },
   {
    "structure": "recon_1835_north_d5_086",
@@ -7121,7 +7121,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "dd2581eda1014c1b3f8f1b9e6dfb8d98a32678bcd17a233e0490e027974cd791"
+   "model_inputs_sha256": "790f18af9a04d7c51c9754efcd6a145f2d06f9ef5c7a2a14b38f2951ebcfc861"
   },
   {
    "structure": "recon_1835_north_d5_092",
@@ -7146,7 +7146,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "5ea2adad8c3c46333b44620acf5d4dcfdc924d14afc283798efdb6125acab6f9"
+   "model_inputs_sha256": "ed9d34777390a2274fea7891c7c12e5028badceee9f1b430f5dca8198f185105"
   },
   {
    "structure": "recon_1835_north_d6_021",
@@ -7171,7 +7171,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "fc733201c0913af162e83b36301695433ab4cb9cad5b5e9f8a8e9f5959e9ca88"
+   "model_inputs_sha256": "f0e3c5ae9c14279bdff1366ceea3b6ec88c7cdf850bb280b132734b58f521a9b"
   },
   {
    "structure": "recon_1835_north_d6_027",
@@ -7196,7 +7196,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "3169cfd03ca28dce63c0ea2b0690f4728bf8d563be2d8b1e90d44b2bcb79f875"
+   "model_inputs_sha256": "2d781957c2f65843c436157c82cef8b3105573119bee0cbca98af2f4825bd3be"
   },
   {
    "structure": "recon_1835_north_d6_044",
@@ -7221,7 +7221,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "d8885f2bc3205a284bd2763d7b83102cf15461f8d7d9dd4057d1f9641d0795b6"
+   "model_inputs_sha256": "204b5577c353d13f0ed9d8e0000656ce373a2c2cbfed55d90ecb73739fe5a805"
   },
   {
    "structure": "recon_1835_north_d6_058",
@@ -7246,7 +7246,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "9e240d11bafbe4be0dd767454976f9777eba70bd1ea851f4c15bfce52372b39e"
+   "model_inputs_sha256": "95a18cca5bab38fb2750a614d1813573b00eea02041430d95d7c36789bbace27"
   },
   {
    "structure": "recon_1835_north_d6_070",
@@ -7271,7 +7271,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "6344def768405de38d91dfa8995b0448846d7ef48d6d17ad3af0398badf02e10"
+   "model_inputs_sha256": "5a428e73a32fb9a05488fa6f807a33f5302952aae3a6a8641a6cd7a5c52e6957"
   },
   {
    "structure": "recon_1835_north_d6_080",
@@ -7296,7 +7296,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "d15e4a51dfdb2bfe5dc4c7f1dcef701f3b197f28291454fd8a53315c2cc9d128"
+   "model_inputs_sha256": "2912e8cdb3b53043ac8c53e02fcce925d02fe72b031385ed5d172936618d4c95"
   },
   {
    "structure": "recon_1835_north_d6_084",
@@ -7321,7 +7321,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "cd2b656239a110ef4d48863ee381a7b9786bdcf06b3e3b08e0a0a84d8c6f2632"
+   "model_inputs_sha256": "d9487950e9a63f246fb87b294624ca93658d2851884913d5362af4c0ae27bd96"
   },
   {
    "structure": "recon_1835_north_d6_093",
@@ -7346,7 +7346,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "0e2ec167ac6755de35627ed7b2b2fd7624a91ae2dced0754ed99fa5f9e0ecc44"
+   "model_inputs_sha256": "7cbcfdff6fe914515f5f74f598ae5d0c3d9779fbb8952c0662c9cfed4efe7b15"
   },
   {
    "structure": "recon_1835_north_d7_031",
@@ -7371,7 +7371,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "1f88fb8503afa3ed5962a8d9bb45798e07e57074ce5ed5d2b85ecb95facac7af"
+   "model_inputs_sha256": "8e28a93cc2f55847f714d856f81a9486b389b871de8a6561ba7373e1233072c7"
   },
   {
    "structure": "recon_1835_north_d7_076",
@@ -7396,7 +7396,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "26e649496781a0dd9f9aced03cd0ac768a9e25eea083899292d9c013baf7c29d"
+   "model_inputs_sha256": "a83fe05fedf00a20bf263ecaefe9a5268c585f5479e41f5f354f5f02b6eddd02"
   },
   {
    "structure": "recon_1835_north_d7_088",
@@ -7421,7 +7421,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "9edf24ae456d4117ee5c37169d23c7c39c4138bb5f479c949ec9c7506052f549"
+   "model_inputs_sha256": "da1ccfd1864dbb9c585343e7627f3bc400fb0d15ba9d073fa52f43660b6a4c5b"
   },
   {
    "structure": "recon_1835_north_h1_007",
@@ -7446,7 +7446,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "127b9dccc96944c0df4e2755d8e2643b5a497900ab3b26e89ee1d9231e19d81e"
+   "model_inputs_sha256": "13d34ac21814eddb2660f035c910056ac15196e933c9558077c5dbf188153da6"
   },
   {
    "structure": "recon_1835_north_h2_022",
@@ -7471,7 +7471,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "f1edd32a96bafc717614ce746f2310ce849f52e10664ac92b1663e5894ff4481"
+   "model_inputs_sha256": "aae519d48dc032e6133cc492d08d4c12ebfaa2bdddc70042d98d4ae81f921cb8"
   },
   {
    "structure": "recon_1835_north_h2_028",
@@ -7496,7 +7496,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "39f42ec3911d17e67520c67f8bfc3ccc3a1f45ac4c6cc0ae431a06450daa0daf"
+   "model_inputs_sha256": "81b0db1ba36a79e67501d288658ac1928db8f23e7ccb56066216c4688af8d550"
   },
   {
    "structure": "recon_1835_north_h2_030",
@@ -7521,7 +7521,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "1916e55266bbb53f05e6b480d049f675456d2c60e1465f998cad256116801804"
+   "model_inputs_sha256": "834182a178c725fcbbf7923c2991f56cd41b9b06f60433ae0867bbb844d8e290"
   },
   {
    "structure": "recon_1835_north_h2_045",
@@ -7546,7 +7546,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "6621066a123d1851c0d596483e43c6845cb4e93e34cd965a80df2e232cdb44dd"
+   "model_inputs_sha256": "f6a6b4668145b895d5dc5eb369f698204c6ced2e08a2229c2ad0fafe756b6e2b"
   },
   {
    "structure": "recon_1835_north_t1_061",
@@ -7571,7 +7571,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "a3852eee9e9ff860aeedc2ae12360aea75dae702123983a1e053b7d6ddcc5b64"
+   "model_inputs_sha256": "713881ddd17dc3de0152fac7ffa25d7262bfae0e45ce142e5071e98f7a093e44"
   },
   {
    "structure": "recon_1835_south_c3_015",
@@ -7622,7 +7622,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "317dee55763beebb09c04c4d5cf106d6df5ff3d63628e41ac0e4739302fbbce4"
+   "model_inputs_sha256": "6b4c008737657402784fbe23213a08a0ec60705fa5d6ab314dc9837506fcfd8b"
   },
   {
    "structure": "recon_1835_south_d1_003",
@@ -7647,7 +7647,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "c9d50302824ddf75119a0d476ac5f0525b868f72e955aad02234805cc0128a54"
+   "model_inputs_sha256": "f35713ad843c3f33fcb100ffec68212270ef131690156c65c193d09d7274a2cf"
   },
   {
    "structure": "recon_1835_south_d1_010",
@@ -7672,7 +7672,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "1cff4a5e9519fa4acf219101dbb72cb3ed19897f6dce08aea8e5664e16a324e6"
+   "model_inputs_sha256": "c0edd03a9ac2da878436e1cceafced8a3083249eb0b60f45569ceb39fd77db78"
   },
   {
    "structure": "recon_1835_south_d1_018",
@@ -7697,7 +7697,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "86bbd46927905d0318128760f3770931c431a394faa18fb9d02325296240a59f"
+   "model_inputs_sha256": "95e2682a1a19b36a08cd6c85339b21aa21fe7a6a5fc98bed522adcff824a02de"
   },
   {
    "structure": "recon_1835_south_d1_021",
@@ -7722,7 +7722,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "8dea9a86db9118791f884d76622e8a9de65a8dc3e1b2ea27e91f5d7975543995"
+   "model_inputs_sha256": "09e6236d8b72fe373288c834d5111a1fb40ad38ec483888d808796d7644de185"
   },
   {
    "structure": "recon_1835_south_d1_032",
@@ -7747,7 +7747,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "3d3373e5e115e1408619787fc63fe8d4b3e654d12177f61ce1900f0b594a9aa9"
+   "model_inputs_sha256": "0f7df91b3ce88ab0fd52d61e49b6c1f27ba28e285e6af98ada09a81786711a40"
   },
   {
    "structure": "recon_1835_south_d1_033",
@@ -7772,7 +7772,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "e24bd9119ae0d04b1cf88f5542f259231c859c4c121f77f8f1f04cd19faa6e84"
+   "model_inputs_sha256": "1703ae952f03983ea2552b858c72ba01ed166bc7e86cf8a601eb33ef0882155c"
   },
   {
    "structure": "recon_1835_south_d2_005",
@@ -7798,7 +7798,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "47f1ec068b240d072c93d420e3b39d37e54ecd91d044c4db502eb318760ce2ae"
+   "model_inputs_sha256": "4eb744957e431d27b6f74acf815e1cb1b815de23c5d1ee54ae353dc04fca7834"
   },
   {
    "structure": "recon_1835_south_d2_024",
@@ -7824,7 +7824,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "76de5751a5e72771efacbd35191f8abcf88106d9715dcac7a7e0b09564dee7ca"
+   "model_inputs_sha256": "9ae03422628313f5ed80e02826c005449b24888b3df81726aa2d56754cb56fed"
   },
   {
    "structure": "recon_1835_south_d3_008",
@@ -7849,7 +7849,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "ab40b42bdc4131115a8f47f122a5408a99ec85f834c7c9eca6058cbd5f81a206"
+   "model_inputs_sha256": "dee7a4a0a3e9beb48769e5797fbb9bf06d6ea238141bbc2bcdb45fd3796e3312"
   },
   {
    "structure": "recon_1835_south_d3_013",
@@ -7874,7 +7874,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "54a8adcd316b92f2f044cde09560215b7959056bb2c5fcb17cb06d7b58504fb7"
+   "model_inputs_sha256": "1651c42fce85011121a1db4c6c7e62f505e90b5579058edb7c210117125321de"
   },
   {
    "structure": "recon_1835_south_d3_017",
@@ -7899,7 +7899,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "579925125a5de0c04178871ae2974e4a58ebf73fc8779f7dabfe59f320825fd4"
+   "model_inputs_sha256": "0cab67e3a77b6a87216d00b7072ce12abc07105e657abbffbef76867210d44b2"
   },
   {
    "structure": "recon_1835_south_d3_022",
@@ -7924,7 +7924,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "cb0fc76e0bb058ec7072a3cdd7f3ad1c009714072ef9197f3243a0fb1e756e26"
+   "model_inputs_sha256": "00d812eb2f8de95b5c3d5e7dfe54e0dc6ace1364d6f15dc009322aed409933df"
   },
   {
    "structure": "recon_1835_south_d3_027",
@@ -7949,7 +7949,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "5769b046262972bed84b2f5197c05bcca161113eea7170eae12067bd28089265"
+   "model_inputs_sha256": "122cd04665243a0fabae35f31ba5e5812b5fa183f173a47d610810e39be6b255"
   },
   {
    "structure": "recon_1835_south_d4_002",
@@ -7974,7 +7974,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "bb2c29b6c85153fb8af218b1a4a7e51a2029bd4a82afd7fdfdaeb69bb6b1ba36"
+   "model_inputs_sha256": "7a1443213bd0cc094585de4baab6a1de88ad289ea2a47e10cd6c1dc3e920951b"
   },
   {
    "structure": "recon_1835_south_d4_006",
@@ -7999,7 +7999,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "a67fdc9c64c0bf45d4d23018011920cc40a16a93845c17caaab185310942312b"
+   "model_inputs_sha256": "581cd53f6c06c19b0b0301384e5f42625eddd5635d56f90c3e680b2af7270fbf"
   },
   {
    "structure": "recon_1835_south_d4_009",
@@ -8024,7 +8024,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "db63b709cc024409328a518f5480ef5d430aa19c064758d00646bdcd5b1910eb"
+   "model_inputs_sha256": "27f1805b4ade61c3b12910c5de0c3d11ea41ac3957513909d6e43bd4ce6ecadc"
   },
   {
    "structure": "recon_1835_south_d4_014",
@@ -8049,7 +8049,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "75ad586d784069038215252010fb3e14a8d8f690d8d398daa50da859ff4152bf"
+   "model_inputs_sha256": "5d58659e6a848af0b7acde1e97a8fdfde4009c7086a5fa98e9b5966da2ce3d86"
   },
   {
    "structure": "recon_1835_south_d4_019",
@@ -8074,7 +8074,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "2e0b86a8cd88e777626d4fd942785cd77362a84c524671cd1750da2aa2daf5a2"
+   "model_inputs_sha256": "b639244523dd13bede3e622f928d778cfaeaf6f4e40fcc6d4e4b4fd985c7d0a4"
   },
   {
    "structure": "recon_1835_south_d4_025",
@@ -8099,7 +8099,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "9ee9621ba13c70e161fe964c04a0bd510ffc3071dfa901409ad0dec092b68d37"
+   "model_inputs_sha256": "f0c789d45fc05d1c99d944b866d8db1f59e29efc5660c1422a73e3b8e8c7c217"
   },
   {
    "structure": "recon_1835_south_d4_026",
@@ -8124,7 +8124,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "a45c7395188551e72e592ace45ccff9eb0b6aabb3590a2615facb70695a78af4"
+   "model_inputs_sha256": "2c923987f1bdc42851ad0f02028cf9850b38f853dcc8b94187e88de2f233a7c7"
   },
   {
    "structure": "recon_1835_south_d4_030",
@@ -8149,7 +8149,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "d5c2eaf478137c35c56530af5294d7a282a75a351217a6ee0e85296aae3877da"
+   "model_inputs_sha256": "6a1c01d8b46b7a1057967504298a96868bf1fd8ecf27d70af87f7cfb7846352d"
   },
   {
    "structure": "recon_1835_south_d5_007",
@@ -8174,7 +8174,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "5a2b6e1ad28604d906eeaf704bbd30f8fdd76b5ef868e41a05ba1c0f8fc52901"
+   "model_inputs_sha256": "b026bf471faba4f374a949feecb6e70d6ef42da372516590b76650c52c2b0209"
   },
   {
    "structure": "recon_1835_south_d5_011",
@@ -8199,7 +8199,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "77096837f45903f2c28af243d03b008c71cbc1a924ecf8d275a01aff4d9c2b4d"
+   "model_inputs_sha256": "9557447b808064002568a6020a91d55caecb80e1f69c1d4688b63ca76ce5cbc9"
   },
   {
    "structure": "recon_1835_south_d5_016",
@@ -8224,7 +8224,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "6fe881a4479a231738db17d1d7bcf191a66a4ef6f0354f275f6a62b3700f2c6b"
+   "model_inputs_sha256": "815f10eb58f1f5741d2a7677407b9d49fd83403e16ac3b15cb8c2d8535080ee4"
   },
   {
    "structure": "recon_1835_south_d5_023",
@@ -8249,7 +8249,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "84163283399f0c7e8795976763865670d838f6c47ca52bc04583490f7ae2c458"
+   "model_inputs_sha256": "601581ab6aadddd217142c61d69eddee75f1765c8f6a262158307b0cb08db9c2"
   },
   {
    "structure": "recon_1835_south_d5_028",
@@ -8274,7 +8274,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f2b44b7c8e822c52cbaecc31bac96f07898e0322e30ed72681a90624c0712487"
+   "model_inputs_sha256": "cd137decbb0d6c2aaecc745da6a64a4fc84980ce42af4c737fb32b20f0932b40"
   },
   {
    "structure": "recon_1835_south_d5_034",
@@ -8299,7 +8299,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "1e1526608d5a89f03cfe446ada4dffbf81109ef04762e0021f5a2d00f6ba5f16"
+   "model_inputs_sha256": "b7082ca4ebdd40ae5785a7aa718296a08b34ac8083899ffe7e4defc3fc3c1ea9"
   },
   {
    "structure": "recon_1835_south_d6_012",
@@ -8324,7 +8324,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "bc7bc867961ae735316711973cfabefdec5b33846d338effd200df9acef30629"
+   "model_inputs_sha256": "81a81fd39d8ba474e8f1387b67448addc12944ba0f49b350c19df501abb0d4be"
   },
   {
    "structure": "recon_1835_south_d6_020",
@@ -8349,7 +8349,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "61a89ca8285712cc1db5d0f00654fe25eaee726027de67369dc25d7201781faf"
+   "model_inputs_sha256": "8de0fba670ce8ad991c749894a6d842b23a65f64ad2a0f26dbe5bef7b8a4d5db"
   },
   {
    "structure": "recon_1835_south_d6_031",
@@ -8374,7 +8374,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "907f273d2fae8fd69932426e0ecca1d70ae981e45ac0f787b69b708b1cbf0242"
+   "model_inputs_sha256": "cf98468c1d8c11c812e442d7a2977e0054ce593e1d7140bba8ddf24cda8937c7"
   },
   {
    "structure": "recon_1835_south_d6_036",
@@ -8399,7 +8399,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "20f4cc0201ec31574b7f2f8957e05dd9c3796b9e11c5dcb664dd9217444d641f"
+   "model_inputs_sha256": "637367334ead546381ff2400a243f3bd2fbbaa31884d34c3d5071dedffa79445"
   },
   {
    "structure": "recon_1835_south_d7_035",
@@ -8424,7 +8424,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "97226510fafbc51dbfb1465615983d69f6c3ca2ff856ed06b271ee8c06d72d1b"
+   "model_inputs_sha256": "ca8700730c628bcfaed7be2379dce09a426a7dfc4fd58f5f36bcf0c4adcf4982"
   },
   {
    "structure": "recon_1835_south_h1_029",
@@ -8449,7 +8449,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "00ba1dda0f7729939fdfa788fb2b379c7c1e6a88b1e94ac42a7a4897337036f8"
+   "model_inputs_sha256": "47bd81e057f12ed6395255f819a5169875b1bfe29834093002242022db428c86"
   },
   {
    "structure": "recon_1835_south_h2_039",
@@ -8474,7 +8474,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "171daef333c36e4822267a706856905ae30d37ccc1784c07b72061a156bed067"
+   "model_inputs_sha256": "c117b6d5f1e5a93ed849cb7394510cb166f7ed5f6c7aa66a8cb57f545a1d926a"
   },
   {
    "structure": "recon_1835_west_001",
@@ -8499,7 +8499,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "8c1e07f61574baa43fac6e4881922a443a9218f5a0237d75cf6053918248fb2c"
+   "model_inputs_sha256": "583892562ee7ca660c103147a559229a515c8da78f3f92ef9acfe211da6d1c85"
   },
   {
    "structure": "recon_1835_west_002",
@@ -8524,7 +8524,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "cc02c31d001a1d6de65214f776dbdbc56d491e0a9bba44d712eed82d4e3abb14"
+   "model_inputs_sha256": "3b319ca2804cb3a0c93dd49f7f28595eda2ecc667c4d20963f97949c84c8940e"
   },
   {
    "structure": "recon_1835_west_003",
@@ -8549,7 +8549,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "23f2446c0926db75b5fe874eeabb8680a32895b22578b74d9b72529e84cc7607"
+   "model_inputs_sha256": "43b44100362f07ff3385158cec43e9cb6816edc3c518f58f1317d64c48d9cbd4"
   },
   {
    "structure": "recon_1835_west_004",
@@ -8574,7 +8574,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "04115b53bffe091370f344a145dad3f0bbec54e38fe133a93e5bd44e1be89889"
+   "model_inputs_sha256": "b8e38557f4d0820534708fe1769165316ca7effa44ef76c508e4f07db1992f0c"
   },
   {
    "structure": "recon_1835_west_005",
@@ -8599,7 +8599,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "278b3eb43a5b35976074c3452cae1faf974363213c777a11674594b8fc664018"
+   "model_inputs_sha256": "3c3ff614499187c9694241617faee739fab2b7efc3fd6697274456a44af4e903"
   },
   {
    "structure": "recon_1835_west_006",
@@ -8624,7 +8624,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "eef01ac43a8be3f2f91aa313190f00aa0c5b1a795ab264e1d0581f7cb1aeaa98"
+   "model_inputs_sha256": "bf44e5d955448c973bbcce9f00d78695576e9e2ccae84f35e13d7ff4d88146d4"
   },
   {
    "structure": "recon_1835_west_007",
@@ -8675,7 +8675,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "487367d7a66b7b189195b0a1a2e6a03ee1419145d1da755349b717d5b7ebf8f4"
+   "model_inputs_sha256": "59ff383459ee2ed305173d9158636002c18cc10c94af98966fdd55754ddb3d0d"
   },
   {
    "structure": "recon_1835_west_008",
@@ -8700,7 +8700,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "56b2a5cfef23f9fc02ac162f9cc835f62d52b4b1e45cd051e3a455cb9a99b073"
+   "model_inputs_sha256": "6b9ffeb956de91cfc5a262a499828825247acf70dd08c3220501e9ae79d4bc82"
   },
   {
    "structure": "recon_1835_west_009",
@@ -8725,7 +8725,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "75890d929e387c18d89e1351bbb46571c61af4a19936d7fbf757743c82434a03"
+   "model_inputs_sha256": "918e3426ad03e8642ca7be8e3016bda808612af4a8f5e67c4039bc36022ac853"
   },
   {
    "structure": "recon_1835_west_010",
@@ -8750,7 +8750,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "9180bfb7c889b728ade61c0b91bdc753b4e7f2636c699e83ce0b27d250a47899"
+   "model_inputs_sha256": "a28097b4084075cc33225d3a64a8af111d41f470ade20fca45b47fd3edc7e868"
   },
   {
    "structure": "recon_1835_west_011",
@@ -8776,7 +8776,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "bae8eccd7a2e822e939784df42a526f3859d0ffeb894066daf87b8e04aea65ea"
+   "model_inputs_sha256": "d2223bd1dbbfdd7b2f1c0addee06cf2aa5fa28355f8ae3ec23fd3c297e3834bc"
   },
   {
    "structure": "recon_1835_west_013",
@@ -8802,7 +8802,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "8436189cd465f259be8d70c1b57ee64f635cb1853cec2a76a690e763a3b2c94c"
+   "model_inputs_sha256": "dba8bb7af0816ff43b41a26d8b3ad126d6f3d6777e23dec345d7b5ff52851b9a"
   },
   {
    "structure": "recon_1835_west_014",
@@ -8827,7 +8827,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "53384a2d0c671b9fcfab1eda5816a49a58f9487272c54667318eaf710bd99d5d"
+   "model_inputs_sha256": "61788d1c839840f6d56553a478c09d0be2ce4c429e8a2f2d8cc57aa2758c2d90"
   },
   {
    "structure": "recon_1835_west_016",
@@ -8852,7 +8852,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "a5a783903bdf5e77eedfbc1e48abc3358a3eaab571264f03b1c1f70efd8bcb52"
+   "model_inputs_sha256": "21b40b6b317514f131e6d22c4015de64ff4d7a470afb70f787990038fd692ae6"
   },
   {
    "structure": "recon_1835_west_017",
@@ -8877,7 +8877,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "3b84172f359a35cf993625049766cca0f7f0d9b6e334210add5bb742ab5811a4"
+   "model_inputs_sha256": "f848250aadea61c6fa536e4b26857beab327a4c7915507ce6c1b537bb436f236"
   },
   {
    "structure": "recon_1835_west_018",
@@ -8902,7 +8902,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "437b9184e4d4d66ef55dcd6b32e81f1600c98710dacac40d0a8420fe447755f3"
+   "model_inputs_sha256": "7ae2d02c857773c1006211df47dbb6543f12b0f6ea3ba2000ef9cc796a25755c"
   },
   {
    "structure": "recon_1835_west_019",
@@ -8927,7 +8927,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "3953f246ab93877d03f1014f4b211f5c083204abe8eba6c235654506855fefd8"
+   "model_inputs_sha256": "f5f993a77a844539bc9334e4a68c4593998d99fb0381168b297e5b49eb790cec"
   },
   {
    "structure": "recon_1835_west_020",
@@ -8978,7 +8978,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "4ec94ba7dec324d79d210b930250f88f3d95df60d4fd506b91c286c6af7b84a6"
+   "model_inputs_sha256": "ecb23883ba98dd3fabb89b8809c700b26e9b8e904d99ef489d418880a8e93a41"
   },
   {
    "structure": "recon_1835_west_021",
@@ -9003,7 +9003,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "78208b9011cb60685e86a8ef0e691e5b1460654a1975df3142e33b680f9ba347"
+   "model_inputs_sha256": "b9deb7d086debaa55f0a070630904e7589e395bba4a34d00ede48046d41adcd4"
   },
   {
    "structure": "recon_1835_west_026",
@@ -9028,7 +9028,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "a44bdbd488ceafdf12a72026cf3fe35e579098e9aa2b020b67735248dde2bcca"
+   "model_inputs_sha256": "d8892d0301970e40342d22485110d5d1d80c37d2ed454a28e7a875db270b0558"
   },
   {
    "structure": "recon_1835_west_027",
@@ -9053,7 +9053,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "0486769b081ed0d3bfc2383dd6c379d5bcc3c9e51db92b6f431dfb03be5e313c"
+   "model_inputs_sha256": "c0d3885f9140ad2f4a3f39fa2c925c2c7c98fcfefe9a7002d8bfe1ef16ca3fa9"
   },
   {
    "structure": "recon_1835_west_028",
@@ -9079,7 +9079,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "894ab6f337615e325e1a6dcf9767aebf2f648eb3d0f84baaa79670a42aefdef6"
+   "model_inputs_sha256": "21e2c3a51f267fec550ba4c04dad11951c5e18c122395ac05f27a37844d064e2"
   },
   {
    "structure": "recon_1835_west_029",
@@ -9104,7 +9104,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "97c8a3f3481906626e70c83eb2a35da63160414cb0f36ca3cc1bf6b63e5cf26f"
+   "model_inputs_sha256": "eb99ab0888ff9f410b6e4d5ed4a75304193a07465b84109008f941fa7e8e1262"
   },
   {
    "structure": "recon_1835_west_030",
@@ -9129,7 +9129,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f54ca512f7f7ea79bf440bed5f38651476731d1796caa2f09cd21b49c6636490"
+   "model_inputs_sha256": "20da5693711fa5747a2e8730ce18314c2ee47c76368ec2a5662b0060e8b11d85"
   },
   {
    "structure": "recon_1835_west_031",
@@ -9154,7 +9154,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "77a46553bcdc3ee7c2a4e63560bdcb2a49e830a31793c95d809695b4604fd4d8"
+   "model_inputs_sha256": "d9fabe2da51f1d86cbf21632e775d39f81c650bdf787951c4a9ac0bb5b734872"
   },
   {
    "structure": "recon_1835_west_032",
@@ -9179,7 +9179,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "62dfe6628ff1e61488b409151e32d92a64b878c6613f8ec04408fc90e558785a"
+   "model_inputs_sha256": "23318e436ed220945f11832787b32af39073e5f23cdff9a011155017fbcb677a"
   },
   {
    "structure": "recon_1835_west_033",
@@ -9204,7 +9204,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "f8c13e9b8edfa10b44b4f338dbc4ed462079bb1c02d0de11bc1f8a30443b72a8"
+   "model_inputs_sha256": "b0bd12bebbcf9323537af1687a3562149283153ab5c0b74b6c57332d49e926e8"
   },
   {
    "structure": "recon_1835_west_034",
@@ -9229,7 +9229,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "4251849740a3dc0add646a650e47aaa32b7d33473f06bd3289b79cfca60fbea0"
+   "model_inputs_sha256": "115c2c4e366c19a1466cd83de603f753b1c06e569f4a8e785bb08308cced60aa"
   },
   {
    "structure": "recon_1835_west_035",
@@ -9254,7 +9254,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "5266491506b76bcc660e0b178a51b2dbb702637aa3b366b4e2f82725e888ca02"
+   "model_inputs_sha256": "c59316a6a67fd5862767aad70766a701cd0c3b9391e055530bcc2725ac358bc5"
   },
   {
    "structure": "recon_1835_west_038",
@@ -9279,7 +9279,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "b8a366f691c5e0e79e9e4f7376b197a603339a16309ea2d22438efde3d7d2dc6"
+   "model_inputs_sha256": "98a842d5b00b81bba03216be0039c8d1c04e5f7ef199cc1e10611cb07634b7df"
   },
   {
    "structure": "recon_1835_west_039",
@@ -9304,7 +9304,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "6eb45864a4c3e370c664ec26919b7bc2ce7dae804b81e0c12d2347cafe3ad9c4"
+   "model_inputs_sha256": "face63ed8715e1106d88dc38c64afad0051783b58fe4ff860345e3a3a4eb271f"
   },
   {
    "structure": "recon_1835_west_040",
@@ -9329,7 +9329,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "c6a877583656b53f65c3178403f8177d98ea2a4a5e925889a0fac630f8b18234"
+   "model_inputs_sha256": "b09ba457cb82e3f68024fb42fc21fcad705f7f7cb08fcb5426dceda1d6c00606"
   },
   {
    "structure": "recon_1835_west_041",
@@ -9355,7 +9355,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "b3a490573a440dc6e6769e443f7aa56386d85b87b4da800ef9d7f16c10629099"
+   "model_inputs_sha256": "0b2efacb0ab459a8763b7241c9bfce66b620380504be9d67e2d78cc78e7766a3"
   },
   {
    "structure": "recon_1835_west_042",
@@ -9380,7 +9380,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "808cb564030e69a565b6732c39efd49485b54023ff1e99ceeba3be0004a2fba1"
+   "model_inputs_sha256": "cfd58c55f2f111773dccf4058ae8bfa6139670bba27e6f3ba82c179aca046761"
   },
   {
    "structure": "recon_1835_west_043",
@@ -9405,7 +9405,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "d907fa6bb13302159e771481765f03db17c8c6e84ae523eba9c5119bfd8f7d84"
+   "model_inputs_sha256": "0b41db29676ea9a9b2bd8561735d51dd7423d41c6b912fc6a62be0dd5b89d934"
   },
   {
    "structure": "recon_1835_west_044",
@@ -9430,7 +9430,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "aca50c9b73290123a8ff4f7d3a20240f36dcdf4f7e8f9355706b2ccfcd61368b"
+   "model_inputs_sha256": "fa23c0d5b8e9b7762e3ff9c6213fbbaabc97b4c6662bde71d56f1441cfd749e6"
   },
   {
    "structure": "recon_1835_west_045",
@@ -9455,7 +9455,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "33c481d70dd4811d80835444b8bb07fb9d6e87524200f983d30116e1b92935ae"
+   "model_inputs_sha256": "256c2dd4a44f1d1380a425d35d9e167f0e20278de082b7004bd9be3777c4afb4"
   },
   {
    "structure": "recon_1835_west_046",
@@ -9480,7 +9480,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "e4505ae63d75a2cbb2d98a61899f1ddde21790be0727dbae78f6ae2c8b70f9e3"
+   "model_inputs_sha256": "a3001dbcb65200290d7b13f7fcec1d7d1605867c8c4776c509d059b597d7a88d"
   },
   {
    "structure": "recon_1835_west_048",
@@ -9505,7 +9505,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "4c33259faca17fc08ab7891065b5d0e5aac4c9d5ebfd5ca5cbafaf055e78a824"
+   "model_inputs_sha256": "dabacffbd2f32fb7bc184f241871f5022c34ecf256fd978428ab78b61ba9e717"
   },
   {
    "structure": "recon_1835_west_049",
@@ -9530,7 +9530,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "8f22af4de125341e4b404c060cf0a978252c7ab77d7bb5939085c0b17ae9dda8"
+   "model_inputs_sha256": "8b037581dc8b511f41e78ba0b7f79a17146a65e0617135ff8caf2f66488b702f"
   },
   {
    "structure": "recon_1835_west_050",
@@ -9555,7 +9555,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "d010c1f561a45f94ee8af8de6e87c14f8a0b42f4529d842d2a2c262b597ad775"
+   "model_inputs_sha256": "309852b1d3839ac31495c22410e9fde0d66296d97ff4b466c15d490bd0ff1349"
   },
   {
    "structure": "recon_1835_west_051",
@@ -9580,7 +9580,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "a2bffe20e8c577599e4a678f829f7b1fa3a8d78242b4ba1623f46f6c4d388703"
+   "model_inputs_sha256": "a8454c5f2ea3818fce08df2b44dfa70409befcfbce1208429394f34023a2a497"
   },
   {
    "structure": "recon_1835_west_052",
@@ -9605,7 +9605,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "b5240d84af0c12786adf8c968fbb9af082064ede5c430c48223cd36b10749da5"
+   "model_inputs_sha256": "2d158696402defb55443f1ab136ba564934db13222df917c3067631a456c40ff"
   },
   {
    "structure": "recon_1835_west_054",
@@ -9630,7 +9630,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "cbf07d5cd95ac2d82f17d61b568f5d6ac810d917b0ef57b45c4aa39be5bf2feb"
+   "model_inputs_sha256": "f1d8a7d5017bb2989d0e65b79b39710a8c710e9729071fc2a4819bf94c846357"
   },
   {
    "structure": "robert_kinzie_store",
@@ -9655,7 +9655,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "aadcc90152befe5bb00077d44e59f0cb478bef912f9f5cb1e403b951e901f8db"
+   "model_inputs_sha256": "7832343ebbd27cef356870e04b2ba71feb4bebca2fa3ccfa32612552b52a8eb4"
   },
   {
    "structure": "robinson_caldwell_cabins",
@@ -9680,7 +9680,7 @@
      "width_m": 1.26
     }
    ],
-   "asset_sha256": "4b67c644353d2c07e9ba5472b754102ed15f456b238dce61f6ea26f5614ecbd6"
+   "model_inputs_sha256": "22b845b8838fcc81af380ccfe3ab0cd7328673791fe5fcb1b30478246c8e92dd"
   },
   {
    "structure": "sauganash_hotel",
@@ -9706,7 +9706,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "51a7008c31176390fae7d7fc189f61eb385c18e109a49c125f72d389ef550385"
+   "model_inputs_sha256": "7c9d39f6e967f75c4ede34495bc76c0846d883617ba683602beffde4236d5bc0"
   },
   {
    "structure": "south_branch_raft_bridge",
@@ -9732,7 +9732,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "82bab6bd0bc2879fa68bf28704d31ff871d77a72a4d1a8ba0044c8d560c4f6cc"
+   "model_inputs_sha256": "31fae123a5fd82e8972861e85baec6d6811aceb2b62b1b554acd03e292debb3a"
   },
   {
    "structure": "st_marys_church",
@@ -9757,7 +9757,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "1443ab7dc50739a211a41ba87eb3ab31c85644c344469fdd578ad80101b6bbaf"
+   "model_inputs_sha256": "315cb02a9fcb94873803aa52d08e8a0fc30472762f8f0c3683f7254864d3e9b6"
   },
   {
    "structure": "steamboat_hotel",
@@ -9782,7 +9782,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "7ec7c4193b2a2f4bd4d262a29345294dcd539dd2c2ce4bf05faa0ab32b9b2da7"
+   "model_inputs_sha256": "17eb851b0ca8f397bdcd2761d25814460f4a4f8f62adb60219a92fd8980b3266"
   },
   {
    "structure": "temple_building",
@@ -9807,7 +9807,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "a665cc7824e552a7b20b02a886157449f3c40cab833a38042f098f32fb06d547"
+   "model_inputs_sha256": "eb83479710f8646aced29382d0e4072bea0bb80d43a8fd1d08779259bf0fb359"
   },
   {
    "structure": "temple_lake_st_building",
@@ -9858,7 +9858,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "c82eb77475eb25b7db1c412f013b0e7fb761dcb2c156bf11945dcb23dce98b5f"
+   "model_inputs_sha256": "737e0879e5d07aead6d930eaf2b824058c53c12485f3caba18f8dea337d9ab7f"
   },
   {
    "structure": "tremont_house_1",
@@ -9884,7 +9884,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "63b1802b5a8d56ac7d300160fb5b472ec97f273d6ddebe9827291bd357150801"
+   "model_inputs_sha256": "d1ef55a8f21dc47846411b23c5d208e501c1935201aaaa44b83c3b1a98bc9e61"
   },
   {
    "structure": "watkins_school_house",
@@ -9909,7 +9909,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "8622bf5381fd0c46dc607c9f4e6a4a607ac73c1754a6c697af61261761835a75"
+   "model_inputs_sha256": "bdcd84ec9703ab9cbdbfc3b530b8bec7bc08d3aaee6b7d69abf092e30c504b3c"
   },
   {
    "structure": "western_hotel",
@@ -9934,7 +9934,7 @@
      "width_m": 1.2
     }
    ],
-   "asset_sha256": "6e12962f2df5ce79ecf03d51fe55a717ccd6b6fca25d44df3e30c2142aed345b"
+   "model_inputs_sha256": "3ec4cb700eb0270641a8c633f62f9827a0659c2872417f6ab1371b924b407f55"
   },
   {
    "structure": "wolf_point_tavern",
@@ -9960,7 +9960,7 @@
      "reconstructed": "the model draws no door leaf on its edge; a reconstructed entrance at the middle of the side nearest a street"
     }
    ],
-   "asset_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59"
+   "model_inputs_sha256": "57036d293e1101ac60a213093dbe1c55c24f89a04238c5d3d88a6b85562c04db"
   },
   {
    "structure": "wright_building_to_let_a",
@@ -9985,7 +9985,7 @@
      "width_m": 0.92
     }
    ],
-   "asset_sha256": "47dfcbe909ed2cace0f517d63cf996c49cff8f196a8f2c0b67e413d35234e49a"
+   "model_inputs_sha256": "b8ebc8afe009ce2808b200d7cd8995aee747d877c9ea897adc620b076a3a8351"
   }
  ],
  "stoops_note": "T-3554 (owner, 2026-11-13: \"no one should be able to\" stand in stairs): the stairs no house model carries, as `barriers` rows of one box each (derive_doors_scene.py stoop_rows; `what` says which): the street fronts' stoops, mounting blocks and tie rails.",
