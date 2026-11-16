@@ -2419,6 +2419,13 @@
       "finding": "Reproduces: two bare writes on the tree rewrote data/tales/1812.json, data/tales/1835.json and data/tales/1904.json with identical bytes (the SHA-256 of all 22008 tracked and untracked files unchanged, git status unchanged). data/tales/1835.json cut to its first 5000 bytes failed --check and was restored byte for byte by the bare write. The tool never reads its own outputs.",
       "placed": "Follows compile_scene.py (data/sidecars/<scene>/people.json), the household files (data/residents*/households), town_people_1835.py (data/humans/inside_1835.json) and every tool that writes data/humans/instances/<scene> or data/humans/inside_<scene>.json, whose drawn people it reads as the tellers; reads its stories from docs/RESEARCH/tales-3553. Nothing reads its outputs at build time. These ordering edges are not yet in the full rederive manifest."
     },
+    "lay_vessels.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-16",
+      "finding": "Reproduces: ran `(bare)` twice on the working tree in 0.5 s, rewrote data/boats/vessels_1835.json and vessels_1812.json byte for byte (sha256 8fb8e170\u2026 and 2882ecd1\u2026 both runs), changed no other file (git status hash unchanged); a damaged vessels_1812.json made --check exit 1 and the writer restored the same bytes; --check writes nothing in-tree.",
+      "placed": "not yet: it reads the e1834_harbor_cut and e1830_natural heightfields, data/boats/era_boats.json and crossings_1812.json, and the 1835 pier, bridge and wharf sidecars (data/sidecars/1835/) and the 1812 first fort wharf's, so its slot is after the terrain writers, lay_crossing_boats_1812.py and the sidecar compile (T-3612)."
+    },
     "site_films_ingest.mjs": {
       "placement": "not_derivable",
       "write_mode": "DIR [id ...]",
