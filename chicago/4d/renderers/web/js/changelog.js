@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 3016, ts: '2026-11-15T23:36:28.605Z', date: 'Nov 15, 2026, 5:36 PM CT', title: '1835\'s townspeople come and go from their homes and shops', kind: 'feature',
+    items: [
+      '2,830 people of the 1835 town now keep a day: merchants open their stores, tradesmen work before their shops, labourers come home for dinner, soldiers drill, women keep house and yard, children play by the door.',
+      'Each goes in and out of their own home, and of their place of business where the records name one.',
+      'Knock at any door to ask for whoever is inside; Find and Follow bring someone out of where they are now.',
+      'Greet them, ask them to go home or inside; each has their own clothes, colouring and height.',
+      'Up to eight are out around you at once on a computer, four on a phone.',
+    ] },
+  { v: 3015, ts: '2026-11-15T23:36:28.605Z', date: 'Nov 15, 2026, 5:36 PM CT', title: '1815 Prairie\'s south chimney gains its sunk stone panels', kind: 'improvement',
+    items: [
+      '1815 Prairie\'s tall south chimney now shows the three narrow sunk panels the old photograph draws down its face, cut in the stack\'s own stone rather than read as brick strips',
+    ] },
   { v: 3014, ts: '2026-11-15T20:57:09.137Z', date: 'Nov 15, 2026, 2:57 PM CT', title: 'Jaunts menu: filter by school grade', kind: 'feature',
     items: [
       'A row of grade pills under the jaunt groups (All, 3–5, 6–8, 9–10) shows only the jaunts written for those grades; Clear filters lets it go.',
