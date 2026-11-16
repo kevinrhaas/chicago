@@ -1,5 +1,5 @@
 {
- "format": "c4d-doors-1812/2",
+ "format": "c4d-doors-1812/3",
  "ticket": "T-3463",
  "generated_by": "tools/derive_doors_1812.py",
  "note": "Where each 1812 building's door leaves are (read off its model) and where one who answers stands. Asking at a door: renderers/web/js/human-days.js.",
@@ -25,7 +25,70 @@
       "local_n": 113.44
      },
      "outward_deg": 0.0,
-     "width_m": 1.26
+     "width_m": 1.26,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       3.65,
+       5.567
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.64,
+       0.64
+      ],
+      "sill": 0.02,
+      "head": 2.07,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.63,
+        0.63
+       ],
+       "foot": 0.02,
+       "top": 2.07
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        3.65,
+        8.077,
+        null
+       ],
+       [
+        3.65,
+        7.077,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -50,7 +113,70 @@
       "local_n": 239.81
      },
      "outward_deg": 0.0,
-     "width_m": 1.1
+     "width_m": 1.1,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       2.635,
+       5.833
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.56,
+       0.56
+      ],
+      "sill": 0.02,
+      "head": 2.05,
+      "leaf": {
+       "front": 0,
+       "back": -0.004,
+       "s": [
+        -0.55,
+        0.55
+       ],
+       "foot": 0.02,
+       "top": 2.05
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.034,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        2.635,
+        8.183,
+        null
+       ],
+       [
+        2.635,
+        7.183,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -75,7 +201,70 @@
       "local_n": 209.43
      },
      "outward_deg": 0.0,
-     "width_m": 1.1
+     "width_m": 1.1,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       2.925,
+       5.653
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.56,
+       0.56
+      ],
+      "sill": 0.02,
+      "head": 2.05,
+      "leaf": {
+       "front": 0,
+       "back": -0.004,
+       "s": [
+        -0.55,
+        0.55
+       ],
+       "foot": 0.02,
+       "top": 2.05
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.034,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        2.925,
+        8.003,
+        null
+       ],
+       [
+        2.925,
+        7.003,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -100,7 +289,70 @@
       "local_n": 222.51
      },
      "outward_deg": 270.0,
-     "width_m": 0.72
+     "width_m": 0.72,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       4.282,
+       4.093
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.37,
+       0.37
+      ],
+      "sill": 0.02,
+      "head": 2.05,
+      "leaf": {
+       "front": 0,
+       "back": -0.004,
+       "s": [
+        -0.36,
+        0.36
+       ],
+       "foot": 0.02,
+       "top": 2.05
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.034,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        4.282,
+        6.063,
+        null
+       ],
+       [
+        4.282,
+        5.063,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -125,7 +377,70 @@
       "local_n": 229.82
      },
      "outward_deg": 180.0,
-     "width_m": 0.9
+     "width_m": 0.9,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       2.255,
+       3.109
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.46,
+       0.46
+      ],
+      "sill": 0.02,
+      "head": 1.85,
+      "leaf": {
+       "front": 0,
+       "back": -0.02,
+       "s": [
+        -0.45,
+        0.45
+       ],
+       "foot": 0.02,
+       "top": 1.85
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.05,
+      "leafMaterials": [
+       "board_door",
+       "board_door_panel"
+      ],
+      "way": [
+       [
+        2.255,
+        5.259,
+        null
+       ],
+       [
+        2.255,
+        4.259,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -150,7 +465,70 @@
       "local_n": 230.53
      },
      "outward_deg": 180.0,
-     "width_m": 0.72
+     "width_m": 0.72,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       6.804,
+       3.673
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.37,
+       0.37
+      ],
+      "sill": 0.02,
+      "head": 2.05,
+      "leaf": {
+       "front": 0,
+       "back": -0.004,
+       "s": [
+        -0.36,
+        0.36
+       ],
+       "foot": 0.02,
+       "top": 2.05
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.034,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        6.804,
+        5.643,
+        null
+       ],
+       [
+        6.804,
+        4.643,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -175,7 +553,70 @@
       "local_n": 217.66
      },
      "outward_deg": 90.0,
-     "width_m": 0.72
+     "width_m": 0.72,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       9.345,
+       3.763
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.37,
+       0.37
+      ],
+      "sill": 0.02,
+      "head": 2.05,
+      "leaf": {
+       "front": 0,
+       "back": -0.004,
+       "s": [
+        -0.36,
+        0.36
+       ],
+       "foot": 0.02,
+       "top": 2.05
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.034,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        9.345,
+        5.733,
+        null
+       ],
+       [
+        9.345,
+        4.733,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -200,7 +641,69 @@
       "local_n": 230.95
      },
      "outward_deg": 180.0,
-     "width_m": 0.84
+     "width_m": 0.84,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       1.86,
+       3.127
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.432,
+       0.432
+      ],
+      "sill": 0.015,
+      "head": 1.86,
+      "leaf": {
+       "front": 0,
+       "back": 0.0,
+       "s": [
+        -0.422,
+        0.422
+       ],
+       "foot": 0.015,
+       "top": 1.86
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.03,
+      "leafMaterials": [
+       "board"
+      ],
+      "way": [
+       [
+        1.86,
+        5.221,
+        null
+       ],
+       [
+        1.86,
+        4.221,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -251,7 +754,70 @@
       "local_n": 211.89
      },
      "outward_deg": 0.0,
-     "width_m": 0.72
+     "width_m": 0.72,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       6.01,
+       4.093
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.37,
+       0.37
+      ],
+      "sill": 0.02,
+      "head": 2.05,
+      "leaf": {
+       "front": 0,
+       "back": -0.004,
+       "s": [
+        -0.36,
+        0.36
+       ],
+       "foot": 0.02,
+       "top": 2.05
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.034,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        6.01,
+        6.063,
+        null
+       ],
+       [
+        6.01,
+        5.063,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -276,7 +842,70 @@
       "local_n": 211.89
      },
      "outward_deg": 0.0,
-     "width_m": 0.72
+     "width_m": 0.72,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       5.864,
+       4.093
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.37,
+       0.37
+      ],
+      "sill": 0.02,
+      "head": 2.05,
+      "leaf": {
+       "front": 0,
+       "back": -0.004,
+       "s": [
+        -0.36,
+        0.36
+       ],
+       "foot": 0.02,
+       "top": 2.05
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.034,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        5.864,
+        6.063,
+        null
+       ],
+       [
+        5.864,
+        5.063,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -301,7 +930,70 @@
       "local_n": 168.9
      },
      "outward_deg": 90.0,
-     "width_m": 1.26
+     "width_m": 1.26,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       6.812,
+       10.308
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.64,
+       0.64
+      ],
+      "sill": 0.02,
+      "head": 2.07,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.63,
+        0.63
+       ],
+       "foot": 0.02,
+       "top": 2.07
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        6.812,
+        12.818,
+        null
+       ],
+       [
+        6.812,
+        11.818,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -326,7 +1018,69 @@
       "local_n": 87.16
      },
      "outward_deg": 270.0,
-     "width_m": 0.84
+     "width_m": 0.84,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       5.059,
+       6.417
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.432,
+       0.432
+      ],
+      "sill": 0.015,
+      "head": 1.86,
+      "leaf": {
+       "front": 0,
+       "back": 0.0,
+       "s": [
+        -0.422,
+        0.422
+       ],
+       "foot": 0.015,
+       "top": 1.86
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.03,
+      "leafMaterials": [
+       "board"
+      ],
+      "way": [
+       [
+        5.059,
+        8.511,
+        null
+       ],
+       [
+        5.059,
+        7.511,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -351,7 +1105,69 @@
       "local_n": 185.16
      },
      "outward_deg": 90.0,
-     "width_m": 0.84
+     "width_m": 0.84,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       2.834,
+       4.527
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.432,
+       0.432
+      ],
+      "sill": 0.015,
+      "head": 1.86,
+      "leaf": {
+       "front": 0,
+       "back": 0.0,
+       "s": [
+        -0.422,
+        0.422
+       ],
+       "foot": 0.015,
+       "top": 1.86
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.03,
+      "leafMaterials": [
+       "board"
+      ],
+      "way": [
+       [
+        2.834,
+        6.621,
+        null
+       ],
+       [
+        2.834,
+        5.621,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -376,7 +1192,70 @@
       "local_n": 217.51
      },
      "outward_deg": 90.0,
-     "width_m": 1.26
+     "width_m": 1.26,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       7.208,
+       8.571
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.64,
+       0.64
+      ],
+      "sill": 0.02,
+      "head": 2.07,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.63,
+        0.63
+       ],
+       "foot": 0.02,
+       "top": 2.07
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        7.208,
+        11.081,
+        null
+       ],
+       [
+        7.208,
+        10.081,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -401,7 +1280,70 @@
       "local_n": 179.7
      },
      "outward_deg": 148.0,
-     "width_m": 1.26
+     "width_m": 1.26,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       5.395,
+       6.407
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.64,
+       0.64
+      ],
+      "sill": 0.02,
+      "head": 2.07,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.63,
+        0.63
+       ],
+       "foot": 0.02,
+       "top": 2.07
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        5.395,
+        8.917,
+        null
+       ],
+       [
+        5.395,
+        7.917,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -426,7 +1368,69 @@
       "local_n": 150.21
      },
      "outward_deg": 270.0,
-     "width_m": 0.84
+     "width_m": 0.84,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       2.758,
+       4.375
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.432,
+       0.432
+      ],
+      "sill": 0.015,
+      "head": 1.86,
+      "leaf": {
+       "front": 0,
+       "back": 0.0,
+       "s": [
+        -0.422,
+        0.422
+       ],
+       "foot": 0.015,
+       "top": 1.86
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.03,
+      "leafMaterials": [
+       "board"
+      ],
+      "way": [
+       [
+        2.758,
+        6.469,
+        null
+       ],
+       [
+        2.758,
+        5.469,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -451,7 +1455,69 @@
       "local_n": 127.46
      },
      "outward_deg": 90.0,
-     "width_m": 0.84
+     "width_m": 0.84,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       3.17,
+       4.253
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.432,
+       0.432
+      ],
+      "sill": 0.015,
+      "head": 1.86,
+      "leaf": {
+       "front": 0,
+       "back": 0.0,
+       "s": [
+        -0.422,
+        0.422
+       ],
+       "foot": 0.015,
+       "top": 1.86
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.03,
+      "leafMaterials": [
+       "board"
+      ],
+      "way": [
+       [
+        3.17,
+        6.347,
+        null
+       ],
+       [
+        3.17,
+        5.347,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -476,7 +1542,69 @@
       "local_n": 142.24
      },
      "outward_deg": 90.0,
-     "width_m": 0.84
+     "width_m": 0.84,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       2.896,
+       4.405
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.432,
+       0.432
+      ],
+      "sill": 0.015,
+      "head": 1.86,
+      "leaf": {
+       "front": 0,
+       "back": 0.0,
+       "s": [
+        -0.422,
+        0.422
+       ],
+       "foot": 0.015,
+       "top": 1.86
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.03,
+      "leafMaterials": [
+       "board"
+      ],
+      "way": [
+       [
+        2.896,
+        6.499,
+        null
+       ],
+       [
+        2.896,
+        5.499,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -501,7 +1629,69 @@
       "local_n": 108.42
      },
      "outward_deg": 90.0,
-     "width_m": 0.84
+     "width_m": 0.84,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       2.758,
+       3.582
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.432,
+       0.432
+      ],
+      "sill": 0.015,
+      "head": 1.86,
+      "leaf": {
+       "front": 0,
+       "back": 0.0,
+       "s": [
+        -0.422,
+        0.422
+       ],
+       "foot": 0.015,
+       "top": 1.86
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.03,
+      "leafMaterials": [
+       "board"
+      ],
+      "way": [
+       [
+        2.758,
+        5.676,
+        null
+       ],
+       [
+        2.758,
+        4.676,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -526,7 +1716,70 @@
       "local_n": -86.8
      },
      "outward_deg": 0.0,
-     "width_m": 1.26
+     "width_m": 1.26,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       2.36,
+       4.927
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.64,
+       0.64
+      ],
+      "sill": 0.02,
+      "head": 2.07,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.63,
+        0.63
+       ],
+       "foot": 0.02,
+       "top": 2.07
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        2.36,
+        7.437,
+        null
+       ],
+       [
+        2.36,
+        6.437,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -551,7 +1804,70 @@
       "local_n": 58.64
      },
      "outward_deg": 0.0,
-     "width_m": 1.26
+     "width_m": 1.26,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       2.635,
+       5.867
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.64,
+       0.64
+      ],
+      "sill": 0.02,
+      "head": 2.07,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.63,
+        0.63
+       ],
+       "foot": 0.02,
+       "top": 2.07
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        2.635,
+        8.377,
+        null
+       ],
+       [
+        2.635,
+        7.377,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -576,7 +1892,70 @@
       "local_n": 342.86
      },
      "outward_deg": 180.0,
-     "width_m": 1.26
+     "width_m": 1.26,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       2.31,
+       3.867
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.64,
+       0.64
+      ],
+      "sill": 0.02,
+      "head": 2.07,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.63,
+        0.63
+       ],
+       "foot": 0.02,
+       "top": 2.07
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        2.31,
+        6.377,
+        null
+       ],
+       [
+        2.31,
+        5.377,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -601,7 +1980,69 @@
       "local_n": 354.12
      },
      "outward_deg": 180.0,
-     "width_m": 0.84
+     "width_m": 0.84,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       2.0,
+       4.677
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.432,
+       0.432
+      ],
+      "sill": 0.015,
+      "head": 1.86,
+      "leaf": {
+       "front": 0,
+       "back": 0.0,
+       "s": [
+        -0.422,
+        0.422
+       ],
+       "foot": 0.015,
+       "top": 1.86
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.03,
+      "leafMaterials": [
+       "board"
+      ],
+      "way": [
+       [
+        2.0,
+        6.771,
+        null
+       ],
+       [
+        2.0,
+        5.771,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -626,7 +2067,69 @@
       "local_n": 346.87
      },
      "outward_deg": 180.0,
-     "width_m": 1.33
+     "width_m": 1.33,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       2.56,
+       3.857
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.677,
+       0.677
+      ],
+      "sill": 0.015,
+      "head": 2.28,
+      "leaf": {
+       "front": 0,
+       "back": 0.0,
+       "s": [
+        -0.667,
+        0.667
+       ],
+       "foot": 0.015,
+       "top": 2.28
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.03,
+      "leafMaterials": [
+       "board"
+      ],
+      "way": [
+       [
+        2.56,
+        6.441,
+        null
+       ],
+       [
+        2.56,
+        5.441,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -651,7 +2154,70 @@
       "local_n": 338.48
      },
      "outward_deg": 270.0,
-     "width_m": 1.26
+     "width_m": 1.26,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       12.259,
+       4.225
+      ],
+      "outward": [
+       1.0,
+       -0.0
+      ],
+      "along": [
+       0.0,
+       1.0
+      ],
+      "jambs": [
+       -0.64,
+       0.64
+      ],
+      "sill": 0.02,
+      "head": 2.64,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.63,
+        0.63
+       ],
+       "foot": 0.02,
+       "top": 2.64
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        14.769,
+        4.225,
+        null
+       ],
+       [
+        13.769,
+        4.225,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     },
     {
      "id": "kinzie_house_1812:door2",
@@ -664,7 +2230,70 @@
       "local_n": 335.26
      },
      "outward_deg": 180.0,
-     "width_m": 1.26
+     "width_m": 1.26,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       6.096,
+       6.773
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.64,
+       0.64
+      ],
+      "sill": 0.02,
+      "head": 2.07,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.63,
+        0.63
+       ],
+       "foot": 0.02,
+       "top": 2.07
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        6.096,
+        9.283,
+        null
+       ],
+       [
+        6.096,
+        8.283,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -689,7 +2318,70 @@
       "local_n": 357.41
      },
      "outward_deg": 88.0,
-     "width_m": 1.26
+     "width_m": 1.26,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       1.45,
+       5.067
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.64,
+       0.64
+      ],
+      "sill": 0.02,
+      "head": 2.07,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.63,
+        0.63
+       ],
+       "foot": 0.02,
+       "top": 2.07
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        1.45,
+        7.577,
+        null
+       ],
+       [
+        1.45,
+        6.577,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -714,7 +2406,70 @@
       "local_n": 350.24
      },
      "outward_deg": 168.0,
-     "width_m": 1.52
+     "width_m": 1.52,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       3.3,
+       6.267
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.77,
+       0.77
+      ],
+      "sill": 0.02,
+      "head": 1.89,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.76,
+        0.76
+       ],
+       "foot": 0.02,
+       "top": 1.89
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        3.3,
+        9.037,
+        null
+       ],
+       [
+        3.3,
+        8.037,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -739,7 +2494,70 @@
       "local_n": 343.82
      },
      "outward_deg": 180.0,
-     "width_m": 1.26
+     "width_m": 1.26,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       3.505,
+       4.791
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.64,
+       0.64
+      ],
+      "sill": 0.02,
+      "head": 2.07,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.63,
+        0.63
+       ],
+       "foot": 0.02,
+       "top": 2.07
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        3.505,
+        7.301,
+        null
+       ],
+       [
+        3.505,
+        6.301,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -764,7 +2582,70 @@
       "local_n": -433.46
      },
      "outward_deg": 0.0,
-     "width_m": 1.26
+     "width_m": 1.26,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       4.0,
+       5.867
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.64,
+       0.64
+      ],
+      "sill": 0.02,
+      "head": 2.07,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.63,
+        0.63
+       ],
+       "foot": 0.02,
+       "top": 2.07
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        4.0,
+        8.377,
+        null
+       ],
+       [
+        4.0,
+        7.377,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -789,7 +2670,70 @@
       "local_n": -4228.17
      },
      "outward_deg": 151.0,
-     "width_m": 1.42
+     "width_m": 1.42,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       11.04,
+       5.567
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.72,
+       0.72
+      ],
+      "sill": 0.02,
+      "head": 1.84,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.71,
+        0.71
+       ],
+       "foot": 0.02,
+       "top": 1.84
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        11.04,
+        8.237,
+        null
+       ],
+       [
+        11.04,
+        7.237,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     },
     {
      "id": "lees_place_cabin_1812:door2",
@@ -802,7 +2746,70 @@
       "local_n": -4226.22
      },
      "outward_deg": 151.0,
-     "width_m": 1.42
+     "width_m": 1.42,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       7.0,
+       5.567
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.72,
+       0.72
+      ],
+      "sill": 0.02,
+      "head": 1.84,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.71,
+        0.71
+       ],
+       "foot": 0.02,
+       "top": 1.84
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        7.0,
+        8.237,
+        null
+       ],
+       [
+        7.0,
+        7.237,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     },
     {
      "id": "lees_place_cabin_1812:door3",
@@ -815,7 +2822,70 @@
       "local_n": -4224.06
      },
      "outward_deg": 151.0,
-     "width_m": 1.42
+     "width_m": 1.42,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       2.56,
+       5.567
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.72,
+       0.72
+      ],
+      "sill": 0.02,
+      "head": 1.84,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.71,
+        0.71
+       ],
+       "foot": 0.02,
+       "top": 1.84
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        2.56,
+        8.237,
+        null
+       ],
+       [
+        2.56,
+        7.237,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -840,7 +2910,70 @@
       "local_n": 330.86
      },
      "outward_deg": 166.0,
-     "width_m": 1.26
+     "width_m": 1.26,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       3.703,
+       4.121
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.64,
+       0.64
+      ],
+      "sill": 0.02,
+      "head": 2.07,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.63,
+        0.63
+       ],
+       "foot": 0.02,
+       "top": 2.07
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        3.703,
+        6.631,
+        null
+       ],
+       [
+        3.703,
+        5.631,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
@@ -1485,7 +3618,70 @@
       "local_n": 344.16
      },
      "outward_deg": 180.0,
-     "width_m": 1.26
+     "width_m": 1.26,
+     "passage": true,
+     "plan": {
+      "name": "Door",
+      "origin": [
+       3.71,
+       3.45
+      ],
+      "outward": [
+       0.0,
+       1.0
+      ],
+      "along": [
+       -1.0,
+       0.0
+      ],
+      "jambs": [
+       -0.64,
+       0.64
+      ],
+      "sill": 0.02,
+      "head": 2.07,
+      "leaf": {
+       "front": 0,
+       "back": -0.045,
+       "s": [
+        -0.63,
+        0.63
+       ],
+       "foot": 0.02,
+       "top": 2.07
+      },
+      "hinge": "right",
+      "pair": false,
+      "openDeg": -95,
+      "vestibule": false,
+      "mouth": true,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.075,
+      "leafMaterials": [
+       "door",
+       "door_panel"
+      ],
+      "way": [
+       [
+        3.71,
+        5.96,
+        null
+       ],
+       [
+        3.71,
+        4.96,
+        null
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "reconstructed"
+      }
+     },
+     "reconstructed": "Leaf read from the built door material. It is hung to swing open as someone goes in or comes out (house-doors.js passages, T-3553); its hinge side and its outward swing are reconstructed, and the model has no opening behind it, so the doorway's dark is drawn over the wall while it stands open."
     }
    ]
   },
