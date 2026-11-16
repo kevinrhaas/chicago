@@ -90,6 +90,9 @@ import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { createCrossings } from './crossings.js';
+import { createVessels } from './vessels.js';
+import { createBoatPilot } from './boat-pilot.js';
+import { insideDeck } from './deck-surface.js';
 import { mountHumans } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
 import { createHumanDays, createDayRouter, clearWayOf, JAUNT_LOCALS } from './human-days.js';
@@ -3089,10 +3092,46 @@ async function boot() {
       api.travel?.stop?.('crossing');
       if (api.follow?.active) api.follow.stop('crossing');
     },
+    pilot: () => api.pilot ?? null,
   });
   scene3d.add(crossings.group);
   for (const thing of crossings.things) interactions.add(thing);
   api.crossings = crossings;
+  // T-3612 (owner, 2026-11-16: "the schooners boats in 1835 we're not realistic ... working crews
+  // on the boats, which some may be anchored but others move ... Would be nice if I can board and
+  // pilot the schooners and all boats"): data/boats/vessels_<scene>.json's schooners, Mackinaw
+  // boats, rowboats and canoes, planked and rigged by vessel-model.js; two schooners sail a loop
+  // out to the lake and back by day, every vessel is laid up for the winter, a crew is aboard near
+  // the visitor. boat-pilot.js lets the visitor take any of them, and any 1812 crossing boat, out.
+  const sunHourNow = () => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; };
+  const vessels = await createVessels({
+    dataBase: layerBase('vessels'), sceneId: YEAR, terrain, confidence, problems: layerProblems('vessels'),
+    detail: detailLevel, coarse: coarse || lowMem, humans: () => api.humans ?? null,
+    getPeople: () => peopleDirectory.load(), hour: sunHourNow, season: () => api.season?.current ?? 'summer',
+    pilot: () => api.pilot ?? null, date: () => world.sunDate ?? null,
+  });
+  scene3d.add(vessels.group);
+  for (const thing of vessels.things) interactions.add(thing);
+  api.vessels = vessels;
+  /** Where a visitor stepping off a boat can be put down: a deck, or dry ground outside every wall. */
+  const standableAt = (e, n) => {
+    if (decks.some((d) => insideDeck(e, n, d.pts))) return true;
+    if (terrain.isWater(e, n)) return false;
+    if (api.router?.built) return !api.router.blockedAt(e, n);
+    return !footprints.some((f) => insideDeck(e, n, f.pts));
+  };
+  api.pilot = createBoatPilot({
+    nav: () => vessels.nav,
+    ground: (e, n) => vessels.bed(e, n),
+    hulls: () => vessels.hulls().concat(crossings.hulls?.() ?? []),
+    standable: standableAt,
+    onBoard: (craft, on) => {
+      if (!on) return;
+      api.travel?.stop?.('boat');
+      if (api.follow?.active) api.follow.stop('boat');
+    },
+    say: (text) => hud.say(text),
+  });
   // T-3332 — the town by night: lit windows (buildings.js patches the glass) and the
   // lamps outside, from data/night_lights/<scene>.json. Hidden, and free, by day.
   const nightLights = await createNightLights({
@@ -3113,7 +3152,7 @@ async function boot() {
    * building itself.
    */
   const planting = footprints.concat(
-    wharves.keepOut, boats.keepOut, wells.keepOut, crossings.keepOut,
+    wharves.keepOut, boats.keepOut, wells.keepOut, crossings.keepOut, vessels.keepOut,
     // The plank walks and crossings (T-0085/T-0124): a sidewalk is as much a
     // floor as a wharf deck, and the sward was rooting straight through it.
     frontage.keepOut,
@@ -5094,6 +5133,8 @@ async function boot() {
     // T-3510: and so can a crossing boat, with its own card the same way.
     const crossingBoat = crossings.pickAt(ndc, camera);
     if (crossingBoat?.record && (!hit || crossingBoat.distance < hit.distance)) hit = { ...crossingBoat };
+    const vessel = vessels.pickAt(ndc, camera);
+    if (vessel?.record && (!hit || vessel.distance < hit.distance)) hit = { ...vessel };
     const vehicle = parkedTransport.pickAt(ndc, camera);
     if (vehicle?.record && (!hit || vehicle.distance < hit.distance)) hit = vehicle;
     const horse = standingHorses.pickAt(ndc, camera);
@@ -6334,6 +6375,8 @@ async function boot() {
   api.interactKey = interactKey;
   /** T-3557: Get down, from the travel bar's key: true when the visitor was aboard. */
   api.getDown = () => {
+    // T-3612: at the helm of a boat, the bar's key is Go ashore.
+    if (api.pilot?.active) { api.pilot.leave(); return true; }
     const aboard = api.townTransport?.ride?.aboard;
     if (!aboard) return false;
     const res = interactions.act(`driver:${aboard.id}`, 'get-down');
@@ -6370,6 +6413,28 @@ async function boot() {
     // Repainted on a change, and twice a second besides (a Go to's bar may have taken it).
     if (key === ridePainted && (ridePaintAt += elapsed) < .5) return;
     ridePainted = key; ridePaintAt = 0;
+    hud.travelBanner(state);
+  }
+  /** T-3612: the travel bar at the helm of a boat: who she is, the keys, her way, Go ashore. */
+  let pilotPainted = '', pilotPaintAt = 0;
+  function paintPilot(elapsed) {
+    const helm = api.pilot;
+    if (!helm?.active) {
+      if (pilotPainted) { pilotPainted = ''; if (travel?.state?.phase === 'idle') hud.travelBanner(null); }
+      return;
+    }
+    const c = helm.craft;
+    const touch = backends.name === 'touch' || (backends.name === 'none' && coarse);
+    const notes = [];
+    if (helm.blocked) notes.push(t('hud.pilot.held', { why: helm.blocked }));
+    else notes.push(t('hud.pilot.speed', { knots: (Math.abs(helm.speed) * 1.944).toFixed(1) }));
+    notes.push(t(touch ? 'hud.pilot.stick' : 'hud.pilot.keys'));
+    const verb = c.kind === 'bark_canoe' || c.kind === 'dugout' ? 'hud.pilot.paddle'
+      : c.kind === 'rowboat' || c.kind === 'skiff' || c.kind === 'bateau' ? 'hud.pilot.oars' : 'hud.pilot.helm';
+    const state = { kind: 'ride', verb: t(verb), dest: c.name, destTitle: c.name, note: notes.join(' · '), stop: t('hud.pilot.ashore') };
+    const key = JSON.stringify(state);
+    if (key === pilotPainted && (pilotPaintAt += elapsed) < .5) return;
+    pilotPainted = key; pilotPaintAt = 0;
     hud.travelBanner(state);
   }
   const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -6804,6 +6869,9 @@ async function boot() {
     const heldStick = teamRide?.actor && backends.name === 'touch'
       ? { forward: intent.forward, strafe: intent.strafe, sprint: intent.sprint } : null;
     teamRide?.drive(intent);
+    // T-3612: at the helm, a Go to or a walk with someone puts the visitor ashore; else the keys steer.
+    if (api.pilot?.active && (travel.state.phase !== 'idle' || follow.active)) api.pilot.leave();
+    api.pilot?.drive(intent);
     const walkSteps = Math.max(1, Math.ceil(frameDt / 0.05));
     const walkDt = frameDt / walkSteps;
     if (!gateOpen) for (let i = 0; i < walkSteps; i++) {
@@ -6819,6 +6887,11 @@ async function boot() {
     // T-3510: while a crossing runs, the visitor sits in the boat whatever the walk did.
     crossings.holdVisitor(walker, WALK);
     teamRide?.hold(walker, WALK);
+    // T-3612: the boat at the visitor's helm makes her way, the vessels sail and ride the water,
+    // and the eye goes with the helm.
+    api.pilot?.update(visualDt);
+    vessels.update(visualDt, camera);
+    api.pilot?.hold(walker, WALK);
     // T-3575: in a headset, the reference space follows the walker (controls/xr.js).
     if (xrMode.presenting) xrMode.sync();
     // Before the render, after the walker: the near plane is a function of where
@@ -6868,6 +6941,7 @@ async function boot() {
     // T-3557: the team has moved this frame; the eye goes with it, and the bar says so.
     if (teamRide?.hold(walker, WALK)) { setNearFor(walker.state.altitude); world.follow(camera.position); }
     paintRide(teamRide, elapsed);
+    paintPilot(elapsed);
     // Contacts follow the loaded horses' accepted gait advance in this frame.
     // Held/hidden frames clear the baseline rather than replaying missed steps.
     api.sound?.transportFrame({ active: !visualHeld && visualDt > 0 });

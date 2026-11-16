@@ -13,10 +13,19 @@
     "earliest_year": 1835,
     "latest_year": 1835
   },
-  "eligible_assets": [],
+  "eligible_assets": [
+    {
+      "asset_id": "mahoney_patrick_1835",
+      "period": {
+        "earliest_year": 1835,
+        "latest_year": 1835
+      },
+      "wardrobe_basis": "The labourer's dress of the 1835 town (Patrick Mahoney's body: shirt, trousers, braces and a slouch hat), worn by a hand of a lake schooner at work on her deck (T-3612, L-vessels-3612). A working man's clothes ashore and afloat were one and the same; the cut, colours and fit stay reconstructed, and no seaman's dress is claimed for any man of any named vessel's crew, whom no record names."
+    }
+  ],
   "provenance": {
     "grade": "reconstructed",
-    "basis": "Fallback only: prefer existing attested, inferred or reconstructed people as model references. Owner requested anonymous adult role figures. This 1835 profile identifies no resident, ancestry, likeness or attested individual. No wardrobe/body asset is accepted yet; the empty eligibility list refuses display until an explicitly period-qualified asset is registered.",
+    "basis": "Fallback only: prefer existing attested, inferred or reconstructed people as model references. Owner requested anonymous adult role figures. This 1835 profile identifies no resident, ancestry, likeness or attested individual. One wardrobe/body asset is accepted (T-3612): the 1835 labourer's dress, for the anonymous hands aboard the vessels in the river and the offing, whose crews no record names; any other asset is refused until it is registered here with its own basis.",
     "liberty": "L418"
   },
   "fallback_only": true

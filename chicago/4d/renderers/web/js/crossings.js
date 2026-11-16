@@ -851,7 +851,7 @@ function cardRecordFor(boat, pose, bank) {
  */
 export async function createCrossings({
   dataBase, terrain, confidence = null, problems = [], detail = 'full', coarse = false,
-  walkEye = () => 1.6, onRide = () => {}, lowSpec = false,
+  walkEye = () => 1.6, onRide = () => {}, lowSpec = false, pilot = () => null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'crossings';
@@ -1132,11 +1132,13 @@ export async function createCrossings({
       label: `Cross to ${boat.banks[to].name}`,
       to,
       said: () => `Across: ${boat.banks[to].name}`,
-      refuse: () => (out.riding && out.riding !== entry ? 'Already in a boat' : null),
+      refuse: () => (pilot()?.active ? 'Already at the helm of a boat'
+        : out.riding && out.riding !== entry && !leftAt ? 'Already in a boat' : null),
       steps: [
         {
           label: 'Stepping in', seconds: STEP_S.in,
           run: (t) => {
+            if (t === 0 && leftAt) settleLeft();
             if (t === 0 && !ride) {
               start(entry, from, to);
               const v = visitorNow?.();
@@ -1236,6 +1238,84 @@ export async function createCrossings({
     };
   }
 
+  /* T-3612: take the paddle (or the oars) and go where you like on the water, not only across. */
+  let piloted = null;      // the entry boat-pilot.js steers, or left afloat where the visitor got out
+  let leftAt = null;       // { entry } while a boat lies where the visitor left it
+  function pilotAction(entry) {
+    const boat = entry.boat;
+    return {
+      id: 'pilot',
+      label: boat.kind === 'skiff' ? 'Take the oars' : 'Take the paddle',
+      said: () => `Afloat in ${boat.name.replace(/^The /, 'the ')}`,
+      refuse: () => {
+        const p = pilot();
+        if (!p) return 'Nobody can take a boat here';
+        if (p.active) return 'Already at the helm of a boat';
+        if (out.riding && out.riding !== entry) return 'Already in a boat';
+        return null;
+      },
+      steps: [{ label: 'Stepping in', seconds: 1.2, run: (t) => { if (t >= 1) pilot()?.take(craftFor(entry)); } }],
+    };
+  }
+
+  /** What boat-pilot.js steers: the boat afloat off the bank it lay on, its seat the eye. */
+  function craftFor(entry) {
+    const boat = entry.boat, h = boat.hull;
+    let clock = 0, side = 1;
+    return {
+      id: boat.id, layer: 'crossings', kind: boat.kind, masted: false,
+      name: boat.name, length: h.length_m, beam: h.beam_m, draft: h.draft_m ?? 0.15,
+      helm: { x: entry.built.seat[0], y: entry.built.seat[1], z: entry.built.seat[2] },
+      get pose() { return ride?.pose ?? entry.pose; },
+      begin() {
+        if (leftAt?.entry === entry) { leftAt = null; piloted = entry; return; }
+        if (leftAt) settleLeft();
+        const bank = boat.banks[entry.bank];
+        const out0 = entry.bank === 'a' ? boat.crossing.bearing : (boat.crossing.bearing + 180) % 360;
+        const { group: g, tools } = riderGroup(entry);
+        group.add(g);
+        out.riding = entry;
+        piloted = entry;
+        rebuildClusters();
+        ride = { entry, g, tools, pose: afloatPose(boat, bank.launch, out0), pilot: true, side: 1 };
+        onRide(entry, true);
+        placeRide();
+      },
+      move(p, { speed = 0 } = {}) {
+        if (!ride) return;
+        clock += 1 / 60;
+        const strokeS = STROKE_S[boat.kind] ?? 1.8;
+        const working = Math.abs(speed) > 0.08;
+        if (working && Math.floor(clock / strokeS) % 4 === 0 && boat.kind !== 'skiff') side = ((Math.floor(clock / strokeS / 4) % 2) ? -1 : 1);
+        const ph = (clock / strokeS) % 1;
+        ride.pose = { e: p.e, n: p.n, y: WATER_Y - (h.draft_m ?? 0.15) + Math.sin(clock * 2.1) * 0.012,
+          bearing: p.bearing, pitch: Math.sin(clock * 1.3) * 0.5 * DEG,
+          roll: working ? Math.sin(ph * Math.PI * 2) * (boat.kind === 'skiff' ? 0.6 : 1.4) * DEG * side : 0 };
+        placeRide();
+        workTools(entry, ride.tools, ph, boat.kind === 'skiff' ? 1 : side, working);
+      },
+      end() { piloted = null; leftAt = { entry }; workTools(entry, ride?.tools ?? [], 0, 1, false); },
+    };
+  }
+
+  /** A boat left afloat goes back to the nearer of its own banks, drawn up as before. */
+  function settleLeft() {
+    if (!leftAt || !ride || ride.entry !== leftAt.entry) { leftAt = null; return; }
+    const entry = leftAt.entry, p = ride.pose;
+    const d = (k) => Math.hypot(entry.boat.banks[k].launch[0] - p.e, entry.boat.banks[k].launch[1] - p.n);
+    ride.to = d('a') <= d('b') ? 'a' : 'b';
+    leftAt = null;
+    const to = ride.to;
+    finish();
+    const thing = thingOf(entry);
+    if (thing) { thing.state = to; thing.at = entry.bowAt(to); }
+  }
+  out.pilotCraft = (id) => { const e = out.boats.find((x) => x.boat.id === id); return e ? craftFor(e) : null; };
+  out.hulls = () => out.boats.map((x) => {
+    const p = (out.riding === x && ride) ? ride.pose : x.pose;
+    return { id: x.boat.id, e: p.e, n: p.n, bearing: p.bearing, length: x.boat.hull.length_m, beam: x.boat.hull.beam_m, beached: out.riding !== x };
+  });
+
   let visitorNow = null;   // () => { e, n, y, bearing } — set by holdVisitor's first call
   let landing = null;      // where to put the walker down once a crossing ends
 
@@ -1252,8 +1332,8 @@ export async function createCrossings({
       at: [...boat.banks[entry.bank].stand],
       reach: Math.max(4.5, boat.hull.length_m / 2 + 2.5),
       actions: {
-        a: [crossAction(entry, 'a', 'b')],
-        b: [crossAction(entry, 'b', 'a')],
+        a: [crossAction(entry, 'a', 'b'), pilotAction(entry)],
+        b: [crossAction(entry, 'b', 'a'), pilotAction(entry)],
       },
     };
     // Reach is measured from the boat's bow end, between the stand and the hull.
@@ -1294,6 +1374,8 @@ export async function createCrossings({
   out.update = (dt, camera) => {
     if (!camera) return;
     const ce = camera.position.x, cn = -camera.position.z;
+    // T-3612: a boat the visitor left afloat is drawn up on its own bank again once they are away.
+    if (leftAt && ride && Math.hypot(ride.pose.e - ce, ride.pose.n - cn) > 150) settleLeft();
     for (const c of clusters) c.group.visible = Math.hypot(c.e - ce, c.n - cn) < drawM + CLUSTER_M;
     for (const entry of out.boats) {
       const t = thingOf(entry);
