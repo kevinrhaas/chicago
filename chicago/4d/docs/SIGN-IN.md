@@ -36,6 +36,9 @@ with some usage numbers.
   (`navigator.webdriver`: the smoke, photo-match, films); and if Firebase cannot load
   or answer, the visitor goes in. It is a front door, not a lock: the town's files are
   public on a static host, and the panel says why the email is asked for.
+- **Sign out.** Settings → About shows "Signed in as …" with a **Sign out** button
+  (T-3603, `showAccount` in `js/sign-in.js`). It ends the Firebase session, forgets the
+  typed email and reloads, so the gate asks again. The visitors page has its own.
 - **Preview.** `?signin=preview` shows the panel with no Firebase at all;
   `visitors.html?demo` draws the visitors page from invented example.com rows.
 
@@ -113,4 +116,3 @@ service cloud.firestore {
   visitor needs a Cloud Function (the Blaze plan) or a scheduled job holding a service
   account key. The visitors page and Analytics' realtime view answer "who came in".
 - **Verified email**, by Firebase's email-link sign-in.
-- **A sign-out control in the app.** The visitors page has one.

@@ -184,3 +184,42 @@ brick. The second piece laid three; the other two needed K01 to do two things it
 
 Both match records mark the flank's basement lights fixed. Still open: the triple group's broad
 pedimented dormer over the curb, the pavilion attic's slated cheeks, and the landing's length.
+
+## T-1894, 2026-11-15 (fourth piece) — the landing a few risers under the door, drawn to its length
+
+Both pictures draw the stoop's landing about 1 m longer to the north than the build's 1.8 m, and
+the engraving draws three more things that go with it: its flight is shorter (its foot about
+x 760 px against the build's 743), the landing's top edge stands lower (y 905 px against 865), and
+the iron rail turns level along the landing at y 870 px, about 0.9 m over it. Read along the
+flight's line at about 51 px a metre, the print's flight runs from x 760 to x 897-907 px: nine
+treads of 0.3 m. So the landing does not stand at the 2.35 m hall floor; the door opens a few
+risers under it, on a vestibule, as 1612's does (T-2369).
+
+No new generator capability was needed: K01 already takes `entrance_floor_m`, the door's floor
+between 1.0 m and the hall less 0.5 m, read from a source.
+
+- **`entrance_floor_m` 1.7** — ten risers of 0.17 m, the print's nine treads. The landing drops
+  0.65 m.
+- **`side_stoop.landing_v_m` [4.4, 7.1]** — 2.7 m, from the flight's head to the pavilion. The
+  flight's foot falls at v 1.7 m.
+- **The arch re-read** — with the face at the print's length, the 1.05 m arch under the door
+  rendered at x 952-995 px against the print's 925-980: about 0.45 m south and 0.25 m narrow. It is
+  now 1.25 m across, centred at v 5.8 m (the face's middle is 5.75 m, and the vignette draws it a
+  little south of the middle), on 0.5 m jambs, so its crown stays at about 1.13 m.
+- **`door_clear_height_m` 3.2** — the print's doorway is the leaves (y 757-887 px) under a
+  transom light to y 697 px and a cornice hood. A 2.70 m door on the lowered floor put its head at
+  4.4 m, 0.65 m under T-3163's. 3.2 m is K01's tallest principal door (head 4.9 m, y 730 px).
+
+Through the engraving's camera the render's landing top edge lands at y 905 px, its face's north
+end at about x 900 px, the flight's foot at about x 763 px, the door's foot at about y 900 px, and
+the arch's jambs at x 927-978 px. Through the vignette's camera the landing's top, its length to the
+pavilion and the arch's place land within 1-2 px. The vignette draws the arch broader (about 22 px
+against 13), where the engraving is after a photograph at four times the scale: recorded on the
+vignette's arch line, which the two pictures do not agree on.
+
+Both match records mark the landing's length fixed, and the engraving's record marks the arch's
+width fixed. Newly recorded open on the engraving's record: the doorway's height. The print's hole,
+with its transom, is about 3.8 m from the landing against the build's 3.2 m, and has no transom
+glazing and no hood. The door stood about as far under the print's transom before this change
+(its head at about y 721 px), and nothing recorded it. Still open, as before: the triple group's
+broad pedimented dormer over the curb and the pavilion attic's slated cheeks.

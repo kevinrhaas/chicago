@@ -1,4 +1,24 @@
 export const CHANGELOG = [ // newest first
+  { v: 3023, ts: '2026-11-16T04:24:20.831Z', date: 'Nov 15, 2026, 10:24 PM CT', title: 'The boot budget re-measured after the 1835 townspeople\'s comings and goings', kind: 'fix',
+    items: [
+      'The first visit to the 1835 street now downloads 45.4 MB, 0.5 MB more than two days ago. Most of it is the 1835 townspeople\'s days, who goes in and out of which door and who is inside a house or shop, with the new carriage ride, the Today window and the people\'s dress. The budget moves to 45.7 MB, with what grew written down file by file, so every pull request\'s build can go green again.',
+    ] },
+  { v: 3022, ts: '2026-11-16T04:24:20.831Z', date: 'Nov 15, 2026, 10:24 PM CT', title: '1823 Prairie\'s stoop: a longer landing a few steps under the door', kind: 'improvement',
+    items: [
+      'The Dent house at 1823 Prairie: the stoop\'s landing now runs the full 2.7 m to the pavilion and stands a few steps below the hall. The door opens onto it at 1.7 m, so the flight from the north is nine steps instead of thirteen, as both old pictures of the house draw it.',
+      'The grilled arch under the landing has moved to where both pictures put it, a little south of the landing\'s middle, and is a quarter of a metre broader. The doorway above it is now 3.2 m tall.',
+    ] },
+  { v: 3021, ts: '2026-11-16T03:24:33.747Z', date: 'Nov 15, 2026, 9:24 PM CT', title: 'Sign out from Settings', kind: 'feature',
+    items: [
+      'Settings, About now shows who is signed in on this device.',
+      'Sign out there, and the next year asks you to sign in again.',
+    ] },
+  { v: 3020, ts: '2026-11-16T02:39:57.945Z', date: 'Nov 15, 2026, 8:39 PM CT', title: '1912 Prairie\'s alley barn, under the hip and deck its map draws', kind: 'improvement',
+    items: [
+      'The brick barn behind 1912 Prairie Avenue, the Moulton house, now stands as the 1911 fire-insurance map draws it: 17.5 m along the alley and 10.4 m deep, two storeys, with a sash where the map marks a window. Before, it was a rough block of the wrong size.',
+      'It is the first coach house on the avenue roofed the way its map shows rather than with a standard gable: the map\'s dashed line and corner strokes are the plan of a hipped roof cut off at a flat deck, so slate hips now rise from all four walls to a felted deck.',
+      'The alley\'s utility pole that stood under its eave steps half a metre out into the alley, clear of the roof.',
+    ] },
   { v: 3019, ts: '2026-11-16T00:58:43.506Z', date: 'Nov 15, 2026, 6:58 PM CT', title: 'Ten new 1904 story jaunts, played by the people of the street', kind: 'feature',
     items: [
       'Under Jaunts > Stories, ten walks of Prairie Avenue on one Monday in November 1904, each with four or five stops that lead to the next and an ending.',
