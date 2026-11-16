@@ -12722,7 +12722,7 @@
     "rotation_deg": -0.393
    },
    "barrier": {
-    "key": "df1543682b1e6ba8",
+    "key": "bdf245c6eaf57ea9",
     "cell": 0.1,
     "u0": -2.9,
     "v0": -7.6,
@@ -12810,7 +12810,7 @@
     "rotation_deg": -0.617
    },
    "barrier": {
-    "key": "b53a1bc9966acdf9",
+    "key": "e02e733b2054ce75",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -20.7,
@@ -12826,7 +12826,7 @@
     "rotation_deg": -0.616
    },
    "barrier": {
-    "key": "59993a98324b9854",
+    "key": "58b88d57b223c14a",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -7.9,
@@ -12898,7 +12898,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "db4daf45743459d9",
+    "key": "fa4142c54719145c",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -9.8,
@@ -12914,7 +12914,7 @@
     "rotation_deg": -0.578
    },
    "barrier": {
-    "key": "a16da17ad044f2a3",
+    "key": "9e25eaad56c17843",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -7.8,
@@ -12930,7 +12930,7 @@
     "rotation_deg": -0.621
    },
    "barrier": {
-    "key": "5fb701539e04cca8",
+    "key": "9d9b94ff8cc1fb19",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -11.3,
@@ -13118,7 +13118,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "690b28bee2cbc952",
+    "key": "d0dfd050d3992bcf",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -5.1,
@@ -13162,7 +13162,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "99ced7bb1f8e238e",
+    "key": "7283c97d90403811",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -4.1,
@@ -13178,7 +13178,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "cd6b26103cb07ff7",
+    "key": "b895927ee2fc3c0f",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -3.7,
@@ -13238,7 +13238,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "6a9f0f3fa90a676a",
+    "key": "df210029a3ba16c0",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -6.1,
@@ -13254,7 +13254,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "b57d905283cbc202",
+    "key": "e29f62df8fd590cd",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -7.2,
@@ -13270,7 +13270,7 @@
     "rotation_deg": -0.582
    },
    "barrier": {
-    "key": "3898e20947b2bbb2",
+    "key": "7efe516e1207e6a7",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -13.4,
@@ -13286,7 +13286,7 @@
     "rotation_deg": -0.618
    },
    "barrier": {
-    "key": "528e87cce5566e44",
+    "key": "d8f57e28b8b9832a",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -4.1,
@@ -13598,7 +13598,7 @@
     "rotation_deg": -0.616
    },
    "barrier": {
-    "key": "85c1b8143e86ff76",
+    "key": "5bfc8523af403342",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -8.3,
@@ -13614,7 +13614,7 @@
     "rotation_deg": -0.391
    },
    "barrier": {
-    "key": "af382b6c2193ab00",
+    "key": "245ec4c7fe9a4db9",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -5.0,
@@ -13646,7 +13646,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "ddd296196bbb3f0c",
+    "key": "7592ac551587d7f6",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -8.3,
@@ -13706,7 +13706,7 @@
     "rotation_deg": -0.627
    },
    "barrier": {
-    "key": "10efc7b4a2e97171",
+    "key": "b7b611c114217c3b",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -9.0,
@@ -13749,17 +13749,17 @@
   {
    "structure": "moulton_lowden_house_1912_prairie_coach_house",
    "placement": {
-    "local_e": 1341.039,
-    "local_n": -3403.549,
-    "rotation_deg": -0.622
+    "local_e": 1339.971,
+    "local_n": -3395.682,
+    "rotation_deg": -0.617
    },
    "barrier": {
-    "key": "6f685c4b5bca19aa",
+    "key": "f087f461e8309ba5",
     "cell": 0.1,
     "u0": -0.2,
-    "v0": -0.1,
-    "count": 11,
-    "rects": "1 2 18 29 1 2 48 58 1 2 67 98 1 2 107 118 1 2 137 147 2 95 164 165 95 96 18 29 95 96 48 58 95 96 77 88 95 96 107 118 95 96 137 147"
+    "v0": -8.9,
+    "count": 9,
+    "rects": "1 2 24 36 1 2 88 101 2 107 1 2 2 107 177 178 107 108 17 29 107 108 37 49 107 108 92 104 107 108 118 130 107 108 146 158"
    }
   },
   {
@@ -14030,7 +14030,7 @@
     "rotation_deg": -0.58
    },
    "barrier": {
-    "key": "8a26e8e2b08e1761",
+    "key": "65be401ca3a44c53",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -5.7,
@@ -14046,7 +14046,7 @@
     "rotation_deg": -0.397
    },
    "barrier": {
-    "key": "99529eefe6b17f7d",
+    "key": "00f70050098237ed",
     "cell": 0.1,
     "u0": -3.3,
     "v0": -8.9,
@@ -14126,7 +14126,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "9672bd73ed2470a7",
+    "key": "3fb15badaae2f35f",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -15.4,
@@ -14142,7 +14142,7 @@
     "rotation_deg": -0.616
    },
    "barrier": {
-    "key": "1c3560b0ce9c7d4d",
+    "key": "62d84e173298dbfe",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -4.4,

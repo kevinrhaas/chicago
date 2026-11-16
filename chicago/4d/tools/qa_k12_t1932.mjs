@@ -21,6 +21,7 @@
 //   QA_TARGET=1834 node tools/qa_k12_t1932.mjs       T-1935: 1834's barn, south of 1828's, its one-storey piece on the yard side at the north end
 //   QA_TARGET=1900 node tools/qa_k12_t1932.mjs       T-1935: 1900's stable (GARAGE in 1911), between the 1834/1900 shed and 1906's building, party walls both ends
 //   QA_TARGET=1906 node tools/qa_k12_t1932.mjs       T-1935: 1906's barn (BARN in 1911) and its one-storey range south on the kit's range fitting, party wall north against 1900's
+//   QA_TARGET=1912 node tools/qa_k12_t1932.mjs       T-1935: 1912's barn (BARN in 1911) under the kit's hip and deck, no party wall, between 1906's range and the one-storey building south
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
@@ -111,6 +112,11 @@ const TARGETS={
   ['alley-from-north',[1335.9,-3342,1.7],[1339.8,-3372,4]],
   ['yard-face',[1366,-3384,1.7],[1349,-3370,3]],
   ['air',[1386,-3404,46],[1345,-3372,0]]]},
+ '1912':{dir:'k12-1912-moulton-barn-1935',ids:['moulton_lowden_house_1912_prairie_coach_house','moulton_lowden_house_1912_prairie','edson_keith_house_1906_prairie_coach_house'],glb:'moulton_lowden_house_1912_prairie_coach',stands:[
+  ['alley-from-south',[1336.4,-3424,1.7],[1340.2,-3396,4]],
+  ['alley-from-north',[1336.0,-3368,1.7],[1340.2,-3396,4]],
+  ['yard-face',[1369,-3409,1.7],[1351,-3396,3]],
+  ['air',[1389,-3428,46],[1346,-3396,0]]]},
 };
 const TARGET=TARGETS[process.env.QA_TARGET||'1620'];if(!TARGET)throw Error(`QA_TARGET must be one of ${Object.keys(TARGETS)}`);
 const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH',TARGET.dir),TAG=process.env.QA_TAG||'after';

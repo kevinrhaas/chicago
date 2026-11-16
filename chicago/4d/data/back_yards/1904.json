@@ -54,7 +54,7 @@
  },
  "summary": {
   "lots": 132,
-  "surfaces": 286,
+  "surfaces": 285,
   "doors": 123,
   "posts": 120,
   "gardens": 31,
@@ -63,7 +63,7 @@
    "coach_walk": 30,
    "drying_yard": 60,
    "front_walk": 8,
-   "gangway": 31,
+   "gangway": 30,
    "garden_bed": 31,
    "rear_terrace": 104
   }
@@ -13962,34 +13962,6 @@
      "material": "cement",
      "polygon_local_m": [
       [
-       1353.35,
-       -3399.82
-      ],
-      [
-       1353.39,
-       -3403.02
-      ],
-      [
-       1352.19,
-       -3403.03
-      ],
-      [
-       1352.15,
-       -3399.83
-      ]
-     ],
-     "along_deg": 179.43,
-     "lift_m": 0.03,
-     "order": 1,
-     "grade": "reconstructed",
-     "note": "The gangway down the side passage, in Portland cement walk: the way tradesmen and the household came round from the street to the back (L-prairie-back-yards-3488)."
-    },
-    {
-     "id": "prairie_1912:gangway:2",
-     "kind": "gangway",
-     "material": "cement",
-     "polygon_local_m": [
-      [
        1366.12,
        -3401.69
       ],
@@ -14013,25 +13985,25 @@
      "note": "The gangway down the side passage, in Portland cement walk: the way tradesmen and the household came round from the street to the back (L-prairie-back-yards-3488)."
     },
     {
-     "id": "prairie_1912:drying_yard:3",
+     "id": "prairie_1912:drying_yard:2",
      "kind": "drying_yard",
      "material": "trodden",
      "polygon_local_m": [
       [
-       1355.63,
-       -3387.39
+       1356.88,
+       -3387.38
       ],
       [
-       1355.69,
-       -3393.39
+       1356.94,
+       -3393.38
       ],
       [
-       1351.69,
-       -3393.43
+       1352.94,
+       -3393.42
       ],
       [
-       1351.63,
-       -3387.43
+       1352.88,
+       -3387.42
       ]
      ],
      "along_deg": 179.43,
@@ -14066,8 +14038,8 @@
    "posts": [
     {
      "kind": "clothes_post",
-     "e": 1353.63,
-     "n": -3387.71,
+     "e": 1354.88,
+     "n": -3387.7,
      "height_m": 2.3,
      "arm_m": 0.9,
      "facing_deg": 179.43,
@@ -14076,8 +14048,8 @@
     },
     {
      "kind": "clothes_post",
-     "e": 1353.69,
-     "n": -3393.11,
+     "e": 1354.94,
+     "n": -3393.1,
      "height_m": 2.3,
      "arm_m": 0.9,
      "facing_deg": 179.43,
@@ -14090,8 +14062,8 @@
    "trees": [],
    "creeper": [
     [
-     1350.36,
-     -3395.45,
+     1340.36,
+     -3395.54,
      89.43,
      4.37,
      3.33
