@@ -132,17 +132,19 @@ FLOOR_IN_M = 3.0        # how far into the footprint a doorway's reveal or a rec
 FLOOR_MIN_TOP_M = 0.4   # a floor rises this far somewhere, or it is a coping, not a stair
 
 
-def floor(parts, poly):
+def floor(parts, poly, min_top=FLOOR_MIN_TOP_M, cap=FLOOR_CAP_M):
     """The tops a visitor climbs outside the footprint: (heights, walls, u0, v0) with heights a
     float grid of the model's plan, NaN where the ground answers, and walls the cells of it that
     are walls beside the floor (cell (i, j) centred on u0 + i*cell, v0 + j*cell), or None where
-    the model builds nothing one climbs."""
+    the model builds nothing one climbs. `min_top` is how high a floor must rise somewhere to be a
+    stair's (FLOOR_MIN_TOP_M) and `cap` the highest top read (FLOOR_CAP_M); derive_doors_scene.py
+    reads 1835's stoops, two risers high and some under a porch roof lower than the cap, with its own."""
     tris = [t for n, t in parts if n.lower() not in SKIP_MATS and not any(g in n.lower() for g in GROUND_MATS)]
     if not tris:
         return None
     T = np.concatenate(tris)
     U, V, Y = T[:, :, 0], -T[:, :, 2], T[:, :, 1]
-    keep = (Y.max(1) > FLOOR_GROUND_M) & (Y.min(1) < FLOOR_CAP_M + HEAD_M)
+    keep = (Y.max(1) > FLOOR_GROUND_M) & (Y.min(1) < cap + HEAD_M)
     P = np.asarray(poly, float)
     if convex(P):
         inner = np.ones(len(U), bool)
@@ -159,7 +161,7 @@ def floor(parts, poly):
     # Each cell's faces filed by height, in FLOOR_BIN_M bins (bit k: something between k and k+1
     # bins up), and the highest face in each bin up to the cap: a top is one with nothing over
     # it from FLOOR_KNEE_M to HEAD_M (a porch's floor under its roof, never the roof).
-    nb = int(round(FLOOR_CAP_M / FLOOR_BIN_M))
+    nb = int(round(cap / FLOOR_BIN_M))
     bits = np.zeros((nu, nv), np.uint64)
     tops = np.full((nb + 1, nu, nv), -np.inf, np.float32)
     binof = lambda y: np.clip(np.floor(np.asarray(y) / FLOOR_BIN_M), 0, 63).astype(np.int64)
@@ -235,7 +237,7 @@ def floor(parts, poly):
     lab, n = ndimage.label(fl)
     if n:
         tops = ndimage.maximum(np.where(fl, h, 0.0), lab, range(1, n + 1))
-        fl &= np.isin(lab, 1 + np.flatnonzero(np.asarray(tops) >= FLOOR_MIN_TOP_M))
+        fl &= np.isin(lab, 1 + np.flatnonzero(np.asarray(tops) >= min_top))
     if not fl.any():
         return None
     heights = np.where(fl, h, np.nan)

@@ -526,6 +526,15 @@ def glessner_doors(sc: dict) -> list[dict]:
 
 BARRIERS = "prairie_barriers/3"   # bump when prairie_barriers.py reads a model differently
 FLOORS = "prairie_floors/5"       # bump when prairie_barriers.floor reads a model differently
+# The owner, 2026-11-16, of a townsman walking in at an 1835 cottage's door with his legs in its
+# stoop: "he is walking through stairs that block the door". An 1835 house model builds its own
+# front stoop (generators/frame_dwelling.py `_porch`: a landing two 0.19 m risers up, 0.38 m, and
+# a step), lower than the 1904 bar for a stair (prairie_barriers.FLOOR_MIN_TOP_M, 0.4 m), so
+# 1835's floors are read as a top more than one step (prairie_barriers.FLOOR_STEP_M) up; and a
+# roofed porch's shed roof hangs 2.1-2.4 m up, under the 1904 cap on tops (FLOOR_CAP_M, 2.6 m),
+# where it read as the top and hid the landing under it, so 1835's tops are read below 2 m.
+# Only the house models that build one (`_porch`); a camp's or the fort's ground is not a stoop.
+FLOOR_READ = {"1835": {"min_top": 0.3, "cap": 2.0, "archetypes": ("frame_dwelling",)}}
 
 _MANIFEST: dict | None = None
 
@@ -560,7 +569,7 @@ def barrier_cache(scene: str) -> dict:
         old = json.loads(f.read_text())
     except (OSError, ValueError):
         return {}
-    if old.get("barriers_by") != BARRIERS:
+    if old.get("barriers_by" if scene == "1904" else "floors_by") != (BARRIERS if scene == "1904" else FLOORS):
         return {}
     return {r["structure"]: r for r in old.get("structures", []) + old.get("barriers", []) if "barrier" in r or "floor" in r}
 
@@ -576,15 +585,19 @@ def barrier_of(sc: dict, glb: Path, h: str, cache: dict, parts=None, got=None) -
     return {"key": key, **plan} if plan else None
 
 
-def floor_of(sc: dict, glb: Path, h: str, cache: dict, parts=None) -> dict | None:
+def floor_of(sc: dict, glb: Path, h: str, cache: dict, parts=None, scene: str = "1904") -> dict | None:
     """The owner, 2026-11-14 ("Anywhere there are stairs I should be able to climb"): the tops
     of the house's stoops and porches the visitor climbs (prairie_barriers.floor), cached like
     its barrier."""
-    key = hashlib.sha256(json.dumps([FLOORS, h, sc["footprint"]["polygon"]], sort_keys=True).encode()).hexdigest()[:16]
+    read = FLOOR_READ.get(scene)
+    if read and sc.get("archetype") not in read["archetypes"]:
+        return None
+    key = hashlib.sha256(json.dumps([FLOORS, h, sc["footprint"]["polygon"]] + ([read] if read else []), sort_keys=True).encode()).hexdigest()[:16]
     hit = (cache.get(sc["id"]) or {}).get("floor")
     if hit and hit.get("key") == key:
         return hit
-    plan = pb.floor_plan(pb.floor(d1812.load_triangles(glb) if parts is None else parts, sc["footprint"]["polygon"]))
+    plan = pb.floor_plan(pb.floor(d1812.load_triangles(glb) if parts is None else parts, sc["footprint"]["polygon"],
+                                  *((read["min_top"], read["cap"]) if read else ())))
     return {"key": key, **plan} if plan else None
 
 
@@ -619,10 +632,33 @@ def barrier_rows(scene: str, rows: list, cache: dict) -> list[dict]:
     return out
 
 
+def house_floor_rows(scene: str, rows: list, cache: dict) -> list[dict]:
+    """1835: the stoops the other house models build at their doors, which no day goes into but
+    the visitor and a passer-by climb (the `floor` of each, as barrier_rows carries 1904's)."""
+    have = {r["structure"] for r in rows}
+    out = []
+    for f in sorted((ROOT / f"data/sidecars/{scene}").glob("*.json")):
+        if f.stem in have:
+            continue
+        try:
+            sc = json.loads(f.read_text())
+        except ValueError:
+            continue
+        if not isinstance(sc, dict) or not sc.get("asset") or not (sc.get("footprint") or {}).get("polygon"):
+            continue
+        glb = ROOT / "assets" / sc["asset"]
+        if not glb.exists():
+            continue
+        fl = floor_of(sc, glb, model_id(sc, glb)[1], cache, scene=scene)
+        if fl:
+            out.append({"structure": f.stem, "placement": d1812._placement(sc), "floor": fl})
+    return out
+
+
 def derive(scene: str) -> tuple[dict, list[str]]:
     rows, problems = [], []
     backs = back_doors(scene) if scene == "1904" else {}
-    cache = barrier_cache(scene) if scene == "1904" else {}
+    cache = barrier_cache(scene) if scene in ("1835", "1904") else {}
     for sid in sorted(wheres(scene)):
         f = ROOT / f"data/sidecars/{scene}/{sid}.json"
         if not f.exists():
@@ -652,6 +688,8 @@ def derive(scene: str) -> tuple[dict, list[str]]:
                     p = [x for x in p if "off the footprint edge" not in x]
                     if not doors:
                         doors = [x for x in [street_door(sc)] if x]
+                    # Its own front stoop, which a day's walk to the door climbs (main.js stairDecks).
+                    floor = floor_of(sc, glb, h, cache, scene=scene)
             problems += p
             doors = [{k: (round(float(v), 2) if isinstance(v, float) or type(v).__name__.startswith("float") else v)
                       for k, v in x.items()} for x in doors]
@@ -696,6 +734,17 @@ def derive(scene: str) -> tuple[dict, list[str]]:
                               "plan rectangles of one height, five integers each (i0 i1 j0 j1 half-open, then the top in "
                               "centimetres over the model's ground), and `walls`, the same for the rails and cheeks "
                               "beside them, standing past any step. house-floors.js lays them as walker decks.")
+    if scene == "1835":
+        out["floors_by"] = FLOORS
+        out["floors_note"] = ("The owner, 2026-11-16 (\"he is walking through stairs that block the door\"): a "
+                              "`floor` is the stoop a house model builds at its door (generators/frame_dwelling.py "
+                              "`_porch`), read off the model as 1904's are (tools/prairie_barriers.py floor, a top "
+                              f"{FLOOR_READ['1835']['min_top']} m up or more, tops below {FLOOR_READ['1835']['cap']} m): `rects` plan rectangles of one height, five "
+                              "integers each (i0 i1 j0 j1 half-open, then the top in centimetres over the model's "
+                              "ground), `walls` the same for what stands beside them. house-floors.js lays them as "
+                              "the decks a figure walking in at the door, and the visitor, climb. `barriers` carries "
+                              "the floors of the houses no day goes into.")
+        out["barriers"] = house_floor_rows(scene, rows, cache)
     stoops = stoop_rows(scene)
     if stoops:
         out["stoops_note"] = ("T-3554 (owner, 2026-11-13: \"no one should be able to\" stand in stairs): the stairs "
