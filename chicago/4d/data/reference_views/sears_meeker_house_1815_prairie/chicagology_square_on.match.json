@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_square_on",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "bf23ebe5ca03fed8071fafb70f83dd02289c63cfb9ca333b1f3a4f39e6a3587f",
+  "glb_sha256": "474feaaf8c25354b8d614af96171d3842d14e5c0e85396ed8569f3a7ae5d9e4b",
   "camera_sha256": "cda2578ea5c93de1ed5400ca1f83da8339ea23c273224c6ad760394f98b0fdee",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_square_on-side-by-side.jpg",
@@ -135,8 +135,8 @@
     },
     {
       "what": "a low iron fence set back on the north side",
-      "status": "open",
-      "how": "the print shows a low railing behind the coping north of the walk that no record explains; not built"
+      "status": "fixed",
+      "how": "T-3562 builds it (boundary.passage_fence): the K11 kit's spear fence on a 0.1 m curb, its top rail 0.45 m over it, on the line u 15.6 (1.9 m behind the front, where the solved camera puts the print's foot at y 1033 px) from inside the north lot line to the north stair projection's flank. It renders where the print draws it: its spear tips at y 980 px against the print's 983-985, its foot at about y 1027-1030 against 1033, running out of the frame past x 0 and meeting the projection's street end. The print's top band reads as a row of finials whose shape it does not resolve; the kit's spear heads stand for them, and its pickets stand at the kit's 0.125 m pitch where the print's look closer. The pale braced stakes before it are not built"
     },
     {
       "what": "the rosettes over the cornice's consoles (y 388-398 px)",
