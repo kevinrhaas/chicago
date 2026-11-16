@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3036, ts: '2026-11-16T16:33:32.602Z', date: 'Nov 16, 2026, 10:33 AM CT', title: '1827 Prairie\'s crown, porch and tower match the Doane photograph', kind: 'polish',
+    items: [
+      'The pavilion\'s slate crown is now the photograph\'s short, steep pyramid on a ledge of its cornice, no longer a long hip running back into the roof.',
+      'The porch\'s south arch stands on a column against the house, with a low parapet between its pedestals.',
+      'A carved roundel sits between the corner tower\'s tall paired windows, over their hoods.',
+      'All three of the house\'s pictures now match the model.',
+    ] },
   { v: 3035, ts: '2026-11-16T15:07:50.342Z', date: 'Nov 16, 2026, 9:07 AM CT', title: 'The Battle of Fort Dearborn: the burning of the fort', kind: 'feature',
     items: [
       'A new stop in The Battle of Fort Dearborn, the morning after the battle, before the main gate: the young men of the gathering come up with brands and set the empty fort alight, as Heald and Wau-Bun tell it.',

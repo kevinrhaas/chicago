@@ -2,11 +2,11 @@
   "structure_id": "doane_house_1827_prairie",
   "view": "chicagology_doane_exterior",
   "glb": "assets/gltf/doane_house_1827_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0b3709ac14fb649ba247c22aced5a8a88dcb3395e470c1c3c36f4fc41cb2a7a4",
+  "glb_sha256": "802296770f855c478a30417ab54ec0f77c9f423edbacc01b404511bbfc64bb80",
   "camera_sha256": "5e60431b2e87c80c901f1b19a2b41f091cb09d5a9f2130f02dd75fb366215cdd",
   "photo_sha256": "64e06383a60fdcc6a68ad1aa32db91dde8d1678f0a671ea1447768f487f5ac13",
   "side_by_side": "docs/RESEARCH/photo-match/doane_house_1827_prairie/chicagology_doane_exterior-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: a stone house two storeys over a raised basement under a slated mansard, its front and south flank seen from the south-west",
@@ -89,8 +89,8 @@
     },
     {
       "what": "the porch's south face in deep shadow, its column against the pavilion standing proud (x 233-253 px) where the build has a flat respond, and a low parapet between the pedestals on that face (y about 1420-1455 px); the render lights that face and leaves it open to the floor",
-      "status": "open",
-      "how": "T-3191, the sign-off: left open. The low parapet between the pedestals (about 0.35 m) and the column standing proud of the pavilion are missing from K01's door hood, which builds the arcade and terraces but no parapet on an arched end; the shadow is the light's, not the build's"
+      "status": "fixed",
+      "how": "T-3191, the sign-off: left open. The low parapet between the pedestals (about 0.35 m) and the column standing proud of the pavilion are missing from K01's door hood, which builds the arcade and terraces but no parapet on an arched end; the shadow is the light's, not the build's | T-1896: K01's arcade now stands an arched end's back on a column against the wall in place of its respond (arches.end_columns) and lays a low parapet across the end between its pedestals (arches.end_parapet_m 0.35); the back column renders at x about 245 px as the print's (x 233-253), standing proud beside the pavilion, and the parapet between the pedestals. The face's deep shadow is the light's, not the build's."
     },
     {
       "what": "the newel pedestal and short column on the flight's south cheek at its top (x 85-112 px, y 1332-1455); the build's cheek ends in a plain block",
@@ -203,19 +203,24 @@
     },
     {
       "what": "the roundel between the tower's principal-floor lights over their hoods (x about 965-995 px, y 1130-1165, about 0.35 m across)",
-      "status": "open",
-      "how": "T-3191, the sign-off: left open; K08 sets a roundel only on a storey's head frieze, whose band the print does not show and which would cross the new hoods"
+      "status": "fixed",
+      "how": "T-3191, the sign-off: left open; K08 sets a roundel only on a storey's head frieze, whose band the print does not show and which would cross the new hoods | T-1896: K08 now carves roundels on a storey's wall clear of its lights and band (storeys[].roundels): one 0.35 m across between the principal floor's pair on the tower's broad face, its centre 3.61 m over that storey's floor, over the hoods and under the string course, rendering at about x 995, y 1150 px as the print's."
     },
     {
       "what": "the crown's slates: the print's rise from about 0.6 m inside its cornice's edge (the south edge at x 545 px at y 555, its cornice to x 600), steeper than its sides read at the point, so no south slope shows past the hip; the build's sides rise from the fascia at 45.5 degrees and show about 70 px (0.8 m) of south slope past the print's outline at y 540",
-      "status": "open",
-      "how": "T-3191, the sign-off: left open; K05's hipped crown lays every plane from the fascia's edge at one side pitch, and a pitch steep enough to hide the slope lifts the point about 3 m over the print's"
+      "status": "fixed",
+      "how": "T-3191, the sign-off: left open; K05's hipped crown lays every plane from the fascia's edge at one side pitch, and a pitch steep enough to hide the slope lifts the point about 3 m over the print's | T-1896: read again on the print's crown contrast-stretched, it is a short steep pyramid: its south-west hip meets the cornice at about x 520 px and its south face shows only to about x 578. K05's hipped crown now stands its sides on a ledge of the cornice (side_inset_m 1.35, pitched 62 degrees) and closes to one point (point, 2.4 m deep, the back about 64.7 degrees): the hip's foot renders at about x 525 and the point at x 490, and the long south slope the old ridge showed past the print's outline is gone."
     },
     {
       "what": "the south flank past the tower and its stacks, seen through this camera: the print's flank closes up to about x 1386 px (the Glessner copy, which runs wider, then shows the coach house's front at x 1447-1538 with sky over it), where the camera puts the main block's rear corner at x 1734 and the step's at 1827; and the print's stack tops stand at y about 613 and 729 against the build's 435 and 499",
       "status": "within tolerance",
       "how": "T-3191: two fits disagree, not the build: no level camera holds both the sheet's plan of the front and corner (T-3176's 23 readings) and the flank's close-up. Forced to put the rear corner at x 1440, the best fit misses the front by 15 px RMS and 28 at most (against 4.4 and 10), and takes back T-3171's short lens. So the flank's far end, the step and the stacks' heights are not read through it; the step stands on the sheet, and the stacks where T-3171 put them. The Tribune's 1927 night photograph puts a stack at about u 20 behind the tower (tribune_1927_fire.match.json), which this print does not hold either"
+    },
+    {
+      "what": "the crown's outer edges: its north-west hip's foot and its south face's far edge render about 40 px wide of the print's on each side (about x 360 and 620 px at the cornice against the print's 403 and 578)",
+      "status": "within tolerance",
+      "how": "T-1896: the crown's cornice itself renders about 60 px right of the print's (its south end at x about 645 against 585-590), its place on the pavilion read on the 1911 sheet against this camera; the slates' own read (hip, point, south face) agrees with the print relative to the cornice, so this is the camera's fit and the sheet's disagreeing, not a shape a visitor would see as wrong"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
