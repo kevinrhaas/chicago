@@ -28,7 +28,9 @@ export const PRINT_CLASS = 'is-printing-handout';
 /** The suggested Jaunts from one catalog, by the rule above. */
 export function suggestJaunts(rows, n = SUGGESTED) {
   // The owner, 2026-11-15: an adults-only jaunt (the 1812 fighting shown) is never suggested to a class.
-  const list = (Array.isArray(rows) ? rows : []).filter((r) => r && r.title && r.availability !== 'unavailable' && r.audience !== 'adults');
+  // A grade-band version (version_of) is the same Jaunt retold, so the handout names each Jaunt once (T-3621).
+  const list = (Array.isArray(rows) ? rows : []).filter((r) => r && r.title && r.availability !== 'unavailable'
+    && r.audience !== 'adults' && !r.version_of);
   const stops = (r) => (Number.isFinite(r.stop_count) ? r.stop_count : Infinity);
   return list.slice().sort((a, b) => (b.featured === true) - (a.featured === true)
     || stops(a) - stops(b)

@@ -1,0 +1,82 @@
+== premise
+Pretend to make a few visits. Show a letter that tells people who you are. Learn about the Peck family. Find where the town meets. Then leave a calling card.
+
+== opening
+JAUNT: CALLING ON NEIGHBORS. You have rented a room in town this summer. You carry two letters from home that tell people who you are. In 1835, that is how a stranger becomes a neighbor. And Chicago is a town of strangers. The paper said they were crowding every room in town. Everybody is new. Everybody is meeting everybody. And everybody leaves a card with their name on it.
+
+Show a letter, learn about a store owner's family, find where the town meets, and leave your card. In winter this town loves to dance. At one party a writer saw an old army officer in his uniform dancing with a shopkeeper's daughter. In summer the town is busy with work. Mind your manners.
+
+== stop the-room
+Start behind Peck's store at Mrs Rufus Brown's log boarding house. A history book calls it one of the best boarding houses in town. You live here. You carry two letters from people back home. Almost everyone in town arrived in the last three years. So a letter from someone back East is how people learn who you are. Choose the letter to show first.
+
+== narrative the-room
+Show one letter first. The other can wait.
+
+== label the-room merchant-letter
+A letter from a merchant back east
+
+== consequence the-room merchant-letter
+It helps you meet the people who buy and sell in town.
+
+== label the-room minister-letter
+A letter from your minister at home
+
+== consequence the-room minister-letter
+It helps you meet the people at the town's churches.
+
+== stop the-merchant
+Walk a few steps around to Peck's corner of South Water and LaSalle Streets. P. F. W. Peck came here in July 1831 with a load of goods to sell. A minister came to town in 1833. Peck gave him a room upstairs in the store to live and study in. One of the town's first Sunday schools met up there too. This year Peck marries Mary Wythe of Philadelphia. Learn about the family from their card.
+
+== narrative the-merchant
+Learn about them from their card, not by knocking.
+
+== stop the-exchange
+Walk west to Lake and Wells Streets and the Exchange Coffee House. Mr and Mrs Murphy have run it since August 1834. People met here this spring to choose who to vote for. In 1834 a dance teacher asked new students to leave their address here. An inn like this is a mailbox, a bulletin board and a meeting hall all at once. Leave your card here, or carry it on.
+
+== narrative the-exchange
+Where the town meets, people find your card.
+
+== label the-exchange card-at-exchange
+Leave your card at the Exchange
+
+== consequence the-exchange card-at-exchange
+You leave it where the dance teacher's notice asked. Nobody wrote down who visited.
+
+== label the-exchange card-kept
+Keep it for the Sauganash
+
+== consequence the-exchange card-kept
+The card goes on with you to the last stop.
+
+== stop the-sauganash
+Walk along Lake Street to Market Street and the Sauganash. It was fixed up new in June. A history book calls it the nicest inn the city had. A week later the paper said strangers were crowding every room in town. Every one of them, like you, is a name on a card. If your card is still in your pocket, leave it here.
+
+== narrative the-sauganash
+A town of strangers, all meeting each other.
+
+== leg 0
+With your letter in hand, walk around to the front of the block.
+
+== note 0
+Walk a few steps from the boarding house to the store in front of it.
+
+== leg 1
+You learned about one family. Now go on to where the town meets.
+
+== note 1
+Walk west along South Water Street to Wells, then one block south to Lake.
+
+== note 2
+Walk west along Lake Street to the corner of Market Street by the river.
+
+== ending merchant-at-the-exchange
+You showed a merchant's letter and left your card at the Exchange. That is where people meet to vote and where the dance teacher took names. By next week the right people will know who you are.
+
+== ending minister-at-the-exchange
+You showed a minister's letter and left your card at the Exchange, where the town comes to meet. With luck, people from a church will visit you before Sunday.
+
+== ending card-at-the-sauganash
+You left your card at the Sauganash, along with a whole summer's crowd of strangers. In a year most of them will be your neighbors. A few of them will be rich.
+
+== keepsake text
+A made-up calling card from July 1835. No real letter, visitor or answer is written on it, and you meet no real person.

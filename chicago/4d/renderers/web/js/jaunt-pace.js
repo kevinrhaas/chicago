@@ -13,6 +13,7 @@
  * the Outing complete card come. Pure, so Node tests read the same numbers the app flies.
  */
 import { bearingToYaw } from './angles.js';
+import { clipSeconds } from './narration.js';
 
 /** Seconds a voiced opening may hold the flight (the longest voiced one is about 74 s). */
 export const OPENING_MAX_S = 90;
@@ -38,14 +39,9 @@ export function readingSeconds(text) {
   return Math.max(READ_MIN_S, words(text) / READ_WPS + 1.5);
 }
 
-/** A clip's length in seconds from the narration index: its bytes at its constant bitrate
- *  (`mp3_44100_64` is 64 kbit/s), else about 15 characters a second, else null. */
-export function clipSeconds(clip) {
-  if (!clip) return null;
-  const kbps = Number(/^mp3_\d+_(\d+)$/.exec(clip.output_format ?? '')?.[1]);
-  if (kbps > 0 && clip.bytes > 0) return clip.bytes / (kbps * 125);
-  return clip.chars > 0 ? clip.chars / 15 : null;
-}
+/** A clip's length in seconds (narration.js, which must import nothing: the voicing workflow
+ *  checks out that one file). */
+export { clipSeconds };
 
 /** How long the flight to the first stop takes while its opening is read: the voice's length
  *  less a second (so the eye lands as the narrator finishes), within OPENING_MAX_S; null for a
@@ -114,4 +110,58 @@ export function createClosingClock({ now = () => Date.now() / 1000, voice, flyin
     return true;
   }
   return { update, tick, get active() { return !!key && !closed; } };
+}
+
+/**
+ * The owner, 2026-11-16: "a little progress meter on the stop scene at the jaunt so you know how
+ * much of the scene has progressed and how much more is going on ... like a real time stop
+ * progress and maybe an overall jaunt progress too as a meter you can see not too shouty be
+ * slick and elegant". A stop's scene is what plays there: its voice (where it will be heard;
+ * else the time to read it, its `read_s`) and its stage. It is done when all of them are, so
+ * it never reads full while a voice still speaks. Each part: { t, d } seconds (t of d done).
+ */
+export function sceneProgress(parts = []) {
+  const live = parts.filter(p => p && Number.isFinite(p.d) && p.d > 0);
+  if (!live.length) return { value: 1, left: 0 };
+  let value = 1, left = 0;
+  for (const p of live) {
+    const t = clamp(Number.isFinite(p.t) ? p.t : 0, 0, p.d);
+    value = Math.min(value, t / p.d); left = Math.max(left, p.d - t);
+  }
+  return { value, left };
+}
+
+/** The whole jaunt as a row of stops: those before `index` done, the one at `index` filled to
+ *  `value` (its scene, or `kind` 'way': the way to it), the rest to come. */
+export function jauntMeter({ count, index, value = 0, kind = 'scene', left = 0 }) {
+  const n = Math.max(1, count | 0), i = clamp(index | 0, 0, n - 1), v = clamp(Number.isFinite(value) ? value : 0, 0, 1);
+  return { count: n, index: i, value: v, kind, left: Math.max(0, left || 0), overall: (i + (kind === 'scene' ? v : 0)) / n };
+}
+
+/** Seconds left as the meter shows them: "0:42", "1:05"; nothing under a second. */
+export function clockText(seconds) {
+  if (!(seconds >= 1)) return '';
+  const s = Math.ceil(seconds);
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+}
+
+/**
+ * What the meter shows for a jaunt's state, or null where it has nothing to show (no jaunt,
+ * the Outing complete card). `glide` / `way`: { t, d } of the flight or the walk under way;
+ * at a stop, `voice` (its clip as it plays, or { t: 1, d: 1 } once it has played; null when
+ * nothing is heard), `read` (seconds since arrival against the stop's reading time) and
+ * `stage` (its clock against its last beat). A heard voice paces the scene, not the reading.
+ */
+export function meterReading({ phase, stopIndex = 0, count = 1, glide = null, way = null, voice = null, read = null, stage = null } = {}) {
+  const part = p => p && Number.isFinite(p.d) && p.d > 0 ? { value: clamp((p.t || 0) / p.d, 0, 1), left: Math.max(0, p.d - (p.t || 0)) } : null;
+  if (phase === 'opening' || phase === 'travelling' || phase === 'paused') {
+    const p = part(glide) ?? part(way) ?? { value: 0, left: 0 };
+    return jauntMeter({ count, index: phase === 'opening' ? 0 : stopIndex, kind: 'way', value: p.value, left: glide ? p.left : 0 });
+  }
+  if (phase === 'atStop') {
+    const p = sceneProgress([voice ?? read, stage]);
+    return jauntMeter({ count, index: stopIndex, kind: 'scene', value: p.value, left: p.left });
+  }
+  if (phase === 'closing') return jauntMeter({ count, index: count - 1, kind: 'scene', value: 1 });
+  return null;
 }

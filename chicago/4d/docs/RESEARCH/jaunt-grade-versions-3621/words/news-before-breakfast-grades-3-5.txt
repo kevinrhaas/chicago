@@ -1,0 +1,106 @@
+== premise
+Read both of the town's newspapers before breakfast. Learn to tell a news story from an ad. Keep one useful clipping.
+
+== opening
+JAUNT: NEWS BEFORE BREAKFAST. It is sunrise on 1 July 1835. Chicago has two newspapers this summer. They each come out once a week, and one of them is only three weeks old. A dangerous sickness called cholera has been in the state. Everyone wants to know how close it is. But the papers also want to sell you things. Learning to tell news from ads is the most useful thing a newcomer can do.
+
+Choose your question. Ride from the Sauganash to both newspaper offices. Decide which parts tell the news and which parts sell things. Then carry one clipping to breakfast at the Tremont House.
+
+== stop question
+Start at the Sauganash. Juliette Kinzie remembered it as a white two-story house with bright blue shutters. In June the paper said it was fixed up and neatly furnished. Both papers are printed a short ride east along the river. Before the town had a paper, news came with the mail. The mail was often late. Somebody would stand on a box and read it out loud. Now you can read it yourself.
+
+== narrative question
+Choose the question you want the papers to answer.
+
+== label question cholera
+Is the cholera near?
+
+== consequence question cholera
+You will read to find news about the sickness.
+
+== label question today
+What is new in town today?
+
+== consequence question today
+You will read to find anything happening today.
+
+== stop democrat
+John Calhoun printed the Chicago Democrat at this corner starting in 1833. Now it is printed over a hardware store on South Water Street. The paper from 24 June gathers news about the sickness from other towns. It says it could not check one rumor. And it says Chicago is very healthy.
+
+== narrative democrat
+Is this news, or an ad?
+
+== label democrat report
+Call it reporting
+
+== consequence democrat report
+You put it with the news.
+
+== label democrat advert
+Call it an advertisement
+
+== consequence democrat advert
+You put it with the ads.
+
+== stop american
+Near the drawbridge is the other paper, the Chicago American. It is only three weeks old. Its paper from 27 June has a notice for a medicine called Cholera Elixir. A druggist named Frederick Thomas sells it. The notice says it will surely stop the sickness and cure it. The notice is dated 24 June. That is the same day the Democrat printed its news.
+
+== narrative american
+Is this news, or an ad?
+
+== label american report
+Call it reporting
+
+== consequence american report
+You put it with the news.
+
+== label american advert
+Call it an advertisement
+
+== consequence american advert
+You put it with the ads.
+
+== stop tremont
+Have breakfast at the Tremont House, a wooden hotel from 1833 at Lake and Dearborn Streets. Ira Couch has run it since 1834. Later, in 1850, a new brick Tremont House was built. People thought it was so huge and silly that they called it Couch's Folly. The Democrat says a new auction house is opening on South Water Street. Its first sale is on the 1st of July. That is today!
+
+== narrative tremont
+Choose one clipping to take with you.
+
+== label tremont clip-report
+Clip the Democrat's cholera paragraph
+
+== consequence tremont clip-report
+The Democrat's news about the sickness goes in your pocket.
+
+== label tremont clip-elixir
+Clip the Cholera Elixir notice
+
+== consequence tremont clip-elixir
+The medicine ad goes in your pocket.
+
+== label tremont clip-auction
+Clip the auction notice
+
+== consequence tremont clip-auction
+The auction notice goes in your pocket.
+
+== leg 0
+Ride east with your question in mind.
+
+== ending cholera-answered
+You asked if the sickness was near. You bring back a news report, not a promise. It has news from other towns, a rumor that could not be checked, and the editor saying Chicago is healthy.
+
+== ending sale-today
+You asked what was new today. You bring back a sale. A new auction room has its first sale on South Water Street, this very morning. The notice does not say what will be sold.
+
+== ending one-fooled-you
+One of the two notices fooled you. That is worth knowing too. The Democrat said which papers its news came from. The medicine ad was signed and sold by the druggist. Read them again over breakfast.
+
+== ending cure-kept
+You kept the ad. It promises a sure cure, but a promise is all it is. The seller wrote it, not a news editor. That is a useful thing to know.
+
+== ending a-useful-clipping
+You compared two papers before breakfast, and you have one clipping in your pocket. You learned this morning's lesson. A news report says where its news came from. An ad says who is selling.
+
+== keepsake text
+A made-up clipping from a morning's reading of Chicago's two weekly newspapers, kept for what it taught you.

@@ -1,0 +1,85 @@
+== premise
+Leave town with the right supplies, strong gear, and enough money for the road.
+
+== opening
+JAUNT: OUTFIT FOR THE WEST. It is sunrise in spring, and the roads west are drying out. Chicago is not the end of your trip. For thousands of people it is a door to the West. Many people passed through town on their way to farms farther west. They came by land and by water, in covered wagons, on horseback and on foot.
+
+You have fifteen dollars and a long way to go. Make your list at the Green Tree inn. Get your harness and iron work checked at Lake and Canal Streets. Then cross the river for food and tools. Spend your money wisely. There are no stores out on the prairie.
+
+== stop the-list
+Start outside the Green Tree, the inn at Lake and West Water Streets. It was named for an oak tree standing close by. Chester Ingersoll ran it from 1834 to 1837. People heading west gather at inns like this one. They share news about the roads and the land offices ahead.
+
+== narrative the-list
+Make a short list: something to carry your load, a few tools, food for the road and strong iron parts.
+
+== stop carrying
+Walk a block west along Lake Street to Canal Street. In 1833 a shop here sold saddles, harness, horse bridles and trunks. That was the year Silas Cobb came to town. He and his partner split up in February 1835. Cobb says he will keep the shop going. Everything you own has to travel somehow.
+
+== narrative carrying
+First decide how your load will travel, or save your money.
+
+== label carrying pack
+A pack and straps — $3
+
+== consequence carrying pack
+It does not cost much, but you carry the load on your back.
+
+== label carrying harness
+Harness mended for a team — $6
+
+== consequence carrying harness
+It costs more, but a wagon carries more than you can.
+
+== stop ironwork
+At the same corner is Asahel Pierce's blacksmith shop. He opened it in October 1833. A history book says he did the iron work for the first stagecoach line from Chicago to St. Louis. Starting in 1834, he also made plows called Bull plows.
+
+== narrative ironwork
+Get the iron parts checked before the long road, or trust them as they are.
+
+== label ironwork repair
+Have the ironwork checked — $2
+
+== consequence ironwork repair
+The wheel rims, hooks and chains are checked before the long road.
+
+== stop provisions
+Cross the river to South Water Street. In 1833 a store owned by a man named Jones sold food here. Papers back then said a big barrel of flour cost six dollars. Coffee cost seventeen cents a pound. Tea cost up to a dollar and a quarter a pound. People do not even agree on Jones's first name.
+
+== narrative provisions
+Stock up now, or plan to buy food along the way.
+
+== label provisions provisions
+Flour, pork and coffee — $5
+
+== consequence provisions provisions
+Enough food for the first days on the road.
+
+== stop tools
+Walk a block east to Peck's store at South Water and LaSalle Streets. His ads from 1833 and 1834 list cloth, tools, food, dishes, boots, shoes and hats.
+
+== narrative tools
+Last on your list are tools for the road. Buy some, or trust what you already have.
+
+== label tools tools
+An axe and a few tools — $4
+
+== consequence tools tools
+Tools from the store's shelves, not from the blacksmith's fire.
+
+== leg 0
+Before you buy anything, decide how your load will travel.
+
+== leg 1
+Harness and iron parts are both fixed at the same corner.
+
+== leg 2
+Now that you know how to carry it, fill up your load across the river.
+
+== ending prepared
+Every item on your list is crossed off, and your load is packed. You head west ready for the road. You have a little money left, and the town gets smaller and smaller behind you on the flat land.
+
+== ending light
+You set out with a light load, money in your pocket and some things missing. The road will have to give you the rest. But the road does not have many stores.
+
+== keepsake text
+A made-up supply list from five Chicago shops, crossed off for the road west.

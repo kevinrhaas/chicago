@@ -295,7 +295,10 @@ def build(data: dict) -> dict:
     # bracket does not count them either: their slots leave the schedule and the
     # buildings stand outside the programme, with their rooms recorded and no beds dealt.
     pictured = data["inventory"].get("pictured_roofs") or {}
-    pictured_prefix = pictured.get("structure_prefix")
+    # T-3605 phase 2: the commercial core's row-fill stores stand on the same footing.
+    pictured_prefix = tuple(pictured.get("structure_prefixes")
+                            or ([pictured["structure_prefix"]]
+                                if pictured.get("structure_prefix") else []))
     pictured_n = {group: sum((cells or {}).values())
                   for group, cells in (pictured.get("by_group") or {}).items()}
 

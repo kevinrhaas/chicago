@@ -1,0 +1,111 @@
+== premise
+Visit three taverns, collect local intelligence and determine where to conclude the evening.
+
+== opening
+JAUNT: TAVERNS OF CHICAGO. On this summer night in 1835 the settlement is bursting at the seams. The federal land office opened in May and, as one history phrased it, "added fuel to the already brilliant blaze of excitement". Every available bed is occupied, the bar-rooms are boisterous, and the entire community is preoccupied with lots, banks and vessels.
+
+Four public houses stand within a short ride of the forks, operated by some of the settlement's most colorful characters. Commence at the Sauganash, where the proprietor plays the fiddle, ride over to the western bank, and conclude wherever you prefer. The county has regulated the price of a drink since 1831, at "6¼ for a gill of whiskey". Whether you indulge or abstain, remain attentive throughout the evening.
+
+First, however, determine precisely how much money you are carrying.
+
+== stop purse
+The Sauganash, at Lake and Market, is the white two-story house with bright-blue shutters that Juliette Kinzie remembered, and in June the Democrat found it repaired, fitted up and furnished with neatness. Moses and Kirkland characterize it as "the most attractive hostlery the city possessed", and its proprietor, Mark Beaubien, "with his merry fiddle, the most popular of hosts". Judge Caton testified that Mark could "lift the sluggard from his seat, and set him whirling over the floor like mad".
+
+== narrative purse
+Before you ride onward, determine how substantial a purse this evening may expend.
+
+== label purse no-purse
+Bring no purse
+
+== consequence purse no-purse
+Conversation costs nothing, so you will expend nothing tonight.
+
+== label purse modest
+A modest purse
+
+== consequence purse modest
+Twenty-five cents allocated for the evening's diversions.
+
+== label purse fuller
+A fuller purse
+
+== consequence purse fuller
+Fifty cents allocated for the evening's considerably more extravagant diversions.
+
+== stop wolf-point
+Across the river at the forks stands the Wolf Point Tavern, distinguished by its painted wolf sign, where William Walters is identified as its proprietor until 1836, although one chronology maintains it ceased accepting guests in 1834, so whether you are served depends upon whom you believe. At the bar the conversation echoes the newspapers: no establishment in Chicago is sufficiently large, and an ambitious new one, the Lake House, is rising across the river, which "aimed to cater for only the highest class of guests". Wolf Point never harbored such pretensions.
+
+== narrative wolf-point
+Listen attentively: a glass accompanying the conversation, or water?
+
+== label wolf-point glass
+Take a glass with the talk
+
+== consequence wolf-point glass
+Six cents for a gill, approximating the county's 6¼, and the conversation continues.
+
+== label wolf-point water
+Listen over a cup of water
+
+== consequence wolf-point water
+Your purse and your judgment remain entirely undiminished.
+
+== stop green-tree
+A short distance south stands the Green Tree, which James Kinzie constructed in 1833 as the first building here erected for hotel purposes, "so called from an oak tree standing close by". Chester Ingersoll currently operates it. Guests recalled a bar-room, whitewashed board partitions and chambers approximately twelve feet square. It is an unpretentious house but an extraordinarily fortunate one, since it will outlast every tavern in this settlement, relocated to Milwaukee Avenue in 1880 as "the oldest memento of early taverns".
+
+== narrative green-tree
+Evaluate its unpretentious hospitality against the Sauganash's celebrated reputation.
+
+== label green-tree glass
+Another glass in the bar-room
+
+== consequence green-tree glass
+Six additional cents, and a more leisurely ride onward.
+
+== label green-tree chambers
+Ask after the chambers instead
+
+== consequence green-tree chambers
+You inspect the accommodations and preserve a clear head.
+
+== stop western
+Conclude the circuit a block south at W. H. Stow's Western Hotel, Randolph and Canal, with a forty-foot front, a sixty-foot wing, a substantial stable and a yard into which the farmers' wagon trains drive. Not everyone approves of such conviviality: in 1832 Philo Carpenter, the druggist, "prepared and circulated the first temperance pledge among the convivial citizens" of the town. It has gained little traction, since the census at the end of this year will enumerate eight taverns, and soon the trustees will prohibit "the sale of liquors on Sunday".
+
+== narrative western
+Now select the establishment where your evening concludes.
+
+== label western stay-western
+Stay among the teamsters
+
+== consequence western stay-western
+You conclude the evening at the Western, among the teamsters.
+
+== label western back-green-tree
+Ride back to the Green Tree
+
+== consequence western back-green-tree
+You conclude the evening at the Green Tree, the unpretentious establishment named for an oak.
+
+== label western back-sauganash
+Cross back to the Sauganash
+
+== consequence western back-sauganash
+You conclude the evening precisely where you commenced.
+
+== leg 0
+Ride onward with your purse determined, while behind you the celebrated fiddle is tuning.
+
+== ending talk-is-free
+You brought no purse and forfeited nothing: the conversation was free, the fiddle was free, and you carry home every word of a speculative boom town's night.
+
+== ending clear-head
+You declined every glass and preserved your purse intact, and Philo Carpenter would have you sign his pledge immediately. A clear head conveys the night's accumulated intelligence home entirely undistorted.
+
+== ending two-houses
+A gill in two bar-rooms, at approximately the county's regulated price, and still a modest evening. You let the gossip remain gossip and ride home unhurriedly beneath the stars.
+
+== ending a-sensible-evening
+One glass, a considerable quantity of conversation and a purse scarcely touched: a sensible evening, in a settlement that has entirely lost its head over land.
+
+== keepsake text
+A fictional calling card commemorating an evening's circuit of the public houses at the forks.

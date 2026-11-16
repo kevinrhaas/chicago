@@ -1,0 +1,106 @@
+== premise
+Read both of the town's newspapers before breakfast, distinguish a report from an advertisement and keep one useful clipping.
+
+== opening
+JAUNT: NEWS BEFORE BREAKFAST. Daybreak, 1 July 1835. Chicago prints two weekly newspapers this summer, one of them merely three weeks old. Cholera has been in the state, and everyone wants to know how close it is; the papers, however, also want to sell you things. Learning to distinguish the two is the most valuable skill a newcomer can acquire.
+
+Choose your question, ride from the Sauganash to both printing offices, decide which columns report and which ones sell, and carry one clipping to breakfast at the Tremont House.
+
+== stop question
+Begin at the Sauganash, the white two-story house with bright-blue shutters that Juliette Kinzie remembered; the Democrat of 10 June reported it repaired, fitted up and furnished with neatness. Both papers are printed a short ride east along the river. Before the town had a paper, news arrived with the mail, "often irregular and long delayed", and somebody read it aloud standing on "a dry goods box". Now you can read it yourself.
+
+== narrative question
+Choose the question you expect the newspapers to answer.
+
+== label question cholera
+Is the cholera near?
+
+== consequence question cholera
+You will read for any word of the epidemic.
+
+== label question today
+What is new in town today?
+
+== consequence question today
+You will read for anything scheduled for today.
+
+== stop democrat
+John Calhoun printed the Chicago Democrat at this corner from 1833, although by 20 May its office was above Jones and King's hardware on South Water Street. The 24 June number, the most recent before today, gathers cholera reports from Alton and Springfield, admits that it cannot trace an Ottawa rumor, and declares Chicago uncommonly healthy.
+
+== narrative democrat
+Is this reporting, or an advertisement?
+
+== label democrat report
+Call it reporting
+
+== consequence democrat report
+You file it with the news.
+
+== label democrat advert
+Call it an advertisement
+
+== consequence democrat advert
+You file it with the commercial notices.
+
+== stop american
+Near the drawbridge, T. O. Davis's Chicago American is three weeks old. Its 27 June number carries Frederick Thomas's Cholera Elixir, the Fire King's Specific, offered as a certain preventive and cure of the malignant disease, in a notice dated 24 June, the very day the Democrat printed its paragraph.
+
+== narrative american
+Is this reporting, or an advertisement?
+
+== label american report
+Call it reporting
+
+== consequence american report
+You file it with the news.
+
+== label american advert
+Call it an advertisement
+
+== consequence american advert
+You file it with the commercial notices.
+
+== stop tremont
+Breakfast at the Tremont House, Alanson Sweet's frame building of 1833 at Lake and Dearborn, kept since 1834 by Ira Couch. Moses and Kirkland call it "the nucleus of the present Tremont House": its brick successor of 1850 was considered so "absurdly large" that people nicknamed it Couch's Folly. The Democrat's third page announces a new auction house on South Water Street, with its first public sale scheduled for the 1st of July, which is today.
+
+== narrative tremont
+Choose one clipping to carry back with you.
+
+== label tremont clip-report
+Clip the Democrat's cholera paragraph
+
+== consequence tremont clip-report
+The Democrat's paragraph goes into your pocket.
+
+== label tremont clip-elixir
+Clip the Cholera Elixir notice
+
+== consequence tremont clip-elixir
+The elixir notice goes into your pocket.
+
+== label tremont clip-auction
+Clip the auction notice
+
+== consequence tremont clip-auction
+The auction notice goes into your pocket.
+
+== leg 0
+Ride east with your question in mind.
+
+== ending cholera-answered
+You asked whether the cholera was near and carry back a report rather than a promise: news weighed from other towns, a rumor that could not be traced, and the editor's assurance that Chicago is healthy.
+
+== ending sale-today
+You asked what was new today and carry back a sale: an auction room's first, on South Water Street, this very morning. What will be sold, the notice leaves to whoever brings the goods.
+
+== ending one-fooled-you
+One of the two notices fooled you, which is worth knowing too. The Democrat identified the papers its cholera news came from, while the elixir notice was signed, dated and sold by the druggist, so read them again over breakfast.
+
+== ending cure-kept
+You kept the advertisement. It promises a certain cure, but a promise is all it offers: signed by the seller, reported by no editor. That is a useful thing to recognize, and you carry it back.
+
+== ending a-useful-clipping
+Two newspapers compared before breakfast and one clipping in your pocket, and the morning's lesson travels with it: a report identifies where its news came from, while an advertisement identifies who is selling.
+
+== keepsake text
+A fictional cutting from a morning's reading of Chicago's two weekly newspapers, kept for what it taught you.
