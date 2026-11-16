@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3017, ts: '2026-11-16T00:13:16.783Z', date: 'Nov 15, 2026, 6:13 PM CT', title: 'The grades 3–5 Glessner tour\'s narrator opens with feeling again', kind: 'fix',
+    items: [
+      'The narrator\'s opening for The Glessner Household (grades 3–5) is performed with its direction again, after the tour\'s name changed.',
+    ] },
   { v: 3016, ts: '2026-11-15T23:36:28.605Z', date: 'Nov 15, 2026, 5:36 PM CT', title: '1835\'s townspeople come and go from their homes and shops', kind: 'feature',
     items: [
       '2,830 people of the 1835 town now keep a day: merchants open their stores, tradesmen work before their shops, labourers come home for dinner, soldiers drill, women keep house and yard, children play by the door.',
