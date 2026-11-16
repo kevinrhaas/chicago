@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3035, ts: '2026-11-16T15:07:50.342Z', date: 'Nov 16, 2026, 9:07 AM CT', title: 'The Battle of Fort Dearborn: the burning of the fort', kind: 'feature',
+    items: [
+      'A new stop in The Battle of Fort Dearborn, the morning after the battle, before the main gate: the young men of the gathering come up with brands and set the empty fort alight, as Heald and Wau-Bun tell it.',
+      'You can take a brand and set a building alight yourself with Set it alight.',
+      'Each building catches where the brand touches it. The fire runs over its walls and into its roof, the logs blacken, the roof falls in and the walls after it, and a smoking heap of charcoal and ash is left. The heat carries the fire to the buildings and pickets beside it.',
+      'Flames that lick and roll, thick wood smoke lit by the sun and by the fire under it, and sparks blown away over the lake. The brick magazine stands through it, smoked, as it did.',
+      'From Ouilmette\'s house an hour later the fort is still burning across the river. Both the student and the 18+ telling have the new stop.',
+    ] },
   { v: 3034, ts: '2026-11-16T15:04:33.861Z', date: 'Nov 16, 2026, 9:04 AM CT', title: 'Taller chimney pots on 1815 Prairie\'s south chimney', kind: 'improvement',
     items: [
       'The Sears-Meeker house at 1815 Prairie now has the tall, slender clay pots that its photograph from the south-west shows on its south chimney. Each pot stands about 1.1 m above the chimney\'s cap, up from about 0.7 m.',
