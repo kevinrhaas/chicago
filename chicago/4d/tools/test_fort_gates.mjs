@@ -214,7 +214,7 @@ try {
   {
     const { registry, footprints, layer, ix, problems } = fort('1812');
     ok(problems.length === 0, `1812 hangs its gates without complaint: ${problems.join('; ')}`);
-    ok(layer.gates.length === 4, 'a main gate and west wicket in each picket row');
+    ok(layer.gates.length === 6, 'a main gate, a west wicket and a sally port in each picket row');
     // On Whistler's passage: square in the gap between the two halves of the south range.
     const sw = footprints.find((f) => f.id === 'first_fort_dearborn_soldiers_barracks_sw').pts;
     const se = footprints.find((f) => f.id === 'first_fort_dearborn_soldiers_barracks_se').pts;
@@ -295,6 +295,53 @@ try {
     ok(beside.end[0] < outer.at[0] - WALK.radius + 0.01, 'opening the wicket leaves the adjacent curtain solid');
     const intoLeaf = walkFrom(footprints, [outer.at[0] + 0.8, outer.at[1] + 1.8], 180, 3);
     ok(intoLeaf.end[1] > outer.at[1] - 0.75, 'an open west leaf remains solid to a visitor crossing its swing');
+  }
+
+  // ---- T-3553 (L-1812-sally-port; the owner 2026-11-16: the covered way's soldiers "walk through
+  // the pickets"): a postern in the inner row's east curtain north of the commanding officer's
+  // quarters, and one in the outer row's north curtain square with the covered way's middle.
+  {
+    const { footprints, layer, ix, problems } = fort('1812');
+    ok(problems.length === 0, `the sally port hangs without complaint: ${problems.join('; ')}`);
+    const inner = layer.gates.find((g) => g.id === 'first_fort_dearborn_pickets_inner:e');
+    const outer = layer.gates.find((g) => g.id === 'first_fort_dearborn_pickets_outer:n');
+    ok(inner && outer && inner.name === 'Sally port, inner row' && outer.name === 'Sally port, outer row', 'both rows have a sally port, named');
+    const co = footprints.find((f) => f.id === 'first_fort_dearborn_commanding_officers_barracks');
+    const ne = footprints.find((f) => f.id === 'first_fort_dearborn_small_house_ne');
+    ok(inner.at[1] - 0.75 > Math.max(...co.pts.map((p) => p[1])), `the inner postern is north of the commanding officer's quarters (${inner.at[1].toFixed(2)})`);
+    if (ne) ok(inner.at[1] + 0.75 < Math.min(...ne.pts.map((p) => p[1])), 'and south of the north-east small house');
+    ok(Math.abs(outer.at[0] - 1167.36) < 0.05, `the outer postern is square with the covered way's middle (${outer.at[0].toFixed(2)})`);
+    const start = [inner.at[0] - 3, inner.at[1]];           // on the parade, facing east
+    const shut = walkFrom(footprints, start, 90, 6);
+    ok(shut.end[0] < inner.at[0] - WALK.radius + 0.01, 'shut, the parade stops at the inner row');
+    openAll(ix, [inner.id]);
+    const out = walkFrom(footprints, start, 90, 6);
+    ok(out.end[0] > inner.at[0] + 0.3, `opened, a walker goes out through the inner row (${(out.end[0] - inner.at[0]).toFixed(2)} m)`);
+    const up = [outer.at[0], outer.at[1] - 3];              // between the rows, facing north
+    const held = walkFrom(footprints, up, 0, 6);
+    ok(held.end[1] < outer.at[1] - WALK.radius + 0.01, 'shut, the outer row holds');
+    openAll(ix, [outer.id]);
+    const intoWay = walkFrom(footprints, up, 0, 8);
+    ok(intoWay.end[1] > outer.at[1] + 2, `opened, a walker goes on into the covered way (${(intoWay.end[1] - outer.at[1]).toFixed(1)} m)`);
+  }
+
+  // ---- T-3553 (the owner 2026-11-16: "I would like to be able to enter the garden front area ...
+  // the gate is not possible to cross"): the Kinzies' green, a wicket on each of its long sides,
+  // on the line from the river to the parlor door.
+  {
+    const { footprints, layer, ix, problems } = fort('1812', /^kinzie_house_1812_green\.json$/);
+    ok(problems.length === 0, `the green hangs its gates without complaint: ${problems.join('; ')}`);
+    ok(layer.gates.length === 2, 'the green has two gates');
+    const s = layer.gates.find((g) => g.id.endsWith(':s')), n = layer.gates.find((g) => g.id.endsWith(':n'));
+    ok(s && n && Math.abs(s.at[0] - n.at[0]) < 0.01, 'on one line, the river gate before the door gate');
+    const fp = footprints.find((f) => f.id === 'kinzie_house_1812_green');
+    const start = [s.at[0], s.at[1] - 4];                   // on the bank, facing north
+    const shut = walkFrom(footprints, start, 0, 6);
+    ok(shut.end[1] < s.at[1] - WALK.radius + 0.01, 'shut, the paling holds');
+    openAll(ix, [s.id]);
+    ok(s.state === 'open', 'Interact opens it');
+    const into = walkFrom(footprints, start, 0, 6);
+    ok(inside(into.end[0], into.end[1], fp.pts) && into.end[1] > s.at[1] + 3, `opened, the visitor walks onto the green (${(into.end[1] - s.at[1]).toFixed(1)} m in)`);
   }
 
   // ---- 1812: the commanding officer's garden, its wicket on the walk from the fort (T-3407)
@@ -405,7 +452,7 @@ try {
     ok(south.state === 'open' && keyEl.textContent === 'Close gate', 'open, it offers to close');
     ok(said.at(-1) === 'South gate open', `and the status line says so (${said.at(-1)})`);
   }
-  ok(Object.keys(FORT_GATES).length === 4, 'three stockades and the officers\' garden carry gates a visitor works');
+  ok(Object.keys(FORT_GATES).length === 5, 'three stockades, the officers\' garden and the Kinzies\' green carry gates a visitor works');
 } finally {
   WALK.speed = speedWas;
 }

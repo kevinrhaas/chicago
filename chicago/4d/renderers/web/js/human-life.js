@@ -65,7 +65,8 @@ const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
 /** The bones this layer moves. A rig missing any CORE bone is left alone (null). */
 const CORE = ['pelvis', 'spine_01', 'spine_02', 'spine_03', 'neck_01', 'head', 'clavicle_l', 'clavicle_r'];
 const LEGS = ['thigh_l', 'thigh_r', 'calf_l', 'calf_r', 'foot_l', 'foot_r'];
-const OPTIONAL = [...LEGS, 'eye_l', 'eye_r'];
+const ARMS = ['upperarm_l', 'upperarm_r', 'lowerarm_l', 'lowerarm_r', 'hand_l', 'hand_r'];
+const OPTIONAL = [...LEGS, ...ARMS, 'eye_l', 'eye_r'];
 
 /** What each behaviour state gets. `working` and `seated` keep their clip's body. */
 export const LIFE_MODES = Object.freeze({
@@ -99,12 +100,42 @@ export const POSTURES = Object.freeze({
   crouch: { l: { thigh: 108, calf: -128, foot: 22 }, r: { thigh: 104, calf: -122, foot: 20 }, planted: 'l', lean: -24, look: 14 },
   // Sitting on the ground, the knees a little up, the legs before him.
   sit: { l: { thigh: 84, calf: -28, foot: 6 }, r: { thigh: 80, calf: -18, foot: 4 }, planted: 'seat', lean: -6, look: 0 },
-  // Lying face down, the head up, watching ahead.
-  prone: { root: 90, lift: 0.14, look: 34 },
-  // Lying face up and still.
-  lie: { root: -90, lift: 0.11, look: 0, still: true },
-  // Fallen face down and still, the head down on the ground (the adults jaunts, 2026-11-15).
-  fallen: { root: 90, lift: 0.12, look: -6, still: true },
+  // Lying face down, the head up, watching ahead: the elbows out and the forearms on the
+  // ground before the head, the legs a little apart (the owner, 2026-11-16, of a figure lying
+  // in wait on the beach: "they would have their arms and legs in a different position").
+  prone: {
+    root: 90, lift: 0.12, look: 34,
+    limbs: {
+      upperarm_l: { out: 70, twist: -90 }, lowerarm_l: { flex: 95 },
+      upperarm_r: { out: 70, twist: -90 }, lowerarm_r: { flex: 95 },
+      thigh_l: { roll: 8 }, thigh_r: { roll: 8 },
+    },
+  },
+  // Lying face up and still, as someone lies who has fallen or been laid down: one knee up and
+  // fallen out, the other leg out a little, one arm out on the ground, the other hand on the
+  // body, the head turned (the owner, 2026-11-16: the stiff straight figure floated).
+  lie: {
+    root: -90, lift: 0.08, look: 0, still: true,
+    limbs: {
+      thigh_a: { pitch: 34, roll: 26 }, calf_a: { pitch: -62 }, foot_a: { pitch: -20 },
+      thigh_b: { roll: 9 }, foot_b: { pitch: -30 },
+      upperarm_a: { out: 45 }, lowerarm_a: { flex: 12 }, hand_a: { flex: -60 },
+      upperarm_b: { out: 8, twist: 60 }, lowerarm_b: { flex: 80 },
+      head: { yaw: 24 },
+    },
+  },
+  // Fallen face down and still, the head down on the ground and turned on its cheek: one arm
+  // up by the head, the other out from the side, one leg drawn out (the adults jaunts,
+  // 2026-11-15; the owner's word on the stiff figures, 2026-11-16).
+  fallen: {
+    root: 90, lift: 0.1, look: -6, still: true,
+    limbs: {
+      upperarm_a: { out: 130, twist: -90 }, lowerarm_a: { flex: 35 },
+      upperarm_b: { out: 25 }, lowerarm_b: { flex: 5 },
+      thigh_a: { roll: 22 }, calf_a: { pitch: -12 }, thigh_b: { roll: 6 },
+      head: { yaw: 62 },
+    },
+  },
 });
 export const POSTURE_NAMES = Object.freeze(Object.keys(POSTURES));
 
@@ -227,10 +258,39 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
   // T-3553: how far a held posture has brought the pelvis down this frame (metres, the
   // figure's frame), for the arms (human-actions.js) to reach from where the body now is.
   let sunk = 0;
+  // T-3553: a lying figure's limbs (POSTURES `limbs`). `_a` is this figure's own side, drawn
+  // once from its id, so the fallen do not all lie alike (`_l` / `_r` name a side outright).
+  // A leg takes `pitch` as in a posture's legs and `roll` out from the body. An arm takes
+  // `flex` (forward, as raising it before you), `out` (away from the side) and `twist` (inward),
+  // turned in that order: out, then forward, then about its own length.
+  // `head` takes `yaw`, turned to the figure's `_a` side.
+  const aSide = seededRandom(`lie:${id}`)() < 0.5 ? 'l' : 'r';
+  const headSign = aSide === 'l' ? 1 : -1;
+  function layLimbs(limbs, w) {
+    for (const [key, L] of Object.entries(limbs)) {
+      if (key === 'head') {
+        const y = (L.yaw ?? 0) * headSign * DEG * w;
+        turn('neck_01', y * 0.6, 0, 0); turn('head', y * 0.4, 0, 0);
+        continue;
+      }
+      const [part, which] = key.split('_');
+      const s = which === 'a' ? aSide : which === 'b' ? (aSide === 'l' ? 'r' : 'l') : which;
+      const m = s === 'l' ? 1 : -1;
+      if (part === 'upperarm' || part === 'lowerarm' || part === 'hand') {
+        // Out from the side first, then forward, then turned about its own length.
+        const name = `${part}_${s}`;
+        turn(name, 0, 0, (L.out ?? 0) * m * DEG * w);
+        turn(name, 0, (L.flex ?? 0) * DEG * w, 0);
+        turn(name, -(L.twist ?? 0) * m * DEG * w, 0, 0);
+      }
+      else turn(`${part}_${s}`, 0, (L.pitch ?? 0) * DEG * w, (L.roll ?? 0) * m * DEG * w);
+    }
+  }
   function postureOn(def, w) {
     sunk = 0;
-    if (def.root) {   // lying: the whole figure is tipped in humans.js; only the look here
+    if (def.root) {   // lying: the whole figure is tipped in humans.js; the look and the limbs here
       if (def.look) { turn('neck_01', 0, def.look * 0.55 * DEG * w, 0); turn('head', 0, def.look * 0.45 * DEG * w, 0); }
+      if (def.limbs) layLimbs(def.limbs, w);
       return;
     }
     const h = hipIn(def);
