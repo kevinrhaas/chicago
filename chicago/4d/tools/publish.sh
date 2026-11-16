@@ -546,6 +546,11 @@ if [ -d data/night_lights ]; then
   rm -rf "$SITE/data/night_lights"
   cp -a data/night_lights "$SITE/data/night_lights"
 fi
+# T-3553: the "Tell me a story" library, one file per scene, fetched on the first story asked for.
+if [ -d data/tales ]; then
+  rm -rf "$SITE/data/tales"
+  cp -a data/tales "$SITE/data/tales"
+fi
 
 # The signage layer — the boards on the town's business frontages, drawn by
 # renderers/web/js/signage.js straight from these numbers. Same argument as the

@@ -1,4 +1,52 @@
 export const CHANGELOG = [ // newest first
+  { v: 3031, ts: '2026-11-16T11:51:07.213Z', date: 'Nov 16, 2026, 5:51 AM CT', title: 'A new public site, with films of every year', kind: 'feature',
+    items: [
+      'chicago.polecat.live is now a short home page and six feature pages: Eras, Jaunts, People, Horses and boats, World and Evidence.',
+      'Each page shows new films recorded in the app: 1812\'s dawn and the march from the fort, 1835\'s town, Lake Street and the river at dusk, and 1904\'s carriages, hosts and seasons.',
+      'The way in, Enter 4D Chicago, is at the foot of every page.',
+      'On a phone the Temporal Observatory shows all three years on the first screen.',
+      'Each year\'s card scrolls a list of what it holds, from the first Fort Dearborn to Glessner House.',
+    ] },
+  { v: 3030, ts: '2026-11-16T11:51:07.213Z', date: 'Nov 16, 2026, 5:51 AM CT', title: 'Fort Dearborn monument: Black Partridge\'s long hair, the warrior\'s curl', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), Black Partridge\'s long hair now falls from under the back of his headband and streams back behind his neck to his left shoulder, as both photographs show it. Before, his head carried only a short crop.',
+      'The warrior has the lock of hair the photographs show hanging from under his headband past his cheek, curled at its end.',
+    ] },
+  { v: 3029, ts: '2026-11-16T11:51:07.213Z', date: 'Nov 16, 2026, 5:51 AM CT', title: '1815 Prairie\'s low iron railing across its north side yard', kind: 'improvement',
+    items: [
+      'The Sears-Meeker house at 1815 Prairie now has the low iron railing that its square-on photograph shows across the north side yard. The railing is about 0.8 m high, with a band of spear tips along its top, on a low stone curb. It stands about 2 m behind the front wall and runs from the lot line to the stair wing on the house\'s north side.',
+    ] },
+  { v: 3028, ts: '2026-11-16T10:20:02.268Z', date: 'Nov 16, 2026, 4:20 AM CT', title: 'People at every jaunt stop, in every year', kind: 'feature',
+    items: [
+      'A jaunt stop without a staged scene now keeps the town\'s own people about it, going about their day: 193 stops that stood empty (every 1835 jaunt, the 1812 fort tour, the 1904 walks) now have people you can greet, ask and follow.',
+      'Where nobody happens to be out, someone from a house near the stop comes out of their own door and works about it for a few minutes.',
+      'The people in a staged scene can be met too: click or tap one to open their card, and one standing free turns and greets you.',
+    ] },
+  { v: 3027, ts: '2026-11-16T09:45:33.713Z', date: 'Nov 16, 2026, 3:45 AM CT', title: 'Townspeople climb the 1835 cottages\' front steps', kind: 'fix',
+    items: [
+      'In 1835 a townsperson going in at a cottage door now walks up its front steps to the landing, where before they walked through the steps at ground level. All 164 house stoops are steps now, the 15 under a small porch roof among them, and you can climb them too.',
+      'The steps were always centred on their doors. Only the walk to the door was wrong.',
+    ] },
+  { v: 3026, ts: '2026-11-16T08:41:31.033Z', date: 'Nov 16, 2026, 2:41 AM CT', title: '1823 Prairie\'s doorway drawn to its full height, under a cornice hood', kind: 'improvement',
+    items: [
+      'The Dent house at 1823 Prairie: the front door is now 3.5 m tall, the same as in the old engraving of the house. A tall glazed transom light sits over the door leaves, as the engraving draws it.',
+      'The doorway is capped with a stone frieze and cornice hood on two scrolled consoles, like the windows beside it.',
+    ] },
+  { v: 3025, ts: '2026-11-16T08:41:31.033Z', date: 'Nov 16, 2026, 2:41 AM CT', title: 'Tell me a story: everyone in town has stories to tell', kind: 'feature',
+    items: [
+      'Greet anyone in 1812, 1835 or 1904, then ask them for a story.',
+      'Named people tell their own stories first; everyone else tells one true to their year and work.',
+      'Over 400 stories: soldiers, traders, Potawatomi families, maids, coachmen, ladies, children.',
+      'Nobody tells you the same story twice until they have told you all of theirs.',
+      'Some stories send you to find someone else in town, with a Find key.',
+    ] },
+  { v: 3024, ts: '2026-11-16T06:54:13.544Z', date: 'Nov 16, 2026, 12:54 AM CT', title: 'Lake and Dearborn round the first Tremont House, built to its drawing', kind: 'improvement',
+    items: [
+      'In 1835 the north side of Lake Street from Clark to Dearborn, and Dearborn north from Lake to the alley, are now the close rows of two-storey stores, false fronts and a tall hipped block that N. Roswell Gifford draws beside the Tremont House, where scattered cottages stood before.',
+      'The Tremont House now turns its named gable to Lake Street, as the drawing shows it. Its stable stands behind it by the alley, and the cottages that stood on these fronts now stand at the backs of their lots.',
+      'Firms the newspapers place only on these streets now keep the new stores, Fullerton & Botsford, who advertised from the Lake and Dearborn corner, among them. Which store each firm takes is our allocation, not a record.',
+      'Five households that had no roof in 1835 now live in the houses those firms left, among them the Montgomerys, the Moselys and the Clarkes.',
+    ] },
   { v: 3023, ts: '2026-11-16T04:24:20.831Z', date: 'Nov 15, 2026, 10:24 PM CT', title: 'The boot budget re-measured after the 1835 townspeople\'s comings and goings', kind: 'fix',
     items: [
       'The first visit to the 1835 street now downloads 45.4 MB, 0.5 MB more than two days ago. Most of it is the 1835 townspeople\'s days, who goes in and out of which door and who is inside a house or shop, with the new carriage ride, the Today window and the people\'s dress. The budget moves to 45.7 MB, with what grew written down file by file, so every pull request\'s build can go green again.',

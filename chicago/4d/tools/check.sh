@@ -462,6 +462,10 @@ step "a visitor walks through a building's modelled passage where it clears the 
   node tools/test_walker_passage.mjs
 step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and 1812 (T-3319)" \
   node tools/test_fort_gates.mjs
+step "the Tell me a story library re-derives from its stories and the drawn town (T-3553)" \
+  python3 tools/build_tales.py --check
+step "everyone in town tells a story, their own first, and none twice until all are told (T-3553)" \
+  node tools/test_tales.mjs
 step "both reconstructed second-fort posterns block a real walker shut and pass it after their actual leaves open (T-2388)" \
   node tools/test_second_fort_posterns.mjs
 step "the named commandant gallery preserves its fifteen openings and clears their trim with supported reconstructed timber (T-2388)" \
@@ -4733,6 +4737,11 @@ step "source browser counts and filters" \
 # page itself; no smoke part loads the Observatory.
 step "home page destination clips: named, in both formats, inside the cap (T-2685)" \
   node tools/test_portal_clips.mjs
+
+# The public site's films (T-3611) live in site-films/ and on the media host, never on Pages;
+# site/js/films.js names each by the hash of its bytes, and every film has its poster.
+step "public site films: films.js, site-films/ and the posters agree (T-3611)" \
+  node tools/site_films_ingest.mjs --check
 
 step "shared destinations and safe stand-offs (T-1277)" \
   node tools/test_destinations.mjs

@@ -3918,6 +3918,10 @@ class Assembly:
         ft = p.entrance_kit.get("fanlight_transom")
         if ft:
             v["transom_m"], v["transom_lights"], v["leaves"] = ft["height_m"], ft["lights"], ft["leaves"]
+        # T-1894: a flat head's transom light drawn taller than K07's, and its lights across
+        tr = p.entrance_kit.get("transom")
+        if tr:
+            v["transom_m"], v["transom_lights"] = tr["height_m"], tr["lights"]
         # T-3236: the leaves' own panels, rails and raised fields
         lv = p.entrance_kit.get("leaf")
         if lv:

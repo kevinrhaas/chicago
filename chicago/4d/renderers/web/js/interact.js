@@ -54,6 +54,8 @@ export function actionStyle(action) {
   if (action.id === 'go_inside') return { icon: 'enter', tone: 'return', order: 1 };
   if (action.id === 'go_home') return { icon: 'Neighbors', tone: 'return', order: 2 };
   if (action.id === 'greet') return { icon: 'greet', tone: 'social', order: 0 };
+  if (action.id === 'tale') return { icon: 'story', tone: 'social', order: 0 };
+  if (action.id === 'ask') return { icon: 'chat', tone: 'social', order: 0 };
   const text = `${action.label ?? ''} ${action.detail ?? ''}`;
   if (/chat|talk|discuss|conversation/i.test(text)) return { icon: 'chat', tone: 'social', order: 0 };
   if (/garden|plant|flower/i.test(text)) return { icon: 'garden', tone: 'task', order: 0 };
@@ -72,8 +74,13 @@ export function createInteractions({ onChange = () => {} } = {}) {
   const listeners = new Set([onChange]);
   const tell = (thing, event) => { for (const fn of listeners) fn(thing, event); };
 
+  // T-3553: actions every thing of a kind shares (Tell me a story, after a person's Greet),
+  // added to its own: fn(thing, actions) returns the list to offer.
+  const extensions = [];
   function actionsOf(thing) {
-    return thing?.actions?.[thing.state] ?? [];
+    let list = thing?.actions?.[thing.state] ?? [];
+    for (const fn of extensions) list = fn(thing, list) ?? list;
+    return list;
   }
 
   /** What one press of Interact does at this thing now: { label, action, waiting, busy }. */
@@ -142,6 +149,8 @@ export function createInteractions({ onChange = () => {} } = {}) {
     },
     remove(id) { return things.delete(id); },
     actionsOf,
+    /** T-3553: offer more actions on every thing a rule picks; returns a remover. */
+    extend(fn) { extensions.push(fn); return () => { const i = extensions.indexOf(fn); if (i >= 0) extensions.splice(i, 1); }; },
     offer,
     /**
      * The thing a visitor at (e, n) facing `bearing` (compass degrees) would work: the

@@ -1,0 +1,705 @@
+# Questions a visitor can put to the people of Chicago on 14 August 1812, the eve of the march
+# out of Fort Dearborn, and how each kind of person answers. `?? ` opens a follow-up question.
+# Every answer is a reconstruction (liberty L-tales-3553): true to the day, not any one man's words.
+
+## a12-so-tomorrow
+roles: soldier
+q: Are you ready for tomorrow?
+meet: heald_nathan
+
+Ready is a big word. My musket is clean, my cartridge box holds twenty-five rounds, and that is all the captain lets a man carry. The rest went down the well last night with the spare powder. We are marching a hundred and fifty miles to Fort Wayne with women and children and wagons, through country full of men who are not our friends any more.
+
+?? Why throw the powder away?
+So it cannot be handed to the warriors who are camped round us. The captain promised them the goods in the store, and they are owed them, by his word. But he would not give them the means to shoot us. So the whiskey went in the river and the powder down the well. They saw it. They know what it means. That is the trouble.
+
+?? Do you trust the captain?
+I trust he is honest. He has been at this post for two years and he has never cheated a man. Whether he is right is another matter. Mr. Kinzie said stay, or go at once. The captain did neither for six days. Ask him yourself, if you can catch him alone. He looks tired.
+
+## a12-so-whiskey
+roles: soldier
+q: What happened to all the whiskey?
+meet: kinzie_john_elder
+
+We poured it into the river last night. Barrels of it, broached and rolled to the bank and tipped. Some of the lads stood there with their tongues out like dogs at a butcher's door. A sergeant stood over us so nobody saved a cupful.
+
+?? Was that wise?
+The whiskey was for the warriors in the camps, by the captain's promise. Mr. Kinzie argued with him all afternoon: give them whiskey and powder, he said, and you hand a drunk man a loaded gun. The captain gave way on that. So they get blankets and cloth and pots, and the river gets the rest.
+
+?? Did anyone notice?
+Notice? The river was brown with it this morning, and people from the camps were down at the mouth tasting the water. They know what we did. A man said to me in his language what I took to be: you promised. He was right. We did.
+
+## a12-so-wells
+roles: soldier
+q: Who are the riders that came in yesterday?
+
+That is Captain Wells, the captain's wife's uncle, come up from Fort Wayne with about thirty Miami to bring us out. He rode through the gate yesterday afternoon on a fine horse, and every man on the walls cheered. He knows this country and these people better than anybody alive.
+
+?? Is he a soldier?
+He is everything. He was taken by the Miami as a boy, and grew up one of them, and married a chief's daughter, and fought against General St. Clair. Then he changed sides and scouted for General Wayne. Some say he is the bravest man in the West. Some say he does not know which side he is on. I say he came.
+
+?? Will the Miami fight for us?
+I hope so. There are thirty of them and four or five hundred warriors in the camps round the fort. You can do that arithmetic as well as I can. Go and ask Captain Wells. He tells you the truth even when you do not want it.
+
+## a12-so-uniform
+roles: soldier
+q: That's a strange hat. What is it?
+meet: crozier_john
+
+It is a shako, a tall felt hat, black, with a plate on the front and a plume. In the sun it cooks your head and in the wind it tries to leave. On the march tomorrow I shall have it tied on with a string, like a child's bonnet.
+
+?? And the coat?
+Blue wool, faced red, buttoned up to the collar, in August. The quartermaster has not sent new ones in two years, so mine is patched at both elbows and one sleeve is shorter than the other. Private Crozier mends them. He was a tailor before he enlisted. Ask him to show you his needle case.
+
+?? Why wear it at all?
+Because a soldier in his coat is a soldier, and a man in his shirt is just a man. When the column goes out tomorrow morning, the people in the camps will count blue coats. We want them to count every one.
+
+## a12-so-boredom
+roles: soldier
+q: What does a soldier do here all day?
+meet: mills_elias
+
+Mostly not fight. We drill in the morning, cut wood, haul water, hoe the garden, mend the pickets, mend the roofs, and stand guard at night. Some of us were farmers before and we keep the fort's cattle. Some were nothing in particular, and we do the digging.
+
+?? Is it dull?
+Dull until this summer. Now every shadow by the river is something. A man on the north-east blockhouse at night sees a hundred things that are not there and one that is. You learn to tell the owl from the man imitating one.
+
+?? What will you miss?
+The garden. We grew good corn and potatoes and melons here. Elias Mills has been at the wagons all day, and he grumbles that he will never taste our melons again. Go and see him at the wagon. He will tell you about the oxen. Do not let him tell you about the melons. You will be there all night.
+
+## a12-so-tecumseh
+roles: soldier, militia, settler_man
+q: Who is everyone so afraid of?
+
+Tecumseh, if you want a name. The Shawnee who has been riding from nation to nation for years, telling every people from the lakes to the gulf to stand together against the Americans. His brother the Prophet has the visions. Tecumseh has the plan. He has gone over to the British now.
+
+?? Have you seen him?
+No, and I hope I never will. But I have seen what his word does. The young men in the camps round us listen to it. Even the old chiefs who are our friends cannot hold them. They say Mackinac has fallen to the British without a shot. They say Detroit is next.
+
+?? And Main Poc?
+The Potawatomi war leader from the Kankakee. He hates us more than Tecumseh does, if that is possible, and he does not care who knows it. He went north to fight with the British. His young men are some of the ones watching the fort. If you see a man with a red sash looking at you very steadily, step back.
+
+## a12-so-family
+roles: soldier
+q: Do you have family here?
+meet: burns_mrs
+
+Not me. But half the men in the garrison do, or near enough. There are nine wives in the fort and eighteen children, give or take, and every one of them will march out with us tomorrow, in the wagons or on foot. The married men have been quiet all day.
+
+?? Where will they ride?
+In the wagons, with the sick and the baggage. Mrs. Burns has a new baby, so new it barely has a name, and she will be carried in her bed. The rest of the children will be packed in like apples. Go and see her if you like. She is calm, which is more than I can say for the rest of us.
+
+?? Will they be safe?
+I would like you to tell me so. I would believe it from a stranger more than from a sergeant.
+
+## a12-so-desertion
+roles: soldier
+q: Has anyone tried to run?
+
+Not yet. Where would he run to? Out there is a hundred and fifty miles of prairie and woods and nobody friendly between here and Fort Wayne. In here is the captain and his orders and a dry roof. A man can hate both and still choose the roof.
+
+?? Did anyone want to stay?
+Most of us. Behind these walls, with the guns and the stores, we could hold for months. That is what Mr. Kinzie and the young officers wanted. The captain has his orders from General Hull, and he says an order is an order. He may be right. I will tell you on Saturday.
+
+?? What do the officers say?
+In front of us, nothing. Behind the door of the captain's quarters, plenty, if the cook is to be believed. Ensign Ronan is young and hot and says we should fight our way out with our heads up. Lieutenant Helm says nothing at all and looks at his wife.
+
+## a12-so-food
+roles: soldier
+q: What do they feed you?
+meet: kinzie_john_elder
+
+Salt pork, flour, beans, and whatever we grow or shoot. Beef when a steer is killed. Corn and fish from the people in the camps when they were still friendly. We baked bread in the fort's ovens every day. We will be eating hardtack and cold pork on the road.
+
+?? Did you ever go hungry?
+In the spring, when the supply ship was late, we had pork and nothing else for a month. Mr. Kinzie sold the fort flour from his own store and was paid in promises from Washington. He has been paid in promises for years. Go and ask him about it. He can make a joke of anything except that.
+
+?? Do you trade with the camps?
+We used to. A twist of tobacco for a basket of corn, a knife for a string of fish. This summer the camps stopped trading. That was the first sign, the old soldiers say. When the corn stops coming in, the friendship has already gone out.
+
+## a12-so-drum
+roles: soldier
+q: Who beats the drum at dawn?
+meet: hamilton_john
+
+We have a drummer and a fifer and they wake the whole country at dawn whether it wants to be woken or not. Reveille, then the call to drill, then the call to dinner, then tattoo at night. A soldier's day is cut into pieces by a boy with two sticks.
+
+?? Will they play tomorrow?
+They will play us out of the gate. The captain wants us to march out in order, colours flying, drums going, as a garrison should. Some say it is a brave idea and some say it is like ringing a bell to tell the wolves where the sheep are. Both are true.
+
+?? Is the drummer a boy?
+A young man, but he looks a boy. Go and find John Hamilton if you want to know about the post's music. He knows every call and he will tell you which of them he hates. I think it is reveille. Everybody hates reveille.
+
+## a12-so-ronan
+roles: soldier
+q: What do you think of the young ensign?
+meet: ronan_george
+
+Ensign Ronan? He came to us straight from the military academy at West Point, and he is as straight as a ramrod and about as bendable. He thinks the captain is too timid. He says so, which young officers are not supposed to do.
+
+?? Is he a good officer?
+He is brave. Whether a man is a good officer is something you find out on a bad day, and he has not had one yet. I would rather have him beside me than behind me. Go and talk to him. He will be glad of somebody to argue with who is not the captain.
+
+?? Do the men like him?
+The men like an officer who calls them by their names, and he does. He calls me Private and then my name, every time, like a schoolmaster. It makes you stand up straighter. Do not tell him I said that.
+
+## a12-so-the-letter
+roles: soldier, militia
+q: How did the order to leave get here?
+meet: winnemeg
+
+A Potawatomi man named Winnemeg carried it from General Hull at Detroit, through the woods, alone, with the letter sewn into his clothes. He came in on the ninth. Five days ago. Every day since, the camps round us have filled up a little more.
+
+?? Did Winnemeg advise us?
+He told the captain to go at once, the next morning, before the warriors could gather, or else to stay inside the fort and hold it. Mr. Kinzie said the same. The captain waited for Captain Wells and for the goods to be handed out. Now here we are, the night before, with the camps full.
+
+?? Where is he now?
+Somewhere in the fort or near it, I think. He is a brave man and a friend, and his own people are not pleased with him for carrying American letters. Go and look for him. Thank him from the garrison, if he will hear it.
+
+## a12-so-cards
+roles: soldier
+q: Do the men gamble?
+
+When the officers are not looking, which is most of the time. Cards, dice, a game with knucklebones that a Canadian taught us. We play for tobacco and buttons and a promise of tomorrow's whiskey ration, which nobody will get now.
+
+?? Who wins?
+There is a private from Kentucky who never loses. He says he was raised by a riverboat gambler. He owes nobody anything and everybody owes him something. Tonight he forgave every debt in the barracks. Nobody said why. Nobody needed to.
+
+?? What will you do tonight?
+Write a letter, if I can borrow a pen. Not that there is anywhere to send it. I will give it to someone and ask them to carry it, if they get somewhere and I do not. It is what you do the night before.
+
+## a12-so-irish
+roles: soldier
+q: Where are you from, before the army?
+
+County Tyrone, by way of Philadelphia, by way of a recruiting sergeant and a pint of rum. I signed for five years and I have done four of them, and I have seen more of America from inside a blue coat than most Americans ever will.
+
+?? Do you like it here?
+I liked it. The lake is like the sea at home, grey and cold and full of moods. The prairie in June is a garden nobody planted. If I come through this, I might take up land here myself one day. A man could farm this country if he was let alone.
+
+?? Who is your friend here?
+A Potawatomi lad about my age who used to bring fish to the gate. We had about twenty words in common and we used them all. He has not come this week. I hope it is because he is ashamed, and not because he is angry.
+
+## a12-off-council
+roles: officer, soldier
+q: What was decided at the council?
+meet: heald_nathan
+
+Two days ago the captain met the chiefs outside the fort. He told them he would give them the goods in the store, the cloth and blankets and provisions, and that they in turn would give his people safe escort to Fort Wayne. The chiefs agreed. Then the captain decided the whiskey and the powder would not be part of it.
+
+?? Did the chiefs mean it?
+Some of the old chiefs meant it, I am certain. Black Partridge meant it. Whether they can make their young men keep it is another thing. A chief among the Potawatomi leads by persuasion, not command. And persuasion has been going the other way all summer.
+
+?? Why did the young officers stay away?
+Because the captain would not order the cannon trained on the council, and they thought he was walking into a trap. He went anyway, with the gate open behind him. Whatever you think of his judgment, that took courage. Ask him about it. He will shrug.
+
+## a12-ml-militia
+roles: militia, settler_man
+q: Are you a soldier too?
+meet: burns_thomas
+
+Not in the way they are. I am one of the twelve men of the settlement that the captain has made a militia company, with Thomas Burns as our sergeant. We have muskets from the fort's store. We drilled for three days. Before that I was a farmer, and a cooper, and a man who could shoot a deer.
+
+?? Will you march with the army?
+Beside the wagons. Our wives and children are in them. The regulars march in front and behind, and the Miami ride ahead with Captain Wells. We are the ones who stay with the families no matter what. That is the only thing we were asked to do, and the only thing we would agree to.
+
+?? What will happen to your farm?
+It is already gone, as far as I am concerned. The cattle will be killed or taken, the house burned or lived in by somebody else. I have a cow named Patience. I hope whoever takes her treats her well. She deserves it more than I do.
+
+## a12-ml-lee-farm
+roles: militia, settler_man, settler_woman, woman
+q: When did people here start to be afraid?
+meet: lee_charles
+
+In April, at Lee's farm on the South Branch. A party of strangers came in friendly, sat by the fire, and then turned on the men there. Two were killed: Liberty White and a Canadian named Cardin. A boy and the discharged soldier John Kelso ran all the way to the fort to give the alarm.
+
+?? What happened after that?
+Every family in the settlement came inside the fort that night, and most have been inside or close by ever since. The captain sent out soldiers at first light. They found what they found. Mr. Lee has not been back to his farm. Go and talk to him if you can. He does not say much about it.
+
+?? Were the men who did it from the camps here?
+They were not from the villages close by, as far as anybody could tell. Winnebago, people said, though nobody knows for sure. But after that night, every visitor at the gate was a stranger until he proved otherwise. That is a terrible way to live beside your neighbours.
+
+## a12-ml-north-bank
+roles: militia, settler_man
+q: Where do you live?
+meet: ouilmette_antoine
+
+On the north bank of the river, across from the fort, where the Kinzies and the Ouilmettes and a few more families have their houses. We cross by canoe. There is no bridge, and the river is deep enough to drown a careless man.
+
+?? Who are your neighbours?
+Mr. Kinzie, the trader, with the big house and the poplars. The Ouilmettes, Antoine and his wife Archange, who has more relations in the camps than anyone. Antoine says he is staying behind when we leave. He says nobody will hurt a man who has never hurt anybody. I hope he is right. Go and ask him.
+
+?? What will you take with you?
+What fits in a wagon. My wife has packed the Bible, the good knife, her mother's spoons, a sack of meal and the baby's things. I am taking my axe. A man with an axe can make anything again except a house.
+
+## a12-wm-wives
+roles: woman, settler_woman
+q: What is it like for the women in the fort?
+meet: heald_rebekah
+
+Crowded. We have been inside the walls since April, mostly, sleeping in the barracks or in the officers' houses, cooking for our families over somebody else's fire. Mrs. Heald and Mrs. Helm keep us organised. Without them I think we would have murdered each other by June.
+
+?? Are you afraid?
+I am afraid all the time and I have been since April. You get used to it, the way you get used to a toothache. It is there when you wake up and it is there when you go to sleep. Tonight it is very loud.
+
+?? What are you taking?
+My children, my spoons, my good shawl and my husband's Bible. I sewed my rings into the hem of my petticoat. Mrs. Heald says that is clever. She sewed hers into her stays. Go and ask her what she is wearing tomorrow. She is going to ride, did you know? On horseback, beside her husband.
+
+## a12-wm-garden
+roles: woman, settler_woman
+q: What will you miss most?
+meet: simmons_susan_millhouse
+
+My garden. Beans, squash, cabbages, onions, a row of sunflowers taller than my husband. I put in roses from my mother's cuttings that came all the way from Ohio in a bucket. They bloomed for the first time this June. Pink ones.
+
+?? Will you come back?
+If the government comes back, perhaps. If not, the roses will grow wild and the deer will eat the beans and the prairie will take the rest in two summers. A garden needs a woman the way a baby does.
+
+?? Is anyone else leaving a garden?
+Everyone. Mrs. Simmons is leaving her house and her husband's cattle, and she has a baby girl at her breast and a little boy hanging on her skirt. Go and see her. She will tell you what she is packing. I think she is more frightened than she lets on, and braver.
+
+## a12-wm-cooking
+roles: woman, settler_woman, household_servant
+q: What are you cooking tonight?
+meet: cicely
+
+Everything in the house that will not travel. The last of the eggs, a ham we were saving, the good flour made into bread that will be stale by Monday. We will eat well tonight and badly for a month. That is how you leave a place.
+
+?? Who cooks for the captain?
+Cicely, who belongs to the captain and his wife, which is to say she does all their work and they own her and her baby. She makes the best biscuits in the fort and she never gets any credit. If you go to the captain's quarters, look in the kitchen. Do not tell her I sent you.
+
+?? What do the children eat?
+Whatever they can steal from my table before I turn round. Tonight I will let them. Tomorrow I will need them strong.
+
+## a12-wm-heald
+roles: woman, settler_woman
+q: What do you think of Mrs. Heald?
+meet: heald_rebekah
+
+She is a Kentucky girl, Captain Wells's niece, and she rides a horse better than her husband does. She married him at twenty and came here on horseback through the woods with her servant Cicely. She has a temper, but she is fair, and she has never once looked down on any of us.
+
+?? Is she frightened?
+If she is, she hides it in front of us. Her uncle came to bring her out. She told me she cried when she saw him ride in, because she knew he would not have come so far unless he thought she was in danger. Then she dried her eyes and went to see about the bread.
+
+?? Will she ride with the army?
+She will. In front, with her husband and her uncle. She says if it comes to it, she will not be carried in a wagon like a sack of flour. Go and ask her yourself. She will tell you what she thinks of wagons.
+
+## a12-en-portage
+roles: engage
+q: What is your work here?
+meet: kinzie_john_elder
+
+I am an engagé, a hired man, for Mr. Kinzie. I paddle his canoes, carry his packs over the portage to the Des Plaines, and take his trade goods to the winter camps on the Illinois and the Rock River. Ninety pounds on my back and a song in my mouth, that is how we go.
+
+?? What is the portage?
+The path from the South Branch of this river, across a little marsh, to the Des Plaines, which runs down to the Illinois and the Mississippi. In spring when the water is high you can paddle almost the whole way. In August you drag the canoe through mud up to your knees and the mosquitoes eat you alive.
+
+?? Will you go with the army?
+No. Mr. Kinzie is sending his family round by boat, and I will be in that boat. Then, who knows? The French have lived here before the Americans and we will be here after. Go and ask the master. He will tell you about the portage. He has walked it more times than I have.
+
+## a12-en-songs
+roles: engage
+q: Do you know any songs?
+meet: leclerc_pierre
+
+Every engagé knows a hundred. You sing to keep the paddles together, twenty strokes a minute, all day long. À la claire fontaine. En roulant ma boule. The boss likes a fast song when he is late and a slow one when he is tired.
+
+?? Sing me one?
+Not tonight. Tonight nobody sings. But I will tell you the words of one: by the clear fountain, I went to walk, and the water was so lovely that I bathed in it. It is a love song. Everything we sing is a love song, even when we are carrying ninety pounds of lead.
+
+?? Who sings best?
+Pierre Le Clerc, who is part Potawatomi and part French and has a voice like a church bell. Go and find him. Ask him for the song about the girl from Montreal. If he is in the mood, he will sing it. Tonight he is not in the mood.
+
+## a12-en-between
+roles: engage
+q: Whose side are you on?
+
+The side of the canoe. That is a joke, but not much of one. My mother is Ottawa. My father was a voyageur from Trois-Rivières. My wife is Potawatomi. My employer is Mr. Kinzie, who is British by birth and American by business. I am on the side of not getting killed and keeping my family fed.
+
+?? Will the British win?
+If they take Detroit, they will have all the lakes. Then the Americans will come back, because they always come back, with more men. The fur trade will go on whoever wins. Somebody always needs a man who can paddle and speak four languages.
+
+?? What do your wife's people say?
+That the Americans take land and the British only take furs. That is the whole argument, in one sentence. I cannot tell them they are wrong.
+
+## a12-mi-escort
+roles: miami
+q: Why did you come all this way?
+meet: wells_william
+
+We came with Apekonit, whom the Americans call William Wells. He asked, and we came. He is our relative by marriage; his wife was the daughter of the great war leader Little Turtle, who died this summer. We rode from Fort Wayne in a few days, fast.
+
+?? Will you fight for the Americans?
+We came to bring the soldiers and the women out to Fort Wayne. That is what we agreed to. Whether we fight depends on what happens on the road. There are thirty of us and many hundreds of Potawatomi, and some of those Potawatomi are our friends, and some of them are our cousins. You see the problem.
+
+?? What does Apekonit say?
+He says little. He has been very quiet since we rode in. Tonight he sits with his niece and her husband. Tomorrow he will lead the column. Go and look at him. You will see a man who has made up his mind about something.
+
+## a12-mi-little-turtle
+roles: miami
+q: Who was Little Turtle?
+meet: wells_william
+
+The greatest war leader the Miami ever had. Twenty-one years ago he beat General St. Clair's army on the Wabash, the worst defeat the Americans ever had from our people. Then he saw that we could not keep winning, and he made peace at Greenville, and he kept it until he died, this July, at Fort Wayne.
+
+?? How is he related to Wells?
+Wells married his daughter. Wells fought beside him against St. Clair, and then went over to the Americans and scouted against him for Wayne. Little Turtle forgave him. That tells you something about both of them. Ask Wells about his father-in-law. He will not refuse.
+
+?? Did Little Turtle know Tecumseh?
+He knew him and did not join him. He said the Shawnee's path led to the destruction of all our nations. Tecumseh said Little Turtle had become an American. They were both right, in their way, which is the worst kind of quarrel.
+
+## a12-pm-camps
+roles: potawatomi_man
+q: Why have so many people come to the fort?
+meet: black_partridge
+
+Because the captain has promised goods to everyone, and because word came that the soldiers are leaving. There are people here from the villages on the Fox, the Kankakee, the Calumet, the Des Plaines, the Milwaukee. Some came for the blankets. Some came for other reasons.
+
+?? What reasons?
+The soldiers poured the whiskey into the river and the powder down the well. They promised and then took back. The young men have been listening to Tecumseh's messengers all summer, and to Main Poc's. Mackinac has fallen. Detroit is next. A young man who wants to be a warrior will not have a better chance than tomorrow.
+
+?? What do the old men say?
+Black Partridge, from the Illinois River, says keep the peace. He has kept it for seventeen years. Tonight he will go to the captain and give back his medal. Go and see him do it. It will be the saddest thing you see this summer, and there will be many.
+
+## a12-pm-trade
+roles: potawatomi_man
+q: What do your people trade with the Americans?
+meet: kinzie_john_elder
+
+Furs. Muskrat, beaver, otter, mink, raccoon, deer hides. We bring them to the trader Kinzie and he gives us cloth, kettles, knives, guns, powder, silver, blankets. In a good winter a family can trap enough to buy everything it needs for a year.
+
+?? Is it a fair trade?
+Kinzie is fairer than most. He gives credit in the autumn and takes the furs in the spring, and if a family has a bad winter he waits. He speaks our language. He has a temper. This June he killed a man, Lalime, in a fight by the fort. People still argue about that. Go and ask him what happened, if you dare.
+
+?? What will happen to the trade now?
+If the Americans go, the British traders will come back from the north. They give better presents. They do not want our land, only our furs. That is what my uncle says. I am not sure he is right, but I am not sure he is wrong.
+
+## a12-pm-hunting
+roles: potawatomi_man
+q: What is good hunting here?
+meet: waubansee
+
+Deer in the oak groves along the river, all year. Ducks and geese by the thousand in spring and autumn, on the marshes west of here. Fish in the lake and the rivers: sturgeon, whitefish, pike. In the winter, our men go far out on the prairie for the elk and buffalo, though there are fewer buffalo every year.
+
+?? Where is the best place?
+The marsh at the head of the South Branch, where the portage goes over to the Des Plaines. In October the sky goes black with ducks. You can hear them a mile off. Waubansee, from the Fox River, knows it better than I do. Ask him about the year the geese came so thick they broke the trees.
+
+?? Who taught you to hunt?
+My mother's brother. That is how it is with us. Your father loves you and your uncle teaches you. He taught me to wait. Most of hunting is waiting.
+
+## a12-pm-tecumseh
+roles: potawatomi_man
+q: What do you think of Tecumseh?
+meet: blackbird
+
+He is the greatest speaker I have ever heard. Two summers ago he came to a council on the Fox River and talked for a whole afternoon, and nobody moved. He said the land belongs to all the nations together, and no one nation can sell it. He said the Americans will not stop until they reach the western sea.
+
+?? Do you believe him?
+I look at the treaties. Every few years, another treaty, another piece of land, another promise. My father's village was on land the Americans now call theirs. Tecumseh did not invent that. He only said it out loud.
+
+?? Who follows him here?
+Black Bird, of the Milwaukee people, is a war leader now. He has many young men around him in the camps. Go and look for him, and look carefully. He is not your friend. He would want you to know that.
+
+## a12-pm-medal
+roles: potawatomi_man, potawatomi_elder
+q: What does a chief's medal mean?
+meet: black_partridge
+
+It is a silver medal with the face of the American President on it, given at a treaty to a man the Americans want to treat as a chief. To the Americans it means: this man is our friend and speaks for his people. To us it means: this man made a promise, and wears it on his chest.
+
+?? Can a man give it back?
+He can, if he cannot keep the promise any more. Black Partridge is going to give his back tonight. He will tell the captain that his young men will not be held. He is giving back the medal so that he does not have to lie with it on his chest. It is a terrible honesty.
+
+?? Will Black Partridge fight?
+He will not fight against the Americans, I think. He will do what he can for them, if he can. That is a different thing from what the medal promised, and it is all an honest man has left. Go and see him at the captain's quarters tonight.
+
+## a12-pm-lodge
+roles: potawatomi_man, potawatomi_woman
+q: How is your lodge made?
+meet: ouilmette_archange
+
+In summer we live in long houses of bark and mats over bent saplings, by the river, near the cornfields. In winter we break into small family camps in the woods and live in round lodges covered with cattail mats, warm and dark, with the fire in the middle and the smoke going out at the top.
+
+?? Who builds them?
+The women. The women own the lodges, the mats, the kettles and the fields. The men hunt and fish and go to war and talk in councils. A man who forgets who owns the lodge does not sleep in it for long.
+
+?? Can I see one?
+Go down to the camps by the river, but go with someone known. Archange Ouilmette, whose husband is the Frenchman across the river, has relations in every lodge here. Go with her, and they will give you food. Go alone, tonight, and nobody can tell you what will happen.
+
+## a12-pm-young
+roles: potawatomi_man
+q: Will you fight tomorrow?
+
+You ask me that straight to my face? You are bold. I will tell you this: I have been told by my elders to keep the peace and by Tecumseh's messengers to take back our country, and I have been told by the soldiers that they would give us whiskey and powder, and then they threw them in the river.
+
+?? So you will?
+I will do what the men of my village decide in council tonight. A man alone is nothing. A man with his village is a nation. Ask me again tomorrow evening, if we both see it.
+
+?? Do you hate the soldiers?
+Some of them I like. One of them used to trade me fish hooks for corn. I hope he goes back to wherever he came from and stays there. That is not hate. That is wishing him well.
+
+## a12-pm-sugar
+roles: potawatomi_man, potawatomi_woman
+q: What is the best time of year?
+
+Sugar time, in the spring, when the snow is still on the ground and the maple sap is running. The whole village goes to the sugar bush and the women boil sap day and night in big kettles over fires, and the children run around with sticky hands and nobody sleeps much.
+
+?? Is the sugar good?
+Better than anything the traders sell. We pour it into moulds of birch bark and make cakes, and we keep it all year to season everything, even the fish. A Frenchman told me his people eat it on bread. That seemed strange to me. Now I do it too.
+
+?? And the worst time?
+The end of winter, before sugar, when the dried corn is running out and the hunting is poor and the children are thin. That is when you learn who your relatives are. Everybody shares or everybody starves.
+
+## a12-pm-names
+roles: potawatomi_man, potawatomi_woman, potawatomi_elder
+q: How did you get your name?
+meet: topenebe
+
+Every child is named by an elder who has dreamed the name, a few days after the birth. The name comes from the spirits, so it is not to be joked about. A man may get another name later, for something he does, and use that instead.
+
+?? Do the Americans use your name?
+They write it down in their own letters and it comes out wrong every time. Topenebe, the old chief of the St. Joseph villages, has been written five different ways in the treaties, and none of them is how his mother said it. Ask him what his name means. He will tell you, if he likes you.
+
+?? Do you have an American name?
+The trader calls me by a name he made up because he could not say mine. I answer to it. A name in a stranger's mouth is a small thing to carry.
+
+## a12-pw-corn
+roles: potawatomi_woman
+q: What do you grow?
+meet: naunongee
+
+Corn, beans and squash, all in the same field. The corn grows tall, the beans climb the corn, the squash spreads under them and keeps the weeds down. We call them the three sisters. They take care of each other, as sisters should.
+
+?? Where are your fields?
+Along the river, upstream from the fort, and at the Calumet. This summer some of the soldiers' wives walked through Nau-non-gee's corn on a walk, laughing, and broke some stalks. He was very angry. Go and ask him about it. He says something about it that the soldiers repeat to each other at night.
+
+?? Who harvests?
+All the women of the village together, singing. In a few weeks the corn will be ready. We will husk it and braid it and hang it to dry, and then bury it in pits lined with bark for the winter. If we are still here to harvest it.
+
+## a12-pw-trade-cloth
+roles: potawatomi_woman
+q: Where did you get that beautiful cloth?
+meet: kinzie_eleanor
+
+From the trader's store, for muskrat skins. Blue stroud, from England, the colour of the sky before rain. I cut it and sewed it myself and put the ribbon on it, red and yellow, with silver brooches. My mother wore deerskin. I wear wool. My daughter will wear whatever she likes.
+
+?? Who sews here?
+Everybody. The trader's wife, Mrs. Kinzie, is a fine needlewoman. She traded me a needle and thread for a basket once and showed me a stitch I did not know. She was a captive among the Seneca when she was a girl, and she speaks to us like someone who knows what that is. Go and see her.
+
+?? Is the silver real?
+Real silver, beaten thin. The traders bring it from Montreal and Detroit. A woman's wealth is in her silver: brooches, ear bobs, arm bands. If times are bad, she trades it. If times are good, she wears more.
+
+## a12-pw-children
+roles: potawatomi_woman
+q: Do your children play with the soldiers' children?
+
+They used to. They ran races along the beach and threw sticks into the lake for the dogs and argued in a language made of everybody's words. My son learned to say no in English before he could say it properly in ours.
+
+?? Not any more?
+Since spring, the soldiers' children stay inside the walls, and my son asks me why. What do I say? That his friends are afraid of his uncles? That his uncles are angry at his friends' fathers? He is five. He thinks it is a game that has gone on too long.
+
+?? What do you hope for him?
+That he grows up on this river. That is all. That he can fish here and hunt here and bring his own children here. My grandmother hoped the same thing for me. I am not sure it is a small hope any more.
+
+## a12-pw-moving
+roles: potawatomi_woman
+q: Why are the women in the camps so quiet?
+
+Because we know more than the men think. We have heard them talk. We know what the young men are planning and we know the old men cannot stop them. We know whose children will be hungry this winter if the Americans come back with an army, and whose husbands will not come home.
+
+?? Can you stop it?
+A woman can speak in council if she is respected, and some have. Some of us have gone to our brothers and said: not the children, not the women. Some of them listened. That is all I can tell you. It is not a small thing.
+
+?? What will you do tomorrow?
+Stay in the camp and keep my children close. Whatever happens on the shore, I do not want them to see it. There are things a child cannot unsee.
+
+## a12-pw-medicine
+roles: potawatomi_woman, potawatomi_elder
+q: What do you do when someone is sick?
+
+We have plants for almost everything: a tea for fever, a poultice for a wound, a root for the stomach, a bark for coughs. My grandmother knew two hundred plants and what each one did. I know about fifty. My daughter knows twenty and asks the trader's doctor for the rest.
+
+?? Do the soldiers' doctors help?
+The young doctor at the fort, Van Voorhis, came to our camp last winter when the children had a fever, and he listened, and he did not laugh at our medicine. He gave quinine. We gave him a tea for his own cough. He drank it. Go and see him. He was kind to us.
+
+?? What sickness frightens you?
+The spotted sickness the traders bring, smallpox. My mother lost three sisters to it in one winter. There is no plant for it. There is only waiting.
+
+## a12-pe-greenville
+roles: potawatomi_elder
+q: Do you remember when the Americans came?
+
+I remember the treaty at Greenville, seventeen summers ago. All the nations of the Northwest went to General Wayne's camp in Ohio, after his soldiers beat us at the Fallen Timbers. We sat for weeks. In the end we gave up most of Ohio and a few small pieces here and there, including six miles square at the mouth of this river.
+
+?? Six miles square here?
+For a fort. That is where this fort stands, on land our chiefs signed away at Greenville. The young men say the old men gave away the river mouth for a bag of medals. The old men say we gave it so we could keep everything else. Now the young men are asking what the old men kept.
+
+?? Were you there?
+I was there, a man of middle age, standing behind my uncle when he touched the pen. I saw the medals given out. I saw Black Partridge receive his. Go and ask him what he remembers. He will give his back tonight.
+
+## a12-pe-history
+roles: potawatomi_elder
+q: How long have your people lived here?
+
+Not as long as the Miami, who were here when the French came. My grandfather's people came south from the St. Joseph and the lakes, eighty or a hundred summers ago. The Miami moved east. Now the Potawatomi have the country from the Milwaukee to the Kankakee.
+
+?? And before the Miami?
+Others. There is no country in the world that has only one people's bones in it. The river does not care whose canoe it carries. The Americans think they are the first to come and take. They are only the newest.
+
+?? What will happen to this place?
+I am old enough to know that nobody knows. When I was a boy there were French here. Then British. Now Americans. Tomorrow, maybe British again. The lake will still be here. The river will still be here. I hope my grandchildren will still be here.
+
+## a12-ch-boat
+roles: child
+q: Where will you be tomorrow?
+meet: kinzie_john_h_1812
+
+In the wagon! I have never been in a wagon all day. My mother says I have to sit still and not stick my head out. My brother says we are going to Fort Wayne, which is more than a hundred miles, which is very far, and we will sleep outside like soldiers.
+
+?? Are you scared?
+A little. All the grown-ups are whispering. When I came in the room my mother stopped talking and smiled too much. Johnny Kinzie is going in the boat, not the wagon. He says the boat is better. I think he is just showing off. Go and ask him.
+
+?? What will you take?
+My wooden horse. My father carved it. It has a real leather saddle the size of my finger. I will hold it the whole way. If the horse comes, I come too.
+
+## a12-ch-dog
+roles: child, potawatomi_child
+q: Is that your dog?
+
+He is everybody's dog, but he likes me best. His name is Captain because he barks at everybody, like the captain. My mother says not to say that where the captain can hear.
+
+?? Is he coming tomorrow?
+He has to! Nobody has said he cannot. If he runs away, I will find him. He always comes back when I whistle. Listen. See? He came. He is the best dog in Chicago.
+
+?? What does he eat?
+Fish heads, mostly, and whatever falls off the table. And once a whole pie, which is why he is not allowed in the kitchen any more. He was sick under the barracks for a day and nobody felt sorry for him.
+
+## a12-ch-lessons
+roles: child
+q: Do you go to school?
+
+Mrs. Heald teaches us letters sometimes, on a slate in her parlour. Not every day. I know my letters up to R. After R they get hard. My big sister knows all of them and she can read the Bible, but she reads slowly and moves her lips.
+
+?? What is your favourite letter?
+O, because it is round like the moon and you can draw a face in it. My sister says that is not what letters are for. She is wrong. You can draw a face in a B too, if you try.
+
+?? Who else teaches you?
+Mr. Kinzie's clerk, Chandonnai, taught me to count to ten in Potawatomi. I can do it fast. Listen. Go and ask him to teach you too. He is very patient. He has to be, he says, with Mr. Kinzie.
+
+## a12-ch-river
+roles: child, potawatomi_child
+q: What do you do for fun?
+
+Swim in the river where it is shallow by the sand bar. Skip stones on the lake. Catch frogs in the marsh. Watch the soldiers drill and copy them with sticks. Run races on the beach with the Potawatomi boys, who always win. Climb the old cottonwood by the Kinzies' house.
+
+?? Have you been on the lake?
+Once, in a canoe, with Mr. Kinzie's man, Black Jim. He paddled so far out that the fort looked like a toy. Then a wind came and he paddled back very fast and did not say anything. He is the strongest man I know. Go and see him. He is getting the boat ready.
+
+?? Do you miss your friends from the camps?
+Yes. My friend Mishi has not come to play since spring. Her mother came once to sell corn and Mishi hid behind her skirt and looked at me. I waved. She waved a little. Then they went away.
+
+## a12-ch-baby
+roles: child
+q: Do you have brothers and sisters?
+meet: burns_mrs
+
+Five. Two big, two little, and a new baby who was born the night everyone ran into the fort. She is so small. She is called nothing yet, because my mother says she is too tired to think of a name. I want to call her Lucky.
+
+?? Will she come tomorrow?
+She will be in a bed in the wagon with my mother. Mrs. Burns has a baby too. They will be in the same wagon. The babies cry at the same time, like they are talking. Go and look at them if you want. Be quiet. They are sleeping.
+
+?? Is it nice having a baby?
+It is loud. And she smells like milk. And when she holds my finger I cannot move. But I like her. Do not tell my brother. He says babies are boring.
+
+## a12-ch-fort
+roles: child
+q: What's inside the fort?
+
+Two blockhouses with cannon on top, the barracks for the soldiers, the officers' houses, the magazine where the powder was (they threw it down the well!), the store, the bakehouse, and the flagpole. There are two walls of logs all the way round, with sharp points on top.
+
+?? Can I go up a blockhouse?
+Only soldiers can go up, but I went once when the sergeant was not looking. You can see the whole river and the lake and the prairie, and the camps, with smoke coming up from them, all along the river. There are so many of them now. More than ever.
+
+?? Where do you sleep?
+In the barracks, with my mother, on a straw mattress on the floor. It is crowded and someone always snores. My father says it is like living in a beehive. I like it. You are never alone.
+
+## a12-pc-games
+roles: potawatomi_child
+q: What games do you play?
+
+The hoop game: you roll a hoop of willow and throw a stick through it while it rolls. And lacrosse, with sticks with nets, which the big boys play so hard that someone always gets hurt. And the moccasin game, where you hide a stone under one of four moccasins and the other side guesses. The men gamble on it all night.
+
+?? Who is the best?
+My cousin. He can throw a stick through a rolling hoop from twenty steps. He says when he is a man he will throw a spear through a deer's heart from fifty. My aunt says he talks too much.
+
+?? Do girls play?
+Girls play a ball game with a double ball tied together, and they throw it with sticks. It is faster than the boys' game and they hit harder. I know. I tried to play once and my sister hit my ankle on purpose.
+
+## a12-pc-soldiers
+roles: potawatomi_child
+q: What do you think of the soldiers?
+
+They smell like wool and tobacco, and they stand in rows and shout all at the same time. One of them gave me a brass button once. I have it on a string. He said it was from his coat, and the sergeant would be angry, and then he laughed.
+
+?? Are you afraid of them?
+No. My father says the soldiers are leaving. He says it like it is a good thing and a bad thing at the same time. I do not understand. But I will keep my button.
+
+?? What will you be when you grow up?
+A hunter, like my uncle. Or a trader, like Chandonnai, who speaks to everybody and has a good horse. Or both. My mother says I can be both. My uncle says I have to be a man first.
+
+## a12-pc-sturgeon
+roles: potawatomi_child
+q: What is the biggest fish you ever saw?
+meet: nuscotnemeg
+
+A sturgeon, longer than my father is tall, that my uncle speared in the river in the spring. It had a long nose and bumps along its back like a little row of hills. It took four people to carry it. We ate it for days.
+
+?? Is there a bigger one?
+There is a man called the Mad Sturgeon. Nuscotnemeg. He is not a fish, he is a war leader, and he is very angry at the Americans. My mother told me to stay away from his camp. I think she means it this time.
+
+?? Do you fish?
+With a line and a bone hook, from the rocks at the river mouth. Perch and sunfish, mostly. I caught twenty in one morning once. My grandmother cooked them on sticks over the fire and I ate eight. I was very proud. Then I was very sick.
+
+## a12-to-mother
+roles: toddler
+q: Where's your mother?
+
+There. By the fire. She is busy. She is always busy.
+
+?? What is she making?
+Food. Lots of food. Bread and meat. Everybody is eating a lot. I had two pieces. Shh. Do not tell.
+
+## a12-to-horse
+roles: toddler
+q: Do you like horses?
+
+Big horses! The man came on a big horse. Clop clop clop. It had a shiny thing on its head.
+
+?? Did you touch it?
+It sniffed me. It went huff. It was warm and wet. I laughed and it went away.
+
+## a12-to-sing
+roles: toddler
+q: Can you sing a song?
+
+La la la. That is the song. My sister knows a better one.
+
+?? Can she sing it for me?
+She is shy. She hides behind my mother. But at night she sings it to me and I go to sleep.
+
+## a12-to-dark
+roles: toddler
+q: Are you scared of the dark?
+
+No. Yes. Only a little. When the fire goes out and my mother is there, then I am not.
+
+?? What is in the dark?
+Owls. They say hoo. My father says owls are just birds. Birds that stay up late. Like grown-ups.
+
+## a12-to-shoes
+roles: toddler
+q: Where are your shoes?
+
+I do not have shoes. My feet are my shoes. Look. They are dirty.
+
+?? Do they hurt?
+No. Only when there is a stick. Then I say ow and my brother carries me.
