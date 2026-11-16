@@ -178,12 +178,16 @@ console.log('test_nav_jaunt_cards: credited plates of the stops or none, keepsak
   // T-3584 (owner, 2026-11-13): the household tour first, then the other Glessner jaunt, the
   // build log last, and the two Glessner cards carry a picture of the house.
   const r1904 = filterJaunts(catalog('1904'));
-  // T-3590: the household tour retold for grades 3-5 sits right after it.
-  assert.deepEqual(r1904.slice(0, 3).map((r) => r.id), ['glessner-household-tour', 'glessner-household-tour-grades-3-5', 'prairie-avenue-orientation']);
+  // T-3590: the household tour's retellings sit right after it, youngest band first (T-3621:
+  // every jaunt now has one per band); the orientation and its retellings follow.
+  const tellings = (id) => [id, ...['3-5', '6-8', '9-10', '11-12'].map((g) => `${id}-grades-${g}`)].filter((x) => r1904.some((r) => r.id === x));
+  const lead = [...tellings('glessner-household-tour'), ...tellings('prairie-avenue-orientation')];
+  assert.deepEqual(lead.slice(0, 5), ['glessner-household-tour', 'glessner-household-tour-grades-3-5', 'glessner-household-tour-grades-9-10', 'glessner-household-tour-grades-11-12', 'prairie-avenue-orientation']);
+  assert.deepEqual(r1904.slice(0, lead.length).map((r) => r.id), lead);
   assert.equal(r1904.at(-1).id, 'prairie-built-so-far');
-  for (const r of r1904.slice(0, 3)) assert.equal(r.plate?.structure, 'glessner_house', `${r.id} names its card picture`);
-  assert.deepEqual(filterJaunts(catalog('1904'), '', 'Architecture').map((r) => r.id).sort(), ['prairie-architects', 'prairie-style-italianate', 'prairie-style-romanesque', 'prairie-style-second-empire']);
-  const t1904 = r1904.map((r) => r.title);
+  for (const r of r1904.slice(0, lead.length)) assert.equal(r.plate?.structure, 'glessner_house', `${r.id} names its card picture`);
+  assert.deepEqual(filterJaunts(catalog('1904'), '', 'Architecture').filter((r) => !r.version_of).map((r) => r.id).sort(), ['prairie-architects', 'prairie-style-italianate', 'prairie-style-romanesque', 'prairie-style-second-empire']);
+  const t1904 = r1904.filter((r) => !r.version_of).map((r) => r.title);
   const styles = t1904.map((t, i) => (/ style walk$/.test(t) ? i : -1)).filter((i) => i >= 0);
   assert.deepEqual(styles.map((i) => t1904[i]), ['Italianate style walk', 'Romanesque style walk', 'Second Empire style walk']);
   assert.equal(styles[2] - styles[0], 2, 'the three style walks sit together');

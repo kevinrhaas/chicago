@@ -1,0 +1,381 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Shopping",
+  "menu_group": "Errands",
+  "grade_band": "11-12",
+  "review_required": false,
+  "id": "a-decent-coat-grades-11-12",
+  "scene": "1835",
+  "title": "A Decent Coat",
+  "premise": "Evaluate what two South Water Street merchants advertised as apparel, then determine how to present yourself at a social engagement at the Sauganash.",
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "afternoon",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: A DECENT COAT. You have a social engagement at the Sauganash this evening and employment commencing tomorrow, and your solitary coat remains discolored with road dust. In this frontier settlement that may prove surprisingly inconsequential. At a Chicago ball in 1834 the New York author Charles Hoffman encountered \"a complete medley of all ranks, ages, professions, trades and occupations\", observing \"a pair of Cinderella-like slippers\" dancing opposite \"a brace of thick-soled brogans\".\n\nNevertheless, you would prefer to appear respectable. South Water Street offers clothing manufactured ready-made and cloth measured by the yard. Investigate the merchants' advertisements, return to your boarding house to deliberate, and determine your attire for this evening.",
+    "read_s": 31
+  },
+  "stops": [
+    {
+      "id": "ready-made",
+      "destination": {
+        "kind": "structure",
+        "id": "john_holbrook_store"
+      },
+      "text": "Commence one door from Dearborn at John Holbrook's establishment. On 10 June 1835 he advertised clothing, boots and shoes, wholesale and retail, as agent for the manufacturers, with fresh merchandise arriving \"every fifteen or twenty days\". This exemplifies the emerging commercial economy of a boom town: garments manufactured in eastern workshops and transported across the Great Lakes, immediately wearable. No tailor, no fitting, no delay, merely a purchase.",
+      "read_s": 20,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "john_holbrook_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_john_holbrook",
+          "label": "John Holbrook's business"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "The Chicago Democrat"
+        }
+      ],
+      "evidence": [
+        "holbrook-card",
+        "holbrook-made",
+        "holbrook-place",
+        "outing"
+      ],
+      "next": "cloth",
+      "narrative": "A coat available for this evening."
+    },
+    {
+      "id": "cloth",
+      "destination": {
+        "kind": "structure",
+        "id": "harmon_loomis_store"
+      },
+      "text": "One block west, at Clark Street, Harmon, Loomis and Company retail dry goods. Their winter advertisement enumerated broadcloths, cassimeres, satinets, flannels and goats' hair camlet, alongside heavy Russia duck and canvas, and in June they continue advertising dry goods, wholesale and retail. Superior cloth yields a superior coat, but cloth remains merely potential: somebody must still cut and construct it, a process requiring considerably longer than a single afternoon.",
+      "read_s": 21,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "harmon_loomis_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_harmon_loomis_co",
+          "label": "Harmon, Loomis & Co."
+        }
+      ],
+      "evidence": [
+        "harmon-cloth",
+        "harmon-june",
+        "harmon-place",
+        "outing"
+      ],
+      "next": "dress",
+      "narrative": "A superior coat, eventually, but not by this evening."
+    },
+    {
+      "id": "dress",
+      "destination": {
+        "kind": "structure",
+        "id": "brown_boarding_house"
+      },
+      "text": "One additional block west, to Mrs. Rufus Brown's log boarding house behind Peck's store. The store fronting it was the village's first two-story frame structure, constructed of lumber \"sawed from black walnut trees\" and \"brought from Detroit by a boat\"; the settlement has acquired considerable refinement since. Arrange the decision across the bed you share: tonight's engagement requires neatness, tomorrow's labor requires durability, and a single garment must accommodate both obligations.",
+      "read_s": 19,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "brown_boarding_house",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "brown_rufus",
+          "label": "Rufus Brown"
+        }
+      ],
+      "evidence": [
+        "brown",
+        "brown-place",
+        "continuity",
+        "outing",
+        "mk-peck-store"
+      ],
+      "next": "the-call"
+    },
+    {
+      "id": "the-call",
+      "destination": {
+        "kind": "structure",
+        "id": "sauganash_hotel"
+      },
+      "text": "Proceed to Lake and Market and the Sauganash, white with bright-blue shutters in Juliette Kinzie's recollection, and repaired and newly furnished this June. Its proprietor, Mark Beaubien, is \"the fiddler par excellence of the town\", and when he performs, Judge Caton recalled, he could \"set every heel and toe in the room in active motion\". Nobody will scrutinize your attire for long amid such enthusiasm. Determine what you will wear.",
+      "read_s": 22,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "sauganash_hotel",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "kinzie_waubun_1856",
+          "label": "Wau-Bun"
+        }
+      ],
+      "evidence": [
+        "sauganash-look",
+        "sauganash-refit",
+        "sauganash-place",
+        "outing",
+        "mk-fiddle"
+      ],
+      "choices": [
+        {
+          "id": "made-coat",
+          "label": "Wear a ready-made coat",
+          "consequence": "A plain manufactured coat of the variety Holbrook's advertisement offers, available this evening.",
+          "next": "ready-tonight"
+        },
+        {
+          "id": "brushed-coat",
+          "label": "Brush the old coat",
+          "consequence": "Appear respectable in your existing garment; cloth for a durable working coat can be tailored subsequently.",
+          "next": "brushed"
+        }
+      ],
+      "narrative": "The engagement is tonight, irrespective of your attire."
+    }
+  ],
+  "legs": [
+    {
+      "from": "ready-made",
+      "to": "cloth",
+      "note": "One block west along South Water Street, from Dearborn to Clark.",
+      "evidence": [
+        "holbrook-place",
+        "harmon-place"
+      ],
+      "story": "From manufactured garments to the textiles from which garments are constructed.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "cloth",
+      "to": "dress",
+      "note": "On west to LaSalle; the boarding house stands behind Peck's corner store.",
+      "evidence": [
+        "brown-place"
+      ],
+      "story": "Return to your lodging to weigh the competing obligations of the two occasions.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "dress",
+      "to": "the-call",
+      "note": "West toward the South Branch and a block south to Lake Street, where the Sauganash keeps the Market Street corner.",
+      "evidence": [
+        "sauganash-place"
+      ],
+      "story": "Arrive at the settlement's recently refurbished public house for the engagement.",
+      "story_evidence": [
+        "outing"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "ready-tonight",
+      "text": "You attend the engagement in a plain manufactured coat, reserving the traveling coat for tomorrow's employment. By the second tune nobody can distinguish a Holbrook garment from a New York tailor's creation, and by the third nobody considers the distinction worth noticing.",
+      "read_s": 12,
+      "completion_eligible": true
+    },
+    {
+      "id": "brushed",
+      "text": "You attend the engagement brushed and respectable in the coat you arrived wearing, contemplating a length of quality broadcloth for later. In a settlement of slippers and brogans, where social distinctions remain remarkably fluid, you are entirely unremarkable.",
+      "read_s": 11,
+      "default": true,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Provisions",
+    "id": "fit-for-the-occasion-grades-11-12",
+    "title": "Fit for the Occasion",
+    "text": "A fictional note documenting your attire for an engagement at the Sauganash, and the merchandise you examined along South Water Street."
+  },
+  "evidence": [
+    {
+      "id": "holbrook-card",
+      "text": "John Holbrook advertised clothing, boots and shoes, wholesale and retail, 'on South-Water st. one door from Dearborn street', signed himself agent for the manufacturers, and said he would be receiving additions to his assortment every fifteen or twenty days through the season; the American's printing adds hats.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835"
+      ],
+      "locator": "Chicago Democrat, 10 June 1835, p. 3, col. 2 (claim chicago_democrat_1835_06_10#c010, copy line 'Chicago, June 10, 1835'); Chicago American, 13 June 1835, p. 3, col. 6 (claim chicago_american_1835_06_13#c012). Transcription-mediated readings."
+    },
+    {
+      "id": "holbrook-made",
+      "text": "Holbrook's stock was made clothing sold from stock, not a tailoring service.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835"
+      ],
+      "reasoning": "An agent for the manufacturers who keeps 'a large assortment of the named articles' and restocks by shipment is selling finished goods made elsewhere. The card names no cutting, measuring, fitting or making to order, so the stop claims none; that the goods were ready-made is read from the card's words, not stated in them."
+    },
+    {
+      "id": "holbrook-place",
+      "text": "The store stood on the south side of South Water Street, one door east of Dearborn; the side of Dearborn is a reading and the building is reconstructed.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835"
+      ],
+      "reasoning": "Both printings give 'one door from Dearborn' on South Water Street. The structure record reads the door count as the next front east of the Chicago American's corner office under the owner's corner-ordinal ruling, because that makes three addresses printed on this face consistent; its size and form are borrowed from neighbours on the face and graded reconstructed."
+    },
+    {
+      "id": "harmon-cloth",
+      "text": "Harmon, Loomis & Co.'s fall and winter notice lists fancy and staple dry goods, among them broad cloths, cassimeres, domestic cloths, satinets, Peter Sham, goats' hair camlet, woollen and cotton flannels, Russia duck and canvas.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "Chicago Democrat, 5 Nov 1834, p. 3, col. 2 ('Fall and Winter Goods', claim chicago_democrat_1834_11_05#c007). Transcription-mediated reading."
+    },
+    {
+      "id": "harmon-june",
+      "text": "In June 1835 Harmon, Loomis & Co. still advertised staple and fancy dry goods at wholesale and retail from their store in South Water Street; the cloth list itself is carried forward from the November 1834 notice.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_american_1835",
+        "chicago_democrat_1833_1835"
+      ],
+      "reasoning": "The Chicago American of 20 June 1835, p. 1, col. 2 ('At Wholesale and Retail', claim c006) opens its list with dry goods but its transcription is damaged there and names no cloths. That the firm stocked broadcloth and the rest on 1 July 1835 is carried from the 1834 notice by the June one; no source records a cloth, sale or price on the scene date."
+    },
+    {
+      "id": "harmon-place",
+      "text": "Andreas puts the Harmon and Loomis store at the corner of Clark and South Water and never says which corner; the marker's south-east corner is the structure record's choice.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "The north side of South Water was the river frontage and Andreas gives the south-west corner to the Chicago Democrat's office, so the record takes the south-east. The advertisements name South Water Street only."
+    },
+    {
+      "id": "brown",
+      "text": "Andreas names Mrs Rufus Brown as a boarding-house keeper in his account of 1833, and places Brown's log house behind Peck's store.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed p. 132, boarding-house paragraph; p. 303, Jeremiah Porter biography."
+    },
+    {
+      "id": "brown-place",
+      "text": "The boarding house is placed directly behind Peck's store at the south-west corner of South Water and LaSalle; its distance behind the store is not documented.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Andreas gives the position only relative to Peck's store. The structure record sets the house directly south of the store's footprint on the same lot line and grades the coordinate reconstructed, so the stop calls the spot reconstructed."
+    },
+    {
+      "id": "continuity",
+      "text": "The boarding house is an exterior stop in the July 1835 scene; Andreas's account of 1833 does not prove that the visitor, or anyone, lodged there that day.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "The stop uses the structure record's scene-date phase and its continuity argument. A building label is an identity, not proof of a continuing tenancy; the visitor's lodging there is part of the invented errand."
+    },
+    {
+      "id": "sauganash-look",
+      "text": "Wau-Bun describes the Sauganash in 1831 as 'a pretentious white two-story building, with bright-blue wooden shutters'.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Ch. XVII, 'Chicago in 1831' — the Wolf Point houses, Mark Beaubien's house just completed."
+    },
+    {
+      "id": "sauganash-refit",
+      "text": "The Chicago Democrat of 10 June 1835 reported that the Sauganash had been repaired, fitted up and furnished with neatness and taste.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "10 June 1835 (Vol. II No. 8), p. 2, col. 5, the paragraph on the town's public houses (claim chicago_democrat_1835_06_10#c001). Transcription-mediated reading."
+    },
+    {
+      "id": "mk-ball",
+      "text": "Charles F. Hoffman, at a Chicago ball in 1834, found 'a complete medley of all ranks, ages, professions, trades and occupations': 'a veteran officer in full uniform balancing to a tradesman's daughter, still in her short frock and trousers', while 'a pair of Cinderella-like slippers would chassez across with a brace of thick-soled brogans'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 100, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13421-13449 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-fiddle",
+      "text": "The life and soul of the town's dancing parties was Mark Beaubien, 'the fiddler par excellence of the town'. Judge Caton remembered: 'He used to play the fiddle at our dances in such a way as to set every heel and toe in the room in active motion. He would lift the sluggard from his seat, and set him whirling over the floor like mad.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 100, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13480-13495 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-peck-store",
+      "text": "P. F. W. Peck's two-storey frame store, the first in the village, was built of lumber 'sawed from black walnut trees' and 'brought from Detroit by a boat'; his goods moved into it in the fall of 1831.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 570, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 99826-99842 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "sauganash-place",
+      "text": "The Sauganash stood at the south-east corner of Lake and Market Streets, on the east bank of the South Branch.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_hotels",
+        "chicago_landmark_sauganash"
+      ],
+      "reasoning": "The corner is given by the hotel chronology and the Chicago Landmark designation; the building's coordinate in the scene is the structure record's platted-corner derivation and carries the georeference's uncertainty of about 20 m."
+    },
+    {
+      "id": "outing",
+      "text": "The visitor's call at the Sauganash, the acquaintance, the dusty coat, the route order, the weighing of the two occasions, the choice of coat, both endings and the Fit for the Occasion keepsake are invented connective narrative. No purchase, price, fitting or tailor is attested.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-a-decent-coat"
+    }
+  ],
+  "liberties": [
+    "L-jaunt-a-decent-coat",
+    "L-jaunt-1835-light-and-stories"
+  ],
+  "version_of": "a-decent-coat"
+}

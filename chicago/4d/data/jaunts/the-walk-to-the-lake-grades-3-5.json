@@ -1,0 +1,523 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "True stories",
+  "menu_group": "Stories",
+  "grade_band": "3-5",
+  "review_required": false,
+  "id": "the-walk-to-the-lake-grades-3-5",
+  "scene": "1904",
+  "title": "The Walk to the Lake",
+  "premise": "At dawn a widow wakes at 1906 Prairie. Eight years ago her husband walked out this door at six in the morning and never came back. Follow his last walk to the lake.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "daybreak",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: THE WALK TO THE LAKE. It is dawn on a Monday in November 1904, at the south end of Prairie Avenue.\n\nThere are four stops, going north toward the lake. The Keiths are a steady family. Three brothers live in three houses, and they run one big store business. But one Monday morning eight years ago, at about this time, the kindest brother got up after a night with no sleep. He put on his hat and coat and walked out his front door.\n\nStart at his door. His wife still lives here.",
+    "read_s": 25
+  },
+  "stops": [
+    {
+      "id": "door",
+      "destination": {
+        "kind": "structure",
+        "id": "edson_keith_house_1906_prairie"
+      },
+      "text": "This is 1906 Prairie, at dawn. Mrs. Edson Keith lives here. Eight years ago her husband, Edson, left this house at about six in the morning. He was 63. He had come to Chicago in 1854 and sold goods for a living. For ten years he had hardly slept. That last night he walked up and down the halls again. At two in the morning his butler found him, and he did not seem to know where he was. By six he was gone. Look around. Hilda Johnson, the maid, is up first. Paul Rasmussen, the coachman, is crossing the yard. Mrs. Keith comes to the door to see the weather. Walk north to his brother's house next door.",
+      "evidence": [
+        "keith-argus",
+        "keith-night",
+        "keith-death",
+        "keith-same",
+        "keith-houses",
+        "keith-coachman",
+        "day",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "pa1904_keith_mrs_edson",
+          "label": "Mrs. Edson Keith"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_keith_mrs_edson_c1900_hilda_johnson",
+          "label": "Hilda Johnson"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_keith_mrs_edson_c1900_paul_rasmussen",
+          "label": "Paul Rasmussen"
+        }
+      ],
+      "next": "brother",
+      "read_s": 32,
+      "stage": {
+        "caption": "Mrs. Keith opens her door at first light and looks up the street toward the lake. Her maid stands behind her.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_keith_mrs_edson",
+            "at": [
+              1385.38,
+              -3365.66
+            ],
+            "heading": 91.2,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 4,
+                "show": true
+              },
+              {
+                "t": 6,
+                "walk": [
+                  [
+                    1387.08,
+                    -3365.63
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 11,
+                "heading": 12.1
+              },
+              {
+                "t": 24,
+                "face": [
+                  1392.89,
+                  -3365.82
+                ]
+              }
+            ]
+          },
+          {
+            "person": "pa1904_keith_mrs_edson_c1900_hilda_johnson",
+            "at": [
+              1385.71,
+              -3367.16
+            ],
+            "heading": 79.4,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 5,
+                "show": true
+              }
+            ]
+          },
+          {
+            "person": "pa1904_keith_mrs_edson_c1900_paul_rasmussen",
+            "at": [
+              1390.09,
+              -3376.88
+            ],
+            "beats": [
+              {
+                "t": 2,
+                "walk": [
+                  [
+                    1390.96,
+                    -3369.86
+                  ],
+                  [
+                    1393.14,
+                    -3368.42
+                  ]
+                ],
+                "pace": "walk"
+              },
+              {
+                "t": 14,
+                "face": "pa1904_keith_mrs_edson"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "brother",
+      "destination": {
+        "kind": "structure",
+        "id": "elbridge_keith_house_1900_prairie"
+      },
+      "text": "This is 1900 Prairie, the house of his brother Elbridge. It was built in 1870, in the Second Empire style. Elbridge and his wife saw trouble coming. A few weeks before that Monday, Edson's wife told them she was afraid. He had been sick so long that his mind was slipping. His helper at work said Edson never said a mean word about anyone. He was the gentle brother, the one who never shouted. Elbridge is up early today too. He still walks past his brother's door. Walk north up Prairie, the way Edson went.",
+      "evidence": [
+        "keith-warning",
+        "keith-kind",
+        "ekeith-marker",
+        "keith-houses",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "pa1904_keith_elbridge_g",
+          "label": "Elbridge G. Keith"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_keith_mrs_elbridge_g",
+          "label": "Mrs. Elbridge G. Keith"
+        }
+      ],
+      "next": "firm",
+      "read_s": 26,
+      "stage": {
+        "caption": "Elbridge Keith comes down his steps in the early light. His wife watches him go from the door.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_keith_elbridge_g",
+            "at": [
+              1386.2,
+              -3347.28
+            ],
+            "heading": 92.1,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 3,
+                "show": true
+              },
+              {
+                "t": 5,
+                "walk": [
+                  [
+                    1389.6,
+                    -3347.27
+                  ],
+                  [
+                    1394.79,
+                    -3345.54
+                  ],
+                  [
+                    1395.04,
+                    -3313.54
+                  ]
+                ],
+                "pace": "walk"
+              }
+            ]
+          },
+          {
+            "person": "pa1904_keith_mrs_elbridge_g",
+            "at": [
+              1386.1,
+              -3348.28
+            ],
+            "heading": 84.4,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 4,
+                "show": true
+              },
+              {
+                "t": 7,
+                "walk": [
+                  [
+                    1387.6,
+                    -3348.18
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 12,
+                "face": [
+                  1395.06,
+                  -3317.54
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "firm",
+      "destination": {
+        "kind": "structure",
+        "id": "keith_house_1808_prairie"
+      },
+      "text": "This is 1808 Prairie, the house of another brother, Osborn Keith. In 1858 he helped start the family business on Lake Street. It grew huge. By the 1880s it sold four and a half million dollars of goods a year. Hundreds of people worked for it. In 1904 Stanley Field lives here, but people still call it a Keith house. Edson walked past it in the dark that Monday, going north to the lake. It is a long walk for a sick man. This house will be torn down in 1968. Keep going north to Sixteenth Street.",
+      "evidence": [
+        "keith-kind",
+        "stanley-1808",
+        "keith-razed",
+        "stage"
+      ],
+      "next": "lake",
+      "read_s": 26,
+      "stage": {
+        "caption": "A milkman's boy runs past 1808. No one else is on the street.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "milk_boy",
+            "dress": "teen_boy_1904",
+            "name": "An errand boy on the morning round (unnamed)",
+            "at": [
+              1399.0,
+              -3270.8
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1397.5,
+                    -3214.82
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "lake",
+      "destination": {
+        "kind": "structure",
+        "id": "house_1613_prairie"
+      },
+      "text": "This is Sixteenth Street, the north end of the avenue. Past the railroad, to the east, is the lake. The street ends here. Edson Keith kept going. That Monday morning someone found a hat and a coat on the beach. Fishermen told what they had seen. People searched for him all day. The servants only learned what had happened on Tuesday, from the newspaper. Stand here and look east at first light. The lake is grey and flat and very big.",
+      "evidence": [
+        "keith-night",
+        "keith-death",
+        "keith-argus",
+        "stage"
+      ],
+      "next": "dragged",
+      "read_s": 21,
+      "stage": {
+        "caption": "A man in a hat and coat walks east along Sixteenth Street toward the lake. He does not look back.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "walker",
+            "dress": "glessner_john_j_1904",
+            "name": "A gentleman walking east (unnamed; not Edson Keith, who died in 1896)",
+            "at": [
+              1398.86,
+              -2995.76
+            ],
+            "beats": [
+              {
+                "t": 2,
+                "walk": [
+                  [
+                    1396.38,
+                    -3009.68
+                  ],
+                  [
+                    1372.26,
+                    -3012.85
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "legs": [
+    {
+      "story": "North two doors, the way he went, to his brother's house.",
+      "evidence": [
+        "keith-houses"
+      ],
+      "story_evidence": [
+        "keith-warning"
+      ]
+    },
+    {
+      "story": "North up Prairie Avenue in the early light, past the family's houses.",
+      "evidence": [
+        "keith-kind"
+      ],
+      "story_evidence": [
+        "keith-kind"
+      ]
+    },
+    {
+      "story": "North all the way to Sixteenth Street, the long walk to the lake.",
+      "evidence": [
+        "keith-death"
+      ],
+      "story_evidence": [
+        "keith-death"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "dragged",
+      "text": "The walk ends here. The news hit the family very hard. People searched the lake for him. Edson Keith had left his money to his wife, Susan, and their two sons. His wife stayed on at 1906 Prairie, and his brother stayed next door. The street remembers him as the gentle brother, who never said an unkind word. One Monday morning he walked out his own front door and went to the lake.",
+      "read_s": 19,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "the-walk-to-the-lake-card-grades-3-5",
+    "title": "The Keith Brothers",
+    "text": "A card of the Keith families of Prairie Avenue in 1904. It is a made-up keepsake, not an object from history."
+  },
+  "evidence": [
+    {
+      "id": "keith-argus",
+      "text": "Edson Keith 'disappeared from his home at 1906 Prairie avenue about 6 o'clock in the morning' of Monday 21 September 1896; the Argus report put the place at the lake 'at the foot of Thirteenth street', and 'search was made for the missing man all day Monday'. 'He was 63 years old and came to Chicago in 1854.'",
+      "confidence": "attested",
+      "sources": [
+        "ann_arbor_argus_1896_09_25_keith"
+      ],
+      "locator": "The whole item."
+    },
+    {
+      "id": "keith-night",
+      "text": "He had spent another sleepless night pacing the hallways of his home, and his butler found him in a state of deliriousness at 2 AM. A hat and coat were found on the beach on Monday morning, and only when the household staff read the Tuesday newspaper did they realise what had happened. Fishermen on the beach told what they had seen.",
+      "confidence": "attested",
+      "sources": [
+        "postcardhistory_2023_edson_keith"
+      ],
+      "locator": "The post's second to fourth paragraphs."
+    },
+    {
+      "id": "keith-death",
+      "text": "Edson Keith, merchant, sleepless and ill for at least a decade, left his house early on Monday 21 September 1896, walked to the lake at the foot of 16th Street and drowned; the papers said he 'committed suicide Monday morning by drowning himself in Lake Michigan'.",
+      "confidence": "attested",
+      "sources": [
+        "postcardhistory_2023_edson_keith"
+      ],
+      "locator": "The account of his death, from the Tribune and Chronicle of September 1896."
+    },
+    {
+      "id": "keith-same",
+      "text": "The Edson Keith who drowned in 1896 is the late husband of the Mrs. Edson Keith at 1906 Prairie.",
+      "confidence": "inferred",
+      "sources": [
+        "postcardhistory_2023_edson_keith",
+        "chicago_blue_book_1904",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "reasoning": "A Chicago merchant Edson Keith died in 1896, leaving a widow; in 1900 and 1904 a widowed Mrs. Edson Keith keeps house at 1906 Prairie, beside Elbridge G. Keith at 1900, and the ghost tours call the drowned man Elbridge's brother. No source read here states the identity in one sentence."
+    },
+    {
+      "id": "keith-houses",
+      "text": "The 1904 Blue Book lists Elbridge G. Keith at 1900 Prairie and Mrs. Edson Keith at 1906; the 1900 census gives Mrs. Edson Keith as widowed.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "locator": "The street-and-number list, PRAIRIE AV., as data/residents_1904/households/hh_keith_elbridge_g.json and hh_keith_mrs_edson.json read it; ED 40, sheet 4B, line 95."
+    },
+    {
+      "id": "keith-coachman",
+      "text": "The census of 1 June 1900 enumerated Paul Rasmussen, coachman, born in Denmark, as the head of his own household in the rear building behind 1906 Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "locator": "ED 40, sheet 4B, line 98, leaf n801."
+    },
+    {
+      "id": "day",
+      "text": "The Walk to the Lake: the day, Monday 21 November 1904, the hour and the order of the walk are this jaunt's framing, chosen because the stories meet on it (three days after Arthur Caton's death, a Monday of the Reading Class, before Kimball's death in December). No visit on that day is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "stage",
+      "text": "The Walk to the Lake: who is seen at each stop, where they stand, what they do and when are reconstructed. People with cards in the town play themselves; people the town has no card for (and the unnamed servants, callers and passers-by) are unnamed figures in period dress, and no likeness is claimed. No word anyone says is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "keith-warning",
+      "text": "His brother Elbridge and his wife had spoken with Mrs. Keith a few weeks before, and she had said, 'I … suspect that he was losing control of his mind through long suffering.'",
+      "confidence": "attested",
+      "sources": [
+        "postcardhistory_2023_edson_keith"
+      ],
+      "locator": "The post's sixth paragraph."
+    },
+    {
+      "id": "keith-kind",
+      "text": "His personal secretary said he had never heard him say anything nasty or unkind about anyone. The firm, founded in 1858 by Osborn R. Keith and Albert Faxon on Lake Street, had become Edson Keith & Company, with annual sales of $4.5 million in the mid-1880s, over 200 employees in Chicago and 500 more in a Milwaukee factory.",
+      "confidence": "attested",
+      "sources": [
+        "postcardhistory_2023_edson_keith"
+      ],
+      "locator": "The post's seventh to ninth paragraphs."
+    },
+    {
+      "id": "ekeith-marker",
+      "text": "Elbridge G. Keith Residence. Built 1870; John W. Roberts, architect. The last surviving example of the popular Second Empire style, which dominated the street by the 1880s.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1900 S. Prairie Avenue entry."
+    },
+    {
+      "id": "stanley-1808",
+      "text": "The 1904 Blue Book lists Mr. and Mrs. Stanley Field at 1808 Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "locator": "Prairie Av. street list, the 1808 line."
+    },
+    {
+      "id": "keith-razed",
+      "text": "Osborn R. Keith Residence, 1808 S. Prairie Avenue: the north wall was retained during demolition in 1968 to preserve the private courtyard of the adjacent Glessner house.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1808 S. Prairie Avenue entry."
+    },
+    {
+      "id": "keith-will",
+      "text": "His will of 13 March 1895 left $300,000 each to his wife Susan and to his two sons, Edson, Jr. and Walter W.",
+      "confidence": "attested",
+      "sources": [
+        "postcardhistory_2023_edson_keith"
+      ],
+      "locator": "The post's aside on the will."
+    },
+    {
+      "id": "keith-dragged",
+      "text": "The evidence came to the family 'with paralyzing suddenness' on Tuesday, and 'the lake is now being dragged for the recovery of the remains.'",
+      "confidence": "attested",
+      "sources": [
+        "ann_arbor_argus_1896_09_25_keith"
+      ],
+      "locator": "The whole item."
+    }
+  ],
+  "liberties": [
+    "L-1904-story-jaunts"
+  ],
+  "version_of": "the-walk-to-the-lake"
+}

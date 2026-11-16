@@ -97,6 +97,8 @@ assert.deepEqual(suggestJaunts(fixture.filter((r) => !r.featured)).map((r) => r.
 assert.deepEqual(suggestJaunts(null), [], 'no catalog, no Jaunts');
 assert.deepEqual(suggestJaunts([row('Grim', true, 2, { audience: 'adults', content_warning: 'For adults.' }), ...fixture]).map((r) => r.id), ['Alpha', 'Zeta', 'Mid'],
   'an adults telling is never put in a teacher\'s handout (owner, 2026-11-15)');
+assert.deepEqual(suggestJaunts([row('Alpha-easy', true, 1, { title: 'Alpha', version_of: 'Alpha', grade_band: '3-5' }), ...fixture]).map((r) => r.id), ['Alpha', 'Zeta', 'Mid'],
+  'a grade-band version is the same Jaunt retold, so it is never suggested beside its base (T-3621)');
 assert.deepEqual(fixture.map((r) => r.id), ['Zeta', 'Alpha', 'Long', 'Short', 'Broken', 'Mid'], 'the catalog itself is left in its order');
 
 // ---- the rule, on the committed catalogs ------------------------------------------------
@@ -114,7 +116,7 @@ for (const d of DESTINATIONS) {
   const rows = catalogOf(d.year);
   const chosen = suggestJaunts(rows);
   picks[d.year] = chosen.map((r) => r.title);
-  const open = rows.filter((r) => r.availability !== 'unavailable');
+  const open = rows.filter((r) => r.availability !== 'unavailable' && r.audience !== 'adults' && !r.version_of);
   assert.equal(chosen.length, Math.min(3, open.length), `${d.year}: three, or all there are`);
   for (const c of chosen) assert.notEqual(c.availability, 'unavailable');
   for (let i = 1; i < chosen.length; i++) assert(beats(chosen[i - 1], chosen[i]), `${d.year}: in the rule's order`);

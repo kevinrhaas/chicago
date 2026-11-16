@@ -1,0 +1,483 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Architecture",
+  "menu_group": "Architecture",
+  "grade_band": "6-8",
+  "featured": true,
+  "review_required": false,
+  "id": "prairie-architects-grades-6-8",
+  "scene": "1904",
+  "title": "Architects of Prairie Avenue",
+  "premise": "An autumn afternoon with the architects who rebuilt Chicago: Jenney, Richardson, Cobb and Frost, Burnham and Root, Beman and Hunt, ending where Burnham met his wife.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "afternoon",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: ARCHITECTS. An autumn afternoon on Prairie Avenue, 1904, with the low sun slanting across the stone. Thirty-three years ago Chicago burned. It rebuilt itself as a bold new city, and many of the architects who did it built houses on this street, for clients who could pay for anything.\n\nSeven houses on foot, from 1701 to 2100 Prairie: the man who built the first skyscraper, a giant from Boston, the firm of Cobb and Frost, the young Burnham and Root, the man who designed a whole company town, the architect of the Statue of Liberty's base, and the house where Daniel Burnham got his start. He married the client's daughter.\n\nBegin at 1701, with a plain front by a very bold engineer.",
+    "read_s": 35
+  },
+  "stops": [
+    {
+      "id": "jenney",
+      "destination": {
+        "kind": "structure",
+        "id": "hibbard_house_1701_prairie"
+      },
+      "text": "1701 Prairie, William G. Hibbard's house of 1869, built for the head of a big hardware firm. Its architect, William Le Baron Jenney, was trained as an engineer. Fifteen years after this house he built the Home Insurance Building downtown, \"the first fully metal-framed building\", which people call the first skyscraper. His drafting room trained a generation: Louis Sullivan, Daniel Burnham, William Holabird and Martin Roche all learned the job on his staff. For Hibbard he drew a plain Italianate house, with a low roof on bracketed eaves. The house will have a fitting last tenant: from 1921 its owners give Sullivan a free office here until he dies in 1924. In 1932 it is torn down. Walk south to the corner and a very different kind of genius.",
+      "read_s": 36,
+      "evidence": [
+        "hibbard-marker",
+        "hibbard-draft",
+        "tour",
+        "jenney-skyscraper",
+        "hibbard-razed"
+      ],
+      "next": "richardson"
+    },
+    {
+      "id": "richardson",
+      "destination": {
+        "kind": "structure",
+        "id": "glessner_house"
+      },
+      "text": "1800 Prairie, Henry Hobson Richardson's house for John J. Glessner. Glessner remembered his architect weighing 370 pounds: \"big-minded, big-bodied, big-hearted\". Three weeks before he died, too ill to leave his bedroom, Richardson marked where the lights would go and said, \"There, Mr. Glessner if I were to live five years longer, that is the last thing I would do on your house, my part is finished\". He died on 26 April 1886. Building began on 1 June, and Norcross Brothers built it for the contract price, not a dollar more. The neighbors were shocked. George Pullman grumbled about \"that thing staring me in the face\". Now look next door.",
+      "read_s": 30,
+      "evidence": [
+        "glessner-marker",
+        "glessner-dates",
+        "tour",
+        "big",
+        "last-thing",
+        "contract",
+        "pullman-glare"
+      ],
+      "next": "cobb-frost"
+    },
+    {
+      "id": "cobb-frost",
+      "destination": {
+        "kind": "structure",
+        "id": "keith_house_1808_prairie"
+      },
+      "text": "1808 Prairie, next door, by Cobb and Frost for Osborn R. Keith. A notice from 1886 reads like a price tag: a three-story house, 38 by 80 feet, with a granite front, costing forty thousand dollars. It went up the same year the Glessner house next door was being built, granite answering granite. When it is torn down in 1968, its north wall will be left standing to keep the Glessner courtyard private. Two doors south is the firm that would build more than all the others.",
+      "read_s": 24,
+      "evidence": [
+        "keith-notice",
+        "keith-razed",
+        "tour"
+      ],
+      "next": "burnham-root"
+    },
+    {
+      "id": "burnham-root",
+      "destination": {
+        "kind": "structure",
+        "id": "wheeler_house_1812_prairie"
+      },
+      "text": "1812 Prairie, George H. Wheeler's house of 1884 by Burnham and Root: a brick row house in the Dutch manner, its front rising into a tall, shaped gable over a stone first floor. It will be torn down in 1968. Within ten years Burnham would run the building of the 1893 World's Fair, the \"White City\". His motto: \"Make no little plans. They have no magic to stir men's blood\". Cross the avenue to a chateau by a man who once planned an entire town.",
+      "read_s": 23,
+      "evidence": [
+        "wheeler-marker",
+        "wheeler-photo",
+        "tour",
+        "burnham-plans",
+        "wheeler-razed"
+      ],
+      "next": "beman"
+    },
+    {
+      "id": "beman",
+      "destination": {
+        "kind": "structure",
+        "id": "kimball_house_1801_prairie"
+      },
+      "text": "1801 Prairie, Solon S. Beman's chateau of 1890 for the piano maker William W. Kimball, in the French style, with steep slate and a round tower. Beman was still in his twenties when George Pullman hired him to design \"what would become the nation's first planned company town\", the town of Pullman, south of the city. He also added the palm room and conservatory to Pullman's own house up the street. Walk south to the street's most famous name, and its most famous architect.",
+      "read_s": 23,
+      "evidence": [
+        "kimball-marker",
+        "pullman-marker",
+        "tour",
+        "beman-town"
+      ],
+      "next": "hunt"
+    },
+    {
+      "id": "hunt",
+      "destination": {
+        "kind": "structure",
+        "id": "marshall_field_house_1905_prairie"
+      },
+      "text": "1905 Prairie, Marshall Field's house, by Richard Morris Hunt of New York. Hunt was the first American admitted to the architecture school of the École des Beaux-Arts in Paris. He designed the pedestal of the Statue of Liberty, and Biltmore, \"America's largest private house\". For Chicago's richest man he built a broad brick and stone mansion under a mansard roof. It will end up as a flying school, and it will be torn down in 1955. One more stop, at 2100, where a young architect met his wife.",
+      "read_s": 25,
+      "evidence": [
+        "field-caption",
+        "field-museum",
+        "tour",
+        "hunt-works",
+        "field-razed"
+      ],
+      "next": "sherman"
+    },
+    {
+      "id": "sherman",
+      "destination": {
+        "kind": "structure",
+        "id": "sherman_house_2100_prairie"
+      },
+      "text": "2100 Prairie, John B. Sherman's house of 1874, the first of nearly a dozen Burnham and Root jobs on this street. Sherman ran the Union Stock Yards. While the house was going up, his daughter Margaret married the young architect Daniel Burnham, in 1876, and Sherman began telling his neighbors whom to hire. That is how a firm wins a street: your client becomes your father-in-law, and your father-in-law becomes your salesman. Burnham and Root became the busiest architects on Prairie Avenue. The house where it began will be torn down in 1936.",
+      "read_s": 26,
+      "evidence": [
+        "sherman-marker",
+        "burnham-museum",
+        "tour",
+        "burnham-plans",
+        "sherman-razed"
+      ],
+      "next": "finish"
+    }
+  ],
+  "legs": [
+    {
+      "story": "South to the corner of Eighteenth Street.",
+      "evidence": [
+        "glessner-marker"
+      ],
+      "story_evidence": [
+        "glessner-marker"
+      ]
+    },
+    {
+      "story": "Next door, past the granite.",
+      "evidence": [
+        "keith-notice"
+      ],
+      "story_evidence": [
+        "keith-notice"
+      ]
+    },
+    {
+      "story": "Two doors south.",
+      "evidence": [
+        "wheeler-marker"
+      ],
+      "story_evidence": [
+        "wheeler-marker"
+      ]
+    },
+    {
+      "story": "Across Prairie Avenue to the east side.",
+      "evidence": [
+        "kimball-marker"
+      ],
+      "story_evidence": [
+        "kimball-marker"
+      ]
+    },
+    {
+      "story": "South past the Coleman house: Cobb and Frost again, in rough brown sandstone.",
+      "evidence": [
+        "ames-marker"
+      ],
+      "story_evidence": [
+        "ames-marker"
+      ]
+    },
+    {
+      "story": "On past Twentieth Street to the last stop.",
+      "evidence": [
+        "sherman-marker"
+      ],
+      "story_evidence": [
+        "sherman-marker"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "finish",
+      "text": "The walk ends at 2100 Prairie. These seven houses are a sketchbook of the architects who rebuilt Chicago after the fire. In a few years Burnham will take the lesson of this street to the whole city: his 1909 Plan of Chicago, the first full plan for how an American city should grow.\n\nLook for their other fronts as you explore. Every one of them is signed in stone.",
+      "read_s": 19,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "prairie-architects-list-grades-6-8",
+    "title": "Prairie Avenue architects' list",
+    "text": "A list of six architects and the houses this walk paired them with; a modern note, not a period document."
+  },
+  "evidence": [
+    {
+      "id": "burnham-museum",
+      "text": "Burnham & Root received nearly a dozen commissions on the street, beginning with the John Sherman house at 2100 S. Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_prairie_avenue_page"
+      ],
+      "locator": "The page's history of the street, the paragraph on its architects."
+    },
+    {
+      "id": "field-caption",
+      "text": "Marshall Field Sr. residence at 1905 S. Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_east"
+      ],
+      "locator": "The transcription page's photograph caption."
+    },
+    {
+      "id": "field-museum",
+      "text": "Richard Morris Hunt of New York and Henry Hobson Richardson of Boston were engaged to design the Marshall Field house and another; George Pullman and Marshall Field both acquired property on the street.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_prairie_avenue_page"
+      ],
+      "locator": "The page's history of the street, the paragraphs on its first great houses and its architects."
+    },
+    {
+      "id": "glessner-dates",
+      "text": "HABS dates the building from June 1, 1886 to December 1, 1887; the house museum gives Richardson's death as April 26, 1886.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_house_richardson_page"
+      ],
+      "locator": "HABS Part I.A.2, date of erection, data page 2; the museum biography's paragraph on his death."
+    },
+    {
+      "id": "glessner-marker",
+      "text": "John Glessner Residence. Built 1887; Henry Hobson Richardson, architect. Designed in the Richardsonian Romanesque style, the house is wrapped around a spacious light-filled courtyard.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1800 S. Prairie Avenue entry."
+    },
+    {
+      "id": "hibbard-draft",
+      "text": "The district draft reads the Hibbard house from the T-1837 register as an Italianate mansion with a rear addition: a low hip on bracketed eaves over a stone-based body, and the 1874 rear range.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-16-18-east-2335"
+    },
+    {
+      "id": "hibbard-marker",
+      "text": "William G. Hibbard Residence. Built 1869; William Le Baron Jenney, architect; Hibbard was president of a large wholesale hardware firm (read in paraphrase).",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1701 S. Prairie Avenue entry: its name line, and its description as read in paraphrase."
+    },
+    {
+      "id": "keith-notice",
+      "text": "For O. R. Keith, three story dwelling, 38 by 80 feet, 1808 Prairie avenue, granite front; cost $40,000.",
+      "confidence": "attested",
+      "sources": [
+        "inland_architect_1886_09_keith_notice"
+      ],
+      "locator": "Printed p. 28, right column near foot, paragraph beginning Architects Cobb & Frost report."
+    },
+    {
+      "id": "kimball-marker",
+      "text": "William W. Kimball Residence. Built 1890; Solon S. Beman, architect. Built for the prominent Chicago piano and organ manufacturer in the French Chateauesque style.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1801 S. Prairie Avenue entry."
+    },
+    {
+      "id": "pullman-marker",
+      "text": "The district marker names George M. Pullman Residence, built 1870-1876, Henry S. Jaffay architect, and (read in paraphrase) a theatre of about 200 seats, a pipe organ and a bowling alley, with later additions by Solon S. Beman including a palm room and a large conservatory.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1729 S. Prairie Avenue entry: its name line, and its description as read in paraphrase."
+    },
+    {
+      "id": "sherman-marker",
+      "text": "John B. Sherman Residence. Built 1874; Burnham & Root, architects. Sherman was manager of the Union Stock Yards; his daughter Margaret married the architect Daniel Burnham during construction, and Sherman often recommended the firm to his neighbors, making them the most prolific architects represented on the street.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The 2100 S. Prairie Avenue entry."
+    },
+    {
+      "id": "tour",
+      "text": "The route, its order, its autumn afternoon, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on a day in 1904 is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-prairie-walks"
+    },
+    {
+      "id": "wheeler-marker",
+      "text": "George H. Wheeler Residence. Built 1884; Burnham & Root, architects. A picturesque brick row house in the Dutch vernacular style.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1812 S. Prairie Avenue entry."
+    },
+    {
+      "id": "wheeler-photo",
+      "text": "Albert Levy's photograph shows the front carried up as a tall shaped (Flemish) gable over brick upper storeys and a stone first storey.",
+      "confidence": "attested",
+      "sources": [
+        "levy_1812_prairie_photo"
+      ],
+      "locator": "The whole print: the street front of 1812 from the walk to the gable's finial."
+    },
+    {
+      "id": "big",
+      "text": "Glessner remembered Richardson weighing three hundred and seventy pounds: 'big-minded, big-bodied, big-hearted'.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 17."
+    },
+    {
+      "id": "last-thing",
+      "text": "Three weeks before his death, too ill to leave his bedroom, Richardson marked the places for the lighting fixtures and said: 'There, Mr. Glessner if I were to live five years longer, that is the last thing I would do on your house, my part is finished.' Glessner was convinced it was the house Richardson would most have liked to live in himself.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 13."
+    },
+    {
+      "id": "contract",
+      "text": "Norcross Brothers of Worcester, Massachusetts, built the house for the contract price, with no bill of extras.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 14."
+    },
+    {
+      "id": "pullman-glare",
+      "text": "George Pullman, across the street, complained of the Glessner house: 'I do not know what I have ever done to have that thing staring me in the face every time I go out of my door'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_glessner_house"
+      ],
+      "locator": "The design section."
+    },
+    {
+      "id": "jenney-skyscraper",
+      "text": "Of Jenney's Home Insurance Building, 1884-1885: 'The building was the first fully metal-framed building and is considered the first skyscraper'; Louis Sullivan, Daniel Burnham, William Holabird and Martin Roche 'performed their architectural apprenticeships on Jenney's staff'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_william_le_baron_jenney"
+      ],
+      "locator": "The paragraphs on the Home Insurance Building and his office."
+    },
+    {
+      "id": "beman-town",
+      "text": "In 1879 Solon S. Beman, born in 1853, 'received a commission from George Pullman to design what would become the nation's first planned company town'; he designed several buildings for the 1893 fair.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_solon_spencer_beman"
+      ],
+      "locator": "The biography."
+    },
+    {
+      "id": "burnham-plans",
+      "text": "Burnham: 'Make no little plans. They have no magic to stir men's blood and probably will not themselves be realized.' He was Director of Works of the 1893 fair, the 'White City', and co-wrote the 1909 Plan of Chicago; in 1876 he married Margaret, daughter of John B. Sherman.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_daniel_burnham"
+      ],
+      "locator": "The biography."
+    },
+    {
+      "id": "hunt-works",
+      "text": "'Hunt was the first American to be admitted to the school of architecture at the École des Beaux-Arts'; his works include 'the pedestal of the Statue of Liberty' and Biltmore, 'America's largest private house'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_richard_morris_hunt"
+      ],
+      "locator": "The biography."
+    },
+    {
+      "id": "ames-marker",
+      "text": "Joseph G. Coleman Residence. Built 1886; Cobb & Frost, architects. Cobb & Frost were well known for their designs in the Romanesque style, executed here in rough-faced brown sandstone.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1811 S. Prairie Avenue entry."
+    },
+    {
+      "id": "burnham-plan-1909",
+      "text": "Burnham and Edward H. Bennett's 1909 Plan of Chicago, 'the first comprehensive plan for the controlled growth of an American city'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_daniel_burnham"
+      ],
+      "locator": "The biography."
+    },
+    {
+      "id": "hibbard-razed",
+      "text": "William G. Hibbard Residence, 1701 S. Prairie Avenue: in 1921 the house was bought by the American Terra Cotta & Ceramic Co., which gave the architect Louis Sullivan free office space there until his death in 1924. Razed 1932.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1701 S. Prairie Avenue entry."
+    },
+    {
+      "id": "keith-razed",
+      "text": "Osborn R. Keith Residence, 1808 S. Prairie Avenue: the north wall was retained during demolition in 1968 to preserve the private courtyard of the adjacent Glessner house.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1808 S. Prairie Avenue entry."
+    },
+    {
+      "id": "wheeler-razed",
+      "text": "George H. Wheeler Residence, 1812 S. Prairie Avenue: razed 1968.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1812 S. Prairie Avenue entry."
+    },
+    {
+      "id": "field-razed",
+      "text": "Marshall Field Residence, 1905 S. Prairie Avenue: later converted to an aeronautical university. Razed 1955.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_east"
+      ],
+      "locator": "The 1905 S. Prairie Avenue entry."
+    },
+    {
+      "id": "sherman-razed",
+      "text": "John B. Sherman Residence, 2100 S. Prairie Avenue: razed 1936.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The 2100 S. Prairie Avenue entry."
+    }
+  ],
+  "liberties": [
+    "L-draft-prairie-16-18-east-2335",
+    "L-jaunt-prairie-walks"
+  ],
+  "version_of": "prairie-architects"
+}
