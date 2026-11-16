@@ -703,14 +703,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 1046 -> 1065, 742 -> 761 and 736 -> 755 on 2026-11-15 (T-3605): the nineteen stores and
 # boarding blocks on Lake and Dearborn built to Gifford's drawing of the first Tremont
 # House, each on the shared `frame_storefront` / `frame_tavern` path.
+# 1065 -> 1121, 761 -> 817 and 755 -> 811 on 2026-11-16 (T-3605 phase 2): the commercial
+# core's fifty-six row-fill stores and boarding blocks on South Water and Lake, on the same
+# shared path.
 #
 STATED = {
-    "assets": 1065,
+    "assets": 1121,
     "restales": {
-        "generators/common/*.py": 761,
+        "generators/common/*.py": 817,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 755,
+        "generators/emit.py": 811,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,
