@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3046, ts: '2026-11-16T21:15:57.498Z', date: 'Nov 16, 2026, 3:15 PM CT', title: 'Every Jaunt now comes in four reading levels', kind: 'feature',
+    items: [
+      'Every Jaunt in 1812, 1835 and 1904 now has a telling for grades 3-5, 6-8, 9-10 and 11-12, so the grade filters in the Jaunts menu find each one at every level. 146 new tellings follow the same stops, choices and sources as the original, with simpler or richer wording; each was measured to read inside its band.',
+      'The 1812 tellings for younger readers keep to the build-up and the aftermath, as the original student Jaunts do.',
+      'The new tellings are text only for now: they have no recorded narration yet.',
+    ] },
   { v: 3045, ts: '2026-11-16T20:42:05.712Z', date: 'Nov 16, 2026, 2:42 PM CT', title: 'A quiet meter for every jaunt', kind: 'feature',
     items: [
       'A hairline meter above a jaunt\'s controls shows the whole outing as one short segment a stop: the stops behind are full, the one you are at fills in real time as its scene plays, and the ones ahead wait.',
