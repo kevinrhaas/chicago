@@ -1,0 +1,23 @@
+{
+  "id": "wikipedia_fort_dearborn",
+  "type": "website",
+  "citation": "Wikipedia, 'Fort Dearborn'. Read 16 November 2026.",
+  "author": "Wikipedia contributors",
+  "date": "accessed 2026-11-16",
+  "describes_date": "1803-1857",
+  "url": "https://en.wikipedia.org/wiki/Fort_Dearborn",
+  "locator": "The 'Legacy and monuments' section.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied beyond short quoted fragments).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-16 (T-3618) through the MediaWiki API's plain-text extract.",
+  "note": "Fragments read: 'The southern perimeter of Fort Dearborn was located at what is now the intersection of Wacker Drive and Michigan Avenue'; 'Part of the fort outline is marked by plaques, and a line embedded in the sidewalk and road near the Michigan Avenue Bridge and Wacker Drive'; the site is 'at the southern end of the DuSable Michigan Avenue Bridge'.",
+  "what_it_supplies": [
+    "which part of the fort the landmark site at Michigan Avenue and Wacker Drive marks: its southern perimeter"
+  ],
+  "what_it_does_not_supply": [
+    "a measured position of any wall; the City's landmark polygon (chicago_individual_landmarks_2026) is the coordinate"
+  ]
+}

@@ -1,4 +1,32 @@
 export const CHANGELOG = [ // newest first
+  { v: 3041, ts: '2026-11-16T18:47:11.445Z', date: 'Nov 16, 2026, 12:47 PM CT', title: 'Jaunts open and close on their own words', kind: 'feature',
+    items: [
+      'A jaunt whose opening is read aloud flies you to its start for as long as the narrator speaks, over a high look across the town. Skip to the Start lands you at once.',
+      'Finishing the last stop opens a closing scene: the ending on screen, read aloud where it is voiced, while the view rises over the place the jaunt began. Outing complete follows by itself, or at Finish Jaunt.',
+      'A jaunt\'s first card drops its summary and heads its opening with the jaunt\'s name.',
+      'Lines about how the town was built, rather than its story, are gone from the Glessner Household, Fort Dearborn, Outfit for the West and the Italianate and Romanesque walks.',
+    ] },
+  { v: 3040, ts: '2026-11-16T18:41:39.972Z', date: 'Nov 16, 2026, 12:41 PM CT', title: 'Name cards float over every person; tap one to meet them', kind: 'feature',
+    items: [
+      'In 1812, 1835 and 1904 a small card hovers over each named person near you with their name, day or night: townspeople, drivers on their boxes, and a jaunt\'s hosts and castmates.',
+      'Click or tap a card to open that person\'s card, as clicking them does.',
+      'Each card\'s edge and light show the person\'s grade in your Confidence colours: gold attested, silver inferred, bronze reconstructed.',
+      'Cards ride clear of tall hats, wear the appearance you have chosen, wrap long names to two lines, and stack in a crowd.',
+      'Turn them off under Settings › Show › Name cards over people.',
+    ] },
+  { v: 3039, ts: '2026-11-16T18:25:15.236Z', date: 'Nov 16, 2026, 12:25 PM CT', title: 'Houses no longer load in plain white when a texture drops', kind: 'fix',
+    items: [
+      'A house\'s stone, brick and roof pictures are shared files, and one that failed to download used to leave its walls and roof flat white until you reloaded the page. 1904 on 16 November showed it at Glessner and its neighbours.',
+      'Each picture is now asked for up to four times, and a house that still lacks one is read again twice before the town opens.',
+      'If a picture still never arrives, the town tells you on the way in and suggests a reload, instead of standing there in white stone.',
+    ] },
+  { v: 3038, ts: '2026-11-16T18:16:36.701Z', date: 'Nov 16, 2026, 12:16 PM CT', title: 'The Today window stands where you stand, in every year', kind: 'fix',
+    items: [
+      'By Fort Dearborn the Today window looked out from a boat near the river\'s north bank. It now opens on the Michigan Avenue bridge\'s south half, over the fort\'s old north end.',
+      'Each year\'s ground is lined up with today\'s map on the street corners that survive and on the City\'s marked site of the fort.',
+      'Today\'s street name and number, and today\'s streets on the map, line up the same way.',
+      'Only Google\'s own street imagery is shown, not visitors\' photos.',
+    ] },
   { v: 3037, ts: '2026-11-16T17:38:07.213Z', date: 'Nov 16, 2026, 11:38 AM CT', title: 'The burning of Fort Dearborn on the public site', kind: 'feature',
     items: [
       'The home page, Jaunts and 1812 pages show new films of Fort Dearborn burning on 16 August 1812: the brands going in at the gate, the roofs ablaze, the fort from across the river and the roofs falling in.',
