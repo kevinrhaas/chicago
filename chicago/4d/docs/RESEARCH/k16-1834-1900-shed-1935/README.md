@@ -78,9 +78,8 @@ wall, and this record does not.
 - **Inside:** the roof is boarded underneath. The alley wall and both gables are boarded on their inner faces,
   so nothing seen from inside the shed is the back of a face.
 - **Paint:** 1630's shed's fawn, with the weathered cedar of its shingle roof.
-- **The alley's poles:** the wire from pole #03 to #04 ran through the shed's alley gable. The street-furniture
-  layer's own rule (`tools/lay_prairie_1904_street_furniture.py`, T-3225) re-lays both poles 1.9 m in from the
-  alley's east edge, 1.0 m further than before, where they and their wire clear it.
+- **The alley's poles:** the street-furniture layer (`tools/lay_prairie_1904_street_furniture.py`, T-3225)
+  re-reads the alley with the shed built; poles #03 and #04 and their wire clear it where they stand.
 
 Everything but the outline, storey, frame, shingle roof and which sides are dashed is RECONSTRUCTED (in the
 liberty). The master is 83.1 KB and the web derivative 21.9 KB: **736 triangles**.

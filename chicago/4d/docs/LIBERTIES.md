@@ -40650,9 +40650,7 @@ none on a frame wall; the open sides are the way in). The open sides: square pos
 margin (0.21 m), on brick footings, no more than 3.2 m apart (four on the north side and one more midway along the east, five in all), under
 a 0.25 m plate whose top meets the roof boards; a fascia along the open eave; the roof boarded underneath and the
 walls' and gables' insides boarded where the open sides show them. 1630's shed's fawn paint on the body and the
-weathered cedar of its shingles. Flat colours. The alley's utility poles #03 and #04, whose wire ran through the
-shed's alley gable, are re-laid by the street-furniture layer's own rule (L-prairie-utility-poles-3202), 1.9 m in
-from the alley's east edge (1.0 m further than before), where they and their wire clear it.
+weathered cedar of its shingles. Flat colours.
 **What is not.** The outline, its place on the strip, the storey, the frame, the shingle roof and which sides
 are drawn dashed are the map's.
 **How to resolve:** a photograph of the alley behind 1834-1900 Prairie, or a building permit for the shed, entered
