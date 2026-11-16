@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3039, ts: '2026-11-16T18:25:15.236Z', date: 'Nov 16, 2026, 12:25 PM CT', title: 'Houses no longer load in plain white when a texture drops', kind: 'fix',
+    items: [
+      'A house\'s stone, brick and roof pictures are shared files, and one that failed to download used to leave its walls and roof flat white until you reloaded the page. 1904 on 16 November showed it at Glessner and its neighbours.',
+      'Each picture is now asked for up to four times, and a house that still lacks one is read again twice before the town opens.',
+      'If a picture still never arrives, the town tells you on the way in and suggests a reload, instead of standing there in white stone.',
+    ] },
   { v: 3038, ts: '2026-11-16T18:16:36.701Z', date: 'Nov 16, 2026, 12:16 PM CT', title: 'The Today window stands where you stand, in every year', kind: 'fix',
     items: [
       'By Fort Dearborn the Today window looked out from a boat near the river\'s north bank. It now opens on the Michigan Avenue bridge\'s south half, over the fort\'s old north end.',
