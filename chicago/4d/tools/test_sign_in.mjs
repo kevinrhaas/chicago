@@ -4,7 +4,7 @@
 // Firestore rules allow.
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { configured, gateMode, validEmail, signInGate, offered, manualLabel, methodOf, AUTH_ERRORS } from '../renderers/web/js/sign-in.js';
+import { configured, gateMode, validEmail, signInGate, offered, manualLabel, methodOf, AUTH_ERRORS, showAccount } from '../renderers/web/js/sign-in.js';
 import { entryWrites, fromFields, deviceClass, autoId } from '../renderers/web/js/visitor-store.js';
 import { SIGN_IN } from '../renderers/web/js/sign-in-config.js';
 
@@ -60,6 +60,26 @@ for (const bad of ['', 'nope', 'a@b', 'a b@c.com', '@example.com', `${'x'.repeat
   const open = await signInGate({ year: '1904', gate: {}, config: on, loc: { hostname: 'chicago.polecat.live', search: '' }, nav: {}, storage: null });
   console.warn = warn;
   assert.equal(open.how, 'fail-open', 'a Firebase that cannot start lets the visitor in');
+}
+
+// T-3603: the About tab's account line and its Sign out.
+{
+  const els = {};
+  const node = () => ({ hidden: true, textContent: '', disabled: false, onclick: null });
+  for (const id of ['s-account', 's-account-who', 's-account-how', 's-sign-out']) els[id] = node();
+  const doc = { getElementById: id => els[id] || null };
+  assert.equal(showAccount(doc, null), false);
+  assert.equal(els['s-account'].hidden, true, 'nobody signed in: no account line');
+  assert.equal(showAccount({ getElementById: () => null }, { email: 'a@b.co' }), false, 'a page without the row is left alone');
+  let out = 0, reloaded = 0;
+  assert.equal(showAccount(doc, { email: 'a@b.co', method: 'microsoft', signOut: async () => { out++; } }, { reload: () => { reloaded++; } }), true);
+  assert.equal(els['s-account'].hidden, false);
+  assert.equal(els['s-account-who'].textContent, 'a@b.co');
+  assert.equal(els['s-account-how'].textContent, 'with Microsoft');
+  await els['s-sign-out'].onclick();
+  assert.equal(out, 1, 'Sign out ends the session');
+  assert.equal(reloaded, 1, 'and reloads, so the gate asks again');
+  assert.equal(els['s-sign-out'].disabled, true, 'one press');
 }
 
 // What it writes matches the rules' field lists.

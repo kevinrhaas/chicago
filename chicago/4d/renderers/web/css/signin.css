@@ -144,3 +144,9 @@
 @media (max-width: 420px) {
   .signin { padding: 14px 12px 12px; gap: 10px; }
 }
+
+/* T-3603: "Signed in as … · Sign out" on the Settings card's About tab. A long address
+   wraps instead of pushing the button off a phone. */
+.account-row .account-who { min-width: 0; overflow-wrap: anywhere; line-height: 1.4; }
+.account-row #s-account-how { color: var(--ink-dim); }
+.account-row .setting-button { flex: none; }
