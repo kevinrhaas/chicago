@@ -55,6 +55,7 @@ export function actionStyle(action) {
   if (action.id === 'go_home') return { icon: 'Neighbors', tone: 'return', order: 2 };
   if (action.id === 'greet') return { icon: 'greet', tone: 'social', order: 0 };
   if (action.id === 'tale') return { icon: 'story', tone: 'social', order: 0 };
+  if (action.id === 'ask') return { icon: 'chat', tone: 'social', order: 0 };
   const text = `${action.label ?? ''} ${action.detail ?? ''}`;
   if (/chat|talk|discuss|conversation/i.test(text)) return { icon: 'chat', tone: 'social', order: 0 };
   if (/garden|plant|flower/i.test(text)) return { icon: 'garden', tone: 'task', order: 0 };

@@ -75015,8 +75015,20 @@
           "text": "voices (the ElevenLabs narration costs money and waits for the owner's go-ahead; the teller's mouth moves while the card is open); anything told past its scene's date; in 1812, any blow, shot or wound told graphically (the student rule); invented ceremony presented as attested, for the Potawatomi, Miami and Ottawa tellers."
         },
         {
+          "label": "Ask a question and personalities (the same day)",
+          "text": "the owner, 2026-11-16: *\"add ask a question to everyone and give 5 different options for everyone... allow one or two follow on questions\"*, then *\"Give everyone a unique personality as well their words and perspectives are driven from their history... the kinds of perspectives and language and story would be related to the kinds of things they would discuss with you.\"* About 350 questions with their answers and one or two follow-ups each, in the research notes on asks, built into the same the <scene> data. Every figure gets two temperaments (from asks-3553/the tempers file, weighted by their roles and picked by a hash of their id), three topics they talk about (from their roles, their age, how lately they came, and their temperament), and a line of who they are, read only from their record (band and clan, origin, trade, year of arrival, household, birthplace in the 1900 census); named people's are written by hand in asks-3553/<scene>/the personas file from their own records and stories. The temperament's lines say how a person comes to an answer (\"She looks you over before she answers.\"); they are said of the person, never put in their mouth. The topics lean which questions and stories a person offers."
+        },
+        {
+          "label": "Not invented, there",
+          "text": "the who-line (each part is a field of the person's record); the events the answers speak of (the same as the stories', and in 1904 also the St. Louis fair, the war in Manchuria, the Glessner house and its household, the bronze at Eighteenth Street and its subject)."
+        },
+        {
+          "label": "Liberties, there",
+          "text": "every answer is reconstructed like the stories; a temperament is assigned, not known, for anyone without a hand-written persona: it is believable for their life, not a claim about their character."
+        },
+        {
           "label": "Re-opens on",
-          "text": "a record of a person's own words or life that a story contradicts (that story is rewritten or withdrawn); a role drawn in town with too few stories (the tales test names it); the camp children of 1835 being drawn, whose three stories wait for them."
+          "text": "a record of a person's own words or life that a story contradicts (that story is rewritten or withdrawn); a role drawn in town with too few stories or questions (the tales test names it); the camp children of 1835 being drawn, whose three stories wait for them; a person's character attested in a record, which then replaces the assigned temperament."
         },
         {
           "label": "Recorded",
