@@ -44407,7 +44407,7 @@ goods are hung (K01 hangs none on a gable roof).
 centre 0.15 m before the wall's face, so it stands 2.15 m proud where the sheet's bow stands about 1.3 m: a smaller tower
 would no longer fill the photograph's width. Its roof is one plain cone where the photograph shows two stages
 (a flared skirt, a ledge and a steeper upper cone): K08 cannot flare a tower's cone yet, and T-3616 builds it.
-The door is the kit's round-arched double door with its arch glazed, where the photograph shows a transom
+The turret's top band carries three small lights on the part of the round the photograph sees, where the Reid plate shows more round its south side: K08's triangle budget for one tower holds no more. The door is the kit's round-arched double door with its arch glazed, where the photograph shows a transom
 bar and a single leaf. The dormer is a plain face with one sash at the contract's shortest (1.5 m), about
 0.25 m taller than the photograph's deep hood over a recessed light. The door stands at 1.4 m along the front
 (the photograph's 1.35 m) so its voussoirs keep the kit's 0.25 m off the corner. The sheet's small frame bay on
