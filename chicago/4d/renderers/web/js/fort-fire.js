@@ -633,7 +633,7 @@ export function createFortFire({ parent, buildings, groundAt = () => 0, extras =
     const ground = Math.max(bb.min.y, groundAt(cx, cz) - 0.3);
     const ext = extras(id).map((o) => ({ o, matrix: o.matrix.clone(), auto: o.matrixAutoUpdate }));
     const lo = Math.min(...pieces.map((p) => p.cy)), hi = Math.max(...pieces.map((p) => p.cy));
-    for (const p of pieces) p.rank = hi > lo ? (p.cy - lo) / (hi - lo) : 0.5; // 1 the roof's ridge, 0 the sills
+    for (const p of pieces) p.hfrac = hi > lo ? (p.cy - lo) / (hi - lo) : 0.5; // 1 the roof's ridge, 0 the sills
     const b = { id, kind: PICKET_LIKE.test(id) ? 'pickets' : kind, pieces, extras: ext, box: bb, ground, lit: null, from: null,
       emitters: [], heap: null, fallStart: Infinity, down: 0, char: 0, heat: 0, name: nameOf(id), rnd: stream(`burn:${id}`) };
     b.emitters = kind === 'stands' ? [] : emittersFor(b, b.rnd);
@@ -678,8 +678,8 @@ export function createFortFire({ parent, buildings, groundAt = () => 0, extras =
       // Blackened from where it caught, the roof last; the magazine only smoked.
       let c;
       if (b.kind === 'stands') c = b.char;
-      else c = t < 0 ? 0 : smooth((t - 4 - p.rank * 10) / ((b.involved ?? 20) * 0.6 + 18));
-      const k = b.kind === 'stands' ? 0 : smooth(fallT * 1.15 - (1 - p.rank) * 0.25);
+      else c = t < 0 ? 0 : smooth((t - 4 - p.hfrac * 10) / ((b.involved ?? 20) * 0.6 + 18));
+      const k = b.kind === 'stands' ? 0 : smooth(fallT * 1.15 - (1 - p.hfrac) * 0.25);
       if (p.paint && Math.abs(c - (p.c ?? -1)) > 0.004) {
         p.c = c;
         col.copy(p.paint).lerp(col2.copy(p.paint).multiply(b.kind === 'stands' ? SOOT : CHAR), c);
