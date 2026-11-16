@@ -692,6 +692,10 @@ step "The 1812 crossing boats are what their layer writes: on dry banks, afloat 
   python3 tools/lay_crossing_boats_1812.py --check
 step "Every 1812 boat builds, rests bow up the bank, and carries a visitor across and back with no jump, and the wharf's deck sits on its crib (T-3510)" \
   node tools/test_crossings.mjs
+step "The vessels' rows are what their layer writes: the 1835 schooners of the Marine Journal and the 1812 boats, berthed in their own water clear of piers and the draw, the harbour loop sailable (T-3612)" \
+  python3 tools/lay_vessels.py --check
+step "Every vessel kind builds and rigs, the boom clears the helmsman, the helm's rule stops a schooner at a pier, the draw and the bank, crews' vessels sail by day, rest at night and lie up in winter, and the visitor takes the helm and goes ashore (T-3612)" \
+  node tools/test_vessels.mjs
 step "A seated driver breathes, looks round and holds his reins, bounded and deterministic, on the real 1904 driver (T-1790)" \
   node tools/test_driver_life.mjs
 step "People on foot breathe, shift weight with feet planted, look at a close visitor and blink irregularly, bounded and deterministic (T-3402)" \
