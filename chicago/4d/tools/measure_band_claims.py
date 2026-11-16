@@ -260,6 +260,37 @@ def records() -> list[dict]:
     return out
 
 
+REFERENCE_VIEWS = ROOT / "data" / "reference_views"
+
+
+def drawn_views() -> dict[str, set[str]]:
+    """Per documentary source, the records a MATCHED reference view renders against it.
+
+    T-3605. A record that carries `reconstruction.drawn` was built to a drawing, and a
+    value whose own `sources` names that drawing is the drawing's, not an invention
+    defended by the family band: the defence is the image gate (AGENTS.md rule 11), so
+    the value is exempt here only while a reference view on that same source renders
+    the record and its match file says "matches". Anything less and nothing is exempt.
+    """
+    out: dict[str, set[str]] = collections.defaultdict(set)
+    for view in sorted(REFERENCE_VIEWS.glob("*/*.json")):
+        if view.name.endswith(".match.json"):
+            continue
+        match = view.with_name(view.stem + ".match.json")
+        if not match.exists():
+            continue
+        try:
+            doc = json.loads(view.read_text(encoding="utf-8"))
+            verdict = json.loads(match.read_text(encoding="utf-8")).get("verdict")
+        except (OSError, ValueError):
+            continue
+        if verdict != "matches" or not doc.get("source_id"):
+            continue
+        members = {doc.get("structure_id")} | set(doc.get("also_render") or [])
+        out[doc["source_id"]] |= {m for m in members if m}
+    return out
+
+
 def cited_family(note: str | None) -> str | None:
     m = CITES_BAND_RE.search(note or "")
     return m.group(1) if m else None
@@ -277,6 +308,9 @@ def measure() -> dict:
     prose_total = collections.Counter()
     layers = collections.Counter()
     mismatched_citation = []
+    drawn = collections.Counter()
+    unmatched_drawn: list[dict] = []
+    matched = drawn_views()
 
     def fail(doc, field, value, band, detail, marginal=False):
         findings.append({
@@ -297,8 +331,21 @@ def measure() -> dict:
         if band is None:
             mismatched_citation.append((doc["id"], fam, "no such family in the crosswalk"))
             continue
+        drawn_src = (doc["reconstruction"].get("drawn") or {}).get("source_id")
+        if drawn_src and doc["id"] not in matched.get(drawn_src, set()):
+            unmatched_drawn.append({"id": doc["id"], "source_id": drawn_src})
+            drawn_src = None
+
+        def is_drawn(value) -> bool:
+            return bool(drawn_src) and isinstance(value, dict) \
+                and drawn_src in (value.get("sources") or [])
+
         for phase in doc.get("phases", []):
             foot = phase.get("footprint") or {}
+            # An outline may not cite a retrospective (validate.py's evidence ladder), so
+            # a drawn store's footprint carries no source; its frontage is still the
+            # drawing's, which the record's own `drawn` block says.
+            foot_drawn = bool(drawn_src)
             poly = foot.get("polygon")
             note_fam = cited_family(foot.get("note"))
             if note_fam and note_fam != fam:
@@ -314,7 +361,11 @@ def measure() -> dict:
                 lo_w, lo_d, hi_w, hi_d = band["footprint_ft"]
                 bad = []
                 over = 0.0
-                if not (lo_w - EPS_FT <= width_ft <= hi_w + EPS_FT):
+                # A drawn front gives the frontage and nothing else: the depth of a
+                # drawn store is still ours, so it is still asked of the band.
+                if foot_drawn:
+                    drawn["footprint_width"] += 1
+                if not foot_drawn and not (lo_w - EPS_FT <= width_ft <= hi_w + EPS_FT):
                     bad.append(f"{width_ft:.2f} ft wide against {lo_w}-{hi_w}")
                     over = max(over, lo_w - width_ft, width_ft - hi_w)
                 if not (lo_d - EPS_FT <= depth_ft <= hi_d + EPS_FT):
@@ -327,8 +378,12 @@ def measure() -> dict:
 
             form = phase.get("form") or {}
 
+            for field in ("wall_height_m", "roof_pitch_deg", "stories", "loft", "roof_type"):
+                if is_drawn(form.get(field)):
+                    drawn[field] += 1
+
             wall = form.get("wall_height_m")
-            if isinstance(wall, dict) and band["eave_ft"]:
+            if isinstance(wall, dict) and band["eave_ft"] and not is_drawn(wall):
                 checked["eave"] += 1
                 note_fam = cited_family(wall.get("note"))
                 if not note_fam:
@@ -344,7 +399,7 @@ def measure() -> dict:
                          f"{over:+.2f} ft outside", marginal=over <= 1.0)
 
             pitch = form.get("roof_pitch_deg")
-            if isinstance(pitch, dict) and band["pitch_deg"]:
+            if isinstance(pitch, dict) and band["pitch_deg"] and not is_drawn(pitch):
                 checked["pitch"] += 1
                 note_fam = cited_family(pitch.get("note"))
                 if not note_fam:
@@ -367,7 +422,7 @@ def measure() -> dict:
                          marginal=over_rise <= 1.0)
 
             roof_type = form.get("roof_type")
-            if isinstance(roof_type, dict) and band["roof"]:
+            if isinstance(roof_type, dict) and band["roof"] and not is_drawn(roof_type):
                 checked["roof_type"] += 1
                 value = str(roof_type["value"]).lower()
                 if value and value not in band["roof"].lower():
@@ -376,7 +431,8 @@ def measure() -> dict:
             levels_band = band["levels"]
             storeys = form.get("stories")
             loft = form.get("loft")
-            if levels_band and (isinstance(storeys, dict) or isinstance(loft, dict)):
+            if levels_band and (isinstance(storeys, dict) or isinstance(loft, dict)) \
+                    and not (is_drawn(storeys) or is_drawn(loft)):
                 lo, ceiling, raw = levels_band
                 has_loft = bool(loft["value"]) if isinstance(loft, dict) else False
                 if isinstance(storeys, dict):
@@ -430,6 +486,8 @@ def measure() -> dict:
         "mismatched_citation": mismatched_citation,
         "false_citations": false_citations,
         "unclassified": unclassified,
+        "drawn": dict(drawn),
+        "unmatched_drawn": unmatched_drawn,
     }
 
 
@@ -473,6 +531,10 @@ def census(result: dict, verbose: bool = True) -> None:
 
     if result["uncited"]:
         print(f"\n   values tested whose note cites NO band: {result['uncited']}")
+    if result["drawn"]:
+        print(f"\n   values read off a drawing a matched reference view renders the "
+              f"record against, so the image gate defends them, not the band "
+              f"(T-3605): {result['drawn']}")
     if result["mismatched_citation"]:
         print("\n   notes citing a family that is not the record's own:")
         for row in result["mismatched_citation"]:
@@ -557,7 +619,16 @@ def main() -> int:
                 print(f"     {row['id']}: {row['field']} ({row['family']})")
             if len(bad) > 20:
                 print(f"     ... and {len(bad) - 20} more")
-        return 1 if (bad or unclassified) else 0
+        # T-3605's exemption is only as good as the view behind it.
+        lost = result["unmatched_drawn"]
+        if lost:
+            print(f"\n   DRAWN WITHOUT A MATCH: {len(lost)} record(s) say they were built "
+                  f"to a drawing that no reference view with a \"matches\" verdict renders "
+                  f"them against. Nothing on them is exempt; render them in the view "
+                  f"(also_render) and judge it, or drop reconstruction.drawn.")
+            for row in lost[:20]:
+                print(f"     {row['id']}: {row['source_id']}")
+        return 1 if (bad or unclassified or lost) else 0
 
     if args.strict:
         census(result, verbose=not args.quiet)

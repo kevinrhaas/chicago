@@ -12,6 +12,68 @@
       "passed": 95,
       "failed": 0,
       "failures": [],
+      "wallSeconds": 395,
+      "takenAt": "2026-11-15T21:38:04.255Z",
+      "ref": "claude/project-thread-tboyxt",
+      "commit": "91beb33d49b0",
+      "devCommit": "1af892408347",
+      "treeHash": "sha256:ba8a05067fb48ed2",
+      "treeDirty": false,
+      "changelogHash": "sha256:5e75e69e750e4b66",
+      "host": {
+        "kind": "local",
+        "cpus": 4,
+        "memGB": 15.7,
+        "loadavg": [
+          4.1,
+          3.7,
+          3.2
+        ]
+      },
+      "source": "/tmp/claude-0/-home-user/804a41b9-7861-5927-9008-fcfed3b34509/scratchpad/smoke_d1.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 126,
+      "takenAt": "2026-11-15T21:38:04.138Z",
+      "ref": "claude/project-thread-tboyxt",
+      "commit": "91beb33d49b0",
+      "devCommit": "1af892408347",
+      "treeHash": "sha256:ba8a05067fb48ed2",
+      "treeDirty": false,
+      "changelogHash": "sha256:5e75e69e750e4b66",
+      "host": {
+        "kind": "local",
+        "cpus": 4,
+        "memGB": 15.7,
+        "loadavg": [
+          4.1,
+          3.7,
+          3.2
+        ]
+      },
+      "source": "/tmp/claude-0/-home-user/804a41b9-7861-5927-9008-fcfed3b34509/scratchpad/smoke_m1.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
       "wallSeconds": 390,
       "takenAt": "2026-11-13T03:54:09.320Z",
       "ref": "claude/project-thread-jswhhl",
@@ -1656,62 +1718,6 @@
         "note": "GitHub-hosted ubuntu-latest; hardware/load not recovered from job log"
       },
       "source": "https://github.com/kevinrhaas/chicago/actions/runs/42851675727/job/129953742674"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1-2",
-      "parts": [
-        1,
-        2
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 198,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 706,
-      "takenAt": "2026-11-10T16:09:19.3660272Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "3438c7c74fd1",
-      "devCommit": "b9a87a9a4ac1",
-      "treeHash": "sha256:021a56065f497ab4",
-      "treeDirty": true,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42851675727/job/129953743171"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "5-6",
-      "parts": [
-        5,
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 41,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 709,
-      "takenAt": "2026-11-10T16:09:19.3472146Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "3438c7c74fd1",
-      "devCommit": "b9a87a9a4ac1",
-      "treeHash": "sha256:021a56065f497ab4",
-      "treeDirty": true,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42851675727/job/129953743502"
     }
   ]
 }

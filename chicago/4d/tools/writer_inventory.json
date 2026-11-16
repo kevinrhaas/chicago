@@ -2288,6 +2288,13 @@
       "finding": "Reproduces: the write mode rewrote all five settled outputs (mtime advanced), with identical SHA-256 for every file. Check and self-test modes were independently measured to write nothing in-tree. The complete 169-step manifest proof also exercised this writer.",
       "placed": "Immediately after canal_approach_occupancy and before compile_businesses/reconcile_665/compile_scene; geometry and occupants therefore precede downstream scene readers."
     },
+    "generate_gifford_street_faces.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-11-15",
+      "finding": "Reproduces: run bare twice on the T-3605 tree it rewrote its nineteen recon_1835_gifford_* records with identical SHA-256; --check and --self-test write nothing in-tree.",
+      "placed": "Immediately after generate_canal_approach_trade and before compile_businesses/reconcile_665/compile_scene; it writes structure records only, which those read."
+    },
     "place_landing_camps_1835.py": {
       "placement": "pending",
       "write_mode": "(bare)",
@@ -2404,6 +2411,13 @@
       "measured": "2026-11-15",
       "finding": "Reproduces: two bare writes on the tree rewrote data/humans/inside_1835.json, data/humans/doors_1835.json, data/humans/variation/dress_1835_town.json and data/humans/variation/looks_1835_town.json with identical bytes (SHA-256 of all four unchanged, git status unchanged). Each of the four cut to its first 5000 bytes failed --check and was restored byte for byte by the bare write; the tool never reads its own inside_1835.json (derive_doors_scene.wheres(scene, inside_file=False)), so a damaged one does not stop it.",
       "placed": "Follows compile_scene.py (data/sidecars/1835/people.json), house_the_present_1835.py (the housing seats), the business register (data/businesses/) and every 1835 model the doors are read off; precedes derive_doors_scene.py --check (which reads the homes and places of business back out of inside_1835.json) and human_variation_kit.py (looks and dress into hm08_variation_persons_1835.json). These ordering edges are not yet in the full rederive manifest."
+    },
+    "build_tales.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-16",
+      "finding": "Reproduces: two bare writes on the tree rewrote data/tales/1812.json, data/tales/1835.json and data/tales/1904.json with identical bytes (the SHA-256 of all 22008 tracked and untracked files unchanged, git status unchanged). data/tales/1835.json cut to its first 5000 bytes failed --check and was restored byte for byte by the bare write. The tool never reads its own outputs.",
+      "placed": "Follows compile_scene.py (data/sidecars/<scene>/people.json), the household files (data/residents*/households), town_people_1835.py (data/humans/inside_1835.json) and every tool that writes data/humans/instances/<scene> or data/humans/inside_<scene>.json, whose drawn people it reads as the tellers; reads its stories from docs/RESEARCH/tales-3553. Nothing reads its outputs at build time. These ordering edges are not yet in the full rederive manifest."
     }
   }
 }
