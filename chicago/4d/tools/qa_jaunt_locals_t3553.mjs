@@ -5,7 +5,7 @@
 // by stop, Straight there, and at each stop waits QA_WAIT_S seconds and counts the people out about
 // the stand (drawn, not held, not indoors, within JAUNT_LOCALS.r_m), staged castmates apart. A stop
 // with no stage or hosts must show at least one. Pictures of QA_SHOTS stops (comma list of
-// "<jaunt>:<index>", or "all"). A JSON report beside them.
+// "<jaunt>:<index>", or "all"); QA_FROM skips the stops before it. A JSON report beside them.
 //   QA_SCENE=1835 QA_JAUNTS=news-before-breakfast node tools/qa_jaunt_locals_t3553.mjs
 //   QA_DESKTOP=1 QA_OUT=/tmp/x ...
 import fs from 'node:fs';
@@ -19,7 +19,7 @@ const out = process.env.QA_OUT || path.join(os.tmpdir(), 'jaunt-locals-3553');
 fs.mkdirSync(out, { recursive: true });
 const SCENE = process.env.QA_SCENE || '1835';
 const JAUNTS = (process.env.QA_JAUNTS || 'news-before-breakfast').split(',').filter(Boolean);
-const SHOTS = (process.env.QA_SHOTS || '').split(',').filter(Boolean);
+const SHOTS = (process.env.QA_SHOTS || '').split(',').filter(Boolean), FROM = Number(process.env.QA_FROM) || 0;
 const WAIT_S = Number(process.env.QA_WAIT_S) || 150, desktop = !!process.env.QA_DESKTOP, BOOT_MS = Number(process.env.QA_BOOT_MS) || 1500000;
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.json': 'application/json',
   '.png': 'image/png', '.jpg': 'image/jpeg', '.glb': 'model/gltf-binary', '.svg': 'image/svg+xml', '.wasm': 'application/wasm', '.ktx2': 'image/ktx2',
@@ -54,6 +54,8 @@ const about = () => page.evaluate(() => {
   const hosts = (c.jauntHosts?.active ?? []).length;
   return { stop: stop?.id ?? null, phase: s.phase, locals: !!area, kind: stop?.stage?.cast?.length ? 'stage' : stop?.hosts?.length ? 'hosts' : 'plain',
     town: town.length, drawn: drawn.length, staged: staged.length, hosts,
+    // T-3554: nobody stands on a stair (walking up or down one is how a door is reached).
+    onStairs: drawn.filter((a) => a.state !== 'walking' && c.houseBarriers?.near?.(a.e, a.n, 0.35)).map((a) => a.person?.name ?? a.id),
     who: drawn.slice(0, 8).map((a) => `${a.person?.name ?? a.personId ?? a.id}${a.state ? ` (${a.state})` : ''}`),
     hour: c.timeOfDay?.hour ?? null };
 });
@@ -90,6 +92,7 @@ try {
         if (!moved) break;
         if (await waitPhase(['atStop', 'outcome']) === 'outcome') break;
       }
+      if (i < FROM) continue; // QA_FROM: on past the stops before it without waiting
       // Frames are slow here (a few a second at best), and the people's clock runs on frames:
       // wait up to WAIT_S for a plain stop's people to come out.
       let row;
@@ -117,6 +120,7 @@ try {
       report.stops.push(row);
       console.log(JSON.stringify(row));
       if (row.kind === 'plain' && !row.drawn) fail.push(`${id} stop ${i} (${row.stop}): nobody about the stand`);
+      if (row.onStairs?.length) fail.push(`${id} stop ${i} (${row.stop}): standing on a stair: ${row.onStairs.join(', ')}`);
       if (SHOTS.includes('all') || SHOTS.includes(`${id}:${i}`)) {
         await page.evaluate(() => { const p = document.querySelector('.jaunt-panel'); p?.classList.add('qa-folded'); });
         await shot(`${id}-${i}`);

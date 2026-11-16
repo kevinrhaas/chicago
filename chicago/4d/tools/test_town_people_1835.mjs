@@ -84,14 +84,14 @@ function actorOf(entry, door) {
   };
   return a;
 }
-function town({ hour, visitor, residentsNear = 4 }) {
+function town({ hour, visitor, residentsNear = 4, standClear = null }) {
   const actors = [];
   const humans = { actors, shown: true };
   const ix = createInteractions();
   const built = [];
   const problems = [];
   const life = createHumanDays({ humans, three, hour: () => hour.at, date: () => SUMMER, doors, interactions: ix,
-    visitor: () => visitor.at, inside: expandInside(structuredClone(raw)), residentsNear, problems,
+    visitor: () => visitor.at, inside: expandInside(structuredClone(raw)), residentsNear, problems, standClear,
     spawn(entry, door) { const a = actorOf(entry, door); actors.push(a); built.push(entry.person); return a; },
     despawn(a) { const i = actors.indexOf(a); if (i >= 0) actors.splice(i, 1); } });
   const step = (n, dt = 0.1) => { for (let i = 0; i < n; i++) {
@@ -177,7 +177,11 @@ const homeHour = wDay.spans.find((s) => s.indoors && s.where === worker.home && 
   const homes = new Set(inside.people.map((e) => e.home));
   const near = (p) => steps.filter((q) => homes.has(q.structure) && Math.hypot(q.e - p.e, q.n - p.n) < JAUNT_LOCALS.door_m).length;
   const stand = steps.reduce((best, p) => (near(p) > near(best) ? p : best), steps[0]);
-  const run = () => town({ hour: { at: 3 }, visitor: { at: { e: stand.e + 4, n: stand.n } }, residentsNear: 4 });
+  // The town's stoops and mounting blocks: nobody called out stands on one (T-3554).
+  const { createHouseBarriers, BARRIER_STAND_M } = await import('../renderers/web/js/house-barriers.js');
+  const barriers = createHouseBarriers([...doors.structures, ...(doors.barriers ?? [])].filter((r) => r?.barrier));
+  const standClear = (q) => barriers.clearOf(q.e, q.n, BARRIER_STAND_M);
+  const run = () => town({ hour: { at: 3 }, visitor: { at: { e: stand.e + 4, n: stand.n } }, residentsNear: 4, standClear });
   for (const [label, area] of [['staged', null], ['plain', { e: stand.e + 4, n: stand.n, r: JAUNT_LOCALS.r_m, structure: stand.structure }]]) {
     const t = run();
     const humans = t.humans;
@@ -192,6 +196,8 @@ const homeHour = wDay.spans.find((s) => s.indoors && s.where === worker.home && 
     for (const a of out) {
       assert(!/(^|_)(child|boy|girl|toddler)(_|$)/.test(a.instance.appearance.asset_id ?? ''), `${a.person.name}: an adult is called out`);
       assert(Math.hypot(a.e - area.e, a.n - area.n) <= area.r, `${a.person.name} stays about the stand`);
+      const first = a.walks.find((w) => w.length)?.at(-1);
+      assert(first && !barriers.near(first[0], first[1], BARRIER_STAND_M), `${a.person.name} comes out to a place clear of any stoop`);
     }
     const offers = t.ix.actionsOf(t.ix.get(`person:${out[0].id}`)).map((x) => x.id);
     assert(offers.includes('greet'), `one called out can be greeted (${offers})`);
@@ -199,7 +205,7 @@ const homeHour = wDay.spans.find((s) => s.indoors && s.where === worker.home && 
   // A stand with no door near it: those called out from further off walk an errand toward it.
   {
     const far = { e: stand.e + 45, n: stand.n, r: JAUNT_LOCALS.r_m, structure: null };
-    const t = town({ hour: { at: 3 }, visitor: { at: { e: far.e, n: far.n } }, residentsNear: 4 });
+    const t = town({ hour: { at: 3 }, visitor: { at: { e: far.e, n: far.n } }, residentsNear: 4, standClear });
     const humans = t.humans;
     humans.crowdKept = []; humans.crowdArea = far;
     humans.keeps = (id, e, n) => Number.isFinite(e) && Math.hypot(e - far.e, n - far.n) <= far.r;

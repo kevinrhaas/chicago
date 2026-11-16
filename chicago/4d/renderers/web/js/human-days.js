@@ -1782,7 +1782,10 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     const step = pt(door.step), away = dist(step, about);
     const out = Number.isFinite(door.outward_deg) ? door.outward_deg : bearing(about.e - step.e, about.n - step.n);
     const rad = (out * Math.PI) / 180;
-    let at = { e: step.e + Math.sin(rad) * 2.2, n: step.n + Math.cos(rad) * 2.2 };
+    // Out from the door until clear of its stoop (nobody stands on a stair), else the nearest clear.
+    const outBy = (d) => ({ e: step.e + Math.sin(rad) * d, n: step.n + Math.cos(rad) * d });
+    let at = outBy(2.2);
+    for (let d = 2.2; d <= 9; d += 0.5) { const q = outBy(d); if (!standClear || !standClear(q)) { at = q; break; } }
     const clearAt = standClear?.(at);
     if (clearAt && Number.isFinite(clearAt.e)) at = clearAt;
     if (away <= JAUNT_LOCALS.by_door_m) {
