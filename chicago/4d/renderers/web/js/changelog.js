@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3021, ts: '2026-11-16T03:24:33.747Z', date: 'Nov 15, 2026, 9:24 PM CT', title: 'Sign out from Settings', kind: 'feature',
+    items: [
+      'Settings, About now shows who is signed in on this device.',
+      'Sign out there, and the next year asks you to sign in again.',
+    ] },
   { v: 3020, ts: '2026-11-16T02:39:57.945Z', date: 'Nov 15, 2026, 8:39 PM CT', title: '1912 Prairie\'s alley barn, under the hip and deck its map draws', kind: 'improvement',
     items: [
       'The brick barn behind 1912 Prairie Avenue, the Moulton house, now stands as the 1911 fire-insurance map draws it: 17.5 m along the alley and 10.4 m deep, two storeys, with a sash where the map marks a window. Before, it was a rough block of the wrong size.',
