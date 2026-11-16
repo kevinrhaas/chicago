@@ -675,12 +675,30 @@
       "tier_label": "period/eyewitness",
       "what_it_supplies": [
         "the front's storeys, openings, oriel, stoop and gable, and their heights and places along the front",
-        "the camera the image gate renders the house against (data/reference_views/mayer_house_2009_prairie/chicagology_photo.json)"
+        "the camera the image gate renders the house against (data/reference_views/mayer_house_2009_prairie/chicagology_photo.json)",
+        "2011 Prairie's front at the picture's right: its round-arched door, the cross window over it, the round turret's stages and lights, the dormer and the street slope (T-3615), through 2009's camera carried into 2011's frame (data/reference_views/house_2011_prairie/chicagology_photo.json)"
       ],
       "what_it_does_not_supply": [
         "a date closer than 1888-1911",
         "colour: the print is monochrome",
         "the rear, the roof behind the gable and most of the north flank"
+      ]
+    },
+    {
+      "source_id": "inland_architect_1895_02_reid_plate",
+      "citation": "'Residence of W. H. Reid, Chicago. Beers, Clay & Dutton, Architects.' Plate, The Inland Architect and News Record, vol. 25 no. 1 (February 1895); Inland Architect Press.",
+      "url": "https://archive.org/details/sim_inland-architect-and-news-record_1895-02_25_1/page/n28/mode/1up",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the composition of 2011's whole front, as a check on the Chicagology photograph, which shows only its left part: the door at the north end, the turret at the south, the dormer between",
+        "the turret's cone and finial seen whole"
+      ],
+      "what_it_does_not_supply": [
+        "measurements until its camera is solved (T-3616)",
+        "colour: the print is monochrome",
+        "the rear and the flanks"
       ]
     },
     {
