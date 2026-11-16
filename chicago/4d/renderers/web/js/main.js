@@ -95,7 +95,7 @@ import { createBoatPilot } from './boat-pilot.js';
 import { insideDeck } from './deck-surface.js';
 import { mountHumans } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
-import { createHumanDays, createDayRouter, clearWayOf } from './human-days.js';
+import { createHumanDays, createDayRouter, clearWayOf, JAUNT_LOCALS } from './human-days.js';
 import { createJauntHosts } from './jaunt-hosts.js';
 import { createJauntStage } from './jaunt-stage.js';
 import * as humanFight from './human-fight.js'; // the adults jaunts' weapons, motions and gun smoke
@@ -2378,6 +2378,12 @@ async function boot() {
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
     registerDoorPlans(doorsFile1904);
   }
+  // The owner, 2026-11-16 ("he is walking through stairs that block the door"): 1835's house
+  // models build their own front stoops (doors_1835.json `floor`s), climbed like 1904's below.
+  const doorsFile1835 = String(loaded.scene.id ?? YEAR) === '1835'
+    ? await fetch(new URL('humans/doors_1835.json', bases.dataBase), { cache: 'no-cache' })
+      .then((r) => (r.ok ? r.json() : null)).catch(() => null)
+    : null;
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     shadowCasters,
     preserveMaterials: inspectionLod,
@@ -3184,10 +3190,12 @@ async function boot() {
   houseDoors.adopt(api.backYards?.passages);
   // The owner, 2026-11-14: "Anywhere there are stairs I should be able to climb". Every 1904
   // house's stoop and porch tops, and the rails and cheeks beside them, as decks the walker
-  // climbs a tread at a time (house-floors.js); the back yards' stoops and 1835's street-front
-  // stoops and mounting blocks the same (back-yards.js, frontage.js `stairDecks`).
+  // climbs a tread at a time (house-floors.js); the stoops 1835's house models build at their
+  // doors the same (doors_1835.json); and the back yards' stoops and 1835's street-front
+  // stoops and mounting blocks (back-yards.js, frontage.js `stairDecks`).
   const stairDecks = [
-    ...floorDecks([...(doorsFile1904?.structures ?? []), ...(doorsFile1904?.barriers ?? [])],
+    ...floorDecks([...(doorsFile1904?.structures ?? []), ...(doorsFile1904?.barriers ?? []),
+      ...(doorsFile1835?.structures ?? []), ...(doorsFile1835?.barriers ?? [])],
       (id) => buildings.matrixOf(id)?.elements ?? null),
     ...(api.backYards?.stairDecks ?? []),
     ...(frontage.stairDecks ?? []),
@@ -4107,7 +4115,7 @@ async function boot() {
   if (['1812', '1835', '1904'].includes(daysScene)) {
     const getOptional = (rel) => fetch(new URL(rel, bases.dataBase), { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
-    const [doors, inside] = await Promise.all([getOptional(`humans/doors_${daysScene}.json`),
+    const [doors, inside] = await Promise.all([daysScene === '1835' && doorsFile1835 ? doorsFile1835 : getOptional(`humans/doors_${daysScene}.json`),
       // T-3556: and 1835's townspeople (tools/town_people_1835.py), each in and out of their home
       // and place of business by the hour.
       ['1812', '1835', '1904'].includes(daysScene) ? getOptional(`humans/inside_${daysScene}.json`) : null]);
@@ -5194,6 +5202,15 @@ async function boot() {
     let figure = api.humans?.pickAt(ndc, camera);
     const driver = api.townTransport?.pickDriverAt(ndc, camera);
     if (driver && (!figure || driver.distance < figure.distance)) figure = driver;
+    // T-3553: one of a jaunt stop's staged people turns to the visitor, greets and opens their card.
+    const staged = pickStaged(ndc);
+    if (staged && (!figure || staged.distance < figure.distance) && (!hit || staged.distance < hit.distance)) {
+      popup.close();
+      api.jauntStage.meet(staged, { e: walker.state.e, n: walker.state.n });
+      if (staged.personId) void openPersonCard(staged.personId);
+      else hud.say(staged.name);
+      return staged;
+    }
     if (figure && (!hit || figure.distance < hit.distance)) {
       popup.close();
       api.humans.select(figure);
@@ -5854,7 +5871,14 @@ async function boot() {
         // T-3495: the everyday people held out while a jaunt is on, but for those its stop
         // calls for; Settings › Show › People hidden stays hidden either way.
         crowd: {
-          hold: (ids) => { api.humans?.holdCrowd?.(ids); gateFrame.invalidate(); },
+          hold: (ids, { locals = null } = {}) => {
+            // T-3553: a stop with no stage or hosts keeps the people about its stand.
+            const target = locals ? resolveJaunt(locals.destination) : null;
+            const stand = target ? travel.destinationOf(target, { mode: 'walk', card: false }) : null;
+            const area = stand && Number.isFinite(stand.e) && Number.isFinite(stand.n)
+              ? { e: stand.e, n: stand.n, r: JAUNT_LOCALS.r_m, structure: target.kind === 'structure' ? target.id : null } : null;
+            api.humans?.holdCrowd?.(ids, { area }); gateFrame.invalidate();
+          },
           restore: () => { api.humans?.releaseCrowd?.(); gateFrame.invalidate(); },
         },
         // T-3525: the people who tell a stop come to their marks, turned to its stand.
@@ -6219,6 +6243,14 @@ async function boot() {
   // T-2627 (§10): the HUD's target tag and the quick column's Inspect key — the same probe,
   // within 40 m, after a 400 ms dwell. Both open Inspect through the Navigator's registry
   // (Inspect's own screen since T-2638/T-2639), handing it this target.
+  // T-3553: the staged castmate of a jaunt stop under `ndc` (the crosshair when null), or null.
+  const stageRay = new THREE.Raycaster();
+  function pickStaged(ndc = null) {
+    if (!api.jauntStage?.pick) return null;
+    stageRay.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
+    stageRay.far = 220;
+    return api.jauntStage.pick(stageRay);
+  }
   // T-3404: the tag (and only the tag) also names a person under the crosshair — a driver
   // on their box, a figure on the walk — nearer than the building behind them.
   const peopleLook = createPeopleLook({
@@ -6228,6 +6260,10 @@ async function boot() {
       let hit = api.humans?.pickAt?.(null, camera) ?? null;
       const driver = api.townTransport?.pickDriverAt?.(null, camera) ?? null;
       if (driver && (!hit || driver.distance < hit.distance)) hit = driver;
+      const staged = pickStaged();
+      if (staged?.personId && (!hit || staged.distance < hit.distance)) {
+        return { personId: staged.personId, distance: staged.distance, label: staged.name ?? personInTown(staged.personId)?.name ?? null };
+      }
       if (!hit?.personId) return null;
       return { personId: hit.personId, distance: hit.distance, label: hit.person?.name ?? personInTown(hit.personId)?.name ?? null };
     },

@@ -52,6 +52,13 @@
  *   release()                take every staged figure away
  *   update(dt)               one frame
  *   ids                      the person ids the stage plays now
+ *   pick(raycaster)          T-3553: the castmate a ray from the eye meets first, or null
+ *   meet(hit, visitor)       T-3553: one the visitor picked turns to them and greets, if free to
+ *
+ * The owner, 2026-11-16: "make sure there are interactive people". A castmate is picked as anyone
+ * of the town is: a person opens their own card, an unnamed figure says who it stands for. One
+ * standing free (not posed, armed, walking or talking) turns to the visitor and greets them; the
+ * scene's next beat takes them on as written.
  */
 
 export const PACES = Object.freeze({ walk: null, brisk: 1.75, hurry: 2.2, slow: 0.9 });
@@ -345,6 +352,27 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
   }
 
   const api = {
+    pick(raycaster) {
+      if (!raycaster || humans?.shown === false) return null;
+      const proxies = cast.filter((m) => m.actor.root.visible && m.actor.body && !m.actor.indoors && m.actor.proxy).map((m) => m.actor.proxy);
+      if (!proxies.length) return null;
+      parent?.updateMatrixWorld?.(true);
+      const hit = raycaster.intersectObjects(proxies, false)[0];
+      const m = hit && cast.find((x) => x.actor.proxy === hit.object);
+      if (!m) return null;
+      return { actor: m.actor, personId: m.c.person ?? null, person: m.actor.person ?? null,
+        name: m.c.person ? (m.actor.person?.name ?? null) : (m.c.name ?? 'An unnamed figure'), distance: hit.distance, point: hit.point };
+    },
+    meet(hit, visitor = null) {
+      const m = cast.find((x) => x.actor === hit?.actor);
+      if (!m) return false;
+      const a = m.actor;
+      const free = (a.posture?.kind ?? 'stand') === 'stand' && !a.path && !m.ride && (!m.arm || m.arm === 'none') && !a.actions?.talking;
+      if (!free) return false;
+      if (visitor && Number.isFinite(visitor.e)) a.turnTo?.(bearing(visitor.e - a.e, visitor.n - a.n));
+      a.actions?.greet?.();
+      return true;
+    },
     get ids() { return stageIds(stop); },
     get playing() { return playing; },
     get clock() { return clock; },

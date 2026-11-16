@@ -11,7 +11,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
-import { createJaunts, stopPeople } from '../renderers/web/js/jaunts.js';
+import { createJaunts, stopPeople, localsStop } from '../renderers/web/js/jaunts.js';
 
 const fixture = id => JSON.parse(fs.readFileSync(new URL(`../data/jaunts/_fixtures/fixture-${id}.json`, import.meta.url)));
 
@@ -22,12 +22,21 @@ assert.deepEqual(stopPeople({ people: ['a', 'b'], links: [{ kind: 'person', id: 
   ['a', 'b', 'c'], 'its own people first, then its person links, once each');
 console.log('PASS a stop calls for its own people and the people its cards link');
 
+// ---- T-3553 (the owner, 2026-11-16: "make sure there are people present ... in scene of jaunt
+// all eras"): a stop with no stage and no hosts keeps the town's own people about its stand.
+assert.equal(localsStop(null), null);
+assert.deepEqual(localsStop({ id: 'a' }), { id: 'a' }, 'a plain stop keeps its neighbourhood');
+assert.equal(localsStop({ id: 'b', stage: { cast: [{ person: 'x', at: [0, 0] }] } }), null, 'a staged stop is its own scene');
+assert.equal(localsStop({ id: 'c', hosts: [{ person: 'x', local_e: 1, local_n: 1 }] }), null, 'a hosted stop is told by its hosts');
+assert.deepEqual(localsStop({ id: 'd', stage: { cast: [] } }), { id: 'd', stage: { cast: [] } }, 'an empty stage plays nothing');
+console.log('PASS a stop with no stage or hosts keeps the town about it');
+
 // ---- the controller holds the crowd from the start to the end, stop by stop.
 const walk = structuredClone(fixture('walk'));
 walk.stops[0].people = ['peck_philip'];
 walk.stops[1].links = [...(walk.stops[1].links || []), { kind: 'person', id: 'kinzie_juliette', label: 'Juliette Kinzie' }];
-const calls = [];
-const crowd = { hold: ids => calls.push(['hold', [...ids]]), restore: () => calls.push(['restore']) };
+const calls = [], localsAsked = [];
+const crowd = { hold: (ids, o = {}) => { calls.push(['hold', [...ids]]); localsAsked.push(o.locals?.id ?? null); }, restore: () => calls.push(['restore']) };
 const rig = (extra = {}) => {
   const travel = { mode: 'walk', setMode(v) { this.mode = v; }, stop() {}, go() { return true; } };
   return createJaunts({ load: async () => walk, resolve: x => x, place: () => true, enter: () => true, travel,
@@ -38,6 +47,7 @@ const rig = (extra = {}) => {
   const c = rig();
   assert.equal(await c.start(walk.id), true);
   assert.deepEqual(calls, [['hold', ['peck_philip']]], 'held at the start, keeping the first stop\'s people');
+  assert.equal(localsAsked.at(-1), walk.stops[0].id, 'a plain stop asks for the people about it');
   c.next();   // travelling to the second stop: its people are the ones kept on the way in
   assert.deepEqual(calls.at(-1), ['hold', ['kinzie_juliette']]);
   const before = calls.length;
@@ -150,6 +160,25 @@ layer.holdCrowd([]);   // a stop that calls for nobody
 assert.equal(peck.root.visible, false);
 assert.equal(layer.pickAt(null, camera), null, 'nobody kept, nobody picked');
 
+// T-3553: a stop's neighbourhood: those within its reach stand, those beyond are held, and one
+// who walks in or out is drawn or held from the next frame.
+layer.holdCrowd([], { area: { e: 0, n: 0, r: 6, structure: 'x' } });
+assert.deepEqual(layer.crowdArea, { e: 0, n: 0, r: 6, structure: 'x' });
+assert.equal(layer.isHeld(soldier), false, 'within the stand\'s reach: about their day');
+assert.equal(layer.isHeld(peck), true, 'beyond it: held');
+assert.equal(peck.root.visible, false);
+assert.equal(layer.keeps('anyone', 1, 1), true); assert.equal(layer.keeps('anyone', 10, 10), false); assert.equal(layer.keeps('anyone'), false);
+layer.update(0.05, camera, { e: 0, n: 0 });
+assert.equal(soldier.root.visible, true);
+soldier.n = 9; layer.update(0.05, camera, { e: 0, n: 0 });
+assert.equal(soldier.root.visible, false, 'walked out of reach: held');
+soldier.n = 5; peck.n = 2; layer.update(0.05, camera, { e: 0, n: 0 });
+assert.equal(soldier.root.visible && peck.root.visible, true, 'walked back in: drawn again');
+layer.holdCrowd([]);   // the next stop is staged: nobody about it
+assert.equal(layer.crowdArea, null);
+assert.equal(soldier.root.visible || peck.root.visible, false);
+soldier.n = 5; peck.n = 8;
+
 layer.setShown(false);   // Settings > Show > People hidden, during the jaunt
 assert.equal(layer.releaseCrowd(), true);
 assert.equal(layer.releaseCrowd(), false, 'released twice is a no-op');
@@ -160,5 +189,7 @@ layer.update(0.05, camera);
 assert.equal(soldier.root.visible && peck.root.visible, true, 'everyone is back once the jaunt lets go');
 assert.equal(soldier.recheck, 0, 'released figures are rechecked on the next frame');
 assert.equal(layer.isHeld(soldier), false);
-console.log('PASS the human layer holds the crowd out (not drawn, advanced, met or picked), keeps the called-for and the drivers, and gives them back');
+assert.equal(layer.crowdArea, null);
+assert.equal(layer.keeps('anyone'), true, 'nobody held: everyone may be about');
+console.log('PASS the human layer holds the crowd out (not drawn, advanced, met or picked), keeps the called-for, the drivers and a stop\'s neighbourhood, and gives them back');
 console.log('JAUNT CROWD PASS');

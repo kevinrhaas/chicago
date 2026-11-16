@@ -190,6 +190,17 @@ export const BREAK = Object.freeze({ reach_m: 45, every_s: [150, 330], for_s: [2
  */
 export const OUTING = Object.freeze({ for_s: 420, followed_s: 45, own_min_m: 40 });
 /**
+ * T-3553 (the owner, 2026-11-16: "make sure there are people present and doing interactive works
+ * and daily activities and relevant actions and in scene of jaunt all eras"): at a jaunt stop
+ * with no stage or hosts of its own the town's people within r_m of its stand stay out about
+ * their day. Where fewer than min_full (min_light at the Light tier) are out, someone at home
+ * within door_m of the stand comes out for out_s, one each every_s (one still on their way out
+ * for coming_s counts as out), the stop's own building
+ * first: to work about their door when it is within by_door_m of the stand, else on an errand
+ * up the street to errand_m short of it and back.
+ */
+export const JAUNT_LOCALS = Object.freeze({ r_m: 70, min_full: 3, min_light: 2, door_m: 65, by_door_m: 25, errand_m: 12, out_s: 240, every_s: 2, coming_s: 20 });
+/**
  * T-3520: children (the owner, 2026-11-08, of the 1812 fort yard: "the kids should not be all
  * over the place", "occasionally there are kids together playing" but not "such a centerpiece";
  * "when so many kids and no parents they should leave and come out of the door"). A child goes
@@ -755,6 +766,11 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     return span?.indoors && !span.away && span.where === x.work ? x.work : x.home;
   };
   const isTheirs = (x, structure) => (x.home === structure || x.work === structure) && placeNow(x) === structure;
+  /** T-3495/T-3553: whether a jaunt lets `id` be about at `at` ({e, n}, or a door's step). */
+  const allows = (id, at = null) => {
+    const q = at ? pt(at) : null;
+    return humans.keeps ? humans.keeps(id, q?.e, q?.n) : (humans.crowdKept == null || humans.crowdKept.includes(id));
+  };
   const spawned = [];
   const byStructure = new Map();
   for (const s of doors?.structures ?? []) byStructure.set(s.structure, s);
@@ -1008,8 +1024,9 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   function ghostsAt(structure, doorId) {
     const today = date();
     const here = doorThings.filter((t) => t.structure === structure);
+    const step = here.find((t) => t.door.id === doorId)?.door.step ?? null;
     return [...insideOnly, ...householdCare].filter((x) => isTheirs(x, structure) && onDate(today, x.presence)
-      && (humans.crowdKept == null || humans.crowdKept.includes(x.person))
+      && allows(x.person, step)
       && !spanAt(dayOn(x, today, x.person), hour())?.away
       && !spawned.some((q) => q.entry === x) && doorOf(x, here) === doorId);
   }
@@ -1221,7 +1238,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       const entry = insideOnly.filter(x => x.person !== keyOf(p) && x.home === where && (!adult || !CHILD_RE.test(x.asset_id ?? ''))
         && (!supervised || p.entry.caregivers?.includes(x.person))
         && (!x.supervised || x.caregivers?.includes(keyOf(p)))
-        && (humans.crowdKept == null || humans.crowdKept.includes(x.person))
+        && allows(x.person, { e: p.actor.e, n: p.actor.n })
         && (!p.entry?.door || x.door === p.entry.door) && onDate(date(), x.presence)
         && !spanAt(dayOn(x, date(), x.person), hour())?.away
         && !spawned.some(m => m.entry === x))
@@ -1682,10 +1699,18 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   const rested = new Map();
   let residentsAt = 0;
   function stepResidents() {
-    if (!spawn || clock < residentsAt || humans.shown === false || humans.crowdKept != null || !visitor()) return;
+    // T-3553: a jaunt holding the town keeps those about a stop's stand (`crowdArea`), and they
+    // step out only while the visitor is there.
+    const about = humans.crowdKept != null ? (humans.crowdArea ?? null) : null;
+    if (humans.shown === false || (humans.crowdKept != null && !about) || !visitor()) return;
+    if (about && dist(visitor(), about) > about.r) return;
+    if (about) stepLocals(about);
+    if (!spawn || clock < residentsAt) return;
     residentsAt = clock + 5;
     for (const p of spawned) {
       if (p.autonomousUntil && clock >= p.autonomousUntil && !p.called && !p.social && !p.hosted && !p.override && !p.attending) restAfterTalk(p);
+      // Out beyond the stop's neighbourhood (where the jaunt holds them), they go home.
+      else if (about && !p.actor.indoors && !p.hosted && !p.social && !p.called && dist(p.actor, about) > about.r) restAfterTalk(p);
     }
     if (spawned.length >= residentsNear) return;
     const v = visitor();
@@ -1698,7 +1723,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       const span = spanAt(dayOn(entry, date(), entry.person), hour());
       const last = rested.get(entry.person);
       if (!span || span.indoors || span.away || !span.at || (last?.date === date() && last.span === span)) return false;
-      return dist(pt(span.at), v) < 45;
+      return dist(pt(span.at), v) < 45 && (!about || dist(pt(span.at), about) <= about.r);
     });
     // Stable per-person staggering, rotating among everyone eligible this hour.
     candidates.sort((a, b) => seededRandom(`resident:${date()}:${a.person}`)() - seededRandom(`resident:${date()}:${b.person}`)());
@@ -1713,6 +1738,88 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       if (p) { p.autonomousUntil = clock + 120; enter(p, spanAt(dayOn(p.b, date(), keyOf(p)), hour())); }
       break; // at most one figure built per five seconds
     }
+  }
+
+  // ── T-3553: a jaunt stop's neighbourhood is never empty ───────────────────────────
+  let localsAt = 0;
+  /** How many of the town are out, drawn and kept, within `about`'s reach. */
+  function outAbout(about) {
+    let n = 0;
+    for (const a of humans.actors ?? []) {
+      if (a.disposed || a.indoors || humans.isHeld?.(a) || held(a) || a.jauntStage) continue;
+      if (dist(a, about) <= about.r) n++;
+    }
+    return n;
+  }
+  /** Someone at home near the stand (the stop's own building first): an adult, free, in town. */
+  function localAtHome(about) {
+    const near = new Map();
+    for (const t of doorThings) {
+      const d = dist(pt(t.door.step), about);
+      if (d > JAUNT_LOCALS.door_m) continue;
+      const was = near.get(t.structure);
+      if (was == null || d < was) near.set(t.structure, d);
+    }
+    const order = [...near.keys()].sort((a, b) => Number(b === about.structure) - Number(a === about.structure) || near.get(a) - near.get(b));
+    for (const structure of order) {
+      const ids = [
+        ...people.filter((p) => p.actor.indoors && !CHILD_RE.test(p.actor.instance?.appearance?.asset_id ?? '')
+          && (p.inside === structure || home(p) === structure)).map(keyOf),
+        ...insideOnly.filter((x) => !x.care_only && !x.supervised && !CHILD_RE.test(x.asset_id ?? '') && placeNow(x) === structure
+          && !spawned.some((q) => q.entry === x)).map((x) => x.person),
+      ];
+      ids.sort((a, b) => seededRandom(`local:${date()}:${a}`)() - seededRandom(`local:${date()}:${b}`)());
+      for (const id of ids) if (!localsTried.has(`${date()}:${id}`) && atHomeOf(id).ok) return { id, structure };
+    }
+    return null;
+  }
+  /** Out for a while: work about their own door by its step (clear of its stair) when it is
+   *  near the stand, else an errand up the street toward it and back. */
+  function aboutTheDoor(structure, about) {
+    const doors = doorsOf(structure);
+    const door = doors.filter((d) => !/:back$/.test(d.id)).sort((a, b) => dist(pt(a.step), about) - dist(pt(b.step), about))[0] ?? doors[0];
+    if (!door?.step) return null;
+    const step = pt(door.step), away = dist(step, about);
+    const out = Number.isFinite(door.outward_deg) ? door.outward_deg : bearing(about.e - step.e, about.n - step.n);
+    const rad = (out * Math.PI) / 180;
+    // Out from the door until clear of its stoop (nobody stands on a stair), else the nearest clear.
+    const outBy = (d) => ({ e: step.e + Math.sin(rad) * d, n: step.n + Math.cos(rad) * d });
+    let at = outBy(2.2);
+    for (let d = 2.2; d <= 9; d += 0.5) { const q = outBy(d); if (!standClear || !standClear(q)) { at = q; break; } }
+    const clearAt = standClear?.(at);
+    if (clearAt && Number.isFinite(clearAt.e)) at = clearAt;
+    if (away <= JAUNT_LOCALS.by_door_m) {
+      return { from: 0, to: 24, indoors: false, activity: 'work', doing: 'busy about the door', local: true,
+        at: { local_e: at.e, local_n: at.n, heading_deg: out } };
+    }
+    const k = JAUNT_LOCALS.errand_m / away;
+    let to = { e: about.e + (step.e - about.e) * k, n: about.n + (step.n - about.n) * k };
+    const clearTo = standClear?.(to);
+    if (clearTo && Number.isFinite(clearTo.e)) to = clearTo;
+    return { from: 0, to: 24, indoors: false, activity: 'walk', doing: 'on an errand along the street', local: true,
+      at: { local_e: at.e, local_n: at.n, heading_deg: bearing(to.e - at.e, to.n - at.n) }, via: [], to_point: { local_e: to.e, local_n: to.n }, once: false };
+  }
+  // What the last call for a quiet stop found (for the harness): { out, id, why }.
+  let localsLast = null;
+  const localsTried = new Set();
+  const localsComing = new Map(); // person id -> clock when called out
+  function stepLocals(about) {
+    if (clock < localsAt) return;
+    localsAt = clock + JAUNT_LOCALS.every_s;
+    const min = humans.tier === 'light' ? JAUNT_LOCALS.min_light : JAUNT_LOCALS.min_full;
+    for (const [id, at] of localsComing) {
+      const a = byId(id)?.actor;
+      if (clock - at > JAUNT_LOCALS.coming_s || !a || a.disposed || !a.indoors) localsComing.delete(id);
+    }
+    const out = outAbout(about) + localsComing.size;
+    if (out >= min) { localsLast = { out }; return; }
+    const pick = localAtHome(about);
+    if (!pick) { localsLast = { out, why: 'nobody at home near' }; return; }
+    localsTried.add(`${date()}:${pick.id}`); // one who cannot come out is not asked again on this date
+    const span = aboutTheDoor(pick.structure, about);
+    const r = span ? stepOut(pick.id, span, JAUNT_LOCALS.out_s) : { ok: false, why: 'no door' };
+    if (r?.ok) localsComing.set(pick.id, clock);
+    localsLast = { out, id: pick.id, ok: !!r?.ok, why: r?.why ?? null };
   }
 
   function careStatus(id) {
@@ -1734,13 +1841,13 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
    */
   function atHomeOf(id) {
     if (!id || humans.shown === false) return { ok: false, why: 'People are hidden' };
-    const kept = (key) => humans.crowdKept == null || humans.crowdKept.includes(key);
+    const kept = (key, at = null) => allows(key, at);
     const p = byId(id);
     if (p) {
       const a = p.actor;
       if (a.disposed || p.absent || !onDate(date(), p.b.presence)) return { ok: false, why: 'not here on this date' };
       if (!a.indoors || p.mode === 'going_out') return { ok: false, why: 'out now', out: true };
-      if (p.passing || p.social || p.called || p.hosted || p.attending || held(a) || humans.isHeld?.(a) || !kept(keyOf(p))) return { ok: false, why: 'Not available just now' };
+      if (p.passing || p.social || p.called || p.hosted || p.attending || held(a) || humans.isHeld?.(a) || !kept(keyOf(p), { e: a.e, n: a.n })) return { ok: false, why: 'Not available just now' };
       const now = spanAt(dayOn(p.b, date(), keyOf(p)), hour());
       if (now?.away && !recallHome(p)) return { ok: false, why: 'not here on this date' };
       const structure = p.soldier ? p.b.quarters : (p.inside ?? recallHome(p) ?? home(p));
@@ -1751,10 +1858,10 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     if (!entry) return { ok: false, why: 'no such person' };
     if (!onDate(date(), entry.presence) || spanAt(dayOn(entry, date(), entry.person), hour())?.away) return { ok: false, why: 'not here on this date' };
     if (entry.care_only) return { ok: false, why: 'Carried, in the household\'s care' };
-    if (!kept(entry.person)) return { ok: false, why: 'Not available just now' };
     const structure = placeNow(entry);
     const here = doorThings.filter((t) => t.structure === structure);
     const door = here.find((t) => t.door.id === doorOf(entry, here));
+    if (!kept(entry.person, door?.door.step ?? null)) return { ok: false, why: 'Not available just now' };
     if (!door) return { ok: false, why: 'no door known' };
     return { ok: true, entry, door, structure, name: entry.name ?? entry.person };
   }
@@ -1795,6 +1902,8 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
 
   const api = {
     careStatus,
+    /** T-3553: what the last call for a quiet jaunt stop found: { out, id?, ok?, why? } or null. */
+    get locals() { return localsLast; },
     get people() { return people; },
     get doors() { return doorThings; },
     residence(id) {
@@ -2046,19 +2155,19 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     ask(personOrInstance) {
       const care = careStatus(personOrInstance);
       if (care) {
-        if (humans.crowdKept != null) return { ok: false, why: 'Not available during this jaunt' };
+        if (humans.crowdKept != null && !humans.crowdArea) return { ok: false, why: 'Not available during this jaunt' };
         openResident(personOrInstance); return { ok: true, householdCare: true, care };
       }
       const p = people.find((x) => x.actor.personId === personOrInstance || x.id === personOrInstance);
       const entry = !p && spawn ? insideOnly.find((x) => x.person === personOrInstance) : null;
       if (entry) {
-        if (humans.crowdKept != null && !humans.crowdKept.includes(entry.person)) return { ok: false, why: 'Not available during this jaunt' };
         if (!onDate(date(), entry.presence) || spanAt(dayOn(entry, date(), entry.person), hour())?.away) return { ok: false, why: 'not here on this date' };
         if (spawned.some((q) => q.entry === entry)) return { ok: false, why: 'not indoors' };
         const structure = placeNow(entry);
         const here = doorThings.filter((t) => t.structure === structure);
         const id = doorOf(entry, here);
         const door = here.find((t) => t.door.id === id);
+        if (!allows(entry.person, door?.door.step ?? null)) return { ok: false, why: 'Not available during this jaunt' };
         if (!door) return { ok: false, why: `no door known for ${structure}` };
         const q = summon(entry, door.door);
         if (!q) return { ok: false, why: 'could not be built' };

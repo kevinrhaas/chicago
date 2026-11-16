@@ -2425,6 +2425,12 @@
       "measured": "2026-11-16",
       "finding": "Reproduces: ran `(bare)` twice on the working tree in 0.5 s, rewrote data/boats/vessels_1835.json and vessels_1812.json byte for byte (sha256 8fb8e170\u2026 and 2882ecd1\u2026 both runs), changed no other file (git status hash unchanged); a damaged vessels_1812.json made --check exit 1 and the writer restored the same bytes; --check writes nothing in-tree.",
       "placed": "not yet: it reads the e1834_harbor_cut and e1830_natural heightfields, data/boats/era_boats.json and crossings_1812.json, and the 1835 pier, bridge and wharf sidecars (data/sidecars/1835/) and the 1812 first fort wharf's, so its slot is after the terrain writers, lay_crossing_boats_1812.py and the sidecar compile (T-3612)."
+    },
+    "site_films_ingest.mjs": {
+      "placement": "not_derivable",
+      "write_mode": "DIR [id ...]",
+      "measured": "2026-11-16",
+      "finding": "Cannot rebuild from the tree: its write mode ingests films that tools/site_films.mjs rendered outside the repository (DIR/<id>.mp4 and DIR/<id>.jpg), interpolates any film under 20 fps to 24 with ffmpeg, and writes site-films/<id>.<sha8>.mp4, site/media/films/<id>.jpg and site/js/films.js. Run bare it prints its usage, exits 2 and writes nothing; --check reads films.js, site-films/ and the posters (20 films) and writes nothing (git status --porcelain identical before and after both)."
     }
   }
 }
