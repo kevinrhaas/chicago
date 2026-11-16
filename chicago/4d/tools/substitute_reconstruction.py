@@ -164,6 +164,7 @@ GENERATOR_OF_PHASE = (
     ("phase2_inferred_households", "tools/generate_inferred_households.py"),
     ("canal_approach_trade_1835", "tools/generate_canal_approach_trade.py"),
     ("gifford_street_faces_1835", "tools/generate_gifford_street_faces.py"),
+    ("core_row_fill_1835", "tools/generate_core_row_fill_1835.py"),
     ("west_freight_forks_1835", "tools/generate_west_freight.py"),
     ("west_freight_bank_1835", "tools/generate_west_freight.py"),
     ("north_freight_bank_1835", "tools/generate_north_freight.py"),

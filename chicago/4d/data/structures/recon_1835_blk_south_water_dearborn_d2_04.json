@@ -12,12 +12,12 @@
         "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
       },
       "position": {
-        "utm_e": 447800.181,
-        "utm_n": 4637319.757,
+        "utm_e": 447800.147,
+        "utm_n": 4637319.752,
         "rotation_deg": 180.35,
         "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by South Water, State, Lake and Dearborn; standing back from the Lake Street frontage",
         "confidence": "reconstructed",
-        "note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 22.0 m back from its street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot. T-3605: moved 16.0 m straight back, toward the rear of its lot, so the commercial core's row stands at the street (L-core-row-fill-3605).",
+        "note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 22.0 m back from its street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
         "derivation": {
           "method": "not_derivable",
           "reason": "No parcel-by-parcel July 1835 roof register survives in the supplied evidence, and no lot in this block is numbered."

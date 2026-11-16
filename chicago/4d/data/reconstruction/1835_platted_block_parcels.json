@@ -684,7 +684,7 @@
           "lot": 5,
           "stands_on": "street",
           "fronts": "lake",
-          "setback_m": 6.0,
+          "setback_m": 18.8,
           "lateral_m": -2.0
         },
         {
@@ -713,7 +713,7 @@
           "lot": 3,
           "stands_on": "street",
           "fronts": "lake",
-          "setback_m": 6.0,
+          "setback_m": 22.0,
           "lateral_m": 2.0
         },
         {
@@ -934,7 +934,7 @@
           "lot": 3,
           "stands_on": "street",
           "fronts": "lake",
-          "setback_m": 6.0,
+          "setback_m": 22.0,
           "lateral_m": -2.0
         },
         {
@@ -1159,7 +1159,7 @@
           "lot": 1,
           "stands_on": "street",
           "fronts": "lake",
-          "setback_m": 6.0,
+          "setback_m": 22.0,
           "lateral_m": 1.5
         },
         {

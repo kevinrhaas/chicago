@@ -635,6 +635,29 @@ ALLEY_ADJUSTMENTS = {
 }
 
 
+# T-3605 phase 2 (L-core-row-fill-3605): the commercial core's row of stores on Lake's
+# south side stands at the street where this cottage's front stood, so it is moved
+# straight back to 22 m from its street edge, the rear of its own lot, and keeps its
+# household. Frozen like the alley holds above, for the same reason.
+CORE_ROW_MOVES = {
+    "recon_1835_south_d5_011": (-0.048, -5.857),   # blk_lake_lasalle, Lake's south side
+}
+
+
+def move_behind_core_row(records: list[dict]) -> None:
+    for rec in records:
+        de, dn = CORE_ROW_MOVES.get(rec["id"], (0.0, 0.0))
+        if not (de or dn):
+            continue
+        pos = rec["phases"][0]["position"]
+        pos["utm_e"] = round(pos["utm_e"] + de, 3)
+        pos["utm_n"] = round(pos["utm_n"] + dn, 3)
+        pos["note"] += (" It stands 22.0 m back from its street edge. T-3605: moved "
+                        f"{math.hypot(de, dn):.1f} m straight back, toward the rear of its "
+                        "lot, so the commercial core's row stands at the street "
+                        "(L-core-row-fill-3605).")
+
+
 def hold_out_of_alleys(records: list[dict], datum: dict) -> None:
     for rec in records:
         de, dn = ALLEY_ADJUSTMENTS.get(rec["id"], (0.0, 0.0))
@@ -933,6 +956,7 @@ def records_from_inputs() -> list[dict]:
             records.append(record)
     place_on_frontage(records, parcel, datum)
     hold_out_of_alleys(records, datum)
+    move_behind_core_row(records)
     deal_siding(records)
     validate_programme(inventory, parcel, records)
     check_frontage(records, parcel, datum)
