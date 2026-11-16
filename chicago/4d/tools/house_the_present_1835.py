@@ -1214,11 +1214,24 @@ def self_test(inputs: dict) -> int:
            lambda d: d["the_ceiling"].update(people_per_dwelling=9.0))
 
     def drop_a_waiter(d):
-        row = next(r for r in d["counted_apart"] if r["why"] == "waiting_on_a_roof")
-        d["counted_apart"].remove(row)
+        # T-3605: once every ruled-in household has a roof none waits, so the guard is
+        # tested on a seated one taken out of the deal altogether instead
+        row = next((r for r in d["counted_apart"] if r["why"] == "waiting_on_a_roof"), None)
+        if row is not None:
+            d["counted_apart"].remove(row)
+        else:
+            d["seats"].remove(next(s for s in d["seats"] if s.get("presence") == "ruled_in"))
 
     def stop_early(d):
         d["the_ceiling"]["people_under_a_roof"] -= 50
+        if not any(r["why"] == "waiting_on_a_roof" for r in d["counted_apart"]):
+            # T-3605: once nobody waits, the line is stopped early by hand: the last
+            # ruled-in household seated is sent back to wait, though it fitted
+            seat = [s for s in d["seats"] if s.get("presence") == "ruled_in"][-1]
+            d["seats"].remove(seat)
+            d["the_ceiling"]["people_under_a_roof"] -= seat["persons"]
+            d["counted_apart"].append({"household": seat["household"], "why": "waiting_on_a_roof",
+                                       "persons": seat["persons"], "queue_position": 0})
 
     expect("a ruled-in household neither seated nor counted apart", drop_a_waiter)
     expect("a household counted apart and seated", lambda d: d["counted_apart"].append(

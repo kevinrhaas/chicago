@@ -32,11 +32,11 @@
   "counts": {
     "records_awaiting_a_household": 1222,
     "under_a_standing_dwelling": {
-      "dealt": 200,
+      "dealt": 203,
       "family": 122
     },
     "room_by_division": {
-      "north": 85,
+      "north": 84,
       "south": 165,
       "west": 69
     },
@@ -46,11 +46,11 @@
       "west": 69
     },
     "counted_by_rung": {
-      "dealt": 200,
-      "family": 118
+      "dealt": 203,
+      "family": 115
     },
-    "persons_in_the_counted_houses": 1247,
-    "not_counted": 8
+    "persons_in_the_counted_houses": 1246,
+    "not_counted": 11
   },
   "beyond_the_index": {
     "ticket": "T-2237",
@@ -1167,6 +1167,15 @@
       "seed": "ad829f5f2063"
     },
     {
+      "household": "hh_abell_sidney",
+      "division": "south",
+      "rung": "dealt",
+      "place": "recon_1835_blk_randolph_wells_h2_01",
+      "family": "H2",
+      "persons": 5,
+      "seed": "d2e526a84617"
+    },
+    {
       "household": "hh_burke_james",
       "division": "south",
       "rung": "dealt",
@@ -1779,6 +1788,15 @@
       "seed": "c979d21d283d"
     },
     {
+      "household": "hh_murray_catherine",
+      "division": "south",
+      "rung": "dealt",
+      "place": "recon_1835_blk_south_water_franklin_d4_02",
+      "family": "D4",
+      "persons": 1,
+      "seed": "dbb2d6e66940"
+    },
+    {
       "household": "hh_colewell_m",
       "division": "south",
       "rung": "dealt",
@@ -2364,24 +2382,6 @@
       "seed": "da84869dfea2"
     },
     {
-      "household": "hh_trowbridge_s_g",
-      "division": "south",
-      "rung": "family",
-      "place": "recon_1835_blk_school_section_tier_81_d6_06",
-      "family": "D6",
-      "persons": 3,
-      "seed": "db747da94cdd"
-    },
-    {
-      "household": "hh_riffe_pierre",
-      "division": "south",
-      "rung": "family",
-      "place": "recon_1835_blk_randolph_dearborn_d1_12",
-      "family": "D1",
-      "persons": 3,
-      "seed": "ff7fc684a1b4"
-    },
-    {
       "household": "hh_blake_edio_l",
       "division": "west",
       "rung": "dealt",
@@ -2778,6 +2778,15 @@
       "seed": "b73128a3b386"
     },
     {
+      "household": "hh_everts_hiram",
+      "division": "west",
+      "rung": "dealt",
+      "place": "recon_1835_west_014",
+      "family": "D1",
+      "persons": 1,
+      "seed": "c54f19bf97bc"
+    },
+    {
       "household": "hh_medera_genevive",
       "division": "west",
       "rung": "dealt",
@@ -2992,18 +3001,29 @@
       "family": "D1",
       "persons": 2,
       "seed": "4bf1fc5efd29"
-    },
-    {
-      "household": "hh_wilcox_d",
-      "division": "west",
-      "rung": "family",
-      "place": "recon_1835_west_006",
-      "family": "H1",
-      "persons": 2,
-      "seed": "ab9ce6d8421a"
     }
   ],
   "not_counted": [
+    {
+      "household": "hh_trowbridge_s_g",
+      "division": "south",
+      "rung": "family",
+      "place": "recon_1835_blk_school_section_tier_81_d6_06",
+      "family": "D6",
+      "persons": 3,
+      "seed": "db747da94cdd",
+      "why": "the south division's family_dwelling order was full before this household was reached"
+    },
+    {
+      "household": "hh_riffe_pierre",
+      "division": "south",
+      "rung": "family",
+      "place": "recon_1835_blk_randolph_dearborn_d1_12",
+      "family": "D1",
+      "persons": 3,
+      "seed": "ff7fc684a1b4",
+      "why": "the south division's family_dwelling order was full before this household was reached"
+    },
     {
       "household": "hh_morris_b_s",
       "division": "south",
@@ -3083,6 +3103,16 @@
       "persons": 2,
       "seed": "e9919a2fa92c",
       "why": "the south division's family_dwelling order was full before this household was reached"
+    },
+    {
+      "household": "hh_wilcox_d",
+      "division": "west",
+      "rung": "family",
+      "place": "recon_1835_west_006",
+      "family": "H1",
+      "persons": 2,
+      "seed": "ab9ce6d8421a",
+      "why": "the west division's family_dwelling order was full before this household was reached"
     }
   ]
 }

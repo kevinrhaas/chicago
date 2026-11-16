@@ -286,16 +286,16 @@
    "west/tradesman_dwellings": 126
   },
   "reconstructed_seats": 1440,
-  "dealt_a_roof": 321,
-  "dealt_a_standing_roof": 321,
+  "dealt_a_roof": 325,
+  "dealt_a_standing_roof": 325,
   "dealt_a_slot_not_yet_built": 0,
   "dealt_by_ticket": {
-   "T-1613": 226,
+   "T-1613": 230,
    "T-1614": 95
   },
   "dealt_by_ground": {
    "off_plat_parcel": 95,
-   "platted_lot": 226
+   "platted_lot": 230
   }
  },
  "rows": [
@@ -41722,7 +41722,24 @@
     "from_trade": "watchmaker"
    },
    "seed": "hh_mulford_e_h|south|watchmaker|T-1512",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": "recon_1835_blk_randolph_wells_d4_04",
+    "how": "adopted",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_randolph_wells#06",
+    "block_id": "blk_randolph_wells",
+    "fronts": "randolph",
+    "family": "D4",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_mulford_e_h|south|watchmaker|T-1512",
+    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
+    "owed_to": null,
+    "substitutable": true,
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_randolph_wells_d4_04, a family D4 roof on blk_randolph_wells#06. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's tradesman_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+   }
   },
   {
    "id": "hh_mulford_james_h",
@@ -41763,7 +41780,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_mulford_james_h|T-1522|division:5287fe4dfe97|class:a14e8d3c2706",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": "recon_1835_blk_south_water_lasalle_d4_02",
+    "how": "adopted",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_south_water_lasalle#04",
+    "block_id": "blk_south_water_lasalle",
+    "fronts": "south_water",
+    "family": "D4",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_mulford_james_h|T-1522|division:5287fe4dfe97|class:a14e8d3c2706",
+    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
+    "owed_to": null,
+    "substitutable": true,
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_south_water_lasalle_d4_02, a family D4 roof on blk_south_water_lasalle#04. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's tradesman_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+   }
   },
   {
    "id": "hh_munriou_joseph",
@@ -41868,7 +41902,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_murphy_mary|T-1522|division:b4cffb0f4409|class:e2d463103099",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": "recon_1835_blk_south_water_lasalle_d5_01",
+    "how": "adopted",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_south_water_lasalle#04",
+    "block_id": "blk_south_water_lasalle",
+    "fronts": "south_water",
+    "family": "D5",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_murphy_mary|T-1522|division:b4cffb0f4409|class:e2d463103099",
+    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
+    "owed_to": null,
+    "substitutable": true,
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_south_water_lasalle_d5_01, a family D5 roof on blk_south_water_lasalle#04. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's tradesman_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+   }
   },
   {
    "id": "hh_murphy_n",
@@ -42004,7 +42055,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_murray_catherine|T-1522|division:851d996e38ab|class:99a9657dd6b2",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": "recon_1835_blk_south_water_franklin_d4_02",
+    "how": "adopted",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_south_water_franklin#06",
+    "block_id": "blk_south_water_franklin",
+    "fronts": "south_water",
+    "family": "D4",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_murray_catherine|T-1522|division:851d996e38ab|class:99a9657dd6b2",
+    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
+    "owed_to": null,
+    "substitutable": true,
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_south_water_franklin_d4_02, a family D4 roof on blk_south_water_franklin#06. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's tradesman_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+   }
   },
   {
    "id": "hh_murray_john",
@@ -47054,12 +47122,12 @@
    },
    "seed": "hh_rc_bardwell_phebe|south|domestic|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_blk_randolph_market_d2_09",
+    "structure_id": "recon_1835_blk_randolph_wells_d2_07",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_randolph_market#01",
-    "block_id": "blk_randolph_market",
+    "on": "blk_randolph_wells#07",
+    "block_id": "blk_randolph_wells",
     "fronts": "washington",
     "family": "D2",
     "clause": "labourer_dwellings",
@@ -47069,7 +47137,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_randolph_market_d2_09, a family D2 roof on blk_randolph_market#01. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_randolph_wells_d2_07, a family D2 roof on blk_randolph_wells#07. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -47308,12 +47376,12 @@
    },
    "seed": "hh_rc_cobb_martha|south|laundress|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_blk_randolph_dearborn_d2_05",
+    "structure_id": "recon_1835_blk_randolph_market_d2_09",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_randolph_dearborn#07",
-    "block_id": "blk_randolph_dearborn",
+    "on": "blk_randolph_market#01",
+    "block_id": "blk_randolph_market",
     "fronts": "washington",
     "family": "D2",
     "clause": "labourer_dwellings",
@@ -47323,7 +47391,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_randolph_dearborn_d2_05, a family D2 roof on blk_randolph_dearborn#07. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_randolph_market_d2_09, a family D2 roof on blk_randolph_market#01. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -47574,14 +47642,14 @@
    },
    "seed": "hh_rc_fairbanks_amanda|south|laundress|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_blk_randolph_dearborn_d1_16",
+    "structure_id": "recon_1835_blk_randolph_dearborn_d2_05",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_randolph_dearborn#01",
+    "on": "blk_randolph_dearborn#07",
     "block_id": "blk_randolph_dearborn",
     "fronts": "washington",
-    "family": "D1",
+    "family": "D2",
     "clause": "labourer_dwellings",
     "district": "south",
     "stands_on": "lot",
@@ -47589,7 +47657,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_randolph_dearborn_d1_16, a family D1 roof on blk_randolph_dearborn#01. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_randolph_dearborn_d2_05, a family D2 roof on blk_randolph_dearborn#07. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -47648,13 +47716,13 @@
    },
    "seed": "hh_rc_fisk_esther|south|laundress|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_blk_south_water_wells_d1_07",
+    "structure_id": "recon_1835_blk_randolph_dearborn_d1_16",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_south_water_wells#03",
-    "block_id": "blk_south_water_wells",
-    "fronts": "lake",
+    "on": "blk_randolph_dearborn#01",
+    "block_id": "blk_randolph_dearborn",
+    "fronts": "washington",
     "family": "D1",
     "clause": "labourer_dwellings",
     "district": "south",
@@ -47663,7 +47731,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_south_water_wells_d1_07, a family D1 roof on blk_south_water_wells#03. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_randolph_dearborn_d1_16, a family D1 roof on blk_randolph_dearborn#01. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -47700,13 +47768,13 @@
    },
    "seed": "hh_rc_flynn_mary|south|domestic|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_blk_south_water_wells_d1_05",
+    "structure_id": "recon_1835_blk_south_water_wells_d1_07",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_south_water_wells#02",
+    "on": "blk_south_water_wells#03",
     "block_id": "blk_south_water_wells",
-    "fronts": "south_water",
+    "fronts": "lake",
     "family": "D1",
     "clause": "labourer_dwellings",
     "district": "south",
@@ -47715,7 +47783,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_south_water_wells_d1_05, a family D1 roof on blk_south_water_wells#02. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_south_water_wells_d1_07, a family D1 roof on blk_south_water_wells#03. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -47848,12 +47916,12 @@
    },
    "seed": "hh_rc_hayes_bridget|south|domestic|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_blk_south_water_lasalle_d1_04",
+    "structure_id": "recon_1835_blk_south_water_wells_d1_05",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_south_water_lasalle#04",
-    "block_id": "blk_south_water_lasalle",
+    "on": "blk_south_water_wells#02",
+    "block_id": "blk_south_water_wells",
     "fronts": "south_water",
     "family": "D1",
     "clause": "labourer_dwellings",
@@ -47863,7 +47931,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_south_water_lasalle_d1_04, a family D1 roof on blk_south_water_lasalle#04. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_south_water_wells_d1_05, a family D1 roof on blk_south_water_wells#02. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -47969,14 +48037,14 @@
    },
    "seed": "hh_rc_mahoney_catherine|south|laundress|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_blk_south_water_franklin_d2_05",
+    "structure_id": "recon_1835_blk_south_water_lasalle_d1_04",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_south_water_franklin#03",
-    "block_id": "blk_south_water_franklin",
-    "fronts": "lake",
-    "family": "D2",
+    "on": "blk_south_water_lasalle#04",
+    "block_id": "blk_south_water_lasalle",
+    "fronts": "south_water",
+    "family": "D1",
     "clause": "labourer_dwellings",
     "district": "south",
     "stands_on": "lot",
@@ -47984,7 +48052,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_south_water_franklin_d2_05, a family D2 roof on blk_south_water_franklin#03. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_south_water_lasalle_d1_04, a family D1 roof on blk_south_water_lasalle#04. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -48381,13 +48449,13 @@
    },
    "seed": "hh_rc_shea_margaret|south|laundress|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_blk_school_section_tier_82_d2_01",
+    "structure_id": "recon_1835_blk_south_water_franklin_d2_05",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_school_section_tier_82#02",
-    "block_id": "blk_school_section_tier_82",
-    "fronts": "monroe",
+    "on": "blk_south_water_franklin#03",
+    "block_id": "blk_south_water_franklin",
+    "fronts": "lake",
     "family": "D2",
     "clause": "labourer_dwellings",
     "district": "south",
@@ -48396,7 +48464,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_school_section_tier_82_d2_01, a family D2 roof on blk_school_section_tier_82#02. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_south_water_franklin_d2_05, a family D2 roof on blk_south_water_franklin#03. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -48775,14 +48843,14 @@
    },
    "seed": "hh_rc_wilcox_martha|south|laundress|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_blk_lake_market_d1_05",
+    "structure_id": "recon_1835_blk_school_section_tier_82_d2_01",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_lake_market#05",
-    "block_id": "blk_lake_market",
-    "fronts": "randolph",
-    "family": "D1",
+    "on": "blk_school_section_tier_82#02",
+    "block_id": "blk_school_section_tier_82",
+    "fronts": "monroe",
+    "family": "D2",
     "clause": "labourer_dwellings",
     "district": "south",
     "stands_on": "lot",
@@ -48790,7 +48858,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_lake_market_d1_05, a family D1 roof on blk_lake_market#05. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_school_section_tier_82_d2_01, a family D2 roof on blk_school_section_tier_82#02. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -48827,13 +48895,13 @@
    },
    "seed": "hh_rc_wilcox_sophronia|south|laundress|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_south_d1_010",
+    "structure_id": "recon_1835_blk_lake_market_d1_05",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_lake_lasalle#02",
-    "block_id": "blk_lake_lasalle",
-    "fronts": "lake",
+    "on": "blk_lake_market#05",
+    "block_id": "blk_lake_market",
+    "fronts": "randolph",
     "family": "D1",
     "clause": "labourer_dwellings",
     "district": "south",
@@ -48842,7 +48910,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_south_d1_010, a family D1 roof on blk_lake_lasalle#02. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_lake_market_d1_05, a family D1 roof on blk_lake_market#05. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -48879,12 +48947,12 @@
    },
    "seed": "hh_rc_woodruff_eliza|south|laundress|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_blk_lake_franklin_d1_02",
+    "structure_id": "recon_1835_south_d1_010",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_lake_franklin#04",
-    "block_id": "blk_lake_franklin",
+    "on": "blk_lake_lasalle#02",
+    "block_id": "blk_lake_lasalle",
     "fronts": "lake",
     "family": "D1",
     "clause": "labourer_dwellings",
@@ -48894,7 +48962,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_lake_franklin_d1_02, a family D1 roof on blk_lake_franklin#04. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_south_d1_010, a family D1 roof on blk_lake_lasalle#02. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -49015,11 +49083,11 @@
    },
    "seed": "hh_rc_woodruff_ruth|south|laundress|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_south_d1_003",
+    "structure_id": "recon_1835_blk_lake_franklin_d1_02",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_lake_franklin#02",
+    "on": "blk_lake_franklin#04",
     "block_id": "blk_lake_franklin",
     "fronts": "lake",
     "family": "D1",
@@ -49030,7 +49098,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_south_d1_003, a family D1 roof on blk_lake_franklin#02. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_lake_franklin_d1_02, a family D1 roof on blk_lake_franklin#04. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -63567,14 +63635,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_gifford_c3_015"
+    "id": "recon_1835_gifford_c1_010"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Dearborn Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c3_015', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c1_010', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Dearborn Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -63678,14 +63746,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_gifford_c2_011"
+    "id": "recon_1835_core_c3_040"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Dearborn Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c2_011', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c3_040', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Dearborn Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -63795,14 +63863,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_gifford_c3_002"
+    "id": "recon_1835_core_c2_005"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Lake Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c3_002', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c2_005', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Lake Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64113,14 +64181,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_gifford_c3_013"
+    "id": "recon_1835_core_c1_059"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Dearborn Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c3_013', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c1_059', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Dearborn Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64341,14 +64409,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_gifford_c3_017"
+    "id": "recon_1835_core_c3_002"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c3_017', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c3_002', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64630,14 +64698,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_gifford_c2_009"
+    "id": "recon_1835_core_c3_029"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Dearborn Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c2_009', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c3_029', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Dearborn Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -64744,14 +64812,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_gifford_c3_014"
+    "id": "recon_1835_gifford_c2_009"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Dearborn Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c3_014', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c2_009', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Dearborn Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -65071,14 +65139,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_d4_02"
+    "id": "recon_1835_core_c1_027"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d4_02', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c1_027', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -65284,14 +65352,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_randolph_wells_d4_04"
+    "id": "recon_1835_core_c2_017"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "La Salle Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'La Salle Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_randolph_wells_d4_04', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'La Salle Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c2_017', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches La Salle Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -65726,14 +65794,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_south_f1_038"
+    "id": "recon_1835_core_c2_010"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "La Salle Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'La Salle Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_south_f1_038', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'La Salle Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c2_010', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches La Salle Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -66276,14 +66344,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_gifford_c1_010"
+    "id": "recon_1835_core_c1_039"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Dearborn Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c1_010', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c1_039', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Dearborn Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -66613,14 +66681,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_gifford_c3_012"
+    "id": "recon_1835_core_c3_058"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Dearborn Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c3_012', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c3_058', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Dearborn Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -66724,14 +66792,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_gifford_c2_016"
+    "id": "recon_1835_core_c2_001"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c2_016', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c2_001', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -66856,14 +66924,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_franklin_d4_02"
+    "id": "recon_1835_core_c3_016"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_d4_02', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c3_016', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -66880,14 +66948,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_south_water_lasalle_d5_01"
+    "id": "recon_1835_core_c3_026"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "South Water Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_d5_01', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c3_026', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches South Water Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -66946,14 +67014,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_gifford_c2_001"
+    "id": "recon_1835_core_c1_004"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Lake Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_gifford_c2_001', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c1_004', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches Lake Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
@@ -67081,14 +67149,14 @@
    "rung": "face",
    "seat": {
     "kind": "structure",
-    "id": "recon_1835_blk_randolph_wells_d2_07"
+    "id": "recon_1835_core_c3_018"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "La Salle Street",
    "division": null,
    "tier": "inferred",
-   "basis": "The paper reaches 'La Salle Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_randolph_wells_d2_07', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "basis": "The paper reaches 'La Salle Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_core_c3_018', which is housing and not a reading: substitutable, no lot, no anchor.",
    "words": "The paper reaches La Salle Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
