@@ -1,0 +1,58 @@
+== premise
+Evaluate what two South Water Street merchants advertised as apparel, then determine how to present yourself at a social engagement at the Sauganash.
+
+== opening
+JAUNT: A DECENT COAT. You have a social engagement at the Sauganash this evening and employment commencing tomorrow, and your solitary coat remains discolored with road dust. In this frontier settlement that may prove surprisingly inconsequential. At a Chicago ball in 1834 the New York author Charles Hoffman encountered "a complete medley of all ranks, ages, professions, trades and occupations", observing "a pair of Cinderella-like slippers" dancing opposite "a brace of thick-soled brogans".
+
+Nevertheless, you would prefer to appear respectable. South Water Street offers clothing manufactured ready-made and cloth measured by the yard. Investigate the merchants' advertisements, return to your boarding house to deliberate, and determine your attire for this evening.
+
+== stop ready-made
+Commence one door from Dearborn at John Holbrook's establishment. On 10 June 1835 he advertised clothing, boots and shoes, wholesale and retail, as agent for the manufacturers, with fresh merchandise arriving "every fifteen or twenty days". This exemplifies the emerging commercial economy of a boom town: garments manufactured in eastern workshops and transported across the Great Lakes, immediately wearable. No tailor, no fitting, no delay, merely a purchase.
+
+== narrative ready-made
+A coat available for this evening.
+
+== stop cloth
+One block west, at Clark Street, Harmon, Loomis and Company retail dry goods. Their winter advertisement enumerated broadcloths, cassimeres, satinets, flannels and goats' hair camlet, alongside heavy Russia duck and canvas, and in June they continue advertising dry goods, wholesale and retail. Superior cloth yields a superior coat, but cloth remains merely potential: somebody must still cut and construct it, a process requiring considerably longer than a single afternoon.
+
+== narrative cloth
+A superior coat, eventually, but not by this evening.
+
+== stop dress
+One additional block west, to Mrs. Rufus Brown's log boarding house behind Peck's store. The store fronting it was the village's first two-story frame structure, constructed of lumber "sawed from black walnut trees" and "brought from Detroit by a boat"; the settlement has acquired considerable refinement since. Arrange the decision across the bed you share: tonight's engagement requires neatness, tomorrow's labor requires durability, and a single garment must accommodate both obligations.
+
+== stop the-call
+Proceed to Lake and Market and the Sauganash, white with bright-blue shutters in Juliette Kinzie's recollection, and repaired and newly furnished this June. Its proprietor, Mark Beaubien, is "the fiddler par excellence of the town", and when he performs, Judge Caton recalled, he could "set every heel and toe in the room in active motion". Nobody will scrutinize your attire for long amid such enthusiasm. Determine what you will wear.
+
+== narrative the-call
+The engagement is tonight, irrespective of your attire.
+
+== label the-call made-coat
+Wear a ready-made coat
+
+== consequence the-call made-coat
+A plain manufactured coat of the variety Holbrook's advertisement offers, available this evening.
+
+== label the-call brushed-coat
+Brush the old coat
+
+== consequence the-call brushed-coat
+Appear respectable in your existing garment; cloth for a durable working coat can be tailored subsequently.
+
+== leg 0
+From manufactured garments to the textiles from which garments are constructed.
+
+== leg 1
+Return to your lodging to weigh the competing obligations of the two occasions.
+
+== leg 2
+Arrive at the settlement's recently refurbished public house for the engagement.
+
+== ending ready-tonight
+You attend the engagement in a plain manufactured coat, reserving the traveling coat for tomorrow's employment. By the second tune nobody can distinguish a Holbrook garment from a New York tailor's creation, and by the third nobody considers the distinction worth noticing.
+
+== ending brushed
+You attend the engagement brushed and respectable in the coat you arrived wearing, contemplating a length of quality broadcloth for later. In a settlement of slippers and brogans, where social distinctions remain remarkably fluid, you are entirely unremarkable.
+
+== keepsake text
+A fictional note documenting your attire for an engagement at the Sauganash, and the merchandise you examined along South Water Street.

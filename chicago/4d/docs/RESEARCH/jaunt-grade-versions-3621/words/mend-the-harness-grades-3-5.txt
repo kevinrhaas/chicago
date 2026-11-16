@@ -1,0 +1,91 @@
+== premise
+Find a cracked strap while you hitch up horses behind the Western Hotel. Take the leather to the harness maker and the iron to the blacksmith at Lake and Canal Streets. Then decide at the Green Tree inn if your wagon is ready for the road.
+
+== opening
+JAUNT: MEND THE HARNESS. It is sunset in the wagon yard behind the Western Hotel. You leave on the long road west at first light. There are more horses in this yard than guests in the hotel. While you hitch up for a test drive, you see a crack in one of the long leather straps that pull the wagon. The crack is by the buckle.
+
+Two kinds of workers can fix a wagon's gear. The harness maker fixes leather. The blacksmith fixes iron. Both came to Chicago in 1833, when more new people arrived than anyone expected. Both have shops at the same corner. Find the trouble, get it fixed before dark, and decide over supper at the Green Tree if you are ready for the road.
+
+== stop stable
+Behind the Western Hotel at Randolph and Canal Streets stands a big stable. Next to it is the yard where the wagon trains drive in. The owner said the stable was one of the most important parts of the hotel, because there were as many horses as guests. In 1831 the county set the prices. Keeping a horse all night cost fifty cents, and a meal for a horse cost twenty-five. A team of horses is not cheap to keep waiting.
+
+== narrative stable
+The strap is cracked by the buckle. Will you look for more trouble?
+
+== label stable look-over
+Go over every strap, buckle and hook
+
+== consequence stable look-over
+The strap is cracked. And the iron hook it clips onto is worn thin.
+
+== label stable trace-only
+Unbuckle the cracked trace and go
+
+== consequence stable trace-only
+You take off one strap. You do not look at anything else.
+
+== stop saddler
+Walk up Canal Street to Lake Street. Two men opened a saddle and harness shop at this corner in 1833. They promised to fix anything brought to their shop right away. One of them was Silas Cobb, who came to town that year. The two men stopped working together in February 1835. Now Cobb runs the shop alone. Tonight, like every night, there are straps waiting to be fixed.
+
+== narrative saddler
+Leave the strap with the harness maker, or tie it up yourself?
+
+== label saddler restitch
+Leave the trace to be restitched
+
+== consequence saddler restitch
+This is leather work, and the shop promises to fix it. The strap comes back strong.
+
+== label saddler bind
+Bind the crack with twine yourself
+
+== consequence saddler bind
+It will hold for a short trip, but not for a long road.
+
+== stop smithy
+The harness maker fixes leather. The blacksmith fixes iron. At the same corner, Asahel Pierce started a blacksmith shop in October 1833. He came to town that year too. In January 1834 he did the iron work for the first stagecoach line from Chicago to St. Louis. A man who can fix a stagecoach can fix one worn hook.
+
+== narrative smithy
+Is there iron to fix?
+
+== label smithy hook
+Leave the worn hook for the forge
+
+== consequence smithy hook
+This is iron work, not leather. The hook is made strong again.
+
+== stop tavern
+Walk east along Lake Street to West Water Street and the Green Tree. James Kinzie built it in 1833. It was the first house here built to be a hotel. It was named for an oak tree standing close by. Chester Ingersoll ran it from 1834 to 1837. It will last longer than almost anything you can see. It was moved in 1880, and it was still standing in 1895.
+
+== narrative tavern
+Ready for the long road, or a short trip tomorrow?
+
+== label tavern ready
+Call the outfit ready for the road
+
+== consequence tavern ready
+The long road it is.
+
+== label tavern keep-short
+Keep tomorrow's trip short
+
+== consequence tavern keep-short
+Somewhere near town, and back by dark.
+
+== leg 0
+The cracked strap rides on the seat next to you.
+
+== ending short-run
+So tomorrow you take a short trip near town, and the long road another day. Anything you did not check, or only tied with twine, will be tested close to help. Being careful is not quite ready, but it is not risky either.
+
+== ending sound-tack
+Leather to the harness maker and iron to the blacksmith. The strap is fixed, the hook is strong, and you checked every strap and buckle before dark. At first light you take the long road, ready for whatever the prairie brings.
+
+== ending hook-left
+The strap is strong again. But you found the worn hook and did not take it to the blacksmith. The leather will hold on the long road. Will the iron? You will find out on the first hard pull, a long way from any blacksmith.
+
+== ending leather-only
+The strap is fixed and you take the long road. Nobody looked at the iron, so nobody knows the hook is worn thin. Strong leather, untested iron. Next time, check everything.
+
+== keepsake text
+A made-up note about one harness check: a cracked strap, a worn hook, and what was done about each. No real repair, price or customer of either shop is written on it.

@@ -1,0 +1,709 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "True stories",
+  "menu_group": "Stories",
+  "grade_band": "3-5",
+  "review_required": false,
+  "id": "monday-reading-class-grades-3-5",
+  "scene": "1904",
+  "title": "Monday at the Fortress",
+  "premise": "Every Monday from October to May, the ladies of Chicago come to the stone house at Eighteenth and Prairie to sew and listen to a reader. This Monday, the man across the street is very sick.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: MONDAY AT THE FORTRESS. It is Monday morning, 21 November 1904, at the corner of Eighteenth Street and Prairie Avenue.\n\nThere are five stops in and around the Glessner House. Today is Monday, so it is the day of the Reading Class. The wives of college teachers and the ladies of the South Side meet in the library. Frances Glessner invites them. Inside these walls everything runs like a clock, and you hardly ever see the servants. Across Eighteenth Street lives the man who makes pianos. He is very ill.\n\nStart at the corner, where the neighbors first saw this house.",
+    "read_s": 27
+  },
+  "stops": [
+    {
+      "id": "fortress",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_house"
+      },
+      "text": "This is the corner of Eighteenth and Prairie. The house is made of granite stone. It is low and hard. The windows on the street side are very narrow. The architect, H. H. Richardson, died in 1886, before it was done. It was built from 1886 to 1887. Not everyone liked it. George Pullman, across the street, said he did not know what he had done to have \"that thing staring me in the face\" every time he went out. Pullman has been dead seven years, and the house is still staring. People walking by never see the other side, with big sunny windows on a courtyard. The ladies are arriving on foot.",
+      "evidence": [
+        "narrow-windows",
+        "richardson-dates",
+        "pullman-glare",
+        "neighbours",
+        "day",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "glessner_john_j",
+          "label": "John J. Glessner"
+        }
+      ],
+      "next": "hostess",
+      "read_s": 30,
+      "stage": {
+        "caption": "Ladies walk down Prairie Avenue in pairs for the Monday class.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "guest_a",
+            "dress": "glessner_frances_m_1904",
+            "name": "A member of the Reading Class (unnamed)",
+            "at": [
+              1391.4,
+              -3196
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1391.6,
+                    -3218
+                  ],
+                  [
+                    1392.2,
+                    -3226.6
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 1,
+                "talk": true
+              },
+              {
+                "t": 16,
+                "talk": false
+              }
+            ]
+          },
+          {
+            "extra": "guest_b",
+            "dress": "glessner_frances_m_1904",
+            "name": "A second member of the class (unnamed)",
+            "at": [
+              1390.4,
+              -3195
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1390.6,
+                    -3218
+                  ],
+                  [
+                    1391.2,
+                    -3227.6
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          },
+          {
+            "extra": "guest_c",
+            "dress": "glessner_frances_m_1904",
+            "name": "A professor's wife, new to the class (unnamed)",
+            "at": [
+              1404,
+              -3196
+            ],
+            "beats": [
+              {
+                "t": 3,
+                "walk": [
+                  [
+                    1400,
+                    -3212
+                  ],
+                  [
+                    1394,
+                    -3220
+                  ],
+                  [
+                    1392.8,
+                    -3225.4
+                  ]
+                ],
+                "pace": "walk"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "hostess",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_door"
+      },
+      "text": "This is the front door. In 1893 the president of the new University of Chicago asked Frances Glessner a question. How could the teachers' wives meet the women of the city? Her answer was the Monday Morning Reading Class. It meets in the library for two hours every Monday from October to May. In the first hour the ladies sew while a reader reads out loud. The second hour is lighter, a reading or a talk. You cannot just ask to join. You must be invited. Mrs. Glessner greets her guests herself. Christine Nelson, the maid, waits to take their coats.",
+      "evidence": [
+        "class-harper",
+        "reading-class",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "glessner_frances_m",
+          "label": "Frances M. Glessner"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_glessner_john_j_c1900_christine_nelson",
+          "label": "Christine Nelson"
+        }
+      ],
+      "next": "hall",
+      "read_s": 27,
+      "stage": {
+        "caption": "Frances Glessner greets her guests at the door. Christine Nelson stands behind her.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "glessner_frances_m",
+            "at": [
+              1389.8,
+              -3227.0
+            ],
+            "heading": 92.3,
+            "beats": [
+              {
+                "t": 3,
+                "greet": true
+              },
+              {
+                "t": 5,
+                "talk": true
+              },
+              {
+                "t": 14,
+                "talk": false
+              },
+              {
+                "t": 18,
+                "greet": true
+              }
+            ]
+          },
+          {
+            "person": "pa1904_glessner_john_j_c1900_christine_nelson",
+            "at": [
+              1388.6,
+              -3228.5
+            ],
+            "heading": 82.2
+          },
+          {
+            "extra": "guest_d",
+            "dress": "glessner_frances_m_1904",
+            "name": "A member of the Reading Class (unnamed)",
+            "at": [
+              1396.4,
+              -3213.3
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1393.9,
+                    -3224.3
+                  ],
+                  [
+                    1391.2,
+                    -3226.9
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 12,
+                "face": "glessner_frances_m"
+              }
+            ]
+          },
+          {
+            "extra": "guest_e",
+            "dress": "glessner_frances_m_1904",
+            "name": "A second member of the class (unnamed)",
+            "at": [
+              1397.4,
+              -3209.3
+            ],
+            "beats": [
+              {
+                "t": 4,
+                "walk": [
+                  [
+                    1394.9,
+                    -3223.3
+                  ],
+                  [
+                    1392.4,
+                    -3225.9
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "hall",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_hall_bow"
+      },
+      "text": "Inside, the house turns its back on the street and opens to the courtyard. The door to the courtyard has yellow glass in it. It makes the hall feel sunny even on a cloudy day, and today is cloudy. The house is like a puzzle box. Every big room has two or more doors. The halls are planned so the servants are hardly ever seen. So while the ladies sew in the library, a second household moves around them out of sight: the cook, the maids, and the man who keeps the fires going. The ladies sew. The reader reads. The helpers stay out of sight in the courtyard, where only you can see them.",
+      "evidence": [
+        "yellow-glass",
+        "servants-unseen",
+        "creeper",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "pa1904_glessner_john_j_c1900_mary_reynolds",
+          "label": "Mary Reynolds"
+        }
+      ],
+      "next": "bench",
+      "read_s": 30,
+      "stage": {
+        "caption": "Out of sight, the house is busy. A maid crosses the courtyard with a tray, and the cook waits at the kitchen door.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_glessner_john_j_c1900_mary_reynolds",
+            "at": [
+              1359.66,
+              -3236.19
+            ],
+            "beats": [
+              {
+                "t": 1,
+                "walk": [
+                  [
+                    1365.66,
+                    -3236.39
+                  ],
+                  [
+                    1369.86,
+                    -3233.99
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 14,
+                "face": [
+                  1370.66,
+                  -3231.59
+                ]
+              }
+            ]
+          },
+          {
+            "person": "glessner_williamson_martha_l",
+            "at": [
+              1360.66,
+              -3238.39
+            ],
+            "heading": 67.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "bench",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_household_service_stair"
+      },
+      "text": "These are the back stairs, down to the basement. Down there is the newest room in the house. This year Frances Glessner set up a workbench. She makes silver things with a hammer and a torch. She stamps each one with her mark, a G around a honeybee. Upstairs she is the most proper hostess in Chicago. Downstairs she is a craftsman taking lessons. Both are true. But across Eighteenth Street a neighbor has been sick for a long time, and the doctor is coming again this morning. Look out through the gates at the corner house. It belongs to William Kimball, the piano maker.",
+      "evidence": [
+        "silversmith",
+        "journal-silver",
+        "class-harper",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "pa1904_glessner_john_j_c1900_august_billings",
+          "label": "August Billings"
+        }
+      ],
+      "next": "kimball",
+      "read_s": 27,
+      "stage": {
+        "caption": "August Billings brings coal up from the cellar. He stops on the stairs to look toward the street.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "person": "pa1904_glessner_john_j_c1900_august_billings",
+            "at": [
+              1353.8,
+              -3233.6
+            ],
+            "heading": 104.0,
+            "beats": [
+              {
+                "t": 3,
+                "walk": [
+                  [
+                    1357.2,
+                    -3232.6
+                  ]
+                ],
+                "pace": "slow"
+              },
+              {
+                "t": 12,
+                "face": [
+                  1385.4,
+                  -3224.0
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kimball",
+      "destination": {
+        "kind": "anchor",
+        "id": "kimball_house"
+      },
+      "text": "This is 1801 Prairie, across Eighteenth Street, the Kimball house. William Kimball came to Chicago in 1857. He traded his land in Iowa for four pianos, and he sold them from a small upstairs office. Now his factory makes about a hundred pianos and organs every week. His name is on pianos all over America. He and his wife, Evaline, have no children. He is very sick, and he will die at home on 16 December. Watch the doctor go up the steps, and the house helper who lets him in. At the funeral, John Glessner from across the street will be one of the men honoring him.",
+      "evidence": [
+        "kimball-four",
+        "kimball-start",
+        "kimball-dying",
+        "stage"
+      ],
+      "links": [
+        {
+          "kind": "person",
+          "id": "pa1904_kimball_william_w",
+          "label": "William W. Kimball"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_kimball_mrs_william_w",
+          "label": "Evalyne M. Kimball"
+        },
+        {
+          "kind": "person",
+          "id": "pa1904_kimball_william_w_c1900_ernest_sibbald",
+          "label": "Ernest Sibbald"
+        }
+      ],
+      "next": "clock",
+      "read_s": 28,
+      "stage": {
+        "caption": "A doctor climbs the Kimball steps. Ernest Sibbald opens the door, and Mrs. Kimball waits in the hall.",
+        "liberty": "L-1904-story-jaunts",
+        "cast": [
+          {
+            "extra": "doctor",
+            "dress": "glessner_john_j_1904",
+            "name": "A doctor calling (unnamed)",
+            "at": [
+              1406.16,
+              -3240.81
+            ],
+            "beats": [
+              {
+                "t": 0,
+                "walk": [
+                  [
+                    1409.54,
+                    -3226.9
+                  ],
+                  [
+                    1416.62,
+                    -3223.69
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 14,
+                "face": "pa1904_kimball_william_w_c1900_ernest_sibbald"
+              },
+              {
+                "t": 20,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "pa1904_kimball_william_w_c1900_ernest_sibbald",
+            "at": [
+              1418.05,
+              -3222.73
+            ],
+            "heading": 268.5,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 10,
+                "show": true
+              },
+              {
+                "t": 21,
+                "hide": true
+              }
+            ]
+          },
+          {
+            "person": "pa1904_kimball_mrs_william_w",
+            "at": [
+              1418.41,
+              -3224.24
+            ],
+            "heading": 279.6,
+            "hidden": true,
+            "beats": [
+              {
+                "t": 13,
+                "show": true
+              },
+              {
+                "t": 22,
+                "hide": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "legs": [
+    {
+      "story": "Down the walk to the front door, where the guests are going in.",
+      "evidence": [
+        "class-harper"
+      ],
+      "story_evidence": [
+        "class-harper"
+      ]
+    },
+    {
+      "story": "Through the house to the courtyard side, where the windows are big.",
+      "evidence": [
+        "narrow-windows"
+      ],
+      "story_evidence": [
+        "narrow-windows"
+      ]
+    },
+    {
+      "story": "Across the courtyard to the back stairs, the helpers' own way in.",
+      "evidence": [
+        "servants-unseen"
+      ],
+      "story_evidence": [
+        "servants-unseen"
+      ]
+    },
+    {
+      "story": "Out through the gates and across Eighteenth Street to the Kimball house.",
+      "evidence": [
+        "kimball-four"
+      ],
+      "story_evidence": [
+        "kimball-dying"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "clock",
+      "text": "The walk ends here. William Kimball died on 16 December 1904. John Glessner crossed Eighteenth Street to honor him at the funeral. The Reading Class went on. It met every Monday from October to May until 1930. When Frances Glessner died, her husband wrote that she had \"a clean and wholesome and orderly mind\", and a heart full of love for family and friends and anyone in need. That is the house in one sentence: clean, kind, orderly, and full of people you never see.",
+      "read_s": 22,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "monday-reading-class-card-grades-3-5",
+    "title": "The Reading Class Invitation",
+    "text": "A card about the Monday Morning Reading Class at 1800 Prairie in 1904. It is a made-up keepsake, not an object from history."
+  },
+  "evidence": [
+    {
+      "id": "narrow-windows",
+      "text": "Passers-by remarked on the narrow windows in the north side along 18th Street, just enough to light the narrow corridors, not realizing that on the courtyard side Richardson had put generous windows.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 15."
+    },
+    {
+      "id": "richardson-dates",
+      "text": "HABS dates the building from June 1, 1886 to December 1, 1887; the house museum gives Richardson's death as April 26, 1886.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_house_richardson_page"
+      ],
+      "locator": "HABS data pages pp. 1-2; the museum's Richardson page."
+    },
+    {
+      "id": "pullman-glare",
+      "text": "George Pullman, across the street, complained of the Glessner house: 'I do not know what I have ever done to have that thing staring me in the face every time I go out of my door'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_glessner_house"
+      ],
+      "locator": "The design section."
+    },
+    {
+      "id": "neighbours",
+      "text": "Glessner built at the corner of Eighteenth Street and Prairie Avenue, diagonally opposite Pullman's mansion.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "locator": "Data page 3, Part I.B."
+    },
+    {
+      "id": "day",
+      "text": "Monday at the Fortress: the day, Monday 21 November 1904, the hour and the order of the walk are this jaunt's framing, chosen because the stories meet on it (three days after Arthur Caton's death, a Monday of the Reading Class, before Kimball's death in December). No visit on that day is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "stage",
+      "text": "Monday at the Fortress: who is seen at each stop, where they stand, what they do and when are reconstructed. People with cards in the town play themselves; people the town has no card for (and the unnamed servants, callers and passers-by) are unnamed figures in period dress, and no likeness is claimed. No word anyone says is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1904-story-jaunts"
+    },
+    {
+      "id": "class-harper",
+      "text": "In 1893 William Rainey Harper, president of the University of Chicago, asked Frances Glessner for advice on how to introduce faculty wives to women of the city. The result was her Monday Morning Reading Class, which met for two hours in the library of the house every Monday from October to May. During the first hour the women sewed and listened to a professional reader; during the second there was lighter reading or a lecture. Membership was by invitation only, and the class continued until 1930.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Macbeth Glessner."
+    },
+    {
+      "id": "reading-class",
+      "text": "Frances Glessner founded the Monday Morning Reading Class in the house; its weekly meetings ran through the winters and springs, in the library, and while the reading went on the ladies' fingers were busy with sewing.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 10."
+    },
+    {
+      "id": "yellow-glass",
+      "text": "Yellow glass under chipped white glass in the door leading to the courtyard gives the hall a feeling of sunlight even in cloudy weather.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 14."
+    },
+    {
+      "id": "servants-unseen",
+      "text": "There are two or more entrances or exits to every principal room, and passages are so planned that servants rarely are in evidence.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 15."
+    },
+    {
+      "id": "creeper",
+      "text": "The Virginia creeper on the courtyard walls was carried from the old house; one vine fifty-five feet long was replanted and trained its full length, and it flourished.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 9."
+    },
+    {
+      "id": "silversmith",
+      "text": "In 1904 Frances Glessner set up a workbench in the basement of Glessner House and began producing simple and elegant objects; her pieces bear her hallmark, 'a G encircling a honeybee', for her bee keeping. She studied with Annibale Fogliata, a master jewelry craftsman of Hull House, and Madeline Yale Wynne, a noted Chicago silversmith.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Macbeth Glessner."
+    },
+    {
+      "id": "journal-silver",
+      "text": "Frances Macbeth Glessner kept a journal from 1879, and in 1904 set up a silversmith's workbench in the basement of the house; she also kept bees.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Macbeth Glessner."
+    },
+    {
+      "id": "kimball-four",
+      "text": "Kimball came to Chicago in 1857 and traded his Iowa property for four pianos, which he sold from a second-storey office; he married Evaline M. Cone in 1865, and they had no children.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_scots_2012_kimball"
+      ],
+      "locator": "The post's paragraphs on his life."
+    },
+    {
+      "id": "kimball-start",
+      "text": "Kimball founded his piano business in Chicago in 1857, 'beginning with only four pianos'; in 1881 he opened his own factory 'churning out around 100 pianos and organs every week'; he 'died at his home in Chicago on December 16, 1904'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_william_wallace_kimball"
+      ],
+      "locator": "The biography: Chicago, the factory, his death."
+    },
+    {
+      "id": "kimball-dying",
+      "text": "'Mr. Kimball died at home after a lingering illness on December 16, 1904. His funeral was held in his home'. 'The honorary pallbearers included: Marshall Field, Robert T. Lincoln, Lambert Tree, Robert H. McCormick, Watson F. Blair, Charles H. Deere and J. J. Glessner.'",
+      "confidence": "attested",
+      "sources": [
+        "chicago_scots_2012_kimball"
+      ],
+      "locator": "The post's paragraph on his death and funeral."
+    },
+    {
+      "id": "frances-mind",
+      "text": "John Glessner wrote of his wife: 'She had a clean and wholesome and orderly mind, a heart overflowing with love for family and friends and for all in any need.'",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Macbeth Glessner, quoting The Story of a House."
+    }
+  ],
+  "liberties": [
+    "L-1904-story-jaunts"
+  ],
+  "version_of": "monday-reading-class"
+}

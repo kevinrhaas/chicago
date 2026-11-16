@@ -1,0 +1,58 @@
+== premise
+See what two stores on South Water Street sold to wear. Then choose how to dress for a party at the Sauganash.
+
+== opening
+JAUNT: A DECENT COAT. You are invited to a party at the Sauganash tonight. Tomorrow you start a new job. But your only coat is still grey with dust from the road. In this town that may not matter much. A writer from New York went to a Chicago dance in 1834. He saw all kinds of people mixed together. He watched fancy little slippers dance across from heavy work boots.
+
+Still, you would like to look neat. On South Water Street, stores sell clothes ready to wear, and cloth to make your own. See what the stores offer. Stop at your boarding house to think. Then decide what to wear tonight.
+
+== stop ready-made
+Start one door from Dearborn Street, at John Holbrook's store. On 10 June 1835 he put an ad in the paper for clothes, boots and shoes. He said new goods came in every two or three weeks. That is the new way to dress in a fast-growing town. Coats are made in shops back East and sent here by boat, ready to wear tonight. No tailor, no fitting, no waiting.
+
+== narrative ready-made
+Here is a coat you could wear tonight.
+
+== stop cloth
+One block west, at Clark Street, a store called Harmon, Loomis and Company sells cloth. Their list named many kinds of wool and heavy cotton cloth. Fine cloth makes a fine coat. But cloth is not a coat yet. Someone still has to cut it and sew it, and that takes longer than one afternoon.
+
+== narrative cloth
+A better coat, some day, but not by tonight.
+
+== stop dress
+Go one more block west, to Mrs. Rufus Brown's log boarding house, behind Peck's store. Peck's was the town's first two-story wooden building. Its boards were cut from black walnut trees and brought by boat from Detroit. The town has dressed up a lot since then. Lay out your choice on the bed you share. The party tonight needs a neat coat. Tomorrow's work needs a strong one. One coat has to do both.
+
+== stop the-call
+Walk on to Lake and Market Streets and the Sauganash. It is white, with bright blue shutters, and it was fixed up new this June. Its owner, Mark Beaubien, is the best fiddle player in town. When he plays, a judge said, every heel and toe in the room starts to dance. Nobody will look at your coat for long. Decide what to wear.
+
+== narrative the-call
+The party is tonight, no matter what you wear.
+
+== label the-call made-coat
+Wear a ready-made coat
+
+== consequence the-call made-coat
+A plain coat from the store, like Holbrook's ad offers, ready tonight.
+
+== label the-call brushed-coat
+Brush the old coat
+
+== consequence the-call brushed-coat
+Go neat in what you have. You can have a work coat made from cloth later.
+
+== leg 0
+From ready-made clothes to the cloth that clothes are made from.
+
+== leg 1
+Back to your room to think about tonight and tomorrow.
+
+== leg 2
+Arrive at the town's freshly fixed-up inn for the party.
+
+== ending ready-tonight
+You go to the party in a plain store coat. You keep your travel coat for tomorrow's work. By the second song nobody can tell your coat from a fancy New York one. By the third song nobody cares.
+
+== ending brushed
+You go to the party brushed and neat in the coat you came in. You plan to buy good cloth for a new coat later. In a town of fancy slippers and work boots, you fit right in.
+
+== keepsake text
+A made-up note about what you wore to a party at the Sauganash, and what you saw along South Water Street.

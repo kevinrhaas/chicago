@@ -98,7 +98,12 @@ if (args[0] === '--all') {
   const at = args.indexOf('--scene'), scene = at >= 0 ? args[at + 1] : '1835';
   const rows = fs.readdirSync('data/jaunts').filter(name => name.endsWith('.json') && !NOT_JAUNTS.has(name)).sort()
     .map(name => readJaunt(path.join('data/jaunts', name))).filter(jaunt => jaunt.scene === scene).map(libraryRow);
-  if (args.includes('--json')) { console.log(JSON.stringify({ scene, jaunts: rows }, null, 1)); process.exit(0); }
+  // A pipe takes 64 KiB before it blocks; exiting straight after console.log cut the JSON short
+  // once the library outgrew that (T-3621), so exit only after stdout has drained.
+  if (args.includes('--json')) {
+    await new Promise(done => process.stdout.write(`${JSON.stringify({ scene, jaunts: rows }, null, 1)}\n`, done));
+    process.exit(0);
+  }
   const pad = (v, n) => String(v).padEnd(n);
   console.log(`${pad('jaunt', 24)} ${pad('stops', 5)} ${pad('words', 5)} ${pad('read', 5)} ${pad('mode', 6)} ${pad('paths', 5)} ${pad('ends', 5)} ${pad('family', 17)} resources`);
   for (const r of rows) {
