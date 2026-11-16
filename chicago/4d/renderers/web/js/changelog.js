@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3037, ts: '2026-11-16T17:38:07.213Z', date: 'Nov 16, 2026, 11:38 AM CT', title: 'The burning of Fort Dearborn on the public site', kind: 'feature',
+    items: [
+      'The home page, Jaunts and 1812 pages show new films of Fort Dearborn burning on 16 August 1812: the brands going in at the gate, the roofs ablaze, the fort from across the river and the roofs falling in.',
+      'The home page plays its moving town background again, and shows how a source travels from the archive to the street you walk.',
+    ] },
   { v: 3036, ts: '2026-11-16T16:33:32.602Z', date: 'Nov 16, 2026, 10:33 AM CT', title: '1827 Prairie\'s crown, porch and tower match the Doane photograph', kind: 'polish',
     items: [
       'The pavilion\'s slate crown is now the photograph\'s short, steep pyramid on a ledge of its cornice, no longer a long hip running back into the roof.',
