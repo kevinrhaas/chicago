@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3043, ts: '2026-11-16T20:17:56.157Z', date: 'Nov 16, 2026, 2:17 PM CT', title: 'The Confidence view\'s overlay check holds the town still while it counts', kind: 'fix',
+    items: [
+      'Nothing you can see changes. One of the checks that runs on every change turns on the Confidence view\'s building labels, people pins and Jaunt route, and confirms they add nothing to the 3D scene. Since the 1835 townspeople began coming and going from their doors, a figure arriving or loading a closer level of detail during that check was counted as the overlays\' work, so the check failed every time. It now hides the people and pauses the town between its two readings, and if it ever fails again it names the part of the scene that changed.',
+    ] },
   { v: 3042, ts: '2026-11-16T20:00:09.201Z', date: 'Nov 16, 2026, 2:00 PM CT', title: 'South Water and Lake fill out as 1835\'s row of stores', kind: 'feature',
     items: [
       'In 1835 the block fronts of South Water and Lake Streets, Wells to State, are now built up toward seven tenths of their length, and the row turns the corner up Wells, LaSalle, Clark and Dearborn. 59 more reconstructed frame stores and a boarding house stand shoulder to shoulder at the street, the way Gifford drew the street round the first Tremont House.',
