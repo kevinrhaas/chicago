@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1143,
+  "count": 1144,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -74882,6 +74882,44 @@
       ],
       "work_refs": [
         "T-3556"
+      ]
+    },
+    {
+      "id": "L-tales-3553",
+      "title": "Tell me a story: everyone in town tells stories in their own voice",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-16",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-16: *\"For all characters in all years, add to interactions a tell me a story action, pick a random story from a personal and if no personal one exisists, pull a story from the story library. The story library should have hundreds of unique stories... relevant to them as a person and their role and life and maybe even give you some guidance to meet or connect with another person to find them.\"* Every person who can be greeted in 1812, 1835 and 1904 offers Tell me a story after Greet. A named person with stories of their own tells those first; anyone else draws from the library for their roles in that year (soldier, engagé, Potawatomi woman, Irish labourer, parlour maid, coachman, lady, child, and so on). About 410 library stories and 79 of people's own, in the research notes on tales, built into the <scene> data by the tales generator."
+        },
+        {
+          "label": "Not invented",
+          "text": "who each teller is, their household, trade, community, age and sex (their own records, read when the library is built); the people a story sends you to find (each one is drawn in that year's town); the events the stories speak of, which are the record's: in 1812 the garrison, the evacuation order and the camps before the battle; in 1835 the land craze, the 1833 treaty and the removal, the canal, the cholera of 1832; in 1904 the fire of 1871, the fair of 1893, the Pullman strike, Haymarket, the reversed river, the Iroquois Theatre fire, the car barn bandits, the June convention."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "every telling is reconstructed. The library stories are composite lives: true to the year, the place and the kind of work, not any one person's. A person's own stories hold to what is known of them, but the words, the order and the feelings in them are this project's. Where a story names a small particular nobody recorded (a wage in one house, a dog's name, a quarrel at a card table), it is a believable particular, not a claim. The card says so: \"A reconstructed telling\"."
+        },
+        {
+          "label": "Left out on purpose",
+          "text": "voices (the ElevenLabs narration costs money and waits for the owner's go-ahead; the teller's mouth moves while the card is open); anything told past its scene's date; in 1812, any blow, shot or wound told graphically (the student rule); invented ceremony presented as attested, for the Potawatomi, Miami and Ottawa tellers."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a record of a person's own words or life that a story contradicts (that story is rewritten or withdrawn); a role drawn in town with too few stories (the tales test names it); the camp children of 1835 being drawn, whose three stories wait for them."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-16."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
       ]
     },
     {
