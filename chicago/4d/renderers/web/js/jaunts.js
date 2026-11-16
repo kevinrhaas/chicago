@@ -542,6 +542,9 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     // T-3553: Watch again: the stop's stage from the beginning.
     replay() { if (!stage || state.phase !== 'atStop' || !currentStop(state)?.stage?.cast?.length) return false;
       try { return !!stage.replay(); } catch { return false; } },
+    // The burning of the fort: the visitor puts their torch to the nearest building.
+    kindle() { if (!stage?.kindle || state.phase !== 'atStop' || !currentStop(state)?.stage?.fire?.visitor) return null;
+      try { return stage.kindle() ?? null; } catch { return null; } },
     end() { ++serial; request?.abort(); return dispatch({ type: 'END' }); }, menu: () => dispatch({ type: 'MENU' }),
     resume() { if (state.phase !== 'menu' || !state.jaunt) return false;
       const target = state.restored ? resolve(currentStop(state).destination) : null;

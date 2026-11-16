@@ -47,10 +47,20 @@
  * under them (human-blood.js, handed in as `blood`). The compiler refuses `wound` outside an
  * adults jaunt too, and the gate refuses one on a child.
  *
+ * And the burning of the fort (the owner, 2026-11-16: "witness and also join the party and help
+ * light Fort Dearborn on fire"): a stop's `fire` names the buildings that burn (`burns`) and any
+ * that stand through it (`stands`, smoked); a castmate takes up a firebrand (`torch` beat) and
+ * puts it to a building (`ignite`: the structure id), where the fire catches as the torch
+ * touches it; the heat carries to the buildings near it; and where `fire.visitor` is set the
+ * visitor holds a torch too and may put it to the nearest building (`kindle`). The fire, its
+ * smoke and the buildings' burning down are fort-fire.js's, handed in as `fire`. Burning
+ * empty buildings is not a blow: students see it as adults do.
+ *
  *   sync(stop, { arrived })  build `stop`'s stage (or keep it), and play it once arrived
  *   replay()                 from the beginning again
  *   release()                take every staged figure away
  *   update(dt)               one frame
+ *   kindle(at)               the visitor's torch, put to the nearest building of the fire
  *   ids                      the person ids the stage plays now
  */
 
@@ -148,8 +158,10 @@ export function stageLength(stop, { walkSpeed = 1.3 } = {}) {
  * scene not drawn in town (a gathering's inside-only resident), or null; `tier()` the people
  * tier now; `eye()` the eye (a world Vector3) each figure is updated from.
  */
-export function createJauntStage({ humans, parent = null, resolve = () => null, tier = () => 'full', eye = () => null, teams = null, fight = null, blood = null } = {}) {
+export function createJauntStage({ humans, parent = null, resolve = () => null, tier = () => 'full', eye = () => null, teams = null, fight = null, blood = null, fire = null, view = () => null } = {}) {
   let stopKey = null, stop = null, cast = [], clock = 0, playing = false;
+  // The burning of the fort (fort-fire.js createFortFire): made the first time a stop has a `fire`.
+  let burn = null;
   // Adults jaunts: the guns' flash and smoke (human-fight.js createFightFx), made once.
   const fx = fight?.createFightFx && parent ? fight.createFightFx(parent) : null;
   // ... and their blood (human-blood.js createBloodFx), made once too.
@@ -218,9 +230,23 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       const frame = a.root.visible && !a.indoors ? actions.gripFrame?.('r') : null;
       m.weapon.visible = !!frame;
       if (frame) fight.placeWeapon(m.weapon, frame);
+      // A torch burns at its head.
+      if (frame && m.arm === 'torch' && burn?.active && m.weapon.userData.tip) {
+        m.weapon.updateMatrixWorld(true);
+        tipAt ??= m.weapon.position.clone();
+        burn.flameNow(m.weapon.userData.tip.getWorldPosition(tipAt), { w: 0.34, h: 0.62, heat: 1, seed: m.seed ?? 1 });
+      }
     }
     const shots = actions.takeShot?.() ?? 0;
     if (shots && m.weapon && fx) { const z = fight.muzzleOf(m.weapon); if (z) for (let i = 0; i < shots; i++) fx.shoot(z.at, z.dir); }
+  }
+
+  let tipAt = null; // (this module imports nothing: vectors are the figures' own kind, cloned)
+  /** Where `m` puts their torch: its head, or before them at a hand's height. */
+  function torchPoint(m) {
+    if (m.weapon?.visible && m.weapon.userData.tip) { m.weapon.updateMatrixWorld(true); return m.weapon.userData.tip.getWorldPosition(m.weapon.position.clone()); }
+    const r = m.actor.root.position, h = (m.actor.heading ?? 0) * Math.PI / 180;
+    return r.clone().set(r.x + Math.sin(h) * 0.7, r.y + 1.0, r.z - Math.cos(h) * 0.7);
   }
 
   /** Where the blow that wounds `m` came from: the nearest castmate with a weapon in hand. */
@@ -260,7 +286,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       const posed = c.pose && c.pose !== 'stand' || sortedBeats(c).some((b) => b.pose && b.pose !== 'stand');
       if (posed) actor.animateM = STAGE_ANIMATE_M;
       parent?.add?.(actor.root);
-      const m = { c, actor, beats: sortedBeats(c), next: 0 };
+      const m = { c, actor, beats: sortedBeats(c), next: 0, seed: (i * 7.31) % 97 };
       if (c.ride && typeof c.ride.team === 'string' && Array.isArray(c.ride.seat) && c.ride.seat.length === 3) {
         m.ride = c.ride;
         actor.setPosture?.(c.pose ?? 'sit', { seconds: 0 });
@@ -271,12 +297,16 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     });
     wagons = teamsFor(next).map((c) => ({ c, actor: null, heading: castAt(c, 0).heading, pose: null }));
     askedLoad = -Infinity;
+    if (next.stage?.fire && fire?.create) {
+      try { burn ??= fire.create(); burn.start(next.stage.fire, { camera: view() }); } catch { burn = null; }
+    }
   }
 
   function teardown() {
     for (const m of cast) { m.weapon?.removeFromParent?.(); try { m.actor.dispose(); } catch { /* gone already */ } }
     fx?.clear();
     gore?.clear();
+    burn?.clear();
     for (const w of wagons) { try { w.actor?.unstage?.(); } catch { /* gone already */ } }
     cast = []; wagons = []; stop = null; playing = false; clock = 0;
   }
@@ -339,6 +369,13 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     if (typeof b.talk === 'boolean') a.actions?.setTalk?.(b.talk);
     if (b.greet) a.actions?.greet?.();
     if (b.arm) arm(m, b.arm);
+    // The burning of the fort: a torch taken up or thrown down, and put to a building.
+    if (b.torch === true) arm(m, 'torch');
+    if (b.torch === false) arm(m, 'none');
+    if (typeof b.ignite === 'string') {
+      if (a.actions?.act) { a.actions.wield?.(m.arm); a.actions.act('kindle'); } else m.pendingAct = 'kindle';
+      m.pendingIgnite = { id: b.ignite, at: b.t + (fight?.MOTIONS?.kindle?.hit ?? 0.6) };
+    }
     // A motion is begun on the hands once they are there (a figure still loading takes it then).
     if (b.act) { if (a.actions?.act) { a.actions.wield?.(m.arm); a.actions.act(b.act); } else m.pendingAct = b.act; }
     if (b.wound) wound(m, b.wound);
@@ -364,14 +401,22 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       return true;
     },
     release() { teardown(); stopKey = null; },
+    /** The visitor puts their torch to the nearest building of the stop's fire within reach of
+     *  `at` (world): { lit, name } or { none }; null where the stop has no fire for them. */
+    kindle(at) {
+      if (!burn?.active || !stop?.stage?.fire?.visitor || !playing || !at) return null;
+      return burn.kindle(at);
+    },
+    get fire() { return burn?.active ? burn : null; },
     update(dt) {
-      if (!cast.length && !wagons.length) return;
+      if (!cast.length && !wagons.length && !burn?.active) return;
       const step = Number.isFinite(dt) && dt > 0 ? dt : 0;
       const shown = humans?.shown !== false;
       if (playing) {
         clock += step;
         for (const m of cast) {
           while (m.next < m.beats.length && m.beats[m.next].t <= clock) play(m, m.beats[m.next++]);
+          if (m.pendingIgnite && clock >= m.pendingIgnite.at) { burn?.ignite(m.pendingIgnite.id, torchPoint(m)); m.pendingIgnite = null; }
         }
       }
       driveTeams(step);
@@ -385,6 +430,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       }
       fx?.update(step);
       if (gore) { gore.visible = shown; gore.update(step); }
+      if (burn?.active) { burn.holdTorch(!!stop?.stage?.fire?.visitor && playing); burn.update(playing ? step : 0, view()); }
     },
     snapshot() {
       return { stop: stopKey, playing, clock: +clock.toFixed(2), cast: cast.map((m) => ({ person: m.c.person ?? null, extra: m.c.extra ?? null,
@@ -393,6 +439,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
         ...(m.arm && m.arm !== 'none' ? { arm: m.arm, armed: !!m.weapon?.visible, act: m.actor.actions?.fight?.act ?? null } : {}) })),
         smoke: fx?.count ?? 0,
         ...(gore ? { blood: gore.counts } : {}),
+        ...(burn?.active ? { fire: burn.snapshot() } : {}),
         teams: wagons.map((w) => ({ team: w.c.team, taken: !!w.actor, e: w.pose ? +w.pose.e.toFixed(2) : null,
           n: w.pose ? +w.pose.n.toFixed(2) : null, heading: w.pose ? +w.pose.heading.toFixed(1) : null })) };
     },

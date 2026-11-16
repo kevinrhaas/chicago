@@ -97,6 +97,7 @@ import { createJauntHosts } from './jaunt-hosts.js';
 import { createJauntStage } from './jaunt-stage.js';
 import * as humanFight from './human-fight.js'; // the adults jaunts' weapons, motions and gun smoke
 import * as humanBlood from './human-blood.js'; // ... and their blood and wounds
+import { createFortFire } from './fort-fire.js'; // the burning of the first fort, 16 August 1812
 import { createHumanSpacing, BODY_R_M } from './human-spacing.js';
 import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
@@ -5747,7 +5748,7 @@ async function boot() {
         // The owner, 2026-11-15: the adults-only jaunts, listed only once Move › Adults-only jaunts is on.
         allowAdults: () => hud.adultJaunts === true,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
-      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext', 'replay'].map(name => [name, (...args) => {
+      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext', 'replay', 'kindle'].map(name => [name, (...args) => {
         // T-3578: Next, Previous and End are the visitor moving on: the voice still speaking stops
         // (and nothing it had queued plays), rather than talking over the next part.
         if (['next', 'prev', 'end'].includes(name)) narration.stop();
@@ -5842,12 +5843,29 @@ async function boot() {
               // The town's own horse teams, taken for a scene (the 1812 column's wagons).
               teams: { get: (id) => api.townTransport?.actorById?.(id) ?? null, load: () => { void api.townTransport?.ready?.()?.catch?.(() => {}); } },
               // The adults jaunts (2026-11-15): weapons in the hand, and the guns' flash and smoke.
-              fight: humanFight, blood: humanBlood });
+              fight: humanFight, blood: humanBlood,
+              // The burning of the fort (2026-11-16): its buildings' fire, smoke and fall, and the
+              // fort's gates thrown open while it burns (they are given back shut).
+              fire: { create: () => createFortFire({ parent: scene3d, buildings: () => buildings,
+                groundAt: (x, z) => terrain.surfaceHeight(x, -z),
+                extras: (id) => [scene3d.getObjectByName(`fort-gates:${id}`)].filter(Boolean),
+                nameOf: (id) => String(loaded.registry.get(id)?.sidecar?.name ?? loaded.registry.get(id)?.name ?? id).replace(/^First Fort Dearborn\s*[—-]\s*/, ''),
+                tier: () => api.humans?.tier ?? 'full',
+                setup: (spec) => {
+                  const opened = spec.open_gates ? fortGates.gates.filter((g) => spec.burns.includes(g.structureId) && g.state === 'closed') : [];
+                  for (const g of opened) { g.actions.closed[0].steps[0].run(1); g.state = 'open'; }
+                  // No colours fly over the burning fort (what became of the flag is not recorded).
+                  const flown = flags.group.visible; if (spec.strike_colours) flags.group.visible = false;
+                  return () => { for (const g of opened) { g.actions.open[0].steps[0].run(1); g.state = 'closed'; } flags.group.visible = flown; };
+                } }) },
+              view: () => camera });
             api.jauntStage.sync(stop, { arrived });
             gateFrame.invalidate();
           },
           replay: () => { const ok = api.jauntStage?.replay() ?? false; gateFrame.invalidate(); return ok; },
           release: () => { api.jauntStage?.release(); gateFrame.invalidate(); },
+          // The burning of the fort: the visitor's own torch, put to the nearest building.
+          kindle: () => { const r = api.jauntStage?.kindle(camera.getWorldPosition(new THREE.Vector3())) ?? null; gateFrame.invalidate(); return r; },
         },
         showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
         closeDetail: jauntCards.close,
@@ -5869,7 +5887,7 @@ async function boot() {
     modeFor: (jaunt) => jauntWay(jaunt),
     async daybook() { await ensureJaunts(); return jauntPreview.daybook(); },
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
-    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext', 'replay'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
+    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext', 'replay', 'kindle'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
   // T-2561: "Keep <year> on this device" on the welcome — the year's pack in Cache
   // Storage behind a service worker, so a kept year boots from disk, offline too.
