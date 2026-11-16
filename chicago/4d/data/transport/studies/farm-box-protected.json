@@ -129,8 +129,8 @@
   },
   "town_wagons": {
     "path": "data/yard/town_trade_goods.json",
-    "sha256": "1e4389b7422614e33802b2061414e43db1498eb8f3d4b1b194cc1f9e3e5629fd",
-    "record_count": 79,
+    "sha256": "bf97078d2eb940f857350febfa3a547f0f7bee63bd52829151d8e35359b68425",
+    "record_count": 78,
     "form_keys": [
       "barrel_height_m",
       "barrel_belly_diameter_m",
