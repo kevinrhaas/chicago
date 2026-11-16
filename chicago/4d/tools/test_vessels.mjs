@@ -54,9 +54,15 @@ function groundOf(scene) {
       + (v(r0 + 1, c0) * (1 - fc) + v(r0 + 1, c0 + 1) * fc) * fr) * meta.scale + meta.offset;
   };
 }
+// The browser's terrain answers a flat 0 past the box (no apron in the harbour), which is why
+// the layer's bed() carries the box's edge out for the helm; the test terrain does the same.
 const terrainOf = (scene) => {
   const h = groundOf(scene);
-  return { groundHeight: h, surfaceHeight: (e, n) => Math.max(h(e, n), 0), walkHeight: (e, n) => Math.max(h(e, n), 0), isWater: (e, n) => h(e, n) < 0 };
+  const meta = read(`data/terrain/epochs/${EPOCH[scene]}/heightfield.json`);
+  const inBounds = (e, n) => e >= meta.origin_e && n >= meta.origin_n
+    && e <= meta.origin_e + (meta.cols - 1) * meta.cell_m && n <= meta.origin_n + (meta.rows - 1) * meta.cell_m;
+  const raw = (e, n) => (inBounds(e, n) ? h(e, n) : 0);
+  return { groundHeight: raw, inBounds, surfaceHeight: (e, n) => Math.max(raw(e, n), 0), walkHeight: (e, n) => Math.max(raw(e, n), 0), isWater: (e, n) => raw(e, n) < 0 };
 };
 
 let checks = 0;
@@ -168,6 +174,9 @@ const v35 = await createVessels({ dataBase: 'http://x/data/', sceneId: '1835', t
 ok(problems.length === 0, `problems: ${problems.join('; ')}`);
 ok(v35.census.vessels === docs[1835].vessels.length && v35.census.refused === 0, `census ${JSON.stringify(v35.census)}`);
 ok(v35.things.length === v35.census.vessels, 'not every vessel can be taken');
+for (const [e, n] of [[1790, 360], [1895, 271], [2600, -400], [765, 58]]) {
+  ok(Math.abs(v35.bed(e, n) - g35(e, n)) < 0.01, `the helm reads the bed at (${e}, ${n}) as ${v35.bed(e, n)}, the berths were laid on ${g35(e, n)}`);
+}
 camAt(765, 15, 353);
 v35.update(0.1, camera);
 // The layer looks round twice a second (its dt is held to a quarter second a frame).
@@ -216,7 +225,7 @@ ok(kinzie.pose.e === home[0] && kinzie.pose.n === home[1], 'the Kinzies\' boat i
 // --- 6. the helm --------------------------------------------------------------------------------
 const said = [];
 const standable = (e, n) => g35(e, n) > 0.15;
-const pilot = createBoatPilot({ nav: () => v35.nav, ground: g35, hulls: () => v35.hulls(), standable, say: (t) => said.push(t) });
+const pilot = createBoatPilot({ nav: () => v35.nav, ground: v35.bed, hulls: () => v35.hulls(), standable, say: (t) => said.push(t) });
 pilotRef = pilot;
 {
   const hiram = v35.vessels.find((v) => v.id === 'vessel_schr_hiram');
@@ -238,6 +247,21 @@ pilotRef = pilot;
   ok(hiram.state === 'left', `the Hiram is ${hiram.state} after you go ashore`);
   const land = localToEnu(hiram.pose, 0, 0);
   ok(Number.isFinite(land.e), 'no pose after going ashore');
+}
+
+// Out in the lake, past the measured box: the Jesse Smith, at her resting place in the offing,
+// takes way and sails on with the lake's own depth under her, not aground on the box's edge.
+{
+  hour = 23; tick(v35);
+  const js = v35.vessels.find((v) => v.id === 'vessel_schr_jesse_smith');
+  ok(js.state === 'resting' && js.pose.e > 1700, `the Jesse Smith rests at (${js.pose.e}, ${js.pose.n}), ${js.state}`);
+  const craft = v35.craftOf(js.id);
+  ok(pilot.take(craft), 'the Jesse Smith\'s helm does not take');
+  const p0 = { ...craft.pose };
+  pilot.drive({ forward: 1, strafe: 0 });
+  for (let i = 0; i < 200; i++) { pilot.update(0.1); v35.update(0.1, camera); }
+  ok(!pilot.blocked && Math.hypot(craft.pose.e - p0.e, craft.pose.n - p0.n) > 8, `in the lake she ${pilot.blocked ? `is held: ${pilot.blocked}` : 'did not move'}`);
+  ok(pilot.leave() === 'A boat rows you ashore' || said.at(-1) === 'A boat rows you ashore', `from the offing: ${said.at(-1)}`);
 }
 
 console.log(`test_vessels: ${checks} checks passed (${kinds.size} kinds, ${v35.census.vessels} vessels in 1835, ${v12.census.vessels} in 1812)`);

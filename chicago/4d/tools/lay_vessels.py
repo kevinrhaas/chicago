@@ -113,6 +113,11 @@ class Ground:
                     return a
         return self._bil(*self.grids[0], e, n, clamp=True)
 
+    def box(self) -> dict:
+        m = self.grids[0][0]
+        return {"e": [r2(m["origin_e"]), r2(m["origin_e"] + (m["cols"] - 1) * m["cell_m"])],
+                "n": [r2(m["origin_n"]), r2(m["origin_n"] + (m["rows"] - 1) * m["cell_m"])]}
+
     def depth(self, e: float, n: float) -> float:
         return -self.h(e, n)
 
@@ -549,6 +554,10 @@ def build(scene: str):
         "channel_depth_m": CHANNEL_DEPTH_M,
         "obstacles": obs,
         "bounds": {"e": [-700.0, 3400.0], "n": [-3800.0, 2400.0]} if scene == "1835" else {"e": [-700.0, 3400.0], "n": [-3800.0, 1120.0]},
+        # The measured box. Past it the browser's terrain answers a flat 0 (no depth at all),
+        # so the helm reads the bed as this file was laid against: the box's edge carried out,
+        # the open lake at its own edge depth.
+        "ground_box": ground.box(),
     }
     counts = {"vessels": len(rows)}
     for r in rows:

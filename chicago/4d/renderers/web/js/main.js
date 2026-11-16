@@ -3122,7 +3122,7 @@ async function boot() {
   };
   api.pilot = createBoatPilot({
     nav: () => vessels.nav,
-    ground: (e, n) => terrain.groundHeight(e, n),
+    ground: (e, n) => vessels.bed(e, n),
     hulls: () => vessels.hulls().concat(crossings.hulls?.() ?? []),
     standable: standableAt,
     onBoard: (craft, on) => {
@@ -6418,16 +6418,16 @@ async function boot() {
   /** T-3612: the travel bar at the helm of a boat: who she is, the keys, her way, Go ashore. */
   let pilotPainted = '', pilotPaintAt = 0;
   function paintPilot(elapsed) {
-    const p = api.pilot;
-    if (!p?.active) {
+    const helm = api.pilot;
+    if (!helm?.active) {
       if (pilotPainted) { pilotPainted = ''; if (travel?.state?.phase === 'idle') hud.travelBanner(null); }
       return;
     }
-    const c = p.craft;
+    const c = helm.craft;
     const touch = backends.name === 'touch' || (backends.name === 'none' && coarse);
     const notes = [];
-    if (p.blocked) notes.push(t('hud.pilot.held', { why: p.blocked }));
-    else notes.push(t('hud.pilot.speed', { knots: (Math.abs(p.speed) * 1.944).toFixed(1) }));
+    if (helm.blocked) notes.push(t('hud.pilot.held', { why: helm.blocked }));
+    else notes.push(t('hud.pilot.speed', { knots: (Math.abs(helm.speed) * 1.944).toFixed(1) }));
     notes.push(t(touch ? 'hud.pilot.stick' : 'hud.pilot.keys'));
     const verb = c.kind === 'bark_canoe' || c.kind === 'dugout' ? 'hud.pilot.paddle'
       : c.kind === 'rowboat' || c.kind === 'skiff' || c.kind === 'bateau' ? 'hud.pilot.oars' : 'hud.pilot.helm';

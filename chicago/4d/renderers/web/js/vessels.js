@@ -628,6 +628,20 @@ export async function createVessels({
   out.crewState = () => ({ kit: crewKit === null ? 'unloaded' : crewKit ? 'ready' : 'none', loading: !!crewLoading,
     aboard: out.vessels.reduce((a, v) => a + v.crew.length, 0) });
 
+  /**
+   * The bed under (e, n), as the helm reads it. Inside the measured box it is the terrain's own;
+   * past it the browser's terrain answers a flat 0 unless an apron covers the place, so the
+   * box's edge is carried out instead, as tools/lay_vessels.py laid every berth and the loop:
+   * the open lake keeps the depth it has at the box's eastern edge.
+   */
+  out.bed = (e, n) => {
+    const box = out.nav?.ground_box;
+    if (!box || terrain.inBounds?.(e, n) !== false) return terrain.groundHeight(e, n);
+    const h = terrain.groundHeight(e, n);
+    if (h !== 0) return h;
+    return terrain.groundHeight(clamp(e, box.e[0], box.e[1] - 0.01), clamp(n, box.n[0], box.n[1] - 0.01));
+  };
+
   /** The hulls on the water now, for the pilot's clearance: { id, e, n, bearing, length, beam }. */
   out.hulls = () => out.vessels.filter((v) => v.present).map((v) => ({
     id: v.id, e: v.pose.e, n: v.pose.n, bearing: v.pose.bearing, length: v.L, beam: v.B, beached: v.rec.mode === 'beached' && v.state !== 'piloted' && v.state !== 'left',

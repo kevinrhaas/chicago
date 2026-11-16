@@ -7846,16 +7846,15 @@ for (const [label, viewport, touch] of [
     const flotilla = await page.evaluate(async () => {
       const a = window.__chicago4d;
       const v = a.vessels;
-      const terrain = a.terrain;
       const { blockedAt } = await import(new URL('js/boat-pilot.js', location.href).href);
       const nav = v?.nav ?? null;
       const stands = (v?.vessels ?? []).map((x) => {
         const beached = x.rec.mode === 'beached';
         const why = beached || !nav ? null
           : blockedAt(nav, { id: x.id, kind: x.rec.kind, masted: x.model.masted, length: x.L, beam: x.B, draft: x.rec.hull.draft_m },
-            x.pose.e, x.pose.n, x.pose.bearing, { ground: (e, n) => terrain.groundHeight(e, n) });
+            x.pose.e, x.pose.n, x.pose.bearing, { ground: (e, n) => v.bed(e, n) });
         return { id: x.id, state: x.state, beached, y: x.pose.y, why,
-          bed: terrain.groundHeight(x.pose.e, x.pose.n), draft: x.rec.hull.draft_m };
+          bed: v.bed(x.pose.e, x.pose.n), draft: x.rec.hull.draft_m };
       });
       return { census: v?.census ?? null, keepOut: (v?.keepOut ?? []).length, stands,
         beached: stands.filter((s) => s.beached).length, oldBoats: a.boats?.census?.boats ?? null,
