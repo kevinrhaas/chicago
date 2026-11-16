@@ -25267,6 +25267,7 @@ buildings are T-1938's.
 **Ticket:** T-2352 (piece 2 of T-2161, the district draft's 20th-22nd block).
 **Review:** `docs/RESEARCH/prairie-draft-20-22-east-2352/README.md`.
 **Retired in part:** 2009 the Max A. Meyer house by T-1913 (the S05A envelope package), which refined it in place on the K01 frontage kit under `L-k01-2009-meyer-1913`; its coach house is still this draft's.
+**Retired in part:** 2011, the Romanesque house beside Mayer, by T-3615 (piece 1 of T-1915, the S06 package), which refined it in place on the K01 frontage kit under `L-k01-2011-romanesque-1915`, under the same id; its draft attributes are gone (its alley building is still the draft's, T-1938's).
 **Recorded:** 2026-10-11 (T-2352).
 
 ### L-k01-2001-corner-3347 — 2001 Prairie refined from the district draft to a two-and-a-half-storey K01 house with a stone street front under a hip and a street dormer, its rear part stepping out to the 20th Street line, everything but the plan the kits'
@@ -44373,3 +44374,48 @@ A face made this way rests on one front picture's points: its profile is the fit
 **Re-opens on:** a register, a builder's list or a dated view that gives any of these vessels' rig, size or colours; a column that names a vessel in the offing or a berth; an account of a Chicago crew's work or numbers; a reading of the 1835 channel's depth; the owner wanting the draw raised for a schooner the visitor steers.
 **Ticket:** T-3612.
 **Recorded:** 2026-11-16.
+
+### L-k01-2011-romanesque-1915 — 2011 Prairie, the Romanesque house beside Mayer, refined from the district draft onto K01: rock-faced ashlar, a round-arched door and a round corner turret read off its two pictures
+
+**Decision:** the district draft at `house_2011_prairie` (T-2352) is refined in place, under its own id, to
+a `k01_frontage` record built by `generators/k01_emit.py` (T-3615, piece 1 of T-1915, the S06 package of the
+T-1837 programme): a narrow party-wall rowhouse between 2009 (Meyer) and 2013 (Reid), its whole front in
+rough rock-faced ashlar, with a round-arched door at the north end and a round turret filling the south part
+of the front, under a slate roof with a gabled dormer.
+
+**What is read, not invented.** From the 1911 Sanborn sheet 35 raster at full size (0.186 m a pixel, on the
+outline's own lines): the '2½B' front block, 12.82 m deep and 7.27 m along the front, its stone front bowing
+out over the south part; the '2B' rear block behind it, 16.5 m deep along the north line, with a piece 6.5-13.6 m
+back stepping 2.1 m further south. From the undated Chicagology photograph of 2009-2011
+(`chicagology_2009_prairie_meyer_photo`, rights check_required: forms and places only), through 2009's solved
+camera carried into this house's frame (`data/reference_views/house_2011_prairie/chicagology_photo.json`): the
+door's threshold (1.65 m), its round arch's width and height; the cross window over it; the front's head
+course at about 10.6 m; the turret's outline and its three stages of lights; the dormer's place and height;
+the slate street slope's top edge. The Inland Architect's February 1895 plate of Reid's house
+(`inland_architect_1895_02_reid_plate`, public domain) shows the same front whole and confirms the
+composition: door at the north end, turret at the south under a cone with a finial, dormer between.
+
+**What is invented.** The stone's kind and colour (pale Lemont limestone: both prints are monochrome and
+print it pale); the walls' thickness; the side and rear walls' common brick; the plain lintels; the roof's
+form behind the street slope (a gable off a ridge 3.1 m back, the party walls carried up as coped parapets,
+the rear slope no picture sees) and the eave; the stoop's width, tread and landing (the flight is hidden in
+both pictures); every rear light; the rear block's storeys, flat roof and lights; the second stack's place;
+the coped street-line wall and the yard (the photograph's yard is strewn with building stone); no rainwater
+goods are hung (K01 hangs none on a gable roof).
+
+**What is built otherwise than the evidence, and why.** The turret is K08's round tower, 2.0 m in radius on a
+centre in the wall's face, so it stands 2.0 m proud where the sheet's bow stands about 1.3 m: a smaller tower
+would no longer fill the photograph's width. Its roof is one plain cone where the photograph shows two stages
+(a flared skirt, a ledge and a steeper upper cone): K08 cannot flare a tower's cone yet, and T-3616 builds it.
+The door is the kit's round-arched double door with its arch glazed, where the photograph shows a transom
+bar and a single leaf. The dormer is a plain face with one sash at the contract's shortest (1.5 m), about
+0.25 m taller than the photograph's deep hood over a recessed light. The door stands at 1.4 m along the front
+(the photograph's 1.35 m) so its voussoirs keep the kit's 0.25 m off the corner. The sheet's small frame bay on
+the rear block's open south side and its cut rear corner are not built.
+
+**How to resolve:** T-3616 builds the turret's two-stage roof, solves the Reid plate's camera and signs off
+the image gate; a picture of the rear or a description of the stone would replace the invented parts.
+**Covers:** `house_2011_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2011_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2011_prairie.as_mapped_1904.form.service_wall_brick`, `house_2011_prairie.as_mapped_1904.form.street_front_trim`, `house_2011_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2011_prairie.as_mapped_1904.form.stair_tread_m`, `house_2011_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2011_prairie.as_mapped_1904.form.stoop_width_m`, `house_2011_prairie.as_mapped_1904.form.rear_bays`, `house_2011_prairie.as_mapped_1904.form.sash_by_storey`, `house_2011_prairie.as_mapped_1904.form.rainwater`, `house_2011_prairie.as_mapped_1904.form.boundary`, `house_2011_prairie.as_mapped_1904.form.yard`
+**Ticket:** T-3615 (piece 1 of T-1915, S06).
+**Review:** `docs/RESEARCH/photo-match/house_2011_prairie/chicagology_photo-side-by-side.jpg`.
+**Recorded:** 2026-11-16 (T-3615).

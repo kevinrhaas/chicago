@@ -1,43 +1,46 @@
 {
   "id": "house_2011_prairie",
-  "phase": "draft_1904",
-  "name": "2011 Prairie Avenue — Romanesque neighbour of Mayer (district draft; refined by T-1915)",
+  "phase": "as_mapped_1904",
+  "name": "2011 Prairie Avenue — the Romanesque house beside Mayer, rock-faced ashlar under a round corner turret (T-1915)",
   "aka": [
     "2011 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/house_2011_prairie__draft_1904.glb",
+  "archetype": "k01_frontage",
+  "asset": "gltf/house_2011_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
-    "value": "inferred",
-    "why": "Known from maps or written records; no picture of it has been found.",
-    "pictures": []
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "a20-chicagology-2009-2011-photo"
+    ]
   },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_35"
+      "sanborn_1911_chicago_v3_sheet_35",
+      "inland_architect_1895_02_reid_plate"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "note": "Standing in February 1895, when the Inland Architect's plate of Reid's house next door shows it whole, and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). No build date is found; the record claims the 1904 target to the sheet's date and no more.",
     "to_is": "seen"
   },
   "change_note": "",
   "placement": {
-    "local_e": 1449.646,
-    "local_n": -3511.93,
+    "local_e": 1435.256,
+    "local_n": -3512.268,
     "rotation_deg": 179.383,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 20.000, v -3.755 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.383 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the front block on its north side, read off the 1911 sheet 35 raster at full size (px 985, 433.7: the dividing line between the '2½B' and '2B' blocks on the party line with 2009) through the T-1250 fit of the sheet, which carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, plus about a pixel (0.19 m) of reading on this copy. The draft's corner stood 12.6 m further back and 0.35 m south: it took the whole depth of both blocks as one body. Rotation 179.383 degrees (the draft's) turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "2011 S. Prairie Avenue, parcel prairie_2011 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
     "uncertainty_m": 20,
     "placement_provisional": false,
-    "vertical_anchor": "terrain",
+    "vertical_anchor": "ground",
     "walk_surface_m": null
   },
   "footprint": {
@@ -47,158 +50,610 @@
         0.0
       ],
       [
-        23.0,
+        12.82,
         0.0
       ],
       [
-        23.0,
-        5.5
+        12.82,
+        7.27
       ],
       [
         0.0,
-        5.5
+        7.27
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front), widened to 5.5 m along the front because the fitted strip was narrower than any house of the avenue (T-2690). The building's other rectangles are in draft_plan."
+    "note": "The front block, the '2½B' the sheet draws across the lot with its stone front: 12.82 m from its rear wall (px 985, where the sheet's line divides it from the '2B' rear block) to the street front's outer line (px 916), and 7.27 m along the front from the party line with 2009 (row 433.7) to the south line (row 472.8), read at full size off the raster's own outline at 0.186 m a pixel. The draft drew it 23 by 5.5 m because the trace fitted one rectangle through both blocks and stopped where the printed numerals bite the outline."
   },
   "attributes": {
     "stories": {
       "value": 2,
       "confidence": "attested",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_35"
+        "sanborn_1911_chicago_v3_sheet_35",
+        "chicagology_2009_prairie_meyer_photo",
+        "inland_architect_1895_02_reid_plate"
       ],
-      "note": "'2½B; rear2B' printed on the 1911 sheet: 2 full storeys and a half storey in the roof."
+      "note": "'2½B' printed on the 1911 sheet over the front block: two full storeys and a half storey in the roof, which both pictures show as a gabled dormer on the street slope. The rear block is '2B'."
     },
     "construction": {
       "value": "brick_with_stone_front",
       "confidence": "attested",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_35"
+        "sanborn_1911_chicago_v3_sheet_35",
+        "chicagology_2009_prairie_meyer_photo",
+        "inland_architect_1895_02_reid_plate"
       ],
-      "note": "The register reads the map's colours as 'brick with stone front'."
+      "note": "The 1911 sheet colours the block brick with a stone front (the blue band along the street line); both pictures show the front in rock-faced ashlar."
     },
-    "draft_plan": {
+    "principal_floor_m": {
+      "value": 1.65,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo",
+        "inland_architect_1895_02_reid_plate"
+      ],
+      "note": "The door's threshold read off the Chicagology photograph through its solved camera (data/reference_views/house_2011_prairie/chicagology_photo.json): y 1550 px at about 93 px a metre up beside the party line, 1.66 m over the walk; eleven risers. The Reid plate shows the stoop climbing about as high as Reid's own porch floor."
+    },
+    "storey_heights_m": {
+      "value": [
+        4.55,
+        4.4
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo"
+      ],
+      "note": "Floors read from the photograph's openings: the turret's ground light runs from 2.8 to 5.3 m and its second-storey light from 7.05 m, so the second floor stands at about 6.2 m; the front's moulded head course reads at 10.5-10.8 m, so the side walls stop at about 10.6 m. Tall storeys for a rowhouse, as the pictures show them against Meyer's three tiers next door."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "A rock-faced ashlar front on brick backing: a starting thickness from the contract's masonry range; no source measures it."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "A 13 in brick side wall, the contract's ordinary masonry thickness; no source measures it."
+    },
+    "eave_overhang_m": {
+      "value": 0.1,
+      "confidence": "reconstructed",
+      "note": "A plain eave over the north wall, where the photograph shows a shallow moulded cornice at the far stack; its depth is not read."
+    },
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "The contract's ordinary tread."
+    },
+    "stair_landing_depth_m": {
+      "value": 1.2,
+      "confidence": "reconstructed",
+      "note": "A landing before the door, its depth unread: the photograph sees the flight end-on from the north."
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "The side and rear walls, which no picture shows, in the avenue's common brick behind a stone front."
+    },
+    "stone_front": {
       "value": {
-        "parts": [
-          {
-            "id": "r1",
-            "role": "main",
-            "storeys": 2,
-            "roof": "hip",
-            "rect": [
-              0.0,
-              0.0,
-              23.0,
-              5.5
-            ],
-            "from": "s35fp-2011-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 79% of its fill"
-          },
-          {
-            "id": "r2",
-            "role": "wing",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              14.0,
-              4.755,
-              26.0,
-              6.505
-            ],
-            "from": "s35fp-2011-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 79% of its fill"
-          },
-          {
-            "id": "r3",
-            "role": "wing",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              1.0,
-              4.755,
-              7.25,
-              7.005
-            ],
-            "from": "s35fp-2011-b1 p2 (main, brick), rectangle 3 of that part; the part's rectangles cover 79% of its fill"
-          }
-        ],
-        "lot_v": [
-          0.0,
-          7.51
-        ],
-        "street_u": 34.369
+        "fabric": "limestone_lemont",
+        "dressing": "rock_faced",
+        "trim_fabric": "dressed_trim",
+        "rusticated_base_courses": 2,
+        "coping_height_m": 0.25,
+        "corner_bond": []
       },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo",
+        "inland_architect_1895_02_reid_plate"
+      ],
+      "note": "The whole front in rough, rock-faced coursed ashlar in both pictures (the register's 'rough ashlar front'), its courses about 0.3-0.45 m high, with smooth dressed sills, string courses and the turret's sill band. The prints are monochrome and both show the stone pale, lighter than Meyer's brick and about as light as Reid's limestone, so a pale Lemont limestone; its kind and colour are RECONSTRUCTED (L-k01-2011-romanesque-1915)."
+    },
+    "street_front_trim": {
+      "value": {
+        "by_storey": [
+          "k01.flat_lintel",
+          "k01.flat_lintel"
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "Plain stone lintels over the street lights: the photograph shows the lights cut straight into the rock-faced coursing with smooth heads."
+    },
+    "wall_head": {
+      "value": {},
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo"
+      ],
+      "note": "No bracketed or moulded cornice across the front: the photograph shows a plain projecting stone head course at about 10.35-10.6 m (built as a belt in street_front_windows), the slate's eave over it and the turret's top stage rising past it."
+    },
+    "roof_form": {
+      "value": "gable",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo",
+        "inland_architect_1895_02_reid_plate"
+      ],
+      "note": "A slate street slope runs the whole width of the front in the photograph and stands as high against the party line with 2009 as over the middle (its top edge at x 1100-1240 px, y 395-430 px, about 14-15 m), which a hip's corner cannot: a roof pitched front and back off a ridge parallel to the street, closed by the party walls, the dormer on its street slope and the turret's cone at the south corner. The rear slope no picture sees."
+    },
+    "roof_pitch_deg": {
+      "value": 45,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo"
+      ],
+      "note": "The street slope's pitch and its ridge's place are fitted together through the photograph's camera so the ridge stands where the slope's top edge prints (y 395-430 px, about 13.7 m at 3.1 m behind the front): 45 degrees, steep as the slope reads beside the dormer and steep enough for the slate's cut. The pitch alone is not measured; any of about 33-45 degrees with its ridge 3-5 m back prints within the edge's width."
+    },
+    "gable_roof": {
+      "value": {
+        "ridge_back_m": 3.1,
+        "ends": {
+          "north": {
+            "style": "coped"
+          },
+          "south": {
+            "style": "coped"
+          }
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo"
+      ],
+      "note": "The ridge 3.1 m behind the front (see roof_pitch_deg), the rear slope falling from it to the rear wall at about 18 degrees, and both party walls carried up as coped parapets: 2009's ogee gable stands against the north one in the photograph, and Reid's house against the south."
+    },
+    "roof_covering": {
+      "value": {
+        "fabric": "slate_pennsylvania",
+        "flashing": "copper_sheet",
+        "caps": "copper_ridge_roll"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo",
+        "inland_architect_1895_02_reid_plate"
+      ],
+      "note": "Both pictures show slate on the roof and on the turret's cone."
+    },
+    "dormer": {
+      "value": {
+        "width_m": 2.0,
+        "face_setback_m": 0.3,
+        "face_height_m": 2.15,
+        "face_thickness_m": 0.2,
+        "pitch_deg": 45,
+        "verge_m": 0.15,
+        "v_m": 1.4,
+        "sash": {
+          "sill_m": 0.25,
+          "width_m": 0.9,
+          "height_m": 1.5,
+          "at_m": [
+            0.0
+          ]
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo",
+        "inland_architect_1895_02_reid_plate"
+      ],
+      "note": "The gabled dormer on the street slope over the door, in the Chicagology photograph (x 1150-1340 px, its apex at y 425 px): about 2 m across, centred about 1.3 m from the party line with 2009, a steep gable to about 13.9 m over a face about 1.9 m high, one light in it (built 2.15 m, so the contract's shortest dormer light, 1.5 m, fits under its eave; within tolerance). The Reid plate shows its gable over the front's north part. Its light's glazing is not legible."
+    },
+    "stoop_width_m": {
+      "value": 1.5,
+      "confidence": "reconstructed",
+      "note": "The flight is mostly hidden behind Meyer's cheek wall in the photograph and behind the iron fence in the Reid plate; a straight stoop to the door at the contract's ordinary width."
+    },
+    "entrance_bay": {
+      "value": "south",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo",
+        "inland_architect_1895_02_reid_plate"
+      ],
+      "note": "The round-arched door at the front's north end, beside the party line with 2009 (K01's south: v runs south on this side of the avenue), in both pictures."
+    },
+    "front_bays": {
+      "value": [
+        1.4,
+        4.85
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo",
+        "inland_architect_1895_02_reid_plate"
+      ],
+      "note": "Two bays along the front from its north corner: the door and the light over it centred about 1.35 m from the party line (the photograph, x 1185-1335 px; built at 1.4 m, which keeps the arch's voussoirs the kit's 0.25 m off the corner), and the round turret, centred 4.85 m along it."
+    },
+    "side_bays": {
+      "value": [],
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2011-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 79% of its fill; s35fp-2011-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 79% of its fill; s35fp-2011-b1 p2 (main, brick), rectangle 3 of that part; the part's rectangles cover 79% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Both side walls are party walls: the 1911 sheet draws 2009 against the north line and Reid's house against the south, and no light shows in either."
     },
-    "draft_elevation": {
+    "rear_bays": {
+      "value": [
+        2.0,
+        5.0
+      ],
+      "confidence": "reconstructed",
+      "note": "No source sees the rear wall; two lights a storey."
+    },
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.75,
+          "width_m": 0.9,
+          "height_m": 2.2
+        },
+        {
+          "sill_above_floor_m": 0.75,
+          "width_m": 0.9,
+          "height_m": 2.0
+        }
+      ],
+      "confidence": "reconstructed",
+      "note": "The rear lights: no picture shows them; the kit's ordinary sash."
+    },
+    "street_front_windows": {
       "value": {
-        "kind": "house",
-        "seed": 2468133561,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
-        ],
-        "roof_pitch_deg": 45,
-        "mansard_lower_m": 3.0,
-        "front_bays": 2,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": true,
-        "stone": "stone",
-        "features": [
+        "windows": [
           {
-            "kind": "corner_tower",
-            "radius_m": 1.8,
-            "above_eave_m": 2.4,
-            "cap_m": 4.8,
-            "at": [
-              22.37,
-              4.87
-            ]
+            "component": "k01.opening.street_casement_pair_transom",
+            "storey": 1,
+            "s_m": 1.4,
+            "width_m": 1.5,
+            "sill_m": 7.55,
+            "height_m": 1.5
           }
         ],
-        "draft_label": {
-          "pass": "T-2352",
-          "refined_by": [
-            "T-1915"
+        "base_top_m": 1.05,
+        "belts": [
+          [
+            10.35,
+            10.6
           ]
-        },
-        "v_toward": "south"
+        ]
       },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row 'Romanesque' overlaid with the frontage row: The Romanesque neighbour of Mayer (the Lambs' in the 1904 Blue Book): the register's 'rough ashlar front, round-arched entrance, rounded corner turret/conical cap' as the Romanesque family's steep hip with dormers over the 2½B body, and a turret under a cone on the south front corner, where the sheet draws its stone rounded bay. Seen in the 1890s Mayer photograph; T-1915 reads it. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2468133561 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-east-2352."
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo",
+        "inland_architect_1895_02_reid_plate"
+      ],
+      "note": "The flat part of the front carries one light over the door: two lights on a stone mullion under a transom (a cross window), x 1195-1325 px and y 860-1000 px in the photograph, so about 1.5 m across, from 7.55 to 9.05 m: a stair-landing height, above the turret's second-storey sill. The Reid plate shows a light in the same place."
     },
-    "draft": {
+    "window_kit": {
       "value": {
-        "pass": "T-2352",
-        "liberty": "L-draft-prairie-20-22-east-2352",
-        "register_row": "frontage-35-076",
-        "census_ids": [
-          "s35-2011-front",
-          "s35-2011-wing"
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.street_casement_pair_transom": "k06.opening.casement_pair_transom_mullioned"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo"
+      ],
+      "note": "The cross window two lights on a mullion under a transom; the others the kit's two-over-two sash."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.double_door_deep_arch",
+          "front_yard_m": 7.0,
+          "reveal_depth_m": 0.45,
+          "opening_m": [
+            1.5,
+            3.3
+          ],
+          "arch": {
+            "ring_m": 0.35,
+            "keystone_top_m": 5.3,
+            "keystone_m": [
+              0.3,
+              0.05
+            ]
+          }
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo",
+        "inland_architect_1895_02_reid_plate"
+      ],
+      "note": "The round-arched entrance the register names: in the photograph a deep round arch of rock-faced voussoirs (x 1185-1330 px), its opening about 1.5 m wide and 3.3 m high to the crown of its intrados (about 4.95 m over the walk), its ring about 0.35 m deep (x 1185-1335 px outside it), a transom across it and a single leaf under it (built as the kit's round-arched double door, which glazes the arch's head over the leaves; the transom bar and the single leaf are within tolerance at the street). The Reid plate shows the same arch at the front's north end."
+    },
+    "bays": {
+      "value": [
+        {
+          "id": "turret",
+          "variant": "k08.tower.round",
+          "wall": "k01.wall.street_front",
+          "s_m": 4.85,
+          "fabric": "front_stone",
+          "plan": {
+            "radius_m": 2.0,
+            "centre_proud_m": 0.0
+          },
+          "storeys": [
+            {
+              "height_m": 6.2,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 2.45,
+                  "sill_m": 2.85,
+                  "at_deg": [
+                    -55,
+                    25
+                  ],
+                  "why_not_ordinary": "the turret's tall ground-storey lights in the photograph (y 1220-1445 px), from about 2.85 to 5.3 m"
+                }
+              ]
+            },
+            {
+              "height_m": 4.1,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.9,
+                  "clear_height_m": 1.95,
+                  "sill_m": 0.85,
+                  "at_deg": [
+                    -75,
+                    5
+                  ],
+                  "why_not_ordinary": "the turret's second-storey lights in the photograph (y 880-1060 px), either side of a broad pier"
+                }
+              ]
+            },
+            {
+              "height_m": 1.35,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.6,
+                  "clear_height_m": 0.8,
+                  "sill_m": 0.15,
+                  "at_deg": [
+                    -75,
+                    -45,
+                    -15,
+                    15,
+                    45,
+                    75
+                  ],
+                  "why_not_ordinary": "the band of small square lights round the turret's top stage, over the front's head course, in both pictures"
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "cone",
+            "pitch": 1.1,
+            "covering": "slate_pennsylvania",
+            "finial": true
+          },
+          "eaves": {
+            "cornice": "k10.cornice.moulded_stone"
+          },
+          "finial": {
+            "height_m": 0.6,
+            "radius_m": 0.1,
+            "form": "turned",
+            "segments": 6
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35",
+        "chicagology_2009_prairie_meyer_photo",
+        "inland_architect_1895_02_reid_plate"
+      ],
+      "note": "The rounded corner turret the register and the 1911 sheet name (the sheet's stone front bows out over the south part of the lot): in the photograph it fills the front from about 2.9 m to the party line with Reid, three stages to a slate cone with a finial — tall lights on the ground storey, two lights either side of a broad pier on the second (the near one turned well to the north, x 1390-1450 px), and a band of small square lights in a short top stage standing on the front's head course, its slate roof's eave at about 11.65 m. The Reid plate shows the same turret whole, its cone over the corner. Built 2.0 m in radius on a centre in the wall's face 4.85 m along the front, so it stands half clear, 2.0 m proud, reaching from 2.85 m to 6.85 m along the front (the kit keeps a pier at the corner), its lights laid over the photograph's within about 0.1 m through the photograph's camera: the photograph, which sees its north side from the north-west, puts its outline from about 2.9 m, and the sheet's bow stands about 1.3 m proud (px 908-909 against the front's 914-916), which K08's half-round tower cannot reach without shrinking past the photograph's width: the bow's 0.7 m is written in the match record. The cone's pitch is read loosely."
+    },
+    "chimneys": {
+      "value": {
+        "plan_m": [
+          0.9,
+          0.75
         ],
-        "trace_building": "s35fp-2011-b1",
-        "seed": 2468133561,
-        "replaceable_by": [
-          "T-1915"
+        "top_above_ridge_m": 0.75,
+        "cap_proud_m": 0.06,
+        "cap_depth_m": 0.25,
+        "stacks": [
+          {
+            "u_m": 8.0,
+            "v_m": 6.569999999999999
+          },
+          {
+            "u_m": 2.0,
+            "v_m": 0.7
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo"
+      ],
+      "note": "The photograph shows one stack rising behind the turret near the south party wall; the second, near the rear on the north wall, is reconstructed."
+    },
+    "rainwater": {
+      "value": {},
+      "confidence": "reconstructed",
+      "note": "No gutter or pipe shows on the front in the photograph; K01 hangs none on a gable roof yet (T-2459)."
+    },
+    "boundary": {
+      "value": {
+        "layout": "stone_coping_wall",
+        "street_line_m": 7.0,
+        "lot_s_m": [
+          0.0,
+          7.27
         ],
-        "card": "District draft — refined by T-1915."
+        "thickness_m": 0.4,
+        "chamfer_m": 0.08,
+        "runs": [
+          {
+            "to_s_m": 2.2,
+            "opening": true
+          },
+          {
+            "to_s_m": 7.27,
+            "height_m": 0.47
+          }
+        ]
       },
       "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "note": "A low coped wall on the street line, as Meyer's next door; the photograph's yard is strewn with building stone and the Reid plate's fence line is hidden by the tree."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.75,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.6
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "The walk to the stoop in stone flags, as the avenue's other K01 fronts."
+    },
+    "rear_wings": {
+      "value": [
+        {
+          "id": "rear_neck",
+          "rect": [
+            -6.5,
+            0.0,
+            0.0,
+            4.42
+          ],
+          "floor_m": 1.65,
+          "storey_heights_m": [
+            3.6,
+            3.3
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 0.9,
+              "height_m": 2.0
+            },
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 0.9,
+              "height_m": 1.8
+            }
+          ],
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.1,
+            "fascia_m": 0.25,
+            "covering": "painted_tin_sheet"
+          },
+          "windows": {
+            "north": [
+              3.2
+            ]
+          }
+        },
+        {
+          "id": "rear_middle",
+          "past_host": true,
+          "rect": [
+            -13.6,
+            -6.5,
+            0.0,
+            6.55
+          ],
+          "floor_m": 1.65,
+          "storey_heights_m": [
+            3.6,
+            3.3
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 0.9,
+              "height_m": 2.0
+            },
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 0.9,
+              "height_m": 1.8
+            }
+          ],
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.1,
+            "fascia_m": 0.25,
+            "covering": "painted_tin_sheet"
+          },
+          "windows": {
+            "north": [
+              2.4,
+              5.0
+            ]
+          }
+        },
+        {
+          "id": "rear_end",
+          "rect": [
+            -16.54,
+            -13.6,
+            0.0,
+            4.42
+          ],
+          "floor_m": 1.65,
+          "storey_heights_m": [
+            3.6,
+            3.3
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 0.9,
+              "height_m": 2.0
+            },
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 0.9,
+              "height_m": 1.8
+            }
+          ],
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.1,
+            "fascia_m": 0.25,
+            "covering": "painted_tin_sheet"
+          },
+          "windows": {
+            "rear": [
+              2.2
+            ]
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "The '2B' rear block the 1911 sheet draws behind the front block, read at full size off the raster: 16.5 m from the front block's rear wall (px 985-1074) and 4.42 m wide along the north line (rows 433.7-457.5), and a second piece 6.5-13.6 m back stepping 2.1 m further south (px 1020-1058, to row 468.7). Its floors and storeys, its flat roof and its lights are RECONSTRUCTED; the sheet's small frame bay on the open south side and the cut corner at the rear are not built (L-k01-2011-romanesque-1915)."
     },
     "function": {
       "value": "residence",
@@ -211,6 +666,23 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "chicagology_2009_prairie_meyer_photo",
+      "citation": "[2009 and 2011 S. Prairie Ave.] Photograph of the Max A. Meyer house's front from the west walk; unknown photographer, undated. Reproduced on chicagology.com, 2009 Prairie.",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/2009prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the front's storeys, openings, oriel, stoop and gable, and their heights and places along the front",
+        "the camera the image gate renders the house against (data/reference_views/mayer_house_2009_prairie/chicagology_photo.json)"
+      ],
+      "what_it_does_not_supply": [
+        "a date closer than 1888-1911",
+        "colour: the print is monochrome",
+        "the rear, the roof behind the gable and most of the north flank"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_35",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 35.",
@@ -231,8 +703,8 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2352, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1915 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2011-b1), the T-1842 census (s35-2011-front, s35-2011-wing) and the T-1837 register row frontage-35-076 (Romanesque neighbour of Mayer); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-east-2352).",
+  "research_note": "Refined in place from the district draft (T-2352) onto the K01 frontage assembly by T-1915, package S06 of the T-1837 programme: the front block and the '2B' rear block off the 1911 sheet 35 raster at full size, and the front's rock-faced ashlar, round-arched door, cross window, gabled dormer and three-stage round turret under its slate cone off the two pictures that show it — the undated Chicagology photograph of 2009-2011 Prairie (its right half) and the Inland Architect's February 1895 plate of Reid's house next door (its left edge, the whole front). The register names no owner before the 1904 Blue Book's Lambs; no build date is found. Liberty L-k01-2011-romanesque-1915.",
   "research_doc": "",
   "review_required": false,
-  "called": "2011 Prairie Avenue — Romanesque neighbour of Mayer"
+  "called": "2011 Prairie Avenue — the Romanesque house beside Mayer, rock-faced ashlar under a round corner turret"
 }

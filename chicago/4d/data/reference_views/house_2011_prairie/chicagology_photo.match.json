@@ -1,0 +1,125 @@
+{
+  "structure_id": "house_2011_prairie",
+  "view": "chicagology_photo",
+  "glb": "assets/gltf/house_2011_prairie__as_mapped_1904.glb",
+  "glb_sha256": "f64b2773f977f54088fc6a08527149ce787ae583147d3d3d37e9d6f015c9873e",
+  "camera_sha256": "2c3968a2f379a9b50967395fd9b22700712c9919303cffa4e493b730326f34ae",
+  "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
+  "rendered_flora": {
+    "season": "winter",
+    "lots": [
+      {
+        "parcel": "prairie_2009",
+        "shrubs": 0,
+        "trees": 0,
+        "beds": 0,
+        "creeper": 0
+      },
+      {
+        "parcel": "prairie_2011",
+        "shrubs": 0,
+        "trees": 0,
+        "beds": 0,
+        "creeper": 0
+      }
+    ],
+    "street_trees": 13,
+    "street_trees_m": 40
+  },
+  "flora_anchor": {
+    "local_e": 1435.256,
+    "local_n": -3512.268,
+    "rotation_deg": 179.383,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_mapped_1904"
+  },
+  "flora_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
+    },
+    {
+      "file": "tools/photo_match_flora.mjs",
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
+    },
+    {
+      "file": "renderers/web/js/front-yards.js",
+      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
+    },
+    {
+      "file": "renderers/web/js/street-trees.js",
+      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
+    },
+    {
+      "file": "renderers/web/js/tree-instances.js",
+      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
+    },
+    {
+      "file": "renderers/web/js/tree-model.js",
+      "sha256": "1ec46dc2bfb15d13dab2260c022b31d4ee88b7302aab5be62069b2eaf5e198e2"
+    },
+    {
+      "file": "renderers/web/js/tree-surface.js",
+      "sha256": "90a8598a636582d098a0161609b227cd5db06c7cd25d77a330664a226bcceb40"
+    },
+    {
+      "file": "renderers/web/js/season.js",
+      "sha256": "8407ba119eef8e26e1bfb4bf1d9dd2c4786d2981165f2d232fe53d2347a9bda7"
+    },
+    {
+      "file": "renderers/web/js/trees.js",
+      "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
+    }
+  ],
+  "flora_sha256": "4062167ba627e5fd95414dc6fdf17d75dcf7d053b62c6db8df3a2a91b4ca6beb",
+  "side_by_side": "docs/RESEARCH/photo-match/house_2011_prairie/chicagology_photo-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the draft's 23 x 5.5 m box with a generic corner turret is now the sheet's '2½B' front block, 12.82 x 7.27 m, its rock-faced ashlar front standing flush with 2009's and the '2B' rear block behind it; the front's north edge prints at x 1150 px against the photograph's 1145",
+      "status": "fixed"
+    },
+    {
+      "what": "the round-arched entrance at the north end: the render's ring x 1180-1335 px, its crown y 1245, the threshold y 1545, against the photograph's arch x 1185-1335, crown about y 1240 and threshold y 1550",
+      "status": "fixed"
+    },
+    {
+      "what": "the cross window over the door: two lights on a mullion under a transom, x 1195-1320 px, y 860-1000, as the photograph's (its glazing bars render as the K06 pair's)",
+      "status": "fixed"
+    },
+    {
+      "what": "the round turret: its outline from x 1380 px, its tall ground-storey lights (sill y 1440, head y 1215), the near second-storey light at its north edge and the band of small square lights round a short top stage standing on the front's head course, all within about 25 px (0.3 m) of the photograph's",
+      "status": "fixed"
+    },
+    {
+      "what": "the turret's roof: the photograph shows it in two stages, a flared slate skirt from the turret's eave (y 590 px) to a ledge at about y 480, and a narrower, steeper faceted cone over it to the apex (x 1445, y 385); K08 builds a tower one plain cone, so the render's single cone is the wrong shape. T-3616 (the next piece of T-1915) builds the two stages",
+      "status": "open"
+    },
+    {
+      "what": "the gabled dormer on the street slope over the door: its apex within about 15 px (0.15 m) of the photograph's, about 2 m across; the photograph's dormer is a deep gabled hood over a recessed light with a lantern hung in it, which the render draws as a plain dormer face with one sash",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the roof's height at the party line with 2009: the photograph's slate rises to about y 395-430 px beside 2009's gable; the render's street slope and coped party parapet reach about y 445-450 (about 0.3 m lower)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the rear stack: the photograph's stack stands right of the cone's apex (x 1510-1555, y 390-460 px); the render's stack at u 8.0 m stands behind the cone from this camera",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the stone's tone: the print is monochrome; the render's pale Lemont limestone is the record's reconstruction",
+      "status": "not shown"
+    },
+    {
+      "what": "the north party wall: the render, drawn without 2009 Prairie, shows 2011's north wall in common brick where the photograph shows 2009's front",
+      "status": "not shown"
+    },
+    {
+      "what": "the stoop and the yard: the photograph hides the flight behind 2009's cheek wall and shows the yard strewn with cut stone and planks (building work); the render's straight stoop and coped wall are the record's reconstruction",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
