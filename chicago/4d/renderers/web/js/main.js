@@ -49,7 +49,7 @@ import { createConfidenceLegend } from './confidence-legend.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
-import { createXRMode, isStandaloneHeadset, vrScale } from './controls/xr.js';
+import { isStandaloneHeadset, vrScale } from './controls/xr-detect.js'; // T-3627: the session half loads where a headset is offered
 import { createWindowMode, windowAt } from './controls/window.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
 import { profiledGroundHeight, figureGroundHeight } from './deck-surface.js';
@@ -90,18 +90,12 @@ import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { createCrossings } from './crossings.js';
-import { createBier } from './stage-props.js';
 import { createVessels } from './vessels.js';
-import { createBoatPilot } from './boat-pilot.js';
 import { insideDeck } from './deck-surface.js';
-import { mountHumans } from './humans.js';
+import { mountHumans, useFightMotions } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
 import { createHumanDays, createDayRouter, clearWayOf, JAUNT_LOCALS } from './human-days.js';
 import { createJauntHosts } from './jaunt-hosts.js';
-import { createJauntStage } from './jaunt-stage.js';
-import * as humanFight from './human-fight.js'; // the adults jaunts' weapons, motions and gun smoke
-import * as humanBlood from './human-blood.js'; // ... and their blood and wounds
-import { createFortFire } from './fort-fire.js'; // the burning of the first fort, 16 August 1812
 import { createHumanSpacing, BODY_R_M } from './human-spacing.js';
 import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
@@ -181,7 +175,7 @@ import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfil
 import { advanceGust, syncGustUniform } from './wind-gust.js';
 import { createTodayView } from './today-view.js';
 import { createRegistration } from './today-register.js';
-import { createTaleTeller } from './tale-teller.js';
+import { withStory } from './tale-actions.js'; // T-3627: the teller itself (tale-teller.js) loads when first asked
 
 const VERSION = '0.1.0';
 
@@ -3096,6 +3090,10 @@ async function boot() {
   // more up and down the river (data/boats/crossings_1812.json). Each is an Interact thing:
   // Cross steps in, paddles or rows over and steps out, and the boat stays on that bank.
   // Built after the buildings, whose log walls' hewn-wood sheets the hulls wear.
+  /** T-3627: what a boat asks before the helm is loaded: nobody at it, and taking her loads it. */
+  const helmUnloaded = Object.freeze({ active: false, craft: null,
+    take: (craft) => { api.loadPilot().then((helm) => helm.take(craft), () => hud.say('The helm could not be loaded just now')); return true; },
+    leave: () => false });
   const crossings = await createCrossings({
     dataBase: layerBase('crossings'), terrain, confidence, problems: layerProblems('crossings'),
     detail: detailLevel, coarse, lowSpec: lowMem, walkEye: () => WALK.eyeHeight,
@@ -3104,7 +3102,7 @@ async function boot() {
       api.travel?.stop?.('crossing');
       if (api.follow?.active) api.follow.stop('crossing');
     },
-    pilot: () => api.pilot ?? null,
+    pilot: () => api.pilot ?? helmUnloaded,
   });
   scene3d.add(crossings.group);
   for (const thing of crossings.things) interactions.add(thing);
@@ -3120,7 +3118,7 @@ async function boot() {
     dataBase: layerBase('vessels'), sceneId: YEAR, terrain, confidence, problems: layerProblems('vessels'),
     detail: detailLevel, coarse: coarse || lowMem, humans: () => api.humans ?? null,
     getPeople: () => peopleDirectory.load(), hour: sunHourNow, season: () => api.season?.current ?? 'summer',
-    pilot: () => api.pilot ?? null, date: () => world.sunDate ?? null,
+    pilot: () => api.pilot ?? helmUnloaded, date: () => world.sunDate ?? null,
   });
   scene3d.add(vessels.group);
   for (const thing of vessels.things) interactions.add(thing);
@@ -3132,7 +3130,7 @@ async function boot() {
     if (api.router?.built) return !api.router.blockedAt(e, n);
     return !footprints.some((f) => insideDeck(e, n, f.pts));
   };
-  api.pilot = createBoatPilot({
+  const pilotOptions = {
     nav: () => vessels.nav,
     ground: (e, n) => vessels.bed(e, n),
     hulls: () => vessels.hulls().concat(crossings.hulls?.() ?? []),
@@ -3143,7 +3141,13 @@ async function boot() {
       if (api.follow?.active) api.follow.stop('boat');
     },
     say: (text) => hud.say(text),
-  });
+  };
+  // T-3627: the helm (boat-pilot.js) loads the first time a visitor takes a boat; until then a
+  // boat's Take her finds nobody at the helm (`helmUnloaded`, above) and taking one loads it.
+  let pilotLoad = null;
+  api.loadPilot = () => pilotLoad ??= import('./boat-pilot.js')
+    .then(({ createBoatPilot }) => (api.pilot = createBoatPilot(pilotOptions)))
+    .catch((error) => { pilotLoad = null; throw error; });
   // T-3332 — the town by night: lit windows (buildings.js patches the glass) and the
   // lamps outside, from data/night_lights/<scene>.json. Hidden, and free, by day.
   const nightLights = await createNightLights({
@@ -5029,7 +5033,7 @@ async function boot() {
    * page's own controls when it ends.
    */
   const vrKey = document.getElementById('btn-vr');
-  const xrMode = createXRMode({
+  const xrOptions = {
     THREE, renderer, walker, intent, backends,
     fallback: () => (gateOpen ? null : (coarse ? touch : pointerlock)),
     setFly: (on) => hud.setFly(on),
@@ -5040,7 +5044,26 @@ async function boot() {
       blackbox.log(on ? 'vr' : 'vr-end');
       if (!on) { visualClockReset = true; resize(); hud.say('Back from the headset'); }
     },
-  });
+  };
+  // T-3627: the session half (controls/xr.js) loads only where the browser offers a headset, and
+  // before the key is shown, so Enter VR still starts the session from the click itself.
+  let xrSession = null, xrLoad = null;
+  const loadXR = () => xrLoad ??= import('./controls/xr.js')
+    .then(({ createXRMode }) => (xrSession = createXRMode(xrOptions)))
+    .catch((error) => { xrLoad = null; throw error; });
+  const xrMode = {
+    get presenting() { return !!xrSession?.presenting; },
+    get session() { return xrSession; },
+    /** Whether this browser offers a headset at all (and then the session half is loaded). Never rejects. */
+    async supported() {
+      let ok = false;
+      try { ok = !!(navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')); } catch { ok = false; }
+      return ok && loadXR().then(() => true, () => false);
+    },
+    enter: () => (xrSession ? xrSession.enter() : loadXR().then((mode) => mode.enter(), () => false)),
+    exit: () => xrSession?.exit(),
+    sync: () => xrSession?.sync(),
+  };
   api.xr = xrMode;
   xrMode.supported().then((ok) => { if (vrKey) vrKey.hidden = !ok; });
   vrKey?.addEventListener('click', () => {
@@ -5841,7 +5864,13 @@ async function boot() {
     jauntRoot.append(message);
   }
   function ensureJaunts() {
-    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js'), import('./jaunt-context.js'), import('./jaunt-cards.js'), import('./narration.js'), import('./jaunt-pace.js')]).then(([preview, runtime, panel, estimates, context, cards, voices, pace]) => {
+    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js'), import('./jaunt-context.js'), import('./jaunt-cards.js'), import('./narration.js'), import('./jaunt-pace.js'),
+      // T-3627: a stop's stage and what it plays with load with the outing, not with the town:
+      // the cast (jaunt-stage.js), the adults jaunts' weapons and motions (human-fight.js) and
+      // wounds (human-blood.js), the burning of the first fort (fort-fire.js) and the bier.
+      import('./jaunt-stage.js'), import('./human-fight.js'), import('./human-blood.js'), import('./fort-fire.js'), import('./stage-props.js')])
+      .then(([preview, runtime, panel, estimates, context, cards, voices, pace, { createJauntStage }, humanFight, humanBlood, { createFortFire }, { createBier }]) => {
+      useFightMotions(humanFight); // every hand in town takes the fight motions up
       const resolveJaunt = target => {
         const resolved = destinations.resolve(target);
         return resolved?.structureId ? { kind: 'structure', id: resolved.structureId, label: resolved.label } : resolved;
@@ -6520,10 +6549,19 @@ async function boot() {
   // T-3521: a card's Find this person, by id (the harness tests it for everyone).
   api.findPerson = (id) => findSceneDirectoryPerson(id);
   // T-3553: Tell me a story, after Greet, for everyone in every year; Find goes to whom a story names.
-  api.tales = createTaleTeller({ interactions, scene: YEAR, base: new URL('tales/', resolveBases().dataBase).href,
+  // T-3627: both are offered at once (tale-actions.js), and the teller that answers them, with its
+  // stories, questions and cards (tale-teller.js and four more modules), loads the first time a
+  // visitor asks: the 1835 first visit never did, and paid for all five at boot.
+  let talesLoad = null;
+  api.loadTales = () => talesLoad ??= import('./tale-teller.js').then(({ createTaleTeller }) => (api.tales = createTaleTeller({
+    interactions: {}, // main.js extends the Interact engine itself, below
+    scene: YEAR, base: new URL('tales/', resolveBases().dataBase).href,
     date: () => world.sunDate ?? loaded.scene.target_date ?? null, say: (text) => hud.say(text),
     canFind: (id) => (api.townTransport?.driverAnchorForPerson?.(id) || personInTown(id) || atHome(id) ? true : 'Not out in town now'),
-    find: (id) => { void findSceneDirectoryPerson(id); } });
+    find: (id) => { void findSceneDirectoryPerson(id); } }))).catch((error) => { talesLoad = null; throw error; });
+  interactions.extend?.((thing, actions) => withStory(thing, actions,
+    (who) => { api.loadTales().then((teller) => teller.tell(who), () => hud.say('Stories could not be loaded just now')); },
+    (who) => { api.loadTales().then((teller) => teller.ask(who), () => hud.say('Questions could not be loaded just now')); }));
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     moreEl: document.getElementById('interact-more'),

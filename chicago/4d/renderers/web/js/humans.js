@@ -34,7 +34,6 @@ import * as THREE from 'three';
 import { resolveHumanIdentity, humanRoleCard } from './human-identity.js';
 import { createHumanLife, POSTURES } from './human-life.js';
 import { createHumanActions } from './human-actions.js';
-import * as fightMotions from './human-fight.js';
 import { createHumanGait } from './human-gait.js';
 import { createHumanSkirt } from './human-skirt.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -56,6 +55,11 @@ import { engraveSilver } from './human-silver.js';
 import { easeSeats } from './human-seat.js';
 import { dressGarrison, garrisonCarry, createArmsPiles } from './human-garrison.js';
 import { clothHuman } from './fabric.js';
+// T-3627: the adults jaunts' fight motions (human-fight.js) load with the outing, not with the
+// town; main.js hands them in with useFightMotions, and every hand reads them as it moves.
+let fightModule = null;
+const fightMotions = () => fightModule;
+export function useFightMotions(motions) { fightModule = motions ?? null; }
 
 /** § 8: the LODs each scene-detail tier may draw. `light` stays the floor. */
 export const HUMAN_TIERS = Object.freeze({ full: [0, 1, 2, 3], balanced: [1, 2, 3], light: [2, 3] });

@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_square_on",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f3e8a8a58f11c515f4543150253b2c62ad8e1d828b71a5face42957df8ab24f0",
+  "glb_sha256": "e48403a56655df254213337ba74dae8ab0faba6d14557e7bc8906bf23768b3f9",
   "camera_sha256": "cda2578ea5c93de1ed5400ca1f83da8339ea23c273224c6ad760394f98b0fdee",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_square_on-side-by-side.jpg",
@@ -147,6 +147,11 @@
       "what": "the south stack (x 780-830 px, its cap at y 55-65 px, about 14.4 m)",
       "status": "fixed",
       "how": "T-3561: the stone stack on the south cornice, its head and pots as on the oblique; it stands on the build's south wall, about 0.75 m south of the print's main wall (the corner bay's set-out, open above); T-3562 stands K15's long pot (1.1 m) on its three flues, off the oblique, where the trees hide its head on this print"
+    },
+    {
+      "what": "the north stack's shaft under its head: the print's is the stack's pale stone up to the corbelled head (x 145-192 px), where the build's K15 soot band laid its top 0.45 m in a darker brick that rendered red",
+      "status": "fixed",
+      "how": "T-3562: a stone K15 stack keeps its own stone through the soot band (k15_chimneys.stack_solids), as on the oblique's south stack"
     },
     {
       "what": "the deck over the curb: the print shows sky straight over the cresting's rail (y 146 px), where the build's low-pitched deck shows dark through and over its cresting (y 120-165 px); the build's curb stands about 0.2 m high on this view and about 0.8 m low on the oblique's, so the curb's height and the deck's pitch are one question across the two views",

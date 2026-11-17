@@ -23923,6 +23923,7 @@ manufacturer's catalogue replaces the pot profiles and the flue size for every h
 **Ticket:** T-2312 (piece 1 of T-1857, K15).
 **Review:** `docs/RESEARCH/k15-chimney-kit/README.md`.
 **Recorded:** 2026-10-10 (T-2312).
+**Resolved in part:** 2026-11-16, T-3562: the soot band is now a brick stack's only. A stone stack keeps its own stone up to its corbelled head, because both of 1815 Prairie's Chicagology prints show its stone stacks pale there, where the kit's darker brick band rendered red. The 0.45 m band on a brick stack's leeward faces is still reconstructed, as above.
 
 ### L-k09-1808-trim-2310 — 1808 Prairie's street front in K09 carved trim: entrance, window heads and apron panels, all reconstructed
 

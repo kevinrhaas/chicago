@@ -8,7 +8,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
-import { narrationScripts, openingScript, textKey, clipFor, clipKey, silentWav, createNarration, NARRATOR, NARRATORS, DEFAULT_NARRATOR, VOICE, voiceLevel } from '../renderers/web/js/narration.js';
+import { narrationScripts, openingScript, textKey, clipFor, clipKey, silentWav, createNarration, NARRATOR, NARRATORS, DEFAULT_NARRATOR, normalNarrator, VOICE, voiceLevel } from '../renderers/web/js/narration.js';
 import { loadConfig, scriptsFor, voiceFor, plan, voice, synthesize, verify, ROOT, spokenWords, sameWords, loadDirection, directionProblems } from './narrate_jaunts.mjs';
 
 const sha = s => createHash('sha256').update(s).digest('hex');
@@ -49,6 +49,11 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   const real = loadConfig();
   assert.deepEqual(Object.keys(real.narrators), NARRATORS.map(n => n.id), 'voices.json voices every narrator the Settings choice offers');
   assert.deepEqual(Object.values(real.narrators).map(n => n.label), NARRATORS.map(n => n.label));
+  // T-3627: Settings offers the narrators from narrators.js, so the boot never loads this player.
+  const settingsCopy = await import('../renderers/web/js/narrators.js');
+  assert.deepEqual(settingsCopy.NARRATORS, NARRATORS, 'narrators.js offers the narrators narration.js voices');
+  assert.equal(settingsCopy.DEFAULT_NARRATOR, DEFAULT_NARRATOR, 'narrators.js defaults to the same narrator');
+  for (const v of ['essayist', 'storyteller', 'nobody', undefined]) assert.equal(settingsCopy.normalNarrator(v), normalNarrator(v));
   const html = fs.readFileSync(path.join(ROOT, 'renderers/web/index.html'), 'utf8');
   for (const n of NARRATORS) assert.ok(html.includes(`<option value="${n.id}">${n.label}</option>`), `Settings › Sound offers ${n.label}`);
   for (const v of Object.values(real.voices)) assert.ok(v, 'every Glessner household voice is chosen (owner, 2026-11-13)');
