@@ -1,0 +1,20 @@
+{
+  "scope": "V20 far tessellation of the unchanged V19 producer: every physical feature remains, sampled coarsely for a carriage seen across a street or more.",
+  "details": {
+    "far": {
+      "tube_sides": 3,
+      "ring_segments": 10,
+      "ring_cross_sides": 3,
+      "hub_ring_cross_sides": 4,
+      "spoke_cross_sides": 3,
+      "hub_segments": 6,
+      "rear_rows": 3,
+      "rear_columns": 4,
+      "roof_longitudinal_steps": 2,
+      "roof_cross_steps": 4,
+      "cushion_sections": 16,
+      "spring_steps": 3,
+      "mudguard_steps": 6
+    }
+  }
+}

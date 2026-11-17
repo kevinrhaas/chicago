@@ -1901,7 +1901,10 @@
           -3208.4892633056534
         ]
       ],
-      "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+      "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
+      "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
+      "vehicle_file_light": "transport/parked-brougham/brougham-v20-mid.glb",
+      "vehicle_glb_sha256_light": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342",
       "driver_asset": "anonymous_working_driver_1904",
       "driver_clip": "sit_drive_look_v2",
       "person_id": "pa1904_otis_f_r_c1900_hans_johnson",
@@ -1925,13 +1928,25 @@
       "driver_binding": {
         "scene": "1904",
         "asset_id": "anonymous_working_driver_1904",
-        "vehicle_file": "transport/parked-brougham/brougham-near.glb",
-        "vehicle_glb_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
-        "vehicle_sidecar_sha256": "768f849182bb8ca7aa9d28db98a5d2cb3d502ea6c23c6f0b8fbf2a5b329e541f",
+        "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
+        "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
+        "vehicle_sidecar_sha256": "b6308cfd92a273ab549d6f8b59b536dba93c92fc5eab169ccad52782546a2982",
         "root_offset_m": [
           0,
           0,
           0
+        ],
+        "fitted_on": {
+          "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+          "vehicle_glb_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
+          "vehicle_sidecar_sha256": "768f849182bb8ca7aa9d28db98a5d2cb3d502ea6c23c6f0b8fbf2a5b329e541f",
+          "basis": "T-3558: the seated coachman and his livery were fitted on V19; the plate-matched V20 keeps its box, seat, footboard, frames and contacts to the byte at every level (tools/transport/brougham_v20/check.py)."
+        },
+        "also_carries": [
+          {
+            "file": "transport/parked-brougham/brougham-v20-mid.glb",
+            "sha256": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342"
+          }
         ]
       },
       "driver_instance": {
@@ -2174,7 +2189,10 @@
           ]
         ]
       },
-      "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+      "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
+      "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
+      "vehicle_file_light": "transport/parked-brougham/brougham-v20-mid.glb",
+      "vehicle_glb_sha256_light": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342",
       "driver_asset": "anonymous_working_driver_1904",
       "driver_clip": "sit_drive_look_v2",
       "person_id": "pa1904_pullman_mrs_george_m_c1900_henry_windish",
@@ -2199,13 +2217,25 @@
       "driver_binding": {
         "scene": "1904",
         "asset_id": "anonymous_working_driver_1904",
-        "vehicle_file": "transport/parked-brougham/brougham-near.glb",
-        "vehicle_glb_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
-        "vehicle_sidecar_sha256": "768f849182bb8ca7aa9d28db98a5d2cb3d502ea6c23c6f0b8fbf2a5b329e541f",
+        "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
+        "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
+        "vehicle_sidecar_sha256": "b6308cfd92a273ab549d6f8b59b536dba93c92fc5eab169ccad52782546a2982",
         "root_offset_m": [
           0,
           0,
           0
+        ],
+        "fitted_on": {
+          "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+          "vehicle_glb_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
+          "vehicle_sidecar_sha256": "768f849182bb8ca7aa9d28db98a5d2cb3d502ea6c23c6f0b8fbf2a5b329e541f",
+          "basis": "T-3558: the seated coachman and his livery were fitted on V19; the plate-matched V20 keeps its box, seat, footboard, frames and contacts to the byte at every level (tools/transport/brougham_v20/check.py)."
+        },
+        "also_carries": [
+          {
+            "file": "transport/parked-brougham/brougham-v20-mid.glb",
+            "sha256": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342"
+          }
         ]
       },
       "driver_instance": {
@@ -2510,7 +2540,10 @@
           ]
         ]
       },
-      "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+      "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
+      "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
+      "vehicle_file_light": "transport/parked-brougham/brougham-v20-mid.glb",
+      "vehicle_glb_sha256_light": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342",
       "driver_asset": "anonymous_working_driver_1904",
       "driver_clip": "sit_drive_look_v2",
       "person_id": "pa1904_armour_mrs_philip_d_c1900_joseph_daniels",
@@ -2535,13 +2568,25 @@
       "driver_binding": {
         "scene": "1904",
         "asset_id": "anonymous_working_driver_1904",
-        "vehicle_file": "transport/parked-brougham/brougham-near.glb",
-        "vehicle_glb_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
-        "vehicle_sidecar_sha256": "768f849182bb8ca7aa9d28db98a5d2cb3d502ea6c23c6f0b8fbf2a5b329e541f",
+        "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
+        "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
+        "vehicle_sidecar_sha256": "b6308cfd92a273ab549d6f8b59b536dba93c92fc5eab169ccad52782546a2982",
         "root_offset_m": [
           0,
           0,
           0
+        ],
+        "fitted_on": {
+          "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+          "vehicle_glb_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
+          "vehicle_sidecar_sha256": "768f849182bb8ca7aa9d28db98a5d2cb3d502ea6c23c6f0b8fbf2a5b329e541f",
+          "basis": "T-3558: the seated coachman and his livery were fitted on V19; the plate-matched V20 keeps its box, seat, footboard, frames and contacts to the byte at every level (tools/transport/brougham_v20/check.py)."
+        },
+        "also_carries": [
+          {
+            "file": "transport/parked-brougham/brougham-v20-mid.glb",
+            "sha256": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342"
+          }
         ]
       },
       "driver_instance": {
@@ -2867,7 +2912,10 @@
           10
         ]
       },
-      "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+      "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
+      "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
+      "vehicle_file_light": "transport/parked-brougham/brougham-v20-mid.glb",
+      "vehicle_glb_sha256_light": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342",
       "driver_asset": "anonymous_working_driver_1904",
       "driver_clip": "sit_drive_look_v2",
       "person_id": "pa1904_glessner_john_j_c1900_charles_nelson",
@@ -2892,13 +2940,25 @@
       "driver_binding": {
         "scene": "1904",
         "asset_id": "anonymous_working_driver_1904",
-        "vehicle_file": "transport/parked-brougham/brougham-near.glb",
-        "vehicle_glb_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
-        "vehicle_sidecar_sha256": "768f849182bb8ca7aa9d28db98a5d2cb3d502ea6c23c6f0b8fbf2a5b329e541f",
+        "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
+        "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
+        "vehicle_sidecar_sha256": "b6308cfd92a273ab549d6f8b59b536dba93c92fc5eab169ccad52782546a2982",
         "root_offset_m": [
           0,
           0,
           0
+        ],
+        "fitted_on": {
+          "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+          "vehicle_glb_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
+          "vehicle_sidecar_sha256": "768f849182bb8ca7aa9d28db98a5d2cb3d502ea6c23c6f0b8fbf2a5b329e541f",
+          "basis": "T-3558: the seated coachman and his livery were fitted on V19; the plate-matched V20 keeps its box, seat, footboard, frames and contacts to the byte at every level (tools/transport/brougham_v20/check.py)."
+        },
+        "also_carries": [
+          {
+            "file": "transport/parked-brougham/brougham-v20-mid.glb",
+            "sha256": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342"
+          }
         ]
       },
       "driver_instance": {
