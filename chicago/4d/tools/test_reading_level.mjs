@@ -236,15 +236,32 @@ function makeDoc() {
 
 // ---- the wiring: Settings, the Jaunts menu, the cards ------------------------------------------
 {
-  const html = read('renderers/web/index.html');
-  for (const age of LEVEL_IDS) assert(html.includes(`data-reading-age="${age}"`), `Settings › Display › Reading age has ${age}`);
-  assert.match(html, /id="s-reading"[^>]*data-set-pane="display"/, 'the Reading age group sits on the Display tab');
+  // Settings › Display › Reading age is drawn by settings-app.js (readingAgesGroup) above
+  // Appearance, so the page published at every year's door stays under the duplicate floor.
+  const { readingAgesGroup } = await import('../renderers/web/js/settings-app.js');
+  const make = (tag) => {
+    const n = { tag, children: [], dataset: {}, attrs: {}, hidden: false, textContent: '', parentNode: null,
+      setAttribute(k, v) { this.attrs[k] = String(v); }, getAttribute(k) { return this.attrs[k] ?? null; },
+      append(...c) { for (const x of c) { x.parentNode = this; this.children.push(x); } },
+      insertBefore(c, ref) { c.parentNode = this; this.children.splice(this.children.indexOf(ref), 0, c); } };
+    return n;
+  };
+  const body = make('div'); const machine = make('div'); machine.id = 's-machine'; machine.hidden = true; body.append(machine);
+  const fakeDoc = { createElement: make, getElementById: (id) => body.children.find((c) => c.id === id)?.children?.find?.((c) => c.id === id) ?? body.children.find((c) => c.id === id) ?? null };
+  const seg = readingAgesGroup(fakeDoc);
+  const group = body.children[0];
+  assert.equal(group.id, 's-reading', 'the Reading age group goes in first, above Appearance');
+  assert.equal(group.dataset.setPane, 'display', 'the Reading age group sits on the Display tab');
+  assert.equal(group.hidden, true, 'it starts hidden or shown with the Display groups');
+  assert.deepEqual(seg.children.map((b) => b.dataset.readingAge), LEVEL_IDS, 'Settings › Display › Reading age has every age');
+  assert.equal(readingAgesGroup({ getElementById: (id) => (id === 's-reading-ages' ? seg : null) }), seg, 'drawn once');
+  assert(!read('renderers/web/index.html').includes('s-reading-ages'), 'the page itself carries no Reading age markup');
   for (const [file, re] of [
     ['renderers/web/js/apps/inspect-view.js', /readingTabs\(card/], ['renderers/web/js/apps/inspect-view.js', /readingTabs\(pane/],
     ['renderers/web/js/apps/inspect-view.js', /readingTabs\(page/], ['renderers/web/js/apps/people-view.js', /readingTabs\(card/],
     ['renderers/web/js/tale-card.js', /readingTabs\(card/], ['renderers/web/js/ask-card.js', /readingTabs\(card/],
     ['renderers/web/js/jaunt-panel.js', /readingTabs\(body/], ['renderers/web/js/jaunt-preview.js', /tellingTable\(content/],
-    ['renderers/web/js/settings-app.js', /wireReadingAges\(\$\('s-reading-ages'\)\)/], ['renderers/web/js/main.js', /syncReading\(\{ account: api\.signIn\.account/],
+    ['renderers/web/js/settings-app.js', /wireReadingAges\(readingAgesGroup\(doc\)\)/], ['renderers/web/js/main.js', /syncReading\(\{ account: api\.signIn\.account/],
     ['tools/publish.sh', /data\/reading/],
   ]) assert(re.test(read(file)), `${file}: ${re}`);
 }
