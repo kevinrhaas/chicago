@@ -53,7 +53,6 @@ ROLL = 'the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VII
 INFERRED = {
     'holt_child': 'Quaife counts a child returned with Mrs. Holt; the reading takes it as hers, which no source states outright.',
     'fettle_louis': "Quaife's conjecture only: in Kinzie's books down to 1812, then gone; he guesses Fettle died among the militia.",
-    'lee_son': "Wau-Bun has Lee's son killed with him; that he served in the militia is Quaife's inference.",
 }
 
 # Presence wording.
@@ -420,7 +419,9 @@ def households():
        [Card('lee_charles', 'Charles Lee', 'head', [('c', C['lee_charles']), ('g', G['lee_mr_1812'])],
              occupation=occ('farmer of Lee\'s Place (Hardscrabble)', ['quaife_1913'], 'His farm on the South Branch, where Liberty White and Jean Baptiste Cardin were killed on 6 April 1812.', 'inferred')),
         Card('lee_mrs', 'Mrs. Lee', 'wife', [('c', C['lee_mrs']), ('g', G['lee_mrs_1812'])]),
-        Card('lee_son', "Lee's son", 'son', [('c', C['lee_son']), ('g', G['lee_son_1812'])], grade='inferred'),
+        # T-3553 (the owner, 2026-11-17: a documented person reads attested): Wau-Bun names him Lee's son and
+        # has him killed on 15 August; that he served in the militia is Quaife's inference, a fact on the card.
+        Card('lee_son', "Lee's son", 'son', [('c', C['lee_son']), ('g', G['lee_son_1812'])]),
         Card('lee_daughter', "Lee's daughter", 'daughter', [('c', C['lee_daughter']), ('g', G['lee_daughter_1812'])], born=born_c(C['lee_daughter'])),
         Card('lee_infant', 'The Lee baby', 'child', [('c', C['lee_infant']), ('g', G['lee_infant_1812'])])],
        [('lee_house_1812', 'inferred', ['kinzie_waubun_1856', 'currey_1912_story_of_old_fort_dearborn'], 'The family\'s town house on the lake shore near the fort (Wau-Bun ch. XIX).')],
@@ -441,8 +442,9 @@ def households():
         if cid == 'leclerc_pierre':
             refs += [('n', N['pierre_leclerc_1812']), ('g', G['leclaire_pierre_1812'])]
         pid = {'kinzie_john_h': 'kinzie_john_h_1812', 'laframboise_josette': 'laframboise_josette_1812'}.get(cid, cid)
-        kin.append(Card(pid, nm, rel, refs, born=born_c(C[cid]),
-                        grade='inferred' if cid == 'leclerc_pierre' else None))
+        # Le Clerc is attested (T-3553): Helm and Wau-Bun both have him march on 15 August and carry the
+        # surrender terms; only his militia service is Quaife's conjecture.
+        kin.append(Card(pid, nm, rel, refs, born=born_c(C[cid])))
     kin.append(Card('kinzie_servant_second', 'A second Kinzie servant, name not recorded', 'servant', [('c', C['kinzie_servant_second'])]))
     H.append({'hid': 'hh_kinzie_john_elder', 'extend': kin})
 

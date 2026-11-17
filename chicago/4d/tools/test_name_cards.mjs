@@ -67,6 +67,9 @@ for (const year of ['1812', '1835', '1904']) {
     if (p.name_basis?.grade !== 'reconstructed' || !(p.also_written ?? []).length) ok(false, `${p.id}: a name of ours is marked reconstructed and keeps the old label`);
   }
   ok(ours.length === 25, `1812: the sixteen counted-and-unnamed town cards and nine children of known families carry names of ours (${ours.length})`);
+  // The owner, 2026-11-17: "John kinzie looks silver ... make sure they would be attested when they are documented".
+  const documented = ['kinzie_john_elder', 'leclerc_pierre', 'lee_son', 'mirandeau_jean_baptiste'].filter((id) => people.find((p) => p.id === id)?.grade !== 'attested');
+  ok(documented.length === 0, `1812: John Kinzie, Le Clerc, Lee's son and Mirandeau, all documented, read attested${documented.length ? ` — not: ${documented.join(', ')}` : ''}`);
   const row = people.find((p) => p.id === 'kinzie_servant_second');
   ok(row?.grade === 'attested' && m.gradeOf(row) === 'reconstructed', "Kinzie's second servant: attested, his name ours, his card's edge reconstructed");
   const staged = [];
