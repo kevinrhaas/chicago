@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3050, ts: '2026-11-17T00:24:37.898Z', date: 'Nov 16, 2026, 6:24 PM CT', title: 'The boot budget re-measured after the 1835 commercial core\'s new stores', kind: 'fix',
+    items: [
+      'The first visit to the 1835 street now downloads 46.3 MB, 0.9 MB more than this morning. Most of that is the new row of 59 stores up Wells, LaSalle, Clark and Dearborn, the Lake and Dearborn faces rebuilt to Gifford\'s Tremont drawing, and the ground behind each store. The rest is the boats you can steer, the burning of Fort Dearborn and the name cards. The budget moves to 46.6 MB and what grew is written down file by file, so every pull request\'s build can go green again.',
+    ] },
   { v: 3049, ts: '2026-11-16T23:22:47.575Z', date: 'Nov 16, 2026, 5:22 PM CT', title: 'The ground behind 1835\'s stores', kind: 'feature',
     items: [
       'Behind every store in the new row on South Water, Lake and the cross streets, its back lot is now laid out by the kind of store it is. The two-storey stores keep a horse: a stable at the back of the lot, with the open ground between it and the back door left for the wagon and for loading.',
