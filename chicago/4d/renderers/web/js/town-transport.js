@@ -123,6 +123,7 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
       if (disposed || !driver.updateVisual) return;
       if (!Number.isFinite(dt) || dt < 0) throw Error('town transport: finite nonnegative driver visual time required');
       const held = paused || !root.visible;
+      if (!held) horse.updateLod?.(viewer);
       // T-1790: the driver's motion layer reads the ride (travelled metres, the
       // turn) and whether the team is moving; a stopped carriage is still a ride.
       if (lastPose) driver.move?.(lastPose, posed && !stopped);
@@ -216,6 +217,7 @@ export function createTeamsterAssembly({ root, vehicle, walker, horse, confidenc
       if (disposed) return;
       if (!Number.isFinite(dt) || dt < 0) throw Error('town transport: finite nonnegative teamster time required');
       const held = paused || !root.visible;
+      if (!held) horse.updateLod?.(viewer);
       const moving = posed && !stopped && !held;
       const want = moving ? 'walking' : 'standing';
       if (walker.state !== want) walker.setState(want);

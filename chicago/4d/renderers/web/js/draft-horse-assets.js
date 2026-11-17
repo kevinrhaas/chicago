@@ -15,6 +15,8 @@ const entries = new Map();
  */
 let textureCap = 0;
 export function setDraftHorseTextureCap(px) { textureCap = Number.isFinite(px) && px > 0 ? px : 0; }
+/** T-3559: the cap in force (0: none), so a loader can skip a level the cap makes redundant. */
+export function draftHorseTextureCap() { return textureCap; }
 
 /** Redraw each map image over `cap` px at the cap (aspect kept). Returns the count redrawn. */
 export async function capTextureImages(root, cap) {
