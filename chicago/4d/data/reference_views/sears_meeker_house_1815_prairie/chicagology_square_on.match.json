@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_square_on",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6db32e1aa5d641bd317654d2707d0550079a7c56777c373a29cf110f04a6063a",
+  "glb_sha256": "19ecfb301504a983ebb6e737541e830f3daa5c2de1b83ccf136af831341f0302",
   "camera_sha256": "cda2578ea5c93de1ed5400ca1f83da8339ea23c273224c6ad760394f98b0fdee",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_square_on-side-by-side.jpg",
@@ -26,7 +26,7 @@
     {
       "what": "the one-storey corner bay at the south-west corner (x 600-845 px), its north cheek canted with one light, two narrow lights in its front, barred basement lights under them, a stone balcony of pierced panels on its deck",
       "status": "fixed",
-      "how": "T-3155: a K08 projection 2.08 m wide and 1.2 m out with a 1.4 m canted left cheek, set out 0.75 m past the south flank (T-3562), under K08's stone balcony with one row of pierced panels"
+      "how": "T-3155: a K08 projection 2.08 m wide and 1.2 m out with a 1.4 m canted left cheek, flush with the south flank, under K08's stone balcony with one row of pierced panels"
     },
     {
       "what": "the gabled dormer in the mansard over the window column (x 470-600 px)",
@@ -57,9 +57,9 @@
       "how": "one with the pavilion's width (above): the print's pavilion carries the door, so its hood has the room"
     },
     {
-      "what": "the stoop's stone cheek walls, falling to a square newel at each foot under a cap and a ball knob (x 230-265 and 445-480 px)",
+      "what": "the stoop's sides: the flight's steps show along both (the north side's against the dark of the basement doorway, x 285-305 px), under an iron hand rail each side curving down onto the newels' tops (x 265-300 and 440-470 px), each foot a square newel under a cap and a ball knob (x 230-265 and 445-480 px)",
       "status": "fixed",
-      "how": "T-3562: K07's swept cheeks with a 0.5 m newel at each foot, its cap and knob (cheek_form.newel); they render on x 218-260 and 485-530 px, their heights within about 0.1 m"
+      "how": "T-3562: K07's railed swept cheek: the cheeks were solid stone walls sweeping down to the newels; they are now stepped level with the treads under a 0.04 m iron rail each side, to the newels' caps, the rails straight where the print's curve down at the foot (within tolerance: under the bar)"
     },
     {
       "what": "the south newel renders about 40 px south of the print's",
@@ -146,7 +146,7 @@
     {
       "what": "the south stack (x 780-830 px, its cap at y 55-65 px, about 14.4 m)",
       "status": "fixed",
-      "how": "T-3561: the stone stack on the south cornice, its head and pots as on the oblique; it stands on the build's south wall, which T-3562 moved in onto the print's main wall (the corner bay's set-out); T-3562 stands K15's long pot (1.1 m) on its three flues, off the oblique, where the trees hide its head on this print"
+      "how": "T-3561: the stone stack on the south cornice, its head and pots as on the oblique; it stands on the build's south wall, about 0.75 m south of the print's main wall (the corner bay's set-out, open above); T-3562 stands K15's long pot (1.1 m) on its three flues, off the oblique, where the trees hide its head on this print"
     },
     {
       "what": "the north stack's shaft under its head: the print's is the stack's pale stone up to the corbelled head (x 145-192 px), where the build's K15 soot band laid its top 0.45 m in a darker brick that rendered red",
@@ -156,11 +156,6 @@
     {
       "what": "the deck over the curb: the print shows sky straight over the cresting's rail (y 146 px), where the build's low-pitched deck shows dark through and over its cresting (y 120-165 px); the build's curb stands about 0.2 m high on this view and about 0.8 m low on the oblique's, so the curb's height and the deck's pitch are one question across the two views",
       "status": "open"
-    },
-    {
-      "what": "the main front's south wall stands inside the corner bay's south edge: the upper storey's wall ends at x 834 px and the cornice at about 855 px, the bay running on to x 905 px",
-      "status": "fixed",
-      "how": "T-3562: the front block is 9.72 m along the front, the bay set out 0.75 m past its south wall (K01 bays[].set_out_m); the wall's south edge renders at x 854-868 px (it rendered at 907-919, flush with the bay) and the bay's at 925, as before"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
