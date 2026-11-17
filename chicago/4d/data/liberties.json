@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1169,
+  "count": 1173,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -76200,6 +76200,132 @@
         {
           "label": "Review",
           "text": "the walkthrough's human sleeve code, the human sleeve test."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-17 (T-3553)."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
+      "id": "L-tailor-1835-3553",
+      "title": "1830s trouser cut and a white shirt on two townsmen's bodies",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-17: *\"yes do tailoring fixes\"*, on this work's catalogue review, which laid Philip F. W. Peck and Patrick Mahoney beside their period pictures: Peck's trousers were straight, without pleats or foot straps; Mahoney's shirt read beige-grey and his sleeves ran smooth to a plain wrist. **What is reconstructed.** At load (the walkthrough's human tailor 1835 code) peck philip 1835's trousers take pleat fullness at the waistband (three pleats each side), a taper to the ankle (about 63% of the width under the knee at LOD0) and a cloth strap under each shoe, appended into the trousers' own mesh; mahoney patrick 1835's shirt is drawn warm white linen (sRGB 233, 228, 213, from 158, 147, 125) and its sleeves are gathered into a 3.5 cm wristband with folds, appended into the shirt's own mesh. No mesh, material or texture is added. The cut follows the pictures of the review: the Met's coat and trousers of about 1833 (Coat, British, ca. 1833, silk (1981.210.4), and trousers, British, ca. 1833…), Mount's *The Raffle* (1837, William Sidney Mount, The Raffle (Raffling for the Goose), 1837, oil on mahogany) and *Cider Making* (1841, William Sidney Mount, Cider Making, 1840-41, oil on canvas) and Weir's *The Wood Sawyer* (1842, Charles E. Weir, The Wood Sawyer, 1842, oil on board). No record says these two men wore exactly this; the pleat count, strap width and band depth are chosen values. The cut reaches everyone who wears these two bodies (70 townsmen on Peck's, about 950 townspeople, the driven-loop drivers and the vessel crews on Mahoney's); the white only those drawn without a shirt colour of their own."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the two bodies re-exported with the cut modelled in (new derivation-chain entries), and this pass retired."
+        },
+        {
+          "label": "Review",
+          "text": "the walkthrough's human tailor 1835 code, the human tailor 1835 test, the peck philip 1835 match data, the mahoney patrick 1835 match data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-17 (T-3553)."
+        }
+      ],
+      "work_refs": [
+        "T-3553",
+        "T-1790",
+        "T-2804"
+      ]
+    },
+    {
+      "id": "L-regulars-3553",
+      "title": "The 1812 private dressed as a regular: skirts below the coatee's and tape on his button holes",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-17, on the catalogue review that laid the private of Heald's company beside Krimmel's Philadelphia volunteers: *\"i think against the regulars? they are probably closer to a regular and would have been outfitted with uniform?\"*, then *\"yes do tailoring fixes\"*. The private is judged against the record of the U.S. regular infantry, which is text, not a picture. Read backwards, as the figure already reads it for red collar and cuffs, felt cap and feather, the change printed in 1813 and 1814 (Military Laws, and Rules and Regulations for the Army of the United States: *\"no lace shall be worn by any grade... all the rank and file will wear coatees. The button holes of these will be trimmed with tape on the collar only\"*) implies two things the export lacked, built at load by the walkthrough's human regulars code. (1) **Skirts** (inferred): the tails, cut to the coatee's mid-thigh (0.71 m off the ground), are drawn straight down to 4.5 cm above the knee joint (0.56 m). That the coat was longer than a coatee is inferred; the length is reconstructed, between the coatee and the officer's skirts at the bend of the knee, after the silhouette of Ogden's 1888 plate of the 1802-1810 pattern (H. A. Ogden, [Uniforms] Infantry, Artillery, 1802-1810, Pl). (2) **Breast tape** (inferred): a white tape loop on each of the eight breast button holes, from the button toward the wearer's left, appended into the crossbelts' mesh (the same white). That the holes beyond the collar were taped before 1813 is inferred from \"on the collar only\"; the loop's form (one-sided), length (8 cm), height (1.4 cm) and white are reconstructed. The collar's own tape is not drawn: the exported collar falls to a centimetre or less at the front. Both reach every wearer of the body in a scene before 1813 (the 1812 garrison, its NCOs and musicians); the 1835 garrison wears the same body as the coatee of after 1813 and is left as exported."
+        },
+        {
+          "label": "Not invented",
+          "text": "the issue list (An Act Establishing Rules and Articles for the Government of the Armies of the…, the 1802 act, Sec. 8: hat, coat, vest, woollen and linen overalls, stock and clasp, half gaiters); the 1813 change's words quoted above."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a description or picture of the First Infantry's enlisted coat of 1810-1812 (its tails' length, its lace), an reconstruction plan or clothing return of the post, or Ogden's 1810-1813 plate read."
+        },
+        {
+          "label": "Review",
+          "text": "the walkthrough's human regulars code, the human regulars test, the private first infantry 1812 match data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-17 (T-3553)."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
+      "id": "L-frockcoat-3553",
+      "title": "John J. Glessner's 1904 frock coat recut to the knee, open at the front, with a white standing collar",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-17: *\"yes do tailoring fixes\"*, on this work's catalogue review: the glessner john j 1904 frock coat fell to mid-calf, straight from chest to hem, buttoned to the throat, with a grey collar and no back vent, and read as a cassock beside Taft and Root. **What is reconstructed.** At load (the walkthrough's human frockcoat code) the export's own pieces are recut: the skirts shortened from their top so the hem sits 3 cm above the knee joint; the coat taken in at the waist seam toward the body, over the waistcoat (near levels only); the front opened into a V that shows the shirt and tie and a sliver of waistcoat, the lapels following the opening's edge; the shirt collar raised to stand clear of the coat collar at the sides and back and set to the recipe's white (linear 0.8, the gentleman 1904 data colors linear rgba), which had come out grey; a centre-back vent split into the skirts, lapped at its top and parted at the hem (LOD0 and LOD1). No piece is added. Pictures: [William Howard Taft, full length, standing, facing slightly right, with Elihu… (Taft buttoned high, knee length; Root open over a high waistcoat) and [John J. Glessner], The Commercial Club of Chicago: Its Beginning and Something… (the tall standing collar). The hem's height is read from Taft's print (inferred for Glessner). The waist suppression, the V's depth, the collar's height and the vent's lap and parting are reconstructed, built to read at 3 m, not measured from a garment."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of Glessner in a frock coat; the body re-exported with the cut modelled in."
+        },
+        {
+          "label": "Review",
+          "text": "the walkthrough's human frockcoat code, the human frockcoat test, the glessner john j 1904 match data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-17 (T-3553)."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
+      "id": "L-gown-3553",
+      "title": "The 1904 lady's gown: close at the hips, flaring from the knee, with gores, lace and wrist frills",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-17: *\"yes do tailoring fixes\"*, on this work's catalogue review: the glessner frances m 1904 skirt was a bell from the hips, widest at a hem nearly twice the hips' width, and read as a crinoline; collar and cuffs were plain grey and black. **What is reconstructed.** At load (the walkthrough's human gown code) the gored skirt is reshaped: close over the hips (17 cm held), flaring from about the knee to a hem about 1.5 times the hips' half-width, with ease of 12 cm front, 10 cm side and 16 cm back; seven gore seams pressed in (5 mm deep, 2 cm wide), fixed folds below the knee (14 near, 7 at the next level, none farther) and two rows of black braid at the hem. Cream lace is drawn as a shader pattern over the shirtwaist's collar, jabot and front, the jacket cuffs are braided, and a cream lace frill is added at each wrist (from 1.2 cm inside the sleeve to 3.5 cm past it), appended into the shirtwaist collar's mesh at the two near levels; no mesh, material or texture is added. Pictures (reference set lady 1904): Suit, French, 1902, wool and silk: bodice, skirt and coat (a gored walking skirt, close at the hips, flared at the hem), Detroit Publishing Co., Easter crowds on Fifth Avenue, New York, glass… (hem width and fullness on the walk), Frances Benjamin Johnston, [Mrs. Fairbanks making address at the laying of the… (the high lace collar and jabot, wrist frills). The kinds of garment are inferred from those pictures; every number (ease, hold, the knee's share, seam depth, fold count and depth, braid widths, the cream, the frill's size) is reconstructed. No garment of Frances Glessner's own is recorded: the gown is the period type, and reaches every body that wears this asset (about 100 Prairie Avenue ladies, most of them in their own finery's colours)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of Frances Glessner's dress about 1904; the body re-exported with the cut modelled in."
+        },
+        {
+          "label": "Review",
+          "text": "the walkthrough's human gown code, the human gown test, the glessner frances m 1904 match data."
         },
         {
           "label": "Recorded",

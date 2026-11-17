@@ -4,7 +4,7 @@
   "shot": {
     "date": "2026-11-17",
     "target": "tools/people_match_stage.html on this tree",
-    "build": "stage, tree d4fae0e81 + 5 uncommitted figure file(s)",
+    "build": "stage, tree c30a40136 + 4 uncommitted figure file(s)",
     "out": "evidence/people-match-2026-11-17/glessner_john_j_1904",
     "evidence_repo": "kevinrhaas/chicago-evidence"
   },
@@ -22,7 +22,7 @@
   "stills": {
     "near-desktop": {
       "file": "evidence/people-match-2026-11-17/glessner_john_j_1904/near-desktop.jpg",
-      "sha256": "2a4a58aca986df2a219d354040e9cbc8b01b4af04f8f7b7f519a5c69d86886d7",
+      "sha256": "b1737ef6a604d9022e471b57a62e0875aa7f0e54dc1bd3ab40f5d11ca99615cb",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -53,7 +53,7 @@
     },
     "far-desktop": {
       "file": "evidence/people-match-2026-11-17/glessner_john_j_1904/far-desktop.jpg",
-      "sha256": "7aa084050dcd8d10104d2bc9ef831cad4b53f11168a73c5a4563d8ec3958dadf",
+      "sha256": "7caef7f4893ab5c5f1271199d46e37e2f54b828d8259da031181b134306c09b8",
       "detail": "stage",
       "pose": {
         "pose": "walk",
@@ -84,7 +84,7 @@
     },
     "near-phone": {
       "file": "evidence/people-match-2026-11-17/glessner_john_j_1904/near-phone.jpg",
-      "sha256": "39c6869ec6e05c256c55f28a3ce4453ce3acd1a868da7450b88ee302664b03c8",
+      "sha256": "7e2b66e3678099eed01df7d6b8fe7cec06fe7d2b9ef26744193dcf78954aeb36",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -115,7 +115,7 @@
     },
     "far-phone": {
       "file": "evidence/people-match-2026-11-17/glessner_john_j_1904/far-phone.jpg",
-      "sha256": "8763e090b09b16b941123bb55d1d5c8ec40e210d39295f3f4468b0f73e7140a2",
+      "sha256": "858db707f4527443662d1b3272a39dc9ef3c8eabbda1c95288b214783aefa3e4",
       "detail": "stage",
       "pose": {
         "pose": "walk",
@@ -157,12 +157,12 @@
     "silhouette": {
       "what": "Silhouette and fit of the clothes",
       "status": "open",
-      "note": "The frock coat is buttoned to the throat and falls straight to mid-calf with no waist seam, so at 3 m it reads as a cassock or an overcoat; Taft's frock coat is buttoned high but shows its lapels and stops at the knee, and Root's is worn open over a high waistcoat. At 10 m a dark coat below the knee and a derby read as the State Street men do."
+      "note": "Reshot with the frock-coat fitting (T-3553 round 3): the skirts now stop at the knee and the coat is taken in a little at the waist, so at 3 m it no longer reads as a cassock; but the front is still one black mass from collar to hem: the lapels do not read (black on black, no facing), only a narrow white shirt-and-tie V shows at the chest, where Root's open coat shows a wide waistcoat and Taft's buttoned one still shows its lapel roll. The waist suppression is slight at 3 m with the arms down. At 10 m a dark knee-length coat and a derby read as the State Street men do."
     },
     "folds": {
       "what": "Folds where cloth gathers",
       "status": "open",
-      "note": "Mid-stride the skirts swing out as one bell with no centre-back vent or pleats; a frock coat's skirts part at the back vent."
+      "note": "A centre-back vent is now cut: lapped at its top, parted about 3 cm at the hem, and it shows from behind and the rear three-quarter; but it is fixed, so mid-stride it does not open further with the stride, and the skirts still swing as one bell from the front. No pleats or hip buttons."
     },
     "hat_hair": {
       "what": "Hat and hair",
@@ -187,39 +187,39 @@
     "motion": {
       "what": "How it moves (the 5-second strip)",
       "status": "within tolerance",
-      "note": "A steady walk; the coat skirts swing wide (see folds)."
+      "note": "A steady walk; the knee-length skirts clear the knee on the stride (see folds for the vent)."
     }
   },
   "differences": [
     {
       "what": "coat length",
       "picture": "Frock coat skirts to the knee (Taft 1904).",
-      "ours": "Skirts below the knee, to about mid-calf.",
-      "status": "open"
+      "ours": "Skirts to just above the knee (about 3 cm above the knee joint standing; level with it at the deepest stride).",
+      "status": "reads"
     },
     {
       "what": "lapels and front",
       "picture": "Long lapels rolling to the waist (Root), or buttoned high with the lapels still showing (Taft); waistcoat and shirt front show in the opening.",
-      "ours": "Buttoned to the throat; the lapels piece does not read; only a narrow shirt collar and tie show; the waistcoat is hidden.",
+      "ours": "Buttoned high; a narrow V of white shirt and tie now shows at the chest, with a sliver of waistcoat beside it; the lapels piece is still black on black and reads only by the V's outline; no wide waistcoat as Root's.",
       "status": "open"
     },
     {
       "what": "waist",
       "picture": "Frock coat seamed and suppressed at the waist, the skirts hanging from it.",
-      "ours": "No waist seam or suppression; straight from chest to hem.",
-      "status": "open"
+      "ours": "Taken in at the waist (girth about 7 cm less), the skirts hanging from it; slight at 3 m with the arms down, and only on the near levels.",
+      "status": "within tolerance"
     },
     {
       "what": "back vent",
       "picture": "A frock coat's skirts part at a centre-back vent with pleats (the walking men on State Street).",
-      "ours": "The skirts are one closed bell that flares as he walks.",
-      "status": "open"
+      "ours": "A centre-back vent, lapped at the top and parted about 3 cm at the hem, seen from behind; it does not widen with the stride, and there are no pleats.",
+      "status": "within tolerance"
     },
     {
       "what": "collar",
       "picture": "Tall standing collar (Glessner plate 1897), wing collar (Root).",
-      "ours": "A low pale grey collar; reads grey, not white.",
-      "status": "open"
+      "ours": "A white standing collar, raised at the sides and back to stand clear of the coat collar; lower than the 1897 plate's.",
+      "status": "reads"
     },
     {
       "what": "trousers",

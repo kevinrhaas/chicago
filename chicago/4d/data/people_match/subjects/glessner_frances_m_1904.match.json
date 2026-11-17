@@ -4,7 +4,7 @@
   "shot": {
     "date": "2026-11-17",
     "target": "tools/people_match_stage.html on this tree",
-    "build": "stage, tree d4fae0e81 + 5 uncommitted figure file(s)",
+    "build": "stage, tree c30a40136 + 4 uncommitted figure file(s)",
     "out": "evidence/people-match-2026-11-17/glessner_frances_m_1904",
     "evidence_repo": "kevinrhaas/chicago-evidence"
   },
@@ -22,7 +22,7 @@
   "stills": {
     "near-desktop": {
       "file": "evidence/people-match-2026-11-17/glessner_frances_m_1904/near-desktop.jpg",
-      "sha256": "97aa158a355ef64f1ca860761188be17c41b37bb9b59901ff62a98e3da39ee7d",
+      "sha256": "4a41bbddd15c4ce26e8a642b2e63e4f4d050ea4033037573d24759366be03010",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -53,7 +53,7 @@
     },
     "far-desktop": {
       "file": "evidence/people-match-2026-11-17/glessner_frances_m_1904/far-desktop.jpg",
-      "sha256": "673201af94a118393a2d40c7cb2dcdf9c394e0a2716598088db14c07bd5a9f26",
+      "sha256": "09e6e56d5569d682a2b1c1f3bef186b4812f16928929354a9193d8f70414c714",
       "detail": "stage",
       "pose": {
         "pose": "walk",
@@ -84,7 +84,7 @@
     },
     "near-phone": {
       "file": "evidence/people-match-2026-11-17/glessner_frances_m_1904/near-phone.jpg",
-      "sha256": "e943964f88895d74ce8460704ca877c892c095c99821b937fb2d6a3a86438de1",
+      "sha256": "7e886fe90c94974514213e2890ecf17514daccf96a19b4c8fceb2bda33d12ab0",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -115,7 +115,7 @@
     },
     "far-phone": {
       "file": "evidence/people-match-2026-11-17/glessner_frances_m_1904/far-phone.jpg",
-      "sha256": "68d00843d4decd06117d7de528433dfab70cbf19e32023836531fd533bd1fecd",
+      "sha256": "90d2fb7a27a82248209ec84be390d3a6097d46452edc6922027a8b3e033f1916",
       "detail": "stage",
       "pose": {
         "pose": "walk",
@@ -152,17 +152,17 @@
     "far-pair": "evidence/people-match-2026-11-17/glessner_frances_m_1904/far-pair.jpg",
     "motion-strip": "evidence/people-match-2026-11-17/glessner_frances_m_1904/motion-strip.jpg"
   },
-  "verdict": "differs",
+  "verdict": "matches",
   "checklist": {
     "silhouette": {
       "what": "Silhouette and fit of the clothes",
-      "status": "open",
-      "note": "The skirt is a dome from the hips to a hem wider than the shoulders are tall, which reads as a crinoline at 3 m and as an over-wide bell at 10 m; the 1902 Met skirt and the Easter 1904 women are close over the hips and flare from about the knee. Jacket to the hip with a short peplum reads as the Met coat cut shorter."
+      "status": "reads",
+      "note": "Since the tailoring fix (human-gown.js, T-3553 round 3) the skirt is close over the hips and flares from about the knee to a hem about 1.5 times the hips' half-width (64 cm across, was 83), a little fuller behind: at 3 m it reads as the Met's gored skirt and the Easter skirts, no longer a crinoline. On the walk the skirt driver still opens the hem forward over the leading foot and back over the trailing one, so at mid-stride from the side the hem is a wider triangle than a standing woman's; the Easter women's hems break forward too, less. Jacket to the hip with a short peplum reads as the Met coat cut shorter."
     },
     "folds": {
       "what": "Folds where cloth gathers",
-      "status": "open",
-      "note": "The skirt is a smooth shell with no gores or folds; the Met skirt shows gore seams and the Easter skirts break in folds at the hem as the women walk."
+      "status": "within tolerance",
+      "note": "Seven gore seams are drawn as shallow valleys (about 2 mm against the gores) and below the knee the flare falls into soft folds (fourteen at the near level, seven at the next), with two rows of black braid at the hem. In black wool under the stage light the seams show only close up and as faint vertical shading at 3 m; the folds show as a fluted hem edge. They are fixed folds that ride with the skirt, not folds that break as the walk changes; the far levels (past 20 m) carry the cut but no folds."
     },
     "hat_hair": {
       "what": "Hat and hair",
@@ -187,33 +187,33 @@
     "motion": {
       "what": "How it moves (the 5-second strip)",
       "status": "within tolerance",
-      "note": "Mid-stride the skirt swings as one shell and the legs never show; the Easter women walk with the hem breaking forward. The strip is shot on the stage, following her."
+      "note": "Mid-stride the skirt swings as one piece and the legs never show (test_human_skirt and test_human_gown hold it on the cut skirt); the hem opens forward over the leading foot more than the Easter women's do. The strip is shot on the stage, following her."
     }
   },
   "differences": [
     {
       "what": "skirt silhouette",
       "picture": "Gored skirt close at waist and hips, flaring from about the knee (Met 1902 suit); Easter 1904 skirts nearly columnar to the ground.",
-      "ours": "Bell from the hips, widest at the hem and far wider there than the pictures' skirts; reads as a crinoline.",
-      "status": "open"
+      "ours": "Close over the hips, flaring from about the knee to a hem about 1.5 times the hips' half-width (64 cm across, was 83), a little fuller behind; on the walk the hem opens forward and back with the legs.",
+      "status": "within tolerance"
     },
     {
       "what": "skirt surface",
       "picture": "Gore seams and braid at the hem (Met); folds at the hem when walking (Easter).",
-      "ours": "Smooth untextured shell, no seams, no braid, no folds.",
-      "status": "open"
+      "ours": "Seven shallow gore seams, soft fixed folds below the knee (near levels) and two rows of black braid at the hem; the seams are faint in black at 3 m, and the folds do not change with the stride.",
+      "status": "within tolerance"
     },
     {
       "what": "collar and front",
       "picture": "Tall cream lace standing collar and a lace jabot falling from it (Fairbanks; Met bodice yoke).",
-      "ours": "A plain pale grey stand collar and a grey V-front; no lace, no jabot; reads grey, not cream or white.",
-      "status": "open"
+      "ours": "Cream lace (net and flowers drawn on the cloth) over the standing collar, the pleated jabot and the top of the front; the cloth below brought up to cream. The collar is the asset's height, a little lower than Mrs. Fairbanks's, and the jabot is pleated cloth with the lace drawn on it, not a falling frill.",
+      "status": "within tolerance"
     },
     {
       "what": "cuffs",
       "picture": "Lace frills at the wrists (Fairbanks); braided cuffs on the Met coat.",
-      "ours": "Plain black sleeves to the wrist; no frill, no braid.",
-      "status": "open"
+      "ours": "A cream lace frill flaring from inside each sleeve's end over the wrist (near levels, within 20 m), and soutache braid round the coat's cuffs.",
+      "status": "reads"
     },
     {
       "what": "jacket",

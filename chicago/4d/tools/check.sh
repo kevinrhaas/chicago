@@ -776,6 +776,14 @@ step "A coat closes under the arm on every sleeved body and its back vent laps s
   node tools/test_human_coat.mjs
 step "Sleeve hems and cuffs bend with the wrist as one band, no ragged edge; the soldiers' cuffs never through or parted; a gloved hand shows no skin in the sleeve's mouth, walking, bending, carrying, at every level (T-3553)" \
   node tools/test_human_sleeve.mjs
+step "Townsmen's 1830s trousers are full at the waistband, pleated, tapered to the ankle and strapped under the shoe; the shirt is white linen gathered into a wristband, nothing through, standing and walking, at every level, no mesh added (T-3553)" \
+  node tools/test_human_tailor_1835.mjs
+step "The 1812 private wears the regulars' coat: skirts below the coatee's and tape on his breast button holes, at every level, standing and walking; the 1835 garrison as drawn (T-3553)" \
+  node tools/test_human_regulars.mjs
+step "John J. Glessner's frock coat stops at the knee, is taken in at the waist, opens on the shirt front, has a white standing collar and a back vent, standing and walking, at every level (T-3553)" \
+  node tools/test_human_frockcoat.mjs
+step "The 1904 lady's skirt is close at the hips and flares from the knee, with gores, folds, braid, a cream lace front and wrist frills, clear of the legs walking, at every level, no mesh added (T-3553)" \
+  node tools/test_human_gown.mjs
 step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \
   node tools/test_human_looks.mjs
 step "1904 people use actual drawn pedestrian tops only beneath enabled terrain-cut masks, preserving decks, positive yards and other epochs (T-2795)" \

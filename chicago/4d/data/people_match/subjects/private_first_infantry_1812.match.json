@@ -4,7 +4,7 @@
   "shot": {
     "date": "2026-11-17",
     "target": "tools/people_match_stage.html on this tree",
-    "build": "stage, tree d4fae0e81 + 5 uncommitted figure file(s)",
+    "build": "stage, tree c30a40136 + 4 uncommitted figure file(s), with renderers/web/js/human-regulars.js called in humans.js parse() after fitSleeves (wired on a scratch copy of humans.js; the tree's humans.js gains the same two lines when the lead integrates T-3553 round 3)",
     "out": "evidence/people-match-2026-11-17/private_first_infantry_1812",
     "evidence_repo": "kevinrhaas/chicago-evidence"
   },
@@ -22,7 +22,7 @@
   "stills": {
     "near-desktop": {
       "file": "evidence/people-match-2026-11-17/private_first_infantry_1812/near-desktop.jpg",
-      "sha256": "7eb49202fc3e382a488f7bd431ce5cab4d22a7d750481d99a75bdbb7e6f6bcff",
+      "sha256": "2f47ce12c47e602bc30f8a7ba6a3dc5f7421b273da10cd2deac29786e58c50d2",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -53,7 +53,7 @@
     },
     "far-desktop": {
       "file": "evidence/people-match-2026-11-17/private_first_infantry_1812/far-desktop.jpg",
-      "sha256": "29a800f0d08a7b8b3026f82618eca016fa2a5ac5910567430baef7f260af35ab",
+      "sha256": "6703038714c04195920991ab6863b9a485e101bc32177bdbc87024eb111b6de3",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -84,7 +84,7 @@
     },
     "near-phone": {
       "file": "evidence/people-match-2026-11-17/private_first_infantry_1812/near-phone.jpg",
-      "sha256": "c6d4ab3ee92152256df1bfa71beac7356fb9aa851241bb03d980178d5bb4a452",
+      "sha256": "652717daf627140152587c8a99a253b61bc23012178712b67e77d56d6976a2fd",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -115,7 +115,7 @@
     },
     "far-phone": {
       "file": "evidence/people-match-2026-11-17/private_first_infantry_1812/far-phone.jpg",
-      "sha256": "e3d9ca25bdc7b67916ebc90587c267081ea1a661d5e3a83867604b8533d76cdf",
+      "sha256": "e81027cfb218371a1ea05a8286afe6d2a578c70c1718b56f74524ade0ad723cf",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -157,17 +157,17 @@
     "silhouette": {
       "what": "Silhouette and fit of the clothes",
       "status": "open",
-      "note": "A short blue coat, white crossbelts, white overalls and a tall black cap: at 10 m he reads as a soldier of the period. Beside Krimmel's volunteers the coat's breast is plain blue (theirs is faced orange-red down the front), and the legs are loose white overalls (theirs are close blue pantaloons with black gaiters to the knee). Krimmel paints Philadelphia volunteers, not the First Infantry, and Ogden (1888, a later reconstruction) shows white crossbelts: the pattern differences need a ruling, the fit ones do not."
+      "note": "Owner ruling 2026-11-17: \"i think against the regulars? they are probably closer to a regular and would have been outfitted with uniform?\" The private is judged against the record of the U.S. regulars (us_1812_rules_and_articles_albany, the 1802 issue; us_1814_military_laws_and_regulations, the 1813 change read backwards); the pictures stay as period context for silhouette, the record (text) governs pattern. Against that record he now reads as a regular: a blue coat with red collar and cuffs, white tape on the eight breast button holes (inferred from \"trimmed with tape on the collar only\"), skirts drawn down to a hand above the knee (inferred from \"all the rank and file will wear coatees\"; the length follows Ogden's silhouette), white crossbelts, white linen overalls, a felt cap with a feather. Still open, and a fit point, not pattern: the overalls are the loose workwear shell, straight and wide to the shoe, where both pictures show legwear cut close to the leg (Krimmel's pantaloons, Ogden's gaiters); the record names overalls but not their cut."
     },
     "folds": {
       "what": "Folds where cloth gathers",
       "status": "within tolerance",
-      "note": "The overalls are loose with few folds; the tails part and swing mid-stride."
+      "note": "The overalls are loose with few folds; the longer tails hang flat behind and part over the trailing leg mid-stride (human-skirt.js), no leg showing through them (tools/test_human_regulars.mjs)."
     },
     "hat_hair": {
       "what": "Hat and hair",
-      "status": "within tolerance",
-      "note": "A tall black felt cap with a white plume, as the record's 1813 cap read backwards; Krimmel's men wear bearskins and crested hats, Ogden's crested round hats."
+      "status": "owner ruling",
+      "note": "A tall black felt cap with a white feather, as the regulars' record read backwards (the 1813 change substituted leather for felt and pompons for feathers). Krimmel's volunteers wear bearskins and crested hats, Ogden's 1802-1810 men crested round hats; under the ruling the record governs, and the cap's cylinder shape stays reconstructed."
     },
     "skin": {
       "what": "Skin at 3 m",
@@ -177,7 +177,7 @@
     "hands": {
       "what": "Hands",
       "status": "reads",
-      "note": "Bare at the sides; no musket (the pictures' men shoulder muskets)."
+      "note": "Bare at the sides on the stage; no musket here (the garrison's men carry theirs by duty, human-garrison.js; the pictures' men shoulder muskets)."
     },
     "stance": {
       "what": "How the figure stands or sits",
@@ -187,50 +187,62 @@
     "motion": {
       "what": "How it moves (the 5-second strip)",
       "status": "reads",
-      "note": "A plain walk, tails swinging; cartridge box rides the right hip."
+      "note": "A plain walk; the longer tails swing and part behind, the cartridge box rides the right hip."
     }
   },
   "differences": [
     {
-      "what": "breast facings",
-      "picture": "Orange-red facings down the breast and a high faced collar (Krimmel 1811-13); faced lapels on Ogden's 1802-10 coats.",
-      "ours": "Plain blue single-breasted breast with white buttons; red only at collar and cuffs.",
-      "status": "open"
+      "what": "breast facings and lace",
+      "picture": "Orange-red facings down the breast and a high faced collar (Krimmel's volunteers, 1811-13); faced lapels on Ogden's 1802-10 coats (1888 reconstruction).",
+      "ours": "Plain blue single-breasted breast, red only at collar and cuffs, as the regulars' record has it (the 1813 change took away \"red collars or cuffs\", nothing on the breast); a white tape loop on each of the eight breast button holes, from the button toward the wearer's left, inferred from \"no lace shall be worn by any grade ... The button holes of these will be trimmed with tape on the collar only\" (the form, length, white and one-sided loop reconstructed).",
+      "status": "owner ruling"
     },
     {
-      "what": "legwear",
+      "what": "legwear pattern",
       "picture": "Close-fitting blue pantaloons and black gaiters to the knee (Krimmel); gaiters (Ogden).",
-      "ours": "Loose white linen overalls to the shoe; the gaiters (footwear__shoes_gaiters_black_1812) do not show under them.",
+      "ours": "White linen overalls to the shoe, as the record issues them (\"two pair of woollen and two pair linen overalls\", linen for August); the half gaiters (\"one pair of half gaiters\") stand under them as the black shoe.",
+      "status": "owner ruling"
+    },
+    {
+      "what": "legwear fit",
+      "picture": "Legwear cut close to the leg in both pictures.",
+      "ours": "The overalls are the shared loose workwear shell, straight and wide to the shoe; the record names overalls, not their cut.",
       "status": "open"
     },
     {
       "what": "crossbelts",
       "picture": "Dark crossbelts (Krimmel); white crossbelts (Ogden).",
-      "ours": "White crossbelts crossing mid-chest.",
+      "ours": "White crossbelts crossing mid-chest; the record gives no colour.",
       "status": "within tolerance"
     },
     {
       "what": "coat skirts",
-      "picture": "Short coats with white turnbacks on the tails (Krimmel); long-skirted coats (Ogden).",
-      "ours": "Short tails to the upper thigh, plain blue; no turnbacks.",
-      "status": "open"
+      "picture": "Short coats with white turnbacks on the tails (Krimmel's volunteers); long-skirted coats to the knee (Ogden).",
+      "ours": "Tails drawn down from mid-thigh (0.71 m off the ground) to a hand above the knee (0.56 m), plain blue, no turnbacks: longer than the coatee the 1813 change brought in (\"all the rank and file will wear coatees\"), inferred; the length is reconstructed, between the coatee and the officer's skirts at the bend of the knee, after Ogden's silhouette. Turnbacks are in neither record read for a private.",
+      "status": "within tolerance"
     },
     {
       "what": "headwear",
       "picture": "Bearskin caps and crested round hats (Krimmel); crested round hats with a feather (Ogden).",
-      "ours": "Tall black felt cylinder cap, white plume.",
+      "ours": "Tall black felt cylinder cap, white feather: felt and feather from the record read backwards.",
+      "status": "owner ruling"
+    },
+    {
+      "what": "collar tape",
+      "picture": "Not legible in either picture; the record: the coatee's button holes \"trimmed with tape on the collar only\", so the collar carried tape before 1813 as after.",
+      "ours": "No tape on the collar: the exported collar falls to a centimetre or less at the front where its loops would sit. A loop of a few centimetres on the red, a few pixels at 3 m.",
       "status": "within tolerance"
     },
     {
       "what": "equipment",
       "picture": "Musket with bayonet, cartridge box (Krimmel).",
-      "ours": "Cartridge box and scabbard at the right hip; no musket.",
+      "ours": "Cartridge box and scabbard at the right hip; no musket on the stage (the garrison's men carry theirs by duty).",
       "status": "within tolerance"
     },
     {
       "what": "collar and stock",
       "picture": "High faced collar, a black stock (Krimmel).",
-      "ours": "High red collar over a black leather stock.",
+      "ours": "High red collar over a black leather stock (the record's red collar and \"one stock and clasp\").",
       "status": "reads"
     }
   ],

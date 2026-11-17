@@ -4,7 +4,7 @@
   "shot": {
     "date": "2026-11-17",
     "target": "tools/people_match_stage.html on this tree",
-    "build": "stage, tree d4fae0e81 + 5 uncommitted figure file(s)",
+    "build": "stage, tree c30a40136 + 4 uncommitted figure file(s)",
     "out": "evidence/people-match-2026-11-17/peck_philip_1835",
     "evidence_repo": "kevinrhaas/chicago-evidence"
   },
@@ -22,7 +22,7 @@
   "stills": {
     "near-desktop": {
       "file": "evidence/people-match-2026-11-17/peck_philip_1835/near-desktop.jpg",
-      "sha256": "ea9eaa914e079fef15952e5e2e37c0d96fcfb5ee4c1f265b4b7169b7f11b6f22",
+      "sha256": "0bc37cd65ae978308de5cf25c9c6a2341de5c0b652c303355d6b1f9d1bc3045f",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -53,7 +53,7 @@
     },
     "far-desktop": {
       "file": "evidence/people-match-2026-11-17/peck_philip_1835/far-desktop.jpg",
-      "sha256": "e677319a22edfd42a17f88cc9e04af1bae098c4cf774bc0674b78e314681b647",
+      "sha256": "2a16cebab589b39f22873447cf82c1c980d15e0491cf9e2b04199759d8edfdbe",
       "detail": "stage",
       "pose": {
         "pose": "walk",
@@ -84,7 +84,7 @@
     },
     "near-phone": {
       "file": "evidence/people-match-2026-11-17/peck_philip_1835/near-phone.jpg",
-      "sha256": "dea900a8c3699c0b692d5768d304ffb78b801a3cb858ab18a9ab16d31cf9926e",
+      "sha256": "c5c7ea95e5ad671d2740535a3f96cf29ddd7e76fd3f118efdb5fe4ebc8b7e912",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -115,7 +115,7 @@
     },
     "far-phone": {
       "file": "evidence/people-match-2026-11-17/peck_philip_1835/far-phone.jpg",
-      "sha256": "a830339199eef57247642ec6fb4a0962ddd820f589f04ad992d2e0e25485eae2",
+      "sha256": "91c6fb891d7ce57e8cf1537d25a1bc1344673ab76103efcc4d1928eefbacf819",
       "detail": "stage",
       "pose": {
         "pose": "walk",
@@ -152,17 +152,17 @@
     "far-pair": "evidence/people-match-2026-11-17/peck_philip_1835/far-pair.jpg",
     "motion-strip": "evidence/people-match-2026-11-17/peck_philip_1835/motion-strip.jpg"
   },
-  "verdict": "differs",
+  "verdict": "matches",
   "checklist": {
     "silhouette": {
       "what": "Silhouette and fit of the clothes",
       "status": "reads",
-      "note": "Blue double-breasted tailcoat cut square at the waist, buff waistcoat, pale trousers, black stock and top hat: the Met c.1833 outfit and Hornor's 1836 man on Broadway, who reads at street distance exactly as ours does at 10 m (a dark blue body, pale legs, a top hat)."
+      "note": "Blue double-breasted tailcoat cut square at the waist, buff waistcoat, pale trousers, black stock and top hat: the Met c.1833 outfit and Hornor's 1836 man on Broadway, who reads at street distance as ours does at 10 m (a dark blue body, pale legs, a top hat). The trousers now narrow from the knee to a hem that closes on the shoe, so the legs taper as the Met pair does; they are still slimmer at the hip than the Met's, which balloon there."
     },
     "folds": {
       "what": "Folds where cloth gathers",
-      "status": "open",
-      "note": "The tails hang straight and part at the back as the Met coat's do, but the trousers are straight from the waist: the Met pair is pleated full into the waistband and tapers to foot straps, which shows at 3 m."
+      "status": "within tolerance",
+      "note": "The tails hang straight and part at the back as the Met coat's do. The trousers stand out a little more at the front of the hips under the waistcoat (about 1.7 cm) with three soft pleats a side running down from under its hem; at 3 m they read as faint creases, not the Met pair's deep pleated fullness. The taper to the ankle and the hem lying on the instep read."
     },
     "hat_hair": {
       "what": "Hat and hair",
@@ -187,15 +187,15 @@
     "motion": {
       "what": "How it moves (the 5-second strip)",
       "status": "reads",
-      "note": "The tails swing and part mid-stride; the legs read through the trousers."
+      "note": "The tails swing and part mid-stride; the tapered legs read through the trousers, and the hems stay on the shoes with the straps under them."
     }
   },
   "differences": [
     {
       "what": "trousers",
       "picture": "Full trousers pleated into the waistband, tapering to straps under the shoes (Met c.1833).",
-      "ours": "Straight pale trousers, no pleats at the waist, no foot straps.",
-      "status": "open"
+      "ours": "Tapered from the knee to a hem on the instep, a little fuller at the front of the hips with three faint pleats a side under the waistcoat, and a strap of the trousers' cloth under each shoe's waist (pale bands on the black shoe, seen from the side and three-quarter, hardly from the front). Slimmer at the hip than the Met pair; the hem's bottom edge stands a little out over the shoe and is ragged as drawn.",
+      "status": "within tolerance"
     },
     {
       "what": "waistcoat",

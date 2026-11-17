@@ -480,7 +480,7 @@ if (!ONLY) {
   // Wired into humans.js's parse, before any figure is cloned from it.
   const humans = await fs.readFile(process.env.SLEEVE_HUMANS_JS ?? new URL('renderers/web/js/humans.js', here), 'utf8');
   assert(/import \{ fitSleeves \} from '\.\/human-sleeve\.js';/.test(humans), 'humans.js imports fitSleeves');
-  assert(/const gltf = await loader\.parseAsync\(.*\);[\s\S]{0,700}fitSleeves\(gltf\.scene\);[\s\S]{0,300}return gltf;/.test(humans), 'parse() fits the sleeves of the shared source');
+  assert(/const gltf = await loader\.parseAsync\(.*\);[\s\S]{0,1200}fitSleeves\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,600}return gltf;/.test(humans), 'parse() fits the sleeves of the shared source');
 }
 for (const l of lines) console.log(l);
 console.log(`${hemsSeen} sleeve hems, ${glovesSeen} gloved sleeves, ${soldierCuffs} soldiers' cuff checks over every body and level, six arm poses: nothing through, nothing parted: PASS`);
