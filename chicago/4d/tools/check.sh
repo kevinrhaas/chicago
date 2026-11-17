@@ -682,6 +682,8 @@ step "The 1812 fort wagons' rows are what their layer writes: roads, stops and h
   node tools/lay_driven_wagons_1812.mjs --check
 step "The 1835 town's ten wagons' rows are what their layer writes: one district each, their teamsters, stops and hours (T-3558)" \
   node tools/lay_driven_wagons_1835.mjs --check
+step "The town's riders and stabled saddle horses are what their layer writes: rounds on the worked streets, hours, seasons and stables (T-3560)" \
+  node tools/lay_town_riders.mjs --check
 step "The two more 1904 carriages' rows are what their layer writes: lanes off the street grid, counter-clockwise, their coachmen, stops and finishes (T-3555)" \
   node tools/lay_driven_carriages_1904.mjs --check
 step "Where the 1904 carriages' roads cross one gives way and waits for the other: no overlap, no lock, everyone keeps going round (T-3555)" \

@@ -49,6 +49,14 @@
       "trot_clip_sha256": "3e0f55810cb2fcf3d3a30beccb6bbd59d0de88e752f109a4b9212e493b8658cc",
       "trot_clip_producer": "tools/horse_walk_v2.mjs",
       "trot_stride_m": 1.5,
+      "canter_clip": "reconstructed_current26_canter_v1",
+      "canter_clip_file": "transport/driven/horse-canter-v1.json",
+      "canter_clip_sha256": "558e5fec19f54840cb291b4775360811edd02d56aff5271016003c1ed771141a",
+      "canter_stride_m": 2,
+      "gallop_clip": "reconstructed_current26_gallop_v1",
+      "gallop_clip_file": "transport/driven/horse-gallop-v1.json",
+      "gallop_clip_sha256": "16b7701f88e20fcd219e5fd0cb9e648157b6237b98509b14c6431ec7f17d6084",
+      "gallop_stride_m": 3.2,
       "lods": {
         "mid": {
           "file": "transport/driven/horse-current26-mid.glb",

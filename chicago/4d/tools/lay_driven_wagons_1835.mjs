@@ -121,7 +121,7 @@ const TEAMS = [
 ];
 
 // ---- street geometry --------------------------------------------------------------------
-const streetsOf = () => new Map(JSON.parse(fs.readFileSync(STREETS, 'utf8')).streets.map(s => [s.id, s]));
+export const streetsOf = () => new Map(JSON.parse(fs.readFileSync(STREETS, 'utf8')).streets.map(s => [s.id, s]));
 
 /** Where two street centre lines cross: [e, n] and each one's segment index and parameter. */
 function crossing(a, b) {
@@ -147,7 +147,7 @@ function along(street, from, to) {
   return pts;
 }
 /** The district's centre-line ring, clockwise: north street east, east street south, south street west, west street north. */
-function ring(streets, [west, east, north, south]) {
+export function ring(streets, [west, east, north, south]) {
   const S = id => { const s = streets.get(id); if (!s) throw Error(`lay_driven_wagons_1835: no street ${id}`); return s; };
   const nw = crossing(S(north), S(west)), ne = crossing(S(north), S(east));
   const se = crossing(S(south), S(east)), sw = crossing(S(south), S(west));
@@ -222,7 +222,7 @@ function lane(pts) {
 
 /** Corners the team can round: where two bends are too close for their arcs, the gentler goes
  * (a street's own kink by a crossing, the river bank's bends along North Water). */
-function fit(pts, r = CORNER_R) {
+export function fit(pts, r = CORNER_R) {
   const turnAt = (a, p, b) => Math.abs(Math.atan2((p[0] - a[0]) * (b[1] - p[1]) - (p[1] - a[1]) * (b[0] - p[0]),
     (p[0] - a[0]) * (b[0] - p[0]) + (p[1] - a[1]) * (b[1] - p[1])));
   for (let guard = 0; guard < 64 && pts.length > 3; guard++) {

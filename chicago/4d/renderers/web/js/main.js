@@ -4341,7 +4341,7 @@ async function boot() {
         visitorEye: () => ({ e: walker.state.e, n: walker.state.n, y: walker.state.eyeY, bearing: walker.bearingDeg }),
         groundAt: (e, n) => figureGround(e, n),
         walkEye: () => WALK.eyeHeight,
-        reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+        reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, say: (text) => hud.say(text),
         reinsHint: () => (backends.name === 'touch' || (backends.name === 'none' && coarse)
           ? t('hud.ride.reins.touch') : t('hud.ride.reins.keys')),
         // T-3557: the Glessner brougham waits as the parked carriage at its stand until asked
@@ -4376,6 +4376,13 @@ async function boot() {
       say: (text) => hud.say(text),
       reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
       coarse: lowMem || detailLevel === 'light', problems,
+      // The town's riders keep the sun clock's hour and the Season setting, give way to the
+      // teams, and go away with the vehicles (Kevin, 2026-11-17).
+      hour: () => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; },
+      season: () => api.season?.current ?? 'summer',
+      detail: () => detailLevel,
+      hidden: () => confidence.hidden.reconstructed || !shownLayers.vehicles,
+      teams: () => api.townTransport?.footprintsAhead?.([0, 1.5, 3], .3) ?? [],
       onMount: (horse, on) => {
         if (!on) return;
         api.travel?.stop?.('riding');
