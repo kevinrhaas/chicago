@@ -63,8 +63,28 @@ def tales(scene):
     return out
 
 
+def asks(scene):
+    """'Ask a question' answers (js/ask-card.js): an answer by its question's id, and each
+    follow-up's answer by that id and its place among the follow-ups (`a04-md-day.1`)."""
+    path = ROOT / f'data/tales/{scene}.json'
+    doc = json.loads(path.read_text()) if path.exists() else {}
+    out = {}
+
+    def walk(ask, rid):
+        if ask.get('a'):
+            out[rid] = [str(p).strip() for p in ask['a']]
+        for i, more in enumerate(ask.get('more') or []):
+            walk(more, f'{rid}.{i + 1}')
+    for ask in doc.get('asks') or []:
+        walk(ask, ask['id'])
+    for teller in (doc.get('personal_asks') or {}).values():
+        for ask in teller:
+            walk(ask, ask['id'])
+    return out
+
+
 # A family is where a card's words live: its records, by id, each a list of paragraphs.
-FAMILIES = {'stories': stories, 'tales': tales}
+FAMILIES = {'stories': stories, 'tales': tales, 'asks': asks}
 
 
 # A card is full of dates and house numbers: "lived at 2027 Prairie Avenue in 1904" is not hard

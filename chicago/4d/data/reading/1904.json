@@ -3,6 +3,817 @@
  "scene": "1904",
  "entries": [
   {
+   "card": "asks:a04-md-day",
+   "text": "Half past five, before the family stirs. Fires laid in the grates even in summer for the damp, the front steps scrubbed, the brass on the door polished, the dining room swept and the breakfast table laid, all before eight. Then the bedrooms when the family has gone down, and the stairs, and the silver.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "At half past five, before the family wakes up. I lay the fires, even in summer, because of the damp. I scrub the front steps and polish the brass on the door. I sweep the dining room and set the breakfast table. All that is done before eight. Then I do the bedrooms after the family goes down, and the stairs, and the silver."
+   }
+  },
+  {
+   "card": "asks:a04-md-day.1",
+   "text": "When the family has gone up and the last tray has come down, ten or eleven. Thursday afternoon and every other Sunday are mine. On Thursday the whole Avenue's maids are out on Michigan Avenue at once, in our best hats. The mistresses on the Avenue have no idea how much we know about each other's houses.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "When the family has gone to bed and the last tray has come down. That is ten or eleven at night. Thursday afternoon and every other Sunday are mine. On Thursday all the maids from the Avenue go out at once, in our best hats. The ladies have no idea how much we know about each other's houses."
+   }
+  },
+  {
+   "card": "asks:a04-md-day.2",
+   "text": "The Lake Front, if it is fine, or the shops on State Street just to look, or the vaudeville. Since the Iroquois burned last December, none of us goes near a big theatre. I go to the park and sit by the water and do nothing at all, which is the finest thing in the world.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I go to the lake if it is nice. Or I look in the shops on State Street, or I see a variety show. Since the Iroquois Theatre burned last December, none of us goes near a big theatre. I go to the park and sit by the water and do nothing at all. That is the finest thing in the world."
+   }
+  },
+  {
+   "card": "asks:a04-md-iroquois",
+   "text": "Everyone in Chicago knows somebody. It was the thirtieth of December, a matinee, the house packed with mothers and children for the Christmas pantomime, when the scenery caught fire and the curtain did not come down and the doors opened inwards. Six hundred people died in a quarter of an hour. Mostly women and children.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Everyone in Chicago knows somebody who was there. It was 30 December, at an afternoon show. The theatre was packed with moms and kids for the Christmas play. The stage caught fire. The fire curtain did not come down. The doors opened inward. Six hundred people died in fifteen minutes. Most were women and children.",
+    "11-13": "Everyone in Chicago knows somebody who was there. It was 30 December, at an afternoon show, and the theatre was packed with mothers and children for the Christmas play. The scenery caught fire, the fire curtain did not come down, and the doors opened inward. Six hundred people died in fifteen minutes. Most of them were women and children."
+   }
+  },
+  {
+   "card": "asks:a04-md-iroquois.2",
+   "text": "Every theatre in the city was shut while the inspectors went round, and they have found exits nailed shut and no water in the pipes and fire curtains made of nothing. Mr. Shortall of the Humane Society has made the children of this city his work for years. Ask him what has been done since. He will tell you not enough.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Every theatre in the city was shut while inspectors checked them. They found exit doors nailed shut. They found no water in the pipes, and fire curtains that would not stop a fire. Mr. Shortall of the Humane Society has worked to protect the city's children for years. Ask him what has been done since. He will tell you it is not enough."
+   }
+  },
+  {
+   "card": "asks:a04-md-bells",
+   "text": "The bells. There is a board in the servants' hall with a little flag or a bell for every room, and when the mistress pulls the cord in the library, the library bell rings and its flag drops. In the newer houses there are speaking tubes, and now the telephone. But the bells are what I hear in my sleep.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The bells. There is a board in the servants' hall with a little flag or bell for each room. When the lady pulls the cord in the library, the library bell rings and its flag drops. Newer houses have tubes you can talk through, and now the telephone. But I hear the bells in my sleep."
+   }
+  },
+  {
+   "card": "asks:a04-md-irish",
+   "text": "County Mayo, by way of Queenstown and New York, six years ago. My aunt was in service on the North Side and she found me my first place. Now there are four of us from the same parish on Prairie Avenue, and the cook in the house across the street is my second cousin.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "County Mayo, in Ireland. I came by way of Queenstown and New York, six years ago. My aunt worked in a house on the North Side, and she found me my first job. Now four of us from the same church back home work on Prairie Avenue. The cook in the house across the street is my second cousin."
+   }
+  },
+  {
+   "card": "asks:a04-md-irish.2",
+   "text": "Every Sunday morning, the early Mass, before the family wakes. Then I come back and serve the family breakfast before they go to their own church. God gets me first.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Every Sunday morning I go to early Mass, before the family wakes. Then I come back and serve their breakfast before they go to their own church. God gets me first."
+   }
+  },
+  {
+   "card": "asks:a04-md-swedish.1",
+   "text": "On the North Side, a whole city of Swedes: churches, shops, newspapers in Swedish, dances on Saturday. On Prairie Avenue the girls are Irish and Swedish and German and Norwegian, and we talk to each other in a sort of English that nobody upstairs could follow.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "On the North Side there is a whole town of Swedes. They have their own churches and shops. They have their own papers, and dances on Saturday. The maids on Prairie Avenue come from all over. Some are Irish, and some are from Sweden or Germany or Norway. We talk to each other in a kind of English. Nobody upstairs could follow it.",
+    "11-13": "On the North Side there is a whole city of Swedes, with their own churches, shops and newspapers, and dances on Saturday. On Prairie Avenue the girls are Irish, Swedish, German and Norwegian. We talk to each other in a sort of English that nobody upstairs could follow.",
+    "14-15": "On the North Side there is a whole city of Swedes, with churches, shops, Swedish newspapers and dances on Saturday. On Prairie Avenue the girls are Irish, Swedish, German and Norwegian. We talk to each other in a sort of English that nobody upstairs could follow."
+   }
+  },
+  {
+   "card": "asks:a04-md-glessner.1",
+   "text": "The cook, Mattie Williamson, who knows the mistress's book of dinners better than the mistress does. The maids. The men in the stable. Mrs. Glessner writes everything in her journal, the girls say: who came, who said what, what was eaten. Go and ask Mattie what Mr. Thomas the musician likes for dinner.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The cook, Mattie Williamson. She knows the lady's book of dinners better than the lady does. The maids. The men in the stable. The girls say Mrs. Glessner writes everything in her journal. She writes who came, who said what, and what they ate. Go and ask Mattie what Mr. Thomas the musician likes for dinner."
+   }
+  },
+  {
+   "card": "asks:a04-md-stairs",
+   "text": "At the top of the house, in the little rooms under the roof, two to a room, hot in summer and cold in winter. We go up and down by the back stairs, never the front, and we are never to be seen on the front stairs except to clean them, before the family wakes.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "At the top of the house, in the little rooms under the roof, two to a room. They are hot in summer and cold in winter. We go up and down the back stairs, never the front. We must never be seen on the front stairs, except to clean them before the family wakes."
+   }
+  },
+  {
+   "card": "asks:a04-md-stairs.1",
+   "text": "A bed, a washstand, a chair, a chest of drawers, a picture of the Sacred Heart and a photograph of my mother. The window looks over the alley to the carriage houses. On summer nights I can hear the horses moving in their stalls, and the trains on the lakefront, and nothing else.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A bed, a stand with a wash bowl, a chair, and a chest of drawers. A holy picture and a photo of my mom. The window looks over the alley to the carriage houses. On summer nights I can hear the horses moving in their stalls, and the trains by the lake, and nothing else."
+   }
+  },
+  {
+   "card": "asks:a04-md-fair",
+   "text": "Everybody wants to go. It opened in April for the Louisiana Purchase, a hundred years of it, and they say it is bigger than our own Fair of ninety-three. A palace of electricity, a giant bird cage, and Mr. Ferris's own wheel from our Fair, carried down and set up again, and people from the whole world in villages you can walk through.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Everybody wants to go. It opened in April. It marks a hundred years since America bought Louisiana. People say it is bigger than our own fair of 1893. There is a palace of electricity and a giant bird cage. Mr. Ferris's own wheel from our fair is there, carried down and set up again. There are villages of people from all over the world that you can walk through.",
+    "11-13": "Everybody wants to go. It opened in April, a hundred years after the Louisiana Purchase, and they say it is bigger than our own fair of 1893. There is a palace of electricity and a giant bird cage. Mr. Ferris's own wheel from our fair was carried down and set up again. There are villages of people from the whole world that you can walk through."
+   }
+  },
+  {
+   "card": "asks:a04-md-fair.1",
+   "text": "Some of the families on the Avenue went down in May in their private cars. The servants who went came back with picture postcards and stories about ice cream served in a rolled waffle, which you eat cone and all. Mr. Kimball took prizes for his pianos at our own Fair in ninety-three. Ask him if he has sent any to St. Louis.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Some of the families on the Avenue went down in May in their own train cars. The servants who went came back with picture postcards. They told stories about ice cream served in a rolled waffle, which you eat, cone and all! Mr. Kimball won prizes for his pianos at our own fair in 1893. Ask him if he has sent any to St. Louis."
+   }
+  },
+  {
+   "card": "asks:a04-md-silver",
+   "text": "A whole morning every week, two of us, with whiting and ammonia and soft cloths, in the butler's pantry with the door shut. Forks, spoons, salvers, candlesticks, the tea service, the epergne for the centre of the table. Every piece is counted out and counted back.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A whole morning every week, for two of us. We use polish and soft cloths, in a little room by the dining room, with the door shut. We do the forks, spoons, trays, candlesticks, the tea set, and the big dish for the middle of the table. Every piece is counted out and counted back."
+   }
+  },
+  {
+   "card": "asks:a04-md-phone.1",
+   "text": "The young ladies, calling each other about dances. Their mother says it is not ladylike to speak on the telephone. They do it anyway, in the back hall, in whispers, and I am to say they are out if their mother asks.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The young ladies, calling each other about dances. Their mom says it is not ladylike to talk on the telephone. They do it anyway, in the back hall, in whispers. If their mom asks, I am supposed to say they are out."
+   }
+  },
+  {
+   "card": "asks:a04-ck-kitchen.1",
+   "text": "A chicken pie that the master asks for every Sunday and is not supposed to have, because the doctor says he is too stout. On Sunday I make it anyway. The mistress pretends not to notice. Upstairs is full of things everyone pretends not to notice.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A chicken pie. The master asks for it every Sunday. He is not supposed to have it, because the doctor says he is too fat. On Sunday I make it anyway. The lady of the house pretends not to notice. Upstairs is full of things everyone pretends not to notice."
+   }
+  },
+  {
+   "card": "asks:a04-ck-ice",
+   "text": "The ice box, an oak chest lined with zinc, with a block of lake ice in the top that the ice man brings every morning, a hundred pounds on his back with tongs. The cold falls down onto the butter and the milk and the meat. The water drips into a pan that the scullery maid empties, if she remembers.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The ice box. It is a wooden chest lined with metal. A block of lake ice goes in the top. The ice man brings it every morning, a hundred pounds on his back, held with tongs. The cold falls down onto the butter, milk and meat. The water drips into a pan. The kitchen girl empties it, if she remembers."
+   }
+  },
+  {
+   "card": "asks:a04-ck-ice.1",
+   "text": "From the lakes and ponds north of the city, cut in the winter in great blocks and stored in ice houses packed in sawdust. In July the ice man is the most popular man on the Avenue. The children follow his wagon for the chips.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "From the lakes and ponds north of the city. In winter men cut it into big blocks. They store it in ice houses, packed in sawdust. In July the ice man is the most popular man on the Avenue. The kids follow his wagon for the chips."
+   }
+  },
+  {
+   "card": "asks:a04-ck-market",
+   "text": "The grocer and the butcher come to the back door every morning for the order, and deliver by noon. For fish and fruit and the best vegetables I go to the South Water Street market myself once a week, early, with the coachman to drive me. It is a mile of wagons and shouting and crates and horses.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The grocer and the butcher come to the back door every morning to take the order. They bring it by noon. Once a week I go to the South Water Street market myself, early, for fish, fruit and the best vegetables. The driver takes me. It is a mile of wagons, shouting, boxes and horses."
+   }
+  },
+  {
+   "card": "asks:a04-ck-dinner-party.1",
+   "text": "Half the Avenue and some men from the orchestra. Mr. Thomas the conductor was one. He came down to the kitchen afterwards to thank me himself, which no guest had ever done. I have been his servant ever since, in my heart.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Half the Avenue, and some men from the orchestra. Mr. Thomas, the conductor, was one. Afterward he came down to the kitchen to thank me himself. No guest had ever done that. In my heart I have been his servant ever since."
+   }
+  },
+  {
+   "card": "asks:a04-cm-horses",
+   "text": "Six in the stable behind the house: two pairs of carriage horses, bays, matched to the hair, a cob for the light trap, and the master's saddle horse that he does not ride as often as he should. I feed them at five, groom them by seven, and harness by nine for the master's drive to his office.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Six, in the stable behind the house. There are two pairs of carriage horses. They are brown and match perfectly. There is a small horse for the light cart, and the master's riding horse, which he does not ride as much as he should. I feed them at five. I brush them by seven. I hitch them up by nine for the master's drive to his office."
+   }
+  },
+  {
+   "card": "asks:a04-cm-horses.1",
+   "text": "A brougham for the master in town, a victoria for the mistress on fine afternoons in the park, and a big closed carriage for the opera and the theatre. Each has its own harness and its own lamps, and every bit of brass must shine like a mirror. A dirty carriage is the coachman's shame.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A closed carriage for the master in town. An open carriage for the lady on nice afternoons in the park. And a big closed coach for the opera and the theatre. Each one has its own harness and its own lamps. Every bit of brass must shine like a mirror. A dirty carriage is the driver's shame."
+   }
+  },
+  {
+   "card": "asks:a04-cm-coach-house.1",
+   "text": "We are a club. Every carriage house along the alley has a coachman, and we stand in the alley in the evening, smoking, and talk about horses and masters. We know whose horse is lame, whose groom drinks, and whose master is going broke before his banker does.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "We are like a club. Every carriage house along the alley has a driver. In the evening we stand in the alley, smoking. We talk about horses and masters. We know whose horse is lame, whose stable boy drinks, and whose master is going broke, before his banker does."
+   }
+  },
+  {
+   "card": "asks:a04-cm-park",
+   "text": "Along the lake on the boulevards, out to Washington Park and Jackson Park, where the Fair was. On a summer afternoon every carriage on the Avenue is out there, the ladies in their summer gowns, the coachmen in their summer livery, all going at a walk so everybody can see everybody else.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "Along the lake on the wide roads. Out to Washington Park and Jackson Park, where the fair was. On a summer day every carriage on the Avenue is out there. The ladies wear their summer dresses. The drivers wear their summer coats. They all go slow, so everyone can see everyone else.",
+    "11-13": "Along the lake on the wide boulevards. Out to Washington Park and Jackson Park, where the fair was. On a summer day every carriage on the Avenue is out there. The ladies wear their summer dresses, and the drivers wear their summer coats. Everyone goes at a walk, so everybody can see everybody else.",
+    "14-15": "Along the lake on the boulevards, out to Washington Park and Jackson Park, where the Fair was. On a summer afternoon every carriage on the Avenue is out there. The ladies are in their summer gowns and the coachmen in their summer livery. They all go at a walk, so everybody can see everybody else."
+   }
+  },
+  {
+   "card": "asks:a04-cm-winter",
+   "text": "Waiting. Outside the opera, outside a dinner, outside a ball, in January, on the box, with a buffalo robe and a lantern, until two in the morning. The horses stand with their blankets on and their breath smoking and I stand with them. You get to know a horse well on those nights.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Waiting. In January I wait outside the opera, a dinner or a dance. I sit on the driver's seat with a fur robe and a lantern until two in the morning. The horses stand with their blankets on and their breath smoking, and I stand with them. You get to know a horse well on those nights."
+   }
+  },
+  {
+   "card": "asks:a04-cm-winter.1",
+   "text": "Driving a pair of good horses fast on the lake shore on a crisp morning, with the sun coming up out of the water, and nobody in the carriage at all because I am exercising them. Then the horses and I are the masters of the Avenue.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Driving two good horses fast along the lake shore on a crisp morning. The sun comes up out of the water. Nobody is in the carriage at all, because I am just giving the horses a run. Then the horses and I are the kings of the Avenue.",
+    "11-13": "Driving a pair of good horses fast on the lake shore on a crisp morning, with the sun coming up out of the water. Nobody is in the carriage at all, because I am exercising them. Then the horses and I are the masters of the Avenue."
+   }
+  },
+  {
+   "card": "asks:a04-cm-groom",
+   "text": "On my father's farm in Kerry, and then as a stable boy for an English family in Dublin, and then in the livery stables of New York, and then here. Twenty years of horses. I can tell a horse's age by its teeth and its temper by its ears, and a bad groom by the horse's coat.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On my dad's farm in Kerry, in Ireland. Then as a stable boy for an English family in Dublin. Then in the stables of New York, and then here. That is twenty years of horses. I can tell a horse's age by its teeth, and its mood by its ears. I can spot a bad stable boy by the horse's coat."
+   }
+  },
+  {
+   "card": "asks:a04-cm-groom.1",
+   "text": "Steady nerves above all. A carriage horse in Chicago must stand still for cable cars, elevated trains, fire engines, brass bands and the motor cars. He must go at a walk among a thousand other horses without kicking any of them. A horse like that is worth more than a racehorse.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Calm nerves, most of all. A carriage horse in Chicago must stand still for cable cars, trains, fire engines, bands and motor cars. He must walk with a thousand other horses and not kick any of them. A horse like that is worth more than a racehorse."
+   }
+  },
+  {
+   "card": "asks:a04-ld-laundry",
+   "text": "Monday, every Monday, in the laundry in the basement, with three set tubs, a copper boiler on the range, a wringer, and a drying room with racks for when it rains. The whole house's linen, every sheet, napkin, collar and petticoat. Tuesday is ironing. Wednesday is mending.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Monday, every Monday. We wash in the basement. There are three big tubs, a boiler on the stove, a wringer, and a drying room with racks for rainy days. We wash all the house's cloth: every sheet, napkin, collar and slip. Tuesday is for ironing. Wednesday is for mending."
+   }
+  },
+  {
+   "card": "asks:a04-ld-laundry.1",
+   "text": "From six in the morning to six at night, two of us. The white things boiled, the coloured things in warm water, the woollens in cool, the master's collars starched stiff enough to cut a finger. By evening the steam has taken the curl out of my hair and the skin off my knuckles.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "From six in the morning to six at night, for two of us. The white things are boiled. The colored things go in warm water, and the wool in cool. The master's collars are starched so stiff they could cut a finger. By evening the steam has taken the curl out of my hair and the skin off my knuckles."
+   }
+  },
+  {
+   "card": "asks:a04-nu-children",
+   "text": "Two little ones, a boy of four and a girl of two, in the nursery on the third floor. I wake them, wash them, dress them, give them their breakfast, walk them in the park, give them their dinner, put them down for their sleep, and bring them down to the drawing room at five to see their mother for half an hour in their best clothes.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Two little ones, a boy of four and a girl of two, in the nursery on the third floor. I wake them, wash them and dress them. I give them breakfast and walk them in the park. I give them lunch and put them down for their nap. At five I bring them down in their best clothes to see their mom for half an hour.",
+    "11-13": "Two little ones, a boy of four and a girl of two, in the nursery on the third floor. I wake them, wash them, dress them and give them breakfast. I walk them in the park, give them their dinner and put them down for their nap. At five I bring them down to the drawing room in their best clothes, to see their mother for half an hour."
+   }
+  },
+  {
+   "card": "asks:a04-nu-children.2",
+   "text": "To the lake shore, or down the Avenue to the statue at Eighteenth Street, the bronze of the Indian chief saving the lady. The boy asks about it every time and I tell him what the policeman on the corner told me: that it was a battle long ago, when Chicago was a fort, and the chief was a good man.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "To the lake shore, or down the Avenue to the statue at Eighteenth Street. It is the bronze of the Indian chief saving the lady. The boy asks about it every time. I tell him what the policeman on the corner told me. It was a battle long ago, when Chicago was a fort, and the chief was a good man.",
+    "11-13": "To the lake shore, or down the Avenue to the statue at Eighteenth Street, the bronze of the Indian chief saving the lady. The boy asks about it every time. I tell him what the policeman on the corner told me: it was a battle long ago, when Chicago was a fort, and the chief was a good man."
+   }
+  },
+  {
+   "card": "asks:a04-hk-keys",
+   "text": "Everything that keeps the house running, and nothing that anyone sees. I keep the keys to the linen, the china, the stores and the wine. I hire and train the maids, order the coal and the soap and the candles, keep the accounts, and see that every room is ready before anyone wants it.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Everything that keeps the house running, and nothing that anyone sees. I keep the keys to the sheets, the dishes, the food and the wine. I hire and train the maids. I order the coal, soap and candles. I keep the money books. I make sure every room is ready before anyone wants it."
+   }
+  },
+  {
+   "card": "asks:a04-ms-butler",
+   "text": "Answer the door, receive the cards, announce the guests, serve the wine, carve at the sideboard, keep the silver, wind the clocks, hire the footmen, see that every man in the house does his work. A good butler is like a good clock: nobody notices him until he stops.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "He answers the door and takes the visiting cards. He announces the guests. He serves the wine and carves the meat. He keeps the silver, winds the clocks and hires the footmen. He makes sure every man in the house does his work. A good butler is like a good clock. Nobody notices him until he stops.",
+    "11-13": "Answer the door, take the visiting cards, announce the guests, serve the wine, carve the meat, keep the silver, wind the clocks, hire the footmen, and see that every man in the house does his work. A good butler is like a good clock. Nobody notices him until he stops."
+   }
+  },
+  {
+   "card": "asks:a04-ms-butler.1",
+   "text": "I have announced a Vice-President, three senators, two English lords and the President of the University. And Mr. Pullman, before he died, who walked in as if he owned the house as well. The great ones are easier than the rich ones. The great ones say thank you.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I have announced a Vice President, three senators, two English lords, and the head of the University. And Mr. Pullman, before he died. He walked in as if he owned this house too. The great ones are easier than the rich ones. The great ones say thank you."
+   }
+  },
+  {
+   "card": "asks:a04-ms-furnace",
+   "text": "I am the house man. I shovel coal into the furnace in winter, carry the ashes out, wash the windows, beat the carpets, carry the trunks, mend what breaks, and do whatever heavy work the maids cannot. In summer I wash the house down and paint the iron fence.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I am the house man. In winter I shovel coal into the furnace and carry the ashes out. I wash the windows and beat the carpets. I carry the trunks and fix what breaks. I do the heavy work the maids cannot. In summer I wash down the house and paint the iron fence."
+   }
+  },
+  {
+   "card": "asks:a04-gt-business",
+   "text": "The Board of Trade, mostly: grain, which is to say, I buy wheat that does not yet exist from men who do not own it, and sell it to men who do not want it, and somehow everybody eats. My father did it before me. It is either the most important business in the world or the silliest, depending on the day.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The Board of Trade, mostly. I trade grain. That means I buy wheat that has not grown yet, from men who do not own it. Then I sell it to men who do not want it. And somehow everybody eats! My dad did it before me. It is the most important job in the world, or the silliest, depending on the day."
+   }
+  },
+  {
+   "card": "asks:a04-gt-business.1",
+   "text": "Glessner at the corner of Eighteenth, for his sense, and Field for his money, and Kimball for his music. Glessner has been in the reaper trade since the war, and two years ago they joined all the reaper companies into the International Harvester and he is on its board. Go and ask him about it. He thinks it a great thing and a sad one.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Glessner, at the corner of Eighteenth, for his good sense. Field, for his money. Kimball, for his music. Glessner has made farm machines since the war. Two years ago all the farm machine companies joined into one, International Harvester. He helps run it. Go and ask him about it. He thinks it is a great thing, and a sad one."
+   }
+  },
+  {
+   "card": "asks:a04-gt-club",
+   "text": "The Chicago Club, on Michigan Avenue, where I lunch every day, and the Union League, where I argue about politics, and the Commercial Club, where I argue about the city. A man in my position belongs to clubs as a ship belongs to harbours: he calls in, takes on news, and goes out again.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "I eat lunch every day at the Chicago Club, on Michigan Avenue. I argue about politics at the Union League. I argue about the city at the Commercial Club. A man like me uses clubs the way a ship uses ports. He stops in, picks up news, and goes out again.",
+    "11-13": "The Chicago Club, on Michigan Avenue, where I eat lunch every day. The Union League, where I argue about politics. The Commercial Club, where I argue about the city. A man in my place belongs to clubs the way a ship belongs to harbors: he stops in, picks up the news, and goes out again.",
+    "14-15": "The Chicago Club, on Michigan Avenue, where I have lunch every day. The Union League, where I argue about politics. And the Commercial Club, where I argue about the city. A man in my position belongs to clubs as a ship belongs to harbors: he calls in, picks up the news, and goes out again."
+   }
+  },
+  {
+   "card": "asks:a04-gt-club.1",
+   "text": "The convention, Mr. Roosevelt, the war in the Far East between the Japanese and the Russians, which the Japanese are winning against all expectation, and Mr. Burnham's plan for the lake front. And the price of beef, always the price of beef.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "The big party meeting and Mr. Roosevelt. The war in the Far East between Japan and Russia. Japan is winning, and nobody thought it would. Mr. Burnham's plan for the lake front. And the price of beef. Always the price of beef.",
+    "11-13": "The convention and Mr. Roosevelt. The war in the Far East between the Japanese and the Russians, which the Japanese are winning against all odds. Mr. Burnham's plan for the lake front. And the price of beef, always the price of beef."
+   }
+  },
+  {
+   "card": "asks:a04-gt-fire",
+   "text": "I was a young man of twenty in seventy-one. I stood on the lake shore with my mother and my sisters and our silver in a pillowcase, and watched the city burn behind us for two days. The heat was so great that the people waded into the lake. In the morning there was nothing between the river and Fullerton but chimneys.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I was twenty in 1871. I stood on the lake shore with my mom and my sisters. We had our silver in a pillowcase. We watched the city burn behind us for two days. It was so hot that people waded into the lake. In the morning there was nothing left between the river and Fullerton but chimneys."
+   }
+  },
+  {
+   "card": "asks:a04-gt-auto.1",
+   "text": "A few of the young men have, and they race them on the boulevards at dawn and the police chase them on bicycles. George Glessner up the Avenue has read everything about them. Ask him if he thinks they will last.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A few of the young men have. They race them on the wide streets at dawn, and the police chase them on bikes. George Glessner, up the Avenue, has read everything about them. Ask him if he thinks they will last."
+   }
+  },
+  {
+   "card": "asks:a04-gt-university",
+   "text": "The University of Chicago stands beside them, on the Midway, grey stone in the English style, a dozen years old and growing every year. Mr. Rockefeller gave the money and Mr. Field gave the land. The Field Museum is in the old Fine Arts building in Jackson Park, full of everything the Fair left behind.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "The University of Chicago stands next to them, on the Midway. It is made of gray stone, in the English style. It is a dozen years old and grows every year. Mr. Rockefeller gave the money, and Mr. Field gave the land. The Field Museum is in the old art building in Jackson Park. It is full of everything the fair left behind.",
+    "11-13": "The University of Chicago stands beside them, on the Midway. It is built of gray stone in the English style. It is a dozen years old and grows every year. Mr. Rockefeller gave the money and Mr. Field gave the land. The Field Museum is in the fair's old Fine Arts building in Jackson Park, full of everything the fair left behind."
+   }
+  },
+  {
+   "card": "asks:a04-ly-charity",
+   "text": "The Visiting Nurse Association, the Home for the Friendless, a sewing circle for the Children's Hospital, and every winter a committee for the coal fund. The poor of this city freeze in the winter and boil in the summer, and a lady with time and means must do what she can.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "I help the nurses who visit sick people at home. I help a home for people with no family. I sew for the Children's Hospital. Every winter I help raise money for coal. The poor of this city freeze in winter and boil in summer. A lady with time and money must do what she can.",
+    "11-13": "The Visiting Nurse Association, the Home for the Friendless, a sewing group for the Children's Hospital, and every winter a committee to buy coal for the poor. The poor of this city freeze in winter and boil in summer. A lady with time and money must do what she can.",
+    "14-15": "The Visiting Nurse Association, the Home for the Friendless, a sewing circle for the Children's Hospital, and every winter a committee to raise money for coal. The poor of this city freeze in winter and boil in summer. A lady with time and money must do what she can."
+   }
+  },
+  {
+   "card": "asks:a04-ly-charity.1",
+   "text": "Twice, with Miss Addams herself showing us round: the nursery, the kindergarten, the classes for working girls, the gymnasium, the coffee house, all in the middle of the worst of the West Side. It made me ashamed of my drawing room. Mrs. Armour gives to the poor more quietly than anyone on the Avenue. Ask her about her husband's institute.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Twice. Miss Addams herself showed us around. There is a nursery, a kindergarten, classes for working girls, a gym and a coffee house. It is all in the middle of the poorest part of the West Side. It made me ashamed of my fancy living room. Mrs. Armour gives to the poor more quietly than anyone on the Avenue. Ask her about her husband's school."
+   }
+  },
+  {
+   "card": "asks:a04-ly-clubs",
+   "text": "The Fortnightly, which meets in its rooms on Michigan Avenue to hear papers on literature and history; and the Woman's Club, which does good works and argues about the vote. We have the vote for the school board and for the University of Illinois trustees, and nothing else. We are told to be content.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Two of them. One meets on Michigan Avenue to hear talks about books and history. The other does good works and argues about voting. We can vote for the school board and the heads of the state college, and that is all. We are told to be happy with that.",
+    "11-13": "The Fortnightly, which meets in its rooms on Michigan Avenue to hear talks on books and history. And the Woman's Club, which does good works and argues about the vote. We can vote for the school board and the University of Illinois trustees, and nothing else. We are told to be content."
+   }
+  },
+  {
+   "card": "asks:a04-ly-orchestra",
+   "text": "Every Friday afternoon in the season, at the Auditorium, in our box. Mr. Thomas plays Beethoven and Wagner and the new Germans, and the ladies of Chicago listen in their hats. Some of us understand it. All of us enjoy being seen to.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Every Friday afternoon in the season. We sit in our own box at the Auditorium. Mr. Thomas plays Beethoven and Wagner and new music too. The ladies of Chicago sit and listen in their hats. Some of us get it. All of us like to be seen."
+   }
+  },
+  {
+   "card": "asks:a04-ly-orchestra.1",
+   "text": "Mr. Thomas has wanted his own hall for years, smaller than the Auditorium, built for music. The guarantors raised the money last winter and it is going up now on Michigan Avenue across from the Art Institute. They say it will open by Christmas. The Glessners were among the first to give. Ask her about it, and watch her change the subject.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Mr. Thomas has wanted his own hall for years. He wants one smaller than the Auditorium, built just for music. The people who back the orchestra raised the money last winter. It is going up now on Michigan Avenue, across from the Art Institute. They say it will open by Christmas. The Glessners were among the first to give. Ask her about it, and watch her change the subject."
+   }
+  },
+  {
+   "card": "asks:a04-ly-summer",
+   "text": "Away, as soon as we can. The city in July is all dust and heat and smoke from the railroads. Some families go to Lake Geneva, some to the north shore, some to Maine or New Hampshire. We go to our cottage at Lake Forest at the end of the week, and the servants close up the house with sheets over everything.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Away, as soon as we can. In July the city is all dust, heat and train smoke. Some families go to Lake Geneva, some to the north shore, and some to Maine or New Hampshire. We go to our cottage at Lake Forest at the end of the week. The servants close up the house with sheets over everything."
+   }
+  },
+  {
+   "card": "asks:a04-ly-summer.1",
+   "text": "The men, mostly, who come out on the train at the weekend. And a few servants to keep the house, and the coachman with the horses. And the Avenue gets very quiet, and the maids sit on the front steps in the evening when nobody is looking, which they think nobody knows.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Mostly the men. They come out on the train for the weekend. A few servants stay to keep the house, and the driver stays with the horses. The Avenue gets very quiet. In the evening the maids sit on the front steps when nobody is looking. They think nobody knows."
+   }
+  },
+  {
+   "card": "asks:a04-ly-gowns",
+   "text": "The best from Paris, from Worth or Doucet, ordered on our trip abroad every second spring. The rest from Field's dressmaking rooms, which are as good as anything in New York, and cost nearly as much. A lady needs a morning dress, a walking dress, an afternoon dress, a dinner dress and a ball gown, and a different set for each season.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "The best ones come from Paris, from the famous dressmakers there. We order them on our trip to Europe every other spring. The rest come from the dress shop at Field's store. It is as good as anything in New York, and costs almost as much. A lady needs a dress for the morning, one for walking, one for the afternoon, one for dinner, and one for dances. She needs a new set for each season.",
+    "11-13": "The best come from Paris, from Worth or Doucet, ordered on our trip abroad every second spring. The rest come from the dressmaking rooms at Field's, which are as good as anything in New York and cost almost as much. A lady needs a morning dress, a walking dress, an afternoon dress, a dinner dress and a ball gown, and a new set for each season."
+   }
+  },
+  {
+   "card": "asks:a04-ly-gowns.1",
+   "text": "The sleeves are smaller than they were ten years ago, thank heaven, and the skirts are longer and the figures more S-shaped, which is to say the corsets are worse. The young girls play golf and tennis in shirtwaists and short skirts. Their mothers are shocked. Their mothers did the same with bicycles.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The sleeves are smaller than ten years ago, thank goodness. The skirts are longer, and the shape is curvier, which means the corsets are tighter. The young girls play golf and tennis in blouses and short skirts. Their moms are shocked. Their moms did the same with bikes."
+   }
+  },
+  {
+   "card": "asks:a04-ly-servants",
+   "text": "Eleven: a butler, two footmen, a cook and a kitchen maid, two housemaids, a parlour maid, a laundress, a nurse and the coachman, with a groom in the stable. It sounds a great many until you see the size of the house. A house like this one is a small town, and the servants are its government.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Eleven. A butler, two footmen, a cook and a kitchen maid, two housemaids, a parlor maid, a laundress, a nurse, and the driver, with a stable boy. It sounds like a lot until you see how big the house is. A house like this is a small town, and the servants are its government."
+   }
+  },
+  {
+   "card": "asks:a04-ym-baseball",
+   "text": "The Cubs, of course, at the West Side Grounds. Frank Chance at first, Tinker at short and Evers at second. They are going to win the pennant one of these years, everybody says, if the Giants ever lose. My father prefers the White Sox, on the South Side, because they are nearer and because Comiskey once sold him a horse.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The Cubs, of course, at the West Side Grounds. Frank Chance plays first base, Tinker plays shortstop, and Evers plays second. Everybody says they will win the pennant one of these years, if the Giants ever lose. My dad likes the White Sox, on the South Side. They are closer, and Comiskey once sold him a horse."
+   }
+  },
+  {
+   "card": "asks:a04-ym-cycling",
+   "text": "Everyone did ten years ago, when the safety bicycle came in: Michigan Avenue on a Sunday morning was a river of wheels. Now it is golf and tennis and motor cars. But I still ride to the lake in the mornings before it is hot. On a bicycle nobody can tell whether you are rich or poor.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Everyone did ten years ago, when the new safe bikes came in. On Sunday mornings Michigan Avenue was a river of wheels. Now it is golf, tennis and motor cars. But I still ride to the lake in the mornings, before it gets hot. On a bike, nobody can tell if you are rich or poor."
+   }
+  },
+  {
+   "card": "asks:a04-ym-cycling.1",
+   "text": "The bicycle craze is over. The girls who fought to ride in bloomers are married now and their daughters play tennis in skirts. It always goes like that: the mothers fight, the daughters take it for granted.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The bike craze is over. The girls who fought to ride in baggy pants are married now. Their daughters play tennis in skirts. It always goes like that. The moms fight, and the daughters take it for granted."
+   }
+  },
+  {
+   "card": "asks:a04-yl-debut",
+   "text": "Last winter, at a dance my mother gave at the house, with the ballroom on the third floor opened up and the orchestra in the hall. I wore white, of course, with my grandmother's pearls. I danced every dance and broke the heel off my slipper and had to finish in my stockings. Nobody noticed. Everybody noticed.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Last winter, at a dance my mom gave at the house. The ballroom on the third floor was opened up, and the orchestra played in the hall. I wore white, of course, with my grandma's pearls. I danced every dance. I broke the heel off my slipper and had to finish in my stockings. Nobody noticed. Everybody noticed."
+   }
+  },
+  {
+   "card": "asks:a04-yl-vote",
+   "text": "I do. My mother does not, and my grandmother is furious about it. In Illinois we can vote for the school trustees and nothing else. In Wyoming and Colorado and Utah women vote for everything, and the sky has not fallen. My father says politics would make women coarse. I have heard my father talk politics. I think it would make women bored.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I do. My mom does not, and my grandma is furious about it. In Illinois we can vote for school leaders and nothing else. In Wyoming, Colorado and Utah, women vote for everything, and the sky has not fallen. My dad says politics would make women rough. I have heard my dad talk politics. I think it would make women bored."
+   }
+  },
+  {
+   "card": "asks:a04-ch-fourth",
+   "text": "Three more days! Firecrackers and Roman candles and sparklers, and a parade on Michigan Avenue, and lemonade, and my father takes us to the lake shore at night for the rockets. Last year my brother lit a firecracker in the stable and the horses kicked their stalls. He was not allowed out for a week.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Three more days! We'll have firecrackers, Roman candles and sparklers. There's a parade on Michigan Avenue, and lemonade. At night my dad takes us to the lake to see the rockets. Last year my brother lit a firecracker in the barn. The horses kicked their stalls. He wasn't allowed out for a week."
+   }
+  },
+  {
+   "card": "asks:a04-ch-statue",
+   "text": "It is an Indian chief stopping another Indian from hurting a lady, and there is a man lying down and a little child. Mr. Pullman put it there, by his house, because that is where the fight was a long time ago, when Chicago was a fort. My nurse says the chief's name was Black Partridge and he was brave.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "It shows an Indian chief stopping another Indian from hurting a lady. There is a man lying down and a little child. Mr. Pullman put it there, by his house, because that is where the fight was long ago, when Chicago was a fort. My nurse says the chief's name was Black Partridge, and he was brave."
+   }
+  },
+  {
+   "card": "asks:a04-ch-school",
+   "text": "To a school for boys on Michigan Avenue, with a master who has a moustache and a ruler. Latin, arithmetic, geography, penmanship. I am bad at penmanship. My letters lean over as if they were tired. In the autumn my sister goes to a school for girls where they learn French and the piano.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I go to a school for boys on Michigan Avenue. The teacher has a mustache and a ruler. We learn Latin, math, geography and handwriting. I am bad at handwriting. My letters lean over as if they were tired. In the fall my sister goes to a school for girls, where they learn French and piano."
+   }
+  },
+  {
+   "card": "asks:a04-md-callers.1",
+   "text": "The ladies of the reading class at the Glessners', on Mondays, all together, so the whole street knows where they are going. In summer nobody calls at all. They are all away, and the cards gather dust on the salvers.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The ladies of the reading group at the Glessners' come on Mondays, all at once. So the whole street knows where they are going. In summer nobody comes at all. They are all away. The visiting cards just sit and gather dust."
+   }
+  },
+  {
+   "card": "asks:a04-md-sweetheart",
+   "text": "A policeman, Irish, with a beat on Michigan Avenue, who walks past the area steps at a quarter past nine every evening and does not look up. I am at the area window at a quarter past nine every evening and do not look out. We have been courting this way since Easter.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A policeman. He is Irish, and he walks his beat on Michigan Avenue. At nine fifteen every night, he walks past our back steps and does not look up. At nine fifteen every night, I am at the window and do not look out. We have been sweethearts like this since Easter."
+   }
+  },
+  {
+   "card": "asks:a04-ym-fair-work",
+   "text": "My father has found me a place for the summer in the wholesale house, counting stock and learning the business from the bottom, as he says he did. Mr. Field started as a clerk sleeping under the counter, they tell me; every young man on the Avenue has heard that story a hundred times.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "My dad found me a summer job at the big store that sells to other stores. I will count the goods and learn the business from the bottom, like he says he did. They tell me Mr. Field started as a clerk who slept under the counter. Every young man on the Avenue has heard that story a hundred times.",
+    "11-13": "My father has found me a summer job in the wholesale house. I will count stock and learn the business from the bottom, as he says he did. They tell me Mr. Field started as a clerk who slept under the counter. Every young man on the Avenue has heard that story a hundred times.",
+    "14-15": "My father has found me a place for the summer in the wholesale house, counting stock and learning the business from the bottom, as he says he did. Mr. Field started as a clerk sleeping under the counter, they tell me. Every young man on the Avenue has heard that story a hundred times."
+   }
+  },
+  {
+   "card": "asks:a04-ym-motor",
+   "text": "My father's, but I drive it, because he is afraid of it. It does twenty miles an hour on the boulevard if the police are not looking, and it breaks down every second time out. I carry a toolbox, a spare tyre, a can of petrol and a great deal of patience.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "It's my dad's, but I drive it, because he's afraid of it. It goes twenty miles an hour on the wide street if the police aren't looking. It breaks down every other time I take it out. I carry a toolbox, a spare tire, a can of gas, and lots of patience."
+   }
+  },
+  {
+   "card": "asks:a04-ly-hospital",
+   "text": "St. Luke's and the children's hospital, every week in the season, with the committee. I read to the children and bring oranges and talk to the mothers. It is the most useful two hours of my week, and the hardest. Some of those children came out of the Iroquois with burns that will never heal.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "St. Luke's and the children's hospital. I go every week in the season, with the group. I read to the kids, bring oranges, and talk to the moms. It is the most useful two hours of my week, and the hardest. Some of those kids got out of the Iroquois fire with burns that will never heal."
+   }
+  },
+  {
+   "card": "asks:a04-ly-daughter",
+   "text": "My eldest girl is twenty and out in society, and wants to go abroad and study music. My boy is at school in the East and writes once a month, for money. The little one is still in the nursery, the darling of the house, ruled entirely by her nurse.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "My oldest girl is twenty. She has started going to dances and parties, and she wants to go to Europe to study music. My boy is at school in the East. He writes once a month, to ask for money. The little one is still in the nursery. She is the darling of the house, and her nurse is the boss of her."
+   }
+  },
+  {
+   "card": "asks:a04-ly-daughter.1",
+   "text": "Strict about manners, lenient about everything else. My own mother was strict about everything, and I learned to do as I liked out of her sight. My daughters do as they like in my sight, which I think is an improvement.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Strict about manners, easy about everything else. My own mom was strict about everything. So I learned to do what I liked when she wasn't looking. My daughters do what they like while I am looking. I think that is better."
+   }
+  },
+  {
+   "card": "asks:a04-ms-footman",
+   "text": "Livery: a dark coat with brass buttons, striped waistcoat, black trousers, white gloves, and, for dinners, knee breeches and silk stockings, which I hate. The family's crest is on the buttons. I am a walking advertisement for the house.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A uniform. It has a dark coat with brass buttons, a striped vest, black pants and white gloves. For dinners I wear short pants to the knee and silk stockings. I hate them. The family's crest is on the buttons. I am a walking ad for the house."
+   }
+  },
+  {
+   "card": "asks:a04-ms-footman.1",
+   "text": "I like the dinners, when the house is lit and the silver shines and the talk is good. I do not like standing behind a chair for three hours while a gentleman talks about railroad bonds. But a good footman can hear a great deal while looking at nothing.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I like the dinners, when the house is lit and the silver shines and the talk is good. I don't like to stand behind a chair for three hours while a man talks about money. But a good footman can hear a lot while he looks at nothing."
+   }
+  },
+  {
+   "card": "asks:a04-cm-funeral",
+   "text": "The funeral of a lady on the Avenue, last winter, with black plumes on the horses and the hearse ahead, at a walk all the way to Graceland in the snow. Every carriage on the Avenue behind us. The horses knew. They walked like mourners, heads down, and never put a foot wrong.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A lady on the Avenue died last winter. The horses wore black feathers, and the hearse went first. We went at a walk all the way to the cemetery in the snow. Every carriage on the Avenue came behind us. The horses knew. They walked with their heads down, like sad people, and never took a wrong step."
+   }
+  },
+  {
+   "card": "asks:a04-ck-irish.1",
+   "text": "The master likes plain food and the mistress likes French, so I cook French and call it plain. The young ladies want everything from the magazines. The little ones want bread and butter. I please all of them, most days, which is more than the President manages.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The master likes plain food, and the lady likes French food. So I cook French and call it plain. The young ladies want everything from the magazines. The little ones want bread and butter. Most days I please all of them. That is more than the President can do."
+   }
+  },
+  {
+   "card": "asks:a04-frances-journal",
+   "text": "Since 1879, every week, here and in our old house before it: who came to dinner, what we ate, what was said, what the children did, the concerts, the weather, the servants' comings and goings. Thick books bound in leather, on the shelf in my room. Mr. Glessner says I am writing the history of Prairie Avenue whether it wants one or not.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Yes. I have written in it every week since 1879, here and in our old house. I write who came to dinner and what we ate. I write what was said and what the kids did. I write about the concerts, the weather, and the servants coming and going. The books are thick, with leather covers. They sit on the shelf in my room. Mr. Glessner says I am writing the story of Prairie Avenue, whether it wants one or not."
+   }
+  },
+  {
+   "card": "asks:a04-frances-journal.2",
+   "text": "That it was very warm, that Mattie made a lemon ice, and that Fanny brought the children to lunch and the little ones ate everything but the vegetables. That is the history of Prairie Avenue today. The rest is in the newspapers.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "That it was very warm. That Mattie made a lemon ice. That Fanny brought the kids to lunch, and the little ones ate it all but the vegetables. That is the story of Prairie Avenue today. The rest is in the papers."
+   }
+  },
+  {
+   "card": "asks:a04-frances-silver",
+   "text": "Needlework all my life, embroidery and lace in the old ways, and lately silver: I have begun lessons in silversmithing, with a bench and tools upstairs. It astonishes my friends that a lady should hammer metal. It astonishes me how much I enjoy it.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "I have sewn all my life, fancy stitching and lace, the old ways. And lately I have been making things out of silver. I take lessons, with a bench and tools upstairs. My friends are amazed that a lady would hammer metal. I am amazed at how much I like it.",
+    "11-13": "Needlework all my life, embroidery and lace in the old ways. And lately, silver. I have started lessons in making silver things, with a bench and tools upstairs. My friends are amazed that a lady should hammer metal. I am amazed at how much I enjoy it."
+   }
+  },
+  {
+   "card": "asks:a04-glessner-court",
+   "text": "Because the street is the noisiest and dirtiest thing about Chicago, and the sun is the best. Richardson put the rooms we live in along the court, on the south, so the light comes in all day, and the servants' wing along the north wall where it shelters us from the wind. The kitchen looks onto the court too. Our cook has a better view than most of my neighbours.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The street is the noisiest, dirtiest thing about Chicago, and the sun is the best thing. Mr. Richardson put the rooms we live in along the yard, on the south side, so light comes in all day. He put the servants' rooms along the north wall, to block the wind. The kitchen looks onto the yard too. Our cook has a better view than most of my neighbors."
+   }
+  },
+  {
+   "card": "asks:a04-glessner-court.2",
+   "text": "The library, at the end of the evening, with the fire lit and my wife reading and the house quiet. A man can run a great company all day and come home to that, and know what all the business is for.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The library, at the end of the evening. The fire is lit, my wife is reading, and the house is quiet. A man can run a big company all day and come home to that. Then he knows what all the work is for."
+   }
+  },
+  {
+   "card": "asks:a04-glessner-harvester",
+   "text": "Two years ago the five great harvester makers, McCormick, Deering, our own Warder, Bushnell and Glessner and two others, joined together into one company, so that we stopped ruining each other in price wars and built the best machines together. Mr. Morgan's bank arranged it. I am a vice-president and on the board.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Two years ago the five big makers of farm machines joined into one company. McCormick, Deering, our own company, and two others joined. Before that, we kept cutting our prices to beat each other, and it was ruining us all. Now we build the best machines together. Mr. Morgan's bank set it up. I am one of its leaders.",
+    "11-13": "Two years ago the five big harvester makers joined into one company: McCormick, Deering, our own Warder, Bushnell and Glessner, and two others. That way we stopped ruining each other by cutting prices, and built the best machines together. Mr. Morgan's bank set it up. I am a vice president and on the board."
+   }
+  },
+  {
+   "card": "asks:a04-glessner-harvester.1",
+   "text": "It was the sensible thing. Whether it is right, the Government will decide; there are men in Washington who call such companies trusts and want to break them up. My old firm's name has gone. George, my son, saw the whole negotiation from the side of the room. Ask him what he made of the McCormicks.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "It was the smart thing. Whether it is right, the government will decide. Some men in Washington call companies like this trusts, and they want to break them up. My old company's name is gone. My son George watched all the talks from the side of the room. Ask him what he thought of the McCormicks."
+   }
+  },
+  {
+   "card": "asks:a04-mattie-thomas",
+   "text": "A good soup, plain, and a roast, and something with cream, and he does not care for anything fussy. He likes his coffee very strong and his cigar after it in the library with Mr. Glessner. When he comes, the mistress tells me the day before, and I make his favourites, and he always eats a second helping and says it is Beethoven in a pudding.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "A good, plain soup, and a roast, and something with cream. He does not like anything fancy. He likes his coffee very strong, and his cigar after it in the library with Mr. Glessner. When he is coming, the lady tells me the day before, and I make his favorites. He always has seconds. He says it is Beethoven in a pudding.",
+    "11-13": "A good plain soup, and a roast, and something with cream. He does not care for anything fussy. He likes his coffee very strong and his cigar after it in the library with Mr. Glessner. When he comes, the mistress tells me the day before, and I make his favorites. He always eats a second helping and says it is Beethoven in a pudding."
+   }
+  },
+  {
+   "card": "asks:a04-mattie-kitchen",
+   "text": "The kitchen is on the north side, along Eighteenth Street, with its windows onto the court so I have the light and not the dust. A big range, the scullery beside it, the pantries, the servants' hall where we eat. Christine and Mary come through all day for the trays. I was born in Quebec to Irish parents, and I can feed a Frenchman and an Irishman and a Yankee and please all three. I hear every step on the back stairs and I know whose it is.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The kitchen is on the north side, along Eighteenth Street. Its windows look onto the yard, so I get the light and not the dust. There is a big stove, a washing room beside it, the pantries, and the servants' hall where we eat. Christine and Mary come through all day for the trays. I was born in Quebec to Irish parents. I can feed a Frenchman, an Irishman and a Yankee and please all three. I hear every step on the back stairs, and I know whose it is."
+   }
+  },
+  {
+   "card": "asks:a04-armour-institute",
+   "text": "A school on Thirty-third Street, for young men and women of the working classes, where they can learn engineering, architecture, chemistry, electricity, the trades that will build this country. My husband built it with Dr. Gunsaulus, the minister, and gave it millions. Since he died I have carried on what he began.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "It is a school on Thirty-third Street. It is for young men and women from working families. They learn to build bridges, houses and engines. They learn about chemicals and electricity. These are the skills that will build this country. My husband built the school with a minister, Dr. Gunsaulus. He gave it millions. Since he died, I have kept it going.",
+    "11-13": "It is a school on Thirty-third Street for young men and women from working families. They learn engineering, how to design buildings, chemistry and electricity. These are the trades that will build this country. My husband built it with Dr. Gunsaulus, the minister, and gave it millions. Since he died, I have carried on what he began."
+   }
+  },
+  {
+   "card": "asks:a04-field-walk",
+   "text": "Every morning I can, up Prairie and Michigan to State and Washington, about three miles. A man who sits in a carriage misses the city. On foot I see the shop windows, the crowds, what people are wearing and carrying, which streets are busy. By the time I reach my desk I know more about trade than my managers.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Every morning I can. I walk up Prairie and Michigan to State and Washington. That is about three miles. A man who sits in a carriage misses the city. On foot I see the shop windows and the crowds. I see what people wear and carry, and which streets are busy. By the time I get to my desk, I know more about business than my managers."
+   }
+  },
+  {
+   "card": "asks:a04-field-art.1",
+   "text": "Quietly. I do not care for my name in the newspapers for giving money away. Mrs. Armour, down the Avenue, gives more quietly still, and has built something better than most men have with twice the money. Go and ask her about the Institute.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Quietly. I do not like seeing my name in the newspapers for giving money away. Mrs. Armour, down the Avenue, gives even more quietly. She has built something better than most men have with twice the money. Go and ask her about the school."
+   }
+  },
+  {
+   "card": "asks:a04-christine-parlour",
+   "text": "I answer the door, show in the callers, wait at table, bring the tea in the afternoon, and keep the parlour and the library in order: dust the books, arrange the flowers, polish the tables, never move anything Mrs. Glessner has placed. I see everyone who comes into this house, and they all see me, and none of them remembers my face.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "I answer the door and show in the visitors. I serve at the table and bring the tea in the afternoon. I keep the parlor and the library neat. I dust the books, arrange the flowers and polish the tables. I never move anything Mrs. Glessner has put in its place. I see everyone who comes into this house, and they all see me. None of them remembers my face.",
+    "11-13": "I answer the door, show in the visitors, serve at table, and bring the tea in the afternoon. I keep the parlor and the library in order. I dust the books, arrange the flowers and polish the tables, and I never move anything Mrs. Glessner has placed. I see everyone who comes into this house, and they all see me. None of them remembers my face.",
+    "14-15": "I answer the door, show in the callers, wait at table, and bring the tea in the afternoon. I keep the parlor and the library in order: I dust the books, arrange the flowers, polish the tables, and never move anything Mrs. Glessner has placed. I see everyone who comes into this house, and they all see me, and none of them remembers my face."
+   }
+  },
+  {
+   "card": "asks:a04-mary-reynolds.1",
+   "text": "We have shared the back stairs since the family moved in, and we know each other's step and each other's moods. She has the parlour and the callers, I have the bedrooms and the linen, and at night in the servants' hall we put the day together between us. Go and ask her who came to call this week.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "We have shared the back stairs since the family moved in. We know each other's steps and each other's moods. She has the parlor and the visitors. I have the bedrooms and the sheets. At night in the servants' hall, we put the day together between us. Go and ask her who came to visit this week."
+   }
+  },
+  {
+   "card": "asks:a04-jones-1835",
+   "text": "The mud, the land sales, the Potawatomi camped by the river waiting for their payment, Mark Beaubien's fiddle at the Sauganash, the boats being rowed ashore. I was a boy of fifteen and I thought it was the most exciting place in the world. It was. Everything was beginning.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The mud and the land sales. The Potawatomi camped by the river, waiting for their payment. Mark Beaubien's fiddle at the Sauganash. The boats being rowed to shore. I was a boy of fifteen, and I thought it was the most exciting place in the world. It was. Everything was just beginning."
+   }
+  },
+  {
+   "card": "asks:a04-kimball-organ",
+   "text": "Thousands a year, at the works on the West Side, pianos and reed organs and great pipe organs for churches and halls. The reed organ was our bread and butter: every farmhouse in the West wanted one. Now the farmers are richer and they want pianos, and their daughters want to play Chopin.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Thousands a year, at our factory on the West Side. We make pianos and small organs, and big pipe organs for churches and halls. The small organ paid our bills. Every farmhouse in the West wanted one. Now the farmers are richer, and they want pianos. Their daughters want to play Chopin."
+   }
+  },
+  {
+   "card": "asks:a04-blewett-railroad",
+   "text": "I am one of its lawyers: contracts, land, lawsuits, the endless paper of a railroad that runs from Chicago to New Orleans. Every mile of track is a hundred agreements and every agreement is a quarrel waiting. It is not glamorous work. It is very necessary work.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I am one of its lawyers. I work on deals, land and court cases. A railroad that runs from Chicago to New Orleans makes endless paperwork. Every mile of track means a hundred deals, and every deal is a fight waiting to happen. It is not exciting work. It is very needed work."
+   }
+  },
+  {
+   "card": "asks:a04-blewett-railroad.1",
+   "text": "In Chicago, at her parents' table, which is where everyone of interest meets everyone else. Fanny asked me a question about the law of evidence that I could not answer, and I spent the evening trying. I have spent the years since trying to keep up with her. Ask her what the question was. She remembers. I pretend not to.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In Chicago, at her parents' dinner table. That is where everyone who matters meets everyone else. Fanny asked me a question about the law that I could not answer. I spent the whole evening trying. I have spent the years since trying to keep up with her. Ask her what the question was. She remembers. I pretend not to."
+   }
+  },
+  {
+   "card": "asks:a04-fanny-miniatures",
+   "text": "I run a household and mind my children, and I read: law, which my husband brings home, and medicine, and detective stories, which I am not supposed to admit. My brother George went to Harvard and I was kept at home. I have never stopped wanting to know how things are proved.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I run a house and look after my children. And I read. I read law books, which my husband brings home, and books about medicine. I read detective stories too, which I am not supposed to admit. My brother George went to Harvard, and I was kept at home. I have never stopped wanting to know how things are proved."
+   }
+  },
+  {
+   "card": "asks:a04-fanny-miniatures.1",
+   "text": "How a careful person can look at a room and tell what happened in it. One day, when the children are grown, I may do something with that. My mother says that is what she said at my age, and now she is hammering silver.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "How a careful person can look at a room and tell what happened in it. One day, when the children are grown, I may do something with that. My mom says she said the same thing at my age. And now she is hammering silver."
+   }
+  },
+  {
+   "card": "asks:a04-lowden-farm",
+   "text": "Sinnissippi, out on the Rock River near Oregon, a hundred miles west: rolling land, good black soil, the river and the bluffs. I grew up on a farm in Iowa and in Minnesota, and I never got it out of my blood. In the city I am a lawyer and a politician. On the farm I am a man looking at a field of corn, which is the best thing to be.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "It is called Sinnissippi. It is on the Rock River near Oregon, a hundred miles west. There are rolling hills, good black soil, the river and the cliffs. I grew up on farms in Iowa and Minnesota, and I never got it out of my blood. In the city I am a lawyer and a politician. On the farm I am a man looking at a field of corn. That is the best thing to be."
+   }
+  },
+  {
+   "card": "asks:a04-florence-governor",
+   "text": "Disappointed for him, because he wanted it so. Relieved for us, a little, because I did not much want to live in the Executive Mansion at Springfield. Three weeks of ballots and cigar smoke and men who promised one thing at midnight and did another at noon. He came home thin.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I was sad for him, because he wanted it so much. And I was a little glad for us, because I did not much want to live in the governor's house in Springfield. It was three weeks of votes and cigar smoke. Men promised one thing at midnight and did another at noon. He came home thin."
+   }
+  },
+  {
+   "card": "asks:a04-pullman-statue",
+   "text": "Because he believed the battle of 1812 was fought near here, along the lake shore south of the old fort, and he wanted the city to remember it, and Black Partridge, the chief who saved Mrs. Helm. He had a Danish sculptor make it in bronze, and set it up in ninety-three, the year of the Fair, in front of our wall. He called it his gift to the city.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He believed the fight of 1812 happened near here, along the lake shore south of the old fort. He wanted the city to remember it. He wanted it to remember Black Partridge, the chief who saved Mrs. Helm. He had an artist from Denmark make it in bronze. He set it up in 1893, the year of the fair, in front of our wall. He called it his gift to the city."
+   }
+  },
+  {
+   "card": "asks:a04-pullman-town",
+   "text": "Rarely, now. It belongs to the company and the courts have made the company sell the houses, and it is not the town it was. When my husband was alive, we went down in his car and he would walk the streets pointing at things he had built: the market hall, the arcade, the church, the hotel he named for Florence.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Not often now. The town belongs to the company. The courts have made the company sell the houses, and it is not the town it was. When my husband was alive, we went down in his train car. He would walk the streets pointing at things he had built. He showed us the market hall, the shops, the church, and the hotel he named for Florence."
+   }
+  },
+  {
+   "card": "asks:a04-shortall-abstracts",
+   "text": "Because in a city where every record burned, the only proof of who owns what is in private books like ours. After the fire the legislature made our abstracts lawful evidence, and every title in Chicago rests on them. A city is only paper underneath: who owns this lot, who owes that debt.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "In the great fire, every record in the city burned. After that, the only proof of who owns what was in private books like ours. So the state made our books count as proof in court. Every piece of land in Chicago depends on them. Under it all, a city is only paper. Who owns this land? Who owes that money?",
+    "11-13": "Because in a city where every record burned, the only proof of who owns what is in private books like ours. After the fire, the state made our records count as proof in court, and every piece of land in Chicago depends on them. Underneath, a city is only paper: who owns this lot, and who owes that debt."
+   }
+  },
+  {
    "card": "stories:pa1904_armour_mrs_philip_d",
    "text": "Belle Ogden Armour, born in Ohio in the spring of 1843, was the widow of Philip D. Armour, the meat-packer whose stockyards and packing houses made Armour and Company one of the giants of Chicago. He died in 1901, and she stayed on in the big house at 2115 Prairie Avenue.",
    "own": "11-13",

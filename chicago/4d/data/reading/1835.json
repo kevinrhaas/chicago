@@ -3,6 +3,758 @@
  "scene": "1835",
  "entries": [
   {
+   "card": "asks:a35-so-flag.1",
+   "text": "Michigan wants one, and Arkansas, and they say Michigan and Ohio nearly went to war this spring over a strip of land at Toledo. Imagine it: two states fighting over a swamp. Out here we would sell them a better swamp for less.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Michigan wants a star, and so does Arkansas. They say Michigan and Ohio almost went to war this spring. They fought over a strip of land at Toledo. Think of it: two states fighting over a swamp! Out here we would sell them a better swamp, and for less."
+   }
+  },
+  {
+   "card": "asks:a35-so-girl",
+   "text": "Some do. A private needs his captain's leave and he will not get it unless the girl can wash for the company. There are more men in this town than women by three to one, so a girl can choose, and she does not choose a private at six dollars a month if she can get a carpenter.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Some do. A soldier needs his captain's okay, and he won't get it unless the girl can wash clothes for the company. There are three men in this town for every woman. So a girl can choose. She won't pick a soldier who earns six dollars a month if she can get a carpenter."
+   }
+  },
+  {
+   "card": "asks:a35-so-girl.1",
+   "text": "There is a girl at the boarding house on Lake Street who gives me an extra potato. That is all I am saying. In Chicago an extra potato is practically a proposal.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "There is a girl at the rooming house on Lake Street who gives me an extra potato. That is all I am saying. In Chicago an extra potato is almost a marriage offer."
+   }
+  },
+  {
+   "card": "asks:a35-so-band",
+   "text": "A boy of sixteen from Ohio and a fifer who used to be a sailor. They play the calls all day and the town knows every one: reveille, breakfast, drill, dinner, retreat, tattoo. A merchant on Water Street told me he does not need a clock any more, he has the fort.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A boy of sixteen from Ohio plays the drum. A man who used to be a sailor plays the fife. They play the calls all day, and the town knows every one. There is a call to wake up, to eat, to march, to eat again, to end the day, and to go to bed. A store owner on Water Street told me he does not need a clock anymore. He has the fort."
+   }
+  },
+  {
+   "card": "asks:a35-off-greene",
+   "text": "Strange. I have a commission, a sword, and a company of men who would rather be carpenters. The town invites me to every supper and every ball because an officer in a blue coat makes a room look respectable. The rest of the time I write reports nobody reads.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "It is strange. I am an officer. I have a sword and a group of men who would rather be carpenters. The town asks me to every supper and every dance. A man in a blue army coat makes a room look proper. The rest of the time I write reports nobody reads."
+   }
+  },
+  {
+   "card": "asks:a35-pm-payment",
+   "text": "People have come from all the villages for the payment, for the money and the goods the treaty promised. They say it will be soon. We have been waiting a long time. While we wait, the whiskey sellers come to the camps every night, and the traders come with their books to say what everybody owes.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "People have come from all the villages for the payment. That is the money and goods the treaty promised. They say it will come soon. We have waited a long time. While we wait, the whiskey sellers come to the camps every night. The traders come with their books to say what everybody owes."
+   }
+  },
+  {
+   "card": "asks:a35-pm-shabbona",
+   "text": "Shabbona, of the Ottawa and Potawatomi, from the Fox River country. In the Black Hawk war he rode through the settlements day and night to warn the settlers that Black Hawk's men were coming, and many lived because of him. Some of our own people have never forgiven him.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Shabbona, of the Ottawa and Potawatomi, from the Fox River land. In the Black Hawk war he rode day and night through the farms. He warned the settlers that Black Hawk's men were coming. Many lived because of him. Some of our own people have never forgiven him."
+   }
+  },
+  {
+   "card": "asks:a35-cd-voyageur",
+   "text": "Twenty years with the brigades, from Mackinac to the Illinois, paddling and carrying and singing. A voyageur's back is gone at forty, but his voice is the last thing to go. Now I work for Colonel Beaubien and sing in the evenings outside his door.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Yes, for twenty years, from Mackinac to the Illinois River. I paddled, carried and sang. A canoe man's back is worn out by forty, but his voice is the last thing to go. Now I work for Colonel Beaubien. In the evenings I sing outside his door."
+   }
+  },
+  {
+   "card": "asks:a35-cd-voyageur.1",
+   "text": "Jean Baptiste Beaubien, a militia colonel and the oldest trader in the town, after the Kinzies. He has two families and twenty children and the whole fort reservation, if the government lets him keep it. He is the most generous man in Chicago and the noisiest. Go and see him. He will kiss you on both cheeks.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Jean Baptiste Beaubien. He leads the town's soldiers, and after the Kinzies he is the oldest trader in town. He has two families and twenty children. He owns all the fort's land too, if the government lets him keep it. He is the kindest man in Chicago, and the loudest. Go and see him. He will kiss you on both cheeks."
+   }
+  },
+  {
+   "card": "asks:a35-tw-arrive.1",
+   "text": "I like the people. Every woman in this town came from somewhere else and left somebody behind, so we look after each other. Mrs. Kinzie, the agent's wife, came out in thirty-one and wrote home that it was a wilderness, and now she gives the best suppers in Chicago. Go and see her. She will tell you how she crossed the prairie in winter on horseback.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I like the people. Every woman in this town came from somewhere else and left somebody behind. So we look after each other. Mrs. Kinzie came out in 1831. She wrote home that it was a wilderness. Now she gives the best suppers in Chicago. Go and see her. She will tell you how she rode across the prairie in winter."
+   }
+  },
+  {
+   "card": "asks:a35-tw-prices",
+   "text": "Everything comes on a boat and the boat sets the price. Flour twelve dollars the barrel this spring, when the boats were late; eggs dear; butter dearer, and half of it rancid by the time it gets here. A woman with a cow and a hen yard is a rich woman, whatever her husband is.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Everything comes on a boat, and the boat sets the price. This spring the boats were late, and flour cost twelve dollars a barrel. Eggs cost a lot. Butter cost more, and half of it was spoiled by the time it got here. A woman with a cow and some hens is a rich woman, whatever her husband is."
+   }
+  },
+  {
+   "card": "asks:a35-tw-prices.1",
+   "text": "Calico, tea, sugar, candles, pins, and whatever the store has that it did not have last week. Mr. Gale has books and paper and, once, a parcel of Boston magazines that every lady in town read in a single week and passed round until they fell apart. Everybody watches the landing for the next lot.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Cotton cloth, tea, sugar, candles, pins, and anything the store has that it did not have last week. Mr. Gale sells books and paper. Once he had a bundle of Boston magazines. Every lady in town read them in one week. We passed them around until they fell apart. Everybody watches the dock for the next load."
+   }
+  },
+  {
+   "card": "asks:a35-tw-washing",
+   "text": "Carry the water from the river or the lake, heat it in a copper over the fire, scrub on a board with soft soap, rinse, wring, and hang it out where the mud will not splash it, which is nowhere. Monday is wash day. Monday is also when everybody's husband brings home the mud of a week.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "You carry water from the river or the lake. You heat it in a big pot over the fire. You scrub the clothes on a board with soft soap. Then you rinse them, squeeze them out, and hang them where the mud won't splash them. There is no such place! Monday is wash day. Monday is also when every husband brings home a week of mud."
+   }
+  },
+  {
+   "card": "asks:a35-tw-washing.1",
+   "text": "Clean enough for washing if you take it from the lake, not the river. The river has the slaughterhouse and the tannery in it, and everything from the town. A girl who boils the river water for drinking is wiser than one who does not.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "It is clean enough to wash with if you take it from the lake, not the river. The river has the meat and leather shops on it, and all the town's dirt. A girl who boils river water before she drinks it is wise."
+   }
+  },
+  {
+   "card": "asks:a35-tw-church.1",
+   "text": "Mrs. Kinzie, for the old families. The ministers' wives, for the churches. Mrs. Porter, who was Miss Chappel and ran the school until she married the minister last month. She has more friends than anyone and fewer enemies.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Mrs. Kinzie leads the old families. The ministers' wives lead the churches. Then there is Mrs. Porter. She was Miss Chappel, and she ran the school. Last month she married the minister. She has more friends than anyone, and fewer foes."
+   }
+  },
+  {
+   "card": "asks:a35-tw-sick",
+   "text": "Pray, and send for the doctor if we can pay him, and if we cannot, ask a neighbour. There are good doctors here now: Kimberly, Egan, Maxwell at the fort. For ague, quinine; for a cough, a mustard plaster; for the summer flux, boiled water and arrowroot and a great deal of sitting up at night.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "We pray. We send for the doctor if we can pay him. If we can't, we ask a neighbor. There are good doctors here now, like Kimberly, Egan, and Maxwell at the fort. For chills and fever, we give quinine. For a cough, a mustard patch on the chest. For summer stomach sickness, boiled water and arrowroot, and lots of sitting up at night."
+   }
+  },
+  {
+   "card": "asks:a35-tw-lady-dress",
+   "text": "From the dressmakers in town, of whom there are now three or four, and the best is a French girl, Archange Laframboise, whose family has been here since before the soldiers. She makes over the New York fashions from the magazines, with sleeves as big as hams. You cannot go through a door sideways in them.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "From the dressmakers in town. There are three or four now. The best is a French girl, Archange Laframboise. Her family has been here since before the soldiers came. She copies the New York styles from the magazines. The sleeves are as big as hams! You can't go through a door sideways in them.",
+    "11-13": "From the dressmakers in town. There are three or four of them now. The best is a French girl, Archange Laframboise, whose family has been here since before the soldiers came. She copies the New York fashions from the magazines, with sleeves as big as hams. You cannot go through a door sideways in them."
+   }
+  },
+  {
+   "card": "asks:a35-tw-lady-dress.1",
+   "text": "Not at all. A lady in Chicago lifts her skirts six inches at every crossing and loses a slipper in the mud every week. But she will not be outdressed by a lady in Detroit. Miss Laframboise will measure you before you can say no.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Not at all. A lady in Chicago lifts her skirts at every street crossing. She loses a slipper in the mud every week. But she will not let a lady in Detroit dress better than she does. Miss Laframboise will measure you before you can say no."
+   }
+  },
+  {
+   "card": "asks:a35-tw-teacher",
+   "text": "Thirty or forty in the winter, when there is nothing else for the children to do, and a dozen in the summer, when there is everything. Ages five to fifteen, in one room, on benches, with slates and whatever books their parents brought with them. I teach the alphabet in one corner and fractions in the other at the same time.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Thirty or forty in the winter, when there is nothing else for the kids to do. A dozen in the summer, when there is everything to do. They are five to fifteen years old, all in one room, on benches. They have slates and whatever books their parents brought. I teach the ABCs in one corner and fractions in the other, at the same time."
+   }
+  },
+  {
+   "card": "asks:a35-tw-youth-girl",
+   "text": "Walk out on the lake shore on a Sunday afternoon in our best bonnets and pretend not to look at the officers from the fort. Pick strawberries on the prairie in June. Go to the singing school at the church on Thursday. In winter, skate on the river, and sleigh, and dance until the fiddler falls asleep.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On Sunday afternoons we walk on the lake shore in our best bonnets. We pretend not to look at the officers from the fort. In June we pick strawberries on the prairie. On Thursday we go to singing school at the church. In winter we skate on the river, go sledding, and dance until the fiddler falls asleep."
+   }
+  },
+  {
+   "card": "asks:a35-tw-youth-boy",
+   "text": "When the Potawatomi danced through town at the treaty, painted and singing, going down Lake Street and past the houses, and everybody standing in the doorways not sure whether to be afraid. That was a story they still tell about two summers ago, at the treaty. People say there will be another when the payment comes.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "At the treaty two summers ago, the Potawatomi danced through town. They were painted and singing. They went down Lake Street and past the houses. Everybody stood in the doorways, not sure if they should be scared. People still tell that story. They say there will be another dance when the payment comes.",
+    "11-13": "When the Potawatomi danced through town at the treaty, two summers ago. They were painted and singing, going down Lake Street and past the houses. Everybody stood in the doorways, not sure whether to be afraid. People still tell that story. They say there will be another dance when the payment comes."
+   }
+  },
+  {
+   "card": "asks:a35-tw-singing",
+   "text": "Every night, somewhere. Mark Beaubien plays the fiddle at the Sauganash and anybody who can dance does. There is a singing school at the Presbyterian church for the hymns. The soldiers at the fort have a drummer and a fifer. And the French families sing old songs at their doors in the evening that nobody else understands.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Every night, somewhere. Mark Beaubien plays the fiddle at the Sauganash, and anyone who can dance does. There is a singing school at a church, for the hymns. The fort has a drum and a fife. And at night the French families sing old songs at their doors. Nobody else knows the words."
+   }
+  },
+  {
+   "card": "asks:a35-tw-singing.1",
+   "text": "A reel at the Sauganash, when Mark is in the mood and the floor is full and somebody's husband has to hold the candles because there is no room for a table. They say he never plays the same tune twice. They say he never stops till the last guest falls down.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A reel at the Sauganash. That is a fast dance in lines. It is best when Mark is in the mood and the floor is full. Somebody's husband has to hold the candles, because there is no room for a table. They say he never plays the same tune twice. They say he never stops until the last guest falls down."
+   }
+  },
+  {
+   "card": "asks:a35-ch-boats",
+   "text": "When the bell goes or somebody shouts sail, everybody runs to the river. I can tell the schooners apart by their sails. When a steamboat comes, it blows smoke and has a big wheel on the side that splashes, and all the dogs bark.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "When the bell rings or somebody shouts \"Sail!\", everybody runs to the river. I can tell the sailing ships apart by their sails. When a steamboat comes, it puffs smoke. It has a big wheel on the side that splashes. All the dogs bark."
+   }
+  },
+  {
+   "card": "asks:a35-ch-french",
+   "text": "My grandmother speaks only French and Potawatomi, and my father French and English, and I speak all three, but my English is best because of school. At home we say grace in French. At school I am not allowed to.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "My grandma speaks only French and Potawatomi. My dad speaks French and English. I speak all three, but my English is best because of school. At home we pray before meals in French. At school I am not allowed to."
+   }
+  },
+  {
+   "card": "asks:a35-tw-fourth",
+   "text": "Three days to go and I have four pies to bake and a dress to let out. There will be a salute from the fort, a procession, the Declaration read out by a lawyer who will take an hour about it, and a dinner at the Tremont for the gentlemen. The ladies will watch from the windows, and then we shall all dance.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Three days to go, and I have four pies to bake and a dress to let out. The fort will fire its guns. There will be a parade. A lawyer will read the Declaration of Independence, and he will take an hour to do it. The men will have a dinner at the Tremont hotel. The ladies will watch from the windows. Then we will all dance."
+   }
+  },
+  {
+   "card": "asks:a35-tw-garden.1",
+   "text": "Potatoes, beans, peas, onions, cabbages, squash and a row of flowers for my soul, hollyhocks and pinks. A woman needs something to look at that is not mud. The Potawatomi women showed me how to plant the beans by the corn so the corn holds them up. They know more about this ground than any of us.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Potatoes, beans, peas, onions, cabbages and squash. And a row of flowers for my heart, hollyhocks and pinks. A woman needs something to look at that is not mud. The Potawatomi women showed me how to plant beans next to the corn, so the corn holds them up. They know more about this ground than any of us."
+   }
+  },
+  {
+   "card": "asks:a35-tw-baby",
+   "text": "Six months, born in January in the coldest week of the winter, with the snow up to the window and the doctor stuck at the fort. My neighbour came across with a lantern and stayed till morning. That is how it is here. You have no family, so your neighbours become your family.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Six months. She was born in January, in the coldest week of winter. The snow was up to the window, and the doctor was stuck at the fort. My neighbor came over with a lantern and stayed until morning. That is how it is here. You have no family, so your neighbors become your family."
+   }
+  },
+  {
+   "card": "asks:a35-tw-baby.1",
+   "text": "A French woman, a Laframboise, who has had seven children and knew exactly what to do. She speaks very little English and I speak no French, and we managed perfectly. She made me a broth that I would give a lot to taste again.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A French woman, a Laframboise. She has had seven children, and she knew just what to do. She speaks very little English, and I speak no French. We got along just fine. She made me a soup I would give a lot to taste again."
+   }
+  },
+  {
+   "card": "asks:a35-tw-cow",
+   "text": "She is, the wretch. She gets out every morning and goes to the river to drink, and then she stands in the middle of Lake Street and the teamsters have to go round her. The town has an ordinance against animals running loose. Nobody pays any mind to it, least of all the cow.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "She is, the rascal. She gets out every morning and goes to the river to drink. Then she stands in the middle of Lake Street, and the wagon drivers have to go around her. The town has a rule against animals running loose. Nobody pays any attention to it, least of all the cow."
+   }
+  },
+  {
+   "card": "asks:a35-tw-bonnet.1",
+   "text": "Everyone tries. The land men's wives have the silks and the French girls have the best taste, and the rest of us copy whoever walked past last. The fashions here are about three months behind New York and six months ahead of Detroit.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Everyone tries. The land sellers' wives have the silks. The French girls have the best taste. The rest of us copy whoever walked past last. The styles here are about three months behind New York and six months ahead of Detroit."
+   }
+  },
+  {
+   "card": "asks:a35-tw-church-ladies",
+   "text": "Sew. We have a sewing circle every Wednesday at the minister's house and we make clothes for the poor, quilts for the church, and money for the bell we are saving for. We also talk a great deal about everybody who is not there, which is the real business of a sewing circle.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Sew. We have a sewing group every Wednesday at the minister's house. We make clothes for the poor and quilts for the church. We raise money for the bell we are saving for. We also talk a lot about everybody who is not there. That is the real job of a sewing group."
+   }
+  },
+  {
+   "card": "asks:a35-tw-church-ladies.1",
+   "text": "This week: whether the new doctor is married, why Mr. Ogden has stayed so long when he said he was going back to New York, and who has bought the lot next to the church. We know everything in this town a week before the newspapers.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This week we talked about whether the new doctor is married. We talked about why Mr. Ogden has stayed so long, when he said he was going back to New York. And we talked about who bought the land next to the church. We know everything in this town a week before the newspapers do."
+   }
+  },
+  {
+   "card": "asks:a35-tw-sunday",
+   "text": "Church in the morning, dinner at noon, and in the afternoon everybody walks out along the lake shore by the fort, in their best clothes, to see and be seen. The young men pretend to look at the water. The young women pretend not to look at the young men. The old ladies look at everybody.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Church in the morning and dinner at noon. In the afternoon, everybody walks along the lake shore by the fort in their best clothes, to see and be seen. The young men pretend to look at the water. The young women pretend not to look at the young men. The old ladies look at everybody."
+   }
+  },
+  {
+   "card": "asks:a35-tw-sunday.1",
+   "text": "On a fine afternoon in June, with the lake blue and the sails out on it and the prairie flowers coming up through the grass behind the town, it is the prettiest place I have ever lived. Then you turn round and see Lake Street.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On a nice June afternoon, it is the prettiest place I have ever lived. The lake is blue, and the sails are out on it. Prairie flowers come up through the grass behind the town. Then you turn around and see Lake Street."
+   }
+  },
+  {
+   "card": "asks:a35-so-desert.1",
+   "text": "More than the major likes to say. The town hides them: a man disappears at night and turns up on a roof somewhere with a different name and a hammer. Everybody knows. Nobody tells.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "More than the major likes to say. The town hides them. A man disappears at night. Then he turns up on a roof somewhere with a new name and a hammer. Everybody knows. Nobody tells."
+   }
+  },
+  {
+   "card": "asks:a35-so-old-fort",
+   "text": "No. The first Fort Dearborn was burned after the battle in 1812. The army came back in 1816 and built this one on nearly the same ground. Some of the logs are from the old one, they say, and the old soldiers swear that on a still night you can hear something on the shore where the battle was.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No. The first Fort Dearborn was burned after the fight in 1812. The army came back in 1816 and built this one in almost the same spot. People say some of the logs are from the old one. The old soldiers swear that on a still night you can hear something on the shore where the fight was."
+   }
+  },
+  {
+   "card": "asks:a35-pm-whiskey",
+   "text": "Because the traders bring it, at night, in barrels on carts, and sell it for anything: a blanket, a gun, a horse, the promise of the payment money. The young men drink it to forget, and the old men drink it because the young men do, and the women hide the knives.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The traders bring it at night, in barrels on carts. They sell it for anything: a blanket, a gun, a horse, or the promise of the payment money. The young men drink it to forget. The old men drink it because the young men do. And the women hide the knives."
+   }
+  },
+  {
+   "card": "asks:a35-tm-boom",
+   "text": "Because the land office opened this spring and the government is selling the country round here at a dollar and a quarter an acre, and lots in town that went for a hundred dollars three years ago are going for thousands. Every boat brings a hundred more men off the lake with money in their boots and the same idea in their heads.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The land office opened this spring. The government is selling the land around here for a dollar and a quarter an acre. Three years ago a piece of land in town cost a hundred dollars. Now it costs thousands. Every boat brings a hundred more men with money in their boots and the same idea in their heads.",
+    "11-13": "The land office opened this spring. The government is selling the land around here at a dollar and a quarter an acre. Lots in town that sold for a hundred dollars three years ago now sell for thousands. Every boat brings a hundred more men off the lake, with money in their boots and the same idea in their heads.",
+    "14-15": "Because the land office opened this spring, and the government is selling the country around here at a dollar and a quarter an acre. Lots in town that went for a hundred dollars three years ago are going for thousands. Every boat brings a hundred more men off the lake with money in their boots and the same idea in their heads."
+   }
+  },
+  {
+   "card": "asks:a35-tm-canal",
+   "text": "The Illinois and Michigan canal: a ditch from the South Branch over the old portage to the Des Plaines and down to the Illinois River, so a boat can go from the lakes to the Mississippi without anybody carrying it. The French talked about it a hundred and fifty years ago. The state passed a law this winter to borrow the money for it.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "It is a big ditch they want to dig. It will go from the South Branch of this river to the Des Plaines River, and on to the Illinois River. Then a boat can go from the lakes to the Mississippi, and nobody has to carry it. The French talked about it a hundred and fifty years ago. This winter the state passed a law to borrow money for it.",
+    "11-13": "The Illinois and Michigan canal. It will be a ditch from the South Branch, over the old portage, to the Des Plaines and down to the Illinois River. Then a boat can go from the lakes to the Mississippi without anybody carrying it. The French talked about it a hundred and fifty years ago. This winter the state passed a law to borrow the money."
+   }
+  },
+  {
+   "card": "asks:a35-tm-ships",
+   "text": "By steamboat from Buffalo to Detroit, and by schooner round the top of Michigan to here, two weeks and a half with forty people sleeping on the deck and the cook drunk from Mackinac on. When we came in there was no harbour, only a sandbar across the river mouth, and they rowed us ashore in a lighter and dropped us in the lake up to our knees.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "By steamboat from Buffalo to Detroit. Then by sailing ship around the top of Michigan to here. It took two and a half weeks. Forty people slept on the deck, and the cook was drunk from Mackinac on. When we came in, there was no harbor. There was only a sandbar across the mouth of the river. They rowed us in on a small boat and dropped us in the lake up to our knees.",
+    "11-13": "By steamboat from Buffalo to Detroit, and then by schooner around the top of Michigan to here. It took two and a half weeks, with forty people sleeping on the deck and the cook drunk from Mackinac on. When we came in there was no harbor, only a sandbar across the river mouth. They rowed us ashore in a small boat and dropped us in the lake up to our knees.",
+    "14-15": "By steamboat from Buffalo to Detroit, and by schooner around the top of Michigan to here: two and a half weeks, with forty people sleeping on the deck and the cook drunk from Mackinac on. When we came in there was no harbor, only a sandbar across the river mouth. They rowed us ashore in a small boat and dropped us in the lake up to our knees."
+   }
+  },
+  {
+   "card": "asks:a35-tm-irish",
+   "text": "Hunger, mostly. Four of us on half an acre in County Cork, and the rent going up and the potatoes going black. I worked my passage to Quebec and walked to the States and followed the work: a canal in New York, a road in Ohio, and now Chicago, where they say there will be a canal that will need ten thousand of us.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Hunger, mostly. Four of us lived on half an acre in County Cork, in Ireland. The rent kept going up, and the potatoes went black. I worked on a ship to pay my way to Quebec. Then I walked to the States and followed the work. I dug a canal in New York and built a road in Ohio. Now I am in Chicago. They say there will be a canal here that will need ten thousand of us."
+   }
+  },
+  {
+   "card": "asks:a35-tm-irish.2",
+   "text": "Saint Mary's, the little Catholic church on Lake Street, with Father St. Cyr. Wood and nails and not much of either. On a Sunday you hear Irish and French and Potawatomi and a bit of German, all saying the same prayers in different voices.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I go to St. Mary's, the little church on Lake Street. Father St. Cyr is the priest. It is made of wood and nails, and not much of either. On Sunday you hear Irish, French, Potawatomi and a bit of German. Everyone says the same prayers in different voices."
+   }
+  },
+  {
+   "card": "asks:a35-tm-harbour-work",
+   "text": "Harbour work for the government: driving piles, filling cribs with stone, building the north pier out into the lake. It is cold work even in July. The lake comes in green over the cribs and you are wet to the waist from seven until six.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Harbor work for the government. We pound big posts into the lake bottom. We fill wooden boxes with stone. We are building the north pier out into the lake. It is cold work, even in July. The green lake water washes over the boxes. You are wet to the waist from seven in the morning until six at night."
+   }
+  },
+  {
+   "card": "asks:a35-tm-tailor",
+   "text": "Everything is expensive here. Broadcloth comes from New York by lake and costs twice what it does there. A gentleman's coat from me is eighteen dollars and he will need a new one every year, because the mud eats the bottoms of everything. The land men all want to look rich, and the rich all want to look like land men.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Everything costs a lot here. Fine wool cloth comes from New York by lake, and it costs twice what it does there. A man's coat from me costs eighteen dollars. He will need a new one every year, because the mud eats the bottoms of everything. The land sellers all want to look rich. The rich all want to look like land sellers."
+   }
+  },
+  {
+   "card": "asks:a35-tm-merchant",
+   "text": "Dry goods, groceries, hardware, crockery, books, boots, whatever came off the last schooner. A man comes in for a plough and goes out with a plough, a bonnet for his wife, a pound of tea, a set of plates and a Bible. Half my customers pay in cash and half pay in promises.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Cloth, food, tools, dishes, books, boots, whatever came off the last ship. A man comes in for a plow. He goes out with a plow, a bonnet for his wife, a pound of tea, a set of plates and a Bible. Half my customers pay in cash, and half pay in promises."
+   }
+  },
+  {
+   "card": "asks:a35-tm-fur",
+   "text": "What is left of it. The American Fur Company still sends goods to the Potawatomi and takes their furs, but the furs are thinner every year and the people are being moved west. The old traders like Mr. Hubbard have gone into pork and land and warehouses. The fur trade is a dead man still walking.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "What is left of it. The fur company still sends goods to the Potawatomi and takes their furs. But there are fewer furs every year, and the people are being moved west. The old traders, like Mr. Hubbard, have gone into meat, land and storehouses. The fur trade is a dead man still walking."
+   }
+  },
+  {
+   "card": "asks:a35-tm-lawyer.1",
+   "text": "Young Caton is clever and hungry. Mr. Hamilton holds every office in the county and is the most useful man to know. There are new men from New York every week with letters of introduction and no clients. Go and see Caton. He will tell you how he won his first case, which is a story he likes very much.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Young Caton is smart and hungry. Mr. Hamilton holds every job in the county. He is the most useful man to know. New men come from New York every week with letters to introduce them, and no one to work for. Go and see Caton. He will tell you how he won his first case. He loves that story."
+   }
+  },
+  {
+   "card": "asks:a35-tm-clerk",
+   "text": "Everything the owner does not want to. I open at six and sweep out the mud, weigh out sugar and tea and nails, measure calico, write up the accounts, chase the debts and sleep under the counter to guard the stock. Eight dollars a month and my keep.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Everything the owner does not want to do. I open at six and sweep out the mud. I weigh out sugar, tea and nails. I measure cloth. I write up the books, chase the people who owe money, and sleep under the counter to guard the goods. I get eight dollars a month, plus food and a bed."
+   }
+  },
+  {
+   "card": "asks:a35-tm-innkeeper",
+   "text": "Full is not the word. Every bed, every floor, every table after supper is pushed together and three men sleep on it. A boat came in yesterday with sixty people and I fed all of them. My wife cooked until midnight.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Full is not the word. Every bed is full, and every floor. After supper the tables are pushed together, and three men sleep on them. A boat came in yesterday with sixty people, and I fed all of them. My wife cooked until midnight."
+   }
+  },
+  {
+   "card": "asks:a35-tm-innkeeper.1",
+   "text": "The Tremont, the Couch brothers' place at Lake and Dearborn, is the newest and the grandest, with real beds. The Sauganash is the merriest, because Mark Beaubien plays the fiddle and dances with the guests. I keep the cleanest, though nobody gives me any credit for it. Go and see Ira Couch. He will show you his new bedsteads as if they were his children.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The Tremont, the Couch brothers' place at Lake and Dearborn, is the newest and fanciest. It has real beds. The Sauganash is the most fun, because Mark Beaubien plays the fiddle and dances with the guests. Mine is the cleanest, but nobody gives me credit for it. Go and see Ira Couch. He will show you his new beds as if they were his children."
+   }
+  },
+  {
+   "card": "asks:a35-tm-youth-bridge",
+   "text": "The drawbridge at Dearborn Street? Everybody has. It goes up in the middle so the schooners can get through, and when it is up everybody stands on both sides shouting at each other. Last week a man was so busy shouting he walked his horse into the river.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The drawbridge at Dearborn Street? Everybody has. It opens up in the middle to let the ships through. When it is up, people stand on both sides shouting at each other. Last week a man was so busy shouting that he walked his horse into the river."
+   }
+  },
+  {
+   "card": "asks:a35-tm-auction",
+   "text": "The auctioneers, selling lots. A man stands on a barrel outside the land office or on the porch of a tavern with a map and a hammer, and sells a piece of ground that half the bidders have never seen and the other half could not find. Going, going, gone, and somebody has bought a piece of wet prairie for five hundred dollars.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "That is the auctioneers, selling land. A man stands on a barrel outside the land office, or on a tavern porch, with a map and a hammer. He sells land that half the buyers have never seen, and the other half could not find. \"Going, going, gone!\" And somebody has bought a piece of wet prairie for five hundred dollars."
+   }
+  },
+  {
+   "card": "asks:a35-tm-politics",
+   "text": "The board of trustees, five men elected each year, since the town was incorporated two summers ago. They pass ordinances about pigs in the streets and fires and the market, and nobody pays them any mind until somebody's pig eats somebody's cabbages. Then there is a meeting.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "The town has had a board of five men since it became a real town two summers ago. They are voted in each year. They make rules about pigs in the streets, fires and the market. Nobody pays them any attention until somebody's pig eats somebody's cabbages. Then there is a meeting.",
+    "11-13": "The board of trustees: five men voted in each year, since the town was set up two summers ago. They make rules about pigs in the streets, about fires and about the market. Nobody pays them any attention until somebody's pig eats somebody's cabbages. Then there is a meeting."
+   }
+  },
+  {
+   "card": "asks:a35-tm-butcher",
+   "text": "Cattle are driven in from the prairie and from as far as Indiana and Ohio. Mr. Clybourne has the slaughterhouse up the North Branch and sells beef to the fort and the town. In the autumn they kill hogs by the thousand and pack them in salt in barrels for the boats east.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Cattle are driven in from the prairie, and from as far away as Indiana and Ohio. Mr. Clybourne has the slaughterhouse up the North Branch. He sells beef to the fort and the town. In the fall they kill thousands of pigs. They pack the meat in salt in barrels for the boats going east."
+   }
+  },
+  {
+   "card": "asks:a35-tm-gambler",
+   "text": "Drink, play cards, argue about land, and drink. There are more taverns than churches and more card tables than both. On a Saturday night you can hear the fiddles from three houses at once, and a fight starts somewhere about eleven and finishes about half past.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "They drink, play cards, argue about land, and drink some more. There are more bars than churches, and more card tables than both. On a Saturday night you can hear fiddles from three houses at once. A fight starts at about eleven and ends at about half past."
+   }
+  },
+  {
+   "card": "asks:a35-tm-gambler.1",
+   "text": "There is a debating society that meets at the Lyceum and argues about whether the canal or the railroad is the future. There is a temperance society that meets on the same night, and loses members to the debating society, which serves punch. And there is the church, for those who are tired of the rest.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "There is a club that meets at the Lyceum hall to argue about whether the canal or the railroad is the future. There is a club against drinking that meets the same night. It loses members to the arguing club, which serves punch. And there is the church, for people who are tired of all the rest.",
+    "11-13": "There is a debating club that meets at the Lyceum and argues about whether the canal or the railroad is the future. There is a club against drinking that meets on the same night. It loses members to the debating club, which serves punch. And there is the church, for those who are tired of the rest."
+   }
+  },
+  {
+   "card": "asks:a35-tm-prairie-farmer",
+   "text": "A few, out along the North Branch and the Des Plaines and south towards the Calumet. The ground is the richest I have ever seen, black and deep, but it is so wet in spring and so hard to break that most men here would rather buy and sell it than plough it.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A few, out along the North Branch and the Des Plaines River, and south toward the Calumet. The soil is the richest I have ever seen, black and deep. But it is so wet in spring and so hard to plow that most men here would rather buy and sell it than farm it."
+   }
+  },
+  {
+   "card": "asks:a35-tm-fire",
+   "text": "Everybody runs with buckets. There is no engine yet, and no company, only a law that every householder must keep two leather buckets and turn out when the alarm is given. The houses are all wood and close together and the wind off the prairie is strong. One bad night and the whole town could go.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Everybody runs with buckets. There is no fire engine yet, and no fire team. There is only a law that every house must keep two leather buckets, and everyone must come when the alarm rings. The houses are all wood and close together. The wind off the prairie is strong. One bad night and the whole town could burn."
+   }
+  },
+  {
+   "card": "asks:a35-tm-letters",
+   "text": "From Mr. Hogan's post office, which is a room behind his store. The mail comes overland from Detroit or round by the lake, once or twice a week if the roads are open. When it comes in, half the town is at the door, and he calls the names out like a schoolmaster.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "From Mr. Hogan's post office. It is a room behind his store. The mail comes over land from Detroit, or around by the lake. It comes once or twice a week, if the roads are open. When it comes, half the town is at the door. He calls out the names like a teacher."
+   }
+  },
+  {
+   "card": "asks:a35-tm-church-building",
+   "text": "That one is the Presbyterians', built two years ago, and the minister is Mr. Porter, who came with the soldiers from the Sault two summers ago. The Baptists meet down by the fort, the Methodists in a house, and the Catholics have Saint Mary's. The Episcopalians are building. Everyone has a church in Chicago except the people who most need one.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "That one is the Presbyterian church. It was built two years ago. The minister is Mr. Porter. He came here with the soldiers two summers ago. The Baptists meet by the fort. The Methodists meet in a house. The Catholics have St. Mary's. The Episcopal church is being built. Everyone in Chicago has a church, except the people who need one most."
+   }
+  },
+  {
+   "card": "asks:a35-tm-jackson.1",
+   "text": "Until next year's election, and then his man Van Buren, they say. The Whigs here hate him. The Democrats here hold all the government posts. In Chicago, a man's politics are generally his job.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Until next year's vote. Then people say his friend Van Buren will win. The Whigs here hate Jackson. The Democrats here hold all the government jobs. In Chicago, what a man thinks usually matches his job."
+   }
+  },
+  {
+   "card": "asks:a35-tm-schooner",
+   "text": "Two years on the schooners, from Buffalo to Chicago and Green Bay. Salt, flour, whiskey and settlers out; hides and lead and grain back. The lake is harder than the sea, the old salts say: short steep waves, no room to run, and a lee shore all round.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Two years on the sailing ships, from Buffalo to Chicago and Green Bay. We carry salt, flour, whiskey and settlers out. We bring back animal skins, lead and grain. The old sailors say the lake is harder than the sea. The waves are short and steep. There is no room to run from a storm, and the shore is close on every side."
+   }
+  },
+  {
+   "card": "asks:a35-tm-carpenter-canadien.1",
+   "text": "Everybody does. Charles is a carpenter like me, and his sister Madeleine keeps a boarding house, and Archange makes dresses for the Yankee ladies. Their family has been here since before the fort. Go and ask Charles. He will tell you where the old houses stood.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Everybody does. Charles is a carpenter like me. His sister Madeleine runs a rooming house. Archange makes dresses for the Yankee ladies. Their family has been here since before the fort. Go and ask Charles. He will tell you where the old houses stood."
+   }
+  },
+  {
+   "card": "asks:a35-tm-black-resident",
+   "text": "Three years. I came up from Kentucky by way of Indiana, with free papers in my pocket that I show to anybody who asks and some who do not. Illinois is a free state, they say, but it makes a man of my colour post a bond and carry a certificate. Free is a word with a lot of small print.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Three years. I came up from Kentucky by way of Indiana. I carry papers that say I am free. I show them to anybody who asks, and to some who don't. People say Illinois is a free state. But a man of my color must pay money to the county and carry a paper. Free is a word with a lot of small print."
+   }
+  },
+  {
+   "card": "asks:a35-tm-surveyor",
+   "text": "Surveying. Every lot in this town has to be measured, staked and written down, and every one of them is being sold three times this summer. The surveyor goes out with his chain and his compass and his boy with the stakes. Half of them are measuring land that is under water half the year.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He is measuring land. Every piece of land in this town has to be measured, marked with stakes, and written down. This summer every piece is being sold three times. The man goes out with his chain, his compass, and a boy who carries the stakes. Half of them are measuring land that is under water half the year."
+   }
+  },
+  {
+   "card": "asks:a35-tm-surveyor.1",
+   "text": "Accurate enough to start a lawsuit. Every stake is somebody's fortune, and every surveyor's mistake is somebody else's. The old settlers' fences were put where the cows wanted them, and the new lines go where the map says. When the two meet, there is always a fence in somebody's yard.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Good enough to start a fight in court. Every stake is somebody's fortune. Every mistake is somebody else's loss. The old settlers put their fences where the cows wanted them. The new lines go where the map says. When the two meet, there is always a fence in somebody's yard."
+   }
+  },
+  {
+   "card": "asks:a35-tm-saloon",
+   "text": "Depends what you want from it. If you want company, the Sauganash, where Mark Beaubien will play the fiddle. If you want it cheap, any shanty by the river. If you want to stay alive, avoid the fellow with one eye down by the landing who sells it out of a barrel he swears is from Kentucky.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "It depends what you want from it. If you want friends, go to the Sauganash, where Mark Beaubien plays the fiddle. If you want it cheap, go to any shack by the river. If you want to stay alive, stay away from the man with one eye down by the dock. He sells it from a barrel he swears came from Kentucky."
+   }
+  },
+  {
+   "card": "asks:a35-tm-old-settler",
+   "text": "The Kinzies, the Beaubiens, the Ouilmettes, the Laframboises, a few soldiers, the traders and their families. A hundred people, perhaps, in thirty-one. Now there are three thousand. The old settlers stand at the corner and watch the new ones arrive like a man watching a flood rise over his field.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The Kinzies, the Beaubiens, the Ouilmettes, the Laframboises, a few soldiers, and the traders and their families. In 1831 there were maybe a hundred people. Now there are three thousand. The old settlers stand on the corner and watch the new ones come. It is like a man watching a flood rise over his field."
+   }
+  },
+  {
+   "card": "asks:a35-tm-stage",
+   "text": "There is one to Ottawa and one to Detroit, by way of Niles, when the roads let it go. It is a mud wagon on springs with leather curtains. You sit on a board, you are thrown against the roof at every rut, and when the wheels stick the passengers get out and push.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "There is one to Ottawa, and one to Detroit by way of Niles, when the roads let it go. It is a mud wagon on springs, with leather curtains. You sit on a board. You bang your head on the roof at every bump. When the wheels get stuck, the riders get out and push."
+   }
+  },
+  {
+   "card": "asks:a35-tm-loan",
+   "text": "Easily, and that is the trouble. There is no bank in Chicago yet, but there will be, and meanwhile every merchant gives credit and every land buyer gives notes. A man who owes a thousand dollars and owns lots worth five thousand feels very rich indeed. A man who owes a thousand dollars and owns lots that nobody wants is in trouble.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Easily, and that is the trouble. There is no bank in Chicago yet. There will be one. Until then, every store owner lets people buy now and pay later. Every land buyer writes promises to pay. A man who owes a thousand dollars and owns land worth five thousand feels very rich. A man who owes a thousand dollars and owns land nobody wants is in trouble."
+   }
+  },
+  {
+   "card": "asks:a35-allen-sand",
+   "text": "Sand. The current along this shore carries sand south, and every storm piles it against the north pier and pushes it round the end into the channel. I dredge, I extend the pier, the sand follows. It is a race between the government's money and the lake's patience, and the lake has more of both.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Sand. The water along this shore carries sand south. Every storm piles it against the north pier and pushes it around the end into the channel. I dig it out. I make the pier longer. The sand follows. It is a race between the government's money and the lake's patience. The lake has more of both."
+   }
+  },
+  {
+   "card": "asks:a35-jb-families",
+   "text": "I first came through as a young trader for the Mackinac houses, more than twenty-five years ago, and I have lived here since before the war ended. My first wife was Ottawa, and my second is Josette, whom you may know. Between them I have so many children that I count at supper and still miss one.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I first came through as a young trader more than twenty-five years ago. I have lived here since before the war ended. My first wife was Ottawa. My second wife is Josette. You may know her. Between them I have so many children that I count them at supper and still miss one."
+   }
+  },
+  {
+   "card": "asks:a35-jb-families.2",
+   "text": "That on such a day this spring, Jean Baptiste Beaubien entered the land called the Fort Dearborn reservation at the land office of the United States, and paid for it in full. Ninety-four dollars and sixty-one cents. The major says it is worth nothing. Then why is he so angry?",
+   "own": "11-13",
+   "levels": {
+    "8-10": "It says that on a day this spring, Jean Baptiste Beaubien bought the land called the Fort Dearborn reservation. He bought it at the United States land office and paid in full. It cost ninety-four dollars and sixty-one cents. The major says it is worth nothing. Then why is he so angry?"
+   }
+  },
+  {
+   "card": "asks:a35-josette-today.1",
+   "text": "My Laframboise cousins keep boarding houses and make dresses and build houses. Madeleine has a house full of young men who eat like wolves. Go and see her. She is the only person in Chicago who can make a land speculator wash his hands before supper.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "My Laframboise cousins run rooming houses, make dresses and build houses. Madeleine has a house full of young men who eat like wolves. Go and see her. She is the only person in Chicago who can make a land buyer wash his hands before supper."
+   }
+  },
+  {
+   "card": "asks:a35-mark-sauganash",
+   "text": "For Billy Caldwell, my friend, whom the Potawatomi call Sauganash, the Englishman. He is the best-read man in this country and the worst dancer, and he has stayed at my house more nights than he has at his own. When I painted the name on the front, he stood in the mud and read it twice and did not say anything, and then he bought everybody a drink.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "It is named for my friend Billy Caldwell. The Potawatomi call him Sauganash, which means the Englishman. He has read more books than anyone in this land, and he is the worst dancer. He has slept at my house more nights than at his own. When I painted the name on the front, he stood in the mud and read it twice. He said nothing. Then he bought everybody a drink.",
+    "11-13": "For my friend Billy Caldwell, whom the Potawatomi call Sauganash, the Englishman. He has read more than any man in this country, and he is the worst dancer. He has stayed at my house more nights than at his own. When I painted the name on the front, he stood in the mud and read it twice and said nothing. Then he bought everybody a drink."
+   }
+  },
+  {
+   "card": "asks:a35-caldwell-justice",
+   "text": "I marry people, I hear small quarrels about pigs and debts and whose fence is where, and I fine drunks. It is the most American thing that has ever happened to me. A man who rode with Tecumseh, now telling a Yankee he must pay for his neighbour's cabbages.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I marry people. I settle small fights about pigs, money and whose fence is where. I fine drunk men. It is the most American thing that has ever happened to me. I rode with Tecumseh. Now I tell a Yankee he must pay for his neighbor's cabbages."
+   }
+  },
+  {
+   "card": "asks:a35-carpenter-sunday",
+   "text": "Forty or fifty, some Sundays, from every kind of family: Yankee, French, Irish, a few Potawatomi from the camps. I teach them their letters from the Bible, and some hymns, and how to sit still for an hour, which is the hardest lesson of all in Chicago.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Forty or fifty, some Sundays. They come from every kind of family: Yankee, French, Irish, and a few Potawatomi from the camps. I teach them their letters from the Bible, and some hymns. I teach them how to sit still for an hour. In Chicago, that is the hardest lesson of all.",
+    "11-13": "Forty or fifty, some Sundays, from every kind of family: Yankee, French, Irish, and a few Potawatomi from the camps. I teach them their letters from the Bible, and some hymns, and how to sit still for an hour. That is the hardest lesson of all in Chicago."
+   }
+  },
+  {
+   "card": "asks:a35-carpenter-sunday.1",
+   "text": "Mr. Porter, the Presbyterian minister, and his new wife, who was Miss Chappel, the schoolteacher. Between us we have taught half the children of this town to read. Mr. Watkins, the first schoolmaster, sends me his scholars on Sundays. Go and ask him which of them learned their letters from the Bible and which from his charcoal boards.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Mr. Porter helps. He is the Presbyterian minister. So does his new wife, who was Miss Chappel, the teacher. Together we have taught half the kids in town to read. Mr. Watkins, the first teacher here, sends me his students on Sundays. Go and ask him which ones learned to read from the Bible, and which from his charcoal boards."
+   }
+  },
+  {
+   "card": "asks:a35-clybourne-treaty",
+   "text": "Every day for two weeks I killed cattle from dawn and my men cut and carried. Eight thousand people, Potawatomi and Ottawa and Ojibwe, camped all round the town, and the government paid me to feed them while the chiefs and the commissioners talked. I never saw so much meat go so fast, nor so many people in one place.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "For two weeks I killed cattle every day from dawn. My men cut and carried the meat. Eight thousand people camped all around the town. The government paid me to feed them while the chiefs and the government men talked. I never saw so much meat go so fast. I never saw so many people in one place.",
+    "11-13": "Every day for two weeks I killed cattle from dawn, and my men cut and carried. Eight thousand people, Potawatomi, Ottawa and Ojibwe, camped all around the town. The government paid me to feed them while the chiefs and the government men talked. I never saw so much meat go so fast, or so many people in one place."
+   }
+  },
+  {
+   "card": "asks:a35-clybourne-treaty.1",
+   "text": "I saw the tent and the chiefs going in and out, and Caldwell and Robinson walking up and down talking to everybody. When it was signed there was a great deal of noise and then a great quiet. Go and ask Caldwell what it felt like inside the tent. I only know how it felt at the slaughterhouse.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I saw the tent and the chiefs going in and out. I saw Caldwell and Robinson walking up and down, talking to everybody. When it was signed, there was a lot of noise. Then there was a great quiet. Go and ask Caldwell what it felt like inside the tent. I only know how it felt at the slaughterhouse."
+   }
+  },
+  {
+   "card": "asks:a35-couch-tremont",
+   "text": "My brother James and I put it up two years ago at Lake and Dearborn: three storeys of frame, painted, with a real dining room and beds with real mattresses. People said it was too grand for Chicago. It has been full every night since the land sale started.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "My brother James and I built it two years ago at Lake and Dearborn. It has three floors and is painted. It has a real dining room, and beds with real mattresses. People said it was too fancy for Chicago. It has been full every night since the land sale started."
+   }
+  },
+  {
+   "card": "asks:a35-davis-american",
+   "text": "Because a town of three thousand with one paper hears only one opinion, and the opinion of the Democrat is that whatever the President does is right. The American is for the canal, for improvement, for a harbour and a railroad, and against men who hold every office and still want more.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "This town has three thousand people and one paper. So it hears only one side. That paper thinks the President is always right. My paper, the American, wants the canal. It wants a harbor and a railroad, so the town can grow. It is against men who hold every job and still want more.",
+    "11-13": "Because a town of three thousand with one paper hears only one opinion. The Democrat's opinion is that whatever the President does is right. The American is for the canal, for building the town up, for a harbor and a railroad. It is against men who hold every office and still want more.",
+    "14-15": "Because a town of three thousand with one paper hears only one opinion, and the Democrat's opinion is that whatever the President does is right. The American is for the canal, for improvement, for a harbor and a railroad. It is against men who hold every office and still want more."
+   }
+  },
+  {
+   "card": "asks:a35-davis-american.1",
+   "text": "We have subscribers and advertisers and enemies, which is everything a paper needs. Mr. Calhoun is a gentleman and a printer and I respect him. Go and tell him I said so. He will not believe you.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "We have readers, people who pay for ads, and enemies. That is everything a paper needs. Mr. Calhoun is a gentleman and a printer, and I respect him. Go and tell him I said so. He will not believe you."
+   }
+  },
+  {
+   "card": "asks:a35-dole-store.1",
+   "text": "The prairie is grass and the grass feeds cattle and the cattle walk here to the lake. Once there is a canal and a railroad, every animal from here to the Mississippi will come through this town. I may not live to see it, but I can see it from here.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The prairie is grass. The grass feeds cattle. The cattle walk here to the lake. Once there is a canal and a railroad, every animal from here to the Mississippi will come through this town. I may not live to see it. But I can see it from here."
+   }
+  },
+  {
+   "card": "asks:a35-greene-desertion",
+   "text": "Seven this spring. They go over the pickets at night with their boots in their hands and by morning they are carpenters on Lake Street calling themselves something else. The town hides them. A carpenter is worth more to Chicago than a private is to me.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Seven this spring. They climb over the fence at night with their boots in their hands. By morning they are carpenters on Lake Street with new names. The town hides them. A carpenter is worth more to Chicago than a soldier is to me."
+   }
+  },
+  {
+   "card": "asks:a35-hamilton-offices",
+   "text": "By writing very fast and never sleeping. In the morning I record deeds, at noon I hear probate, in the afternoon I am school commissioner, in the evening I am the county clerk. I have one desk and I change hats. Sometimes I forget which hat I have on and sell a school lot to a dead man.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I write very fast and never sleep. In the morning I write down who owns what land. At noon I handle the wills of people who have died. In the afternoon I am in charge of the schools. In the evening I am the county clerk. I have one desk, and I change hats. Sometimes I forget which hat I have on and sell a school's land to a dead man."
+   }
+  },
+  {
+   "card": "asks:a35-johnh-agent",
+   "text": "I was the government's agent at Fort Winnebago for the Winnebago nation: hand out the annuity money and goods, settle quarrels, keep the peace, write a great many reports. Now I am here in Chicago, in business, and helping where I can with the payment and the removal of the Potawatomi.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "I worked for the government at a fort up north. I gave a tribe there the money and goods the treaties said they would get. I settled fights and kept the peace. I wrote lots of reports. Now I am here in Chicago, and I run a business. I help where I can with the payment, and with moving the Potawatomi west.",
+    "11-13": "I was the government's agent at Fort Winnebago, for the Winnebago nation. I handed out the yearly money and goods. I settled quarrels and kept the peace, and I wrote a lot of reports. Now I am in Chicago, in business. I help where I can with the payment and with moving the Potawatomi west.",
+    "14-15": "I was the government's agent at Fort Winnebago for the Winnebago nation. I handed out the yearly money and goods, settled quarrels, kept the peace, and wrote a great many reports. Now I am here in Chicago, in business, helping where I can with the payment and the removal of the Potawatomi."
+   }
+  },
+  {
+   "card": "asks:a35-juliette-supper",
+   "text": "Everyone who matters and some who think they do. The officers from the fort, the doctors, Mr. Hubbard, the Beaubiens, any traveller with a letter of introduction, and once a missionary who stayed six weeks. I give them venison and whitefish and wild rice and whatever came on the last boat. And I make them sing.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Everyone who matters, and some who think they do. The officers from the fort come, and the doctors, and Mr. Hubbard, and the Beaubiens. So does anyone passing through with a letter from a friend. Once a missionary came and stayed six weeks. I give them deer meat, fish, wild rice, and whatever came on the last boat. And I make them sing."
+   }
+  },
+  {
+   "card": "asks:a35-st-cyr-church",
+   "text": "The French Catholics of this town wrote to the Bishop at St. Louis two years ago asking for a priest, and the Bishop sent me. We built a little frame church, twenty-five feet by thirty-five, by the river, for four hundred dollars. The Beaubiens gave most of the money and the Irish gave their backs.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Two years ago the French Catholics of this town wrote to the bishop at St. Louis. They asked for a priest, and the bishop sent me. We built a little wooden church by the river. It was twenty-five feet by thirty-five feet, and it cost four hundred dollars. The Beaubiens gave most of the money. The Irish did most of the work."
+   }
+  },
+  {
+   "card": "asks:a35-st-cyr-church.1",
+   "text": "The French, the Irish, a few Germans, some Potawatomi, and the occasional Yankee who has lost a bet. I say the Mass in Latin, preach in French and English, and hear confession in four languages, badly in two of them. Go and thank Colonel Beaubien for me. He has never let me want for wood in winter.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The French, the Irish, a few Germans, some Potawatomi, and now and then a Yankee who lost a bet. I say the Mass in Latin. I preach in French and English. I hear people's sins in four languages, and two of them badly. Go and thank Colonel Beaubien for me. He has always made sure I have wood in winter."
+   }
+  },
+  {
+   "card": "asks:a35-watkins-pupils",
+   "text": "Some are clerks now, some are married, some have gone west with their families. One of the Beaubien boys keeps the books in a store now, if you can imagine it. Mark Beaubien sent three of his children to me, and every one of them could play the fiddle better than he could read.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Some are clerks now. Some are married. Some have gone west with their families. One of the Beaubien boys keeps the books in a store now. Can you believe it? Mark Beaubien sent three of his kids to me. Every one of them could play the fiddle better than he could read."
+   }
+  },
+  {
    "card": "tales:s35-ch-sauganash",
    "text": "Mr. Beaubien at the Sauganash has more children than anybody in Chicago, and they are all my friends. On Saturday nights we sit on the stairs and watch the grown-ups dance, and Mr. Beaubien plays the fiddle and stamps his foot and sings in French, and everybody spins round and round until they fall over.",
    "own": "11-13",
