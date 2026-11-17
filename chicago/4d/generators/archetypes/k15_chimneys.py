@@ -269,7 +269,12 @@ def stack_solids(s: dict, F: Frame, data: dict, t: float, bottom: float | None =
     y_soot = max(y_head - so["band_m"], cov_hi + fl["upstand_m"] + 0.2)
     shaft_role = f"shaft_{mat}"
 
+    # T-3562: the band is a brick stack's; a stone stack keeps its own stone up to its head
+    # (1815's south stack, the Chicagology oblique: the head's pale stone and its shadowed
+    # mouldings over the shaft, where the darker brick the band laid rendered red)
     def soot_role(out):
+        if mat == "stone":
+            return shaft_role
         x, z = world_dir(F, *out)
         return "soot" if x * lee[0] + z * lee[1] > 1e-9 else shaft_role
     b0 = cov_lo - p["shaft"]["below_covering_m"] if bottom is None else bottom
