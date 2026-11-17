@@ -1,0 +1,7 @@
+{
+  "title": "Aiming at a building always opens it again",
+  "kind": "fix",
+  "items": [
+    "Pressing Space, E or tapping a building could find nothing for a moment while new people were joining the far streets. It now opens the building every time."
+  ]
+}
