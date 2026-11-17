@@ -147,7 +147,9 @@ const fin = (x, d = 0) => (Number.isFinite(x) ? x : d);
 export function createHumanActions({ id = 'human', scene = null, greeting = 'brow', skirt = false, carry = null, fightMotions = null } = {}) {
   // The adults jaunts' motions (human-fight.js), handed in by humans.js so this module stays
   // free of imports beyond three; with none, nothing here ever holds a weapon.
-  const FM = fightMotions && typeof fightMotions.fightTargets === 'function' ? fightMotions : null;
+  // T-3627: or a function answering them, since they load with the first outing.
+  const fightOf = typeof fightMotions === 'function' ? fightMotions : () => fightMotions;
+  const motions = () => { const m = fightOf(); return m && typeof m.fightTargets === 'function' ? m : null; };
   const rand = seededRandom(`actions:${id}`);
   // This person's own arm swing (ARM_SWING.person), from its own stream so it moves no other draw.
   const own = (() => {
@@ -643,7 +645,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     wield(kind) { fight.arm = typeof kind === 'string' && kind ? kind : 'none'; return api; },
     /** Adults jaunts: begin a fight motion (strike, stab, aim, fire, lower, struck), or null to let go. */
     act(kind) {
-      if (kind && !FM?.MOTIONS[kind]) return api;
+      if (kind && !motions()?.MOTIONS[kind]) return api;
       fight.from = fight.last; fight.act = kind || null; fight.t = 0;
       return api;
     },
@@ -883,6 +885,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       // Adults jaunts (owner, 2026-11-15): the weapon in the hand, and the blow, the thrust or the
       // shot it makes (human-fight.js), over everything above; both hands for a long gun.
       {
+        const FM = motions();
         const busy = !!FM && (fight.arm !== 'none' || (fight.act && FM.MOTIONS[fight.act]?.empty));
         fight.w += ((busy ? 1 : 0) - fight.w) * (1 - Math.exp(-7 * dt));
         if (fight.act && FM) {
