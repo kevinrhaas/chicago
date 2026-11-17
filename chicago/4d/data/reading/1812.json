@@ -1,0 +1,1960 @@
+{
+ "_doc": "T-3645: the cards' words at the reader's other ages, written by tools/reading_levels.py from docs/RESEARCH/reading-levels-3645/words. Each entry is one paragraph as a card shows it (`text`), the age it measures at (`own`), and its words at other ages (`levels`); js/reading-level.js lays them under a card's age tabs. Do not edit: edit the words files and run the tool.",
+ "scene": "1812",
+ "entries": [
+  {
+   "card": "stories:black_partridge",
+   "text": "Black Partridge, Muck-otey-pokee in his own language, was a Potawatomi chief from the Illinois River, whose village stood on the south bank opposite the head of Peoria Lake. He had worn an American medal since General Wayne hung it on him at the Treaty of Greenville in 1795, and for seventeen years he kept faith with it.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Black Partridge was a Potawatomi chief. In his own language his name was Muck-otey-pokee. His village was on the Illinois River, across from the top of Peoria Lake. In 1795 General Wayne gave him an American medal at a treaty meeting. For seventeen years he kept his word to the Americans."
+   }
+  },
+  {
+   "card": "stories:black_partridge",
+   "text": "On the night of 14 August 1812 he walked into Captain Heald's quarters with the interpreter and gave the medal back. The young men, he said, could not be held; the 'linden birds' had been singing in his ears. The next morning, painted for war, he found seventeen-year-old Margaret Helm in the shallows of the lake, pulled her out of the fight and led her safe to the camp. On the 16th he sat as a guard on the Kinzies' porch, and he took Mrs. Lee and her baby home to his village.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On the night of 14 August 1812 he went to see Captain Heald, with a man to turn his words into English. He gave the medal back. He said he could not hold back the young men. Birds had been singing in his ears, he said. The next morning he was painted for war. He found Margaret Helm, who was seventeen, in the water at the edge of the lake. He pulled her out of the fight and led her safely to the camp. On the 16th he sat on the Kinzies' porch to guard them. He took Mrs. Lee and her baby home to his village."
+   }
+  },
+  {
+   "card": "stories:black_partridge",
+   "text": "His own village was destroyed in a single day in the war that followed. Andreas tells that he later bought Lieutenant Helm's freedom from the Kankakee with his pony, his rifle and the gold ring he wore in his nose.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In the war that came next, his own village was wiped out in one day. A writer named Andreas tells that he later set Lieutenant Helm free. He paid the Kankakee people with his pony, his gun and the gold ring he wore in his nose."
+   }
+  },
+  {
+   "card": "stories:blackbird",
+   "text": "Black Bird, Mucketepennese to his own people and Letourneau to the French, was the Potawatomi war leader on 15 August 1812. That spring he was counted with Pepper's band on the Au Sable, and the year before he had sat in council with the Americans at Peoria.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Black Bird was called Mucketepennese by his own people. The French called him Letourneau. He was the Potawatomi war leader on 15 August 1812. That spring he was counted with Pepper's band on the Au Sable River. The year before, he had met with the Americans at Peoria."
+   }
+  },
+  {
+   "card": "stories:blackbird",
+   "text": "When the fighting on the sand ridge was over, Captain Heald walked out alone toward the warriors. Black Bird came to meet him with an interpreter and asked him to surrender, promising that the prisoners' lives would be spared. Heald gave up. Quaife thought him the son of the chief who had helped the Americans raid St. Joseph in 1781.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "When the fight on the sand hill was over, Captain Heald walked out alone toward the warriors. Black Bird came to meet him, with a man to turn his words into English. He asked Heald to give up. He promised that the prisoners would not be killed. Heald gave up. A writer named Quaife thought Black Bird's father was the chief who helped the Americans attack St. Joseph in 1781."
+   }
+  },
+  {
+   "card": "stories:burns_thomas",
+   "text": "Thomas Burns had been a soldier at the fort, and when his time was up he stayed, building a house on the north bank near where the Indian agency would later stand. He married a widow, Mrs. Cooper, and took on her children as his own.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Thomas Burns had been a soldier at the fort. When his time was done, he stayed. He built a house on the north bank of the river. He married a widow, Mrs. Cooper, and raised her children as his own."
+   }
+  },
+  {
+   "card": "stories:burns_thomas",
+   "text": "In April 1812, after the killings at Lee's farm, Heald enrolled the men of the settlement as militia, and Burns was made their sergeant. On 15 August he marched out with the twelve. He was badly wounded in the fight, and about an hour after the surrender he was killed where he lay.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In April 1812 people were killed at Lee's farm. After that, Heald made the men of the town into a small army called the militia. Burns was put in charge of them, as their sergeant. On 15 August he marched out with the twelve men. He was badly hurt in the fight. About an hour after the Americans gave up, he was killed where he lay."
+   }
+  },
+  {
+   "card": "stories:burns_mrs",
+   "text": "Mrs. Burns had been Mrs. Cooper before she married Thomas Burns, and she brought a houseful of children to the house on the north bank. In April 1812, when word of the Lee farm killings sent everyone running for the fort, she had given birth only the day before; the Kinzies carried her down to the boat on her bed with the newborn in her arms.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Mrs. Burns was once called Mrs. Cooper. Then she married Thomas Burns. She brought a house full of kids to his home on the north bank. In April 1812, people were killed at Lee's farm, and everyone ran to the fort. She had had a baby just the day before. The Kinzies carried her to the boat on her bed, with the new baby in her arms."
+   }
+  },
+  {
+   "card": "stories:burns_mrs",
+   "text": "On 15 August she lost her husband, her son Joseph and her two next-youngest children. She and her daughters were taken captive and spent two years among the Indians before traders bought them at Mackinac and sent them to Detroit. By 1820 she was living in Detroit, a widow keeping her three surviving children by her own work.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August she lost her husband. She lost her son Joseph and two more of her kids too. She and her girls were taken prisoner. They lived with the Indians for two years. Then traders paid to get them back at Mackinac and sent them to Detroit. By 1820 she lived in Detroit. Her husband was gone, and she worked hard to raise her three kids who lived."
+   }
+  },
+  {
+   "card": "stories:cooper_joseph",
+   "text": "Joseph Cooper (some accounts say James) was Mrs. Burns's son by her first marriage and Thomas Burns's stepson. When Heald formed a militia from the men of the settlement in April 1812, he joined his stepfather in it.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Joseph Cooper was the son of Mrs. Burns from her first marriage. Some stories call him James. Thomas Burns was his stepdad. In April 1812 Heald made the men of the town into a small army called the militia. Joseph joined it with his stepdad."
+   }
+  },
+  {
+   "card": "stories:cooper_joseph",
+   "text": "He marched with the militia on 15 August, and every one of the twelve was killed that morning, Joseph among them.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August he marched out with the militia. All twelve of them were killed that morning. Joseph was one of them."
+   }
+  },
+  {
+   "card": "stories:cooper_isabella",
+   "text": "Isabella Cooper was about nine years old in the summer of 1812, a daughter of Mrs. Burns by her first husband. On 15 August a warrior seized her, and though only a child she fought him with everything she had. She was scalped, and an old woman of the camp saved her life.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Isabella Cooper was about nine in the summer of 1812. She was a daughter of Mrs. Burns from her first marriage. On 15 August a warrior grabbed her. She was only a child, but she fought back as hard as she could. She was badly hurt on her head. An old woman of the camp saved her life."
+   }
+  },
+  {
+   "card": "stories:cooper_isabella",
+   "text": "She spent two years in captivity with her mother and sister. In 1816 she went to live with the Edwards family in Detroit, who remembered her at thirteen still carrying the scar. She grew up, married a man named Farnum, and lived many years in Detroit.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "She was a prisoner for two years with her mom and sister. In 1816 she went to live with the Edwards family in Detroit. They remembered that at thirteen she still had the scar. She grew up and married a man named Farnum. She lived in Detroit for many years."
+   }
+  },
+  {
+   "card": "stories:burns_infant",
+   "text": "The Burns baby was born in April 1812, the day before the alarm that sent the whole settlement into the fort; she was carried to safety in her mother's arms, on her mother's bed, aboard the Kinzie boat.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The Burns baby was born in April 1812. The very next day, everyone ran to the fort to be safe. Her mom held her on her bed as they carried them onto the Kinzie boat."
+   }
+  },
+  {
+   "card": "stories:burns_infant",
+   "text": "In captivity after 15 August a tomahawk struck her and she lived. Twenty-two years later, on a steamboat, a young woman came up to Juliette Kinzie, said her name, lifted the hair from her forehead and showed the scar.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "After 15 August, when she was a prisoner, she was hit by a hatchet, and she lived. Twenty-two years later, a young woman walked up to Juliette Kinzie on a steamboat. She said her name. She lifted the hair from her forehead and showed the scar."
+   }
+  },
+  {
+   "card": "stories:burns_child_b",
+   "text": "Another of Mrs. Burns's younger children, whose name no one wrote down. In the spring of 1812 the family left their house on the north bank for the safety of the fort.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This was another of Mrs. Burns's young kids. No one wrote down the child's name. In the spring of 1812 the family left their house on the north bank to be safe in the fort."
+   }
+  },
+  {
+   "card": "stories:burns_child_b",
+   "text": "On 15 August the wagon carrying the children of the post was overrun. Mrs. Burns's two children next in age after Isabella died there, and this child was one of them.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August the wagon with the children of the fort was attacked. Mrs. Burns's two kids who came after Isabella died there. This child was one of them."
+   }
+  },
+  {
+   "card": "stories:caldwell_billy",
+   "text": "Billy Caldwell, called Sauganash, 'the Englishman', was born about 1780 to a Potawatomi mother and an Irish-born British officer. In 1812 he rode with Tecumseh and the British, and the accounts agree he was not at Chicago when the garrison marched out.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Billy Caldwell was also called Sauganash. That means \"the Englishman.\" He was born around 1780. His mom was Potawatomi, and his dad was a British officer born in Ireland. In 1812 he rode with Tecumseh and the British. All the old stories agree he was not at Chicago when the soldiers marched out.",
+    "11-13": "Billy Caldwell was called Sauganash, which means \"the Englishman.\" He was born about 1780. His mother was Potawatomi, and his father was a British officer born in Ireland. In 1812 he rode with Tecumseh and the British. The old accounts agree that he was not at Chicago when the soldiers marched out."
+   }
+  },
+  {
+   "card": "stories:caldwell_billy",
+   "text": "Juliette Kinzie's Wau-Bun brings him across the river by canoe on the 16th, just as a war party from the Wabash came to the Kinzie house in an ugly mood, and has him talk them down and save the family. He later led the united bands at the treaty of 1833, went west with them in 1836, and died at Council Bluffs in 1841.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "A book by Juliette Kinzie, called Wau-Bun, tells it this way. He came across the river by canoe on the 16th. Just then, angry warriors from the Wabash came to the Kinzie house. He talked them down and saved the family. Later he led the joined bands at the treaty of 1833. He went west with them in 1836. He died at Council Bluffs in 1841.",
+    "11-13": "Juliette Kinzie's book Wau-Bun brings him across the river by canoe on the 16th. Just then a war party from the Wabash came to the Kinzie house in an angry mood. In her story he talks them down and saves the family. Later he led the joined bands at the treaty of 1833. He went west with them in 1836 and died at Council Bluffs in 1841."
+   }
+  },
+  {
+   "card": "stories:chicago_militia_unnamed_1",
+   "text": "One of the Chicago militia whose name no one recorded: a man of the little settlement, likely a trader's hand or a Frenchman of the river, who took up a musket when the fort called for men.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was one of the Chicago militia, the small army of men from the town. No one wrote down his name. He lived in the little town. He may have worked for a trader, or he may have been a Frenchman from the river. He picked up a gun when the fort asked for men."
+   }
+  },
+  {
+   "card": "stories:chicago_militia_unnamed_1",
+   "text": "Heald enrolled fifteen men of the settlement as militia after the killings at Lee's farm in April 1812. Three deserted; twelve marched out on 15 August, and all twelve were killed. Only a few of their names survive. He stands here for one of the men the record counts but does not name.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In April 1812 people were killed at Lee's farm. After that, Heald signed up fifteen men of the town. Three ran away. Twelve marched out on 15 August, and all twelve were killed. We know only a few of their names. He stands here for one of the men who were counted but never named."
+   }
+  },
+  {
+   "card": "stories:chicago_militia_unnamed_2",
+   "text": "One of the Chicago militia whose name no one recorded: a man of the little settlement, likely a trader's hand or a Frenchman of the river, who took up a musket when the fort called for men.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was one of the Chicago militia, the small army of men from the town. No one wrote down his name. He lived in the little town. He may have worked for a trader, or he may have been a Frenchman from the river. He picked up a gun when the fort asked for men."
+   }
+  },
+  {
+   "card": "stories:chicago_militia_unnamed_2",
+   "text": "Heald enrolled fifteen men of the settlement as militia after the killings at Lee's farm in April 1812. Three deserted; twelve marched out on 15 August, and all twelve were killed. Only a few of their names survive. He stands here for one of the men the record counts but does not name.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In April 1812 people were killed at Lee's farm. After that, Heald signed up fifteen men of the town. Three ran away. Twelve marched out on 15 August, and all twelve were killed. We know only a few of their names. He stands here for one of the men who were counted but never named."
+   }
+  },
+  {
+   "card": "stories:chicago_militia_unnamed_3",
+   "text": "One of the Chicago militia whose name no one recorded: a man of the little settlement, likely a trader's hand or a Frenchman of the river, who took up a musket when the fort called for men.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was one of the Chicago militia, the small army of men from the town. No one wrote down his name. He lived in the little town. He may have worked for a trader, or he may have been a Frenchman from the river. He picked up a gun when the fort asked for men."
+   }
+  },
+  {
+   "card": "stories:chicago_militia_unnamed_3",
+   "text": "Heald enrolled fifteen men of the settlement as militia after the killings at Lee's farm in April 1812. Three deserted; twelve marched out on 15 August, and all twelve were killed. Only a few of their names survive. He stands here for one of the men the record counts but does not name.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In April 1812 people were killed at Lee's farm. After that, Heald signed up fifteen men of the town. Three ran away. Twelve marched out on 15 August, and all twelve were killed. We know only a few of their names. He stands here for one of the men who were counted but never named."
+   }
+  },
+  {
+   "card": "stories:chicago_militia_unnamed_4",
+   "text": "One of the Chicago militia whose name no one recorded: a man of the little settlement, likely a trader's hand or a Frenchman of the river, who took up a musket when the fort called for men.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was one of the Chicago militia, the small army of men from the town. No one wrote down his name. He lived in the little town. He may have worked for a trader, or he may have been a Frenchman from the river. He picked up a gun when the fort asked for men."
+   }
+  },
+  {
+   "card": "stories:chicago_militia_unnamed_4",
+   "text": "Heald enrolled fifteen men of the settlement as militia after the killings at Lee's farm in April 1812. Three deserted; twelve marched out on 15 August, and all twelve were killed. Only a few of their names survive. He stands here for one of the men the record counts but does not name.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In April 1812 people were killed at Lee's farm. After that, Heald signed up fifteen men of the town. Three ran away. Twelve marched out on 15 August, and all twelve were killed. We know only a few of their names. He stands here for one of the men who were counted but never named."
+   }
+  },
+  {
+   "card": "stories:chicago_militia_unnamed_5",
+   "text": "One of the Chicago militia whose name no one recorded: a man of the little settlement, likely a trader's hand or a Frenchman of the river, who took up a musket when the fort called for men.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was one of the Chicago militia, the small army of men from the town. No one wrote down his name. He lived in the little town. He may have worked for a trader, or he may have been a Frenchman from the river. He picked up a gun when the fort asked for men."
+   }
+  },
+  {
+   "card": "stories:chicago_militia_unnamed_5",
+   "text": "Heald enrolled fifteen men of the settlement as militia after the killings at Lee's farm in April 1812. Three deserted; twelve marched out on 15 August, and all twelve were killed. Only a few of their names survive. He stands here for one of the men the record counts but does not name.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In April 1812 people were killed at Lee's farm. After that, Heald signed up fifteen men of the town. Three ran away. Twelve marched out on 15 August, and all twelve were killed. We know only a few of their names. He stands here for one of the men who were counted but never named."
+   }
+  },
+  {
+   "card": "stories:chicago_militia_unnamed_6",
+   "text": "One of the Chicago militia whose name no one recorded: a man of the little settlement, likely a trader's hand or a Frenchman of the river, who took up a musket when the fort called for men.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was one of the Chicago militia, the small army of men from the town. No one wrote down his name. He lived in the little town. He may have worked for a trader, or he may have been a Frenchman from the river. He picked up a gun when the fort asked for men."
+   }
+  },
+  {
+   "card": "stories:chicago_militia_unnamed_6",
+   "text": "Heald enrolled fifteen men of the settlement as militia after the killings at Lee's farm in April 1812. Three deserted; twelve marched out on 15 August, and all twelve were killed. Only a few of their names survive. He stands here for one of the men the record counts but does not name.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In April 1812 people were killed at Lee's farm. After that, Heald signed up fifteen men of the town. Three ran away. Twelve marched out on 15 August, and all twelve were killed. We know only a few of their names. He stands here for one of the men who were counted but never named."
+   }
+  },
+  {
+   "card": "stories:corbin_fielding",
+   "text": "Private Fielding Corbin had served a full five-year term in the First Infantry, gone out, and come back: he re-enlisted in October 1811 and was at Fort Dearborn with his wife in the summer of 1812.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Fielding Corbin was a private, the plainest kind of soldier. He served five full years in the army, left, and then came back. He signed up again in October 1811. In the summer of 1812 he was at Fort Dearborn with his wife."
+   }
+  },
+  {
+   "card": "stories:corbin_fielding",
+   "text": "On 15 August his wife, far along in pregnancy, was killed in the fighting. He was taken prisoner, and two years later he was one of the nine men of the garrison who came home by way of Quebec, reaching Plattsburg, New York, in May 1814.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August his wife was killed in the fight. She was going to have a baby soon. He was taken prisoner. Two years later he was one of nine men from the fort who came home by way of Quebec. They got to Plattsburg, New York, in May 1814."
+   }
+  },
+  {
+   "card": "stories:corbin_mrs",
+   "text": "Mrs. Corbin was the wife of Private Fielding Corbin and lived with him at the fort. Wau-Bun remembers her as a woman who said from the first that she would never fall into the hands of the enemy.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Mrs. Corbin was married to Fielding Corbin, a soldier. She lived with him at the fort. The book Wau-Bun says she told everyone from the start that she would never let the enemy take her."
+   }
+  },
+  {
+   "card": "stories:corbin_mrs",
+   "text": "On 15 August, far advanced in pregnancy, she kept her word: she fought, refused to be taken, and was killed. A later tradition calls her Sukey Corbin, a washerwoman of the post, but even Kirkland, who printed it, trusted it less than the older accounts.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August she kept her word. She was going to have a baby soon. She fought, she would not be taken, and she was killed. A later story calls her Sukey Corbin, and says she washed clothes at the fort. But even Kirkland, the writer who printed that story, did not trust it as much as the older ones."
+   }
+  },
+  {
+   "card": "stories:fettle_louis",
+   "text": "Louis Fettle (Pettell in some accounts) was a French Canadian who was already living at Chicago with his Indian wife when the soldiers arrived to build the fort in 1803. His name turns up in John Kinzie's account books year after year down to 1812.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Louis Fettle came from French Canada. Some stories spell his name Pettell. He lived at Chicago with his Indian wife before the soldiers came to build the fort in 1803. His name shows up in John Kinzie's money books every year until 1812."
+   }
+  },
+  {
+   "card": "stories:fettle_louis",
+   "text": "Then it stops. Quaife believed he marched with the militia on 15 August and died with them. In this town he lives in one of the old log houses on the north bank near the Kinzies.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Then it stops. A writer named Quaife thought he marched with the militia on 15 August and died with them. In this town he lives in one of the old log houses on the north bank, near the Kinzies."
+   }
+  },
+  {
+   "card": "stories:garrison_child_unnamed_1",
+   "text": "A child of the post whose name no one wrote down. Eighteen children went out with the garrison on 15 August, riding in a covered wagon behind the soldiers; eleven can be put to their families by name, and the rest, like this one, are counted only.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This was a child from the fort. No one wrote down the child's name. On 15 August eighteen children rode out with the soldiers, in a covered wagon behind them. We know the families of eleven. The rest, like this child, were only counted."
+   }
+  },
+  {
+   "card": "stories:garrison_child_unnamed_1",
+   "text": "Most likely this child belonged to one of the soldiers' or settlers' families, the Lees, the Burnses, the Holts or the Needses. The wagon was overrun in the fighting, and twelve of the children died.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This child most likely came from a soldier's family or a family from the town. It may have been the Lees, the Burnses, the Holts or the Needses. The wagon was attacked in the fight, and twelve of the children died."
+   }
+  },
+  {
+   "card": "stories:garrison_child_unnamed_2",
+   "text": "A child of the post whose name no one wrote down. Eighteen children went out with the garrison on 15 August, riding in a covered wagon behind the soldiers; eleven can be put to their families by name, and the rest, like this one, are counted only.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This was a child from the fort. No one wrote down the child's name. On 15 August eighteen children rode out with the soldiers, in a covered wagon behind them. We know the families of eleven. The rest, like this child, were only counted."
+   }
+  },
+  {
+   "card": "stories:garrison_child_unnamed_2",
+   "text": "Most likely this child belonged to one of the soldiers' or settlers' families, the Lees, the Burnses, the Holts or the Needses. The wagon was overrun in the fighting, and twelve of the children died.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This child most likely came from a soldier's family or a family from the town. It may have been the Lees, the Burnses, the Holts or the Needses. The wagon was attacked in the fight, and twelve of the children died."
+   }
+  },
+  {
+   "card": "stories:garrison_child_unnamed_3",
+   "text": "A child of the post whose name no one wrote down. Eighteen children went out with the garrison on 15 August, riding in a covered wagon behind the soldiers; eleven can be put to their families by name, and the rest, like this one, are counted only.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This was a child from the fort. No one wrote down the child's name. On 15 August eighteen children rode out with the soldiers, in a covered wagon behind them. We know the families of eleven. The rest, like this child, were only counted."
+   }
+  },
+  {
+   "card": "stories:garrison_child_unnamed_3",
+   "text": "Most likely this child belonged to one of the soldiers' or settlers' families, the Lees, the Burnses, the Holts or the Needses. The wagon was overrun in the fighting, and twelve of the children died.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This child most likely came from a soldier's family or a family from the town. It may have been the Lees, the Burnses, the Holts or the Needses. The wagon was attacked in the fight, and twelve of the children died."
+   }
+  },
+  {
+   "card": "stories:garrison_child_unnamed_4",
+   "text": "A child of the post whose name no one wrote down. Eighteen children went out with the garrison on 15 August, riding in a covered wagon behind the soldiers; eleven can be put to their families by name, and the rest, like this one, are counted only.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This was a child from the fort. No one wrote down the child's name. On 15 August eighteen children rode out with the soldiers, in a covered wagon behind them. We know the families of eleven. The rest, like this child, were only counted."
+   }
+  },
+  {
+   "card": "stories:garrison_child_unnamed_4",
+   "text": "Most likely this child belonged to one of the soldiers' or settlers' families, the Lees, the Burnses, the Holts or the Needses. The wagon was overrun in the fighting, and twelve of the children died.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This child most likely came from a soldier's family or a family from the town. It may have been the Lees, the Burnses, the Holts or the Needses. The wagon was attacked in the fight, and twelve of the children died."
+   }
+  },
+  {
+   "card": "stories:garrison_child_unnamed_5",
+   "text": "A child of the post whose name no one wrote down. Eighteen children went out with the garrison on 15 August, riding in a covered wagon behind the soldiers; eleven can be put to their families by name, and the rest, like this one, are counted only.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This was a child from the fort. No one wrote down the child's name. On 15 August eighteen children rode out with the soldiers, in a covered wagon behind them. We know the families of eleven. The rest, like this child, were only counted."
+   }
+  },
+  {
+   "card": "stories:garrison_child_unnamed_5",
+   "text": "Most likely this child belonged to one of the soldiers' or settlers' families, the Lees, the Burnses, the Holts or the Needses. The wagon was overrun in the fighting, and twelve of the children died.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This child most likely came from a soldier's family or a family from the town. It may have been the Lees, the Burnses, the Holts or the Needses. The wagon was attacked in the fight, and twelve of the children died."
+   }
+  },
+  {
+   "card": "stories:garrison_child_unnamed_6",
+   "text": "A child of the post whose name no one wrote down. Eighteen children went out with the garrison on 15 August, riding in a covered wagon behind the soldiers; eleven can be put to their families by name, and the rest, like this one, are counted only.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This was a child from the fort. No one wrote down the child's name. On 15 August eighteen children rode out with the soldiers, in a covered wagon behind them. We know the families of eleven. The rest, like this child, were only counted."
+   }
+  },
+  {
+   "card": "stories:garrison_child_unnamed_6",
+   "text": "Most likely this child belonged to one of the soldiers' or settlers' families, the Lees, the Burnses, the Holts or the Needses. The wagon was overrun in the fighting, and twelve of the children died.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This child most likely came from a soldier's family or a family from the town. It may have been the Lees, the Burnses, the Holts or the Needses. The wagon was attacked in the fight, and twelve of the children died."
+   }
+  },
+  {
+   "card": "stories:garrison_child_unnamed_7",
+   "text": "A child of the post whose name no one wrote down. Eighteen children went out with the garrison on 15 August, riding in a covered wagon behind the soldiers; eleven can be put to their families by name, and the rest, like this one, are counted only.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This was a child from the fort. No one wrote down the child's name. On 15 August eighteen children rode out with the soldiers, in a covered wagon behind them. We know the families of eleven. The rest, like this child, were only counted."
+   }
+  },
+  {
+   "card": "stories:garrison_child_unnamed_7",
+   "text": "Most likely this child belonged to one of the soldiers' or settlers' families, the Lees, the Burnses, the Holts or the Needses. The wagon was overrun in the fighting, and twelve of the children died.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This child most likely came from a soldier's family or a family from the town. It may have been the Lees, the Burnses, the Holts or the Needses. The wagon was attacked in the fight, and twelve of the children died."
+   }
+  },
+  {
+   "card": "stories:hays_otho",
+   "text": "Sergeant Otho Hays signed on in April 1811 and by every account of the fight was among the bravest men in Heald's company. Among the warriors who knew the fort was Nau-non-gee, a chief of the Calumet village, to whom Hays had shown many kindnesses.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Otho Hays was a sergeant, a soldier in charge of other soldiers. He joined in April 1811. Every story of the fight says he was one of the bravest men in Heald's company. One of the warriors who knew the fort was Nau-non-gee, a chief from the Calumet village. Hays had been kind to him many times."
+   }
+  },
+  {
+   "card": "stories:hays_otho",
+   "text": "On 15 August the two men met in the fight. As the story was first told by John Kinzie to Henry Schoolcraft in 1820, Hays drove his bayonet into the warrior's breast up to the socket, and in the same moment took the blow that killed him. Nau-non-gee died of the wound some days later at his village.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August the two men met in the fight. John Kinzie first told the story to Henry Schoolcraft in 1820. He said each man gave the other a deadly wound at the same moment. Hays died there. Nau-non-gee died a few days later at his village."
+   }
+  },
+  {
+   "card": "stories:crozier_john",
+   "text": "Sergeant John Crozier had served at Fort Dearborn since July 1808, one of the old hands of the company.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "John Crozier was a sergeant, a soldier in charge of other soldiers. He had been at Fort Dearborn since July 1808. He was one of the old hands of the company."
+   }
+  },
+  {
+   "card": "stories:crozier_john",
+   "text": "He survived the fight on 15 August and was led off a prisoner to the Au Sable River. There a Chippewa man, an old friend of his, took him away to Green Bay and so set him free. Lieutenant Helm, writing his list of survivors, wrongly marked him a deserter; Crozier was among the sergeants alive at Detroit that autumn.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He lived through the fight on 15 August. He was taken as a prisoner to the Au Sable River. There a Chippewa man, an old friend, took him away to Green Bay and set him free. Lieutenant Helm made a list of the soldiers who lived. By mistake, he wrote that Crozier had run away. But Crozier was one of the sergeants alive at Detroit that fall."
+   }
+  },
+  {
+   "card": "stories:griffith_william",
+   "text": "William Griffith was a civilian of the settlement until the killings at Lee's farm in April 1812; on 1 May he enlisted at Chicago itself and was soon a sergeant. It was Griffith who later told how Black Partridge warned that the 'linden birds' had been singing in his ears.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "William Griffith lived in the town. He was not a soldier until April 1812, when people were killed at Lee's farm. On 1 May he joined the army right here at Chicago. Soon he was a sergeant. Later it was Griffith who told how Black Partridge gave a warning. Birds had been singing in his ears, the chief said."
+   }
+  },
+  {
+   "card": "stories:griffith_william",
+   "text": "On 15 August Topenebe, the St. Joseph chief, took him prisoner and then let him hide. Griffith escaped with Captain and Mrs. Heald by canoe to Mackinac and travelled home with them by Detroit and Pittsburgh. Eight years later he wrote to Heald to help Mrs. Burns win her widow's pension.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August Topenebe, the chief from St. Joseph, took him prisoner. Then he let Griffith hide. Griffith got away by canoe to Mackinac with Captain and Mrs. Heald. He went home with them by way of Detroit and Pittsburgh. Eight years later he wrote to Heald. He wanted to help Mrs. Burns get money from the army, since her husband had died."
+   }
+  },
+  {
+   "card": "stories:forth_thomas",
+   "text": "Corporal Thomas Forth enlisted in July 1807 for five years, and his time ran out on 6 July 1812, five weeks before the evacuation. The roll records no re-enlistment, but the garrison's count of men marching out still holds him.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Thomas Forth was a corporal, a soldier with a small rank. He joined in July 1807 for five years. His time ran out on 6 July 1812, five weeks before the soldiers left the fort. No record says he signed up again. But he was still counted among the men who marched out."
+   }
+  },
+  {
+   "card": "stories:forth_thomas",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:bowen_joseph",
+   "text": "Corporal Joseph Bowen joined the company in April 1811. He came through the fight on 15 August and was carried off by the Fox River people, among whom he lived as a prisoner for about nine months.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Joseph Bowen was a corporal, a soldier with a small rank. He joined the company in April 1811. He lived through the fight on 15 August. The Fox River people took him, and he lived with them as a prisoner for about nine months."
+   }
+  },
+  {
+   "card": "stories:bowen_joseph",
+   "text": "Bought back at Chicago, he was sent by way of Amherstburg to Quebec, arriving in November 1813, and in May 1814 he was one of the nine Fort Dearborn men who reached Plattsburg, New York.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Someone paid to get him back at Chicago. He was sent by way of Amherstburg to Quebec, and got there in November 1813. In May 1814 he was one of nine Fort Dearborn men who made it to Plattsburg, New York."
+   }
+  },
+  {
+   "card": "stories:burnett_george",
+   "text": "George Burnett was the company's fifer, a veteran who had been on the rolls since 1806 and signed on again in July 1811. His fife played the garrison through its days: reveille, roll call, the evening gun.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "George Burnett played the fife for the company. A fife is a small flute. He had been a soldier since 1806, and he signed up again in July 1811. His fife marked each part of the soldiers' day. It played when they woke up, when they lined up, and at the evening gun."
+   }
+  },
+  {
+   "card": "stories:burnett_george",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:smith_john_jr",
+   "text": "John Smith the younger was one of the company's two fifers, and his father, Private John Smith, served in the same company. Father and son enlisted three years apart and lived in the same barracks.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "John Smith was the younger of two John Smiths. He was one of the company's two fife players. A fife is a small flute. His dad, also named John Smith, was a soldier in the same company. They joined three years apart and lived in the same barracks."
+   }
+  },
+  {
+   "card": "stories:smith_john_jr",
+   "text": "Both came through 15 August alive, and the younger Smith is counted among the men who made it home.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Both lived through 15 August. The younger Smith is counted with the men who made it home."
+   }
+  },
+  {
+   "card": "stories:mcpherson_hugh",
+   "text": "Hugh McPherson beat the drum for Heald's company. He enlisted in October 1807, and the clerk who copied the roll made a slip that gave him a term running to 1852.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Hugh McPherson played the drum for Heald's company. He joined in October 1807. The man who copied the list made a mistake. It said he would serve until 1852!"
+   }
+  },
+  {
+   "card": "stories:mcpherson_hugh",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:hamilton_john",
+   "text": "John Hamilton was the second drummer, at Fort Dearborn since July 1808. The drums set the soldiers' day, and on the morning of 15 August, Wau-Bun says, the band played the Dead March as the column went out of the gate.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "John Hamilton was the second drummer. He had been at Fort Dearborn since July 1808. The drums told the soldiers what to do all day. The book Wau-Bun says the band played a sad song, the Dead March, as the soldiers marched out of the gate on 15 August."
+   }
+  },
+  {
+   "card": "stories:hamilton_john",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:allin_john",
+   "text": "Private John Allin (Allen on an older roll) enlisted in November 1810 and came out to the frontier post with Heald's company.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "John Allin was a private, the plainest kind of soldier. An older list spells his name Allen. He joined in November 1810. He came out to the fort with Heald's company."
+   }
+  },
+  {
+   "card": "stories:allin_john",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:adams_george",
+   "text": "Private George Adams had served a first term from 1806 and signed on again in August 1811, a veteran of the post.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "George Adams was a private, the plainest kind of soldier. He first joined in 1806. He signed up again in August 1811. He had been at the fort a long time."
+   }
+  },
+  {
+   "card": "stories:adams_george",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:andrews_prestly",
+   "text": "Private Prestly Andrews first enlisted in 1806 and was carried sick on the roll of December 1810; he signed on again in April 1811.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Prestly Andrews was a private, the plainest kind of soldier. He first joined in 1806. In December 1810 the list said he was sick. He signed up again in April 1811."
+   }
+  },
+  {
+   "card": "stories:andrews_prestly",
+   "text": "Lieutenant Helm marked him killed in the fight of 15 August, and he is counted among the twenty-six regulars who died there.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Lieutenant Helm wrote that he was killed in the fight on 15 August. He is counted with the twenty-six soldiers who died there."
+   }
+  },
+  {
+   "card": "stories:corbin_james",
+   "text": "Private James Corbin enlisted in October 1810. Whether he was kin to Fielding Corbin, of the same company, no record says.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "James Corbin was a private, the plainest kind of soldier. He joined in October 1810. Fielding Corbin was in the same company. No record says if they were family."
+   }
+  },
+  {
+   "card": "stories:corbin_james",
+   "text": "He survived the fight and the long captivity after it, and two years later he was one of the nine men of the garrison who came home from captivity by way of Quebec, reaching Plattsburg, New York, in May 1814.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He lived through the fight and the long time as a prisoner after it. Two years later he was one of nine men from the fort who came home by way of Quebec. They got to Plattsburg, New York, in May 1814."
+   }
+  },
+  {
+   "card": "stories:campbell_asa",
+   "text": "Asa Campbell enlisted in January 1810 and was wearing a corporal's stripes by the end of that year; by the spring of 1812 he was a private again.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Asa Campbell joined the army in January 1810. By the end of that year he was a corporal, a soldier with a small rank. By the spring of 1812 he was a plain private again."
+   }
+  },
+  {
+   "card": "stories:campbell_asa",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:dyer_dyson",
+   "text": "Private Dyson Dyer enlisted in October 1810 and was carried sick on the roll that December.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Dyson Dyer was a private, the plainest kind of soldier. He joined in October 1810. In December the list said he was sick.",
+    "11-13": "Private Dyson Dyer joined the army in October 1810. That December, the list of soldiers said he was sick."
+   }
+  },
+  {
+   "card": "stories:dyer_dyson",
+   "text": "Lieutenant Helm wrote him down as killed on 15 August, but Dyer was alive, a prisoner, and two years later he was one of the nine men of the garrison who came home from captivity by way of Quebec, reaching Plattsburg, New York, in May 1814.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Lieutenant Helm wrote that he was killed on 15 August. But Dyer was alive. He was a prisoner. Two years later he was one of nine men from the fort who came home by way of Quebec. They got to Plattsburg, New York, in May 1814.",
+    "11-13": "Lieutenant Helm wrote him down as killed on 15 August. But Dyer was alive, a prisoner. Two years later he was one of the nine men of the fort who came home from captivity by way of Quebec. They reached Plattsburg, New York, in May 1814."
+   }
+  },
+  {
+   "card": "stories:draper_stephen",
+   "text": "Private Stephen Draper had been in the army since 1806 and re-enlisted in April 1811.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Stephen Draper was a private, the plainest kind of soldier. He had been in the army since 1806. He signed up again in April 1811."
+   }
+  },
+  {
+   "card": "stories:draper_stephen",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:daugherty_daniel",
+   "text": "Daniel Daugherty enlisted in August 1807, and on 1 June 1812, with his term two months from its end and war in the air, he signed on again.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Daniel Daugherty joined the army in August 1807. His time was almost up in 1812, and war was coming. So on 1 June 1812 he signed up again."
+   }
+  },
+  {
+   "card": "stories:daugherty_daniel",
+   "text": "He came through the fight of 15 August, and he was alive at Detroit that October, when Woodward named him among the surviving non-commissioned officers.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He lived through the fight on 15 August. He was alive at Detroit that October. A man named Woodward listed him with the soldiers who lived."
+   }
+  },
+  {
+   "card": "stories:denison_micajah",
+   "text": "Private Micajah Denison enlisted in January 1811.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Micajah Denison was a private, the plainest kind of soldier. He joined in January 1811."
+   }
+  },
+  {
+   "card": "stories:denison_micajah",
+   "text": "He was so badly wounded on 15 August that, Woodward wrote, there was little hope he would live. That night five of the wounded prisoners were put to death in the camp, and he is believed to have been one of them.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was hurt very badly on 15 August. A man named Woodward wrote that he was not likely to live. That night five of the hurt prisoners were killed in the camp. People think he was one of them."
+   }
+  },
+  {
+   "card": "stories:edson_nathan",
+   "text": "Private Nathan Edson enlisted in April 1810.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Nathan Edson was a private, the plainest kind of soldier. He joined in April 1810."
+   }
+  },
+  {
+   "card": "stories:edson_nathan",
+   "text": "He was taken prisoner on 15 August and lived through the captivity, and two years later he was one of the nine men of the garrison who came home from captivity by way of Quebec, reaching Plattsburg, New York, in May 1814.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was taken prisoner on 15 August, and he lived. Two years later he was one of nine men from the fort who came home by way of Quebec. They got to Plattsburg, New York, in May 1814."
+   }
+  },
+  {
+   "card": "stories:grummo_paul",
+   "text": "Paul Grummo signed on for five years in October 1810 and was a private of Heald's company at Fort Dearborn in the spring of 1812. Long afterwards he said he spent that summer as a scout, carrying dispatches through the woods between Fort Dearborn and Fort Wayne.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Paul Grummo signed up for five years in October 1810. In the spring of 1812 he was a soldier in Heald's company at Fort Dearborn. Long after, he said he spent that summer as a scout. He said he carried messages through the woods between Fort Dearborn and Fort Wayne."
+   }
+  },
+  {
+   "card": "stories:grummo_paul",
+   "text": "He told of being taken in the fight on 15 August and adopted by a chief whose son he had killed, who carried him north-west beyond the Falls of St. Anthony and then sold him to the British near Detroit. However it happened, he was one of the nine men of the garrison who came home by way of Quebec to Plattsburg in May 1814.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He said he was taken in the fight on 15 August. He said a chief took him in as family, even though Paul had killed the chief's son. He said the chief took him far to the north-west, past the Falls of St. Anthony, and then sold him to the British near Detroit. However it really happened, he was one of nine men from the fort who came home by way of Quebec. They got to Plattsburg in May 1814."
+   }
+  },
+  {
+   "card": "stories:grummo_paul",
+   "text": "He settled at Maumee City near Toledo as Paul De Garmo, a tall, well-built man who always insisted he had been at Fort Dearborn. The War Department had him down as a deserter, and he never got his pension. Quaife says he drew a long bow, as old soldiers do: the enlistment, the roll and the return are on the record, and the adventures are his own telling.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He made his home at Maumee City, near Toledo. There he went by Paul De Garmo. He was a tall, strong man, and he always said he had been at Fort Dearborn. But the army had him down as a man who ran away, so he never got his soldier's money. A writer named Quaife says he stretched the truth, like old soldiers do. The records show he joined and served. The adventures are his own story."
+   }
+  },
+  {
+   "card": "stories:garner_richard",
+   "text": "Richard Garner enlisted in October 1810 and was a corporal by that December, a private again by 1812.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Richard Garner joined the army in October 1810. By that December he was a corporal, a soldier with a small rank. By 1812 he was a plain private again."
+   }
+  },
+  {
+   "card": "stories:garner_richard",
+   "text": "He survived the fight on 15 August only to be one of the five wounded prisoners put to death in the camp that night; Woodward could learn the names of just two of them, and Garner's was one.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He lived through the fight on 15 August. But that night, five hurt prisoners were killed in the camp, and he was one of them. A man named Woodward could find out only two of their names. Garner's was one."
+   }
+  },
+  {
+   "card": "stories:hunt_william_n",
+   "text": "William Nelson Hunt, formerly of Maryland, enlisted in October 1810.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "William Nelson Hunt came from Maryland. He joined the army in October 1810."
+   }
+  },
+  {
+   "card": "stories:hunt_william_n",
+   "text": "He came through the fight and was led away a prisoner, and in the winter that followed he froze to death in captivity.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He lived through the fight and was taken away as a prisoner. That winter he froze to death."
+   }
+  },
+  {
+   "card": "stories:hurtt_nathan_a",
+   "text": "Nathan A. Hurtt was one of the newest men in the company, enlisted in December 1811.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Nathan A. Hurtt was one of the newest men in the company. He joined in December 1811."
+   }
+  },
+  {
+   "card": "stories:hurtt_nathan_a",
+   "text": "Helm's list of survivors has a name that may be his or may be William Hunt's; read as Hunt's, it leaves Hurtt among the twenty-six regulars who died on 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Helm's list of the men who lived has a name that is hard to read. It may be Hurtt's, or it may be William Hunt's. If it is Hunt's, then Hurtt was one of the twenty-six soldiers who died on 15 August."
+   }
+  },
+  {
+   "card": "stories:jones_rodias",
+   "text": "Rodias Jones enlisted in December 1807 and wore a corporal's stripes in 1810; in 1812 he was a private, seven months from the end of his term.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Rodias Jones joined the army in December 1807. In 1810 he was a corporal, a soldier with a small rank. In 1812 he was a plain private again. He had seven months left to serve."
+   }
+  },
+  {
+   "card": "stories:jones_rodias",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:kennison_david",
+   "text": "David Kennison enlisted in March 1808 and was present for duty at Fort Dearborn in May 1812. He claimed to have been born in New Hampshire in 1736, which would have made him seventy-six that summer.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "David Kennison joined the army in March 1808. He was at Fort Dearborn, ready for duty, in May 1812. He said he was born in New Hampshire in 1736. That would have made him seventy-six that summer!"
+   }
+  },
+  {
+   "card": "stories:kennison_david",
+   "text": "He came home from the war and, in his last years, came back to Chicago. He died there on 24 February 1852 and was buried in the City Cemetery, which is now Lincoln Park, where a boulder was set up to his memory in 1905.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He came home from the war. When he was very old, he came back to Chicago. He died there on 24 February 1852. He was buried in the City Cemetery, which is now Lincoln Park. In 1905 a big rock was put there to remember him."
+   }
+  },
+  {
+   "card": "stories:kilpatrick_samuel",
+   "text": "Samuel Kilpatrick (Kirkpatrick on the 1810 roll) re-enlisted in December 1810.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Samuel Kilpatrick signed up again in December 1810. The 1810 list spells his name Kirkpatrick."
+   }
+  },
+  {
+   "card": "stories:kilpatrick_samuel",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:kelso_john",
+   "text": "John Kelso had served his time and left the army in December 1810, and on 6 April 1812 he was at Lee's farm on the South Branch when a war party killed the two men there. He and a boy got away and ran to the fort with the alarm.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "John Kelso had served his time and left the army in December 1810. On 6 April 1812 he was at Lee's farm, on the South Branch of the river. A war party came and killed the two men there. Kelso and a boy got away. They ran to the fort to warn everyone."
+   }
+  },
+  {
+   "card": "stories:kelso_john",
+   "text": "Four weeks later, on 3 May, he re-enlisted at Chicago. No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Four weeks later, on 3 May, he joined the army again at Chicago. No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:landon_jacob",
+   "text": "Jacob Landon enlisted in November 1807; on the roll of 1810 he was marked unfit for service, but he was still with the company in 1812.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Jacob Landon joined the army in November 1807. The 1810 list said he was not fit to serve. But he was still with the company in 1812."
+   }
+  },
+  {
+   "card": "stories:landon_jacob",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:lynch_michael",
+   "text": "Private Michael Lynch re-enlisted in December 1810.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Michael Lynch was a private, the plainest kind of soldier. He signed up again in December 1810."
+   }
+  },
+  {
+   "card": "stories:lynch_michael",
+   "text": "Badly wounded on 15 August, he was taken prisoner, and his captors killed him on the march before they reached the Au Sable River.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was hurt badly on 15 August and taken prisoner. He was killed on the march, before they got to the Au Sable River."
+   }
+  },
+  {
+   "card": "stories:logan_hugh",
+   "text": "Hugh Logan was an Irishman who had soldiered since 1806 and signed on again in February 1811.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Hugh Logan came from Ireland. He had been a soldier since 1806. He signed up again in February 1811."
+   }
+  },
+  {
+   "card": "stories:logan_hugh",
+   "text": "He came through the fight and was marched away a prisoner. When he grew too exhausted to walk any further, he was tomahawked.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He lived through the fight and was marched away as a prisoner. When he grew too tired to walk any more, he was killed."
+   }
+  },
+  {
+   "card": "stories:locker_frederick",
+   "text": "Private Frederick Locker enlisted in April 1810.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Frederick Locker was a private, the plainest kind of soldier. He joined in April 1810."
+   }
+  },
+  {
+   "card": "stories:locker_frederick",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:miller_peter",
+   "text": "Peter Miller had served since 1806 and was marked present but unfit for service in 1810; he re-enlisted in July 1811.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Peter Miller had been a soldier since 1806. In 1810 the list said he was there but not fit to serve. He signed up again in July 1811."
+   }
+  },
+  {
+   "card": "stories:miller_peter",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:mccarty_duncan",
+   "text": "Private Duncan McCarty enlisted in August 1807, and his term was due to end two weeks after the evacuation.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Duncan McCarty was a private, the plainest kind of soldier. He joined in August 1807. His time was to end two weeks after the soldiers left the fort."
+   }
+  },
+  {
+   "card": "stories:mccarty_duncan",
+   "text": "He survived the fight and the captivity, and Woodward named him among the men still alive that autumn.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He lived through the fight and his time as a prisoner. A man named Woodward listed him with the men still alive that fall."
+   }
+  },
+  {
+   "card": "stories:moffett_william",
+   "text": "Private William Moffett re-enlisted in January 1811. With Elias Mills he walks at the head of the fort's wagon in this town.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "William Moffett was a private, the plainest kind of soldier. He signed up again in January 1811. In this town he walks at the front of the fort's wagon with Elias Mills."
+   }
+  },
+  {
+   "card": "stories:moffett_william",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:mills_elias",
+   "text": "Private Elias Mills enlisted in October 1811, one of the younger men of the company. With William Moffett he leads the fort's wagon in this town.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Elias Mills was a private, the plainest kind of soldier. He joined in October 1811. He was one of the younger men of the company. In this town he leads the fort's wagon with William Moffett."
+   }
+  },
+  {
+   "card": "stories:mills_elias",
+   "text": "He lived through the fight and the captivity, and two years later he was one of the nine men of the garrison who came home from captivity by way of Quebec, reaching Plattsburg, New York, in May 1814.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He lived through the fight and his time as a prisoner. Two years later he was one of nine men from the fort who came home by way of Quebec. They got to Plattsburg, New York, in May 1814."
+   }
+  },
+  {
+   "card": "stories:noles_joseph",
+   "text": "Private Joseph Noles (Knowles in the newspapers) enlisted in September 1810.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Joseph Noles was a private, the plainest kind of soldier. The newspapers spelled his name Knowles. He joined in September 1810.",
+    "11-13": "Private Joseph Noles joined the army in September 1810. The newspapers spelled his name Knowles."
+   }
+  },
+  {
+   "card": "stories:noles_joseph",
+   "text": "He survived the fight and the captivity after it, and two years later he was one of the nine men of the garrison who came home from captivity by way of Quebec, reaching Plattsburg, New York, in May 1814.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "He lived through the fight and his time as a prisoner. Two years later he was one of nine men from the fort who came home by way of Quebec. They got to Plattsburg, New York, in May 1814.",
+    "11-13": "He lived through the fight and the long time as a prisoner after it. Two years later he was one of the nine men of the fort who came home by way of Quebec. They reached Plattsburg, New York, in May 1814."
+   }
+  },
+  {
+   "card": "stories:poindexter_thomas",
+   "text": "Private Thomas Poindexter enlisted in September 1810 and was carried sick on the roll of May 1812.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Thomas Poindexter was a private, the plainest kind of soldier. He joined in September 1810. In May 1812 the list said he was sick."
+   }
+  },
+  {
+   "card": "stories:poindexter_thomas",
+   "text": "He was among the wounded taken prisoner on 15 August and is believed to have been one of the five put to death in the camp that night.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was hurt and taken prisoner on 15 August. That night five hurt prisoners were killed in the camp. People think he was one of them."
+   }
+  },
+  {
+   "card": "stories:prickett_william",
+   "text": "Private William Prickett enlisted in March 1811.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "William Prickett was a private, the plainest kind of soldier. He joined in March 1811."
+   }
+  },
+  {
+   "card": "stories:prickett_william",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:peterson_frederick",
+   "text": "Private Frederick Peterson enlisted in June 1808.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Frederick Peterson was a private, the plainest kind of soldier. He joined in June 1808."
+   }
+  },
+  {
+   "card": "stories:peterson_frederick",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:sherror_david",
+   "text": "Private David Sherror enlisted in October 1810.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "David Sherror was a private, the plainest kind of soldier. He joined in October 1810."
+   }
+  },
+  {
+   "card": "stories:sherror_david",
+   "text": "No list of survivors names him, so he is counted among the twenty-six regulars who died in the fight on the morning of 15 August.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No list of the men who lived has his name. So he is counted with the twenty-six soldiers who died in the fight on the morning of 15 August."
+   }
+  },
+  {
+   "card": "stories:suttenfield_john",
+   "text": "Private John Suttenfield enlisted in September 1807, and his term was due to end three weeks after the evacuation.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "John Suttenfield was a private, the plainest kind of soldier. He joined in September 1807. His time was to end three weeks after the soldiers left the fort."
+   }
+  },
+  {
+   "card": "stories:suttenfield_john",
+   "text": "Badly wounded on 15 August and taken prisoner, he was killed by his captors on the march, before they reached the Au Sable River.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was hurt badly on 15 August and taken prisoner. He was killed on the march, before they got to the Au Sable River."
+   }
+  },
+  {
+   "card": "stories:starr_james",
+   "text": "Private James Starr enlisted in November 1809.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "James Starr was a private, the plainest kind of soldier. He joined in November 1809."
+   }
+  },
+  {
+   "card": "stories:starr_james",
+   "text": "Lieutenant Helm marked him killed on 15 August, one of the twenty-six regulars who died in the fight.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Lieutenant Helm wrote that he was killed on 15 August. He was one of the twenty-six soldiers who died in the fight."
+   }
+  },
+  {
+   "card": "stories:vanhorn_james",
+   "text": "Private James Van Horn enlisted in May 1810 and was carried sick on the roll that December.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "James Van Horn was a private, the plainest kind of soldier. He joined in May 1810. That December, the list said he was sick."
+   }
+  },
+  {
+   "card": "stories:vanhorn_james",
+   "text": "He survived the fight and the captivity, and two years later he was one of the nine men of the garrison who came home from captivity by way of Quebec, reaching Plattsburg, New York, in May 1814.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He lived through the fight and his time as a prisoner. Two years later he was one of nine men from the fort who came home by way of Quebec. They got to Plattsburg, New York, in May 1814."
+   }
+  },
+  {
+   "card": "stories:heald_nathan",
+   "text": "Captain Nathan Heald, born in New Ipswich, New Hampshire, in 1775, commanded Fort Dearborn from 1810. In May 1811 he married Rebekah Wells in Kentucky, and the two rode back to Chicago on horseback with her servant Cicely.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Nathan Heald was a captain. He was born in New Ipswich, New Hampshire, in 1775. From 1810 he was in charge of Fort Dearborn. In May 1811 he married Rebekah Wells in Kentucky. They rode back to Chicago on horseback with Cicely, the woman who worked for her."
+   }
+  },
+  {
+   "card": "stories:heald_nathan",
+   "text": "In August 1812 General Hull ordered him to give up the post. Heald handed out the factory's goods to the gathered Potawatomi, destroyed the spare arms and the liquor, and on the morning of 15 August marched his fifty-four regulars, twelve militia and the families out along the lake shore toward Fort Wayne. A mile and a half south the column was attacked. Heald, shot in the thigh and the arm, surrendered to Black Bird on a promise that the prisoners would be spared.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In August 1812 General Hull told him to give up the fort. Heald gave the store's goods to the Potawatomi who had come. He wrecked the extra guns and poured out the liquor. On the morning of 15 August he marched out along the lake shore toward Fort Wayne. With him were fifty-four soldiers, twelve men of the town, and the families. A mile and a half south, they were attacked. Heald was shot in the leg and the arm. He gave up to Black Bird, who promised the prisoners would not be killed."
+   }
+  },
+  {
+   "card": "stories:heald_nathan",
+   "text": "He and Rebekah were taken to St. Joseph and got away by canoe to Mackinac, then home by Detroit, Buffalo and Pittsburgh. He was made a major, left the army when it was cut down in 1814, settled in St. Charles County, Missouri, and died there in 1832. No likeness of him survives.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He and Rebekah were taken to St. Joseph. They got away by canoe to Mackinac. Then they went home by way of Detroit, Buffalo and Pittsburgh. He was made a major. He left the army in 1814, when it was made smaller. He made his home in St. Charles County, Missouri, and died there in 1832. No picture of him is left."
+   }
+  },
+  {
+   "card": "stories:heald_rebekah",
+   "text": "Rebekah Wells was born in Kentucky in 1790, a daughter of General Samuel Wells and niece of Captain William Wells of Fort Wayne. She married Nathan Heald in May 1811 at twenty and rode the long way to Chicago on horseback.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Rebekah Wells was born in Kentucky in 1790. Her dad was General Samuel Wells. Her uncle was Captain William Wells of Fort Wayne. She married Nathan Heald in May 1811, when she was twenty. She rode the long way to Chicago on horseback."
+   }
+  },
+  {
+   "card": "stories:heald_rebekah",
+   "text": "In May 1812 she lost her first child, a son born dead, because there was no skilled midwife at the post. On 15 August she rode out mounted with the column and took six or seven wounds. Jean Baptiste Chandonnai bought her life from her captor with a mule and a promise of whiskey and brought her back to her husband. Together they escaped to Mackinac and home to Kentucky. She died in Missouri about 1857.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In May 1812 her first baby, a boy, was born dead. There was no one at the fort skilled at helping babies be born. On 15 August she rode out with the soldiers on a horse. She was hurt six or seven times. A warrior held her. Jean Baptiste Chandonnai saved her life. He paid with a mule and a promise of whiskey. Then he brought her back to her husband. Together they got away to Mackinac and home to Kentucky. She died in Missouri around 1857."
+   }
+  },
+  {
+   "card": "stories:cicely",
+   "text": "Cicely was enslaved by the Healds. She came from Louisville with them on horseback in June 1811, and the sources give her no other name than this one. She lived in the commanding officer's quarters through the year and a half the Healds were at the fort, and had her baby son with her.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Cicely was enslaved by the Healds. That means they owned her and she was not free. She came with them from Louisville on horseback in June 1811. The old records give her only this one name. She lived in the captain's house the whole year and a half the Healds were at the fort. Her baby son lived with her."
+   }
+  },
+  {
+   "card": "stories:cicely",
+   "text": "On 15 August she and her son were killed in the battle. Years later, pressing her claim for what the family lost, Rebekah Heald wrote that John Kinzie had once offered six hundred dollars for her.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August she and her son were killed in the fight. Years later, Rebekah Heald asked to be paid for what her family lost. She wrote that John Kinzie had once offered six hundred dollars for Cicely."
+   }
+  },
+  {
+   "card": "stories:cicely_son",
+   "text": "Cicely's baby boy lived with his mother in the commanding officer's quarters. No record gives his name or his father's.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Cicely's baby boy lived with his mother in the captain's house. No record gives his name or his father's name."
+   }
+  },
+  {
+   "card": "stories:cicely_son",
+   "text": "He was killed with his mother on 15 August, one of the twelve children who died that morning.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was killed with his mother on 15 August. He was one of the twelve children who died that morning."
+   }
+  },
+  {
+   "card": "stories:helm_linai",
+   "text": "Lieutenant Linai T. Helm came to Fort Dearborn from Detroit, the company's second lieutenant, and married Margaret McKillip, John Kinzie's seventeen-year-old stepdaughter.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Linai T. Helm was a lieutenant, an officer. He came to Fort Dearborn from Detroit. He was the company's second lieutenant. He married Margaret McKillip. She was seventeen, and John Kinzie was her stepdad.",
+    "11-13": "Lieutenant Linai T. Helm came to Fort Dearborn from Detroit. He was the company's second lieutenant. He married Margaret McKillip, John Kinzie's stepdaughter, who was seventeen."
+   }
+  },
+  {
+   "card": "stories:helm_linai",
+   "text": "On 15 August a ball struck his right foot, and he was taken prisoner and carried down the Illinois River. The trader Thomas Forsyth ransomed him for two mares and a keg of whiskey, and he reached the Americans at St. Louis on 14 October. In March 1813 he found his wife again at his father's house in New York. His own account of the massacre, written in 1814, is one of the few by a man who was there.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "On 15 August a gun shot hit his right foot. He was taken prisoner and carried down the Illinois River. A trader named Thomas Forsyth got him back for two horses and a keg of whiskey. He reached the Americans at St. Louis on 14 October. In March 1813 he found his wife again at his dad's house in New York. In 1814 he wrote down what happened in the fight. Few men who were there ever did.",
+    "11-13": "On 15 August a bullet hit his right foot. He was taken prisoner and carried down the Illinois River. The trader Thomas Forsyth paid two mares and a keg of whiskey to get him back. He reached the Americans at St. Louis on 14 October. In March 1813 he found his wife again at his father's house in New York. He wrote his own story of the massacre in 1814. It is one of the few written by a man who was there."
+   }
+  },
+  {
+   "card": "stories:helm_margaret",
+   "text": "Margaret Helm was Eleanor Kinzie's daughter by her first husband, a British officer named McKillip, and was seventeen in the summer of 1812, the young wife of Lieutenant Helm.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Margaret Helm was the daughter of Eleanor Kinzie and her first husband, a British officer named McKillip. In the summer of 1812 she was seventeen. She was the young wife of Lieutenant Helm.",
+    "11-13": "Margaret Helm was the daughter of Eleanor Kinzie and her first husband, a British officer named McKillip. She was seventeen in the summer of 1812, and the young wife of Lieutenant Helm."
+   }
+  },
+  {
+   "card": "stories:helm_margaret",
+   "text": "On 15 August she rode out with the column. Her own story, which Juliette Kinzie set down in Wau-Bun twenty years later, tells how a warrior seized her, how she struggled toward the lake and was dragged into the water, and how her rescuer turned out to be Black Partridge, who led her to the camp. She was taken across to her mother's house, went with the Kinzies to St. Joseph and Detroit, and in March 1813 reached her husband's family in New York a week before he did.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "On 15 August she rode out with the soldiers. Twenty years later, Juliette Kinzie wrote down her story in the book Wau-Bun. A warrior grabbed her. She fought her way toward the lake and was pulled into the water. The man who saved her was Black Partridge. He led her to the camp. She was taken across to her mom's house. She went with the Kinzies to St. Joseph and Detroit. In March 1813 she got to her husband's family in New York, a week before he did.",
+    "11-13": "On 15 August she rode out with the soldiers. Juliette Kinzie wrote down her story in Wau-Bun twenty years later. It tells how a warrior grabbed her, how she fought toward the lake and was pulled into the water, and how the man who saved her was Black Partridge. He led her to the camp. She was taken across to her mother's house. She went with the Kinzies to St. Joseph and Detroit, and in March 1813 she reached her husband's family in New York a week before he did."
+   }
+  },
+  {
+   "card": "stories:irwin_matthew",
+   "text": "Matthew Irwin was the United States factor at Chicago: from 1809 he kept the government trading house outside the fort, selling goods to the Potawatomi at fair prices to win them from the British traders.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Matthew Irwin ran the government's store at Chicago. From 1809 he kept the trading house outside the fort. He sold goods to the Potawatomi at fair prices. The idea was to win them away from the British traders.",
+    "11-13": "Matthew Irwin was the United States factor at Chicago. From 1809 he kept the government trading house outside the fort. He sold goods to the Potawatomi at fair prices, to win them away from the British traders."
+   }
+  },
+  {
+   "card": "stories:irwin_matthew",
+   "text": "On the evening of 17 June 1812 he stood twenty or thirty yards away and saw the whole of the fight in which John Kinzie killed the interpreter Lalime. On 5 July he closed the storehouse, handed the keys to Dr. Van Voorhis and left Chicago for good.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "On the evening of 17 June 1812 he stood a short way off. He saw the whole fight in which John Kinzie killed Lalime, a man who turned Indian words into English. On 5 July he closed the store. He gave the keys to Dr. Van Voorhis and left Chicago for good.",
+    "11-13": "On the evening of 17 June 1812 he stood twenty or thirty yards away. He saw the whole fight in which John Kinzie killed Lalime, the interpreter. On 5 July he closed the storehouse, gave the keys to Dr. Van Voorhis and left Chicago for good."
+   }
+  },
+  {
+   "card": "stories:keepotah",
+   "text": "Kee-po-tah was a Potawatomi chief and a friend of the Kinzie family; he had been visiting them when General Harrison came through and met him there.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Kee-po-tah was a Potawatomi chief. He was a friend of the Kinzie family. He was visiting them when General Harrison came by, and they met there.",
+    "11-13": "Kee-po-tah was a Potawatomi chief and a friend of the Kinzie family. He had been visiting them when General Harrison came through and met him there."
+   }
+  },
+  {
+   "card": "stories:keepotah",
+   "text": "On 15 August he and another man guarded the Kinzie boat at the river mouth while the battle was fought down the shore. On the 16th he sat among the guards on the Kinzies' porch, and in November he escorted the family safely to Detroit, where he was still with them the next autumn.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "On 15 August he and another man guarded the Kinzie boat at the mouth of the river. The fight went on down the shore. On the 16th he sat with the guards on the Kinzies' porch. In November he took the family safely to Detroit. He was still with them there the next fall.",
+    "11-13": "On 15 August he and another man guarded the Kinzie boat at the river mouth, while the battle was fought down the shore. On the 16th he sat with the guards on the Kinzies' porch. In November he took the family safely to Detroit, and he was still with them there the next fall."
+   }
+  },
+  {
+   "card": "stories:kinzie_boatman_1812",
+   "text": "One of John Kinzie's boatmen, a French Canadian or Métis voyageur whose name was never written down. Kinzie's men lived in the lodging house by his own, ate their daily quart of lyed corn and two ounces of tallow, and worked the boats and the furs.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was one of John Kinzie's boatmen. He came from French Canada, or was part French and part Indian. No one wrote down his name. Kinzie's men lived in a house next to his. Each day they ate a quart of corn and a little fat. They rowed the boats and worked with the furs."
+   }
+  },
+  {
+   "card": "stories:kinzie_boatman_1812",
+   "text": "In the fall they went out to the wintering grounds and in the spring came back with the packs, so they were at Chicago from May. They worked hard by day and laughed, sang and told stories in the evening. On 15 August a boatman was at the oars of the Kinzie boat at the river mouth, and on the 18th he took the family to St. Joseph.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In the fall they went out to the places where they spent the winter. In the spring they came back with bundles of furs. So they were at Chicago from May. They worked hard all day. In the evening they laughed, sang and told stories. On 15 August a boatman rowed the Kinzie boat at the mouth of the river. On the 18th he took the family to St. Joseph."
+   }
+  },
+  {
+   "card": "stories:kinzie_engage_1812",
+   "text": "A second of John Kinzie's engagés, a French Canadian or Métis hired man of the trading house, whose name no one recorded. Wau-Bun speaks of 'the boatmen' in the Kinzie boat on 15 August, and the lodging house 'for the Frenchmen' held more than one.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was another of John Kinzie's hired men. He came from French Canada, or was part French and part Indian. No one wrote down his name. The book Wau-Bun talks about \"the boatmen\" in the Kinzie boat on 15 August. The house for the Frenchmen held more than one man."
+   }
+  },
+  {
+   "card": "stories:kinzie_engage_1812",
+   "text": "Like the other engagés he wintered at an outpost and came in with the furs in spring. On 15 August he was with the family in the boat, and on the 18th he helped carry them to St. Joseph.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Like the other hired men, he spent the winter far out, and came back with the furs in the spring. On 15 August he was with the family in the boat. On the 18th he helped take them to St. Joseph."
+   }
+  },
+  {
+   "card": "stories:kinzie_john_elder",
+   "text": "John Kinzie was born in Quebec in 1763 and learned the silversmith's trade before he took to the Indian trade. He came to Chicago about 1804 and took the old house on the north bank of the river, facing the fort, and grew to be the most important trader of the place.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "John Kinzie was born in Quebec in 1763. First he learned to make things out of silver. Then he started trading with the Indians. He came to Chicago around 1804. He took the old house on the north bank of the river, across from the fort. He grew to be the most important trader there."
+   }
+  },
+  {
+   "card": "stories:kinzie_john_elder",
+   "text": "He knew everyone, and everyone knew him. He interpreted at Heald's council with the chiefs on 12 August 1812. Two months earlier, on the evening of 17 June, he had fought the government interpreter Jean Lalime outside the fort's gate and killed him, and a friend took him to Milwaukee that night until it was safe to come back.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He knew everyone, and everyone knew him. On 12 August 1812, Heald met with the chiefs, and Kinzie turned their words into English. Two months before, on the evening of 17 June, he had fought Jean Lalime outside the fort's gate. Lalime turned Indian words into English for the army. Kinzie killed him. A friend took Kinzie to Milwaukee that night, until it was safe to come back."
+   }
+  },
+  {
+   "card": "stories:kinzie_john_elder",
+   "text": "On 15 August, warned by Topenebe, he put his family in the boat and marched out with the soldiers himself. His friends among the chiefs kept him alive, and in the days after he and his family were spared and taken to St. Joseph and Detroit.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August Topenebe warned him what was coming. Kinzie put his family in the boat. Then he marched out with the soldiers himself. His friends among the chiefs kept him alive. In the days after, he and his family were spared. They were taken to St. Joseph and Detroit."
+   }
+  },
+  {
+   "card": "stories:kinzie_eleanor",
+   "text": "Eleanor Kinzie, born Eleanor Lytle, had been a widow, Mrs. McKillip, with a daughter, Margaret, when she married John Kinzie about 1800. She had four children by him and ran the household in the big house across the river.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Eleanor Kinzie was born Eleanor Lytle. Her first husband had died. She was Mrs. McKillip then, and she had a daughter, Margaret. Around 1800 she married John Kinzie. They had four children. She ran the big house across the river."
+   }
+  },
+  {
+   "card": "stories:kinzie_eleanor",
+   "text": "From April 1812 the family lived inside the fort. On the morning of 15 August she sat in the boat at the river mouth with her four younger children and their nurse, and watched her husband and her eldest daughter march away with the column. They came back to her alive. After three anxious days at the house across the river, the family went to St. Joseph and then to Detroit as prisoners of war.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "From April 1812 the family lived inside the fort. On the morning of 15 August she sat in the boat at the mouth of the river. Her four younger kids and their nurse were with her. She watched her husband and her oldest daughter march away with the soldiers. They both came back to her alive. The family spent three worried days at the house across the river. Then they were taken to St. Joseph and Detroit as prisoners of war."
+   }
+  },
+  {
+   "card": "stories:kinzie_john_h_1812",
+   "text": "John Harris Kinzie, born at Sandwich in Canada in July 1803, was nine years old in the summer of 1812, the eldest of John and Eleanor Kinzie's children.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "John Harris Kinzie was born at Sandwich, in Canada, in July 1803. In the summer of 1812 he was nine. He was the oldest child of John and Eleanor Kinzie.",
+    "11-13": "John Harris Kinzie was born at Sandwich, in Canada, in July 1803. He was nine in the summer of 1812, the oldest child of John and Eleanor Kinzie."
+   }
+  },
+  {
+   "card": "stories:kinzie_john_h_1812",
+   "text": "On 15 August he sat in the family boat at the river mouth with his mother, sisters and baby brother while the battle was fought down the shore, and he went with the family to St. Joseph and Detroit. He grew up to be an Indian agent and a founder of the city of Chicago, and his wife Juliette wrote Wau-Bun, the book that told the family's story.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "On 15 August he sat in the family boat at the mouth of the river. His mom, his sisters and his baby brother were with him. The fight went on down the shore. He went with the family to St. Joseph and Detroit. When he grew up, he worked with the Indians for the government. He helped start the city of Chicago. His wife, Juliette, wrote a book called Wau-Bun. It told the family's story.",
+    "11-13": "On 15 August he sat in the family boat at the river mouth with his mother, sisters and baby brother, while the battle was fought down the shore. He went with the family to St. Joseph and Detroit. He grew up to be an Indian agent and one of the founders of the city of Chicago. His wife Juliette wrote Wau-Bun, the book that told the family's story."
+   }
+  },
+  {
+   "card": "stories:kinzie_ellen_marion",
+   "text": "Ellen Marion Kinzie was born in Chicago in December 1805, among the first children born to a family settled there, and was six and a half in the summer of 1812.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Ellen Marion Kinzie was born in Chicago in December 1805. She was one of the first children born to a family that lived there. In the summer of 1812 she was six and a half."
+   }
+  },
+  {
+   "card": "stories:kinzie_ellen_marion",
+   "text": "She was in the boat with her mother on 15 August and went with the family to St. Joseph and Detroit. She grew up to marry Dr. Alexander Wolcott, the Indian agent at Chicago.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "She was in the boat with her mom on 15 August. She went with the family to St. Joseph and Detroit. When she grew up, she married Dr. Alexander Wolcott. He worked with the Indians at Chicago for the government."
+   }
+  },
+  {
+   "card": "stories:kinzie_maria_indiana",
+   "text": "Maria Indiana Kinzie was born in Chicago in 1807 and was about four years old in the summer of 1812.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Maria Indiana Kinzie was born in Chicago in 1807. In the summer of 1812 she was about four."
+   }
+  },
+  {
+   "card": "stories:kinzie_maria_indiana",
+   "text": "She was in the boat with her mother on 15 August and went with the family to St. Joseph and Detroit. She grew up to marry David Hunter, later a general in the Civil War.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "She was in the boat with her mom on 15 August. She went with the family to St. Joseph and Detroit. When she grew up, she married David Hunter. Later he was a general in the Civil War."
+   }
+  },
+  {
+   "card": "stories:kinzie_robert_allen",
+   "text": "Robert Allen Kinzie was born on 8 February 1810, the baby of the family, two and a half years old in the summer of 1812.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Robert Allen Kinzie was born on 8 February 1810. He was the baby of the family. In the summer of 1812 he was two and a half."
+   }
+  },
+  {
+   "card": "stories:kinzie_robert_allen",
+   "text": "He was in his mother's arms in the boat on 15 August and went with the family to St. Joseph and Detroit. He came back to Chicago as a young man and traded there in the 1830s.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was in his mom's arms in the boat on 15 August. He went with the family to St. Joseph and Detroit. He came back to Chicago as a young man. He traded there in the 1830s."
+   }
+  },
+  {
+   "card": "stories:laframboise_josette_1812",
+   "text": "Josette LaFramboise, a young woman of French and Ottawa family, was nurse to the Kinzie children. (Wau-Bun's printer turned her name into 'Grutte'.)",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Josette LaFramboise was a young woman. Her family was French and Ottawa. She was the nurse who cared for the Kinzie kids. (The man who printed Wau-Bun got her name wrong. He called her Grutte.)"
+   }
+  },
+  {
+   "card": "stories:laframboise_josette_1812",
+   "text": "On 15 August she sat in the boat with Mrs. Kinzie and the children while the battle was fought. Soon after, in 1812 or 1814 depending on the account, she married Jean Baptiste Beaubien, and as Madame Beaubien she raised a large family in the Chicago of the 1830s.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August she sat in the boat with Mrs. Kinzie and the kids while the fight went on. Soon after, she married Jean Baptiste Beaubien. Some stories say it was in 1812, and some say 1814. As Madame Beaubien, she raised a big family in Chicago in the 1830s."
+   }
+  },
+  {
+   "card": "stories:chandonnai_jean_baptiste",
+   "text": "Jean Baptiste Chandonnai was John Kinzie's clerk, a young man of French and Potawatomi family who moved easily between the trading house and the camps. On 15 August Kinzie put his family in Chandonnai's care in the boat.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Jean Baptiste Chandonnai was John Kinzie's clerk. He was a young man from a French and Potawatomi family. He was at home both in the trading house and in the camps. On 15 August Kinzie left his family in Chandonnai's care in the boat."
+   }
+  },
+  {
+   "card": "stories:chandonnai_jean_baptiste",
+   "text": "That same day he saved Rebekah Heald. Wounded and in a warrior's hands, she was about to be killed when Chandonnai bought her life with a mule and a promise of whiskey and brought her back to her husband; he then escorted the Healds toward St. Joseph. Every account of the day credits him with tireless efforts to save the prisoners.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "That same day he saved Rebekah Heald. She was hurt, and a warrior was about to kill her. Chandonnai paid for her life with a mule and a promise of whiskey. He brought her back to her husband. Then he took the Healds toward St. Joseph. Every story of that day says he worked and worked to save the prisoners."
+   }
+  },
+  {
+   "card": "stories:chandonnai_jean_baptiste",
+   "text": "That fall he took Mrs. Kinzie and the children to Detroit. He was back in Kinzie's employ by about 1816, traded at Chicago and beyond, and at the treaty of 1821 was granted two sections of land.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "That fall he took Mrs. Kinzie and the kids to Detroit. By about 1816 he was working for Kinzie again. He traded at Chicago and farther away. At the treaty of 1821 he was given two big pieces of land."
+   }
+  },
+  {
+   "card": "stories:leclerc_pierre",
+   "text": "Pierre Le Clerc, 'Peresh' in Wau-Bun, was a young man of French and Indian family in John Kinzie's service, who had lived for years a few yards from the fort. By one tradition it was he who brought the news of war to Chicago in July.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Pierre Le Clerc worked for John Kinzie. The book Wau-Bun calls him Peresh. He was a young man from a French and Indian family. He had lived a few steps from the fort for years. One story says he was the one who brought the news of war to Chicago in July."
+   }
+  },
+  {
+   "card": "stories:leclerc_pierre",
+   "text": "On 15 August he marched with the soldiers and fought on their side; then, at Helm's word, he went over to the warriors and carried the terms of surrender between the two sides. He survived, and at the treaty of 1821 was granted a section of land on the Elkhart.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August he marched with the soldiers and fought on their side. Then Helm asked him to go over to the warriors. He carried the words about giving up back and forth between the two sides. He lived. At the treaty of 1821 he was given a piece of land on the Elkhart River."
+   }
+  },
+  {
+   "card": "stories:lalime_john",
+   "text": "Jean Lalime was the government's interpreter at Fort Dearborn, a Frenchman of some education who had wintered at Chicago since 1803 and lived in one of the log houses on the north bank. The fort's doctor called him 'a very decent man and a good companion', and his letters to Fort Wayne passed on what the Indians were saying.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Jean Lalime worked for the army at Fort Dearborn. He turned Indian words into English. He was a Frenchman who had gone to school. He spent winters at Chicago from 1803, in one of the log houses on the north bank. The fort's doctor called him a very nice man and a good friend. His letters to Fort Wayne passed on what the Indians were saying."
+   }
+  },
+  {
+   "card": "stories:lalime_john",
+   "text": "At sunset on 17 June 1812, as the fort's gate was being shut, he and John Kinzie met just outside it and fought; Kinzie came away with a wound in his neck and Lalime lay dead. He was buried near the Kinzie house, in full view of its porch, inside a picket fence.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "At sunset on 17 June 1812, the fort's gate was being shut. He and John Kinzie met just outside it and fought. Kinzie was cut on the neck, and Lalime was killed. He was buried near the Kinzie house, inside a fence, where people on the porch could see."
+   }
+  },
+  {
+   "card": "stories:lee_charles",
+   "text": "Charles Lee settled at Chicago about 1805 and is said to have held the contract to supply the garrison with provisions. His farm on the South Branch, Lee's Place, later called Hardscrabble, fed the fort, and his family lived in a house near the river mouth.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Charles Lee came to live at Chicago around 1805. People say he had the job of bringing food to the soldiers. His farm was on the South Branch of the river. It was called Lee's Place, and later Hardscrabble. It fed the fort. His family lived in a house near the mouth of the river."
+   }
+  },
+  {
+   "card": "stories:lee_charles",
+   "text": "On 6 April 1812 a war party killed the two men working the farm, and the whole settlement fled into the fort. Lee joined the militia Heald formed that spring, and on 15 August he and his son were killed with the rest of the twelve.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 6 April 1812 a war party killed the two men working on the farm. Everyone in the town ran into the fort. That spring Lee joined the small army of town men, called the militia. On 15 August he and his son were killed with the rest of the twelve."
+   }
+  },
+  {
+   "card": "stories:lee_mrs",
+   "text": "Mrs. Lee lived with her husband Charles and their children in the house near the river mouth. On 15 August she lost her husband, her son and her twelve-year-old daughter, and with her baby she was taken captive by Black Partridge to his village.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Mrs. Lee lived with her husband, Charles, and their kids in the house near the mouth of the river. On 15 August she lost her husband, her son, and her daughter, who was twelve. Black Partridge took her and her baby to his village as prisoners."
+   }
+  },
+  {
+   "card": "stories:lee_mrs",
+   "text": "That winter the trader Du Pin bought her and her child back at Chicago, and in time Mrs. Lee became Madame Du Pin. She is said to have sold the Lee house to Jean Baptiste Beaubien.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "That winter a trader named Du Pin paid to get her and her baby back at Chicago. In time Mrs. Lee married him and became Madame Du Pin. People say she sold the Lee house to Jean Baptiste Beaubien."
+   }
+  },
+  {
+   "card": "stories:lee_daughter",
+   "text": "Lee's daughter was about twelve in the summer of 1812, and Black Partridge was especially fond of her.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The Lees' daughter was about twelve in the summer of 1812. Black Partridge was very fond of her."
+   }
+  },
+  {
+   "card": "stories:lee_daughter",
+   "text": "On 15 August she rode out on horseback with the column. Wau-Bun tells that she was badly wounded, and that Black Partridge, unable to save her, ended her suffering himself.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August she rode out on a horse with the soldiers. The book Wau-Bun says she was badly hurt. Black Partridge could not save her. So he ended her pain himself."
+   }
+  },
+  {
+   "card": "stories:lee_infant",
+   "text": "The Lees' baby, the youngest of the family, whose name no record keeps.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This was the Lees' baby, the youngest of the family. No record keeps the baby's name."
+   }
+  },
+  {
+   "card": "stories:lee_infant",
+   "text": "Taken captive with its mother on 15 August, the baby fell ill among the Indians but lived, and was ransomed with her at Chicago that winter.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The baby was taken prisoner with its mom on 15 August. The baby got sick but lived. That winter someone paid to get them both back at Chicago."
+   }
+  },
+  {
+   "card": "stories:white_liberty",
+   "text": "Liberty White was an American who had lived at Chicago for some time and had charge of Charles Lee's farm on the South Branch.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Liberty White was an American. He had lived at Chicago for a while. He was in charge of Charles Lee's farm on the South Branch of the river.",
+    "11-13": "Liberty White was an American who had lived at Chicago for some time. He was in charge of Charles Lee's farm on the South Branch."
+   }
+  },
+  {
+   "card": "stories:white_liberty",
+   "text": "A little before sunset on 6 April 1812 a party of strangers who had come to the farm killed him and the Canadian Jean Baptiste Cardin. His body was found pierced by two balls and stabbed eleven times, and the news sent every family in the settlement into the fort.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "On 6 April 1812, a little before sunset, some strangers came to the farm. They killed him and a Canadian man, Jean Baptiste Cardin. The news sent every family in the town running into the fort.",
+    "11-13": "A little before sunset on 6 April 1812, a party of strangers who had come to the farm killed him and the Canadian Jean Baptiste Cardin. His body had been shot twice and stabbed many times. The news sent every family in the town into the fort."
+   }
+  },
+  {
+   "card": "stories:cardin_john_b",
+   "text": "Jean Baptiste Cardin was a Canadian who had only lately come to Chicago and was working on Lee's farm in the spring of 1812. Watching the party of visitors who came to the farm that April day, he said he could tell by their dress and paint that they were not Potawatomi.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Jean Baptiste Cardin came from Canada. He had come to Chicago not long before. In the spring of 1812 he worked on Lee's farm. One April day some visitors came to the farm. He said he could tell from their clothes and face paint that they were not Potawatomi."
+   }
+  },
+  {
+   "card": "stories:cardin_john_b",
+   "text": "He was right to be uneasy. A little before sunset on 6 April they killed him and Liberty White.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was right to be worried. A little before sunset on 6 April, they killed him and Liberty White."
+   }
+  },
+  {
+   "card": "stories:main_poc_runner",
+   "text": "Fox Running was a runner sent from Main Poc, the Potawatomi war leader who had gone over to the British.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Fox Running was a runner. He was sent by Main Poc, a Potawatomi war leader who had joined the British."
+   }
+  },
+  {
+   "card": "stories:main_poc_runner",
+   "text": "He came into the camp at Chicago on 14 August 1812 carrying a large red belt, the sign of war, and news of British victories in the north.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He came into the camp at Chicago on 14 August 1812. He carried a big red belt. It was the sign of war. He brought news that the British were winning up north."
+   }
+  },
+  {
+   "card": "stories:mirandeau_jean_baptiste",
+   "text": "Jean Baptiste Mirandeau was a Frenchman married to an Ottawa woman; his daughter remembered him as a good scholar, a very handsome man, with many books. He was among the first settlers at Milwaukee.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Jean Baptiste Mirandeau was a Frenchman. His wife was Ottawa. His daughter remembered him as a smart and very handsome man with lots of books. He was one of the first people to settle at Milwaukee."
+   }
+  },
+  {
+   "card": "stories:mirandeau_jean_baptiste",
+   "text": "In 1811 he came down to Chicago and did blacksmith work at the fort, lodging his family in the Ouilmette house across the river. On the night of 17 June 1812, after John Kinzie killed Lalime, Mirandeau packed up some things and took Kinzie to Milwaukee. The family went home too, and were gone before the fort burned.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In 1811 he came down to Chicago and worked as a blacksmith at the fort. His family stayed in the Ouilmette house across the river. On the night of 17 June 1812, John Kinzie killed Lalime. Mirandeau packed a few things and took Kinzie to Milwaukee. His family went home too. They were gone before the fort burned."
+   }
+  },
+  {
+   "card": "stories:mirandeau_victoire_1812",
+   "text": "Victoire Mirandeau, born about 1800, was a daughter of the blacksmith Jean Baptiste Mirandeau and his Ottawa wife. She grew up speaking French and her mother's language, and never learned to read or write.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Victoire Mirandeau was born around 1800. Her dad was the blacksmith Jean Baptiste Mirandeau. Her mom was Ottawa. She grew up speaking French and her mom's language. She never learned to read or write."
+   }
+  },
+  {
+   "card": "stories:mirandeau_victoire_1812",
+   "text": "In 1811 the family came down from Milwaukee and lodged at the Ouilmette house while her father worked at the fort. At sunset on 17 June 1812, as the gates were being shut, she and her sister Madeline watched John Kinzie and Lalime fight. That night her father took Kinzie to Milwaukee, and the family followed. Years later she lived with the Kinzies as their servant.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In 1811 the family came down from Milwaukee. They stayed at the Ouilmette house while her dad worked at the fort. At sunset on 17 June 1812, the gates were being shut. She and her sister Madeline watched John Kinzie and Lalime fight. That night her dad took Kinzie to Milwaukee, and the family went too. Years later she lived with the Kinzies and worked for them."
+   }
+  },
+  {
+   "card": "stories:mirandeau_madeline_1812",
+   "text": "Madeline Mirandeau was a daughter of the blacksmith Jean Baptiste Mirandeau and his Ottawa wife, and later the wife of John K. Clark.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Madeline Mirandeau was a daughter of the blacksmith. His name was Jean Baptiste Mirandeau. Her mom was Ottawa. Later she married John K. Clark."
+   }
+  },
+  {
+   "card": "stories:mirandeau_madeline_1812",
+   "text": "She was lodging at the Ouilmette house with her family while her father worked at the fort, and at sunset on 17 June 1812 she and her sister Victoire saw the fight between John Kinzie and Lalime. The family left that night. She lived at Chicago before the massacre and after it, though not at the time.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "She stayed at the Ouilmette house with her family while her dad worked at the fort. At sunset on 17 June 1812, she and her sister Victoire saw John Kinzie and Lalime fight. The family left that night. She lived at Chicago before the big fight and after it, but not when it happened."
+   }
+  },
+  {
+   "card": "stories:naunongee",
+   "text": "Nau-non-gee was one of the chiefs of the Calumet village south of Chicago. That spring, Wau-Bun remembers, he watched the officers' wives at play and remarked that they were amusing themselves very much, and that it would not be long before they were hoeing in his cornfield.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Nau-non-gee was one of the chiefs of the Calumet village, south of Chicago. The book Wau-Bun remembers something he said that spring. He watched the officers' wives playing. He said they were having lots of fun. But soon, he said, they would be hoeing in his cornfield."
+   }
+  },
+  {
+   "card": "stories:naunongee",
+   "text": "On 15 August he sought out Sergeant Otho Hays, a man who had shown him many kindnesses. They fought; Hays drove his bayonet into his breast in the same moment he fell. Nau-non-gee was carried home and died of the wound some days later.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August he looked for Sergeant Otho Hays, a man who had been kind to him many times. They fought. Each gave the other a deadly wound at the same moment. Nau-non-gee was carried home. He died a few days later."
+   }
+  },
+  {
+   "card": "stories:needs_john",
+   "text": "Private John Needs, formerly of Virginia, enlisted in July 1808 and lived at the fort with his wife and their child.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "John Needs was a private, the plainest kind of soldier. He came from Virginia. He joined in July 1808. He lived at the fort with his wife and their child."
+   }
+  },
+  {
+   "card": "stories:needs_john",
+   "text": "He survived the fight on 15 August, but the captivity killed him: he died among the Indians in the middle of January 1813. His wife and child died too.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He lived through the fight on 15 August. But he died as a prisoner, in the middle of January 1813. His wife and child died too."
+   }
+  },
+  {
+   "card": "stories:nuscotnemeg",
+   "text": "Nuscotnemeg, the Mad Sturgeon, was a Potawatomi war leader already blamed for killings in Illinois in 1810. His daughter was Billy Caldwell's wife.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Nuscotnemeg was called the Mad Sturgeon. He was a Potawatomi war leader. People already blamed him for killings in Illinois in 1810. His daughter was Billy Caldwell's wife."
+   }
+  },
+  {
+   "card": "stories:nuscotnemeg",
+   "text": "He was among the attackers on 15 August and was badly wounded; by the next day his friends were carrying him off toward the Des Plaines. He recovered, and in 1817 a traveller named Storrow met him at Chicago.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He was one of the attackers on 15 August. He was badly hurt. By the next day his friends were carrying him off toward the Des Plaines River. He got well. In 1817 a traveler named Storrow met him at Chicago."
+   }
+  },
+  {
+   "card": "stories:ouilmette_antoine",
+   "text": "Antoine Ouilmette was a French Canadian who claimed to have come to Chicago in 1790, before the fort; he was living with his Potawatomi wife Archange in one of the four log houses when the soldiers arrived in 1803. He worked for John Kinzie, carrying goods over the portage.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Antoine Ouilmette came from French Canada. He said he came to Chicago in 1790, before there was a fort. His wife, Archange, was Potawatomi. When the soldiers came in 1803, they lived in one of the four log houses. He worked for John Kinzie. He carried goods over the land between the rivers."
+   }
+  },
+  {
+   "card": "stories:ouilmette_antoine",
+   "text": "He never joined the militia, and when the garrison marched out he simply stayed home. After the Kinzie boat left on the 18th he was the only white man left at Chicago, and he was still there, living in serene possession, when the new garrison came in 1816. In 1829 his wife was granted land at Gros Point, where the town of Wilmette now takes his name.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He never joined the militia. When the soldiers marched out, he just stayed home. The Kinzie boat left on the 18th. After that he was the only white man left at Chicago. He was still there, living calmly, when new soldiers came in 1816. In 1829 his wife was given land at Gros Point. The town there, Wilmette, is named after him."
+   }
+  },
+  {
+   "card": "stories:ouilmette_archange",
+   "text": "Archange Ouilmette, Okra in one account, was a Potawatomi woman married to Antoine Ouilmette, and the household she ran on the north bank was part of the Kinzie establishment.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Archange Ouilmette was a Potawatomi woman. One story calls her Okra. She was married to Antoine Ouilmette. The house she ran on the north bank was part of the Kinzie place."
+   }
+  },
+  {
+   "card": "stories:ouilmette_archange",
+   "text": "On the morning of 15 August she watched from beside her house as the troops marched out along the shore. Her family stayed through all that followed. In 1829 a treaty granted her and her children land, and she later went west with her people and died at Council Bluffs.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On the morning of 15 August she stood by her house and watched the soldiers march out along the shore. Her family stayed through all that came after. In 1829 a treaty gave her and her children land. Later she went west with her people. She died at Council Bluffs."
+   }
+  },
+  {
+   "card": "stories:bisson_mrs",
+   "text": "Mrs. Bisson was Archange Ouilmette's sister and lived in the Ouilmette household on the north bank.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Mrs. Bisson was Archange Ouilmette's sister. She lived in the Ouilmette house on the north bank."
+   }
+  },
+  {
+   "card": "stories:bisson_mrs",
+   "text": "In the story the Kinzie family told, on 16 August she hid Margaret Helm in the Ouilmette house, sitting calmly on the bed with her sewing while warriors searched the room.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The Kinzie family told this story. On 16 August she hid Margaret Helm in the Ouilmette house. Warriors came and searched the room. She sat calmly on the bed, sewing, the whole time."
+   }
+  },
+  {
+   "card": "stories:ouilmette_children",
+   "text": "The children of Antoine and Archange Ouilmette, who grew up in the house on the north bank speaking French and Potawatomi. Their names, Elizabeth, Michell, Lewis, Francis, Sophie, Joseph and later Josette, were written down only long afterwards.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "These are the children of Antoine and Archange Ouilmette. They grew up in the house on the north bank. They spoke French and Potawatomi. Their names were Elizabeth, Michell, Lewis, Francis, Sophie, Joseph and, later, Josette. No one wrote the names down until long after.",
+    "11-13": "These are the children of Antoine and Archange Ouilmette. They grew up in the house on the north bank, speaking French and Potawatomi. Their names were Elizabeth, Michell, Lewis, Francis, Sophie, Joseph and, later, Josette. They were written down only long afterwards."
+   }
+  },
+  {
+   "card": "stories:ouilmette_children",
+   "text": "They stayed at Chicago with their parents through the massacre and the war, among the very few who did, and as grown people went west with the Potawatomi to Kansas.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "They stayed at Chicago with their mom and dad through the massacre and the war. Very few people did that. When they grew up, they went west to Kansas with the Potawatomi.",
+    "11-13": "They stayed at Chicago with their parents through the massacre and the war. They were among the very few who did. As grown-ups they went west with the Potawatomi to Kansas."
+   }
+  },
+  {
+   "card": "stories:peesotum",
+   "text": "Pee-so-tum was a Potawatomi warrior at the gathering of August 1812.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Pee-so-tum was a Potawatomi warrior. He was at the big gathering in August 1812."
+   }
+  },
+  {
+   "card": "stories:peesotum",
+   "text": "Margaret Helm remembered him leading her toward the lodges after the fight, a scalp hanging from his hand that she knew by its black ribbon for Captain Wells's.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "After the fight, he led Margaret Helm toward the lodges. She remembered what he held in his hand. She knew by its black ribbon that it was from Captain Wells, and that Wells was dead."
+   }
+  },
+  {
+   "card": "stories:robinson_alexander",
+   "text": "Alexander Robinson, Che-che-pin-qua, was a trader from St. Joseph, born at Mackinac to an Odawa mother and a Scottish father. Whether he was at Chicago on 15 August the old accounts argue; all agree on what he did after.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Alexander Robinson was also called Che-che-pin-qua. He was a trader from St. Joseph. He was born at Mackinac. His mom was Odawa and his dad was from Scotland. The old stories argue about whether he was at Chicago on 15 August. They all agree on what he did after.",
+    "11-13": "Alexander Robinson, called Che-che-pin-qua, was a trader from St. Joseph. He was born at Mackinac to an Odawa mother and a Scottish father. The old accounts argue about whether he was at Chicago on 15 August. They all agree on what he did after."
+   }
+  },
+  {
+   "card": "stories:robinson_alexander",
+   "text": "At St. Joseph he sheltered the Kinzies, and with his wife he paddled the wounded Healds all the way to Mackinac. He later became a chief of the united Potawatomi, Chippewa and Ottawa, signed the treaty of 1833, kept a reservation on the Des Plaines, and died there in 1872.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "At St. Joseph he took care of the Kinzies. He and his wife paddled the hurt Healds all the way to Mackinac. Later he became a chief of the Potawatomi, Chippewa and Ottawa together. He signed the treaty of 1833. He kept some land on the Des Plaines River, and he died there in 1872.",
+    "11-13": "At St. Joseph he sheltered the Kinzies. With his wife, he paddled the wounded Healds all the way to Mackinac. He later became a chief of the united Potawatomi, Chippewa and Ottawa. He signed the treaty of 1833, kept land on the Des Plaines River, and died there in 1872."
+   }
+  },
+  {
+   "card": "stories:ronan_george",
+   "text": "Ensign George Ronan came straight from West Point in March 1811, the youngest officer at Fort Dearborn. His signature survives on an order of November 1811 allowing the men a gill of whiskey each.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "George Ronan was an ensign, the lowest kind of officer. He came straight from West Point, the army's school, in March 1811. He was the youngest officer at Fort Dearborn. His name is on an order from November 1811. It gave each man a small cup of whiskey."
+   }
+  },
+  {
+   "card": "stories:ronan_george",
+   "text": "On 15 August he was killed near the baggage wagons. Wau-Bun says he fought to the last on one knee.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August he was killed near the wagons. The book Wau-Bun says he kept fighting to the end, down on one knee."
+   }
+  },
+  {
+   "card": "stories:shabbona",
+   "text": "Shabbona was an Ottawa by birth who married into a Potawatomi band of the Illinois River and became its leader; in 1812 he was an aide to Tecumseh.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Shabbona was born Ottawa. He married into a Potawatomi band of the Illinois River and became its leader. In 1812 he was a helper to Tecumseh.",
+    "11-13": "Shabbona was born Ottawa. He married into a Potawatomi band of the Illinois River and became its leader. In 1812 he was a helper to Tecumseh."
+   }
+  },
+  {
+   "card": "stories:shabbona",
+   "text": "By his own account he set out for Chicago when he heard the warriors had gone there, and came in with twenty-two men a few hours after the fight, standing that night among the guards around the Kinzie house. He signed the treaty of 1816 that gave up the land around Chicago, kept the peace in 1832, was granted land at Shabbona Grove and lost it, and died near Morris, Illinois, in 1859.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "He said he set out for Chicago when he heard the warriors had gone there. He came in with twenty-two men a few hours after the fight. That night he stood with the guards around the Kinzie house. In 1816 he signed the treaty that gave up the land around Chicago. In 1832 he kept the peace. He was given land at Shabbona Grove, but he lost it. He died near Morris, Illinois, in 1859.",
+    "11-13": "By his own story, he set out for Chicago when he heard the warriors had gone there. He came in with twenty-two men a few hours after the fight, and that night he stood with the guards around the Kinzie house. He signed the treaty of 1816 that gave up the land around Chicago. He kept the peace in 1832. He was given land at Shabbona Grove and lost it, and he died near Morris, Illinois, in 1859."
+   }
+  },
+  {
+   "card": "stories:simmons_john",
+   "text": "Private John Simmons enlisted in March 1810 and lived at the fort with his wife Susan and their two children, David, about two, and baby Susan, born at the fort in February 1812.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "John Simmons was a private, the plainest kind of soldier. He joined in March 1810. He lived at the fort with his wife, Susan, and their two kids. David was about two. Baby Susan was born at the fort in February 1812."
+   }
+  },
+  {
+   "card": "stories:simmons_john",
+   "text": "On 15 August he was one of the little band of soldiers who died fighting around the baggage wagons. His son David was killed in the children's wagon.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August he was one of a small group of soldiers who died fighting around the wagons. His son David was killed in the children's wagon."
+   }
+  },
+  {
+   "card": "stories:simmons_susan_millhouse",
+   "text": "Susan Millhouse Simmons was a Pennsylvanian, the wife of Private John Simmons, who lived with him at the fort with their son David and their baby daughter.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Susan Millhouse Simmons came from Pennsylvania. She was married to John Simmons, a soldier. She lived with him at the fort, with their son David and their baby girl."
+   }
+  },
+  {
+   "card": "stories:simmons_susan_millhouse",
+   "text": "On 15 August she lost her husband and her son. Carrying her baby, she walked with her captors to Green Bay, back by Chicago to Mackinac, and on to Detroit, and in April 1813 at last reached her parents near Piqua, Ohio. She died in Springville, Iowa, in 1857.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August she lost her husband and her son. She carried her baby and walked with the people who held her prisoner. They went to Green Bay, back past Chicago to Mackinac, and on to Detroit. In April 1813 she finally got to her mom and dad's home near Piqua, Ohio. She died in Springville, Iowa, in 1857."
+   }
+  },
+  {
+   "card": "stories:simmons_susan",
+   "text": "Susan Simmons was born at Fort Dearborn in February 1812, the daughter of Private John Simmons and his wife Susan.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Susan Simmons was born at Fort Dearborn in February 1812. Her dad was John Simmons, a soldier. Her mom was also named Susan."
+   }
+  },
+  {
+   "card": "stories:simmons_susan",
+   "text": "Six months old on 15 August, she was carried by her mother through the whole captivity and home to Ohio. She lived to be the last survivor of the Fort Dearborn massacre, dying at Santa Ana, California, on 27 April 1900.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August she was six months old. Her mom carried her the whole time they were prisoners, and all the way home to Ohio. She lived longer than anyone else who was there that day. She died at Santa Ana, California, on 27 April 1900."
+   }
+  },
+  {
+   "card": "stories:topenebe",
+   "text": "Topenebe was the principal chief of the St. Joseph band of Potawatomi and a friend of the Kinzies for many years; his sister KawKeemee married the trader William Burnett.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Topenebe was the top chief of the St. Joseph band of Potawatomi. He had been a friend of the Kinzies for many years. His sister, KawKeemee, married a trader named William Burnett."
+   }
+  },
+  {
+   "card": "stories:topenebe",
+   "text": "Early on 15 August he sent word to John Kinzie of what was coming. He held the Kinzie boat at the river mouth to keep the family out of the fight, took Sergeant Griffith prisoner and then let him hide, and sheltered the Kinzies at St. Joseph until November. At the treaty of 1821 he was nearly eighty years old.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Early on 15 August he sent word to John Kinzie about what was coming. He kept the Kinzie boat at the mouth of the river, so the family stayed out of the fight. He took Sergeant Griffith prisoner and then let him hide. He kept the Kinzies safe at St. Joseph until November. At the treaty of 1821 he was almost eighty."
+   }
+  },
+  {
+   "card": "stories:van_voorhis_isaac",
+   "text": "Isaac Van Voorhis, of Fishkill, New York, was the fort's surgeon's mate, a young doctor of twenty-two when he wrote home in 1811 about the country and its prospects. When the factor Irwin left in July 1812, he held the keys of the government trading house.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Isaac Van Voorhis came from Fishkill, New York. He was the fort's young doctor. In 1811 he was twenty-two. That year he wrote home about the land and how it might grow. When Irwin left in July 1812, Van Voorhis kept the keys to the government store."
+   }
+  },
+  {
+   "card": "stories:van_voorhis_isaac",
+   "text": "On 15 August he was killed near the baggage wagons.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August he was killed near the wagons."
+   }
+  },
+  {
+   "card": "stories:waubeeneemah",
+   "text": "Wau-bee-nee-mah was a Potawatomi chief from the Illinois River whose lodge stood in the camp by the creek.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Wau-bee-nee-mah was a Potawatomi chief from the Illinois River. His lodge stood in the camp by the creek."
+   }
+  },
+  {
+   "card": "stories:waubeeneemah",
+   "text": "When Margaret Helm was brought to the camp on 15 August, he stretched a mat between two poles to hide from her the killing of a wounded prisoner.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August Margaret Helm was brought to the camp. A hurt prisoner was being killed there. The chief hung a mat between two poles so she would not have to see it."
+   }
+  },
+  {
+   "card": "stories:waubeeneemah_wife",
+   "text": "Rain After Thunder was the wife of Wau-bee-nee-mah, a woman of the Illinois River band; Wau-Bun gives her no name of her own, and this one is ours.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Rain After Thunder was the wife of Wau-bee-nee-mah. She was from the Illinois River band. The book Wau-Bun does not give her a name. We gave her this one."
+   }
+  },
+  {
+   "card": "stories:waubeeneemah_wife",
+   "text": "When Margaret Helm was brought to the camp on 15 August, shaking and parched, this woman took a kettle, dipped water from the stream, stirred in maple sugar with her hand and gave it to her to drink.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On 15 August Margaret Helm was brought to the camp. She was shaking and very thirsty. This woman took a kettle and got water from the stream. She stirred in maple sugar with her hand and gave it to her to drink."
+   }
+  },
+  {
+   "card": "stories:wells_william",
+   "text": "William Wells was born in Kentucky, captured by the Miami as a boy, adopted by them, and married to a daughter of their great war chief Little Turtle. He had fought on both sides of the Indian wars and was the Indian agent at Fort Wayne, and he was Rebekah Heald's uncle.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "William Wells was born in Kentucky. When he was a boy, the Miami people took him. They raised him as one of their own. He married a daughter of Little Turtle, their great war chief. He had fought on both sides in the Indian wars. He worked with the Indians for the government at Fort Wayne. He was Rebekah Heald's uncle."
+   }
+  },
+  {
+   "card": "stories:wells_william",
+   "text": "In August 1812 he rode to Chicago with a band of Miami warriors to bring the garrison safely to Fort Wayne, arriving on the 13th. On the 15th he led the column out with his face painted black. He was killed in the fight, and his heart was eaten by warriors who wanted his courage.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In August 1812 he rode to Chicago with a band of Miami warriors. He came to lead the soldiers safely to Fort Wayne. He got there on the 13th. On the 15th he led the soldiers out with his face painted black. He was killed in the fight. The warriors honored how brave he was."
+   }
+  },
+  {
+   "card": "stories:winnemeg",
+   "text": "Winnemeg, the Catfish, was a Potawatomi chief of the St. Joseph River, a friend of the Americans who in 1810 kept his people out of Tecumseh's confederacy.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Winnemeg was a Potawatomi chief of the St. Joseph River. His name means the Catfish. He was a friend of the Americans. In 1810 he kept his people from joining Tecumseh's side.",
+    "11-13": "Winnemeg, the Catfish, was a Potawatomi chief of the St. Joseph River. He was a friend of the Americans, and in 1810 he kept his people out of Tecumseh's alliance."
+   }
+  },
+  {
+   "card": "stories:winnemeg",
+   "text": "In August 1812 he carried General Hull's letter ordering the fort evacuated, and urged Heald through Kinzie to go at once. On 15 August, Wau-Bun heard, he and Waubansee tried to save the wounded Wells.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "In August 1812 he carried General Hull's letter. It told the soldiers to leave the fort. Through Kinzie, he told Heald to go right away. The book Wau-Bun says that on 15 August he and Waubansee tried to save Wells, who was hurt.",
+    "11-13": "In August 1812 he carried General Hull's letter ordering the soldiers to leave the fort. Through Kinzie, he urged Heald to go at once. On 15 August, Wau-Bun heard, he and Waubansee tried to save the wounded Wells."
+   }
+  }
+ ]
+}
