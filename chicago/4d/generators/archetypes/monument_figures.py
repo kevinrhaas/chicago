@@ -7,9 +7,11 @@ T-3582 read on ICHi-19208 and J. W. Taylor's 1893 print (`TARGETS` below, the sa
 as `monument.FIGURES`), skinned, and baked to a static mesh in the monument's frame. T-3565's
 ruling stands: the rigs are an ARMATURE and a body only. Of each rig's dress only the pieces
 the sculpture also shows are kept, as starting shapes cast in the same bronze (the belts,
-Black Partridge's leggings, Mrs. Helm's gown, the surgeon's coat and pantaloons; since
+Black Partridge's leggings, Mrs. Helm's gown, the surgeon's coat and boots; since
 T-3594 Black Partridge's breechcloth, the child's smock and the warrior's sash, in place of
-his rig's breechcloth, are drapery modelled to the plates, `DRAPED`); the project's dress and variation rules do
+his rig's breechcloth, are drapery modelled to the plates, `DRAPED`, and the surgeon's loose
+pantaloons, in place of his rig's tight ones, are cloth hung on his legs,
+`monument.ORNAMENTS`); the project's dress and variation rules do
 not apply to a sculpture (`dress_1812_native.json` is not read), and no face is fitted to a
 portrait of anyone — the faces are the rig's neutral hm08 face, which is what this ticket
 leaves to be modelled to the sculpted ones.
@@ -78,7 +80,7 @@ RIGS = {
     "surgeon": ("surgeons_mate_first_infantry_1812",
                 ("body_0", "short04_hair", "black_leather_stock", "coat_collar", "coat_body",
                  "coat_cuffs_scarlet", "coat_skirts", "coat_turnbacks_white", "white_waistcoat",
-                 "white_pantaloons", "boot_shafts", "closed_shoes", "eyes__sclera")),
+                 "boot_shafts", "closed_shoes", "eyes__sclera")),
     "child": ("child_boy_1812", ("body_0", "short04_hair", "eyes__sclera")),
 }
 
@@ -419,8 +421,9 @@ def _posed(figure: str, k: float):
 def anchors(figure: str, k: float) -> dict:
     """Where the posed figure's head and hands are, in metres off the rock's centre, for
     what the sculpture hangs on them (`monument.ORNAMENTS`, T-3594): the head's centre and
-    its frame (up, forward to the face, and the figure's right), and each hand's grip (the
-    middle finger's root) and its frame (along the hand, and toward its thumb)."""
+    its frame (up, forward to the face, and the figure's right), each hand's grip (the
+    middle finger's root) and its frame (along the hand, and toward its thumb), and each
+    leg's hip, knee and ankle."""
     _names, J, _meshes, b = _posed(figure, k)
     out = {}
     rot = b.R["head"]
@@ -432,6 +435,9 @@ def anchors(figure: str, k: float) -> dict:
         out[f"grip_{s}"] = b.at(f"hand_{s}", J[f"middle_01_{s}"])
         out[f"hand_{s}_along"] = _unit(_apply(b.R[f"hand_{s}"], J[f"middle_01_{s}"] - J[f"hand_{s}"]))
         out[f"hand_{s}_thumb"] = _unit(_apply(b.R[f"hand_{s}"], J[f"thumb_01_{s}"] - J[f"pinky_01_{s}"]))
+        # the legs' joints, for the cloth `monument.ORNAMENTS` hangs on them (T-3594)
+        for key, bone in (("hip", "thigh"), ("knee", "calf"), ("ankle", "foot")):
+            out[f"{key}_{s}"] = b.at(f"{bone}_{s}", J[f"{bone}_{s}"])
     return {key: tuple(float(x) for x in v) for key, v in out.items()}
 
 
