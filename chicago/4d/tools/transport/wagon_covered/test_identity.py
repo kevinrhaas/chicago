@@ -44,6 +44,12 @@ refuse('existing stand cannot move', lambda c, o: covered(c).update(at_local_enu
 refuse('bearing cannot change', lambda c, o: covered(c).update(bearing_deg=356.3))
 refuse('no unreviewed individual substitution', lambda c, o: covered(c).update(replaces='town_wagon_western_hotel_wagon_yard_2'))
 refuse('no duplicate covered replacement', lambda c, o: c['scenes']['1835'].append(deepcopy(covered(c))))
+refuse('a wagon cannot wear the other wagon\'s cover', lambda c, o: c['models']['covered_w01_western_blue'].update(
+    support_file='transport/covered-wagon/covered_w01_wolfpoint_oak/covered-v2-cover.glb'))
+refuse('a wagon cannot take the other wagon\'s paint', lambda c, o: c['models']['covered_w01_western_blue'].update(
+    paint=deepcopy(c['models']['covered_w01_wolfpoint_oak']['paint'])))
+refuse('covered v2 cannot drop back to the plain W01 gear', lambda c, o: c['models']['covered_w01_western_blue'].update(
+    file='transport/parked-wagon-fine-wood/wagon-w01.glb'))
 refuse('unknown family cannot use optional Brougham allowance', lambda c, o: c['models'].__setitem__('unreviewed_family', deepcopy(c['models']['carriage_c02'])))
 refuse('required generic family cannot disappear', lambda c, o: c['models'].pop('carriage_c02'))
 

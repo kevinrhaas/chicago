@@ -66,7 +66,8 @@ function env(year = '1835') {
     e => e.transport[0].moving = false, e => e.transport[0].speed = 0,
     e => e.transport[0].anchors = null, e => e.transport[0].id = 'unregistered',
     e => e.transport[0].scene = '1904']) {
-    const e = env(); mutate(e); assert.deepEqual(transportCandidates(catalog, e, '1835'), []);
+    // T-3558: one of the town's teams, alone, refused each way.
+    const e = env(); e.transport = e.transport.slice(0, 1); mutate(e); assert.deepEqual(transportCandidates(catalog, e, '1835'), []);
   }
 }
 {
@@ -145,6 +146,7 @@ function fixture({ decode = async () => buffer(), fetcher } = {}) {
   // Shared mixer: Effects alone must fetch/play and position the listener, while
   // habitat, environmental loops and music remain off. Mute retires everything.
   const ctx = context(), e = env(), requests = [];
+  e.transport = e.transport.slice(0, 1); // T-3558: one of the town's teams
   e.camera.position.x = 1;
   const engine = createRecordedAudio({ ctx, effects: ctx.createGain(), ambience: ctx.createGain(), music: ctx.createGain(),
     environment: () => e, fetcher: async url => { requests.push(String(url)); return { ok: true, json: async () => catalog, arrayBuffer: async () => new ArrayBuffer(0) }; } });

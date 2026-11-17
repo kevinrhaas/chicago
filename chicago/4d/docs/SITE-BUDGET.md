@@ -901,6 +901,36 @@ first use. It was named twice and never filed, so T-3624 files it as its own tic
 against this reading:
 `node tools/measure_boot_payload.mjs --against docs/measurements/T-3624-boot-payload-entries.json`.
 
+### 4q. The lever § 4n named, pulled: what the first visit imports and never runs loads on first use (T-3627, 2026-11-17)
+
+§ 4n, § 4o and § 4p each named the same lever and left it unpulled: modules the 1835 street
+imports eagerly that a first visit never runs. T-3627 pulls it. Measured on dev `46b34642`, both
+trees published by `publish.sh` and read by `measure_boot_payload.mjs` one after the other on the
+same machine, dev's own head reads **46.347 MB across 1,331 requests** and this change reads
+**46.276 MB across 1,321 requests**: **−0.071 MB (74,419 wire bytes) and 10 requests fewer**,
+every byte of it walk code. The reading is committed as
+`docs/measurements/T-3627-boot-payload-entries.json`.
+
+| left the boot | on the wire | loads now |
+|---|---|---|
+| the stage of an outing: `jaunt-stage`, `fort-fire`, `human-fight`, `human-blood`, `stage-props` | 0.046 MB | with the outing's own modules (`ensureJaunts`), the first time a jaunt is opened; the people's hands read the fight motions through `humans.js useFightMotions`, which that load calls |
+| the story teller: `tale-teller`, `tales`, `asks`, `tale-card`, `ask-card` | 0.013 MB | when a visitor first chooses Tell me a story or Ask a question, which are still offered beside Greet from the start (`tale-actions.js`) |
+| the narration player, `narration.js` | 0.007 MB | with the outing, as before; Settings offers the narrators from `narrators.js`, a copy `test_narration.mjs` holds equal, because `narration.js` must import nothing (the voicing workflow checks it out alone) |
+| the headset session, `controls/xr.js` | 0.005 MB | only where the browser offers immersive VR, before the VR key is shown, so Enter VR still starts from the click; boot keeps the headset test and scale (`controls/xr-detect.js`) |
+| the boat helm, `boat-pilot.js` | 0.004 MB | when a visitor first takes a boat (Take her, Stepping in); until then a boat sees nobody at the helm |
+| *came back* | +0.003 MB | the three small boot halves above (0.002 MB) and the wiring in `main.js`, `humans.js`, `human-actions.js` and `settings-app.js` (0.001 MB) |
+
+**Sign-in is not in the cut, on purpose.** § 4n listed it, but the gate is on at
+chicago.polecat.live (`js/sign-in-config.js`), so a real first visitor runs `sign-in.js`; only a
+local serve and automation (the measurement among them) skip it. Deferring it would lower this
+meter and not what a visitor downloads, which is the thing § 4 exists to count.
+
+**The budget stays 46.6 MB.** The cut is room, not a reason to tighten the number under every
+open PR: against dev's reading the room goes from 0.253 MB to 0.324 MB, about two and a half days
+of the walk's code at § 4p's pace. What remains eager is code the first frame runs. The next
+reading to beat:
+`node tools/measure_boot_payload.mjs --against docs/measurements/T-3627-boot-payload-entries.json`.
+
 ## 5. What the gate does now
 
 - **Refuses** over 416 MiB (T-3170; measured re-budgets in §8, §9, §11 and §13) — the repository-hygiene guard, not the visitor-cost

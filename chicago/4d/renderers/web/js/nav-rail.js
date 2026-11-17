@@ -8,6 +8,7 @@
  *   {
  *     id: 'inspect',                 // also data-app on its rail button and its panel
  *     label: 'Inspect',              // the button's name (aria-label, title)
+ *     railLabel: 'Inspect',          // optional (T-3629): a shorter name under the rail icon
  *     code: 'SCR 03 · INSPECT',      // the screen header while it is open
  *     icon: '<svg …>',               // a 24-unit, stroke="currentColor" icon (static markup)
  *     order: 20,                     // place in the rail, low first
@@ -15,6 +16,9 @@
  *     when: (ctx) => bool,           // optional: absent means always
  *     linger: 300,                   // optional: ms an app stays after `when` turns false
  *     badge: (ctx) => bool,          // optional: a lamp dot (e.g. unread What's new)
+ *     inRail: false,                 // optional (T-3629): registered and opened by code or
+ *                                    // a link (Jump from the year chip, Move from Settings),
+ *                                    // but no icon of its own on the rail
  *     glow: (ctx) => bool,           // optional: the icon glows (the Confidence view is on)
  *     // Then ONE of:
  *     panel: 'nav-home',             // an element already in the page (Home)
@@ -124,11 +128,18 @@ export function createRail({
     if (app.pin === 'bottom') b.classList.add('nav-app-foot');
     if (typeof app.icon === 'string') b.insertAdjacentHTML?.('beforeend', app.icon);
     else if (app.icon) b.append(app.icon);
+    // T-3629: every icon carries its name under it, as a game's tab bar does.
+    const name = doc.createElement('span');
+    name.className = 'nav-app-label';
+    name.setAttribute('aria-hidden', 'true');
+    name.textContent = app.railLabel ?? app.label;
+    b.append(name);
     const dot = doc.createElement('span');
     dot.className = 'nav-app-dot';
     dot.setAttribute('aria-hidden', 'true');
     b.append(dot);
-    b.hidden = !!app.when;
+    b.hidden = !!app.when || app.inRail === false;
+    if (app.inRail === false) b.classList.add('nav-app-off-rail');
     b.addEventListener('click', () => { void select(app.id, { by: 'hand' }); });
     return b;
   }
@@ -174,6 +185,7 @@ export function createRail({
   function slide(s, on) {
     const b = s.button;
     b.classList.remove('is-entering', 'is-leaving');
+    if (s.app.inRail === false) { b.hidden = true; return; }
     if (on) {
       b.hidden = false;
       if (!reduced()) {
@@ -322,7 +334,7 @@ export function createRail({
   // Enter or Space opens one, as the button it is. Moving focus never opens an app on
   // its own: some apps are launches that dock the device.
   list?.addEventListener?.('keydown', (e) => {
-    const tabs = railOrder([...apps.values()].map((s) => s.app)).map((a) => apps.get(a.id)).filter((s) => s.shown).map((s) => s.button);
+    const tabs = railOrder([...apps.values()].map((s) => s.app)).map((a) => apps.get(a.id)).filter((s) => s.shown && s.app.inRail !== false).map((s) => s.button);
     const at = tabs.indexOf(e.target);
     if (at < 0) return;
     const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
@@ -357,7 +369,7 @@ export function createRail({
     tab: (id) => apps.get(id)?.button ?? null,
     /** For the harness: what the rail shows, in order. */
     shown() {
-      return railOrder([...apps.values()].map((s) => s.app)).filter((a) => apps.get(a.id).shown).map((a) => a.id);
+      return railOrder([...apps.values()].map((s) => s.app)).filter((a) => apps.get(a.id).shown && a.inRail !== false).map((a) => a.id);
     },
     snapshot() {
       return railOrder([...apps.values()].map((s) => s.app)).map((a) => {
