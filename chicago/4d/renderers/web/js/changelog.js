@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3055, ts: '2026-11-17T03:34:47.391Z', date: 'Nov 16, 2026, 9:34 PM CT', title: '1815 Prairie\'s stone chimneys stay stone up to their heads', kind: 'improvement',
+    items: [
+      'A strip of red brick showed under the head of each stone chimney on the Sears-Meeker house at 1815 Prairie Avenue. The chimney kit put that darker band on every stack, but it is meant for brick ones. Both old photographs show these stacks in pale stone right up to the head, so stone stacks now stay stone. No other house had a stone stack, so nothing else changed.',
+    ] },
   { v: 3054, ts: '2026-11-17T03:32:13.301Z', date: 'Nov 16, 2026, 9:32 PM CT', title: 'A lighter first step into 1835', kind: 'improvement',
     items: [
       'Your first visit to 1835 downloads about 74 KB less before you can walk. The boat helm, the story teller, the headset controls, the narration player and an outing\'s staging now load the first time you use them, and everything you see when you arrive is unchanged.',
