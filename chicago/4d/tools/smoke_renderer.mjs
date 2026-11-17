@@ -1357,7 +1357,7 @@ async function captureWithRestoreState(page, grid, when) {
     function advanceSceneSettle(previous,state){
      if(!sceneCaptureReady(state))return{key:null,unchanged:0,settled:false};
      // Only semantic counters: never frame/timing counters which advance forever.
-     const key=JSON.stringify({camera:state.camera,geometry:state.geometry,flora:state.flora,textureResidency:state.textureResidency,parkedTransport:state.parkedTransport});
+     const key=JSON.stringify({camera:state.camera,geometry:state.geometry,flora:state.flora,textureResidency:state.textureResidency,parkedTransport:state.parkedTransport,riding:state.riding});
      const unchanged=previous?.key===key?previous.unchanged+1:1;
      return{key,unchanged,settled:unchanged>=4};
     }
@@ -1400,6 +1400,9 @@ async function captureWithRestoreState(page, grid, when) {
         // Figures with a level still loading or waiting for its turn to build (humans.js setLod);
         // not a readiness condition (the pair holds people out of frame), only the receipt.
         humans: Array.isArray(a.humans?.actors) ? a.humans.actors.filter((h) => h?.pending).length : null,
+        // T-3560: a saddle horse or town rider is fetched as the eye nears it; held out of frame with the people,
+        // so this too is only the receipt.
+        riding: Number.isInteger(a.riding?.pending) ? a.riding.pending : null,
       };
     };
     let settleReceipt = null;
@@ -1448,6 +1451,10 @@ async function holdPairPeople(page) {
     const h = window.__chicago4d.humans;
     if (h && !h.heldByPair) { h.heldByPair = h.update; h.update = () => {}; }
     if (h?.group && h.hiddenByPair == null) { h.hiddenByPair = h.group.visible; h.group.visible = false; }
+    // T-3560: the town's riders and saddle horses are people too, fetched as the eye nears them.
+    const r = window.__chicago4d.riding;
+    if (r && !r.heldByPair) { r.heldByPair = r.update; r.update = () => {}; }
+    if (r?.group && r.hiddenByPair == null) { r.hiddenByPair = r.group.visible; r.group.visible = false; }
   }).catch(() => {});
 }
 async function letGoPairPeople(page) {
@@ -1455,6 +1462,9 @@ async function letGoPairPeople(page) {
     const h = window.__chicago4d.humans;
     if (h?.heldByPair) { h.update = h.heldByPair; delete h.heldByPair; }
     if (h?.group && h.hiddenByPair != null) { h.group.visible = h.hiddenByPair; delete h.hiddenByPair; }
+    const r = window.__chicago4d.riding;
+    if (r?.heldByPair) { r.update = r.heldByPair; delete r.heldByPair; }
+    if (r?.group && r.hiddenByPair != null) { r.group.visible = r.hiddenByPair; delete r.hiddenByPair; }
   }).catch(() => {});
 }
 

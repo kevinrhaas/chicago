@@ -640,6 +640,33 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       }
       return list;
     },
+    /**
+     * T-3560: every team out on the road, as its footprint now and where its round takes it at
+     * each of `times` seconds ahead (a team stopped or driven stays where it stands): for the
+     * town's riders (riding.js) to give way to. Built teams and the streamed teams' ghosts.
+     */
+    footprintsAhead(times = [0], margin = 0) {
+      if (disposed) return [];
+      const hour = lastUpdate?.[2]?.hour ?? null, built = new Map(actors.map(actor => [actor.id, actor])), list = [];
+      for (const { row, route } of circuits) {
+        const envelope = envelopeOf(row);
+        if (!envelope) continue;
+        const actor = built.get(row.id);
+        if (actor) {
+          if (actor.disposed || !actor.pose || (actor.mode !== 'staged' && offHours(row.hours, hour))) continue;
+          const snap = actor.snapshot();
+          const pace = actor.mode === 'route' && actor.state === 'moving' && !(snap.dwell_s > 0) ? (actor.speed_m_s ?? row.speed_m_s ?? 0) : 0;
+          list.push(times.map(t => (actor.mode === 'route' && pace ? footprintAt(route, row, snap.distance_m + pace * t, margin)
+            : footprintOfPose(actor.pose, envelope, margin))));
+          continue;
+        }
+        const ghost = ghosts.get(row.id);
+        if (!ghost || row.on_call || offHours(row.hours, hour)) continue;
+        const pace = ghost.dwell > 0 ? 0 : (row.speed_m_s ?? 0);
+        list.push(times.map(t => footprintAt(route, row, ghost.distance + pace * t, margin)));
+      }
+      return list;
+    },
     /** Where the scene's teams can meet, and who holds or waits at each (transport-crossings.js). */
     crossings() { return crossings ? { zones: crossings.zones.length, teams: crossings.snapshot() } : null; },
     pickDriverAt(ndc, camera) {
