@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 3063, ts: '2026-11-17T06:45:42.799Z', date: 'Nov 17, 2026, 12:45 AM CT', title: 'More room for the town\'s detail on a desktop', kind: 'chore',
+    items: [
+      'The triangle budget for each detail setting is raised to fit the schooners and Lake Street\'s new store fronts, as the owner chose. Nothing in the scene changes.',
+      'The weakest setting\'s budget goes up for the fourth time. A phone still fits inside the old one.',
+    ] },
+  { v: 3062, ts: '2026-11-17T06:24:35.520Z', date: 'Nov 17, 2026, 12:24 AM CT', title: 'Name cards hold still when the town is held', kind: 'fix',
+    items: [
+      'The name cards over people now bob and fade on the same clock as the people under them, so a paused frame stays put.',
+    ] },
+  { v: 3061, ts: '2026-11-17T06:24:35.520Z', date: 'Nov 17, 2026, 12:24 AM CT', title: 'Trousers hang straight over the seat; aprons stay whole on the walk', kind: 'fix',
+    items: [
+      'Every pair of trousers, breeches and pantaloons in town now spans the seat from behind, as cloth does, instead of following the body\'s shape.',
+      'A maid\'s apron bow and a cook\'s apron ties now swing with the skirt when she walks; the skirt no longer cuts through them.',
+    ] },
+  { v: 3060, ts: '2026-11-17T06:13:53.037Z', date: 'Nov 17, 2026, 12:13 AM CT', title: 'Wagons and their teams work the streets of 1835', kind: 'feature',
+    items: [
+      'Ten teamsters drive their teams round the town all day, each round his own blocks: South Water and Lake, Market, Randolph and Washington, Canal and Clinton, and North Water and Kinzie.',
+      'They are the town\'s own carters, named from its records: the Kinzies\', Jones\'s and Sabine\'s men, Charles White the drayman, Thomas Reed and Thomas Cook.',
+      'They harness at dawn, put up in the evening, and stand at a door on their round as if loading.',
+      'The wagons are photographic, and they lean and pitch over the ruts of the mud streets.',
+      'Otis Bardwell now walks his Western Hotel team round Clinton and Canal. Climb up and ride on the wagon bed.',
+    ] },
   { v: 3059, ts: '2026-11-17T05:23:28.812Z', date: 'Nov 16, 2026, 11:23 PM CT', title: 'A cleaner Navigator: labelled tabs, one card per jaunt', kind: 'feature',
     items: [
       'The Navigator\'s tabs carry their names under their icons. Move and Jump left the rail: Home\'s Move tile, its new Other years key and the year chip open them. On a phone the tabs sit along the bottom of the sheet, where a thumb reaches them.',

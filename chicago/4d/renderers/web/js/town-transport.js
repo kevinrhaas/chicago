@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 import { routeFor, createTransportLoop, preflightTransportRouteAsync, TransportSpawnObstructedError } from './transport-loop.js';
-import { createCrossings, overlaps } from './transport-crossings.js';
+import { createCrossings, overlaps, footprintAt } from './transport-crossings.js';
 import { footprintOfPose } from './team-drive.js';
 
 const WHEELS = ['vehicle_wheel_rear_left', 'vehicle_wheel_rear_right',
@@ -86,8 +86,9 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
       if (disposed) return;
       lastPose = pose; posed = true;
       root.position.set(pose.e, pose.height, -pose.n);
-      // T-3557: over a carriage drive's kerb ramp the coach pitches with its axles.
-      if (pose.pitch) root.rotation.set(pose.pitch, pose.yaw, 0, 'YXZ'); else root.rotation.set(0, pose.yaw, 0, 'XYZ');
+      // T-3557: over a carriage drive's kerb ramp the coach pitches with its axles; T-3558: on a
+      // rutted earth street the wagon also leans with its wheels' ground (transport-loop.js).
+      if (pose.pitch || pose.roll) root.rotation.set(pose.pitch ?? 0, pose.yaw, pose.roll ?? 0, 'YXZ'); else root.rotation.set(0, pose.yaw, 0, 'XYZ');
       steer.rotation.y = steerRest + pose.steering;
       swing(pose.steering);
       if (!horse.poseVehicle) {
@@ -100,8 +101,9 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
       if (horse.poseVehicle) {
         horse.poseVehicle(pose); root.updateMatrixWorld(true);
         const connection = hitch?.update(pose);
-        // On an admitted ramp the traces stretch a little with the pitch; the road's bound stands.
-        if (connection?.valid === false && !pose.ramp) throw Error('town transport: actual hitch exceeds its declared connection bound');
+        // On an admitted ramp, or in a rutted street's ruts (T-3558), the traces give a little
+        // with the pitch; on a level road the bound stands.
+        if (connection?.valid === false && !pose.ramp && !pose.rough) throw Error('town transport: actual hitch exceeds its declared connection bound');
         return;
       }
       const current = horse.root.getWorldPosition(horse.root.position.clone());
@@ -258,6 +260,44 @@ const envelopeOf = row => Array.isArray(row?.envelope_local_xz_m) ? row.envelope
   : Array.isArray(row?.envelope_measured_local_xz_m) ? row.envelope_measured_local_xz_m : null;
 const TEAM_MARGIN_M = .3;
 
+/**
+ * Kevin, 2026-11-16, of 1835: "we should have a lot of them running on loops around the city".
+ * A row marked `streamed` is built only while it is near the visitor. The rest of the time it
+ * is a ghost: a place on its road that keeps going at the team's pace, standing its stops and
+ * keeping its hours, with no model, horse or teamster in memory. When a ghost comes within the
+ * tier's reach plus `load_m` (nearest first, at most `cap` of them built at once) its team is
+ * made there; when a built team is `drop_m` past the reach it is put away and goes on as a
+ * ghost. A team the visitor rides, drives or has sent for is never put away. Ghosts do not give
+ * way at crossings (nobody sees them); a ghost is not built where its team would stand on
+ * another's, and waits for the next look. Light (and every phone) builds one at a time: the
+ * first team costs a phone about 34 MB (measured 2026-11-17 on /1835/ at Light, far wagon), so
+ * more is the phone thread's (T-3555) to buy back, with far stand-ins from `distant()`.
+ */
+const STREAM = { load_m: 35, drop_m: 70, cap: { full: 8, balanced: 6, light: 1 }, every_s: .5 };
+
+/** A ghost's distance along its road after `dt` seconds, standing its stops on the way. */
+export function advanceGhost(ghost, { length, speed_m_s, stops = [] }, dt) {
+  let left = Math.max(0, dt);
+  for (let guard = 0; left > 1e-9 && guard < 64; guard++) {
+    if (ghost.dwell > 0) {
+      const wait = Math.min(ghost.dwell, left);
+      ghost.dwell -= wait; left -= wait;
+      continue;
+    }
+    let ds = left * speed_m_s, arriving = null;
+    for (const stop of stops) {
+      const at = ((stop.distance_m % length) + length) % length;
+      const ahead = ((at - ghost.distance) % length + length) % length;
+      if (ahead > 1e-6 && ahead <= ds && (!arriving || ahead < arriving.ahead)) arriving = { stop, at, ahead };
+    }
+    if (arriving) ds = arriving.ahead;
+    ghost.distance = ((ghost.distance + ds) % length + length) % length;
+    ghost.total += ds; left -= ds / speed_m_s;
+    if (arriving) { ghost.distance = arriving.at; ghost.dwell = arriving.stop.dwell_s; }
+  }
+  return ghost;
+}
+
 /** One instance per scene. The static parked layer remains independently owned.
  * `clearWhy(row)` (optional) names what last refused `clear(row, ...)`: 'visitor' or a footprint id.
  * `carriageway(row, pose)` (optional, T-3557): false when a wheel or hoof of that row's team at a
@@ -266,7 +306,7 @@ const TEAM_MARGIN_M = .3;
 export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssembly = null, heightAt,
   clear, routeClear = clear, routeSupport = null, clearWhy = null, carriageway = null, detail = 'full',
   reach = { full: 90, balanced: 60, light: 45 }, problems = [], onActorsChanged = () => {},
-  admit = null, pathHeightAt = null }) {
+  admit = null, pathHeightAt = null, stream = STREAM }) {
   // T-3542: a tier draws the teams when its reach is above zero; since the owner's ruling
   // (2026-11-10) Light's is, so a phone keeps its horses, carriages and wagons, nearer.
   const draws = t => (reach[t] ?? 0) > 0;
@@ -290,6 +330,17 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       south: Math.min(...points.map(p => p.n)), north: Math.max(...points.map(p => p.n)) };
   });
   const rowById = new Map(circuits.map(circuit => [circuit.id, circuit.row]));
+  // Streamed rows (STREAM above): each one's ghost, and the rows near enough to build now.
+  const ghosts = new Map(circuits.filter(c => c.row.streamed).map(c => [c.id, {
+    distance: ((c.row.initial_distance_m ?? 0) % c.route.length + c.route.length) % c.route.length,
+    total: 0, dwell: 0 }]));
+  const circuitById = new Map(circuits.map(circuit => [circuit.id, circuit]));
+  // The first update chooses at once; nothing is built before the visitor has entered (ensureNear).
+  let wanted = new Set(), streamClock = Infinity, streamCamera = null, entered = false;
+  const ghostAt = id => {
+    const circuit = circuitById.get(id), ghost = ghosts.get(id);
+    return ghost ? circuit.route.at(ghost.distance) : null;
+  };
   // Kevin, 2026-11-13: where two of the scene's teams can meet, one gives way to the other
   // (transport-crossings.js). Read from the routes alone, once, when the first team loads.
   let crossings = null;
@@ -348,6 +399,66 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
   };
   let disposed = false, tier = detail, load = null, generation = 0, loadGeneration = -1;
   let lastUpdate = null;
+  const building = new Map(); // row id -> the load generation building it
+  // A ghost is not made into a team where that team would stand on a built one's footprint.
+  const ghostClear = id => {
+    const row = rowById.get(id), circuit = circuitById.get(id), ghost = ghosts.get(id), mine = envelopeOf(row);
+    if (!ghost || !mine) return true;
+    const at = footprintAt(circuit.route, row, ghost.distance, TEAM_MARGIN_M);
+    for (const other of actors) {
+      const theirs = envelopeOf(rowById.get(other.id)), pose = other.pose;
+      if (other.disposed || !theirs || !pose) continue;
+      if (overlaps(at, footprintOfPose(pose, theirs, TEAM_MARGIN_M))) return false;
+    }
+    return true;
+  };
+  /** STREAM: move the ghosts, put away built teams gone far, and choose which to build. */
+  const streamStep = (dt, cameraPosition, { paused, hidden, hour }) => {
+    if (!ghosts.size || !cameraPosition) return;
+    streamCamera = { x: cameraPosition.x, z: cameraPosition.z };
+    const live = new Set(actors.map(actor => actor.id));
+    if (!paused && !hidden && dt > 0) for (const [id, ghost] of ghosts) {
+      if (live.has(id) || building.has(id)) continue;
+      const row = rowById.get(id);
+      if (offHours(row.hours, hour)) continue;
+      ghost.held = false;
+      advanceGhost(ghost, { length: circuitById.get(id).route.length, speed_m_s: row.speed_m_s, stops: row.stops ?? [] }, Math.min(dt, 1));
+    }
+    streamClock += dt;
+    if (streamClock < (stream.every_s ?? .5)) return;
+    streamClock = 0;
+    const range = (reach[tier] ?? 0);
+    const far = (e, n) => Math.hypot(e - streamCamera.x, -n - streamCamera.z);
+    // Put away a built streamed team gone well past the reach, unless someone has it.
+    for (const actor of [...actors]) {
+      const row = rowById.get(actor.id);
+      if (!row?.streamed || actor.mode !== 'route') continue;
+      if (pendingApproaches.get(row.person_id)?.rowId === row.id || actor.reason === 'approach') continue;
+      if (far(actor.at[0], actor.at[1]) <= range + (stream.drop_m ?? 70)) continue;
+      const snap = actor.snapshot();
+      saved.set(actor.id, snap);
+      Object.assign(ghosts.get(actor.id), { distance: snap.distance_m, total: snap.total_distance_m, dwell: snap.dwell_s ?? 0, held: false });
+      actors.splice(actors.indexOf(actor), 1);
+      const r = roots.indexOf(actor.assembly?.root);
+      if (r >= 0) roots.splice(r, 1);
+      actor.dispose();
+      onActorsChanged([...actors]);
+    }
+    // The nearest ghosts in reach, up to the tier's cap of built streamed teams.
+    const cap = stream.cap?.[tier] ?? 4;
+    const builtStreamed = actors.filter(actor => rowById.get(actor.id)?.streamed).map(actor => actor.id);
+    const candidates = [];
+    for (const [id] of ghosts) {
+      if (live.has(id) || failed.has(id) || offHours(rowById.get(id).hours, hour)) continue;
+      const at = ghostAt(id), d = far(at.e, at.n);
+      if (d <= range + (stream.load_m ?? 35)) candidates.push([d, id]);
+    }
+    candidates.sort((a, b) => a[0] - b[0]);
+    const next = new Set(candidates.slice(0, Math.max(0, cap - builtStreamed.length)).map(([, id]) => id));
+    const fresh = [...next].some(id => !wanted.has(id));
+    wanted = next;
+    if (fresh && entered && draws(tier)) { load = null; void out.ready(); }
+  };
   const out = {
     actors, roots,
     get audioSources() { return disposed ? [] : actors.map(actor => ({ ...actor.audioState, scene: sceneId })); },
@@ -360,12 +471,20 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
           if (disposed || ownGeneration !== generation) break;
           if (row.scene !== sceneId || failed.has(row.id) || actors.some(actor => actor.id === row.id)) continue;
           if (row.on_call && !summoned.has(row.id)) continue;
+          // A streamed team is built when chosen, or when someone is on the way to its man.
+          if (row.streamed && ((!wanted.has(row.id) && pendingApproaches.get(row.person_id)?.rowId !== row.id)
+            || building.get(row.id) === ownGeneration || !ghostClear(row.id))) continue;
           let assembly;
+          building.set(row.id, ownGeneration);
           try {
             const waiting = deferred.get(row.id);
             if (waiting && !clear(row, waiting, waiting)) continue;
-            const prior = saved.get(row.id);
-            const liveRow = prior ? { ...row, initial_distance_m: prior.distance_m,
+            const prior = saved.get(row.id), ghost = ghosts.get(row.id);
+            // A streamed team is made where its ghost has got to, going on from there.
+            const liveRow = ghost && !ghost.held ? { ...row, initial_distance_m: ghost.distance,
+              initial_total_distance_m: ghost.total, initial_state: 'moving', initial_dwell_s: ghost.dwell,
+              ...(prior ? { initial_wheel_rotation_rad: prior.wheel_rotation_rad, initial_assembly_state: prior.assembly_state } : {}) }
+              : prior ? { ...row, initial_distance_m: prior.distance_m,
               initial_total_distance_m: prior.total_distance_m, initial_wheel_rotation_rad: prior.wheel_rotation_rad,
               initial_state: prior.state, initial_assembly_state: prior.assembly_state,
               initial_dwell_s: prior.dwell_s ?? 0 } : row;
@@ -414,7 +533,7 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
               if (pendingApproaches.get(row.person_id)?.rowId === row.id) pendingApproaches.delete(row.person_id);
               deferred.delete(row.id); failed.add(row.id); problems.push(`town transport ${row.id}: ${error.message}`);
             }
-          }
+          } finally { if (building.get(row.id) === ownGeneration) building.delete(row.id); }
         }
       })();
       const ownLoad = load;
@@ -429,8 +548,14 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
      * the visitor actually approaches the circuit; Light remains the existing floor. */
     ensureNear(cameraPosition, enabled = true) {
       if (disposed || !enabled || !draws(tier)) return false;
+      entered = true;
       const limit = (reach[tier] ?? 0) + 8;
-      const near = circuits.some(circuit => Math.hypot(
+      // A streamed row is near when its ghost is (STREAM); update() chooses which to build.
+      const ghostNear = [...ghosts.keys()].some(id => {
+        const p = ghostAt(id);
+        return Math.hypot(p.e - cameraPosition.x, -p.n - cameraPosition.z) <= limit + (stream.load_m ?? 35);
+      });
+      const near = ghostNear || circuits.filter(circuit => !circuit.row.streamed).some(circuit => Math.hypot(
         Math.max(circuit.west - cameraPosition.x, 0, cameraPosition.x - circuit.east),
         Math.max(circuit.south + cameraPosition.z, 0, -cameraPosition.z - circuit.north)) <= limit);
       if (near) void out.ready();
@@ -442,6 +567,10 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       // A visibility replay must not prime a new/restored journey's first real frame.
       lastUpdate = [0, cameraPosition, { paused, reducedMotion, hidden, visualDt: 0, elapsedFrame, motionFrame: false, hour }];
       const distance = reach[tier] ?? 0;
+      if (!disposed && draws(tier)) {
+        try { streamStep(dt, cameraPosition, { paused, hidden, hour }); }
+        catch (error) { problems.push(`town transport streaming: ${error.message}`); }
+      }
       for (const actor of actors) {
         const at = actor.at;
         const drawn = distance > 0 && Math.hypot(at[0] - cameraPosition.x, -at[1] - cameraPosition.z) < distance;
@@ -462,7 +591,16 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       if (!draws(next)) {
         generation++; routeReadings.clear(); deferred.clear(); failed.clear();
         // An on-call team is put away (its stand's parked carriage takes its place), never saved.
-        for (const actor of actors) { if (!rowById.get(actor.id)?.on_call) saved.set(actor.id, actor.snapshot()); actor.dispose(); }
+        for (const actor of actors) {
+          if (!rowById.get(actor.id)?.on_call) {
+            const snap = actor.snapshot(), ghost = ghosts.get(actor.id);
+            saved.set(actor.id, snap);
+            // A streamed team put away by a tier comes back exactly as it was (`held`), unless
+            // it has gone on unseen in the meantime.
+            if (ghost) Object.assign(ghost, { distance: snap.distance_m, total: snap.total_distance_m, dwell: snap.dwell_s ?? 0, held: true });
+          }
+          actor.dispose();
+        }
         summoned.clear();
         actors.length = 0; roots.length = 0; onActorsChanged([]);
         const pending = load; load = null;
@@ -473,6 +611,35 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       if (lastUpdate) out.update(...lastUpdate);
     },
     snapshot() { return actors.map(actor => actor.snapshot()); },
+    /**
+     * T-3555/T-3558: every team of the scene that is out on the road and not drawn near the
+     * visitor, where it is: the streamed teams' ghosts, built teams beyond reach, and the rest
+     * of the circuits at their kept or first places. For a far, cheap stand-in of the town's
+     * traffic; nothing is loaded or read but the routes. `heading_deg` is clockwise from north.
+     */
+    distant(cameraPosition = null) {
+      if (disposed) return [];
+      const near = reach[tier] ?? 0, built = new Map(actors.map(actor => [actor.id, actor]));
+      const hour = lastUpdate?.[2]?.hour ?? null, list = [];
+      const heading = yaw => ((Math.atan2(Math.sin(yaw), -Math.cos(yaw)) * 180 / Math.PI) + 360) % 360;
+      for (const { row, route } of circuits) {
+        if (row.on_call || offHours(row.hours, hour)) continue;
+        const kind = /brougham|carriage|coach/i.test(`${row.vehicle_file ?? ''} ${row.name ?? ''}`) ? 'carriage' : 'wagon';
+        const actor = built.get(row.id);
+        if (actor) {
+          if (actor.disposed) continue;
+          const at = actor.at;
+          if (cameraPosition && near > 0 && Math.hypot(at[0] - cameraPosition.x, -at[1] - cameraPosition.z) < near) continue;
+          list.push({ id: row.id, kind, e: at[0], n: at[1], heading_deg: heading(actor.snapshot().yaw_rad), moving: actor.state === 'moving' });
+          continue;
+        }
+        const ghost = ghosts.get(row.id);
+        const d = ghost?.distance ?? saved.get(row.id)?.distance_m ?? row.initial_distance_m ?? 0;
+        const p = route.at(((d % route.length) + route.length) % route.length);
+        list.push({ id: row.id, kind, e: p.e, n: p.n, heading_deg: heading(p.yaw), moving: !!ghost && !(ghost.dwell > 0) });
+      }
+      return list;
+    },
     /** Where the scene's teams can meet, and who holds or waits at each (transport-crossings.js). */
     crossings() { return crossings ? { zones: crossings.zones.length, teams: crossings.snapshot() } : null; },
     pickDriverAt(ndc, camera) {
@@ -526,7 +693,7 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
         || !Number.isFinite(row.root_ahead_of_rear_axle_m)
         || !Array.isArray(row.driver_local_m) || row.driver_local_m.length !== 3
         || !row.driver_local_m.every(Number.isFinite)) return null;
-      const distance = saved.get(row.id)?.distance_m ?? row.initial_distance_m ?? 0;
+      const distance = ghosts.get(row.id)?.distance ?? saved.get(row.id)?.distance_m ?? row.initial_distance_m ?? 0;
       if (!Number.isFinite(distance)) return null;
       const rear = circuit.route.at(distance), yaw = rear.yaw;
       // The same two localToEnu translations as createTransportLoop.poseAt:

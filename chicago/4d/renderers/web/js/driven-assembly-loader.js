@@ -7,7 +7,7 @@ import { resolveHumanIdentity } from './human-identity.js';
 import { disposeLoadedAsset } from './scene-loader.js';
 import { createDrivenAssembly, createTeamsterAssembly } from './town-transport.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
-import { fitHorseSupport } from './transport-support.js';
+import { fitHorseSupport, roughHorseSupport } from './transport-support.js';
 import { createDriverLife } from './driver-life.js';
 import { clothHuman } from './fabric.js';
 import { loadLivery, dressInLivery } from './driver-livery.js';
@@ -166,6 +166,11 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
               const ground = (x, y) => { const h = heightAt(x, y); return Number.isFinite(h) ? h : rampHeightAt?.(x, y); };
               try { support = fitHorseSupport({ ...at, heightAt: ground, ...horseSupportDomain }); }
               catch { support = rampSupport({ ...at, heightAt: ground, ...horseSupportDomain }); }
+            } else if (pose.rough) {
+              // T-3558: a rutted earth street (1835): the certified plane where the ground gives
+              // one, else the hooves walk the ruts, bedded no deeper than the drawn street.
+              try { support = fitHorseSupport({ ...at, heightAt, ...horseSupportDomain }); }
+              catch { support = roughHorseSupport({ ...at, heightAt, ...horseSupportDomain }); }
             } else support = fitHorseSupport({ ...at, heightAt, ...horseSupportDomain });
           } catch (error) {
             // T-3553: a team a jaunt's stage walks off its certified road (the 1812 column on
@@ -174,10 +179,22 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
             const ground = heightAt(current.x, -current.z);
             support = { height_m: Number.isFinite(ground) ? ground : pose.height, normal_local_xyz: [0, 1, 0], staged: true };
           }
-          horse.root.position.y = support.height_m - pose.height;
           const tilt = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0),
             new THREE.Vector3().fromArray(support.normal_local_xyz));
-          horse.root.quaternion.setFromAxisAngle(new THREE.Vector3(0, 1, 0), localYaw).multiply(tilt);
+          if (pose.rough && (pose.pitch || pose.roll)) {
+            // T-3558: the wagon leans in the ruts, its team does not lean with it. Each horse is
+            // set in the leaning frame so that its world height is its own support's, and it
+            // heads level: the wagon's lean is taken off before its own heading and tilt.
+            const m = group.matrixWorld.elements, { x: hx, z: hz } = horse.root.position;
+            horse.root.position.y = (support.height_m - m[13] - m[1] * hx - m[9] * hz) / m[5];
+            const unlean = new THREE.Quaternion().setFromEuler(new THREE.Euler(-(pose.pitch ?? 0), 0, -(pose.roll ?? 0), 'ZXY'));
+            const swingY = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), turn);
+            horse.root.quaternion.copy(swingY.clone().invert()).multiply(unlean).multiply(swingY)
+              .multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), localYaw)).multiply(tilt);
+          } else {
+            horse.root.position.y = support.height_m - pose.height;
+            horse.root.quaternion.setFromAxisAngle(new THREE.Vector3(0, 1, 0), localYaw).multiply(tilt);
+          }
           horse.support = support;
           group.updateWorldMatrix(true, true);
           horse.root.getWorldPosition(current);
@@ -224,6 +241,43 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       },
     };
   };
+  // Kevin, 2026-11-16: "we should have a lot of them running on loops around the city". A
+  // teamster's wagon is one photographic GLB shared by every team that draws it: parsed once,
+  // each team a clone of its scene (the same geometry, materials and maps), the parse let go
+  // when the last team using it is put away. Each team used to fetch and parse its own copy,
+  // its six maps and all, which a town of wagons cannot afford on a phone.
+  const wagons = new Map();
+  const acquireWagon = async row => {
+    const key = `${row.vehicle_file}|${row.vehicle_glb_sha256}`;
+    let entry = wagons.get(key);
+    if (!entry) {
+      entry = { users: 0, gltf: (async () => {
+        const response = await fetch(assetURL(row.vehicle_file));
+        if (!response.ok) throw Error(`driven assembly: vehicle HTTP${response.status}`);
+        const bytes = await response.arrayBuffer();
+        const sha256 = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(n => n.toString(16).padStart(2, '0')).join('');
+        if (sha256 !== row.vehicle_glb_sha256) throw Error('driven assembly: actual vehicle differs from its row');
+        return loader.parseAsync(bytes, new URL('.', assetURL(row.vehicle_file)).href);
+      })() };
+      wagons.set(key, entry);
+    }
+    entry.users++;
+    let released = false;
+    const release = () => {
+      if (released) return;
+      released = true;
+      if (--entry.users > 0 || wagons.get(key) !== entry) return;
+      wagons.delete(key);
+      entry.gltf.then(gltf => disposeLoadedAsset(gltf), () => {});
+    };
+    try {
+      const gltf = await entry.gltf;
+      return { scene: gltf.scene.clone(true), release };
+    } catch (error) {
+      if (wagons.get(key) === entry) wagons.delete(key);
+      release(); throw error;
+    }
+  };
   // T-3497: a team led by a teamster on foot (an 1812 army wagon). The vehicle and team are
   // loaded exactly as a driven row's; the teamster is the scene's own figure of that person,
   // made by the humans layer (his looks, his walk), towed beside the near horse's head.
@@ -239,17 +293,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
     const identity = resolveHumanIdentity(instance, { sceneId, people, profiles });
     let vehicle = null, walker = null, template = null, team = null, hitch = null, restore = null;
     try {
-      const acquired = await Promise.allSettled([
-        (async () => {
-          const response = await fetch(assetURL(row.vehicle_file));
-          if (!response.ok) throw Error(`driven assembly: vehicle HTTP${response.status}`);
-          const bytes = await response.arrayBuffer();
-          const sha256 = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(n => n.toString(16).padStart(2, '0')).join('');
-          if (sha256 !== row.vehicle_glb_sha256) throw Error('driven assembly: actual vehicle differs from its row');
-          return loader.parseAsync(bytes, new URL('.', assetURL(row.vehicle_file)).href);
-        })(),
-        acquireHorse(),
-      ]);
+      const acquired = await Promise.allSettled([acquireWagon(row), acquireHorse()]);
       if (acquired[0].status === 'fulfilled') vehicle = acquired[0].value;
       if (acquired[1].status === 'fulfilled') template = acquired[1].value;
       const failed = acquired.find(result => result.status === 'rejected');
@@ -291,7 +335,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       });
       const assembly = createTeamsterAssembly({ root: new THREE.Group(), vehicle: vehicle.scene, walker, horse: team, hitch,
         confidence, walkerLocal_m: row.driver_local_m, horseOffset_m: row.horse_offset_m,
-        disposeVehicle: () => disposeLoadedAsset(vehicle) });
+        disposeVehicle: () => vehicle.release() });
       restore = adoptPerson(instance, walker);
       const dispose = assembly.dispose;
       assembly.dispose = () => { dispose(); walker.dispose(); if (restore) { restore(); restore = null; } };
@@ -309,7 +353,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
     } catch (error) {
       hitch?.dispose(); team?.dispose(); walker?.dispose();
       if (template && !team) releaseHorse(template);
-      if (vehicle) disposeLoadedAsset(vehicle);
+      vehicle?.release();
       restore?.(); throw error;
     }
   };
