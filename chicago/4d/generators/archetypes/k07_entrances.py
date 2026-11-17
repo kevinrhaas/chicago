@@ -628,7 +628,7 @@ class Entrance(Opening):
                     continue
                 if st.get("cheek_form") == "swept" and (not porches or all(q.get("parapet") for q in porches)):
                     # T-2910; T-2952: beside a terrace the cheek starts at the landing's edge
-                    self._swept_cheek(si, so, sgn, L, F, R, n, r, g, st["swept"], start=o0)
+                    self._swept_cheek(si, so, sgn, L, F, R, n, r, g, st["swept"], start=o0, far=c - sgn * half)
                     continue
                 if Dq > L:
                     o0 = Dq
@@ -1440,7 +1440,7 @@ class Entrance(Opening):
         self.probe(m((a + b) / 2), H, (o0 + o1) / 2, ("cheek",), "the parapet's top")
         self.meta["parapet"] = {"s": [m(a), m(b)], "height_m": H, "holes": [rows, cols]}
 
-    def _swept_cheek(self, si, so, sgn, L, F, R, n, r, g, sw, start=0.0):
+    def _swept_cheek(self, si, so, sgn, L, F, R, n, r, g, sw, start=0.0, far=None):
         """T-2910: 1801's cheek walls, as the Taylor photograph shows them: the top level
         `head_m` over the landing beside it, then swept down in one reversed curve (level at
         both ends, steepest at its middle) to a block `block_m` long at the flight's foot whose
@@ -1469,6 +1469,30 @@ class Entrance(Opening):
         nw = sw.get("newel")
         if nw:   # T-3134: the foot block is a newel; the cheek's strips stop at it
             cuts = [o for o in cuts if o <= o1 + 1e-9]
+        # T-3562: a cheek carried on a pier and an arch, open under the landing and the flight
+        ar = sw.get("arched") if (sw.get("arched") or {}).get("side") == side else None
+        if ar:
+            p0, ys_, sp = L - ar["pier_m"], -ar["soffit_m"], -R + ar["spring_m"]
+            if start >= L or holes or self._flares(sw) or nw is None or far is None:
+                raise ValueError("an arched cheek stands beside its own landing, unpierced and unflared, "
+                                 "its flight ending on a newel")
+            if not 0.3 <= p0 or not sp < ys_ - 0.1:
+                raise ValueError(f"an arched cheek's pier ({ar['pier_m']} m) leaves under {0.3} m of void under "
+                                 f"its {L} m landing, or its arch springs above the landing's soffit")
+            oa_ = L + ar["span_m"]
+            if not oa_ <= o1 + 1e-9:
+                raise ValueError(f"an arched cheek's {ar['span_m']} m arch runs past its newel at {o1:.3f} m out")
+            cuts = sorted({round(x, 9) for x in cuts} | {round(p0, 9), round(oa_, 9)})
+            arch = lambda o: -R + ar["spring_m"] * math.sqrt(max(0.0, 1.0 - ((o - L) / ar["span_m"]) ** 2))
+            for k in range(1, n):   # the vault stays under every tread by a stone's waist
+                for o in (L + (k - 1) * g, min(L + k * g, oa_)):
+                    if L <= o <= oa_ and arch(o) > -k * r - self.ARCH_WAIST_M + 1e-9:
+                        raise ValueError(f"an arched cheek's arch stands {arch(o):.3f} m at {o:.3f} m out, inside "
+                                         f"{self.ARCH_WAIST_M} m of tread {k} at {-k * r:.3f} m")
+            foot = lambda o0_, o1_: ((ys_, ys_) if o1_ <= p0 + 1e-9 else (-R, -R) if o1_ <= L + 1e-9
+                                     else (arch(o0_), arch(o1_)) if o1_ <= oa_ + 1e-9 else (-R, -R))
+        else:
+            foot = lambda o0_, o1_: (-R, -R)
         if start >= L:   # T-2952: beside a terrace its back end stands on the terrace's front edge
             self.quad("cheek", [(si, -R, L), (so, -R, L), (so, h0, L), (si, h0, L)], (0.0, 0.0, -1.0))
         for k in range(1, n):   # the nosing of tread k stands at L + (k-1)g, -k r: and k g further out
@@ -1484,10 +1508,11 @@ class Entrance(Opening):
             da, db = dx(a), dx(b)
             # an opening may span several strips (a nosing's line can fall inside it)
             hole = next(((h0_, h1_) for h0_, h1_ in holes if h0_ - 1e-6 <= a and b <= h1_ + 1e-6), None)
+            fa, fb = foot(a, b)
             for x, hx in ((si, -sgn), (so, sgn)):
                 nrm = (hx * (b - a), 0.0, -hx * (db - da))
                 if not hole:
-                    self.quad("cheek", [(x + da, -R, a), (x + db, -R, b), (x + db, yb, b), (x + da, ya, a)], nrm)
+                    self.quad("cheek", [(x + da, fa, a), (x + db, fb, b), (x + db, yb, b), (x + da, ya, a)], nrm)
                     continue
                 # the face under the opening and over it; the opening's sill and head run with the top
                 self.quad("cheek", [(x + da, -R, a), (x + db, -R, b), (x + db, yb - u1, b), (x + da, ya - u1, a)], nrm)
@@ -1508,6 +1533,9 @@ class Entrance(Opening):
             self._newel_foot(si + dx(F), sgn, o1, F, -R, yF, nw)
         else:
             self.quad("cheek", [(si, -R, F), (so, -R, F), (so, yF, F), (si, yF, F)], OUT)
+        if ar:
+            self._arched_void(si, so, sgn, far, L, p0, R, ys_, sp, [o for o in cuts if L - 1e-9 <= o <= oa_ + 1e-9],
+                              arch, ar)
         cv = (self.v.get("loggia") or {}).get("carving")
         if cv:   # T-2923: the foot block's carved faces (the Taylor photograph's)
             self._carved_block(si, so, sgn, o1, F, -R, yF, cv["foot_blocks"]["proud_m"])
@@ -1522,6 +1550,49 @@ class Entrance(Opening):
         if holes:
             self.meta["pierced_cheek"] = {"side": side, "openings": len(holes),
                                           "out_m": [round(holes[0][0], 4), round(holes[-1][1], 4)]}
+
+    #: T-3562: the least stone left between an arched cheek's vault and the tread over it
+    ARCH_WAIST_M = 0.05
+
+    def _arched_void(self, si, so, sgn, far, L, p0, R, ys_, sp, vcuts, arch, ar):
+        """T-3562: 1815's stoop, as the Chicagology oblique shows it: the landing open beneath
+        from the wall to a pier `pier_m` deep at its outer edge, its soffit `soffit_m` under the
+        floor, and the flight carried off that pier on a rampant arch, a quarter ellipse
+        `spring_m` over grade at the pier's face falling to grade `span_m` down the run, the
+        flight solid on grade from there to its newel.
+        The void runs across the stoop to the far cheek, its ceilings and the pier's faces in the
+        stoop's stone, and is closed at the far cheek and the wall by the kit's dark backing (the
+        print shows it black), so no sky shows under a tread."""
+        X0, X1 = sorted((far, so))
+        Xi0, Xi1 = sorted((far, si))
+        DN = (0.0, -1.0, 0.0)
+        # the soffit: under the cheek as far as the pier, and across the stoop to the flight
+        self.quad("arch_reveal", [(min(si, so), ys_, 0.0), (max(si, so), ys_, 0.0), (max(si, so), ys_, p0),
+                                  (min(si, so), ys_, p0)], DN)
+        self.quad("arch_reveal", [(Xi0, ys_, 0.0), (Xi1, ys_, 0.0), (Xi1, ys_, L), (Xi0, ys_, L)], DN)
+        # the pier's back (toward the wall) and front (toward the flight, up to the arch's spring)
+        self.quad("arch_reveal", [(min(si, so), -R, p0), (max(si, so), -R, p0), (max(si, so), ys_, p0),
+                                  (min(si, so), ys_, p0)], (0.0, 0.0, -1.0))
+        self.quad("arch_reveal", [(min(si, so), -R, L), (max(si, so), -R, L), (max(si, so), sp, L),
+                                  (min(si, so), sp, L)], OUT)
+        # where the vault starts below the landing's soffit, its springing wall faces the wall
+        self.quad("arch_reveal", [(Xi0, sp, L), (Xi1, sp, L), (Xi1, ys_, L), (Xi0, ys_, L)], (0.0, 0.0, -1.0))
+        for a, b in zip(vcuts, vcuts[1:]):   # the vault under the flight, cheek to cheek
+            ya, yb = arch(a), arch(b)
+            self.quad("arch_reveal", [(X0, ya, a), (X1, ya, a), (X1, yb, b), (X0, yb, b)], (0.0, -(b - a), yb - ya))
+        # the dark: at the far cheek's inner face, under the soffit and the vault, and at the wall
+        e = sgn * 0.01
+        for a, b in zip(vcuts, vcuts[1:]):
+            self.quad("arch_back", [(far + e, -R, a), (far + e, -R, b), (far + e, arch(b), b), (far + e, arch(a), a)],
+                      (sgn, 0.0, 0.0))
+        self.quad("arch_back", [(far + e, -R, 0.0), (far + e, -R, L), (far + e, ys_, L), (far + e, ys_, 0.0)],
+                  (sgn, 0.0, 0.0))
+        self.quad("arch_back", [(X0, -R, 0.01), (X1, -R, 0.01), (X1, ys_, 0.01), (X0, ys_, 0.01)], OUT)
+        self.probe((si + so) / 2, (-R + ys_) / 2, p0 / 2, ("arch_back",), "the void under the arched cheek's landing")
+        om = L + ar["span_m"] / 2
+        self.probe((X0 + X1) / 2, arch(om), om, ("arch_reveal",), "the arched cheek's vault")
+        self.meta["arched_cheek"] = {"side": ar["side"], "pier_m": ar["pier_m"], "spring_m": ar["spring_m"],
+                                     "soffit_m": ar["soffit_m"], "span_m": ar["span_m"]}
 
     def _cheek_holes(self, sw, side, L, o1, top, n, r, g):
         """T-3144: `pierced` {side, count, hole_m [along the run, high], under_m}: a row of

@@ -7866,7 +7866,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         cf = door_kit_in["cheek_form"]
         if not isinstance(cf, dict) or cf.get("kind") != "swept" \
                 or not {"kind", "head_m", "foot_m", "block_m"} <= set(cf) <= {"kind", "head_m", "foot_m", "block_m",
-                                                                             "flare", "newel", "pierced"} \
+                                                                             "flare", "newel", "pierced", "arched"} \
                 or "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False \
                 or any("parapet" not in t or "loggia" in t
                        for t in ([door_kit_in["terrace"]] if isinstance(door_kit_in.get("terrace"), dict)
@@ -7878,7 +7878,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError("entrance_kit.cheek_form: head_m 0-0.6 m over the landing, foot_m 0.3-1.2 m over "
                              "grade, block_m 0.2-1.0 m")
         door_kit["cheek_form"] = {k: (v if k == "kind" else float(v)) for k, v in cf.items()
-                                  if k not in ("flare", "newel", "pierced")}
+                                  if k not in ("flare", "newel", "pierced", "arched")}
         # T-3134: the right cheek flared out `out_m` toward its foot, and each foot block a newel
         # `width_m` across under a cap `cap_m` [high, overhang] and a knob `knob_m` high (1812's
         # stair, the Levy print)
@@ -7907,6 +7907,21 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             door_kit["cheek_form"]["pierced"] = {"side": pc["side"], "count": int(pc["count"]),
                                                  "hole_m": [float(x) for x in pc["hole_m"]],
                                                  "under_m": float(pc["under_m"])}
+        # T-3562: one cheek carried on a pier and a rampant arch, the stoop open beneath its
+        # landing and flight (1815's, the Chicagology oblique); K07 refuses it beside a flare,
+        # a pierced cheek or a foot with no newel
+        if "arched" in cf:
+            ac = cf["arched"]
+            if not isinstance(ac, dict) or set(ac) != {"side", "pier_m", "spring_m", "span_m", "soffit_m"} \
+                    or ac["side"] not in ("left", "right") or not 0.2 <= float(ac["pier_m"]) <= 0.8 \
+                    or not 0.3 <= float(ac["spring_m"]) <= 1.5 or not 0.15 <= float(ac["soffit_m"]) <= 0.6 \
+                    or not 0.4 <= float(ac["span_m"]) <= 3.0 \
+                    or "flare" in cf or "newel" not in cf:
+                raise ParamError("entrance_kit.cheek_form.arched is {side, pier_m 0.2-0.8, spring_m 0.3-1.5 over "
+                                 "grade, span_m 0.4-3.0 down the run, soffit_m 0.15-0.6 under the floor}, on an unflared stoop with newels")
+            door_kit["cheek_form"]["arched"] = {"side": ac["side"], "pier_m": float(ac["pier_m"]),
+                                                "spring_m": float(ac["spring_m"]), "span_m": float(ac["span_m"]),
+                                                "soffit_m": float(ac["soffit_m"])}
         if "newel" in cf:
             nw = cf["newel"]
             if set(nw) != {"width_m", "cap_m", "knob_m"} or not 0.3 <= float(nw["width_m"]) <= 0.8 \

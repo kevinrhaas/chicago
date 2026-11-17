@@ -59,8 +59,8 @@ export function distantTeams(transport, eye, { hour = null, rows = new Map() } =
 }
 
 /** The row's kind of team: one atlas row each (vehicle file, horse model, light or not). */
-export function teamKind(row, coarse = false) {
-  const vehicle = (coarse && row.vehicle_file_light) || row.vehicle_file;
+export function teamKind(row) {
+  const vehicle = row.vehicle_file_light || row.vehicle_file;
   return vehicle ? `${vehicle}|${row.horse_model ?? ''}` : null;
 }
 
@@ -68,13 +68,13 @@ export function teamKind(row, coarse = false) {
  * THE LAYER. `transport()` returns the scene's town transport (or null before it mounts); its
  * `distant(cameraPosition)` is read every frame. `config` is transport/driven/loops.json.
  */
-export function createTrafficCards({ renderer, transport, config, sceneId, tier = 'full', coarse = false,
+export function createTrafficCards({ renderer, transport, config, sceneId, tier = 'full',
   heightAt = () => 0, moduleBase = new URL('../', import.meta.url), problems = [] } = {}) {
   const group = new THREE.Group();
   group.name = 'traffic-cards';
   const rows = new Map((config?.rows ?? []).filter((r) => String(r.scene) === String(sceneId)).map((r) => [r.id, r]));
   const kinds = new Map();          // kind -> { row (atlas), status, size: [w, h], centre: [x, z] }
-  for (const r of rows.values()) { const k = teamKind(r, coarse); if (k && !kinds.has(k)) kinds.set(k, { row: kinds.size, status: 'new', sample: r }); }
+  for (const r of rows.values()) { const k = teamKind(r); if (k && !kinds.has(k)) kinds.set(k, { row: kinds.size, status: 'new', sample: r }); }
   const stats = { cards: 0, distant: 0, baked: 0, ms: 0 };
   let atlas = null, mesh = null, attrs = null, cell = null, shown = true, disposed = false;
   const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
@@ -120,10 +120,14 @@ export function createTrafficCards({ renderer, transport, config, sceneId, tier 
     const k = kinds.get(kind);
     k.status = 'loading';
     const r = k.sample;
-    const spec = config?.horse_models?.[r.horse_model] ?? null;
+    // The lighter files: the row's lighter vehicle and the horse's mid level, where it has
+    // them (a 64-pixel heading reads nothing finer), so a card costs a fraction of a team.
+    const model = config?.horse_models?.[r.horse_model] ?? null;
+    const spec = model?.lods?.mid?.file && model.lods.mid.sha256
+      ? { ...model, file: model.lods.mid.file, sha256: model.lods.mid.sha256 } : model;
     let vehicle = null, lease = null;
     try {
-      vehicle = await loader.loadAsync(url((coarse && r.vehicle_file_light) || r.vehicle_file));
+      vehicle = await loader.loadAsync(url(r.vehicle_file_light || r.vehicle_file));
       if (spec?.file && spec.sha256) {
         lease = await acquireDraftHorse({ url: url(spec.file), sha256: spec.sha256,
           materialVariant: spec.material_variant ?? 'source_native', loader });
@@ -205,7 +209,7 @@ export function createTrafficCards({ renderer, transport, config, sceneId, tier 
       const far = FAR_M[tier] ?? FAR_M.full;
       const near = [];
       for (const d of list) {
-        const r = rows.get(d.id), kind = r ? teamKind(r, coarse) : null, k = kind ? kinds.get(kind) : null;
+        const r = rows.get(d.id), kind = r ? teamKind(r) : null, k = kind ? kinds.get(kind) : null;
         if (!k || !Number.isFinite(d.e) || !Number.isFinite(d.n)) continue;
         const dist = Math.hypot(d.e - eye.x, d.n + eye.z);
         if (dist > far) continue;

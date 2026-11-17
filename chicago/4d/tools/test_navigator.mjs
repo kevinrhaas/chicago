@@ -470,7 +470,9 @@ for (const phone of [true, false]) {
   // T-2622: onto Home's screen, which shows its focus ring (the heading is visually hidden).
   assert.equal(dom.byId.get('nav-home').focused, 1, `${label}: focus moves into Home on open`);
   // 1904 has no people records and nothing within 40 m of the reticle yet: no People, no Inspect.
-  assert.deepEqual(nav.apps, ['home', 'jaunts', 'map', 'confidence', 'move', 'jump', 'guide', 'settings'], `${label}: the usual eight`);
+  // T-3629: Move and Jump are registered but left the rail (Home's tiles and the year chip).
+  assert.deepEqual(nav.apps, ['home', 'jaunts', 'map', 'confidence', 'guide', 'settings'], `${label}: the usual six`);
+  assert(nav.has('move') && nav.has('jump'), `${label}: Move and Jump still open by code and link`);
   const s = nav.snapshot();
   assert.match(s.where, /Prairie Avenue & East Eighteenth Street/, s.where);
   assert.equal(s.whereDetail, 'facing west · 10:30 am');
@@ -1380,13 +1382,16 @@ for (const phone of [false, true]) {
 
   // 1–9: the rail's apps in the order they show.
   const order = nav.apps;
-  const jumpAt = order.indexOf('jump') + 1;
-  assert.ok(jumpAt >= 1 && jumpAt <= 9, `${where}: Jump is within reach of a digit (${order.join(', ')})`);
-  assert.equal(press(String(jumpAt)), true);
+  // T-3629: Jump left the rail (the year chip opens it), so no digit reaches it; Map does.
+  assert.equal(order.includes('jump'), false, `${where}: Jump has no digit, being off the rail`);
+  const mapAt = order.indexOf('map') + 1;
+  assert.ok(mapAt >= 1 && mapAt <= 9, `${where}: Map is within reach of a digit (${order.join(', ')})`);
+  assert.equal(press(String(mapAt)), true);
   for (let i = 0; i < 5; i += 1) await Promise.resolve();
   await new Promise((r) => setTimeout(r, 0));
-  assert.equal(nav.app, 'jump', `${where}: ${jumpAt} opens the ${jumpAt}th app, Jump`);
-  assert.ok(dom.byId.get('nav-app-jump')?.focused >= 1, `${where}: focus moves into the app's screen`);
+  assert.equal(nav.app, 'map', `${where}: ${mapAt} opens the ${mapAt}th app, Map`);
+  assert.ok(dom.byId.get('nav-app-map')?.focused >= 1, `${where}: focus moves into the app's screen`);
+  await nav.select('home'); // the Map opens the device wider; the Escape checks below start from Home
   if (order.length < 9) assert.equal(press('9'), false, `${where}: a digit with no app behind it is not taken`);
   // Every rail app holds a screen now (Move and Settings since T-2620, the Confidence view
   // since T-2647), so a launch app is the test's own.

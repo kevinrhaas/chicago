@@ -154,8 +154,8 @@ ok(sample.every((x) => !Object.prototype.hasOwnProperty.call(x, 'day')), 'readin
 // ── teams ──────────────────────────────────────────────────────────────────────────────────
 {
   const row = { vehicle_file: 'a/near.glb', vehicle_file_light: 'a/mid.glb', horse_model: 'h' };
-  ok(traffic.teamKind(row) === 'a/near.glb|h', 'a team kind is its vehicle and horse');
-  ok(traffic.teamKind(row, true) === 'a/mid.glb|h', 'a coarse device bakes the light vehicle');
+  ok(traffic.teamKind(row) === 'a/mid.glb|h', 'a team kind is its lighter vehicle and its horse');
+  ok(traffic.teamKind({ vehicle_file: 'a/near.glb', horse_model: 'h' }) === 'a/near.glb|h', 'or its only vehicle');
   ok(traffic.teamKind({}) === null, 'no vehicle, no kind');
   // Out of reach: town transport's own list where it gives one; else its loaded teams beyond reach.
   const given = [{ id: 'x', e: 1, n: 2, heading_deg: 0, moving: true }];

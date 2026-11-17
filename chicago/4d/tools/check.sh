@@ -680,6 +680,8 @@ step "Driven assembly retains named drivers, vehicle ownership and exact current
   node tools/test_driven_assembly.mjs
 step "The 1812 fort wagons' rows are what their layer writes: roads, stops and hours (T-3497)" \
   node tools/lay_driven_wagons_1812.mjs --check
+step "The 1835 town's ten wagons' rows are what their layer writes: one district each, their teamsters, stops and hours (T-3558)" \
+  node tools/lay_driven_wagons_1835.mjs --check
 step "The two more 1904 carriages' rows are what their layer writes: lanes off the street grid, counter-clockwise, their coachmen, stops and finishes (T-3555)" \
   node tools/lay_driven_carriages_1904.mjs --check
 step "Where the 1904 carriages' roads cross one gives way and waits for the other: no overlap, no lock, everyone keeps going round (T-3555)" \
@@ -764,6 +766,8 @@ step "Every hanging garment (a skirt, a coat's skirts, tails, a capote, a breech
   node tools/test_human_skirt.mjs
 step "A Potawatomi man's belt sits on his shirt or blanket at every level, standing and walking, the shirt's skirt under it; his trade silver engraved by shader, no texture (T-3553)" \
   node tools/test_human_waist.mjs
+step "Trousers, breeches, pantaloons and overalls bridge the seat from cheek to cheek, standing and striding, at every level; nothing else on them moves (T-3553)" \
+  node tools/test_human_seat.mjs
 step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \
   node tools/test_human_looks.mjs
 step "1904 people use actual drawn pedestrian tops only beneath enabled terrain-cut masks, preserving decks, positive yards and other epochs (T-2795)" \
@@ -772,8 +776,12 @@ step "The 1812 garrison's looks files are what looks.py writes (T-3491)" \
   python3 docs/RESEARCH/people-1812-3491/looks.py --check
 step "The 1812 garrison is dressed by rank and duty: NCOs' epaulettes on the shoulder, musicians' coats, drum and fife case, officers' sashes, men at work in fatigue clothes, sentries' muskets in the hand and the cornfield party's arms piled (T-3523)" \
   node tools/test_human_garrison.mjs
-step "The driven team's generated walk and its hoof-support domain reproduce byte for byte, hooves planted without slide (T-2803)" \
+step "The driven team's generated walk and trot and their hoof-support domains reproduce byte for byte, hooves planted without slide (T-2803, T-3559)" \
   node tools/horse_walk_v2.mjs --check
+step "The driven horse's mid and far levels ride its own bones through the trot, bound by bytes and swapped with a band; walk and trot blend by pace (T-3559)" \
+  node tools/test_horse_rig.mjs
+step "Ride a horse: each year's saddle horse, its tack on the coat, the rider seated at walk and trot without going into the horse, the reins, holds and getting down (T-3560)" \
+  node tools/test_riding.mjs
 step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
   node tools/test_fabric.mjs
 step "Every person's skin has pores, blood and a glow, hair a strand sheen and eyes a wet glint: shader patch, no texture (T-3400)" \

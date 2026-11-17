@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e48403a56655df254213337ba74dae8ab0faba6d14557e7bc8906bf23768b3f9",
+  "glb_sha256": "ffb3c5be2cf60c1aef8f8490bcec81f85322eab3d1cc7f97dbb03d57a1475fa0",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -52,7 +52,11 @@
       "how": "T-3562: the stone pediment on its brackets over the door, and the swept cheeks with a newel at each foot, as on the square-on (whose print shows both whole); here the tree's trunk crosses the hood"
     },
     {
-      "what": "the stoop's arched underside, the iron hand rail on its cheek and the basement doorway under the landing (x 1045-1260 px, y 960-1150 px)",
+      "what": "the stoop's open south side (x 1080-1340 px, y 980-1160 px): the landing on a square pier at its outer corner and open beneath back to the wall, black under a soffit about 0.3 m deep, and the flight carried off the pier on a rampant arch from 0.82 m over grade down to grade about 0.9 m along the run; built by T-3562 (K07's arched swept cheek), the void closed in the kit's dark backing",
+      "status": "fixed"
+    },
+    {
+      "what": "the iron hand rail on the stoop's south cheek, the cheek's stepped top under it where the build's sweeps, and the basement doorway in the wall under the landing (x 1045-1260 px, y 960-1150 px)",
       "status": "open"
     },
     {

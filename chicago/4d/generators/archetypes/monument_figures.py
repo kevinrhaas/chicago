@@ -6,10 +6,10 @@ rig (`assets/humans/*.lodN.glb`, MakeHuman hm08, the 56-joint skeleton), posed t
 T-3582 read on ICHi-19208 and J. W. Taylor's 1893 print (`TARGETS` below, the same pose units
 as `monument.FIGURES`), skinned, and baked to a static mesh in the monument's frame. T-3565's
 ruling stands: the rigs are an ARMATURE and a body only. Of each rig's dress only the pieces
-the sculpture also shows are kept, as starting shapes cast in the same bronze (the
-warrior's breechcloth, the belts, Black Partridge's leggings, Mrs. Helm's gown, the
-surgeon's coat and pantaloons; since T-3594 Black Partridge's breechcloth and the child's
-smock are drapery modelled to the plates, `DRAPED`); the project's dress and variation rules do
+the sculpture also shows are kept, as starting shapes cast in the same bronze (the belts,
+Black Partridge's leggings, Mrs. Helm's gown, the surgeon's coat and pantaloons; since
+T-3594 Black Partridge's breechcloth, the child's smock and the warrior's sash, in place of
+his rig's breechcloth, are drapery modelled to the plates, `DRAPED`); the project's dress and variation rules do
 not apply to a sculpture (`dress_1812_native.json` is not read), and no face is fitted to a
 portrait of anyone — the faces are the rig's neutral hm08 face, which is what this ticket
 leaves to be modelled to the sculpted ones.
@@ -68,7 +68,7 @@ LOD = 2
 #: figure -> (rig, the dress pieces kept as the sculpture's starting shapes)
 RIGS = {
     "warrior": ("potawatomi_man_1812",
-                ("body_0", "short04_hair", "breechcloth", "leather_belt", "closed_shoes", "eyes__sclera")),
+                ("body_0", "short04_hair", "leather_belt", "closed_shoes", "eyes__sclera")),
     "helm": ("lady_1812",
              ("body_0", "short04_hair", "gown_bodice", "gown_skirt", "gown_waist_band", "closed_shoes",
               "eyes__sclera")),
@@ -158,9 +158,11 @@ PROPS = {
 #: The drapery modelled to the sculpture (T-3594): `monument.DRAPERY` pieces per figure. Mrs.
 #: Helm's skirt, overskirt and cloak replace the cone of skirt and the cloak's two members
 #: the poses had kept (her `FIGURES` parts 4, 5 and 6); Black Partridge's short fringed
-#: breechcloth replaces his rig's knee-length one, and the child's smock his rig's jacket,
-#: collar, trousers and shoes (`RIGS` no longer keeps them).
+#: breechcloth replaces his rig's knee-length one, the child's smock his rig's jacket,
+#: collar, trousers and shoes, and the warrior's sash with the cloth hanging from it his
+#: rig's thin breechcloth (`RIGS` no longer keeps them).
 DRAPED = {
+    "warrior": ("warrior_sash", "warrior_hip_flap", "warrior_front_flap"),
     "helm": ("helm_skirt", "helm_overskirt", "helm_cloak"),
     "black_partridge": ("black_partridge_breechcloth",),
     "child": ("child_smock",),

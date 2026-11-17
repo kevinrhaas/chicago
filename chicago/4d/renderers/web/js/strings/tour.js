@@ -7,7 +7,7 @@ import { register } from './index.js';
 
 export default register('tour', {
   offer: 'First time? Take the 60-second tour',
-  'hint.jaunt': 'Read each stop, then press Next Stop to go on.',
+  'hint.jaunt': 'Read each stop, then press Next stop to go on.',
   'hint.jump': 'Another year, the same city. Jump takes you back any time.',
   'hint.reconstructed': 'Reconstructed means no record shows this building. We placed it, and say so.',
   // T-3445: the Interact key's first offer, and the first Follow.
