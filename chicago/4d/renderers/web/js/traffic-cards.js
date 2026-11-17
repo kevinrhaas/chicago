@@ -80,6 +80,7 @@ export function createTrafficCards({ renderer, transport, config, sceneId, tier 
   const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   const url = (file) => new URL(file, moduleBase).href;
   const seen = new Map();           // id -> { v }
+  let wroteFor = '';
 
   function ensure() {
     const want = TEAM_CELL[tier] ?? TEAM_CELL.full;
@@ -213,6 +214,12 @@ export function createTrafficCards({ renderer, transport, config, sceneId, tier 
         near.push({ d, k, dist });
       }
       near.sort((a, b) => a.dist - b.dist);
+      // A held frame (no time passing) with nothing moved or newly baked writes nothing, so a
+      // paused scene is still.
+      let key = `${eye.x},${eye.y},${eye.z}|${stats.baked}|${tier}`;
+      for (const { d } of near) key += `|${d.id},${d.e},${d.n},${d.heading_deg}`;
+      if (!(dt > 0) && key === wroteFor) return;
+      wroteFor = key;
       const cap = Math.min(CAP[tier] ?? CAP.full, attrs.cap);
       const live = new Set();
       let n = 0;

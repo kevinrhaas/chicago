@@ -667,6 +667,10 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
   const eye = new THREE.Vector3(), sortEye = new THREE.Vector3();
   const order = [];
   let sortAt = -Infinity;
+  // What the instance buffers were last written for: a held frame (no time passing, the eye
+  // where it was, nothing new loaded or baked, nobody read or sorted) writes nothing, so a
+  // paused scene is still (the smoke's capture waits for one).
+  let wroteFor = '';
 
   const layer = {
     group,
@@ -711,6 +715,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
       }
       const f0 = performance.now();
       const caps = CAPS[tier] ?? CAPS.full;
+      const held = !(dt > 0);
       // Who is in a tier, nearest first, read again every SORT_S (or once the eye has moved
       // SORT_MOVE_M); the fades themselves run every frame, in time.
       if (clock - sortAt > SORT_S || Math.abs(eye.x - sortEye.x) + Math.abs(eye.z - sortEye.z) > SORT_MOVE_M) {
@@ -731,7 +736,11 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
           if (p.tv > 0 || p.v > 0) order.push(p);
         }
         order.sort((a, b) => a.d - b.d);
+        wroteFor = '';
       }
+      const key = `${eye.x},${eye.y},${eye.z}|${stats.bodies}|${stats.baked}|${stats.reads}|${tier}`;
+      if (held && key === wroteFor) return;
+      wroteFor = key;
       for (const b of bodies.values()) if (b.mesh) b.mesh.count = 0;
       let nMid = 0, nFar = 0;
       const haveAtlas = ensureAtlas();
