@@ -75646,6 +75646,36 @@
       ]
     },
     {
+      "id": "L-seat-3553",
+      "title": "Trousers that bridge the seat, and an apron's bow that rides the skirt",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner's clothing this work (2026-11-12): *\"Seats: no trousers tracing the buttock cleft on any figure in motion\"* and *\"No clothing breaks through in motion... the women's aprons\"*. Every pair of trousers, breeches, pantaloons and overalls in the town (17 bodies) was exported as a shell a few millimetres off the body, and the body's cleft came through into the cloth, 4 to 5 cm deep. **What is reconstructed.** That the cloth spans the hollow from cheek to cheek, as woven cloth over a seat seam does: in level rows from the fork up past the top of the cleft, the rear of each section is taken to its upper convex hull (the settler's linen pair, #1933, was built this way at source), fading out over 3 cm at the fork and at the top, at most 6 cm a vertex, the moved cloth relaxed across the bridge and lit from its own faces (the walkthrough's human seat code). How full a given pair's seat was is not recorded; the hull is the least the cloth can be. A maid's apron bow and a cook's apron ties, skinned to the pelvis alone, ride the skirt's panels below the hips as the skirt does (the walkthrough's human skirt code, kind `ride`), so the skirt no longer cuts through them on the walk."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a cutting pattern or a photograph of the period's working trousers from behind sets the seat's fullness."
+        },
+        {
+          "label": "Review",
+          "text": "the walkthrough's human seat code, the walkthrough's human skirt code (`rides`), the human seat test, the human skirt test §2b."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-17 (T-3553)."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
       "id": "L-horse-trot-3559",
       "title": "The driven horse's trot, its mid and far levels, and the bay's black points",
       "section": "per_subject",

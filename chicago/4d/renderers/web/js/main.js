@@ -867,7 +867,24 @@ const DETAIL_DECLARED = {
   // the content build's desktop part 5 (run 43766993479), 6,313 over. Same
   // ruling, same margin: 3,476,313 + 18,059 = 3,494,372 -> 3,495,000. Balanced,
   // Light and every draw-call limit are unchanged; nothing priced ahead.
-  full:     { triangles: 3495000, shadowReachM: 240, furnitureCastsShadow: true,
+  // T-3622, 2026-11-17: the owner's (a) on Manager's 4D Board — raise all three,
+  // nothing in the scene changes. T-3612's schooners and T-3605's street faces put
+  // desktop West prairie over every rung. The question priced (a) on c8649f3cd;
+  // the stand kept climbing, so the same rule is applied to the gate's own reading
+  // on the day: the content build's desktop part 5 (run 44005328098, job
+  // 133783569052, the same figures on #2125 3b25f122c and #2129 f01e96648) read
+  //   full     3,584,847 + 18,059 = 3,602,906 -> 3,605,000
+  //   balanced 2,728,359 + 16,806 = 2,745,165 -> 2,750,000
+  //   light    1,287,071 + 15,791 = 1,302,862 -> 1,305,000 (the fourth Light raise)
+  // The phone stays inside the old floor. Draw-call limits, reaches and shadow tiers
+  // are unchanged. That stand's count moves, most likely with the sailing schooners
+  // (vessels.js circuits on its own clock): a local measure_detail_ceilings sweep
+  // of the same tree read full 3,491,683 / balanced 2,666,382 / light 1,268,729
+  // there. It matched CI within 1,700 triangles at the three stands that see no water
+  // (Lake at Canal, Lake and Market, the aerial) and differed at the three that do
+  // (West prairie, the forks, the Sauganash). CI's reading is the higher one and
+  // the one priced. docs/measurements/t-3622-detail-ceilings.md has both.
+  full:     { triangles: 3605000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-3146: Full as well as Light runs T-2529's sun-pass test
               // (shadow-casters.js), unchanged: a structure piece is left out of
@@ -886,7 +903,10 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '3,495,000 set 2026-11-15 (T-3605): the content build read '
+              measured: '3,605,000 set 2026-11-17 (T-3622, owner answer a): the content '
+                + 'build read 3,584,847 at desktop West prairie with T-3612\u2019s schooners '
+                + 'in (run 44005328098, part 5); +18,059 rounded up to 5,000. '
+                + 'Previously 3,495,000 set 2026-11-15 (T-3605): the content build read '
                 + '3,476,313 at desktop West prairie with the owner-asked Gifford street '
                 + 'faces in (run 43766993479, part 5); +18,059 rounded up to 5,000. '
                 + 'Previously 3,470,000 set 2026-10-19: fresh production-step split diagnostic '
@@ -1027,7 +1047,9 @@ const DETAIL_DECLARED = {
   // the rule are in the block above `full`.
   // T-2338, 2026-10-11: 2,290,000 -> 2,535,000 with `full` — the reading and
   // the rule are in the block above `full`.
-  balanced: { triangles: 2675000, shadowReachM: 240, furnitureCastsShadow: true,
+  // T-3622, 2026-11-17: 2,675,000 -> 2,750,000 with `full` — the reading and
+  // the rule are in the block above `full`.
+  balanced: { triangles: 2750000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               // T-3535: the same conservative sun-pass cull as Full and Light.
               // At West prairie: 2,658,284 -> 2,591,747 triangles, identical pixels.
@@ -1035,7 +1057,10 @@ const DETAIL_DECLARED = {
               castersTowardView: true,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '2,675,000 consciously re-budgeted 2026-11-10: retained native '
+              measured: '2,750,000 set 2026-11-17 (T-3622, owner answer a): the content '
+                + 'build read 2,728,359 at desktop West prairie (run 44005328098, part 5); '
+                + '+16,806 rounded up to 5,000. Previously '
+                + '2,675,000 consciously re-budgeted 2026-11-10: retained native '
                 + '9dd9ba7d actual six-stand smoke measured 2,657,398 at desktop West '
                 + 'prairie; new cap leaves17,602 before the priced final group. '
                 + 'Light, ordinary Full and draw-call limits are unchanged. Previously '
@@ -1164,7 +1189,18 @@ const DETAIL_DECLARED = {
   // at distance without a GLB-contract change (the declined option b). The
   // 90-call cap, the reaches and the shadow tier are unchanged; nothing in
   // the scene moves. A later trim can still bring this back down, as T-0672 did.
-  light:    { triangles: 1190000, shadowReachM: 120, furnitureCastsShadow: false,
+  // T-3622, 2026-11-17: 1,190,000 -> 1,305,000, the FOURTH owner-authorized
+  // exception for this rung, answered (a) on Manager's 4D Board on 2026-11-16.
+  // T-3612's schooners (about 41,000 at this rung from West prairie) and
+  // T-3605's Gifford street faces (about 26,000) put desktop 1280x800 over; the
+  // gate read 1,287,071 there on 2026-11-17 (run 44005328098, part 5). By the
+  // answer's own rule: + 15,791 = 1,302,862, rounded up to 5,000 = 1,305,000.
+  // The answer's text priced it at 1,270,000 from c8649f3cd's 1,251,432; the
+  // stand had climbed past that before the answer could land, and the answer's
+  // aim was dev's part 5 green in one PR, so the rule is applied to the reading
+  // on the day. The 390x780 phone is inside the old floor. Nothing in the scene
+  // moves; the 90-call cap, reaches and shadow tier are unchanged.
+  light:    { triangles: 1305000, shadowReachM: 120, furnitureCastsShadow: false,
               // T-2529: a structure piece casts only if its shadow can reach the
               // view (shadow-casters.js). Conservative, so the frame is the same
               // picture; the sun's pass stops drawing houses whose shadows fall
@@ -1206,7 +1242,12 @@ const DETAIL_DECLARED = {
               protects: 'the weak-machine floor \u2014 the tier a touch device and a '
                 + 'machine without a GPU boot into, and the only rung that is a '
                 + 'promise to a person rather than a budget for a parcel',
-              measured: '1,190,000 set 2026-10-11 (T-2339), the third exception, '
+              measured: '1,305,000 set 2026-11-17 (T-3622), the fourth exception, '
+                + 'authorized by the owner (answer a) on 2026-11-16 after the owner-asked '
+                + 'schooners (T-3612) and Gifford street faces (T-3605): the content build '
+                + 'read 1,287,071 at desktop West prairie, 1280x800 (run 44005328098, part 5); '
+                + '+15,791 rounded up to 5,000; 90 calls unchanged. Previously '
+                + '1,190,000 set 2026-10-11 (T-2339), the third exception, '
                 + 'explicitly authorized by the owner on 2026-10-10 after the '
                 + 'owner-requested openings kit (T-2278) and chained signs (T-2281): '
                 + 'published dev 0a2491b51, six stands, worst 1,173,622 at desktop '
@@ -7242,7 +7283,9 @@ async function boot() {
     // whatever put the eye where it is, nobody is drawn round it.
     api.humans?.hideAtEye?.(camera.getWorldPosition(eyeAtDraw));
     // T-3614: the name cards over them, where they now stand.
-    api.nameCards?.update(gateOpen ? 0 : elapsed);
+    // T-3630: on the held clock like the people under them. On `elapsed` the cards kept fading
+    // in and bobbing under setAnimationHold, so every 'restores the frame' pair read them moving.
+    api.nameCards?.update(frameDt);
     // The day and spacing engines have finished moving the person. Hands, tool
     // and sound now share this frame's real contact, not a separate hammer timer.
     api.workActivity?.update(frameDt, { paused: visualHeld || transportReducedMotion.matches,
