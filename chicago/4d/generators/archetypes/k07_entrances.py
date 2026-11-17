@@ -1467,6 +1467,17 @@ class Entrance(Opening):
         if holes:
             cuts = sorted({round(x, 9) for x in cuts} | {round(o, 9) for h in holes for o in h})
         nw = sw.get("newel")
+        # T-3562: a cheek STEPPED under an iron hand rail (1815's, both Chicagology prints): its
+        # top runs level with each tread it stands beside, so its side shows the flight's steps,
+        # and the rail rides over it from the landing to the newel's cap (_cheek_rail)
+        rl = sw.get("railed")
+        if rl:
+            if holes or self._flares(sw) or nw is None:
+                raise ValueError("a railed cheek is stepped under its rail, unpierced and unflared, its flight "
+                                 "ending on a newel")
+            top = lambda o: h0 if o <= L + 1e-9 else -min(n - 1, math.floor((o - L) / g - 1e-9) + 1) * r
+            cuts = ([0.0] if start < L else []) + [L] + [L + k * g for k in range(1, n) if L + k * g < o1 - 1e-9] \
+                + [o1, F]
         if nw:   # T-3134: the foot block is a newel; the cheek's strips stop at it
             cuts = [o for o in cuts if o <= o1 + 1e-9]
         # T-3562: a cheek carried on a pier and an arch, open under the landing and the flight
@@ -1495,7 +1506,7 @@ class Entrance(Opening):
             foot = lambda o0_, o1_: (-R, -R)
         if start >= L:   # T-2952: beside a terrace its back end stands on the terrace's front edge
             self.quad("cheek", [(si, -R, L), (so, -R, L), (so, h0, L), (si, h0, L)], (0.0, 0.0, -1.0))
-        for k in range(1, n):   # the nosing of tread k stands at L + (k-1)g, -k r: and k g further out
+        for k in range(1, 1 if rl else n):   # the nosing of tread k stands at L + (k-1)g, -k r: and k g further out
             for o in (L + (k - 1) * g, min(L + k * g, F)):
                 if top(o) < -k * r + 0.1 - 1e-9:
                     raise ValueError(f"a swept cheek dips to {top(o):.3f} m over tread {k}'s nosing at "
@@ -1504,7 +1515,7 @@ class Entrance(Opening):
         if holes:
             u1 = u0 + sw["pierced"]["hole_m"][1]
         for a, b in zip(cuts, cuts[1:]):
-            ya, yb = top(a), top(b)
+            ya, yb = (top(a), top(b)) if not rl else (top((a + b) / 2),) * 2   # a stepped top is level per strip
             da, db = dx(a), dx(b)
             # an opening may span several strips (a nosing's line can fall inside it)
             hole = next(((h0_, h1_) for h0_, h1_ in holes if h0_ - 1e-6 <= a and b <= h1_ + 1e-6), None)
@@ -1529,6 +1540,11 @@ class Entrance(Opening):
                                         (si + d, y_ - u0, o)], (0.0, 0.0, k))
             self.quad("cheek", [(si + da, ya, a), (so + da, ya, a), (so + db, yb, b), (si + db, yb, b)],
                       (0.0, b - a, ya - yb))
+        if rl:   # each step of the top rises to the next strip's: its riser across the cheek, facing the run
+            for o in cuts[1:]:
+                hi, lo = top(o - 1e-6), top(o + 1e-6)
+                if o < o1 - 1e-9 and hi - lo > 1e-6:
+                    self.quad("cheek", [(si, lo, o), (so, lo, o), (so, hi, o), (si, hi, o)], OUT)
         if nw:
             self._newel_foot(si + dx(F), sgn, o1, F, -R, yF, nw)
         else:
@@ -1547,12 +1563,68 @@ class Entrance(Opening):
         for pt in (top_s, foot_s):
             self.probe(*pt, ("cheek",), "a handrail socket on its cheek")
         self.meta.setdefault("swept_cheeks", {"head_m": h0, "foot_m": sw["foot_m"], "block_m": blk})
+        if rl:
+            self._cheek_rail(si, sgn, L, o1, F, g, top, yF, nw, rl, side)
         if holes:
             self.meta["pierced_cheek"] = {"side": side, "openings": len(holes),
                                           "out_m": [round(holes[0][0], 4), round(holes[-1][1], 4)]}
 
     #: T-3562: the least stone left between an arched cheek's vault and the tread over it
     ARCH_WAIST_M = 0.05
+
+    def _cheek_rail(self, si, sgn, L, o1, F, g, top, yF, nw, rl, side):
+        """T-3562: the iron over a stepped cheek, as both Chicagology prints draw 1815's: a hand
+        rail `bar_m` square from `head_m` over the landing at the flight's head down to `foot_m`
+        over the newel's cap, where it stops behind the knob on a short bar; `balusters` bars
+        between, each standing on the tread it rises from. On the side `post` names, a square
+        stone post `width_m` across and `height_m` over the landing stands on the landing's outer
+        corner and the rail leaves its face; from its back a level rail at the same height runs
+        to the wall over the landing's edge on `landing_balusters` bars. Elsewhere the rail's head
+        stands on a bar at the landing's edge. All of it on the newel's centre line, which lies
+        over the cheek."""
+        b, bm = rl["bar_m"], rl["baluster_m"]
+        w = nw["width_m"]
+        sr = si + sgn * w / 2                      # the newel's centre line, over the cheek
+        kr = min(w, F - o1) * 0.22                 # the knob's widest radius (_newel_foot)
+        y0 = top(L - 1e-6)
+        yh, ye = y0 + rl["head_m"], yF + rl["foot_m"]
+        pst = rl.get("post") if (rl.get("post") or {}).get("side") == side else None
+        oe = (o1 + F) / 2 - kr - 0.02
+        oh = L if pst else L - 0.05
+        if not ye < yh or not oh < oe:
+            raise ValueError(f"a railed cheek's rail falls from {yh:.3f} m at {oh:.3f} m out to {ye:.3f} m at "
+                             f"{oe:.3f} m: it has to fall, toward the newel")
+        rail = lambda o: yh + (ye - yh) * (o - oh) / (oe - oh)
+        bars = lambda o, y1: self._box("hardware", sr - bm / 2, sr + bm / 2, top(o) if o < o1 else yF, y1,
+                                       o - bm / 2, o + bm / 2)
+        if pst:
+            pw, ph = pst["width_m"], pst["height_m"]
+            if not rl["head_m"] + b <= ph:
+                raise ValueError(f"a railed cheek's post ({ph} m over the landing) stands under its rail's head")
+            a_, b_, c = sr - pw / 2, sr + pw / 2, 0.04
+            self._box("cheek", a_, b_, y0, y0 + ph - c, L - pw, L, skip=("bottom",))
+            self._box("cheek", a_ - c / 2, b_ + c / 2, y0 + ph - c, y0 + ph, L - pw - c / 2, L + c / 2)
+            self.probe(sr, y0 + ph / 2, L, ("cheek",), "the stone post on the landing's corner")
+            self._tube("hardware", [(sr, yh, -0.05), (sr, yh, L - pw)], b / 2, (1.0, 0.0, 0.0), 6)
+            k = rl["landing_balusters"]
+            for i in range(1, k + 1):
+                o = (L - pw) * i / (k + 1)
+                bars(o, yh)
+                self.probe(sr, (y0 + yh) / 2, o + bm / 2, ("hardware",), "a bar of the landing's rail")
+        else:
+            bars(oh, yh)
+            self.probe(sr, (y0 + yh) / 2, oh + bm / 2, ("hardware",), "the bar at the rail's head")
+        self._tube("hardware", [(sr, yh, oh), (sr, ye, oe)], b / 2, (1.0, 0.0, 0.0), 6)
+        n_ = rl["balusters"]
+        for i in range(1, n_ + 1):   # on the middle of the tread each falls nearest
+            o = oh + (o1 - oh) * i / (n_ + 1)
+            o = L + (math.floor((o - L) / g) + 0.5) * g
+            bars(o, rail(o))
+            self.probe(sr, (top(o) + rail(o)) / 2, o + bm / 2, ("hardware",), "a bar under the hand rail")
+        bars(oe - bm / 2, ye)   # the foot bar, on the newel's cap
+        self.meta.setdefault("railed_cheeks", []).append(
+            {"side": side, "head_m": round(yh, 4), "foot_m": round(ye, 4), "post": bool(pst),
+             "out_m": [round(oh, 4), round(oe, 4)], "balusters": n_})
 
     def _arched_void(self, si, so, sgn, far, L, p0, R, ys_, sp, vcuts, arch, ar):
         """T-3562: 1815's stoop, as the Chicagology oblique shows it: the landing open beneath
