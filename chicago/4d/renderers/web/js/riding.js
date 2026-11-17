@@ -357,6 +357,7 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
 
   // ---- the ride
   let riding = null;              // the horse being ridden
+  let held = false;               // the frame is held: start no new fetch
   let view = 'behind';            // 'behind' | 'saddle'
   let cmd = { forward: 0, turn: 0, gear: 0 }, urged = { gear: 0 };
   const clock = () => (globalThis.performance?.now?.() ?? Date.now()) / 1000;
@@ -395,6 +396,8 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
     get gait() { const g = riding?.built?.gait; return !riding ? null : !g?.moving ? 'standing' : g.name ?? (g.trot > .5 ? 'trot' : 'walk'); },
     /** The pace the reins ask for: 0 walk .. 3 gallop. */
     get gear() { return riding ? cmd.gear : null; },
+    /** Saddle horses and riders still being fetched (a smoke waits for none before a capture). */
+    get pending() { return horses.filter(h => h.building).length + riders.filter(r => r.building).length; },
     riders,
     /** The town's riders now: who is out, where, built or not, and what holds them. */
     ridersNow() {
@@ -450,7 +453,10 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
     },
 
     /** One frame for every saddle horse and rider: load near ones, let far ones go, move them. */
-    update(dt, cameraPosition = null) {
+    update(dt, cameraPosition = null, { paused = false } = {}) {
+      // Held (the animation hold, the gate, a hidden page): nothing new is fetched, the way
+      // the driven teams wait, so a held frame is the frame it was.
+      held = !!paused;
       dt = Math.min(Math.max(dt, 0), .1);
       const v = visitor?.(), tier = coarse ? 'light' : (RIDER_REACH[detail?.()] ? detail() : 'full');
       // The saddle horses: the nearest few within reach are drawn.
@@ -460,7 +466,7 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
       for (const [h, d] of order) {
         const want = h === riding || (d < LOAD_M && drawn < cap);
         if (want) drawn++;
-        if (want && !h.built && !h.building) {
+        if (want && !h.built && !h.building && !held) {
           h.building = build(h).then(b => { h.built = b; place(h); b.tack.update(null); }).catch(error => { problems.push(`riding: ${error.message}`); })
             .finally(() => { h.building = null; });
         } else if (!want && h.built && h !== riding && (d > DROP_M || drawn >= cap)) { release(h.built); h.built = null; }
@@ -518,6 +524,7 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
         if (r.built || r.building) { if (d < reach + 25 && k < cap) k++; else stopRider(r); continue; }
         if (d < reach && k < cap) {
           k++;
+          if (held) continue;
           const here = riderPrint(r.route, r.distance, .3);
           if ((visitorPrint && overlaps(here, visitorPrint)) || teamPrints.some(p => overlaps(here, p[0]))) continue;
           startRider(r);

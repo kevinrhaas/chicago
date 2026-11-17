@@ -7201,7 +7201,7 @@ async function boot() {
     vessels.update(visualDt, camera);
     api.pilot?.hold(walker, WALK);
     // T-3560: every saddle horse near the visitor; the one ridden carries the eye.
-    api.riding?.update(visualDt, camera.position);
+    api.riding?.update(visualDt, camera.position, { paused: animationHold || gateOpen || document.hidden });
     api.riding?.hold(walker, WALK);
     // T-3575: in a headset, the reference space follows the walker (controls/xr.js).
     if (xrMode.presenting) xrMode.sync();
