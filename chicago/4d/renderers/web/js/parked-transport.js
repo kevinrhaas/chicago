@@ -193,6 +193,10 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
   getDrawingBufferHeight = () => null, loadWithin = null, stationaryTeams = false } = {}) {
   const group = new THREE.Group(); group.name = 'parked-transport';
   const instances = [], assets = new Map(), replacementIds = new Set(), paintedMaterials = new Map();
+  // T-3558: yard vehicles no row replaces and the record retires (`retired_yard_wagons`).
+  // The yard layer reads this set and never builds them (main.js passes it beside
+  // `replacementIds`), so no tier, setting, reach or far merge can draw one.
+  const retiredIds = new Set();
   let tier = detail, fallback = () => {}, lastCamera = null, disposed = false, loading = null;
   // T-3439: Settings › Show › Carriages and horses. Hidden, no vehicle (nor the yard's old
   // stand-in it replaces) is drawn, fetched or picked.
@@ -203,7 +207,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
   const ray = new THREE.Raycaster();
   const deferred = Number.isFinite(loadWithin) && loadWithin >= 0;
   const requested = new Set(), finished = new Set();
-  const out = { group, instances, replacementIds, records: [], requested,
+  const out = { group, instances, replacementIds, retiredIds, records: [], requested,
     // Vehicles asked for and not yet placed (or refused): a scripted view waits on 0.
     get pending() { return requested.size - finished.size + instances.filter(i => i.teamPending).length; },
     async ready() {
@@ -333,7 +337,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
       for (const material of paintedMaterials.values()) material.dispose();
       paintedMaterials.clear();
       group.clear();
-      instances.length = 0; replacementIds.clear();
+      instances.length = 0; replacementIds.clear(); retiredIds.clear();
     },
   };
   // Declared before the early returns below (T-3311): a scene with no parked
@@ -386,6 +390,9 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
   } catch (error) { problems.push(`parked transport: ${error.message}`); return out; }
   rows = (record.scenes[String(sceneId)] ?? []).filter(row => !hostMissing(row.belongs_to));
   for (const row of rows) if (row.replaces) replacementIds.add(row.replaces);
+  for (const id of record.retired_yard_wagons?.[String(sceneId)] ?? []) {
+    if (typeof id === 'string' && !replacementIds.has(id)) retiredIds.add(id);
+  }
   out.records = rows;
   // Each row is requested once; a later call loads only rows not yet asked for,
   // after whatever is already in flight, so the order and the caches are as before.

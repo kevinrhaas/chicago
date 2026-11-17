@@ -63,7 +63,7 @@ const dispose=async out=>{out.dispose();await Promise.resolve();await Promise.re
 try {
  // Actual installed scene owns one Brougham and no obsolete prototype; preserve
  // all legacy loader assertions in a separate explicit compatibility fixture.
- need(record.scenes['1835'].length===5&&record.scenes['1904'].length===1,'Installed scene keeps five1835wagons and one1904carriage');
+ need(record.scenes['1835'].length===8&&record.scenes['1904'].length===1,'Installed scene keeps eight 1835 wagons (T-3558) and one 1904 carriage');
  need(!record.scenes['1904'].some(r=>r.id==='prairie_parked_carriage')&&record.models.carriage_c02.file==='transport/parked-carriage/carriage-c02.glb','Obsolete display removed while legacy C02 model remains');
  const installed=await createParkedTransport(options);objects.push(installed);
  need(installed.instances.length===1&&installed.instances[0].row.id==='prairie_parked_studebaker_brougham','Actual installed1904adapter loads only the replacement Brougham');

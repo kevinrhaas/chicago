@@ -3012,6 +3012,7 @@ async function boot() {
     dataBase: layerBase('yard_goods'), terrain, confidence, problems: layerProblems('yard_goods'), hostMissing,
     lowSpec: lowMem,
     replacementIds: parkedTransport.replacementIds,
+    retiredIds: parkedTransport.retiredIds,
     // T-3458: 1812 reads its own folder (the settlement's wood, casks and carts).
     dir: loaded.scene.yard_dir ?? 'yard/',
   });

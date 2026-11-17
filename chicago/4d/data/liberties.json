@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1161,
+  "count": 1162,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -75856,6 +75856,39 @@
         }
       ],
       "work_refs": [
+        "T-3558"
+      ]
+    },
+    {
+      "id": "L-1835-parked-farm-box",
+      "title": "The 1835 town's standing wagons are the photographic farm box, and fewer of them",
+      "section": "per_subject",
+      "subjects": [
+        "western_hotel"
+      ],
+      "covers": [],
+      "recorded": "2026-11-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-16: *\"Photographic wagons\"*, then *\"And replace any parked wagons with these photographic wagons, you may not need to keep all of the parked wagons given the ones in motion\"*. **What is attested.** Nothing about any one wagon. The Western Hotel's wagon yard (\"Town of Chicago.\" Chicagology. Transcribing the Inter Ocean of 22 July 1883…) remains the one place a source names for wagons; its stand is unchanged. **What is invented.** Which stands keep a wagon. Six farm-box stands of the town trade goods data (the town wagon rule's) now draw the licensed photographic farm-box master the moving teams draw, unpainted, at the stand's own position and bearing: the Western Hotel's two and Wolf Point's one in their yards, and the verge stands on Market, Dearborn and Randolph streets. They are the farm-box stands whose four wheels find level ground: the parked layer stands a wagon only on a wheel plane within 30 mm, and most street verges, and the Green Tree's yard, slope too much. Every other farm-box and covered yard wagon (29: 17 farm boxes and 12 covered wagons, among them the South Water Street train) is retired and not drawn, because the ten moving teams now carry the street traffic and only the two qualified covered wagons (“the plate-matched Brougham on the 1904 carriages, the covered wagons on the photographic farm box, and the farm box's qualification”) are photographic. The records stay in the town trade goods data; retired yard wagons in the placements data names them. Carts are not wagons and are untouched."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a record of where wagons stood in the 1835 town; a photographic covered wagon for the South Water Street train; the owner asking for more or fewer."
+        },
+        {
+          "label": "Review",
+          "text": "the placements data (farm box w01, retired yard wagons), the walkthrough's parked transport code and the walkthrough's yard code (`retiredIds`), the parked placements check."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-17 (T-3558)."
+        }
+      ],
+      "work_refs": [
+        "T-0064",
         "T-3558"
       ]
     },
