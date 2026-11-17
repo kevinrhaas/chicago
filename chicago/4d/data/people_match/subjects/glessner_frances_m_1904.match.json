@@ -1,0 +1,238 @@
+{
+  "subject": "glessner_frances_m_1904",
+  "reference_set": "lady_1904",
+  "shot": {
+    "date": "2026-11-17",
+    "target": "tools/people_match_stage.html on this tree",
+    "build": "stage, tree d4fae0e81 + 5 uncommitted figure file(s)",
+    "out": "evidence/people-match-2026-11-17/glessner_frances_m_1904",
+    "evidence_repo": "kevinrhaas/chicago-evidence"
+  },
+  "bound": {
+    "appearance": {
+      "asset_id": "glessner_frances_m_1904"
+    },
+    "animation": {
+      "clip": "idle",
+      "loop": true,
+      "phase": 0.7
+    },
+    "asset_lod0_sha256": "e35c7a75680fb1ac18a51ddc69a0e57378bf3b632f039af4303d5e1802a90970"
+  },
+  "stills": {
+    "near-desktop": {
+      "file": "evidence/people-match-2026-11-17/glessner_frances_m_1904/near-desktop.jpg",
+      "sha256": "97aa158a355ef64f1ca860761188be17c41b37bb9b59901ff62a98e3da39ee7d",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 2.736,
+        "n": 1.282,
+        "eye_y": 1.68,
+        "yaw_deg": 245,
+        "pitch_deg": -17.72,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.017,
+          0.014,
+          1.471
+        ]
+      },
+      "figure_box_px": [
+        527,
+        173,
+        225,
+        407
+      ]
+    },
+    "far-desktop": {
+      "file": "evidence/people-match-2026-11-17/glessner_frances_m_1904/far-desktop.jpg",
+      "sha256": "673201af94a118393a2d40c7cb2dcdf9c394e0a2716598088db14c07bd5a9f26",
+      "detail": "stage",
+      "pose": {
+        "pose": "walk",
+        "at_s": 2.4,
+        "clip": "walk",
+        "state": "walking"
+      },
+      "camera": {
+        "e": 12.065,
+        "n": -3.417,
+        "eye_y": 1.68,
+        "yaw_deg": 290,
+        "pitch_deg": -6.51,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          2.668,
+          0.003,
+          1.439
+        ]
+      },
+      "figure_box_px": [
+        604,
+        324,
+        73,
+        131
+      ]
+    },
+    "near-phone": {
+      "file": "evidence/people-match-2026-11-17/glessner_frances_m_1904/near-phone.jpg",
+      "sha256": "e943964f88895d74ce8460704ca877c892c095c99821b937fb2d6a3a86438de1",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 2.736,
+        "n": 1.282,
+        "eye_y": 1.68,
+        "yaw_deg": 245,
+        "pitch_deg": -17.72,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.017,
+          0.014,
+          1.471
+        ]
+      },
+      "figure_box_px": [
+        85,
+        169,
+        220,
+        397
+      ]
+    },
+    "far-phone": {
+      "file": "evidence/people-match-2026-11-17/glessner_frances_m_1904/far-phone.jpg",
+      "sha256": "68d00843d4decd06117d7de528433dfab70cbf19e32023836531fd533bd1fecd",
+      "detail": "stage",
+      "pose": {
+        "pose": "walk",
+        "at_s": 2.4,
+        "clip": "walk",
+        "state": "walking"
+      },
+      "camera": {
+        "e": 12.065,
+        "n": -3.417,
+        "eye_y": 1.68,
+        "yaw_deg": 290,
+        "pitch_deg": -6.51,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          2.668,
+          0.003,
+          1.439
+        ]
+      },
+      "figure_box_px": [
+        160,
+        316,
+        71,
+        128
+      ]
+    }
+  },
+  "sheets": {
+    "near-side-by-side": "evidence/people-match-2026-11-17/glessner_frances_m_1904/near-side-by-side.jpg",
+    "far-side-by-side": "evidence/people-match-2026-11-17/glessner_frances_m_1904/far-side-by-side.jpg",
+    "near-pair": "evidence/people-match-2026-11-17/glessner_frances_m_1904/near-pair.jpg",
+    "far-pair": "evidence/people-match-2026-11-17/glessner_frances_m_1904/far-pair.jpg",
+    "motion-strip": "evidence/people-match-2026-11-17/glessner_frances_m_1904/motion-strip.jpg"
+  },
+  "verdict": "differs",
+  "checklist": {
+    "silhouette": {
+      "what": "Silhouette and fit of the clothes",
+      "status": "open",
+      "note": "The skirt is a dome from the hips to a hem wider than the shoulders are tall, which reads as a crinoline at 3 m and as an over-wide bell at 10 m; the 1902 Met skirt and the Easter 1904 women are close over the hips and flare from about the knee. Jacket to the hip with a short peplum reads as the Met coat cut shorter."
+    },
+    "folds": {
+      "what": "Folds where cloth gathers",
+      "status": "open",
+      "note": "The skirt is a smooth shell with no gores or folds; the Met skirt shows gore seams and the Easter skirts break in folds at the hem as the women walk."
+    },
+    "hat_hair": {
+      "what": "Hat and hair",
+      "status": "reads",
+      "note": "A broad dark hat trimmed high with grey plumes over drawn-up hair: the Easter crowd and Mrs. Fairbanks wear the same kind, hers paler and heaped higher."
+    },
+    "skin": {
+      "what": "Skin at 3 m",
+      "status": "not shown",
+      "note": "Monochrome prints. Face and hands read at 3 m; the hands are warmer (orange) in the stage light than the face."
+    },
+    "hands": {
+      "what": "Hands",
+      "status": "within tolerance",
+      "note": "Clasped in front at the waist; the crossed fingers are bulky at 3 m. The pictures show gloved or bare hands at the sides or raised."
+    },
+    "stance": {
+      "what": "How the figure stands or sits",
+      "status": "reads",
+      "note": "Upright, feet hidden under the skirt, as the matrons stand."
+    },
+    "motion": {
+      "what": "How it moves (the 5-second strip)",
+      "status": "within tolerance",
+      "note": "Mid-stride the skirt swings as one shell and the legs never show; the Easter women walk with the hem breaking forward. The strip is shot on the stage, following her."
+    }
+  },
+  "differences": [
+    {
+      "what": "skirt silhouette",
+      "picture": "Gored skirt close at waist and hips, flaring from about the knee (Met 1902 suit); Easter 1904 skirts nearly columnar to the ground.",
+      "ours": "Bell from the hips, widest at the hem and far wider there than the pictures' skirts; reads as a crinoline.",
+      "status": "open"
+    },
+    {
+      "what": "skirt surface",
+      "picture": "Gore seams and braid at the hem (Met); folds at the hem when walking (Easter).",
+      "ours": "Smooth untextured shell, no seams, no braid, no folds.",
+      "status": "open"
+    },
+    {
+      "what": "collar and front",
+      "picture": "Tall cream lace standing collar and a lace jabot falling from it (Fairbanks; Met bodice yoke).",
+      "ours": "A plain pale grey stand collar and a grey V-front; no lace, no jabot; reads grey, not cream or white.",
+      "status": "open"
+    },
+    {
+      "what": "cuffs",
+      "picture": "Lace frills at the wrists (Fairbanks); braided cuffs on the Met coat.",
+      "ours": "Plain black sleeves to the wrist; no frill, no braid.",
+      "status": "open"
+    },
+    {
+      "what": "jacket",
+      "picture": "Met coat to the upper thigh, lapels, buttoned below the bust, braid at cuffs and hem; Fairbanks coat open over a pale front.",
+      "ours": "Black jacket to the hip with a peplum, closed, no braid; pale front shows only as a narrow V.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "colour",
+      "picture": "Black wool suit (Met, in colour); dark coats in the monochrome prints.",
+      "ours": "Black throughout.",
+      "status": "reads"
+    },
+    {
+      "what": "hat",
+      "picture": "Broad hat heaped with pale plumes (Fairbanks), broad hats trimmed high (Easter).",
+      "ours": "Broad black hat, grey plumes; less heaped, darker plumes.",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever laid the stills beside the pictures; each checklist item is {what, status, note} with status open | reads | not shown | within tolerance | owner ruling — open when a visitor would see the figure is not the pictures’ kind of person in that respect. The first figure of each role is the owner’s call (the plan’s \"Your call\"); later figures of the role are held to the one he approved. A reshoot of a changed figure (bound) sets the verdict back to unreviewed."
+}
