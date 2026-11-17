@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3054, ts: '2026-11-17T03:32:13.301Z', date: 'Nov 16, 2026, 9:32 PM CT', title: 'A lighter first step into 1835', kind: 'improvement',
+    items: [
+      'Your first visit to 1835 downloads about 74 KB less before you can walk. The boat helm, the story teller, the headset controls, the narration player and an outing\'s staging now load the first time you use them, and everything you see when you arrive is unchanged.',
+    ] },
   { v: 3053, ts: '2026-11-17T00:59:17.511Z', date: 'Nov 16, 2026, 6:59 PM CT', title: 'An 18+ telling of every jaunt', kind: 'feature',
     items: [
       'Every jaunt in 1812, 1835 and 1904 now has an 18+ telling: the same stops, sources and title, told in full for grown-ups, with the harder history left in.',
