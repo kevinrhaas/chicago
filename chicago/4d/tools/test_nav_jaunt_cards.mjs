@@ -133,6 +133,25 @@ assert(/Prairie Walk/.test(text) && /Walk the avenue\./.test(text) && /3 stops/.
   assert(!clear.hidden, 'a grade filter can be cleared');
   clear.click();
   assert.deepEqual(shown(), ['tour', 'tour-young', 'style'], 'Clear filters lets the grade go');
+  // T-3623 (owner, 2026-11-16: "Do 18+ jaunts for all jaunts"): an 18+ telling sits last under the
+  // jaunt it retells, carries the 18+ tag and no grade tag, and has its own pill after the bands.
+  const aroot = document.createElement('div');
+  const grown = { ...rows[0], id: 'tour-adults', title: 'The Tour', grade_band: '6-8', menu_group: 'People', version_of: 'tour', audience: 'adults', content_warning: 'Told in full, for adults.' };
+  createJauntMenu({ root: aroot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {} }).show([grown, ...graded]);
+  const apills = aroot.querySelectorAll('.jaunt-grades')[0].querySelectorAll('.jaunt-grade-pill');
+  assert.deepEqual(apills.map((p) => p.textContent), ['All', '3–5', '6–8', '9–10', '18+'], 'the 18+ pill comes after the grade bands');
+  assert.equal(apills[4].getAttribute('aria-label'), '18+ tellings');
+  const ashown = () => aroot.querySelectorAll('.jaunt-card').map((c) => c.dataset.jaunt);
+  assert.deepEqual(ashown(), ['tour', 'tour-young', 'tour-adults', 'style'], 'the 18+ telling after the grade versions');
+  const gcard = aroot.querySelectorAll('.jaunt-card').find((c) => c.dataset.jaunt === 'tour-adults');
+  assert.equal(gcard.querySelectorAll('.jaunt-adults').length, 1, 'its 18+ tag');
+  assert.equal(gcard.querySelectorAll('.jaunt-grade').length, 0, 'and no grade tag');
+  apills[2].click();
+  assert.deepEqual(ashown(), ['tour'], 'a grade pill leaves the 18+ telling out');
+  apills[4].click();
+  assert.deepEqual(ashown(), ['tour-adults'], 'the 18+ pill shows only the 18+ tellings');
+  createJauntMenu({ root: aroot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {} }).show(graded);
+  assert(!aroot.querySelectorAll('.jaunt-grade-pill').some((p) => p.textContent === '18+'), 'no 18+ pill when Settings keeps them unlisted');
   assert.equal(pills[0].getAttribute('aria-pressed'), 'true', 'All grades again');
   const one = document.createElement('div');
   createJauntMenu({ root: one, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {} }).show([graded[0]]);
@@ -180,9 +199,9 @@ console.log('test_nav_jaunt_cards: credited plates of the stops or none, keepsak
   const r1904 = filterJaunts(catalog('1904'));
   // T-3590: the household tour's retellings sit right after it, youngest band first (T-3621:
   // every jaunt now has one per band); the orientation and its retellings follow.
-  const tellings = (id) => [id, ...['3-5', '6-8', '9-10', '11-12'].map((g) => `${id}-grades-${g}`)].filter((x) => r1904.some((r) => r.id === x));
+  const tellings = (id) => [id, ...['3-5', '6-8', '9-10', '11-12'].map((g) => `${id}-grades-${g}`), `${id}-adults`].filter((x) => r1904.some((r) => r.id === x));
   const lead = [...tellings('glessner-household-tour'), ...tellings('prairie-avenue-orientation')];
-  assert.deepEqual(lead.slice(0, 5), ['glessner-household-tour', 'glessner-household-tour-grades-3-5', 'glessner-household-tour-grades-9-10', 'glessner-household-tour-grades-11-12', 'prairie-avenue-orientation']);
+  assert.deepEqual(lead.slice(0, 6), ['glessner-household-tour', 'glessner-household-tour-grades-3-5', 'glessner-household-tour-grades-9-10', 'glessner-household-tour-grades-11-12', 'glessner-household-tour-adults', 'prairie-avenue-orientation']);
   assert.deepEqual(r1904.slice(0, lead.length).map((r) => r.id), lead);
   assert.equal(r1904.at(-1).id, 'prairie-built-so-far');
   for (const r of r1904.slice(0, lead.length)) assert.equal(r.plate?.structure, 'glessner_house', `${r.id} names its card picture`);
@@ -210,4 +229,16 @@ console.log('test_nav_jaunt_cards: credited plates of the stops or none, keepsak
   const people68 = filterJaunts(catalog('1904'), '', 'People', '6-8');
   assert(people68.some((r) => r.id === 'glessner-household-tour') && people68.every((r) => r.grade_band === '6-8' && r.menu_group === 'People'), 'grade and group together');
   assert.equal(r1904[1].title, r1904[0].title, 'the grades 3-5 retelling is named as the tour it retells; its grade tag tells them apart');
+  // T-3623 (owner, 2026-11-16: "Do 18+ jaunts for all jaunts, fill them in"): every jaunt but the
+  // build log has an 18+ telling under the same title and stops, with no warning text in its words.
+  for (const y of ['1812', '1835', '1904']) {
+    const all = catalog(y), grown = new Map(all.filter((r) => r.audience === 'adults').map((r) => [r.version_of, r]));
+    for (const r of all.filter((r) => !r.version_of && r.menu_group !== 'Build log')) {
+      const g = grown.get(r.id);
+      assert(g, `${y}: ${r.id} has an 18+ telling`);
+      assert.equal(g.title, r.title, `${y}: ${g.id} keeps the title`);
+      assert.equal(g.stop_count, r.stop_count, `${y}: ${g.id} keeps the stops`);
+      assert(g.featured !== true && g.content_warning && !/18\+|no child|for adults/i.test(g.premise), `${y}: ${g.id} is never featured, and its premise reads as story`);
+    }
+  }
 }
