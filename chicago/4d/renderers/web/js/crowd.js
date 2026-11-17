@@ -142,6 +142,37 @@ float crowdDither(vec2 p) {
 }`;
 
 /**
+ * The bound target's first `width` pixels into a pack buffer, and a fence after them. Not three's
+ * readRenderTargetPixelsAsync: that keeps its pack buffer bound while it waits, and a tap's pick
+ * (gpu-pick.js) reading into page memory in that time reads nothing, so an aimed Space found no
+ * building. The buffer is unbound before this returns, as gpu-pick's own later read does.
+ * @returns {Promise<boolean>} whether `px` was filled
+ */
+function readLater(gl, width, px) {
+  const buffer = gl.createBuffer();
+  gl.bindBuffer(gl.PIXEL_PACK_BUFFER, buffer);
+  gl.bufferData(gl.PIXEL_PACK_BUFFER, px.byteLength, gl.STREAM_READ);
+  gl.readPixels(0, 0, width, 1, gl.RGBA, gl.UNSIGNED_BYTE, 0);
+  gl.bindBuffer(gl.PIXEL_PACK_BUFFER, null);
+  const fence = gl.fenceSync(gl.SYNC_GPU_COMMANDS_COMPLETE, 0);
+  gl.flush();
+  const since = performance.now();
+  return new Promise((resolve) => {
+    const done = (ok) => { gl.deleteSync(fence); gl.deleteBuffer(buffer); resolve(ok); };
+    const probe = () => {
+      const state = gl.clientWaitSync(fence, 0, 0);
+      if (state === gl.TIMEOUT_EXPIRED && performance.now() - since < 30000) { setTimeout(probe, 8); return; }
+      if (state !== gl.ALREADY_SIGNALED && state !== gl.CONDITION_SATISFIED) { done(false); return; }
+      gl.bindBuffer(gl.PIXEL_PACK_BUFFER, buffer);
+      gl.getBufferSubData(gl.PIXEL_PACK_BUFFER, 0, px);
+      gl.bindBuffer(gl.PIXEL_PACK_BUFFER, null);
+      done(true);
+    };
+    setTimeout(probe, 8);
+  });
+}
+
+/**
  * Average linear colour of each textured material's picture, on the GPU (a compressed picture
  * cannot be read back otherwise): one pixel each, sampled over a grid at a coarse mip, weighted
  * by alpha. Returns Map(texture -> [r, g, b]).
@@ -150,8 +181,8 @@ async function measureTextures(renderer, textures) {
   const out = new Map();
   if (!renderer || !textures.size) return out;
   const list = [...textures];
-  // One pixel a texture, in one row, read back without waiting on the frame (a fence: three's
-  // readRenderTargetPixelsAsync), so a dress joining the crowd never stalls the frame.
+  // One pixel a texture, in one row, read back without waiting on the frame (a fence:
+  // readLater, above), so a dress joining the crowd never stalls the frame.
   const rt = new THREE.WebGLRenderTarget(list.length, 1, { type: THREE.UnsignedByteType, depthBuffer: false });
   const material = new THREE.ShaderMaterial({
     uniforms: { map: { value: null } },
@@ -184,12 +215,12 @@ async function measureTextures(renderer, textures) {
       renderer.setRenderTarget(rt);
       renderer.render(scene, cam);
     });
+    const gl = renderer.getContext?.();
+    const later = gl && typeof gl.fenceSync === 'function' ? readLater(gl, list.length, px) : null;
+    if (!later) renderer.readRenderTargetPixels(rt, 0, 0, list.length, 1, px);
     renderer.setRenderTarget(prev);
     out.ms = performance.now() - t0;
-    await (renderer.readRenderTargetPixelsAsync
-      ? renderer.readRenderTargetPixelsAsync(rt, 0, 0, list.length, 1, px)
-      : renderer.readRenderTargetPixels(rt, 0, 0, list.length, 1, px));
-    list.forEach((tex, i) => out.set(tex, [0, 1, 2].map((k) => (px[i * 4 + k] / 255) ** 2)));
+    if (!later || await later) list.forEach((tex, i) => out.set(tex, [0, 1, 2].map((k) => (px[i * 4 + k] / 255) ** 2)));
   } catch { /* unmeasured: the material's colour alone */ }
   rt.dispose(); material.dispose(); quad.geometry.dispose();
   return out;
