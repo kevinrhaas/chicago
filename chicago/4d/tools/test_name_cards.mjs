@@ -56,8 +56,9 @@ for (const year of ['1812', '1835', '1904']) {
   ok(left.length === 0, `1812: every card has a name${left.length ? ` — still unnamed: ${left.join(', ')}` : ''}`);
   const FAMILY = { burns_infant: 'Burns', burns_child_a: 'Burns', burns_child_b: 'Burns', lee_son: 'Lee', lee_daughter: 'Lee',
     lee_infant: 'Lee', holt_child: 'Holt', needs_child: 'Needs' };
+  for (let i = 1; i <= 7; i++) FAMILY[`garrison_child_unnamed_${i}`] = '(Lee|Burns|Holt|Needs)';
   const off = Object.entries(FAMILY).filter(([id, sur]) => !new RegExp(` ${sur}$`).test(people.find((p) => p.id === id)?.name ?? '')).map(([id]) => id);
-  ok(off.length === 0, `1812: the children of named families carry the family's surname${off.length ? ` — not: ${off.join(', ')}` : ''}`);
+  ok(off.length === 0, `1812: the children of named families carry the family's surname, and the post's children a likely one${off.length ? ` — not: ${off.join(', ')}` : ''}`);
   const hh = path.join(root, 'data/residents_1812/households');
   const ours = [];
   for (const f of fs.readdirSync(hh)) for (const p of JSON.parse(fs.readFileSync(path.join(hh, f), 'utf8')).persons ?? []) {

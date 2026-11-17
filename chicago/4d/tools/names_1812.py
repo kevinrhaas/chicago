@@ -13,10 +13,9 @@ tools/native_cards_1812.py). This module does the same for the rest of the 1812 
   Kinzie's boatman and second engagé, and his second servant. Each is given a name of the kind the
   sources say they were (Kinzie's engagés "Canadian voyageurs", Andreas p. 73; the militia men of
   the settlement, French and American, Quaife ch. X; the post's children of the soldier and settler
-  families of British, Irish and German descent). No name is a name a source gives anyone at
-  Chicago in 1812 (every surname on the 1812 cards is refused below), and a child is given a
-  first name only, because which family a child belonged to is not known and a surname would claim
-  one. Each card keeps what it was called before in `also_written`, says in `name_basis` (graded
+  families). No name is a name a source gives anyone at Chicago in 1812. The seven children of the
+  post take the surname of one of the families Quaife says they most likely belonged to (Lee,
+  Burns, Holt, Needs), a guess the card names as ours (the owner chose this, 2026-11-17). Each card keeps what it was called before in `also_written`, says in `name_basis` (graded
   reconstructed) that the name is ours, and carries a Name fact saying so.
 
   KNOWN CHILDREN TAKE THEIR FAMILY'S SURNAME. A child a source places in a named family (the Burns
@@ -56,8 +55,9 @@ _MILITIA_FR = ('The militia was enrolled from the men of the settlement, French-
                'he wears an engagé\'s dress, so he is given a French-Canadian name')
 _MILITIA_US = ('The militia was enrolled from the men of the settlement, French-Canadian and American (Quaife ch. X); '
                'he is given an American name of the time')
-_CHILD = ("A first name only, of those common in the soldier and settler families of the day: which family the child "
-          "belonged to is not known, and a surname would claim one")
+_CHILD = ("Which family the child belonged to no source says; Quaife's count leaves them 'most likely more Lee, "
+          "Burns, Holt or Needs children', so the child takes one of those surnames, a guess of ours like the first "
+          "name, which is one common in the soldier and settler families of the day")
 TOWN = {
     'kinzie_boatman_1812': ('François Dumoulin', 'male', _KINZIE, ['andreas_1884_v1']),
     'kinzie_engage_1812': ('Michel Pelletier', 'male', _KINZIE, ['andreas_1884_v1']),
@@ -70,13 +70,13 @@ TOWN = {
     'chicago_militia_unnamed_4': ('Antoine Bellanger', 'male', _MILITIA_FR, ['quaife_1913']),
     'chicago_militia_unnamed_5': ('Joseph Desjardins', 'male', _MILITIA_FR, ['quaife_1913']),
     'chicago_militia_unnamed_6': ('Daniel McCurdy', 'male', _MILITIA_US, ['quaife_1913']),
-    'garrison_child_unnamed_1': ('Reuben', 'male', _CHILD, ['quaife_1913']),
-    'garrison_child_unnamed_2': ('Polly', 'female', _CHILD, ['quaife_1913']),
-    'garrison_child_unnamed_3': ('Hannah', 'female', _CHILD, ['quaife_1913']),
-    'garrison_child_unnamed_4': ('Eli', 'male', _CHILD, ['quaife_1913']),
-    'garrison_child_unnamed_5': ('Betsey', 'female', _CHILD, ['quaife_1913']),
-    'garrison_child_unnamed_6': ('Ephraim', 'male', _CHILD, ['quaife_1913']),
-    'garrison_child_unnamed_7': ('Sally', 'female', _CHILD, ['quaife_1913']),
+    'garrison_child_unnamed_1': ('Reuben Holt', 'male', _CHILD, ['quaife_1913']),
+    'garrison_child_unnamed_2': ('Polly Lee', 'female', _CHILD, ['quaife_1913']),
+    'garrison_child_unnamed_3': ('Hannah Needs', 'female', _CHILD, ['quaife_1913']),
+    'garrison_child_unnamed_4': ('Eli Burns', 'male', _CHILD, ['quaife_1913']),
+    'garrison_child_unnamed_5': ('Betsey Lee', 'female', _CHILD, ['quaife_1913']),
+    'garrison_child_unnamed_6': ('Ephraim Needs', 'male', _CHILD, ['quaife_1913']),
+    'garrison_child_unnamed_7': ('Sally Holt', 'female', _CHILD, ['quaife_1913']),
 }
 # Children a source places in a named family: the surname is the record's, the first name ours
 # (the owner, 2026-11-17: "if we know their last names we should include them").
@@ -121,11 +121,13 @@ def apply_households(households: dict) -> int:
             him = 'her' if sex == 'female' else 'him'
             p['name'] = name
             p['also_written'] = sorted(set(p.get('also_written') or []) | {old})
+            guessed = p['id'].startswith('garrison_child_unnamed_')
             surname = family and ' ' in name
             p['name_basis'] = {'value': 'reconstructed', 'grade': 'reconstructed', 'sources': srcs,
                                'note': (f'{why}.' if family else f'No source names {him}: the name is ours. {why}.')}
             p['card_facts'] = [f for f in p.get('card_facts') or [] if f.get('label') != 'Name'] + [
                 {'label': 'Name', 'value': ('First name reconstructed; surname from the record' if surname
+                                            else 'Reconstructed; the surname is a likely family, not the record\'s' if guessed
                                             else 'Reconstructed (no source names them)'), 'grade': 'reconstructed'}]
             if p.get('note'):
                 p['note'] = p['note'].replace('No name.', f'No source names {him}; the name on this card is ours.')
