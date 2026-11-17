@@ -1347,16 +1347,15 @@ async function captureWithRestoreState(page, grid, when) {
      const f=state?.flora,t=state?.textureResidency;
      // T-3300: a parked vehicle is fetched as the eye nears its stand, so one
      // still in flight would land between the baseline and the restored frame.
-     return f?.inFlight===false&&['landings','drained','abandoned'].every(k=>Number.isInteger(f[k])&&f[k]>=0)&&['near','far'].every(k=>Number.isInteger(f.passes?.[k])&&f.passes[k]>=0)&&typeof state?.geometry?.fingerprint==='string'&&!!state.camera&&(t===null||Number.isInteger(t?.pending)&&t.pending===0)&&(state.parkedTransport===null||state.parkedTransport===0)
-       // T-3630: a person's body is fetched and built over several frames, so four still
-       // frames can pass while one is in flight; it then stands up between the baseline
-       // and the restore (desktop 9-12's facade tones, worst cell 30, a held boot pose).
-       &&(state.humans===null||state.humans===0);
+     return f?.inFlight===false&&['landings','drained','abandoned'].every(k=>Number.isInteger(f[k])&&f[k]>=0)&&['near','far'].every(k=>Number.isInteger(f.passes?.[k])&&f.passes[k]>=0)&&typeof state?.geometry?.fingerprint==='string'&&!!state.camera&&(t===null||Number.isInteger(t?.pending)&&t.pending===0)&&(state.parkedTransport===null||state.parkedTransport===0);
+     // T-3630: people are NOT waited on here. A held pair keeps the people's layer out of
+     // the frame instead (holdPairPeople), because a figure 18 m off was measured taking
+     // 115 s from its level's fetch to its build on a loaded runner, far past any settle.
     }
     function advanceSceneSettle(previous,state){
      if(!sceneCaptureReady(state))return{key:null,unchanged:0,settled:false};
      // Only semantic counters: never frame/timing counters which advance forever.
-     const key=JSON.stringify({camera:state.camera,geometry:state.geometry,flora:state.flora,textureResidency:state.textureResidency,parkedTransport:state.parkedTransport,humans:state.humans});
+     const key=JSON.stringify({camera:state.camera,geometry:state.geometry,flora:state.flora,textureResidency:state.textureResidency,parkedTransport:state.parkedTransport});
      const unchanged=previous?.key===key?previous.unchanged+1:1;
      return{key,unchanged,settled:unchanged>=4};
     }
@@ -1396,7 +1395,8 @@ async function captureWithRestoreState(page, grid, when) {
           residentBytes: textures.residentBytes, uploads: textures.uploads,
           evictions: textures.evictions, redecodes: textures.redecodes } : null,
         parkedTransport: Number.isInteger(a.parkedTransport?.pending) ? a.parkedTransport.pending : null,
-        // Figures with a level still loading or waiting for its turn to build (humans.js setLod).
+        // Figures with a level still loading or waiting for its turn to build (humans.js setLod);
+        // not a readiness condition (the pair holds people out of frame), only the receipt.
         humans: Array.isArray(a.humans?.actors) ? a.humans.actors.filter((h) => h?.pending).length : null,
       };
     };
@@ -1428,6 +1428,33 @@ async function captureWithRestoreState(page, grid, when) {
   }, { grid, when });
 }
 
+/** T-3630. THE PEOPLE ARE HELD OUT OF A HELD PAIR, NOT WAITED ON — the T-3613 rule.
+ * A held on/off/restore pair measures one setting (road aid, roughness, facade tones,
+ * shadow reach, brightness), and a figure standing up between its baseline and its restored
+ * frame reads as a residual the toggle never left: desktop 9-12's facade tones, worst cell
+ * 29-33 at the held boot pose. Waiting for no level to be in flight was tried first (#2142's
+ * first head) and could not hold: two figures 18 m off asked for their level at 89 s and its
+ * file arrived at 204.5 s, so the 60 s settle timed out and the leg passed its 600 s cap. A
+ * level already asked for lands from its own promise (Actor.setLod -> show), so holding
+ * `update` alone is not enough either (T-3613 measured that). So from the baseline to the
+ * restored frame the people's layer is not drawn (no figure in any of the three captures,
+ * none casting a shadow) and `update` is held (no level asked for or let go); the pair's own
+ * `setAnimationHold(false)` is followed by letGoPairPeople. None of these checks reads a person. */
+async function holdPairPeople(page) {
+  await page.evaluate(() => {
+    const h = window.__chicago4d.humans;
+    if (h && !h.heldByPair) { h.heldByPair = h.update; h.update = () => {}; }
+    if (h?.group && h.hiddenByPair == null) { h.hiddenByPair = h.group.visible; h.group.visible = false; }
+  }).catch(() => {});
+}
+async function letGoPairPeople(page) {
+  await page.evaluate(() => {
+    const h = window.__chicago4d.humans;
+    if (h?.heldByPair) { h.update = h.heldByPair; delete h.heldByPair; }
+    if (h?.group && h.hiddenByPair != null) { h.group.visible = h.hiddenByPair; delete h.hiddenByPair; }
+  }).catch(() => {});
+}
+
 /** T-3630. The baseline of a held on/off/restore pair, taken once the scene has settled.
  * Those checks used to capture the instant they held the clock, often one step after a
  * teleport, so a load still in flight (flora, a house picture, a parked team, a build slice)
@@ -1436,6 +1463,7 @@ async function captureWithRestoreState(page, grid, when) {
  * A scene that will not settle is reported and the plain capture taken, so the pair is still
  * read and the reason is in the log rather than an exception ending the part. */
 async function settledBaseline(page, grid, what) {
+  await holdPairPeople(page);
   try {
     return (await captureWithRestoreState(page, grid, 'before')).image;
   } catch (err) {
@@ -12444,6 +12472,7 @@ for (const [label, viewport, touch] of [
     const dAidBack = signatureDistance(aidOff, aidBack);
     const aidRestored = await page.evaluate(() => window.__chicago4d.roadAid);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    await letGoPairPeople(page);
 
     check(`${label}: raising the road-legibility aid reaches the render`,
       aidSet === 1 && aidLive === 1
@@ -12576,6 +12605,7 @@ for (const [label, viewport, touch] of [
     const roughBack = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
     const dRoughBack = signatureDistance(roughFull, roughBack);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    await letGoPairPeople(page);
 
     check(`${label}: the per-vertex roughness channel reaches the render`,
       dRough.worst >= ROUGHNESS_MIN_WORST,
@@ -12668,6 +12698,7 @@ for (const [label, viewport, touch] of [
     });
     const toneBackShot = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    await letGoPairPeople(page);
     const dTone = signatureDistance(toneOn, toneOffShot);
     const dToneBack = signatureDistance(toneOn, toneBackShot);
 
@@ -12772,6 +12803,7 @@ for (const [label, viewport, touch] of [
     const reachBack = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
     const dReachBack = signatureDistance(reachFull, reachBack);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    await letGoPairPeople(page);
 
     check(`${label}: the shadow reach reaches the render`,
       woundBack === 60 && dReach.worst >= SHADOW_REACH_MIN_WORST,
@@ -12922,6 +12954,7 @@ for (const [label, viewport, touch] of [
     const brightRestored = await page.evaluate(() => window.__chicago4d.brightness);
     const exposureRestored = await page.evaluate(() => window.__chicago4d.exposure);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    await letGoPairPeople(page);
 
     // T-3428: the top is two stops, of which the exposure takes half (world.js
     // § BASE_EXPOSURE) — so the exposure at the top is still the old one-stop 2x.
