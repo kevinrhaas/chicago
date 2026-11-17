@@ -1603,9 +1603,9 @@
     },
     {
       "id": "shed_1834_1900_prairie",
-      "name": "The shed on the strip between 1834 and 1900 Prairie Avenue (district draft; refined by T-1935)",
+      "name": "The strip between 1834 and 1900 Prairie Avenue: the one-storey open frame shed on the alley, K16",
       "sidecar": "sidecars/1904/shed_1834_1900_prairie.json",
-      "asset": "gltf/shed_1834_1900_prairie__draft_1904.glb"
+      "asset": "gltf/shed_1834_1900_prairie__as_standing_1904.glb"
     },
     {
       "id": "sherman_house_2100_prairie",

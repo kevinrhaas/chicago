@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3067, ts: '2026-11-17T08:30:37.300Z', date: 'Nov 17, 2026, 2:30 AM CT', title: 'The shed between 1834 and 1900 Prairie stands open on its posts', kind: 'improvement',
+    items: [
+      'The narrow strip between 1834 and 1900 Prairie Avenue now has its frame shed on the alley, built to the outline the 1911 fire-insurance map draws: 9.2 m deep and 3.9 m along the alley, against the brick wall of 1900\'s stable.',
+      'The map draws its north and east sides dashed, so they stand open on five posts under a shingled gable, with only the alley side walled in clapboard.',
+      'Walk into it from the yard: the roof and walls are boarded inside. All seven alley buildings on this side of the block are now refined from the draft.',
+    ] },
   { v: 3066, ts: '2026-11-17T08:19:15.189Z', date: 'Nov 17, 2026, 2:19 AM CT', title: 'Prairie broughams match their 1893 catalogue plate; covered wagons look real', kind: 'improvement',
     items: [
       'The four broughams driven on Prairie Avenue in 1904 now carry the closed driving box, dash and swept irons of Studebaker\'s 1893 plate, and lose the rear mudguards the plate never had. Each coachman still sits exactly where he was fitted.',
