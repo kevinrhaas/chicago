@@ -181,4 +181,20 @@ walk.call(walker,.25,()=>null); assert.equal(walker.leg,1,'Slow frame consumes a
 assert(Math.abs(walker.e-.2)<1e-12&&Math.abs(walker.n-.05)<1e-12);
 walker.state='standing';const before={e:walker.e,n:walker.n,leg:walker.leg,placements:walker.placements};walk.call(walker,.25,()=>null);
 assert.deepEqual({e:walker.e,n:walker.n,leg:walker.leg,placements:walker.placements},before,'Standing actors remain planted');
-console.log('PASS: native clock/latches preserve bounded locomotion and routes; cosmetic idle resets across visibility, holds, context, body/range/tier and reduced motion');
+function hashPhaseT(id) { let h = 2166136261; for (const ch of String(id)) h = Math.imul(h ^ ch.charCodeAt(0), 16777619); return ((h >>> 0) % 1000) / 1000; }
+// T-3639: past 30 m a figure is posed every second frame, past 50 m every third, with all the
+// time between, so it moves as far and as fast in fewer steps; near ones are posed every frame.
+for (const [m, every] of [[10, 1], [29.9, 1], [40, 2], [60, 3]]) {
+  const far = actor(); far.state = 'walking'; far.clipName = 'walk'; far.distanceForTest = m; far.inRange = true;
+  for (let i = 0; i < 12; i++) far.step(0.016, 16);
+  const posed = far.body.values;
+  assert.equal(posed.length, 12 / every, `${m} m: posed ${posed.length} times in 12 frames, every ${every}`);
+  assert(Math.abs(posed.reduce((x, y) => x + y, 0) - 12 * 0.016) < 1e-9 || every > 1 && Math.abs(posed.reduce((x, y) => x + y, 0) + far.animDt - 12 * 0.016) < 1e-9, `${m} m: no time lost to the stride`);
+  assert(posed.every((v) => Math.abs(v - 0.016 * every) < 1e-9 || v === posed[0]), `${m} m: each pose carries the frames since the last`);
+  assert.equal(far.counters.animated, posed.length);
+}
+{ // a crowd at one distance is spread over the frames by id, not posed all on the same one
+  const turns = new Set(); for (let i = 0; i < 40; i++) turns.add(Math.floor(hashPhaseT(`p${i}:pose`) * 6) % 3);
+  assert.equal(turns.size, 3, 'figures at the same distance take their poses on different frames');
+}
+console.log('PASS: native clock/latches preserve bounded locomotion and routes; cosmetic idle resets across visibility, holds, context, body/range/tier and reduced motion; far figures posed every 2nd/3rd frame with no time lost (T-3639)');

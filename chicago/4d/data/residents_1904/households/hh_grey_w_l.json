@@ -45,7 +45,13 @@
       "sources": [
         "chicago_blue_book_1904",
         "chicago_blue_book_1905",
-        "census_1900_chicago_t623_roll245"
+        "census_1900_chicago_t623_roll245",
+        "chicago_blue_book_1890",
+        "chicago_blue_book_1895",
+        "chicago_blue_book_1907",
+        "chicago_blue_book_1908",
+        "chicago_blue_book_1909",
+        "census_1910_chicago_t624_roll241"
       ],
       "printed_as": "2010 Mr. & Mrs. W. L. Grey & dr.",
       "census_1900": {
@@ -55,14 +61,14 @@
         "as_enumerated": "Grey, Wm. L.",
         "relation_as_enumerated": "Head"
       },
-      "note": "The 1900 census lists Wm. L. Grey here as head, born January 1840, in Illinois, married, commission (company) (ED 40, sheet 9A, line 32, leaf n810).",
+      "note": "The 1900 census lists Wm. L. Grey here as head, born January 1840, in Illinois, married thirty years, president of a tannery, owning the house free of mortgage (ED 40, sheet 9A, line 32, leaf n810); his father and mother are both written as born in Illinois. The Blue Book lists him at 2010 from its 1890 edition, among the members of the Calumet Club (1890, 1895) and the Union League Club (1890), and of the South Shore Country Club in 1908 and 1909. From the 1907 edition he is listed alone, and the 1910 census (ED 167, sheet 5B, line 71, leaf n1458) gives him as widowed, living on his own income, the house still owned free. That 1910 line also writes his birthplace as New York and his parents' as Germany, against the 1900 line's Illinois; several of its ages are left blank, which suggests someone other than the family answered, so the 1900 reading is kept.",
       "born": {
         "value": "1840",
         "confidence": "attested",
         "sources": [
           "census_1900_chicago_t623_roll245"
         ],
-        "note": "The existing census transcription gives born January 1840. The year is carried into the age shown on this card."
+        "note": "The census gives January 1840, age 60 on 1 June 1900."
       },
       "portrait_research": {
         "status": "not_identified",
@@ -71,7 +77,39 @@
           "witherspoon_men_of_illinois_1902",
           "leonard_book_of_chicagoans_1905"
         ]
-      }
+      },
+      "occupation": {
+        "value": "president of a tannery",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Pres. Tannery\" in the occupation column on 1 June 1900; the hand is hard to read and an earlier reading took it for a commission company, but the capital T and the letters of \"Tannery\" are plain at full size, and his son Walter's line below reads as work in the tannery office. Which tannery the census does not say, and no other source read names it."
+      },
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 167, sheet 5B, line 71, leaf n1458",
+        "as_enumerated": "Grey, William L.",
+        "relation_as_enumerated": "Head"
+      },
+      "card_facts": [
+        {
+          "label": "Married",
+          "value": "About 1870, to Sarah",
+          "grade": "attested"
+        },
+        {
+          "label": "Clubs",
+          "value": "Calumet Club, Union League Club; later the South Shore Country Club",
+          "grade": "attested"
+        },
+        {
+          "label": "The house",
+          "value": "Owned outright, no mortgage (1900 and 1910 censuses)",
+          "grade": "attested"
+        }
+      ]
     },
     {
       "id": "pa1904_grey_mrs_w_l",
@@ -81,7 +119,9 @@
       "sources": [
         "chicago_blue_book_1904",
         "chicago_blue_book_1905",
-        "census_1900_chicago_t623_roll245"
+        "census_1900_chicago_t623_roll245",
+        "chicago_blue_book_1907",
+        "census_1910_chicago_t624_roll241"
       ],
       "printed_as": "2010 Mr. & Mrs. W. L. Grey & dr.",
       "census_1900": {
@@ -91,14 +131,14 @@
         "as_enumerated": "Grey, Sarah",
         "relation_as_enumerated": "Wife"
       },
-      "note": "The 1900 census lists Sarah Grey here as wife, born February 1850, in Illinois, married (ED 40, sheet 9A, line 33, leaf n810).",
+      "note": "The 1900 census lists Sarah Grey here as wife, born February 1850, in Illinois, married thirty years, the mother of three children, all three living (ED 40, sheet 9A, line 33, leaf n810); her parents are both written as born in Illinois. The Blue Book prints \"Mr. & Mrs. W. L. Grey\" at 2010 through its 1905 edition (canvassed from September 1904) and William alone from the 1907 edition (canvassed from September 1906); the 1906 edition was not read. The 1910 census gives William as widowed. So she died between late 1904 and late 1906; no death notice has been read, and the date is inferred from the listings.",
       "born": {
         "value": "1850",
         "confidence": "attested",
         "sources": [
           "census_1900_chicago_t623_roll245"
         ],
-        "note": "The existing census transcription gives born February 1850. The year is carried into the age shown on this card."
+        "note": "The census gives February 1850, age 50 on 1 June 1900."
       },
       "portrait_research": {
         "status": "not_identified",
@@ -107,7 +147,24 @@
           "witherspoon_men_of_illinois_1902",
           "leonard_book_of_chicagoans_1905"
         ]
-      }
+      },
+      "card_facts": [
+        {
+          "label": "Married",
+          "value": "About 1870, to William L. Grey",
+          "grade": "attested"
+        },
+        {
+          "label": "Children",
+          "value": "Three born, all three living in 1900: Jessie, Walter and Florence",
+          "grade": "attested"
+        },
+        {
+          "label": "Died",
+          "value": "Between late 1904 and late 1906",
+          "grade": "inferred"
+        }
+      ]
     },
     {
       "id": "pa1904_grey_daughter",
@@ -147,7 +204,8 @@
         "chicago_blue_book_1901",
         "chicago_blue_book_1909",
         "chicago_blue_book_1910",
-        "chicago_blue_book_1911"
+        "chicago_blue_book_1911",
+        "census_1900_chicago_t623_roll245"
       ],
       "printed_as": "2010 Walter Grey",
       "census_1910": {
@@ -161,7 +219,7 @@
         "years": "1891-1901; 1909-1911",
         "on_scene_date": "unknown"
       },
-      "note": "Listed at 2010 under his parents from 1891 to 1901 and again from 1909; the 1910 census lists him there as son. The 1902 to 1908 editions do not list him, so whether he lived here in 1904 is not documented.",
+      "note": "Listed at 2010 under his parents from 1891 to 1901 and again from 1909; the 1910 census lists him there as son. The 1902 to 1908 editions do not list him, so whether he lived here in 1904 is not documented. The 1900 census lists him at home as son, born June 1876, in Illinois, single, working in what reads as the tannery office (ED 40, sheet 9A, line 35, leaf n810).",
       "portrait_research": {
         "status": "not_identified",
         "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
@@ -169,6 +227,29 @@
           "witherspoon_men_of_illinois_1902",
           "leonard_book_of_chicagoans_1905"
         ]
+      },
+      "born": {
+        "value": "1876",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives June 1876, age 23 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "tannery office",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as what reads \"Tannery office\" in the occupation column on 1 June 1900, the line under his father's \"Pres. Tannery\"; the hand is hard to read."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 9A, line 35, leaf n810",
+        "as_enumerated": "Grey, Walter",
+        "relation_as_enumerated": "Son"
       }
     },
     {
@@ -193,7 +274,7 @@
         "years": "here in 1910-1911",
         "on_scene_date": "unknown"
       },
-      "note": "The 1910 census lists her at 2010 as William L. Grey's daughter; her age reads 14, but the figures on that line are hard to read and the Blue Book prints her as 'Miss' from 1910, so she may be older. She may be the unnamed '& dr.' of the 1904 listing, or her sister Florence may; the book does not say.",
+      "note": "The 1910 census lists her at 2010 as William L. Grey's daughter; her age reads 14, but the figures on that line are hard to read and the Blue Book prints her as 'Miss' from 1910, so she may be older. She may be the unnamed '& dr.' of the 1904 listing, or her sister Florence may; the book does not say. Sarah Grey told the 1900 census she had borne three children, Jessie, Walter and Florence, so a child born before 1900 who is not one of them cannot be hers; the 1910 line that calls this one William's child also gives the parents' birthplaces as New York, unlike the 1900 lines, so how they were related to William is not settled.",
       "portrait_research": {
         "status": "not_identified",
         "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
@@ -256,7 +337,7 @@
         "years": "here in 1910-1911",
         "on_scene_date": "unknown"
       },
-      "note": "The 1910 census lists him at 2010 as son (his age is not written); the Blue Book from 1911. Whether he lived here in 1904 is not documented.",
+      "note": "The 1910 census lists him at 2010 as son (his age is not written); the Blue Book from 1911. Whether he lived here in 1904 is not documented. Sarah Grey told the 1900 census she had borne three children, Jessie, Walter and Florence, so a child born before 1900 who is not one of them cannot be hers; the 1910 line that calls this one William's child also gives the parents' birthplaces as New York, unlike the 1900 lines, so how they were related to William is not settled.",
       "portrait_research": {
         "status": "not_identified",
         "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",

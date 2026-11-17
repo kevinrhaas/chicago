@@ -35,7 +35,8 @@ const { MeshoptDecoder } = await import(new URL('addons/libs/meshopt_decoder.mod
 const SkeletonUtils = await import(utils.SkeletonUtils);
 await MeshoptDecoder.ready;
 globalThis.self ??= globalThis;
-const js = async (name) => (await fs.readFile(new URL(`renderers/web/js/${name}`, here), 'utf8')).replace("from 'three'", `from '${three}'`);
+const js = async (name) => (await fs.readFile(new URL(`renderers/web/js/${name}`, here), 'utf8')).replace("from 'three'", `from '${three}'`)
+  .replace(/from '\.\/([\w-]+\.js)'/g, (_, f) => `from '${new URL(`renderers/web/js/${f}`, here).href}'`);
 const { createHumanSkirt, skirtMeshes, garmentKind, N_PANELS } = await import(data(await js('human-skirt.js')));
 
 function geometryOnly(bytes) {
