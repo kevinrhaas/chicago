@@ -576,7 +576,6 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
     mesh.raycast = () => {};
     mesh.castShadow = false; mesh.receiveShadow = false;
     b.mesh = mesh;
-    group.add(mesh);
   }
 
   /** A person's own tints: skin by their complexion, hair by its colour, a shade of cloth. */
@@ -671,10 +670,10 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
   const eye = new THREE.Vector3(), sortEye = new THREE.Vector3();
   const order = [];
   let sortAt = -Infinity;
-  // What the instance buffers were last written for: a held frame (no time passing, the eye
-  // where it was, nothing new loaded or baked, nobody read or sorted) writes nothing, so a
-  // paused scene is still (the smoke's capture waits for one).
-  let wroteFor = '';
+  // A held frame (no time passing: the scene paused, a menu open) changes nothing at all, once
+  // the layer has drawn: no reading, no loading or baking, no new mesh, no write. A paused
+  // scene is still (the smoke's restore captures wait for one); the town resumes with it.
+  let wrote = false;
 
   const layer = {
     group,
@@ -710,6 +709,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
       const showPeople = shown && humans?.shown !== false;
       group.visible = showPeople;
       if (!showPeople || !camera) return;
+      if (!(dt > 0) && wrote) return;
       camera.getWorldPosition ? camera.getWorldPosition(eye) : eye.copy(camera.position);
       const v = visitor && Number.isFinite(visitor.e) ? { e: visitor.e, n: visitor.n } : { e: eye.x, n: -eye.z };
       if (clock - readAt > READ_S || !readFrom || Math.hypot(v.e - readFrom.e, v.n - readFrom.n) > READ_MOVE_M) {
@@ -719,7 +719,6 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
       }
       const f0 = performance.now();
       const caps = CAPS[tier] ?? CAPS.full;
-      const held = !(dt > 0);
       // Who is in a tier, nearest first, read again every SORT_S (or once the eye has moved
       // SORT_MOVE_M); the fades themselves run every frame, in time.
       if (clock - sortAt > SORT_S || Math.abs(eye.x - sortEye.x) + Math.abs(eye.z - sortEye.z) > SORT_MOVE_M) {
@@ -740,12 +739,10 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
           if (p.tv > 0 || p.v > 0) order.push(p);
         }
         order.sort((a, b) => a.d - b.d);
-        wroteFor = '';
       }
-      const key = `${eye.x},${eye.y},${eye.z}|${stats.bodies}|${stats.baked}|${stats.reads}|${tier}`;
-      if (held && key === wroteFor) return;
-      wroteFor = key;
-      for (const b of bodies.values()) if (b.mesh) b.mesh.count = 0;
+      wrote = true;
+      // A body made since the last frame joins the scene here, on a frame that runs.
+      for (const b of bodies.values()) if (b.mesh) { if (!b.mesh.parent) group.add(b.mesh); b.mesh.count = 0; }
       let nMid = 0, nFar = 0;
       const haveAtlas = ensureAtlas();
       let baked = 0, bakeMs = 0, groundMs = 0;

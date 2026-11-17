@@ -80,7 +80,9 @@ export function createTrafficCards({ renderer, transport, config, sceneId, tier 
   const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   const url = (file) => new URL(file, moduleBase).href;
   const seen = new Map();           // id -> { v }
-  let wroteFor = '';
+  // A held frame (no time passing) changes nothing once the layer has drawn: a paused scene is
+  // still, and the cards resume with it.
+  let wrote = false;
 
   function ensure() {
     const want = TEAM_CELL[tier] ?? TEAM_CELL.full;
@@ -203,6 +205,7 @@ export function createTrafficCards({ renderer, transport, config, sceneId, tier 
       const t = transport?.();
       group.visible = shown && !hidden;
       if (!group.visible || !camera || !t) { if (mesh) mesh.visible = false; return; }
+      if (!(dt > 0) && wrote) return;
       camera.getWorldPosition ? camera.getWorldPosition(eye) : eye.copy(camera.position);
       let list = [];
       try { list = distantTeams(t, eye, { hour, rows }); } catch (err) { problems.push(`traffic cards: ${err?.message ?? err}`); list = []; }
@@ -220,12 +223,7 @@ export function createTrafficCards({ renderer, transport, config, sceneId, tier 
         near.push({ d, k, dist });
       }
       near.sort((a, b) => a.dist - b.dist);
-      // A held frame (no time passing) with nothing moved or newly baked writes nothing, so a
-      // paused scene is still.
-      let key = `${eye.x},${eye.y},${eye.z}|${stats.baked}|${tier}`;
-      for (const { d } of near) key += `|${d.id},${d.e},${d.n},${d.heading_deg}`;
-      if (!(dt > 0) && key === wroteFor) return;
-      wroteFor = key;
+
       const cap = Math.min(CAP[tier] ?? CAP.full, attrs.cap);
       const live = new Set();
       let n = 0;
@@ -245,6 +243,7 @@ export function createTrafficCards({ renderer, transport, config, sceneId, tier 
         n++;
       }
       for (const id of [...seen.keys()]) if (!live.has(id)) seen.delete(id);
+      wrote = true;
       mesh.geometry.instanceCount = n;
       mesh.visible = n > 0;
       for (const a of [attrs.pos, attrs.cell]) { a.needsUpdate = true; a.clearUpdateRanges?.(); a.addUpdateRange?.(0, n * 4); }
