@@ -747,11 +747,13 @@ export function createDayRouter({ router, clear, buildWhenBlocked = false }) {
  * @param {(p: {e:number, n:number}) => {e:number, n:number} | null} [o.standClear]  T-3554: the
  *                                              nearest place clear of every stair, where p is not
  *                                              (house-barriers.js clearOf); planDay moves to it
+ * @param {number} [o.crowdNear]                T-3555: how many people the crowd (crowd.js) may hand
+ *                                              over as whole figures at once (`materialize`)
  */
 export function createHumanDays({ humans, three = null, hour = () => null, date = () => null, doors = null,
   interactions = null, visitor = () => null, eye = () => null, router = null, hostRouter = null, problems = [],
   inside = null, spawn = null, despawn = null, openCard = () => {}, openResident = () => {}, clear = () => true, held = () => false, passages = null, followed = () => false,
-  standClear = null, residentsNear = 3, prefer = null } = {}) {
+  standClear = null, residentsNear = 3, prefer = null, crowdNear = 8 } = {}) {
   const Vec = three?.Vector3;
   let people = [];
   const workSourcePeople = new Map();
@@ -1184,14 +1186,17 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
 
   /** Move a person to `span` (the hour has turned, or they were let go from a call). */
   function enter(p, written) {
+    const asked = written;   // what the hour gave (the loop compares it), whatever is played
     if ((p.actor.instance?.scene === '1904' || p.entry) && (written.activity === 'talk' || (p.entry?.supervised && !written.indoors && !written.away)) && !p.social) {
       if (startSocial(p, written).ok) return;
-      // No available companion: return to household duties rather than wait alone.
-      restAfterTalk(p);
-      return;
+      // No available companion: return to household duties rather than wait alone; except
+      // someone the crowd has just handed over (T-3555), who stays where the visitor saw them
+      // standing rather than turn in at once as the visitor comes up.
+      if (!p.fromCrowd || written.indoors || written.away) { restAfterTalk(p); return; }
+      written = { ...written, activity: 'stand' };
     }
     const a = p.actor;
-    p.span = written;
+    p.span = asked;
     const span = p.play = playOf(written);
     p.job = null;
     p.token = (p.token ?? 0) + 1;
@@ -1731,10 +1736,11 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       // Out beyond the stop's neighbourhood (where the jaunt holds them), they go home.
       else if (about && !p.actor.indoors && !p.hosted && !p.social && !p.called && dist(p.actor, about) > about.r) restAfterTalk(p);
     }
-    if (spawned.length >= residentsNear) return;
+    const residents = spawned.filter((p) => !p.fromCrowd).length;
+    if (residents >= residentsNear) return;
     const v = visitor();
     const candidates = insideOnly.filter(entry => {
-      if (entry.supervised && spawned.length > residentsNear - 2) return false; // reserve a place for the caregiver
+      if (entry.supervised && residents > residentsNear - 2) return false; // reserve a place for the caregiver
       // A templated town (T-3556) is thousands strong: only those whose places are within reach
       // have their day read at all.
       if (entry.points && !Object.values(entry.points).some((q) => Math.hypot(q[0] - v.e, q[1] - v.n) < 50)) return false;
@@ -1922,8 +1928,55 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     return { ok: true, actor: p.actor };
   }
 
+  // ── T-3555: the crowd hands a person over as the visitor comes up to them ─────────────────
+  /** How far from the visitor a handed-over figure is let go back to the crowd (m): past the
+   *  figures' own drawing range, so the crowd's card takes them where humans.js stops drawing. */
+  const HAND_BACK_M = 160;
+  let handedBack = 0;
+  const free = (p) => !p.called && !p.social && !p.hosted && !p.override && !p.attending && !p.passing
+    && !held(p.actor) && !humans.isHeld?.(p.actor) && !followed(p.actor);
+  const farFrom = (a) => { const v = visitor() ?? eyeAt(); return !!v && Math.hypot(a.e - v.e, a.n - v.n) > HAND_BACK_M; };
+  const eyeAt = () => { const w = eye?.(); return w ? { e: w.x, n: -w.z } : null; };
+
   const api = {
     careStatus,
+    /**
+     * T-3555 (owner, 2026-11-17: "people in the distance … dissolve like ghosts and i cant get to
+     * them"): build the figure of carded person `person`, out of doors now, where the crowd draws
+     * them (`at`: {e, n, heading_deg}), on their day's span, so the visitor walking up to someone
+     * in the distance reaches a real person: one they can greet, follow and ask. At most
+     * `crowdNear` at once; past that, the one furthest off and free is let go first, and if none
+     * is, nobody is built (the crowd keeps drawing that person). Returns their actor, or null.
+     */
+    materialize(person, at) {
+      if (!spawn || !at || !Number.isFinite(at.e) || !Number.isFinite(at.n) || humans.shown === false) return null;
+      if (humans.crowdKept != null) return null;   // a jaunt holds the town as it is
+      const entry = insideOnly.find((x) => x.person === person);
+      if (!entry?.asset_id || entry.care_only || spawned.some((p) => p.entry === entry)) return null;
+      const today = date();
+      if (!onDate(today, entry.presence)) return null;
+      const span = spanAt(dayOn(entry, today, entry.person), hour());
+      if (!span || span.indoors || span.away || !span.at) return null;
+      const handed = spawned.filter((p) => p.fromCrowd);
+      if (handed.length >= crowdNear) {
+        const v = visitor() ?? eyeAt();
+        const off = v ? handed.filter((p) => free(p)).sort((a, b) => dist(b.actor, v) - dist(a.actor, v))[0] : null;
+        if (!off || !v || dist(off.actor, v) < dist(at, v) + 10) return null;
+        retire(off); handedBack++;
+      }
+      const heading = Number.isFinite(at.heading_deg) ? at.heading_deg : (span.at.heading_deg ?? 0);
+      const p = summon(entry, { structure: null, id: null, leaf: { local_e: at.e, local_n: at.n }, outward_deg: heading });
+      if (!p) return null;
+      p.fromCrowd = true;
+      p.inside = null;
+      // Out where the crowd had them, and on with their hour from there.
+      const here = { ...span, at: { ...span.at, local_e: at.e, local_n: at.n, heading_deg: heading } };
+      enter(p, here);
+      if (p.span === here) p.span = span;
+      return p.actor;
+    },
+    /** T-3555: how many handed-over figures have gone back to the crowd (it reads again on a change). */
+    get handedBack() { return handedBack; },
     /**
      * T-3555: the town's carded people who are out of doors now and not built (no figure of
      * theirs stands): [{ person, asset_id, at: {e, n, heading_deg}, to: {e, n} | null, activity }],
@@ -2178,6 +2231,9 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
         // T-3524: on a passage's stair or in its doorway, they finish it before anything else.
         if (p.passing) { if (clock - p.passing.since > PASSAGE.stuck_s) offWay(p); continue; }
         if (p.called) { stepCalled(p, dt); continue; }
+        // T-3555: someone the crowd handed over, left far behind and about nothing of the
+        // visitor's, goes back to the crowd (crowd.js draws them again from their day).
+        if (p.fromCrowd && !a.indoors && free(p) && farFrom(a)) { retire(p); handedBack++; continue; }
         if (p.entry && a.indoors && p.mode === 'in' && (p.inside === p.entry.home || (p.entry.work && p.inside === p.entry.work))) { retire(p); continue; }
         if (p.soldier && !p.override) continue;   // his hours are human-duties.js's
         // T-3573: a soldier out of quarters on a walk goes back in by their door before
