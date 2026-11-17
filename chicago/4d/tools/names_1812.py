@@ -19,12 +19,13 @@ tools/native_cards_1812.py). This module does the same for the rest of the 1812 
   one. Each card keeps what it was called before in `also_written`, says in `name_basis` (graded
   reconstructed) that the name is ours, and carries a Name fact saying so.
 
-  KNOWN CHILDREN KEEP THEIR LABEL. A child a source places in a named family (the Burns children
-  and baby, the Lee son, daughter and baby, the Holt and Needs children, Cicely's son, the Ouilmette
-  children) is a real child whose name is lost; a name of ours on them would read as the record's,
-  so they keep the honest label (the owner's exception: "unless its a known kid ... who is
-  inferred"). The wives a source calls only "Mrs. Burns" and the like have the name the record
-  gives them.
+  KNOWN CHILDREN TAKE THEIR FAMILY'S SURNAME. A child a source places in a named family (the Burns
+  children and baby, the Lee son, daughter and baby, the Holt and Needs children) is given the
+  family's surname, which is the record's, and a first name of ours (the owner, 2026-11-17: "if we
+  know their last names we should include them"). Cicely's son, whose father no source names, has a
+  first name only. The card says which half is ours. The Ouilmette children are one row for a family
+  Andreas names years later, and keep their label. The wives a source calls only "Mrs. Burns" and
+  the like have the name the record gives them.
 
   STAGED FIGURES. The figures who play the unnamed in the two 1812 story jaunts (the men Heald
   took for Winnebagoes, the war party from the Wabash, the men who kept the Kinzies' porch, the
@@ -77,9 +78,32 @@ TOWN = {
     'garrison_child_unnamed_6': ('Ephraim', 'male', _CHILD, ['quaife_1913']),
     'garrison_child_unnamed_7': ('Sally', 'female', _CHILD, ['quaife_1913']),
 }
-# Known children of named families keep their label (see above).
-KEEP = {'burns_infant', 'burns_child_a', 'burns_child_b', 'lee_son', 'lee_daughter', 'lee_infant', 'holt_child',
-        'needs_child', 'cicely_son', 'ouilmette_children'}
+# Children a source places in a named family: the surname is the record's, the first name ours
+# (the owner, 2026-11-17: "if we know their last names we should include them").
+_FAMILY = ("A source places the child in this family, so the surname is the record's; no source gives the "
+           "child's first name, so it is ours, one common in soldier and settler families of the day")
+FAMILY = {
+    'burns_infant': ('Eliza Burns', 'female', _FAMILY, ['kinzie_waubun_1856', 'quaife_1913']),
+    'burns_child_a': ('William Burns', 'male',
+                      _FAMILY + ". Whether the child was a Burns or a Cooper (Mrs. Burns's first husband's name, which "
+                      "her elder children Joseph and Isabella bore) is not known; Burns is taken", ['quaife_1913']),
+    'burns_child_b': ('Nancy Burns', 'female',
+                      _FAMILY + ". Whether the child was a Burns or a Cooper (Mrs. Burns's first husband's name, which "
+                      "her elder children Joseph and Isabella bore) is not known; Burns is taken", ['quaife_1913']),
+    'lee_son': ('Elijah Lee', 'male', _FAMILY, ['kinzie_waubun_1856', 'quaife_1913']),
+    'lee_daughter': ('Lillian Lee', 'female',
+                     "The surname is the record's. Matson (1882) alone calls her Lillian, and Quaife distrusts Matson, "
+                     "so the first name is not counted as the record's", ['kinzie_waubun_1856', 'quaife_1913']),
+    'lee_infant': ('Mary Lee', 'female', _FAMILY, ['kinzie_waubun_1856', 'quaife_1913']),
+    'holt_child': ('Rachel Holt', 'female', _FAMILY, ['quaife_1913']),
+    'needs_child': ('Samuel Needs', 'male', _FAMILY, ['kirkland_1893_chicago_massacre']),
+    'cicely_son': ('Peter', 'male',
+                   "Cicely's son; no source names him or his father, so he has a first name only, and it is ours",
+                   ['quaife_1913']),
+}
+# The Ouilmette children are one row standing for a family Andreas names in full, years later; that row
+# keeps its label.
+KEEP = {'ouilmette_children'}
 
 
 def apply_households(households: dict) -> int:
@@ -87,21 +111,25 @@ def apply_households(households: dict) -> int:
     n = 0
     for rec in households.values():
         for p in rec.get('persons', []):
-            if p['id'] not in TOWN:
+            if p['id'] not in TOWN and p['id'] not in FAMILY:
                 continue
-            name, sex, why, srcs = TOWN[p['id']]
+            family = p['id'] in FAMILY
+            name, sex, why, srcs = (FAMILY if family else TOWN)[p['id']]
             old = p['name']
             if old == name:
                 continue
             him = 'her' if sex == 'female' else 'him'
             p['name'] = name
             p['also_written'] = sorted(set(p.get('also_written') or []) | {old})
+            surname = family and ' ' in name
             p['name_basis'] = {'value': 'reconstructed', 'grade': 'reconstructed', 'sources': srcs,
-                               'note': f'No source names {him}: the name is ours. {why}.'}
+                               'note': (f'{why}.' if family else f'No source names {him}: the name is ours. {why}.')}
             p['card_facts'] = [f for f in p.get('card_facts') or [] if f.get('label') != 'Name'] + [
-                {'label': 'Name', 'value': 'Reconstructed (no source names them)', 'grade': 'reconstructed'}]
+                {'label': 'Name', 'value': ('First name reconstructed; surname from the record' if surname
+                                            else 'Reconstructed (no source names them)'), 'grade': 'reconstructed'}]
             if p.get('note'):
                 p['note'] = p['note'].replace('No name.', f'No source names {him}; the name on this card is ours.')
+                p['note'] = p['note'].replace('Name not recorded.', f'No source names {him}; the name on this card is ours.')
             p['sources'] = sorted(set(p.get('sources') or []) | set(srcs))
             rec_ = dict(p.get('reconstruction') or {})
             rec_.update({'name': 'reconstructed', 'name_ticket': TICKET, 'name_liberty': LIBERTY})

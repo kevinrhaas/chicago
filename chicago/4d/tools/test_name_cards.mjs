@@ -47,21 +47,25 @@ for (const year of ['1812', '1835', '1904']) {
 }
 
 // T-3553 (the owner, 2026-11-17: "for everyone in 1812 who does not have a name give them a name
-// ... unless its a known kid ... who is inferred"): no 1812 card or staged figure reads "name not
-// recorded" but the known children of named families, and every name of ours says so.
+// ..." and "if we know their last names we should include them"): no 1812 card or staged figure reads
+// "name not recorded", a child of a named family carries that family's surname, and every name of
+// ours says so.
 {
-  const KNOWN_CHILDREN = new Set(['burns_child_a', 'burns_child_b']);
   const people = JSON.parse(fs.readFileSync(path.join(root, 'data/sidecars/1812/people.json'), 'utf8')).people;
-  const left = people.filter((p) => /names? not recorded/i.test(p.name) && !KNOWN_CHILDREN.has(p.id)).map((p) => p.id);
-  ok(left.length === 0, `1812: every card has a name, the known children aside${left.length ? ` — still unnamed: ${left.join(', ')}` : ''}`);
+  const left = people.filter((p) => /names? not recorded/i.test(p.name)).map((p) => p.id);
+  ok(left.length === 0, `1812: every card has a name${left.length ? ` — still unnamed: ${left.join(', ')}` : ''}`);
+  const FAMILY = { burns_infant: 'Burns', burns_child_a: 'Burns', burns_child_b: 'Burns', lee_son: 'Lee', lee_daughter: 'Lee',
+    lee_infant: 'Lee', holt_child: 'Holt', needs_child: 'Needs' };
+  const off = Object.entries(FAMILY).filter(([id, sur]) => !new RegExp(` ${sur}$`).test(people.find((p) => p.id === id)?.name ?? '')).map(([id]) => id);
+  ok(off.length === 0, `1812: the children of named families carry the family's surname${off.length ? ` — not: ${off.join(', ')}` : ''}`);
   const hh = path.join(root, 'data/residents_1812/households');
   const ours = [];
   for (const f of fs.readdirSync(hh)) for (const p of JSON.parse(fs.readFileSync(path.join(hh, f), 'utf8')).persons ?? []) {
     if ((p.reconstruction?.name_liberty) !== 'L-1812-names-3553') continue;
     ours.push(p.id);
-    if (p.name_basis?.grade !== 'reconstructed' || !(p.also_written ?? []).some((x) => /not recorded/.test(x))) ok(false, `${p.id}: a name of ours is marked reconstructed and keeps the old label`);
+    if (p.name_basis?.grade !== 'reconstructed' || !(p.also_written ?? []).length) ok(false, `${p.id}: a name of ours is marked reconstructed and keeps the old label`);
   }
-  ok(ours.length === 16, `1812: the sixteen counted-and-unnamed town cards carry names of ours (${ours.length})`);
+  ok(ours.length === 25, `1812: the sixteen counted-and-unnamed town cards and nine children of known families carry names of ours (${ours.length})`);
   const row = people.find((p) => p.id === 'kinzie_servant_second');
   ok(row?.grade === 'attested' && m.gradeOf(row) === 'reconstructed', "Kinzie's second servant: attested, his name ours, his card's edge reconstructed");
   const staged = [];

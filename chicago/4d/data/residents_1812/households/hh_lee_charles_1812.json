@@ -179,7 +179,7 @@
     },
     {
       "id": "lee_son",
-      "name": "Lee's son",
+      "name": "Elijah Lee",
       "relationship": "son",
       "grade": "inferred",
       "sources": [
@@ -218,11 +218,35 @@
           "quote": "If the boy who escaped from the April massacre was the son of Lee, he doubtless was one of the militiamen.",
           "claim": "Quaife App. IX."
         }
-      ]
+      ],
+      "also_written": [
+        "Lee's son"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "kinzie_waubun_1856",
+          "quaife_1913"
+        ],
+        "note": "A source places the child in this family, so the surname is the record's; no source gives the child's first name, so it is ours, one common in soldier and settler families of the day."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "First name reconstructed; surname from the record",
+          "grade": "reconstructed"
+        }
+      ],
+      "reconstruction": {
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
+      }
     },
     {
       "id": "lee_daughter",
-      "name": "Lee's daughter",
+      "name": "Lillian Lee",
       "relationship": "daughter",
       "grade": "attested",
       "sources": [
@@ -244,6 +268,7 @@
       },
       "also_written": [
         "\"Lillian Lee\" (Matson; distrusted)",
+        "Lee's daughter",
         "Lillian Lee (Matson 1882; distrusted by Quaife)"
       ],
       "note": "On horseback with the column 15 Aug. After 14 August: Wounded; killed by Black Partridge to end her suffering (Wau-Bun).",
@@ -266,11 +291,32 @@
           "quote": "He had been particularly attached to a little girl of Mrs. Lee's, about twelve years of age.",
           "claim": "Wau-Bun."
         }
-      ]
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "kinzie_waubun_1856",
+          "quaife_1913"
+        ],
+        "note": "The surname is the record's. Matson (1882) alone calls her Lillian, and Quaife distrusts Matson, so the first name is not counted as the record's."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "First name reconstructed; surname from the record",
+          "grade": "reconstructed"
+        }
+      ],
+      "reconstruction": {
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
+      }
     },
     {
       "id": "lee_infant",
-      "name": "The Lee baby",
+      "name": "Mary Lee",
       "relationship": "child",
       "grade": "attested",
       "sources": [
@@ -308,7 +354,31 @@
           "quote": "Mrs. Leigh's 2 one Since Dead N D",
           "claim": "Helm's children list."
         }
-      ]
+      ],
+      "also_written": [
+        "The Lee baby"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "kinzie_waubun_1856",
+          "quaife_1913"
+        ],
+        "note": "A source places the child in this family, so the surname is the record's; no source gives the child's first name, so it is ours, one common in soldier and settler families of the day."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "First name reconstructed; surname from the record",
+          "grade": "reconstructed"
+        }
+      ],
+      "reconstruction": {
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
+      }
     }
   ]
 }
