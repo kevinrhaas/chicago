@@ -106,6 +106,8 @@ export function createTrafficCards({ renderer, transport, config, sceneId, tier 
     mesh = new THREE.Mesh(geometry, cardMaterial(atlas.texture, TEAM_YAWS, kinds.size, TEAM_YAWS));
     mesh.name = 'traffic_cards';
     mesh.frustumCulled = false;
+    // Never picked: a far figure or team is a picture, not a thing to aim at or walk into.
+    mesh.raycast = () => {};
     group.add(mesh);
     for (const k of kinds.values()) if (k.status === 'ready') k.status = 'new';
     return true;

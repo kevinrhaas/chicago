@@ -467,6 +467,8 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
     cardMesh = new THREE.Mesh(geometry, cardMaterial(atlas.texture, cardCols, need));
     cardMesh.name = 'crowd_cards';
     cardMesh.frustumCulled = false;
+    // Never picked: a far figure or team is a picture, not a thing to aim at or walk into.
+    cardMesh.raycast = () => {};
     cardMesh.castShadow = false; cardMesh.receiveShadow = false;
     group.add(cardMesh);
     for (const b of bodies.values()) b.baked = false;
@@ -570,6 +572,8 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
     mesh.visible = false;
     mesh.name = 'crowd_mid';
     mesh.frustumCulled = false;
+    // Never picked: a far figure or team is a picture, not a thing to aim at or walk into.
+    mesh.raycast = () => {};
     mesh.castShadow = false; mesh.receiveShadow = false;
     b.mesh = mesh;
     group.add(mesh);
