@@ -96,6 +96,14 @@ service cloud.firestore {
       allow read, delete: if isOwner();
       allow create, update: if request.auth != null && request.auth.uid == uid && visitorFields();
     }
+    // T-3645: the reader's ages (Settings › Display › Reading age), read and written by
+    // the reader alone, so another device opens at the same age.
+    match /readers/{uid} {
+      allow read, delete: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['ages', 'at'])
+        && request.resource.data.ages is list && request.resource.data.ages.size() <= 5;
+    }
     match /visits/{id} {
       allow read, delete: if isOwner();
       allow create: if request.auth != null
@@ -108,7 +116,9 @@ service cloud.firestore {
 ```
 
 `tools/test_sign_in.mjs` holds the fields `visitor-store.js` writes to the two
-`hasOnly` lists above, so a new field cannot ship without its rule.
+`hasOnly` lists above, so a new field cannot ship without its rule; `tools/test_reading_level.mjs`
+holds `readers/{uid}` to the fields `reading-level.js` writes (T-3645). Until the
+`readers/{uid}` rule is pasted, a reader's ages stay on their device and the console says so once.
 
 ## Not done (yet)
 

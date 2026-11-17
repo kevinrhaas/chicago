@@ -253,12 +253,46 @@ body:is(.is-touch, .touch-first) .panel-close { margin-right: -6px; }
 .seg-btn:last-child { border-right: 0; }
 .seg-btn:hover { color: var(--ink); background: var(--step); }
 .seg-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.seg-btn.is-on, .seg-btn[aria-checked="true"],
-.seg-btn.is-on:hover, .seg-btn[aria-checked="true"]:hover {
+.seg-btn.is-on, .seg-btn[aria-checked="true"], .seg-btn[aria-pressed="true"],
+.seg-btn.is-on:hover, .seg-btn[aria-checked="true"]:hover, .seg-btn[aria-pressed="true"]:hover {
   /* T-3571: lit is the quiet kind (skins.css § LIT), not a solid fill. */
   background: var(--lit-wash, color-mix(in srgb, var(--accent) 12%, transparent));
   color: var(--lit-ink, var(--accent));
   box-shadow: inset 0 0 0 1px var(--lit-edge, var(--accent));
+}
+
+/* T-3645: Settings › Display › Reading age, several keys pressed at once. */
+.reading-ages .seg-btn { min-width: 52px; }
+
+/* T-3645: a card's age tabs (reading-level.js § readingTabs). One quiet row of small keys
+   under the card's head; the age shown is lit, the reader's own ages carry a dot. */
+.reading-tabs {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px;
+  margin: 6px 0 8px; padding: 0;
+}
+.reading-tabs-label {
+  font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-dim); margin-right: 2px;
+}
+.reading-tab {
+  min-height: 28px; padding: 3px 9px;
+  border: 1px solid var(--edge); border-radius: 999px;
+  background: transparent; color: var(--ink-dim);
+  font: inherit; font-size: 12px; font-weight: 600; white-space: nowrap; cursor: pointer;
+}
+.reading-tab:hover { color: var(--ink); background: var(--step); }
+.reading-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.reading-tab[aria-selected="true"] {
+  background: var(--lit-wash, color-mix(in srgb, var(--accent) 12%, transparent));
+  color: var(--lit-ink, var(--accent));
+  border-color: var(--lit-edge, var(--accent));
+}
+.reading-tab-yours::after {
+  content: ''; display: inline-block; width: 5px; height: 5px; margin-left: 5px; vertical-align: 2px;
+  border-radius: 50%; background: currentColor; opacity: .7;
+}
+@media (max-width: 620px) {
+  .reading-tab { min-height: 32px; padding: 4px 10px; }
 }
 
 /* --------------------------------------------------------- travel banner --- */

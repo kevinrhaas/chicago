@@ -35,6 +35,8 @@ import { wireFieldLogView } from './field-log-view.js';
 import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
 import { signInGate, showAccount } from './sign-in.js';
+import { SIGN_IN } from './sign-in-config.js';
+import { syncReading, setLevelsSource, loadSceneLevels } from './reading-level.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
 import { readVersionRequest } from './structure-versions.js';
@@ -1980,6 +1982,10 @@ async function boot() {
   api.signIn = await signInGate({ year: YEAR, gate });
   // T-3603: "Signed in as … · Sign out" on the Settings card's About tab.
   showAccount(document, api.signIn.account);
+  // T-3645: the reader's ages, kept on the account when someone is signed in; and the cards'
+  // words at each age, fetched the first time a card opens.
+  void syncReading({ account: api.signIn.account, projectId: SIGN_IN.firebase?.projectId });
+  setLevelsSource(() => loadSceneLevels(resolveBases().dataBase, YEAR));
   bootController.start('scene');
   await yieldToPaint();
   const bases = resolveBases();

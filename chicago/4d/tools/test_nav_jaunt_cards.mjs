@@ -115,54 +115,71 @@ assert(/Prairie Walk/.test(text) && /Walk the avenue\./.test(text) && /3 stops/.
     { ...rows[0], id: 'tour-young', title: 'The Tour', grade_band: '3-5', menu_group: 'People', version_of: 'tour' },
     { ...rows[1], id: 'style', title: 'A Style Walk', grade_band: '9-10', menu_group: 'Architecture' },
   ];
+  const { createReadingChoice } = await import('../renderers/web/js/reading-level.js');
+  const mem = () => { const m = new Map(); return { getItem: (k) => m.get(k) ?? null, setItem: (k, v) => m.set(k, String(v)), removeItem: (k) => m.delete(k) }; };
+  const choice = createReadingChoice({ storage: mem() });
   const groot = document.createElement('div');
-  createJauntMenu({ root: groot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {} }).show(graded);
+  createJauntMenu({ root: groot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {}, choice }).show(graded);
   const row = groot.querySelectorAll('.jaunt-grades')[0];
   assert(row && !row.hidden, 'a grade row when the jaunts have more than one band');
   const pills = row.querySelectorAll('.jaunt-grade-pill');
   // T-3629: Any, then the bands present, youngest first; one card per jaunt. The owner,
   // 2026-11-17: the row is "Your age", each pill the age band its grade band stands for.
+  // T-3645: 18+ is a reading age too, always last: each jaunt as first told.
   assert.equal(row.querySelectorAll('.jaunt-grades-label')[0].textContent, 'Your age');
-  assert.deepEqual(pills.map((p) => p.textContent), ['Any', '8–10', '11–13', '14–15'], 'Any, then the age bands present, youngest first');
-  assert.deepEqual(pills.map((p) => p.getAttribute('aria-label')), ['Any age', 'Ages 8–10', 'Ages 11–13', 'Ages 14–15']);
+  assert.deepEqual(pills.map((p) => p.textContent), ['Any', '8–10', '11–13', '14–15', '18+'], 'Any, then the age bands present, youngest first, then 18+');
+  assert.deepEqual(pills.map((p) => p.getAttribute('aria-label')), ['Any age', 'Ages 8–10', 'Ages 11–13', 'Ages 14–15', 'Ages 18 and over']);
   const shown = () => groot.querySelectorAll('.jaunt-card').map((c) => c.dataset.jaunt);
   assert.deepEqual(shown(), ['tour', 'style'], 'no grade picked: each jaunt once, as first told');
   const tags = (id) => groot.querySelectorAll('.jaunt-card').find((c) => c.dataset.jaunt === id).querySelectorAll('.jaunt-grade').map((t) => t.textContent);
   assert.deepEqual(tags('tour'), ['Grades 6–8', 'Ages 11–13'], 'each card: its age band next to its grade level');
   pills[1].click();
-  assert.deepEqual(shown(), ['tour-young', 'style'], 'Grades 3–5: the 3–5 telling, and a jaunt with no 3–5 telling stays');
+  assert.deepEqual(shown(), ['tour-young', 'style'], 'Ages 8–10: the 3–5 telling, and a jaunt with no 3–5 telling stays');
   assert.equal(pills[1].getAttribute('aria-pressed'), 'true');
+  assert.deepEqual(choice.get(), ['8-10'], 'the pill is the reader\'s age: Settings sees it');
+  // T-3645 (owner: "i can add multiple levels to see and then you would see all jaunts"): a second age adds its tellings.
   pills[2].click();
-  assert.deepEqual(shown(), ['tour', 'style'], 'Grades 6–8');
+  assert.deepEqual(shown(), ['tour', 'tour-young', 'style'], 'Ages 8–10 and 11–13: both tellings of the tour, the walk once');
+  assert.equal(pills[1].getAttribute('aria-pressed'), 'true'); assert.equal(pills[2].getAttribute('aria-pressed'), 'true');
   const clear = groot.querySelectorAll('.jaunt-clear')[0];
-  assert(clear.hidden, 'a picked grade is a choice, not a filter to clear');
-  pills[2].click();
-  assert.deepEqual(shown(), ['tour', 'style'], 'tapping the picked grade again lets it go');
-  assert.equal(pills[0].getAttribute('aria-pressed'), 'true', 'Any grade again');
-  // T-3623 (owner, 2026-11-16: "Do 18+ jaunts for all jaunts"): an 18+ telling has its own pill
-  // after the bands. T-3629: picked, each jaunt plays its 18+ telling where it has one; the card
-  // carries the 18+ tag and no grade tag.
+  assert(clear.hidden, 'a picked age is a choice, not a filter to clear');
+  pills[1].click(); pills[2].click();
+  assert.deepEqual(shown(), ['tour', 'style'], 'tapping each picked age again lets it go');
+  assert.equal(pills[0].getAttribute('aria-pressed'), 'true', 'Any age again');
+  choice.set(['14-15'], 'account');
+  assert.deepEqual(shown(), ['tour', 'style'], 'an age chosen elsewhere (Settings, the account) redraws the list');
+  assert.equal(pills[3].getAttribute('aria-pressed'), 'true');
+  pills[0].click();
+  assert.deepEqual(choice.get(), [], 'Any clears every age');
+  // T-3623 (owner, 2026-11-16: "Do 18+ jaunts for all jaunts"): an 18+ telling is played by the
+  // 18+ pill, after the bands, where it has one; the card carries the 18+ tag and no grade tag.
   const aroot = document.createElement('div');
   const grown = { ...rows[0], id: 'tour-adults', title: 'The Tour', grade_band: '6-8', menu_group: 'People', version_of: 'tour', audience: 'adults', content_warning: 'Told in full, for adults.' };
-  createJauntMenu({ root: aroot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {} }).show([grown, ...graded]);
+  const achoice = createReadingChoice({ storage: mem() });
+  createJauntMenu({ root: aroot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {}, choice: achoice }).show([grown, ...graded]);
   const apills = aroot.querySelectorAll('.jaunt-grades')[0].querySelectorAll('.jaunt-grade-pill');
   assert.deepEqual(apills.map((p) => p.textContent), ['Any', '8–10', '11–13', '14–15', '18+'], 'the 18+ pill comes after the age bands');
-  assert.equal(apills[4].getAttribute('aria-label'), '18+ tellings');
+  assert.equal(apills[4].title, 'Each jaunt in its 18+ telling, where it has one');
   const ashown = () => aroot.querySelectorAll('.jaunt-card').map((c) => c.dataset.jaunt);
   assert.deepEqual(ashown(), ['tour', 'style'], 'one card per jaunt: the 18+ telling waits for its pill');
   apills[2].click();
-  assert.deepEqual(ashown(), ['tour', 'style'], 'a grade pill leaves the 18+ telling out');
-  apills[4].click();
-  assert.deepEqual(ashown(), ['tour-adults', 'style'], 'the 18+ pill plays each jaunt\'s 18+ telling where it has one');
+  assert.deepEqual(ashown(), ['tour', 'style'], 'an age pill leaves the 18+ telling out');
+  apills[2].click(); apills[4].click();
+  assert.deepEqual(ashown(), ['tour-adults', 'style'], 'the 18+ pill plays each jaunt\'s 18+ telling where it has one, the rest as first told');
   const gcard = aroot.querySelectorAll('.jaunt-card').find((c) => c.dataset.jaunt === 'tour-adults');
   assert.equal(gcard.querySelectorAll('.jaunt-adults').length, 1, 'its 18+ tag');
   assert.equal(gcard.querySelectorAll('.jaunt-grade').length, 0, 'and no grade or age tag');
-  apills[4].click();
-  createJauntMenu({ root: aroot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {} }).show(graded);
-  assert(!aroot.querySelectorAll('.jaunt-grade-pill').some((p) => p.textContent === '18+'), 'no 18+ pill when Settings keeps them unlisted');
+  const bchoice = createReadingChoice({ storage: mem() });
+  bchoice.set(['18+']);
+  createJauntMenu({ root: aroot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {}, choice: bchoice }).show(graded);
+  assert.equal(aroot.querySelectorAll('.jaunt-grade-pill').find((p) => p.textContent === '18+').title, 'Each jaunt as first told', 'with the 18+ tellings unlisted, 18+ reads each jaunt as first told');
+  assert.deepEqual(ashown(), ['tour', 'style']);
   const one = document.createElement('div');
-  createJauntMenu({ root: one, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {} }).show([graded[0]]);
+  createJauntMenu({ root: one, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {}, choice: createReadingChoice({ storage: mem() }) }).show([graded[0]]);
   assert(one.querySelectorAll('.jaunt-grades')[0].hidden, 'one band only: no grade row to choose from');
+  // T-3645: the one grade T-3629 remembered becomes the first reading age.
+  const old = mem(); old.setItem('chicago4d.jaunts.grade', '9-10');
+  assert.deepEqual(createReadingChoice({ storage: old }).get(), ['14-15'], 'a remembered grade band is read as its age');
 }
 
 // ---- the Continue card in jaunt-preview.js ------------------------------------------------

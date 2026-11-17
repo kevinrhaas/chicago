@@ -546,6 +546,12 @@ if [ -d data/night_lights ]; then
   rm -rf "$SITE/data/night_lights"
   cp -a data/night_lights "$SITE/data/night_lights"
 fi
+# T-3645: every card's words at the reader's other ages, one file per scene
+# (tools/reading_levels.py), fetched the first time a card opens (js/reading-level.js).
+if [ -d data/reading ]; then
+  rm -rf "$SITE/data/reading"
+  cp -a data/reading "$SITE/data/reading"
+fi
 # T-3553: the "Tell me a story" library, one file per scene, fetched on the first story asked for.
 if [ -d data/tales ]; then
   rm -rf "$SITE/data/tales"

@@ -27,6 +27,7 @@
  * (hud.js `store`, which swallows a refused storage), so nothing here persists on its own.
  * Light or dark keeps its own key, `chicago4d.theme`, which js/skin.js reads before paint.
  */
+import { readingChoice } from './reading-level.js';
 import { t as str } from './strings/index.js';
 import './strings/settings.js';
 import { NARRATORS, normalNarrator } from './narrators.js'; // T-3627: not the player itself
@@ -247,6 +248,22 @@ export function applyTextScale(root, value) {
  * `saveTheme(tone)` stores light or dark, `onSetting(key, value)` is main.js's handler, and
  * `openWhatsNew()` shows the What's new section.
  */
+/**
+ * T-3645 (the owner, 2026-11-17: "a person can set a grade level age level in their
+ * settings"): Settings › Display › Reading age, one key per age, as many pressed as the
+ * reader likes. Each press is the shared choice (reading-level.js), so the Jaunts menu and
+ * every card follow it, and a change made there (or by the account) shows here.
+ */
+export function wireReadingAges(seg, choice = readingChoice()) {
+  if (!seg) return false;
+  const keys = [...seg.querySelectorAll('[data-reading-age]')];
+  const paint = () => { for (const k of keys) k.setAttribute('aria-pressed', String(choice.has(k.dataset.readingAge))); };
+  for (const k of keys) k.addEventListener('click', () => choice.toggle(k.dataset.readingAge));
+  choice.subscribe(paint);
+  paint();
+  return true;
+}
+
 export function wireSettingsApp({
   doc = globalThis.document, settings, device = null, save = () => {}, saveTheme = () => {},
   onSetting = null, openWhatsNew = null, isTouch = false,
@@ -290,6 +307,9 @@ export function wireSettingsApp({
       onSetting?.('textScale', settings.textScale);
     });
   }
+
+  // ---- Display: reading age (T-3645). The Jaunts menu's age row is the same choice.
+  wireReadingAges($('s-reading-ages'));
 
   // ---- Performance: Auto.
   const auto = autoChoice(device);
