@@ -42723,6 +42723,23 @@ cascade, the knuckles' lift and the thumb's lie.
 period street films (Lumière and Edison/AM&B street scenes of 1896-1906), reviewed in the town.
 **Ticket:** T-3472, T-3496.
 **Recorded:** 2026-11-07 (T-3472).
+**Running (T-3553, Kevin 2026-11-16: "there should be some running ... during the attack ... Kinzie might have
+moved quickly from the murder ... there may be different speeds").** The same layer runs. Past 2.05 m/s a figure
+goes over into a run within a quarter second (back to a walk below 1.85 m/s), and a jaunt beat can ask for
+`jog` (2.6 m/s), `run` (3.6), `flee` (4.5) or `sprint` (5.6). Each foot is down a shorter share of the cycle (36,
+33 and 31 % at 2.5, 3.5 and 4.5 m/s), so both feet are off the ground between steps and the pelvis flies a
+ballistic arc between contacts; the stride grows from 1.06 to 1.69 of the runner's height and the cadence from
+about 160 to 180 steps a minute; the hip, knee and ankle follow the measured running curves (the swing knee
+folds past 100 degrees, past 120 in a sprint). The arms bend to about 90 degrees at the elbow and pump from the
+shoulder, the hands loosely closed, and the trunk leans 8-15 degrees forward with speed. A runner gathers into
+the run over about half a second and pulls up before where it is going. **What is read:** the cycle tables,
+stance share, stride, cadence and pelvis travel are the means of the recreational runners of Fukuchi, Fukuchi &
+Duarte (2017, *PeerJ* 5:e3298) at 2.5, 3.5 and 4.5 m/s (`data/humans/gait/normative_running.json`). **What is
+invented:** that anyone of 1812 ran so (modern runners in running shoes stand in for men in moccasins and
+brogans and women in long gowns); everything past 4.5 m/s, carried on the measured trend; the arm swing, the
+elbow, the hands, the lean, the gather and the pull-up; the pace names and which pace each jaunt beat takes;
+the run's pelvis travel is about half the measured 9-10 cm. **How to resolve:** running measured in period
+footwear and dress.
 ### L-1812-garrison-looks-3491 — How each man of Heald's company looks: complexion, hair, eyes, height
 
 **Decision:** the owner, 2026-11-07: *"they all have the same complexion and hair so change all that up ... use their ethnicity and find an image of someone like that and use that as a basis"*. Each enlisted man gets his own looks (`data/humans/variation/looks/<person>.json`, written by `docs/RESEARCH/people-1812-3491/looks.py` from `reading.json` beside it, carried into `assets/humans/web/hm08_variation_persons.json`, drawn by `renderers/web/js/human-looks.js` and shown in his card's Looks section). Four things are ours. (1) **His colouring is drawn, not read.** No man's own entry in the Register of Enlistments (NARA M233, which gives each recruit's height, complexion, eyes and hair) could be reached; the 1798-1815 volumes are transcribed only behind subscription logins. His complexion, hair and eyes are drawn, seeded by his id, from what the register wrote of 199 men of the 22nd US Infantry, 1812-14 (fair 98, dark 70, light 21, ruddy 4, brown 3; hair brown 57, black 46, dark 32, fair 26, light 19, sandy 11; eyes blue 67, grey 58, brown 21, dark 20, black 17, hazel 13), in the register's own words. (2) **The lean of his name.** A Scottish, Ulster or Irish surname doubles the draw's chance of sandy hair and triples that of red; a Welsh or French one leans dark; a Dutch one leans fair. Each surname's origin is read from a surname dictionary; the lean is our choice, not a measured rate. (3) **His height** is drawn from 68.1 in, the mean of native-born army recruits of 1815-20 aged 24-35 (Sokoloff 1984, after Sokoloff and Villaflor 1982), with the 2.5 in spread of two register samples, clipped to 62-75 in; Paul Grummo, remembered as "a tall, well-built man" (Quaife 1913 p. 239), is put at 71-74 in and heavier built (inferred), and David Kennison at the "about five feet ten inches" Lossing measured in his old age (inferred). (4) **The look.** The tints that draw each register word on the shared skin picture, the iris colours, a short crop for every man and short side whiskers for about two in five are reconstructed rendering choices. His card shows the one of seven public-domain portraits of young American men of about 1810-1825 (The Met) whose colouring is nearest his, labelled a stand-in, never his likeness.

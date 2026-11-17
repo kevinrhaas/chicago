@@ -67,7 +67,7 @@ async function load(asset, lod = 0) {
 }
 
 /** Walk `asset` for `seconds` along a path (a straight line, or an arc of `turn` deg/s), then stop. */
-async function walk(asset, { profile, seconds = 6, turn = 0, lod = 0, swapAt = null, scale = 1 } = {}) {
+async function walk(asset, { profile, seconds = 6, turn = 0, lod = 0, swapAt = null, scale = 1, speed = null, accel = 0 } = {}) {
   let gltf = await load(asset, lod);
   const root = new THREE.Group(); root.position.set(3, 0.2, -2); root.rotation.y = 0.4; root.add(gltf.scene);
   gltf.scene.scale.setScalar(scale);
@@ -96,13 +96,15 @@ async function walk(asset, { profile, seconds = 6, turn = 0, lod = 0, swapAt = n
   const v = new THREE.Vector3();
   const dt = 1 / 60;
   const log = [];
-  let state = 'standing', walked = 0;
+  let state = 'standing', walked = 0, vRun = 0;
   for (let f = 0; f < 60 * (seconds + 3); f++) {
     const t = f * dt;
     state = t > 0.4 && t < 0.4 + seconds ? 'walking' : 'standing';
     let moved = 0;
     if (state === 'walking') {
-      moved = gait.speed * gait.pace * dt;
+      // T-3553: a set pace (a run), gathered as humans.js gathers it (`accel`, s), or the walker's own.
+      if (speed !== null) vRun = accel > 0 ? vRun + (speed - vRun) * (1 - Math.exp(-dt / accel)) : speed;
+      moved = (speed !== null ? vRun : gait.speed * gait.pace) * dt;
       root.rotation.y += turn * Math.PI / 180 * dt;
       root.position.add(new THREE.Vector3(Math.sin(root.rotation.y), 0, Math.cos(root.rotation.y)).multiplyScalar(moved));
       walked += moved;
@@ -127,7 +129,8 @@ async function walk(asset, { profile, seconds = 6, turn = 0, lod = 0, swapAt = n
     if (f % 2 === 0) for (const p of soles) { p.mesh.getVertexPosition(p.i, v); p.mesh.localToWorld(v); low[p.s] = Math.min(low[p.s], v.y - root.position.y); }
     log.push({ t, state, snap: gait.snapshot(), phase: gait.phase, weight: gait.weight, mode: gait.mode,
       foot: { l: W('foot_l'), r: W('foot_r') }, ball: { l: W('ball_l'), r: W('ball_r') }, pelvis: W('pelvis').y - root.position.y,
-      knee: { l: knee('l'), r: knee('r') }, low, root: root.position.clone(), rootYaw: root.rotation.y });
+      knee: { l: knee('l'), r: knee('r') }, low, root: root.position.clone(), rootYaw: root.rotation.y,
+      thigh: { l: W('calf_l').sub(W('thigh_l')), r: W('calf_r').sub(W('thigh_r')) } });
   }
   return { gait, log, walked };
 }
@@ -249,6 +252,56 @@ for (const [asset, age, sex] of [['child_toddler_1812', 3, 'female'], ['bardwell
     console.log(`${asset} nudged 0.6 m aside ${kind}: pelvis at least ${(low * 100).toFixed(0)} %, knee at most ${most.toFixed(0)} deg: PASS`);
   }
 }
+
+// T-3553: running. Past about 2 m/s the walk becomes a run: each foot is down for about a third
+// of the cycle and both are off the ground between the steps; the stance knee bends to about 40
+// degrees and the swing knee folds past 90; the stride is the measured one for the runner's
+// height and pace (data/humans/gait/normative_running.json); the planted foot still does not
+// slide; the pelvis rises and falls by several centimetres; and the run gives way to a walk and a
+// closing step when the figure stops.
+const RUNS = JSON.parse(await fs.readFile(new URL('data/humans/gait/normative_running.json', here), 'utf8'));
+function judgeRun(name, run, { speed, height, swingLo = 80, swingHi = 135, cadenceHi = 215 } = {}) {
+  const { gait, log } = run;
+  const steady = log.filter(r => r.mode === 'walk' && r.t > 2.4 && r.t < log.at(-1).t - 3.2 && r.weight === 1);
+  assert.ok(steady.length > 90, `${name}: enough steady running`);
+  const snap = steady.at(-1).snap;
+  assert.ok(snap.run > 0.99, `${name}: running at ${speed} m/s (run share ${snap.run})`);
+  // Stance and flight from the soles: a foot is down while its lowest sole vertex is within 5 mm of the ground.
+  const sampled = steady.filter(r => Number.isFinite(r.low.l));
+  const down = s => sampled.filter(r => r.low[s] < 0.005).length / sampled.length;
+  const stance = (down('l') + down('r')) / 2, airborne = sampled.filter(r => r.low.l > 0.005 && r.low.r > 0.005).length / sampled.length;
+  // Foot slide while the foot is flat on the ground (the ankle), as the walk is judged.
+  let slide = 0;
+  for (const s of ['l', 'r']) {
+    let f0 = null;
+    for (const r of steady) {
+      const c = ((r.phase - OFF[s]) % 1 + 1) % 1;
+      if (c > 0.06 && c < 0.13) { f0 ??= r.foot[s]; slide = Math.max(slide, Math.hypot(r.foot[s].x - f0.x, r.foot[s].z - f0.z)); } else f0 = null;
+    }
+  }
+  const swing = Math.max(...steady.map(r => r.knee.l)), load = Math.max(...steady.filter(r => { const c = ((r.phase % 1) + 1) % 1; return c > 0.05 && c < 0.25; }).map(r => r.knee.l));
+  const pel = steady.map(r => r.pelvis), bob = Math.max(...pel) - Math.min(...pel);
+  const cadence = 2 * speed / snap.stride_now * 60;
+  const thighFwd = Math.max(...steady.map(r => Math.atan2(r.thigh.l.clone().applyAxisAngle(new THREE.Vector3(0, 1, 0), -r.rootYaw).z, -r.thigh.l.y) * 180 / Math.PI));
+  const rows = RUNS.spatiotemporal, sp = speed <= 3 ? '25' : speed <= 4 ? '35' : '45';
+  console.log(`${name}: ${speed} m/s, stride ${snap.stride_now.toFixed(2)} m = ${(snap.stride_now / height).toFixed(2)} of height (measured ${rows[sp].stride_over_height} at ${rows[sp].speed_m_s}), ${cadence.toFixed(0)} steps/min, `
+    + `each foot down ${(stance * 100).toFixed(0)} %, both in the air ${(airborne * 100).toFixed(0)} %, slide ${(slide * 1000).toFixed(1)} mm, knee ${load.toFixed(0)} deg in stance / ${swing.toFixed(0)} in swing, `
+    + `thigh ${thighFwd.toFixed(0)} deg forward, pelvis ${(bob * 100).toFixed(1)} cm`);
+  assert.ok(stance > 0.2 && stance < 0.5, `${name}: each foot down ${(stance * 100).toFixed(0)} % of the time`);
+  assert.ok(airborne > 0.06, `${name}: both feet in the air ${(airborne * 100).toFixed(0)} % of the time (a run has a flight)`);
+  assert.ok(slide < 0.01, `${name}: the planted foot slides ${(slide * 1000).toFixed(1)} mm`);
+  assert.ok(load > 22 && load < 55, `${name}: stance knee ${load.toFixed(0)}`);
+  assert.ok(swing > swingLo && swing < swingHi, `${name}: swing knee ${swing.toFixed(0)}`);
+  assert.ok(bob > 0.02 * height && bob < 0.08 * height, `${name}: pelvis ${(bob * 100).toFixed(1)} cm`);
+  assert.ok(cadence > 140 && cadence < cadenceHi, `${name}: cadence ${cadence.toFixed(0)}`);
+  const end = log.at(-1);
+  assert.equal(end.mode, 'idle', `${name}: stops and hands back to the clip`);
+  console.log(`${name}: PASS`);
+}
+for (const [label, speed, lo, hi] of [['jog', 2.6, 75, 115], ['run', 3.6, 85, 125], ['flee', 4.5, 95, 135], ['sprint', 5.6, 100, 145]]) {
+  judgeRun(`Otis Bardwell, ${label}`, await walk('bardwell_otis_1835', { profile: { sex: 'male', age: 30, height: 1.75 }, speed, accel: 0.35 }), { speed, height: 1.75, swingLo: lo, swingHi: hi });
+}
+judgeRun('child_boy_1812 (8), run', await walk('child_boy_1812', { profile: { sex: 'male', age: 8 }, speed: 3.0, accel: 0.35 }), { speed: 3.0, height: 1.25, swingLo: 70, swingHi: 130, cadenceHi: 250 });  // a child's quick short steps
 
 // Deterministic.
 {

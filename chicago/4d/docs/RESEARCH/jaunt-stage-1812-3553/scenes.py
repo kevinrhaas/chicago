@@ -68,6 +68,9 @@ SHORE_S = (0.220, -0.975)
 SHORE_W = (-0.975, -0.220)
 
 
+CHARGE_M = 10.0    # how far up the bank the company runs in the students' scene (T-3553)
+
+
 def shore(u, v):
     return (SHORE0[0] + u * SHORE_S[0] + v * SHORE_W[0], SHORE0[1] + u * SHORE_S[1] + v * SHORE_W[1])
 
@@ -170,11 +173,13 @@ def battle(b):
             {'t': 0.5 + 0.4 * i, 'walk': [P(-1610.0, -4296.0), P(*hide_at)], 'pace': 'brisk'},
             {'t': 14 + i, 'face': P(-1648.0, -4225.0)}, {'t': 16 + i, 'pose': 'crouch', 'ease': 0.8},
             {'t': 28 + 0.5 * i, 'pose': 'stand', 'ease': 0.6},
-            {'t': 30 + 0.5 * i, 'walk': [P(-1590.0 + i, -4297.0 - i), P(-1545.0, -4292.5 - i)], 'pace': 'hurry', 'hide': True}]))
+            # 'they took to the woods' and 'run on downriver' (the stop's text): a steady run, the
+            # boy keeping up with the soldier (T-3553, the running gait).
+            {'t': 30 + 0.5 * i, 'walk': [P(-1590.0 + i, -4297.0 - i), P(-1545.0, -4292.5 - i)], 'pace': 'run', 'hide': True}]))
     st['the-haystacks'] = {'caption': "Watch the soldier and the boy land, hide behind the haystacks, look back at the cabin, and run for the woods.", 'cast': cast}
 
     # 2 — the Burns house, 6 April, dusk. The children come out at the shouting from the far
-    # bank and run in to their mother (a day after her baby, abed). Ronan's party lands from the
+    # bank and run in to their mother (a day after her baby, abed): at a child's jog (T-3553). Ronan's party lands from the
     # scow, goes in, and carries her down to the boat, the children after.
     # The house's one door is on its north side, away from the river (T-3553: the built door,
     # which swings for them); the way to the boat runs round its east end.
@@ -183,12 +188,12 @@ def battle(b):
     round_out = [P(802.6, 114.2), P(802.6, 104.6)]
     cast = [
         member('burns_child_a', P(*door), heading=0, hidden=True, beats=[
-            {'t': 2, 'show': True}, {'t': 3, 'walk': round_out + [P(801.6, 103.2)], 'pace': 'brisk', 'heading': 185},
-            {'t': 13, 'walk': round_in + [P(*door)], 'pace': 'brisk', 'hide': True},
+            {'t': 2, 'show': True}, {'t': 3, 'walk': round_out + [P(801.6, 103.2)], 'pace': 'jog', 'heading': 185},
+            {'t': 13, 'walk': round_in + [P(*door)], 'pace': 'jog', 'hide': True},
             {'t': 79, 'show': True}, {'t': 80, 'walk': round_out + [P(799.6, 104.2), P(799.8, 100.4)], 'heading': 40}]),
         member('burns_child_b', P(*door), heading=0, hidden=True, beats=[
-            {'t': 3.5, 'show': True}, {'t': 4.5, 'walk': round_out + [P(803.2, 102.6)], 'heading': 190},
-            {'t': 15, 'walk': round_in + [P(*door)], 'hide': True},
+            {'t': 3.5, 'show': True}, {'t': 4.5, 'walk': round_out + [P(803.2, 102.6)], 'pace': 'jog', 'heading': 190},
+            {'t': 15, 'walk': round_in + [P(*door)], 'pace': 'jog', 'hide': True},
             {'t': 80.5, 'show': True}, {'t': 81.5, 'walk': round_out + [P(798.8, 104.0), P(798.9, 100.0)], 'heading': 50}]),
     ]
     party = ['ronan_george'] + soldiers(b, 5, skip=('kelso_john',))
@@ -400,8 +405,9 @@ def battle(b):
         beats = [{'t': 0.0, 'walk': [P(*z)], 'pace': MARCH}]
         regular = who in SOLDIERS or who in ('ronan_george', 'helm_linai', 'heald_nathan')
         if regular:
+            # 'The soldiers charge up the bank' (the stop's text): at a run (T-3553), CHARGE_M of it.
             beats += [{'t': 40 + 0.15 * (i % 9), 'heading': bearing(z, shore(u_end, v + 20))},
-                      {'t': 43 + 0.1 * (i % 7), 'walk': [P(*shore(u_end + 0.4 * (i % 3), v + 6.0))], 'heading': bearing(z, shore(u_end, v + 20))}]
+                      {'t': 43 + 0.1 * (i % 7), 'walk': [P(*shore(u_end + 0.4 * (i % 3), v + CHARGE_M))], 'pace': 'run', 'heading': bearing(z, shore(u_end, v + 20))}]
         elif who in ('heald_rebekah', 'helm_margaret') or rank % 3 == 0:
             beats += [{'t': 41 + 0.2 * (i % 5), 'face': P(*shore(u_end - 8, 40))}]
         if who == 'heald_nathan':
@@ -411,7 +417,8 @@ def battle(b):
     w0 = shore(26.0, 10.0)
     cast.append(member('wells_william', P(*w0), heading=bearing(w0, shore(60, 10)), beats=[
         {'t': 0.0, 'walk': [P(*shore(34.0, 10.0))], 'pace': MARCH}, {'t': 14, 'face': P(*shore(10, 40))},
-        {'t': 18, 'walk': [P(*shore(-7.5, 12.0))], 'pace': 'hurry'}, {'t': 30, 'face': 'heald_nathan'}, {'t': 31, 'talk': True}, {'t': 38, 'talk': False},
+        # He 'came riding furiously back' (Mrs. Helm); no horse is drawn, so he comes at a sprint (T-3553).
+        {'t': 22, 'walk': [P(*shore(-7.5, 12.0))], 'pace': 'sprint'}, {'t': 30, 'face': 'heald_nathan'}, {'t': 31, 'talk': True}, {'t': 38, 'talk': False},
         {'t': 40, 'heading': bearing(shore(0, 12), shore(0, 30))}]))
     for i, who in enumerate(MIAMI[:6]):
         at = shore(30.0 + 1.6 * (i // 2), 9.0 + 1.3 * (i % 2))
@@ -426,7 +433,7 @@ def battle(b):
         pose = poses[i % len(poses)]
         cast.append(member(who, P(*at), heading=(east + (i % 7) * 4 - 12) % 360, pose=pose, tier='desktop' if i % 3 else None,
                            beats=[{'t': 36 + 0.25 * (i % 13), 'pose': 'stand', 'ease': 1.1 + 0.1 * (i % 4)},
-                                  {'t': 41 + 0.2 * (i % 9), 'walk': [P(*shore(u + (i % 3) - 1, v - 6.0))], 'heading': east}]))
+                                  {'t': 41 + 0.2 * (i % 9), 'walk': [P(*shore(u + (i % 3) - 1, v - 6.0))], 'pace': 'jog', 'heading': east}]))
     st['the-bank'] = {'caption': "Watch the column come down the beach and halt, the wagons with it, the warriors waiting behind the bank, and Wells hurry back.", 'cast': cast, 'teams': teams}
 
     # 10 — the small elevation, about half past ten. Heald's men who are left, standing,
@@ -726,7 +733,8 @@ def lalime(b):
     away = [P(1158.0, 195.0), P(1171.0, 198.0), P(1176.0, 212.0), P(1180.0, 236.0)]
     st['cold-open'] = {'caption': "Lalime lies where he fell; Kinzie walks away.", 'cast': [
         member('lalime_john', P(*body), heading=250, pose='lie'),
-        member('kinzie_john_elder', P(1150.5, 195.2), heading=95, beats=[{'t': 1, 'walk': away, 'pace': 'slow', 'hide': True}]),
+        # 'The man walking away, bleeding from the shoulder' (the stop's text): walking, fast (T-3553).
+        member('kinzie_john_elder', P(1150.5, 195.2), heading=95, beats=[{'t': 1, 'walk': away, 'pace': 'brisk', 'hide': True}]),
         member('helm_linai', P(GATE_OUT[0] - 0.2, GATE_OUT[1] + 0.8), face=body),
         member('mirandeau_victoire_1812', P(GATE_OUT[0] + 1.4, GATE_OUT[1] + 1.6), face=body),
         member('irwin_matthew', P(*IRWIN_WATCH), face=body),
@@ -804,7 +812,9 @@ def lalime(b):
         member('kinzie_john_elder', P(GATE_OUT[0] + 0.4, GATE_OUT[1] + 0.6), heading=200, beats=[
             {'t': 1, 'walk': [P(body[0] + 1.3, body[1] + 0.1)]}, {'t': 5, 'face': 'lalime_john'}, {'t': 6, 'talk': True}, {'t': 15, 'talk': False},
             {'t': 20, 'pose': 'kneel2', 'ease': 1.4}, {'t': 25, 'pose': 'stand', 'ease': 1.4},
-            {'t': 28, 'walk': away, 'pace': 'slow', 'hide': True}]),
+            # Irwin: 'Ensign Ronan told Kinzie to run' (the next stop's text); he goes at a jog,
+            # holding to a wounded man's pace (T-3553).
+            {'t': 28, 'walk': away, 'pace': 'jog', 'hide': True}]),
         member('lalime_john', P(GATE_OUT[0] - 0.6, GATE_OUT[1] + 0.4), heading=200, beats=[
             {'t': 1.2, 'walk': [P(body[0] - 0.2, body[1] - 0.2)]}, {'t': 5, 'face': 'kinzie_john_elder'}, {'t': 9, 'talk': True}, {'t': 17, 'talk': False},
             {'t': 20, 'heading': 250}, {'t': 20.2, 'pose': 'lie', 'ease': 2.2}]),

@@ -982,14 +982,18 @@
                             {
                               "type": "number",
                               "minimum": 0.4,
-                              "maximum": 2.6
+                              "maximum": 6.0
                             },
                             {
                               "enum": [
                                 "walk",
                                 "brisk",
                                 "hurry",
-                                "slow"
+                                "slow",
+                                "jog",
+                                "run",
+                                "flee",
+                                "sprint"
                               ]
                             }
                           ]
@@ -1251,14 +1255,18 @@
                             {
                               "type": "number",
                               "minimum": 0.4,
-                              "maximum": 2.6
+                              "maximum": 6.0
                             },
                             {
                               "enum": [
                                 "walk",
                                 "brisk",
                                 "hurry",
-                                "slow"
+                                "slow",
+                                "jog",
+                                "run",
+                                "flee",
+                                "sprint"
                               ]
                             }
                           ]
