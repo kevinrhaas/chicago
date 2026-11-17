@@ -15003,7 +15003,9 @@ for (const [label, viewport, touch] of [
       const all = [...document.querySelectorAll('.panel-tab')];
       const out = { order: all.map((el) => el.dataset.tab), homeless: [], rows: {}, overflow: 0, squeezed: [], boxless: [] };
       for (const el of all) {
-        if (!el.hidden && !api.navigator.apps.includes(HOME[el.dataset.tab])) out.homeless.push(el.dataset.tab);
+        // T-3629: Move is registered off the rail (`inRail: false`, opened from Home's tile),
+        // so `has`, not the rail's `apps`, says whether a section has an app.
+        if (!el.hidden && !api.navigator.has(HOME[el.dataset.tab])) out.homeless.push(el.dataset.tab);
       }
       for (const app of ['people', 'guide', 'settings']) {
         if (!api.navigator.apps.includes(app)) continue;
@@ -15022,7 +15024,7 @@ for (const [label, viewport, touch] of [
       out.strayViewpointList = document.querySelectorAll('[data-panel="settings"] .anchor-btn, #anchors').length;
       return out;
     });
-    check(`${label}: every section the drawer had is held by a Navigator app on the rail`,
+    check(`${label}: every section the drawer had is held by a Navigator app`,
       // Go to's tab retired with the drawer (T-2620): Go to is the Jaunts app's own segment.
       tabStrip.order.join(',') === 'goto,travel,people,businesses,evidence,settings,controls,whatsnew' && !tabStrip.homeless.length
       && tabStrip.gotoRetired,
