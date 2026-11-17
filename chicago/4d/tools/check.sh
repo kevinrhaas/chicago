@@ -712,6 +712,8 @@ step "Each 1812 building's doors are where its model draws the leaf, and where o
   python3 tools/derive_doors_1812.py --check
 step "1812 people keep their day: off their dates nowhere (Lalime gone by 14 August, there in February), indoors or out by the hour, talking, at work, walking; a door offers Ask for whoever is inside, soldiers in quarters too, and the one asked for comes out to the visitor and goes back in (T-3463..T-3467)" \
   node tools/test_human_days.mjs
+step "The town at a distance: every person has one tier at every distance, middle bodies and far cards handed over without a gap or a double, a templated day read one span at a time is its whole day's, only people out and not built are read, a shared body folds inner layers under outer ones and walks, and every team has a card to bake (T-3555)" \
+  node tools/test_crowd.mjs
 step "Someone at home is found and followed: they come out of their own door on a walk round the block by its sidewalks (a walk about the place in 1812), on while followed, back in after; away people stay away (T-3573)" \
   node tools/test_step_out.mjs
 step "Prairie Avenue roster casting, aliases, portraits and seasonal days remain consistent (T-3548)" \
