@@ -4320,6 +4320,29 @@ async function boot() {
     } catch (error) { problems.push(`town transport: ${error.message}`); }
   }
 
+  // T-3560 (owner, 2026-11-17: "definite prioritize the horse riding"): a saddle horse near
+  // where the walk begins in each year, mounted with Interact and ridden with the movement keys
+  // (riding.js). Read without holding up the boot; the horse loads only when the visitor nears it.
+  api.riding = null;
+  if (supportsTownTransport(YEAR)) {
+    import('./riding.js').then(({ mountRiding }) => mountRiding({
+      sceneId: YEAR, dataBase: bases.dataBase, interactions,
+      standable: (e, n) => standableAt(e, n),
+      ground: (e, n) => figureGround(e, n),
+      visitor: () => (walker.state.flying ? null : walker.state),
+      humans: () => api.humans ?? null,
+      say: (text) => hud.say(text),
+      reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      coarse: lowMem || detailLevel === 'light', problems,
+      onMount: (horse, on) => {
+        if (!on) return;
+        api.travel?.stop?.('riding');
+        if (api.follow?.active) api.follow.stop('riding');
+      },
+    })).then((ride) => { if (ride) { api.riding = ride; scene3d.add(ride.group); } })
+      .catch((error) => { problems.push(`riding: ${error.message}`); });
+  }
+
   /** A structure's ground position in local ENU metres — footprint centroid where
    *  one is drawn, the placement otherwise. Go to measures distance from it;
    *  travel plans a route to it. */
@@ -6577,6 +6600,8 @@ async function boot() {
   api.getDown = () => {
     // T-3612: at the helm of a boat, the bar's key is Go ashore.
     if (api.pilot?.active) { api.pilot.leave(); return true; }
+    // T-3560: in the saddle, the bar's key is Get down.
+    if (api.riding?.active) { api.riding.leave(); return true; }
     const aboard = api.townTransport?.ride?.aboard;
     if (!aboard) return false;
     const res = interactions.act(`driver:${aboard.id}`, 'get-down');
@@ -6637,6 +6662,31 @@ async function boot() {
     pilotPainted = key; pilotPaintAt = 0;
     hud.travelBanner(state);
   }
+  /** T-3560: the travel bar in the saddle: the horse, its gait, the keys, Get down. */
+  let ridingPainted = '', ridingPaintAt = 0;
+  function paintRiding(elapsed) {
+    const ride = api.riding;
+    if (!ride?.active) {
+      if (ridingPainted) { ridingPainted = ''; if (travel?.state?.phase === 'idle') hud.travelBanner(null); }
+      return;
+    }
+    const touch = backends.name === 'touch' || (backends.name === 'none' && coarse);
+    const notes = [];
+    if (ride.blocked) notes.push(t('hud.riding.held', { why: ride.blocked }));
+    else notes.push(t(`hud.riding.${ride.gait ?? 'standing'}`));
+    notes.push(t(touch ? 'hud.riding.stick' : 'hud.riding.keys'));
+    const name = ride.horse?.row?.name ?? '';
+    const state = { kind: 'ride', verb: t('hud.riding.verb'), dest: name, destTitle: name, note: notes.join(' · '), stop: t('hud.riding.down') };
+    const key = JSON.stringify(state);
+    if (key === ridingPainted && (ridingPaintAt += elapsed) < .5) return;
+    ridingPainted = key; ridingPaintAt = 0;
+    hud.travelBanner(state);
+  }
+  // T-3560: V changes the view in the saddle (from behind the horse, or from the saddle).
+  window.addEventListener('keydown', (e) => {
+    if (!api.riding?.active || isTyping(e.target) || e.repeat || e.key.toLowerCase() !== 'v') return;
+    e.preventDefault(); api.riding.toggleView();
+  });
   const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   transportReducedMotion.addEventListener('change', resetVisualClock);
   let interactPaintAt = 0;
@@ -6647,6 +6697,7 @@ async function boot() {
     if (event.persisted) return;
     // Driver leases and standing transfers finish before the human asset cache
     // loses its remaining scene actors. BFCache pagehide keeps the scene alive.
+    api.riding?.dispose();
     api.townTransport?.dispose();
     api.workActivity?.dispose();
     api.humans?.dispose();
@@ -7072,6 +7123,9 @@ async function boot() {
     // T-3612: at the helm, a Go to or a walk with someone puts the visitor ashore; else the keys steer.
     if (api.pilot?.active && (travel.state.phase !== 'idle' || follow.active)) api.pilot.leave();
     api.pilot?.drive(intent);
+    // T-3560: in the saddle, a Go to or a walk with someone puts the visitor down; else the keys are the reins.
+    if (api.riding?.active && (travel.state.phase !== 'idle' || follow.active)) api.riding.leave();
+    api.riding?.drive(intent);
     const walkSteps = Math.max(1, Math.ceil(frameDt / 0.05));
     const walkDt = frameDt / walkSteps;
     if (!gateOpen) for (let i = 0; i < walkSteps; i++) {
@@ -7092,6 +7146,9 @@ async function boot() {
     api.pilot?.update(visualDt);
     vessels.update(visualDt, camera);
     api.pilot?.hold(walker, WALK);
+    // T-3560: every saddle horse near the visitor; the one ridden carries the eye.
+    api.riding?.update(visualDt, camera.position);
+    api.riding?.hold(walker, WALK);
     // T-3575: in a headset, the reference space follows the walker (controls/xr.js).
     if (xrMode.presenting) xrMode.sync();
     // Before the render, after the walker: the near plane is a function of where
@@ -7142,6 +7199,7 @@ async function boot() {
     if (teamRide?.hold(walker, WALK)) { setNearFor(walker.state.altitude); world.follow(camera.position); }
     paintRide(teamRide, elapsed);
     paintPilot(elapsed);
+    paintRiding(elapsed);
     // Contacts follow the loaded horses' accepted gait advance in this frame.
     // Held/hidden frames clear the baseline rather than replaying missed steps.
     api.sound?.transportFrame({ active: !visualHeld && visualDt > 0 });
