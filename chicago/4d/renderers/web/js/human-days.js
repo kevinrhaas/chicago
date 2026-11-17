@@ -305,6 +305,25 @@ function dayOfTemplate(variants, entry) {
   }) }));
 }
 
+/**
+ * T-3555: the span a templated entry (expandInside) plays at `hour` on `date`, made for that one
+ * span and kept nowhere, so a reader of the whole town (the crowd's far figures, crowd.js) never
+ * makes and holds a day for each of its thousands. The same span `entry.day` would give.
+ */
+export function templateSpanAt(variants, entry, date, hour) {
+  if (!Array.isArray(variants)) return null;
+  const v = variants.find((x) => onDate(date, x.dates));
+  if (!v) return null;
+  if (Number.isFinite(v.chance) && !chanceDay(entry.person ?? '', date, v.chance)) return AWAY_DAY.spans[0];
+  const shift = Number(entry.shift) || 0;
+  const t = (h) => (h <= 0 || h >= 24 ? h : Math.round((h + shift) * 100) / 100);
+  const h = Number.isFinite(hour) ? ((hour % 24) + 24) % 24 : null;
+  const spans = v.spans ?? [];
+  if (!spans.length) return null;
+  const sp = h == null ? spans[0] : spans.find((x) => inSpan(h, { from: t(x.from), to: t(x.to) })) ?? spans[spans.length - 1];
+  return dayOfTemplate([{ spans: [sp] }], entry)[0].spans[0];
+}
+
 /** The span of `day` at `hour` (0-24); the first span when the hour is unknown. */
 export function spanAt(day, hour) {
   const spans = day?.spans ?? [];
@@ -732,7 +751,7 @@ export function createDayRouter({ router, clear, buildWhenBlocked = false }) {
 export function createHumanDays({ humans, three = null, hour = () => null, date = () => null, doors = null,
   interactions = null, visitor = () => null, eye = () => null, router = null, hostRouter = null, problems = [],
   inside = null, spawn = null, despawn = null, openCard = () => {}, openResident = () => {}, clear = () => true, held = () => false, passages = null, followed = () => false,
-  standClear = null, residentsNear = 3 } = {}) {
+  standClear = null, residentsNear = 3, prefer = null } = {}) {
   const Vec = three?.Vector3;
   let people = [];
   const workSourcePeople = new Map();
@@ -1726,7 +1745,10 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       return dist(pt(span.at), v) < 45 && (!about || dist(pt(span.at), about) <= about.r);
     });
     // Stable per-person staggering, rotating among everyone eligible this hour.
-    candidates.sort((a, b) => seededRandom(`resident:${date()}:${a.person}`)() - seededRandom(`resident:${date()}:${b.person}`)());
+    // T-3555: someone the crowd already draws out here (crowd.js `prefer`) first, so the
+    // figure built is the one the visitor was walking toward; then the seeded rotation.
+    const first = (x) => (prefer ? Number(prefer(x.person)) || 0 : 0);
+    candidates.sort((a, b) => first(b) - first(a) || seededRandom(`resident:${date()}:${a.person}`)() - seededRandom(`resident:${date()}:${b.person}`)());
     for (const entry of candidates) {
       // Out of their place of business when the hour has them out before it, else their home.
       const span = spanAt(dayOn(entry, date(), entry.person), hour());
@@ -1902,6 +1924,39 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
 
   const api = {
     careStatus,
+    /**
+     * T-3555: the town's carded people who are out of doors now and not built (no figure of
+     * theirs stands): [{ person, asset_id, at: {e, n, heading_deg}, to: {e, n} | null, activity }],
+     * nearest `limit` of them whose place lies within `within` m of `v` ({e, n}). This is what the
+     * crowd (crowd.js) draws at a distance: a person's day, where it has them, without a figure.
+     * A templated town's spans are read one at a time and kept nowhere (templateSpanAt).
+     */
+    outdoors(v, within = 600, limit = 1500) {
+      if (!v || !Number.isFinite(v.e) || !Number.isFinite(v.n) || humans.shown === false) return [];
+      const today = date(), now = hour(), out = [];
+      const built = new Set(spawned.map((p) => p.entry?.person).filter(Boolean));
+      const routines = inside?.routines ?? null;
+      for (const entry of insideOnly) {
+        if (!entry.asset_id || entry.care_only || built.has(entry.person)) continue;
+        if (entry.points) {
+          let close = false;
+          for (const q of Object.values(entry.points)) if (Math.abs(q[0] - v.e) < within + 40 && Math.abs(q[1] - v.n) < within + 40) { close = true; break; }
+          if (!close) continue;
+        }
+        if (!onDate(today, entry.presence)) continue;
+        const span = entry.routine && routines ? templateSpanAt(routines[entry.routine], entry, today, now)
+          : spanAt(dayOn(entry, today, entry.person), now);
+        if (!span || span.indoors || span.away || !span.at) continue;
+        const at = { e: span.at.local_e, n: span.at.local_n, heading_deg: span.at.heading_deg ?? 0 };
+        const d = Math.hypot(at.e - v.e, at.n - v.n);
+        if (d > within || !allows(entry.person, at)) continue;
+        out.push({ person: entry.person, asset_id: entry.asset_id, at, d, activity: span.activity ?? 'stand',
+          to: span.to_point ? { e: span.to_point.local_e, n: span.to_point.local_n } : null });
+      }
+      out.sort((a, b) => a.d - b.d);
+      if (out.length > limit) out.length = limit;
+      return out;
+    },
     /** T-3553: what the last call for a quiet jaunt stop found: { out, id?, ok?, why? } or null. */
     get locals() { return localsLast; },
     get people() { return people; },
