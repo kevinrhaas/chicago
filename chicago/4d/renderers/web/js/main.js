@@ -2047,7 +2047,16 @@ async function boot() {
     residency.prime(eye, options);
     api.residency = residency.state;
     api.textureResidency = residency;
+    adoptHungDoors();
   };
+  // T-3557: the door leaves lifted out of the houses and hung to swing (house-doors.js, the
+  // Glessner coach house) draw with the houses' own textures, outside the structures group.
+  // Residency must swap them with the batches' or, drawn while the texture is away, they
+  // upload its released levels and the house's painted wood comes back black.
+  function adoptHungDoors() {
+    if (!residency) return;
+    for (const group of [api.houseDoors?.group, api.coachHouse?.group]) if (group) residency.adopt(group);
+  }
   // Image sharpness for a visitor who never chose one: the profile's choice —
   // on a standard device the T-2110 default, Low on a phone and Medium on a
   // desktop (see sharpness.js).
@@ -3291,6 +3300,7 @@ async function boot() {
       }
     } catch (again) { problems.push(`coach house leaves: ${again.message}`); }
   }
+  adoptHungDoors();
   // ---- end T-3557 coach house
   bootController.end('ground');
   bootController.start('flora');
