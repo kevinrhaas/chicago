@@ -2,12 +2,14 @@
  * test_portal_clips.mjs — the home page's destination clips (T-2685).
  *
  *   node tools/test_portal_clips.mjs            the files: every clip a card names exists in both
- *                                               formats, nothing on disk is unnamed, and the weight
+ *                                               formats and as a reel, nothing on disk is unnamed, and the weight
  *                                               stays inside its cap (check.sh runs this)
  *   node tools/test_portal_clips.mjs --browser  the page: at 1440x1000 and 390x780 each card fetches
  *                                               exactly one clip and plays it in black and white,
  *                                               with no page error;
- *                                               with reduced motion no clip is fetched at all
+ *                                               with reduced motion no clip is fetched at all;
+ *                                               with video refused (an iPhone in Low Power Mode) each
+ *                                               card plays its reel instead
  *
  * No smoke part loads the Observatory, so the browser half is how a change to the
  * portal is driven before it ships. Playwright's Chromium has no H.264, so it plays
@@ -38,26 +40,26 @@ for (const { year, names } of cards) {
   for (const n of names) {
     if (!n.startsWith(`${year}-`)) fail(`${year}'s card names ${n}, another year's clip`);
     if (!shots.includes(n)) fail(`${n} is on the card but not in tools/portal_clips/${year}.json, so it cannot be re-filmed`);
-    for (const ext of ['mp4', 'webm']) if (!fs.existsSync(path.join(CLIPS, `${n}.${ext}`))) fail(`${n}.${ext} is missing`);
+    for (const ext of ['mp4', 'webm', 'reel.webp']) if (!fs.existsSync(path.join(CLIPS, `${n}.${ext}`))) fail(`${n}.${ext} is missing`);
     named.add(n);
   }
 }
 let total = 0;
 for (const f of fs.readdirSync(CLIPS)) {
-  const stem = f.replace(/\.(mp4|webm)$/, '');
-  if (stem === f) fail(`clips/${f} is neither MP4 nor WebM`);
+  const stem = f.replace(/\.(mp4|webm|reel\.webp)$/, '');
+  if (stem === f) fail(`clips/${f} is neither MP4, WebM nor a reel`);
   if (!named.has(stem)) fail(`clips/${f} is shipped but no card names it`);
   const kb = fs.statSync(path.join(CLIPS, f)).size / 1024;
   if (kb > CLIP_CAP_KB) fail(`clips/${f} is ${kb.toFixed(0)} KB, over the ${CLIP_CAP_KB} KB cap`);
   total += kb;
 }
 if (total / 1024 > TOTAL_CAP_MB) fail(`clips weigh ${(total / 1024).toFixed(2)} MB, over the ${TOTAL_CAP_MB} MB cap`);
-console.log(`PASS portal clips: ${named.size} clips across ${cards.map(c => `${c.year} (${c.names.length})`).join(', ')}, both formats, ${(total / 1024).toFixed(2)} MB`);
+console.log(`PASS portal clips: ${named.size} clips across ${cards.map(c => `${c.year} (${c.names.length})`).join(', ')}, both formats and reels, ${(total / 1024).toFixed(2)} MB`);
 
 if (process.argv.includes('--browser')) {
   // Served in the published shape: the Observatory at the root, the renderer at walk/.
   const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.jpg': 'image/jpeg',
-    '.webm': 'video/webm', '.mp4': 'video/mp4', '.woff2': 'font/woff2', '.svg': 'image/svg+xml' };
+    '.webm': 'video/webm', '.mp4': 'video/mp4', '.webp': 'image/webp', '.woff2': 'font/woff2', '.svg': 'image/svg+xml' };
   const server = createServer((req, res) => {
     const rel = decodeURIComponent(new URL(req.url, 'http://x').pathname);
     const file = rel === '/' ? path.join(PORTAL, 'index.html')
@@ -72,8 +74,14 @@ if (process.argv.includes('--browser')) {
   const { chromium } = ns.chromium ? ns : ns.default;
   const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE || undefined });
   for (const [name, viewport, reducedMotion] of [['desktop', { width: 1440, height: 1000 }, 'no-preference'],
-    ['phone', { width: 390, height: 780 }, 'no-preference'], ['reduced', { width: 1440, height: 1000 }, 'reduce']]) {
-    const ctx = await browser.newContext({ viewport, reducedMotion, isMobile: name === 'phone', hasTouch: name === 'phone' });
+    ['phone', { width: 390, height: 780 }, 'no-preference'], ['low-power', { width: 390, height: 780 }, 'no-preference'],
+    ['reduced', { width: 1440, height: 1000 }, 'reduce']]) {
+    const phone = name === 'phone' || name === 'low-power';
+    const ctx = await browser.newContext({ viewport, reducedMotion, isMobile: phone, hasTouch: phone });
+    // Low Power Mode on an iPhone: every play() is refused, muted or not.
+    if (name === 'low-power') await ctx.addInitScript(() => {
+      HTMLMediaElement.prototype.play = function () { return Promise.reject(new DOMException('refused', 'NotAllowedError')); };
+    });
     const page = await ctx.newPage();
     const errors = [], fetched = [];
     page.on('pageerror', e => errors.push(String(e)));
@@ -86,17 +94,27 @@ if (process.argv.includes('--browser')) {
     const feeds = await page.evaluate(() => [...document.querySelectorAll('.era-plate')].map(p => p.dataset.feed || 'none'));
     // Kevin wants the footage in black and white (T-2734): every feed, and its blocky frames, is grayscale.
     const tones = await page.evaluate(() => [...document.querySelectorAll('.era-feed,.era-feed-blocks')].map(e => getComputedStyle(e).filter));
+    // A reel that is running has drawn a frame that is not blank.
+    const reels = await page.evaluate(() => [...document.querySelectorAll('.era-feed-reel')].map(c => {
+      const d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data; let s = 0;
+      for (let i = 0; i < d.length; i += 4) s += d[i];
+      return s / (d.length / 4);
+    }));
     if (errors.length) fail(`${name}: page errors: ${errors.join(' | ')}`);
     if (reducedMotion === 'reduce') {
       if (fetched.length) fail(`${name}: reduced motion fetched ${fetched.join(', ')}`);
       if (feeds.some(f => f !== 'none')) fail(`${name}: reduced motion built a feed (${feeds.join(', ')})`);
     } else {
-      if (fetched.length !== 3 || new Set(fetched.map(f => f.slice(0, 4))).size !== 3) fail(`${name}: expected one clip per card, fetched ${fetched.join(', ') || 'none'}`);
-      if (fetched.some(f => !f.endsWith('.webm'))) fail(`${name}: this Chromium plays WebM, but it fetched ${fetched.join(', ')}`);
+      if (!fetched.length) fail(`${name}: no clip fetched`);
+      const want = name === 'low-power' ? '.reel.webp' : '.webm';
+      const clips = fetched.filter(f => f.endsWith(want));
+      if (clips.length !== 3 || new Set(clips.map(f => f.slice(0, 4))).size !== 3) fail(`${name}: expected one ${want} per card, fetched ${fetched.join(', ')}`);
+      if (name !== 'low-power' && fetched.length !== 3) fail(`${name}: a playing video still fetched a reel (${fetched.join(', ')})`);
+      if (name === 'low-power' && (reels.length !== 3 || reels.some(v => v < 8))) fail(`${name}: reels are not drawing (${reels.map(v => v.toFixed(0)).join(', ')})`);
       if (feeds.some(f => f !== 'live')) fail(`${name}: feeds are ${feeds.join(', ')}, not all live`);
       if (tones.length !== 6 || tones.some(t => !t.includes('grayscale(1)'))) fail(`${name}: the feeds are not black and white (${tones.join(' | ')})`);
     }
-    console.log(`PASS portal clips in the page, ${name}: ${reducedMotion === 'reduce' ? 'stills only, nothing fetched' : `${fetched.join(', ')} playing`}`);
+    console.log(`PASS portal clips in the page, ${name}: ${reducedMotion === 'reduce' ? 'stills only, nothing fetched' : `${fetched.filter(f => !f.endsWith('.mp4')).join(', ')} playing`}`);
     await ctx.close();
   }
   await browser.close();
