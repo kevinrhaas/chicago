@@ -6965,6 +6965,11 @@ async function boot() {
     if (coarse && document.activeElement?.id === 'welcome-search') document.activeElement.blur();
   } });
   // (T-2655's year chip opens Jump through T-2626's #year-badge binding above.)
+  // T-3629 (A8): inside the Navigator the section's own × stands down (drawer.css), so the
+  // Navigator's × does what it did: it puts the open section away as well as the device.
+  document.getElementById('nav-close')?.addEventListener('click', () => {
+    if (hud.panelOpen() && document.getElementById('panel')?.closest('.nav-screen')) hud.setPanel(false);
+  });
   // T-2662: a locked term's first appearance explains itself on tap — the Navigator's
   // Confidence view, and the Evidence hub's Liberties (the arrival's intro marks its own).
   markTerms(document.getElementById('nav-home'));
@@ -7021,7 +7026,7 @@ async function boot() {
       tourApp = app;
       const level = navigatorUi?.level ?? 0;
       return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, opens: tourCounts.opens,
-        apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level,
+        apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level, app,
         selected: !!popup.openId || (app === 'inspect' && level > 0), card: !!popup.openId,
         scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null,
         // T-3445: the People step only where the rail carries a People app.

@@ -68,8 +68,12 @@ export const STEPS = [
     bubble: (p) => { const key = p.card ? 'Close' : 'Back';
       return p.touch ? `Release it. Tap ${key}, or tap the street.` : `Release it. Press Esc, click ${key}, or click the street.`; },
     target: (p) => (p.card ? '#popup:not([hidden]) .pop-close' : '#nav-app-inspect .insp-back'), done: (p) => !p.selected },
-  { task: 'Move', bubble: menuOpen('Move', 'walk, run, ride or fly'),
-    target: railKey('move'), done: opened('move') },
+  // T-3629: Move left the rail; it is Home's Move tile. The ring goes dock, Home key, tile.
+  { task: 'Move',
+    bubble: (p) => (p.touch && !(p.level > 0) ? 'Open the Navigator, then Move on Home: walk, run, ride or fly.'
+      : 'Open Move on Home: walk, run, ride or fly.'),
+    target: (p) => (p.touch && !(p.level > 0) ? '#navigator' : p.app === 'home' ? '#nav-tile-move' : railKey('home')(p)),
+    done: opened('move') },
   // T-3445: People — the directory (T-3430), and in 1904 Follow for someone out in town (T-3404).
   { task: 'People',
     bubble: (p) => menuOpen('People', String(p.scene) === '1904' ? 'find anyone, visit their house, follow them' : 'find a person or a household')(p),
