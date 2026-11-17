@@ -143,7 +143,7 @@ ok(phone.choice.complexion === 'brown' && phone.choice.sex === 'male', 'and come
 // --- the Settings card
 ok(SETTINGS_TABS.includes('you') && SETTINGS_TABS.indexOf('you') === 1, 'the Settings card has a You tab, second');
 const html = read('renderers/web/index.html');
-ok(/id="s-you" data-set-pane="you"/.test(html) && html.includes('id="s-person"'), 'its group is in the page');
+ok(/<div class="settings-group" data-set-pane="you"><\/div>/.test(html) && !html.includes('id="s-person"'), 'its group is in the page, empty (the script writes its heading and body)');
 ok(/^rgb\(\d+, \d+, \d+\)$/.test(swatchColour(COMPLEXION_TINT.deep_brown)), 'complexion swatches are drawn colours');
 const main = read('renderers/web/js/main.js');
 ok(main.includes("import('./visitor-person.js')") && main.includes('wirePersonSettings('), 'main.js mounts the person and its tab');

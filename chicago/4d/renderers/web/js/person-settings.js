@@ -38,12 +38,26 @@ const el = (doc, tag, props = {}, kids = []) => {
 };
 
 /**
+ * The builder's place: `#s-person` under the "Your person" heading in the You tab's group
+ * (`.settings-group[data-set-pane="you"]`, which the page carries empty to keep its bytes down), made once.
+ */
+export function personHost(doc = globalThis.document) {
+  const found = doc?.getElementById?.('s-person');
+  if (found) return found;
+  const group = doc?.querySelector?.('.settings-group[data-set-pane="you"]');
+  if (!group) return null;
+  const host = el(doc, 'div', { class: 'person-builder', id: 's-person' });
+  group.append(el(doc, 'h4', { text: 'Your person' }), host);
+  return host;
+}
+
+/**
  * Fill `#s-person` with the builder. `person` is visitor-person.js's; `year` the scene's;
  * `portrait` person-portrait.js's (or null: no picture, the controls still work);
  * `tints` the complexion tints (human-looks.js COMPLEXION_TINT).
  */
 export function wirePersonSettings({ doc = globalThis.document, person, year, portrait = null, tints = {} }) {
-  const host = doc?.getElementById?.('s-person');
+  const host = personHost(doc);
   if (!host || !person) return null;
   const C = person.catalog;
   host.replaceChildren();

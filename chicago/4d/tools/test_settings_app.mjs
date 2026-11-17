@@ -31,12 +31,14 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   // Look (Look, Movement), Graphics (Performance), Sound, About — and Research last (the owner,
   // 2026-11-12: "the research mode should be at the end").
   // T-3629: Show holds two groups, On screen and The town.
-  assert.deepEqual(heads, ['Display', 'Appearance', 'Units', 'Your person', 'On screen', 'The town', 'Look', 'Movement', 'Performance', 'Sound', 'About', 'Research'],
-    'Settings reads Display, Appearance, Units, Your person, On screen, The town, Look, Movement, Performance, Sound, About, Research');
+  assert.deepEqual(heads, ['Display', 'Appearance', 'Units', 'On screen', 'The town', 'Look', 'Movement', 'Performance', 'Sound', 'About', 'Research'],
+    'Settings reads Display, Appearance, Units, On screen, The town, Look, Movement, Performance, Sound, About, Research');
   // Every group names its tab, the tabs come in the bar's order, and What's new (a HUD section of
   // its own) sits between About and Research.
   const panes = [...settingsHtml.matchAll(/<div class="settings-group[^"]*"[^>]*?data-set-pane="(\w+)"/g)].map((m) => m[1]);
-  assert.equal(panes.length, heads.length, 'every group names its tab');
+  // T-3644: You's group is on the page empty; person-settings.js writes its "Your person" heading.
+  assert.equal(panes.filter((p) => p !== 'you').length, heads.length, 'every group names its tab');
+  assert.equal(panes.filter((p) => p === 'you').length, 1, 'You has its group');
   assert.deepEqual([...new Set(panes)], SETTINGS_TABS.filter((k) => k !== 'whatsnew'), 'the groups follow the tabs\' order');
   // T-3644: You (the visitor's own person) after Display.
   assert.deepEqual(SETTINGS_TABS, ['display', 'you', 'show', 'look', 'graphics', 'sound', 'about', 'whatsnew', 'research']);
@@ -56,7 +58,7 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   const added = ['s-display', 's-theme', 's-text-size', 's-machine', 's-skins', 's-perf-auto', 's-perf-auto-line', 's-sound',
     's-sound-master', 's-sound-effects', 's-sound-ambience', 's-sound-music', 'v-sound-music', 'v-sound-master', 'v-sound-effects', 'v-sound-ambience',
     's-sound-effects-help', 's-sound-ambience-help', 's-open-whatsnew', 's-look-speed', 'v-look-speed', 's-look-speed-label',
-    's-look', 's-research', 's-researcher', 's-you', 's-person'];
+    's-look', 's-research', 's-researcher'];
   for (const id of [...kept, ...added]) {
     assert.equal((html.match(new RegExp(`id="${id}"`, 'g')) ?? []).length, 1, `#${id} is on the page once`);
     assert(settingsHtml.includes(`id="${id}"`), `#${id} is in Settings`);
