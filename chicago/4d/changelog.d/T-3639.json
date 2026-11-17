@@ -1,0 +1,10 @@
+{
+  "title": "Smoother frames where many people stand together",
+  "kind": "fix",
+  "items": [
+    "Each person's clothes, hair and hat now move on one set of bones instead of a set per piece, so a crowd costs far less to draw every frame. Everyone is still there, dressed and moving as before.",
+    "A short stall that came every three seconds is gone.",
+    "A person coming into view is now dressed over several frames, not all in one. The town no longer catches as people arrive.",
+    "People more than about thirty paces away now take their pose every second or third frame. They walk at the same pace, and up close nobody changes."
+  ]
+}
