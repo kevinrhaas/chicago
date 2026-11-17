@@ -4344,6 +4344,8 @@ async function boot() {
           ? (e, n) => streetGrid.carriagewayHeight(e, n)
           : smoothGround ?? ((e, n) => profiledGroundHeight(terrain, decks, e, n)),
         footprints: () => footprints, visitor: () => walker.state,
+        // Kevin, 2026-11-17: a team waits for a horse in its way (riding.js obstacles).
+        obstacles: () => api.riding?.obstacles?.() ?? [],
         interactions, detail: detailLevel, problems,
         // T-3542: every memory-saving device (a phone, an integrated-GPU computer, Light) takes
         // a row's lighter horse, vehicle and driver; it no longer means no team at all.
@@ -4396,6 +4398,8 @@ async function boot() {
       // teams, and go away with the vehicles (Kevin, 2026-11-17).
       hour: () => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; },
       season: () => api.season?.current ?? 'summer',
+      // A camp's horses stand only on the camp's days, the date the Season or a jaunt sets.
+      date: () => world.sunDate ?? null,
       detail: () => detailLevel,
       hidden: () => confidence.hidden.reconstructed || !shownLayers.vehicles,
       teams: () => api.townTransport?.footprintsAhead?.([0, 1.5, 3], .3) ?? [],
@@ -6167,6 +6171,8 @@ async function boot() {
               eye: () => camera.getWorldPosition(new THREE.Vector3()),
               // The town's own horse teams, taken for a scene (the 1812 column's wagons).
               teams: { get: (id) => api.townTransport?.actorById?.(id) ?? null, load: () => { void api.townTransport?.ready?.()?.catch?.(() => {}); } },
+              // T-3560: saddle horses for the castmates who ride (Wells, the surgeon's mate, 1812).
+              horses: { create: (spec) => api.riding?.stageHorse?.(spec) ?? null },
               // The adults jaunts (2026-11-15): weapons in the hand, and the guns' flash and smoke.
               fight: humanFight, blood: humanBlood,
               // The burning of the fort (2026-11-16): its buildings' fire, smoke and fall, and the

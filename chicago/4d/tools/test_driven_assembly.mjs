@@ -257,6 +257,43 @@ await wrongScene.ready(); assert.equal(wrongSceneAssets, 0); wrongScene.dispose(
 }
 console.log('deferred live spawn: first approach/Light restoration, cached circuit, no GLB thrash/duplicate rows, fatal refusal cache and disposal PASS');
 
+{
+  // Kevin, 2026-11-17: "i also just saw a carriage on its route drive through a horse, they should
+  // either stop and wait for the horse to move". A horse in the team's way (riding.js obstacles)
+  // pulls it up short, with the word "a horse"; once the horse has gone the team drives on.
+  const { footprintOfPose } = await import('../renderers/web/js/team-drive.js');
+  const { overlaps } = await import('../renderers/web/js/transport-crossings.js');
+  const row = { ...validRow, id: 'held-by-horse', envelope_local_xz_m: [-1, -1.5, 1, 4] };
+  let horse = null;
+  const town = createTownTransport({ rows: [row], sceneId: '1835', heightAt: () => 0, clear: () => true,
+    obstacles: () => (horse ? [{ id: 'saddle-horse:test', word: 'a horse', print: horse }] : []),
+    makeAssembly: () => ({ root: new THREE.Group(), pose() {}, dispose() {} }) });
+  await town.ready(); const eye = { x: 20, z: 0 };
+  for (let i = 0; i < 10; i++) town.update(.1, eye, { hour: 12 });
+  const team = town.actors[0], start = team.snapshot().distance_m;
+  assert(start > 0, 'the team is under way');
+  // A horse stood across its way 6 m on (the circle's point there, as a 1 x 3 m horse).
+  const p = team.pose, ahead = 6 / 20, a0 = Math.atan2(p.n, p.e);
+  const angles = [a0 + ahead, a0 - ahead].map(a => ({ e: 20 * Math.cos(a), n: 20 * Math.sin(a) }));
+  // The one ahead is the one nearer where the team faces.
+  const fe = Math.sin(p.yaw), fn = -Math.cos(p.yaw);
+  const spot = angles.sort((x, y) => ((y.e - p.e) * fe + (y.n - p.n) * fn) - ((x.e - p.e) * fe + (x.n - p.n) * fn))[0];
+  horse = footprintOfPose({ e: spot.e, n: spot.n, yaw: p.yaw }, [-.5, -1.2, .5, 1.75], 0);
+  let touched = false;
+  for (let i = 0; i < 150; i++) {
+    town.update(.1, eye, { hour: 12 });
+    if (overlaps(footprintOfPose(team.pose, row.envelope_local_xz_m, 0), horse)) touched = true;
+  }
+  const held = team.snapshot().distance_m;
+  assert(!touched, 'the team never drives into the horse');
+  assert(held - start < 6, `the team waits short of the horse (went ${(held - start).toFixed(2)} m)`);
+  horse = null;
+  for (let i = 0; i < 30; i++) town.update(.1, eye, { hour: 12 });
+  assert(team.snapshot().distance_m > held + 1, 'the horse gone, the team drives on');
+  town.dispose();
+}
+console.log('a team waits for a horse in its way, and drives on when it has gone PASS');
+
 console.log('driven assembly: actual W01 source hierarchy/THREE transforms + lifecycle PASS');
 
 // Actual factory source with controlled asynchronous I/O/portable-human leases.

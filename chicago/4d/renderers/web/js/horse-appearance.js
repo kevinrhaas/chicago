@@ -87,8 +87,21 @@ export function prepareHorseTemplate(asset, variant) {
   asset.scene.traverse(node => {
     if (!node.isMesh) return;
     const copy = material => {
-      if (material.metalness === 0) return material;
-      if (!copies.has(material)) { const clone = material.clone(); clone.metalness = 0; copies.set(material, clone); }
+      const eye = material.name === 'Eye_brown';
+      if (material.metalness === 0 && !eye) return material;
+      if (!copies.has(material)) {
+        const clone = material.clone(); clone.metalness = 0;
+        if (eye) {
+          // Kevin, 2026-11-17: "the horses eyes look a little black". The eye sits deep in its
+          // socket, in the lids' shade, so its brown iris read as a black hole. A wet eye: its own
+          // picture lit a little from within (the iris's brown, never a colour of ours), and a
+          // glossy surface that takes a catch-light.
+          clone.roughness = .12;
+          if (clone.map && clone.emissive) { clone.emissiveMap = clone.map; clone.emissive.setScalar(.32); }
+          clone.userData = { ...clone.userData, chicagoHorseEye: 'wet_v1' };
+        }
+        copies.set(material, clone);
+      }
       return copies.get(material);
     };
     node.material = Array.isArray(node.material) ? node.material.map(copy) : copy(node.material);
