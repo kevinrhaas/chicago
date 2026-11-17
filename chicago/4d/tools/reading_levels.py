@@ -189,6 +189,12 @@ def main():
     ap.add_argument('--check', action='store_true', help='fail on a stale table or an age out of its band')
     ap.add_argument('--quiet', action='store_true')
     args = ap.parse_args()
+    # The buildings' Inspect records (data/inspect/<scene>.json, which `places` reads) are derived
+    # and ignored, not committed: build them from data/summaries/ first, as publish.sh does, so a
+    # fresh clone (CI) reads the same records as a working tree.
+    import subprocess
+    subprocess.run([sys.executable, str(ROOT / 'tools/compile_summaries.py'), '--build'],
+                   cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
     failures = []
     wanted = set()
     for scene, files in scenes().items():
