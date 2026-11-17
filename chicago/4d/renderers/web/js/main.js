@@ -4273,8 +4273,9 @@ async function boot() {
   if (supportsTownTransport(YEAR)) {
     try {
       const { mountTownTransport } = await import('./town-transport-scene.js');
-      // T-3497: 1812's natural ground is read smoothed for wheels and hooves (transport-ground.js).
-      const smoothGround = String(YEAR) === '1812'
+      // T-3497: 1812's natural ground is read smoothed for wheels and hooves (transport-ground.js);
+      // T-3558: and 1835's earth streets, on the same 2.5 m lattice.
+      const smoothGround = ['1812', '1835'].includes(String(YEAR))
         ? (await import('./transport-ground.js')).createSmoothedGround({
           sample: (e, n) => profiledGroundHeight(terrain, decks, e, n), grid: terrain.grid })
         : null;

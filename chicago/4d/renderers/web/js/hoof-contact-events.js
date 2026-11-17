@@ -112,7 +112,19 @@ const VIEW_DATES = Object.freeze({
 });
 const ACTORS = Object.freeze({
   1812: new Set(['fort_wagon_loop_1812', 'shore_road_wagon_haul_1812']),
-  1835: new Set(['western_hotel_driven_wagon_loop_1835']),
+  // T-3558: the town's teams (lay_driven_wagons_1835.mjs).
+  1835: new Set([
+    'kinzie_wagon_south_water_1835',
+    'reed_wagon_market_1835',
+    'jones_wagon_lake_1835',
+    'cook_wagon_randolph_1835',
+    'kinzie_wagon_washington_1835',
+    'kinzie_wagon_state_1835',
+    'white_dray_west_side_1835',
+    'western_hotel_driven_wagon_loop_1835',
+    'sabine_wagon_north_water_1835',
+    'jones_wagon_north_side_1835',
+  ]),
   1904: new Set(['prairie_driven_brougham_loop_1904']),
 });
 /** T-3587: a team is heard to 40-48 m and falls off as (1 - d/max)^1.5 rather than

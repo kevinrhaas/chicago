@@ -1011,6 +1011,9 @@ console.log('seated driver visual clock: stop, holds, range, Light restoration a
   {
     const other=structuredClone(row);other.id='fixture-other-route';other.person_id='fixture-other-person';
     other.driver_instance.person_id=other.person_id;
+    // T-3558: a streamed twin on the very same road would wait for the first to drive clear
+    // of its place (town-transport.js ghostClear); that is not what this case is about.
+    delete other.streamed;
     const f=fixture(row,{rows:[row,other]});const first=f.town.requestDriverApproach(row.person_id);
     f.town.requestDriverApproach(other.person_id);first.cancel();
     const loading=f.town.ready(), a=await f.load(0);a.gate.resolve(a.assembly);
@@ -1096,7 +1099,10 @@ console.log('seated driver visual clock: stop, holds, range, Light restoration a
 // Exercise the actual createDrivenAssembly adapter, town and loop together.
 {
   const config=JSON.parse(readFileSync(new URL('../data/transport/driven/loops.json',import.meta.url)));
-  const row=config.rows.find(r=>r.scene==='1835');let phase=0;const calls=[];let town;
+  // T-3558: 1835's teamsters now walk at their horses' heads beside the photographic farm-box;
+  // this parcel seats a driver on the W01 board loaded above, on the first 1835 round.
+  const row={...config.rows.find(r=>r.scene==='1835'),driver_seat_node_m:[0,1.58,.65],driver_local_m:[0,1.58,.65]};
+  delete row.streamed;delete row.driver_mode;let phase=0;const calls=[];let town;
   town=createTownTransport({rows:[row],sceneId:row.scene,heightAt:()=>0,clear:()=>true,routeSupport:()=>({valid:true}),
     makeAssembly:async liveRow=>createDrivenAssembly({vehicle:vehicle.clone(true),
       driver:{root:new THREE.Group(),updateVisual(dt){phase+=dt;calls.push(dt);},snapshot(){return{time_s:phase};}},
