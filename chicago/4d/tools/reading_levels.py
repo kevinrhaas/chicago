@@ -83,8 +83,29 @@ def asks(scene):
     return out
 
 
+def places(scene):
+    """A building's authored Inspect record (data/inspect/<scene>.json `summaries`, compiled from
+    data/summaries/): its summary by the building's id, and each line under it by the id, the
+    part and its place (`glessner_house.notable.2`, `.story.1`, `.look.1`, `.status`)."""
+    path = ROOT / f'data/inspect/{scene}.json'
+    doc = json.loads(path.read_text()) if path.exists() else {}
+    out = {}
+    for bid, rec in (doc.get('summaries') or {}).items():
+        if rec.get('summary'):
+            out[bid] = [str(rec['summary']).strip()]
+        note = (rec.get('status') or {}).get('note')
+        if note:
+            out[f'{bid}.status'] = [str(note).strip()]
+        for part, key in (('notable', 'notable'), ('story', 'story'), ('look', 'lookFor')):
+            for i, item in enumerate(rec.get(key) or []):
+                text = item.get('text') if isinstance(item, dict) else item
+                if text:
+                    out[f'{bid}.{part}.{i + 1}'] = [str(text).strip()]
+    return out
+
+
 # A family is where a card's words live: its records, by id, each a list of paragraphs.
-FAMILIES = {'stories': stories, 'tales': tales, 'asks': asks}
+FAMILIES = {'stories': stories, 'tales': tales, 'asks': asks, 'places': places}
 
 
 # A card is full of dates and house numbers: "lived at 2027 Prairie Avenue in 1904" is not hard
