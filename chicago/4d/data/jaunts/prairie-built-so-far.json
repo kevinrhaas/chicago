@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 42546787,
+  "content_version": 583539664,
   "category": "Build log",
   "menu_group": "Build log",
   "grade_band": "6-8",
@@ -21,7 +21,7 @@
     "season": "summer"
   },
   "opening": {
-    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 99 Prairie Avenue buildings modelled past their first rough model, in 2 areas. A walk holds 50 stops, so 49 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
+    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 100 Prairie Avenue buildings modelled past their first rough model, in 2 areas. A walk holds 50 stops, so 50 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
     "read_s": 28
   },
   "stops": [
@@ -928,8 +928,8 @@
         "kind": "structure",
         "id": "elbridge_keith_house_1900_prairie"
       },
-      "text": "Elbridge Keith House, 1900 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 6 of the pictures on the Images tab show it. Next: Dent House, 1823 Prairie.",
-      "read_s": 16,
+      "text": "Elbridge Keith House, 1900 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 6 of the pictures on the Images tab show it. Next: 2011 Prairie.",
+      "read_s": 15,
       "evidence": [
         "stood-43",
         "tour"
@@ -947,19 +947,18 @@
       "id": "stop-44",
       "destination": {
         "kind": "structure",
-        "id": "dent_house_1823_prairie"
+        "id": "house_2011_prairie"
       },
-      "text": "Dent House, 1823 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. RAZED 1945. Next: Sears-Meeker House, 1815 Prairie.",
-      "read_s": 16,
+      "text": "2011 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: Dent House, 1823 Prairie.",
+      "read_s": 14,
       "evidence": [
         "stood-44",
-        "razed-44",
         "tour"
       ],
       "links": [
         {
           "kind": "structure",
-          "id": "dent_house_1823_prairie",
+          "id": "house_2011_prairie",
           "label": "About this building"
         }
       ],
@@ -969,9 +968,9 @@
       "id": "stop-45",
       "destination": {
         "kind": "structure",
-        "id": "sears_meeker_house_1815_prairie"
+        "id": "dent_house_1823_prairie"
       },
-      "text": "Sears-Meeker House, 1815 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 5 of the pictures on the Images tab show it. RAZED 1967. Next: 1730 Prairie.",
+      "text": "Dent House, 1823 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. RAZED 1945. Next: Sears-Meeker House, 1815 Prairie.",
       "read_s": 16,
       "evidence": [
         "stood-45",
@@ -981,7 +980,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "sears_meeker_house_1815_prairie",
+          "id": "dent_house_1823_prairie",
           "label": "About this building"
         }
       ],
@@ -991,18 +990,19 @@
       "id": "stop-46",
       "destination": {
         "kind": "structure",
-        "id": "house_1730_prairie"
+        "id": "sears_meeker_house_1815_prairie"
       },
-      "text": "1730 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: 1726 Prairie.",
-      "read_s": 10,
+      "text": "Sears-Meeker House, 1815 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 5 of the pictures on the Images tab show it. RAZED 1967. Next: 1730 Prairie.",
+      "read_s": 16,
       "evidence": [
         "stood-46",
+        "razed-46",
         "tour"
       ],
       "links": [
         {
           "kind": "structure",
-          "id": "house_1730_prairie",
+          "id": "sears_meeker_house_1815_prairie",
           "label": "About this building"
         }
       ],
@@ -1012,10 +1012,10 @@
       "id": "stop-47",
       "destination": {
         "kind": "structure",
-        "id": "house_1726_prairie"
+        "id": "house_1730_prairie"
       },
-      "text": "1726 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1619 Prairie.",
-      "read_s": 12,
+      "text": "1730 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: 1726 Prairie.",
+      "read_s": 10,
       "evidence": [
         "stood-47",
         "tour"
@@ -1023,7 +1023,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1726_prairie",
+          "id": "house_1730_prairie",
           "label": "About this building"
         }
       ],
@@ -1033,9 +1033,9 @@
       "id": "stop-48",
       "destination": {
         "kind": "structure",
-        "id": "house_1619_prairie"
+        "id": "house_1726_prairie"
       },
-      "text": "1619 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 2001 Prairie.",
+      "text": "1726 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 2001 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-48",
@@ -1044,7 +1044,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1619_prairie",
+          "id": "house_1726_prairie",
           "label": "About this building"
         }
       ],
@@ -1661,6 +1661,16 @@
     },
     {
       "id": "stood-44",
+      "text": "2011 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35",
+        "inland_architect_1895_02_reid_plate"
+      ],
+      "confidence": "inferred",
+      "reasoning": "Standing in February 1895, when the Inland Architect's plate of Reid's house next door shows it whole, and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). No build date is found; the record claims the 1904 target to the sheet's date and no more."
+    },
+    {
+      "id": "stood-45",
       "text": "Dent House, 1823 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1669,7 +1679,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). The engraving is undated; the 1883 album vignette draws the same composition two years after the house was built, and nothing read so far records an alteration before 1904."
     },
     {
-      "id": "razed-44",
+      "id": "razed-45",
       "text": "Thomas Dent Residence, 1823 S. Prairie Avenue: razed 1945.",
       "confidence": "attested",
       "sources": [
@@ -1678,7 +1688,7 @@
       "locator": "The 1823 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-45",
+      "id": "stood-46",
       "text": "Sears-Meeker House, 1815 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1687,7 +1697,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). The photographs are undated; their dating is in the match record."
     },
     {
-      "id": "razed-45",
+      "id": "razed-46",
       "text": "Joseph Sears Residence, 1815 S. Prairie Avenue: razed 1967.",
       "confidence": "attested",
       "sources": [
@@ -1696,7 +1706,7 @@
       "locator": "The 1815 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-46",
+      "id": "stood-47",
       "text": "1730 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1705,17 +1715,8 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-47",
-      "text": "1726 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
-    },
-    {
       "id": "stood-48",
-      "text": "1619 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "text": "1726 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],

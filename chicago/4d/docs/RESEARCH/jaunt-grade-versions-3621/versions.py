@@ -16,8 +16,22 @@ reading-level tool counts (opening, each stop's text and narrative, each choice 
 each leg's story, each ending), so no telling mixes two bands, and each version must MEASURE
 inside its own band (tools/jaunt_reading_level.py), stricter than the one-band slack the gate
 allows. A stop's `read_s` is the base's, scaled by the words. The 18+ tellings are not
-retold (the owner, 2026-11-14: students see the build-up and the aftermath only), and the build
-log (prairie-built-so-far) is the project's own progress walk, not a story to retell.
+retold for students (the owner, 2026-11-14: students see the build-up and the aftermath only), and
+the build log (prairie-built-so-far) is the project's own progress walk, not a story to retell.
+
+T-3623 (the owner, 2026-11-16: "Do 18+ jaunts for all jaunts, fill them in"): a words file named
+<base id>-adults.txt makes the 18+ telling of a jaunt (`audience: adults`, listed only behind
+Settings' 18+ jaunts, never in a teacher handout). It is the same walk told for grown readers:
+fuller and franker, drawing the hard parts of the base's own evidence into the prose (drink, debt,
+disease, death, money, class), with no warning and no word of its audience in the telling. No fact
+enters it that the base and its evidence do not state, and the fighting is staged only where the
+1812 adults jaunts (docs/RESEARCH/jaunt-stage-1812-3553/adults.py) already stage it, so a version
+here copies its base's stage as it stands. Its band is whatever its words measure. It must replace
+the opening, every stop's text and every ending; a choice, a leg or a narrative line it leaves out
+keeps the base's words. Two keys are its own:
+
+    warning                         the 18+ tag's tooltip (default below)
+    cite <stop id>                  base evidence ids, space-separated, the stop's text also cites
 
 Words file format: a line `== <key>` starts a passage, and the passage runs to the next such
 line (blank lines inside are kept, ends trimmed). Keys:
@@ -123,19 +137,31 @@ def scaled(read_s, old, new):
     return max(1, min(600, round(read_s * words(new) / words(old)))) if read_s else read_s
 
 
+# The 18+ tag's tooltip on a telling that is franker, not bloodier (the owner, 2026-11-16: no
+# warning text on the card or in the telling; the compiler still wants a few words for the tag).
+WARNING = 'Told in full, for adults.'
+# What an 18+ telling must replace; the rest may keep the base's words.
+ADULT_REQUIRED = ('opening', 'stop', 'ending')
+
+
 def build(path, strict=True):
     """The version a words file makes, from its base jaunt as it stands now."""
-    m = re.fullmatch(r'(.+)-grades-(3-5|6-8|9-10|11-12|k-2)', path.stem)
+    adults = re.fullmatch(r'(.+)-adults', path.stem)
+    m = adults or re.fullmatch(r'(.+)-grades-(3-5|6-8|9-10|11-12|k-2)', path.stem)
     if not m:
-        raise ValueError(f'{path.name}: a words file is named <base id>-grades-<band>.txt')
-    base_id, band = m[1], m[2].upper()
+        raise ValueError(f'{path.name}: a words file is named <base id>-grades-<band>.txt or <base id>-adults.txt')
+    base_id, band = m[1], (None if adults else m[2].upper())
     base = json.loads((JAUNTS / f'{base_id}.json').read_text())
     if base.get('version_of') or base.get('audience') == 'adults':
         raise ValueError(f'{path.name}: {base_id} is itself a version')
-    if base['grade_band'] == band:
+    if band and base['grade_band'] == band:
         raise ValueError(f'{path.name}: {base_id} is already written for grades {band}')
     w = parse(path)
     keys = dict(passages(base))
+    if adults:
+        keys = {k: k.split()[0] in ADULT_REQUIRED for k in keys}
+        keys['warning'] = False
+        keys.update({f"cite {s['id']}": False for s in base['stops']})
     missing = [k for k, required in keys.items() if required and k not in w]
     unknown = [k for k in w if k not in keys]
     if missing or unknown:
@@ -143,14 +169,27 @@ def build(path, strict=True):
             ([f"missing {', '.join(missing)}"] if missing else []) + ([f"no such passage {', '.join(unknown)}"] if unknown else [])))
     doc = copy.deepcopy(base)
     doc['id'] = path.stem
-    doc['grade_band'] = band
+    doc['grade_band'] = band or base['grade_band']
     doc['version_of'] = base_id
+    if adults:
+        doc['audience'] = 'adults'
+        doc['content_warning'] = w.pop('warning', WARNING)
+        doc['featured'] = False
     doc['content_version'] = 1
     doc.pop('menu_rank', None)
-    doc['keepsake']['id'] = base['keepsake']['id'] + suffix(band)
+    doc['keepsake']['id'] = base['keepsake']['id'] + ('-adults' if adults else suffix(band))
     stops = {s['id']: s for s in doc['stops']}
+    known = {e['id'] for e in base['evidence']}
     for key, text in w.items():
         kind, *rest = key.split()
+        if kind == 'cite':
+            ids = text.split()
+            stray = [i for i in ids if i not in known]
+            if stray:
+                raise ValueError(f"{path.name}: cite {rest[0]}: {', '.join(stray)} is not the base's evidence")
+            have = stops[rest[0]].setdefault('evidence', [])
+            have.extend(i for i in ids if i not in have)
+            continue
         old = get(base, key)
         if kind == 'premise': doc['premise'] = text
         elif kind == 'opening':
@@ -183,7 +222,10 @@ def build(path, strict=True):
     if torn:
         raise ValueError('; '.join(torn))
     got = rl.band_of(rl.measure(doc)['grade'])
-    if strict and got != band:
+    if adults:
+        # An 18+ telling is for grown readers at whatever level its words read.
+        doc['grade_band'] = got
+    elif strict and got != band:
         raise ValueError(f'{path.name}: written for grades {band} but reads at grade {rl.measure(doc)["grade"]} ({got})')
     return doc
 

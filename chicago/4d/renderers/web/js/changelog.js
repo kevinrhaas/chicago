@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 3052, ts: '2026-11-17T00:33:39.372Z', date: 'Nov 16, 2026, 6:33 PM CT', title: 'People can run', kind: 'feature',
+    items: [
+      'People now run as well as walk, at four speeds: a jog, a run, a flat-out flight and a sprint. Both feet leave the ground between strides, the knees fold high, the arms pump bent at the elbow and the body leans into the run, all taken from measured runners.',
+      'In the Battle of Fort Dearborn jaunt the regulars now charge up the bank at a run, Captain Wells comes racing back at a sprint and the warriors close at a jog. From Lee\'s Place, Private Kelso and Lee\'s son take to the woods at a run, and the Burns children run out and back.',
+      'In the Killing of Jean Lalime, John Kinzie now leaves the gate at a jog, as the account has him told to run, and walks away fast and bleeding in the opening scene.',
+    ] },
+  { v: 3051, ts: '2026-11-17T00:27:15.982Z', date: 'Nov 16, 2026, 6:27 PM CT', title: '2011 Prairie, the Romanesque house beside Mayer, gets its turret', kind: 'feature',
+    items: [
+      '2011 Prairie, next door to the Meyer house, now stands as two old pictures show it: a narrow front of rough rock-faced stone, a round-arched door at its north end with a cross window over it, a gabled dormer in the slate roof, and a round corner turret rising past the roofline to a slate cone. The turret\'s roof is still one plain cone where the photograph shows a flared skirt under it; that comes next.',
+    ] },
+  { v: 3050, ts: '2026-11-17T00:24:37.898Z', date: 'Nov 16, 2026, 6:24 PM CT', title: 'The boot budget re-measured after the 1835 commercial core\'s new stores', kind: 'fix',
+    items: [
+      'The first visit to the 1835 street now downloads 46.3 MB, 0.9 MB more than this morning. Most of that is the new row of 59 stores up Wells, LaSalle, Clark and Dearborn, the Lake and Dearborn faces rebuilt to Gifford\'s Tremont drawing, and the ground behind each store. The rest is the boats you can steer, the burning of Fort Dearborn and the name cards. The budget moves to 46.6 MB and what grew is written down file by file, so every pull request\'s build can go green again.',
+    ] },
   { v: 3049, ts: '2026-11-16T23:22:47.575Z', date: 'Nov 16, 2026, 5:22 PM CT', title: 'The ground behind 1835\'s stores', kind: 'feature',
     items: [
       'Behind every store in the new row on South Water, Lake and the cross streets, its back lot is now laid out by the kind of store it is. The two-storey stores keep a horse: a stable at the back of the lot, with the open ground between it and the back door left for the wagon and for loading.',
