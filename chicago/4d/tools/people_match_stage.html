@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>People match stage</title><link rel="icon" href="data:,">
+<!-- T-3553: a test page, served from chicago/4d and never published. The people match's stage
+     (data/people_match/README.md, find.kind "stage"): ONE body from the catalogue stood or
+     walked through humans.js exactly as the town draws a person (createHumanLayer, the
+     instance record's own clip and phase; HumanActor.walkPath for a walk, so the life, arm,
+     gait and skirt layers do here what they do in town), on open level ground, seen by a
+     PERSPECTIVE camera at a standing visitor's eye height and the town's default field of view
+     (hud.js: 72 degrees vertical), so a 3 m and a 10 m still are the pictures a visitor sees at
+     those distances. tools/people_match.mjs drives it; the town itself is not booted, so the
+     still shows this tree's figure (the garment layers as they are on disk) in a stage light.
+       ?asset=<id>&lod=0&instance=<hi_...>&year=1904&w=1280&h=800
+     window.__stage = { ready, pose({pose, at_s}), shoot({distance_m, bearing_off_heading_deg,
+       eye_m, aim_below_head_m}), step(seconds), head(), box(up, down), heading() }. -->
+<style>html,body{margin:0;height:100%;background:#c3c8cc;overflow:hidden}canvas{display:block}</style>
+<script type="importmap">{"imports":{
+  "three":"../renderers/web/vendor/three-0.185.1/three.module.js",
+  "three/addons/":"../renderers/web/vendor/three-0.185.1/addons/"}}</script>
+</head><body>
+<script type="module">
+import * as THREE from 'three';
+import { createHumanLayer } from '../renderers/web/js/humans.js';
+
+const q = new URLSearchParams(location.search);
+const asset = q.get('asset');
+const lod = Number(q.get('lod') ?? 0);
+const year = q.get('year') ?? asset?.match(/_(\d{4})(?:_|$)/)?.[1] ?? '1904';
+const W = Number(q.get('w') ?? innerWidth), H = Number(q.get('h') ?? innerHeight);
+const FOV = Number(q.get('fov') ?? 72);   // hud.js default
+const SUB = 1 / 30;
+let resolveReady, rejectReady;
+const stage = window.__stage = { ready: new Promise((ok, no) => { resolveReady = ok; rejectReady = no; }) };
+stage.ready.catch((e) => { stage.error = String(e?.stack ?? e); });
+
+try {
+  if (!asset) throw new Error('no ?asset=');
+  const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+  renderer.setPixelRatio(1);
+  renderer.setSize(W, H);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;   // as world.js draws the town
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFShadowMap;
+  document.body.appendChild(renderer.domElement);
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xc3c8cc);
+  scene.fog = new THREE.Fog(0xc3c8cc, 30, 90);
+  scene.add(new THREE.HemisphereLight(0xeef0f2, 0x6a6255, 1.6));
+  const sun = new THREE.DirectionalLight(0xfff3e0, 2.4);
+  sun.castShadow = true;
+  sun.shadow.mapSize.set(2048, 2048);
+  Object.assign(sun.shadow.camera, { left: -3, right: 3, top: 3, bottom: -3, near: 0.5, far: 30 });
+  sun.shadow.bias = -0.0005;
+  scene.add(sun, sun.target);
+  // Level ground of packed earth, with a faint metre grid for scale.
+  const c = document.createElement('canvas'); c.width = c.height = 256;
+  const g = c.getContext('2d');
+  g.fillStyle = '#8b8374'; g.fillRect(0, 0, 256, 256);
+  g.fillStyle = '#7f7869'; g.fillRect(0, 0, 256, 2); g.fillRect(0, 0, 2, 256);
+  const tex = new THREE.CanvasTexture(c); tex.wrapS = tex.wrapT = THREE.RepeatWrapping; tex.repeat.set(200, 200);
+  tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(200, 200).rotateX(-Math.PI / 2), new THREE.MeshLambertMaterial({ map: tex }));
+  ground.receiveShadow = true;
+  scene.add(ground);
+
+  // ---- the person, from their instance record ------------------------------------------------
+  const DATA = new URL('../data/', location.href);
+  const id = q.get('instance');
+  const record = id ? await fetch(new URL(`humans/instances/${year}/${id}.json`, DATA)).then((r) => (r.ok ? r.json() : null)) : null;
+  if (id && !record) throw new Error(`no instance record ${year}/${id}`);
+  if (record && record.appearance?.asset_id !== asset) throw new Error(`${id} wears ${record.appearance?.asset_id}, not ${asset}`);
+  // The figure faces +x (heading 90, east); world (east, north) is (x, -z).
+  const instance = {
+    id: record?.id ?? `hi_stage_${asset}`, contract_version: 1, scene: String(year),
+    person_id: record?.person_id ?? undefined,
+    appearance: { asset_id: asset },
+    placement: { local_e: 0, local_n: 0, heading_deg: 90, anchor: 'terrain' },
+    animation: { clip: record?.animation?.clip ?? 'idle', loop: true, phase: record?.animation?.phase ?? 0 },
+    behaviour: { state: 'standing' },
+    interaction: { selectable: false, radius_m: 0, opens: 'none' },
+    lod: { policy: 'fixed', fixed: lod }, display: 'shown', review_required: false,
+    provenance: { grade: 'reconstructed', basis: 'T-3553 people match stage: a test page, never published', liberty: record?.provenance?.liberty ?? null },
+  };
+  const layer = createHumanLayer({ assetBase: new URL('../assets/', location.href), heightAt: () => 0, tier: 'full' });
+  scene.add(layer.group);
+  const actor = layer.add(instance, { person: null });
+  stage.actor = actor;
+
+  const camera = new THREE.PerspectiveCamera(FOV, W / H, 0.05, 400);
+  camera.position.set(0, 1.68, 3); camera.lookAt(0, 1.2, 0);
+  const tick = (dt) => { layer.update(dt, camera, null, dt); clock += dt; };
+  let clock = 0;
+  layer.update(0, camera, null, 0);   // the first update asks for the body (as the walk strip boots)
+  await actor.pending;
+  layer.update(0, camera, null, 0);
+  if (!actor.body) throw new Error(`${asset}.lod${lod} drew no body`);
+  renderer.render(scene, camera);
+
+  const bone = (name) => { let o = null; actor.body.scene.traverse((n) => { if (!o && n.isBone && n.name === name) o = n; }); return o; };
+  const v = new THREE.Vector3();
+  stage.head = (name = 'head') => { actor.root.updateMatrixWorld(true); const b = bone(name); return b ? b.getWorldPosition(v).toArray() : null; };
+  /** The figure's compass heading (degrees clockwise from north): from its root's facing. */
+  stage.heading = () => {
+    actor.root.updateMatrixWorld(true);
+    const f = new THREE.Vector3(0, 0, 1).transformDirection(actor.root.matrixWorld);
+    return ((Math.atan2(f.x, -f.z) * 180 / Math.PI) + 360) % 360;
+  };
+  stage.step = (seconds) => { let left = seconds; while (left > 1e-9) { const dt = Math.min(SUB, left); tick(dt); left -= dt; } renderer.render(scene, camera); return +clock.toFixed(3); };
+  /** Stand (the record's clip) or walk (walkPath along +x, as house errands send a person),
+   *  advanced at_s seconds of the figure's own time from a fresh start. */
+  let posed = null;
+  stage.pose = ({ pose = 'stand', at_s = 1 } = {}) => {
+    if (posed !== null) throw new Error('pose once per page');
+    posed = pose;
+    if (pose === 'walk') actor.walkPath([{ e: 0, n: 0 }, { e: 60, n: 0 }], {});
+    else if (pose !== 'stand') throw new Error(`no pose ${pose}`);
+    stage.step(at_s);
+    return { pose, t: clock, state: actor.state, clip: actor.clipName ?? null, heading: stage.heading(), head: stage.head() };
+  };
+  /** Place the camera as the rig's still says: on the ground at eye_m, distance_m from the head
+   *  over the ground, at a bearing clockwise from the way the figure faces, aimed at a point
+   *  aim_below_head_m under the head bone. Returns the camera, as people_match.mjs records it. */
+  stage.shoot = ({ distance_m, bearing_off_heading_deg, eye_m, aim_below_head_m }) => {
+    const [hx, hy, hz] = stage.head(), heading = stage.heading();
+    const b = (heading + bearing_off_heading_deg) * Math.PI / 180;
+    const he = hx, hn = -hz;
+    const e = he + Math.sin(b) * distance_m, n = hn + Math.cos(b) * distance_m;
+    camera.position.set(e, eye_m, -n);
+    camera.up.set(0, 1, 0);
+    camera.lookAt(hx, hy - aim_below_head_m, hz);
+    camera.updateMatrixWorld(true);
+    sun.position.set(hx + 3, 9, hz + 5); sun.target.position.set(hx, 0, hz); sun.target.updateMatrixWorld();
+    renderer.render(scene, camera);
+    const look = ((Math.atan2(he - e, hn - n) * 180 / Math.PI) + 360) % 360;
+    const pitch = Math.atan2(hy - aim_below_head_m - eye_m, distance_m) * 180 / Math.PI;
+    return { e: +e.toFixed(3), n: +n.toFixed(3), eye_y: eye_m, yaw_deg: +look.toFixed(2), pitch_deg: +pitch.toFixed(2), fov_deg: FOV,
+      subject_heading_deg: +heading.toFixed(2), head_enu: [+he.toFixed(3), +hn.toFixed(3), +hy.toFixed(3)] };
+  };
+  /** A box from `up` over the head bone to `down` under it, in canvas pixels (the sheet's crop). */
+  stage.box = (up = 0.35, down = 1.6) => {
+    const [hx, hy, hz] = stage.head();
+    const px = (y) => { const p = new THREE.Vector3(hx, y, hz).project(camera); return [(p.x + 1) / 2 * W, (1 - p.y) / 2 * H]; };
+    const top = px(hy + up), bottom = px(hy - down), h = bottom[1] - top[1], w = h * 0.62;
+    return [Math.round(top[0] - w / 2), Math.round(top[1] - 0.06 * h), Math.round(w), Math.round(h * 1.12)];
+  };
+  stage.render = () => renderer.render(scene, camera);
+  resolveReady({ asset, lod, instance: record?.id ?? null, person: record?.person_id ?? null, year: Number(year), clips: actor.clips ?? null });
+} catch (err) {
+  rejectReady(err);
+}
+</script></body></html>
