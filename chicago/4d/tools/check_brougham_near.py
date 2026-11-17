@@ -15,3 +15,5 @@ if __name__=='__main__':
     # They read the real source and use only owned temporary regeneration output.
     subprocess.run(['node', str(ROOT/'tools/transport/brougham/check_full_policy.mjs')], check=True)
     subprocess.run(['node', str(ROOT/'tools/test_people_directory_probe.mjs')], check=True)
+    # T-3558: the plate-matched V20 levels the 1904 carriages now drive, derived from these masters.
+    subprocess.run(['python3', str(ROOT/'tools/transport/brougham_v20/check.py')], check=True)

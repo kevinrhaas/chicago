@@ -5,6 +5,7 @@
  */
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { disposeLoadedAsset } from './scene-loader.js';
 
@@ -129,6 +130,29 @@ function staticBatches(root, confidence, excluded = null) {
   return group;
 }
 
+/** T-3558: one model's seeded paint over a shared photographic master. The factors
+ * multiply the master's own maps (grain, wear and ironwork read through), body meshes
+ * by `paint.body`, every other mesh by `paint.gear`, per source material name. Painted
+ * materials are cached per model so its batches still merge by material. */
+function paintVehicle(root, model, paint, paintedMaterials) {
+  const body = new Set(paint.body_meshes ?? []);
+  root.traverse(node => {
+    if (!node.isMesh || Array.isArray(node.material)) return;
+    const part = body.has(node.name) ? 'body' : 'gear';
+    const factor = paint[part]?.[node.material.name];
+    if (!factor) return;
+    const key = `${model}:${part}:${node.material.uuid}`;
+    let material = paintedMaterials.get(key);
+    if (!material) {
+      material = node.material.clone();
+      material.color.setRGB(factor[0], factor[1], factor[2]);
+      material.userData = { ...material.userData, parkedPaint: part };
+      paintedMaterials.set(key, material);
+    }
+    node.material = material;
+  });
+}
+
 /** Solve the lowest actual tongue vertex against this stand's terrain, not its centerline.
  * A failed bracket keeps the legacy wagon; it never silently buries the pole.
  */
@@ -168,7 +192,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
   detail = 'full', problems = [], hostMissing = () => false, groundHeight = null,
   getDrawingBufferHeight = () => null, loadWithin = null, stationaryTeams = false } = {}) {
   const group = new THREE.Group(); group.name = 'parked-transport';
-  const instances = [], assets = new Map(), replacementIds = new Set();
+  const instances = [], assets = new Map(), replacementIds = new Set(), paintedMaterials = new Map();
   let tier = detail, fallback = () => {}, lastCamera = null, disposed = false, loading = null;
   // T-3439: Settings › Show › Carriages and horses. Hidden, no vehicle (nor the yard's old
   // stand-in it replaces) is drawn, fetched or picked.
@@ -306,6 +330,8 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
       group.traverse(n => { if (n.userData.parkedBatchGeometry) geometry.add(n.geometry); });
       for (const value of geometry) value.dispose();
       for (const promise of assets.values()) void promise.then(disposeLoadedAsset, () => {});
+      for (const material of paintedMaterials.values()) material.dispose();
+      paintedMaterials.clear();
       group.clear();
       instances.length = 0; replacementIds.clear();
     },
@@ -378,21 +404,28 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
       const spec = record.models[row.model];
       let building = null;
       try {
-        let pending = assets.get(row.model);
+        // T-3558: ordinary models are cached by FILE, so models that share one GLB
+        // (the farm-box master under every covered wagon) decode and upload it once.
+        // Light (phones) takes a model's own `file_light` when it names one: the farm-box
+        // master's mid level carries a quarter of the near level's texture memory.
+        const file = (tier === 'light' && spec.file_light) || spec.file;
+        const assetKey = row.model === 'studebaker_brougham_1893' ? row.model : `file:${file}`;
+        let pending = assets.get(assetKey);
         if (!pending) {
           pending = row.model === 'studebaker_brougham_1893' ? loadBrougham(spec.file,
             stationaryTeams ? row.stationary_team?.vehicles?.near?.sha256 : null)
-            : new GLTFLoader().loadAsync(new URL(spec.file, new URL('../', import.meta.url)).href);
-          assets.set(row.model, pending);
+            : new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(new URL(file, new URL('../', import.meta.url)).href);
+          assets.set(assetKey, pending);
         }
         const asset = await pending;
         if (disposed) break;
         const root = asset.scene.clone(true);
+        if (spec.paint) paintVehicle(root, row.model, spec.paint, paintedMaterials);
         if (spec.support_file) {
-          const supportKey = `${row.model}:support`;
+          const supportKey = `file:${spec.support_file}`;
           let support = assets.get(supportKey);
           if (!support) {
-            support = new GLTFLoader().loadAsync(new URL(spec.support_file, new URL('../', import.meta.url)).href);
+            support = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(new URL(spec.support_file, new URL('../', import.meta.url)).href);
             assets.set(supportKey, support);
           }
           const supportAsset = await support;

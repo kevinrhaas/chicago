@@ -477,6 +477,13 @@
                     0.04
                   ],
                   "knob_m": 0.25
+                },
+                "arched": {
+                  "side": "right",
+                  "pier_m": 0.5,
+                  "spring_m": 0.82,
+                  "span_m": 0.9,
+                  "soffit_m": 0.3
                 }
               }
             }
@@ -486,7 +493,7 @@
             "chicagology_1815_sears_two_views",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "A panelled door under a transom (the house number '1815' on it) up a stoop between stone newels, on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px). T-3562: over the door the photograph draws a stone pediment on two small carved brackets: its raking cornice's apex at y 621 px (5.86 m over grade) under a carved finial to y 592 px (6.27 m), its foot at y 690 px (4.9 m), its ends at x 305 and 487 px (2.55 m apart), the brackets at y 720-745 px (4.1-4.5 m) beside the transom. Built as K01's bracketed door hood with a pediment in place of the railing, in the front's stone: soffit 4.85 m (K01's 0.35 m over the 2.70 m door's head), apex 5.77 m, finial to 6.07 m, the brackets 0.4 m deep. It is built 1.72 m wide, not 2.55 m, because the build's pavilion stands 2.2 m wide north of the door where the photograph's 4 m pavilion carries the door in its south half (open in the match record): a wider hood would run into the pavilion's south cheek. The stoop's cheeks sweep down to a square stone newel at each foot under a cap and a ball knob (x 230-265 and 445-480 px, about 0.5 m square), read off the same print; their heights reconstructed within K07's swept-cheek ranges. The front yard is the lot's: the street line at lot u 44.29 m, the front at 34.96 m."
+          "note": "A panelled door under a transom (the house number '1815' on it) up a stoop between stone newels, on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px). T-3562: over the door the photograph draws a stone pediment on two small carved brackets: its raking cornice's apex at y 621 px (5.86 m over grade) under a carved finial to y 592 px (6.27 m), its foot at y 690 px (4.9 m), its ends at x 305 and 487 px (2.55 m apart), the brackets at y 720-745 px (4.1-4.5 m) beside the transom. Built as K01's bracketed door hood with a pediment in place of the railing, in the front's stone: soffit 4.85 m (K01's 0.35 m over the 2.70 m door's head), apex 5.77 m, finial to 6.07 m, the brackets 0.4 m deep. It is built 1.72 m wide, not 2.55 m, because the build's pavilion stands 2.2 m wide north of the door where the photograph's 4 m pavilion carries the door in its south half (open in the match record): a wider hood would run into the pavilion's south cheek. The stoop's cheeks sweep down to a square stone newel at each foot under a cap and a ball knob (x 230-265 and 445-480 px, about 0.5 m square), read off the same print; their heights reconstructed within K07's swept-cheek ranges. The front yard is the lot's: the street line at lot u 44.29 m, the front at 34.96 m. T-3562: the stoop is open beneath its south side, as the right-hand (oblique) print of the same copy draws it (x 1080-1340 px, y 980-1160 px; about 71 px/m in height there, grade at y 1131 px, the landing's floor at y 1003 px): the landing stands on a square pier at its outer corner (x 1235-1272 px, about 0.5 m, on a plinth) and is open beneath from the pier back to the wall, its soffit about 0.3 m under the floor (y 1022 px), the void black; and the flight is carried off the pier on a rampant arch springing at y 1073 px (0.82 m over grade) and falling to grade about 0.9 m down the run (x 1188 px, about 67 px/m along the run off the nosings' spacing), the lower steps solid on grade from there to the newel. Built as K07's arched swept cheek on the stoop's right (south) side: the void runs through to the north cheek and is closed there and at the wall in the kit's dark backing, which the print shows black; the north side's own form is not pictured (the square-on print shows the landing's north end over the basement doorway, still open in the match record)."
         },
         "bays": {
           "value": [
