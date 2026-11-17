@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "ffb3c5be2cf60c1aef8f8490bcec81f85322eab3d1cc7f97dbb03d57a1475fa0",
+  "glb_sha256": "6db32e1aa5d641bd317654d2707d0550079a7c56777c373a29cf110f04a6063a",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -24,7 +24,8 @@
     },
     {
       "what": "the corner bay runs about 0.75 m south of the main front's south corner: the print's cornice turns onto the flank at x 1605 px and the bay's south face shows at x 1745-1790 px; the build sets the bay flush with the flank (its corner at x 1618 px, the main corner at 1711)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3562: the bay is set out 0.75 m past the main front's south wall (K01 bays[].set_out_m), the bay kept at its 9.43 m centre and the front block narrowed to 9.72 m, so the main wall stands inside the bay's south face as the print draws it: the cornice now turns onto the flank at about x 1660 px against the print's 1605-1650 (it rendered at 1711), and the bay's south cheek shows past the main corner, beyond it, in the front's stone"
     },
     {
       "what": "the south flank is rock-faced random ashlar, dark against the smooth front; the build lays it in buff common brick",
@@ -108,6 +109,11 @@
       "what": "the south flank's tone: the print draws the rock-faced flank darker than the front; a monochrome print cannot say whether that is another stone, soot or the light",
       "status": "not shown",
       "how": "T-3562 lays it in the front's Lemont stone (L-k01-1815-sears-1893)"
+    },
+    {
+      "what": "the corner bay's front renders about 100-170 px west of the print's on this view (its two lights at x 1515-1585 px against the print's 1565-1740, its south edge at 1615 against 1790), and narrower",
+      "status": "open",
+      "how": "T-3562: the square-on puts the same bay's edges within 20-25 px of its print (below the 0.5 m it notes as within tolerance), and this camera is solved on the front's plane, where its distance and focal length trade against each other (its solve), so a face 1.2 m proud of that plane is where it is least sure; whether the camera or the bay is wrong here is not settled"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
