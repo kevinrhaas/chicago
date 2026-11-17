@@ -93,6 +93,7 @@ import { createCrossings } from './crossings.js';
 import { createVessels } from './vessels.js';
 import { insideDeck } from './deck-surface.js';
 import { mountHumans, useFightMotions } from './humans.js';
+import { createCrowd } from './crowd.js';
 import { createHumanDuties } from './human-duties.js';
 import { createHumanDays, createDayRouter, clearWayOf, JAUNT_LOCALS } from './human-days.js';
 import { createJauntHosts } from './jaunt-hosts.js';
@@ -3809,10 +3810,12 @@ async function boot() {
       railway.setDetail(level);
       refreshGlessnerOcclusion();
       api.humans?.setTier(level);
+      api.crowd?.setTier(level);
       api.nameCards?.setTier(level);
       void parkedTransport.setTier(level);
       void standingHorses.setTier(level);
       void api.townTransport?.setTier(level);
+      api.trafficCards?.setTier(level);
       applyShadowTier(level);
       applyFurnitureReach(level);
       applyGroundDetailReach(level);
@@ -3876,10 +3879,12 @@ async function boot() {
     railway.setDetail(level);
     // The figures' LOD ladder follows the tier (T-1788; docs/HUMAN-ASSET-CONTRACT.md § 8).
     api.humans?.setTier(level);
+    api.crowd?.setTier(level);
     api.nameCards?.setTier(level);
     void parkedTransport.setTier(level);
     void standingHorses.setTier(level);
     void api.townTransport?.setTier(level);
+    api.trafficCards?.setTier(level);
     // The sun's half of the level takes effect on THIS frame rather than after
     // the replanting: it costs nothing to apply, and a visitor who turns the
     // setting down on a machine that is struggling should get the cheap half of
@@ -4240,7 +4245,17 @@ async function boot() {
       // T-3556: 1835's town is thousands under its roofs, so more of them are out about the
       // visitor at once; fewer on a lighter detail (a phone), never none (people are core).
       residentsNear: daysScene === '1835' ? ({ full: 8, balanced: 6 }[detailLevel] ?? 4) : 3,
+      // T-3555: of those who may step out near the visitor, one the crowd draws out here first.
+      prefer: (id) => api.crowd?.draws?.(id) ?? false,
       problems: layerProblems('humans') });
+    // T-3555 (owner, 2026-11-12: "a living town at a phone's cost"): the town's people beyond
+    // the built figures, the middle distance as instanced shared bodies and the far as cards
+    // from one atlas (crowd.js). It reads who is out from the day above and draws nobody built.
+    api.crowd = createCrowd({ humans: api.humans, days: api.days, renderer, tier: detailLevel,
+      heightAt: (e, n) => figureGround(e, n), problems: layerProblems('humans'),
+      assetIds: [...new Set([...(inside?.people ?? []).map((x) => x.asset_id),
+        ...(api.humans.records ?? []).map((r) => r.appearance?.asset_id)].filter(Boolean))] });
+    scene3d.add(api.crowd.group);
     // The kit is generated from its dated work record; only 1812 loads this
     // controller. The small GLB is deferred until its actual worker is nearby.
     if (daysScene === '1812') {
@@ -4283,7 +4298,7 @@ async function boot() {
   const shownLayers = { people: true, vehicles: true };
   function setShownLayer(key, on) {
     shownLayers[key] = on;
-    if (key === 'people') api.humans?.setShown?.(on);
+    if (key === 'people') { api.humans?.setShown?.(on); api.crowd?.setShown?.(on); }
     else {
       parkedTransport.setShown(on);
       standingHorses.group.visible = on;
@@ -4401,6 +4416,19 @@ async function boot() {
     if (!Number.isFinite(pl?.local_e) || !Number.isFinite(pl?.local_n)) return null;
     return { e: pl.local_e, n: pl.local_n };
   }
+
+  // T-3555: every team out on its round beyond its built reach, as a card from one atlas
+  // baked from its own vehicle and horses (traffic-cards.js), read off town transport. Off
+  // the boot's path: the cards come in when they are ready.
+  if (api.townTransport) void (async () => {
+    const [{ createTrafficCards }, loops] = await Promise.all([import('./traffic-cards.js'),
+      fetch(new URL('transport/driven/loops.json', bases.dataBase)).then((r) => (r.ok ? r.json() : null))]);
+    api.trafficCards = createTrafficCards({ renderer, transport: () => api.townTransport, config: loops, sceneId: YEAR,
+      tier: detailLevel,
+      heightAt: String(YEAR) === '1904' ? (e, n) => streetGrid.carriagewayHeight(e, n) : (e, n) => profiledGroundHeight(terrain, decks, e, n),
+      problems });
+    scene3d.add(api.trafficCards.group);
+  })().catch((error) => { problems.push(`traffic cards: ${error.message}`); });
 
   /** T-3263 — what a jaunt stop or a Go to must not stand behind, as { e, n, r }. The
    *  list is rebuilt only when the timber is re-grown; the router drops its stands then. */
@@ -7243,6 +7271,8 @@ async function boot() {
       hour: (() => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; })(),
     });
     api.townTransport?.refreshInteractions();
+    api.trafficCards?.update(visualDt, camera, { hidden: confidence.hidden.reconstructed || !shownLayers.vehicles || document.hidden,
+      hour: (() => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; })() });
     // T-3557: the team has moved this frame; the eye goes with it, and the bar says so.
     if (teamRide?.hold(walker, WALK)) { setNearFor(walker.state.altitude); world.follow(camera.position); }
     paintRide(teamRide, elapsed);
@@ -7260,6 +7290,8 @@ async function boot() {
     // Consume the same real elapsed interval as walking and the standing horse.
     // A 0.05 s visual-effects step made human clips/routes crawl on slow devices.
     api.humans?.update(frameDt, camera, walker.state, visualDt);
+    // T-3555: after the figures, so a figure that left its range this frame is a card at once.
+    api.crowd?.update(frameDt, camera, walker.state);
     api.duties?.update(frameDt);
     // T-3527: the 1812 gathering's camps, their worn ground and paths come and go with
     // the date the Season or a jaunt sets (buildings.js / yards.js setDate).
