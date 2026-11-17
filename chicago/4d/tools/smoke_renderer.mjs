@@ -1347,12 +1347,16 @@ async function captureWithRestoreState(page, grid, when) {
      const f=state?.flora,t=state?.textureResidency;
      // T-3300: a parked vehicle is fetched as the eye nears its stand, so one
      // still in flight would land between the baseline and the restored frame.
-     return f?.inFlight===false&&['landings','drained','abandoned'].every(k=>Number.isInteger(f[k])&&f[k]>=0)&&['near','far'].every(k=>Number.isInteger(f.passes?.[k])&&f.passes[k]>=0)&&typeof state?.geometry?.fingerprint==='string'&&!!state.camera&&(t===null||Number.isInteger(t?.pending)&&t.pending===0)&&(state.parkedTransport===null||state.parkedTransport===0);
+     return f?.inFlight===false&&['landings','drained','abandoned'].every(k=>Number.isInteger(f[k])&&f[k]>=0)&&['near','far'].every(k=>Number.isInteger(f.passes?.[k])&&f.passes[k]>=0)&&typeof state?.geometry?.fingerprint==='string'&&!!state.camera&&(t===null||Number.isInteger(t?.pending)&&t.pending===0)&&(state.parkedTransport===null||state.parkedTransport===0)
+       // T-3630: a person's body is fetched and built over several frames, so four still
+       // frames can pass while one is in flight; it then stands up between the baseline
+       // and the restore (desktop 9-12's facade tones, worst cell 30, a held boot pose).
+       &&(state.humans===null||state.humans===0);
     }
     function advanceSceneSettle(previous,state){
      if(!sceneCaptureReady(state))return{key:null,unchanged:0,settled:false};
      // Only semantic counters: never frame/timing counters which advance forever.
-     const key=JSON.stringify({camera:state.camera,geometry:state.geometry,flora:state.flora,textureResidency:state.textureResidency,parkedTransport:state.parkedTransport});
+     const key=JSON.stringify({camera:state.camera,geometry:state.geometry,flora:state.flora,textureResidency:state.textureResidency,parkedTransport:state.parkedTransport,humans:state.humans});
      const unchanged=previous?.key===key?previous.unchanged+1:1;
      return{key,unchanged,settled:unchanged>=4};
     }
@@ -1392,6 +1396,8 @@ async function captureWithRestoreState(page, grid, when) {
           residentBytes: textures.residentBytes, uploads: textures.uploads,
           evictions: textures.evictions, redecodes: textures.redecodes } : null,
         parkedTransport: Number.isInteger(a.parkedTransport?.pending) ? a.parkedTransport.pending : null,
+        // Figures with a level still loading or waiting for its turn to build (humans.js setLod).
+        humans: Array.isArray(a.humans?.actors) ? a.humans.actors.filter((h) => h?.pending).length : null,
       };
     };
     let settleReceipt = null;
