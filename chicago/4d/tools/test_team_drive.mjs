@@ -5,7 +5,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { circleRoute, createTransportLoop, routeDistanceNear, routeFor } from '../renderers/web/js/transport-loop.js';
-import { driveLimits, easeControls, easeReverse, bicycleStep, sampleOf, pursuitSteering, refineRouteDistance,
+import { DRIVE_GEARS_M_S, fastLock, driveLimits, easeControls, easeReverse, bicycleStep, sampleOf, pursuitSteering, refineRouteDistance,
   wheelArcRatios, footprintOfPose, teamGroundPoints, createCarriagewayReader, KERB_ROOM_M } from '../renderers/web/js/team-drive.js';
 import { overlaps, createCrossings } from '../renderers/web/js/transport-crossings.js';
 import { createTownTransport } from '../renderers/web/js/town-transport.js';
@@ -566,4 +566,48 @@ const teamRow = { wheelbase_m: 2, root_ahead_of_rear_axle_m: 1, track_m: 1.2, te
   actor.dispose();
 }
 
-console.log(`T-3557 team drive: reins, steering, speed cap, refusals (wall, ground, kerb, support), backing, hand back (with backing off a wall), the carriageway kerb, save, gate, team-vs-team: ${count} checks PASS`);
+// T-3560 (Kevin, 2026-11-17: "Allow the driver of a horse or wagon or carriage to be able to
+// gallop, run"): urged on, a team trots, canters and gallops; it turns wider the faster it goes.
+{
+  const L = driveLimits({ speed_m_s: 1.3, steering_limit_deg: 35, wheelbase_m: 2 });
+  ok(L.max_m_s === 1.5 && L.gears_m_s[0] === 1.5 && L.gears_m_s.at(-1) === DRIVE_GEARS_M_S[3], 'its walk is still capped at 1.5 m/s; its gears go to the gallop');
+  for (const [gear, pace] of [[1, 3], [2, 5], [3, 7.5]]) {
+    let st = { speed: 0, steering: 0 }, t = 0;
+    for (; t < 40 && st.speed < pace - 1e-9; t += .05) st = easeControls(st, { throttle: 1, steer: 0, gear }, L, .05);
+    near(st.speed, pace, 1e-9, `gear ${gear}: ${pace} m/s`);
+    ok(t < 12, `gear ${gear} reached in ${t.toFixed(1)} s`);
+    for (let i = 0; i < 100; i++) st = easeControls(st, { throttle: 1, steer: 0, gear }, L, .05);
+    near(st.speed, pace, 1e-9, `gear ${gear}: held, never past its pace`);
+  }
+  let st = { speed: 7.5, steering: 0 };
+  st = easeControls(st, { throttle: .5, steer: 0, gear: 0 }, L, .05);
+  ok(st.speed > 7.4, 'back to gear 0 at a gallop: it eases down, never snaps to the walk cap');
+  let stopped = 0; st = { speed: 7.5, steering: 0 };
+  for (; st.speed > 0 && stopped < 400; stopped++) st = easeControls(st, { throttle: -1, steer: 0, gear: 0 }, L, .05);
+  ok(stopped * .05 <= 5.1, `pulled up from a gallop in ${(stopped * .05).toFixed(1)} s`);
+  ok(fastLock(1.5, L) === 1 && Math.abs(fastLock(7.5, L) - 1 / 3) < 1e-12 && fastLock(4, L) < 1 && fastLock(4, L) > 1 / 3, 'the full lock at a walk, a third at a gallop');
+  st = { speed: 7.5, steering: 0 };
+  for (let i = 0; i < 60; i++) st = easeControls({ speed: 7.5, steering: st.steering }, { throttle: 1, steer: 1, gear: 3 }, L, .05);
+  near(st.steering, -L.steer_max_rad / 3, 1e-9, 'steered hard at a gallop: a third of the lock');
+  // Directed on its round (not the reins): it walks at its row's pace until asked, then eases up
+  // to the gear's pace, and back down to its walk when asked for a walk.
+  const assembly = { pose() {}, advance() {}, stop() {} };
+  const team = createTransportLoop({ id: 'p', name: 'P', route: circleRoute({ center_enu_m: [0, 0], radius_m: 40 }), assembly, speed_m_s: 1.3, wheelbase_m: 2, track_m: 1.2,
+    root_ahead_of_rear_axle_m: 1, steering_limit_deg: 12, wheel_radii_m: [.7, .7, .5, .5], driver_local_m: [0, 1.5, .6], heightAt: () => 0 });
+  for (let i = 0; i < 30; i++) team.update(1 / 30);
+  ok(team.pace === 0 && Math.abs(team.speed_m_s - 1.3) < 1e-9, 'on its round a team walks at its own pace');
+  ok(team.setPace(3) && team.pace === 3, 'asked for a gallop');
+  for (let i = 0; i < 30; i++) team.update(1 / 30);
+  ok(team.speed_m_s > 1.3 && team.speed_m_s < 7.5, 'it eases up, never a jump');
+  for (let i = 0; i < 300; i++) team.update(1 / 30);
+  ok(Math.abs(team.speed_m_s - DRIVE_GEARS_M_S[3]) < 1e-9, 'and gallops its round');
+  team.setPace(0);
+  for (let i = 0; i < 300; i++) team.update(1 / 30);
+  ok(Math.abs(team.speed_m_s - 1.3) < 1e-9, 'asked for a walk, back to its own pace');
+  team.dispose();
+  let wst = { speed: 1, steering: 0 };
+  for (let i = 0; i < 60; i++) wst = easeControls(wst, { throttle: 1, steer: 1 }, L, .05);
+  near(wst.steering, -L.steer_max_rad, 1e-9, 'at a walk, the whole lock as before');
+}
+
+console.log(`T-3557 team drive: reins, steering, speed cap, refusals (wall, ground, kerb, support), backing, hand back (with backing off a wall), the carriageway kerb, save, gate, team-vs-team, urged on to a gallop: ${count} checks PASS`);
