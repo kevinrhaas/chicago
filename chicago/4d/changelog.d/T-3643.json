@@ -1,0 +1,10 @@
+{
+  "title": "Smoother walking: no more pauses as the distant crowd fills in",
+  "kind": "fix",
+  "items": [
+    "The far-off townspeople no longer make the app stop and prepare their drawing again for every new kind of dress that comes into view, which caused a hitch each time while you walked.",
+    "What they need is now prepared in the background, so a distant figure appears a frame or two later instead of freezing the frame.",
+    "Reading the sky's colour for the haze now takes one trip to the graphics card instead of 36, at load and whenever the time of day changes.",
+    "Everything looks exactly as before, on phones and computers."
+  ]
+}
