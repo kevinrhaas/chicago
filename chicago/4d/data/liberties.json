@@ -42275,12 +42275,6 @@
           "domain": "structure",
           "structure": "sears_meeker_house_1815_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "sears_meeker_house_1815_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.rainwater"
         },
         {
@@ -42288,12 +42282,6 @@
           "structure": "sears_meeker_house_1815_prairie",
           "phase": "as_mapped_1904",
           "aspect": "form.rear_bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "sears_meeker_house_1815_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.rear_wings"
         },
         {
           "domain": "structure",
@@ -42357,7 +42345,7 @@
         },
         {
           "label": "Covers",
-          "text": "`sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.service_wall_brick`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.roof_pitch_deg`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_tread_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_landing_depth_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.side_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rear_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rear_wings`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rainwater`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.window_kit`"
+          "text": "`sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.service_wall_brick`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.roof_pitch_deg`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_tread_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_landing_depth_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.side_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rear_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rainwater`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.window_kit`"
         },
         {
           "label": "Review",
