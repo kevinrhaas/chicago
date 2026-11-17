@@ -38168,7 +38168,9 @@
     "sources": [
      "chicago_blue_book_1904",
      "chicago_blue_book_1905",
-     "census_1900_chicago_t623_roll245"
+     "census_1900_chicago_t623_roll245",
+     "chicago_blue_book_1907",
+     "census_1910_chicago_t624_roll241"
     ],
     "liberty": "L-prairie-people-3548",
     "basis": "Identity from the household record; presence remains as graded there. Appearance, daily movements, company and clothes are reconstructed."
@@ -38497,7 +38499,13 @@
     "sources": [
      "chicago_blue_book_1904",
      "chicago_blue_book_1905",
-     "census_1900_chicago_t623_roll245"
+     "census_1900_chicago_t623_roll245",
+     "chicago_blue_book_1890",
+     "chicago_blue_book_1895",
+     "chicago_blue_book_1907",
+     "chicago_blue_book_1908",
+     "chicago_blue_book_1909",
+     "census_1910_chicago_t624_roll241"
     ],
     "liberty": "L-prairie-people-3548",
     "basis": "Identity from the household record; presence remains as graded there. Appearance, daily movements, company and clothes are reconstructed."
@@ -38835,7 +38843,8 @@
      "chicago_blue_book_1901",
      "chicago_blue_book_1909",
      "chicago_blue_book_1910",
-     "chicago_blue_book_1911"
+     "chicago_blue_book_1911",
+     "census_1900_chicago_t623_roll245"
     ],
     "liberty": "L-prairie-people-3548",
     "basis": "Identity from the household record; presence remains as graded there. Appearance, daily movements, company and clothes are reconstructed."
