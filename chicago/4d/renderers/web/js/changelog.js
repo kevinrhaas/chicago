@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3053, ts: '2026-11-17T00:59:17.511Z', date: 'Nov 16, 2026, 6:59 PM CT', title: 'An 18+ telling of every jaunt', kind: 'feature',
+    items: [
+      'Every jaunt in 1812, 1835 and 1904 now has an 18+ telling: the same stops, sources and title, told in full for grown-ups, with the harder history left in.',
+      'The Jaunts menu gets an 18+ pill after the grade filters once Settings › 18+ jaunts is on; each 18+ telling sits after the jaunt\'s grade versions.',
+    ] },
   { v: 3052, ts: '2026-11-17T00:33:39.372Z', date: 'Nov 16, 2026, 6:33 PM CT', title: 'People can run', kind: 'feature',
     items: [
       'People now run as well as walk, at four speeds: a jog, a run, a flat-out flight and a sprint. Both feet leave the ground between strides, the knees fold high, the arms pump bent at the elbow and the body leans into the run, all taken from measured runners.',
