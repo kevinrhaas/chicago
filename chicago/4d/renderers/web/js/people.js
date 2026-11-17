@@ -418,7 +418,9 @@ export async function mountPeople({
     shown: PAGE,
     open: null,
     matched: 0,
-    filtersOpen: !(compact && compact.matches),
+    // T-3629: folded under Filters on every screen, since the Navigator's column is narrow
+    // on a desktop too and eleven rows of pills pushed the first name below the fold (1835).
+    filtersOpen: false,
   };
 
   // ---- markup ----------------------------------------------------------- //
@@ -572,7 +574,7 @@ export async function mountPeople({
   compact?.addEventListener?.('change', (ev) => {
     // Widen to a desktop and the rows unfold; narrow to a phone and they fold
     // unless a filter is on, which a visitor would then lose sight of.
-    state.filtersOpen = !ev.matches || Object.keys(state.filters).length > 0;
+    state.filtersOpen = state.filtersOpen || Object.keys(state.filters).length > 0; // T-3629: never unfolds by itself
     paintFilters();
   });
 

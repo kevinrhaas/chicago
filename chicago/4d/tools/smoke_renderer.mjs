@@ -1771,6 +1771,9 @@ for (const [label, viewport, touch] of [
     }, sel);
     if (why) throw new Error(`clickChrome: ${why}`);
   };
+  // T-3629 (A8): inside the Navigator the section has no × of its own; the Navigator's closes it.
+  const closePanel = async () => clickChrome(await page.evaluate(() => !!document.getElementById('panel')?.closest('.nav-screen'))
+    ? '#nav-close' : '#panel-close');
   // T-2620: the drawer and its hamburger are gone; each of the drawer's sections is held by
   // a Navigator app (apps/drawer-host.js). A visitor reaches one by the app's rail icon —
   // on a phone the rail shows once the sheet is open, so the handle comes first — and,
@@ -1789,7 +1792,11 @@ for (const [label, viewport, touch] of [
       await clickChrome('#nav-grip');
       await opened();
     }
-    await clickChrome(`#nav-rail [data-app="${SECTION_APP[tab]}"]`);
+    // T-3629: Move left the rail; a visitor reaches it from Home's Move tile.
+    if (SECTION_APP[tab] === 'move') {
+      await clickChrome('#nav-rail [data-app="home"]');
+      await clickChrome('#nav-tile-move');
+    } else await clickChrome(`#nav-rail [data-app="${SECTION_APP[tab]}"]`);
     await opened();
     await page.waitForFunction(() => { const p = document.getElementById('panel'); return p && !p.hidden && !!p.closest('.nav-screen:not([hidden])'); },
       null, { timeout: 60_000, polling: 100 });
@@ -14998,7 +15005,9 @@ for (const [label, viewport, touch] of [
       const all = [...document.querySelectorAll('.panel-tab')];
       const out = { order: all.map((el) => el.dataset.tab), homeless: [], rows: {}, overflow: 0, squeezed: [], boxless: [] };
       for (const el of all) {
-        if (!el.hidden && !api.navigator.apps.includes(HOME[el.dataset.tab])) out.homeless.push(el.dataset.tab);
+        // T-3629: Move is registered off the rail (`inRail: false`, opened from Home's tile),
+        // so `has`, not the rail's `apps`, says whether a section has an app.
+        if (!el.hidden && !api.navigator.has(HOME[el.dataset.tab])) out.homeless.push(el.dataset.tab);
       }
       for (const app of ['people', 'guide', 'settings']) {
         if (!api.navigator.apps.includes(app)) continue;
@@ -15017,7 +15026,7 @@ for (const [label, viewport, touch] of [
       out.strayViewpointList = document.querySelectorAll('[data-panel="settings"] .anchor-btn, #anchors').length;
       return out;
     });
-    check(`${label}: every section the drawer had is held by a Navigator app on the rail`,
+    check(`${label}: every section the drawer had is held by a Navigator app`,
       // Go to's tab retired with the drawer (T-2620): Go to is the Jaunts app's own segment.
       tabStrip.order.join(',') === 'goto,travel,people,businesses,evidence,settings,controls,whatsnew' && !tabStrip.homeless.length
       && tabStrip.gotoRetired,
@@ -15031,7 +15040,7 @@ for (const [label, viewport, touch] of [
       tabStrip.strayViewpointList === 0, `${tabStrip.strayViewpointList} stray node(s)`);
 
     // G, from the walk, with the panel shut.
-    await clickChrome('#panel-close');
+    await closePanel();
     await page.keyboard.press('g');
     await page.waitForFunction(() => window.__chicago4d.jauntsApp?.current === 'goto' && window.__chicago4d.navigator.app === 'jaunts',
       null, { timeout: 15_000, polling: 100 }).catch(() => {});
@@ -16484,7 +16493,7 @@ for (const [label, viewport, touch] of [
     // cost 7 m 38 s of desktop part 13 on CI (6:05 to 13:43 in content build
     // 43614283619, whose part 13 was then killed at its 40-minute leg cap).
     // The chrome as the next block expects it: drawer closed.
-    await clickChrome('#panel-close');
+    await closePanel();
 
     await openSection('settings');
     const toggles = await page.evaluate(() => {
@@ -16707,11 +16716,11 @@ for (const [label, viewport, touch] of [
       const keys = ['landed', 'firstInspect', 'time', 'tab', 'showMe', 'jauntStarted', 'jauntFinished', 'tourStep', 'confidencePreset'];
       const cells = () => Object.fromEntries(keys.map((k) => [k, cell(k)]));
       const stored = () => { try { return JSON.parse(localStorage.getItem('chicago4d.fieldLog') ?? 'null'); } catch { return 'unreadable'; } };
-      // T-3563: the field log is on Settings' About tab.
-      document.querySelector('#settings-tabs [data-set-tab="about"]')?.click();
+      // T-3563 / T-3629: the field log is on Settings' Research tab.
+      document.querySelector('#settings-tabs [data-set-tab="research"]')?.click();
       await until(() => (document.getElementById('s-field-log')?.getBoundingClientRect().height ?? 0) > 0, 10000);
       const section = document.getElementById('s-field-log');
-      const out = { inAbout: !!section?.closest('#s-about'), shown: (section?.getBoundingClientRect().height ?? 0) > 0,
+      const out = { inAbout: !!section?.closest('#s-research'), shown: (section?.getBoundingClientRect().height ?? 0) > 0,
         labels: [...document.querySelectorAll('#s-field-log-rows dt')].map((d) => d.textContent) };
       document.getElementById('s-field-log-clear')?.click();
       await wait(100);
@@ -16734,7 +16743,7 @@ for (const [label, viewport, touch] of [
       await n.select('settings');
       await until(() => { const p = document.getElementById('panel'); return p && !p.hidden && !!p.closest('.nav-screen:not([hidden])'); }, 30000);
       if (api.hud.tab !== 'settings') api.hud.selectTab('settings');
-      api.hud.settingsTabs?.select('about');
+      api.hud.settingsTabs?.select('research');
       await until(() => (document.getElementById('s-field-log')?.getBoundingClientRect().height ?? 0) > 0, 30000);
       out.after = cells();
       out.afterStore = stored();
@@ -16751,7 +16760,7 @@ for (const [label, viewport, touch] of [
     const fieldSent = fieldRequests.filter((r) => !['GET', 'HEAD'].includes(r.method) || r.body || ['beacon', 'ping'].includes(r.type)
       || /fieldLog|field_log|firstInspect|confidencePreset/i.test(decodeURIComponent(r.url)));
     const zeroes = (c) => ['landed', 'firstInspect', 'tab', 'showMe', 'jauntStarted', 'jauntFinished', 'tourStep', 'confidencePreset'].every((k) => c?.[k] === '0');
-    check(`${label}: Settings › About has the field log in plain words, and Clear empties it (T-2660)`,
+    check(`${label}: Settings › Research has the field log in plain words, and Clear empties it (T-2660, T-3629)`,
       fieldLogRun.inAbout && fieldLogRun.shown && fieldLogRun.labels.length === 9 && fieldLogRun.labels.every((l) => !/_|[a-z][A-Z]/.test(l))
       && zeroes(fieldLogRun.cleared) && fieldLogRun.cleared.time === 'Not yet' && fieldLogRun.clearedStore === null
       && /^Cleared\./.test(fieldLogRun.status),
@@ -16952,7 +16961,7 @@ for (const [label, viewport, touch] of [
       soundRead.musicOff && soundRead.muted && soundRead.hidden, JSON.stringify(soundRead));
     // <<< T-2659
     await openSection('settings');
-    await clickChrome('#panel-close');
+    await closePanel();
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
@@ -17754,7 +17763,8 @@ for (const [label, viewport, touch] of [
     await page.waitForTimeout(350);
     const keyOpen = { level: await page.evaluate(() => window.__chicago4d.navigator.level), focus: await visibleFocus() };
     const order = await page.evaluate(() => window.__chicago4d.navigator.apps);
-    const jumpAt = order.indexOf('jump') + 1;
+    // T-3629: Jump left the rail (the year chip opens it), so the digit check opens Map.
+    const jumpAt = order.indexOf('map') + 1;
     if (jumpAt >= 1 && jumpAt <= 9) await page.keyboard.press(String(jumpAt));
     await page.waitForTimeout(500);
     const keyJump = { app: await page.evaluate(() => window.__chicago4d.navigator.app), focus: await visibleFocus() };
@@ -17770,7 +17780,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: the Navigator's rail is a tablist of labelled tabs, and the device opens, switches and closes by keyboard with focus always visible (T-2622)`,
       aria.list && aria.label === 'Navigator apps' && aria.tabs >= 2 && aria.labelled && aria.selected === 1 && aria.stray === 0 && aria.panels
       && keyOpen.level > 0 && keyOpen.focus.inNav && keyOpen.focus.visible
-      && keyJump.app === 'jump' && keyJump.focus.id === 'nav-app-jump' && keyJump.focus.visible
+      && keyJump.app === 'map' && keyJump.focus.id === 'nav-app-map' && keyJump.focus.visible
       && tabHome === 'home' && keyHome.app === 'home' && keyHome.focus.id === 'nav-home' && keyHome.focus.visible
       && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-collapse') && keyShut.focus.visible,
       JSON.stringify({ aria, keyOpen, jumpAt, keyJump, tabHome, keyHome, keyShut }));
@@ -17892,7 +17902,7 @@ for (const [label, viewport, touch] of [
     const restored = await page.evaluate(() => ({ list: document.getElementById('welcome-jaunts-content')?.parentElement?.id ?? null,
       picker: document.getElementById('welcome-picker')?.parentElement?.id ?? null, pickerHidden: document.getElementById('welcome-picker')?.hidden }));
     check(`${label}: Navigator Home's three choices open the Jaunts app on their segment; the rail opens it; Free roam docks it; the Welcome card gets its list and search back (T-2630)`,
-      segGoto.choices.join() === 'jaunts,goto,roam' && segGoto.app === 'jaunts'
+      segGoto.choices.join() === 'goto,roam' && segGoto.app === 'jaunts' /* T-3629: Take a Jaunt is the labelled rail tab now */
       && segGoto.tabs.join() === 'Jaunts:false,Go to:true,Free roam:false' && segGoto.pickerInApp && segGoto.pickerShown && segGoto.rows > 0
       && segJaunts.current === 'jaunts' && segJaunts.listInApp && viaRail === 'jaunts' && roamed === 0
       && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
@@ -19939,7 +19949,7 @@ for (const [label, viewport, touch] of [
     // and is the topmost thing at its own centre — and fails in one round trip
     // naming what covered it. T-0215 made that argument and this is the same
     // control on the same page; the trusted-event clicks it names stay as they are.
-    await clickChrome('#panel-close');
+    await closePanel();
 
     // --- free-fly -----------------------------------------------------------
     // Three properties worth pinning, all of which would rot silently:

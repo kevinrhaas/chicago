@@ -221,10 +221,11 @@ assert.ok(COUNTS.every((k) => kept.counts[k] === 1), JSON.stringify(kept.counts)
     assert.ok(!/fieldLog\.read\b/.test(src), `${file} never reads the log back`);
   }
   assert.deepEqual([...said].sort(), [...EVENTS].sort(), 'every event the log keeps has its hook, and no hook says another');
-  // The section is in Settings › About, with the ids the smoke reads.
+  // The section is in Settings › Research (T-3629: out of About, which every visitor
+  // reads), with the ids the smoke reads.
   const html = read('index.html');
-  const about = html.slice(html.indexOf('id="s-about"'), html.indexOf('data-panel="controls"'));
-  for (const id of ['s-field-log', 's-field-log-rows', 's-field-log-clear', 's-field-log-status']) assert.ok(about.includes(`id="${id}"`), `#${id} is in Settings › About`);
+  const research = html.slice(html.indexOf('id="s-research"'), html.indexOf('data-panel="controls"'));
+  for (const id of ['s-field-log', 's-field-log-rows', 's-field-log-clear', 's-field-log-status']) assert.ok(research.includes(`id="${id}"`), `#${id} is in Settings › Research`);
 }
 
-console.log('field log: counted on the device only, shown in About with Clear, never sent — OK');
+console.log('field log: counted on the device only, shown in Research with Clear, never sent — OK');
