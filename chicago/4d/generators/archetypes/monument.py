@@ -40,9 +40,11 @@ and the fringed pouch at his hip, Black Partridge's headband with its knot, stan
 feather and streamer, and his musket; and the hair the band lets fall, Black Partridge's
 long lock streaming back to his shoulder and the warrior's curl past his cheek; and the
 warrior's sash, a broad band round his hips with its cloth hanging at his right hip and
-beside his raised thigh (`DRAPERY`). Only Mrs. Helm's knot of hair is still a member
-below (`monument_figures.PROPS`). The sculpted faces, the surgeon's dress and the panels'
-reliefs are not modelled (the record's liberty says so);
+beside his raised thigh (`DRAPERY`); and the surgeon's loose pantaloons, rumpled in
+creases from the hip to the boot's top over the leg he stretches west (`ORNAMENTS`, on
+`_sleeve`). Only Mrs. Helm's knot of hair is still a member below
+(`monument_figures.PROPS`). The sculpted faces and the panels' reliefs are not modelled
+(the record's liberty says so);
 the rear, which no photograph used here shows, is the same masses seen from behind.
 """
 
@@ -791,9 +793,29 @@ ORNAMENTS = {
                  "w": (0.030, 0.034, 0.030, 0.020, 0.008)},
         "musket": {"muzzle": (0.16, 0.184, 1.904), "butt": (0.756, -0.61, 0.649), "lock": 0.735},
     },
+    # The surgeon's PANTALOONS (T-3594), in place of his rig's tight ones: both plates
+    # show the leg he stretches to the west in heavy, loose cloth rumpled in creases from
+    # under Mrs. Helm's skirt to the boot (ICHi-19208 x 465-557, y 385-452, dark, about
+    # 20 px through at the shin; Taylor's print x 400-470, y 560-640, the creases running
+    # round and across the shin, the cloth gathered wider over the boot's top). Each leg
+    # is a sleeve from the hip past the knee to the boot's top (`past`, the share of the shin it covers), its radii in pose units at
+    # even stations along it, `folds` running round it (count, phase, depth, twist along
+    # it) and `creases` across it (count along it, depth): the cloth bunched over the
+    # bent knee and gathered above the boot. The other leg, under her skirt in both
+    # plates, is dressed the same.
+    "surgeon": {
+        "pantaloons": {
+            "r": {"r": (0.095, 0.090, 0.082, 0.072, 0.068, 0.078), "past": 0.80},
+            "l": {"r": (0.095, 0.090, 0.082, 0.072, 0.066, 0.070), "past": 0.72},
+            "folds": ((3, 0.4, 0.07, 0.6), (5, 1.9, 0.05, -1.1), (8, 0.8, 0.035, 0.3)),
+            "creases": (5, 0.16),
+        },
+    },
 }
 ORN_SIDES = 8
 ORN_STEPS = 6
+SLEEVE_SIDES = 18
+SLEEVE_STEPS = 10
 
 
 def _v(a, b, s=1.0):
@@ -892,6 +914,64 @@ def _tube(m, pts, radii, conf, sides=ORN_SIDES, caps=(True, True)):
     _loft(m, rings, conf, caps)
 
 
+def _sleeve(m, pts, radii, folds, creases, conf, sides=SLEEVE_SIDES):
+    """Loose cloth round a limb (T-3594): a tube along `pts`, its radius read along it from
+    `radii` and rumpled by `folds` running round it, each (count round, phase, depth, twist
+    along it), and by `creases` across it, (count along it, depth), the bunching where the
+    cloth gathers; its normals off the surface itself, so the creases take the light."""
+    path = _smooth(pts, SLEEVE_STEPS)
+    n = len(path)
+    rs = _widths(radii, n)
+    cn, cd = creases
+    grid, centres = [], []
+    u_prev = None
+    for i, (c, t, r) in enumerate(zip(path, _tangents(path), rs)):
+        u = _perp(u_prev, t) if u_prev else _frame(t)[0]
+        v = _cross(t, u)
+        u_prev = u
+        s = i / (n - 1)
+        row = []
+        for kk in range(sides):
+            a = 2 * math.pi * kk / sides
+            wave = math.fsum(w * math.cos(cnt * a + ph + tw * 2 * math.pi * s) for cnt, ph, w, tw in folds)
+            # a crease's crest wanders round the limb, so the bunching reads as cloth
+            crest = math.cos(2 * math.pi * cn * s + 0.9 * math.cos(2 * a + 3.0 * s))
+            bunch = cd * max(0.0, crest) ** 3
+            rr = r * (1.0 + wave + bunch)
+            row.append(_v(_v(c, u, rr * math.cos(a)), v, rr * math.sin(a)))
+        grid.append(row)
+        centres.append(c)
+    rows = []
+    for i in range(n):
+        row = []
+        for kk in range(sides):
+            p = grid[i][kk]
+            du = _sub(grid[i][(kk + 1) % sides], grid[i][(kk - 1) % sides])
+            ds = _sub(grid[min(n - 1, i + 1)][kk], grid[max(0, i - 1)][kk])
+            nn = _norm(_cross(du, ds))
+            if _dot(nn, _sub(p, centres[i])) < 0:
+                nn = _scale(nn, -1.0)
+            row.append(m.vert(M_BRONZE, p, nn, conf))
+        rows.append(row)
+    for j in range(n - 1):
+        for kk in range(sides):
+            k2 = (kk + 1) % sides
+            a, b, cc, dd = rows[j][kk], rows[j][k2], rows[j + 1][k2], rows[j + 1][kk]
+            m.tri(M_BRONZE, a, b, cc)
+            m.tri(M_BRONZE, a, cc, dd)
+    for j in (0, n - 1):
+        c = centres[j]
+        nrm = _norm(_sub(c, centres[1] if j == 0 else centres[-2]))
+        cm = m.vert(M_BRONZE, c, nrm, conf)
+        ring = [m.vert(M_BRONZE, q, nrm, conf) for q in grid[j]]
+        for kk in range(sides):
+            k2 = (kk + 1) % sides
+            if j == 0:
+                m.tri(M_BRONZE, cm, ring[k2], ring[kk])
+            else:
+                m.tri(M_BRONZE, cm, ring[kk], ring[k2])
+
+
 def _vane(m, pts, widths, face, thick, conf):
     """A flat member along a path (a feather, a strap): half-widths read along it from
     `widths`, broad to `face`, `thick` through."""
@@ -988,6 +1068,14 @@ def _ornaments(m, name, k, place, at, conf):
     if "streamer" in o:
         f = o["streamer"]
         _tube(m, [at(on_head(q)) for q in f["path"]], tuple(k * r for r in f["r"]), conf, sides=6)
+    if "pantaloons" in o:
+        f = o["pantaloons"]
+        for side in ("r", "l"):
+            leg = f[side]
+            hip, knee, ankle = a[f"hip_{side}"], a[f"knee_{side}"], a[f"ankle_{side}"]
+            foot = _v(knee, _sub(ankle, knee), leg["past"])
+            _sleeve(m, [at(hip), at(knee), at(foot)], tuple(k * r for r in leg["r"]),
+                    f["folds"], f["creases"], conf)
     if "musket" in o:
         f = o["musket"]
         mz, bt = place(f["muzzle"]), place(f["butt"])
