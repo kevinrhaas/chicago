@@ -1340,6 +1340,8 @@ function signatureDistance(a, b) {
  * Read before the baseline and after restoration; counters can identify a changed
  * scene, but a changed bracket alone does not attribute a pixel residual. */
 async function captureWithRestoreState(page, grid, when) {
+  // T-3630: the pair's baseline holds the people out of frame (holdPairPeople).
+  if (when === 'before') await holdPairPeople(page);
   return page.evaluate(async ({ grid, when }) => {
     const a = window.__chicago4d;
     // SPDX-License-Identifier: GPL-3.0-or-later
@@ -1438,8 +1440,9 @@ async function captureWithRestoreState(page, grid, when) {
  * level already asked for lands from its own promise (Actor.setLod -> show), so holding
  * `update` alone is not enough either (T-3613 measured that). So from the baseline to the
  * restored frame the people's layer is not drawn (no figure in any of the three captures,
- * none casting a shadow) and `update` is held (no level asked for or let go); the pair's own
- * `setAnimationHold(false)` is followed by letGoPairPeople. None of these checks reads a person. */
+ * none casting a shadow) and `update` is held (no level asked for or let go); every pair's own
+ * `setAnimationHold(false)` is followed by letGoPairPeople (the yards and confidence pairs
+ * too, which take their baseline from captureWithRestoreState directly). None of these checks reads a person. */
 async function holdPairPeople(page) {
   await page.evaluate(() => {
     const h = window.__chicago4d.humans;
@@ -1463,7 +1466,6 @@ async function letGoPairPeople(page) {
  * A scene that will not settle is reported and the plain capture taken, so the pair is still
  * read and the reason is in the log rather than an exception ending the part. */
 async function settledBaseline(page, grid, what) {
-  await holdPairPeople(page);
   try {
     return (await captureWithRestoreState(page, grid, 'before')).image;
   } catch (err) {
@@ -3086,6 +3088,7 @@ for (const [label, viewport, touch] of [
     await page.evaluate(() => { window.__chicago4d.enclosures.group.visible = true; });
     const { image: yardRestored, state: yardStateAfter } = await captureWithRestoreState(page, 96, 'after');
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    await letGoPairPeople(page);
     const dYard = signatureDistance(yardWith, yardWithout);
     const dYardRestored = signatureDistance(yardWith, yardRestored);
     check(`${label}: the yard fence reaches the screen from inside the yard`,
@@ -8119,6 +8122,7 @@ for (const [label, viewport, touch] of [
     const { image: back, state: confidenceStateAfter } = await captureWithRestoreState(page, 12, 'after');
     const dBack = signatureDistance(off, back);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    await letGoPairPeople(page);
     // With the clock held these are two captures of one unchanged scene, so the
     // restored frame should be the SAME frame. The residual left is readback
     // noise, not weather; a confidence tint left enabled changes the mean
