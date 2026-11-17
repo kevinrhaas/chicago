@@ -398,8 +398,10 @@
                 "chord_m": 2.4,
                 "rise_m": 1.2
               },
-              "corbel": {
-                "courses": 4
+              "apron": {
+                "form": "round",
+                "radius_m": 0.5,
+                "foot_m": 5.5
               },
               "storeys": [
                 {
@@ -431,7 +433,7 @@
             "chicagology_2021_high_photo",
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "The turret, read off the photograph and the 1911 sheet: the round corner turret the register names stands at the front's north corner over the porch, its body from the second floor (the ledge over the porch at y 1000-1060 px) to the main eave (y 690 px, 9.8 m) and a slate cone to about 14.2 m (y 245 px) under a finial (not built: K08 sets no finial on a half cone closed against the roof; in the match record); the sheet draws its round about 1.3 m before the front (traced part, 2.8 m across). Built as a round K08 oriel corbelled out over the porch's mouth, a half round 2.4 m across and 1.2 m out (the kit's deepest round oriel, a half round so its cone closes against the roof; the trace's round is about 2.8 m across, within about 0.2 m a side)."
+          "note": "The turret, read off the photograph and the 1911 sheet: the round corner turret the register names stands at the front's north corner over the porch, its body from the second floor (the ledge over the porch at y 1000-1060 px) to the main eave (y 690 px, 9.8 m) and a slate cone to about 14.2 m (y 245 px) under a finial (not built: K08 sets no finial on a half cone closed against the roof; in the match record); the sheet draws its round about 1.3 m before the front (traced part, 2.8 m across). Built as a round K08 oriel on a rounded apron (its foot 0.5 m under the second floor, where the photograph's ledge runs over the porch) over the porch's mouth, a half round 2.4 m across and 1.2 m out (the kit's deepest round oriel, a half round so its cone closes against the roof; the trace's round is about 2.8 m across, within about 0.2 m a side)."
         },
         "chimneys": {
           "value": {

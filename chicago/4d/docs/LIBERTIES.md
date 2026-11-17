@@ -44583,7 +44583,7 @@ eave (11.0 m) and its south-facing gable (to 14.6 m); the places of two of its t
 
 **What is invented.** The brick's colour (pressed red: the print is monochrome); the walls' thickness; the
 north flank's and rear's common brick and every light there; the plain stone heads over the street lights;
-the stoop's width, tread and landing; the turret's corbel courses; the slopes behind the gable (a hip at 49
+the stoop's width, tread and landing; the turret's rounded apron; the slopes behind the gable (a hip at 49
 degrees, its street end hidden by the gable); the body behind the front block (a slate hip, two storeys)
 and the ranges' storeys, flat roofs and lights; the boarded street-line fence and its gate; the yard.
 
