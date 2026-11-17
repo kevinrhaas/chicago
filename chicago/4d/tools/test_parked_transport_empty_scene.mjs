@@ -204,6 +204,8 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
           // T-3557: the ride's readers (where the eye is, the ground to get down to, the standing
           // eye, reduced motion, the reins' words) and the boarding hook (ends a Go to / follow).
           'visitorEye', 'groundAt', 'walkEye', 'reducedMotion', 'reinsHint', 'onBoard',
+          // T-3560: the pace word said as the visitor urges a driven team on.
+          'say',
           // T-3557: the Glessner ride's parked twin, coach house and off-road floor.
           'parked', 'coachHouse', 'pathHeightAt'].sort());
         assert.equal(options.parked, null, 'no parked layer in this boot: the ride has no stand-in');
