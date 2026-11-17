@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3066, ts: '2026-11-17T08:19:15.189Z', date: 'Nov 17, 2026, 2:19 AM CT', title: 'Prairie broughams match their 1893 catalogue plate; covered wagons look real', kind: 'improvement',
+    items: [
+      'The four broughams driven on Prairie Avenue in 1904 now carry the closed driving box, dash and swept irons of Studebaker\'s 1893 plate, and lose the rear mudguards the plate never had. Each coachman still sits exactly where he was fitted.',
+      'The two covered wagons at the Western Hotel and Wolf Point in 1835 now stand on the photographed farm wagon, in their own blue-and-red and oak paints, with canvas weathered its own way.',
+      'Phones draw the covered wagons from the farm wagon\'s lighter level.',
+    ] },
   { v: 3065, ts: '2026-11-17T07:29:54.203Z', date: 'Nov 17, 2026, 1:29 AM CT', title: 'Fort Dearborn monument: the warrior\'s sash and its hanging cloth', kind: 'improvement',
     items: [
       'On the Fort Dearborn monument (18th Street, 1904), the warrior now wears the broad sash both photographs show wrapped round his hips, sloping down to his right hip, with its fringed ends flying out to the west. Before, he had only a thin belt and a narrow strip of cloth.',
