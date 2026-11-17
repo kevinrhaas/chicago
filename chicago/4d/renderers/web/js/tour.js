@@ -1,7 +1,7 @@
 /**
  * Tour mode, the Field Check (T-2663, NAV-801; design doc section 11, M10).
  *
- * Nine steps the Navigator runs itself, framed as a Confluence Laboratory field check.
+ * Ten steps (T-3642) the Navigator runs itself, framed as a Confluence Laboratory field check.
  * Every step waits for the visitor to actually do the thing — read from the page through
  * `probe()`, never assumed — and Skip is always there. Progress is kept per device
  * (localStorage, inside try/catch), so a reload mid-tour resumes at the same step; it can
@@ -17,18 +17,22 @@
  * what the town does now: the card's tabs (T-3435), a People step for the directory and
  * Follow (T-3430, T-3404) where the scene has a People app, and Go to by photo (T-3436).
  *
+ * T-3642 (the owner, 2026-11-17) brings it to the interface as it is after the T-3629 sweep:
+ * an Interact step (talk to anyone, ride a horse, take a boat) and a Jaunts step take the
+ * People step's place, and the bubbles say Shift / a full push runs.
+ *
  * Bubbles are 14 words or fewer (section 11). The last step's Finish ends the tour and calls
  * `onFinish`, which awards the Navigator License keepsake (T-2665, js/license.js); Skip
  * ends it without.
  *
- * `probe()` returns { yawDeg, e, n, opens, selected, card, apps, touch, level, scene, front, people }:
+ * `probe()` returns { yawDeg, e, n, opens, acts, selected, card, apps, app, touch, level, scene, front }:
  * the camera's bearing, where the visitor stands, how many times Inspect or a building
- * card has opened on a structure, whether one is open now (and whether it is the floating
+ * card has opened on a structure, how many times the visitor has used the Interact key
+ * (T-3642), whether one is open now (and whether it is the floating
  * card, T-3022), how many times each Navigator
  * app has been opened, whether the visitor is on touch, how far the Navigator is open
  * (0 docked), the scene id, the name of the building in front of the visitor (or
- * null), and whether the rail has a People app (false skips the People step). The
- * counters are what make a step wait for an action taken DURING it: a card
+ * null). The counters are what make a step wait for an action taken DURING it: a card
  * already open, or a menu already open, when the step begins does not complete it.
  */
 import { count as countField } from './field-log.js'; // T-2660
@@ -45,17 +49,30 @@ const menuOpen = (name, what) => (p) => (p.touch && !(p.level > 0)
   ? `Open the Navigator, then ${name}: ${what}.`
   : `Open ${name} on the rail: ${what}.`);
 
-/** The nine steps. `task` is the field-check line over the bubble; `target` the selector
+/** The ten steps. `task` is the field-check line over the bubble; `target` the selector
  *  the spotlight rings (or a function of the probe); `done(p, base)` whether the step's
- *  real action has happened; `when(p)`, where given, whether the step applies here (People
- *  only where the scene has a People app on the rail) — a step that does not is passed over
- *  and not counted. */
+ *  real action has happened; `when(p)`, where given, whether the step applies here — a
+ *  step that does not is passed over and not counted.
+ *
+ *  T-3642 (the owner, 2026-11-17: "We have added a lot of capabilities and design changes
+ *  so update the tour"): the rail is labelled and is a tab bar on a phone (T-3629); Look and
+ *  Walk name Click-to-look and Shift / a full push to run; Interact is the town's one "use"
+ *  key, for a person (Greet, Tell me a story, Ask a question), a horse to ride, a boat's
+ *  helm or a gate (T-3319, T-3553, T-3560, T-3612); Jaunts are narrated and told for the
+ *  visitor's grade (T-3578, T-3590). People's own step gave way to Interact: the People
+ *  key is labelled on the rail, and Ready names it. */
 export const STEPS = [
-  { task: 'Your device', bubble: () => 'This is your Navigator. Every menu lives on its rail.',
+  { task: 'Your device',
+    bubble: (p) => (p.touch ? 'This is your Navigator. Tap it open: every menu is a tab.'
+      : 'This is your Navigator. Every menu is a key on its rail.'),
     target: '#navigator', action: 'next' },
-  { task: 'Look around', bubble: () => 'Look around. Drag the right side of the screen (or move the mouse).',
+  { task: 'Look around',
+    bubble: (p) => (p.touch ? 'Look around. Drag the right side of the screen.'
+      : 'Look around. Click the scene, then move the mouse.'),
     target: null, done: (p, base) => base.turned >= YAW_DEG },
-  { task: 'Walk', bubble: () => 'Walk. Left thumb, or W A S D. Head for the corner.',
+  { task: 'Walk',
+    bubble: (p) => (p.touch ? 'Walk with your left thumb. Push it all the way to run.'
+      : 'Walk with W A S D. Hold Shift to run.'),
     target: null, done: (p, base) => Math.hypot(p.e - base.e, p.n - base.n) >= WALK_M },
   { task: 'Select a building',
     // Section 11: in 1904 the Glessner House; in 1835 and 1812 the building in front of you.
@@ -68,19 +85,24 @@ export const STEPS = [
     bubble: (p) => { const key = p.card ? 'Close' : 'Back';
       return p.touch ? `Release it. Tap ${key}, or tap the street.` : `Release it. Press Esc, click ${key}, or click the street.`; },
     target: (p) => (p.card ? '#popup:not([hidden]) .pop-close' : '#nav-app-inspect .insp-back'), done: (p) => !p.selected },
+  // T-3642: the Interact key, used during the step (a press, or its list opened on a person).
+  // 1904 has no boat to take; the ring is on the key once it shows.
+  { task: 'Interact',
+    bubble: (p) => { const what = String(p.scene) === '1904' ? 'a person or a horse' : 'a person, a horse or a boat';
+      return `Walk up to ${what}. ${p.touch ? 'Tap Interact' : 'Press R to interact'}.`; },
+    target: '#btn-interact', done: (p, base) => (p.acts ?? 0) > (base.acts ?? 0) },
+  // T-3642: Jaunts, narrated (T-3578) and told for the visitor's grade (T-3590, T-3629).
+  { task: 'Jaunts', bubble: menuOpen('Jaunts', 'narrated stories of this place, for your grade'),
+    target: railKey('jaunts'), done: opened('jaunts') },
   // T-3629: Move left the rail; it is Home's Move tile. The ring goes dock, Home key, tile.
   { task: 'Move',
     bubble: (p) => (p.touch && !(p.level > 0) ? 'Open the Navigator, then Move on Home: walk, run, ride or fly.'
       : 'Open Move on Home: walk, run, ride or fly.'),
     target: (p) => (p.touch && !(p.level > 0) ? '#navigator' : p.app === 'home' ? '#nav-tile-move' : railKey('home')(p)),
     done: opened('move') },
-  // T-3445: People — the directory (T-3430), and in 1904 Follow for someone out in town (T-3404).
-  { task: 'People',
-    bubble: (p) => menuOpen('People', String(p.scene) === '1904' ? 'find anyone, visit their house, follow them' : 'find a person or a household')(p),
-    target: railKey('people'), done: opened('people'), when: (p) => p.people !== false },
-  { task: 'Settings', bubble: menuOpen('Settings', 'light, season, time of day, people, labels'),
+  { task: 'Settings', bubble: menuOpen('Settings', 'name cards, light, season, time of day, sound'),
     target: railKey('settings'), done: opened('settings') },
-  { task: 'Ready', bubble: () => 'Ready. Take a Jaunt, Go to a place or a photo, or Jump years.',
+  { task: 'Ready', bubble: () => 'Ready. Find People, Go to a photo, or Jump years.',
     target: '#navigator', action: 'finish' },
 ];
 
@@ -110,12 +132,12 @@ export function createTour({ probe = () => ({}), render = () => {}, onFinish = (
   }
   function paint(v) { shown = v; render(v); }
   function enter(i, { resumed = false } = {}) {
-    // A step that does not apply here (no People app on this rail) is passed over.
+    // A step that does not apply here is passed over.
     while (i < STEPS.length - 1 && !applies(STEPS[i], sample())) i++;
     step = i;
     if (!resumed) countField('tourStep'); // T-2660: a step reached, not one a reload resumes
     const p = sample();
-    base = { e: p.e ?? 0, n: p.n ?? 0, opens: p.opens ?? 0, apps: { ...(p.apps ?? {}) }, turned: 0 };
+    base = { e: p.e ?? 0, n: p.n ?? 0, opens: p.opens ?? 0, acts: p.acts ?? 0, apps: { ...(p.apps ?? {}) }, turned: 0 };
     lastYaw = p.yawDeg ?? null;
     write({ active: true, step, done: !!read()?.done });
     paint(view());
