@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1155,
+  "count": 1156,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -75638,6 +75638,46 @@
       ],
       "work_refs": [
         "T-3553"
+      ]
+    },
+    {
+      "id": "L-wagons-brougham-3558",
+      "title": "the plate-matched Brougham on the 1904 carriages, the covered wagons on the photographic farm box, and the farm box's qualification",
+      "section": "per_subject",
+      "subjects": [
+        "western_hotel"
+      ],
+      "covers": [],
+      "recorded": "2026-11-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-12 and 2026-11-17: *\"Finish the photographic wagons and Brougham: the farm-box master qualified, the covered wagons upgraded but kept distinct, and the Brougham matched to its 1893 plate and qualified in town.\"* Three things change. The four driven 1904 broughams (Hans Johnson's on the Prairie loop, Henry Windish's and Joseph Daniels's on the north and south loops, and Charles Nelson's Glessner coach) now draw the V20 Brougham, the walkthrough's brougham v20 {near,mid,far} code, derived from V19 by the produce tool. Against Studebaker's 1893 catalogue plate (leaf 0095, at its solved camera) V19 seated the coachman on four bare posts above a loose footboard and carried a thin mudguard over each rear wheel. The plate draws a closed black driving box with an upright dash, an iron top rail and stays, a swept iron under the box, and no rear mudguards. V20 closes the box sides and front, adds the dash, rail, stays and swept irons, and removes the mudguards and their two supports. Its register (the discrepancies tool) keeps one difference open on purpose: the box rides about 0.3 m lower than the plate's, because every 1904 coachman and his livery were fitted on V19's seat and footboard. Those surfaces are byte-identical in V20 (the check tool proves it), and each row's driver binding names V19 as the fitted basis (fitted on). Door sash and hub-cap tone are within tolerance, the dark rear quarter is unresolved in the plate, and the plate's coachmen, passenger and pair are not claimed by the empty model. The two 1835 covered wagons (the Western Hotel's blue/oxide and Wolf Point's oak/dark oak) stand on the licensed photographic farm-box master instead of the plain W01 gear. Each keeps its own canvas sheet, sewn hems, five bows and laid-by yoke, its own stand, bearing, seed and finish family. Its seeded body and gear colours are now painted over the master's photographed boards as material multipliers, and its own seed draws grime at the hems and ends, rain streaks between the bows and a sun-faded crown into the canvas. The cover's skirt is eased down onto the master's own uneven side boards, which the artist modelled weathered, one top board lower than the other (the upgrade v2 tool). The farm-box master's photographic acceptance is set true on its record of matched views beside the Wild 1835 painting and the Buffalo print, ground and tree clearance in the scenes that use it, and its levels' costs (the walkthrough's qualification code)."
+        },
+        {
+          "label": "Not invented",
+          "text": "the Brougham's closed box, dash, rail, stays and swept irons and the absence of rear mudguards are read off the 1893 plate (Studebaker Brothers Manufacturing Company). The covered wagon's family (four spoked wheels, smaller in front, a blue box, red-brown gear and a pale canvas cover) is the lower-right wagon of Wild's 1835 *Third and Vine* (J. C. Wild. Third and Vine Northside. 1835)."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "the V20 box's panel outline, dash rake, rail and stay sizes and the swept irons' path are drawn to the plate's proportions, not measured; the box height stays V19's. Every covered wagon's paint, the canvas ageing pattern and the skirt fit are reconstructed. Wild's cover is lower and loosely draped where ours stands on five bows; it stays as v1 built it. The painted farm box keeps the artist's weathered boards and iron, which are a modern optical reference, not an 1835 specimen."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a refit of the 1904 coachmen to a box at the plate's height; a dated picture of a covered wagon in Chicago; a Studebaker drawing that shows the rear quarter."
+        },
+        {
+          "label": "Review",
+          "text": "the discrepancies tool, the walkthrough's brougham v20 code, the walkthrough's qualification code, the placements data (covered models)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-17 (T-3558)."
+        }
+      ],
+      "work_refs": [
+        "T-3558"
       ]
     },
     {

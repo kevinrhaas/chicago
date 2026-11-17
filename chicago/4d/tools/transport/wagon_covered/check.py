@@ -4,6 +4,8 @@ import hashlib
 import json
 import struct
 
+from wagon_covered import upgrade_v2
+
 COVERED_MODELS = {'covered_w01_western_blue', 'covered_w01_wolfpoint_oak'}
 
 
@@ -30,7 +32,9 @@ def validate_covered(record, originals, root):
     # This checker owns the covered subset. Keep every existing required family,
     # allow only the separately validated named Brougham addition, reject all others.
     required_models = {'wagon_w01', 'carriage_c02'} | COVERED_MODELS
-    assert required_models <= set(record['models']) <= required_models | {'studebaker_brougham_1893'}, 'Unknown or missing model family'
+    # farm_box_w01: the 1835 street's parked farm-box master rows (T-3605).
+    optional = {'studebaker_brougham_1893', 'farm_box_w01'}
+    assert required_models <= set(record['models']) <= required_models | optional, 'Unknown or missing model family'
     variants = {v['asset_id']: v for v in recipe['variants']}
     products = {v['model']: v for v in source['variants']}
     assert set(variants) == set(products) == COVERED_MODELS, 'Only two reviewed covered variants'
@@ -78,10 +82,16 @@ def validate_covered(record, originals, root):
             assert all(isinstance(y, (int, float)) and abs(y) < float('inf') for y in heights)
             assert max(heights)-min(heights) == stand['wheel_plane_span_m'] <= .03, 'Unchanged 30mm ground guard'
             spec = record['models'][model]
-            assert spec['file'] == f'transport/covered-wagon/{model}/covered-w01.glb'
-            assert spec['type'] == 'Covered wagon' and not spec.get('support_file')
+            # T-3558 v2: the wagon's own v1 cover, byte-exact and seeded, on the farm-box master.
+            assert spec['file'] == upgrade_v2.FARM_BOX, 'Covered v2 stands on the photographic farm-box master'
+            assert spec['file_light'] == 'transport/farm-box-master/farm-box-mid.glb', 'Phones take the master\'s own mid level'
+            assert spec['support_file'] == f'transport/covered-wagon/{model}/covered-v2-cover.glb', 'Each wagon keeps its own cover'
+            assert spec['type'] == 'Covered wagon'
             assert spec['wheel_contacts_m'] == [[-.605, -1.175], [-.605, 1.175], [.605, -1.175], [.605, 1.175]]
-            glb = root/'renderers/web'/spec['file']
+            assert spec['paint'] == upgrade_v2.paint(coat), 'Paint must be this wagon\'s own seeded coat'
+            cover = (root/'renderers/web'/spec['support_file']).read_bytes()
+            assert cover == upgrade_v2.cover(model, coat), 'Stale or substituted v2 cover; run upgrade_v2.py'
+            glb = root/'renderers/web'/f'transport/covered-wagon/{model}/covered-w01.glb'
             side = glb.with_suffix('.json')
             assert digest(glb) == product['glb_sha256'] and digest(side) == product['sidecar_sha256'], 'Reviewed source product changed'
             metadata = json.loads(side.read_text())
