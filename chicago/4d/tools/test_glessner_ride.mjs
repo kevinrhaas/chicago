@@ -141,7 +141,7 @@ const parked = Object.values(read('data/transport/parked/placements.json').scene
   a.update(.1);
   ok(a.state === 'stopped' && a.reason === 'stand' && a.hasCab, 'loaded, it stands at the house');
   const cab = a.seat('cab'), box = a.seat('box');
-  ok(near(cab.y, 1.296 + .58, 1e-9) && cab.kind === 'cab' && box.y > cab.y + .2, `the cab eye ${cab.y.toFixed(3)} m, under the box's ${box.y.toFixed(3)} m`);
+  ok(near(cab.y, row.cab_seat_local_m[1] + row.cab_eye_m, 1e-9) && cab.kind === 'cab' && box.y > cab.y + .2, `the cab eye ${cab.y.toFixed(3)} m, under the box's ${box.y.toFixed(3)} m`);
   const door = a.toWorld([row.cab_stand_local_xz_m[0], 0, row.cab_stand_local_xz_m[1]]);
   const yaw = Math.PI - parked.bearing_deg * DEG;
   const [sx, sz] = row.cab_stand_local_xz_m;
@@ -372,23 +372,34 @@ const hitAlong = (from, dir, far = 3) => { ray.set(from, dir.clone().normalize()
   const middle = new THREE.Vector3(0, 1.45, -.45);
   const wallAt = d => hitAlong(middle, new THREE.Vector3(...d), 2)?.point;
   const inner = { left: wallAt([1, 0, 0]).x, right: wallAt([-1, 0, 0]).x, front: wallAt([0, 0, 1]).z, back: wallAt([0, 0, -1]).z };
+  // The seat box under the cushion (brougham-v20 bench base, T-3553): its bottom, read upward
+  // from under the coach, and its front, read back from over the floor.
+  const boxBottom = hitAlong(new THREE.Vector3(spec.seat_local_m[0], .3, -.72), dirs[0])?.point.y;
+  const boxFront = hitAlong(new THREE.Vector3(spec.seat_local_m[0], row.cab_seat_local_m[1] - .15, -.2), new THREE.Vector3(0, 0, -1))?.point.z;
+  ok(boxBottom > .6 && boxBottom < row.cab_seat_local_m[1] - .1 && boxFront < -.5 && boxFront > -.6, `the seat box under the cushion, ${boxBottom?.toFixed(3)} m up to the cushion, front at z ${boxFront?.toFixed(3)}`);
   let outside = 0, roof = Infinity, floor = Infinity, wall = Infinity, cushion = 0, cushionDepth = 0;
   for (const q of points) {
     // (The floor stops 5 cm short of the seat's riser, brougham-near.glb: a ray down that seam
     // finds nothing, so a point over it is read either side of it.)
     const upHit = hitAlong(q, dirs[0]);
-    const downHit = hitAlong(q, dirs[1]) ?? hitAlong(q.clone().setZ(q.z + .07), dirs[1]) ?? hitAlong(q.clone().setZ(q.z - .07), dirs[1]);
+    const downHit = hitAlong(q, dirs[1]) ?? hitAlong(q.clone().setZ(q.z + .07), dirs[1]) ?? hitAlong(q.clone().setZ(q.z - .07), dirs[1])
+      // (and the seat stops 8 cm short of the side walls: an elbow over that slot is read inboard of it)
+      ?? hitAlong(q.clone().setX(q.x - Math.sign(q.x) * .1), dirs[1]);
     const within = q.x > inner.right && q.x < inner.left && q.z > inner.back && q.z < inner.front;
-    // Into the cushion's front lip (the seat timber under the leather at 1.217 m): the underside
-    // of his thighs sits into it, as a seated man sinks into a cushion; counted, not refused.
-    if (upHit && !downHit && within && q.y > row.cab_seat_local_m[1] - .12 && q.z < -.55) { cushion++; cushionDepth = Math.max(cushionDepth, 1.217 - q.y); continue; }
+    // Into the seat: sat back against the squab, the underside of him and the skirts of his
+    // coat sink through the cushion into the closed seat box under it, where nothing shows;
+    // counted, not refused, and never below the box's bottom or out of its front.
+    if (upHit && within && q.y > boxBottom + .01 && q.y < row.cab_seat_local_m[1] && q.z < boxFront && Math.abs(q.x) < .5) { cushion++; cushionDepth = Math.max(cushionDepth, row.cab_seat_local_m[1] - q.y); continue; }
     if (!upHit || !downHit || !within) { outside++; continue; }
     roof = Math.min(roof, upHit.distance); floor = Math.min(floor, downHit.distance);
     wall = Math.min(wall, q.x - inner.right, inner.left - q.x, q.z - inner.back, inner.front - q.z);
   }
   const escaped = outside;
-  ok(cushion <= points.length * .005 && cushionDepth <= .04, `${cushion} points of him sit into the cushion's front lip, at most ${(cushionDepth * 100).toFixed(1)} cm`);
+  ok(cushion <= points.length * .02, `${cushion} points of him sit into the seat, at most ${(cushionDepth * 100).toFixed(1)} cm under the cushion top, all inside the seat box`);
   ok(escaped === 0, `every point of him is inside the cab (${escaped} of ${points.length} not; walls x ${inner.right.toFixed(3)} to ${inner.left.toFixed(3)}, z ${inner.back.toFixed(3)} to ${inner.front.toFixed(3)})`);
+  // Upright (Kevin, 2026-11-17: "I can't believe that it would be normal for a rider to have
+  // to crouch while riding"): no bend at his back or neck, and room over his head.
+  ok(!CAB_SEAT_POSE.bends.some(([n]) => /^(spine|neck|head)/.test(n)) && roof >= .05, `he sits upright, ${(roof * 100).toFixed(1)} cm under the roof lining`);
   // The visitor's eye on the kerbside half of the seat.
   const eye = new THREE.Vector3(row.cab_seat_local_m[0], row.cab_seat_local_m[1] + row.cab_eye_m, row.cab_seat_local_m[2]);
   let eyeClear = Infinity;
@@ -402,7 +413,7 @@ const hitAlong = (from, dir, far = 3) => { ray.set(from, dir.clone().normalize()
   ok(fromHim >= .2, `and ${fromHim.toFixed(2)} m from Mr. Glessner`);
   const head = Math.max(...points.map(q => q.y));
   lines.push(`seats PASS: Mr. Glessner bent to the cab (${seat.bones.length} bones, hat off), hands on his thighs (${laps.join('; ')}), every sampled point inside; roof ${(roof * 100).toFixed(1)} cm over his head (top ${head.toFixed(3)} m), `
-    + `walls ${(wall * 100).toFixed(1)} cm, ${cushion} points up to ${(cushionDepth * 100).toFixed(1)} cm into the cushion lip; visitor eye y ${eye.y.toFixed(3)} m (cushion ${row.cab_seat_local_m[1]} + ${row.cab_eye_m}), ${(eyeClear * 100).toFixed(1)} cm clear, roof ${(up.distance * 100).toFixed(1)} cm over, ${fromHim.toFixed(2)} m from him`);
+    + `walls ${(wall * 100).toFixed(1)} cm, ${cushion} points into the seat (to ${(cushionDepth * 100).toFixed(1)} cm under the cushion top); visitor eye y ${eye.y.toFixed(3)} m (cushion ${row.cab_seat_local_m[1]} + ${row.cab_eye_m}), ${(eyeClear * 100).toFixed(1)} cm clear, roof ${(up.distance * 100).toFixed(1)} cm over, ${fromHim.toFixed(2)} m from him`);
 }
 
 // ---------------------------------------------------------------- the ride: get in, round, get out
@@ -440,7 +451,7 @@ const hitAlong = (from, dir, far = 3) => { ray.set(from, dir.clone().normalize()
   ok(doorMock.state === 'shut', 'the door shut behind');
   ok(a.state === 'moving' && a.mode === 'route', 'and the round begins');
   const seatNow = ride.seatOf(a);
-  ok(near(seatNow.y, 1.296 + .58, 1e-6), 'the eye held on the cab seat');
+  ok(near(seatNow.y, row.cab_seat_local_m[1] + row.cab_eye_m, 1e-6), 'the eye held on the cab seat');
   ok(ids().includes('stop') && ids().includes('get-down') && !ids().includes('take-reins'), `inside: ${ix.actionsOf(handle.thing).map(x => x.label).join(' / ')}`);
   ok(ix.actionsOf(handle.thing).find(x => x.id === 'get-down').label === 'Get out', 'Get out, not Get down');
   run(20);

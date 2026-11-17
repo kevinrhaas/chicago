@@ -6,14 +6,13 @@
  * No portable figure carries a passenger's clip. The coachmen's seated clip
  * (`sit_drive_look_v2`, on the anonymous working driver's export) is played on his own
  * body: both are the contract skeleton (the same 56 bones), and the clip is a vehicle-local
- * articulated pose for the box seat. The cab is lower than the box is open: its cushion is
- * 0.75 m under the roof lining (brougham-near.glb, measured: cushion top 1.296 m, lining
- * 2.046 m above the wheels' ground at the seat; 0.373 m above the floor), less than a man
- * sitting upright (the clip's head top is 0.95 m over the cushion). So the clip is moved
- * onto the cab's seat (`root_local_m`) and bent there, each bend a world rotation about the
- * vehicle's lateral axis measured once on the clip's first pose and applied as a local
- * delta: thighs raised for the low seat, shins brought back to the floor, the back bent
- * forward from the lower spine, the neck and head lifted again to look ahead. Then each hand
+ * articulated pose for the box seat. The cab's seat is lower over its floor than the box's
+ * over its footboard (brougham-v20-near.glb: cushion top 1.086 m, 0.363 m over the floor,
+ * the roof lining about 0.95 m over it, enough for a man sitting upright since the cab was
+ * lowered for T-3553). So the clip is moved onto the cab's seat (`root_local_m`), back
+ * against the squab, and bent there, each bend a world rotation about the vehicle's lateral
+ * axis measured once on the clip's first pose and applied as a local delta: thighs raised
+ * for the low seat, shins brought back to the floor, the back left upright. Then each hand
  * is laid on its own thigh (`lap`: the arm turned to reach it, the hand palm down, fingers
  * toward the knee), each frame, so it stays there as he breathes. The hat is off indoors. tools/test_glessner_ride.mjs measures
  * the bent figure against the cab's own surfaces (roof, floor, walls).
@@ -31,10 +30,10 @@ const DEG = Math.PI / 180;
 /** The default bends (degrees about the vehicle's lateral axis unless a third entry names 'y' or 'z'; + tips a forward-pointing limb down). */
 export const CAB_SEAT_POSE = Object.freeze({
   bends: Object.freeze([
+    // Kevin, 2026-11-17: "I can't believe that it would be normal for a rider to have to
+    // crouch while riding". With the cab lowered he sits upright: no bend at the spine or neck.
     ['thigh_l', -44], ['thigh_r', -44],
     ['calf_l', 30], ['calf_r', 30],
-    ['spine_01', 20], ['spine_02', 20],
-    ['neck_01', -14], ['head', -14],
     ['upperarm_l', 5], ['upperarm_r', 5],
   ]),
   hide: '(headwear|hat)',
