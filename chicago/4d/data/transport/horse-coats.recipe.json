@@ -66,6 +66,10 @@
     "hair_tail_z_m": [
       -0.95,
       -0.8
+    ],
+    "points_top_range_m": [
+      0.42,
+      0.56
     ]
   },
   "palettes": [
@@ -76,8 +80,17 @@
         0.065,
         0.023
       ],
-      "mane_linear_rgb": null,
-      "dapple_strength": 0.02
+      "mane_linear_rgb": [
+        0.014,
+        0.01,
+        0.008
+      ],
+      "dapple_strength": 0.02,
+      "points_linear_rgb": [
+        0.02,
+        0.013,
+        0.009
+      ]
     },
     {
       "id": "chestnut",
@@ -91,7 +104,8 @@
         0.038,
         0.015
       ],
-      "dapple_strength": 0.015
+      "dapple_strength": 0.015,
+      "points_linear_rgb": null
     },
     {
       "id": "iron_grey",
@@ -100,8 +114,13 @@
         0.23,
         0.245
       ],
-      "mane_linear_rgb": null,
-      "dapple_strength": 0.075
+      "mane_linear_rgb": [
+        0.05,
+        0.052,
+        0.056
+      ],
+      "dapple_strength": 0.075,
+      "points_linear_rgb": null
     },
     {
       "id": "dark_bay",
@@ -110,8 +129,17 @@
         0.035,
         0.018
       ],
-      "mane_linear_rgb": null,
-      "dapple_strength": 0.025
+      "mane_linear_rgb": [
+        0.011,
+        0.008,
+        0.007
+      ],
+      "dapple_strength": 0.025,
+      "points_linear_rgb": [
+        0.014,
+        0.01,
+        0.008
+      ]
     }
   ],
   "group_palettes": {
@@ -170,5 +198,6 @@
       0,
       13
     ]
-  }
+  },
+  "points_basis": "T-3559: a bay is a brown body with black points: mane, tail and lower legs black (the cleared reference vassil_2014 and joselodos_2025 photographs show a dun and a bay with dark lower legs; joselodos_2025 is a bay with a black mane and points). The source mane is light chestnut, which only a chestnut carries; a grey's is dark grey. Reconstructed colour choices (L-horse-individual-coats-2795), not identified animals."
 }
