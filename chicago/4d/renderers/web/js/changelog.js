@@ -1,4 +1,24 @@
 export const CHANGELOG = [ // newest first
+  { v: 3075, ts: '2026-11-17T16:30:14.341Z', date: 'Nov 17, 2026, 10:30 AM CT', title: 'Fort Dearborn monument: the surgeon\'s loose pantaloons', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), the fallen surgeon now wears the loose, heavy pantaloons both photographs show, creased down the leg he stretches out to the west and gathered over his boot. Before, his legs were thin and smooth.',
+    ] },
+  { v: 3074, ts: '2026-11-17T16:30:14.341Z', date: 'Nov 17, 2026, 10:30 AM CT', title: '1815 Prairie\'s front steps show their treads under iron hand rails', kind: 'improvement',
+    items: [
+      'The front steps of the Sears-Meeker house at 1815 Prairie Avenue had solid stone walls sweeping down each side. Both old photographs show something lighter: the ends of the steps showing along each side, with a thin iron hand rail above them running down to the stone post at the foot. On the south side the rail starts at a square stone post on the landing\'s corner, and a low iron rail runs from that post back to the house. The steps are now built that way. The basement door under the landing is still to come.',
+    ] },
+  { v: 3073, ts: '2026-11-17T16:30:14.341Z', date: 'Nov 17, 2026, 10:30 AM CT', title: '2013 Prairie, the Reid house, takes its portico and balustrade', kind: 'feature',
+    items: [
+      '2013 Prairie, William H. Reid\'s house of 1894, now stands as the Inland Architect pictured it a winter later: a narrow pale-brick front over a stone basement, an Ionic portico at its north end carrying a balustraded balcony, two tall capped windows beside it, three-light windows on the floors above under a round-arched light, and a heavy cornice with a balustrade along the roof. The two oval windows and the carved frame round the upper windows come next.',
+    ] },
+  { v: 3072, ts: '2026-11-17T13:11:54.127Z', date: 'Nov 17, 2026, 7:11 AM CT', title: 'Riders go about town, and horses canter and gallop', kind: 'feature',
+    items: [
+      'In 1835 up to seven people ride rounds of the town by day: a farmer, a land-office caller, a man riding for the doctor, an express rider at a trot, a trader\'s man, a boatman on the North Side, and an evening rider in spring and summer.',
+      'In 1812 a soldier, an officer\'s horse, a trader\'s man and a settler ride the shore road and the fort\'s round. In 1904 a groom exercises a horse along Prairie Avenue on summer mornings. Fewer ride in winter and after dark, and riders give way to you, to wagons and to each other.',
+      'Saddled horses now stand outside the hotel and tavern stables in 1835, by the fort in 1812 and at the Dexter coach house in 1904. Walk up to one and mount it.',
+      'Riding, hold Shift (or push the stick out) to urge the horse on: a trot at once, a canter a second later, then a gallop. Let go of Shift and it keeps its pace; let go of W and it pulls up.',
+      'Driving a wagon or carriage, Shift urges the team the same way, up to a gallop. A galloping team turns wider.',
+    ] },
   { v: 3071, ts: '2026-11-17T12:46:20.342Z', date: 'Nov 17, 2026, 6:46 AM CT', title: 'Aiming at a building always opens it again', kind: 'fix',
     items: [
       'Pressing Space, E or tapping a building could find nothing for a moment while new people were joining the far streets. It now opens the building every time.',

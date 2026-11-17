@@ -55,17 +55,17 @@
  "summary": {
   "lots": 132,
   "surfaces": 285,
-  "doors": 123,
-  "posts": 120,
+  "doors": 124,
+  "posts": 118,
   "gardens": 31,
   "by_kind": {
    "alley_walk": 22,
    "coach_walk": 30,
-   "drying_yard": 60,
+   "drying_yard": 59,
    "front_walk": 8,
    "gangway": 30,
    "garden_bed": 31,
-   "rear_terrace": 104
+   "rear_terrace": 105
   }
  },
  "lots": [
@@ -14869,63 +14869,63 @@
     "reid_house_2013_prairie",
     "reid_house_2013_prairie_coach_house"
    ],
-   "scheme": "drying_yard",
+   "scheme": "service_court",
    "grade": "reconstructed",
    "sources": [],
    "note": "",
    "surfaces": [
     {
-     "id": "prairie_2013:drying_yard:0",
-     "kind": "drying_yard",
-     "material": "trodden",
+     "id": "prairie_2013:rear_terrace:0",
+     "kind": "rear_terrace",
+     "material": "yard_brick",
      "polygon_local_m": [
       [
-       1453.9,
-       -3521.21
+       1441.2,
+       -3524.85
       ],
       [
-       1453.93,
-       -3525.71
+       1441.22,
+       -3527.52
       ],
       [
-       1457.13,
-       -3525.69
+       1443.97,
+       -3527.5
       ],
       [
-       1457.1,
-       -3521.19
+       1443.95,
+       -3524.83
       ]
      ],
      "along_deg": 179.57,
      "lift_m": 0.03,
      "order": 0,
      "grade": "reconstructed",
-     "note": "A drying yard of trodden earth, with its clothes posts (L-prairie-back-yards-3488)."
+     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
     }
    ],
-   "doors": [],
-   "posts": [
+   "doors": [
     {
-     "kind": "clothes_post",
-     "e": 1455.5,
-     "n": -3521.5,
-     "height_m": 2.3,
-     "arm_m": 0.9,
-     "facing_deg": 179.57,
-     "line_to": 1,
-     "grade": "reconstructed"
-    },
-    {
-     "kind": "clothes_post",
-     "e": 1455.53,
-     "n": -3525.4,
-     "height_m": 2.3,
-     "arm_m": 0.9,
-     "facing_deg": 179.57,
-     "line_to": null,
-     "grade": "reconstructed"
+     "id": "prairie_2013:back_door",
+     "structure": "reid_house_2013_prairie",
+     "e": 1440.95,
+     "n": -3526.56,
+     "facing_deg": 89.57,
+     "sill_m": 0.18,
+     "width_m": 0.95,
+     "height_m": 1.9,
+     "leaf": true,
+     "stoop": {
+      "depth_m": 0.0,
+      "width_m": 1.2,
+      "risers": 1,
+      "run_m": 0.28,
+      "material": "stone"
+     },
+     "grade": "reconstructed",
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 0.18 m up, 1 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
+   "posts": [],
    "crops": [],
    "shrubs": [],
    "trees": [],
