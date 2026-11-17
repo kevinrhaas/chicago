@@ -127,6 +127,33 @@ assert.equal(acquired.length, released.length, 'every parse is let go');
   for (const a of [far, close, mid, dropped]) a.dispose();
 }
 
+// T-3639: a build is its steps (buildSteps); a frame takes steps until BUILD_SLICE_MS, and the
+// figure under way keeps its turn when a nearer one is asked for meanwhile.
+{
+  const log = [];
+  const busy = (ms) => { const t = performance.now(); while (performance.now() - t < ms); };
+  class StepActor extends HumanActor {
+    *buildSteps(gltf, lod) {
+      for (let i = 0; i < 4; i++) { busy(4); log.push({ id: this.id, i, t: performance.now() }); if (i < 3) yield; }
+      return TestActor.prototype.build.call(this, gltf, lod);
+    }
+  }
+  const make = (id, distance) => { const a = new StepActor({ instance: { ...instance, id, person_id: id }, assets }); a.distance = distance; return a; };
+  const far = make('far_steps', 60);
+  const first = far.setLod(3);
+  await new Promise((r) => setTimeout(r, 5));
+  while (!log.length) await new Promise((r) => setTimeout(r, 1));
+  const near = make('near_steps', 2);
+  const second = near.setLod(3);
+  await Promise.all([first, second]);
+  assert.deepEqual(log.map((x) => x.id), [...Array(4).fill('far_steps'), ...Array(4).fill('near_steps')], 'the figure under way finishes before a nearer one starts');
+  const gaps = log.slice(1).map((x, i) => x.t - log[i].t);
+  assert.ok(gaps.filter((g) => g > 8).length >= 2, `one build is spread over frames (gaps ${gaps.map((g) => g.toFixed(0)).join(', ')} ms)`);
+  assert.ok(far.body && near.body, 'both are built');
+  assert.equal(HumanActor.prototype.build.length, 2, 'build() stays the whole build, for the harness and subclasses');
+  for (const a of [far, near]) a.dispose();
+}
+
 // Settings > Show > People, on the actual layer.
 const layerSource = slice('export function createHumanLayer(', '\n/**\n * THE SCENE PATH.');
 let updates = 0;
@@ -208,4 +235,4 @@ layer.update(.05, camera); assert.equal(updates, 2);
   });
   assert.match(source, /shareSkeletons\(scene\);\n    const mixer = new THREE\.AnimationMixer\(scene\);/, 'build() shares skeletons last, after the hair, hat and garrison are bound');
 }
-console.log('PASS: distance levels are parked and reused, let go outside the tier, after PARK_S, out of range and on dispose; built in turn, nearest first; People hidden hides, stops and unpicks every figure and driver; the pieces of a figure share their skeletons (T-3639)');
+console.log('PASS: distance levels are parked and reused, let go outside the tier, after PARK_S, out of range and on dispose; built in turn, nearest first; People hidden hides, stops and unpicks every figure and driver; the pieces of a figure share their skeletons, and a build is taken in steps across frames (T-3639)');
