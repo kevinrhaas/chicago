@@ -1,237 +1,640 @@
 {
-  "id": "reid_house_2013_prairie",
-  "name": "2013 Prairie Avenue — Reid classical/fireproof townhouse (district draft; refined by T-1916)",
-  "aka": [
-    "2013 S. Prairie Avenue"
+ "id": "reid_house_2013_prairie",
+ "name": "2013 Prairie Avenue \u2014 William H. Reid house (Beers, Clay & Dutton, 1894), K01 frontage assembly",
+ "aka": [
+  "2013 S. Prairie Avenue"
+ ],
+ "archetype": "k01_frontage",
+ "function": {
+  "value": "residence",
+  "confidence": "inferred",
+  "sources": [
+   "sanborn_1911_chicago_v3_sheet_35"
   ],
-  "archetype": "prairie_draft",
-  "function": {
-    "value": "residence",
+  "note": "The 1911 sheet marks the building 'D' (dwelling): '3B dwelling (D) lettered Fire Proof Construction'. Carried to 1904 on the T-1842 census ruling (present_as_mapped)."
+ },
+ "review_required": false,
+ "research_note": "T-3625, piece 1 of T-1916 (the S07 package of the T-1837 programme), refines the T-2352 district draft in place under its id: the 1911 sheet's '3B' fireproof front block read at full size, and its street front built to the Inland Architect's February 1895 plate through a camera solved on it (data/reference_views/reid_house_2013_prairie/inland_architect_plate.json). The flanks and the rear, which only the 2003 nomination photographs show, are T-3626's; they stand here at the reconstructed tier (L-k01-2013-reid-3625).",
+ "phases": [
+  {
+   "id": "as_mapped_1904",
+   "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_35"
+     "sanborn_1911_chicago_v3_sheet_35",
+     "inland_architect_1895_02_reid_plate"
     ],
-    "note": "The 1911 sheet marks the building 'D' (dwelling): '3B dwelling (D) lettered Fire Proof Construction'. Carried to 1904 on the T-1842 census ruling (present_as_mapped)."
-  },
-  "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2352, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1916 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2013-b1), the T-1842 census (s35-2013-front, s35-2013-wing) and the T-1837 register row frontage-35-077 (Reid classical/fireproof townhouse); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-east-2352).",
-  "phases": [
-    {
-      "id": "draft_1904",
-      "documented_range": {
-        "from": "1904-07-01",
-        "to": "1911-12-31",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_35"
-        ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
-        "to_is": "seen"
-      },
-      "position": {
-        "utm_e": 448513.441,
-        "utm_n": 4633873.678,
-        "rotation_deg": 179.383,
-        "symbolic_location": "2013 S. Prairie Avenue, parcel prairie_2013 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_35"
-        ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 29.000, v -1.455 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.383 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-        "derivation": {
-          "method": "not_derivable",
-          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
-        }
-      },
-      "footprint": {
-        "polygon": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            18.0,
-            0.0
-          ],
-          [
-            18.0,
-            5.5
-          ],
-          [
-            0.0,
-            5.5
-          ]
-        ],
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_35"
-        ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front), widened to 5.5 m along the front because the fitted strip was narrower than any house of the avenue (T-2690). The building's other rectangles are in draft_plan."
-      },
-      "form": {
-        "stories": {
-          "value": 3,
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
-          ],
-          "note": "'3B; rear2B' printed on the 1911 sheet: 3 full storeys."
-        },
-        "construction": {
-          "value": "brick",
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
-          ],
-          "note": "The register reads the map's colours as 'fireproof construction'."
-        },
-        "draft_plan": {
-          "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  0.0,
-                  0.0,
-                  18.0,
-                  5.5
-                ],
-                "from": "s35fp-2013-b1 p1 (main, frame), rectangle 1 of that part; the part's rectangles cover 71% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  12.75,
-                  -0.545,
-                  17.5,
-                  1.205
-                ],
-                "from": "s35fp-2013-b1 p1 (main, frame), rectangle 2 of that part; the part's rectangles cover 71% of its fill"
-              },
-              {
-                "id": "r3",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  -5.25,
-                  -1.295,
-                  6.75,
-                  -0.045
-                ],
-                "from": "s35fp-2013-b1 p2 (range, frame), rectangle 1 of that part; the part's rectangles cover 60% of its fill"
-              },
-              {
-                "id": "r4",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  7.5,
-                  -0.795,
-                  10.25,
-                  0.455
-                ],
-                "from": "s35fp-2013-b1 p2 (range, frame), rectangle 2 of that part; the part's rectangles cover 60% of its fill"
-              },
-              {
-                "id": "r5",
-                "role": "porch",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  -9.0,
-                  -0.045,
-                  -5.75,
-                  2.955
-                ],
-                "from": "s35fp-2013-b1 p3 (porch, frame), rectangle 1 of that part; the part's rectangles cover 45% of its fill"
-              },
-              {
-                "id": "r6",
-                "role": "porch",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  -8.0,
-                  -1.545,
-                  -5.5,
-                  -0.045
-                ],
-                "from": "s35fp-2013-b1 p4 (porch, frame), rectangle 1 of that part; the part's rectangles cover 61% of its fill"
-              }
-            ],
-            "lot_v": [
-              -2.59,
-              5.5
-            ],
-            "street_u": 25.382
-          },
-          "confidence": "inferred",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
-          ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2013-b1 p1 (main, frame), rectangle 1 of that part; the part's rectangles cover 71% of its fill; s35fp-2013-b1 p1 (main, frame), rectangle 2 of that part; the part's rectangles cover 71% of its fill; s35fp-2013-b1 p2 (range, frame), rectangle 1 of that part; the part's rectangles cover 60% of its fill; s35fp-2013-b1 p2 (range, frame), rectangle 2 of that part; the part's rectangles cover 60% of its fill; s35fp-2013-b1 p3 (porch, frame), rectangle 1 of that part; the part's rectangles cover 45% of its fill; s35fp-2013-b1 p4 (porch, frame), rectangle 1 of that part; the part's rectangles cover 61% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 3152271785,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 38,
-            "mansard_lower_m": 3.0,
-            "front_bays": 3,
-            "entrance": "centre",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2352",
-              "refined_by": [
-                "T-1916"
-              ]
-            },
-            "v_toward": "south"
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The William H. Reid house (Beers, Clay & Dutton, 1894): the register's 'heavy cornice, roof balustrade' as a flat roof behind a plain heavy cornice over three storeys, the classical portico as a central entrance. The sheet's 'Fire Proof Construction' is a construction class, not a facade material (census note), and its colour reads as frame on the coarse copy; the record keeps the register's construction. Rustication, surrounds and urns are T-1916's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3152271785 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-east-2352."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2352",
-            "liberty": "L-draft-prairie-20-22-east-2352",
-            "register_row": "frontage-35-077",
-            "census_ids": [
-              "s35-2013-front",
-              "s35-2013-wing"
-            ],
-            "trace_building": "s35fp-2013-b1",
-            "seed": 3152271785,
-            "replaceable_by": [
-              "T-1916"
-            ],
-            "card": "District draft — refined by T-1916."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
-        }
-      }
+    "note": "Standing in February 1895, when the Inland Architect publishes its plate of the house, and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). The record claims the 1904 target to the sheet's date and no more.",
+    "to_is": "seen"
+   },
+   "position": {
+    "utm_e": 448513.583,
+    "utm_n": 4633875.707,
+    "rotation_deg": 179.383,
+    "symbolic_location": "2013 S. Prairie Avenue, parcel prairie_2013 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "note": "The rear corner of the '3B' front block on its north side, read off the 1911 sheet 35 raster at full size (px 1015, 476: where the block's south wall steps in to the narrower part behind it, on the line with 2011) through the T-1250 fit of the sheet, which carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, plus about a pixel (0.19 m) of reading on this copy. The draft's corner stood 2.0 m further south and its body 5.5 m wide: the trace stopped where the sheet's lettering 'Fire Proof Construction' crosses the block. Rotation 179.383 degrees (the draft's) turns the plan's u axis onto the lot's own rear-to-street line.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
     }
-  ]
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      18.2,
+      0.0
+     ],
+     [
+      18.2,
+      7.62
+     ],
+     [
+      0.0,
+      7.62
+     ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "note": "The '3B' front block, read at full size off the raster's own outline at 0.186 m a pixel: 18.2 m from the step in its south wall (px 1015) to the street front (px 917), 7.62 m from the north line (row 476) to the south line (row 517) \u2014 the 25 ft the 2003 nomination gives for a front that spans its whole lot. The narrower '3B' part behind it and the '2B' rear block stand on K01's rear wings."
+   },
+   "form": {
+    "stories": {
+     "value": 3,
+     "confidence": "attested",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35",
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "'3B' printed on the 1911 sheet over the front block, and three storeys over a raised basement in the 1895 plate."
+    },
+    "construction": {
+     "value": "brick_with_stone_front",
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35",
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "The 1911 sheet colours the house yellow and letters it 'Fire Proof Construction' (the register's fireproof townhouse: a steel and concrete frame inside brick walls, which the 1911 label records as its construction class, not its face). The plate shows a stone basement under a pale brick front with stone and terra-cotta trim; the face is built as brick over a stone basement."
+    },
+    "stone_front": {
+     "value": {
+      "fabric": "granite_rock_faced",
+      "dressing": "smooth",
+      "trim_fabric": "dressed_trim",
+      "rusticated_base_courses": 3,
+      "coping_height_m": 0.25,
+      "corner_bond": [],
+      "brick_above_m": 1.65
+     },
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "The plate's basement: smooth stone in deep rusticated courses up to a projecting water table about the principal floor (about 1.65-1.75 m over grade through the camera, laid at the principal floor line, where K01 turns a stone basement to brick), the area lights cut in it. Its stone is RECONSTRUCTED as granite after the register's reading of the house ('granite basement'); the print is monochrome."
+    },
+    "principal_floor_m": {
+     "value": 1.65,
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "The portico's floor and the door's sill through the solved camera: the basement lights' heads at 1.33 m and the ground-floor sills at 2.45 m put the floor at about 1.6-1.65 m; built at 1.65 m, where the K07 and K01 stairs agree on nine risers."
+    },
+    "storey_heights_m": {
+     "value": [
+      3.8,
+      3.5,
+      4.6
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "Read off the plate through its solved camera, scaled on the 7.62 m front: the ground-floor caps' tops at 5.0 m, the second-storey sills on their band at 6.2 m and the third's at 9.7 m, the frieze's foot at about 13.0-13.2 m, the arched light's crown at 12.6 m under it. The top storey is built to 4.6 m so that K10's moulded cornice, whose section hangs about 0.57 m under the eave, stands where the plate's frieze and cornice do (about 13.0-14.2 m) clear of the arched light's head. The register's reading of the plans (10 ft ceilings on the main and second floors, a 12 ft ballroom on the third) fits the same storeys with a fireproof floor's depth between them."
+    },
+    "wall_thickness_front_m": {
+     "value": 0.45,
+     "confidence": "reconstructed",
+     "note": "A brick front on a fireproof frame: the contract's masonry starting thickness; no source measures it."
+    },
+    "wall_thickness_side_m": {
+     "value": 0.33,
+     "confidence": "reconstructed",
+     "note": "A 13 in brick party wall; no source measures it."
+    },
+    "service_wall_brick": {
+     "value": "common_buff_common_6",
+     "confidence": "reconstructed",
+     "note": "The side and rear walls, which the plate does not show, in the avenue's common brick (T-3626 reads them off the 2003 photographs)."
+    },
+    "face_brick": {
+     "value": {
+      "front": "cream_sooted",
+      "sides": "common_buff"
+     },
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "The plate's front is the palest on the block, paler than 2011's stone and 2017's brick, in fine courses; the register's 'cream textured brick'. The recipe's tone is RECONSTRUCTED: the print is monochrome."
+    },
+    "street_front_trim": {
+     "value": {
+      "by_storey": [
+       "k09.trim.lintel_cornice_hood",
+       "k01.flat_lintel",
+       "k01.flat_lintel"
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "The plate: each ground-floor light under a moulded cap with a raised block at its middle (x 455-585 px, y 786-815), built as K09's corniced lintel; the upper lights stand in the pilastered frame without hoods."
+    },
+    "wall_head": {
+     "value": {
+      "cornice": "k10.cornice.moulded_stone"
+     },
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "A heavy moulded stone cornice over a garlanded frieze across the whole front, the crown at about 14.2 m through the camera, its corona on a dentil course (the plate's x 300-615 px, y 160-335). K10's moulded stone cornice stands for the whole entablature; the plate's dentils and its frieze of garlands and wreaths are not carved (L-k01-2013-reid-3625)."
+    },
+    "roof_form": {
+     "value": "flat",
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35",
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "The plate shows no roof over the balustrade, and the 1911 sheet draws the block whole with no skylight or slope: a flat fireproof deck behind the parapet."
+    },
+    "roof_pitch_deg": {
+     "value": 1,
+     "confidence": "reconstructed",
+     "note": "A flat deck's fall to the rear; not read."
+    },
+    "eave_overhang_m": {
+     "value": 0.6,
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "The cornice's projection past the frieze, seen end-on at the north corner (x 300-335 px): about 0.6 m."
+    },
+    "roof_covering": {
+     "value": {
+      "fabric": "tin_flat_seam_painted",
+      "flashing": "painted_tin_sheet"
+     },
+     "confidence": "reconstructed",
+     "note": "Unseen behind the balustrade."
+    },
+    "flat_balustrade": {
+     "value": {
+      "from_s_m": 0.3,
+      "to_s_m": 7.32,
+      "plinth_m": 0.25,
+      "rail_m": 0.2,
+      "bar_m": 0.1,
+      "pitch_m": 0.22
+     },
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "The plate's balustrade over the cornice runs the whole front between short pedestals at its ends, closely set turned balusters on a plinth under a broad rail (x 320-625 px, y 95-235), its top about 1.4 m over the crown."
+    },
+    "window_kit": {
+     "value": {
+      "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+      "k01.opening.street_sash_tall": "k06.opening.sash_2over2_flat",
+      "k01.opening.street_sash_narrow": "k06.opening.sash_2over2_flat",
+      "k01.opening.street_sash_wide": "k06.opening.sash_2over2_flat",
+      "k01.opening.street_sash_round": "k06.opening.sash_round_fanlight",
+      "k01.opening.area_light": {
+       "variant": "k06.opening.area_light",
+       "well": false
+      }
+     },
+     "confidence": "reconstructed",
+     "note": "The plate's lights are one-over-one plate sash behind lace curtains; K06's two-over-two flat sash stands for them, the frame's broad middle light among them, and its round-headed fanlight sash for the arched light over the frame."
+    },
+    "door_clear_height_m": {
+     "value": 2.2,
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "The door behind the portico's columns, x 360-400 px, its head at about 3.9 m on the wall through the solved camera: about 2.2-2.3 m clear over the 1.65 m floor; built at 2.2 m, which leaves K01's lintel under the portico's soffit."
+    },
+    "stair_tread_m": {
+     "value": 0.3,
+     "confidence": "reconstructed",
+     "note": "The contract's ordinary tread."
+    },
+    "stair_landing_depth_m": {
+     "value": 1.6,
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "The portico's floor is the landing: about 1.6 m deep through the camera (its front columns' and its wall respond's x 335 and 412 px)."
+    },
+    "stoop_width_m": {
+     "value": 1.5,
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "The stair under the portico, between its iron railings, about the portico's clear width between its columns."
+    },
+    "entrance_bay": {
+     "value": "south",
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "The door at the north end of the front, under the portico (K01's south: v runs south on this side of the avenue)."
+    },
+    "front_bays": {
+     "value": [
+      1.3,
+      4.0,
+      5.8
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "Through the solved camera: the door centred about 1.3-1.5 m from the north corner; the ground floor's two lights at 4.0 and 5.8 m."
+    },
+    "side_bays": {
+     "value": [],
+     "confidence": "reconstructed",
+     "note": "No light in either party wall: the sheet draws 2011 and 2017 against them."
+    },
+    "rear_bays": {
+     "value": [
+      2.0,
+      5.6
+     ],
+     "confidence": "reconstructed",
+     "note": "Two lights across the rear of the front block over the narrower part behind it; unseen (T-3626)."
+    },
+    "sash_by_storey": {
+     "value": [
+      {
+       "sill_above_floor_m": 0.85,
+       "width_m": 1.05,
+       "height_m": 2.1
+      },
+      {
+       "sill_above_floor_m": 0.8,
+       "width_m": 0.9,
+       "height_m": 2.0
+      },
+      {
+       "sill_above_floor_m": 0.8,
+       "width_m": 0.9,
+       "height_m": 2.0
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "The ground floor's lights through the camera, sills 2.45 m and heads 4.58 m over grade, about 1.05 m across; the upper rows (the rear's) RECONSTRUCTED to the front's."
+    },
+    "street_front_windows": {
+     "value": {
+      "windows": [
+       {
+        "component": "k01.opening.street_sash_tall",
+        "storey": 0,
+        "s_m": 4.0,
+        "width_m": 1.05,
+        "sill_m": 2.45,
+        "height_m": 2.1
+       },
+       {
+        "component": "k01.opening.street_sash_tall",
+        "storey": 0,
+        "s_m": 5.8,
+        "width_m": 1.05,
+        "sill_m": 2.45,
+        "height_m": 2.1
+       },
+       {
+        "component": "k01.opening.street_sash_narrow",
+        "storey": 1,
+        "s_m": 2.36,
+        "width_m": 0.45,
+        "sill_m": 6.2,
+        "height_m": 2.0
+       },
+       {
+        "component": "k01.opening.street_sash_wide",
+        "storey": 1,
+        "s_m": 3.7,
+        "width_m": 1.3,
+        "sill_m": 6.2,
+        "height_m": 2.0
+       },
+       {
+        "component": "k01.opening.street_sash_narrow",
+        "storey": 1,
+        "s_m": 4.97,
+        "width_m": 0.45,
+        "sill_m": 6.2,
+        "height_m": 2.0
+       },
+       {
+        "component": "k01.opening.street_sash_narrow",
+        "storey": 2,
+        "s_m": 2.36,
+        "width_m": 0.45,
+        "sill_m": 9.7,
+        "height_m": 2.0
+       },
+       {
+        "component": "k01.opening.street_sash_round",
+        "storey": 2,
+        "s_m": 3.7,
+        "width_m": 1.0,
+        "sill_m": 9.7,
+        "height_m": 2.9
+       },
+       {
+        "component": "k01.opening.street_sash_narrow",
+        "storey": 2,
+        "s_m": 4.97,
+        "width_m": 0.45,
+        "sill_m": 9.7,
+        "height_m": 2.0
+       }
+      ],
+      "base_top_m": 1.65,
+      "belts": [
+       [
+        5.7,
+        5.95
+       ]
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "Every light of the front as the plate draws it, through the solved camera (data/reference_views/reid_house_2013_prairie/inland_architect_plate.json): two tall lights under caps on the ground floor beside the portico; over them a frame of three lights a storey on the second and third floors, a broad light between two narrow ones at 2.36, 3.7 and 4.97 m, sills 6.2 and 9.7 m, heads 8.25 and 11.7 m; and the third floor's broad light carried up under a round arch to about 12.6 m. The band under the second-floor sills is the plate's projecting belt; the carved band under the eave is its frieze of garlands and wreaths (x 330-605 px, y 245-335), carved as K01's guilloche, whose rings stand for the plate's festoons (L-k01-2013-reid-3625). The plate's two oval lights, at 0.83 and 6.54 m about 7.3 m up, K01 cuts no oval for; they are not built (L-k01-2013-reid-3625)."
+    },
+    "basement_lights": {
+     "value": {
+      "sill_m": 0.35,
+      "width_m": 1.0,
+      "height_m": 0.95,
+      "at_m": [
+       4.0,
+       5.8
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "Two square lights in the basement under the ground floor's two, x 455-585 px, y 1022-1085: heads 1.33 m, sills about 0.35 m, behind iron grilles."
+    },
+    "chimneys": {
+     "value": {
+      "plan_m": [
+       0.9,
+       0.75
+      ],
+      "top_above_ridge_m": 1.2,
+      "cap_proud_m": 0.05,
+      "cap_depth_m": 0.15,
+      "stacks": [
+       {
+        "u_m": 6.0,
+        "v_m": 0.7
+       },
+       {
+        "u_m": 13.0,
+        "v_m": 0.7
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "No stack shows over the balustrade in the plate; two stacks on the north party wall, set back where the plate cannot see them."
+    },
+    "entrance_kit": {
+     "value": {
+      "k01.opening.door_leaf": {
+       "variant": "k07.entrance.panel_door_stoop",
+       "front_yard_m": 7.3,
+       "hood": {
+        "soffit_m": 4.2,
+        "width_m": 2.1,
+        "out_m": 1.6,
+        "fascia_m": 0.4,
+        "cornice": {
+         "height_m": 0.2,
+         "proud_m": 0.12
+        },
+        "brackets": "k08.bay.canted_hooded",
+        "columns": {
+         "diameter_m": 0.32,
+         "plinth_m": [
+          0.42,
+          0.3
+         ],
+         "capital_m": 0.32,
+         "respond_m": 0.12
+        },
+        "centre_v_m": 1.3,
+        "fabric": "stone",
+        "railing_fabric": "stone",
+        "railing": {
+         "height_m": 0.8,
+         "post_m": 0.22,
+         "baluster_m": 0.08,
+         "pitch_m": 0.18,
+         "rail_m": [
+          0.15,
+          0.12
+         ]
+        }
+       },
+       "stoop_v_m": 1.3,
+       "terrace": [
+        {
+         "side": "left",
+         "to_v_m": 0.2
+        },
+        {
+         "side": "right",
+         "to_v_m": 2.4
+        }
+       ]
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "The plate's portico over the door: two Ionic columns at its front and responds at the wall carrying an entablature at about 4.0-4.6 m (built 4.2-4.8 m, over the door's lintel), about 2.1 m wide and 1.6 m out (its columns at x 257 and 335 px, its wall respond at 412 px, through the solved camera), a stone balustrade on it as the second floor's balcony, and the stair rising to it. The front yard is the sheet's: the front stands 7.3 m behind the street line."
+    },
+    "boundary": {
+     "value": {
+      "street_line_m": 7.0,
+      "lot_s_m": [
+       -0.56,
+       7.62
+      ],
+      "fence": "k11.fence.spear_on_curb",
+      "entrance_gate": {
+       "variant": "k11.gate.walk_gate_on_piers",
+       "leaves": 2,
+       "clear_m": 1.3,
+       "drawn_deg": 70
+      },
+      "posts": {
+       "section_m": 0.12,
+       "height_m": 1.55
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "inland_architect_1895_02_reid_plate"
+     ],
+     "note": "An iron fence on a stone curb just inside the street line (built 7.0 m out, clear of the public walk) with stone posts at the walk, as the plate shows it before 2011's and 2013's fronts."
+    },
+    "yard": {
+     "value": {
+      "kit": "k14_condition",
+      "built": 1904,
+      "lawn": "none",
+      "grass_edge": "street_front",
+      "under_stoop": "earth",
+      "front_walk": {
+       "surface": "stone_flags",
+       "flag_m": 0.75,
+       "top_m": 0.06,
+       "wear_tone": 0.9,
+       "width_m": 1.5
+      }
+     },
+     "confidence": "reconstructed",
+     "note": "The yard's condition kit, as on the block's other refined houses."
+    },
+    "rear_wings": {
+     "value": [
+      {
+       "id": "rear_3b",
+       "rect": [
+        -4.85,
+        0.0,
+        0.0,
+        4.65
+       ],
+       "floor_m": 1.65,
+       "storey_heights_m": [
+        3.8,
+        3.5,
+        4.0
+       ],
+       "sash_by_storey": [
+        {
+         "sill_above_floor_m": 0.8,
+         "width_m": 0.9,
+         "height_m": 2.0
+        },
+        {
+         "sill_above_floor_m": 0.8,
+         "width_m": 0.9,
+         "height_m": 2.0
+        },
+        {
+         "sill_above_floor_m": 0.8,
+         "width_m": 0.9,
+         "height_m": 2.0
+        }
+       ],
+       "windows": {
+        "north": [],
+        "south": [
+         2.4
+        ]
+       },
+       "roof": {
+        "kind": "flat",
+        "overhang_m": 0.15,
+        "fascia_m": 0.3,
+        "covering": "painted_tin_sheet"
+       }
+      },
+      {
+       "id": "rear_2b",
+       "rect": [
+        -10.25,
+        -4.85,
+        0.0,
+        4.46
+       ],
+       "floor_m": 1.65,
+       "storey_heights_m": [
+        3.8,
+        3.5
+       ],
+       "sash_by_storey": [
+        {
+         "sill_above_floor_m": 0.8,
+         "width_m": 0.9,
+         "height_m": 2.0
+        },
+        {
+         "sill_above_floor_m": 0.8,
+         "width_m": 0.9,
+         "height_m": 2.0
+        }
+       ],
+       "windows": {
+        "south": [
+         2.7
+        ],
+        "rear": [
+         2.2
+        ]
+       },
+       "roof": {
+        "kind": "flat",
+        "overhang_m": 0.15,
+        "fascia_m": 0.3,
+        "covering": "painted_tin_sheet"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+     ],
+     "note": "The 1911 sheet behind the front block, read at full size: a narrower '3B' part 4.85 m deep (px 1015-1041) and 4.65 m wide along the north line (rows 476-501), with a small canted bay on its open south side, and the '2B' rear block 5.4 m deep (px 1041-1070) and 4.46 m wide. Their floors, storeys, flat roofs and lights are RECONSTRUCTED; the canted bay is not built (L-k01-2013-reid-3625, T-3626 reads the rear off the 2003 photographs)."
+    }
+   }
+  }
+ ]
 }
