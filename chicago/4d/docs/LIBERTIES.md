@@ -44517,3 +44517,11 @@ the image gate; a picture of the rear or a description of the stone would replac
 **Review:** `renderers/web/js/house-doors.js` (`mouth`), `renderers/web/js/jaunt-stage.js` (doors, `open_gates`), `data/sidecars/1812/kinzie_house_1812_green.json`.
 **Covers:** `kinzie_house_1812_green.kinzie_1804.form.gate_kind`
 **Recorded:** 2026-11-16 (T-3553).
+
+### L-seat-3553 — Trousers that bridge the seat, and an apron's bow that rides the skirt
+
+**Decision:** the owner's clothing ticket T-3553 (2026-11-12): *"Seats: no trousers tracing the buttock cleft on any figure in motion"* and *"No clothing breaks through in motion ... the women's aprons"*. Every pair of trousers, breeches, pantaloons and overalls in the town (17 bodies) was exported as a shell a few millimetres off the body, and the body's cleft came through into the cloth, 4 to 5 cm deep. **What is reconstructed.** That the cloth spans the hollow from cheek to cheek, as woven cloth over a seat seam does: in level rows from the fork up past the top of the cleft, the rear of each section is taken to its upper convex hull (the settler's linen pair, #1933, was built this way at source), fading out over 3 cm at the fork and at the top, at most 6 cm a vertex, the moved cloth relaxed across the bridge and lit from its own faces (`renderers/web/js/human-seat.js`). How full a given pair's seat was is not recorded; the hull is the least the cloth can be. A maid's apron bow and a cook's apron ties, skinned to the pelvis alone, ride the skirt's panels below the hips as the skirt does (`human-skirt.js`, kind `ride`), so the skirt no longer cuts through them on the walk.
+**How to resolve:** a cutting pattern or a photograph of the period's working trousers from behind sets the seat's fullness.
+**Ticket:** T-3553.
+**Review:** `renderers/web/js/human-seat.js`, `renderers/web/js/human-skirt.js` (`rides`), `tools/test_human_seat.mjs`, `tools/test_human_skirt.mjs` §2b.
+**Recorded:** 2026-11-17 (T-3553).

@@ -240,7 +240,7 @@ for (const asset of ASSETS) for (const lod of [0, 1, 2, 3]) {
   for (const m of all) {
     const name = piece(asset, m), kind = garmentKind(m, id).kind;
     if (TUBE_PIECE.test(name) && kind) assert.equal(kind, 'tube', `${asset} LOD${lod} ${name}: a tube on its leg`);
-    if (HANG_PIECE.test(name) && !TUBE_PIECE.test(name) && kind && kind !== 'edge') assert.equal(kind, 'hang', `${asset} LOD${lod} ${name}: hangs from the waist`);
+    if (HANG_PIECE.test(name) && !TUBE_PIECE.test(name) && kind && kind !== 'edge' && kind !== 'ride') assert.equal(kind, 'hang', `${asset} LOD${lod} ${name}: hangs from the waist`);
     if (kind === 'tube') assert(!found.driven.includes(m), `${asset} LOD${lod} ${name}: a tube is never driven`);
   }
   if (lod === 0) HANGING.push([asset, found.hanging.map(m => piece(asset, m))]);
@@ -296,29 +296,36 @@ for (const asset of WOMEN) for (const lod of [0, 1, 2, 3]) {
 }
 
 // 2b. An apron moves with the skirt under it: at the stride it lies on the skirt as it did standing.
-function apronOver(r, skirt, apron) {
+function apronOver(r, skirt, apron, tol = [0.06, 0.03, 0.1]) {
   const hips = figure(r, world(r.bone('thigh_l')).add(world(r.bone('thigh_r'))).multiplyScalar(0.5));
   const S = skinned(skirt), A = skinned(apron), pts = [];
   for (let i = 0; i < S.length / 3; i++) { const p = figure(r, new THREE.Vector3(S[i * 3], S[i * 3 + 1], S[i * 3 + 2])); pts.push([p.y, Math.hypot(p.x - hips.x, p.z - hips.z), Math.atan2(p.x - hips.x, p.z - hips.z)]); }
   let worst = Infinity;
   for (let i = 0; i < A.length / 3; i++) {
     const p = figure(r, new THREE.Vector3(A[i * 3], A[i * 3 + 1], A[i * 3 + 2]));
-    if (p.y > hips.y - 0.1) continue;
+    if (p.y > hips.y - tol[2]) continue;
     const ra = Math.hypot(p.x - hips.x, p.z - hips.z), th = Math.atan2(p.x - hips.x, p.z - hips.z);
     let rs = -1;
-    for (const [y, rr, t] of pts) { let d = Math.abs(t - th); if (d > Math.PI) d = 2 * Math.PI - d; if (d < 0.06 && Math.abs(y - p.y) < 0.03) rs = Math.max(rs, rr); }
+    for (const [y, rr, t] of pts) { let d = Math.abs(t - th); if (d > Math.PI) d = 2 * Math.PI - d; if (d < tol[0] && Math.abs(y - p.y) < tol[1]) rs = Math.max(rs, rr); }
     if (rs > 0) worst = Math.min(worst, ra - rs);
   }
   return worst;
 }
-for (const [asset, re] of [['williamson_mattie_1904_cook_study', /separate_plain_apron/], ['reynolds_mary_1904_maid', /apron_skirt/]]) for (const lod of [0, 3]) {
+// A maid's apron bow and a cook's apron ties are skinned to the pelvis alone: they ride the
+// skirt's panels ('ride'), or the bell opens out under them and the skirt cuts through them.
+for (const [asset, re] of [['williamson_mattie_1904_cook_study', /separate_plain_apron/], ['reynolds_mary_1904_maid', /apron_skirt/], ['reynolds_mary_1904_maid', /apron_bow/], ['ryan_kate_1904_cook', /apron_ties/]]) for (const lod of [0, 3]) {
   const r = await rig(asset, lod), found = skirtMeshes(r.scene), apron = found.driven.find(m => re.test(m.name));
   assert(apron, `${asset} LOD${lod}: the apron is driven with the skirt`);
   const sk = createHumanSkirt({ id: asset, scene: r.scene });
-  const before = apronOver(r, found.skirt, apron);
+  // A bow's or ties' few low vertices, in a narrow strip, against the bell in a wider window
+  // (which reads the bell's trailing back further out): it sank 12.5 cm (the maid's bow) and
+  // 18 cm (the cook's ties) into the skirt before they rode it.
+  const rider = /bow|ties/.test(apron.name), tol = rider ? [0.15, 0.05, 0.04] : undefined, slack = rider ? 0.035 : 0.01;
+  const before = apronOver(r, found.skirt, apron, tol);
   for (let i = 0; i < 40; i++) step(r, sk, 1 / 30, { state: 'walking' }, STRIDE);
-  const after = apronOver(r, found.skirt, apron);
-  assert(after > before - 0.01, `${asset} LOD${lod}: the apron sinks ${((before - after) * 100).toFixed(1)} cm into the skirt`);
+  const after = apronOver(r, found.skirt, apron, tol);
+  assert(Number.isFinite(after), `${asset} LOD${lod}: the apron measured against the skirt at the stride`);
+  assert(after > before - slack, `${asset} LOD${lod}: the apron sinks ${((before - after) * 100).toFixed(1)} cm into the skirt`);
   console.log(`${asset} LOD${lod}: apron over the skirt ${(before * 100).toFixed(1)} cm standing, ${(after * 100).toFixed(1)} cm at the stride: PASS`);
 }
 

@@ -762,6 +762,8 @@ step "Every hanging garment (a skirt, a coat's skirts, tails, a capote, a breech
   node tools/test_human_skirt.mjs
 step "A Potawatomi man's belt sits on his shirt or blanket at every level, standing and walking, the shirt's skirt under it; his trade silver engraved by shader, no texture (T-3553)" \
   node tools/test_human_waist.mjs
+step "Trousers, breeches, pantaloons and overalls bridge the seat from cheek to cheek, standing and striding, at every level; nothing else on them moves (T-3553)" \
+  node tools/test_human_seat.mjs
 step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \
   node tools/test_human_looks.mjs
 step "1904 people use actual drawn pedestrian tops only beneath enabled terrain-cut masks, preserving decks, positive yards and other epochs (T-2795)" \

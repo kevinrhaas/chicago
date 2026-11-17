@@ -154,13 +154,15 @@ const tokens = (name) => name.toLowerCase().split(/[_\s.-]+/).filter(Boolean);
 
 /**
  * What a garment does over the legs: 'hang', 'tube', 'edge' (weighted to the legs only at the
- * hips), or null (skin, a shoe, or nothing on the legs). Cached per shared geometry.
+ * hips), 'ride' (sewn on the hanging cloth below the hips, weighted to the pelvis alone), or
+ * null (skin, a shoe, or nothing on the legs). Cached per shared geometry.
  */
 export function garmentKind(mesh, assetId = null) {
   const rec = owned.get(mesh), g = rec?.origGeometry ?? mesh.geometry, sk = rec?.origSkeleton ?? mesh.skeleton;
   if (kinds.has(g)) return kinds.get(g);
   let out = { kind: null, low: Infinity, length: 0, count: 0 };
   if (sk && !isSkin(mesh) && !isShoe(mesh) && hasLegWeights(mesh)) out = classify(mesh, g, sk, assetId);
+  else if (sk && /^garment/.test(materialName(mesh))) out = rides(g, sk, mesh.bindMatrix);
   kinds.set(g, out);
   return out;
 }
@@ -201,6 +203,33 @@ function classify(mesh, g, sk, assetId) {
   return { kind, low: least, length: top - least, count: low };
 }
 
+// T-3553: cloth sewn onto the hanging cloth below the hips but skinned to the pelvis alone (a
+// maid's apron bow and its tails, a cook's apron ties): standing it lies on the skirt, but on
+// the walk the bell opens out under it and the skirt comes through it. It is 'ride': driven
+// with the panels by where it lies, as the cloth under it is, but never a garment the legs
+// are measured against. A rigid thing on a belt (a scabbard, a cartridge box) is an
+// accessory, not a garment, and keeps its own weights.
+function rides(g, sk, bindMatrix) {
+  const none = { kind: null, low: Infinity, length: 0, count: 0 };
+  const index = new Map(sk.bones.map((b, i) => [b?.name, i]));
+  if (!NEEDED.every((n) => index.has(n))) return none;
+  const Ip = sk.boneInverses[index.get('pelvis')];
+  const at = (n) => new THREE.Vector3().setFromMatrixPosition(new THREE.Matrix4().copy(Ip).multiply(sk.boneInverses[index.get(n)].clone().invert()));
+  const hip = { l: at('thigh_l'), r: at('thigh_r') }, ankle = { l: at('foot_l'), r: at('foot_r') };
+  const O = hip.l.clone().add(hip.r).multiplyScalar(0.5);
+  const U = O.clone().sub(ankle.l.clone().add(ankle.r).multiplyScalar(0.5));
+  const scale = ((hip.l.distanceTo(ankle.l) + hip.r.distanceTo(ankle.r)) / 2) / ADULT_LEG_M;
+  U.normalize();
+  const M = new THREE.Matrix4().copy(Ip).multiply(bindMatrix), pos = g.attributes.position, v = new THREE.Vector3();
+  let low = 0, least = Infinity;
+  for (let i = 0; i < pos.count; i++) {
+    const h = v.fromBufferAttribute(pos, i).applyMatrix4(M).sub(O).dot(U);
+    least = Math.min(least, h);
+    if (h < -LOW_M * scale) low++;
+  }
+  return low ? { kind: 'ride', low: least, length: 0, count: low } : none;
+}
+
 /**
  * The hanging cloth of a figure, and every garment that must move with it, or null when
  * nothing hangs below its hips (trousers alone). `skirt` is the main hanging garment (the longest, waist to hem, and fullest),
@@ -217,7 +246,7 @@ export function skirtMeshes(scene) {
   // The longest (within a fifth) and the fullest of them: a coat's skirts, not its turnbacks.
   const longest = Math.max(...hanging.map((m) => kind.get(m).length));
   const skirt = hanging.filter((m) => kind.get(m).length >= 0.8 * longest).reduce((a, m) => (kind.get(m).count > kind.get(a).count ? m : a));
-  const driven = all.filter((m) => kind.get(m).kind === 'hang' || kind.get(m).kind === 'edge');
+  const driven = all.filter((m) => ['hang', 'edge', 'ride'].includes(kind.get(m).kind));
   const tubes = all.filter((m) => kind.get(m).kind === 'tube');
   return { skirt, hanging, driven, tubes, body: all.find(isSkin) ?? null };
 }
