@@ -12,11 +12,11 @@ table the app reads, `data/reading/<scene>.json`. The retellings are authored by
 age a list of paragraphs, one for each paragraph of the record's own. Nothing is generated.
 
 Every age is MEASURED, never typed (tools/jaunt_reading_level.py, the mean of five US
-grade-level formulas over a card's words at that age):
-  - the record's own words read at the age they measure (`own`); that age is not rewritten;
-  - an age for children (8-10, grades 3-5) must measure inside its band or below it; every
-    other age within one band of its own;
-  - a younger age must read easier than the record's own words, and an older one harder.
+grade-level formulas over a card's words, each number read as one short word: see `plain`):
+  - the record's own words read at the age they measure (`own`), and so at every older age:
+    a retelling is for a reader younger than its words, never a harder telling for an older
+    one, so only the ages below `own` are written;
+  - each retelling reads inside its age's band or below it, and easier than the record itself.
 No fact enters a retelling that the record does not hold: a retelling says the same thing in
 other words, for a reader of another age.
 
@@ -67,8 +67,22 @@ def tales(scene):
 FAMILIES = {'stories': stories, 'tales': tales}
 
 
+# A card is full of dates and house numbers: "lived at 2027 Prairie Avenue in 1904" is not hard
+# to read, but the formulas count each digit of 2027 as a syllable, so a four-digit number is a
+# long word. Before a card is measured each number reads as one short word. Names are left as
+# they are: a long name is still hard for a young reader.
+NUMBER = re.compile(r"\d+(?:[,.]\d+)*(?:st|nd|rd|th)?")
+
+
+def plain(text):
+    out = []
+    for para in re.split(r'\n\s*\n', text):
+        out.append(NUMBER.sub('ten', para.strip()))
+    return '\n\n'.join(out)
+
+
 def grade(paragraphs):
-    return measure({'opening': {'text': '\n\n'.join(paragraphs)}})['grade']
+    return measure({'opening': {'text': plain('\n\n'.join(paragraphs))}})['grade']
 
 
 def compile_scene(scene, files):
@@ -106,15 +120,13 @@ def compile_scene(scene, files):
                 g = grade(paras)
                 got, want = band_of(g), AGES[age]
                 row['ages'][age] = g
-                if age == '8-10' and BANDS.index(got) > BANDS.index(want):
+                if ORDER.index(age) > ORDER.index(own):
+                    problems.append(f'{where} {age}: the record reads at {own} (grade {g0}); an older reader reads it as written')
+                    continue
+                if BANDS.index(got) > BANDS.index(want):
                     problems.append(f'{where} {age}: written for grades {want} but reads at grade {g} ({got})')
-                elif age != '8-10' and abs(BANDS.index(got) - BANDS.index(want)) > 1:
-                    problems.append(f'{where} {age}: written for grades {want} but reads at grade {g} ({got})')
-                younger = ORDER.index(age) < ORDER.index(own)
-                if younger and g >= g0:
+                if g >= g0:
                     problems.append(f'{where} {age}: reads at grade {g}, no easier than the record itself ({g0}, {own})')
-                if not younger and g <= g0:
-                    problems.append(f'{where} {age}: reads at grade {g}, no harder than the record itself ({g0}, {own})')
             report.append(row)
             for i, text in enumerate(original):
                 levels = {age: ages[age][i] for age in ORDER if age in row['ages']}

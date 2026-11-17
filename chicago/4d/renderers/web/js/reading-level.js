@@ -362,14 +362,21 @@ export function readingTabs(root, { after = null, into = null, choice = readingC
   }
   const head = doc.createElement('span');
   head.className = 'reading-tabs-label'; head.textContent = 'Age'; head.setAttribute('aria-hidden', 'true');
+  // The oldest tab, where it is the card's own words, is read by every older age too: "11+".
+  const owns = new Set(found.map((f) => f.entry.own));
+  const oldest = ages[ages.length - 1];
+  const covers = owns.size === 1 && owns.has(oldest) && oldest !== WRITTEN;
   const tabs = ages.map((id) => {
     const b = doc.createElement('button');
     b.type = 'button'; b.className = 'reading-tab'; b.setAttribute('role', 'tab');
-    b.dataset.readingAge = id; b.textContent = levelLabel(id);
-    b.setAttribute('aria-label', id === WRITTEN ? 'Ages 18 and over' : `Ages ${levelLabel(id)}`);
-    const owns = new Set(found.map((f) => f.entry.own));
-    b.title = [b.getAttribute('aria-label'), owns.size === 1 && owns.has(id) ? 'as first written' : '', choice.has(id) ? 'your reading age' : ''].filter(Boolean).join(' · ');
-    if (choice.has(id)) b.classList.add('reading-tab-yours');
+    b.dataset.readingAge = id;
+    const open = covers && id === oldest;
+    const low = levelLabel(id).split('–')[0];
+    b.textContent = open ? `${low}+` : levelLabel(id);
+    b.setAttribute('aria-label', id === WRITTEN ? 'Ages 18 and over' : open ? `Ages ${low} and over` : `Ages ${levelLabel(id)}`);
+    const yours = choice.has(id) || (open && choice.get().some((a) => rankOf(a) > rankOf(id)));
+    b.title = [b.getAttribute('aria-label'), owns.size === 1 && owns.has(id) ? 'as first written' : '', yours ? 'your reading age' : ''].filter(Boolean).join(' · ');
+    if (yours) b.classList.add('reading-tab-yours');
     b.addEventListener('click', (ev) => {
       ev?.stopPropagation?.();
       root.dataset.readingAge = id;

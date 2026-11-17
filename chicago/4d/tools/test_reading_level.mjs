@@ -182,6 +182,17 @@ function makeDoc() {
   assert.equal(card.dataset.readingAge, '16-17', 'chosen 18+, not written: the oldest age the card has');
   assert.equal(openingAge(['8-10', '14-15'], choice), '14-15');
 
+  // A card retold only for younger readers: its own words are every older reader's too ("11+").
+  const drop2 = addTable([{ text: 'A line nobody rewrote.', own: '11-13', levels: { '8-10': 'A plain line.' } }]);
+  const p3 = doc.createElement('article'); const q = doc.createElement('p'); q.append('A line nobody rewrote.'); p3.append(q);
+  choice.set(['16-17']);
+  readingTabs(p3, { choice });
+  const t3 = p3.querySelectorAll('.reading-tab');
+  assert.deepEqual(t3.map((t) => t.textContent), ['8–10', '11+'], 'the oldest tab, its own words, says every older age reads it');
+  assert.equal(t3[1].getAttribute('aria-label'), 'Ages 11 and over');
+  assert.equal(p3.dataset.readingAge, '11-13', 'chosen 16–17: the card as written');
+  assert(t3[1].className.includes('reading-tab-yours'), '…marked as the reader\'s');
+  drop2();
   drop();
   assert.equal(card.querySelectorAll('.reading-tabs').length, 0, 'the table gone: the row goes');
   assert.equal(p1.textContent, 'She came to the Glessners as a maid.', '…and the words as written come back');
