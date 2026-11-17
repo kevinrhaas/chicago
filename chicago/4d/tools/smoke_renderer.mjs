@@ -5009,17 +5009,59 @@ for (const [label, viewport, touch] of [
             slewSteps: typeof w.slew_steps === 'number' ? w.slew_steps : null })),
         wagonsRefused: (y?.records ?? []).reduce(
           (t, r) => t + (r.wagons_refused ?? []).length, 0),
+        // T-3636. What T-3558 retired, and the whole list it retired them from.
+        // The owner, 2026-11-16: "replace any parked wagons with these photographic
+        // wagons, you may not need to keep all of the parked wagons given the ones in
+        // motion". The parked record names the yard wagons no longer drawn
+        // (`retired_yard_wagons`) and parked-transport.js hands them to the layer as
+        // `retiredIds`; the yard records themselves still carry every wagon the T-0064
+        // rule dealt. So the checks below read BOTH halves: the deal off the record,
+        // and what is drawn as exactly the deal minus the retired list.
+        retiredWagons: [...(api.parkedTransport?.retiredIds ?? [])],
+        recordWagons: (y?.records ?? []).flatMap((r) => (r.wagons ?? []).map((w) => ({
+          id: w.id, kind: w.kind ?? 'farm_box', town: !!(w.stands_on || w.in_enclosure),
+          belongsTo: w.belongs_to ?? null, underShed: !!w.under_shed,
+          clearance: w.clearance_m, bearing: w.bearing_deg, confidence: w.confidence,
+          dealt: typeof w.slew_deg === 'number' }))),
+        drawnWagonIds: wagons.map((w) => w.id),
       };
     });
+    // ---- T-3636: the wagon ledger, after T-3558 --------------------------- //
+    // Every wagon the yard records deal is either DRAWN or RETIRED, never both and
+    // never neither, and the retired list names only wagons the records hold (a
+    // stale id there would retire nothing and read as a silent pass). These are
+    // exact clauses, not floors: the floors they replace (60 wagons, 55 in the town,
+    // 55 dealt) were T-0064's "more wagons" (2026-08-18), which the owner's T-3558
+    // ruling has since thinned on purpose, so a count read off a green run would
+    // only be the last number written down again.
+    const retiredWagons = new Set(goods.retiredWagons ?? []);
+    const recordWagons = goods.recordWagons ?? [];
+    const recordIds = new Set(recordWagons.map((w) => w.id));
+    const keptWagons = recordWagons.filter((w) => !retiredWagons.has(w.id));
+    const keptTown = keptWagons.filter((w) => w.town);
+    const drawnWagonIds = new Set(goods.drawnWagonIds ?? []);
+    const retiredDrawn = [...drawnWagonIds].filter((id) => retiredWagons.has(id));
+    const keptUndrawn = keptWagons.filter((w) => !drawnWagonIds.has(w.id)).map((w) => w.id);
+    const retiredStale = [...retiredWagons].filter((id) => !recordIds.has(id));
+    const wagonLedger = recordWagons.length > 0 && retiredDrawn.length === 0
+      && keptUndrawn.length === 0 && retiredStale.length === 0
+      && drawnWagonIds.size === keptWagons.length
+      && goods.census?.wagons === keptWagons.length;
+    const ledgerNote = `${recordWagons.length} wagon(s) in the records, `
+      + `${retiredWagons.size} retired (T-3558), ${keptWagons.length} kept; `
+      + `${retiredDrawn.length} retired drawn [${retiredDrawn.slice(0, 4).join(', ')}], `
+      + `${keptUndrawn.length} kept undrawn [${keptUndrawn.slice(0, 4).join(', ')}], `
+      + `${retiredStale.length} retired id(s) naming no record wagon`;
     check(`${label}: the yard layer stands the record's goods`,
       goods.census?.frontages >= 20 && goods.items >= 120 && goods.verts > 0
-        && goods.census?.wagons >= 60 && goods.census?.benches === 1
+        && wagonLedger && goods.census?.benches === 1
         && goods.census?.sheds === (goods.mode.enclosed === true ? 0 : 1)
         && greenTreeYardMode(goods.mode),
       `${goods.items} object(s) on ${goods.census?.frontages} frontage(s) from `
       + `${goods.census?.records} record(s), ${goods.census?.wagons} wagon(s), `
       + `${goods.census?.benches} bench(es), ${goods.census?.sheds} shed(s), `
-      + `${goods.verts} vertices, ${goods.census?.refused} frontage(s) refused; reading ${JSON.stringify(goods.mode)}`);
+      + `${goods.verts} vertices, ${goods.census?.refused} frontage(s) refused; reading ${JSON.stringify(goods.mode)}; `
+      + ledgerNote);
     // T-0064. The layer was ONE draw call while it was barrels on twenty-six
     // frontages; sixty-four more wagons spread over a square kilometre made a
     // single town-wide geometry the thing T-0115 item 2 measured and named — a
@@ -5094,13 +5136,27 @@ for (const [label, viewport, touch] of [
     // to the inn's rear wall — the bearing is the facade's own plus 180 — and
     // every one of them cleared the committed walls by the margin a parked wagon
     // is given, or the generator would have refused it in writing instead.
+    // T-3636: T-3558 retired both (the yard's ground is not level enough for the
+    // photographic farm box, and the moving teams carry the traffic), so what is
+    // DRAWN is the record's two minus the retired list — none today — and the
+    // stand the record still holds for each is asked the same question, so a wagon
+    // that comes back comes back clear and square.
+    const greenTreeRecord = recordWagons.filter((w) => w.belongsTo === 'green_tree_tavern'
+      && !w.underShed);
+    const greenTreeKept = greenTreeRecord.filter((w) => !retiredWagons.has(w.id));
     check(`${label}: the Green Tree's yard wagons stand clear, square to its rear wall`,
-      goods.greenTreeWagons?.length === 2
-        && goods.greenTreeWagons.every((w) => w.clearance_m >= 1.6
-          && w.bearing_deg === 90 && w.confidence === 'reconstructed'),
-      `${goods.greenTreeWagons?.length} wagon(s), clearances `
-      + `${goods.greenTreeWagons?.map((w) => w.clearance_m).join(', ')}, bearings `
-      + `${goods.greenTreeWagons?.map((w) => w.bearing_deg).join(', ')}`);
+      greenTreeRecord.length === 2
+        && greenTreeRecord.every((w) => w.clearance >= 1.6
+          && w.bearing === 90 && w.confidence === 'reconstructed')
+        && goods.greenTreeWagons?.length === greenTreeKept.length
+        && goods.greenTreeWagons.every((w) => !retiredWagons.has(w.id)
+          && w.clearance_m >= 1.6 && w.bearing_deg === 90
+          && w.confidence === 'reconstructed'),
+      `${greenTreeRecord.length} in the record (clearances `
+      + `${greenTreeRecord.map((w) => w.clearance).join(', ')}, bearings `
+      + `${greenTreeRecord.map((w) => w.bearing).join(', ')}), `
+      + `${greenTreeRecord.length - greenTreeKept.length} retired by T-3558, `
+      + `${goods.greenTreeWagons?.length} drawn`);
     // And the bench is drawn, against the wall rather than through it. Its
     // furthest corner is hypot(1.83/2, 0.36/2) = 0.93 m from its anchor, and the
     // record stands that anchor half the seat's depth off the facade plane, so
@@ -5273,9 +5329,13 @@ for (const [label, viewport, touch] of [
     const spanN = townWagons.length
       ? Math.max(...townWagons.map((w) => w.n)) - Math.min(...townWagons.map((w) => w.n))
       : 0;
+    // T-3636: the count is the record's town wagons less T-3558's retired list,
+    // exactly; the spread is unchanged, and is what this check was for.
     check(`${label}: the town's wagons are spread across its streets, not at two doors`,
-      townWagons.length >= 55 && streets.size >= 14 && spanE >= 1000 && spanN >= 700,
-      `${townWagons.length} town wagon(s) on ${streets.size} street(s) plus the `
+      townWagons.length === keptTown.length && townWagons.length > 0
+        && streets.size >= 14 && spanE >= 1000 && spanN >= 700,
+      `${townWagons.length} town wagon(s) (${keptTown.length} kept of `
+      + `${recordWagons.filter((w) => w.town).length} the rule dealt) on ${streets.size} street(s) plus the `
       + `working yards, spanning ${spanE.toFixed(0)} m east-west and `
       + `${spanN.toFixed(0)} m north-south`);
     // VARIED, in type and in the way they are drawn up. Three kinds, and no one
@@ -5283,11 +5343,25 @@ for (const [label, viewport, touch] of [
     // farm wagons is one wagon repeated, which is what the ticket asked against.
     const kindCounts = {};
     for (const w of townWagons) kindCounts[w.kind] = (kindCounts[w.kind] ?? 0) + 1;
-    const commonest = Math.max(0, ...Object.values(kindCounts));
+    // T-3636. THE THREE-QUARTERS BOUND IS ON THE DEAL, since T-3558. That ruling
+    // retired farm-box and covered wagons only — "carts are not wagons and are
+    // untouched" — so the drawn town is now mostly carts BY THE OWNER'S CHOICE, and a
+    // bound on the drawn mix would be asking his ruling to undo itself. What the
+    // T-0064 rule decides is the deal, and that is where the bound still bites: a
+    // rule dealing sixty identical wagons fails it as before. What is drawn must
+    // still carry all three kinds, and (by the ledger above) be exactly the deal
+    // minus the retired list, so no kind can vanish or swell unannounced.
+    const dealtTown = recordWagons.filter((w) => w.town);
+    const dealtKinds = {};
+    for (const w of dealtTown) dealtKinds[w.kind] = (dealtKinds[w.kind] ?? 0) + 1;
+    const commonestDealt = Math.max(0, ...Object.values(dealtKinds));
     check(`${label}: the town's wagons vary in type`,
       kinds.size >= 3 && kinds.has('covered') && kinds.has('cart')
-        && kinds.has('farm_box') && commonest <= townWagons.length * 0.75,
-      `${Object.entries(kindCounts).map(([k, v]) => `${v} ${k}`).join(', ')}`);
+        && kinds.has('farm_box') && Object.keys(dealtKinds).length >= 3
+        && commonestDealt <= dealtTown.length * 0.75 && wagonLedger,
+      `drawn ${Object.entries(kindCounts).map(([k, v]) => `${v} ${k}`).join(', ')}; `
+      + `dealt ${Object.entries(dealtKinds).map(([k, v]) => `${v} ${k}`).join(', ')} `
+      + `(commonest ${commonestDealt} of ${dealtTown.length}, bound 0.75)`);
     // AND IN THE WAY THEY STAND — T-0688, and this clause measures THE WAGON
     // RULE, which the one it replaces did not. It used to count distinct
     // `bearing_deg` to the nearest five degrees against a floor of 8. A town
@@ -5316,9 +5390,9 @@ for (const [label, viewport, touch] of [
     const envelopes = new Set(dealt.map((w) => w.slewEnvelope));
     // AND THE DEAL HAS TO BE DEALING. The slew is `sha1(id) mod steps` walked
     // end to end over the envelope, which is a uniform deal into `slewSteps`
-    // buckets; with sixty-odd wagons over nine steps every step is expected to
-    // carry about seven, and the chance a uniform deal leaves even one step
-    // empty is well under a percent. So the floor is `slewSteps - 1`: the deal's
+    // buckets; with the forty-five dealt wagons T-3558 kept over nine steps every
+    // step is expected to carry about five (seven, at sixty-odd, before it), and
+    // the chance a uniform deal leaves two steps empty is under a percent. So the floor is `slewSteps - 1`: the deal's
     // own step count, with one step of slack for the town gaining or losing a
     // wagon — derived from the rule, not read off a green run. And no step may
     // carry more than a quarter, which is more than double the uniform share.
@@ -5332,7 +5406,8 @@ for (const [label, viewport, touch] of [
       .map((w) => w.slew.toFixed(1)));
     const commonestStep = Math.max(0, ...Object.values(stepCounts));
     check(`${label}: the town's wagons stand at the slew the rule dealt them`,
-      dealt.length >= 55 && undealt.length <= 2 && escaped.length === 0
+      dealt.length === keptTown.filter((w) => w.dealt).length && dealt.length > 0
+        && undealt.length <= 2 && escaped.length === 0
         && envelopes.size === 3 && steps > 0 && alongSlews.size >= steps - 1
         && commonestStep <= dealt.length * 0.25,
       `${dealt.length} dealt and ${undealt.length} held by hand; `
