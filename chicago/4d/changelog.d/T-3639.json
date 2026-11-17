@@ -1,0 +1,8 @@
+{
+  "title": "Smoother frames where many people stand together",
+  "kind": "fix",
+  "items": [
+    "Each person's clothes, hair and hat now move on one set of bones instead of a set per piece, so a crowd costs far less to draw every frame. Everyone is still there, dressed and moving as before.",
+    "A short stall that came every three seconds is gone."
+  ]
+}

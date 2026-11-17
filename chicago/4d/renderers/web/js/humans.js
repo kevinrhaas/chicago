@@ -40,6 +40,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { registerKTX2 } from './ktx2.js';
 import { shareImageSources } from './shared-images.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
+import { shareSkeletons } from './human-skeletons.js';
 import { loadVariationKit, personVariation, applyVariation, disposeVariants } from './human-variation.js';
 import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
 import { enuToWorld } from './terrain.js';
@@ -610,6 +611,9 @@ export class HumanActor {
     const faces = meshes.filter((m) => m.morphTargetDictionary && Object.keys(m.morphTargetDictionary).length);
     // T-3493: brows and lashes that move with the face (a lash shuts with its lid).
     if (hair?.face?.morphTargetDictionary && Object.keys(hair.face.morphTargetDictionary).length) faces.push(hair.face);
+    // T-3639: the pieces skinned to the same bones share one skeleton, so each figure's bone
+    // matrices are computed and uploaded once a frame, not once per piece (human-skeletons.js).
+    shareSkeletons(scene);
     const mixer = new THREE.AnimationMixer(scene);
     mixer.addEventListener('finished', (ev) => { if (ev.action === this.body?.oneShot) this.endGesture(); });
     return { lod, scene, meshes, faces, mixer, clips, hair, looked, extras, garrison: dress?.garrison ?? null, action: null, oneShot: null, assetId: this.instance.appearance.asset_id,

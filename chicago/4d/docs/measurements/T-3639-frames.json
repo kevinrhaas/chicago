@@ -1,0 +1,20 @@
+{
+  "ticket": "T-3639",
+  "what": "Frame cost at the owner's 1812 stand: the Kinzie household by their boat on the north bank (beside black_jim, about local 1149 E 308 N), 1812-08-14, Full detail, name cards on. Clean dev 285b22502 against this branch, same container, same stand, same 45 s settle.",
+  "how": "Headless Chromium on ANGLE SwiftShader (no GPU), the page's own animation loop. Every rAF callback timed by wrapping window.requestAnimationFrame; each api layer's update and renderer.render wrapped in performance.now(); the WebGL context's texture and buffer calls counted. 'render off' runs stub renderer.render so the JavaScript columns are not drowned by software rasterising; 'render on' runs draw at 480x300 and count what is uploaded. A SwiftShader millisecond is this container's CPU, not a GPU's: the counts (skeletons, uploads) are machine-free, the milliseconds are for before/after on one machine only.",
+  "skeletons_drawn_a_frame": { "before": 448, "after": 63, "note": "1280x800 screenshot stand: 319 -> 50; 390x780 phone (Light): 736 -> 94, with the same 47 people drawn" },
+  "skeleton_update_ms_a_frame": { "before": 1.28, "after": 0.41 },
+  "texture_uploads_a_frame": { "before": { "calls": 682, "MB": 3.48 }, "after": { "calls": 130, "MB": 1.04 }, "note": "texSubImage2D; the before set is almost all 16x16 and 20x20 float bone textures, one per skinned piece" },
+  "software_render_ms_median": { "before": 86, "after": 65, "note": "SwiftShader at 480x300, 18 and 20 frames" },
+  "black_box_tick_ms": { "before": { "max": 13.9, "frames_over_5ms": 7, "note": "render off, 338 frames; 37.3 ms max with render on" }, "after": { "max": 0.2, "frames_over_5ms": 0 } },
+  "frame_js_less_render_ms": {
+    "before": { "frames": 338, "median": 8.4, "p95": 16.7, "p99": 27.4, "max": 34.6, "over_25ms": 4 },
+    "after": { "frames": 317, "median": 9.3, "p95": 17.6, "p99": 22.8, "max": 26.0, "over_25ms": 1 },
+    "note": "render off, 30 s each. The median and p95 are within run-to-run spread (the skeleton work these changes cut runs inside the render, which these columns leave out); the tail is the three-second black-box stall removed."
+  },
+  "not_changed_here": [
+    "A far figure entering its 140 m drawing range is still built in one frame (10-21 ms here at LOD3; humans.js queueBuild turns them, it does not split one). Measured: 8 builds in 20 s standing still, the garrison walking at 81-87 m.",
+    "Hands and fingers (human-actions.js apply) are about half of humans.update (6 ms a frame here for about 40 animated figures).",
+    "The stand's driver draws (about 6,700) and triangles (1.5 M) are the same on dev from before T-3614/T-3555/T-3560 (1a6a7f089^): 6,691 and 1.51 M."
+  ]
+}
