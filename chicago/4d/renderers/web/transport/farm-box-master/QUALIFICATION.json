@@ -1,0 +1,202 @@
+{
+  "schema": "chicago_farm_box_qualification_v1",
+  "asset_id": "wagon_w01_farm_box_master_v1",
+  "ticket": "T-3558",
+  "recorded": "2026-11-17",
+  "verdict": "Qualified as the photographic reconstructed work wagon of 1812 and 1835 at walking and street distance: its family matches both period pictures, it stands and rolls on the rendered ground within its limits, it clears every tree along both 1812 routes and at both covered-wagon stands, and its levels hold the phone and desktop costs below. It is a modern licensed construction reference painted and placed by the project, not an attested 1835 Chicago specimen.",
+  "photographic_acceptance": true,
+  "references": [
+    {
+      "source_id": "wild_1835_third_vine",
+      "image": "chicago/reference/images/cincinnati/cincinnati_wild_third_and_vine_1835.jpg",
+      "sha256": "428bfc9cf09352f3187fd31f6330310f64829fca17013b88de4ef812d37b966e",
+      "subject": "lower-right covered work wagon, rear quarter",
+      "agrees": [
+        "four spoked wheels",
+        "front wheels smaller than rear",
+        "upright plank-sided box on a reach and bolsters",
+        "blue box with red-brown running gear (the Western Hotel covered wagon's coat)",
+        "pale canvas cover over the box"
+      ],
+      "differs": [
+        "Wild's cover is lower and loosely draped; the covered wagons keep v1's five bows",
+        "the painting gives no scale, spoke count, joinery or wood"
+      ]
+    },
+    {
+      "catalogue": "chicago/reference/images/IMAGE_SOURCES.md (The Picture Book of Earlier Buffalo, 1912, p. 163; no data/sources record)",
+      "image": "chicago/reference/images/buffalo/buffalo_eagle_tavern_main_street_1825.jpg",
+      "sha256": "8499bfc6b3888f5b261fc5b69eb36876f19a6f383d9e528fe91d0861eadcbd69",
+      "subject": "open four-wheel box wagon loaded with barrels (left of centre), side view; ox-drawn rack wagon with bare bows (right)",
+      "agrees": [
+        "open plank box on four spoked wheels",
+        "rear wheels larger",
+        "box sides at about the rear wheels' height",
+        "plank rack sides like the master's boards"
+      ],
+      "differs": [
+        "the halftone resolves no joinery, kingbolt, reach or spoke count"
+      ]
+    }
+  ],
+  "matched_views": {
+    "camera": "three.js perspective, fov 30, chosen by eye to the reference's quarter; a painting gives no solvable camera",
+    "images": [
+      "kevinrhaas/chicago-evidence evidence/T-3558-wagons-brougham-2026-11-17/match-wild-1835-farm-box.jpg",
+      "kevinrhaas/chicago-evidence evidence/T-3558-wagons-brougham-2026-11-17/match-wild-1835-covered-v2.jpg",
+      "kevinrhaas/chicago-evidence evidence/T-3558-wagons-brougham-2026-11-17/match-buffalo-farm-box.jpg"
+    ]
+  },
+  "clearance": {
+    "ground": {
+      "source": "tools/check_farm_box_master.py",
+      "neutral_wheel_ground_gap_m_max": 2.7e-08,
+      "all_roll_lower_bound_m_min": -0.00262,
+      "limit": "artist rim irregularity <= 3 mm",
+      "front_wheel_to_body_min_gap_m": 0.0136,
+      "scope": "all roll phases and every steer angle within the declared limit"
+    },
+    "parked_stands_1835": [
+      {
+        "id": "parked_town_wagon_western_hotel_wagon_yard_1",
+        "wheel_plane_span_m": 0.0,
+        "tongue_angle_rad": 0.1861,
+        "tongue_min_clearance_m": 7.7e-09,
+        "draw_batches": 8
+      },
+      {
+        "id": "parked_town_wagon_wolf_point_tavern_yard_1",
+        "wheel_plane_span_m": 0.0034,
+        "tongue_angle_rad": 0.1879,
+        "tongue_min_clearance_m": 2.1e-08,
+        "draw_batches": 8
+      }
+    ],
+    "trees": {
+      "method": "each tree trunk the walk scene reports (api.standOccluders: parkway trees, posts and grown timber trunks, with radii) against the vehicle's envelope at every 0.5 m of its route, or at its stand",
+      "1812": {
+        "trunks": 7481,
+        "fort_wagon_loop_1812": {
+          "route_m": 333.1,
+          "nearest_trunk_gap_m": "none within 60 m"
+        },
+        "shore_road_wagon_haul_1812": {
+          "route_m": 1194.7,
+          "nearest_trunk_gap_m": 33.6
+        }
+      },
+      "1835": {
+        "trunks": 4258,
+        "parked_town_wagon_western_hotel_wagon_yard_1": {
+          "nearest_trunk_gap_m": "none within 30 m"
+        },
+        "parked_town_wagon_wolf_point_tavern_yard_1": {
+          "nearest_trunk_gap_m": 4.11
+        }
+      },
+      "envelope": "driven: the row's measured envelope_local_xz_m; parked: wheels \u00b10.8 m by \u00b11.8 m and a 0.12 m pole to 4.4 m ahead"
+    },
+    "buildings": "driven rows: the runtime swept-envelope clearance against building footprints (transport-clearance.js) refuses any step that touches one; parked: the stands are the original yard stands, qualified by tools/transport/check_parked_placements.py"
+  },
+  "lods": [
+    {
+      "level": "near",
+      "file": "farm-box-near.glb",
+      "sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "bytes": 5105348,
+      "triangles": 17550,
+      "draw_batches": 12,
+      "texture_RGBA8_mip_estimate_bytes": 33554424
+    },
+    {
+      "level": "mid",
+      "file": "farm-box-mid.glb",
+      "sha256": "6a5fa3f484afbed41d05f055858df57a8163b19ff0057e292449c51ccb360b36",
+      "bytes": 2168924,
+      "triangles": 12996,
+      "draw_batches": 12,
+      "texture_RGBA8_mip_estimate_bytes": 8388600
+    },
+    {
+      "level": "far",
+      "file": "farm-box-far.glb",
+      "sha256": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "bytes": 1190220,
+      "triangles": 10178,
+      "draw_batches": 12,
+      "texture_RGBA8_mip_estimate_bytes": 2097144
+    }
+  ],
+  "lod_use": {
+    "desktop": "near (parked within 100 m at Full, 65 m Balanced; driven teams)",
+    "phones_and_light": "mid (vehicle_file_light / file_light), parked within 50 m"
+  },
+  "cost": {
+    "per_vehicle": {
+      "near": {
+        "triangles": 17550,
+        "draw_batches_parked": "4 painted batches + 4 cover batches = 8",
+        "texture_RGBA8_mips_MiB": 32.0
+      },
+      "mid": {
+        "triangles": 12996,
+        "texture_RGBA8_mips_MiB": 8.0
+      },
+      "covered_v2_cover": {
+        "triangles": 5988,
+        "bytes": 1137696,
+        "texture_RGBA8_mips_MiB": 6.0
+      },
+      "covered_v1_whole_wagon_for_comparison": {
+        "triangles": 17292,
+        "bytes": 2970448,
+        "texture_RGBA8_mips_MiB": 8.0
+      }
+    },
+    "shared": "the farm-box GLB is decoded and uploaded once per layer however many parked models stand on it (parked-transport.js caches by file)",
+    "in_scene_frames": {
+      "note": "whole-frame renderer stats at the same pose and view, before (v1) and after (v2); frames also hold moving people, so small differences are not all the wagon's",
+      "1835_desktop_wolf_point": {
+        "before": {
+          "draws": 825,
+          "triangles": 1076206
+        },
+        "after": {
+          "draws": 844,
+          "triangles": 1150816
+        }
+      },
+      "1835_desktop_western_hotel": {
+        "before": {
+          "draws": 2507,
+          "triangles": 1380743
+        },
+        "after": {
+          "draws": 2505,
+          "triangles": 1393235
+        }
+      },
+      "1835_phone_western_hotel": {
+        "before": {
+          "draws": 612,
+          "triangles": 292387
+        },
+        "after": {
+          "draws": 610,
+          "triangles": 295771
+        }
+      },
+      "1812_desktop_fort_wagon": {
+        "draws": 6143,
+        "triangles": 1456342
+      },
+      "1812_phone_fort_wagon": {
+        "draws": 690,
+        "triangles": 448320
+      }
+    },
+    "phone_memory": "Not at spawn: the parked layer loads within 50 m on phones. Beside one covered wagon a phone now holds about 14 MiB of its textures (mid 8 + cover 6) where v1 held 8; both wagons stand 250 m apart, so one is near at a time. The 1835 mobile resident ceiling (tools/memory_ceilings.json) is read at spawn and is not moved by this change; it was not re-measured in this container."
+  },
+  "evidence": "kevinrhaas/chicago-evidence evidence/T-3558-wagons-brougham-2026-11-17/",
+  "limits": "Matched views are qualitative quarter/side comparisons with paintings and a halftone, not solved cameras. No suspension, force or collision certification beyond the bounds above. The licence, credit and adaptation notice stay as recorded in assets/LICENSES.md (L-farm-box-licensed-master-2793; this qualification: L-wagons-brougham-3558)."
+}
