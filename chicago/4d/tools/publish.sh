@@ -591,6 +591,11 @@ mkdir -p "$SITE/data/transport/driven"
 cp -f data/transport/driven/loops.json data/transport/driven/hitch-bindings-v2.json \
   data/transport/driven/current26-hoof-support-domain.json \
   data/transport/driven/current26-walk-v2-hoof-domain.json "$SITE/data/transport/driven/"
+# T-3560: the saddle horses a visitor may ride (riding.js reads their rows, tack and fit).
+if [ -d data/transport/riding ]; then
+  rm -rf "$SITE/data/transport/riding"
+  cp -a data/transport/riding "$SITE/data/transport/riding"
+fi
 
 # The wharf layer — the river docks at the two forwarding warehouses whose own
 # records state one, drawn by renderers/web/js/wharves.js straight from these
