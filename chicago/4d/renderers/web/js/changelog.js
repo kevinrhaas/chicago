@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3071, ts: '2026-11-17T12:46:20.342Z', date: 'Nov 17, 2026, 6:46 AM CT', title: 'Aiming at a building always opens it again', kind: 'fix',
+    items: [
+      'Pressing Space, E or tapping a building could find nothing for a moment while new people were joining the far streets. It now opens the building every time.',
+    ] },
   { v: 3070, ts: '2026-11-17T11:46:37.105Z', date: 'Nov 17, 2026, 5:46 AM CT', title: 'The Dent house\'s broad dormer now rises over its roof\'s curb', kind: 'improvement',
     items: [
       'At 1823 Prairie the dormer over the three-window group is rebuilt to the engraving and the 1883 album vignette: broad, its paired windows between two scrolled consoles, under a classical pediment that stands about a metre above the roof\'s top edge, as both pictures draw it.',
