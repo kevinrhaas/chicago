@@ -37027,12 +37027,6 @@
           "domain": "structure",
           "structure": "reid_house_2013_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.rear_wings"
-        },
-        {
-          "domain": "structure",
-          "structure": "reid_house_2013_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.roof_covering"
         },
         {
@@ -37058,18 +37052,6 @@
           "structure": "reid_house_2013_prairie",
           "phase": "as_mapped_1904",
           "aspect": "form.stair_tread_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "reid_house_2013_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.street_front_windows"
-        },
-        {
-          "domain": "structure",
-          "structure": "reid_house_2013_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.wall_head"
         },
         {
           "domain": "structure",
@@ -37109,7 +37091,7 @@
         },
         {
           "label": "Covers",
-          "text": "`reid_house_2013_prairie.as_mapped_1904.form.wall_thickness_front_m`, `reid_house_2013_prairie.as_mapped_1904.form.wall_thickness_side_m`, `reid_house_2013_prairie.as_mapped_1904.form.service_wall_brick`, `reid_house_2013_prairie.as_mapped_1904.form.wall_head`, `reid_house_2013_prairie.as_mapped_1904.form.roof_pitch_deg`, `reid_house_2013_prairie.as_mapped_1904.form.roof_covering`, `reid_house_2013_prairie.as_mapped_1904.form.window_kit`, `reid_house_2013_prairie.as_mapped_1904.form.stair_tread_m`, `reid_house_2013_prairie.as_mapped_1904.form.side_bays`, `reid_house_2013_prairie.as_mapped_1904.form.rear_bays`, `reid_house_2013_prairie.as_mapped_1904.form.street_front_windows`, `reid_house_2013_prairie.as_mapped_1904.form.chimneys`, `reid_house_2013_prairie.as_mapped_1904.form.yard`, `reid_house_2013_prairie.as_mapped_1904.form.rear_wings`"
+          "text": "`reid_house_2013_prairie.as_mapped_1904.form.wall_thickness_front_m`, `reid_house_2013_prairie.as_mapped_1904.form.wall_thickness_side_m`, `reid_house_2013_prairie.as_mapped_1904.form.service_wall_brick`, `reid_house_2013_prairie.as_mapped_1904.form.roof_pitch_deg`, `reid_house_2013_prairie.as_mapped_1904.form.roof_covering`, `reid_house_2013_prairie.as_mapped_1904.form.window_kit`, `reid_house_2013_prairie.as_mapped_1904.form.stair_tread_m`, `reid_house_2013_prairie.as_mapped_1904.form.side_bays`, `reid_house_2013_prairie.as_mapped_1904.form.rear_bays`, `reid_house_2013_prairie.as_mapped_1904.form.chimneys`, `reid_house_2013_prairie.as_mapped_1904.form.yard`"
         },
         {
           "label": "Review",
