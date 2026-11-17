@@ -1,0 +1,758 @@
+{
+ "ticket": "T-3555",
+ "what": "A living town at a phone's cost: people between 28 m and the middle reach drawn instanced on one shared walking body per dress; people beyond it to the far reach as cards from one shared atlas; horse-drawn teams beyond the transport layer's reach as cards on their roads. Measured on Full, Balanced and Light, desktop and phone, at a street stand in each year.",
+ "budgets": {
+  "people_middle_reach_m": {
+   "full": [
+    28,
+    110
+   ],
+   "balanced": [
+    28,
+    90
+   ],
+   "light": [
+    28,
+    70
+   ]
+  },
+  "people_far_reach_m": {
+   "full": 600,
+   "balanced": 450,
+   "light": 320
+  },
+  "people_caps": {
+   "full": {
+    "middle": 160,
+    "far": 1400
+   },
+   "balanced": {
+    "middle": 110,
+    "far": 900
+   },
+   "light": {
+    "middle": 60,
+    "far": 500
+   }
+  },
+  "card_cell_px": {
+   "full": [
+    32,
+    64
+   ],
+   "balanced": [
+    32,
+    64
+   ],
+   "light": [
+    24,
+    48
+   ]
+  },
+  "team_far_reach_m": {
+   "full": 700,
+   "balanced": 500,
+   "light": 350
+  },
+  "team_caps": {
+   "full": 32,
+   "balanced": 20,
+   "light": 12
+  },
+  "team_cell_px": {
+   "full": [
+    128,
+    64
+   ],
+   "balanced": [
+    128,
+    64
+   ],
+   "light": [
+    96,
+    48
+   ]
+  },
+  "draw_calls": "one per shared body kind in the middle tier, one for all people cards, one for all team cards",
+  "cpu_ms_per_frame": "at most 1.2 ms on Full desktop, 0.3 ms on Balanced and Light; read in the page as update(1/60) x120",
+  "phone_memory": "the memory ceilings in tools/memory_ceilings.json are unchanged; this layer adds its atlas, its depth buffer and the shared bodies, about 2 to 4 MiB on Light"
+ },
+ "method": "Published site served locally, Chromium with SwiftShader (software GL) on a 4-core cloud container. Frame time on software GL is seconds, not a device reading, so per-frame cost is the crowd and traffic update() itself, timed in the page over 120 calls of 1/60 s. Draw calls and triangles from renderer.info; the scene totals on/off are taken a moment apart in a living scene and move by more than the layer itself, so own_draw_calls_max is counted from the layer. GPU bytes are the layer's own atlas and buffers. Phone memory is tools/measure_memory.mjs at spawn after 45 s of settling, clean dev against this branch, in MiB.",
+ "measured": {
+  "on": "2026-11-17",
+  "machine": "cloud container, 4 cores, SwiftShader"
+ },
+ "shipped_bytes": {
+  "js_added": 55000,
+  "js_added_gzip": 19500,
+  "assets_added": 0
+ },
+ "phone_memory_mib": {
+  "1835": {
+   "this_branch": 542.0,
+   "dev": 536.2,
+   "ceiling": 525
+  },
+  "1812": {
+   "dev": 336.6,
+   "this_branch": 329.3,
+   "ceiling": 375
+  },
+  "1904": {
+   "dev": 463.5,
+   "this_branch": 472.1,
+   "ceiling": 475
+  }
+ },
+ "rows": [
+  {
+   "year": "1812",
+   "device": "desktop 1280x800",
+   "tier": "full",
+   "stand": {
+    "local_e": 1112,
+    "local_n": 180,
+    "yaw_deg": 45
+   },
+   "people": {
+    "middle_instanced": 0,
+    "far_cards": 478,
+    "shared_bodies": 10
+   },
+   "teams": {
+    "cards": 2,
+    "listed_distant": 2
+   },
+   "crowd_cpu_ms_per_frame": 0.172,
+   "traffic_cpu_ms_per_frame": 0.016,
+   "middle_triangles": 0,
+   "own_draw_calls_max": 12,
+   "gpu_bytes": {
+    "crowd": 4336186,
+    "traffic": 699051
+   },
+   "one_time_ms": {
+    "body_build": 47.6,
+    "colour_read_sync_part": 7.7,
+    "card_bake": 8744.3
+   },
+   "scene_draws_on_off": [
+    7932,
+    8199
+   ]
+  },
+  {
+   "year": "1812",
+   "device": "desktop 1280x800",
+   "tier": "balanced",
+   "stand": {
+    "local_e": 1112,
+    "local_n": 180,
+    "yaw_deg": 45
+   },
+   "people": {
+    "middle_instanced": 0,
+    "far_cards": 80,
+    "shared_bodies": 9
+   },
+   "teams": {
+    "cards": 2,
+    "listed_distant": 2
+   },
+   "crowd_cpu_ms_per_frame": 0.029,
+   "traffic_cpu_ms_per_frame": 0.022,
+   "middle_triangles": 0,
+   "own_draw_calls_max": 11,
+   "gpu_bytes": {
+    "crowd": 4103838,
+    "traffic": 699051
+   },
+   "one_time_ms": {
+    "body_build": 34.1,
+    "colour_read_sync_part": 9,
+    "card_bake": 7114.5
+   },
+   "scene_draws_on_off": [
+    8796,
+    8811
+   ]
+  },
+  {
+   "year": "1812",
+   "device": "desktop 1280x800",
+   "tier": "light",
+   "stand": {
+    "local_e": 1112,
+    "local_n": 180,
+    "yaw_deg": 45
+   },
+   "people": {
+    "middle_instanced": 0,
+    "far_cards": 22,
+    "shared_bodies": 5
+   },
+   "teams": {
+    "cards": 1,
+    "listed_distant": 2
+   },
+   "crowd_cpu_ms_per_frame": 0.015,
+   "traffic_cpu_ms_per_frame": 0.005,
+   "middle_triangles": 0,
+   "own_draw_calls_max": 7,
+   "gpu_bytes": {
+    "crowd": 2277946,
+    "traffic": 393216
+   },
+   "one_time_ms": {
+    "body_build": 15,
+    "colour_read_sync_part": 0.2,
+    "card_bake": 4244.5
+   },
+   "scene_draws_on_off": [
+    2844,
+    2847
+   ]
+  },
+  {
+   "year": "1812",
+   "device": "phone 390x780",
+   "tier": "light",
+   "stand": {
+    "local_e": 1112,
+    "local_n": 180,
+    "yaw_deg": 45
+   },
+   "people": {
+    "middle_instanced": 0,
+    "far_cards": 24,
+    "shared_bodies": 7
+   },
+   "teams": {
+    "cards": 1,
+    "listed_distant": 2
+   },
+   "crowd_cpu_ms_per_frame": 0.078,
+   "traffic_cpu_ms_per_frame": 0.019,
+   "middle_triangles": 0,
+   "own_draw_calls_max": 9,
+   "gpu_bytes": {
+    "crowd": 2346684,
+    "traffic": 393216
+   },
+   "one_time_ms": {
+    "body_build": 14.3,
+    "colour_read_sync_part": 0.4,
+    "card_bake": 2696
+   },
+   "scene_draws_on_off": [
+    1304,
+    1655
+   ]
+  },
+  {
+   "year": "1812",
+   "device": "phone 390x780",
+   "tier": "balanced",
+   "stand": {
+    "local_e": 1112,
+    "local_n": 180,
+    "yaw_deg": 45
+   },
+   "people": {
+    "middle_instanced": 0,
+    "far_cards": 80,
+    "shared_bodies": 9
+   },
+   "teams": {
+    "cards": 2,
+    "listed_distant": 2
+   },
+   "crowd_cpu_ms_per_frame": 0.032,
+   "traffic_cpu_ms_per_frame": 0.028,
+   "middle_triangles": 0,
+   "own_draw_calls_max": 11,
+   "gpu_bytes": {
+    "crowd": 4103838,
+    "traffic": 699051
+   },
+   "one_time_ms": {
+    "body_build": 15,
+    "colour_read_sync_part": 26.8,
+    "card_bake": 3.6
+   },
+   "scene_draws_on_off": [
+    2069,
+    2100
+   ]
+  },
+  {
+   "year": "1812",
+   "device": "phone 390x780",
+   "tier": "full",
+   "stand": {
+    "local_e": 1112,
+    "local_n": 180,
+    "yaw_deg": 45
+   },
+   "people": {
+    "middle_instanced": 0,
+    "far_cards": 474,
+    "shared_bodies": 8
+   },
+   "teams": {
+    "cards": 2,
+    "listed_distant": 2
+   },
+   "crowd_cpu_ms_per_frame": 0.264,
+   "traffic_cpu_ms_per_frame": 0.008,
+   "middle_triangles": 0,
+   "own_draw_calls_max": 10,
+   "gpu_bytes": {
+    "crowd": 4209784,
+    "traffic": 699051
+   },
+   "one_time_ms": {
+    "body_build": 13.8,
+    "colour_read_sync_part": 2.6,
+    "card_bake": 3448.2
+   },
+   "scene_draws_on_off": [
+    2089,
+    2090
+   ]
+  },
+  {
+   "year": "1835",
+   "device": "desktop 1280x800",
+   "tier": "full",
+   "stand": {
+    "local_e": 300,
+    "local_n": -108,
+    "yaw_deg": 90
+   },
+   "people": {
+    "middle_instanced": 41,
+    "far_cards": 1208,
+    "shared_bodies": 11
+   },
+   "teams": {
+    "cards": 0,
+    "listed_distant": 0
+   },
+   "crowd_cpu_ms_per_frame": 1.127,
+   "traffic_cpu_ms_per_frame": 0.003,
+   "middle_triangles": 53234,
+   "own_draw_calls_max": 12,
+   "gpu_bytes": {
+    "crowd": 4165450,
+    "traffic": 0
+   },
+   "one_time_ms": {
+    "body_build": 17.8,
+    "colour_read_sync_part": 5.6,
+    "card_bake": 75.7
+   },
+   "scene_draws_on_off": [
+    4452,
+    4442
+   ]
+  },
+  {
+   "year": "1835",
+   "device": "desktop 1280x800",
+   "tier": "balanced",
+   "stand": {
+    "local_e": 300,
+    "local_n": -108,
+    "yaw_deg": 90
+   },
+   "people": {
+    "middle_instanced": 19,
+    "far_cards": 640,
+    "shared_bodies": 11
+   },
+   "teams": {
+    "cards": 0,
+    "listed_distant": 0
+   },
+   "crowd_cpu_ms_per_frame": 0.289,
+   "traffic_cpu_ms_per_frame": 0.002,
+   "middle_triangles": 19732,
+   "own_draw_calls_max": 12,
+   "gpu_bytes": {
+    "crowd": 3955686,
+    "traffic": 0
+   },
+   "one_time_ms": {
+    "body_build": 13.2,
+    "colour_read_sync_part": 0.4,
+    "card_bake": 2.1
+   },
+   "scene_draws_on_off": [
+    4443,
+    4414
+   ]
+  },
+  {
+   "year": "1835",
+   "device": "desktop 1280x800",
+   "tier": "light",
+   "stand": {
+    "local_e": 300,
+    "local_n": -108,
+    "yaw_deg": 90
+   },
+   "people": {
+    "middle_instanced": 16,
+    "far_cards": 281,
+    "shared_bodies": 9
+   },
+   "teams": {
+    "cards": 0,
+    "listed_distant": 0
+   },
+   "crowd_cpu_ms_per_frame": 0.138,
+   "traffic_cpu_ms_per_frame": 0.005,
+   "middle_triangles": 10536,
+   "own_draw_calls_max": 10,
+   "gpu_bytes": {
+    "crowd": 2258896,
+    "traffic": 0
+   },
+   "one_time_ms": {
+    "body_build": 13.3,
+    "colour_read_sync_part": 0.2,
+    "card_bake": 52.6
+   },
+   "scene_draws_on_off": [
+    3245,
+    3236
+   ]
+  },
+  {
+   "year": "1835",
+   "device": "phone 390x780",
+   "tier": "light",
+   "stand": {
+    "local_e": 300,
+    "local_n": -108,
+    "yaw_deg": 90
+   },
+   "people": {
+    "middle_instanced": 16,
+    "far_cards": 280,
+    "shared_bodies": 9
+   },
+   "teams": {
+    "cards": 0,
+    "listed_distant": 0
+   },
+   "crowd_cpu_ms_per_frame": 0.22,
+   "traffic_cpu_ms_per_frame": 0.002,
+   "middle_triangles": 10536,
+   "own_draw_calls_max": 10,
+   "gpu_bytes": {
+    "crowd": 2258896,
+    "traffic": 0
+   },
+   "one_time_ms": {
+    "body_build": 15.7,
+    "colour_read_sync_part": 0.5,
+    "card_bake": 2081.8
+   },
+   "scene_draws_on_off": [
+    2206,
+    2197
+   ]
+  },
+  {
+   "year": "1835",
+   "device": "phone 390x780",
+   "tier": "balanced",
+   "stand": {
+    "local_e": 300,
+    "local_n": -108,
+    "yaw_deg": 90
+   },
+   "people": {
+    "middle_instanced": 18,
+    "far_cards": 641,
+    "shared_bodies": 11
+   },
+   "teams": {
+    "cards": 0,
+    "listed_distant": 0
+   },
+   "crowd_cpu_ms_per_frame": 0.815,
+   "traffic_cpu_ms_per_frame": 0,
+   "middle_triangles": 18393,
+   "own_draw_calls_max": 12,
+   "gpu_bytes": {
+    "crowd": 3955686,
+    "traffic": 0
+   },
+   "one_time_ms": {
+    "body_build": 15.1,
+    "colour_read_sync_part": 0.3,
+    "card_bake": 2.2
+   },
+   "scene_draws_on_off": [
+    3203,
+    3193
+   ]
+  },
+  {
+   "year": "1835",
+   "device": "phone 390x780",
+   "tier": "full",
+   "stand": {
+    "local_e": 300,
+    "local_n": -108,
+    "yaw_deg": 90
+   },
+   "people": {
+    "middle_instanced": 41,
+    "far_cards": 1210,
+    "shared_bodies": 11
+   },
+   "teams": {
+    "cards": 0,
+    "listed_distant": 0
+   },
+   "crowd_cpu_ms_per_frame": 0.666,
+   "traffic_cpu_ms_per_frame": 0.002,
+   "middle_triangles": 53234,
+   "own_draw_calls_max": 12,
+   "gpu_bytes": {
+    "crowd": 4165450,
+    "traffic": 0
+   },
+   "one_time_ms": {
+    "body_build": 17.4,
+    "colour_read_sync_part": 0.6,
+    "card_bake": 3.2
+   },
+   "scene_draws_on_off": [
+    3222,
+    3212
+   ]
+  },
+  {
+   "year": "1904",
+   "device": "desktop 1280x800",
+   "tier": "full",
+   "stand": {
+    "local_e": 1402,
+    "local_n": -3560,
+    "yaw_deg": 0
+   },
+   "people": {
+    "middle_instanced": 25,
+    "far_cards": 92,
+    "shared_bodies": 13
+   },
+   "teams": {
+    "cards": 3,
+    "listed_distant": 3
+   },
+   "crowd_cpu_ms_per_frame": 0.193,
+   "traffic_cpu_ms_per_frame": 0.127,
+   "middle_triangles": 37712,
+   "own_draw_calls_max": 15,
+   "gpu_bytes": {
+    "crowd": 4285158,
+    "traffic": 699051
+   },
+   "one_time_ms": {
+    "body_build": 18.5,
+    "colour_read_sync_part": 0.2,
+    "card_bake": 38171.2
+   },
+   "scene_draws_on_off": [
+    4570,
+    4575
+   ]
+  },
+  {
+   "year": "1904",
+   "device": "desktop 1280x800",
+   "tier": "balanced",
+   "stand": {
+    "local_e": 1402,
+    "local_n": -3560,
+    "yaw_deg": 0
+   },
+   "people": {
+    "middle_instanced": 17,
+    "far_cards": 59,
+    "shared_bodies": 13
+   },
+   "teams": {
+    "cards": 2,
+    "listed_distant": 3
+   },
+   "crowd_cpu_ms_per_frame": 0.26,
+   "traffic_cpu_ms_per_frame": 0.032,
+   "middle_triangles": 21834,
+   "own_draw_calls_max": 15,
+   "gpu_bytes": {
+    "crowd": 4099436,
+    "traffic": 699051
+   },
+   "one_time_ms": {
+    "body_build": 22.3,
+    "colour_read_sync_part": 4.1,
+    "card_bake": 10.4
+   },
+   "scene_draws_on_off": [
+    5288,
+    5284
+   ]
+  },
+  {
+   "year": "1904",
+   "device": "desktop 1280x800",
+   "tier": "light",
+   "stand": {
+    "local_e": 1402,
+    "local_n": -3560,
+    "yaw_deg": 0
+   },
+   "people": {
+    "middle_instanced": 14,
+    "far_cards": 43,
+    "shared_bodies": 11
+   },
+   "teams": {
+    "cards": 2,
+    "listed_distant": 3
+   },
+   "crowd_cpu_ms_per_frame": 0.102,
+   "traffic_cpu_ms_per_frame": 0.021,
+   "middle_triangles": 12169,
+   "own_draw_calls_max": 13,
+   "gpu_bytes": {
+    "crowd": 2342564,
+    "traffic": 393216
+   },
+   "one_time_ms": {
+    "body_build": 22.3,
+    "colour_read_sync_part": 0.5,
+    "card_bake": 10016.3
+   },
+   "scene_draws_on_off": [
+    7249,
+    7241
+   ]
+  },
+  {
+   "year": "1904",
+   "device": "phone 390x780",
+   "tier": "light",
+   "stand": {
+    "local_e": 1402,
+    "local_n": -3560,
+    "yaw_deg": 0
+   },
+   "people": {
+    "middle_instanced": 13,
+    "far_cards": 42,
+    "shared_bodies": 11
+   },
+   "teams": {
+    "cards": 2,
+    "listed_distant": 3
+   },
+   "crowd_cpu_ms_per_frame": 0.034,
+   "traffic_cpu_ms_per_frame": 0.024,
+   "middle_triangles": 11285,
+   "own_draw_calls_max": 13,
+   "gpu_bytes": {
+    "crowd": 2342564,
+    "traffic": 393216
+   },
+   "one_time_ms": {
+    "body_build": 14.3,
+    "colour_read_sync_part": 0.3,
+    "card_bake": 2.8
+   },
+   "scene_draws_on_off": [
+    8176,
+    8167
+   ]
+  },
+  {
+   "year": "1904",
+   "device": "phone 390x780",
+   "tier": "balanced",
+   "stand": {
+    "local_e": 1402,
+    "local_n": -3560,
+    "yaw_deg": 0
+   },
+   "people": {
+    "middle_instanced": 14,
+    "far_cards": 62,
+    "shared_bodies": 13
+   },
+   "teams": {
+    "cards": 2,
+    "listed_distant": 3
+   },
+   "crowd_cpu_ms_per_frame": 0.046,
+   "traffic_cpu_ms_per_frame": 0.037,
+   "middle_triangles": 18014,
+   "own_draw_calls_max": 15,
+   "gpu_bytes": {
+    "crowd": 4099436,
+    "traffic": 699051
+   },
+   "one_time_ms": {
+    "body_build": 12.8,
+    "colour_read_sync_part": 0.1,
+    "card_bake": 10624.2
+   },
+   "scene_draws_on_off": [
+    4864,
+    4871
+   ]
+  },
+  {
+   "year": "1904",
+   "device": "phone 390x780",
+   "tier": "full",
+   "stand": {
+    "local_e": 1402,
+    "local_n": -3560,
+    "yaw_deg": 0
+   },
+   "people": {
+    "middle_instanced": 24,
+    "far_cards": 94,
+    "shared_bodies": 13
+   },
+   "teams": {
+    "cards": 3,
+    "listed_distant": 3
+   },
+   "crowd_cpu_ms_per_frame": 0.134,
+   "traffic_cpu_ms_per_frame": 0.127,
+   "middle_triangles": 35994,
+   "own_draw_calls_max": 15,
+   "gpu_bytes": {
+    "crowd": 4285158,
+    "traffic": 699051
+   },
+   "one_time_ms": {
+    "body_build": 20,
+    "colour_read_sync_part": 0.2,
+    "card_bake": 13529.3
+   },
+   "scene_draws_on_off": [
+    3941,
+    3946
+   ]
+  }
+ ],
+ "phone_memory_note": "On this machine clean dev already reads 1835 phone at 536.2 MiB, over its 525 ceiling, before this layer; the layer adds about 6 MiB there and about 9 MiB in 1904 (still under 475). The 1812 reading moved 7 MiB the other way, which is the run-to-run spread of this meter. The layer's own share is its atlas and depth buffer (about 1.8 MiB on Light), the team atlas (0.4 MiB) and the shared bodies."
+}

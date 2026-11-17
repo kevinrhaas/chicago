@@ -157,6 +157,18 @@ console.log('transport boarding: all six driven rows carry a measured passenger 
   assert.equal(ride.drive(intent), true);
   assert.deepEqual([intent.forward, intent.strafe, intent.sprint], [0, 0, false]);
   assert.equal(actor.inputs.length, 0, 'no drive input while the coachman has the reins');
+  // T-3560: a team on its round that can be directed: ask the driver on, a pace at a time, and back.
+  actor.pace = 0; actor.setPace = g => { actor.pace = g; return true; }; h.refresh();
+  assert.deepEqual(ids(h.thing), ['take-reins', 'stop', 'faster', 'get-down'], 'aboard a team on its round: ask for a trot');
+  assert.equal(h.thing.actions.moving.find(x => x.id === 'faster').label, 'Ask for a trot');
+  assert.equal(engine.act(h.thing, 'faster').ok, true); engine.update(0);
+  assert.equal(actor.pace, 1);
+  assert.deepEqual(ids(h.thing), ['take-reins', 'stop', 'faster', 'walk-on', 'get-down'], 'trotting: on to a canter, or back to a walk');
+  actor.pace = 3; h.refresh();
+  assert.deepEqual(ids(h.thing), ['take-reins', 'stop', 'walk-on', 'get-down'], 'galloping: only back to a walk');
+  assert.equal(engine.act(h.thing, 'walk-on').ok, true); engine.update(0);
+  assert.equal(actor.pace, 0);
+  delete actor.setPace; delete actor.pace; h.refresh();
   // A second team is not worked from the first one's seat.
   const other = makeActor({ id: 'other', row: brougham });
   const o = registerTransportInteraction(engine, other, { ride });
@@ -176,30 +188,43 @@ console.log('transport boarding: all six driven rows carry a measured passenger 
   assert.equal(actor.inputs.at(-1).steer, 0);
   const keys = { forward: 1, strafe: -1, rise: 0, sprint: false };
   ride.drive(keys);
-  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: -1 }, 'W+A on the keys: full pace, turning');
+  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: -1, gear: 0 }, 'W+A on the keys: full pace, turning');
   assert.deepEqual([keys.forward, keys.strafe], [0, 0], 'and they do not walk the visitor off the seat');
   ride.drive({ forward: 0, strafe: 0.5 });
-  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: 0.5 }, 'let go, the team walks on at its pace');
+  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: 0.5, gear: 0 }, 'let go, the team walks on at its pace');
   ride.drive({ forward: 0.6, strafe: 0 });
   ride.drive({ forward: 0, strafe: 0 });
-  assert.deepEqual(actor.inputs.at(-1), { throttle: 0.6, steer: 0 }, "a stick's tilt is the pace it keeps");
+  assert.deepEqual(actor.inputs.at(-1), { throttle: 0.6, steer: 0, gear: 0 }, "a stick's tilt is the pace it keeps");
   // A diagonal thumb: within 45° of straight ahead it sets the pace by how far it is pushed
   // (not by its forward share); held mostly sideways it only steers, the pace left as it was.
   ride.drive({ forward: 0.6, strafe: 0.5 });
   assert(Math.abs(actor.inputs.at(-1).throttle - Math.hypot(0.6, 0.5)) < 1e-9 && actor.inputs.at(-1).steer === 0.5, 'a forward-dominant stick: the pace is its push');
   ride.drive({ forward: 1, strafe: 0 });
   ride.drive({ forward: 0.38, strafe: 0.92 });
-  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: 0.92 }, 'a sideways stick steers; the team keeps its full pace');
+  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: 0.92, gear: 0 }, 'a sideways stick steers; the team keeps its full pace');
   ride.drive({ forward: -0.3, strafe: -0.9 });
-  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: -0.9 }, 'sideways and a little back still only steers');
+  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: -0.9, gear: 0 }, 'sideways and a little back still only steers');
   ride.drive({ forward: 0, strafe: 0 });
-  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: 0 });
+  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: 0, gear: 0 });
   ride.drive({ forward: -1, strafe: 3 });
-  assert.deepEqual(actor.inputs.at(-1), { throttle: -1, steer: 1 }, 'a pull back is whoa (S+D too); steering clamped');
+  assert.deepEqual(actor.inputs.at(-1), { throttle: -1, steer: 1, gear: 0 }, 'a pull back is whoa (S+D too); steering clamped');
   ride.drive({ forward: -0.5, strafe: 0.2 });
   assert.equal(actor.inputs.at(-1).throttle, -1, 'held back, it is held back (standing, the team backs)');
   ride.drive({ forward: 0, strafe: 0 });
-  assert.deepEqual(actor.inputs.at(-1), { throttle: 0, steer: 0 }, 'after whoa it stands');
+  assert.deepEqual(actor.inputs.at(-1), { throttle: 0, steer: 0, gear: 0 }, 'after whoa it stands');
+  // T-3560: Shift (or the stick pushed right out) urges it on a pace at once: a trot; let go,
+  // it keeps it; whoa, and it walks on next time. (The climb a pace a second is the clock's.)
+  ride.drive({ forward: 1, strafe: 0, sprint: true });
+  assert.deepEqual(actor.inputs.at(-1), { throttle: 1, steer: 0, gear: 1 }, 'Shift+W: urged on to a trot');
+  ride.drive({ forward: 0, strafe: 0 });
+  assert.equal(actor.inputs.at(-1).gear, 1, 'let go: it keeps its trot');
+  ride.drive({ forward: 1, strafe: 0, sprint: true });
+  assert.equal(actor.inputs.at(-1).gear, 2, 'a fresh press: a canter');
+  ride.drive({ forward: 1, strafe: 0, sprint: true });
+  assert.equal(actor.inputs.at(-1).gear, 2, 'held, not yet a second: still a canter');
+  ride.drive({ forward: -1, strafe: 0 });
+  assert.deepEqual(actor.inputs.at(-1), { throttle: -1, steer: 0, gear: 0 }, 'whoa: pulled up, back to the walk');
+  ride.drive({ forward: 0, strafe: 0 });
   assert.equal(engine.act(h.thing, 'hand-back').ok, true);
   engine.update(0);
   assert.deepEqual(actor.calls.at(-1), ['handBack']);
@@ -361,7 +386,7 @@ console.log('transport boarding: all six driven rows carry a measured passenger 
   engine.act(h.thing, 'take-reins'); engine.update(0);
   actor.speed_m_s = 0;
   ride.drive({ forward: 0, strafe: 0.4 });
-  assert.deepEqual(actor.inputs.at(-1), { throttle: 0, steer: 0.4 }, 'a standing team stays standing under the reins');
+  assert.deepEqual(actor.inputs.at(-1), { throttle: 0, steer: 0.4, gear: 0 }, 'a standing team stays standing under the reins');
   h.dispose();
   const main = await readFile(new URL('../renderers/web/js/main.js', import.meta.url), 'utf8');
   assert.match(main, /interactions\.get\(`driver:\$\{a\.id\}`\)\?\.rideName/, 'main.js paints the ride bar with the short name');
