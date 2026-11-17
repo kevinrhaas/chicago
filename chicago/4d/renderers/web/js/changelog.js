@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3076, ts: '2026-11-17T22:22:47.273Z', date: 'Nov 17, 2026, 4:22 PM CT', title: 'The Greys of 2010 Prairie get their real story', kind: 'improvement',
+    items: [
+      'William Grey ran a tannery: a fresh reading of the 1900 census corrects his trade.',
+      'Their cards now give when they married, their three children, and the clubs he belonged to.',
+      'Sarah Grey died between late 1904 and late 1906, read from the society register.',
+      'They owned 2010 outright, with no mortgage, in 1900 and still in 1910.',
+    ] },
   { v: 3075, ts: '2026-11-17T16:30:14.341Z', date: 'Nov 17, 2026, 10:30 AM CT', title: 'Fort Dearborn monument: the surgeon\'s loose pantaloons', kind: 'improvement',
     items: [
       'On the Fort Dearborn monument (18th Street, 1904), the fallen surgeon now wears the loose, heavy pantaloons both photographs show, creased down the leg he stretches out to the west and gathered over his boot. Before, his legs were thin and smooth.',
