@@ -6873,6 +6873,24 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError("entrance_kit.hood.under_head_m: the head of the windows behind a porch on columns, "
                              "1.5 m over the principal floor and 0.3 m under the soffit")
         under = (float(hd_.get("centre_v_m", door_s)), float(hd_["width_m"]), uh)
+    # T-1894: a storey whose street-front lights its pictures draw at their own sill and height,
+    # apart from the flanks' (1823 Dent's principal storey: both pictures draw the front's lights
+    # down near the landing and their heads level with the door's, where the flank's stand
+    # higher and shorter), names them in `street_front` {sill_above_floor_m, height_m}: the
+    # storey's width, on a front laid by front_bays, read off a source as the row is
+    street_sash = {}
+    for k, row in enumerate(sash):
+        sf_row = row.get("street_front") if isinstance(row, dict) else None
+        if sf_row is None:
+            continue
+        if set(sf_row) != {"sill_above_floor_m", "height_m"} or sfo or sfw or not sash_read:
+            raise ParamError(f"sash_by_storey[{k}].street_front takes sill_above_floor_m and height_m, on a "
+                             f"front laid by front_bays whose sash_by_storey is read off a source")
+        s_sill, s_h = float(sf_row["sill_above_floor_m"]), float(sf_row["height_m"])
+        if not 0.0 <= s_sill <= 1.5 or not 1.0 <= s_h <= 3.6:
+            raise ParamError(f"sash_by_storey[{k}].street_front: its sill 0-1.5 m over the floor, "
+                             f"its lights 1.0-3.6 m high")
+        street_sash[k] = (floors[k] + s_sill, s_h)
     for k, row in enumerate(sash):
         sill = floors[k] + float(row["sill_above_floor_m"])
         w, h = float(row["width_m"]), float(row["height_m"])
@@ -6880,12 +6898,16 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if not sash_read:
             _within(h, ch, f"sash_by_storey[{k}].height_m")
         head = sill + h
-        if k + 1 < stories and head + 0.30 > floors[k + 1] + float(sash[k + 1]["sill_above_floor_m"]) - 0.10:
+        f_sill, f_h = street_sash.get(k, (sill, h))
+        f_head = f_sill + f_h
+        nxt = (min(floors[k + 1] + float(sash[k + 1]["sill_above_floor_m"]), street_sash.get(k + 1, (9e9,))[0])
+               if k + 1 < stories else None)
+        if k + 1 < stories and max(head, f_head) + 0.30 > nxt - 0.10:
             raise ParamError(f"storey {k}'s heads run into storey {k + 1}'s sills")
         # a hip's soffit drops by the overhang's run down its slope; a mansard's stands on
         # the wall head (T-2370)
         drop = 0.0 if mansard else float(val("eave_overhang_m")) * math.tan(math.radians(pitch))
-        if k + 1 == stories and head + 0.30 > eave - drop - 0.25:
+        if k + 1 == stories and max(head, f_head) + 0.30 > eave - drop - 0.25:
             raise ParamError("the top storey's lintels run into the soffit")
         for s in (() if sfo or sfw else fbs.get(k, front_bays)):
             if k == 0 and abs(s - door_bay) < 1e-6:
@@ -6893,17 +6915,17 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             # T-1871: a principal-storey window behind a porch on columns (1700's and 1706's,
             # Chicagology's photograph) stands under the porch's soffit, square-headed
             if k == 0 and under and abs(s - under[0]) < under[1] / 2 + w / 2:
-                openings.append(Opening("k01.opening.sash_flat", "k01.wall.street_front", s, round(sill, 4), w,
-                                        round(under[2] - sill, 4)))
+                openings.append(Opening("k01.opening.sash_flat", "k01.wall.street_front", s, round(f_sill, 4), w,
+                                        round(under[2] - f_sill, 4)))
                 continue
             # T-1886: the light over the door opening onto the hood's deck (`hood.door_over`)
             # as a door, from its storey's floor to the storey's own head
             if k == 1 and s == door_bay and hd_.get("door_over"):
                 openings.append(Opening(BALCONY_DOOR, "k01.wall.street_front", s, round(floors[1], 4), w,
-                                        round(head - floors[1], 4), False))
+                                        round(f_head - floors[1], 4), False))
                 continue
             comp = ROUND_HOODED if rh and k in rh["storeys"] else "k01.opening.sash_flat"
-            openings.append(Opening(comp, "k01.wall.street_front", s, round(sill, 4), w, h))
+            openings.append(Opening(comp, "k01.wall.street_front", s, round(f_sill, 4), w, f_h))
         for s in val("side_bays"):
             if isinstance(s, dict):   # T-3097: a window read off a picture is laid once, below
                 continue
@@ -7161,7 +7183,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         for s in xs:
             openings.append(Opening("k01.opening.area_light", "k01.wall.street_front",
                                     round(s, 4), bsill, bw, bh, False))
-    if not sfo and not sfw and bsill + float(bl["height_m"]) + 0.30 > pf + float(sash[0]["sill_above_floor_m"]) - 0.10:
+    if not sfo and not sfw and bsill + float(bl["height_m"]) + 0.30 > min(pf + float(sash[0]["sill_above_floor_m"]),
+                                                                         street_sash.get(0, (9e9,))[0]) - 0.10:
         raise ParamError("the basement lights' lintels run into the principal storey's sills")
     arched_rows, arched_groups = [], []
     if sfo:
