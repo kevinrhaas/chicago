@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 3078, ts: '2026-11-17T22:51:33.339Z', date: 'Nov 17, 2026, 4:51 PM CT', title: 'Smoother frames where many people stand together', kind: 'fix',
+    items: [
+      'Each person\'s clothes, hair and hat now move on one set of bones instead of a set per piece, so a crowd costs far less to draw every frame. Everyone is still there, dressed and moving as before.',
+      'A short stall that came every three seconds is gone.',
+      'A person coming into view is now dressed over several frames, not all in one. The town no longer catches as people arrive.',
+      'People more than about thirty paces away now take their pose every second or third frame. They walk at the same pace, and up close nobody changes.',
+    ] },
+  { v: 3077, ts: '2026-11-17T22:51:33.339Z', date: 'Nov 17, 2026, 4:51 PM CT', title: '1815 Prairie\'s corner bay steps out past its side wall', kind: 'improvement',
+    items: [
+      'On the Sears-Meeker house at 1815 Prairie Avenue, the one-storey corner bay with the stone balcony sat flush with the house\'s south side. Both old photographs show it standing out about 0.75 m (2.5 ft) past that wall, with the upper storeys and the cornice turning the corner behind it. The bay now steps out that far, and the house\'s south wall has moved in to where the photographs put it. The tall stone chimney on that side moved in with it.',
+    ] },
   { v: 3076, ts: '2026-11-17T22:22:47.273Z', date: 'Nov 17, 2026, 4:22 PM CT', title: 'The Greys of 2010 Prairie get their real story', kind: 'improvement',
     items: [
       'William Grey ran a tannery: a fresh reading of the 1900 census corrects his trade.',
