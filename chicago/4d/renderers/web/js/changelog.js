@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3063, ts: '2026-11-17T06:45:42.799Z', date: 'Nov 17, 2026, 12:45 AM CT', title: 'More room for the town\'s detail on a desktop', kind: 'chore',
+    items: [
+      'The triangle budget for each detail setting is raised to fit the schooners and Lake Street\'s new store fronts, as the owner chose. Nothing in the scene changes.',
+      'The weakest setting\'s budget goes up for the fourth time. A phone still fits inside the old one.',
+    ] },
   { v: 3062, ts: '2026-11-17T06:24:35.520Z', date: 'Nov 17, 2026, 12:24 AM CT', title: 'Name cards hold still when the town is held', kind: 'fix',
     items: [
       'The name cards over people now bob and fade on the same clock as the people under them, so a paused frame stays put.',
