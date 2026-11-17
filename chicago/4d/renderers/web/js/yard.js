@@ -3207,6 +3207,8 @@ export async function createYardGoods({
   lowSpec = false,
   /** Authored near replacements keep their exact old vehicle as a light/far/load-failure fallback. */
   replacementIds = new Set(),
+  /** T-3558: yard vehicles the parked record retires (`retired_yard_wagons`): never built. */
+  retiredIds = new Set(),
   /** T-3458: the folder under data/ the manifest and its records are read from. A scene whose
    *  yard is not 1835's names its own (`yard_dir` in data/scenes/1812.json: `yard/1812/`). */
   dir = 'yard/',
@@ -3557,6 +3559,7 @@ export async function createYardGoods({
       // street names no owner, so `hostMissing` is never asked about it and it
       // stays. That is the right answer both ways round — the street is there.
       if (hostMissing(wagon.belongs_to)) { out.census.orphaned += 1; continue; }
+      if (retiredIds.has(wagon.id)) continue;
       const at = wagon.at_local_enu_m;
       if (!Array.isArray(at) || at.length !== 2) continue;
       // A CART IS NOT A WAGON WITH TWO WHEELS MISSING, so the record's `kind`

@@ -6,6 +6,9 @@ from wagon_covered.check import COVERED_MODELS, validate_covered
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+# T-3558: the photographic farm-box wagon the 1835 moving teams draw, parked at original
+# farm-box stands; every other 1835 farm-box or covered yard vehicle is retired.
+FARM_BOX = 'farm_box_w01'
 
 
 def validate(record):
@@ -19,11 +22,12 @@ def validate(record):
             ids.add(row['id'])
             assert len(row['at_local_enu_m']) == 2 and all(math.isfinite(x) for x in row['at_local_enu_m'])
             assert math.isfinite(row['bearing_deg'])
-            assert row['liberty'] == ('L-brougham-parked-2794' if row['model'] == 'studebaker_brougham_1893' else 'L-covered-wagons-2980' if row['model'] in COVERED_MODELS else 'L-parked-vehicles-2979')
+            assert row['liberty'] == ('L-brougham-parked-2794' if row['model'] == 'studebaker_brougham_1893' else 'L-covered-wagons-2980' if row['model'] in COVERED_MODELS
+                                      else 'L-1835-parked-farm-box' if row['model'] == FARM_BOX else 'L-parked-vehicles-2979')
             assert row['note'] and row['location']
             for source in row['source_ids']:
                 assert (ROOT/f'data/sources/{source}.json').is_file(), ('Missing source', source)
-            if row['model'] == 'wagon_w01' or row['model'] in COVERED_MODELS:
+            if row['model'] in ('wagon_w01', FARM_BOX) or row['model'] in COVERED_MODELS:
                 assert year == '1835' and row['replaces'] not in replaced, 'Wrong era or duplicate replacement'
                 replaced.add(row['replaces'])
                 old = originals[row['replaces']]
@@ -60,10 +64,28 @@ def validate(record):
         generic = [r for r in record['scenes']['1904'] if r['id'] == 'prairie_parked_carriage']
         assert len(generic) == 0, 'Obsolete 1904 C02 prototype display must remain removed'
         assert record['models']['carriage_c02']['file'] == 'transport/parked-carriage/carriage-c02.glb', 'Keep legacy model and asset available'
-        assert len(record['scenes']['1835']) == 5 and len(record['scenes']['1904']) == 1, 'Five distinct wagons and one replacement carriage'
+        assert len(record['scenes']['1835']) == 8 and len(record['scenes']['1904']) == 1, 'Eight photographic wagons and one replacement carriage'
         assert not any(r['model'] == 'carriage_c02' for rows in record['scenes'].values() for r in rows), 'No prototype display reintroduced in another era'
         assert not record['models']['carriage_c02'].get('design_reference'), 'Catalogue must not retrospectively brand generic C02'
     validate_covered(record, originals, ROOT)
+    # T-3558: no 1835 row stays on the procedural W01 model; the farm-box model is the master.
+    if FARM_BOX in record['models']:
+        spec = record['models'][FARM_BOX]
+        assert spec['file'] == 'transport/farm-box-master/farm-box-near.glb' and spec['file_light'] == 'transport/farm-box-master/farm-box-mid.glb'
+        assert not spec.get('paint') and not spec.get('support_file'), 'The parked farm box is the photographed master, unpainted'
+        assert not any(r['model'] == 'wagon_w01' for r in record['scenes']['1835']), 'Procedural W01 stands are now the farm-box master'
+    retired = record.get('retired_yard_wagons', {})
+    assert set(retired) <= {'_doc', '1835'}, 'Only the 1835 yard retires vehicles'
+    gone = retired.get('1835', [])
+    assert len(gone) == len(set(gone)), 'Duplicate retired vehicle'
+    for wid in gone:
+        assert wid in originals, ('Retired vehicle is not a yard record', wid)
+        assert originals[wid]['kind'] in ('farm_box', 'covered'), 'Carts are not retired'
+        assert wid not in replaced, 'A replaced vehicle cannot also be retired'
+    # Every 1835 farm-box and covered yard vehicle is either photographic or retired.
+    wagons = {w['id'] for w in original['wagons'] if w['kind'] in ('farm_box', 'covered')}
+    if gone:
+        assert wagons == replaced | set(gone), ('Unaccounted yard wagons', sorted(wagons - replaced - set(gone)))
     return len(ids)
 
 
@@ -76,4 +98,4 @@ if __name__ == '__main__':
     try:validate(broken)
     except AssertionError:pass
     else:raise AssertionError('Obsolete prototype reintroduction negative control failed')
-    print(f'PARKED PLACEMENTS PASS — {count} instances; five exact prior wagon stands; one carriage at its unchanged qualified stand; prototype reintroduction refused')
+    print(f'PARKED PLACEMENTS PASS — {count} instances; eight photographic 1835 wagons at original stands, the rest retired; one carriage at its unchanged qualified stand; prototype reintroduction refused')
