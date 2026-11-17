@@ -543,6 +543,24 @@ def dress_lower_dormer(a, g, conf):
         cap = var.piece("pilaster capital", "timber", "open")
         K.box(cap.mesh, x0 - 0.02, x1 + 0.02, hs - h - pl["cap_m"], hs - h, 0.0, pl["proud_m"] + 0.025,
               skip=("back",))
+    cs = dr.get("consoles")
+    if cs:
+        # T-1894: a tall scrolled console against each side of the face (1823 Prairie's broad
+        # dormer): from the sash's sill to the cornice's underside, its outer edge sweeping out
+        # from `top_m` under the cornice to its foot, which ends in a roll standing proud of it
+        y0, y1 = g["sill"], hs - h
+        W, wt, rr = cs["width_m"], cs["top_m"], cs["roll_m"]
+        z0, z1 = -cs["depth_m"], cs["proud_m"]
+        n = 10
+        for side in (-1.0, 1.0):
+            sweep = [(r + wt + (W - rr - wt) * (i / n) ** 2, y1 - (y1 - y0 - 2 * rr) * i / n) for i in range(n + 1)]
+            poly = [(r, y1), (r, y0)] + [(r + W - rr, y0)] + list(reversed(sweep))
+            pc = var.piece("console", "timber", "open")
+            K.prism(pc.mesh, [(side * x, y) for x, y in poly], z0, z1, back=True)
+            roll = [(side * (r + W - rr + rr * math.cos(2 * math.pi * k / 16)), y0 + rr + rr * math.sin(2 * math.pi * k / 16))
+                    for k in range(16)]
+            pr = var.piece("console roll", "timber", "open")
+            K.prism(pr.mesh, roll, z0, z1 + 0.03, back=True)
     for pc in var.pieces:
         m = pc.mesh
         m.pos = [a_point(axis, sg, ra, centre, nf, q) for q in m.pos]

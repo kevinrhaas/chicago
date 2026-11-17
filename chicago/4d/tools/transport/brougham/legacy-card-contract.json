@@ -1,5 +1,5 @@
 {
-  "scope": "Five current parked cards and one historical C02 compatibility card; three W01 basis descriptions updated for T-2793 with openings/other fields preserved. C02 has no scene placement. The two covered-wagon basis descriptions updated for T-3558 (covered wagons v2), openings and other fields preserved.",
+  "scope": "Five current parked cards and one historical C02 compatibility card; three W01 basis descriptions updated for T-2793 with openings/other fields preserved. C02 has no scene placement. The two covered-wagon basis descriptions updated for T-3558 (covered wagons v2), openings and other fields preserved. The three W01 stands stand on the photographic farm-box master since T-3558 (Kevin, 2026-11-16), openings preserved.",
   "cases": [
     {
       "id": "parked_western_hotel_wagon_yard_wagon",
@@ -15,14 +15,14 @@
             "position_sources": [
               "chicagology_prefire278"
             ],
-            "position_note": "A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon."
+            "position_note": "The photographic farm-box wagon at this yard's original reconstructed stand and bearing (Kevin, 2026-11-16: \"replace any parked wagons with these photographic wagons\"). Maker, owner, load and finish are unidentified; the yard supports the kind of setting, not this wagon."
           },
           "attributes": {
             "vehicle_type": {
               "value": "Farm-box wagon",
               "confidence": "reconstructed",
               "sources": [],
-              "note": "Original reconstructed farm-box geometry follows the existing 1835 yard envelope, with individual boards and iron hardware. Timber color and finish use modern CC0 wood texture maps and remain reconstructed; no historic specimen, species, coating, manufacturer or model is identified."
+              "note": "The photographic farm-box wagon the 1835 town's moving teams draw (T-3558): the licensed Old Cart master (Lyskilde/longtail, CC BY 4.0, credited in assets/LICENSES.md), unpainted, at the original yard or verge stand and bearing of the procedural wagon it replaces. It stands unhitched and empty. Maker, owner, load and finish are not identified; the stand is the town wagon rule's (T-0064), not a source's."
             },
             "maker": {
               "value": "Unidentified; type reconstruction",
@@ -42,7 +42,7 @@
               "source_id": "chicagology_prefire278"
             }
           ],
-          "research_note": "Original reconstructed farm-box geometry follows the existing 1835 yard envelope, with individual boards and iron hardware. Timber color and finish use modern CC0 wood texture maps and remain reconstructed; no historic specimen, species, coating, manufacturer or model is identified. A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon. Liberties: L-parked-vehicles-2979."
+          "research_note": "The photographic farm-box wagon the 1835 town's moving teams draw (T-3558): the licensed Old Cart master (Lyskilde/longtail, CC BY 4.0, credited in assets/LICENSES.md), unpainted, at the original yard or verge stand and bearing of the procedural wagon it replaces. It stands unhitched and empty. Maker, owner, load and finish are not identified; the stand is the town wagon rule's (T-0064), not a source's. The photographic farm-box wagon at this yard's original reconstructed stand and bearing (Kevin, 2026-11-16: \"replace any parked wagons with these photographic wagons\"). Maker, owner, load and finish are unidentified; the yard supports the kind of setting, not this wagon. Liberties: L-1835-parked-farm-box."
         }
       },
       "opening": {
@@ -53,9 +53,9 @@
         "lead": "It stood here.",
         "composed": true
       },
-      "card_json_sha256": "9254afd415dcdc2a25dc531532fd8bf0435c11bcc4e221a5f7fd7e542e5e6e14",
-      "popup_html_sha256": "c536c99509ee94ea097115811dd2d2087c9b4c9f43dfaf0ac574aa19a1cf5cd4",
-      "design_html_sha256": "48687f73280d7ec9613c35efde3bb4c00df8791407d5649232819a925ec54551"
+      "card_json_sha256": "c5487efc7cb354dc6bd10cd313dbb6312be9bb3ca436e5e8ce63be4b9a1e288d",
+      "popup_html_sha256": "94ba7f659df60af8501355cfd43e54474f69b4f774bcd40021047e99736368bf",
+      "design_html_sha256": "13da9e2f9fe329294226d0e8b9b19a6c85ab5628fe6c90698cf4d51c11763797"
     },
     {
       "id": "parked_town_wagon_western_hotel_wagon_yard_2",
@@ -69,14 +69,14 @@
             "symbolic_location": "Existing 1835 wagon stand",
             "position_confidence": "reconstructed",
             "position_sources": [],
-            "position_note": "A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon."
+            "position_note": "The photographic farm-box wagon at this yard's original reconstructed stand and bearing (Kevin, 2026-11-16: \"replace any parked wagons with these photographic wagons\"). Maker, owner, load and finish are unidentified; the yard supports the kind of setting, not this wagon."
           },
           "attributes": {
             "vehicle_type": {
               "value": "Farm-box wagon",
               "confidence": "reconstructed",
               "sources": [],
-              "note": "Original reconstructed farm-box geometry follows the existing 1835 yard envelope, with individual boards and iron hardware. Timber color and finish use modern CC0 wood texture maps and remain reconstructed; no historic specimen, species, coating, manufacturer or model is identified."
+              "note": "The photographic farm-box wagon the 1835 town's moving teams draw (T-3558): the licensed Old Cart master (Lyskilde/longtail, CC BY 4.0, credited in assets/LICENSES.md), unpainted, at the original yard or verge stand and bearing of the procedural wagon it replaces. It stands unhitched and empty. Maker, owner, load and finish are not identified; the stand is the town wagon rule's (T-0064), not a source's."
             },
             "maker": {
               "value": "Unidentified; type reconstruction",
@@ -92,7 +92,7 @@
             }
           },
           "citations": [],
-          "research_note": "Original reconstructed farm-box geometry follows the existing 1835 yard envelope, with individual boards and iron hardware. Timber color and finish use modern CC0 wood texture maps and remain reconstructed; no historic specimen, species, coating, manufacturer or model is identified. A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon. Liberties: L-parked-vehicles-2979."
+          "research_note": "The photographic farm-box wagon the 1835 town's moving teams draw (T-3558): the licensed Old Cart master (Lyskilde/longtail, CC BY 4.0, credited in assets/LICENSES.md), unpainted, at the original yard or verge stand and bearing of the procedural wagon it replaces. It stands unhitched and empty. Maker, owner, load and finish are not identified; the stand is the town wagon rule's (T-0064), not a source's. The photographic farm-box wagon at this yard's original reconstructed stand and bearing (Kevin, 2026-11-16: \"replace any parked wagons with these photographic wagons\"). Maker, owner, load and finish are unidentified; the yard supports the kind of setting, not this wagon. Liberties: L-1835-parked-farm-box."
         }
       },
       "opening": {
@@ -103,9 +103,9 @@
         "lead": "It stood here.",
         "composed": true
       },
-      "card_json_sha256": "639791206a4c4d160d706841d93f540e4ad33e745020d399e28947d8c707d5b6",
-      "popup_html_sha256": "7e41a1ed9623d9007f059fe38fe80a80d3157cc8e412894aaf247cb2d7e15127",
-      "design_html_sha256": "48687f73280d7ec9613c35efde3bb4c00df8791407d5649232819a925ec54551"
+      "card_json_sha256": "fcfc2c8f6267b9fb249dd9e9edb9fb41921acc1a70b3b376263cb01159e656a9",
+      "popup_html_sha256": "8933ec574b5bc70a6a32353464813eafd447324e26d8e0df2abb15169c3bc628",
+      "design_html_sha256": "13da9e2f9fe329294226d0e8b9b19a6c85ab5628fe6c90698cf4d51c11763797"
     },
     {
       "id": "parked_town_wagon_wolf_point_tavern_yard_2",
@@ -119,14 +119,14 @@
             "symbolic_location": "Existing 1835 wagon stand",
             "position_confidence": "reconstructed",
             "position_sources": [],
-            "position_note": "A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon."
+            "position_note": "The photographic farm-box wagon at this yard's original reconstructed stand and bearing (Kevin, 2026-11-16: \"replace any parked wagons with these photographic wagons\"). Maker, owner, load and finish are unidentified; the yard supports the kind of setting, not this wagon."
           },
           "attributes": {
             "vehicle_type": {
               "value": "Farm-box wagon",
               "confidence": "reconstructed",
               "sources": [],
-              "note": "Original reconstructed farm-box geometry follows the existing 1835 yard envelope, with individual boards and iron hardware. Timber color and finish use modern CC0 wood texture maps and remain reconstructed; no historic specimen, species, coating, manufacturer or model is identified."
+              "note": "The photographic farm-box wagon the 1835 town's moving teams draw (T-3558): the licensed Old Cart master (Lyskilde/longtail, CC BY 4.0, credited in assets/LICENSES.md), unpainted, at the original yard or verge stand and bearing of the procedural wagon it replaces. It stands unhitched and empty. Maker, owner, load and finish are not identified; the stand is the town wagon rule's (T-0064), not a source's."
             },
             "maker": {
               "value": "Unidentified; type reconstruction",
@@ -142,7 +142,7 @@
             }
           },
           "citations": [],
-          "research_note": "Original reconstructed farm-box geometry follows the existing 1835 yard envelope, with individual boards and iron hardware. Timber color and finish use modern CC0 wood texture maps and remain reconstructed; no historic specimen, species, coating, manufacturer or model is identified. A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon. Liberties: L-parked-vehicles-2979."
+          "research_note": "The photographic farm-box wagon the 1835 town's moving teams draw (T-3558): the licensed Old Cart master (Lyskilde/longtail, CC BY 4.0, credited in assets/LICENSES.md), unpainted, at the original yard or verge stand and bearing of the procedural wagon it replaces. It stands unhitched and empty. Maker, owner, load and finish are not identified; the stand is the town wagon rule's (T-0064), not a source's. The photographic farm-box wagon at this yard's original reconstructed stand and bearing (Kevin, 2026-11-16: \"replace any parked wagons with these photographic wagons\"). Maker, owner, load and finish are unidentified; the yard supports the kind of setting, not this wagon. Liberties: L-1835-parked-farm-box."
         }
       },
       "opening": {
@@ -153,9 +153,9 @@
         "lead": "It stood here.",
         "composed": true
       },
-      "card_json_sha256": "1d2b43fb5bb3e62245b40608eb573ac7c327867823f08a0cfddd862b55afbecc",
-      "popup_html_sha256": "7e41a1ed9623d9007f059fe38fe80a80d3157cc8e412894aaf247cb2d7e15127",
-      "design_html_sha256": "48687f73280d7ec9613c35efde3bb4c00df8791407d5649232819a925ec54551"
+      "card_json_sha256": "d7432ef95e8dc6d7162c4b644240afd5a95e0d280df2ef97018afb7e908e74eb",
+      "popup_html_sha256": "8933ec574b5bc70a6a32353464813eafd447324e26d8e0df2abb15169c3bc628",
+      "design_html_sha256": "13da9e2f9fe329294226d0e8b9b19a6c85ab5628fe6c90698cf4d51c11763797"
     },
     {
       "id": "parked_town_wagon_western_hotel_wagon_yard_1",
