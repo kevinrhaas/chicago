@@ -5,10 +5,10 @@
 // between the cheeks, measured against the cloth's own rear outline (its upper convex hull,
 // row by row from the fork up past the top of the cleft), standing and at a stride, before
 // and after. It must: find every pair of trousers, breeches, pantaloons and overalls; leave
-// the hollow no deeper than DEPTH_M standing and STRIDE_M at the stride on the near level (the
+// the hollow (where no garment worn over the seat hides it) no deeper than DEPTH_M standing and STRIDE_M at the stride on the near level (the
 // middle level at least halved, the far ones never deeper than drawn); move only the seat
 // (nothing below the fork or above the band, nothing in toward the body, nothing slid more
-// than 3.5 cm across it); move nothing more than MAX_M; keep topology, UVs and skin weights; and run once per loaded body.
+// than 3.5 cm across it); never come through a garment worn over the seat; move nothing more than MAX_M; keep topology, UVs and skin weights; and run once per loaded body.
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 const here = new URL('../', import.meta.url);
@@ -30,7 +30,7 @@ const { MeshoptDecoder } = await import(new URL('addons/libs/meshopt_decoder.mod
 await MeshoptDecoder.ready;
 globalThis.self ??= globalThis;
 const js = async (name) => (await fs.readFile(new URL(`renderers/web/js/${name}`, here), 'utf8')).replace("from 'three'", `from '${three}'`);
-const { easeSeats, isSeat, MAX_M } = await import(data(await js('human-seat.js')));
+const { easeSeats, isSeat, MAX_M, COVER_GAP_M } = await import(data(await js('human-seat.js')));
 
 function geometryOnly(bytes) {
   const n = bytes.readUInt32LE(12), doc = JSON.parse(bytes.subarray(20, 20 + n));
@@ -76,12 +76,24 @@ function frame(bones) {
   const F = new THREE.Vector3().crossVectors(L, U).normalize();
   return { O, U, L, F };
 }
-/** The deepest hollow behind between the cheeks, metres, over the seat band. */
-function hollow(mesh, fr, band) {
+/** The deepest hollow behind between the cheeks, metres, over the seat band. Cloth that a
+ * garment worn over it (a shirt's tail, a waistcoat's hem) hides from behind is not counted. */
+function hollow(mesh, fr, band, covers = []) {
   const pos = mesh.geometry.attributes.position, v = new THREE.Vector3(), P = [];
+  const over = new Map(), cell = (x, y) => `${Math.round(x / COL)},${Math.round(y / COL)}`;
+  for (const c of covers) {
+    const cp = c.geometry.attributes.position;
+    for (let i = 0; i < cp.count; i++) {
+      c.getVertexPosition(i, v); v.applyMatrix4(c.matrixWorld).sub(fr.O);
+      const r = -v.dot(fr.F), k = cell(v.dot(fr.L), v.dot(fr.U));
+      if (r > 0 && !(over.get(k) >= r)) over.set(k, r);
+    }
+  }
   for (let i = 0; i < pos.count; i++) {
     mesh.getVertexPosition(i, v); v.applyMatrix4(mesh.matrixWorld).sub(fr.O);
-    P.push([v.dot(fr.L), v.dot(fr.U), -v.dot(fr.F)]);
+    const p = [v.dot(fr.L), v.dot(fr.U), -v.dot(fr.F)];
+    if (over.get(cell(p[0], p[1])) > p[2] + 1e-3) continue;
+    P.push(p);
   }
   let worst = 0, where = null;
   for (let y = band.lo; y <= band.hi; y += ROW) {
@@ -162,13 +174,42 @@ for (const asset of ASSETS) for (const lod of [0, 1, 2, 3]) {
     }
     assert(most <= MAX_M * legM / 0.85 + 1e-3, `${asset} LOD${lod} ${ma[k].name}: moved ${(most * 100).toFixed(1)} cm`);
   }
+  // Cloth worn over the seat stays over it: no moved point ends up behind a garment (another
+  // piece of the same body: a waistcoat's or shirt's hem, a coat, a band) that was behind it.
+  {
+    const cover = [];
+    after.scene.traverse(o => { if (o.isSkinnedMesh && !isSeat(o) && /^garment/.test((Array.isArray(o.material) ? o.material[0] : o.material)?.name ?? '')) cover.push(o); });
+    const v = new THREE.Vector3(), C = 0.004;
+    for (const cloth of cover) {
+      const cells = new Map(), p = cloth.geometry.attributes.position;
+      for (let i = 0; i < p.count; i++) {
+        cloth.getVertexPosition(i, v); v.applyMatrix4(cloth.matrixWorld).sub(fa.O);
+        const r = -v.dot(fa.F), key = `${Math.round(v.dot(fa.L) / C)},${Math.round(v.dot(fa.U) / C)}`;
+        if (r > 0 && !(cells.get(key) >= r)) cells.set(key, r);
+      }
+      for (let k = 0; k < ma.length; k++) {
+        const pa = ma[k].geometry.attributes.position, va = new THREE.Vector3(), vb = new THREE.Vector3();
+        for (let i = 0; i < pa.count; i++) {
+          ma[k].getVertexPosition(i, va); va.applyMatrix4(ma[k].matrixWorld).sub(fa.O);
+          mb[k].getVertexPosition(i, vb); vb.applyMatrix4(mb[k].matrixWorld).sub(fb.O);
+          const r1 = -va.dot(fa.F), r0 = -vb.dot(fb.F);
+          if (r1 - r0 < 1e-4) continue;
+          const c = cells.get(`${Math.round(va.dot(fa.L) / C)},${Math.round(va.dot(fa.U) / C)}`);
+          if (c === undefined || c <= r0 + 1e-3) continue;
+          assert(r1 <= c - COVER_GAP_M * 0.5, `${asset} LOD${lod} ${ma[k].name}: the seat comes through ${cloth.name} by ${((r1 - c) * 1000).toFixed(1)} mm at ${(va.dot(fa.L) * 100).toFixed(1)}, ${(va.dot(fa.U) * 100).toFixed(1)} cm`);
+        }
+      }
+    }
+  }
   const res = [];
+  const clothOf = (g) => { const out = []; g.scene.traverse(o => { if (o.isSkinnedMesh && !isSeat(o) && /^garment/.test((Array.isArray(o.material) ? o.material[0] : o.material)?.name ?? '')) out.push(o); }); return out; };
+  const cb = clothOf(before), ca = clothOf(after);
   for (let k = 0; k < ma.length; k++) {
-    const h0 = hollow(mb[k], fb, cleft), h1 = hollow(ma[k], fa, cleft);
+    const h0 = hollow(mb[k], fb, cleft, cb), h1 = hollow(ma[k], fa, cleft, ca);
     stride(bb); stride(ba); before.scene.updateMatrixWorld(true); after.scene.updateMatrixWorld(true);
-    const s0 = hollow(mb[k], frame(bb), cleft), s1 = hollow(ma[k], frame(ba), cleft);
+    const s0 = hollow(mb[k], frame(bb), cleft, cb), s1 = hollow(ma[k], frame(ba), cleft, ca);
     stride(bb, -1); stride(ba, -1); stride(bb, -1); stride(ba, -1); before.scene.updateMatrixWorld(true); after.scene.updateMatrixWorld(true);
-    const m0 = hollow(mb[k], frame(bb), cleft), m1 = hollow(ma[k], frame(ba), cleft);
+    const m0 = hollow(mb[k], frame(bb), cleft, cb), m1 = hollow(ma[k], frame(ba), cleft, ca);
     stride(bb); stride(ba); before.scene.updateMatrixWorld(true); after.scene.updateMatrixWorld(true);
     const name = ma[k].name.replace(`${asset}_`, '').replace(/_lod\d$/, '');
     const st = Math.max(s1.worst, m1.worst);

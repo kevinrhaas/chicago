@@ -19,7 +19,8 @@
  * is left alone, and the bridge fades out over the last few centimetres at the fork and at
  * the top so neither edge makes a ridge. A vertex moves at most MAX_M. The normals of the
  * moved cloth are taken again from its own faces, so the light does not paint the hollow
- * back on. Topology, UVs and skin weights are unchanged: the bridge walks with the pelvis
+ * back on. Cloth worn over the seat (a waistcoat's or shirt's hem, a coat, the band) stays
+ * over it: the bridge stops COVER_GAP_M inside any garment that was outside the trousers. Topology, UVs and skin weights are unchanged: the bridge walks with the pelvis
  * and the thighs exactly as the hollow did, and the cloth over it spans it on the walk.
  *
  * Cost: a few thousand vertices per level, once per parse (a few milliseconds). No new
@@ -45,6 +46,10 @@ export const FORK_M = 0.17;
 const MID_M = 0.014;
 /** The moved cloth relaxes over the bridge this many times, this far toward its neighbours. */
 const RELAX_STEPS = 8, RELAX = 0.5;
+/** Cloth worn over the seat (a waistcoat's or a shirt's hem, a coat, a waistband) stays over
+ * it: the bridge stops this far inside any garment that was outside the trousers there. */
+export const COVER_GAP_M = 0.002;
+const COVER_CELL_M = 0.006, COVER_NEAR_M = 0.01;
 const ADULT_LEG_M = 0.85;
 const NEEDED = ['pelvis', 'thigh_l', 'thigh_r', 'foot_l', 'foot_r'];
 const smooth = (t) => { t = Math.min(1, Math.max(0, t)); return t * t * (3 - 2 * t); };
@@ -106,7 +111,7 @@ function hullAt(hull, x) {
  * Bridge one garment's seat in place. Returns { moved, max_m } (vertices moved and the
  * farthest), or null when the mesh is not a seat or has no fork.
  */
-export function bridgeSeat(mesh) {
+export function bridgeSeat(mesh, covers = []) {
   const fr = frameOf(mesh);
   if (!fr) return null;
   const { O, U, L, F, scale } = fr;
@@ -137,6 +142,7 @@ export function bridgeSeat(mesh) {
     }
     if (seam && pts.length >= 3) hulls[k] = upperHull(pts);
   }
+  const cap = coverCap(covers, { O, U, L, F }, fork - 0.02, top + 0.02);
   const fadeTop = FADE_TOP_M * scale, fadeFork = FADE_FORK_M * scale, maxM = MAX_M * scale;
   // Every vertex at one place (a UV seam's copies) is one point: it moves, relaxes and is lit
   // as one, so the seam never opens.
@@ -150,7 +156,12 @@ export function bridgeSeat(mesh) {
   }
   const G = first.length, gx = new Float64Array(G), gy = new Float64Array(G), gr = new Float64Array(G), r0 = new Float64Array(G);
   const moved = new Uint8Array(G);
-  for (let g = 0; g < G; g++) { const i = first[g]; gx[g] = X[i]; gy[g] = Y[i]; gr[g] = r0[g] = R[i]; }
+  // The farthest back each point may go: inside any garment drawn over it there.
+  const most = new Float64Array(G).fill(Infinity);
+  for (let g = 0; g < G; g++) {
+    const i = first[g]; gx[g] = X[i]; gy[g] = Y[i]; gr[g] = r0[g] = R[i];
+    most[g] = cap(gx[g], gy[g], r0[g]);
+  }
   for (let g = 0; g < G; g++) {
     if (gr[g] <= 0 || gy[g] < fork || gy[g] > top) continue;
     const f = (gy[g] - fork) / rowM, k0 = Math.min(rows - 1, Math.floor(f)), k1 = Math.min(rows - 1, k0 + 1), a = f - k0;
@@ -160,7 +171,7 @@ export function bridgeSeat(mesh) {
     const want = h - gr[g];
     if (!(want > 5e-4)) continue;
     const w = smooth((gy[g] - fork) / fadeFork) * smooth((top - gy[g]) / fadeTop);
-    const d = Math.min(maxM, want) * w;
+    const d = Math.min(maxM, want, most[g] - gr[g]) * w;
     if (!(d > 2e-4)) continue;
     gr[g] += d; moved[g] = 1;
   }
@@ -192,18 +203,20 @@ export function bridgeSeat(mesh) {
       const m = nbr[g].size;
       tx[g] = gx[g] + RELAX * (sx / m - gx[g]); ty[g] = gy[g]; tr[g] = gr[g] + RELAX * (sr / m - gr[g]);
     }
-    for (let g = 0; g < G; g++) if (moved[g] && nbr[g]?.size) { gx[g] = tx[g]; gy[g] = ty[g]; gr[g] = Math.max(r0[g], tr[g]); }
+    for (let g = 0; g < G; g++) if (moved[g] && nbr[g]?.size) { gx[g] = tx[g]; gy[g] = ty[g]; gr[g] = Math.max(r0[g], Math.min(most[g], tr[g])); }
   }
+  // Relaxed across, a point may now lie under another part of a hem: held inside it there too.
+  for (let g = 0; g < G; g++) if (moved[g]) gr[g] = Math.max(r0[g], Math.min(gr[g], cap(gx[g], gy[g], r0[g])));
   // Back into the bind space, then the geometry's own.
   const toBind = (g, out) => out.copy(O).addScaledVector(L, gx[g]).addScaledVector(U, gy[g]).addScaledVector(F, -gr[g]);
   const P = new Array(G);
-  let most = 0;
+  let far = 0;
   const v0 = new THREE.Vector3();
   for (let g = 0; g < G; g++) {
     if (!moved[g]) continue;
     P[g] = toBind(g, new THREE.Vector3());
     v0.copy(O).addScaledVector(L, X[first[g]]).addScaledVector(U, Y[first[g]]).addScaledVector(F, -R[first[g]]);
-    most = Math.max(most, P[g].distanceTo(v0));
+    far = Math.max(far, P[g].distanceTo(v0));
   }
   const p = new THREE.Vector3();
   for (let i = 0; i < n; i++) {
@@ -215,7 +228,7 @@ export function bridgeSeat(mesh) {
   pos.needsUpdate = true;
   renormal(geo, { groupOf, moved, G, gx, gy, gr, X, Y, R, first, O, L, U, F, Binv });
   geo.computeBoundingBox(); geo.computeBoundingSphere();
-  return { moved: count, max_m: most };
+  return { moved: count, max_m: far };
 }
 
 /** The normals of the moved points from their faces (area-weighted, in the bind space), each
@@ -258,6 +271,54 @@ function renormal(geo, { groupOf, moved, G, gx, gy, gr, X, Y, R, first, O, L, U,
   nrm.needsUpdate = true;
 }
 
+/** The garments drawn over the seat, each as the rear of its bind-pose cloth within
+ * COVER_NEAR_M of a point (x, y) of the body frame: a function of (x, y, r0) giving the
+ * farthest back a point of the seat that was at r0 may go, Infinity where nothing lies over it. */
+function coverCap(covers, { O, U, L, F }, lo, hi) {
+  const v = new THREE.Vector3();
+  const key = (ix, iy) => ix * 100003 + iy;
+  const grids = [];
+  for (const c of covers) {
+    const pos = c.geometry?.attributes?.position;
+    if (!pos) continue;
+    const cells = new Map();
+    for (let i = 0; i < pos.count; i++) {
+      v.fromBufferAttribute(pos, i).applyMatrix4(c.bindMatrix).sub(O);
+      const x = v.dot(L), y = v.dot(U), r = -v.dot(F);
+      if (r <= 0 || y < lo || y > hi) continue;
+      const k = key(Math.floor(x / COVER_CELL_M), Math.floor(y / COVER_CELL_M));
+      let list = cells.get(k);
+      if (!list) cells.set(k, (list = []));
+      list.push(x, y, r);
+    }
+    if (cells.size) grids.push(cells);
+  }
+  // Within COVER_NEAR_M of the point, the least far back of the cloth that is over the seat
+  // there (a sloping hem caps it where it lies), Infinity where none of it is.
+  const over = (cells, x, y, r0) => {
+    const ix = Math.floor(x / COVER_CELL_M), iy = Math.floor(y / COVER_CELL_M), r2 = COVER_NEAR_M ** 2;
+    let lo = Infinity;
+    for (let a = -2; a <= 2; a++) for (let b = -2; b <= 2; b++) {
+      const list = cells.get(key(ix + a, iy + b));
+      if (!list) continue;
+      for (let q = 0; q < list.length; q += 3) {
+        if (list[q + 2] <= r0 + 1e-3 || (list[q] - x) ** 2 + (list[q + 1] - y) ** 2 > r2) continue;
+        lo = Math.min(lo, list[q + 2]);
+      }
+    }
+    return lo;
+  };
+  // A garment under the trousers there (a tucked shirt) does not hold them in; one over them does.
+  return (x, y, r0) => {
+    let most = Infinity;
+    for (const cells of grids) {
+      const lo = over(cells, x, y, r0);
+      if (lo < Infinity) most = Math.min(most, Math.max(r0, lo - COVER_GAP_M));
+    }
+    return most;
+  };
+}
+
 /** Bridge every seat of a loaded body, once (cloned figures share the result). */
 export function easeSeats(root) {
   if (!root) return null;
@@ -265,9 +326,14 @@ export function easeSeats(root) {
   const assetId = root.userData?.chicago4d_human?.asset_id ?? null;
   const report = [];
   const meshes = [];
-  root.traverse((o) => { if (isSeat(o, assetId)) meshes.push(o); });
+  const cloth = [];
+  root.traverse((o) => {
+    if (isSeat(o, assetId)) meshes.push(o);
+    else if (o.isSkinnedMesh && /^garment/.test(materialName(o))) cloth.push(o);
+  });
+  const lodOf = (o) => (o.name ?? '').match(/_lod(\d*)$/)?.[1] ?? '';
   for (const m of meshes) {
-    const r = bridgeSeat(m);
+    const r = bridgeSeat(m, cloth.filter((c) => lodOf(c) === lodOf(m)));
     if (r) report.push({ mesh: m.name, ...r });
   }
   root.userData.chicagoSeatEase = report;
