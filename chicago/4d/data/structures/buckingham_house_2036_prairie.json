@@ -1,10 +1,10 @@
 {
   "id": "buckingham_house_2036_prairie",
-  "name": "2036 Prairie Avenue — Buckingham map-led corner mansion (district draft; refined by T-1911)",
+  "name": "2036 Prairie Avenue — the Ebenezer Buckingham house, a Second Empire corner house on 21st Street (K01; refined by T-3631, piece 1 of T-1911)",
   "aka": [
     "2036 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k01_frontage",
   "function": {
     "value": "residence",
     "confidence": "inferred",
@@ -14,30 +14,31 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3S.B. brick dwelling (D) on the 21st Street corner, with bays to Prairie and to 21st'. Carried to 1904 on the T-1842 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1911 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2036-b1), the T-1842 census (s35-2036-front, s35-2036-walls) and the T-1837 register row frontage-35-063 (Buckingham map-led corner mansion); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
+  "research_note": "Refined from the district draft (T-2351) in place under this id by T-3631 (piece 1 of T-1911, the S08 package's corner house): a K01 frontage built by generators/k01_emit.py from the 1911 sheet 35's outline at full size (trace s35fp-2036-b1; census s35-2036-front, s35-2036-walls), the c. 1880 engraved street view of the 2000 block that Chicagology prints with this house at its left edge, and the 1890s photograph of the 2100 block looking north-west, which shows it in the distance across 21st Street (data/reference_views/buckingham_house_2036_prairie/). The Glessner House Museum's caption of that photograph names the house Ebenezer Buckingham's.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_mapped_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
         "confidence": "inferred",
         "sources": [
-          "sanborn_1911_chicago_v3_sheet_35"
+          "sanborn_1911_chicago_v3_sheet_35",
+          "chicagology_2000_block_prairie_engraving_1880"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "note": "The house stands in the c. 1880 engraving and on the 1911 sheet, and the T-1842 census rules it present in 1904 (present_as_mapped); this phase claims the 1904 target and the sheet's date, no more. Its building and loss dates are not read.",
         "to_is": "seen"
       },
       "position": {
-        "utm_e": 448436.589,
-        "utm_n": 4633802.171,
+        "utm_e": 448445.212,
+        "utm_n": 4633800.136,
         "rotation_deg": -0.632,
         "symbolic_location": "2036 S. Prairie Avenue, parcel prairie_2036 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 22.750, v -5.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.632 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The front block's rear corner at 21st Street, 8.6 m in from the draft's rear corner and 2.13 m south of it along the draft's own axes, read off the trace s35fp-2036-b1 on the sheet's T-1250 fit: the sheet's georeference carries no independent check, its own fit residual is 0.05 m RMS on its control crossings, plus about a pixel (0.19 m) of trace. Rotation -0.632 degrees, the draft's, turns the plan's u axis onto the lot's rear-to-street line.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -50,237 +51,820 @@
             0.0
           ],
           [
-            20.0,
+            14.35,
             0.0
           ],
           [
-            20.0,
-            9.5
+            14.35,
+            15.43
           ],
           [
             0.0,
-            9.5
+            15.43
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The front block off the sheet's trace (s35fp-2036-b1): 14.35 m from its rear to the front, which stands about 0.5 m further out over its south part than its north (built at the mean, within the 0.3 m bar each way), and 15.43 m along the front from the 21st Street face (v -2.13 in the draft's frame) to the north flank (v 13.3)."
       },
       "form": {
         "stories": {
-          "value": 3,
-          "confidence": "attested",
+          "value": 2,
+          "confidence": "inferred",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
+            "sanborn_1911_chicago_v3_sheet_35",
+            "chicagology_2000_block_prairie_engraving_1880"
           ],
-          "note": "'3S.B.' printed on the 1911 sheet: 3 full storeys."
+          "note": "Two full storeys over a high basement under a mansard storey. The 1911 sheet prints '3S.B.' over the front block and draws a dashed curb line inside its walls with a diagonal into each corner, the mark it uses for a mansard (T-2934: 1730's; 2026 Wahl's beside it on this sheet), so the third storey is the roof's; the engraving of c. 1880 shows the two masonry storeys over the basement on the 21st Street face."
         },
         "construction": {
-          "value": "brick",
-          "confidence": "attested",
+          "value": "brick_with_stone_front",
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35",
+            "chicagology_2000_block_prairie_engraving_1880"
+          ],
+          "note": "The sheet colours the house brick; the engraving draws the walls in coursed brick over a basement cut in broad horizontal bands, a stone basement, so the house is K01's brick front over a stone basement (stone_front.brick_above_m at the principal floor) with the same stone carried round both flanks (side_base)."
+        },
+        "stone_front": {
+          "value": {
+            "fabric": "limestone_lemont",
+            "dressing": "smooth",
+            "trim_fabric": "dressed_trim",
+            "rusticated_base_courses": 2,
+            "coping_height_m": 0.25,
+            "corner_bond": [],
+            "brick_above_m": 1.8,
+            "belts": []
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2000_block_prairie_engraving_1880"
+          ],
+          "note": "The engraving's basement under the 21st Street face is drawn in broad horizontal courses, banded, up to the principal floor's sill course, against the coursed brick above it; the stone is K01's Lemont limestone (the print is monochrome: its kind and colour are reconstructed, liberty L-k01-2036-buckingham-1911)."
+        },
+        "side_belts": {
+          "value": [
+            {
+              "wall": "k01.wall.side.south",
+              "from_m": 6.45,
+              "to_m": 6.65,
+              "proud_m": 0.05
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2000_block_prairie_engraving_1880"
+          ],
+          "note": "The engraving's stone sill course across the 21st Street face, the chamber light standing on it; read through its camera at the chamber sill (6.65 m)."
+        },
+        "side_base": {
+          "value": [
+            {
+              "wall": "k01.wall.side.south",
+              "to_m": 1.8,
+              "proud_m": 0.03
+            },
+            {
+              "wall": "k01.wall.side.north",
+              "to_m": 1.8,
+              "proud_m": 0.03
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2000_block_prairie_engraving_1880"
+          ],
+          "note": "The engraving shows the stone basement round the 21st Street face (K01's south wall); the north flank's is carried round the same way, which no picture shows (liberty L-k01-2036-buckingham-1911)."
+        },
+        "principal_floor_m": {
+          "value": 1.8,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2000_block_prairie_engraving_1880"
+          ],
+          "note": "The principal floor over grade where the engraving's banded basement stops under the tall principal light, about 0.45 of that light's height over the walk; read through the camera solved on the engraving (data/reference_views/buckingham_house_2036_prairie/chicagology_engraving.json)."
+        },
+        "storey_heights_m": {
+          "value": [
+            4.4,
+            4.0
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2000_block_prairie_engraving_1880"
+          ],
+          "note": "The principal storey from the basement's top to the belt under the chamber light, the chamber storey from there to the mansard's cornice (out of the engraving's frame, so its head is reconstructed at 1945's 4.0 m, liberty L-k01-2036-buckingham-1911); read through the engraving's camera."
+        },
+        "wall_thickness_front_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): a brick front of a three-storey house, as 1945's."
+        },
+        "wall_thickness_side_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): the kit's flank wall."
+        },
+        "service_wall_brick": {
+          "value": "common_buff_common_6",
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): the kit's common brick for the walls behind."
+        },
+        "face_brick": {
+          "value": {
+            "front": "pressed_red",
+            "all_round": true
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "chicagology_2000_block_prairie_engraving_1880"
+          ],
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): the engraving draws every face it shows in the same close coursed brick, the 21st Street face as the front, so the pressed red is carried all round; the print is monochrome, so the colour is the kit's."
+        },
+        "roof_form": {
+          "value": "mansard",
+          "confidence": "inferred",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "The register reads the map's colours as 'brick'."
+          "note": "The sheet's dashed curb line inside the front block's walls with its diagonals into the corners, its mark for a mansard (T-2934); the engraving's frame stops under 2036's roof."
         },
-        "draft_plan": {
+        "roof_pitch_deg": {
+          "value": 10,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): the mansard's upper deck, low, as 1945's."
+        },
+        "eave_overhang_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): the cornice under the mansard stands out as 1945's; the engraving's frame stops under it."
+        },
+        "mansard": {
           "value": {
-            "parts": [
+            "variant": "k05.roof.mansard_convex",
+            "lower_rise_m": 3.4,
+            "bulge": 0.0,
+            "lower_pitch_deg": 74,
+            "dormers": [
               {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "hip",
-                "rect": [
-                  0.0,
-                  0.0,
-                  20.0,
-                  9.5
-                ],
-                "from": "s35fp-2036-b1 p4 (main, brick), rectangle 1 of that part; the part's rectangles cover 92% of its fill"
+                "face": "street",
+                "along_m": 3.6,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 0.9,
+                  "height_m": 1.5,
+                  "sill_m": 0.15
+                },
+                "surround_m": 0.25,
+                "face_setback_m": 0.05,
+                "head": "gable",
+                "gable_pitch_deg": 45
               },
               {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  9.25,
-                  9.5,
-                  16.5,
-                  11.5
-                ],
-                "from": "s35fp-2036-b1 p4 (main, brick), rectangle 2 of that part; the part's rectangles cover 92% of its fill"
+                "face": "street",
+                "along_m": 10.6,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 0.9,
+                  "height_m": 1.5,
+                  "sill_m": 0.15
+                },
+                "surround_m": 0.25,
+                "face_setback_m": 0.05,
+                "head": "gable",
+                "gable_pitch_deg": 45
               },
               {
-                "id": "r3",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  -0.5,
-                  10.0,
-                  9.25,
-                  12.0
-                ],
-                "from": "s35fp-2036-b1 p8 (range, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill"
+                "face": "street",
+                "along_m": 13.2,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 0.9,
+                  "height_m": 1.5,
+                  "sill_m": 0.15
+                },
+                "surround_m": 0.25,
+                "face_setback_m": 0.05,
+                "head": "gable",
+                "gable_pitch_deg": 45
               },
               {
-                "id": "r4",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  -2.0,
-                  1.75,
-                  -0.25,
-                  10.0
-                ],
-                "from": "s35fp-2036-b1 p8 (range, brick), rectangle 2 of that part; the part's rectangles cover 86% of its fill"
+                "face": "north",
+                "along_m": 3.0,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 0.9,
+                  "height_m": 1.5,
+                  "sill_m": 0.15
+                },
+                "surround_m": 0.25,
+                "face_setback_m": 0.05,
+                "head": "gable",
+                "gable_pitch_deg": 45
               },
               {
-                "id": "r5",
-                "role": "bay",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  20.0,
-                  4.25,
-                  22.0,
-                  11.25
-                ],
-                "from": "s35fp-2036-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 69% of its fill"
-              },
-              {
-                "id": "r6",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  17.0,
-                  -2.25,
-                  21.5,
-                  0.0
-                ],
-                "from": "s35fp-2036-b1 p1 (range, brick), rectangle 1 of that part; the part's rectangles cover 80% of its fill"
-              },
-              {
-                "id": "r7",
-                "role": "bay",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  20.0,
-                  0.0,
-                  22.75,
-                  2.75
-                ],
-                "from": "s35fp-2036-b1 p1 (range, brick), rectangle 2 of that part; the part's rectangles cover 80% of its fill"
-              },
-              {
-                "id": "r8",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  14.25,
-                  11.5,
-                  20.75,
-                  13.0
-                ],
-                "from": "s35fp-2036-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 78% of its fill"
-              },
-              {
-                "id": "r9",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  9.75,
-                  -3.0,
-                  12.25,
-                  0.0
-                ],
-                "from": "s35fp-2036-b1 p7 (range, brick), rectangle 1 of that part; the part's rectangles cover 42% of its fill"
-              },
-              {
-                "id": "r10",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  11.75,
-                  11.5,
-                  13.5,
-                  13.75
-                ],
-                "from": "s35fp-2036-b1 p5 (range, brick), rectangle 1 of that part; the part's rectangles cover 64% of its fill"
+                "face": "north",
+                "along_m": 6.0,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 0.9,
+                  "height_m": 1.5,
+                  "sill_m": 0.15
+                },
+                "surround_m": 0.25,
+                "face_setback_m": 0.05,
+                "head": "gable",
+                "gable_pitch_deg": 45
               }
-            ],
-            "lot_v": [
-              -3.86,
-              14.86
-            ],
-            "street_u": 31.656
+            ]
           },
           "confidence": "inferred",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2036-b1 p4 (main, brick), rectangle 1 of that part; the part's rectangles cover 92% of its fill; s35fp-2036-b1 p4 (main, brick), rectangle 2 of that part; the part's rectangles cover 92% of its fill; s35fp-2036-b1 p8 (range, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill; s35fp-2036-b1 p8 (range, brick), rectangle 2 of that part; the part's rectangles cover 86% of its fill; s35fp-2036-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 69% of its fill; s35fp-2036-b1 p1 (range, brick), rectangle 1 of that part; the part's rectangles cover 80% of its fill; s35fp-2036-b1 p1 (range, brick), rectangle 2 of that part; the part's rectangles cover 80% of its fill; s35fp-2036-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 78% of its fill; s35fp-2036-b1 p7 (range, brick), rectangle 1 of that part; the part's rectangles cover 42% of its fill; s35fp-2036-b1 p5 (range, brick), rectangle 1 of that part; the part's rectangles cover 64% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "note": "A mansard storey over the front block where the sheet draws its curb (T-2934). Its lower faces' rise and pitch and its dormers, one over each street window column and over the north flank's, are 1945's, the same family's corner mansion: RECONSTRUCTED (L-k01-2036-buckingham-1911)."
         },
-        "draft_elevation": {
+        "roof_covering": {
           "value": {
-            "kind": "house",
-            "seed": 3055378340,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
+            "fabric": "tin_standing_seam_painted",
+            "flashing": "copper_sheet",
+            "caps": "copper_ridge_roll",
+            "lower_faces": "slate_pennsylvania",
+            "paint": "black"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): slate on the mansard's lower faces and tin on its deck, as 1945's; no picture shows the roof."
+        },
+        "wall_head": {
+          "value": {
+            "cornice": "k10.cornice.bracketed_timber"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): K10's bracketed timber cornice under the mansard round every wall, the one K01 carries round a blank cant; the engraving's frame stops under it."
+        },
+        "street_front_trim": {
+          "value": {
+            "by_storey": [
+              "k09.surround.rowhouse_restrained",
+              "k01.flat_lintel"
             ],
-            "roof_pitch_deg": 34,
-            "mansard_lower_m": 3.0,
-            "front_bays": 4,
-            "entrance": "centre",
-            "side_spacing_m": 2.6,
-            "chimneys": 3,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2351",
-              "refined_by": [
-                "T-1911"
-              ]
+            "lights": [
+              {
+                "wall": "k01.wall.side.south",
+                "s_m": 6.1,
+                "storey": 0
+              },
+              {
+                "wall": "k01.wall.side.south",
+                "s_m": 12.25,
+                "storey": 0
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2000_block_prairie_engraving_1880"
+          ],
+          "note": "The engraving's principal light under a hood: a cornice over a frieze carved with a running vine, on a console at each side of the architrave (K09's restrained surround), and the chamber light over it in a plain stone frame standing on the stone sill course (K01's flat lintel). The engraving shows it on the 21st Street face, so that face's principal lights wear the same hood (lights)."
+        },
+        "stair_tread_m": {
+          "value": 0.3,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): the kit's tread."
+        },
+        "stair_landing_depth_m": {
+          "value": 2.0,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): the landing at the door under the porch, as deep as the sheet's porch stands out."
+        },
+        "stoop_width_m": {
+          "value": 2.0,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2000_block_prairie_engraving_1880",
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "A broad straight stoop climbing to the front between balustrades of turned balusters on a moulded rail, as the engraving draws it running down to the walk toward the gate's urn piers; its width is the porch's the sheet draws (about 2.8 m) less its balustrades."
+        },
+        "entrance_bay": {
+          "value": 2,
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The door behind the one-storey porch the sheet draws on the front (its '1' box), 6.4-8.7 m along the front from the 21st Street corner."
+        },
+        "front_bays": {
+          "value": [
+            3.6,
+            7.58,
+            10.6,
+            13.2
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The door's column behind the sheet's porch at 7.58 m; the windows are RECONSTRUCTED (L-k01-2036-buckingham-1911): one in the corner part between the cant and the porch, two north of the porch, the engraving sees the front only edge-on."
+        },
+        "sash_by_storey": {
+          "value": [
+            {
+              "sill_above_floor_m": 0.5,
+              "width_m": 1.1,
+              "height_m": 3.1
+            },
+            {
+              "sill_above_floor_m": 0.45,
+              "width_m": 1.05,
+              "height_m": 2.5
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2000_block_prairie_engraving_1880"
+          ],
+          "note": "The engraving's tall principal light, nearly three times as high as it is wide, its sill a little over the basement's top course, and the chamber light over it, shorter, standing on the sill course; read through the engraving's camera."
+        },
+        "basement_lights": {
+          "value": {
+            "sill_m": 0.3,
+            "width_m": 1.0,
+            "height_m": 0.75
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2000_block_prairie_engraving_1880"
+          ],
+          "note": "The engraving's barred basement light under the principal light in the banded stone."
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
             }
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The Ebenezer Buckingham house at the 21st Street corner (the register's 'mapped substantial brick house, basement, corner-facing elevation'): a low hip over the 3S.B. body with the sheet's bays as projections, the entrance central where the 1888 Inland Architect's portico stands. Its 6-ft walls along 21st Street are not drawn: the draft archetype has no boundary walls, and T-1911 builds them. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3055378340 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-west-2351."
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): two-over-two sashes; the engraving's lights are drawn dark, their bars unread."
         },
-        "draft": {
+        "side_bays": {
+          "value": [
+            6.1,
+            12.25,
+            {
+              "s_m": 12.2,
+              "sill_m": 0.4,
+              "width_m": 1.1,
+              "height_m": 1.0
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2000_block_prairie_engraving_1880",
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The 21st Street face (K01's south wall), west to east: the engraving's one window column on the face, just short of the cant (12.25 m, through its camera), and one between the bay and it, which the engraving's tree hides (6.1 m, RECONSTRUCTED, L-k01-2036-buckingham-1911); and the engraving's barred basement light under the 12.25 m column, in the stone basement."
+        },
+        "north_bays": {
+          "value": [
+            3.0,
+            6.0,
+            12.8
+          ],
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): three windows a storey along the north flank, east to west, either side of its canted bay: no picture shows the north flank."
+        },
+        "rear_bays": {
+          "value": [
+            14.4
+          ],
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): a light a storey in the rear wall's piece south of the rear range."
+        },
+        "cant_corner": {
           "value": {
-            "pass": "T-2351",
-            "liberty": "L-draft-prairie-20-22-west-2351",
-            "register_row": "frontage-35-063",
-            "census_ids": [
-              "s35-2036-front",
-              "s35-2036-walls"
+            "corner": "south",
+            "cut_m": 1.3,
+            "blank": true
+          },
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35",
+            "chicagology_2000_block_prairie_engraving_1880"
+          ],
+          "note": "The front block's south-east corner, at Prairie and 21st, cut on a canted face: the sheet draws the cut (about 1.7 m along 21st and 2.1 m along Prairie, kept to the kit's 45 degrees at 1.3 m), and the engraving's narrow face between the 21st Street face and the front, hidden behind its tree, is blank."
+        },
+        "bays": {
+          "value": [
+            {
+              "id": "south_bay",
+              "variant": "k08.bay.canted",
+              "wall": "k01.wall.side.south",
+              "s_m": 2.15,
+              "fabric": "brick",
+              "plan": {
+                "kind": "polyline",
+                "points": [
+                  [
+                    -1.85,
+                    0.0
+                  ],
+                  [
+                    -0.9,
+                    1.27
+                  ],
+                  [
+                    0.9,
+                    1.27
+                  ],
+                  [
+                    1.85,
+                    0.0
+                  ]
+                ]
+              },
+              "storeys": [
+                {
+                  "height_m": 1.8,
+                  "windows": []
+                },
+                {
+                  "height_m": 4.4,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 2.9,
+                      "sill_m": 0.5,
+                      "at": [
+                        0.5
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "height_m": 2.95,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 2.0,
+                      "sill_m": 0.45,
+                      "at": [
+                        0.5
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.15,
+                "covering": "slate_pennsylvania"
+              },
+              "plinth_m": 0.05
+            },
+            {
+              "id": "north_bay",
+              "variant": "k08.bay.canted",
+              "wall": "k01.wall.side.north",
+              "s_m": 9.82,
+              "fabric": "brick",
+              "plan": {
+                "kind": "polyline",
+                "points": [
+                  [
+                    -1.4,
+                    0.0
+                  ],
+                  [
+                    -0.85,
+                    0.77
+                  ],
+                  [
+                    0.85,
+                    0.77
+                  ],
+                  [
+                    1.4,
+                    0.0
+                  ]
+                ]
+              },
+              "storeys": [
+                {
+                  "height_m": 1.8,
+                  "windows": []
+                },
+                {
+                  "height_m": 4.4,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 2.9,
+                      "sill_m": 0.5,
+                      "at": [
+                        0.5
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "height_m": 2.95,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 2.0,
+                      "sill_m": 0.45,
+                      "at": [
+                        0.5
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.15,
+                "covering": "slate_pennsylvania"
+              },
+              "plinth_m": 0.05
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The census's 'bays to Prairie and to 21st' (s35-2036-front): the sheet's canted bay on the 21st Street face, 3.7 m at the wall and 1.27 m out, near the front block's rear, and the smaller one on the north flank, 2.8 m and 0.77 m out, both on K08 and each the house's two storeys over its basement. Their lights and hipped slate tops are RECONSTRUCTED (L-k01-2036-buckingham-1911): the engraving's tree and frame cut the 21st Street bay off at the picture's left edge."
+        },
+        "chimneys": {
+          "value": {
+            "plan_m": [
+              0.9,
+              0.75
             ],
-            "trace_building": "s35fp-2036-b1",
-            "seed": 3055378340,
-            "replaceable_by": [
-              "T-1911"
-            ],
-            "card": "District draft — refined by T-1911."
+            "top_above_ridge_m": 1.2,
+            "cap_proud_m": 0.05,
+            "cap_depth_m": 0.15,
+            "stacks": [
+              {
+                "u_m": 1.6,
+                "v_m": 0.75
+              },
+              {
+                "u_m": 1.6,
+                "v_m": 14.6
+              }
+            ]
           },
           "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): two brick stacks in the flanks near the block's rear wall; no picture shows the roof."
+        },
+        "rainwater": {
+          "value": {
+            "gutter": "half_round",
+            "fabric": "copper_sheet",
+            "downpipe": "round",
+            "ends_at": "grade_with_splash_stone",
+            "downpipes": [
+              {
+                "wall": "k01.wall.side.north",
+                "s_m": 0.35
+              },
+              {
+                "wall": "k01.wall.rear_service",
+                "s_m": 0.35
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): the kit's copper gutter and downpipes."
+        },
+        "entrance_kit": {
+          "value": {
+            "k01.opening.door_leaf": {
+              "variant": "k07.entrance.panel_door_stoop",
+              "front_yard_m": 8.7,
+              "hood": {
+                "fabric": "stone",
+                "soffit_m": 5.1,
+                "width_m": 2.8,
+                "out_m": 2.0,
+                "fascia_m": 0.5,
+                "cornice": {
+                  "height_m": 0.2,
+                  "proud_m": 0.15
+                },
+                "brackets": "k08.bay.canted_hooded",
+                "railing": {
+                  "height_m": 0.6,
+                  "post_m": 0.1,
+                  "baluster_m": 0.04,
+                  "pitch_m": 0.14,
+                  "rail_m": [
+                    0.08,
+                    0.06
+                  ]
+                },
+                "columns": {
+                  "diameter_m": 0.4,
+                  "plinth_m": [
+                    0.5,
+                    0.3
+                  ],
+                  "capital_m": 0.35,
+                  "respond_m": 0.12,
+                  "at_v_m": [
+                    6.5,
+                    8.66
+                  ]
+                },
+                "railing_fabric": "stone"
+              },
+              "terrace": [
+                {
+                  "side": "left",
+                  "to_v_m": 6.18
+                },
+                {
+                  "side": "right",
+                  "to_v_m": 8.98
+                }
+              ],
+              "balustrade": {
+                "height_m": 0.9,
+                "pitch_m": 0.2,
+                "newel_m": 0.2,
+                "newel_cap_m": 0.1,
+                "rail_m": [
+                  0.12,
+                  0.08
+                ],
+                "segments": 8,
+                "profile": [
+                  [
+                    0.06,
+                    0.0
+                  ],
+                  [
+                    0.06,
+                    0.06
+                  ],
+                  [
+                    0.045,
+                    0.1
+                  ],
+                  [
+                    0.04,
+                    0.18
+                  ],
+                  [
+                    0.06,
+                    0.35
+                  ],
+                  [
+                    0.065,
+                    0.45
+                  ],
+                  [
+                    0.045,
+                    0.65
+                  ],
+                  [
+                    0.032,
+                    0.78
+                  ],
+                  [
+                    0.045,
+                    0.86
+                  ],
+                  [
+                    0.055,
+                    0.94
+                  ],
+                  [
+                    0.055,
+                    1.0
+                  ]
+                ]
+              }
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2000_block_prairie_engraving_1880",
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The one-storey porch the sheet draws on the front (about 2.8 m along it and 2.0 m out) as the engraving shows it: a pale column at the stoop's head under a porch roof, the door behind it, and the stoop's turned stone balustrade (K07's, 1906's bulbous profile) on its cheeks and landing; the door's leaves, the porch's entablature and its balustraded deck are RECONSTRUCTED (L-k01-2036-buckingham-1911)."
+        },
+        "boundary": {
+          "value": {
+            "street_line_m": 8.45,
+            "lot_s_m": [
+              -1.73,
+              16.99
+            ],
+            "fence": "k11.fence.scroll_band",
+            "entrance_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "leaves": 2,
+              "clear_m": 1.3,
+              "drawn_deg": 70
+            },
+            "side_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "pier_s_m": 0.0,
+              "drawn_deg": 0
+            },
+            "posts": {
+              "section_m": 0.12,
+              "height_m": 1.2
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2000_block_prairie_engraving_1880"
+          ],
+          "note": "The engraving's iron fence along the walk: spear-headed bars over a band of rings, on a stone curb, with stone gate piers carrying urns at the stoop's foot; K11's scroll band on its curb. The 6 ft brick wall the 1911 sheet draws along 21st west of the house is 1911 evidence the engraving's iron fence predates; it is not built (liberty L-k01-2036-buckingham-1911)."
+        },
+        "rear_wings": {
+          "value": [
+            {
+              "id": "rear_range",
+              "rect": [
+                -10.67,
+                0.0,
+                1.94,
+                14.13
+              ],
+              "floor_m": 1.8,
+              "storey_heights_m": [
+                4.0,
+                3.8
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.6,
+                  "width_m": 1.0,
+                  "height_m": 2.4
+                },
+                {
+                  "sill_above_floor_m": 0.6,
+                  "width_m": 1.0,
+                  "height_m": 2.2
+                }
+              ],
+              "windows": {
+                "rear": [
+                  3.0,
+                  9.0
+                ],
+                "south": [
+                  3.0,
+                  7.5
+                ],
+                "north": [
+                  3.0,
+                  7.5
+                ]
+              },
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.15,
+                "fascia_m": 0.3,
+                "covering": "painted_tin_sheet"
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The sheet's rear range behind the front block, 10.7 m deep and 12.2 m across, set in 1.9 m from the 21st Street face and 1.2 m from the north flank (trace s35fp-2036-b1 parts p8 and p9). The sheet draws a mansard curb on it too; K01's wings take a flat, hipped or gabled roof, so it is decked flat under the front block's height: RECONSTRUCTED (L-k01-2036-buckingham-1911), with its storeys and lights."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "none",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.6,
+              "top_m": 0.06,
+              "wear_tone": 0.9
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): the kit's yard: a flagged walk to the stoop."
         }
       }
     }

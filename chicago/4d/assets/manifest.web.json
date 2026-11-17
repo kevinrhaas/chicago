@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
@@ -13,7 +13,7 @@
     "blacksmith_shop_state_st__log_1823.glb": "cabdc26519a3a8f6cdc2de3ac4be3e387db9f13e5e621df23c6e3d30ddab51b4",
     "brickyard_north_side__yard_1833.glb": "8abfb4d77188244cd3ab975b665b453bec3f53b7a2aa0716ba61321d0a3f7ed8",
     "brown_boarding_house__documented_1835.glb": "dd8ed0ef19eaa89a0179fc49405addedd64a2c9035dae976d20bf5a5be93e5e2",
-    "buckingham_house_2036_prairie__draft_1904.glb": "26ab39ebad7aa71743103c02e40042a7a82b32611f93f5f5b5afd6b50c04df9d",
+    "buckingham_house_2036_prairie__as_mapped_1904.glb": "54ae9df35a4517aadca54528060565ed8b3e4e4d391b376d848b4afdeb4eac93",
     "buckingham_house_2036_prairie_coach_house__draft_1904.glb": "da8fa554832422a02d7f57b2a9d525c63c92746bdf6ad8b5ad39b01d5613585c",
     "burns_house_1812__burns_1812.glb": "bcd6ab4d57defe4a4525adad7d075e85813e59126b1b5800e4d3a645d3adcfd4",
     "caldwell_agency_log_house__log_1830.glb": "f2f270ac8d9e17ebd69e4967d7e4f772ee8efd1e956bd68af1cd6b98cb530d8d",
