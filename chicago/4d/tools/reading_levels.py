@@ -188,7 +188,10 @@ def compile_scene(scene, files):
                 continue
             g0 = grade(original)
             own = AGE_OF_BAND[band_of(g0)]
-            row = {'card': f'{family}:{rid}', 'own': own, 'grade': g0, 'ages': {}}
+            # A "why" or Design line is keyed by its own words, so its card names only their start:
+            # the whole note already rides in `text`, and spelling it twice doubled 1835's file.
+            name = rid if len(rid) <= 80 else rid[:60].rstrip() + '…'
+            row = {'card': f'{family}:{name}', 'own': own, 'grade': g0, 'ages': {}}
             for age, paras in ages.items():
                 if age not in AGES:
                     problems.append(f'{where}: "{age}" is not an age ({", ".join(ORDER)})')
