@@ -1027,7 +1027,8 @@
       "tier_label": "period/eyewitness",
       "what_it_supplies": [
         "the front's storeys, openings, oriel, stoop and gable, and their heights and places along the front",
-        "the camera the image gate renders the house against (data/reference_views/mayer_house_2009_prairie/chicagology_photo.json)"
+        "the camera the image gate renders the house against (data/reference_views/mayer_house_2009_prairie/chicagology_photo.json)",
+        "2011 Prairie's front at the picture's right: its round-arched door, the cross window over it, the round turret's stages and lights, the dormer and the street slope (T-3615), through 2009's camera carried into 2011's frame (data/reference_views/house_2011_prairie/chicagology_photo.json)"
       ],
       "what_it_does_not_supply": [
         "a date closer than 1888-1911",

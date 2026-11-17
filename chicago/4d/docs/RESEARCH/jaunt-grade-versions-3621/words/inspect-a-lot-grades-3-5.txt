@@ -1,0 +1,88 @@
+== premise
+Read a notice about land for sale. See the room where land is sold at auction. Find your corner, and look at the ground before you pay.
+
+== opening
+JAUNT: LOOK BEFORE YOU BUY A LOT. In the summer of 1835, Chicago has gone land crazy. When the land office opened in May, people got even more excited. A piece of land that sold for about ten to fifty dollars in 1830 now costs twenty or thirty times as much. One part of town sold last summer for twenty thousand dollars. This May it sold again for one hundred thousand dollars.
+
+Land is sold at auctions. A man in a bright red coat rides a white horse through town, calling out the time of the sale. Crowds follow him and hang on every word. Before you join them, look at what is really for sale. See the room, the notices, the corner and the ground itself.
+
+== stop auction
+Start on Dearborn Street at John Bates's new auction room. In June the paper said fifty pieces of land in Marseilles would be sold here, with fifty more to come. But Marseilles is a whole different town! In this land craze, a history book says, the whole country seemed to be marked out with towns that only existed on paper. Very few of these paper towns ever became real towns. Read the notice again.
+
+== narrative auction
+What did that notice really sell?
+
+== label auction chicago-lots
+It sold Chicago lots
+
+== consequence auction chicago-lots
+Read it again. The land was in Marseilles. The room is a market, not the land.
+
+== label auction another-town
+It sold another town's lots
+
+== consequence auction another-town
+Right! The room is in Chicago, but the land was somewhere else.
+
+== stop notice
+Walk west to Clark Street. The Democrat newspaper was printed at this corner from 1833. Later its office moved over a hardware store. Your paper has two land notices. One sells pieces of land in town. The other sells land along the path of a planned canal. Prices are wild. This spring, Gurdon Hubbard and his partners bought eighty acres for five thousand dollars. They sold half of it at auction for eighty thousand dollars.
+
+== narrative notice
+Choose the notice you will follow.
+
+== label notice town-lots
+Follow Hubbard's town lots
+
+== consequence notice town-lots
+You will look for a piece of land in the town itself.
+
+== label notice canal-land
+Follow Fell's canal-route land
+
+== consequence notice canal-land
+You will look at land outside town, along the canal path.
+
+== stop corner
+Walk on west to LaSalle Street, where Peck's two-story store stands on the corner. Land is bought by its corners and the streets around it. So take a look around. The river is to the north. The pieces of land run south. Philo Carpenter came here in 1832. He paid seventy-five dollars for two pieces of land on South Water Street. In the land craze, one piece sold in June for five thousand dollars. It sold again in August for ten thousand.
+
+== narrative corner
+Find the corner and face south, toward the land.
+
+== stop ground
+A few steps east, a small ditch runs under South Water Street to the river. The street crosses it on logs. A report about the early town says this part of town was low and wet like a swamp. It was even wetter near the river, and covered with tall grass and reeds. A school teacher remembered mud halfway up his leg, up to the middle of the cart wheels. Decide what the ground tells you.
+
+== narrative ground
+Ask more questions, or keep your money?
+
+== label ground inquire
+Inquire about one lot first
+
+== consequence ground inquire
+You will ask about one piece of land and walk on its ground.
+
+== label ground hold
+Hold your money
+
+== consequence ground hold
+You keep your money for now.
+
+== leg 0
+Leave the sale room for the paper that told about it.
+
+== leg 1
+Carry your notice to a corner you can trust.
+
+== leg 2
+Now look down, at the ground itself.
+
+== ending inquire-town
+You will ask about one piece of land from Hubbard's notice. You will stand on its ground before you pay. Prices can double in two months in this town, so a buyer who looks first is very rare.
+
+== ending inquire-canal
+You will ask about one piece of land on the canal path, as the notice says, and walk on it before you pay. Everyone says the canal is coming. Make sure the land is real too.
+
+== ending held
+You keep your money. A notice, a sale room and a muddy street have told you enough for one day. Remember this when the land craze ends. After 1836, almost every buyer at the first canal land sale could not finish paying and lost the land. Only Peck made his second payment.
+
+== keepsake text
+A made-up note about a land notice you read, a sale room you saw, and the ground you walked before you spent any money.

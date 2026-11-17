@@ -1,0 +1,91 @@
+== premise
+Outfit a rider for tomorrow's road: boots at Holbrook's on South Water Street, a look across the forks from Wolf Point at Miller's tannery, where the town's leather business began, the saddler at Lake and Canal, and the Green Tree to lay it all out.
+
+== opening
+JAUNT: BOOTS, LEATHER AND THE ROAD. It is a spring afternoon, the mud is finally drying, and you ride out tomorrow. Strangers pour through this town "by land and by water", and many of them, like you, plan on "locating farther west". Before you join them you need an outfit, and an outfit means leather: boots for the rider and tack for the horse.
+
+Here is the catch: in this town those are two different trades, in two different shops, on two sides of the river. Buy boots on South Water Street, look across the forks at the tannery where Chicago's leather began, visit the saddler at Lake and Canal, and lay everything out at the Green Tree tonight.
+
+== stop ready-made
+Start one door east of Dearborn on South Water Street. In June 1835 John Holbrook advertised hats, clothing, boots and shoes, wholesale and retail, as agent for the manufacturers, with new goods arriving every fifteen or twenty days. These are factory goods, shipped in from the East and sold right off the shelf. In a town growing this fast, nobody has time to wait for a shoemaker.
+
+== narrative ready-made
+Will you buy boots for the road, or a hat?
+
+== label ready-made boots
+A pair of boots off the shelf
+
+== consequence ready-made boots
+Made somewhere else and shipped in, like everything on his card. Your feet are ready for the road.
+
+== label ready-made hat
+A hat for the road
+
+== consequence ready-made hat
+One printing of his card lists hats first. The shoes you arrived in will have to do.
+
+== stop tannery
+Cross the South Branch to Wolf Point. Across the North Branch, in 1831, John Miller built a log house on the point and used it as a tannery, called Chicago's first recorded factory. A tanner named Benjamin Hall joined him as a partner in 1832. Before the boats brought boots by the crate, leather here started as animal hides soaking in a pit. Whether hides were still being worked this summer, no source tells us.
+
+== narrative tannery
+Leather has to begin as hides somewhere. Here, it began on the point.
+
+== stop saddler
+Go south down the west bank to Lake and Canal. Goss and Cobb opened a shop here in 1833, the year Silas B. Cobb arrived. They made saddles, harness, bridles, martingales and trunks to order. The partners split up in February 1835, and Cobb's June card says he will carry on alone. Neither of their cards mentions boots.
+
+== narrative saddler
+Will you buy leather for the horse, or for the baggage?
+
+== label saddler bridle
+Order a new bridle
+
+== consequence saddler bridle
+Bridles are on the card, and Cobb promises it by morning.
+
+== label saddler trunk
+Order a trunk
+
+== consequence saddler trunk
+Trunks are on the card too. But a trunk rides in a wagon, not on a saddle.
+
+== label saddler ask-boots
+Ask the saddler for boots
+
+== consequence saddler ask-boots
+That is not his trade. His card lists saddles, harness, bridles, martingales and trunks. Boots and shoes were Holbrook's business, back across the river.
+
+== stop road
+Head east along Lake to West Water and the Green Tree. James Kinzie built it in 1833 as the first house here meant to be a hotel, "so called from an oak tree standing close by". Old settlers remembered Chester Ingersoll running it from 1834 to 1837. Lay your outfit out on the floor for the morning.
+
+== narrative road
+Will you ride at first light, or wait another day?
+
+== label road ride
+Ride out at first light
+
+== consequence road ride
+The outfit is what it is, finished or not.
+
+== label road wait
+Stay a day and finish the outfit
+
+== consequence road wait
+You spend another night at the Green Tree and finish shopping tomorrow.
+
+== leg 0
+Whatever you bought rides in front of you on the saddle.
+
+== ending another-day
+Another day in town, then. Whatever your outfit is missing is listed on a card somewhere on these streets, and the road will wait. A day late is not the same as unready.
+
+== ending equipped
+Boots from the clothier and a bridle from the saddler: leather for the rider and leather for the horse, from two trades that never did each other's work. You ride out at first light, equipped to travel.
+
+== ending trunk-bound
+A trunk will not ride on a saddle. Your morning begins with finding a wagon headed your way. The baggage is ready, but the way to carry it is not.
+
+== ending half-ready
+You ride out with what you have. Boots for the rider and a bridle for the horse were the outfit's two leathers, one from each trade. Whatever is missing, the road will ask for before long.
+
+== keepsake text
+A fictional tally of one rider's outfit: what came from the clothier, what came from the saddler, and what was left behind. No real sale, price or customer of either shop is written on it.

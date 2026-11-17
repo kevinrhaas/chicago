@@ -37,6 +37,22 @@ Comfortable adult walking, measured in open datasets.
   `inference` scales are reconstruction choices, and any use of them belongs in
   `docs/LIBERTIES.md`.
 
+## Running (`normative_running.json`, T-3553)
+
+The running tables for the same layer, from the public running dataset of Fukuchi, Fukuchi &
+Duarte (2017, *PeerJ* 5:e3298, data figshare doi:10.6084/m9.figshare.4543435), recreational
+runners on a treadmill at 2.5, 3.5 and 4.5 m/s. `docs/RESEARCH/human-running-3553/extract_rbds.py`
+fetches the files and writes the JSON.
+
+- `cycle_tables.*`: hip, knee and ankle flexion, 21 values each from foot strike, by speed,
+  with sd and the number of legs averaged.
+- `events`: toe-off (stance share) 36, 33 and 31 % by speed, read where the vertical force
+  falls below 5 % of its peak.
+- `spatiotemporal`: stride time, cadence, stride (and stride over stature) and the pelvis
+  markers' vertical range by speed.
+- The dataset stops at 4.5 m/s. A sprint (5-6 m/s) carries the trends past it, which is
+  reconstruction (liberty L-human-gait-3472).
+
 ## Sources actually used for numbers
 
 - **WBDS**: Fukuchi, Fukuchi & Duarte 2018, PeerJ 6:e4640; figshare 10.6084/m9.figshare.5722711.

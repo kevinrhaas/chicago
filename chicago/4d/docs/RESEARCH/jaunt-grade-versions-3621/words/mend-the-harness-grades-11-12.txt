@@ -1,0 +1,91 @@
+== premise
+Discover a cracked trace while harnessing behind the Western Hotel, entrust the leather to the saddler and the iron to the smith at Lake and Canal, and determine at the Green Tree whether the outfit is roadworthy.
+
+== opening
+JAUNT: MEND THE HARNESS. Sunset in the wagon yard behind the Western Hotel, and you embark on the long road west at first light; the draft teams in this yard outnumber the hotel's guests. While you harness up for a trial circuit, the near trace reveals a fracture beside the buckle.
+
+Two trades maintain an overland outfit: the saddler attends to leather and the smith to iron. Both arrived in Chicago in 1833, the year immigration "assumed proportions surpassing all expectation", and both operate at the same intersection. Diagnose the trouble, secure repairs before nightfall, and determine over supper at the Green Tree whether the outfit is roadworthy.
+
+== stop stable
+Behind W. H. Stow's Western Hotel at Randolph and Canal stands a substantial stable and the yard into which the wagon trains drive, with entrances from both streets. Stow's account characterizes it as one of the establishment's most essential components, since the teams were as numerous as the guests. Under the county's 1831 tariff a horse stabled overnight cost 50 cents and a feed 25, so an idle team represents a considerable expense.
+
+== narrative stable
+The near trace is fractured beside the buckle; will you investigate further?
+
+== label stable look-over
+Go over every strap, buckle and hook
+
+== consequence stable look-over
+The trace is fractured, and the iron hook securing it to the whiffletree has worn perilously thin.
+
+== label stable trace-only
+Unbuckle the cracked trace and go
+
+== consequence stable trace-only
+One strap detached from the harness, and nothing further examined.
+
+== stop saddler
+Up Canal to Lake Street, where Goss and Cobb established a saddle and harness shop in 1833, guaranteeing that repairs would be "immediately attended to" when delivered to their shop. Silas B. Cobb was among that year's arrivals. The partnership dissolved in February 1835, and Cobb's June advertisement announces that he will continue independently. Tonight, as every night, damaged traces await attention.
+
+== narrative saddler
+Will you entrust the trace to the saddler, or bind it yourself?
+
+== label saddler restitch
+Leave the trace to be restitched
+
+== consequence saddler restitch
+Leather work, precisely the repairing the advertisement guarantees, and the trace returns sound.
+
+== label saddler bind
+Bind the crack with twine yourself
+
+== consequence saddler bind
+It will endure a short run, although certainly not a long road.
+
+== stop smithy
+Leather belongs to the saddler; iron belongs to the smith. At the same intersection Asahel Pierce, another arrival of 1833, established a blacksmith shop in October that year, and Andreas records him performing the ironwork for the first stage line between Chicago and St Louis in January 1834. A craftsman entrusted with the St Louis stage can unquestionably restore one deteriorated hook.
+
+== narrative smithy
+Does any ironwork require attention?
+
+== label smithy hook
+Leave the worn hook for the forge
+
+== consequence smithy hook
+Ironwork rather than leather, and the whiffletree hook is restored to reliability.
+
+== stop tavern
+East along Lake to West Water and the Green Tree, which James Kinzie constructed in 1833 as the first building here erected for hotel purposes, "so called from an oak tree standing close by". Early settlers recalled Chester Ingersoll operating it from 1834 to 1837. It will outlast virtually everything visible: relocated in 1880, it still stood in 1895, "the oldest memento of early taverns".
+
+== narrative tavern
+Are you prepared for the long road, or merely a short run tomorrow?
+
+== label tavern ready
+Call the outfit ready for the road
+
+== consequence tavern ready
+The long road it is, commencing at first light.
+
+== label tavern keep-short
+Keep tomorrow's trip short
+
+== consequence tavern keep-short
+Somewhere proximate to town, returning before nightfall.
+
+== leg 0
+The fractured trace rides on the seat beside you.
+
+== ending short-run
+A short run near town tomorrow, then, and the long road subsequently. Whatever remained unexamined or merely bound with twine will be tested within reach of assistance, which falls short of genuine readiness but avoids outright recklessness.
+
+== ending sound-tack
+Leather to the saddler and iron to the smith: the trace restitched, the whiffletree hook restored, and every strap and buckle examined before nightfall. At first light the outfit embarks on the long road, prepared for whatever the prairie presents.
+
+== ending hook-left
+The trace is sound again, but you discovered the deteriorated hook and drove past the forge regardless. The leather will endure the long road; whether the iron will is a question for the first strenuous pull, far beyond the reach of Asahel Pierce.
+
+== ending leather-only
+The trace is restitched and the outfit embarks on the long road, but nobody examined the iron, so nobody realizes the whiffletree hook is perilously thin. Sound leather and untested iron constitute a lesson: next time, examine everything.
+
+== keepsake text
+A fictional note documenting one harness inspection: a fractured trace, a deteriorated hook, and what was done about each. No authentic repair, charge or customer of either shop is recorded on it.

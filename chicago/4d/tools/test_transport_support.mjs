@@ -162,3 +162,22 @@ console.log('model-bound complete1196vertex/2048face native1154 domain, original
   eager.dispose(); mesh.geometry.dispose(); mesh.material.dispose();
   console.log('lazy exact road index: zero cold/invalid allocation, first finite query native equality, one cache and no post-dispose resurrection PASS');
 }
+{
+  // T-3558: a rough-road team (1835's rutted earth streets) walks the ruts within bounds.
+  const { roughHorseSupport, ROUGH_GROUND, teamSupportAt: teamAt } = await import('../renderers/web/js/transport-support.js');
+  const tilted = (e, n) => .02 * e + .01 * n;
+  const level = roughHorseSupport({ e: 3, n: 4, yaw: .3, heightAt: tilted });
+  assert(level.sampled_maximum_clearance_m < 1e-12 && level.rough);
+  assert(Math.abs(level.height_m - tilted(3, 4)) < 1e-12);
+  const rut = (e, n) => (Math.abs(e) < .2 ? -.015 : 0);
+  const ridden = roughHorseSupport({ e: 0, n: 0, yaw: 0, heightAt: rut });
+  assert(ridden.sampled_maximum_clearance_m <= ROUGH_GROUND.hoof_spread_m && ridden.height_m === 0, 'hooves on the highest sample');
+  assert.throws(() => roughHorseSupport({ e: 0, n: 0, yaw: 0, heightAt: (e) => (Math.abs(e) < .2 ? -.03 : 0) }), /drawn street lift/);
+  assert.throws(() => roughHorseSupport({ e: 0, n: 0, yaw: 0, heightAt: (e) => .1 * e }), /5-degree/);
+  const row = { horse_offset_m: [0, 0, 3.5], team_half_spacing_m: .65 };
+  const pose = { e: 0, n: 0, yaw: 0, curvature: 0, rootAhead: 1.175 };
+  const ruts = (e, n) => (Math.abs(Math.abs(e) - .65) < .1 ? -.015 : 0);
+  assert.throws(() => teamAt(row, pose, ruts), /plane residual/, 'a level-road team keeps the certified bound');
+  assert.equal(teamAt(row, { ...pose, rough: true }, ruts).length, 2, 'a rough-road team falls back to the ruts');
+  console.log('T-3558 rough-road horse support: walked plane, highest sample, spread and lean bounds, level roads unchanged PASS');
+}

@@ -4,6 +4,7 @@ import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
 import { groupIcon, groupOf, groupSlot, icon } from './menu-icons.js';
 import { ambienceLabel } from './jaunt-menu.js';
+import { clockText } from './jaunt-pace.js';
 
 /** T-3432: a jaunt's opening, in paragraphs, without the "JAUNT: ITS TITLE." its welcome
  *  already shows as a heading. */
@@ -48,12 +49,22 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   const body = node('div', '', 'jaunt-body'), controls = node('nav', '', 'jaunt-controls');
   controls.setAttribute('aria-label', 'Jaunt navigation');
   const buttons = {};
-  for (const [id, label] of [['prev', 'Previous Stop'], ['next', 'Next Stop'], ['end', 'End Jaunt'], ['menu', 'Jaunts Menu']]) {
-    buttons[id] = button(label, () => id === 'next' ? goNext() : actions[id]()); buttons[id].dataset.action = id; controls.append(buttons[id]);
+  // T-3629 (the owner's interface sweep): one big Next stop, and small keys with an icon and a
+  // short word for the rest, in a game's order: Back · Jaunts · End · Next stop. Each keeps
+  // its full name for a screen reader.
+  for (const [id, label, name, glyph] of [['prev', 'Back', 'Previous stop', 'back'], ['menu', 'Jaunts', 'Jaunts menu', 'jaunts'],
+    ['end', 'End', 'End jaunt', 'close'], ['next', 'Next stop', null, null]]) {
+    buttons[id] = button(label, () => id === 'next' ? goNext() : actions[id]()); buttons[id].dataset.action = id;
+    if (glyph) { buttons[id].prepend(icon(glyph, 16)); buttons[id].classList.add('jaunt-key'); }
+    if (name) { buttons[id].setAttribute('aria-label', name); buttons[id].title = name; }
+    controls.append(buttons[id]);
   }
-  const mode = node('select'); mode.setAttribute('aria-label', 'Jaunt travel mode');
+  buttons.next.classList.add('jaunt-primary');
+  const mode = node('select', '', 'jaunt-pace'); mode.setAttribute('aria-label', 'Jaunt travel mode');
   mode.addEventListener('change', () => actions.setMode(mode.value));
-  const straight = button('Go straight to next stop', actions.straight); straight.dataset.action = 'straight';
+  const straight = button('Skip the ride', actions.straight); straight.dataset.action = 'straight';
+  straight.setAttribute('aria-label', 'Go straight to next stop'); straight.title = 'Go straight to next stop';
+  straight.className = 'jaunt-straight';
   controls.prepend(mode, straight);
   // Collapsing folds the panel to one bar — where you are, Next Stop, and a tap to
   // open it again — so the world can be looked at from a stop on a phone, where the
@@ -63,10 +74,15 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   collapse.setAttribute('aria-label', 'Collapse the outing panel'); collapse.setAttribute('aria-expanded', 'true');
   const bar = node('div', '', 'jaunt-bar'), barLabel = button('', () => setCollapsed(false));
   barLabel.className = 'jaunt-bar-label'; barLabel.setAttribute('aria-expanded', 'false');
-  const barNext = button('Next Stop', () => goNext()); barNext.dataset.action = 'bar-next';
+  const barNext = button('Next stop', () => goNext()); barNext.dataset.action = 'bar-next'; barNext.classList.add('jaunt-primary');
   const barReturn = button('Return', () => { if (state?.phase === 'detail') actions.returnFromDetail(); else actions.closeOverlay(); }); barReturn.hidden = true; barReturn.dataset.action = 'return';
   const barEnd = button('End', actions.end); barEnd.setAttribute('aria-label', 'End Jaunt');
   bar.append(barLabel, barNext, barReturn, barEnd);
+  // The owner, 2026-11-16: a quiet meter of the jaunt, one hairline segment a stop, the
+  // stop under way filling as its scene plays (and, fainter, as the way to it is covered),
+  // with the scene's time left beside it. On the controls, and along the collapsed bar.
+  const meters = [makeMeter(true), makeMeter(false)];
+  controls.prepend(meters[0].el); bar.prepend(meters[1].el);
   root.append(collapse, body, controls, bar); document.body.append(root);
   // Native controls and translated/wrapped labels can make this row taller.
   // Reserve its measured height for cards and drawers instead of guessing it —
@@ -83,6 +99,29 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     document.documentElement.toggleAttribute('data-jaunt-collapsed', value);
     measureNav();
     if (focus) (value ? barLabel : collapse).focus({ preventScroll: true });
+  }
+  function makeMeter(withClock) {
+    const el = node('div', '', 'jaunt-meter'), track = node('span', '', 'jaunt-meter-stops'), clock = withClock ? node('span', '', 'jaunt-meter-clock') : null;
+    el.setAttribute('role', 'progressbar'); el.setAttribute('aria-label', 'Jaunt progress');
+    el.setAttribute('aria-valuemin', '0'); el.setAttribute('aria-valuemax', '100'); el.hidden = true;
+    el.append(track); if (clock) { clock.setAttribute('aria-hidden', 'true'); el.append(clock); }
+    let segs = [], shown = '';
+    function set(m) {
+      el.hidden = !m; if (!m) return;
+      if (segs.length !== m.count) {
+        segs = Array.from({ length: m.count }, () => { const seg = node('i'), fill = node('b'); seg.append(fill); return { seg, fill }; });
+        track.replaceChildren(...segs.map(x => x.seg));
+      }
+      segs.forEach(({ seg, fill }, i) => {
+        const v = i < m.index ? 1 : i > m.index ? 0 : m.value;
+        fill.style.transform = `scaleX(${v.toFixed(4)})`;
+        seg.classList.toggle('jaunt-meter-now', i === m.index); seg.classList.toggle('jaunt-meter-way', i === m.index && m.kind === 'way');
+      });
+      const pct = String(Math.round(m.overall * 100)), said = `Stop ${m.index + 1} of ${m.count}, ${pct} percent of the jaunt`;
+      if (said !== shown) { shown = said; el.setAttribute('aria-valuenow', pct); el.setAttribute('aria-valuetext', said); }
+      if (clock) { const t = clockText(m.left); clock.textContent = t; clock.title = t ? (m.kind === 'way' ? 'Time to the stop' : 'Time left in this scene') : ''; }
+    }
+    return { el, set };
   }
   root.addEventListener('keydown', e => e.stopPropagation());
   let state, key, overlayView = null, needsChoice = false;
@@ -102,6 +141,9 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   // below the fold on a phone, so the outing read as stuck. Next Stop now says so and,
   // tapped, opens the panel and brings the first open option into view.
   function goNext() {
+    // The flight to the start, read to by the opening, may be skipped; the closing finished.
+    if (state?.phase === 'opening') return actions.skip?.();
+    if (state?.phase === 'closing') return actions.finish?.();
     if (!needsChoice) return actions.next();
     setCollapsed(false, { focus: false });
     const first = body.querySelector('[data-choice]:not(:disabled)');
@@ -186,8 +228,8 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     const words = node('div', '', 'jaunt-welcome-words');
     words.append(node('p', `Jaunt · ${state.jaunt.scene}${family ? ` · ${family}` : ''}`, 'jaunt-welcome-k'), node('h2', state.jaunt.title, 'jaunt-welcome-title'));
     hero.append(badge, words); body.append(hero);
-    const premise = state.jaunt.premise || row.premise;
-    if (premise) body.append(node('p', premise, 'jaunt-welcome-premise'));
+    // The owner, 2026-11-16: the first card drops the summary (the premise, which nobody reads
+    // aloud) and heads the opening with the jaunt's name, as the narrator says it.
     const facts = node('ul', '', 'jaunt-welcome-facts'); facts.setAttribute('aria-label', 'This jaunt');
     const fact = (name, text) => { if (!text) return null; const li = node('li', ''); li.append(icon(name, 16), node('span', text)); facts.append(li); return li; };
     fact('start', `${state.jaunt.stops.length} stops`);
@@ -204,11 +246,44 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     if (!paragraphs.length) return;
     const fresh = opening || state.visited.length === 1;
     const story = node(fresh ? 'section' : 'details', '', 'jaunt-welcome-story');
-    const head = node(fresh ? 'h3' : 'summary', '', 'jaunt-welcome-story-k'); head.append(icon('story', 16), node('span', 'Background'));
+    const head = node(fresh ? 'h3' : 'summary', '', 'jaunt-welcome-story-k'); head.append(icon('story', 16), node('span', state.jaunt.title));
     story.append(head);
     const hear = listen('opening', 'opening'); if (hear) story.append(hear);
     story.append(...paragraphs.map(text => node('p', text)));
     body.append(story);
+  }
+  /**
+   * The owner, 2026-11-16: "you should see that text as the final scene of the jaunt and then
+   * you get the end jaunt screen". The ending, on screen while it is read aloud and the eye
+   * rises to a last view of where the jaunt began (jaunt-pace.js); Finish Jaunt goes on to
+   * Outing complete at once, and it comes by itself when the scene is done.
+   */
+  function closingScene(old) {
+    const nextKey = `${state.session}:closing`, same = key === nextKey;
+    const scroll = same ? body.scrollTop : 0;
+    const listening = same && document.activeElement?.dataset.action === 'listen' && body.contains(document.activeElement);
+    root.classList.add('jaunt-final'); root.classList.add('jaunt-closing');
+    straight.hidden = true; mode.hidden = true; // nothing is left to travel by
+    const progress = node('p', '', 'jaunt-progress jaunt-stop-k jaunt-final-k');
+    progress.append(icon('finish', 15), node('span', 'Closing'));
+    const heading = node('h2', state.jaunt.title); heading.tabIndex = -1;
+    body.replaceChildren(progress, heading);
+    const hear = listen('ending', state.outcome.id); if (hear) body.append(hear);
+    body.append(...String(state.outcome.text).split(/\n\s*\n/).map(t => node('p', t.trim(), 'jaunt-closing-text')));
+    buttons.prev.disabled = true; buttons.next.disabled = barNext.disabled = false;
+    for (const b of [buttons.next, barNext]) {
+      b.textContent = 'Finish jaunt'; b.classList.remove('jaunt-needs-choice'); b.classList.add('jaunt-finish', 'jaunt-closing-finish');
+    }
+    needsChoice = false;
+    barLabel.replaceChildren(node('span', `▴ ${state.jaunt.title}`), node('small', 'Closing'));
+    barLabel.classList.add('jaunt-final-k');
+    barLabel.setAttribute('aria-label', `Open the outing panel: ${state.jaunt.title}, closing`);
+    if (!same) setCollapsed(false, { focus: false });
+    body.hidden = false; root.classList.remove('jaunt-detail'); barNext.hidden = false; barReturn.hidden = true;
+    body.scrollTop = scroll; key = nextKey;
+    narration?.at(state.jaunt, 'ending', state.outcome.id);
+    if (listening) body.querySelector('[data-action="listen"]')?.focus({ preventScroll: true });
+    else if (!same) heading.focus({ preventScroll: true });
   }
   function render(next) {
     const old = state;
@@ -223,20 +298,21 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
       else narration?.end();
       key = null; overlayView = null; setCollapsed(false, { focus: false }); return;
     }
+    if (state.phase === 'closing') { closingScene(old); return; }
     const stop = currentStop(state), nextKey = `${state.session}:${stop.id}`, same = key === nextKey;
     if (old?.session !== state.session) {
       mode.replaceChildren(...state.jaunt.allowed_modes.map(id => {
         const option = node('option', PACES[id].label); option.value = id; return option;
       }));
     }
-    mode.value = shownMode(state);   // T-3405: the mode this leg really travels in
+    mode.hidden = false; mode.value = shownMode(state);   // T-3405: the mode this leg really travels in
     straight.hidden = !['travelling', 'paused'].includes(state.phase);
     mode.classList.toggle('jaunt-mode-wide', straight.hidden);
     const scroll = same ? (overlayView?.scroll ?? body.scrollTop) : 0, focused = document.activeElement?.dataset.choice;
     const listening = same && document.activeElement?.dataset.action === 'listen' && body.contains(document.activeElement);
     const opening = state.phase === 'opening' || (state.phase === 'detail' && state.detailPhase === 'opening');
     const final = !opening && isFinalStop(state), count = state.jaunt.stops.length;
-    root.classList.toggle('jaunt-final', final);
+    root.classList.toggle('jaunt-final', final); root.classList.remove('jaunt-closing');
     const heading = node('h2', stopName(state, stop));
     heading.tabIndex = -1;
     const progress = node('p', '', 'jaunt-progress jaunt-stop-k');
@@ -271,7 +347,10 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
       const readable = readableLines(state.context?.lines || [], state.estimate?.legs?.[0]?.seconds);
       if (readable.length && !state.contextDismissed) {
         const notes = node('aside', '', 'jaunt-leg-notes'); notes.setAttribute('aria-label', 'On the way');
-        contextLines(notes, readable); notes.append(button('Dismiss road notes', actions.dismissContext)); body.append(notes);
+        // T-3629: the notes close with a small × in their corner, not a full-width key.
+        const shut = button('', actions.dismissContext); shut.className = 'jaunt-notes-close';
+        shut.setAttribute('aria-label', 'Dismiss road notes'); shut.title = 'Dismiss road notes'; shut.append(icon('close', 16));
+        notes.prepend(shut); contextLines(notes, readable); body.append(notes);
       }
       if (state.phase === 'paused') body.append(button('Resume ride', actions.resumeRide));
       if (state.error) body.append(button('Try this stop again', actions.retry));
@@ -337,11 +416,12 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     }
     const here = state.visited[state.stopIndex];
     needsChoice = state.phase === 'atStop' && !canNext(state) && !here.committed && choicesFor(state).length > 0;
-    buttons.prev.disabled = state.stopIndex === 0; buttons.next.disabled = barNext.disabled = !canNext(state) && !needsChoice;
+    buttons.prev.disabled = state.stopIndex === 0; buttons.next.disabled = barNext.disabled = !canNext(state) && !needsChoice && !opening;
     // T-3432: at the last stop the one way on is to finish.
     const finish = final && canNext(state) && !needsChoice;
     for (const b of [buttons.next, barNext]) {
-      b.textContent = needsChoice ? 'Choose an Option' : finish ? 'Finish Jaunt' : 'Next Stop';
+      b.textContent = opening ? 'Skip to the start' : needsChoice ? 'Choose an option' : finish ? 'Finish jaunt' : 'Next stop';
+      b.classList.remove('jaunt-closing-finish');
       b.classList.toggle('jaunt-needs-choice', needsChoice); b.classList.toggle('jaunt-finish', finish);
     }
     const place = stopName(state, stop), where = final ? `Final stop · ${state.stopIndex + 1} of ${count}` : `Stop ${state.stopIndex + 1} of ${count}`;
@@ -361,5 +441,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     else if (state.phase === 'atStop' && (!same || old?.phase === 'travelling')) heading.focus({ preventScroll: true });
   }
   return { render, get collapsed() { return collapsed; }, collapse: value => setCollapsed(value, { focus: false }),
+    /** The owner, 2026-11-16: the meter, from jaunt-pace.js meterReading (null hides it). */
+    meter(m) { for (const x of meters) x.set(m); },
     destroy() { offNarration?.(); narration?.end(); observer.disconnect(); controlSize.disconnect(); root.remove(); sheet.remove(); document.documentElement.removeAttribute('data-jaunt-active'); document.documentElement.removeAttribute('data-jaunt-collapsed'); document.documentElement.style.removeProperty('--jaunt-nav'); } };
 }

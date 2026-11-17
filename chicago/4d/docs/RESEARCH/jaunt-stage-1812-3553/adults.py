@@ -39,7 +39,15 @@ LIBERTY = 'L-1812-adult-jaunts'
 P, bearing = b.P, b.bearing
 STRIKE_HIT, STAB_HIT = 0.6, 0.44           # human-fight.js MOTIONS: when a blow lands
 SHOT = {'pistol': 0.7, 'musket': 0.8, 'rifle': 0.8}
-HURRY = 2.2                                 # jaunt-stage.js PACES.hurry, m/s
+PACE = {'hurry': 2.2, 'brisk': 1.75, 'jog': 2.6, 'run': 3.6, 'flee': 4.5, 'sprint': 5.6}   # jaunt-stage.js PACES, m/s
+RUN = PACE['run']
+
+
+def gather(pace):
+    """T-3553: the seconds a run loses getting up to speed from a walk and pulling up at its end
+    (humans.js RUN_GATHER_S, RUN_STOP_M_S2), near enough."""
+    v = PACE.get(pace, 1.3)
+    return 0.0 if v <= 2.0 else (v - 1.2) * 0.45 / v + 0.25
 WEST = scenes.SHORE_W                       # inland from the beach, toward the bank
 
 
@@ -113,14 +121,14 @@ def shoot(c, victim, t, gun='musket'):
     return t + SHOT[gun] + 0.05
 
 
-def close(att, victim_at, t, gap=1.05, pace='hurry', arm=None):
+def close(att, victim_at, t, gap=1.05, pace='run', arm=None):
     """`att` runs from where he stands at `t` to `gap` short of `victim_at`; returns his arrival."""
     a = rest(att, t)
     spot = toward(a, victim_at, gap)
     beat = {'t': r1(t), 'walk': [P(*spot)], 'pace': pace}
     if arm: beat['arm'] = arm
     add(att, beat)
-    return t + dist(a, spot) / (HURRY if pace == 'hurry' else 1.75) + 0.4
+    return t + dist(a, spot) / PACE[pace] + gather(pace) + 0.4
 
 
 def blow(att, victim, t, kind='strike', wound=''):
@@ -221,7 +229,16 @@ def bank(st, killed):
         aim = min(regs, key=lambda s: dist(rest(s, 58), mark))
         t = 59.0 + 1.37 * (i % 13)
         add(c, {'t': r1(t - 0.6), 'face': key(aim)}, {'t': r1(t), 'act': 'fire'}, {'t': r1(t + 1.6), 'act': 'lower'})
-    # The company: muskets up as they face the bank, 'after firing one round, we charged'.
+    # The company: muskets up as they face the bank, 'after firing one round, we charged'. The
+    # students' scene runs them up the bank at once (scenes.CHARGE_M); here they step up six
+    # metres to face it, fire, and then charge.
+    for c in regulars:
+        for x in c.get('beats', []):
+            if x.get('pace') == 'run' and 42.9 <= x['t'] < 44.0 and x.get('walk'):
+                a, z = rest(c, x['t'] - 0.01), x['walk'][-1]
+                k = 6.0 / scenes.CHARGE_M
+                x['walk'] = [P(a[0] + (z[0] - a[0]) * k, a[1] + (z[1] - a[1]) * k)]
+                del x['pace']
     vet = None
     for i, c in enumerate(regulars):
         add(c, {'t': r1(40.5 + 0.1 * (i % 7)), 'arm': 'musket'})
@@ -233,12 +250,12 @@ def bank(st, killed):
         add(c, {'t': r1(t), 'act': 'fire'}, {'t': r1(t + 1.4), 'act': 'lower'})
         up = rest(c, 48)
         charge = (up[0] + 8.0 * WEST[0], up[1] + 8.0 * WEST[1])
-        add(c, {'t': r1(52.2 + 0.1 * (i % 5)), 'walk': [P(*charge)], 'pace': 'hurry'})
+        add(c, {'t': r1(52.2 + 0.1 * (i % 5)), 'walk': [P(*charge)], 'pace': 'run'})
     heald = ids['heald_nathan']
     add(heald, {'t': 40.5, 'arm': 'pistol'})
     shoot(heald, P(*scenes.shore(-12, 36)), 49.4, 'pistol')
     hp = rest(heald, 48)
-    add(heald, {'t': 52.4, 'walk': [P(hp[0] + 7.0 * WEST[0], hp[1] + 7.0 * WEST[1])], 'pace': 'hurry'})
+    add(heald, {'t': 52.4, 'walk': [P(hp[0] + 7.0 * WEST[0], hp[1] + 7.0 * WEST[1])], 'pace': 'run'})
     # Wells fires his pistols into the bank, and one of the men there falls.
     wells = ids['wells_william']
     add(wells, {'t': 40.2, 'arm': 'pistol'})
@@ -246,7 +263,7 @@ def bank(st, killed):
     target = near[0]
     shoot(wells, P(*rest(target, 47)), 46.5, 'pistol')
     falls(target, shoot(wells, key(target), 52.0, 'pistol'))
-    add(wells, {'t': 56.0, 'walk': [P(*scenes.shore(-36.0, 16.0))], 'pace': 'hurry'})
+    add(wells, {'t': 56.0, 'walk': [P(*scenes.shore(-36.0, 16.0))], 'pace': 'run'})
 
     # Hand to hand where the charge meets the bank: each charging man meets the nearest of the
     # tomahawks and clubs who runs down at him. A man whose card says he was killed in the action
@@ -264,7 +281,7 @@ def bank(st, killed):
         if not pool: continue
         w = min(pool, key=lambda w: dist(rest(w, 50), end))
         used.add(key(w)); fights += 1
-        arrive = max(close(w, end, 52.6 + 0.2 * (fights % 4), gap=1.1), 52.2 + 8.0 / HURRY + 0.4) + 0.3 + 0.55 * (fights % 7)
+        arrive = max(close(w, end, 52.6 + 0.2 * (fights % 4), gap=1.1), 52.2 + 8.0 / RUN + gather('run') + 0.4) + 0.3 + 0.55 * (fights % 7)
         if key(s) in killed:
             falls(s, blow(w, s, arrive, 'strike'))
             if len(scalpers) < 6: scalpers.append((w, s, arrive + 2.5))
@@ -473,7 +490,7 @@ def adult_doc(base_name, stages, texts):
     doc['premise'] = texts['premise']
     if texts.get('opening'):
         doc['opening']['text'] = texts['opening']
-    else:
+    elif texts.get('opening_add'):
         paras = base['opening']['text'].split('\n\n')
         doc['opening']['text'] = '\n\n'.join(paras[:-1] + [texts['opening_add'], paras[-1]])
     doc['opening']['read_s'] = round(len(doc['opening']['text'].split()) / 3.5)
@@ -497,6 +514,7 @@ def adult_doc(base_name, stages, texts):
                     raise SystemExit(f'{doc["id"]}/{stop["id"]}: {who} has no figure in 1812')
             stop['stage'] = {'caption': s['caption'], 'liberty': LIBERTY, 'cast': s['cast']}
             if s.get('teams'): stop['stage']['teams'] = s['teams']
+            if s.get('open_gates'): stop['stage']['open_gates'] = s['open_gates']
             if s.get('fire'): stop['stage']['fire'] = s['fire']
     doc['liberties'] = [x for x in doc['liberties'] if x != b.LIBERTY] + [b.LIBERTY, LIBERTY]
     path = ROOT / f'data/jaunts/{doc["id"]}.json'

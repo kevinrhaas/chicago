@@ -22,6 +22,10 @@ const rank = (r) => (Number.isInteger(r.menu_rank) ? r.menu_rank : Infinity);
 /** T-3590: the US school grade bands a jaunt is written for (data/jaunts/schema.json grade_band). */
 export const GRADE_BANDS = ['K-2', '3-5', '6-8', '9-10', '11-12'];
 export const gradeLabel = (band) => (GRADE_BANDS.includes(band) ? `Grades ${band.replace('-', '–')}` : '');
+/** T-3623: the grade filter's last pill picks the 18+ tellings (audience adults), which no grade pill lists. */
+export const ADULTS = '18+';
+const isAdults = (row) => row?.audience === 'adults';
+const gradeOf = (row) => (isAdults(row) ? '' : row.grade_band);
 function placeOrder(a, b) {
   const kind = (r) => { const i = GROUPS.indexOf(groupOf(r)); return i < 0 ? GROUPS.length : i; };
   return (rank(a) === rank(b) ? 0 : rank(a) < rank(b) ? -1 : 1)
@@ -29,11 +33,12 @@ function placeOrder(a, b) {
     || sortTitle(a.title).localeCompare(sortTitle(b.title)) || String(a.id).localeCompare(String(b.id));
 }
 /** T-3590: a version of a jaunt for another grade band (`version_of`) sits right after the
- *  jaunt it retells, versions in grade order; `baseOf(row)` finds that jaunt's row. */
+ *  jaunt it retells, versions in grade order, its 18+ telling last (T-3623); `baseOf(row)`
+ *  finds that jaunt's row. */
 export function jauntOrder(a, b, baseOf = () => null) {
   const A = (a.version_of && baseOf(a)) || a, B = (b.version_of && baseOf(b)) || b;
   if (A !== B) return placeOrder(A, B);
-  return (a === A ? -1 : 0) + (b === B ? 1 : 0)
+  return (a === A ? -1 : 0) + (b === B ? 1 : 0) || isAdults(a) - isAdults(b)
     || GRADE_BANDS.indexOf(a.grade_band) - GRADE_BANDS.indexOf(b.grade_band) || String(a.id).localeCompare(String(b.id));
 }
 /** T-3377: the light an outing is walked in, as its card says it: "Dusk · Fall". */
@@ -46,17 +51,43 @@ export function ambienceLabel(ambience) {
 export function filterJaunts(rows, query = '', group = '', grade = '') {
   const words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
   const byId = new Map(rows.map(row => [row.id, row]));
-  return rows.filter(row => (!group || groupOf(row) === group) && (!grade || row.grade_band === grade) && words.every(word =>
-    `${row.title} ${row.premise} ${row.category} ${groupOf(row)} ${row.primary_family} ${gradeLabel(row.grade_band)}`.toLocaleLowerCase().includes(word)))
+  return rows.filter(row => (!group || groupOf(row) === group) && (!grade || (grade === ADULTS ? isAdults(row) : gradeOf(row) === grade)) && words.every(word =>
+    `${row.title} ${row.premise} ${row.category} ${groupOf(row)} ${row.primary_family} ${isAdults(row) ? ADULTS : gradeLabel(row.grade_band)}`.toLocaleLowerCase().includes(word)))
     .sort((a, b) => jauntOrder(a, b, row => byId.get(row.version_of)));
 }
+
+/**
+ * T-3629 (owner, 2026-11-16, the interface sweep: "one card per jaunt, your grade
+ * remembered"): every jaunt is told once per grade band (`version_of`), and with no grade
+ * picked the list showed each one up to four times. The list keeps ONE telling of each
+ * jaunt: the one for the picked band where there is one, else the jaunt itself (no band
+ * picked: the jaunt itself). Order is kept; a search or a group filter runs first.
+ */
+export function oneTellingEach(rows, grade = '') {
+  const groups = new Map();
+  for (const row of rows) {
+    const key = row.version_of || row.id;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(row);
+  }
+  const keep = new Set();
+  for (const tellings of groups.values()) {
+    const picked = grade === ADULTS ? tellings.find(isAdults) : grade && tellings.find((r) => gradeOf(r) === grade);
+    keep.add(picked || tellings.find((r) => !r.version_of) || tellings[0]);
+  }
+  return rows.filter((row) => keep.has(row));
+}
+/** T-3629: the grade band a visitor picked, kept on this device (a convenience: refused storage forgets it). */
+export const GRADE_KEY = 'chicago4d.jaunts.grade';
+const readGrade = () => { try { const g = globalThis.localStorage?.getItem(GRADE_KEY) ?? ''; return GRADE_BANDS.includes(g) || g === ADULTS ? g : ''; } catch { return ''; } };
+const writeGrade = (g) => { try { if (g) globalThis.localStorage?.setItem(GRADE_KEY, g); else globalThis.localStorage?.removeItem(GRADE_KEY); } catch { /* a convenience */ } };
 
 // T-2631: `plateFor(row)` gives a credited picture of the route's stops, or null; `kept(row)`
 // says the visitor holds this outing's keepsake.
 export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor = () => null, kept = () => false, preferredMode = () => null, modeNote = () => '' }) {
   const scroll = root.closest('.welcome-region') || root;
   const modes = new Map(), estimates = new Map(), open = new Set();
-  let query = '', family = '', grade = '', offset = 0, savedScroll = 0, focusKey = null;
+  let query = '', family = '', grade = readGrade(), offset = 0, savedScroll = 0, focusKey = null;
   let rows = [], list, search, pills, grades, clear, previous, more;
   const node = (tag, text = '', cls = '') => {
     const el = document.createElement(tag); el.textContent = text; el.className = cls; return el;
@@ -90,14 +121,14 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     // T-3590: the school grades its words are written for.
     // The owner, 2026-11-15: an adults jaunt says so, and what it shows, before it is started.
     if (row.audience === 'adults') { const tag = node('span', '18+', 'jaunt-adults'); tag.title = row.content_warning || '18+: the fighting is shown'; meta.append(tag); }
-    const grades = gradeLabel(row.grade_band);
+    const grades = gradeLabel(gradeOf(row));
     if (grades) { const tag = node('span', grades, 'jaunt-grade'); tag.title = `Written for US school ${grades.toLowerCase()}`; meta.append(tag); }
     const light = ambienceLabel(row.ambience);
     if (light) { const tag = node('span', light, 'jaunt-light'); tag.title = 'The jaunt sets this time of day and season, and gives yours back at the end'; meta.append(tag); }
     // T-2631: the keepsake, once earned, on the outing's own card.
     if (kept(row)) meta.append(node('span', 'Keepsake earned', 'jaunt-kept'));
     body.append(head, node('p', row.premise, 'jaunt-premise'), meta);
-    if (row.audience === 'adults' && row.content_warning) body.append(node('p', row.content_warning, 'jaunt-warning'));
+    // The owner, 2026-11-16: no warning text on the card; its 18+ tag says it (and names it on hover).
     if (plate?.src) { const credit = node('p', `Picture: ${plate.credit}`, 'jaunt-credit'); credit.title = plate.full; body.append(credit); }
     const actions = node('div', '', 'jaunt-actions');
     const details = node('div', '', 'jaunt-details'); details.id = `jaunt-more-${section}-${row.id}`;
@@ -166,12 +197,13 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
   }
   function windowRows({ focus = false } = {}) {
     // T-2944/T-3584: ranked first, then by group, featured first within each (jauntOrder); no second sort here.
-    const matches = filterJaunts(rows, query, family, grade);
+    // T-3629: one telling of each jaunt, the picked grade's where it has one.
+    const matches = oneTellingEach(filterJaunts(rows, query, family), grade);
     offset = Math.min(offset, Math.max(0, Math.floor((matches.length - 1) / WINDOW_SIZE) * WINDOW_SIZE));
     list.replaceChildren(...matches.slice(offset, offset + WINDOW_SIZE).map(row => card(row, 'all')));
     if (!matches.length) list.append(node('p', rows.length ? 'No matching outings.' : 'No jaunts are available yet. You can explore on your own.', 'jaunt-empty'));
     previous.hidden = offset === 0; more.hidden = offset + WINDOW_SIZE >= matches.length;
-    clear.hidden = !query.trim() && !family && !grade;
+    clear.hidden = !query.trim() && !family;
     for (const pill of pills.children) if (pill.dataset.family !== undefined) pill.setAttribute('aria-pressed', String(pill.dataset.family === family));
     for (const pill of grades.children) if (pill.dataset.grade !== undefined) pill.setAttribute('aria-pressed', String(pill.dataset.grade === grade));
     if (focus) {
@@ -196,17 +228,23 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     // T-3604 (owner, 2026-11-15: "include grade level filters for the jaunts"): the school grades
     // each jaunt is written for (its grade_band), only those this year's jaunts have.
     grades = node('div', '', 'jaunt-categories jaunt-grades'); grades.setAttribute('role', 'group'); grades.setAttribute('aria-label', 'Grade levels');
-    grades.append(node('span', 'Grades', 'jaunt-grades-label'));
-    const bands = GRADE_BANDS.filter(b => rows.some(row => row.grade_band === b));
+    grades.append(node('span', 'Your grade', 'jaunt-grades-label'));
+    const bands = GRADE_BANDS.filter(b => rows.some(row => gradeOf(row) === b));
+    // T-3623: the 18+ tellings get their own pill, last, when Settings lets them be listed.
+    // T-3629: picked, each jaunt plays its 18+ telling where it has one.
+    if (rows.some(isAdults)) bands.push(ADULTS);
+    if (grade && !bands.includes(grade)) grade = '';
     for (const band of ['', ...bands]) {
-      const pill = button('', () => { grade = grade === band ? '' : band; offset = 0; windowRows(); }, 'jaunt-pill jaunt-grade-pill');
-      pill.append(node('span', band ? band.replace('-', '–') : 'All'));
-      pill.setAttribute('aria-label', band ? gradeLabel(band) : 'All grades'); pill.title = band ? gradeLabel(band) : 'All grades';
+      const pill = button('', () => { grade = grade === band ? '' : band; writeGrade(grade); offset = 0; windowRows(); }, 'jaunt-pill jaunt-grade-pill');
+      const label = band === ADULTS ? '18+ tellings' : band ? gradeLabel(band) : 'Any grade';
+      pill.append(node('span', band ? band.replace('-', '–') : 'Any'));
+      pill.setAttribute('aria-label', label);
+      pill.title = band === ADULTS ? 'Each jaunt in its 18+ telling, where it has one' : band ? `Each jaunt as told for ${gradeLabel(band).toLowerCase()}` : 'Each jaunt as first told';
       pill.dataset.grade = band; grades.append(pill);
     }
     grades.hidden = bands.length < 2;
     search.addEventListener('input', () => { query = search.value; offset = 0; windowRows(); });
-    clear = button('Clear filters', () => { query = family = grade = ''; offset = 0; search.value = ''; windowRows(); search.focus(); });
+    clear = button('Clear filters', () => { query = family = ''; offset = 0; search.value = ''; windowRows(); search.focus(); });
     clear.classList.add('jaunt-clear'); pills.append(clear);
     const find = node('div', '', 'jaunt-find'); find.append(icon('search', 16), search);
     // The daybook rides on the search row rather than taking a line of its own.

@@ -404,6 +404,10 @@
           <button type="button" class="seg-btn" data-arrive="ride" role="radio" aria-checked="false">Ride there</button>
           <button type="button" class="seg-btn" data-arrive="fly" role="radio" aria-checked="false">Fly over</button>
         </div></div>
+      <!-- T-2652: one choice for every way of picking a place. The map's own Go (T-2654) goes
+           by goToTarget like Go to, so it takes this choice too. T-3629: the note sits under
+           the control it explains. -->
+      <p class="legend-note" id="arrive-note" data-str="hud.move.arrive.note">Applies to Go to and the map.</p>
       <!-- T-2727: whether Jaunts take that choice too. Off by default: a guided outing was
            written around its own way of going. -->
       <label class="field row check-field"><span data-str="hud.move.jaunts">Jaunts use my choice</span>
@@ -413,9 +417,6 @@
       <label class="field row check-field"><span data-str="hud.move.adultJaunts">18+ jaunts: I am 18 or over</span>
         <input type="checkbox" id="s-adult-jaunts" aria-describedby="s-adult-jaunts-help"></label>
       <p class="legend-note" id="s-adult-jaunts-help" data-str="hud.move.adultJauntsHelp">Lists the jaunts that show the 1812 fighting graphically: killings, wounds and blood. Not for students.</p>
-      <!-- T-2652: one choice for every way of picking a place. The map's own Go (T-2654) goes
-           by goToTarget like Go to, so it takes this choice too. -->
-      <p class="legend-note" id="arrive-note" data-str="hud.move.arrive.note">Applies to Go to and the map.</p>
       <!-- Comfort (T-2653, DESIGN §07 "Move"): the head bob, the eye height and snap-turn,
            each a choice about the view and never about the town. -->
       <h3 class="legend-h" id="move-comfort">Comfort</h3>
@@ -694,8 +695,8 @@
       </div>
       <!-- T-2656: the four machines as preview tiles (js/skin.js fills them). -->
       <div class="settings-group" id="s-machine" data-set-pane="display">
-        <h4 data-str="settings.machine">Machine</h4>
-        <div class="skin-tiles" id="s-skins" role="radiogroup" aria-label="Machine" data-str-label="settings.machine"></div>
+        <h4 data-str="settings.machine">Appearance</h4>
+        <div class="skin-tiles" id="s-skins" role="radiogroup" aria-label="Appearance" data-str-label="settings.machine"></div>
       </div>
       <div class="settings-group" data-set-pane="display">
         <h4>Units</h4>
@@ -705,8 +706,10 @@
             <option value="metric">Metric — m, km, km/h</option>
           </select></label>
       </div>
+      <!-- T-3629: Show in two groups with one job each: what is drawn over the town, and the
+           town itself (its season, hour, trees, people and carriages). -->
       <div class="settings-group" data-set-pane="show">
-        <h4>Show</h4>
+        <h4>On screen</h4>
         <label class="field row check-field"><span>Compass</span>
           <input type="checkbox" id="s-compass"></label>
         <label class="field row check-field"><span>Overview map</span>
@@ -730,6 +733,9 @@
             <option value="fade">Fades after a few seconds</option>
             <option value="always">Always shown</option>
           </select></label>
+      </div>
+      <div class="settings-group" id="s-town" data-set-pane="show">
+        <h4>The town</h4>
         <label class="field row" id="row-season" hidden><span>Season</span>
           <select id="s-season" title="A viewing choice: the scene keeps its own date">
             <option value="summer">Summer — the scene's own day, full leaf</option>
@@ -767,6 +773,9 @@
             <option value="shown">Shown</option>
             <option value="hidden">Hidden</option>
           </select></label>
+        <!-- T-3614: a small card over each person with their name; a tap opens their card. -->
+        <label class="field row check-field" id="row-name-cards"><span>Name cards over people</span>
+          <input type="checkbox" id="s-name-cards"></label>
         <label class="field row" id="row-vehicles"><span>Carriages and horses</span>
           <select id="s-vehicles">
             <option value="shown">Shown</option>
@@ -877,16 +886,6 @@
         <!-- T-2656: What's new, from About (T-3563: also its own tab, the next one along). -->
         <div class="field row"><span data-str="settings.whatsnew.line">Release notes</span>
           <button class="setting-button" id="s-open-whatsnew" type="button" data-str="hud.tab.whatsnew">What's new</button></div>
-        <!-- T-2660: the field log (js/field-log.js, js/field-log-view.js): counts kept on this
-             device only, never sent anywhere, with Clear. The rows are painted from the table. -->
-        <div class="field-log" id="s-field-log">
-          <h5 data-str="fieldlog.title">Field log</h5>
-          <p class="legend-note" data-str="fieldlog.note">Counted on this device only. Nothing is sent anywhere.</p>
-          <dl class="field-log-rows" id="s-field-log-rows"></dl>
-          <div class="field row"><span data-str="fieldlog.clear.line">Start the log again</span>
-            <button class="setting-button" id="s-field-log-clear" type="button" data-str="fieldlog.clear">Clear</button></div>
-          <p class="legend-note" id="s-field-log-status" role="status"></p>
-        </div>
       </div>
       <!-- T-2657: Researcher mode (js/researcher.js), off by default, remembered per device.
            T-3022 (the owner, 2026-10-22: "be a setting for the user on can they see the expert
@@ -898,6 +897,17 @@
         <label class="field row check-field"><span data-str="research.switch">Expert research</span>
           <input type="checkbox" id="s-researcher"></label>
         <p class="legend-note" id="s-researcher-note" data-str="research.switch.note">Adds a Research tab to every building.</p>
+        <!-- T-3629: the field log moved here from About; its counters are for whoever studies
+             how the app is used, not every visitor. T-2660: the field log (js/field-log.js, js/field-log-view.js): counts kept on this
+             device only, never sent anywhere, with Clear. The rows are painted from the table. -->
+        <div class="field-log" id="s-field-log">
+          <h5 data-str="fieldlog.title">Field log</h5>
+          <p class="legend-note" data-str="fieldlog.note">Counted on this device only. Nothing is sent anywhere.</p>
+          <dl class="field-log-rows" id="s-field-log-rows"></dl>
+          <div class="field row"><span data-str="fieldlog.clear.line">Start the log again</span>
+            <button class="setting-button" id="s-field-log-clear" type="button" data-str="fieldlog.clear">Clear</button></div>
+          <p class="legend-note" id="s-field-log-status" role="status"></p>
+        </div>
       </div>
     </section>
     <section class="panel-body" data-panel="controls" hidden>
@@ -907,7 +917,7 @@
       <section class="nav-block nav-guide-tour" id="guide-tour" aria-labelledby="guide-tour-title">
         <span class="nav-k">Tour</span>
         <strong class="nav-place" id="guide-tour-title">The field check</strong>
-        <span class="nav-sub">Eight steps, about a minute. Skip any time.</span>
+        <span class="nav-sub">About a minute, one step at a time. Skip any time.</span>
         <button class="nav-key nav-tour-key" id="tour-start" type="button">Take the tour <span aria-hidden="true">→</span></button>
       </section>
       <dl class="keys" id="keys-desktop">
@@ -946,7 +956,7 @@
 
   <div class="crosshair" id="crosshair" aria-hidden="true"></div>
   <!-- T-2614: desktop only, until the first click on the scene takes the pointer. -->
-  <p class="look-tag" id="look-tag" aria-hidden="true" hidden>Click to engage look</p>
+  <p class="look-tag" id="look-tag" aria-hidden="true" hidden>Click to look around</p>
   <!-- T-2627 (§10): the target tag — after the reticle rests on a building for 400 ms, its
        name and distance; a tap opens Inspect (so does E). T-2942: this is its Centre place;
        by default target-tag.js docks it under the address (#instrument-below), and Bottom
@@ -956,7 +966,7 @@
        Walk/Fly key moved into the instrument's heading row, so this holds one key, and it
        fades in and out (css/walk.css) rather than popping; nothing beside it moves. -->
   <div class="quick-column" id="quick-column" role="group" aria-label="Quick controls">
-    <button id="btn-inspect" class="chip quick-inspect" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5.5 5.5"/></svg> <span class="chip-label">Inspect</span></button>
+    <button id="btn-inspect" class="chip quick-inspect" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg> <span class="chip-label">Inspect</span><kbd class="ik-kbd" aria-hidden="true">E</kbd></button>
     <!-- T-3319: the Interact key — while something to work (a fort gate) is in reach on
          foot: what it will do ("Open gate"), and R from the keyboard (js/interact.js). -->
     <button id="btn-interact" class="chip quick-interact" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10.5V4a1.5 1.5 0 0 1 3 0v6.5"/><path d="M14 10.5V5.5a1.5 1.5 0 0 1 3 0V12"/><path d="M17 11a1.5 1.5 0 0 1 3 0v3.5a6.5 6.5 0 0 1-6.5 6.5h-1a6 6 0 0 1-4.6-2.2L4.6 15.6a1.5 1.5 0 0 1 2.3-1.9L8 15"/></svg> <span class="ik-verb">Interact ·</span> <span class="ik-what">Open gate</span><kbd class="ik-kbd" aria-hidden="true">R</kbd></button>
@@ -1046,17 +1056,20 @@
         <strong class="nav-place" id="nav-where" data-str="nav.where.looking">Looking for the street…</strong>
         <span class="nav-sub" id="nav-where-detail"></span>
       </section>
-      <!-- T-2630: Home's three choices (§04 E), each opening the Jaunts app on its segment. -->
+      <!-- T-2630: Home's three choices (§04 E). T-3629: Take a Jaunt left them, since the
+           labelled Jaunts tab sits beside them on the rail; Other years took its place, for
+           Jump left the rail. -->
       <div class="nav-choices" role="group" aria-label="What next">
-        <button class="nav-choice" type="button" data-segment="jaunts"><strong>Take a Jaunt</strong><span>A guided outing</span></button>
         <button class="nav-choice" type="button" data-segment="goto"><strong>Go to…</strong><span>A house, a person, a shop</span></button>
+        <button class="nav-choice" type="button" id="nav-choice-years" data-app="jump"><strong>Other years</strong><span>1812, 1835, 1904</span></button>
         <button class="nav-choice" type="button" data-segment="roam"><strong>Free roam</strong><span>Wander on your own</span></button>
       </div>
       <section class="nav-block nav-front" id="nav-front" aria-labelledby="nav-front-k" aria-live="polite">
         <span class="nav-k" id="nav-front-k" data-str="nav.front.k">Right in front of you</span>
         <strong class="nav-place" id="nav-front-name" data-str="nav.front.none">Nothing close by</strong>
         <span class="nav-sub" id="nav-front-detail"></span>
-        <button class="nav-key" id="nav-inspect" type="button" hidden>Inspect <span aria-hidden="true">→</span></button>
+        <!-- T-3629: Inspect wears the accent, not signal red; red is for Recall, which leaves. -->
+        <button class="nav-key nav-roam nav-inspect-key" id="nav-inspect" type="button" hidden>Inspect <span aria-hidden="true">→</span></button>
       </section>
       <section class="nav-block" id="nav-jaunt" aria-labelledby="nav-jaunt-k" hidden>
         <span class="nav-k nav-k-row"><span id="nav-jaunt-k" data-str="nav.jaunt.k">Jaunt in progress</span><span class="nav-step" id="nav-jaunt-step"></span></span>

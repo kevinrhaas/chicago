@@ -1,0 +1,403 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Leisure",
+  "menu_group": "Places",
+  "grade_band": "3-5",
+  "review_required": false,
+  "id": "an-evening-stroll-grades-3-5",
+  "scene": "1835",
+  "title": "An Evening Stroll",
+  "premise": "Take a quiet walk around the streets you know. See a store, the corner where the town's newspaper began, and two inns. There is nothing to count or carry.",
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "dusk",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: AN EVENING STROLL. It is dusk on 1 July 1835. The land buyers have gone in to supper. The river has gone quiet. For once there is nothing you need to do. Chicago has been a town for less than two years. When it first voted, only thirteen men cast votes. Now new people come in by the boatload.\n\nTake a slow walk around the streets you know. Start at the Sauganash inn. Pass the town's first wooden store and the corner where its first newspaper was printed. End at the hotel where the town holds its meetings. Then decide where the evening ends.",
+    "read_s": 29
+  },
+  "stops": [
+    {
+      "id": "the-sauganash",
+      "destination": {
+        "kind": "structure",
+        "id": "sauganash_hotel"
+      },
+      "text": "Start at the Sauganash, at Lake and Market Streets above the river. It is white and two stories tall, with bright blue shutters, and it was fixed up new this June. Mark Beaubien built it. He has done many jobs in this town. A history book says he played the fiddle, ran the inn, sold goods, rowed the ferry and loved horse races. He was the life of every party. In May 1833 a priest held his first church service here in a log cabin that belonged to Mark Beaubien.",
+      "read_s": 27,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "sauganash_hotel",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "kinzie_waubun_1856",
+          "label": "Wau-Bun"
+        }
+      ],
+      "evidence": [
+        "sauganash-look",
+        "sauganash-refit",
+        "sauganash-place",
+        "outing",
+        "mk-beaubien",
+        "mk-st-cyr"
+      ],
+      "next": "the-shopfront",
+      "narrative": "Set out from the inn's front door."
+    },
+    {
+      "id": "the-shopfront",
+      "destination": {
+        "kind": "structure",
+        "id": "peck_store"
+      },
+      "text": "Go over to the river and east along South Water Street to LaSalle Street. Here is Peck's store. It was the town's first two-story wooden building, made of boards cut from black walnut trees. Peck sells cloth, tools, food, dishes, boots, shoes and hats. He is a careful man with his money. Years from now people will say he kept a lot of cash locked in an iron safe at home. They will think he is nearly as rich as the richest man in the country.",
+      "read_s": 26,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "peck_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "The Chicago Democrat"
+        }
+      ],
+      "evidence": [
+        "peck-stock",
+        "peck-place",
+        "outing",
+        "mk-peck-store",
+        "mk-peck-later"
+      ],
+      "next": "the-printing-office",
+      "narrative": "A store on the busy trading street."
+    },
+    {
+      "id": "the-printing-office",
+      "destination": {
+        "kind": "structure",
+        "id": "chicago_democrat_office"
+      },
+      "text": "Go one block east, to South Water and Clark Streets. John Calhoun began printing the Chicago Democrat newspaper here in 1833. Later it moved to an office over a hardware store along this street. The paper comes out on Wednesdays. When the mail came in, the town had another way to get the news. Someone with a loud voice would stand up on a box and read it out loud. If people were arguing about voting, there were two boxes and two readers.",
+      "read_s": 26,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "chicago_democrat_office",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_chicago_democrat_printing_office",
+          "label": "The printing office's card"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the Democrat source"
+        }
+      ],
+      "evidence": [
+        "democrat-corner",
+        "democrat-moved",
+        "democrat-weekly",
+        "outing",
+        "mk-mail-box"
+      ],
+      "next": "the-exchange",
+      "narrative": "This is where the town's newspaper began."
+    },
+    {
+      "id": "the-exchange",
+      "destination": {
+        "kind": "structure",
+        "id": "exchange_coffee_house"
+      },
+      "text": "Walk south to Lake Street and west to Wells Street. Here is the Exchange Coffee House, another house Mark Beaubien built. Mr. and Mrs. Murphy have run it as a hotel since August 1834. People in town met here this spring to choose who to vote for. Last winter a dance teacher signed up students here. Choose where the evening ends.",
+      "read_s": 20,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "exchange_coffee_house",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Read the Andreas source"
+        }
+      ],
+      "evidence": [
+        "exchange-house",
+        "outing",
+        "exchange-meetings",
+        "exchange-address"
+      ],
+      "choices": [
+        {
+          "id": "end-here",
+          "label": "End at the Exchange",
+          "consequence": "Finish your walk at the Murphys' corner of Lake and Wells Streets.",
+          "next": "at-the-exchange"
+        },
+        {
+          "id": "walk-back",
+          "label": "Walk back to the Sauganash",
+          "consequence": "Walk west along Lake Street to the door you started from.",
+          "next": "where-you-began"
+        }
+      ],
+      "narrative": "A second inn, and a choice of where to stop."
+    }
+  ],
+  "legs": [
+    {
+      "from": "the-sauganash",
+      "to": "the-shopfront",
+      "note": "Walk north to the river, then east along South Water Street to LaSalle Street.",
+      "evidence": [
+        "sauganash-place",
+        "peck-place"
+      ],
+      "story": "Go from the inn to the trading street, as the shutters close.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "the-shopfront",
+      "to": "the-printing-office",
+      "note": "Walk one block east along South Water Street, from LaSalle to Clark.",
+      "evidence": [
+        "peck-place",
+        "democrat-corner"
+      ],
+      "story": "Walk a few doors on, to the printer's first corner.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "the-printing-office",
+      "to": "the-exchange",
+      "note": "Walk south on Clark to Lake Street, then west to the corner of Wells.",
+      "evidence": [
+        "democrat-corner",
+        "exchange-house"
+      ],
+      "story": "Turn back toward the end of the evening.",
+      "story_evidence": [
+        "outing"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "at-the-exchange",
+      "text": "You end your walk at the corner of Lake and Wells in the last of the light. You passed the town's first wooden store, its first newspaper corner and two of Mark Beaubien's houses. Not bad for a town that is not two years old.",
+      "read_s": 12,
+      "completion_eligible": true
+    },
+    {
+      "id": "where-you-began",
+      "text": "You walk back west along Lake Street to the Sauganash. You end your walk where it began. If the windows are open, you may hear the fiddle.",
+      "read_s": 8,
+      "default": true,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "a-pleasant-circuit-grades-3-5",
+    "title": "A Pleasant Circuit",
+    "text": "A made-up note about a quiet evening walk past a store, the corner where the newspaper began and two inns."
+  },
+  "evidence": [
+    {
+      "id": "sauganash-look",
+      "text": "Wau-Bun describes the Sauganash in 1831 as 'a pretentious white two-story building, with bright-blue wooden shutters'.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Ch. XVII, 'Chicago in 1831' — the Wolf Point houses, Mark Beaubien's house just completed."
+    },
+    {
+      "id": "sauganash-refit",
+      "text": "The Chicago Democrat of 10 June 1835 reported that the Sauganash had been repaired, fitted up and furnished with neatness and taste.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "10 June 1835 (Vol. II No. 8), p. 2, col. 5, the paragraph on the town's public houses (claim chicago_democrat_1835_06_10#c001). Transcription-mediated reading."
+    },
+    {
+      "id": "sauganash-place",
+      "text": "The Sauganash stood at the south-east corner of Lake and Market Streets, on the east bank of the South Branch.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_hotels",
+        "chicago_landmark_sauganash"
+      ],
+      "reasoning": "The corner is given by the hotel chronology and the Chicago Landmark designation; the building's coordinate in the scene is the structure record's platted-corner derivation and carries the georeference's uncertainty of about 20 m."
+    },
+    {
+      "id": "peck-stock",
+      "text": "P. F. W. Peck advertised from the corner of LaSalle and South Water streets a stock of dry goods, hardware, groceries, crockery, boots and shoes, and hats.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "3 Dec 1833, p. 3, col. 4 (Peck’s standing card, run to 10 Dec 1834); 2 July 1834, p. 4, col. 4 (‘a full stock of fresh GOODS’). Transcription-mediated reading."
+    },
+    {
+      "id": "peck-place",
+      "text": "Peck's store stood at the south-west corner of South Water and LaSalle Streets; the corner is documented and the footprint's coordinate is derived.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "osm_streets_2026"
+      ],
+      "reasoning": "Andreas gives the corner. The structure record derives the coordinate from the modern West Wacker Drive / LaSalle intersection with a working uncertainty of about 20 m, so the stop calls the footprint our placement."
+    },
+    {
+      "id": "democrat-corner",
+      "text": "The Democrat’s first issue, 26 November 1833, gives its office as the building on the corner of South Water and Clark streets; John Calhoun printed it there.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "andreas_1884_v1"
+      ],
+      "locator": "26 Nov 1833 (Vol. I No. 1), the imprint; Andreas vol. 1, the press chapter on Calhoun’s office."
+    },
+    {
+      "id": "democrat-moved",
+      "text": "By 20 May 1835 the Democrat’s colophon gives the office as over Messrs. Jones & King’s hardware store, in South Water Street, so the corner is a former office on the scene date.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "20 May 1835 (Vol. II No. 5), p. 4, col. 6, the colophon (transcription lines 4177–4180). Transcription-mediated reading."
+    },
+    {
+      "id": "democrat-weekly",
+      "text": "The Democrat came out once a week, on Wednesdays, and the number dated 1 July 1835 is No. 11 of its second volume.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "reasoning": "Read off the issue numbers this project already cites from the same transcription: 20 May 1835 is Vol. II No. 5, 27 May No. 6, 10 June No. 8, 24 June No. 10 and 1 July No. 11. The numbers advance by one for every seven days, and 1 July 1835 fell on a Wednesday, so each of those dates is a Wednesday. No masthead statement of the paper's terms or day of issue has been read for this claim."
+    },
+    {
+      "id": "exchange-house",
+      "text": "Mark Beaubien built a new house on the north-west corner of Wells and Lake streets; in August 1834 Mr. and Mrs. Murphy took charge of it as a hotel, christened it the Exchange Coffee House, and remained until 1836.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "drloih_hotels"
+      ],
+      "locator": "Andreas vol. 1, printed p. 633, the hotel chapter; the life of Mark Beaubien; DRLOIH hotel chronology, Exchange Coffee House entry."
+    },
+    {
+      "id": "mk-vote",
+      "text": "When the town was incorporated in August 1833, 'thirteen votes were cast by the twenty-eight legal electors', twelve in favour and one, Russel E. Heacock's, against.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 91, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12319-12325 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-beaubien",
+      "text": "Moses and Kirkland call Mark Beaubien 'the jovial, generous Frenchman', 'the fun of every funeral and the life of every wake'; 'As fiddler, landlord, merchant, ferryman and a patron of horse racing he was alike interesting and always original.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 560, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 98698-98710 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-st-cyr",
+      "text": "Father John M. I. St. Cyr 'celebrated his first mass in a log cabin belonging to Mark Beaubien, May 5, 1833'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 92, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12519-12525 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-peck-store",
+      "text": "P. F. W. Peck's two-storey frame store, the first in the village, was built of lumber 'sawed from black walnut trees' and 'brought from Detroit by a boat'; his goods moved into it in the fall of 1831.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 570, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 99826-99842 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-peck-later",
+      "text": "In 1835 Peck joined the Pioneer Hook and Ladder Company and married Mary K. Wythe of Philadelphia; years later he was credited 'with having $40,000 in cash locked in an iron safe in his dwelling, and was considered nearly as wealthy as John Jacob Astor'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 571, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 99877-99917 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-mail-box",
+      "text": "When the mail came, 'often irregular and long delayed', the town gathered at the post office, where 'some one with a good voice would mount a dry goods box' and read the news from Washington and New York; 'If politics ran high, two dry-goods boxes and two readers of opposite parties would be utilized.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 99-100, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13378-13395 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "exchange-meetings",
+      "text": "The Chicago Democrat reports a large meeting of the town's Democrats held at the Exchange Coffee House in April 1835, and in June 1835 a meeting of the Democratic party held there to nominate candidates for the coming town election.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "20 May 1835, p. 1, col. 3, 'Great Democratic Meeting', the meeting dated April 1835 (extracted claim chicago_democrat_1835_05_20#c001); 10 June 1835, p. 2, col. 5, 'Town Election', held '[Satu]rday evening last' (extracted claim chicago_democrat_1835_06_10#c002). Transcription-mediated readings of interleaved columns; the April day and weekday as transcribed do not agree, so the stop gives the month only."
+    },
+    {
+      "id": "exchange-address",
+      "text": "J. A. Marshall's notice of a dancing school, dated 19 November 1834, asked those wishing to become pupils to leave their address at the Exchange Coffee House.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "19 Nov 1834, p. 3, col. 2, the card headed 'DANCING.' (extracted claim chicago_democrat_1834_11_19#c004). Transcription-mediated reading of an interleaved column."
+    },
+    {
+      "id": "outing",
+      "text": "The evening, the stroll, the route order, the looking from the street, the choice of where to end, both endings and the A Pleasant Circuit keepsake are invented connective narrative. The evening changes no lighting in the scene; no entertainment, meeting, purchase or dated event is claimed for it, no interior is opened and no one is met.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-an-evening-stroll"
+    }
+  ],
+  "liberties": [
+    "L-jaunt-an-evening-stroll",
+    "L-jaunt-1835-light-and-stories"
+  ],
+  "version_of": "an-evening-stroll"
+}

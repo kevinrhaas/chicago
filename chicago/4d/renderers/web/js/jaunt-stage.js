@@ -65,16 +65,44 @@
  *   pick(raycaster)          T-3553: the castmate a ray from the eye meets first, or null
  *   meet(hit, visitor)       T-3553: one the visitor picked turns to them and greets, if free to
  *
+ * Doors (the owner, 2026-11-16: "people appear outside doors the doors don't open and close ... they
+ * vanish through the door"): a castmate whose walk ends at a door that is hung to swing
+ * (house-doors.js passages, handed in as `doors`) walks on through it, and the door opens before
+ * them and shuts behind them; one shown at such a door comes out of it, the door opening first.
+ * A stage's `open_gates` (fort-gates.js ids, `<structure>:<side>`) stand open while it plays,
+ * through `gates.open(ids)`, which gives back how to shut them again.
+ * A `cross` beat seats a castmate in a drawn boat that crosses on its own (`boats.carry(id)`,
+ * crossings.js), and they stand up on the far bank; a `borne` beat lays the dead on a bier
+ * (`bier()`, stage-props.js) carried at the hands of the castmates named, front pair first, and
+ * `borne: false` sets it down. Both are laid back or taken away when the stop is let go.
+ *
  * The owner, 2026-11-16: "make sure there are interactive people". A castmate is picked as anyone
  * of the town is: a person opens their own card, an unnamed figure says who it stands for. One
  * standing free (not posed, armed, walking or talking) turns to the visitor and greets them; the
  * scene's next beat takes them on as written.
  */
 
-export const PACES = Object.freeze({ walk: null, brisk: 1.75, hurry: 2.2, slow: 0.9 });
+/**
+ * A beat's `pace`, m/s (`walk`: the figure's own). T-3553 (the owner, 2026-11-16: "make sure they
+ * can run accurately ... there may be different speeds"): past about 2 m/s the people layer's
+ * gait runs (human-gait.js), so `hurry` is the slowest jog; `jog`, `run` and `flee` are the
+ * running dataset's own speeds (2.5-4.5 m/s, rounded), and `sprint` a flat-out dash past them.
+ */
+export const PACES = Object.freeze({ walk: null, brisk: 1.75, hurry: 2.2, slow: 0.9, jog: 2.6, run: 3.6, flee: 4.5, sprint: 5.6 });
 export const POSES = Object.freeze(['stand', 'kneel', 'kneel2', 'crouch', 'sit', 'prone', 'lie', 'fallen']);
 /** How far beyond the people layer's animation range a posed figure keeps its pose drawn. */
 export const STAGE_ANIMATE_M = 160;
+/** A walk's end (or a figure shown) this near a hung door's way goes through that door. */
+export const DOOR_NEAR_M = 1.8;
+/** The door stands open while its castmate is this near its leaf, outside. */
+export const DOOR_HOLD_M = 3.0;
+/** One coming out waits this long at most for the door to open. */
+const EMERGE_WAIT_S = 1.6;
+/** A castmate in a boat: from the seat's eye point (crossings.js) down to where their feet go. */
+const SEAT_EYE_TO_FEET_M = 0.92;
+/** A bier carried at the bearers' hands, and set down on the ground; half a body's length. */
+export const BIER_Y = 0.8;
+const BIER_DOWN_Y = 0.1, BODY_HALF_M = 0.86;
 
 const bearing = (de, dn) => ((Math.atan2(de, dn) * 180) / Math.PI + 360) % 360;
 const pt = (p) => (Array.isArray(p) && p.length === 2 && p.every(Number.isFinite) ? { e: p[0], n: p[1] } : null);
@@ -165,8 +193,14 @@ export function stageLength(stop, { walkSpeed = 1.3 } = {}) {
  * scene not drawn in town (a gathering's inside-only resident), or null; `tier()` the people
  * tier now; `eye()` the eye (a world Vector3) each figure is updated from.
  */
-export function createJauntStage({ humans, parent = null, resolve = () => null, tier = () => 'full', eye = () => null, teams = null, fight = null, blood = null, fire = null, view = () => null } = {}) {
+export function createJauntStage({ humans, parent = null, resolve = () => null, tier = () => 'full', eye = () => null, teams = null, fight = null, blood = null, fire = null, view = () => null,
+  doors = () => null, gates = null, boats = null, bier = null } = {}) {
   let stopKey = null, stop = null, cast = [], clock = 0, playing = false;
+  // T-3553: the hung doors' ways (house-doors.js passages), read once a build; the gates a stage opened.
+  let ways = new Map(), shutGates = null;
+  // T-3553: the boats castmates crossed in (crossings.js carry handles), laid back on their
+  // banks when the stop is let go or watched again; and the biers the dead are carried on.
+  let crossed = [], biers = [];
   // The burning of the fort (fort-fire.js createFortFire): made the first time a stop has a `fire`.
   let burn = null;
   // Adults jaunts: the guns' flash and smoke (human-fight.js createFightFx), made once.
@@ -197,6 +231,45 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
         appearance: { asset_id: c.dress, ...(c.dress_of ? { dress_of: c.dress_of } : {}) }, provenance: null }, person: null };
     }
     return null;
+  }
+
+  /** The hung doors, each with its way: [{ p, w }] (w: outside to in, `door` before the leaf). */
+  function doorWays() {
+    const out = [];
+    for (const p of doors?.()?.passages ?? []) {
+      if (!ways.has(p.id)) { let w = null; try { w = p.way?.() ?? null; } catch { w = null; } ways.set(p.id, w); }
+      const w = ways.get(p.id);
+      if (w?.length >= 2 && w.leaf && Number.isInteger(w.door)) out.push({ p, w });
+    }
+    return out;
+  }
+  /** The hung door whose way (its foot, the place before its leaf, the leaf) is nearest (e, n),
+   *  within DOOR_NEAR_M, or null. */
+  function doorAt(e, n) {
+    let best = null;
+    for (const x of doorWays()) {
+      const d = Math.min(...[x.w[0], x.w[x.w.door], x.w.leaf].map((q) => Math.hypot(q.e - e, q.n - n)));
+      if (d <= DOOR_NEAR_M && (!best || d < best.d)) best = { ...x, d };
+    }
+    return best;
+  }
+  const doorKey = (m) => `jaunt-stage:${stopKey}:${cast.indexOf(m)}`;
+  /** A castmate done with their door lets it go. */
+  function leaveDoor(m) { if (m.door) { m.door.p.release?.(doorKey(m)); m.door = null; } }
+  /** Out of a door: shown once it is open (or after EMERGE_WAIT_S), walking out by its way, then
+   *  on to where the scene has them (or the walk that came while they waited). */
+  function emerge(m) {
+    const a = m.actor, x = m.emerging, w = x.w;
+    m.emerging = null;
+    a.setIndoors?.(false);
+    const out = w.slice(w.door).reverse().map((q) => ({ e: q.e, n: q.n }));
+    const b = x.queued;
+    const on = b ? b.walk.map(pt).filter(Boolean) : Math.hypot(x.to.e - out.at(-1).e, x.to.n - out.at(-1).n) > 0.3 ? [x.to] : [];
+    const speed = b && Number.isFinite(b.pace) ? b.pace : PACES[b?.pace] ?? null;
+    const end = b ? (Number.isFinite(b.heading) ? b.heading : null) : x.heading;
+    a.walkPath?.([...out, ...on], { speed, endHeading: end, onArrive: () => { if (m.hideAtEnd) a.setIndoors?.(true); } });
+    m.hideAtEnd = !!b?.hide;
+    m.door = { p: x.p, leaf: w.leaf, until: -Infinity };
   }
 
   function begin(c, actor) {
@@ -274,8 +347,8 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     else (m.pendingWounds ??= []).push(kind);
   }
 
-  function build(next) {
-    teardown();
+  function build(next, again = false) {
+    teardown(again);
     stop = next;
     const list = castFor(next, tier());
     cast = [];
@@ -303,14 +376,25 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       cast.push(m);
     });
     wagons = teamsFor(next).map((c) => ({ c, actor: null, heading: castAt(c, 0).heading, pose: null }));
+    const open = Array.isArray(next.stage?.open_gates) ? next.stage.open_gates.filter((id) => typeof id === 'string') : [];
+    if (open.length && gates?.open) { try { shutGates = gates.open(open); } catch { shutGates = null; } }
     askedLoad = -Infinity;
     if (next.stage?.fire && fire?.create) {
       try { burn ??= fire.create(); burn.start(next.stage.fire, { camera: view() }); } catch { burn = null; }
     }
   }
 
-  function teardown() {
-    for (const m of cast) { m.weapon?.removeFromParent?.(); try { m.actor.dispose(); } catch { /* gone already */ } }
+  /** Let the stage go. A boat crossed in is left on the bank it was going to (the story goes on
+   *  from there), or laid back where it set out when the stop is watched `again`. */
+  function teardown(again = false) {
+    for (const m of cast) { leaveDoor(m); if (m.emerging) m.emerging.p.release?.(doorKey(m)); m.weapon?.removeFromParent?.(); try { m.actor.dispose(); } catch { /* gone already */ } }
+    ways = new Map();
+    for (const h of crossed) { try { if (again) h.restore(); else h.settle?.(); } catch { /* gone already */ } }
+    crossed = [];
+    for (const b of biers) b.removeFromParent?.();
+    biers = [];
+    try { shutGates?.(); } catch { /* gone already */ }
+    shutGates = null;
     fx?.clear();
     gore?.clear();
     burn?.clear();
@@ -356,16 +440,86 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     return to ? bearing(to.e - m.actor.e, to.n - m.actor.n) : null;
   }
 
+  /** The dead carried on a bier by the castmates `by` (two in front, two behind), or set down. */
+  function bear(m, by) {
+    if (by === false) { if (m.borne) { m.borne.lifted = false; m.borne.since = clock; } return; }
+    const list = by.map((id) => cast.find((x) => x.c.person === id || x.c.extra === id)).filter(Boolean);
+    if (list.length < 2) return;
+    let prop = m.borne?.prop ?? null;
+    if (!prop && bier) { try { prop = bier(); parent?.add?.(prop); biers.push(prop); } catch { prop = null; } }
+    m.borne = { by: list, lifted: true, since: clock, y: BIER_Y, heading: m.actor.heading, e: m.actor.e, n: m.actor.n, prop };
+    m.actor.path = null;
+  }
+  function carryFrame(m, step) {
+    const a = m.actor, k = m.borne;
+    if (k.lifted) {
+      const half = Math.ceil(k.by.length / 2), mean = (xs) => xs.reduce((s, x) => s + x, 0) / xs.length;
+      const front = k.by.slice(0, half).map((x) => x.actor), rear = k.by.slice(half).map((x) => x.actor);
+      const fe = mean(front.map((x) => x.e)), fn = mean(front.map((x) => x.n)), re = mean(rear.map((x) => x.e)), rn = mean(rear.map((x) => x.n));
+      if (Math.hypot(fe - re, fn - rn) > 0.3) k.heading = bearing(fe - re, fn - rn);
+      k.e = (fe + re) / 2; k.n = (fn + rn) / 2;
+      k.y = Math.min(BIER_Y, k.y + step * 0.8);
+    } else k.y = Math.max(BIER_DOWN_Y, k.y - step * 0.6);
+    const h = (k.heading * Math.PI) / 180, ground = a.heightAt?.(k.e, k.n) ?? 0;
+    // Lying, a figure is tipped about its feet with its head to its heading: the feet go behind.
+    a.path = null; a.heading = k.heading; a.e = k.e - Math.sin(h) * BODY_HALF_M; a.n = k.n - Math.cos(h) * BODY_HALF_M;
+    a.standY = ground + k.y; a.place?.();
+    if (k.prop) { k.prop.position.set(k.e, ground + k.y - 0.02, -k.n); k.prop.rotation.set(0, Math.PI - h, 0); }
+  }
+  function boatFrame(m) {
+    const a = m.actor, h = m.boat;
+    if (h.done) { const [e, n] = h.stand(); a.e = e; a.n = n; a.standY = null; m.boat = null; a.setPosture?.('stand', { seconds: 0.6 }); a.place?.(); return; }
+    const s = h.seat();
+    a.path = null; a.e = s.e; a.n = s.n; a.heading = s.bearing; a.standY = s.y - SEAT_EYE_TO_FEET_M; a.place?.();
+  }
+
   function play(m, b) {
     const a = m.actor;
     const to = pt(b.place);
+    if (to && m.boat) { m.boat = null; a.setPosture?.('stand', { seconds: 0 }); }
+    if (typeof b.cross === 'string') {
+      // Into a drawn boat and across in it (crossings.js), sitting; with no boat drawn, gone
+      // from sight as before. The beat after it places them on the far bank.
+      const h = boats?.carry?.(b.cross, { near: [a.e, a.n] }) ?? null;
+      if (h) { crossed.push(h); m.boat = h; a.path = null; a.setIndoors?.(false); a.setPosture?.('sit', { seconds: 0.8 }); }
+      else a.setIndoors?.(true);
+    }
+    if (Array.isArray(b.borne) || b.borne === false) bear(m, b.borne);
     if (to) { a.path = null; a.e = to.e; a.n = to.n; a.standY = null; if (Number.isFinite(b.heading) && !Array.isArray(b.walk)) a.heading = b.heading; a.place?.(); }
-    if (b.show) a.setIndoors?.(false);
-    if (Array.isArray(b.walk)) {
+    if (b.show) {
+      // Shown at a hung door: they come out of it, once it has opened.
+      const door = a.indoors ? doorAt(a.e, a.n) : null;
+      if (door) {
+        leaveDoor(m);
+        m.emerging = { p: door.p, w: door.w, to: { e: a.e, n: a.n }, heading: Number.isFinite(b.heading) ? b.heading : a.heading, since: clock, queued: null };
+        const inner = door.w.at(-1);
+        a.path = null; a.e = inner.e; a.n = inner.n; a.standY = null; a.place?.();
+        door.p.hold?.(doorKey(m));
+      } else a.setIndoors?.(false);
+    }
+    if (Array.isArray(b.walk) && m.emerging) {
+      m.emerging.queued = b;                 // taken up as they come out
+    } else if (Array.isArray(b.walk)) {
       const pts = [{ e: a.e, n: a.n }, ...b.walk.map(pt).filter(Boolean)];
+      // Still in a doorway they came out of: out by its way first.
+      if (m.door && Math.hypot(a.e - m.door.leaf.e, a.n - m.door.leaf.n) < 1.2) {
+        const w = ways.get(m.door.p.id);
+        if (w) pts.splice(1, 0, { e: w[w.door].e, n: w[w.door].n });
+      }
+      // Into a hung door: on through it, the door opening before them (update()).
+      const door = b.hide ? doorAt(pts.at(-1).e, pts.at(-1).n) : null;
+      if (door) {
+        leaveDoor(m);
+        for (const q of door.w.slice(door.w.door)) pts.push({ e: q.e, n: q.n });
+        m.door = { p: door.p, leaf: door.w.leaf, until: Infinity };
+      }
       const speed = Number.isFinite(b.pace) ? b.pace : PACES[b.pace] ?? null;
       if (a.posture) a.setPosture?.('stand', { seconds: 0 });
-      a.walkPath?.(pts, { speed, endHeading: Number.isFinite(b.heading) ? b.heading : null, onArrive: () => { if (m.hideAtEnd) a.setIndoors?.(true); } });
+      a.walkPath?.(pts, { speed, endHeading: Number.isFinite(b.heading) ? b.heading : null, onArrive: () => {
+        if (!m.hideAtEnd) return;
+        a.setIndoors?.(true);
+        if (m.door) m.door.until = clock + 0.4;
+      } });
       m.hideAtEnd = !!b.hide;
     } else {
       if (b.face != null) { const h = faceOf(m, b); if (h !== null) a.turnTo?.(h); }
@@ -413,7 +567,16 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     get ids() { return stageIds(stop); },
     get playing() { return playing; },
     get clock() { return clock; },
+    /** The owner, 2026-11-16: how long the stage plays, to its last beat (the stop's meter). */
+    get length() { let end = 0; for (const m of cast) for (const b of m.beats ?? []) if (Number.isFinite(b.t) && b.t > end) end = b.t; return end; },
     get cast() { return cast.map((m) => m.actor); },
+    /** T-3614: the castmates the name cards name: a person by their own name, an extra by the cast's. */
+    get named() {
+      // An extra stands in no record of their own: reconstructed.
+      return cast.map((m) => ({ key: m.actor.id, actor: m.actor, personId: m.c.person ?? null, staged: true,
+        name: m.c.person ? (m.actor.person?.name ?? null) : (m.c.name ?? null),
+        grade: m.c.person ? (m.actor.person?.grade ?? null) : 'reconstructed' }));
+    },
     sync(next, { arrived = false } = {}) {
       const key = next?.stage?.cast?.length ? String(next.id ?? '') : null;
       if (!key) { if (stop) teardown(); stopKey = null; return api; }
@@ -424,7 +587,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     replay() {
       if (!stop) return false;
       const again = stop;
-      build(again);
+      build(again, true);
       playing = true; clock = 0;
       return true;
     },
@@ -448,6 +611,19 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
         }
       }
       driveTeams(step);
+      // The doors: held open for whoever is coming out or going in, let go behind them.
+      for (const m of cast) {
+        if (m.emerging && (m.emerging.p.isOpen?.() || clock - m.emerging.since >= EMERGE_WAIT_S)) emerge(m);
+        if (!m.door) continue;
+        const a = m.actor, near = Math.hypot(a.e - m.door.leaf.e, a.n - m.door.leaf.n) < DOOR_HOLD_M;
+        if (a.indoors ? clock >= m.door.until : !a.path) { leaveDoor(m); continue; }
+        if (a.indoors ? clock < m.door.until : near) m.door.p.hold?.(doorKey(m));
+        else m.door.p.release?.(doorKey(m));
+      }
+      for (const m of cast) {
+        if (m.boat) boatFrame(m);
+        if (m.borne) carryFrame(m, step);
+      }
       const at = eye();
       for (const m of cast) {
         if (m.ride) seatRider(m);
@@ -466,6 +642,8 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
         hidden: !!m.actor.indoors, drawn: !!m.actor.root.visible, lod: m.actor.lod, ...(m.ride ? { ride: m.ride.team } : {}),
         ...(m.arm && m.arm !== 'none' ? { arm: m.arm, armed: !!m.weapon?.visible, act: m.actor.actions?.fight?.act ?? null } : {}) })),
         smoke: fx?.count ?? 0,
+        doors: cast.filter((m) => m.door || m.emerging).map((m) => ({ door: (m.door ?? m.emerging).p.id, swing: +((m.door ?? m.emerging).p.swing ?? 0).toFixed(2),
+          who: m.c.person ?? m.c.extra, out: !!m.emerging })),
         ...(gore ? { blood: gore.counts } : {}),
         ...(burn?.active ? { fire: burn.snapshot() } : {}),
         teams: wagons.map((w) => ({ team: w.c.team, taken: !!w.actor, e: w.pose ? +w.pose.e.toFixed(2) : null,

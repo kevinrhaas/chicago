@@ -1,0 +1,463 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Orientation",
+  "menu_group": "Places",
+  "grade_band": "3-5",
+  "featured": true,
+  "review_required": false,
+  "id": "new-in-chicago-grades-3-5",
+  "scene": "1835",
+  "title": "New in Chicago",
+  "premise": "Find your way around, find a bed, and find a good next step on a made-up first day in town.",
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: NEW IN CHICAGO. It is your first morning in a brand new town. Less than two years ago it had only twenty-eight men who could vote. This summer it has two newspapers, a land office, and more strangers than beds. You are one of them.\n\nThere are five stops, from the forks of the river to South Water Street. You will find a landmark to steer by, the old mail corner, the store everyone uses, a map of the town, and a bed for tonight, if you can get one. The inns were always full. Full meant three people in a bed.",
+    "read_s": 29
+  },
+  "variables": {
+    "preference": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "arrival",
+      "destination": {
+        "kind": "structure",
+        "id": "sauganash_hotel"
+      },
+      "text": "Start outside the Sauganash inn. Juliette Kinzie remembered it as a white two-story house with blue shutters. A history book calls it the nicest inn the city had. It says its owner, Mark Beaubien, with his happy fiddle, was the most popular host in town. Every new person learns this corner first.",
+      "read_s": 20,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "sauganash_hotel",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "kinzie_juliette",
+          "label": "Juliette Kinzie"
+        },
+        {
+          "kind": "source",
+          "id": "kinzie_waubun_1856",
+          "label": "Read Wau-Bun source"
+        }
+      ],
+      "evidence": [
+        "sauganash",
+        "continuity",
+        "outing",
+        "mk-sauganash"
+      ],
+      "next": "mail-corner",
+      "narrative": "Use this landmark as your starting point. You are finding your way, and the town is making room for you."
+    },
+    {
+      "id": "mail-corner",
+      "destination": {
+        "kind": "structure",
+        "id": "hogan_store"
+      },
+      "text": "This is the old mail corner. John Hogan became the postmaster in 1832. He handed out letters in a small room walled off inside his log store. The post office moved in about July 1834. Now Hogan's ad says his store is one door down from the post office. Ask for your letters there, not here.",
+      "read_s": 22,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "hogan_store",
+          "label": "About this place"
+        }
+      ],
+      "evidence": [
+        "mail",
+        "continuity",
+        "outing",
+        "mk-hogan",
+        "hogan-ad"
+      ],
+      "next": "store",
+      "narrative": "Use the old corner as a landmark. But do not mix it up with the place where the mail is handed out now."
+    },
+    {
+      "id": "store",
+      "destination": {
+        "kind": "structure",
+        "id": "peck_store"
+      },
+      "text": "At Peck's store, on South Water and LaSalle Streets, find a place to buy supplies. It was the town's first two-story wooden building. It was built of black walnut boards brought from Detroit by boat. His ads list cloth, tools, food, dishes, boots, shoes and hats. Upstairs, Peck gave a young minister named Jeremiah Porter a place to live and study.",
+      "read_s": 19,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "peck_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "peck_philip",
+          "label": "Philip F. W. Peck"
+        }
+      ],
+      "evidence": [
+        "peck-stock",
+        "peck",
+        "continuity",
+        "outing",
+        "mk-peck-store",
+        "mk-peck-porter"
+      ],
+      "next": "newspaper",
+      "narrative": "Remember where everyday things are sold."
+    },
+    {
+      "id": "newspaper",
+      "destination": {
+        "kind": "structure",
+        "id": "chicago_democrat_office"
+      },
+      "text": "This building is where the Democrat newspaper first had its office. By May 1835 it was printed over a hardware store. That spring the paper had an ad for printed maps of the town. You could buy them at the paper's office.",
+      "read_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "chicago_democrat_office",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_kinzie_forsyth",
+          "label": "Kinzie & Forsyth"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the Democrat source"
+        }
+      ],
+      "evidence": [
+        "democrat",
+        "maps-notice",
+        "continuity",
+        "outing"
+      ],
+      "next": "lodging",
+      "narrative": "A map of the town is a smart next step. Read the ad."
+    },
+    {
+      "id": "lodging",
+      "destination": {
+        "kind": "structure",
+        "id": "brown_boarding_house"
+      },
+      "text": "End at Brown's boarding house. A history book says Mrs Rufus Brown ran a boarding house. Her log house stood behind Peck's store, which you passed a block ago. The book says the inns were always full. Full meant three in a bed sometimes, with more people sleeping on the floor. A spot on the floor counts as a bed.",
+      "read_s": 19,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "brown_boarding_house",
+          "label": "About this place"
+        }
+      ],
+      "evidence": [
+        "brown",
+        "continuity",
+        "outing",
+        "brown-full"
+      ],
+      "next": "$end",
+      "choices": [
+        {
+          "id": "by-the-week",
+          "label": "Board by the week",
+          "consequence": "Your route note picks cost. One deal for your whole stay.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "preference",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "near-the-stores",
+          "label": "A bed close to the stores",
+          "consequence": "Your route note picks being close. Peck's store is right in front.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "preference",
+              "value": 2
+            }
+          ]
+        }
+      ],
+      "narrative": "On your first day, what matters more: cost or being close by?"
+    }
+  ],
+  "legs": [
+    {
+      "from": "arrival",
+      "to": "mail-corner",
+      "note": "A short step: the Sauganash and Hogan’s old log store both stand by the forks.",
+      "evidence": [
+        "continuity"
+      ],
+      "story": "Follow the route toward the old mail corner. Your first day is taking shape.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "mail-corner",
+      "to": "store",
+      "note": "The long leg: east along South Water Street, about three hundred metres, to the stores at LaSalle.",
+      "evidence": [
+        "continuity"
+      ],
+      "story": "Ride along the river street toward the stores. Find where everyday things are sold.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "store",
+      "to": "newspaper",
+      "note": "One block on along South Water, to the Democrat’s first corner at Clark.",
+      "evidence": [
+        "democrat"
+      ],
+      "story": "Look for news, and for something to help you find your way.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "newspaper",
+      "to": "lodging",
+      "note": "Back a block, to the house Andreas places behind Peck’s store.",
+      "evidence": [
+        "brown"
+      ],
+      "story": "With a map in mind, think about where to sleep tonight.",
+      "story_evidence": [
+        "outing"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "settled-by-cost",
+      "text": "Your route note ends with a weekly room behind Peck's store. You picked cost. You may share the floor, but you have an address in the fastest-growing town in the West.",
+      "read_s": 9,
+      "when": {
+        "var": "preference",
+        "op": "==",
+        "value": 1
+      },
+      "completion_eligible": true
+    },
+    {
+      "id": "settled-by-convenience",
+      "text": "Your route note ends with a bed a few steps from the stores. You picked being close, and tomorrow starts near everything.",
+      "read_s": 8,
+      "when": {
+        "var": "preference",
+        "op": "==",
+        "value": 2
+      },
+      "completion_eligible": true
+    },
+    {
+      "id": "finding-your-feet",
+      "text": "You have a few names and corners to put together. Every early settler in this town started right here: new, muddy and looking for a bed.",
+      "read_s": 8,
+      "default": true,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Wayfinding",
+    "id": "finding-your-feet-grades-3-5",
+    "title": "Finding Your Feet",
+    "text": "A made-up route note that links five first-day landmarks, an ad for a town map and a place to sleep."
+  },
+  "evidence": [
+    {
+      "id": "sauganash",
+      "text": "Kinzie describes the Sauganash in 1831 as a white two-storey building with blue shutters.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Chapter XVII, Chicago in 1831; description of Mark Beaubien’s newly completed house."
+    },
+    {
+      "id": "mail",
+      "text": "Hogan’s store housed the post office in 1833; the office moved to Franklin and South Water about July 1834.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed pp. 139–140, Postal Affairs; removal paragraph on p. 140."
+    },
+    {
+      "id": "peck",
+      "text": "Jeremiah Porter lodged in the unfinished loft of Peck’s two-storey store in May 1833.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed p. 303, Jeremiah Porter biography; May 1833 arrival and temporary lodging."
+    },
+    {
+      "id": "peck-stock",
+      "text": "P. F. W. Peck advertised from the corner of LaSalle and South Water streets a stock of dry goods, hardware, groceries, crockery, boots and shoes, and hats.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "3 Dec 1833, p. 3, col. 4 (Peck’s standing card, run to 10 Dec 1834); 2 July 1834, p. 4, col. 4 (‘a full stock of fresh GOODS’). Transcription-mediated reading."
+    },
+    {
+      "id": "democrat",
+      "text": "The Democrat’s first issue places its office at South Water and Clark; by 20 May 1835 its colophon places it over Jones and King’s hardware store.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "26 Nov 1833, imprint; 20 May 1835, p. 4, col. 6, colophon (transcription lines 4177–4180)."
+    },
+    {
+      "id": "maps-notice",
+      "text": "Kinzie & Forsyth advertised lithographic maps of the town of Chicago, including the School Section, Kinzie’s Addition and Wabansia, adding that they could also be found at the office of the Chicago Democrat. The notice, dated 18 June 1834, was still running in June 1835.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "‘Town Maps’ notice dated 18 June 1834: 20 May 1835, p. 3, col. 6 (transcription lines 2918–2928); 10 June 1835, p. 4, col. 3 (lines 3496–3504). Transcription-mediated reading."
+    },
+    {
+      "id": "brown",
+      "text": "Andreas names Mrs Rufus Brown as a boarding-house keeper in his account of 1833, and places Brown’s log house behind Peck’s store.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed p. 132, boarding-house paragraph; p. 303, Jeremiah Porter biography."
+    },
+    {
+      "id": "mk-vote",
+      "text": "When the town was incorporated in August 1833, 'thirteen votes were cast by the twenty-eight legal electors', twelve in favour and one, Russel E. Heacock's, against.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 91, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12319-12325 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-sauganash",
+      "text": "Moses and Kirkland call the Sauganash 'the most attractive hostlery the city possessed', and its genial landlord, 'with his merry fiddle, the most popular of hosts'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 87, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 11879-11886 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-hogan",
+      "text": "John S. C. Hogan was appointed postmaster on 2 November 1832 and handed out the mail 'in a room partitioned off for that purpose' from his log storehouse, 45 by 18 feet, where Lake and South Water streets meet.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 90, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12197-12206 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-peck-store",
+      "text": "P. F. W. Peck's two-storey frame store, the first in the village, was built of lumber 'sawed from black walnut trees' and 'brought from Detroit by a boat'; his goods moved into it in the fall of 1831.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 570, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 99826-99842 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-peck-porter",
+      "text": "Peck gave the Rev. Jeremiah Porter 'a lodging place and study in the second story of his store building', and there was held 'one of the earliest Sunday-schools organized in the town'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 571, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 99868-99876 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-1833-arrivals",
+      "text": "Immigration in 1833 'assumed proportions surpassing all expectation'; the year's arrivals included John Dean Caton, Silas B. Cobb, Asahel Pierce and the Rev. Jeremiah Porter, and about 165 frame buildings went up.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 90, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12227-12245 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "hogan-ad",
+      "text": "J. S. C. Hogan's advertisement, dated 30 July 1834 and still printed on 27 May 1835, offers dry goods, groceries, hardware, crockery and glass ware at his store in South Water Street, one door below the Post Office.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "27 May 1835 (Vol. II No. 6), p. 3, col. 5, Hogan's card. Transcription-mediated reading; the same card runs in the issues of 20 May to 1 July 1835."
+    },
+    {
+      "id": "brown-full",
+      "text": "The houses of 1834 were always full; and full meant three in a bed sometimes, with the floor covered besides.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1 on the houses of 1834, quoted on the card brown_mrs_rufus (data/residents/households/hh_brown_rufus.json)."
+    },
+    {
+      "id": "continuity",
+      "text": "The early lodging and store sites are treated as orientation stops in the July 1835 reconstruction; earlier descriptions do not prove a vacancy or a transaction that day.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "kinzie_waubun_1856",
+        "chicago_democrat_1833_1835"
+      ],
+      "reasoning": "Uses the existing scene-date structure phases and their continuity arguments. Stop labels are building identities, not proof of continuing tenancies; Peck’s card and the map notice date their trades, not 1 July 1835. Brown’s absolute placement is reconstructed; the other four positions are inferred."
+    },
+    {
+      "id": "outing",
+      "text": "The visitor’s first-day errand, the reading of the map notice, the boarding choice, the cost-or-convenience preference, the endings, the route note, the ride on horseback (the recommended mode), timing inputs and the Finding Your Feet keepsake are invented connective narrative, not historical events.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-new-in-chicago"
+    }
+  ],
+  "liberties": [
+    "L-jaunt-pilot",
+    "L-jaunt-new-in-chicago",
+    "L-jaunt-1835-light-and-stories"
+  ],
+  "version_of": "new-in-chicago"
+}

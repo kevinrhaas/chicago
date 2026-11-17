@@ -101,13 +101,16 @@ assert.equal(list.parentNode, pJaunts);
 unmount(panel);
 assert.equal(list.parentNode, region, 'unmounting hands everything back too');
 
-// The page: Navigator Home's three choices, each naming its segment; the Welcome card keeps its three.
+// The page: Navigator Home's three choices; the Welcome card keeps its three. T-3629: Take a
+// Jaunt left Home for the labelled Jaunts tab, and Other years (Jump, off the rail) took its place.
 {
   const html = readFileSync(path.join(web, 'index.html'), 'utf8');
   const home = html.slice(html.indexOf('id="nav-home"'), html.indexOf('</section>\n\n<aside id="popup"'));
-  for (const [seg, label] of [['jaunts', 'Take a Jaunt'], ['goto', 'Go to…'], ['roam', 'Free roam']]) {
+  for (const [seg, label] of [['goto', 'Go to…'], ['roam', 'Free roam']]) {
     assert.match(home, new RegExp(`data-segment="${seg}"><strong>${label}</strong>`), `Home offers ${label}`);
   }
+  assert.match(home, /id="nav-choice-years" data-app="jump"><strong>Other years<\/strong>/, 'Home offers Other years');
+  assert.doesNotMatch(home, /data-segment="jaunts"/, 'Take a Jaunt is the rail\'s labelled Jaunts tab now');
   for (const id of ['welcome-jaunts', 'welcome-explore', 'home-roam']) assert.match(html, new RegExp(`id="${id}"`), `the Welcome card keeps #${id}`);
   const main = readFileSync(path.join(web, 'js/main.js'), 'utf8');
   assert.match(main, /#nav-home \[data-segment\][\s\S]*api\.openJaunts\(choice\.dataset\.segment\)/, 'each Home choice opens its segment');

@@ -1,0 +1,73 @@
+== premise
+Compile a builder's inventory for one modest roof: what arrives by lake at Newberry and Dole's, nails or nail rods at Peck's corner, brick or none at the settlement's first brickyard, and an inspection of the Lake House site.
+
+== opening
+JAUNT: MATERIALS FOR A ROOF. You are erecting a modest frame house, employing the innovative Chicago method. The traditional frame of heavy timbers "was found too slow", so the town constructs with "the balloon frame, originated by George W. Snow", utilizing lightweight timbers "two by four inches", secured with nails. Skeptics predicted these structures would "be blown away by the first high wind", and their confidence proved entirely misplaced.
+
+With the walls erected, the roof follows, so investigate what arrives by lake, select the ironwork at Peck's corner, inspect the first brickyard, and conclude at the Lake House, the most ambitious building in town, still under construction.
+
+== stop the-wharf
+Commence at Newberry and Dole's warehouse on the river. In the Democrat of 1 July 1835 they advertise storage, forwarding and commission services as agents for the Merchants' Line. A balloon frame consumes nails by the keg, and nails, glass and iron are not produced on the prairie: whatever the settlement cannot manufacture arrives by lake and is received at warehouses like this one.
+
+== narrative the-wharf
+What the settlement cannot manufacture, the lake delivers.
+
+== stop the-ironwork
+Proceed along South Water Street to Peck's corner at LaSalle. In September 1834 he advertised nails, nail rods, bar iron and English blister and cast steel, his inventory "just received from New York". A roof requires nails, and a balloon frame, held together entirely by nailing, requires considerably more. Determine the form in which you will procure them.
+
+== narrative the-ironwork
+Resolve the question of ironwork before considering any masonry.
+
+== label the-ironwork cut-nails
+A keg of nails, ready to drive
+
+== consequence the-ironwork cut-nails
+Manufactured nails are entered on the inventory, ready for immediate use.
+
+== label the-ironwork nail-rods
+Nail rods, for a smith to head
+
+== consequence the-ironwork nail-rods
+Rods are entered on the inventory, necessitating a blacksmith's subsequent labor.
+
+== stop the-brickyard
+Across the river on the North Side, Andreas situates Tyler K. Blodgett's brickyard of spring 1833 near the bank, with Henry S. Lampman, "undoubtedly the first brick-maker". The first brick building outside the fort was constructed that same year for John Noble, on the lot adjacent to where the Lake House is rising. In a town of 165 new frame buildings, a solitary brick house was genuinely remarkable. A solitary shed represents the brickyard in this reconstruction.
+
+== narrative the-brickyard
+Decide between brick or none, and the inventory is complete.
+
+== label the-brickyard brick-chimney
+Brick for a chimney
+
+== consequence the-brickyard brick-chimney
+Brick for the chimney is entered on the inventory, to be collected from the yard.
+
+== label the-brickyard no-brick
+No brick this season
+
+== consequence the-brickyard no-brick
+The chimney can be deferred to another summer, when finances permit.
+
+== stop the-lake-house
+Continue east along the northern riverbank to Rush Street and the Lake House. Andreas describes the completed hotel as brick, three stories with a basement, inaugurated in autumn 1836, and it "aimed to cater for only the highest class of guests", an ambition remarkable for a settlement so recently a trading post. Before its completion, the first Unitarian service in Chicago was conducted inside, with the English writer Harriet Martineau among the congregation. Observe from the street as the masonry walls gradually ascend.
+
+== narrative the-lake-house
+Whose brickyard supplied its walls, nobody documented.
+
+== leg 0
+With the lake freight considered, proceed along the river to the ironwork.
+
+== leg 2
+With the masonry resolved, observe what an enormous quantity of brick ultimately becomes.
+
+== ending nails-and-brick
+Nails to drive and brick for a chimney: the inventory is concise and complete, although the Lake House will consume vastly greater quantities of both.
+
+== ending rods-and-brick
+Nail rods for a blacksmith and brick for a chimney: the inventory is complete, although considerable work remains to be hammered out.
+
+== ending a-plain-roof
+Ironwork for the shingles and no brick this season: an unadorned roof initially, and the chimney another year. Despite every prediction, it will withstand the first high wind.
+
+== keepsake text
+A fictional inventory of what one modest roof required in July 1835. No authentic order, price or sale by any merchant or brickmaker is recorded on it.

@@ -34,7 +34,6 @@ import * as THREE from 'three';
 import { resolveHumanIdentity, humanRoleCard } from './human-identity.js';
 import { createHumanLife, POSTURES } from './human-life.js';
 import { createHumanActions } from './human-actions.js';
-import * as fightMotions from './human-fight.js';
 import { createHumanGait } from './human-gait.js';
 import { createHumanSkirt } from './human-skirt.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -53,8 +52,14 @@ import { dressHat } from './human-hats.js';
 import { dressSpectacles } from './human-spectacles.js';
 import { fitWaist } from './human-waist.js';
 import { engraveSilver } from './human-silver.js';
+import { easeSeats } from './human-seat.js';
 import { dressGarrison, garrisonCarry, createArmsPiles } from './human-garrison.js';
 import { clothHuman } from './fabric.js';
+// T-3627: the adults jaunts' fight motions (human-fight.js) load with the outing, not with the
+// town; main.js hands them in with useFightMotions, and every hand reads them as it moves.
+let fightModule = null;
+const fightMotions = () => fightModule;
+export function useFightMotions(motions) { fightModule = motions ?? null; }
 
 /** § 8: the LODs each scene-detail tier may draw. `light` stays the floor. */
 export const HUMAN_TIERS = Object.freeze({ full: [0, 1, 2, 3], balanced: [1, 2, 3], light: [2, 3] });
@@ -102,6 +107,10 @@ const FADE_S = 0.25;
  *  slows to a stand while it turns further than PATH_STAND_TURN_DEG, so it turns, then goes. */
 export const PATH_TURN_DEG_S = 220;
 const PATH_STAND_TURN_DEG = 75;
+/** T-3553: a path walked faster than this (a run) is gathered over about RUN_GATHER_S (the time
+ *  constant) from a walking pace, and run down at RUN_STOP_M_S2 into its end (reconstructed:
+ *  a few strides to get up to a run, a couple of metres to pull up). */
+export const RUN_GATHER_FROM = 2.0, RUN_GATHER_S = 0.45, RUN_STOP_M_S2 = 3.5;
 const BLINK = ['eyeBlinkLeft', 'eyeBlinkRight'];
 
 /**
@@ -166,8 +175,10 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
       loader.setMeshoptDecoder(await decoder);
     }
     const gltf = await loader.parseAsync(buf, String(new URL('.', href)));
-    // T-3553: a belted waist sits on the body, and trade silver is engraved, once per parse,
-    // before any figure is cloned (human-waist.js, human-silver.js).
+    // T-3553: trousers bridge the seat, a belted waist sits on the body, and trade silver is
+    // engraved, once per parse, before any figure is cloned (human-seat.js, human-waist.js,
+    // human-silver.js).
+    easeSeats(gltf.scene);
     fitWaist(gltf.scene);
     engraveSilver(gltf.scene);
     return gltf;
@@ -784,6 +795,7 @@ export class HumanActor {
   stopPath() {
     if (!this.path) return false;
     this.path = null;
+    this.pathV = 0;
     this.setState('standing');
     return true;
   }
@@ -809,7 +821,22 @@ export class HumanActor {
     }
     const clip = this.body && findClip(this.body.clips, 'walk');
     // T-3472: at the person's own pace (human-gait.js), gathered over the first step.
-    const speed = p.speed ?? (this.gait?.bound ? this.gait.speed * this.gait.pace : clip?.userData?.speed_m_s ?? this.walkSpeed ?? 1.3);
+    let speed = p.speed ?? (this.gait?.bound ? this.gait.speed * this.gait.pace : clip?.userData?.speed_m_s ?? this.walkSpeed ?? 1.3);
+    // T-3553: a run is got up to over the first steps and run down to a stop over the last,
+    // as people do (a runner standing still is not at 4 m/s on the next frame): it gathers from
+    // a walking pace (or the pace it was already going) and eases off a couple of metres short.
+    if (p.speed !== null && p.speed > RUN_GATHER_FROM) {
+      p.v ??= Math.min(p.speed, Math.max(1.2, this.pathV ?? 0));
+      p.v += (p.speed - p.v) * (1 - Math.exp(-dt / RUN_GATHER_S));
+      let ahead = 0;
+      for (let i = p.leg; i < p.pts.length - 1; i++) {
+        const a = p.pts[i], b = p.pts[i + 1], len = Math.hypot(b.e - a.e, b.n - a.n);
+        ahead += i === p.leg ? len * (1 - p.t) : len;
+        if (ahead > 8) break;
+      }
+      speed = Math.min(p.v, 1.3 + Math.sqrt(2 * RUN_STOP_M_S2 * ahead));
+    }
+    this.pathV = speed;
     const a0 = p.pts[p.leg], b0 = p.pts[p.leg + 1];
     const off = turnToward((Math.atan2(b0.e - a0.e, b0.n - a0.n) * 180 / Math.PI + 360) % 360);
     // A figure facing well away from its way turns before it walks on.
@@ -828,6 +855,7 @@ export class HumanActor {
     this.standY = a.y !== null && b.y !== null ? a.y + (b.y - a.y) * p.t : null;
     if (p.leg >= p.pts.length - 1) {
       p.arrived = true;
+      this.pathV = 0;
       this.setState('standing');
     }
     this.place();

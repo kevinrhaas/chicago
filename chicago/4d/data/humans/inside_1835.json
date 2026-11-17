@@ -838,6 +838,165 @@
     ]
    }
   ],
+  "teamster": [
+   {
+    "dates": {
+     "months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    "spans": [
+     {
+      "from": 0,
+      "to": 4.75,
+      "indoors": true,
+      "where": "home",
+      "doing": "asleep"
+     },
+     {
+      "from": 4.75,
+      "to": 5.25,
+      "indoors": true,
+      "where": "home",
+      "doing": "breakfast"
+     },
+     {
+      "from": 5.25,
+      "to": 5.5,
+      "indoors": false,
+      "at": "yard",
+      "activity": "work",
+      "doing": "feeding, watering and harnessing the team"
+     },
+     {
+      "from": 5.5,
+      "to": 5.75,
+      "indoors": true,
+      "where": "home",
+      "doing": "indoors out of the cold"
+     },
+     {
+      "from": 5.75,
+      "to": 18.75,
+      "indoors": true,
+      "away": true,
+      "doing": "on the road with his team, hauling about the town; dinner at the noon stand"
+     },
+     {
+      "from": 18.75,
+      "to": 19.0,
+      "indoors": false,
+      "at": "yard",
+      "activity": "work",
+      "doing": "unharnessing and seeing to the horses"
+     },
+     {
+      "from": 19.0,
+      "to": 19.25,
+      "indoors": true,
+      "where": "home",
+      "doing": "indoors out of the cold"
+     },
+     {
+      "from": 19.25,
+      "to": 20,
+      "indoors": true,
+      "where": "home",
+      "doing": "supper"
+     },
+     {
+      "from": 20,
+      "to": 20.5,
+      "indoors": false,
+      "at": "front",
+      "activity": "talk",
+      "doing": "the evening at the door"
+     },
+     {
+      "from": 20.5,
+      "to": 21,
+      "indoors": true,
+      "where": "home",
+      "doing": "indoors out of the cold"
+     },
+     {
+      "from": 21,
+      "to": 24,
+      "indoors": true,
+      "where": "home",
+      "doing": "asleep"
+     }
+    ]
+   },
+   {
+    "spans": [
+     {
+      "from": 0,
+      "to": 4.75,
+      "indoors": true,
+      "where": "home",
+      "doing": "asleep"
+     },
+     {
+      "from": 4.75,
+      "to": 5.25,
+      "indoors": true,
+      "where": "home",
+      "doing": "breakfast"
+     },
+     {
+      "from": 5.25,
+      "to": 5.75,
+      "indoors": false,
+      "at": "yard",
+      "activity": "work",
+      "doing": "feeding, watering and harnessing the team"
+     },
+     {
+      "from": 5.75,
+      "to": 18.75,
+      "indoors": true,
+      "away": true,
+      "doing": "on the road with his team, hauling about the town; dinner at the noon stand"
+     },
+     {
+      "from": 18.75,
+      "to": 19.25,
+      "indoors": false,
+      "at": "yard",
+      "activity": "work",
+      "doing": "unharnessing and seeing to the horses"
+     },
+     {
+      "from": 19.25,
+      "to": 20,
+      "indoors": true,
+      "where": "home",
+      "doing": "supper"
+     },
+     {
+      "from": 20,
+      "to": 21,
+      "indoors": false,
+      "at": "front",
+      "activity": "talk",
+      "doing": "the evening at the door"
+     },
+     {
+      "from": 21,
+      "to": 24,
+      "indoors": true,
+      "where": "home",
+      "doing": "asleep"
+     }
+    ]
+   }
+  ],
   "soldier": [
    {
     "dates": {
@@ -2701,8 +2860,8 @@
   {"person":"brooks_george_m","name":"George M Brooks","home":"recon_1835_north_d1_001","door":"recon_1835_north_d1_001:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":-0.25,"points":{"front":[479.66,144.86,180.0],"yard":[478.67,143.9,35.6],"front_end":[484.66,144.86],"yard_end":[480.15,145.91]},"provenance":{"sources":["chicago_american_1835"]}},
   {"person":"brown_hanna_e","name":"Hanna E Brown","home":"recon_1835_west_016","door":"recon_1835_west_016:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":0.75,"points":{"front":[-266.59,-197.02,359.0],"yard":[-266.1,-196.05,212.3],"front_end":[-271.59,-197.11],"yard_end":[-266.02,-193.55]},"provenance":{"sources":["chicago_democrat_1833_1835","fergus_chicago_directory_1839","norris_directory_1844"]}},
   {"person":"brown_jesse_b","name":"Jesse B Brown","home":"recon_1835_blk_south_water_market_h3_02","door":"recon_1835_blk_south_water_market_h3_02:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":0.5,"points":{"front":[160.16,-95.42,180.5],"yard":[162.75,-95.0,280.8],"front_end":[155.16,-95.38],"yard_end":[165.23,-95.33]},"provenance":{"sources":["blackhawk_war_chicago_enrollments_isa","chicago_democrat_1833_1835"]}},
-  {"person":"brown_mrs_rufus","name":"Mrs Rufus Brown","home":"brown_boarding_house","door":"brown_boarding_house:front","asset_id":"flynn_mary_1835_dress_study","ask_order":12,"routine":"woman_trade","shift":-0.75,"points":{"front":[428.38,-22.26,0.0],"yard":[429.83,-22.1,239.9],"front_end":[423.38,-22.26],"yard_end":[431.44,-20.19]},"provenance":{"sources":["andreas_1884_v1"]}},
-  {"person":"brown_rufus","name":"Rufus Brown","home":"brown_boarding_house","door":"brown_boarding_house:front","asset_id":"bardwell_otis_1835","ask_order":10,"routine":"keeper","shift":0.0,"points":{"front":[427.5,-22.26,0.0],"yard":[429.83,-22.1,239.9],"front_end":[432.5,-22.26],"yard_end":[430.61,-19.73]},"provenance":{"sources":["andreas_1884_v1"]}},
+  {"person":"brown_mrs_rufus","name":"Mrs Rufus Brown","home":"brown_boarding_house","door":"brown_boarding_house:front","asset_id":"flynn_mary_1835_dress_study","ask_order":12,"routine":"woman_trade","shift":-0.75,"points":{"front":[428.38,-22.26,0.0],"yard":[429.83,-22.1,239.9],"front_end":[423.38,-22.26],"yard_end":[432.32,-21.88]},"provenance":{"sources":["andreas_1884_v1"]}},
+  {"person":"brown_rufus","name":"Rufus Brown","home":"brown_boarding_house","door":"brown_boarding_house:front","asset_id":"bardwell_otis_1835","ask_order":10,"routine":"keeper","shift":0.0,"points":{"front":[427.5,-22.26,0.0],"yard":[429.83,-22.1,239.9],"front_end":[432.5,-22.26],"yard_end":[432.06,-20.98]},"provenance":{"sources":["andreas_1884_v1"]}},
   {"person":"brown_william_h","name":"William H Brown","home":"recon_1835_blk_washington_franklin_d7_04","door":"recon_1835_blk_washington_franklin_d7_04:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":0.5,"points":{"front":[302.73,-405.81,0.3],"yard":[300.48,-404.83,136.9],"front_end":[307.73,-405.84],"yard_end":[301.36,-402.49]},"provenance":{"sources":["census_1840_chicago_familysearch_images","chicago_democrat_1833_1835","fergus_chicago_directory_1839","fergus_chicago_directory_1843","isa_public_domain_land_tract_sales","norris_directory_1844","second_presbyterian_chicago_1892"]}},
   {"person":"brownson_myron_k","name":"Myron K. Brownson","home":"recon_1835_blk_west_lake_canal_d4_02","door":"recon_1835_blk_west_lake_canal_d4_02:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":-0.75,"points":{"front":[-142.12,-204.96,270.5],"yard":[-142.27,-203.45,154.5],"front_end":[-142.08,-199.96],"yard_end":[-142.11,-205.95]},"provenance":{"sources":["chicago_democrat_1833_1835"]}},
   {"person":"bruen_hir","name":"hir. Bruen","home":"recon_1835_blk_randolph_clinton_d7_08","door":"recon_1835_blk_randolph_clinton_d7_08:front","asset_id":"settler_1812","ask_order":10,"routine":"labourer","shift":0.0,"points":{"front":[-169.14,-364.83,90.5],"yard":[-168.19,-366.91,315.3],"front_end":[-169.1,-359.83],"yard_end":[-167.23,-364.6]},"provenance":{"sources":["chicago_democrat_1833_1835"]}},
@@ -2815,7 +2974,7 @@
   {"person":"cook_john","name":"John Cook","home":"recon_1835_blk_west_randolph_canal_d5_01","door":"recon_1835_blk_west_randolph_canal_d5_01:front","asset_id":"settler_1812","ask_order":10,"routine":"labourer","shift":-0.5,"points":{"front":[-138.13,-321.9,270.5],"yard":[-139.09,-321.72,55.2],"front_end":[-138.09,-316.9],"yard_end":[-138.76,-319.24]},"provenance":{"sources":["chicago_democrat_1833_1835","chicago_voter_lists_1833_1835_irad","fergus_chicago_directory_1843","norris_directory_1844","second_presbyterian_chicago_1892"]}},
   {"person":"cook_josiah_p","name":"Josiah P Cook","home":"recon_1835_blk_west_lake_canal_d5_01","door":"recon_1835_blk_west_lake_canal_d5_01:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":-0.75,"points":{"front":[-145.72,-178.0,270.5],"yard":[-146.7,-179.59,48.9],"front_end":[-145.76,-183.0],"yard_end":[-145.97,-177.2]},"provenance":{"sources":["chicago_voter_lists_1833_1835_irad","fergus_chicago_directory_1843","isa_public_domain_land_tract_sales","norris_directory_1844","second_presbyterian_chicago_1892"]}},
   {"person":"cook_rowland_i","name":"Rowland I!. Cook","home":"recon_1835_west_004","door":"recon_1835_west_004:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":-0.5,"points":{"front":[-308.78,-45.77,2.0],"yard":[-306.25,-45.69,241.9],"front_end":[-313.78,-45.6],"yard_end":[-304.8,-43.65]},"provenance":{"sources":["chicago_democrat_1833_1835"]}},
-  {"person":"cook_thomas","name":"Thomas Cook","home":"recon_1835_blk_washington_clark_h3_11","door":"recon_1835_blk_washington_clark_h3_11:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":0.75,"points":{"front":[598.46,-404.75,0.4],"yard":[595.39,-403.77,127.1],"front_end":[593.46,-404.72],"yard_end":[595.97,-401.34]},"provenance":{"sources":["census_1840_chicago_familysearch_images","chicago_voter_lists_1833_1835_irad","fergus_chicago_directory_1839","fergus_chicago_directory_1843","isa_public_domain_land_tract_sales","norris_directory_1844"]}},
+  {"person":"cook_thomas","name":"Thomas Cook","home":"recon_1835_blk_washington_clark_h3_11","door":"recon_1835_blk_washington_clark_h3_11:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"teamster","shift":0.75,"points":{"front":[598.46,-404.75,0.4],"yard":[595.39,-403.77,127.1],"front_end":[593.46,-404.72],"yard_end":[595.97,-401.34]},"provenance":{"sources":["census_1840_chicago_familysearch_images","chicago_voter_lists_1833_1835_irad","fergus_chicago_directory_1839","fergus_chicago_directory_1843","isa_public_domain_land_tract_sales","norris_directory_1844"]}},
   {"person":"cooley_edward_v","name":"Edward V Cooley","home":"recon_1835_west_019","door":"recon_1835_west_019:front","asset_id":"settler_1812","ask_order":10,"routine":"labourer","shift":0.5,"points":{"front":[-253.81,-276.69,89.0],"yard":[-252.86,-276.2,226.9],"front_end":[-253.9,-271.69],"yard_end":[-250.55,-275.24]},"provenance":{"sources":["chicago_democrat_1833_1835"]}},
   {"person":"coslet_elisabeth","name":"Elisabeth Coslet","home":"recon_1835_blk_south_water_lasalle_d3_03","door":"recon_1835_blk_south_water_lasalle_d3_03:front","asset_id":"flynn_mary_1835_dress_study","ask_order":10,"routine":"girl","shift":0.25,"points":{"front":[553.45,-81.62,180.4],"yard":[551.09,-81.17,78.7],"front_end":[558.45,-81.65],"yard_end":[553.59,-81.29]},"provenance":{"sources":["st_marys_baptismal_register_1833_1835"]}},
   {"person":"coslet_godfrey","name":"Godfrey Coslet","home":"recon_1835_blk_school_section_tier_81_d6_06","door":"recon_1835_blk_school_section_tier_81_d6_06:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":-0.25,"points":{"front":[181.75,-640.27,180.0],"yard":[180.61,-639.84,77.0],"front_end":[176.75,-640.27],"yard_end":[182.94,-640.74]},"provenance":{"sources":["st_marys_baptismal_register_1833_1835"]}},
@@ -3960,7 +4119,7 @@
   {"person":"rc_fb_askie_john","name":"John Askie","home":"recon_1835_north_d4_056","door":"recon_1835_north_d4_056:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":-0.75,"points":{"front":[584.25,350.78,0.0],"yard":[586.63,350.95,239.8],"front_end":[589.25,350.78],"yard_end":[587.62,353.25]},"provenance":{"sources":["andreas_1884_v1"]}},
   {"person":"rc_fb_askie_mary","name":"Mary Askie","home":"recon_1835_north_d6_070","door":"recon_1835_north_d6_070:front","asset_id":"child_girl_1812","ask_order":25,"routine":"child","shift":-0.25,"points":{"front":[528.31,271.29,180.0],"yard":[525.94,271.12,59.5],"front_end":[533.31,271.29],"yard_end":[528.43,271.35]},"provenance":{"sources":["andreas_1884_v1"]},"age_1835":8,"caregivers":["rc_fb_askie_catherine","rc_fb_askie_george","rc_gilbert_almira","rc_hale_clarissa"],"supervised":true},
   {"person":"rc_fb_johnson_david","name":"David Johnson","home":"recon_1835_north_d1_054","door":"recon_1835_north_d1_054:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":-0.25,"points":{"front":[499.24,354.9,0.0],"yard":[498.56,355.85,142.1],"front_end":[494.24,354.9],"yard_end":[498.89,358.33]},"provenance":{"sources":["andreas_1884_v1"]}},
-  {"person":"rc_fb_white_charles","name":"Charles White","home":"recon_1835_west_033","door":"recon_1835_west_033:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":-0.25,"points":{"front":[-413.24,-191.45,2.0],"yard":[-410.35,-191.38,243.4],"front_end":[-408.24,-191.62],"yard_end":[-407.88,-191.77]},"provenance":{"sources":["andreas_1884_v1"]}},
+  {"person":"rc_fb_white_charles","name":"Charles White","home":"recon_1835_west_033","door":"recon_1835_west_033:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"teamster","shift":-0.25,"points":{"front":[-413.24,-191.45,2.0],"yard":[-410.35,-191.38,243.4],"front_end":[-408.24,-191.62],"yard_end":[-407.88,-191.77]},"provenance":{"sources":["andreas_1884_v1"]}},
   {"person":"rc_fb_williams_lucy","name":"Lucy Williams","home":"recon_1835_north_d6_058","door":"recon_1835_north_d6_058:front","asset_id":"flynn_mary_1835_dress_study","ask_order":12,"routine":"woman","shift":0.75,"points":{"front":[661.85,303.66,180.0],"yard":[661.73,302.69,324.8],"front_end":[656.85,303.66],"yard_end":[663.27,304.66]},"provenance":{"sources":["andreas_1884_v1"]}},
   {"person":"rc_fb_williams_samuel","name":"Samuel Williams","home":"recon_1835_north_d6_058","door":"recon_1835_north_d6_058:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":-0.75,"points":{"front":[659.02,303.66,180.0],"yard":[658.27,304.09,77.6],"front_end":[654.02,303.66],"yard_end":[660.61,303.21]},"provenance":{"sources":["andreas_1884_v1"]}},
   {"person":"rc_fb_williams_thomas","name":"Thomas Williams","home":"recon_1835_north_d6_058","door":"recon_1835_north_d6_058:front","asset_id":"child_boy_1812","ask_order":25,"routine":"child","shift":0.0,"points":{"front":[660.23,303.66,180.0],"yard":[658.27,304.09,77.6],"front_end":[665.23,303.66],"yard_end":[660.69,303.45]},"provenance":{"sources":["andreas_1884_v1"]},"age_1835":8,"caregivers":["rc_fb_williams_lucy","rc_fb_williams_samuel","hogan_mary","marianne"],"supervised":true},
@@ -4001,7 +4160,7 @@
   {"person":"rc_fitzgerald_terence","name":"Terence Fitzgerald","home":"recon_1835_west_006","door":"recon_1835_west_006:front","asset_id":"child_toddler_1812","ask_order":25,"routine":"child","shift":0.25,"points":{"front":[-261.18,28.77,89.0],"yard":[-260.19,27.15,317.2],"front_end":[-261.09,23.77],"yard_end":[-259.26,29.47]},"age_1835":3,"caregivers":["rc_whitcomb_mary","rc_bacon_alanson","rc_cobb_silas","rc_ingalls_orrin"],"supervised":true},
   {"person":"rc_flynn_bryan","name":"Bryan Flynn","home":"recon_1835_west_006","door":"recon_1835_west_006:front","asset_id":"settler_1812","ask_order":10,"routine":"labourer","shift":0.5,"points":{"front":[-261.17,27.92,89.0],"yard":[-260.19,27.15,317.2],"front_end":[-261.08,22.92],"yard_end":[-258.83,29.25]}},
   {"person":"rc_flynn_daniel","name":"Daniel Flynn","home":"fort_dearborn_barracks","door":"fort_dearborn_barracks:front","asset_id":"private_first_infantry_1812","ask_order":20,"routine":"soldier","shift":0.0,"points":{"front":[1161.89,217.95,278.0],"yard":[1163.4,225.57,184.2],"front_end":[1161.19,213.0],"yard_end":[1164.12,227.96]}},
-  {"person":"rc_flynn_martin","name":"Martin Flynn","home":"recon_1835_blk_indiana_north_cass_d4_05","door":"recon_1835_blk_indiana_north_cass_d4_05:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":0.25,"points":{"front":[987.21,552.78,0.4],"yard":[986.95,553.74,146.5],"front_end":[992.21,552.75],"yard_end":[988.08,555.97]}},
+  {"person":"rc_flynn_martin","name":"Martin Flynn","home":"recon_1835_blk_indiana_north_cass_d4_05","door":"recon_1835_blk_indiana_north_cass_d4_05:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"teamster","shift":0.25,"points":{"front":[987.21,552.78,0.4],"yard":[986.95,553.74,146.5],"front_end":[992.21,552.75],"yard_end":[988.08,555.97]}},
   {"person":"rc_flynn_mary_1","name":"Alice Flynn","home":"recon_1835_blk_south_water_lasalle_d1_04","door":"recon_1835_blk_south_water_lasalle_d1_04:front","asset_id":"flynn_mary_1835_dress_study","ask_order":25,"routine":"girl","shift":-0.75,"points":{"front":[521.62,-3.48,359.5],"yard":[520.84,-2.54,143.7],"front_end":[516.62,-3.52],"yard_end":[521.07,-0.05]}},
   {"person":"rc_flynn_mary_2","name":"Bridget Flynn","home":"recon_1835_blk_south_water_lasalle_d1_04","door":"recon_1835_blk_south_water_lasalle_d1_04:front","asset_id":"woman_working_1812","ask_order":20,"routine":"woman","shift":-0.25,"points":{"front":[521.92,-3.48,359.5],"yard":[523.52,-2.52,215.6],"front_end":[526.92,-3.44],"yard_end":[524.83,-0.39]}},
   {"person":"rc_flynn_mary_3","name":"Terence Flynn","home":"recon_1835_blk_south_water_lasalle_d1_04","door":"recon_1835_blk_south_water_lasalle_d1_04:front","asset_id":"mahoney_patrick_1835","ask_order":20,"routine":"labourer","shift":0.75,"points":{"front":[522.82,-3.47,359.5],"yard":[520.84,-2.54,143.7],"front_end":[527.82,-3.43],"yard_end":[521.77,-0.22]}},
@@ -4027,7 +4186,7 @@
   {"person":"rc_gallagher_bryan","name":"Bryan Gallagher","home":"recon_1835_north_d1_013","door":"recon_1835_north_d1_013:front","asset_id":"bardwell_otis_1835","ask_order":10,"routine":"tradesman","shift":-0.5,"points":{"front":[599.94,335.11,0.0],"yard":[598.65,336.06,143.9],"front_end":[604.94,335.11],"yard_end":[599.75,338.3]}},
   {"person":"rc_gallagher_catherine","name":"Catherine Gallagher","home":"recon_1835_north_h2_028","door":"recon_1835_north_h2_028:front","asset_id":"flynn_mary_1835_dress_study","ask_order":10,"routine":"laundress","shift":0.25,"points":{"front":[929.67,352.14,0.0],"yard":[932.22,353.1,230.0],"front_end":[924.67,352.14],"yard_end":[933.92,354.93]}},
   {"person":"rc_gallagher_cornelius","name":"Cornelius Gallagher","home":"fort_dearborn_barracks","door":"fort_dearborn_barracks:front","asset_id":"mahoney_patrick_1835","ask_order":25,"routine":"lad","shift":0.5,"points":{"front":[1162.16,219.9,278.0],"yard":[1163.4,225.57,184.2],"front_end":[1161.46,214.95],"yard_end":[1163.66,223.08]}},
-  {"person":"rc_gallagher_daniel","name":"Daniel Gallagher","home":"recon_1835_north_d7_076","door":"recon_1835_north_d7_076:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":0.25,"points":{"front":[993.59,275.89,180.0],"yard":[995.71,275.73,301.2],"front_end":[998.59,275.89],"yard_end":[998.21,275.65]}},
+  {"person":"rc_gallagher_daniel","name":"Daniel Gallagher","home":"recon_1835_north_d7_076","door":"recon_1835_north_d7_076:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"teamster","shift":0.25,"points":{"front":[993.59,275.89,180.0],"yard":[995.71,275.73,301.2],"front_end":[998.59,275.89],"yard_end":[998.21,275.65]}},
   {"person":"rc_gallagher_dennis","name":"Dennis Gallagher","home":"fort_dearborn_barracks","door":"fort_dearborn_barracks:front","asset_id":"private_first_infantry_1812","ask_order":20,"routine":"soldier","shift":0.0,"points":{"front":[1162.19,220.14,278.0],"yard":[1163.4,225.57,184.2],"front_end":[1162.89,225.09]}},
   {"person":"rc_gallagher_edward","name":"Edward Gallagher","home":"fort_dearborn_barracks","door":"fort_dearborn_barracks:front","asset_id":"private_first_infantry_1812","ask_order":20,"routine":"soldier","shift":0.25,"points":{"front":[1161.95,218.38,278.0],"yard":[1161.49,211.93,11.8],"front_end":[1162.65,223.33],"yard_end":[1162.01,214.38]}},
   {"person":"rc_gallagher_ellen","name":"Ellen Gallagher","home":"recon_1835_north_h2_028","door":"recon_1835_north_h2_028:front","asset_id":"flynn_mary_1835_dress_study","ask_order":12,"routine":"woman_trade","shift":0.5,"points":{"front":[929.62,352.14,0.0],"yard":[927.78,351.7,101.7],"front_end":[934.62,352.14],"yard_end":[929.53,353.48]}},
@@ -4156,7 +4315,7 @@
   {"person":"rc_hubbard_ruth","name":"Ruth Hubbard","home":"recon_1835_blk_washington_dearborn_h3_01","door":"recon_1835_blk_washington_dearborn_h3_01:front","asset_id":"flynn_mary_1835_dress_study","ask_order":20,"routine":"woman","shift":0.0,"points":{"front":[748.25,-405.98,0.4],"yard":[749.79,-405.02,232.3],"front_end":[753.25,-406.01],"yard_end":[751.26,-403.0]}},
   {"person":"rc_ingalls_abigail","name":"Abigail Ingalls","home":"recon_1835_blk_school_section_tier_118_d2_01","door":"recon_1835_blk_school_section_tier_118_d2_01:front","asset_id":"flynn_mary_1835_dress_study","ask_order":12,"routine":"woman_trade","shift":-0.5,"points":{"front":[488.55,-641.24,180.0],"yard":[489.52,-642.24,330.4],"front_end":[483.55,-641.24],"yard_end":[491.74,-641.1]}},
   {"person":"rc_ingalls_amos","name":"Amos Ingalls","home":"fort_dearborn_barracks","door":"fort_dearborn_barracks:front","asset_id":"private_first_infantry_1812","ask_order":20,"routine":"soldier","shift":0.25,"points":{"front":[1161.87,217.83,278.0],"yard":[1161.49,211.93,11.8],"front_end":[1162.57,222.78]}},
-  {"person":"rc_ingalls_chauncey","name":"Chauncey Ingalls","home":"recon_1835_blk_washington_wells_d7_04","door":"recon_1835_blk_washington_wells_d7_04:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":0.5,"points":{"front":[426.91,-406.82,0.3],"yard":[429.39,-406.66,238.5],"front_end":[421.91,-406.79],"yard_end":[430.61,-404.48]}},
+  {"person":"rc_ingalls_chauncey","name":"Chauncey Ingalls","home":"recon_1835_blk_washington_wells_d7_04","door":"recon_1835_blk_washington_wells_d7_04:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"teamster","shift":0.5,"points":{"front":[426.91,-406.82,0.3],"yard":[429.39,-406.66,238.5],"front_end":[421.91,-406.79],"yard_end":[430.61,-404.48]}},
   {"person":"rc_ingalls_david","name":"David Ingalls","home":"fort_dearborn_barracks","door":"fort_dearborn_barracks:front","asset_id":"private_first_infantry_1812","ask_order":20,"routine":"soldier","shift":0.0,"points":{"front":[1161.89,217.96,278.0],"yard":[1161.49,211.93,11.8],"front_end":[1162.59,222.91],"yard_end":[1161.58,214.43]}},
   {"person":"rc_ingalls_elisha","name":"Elisha Ingalls","home":"recon_1835_blk_washington_clark_h3_06","door":"recon_1835_blk_washington_clark_h3_06:front","asset_id":"settler_1812","ask_order":20,"routine":"labourer","shift":0.75,"points":{"front":[672.52,-405.35,0.4],"yard":[669.36,-405.17,113.5],"front_end":[677.52,-405.38],"yard_end":[671.05,-403.33]}},
   {"person":"rc_ingalls_ezra","name":"Ezra Ingalls","home":"recon_1835_blk_washington_clark_h3_05","door":"recon_1835_blk_washington_clark_h3_05:front","asset_id":"settler_1812","ask_order":20,"routine":"labourer","shift":-0.5,"points":{"front":[671.18,-506.95,180.4],"yard":[669.1,-506.5,78.0],"front_end":[676.18,-506.98],"yard_end":[671.59,-506.74]}},
@@ -4282,7 +4441,7 @@
   {"person":"rc_leland_abner","name":"Abner Leland","home":"recon_1835_blk_washington_clark_h3_06","door":"recon_1835_blk_washington_clark_h3_06:front","asset_id":"bardwell_otis_1835","ask_order":25,"routine":"lad","shift":0.25,"points":{"front":[672.88,-405.36,0.4],"yard":[674.34,-404.41,233.6],"front_end":[667.88,-405.33],"yard_end":[674.99,-402.0]}},
   {"person":"rc_leland_alvah","name":"Alvah Leland","home":"recon_1835_blk_randolph_clark_h1_03","door":"recon_1835_blk_randolph_clark_h1_03:front","asset_id":"bardwell_otis_1835","ask_order":10,"routine":"tradesman","shift":0.5,"points":{"front":[625.61,-274.12,0.4],"yard":[626.79,-273.96,241.2],"front_end":[620.61,-274.09],"yard_end":[626.89,-271.46]}},
   {"person":"rc_leland_anna","name":"Anna Leland","home":"recon_1835_north_d5_074","door":"recon_1835_north_d5_074:front","asset_id":"flynn_mary_1835_dress_study","ask_order":10,"routine":"domestic","shift":-0.5,"points":{"front":[679.92,269.93,180.0],"yard":[679.44,269.76,59.7],"front_end":[674.92,269.93],"yard_end":[681.9,269.3]}},
-  {"person":"rc_leland_david","name":"David Leland","home":"recon_1835_blk_washington_wells_h2_07","door":"recon_1835_blk_washington_wells_h2_07:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":0.25,"points":{"front":[427.21,-504.01,180.3],"yard":[424.89,-504.16,62.9],"front_end":[422.21,-503.98],"yard_end":[427.13,-503.05]}},
+  {"person":"rc_leland_david","name":"David Leland","home":"recon_1835_blk_washington_wells_h2_07","door":"recon_1835_blk_washington_wells_h2_07:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"teamster","shift":0.25,"points":{"front":[427.21,-504.01,180.3],"yard":[424.89,-504.16,62.9],"front_end":[422.21,-503.98],"yard_end":[427.13,-503.05]}},
   {"person":"rc_leland_harvey","name":"Harvey Leland","home":"recon_1835_blk_washington_lasalle_h2_01","door":"recon_1835_blk_washington_lasalle_h2_01:front","asset_id":"peck_philip_1835","ask_order":10,"routine":"gentleman","shift":-0.25,"points":{"front":[473.92,-407.21,0.3],"yard":[476.79,-407.65,256.8],"front_end":[468.92,-407.18],"yard_end":[477.77,-405.35]}},
   {"person":"rc_leland_joseph","name":"Joseph Leland","home":"recon_1835_north_d5_082","door":"recon_1835_north_d5_082:front","asset_id":"peck_philip_1835","ask_order":10,"routine":"gentleman","shift":-0.25,"points":{"front":[431.63,363.3,0.0],"yard":[433.69,363.46,242.3],"front_end":[436.63,363.3],"yard_end":[434.25,365.9]}},
   {"person":"rc_leland_maria","name":"Maria Leland","home":"fort_dearborn_barracks","door":"fort_dearborn_barracks:front","asset_id":"flynn_mary_1835_dress_study","ask_order":12,"routine":"laundress","shift":0.25,"points":{"front":[1162.03,218.95,278.0],"yard":[1161.49,211.93,11.8],"front_end":[1161.33,214.0]}},
@@ -4476,7 +4635,7 @@
   {"person":"rc_newell_polly_4","name":"Esther Newell","home":"recon_1835_blk_washington_dearborn_h2_05","door":"recon_1835_blk_washington_dearborn_h2_05:front","asset_id":"child_girl_1812","ask_order":25,"routine":"child","shift":-0.5,"points":{"front":[771.14,-410.61,0.4],"yard":[769.59,-410.44,114.4],"front_end":[776.14,-410.64],"yard_end":[770.56,-408.13]},"age_1835":9,"caregivers":["rc_newell_polly","foot_john","rc_newell_polly_1","rc_newell_polly_6"],"supervised":true},
   {"person":"rc_newell_polly_6","name":"Silas Newell","home":"recon_1835_blk_washington_dearborn_h2_05","door":"recon_1835_blk_washington_dearborn_h2_05:front","asset_id":"bardwell_otis_1835","ask_order":25,"routine":"lad","shift":0.75,"points":{"front":[771.84,-410.62,0.4],"yard":[769.6,-409.64,128.4],"front_end":[776.84,-410.65],"yard_end":[770.68,-407.39]}},
   {"person":"rc_newell_rufus","name":"Rufus Newell","home":"recon_1835_blk_school_section_tier_82_d4_03","door":"recon_1835_blk_school_section_tier_82_d4_03:front","asset_id":"bardwell_otis_1835","ask_order":10,"routine":"tradesman","shift":0.75,"points":{"front":[156.62,-671.4,0.0],"yard":[157.58,-671.83,257.1],"front_end":[151.62,-671.4],"yard_end":[159.04,-669.8]}},
-  {"person":"rc_newell_samuel","name":"Samuel Newell","home":"recon_1835_blk_school_section_tier_95_d5_01","door":"recon_1835_blk_school_section_tier_95_d5_01:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":-0.75,"points":{"front":[396.62,-534.61,0.0],"yard":[396.33,-533.65,138.8],"front_end":[391.62,-534.61],"yard_end":[397.98,-531.77]}},
+  {"person":"rc_newell_samuel","name":"Samuel Newell","home":"recon_1835_blk_school_section_tier_95_d5_01","door":"recon_1835_blk_school_section_tier_95_d5_01:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"teamster","shift":-0.75,"points":{"front":[396.62,-534.61,0.0],"yard":[396.33,-533.65,138.8],"front_end":[391.62,-534.61],"yard_end":[397.98,-531.77]}},
   {"person":"rc_newell_seth","name":"Seth Newell","home":"recon_1835_north_d7_031","door":"recon_1835_north_d7_031:front","asset_id":"bardwell_otis_1835","ask_order":10,"routine":"keeper","shift":-0.75,"points":{"front":[901.29,376.27,0.0],"yard":[898.3,377.23,136.7],"front_end":[896.29,376.27],"yard_end":[899.22,379.55]}},
   {"person":"rc_nichols_asa","name":"Asa Nichols","home":"recon_1835_north_h2_030","door":"recon_1835_north_h2_030:front","asset_id":"settler_1812","ask_order":20,"routine":"labourer","shift":-0.75,"points":{"front":[760.14,371.93,0.0],"yard":[757.96,371.5,103.0],"front_end":[765.14,371.93],"yard_end":[758.46,373.95]}},
   {"person":"rc_nichols_david","name":"David Nichols","home":"recon_1835_blk_south_water_dearborn_h1_03","door":"recon_1835_blk_south_water_dearborn_h1_03:front","asset_id":"bardwell_otis_1835","ask_order":10,"routine":"tradesman","shift":0.75,"points":{"front":[773.14,-99.92,180.4],"yard":[775.26,-100.89,315.3],"front_end":[768.14,-99.89],"yard_end":[777.54,-99.86]}},
@@ -4630,7 +4789,7 @@
   {"person":"rc_reilly_catherine_7","name":"Hugh Reilly","home":"recon_1835_west_050","door":"recon_1835_west_050:front","asset_id":"child_boy_1812","ask_order":25,"routine":"child","shift":0.25,"points":{"front":[-602.61,-53.33,1.0],"yard":[-602.68,-52.37,214.2],"front_end":[-607.61,-53.24],"yard_end":[-601.38,-50.24]},"age_1835":6,"caregivers":["rc_reilly_catherine_3","rc_reilly_catherine_5","rc_reilly_catherine","rc_reilly_catherine_1"],"supervised":true},
   {"person":"rc_reilly_johanna","name":"Johanna Reilly","home":"recon_1835_north_d5_074","door":"recon_1835_north_d5_074:front","asset_id":"woman_working_1812","ask_order":10,"routine":"domestic","shift":0.25,"points":{"front":[681.83,269.93,180.0],"yard":[682.96,268.97,317.7],"front_end":[686.83,269.93],"yard_end":[684.5,270.94]}},
   {"person":"rc_reilly_john","name":"John Reilly","home":"recon_1835_north_h2_030","door":"recon_1835_north_h2_030:front","asset_id":"mahoney_patrick_1835","ask_order":20,"routine":"labourer","shift":0.25,"points":{"front":[758.86,371.93,0.0],"yard":[762.05,371.5,257.1],"front_end":[753.86,371.93],"yard_end":[763.53,373.52]}},
-  {"person":"rc_reilly_martin","name":"Martin Reilly","home":"recon_1835_blk_washington_clark_d5_01","door":"recon_1835_blk_washington_clark_d5_01:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":0.25,"points":{"front":[644.97,-409.09,0.4],"yard":[644.0,-408.12,144.0],"front_end":[649.97,-409.12],"yard_end":[644.73,-405.73]}},
+  {"person":"rc_reilly_martin","name":"Martin Reilly","home":"recon_1835_blk_washington_clark_d5_01","door":"recon_1835_blk_washington_clark_d5_01:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"teamster","shift":0.25,"points":{"front":[644.97,-409.09,0.4],"yard":[644.0,-408.12,144.0],"front_end":[649.97,-409.12],"yard_end":[644.73,-405.73]}},
   {"person":"rc_reilly_michael","name":"Michael Reilly","home":"recon_1835_blk_washington_market_h3_04","door":"recon_1835_blk_washington_market_h3_04:front","asset_id":"bardwell_otis_1835","ask_order":10,"routine":"keeper","shift":0.25,"points":{"front":[157.33,-506.95,180.3],"yard":[154.2,-507.1,67.2],"front_end":[162.33,-506.98],"yard_end":[156.7,-506.95]}},
   {"person":"rc_reilly_owen","name":"Owen Reilly","home":"recon_1835_blk_washington_lasalle_h1_02","door":"recon_1835_blk_washington_lasalle_h1_02:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":0.75,"points":{"front":[501.64,-408.41,0.3],"yard":[498.88,-408.24,119.5],"front_end":[506.64,-408.44],"yard_end":[500.57,-406.4]}},
   {"person":"rc_reilly_terence","name":"Terence Reilly","home":"fort_dearborn_barracks","door":"fort_dearborn_barracks:front","asset_id":"private_first_infantry_1812","ask_order":25,"routine":"soldier","shift":0.5,"points":{"front":[1162.06,219.18,278.0],"yard":[1161.49,211.93,11.8],"front_end":[1161.36,214.23],"yard_end":[1161.6,214.43]}},
@@ -4691,7 +4850,7 @@
   {"person":"rc_sawyer_clarissa","name":"Clarissa Sawyer","home":"new_york_house","door":"new_york_house:front","asset_id":"flynn_mary_1835_dress_study","ask_order":20,"routine":"woman","shift":0.0,"points":{"front":[296.92,-101.01,180.5],"yard":[294.43,-99.64,82.0],"front_end":[301.92,-101.05],"yard_end":[296.08,-101.52]}},
   {"person":"rc_sawyer_eliza","name":"Eliza Sawyer","home":"recon_1835_blk_washington_lasalle_h1_03","door":"recon_1835_blk_washington_lasalle_h1_03:front","asset_id":"flynn_mary_1835_dress_study","ask_order":10,"routine":"lady","shift":-0.25,"points":{"front":[521.09,-407.08,0.4],"yard":[520.1,-407.52,103.2],"front_end":[516.09,-407.05],"yard_end":[520.92,-405.16]}},
   {"person":"rc_sawyer_horace","name":"Horace Sawyer","home":"recon_1835_north_h2_028","door":"recon_1835_north_h2_028:front","asset_id":"mahoney_patrick_1835","ask_order":20,"routine":"labourer","shift":0.25,"points":{"front":[931.16,352.14,0.0],"yard":[927.78,353.1,130.0],"front_end":[926.16,352.14],"yard_end":[928.61,355.46]}},
-  {"person":"rc_sawyer_maria","name":"Maria Sawyer","home":"brown_boarding_house","door":"brown_boarding_house:front","asset_id":"flynn_mary_1835_dress_study","ask_order":20,"routine":"woman","shift":0.0,"points":{"front":[428.97,-22.26,0.0],"yard":[426.17,-21.3,135.5],"front_end":[433.97,-22.26],"yard_end":[426.69,-18.85]}},
+  {"person":"rc_sawyer_maria","name":"Maria Sawyer","home":"brown_boarding_house","door":"brown_boarding_house:front","asset_id":"flynn_mary_1835_dress_study","ask_order":20,"routine":"woman","shift":0.0,"points":{"front":[428.97,-22.26,0.0],"yard":[426.17,-21.3,135.5],"front_end":[433.97,-22.26],"yard_end":[428.62,-21.82]}},
   {"person":"rc_sawyer_ruth","name":"Ruth Sawyer","home":"recon_1835_south_d1_032","door":"recon_1835_south_d1_032:front","asset_id":"flynn_mary_1835_dress_study","ask_order":12,"routine":"woman","shift":0.75,"points":{"front":[662.11,-187.88,0.1],"yard":[660.21,-186.92,141.9],"front_end":[657.11,-187.87],"yard_end":[660.75,-184.48]}},
   {"person":"rc_sawyer_ruth_1","name":"Emily Sawyer","home":"recon_1835_south_d1_032","door":"recon_1835_south_d1_032:front","asset_id":"flynn_mary_1835_dress_study","ask_order":20,"routine":"woman","shift":-0.75,"points":{"front":[662.93,-187.88,0.1],"yard":[660.21,-186.92,141.9],"front_end":[667.93,-187.89],"yard_end":[660.93,-184.53]}},
   {"person":"rc_sawyer_ruth_2","name":"Alanson Sawyer","home":"recon_1835_south_d1_032","door":"recon_1835_south_d1_032:front","asset_id":"mahoney_patrick_1835","ask_order":25,"routine":"lad","shift":0.75,"points":{"front":[662.52,-187.88,0.1],"yard":[663.13,-186.92,218.1],"front_end":[667.52,-187.89],"yard_end":[664.55,-184.87]}},
@@ -4847,7 +5006,7 @@
   {"person":"rc_tobin_patrick","name":"Patrick Tobin","home":"fort_dearborn_barracks","door":"fort_dearborn_barracks:front","asset_id":"private_first_infantry_1812","ask_order":10,"routine":"soldier","shift":-0.5,"points":{"front":[1161.85,217.69,278.0],"yard":[1163.4,225.57,184.2],"front_end":[1162.55,222.64],"yard_end":[1163.92,228.02]}},
   {"person":"rc_trall_e_l_child_1","name":"James Trall","home":"recon_1835_blk_south_water_wells_d4_03","door":"recon_1835_blk_south_water_wells_d4_03:front","asset_id":"child_toddler_1812","ask_order":25,"routine":"child","shift":0.25,"points":{"front":[401.48,-96.38,180.3],"yard":[399.52,-97.34,41.7],"front_end":[396.48,-96.35],"yard_end":[401.97,-96.83]},"age_1835":2,"caregivers":["rc_trall_e_l_wife","trall_e_l","rc_bertrand_baptiste"],"supervised":true},
   {"person":"rc_trall_e_l_child_2","name":"Sophronia Trall","home":"recon_1835_blk_south_water_wells_d4_03","door":"recon_1835_blk_south_water_wells_d4_03:front","asset_id":"child_toddler_1812","ask_order":25,"routine":"child","shift":0.75,"points":{"front":[402.45,-96.39,180.3],"yard":[399.52,-97.34,41.7],"front_end":[397.45,-96.36],"yard_end":[401.07,-95.38]},"age_1835":2,"caregivers":["rc_trall_e_l_wife","trall_e_l","rc_bertrand_baptiste"],"supervised":true},
-  {"person":"rc_trall_e_l_wife","name":"Harriet Trall","home":"recon_1835_blk_south_water_wells_d4_03","door":"recon_1835_blk_south_water_wells_d4_03:front","asset_id":"flynn_mary_1835_dress_study","ask_order":12,"routine":"woman","shift":0.75,"points":{"front":[400.23,-96.38,180.3],"yard":[399.52,-97.34,41.7],"front_end":[395.23,-96.35],"yard_end":[401.98,-96.88]}},
+  {"person":"rc_trall_e_l_wife","name":"Harriet Trall","home":"recon_1835_blk_south_water_wells_d4_03","door":"recon_1835_blk_south_water_wells_d4_03:front","asset_id":"flynn_mary_1835_dress_study","ask_order":12,"routine":"woman","shift":0.75,"points":{"front":[400.23,-96.38,180.3],"yard":[399.52,-97.34,41.7],"front_end":[396.73,-96.36],"yard_end":[401.98,-96.88]}},
   {"person":"rc_trottier_baptiste","name":"Baptiste Trottier","home":"recon_1835_blk_washington_clark_h3_11","door":"recon_1835_blk_washington_clark_h3_11:front","asset_id":"child_boy_1812","ask_order":10,"routine":"child","shift":0.25,"points":{"front":[596.59,-404.74,0.4],"yard":[600.39,-404.61,247.5],"front_end":[591.59,-404.71],"yard_end":[601.8,-402.54]},"age_1835":11,"caregivers":["rc_cobb_rufus","rc_fairbanks_abner","rc_fisk_charles","rc_goodrich_otis"],"supervised":true},
   {"person":"rc_trottier_joseph","name":"Joseph Trottier","home":"recon_1835_blk_washington_dearborn_h3_01","door":"recon_1835_blk_washington_dearborn_h3_01:front","asset_id":"settler_1812","ask_order":20,"routine":"labourer","shift":0.25,"points":{"front":[746.59,-405.96,0.4],"yard":[745.03,-405.79,114.5],"front_end":[741.59,-405.93],"yard_end":[746.34,-403.66]}},
   {"person":"rc_trottier_medard","name":"Medard Trottier","home":"recon_1835_blk_washington_clark_h3_11","door":"recon_1835_blk_washington_clark_h3_11:front","asset_id":"child_toddler_1812","ask_order":25,"routine":"child","shift":0.25,"points":{"front":[597.52,-404.75,0.4],"yard":[600.39,-404.61,247.5],"front_end":[592.52,-404.72],"yard_end":[601.63,-402.44]},"age_1835":3,"caregivers":["rc_cobb_rufus","rc_fairbanks_abner","rc_fisk_charles","rc_goodrich_otis"],"supervised":true},
@@ -4953,7 +5112,7 @@
   {"person":"rc_wilcox_esther_2","name":"Ruth Wilcox","home":"recon_1835_blk_washington_clinton_h1_05","door":"recon_1835_blk_washington_clinton_h1_05:front","asset_id":"child_girl_1812","ask_order":25,"routine":"child","shift":-0.75,"points":{"front":[-164.95,-497.64,90.1],"yard":[-163.98,-498.95,315.3],"front_end":[-164.94,-492.64],"yard_end":[-162.24,-497.16]},"age_1835":10,"caregivers":["adams_james","rc_wilcox_esther","rc_chapin_anna","baldwin_eimer"],"supervised":true},
   {"person":"rc_wilcox_esther_4","name":"Elisha Wilcox","home":"recon_1835_blk_washington_clinton_h1_05","door":"recon_1835_blk_washington_clinton_h1_05:front","asset_id":"child_boy_1812","ask_order":25,"routine":"child","shift":0.0,"points":{"front":[-164.95,-495.67,90.1],"yard":[-164.78,-498.95,330.5],"front_end":[-164.96,-500.67],"yard_end":[-163.84,-496.63]},"age_1835":7,"caregivers":["adams_james","rc_wilcox_esther","rc_chapin_anna","baldwin_eimer"],"supervised":true},
   {"person":"rc_wilcox_esther_5","name":"William Wilcox","home":"recon_1835_blk_washington_clinton_h1_05","door":"recon_1835_blk_washington_clinton_h1_05:front","asset_id":"child_boy_1812","ask_order":25,"routine":"child","shift":0.25,"points":{"front":[-164.95,-498.22,90.1],"yard":[-163.98,-495.12,223.9],"front_end":[-164.96,-503.22],"yard_end":[-163.87,-492.62]},"age_1835":8,"caregivers":["adams_james","rc_wilcox_esther","rc_chapin_anna","baldwin_eimer"],"supervised":true},
-  {"person":"rc_wilcox_ezra","name":"Ezra Wilcox","home":"brown_boarding_house","door":"brown_boarding_house:front","asset_id":"mahoney_patrick_1835","ask_order":20,"routine":"labourer","shift":0.75,"points":{"front":[429.01,-22.26,0.0],"yard":[426.17,-22.1,120.1],"front_end":[434.01,-22.26],"yard_end":[426.61,-19.64]}},
+  {"person":"rc_wilcox_ezra","name":"Ezra Wilcox","home":"brown_boarding_house","door":"brown_boarding_house:front","asset_id":"mahoney_patrick_1835","ask_order":20,"routine":"labourer","shift":0.75,"points":{"front":[429.01,-22.26,0.0],"yard":[426.17,-22.1,120.1],"front_end":[434.01,-22.26],"yard_end":[428.63,-22.54]}},
   {"person":"rc_wilcox_harriet","name":"Harriet Wilcox","home":"recon_1835_south_h1_029","door":"recon_1835_south_h1_029:front","asset_id":"flynn_mary_1835_dress_study","ask_order":10,"routine":"woman","shift":0.0,"points":{"front":[535.76,-186.9,359.8],"yard":[539.42,-186.73,244.8],"front_end":[540.76,-186.88],"yard_end":[541.17,-184.94]}},
   {"person":"rc_wilcox_harriet_1","name":"Rhoda Wilcox","home":"recon_1835_south_h1_029","door":"recon_1835_south_h1_029:front","asset_id":"child_girl_1812","ask_order":25,"routine":"child","shift":0.0,"points":{"front":[537.34,-186.9,359.8],"yard":[535.26,-185.94,134.5],"front_end":[532.34,-186.92],"yard_end":[536.46,-183.75]},"age_1835":9,"caregivers":["rc_wilcox_harriet","rc_wilcox_harriet_2","rc_kripes_edward_wife","codding_sally"],"supervised":true},
   {"person":"rc_wilcox_harriet_2","name":"Sarah Wilcox","home":"recon_1835_south_h1_029","door":"recon_1835_south_h1_029:front","asset_id":"flynn_mary_1835_dress_study","ask_order":25,"routine":"girl","shift":0.75,"points":{"front":[536.1,-186.9,359.8],"yard":[539.42,-186.73,244.8],"front_end":[531.1,-186.92],"yard_end":[539.52,-184.23]}},
@@ -5007,7 +5166,7 @@
   {"person":"rc_woodruff_ruth_7","name":"Sophronia Woodruff","home":"recon_1835_blk_randolph_dearborn_d1_04","door":"recon_1835_blk_randolph_dearborn_d1_04:front","asset_id":"flynn_mary_1835_dress_study","ask_order":25,"routine":"girl","shift":0.5,"points":{"front":[749.94,-379.33,180.4],"yard":[748.1,-380.28,38.8],"front_end":[754.94,-379.36],"yard_end":[750.13,-378.82]}},
   {"person":"rc_woodruff_sarah","name":"Sarah Woodruff","home":"recon_1835_blk_west_randolph_des_plaines_d5_04","door":"recon_1835_blk_west_randolph_des_plaines_d5_04:front","asset_id":"flynn_mary_1835_dress_study","ask_order":10,"routine":"lady","shift":-0.5,"points":{"front":[-409.13,-361.63,90.5],"yard":[-409.6,-364.9,348.1],"front_end":[-409.09,-356.63],"yard_end":[-409.25,-362.42]}},
   {"person":"reed_s_w","name":"S W Reed","home":"recon_1835_north_d4_079","door":"recon_1835_north_d4_079:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":-0.75,"points":{"front":[549.97,236.7,0.0],"yard":[552.78,237.66,222.3],"front_end":[554.97,236.7],"yard_end":[553.53,240.04]},"provenance":{"sources":["chicago_democrat_1833_1835","fergus_chicago_directory_1843","norris_directory_1844"]}},
-  {"person":"reed_thomas","name":"Thomas Reed","home":"recon_1835_north_h2_022","door":"recon_1835_north_h2_022:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":0.0,"points":{"front":[874.8,218.24,180.0],"yard":[872.98,217.28,47.4],"front_end":[879.8,218.24],"yard_end":[875.31,218.19]},"provenance":{"sources":["chicago_democrat_1833_1835","chicago_voter_lists_1833_1835_irad","isa_public_domain_land_tract_sales"]}},
+  {"person":"reed_thomas","name":"Thomas Reed","home":"recon_1835_north_h2_022","door":"recon_1835_north_h2_022:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"teamster","shift":0.0,"points":{"front":[874.8,218.24,180.0],"yard":[872.98,217.28,47.4],"front_end":[879.8,218.24],"yard_end":[875.31,218.19]},"provenance":{"sources":["chicago_democrat_1833_1835","chicago_voter_lists_1833_1835_irad","isa_public_domain_land_tract_sales"]}},
   {"person":"reed_william","name":"William Reed","home":"recon_1835_north_d2_091","door":"recon_1835_north_d2_091:front","asset_id":"bardwell_otis_1835","ask_order":10,"routine":"lad","shift":-0.75,"points":{"front":[880.43,365.0,0.0],"yard":[881.04,366.0,208.7],"front_end":[875.43,365.0],"yard_end":[882.57,367.98]},"provenance":{"sources":["chicago_democrat_1833_1835","fergus_chicago_directory_1843","norris_directory_1844"]}},
   {"person":"reeder_henry","name":"Henry Reeder","home":"recon_1835_blk_south_water_dearborn_h1_03","door":"recon_1835_blk_south_water_dearborn_h1_03:front","asset_id":"settler_1812","ask_order":10,"routine":"labourer","shift":-0.75,"points":{"front":[773.38,-99.92,180.4],"yard":[771.25,-100.07,64.1],"front_end":[778.38,-99.95],"yard_end":[773.74,-100.34]},"provenance":{"sources":["chicago_democrat_1833_1835"]}},
   {"person":"reel_absolam","name":"Absolam Reel","home":"recon_1835_blk_randolph_wells_h2_01","door":"recon_1835_blk_randolph_wells_h2_01:front","asset_id":"settler_1812","ask_order":10,"routine":"lad","shift":-0.75,"points":{"front":[354.38,-270.9,0.3],"yard":[351.09,-270.72,117.1],"front_end":[349.38,-270.87],"yard_end":[351.79,-268.32]},"provenance":{"sources":["chicago_democrat_1833_1835"]}},
@@ -5220,7 +5379,7 @@
   {"person":"todd_hugh","name":"Hugh Todd","home":"recon_1835_north_d4_018","door":"recon_1835_north_d4_018:front","asset_id":"settler_1812","ask_order":10,"routine":"labourer","shift":0.5,"points":{"front":[800.25,174.06,180.0],"yard":[798.52,173.89,57.7],"front_end":[795.25,174.06],"yard_end":[800.77,174.97]},"provenance":{"sources":["chicago_democrat_1833_1835"]}},
   {"person":"torry_d_v_s","name":"D. V. S. Torry","home":"recon_1835_north_d6_044","door":"recon_1835_north_d6_044:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":0.25,"points":{"front":[1210.96,366.17,0.0],"yard":[1211.75,366.33,239.5],"front_end":[1215.96,366.17],"yard_end":[1212.59,368.68]},"provenance":{"sources":["chicago_democrat_1833_1835"]}},
   {"person":"townsend_c_e","name":"C. E. Townsend","home":"recon_1835_blk_washington_market_h1_07","door":"recon_1835_blk_washington_market_h1_07:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":0.75,"points":{"front":[106.73,-404.72,0.3],"yard":[109.1,-403.77,230.3],"front_end":[111.73,-404.75],"yard_end":[110.02,-401.44]},"provenance":{"sources":["chicago_democrat_1833_1835"]}},
-  {"person":"trall_e_l","name":"E L Trall","home":"recon_1835_blk_south_water_wells_d4_03","door":"recon_1835_blk_south_water_wells_d4_03:front","asset_id":"settler_1812","ask_order":10,"routine":"labourer","shift":0.25,"points":{"front":[400.29,-96.38,180.3],"yard":[402.65,-97.36,322.0],"front_end":[395.29,-96.35],"yard_end":[404.75,-96.0]},"provenance":{"sources":["chicago_voter_lists_1833_1835_irad"]}},
+  {"person":"trall_e_l","name":"E L Trall","home":"recon_1835_blk_south_water_wells_d4_03","door":"recon_1835_blk_south_water_wells_d4_03:front","asset_id":"settler_1812","ask_order":10,"routine":"labourer","shift":0.25,"points":{"front":[400.29,-96.38,180.3],"yard":[402.65,-97.36,322.0],"front_end":[396.79,-96.36],"yard_end":[404.01,-99.46]},"provenance":{"sources":["chicago_voter_lists_1833_1835_irad"]}},
   {"person":"trimble_edward","name":"Edward Trimble","home":"recon_1835_north_d4_025","door":"recon_1835_north_d4_025:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":0.25,"points":{"front":[806.78,294.22,180.0],"yard":[806.47,293.25,327.7],"front_end":[801.78,294.22],"yard_end":[808.68,294.42]},"provenance":{"sources":["chicago_democrat_1833_1835"]}},
   {"person":"troutman_james","name":"James Troutman","home":"recon_1835_blk_randolph_franklin_d1_06","door":"recon_1835_blk_randolph_franklin_d1_06:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":0.25,"points":{"front":[257.96,-373.83,180.3],"yard":[255.26,-374.77,35.1],"front_end":[262.96,-373.86],"yard_end":[257.51,-373.68]},"provenance":{"sources":["chicago_democrat_1833_1835"]}},
   {"person":"trowbridge_g_g","name":"G G Trowbridge","home":"recon_1835_blk_washington_clark_h3_11","door":"recon_1835_blk_washington_clark_h3_11:front","asset_id":"mahoney_patrick_1835","ask_order":10,"routine":"labourer","shift":-0.25,"points":{"front":[598.59,-404.75,0.4],"yard":[600.38,-405.21,260.0],"front_end":[603.59,-404.78],"yard_end":[600.47,-402.71]},"provenance":{"sources":["chicago_voter_lists_1833_1835_irad"]}},

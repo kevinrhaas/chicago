@@ -1,0 +1,562 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Trades",
+  "menu_group": "Work",
+  "grade_band": "11-12",
+  "review_required": false,
+  "id": "boots-and-leather-grades-11-12",
+  "scene": "1835",
+  "title": "Boots, Leather and the Road",
+  "premise": "Equip a rider for tomorrow's journey: boots at Holbrook's on South Water Street, a view from Wolf Point toward Miller's tannery, where the town's leather originated, the saddler at Lake and Canal, and the Green Tree to assemble everything.",
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "afternoon",
+    "season": "spring"
+  },
+  "opening": {
+    "text": "JAUNT: BOOTS, LEATHER AND THE ROAD. On this spring afternoon the mud is finally drying, and you depart tomorrow. Strangers stream through this settlement \"by land and by water\", and the majority of them, like you, intend on \"locating farther west\". Before joining them you require an outfit, and an outfit fundamentally means leather: boots for the rider and tack for the horse.\n\nHere is the complication: in this town those constitute two distinct trades, practiced in two separate establishments on opposite banks of the river. Purchase boots on South Water Street, survey the tannery where Chicago's leather manufacturing originated, consult the saddler at Lake and Canal, and assemble everything at the Green Tree tonight.",
+    "read_s": 32
+  },
+  "variables": {
+    "wait": {
+      "min": 0,
+      "max": 1,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "inventory": {
+    "items": [
+      "boots",
+      "hat",
+      "bridle",
+      "trunk"
+    ],
+    "initial": [],
+    "capacity": 2
+  },
+  "stops": [
+    {
+      "id": "ready-made",
+      "destination": {
+        "kind": "structure",
+        "id": "john_holbrook_store"
+      },
+      "text": "Commence one door east of Dearborn on South Water Street. In June 1835 John Holbrook advertised hats, clothing, boots and shoes, wholesale and retail, as agent for the manufacturers, with fresh additions arriving every fifteen or twenty days. These are manufactured commodities, shipped from eastern workshops and sold from inventory, because in a settlement expanding this rapidly, nobody can afford to wait for a cobbler's custom work.",
+      "narrative": "Will it be boots for the journey, or a hat?",
+      "read_s": 22,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "john_holbrook_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_john_holbrook",
+          "label": "John Holbrook's business"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "The Chicago Democrat"
+        }
+      ],
+      "evidence": [
+        "holbrook-card",
+        "holbrook-made",
+        "holbrook-place",
+        "continuity",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "boots",
+          "label": "A pair of boots off the shelf",
+          "consequence": "Manufactured elsewhere and imported, like everything on his advertisement, so your feet are prepared for the journey.",
+          "effects": [
+            {
+              "op": "add",
+              "item": "boots",
+              "value": 1
+            }
+          ],
+          "next": "tannery"
+        },
+        {
+          "id": "hat",
+          "label": "A hat for the road",
+          "consequence": "The American's printing of the advertisement lists hats first, so the shoes you arrived in must suffice.",
+          "effects": [
+            {
+              "op": "add",
+              "item": "hat",
+              "value": 1
+            }
+          ],
+          "next": "tannery"
+        }
+      ]
+    },
+    {
+      "id": "tannery",
+      "destination": {
+        "kind": "anchor",
+        "id": "forks"
+      },
+      "text": "Across the South Branch to Wolf Point. On the far side of the North Branch, in 1831, John Miller constructed a log house on the point and operated it as a tannery, regarded as Chicago's first recorded factory, and Andreas identifies Benjamin Hall, tanner, as his partner from 1832. Before vessels delivered boots by the crate, leather here originated as hides soaking in a pit. Whether hides were still being processed this summer, no surviving source discloses.",
+      "narrative": "Leather must originate as hides somewhere, and here it originated on the point.",
+      "read_s": 24,
+      "action_s": 5,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "miller_tannery",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "miller_john",
+          "label": "John Miller"
+        },
+        {
+          "kind": "business",
+          "id": "biz_miller_john_tanner",
+          "label": "The tannery"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Read the Andreas source"
+        }
+      ],
+      "evidence": [
+        "wolf-point-view",
+        "tannery-built",
+        "tannery-1835",
+        "tannery-place",
+        "continuity",
+        "errand"
+      ],
+      "next": "saddler"
+    },
+    {
+      "id": "saddler",
+      "destination": {
+        "kind": "structure",
+        "id": "goss_cobb_saddlery"
+      },
+      "text": "South along the western bank to Lake and Canal, where Goss and Cobb established their shop in 1833, the year Silas B. Cobb arrived, manufacturing saddles, harness, bridles, martingales and trunks to order and guaranteeing that repairing would be immediately attended to. The partnership dissolved in February 1835, and Cobb's June advertisement announces that he will continue independently. Neither printed advertisement mentions boots or shoes.",
+      "narrative": "Will you purchase leather for the horse, or for the baggage?",
+      "read_s": 22,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "goss_cobb_saddlery",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_s_b_cobb_saddle_harness_and_trunk_manufactory",
+          "label": "S. B. Cobb's card"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_american_1835",
+          "label": "Read the American source"
+        }
+      ],
+      "evidence": [
+        "cobb-trade",
+        "cobb-continues",
+        "cobb-corner",
+        "not-boots",
+        "continuity",
+        "errand",
+        "mk-1833-arrivals"
+      ],
+      "choices": [
+        {
+          "id": "bridle",
+          "label": "Order a new bridle",
+          "consequence": "Bridles appear on the advertisement, and Cobb guarantees one by morning.",
+          "effects": [
+            {
+              "op": "add",
+              "item": "bridle",
+              "value": 1
+            }
+          ],
+          "next": "road"
+        },
+        {
+          "id": "trunk",
+          "label": "Order a trunk",
+          "consequence": "Trunks appear on the advertisement as well, although a trunk travels in a wagon rather than on a saddle.",
+          "effects": [
+            {
+              "op": "add",
+              "item": "trunk",
+              "value": 1
+            }
+          ],
+          "next": "road"
+        },
+        {
+          "id": "ask-boots",
+          "label": "Ask the saddler for boots",
+          "consequence": "That falls outside his trade: his advertisement specifies saddles, harness, bridles, martingales and trunks, whereas boots and shoes were Holbrook's merchandise, back across the river.",
+          "when": {
+            "not": {
+              "has": "boots"
+            }
+          },
+          "next": "road"
+        }
+      ]
+    },
+    {
+      "id": "road",
+      "destination": {
+        "kind": "structure",
+        "id": "green_tree_tavern"
+      },
+      "text": "East along Lake to West Water and the Green Tree, which James Kinzie constructed in 1833 as the first building here erected for hotel purposes, \"so called from an oak tree standing close by\". Early settlers recalled Chester Ingersoll operating it from 1834 to 1837, and it endured until 1880, when it was relocated to Milwaukee Avenue. Arrange the outfit on the floor for the morning.",
+      "narrative": "Will you depart at first light, or delay another day?",
+      "read_s": 21,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "green_tree_tavern",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "ingersoll_chester",
+          "label": "Chester Ingersoll"
+        },
+        {
+          "kind": "source",
+          "id": "chicagology_prefire127",
+          "label": "Read the source"
+        }
+      ],
+      "evidence": [
+        "green-tree",
+        "green-tree-place",
+        "continuity",
+        "errand",
+        "mk-green-tree"
+      ],
+      "choices": [
+        {
+          "id": "ride",
+          "label": "Ride out at first light",
+          "consequence": "The outfit is whatever it is, complete or otherwise incomplete.",
+          "next": "$end"
+        },
+        {
+          "id": "wait",
+          "label": "Stay a day and finish the outfit",
+          "consequence": "Another night at the Green Tree, and another day's procurement.",
+          "when": {
+            "not": {
+              "all": [
+                {
+                  "has": "boots"
+                },
+                {
+                  "has": "bridle"
+                }
+              ]
+            }
+          },
+          "effects": [
+            {
+              "op": "set",
+              "var": "wait",
+              "value": 1
+            }
+          ],
+          "next": "$end"
+        }
+      ]
+    }
+  ],
+  "legs": [
+    {
+      "from": "ready-made",
+      "to": "tannery",
+      "note": "West along South Water Street and over the South Branch to Wolf Point.",
+      "evidence": [
+        "holbrook-place",
+        "wolf-point-view"
+      ],
+      "story": "Whatever you purchased rides in front of you across the saddle.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "tannery",
+      "to": "saddler",
+      "note": "South down the west bank to Lake and Canal.",
+      "evidence": [
+        "wolf-point-view",
+        "cobb-corner"
+      ]
+    },
+    {
+      "from": "saddler",
+      "to": "road",
+      "note": "East along Lake Street to West Water, on the west bank of the South Branch.",
+      "evidence": [
+        "green-tree-place"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "another-day",
+      "text": "Another day in town, then. Whatever the outfit lacks is advertised somewhere along these streets, and the road will wait, because a day's delay is not equivalent to being unprepared.",
+      "read_s": 9,
+      "completion_eligible": true,
+      "when": {
+        "var": "wait",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "equipped",
+      "text": "Boots from the clothier and a bridle from the saddler: leather for the rider and leather for the horse, from two specialized trades that never encroached upon each other's work. You depart at first light, equipped to travel.",
+      "read_s": 11,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "has": "boots"
+          },
+          {
+            "has": "bridle"
+          }
+        ]
+      }
+    },
+    {
+      "id": "trunk-bound",
+      "text": "A trunk will not ride on a saddle, so the morning commences with locating a wagon traveling your direction: the baggage is prepared, but the means of transporting it is not.",
+      "read_s": 8,
+      "completion_eligible": true,
+      "when": {
+        "has": "trunk"
+      }
+    },
+    {
+      "id": "half-ready",
+      "text": "You depart with what you possess. Boots for the rider and a bridle for the horse constituted the outfit's two leathers, one from each trade, and whatever is missing, the road will inevitably demand.",
+      "read_s": 9,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "Livelihood",
+    "id": "equipped-to-travel-grades-11-12",
+    "title": "Equipped to Travel",
+    "text": "A fictional tally of one rider's outfit: what came from the clothier, what from the saddler, and what was left behind. No authentic sale, price or customer of either shop is recorded on it."
+  },
+  "evidence": [
+    {
+      "id": "holbrook-card",
+      "text": "John Holbrook advertised clothing, boots and shoes, wholesale and retail, 'on South-Water st. one door from Dearborn street', signed himself agent for the manufacturers, and said he would be receiving additions to his assortment every fifteen or twenty days through the season; the American's printing adds hats.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835"
+      ],
+      "locator": "Chicago Democrat, 10 June 1835, p. 3, col. 2 (claim chicago_democrat_1835_06_10#c010, copy line 'Chicago, June 10, 1835'); Chicago American, 13 June 1835, p. 3, col. 6 (claim chicago_american_1835_06_13#c012). Transcription-mediated readings."
+    },
+    {
+      "id": "holbrook-made",
+      "text": "Holbrook's stock was made clothing sold from stock, not a tailoring service.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835"
+      ],
+      "reasoning": "An agent for the manufacturers who keeps 'a large assortment of the named articles' and restocks by shipment is selling finished goods made elsewhere. The card names no cutting, measuring, fitting or making to order, so the stop claims none; that the goods were ready-made is read from the card's words, not stated in them."
+    },
+    {
+      "id": "holbrook-place",
+      "text": "The store stood on the south side of South Water Street, one door east of Dearborn; the side of Dearborn is a reading and the building is reconstructed.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835"
+      ],
+      "reasoning": "Both printings give 'one door from Dearborn' on South Water Street. The structure record reads the door count as the next front east of the Chicago American's corner office under the owner's corner-ordinal ruling, because that makes three addresses printed on this face consistent; its size and form are borrowed from neighbours on the face and graded reconstructed."
+    },
+    {
+      "id": "tannery-built",
+      "text": "In 1831 John Miller built a log house near his brother's tavern that he used as a tannery, called Chicago's first recorded factory; Andreas has him run a tannery just north of Miller's tavern, and names Benjamin Hall, tanner, a partner of John Miller, who came in 1832.",
+      "confidence": "attested",
+      "sources": [
+        "drloih_wolf_point",
+        "andreas_1884_v1"
+      ],
+      "locator": "DRLOIH, 'The Beginning of Wolf Point', the 1831 sentence on John Miller's log house ('Chicago's first recorded factory'); Andreas vol. 1, printed p. 132 (scan p. 281), the list of the denizens of the town in the fall of 1833, the John Miller and Benjamin Hall entries. The readings are the structure record miller_tannery's."
+    },
+    {
+      "id": "tannery-1835",
+      "text": "Whether the tannery was still working on 1 July 1835 is not attested; the log house is taken to stand on the scene date, and its tanyard is not modelled.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_wolf_point",
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Follows the structure record miller_tannery: nothing reached follows the building past 1832, so it stands on the ordinary continuity argument and its function states what it was for, not what it was doing. The stop says so in so many words and claims no hides, pits or workers on the day."
+    },
+    {
+      "id": "tannery-place",
+      "text": "The tannery stood on the north bank at the forks, on the point between the North Branch and the main stem, just north of Samuel Miller's tavern; the separation from the tavern is invented.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "drloih_wolf_point"
+      ],
+      "reasoning": "Andreas gives the direction ('just north of Miller's tavern') and DRLOIH the proximity; the structure record places the log house against this project's own miller_house record with an invented 11.5 m separation, about 40 m working uncertainty. The stop says 'at the forks' and claims no door."
+    },
+    {
+      "id": "wolf-point-view",
+      "text": "The second stop is the scene's typed viewpoint 'The forks, from Wolf Point', on the west bank where the North and South Branches meet; the tannery as the scene places it stands about 155 m to the north-east, across the North Branch. The viewpoint is a camera position, not a claimed path or a place anyone stood.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_wolf_point"
+      ],
+      "reasoning": "DRLOIH puts Wolf Point on the west bank at the forks. The anchor stands at local E -100, N -28 in data/scenes/1835.json and miller_tannery's placement at E +14, N +78, so the tannery is seen across the water rather than reached; the tannery's own place is the separate tannery-place reading."
+    },
+    {
+      "id": "cobb-trade",
+      "text": "Goss & Cobb advertised that they had opened a saddle and harness shop on the corner of Lake and Canal streets, making saddles, harness, bridles, martingales and trunks to order, and that repairing would be immediately attended to when brought to their shop.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26"
+      ],
+      "locator": "26 Nov 1833 (Vol. I No. 1), p. 3, col. 4, the advertisement headed 'Saddle & Harness Making' (extracted claim chicago_democrat_1833_11_26#c019), read from the scan; the full reading is on the structure record goss_cobb_saddlery."
+    },
+    {
+      "id": "cobb-continues",
+      "text": "The Goss & Cobb partnership was dissolved on 18 February 1835, and S. B. Cobb's card printed beside the notice says he will continue the business at his shop.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_american_1835"
+      ],
+      "locator": "13 June 1835, p. 3, col. 6: dissolution notice dated 'Chicago, Feb. 18, 1835' (extracted claim chicago_american_1835_06_13#c015) and Cobb's continuation card (chicago_american_1835_06_13#c016). Transcription-mediated reading, checked against the structure record's reading of the page."
+    },
+    {
+      "id": "cobb-corner",
+      "text": "That Cobb's 1835 shop is the 1833 shop at Lake and Canal is reasoned, and which corner of the crossing it held is not attested.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "chicago_american_1835"
+      ],
+      "reasoning": "The American's 1835 cards keep the trade and name Lake Street but never resolve the cross street, so the structure record goss_cobb_saddlery identifies the two shops by argument and places the building on the south-east quadrant as a one-in-three choice. The stop says 'this corner' of the crossing and claims no front door."
+    },
+    {
+      "id": "not-boots",
+      "text": "Neither printing of the saddler's card names boots or shoes, and Holbrook's card names boots and shoes and no harness: on these two cards the rider's leather and the horse's leather are two trades in two shops.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "chicago_american_1835",
+        "chicago_democrat_1833_1835"
+      ],
+      "reasoning": "Read from the firms' own advertisements as the brief asks ('do not turn the saddler into a bootmaker'): Goss & Cobb list saddles, harness, bridles, martingales, trunks and repairing; Holbrook lists hats, clothing, boots and shoes. That the saddler would turn away a customer asking for boots is the ordinary reading of a card that does not offer them, not a recorded refusal."
+    },
+    {
+      "id": "green-tree",
+      "text": "James Kinzie built the Green Tree in 1833 as the first building in the place erected for hotel purposes; Chester Ingersoll is given as landlord 1834–1837.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire127",
+        "drloih_hotels"
+      ],
+      "locator": "chicagology pre-fire page 127, Green Tree Tavern: construction and landlords; DRLOIH hotel chronology, Green Tree entry."
+    },
+    {
+      "id": "mk-green-tree",
+      "text": "The Green Tree was 'so called from an oak tree standing close by', 'one of the most noted in those early days'; it stood until 1880, when it was moved to 33-37 Milwaukee Avenue, 'where it still stands, the oldest memento of early taverns'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 561, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 98792-98820 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-1833-arrivals",
+      "text": "Immigration in 1833 'assumed proportions surpassing all expectation'; the year's arrivals included John Dean Caton, Silas B. Cobb, Asahel Pierce and the Rev. Jeremiah Porter, and about 165 frame buildings went up.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 90, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12227-12245 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-immigrants",
+      "text": "In 1834 the strangers came 'by land and by water', in prairie schooners and other wagons, 'on horseback and on foot', and 'Many immigrants passed through the town with a view to locating farther west'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 94, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12724-12751 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "green-tree-place",
+      "text": "The Green Tree's corner is the north-east corner of Lake and West Water, on the west bank of the South Branch, east along Lake Street from the Canal Street crossing.",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire127",
+        "drloih_hotels"
+      ],
+      "reasoning": "The structure record green_tree_tavern places the tavern at Lake and West Water on the owner's ruling T-0141 (position inferred); West Water is the west-bank frontage, so the leg from Lake and Canal runs east along Lake."
+    },
+    {
+      "id": "continuity",
+      "text": "The four places are exterior stops in the 1 July 1835 scene. No interior, front door, tanner, saddler or clerk at work, keeper or customer on the day is claimed.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "drloih_wolf_point",
+        "chicago_american_1835",
+        "chicagology_prefire127"
+      ],
+      "reasoning": "Uses the structure records' own scene-date phases: Holbrook's card is dated 10 June 1835, the tannery stands on a continuity argument, Cobb's continuation card runs in June and July 1835, and Ingersoll's tenancy spans 1835. Every position is inferred. The stops speak of what each house or shop did, not of anyone met there."
+    },
+    {
+      "id": "errand",
+      "text": "The rider, the journey out tomorrow, the lodging at the Green Tree, the boots, hat, bridle and trunk, which was bought where, the question about boots, the decision to ride or wait, the endings, the timing inputs and the Equipped to Travel keepsake are invented connective narrative. Neither shop is claimed to have sold or made anything for this rider.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-boots-and-leather"
+    }
+  ],
+  "liberties": [
+    "L-jaunt-boots-and-leather",
+    "L-jaunt-1835-light-and-stories"
+  ],
+  "version_of": "boots-and-leather"
+}

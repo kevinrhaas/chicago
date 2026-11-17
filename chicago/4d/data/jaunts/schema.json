@@ -74,9 +74,9 @@
     },
     "content_warning": {
       "type": "string",
-      "minLength": 40,
-      "maxLength": 400,
-      "description": "Required when audience is adults: what the visitor will see, shown on the jaunt's card and its route preview before it starts."
+      "minLength": 8,
+      "maxLength": 120,
+      "description": "Required when audience is adults: a few words on what the visitor will see, the tooltip of the card's 18+ tag. The owner, 2026-11-16: no warning text on the card or in the telling."
     },
     "menu_rank": {
       "type": "integer",
@@ -982,14 +982,18 @@
                             {
                               "type": "number",
                               "minimum": 0.4,
-                              "maximum": 2.6
+                              "maximum": 6.0
                             },
                             {
                               "enum": [
                                 "walk",
                                 "brisk",
                                 "hurry",
-                                "slow"
+                                "slow",
+                                "jog",
+                                "run",
+                                "flee",
+                                "sprint"
                               ]
                             }
                           ]
@@ -1095,6 +1099,30 @@
                           },
                           "minItems": 2,
                           "maxItems": 2
+                        },
+                        "cross": {
+                          "type": "string",
+                          "pattern": "^[a-z0-9][a-z0-9_]*$",
+                          "maxLength": 90,
+                          "description": "T-3553: step into this drawn boat (data/boats/crossings_1812.json) and cross in it to its other bank, seated (renderers/web/js/crossings.js carry); the next beat `place`s the castmate on the far bank."
+                        },
+                        "borne": {
+                          "oneOf": [
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9_:]*$",
+                                "maxLength": 90
+                              },
+                              "minItems": 2,
+                              "maxItems": 6
+                            },
+                            {
+                              "const": false
+                            }
+                          ],
+                          "description": "T-3553: the dead carried on a bier by these castmates (person or extra ids, the front pair first), at their hands; false sets the bier down where it is."
                         }
                       },
                       "required": [
@@ -1166,6 +1194,15 @@
               "minItems": 1,
               "maxItems": 200
             },
+            "open_gates": {
+              "description": "T-3553: the fort's gates (fort-gates.js ids, `<structure>:<side>`) that stand open while the stage plays (a column marching out, a sally port in use); given back shut when it ends.",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+:[nesw]$"
+              },
+              "maxItems": 8
+            },
             "teams": {
               "description": "T-3553: the town's horse teams (data/transport/driven/loops.json rows, by id) this stage takes from their rounds for the scene: each team's vehicle root stands `at` a mark, faces `heading`, and walks its beats (`walk`, `pace`) as a castmate does; its own driver drives it. Given back to its round when the stage ends.",
               "type": "array",
@@ -1218,14 +1255,18 @@
                             {
                               "type": "number",
                               "minimum": 0.4,
-                              "maximum": 2.6
+                              "maximum": 6.0
                             },
                             {
                               "enum": [
                                 "walk",
                                 "brisk",
                                 "hurry",
-                                "slow"
+                                "slow",
+                                "jog",
+                                "run",
+                                "flee",
+                                "sprint"
                               ]
                             }
                           ]

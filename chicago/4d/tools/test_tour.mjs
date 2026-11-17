@@ -50,7 +50,9 @@ assert(!/Esc/.test(STEPS[4].bubble({ touch: true })), 'a phone has no Esc key');
 assert.equal(STEPS[4].target({ card: true }), '#popup:not([hidden]) .pop-close', 'release rings the card\'s Close');
 assert.equal(STEPS[4].target({}), '#nav-app-inspect .insp-back', 'or Inspect\'s Back (T-3022)');
 assert.equal(STEPS[5].target({ touch: true, level: 0 }), '#navigator', 'on a docked phone, Move rings the dock first');
-assert.equal(STEPS[5].target({ touch: true, level: 1 }), '#navigator .nav-app[data-app="move"]', 'then the rail key');
+// T-3629: Move left the rail for Home's Move tile; the ring goes to Home's key, then the tile.
+assert.equal(STEPS[5].target({ touch: true, level: 1 }), '#navigator .nav-app[data-app="home"]', 'then the Home key');
+assert.equal(STEPS[5].target({ touch: true, level: 1, app: 'home' }), '#nav-tile-move', 'then Home\'s Move tile');
 assert.equal(STEPS[6].target({ touch: true, level: 1 }), '#navigator .nav-app[data-app="people"]', 'People rings its rail key');
 assert.match(STEPS[6].bubble({ scene: '1904' }), /^Open People on the rail: .*follow them\.$/, 'in 1904 People says Follow (T-3404)');
 assert.doesNotMatch(STEPS[6].bubble({ scene: '1835' }), /follow/i, 'and nowhere a person cannot be followed');
@@ -103,7 +105,7 @@ page.selected = false; tour.tick(); assert.equal(tour.step, 5, 'released');
 assert.equal(views.at(-1).target, '#navigator');
 page.level = 1; tour.tick();
 assert.equal(tour.step, 5, 'opening the Navigator is not opening Move');
-assert.equal(views.at(-1).target, '#navigator .nav-app[data-app="move"]', 'the ring moves to the Move key');
+assert.equal(views.at(-1).target, '#navigator .nav-app[data-app="home"]', 'the ring moves to the Home key, where Move\'s tile is (T-3629)');
 openApp('move'); tour.tick(); assert.equal(tour.step, 6, 'Move opened');
 
 // 07: People (T-3445), opened during the step.
