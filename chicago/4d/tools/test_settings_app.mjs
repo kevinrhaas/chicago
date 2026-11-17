@@ -31,14 +31,15 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   // Look (Look, Movement), Graphics (Performance), Sound, About — and Research last (the owner,
   // 2026-11-12: "the research mode should be at the end").
   // T-3629: Show holds two groups, On screen and The town.
-  assert.deepEqual(heads, ['Display', 'Appearance', 'Units', 'On screen', 'The town', 'Look', 'Movement', 'Performance', 'Sound', 'About', 'Research'],
-    'Settings reads Display, Appearance, Units, On screen, The town, Look, Movement, Performance, Sound, About, Research');
+  assert.deepEqual(heads, ['Display', 'Appearance', 'Units', 'Your person', 'On screen', 'The town', 'Look', 'Movement', 'Performance', 'Sound', 'About', 'Research'],
+    'Settings reads Display, Appearance, Units, Your person, On screen, The town, Look, Movement, Performance, Sound, About, Research');
   // Every group names its tab, the tabs come in the bar's order, and What's new (a HUD section of
   // its own) sits between About and Research.
   const panes = [...settingsHtml.matchAll(/<div class="settings-group[^"]*"[^>]*?data-set-pane="(\w+)"/g)].map((m) => m[1]);
   assert.equal(panes.length, heads.length, 'every group names its tab');
   assert.deepEqual([...new Set(panes)], SETTINGS_TABS.filter((k) => k !== 'whatsnew'), 'the groups follow the tabs\' order');
-  assert.deepEqual(SETTINGS_TABS, ['display', 'show', 'look', 'graphics', 'sound', 'about', 'whatsnew', 'research']);
+  // T-3644: You (the visitor's own person) after Display.
+  assert.deepEqual(SETTINGS_TABS, ['display', 'you', 'show', 'look', 'graphics', 'sound', 'about', 'whatsnew', 'research']);
   assert.deepEqual(SETTINGS_TABS.slice(-2), ['whatsnew', 'research'], "What's new is one of the last tabs; Research is the last");
   assert.deepEqual([...SETTINGS_SECTIONS], ['settings', 'whatsnew']);
   assert.match(html, /<nav class="set-tabs" id="settings-tabs" role="tablist" aria-label="Settings" hidden><\/nav>/,
@@ -55,7 +56,7 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   const added = ['s-display', 's-theme', 's-text-size', 's-machine', 's-skins', 's-perf-auto', 's-perf-auto-line', 's-sound',
     's-sound-master', 's-sound-effects', 's-sound-ambience', 's-sound-music', 'v-sound-music', 'v-sound-master', 'v-sound-effects', 'v-sound-ambience',
     's-sound-effects-help', 's-sound-ambience-help', 's-open-whatsnew', 's-look-speed', 'v-look-speed', 's-look-speed-label',
-    's-look', 's-research', 's-researcher'];
+    's-look', 's-research', 's-researcher', 's-you', 's-person'];
   for (const id of [...kept, ...added]) {
     assert.equal((html.match(new RegExp(`id="${id}"`, 'g')) ?? []).length, 1, `#${id} is on the page once`);
     assert(settingsHtml.includes(`id="${id}"`), `#${id} is in Settings`);
@@ -205,7 +206,7 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   const bar = node('nav'); bar.id = 'settings-tabs'; byId.set(bar.id, bar); bar.hidden = true;
   const body = node('section');
   const groups = {};
-  for (const key of ['display', 'display', 'show', 'look', 'graphics', 'sound', 'about', 'research']) {
+  for (const key of ['display', 'display', 'you', 'show', 'look', 'graphics', 'sound', 'about', 'research']) {
     const g = node('div', body);
     g.dataset.setPane = key;
     (groups[key] ??= []).push(g);
@@ -223,7 +224,7 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   const buttons = bar.querySelectorAll('[data-set-tab]');
   assert.deepEqual(buttons.map((b) => b.dataset.setTab), [...SETTINGS_TABS], 'one button a tab, in order');
   assert.deepEqual(buttons.map((b) => b.children.find((c) => c.className === 'set-tab-label')?.textContent),
-    ['Display', 'Show', 'Look', 'Graphics', 'Sound', 'About', "What's new", 'Research']);
+    ['Display', 'You', 'Show', 'Look', 'Graphics', 'Sound', 'About', "What's new", 'Research']);
   assert(buttons.every((b) => b.getAttribute('role') === 'tab' && /<svg class="set-tab-icon"[^>]*stroke="currentColor"/.test(b.innerHTML)),
     'each an icon (one colour, currentColor) over its label');
   assert(byId.get('settings-whatsnew-dot')?.hidden === true, "What's new carries its unread dot, hidden until there is news");
@@ -234,7 +235,7 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   const shown = () => body.children.filter((g) => !g.hidden).map((g) => g.dataset.setPane);
   assert.deepEqual(selected(), ['display']);
   assert.deepEqual(shown(), ['display', 'display'], 'Display opens first, and only its groups show');
-  bar.fire('click', { target: buttons[2] });
+  bar.fire('click', { target: buttons[3] });
   assert.deepEqual([selected(), shown(), tabs.pane, scroll.scrollTop], [['look'], ['look'], 'look', 0], 'a tap shows its tab at its top');
   assert.deepEqual(asked, [], 'a tab inside Settings asks the HUD for nothing');
   tabs.select('whatsnew');
@@ -401,7 +402,7 @@ function fakePage() {
   assert.equal(applyTextScale(null, 1.2), 1.2);
 }
 
-console.log('SETTINGS APP PASS — eight icon tabs (Display, Show, Look, Graphics, Sound, About, What\'s new, Research last) with every id kept; '
+console.log('SETTINGS APP PASS — nine icon tabs (Display, You, Show, Look, Graphics, Sound, About, What\'s new, Research last) with every id kept; '
   + 'mouse / look sensitivity (Standard 1x, 0.2-3x) stored and read by both backends; '
   + 'light or dark is a two-way choice; text size 100–140 % applies and persists; Auto names and restores the device\'s levels; '
   + 'Sound\'s four levels persist and say what each covers; the machine tiles are each machine\'s own colours');

@@ -41,6 +41,7 @@ import { createRiderPose, saddleTargets } from './rider-pose.js';
 import { routeFor } from './transport-loop.js';
 import { footprintAt, overlaps } from './transport-crossings.js';
 import { footprintOfPose } from './team-drive.js';
+import { visitorActor } from './visitor-person.js';
 
 const DEG = Math.PI / 180;
 export const LOAD_M = 90, DROP_M = 140;
@@ -63,6 +64,20 @@ export const SADDLE_CAP = { full: 4, balanced: 3, light: 2 };
 const RIDER_ENVELOPE = [-.5, -1.2, .5, 1.75];   // horse and rider, left +x, ahead +z, plus a little
 const AHEAD_S = [0, 1.5, 3];
 const riderPrintRow = { envelope_local_xz_m: RIDER_ENVELOPE, root_ahead_of_rear_axle_m: 0 };
+
+/**
+ * T-3644: the saddle's fit for one body: `fit` with the body's own lines over it (`fit.bodies`).
+ * The women's bodies are wider at the hip than the men's the fit was made on, and sit a little
+ * deeper with the thigh rolled in (rider-pose.js `thighRoll`); nothing else changes.
+ */
+export function fitFor(fit, asset) {
+  const own = fit?.bodies?.[asset];
+  return own ? { ...fit, ...own } : fit;
+}
+/** rider-pose.js `apply`'s knee and thigh for a fit. */
+export function bodyPose(fit) {
+  return { knee: { forward: fit.knee_forward ?? .6, out: fit.knee_out ?? 1.2 }, thighRoll: fit.thigh_roll_rad ?? 0 };
+}
 
 /** T-3497's rule: outside [from, to) local hours (`to` may pass midnight); no hour, never. */
 export function offHours(hours, hour) {
@@ -224,7 +239,7 @@ export function leanAt(fit, level) {
 export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../', import.meta.url), interactions = null,
   standable, ground, visitor, humans = () => null, say = () => {}, reducedMotion = () => false, coarse = false,
   onMount = () => {}, problems = [], hour = () => null, season = () => 'summer', detail = () => 'full',
-  hidden = () => false, teams = () => [] }) {
+  hidden = () => false, teams = () => [], self = () => null }) {
   sceneId = String(sceneId);
   const json = async file => { const r = await fetch(new URL(file, dataBase)); if (!r.ok) throw Error(`riding ${file}: HTTP${r.status}`); return r.json(); };
   const config = await json('transport/riding/saddle_horses.json');
@@ -291,16 +306,21 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
   }
 
   /** The year's period figure in the saddle (an anonymous stand-in), posed by rider-pose.js. */
-  async function seatRider(h, { asset = config.rider.assets[sceneId], id = `rider:${h.row.id}`, why = config.rider.why } = {}) {
+  async function seatRider(h, { asset = config.rider.assets[sceneId], id = `rider:${h.row.id}`, why = config.rider.why, own = false } = {}) {
     const layer = humans();
     const b = h.built;
     if (!layer?.createActor || !b || b.rider) return b?.rider ?? null;
+    // T-3644: the visitor rides as their own person (visitor-person.js), chosen in Settings.
+    const me = own ? self() : null;
+    if (me?.asset(sceneId)) asset = me.asset(sceneId);
     const instance = { id, contract_version: 1, display: 'shown', scene: sceneId, appearance: { asset_id: asset },
       placement: { local_e: 0, local_n: 0, heading_deg: 180, anchor: 'terrain' }, behaviour: { state: 'seated' },
       animation: { clip: 'idle', loop: true, phase: 0 }, lod: { policy: 'fixed', fixed: coarse ? 2 : config.rider.lod },
       interaction: { opens: 'none', selectable: false },
       provenance: { grade: 'reconstructed', basis: why, liberty: config.liberty } };
-    const actor = layer.createActor(instance, { identity: { kind: 'anonymous', personId: null, person: null, profile: null, role: null } });
+    const actor = me?.asset(sceneId) ? await visitorActor(layer, me, sceneId, { id, state: 'seated', lod: coarse ? 2 : config.rider.lod, why, liberty: config.liberty })
+      : layer.createActor(instance, { identity: { kind: 'anonymous', personId: null, person: null, profile: null, role: null } });
+    if (h.built !== b || b.rider) { actor?.dispose(); return b.rider ?? null; }
     try {
       await actor.setLod(coarse ? 2 : config.rider.lod);
       if (!actor.body || h.built !== b) throw Error('riding: the rider did not load');
@@ -311,7 +331,7 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
       const pose = createRiderPose(actor.body.scene, actor.root);
       if (!pose) throw Error('riding: the rider is not the contract skeleton');
       for (const m of actor.body.meshes ?? []) m.frustumCulled = false;
-      b.rider = { actor, pose };
+      b.rider = { actor, pose, fit: fitFor(config.fit, asset) };
       return b.rider;
     } catch (error) { actor.dispose(); actor.root.removeFromParent(); throw error; }
   }
@@ -380,9 +400,10 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
   function poseRider(h) {
     const b = h.built, r = b?.rider;
     if (!r) return;
-    const lean = leanAt(fit, b.gait.level ?? b.gait.trot ?? 0);
-    const t = saddleTargets(b.tack, fit, { lean });
-    r.pose.apply(t.world(b.root));
+    const f = r.fit ?? fit;
+    const lean = leanAt(f, b.gait.level ?? b.gait.trot ?? 0);
+    const t = saddleTargets(b.tack, f, { lean });
+    r.pose.apply({ ...t.world(b.root), ...bodyPose(f) });
     b.tack.update(t.rootFrame(b.root, r.pose));
   }
 
@@ -431,7 +452,17 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
       cmd = { forward: 0, turn: 0, gear: 0 }; urged = { gear: 0 };
       view = 'behind';
       onMount(h, true);
-      try { await seatRider(h); } catch (error) { problems.push(`riding: ${error.message}`); }
+      try { await seatRider(h, { own: true }); } catch (error) { problems.push(`riding: ${error.message}`); }
+      if (riding === h) poseRider(h);
+      return true;
+    },
+
+    /** T-3644: the visitor changed their person in Settings: the figure in the saddle is re-made. */
+    async reseat() {
+      const h = riding, r = h?.built?.rider;
+      if (!h || !r) return false;
+      r.pose.release(); r.actor.dispose(); r.actor.root.removeFromParent(); h.built.rider = null;
+      try { await seatRider(h, { own: true }); } catch (error) { problems.push(`riding: ${error.message}`); }
       if (riding === h) poseRider(h);
       return true;
     },

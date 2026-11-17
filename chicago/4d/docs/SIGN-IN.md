@@ -103,12 +103,25 @@ service cloud.firestore {
         && request.resource.data.keys().hasOnly(['uid', 'email', 'method', 'year', 'device', 'at'])
         && request.resource.data.email is string && request.resource.data.email.size() <= 254;
     }
+    // T-3644: the visitor's own person (renderers/web/js/visitor-person.js), theirs alone.
+    match /people/{uid} {
+      allow read, delete: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['person', 'at'])
+        && request.resource.data.person is string && request.resource.data.person.size() <= 4000;
+    }
   }
 }
 ```
 
 `tools/test_sign_in.mjs` holds the fields `visitor-store.js` writes to the two
 `hasOnly` lists above, so a new field cannot ship without its rule.
+
+**The visitor's own person (T-3644)** is kept at `people/<uid>`: the choice made on the
+Settings card's You tab, as one JSON string, readable and writable by that visitor only.
+Until the rule above is pasted into the console the writes are refused and the choice
+stays on the device it was made on (the console says so once); nothing else changes.
+`tools/test_visitor_person.mjs` holds `visitor-person.js`'s write to the `hasOnly` list.
 
 ## Not done (yet)
 

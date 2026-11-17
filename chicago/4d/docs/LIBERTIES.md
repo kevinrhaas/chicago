@@ -44701,3 +44701,13 @@ The farm-box master's `photographic_acceptance` is set true on its record of mat
 **Ticket:** T-3558.
 **Review:** `data/transport/parked/placements.json` (`farm_box_w01`, `retired_yard_wagons`), `renderers/web/js/parked-transport.js` and `renderers/web/js/yard.js` (`retiredIds`), `tools/transport/check_parked_placements.py`.
 **Recorded:** 2026-11-17 (T-3558).
+
+### L-visitor-person-3644 — The visitor's own person, chosen in Settings
+
+**Decision:** the owner, 2026-11-17: *"the body you have riding the horse is a white man you will need to provide options for users in settings to change the gender appearance dress, etc. this becomes a person builder eventually but the foundation starts with customizing the default person"*. The Settings card's You tab lets a visitor choose who they are: a man or a woman, young, middle-aged or older, one of nine complexions, a face from the library or Auto, eyes, hair colour and cut, whiskers, and the dress of the year they are in. That person is the figure in the saddle. And, for a woman on a horse (his pick on a card the same day): *"Astride in 1812, sidesaddle later"*.
+**Not invented:** nothing about anybody. Every body, dress, face, complexion, cut and colour on offer is one the town's own people are already drawn with, each carrying its own liberty (L-face-library-3553, L-finery-3553, L-town-people-1835, the recipes' own); a year offers only the dress its townspeople wear.
+**Liberties within it:** the visitor is a person of no record: their looks, age and dress are the visitor's own choice, graded reconstructed. The lists are a selection (the bodies that sit a saddle without going into the horse). The default person (a man in a settler's dress in 1812 and 1835, a working man's in 1904, a light complexion and a face drawn as everyone's is) is the figure that rode before the choice existed. A woman rides astride in every year for now: right for a frontier woman of 1812, and a stand-in for the sidesaddle 1835 and 1904 ladies rode, which comes next.
+**Re-opens on:** the sidesaddle; colours of dress and more bodies (the person builder); the owner wanting other choices on offer.
+**Ticket:** T-3644.
+**Review:** `data/humans/visitor_person.json`, `renderers/web/js/visitor-person.js`, `renderers/web/js/person-settings.js`, `tools/test_visitor_person.mjs`.
+**Recorded:** 2026-11-17.

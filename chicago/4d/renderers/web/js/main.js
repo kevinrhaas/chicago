@@ -4399,6 +4399,8 @@ async function boot() {
       detail: () => detailLevel,
       hidden: () => confidence.hidden.reconstructed || !shownLayers.vehicles,
       teams: () => api.townTransport?.footprintsAhead?.([0, 1.5, 3], .3) ?? [],
+      // T-3644: the visitor rides as their own person.
+      self: () => api.person ?? null,
       onMount: (horse, on) => {
         if (!on) return;
         api.travel?.stop?.('riding');
@@ -4407,6 +4409,21 @@ async function boot() {
     })).then((ride) => { if (ride) { api.riding = ride; scene3d.add(ride.group); } })
       .catch((error) => { problems.push(`riding: ${error.message}`); });
   }
+
+  // T-3644 (Kevin, 2026-11-17: "provide options for users in settings to change the gender
+  // appearance dress, etc."): the visitor's own person, chosen on the Settings card's You tab and
+  // worn in the saddle (visitor-person.js, person-settings.js). Off the boot's path.
+  api.person = null;
+  void (async () => {
+    const [{ loadVisitorPerson }, { wirePersonSettings }, { createPersonPortrait }, { COMPLEXION_TINT }] = await Promise.all([
+      import('./visitor-person.js'), import('./person-settings.js'), import('./person-portrait.js'), import('./human-looks.js')]);
+    const person = await loadVisitorPerson({ dataBase: bases.dataBase, assetBase: bases.assetBase, storage: safeStorage(),
+      account: api.signIn?.account ?? null });
+    api.person = person;
+    const portrait = createPersonPortrait({ renderer, humans: () => api.humans ?? null, person, lod: 1 });
+    api.personSettings = wirePersonSettings({ doc: document, person, year: YEAR, portrait, tints: COMPLEXION_TINT });
+    person.onChange(() => { void api.riding?.reseat?.(); });
+  })().catch((error) => { problems.push(`person: ${error.message}`); });
 
   /** A structure's ground position in local ENU metres — footprint centroid where
    *  one is drawn, the placement otherwise. Go to measures distance from it;
