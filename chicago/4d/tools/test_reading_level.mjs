@@ -198,6 +198,22 @@ function makeDoc() {
   assert.equal(card.querySelectorAll('.reading-tabs').length, 0, 'the table gone: the row goes');
   assert.equal(p1.textContent, 'She came to the Glessners as a maid.', '…and the words as written come back');
   assert.equal(lookup('She came to the Glessners as a maid.'), null);
+
+  // A Design-tab line keeps its last word and grade dot in a span of their own, so the two never
+  // part at a wrap (inspect-design.js `tailed`); the tabs read and say the line as one string.
+  const dropLine = addTable([{ text: 'Its roof is a hipped roof of Pennsylvania slate.', own: '11-13', levels: { '8-10': 'Its roof slopes on all four sides. It is slate.' } }]);
+  const pane = doc.createElement('section');
+  const li = doc.createElement('li'); li.dataset.readingLine = '';
+  const tail = doc.createElement('span'); tail.className = 'sg-tail'; const gd = doc.createElement('i'); gd.className = 'fact-dot';
+  tail.append('slate.', gd); li.append('Its roof is a hipped roof of Pennsylvania ', tail); pane.append(li);
+  choice.set(['8-10']);
+  readingTabs(pane, { into: pane, choice });
+  assert.equal(li.textContent, 'Its roof slopes on all four sides. It is slate.', 'a split line is said at the age as one string');
+  assert.equal(tail.childNodes[0].data, 'slate.', '…its last word still in the tail');
+  assert.equal(tail.childNodes[1], gd, '…beside its grade dot');
+  pane.querySelectorAll('.reading-tab').find((b) => b.dataset.readingAge === '11-13').click();
+  assert.equal(li.textContent, 'Its roof is a hipped roof of Pennsylvania slate.', '…and given back as written');
+  dropLine();
   assert.equal(levelledIn(card).length, 0);
 }
 
@@ -247,6 +263,18 @@ function makeDoc() {
   const shown35 = new Set(JSON.parse(execFileSync('node', ['tools/reading_notes.mjs', '1835'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 << 20 })).notes.map(keyOf));
   assert(n35.length > 1700, 'the 1835 evidence notes are retold');
   for (const e of n35) assert(shown35.has(keyOf(e.text)) && e.levels['8-10'], `${e.card.slice(0, 60)}: a note the 1835 Details tab shows, at 8–10`);
+  // Inspect's Design tab lines (every year) and the floating card's folded "why" notes: each is a
+  // string that tab or card draws (tools/reading_design.mjs, tools/reading_why.mjs), told at 8–10.
+  for (const scene of ['1812', '1835', '1904']) {
+    const table = JSON.parse(read(`data/reading/${scene}.json`)).entries;
+    for (const [family, tool, key] of [['design', 'reading_design', 'lines'], ['why', 'reading_why', 'notes']]) {
+      const rows = table.filter((e) => e.card.startsWith(`${family}:`));
+      if (family === 'design' || scene === '1812') assert(rows.length > 10, `${scene}: the ${family} lines are retold`);
+      if (!rows.length) continue;
+      const drawn = new Set(JSON.parse(execFileSync('node', [`tools/${tool}.mjs`, scene], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 << 20 }))[key].map(keyOf));
+      for (const e of rows) assert(drawn.has(keyOf(e.text)) && e.levels['8-10'], `${scene} ${e.card.slice(0, 60)}: a line the ${family === 'design' ? 'Design tab' : 'card'} draws, at 8–10`);
+    }
+  }
 }
 
 // ---- the wiring: Settings, the Jaunts menu, the cards ------------------------------------------

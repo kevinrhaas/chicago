@@ -262,12 +262,40 @@ export function tellingTable(walked, tellings = []) {
 const ORIGINAL = new WeakMap();
 const SKIP = '.reading-tabs, script, style, input, textarea, select, button, summary, [data-reading-skip]';
 
+/**
+ * A line drawn as its words and then its last word in a span of its own, so that the last word
+ * and the grade dot after it never part at a wrap (inspect-design.js `tailed`, marked
+ * `data-reading-line`). The tabs read and say it as one string: this stands in for its text
+ * node, the same object every time, its words the two nodes' together.
+ */
+function lineNode(el) {
+  if (el.__readingLine) return el.__readingLine;
+  const first = (n) => (n?.childNodes?.[0]?.nodeType === 3 ? n.childNodes[0] : null);
+  const head = () => first(el);
+  const tail = () => first(el.querySelector?.('.sg-tail'));
+  el.__readingLine = {
+    get data() { return `${head()?.data ?? ''}${tail()?.data ?? ''}`; },
+    set data(text) {
+      const words = String(text).split(' ');
+      const last = words.pop();
+      const h = head(), t = tail();
+      if (!t) { if (h) h.data = String(text); return; }
+      t.data = last;
+      if (h) h.data = words.length ? `${words.join(' ')} ` : '';
+    },
+  };
+  return el.__readingLine;
+}
+
 function proseNodes(root) {
   const out = [];
   const walk = (n) => {
     for (const c of Array.from(n.childNodes ?? [])) {
       if (c.nodeType === 3) { if ((ORIGINAL.get(c) ?? c.data).trim().length > 1) out.push(c); }
-      else if (c.nodeType === 1 && !(c.matches?.(SKIP))) walk(c);
+      else if (c.nodeType === 1 && c.dataset && 'readingLine' in c.dataset) {
+        const line = lineNode(c);
+        if ((ORIGINAL.get(line) ?? line.data).trim().length > 1) out.push(line);
+      } else if (c.nodeType === 1 && !(c.matches?.(SKIP))) walk(c);
     }
   };
   walk(root);

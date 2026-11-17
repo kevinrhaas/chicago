@@ -814,6 +814,446 @@
    }
   },
   {
+   "card": "design:1834 Prairie began Italianate, then got a mansard in 1886.",
+   "text": "1834 Prairie began Italianate, then got a mansard in 1886.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "1834 Prairie was first built in one plain style. In 1886 it got a new steep roof."
+   }
+  },
+  {
+   "card": "design:A four-storey brick house, its street front of Lemont limestone.",
+   "text": "A four-storey brick house, its street front of Lemont limestone.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A brick house, four floors high. Its front is Lemont stone."
+   }
+  },
+  {
+   "card": "design:A glass conservatory",
+   "text": "A glass conservatory",
+   "own": "14-15",
+   "levels": {
+    "8-10": "A glass room for plants"
+   }
+  },
+  {
+   "card": "design:A monument.",
+   "text": "A monument.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A statue."
+   }
+  },
+  {
+   "card": "design:A one-storey brick outbuilding.",
+   "text": "A one-storey brick outbuilding.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A brick shed, one floor high."
+   }
+  },
+  {
+   "card": "design:A one-storey frame outbuilding.",
+   "text": "A one-storey frame outbuilding.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A wood shed, one floor high."
+   }
+  },
+  {
+   "card": "design:A three-storey brick house, its street front of Bedford limestone.",
+   "text": "A three-storey brick house, its street front of Bedford limestone.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A brick house, three floors high. Its front is Bedford stone."
+   }
+  },
+  {
+   "card": "design:A three-storey brick house, its street front of Lemont limestone.",
+   "text": "A three-storey brick house, its street front of Lemont limestone.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A brick house, three floors high. Its front is Lemont stone."
+   }
+  },
+  {
+   "card": "design:A three-storey brick outbuilding.",
+   "text": "A three-storey brick outbuilding.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A brick back building, three floors high."
+   }
+  },
+  {
+   "card": "design:A two-storey brick house, its street front of Bedford limestone.",
+   "text": "A two-storey brick house, its street front of Bedford limestone.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A brick house, two floors high. Its front is Bedford stone."
+   }
+  },
+  {
+   "card": "design:A two-storey brick house, its street front of Lemont limestone.",
+   "text": "A two-storey brick house, its street front of Lemont limestone.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A brick house, two floors high. Its front is Lemont stone."
+   }
+  },
+  {
+   "card": "design:A two-storey brick outbuilding.",
+   "text": "A two-storey brick outbuilding.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A brick back building, two floors high."
+   }
+  },
+  {
+   "card": "design:A two-storey frame outbuilding.",
+   "text": "A two-storey frame outbuilding.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A wood back building, two floors high."
+   }
+  },
+  {
+   "card": "design:A two-storey stone house, its street front of Bedford limestone.",
+   "text": "A two-storey stone house, its street front of Bedford limestone.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A stone house, two floors high. Its front is Bedford stone."
+   }
+  },
+  {
+   "card": "design:A two-storey stone house, its street front of Lemont limestone.",
+   "text": "A two-storey stone house, its street front of Lemont limestone.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A stone house, two floors high. Its front is Lemont stone."
+   }
+  },
+  {
+   "card": "design:Bracketed cornice",
+   "text": "Bracketed cornice",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Trim with brackets under the roof edge"
+   }
+  },
+  {
+   "card": "design:Covered in Pennsylvania slate",
+   "text": "Covered in Pennsylvania slate",
+   "own": "16-17",
+   "levels": {
+    "8-10": "A slate roof. The slate came from a state in the east"
+   }
+  },
+  {
+   "card": "design:Covered in terracotta tile",
+   "text": "Covered in terracotta tile",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Roof of clay tiles"
+   }
+  },
+  {
+   "card": "design:Five bays of openings across the front",
+   "text": "Five bays of openings across the front",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Five rows of windows and doors across the front"
+   }
+  },
+  {
+   "card": "design:Five × projecting front section",
+   "text": "Five × projecting front section",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Five parts that stick out at the front"
+   }
+  },
+  {
+   "card": "design:Four bays of openings across the front",
+   "text": "Four bays of openings across the front",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Four rows of windows and doors across the front"
+   }
+  },
+  {
+   "card": "design:Front door: heavily panelled oak with iron straps and a large square window behind an iron grille, under a stone lintel and a carved tympanum",
+   "text": "Front door: heavily panelled oak with iron straps and a large square window behind an iron grille, under a stone lintel and a carved tympanum",
+   "own": "16-17",
+   "levels": {
+    "8-10": "Front door: thick oak with iron straps. A big square window sits behind iron bars. Carved stone is above it"
+   }
+  },
+  {
+   "card": "design:Glass conservatory",
+   "text": "Glass conservatory",
+   "own": "16-17",
+   "levels": {
+    "8-10": "A glass room for plants"
+   }
+  },
+  {
+   "card": "design:Ironwork: Bower-Barffed iron, never painted",
+   "text": "Ironwork: Bower-Barffed iron, never painted",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Iron parts: a dark coat stops rust. They were not painted"
+   }
+  },
+  {
+   "card": "design:Its roof is a gable roof of Pennsylvania slate.",
+   "text": "Its roof is a gable roof of Pennsylvania slate.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Its roof slopes two ways. It is slate from Pennsylvania."
+   }
+  },
+  {
+   "card": "design:Its roof is a hipped roof of Pennsylvania slate.",
+   "text": "Its roof is a hipped roof of Pennsylvania slate.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Its roof slopes on all four sides. It is slate from Pennsylvania."
+   }
+  },
+  {
+   "card": "design:Its roof is a steep gable roof of Pennsylvania slate.",
+   "text": "Its roof is a steep gable roof of Pennsylvania slate.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Its roof is steep and slopes two ways. It is slate from Pennsylvania."
+   }
+  },
+  {
+   "card": "design:Its roof is a steep hipped roof of Pennsylvania slate.",
+   "text": "Its roof is a steep hipped roof of Pennsylvania slate.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Its roof is steep and slopes on all four sides. It is slate from Pennsylvania."
+   }
+  },
+  {
+   "card": "design:Its roofs are covered in terracotta tile.",
+   "text": "Its roofs are covered in terracotta tile.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Its roofs are clay tile."
+   }
+  },
+  {
+   "card": "design:Just enough to light the corridors behind them.",
+   "text": "Just enough to light the corridors behind them.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Just big enough to light the halls behind them."
+   }
+  },
+  {
+   "card": "design:Mansard: steep lower slopes that hold the top storey, nearly flat above",
+   "text": "Mansard: steep lower slopes that hold the top storey, nearly flat above",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A tall roof: steep sides that hold the top floor, and almost flat on top"
+   }
+  },
+  {
+   "card": "design:Named for H. H. Richardson, the architect of Glessner House. On Prairie Avenue it means rough stone and round arches.",
+   "text": "Named for H. H. Richardson, the architect of Glessner House. On Prairie Avenue it means rough stone and round arches.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "It is named for H. H. Richardson. He made Glessner House. On Prairie Avenue it means rough stone and round arches."
+   }
+  },
+  {
+   "card": "design:Plain, restrained window surrounds",
+   "text": "Plain, restrained window surrounds",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Plain trim round the windows"
+   }
+  },
+  {
+   "card": "design:Projecting front section",
+   "text": "Projecting front section",
+   "own": "16-17",
+   "levels": {
+    "8-10": "A part that sticks out at the front"
+   }
+  },
+  {
+   "card": "design:Seven × projecting front section",
+   "text": "Seven × projecting front section",
+   "own": "16-17",
+   "levels": {
+    "8-10": "Seven parts that stick out at the front"
+   }
+  },
+  {
+   "card": "design:Street front of rock-faced Lemont limestone",
+   "text": "Street front of rock-faced Lemont limestone",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Front of rough Lemont stone"
+   }
+  },
+  {
+   "card": "design:Street front of smooth-cut Bedford limestone",
+   "text": "Street front of smooth-cut Bedford limestone",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Front of smooth Bedford stone"
+   }
+  },
+  {
+   "card": "design:Street front of smooth-cut Lemont limestone",
+   "text": "Street front of smooth-cut Lemont limestone",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Front of smooth Lemont stone"
+   }
+  },
+  {
+   "card": "design:Three bays of openings across the front",
+   "text": "Three bays of openings across the front",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Three rows of windows and doors across the front"
+   }
+  },
+  {
+   "card": "design:Three × projecting front section",
+   "text": "Three × projecting front section",
+   "own": "16-17",
+   "levels": {
+    "8-10": "Three parts that stick out at the front"
+   }
+  },
+  {
+   "card": "design:Two bays of openings across the front",
+   "text": "Two bays of openings across the front",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Two rows of windows and doors across the front"
+   }
+  },
+  {
+   "card": "design:Two heavy panelled leaves with iron straps, on Prairie Avenue.",
+   "text": "Two heavy panelled leaves with iron straps, on Prairie Avenue.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Two heavy doors. They have iron straps. They face Prairie Avenue."
+   }
+  },
+  {
+   "card": "design:Two × projecting front section",
+   "text": "Two × projecting front section",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Two parts that stick out at the front"
+   }
+  },
+  {
+   "card": "design:Vines: Boston ivy on the street fronts and Virginia creeper on the courtyard walls, planted 1887; their extent in 1904 unknown",
+   "text": "Vines: Boston ivy on the street fronts and Virginia creeper on the courtyard walls, planted 1887; their extent in 1904 unknown",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Vines: ivy on the street side. A creeper on the yard walls. They were planted in 1887. We do not know how far they grew by 1904"
+   }
+  },
+  {
+   "card": "design:Windows: paired sash windows; casements with square transoms; a wide arched window with a fanlight",
+   "text": "Windows: paired sash windows; casements with square transoms; a wide arched window with a fanlight",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Windows: pairs that slide up. Some swing out, with small windows on top. One is wide and arched, with a fan of glass"
+   }
+  },
+  {
+   "card": "design:Windows: two-over-two sash under flat heads; a wide round-headed lattice window",
+   "text": "Windows: two-over-two sash under flat heads; a wide round-headed lattice window",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Windows: ones that slide up, with flat tops; a wide round-topped one with a criss-cross frame"
+   }
+  },
+  {
+   "card": "design:Windows: two-over-two sash under flat heads; mullioned casements with transoms",
+   "text": "Windows: two-over-two sash under flat heads; mullioned casements with transoms",
+   "own": "14-15",
+   "levels": {
+    "8-10": "Windows: some slide up, with flat tops. Some swing out. They are split in parts, with small windows on top"
+   }
+  },
+  {
+   "card": "design:Windows: two-over-two sash under flat heads; mullioned casements; mullioned casements with transoms",
+   "text": "Windows: two-over-two sash under flat heads; mullioned casements; mullioned casements with transoms",
+   "own": "16-17",
+   "levels": {
+    "8-10": "Windows: some slide up, with flat tops. Some swing out and are split in parts. Some of those have small windows on top"
+   }
+  },
+  {
+   "card": "design:Windows: two-over-two sash under flat heads; one-over-one sash under shallow arches",
+   "text": "Windows: two-over-two sash under flat heads; one-over-one sash under shallow arches",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Windows: ones that slide up, with flat tops; ones that slide up under low arches"
+   }
+  },
+  {
+   "card": "design:Windows: two-over-two sash under flat heads; paired round-headed sash; round-headed sash with fanlights",
+   "text": "Windows: two-over-two sash under flat heads; paired round-headed sash; round-headed sash with fanlights",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Windows: some slide up, with flat tops. Some are round on top and come in pairs. Some are round on top with a fan of glass"
+   }
+  },
+  {
+   "card": "design:Windows: two-over-two sash under flat heads; paired round-headed sash; wide round-headed windows with fanlights",
+   "text": "Windows: two-over-two sash under flat heads; paired round-headed sash; wide round-headed windows with fanlights",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Windows: some slide up, with flat tops. Some are round on top and come in pairs. Some are wide and round on top, with a fan of glass"
+   }
+  },
+  {
+   "card": "design:Windows: two-over-two sash under flat heads; paired sash windows; triple sash windows",
+   "text": "Windows: two-over-two sash under flat heads; paired sash windows; triple sash windows",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Windows: ones that slide up, with flat tops; pairs; sets of three"
+   }
+  },
+  {
+   "card": "design:Windows: two-over-two sash under flat heads; round-headed sash with fanlights",
+   "text": "Windows: two-over-two sash under flat heads; round-headed sash with fanlights",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Windows: ones that slide up, with flat tops; round-topped ones with a fan of glass"
+   }
+  },
+  {
+   "card": "design:Windows: two-over-two sash under flat heads; round-headed sash with fanlights; one-over-one sash under shallow arches",
+   "text": "Windows: two-over-two sash under flat heads; round-headed sash with fanlights; one-over-one sash under shallow arches",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Windows: some slide up, with flat tops. Some are round on top with a fan of glass. Some sit under low arches"
+   }
+  },
+  {
+   "card": "design:Windows: two-over-two sash under flat heads; round-headed sash with fanlights; wide round-headed windows with fanlights",
+   "text": "Windows: two-over-two sash under flat heads; round-headed sash with fanlights; wide round-headed windows with fanlights",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Windows: some slide up, with flat tops. Some are round on top with a fan of glass. Some are wide and round on top, with a fan of glass"
+   }
+  },
+  {
    "card": "leads:Built other work (2026-11-12): the monument stands in the 1904 scene, on the new pure-Python monument archetype. Refined other work (2026-11-13): the pedestal's depths read through a camera on Taylor's 1893 view (base 2.85 m, plinth 1.8, die 1.6, were 3.3, 2.3 and 1.9 reconstructed); cameras on ICHi-19208, Taylor 1893 and Detroit LC-D4-12552.",
    "text": "Built other work (2026-11-12): the monument stands in the 1904 scene, on the new pure-Python monument archetype. Refined other work (2026-11-13): the pedestal's depths read through a camera on Taylor's 1893 view (base 2.85 m, plinth 1.8, die 1.6, were 3.3, 2.3 and 1.9 reconstructed); cameras on ICHi-19208, Taylor 1893 and Detroit LC-D4-12552.",
    "own": "16-17",

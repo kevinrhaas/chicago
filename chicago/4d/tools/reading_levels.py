@@ -125,7 +125,28 @@ def notes(scene):
     return {t: [t] for t in json.loads(run.stdout)['notes']}
 
 
-FAMILIES = {'stories': stories, 'tales': tales, 'asks': asks, 'places': places, 'leads': leads, 'notes': notes}
+def design(scene):
+    """Every line a building's Inspect Design tab shows (tools/reading_design.mjs: the written
+    guide's lead, look-for, parts and basis, the style module's card and the record's own "On
+    this house" items, as `designModel` gives the tab), keyed by its own text."""
+    import subprocess
+    run = subprocess.run(['node', str(ROOT / 'tools/reading_design.mjs'), scene],
+                         capture_output=True, text=True, check=True, cwd=ROOT)
+    return {t: [t] for t in json.loads(run.stdout)['lines']}
+
+
+def why(scene):
+    """Every "why" the floating card folds away behind its button (tools/reading_why.mjs: each
+    claim's note in its Design, Story, People and research panes, as popup.js `sections` draws
+    them), keyed by its own text. A note the Details tab shows too is told once, in `notes`."""
+    import subprocess
+    run = subprocess.run(['node', str(ROOT / 'tools/reading_why.mjs'), scene],
+                         capture_output=True, text=True, check=True, cwd=ROOT)
+    return {t: [t] for t in json.loads(run.stdout)['notes']}
+
+
+FAMILIES = {'stories': stories, 'tales': tales, 'asks': asks, 'places': places, 'leads': leads, 'notes': notes,
+            'design': design, 'why': why}
 
 
 # A card is full of dates and house numbers: "lived at 2027 Prairie Avenue in 1904" is not hard
