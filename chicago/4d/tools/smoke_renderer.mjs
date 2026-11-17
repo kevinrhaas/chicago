@@ -1373,6 +1373,22 @@ async function captureWithRestoreState(page, grid, when) {
   }, { grid, when });
 }
 
+/** T-3630. The baseline of a held on/off/restore pair, taken once the scene has settled.
+ * Those checks used to capture the instant they held the clock, often one step after a
+ * teleport, so a load still in flight (flora, a house picture, a parked team, a build slice)
+ * landed between the baseline and the restored frame and read as a residual the toggle never
+ * left: on dev 6b6bfa169 the same five checks failed and passed run to run (worst 1 to 35).
+ * A scene that will not settle is reported and the plain capture taken, so the pair is still
+ * read and the reason is in the log rather than an exception ending the part. */
+async function settledBaseline(page, grid, what) {
+  try {
+    return (await captureWithRestoreState(page, grid, 'before')).image;
+  } catch (err) {
+    console.log(`        ${what}: baseline taken unsettled — ${String(err?.message ?? err).slice(0, 300)}`);
+    return page.evaluate((g) => window.__chicago4d.capture(g), grid);
+  }
+}
+
 // The gate is both viewports and nothing less. SMOKE_VIEWPORT exists because a
 // full pass takes upwards of ten minutes on a software renderer and an agent
 // iterating on one half should not have to spend the other half to see it — it
@@ -12321,7 +12337,7 @@ for (const [label, viewport, touch] of [
     // share: at 390×780 a 48² cell dilutes the roadway until the aid's worst cell
     // reads 3 against a floor of 4, and the same frame at 96² reads 7. Its box
     // carries the sweep both readings come from.
-    const aidOff = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_REACH_GRID);
+    const aidOff = await settledBaseline(page, ROAD_AID_REACH_GRID, 'road aid');
     const aidOff12 = await page.evaluate(() => window.__chicago4d.capture());
     const aidSet = await page.evaluate(() => window.__chicago4d.setRoadAid(1));
     // K24. The raised READING, which until now this suite never took: both of
@@ -12449,7 +12465,7 @@ for (const [label, viewport, touch] of [
       + `${batchCensus.min}–${batchCensus.max} (want >=${ROUGHNESS_VALUES_MIN} spanning 0.30–0.95)`);
 
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
-    const roughFull = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
+    const roughFull = await settledBaseline(page, ROAD_AID_GRID, 'roughness');
     await page.evaluate(() => {
       // T-3408: every batch laid with the first one's material (a phone lays a big one as several).
       const bs = window.__chicago4d.buildings.batches;
@@ -12548,7 +12564,7 @@ for (const [label, viewport, touch] of [
     // part of the assertion and is taken here, not inherited.
     await standAtBootPose();
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
-    const toneOn = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
+    const toneOn = await settledBaseline(page, ROAD_AID_GRID, 'facade tones');
     const toneOff = await page.evaluate(() => window.__chicago4d.setFacadeWeathering(0));
     const flatFacades = await page.evaluate(() => {
       const t = window.__chicago4d.buildings.facadeTones();
@@ -12657,7 +12673,7 @@ for (const [label, viewport, touch] of [
       window.__chicago4d.step();
     }, shadowPose);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
-    const reachFull = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
+    const reachFull = await settledBaseline(page, ROAD_AID_GRID, 'shadow reach');
     const woundBack = await page.evaluate(() => window.__chicago4d.world.setShadowReach(60));
     const reachOld = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
     const dReach = signatureDistance(reachFull, reachOld);
@@ -12801,7 +12817,7 @@ for (const [label, viewport, touch] of [
       + `(calibrated ${BASE_EXPOSURE}) with no stored preference`);
 
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
-    const brightOff = await page.evaluate((g) => window.__chicago4d.capture(g), BRIGHT_AID_GRID);
+    const brightOff = await settledBaseline(page, BRIGHT_AID_GRID, 'brightness aid');
     const brightSet = await page.evaluate(() => window.__chicago4d.setBrightness(2));
     const brightOn = await page.evaluate((g) => window.__chicago4d.capture(g), BRIGHT_AID_GRID);
     const exposureOn = await page.evaluate(() => window.__chicago4d.exposure);

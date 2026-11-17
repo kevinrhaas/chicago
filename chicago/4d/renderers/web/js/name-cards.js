@@ -324,6 +324,12 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
   const at = new THREE.Vector2();
   const entries = new Map();       // key -> { key, actor, name, personId, staged, slot, w, alpha, want, drawn, theme }
   let free = [];
+  /** Writes one card's values, noting whether any of them changed (Float32, as the buffer holds them). */
+  let moved = false;
+  function put(attr, n, ...v) {
+    const a = attr.array, at = n * attr.itemSize;
+    for (let i = 0; i < v.length; i++) { const f = Math.fround(v[i]); if (a[at + i] !== f) { a[at + i] = f; moved = true; } }
+  }
   let chooseIn = 0, bobT = 0, look = null, fontsWaiting = false, disposed = false;
   // The Confidence view's grade colours, and their signature: a change there draws every card again.
   let colors = null, colorsKey = '';
@@ -548,17 +554,19 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
     rows.forEach((r, i) => {
       const e = r.e, want = lift[i] * r.depth * tanHalf;
       e.lift = e.lift == null || !step ? want : e.lift + (want - e.lift) * Math.min(1, step * 8);
-      attrs.center.setXYZ(n, r.x, r.y + e.lift, r.z);
-      attrs.size.setXY(n, r.wCard, r.hSlot);
       const [x, y] = slotXY(e.slot);
-      attrs.uv.setXYZW(n, x / ATLAS_W, y / atlas.image.height, e.w / ATLAS_W, SLOT_H / atlas.image.height);
-      attrs.alpha.setX(n, r.alpha);
+      put(attrs.center, n, r.x, r.y + e.lift, r.z);
+      put(attrs.size, n, r.wCard, r.hSlot);
+      put(attrs.uv, n, x / ATLAS_W, y / atlas.image.height, e.w / ATLAS_W, SLOT_H / atlas.image.height);
+      put(attrs.alpha, n, r.alpha);
       n++;
       picked.push({ key: e.key, personId: e.personId, name: e.name, staged: e.staged, actor: e.actor, alpha: r.alpha,
         cx: r.cx, cy: r.cy + e.lift / (r.depth * tanHalf), hw: r.hw, hh: r.hh, depth: r.depth, distance: r.d });
     });
-    geometry.instanceCount = n;
-    if (n) for (const a of Object.values(attrs)) a.needsUpdate = true;
+    // T-3630: uploaded only when a card moved, so a held, settled frame is a settled scene too
+    // (the smoke's restore checks fingerprint attribute versions and wait for them to stop).
+    if (n !== geometry.instanceCount) { geometry.instanceCount = n; moved = true; }
+    if (moved) { for (const a of Object.values(attrs)) a.needsUpdate = true; moved = false; }
     counters.drawn = n;
   }
 
