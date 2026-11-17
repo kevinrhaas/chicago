@@ -264,6 +264,13 @@ console.log('driven assembly: actual W01 source hierarchy/THREE transforms + lif
 const { webcrypto } = await import('node:crypto');
 const { resolveHumanIdentity } = await import('../renderers/web/js/human-identity.js');
 const { teamSupportAt } = await import('../renderers/web/js/transport-support.js');
+// T-3559: the horse's gaits and levels, imported with 'three' resolved to the vendored copy.
+const { createHorseGait, attachHorseLods, loadGaitClip } = await (async () => {
+  const { registerHooks } = await import('node:module');
+  const threeURL = new URL('../renderers/web/vendor/three-0.185.1/three.module.js', import.meta.url).href;
+  const hooks = registerHooks({ resolve: (specifier, context, next) => specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context) });
+  try { return await import('../renderers/web/js/horse-rig.js'); } finally { hooks.deregister(); }
+})();
 const factoryCode = readFileSync(new URL('../renderers/web/js/driven-assembly-loader.js', import.meta.url), 'utf8');
 const horsePoolCode = readFileSync(new URL('../renderers/web/js/draft-horse-assets.js', import.meta.url), 'utf8');
 const fixtureBytes = readFileSync(path);
@@ -327,6 +334,7 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
   globalThis[dependencyKey] = { THREE, GLTFLoader: FixtureLoader, cloneSkinned: root => root.clone(true),
     HumanActor: FixtureActor, prepareHorseTemplate, applyHorseAppearance, resolveHumanIdentity, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder: {}, createDriverLife: () => null, clothHuman: () => [],
     fitHorseSupport: () => ({ height_m: 0, normal_local_xyz: [0, 1, 0] }), crypto: webcrypto,
+    createHorseGait, attachHorseLods, loadGaitClip,
     disposeLoadedAsset(value) {
       if (value === gltfVehicle) stats.vehicleDisposed++;
       else if (value === gltfHorse) stats.horseDisposed++;
@@ -334,7 +342,7 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
     },
     fetch(url) { const kind = String(url).includes('/horse/') ? 'horse' : 'vehicle'; events.push(kind + '-start'); if (syncFailure === kind) throw failure; return io[kind].promise; },
   };
-  const injected = `const { THREE, GLTFLoader, cloneSkinned, HumanActor, resolveHumanIdentity, disposeLoadedAsset, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder, createDriverLife, clothHuman, fitHorseSupport, prepareHorseTemplate, applyHorseAppearance, crypto, fetch } = globalThis[${JSON.stringify(dependencyKey)}];\n`
+  const injected = `const { THREE, GLTFLoader, cloneSkinned, HumanActor, resolveHumanIdentity, disposeLoadedAsset, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder, createDriverLife, clothHuman, fitHorseSupport, prepareHorseTemplate, applyHorseAppearance, crypto, fetch, createHorseGait, attachHorseLods, loadGaitClip } = globalThis[${JSON.stringify(dependencyKey)}];\n`
     + horsePoolCode.replace(/^import .*;\n/gm, '').replace(/^export /gm, '')
     + code.replace(/^import .*;\n/gm, '');
   const module = await import('data:text/javascript;base64,' + Buffer.from(injected).toString('base64'));

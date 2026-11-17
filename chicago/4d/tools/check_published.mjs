@@ -92,6 +92,8 @@ const COPIES = [
   ['data/transport/horse-coats.json', 'data/transport/horse-coats.json'],
   ['data/transport/parked/', 'data/transport/parked/'],
   ['data/transport/driven/', 'data/transport/driven/'],
+  // T-3560: the saddle horses a visitor may ride (riding.js).
+  ['data/transport/riding/', 'data/transport/riding/'],
   ['data/wharves/', 'data/wharves/'],
   ['data/boats/', 'data/boats/'],
   ['data/wells/', 'data/wells/'],
@@ -405,7 +407,7 @@ if (existsSync(path.join(REPO, coatRecipe)) && !existsSync(path.join(SITE, coatR
 }
 for (const rel of ['data/transport/driven/loops.json', 'data/transport/driven/hitch-bindings-v2.json',
   'data/transport/driven/current26-hoof-support-domain.json',
-  'data/transport/driven/current26-walk-v2-hoof-domain.json']) {
+  'data/transport/driven/current26-walk-v2-hoof-domain.json', 'data/transport/riding/saddle_horses.json']) {
   if (existsSync(path.join(REPO, rel)) && !existsSync(path.join(SITE, rel))) {
     problems.push(`${rel} is missing from the published mirror; publish.sh must copy the driven runtime data.`);
   }

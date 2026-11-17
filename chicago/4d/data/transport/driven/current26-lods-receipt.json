@@ -1,0 +1,159 @@
+{
+  "schema": "chicago4d_horse_portable_lods_v1",
+  "ticket": "T-3559",
+  "input": "renderers/web/transport/driven/horse-current26-inplace-full.glb",
+  "input_sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+  "params_sha256": "abcf4fbfed7a867d5baacac3b7b8d4c2bbf9773cf3afca70b0b5407f73ee6e54",
+  "exporter_sha256": "bbdd5494998f1b58657084c1653d10201fc1124c35ad629c848966599268749d",
+  "tool_versions": {
+    "@gltf-transform/core": "4.5.0",
+    "@gltf-transform/functions": "4.5.0",
+    "@gltf-transform/extensions": "4.5.0",
+    "meshoptimizer": "1.2.0",
+    "sharp": "0.35.5"
+  },
+  "near": {
+    "file": "renderers/web/transport/driven/horse-current26-inplace-full.glb",
+    "sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+    "bytes": 3460908,
+    "triangles": 17390,
+    "vertices": 12838
+  },
+  "lods": [
+    {
+      "level": "mid",
+      "file": "horse-current26-mid.glb",
+      "sha256": "a159eae373ff106d67ec5fc20e34c064af667b2d19fe86b1be22bba1f8022d82",
+      "bytes": 636496,
+      "triangles": 7146,
+      "vertices": 4467,
+      "texture_dimensions": [
+        [
+          512,
+          512
+        ],
+        [
+          512,
+          512
+        ],
+        [
+          512,
+          512
+        ],
+        [
+          512,
+          512
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "texture_RGBA8_mip_estimate_bytes": 6291448,
+      "primitives": [
+        {
+          "material": "Material.003_Hair12Main2k.png",
+          "input_triangles": 5676,
+          "output_triangles": 2270,
+          "reported_error": 0.0014172878582030535,
+          "ratio": 0.4,
+          "error": 0.006,
+          "normal_weight": 0.02,
+          "uv_weight": 0.05
+        },
+        {
+          "material": "Material_HorseMain4k00.png",
+          "input_triangles": 9794,
+          "output_triangles": 3916,
+          "reported_error": 0.0014597487170249224,
+          "ratio": 0.4,
+          "error": 0.004,
+          "normal_weight": 0.05,
+          "uv_weight": 0.1
+        },
+        {
+          "material": "Eye_brown",
+          "input_triangles": 1920,
+          "output_triangles": 960,
+          "reported_error": 0.0035205588210374117,
+          "ratio": 0.5,
+          "error": 0.004,
+          "normal_weight": 0.05,
+          "uv_weight": 0.1
+        }
+      ]
+    },
+    {
+      "level": "far",
+      "file": "horse-current26-far.glb",
+      "sha256": "5118a0775e03e52d22b906ece52cb798f755205c8025fe50144383bbe7673d68",
+      "bytes": 281092,
+      "triangles": 2142,
+      "vertices": 1673,
+      "texture_dimensions": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "texture_RGBA8_mip_estimate_bytes": 2097144,
+      "primitives": [
+        {
+          "material": "Material.003_Hair12Main2k.png",
+          "input_triangles": 5676,
+          "output_triangles": 680,
+          "reported_error": 0.004249870777130127,
+          "ratio": 0.12,
+          "error": 0.03,
+          "normal_weight": 0.01,
+          "uv_weight": 0.02
+        },
+        {
+          "material": "Material_HorseMain4k00.png",
+          "input_triangles": 9794,
+          "output_triangles": 1174,
+          "reported_error": 0.006985064130276442,
+          "ratio": 0.12,
+          "error": 0.02,
+          "normal_weight": 0.02,
+          "uv_weight": 0.04
+        },
+        {
+          "material": "Eye_brown",
+          "input_triangles": 1920,
+          "output_triangles": 288,
+          "reported_error": 0.00912245362997055,
+          "ratio": 0.15,
+          "error": 0.02,
+          "normal_weight": 0.02,
+          "uv_weight": 0.04
+        }
+      ]
+    }
+  ],
+  "contract": "Same skin (26 joints, inverse binds), nodes, material names and primitive order as the near horse; only triangle indices (within each primitive) and image sizes change. Animation clips are dropped: the renderer drives these meshes from the near clone's bones."
+}

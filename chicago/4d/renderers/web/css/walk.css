@@ -1429,6 +1429,12 @@ body.is-touch .crosshair { display: none; }
   border: 1px solid var(--edge); border-radius: 4px; color: var(--ink-dim);
 }
 .quick-interact[aria-disabled="true"] { opacity: .75; cursor: default; }
+/* T-3629: Inspect names its key too (E), as Interact names R: the game's own prompt. */
+.quick-inspect .ik-kbd {
+  font: inherit; font-size: 10px; line-height: 1; padding: 2px 4px; margin-left: 4px;
+  border: 1px solid var(--edge); border-radius: 4px; color: var(--ink-dim);
+}
+@media (max-width: 560px), (pointer: coarse) { .quick-inspect .ik-kbd { display: none; } }
 .quick-column > .quick-interact {
   transition: opacity .2s ease-out, transform .2s ease-out, visibility 0s linear 0s;
 }

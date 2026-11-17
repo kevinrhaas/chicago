@@ -10,7 +10,7 @@ export default register('settings', {
   'theme.dark': 'Dark',
   'theme.light': 'Light',
   'textSize': 'Text size',
-  'machine': 'Machine',
+  'machine': 'Appearance',
   'auto.use': 'Use Auto',
   'auto.on': 'Using Auto',
   'auto.line': 'Auto for this device: {detail} detail, {sharpness} sharpness, adaptive pacing.',
