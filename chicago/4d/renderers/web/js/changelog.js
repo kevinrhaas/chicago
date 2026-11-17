@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3062, ts: '2026-11-17T06:24:35.520Z', date: 'Nov 17, 2026, 12:24 AM CT', title: 'Name cards hold still when the town is held', kind: 'fix',
+    items: [
+      'The name cards over people now bob and fade on the same clock as the people under them, so a paused frame stays put.',
+    ] },
+  { v: 3061, ts: '2026-11-17T06:24:35.520Z', date: 'Nov 17, 2026, 12:24 AM CT', title: 'Trousers hang straight over the seat; aprons stay whole on the walk', kind: 'fix',
+    items: [
+      'Every pair of trousers, breeches and pantaloons in town now spans the seat from behind, as cloth does, instead of following the body\'s shape.',
+      'A maid\'s apron bow and a cook\'s apron ties now swing with the skirt when she walks; the skirt no longer cuts through them.',
+    ] },
   { v: 3060, ts: '2026-11-17T06:13:53.037Z', date: 'Nov 17, 2026, 12:13 AM CT', title: 'Wagons and their teams work the streets of 1835', kind: 'feature',
     items: [
       'Ten teamsters drive their teams round the town all day, each round his own blocks: South Water and Lake, Market, Randolph and Washington, Canal and Clinton, and North Water and Kinzie.',
