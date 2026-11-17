@@ -347,9 +347,10 @@ export function readingTabs(root, { after = null, into = null, choice = readingC
   if (ages.length < 2) {
     if (row) row.remove();
     for (const node of proseNodes(root)) { const original = ORIGINAL.get(node); if (original != null && node.data !== original) node.data = original; }
-    delete root.dataset.readingAge;
+    if (root.dataset) delete root.dataset.readingAge;
     return WRITTEN;
   }
+  root.dataset ??= {};
   let age = root.dataset.readingAge && ages.includes(root.dataset.readingAge) ? root.dataset.readingAge : openingAge(ages, choice, found);
   if (!row) {
     row = doc.createElement('div');
