@@ -30,8 +30,9 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   // T-3563: the groups in the order of the card's tabs — Display (Display, Machine, Units), Show,
   // Look (Look, Movement), Graphics (Performance), Sound, About — and Research last (the owner,
   // 2026-11-12: "the research mode should be at the end").
-  assert.deepEqual(heads, ['Display', 'Machine', 'Units', 'Show', 'Look', 'Movement', 'Performance', 'Sound', 'About', 'Research'],
-    'Settings reads Display, Machine, Units, Show, Look, Movement, Performance, Sound, About, Research');
+  // T-3629: Show holds two groups, On screen and The town.
+  assert.deepEqual(heads, ['Display', 'Appearance', 'Units', 'On screen', 'The town', 'Look', 'Movement', 'Performance', 'Sound', 'About', 'Research'],
+    'Settings reads Display, Appearance, Units, On screen, The town, Look, Movement, Performance, Sound, About, Research');
   // Every group names its tab, the tabs come in the bar's order, and What's new (a HUD section of
   // its own) sits between About and Research.
   const panes = [...settingsHtml.matchAll(/<div class="settings-group[^"]*"[^>]*?data-set-pane="(\w+)"/g)].map((m) => m[1]);
