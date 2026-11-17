@@ -1217,6 +1217,55 @@ const stamp = () => {
 // text nobody reads, so a name list is reported as a tally: `frontage x1,
 // frontage-chunk x60`. Order is first-appearance, so the shared mesh stays at
 // the head where the layer puts it.
+//
+// T-3628 — WHAT THE FRONTAGE RECORDS DEAL, read from the records the page
+// itself loaded (`data/frontage/index.json` and the files it names, under the
+// same ROOT). The frontage checks used to type their counts in, sixty posts
+// and sixty-one fittings, and T-3605 stated those before its own last two
+// commits grew the Gifford row from nine stores to fifty-nine. Dev then read
+// 97 and 97 against a check still asking for 60 and 61, and every PR's part 2
+// went red over a line nobody had changed. The layer is now held to exactly
+// what the records deal, entry for entry, so a laid count can neither fall
+// short of its record nor run past it. The records themselves are held by
+// check.sh, which regenerates the street edge and refuses a stale one.
+// Counted the way frontage.js counts: a `board_crossing` walk is a crossing,
+// every other walk a walk; posts of every kind, hitching ones apart; refusals
+// are each record's own `refused` list.
+function frontageRecordCensus(root) {
+  const dir = path.join(root, 'data', 'frontage');
+  const out = { ids: [], walks: 0, crossings: 0, posts: 0, hitching: 0,
+    hitchingStreet: 0, hitchingOwnGround: 0, fences: 0, refused: 0,
+    fittings: 0, fittingKinds: {}, error: null };
+  try {
+    const index = JSON.parse(fs.readFileSync(path.join(dir, 'index.json'), 'utf8'));
+    for (const entry of index.frontage ?? []) {
+      const rec = JSON.parse(fs.readFileSync(path.join(dir, entry.file), 'utf8'));
+      out.ids.push(entry.id);
+      for (const w of rec.walks ?? []) {
+        if (w.kind === 'board_crossing') out.crossings += 1; else out.walks += 1;
+      }
+      out.fences += (rec.fences ?? []).length;
+      out.refused += (rec.refused ?? []).length;
+      for (const p of rec.posts ?? []) {
+        out.posts += 1;
+        if (p.kind !== 'hitching_post') continue;
+        out.hitching += 1;
+        if (p.street) out.hitchingStreet += 1; else out.hitchingOwnGround += 1;
+      }
+      for (const q of rec.fittings ?? []) {
+        out.fittings += 1;
+        out.fittingKinds[q.kind] = (out.fittingKinds[q.kind] ?? 0) + 1;
+      }
+    }
+  } catch (err) { out.error = err.message; }
+  return out;
+}
+// Two kind tallies are the same tally when they name the same kinds with the
+// same counts, in whatever order each was built.
+function sameKinds(a, b) {
+  const norm = (o) => JSON.stringify(Object.entries(o ?? {}).sort(([x], [y]) => (x < y ? -1 : 1)));
+  return norm(a) === norm(b);
+}
 function tallyNames(names) {
   const counts = new Map();
   for (const n of names ?? []) counts.set(n, (counts.get(n) ?? 0) + 1);
@@ -5909,7 +5958,14 @@ for (const [label, viewport, touch] of [
     // carry 119 walks, 100 crossings, 53 posts, 37 fences and 184 refusals.
     // Authored meshes 124, derived top faces 108376, laid faces 95, bare fronts 7.
     // These are exact scope readings, not relaxed minima; geometry bars remain.
-    check(`${label}: the frontage layer lays all five records' walks and stands their posts`,
+    // T-3628 — every count below is now the records' own (frontageRecordCensus,
+    // at the head of this file): the history above and beside each clause says
+    // how the records came to deal what they deal, and the check says the layer
+    // laid all of it. T-3605's last two commits took the row to fifty-nine
+    // stores and the records to 97 posts, 34 fences and 234 refusals while this
+    // still read 60, 37 and 197.
+    const frontageDealt = frontageRecordCensus(ROOT);
+    check(`${label}: the frontage layer lays every walk, post and fence its five records deal`,
       // T-0241 laid Washington's seven block faces on top of Randolph's
       // thirteen: 42 walks to 49, 28 crossings to 33, 26 fence runs to 35 and
       // 74 refusals to 83. The post count does NOT move — Washington's
@@ -6085,8 +6141,10 @@ for (const [label, viewport, touch] of [
       // T-3360 — six buildings stepped back off the walk line: two runs that each stopped
       // at a wall join the run beyond (-2), St. Mary's front lays a Lake run of its own
       // (+1), and six corners take the crossing the stopped walks refused: 125 and 111.
-      frontage.census?.records === 5 && frontage.census?.walks === 125
-        && frontage.census?.crossings === 111
+      frontageDealt.error === null && frontageDealt.ids.length === 5
+        && frontage.census?.records === 5 && frontage.census?.walks === frontageDealt.walks
+        && frontage.census?.crossings === frontageDealt.crossings
+        && frontage.census?.orphaned === 0
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -6157,7 +6215,9 @@ for (const [label, viewport, touch] of [
         // lot and take a post each (+9), the turned Tremont's two Lake posts retire
         // because its facade now looks west (-2): 53 to 60. Two lot fences become
         // the stores' own street wall, 39 to 37.
-        && frontage.census?.posts === 60 && frontage.census?.fences === 37
+        // T-3628 — the records deal 97 posts and 34 fences once the row is
+        // fifty-nine stores; read from them, not typed here.
+        && frontage.census?.posts === frontageDealt.posts && frontage.census?.fences === frontageDealt.fences
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
         // T-1647 puts one back, and it is a refusal the rule could not reach before.
@@ -6246,17 +6306,24 @@ for (const [label, viewport, touch] of [
         // T-3605 — +11 refusals: three lot fences behind the new street wall, the
         // seven Dearborn-facing stores and the turned Tremont, whose doors do not
         // look onto the Lake Street lot they stand on.
-        && frontage.census?.refused === 197
+        // T-3628 — 234 once the row is fifty-nine stores, from the records.
+        && frontage.census?.refused === frontageDealt.refused
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
+        && frontage.recordIds.join(',') === frontageDealt.ids.join(',')
         && frontage.verts > 0 && frontage.problems.length === 0,
       `${frontage.census?.records} record(s) [${frontage.recordIds.join(', ')}], `
       + `${frontage.census?.walks} walk(s), ${frontage.census?.crossings} crossing(s), `
       + `${frontage.census?.posts} post(s), ${frontage.census?.fences} fence run(s), `
       + `${frontage.verts} vertices, `
       + `${frontage.census?.refused} wall(s) refused, `
-      + `problems [${frontage.problems.join(' | ') || 'none'}]`);
+      + `${frontage.census?.orphaned} orphaned; the records deal `
+      + (frontageDealt.error ? `nothing readable (${frontageDealt.error})`
+        : `${frontageDealt.walks} walk(s), ${frontageDealt.crossings} crossing(s), ${frontageDealt.posts} post(s), `
+          + `${frontageDealt.fences} fence run(s), ${frontageDealt.refused} refusal(s) in `
+          + `[${frontageDealt.ids.join(', ')}]`)
+      + `; problems [${frontage.problems.join(' | ') || 'none'}]`);
     // NO BOARD UNDER A LANDING (T-0228). Found by T-0058, which made the wharf
     // decks walk surfaces and so made it matter: Carpenter's and Jones's decks
     // tie their heels 2.0 m back into the bank the riverside plank walk runs
@@ -6682,11 +6749,15 @@ for (const [label, viewport, touch] of [
     // T-3605 makes it SIXTY: nine of the stores built to Gifford's drawing front
     // Lake Street on a lot (+9), and the first Tremont, turned to the drawing so
     // its facade looks west, no longer fronts its Lake lot (-2).
-    check(`${label}: the sixty hitching posts stand on their own ground, carrying nothing`,
-      frontage.hitching.length === 60
-        && frontage.census?.hitching === 60
-        && frontage.hitching.filter((h) => !h.street).length === 2
-        && frontage.hitching.filter((h) => h.street).length === 58
+    // T-3628 — and the rest of T-3605's row makes it NINETY-SEVEN, 95 at the
+    // street edge and the Sauganash's two on its own ground: read from the
+    // records (frontageRecordCensus), no longer typed here.
+    check(`${label}: every hitching post the records deal stands on its own ground, carrying nothing`,
+      frontageDealt.error === null && frontageDealt.hitching > 0
+        && frontage.hitching.length === frontageDealt.hitching
+        && frontage.census?.hitching === frontageDealt.hitching
+        && frontage.hitching.filter((h) => !h.street).length === frontageDealt.hitchingOwnGround
+        && frontage.hitching.filter((h) => h.street).length === frontageDealt.hitchingStreet
         && postsBad.length === 0
         // T-1580 — the clause this carried was `lettered === 1`, and what it is
         // FOR is that none of these eighteen is the boarded post: the layer's
@@ -6695,7 +6766,9 @@ for (const [label, viewport, touch] of [
         // corner stands, and it still fails if one of the eighteen grows a board.
         && frontage.census?.lettered === frontage.signPosts
         && frontage.noBoardHere === false,
-      `${frontage.hitching.length} post(s) read, census says ${frontage.census?.hitching}`
+      `${frontage.hitching.length} post(s) read, census says ${frontage.census?.hitching}, `
+      + `records deal ${frontageDealt.hitching} (${frontageDealt.hitchingOwnGround} own ground, `
+      + `${frontageDealt.hitchingStreet} street edge)${frontageDealt.error ? ` [${frontageDealt.error}]` : ''}`
       + ` — ${frontage.hitching.filter((h) => !h.street).length} on a record's own`
       + ` ground, ${frontage.hitching.filter((h) => h.street).length} at the street edge`
       + `; ${postsBad.length} bad: `
@@ -6737,12 +6810,16 @@ for (const [label, viewport, touch] of [
     // T-3605 — nine Gifford stores' stoops on Lake Street (+9); the turned Tremont's
     // stoop and mounting block retire with its Lake frontage (-2): 61, forty-eight
     // stoops, five mounting blocks.
-    check(`${label}: the sixty-one business-front fittings are drawn at their own fronts`,
-      frontage.census?.fittings === 61 && (frontage.fittings ?? []).length === 61
-        && fitKinds.stoop === 48 && fitKinds.mounting_block === 5
-        && fitKinds.wagon_apron === 7 && fitKinds.tie_rail === 1
+    // T-3628 — and the rest of the row makes it NINETY-SEVEN, eighty-four
+    // stoops: every count read from the records, kind for kind.
+    check(`${label}: every business-front fitting the records deal is drawn at its own front`,
+      frontageDealt.error === null && frontageDealt.fittings > 0
+        && frontage.census?.fittings === frontageDealt.fittings
+        && (frontage.fittings ?? []).length === frontageDealt.fittings
+        && sameKinds(fitKinds, frontageDealt.fittingKinds)
         && fitBad.length === 0,
-      `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}; `
+      `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}, records deal `
+      + `${frontageDealt.fittings} ${JSON.stringify(frontageDealt.fittingKinds)}; `
       + `${fitBad.length} bad: `
       + fitBad.slice(0, 6).map((q) => `${q.id} [` + q.parts.map((p) => `${p.part} `
         + `${p.found} vert, top ${p.top?.toFixed(2)}/${p.recorded} m`).join(', ') + ']')

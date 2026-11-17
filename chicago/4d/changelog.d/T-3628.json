@@ -1,0 +1,7 @@
+{
+  "title": "The street-edge check counts what the records lay, not a typed number",
+  "kind": "fix",
+  "items": [
+    "Nothing you can see changes. The row of 59 stores up the cross streets added 37 hitching posts and 36 doorstep stoops along the 1835 streets, all 97 of each drawn where they belong, but one of the checks that runs on every change still expected the 60 posts and 61 fittings it was written for. That check failed on every pull request. It now reads the street-edge records itself and confirms the town lays exactly what they hold, every walk, crossing, fence, post and fitting, so the next row of stores cannot leave it a count behind."
+  ]
+}
