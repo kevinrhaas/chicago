@@ -3,7 +3,7 @@
 // records the next page shows, and the line it shows.
 import assert from 'node:assert/strict';
 import { createBlackbox, wasCut, summary, report, BLACKBOX_KEY, SAMPLE_MS, STALE_MS } from '../renderers/web/js/blackbox.js';
-import { residentEstimate } from '../renderers/web/js/resident-estimate.js';
+import { residentEstimate, createResidentWalk } from '../renderers/web/js/resident-estimate.js';
 
 const store = () => {
   const m = new Map();
@@ -111,6 +111,25 @@ const sample = () => ({ calls: 236, tris: 907703, geo: 410, tex: 61, w: 390, h: 
   const est = residentEstimate({ traverse: (fn) => objects.forEach(fn) }, renderer);
   assert.equal(est.geometry, 1200 + 1200, 'a shared array once, a released one at its recorded bytes');
   assert.equal(est.textures, Math.round(256 * 256 * 4 * 4 / 3) + 1398096, 'a shared source once; never uploaded, nothing');
+
+  // T-3639: walked a slice at a time, the same bytes; between walks, nothing is visited.
+  const tree = { children: objects.map((o) => ({ ...o, children: [] })) };
+  for (let i = 0; i < 200; i++) tree.children.push({ children: [{ children: [] }] });
+  tree.traverse = (fn) => { const go = (o) => { fn(o); for (const c of o.children) go(c); }; go(tree); };
+  const whole = residentEstimate(tree, renderer);
+  let t = 0, visited = 0;
+  const counting = { ...renderer };
+  const walk = createResidentWalk(tree, counting, { budgetMs: 1, everyMs: 3000, now: () => { visited++; return (t += 0.25); } });
+  let steps = 0;
+  while (walk.walks === 0 && steps < 100) { walk.step(); steps++; }
+  assert.ok(steps > 1, `a walk is spread over frames (${steps} steps for ${tree.children.length * 2 + 1} objects)`);
+  assert.deepEqual(walk.last, whole, 'the sliced walk counts what the whole walk counts');
+  const reads = visited; walk.step();
+  assert.equal(visited - reads, 1, 'between walks a frame reads the clock once and visits nothing');
+  t += 3000; walk.step();
+  assert.equal(walk.walks, 1, 'the next walk starts after everyMs and is again spread');
+  while (walk.walks === 1) walk.step();
+  assert.deepEqual(walk.last, whole);
 }
 
 console.log('ok  the black box keeps the page\'s last steps, shows a cut-off page\'s, and never throws (T-2826), with its bytes (T-2828)');

@@ -27363,8 +27363,7 @@ their 0.19 m projection, and their feet 0.11 m lower than the print's (the upper
 frieze); the rosettes over them are not built. The south stack is triangulated through both cameras:
 its west face about 1.6 m back from the front, its south face in line with the print's main south
 wall, its head's foot at about 13.7 m, its cap at about 14.4 m and its pots to about 15.2 m. Invented:
-it stands on the BUILD's south cornice (`on_cornice`), about 0.75 m south of where the print stands it,
-because the build's south wall is still flush with the corner bay (the open set-out); its 1.1 x 0.75 m
+its 1.1 x 0.75 m
 plan, its K15 stone, three corbel courses and 0.15 m cap, and three of the kit's tall pots where the
 print shows three or four taller ones. The sunk panels the oblique draws on its south face are not
 built (K15 lays a panel's recess in brick). The north stack takes the same head.
@@ -27380,8 +27379,7 @@ print's is a carved anthemion); the cheeks' sweep and the newels' heights within
 **What is not built.** The pavilion's full 4 m width (K01 cannot cut a door through a
 projection, so it stands 2.45 m wide north of the door), the basement doorway under the stoop's
 landing and the stoop's arched underside, the narrow light over the door (built at the storey's
-sash width), the dormer's finial and the roofs' cresting and cross finial: open on the match record. The oblique print (camera solved by T-3156) also shows the corner bay running about 0.75 m
-south of the main front's south corner, as the square-on does, where the build sets it flush.
+sash width), the dormer's finial and the roofs' cresting and cross finial: open on the match record.
 **The rock-faced south flank and its dormer (T-3562, a piece of T-1893).** Read off the oblique print:
 the south flank is stone, rock-faced and dark against the smooth front, its windows dressed in smooth
 stone; and a gabled dormer stands in the flank's mansard just behind the tall south stack. Built as the
@@ -27402,11 +27400,23 @@ interpretive panel draws the 1882 house the same way); the 1911 sheet, which dra
 projection north of the front's centre and no corner bay, is the remodelled house. The 1904 phase
 is built to the photographs, which is a choice, not a finding.
 **The stoop's open south side (T-3562, a piece of T-1893).** Read off the oblique print: the landing stands on a square pier at its outer corner and is open beneath back to the wall, black under a soffit about 0.3 m deep, and the flight is carried off the pier on a rampant arch springing about 0.82 m over grade and reaching grade about 0.9 m down the run, the lower steps solid on grade to the newel; built as K07's arched swept cheek (`cheek_form.arched`) on the stoop's south cheek. Invented: the pier's 0.5 m depth along the run and the arch's span (the print foreshortens both; read off the nosings' spacing), the arch's quarter-ellipse curve, the void running through under the whole stoop to the north cheek, and its dark backing at the north cheek and the wall, which no picture sees past the print's black. The basement doorway in that void, the south cheek's iron hand rail and its stepped top are not built.
+**The corner bay's set-out (T-3562, a piece of T-1893).** Read off both prints: the corner bay's
+south face stands about 0.75 m south of the main front's south wall (the oblique draws the cornice
+turning onto the flank at about x 1605-1655 px and the bay's south face at x 1745-1790 px; the
+square-on the upper wall's south edge at x 834 px and the bay's at x 905 px). Built with the bay kept
+at its 9.43 m centre and SET OUT 0.75 m past the corner (`bays[].set_out_m`, a K01 option this ticket
+added: its back over the stretch past the corner is closed on the front's plane in its own stone),
+so the front block is 9.72 m along the front, not the 1911 sheet's 10.47 m; the south stack moves in
+with the wall onto the print's line. The sheet is the remodelled house, so its south wall on the line
+of the bay's face is read as the remodel's. Invented: the 0.75 m (the two prints give 0.75-0.85 m);
+that the main south wall runs back on that line the whole depth of the front block and the rear range
+(no picture sees the flank past its two front window columns, and the sheet draws one wall at 10.47 m);
+and the plain stone of the bay's back past the corner, which no picture sees.
 **The stoop's stepped sides and iron rails (T-3562, a piece of T-1893).** Read off both prints: neither cheek is a solid swept wall; the flight's steps show along both sides, each cheek's top level with the tread beside it, under an iron hand rail each side falling to the top of its foot newel; on the oblique the south rail leaves a square stone post on the landing's outer corner, over the pier, and a level iron rail runs from that post back to the wall over the landing's edge. Built as K07's railed swept cheek (`cheek_form.railed`). Invented: the rails' 0.04 m square section and their straight run (the square-on draws them curving down onto the newels), their heights (0.45 m over the landing at the head and 0.12 m over each newel's cap, within about 0.1 m of the oblique's reading), the single bar under each rail and under the landing rail, the post's 0.35 m square plan and 0.65 m height with a plain cap, and the north rail's head standing on a bar at the landing's edge, where the square-on print's north post stands at the north end of a landing carried on over the basement doorway, which is not built. The basement doorway in the void under the landing is not built.
 **How to resolve:** a dated picture or permit for the remodel settles which front stood in 1904;
 the rest stands open on the two match records.
 **Covers:** `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.service_wall_brick`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.roof_pitch_deg`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_tread_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_landing_depth_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.side_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rear_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rainwater`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.window_kit`
-**Ticket:** T-3155 (piece 1 of T-1893), T-3156 (piece 2), T-3561 (the cornice's consoles and the south stack), T-3562 (the door's pediment and the stoop's newels).
+**Ticket:** T-3155 (piece 1 of T-1893), T-3156 (piece 2), T-3561 (the cornice's consoles and the south stack), T-3562 (the door's pediment and the stoop's newels, the corner bay's set-out).
 **Review:** `docs/RESEARCH/k01-1815-sears-1893/README.md`.
 **Recorded:** 2026-10-25 (T-3155).
 
