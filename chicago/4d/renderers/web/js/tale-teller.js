@@ -16,8 +16,8 @@ import { createTaleCard } from './tale-card.js';
 import { createAsks } from './asks.js';
 import { createAskCard } from './ask-card.js';
 
-export const TALE_ACTION = 'tale';
-export const ASK_ACTION = 'ask';
+import { TALE_ACTION, ASK_ACTION, storyAction, askAction, withStory } from './tale-actions.js';
+export { TALE_ACTION, ASK_ACTION, storyAction, askAction, withStory };
 const TALK_S = 30;                     // the teller's mouth moves this long, then rests
 
 const FEMALE = /woman|girl|lady|wife|mrs|miss|maid|flynn_mary|frances|christine|mattie/i;
@@ -30,42 +30,6 @@ function sexOf(thing) {
   if (s === 'm' || s === 'male') return 'm';
   const asset = a?.instance?.appearance?.asset_id ?? a?.assetId ?? '';
   return FEMALE.test(asset) || /^(Mrs\.?|Miss)\b/.test(thing.name ?? '') ? 'f' : 'm';
-}
-
-/**
- * The Tell me a story action for a person whose actions are `base`, or null where none
- * belongs (not a person, or no Greet offered: out of reach, in a jaunt's hands).
- */
-export function storyAction(thing, base, tell) {
-  return talkAction(thing, base, tell, { id: TALE_ACTION, label: 'Tell me a story', detail: 'Hear a story of their life and times', step: 'Listening' });
-}
-
-/** The Ask a question action, where Tell me a story belongs. */
-export function askAction(thing, base, ask) {
-  return talkAction(thing, base, ask, { id: ASK_ACTION, label: 'Ask a question', detail: 'Five things to ask them, and what they will tell you', step: 'Asking' });
-}
-
-function talkAction(thing, base, go, { id, label, detail, step }) {
-  if (thing?.kind !== 'person' || !Array.isArray(base)) return null;
-  const greet = base.find((a) => a.id === 'greet');
-  if (!greet) return null;
-  return {
-    id, label, detail, said: '',
-    steps: [{ label: step, seconds: 0.8, run(t) {
-      // Greet's own first beat: they stop, turn to you and wave.
-      if (t === 0) greet.steps?.[0]?.run?.(0);
-      if (t >= 1) go(thing);
-    } }],
-  };
-}
-
-/** Base actions with the story (and, given `ask`, the questions) put straight after Greet. */
-export function withStory(thing, base, tell, ask = null) {
-  const story = storyAction(thing, base, tell);
-  if (!story) return base;
-  const extra = [story, ...(ask ? [askAction(thing, base, ask)] : [])];
-  const at = base.findIndex((a) => a.id === 'greet');
-  return [...base.slice(0, at + 1), ...extra, ...base.slice(at + 1)];
 }
 
 /**

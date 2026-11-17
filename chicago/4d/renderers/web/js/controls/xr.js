@@ -50,25 +50,9 @@ export const STICK_DEAD = 0.15;
 /** Snap fires past ON and re-arms below OFF, so one push is one step. */
 export const SNAP_ON = 0.6;
 export const SNAP_OFF = 0.3;
-export const VR_SCALE = Object.freeze({ headset: 0.6, computer: 1, min: 0.3, max: 1 });
-
-/**
- * A standalone headset's browser, by its user agent: the Quest browser says
- * "OculusBrowser" (and "Quest"), Pico's "PicoBrowser", Wolvic and the Vive Focus
- * browser say so too. Their screens report a fine pointer and a desktop width, so
- * without this they would boot as a computer.
- */
-export function isStandaloneHeadset(ua) {
-  return /OculusBrowser|\bQuest\b|PicoBrowser|\bPico\b|Wolvic|VR Browser|Vive ?Focus/i.test(String(ua || ''));
-}
-
-/** The framebuffer scale for this device, `?vr-scale=` first. */
-export function vrScale({ headset = false, search = '' } = {}) {
-  let asked = null;
-  try { asked = Number(new URLSearchParams(search || '').get('vr-scale')); } catch { asked = null; }
-  if (Number.isFinite(asked) && asked > 0) return Math.max(VR_SCALE.min, Math.min(VR_SCALE.max, asked));
-  return headset ? VR_SCALE.headset : VR_SCALE.computer;
-}
+// T-3627: VR_SCALE, isStandaloneHeadset and vrScale live in xr-detect.js, which boot reads.
+import { VR_SCALE, isStandaloneHeadset, vrScale } from './xr-detect.js';
+export { VR_SCALE, isStandaloneHeadset, vrScale };
 
 /** A stick axis with its dead zone taken out and the rest rescaled to 0..1. */
 export function deadzone(v, dead = STICK_DEAD) {

@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f3e8a8a58f11c515f4543150253b2c62ad8e1d828b71a5face42957df8ab24f0",
+  "glb_sha256": "e48403a56655df254213337ba74dae8ab0faba6d14557e7bc8906bf23768b3f9",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -92,7 +92,8 @@
     },
     {
       "what": "the band under the stack's head: the build's K15 soot band lays the top 0.45 m of the shaft under the corbels in dark brick, which renders red on this stone stack; the print shows the head's pale stone and its shadowed mouldings there (x 1730-1830 px, y 140-185 px)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3562: K15's soot band is a brick stack's; a stone stack now keeps its own stone up to its corbelled head (k15_chimneys.stack_solids), so the top 0.45 m of the shaft renders in the stack's stone where the brick band rendered red; the print's shadowed mouldings are the head's corbel courses, which the build carries. 1815 is the only K01 house on a stone K15 stack: the other 51 were rebuilt byte-identical, only their input hashes moved"
     },
     {
       "what": "the rosettes over the cornice's consoles",
