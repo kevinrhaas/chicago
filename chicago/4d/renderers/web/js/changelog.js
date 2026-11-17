@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 3059, ts: '2026-11-17T05:23:28.812Z', date: 'Nov 16, 2026, 11:23 PM CT', title: 'A cleaner Navigator: labelled tabs, one card per jaunt', kind: 'feature',
+    items: [
+      'The Navigator\'s tabs carry their names under their icons. Move and Jump left the rail: Home\'s Move tile, its new Other years key and the year chip open them. On a phone the tabs sit along the bottom of the sheet, where a thumb reaches them.',
+      'Each jaunt shows once in the list. Pick your grade (or 18+, where Settings lists it) once and every jaunt plays the version told for it; the choice is remembered on this device.',
+      'The jaunt panel has one big Next stop key, with small Back, Jaunts and End keys beside it. Road notes close with a small ×.',
+      'Keys read in sentence case and come in three kinds: filled for the main thing to do, outlined for the rest, and red only for Recall. Inspect has a new icon and shows its E key.',
+      'One close button per screen: the Navigator\'s × also closes the section inside it. Settings\' Show tab is split into On screen and The town. Filters for People and Shops start folded, so the list starts at the top.',
+      'Person-card buttons match the Navigator\'s keys, Settings calls the four looks Appearance, the Move notes sit under their choices, apps no longer wear first-visit dots, and the field log moved to Research.',
+    ] },
+  { v: 3058, ts: '2026-11-17T05:23:28.812Z', date: 'Nov 16, 2026, 11:23 PM CT', title: 'The street-edge check counts what the records lay, not a typed number', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The row of 59 stores up the cross streets added 37 hitching posts and 36 doorstep stoops along the 1835 streets, all 97 of each drawn where they belong, but one of the checks that runs on every change still expected the 60 posts and 61 fittings it was written for. That check failed on every pull request. It now reads the street-edge records itself and confirms the town lays exactly what they hold, every walk, crossing, fence, post and fitting, so the next row of stores cannot leave it a count behind.',
+    ] },
   { v: 3057, ts: '2026-11-17T05:10:18.236Z', date: 'Nov 16, 2026, 11:10 PM CT', title: 'Ride a horse in 1812, 1835 and 1904', kind: 'feature',
     items: [
       'A saddled horse now stands a few steps from where you arrive in every year. Walk up to it and press Interact to mount.',
