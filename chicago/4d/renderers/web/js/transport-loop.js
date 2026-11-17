@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 /** A rear-axle circle, measured in local ENU metres. No renderer or input ownership. */
 import { driveLimits, easeControls, easeReverse, bicycleStep, sampleOf, wheelArcRatios, pursuitSteering,
-  trackingSteering, routeError, refineRouteDistance, refusalWord, bestRejoinDistance, rejoinCost } from './team-drive.js';
+  trackingSteering, routeError, refineRouteDistance, refusalWord, bestRejoinDistance, rejoinCost, easeToward, DRIVE_GEARS_M_S } from './team-drive.js';
 // (routeDistanceNear is defined below and used by branchAt.)
 const TAU = 2 * Math.PI;
 /** T-3557: the most an admitted carriage drive's kerb ramp may tip the coach's wheels apart, metres. */
@@ -357,6 +357,12 @@ export function createTransportLoop({
   // (speed < 0, at most reverse_m_s); steered home, the driver backs it off a wall that has
   // refused him for RECOVER_AFTER_S, on the opposite lock, a few metres at a time.
   const limits = driveLimits({ speed_m_s, steering_limit_deg, wheelbase_m });
+  // T-3560 (Kevin, 2026-11-17: "They would normally walk I think but you could direct them to
+  // gallop etc"): on its round a team walks at its row's pace; asked (setPace), the driver puts
+  // it to a trot, canter or gallop (DRIVE_GEARS_M_S), eased there and back at PACE_EASE_M_S2.
+  let paceGear = 0, roundPace = speed_m_s;
+  const PACE_EASE_M_S2 = .9;
+  const paceWanted = () => (paceGear > 0 ? DRIVE_GEARS_M_S[paceGear] : speed_m_s);
   const INPUT_STALE_S = .3, DEG = Math.PI / 180;
   const RECOVER_AFTER_S = 2, RECOVER_ATTEMPTS = 6, RECOVER_BACK_M = [2, 3, 4];
   let mode = 'route', blocked = null, rear = null, speed = 0, steering = 0;
@@ -665,7 +671,14 @@ export function createTransportLoop({
     get speed_m_s() {
       if (disposed || state !== 'moving') return 0;
       if (mode !== 'route') return Math.abs(speed);
-      return dwell > 0 || giving ? 0 : speed_m_s;
+      return dwell > 0 || giving ? 0 : roundPace;
+    },
+    /** T-3560: the gear the driver keeps on the round (0 the round's walk .. 3 a gallop). */
+    get pace() { return paceGear; },
+    setPace(gear) {
+      if (disposed) return false;
+      paceGear = Math.max(0, Math.min(3, Math.round(Number(gear) || 0)));
+      return true;
     },
     /** The visitor's eye on the seat beside the driver (world ENU; y the absolute eye height). */
     seat(kind = 'box') {
@@ -725,7 +738,7 @@ export function createTransportLoop({
       if (mode === 'route') {
         // Off the round: the crossing keeper lets go of whatever this team held.
         // It carries on at the pace it had: its round's, or standing if it stood.
-        speed = state === 'moving' && dwell === 0 && !giving ? speed_m_s : 0;
+        speed = state === 'moving' && dwell === 0 && !giving ? roundPace : 0;
         gate?.drop?.(); giving = false; dwell = 0; dwellingAt = null;
         const r = route.at(distance);
         rear = sampleOf(r.e, r.n, r.yaw, r.curvature); steering = lastPose.steering;
@@ -737,10 +750,11 @@ export function createTransportLoop({
       if (road && lastPose) { try { road(lastPose); } catch { /* unread: today's rules */ } }
       return true;
     },
-    drive({ throttle = 0, steer = 0 } = {}) {
+    drive({ throttle = 0, steer = 0, gear = 0 } = {}) {
       if (disposed || mode !== 'reins') return false;
       control = { throttle: Number.isFinite(throttle) ? Math.max(-1, Math.min(1, throttle)) : 0,
-        steer: Number.isFinite(steer) ? Math.max(-1, Math.min(1, steer)) : 0 };
+        steer: Number.isFinite(steer) ? Math.max(-1, Math.min(1, steer)) : 0,
+        gear: Number.isFinite(gear) ? Math.max(0, Math.min(3, Math.round(gear))) : 0 };
       inputAge = 0;
       return true;
     },
@@ -844,7 +858,7 @@ export function createTransportLoop({
     },
     canResume() {
       if (!disposed && mode !== 'route') return true; // the reins (or the driver) take it on
-      return !disposed && !!readNext(speed_m_s * 0.25);
+      return !disposed && !!readNext(roundPace * 0.25);
     },
     resume() {
       if (!out.canResume()) return false;
@@ -894,23 +908,24 @@ export function createTransportLoop({
       // Bound the rear axle's per-frame advance, not the slow horse's elapsed
       // time. Speed 1 + update(10) still advances at most .25m. Every accepted
       // metre takes the same <= .05s clearance/ground/wheel/gait steps below.
-      let remaining = Math.min(dt, elapsedFrame ? 0.25 / speed_m_s : 0.25), travelled = 0;
+      roundPace = easeToward(roundPace, paceWanted(), PACE_EASE_M_S2, Math.min(dt, .25));
+      let remaining = Math.min(dt, elapsedFrame ? 0.25 / roundPace : 0.25), travelled = 0;
       while (remaining > 1e-10) {
-        let tick = Math.min(remaining, 0.05), ds = tick * speed_m_s;
+        let tick = Math.min(remaining, 0.05), ds = tick * roundPace;
         // T-3497: pull up exactly at the next stop ahead (a stop just left lies behind).
         let arriving = null;
         for (const s of branch ? [...stopList, branch] : stopList) {
           const ahead = wrap(s.distance_m - distance, route.length);
           if (ahead > 1e-6 && ahead <= ds && (!arriving || ahead < arriving.ahead)) arriving = { stop: s, ahead };
         }
-        if (arriving) { ds = arriving.ahead; tick = ds / speed_m_s; }
+        if (arriving) { ds = arriving.ahead; tick = ds / roundPace; }
         if (gate) {
           const allowed = gate.allow(distance, ds);
           giving = allowed < ds - 1e-9;
           if (giving) {
             arriving = null;
             if (!(allowed > 1e-6)) { assembly.stop?.(); break; }
-            ds = allowed; tick = ds / speed_m_s;
+            ds = allowed; tick = ds / roundPace;
           }
         }
         const next = readNext(ds);
