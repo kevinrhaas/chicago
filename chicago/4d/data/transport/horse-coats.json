@@ -117,7 +117,16 @@
   "group_palettes": {
     "1812:fort_wagon_loop_1812": "bay",
     "1812:shore_road_wagon_haul_1812": "chestnut",
+    "1835:kinzie_wagon_south_water_1835": "bay",
+    "1835:reed_wagon_market_1835": "dark_bay",
+    "1835:jones_wagon_lake_1835": "chestnut",
+    "1835:cook_wagon_randolph_1835": "bay",
+    "1835:kinzie_wagon_washington_1835": "iron_grey",
+    "1835:kinzie_wagon_state_1835": "dark_bay",
+    "1835:white_dray_west_side_1835": "bay",
     "1835:western_hotel_driven_wagon_loop_1835": "chestnut",
+    "1835:sabine_wagon_north_water_1835": "dark_bay",
+    "1835:jones_wagon_north_side_1835": "bay",
     "1835:western_hotel_yard_standing_horse_01": "iron_grey",
     "1904:prairie_driven_brougham_loop_1904": "iron_grey",
     "1904:prairie_driven_brougham_north_loop_1904": "dark_bay",
@@ -556,5 +565,5 @@
   },
   "source_protection": "Original geometry/UV/skin/IBMs/joints/clips/maps unchanged; shader colour only. Derived anchors do not replace complete-hoof classifiers.",
   "native_all_path_visual_qualification": "UNRUN",
-  "recipe_sha256": "6479ceef6e72dac33a8ed84cee679e1fcb3a56727334bc6b56f21bb7c0f34181"
+  "recipe_sha256": "5104e4952ddb3abcdf297d2df887165505710e283814cdad66316fb44adb3fb3"
 }

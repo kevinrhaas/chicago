@@ -28,6 +28,42 @@ export function fitHorseSupport({ e, n, yaw, heightAt, half_width_m = .4, half_l
     sample_count: samples.length, field: { a, b }, actual_posed_hoof_surface_acceptance: false };
 }
 
+/**
+ * T-3558: a team on a rutted earth street (1835). The town's streets are graded earth, worn
+ * into ruts and gutters on a 2.5 m heightfield, and no hoof box laid on them across a gutter
+ * or a rut is the 2 mm plane a standing horse is certified for. A row that says
+ * `rough_road: true` walks its horses on the same nine samples' plane with the hooves on its
+ * highest sample (as a ramp's walked support does in driven-assembly-loader.js), bounded so
+ * that no hoof stands clear of its ground by more than the street ribbon's own lift over the
+ * field (22 mm, streets.js LIFT_M): every hoof is at or under the drawn street, bedded in the
+ * mud. A horse walks it leaning at most ROUGH_GROUND.tilt_deg. The wagon's own plane bounds are
+ * in transport-loop.js.
+ */
+export const ROUGH_GROUND = Object.freeze({ hoof_spread_m: .022, tilt_deg: 5 });
+export function roughHorseSupport({ e, n, yaw, heightAt, half_width_m = .35, half_length_m = .89 }) {
+  if (![e, n, yaw, half_width_m, half_length_m].every(Number.isFinite) || typeof heightAt !== 'function') {
+    throw Error('transport support: finite placement and rendered ground reader required');
+  }
+  const c = Math.cos(yaw), s = Math.sin(yaw), samples = [];
+  for (const x of [-half_width_m, 0, half_width_m]) for (const z of [-half_length_m, 0, half_length_m]) {
+    const height = heightAt(e + c * x + s * z, n + s * x - c * z);
+    if (!Number.isFinite(height)) throw Error('transport support: no rendered ground across the hoof-support region');
+    samples.push({ x, z, height });
+  }
+  const mean = samples.reduce((sum, p) => sum + p.height, 0) / samples.length;
+  const a = samples.reduce((sum, p) => sum + p.x * (p.height - mean), 0) / samples.reduce((sum, p) => sum + p.x * p.x, 0);
+  const b = samples.reduce((sum, p) => sum + p.z * (p.height - mean), 0) / samples.reduce((sum, p) => sum + p.z * p.z, 0);
+  const tilt = Math.atan(Math.hypot(a, b));
+  if (tilt > ROUGH_GROUND.tilt_deg * Math.PI / 180 + 1e-12) throw Error(`transport support: rough-road horse support exceeds ${ROUGH_GROUND.tilt_deg}-degree bound`);
+  const residuals = samples.map(p => p.height - (mean + a * p.x + b * p.z));
+  const minimum = Math.min(...residuals), maximum = Math.max(...residuals);
+  if (maximum - minimum > ROUGH_GROUND.hoof_spread_m + 1e-12) throw Error('transport support: rough-road hoof spread exceeds the drawn street lift');
+  const length = Math.hypot(a, 1, b);
+  return { height_m: mean + maximum, normal_local_xyz: [-a / length, 1 / length, -b / length],
+    tilt_rad: tilt, sampled_minimum_clearance_m: 0, sampled_maximum_clearance_m: maximum - minimum,
+    sample_count: samples.length, field: { a, b }, rough: true, actual_posed_hoof_surface_acceptance: false };
+}
+
 /** Same team-centre and tangent calculation used by the real renderer adapter. */
 export function teamSupportAt(row, pose, heightAt, domain = {}) {
   if (!Array.isArray(row.horse_offset_m) || row.horse_offset_m.length !== 3
@@ -37,7 +73,9 @@ export function teamSupportAt(row, pose, heightAt, domain = {}) {
     const c = Math.cos(pose.yaw), s = Math.sin(pose.yaw);
     const e = pose.e + c * x + s * z, n = pose.n + s * x - c * z;
     const yaw = pose.yaw + Math.atan2(pose.curvature * (pose.rootAhead + z), 1 - pose.curvature * x);
-    return fitHorseSupport({ e, n, yaw, heightAt, ...domain });
+    if (!pose.rough) return fitHorseSupport({ e, n, yaw, heightAt, ...domain });
+    try { return fitHorseSupport({ e, n, yaw, heightAt, ...domain }); }
+    catch { return roughHorseSupport({ e, n, yaw, heightAt, ...domain }); }
   });
 }
 
