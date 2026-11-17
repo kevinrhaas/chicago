@@ -41,3 +41,12 @@ kevinrhaas/chicago-evidence under `evidence/horse-riding-3559-3560/`.
   0 mm stance slip and 0 mm stance lift over 256 sampled phases
   (`data/transport/driven/current26-trot-v1-hoof-domain.json`), inside the walk's certified
   support domain. The walk is the delivered clip, unchanged.
+
+## The canter and the gallop (T-3560, 2026-11-17)
+
+- `horse-canter-v1.json` (a 2 m cycle, three beats, right lead) and `horse-gallop-v1.json` (3.2 m,
+  four beats, transverse, right lead), from `tools/horse_walk_v2.mjs`: 0 mm stance slip and lift,
+  inside the walk's 0.35 x 0.89 m support domain. The level eases a gait at a time
+  (`gaitLevel` in horse-rig.js: canter from 4.2 m/s, gallop from 6.8 m/s).
+- The trunk does not rock: 1.5 degrees of rocking put the barrel 1.3 cm into a seated rider's thigh,
+  because the seat follows the trunk's height but not its pitch. Listed, not done.

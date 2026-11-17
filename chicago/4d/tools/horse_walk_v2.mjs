@@ -28,7 +28,7 @@
 // this horse's legs reach), so its longer cycle comes from the suspension, not a longer
 // reach; the hooves are planted and certified exactly as the walk's are.
 //
-//   node tools/horse_walk_v2.mjs           write the walk, the trot and both certificates
+//   node tools/horse_walk_v2.mjs           write the walk, trot, canter and gallop and their certificates
 //   node tools/horse_walk_v2.mjs --check   regenerate in memory; refuse any byte difference
 import fs from 'node:fs/promises';
 import { createHash } from 'node:crypto';
@@ -73,6 +73,53 @@ export const TROT_PARAMS = Object.freeze({
   samples: 64,
   phase: { hind_l: 0, fore_r: 0.015, hind_r: 0.5, fore_l: 0.515 },
 });
+// The canter and the gallop (Kevin, 2026-11-17: "Allow the driver of a horse ... to be able to
+// gallop, run"), on the same rig, by the same IK, and certified the same way. Reconstructed
+// authoring choices for this model (L-horse-canter-gallop-3560), not measured gaits. Both lead
+// on the right. The legs reach no further than at the walk (stance sweep = cycle * duty, about
+// 0.58 m), so the longer cycles come from flight, and the domains stay the walk's 0.35 m wide.
+//   canter, three beats: left hind; the diagonal (right hind with left fore); the leading right
+//     fore; then the moment of suspension. The trunk rises and falls once a cycle; the head and
+//     neck nod once, bigger than at the trot.
+//   gallop, four beats (transverse): left hind, right hind, left fore, leading right fore, then a
+//     long gathered flight.
+// Searched: flexing the carpus past 100 degrees or the hock past 50 widens the hoof domain
+// beyond the walk's. The trunk does not rock (`body_pitch_deg`, kept for a later horse): the
+// rider's seat rides the trunk's height but not its pitch, and 1.5 degrees of rocking put the
+// barrel 1.3 cm into a seated rider's thigh (tools/test_riding.mjs). Instead it is carried lower
+// (body_drop_m), so at the top of its rise it is no higher than at the trot's.
+export const CANTER_PARAMS = Object.freeze({
+  cycle_m: 2.0,
+  duty: 0.29,
+  beats: 1,
+  body_drop_m: 0.093,
+  body_bob_m: 0.03,
+  body_phase: 0.38,
+  lift_fore_m: 0.18, lift_hind_m: 0.14,
+  fore_centre_dz_m: 0.07,
+  hind_centre_dz_m: -0.06,
+  carpus_flex_deg: 100, hock_flex_deg: 50, fetlock_swing_deg: 66, fetlock_swing_hind_deg: 50,
+  neck_nod_deg: 4, head_nod_deg: 2.5,
+  nod_phase: 0.55,
+  samples: 64,
+  phase: { hind_l: 0, hind_r: 0.25, fore_l: 0.26, fore_r: 0.45 },
+});
+export const GALLOP_PARAMS = Object.freeze({
+  ...CANTER_PARAMS,
+  cycle_m: 3.2,
+  duty: 0.18,
+  body_drop_m: 0.098,
+  body_bob_m: 0.035,
+  body_phase: 0.32,
+  lift_fore_m: 0.19, lift_hind_m: 0.15,
+  neck_nod_deg: 5, head_nod_deg: 3,
+  nod_phase: 0.5,
+  phase: { hind_l: 0, hind_r: 0.1, fore_l: 0.27, fore_r: 0.38 },
+});
+const CANTER = Object.freeze({ name: 'reconstructed_current26_canter_v1', ticket: 'T-3560', label: 'canter',
+  clipOut: 'renderers/web/transport/driven/horse-canter-v1.json', certOut: 'data/transport/driven/current26-canter-v1-hoof-domain.json' });
+const GALLOP = Object.freeze({ name: 'reconstructed_current26_gallop_v1', ticket: 'T-3560', label: 'gallop',
+  clipOut: 'renderers/web/transport/driven/horse-gallop-v1.json', certOut: 'data/transport/driven/current26-gallop-v1-hoof-domain.json' });
 const LEGS = {
   fore_l: ['fore_l_shoulder', 'fore_l_elbow', 'fore_l_carpus', 'fore_l_fetlock', 'fore_l_hoof'],
   fore_r: ['fore_r_shoulder', 'fore_r_elbow', 'fore_r_carpus', 'fore_r_fetlock', 'fore_r_hoof'],
@@ -137,9 +184,13 @@ function poser(S, P) {
     names, restHoof,
     pose(u) {
       for (const n of names) { bone(n).quaternion.copy(rest[n].q); bone(n).position.copy(rest[n].p); }
-      bone('horse_body').position.y = rest.horse_body.p.y - P.body_drop_m - P.body_bob_m * Math.cos(4 * Math.PI * (u - (P.body_phase ?? 0)));
-      rotX('horse_neck', P.neck_nod_deg * DEG * Math.sin(4 * Math.PI * (u - 0.25)));
-      rotX('horse_head', P.head_nod_deg * DEG * Math.sin(4 * Math.PI * (u - 0.3)));
+      // Walk and trot rise and nod twice a cycle; the canter and gallop once (`beats`), and they
+      // rock: the forehand lifts as the hinds land and dips onto the leading fore (`body_pitch_deg`).
+      const beat = 2 * Math.PI * (P.beats ?? 2);
+      bone('horse_body').position.y = rest.horse_body.p.y - P.body_drop_m - P.body_bob_m * Math.cos(beat * (u - (P.body_phase ?? 0)));
+      if (P.body_pitch_deg) rotX('horse_body', -P.body_pitch_deg * DEG * Math.cos(2 * Math.PI * (u - P.pitch_phase)));
+      rotX('horse_neck', P.neck_nod_deg * DEG * Math.sin(beat * (u - (P.nod_phase ?? 0.25))));
+      rotX('horse_head', P.head_nod_deg * DEG * Math.sin(beat * (u - (P.nod_phase ?? 0.25) - 0.05)));
       S.updateMatrixWorld(true);
       const legs = {};
       for (const [leg, [j0, j1, j2, j3, j4]] of Object.entries(LEGS)) {
@@ -263,7 +314,7 @@ export async function build(P = PARAMS, G = WALK) {
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   const bad = [], said = [];
-  for (const [P, G] of [[PARAMS, WALK], [TROT_PARAMS, TROT]]) {
+  for (const [P, G] of [[PARAMS, WALK], [TROT_PARAMS, TROT], [CANTER_PARAMS, CANTER], [GALLOP_PARAMS, GALLOP]]) {
     const out = await build(P, G);
     if (process.argv.includes('--check')) {
       for (const [rel, text] of [[G.clipOut, out.clipText], [G.certOut, out.certText]]) {
@@ -278,5 +329,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     }
   }
   if (bad.length) { console.error(`horse gaits: ${bad.join(', ')} differ from what tools/horse_walk_v2.mjs writes; rerun it`); process.exit(1); }
-  if (said.length) console.log(`horse walk v2 and trot v1: clips and hoof domains reproduce (${said.join('; ')})`);
+  if (said.length) console.log(`horse walk v2, trot, canter and gallop v1: clips and hoof domains reproduce (${said.join('; ')})`);
 }

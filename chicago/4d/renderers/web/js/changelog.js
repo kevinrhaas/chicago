@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 3072, ts: '2026-11-17T13:11:54.127Z', date: 'Nov 17, 2026, 7:11 AM CT', title: 'Riders go about town, and horses canter and gallop', kind: 'feature',
+    items: [
+      'In 1835 up to seven people ride rounds of the town by day: a farmer, a land-office caller, a man riding for the doctor, an express rider at a trot, a trader\'s man, a boatman on the North Side, and an evening rider in spring and summer.',
+      'In 1812 a soldier, an officer\'s horse, a trader\'s man and a settler ride the shore road and the fort\'s round. In 1904 a groom exercises a horse along Prairie Avenue on summer mornings. Fewer ride in winter and after dark, and riders give way to you, to wagons and to each other.',
+      'Saddled horses now stand outside the hotel and tavern stables in 1835, by the fort in 1812 and at the Dexter coach house in 1904. Walk up to one and mount it.',
+      'Riding, hold Shift (or push the stick out) to urge the horse on: a trot at once, a canter a second later, then a gallop. Let go of Shift and it keeps its pace; let go of W and it pulls up.',
+      'Driving a wagon or carriage, Shift urges the team the same way, up to a gallop. A galloping team turns wider.',
+    ] },
+  { v: 3071, ts: '2026-11-17T12:46:20.342Z', date: 'Nov 17, 2026, 6:46 AM CT', title: 'Aiming at a building always opens it again', kind: 'fix',
+    items: [
+      'Pressing Space, E or tapping a building could find nothing for a moment while new people were joining the far streets. It now opens the building every time.',
+    ] },
   { v: 3070, ts: '2026-11-17T11:46:37.105Z', date: 'Nov 17, 2026, 5:46 AM CT', title: 'The Dent house\'s broad dormer now rises over its roof\'s curb', kind: 'improvement',
     items: [
       'At 1823 Prairie the dormer over the three-window group is rebuilt to the engraving and the 1883 album vignette: broad, its paired windows between two scrolled consoles, under a classical pediment that stands about a metre above the roof\'s top edge, as both pictures draw it.',
