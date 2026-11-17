@@ -1,0 +1,710 @@
+{
+ "_doc": "T-3645: the cards' words at the reader's other ages, written by tools/reading_levels.py from docs/RESEARCH/reading-levels-3645/words. Each entry is one paragraph as a card shows it (`text`), the age it measures at (`own`), and its words at other ages (`levels`); js/reading-level.js lays them under a card's age tabs. Do not edit: edit the words files and run the tool.",
+ "scene": "1835",
+ "entries": [
+  {
+   "card": "tales:s35-ch-sauganash",
+   "text": "Mr. Beaubien at the Sauganash has more children than anybody in Chicago, and they are all my friends. On Saturday nights we sit on the stairs and watch the grown-ups dance, and Mr. Beaubien plays the fiddle and stamps his foot and sings in French, and everybody spins round and round until they fall over.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Mr. Beaubien at the Sauganash has more kids than anybody in Chicago, and they are all my friends. On Saturday nights we sit on the stairs and watch the grown-ups dance. Mr. Beaubien plays the fiddle. He stamps his foot and sings in French. Everybody spins round and round until they fall over."
+   }
+  },
+  {
+   "card": "tales:s35-ch-sauganash",
+   "text": "He saw me on the stairs once and winked and played a tune just for me, a fast one, and all the grown-ups had to dance faster. Go and find him. If you are a child he will give you a piece of sugar. If you are a grown-up he will make you dance.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Once he saw me on the stairs. He winked and played a tune just for me. It was a fast one, so all the grown-ups had to dance faster. Go and find him. If you are a kid, he will give you a piece of sugar. If you are a grown-up, he will make you dance."
+   }
+  },
+  {
+   "card": "tales:s35-yo-apprentice",
+   "text": "I am the printer's devil at the newspaper, which means I do every dirty job there is. I sweep the floor and ink the type and fetch the water and run the papers round town. My hands are black from Monday to Sunday.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I am the printer's devil at the newspaper. That means I do every dirty job there is. I sweep the floor and ink the letters. I fetch the water and take the papers around town. My hands are black all week long."
+   }
+  },
+  {
+   "card": "tales:s35-yo-apprentice",
+   "text": "But I can read faster than anybody in Chicago, because I read every word of the paper before anybody else does, backwards, while I am setting it. I know all the news first. I know who has died and who is getting married and whose lot has been sold. When I am grown I am going to own a newspaper. I am going to call it something better than the Democrat.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "But I can read faster than anybody in Chicago. I read every word of the paper before anybody else, backwards, while I am setting the letters. I know all the news first. I know who has died, who is getting married, and whose land has been sold. When I grow up, I am going to own a newspaper. I will give it a better name than the Democrat."
+   }
+  },
+  {
+   "card": "tales:s35-yo-courting",
+   "text": "There are four young men in Chicago for every young lady, so the young ladies can be very particular. I have been walking out on Sunday afternoons with a carpenter's apprentice, and also with a clerk from Lake Street, and also, once, with a lieutenant from the fort.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "There are four young men in Chicago for every young lady. So the young ladies can be very picky. On Sunday afternoons I have gone walking with a young carpenter. I have also gone with a clerk from Lake Street. And once I went with a soldier, a lieutenant from the fort."
+   }
+  },
+  {
+   "card": "tales:s35-yo-courting",
+   "text": "My mother says I must choose. My father says I must not choose a lieutenant, because the army will take him off to some fort at the end of the world. My aunt says I must choose the clerk, because clerks become merchants. I am going to choose the carpenter. He makes me laugh, and he built my mother a cupboard for nothing. That is better than the end of the world.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "My mom says I must choose. My dad says I must not choose the lieutenant. The army will send him to some fort at the end of the world. My aunt says I must choose the clerk, because clerks become store owners. I am going to choose the carpenter. He makes me laugh, and he built my mom a cupboard for free. That is better than the end of the world."
+   }
+  },
+  {
+   "card": "tales:s35-so-deserters",
+   "text": "Every month a man or two deserts. It is too easy. The town is right there, with its taverns and its land agents, and a man who can carry a hod or drive a team can earn more in a week in Chicago than the army pays him in a month.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Every month a soldier or two runs away from the army. It is too easy. The town is right there, with its taverns and its land sellers. A man who can carry bricks or drive a team can earn more in a week in Chicago than the army pays him in a month."
+   }
+  },
+  {
+   "card": "tales:s35-so-deserters",
+   "text": "So a fellow goes out on pass and does not come back, and the next we hear he is digging foundations on Lake Street under another name, or he has gone west with the wagons. The officers send out a sergeant and a corporal to find him, and they come back with nothing and a sore head from the Sauganash. I will not desert. But I understand the ones who do.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "So a man goes out to town and does not come back. Next we hear, he is digging on Lake Street under another name. Or he has gone west with the wagons. The officers send out two soldiers to find him. They come back with nothing but a headache from the Sauganash. I will not run away. But I understand the ones who do."
+   }
+  },
+  {
+   "card": "tales:s35-so-lighthouse",
+   "text": "Beside the fort stands the lighthouse, a tall stone tower with a lamp at the top that the keeper lights every night for the boats on the lake. The first one fell down before it was finished, they say, because the builders were in a hurry. This one was built properly.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Next to the fort stands the lighthouse. It is a tall stone tower with a lamp at the top. Every night the keeper lights it for the boats on the lake. People say the first one fell down before it was done, because the builders rushed. This one was built the right way."
+   }
+  },
+  {
+   "card": "tales:s35-so-lighthouse",
+   "text": "On a dark night, from the top of the blockhouse, you can see the lamp throwing its light out over the water, and sometimes far out a little point of light from a schooner coming in. It is a lonely sight. It makes you think about all the people out on that black water, trusting that little flame to bring them home.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On a dark night, from the top of the blockhouse, you can see the lamp shine out over the water. Sometimes, far out, you see a tiny light from a ship coming in. It is a lonely sight. It makes you think of all the people out on that black water, trusting that little flame to bring them home."
+   }
+  },
+  {
+   "card": "tales:s35-off-officer-town",
+   "text": "An officer at this post is a gentleman of some consequence in town. We are invited to every dinner and every dance. Every merchant wants our custom and every land agent wants our money.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "An officer at this fort is an important man in town. We are asked to every dinner and every dance. Every store owner wants us to shop with him. Every land seller wants our money."
+   }
+  },
+  {
+   "card": "tales:s35-off-officer-town",
+   "text": "I have been offered more lots than there are stars, on easier terms than a bank would give. Half my brother officers have bought. Some have doubled their money already. I have not bought anything. The army moves us every year or two, and I do not want to be at some post on the Arkansas when my lot turns into a fortune, or a lake. My colleagues call me a coward. I call myself a soldier.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I have been offered more pieces of land than there are stars. The deals are easier than a bank would give. Half of the other officers have bought. Some have doubled their money already. I have not bought anything. The army moves us every year or two. I do not want to be at some fort far away when my land turns into a fortune, or a lake. The others call me a coward. I call myself a soldier."
+   }
+  },
+  {
+   "card": "tales:s35-off-treaty",
+   "text": "I was here for the great treaty two years ago. Eight thousand Potawatomi and Ottawa and Chippewa camped on the prairie around the town, and for two weeks the government's commissioners sat with the chiefs in a great open tent and bargained for every acre they had left in Illinois.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I was here for the great treaty two years ago. Eight thousand Potawatomi, Ottawa and Chippewa people camped on the prairie around the town. For two weeks the government's men sat with the chiefs in a big open tent. They bargained for every acre the tribes had left in Illinois."
+   }
+  },
+  {
+   "card": "tales:s35-off-treaty",
+   "text": "In the end the chiefs signed. Five million acres, for money and goods and land across the Mississippi. The traders took a great part of the money to pay what they said they were owed. I have seen a great many things in the army. I have never seen so much grief and so much greed in one place at once. This February the Senate ratified it.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In the end the chiefs signed. They gave up five million acres. They got money and goods, and land across the Mississippi. The traders took a big part of the money, to pay what they said they were owed. I have seen many things in the army. I have never seen so much sadness and so much greed in one place. This February the government in Washington made the treaty final."
+   }
+  },
+  {
+   "card": "tales:s35-pm-treaty",
+   "text": "Two years ago in the fall, thousands of us came to Chicago for the great council. The commissioners from Washington sat in an open tent and our chiefs sat across from them, and they talked for two weeks. Every trader in the country came, and every whiskey seller, and the town was full of people from one end to the other.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Two years ago, in the fall, thousands of us came to Chicago for the great meeting. The men from Washington sat in an open tent. Our chiefs sat across from them. They talked for two weeks. Every trader in the land came, and every whiskey seller. The town was full of people from one end to the other."
+   }
+  },
+  {
+   "card": "tales:s35-pm-treaty",
+   "text": "The young men drank and the old men argued and in the end the chiefs signed. Some of them said it was the best they could get, because if they did not sign the Americans would take it anyway. Some of them said they had been tricked. I think both are true. That is the worst kind of treaty: the kind where everyone is right and everyone loses.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The young men drank. The old men argued. In the end the chiefs signed. Some said it was the best they could get, because the Americans would take the land anyway. Some said they had been tricked. I think both are true. That is the worst kind of treaty. Everyone is right, and everyone loses."
+   }
+  },
+  {
+   "card": "tales:s35-pm-horses-west",
+   "text": "I am getting my horses ready for the journey west. It is a long way, they say, across Illinois and the great river and into the country beyond, many weeks on the road. The government says it will give us food and wagons. Some of us remember what the government has said before.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I am getting my horses ready for the trip west. People say it is a long way. We will cross Illinois and the great river and go into the land beyond. It will take many weeks. The government says it will give us food and wagons. Some of us remember what the government has said before."
+   }
+  },
+  {
+   "card": "tales:s35-pm-horses-west",
+   "text": "So I am drying meat and corn, and mending the saddles, and trading for a good kettle and a second blanket for each of my children. I want to be ready for anything. A man who trusts the government's wagons, my uncle says, will walk west with nothing in his hands.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "So I am drying meat and corn. I am fixing the saddles. I am trading for a good kettle, and a second blanket for each of my kids. I want to be ready for anything. My uncle says a man who trusts the government's wagons will walk west with empty hands."
+   }
+  },
+  {
+   "card": "tales:s35-pm-shabbona",
+   "text": "In the Black Hawk war three years ago, the Potawatomi chief Shabbona rode through the night to warn the American settlers that Black Hawk's warriors were coming. He saved many lives. The Americans called him a hero.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Three years ago there was a war with Black Hawk. The Potawatomi chief Shabbona rode all night to warn the American settlers that Black Hawk's warriors were coming. He saved many lives. The Americans called him a hero."
+   }
+  },
+  {
+   "card": "tales:s35-pm-shabbona",
+   "text": "But Black Hawk's people called him a traitor, and some of our own young men did too. Shabbona says he did what was right. I believe him. But I have noticed that the Americans' gratitude has not saved the rest of us from going west. A man can save a hundred Americans and still lose his country.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "But Black Hawk's people called him a traitor. Some of our own young men did too. Shabbona says he did what was right. I believe him. But the Americans' thanks has not saved the rest of us from going west. A man can save a hundred Americans and still lose his land."
+   }
+  },
+  {
+   "card": "tales:s35-cd-voyageur",
+   "text": "When I came here as a young man, I paddled a canoe from Mackinac with the American Fur Company's goods, eight men to a canoe, singing all the way. In those days Chicago was a French place. The traders were French, the boatmen were French, the dances were French, the priests came from the French missions.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "When I came here as a young man, I paddled a canoe from Mackinac. We carried goods for the fur company. There were eight men to a canoe, and we sang all the way. Back then Chicago was a French place. The traders were French. The boatmen were French. The dances were French, and the priests came from the French churches."
+   }
+  },
+  {
+   "card": "tales:s35-cd-voyageur",
+   "text": "Now the Yankees have come, and the furs are gone, and the canoes are rotting on the bank. I work on the wharves, unloading schooners for a Yankee merchant who cannot pronounce my name. But on Saturday nights at the Sauganash, Mark Beaubien plays the old songs, and we sing them, and for an hour it is the old days again.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Now the Yankees have come. The furs are gone. The canoes are rotting on the bank. I work on the docks. I unload ships for a Yankee store owner who cannot say my name. But on Saturday nights at the Sauganash, Mark Beaubien plays the old songs. We sing them, and for an hour it is the old days again."
+   }
+  },
+  {
+   "card": "tales:s35-cd-st-mary",
+   "text": "Two years ago the French and the Irish of Chicago signed a letter to the bishop in St. Louis asking for a priest. There were a hundred and twenty-eight of us, more or less, though some of us signed for our children. The bishop sent Father St. Cyr, a young Frenchman, and he said the first Mass in a log cabin.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Two years ago the French and the Irish of Chicago signed a letter to the bishop in St. Louis. They asked for a priest. There were about a hundred and twenty-eight of us. Some of us signed for our kids. The bishop sent Father St. Cyr, a young Frenchman. He held the first Mass in a log cabin."
+   }
+  },
+  {
+   "card": "tales:s35-cd-st-mary",
+   "text": "Then we built a church, a little wooden building, in a few weeks, with the new kind of thin boards nailed together. Now on Sunday mornings it is full: French, Irish, a few Germans, some of the Potawatomi families who are Catholic. The Yankees have their churches. This one is ours.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Then we built a church. It was a little wooden building, made in a few weeks with the new kind of thin boards nailed together. Now on Sunday mornings it is full. The French, the Irish, a few Germans, and some Potawatomi families who are Catholic all come. The Yankees have their churches. This one is ours."
+   }
+  },
+  {
+   "card": "tales:s35-cd-beaubien-family",
+   "text": "There are Beaubiens everywhere in this town. Colonel Jean Baptiste Beaubien came from Detroit long ago, when Chicago was nothing, and he has married twice and has more children than a schoolroom. His brother Mark keeps the Sauganash. Their children and grandchildren are in every street.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "There are Beaubiens all over this town. Colonel Jean Baptiste Beaubien came from Detroit long ago, when Chicago was nothing. He has married twice. He has more kids than a classroom. His brother Mark runs the Sauganash. Their kids and grandkids are on every street."
+   }
+  },
+  {
+   "card": "tales:s35-cd-beaubien-family",
+   "text": "The Colonel lives in the old house by the fort, and this spring he went into the government land office and bought the whole fort reservation for a few dollars, because he says he has lived on it longer than the soldiers. The government is furious. The Colonel just laughs. Go and see him. He is the most stubborn Frenchman in Illinois, and the kindest.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The Colonel lives in the old house by the fort. This spring he went to the government land office. He bought all the fort's land for a few dollars. He says he has lived on it longer than the soldiers have. The government is very angry. The Colonel just laughs. Go and see him. He is the most stubborn Frenchman in Illinois, and the kindest."
+   }
+  },
+  {
+   "card": "tales:s35-cd-dance",
+   "text": "A French dance is different from a Yankee dance. The Yankees dance in rows, very correct, bowing to each other. We dance in a ring, and we spin, and we stamp, and the fiddle goes faster and faster until somebody falls down, and then everybody laughs and the fiddler starts again.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A French dance is not like a Yankee dance. The Yankees dance in rows. They are very proper, and they bow to each other. We dance in a ring. We spin and we stamp. The fiddle goes faster and faster until somebody falls down. Then everybody laughs, and the fiddler starts again."
+   }
+  },
+  {
+   "card": "tales:s35-cd-dance",
+   "text": "At the New Year we go from house to house, singing and dancing, and at every house there is food and wine, and you kiss everybody. The Yankees think it is scandalous. The Yankee young men come anyway. By the end of the night they are dancing in a ring and stamping too.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "At New Year we go from house to house, singing and dancing. At every house there is food and wine, and you kiss everybody. The Yankees think it is shocking. The young Yankee men come anyway. By the end of the night, they are dancing in a ring and stamping too."
+   }
+  },
+  {
+   "card": "tales:s35-cd-ouilmette",
+   "text": "Old Antoine Ouilmette was here before the first fort, when Chicago was just a river and a few houses. He carried goods across the portage for the Kinzies, and in the old war, when the soldiers marched out and were killed on the beach, he stayed in his house with his Potawatomi wife and was not harmed.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Old Antoine Ouilmette was here before the first fort. Back then Chicago was just a river and a few houses. He carried goods over the land between the rivers for the Kinzies. In the old war, the soldiers marched out and were killed on the beach. He stayed home with his Potawatomi wife, and no one hurt him."
+   }
+  },
+  {
+   "card": "tales:s35-cd-ouilmette",
+   "text": "His wife was given land up the lake shore at Gros Point by the treaty, and they live up there now. He comes into town sometimes and stands on Lake Street looking at all the stores and the people, shaking his head. He says he does not recognise the place. Nobody does, any more.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The treaty gave his wife land up the lake shore at Gros Point. They live up there now. Sometimes he comes into town. He stands on Lake Street and looks at all the stores and people. He shakes his head. He says he does not know the place. Nobody does anymore."
+   }
+  },
+  {
+   "card": "tales:s35-ir-priest",
+   "text": "Father St. Cyr is a young Frenchman, and he speaks English like a Frenchman, and Irish not at all. But he is a priest, and he says Mass, and that is all that matters. Before he came there was no priest in Chicago, and a man could die without the last rites, and a baby could go unbaptized for a year.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Father St. Cyr is a young Frenchman. He speaks English like a Frenchman, and he speaks no Irish at all. But he is a priest, and he says Mass, and that is all that matters. Before he came, there was no priest in Chicago. A man could die without a priest's prayers. A baby could wait a year to be baptized."
+   }
+  },
+  {
+   "card": "tales:s35-ir-priest",
+   "text": "Now we have a little church, St. Mary's, and every Sunday it is full. The French sit on one side and the Irish on the other, and the Potawatomi Catholics at the back, and Father St. Cyr preaches to all of us in his strange English. Nobody understands half of it. Everybody goes home happy.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Now we have a little church, St. Mary's. Every Sunday it is full. The French sit on one side. The Irish sit on the other. The Potawatomi Catholics sit at the back. Father St. Cyr preaches to all of us in his funny English. Nobody understands half of it. Everybody goes home happy."
+   }
+  },
+  {
+   "card": "tales:s35-tm-ships",
+   "text": "This summer I have counted the sails coming in from the lake, from the top of the hill by the fort. Some days there are three, some days ten. Schooners from Buffalo and Detroit and Cleveland, full of people and barrels and boxes. Steamboats, smoking like chimneys. Every one of them goes back nearly empty, because Chicago has nothing yet to sell.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "This summer I have counted the sails coming in from the lake. I count them from the top of the hill by the fort. Some days there are three. Some days there are ten. Ships come from Buffalo, Detroit and Cleveland, full of people and barrels and boxes. Steamboats come too, smoking like chimneys. Every one of them goes back almost empty. Chicago has nothing to sell yet."
+   }
+  },
+  {
+   "card": "tales:s35-tm-ships",
+   "text": "That will change, the merchants say. When the canal is dug, all the grain and pork of the Illinois country will come through here and go east on these same boats. I do not know about that. I know that I counted eleven sails yesterday, and that they were all full of people like me, coming to get rich.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The store owners say that will change. When the canal is dug, all the grain and pork of Illinois will come through here. It will go east on these same boats. I do not know about that. I know I counted eleven sails yesterday. They were all full of people like me, coming to get rich."
+   }
+  },
+  {
+   "card": "tales:s35-tm-land-office",
+   "text": "The government land office opened here this spring, and in June they began to sell the public land around Chicago at auction. You never saw such a crowd. Men came from St. Louis and Detroit and New York with saddlebags full of money, and they bid against each other on the courthouse steps like boys at a cockfight.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The government land office opened here this spring. In June they began to sell the land around Chicago at auction. You never saw such a crowd. Men came from St. Louis, Detroit and New York with bags full of money. They bid against each other on the courthouse steps like boys at a game."
+   }
+  },
+  {
+   "card": "tales:s35-tm-land-office",
+   "text": "There were men who had squatted on their claims for years, with cabins and fences, and they stood by with rifles to make sure nobody outbid them on their own land. Nobody did. There is a sort of law here that is not in any book: you do not bid against a man on his own claim. Everybody knows it.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Some men had lived on their land for years, with cabins and fences, but did not own it yet. They stood by with rifles to make sure nobody outbid them for their own land. Nobody did. There is a kind of law here that is not in any book. You do not bid against a man for his own land. Everybody knows it."
+   }
+  },
+  {
+   "card": "tales:s35-tm-canal",
+   "text": "They have been talking about a canal from Chicago to the Illinois River since before I was born. Joliet talked about it, they say, a hundred and sixty years ago. Now the legislature has passed a law to borrow money to build it, and everybody says the digging will start next year.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "People have talked about a canal from Chicago to the Illinois River since before I was born. They say the explorer Joliet talked about it a hundred and sixty years ago. Now the state has passed a law to borrow money to build it. Everybody says the digging will start next year."
+   }
+  },
+  {
+   "card": "tales:s35-tm-canal",
+   "text": "When it comes, there will be thousands of Irishmen with shovels, and a road of water from the lake to the Mississippi, and Chicago will be the door between them. That is why everyone is buying lots. They are not buying mud. They are buying the canal. If it does not come, they are buying mud.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "When it comes, there will be thousands of Irishmen with shovels. There will be a road of water from the lake to the Mississippi. Chicago will be the door between them. That is why everyone is buying land. They are not buying mud. They are buying the canal. If it does not come, they are buying mud."
+   }
+  },
+  {
+   "card": "tales:s35-tm-newspaper",
+   "text": "When I first came, there was no newspaper. You heard the news from the last boat, and it was a month old and half wrong. Then John Calhoun brought a printing press across the lake on a schooner and started the Chicago Democrat, two years ago this winter.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "When I first came, there was no newspaper. You heard the news from the last boat. It was a month old and half wrong. Then John Calhoun brought a printing press across the lake on a ship. He started the Chicago Democrat two years ago this winter."
+   }
+  },
+  {
+   "card": "tales:s35-tm-newspaper",
+   "text": "It comes out once a week, four pages, and it is full of advertisements for lots and patent medicines and letters waiting at the post office, and long angry pieces about General Jackson. Paper is so scarce that some weeks he has to print on whatever he can find. Go and find Mr. Calhoun at the print shop. He will be covered in ink and complaining about the price of paper.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "It comes out once a week. It has four pages. It is full of ads for land and for medicines. It lists the letters waiting at the post office. It has long, angry stories about President Jackson. Paper is so hard to get that some weeks he prints on whatever he can find. Go and find Mr. Calhoun at the print shop. He will be covered in ink and grumbling about the price of paper."
+   }
+  },
+  {
+   "card": "tales:s35-tm-blacksmith",
+   "text": "I am at the forge at five, and I do not stop until dark. Horseshoes, wagon tyres, nails, hinges, chains, ploughshares for the farmers going west. Every emigrant wagon that comes through needs something mended. Some of them need everything mended.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I am at the fire by five in the morning, and I do not stop until dark. I make horseshoes, wagon wheel rims, nails, hinges, chains, and plow blades for the farmers going west. Every wagon that comes through needs something fixed. Some need everything fixed."
+   }
+  },
+  {
+   "card": "tales:s35-tm-blacksmith",
+   "text": "The Potawatomi bring me their gun locks and their kettles too. They pay in furs, or venison, or sometimes in silver brooches, which I give to my wife. She has quite a collection now. When the Potawatomi go west, and they will soon, I will miss their custom. They are better at paying than the Yankees.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The Potawatomi bring me their guns and kettles to fix too. They pay in furs or deer meat. Sometimes they pay in silver pins, and I give those to my wife. She has quite a lot of them now. The Potawatomi will go west soon. I will miss their business. They are better at paying than the Yankees."
+   }
+  },
+  {
+   "card": "tales:s35-tm-doctor",
+   "text": "A doctor in Chicago treats everything: fevers, broken bones, gunshot wounds, babies, cholera, drunkenness, and wounds from fights over lots. I ride out to farms twenty miles away in the middle of the night through mud to my horse's belly.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A doctor in Chicago takes care of everything. He treats fevers, broken bones, gun wounds, babies, cholera, drunk men, and men hurt in fights over land. I ride out to farms twenty miles away in the middle of the night. The mud comes up to my horse's belly."
+   }
+  },
+  {
+   "card": "tales:s35-tm-doctor",
+   "text": "Doctor Egan came here from Ireland by way of New York, and he is the best company in town. He can sing, he can tell a story, he can recite poetry by the yard, and he can set a leg while doing all three. Find him if you need a laugh. Do not find him if you need a quiet evening.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Doctor Egan came here from Ireland by way of New York. He is the most fun man in town. He can sing. He can tell a story. He can say poems by heart, on and on. He can fix a broken leg while doing all three. Find him if you need a laugh. Do not find him if you want a quiet evening."
+   }
+  },
+  {
+   "card": "tales:s35-tm-cholera",
+   "text": "Three summers ago, in the Black Hawk war, General Scott brought his soldiers here on steamboats from the east, and they brought the cholera with them. Men who were well at breakfast were dead by supper. They turned the fort into a hospital and buried the dead in trenches on the lake shore.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Three summers ago there was a war with Black Hawk. General Scott brought his soldiers here on steamboats from the east. They brought a terrible sickness called cholera with them. Men who were well at breakfast were dead by supper. The fort was turned into a hospital. The dead were buried in long ditches on the lake shore."
+   }
+  },
+  {
+   "card": "tales:s35-tm-cholera",
+   "text": "The settlers who had come into the fort for safety from the Indians ran out of it again for safety from the sickness. Some of them camped on the prairie for weeks. Everybody who was here then has a name they do not say any more. If you see an old settler go quiet when someone mentions 1832, that is why.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The settlers had come into the fort to be safe from the Indians. Now they ran out again to be safe from the sickness. Some camped on the prairie for weeks. Everyone who was here then has lost someone whose name they do not say anymore. If an old settler goes quiet when someone says 1832, that is why."
+   }
+  },
+  {
+   "card": "tales:s35-tm-black-hawk",
+   "text": "Three years ago, when Black Hawk crossed the Mississippi with his people, every farmer in northern Illinois packed his wagon and ran to Chicago. Hundreds of them, with their cattle and children and chickens, all crammed into the fort and around it. There were families sleeping under wagons on the parade ground.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Three years ago Black Hawk crossed the Mississippi with his people. Every farmer in northern Illinois packed his wagon and ran to Chicago. Hundreds came, with their cows and kids and chickens. They all crowded into the fort and around it. Families slept under wagons on the parade ground."
+   }
+  },
+  {
+   "card": "tales:s35-tm-black-hawk",
+   "text": "Black Hawk never came anywhere near Chicago. He went up the Rock River and the army chased him into the Wisconsin country and destroyed his people at the Bad Axe. But the settlers who came here saw the lake and the river and the prairie, and some of them stayed. So in a way, Black Hawk built this town.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Black Hawk never came anywhere near Chicago. He went up the Rock River. The army chased him into Wisconsin and wiped out his people at the Bad Axe River. But the settlers who came here saw the lake, the river and the prairie. Some of them stayed. So, in a way, Black Hawk built this town."
+   }
+  },
+  {
+   "card": "tales:s35-tm-pork",
+   "text": "George Dole packed the first beef and pork in Chicago, three years ago, slaughtering the cattle that came in from the prairie and salting the meat in barrels to sell to the fort and ship east. People laughed at him. Who would buy beef from Chicago?",
+   "own": "11-13",
+   "levels": {
+    "8-10": "George Dole was the first to pack beef and pork in Chicago, three years ago. He killed the cattle that came in from the prairie. He salted the meat in barrels to sell to the fort and ship east. People laughed at him. Who would buy beef from Chicago?"
+   }
+  },
+  {
+   "card": "tales:s35-tm-pork",
+   "text": "Now there are other packers, and Mr. Hubbard has a great warehouse for it, and the barrels go out on every schooner. Mark my words: one day this town will be known for its meat. The prairie grows grass, the grass grows cattle, and the cattle walk to Chicago. Go and find Mr. Dole. He will tell you exactly how many barrels he packed the first year. He remembers every one.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Now there are other meat packers. Mr. Hubbard has a big storehouse for it. The barrels go out on every ship. Mark my words. One day this town will be known for its meat. The prairie grows grass. The grass grows cattle. And the cattle walk to Chicago. Go and find Mr. Dole. He will tell you how many barrels he packed the first year. He remembers every one."
+   }
+  },
+  {
+   "card": "tales:s35-tm-butcher",
+   "text": "Archibald Clybourne keeps his slaughterhouse out on the North Branch, away from the town, thank heaven. He is from Virginia, and he has been here since before the town, driving cattle in from the south and butchering them for the fort and for the Indian payments.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Archibald Clybourne keeps his slaughterhouse out on the North Branch, far from the town. Thank goodness! He is from Virginia. He has been here since before there was a town. He drives cattle in from the south and butchers them for the fort and for the Indian payments."
+   }
+  },
+  {
+   "card": "tales:s35-tm-butcher",
+   "text": "When the wind is from the north you know exactly where his business is. But he is a good man, and an honest one, and his beef is the best in Illinois. Go and find him, if you have a strong stomach. He will tell you how to judge a steer by its walk.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "When the wind blows from the north, you can smell exactly where his business is. But he is a good man and an honest one. His beef is the best in Illinois. Go and find him, if you have a strong stomach. He will tell you how to judge a steer by the way it walks."
+   }
+  },
+  {
+   "card": "tales:s35-tm-teamster",
+   "text": "A teamster in Chicago hauls everything: lumber from the wharves, goods to the stores, emigrants' baggage to the wagons going west. In spring the roads are mud to the axle, and in summer the dust gets into everything, your teeth, your bread, your sleep.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A teamster drives a wagon and a team of horses. In Chicago he hauls everything. He hauls wood from the docks, goods to the stores, and bags for the wagons going west. In spring the roads are mud up to the wheels. In summer the dust gets into everything. It gets in your teeth, your bread and your sleep."
+   }
+  },
+  {
+   "card": "tales:s35-tm-teamster",
+   "text": "Otis Bardwell drives the best team of horses in town and he will tell you so. He has been stuck in the mud on every street in Chicago at least once and he knows every hole by name. If you want to see him lose his temper, ask him about the Clark Street hole. If you want to see him smile, ask about his horses.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Otis Bardwell drives the best team of horses in town, and he will tell you so. He has been stuck in the mud on every street in Chicago at least once. He knows every hole by name. If you want to see him get mad, ask him about the Clark Street hole. If you want to see him smile, ask about his horses."
+   }
+  },
+  {
+   "card": "tales:s35-tm-emigrants",
+   "text": "Every week the wagons go through. Whole families, with everything they own piled up under a canvas cover, the father walking beside the oxen, the mother on the seat with the baby, the children running behind, the cow tied to the tail. They come off the schooners and buy what they need and go out across the prairie toward the Fox River and the Rock River and Iowa.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Every week the wagons go through. Whole families come, with everything they own piled up under a cloth cover. The dad walks next to the oxen. The mom sits on the seat with the baby. The kids run behind, and the cow is tied to the back. They get off the ships, buy what they need, and head out across the prairie. They go toward the Fox River, the Rock River and Iowa."
+   }
+  },
+  {
+   "card": "tales:s35-tm-emigrants",
+   "text": "I watch them go and I think: that was me, a year ago. And I think: one day those farms will grow wheat and send it back here to be sold. Chicago does not grow anything itself. It is a door. Everything that goes west, and everything that comes back, goes through here.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I watch them go, and I think, that was me a year ago. And I think, one day those farms will grow wheat and send it back here to be sold. Chicago does not grow anything itself. It is a door. Everything that goes west, and everything that comes back, goes through here."
+   }
+  },
+  {
+   "card": "tales:s35-tm-fort-land",
+   "text": "The land around the fort belongs to the government, everybody knows that. But Jean Baptiste Beaubien has lived on part of it for years, and this spring he went into the land office and bought the whole fort reservation, all of it, for less than a hundred dollars, under the law that lets a settler buy the land he lives on.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The land around the fort belongs to the government. Everybody knows that. But Jean Baptiste Beaubien has lived on part of it for years. This spring he went to the land office and bought all the fort's land for less than a hundred dollars. A law lets a settler buy the land he lives on."
+   }
+  },
+  {
+   "card": "tales:s35-tm-fort-land",
+   "text": "The government says he cannot do that. He says he has done it, and here is his receipt. It will go to the courts, and the lawyers will get rich, and in the meantime the soldiers drill on Beaubien's land. Go and ask the Colonel about it. He will laugh and show you the receipt.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The government says he cannot do that. He says he has done it, and here is his receipt. It will go to the courts, and the lawyers will get rich. In the meantime the soldiers march on Beaubien's land. Go and ask the Colonel about it. He will laugh and show you the receipt."
+   }
+  },
+  {
+   "card": "tales:s35-tm-gentleman-bank",
+   "text": "There is not enough real money in this town. Gold and silver are scarce as diamonds. So everybody pays in paper: bank notes from Michigan and Ohio and Indiana banks, some of them good, some of them worth half, some of them printed by banks that do not exist.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "There is not enough real money in this town. Gold and silver are as rare as diamonds. So everybody pays with paper money. It comes from banks in Michigan, Ohio and Indiana. Some of it is good. Some is worth half. Some was printed by banks that do not even exist."
+   }
+  },
+  {
+   "card": "tales:s35-tm-gentleman-bank",
+   "text": "A merchant keeps a little book that tells him which notes are good this week. A man can be rich on Monday and poor on Friday because a bank in Detroit has failed. General Jackson has made war on the national bank, so now every little bank prints its own money. It is madness. But it is profitable madness, so nobody complains.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A store owner keeps a little book that tells him which bills are good this week. A man can be rich on Monday and poor on Friday because a bank in Detroit has closed. President Jackson fought the national bank, so now every little bank prints its own money. It is crazy. But people are making money, so nobody complains."
+   }
+  },
+  {
+   "card": "tales:s35-tm-steamboat",
+   "text": "When a steamboat comes in, the whole town knows it. You hear the whistle from far out on the lake, and then you see the smoke, and every boy in Chicago runs down to the river mouth to watch her come in past the piers.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "When a steamboat comes in, the whole town knows it. You hear the whistle from far out on the lake. Then you see the smoke. Every boy in Chicago runs down to the mouth of the river to watch her come in past the piers."
+   }
+  },
+  {
+   "card": "tales:s35-tm-steamboat",
+   "text": "Then the passengers come ashore, pale and seasick, with their trunks and their children and their dreams, and the hotel keepers fight over them like gulls over a fish. I watched it from the pier last week. A man stepped off the boat, looked around at the mud and the shanties, and asked the nearest fellow where the city was. The fellow said: you are standing in it.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Then the passengers come ashore. They are pale and seasick, with their trunks, their kids and their dreams. The hotel owners fight over them like gulls over a fish. I watched it from the pier last week. A man got off the boat. He looked around at the mud and the shacks. He asked the nearest fellow where the city was. The fellow said, \"You are standing in it.\""
+   }
+  },
+  {
+   "card": "tales:s35-tm-fort-neighbours",
+   "text": "Fort Dearborn sits at the end of the town by the lake, its pickets and two blockhouses, and the flag over it. The soldiers come into town on their days off and spend their pay in the taverns, and the officers come to the dances.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Fort Dearborn sits at the end of the town by the lake. It has a wooden wall, two blockhouses, and the flag over it. The soldiers come into town on their days off. They spend their pay in the taverns. The officers come to the dances."
+   }
+  },
+  {
+   "card": "tales:s35-tm-fort-neighbours",
+   "text": "There are old settlers who remember the first fort, the one that was burned in the war. They say it stood in the same place. They say the people who were killed are buried somewhere along the lake shore to the south, and nobody knows exactly where. When the wind blows in from the lake on a summer night and the sand moves, sometimes, they say, you find things.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Some old settlers remember the first fort, the one that burned in the war. They say it stood in the same spot. They say the people who were killed are buried somewhere along the lake shore to the south. Nobody knows just where. On a summer night, when the wind blows in from the lake and the sand moves, they say you sometimes find things."
+   }
+  },
+  {
+   "card": "tales:s35-tm-revival",
+   "text": "There was no church in Chicago until two years ago. Before that the preachers held meetings wherever they could: in a tavern, in a warehouse, in the fort's carpenter shop. Now there are a handful of congregations, Presbyterian, Baptist, Methodist, Episcopal and Catholic, all trying to build churches as fast as the taverns.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "There was no church in Chicago until two years ago. Before that, preachers met wherever they could. They met in a tavern, in a store room, or in the fort's work shop. Now there are a few kinds of churches. Each one is trying to build a church as fast as the taverns go up."
+   }
+  },
+  {
+   "card": "tales:s35-tm-revival",
+   "text": "The Catholics built theirs in a few weeks, of light boards nailed together, and everybody said it would fall down. It did not. The Methodists preached on the street corner last Sunday and a man drove his cattle right through the congregation. The preacher did not stop. Neither did the cattle.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The Catholics built theirs in a few weeks, out of thin boards nailed together. Everybody said it would fall down. It did not. Last Sunday the Methodists preached on a street corner. A man drove his cows right through the crowd. The preacher did not stop. Neither did the cows."
+   }
+  },
+  {
+   "card": "tales:s35-tw-schoolteacher",
+   "text": "There are more children in Chicago than benches to put them on. The first school was only three years ago, when John Watkins taught a dozen children in a little log building. Now there are several, in churches and storerooms and rented rooms, and still not enough.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "There are more kids in Chicago than benches to put them on. The first school was only three years ago. John Watkins taught a dozen kids in a little log building. Now there are a few schools. They meet in churches, storerooms and rented rooms. There are still not enough."
+   }
+  },
+  {
+   "card": "tales:s35-tw-schoolteacher",
+   "text": "I teach thirty children in a room meant for fifteen. They are from everywhere: Vermont, Ohio, Ireland, Canada, one little French girl who speaks no English at all. I teach them reading and arithmetic and geography, and they teach me how to break up a fight between a Yankee and an Irish boy without being knocked down. Go and see Mr. Watkins. He will tell you how it was in the old days.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I teach thirty kids in a room meant for fifteen. They come from everywhere. They come from Vermont, Ohio, Ireland and Canada. One little French girl speaks no English at all. I teach them reading, math and geography. They teach me how to stop a fight between a Yankee boy and an Irish boy without getting knocked down. Go and see Mr. Watkins. He will tell you how it was in the old days."
+   }
+  },
+  {
+   "card": "tales:s35-tw-lady-dance",
+   "text": "When the officers at the fort hold a dance, every lady in town is invited, and there are four gentlemen for every lady, so you dance until your feet bleed. The music is a fiddle and a flute, and sometimes a soldier with a drum who cannot keep time.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "When the officers at the fort have a dance, every lady in town is asked to come. There are four men for every lady. So you dance until your feet hurt. The music is a fiddle and a flute. Sometimes a soldier plays a drum, and he cannot keep the beat."
+   }
+  },
+  {
+   "card": "tales:s35-tw-lady-dance",
+   "text": "At the last dance I danced with a lieutenant, a land agent, two lawyers, a doctor, a fur trader with a scar on his face, and Mr. Beaubien, who dances like a whirlwind and sings at the same time. My husband danced with nobody, because there was nobody left. He sat by the punch bowl and talked about lots. He enjoyed himself, he says.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "At the last dance I danced with a soldier, a land seller, two lawyers, a doctor, and a fur trader with a scar on his face. I danced with Mr. Beaubien too. He dances like a whirlwind and sings at the same time. My husband danced with nobody, because there was nobody left. He sat by the punch bowl and talked about land. He says he had a good time."
+   }
+  },
+  {
+   "card": "tales:s35-tw-baby",
+   "text": "My baby was born in March, in our house on Clark Street, with the snow blowing against the windows. The doctor came through the drifts on horseback and arrived just in time to say congratulations. My neighbour, Mrs. Hamilton, delivered her. She has delivered a dozen babies in this town.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "My baby was born in March, in our house on Clark Street. Snow was blowing against the windows. The doctor rode through the snow on his horse. He got there just in time to say congratulations! My neighbor, Mrs. Hamilton, helped the baby be born. She has helped with a dozen babies in this town."
+   }
+  },
+  {
+   "card": "tales:s35-tw-baby",
+   "text": "She is a Chicago baby. She will grow up here. She will never know a place without the lake. When she is old, I suppose, Chicago will be a great city, and she will tell her grandchildren that she remembers when it was a few wooden houses in the mud. They will not believe her.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "She is a Chicago baby. She will grow up here. She will never know a place without the lake. When she is old, I guess Chicago will be a great city. She will tell her grandkids that she remembers when it was a few wooden houses in the mud. They will not believe her."
+   }
+  },
+  {
+   "card": "tales:s35-tw-native-neighbour",
+   "text": "When we first came, a Potawatomi family camped near our house on the North Side for the summer, and the woman used to come to my door with baskets of berries to trade. I gave her flour and needles. She gave me berries and maple sugar and once a pair of moccasins for my baby that were the most beautiful thing I have ever owned.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "When we first came, a Potawatomi family camped near our house on the North Side for the summer. The woman used to come to my door with baskets of berries to trade. I gave her flour and needles. She gave me berries and maple sugar. Once she gave me a pair of moccasins for my baby. They were the most beautiful thing I have ever owned."
+   }
+  },
+  {
+   "card": "tales:s35-tw-native-neighbour",
+   "text": "We could not speak to each other. We used our hands and laughed a lot. This summer she came again, and when I tried to ask about next year, she shook her head and pointed west, and made a motion with her hand like a long road. Then she gave me the berries and would not take anything for them.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "We could not talk to each other. We used our hands and laughed a lot. This summer she came again. I tried to ask about next year. She shook her head and pointed west. She moved her hand like a long road. Then she gave me the berries and would not take anything for them."
+   }
+  },
+  {
+   "card": "tales:s35-tw-kinzie-lady",
+   "text": "Mrs. John Kinzie is the most interesting woman in Chicago. She came from Connecticut, married Mr. Kinzie, and went to live at a fort in the Wisconsin wilderness among the Winnebago, where her husband was the agent. She rode horseback through the forests in winter with a baby. She tells the best stories of anyone.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Mrs. John Kinzie is the most interesting woman in Chicago. She came from Connecticut and married Mr. Kinzie. They went to live at a fort in the Wisconsin woods, among the Winnebago people. Her husband worked with them for the government. She rode a horse through the forests in winter with a baby. She tells the best stories of anyone."
+   }
+  },
+  {
+   "card": "tales:s35-tw-kinzie-lady",
+   "text": "Her husband's family were here at the first fort, in the old war, and his mother told her everything that happened. Mrs. Kinzie says she means to write it all down someday. I hope she does. Go and call on her if you can. She will give you tea and tell you something that will keep you awake at night.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Her husband's family were here at the first fort, in the old war. His mom told her everything that happened. Mrs. Kinzie says she wants to write it all down someday. I hope she does. Go and visit her if you can. She will give you tea and tell you something that will keep you up at night."
+   }
+  },
+  {
+   "card": "tales:p35-josette",
+   "text": "Twenty-three years ago, in the summer of the old war, I was nurse to the Kinzie children, a girl of French and Ottawa family. On the morning the soldiers marched out of the first fort, I sat in the Kinzies' boat at the river mouth with Mrs. Kinzie and the little ones, and we watched the column go down the shore. I will not tell you what we saw.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Twenty-three years ago, in the summer of the old war, I cared for the Kinzie kids. I was a girl from a French and Ottawa family. On the morning the soldiers marched out of the first fort, I sat in the Kinzies' boat at the mouth of the river. Mrs. Kinzie and the little ones were with me. We watched the soldiers go down the shore. I will not tell you what we saw."
+   }
+  },
+  {
+   "card": "tales:p35-josette",
+   "text": "Afterwards I married Jean Baptiste Beaubien, and I have raised his children and my own in this town ever since. The boy I minded in that boat, John Kinzie, is a grown man now with a business on the river. Go and find him. Ask him if he remembers the pockets I sewed into his clothes, with corn and sugar inside. He will remember.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Later I married Jean Baptiste Beaubien. I have raised his kids and my own in this town ever since. The boy I cared for in that boat, John Kinzie, is a grown man now. He has a business on the river. Go and find him. Ask him if he remembers the pockets I sewed into his clothes, with corn and sugar inside. He will remember."
+   }
+  },
+  {
+   "card": "tales:p35-calhoun",
+   "text": "I brought a printing press, type, ink and paper across the lake on a schooner two years ago, and I set up the Chicago Democrat in a little building on South Water Street. The first issue came out in November of 1833, and there were so few people in town who could pay for it that I printed for the whole Northwest, by mail.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Two years ago I brought a printing press across the lake on a ship. I brought letters to print with, and ink and paper too. I started the Chicago Democrat in a little building on South Water Street. The first paper came out in November 1833. So few people in town could pay for it that I sent it by mail all over the Northwest."
+   }
+  },
+  {
+   "card": "tales:p35-calhoun",
+   "text": "Paper is my curse. It comes from the east, round the lakes, and when the boats stop in winter I run out, and I have had to print on whatever paper I could buy or beg. Every week I print the list of letters waiting at the post office. Go and see Mr. Hogan. Without his letters and my list, half this town would never hear from home.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Paper is my big problem. It comes from the east, around the lakes. When the boats stop in winter, I run out. I have had to print on whatever paper I could buy or beg for. Every week I print the list of letters waiting at the post office. Go and see Mr. Hogan. Without his letters and my list, half this town would never hear from home."
+   }
+  },
+  {
+   "card": "tales:p35-carpenter",
+   "text": "I came here in 1832 with a stock of drugs and medicines and opened the first drugstore in Chicago, in a log building at Lake Street. Quinine for the ague, calomel for the fevers, laudanum for pain, and a great many patent remedies that do more good to the seller than the buyer.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I came here in 1832 with a load of medicines. I opened the first drugstore in Chicago, in a log building on Lake Street. I sell medicine for fevers, chills and pain. I also sell lots of cure-alls that help the seller more than the buyer."
+   }
+  },
+  {
+   "card": "tales:p35-carpenter",
+   "text": "But my real work is the Sunday school. I started it to teach the children of this town to read, and to know their Bible, in a place where there was no school and no church. There are a great many children here and not enough teachers. Go and see Mr. Watkins. He taught the first school in Chicago. He can tell you how many children there were then, and how many there are now.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "But my real work is the Sunday school. I started it to teach the kids of this town to read and to know their Bible. There was no school and no church here. There are lots of kids here and not enough teachers. Go and see Mr. Watkins. He taught the first school in Chicago. He can tell you how many kids there were then, and how many there are now."
+   }
+  },
+  {
+   "card": "tales:p35-hubbard",
+   "text": "I came to Chicago at sixteen, in 1818, a clerk for the American Fur Company, in a canoe from Mackinac. The Potawatomi called me Swift Walker, because I could walk seventy-five miles in a day. I married into the Kankakee band and traded all through the Illinois country.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I came to Chicago at sixteen, in 1818. I was a clerk for the fur company, and I came in a canoe from Mackinac. The Potawatomi called me Swift Walker, because I could walk seventy-five miles in a day. I married into the Kankakee band. I traded all over Illinois."
+   }
+  },
+  {
+   "card": "tales:p35-hubbard",
+   "text": "In 1827, when there was a scare that the Winnebago were rising, I rode a hundred and twenty-five miles to Danville in a day and a night to bring the militia. Now I have a warehouse on the river and I pack pork and beef for the east, and I have more lots than I can walk to in a day. I knew John Kinzie the elder. His son is my friend. Go and find him. Tell him Hubbard says the canal will come.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In 1827 people were scared the Winnebago would attack. I rode a hundred and twenty-five miles to Danville in a day and a night to bring help. Now I have a storehouse on the river. I pack pork and beef to send east. I own more land than I can walk to in a day. I knew the old John Kinzie. His son is my friend. Go and find him. Tell him Hubbard says the canal will come."
+   }
+  },
+  {
+   "card": "tales:p35-peck",
+   "text": "I came here in 1831 with a stock of goods on a schooner, and I put up one of the first frame buildings in Chicago, a store on South Water Street with my living quarters above it. Before that everything was logs.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I came here in 1831 with a load of goods on a ship. I built one of the first board houses in Chicago. It was a store on South Water Street, and I lived upstairs. Before that, everything was made of logs."
+   }
+  },
+  {
+   "card": "tales:p35-peck",
+   "text": "I have sold to the Potawatomi and the French, to the soldiers and the settlers, to everyone who has come through this town in four years. I have bought lots with my profits, and the lots have made me richer than the store. But I still open the shutters every morning at six, because a merchant who stops minding his store is no longer a merchant. He is a speculator. I do not want to be a speculator. Mostly.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I have sold to the Potawatomi and the French. I have sold to the soldiers and the settlers, and to everyone who came through this town in four years. I bought land with what I earned. The land has made me richer than the store. But I still open the shutters every morning at six. A store owner who stops caring for his store is not a store owner anymore. He is just betting on land. I do not want to be that. Mostly."
+   }
+  },
+  {
+   "card": "tales:p35-watkins",
+   "text": "I taught the first school in Chicago, three years ago, in a little log building on the North Side. I had twelve pupils, and only four of them were children of Yankee families; the rest were French and Potawatomi children of the old trading families, and none of them had ever been in a school before.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Three years ago I taught the first school in Chicago. It was in a little log building on the North Side. I had twelve students. Only four were kids from Yankee families. The rest were French and Potawatomi kids from the old trading families. None of them had ever been to school."
+   }
+  },
+  {
+   "card": "tales:p35-watkins",
+   "text": "We had no books worth the name and no slates and no benches. I taught them their letters on boards with charcoal. One of the French boys learned to read in a month and then taught his mother. Now there are many schools and many teachers, and I am very proud. Go and see Mr. Carpenter. His Sunday school taught as many children as I did.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "We had almost no books, no slates and no benches. I taught them their letters on boards, with charcoal. One French boy learned to read in a month. Then he taught his mom. Now there are many schools and many teachers, and I am very proud. Go and see Mr. Carpenter. His Sunday school taught as many kids as I did."
+   }
+  }
+ ]
+}

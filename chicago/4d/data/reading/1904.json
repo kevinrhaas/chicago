@@ -1857,6 +1857,678 @@
     "11-13": "Lucy M. Buckingham belonged to the family at 2036 Prairie Avenue. The 1900 census lists her with her sister. Books of names from 1904 and 1905 still list daughters in Ebenezer Buckingham's house. But those short entries do not name the sisters.",
     "14-15": "Lucy M. Buckingham belonged to the family at 2036 Prairie Avenue. She appears with her sister in the 1900 census. The social directories still list daughters in Ebenezer Buckingham's household in 1904 and 1905, but those short entries do not name the sisters."
    }
+  },
+  {
+   "card": "tales:s04-gm-fire-spared",
+   "text": "When the great fire came in October of 1871, it started on the West Side and the wind drove it north and east, across the river, through the whole business district and the North Side, where most of the fine houses were. It never came this far south. Prairie Avenue was spared.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The great fire came in October 1871. It started on the West Side. The wind pushed it north and east, across the river. It burned through all the stores and offices, and through the North Side, where most of the fine houses were. It never came this far south. Prairie Avenue was saved."
+   }
+  },
+  {
+   "card": "tales:s04-gm-fire-spared",
+   "text": "So afterwards, everybody who could afford it came here. Within ten years this was the finest street in Chicago, stone and brick houses side by side for six blocks, and every man in them had made a fortune or was making one. The old families still say they live on the Avenue as if there were no other. There are others now. But for thirty years, there were not.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "So after that, everybody who had enough money came here. In ten years this was the finest street in Chicago. Stone and brick houses stood side by side for six blocks. Every man in them had made a fortune or was making one. The old families still say they live on \"the Avenue,\" as if there were no other. There are others now. But for thirty years, there were not."
+   }
+  },
+  {
+   "card": "tales:s04-gm-north-side",
+   "text": "Since Mr. Potter Palmer built his castle on the Lake Shore Drive, the fashionable people have been going north, one after another. The young couples do not want a house on Prairie Avenue. They want one on the Drive, or in Lake Forest, away from the railroad.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Mr. Potter Palmer built his castle on Lake Shore Drive. Since then, the fancy people have been moving north, one after another. The young couples do not want a house on Prairie Avenue. They want one on the Drive, or in Lake Forest, away from the railroad."
+   }
+  },
+  {
+   "card": "tales:s04-gm-north-side",
+   "text": "The Illinois Central runs along the lake behind us, and the trains go by day and night, and the smoke comes over the gardens. And to the west and south of us, the town is creeping up: boarding houses, saloons, the Levee district on Twenty-second Street, which no lady will mention by name. My father built this house to last a hundred years. I do not think his grandchildren will live in it.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The Illinois Central trains run along the lake behind us. They go by day and night, and the smoke blows over the gardens. To the west and south, the town is creeping closer. There are rooming houses and saloons. There is a rough part of town on Twenty-second Street that no lady will even name. My father built this house to last a hundred years. I do not think his grandkids will live in it."
+   }
+  },
+  {
+   "card": "tales:s04-gm-fair",
+   "text": "Eleven years ago, in the summer of 1893, Chicago held the World's Columbian Exposition in Jackson Park, and the whole world came to see it. Great white palaces around a lagoon, lit at night by electricity, more light than anybody had ever seen in one place. And Mr. Ferris's wheel, taller than any building in the city, turning slowly with a whole street car full of people in every car.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Eleven years ago, in the summer of 1893, Chicago held a world's fair in Jackson Park. The whole world came to see it. Huge white palaces stood around a lake. At night they were lit by electric lights, more light than anybody had ever seen in one place. And there was Mr. Ferris's wheel. It was taller than any building in the city. It turned slowly, and each car was as big as a streetcar, full of people."
+   }
+  },
+  {
+   "card": "tales:s04-gm-fair",
+   "text": "I went forty times. Everybody did. People came from every country in the world and stood in the Court of Honour at night with their mouths open. They called it the White City. Then it ended, and that winter the palaces stood empty, and the next summer most of them burned. It was like a dream that everybody had at once.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I went forty times. Everybody did. People came from every country in the world. At night they stood in the big central court with their mouths open. They called it the White City. Then it ended. That winter the palaces stood empty, and the next summer most of them burned. It was like a dream everybody had at once."
+   }
+  },
+  {
+   "card": "tales:s04-gm-mayor",
+   "text": "On the last week of the fair, Mayor Carter Harrison gave a speech to the visiting mayors of America, and said Chicago had shown the world what it could do. That evening a young man came to his front door on Ashland Avenue, asked to see him, and shot him three times.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In the last week of the fair, Mayor Carter Harrison gave a speech to mayors from all over America. He said Chicago had shown the world what it could do. That evening a young man came to his front door on Ashland Avenue. He asked to see the mayor, and then he shot him."
+   }
+  },
+  {
+   "card": "tales:s04-gm-mayor",
+   "text": "The fair's closing ceremonies were cancelled. Instead of fireworks, there was a funeral. I had shaken the mayor's hand a week before. He was a big, loud, generous man who wore a slouch hat and rode about the city on horseback and knew every saloon keeper in the city by name, and half the respectable people hated him, and they all went to his funeral.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The fair's big ending party was called off. Instead of fireworks, there was a funeral. I had shaken the mayor's hand a week before. He was a big, loud, kind man. He wore a floppy hat and rode around the city on a horse. He knew every saloon owner in the city by name. Half the proper people hated him. They all went to his funeral."
+   }
+  },
+  {
+   "card": "tales:s04-gm-haymarket",
+   "text": "In May of 1886 the workingmen of Chicago struck for an eight hour day. There was a meeting in the Haymarket on Randolph Street, anarchists speaking from a wagon. When the police marched in to break it up, someone threw a bomb into their ranks. Seven policemen died of it, and more people in the shooting afterwards.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In May 1886 the workers of Chicago went on strike. They wanted to work only eight hours a day. There was a meeting in the Haymarket on Randolph Street. Anarchists, people who wanted no government at all, gave speeches from a wagon. When the police marched in to stop it, someone threw a bomb at them. Seven policemen died, and more people died in the shooting after."
+   }
+  },
+  {
+   "card": "tales:s04-gm-haymarket",
+   "text": "Nobody ever proved who threw the bomb. They tried eight anarchists for it and hanged four. Some men on this street said it was justice. Some said it was not. I have never been sure. When the governor pardoned the three who were left, eleven years ago, half the city called him a traitor. The other half called him brave.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Nobody ever proved who threw the bomb. Eight anarchists were put on trial for it, and four were hanged. Some men on this street said it was fair. Some said it was not. I have never been sure. Eleven years ago, the governor set free the three who were left. Half the city called him a traitor. The other half called him brave."
+   }
+  },
+  {
+   "card": "tales:s04-gm-pullman-strike",
+   "text": "Ten summers ago the workers at Mr. Pullman's car works went on strike, after he cut their wages and would not lower their rents in his town. The railway union refused to handle Pullman cars, and every railroad in the West stopped. No trains went in or out of Chicago.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Ten summers ago the workers at Mr. Pullman's train car factory went on strike. He had cut their pay. But he would not lower the rent for their houses in his town. The railroad workers' union would not touch Pullman cars. So every railroad in the West stopped. No trains went in or out of Chicago."
+   }
+  },
+  {
+   "card": "tales:s04-gm-pullman-strike",
+   "text": "President Cleveland sent the army. There were soldiers camped on the lake front and fires in the railroad yards and mobs in the streets, and the men on Prairie Avenue sat up at night with pistols in their desks. In the end the strike was broken and the union man Debs went to jail. Mr. Pullman was never the same afterwards, and neither were the people of his town.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "President Cleveland sent the army. Soldiers camped by the lake. There were fires in the train yards and angry crowds in the streets. The men on Prairie Avenue sat up at night with guns in their desks. In the end the strike was broken. The union leader, Debs, went to jail. Mr. Pullman was never the same after that. Neither were the people of his town."
+   }
+  },
+  {
+   "card": "tales:s04-gm-board-of-trade",
+   "text": "Seven years ago a young man named Joe Leiter, son of old Levi Leiter, tried to corner the wheat market at the Board of Trade. He bought every bushel of wheat he could find, and for months he drove the price up and up, and everybody said he was a genius.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Seven years ago a young man named Joe Leiter tried to take over the wheat market at the Board of Trade. His dad was old Levi Leiter. Joe bought every bushel of wheat he could find. For months he pushed the price up and up. Everybody said he was a genius."
+   }
+  },
+  {
+   "card": "tales:s04-gm-board-of-trade",
+   "text": "But old Phil Armour was selling against him, and Armour sent ships into the ice of Lake Superior with tugs to break a channel and bring down the wheat from the Northwest in the dead of winter. When spring came there was wheat everywhere, and the price collapsed, and young Leiter lost millions. His father paid. I watched it all from the gallery. That is the Board of Trade. Fortunes in an afternoon, and gone by the next.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "But old Phil Armour was selling against him. In the dead of winter, Armour sent ships into the ice of Lake Superior. Tugboats broke a path, and the ships brought down wheat from the Northwest. When spring came, there was wheat everywhere. The price fell, and young Leiter lost millions. His dad paid. I watched it all from the balcony. That is the Board of Trade. You can make a fortune in an afternoon, and lose it the next day."
+   }
+  },
+  {
+   "card": "tales:s04-gm-skyscraper",
+   "text": "When I was a young man, a building of five storeys was tall. Now there are buildings downtown of sixteen, twenty, twenty-two storeys, built on frames of steel, with the walls hung on them like curtains, and elevators to carry you to the top in a minute.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "When I was young, a building five floors high was tall. Now there are buildings downtown with sixteen, twenty, even twenty-two floors. They are built on frames of steel. The walls hang on them like curtains. Elevators carry you to the top in a minute."
+   }
+  },
+  {
+   "card": "tales:s04-gm-skyscraper",
+   "text": "The Masonic Temple has a roof garden twenty storeys up, where you can look out over the whole city and the lake. The architects of this city have invented a new kind of building, and New York has copied it. My office is on the fourteenth floor. In the morning, when the smoke is low, I look down on it like a man in a balloon. I can see the ships coming in thirty miles off.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The Masonic Temple has a garden on its roof, twenty floors up. From there you can see the whole city and the lake. The builders of this city made a new kind of building, and New York copied it. My office is on the fourteenth floor. In the morning, when the smoke is low, I look down on it like a man in a balloon. I can see ships coming in thirty miles away."
+   }
+  },
+  {
+   "card": "tales:s04-gm-river",
+   "text": "Four years ago, Chicago did something no city had ever done. It made its river run backwards. For years the river had carried all the sewage of the city out into the lake, where the city drinks. When the rains were heavy, the typhoid and the cholera came.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Four years ago Chicago did something no city had ever done. It made its river run backwards. For years the river had carried all the city's dirty water into the lake. But the city drinks from the lake! When the rains were heavy, terrible sicknesses like typhoid and cholera came."
+   }
+  },
+  {
+   "card": "tales:s04-gm-river",
+   "text": "So they dug a great canal from the South Branch to the Des Plaines River, twenty-eight miles through rock, deeper and wider than any canal in the world. In January of 1900 they opened the gates, and the river turned around and began to flow away from the lake, toward the Mississippi and St. Louis. St. Louis sued. Chicago does not care. Chicago never cares what anybody thinks.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "So the city dug a giant canal from the South Branch to the Des Plaines River. It ran twenty-eight miles through rock. It was deeper and wider than any canal in the world. In January 1900 they opened the gates. The river turned around and flowed away from the lake, toward the Mississippi and St. Louis. St. Louis took Chicago to court. Chicago does not care. Chicago never cares what anybody thinks."
+   }
+  },
+  {
+   "card": "tales:s04-gm-convention",
+   "text": "Last week the Republican party held its national convention at the Coliseum on Wabash Avenue and nominated President Roosevelt for another term. The city was full of delegates and bands and banners. Every hotel was booked, every saloon was full, and you could not get a cab for love or money.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Last week the Republican party held its big meeting at the Coliseum on Wabash Avenue. They picked President Roosevelt to run again. The city was full of visitors, bands and flags. Every hotel was full. Every saloon was full. You could not get a cab at any price."
+   }
+  },
+  {
+   "card": "tales:s04-gm-convention",
+   "text": "I went to two sessions. It was very hot and very loud and nothing was in doubt, since everybody knew it would be Roosevelt. But it was a fine show. They say the Democrats meet in St. Louis next week, where the World's Fair is open. If the Republicans can win Illinois with Roosevelt, they can win the country. I think they can. Most of this street thinks so too.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I went twice. It was very hot and very loud. Everybody knew it would be Roosevelt. But it was a fine show. People say the Democrats meet in St. Louis next week, where the World's Fair is. If the Republicans win Illinois with Roosevelt, they can win the whole country. I think they can. Most people on this street think so too."
+   }
+  },
+  {
+   "card": "tales:s04-gm-university",
+   "text": "Twelve years ago a new university opened on the Midway, beside where the fair would be, built on Mr. Rockefeller's millions. Now it has grey stone towers like Oxford, and professors from all over the world, and students, men and women both, studying side by side. President Harper says it will be the greatest university in America.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Twelve years ago a new college opened on the Midway, next to where the fair would be. Mr. Rockefeller's money paid for it. Now it has gray stone towers like the old colleges in England. Its teachers come from all over the world. Men and women learn side by side. Its head, Mr. Harper, says it will be the best college in America."
+   }
+  },
+  {
+   "card": "tales:s04-gm-university",
+   "text": "The old families send their sons east to Yale and Harvard, as they always have. But the new university is changing Chicago. It has brought scholars to a city that only had merchants. A man on this street used to be ashamed to read a book in public. Now there is a professor at every dinner party, and the ladies hang on every word.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The old families still send their sons east to Yale and Harvard, like they always have. But the new college is changing Chicago. It has brought deep thinkers to a city of store owners. A man on this street used to be shy about reading a book where people could see. Now there is a teacher from the college at every dinner party. The ladies hang on every word."
+   }
+  },
+  {
+   "card": "tales:s04-gm-philanthropy",
+   "text": "The men on this street have given Chicago a great deal. A museum, an art institute, a library, a university, hospitals, an orchestra. Some of them did it because they believed in it, and some of them did it so that people would forget how they made their money.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The men on this street have given Chicago a lot. They gave a museum, an art school, a library, a university, hospitals and an orchestra. Some did it because they believed in it. Some did it so people would forget how they got rich."
+   }
+  },
+  {
+   "card": "tales:s04-gm-philanthropy",
+   "text": "My father used to say: a man who dies rich dies disgraced. That was Mr. Carnegie's saying, and my father repeated it often. He did not die poor, mind you. But he gave the money for a hospital ward and a school, and the nurses in that ward still put flowers by his portrait on his birthday. That is a better monument than this house.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "My dad used to say, \"A man who dies rich dies in shame.\" Mr. Carnegie said it first, and my dad said it often. He did not die poor, mind you. But he paid for a hospital ward and a school. The nurses in that ward still put flowers by his picture on his birthday. That means more than this house."
+   }
+  },
+  {
+   "card": "tales:s04-gm-trusts",
+   "text": "Two years ago the five biggest makers of reaping machines in the country joined together into one great company, the International Harvester. Mr. Morgan's bankers arranged it. The newspapers call it a trust and say it will crush the farmer.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Two years ago the five biggest makers of farm machines joined into one huge company. It is called International Harvester. Mr. Morgan's bankers set it up. The newspapers call it a trust. They say it will crush the farmer."
+   }
+  },
+  {
+   "card": "tales:s04-gm-trusts",
+   "text": "I say the farmer has never had better machines at lower prices. But the President is in a fighting mood against the trusts, and his attorney general is going after the railroad combinations in the courts. Everything is getting bigger. Companies are getting bigger, cities are getting bigger, fortunes are getting bigger. I sometimes wonder where it stops.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I say the farmer has never had better machines at lower prices. But the President is ready to fight the trusts. His lawyers are taking the big railroads to court. Everything is getting bigger. Companies are bigger. Cities are bigger. The rich are richer. Sometimes I wonder where it stops."
+   }
+  },
+  {
+   "card": "tales:s04-ld-iroquois",
+   "text": "My friend took her two little girls to the Iroquois Theatre on the thirtieth of December, for the holiday matinee, with their nurse. They had seats in the balcony. When the fire started on the stage, the people in the balcony rushed for the doors, and the doors were locked, or opened inward, and the crowd pressed against them.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "My friend took her two little girls to the Iroquois Theatre on 30 December, for the holiday show. Their nurse went too. They sat up in the balcony. A fire started on the stage. The people in the balcony rushed for the doors. Some doors were locked, and some only opened inward. The crowd pushed against them."
+   }
+  },
+  {
+   "card": "tales:s04-ld-iroquois",
+   "text": "They found my friend afterwards in the stairway, with her arms around both her girls. The nurse lived. She was below them on the stairs and was pulled out by a fireman. She comes to see me sometimes, and we sit together and do not say much. The theatre had been open five weeks. They advertised it as absolutely fireproof.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Later they found my friend on the stairs, with her arms around both her girls. The nurse lived. She was below them on the stairs, and a fireman pulled her out. She comes to see me sometimes. We sit together and do not say much. The theatre had been open five weeks. Its ads said it could never burn."
+   }
+  },
+  {
+   "card": "tales:s04-ld-women-vote",
+   "text": "There are women in Chicago now who want the vote. They hold meetings, they march, they write to the newspapers. My husband says it is ridiculous. A woman's place is in the home, he says, and her influence is through her husband and her sons.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Some women in Chicago now want the right to vote. They hold meetings and march. They write to the newspapers. My husband says it is silly. He says a woman belongs at home, and she can guide things through her husband and sons."
+   }
+  },
+  {
+   "card": "tales:s04-ld-women-vote",
+   "text": "Women can vote in Colorado, and Wyoming, and Utah, and Idaho, and nothing terrible has happened there. Here in Illinois we can vote for school officers and the trustees of the state university, and nothing else. I do not march. But I have started to read the newspapers that my husband leaves on the breakfast table, all of them, the political pages too. When the time comes, I want to know what I am voting for.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Women can vote in Colorado, Wyoming, Utah and Idaho, and nothing terrible has happened there. Here in Illinois we can only vote for school leaders and the people who run the state university. I do not march. But I have started to read the newspapers my husband leaves on the breakfast table. I read all of them, even the pages about politics. When the time comes, I want to know what I am voting for."
+   }
+  },
+  {
+   "card": "tales:s04-ld-orchestra",
+   "text": "Thirteen years ago some of the men of Chicago persuaded Mr. Theodore Thomas to come from New York and build an orchestra here. He has given us Beethoven and Brahms and Wagner every week in the season, and he has fought with everybody, and he has never once given the public a cheap programme to please them.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Thirteen years ago some Chicago men asked Mr. Theodore Thomas to come from New York. They wanted him to start an orchestra here. Every week he has played great music for us, by Beethoven, Brahms and Wagner. He has argued with everybody. He never once played cheap tunes just to please the crowd."
+   }
+  },
+  {
+   "card": "tales:s04-ld-orchestra",
+   "text": "The orchestra has always played in the Auditorium, which is too big for it. So this year the city raised the money to build him a hall of his own, on Michigan Avenue, and they are building it now. Mrs. Glessner has been one of his truest friends. Go and see her. She will tell you about the evenings Mr. Thomas spent at her table, talking music until midnight.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The orchestra has always played in the Auditorium. It is too big for them. So this year the city raised money to build him his own hall on Michigan Avenue. They are building it now. Mrs. Glessner has been one of his best friends. Go and see her. She will tell you about the nights Mr. Thomas spent at her table, talking about music until midnight."
+   }
+  },
+  {
+   "card": "tales:s04-ld-bicycle",
+   "text": "Ten years ago, every lady in Chicago learned to ride a bicycle. It was a madness. We wore divided skirts and shirtwaists and straw hats, and rode out along the boulevards in parties, twenty or thirty of us, ringing our bells. Some of the gentlemen were scandalised. Some of the clergy preached against it.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Ten years ago every lady in Chicago learned to ride a bike. Everyone went crazy for it. We wore split skirts, blouses and straw hats. We rode along the wide streets in groups of twenty or thirty, ringing our bells. Some of the men were shocked. Some preachers said it was wrong."
+   }
+  },
+  {
+   "card": "tales:s04-ld-bicycle",
+   "text": "I learned at forty-two, on the gravel paths in Washington Park, with my coachman running alongside to catch me. I fell off eleven times. The twelfth time I did not fall, and I rode all the way to the lake and back. I had never been anywhere by myself before, without a carriage or a maid or a husband. It was the most free I have ever felt.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I learned at forty-two, on the gravel paths in Washington Park. My driver ran next to me to catch me. I fell off eleven times. The twelfth time I did not fall. I rode all the way to the lake and back. I had never gone anywhere by myself before, without a carriage or a maid or a husband. I have never felt so free."
+   }
+  },
+  {
+   "card": "tales:s04-ym-st-louis",
+   "text": "Next week my brother and I are going down to St. Louis on the train to see the World's Fair, the Louisiana Purchase Exposition. They say it is bigger than our fair in 1893. They say there are palaces of electricity and machinery and agriculture, and a great wheel, and villages of people from all over the world, the Philippines and Africa and Japan, and Mr. Ferris's own wheel, carried down from Chicago and set up again.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Next week my brother and I are taking the train down to St. Louis to see the World's Fair. People say it is bigger than our fair in 1893. They say there are palaces of electricity, machines and farming. There are villages of people from all over the world, from the Philippines, Africa and Japan. And Mr. Ferris's own wheel is there. It was carried down from Chicago and put up again."
+   }
+  },
+  {
+   "card": "tales:s04-ym-st-louis",
+   "text": "My father says nothing will ever be as fine as the White City. He says St. Louis is only copying Chicago. Maybe. But I was only a boy in 1893, and I remember the lights and the wheel and nothing else. This time I am going to see everything. I have a list. It is four pages long.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "My dad says nothing will ever be as fine as the White City. He says St. Louis is just copying Chicago. Maybe. But I was only a boy in 1893. I remember the lights and the wheel and nothing else. This time I am going to see everything. I have a list. It is four pages long."
+   }
+  },
+  {
+   "card": "tales:s04-ch-fourth",
+   "text": "In three days it will be the Fourth of July, and we are going to have firecrackers. My father bought a whole box of them, and Roman candles, and pinwheels, and sparklers, and at night we will set them off in the yard behind the house, and everybody on the street will do the same.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In three days it will be the Fourth of July, and we are going to have firecrackers! My dad bought a whole box. He got Roman candles, pinwheels and sparklers too. At night we will set them off in the yard behind the house. Everybody on the street will do the same."
+   }
+  },
+  {
+   "card": "tales:s04-ch-fourth",
+   "text": "Last year a boy on the next street blew off the end of his thumb with a cannon cracker. My mother says I may only have the little crackers and the sparklers. I am saving my pocket money for a cannon cracker anyway. I will set it off very carefully, behind the stable, where my mother will not see. Do not tell anybody.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Last year a boy on the next street hurt his thumb badly with a big cannon cracker. My mom says I may only have the little crackers and the sparklers. I am saving my money for a cannon cracker anyway. I will set it off very carefully behind the stable, where my mom will not see. Do not tell anybody."
+   }
+  },
+  {
+   "card": "tales:s04-md-thursday",
+   "text": "Every maid on Prairie Avenue lives for Thursday afternoon. That is our afternoon off, from two o'clock until ten, and every Sunday after the breakfast dishes, every second week. On Thursday the streetcars going north are full of girls in their best hats, going to see their sisters and their sweethearts and the shops on State Street.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Every maid on Prairie Avenue waits all week for Thursday afternoon. That is our time off, from two o'clock until ten. We also get every other Sunday, after the breakfast dishes. On Thursday the streetcars going north are full of girls in their best hats. They go to see their sisters, their sweethearts, and the shops on State Street."
+   }
+  },
+  {
+   "card": "tales:s04-md-thursday",
+   "text": "I go to my cousin's in the Swedish quarter on the North Side, and we drink coffee and eat cardamom bread and speak our own language for six hours, and nobody rings a bell for me. At half past nine I am on the car again, and at ten I am in my attic room with my uniform laid out for six o'clock. Six hours of being myself. It is enough to last the week. Nearly.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I go to my cousin's house in the Swedish part of the North Side. We drink coffee and eat cardamom bread. We speak our own language for six hours, and nobody rings a bell for me. At half past nine I am on the streetcar again. At ten I am in my attic room, with my uniform laid out for six in the morning. Six hours of being myself. It is enough to last the week. Almost."
+   }
+  },
+  {
+   "card": "tales:s04-md-bells",
+   "text": "In the back hall of this house there is a board with forty little bells on springs, one for every room, each with a name painted underneath: Library, Parlour, Mrs. G's Room, Front Door, Guest Room North. When someone in the family presses a button in a room, the bell for that room shakes and rings.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In the back hall of this house there is a board with forty little bells on springs. There is one for every room. Each has a name painted under it, like Library, Parlor, Mrs. G's Room, Front Door, and Guest Room North. When someone in the family presses a button in a room, the bell for that room shakes and rings."
+   }
+  },
+  {
+   "card": "tales:s04-md-bells",
+   "text": "You learn to sleep through every bell but your own. The cook does not hear the library bell. The butler does not hear the nursery. But I hear Mrs. G's room bell in my sleep, even on my afternoon off, even when I am miles away. When I am an old woman and have a house of my own, I am going to have no bells in it at all.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "You learn to sleep through every bell but your own. The cook does not hear the library bell. The butler does not hear the nursery bell. But I hear Mrs. G's bell in my sleep. I hear it even on my afternoon off, even when I am miles away. When I am an old woman with a house of my own, I will have no bells in it at all."
+   }
+  },
+  {
+   "card": "tales:s04-md-irish",
+   "text": "I came from County Mayo when I was seventeen, with my passage paid by my aunt who was in service in Chicago already. She met me at the station and the next day took me round the houses on Prairie Avenue, ringing at the back doors, until a housekeeper took me on as a kitchen maid.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I came from County Mayo in Ireland when I was seventeen. My aunt paid for my ticket. She already worked in a house in Chicago. She met me at the train station. The next day she took me around the houses on Prairie Avenue. We knocked at the back doors until a housekeeper gave me a job as a kitchen maid."
+   }
+  },
+  {
+   "card": "tales:s04-md-irish",
+   "text": "Now I am a house maid in a great house, and I send four dollars home every month to my mother, and my little brother is coming over next spring on money I saved. Half the girls on this street are Irish, and the other half are Swedish or Norwegian or German. Go and find Maggie Fitzsimmons at Mr. Field's. She is from the next county to mine, and she knows every Irish girl on the Avenue.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Now I am a house maid in a big house. I send four dollars home to my mom every month. My little brother is coming over next spring with money I saved. Half the girls on this street are Irish. The other half are from Sweden, Norway or Germany. Go and find Maggie Fitzsimmons at Mr. Field's. She is from the county next to mine. She knows every Irish girl on the Avenue."
+   }
+  },
+  {
+   "card": "tales:s04-md-fire-iroquois",
+   "text": "Last December, just after Christmas, the new Iroquois Theatre downtown caught fire during the matinee. It was full of women and children on their holidays, two thousand people, watching Eddie Foy in Mr. Bluebeard. A light set fire to the curtain, and the fire curtain that was supposed to come down stuck halfway, and the doors opened inward, and some of them were locked.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Last December, just after Christmas, the new Iroquois Theatre downtown caught fire during an afternoon show. It was full of women and kids on their holidays, two thousand people. They were watching Eddie Foy in a funny show. A light set the curtain on fire. The fire curtain that was supposed to come down got stuck halfway. The doors opened inward, and some of them were locked."
+   }
+  },
+  {
+   "card": "tales:s04-md-fire-iroquois",
+   "text": "Six hundred people died in a quarter of an hour. Children, mostly, and their mothers and nurses and maids who had taken them. I knew a girl who was a nursemaid in a house on Michigan Avenue. She took the two children. None of them came home. I still cannot pass a theatre without counting the doors.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Six hundred people died in fifteen minutes. Most were children, with the moms, nurses and maids who had brought them. I knew a girl who cared for two children in a house on Michigan Avenue. She took them to the show. None of them came home. I still cannot walk past a theatre without counting the doors."
+   }
+  },
+  {
+   "card": "tales:s04-md-silver",
+   "text": "Every Monday the silver is polished, every piece, whether it was used or not. Forks, spoons, knives, ladles, the tea service, the candlesticks, the great centrepiece shaped like a ship. It takes two of us all morning, with rouge and chamois and soft brushes for the engraving.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Every Monday we polish all the silver. We polish every piece, whether it was used or not. There are forks, spoons, knives and big ladles. There is the tea set, the candlesticks, and a big table piece shaped like a ship. It takes two of us all morning. We use red polish, soft cloths, and soft brushes for the carved parts."
+   }
+  },
+  {
+   "card": "tales:s04-md-silver",
+   "text": "The butler counts every piece before and after. He has a book with every item listed and its weight. Once a fish fork went missing for three days and the whole household was in an uproar. It turned up in the garbage, where a kitchen girl had thrown it out with the bones. She nearly lost her place. The fork was worth less than a day of her wages.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The butler counts every piece before and after. He has a book that lists every piece and how much it weighs. Once a fish fork went missing for three days. The whole house was in an uproar. It turned up in the trash. A kitchen girl had thrown it out with the fish bones. She almost lost her job. The fork was worth less than one day of her pay."
+   }
+  },
+  {
+   "card": "tales:s04-md-wedding",
+   "text": "When a daughter of one of the great houses is married, the whole Avenue knows it weeks ahead. The dressmakers come and go, the florists, the caterers. On the day, the carriages line the street from Sixteenth to Twenty-second, and the police come to keep the crowds back.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "When a daughter of one of the big houses gets married, the whole street knows it weeks ahead. The dressmakers come and go. So do the flower sellers and the cooks. On the day, carriages line the street from Sixteenth to Twenty-second. The police come to keep the crowds back."
+   }
+  },
+  {
+   "card": "tales:s04-md-wedding",
+   "text": "The maids from every house watch from the back windows. We see the bride come out in her white satin and her veil, and we see the guests in their silks, and we make our comments, which are not polite. Then we go back to work. The next morning we hear everything from the girls who served at the wedding breakfast: who drank too much, who cried, who was not invited.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The maids from every house watch from the back windows. We see the bride come out in her white dress and veil. We see the guests in their silks. We say what we think, and it is not polite. Then we go back to work. The next morning the girls who served at the wedding tell us everything. They tell us who drank too much, who cried, and who was not invited."
+   }
+  },
+  {
+   "card": "tales:s04-md-dust",
+   "text": "Chicago is the dirtiest city in the world. The soot from the railroads and the factories and the furnaces of every house comes down like black snow, all year round. You dust a room in the morning and by evening there is a grey film on every table.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Chicago is the dirtiest city in the world. Soot falls all year round like black snow. It comes from the trains, the factories, and the furnace in every house. You dust a room in the morning. By evening there is a gray coat on every table."
+   }
+  },
+  {
+   "card": "tales:s04-md-dust",
+   "text": "The windows have to be washed every week, inside and out. The lace curtains have to be taken down and washed every month. The white collars of the gentlemen go grey in an afternoon. The lake wind helps a little. When the wind is from the west, from the stockyards, you shut every window in the house and pray.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The windows must be washed every week, inside and out. The lace curtains must be taken down and washed every month. The men's white collars turn gray in one afternoon. The lake wind helps a little. When the wind blows from the west, from the stockyards, you shut every window in the house and pray."
+   }
+  },
+  {
+   "card": "tales:s04-ck-market",
+   "text": "On Tuesdays and Fridays I go to the South Water Street market with the coachman to choose the meat and the fish and the vegetables myself. I do not trust the grocer's boy. He would bring me a fish that died last week and tell me it was this morning's.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On Tuesdays and Fridays I go to the South Water Street market with the driver. I pick the meat, fish and vegetables myself. I do not trust the grocer's boy. He would bring me a fish that died last week and tell me it was caught this morning."
+   }
+  },
+  {
+   "card": "tales:s04-ck-market",
+   "text": "South Water Street is the busiest place in Chicago at six in the morning: wagons from every farm in Illinois, crates of chickens, barrels of apples, men shouting in ten languages. I walk through it all like a general, pinching the peaches and smelling the fish, and the commission men know me by name and give me the best. They know if they cheat me I will tell every cook on Prairie Avenue.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "At six in the morning, South Water Street is the busiest place in Chicago. Wagons come from every farm in Illinois. There are boxes of chickens and barrels of apples. Men shout in ten languages. I march through it all like a general. I squeeze the peaches and smell the fish. The sellers know me by name and give me the best. They know that if they cheat me, I will tell every cook on Prairie Avenue."
+   }
+  },
+  {
+   "card": "tales:s04-ck-german",
+   "text": "I learned to cook in Bavaria, in a hotel kitchen, when I was fourteen. I came to Chicago twenty years ago and I have cooked for three families on this street. They want French food for their dinners and German food for their own lunches, though they would never say so.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I learned to cook in Bavaria, in Germany, in a hotel kitchen, when I was fourteen. I came to Chicago twenty years ago. I have cooked for three families on this street. They want French food for their dinner parties. They want German food for their own lunches, but they would never say so."
+   }
+  },
+  {
+   "card": "tales:s04-ck-german",
+   "text": "So I make them a sauce béarnaise and a soufflé for the guests, and for the family on Sunday a pot roast with dumplings and red cabbage, and the master eats three helpings and says it is the best thing he has eaten all week. The French chefs downtown think they are the only cooks in Chicago. They should taste my strudel.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "So I make fancy French sauces and puffy soufflés for the guests. On Sunday I make the family a pot roast with dumplings and red cabbage. The master eats three helpings and says it is the best thing he has eaten all week. The French chefs downtown think they are the only cooks in Chicago. They should taste my strudel."
+   }
+  },
+  {
+   "card": "tales:s04-cm-livery",
+   "text": "My livery is dark green, with brass buttons that have the family's initial on them, a high collar, white breeches, black boots to the knee, and a silk hat with a cockade. In winter there is a great caped coat over it. I look like a general.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "My uniform is dark green. It has brass buttons with the family's first letter on them. It has a high collar, white pants, and black boots up to the knee. I wear a tall silk hat with a ribbon on it. In winter I wear a big coat with a cape over it all. I look like a general."
+   }
+  },
+  {
+   "card": "tales:s04-cm-livery",
+   "text": "I hate it. It is hot in summer and the boots pinch and the hat blows off in the lake wind. But I wear it, and I sit up straight on the box, because when the carriage goes down Michigan Avenue on a Sunday afternoon, everybody looks, and they see the family's horses and the family's carriage and the family's coachman, and they know whose they are. That is what the livery is for.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I hate it. It is hot in summer. The boots pinch. The hat blows off in the lake wind. But I wear it, and I sit up straight on the driver's seat. On Sunday afternoons the carriage goes down Michigan Avenue, and everybody looks. They see the family's horses, the family's carriage and the family's driver. They know whose they are. That is what the uniform is for."
+   }
+  },
+  {
+   "card": "tales:s04-cm-park-drive",
+   "text": "On fine afternoons I drive the mistress out to Washington Park or down the boulevards. The boulevards are wide and smooth, with trees on either side, and every fine carriage in Chicago is out on them, the ladies in their hats and the gentlemen nodding to each other, and the coachmen sizing each other up.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "On nice afternoons I drive the lady of the house to Washington Park or down the wide streets. The streets are wide and smooth, with trees on each side. Every fine carriage in Chicago is out there. The ladies wear their hats. The men nod to each other. The drivers size each other up."
+   }
+  },
+  {
+   "card": "tales:s04-cm-park-drive",
+   "text": "We coachmen have our own races. Not real races, of course, the ladies would faint. But if you can pass another carriage on the boulevard without seeming to try, with your horses stepping high and not breaking stride, that is a victory, and every coachman on the boulevard knows it. I passed the Kimball carriage last Tuesday. I have not stopped smiling since.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "We drivers have our own races. They are not real races, of course. The ladies would faint! But if you can pass another carriage without seeming to try, that is a win. Your horses must step high and never break their stride. Every driver on the street knows it. I passed the Kimball carriage last Tuesday. I have not stopped smiling since."
+   }
+  },
+  {
+   "card": "tales:s04-ms-valet",
+   "text": "A valet dresses his gentleman, shaves him, lays out his clothes, packs for his journeys, keeps his wardrobe in order and his boots polished. I know my gentleman's collar size, his hat size, his shoe size, his opinions on everything, and the name of every man he has quarrelled with.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A valet takes care of his gentleman. He dresses him, shaves him, and lays out his clothes. He packs for his trips. He keeps his clothes neat and his boots shiny. I know my gentleman's collar size, hat size and shoe size. I know what he thinks about everything. I know the name of every man he has argued with."
+   }
+  },
+  {
+   "card": "tales:s04-ms-valet",
+   "text": "Henry Deneke was valet in Mr. Armour's own house, before the old gentleman died three years ago. Go and find him at Mrs. Armour's. He will tell you about Mr. Armour, who was one of the richest men in America, and was up before five and at his desk at the yards by seven, every day of his life.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Henry Deneke was the valet in Mr. Armour's own house, before the old man died three years ago. Go and find him at Mrs. Armour's. He will tell you about Mr. Armour. He was one of the richest men in America. Every day of his life he was up before five and at his desk at the stockyards by seven."
+   }
+  },
+  {
+   "card": "tales:s04-ms-coal",
+   "text": "In the cellar of this house there is a furnace as big as a locomotive, and in winter somebody has to feed it, every four hours, day and night, with coal shovelled from the coal room where the wagons tip it down a chute from the alley. That somebody is me.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In the basement of this house there is a furnace as big as a train engine. In winter somebody has to feed it every four hours, day and night. Wagons in the alley dump coal down a chute into the coal room. Then it has to be shoveled into the furnace. That somebody is me."
+   }
+  },
+  {
+   "card": "tales:s04-ms-coal",
+   "text": "The heat goes up through pipes to every room in the house, and the family is warm, and has no idea there is a furnace at all. On a January night, at two in the morning, shovelling coal by the light of a lantern with the wind howling outside, I sometimes think I am the most important man in the house. Nobody else thinks so.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The heat goes up through pipes to every room. The family is warm, and they have no idea there is a furnace at all. On a January night at two in the morning, I shovel coal by lantern light while the wind howls outside. Sometimes I think I am the most important man in the house. Nobody else thinks so."
+   }
+  },
+  {
+   "card": "tales:s04-nu-park",
+   "text": "Every fine morning I take the children out, the baby in the perambulator and the older ones walking beside, down the Avenue to the lake front or over to the park. All the nurses on the Avenue do the same, so it is like a parade: six nursemaids, twelve children, three dogs.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Every nice morning I take the kids out. The baby rides in the buggy, and the older ones walk beside me. We go down the street to the lake or over to the park. All the nurses on the street do the same. So it is like a parade, with six nurses, twelve kids and three dogs."
+   }
+  },
+  {
+   "card": "tales:s04-nu-park",
+   "text": "We nurses sit on the benches and talk while the children play. We know everything about every family on the street. Who is quarrelling, who is ill, who is going abroad, who has lost money. The ladies would be horrified to know how much we know. Children talk, you see. Children tell their nurses everything.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "We nurses sit on the benches and talk while the kids play. We know everything about every family on the street. We know who is fighting, who is sick, who is going away, and who has lost money. The ladies would be shocked to know how much we know. Kids talk, you see. Kids tell their nurses everything."
+   }
+  },
+  {
+   "card": "tales:p04-frances-thomas",
+   "text": "Mr. Theodore Thomas has been our friend for many years. When he brought his orchestra here, we were among the people who promised to stand behind it, and for thirteen years we have heard every concert we could, on Friday afternoons and Saturday nights at the Auditorium.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Mr. Theodore Thomas has been our friend for many years. When he brought his orchestra here, we were among the people who promised to help pay for it. For thirteen years we have gone to every concert we could, on Friday afternoons and Saturday nights at the Auditorium."
+   }
+  },
+  {
+   "card": "tales:p04-frances-thomas",
+   "text": "He comes to dinner here, and sits by the fire and talks about Beethoven as if Beethoven were a neighbour he had just been speaking to. He is a hard man, people say, stubborn and proud. He is. He is also the kindest friend we have. This year the city is building him a hall of his own on Michigan Avenue. He has waited a long time for it. I pray he lives long to enjoy it.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "He comes here for dinner. He sits by the fire and talks about Beethoven as if Beethoven were a neighbor he had just been talking to. People say he is a hard man, stubborn and proud. He is. He is also the kindest friend we have. This year the city is building him his own hall on Michigan Avenue. He has waited a long time for it. I pray he lives a long time to enjoy it."
+   }
+  },
+  {
+   "card": "tales:p04-glessner-house",
+   "text": "When we asked Mr. Richardson to build this house, my wife and I wanted something that would turn its back on the noise and the dirt of the street and open toward a sunny court within. He gave us exactly that: granite walls on Prairie Avenue and Eighteenth Street, with small windows like a fortress, and all the light falling into the court behind.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "We asked Mr. Richardson to build this house. My wife and I wanted a house that turned its back on the noise and dirt of the street. We wanted it to open onto a sunny yard inside. He gave us just that. The stone walls on Prairie Avenue and Eighteenth Street have small windows, like a fort. All the light falls into the yard behind."
+   }
+  },
+  {
+   "card": "tales:p04-glessner-house",
+   "text": "The neighbours were horrified. Mr. Pullman, across the street, said he did not know what he had ever done to have that thing staring him in the face every time he came out of his door. Mr. Richardson never saw it finished. He died before the walls were up. We have lived in it seventeen years now, and I would not change a stone. Go and ask my wife. She chose every chair in it.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The neighbors were shocked. Mr. Pullman lived across the street. He said he did not know what he had done to deserve that thing staring at him every time he came out his door. Mr. Richardson never saw it finished. He died before the walls were up. We have lived here seventeen years now. I would not change a stone. Go and ask my wife. She picked every chair in it."
+   }
+  },
+  {
+   "card": "tales:p04-glessner-reapers",
+   "text": "I came to Chicago in 1870, a young man from Ohio, to run the western end of our firm, Warder, Bushnell and Glessner, that made reapers and mowers in Springfield. Every farmer from here to Dakota needed a machine to cut his grain, and we sold them by the thousand.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I came to Chicago in 1870, a young man from Ohio. I came to run the western part of our company, Warder, Bushnell and Glessner. We made machines in Springfield to cut grain and grass. Every farmer from here to Dakota needed a machine to cut his grain. We sold them by the thousand."
+   }
+  },
+  {
+   "card": "tales:p04-glessner-reapers",
+   "text": "Two years ago our firm and McCormick's and Deering's and the others came together into one company, the International Harvester, and I am a vice president of it. People say we have made a trust. I say we have made a machine within a machine. When I came to Chicago, a man cut his wheat with a cradle, by hand, and his whole family bound the sheaves. Now one man and a team can harvest a field in a day. That is what I am proudest of.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Two years ago our company joined McCormick's, Deering's and the others. Together they made one company, International Harvester. I am one of its leaders. People say we made a trust. I say we made a machine inside a machine. When I came to Chicago, a man cut his wheat by hand with a blade, and his whole family tied up the bundles. Now one man and his horses can harvest a field in a day. That is what I am proudest of."
+   }
+  },
+  {
+   "card": "tales:p04-armour-widow",
+   "text": "Fourteen years ago a young minister named Dr. Gunsaulus preached a sermon called: What I would do with a million dollars. He said he would build a school where the sons and daughters of working people could learn to be engineers and architects and chemists. My husband was in the church that morning. Afterwards he went up to the minister and said: if you will give five years of your life, I will give the million dollars.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Fourteen years ago a young minister named Dr. Gunsaulus gave a sermon. It was called \"What I would do with a million dollars.\" He said he would build a school where the sons and daughters of working people could learn to be engineers, builders and chemists. My husband was in church that morning. After, he went up to the minister. He said, \"If you will give five years of your life, I will give the million dollars.\""
+   }
+  },
+  {
+   "card": "tales:p04-armour-widow",
+   "text": "So they built the Armour Institute, on the South Side, and there are hundreds of young people there now learning to build bridges and engines. My husband died three years ago, the year after our son Philip. He made his fortune in the stockyards, from meat. People say hard things about the yards, and some of them are true. But the Institute is true, too. Ask Henry Deneke, who looked after him. He will tell you what kind of man he was.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "So they built the Armour Institute, on the South Side. Hundreds of young people are there now, learning to build bridges and engines. My husband died three years ago, the year after our son Philip. He made his fortune in the stockyards, from meat. People say hard things about the stockyards, and some of them are true. But the Institute is true too. Ask Henry Deneke, who took care of him. He will tell you what kind of man he was."
+   }
+  },
+  {
+   "card": "tales:p04-fernando-jones",
+   "text": "I came to Chicago in 1835, a boy of fifteen, with my father. It was a town of a few hundred people, frame houses and log cabins in the mud along the river, and the old fort, and the Potawatomi camped on the prairie. That summer the great land craze was on, and every man in Chicago was buying and selling lots that were under water half the year.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I came to Chicago in 1835, a boy of fifteen, with my dad. It was a town of a few hundred people. There were board houses and log cabins in the mud by the river. There was the old fort, and the Potawatomi camped on the prairie. That summer everyone was crazy about land. Every man in Chicago was buying and selling land that was under water half the year."
+   }
+  },
+  {
+   "card": "tales:p04-fernando-jones",
+   "text": "I learned to speak a little of the Potawatomi language, trading with them. That autumn they gathered for the last time and went away west across the Mississippi, as the treaty said. I watched them go. Now I live on Prairie Avenue in a house of stone, on land that was open prairie when I was a boy, with wolves on it. I am one of the last who remember. When I am gone, nobody will.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I learned to speak a little Potawatomi, trading with them. That fall they gathered for the last time and went away west across the Mississippi, as the treaty said. I watched them go. Now I live on Prairie Avenue in a stone house. When I was a boy, this land was open prairie, with wolves on it. I am one of the last people who remember. When I am gone, nobody will."
+   }
+  },
+  {
+   "card": "tales:p04-blewett-lee",
+   "text": "My father is General Stephen D. Lee, who commanded an army corps for the South in the war, and was at Vicksburg and Atlanta and Nashville. I grew up in Mississippi, in the years after the war, when we had nothing but our name. I studied law at Harvard and abroad, and came north to work for the Illinois Central Railroad, which runs from here all the way down to my father's country.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "My dad is General Stephen D. Lee. In the Civil War he led part of an army for the South. He fought at Vicksburg, Atlanta and Nashville. I grew up in Mississippi after the war, when we had nothing but our name. I studied law at Harvard and in Europe. Then I came north to work for the Illinois Central Railroad. It runs from here all the way down to my dad's home."
+   }
+  },
+  {
+   "card": "tales:p04-blewett-lee",
+   "text": "So I am a Southerner in a Northern city, married to a Northern lady, the daughter of a man who made machines for Northern farms. My father fought the men whose sons I dine with. None of us mention it. When the old soldiers march on Decoration Day, I stand on the sidewalk with my hat in my hand, like everyone else, and think of my father.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "So I am a Southerner in a Northern city. My wife is from the North. Her dad made machines for Northern farms. My dad fought the men whose sons I eat dinner with. None of us talk about it. On Decoration Day, when the old soldiers march, I stand on the sidewalk with my hat in my hand, like everyone else. I think of my dad."
+   }
+  },
+  {
+   "card": "tales:p04-meeker-yards",
+   "text": "I went to work for Mr. Philip Armour when I was a young man, and I have been in the packing business ever since. Every day the trains bring in cattle and hogs and sheep from the whole West, and every day we kill them and dress them and pack them and send them out in refrigerator cars to every city in the country, and to Europe.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I went to work for Mr. Philip Armour when I was a young man. I have been in the meat business ever since. Every day the trains bring in cows, pigs and sheep from all over the West. Every day we turn them into meat. We pack it and send it out in cold train cars to every city in the country, and to Europe."
+   }
+  },
+  {
+   "card": "tales:p04-meeker-yards",
+   "text": "People are horrified by the yards. I understand that. It is a hard business, and a bloody one, and the smell is terrible. But a working man in New York can eat beef for supper today because of what we do in Chicago. My daughters do not understand what I do. I do not take them to the yards. One day, perhaps, I will.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "People are shocked by the stockyards. I understand that. It is a hard business and a bloody one, and the smell is terrible. But because of what we do in Chicago, a working man in New York can eat beef for supper today. My daughters do not understand what I do. I do not take them to the stockyards. Maybe one day I will."
+   }
+  },
+  {
+   "card": "tales:p04-shortall-humane",
+   "text": "For many years I have been president of the Illinois Humane Society. We began by protecting horses, because the horses of this city are beaten and starved and worked until they drop in the street. Then we began to protect children, because, God help us, children in this city are treated worse than the horses.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "For many years I have led the Illinois Humane Society. We started by keeping horses safe. In this city, horses are beaten and starved. They are worked until they fall down in the street. Then we started to keep children safe too. Sad to say, kids in this city are treated even worse than the horses."
+   }
+  },
+  {
+   "card": "tales:p04-shortall-humane",
+   "text": "We have agents who go into the tenements and the stables and the factories. We have put drinking fountains for horses on the street corners. We take children away from fathers who beat them. Some people say it is none of our business. I say it is everybody's business. A city is judged by how it treats the creatures that cannot speak for themselves.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "Our helpers go into crowded homes, stables and factories. We have put water fountains for horses on street corners. We take kids away from dads who beat them. Some people say it is none of our business. I say it is everybody's business. A city is judged by how it treats the ones who cannot speak up for themselves."
+   }
+  },
+  {
+   "card": "tales:p04-casey-wood",
+   "text": "I am a doctor of the eye. I came to Chicago from Canada by way of Europe, where I studied in the great eye hospitals of London and Vienna and Berlin. Every day in my office men and women come to me afraid of going blind, and some of them I can help, and some I cannot.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I am an eye doctor. I came to Chicago from Canada by way of Europe. I studied at the great eye hospitals of London, Vienna and Berlin. Every day people come to my office afraid of going blind. Some of them I can help, and some I cannot."
+   }
+  },
+  {
+   "card": "tales:p04-casey-wood",
+   "text": "The eye is the most beautiful thing in the body, I think. When you look into it with the ophthalmoscope, with the little light, you see the blood vessels branching like the roots of a tree, and the nerve where the world comes in. When I am not in my office, I am watching birds. Every creature sees the world differently. I would like to know how.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "I think the eye is the most beautiful part of the body. When you look into it with a special tool with a little light, you can see the blood vessels branching like the roots of a tree. You can see the nerve where the world comes in. When I am not at my office, I am watching birds. Every creature sees the world in its own way. I would like to know how."
+   }
   }
  ]
 }
