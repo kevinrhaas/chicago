@@ -137,16 +137,16 @@ console.log('transport interactions: keyboard/touch stop-resume, moving reach, c
   // T-3542: Light draws its teams by default now; this journey is about a tier that retires
   // them, which any reach of 0 still is.
   const createTownTransport = (options) => createTownTransportDefault({ reach: { full: 90, balanced: 60, light: 0 }, ...options });
-  const { circleRoute, roundedBlockRoute, createTransportLoop } = await import('../renderers/web/js/transport-loop.js');
+  const { routeFor, createTransportLoop } = await import('../renderers/web/js/transport-loop.js');
   const config = JSON.parse(await readFile(new URL('../data/transport/driven/loops.json', import.meta.url), 'utf8'));
-  const row = config.rows.find(r => r.scene === '1835');
+  const row = config.rows.find(r => r.id === 'western_hotel_driven_wagon_loop_1835');
   let assetCalls = 0;
   const makeTown = (detail = 'full', rows = [row], sceneId = '1835') => createTownTransport({
     rows, sceneId, detail, makeAssembly() { assetCalls++; throw Error('cold lookup must not load assets'); },
     heightAt: () => 0, clear: () => true, routeSupport: () => ({ valid: true }),
   });
   const town = makeTown();
-  const route = row.route.kind === 'rounded_block' ? roundedBlockRoute(row.route) : circleRoute(row.route);
+  const route = routeFor(row.route);
   const poses = [];
   const nativeActor = createTransportLoop({ ...row, route, heightAt: () => 0, clear: () => true,
     assembly: { pose: p => poses.push(p), advance() {}, visible() {}, stop() {}, dispose() {} } });
@@ -156,9 +156,9 @@ console.log('transport interactions: keyboard/touch stop-resume, moving reach, c
   assert.equal(cold.actor, null);
   assert.equal(town.actors.length, 0);
   assert.equal(assetCalls, 0);
-  assert.equal(row.route.kind, 'circle');
-  assert.equal(row.route.radius_m, 18);
-  assert(Math.hypot(cold.at[0] + 349.5, cold.at[1] + 555.675) < 1e-9, 'printed source coordinates round the exact native seat reading by sub-nanometres');
+  // T-3558: Otis Bardwell's round is now Clinton and Canal, Randolph to Washington, a path
+  // (lay_driven_wagons_1835.mjs); its cold place is the native reading above.
+  assert.equal(row.route.kind, 'path');
   assert.equal(makeTown('balanced').driverAnchorForPerson(row.person_id).at[0], cold.at[0]);
   assert.equal(makeTown('light').driverAnchorForPerson(row.person_id), null);
   assert.equal(town.driverAnchorForPerson('unknown-person'), null);

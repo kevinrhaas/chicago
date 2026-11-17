@@ -47,8 +47,9 @@
 
 .people-filters { display: grid; gap: 5px; margin: 0 0 10px; }
 .people-filters[hidden] { display: none; }
-/* The fold control, for phones; a desktop drawer has room for the rows. */
-.people-toolbar { display: none; margin: 0 0 8px; }
+/* The fold control. T-3629: on every screen, for the Navigator's column is narrow on a
+   desktop too, and the rows start folded (people.js, businesses.js). */
+.people-toolbar { display: flex; margin: 0 0 8px; }
 .people-filters-toggle.is-active { border-color: var(--accent); color: var(--accent); }
 .people-filters-toggle[aria-expanded="true"] { background: var(--step-2); border-color: transparent; color: var(--ink); }
 .people-frow { display: flex; align-items: center; gap: 6px; min-width: 0; }

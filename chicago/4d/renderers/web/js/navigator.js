@@ -247,8 +247,9 @@ export function createNavigator({
   // head's own "open when docked" tap, which would reopen the device it just closed.
   closeKey?.addEventListener('pointerdown', (e) => e.stopPropagation());
   closeKey?.addEventListener('click', (e) => { e.stopPropagation(); close(); });
-  // T-3021: Home's MOVE and CONFIDENCE VIEW tiles open their apps.
-  for (const [tile, app] of [[$('nav-tile-move'), 'move'], [$('nav-tile-confidence'), 'confidence']]) {
+  // T-3021: Home's MOVE and CONFIDENCE VIEW tiles open their apps; T-3629: and its Other
+  // years key opens Jump, which left the rail (the year chip opens it too).
+  for (const [tile, app] of [[$('nav-tile-move'), 'move'], [$('nav-tile-confidence'), 'confidence'], [$('nav-choice-years'), 'jump']]) {
     tile?.addEventListener('click', () => { if (registry.has(app)) void registry.select(app, { by: 'hand' }); });
   }
   out.inspect?.addEventListener('click', () => {

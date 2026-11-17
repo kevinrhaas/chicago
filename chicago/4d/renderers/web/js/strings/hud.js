@@ -57,6 +57,15 @@ export default register('hud', {
   'pilot.ashore': 'Go ashore',
   'pilot.speed': '{knots} knots',
   'pilot.held': 'held: {why}',
+  // T-3560: in the saddle (riding.js), on the travel bar.
+  'riding.verb': 'Riding',
+  'riding.standing': 'standing',
+  'riding.walk': 'walking',
+  'riding.trot': 'trotting',
+  'riding.keys': 'W walk · Shift+W trot · S whoa, hold to back · A/D turn · V view',
+  'riding.stick': 'Stick: up walk, right up trot · down whoa · sideways turn',
+  'riding.down': 'Get down',
+  'riding.held': 'held: {why}',
   // T-2629: Settings › About.
   'about.title': 'About',
   'about.dev': 'DEV',

@@ -184,7 +184,7 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
           { add: (g) => added.push(g) }, supportsTownTransport,
           async () => { imports++; if (failure === 'import') throw Error('import failure'); return { mountTownTransport }; },
           draws, prepareSceneDirectoryPerson,
-          // T-3497: 1812's wheels and hooves read the same ground through its smoothing.
+          // T-3497: 1812's wheels and hooves read the same ground through its smoothing; T-3558: 1835's too.
           async () => ({ createSmoothedGround: ({ sample, grid }) => { assert.equal(grid, terrain.grid); return (e, n) => ['smooth', ...sample(e, n)]; } }));
         const supported = supportsTownTransport(year);
         assert.equal(imports, supported ? 1 : 0);
@@ -217,7 +217,7 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
         assert.equal(options.interactions, interactions); assert.equal(options.detail, 'balanced'); assert.equal(options.coarse, false, 'T-3542: lighter teams follow the memory diet or Light, not the touch screen');
         assert.equal(options.problems, problems); assert.equal(options.footprints(), footprints); assert.equal(options.visitor(), walker.state);
         assert.equal(options.getPeople(), directory); assert.equal(directoryCalls, 1);
-        assert.deepEqual(options.heightAt(2, 3), year === '1904' ? ['road', 2, 3] : year === '1812' ? ['smooth', 'ground', 2, 3] : ['ground', 2, 3]);
+        assert.deepEqual(options.heightAt(2, 3), year === '1904' ? ['road', 2, 3] : ['1812', '1835'].includes(year) ? ['smooth', 'ground', 2, 3] : ['ground', 2, 3]);
       }
     }
   } finally { globalThis.fetch = previousFetch; }

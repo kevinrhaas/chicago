@@ -49,12 +49,22 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   const body = node('div', '', 'jaunt-body'), controls = node('nav', '', 'jaunt-controls');
   controls.setAttribute('aria-label', 'Jaunt navigation');
   const buttons = {};
-  for (const [id, label] of [['prev', 'Previous Stop'], ['next', 'Next Stop'], ['end', 'End Jaunt'], ['menu', 'Jaunts Menu']]) {
-    buttons[id] = button(label, () => id === 'next' ? goNext() : actions[id]()); buttons[id].dataset.action = id; controls.append(buttons[id]);
+  // T-3629 (the owner's interface sweep): one big Next stop, and small keys with an icon and a
+  // short word for the rest, in a game's order: Back · Jaunts · End · Next stop. Each keeps
+  // its full name for a screen reader.
+  for (const [id, label, name, glyph] of [['prev', 'Back', 'Previous stop', 'back'], ['menu', 'Jaunts', 'Jaunts menu', 'jaunts'],
+    ['end', 'End', 'End jaunt', 'close'], ['next', 'Next stop', null, null]]) {
+    buttons[id] = button(label, () => id === 'next' ? goNext() : actions[id]()); buttons[id].dataset.action = id;
+    if (glyph) { buttons[id].prepend(icon(glyph, 16)); buttons[id].classList.add('jaunt-key'); }
+    if (name) { buttons[id].setAttribute('aria-label', name); buttons[id].title = name; }
+    controls.append(buttons[id]);
   }
-  const mode = node('select'); mode.setAttribute('aria-label', 'Jaunt travel mode');
+  buttons.next.classList.add('jaunt-primary');
+  const mode = node('select', '', 'jaunt-pace'); mode.setAttribute('aria-label', 'Jaunt travel mode');
   mode.addEventListener('change', () => actions.setMode(mode.value));
-  const straight = button('Go straight to next stop', actions.straight); straight.dataset.action = 'straight';
+  const straight = button('Skip the ride', actions.straight); straight.dataset.action = 'straight';
+  straight.setAttribute('aria-label', 'Go straight to next stop'); straight.title = 'Go straight to next stop';
+  straight.className = 'jaunt-straight';
   controls.prepend(mode, straight);
   // Collapsing folds the panel to one bar — where you are, Next Stop, and a tap to
   // open it again — so the world can be looked at from a stop on a phone, where the
@@ -64,7 +74,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   collapse.setAttribute('aria-label', 'Collapse the outing panel'); collapse.setAttribute('aria-expanded', 'true');
   const bar = node('div', '', 'jaunt-bar'), barLabel = button('', () => setCollapsed(false));
   barLabel.className = 'jaunt-bar-label'; barLabel.setAttribute('aria-expanded', 'false');
-  const barNext = button('Next Stop', () => goNext()); barNext.dataset.action = 'bar-next';
+  const barNext = button('Next stop', () => goNext()); barNext.dataset.action = 'bar-next'; barNext.classList.add('jaunt-primary');
   const barReturn = button('Return', () => { if (state?.phase === 'detail') actions.returnFromDetail(); else actions.closeOverlay(); }); barReturn.hidden = true; barReturn.dataset.action = 'return';
   const barEnd = button('End', actions.end); barEnd.setAttribute('aria-label', 'End Jaunt');
   bar.append(barLabel, barNext, barReturn, barEnd);
@@ -262,7 +272,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     body.append(...String(state.outcome.text).split(/\n\s*\n/).map(t => node('p', t.trim(), 'jaunt-closing-text')));
     buttons.prev.disabled = true; buttons.next.disabled = barNext.disabled = false;
     for (const b of [buttons.next, barNext]) {
-      b.textContent = 'Finish Jaunt'; b.classList.remove('jaunt-needs-choice'); b.classList.add('jaunt-finish', 'jaunt-closing-finish');
+      b.textContent = 'Finish jaunt'; b.classList.remove('jaunt-needs-choice'); b.classList.add('jaunt-finish', 'jaunt-closing-finish');
     }
     needsChoice = false;
     barLabel.replaceChildren(node('span', `▴ ${state.jaunt.title}`), node('small', 'Closing'));
@@ -337,7 +347,10 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
       const readable = readableLines(state.context?.lines || [], state.estimate?.legs?.[0]?.seconds);
       if (readable.length && !state.contextDismissed) {
         const notes = node('aside', '', 'jaunt-leg-notes'); notes.setAttribute('aria-label', 'On the way');
-        contextLines(notes, readable); notes.append(button('Dismiss road notes', actions.dismissContext)); body.append(notes);
+        // T-3629: the notes close with a small × in their corner, not a full-width key.
+        const shut = button('', actions.dismissContext); shut.className = 'jaunt-notes-close';
+        shut.setAttribute('aria-label', 'Dismiss road notes'); shut.title = 'Dismiss road notes'; shut.append(icon('close', 16));
+        notes.prepend(shut); contextLines(notes, readable); body.append(notes);
       }
       if (state.phase === 'paused') body.append(button('Resume ride', actions.resumeRide));
       if (state.error) body.append(button('Try this stop again', actions.retry));
@@ -407,7 +420,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     // T-3432: at the last stop the one way on is to finish.
     const finish = final && canNext(state) && !needsChoice;
     for (const b of [buttons.next, barNext]) {
-      b.textContent = opening ? 'Skip to the Start' : needsChoice ? 'Choose an Option' : finish ? 'Finish Jaunt' : 'Next Stop';
+      b.textContent = opening ? 'Skip to the start' : needsChoice ? 'Choose an option' : finish ? 'Finish jaunt' : 'Next stop';
       b.classList.remove('jaunt-closing-finish');
       b.classList.toggle('jaunt-needs-choice', needsChoice); b.classList.toggle('jaunt-finish', finish);
     }

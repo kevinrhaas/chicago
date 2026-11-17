@@ -316,7 +316,9 @@ export async function mountBusinesses({
   const compact = typeof matchMedia === 'function' ? matchMedia('(max-width: 620px)') : null;
   const state = {
     q: '', filters: {}, open: null, matched: 0, lastOpened: null,
-    filtersOpen: !(compact && compact.matches),
+    // T-3629: folded under Filters on every screen, since the Navigator's column is narrow
+    // on a desktop too and eleven rows of pills pushed the first name below the fold (1835).
+    filtersOpen: false,
     // The in-flight address-book seat fill for the open card (T-1493).
     seatPending: null,
   };
@@ -452,7 +454,7 @@ export async function mountBusinesses({
     if (state.filtersOpen) filtersEl.querySelector('.pill')?.focus?.({ preventScroll: true });
   });
   compact?.addEventListener?.('change', (ev) => {
-    state.filtersOpen = !ev.matches || Object.keys(state.filters).length > 0;
+    state.filtersOpen = state.filtersOpen || Object.keys(state.filters).length > 0; // T-3629: never unfolds by itself
     paintFilters();
   });
   filtersEl.addEventListener('click', (ev) => {

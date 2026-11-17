@@ -6,6 +6,9 @@ import { driveLimits, easeControls, easeReverse, bicycleStep, sampleOf, wheelArc
 const TAU = 2 * Math.PI;
 /** T-3557: the most an admitted carriage drive's kerb ramp may tip the coach's wheels apart, metres. */
 const RAMP_GAP_M = .3;
+/** T-3558: a rough-road wagon's four wheels about their own plane, and the most it leans or
+ *  pitches (its horses are bounded by transport-support.js ROUGH_GROUND). */
+const ROUGH_TWIST_M = .03, ROUGH_LEAN_RAD = 4 * Math.PI / 180;
 /**
  * T-3557: an open way (a coach house's drive) read as a road is read: at(s) gives the rear
  * axle's sample s metres along it. Its yaw and curvature are the given ones where the way
@@ -226,6 +229,7 @@ export function createTransportLoop({
   stops = [], initial_dwell_s = 0, gate = null,
   passenger_local_m = null, passenger_eye_m = .8, why = null, road = null,
   cab_seat_local_m = null, cab_eye_m = null, initial_reason = null, admit = null, pathHeightAt = null,
+  rough_road = false,
 }) {
   if (!id || !name || typeof route?.at !== 'function' || !assembly?.pose) throw Error('transport loop: id, name, route and assembly required');
   if (typeof heightAt !== 'function' || typeof clear !== 'function') throw Error('transport loop: ground and clearance readers required');
@@ -291,6 +295,27 @@ export function createTransportLoop({
     const ground = ramp && pathHeightAt ? (x, y) => { const h = heightAt(x, y); return Number.isFinite(h) ? h : pathHeightAt(x, y); } : heightAt;
     const grounds = wheelLocal.map(([x, z]) => ground(...localToEnu(origin, x, z)));
     if (!grounds.every(Number.isFinite)) throw Error('transport loop: no rendered ground beneath all four wheels');
+    if (rough_road && !ramp) {
+      // T-3558: on a rutted earth street (1835) the wagon rides the ruts: it leans and pitches
+      // with the plane of its four wheels' ground (least squares), each wheel held to the
+      // same 30 mm of that plane as the road's level bound, and stands on the highest.
+      const mx = wheelLocal.reduce((t, w) => t + w[0], 0) / 4, mz = wheelLocal.reduce((t, w) => t + w[1], 0) / 4;
+      const mh = grounds.reduce((t, h) => t + h, 0) / 4;
+      let sxx = 0, szz = 0, sxz = 0, sxh = 0, szh = 0;
+      wheelLocal.forEach(([x, z], i) => { const dx = x - mx, dz = z - mz, dh = grounds[i] - mh;
+        sxx += dx * dx; szz += dz * dz; sxz += dx * dz; sxh += dx * dh; szh += dz * dh; });
+      const det = sxx * szz - sxz * sxz, a = (sxh * szz - szh * sxz) / det, b = (szh * sxx - sxh * sxz) / det;
+      const residuals = wheelLocal.map(([x, z], i) => grounds[i] - (mh + a * (x - mx) + b * (z - mz)));
+      const twist = Math.max(...residuals) - Math.min(...residuals);
+      if (twist > ROUGH_TWIST_M + 1e-12) throw Error('transport loop: wheel plane exceeds 30mm rendered-ground variation');
+      const pitch = -Math.atan(b), roll = Math.atan(a);
+      if (Math.max(Math.abs(pitch), Math.abs(roll)) > ROUGH_LEAN_RAD + 1e-12) throw Error('transport loop: rough-road lean exceeds its bound');
+      return { ...origin, height: mh + a * (0 - mx) + b * (0 - mz) + Math.max(...residuals), wheelGap: twist,
+        rootAhead: root_ahead_of_rear_axle_m, steering, pitch, roll, rough: true,
+        driverAt: localToEnu(origin, driver_local_m[0], driver_local_m[2]),
+        distance: s, totalDistance,
+      };
+    }
     let height = Math.max(...grounds), wheelGap = height - Math.min(...grounds), pitch = 0;
     if (wheelGap > 0.03) {
       // T-3557: over a carriage drive's kerb ramp (admitted, never on the road) the coach
@@ -783,7 +808,7 @@ export function createTransportLoop({
     toWorld([x, y, z]) {
       if (disposed || !lastPose) return null;
       const [e, n] = localToEnu(lastPose, x, z);
-      return { e, n, y: lastPose.height + y + (lastPose.pitch ? -Math.sin(lastPose.pitch) * z : 0) };
+      return { e, n, y: lastPose.height + y + (lastPose.pitch ? -Math.sin(lastPose.pitch) * z : 0) + (lastPose.roll ? Math.sin(lastPose.roll) * x : 0) };
     },
     get hasCab() { return !!cab_seat_local_m; },
     handBack() {
