@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 3069, ts: '2026-11-17T11:07:32.902Z', date: 'Nov 17, 2026, 5:07 AM CT', title: 'The town\'s people and traffic fill the far streets', kind: 'feature',
+    items: [
+      'Look up a street and the people out and about are there all the way along it, not only the few nearest you. Everyone who is out of doors within a few blocks is now drawn, in their own clothes and walking their own way, and they come in smoothly as you walk towards them.',
+      'Carriages and wagons stay in sight on the far streets too. A team you have walked away from goes on along its round in the distance instead of vanishing.',
+      'It runs on phones as well as computers: the far people and teams are cheap enough that a phone keeps them, at a smaller size, without slowing down.',
+    ] },
+  { v: 3068, ts: '2026-11-17T11:07:32.902Z', date: 'Nov 17, 2026, 5:07 AM CT', title: 'The wagons standing about the 1835 town are photographic too', kind: 'improvement',
+    items: [
+      'The wagons left standing in the Western Hotel\'s and Wolf Point\'s yards and at the roadside on Market, Dearborn and Randolph streets are now the same photographed farm wagon the working teams drive.',
+      'With ten teams out on their rounds, fewer wagons stand idle: the other standing farm wagons and covered wagons are gone from the streets. The two covered wagons in the yards stay.',
+    ] },
   { v: 3067, ts: '2026-11-17T08:30:37.300Z', date: 'Nov 17, 2026, 2:30 AM CT', title: 'The shed between 1834 and 1900 Prairie stands open on its posts', kind: 'improvement',
     items: [
       'The narrow strip between 1834 and 1900 Prairie Avenue now has its frame shed on the alley, built to the outline the 1911 fire-insurance map draws: 9.2 m deep and 3.9 m along the alley, against the brick wall of 1900\'s stable.',
