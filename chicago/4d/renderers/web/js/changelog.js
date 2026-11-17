@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3070, ts: '2026-11-17T11:46:37.105Z', date: 'Nov 17, 2026, 5:46 AM CT', title: 'The Dent house\'s broad dormer now rises over its roof\'s curb', kind: 'improvement',
+    items: [
+      'At 1823 Prairie the dormer over the three-window group is rebuilt to the engraving and the 1883 album vignette: broad, its paired windows between two scrolled consoles, under a classical pediment that stands about a metre above the roof\'s top edge, as both pictures draw it.',
+      'The iron cresting along the roof\'s top edge stops on either side of the dormer, and the dormer\'s back is closed with slate over the roof deck.',
+    ] },
   { v: 3069, ts: '2026-11-17T11:07:32.902Z', date: 'Nov 17, 2026, 5:07 AM CT', title: 'The town\'s people and traffic fill the far streets', kind: 'feature',
     items: [
       'Look up a street and the people out and about are there all the way along it, not only the few nearest you. Everyone who is out of doors within a few blocks is now drawn, in their own clothes and walking their own way, and they come in smoothly as you walk towards them.',
