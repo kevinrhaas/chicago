@@ -596,8 +596,8 @@ async function openPersonCard(pane, personId, ctx) {
       atHome: ctx?.actions?.atHome ?? null });
     const was = pane.querySelector('.insp-person-card');
     if (was) was.replaceWith(card); else pane.append(card);
-    // T-3645: the card's age tabs, under their name.
-    readingTabs(card, { after: card.querySelector('.insp-person-head') });
+    // T-3645: the card's age tabs, over the story they change (under the name if it has none).
+    readingTabs(card, { after: card.querySelector('.insp-person-story > h3') ?? card.querySelector('.insp-person-head') });
     return card;
   };
   home.hidden = true;

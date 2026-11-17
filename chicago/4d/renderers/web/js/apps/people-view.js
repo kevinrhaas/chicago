@@ -360,8 +360,8 @@ async function drawPerson(st, id) {
     if (head?.after) head.after(keys); else card.append(keys);
     const was = st.card.querySelector('.insp-person-card');
     if (was) was.replaceWith(card); else st.card.append(card);
-    // T-3645: the card's age tabs, under its keys.
-    readingTabs(card, { after: keys });
+    // T-3645: the card's age tabs, over the story they change (under its keys if it has none).
+    readingTabs(card, { after: card.querySelector('.insp-person-story > h3') ?? keys });
     return card;
   };
   render(personModel({ row, sceneYear: st.sceneYear })).querySelector('[data-ppl-back]')?.focus?.({ preventScroll: true });
