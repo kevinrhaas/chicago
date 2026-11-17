@@ -17,7 +17,8 @@
  "note": "The one clear view of the house: a narrow party-wall front of rough brick over a rock-faced stone basement; a straight stoop between stone cheek walls to an arched door at the south end under a carved panel and pinnacled surround; a four-light window on the ground floor; over it a shallow bowed oriel of three lights on a corbelled apron under a carved frieze, a small light beside it; a string course; a paired light in a low third storey under a hood; and the front carried up past the side walls into a tall ogee gable with a coped outline, a pair of attic lights and a carved crest. Two tall stacks rise from the north flank.",
  "what_it_supplies": [
   "the front's storeys, openings, oriel, stoop and gable, and their heights and places along the front",
-  "the camera the image gate renders the house against (data/reference_views/mayer_house_2009_prairie/chicagology_photo.json)"
+  "the camera the image gate renders the house against (data/reference_views/mayer_house_2009_prairie/chicagology_photo.json)",
+  "2011 Prairie's front at the picture's right: its round-arched door, the cross window over it, the round turret's stages and lights, the dormer and the street slope (T-3615), through 2009's camera carried into 2011's frame (data/reference_views/house_2011_prairie/chicagology_photo.json)"
  ],
  "what_it_does_not_supply": [
   "a date closer than 1888-1911",

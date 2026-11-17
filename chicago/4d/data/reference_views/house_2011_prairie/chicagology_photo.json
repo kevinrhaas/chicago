@@ -1,0 +1,32 @@
+{
+ "structure_id": "house_2011_prairie",
+ "source_id": "chicagology_2009_prairie_meyer_photo",
+ "library_image": "a20-chicagology-2009-2011-photo",
+ "photo": "../../sources/assets/meyer_2009_pictures_t1913/meyer_2009_chicagology_photo.jpg",
+ "image_px": [
+  1671,
+  2000
+ ],
+ "principal_px": [
+  1147.8,
+  1577.0
+ ],
+ "focal_px": 2461.8,
+ "eye": [
+  36.89,
+  -9.96,
+  1.37
+ ],
+ "yaw_deg": -67.63,
+ "sky": "overcast",
+ "scene": "1904",
+ "flora": {
+  "front_yards": [
+   "prairie_2009",
+   "prairie_2011"
+  ],
+  "street_trees_m": 40,
+  "season": "winter"
+ },
+ "solve": "The same photograph as 2009 Prairie's, and the same camera: T-3365's solve of it (data/reference_views/mayer_house_2009_prairie/chicagology_photo.json, whose `solve` gives the evidence — a level camera turned 22.4 degrees south of square, the eye 1.37 m over the walk about 21.9 m before 2009's front, f 2461.8 px, principal x 1147.8, y 1577 px) carried into this house's footprint frame and not re-fitted: 2011's frame stands 12.88 m nearer the street and 7.79 m south of 2009's along 2009's own axes (the two frames' corners, px 1055, 393 and 985, 433.7, through the sheet's T-1250 fit), and its rotation differs by 0.006 degrees. So the eye is u 36.89, v -9.96 here. That camera's check (2) already reads 2011: its flat front's fall over the party line (x 1245 px) is the vanishing point's. WHAT IS SOFT: 2011's front is read only at the picture's right edge (x 1145-1671 px), where the camera's horizontal scale is about 85-90 px a metre and its vertical about 92-95; the frames' carry rests on the sheet's fit (about 0.2 m). LIGHT: a grey sky, no cast shadows: overcast."
+}

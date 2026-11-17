@@ -1,0 +1,27 @@
+{
+ "id": "inland_architect_1895_02_reid_plate",
+ "type": "photograph",
+ "citation": "'Residence of W. H. Reid, Chicago. Beers, Clay & Dutton, Architects.' Plate, The Inland Architect and News Record, vol. 25 no. 1 (February 1895); Inland Architect Press.",
+ "author": "unknown photographer; Beers, Clay & Dutton (architects of the Reid house); Inland Architect Press",
+ "date": "February 1895",
+ "describes_date": "winter 1894-95, when the plate's photograph was taken (bare trees)",
+ "repository": "Internet Archive (Serials in Microfilm digitization), https://archive.org/details/sim_inland-architect-and-news-record_1895-02_25_1/page/n28/mode/1up. Prairie library image a20-ia-1895-02-reid-plate (a second, cropped copy is a20-chicagology-2013-reid-ia1895); the project's reference copy is the image store's, committed at data/sources/assets/house_2011_pictures_t1915/.",
+ "url": "https://archive.org/details/sim_inland-architect-and-news-record_1895-02_25_1/page/n28/mode/1up",
+ "locator": "The upper of the two plates on the leaf, printed turned a quarter: Reid's front at 2013 Prairie from the west walk, with 2011 Prairie whole at its left and the edge of 2009's brick front beyond, and 2017 at its right.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1895: public domain by date.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-16 (T-3615) from the image store's display copy, 1578 x 2400 px, sha256 d1c728a175809bdd89745ac331dd051dad779fe69de889cfb8993ca5160587b0, committed byte for byte as data/sources/assets/house_2011_pictures_t1915/ia_1895_02_reid_plate.jpg. The photograph cropped from it (page x 170-1390, y 200-1090) and turned upright, unscaled, as ia_1895_02_reid_photo_upright.jpg, 890 x 1220 px, sha256 ba02574f08ce82750adba9895b34fe475244d9ee395336c152379c069899d63b (re-encoded JPEG, quality 95), for the camera T-3616 solves.",
+ "note": "2011 Prairie whole, beside Reid's: a front of rock-faced ashlar, a round-arched door at its north end with a light over it, a round turret filling its south part in three stages — tall lights, a second-storey light, a band of small lights in a short top stage — under a slate cone with a turned finial, and a gabled dormer on the slope between. Reid's columned porch hides the turret's ground storey. The Chicagology photograph shows the same front from the north-west.",
+ "what_it_supplies": [
+  "the composition of 2011's whole front, as a check on the Chicagology photograph, which shows only its left part: the door at the north end, the turret at the south, the dormer between",
+  "the turret's cone and finial seen whole"
+ ],
+ "what_it_does_not_supply": [
+  "measurements until its camera is solved (T-3616)",
+  "colour: the print is monochrome",
+  "the rear and the flanks"
+ ]
+}

@@ -14803,40 +14803,40 @@
     {
      "id": "prairie_2011:rear_terrace:0",
      "kind": "rear_terrace",
-     "material": "cement",
+     "material": "yard_brick",
      "polygon_local_m": [
       [
-       1449.88,
-       -3515.46
+       1449.14,
+       -3516.71
       ],
       [
-       1449.89,
-       -3517.54
+       1449.16,
+       -3519.06
       ],
       [
-       1454.56,
-       -3517.5
+       1454.62,
+       -3519.01
       ],
       [
-       1454.54,
-       -3515.43
+       1454.6,
+       -3516.67
       ]
      ],
      "along_deg": 179.54,
      "lift_m": 0.03,
      "order": 0,
      "grade": "reconstructed",
-     "note": "A paved terrace at the back door, in Portland cement walk: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [
     {
      "id": "prairie_2011:back_door",
      "structure": "house_2011_prairie",
-     "e": 1449.7,
-     "n": -3516.5,
+     "e": 1448.92,
+     "n": -3517.76,
      "facing_deg": 89.54,
-     "sill_m": 1.4,
+     "sill_m": 1.5,
      "width_m": 0.95,
      "height_m": 2.2,
      "leaf": true,
@@ -14845,10 +14845,10 @@
       "width_m": 1.6,
       "risers": 8,
       "run_m": 3.06,
-      "material": "wood"
+      "material": "stone"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.50 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
    "posts": [],
