@@ -239,6 +239,11 @@ def main():
     import subprocess
     subprocess.run([sys.executable, str(ROOT / 'tools/compile_summaries.py'), '--build'],
                    cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
+    # And the reader's overlay (data/reader/, ignored too): a building card's "why" is read through
+    # it (tools/reading_why.mjs), so without it a fresh clone reads the builders' raw notes.
+    subprocess.run([sys.executable, str(ROOT / 'tools/compile_reader_text.py')]
+                   + [a for s in ('1812', '1835', '1904') for a in ('--family', f'structures_{s}')],
+                   cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
     failures = []
     wanted = set()
     for scene, files in scenes().items():
