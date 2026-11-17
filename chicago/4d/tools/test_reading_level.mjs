@@ -8,6 +8,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import {
   LEVELS, LEVEL_IDS, WRITTEN, levelOfGrade, gradeOfLevel, createReadingChoice, readerFields, remoteAges, READER_FIELDS,
@@ -232,6 +233,15 @@ function makeDoc() {
   }
   const mattie = doc.entries.find((e) => e.card === 'stories:glessner_williamson_martha_l');
   assert(mattie && mattie.levels['8-10'], 'Mattie\'s card reads at 8–10');
+  // A building's evidence notes and opening lines are keyed by their own words: each is a
+  // line the Details tab or the card shows (tools/reading_notes.mjs, tools/reading_leads.mjs).
+  const shown = (tool) => JSON.parse(execFileSync('node', [`tools/${tool}.mjs`, '1904'], { cwd: ROOT, encoding: 'utf8' }));
+  const notes = new Set(shown('reading_notes').notes.map(keyOf)), leads = new Set(shown('reading_leads').leads.map(keyOf));
+  const byFamily = (f) => doc.entries.filter((e) => e.card.startsWith(`${f}:`));
+  assert(byFamily('notes').length > 1000, 'the 1904 evidence notes are retold');
+  for (const e of byFamily('notes')) assert(notes.has(keyOf(e.text)), `${e.card.slice(0, 60)}: a note the Details tab shows`);
+  assert(byFamily('leads').length > 0, 'the 1904 opening lines are retold');
+  for (const e of byFamily('leads')) assert(leads.has(keyOf(e.text)), `${e.card.slice(0, 60)}: a line a card opens on`);
 }
 
 // ---- the wiring: Settings, the Jaunts menu, the cards ------------------------------------------
@@ -262,7 +272,7 @@ function makeDoc() {
     ['renderers/web/js/tale-card.js', /readingTabs\(card/], ['renderers/web/js/ask-card.js', /readingTabs\(card/],
     ['renderers/web/js/jaunt-panel.js', /readingTabs\(body/], ['renderers/web/js/jaunt-preview.js', /tellingTable\(content/],
     ['renderers/web/js/settings-app.js', /wireReadingAges\(readingAgesGroup\(doc\)\)/], ['renderers/web/js/main.js', /syncReading\(\{ account: api\.signIn\.account/],
-    ['tools/publish.sh', /data\/reading/],
+    ['tools/publish.sh', /data\/reading/], ['renderers/web/js/main.js', /readingTabs\(popupRoot/],
   ]) assert(re.test(read(file)), `${file}: ${re}`);
 }
 

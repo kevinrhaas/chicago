@@ -104,8 +104,28 @@ def places(scene):
     return out
 
 
+def leads(scene):
+    """Every building card's opening line as the card shows it (tools/reading_leads.mjs: the
+    phase's own account or the line composed from its sidecar, said through the reader
+    overlay). Many buildings share a composed line, so a lead is keyed by its own words."""
+    import subprocess
+    run = subprocess.run(['node', str(ROOT / 'tools/reading_leads.mjs'), scene],
+                         capture_output=True, text=True, check=True)
+    return {t: [t] for t in json.loads(run.stdout)['leads']}
+
+
 # A family is where a card's words live: its records, by id, each a list of paragraphs.
-FAMILIES = {'stories': stories, 'tales': tales, 'asks': asks, 'places': places}
+def notes(scene):
+    """Every evidence note a building's Details tab shows, its "Why" (tools/reading_notes.mjs:
+    the claim notes `buildingFacts` gives the tab, where they pass `clean`). Many claims share a
+    note, so a note is keyed by its own words."""
+    import subprocess
+    run = subprocess.run(['node', str(ROOT / 'tools/reading_notes.mjs'), scene],
+                         capture_output=True, text=True, check=True)
+    return {t: [t] for t in json.loads(run.stdout)['notes']}
+
+
+FAMILIES = {'stories': stories, 'tales': tales, 'asks': asks, 'places': places, 'leads': leads, 'notes': notes}
 
 
 # A card is full of dates and house numbers: "lived at 2027 Prairie Avenue in 1904" is not hard
