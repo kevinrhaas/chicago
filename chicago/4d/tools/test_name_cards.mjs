@@ -209,6 +209,24 @@ for (const year of ['1812', '1835', '1904']) {
   ok(/key === 'nameCards'[\s\S]{0,120}nameCards\?\.setShown/.test(main), 'a change turns the cards on or off at once');
   ok(/nameCards\?\.pickAt\(ndc\)/.test(main) && /api\.humans\.select\(\{ actor: nameCard\.actor \}\)/.test(main), 'a click or tap on a card opens the person as clicking them does');
   ok(/jauntStage\?\.named/.test(main), "a jaunt stop's castmates are carded too");
+  // The owner, 2026-11-17: "only show the attested cards or the inferred cards or just the
+  // reconstructed cards", "Or attested and inferred at the same time": three boxes, any mix.
+  ok(/nameCardsAttested: true, nameCardsInferred: true, nameCardsReconstructed: true/.test(hud), 'all three grades are carded by default');
+  ok(['attested', 'inferred', 'reconstructed'].every((g) => new RegExp(`wireToggle\\('s-name-cards-${g}', 'nameCards${g[0].toUpperCase()}${g.slice(1)}'\\)`).test(hud)
+    ), 'each grade is a box wired to its setting');
+  ok(/id="s-name-cards-\$\{g\.toLowerCase\(\)\}"/.test(hud) && /\['Attested', 'Inferred', 'Reconstructed'\]/.test(hud),
+    'the three boxes are built by hud.js (the page is copied to every door and has no bytes to spare, T-0722)');
+  ok(/nameCardGradeRow\(\$\('row-name-cards'\)\);\n\s*wireToggle\('s-name-cards-attested'/.test(hud) && /after\.after\(row\)/.test(hud),
+    'the boxes are put under the name-card switch, before they are wired');
+  ok(JSON.stringify(m.nameCardGrades({})) === '["attested","inferred","reconstructed"]'
+    && JSON.stringify(m.nameCardGrades({ nameCardsReconstructed: false })) === '["attested","inferred"]'
+    && JSON.stringify(m.nameCardGrades({ nameCardsAttested: false, nameCardsInferred: false })) === '["reconstructed"]'
+    && m.nameCardGrades({ nameCardsAttested: false, nameCardsInferred: false, nameCardsReconstructed: false }).length === 0,
+    'the boxes give any mix: all, attested and inferred, reconstructed alone, none');
+  ok(/key === 'nameCardsAttested'[\s\S]{0,200}nameCards\?\.setGrades\(nameCardGrades\(hud\.settings\)\)/.test(main)
+    && /grades: nameCardGrades\(hud\.settings\)/.test(main), 'a change re-chooses the cards at once, and a reload starts with the mix chosen');
+  const nc = fs.readFileSync(path.join(root, 'renderers/web/js/name-cards.js'), 'utf8');
+  ok(/if \(p\.grade && !only\.has\(p\.grade\)\) continue;/.test(nc), 'a card of a grade left off is not chosen (and fades out)');
   ok(/!pointerlock\.isLocked && api\.nameCards\?\.shown[\s\S]{0,400}api\.nameCards\.pickAt\(ndc\)\) \{ inspect\(ndc, \{ by: 'hand' \}\); return; \}/.test(main),
     'on a desktop with the mouse free, a click on a card opens the person instead of taking the look');
 }

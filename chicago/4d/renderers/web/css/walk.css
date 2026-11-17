@@ -1999,6 +1999,10 @@ kbd {
 .field > span b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 .field.row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .field.row > span { margin: 0; }
+/* The owner, 2026-11-17: which name cards show, by grade; three boxes, any mix. */
+.field.name-card-grades { align-items: flex-start; }
+.field > .name-card-grade-picks { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; color: var(--ink); }
+.name-card-grade-picks .check-field { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
 .field[hidden] { display: none; }
 .field input[type="range"] { width: 100%; accent-color: var(--accent); }
 .field select {

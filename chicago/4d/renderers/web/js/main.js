@@ -102,7 +102,7 @@ import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
-import { createNameCards, cardTheme, gradeOf } from './name-cards.js';
+import { createNameCards, cardTheme, gradeOf, nameCardGrades } from './name-cards.js';
 import { supportsTownTransport } from './transport-scenes.js';
 import { createWells } from './wells.js';
 import { createTimeStream } from './time-stream.js';
@@ -4618,6 +4618,10 @@ async function boot() {
         // T-3614: the name cards over people, on or off.
         api.nameCards?.setShown(value !== false);
         gateFrame.invalidate();
+      } else if (key === 'nameCardsAttested' || key === 'nameCardsInferred' || key === 'nameCardsReconstructed') {
+        // The owner, 2026-11-17: which name cards show, by grade, any mix.
+        api.nameCards?.setGrades(nameCardGrades(hud.settings));
+        gateFrame.invalidate();
       } else if (key === 'units') {
         navigation.setUnits(value);
       }
@@ -4653,7 +4657,7 @@ async function boot() {
   // people, the drivers on their boxes and a jaunt's hosts and castmates, at any hour. One
   // instanced draw over one atlas (name-cards.js); Settings › Show › Name cards over people.
   api.nameCards = createNameCards({
-    THREE, renderer, camera, tier: detailLevel, shown: hud.settings.nameCards !== false,
+    THREE, renderer, camera, tier: detailLevel, shown: hud.settings.nameCards !== false, grades: nameCardGrades(hud.settings),
     viewHeight: () => renderer.domElement.clientHeight,
     // The card's edge and light: the person's grade in the Confidence view's colour for it.
     gradeColors: () => Object.fromEntries(['attested', 'inferred', 'reconstructed'].map((l) => [l, confidence.grade(l)?.color ?? null])),
