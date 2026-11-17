@@ -27,22 +27,22 @@
     },
     {
       "structure_id": "house_2011_prairie",
-      "glb": "assets/gltf/house_2011_prairie__draft_1904.glb",
+      "glb": "assets/gltf/house_2011_prairie__as_mapped_1904.glb",
       "placement": {
-        "local_e": 1449.646,
-        "local_n": -3511.93,
+        "local_e": 1435.256,
+        "local_n": -3512.268,
         "rotation_deg": 179.383,
         "scene": "1904",
         "target_date": "1904-07-01",
-        "phase": "draft_1904"
+        "phase": "as_mapped_1904"
       },
       "position": [
-        -8.850394954447859,
+        5.542410433024977,
         0,
-        8.068162563451649
+        7.885140492844279
       ],
       "rotation_y": 0,
-      "glb_sha256": "48614d99b8cebb6839aeb2ab55a90e4ffd15a158c34a728a2bd16f6ee4cad384"
+      "glb_sha256": "5096fd7422a6227a38c42790b0b0961f2e8e8d5d11f8e1ef86650105768585af"
     },
     {
       "structure_id": "house_2017_prairie",
@@ -64,7 +64,7 @@
       "glb_sha256": "df741bd49f4658bc76fb2865dccef57d759f6167c8b6ec74c13d672b4bfebdcc"
     }
   ],
-  "group_sha256": "087fb8f574f181acb85ac5a59b4b3fac6e273fb47ab8d0d9980ff1a9aa506ca6",
+  "group_sha256": "76aac937ecd2d46ce865ae39cac282a494b06310945d8601d6c81594bd24a2e9",
   "side_by_side": "docs/RESEARCH/photo-match/reid_house_2013_prairie/inland_architect_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -141,7 +141,7 @@
     {
       "what": "2011 and 2017 themselves",
       "status": "not shown",
-      "how": "rendered as the 1904 scene's own records for context only; their pictures are their own tickets'"
+      "how": "rendered as the 1904 scene's own records for context only; their pictures are their own tickets'; 2011's K01 turret (T-3615, built off the Chicagology photograph's camera) falls where the plate draws it, its cone at x 90-290 px of the render against the plate's 160-320 px, an independent check on this camera"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
