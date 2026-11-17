@@ -49,7 +49,7 @@ import { createConfidenceLegend } from './confidence-legend.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
-import { createXRMode, isStandaloneHeadset, vrScale } from './controls/xr.js';
+import { isStandaloneHeadset, vrScale } from './controls/xr-detect.js'; // T-3627: the session half loads where a headset is offered
 import { createWindowMode, windowAt } from './controls/window.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
 import { profiledGroundHeight, figureGroundHeight } from './deck-surface.js';
@@ -90,18 +90,12 @@ import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { createCrossings } from './crossings.js';
-import { createBier } from './stage-props.js';
 import { createVessels } from './vessels.js';
-import { createBoatPilot } from './boat-pilot.js';
 import { insideDeck } from './deck-surface.js';
-import { mountHumans } from './humans.js';
+import { mountHumans, useFightMotions } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
 import { createHumanDays, createDayRouter, clearWayOf, JAUNT_LOCALS } from './human-days.js';
 import { createJauntHosts } from './jaunt-hosts.js';
-import { createJauntStage } from './jaunt-stage.js';
-import * as humanFight from './human-fight.js'; // the adults jaunts' weapons, motions and gun smoke
-import * as humanBlood from './human-blood.js'; // ... and their blood and wounds
-import { createFortFire } from './fort-fire.js'; // the burning of the first fort, 16 August 1812
 import { createHumanSpacing, BODY_R_M } from './human-spacing.js';
 import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
@@ -181,7 +175,7 @@ import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfil
 import { advanceGust, syncGustUniform } from './wind-gust.js';
 import { createTodayView } from './today-view.js';
 import { createRegistration } from './today-register.js';
-import { createTaleTeller } from './tale-teller.js';
+import { withStory } from './tale-actions.js'; // T-3627: the teller itself (tale-teller.js) loads when first asked
 
 const VERSION = '0.1.0';
 
@@ -3096,6 +3090,10 @@ async function boot() {
   // more up and down the river (data/boats/crossings_1812.json). Each is an Interact thing:
   // Cross steps in, paddles or rows over and steps out, and the boat stays on that bank.
   // Built after the buildings, whose log walls' hewn-wood sheets the hulls wear.
+  /** T-3627: what a boat asks before the helm is loaded: nobody at it, and taking her loads it. */
+  const helmUnloaded = Object.freeze({ active: false, craft: null,
+    take: (craft) => { api.loadPilot().then((helm) => helm.take(craft), () => hud.say('The helm could not be loaded just now')); return true; },
+    leave: () => false });
   const crossings = await createCrossings({
     dataBase: layerBase('crossings'), terrain, confidence, problems: layerProblems('crossings'),
     detail: detailLevel, coarse, lowSpec: lowMem, walkEye: () => WALK.eyeHeight,
@@ -3104,7 +3102,7 @@ async function boot() {
       api.travel?.stop?.('crossing');
       if (api.follow?.active) api.follow.stop('crossing');
     },
-    pilot: () => api.pilot ?? null,
+    pilot: () => api.pilot ?? helmUnloaded,
   });
   scene3d.add(crossings.group);
   for (const thing of crossings.things) interactions.add(thing);
@@ -3120,7 +3118,7 @@ async function boot() {
     dataBase: layerBase('vessels'), sceneId: YEAR, terrain, confidence, problems: layerProblems('vessels'),
     detail: detailLevel, coarse: coarse || lowMem, humans: () => api.humans ?? null,
     getPeople: () => peopleDirectory.load(), hour: sunHourNow, season: () => api.season?.current ?? 'summer',
-    pilot: () => api.pilot ?? null, date: () => world.sunDate ?? null,
+    pilot: () => api.pilot ?? helmUnloaded, date: () => world.sunDate ?? null,
   });
   scene3d.add(vessels.group);
   for (const thing of vessels.things) interactions.add(thing);
@@ -3132,7 +3130,7 @@ async function boot() {
     if (api.router?.built) return !api.router.blockedAt(e, n);
     return !footprints.some((f) => insideDeck(e, n, f.pts));
   };
-  api.pilot = createBoatPilot({
+  const pilotOptions = {
     nav: () => vessels.nav,
     ground: (e, n) => vessels.bed(e, n),
     hulls: () => vessels.hulls().concat(crossings.hulls?.() ?? []),
@@ -3143,7 +3141,13 @@ async function boot() {
       if (api.follow?.active) api.follow.stop('boat');
     },
     say: (text) => hud.say(text),
-  });
+  };
+  // T-3627: the helm (boat-pilot.js) loads the first time a visitor takes a boat; until then a
+  // boat's Take her finds nobody at the helm (`helmUnloaded`, above) and taking one loads it.
+  let pilotLoad = null;
+  api.loadPilot = () => pilotLoad ??= import('./boat-pilot.js')
+    .then(({ createBoatPilot }) => (api.pilot = createBoatPilot(pilotOptions)))
+    .catch((error) => { pilotLoad = null; throw error; });
   // T-3332 — the town by night: lit windows (buildings.js patches the glass) and the
   // lamps outside, from data/night_lights/<scene>.json. Hidden, and free, by day.
   const nightLights = await createNightLights({
@@ -4269,8 +4273,9 @@ async function boot() {
   if (supportsTownTransport(YEAR)) {
     try {
       const { mountTownTransport } = await import('./town-transport-scene.js');
-      // T-3497: 1812's natural ground is read smoothed for wheels and hooves (transport-ground.js).
-      const smoothGround = String(YEAR) === '1812'
+      // T-3497: 1812's natural ground is read smoothed for wheels and hooves (transport-ground.js);
+      // T-3558: and 1835's earth streets, on the same 2.5 m lattice.
+      const smoothGround = ['1812', '1835'].includes(String(YEAR))
         ? (await import('./transport-ground.js')).createSmoothedGround({
           sample: (e, n) => profiledGroundHeight(terrain, decks, e, n), grid: terrain.grid })
         : null;
@@ -4314,6 +4319,29 @@ async function boot() {
       });
       if (api.townTransport) scene3d.add(api.townTransport.group);
     } catch (error) { problems.push(`town transport: ${error.message}`); }
+  }
+
+  // T-3560 (owner, 2026-11-17: "definite prioritize the horse riding"): a saddle horse near
+  // where the walk begins in each year, mounted with Interact and ridden with the movement keys
+  // (riding.js). Read without holding up the boot; the horse loads only when the visitor nears it.
+  api.riding = null;
+  if (supportsTownTransport(YEAR)) {
+    import('./riding.js').then(({ mountRiding }) => mountRiding({
+      sceneId: YEAR, dataBase: bases.dataBase, interactions,
+      standable: (e, n) => standableAt(e, n),
+      ground: (e, n) => figureGround(e, n),
+      visitor: () => (walker.state.flying ? null : walker.state),
+      humans: () => api.humans ?? null,
+      say: (text) => hud.say(text),
+      reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      coarse: lowMem || detailLevel === 'light', problems,
+      onMount: (horse, on) => {
+        if (!on) return;
+        api.travel?.stop?.('riding');
+        if (api.follow?.active) api.follow.stop('riding');
+      },
+    })).then((ride) => { if (ride) { api.riding = ride; scene3d.add(ride.group); } })
+      .catch((error) => { problems.push(`riding: ${error.message}`); });
   }
 
   /** A structure's ground position in local ENU metres — footprint centroid where
@@ -5029,7 +5057,7 @@ async function boot() {
    * page's own controls when it ends.
    */
   const vrKey = document.getElementById('btn-vr');
-  const xrMode = createXRMode({
+  const xrOptions = {
     THREE, renderer, walker, intent, backends,
     fallback: () => (gateOpen ? null : (coarse ? touch : pointerlock)),
     setFly: (on) => hud.setFly(on),
@@ -5040,7 +5068,26 @@ async function boot() {
       blackbox.log(on ? 'vr' : 'vr-end');
       if (!on) { visualClockReset = true; resize(); hud.say('Back from the headset'); }
     },
-  });
+  };
+  // T-3627: the session half (controls/xr.js) loads only where the browser offers a headset, and
+  // before the key is shown, so Enter VR still starts the session from the click itself.
+  let xrSession = null, xrLoad = null;
+  const loadXR = () => xrLoad ??= import('./controls/xr.js')
+    .then(({ createXRMode }) => (xrSession = createXRMode(xrOptions)))
+    .catch((error) => { xrLoad = null; throw error; });
+  const xrMode = {
+    get presenting() { return !!xrSession?.presenting; },
+    get session() { return xrSession; },
+    /** Whether this browser offers a headset at all (and then the session half is loaded). Never rejects. */
+    async supported() {
+      let ok = false;
+      try { ok = !!(navigator.xr && await navigator.xr.isSessionSupported('immersive-vr')); } catch { ok = false; }
+      return ok && loadXR().then(() => true, () => false);
+    },
+    enter: () => (xrSession ? xrSession.enter() : loadXR().then((mode) => mode.enter(), () => false)),
+    exit: () => xrSession?.exit(),
+    sync: () => xrSession?.sync(),
+  };
   api.xr = xrMode;
   xrMode.supported().then((ok) => { if (vrKey) vrKey.hidden = !ok; });
   vrKey?.addEventListener('click', () => {
@@ -5841,7 +5888,13 @@ async function boot() {
     jauntRoot.append(message);
   }
   function ensureJaunts() {
-    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js'), import('./jaunt-context.js'), import('./jaunt-cards.js'), import('./narration.js'), import('./jaunt-pace.js')]).then(([preview, runtime, panel, estimates, context, cards, voices, pace]) => {
+    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js'), import('./jaunt-context.js'), import('./jaunt-cards.js'), import('./narration.js'), import('./jaunt-pace.js'),
+      // T-3627: a stop's stage and what it plays with load with the outing, not with the town:
+      // the cast (jaunt-stage.js), the adults jaunts' weapons and motions (human-fight.js) and
+      // wounds (human-blood.js), the burning of the first fort (fort-fire.js) and the bier.
+      import('./jaunt-stage.js'), import('./human-fight.js'), import('./human-blood.js'), import('./fort-fire.js'), import('./stage-props.js')])
+      .then(([preview, runtime, panel, estimates, context, cards, voices, pace, { createJauntStage }, humanFight, humanBlood, { createFortFire }, { createBier }]) => {
+      useFightMotions(humanFight); // every hand in town takes the fight motions up
       const resolveJaunt = target => {
         const resolved = destinations.resolve(target);
         return resolved?.structureId ? { kind: 'structure', id: resolved.structureId, label: resolved.label } : resolved;
@@ -6520,10 +6573,19 @@ async function boot() {
   // T-3521: a card's Find this person, by id (the harness tests it for everyone).
   api.findPerson = (id) => findSceneDirectoryPerson(id);
   // T-3553: Tell me a story, after Greet, for everyone in every year; Find goes to whom a story names.
-  api.tales = createTaleTeller({ interactions, scene: YEAR, base: new URL('tales/', resolveBases().dataBase).href,
+  // T-3627: both are offered at once (tale-actions.js), and the teller that answers them, with its
+  // stories, questions and cards (tale-teller.js and four more modules), loads the first time a
+  // visitor asks: the 1835 first visit never did, and paid for all five at boot.
+  let talesLoad = null;
+  api.loadTales = () => talesLoad ??= import('./tale-teller.js').then(({ createTaleTeller }) => (api.tales = createTaleTeller({
+    interactions: {}, // main.js extends the Interact engine itself, below
+    scene: YEAR, base: new URL('tales/', resolveBases().dataBase).href,
     date: () => world.sunDate ?? loaded.scene.target_date ?? null, say: (text) => hud.say(text),
     canFind: (id) => (api.townTransport?.driverAnchorForPerson?.(id) || personInTown(id) || atHome(id) ? true : 'Not out in town now'),
-    find: (id) => { void findSceneDirectoryPerson(id); } });
+    find: (id) => { void findSceneDirectoryPerson(id); } }))).catch((error) => { talesLoad = null; throw error; });
+  interactions.extend?.((thing, actions) => withStory(thing, actions,
+    (who) => { api.loadTales().then((teller) => teller.tell(who), () => hud.say('Stories could not be loaded just now')); },
+    (who) => { api.loadTales().then((teller) => teller.ask(who), () => hud.say('Questions could not be loaded just now')); }));
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     moreEl: document.getElementById('interact-more'),
@@ -6539,6 +6601,8 @@ async function boot() {
   api.getDown = () => {
     // T-3612: at the helm of a boat, the bar's key is Go ashore.
     if (api.pilot?.active) { api.pilot.leave(); return true; }
+    // T-3560: in the saddle, the bar's key is Get down.
+    if (api.riding?.active) { api.riding.leave(); return true; }
     const aboard = api.townTransport?.ride?.aboard;
     if (!aboard) return false;
     const res = interactions.act(`driver:${aboard.id}`, 'get-down');
@@ -6599,6 +6663,31 @@ async function boot() {
     pilotPainted = key; pilotPaintAt = 0;
     hud.travelBanner(state);
   }
+  /** T-3560: the travel bar in the saddle: the horse, its gait, the keys, Get down. */
+  let ridingPainted = '', ridingPaintAt = 0;
+  function paintRiding(elapsed) {
+    const ride = api.riding;
+    if (!ride?.active) {
+      if (ridingPainted) { ridingPainted = ''; if (travel?.state?.phase === 'idle') hud.travelBanner(null); }
+      return;
+    }
+    const touch = backends.name === 'touch' || (backends.name === 'none' && coarse);
+    const notes = [];
+    if (ride.blocked) notes.push(t('hud.riding.held', { why: ride.blocked }));
+    else notes.push(t(`hud.riding.${ride.gait ?? 'standing'}`));
+    notes.push(t(touch ? 'hud.riding.stick' : 'hud.riding.keys'));
+    const name = ride.horse?.row?.name ?? '';
+    const state = { kind: 'ride', verb: t('hud.riding.verb'), dest: name, destTitle: name, note: notes.join(' · '), stop: t('hud.riding.down') };
+    const key = JSON.stringify(state);
+    if (key === ridingPainted && (ridingPaintAt += elapsed) < .5) return;
+    ridingPainted = key; ridingPaintAt = 0;
+    hud.travelBanner(state);
+  }
+  // T-3560: V changes the view in the saddle (from behind the horse, or from the saddle).
+  window.addEventListener('keydown', (e) => {
+    if (!api.riding?.active || isTyping(e.target) || e.repeat || e.key.toLowerCase() !== 'v') return;
+    e.preventDefault(); api.riding.toggleView();
+  });
   const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   transportReducedMotion.addEventListener('change', resetVisualClock);
   let interactPaintAt = 0;
@@ -6609,6 +6698,7 @@ async function boot() {
     if (event.persisted) return;
     // Driver leases and standing transfers finish before the human asset cache
     // loses its remaining scene actors. BFCache pagehide keeps the scene alive.
+    api.riding?.dispose();
     api.townTransport?.dispose();
     api.workActivity?.dispose();
     api.humans?.dispose();
@@ -6835,6 +6925,11 @@ async function boot() {
     if (coarse && document.activeElement?.id === 'welcome-search') document.activeElement.blur();
   } });
   // (T-2655's year chip opens Jump through T-2626's #year-badge binding above.)
+  // T-3629 (A8): inside the Navigator the section's own × stands down (drawer.css), so the
+  // Navigator's × does what it did: it puts the open section away as well as the device.
+  document.getElementById('nav-close')?.addEventListener('click', () => {
+    if (hud.panelOpen() && document.getElementById('panel')?.closest('.nav-screen')) hud.setPanel(false);
+  });
   // T-2662: a locked term's first appearance explains itself on tap — the Navigator's
   // Confidence view, and the Evidence hub's Liberties (the arrival's intro marks its own).
   markTerms(document.getElementById('nav-home'));
@@ -6891,7 +6986,7 @@ async function boot() {
       tourApp = app;
       const level = navigatorUi?.level ?? 0;
       return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, opens: tourCounts.opens,
-        apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level,
+        apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level, app,
         selected: !!popup.openId || (app === 'inspect' && level > 0), card: !!popup.openId,
         scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null,
         // T-3445: the People step only where the rail carries a People app.
@@ -7034,6 +7129,9 @@ async function boot() {
     // T-3612: at the helm, a Go to or a walk with someone puts the visitor ashore; else the keys steer.
     if (api.pilot?.active && (travel.state.phase !== 'idle' || follow.active)) api.pilot.leave();
     api.pilot?.drive(intent);
+    // T-3560: in the saddle, a Go to or a walk with someone puts the visitor down; else the keys are the reins.
+    if (api.riding?.active && (travel.state.phase !== 'idle' || follow.active)) api.riding.leave();
+    api.riding?.drive(intent);
     const walkSteps = Math.max(1, Math.ceil(frameDt / 0.05));
     const walkDt = frameDt / walkSteps;
     if (!gateOpen) for (let i = 0; i < walkSteps; i++) {
@@ -7054,6 +7152,9 @@ async function boot() {
     api.pilot?.update(visualDt);
     vessels.update(visualDt, camera);
     api.pilot?.hold(walker, WALK);
+    // T-3560: every saddle horse near the visitor; the one ridden carries the eye.
+    api.riding?.update(visualDt, camera.position);
+    api.riding?.hold(walker, WALK);
     // T-3575: in a headset, the reference space follows the walker (controls/xr.js).
     if (xrMode.presenting) xrMode.sync();
     // Before the render, after the walker: the near plane is a function of where
@@ -7104,6 +7205,7 @@ async function boot() {
     if (teamRide?.hold(walker, WALK)) { setNearFor(walker.state.altitude); world.follow(camera.position); }
     paintRide(teamRide, elapsed);
     paintPilot(elapsed);
+    paintRiding(elapsed);
     // Contacts follow the loaded horses' accepted gait advance in this frame.
     // Held/hidden frames clear the baseline rather than replaying missed steps.
     api.sound?.transportFrame({ active: !visualHeld && visualDt > 0 });

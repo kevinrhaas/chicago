@@ -180,6 +180,9 @@
 /* T-2061: a thumb's 44 px. The icons stay 18 px; only the box round them grows. */
 body:is(.is-touch, .touch-first) :is(.panel-back, .panel-close) { width: 44px; height: 44px; }
 body:is(.is-touch, .touch-first) .panel-close { margin-right: -6px; }
+/* T-3629 (A8): one close key a screen. Inside the Navigator its own × closes the section too
+   (main.js), so the section's second × under it stands down; Back stays where there is one. */
+.nav-screen .panel-close { display: none; }
 
 /* ----------------------------------------------------------- the scroll --- */
 

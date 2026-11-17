@@ -367,7 +367,7 @@ console.log('JOURNEY PASS — every transition once and in order; landing flash,
   const silent = createGestureGate({ target: null, journey: null, AudioContext: null });
   assert.equal(silent.unlockAudio(), null);
   // The page carries the tag, and main.js makes no AudioContext of its own any more.
-  assert.match(index, /id="look-tag"[^>]*hidden>Click to engage look</);
+  assert.match(index, /id="look-tag"[^>]*hidden>Click to look around</);
   assert.doesNotMatch(main, /new Ctx\(\)|new (window\.)?(webkit)?AudioContext/, 'main.js must not make audio outside the gesture gate');
 }
 console.log('GESTURE GATE PASS — audio only on the first real tap after landing; look tag desktop-only until lock');
