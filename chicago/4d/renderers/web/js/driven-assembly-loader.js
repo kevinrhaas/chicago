@@ -414,8 +414,15 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
     let door = null; const riders = [], restores = [];
     try {
       const binding = row.driver_binding;
+      // T-3558: a binding may carry more than the one vehicle its driver was fitted on: the
+      // plate-matched brougham (V20) at each level keeps V19's box, seat and footboard to the
+      // byte (tools/transport/brougham_v20/check.py), so `fitted_on` names V19 and
+      // `also_carries` lists the other levels this row may load.
+      const fitted = binding?.fitted_on ?? binding;
+      const carried = binding ? [{ file: binding.vehicle_file, sha256: binding.vehicle_glb_sha256 }, ...(binding.also_carries ?? [])] : [];
+      const carriedNow = carried.find(v => v.file === row.vehicle_file);
       if (!binding || binding.scene !== sceneId || binding.asset_id !== row.driver_asset
-        || binding.vehicle_file !== row.vehicle_file || binding.root_offset_m?.some(n => n !== 0)) throw Error('driven assembly: exact seated driver/vehicle binding required');
+        || !carriedNow || binding.root_offset_m?.some(n => n !== 0)) throw Error('driven assembly: exact seated driver/vehicle binding required');
       // Independent portable assets start only after route/binding validation.
       // Settle every job before a failure is thrown so late successful leases
       // enter the same disposal owners as a completely successful acquisition.
@@ -425,7 +432,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
           if (!response.ok) throw Error(`driven assembly: vehicle HTTP${response.status}`);
           const bytes = await response.arrayBuffer();
           const sha256 = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(n => n.toString(16).padStart(2, '0')).join('');
-          if (sha256 !== binding.vehicle_glb_sha256) throw Error('driven assembly: actual vehicle differs from the seated binding');
+          if (sha256 !== carriedNow.sha256) throw Error('driven assembly: actual vehicle differs from the seated binding');
           const parsed = await loader.parseAsync(bytes, new URL('.', assetURL(row.vehicle_file)).href);
           return { vehicle: parsed, sha256 };
         })(),
@@ -448,8 +455,8 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       const exportedFor = row.driver_export_person_id ?? instance.person_id;
       if (metadata?.person_reference_scene !== sceneId || metadata.person_reference_id !== exportedFor
         || study?.scene !== sceneId || study.person_reference_id !== exportedFor
-        || study.vehicle_sidecar_sha256 !== binding.vehicle_sidecar_sha256
-        || (study.vehicle_glb_sha256 && study.vehicle_glb_sha256 !== sha256)) throw Error('driven assembly: actual exported driver identity/date/vehicle metadata differs');
+        || study.vehicle_sidecar_sha256 !== fitted.vehicle_sidecar_sha256
+        || (study.vehicle_glb_sha256 && study.vehicle_glb_sha256 !== (binding.fitted_on ? fitted.vehicle_glb_sha256 : sha256))) throw Error('driven assembly: actual exported driver identity/date/vehicle metadata differs');
       // T-3412: a driver's own face; his body stays the one his seat, reins and livery were fitted to.
       actor = new HumanActor({ instance, identity, person: identity.person, assets: humanAssets, heightAt: () => 0, tier: 'full', variation: 'face' });
       await actor.setLod(driverLod);

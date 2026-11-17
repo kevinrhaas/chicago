@@ -3168,6 +3168,8 @@ def structure_glb(house: Sample, data: dict, form: dict, structure_id: str, phas
 # (east, north, west, south), each turning its outside corner with a short return that the
 # next wall's cladding takes up from, so the block closes with every corner a K16 corner.
 
+SIDES = ("east", "north", "west", "south")    # counter-clockwise from above, the walls' order
+
 SIDE_RUN = {   # side -> (start corner of rect_uv as (u index, v index), direction in glTF)
     "east": ((2, 1), (0.0, 0.0, -1.0)), "north": ((2, 3), (-1.0, 0.0, 0.0)),
     "west": ((0, 3), (0.0, 0.0, 1.0)), "south": ((0, 1), (1.0, 0.0, 0.0)),
@@ -3209,11 +3211,16 @@ def frame_house_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
     for b in fh["blocks"]:
         walls = b["walls"]
         free = not b.get("against")
+        op = b.get("open") or ()        # T-1935: sides left open on posts; a wall beside one ends cut
         for i, w in enumerate(walls):
             O, U, L = side_frame(b["rect_uv"], w["side"])
             last = i == len(walls) - 1
             start = D if (free or i > 0) else 0.0     # the previous wall's return covers this much
             ret = 0.0 if (last and not free) else D
+            if op:      # the corner post at an open side's end covers the wall's cut end
+                k = SIDES.index(w["side"])
+                start = 0.0 if SIDES[(k - 1) % 4] in op else start
+                ret = 0.0 if SIDES[(k + 1) % 4] in op else ret
             v = {"id": f"k16.wall.{sid}.{b['id']}_{w['side']}", "kind": "clapboard_wall", "use": "wall",
                  "width_m": round(L - start, 6), "return_m": ret, "foundation_m": fh["foundation_m"],
                  "wall_top_m": b["wall_top_m"],
@@ -3238,6 +3245,16 @@ def frame_house_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
                 sm = Sample(g, data, index=0).build()
                 place(sm, O, U)
                 out[f"{b['id']}.{w['side']}_gable"] = sm
+        for side in op:     # T-1935: an open side under a gable end still carries its gable
+            if b["roof"]["kind"] == "gable" and side in GABLE_SIDES[b["roof"].get("ridge", "u")]:
+                O, U, L = side_frame(b["rect_uv"], side)
+                ev = data["trim"]["eave"]
+                g = {"id": f"k16.gable.{sid}.{b['id']}_{side}", "kind": "gable_end", "use": "wall",
+                     "width_m": L, "base_m": b["wall_top_m"] + ev["fascia_m"], "pitch_deg": b["roof"]["pitch_deg"],
+                     "projection_m": ev["projection_m"], "fascia_m": ev["fascia_m"], "windows": []}
+                sm = Sample(g, data, index=0).build()
+                place(sm, O, U)
+                out[f"{b['id']}.{side}_gable"] = sm
     po = fh.get("porch")
     if po:
         main = host_block(fh, po)
@@ -3498,6 +3515,142 @@ def _hip(house: Sample, x0, x1, z0, z1, ye, pitch_deg):
     return yr, ("z", za, zb, xm)
 
 
+#: T-1935: an open side's roof boards, how far under the covering their underside lies
+OPEN_BOARDS_M = 0.07
+
+
+def _open_sides(house: Sample, fh: dict, b: dict, data: dict, eave, ye: float, walls) -> dict:
+    """T-1935: a gabled block's `open` sides, the sheet's dashed outline of an open shed. Each
+    stands on square posts (the porch kit's section, or the wall's thickness and a margin if
+    that is more, so a corner post covers the cut end of the wall beside it) on brick footings,
+    no further apart than `post_pitch_m`, under a plate whose top meets the roof boards. A side's
+    end against the block's `against` wall takes no post: its plate runs into that wall. The
+    whole roof is boarded underneath, and every walled side's inner face is closed up to the
+    boards, so nothing seen from inside the shed is a face's back."""
+    u0, v0, u1, v1 = b["rect_uv"]
+    x0, x1, z0, z1 = eave
+    F = house.F
+    op = b["open"]
+    pitch = b["roof"]["pitch_deg"]
+    t = math.tan(math.radians(pitch))
+    ridge = b["roof"].get("ridge", "u")
+    eave_sides = GABLE_SIDES["v" if ridge == "u" else "u"]
+    T = data["wall"]["thickness_m"]
+    S = max(data["porch"]["post"]["section_m"], T + 0.06)
+    e = 0.03                                    # a post's outer face past the wall line
+    foot, fd = 0.1, fh["foundation_m"]          # each footing's margin round the post
+    pitch_m = b.get("post_pitch_m", 3.0)
+    yt = b["wall_top_m"]
+
+    def under(x, z):        # the roof boards' underside over a plan point
+        if ridge == "v":
+            d = min(x - x0, x1 - x)
+        else:
+            d = min(z - z0, z1 - z)
+        return ye + d * t - OPEN_BOARDS_M
+
+    rect = {"x": (u0, u1), "z": (-v1, -v0)}
+    posts, plates = [], []
+    for side in op:
+        O, U, L = side_frame(b["rect_uv"], side)
+        N = _cross(U, Y)            # out of the side
+        k = SIDES.index(side)
+        ends = []
+        for at, nb in ((0.0, SIDES[(k - 1) % 4]), (L, SIDES[(k + 1) % 4])):
+            ends.append(None if nb == b.get("against") else (S / 2 - e if at == 0.0 else L - S / 2 + e))
+        a = ends[0] if ends[0] is not None else 0.0
+        z_ = ends[1] if ends[1] is not None else L
+        n = max(1, math.ceil((z_ - a) / pitch_m - 1e-9))
+        stations = [a + (z_ - a) * i / n for i in range(n + 1)]
+        stations = [st for i, st in enumerate(stations) if not ((i == 0 and ends[0] is None) or (i == n and ends[1] is None))]
+        for st in stations:
+            c = _add(_add(O, _mul(U, st)), _mul(N, e - S / 2))
+            posts.append((round(c[0], 6), round(c[2], 6)))
+        s0 = -0.1 if ends[0] is None else -e      # into the against wall, or flush with the post
+        s1 = L + 0.1 if ends[1] is None else L + e
+        p0 = _add(_add(O, _mul(U, s0)), _mul(N, e))
+        p1 = _add(_add(O, _mul(U, s1)), _mul(N, e - S))
+        plates.append((side, min(p0[0], p1[0]), max(p0[0], p1[0]), min(p0[2], p1[2]), max(p0[2], p1[2])))
+    built = []
+    for cx, cz in posts:
+        if (cx, cz) in built:
+            continue
+        built.append((cx, cz))
+        house.box(F, "foundation", cx - S / 2 - foot, cx + S / 2 + foot, 0.0, fd, cz - S / 2 - foot, cz + S / 2 + foot,
+                  skip=("bottom",))
+        house.box(F, "post", cx - S / 2, cx + S / 2, fd, yt - data["porch"]["plate"]["height_m"],
+                  cz - S / 2, cz + S / 2, skip=("bottom", "top"))
+    plate_h = data["porch"]["plate"]["height_m"]
+    for side, a0, a1, c0, c1 in plates:
+        if side in eave_sides:      # under the slope: its top meets the boards at its outer face
+            xo = a1 if side == "east" else a0
+            zo = c0 if side == "north" else c1
+            top = under(xo, zo) + 0.06
+        else:                       # under a gable end: its top meets the gable's foot
+            top = yt + data["trim"]["eave"]["fascia_m"]
+        house.box(F, "plate", a0, a1, yt - plate_h, top, c0, c1)
+    # the roof boards' underside, from eave to eave and between the gable ends' wall lines
+    zw0, zw1 = (walls if ridge == "v" else (z0, z1))
+    xw0, xw1 = (walls if ridge == "u" else (x0, x1))
+    if ridge == "v":
+        xm = (x0 + x1) / 2
+        for xa, xb, hx in ((x0, xm, 1), (xm, x1, -1)):
+            house.poly(F, "sheathing", [(xa, under(xa, 0), zw1), (xb, under(xb, 0), zw1),
+                                        (xb, under(xb, 0), zw0), (xa, under(xa, 0), zw0)], (hx * t, -1, 0))
+    else:
+        zm = (z0 + z1) / 2
+        for za, zb, hz in ((z0, zm, 1), (zm, z1, -1)):
+            house.poly(F, "sheathing", [(xw0, under(0, za), za), (xw0, under(0, zb), zb),
+                                        (xw1, under(0, zb), zb), (xw1, under(0, za), za)], (0, -1, hz * t))
+    # an open eave side's edge: the fascia, from the boards' underside to the covering
+    fas = data["trim"]["eave"]["fascia_m"]
+    for side in op:
+        if side not in eave_sides:
+            continue
+        if side == "east":
+            house.box(F, "fascia", x1 - 0.03, x1, ye - fas, ye, zw0, zw1, skip=("back", "front"))
+        elif side == "west":
+            house.box(F, "fascia", x0, x0 + 0.03, ye - fas, ye, zw0, zw1, skip=("back", "front"))
+        elif side == "north":
+            house.box(F, "fascia", xw0, xw1, ye - fas, ye, z0, z0 + 0.03, skip=("s0", "s1"))
+        else:
+            house.box(F, "fascia", xw0, xw1, ye - fas, ye, z1 - 0.03, z1, skip=("s0", "s1"))
+    # each gable end's back, seen from inside: boards from the wall's top (or the plate's) up to
+    # the roof boards, in the walled side's inner face or an open side's own line
+    walled = [w["side"] for w in b["walls"]]
+    for side in GABLE_SIDES[ridge]:
+        if side not in walled and side not in op:
+            continue                # the block stands against it
+        O, U, L = side_frame(b["rect_uv"], side)
+        N = _cross(U, Y)
+        inset = T if side in walled else 0.0
+        yb = yt if side in walled else yt + fas
+        a, c = _add(O, _mul(N, -inset)), _add(_add(O, _mul(U, L)), _mul(N, -inset))
+        m = _mul(_add(a, c), 0.5)
+        pts = [(a[0], yb, a[2]), (c[0], yb, c[2]), (c[0], under(c[0], c[2]), c[2]),
+               (m[0], under(m[0], m[2]), m[2]), (a[0], under(a[0], a[2]), a[2])]
+        house.poly(F, "sheathing", pts, _mul(N, -1))
+    # every walled side's inner face, closed from its top up to the boards (or the gable's foot)
+    for w in b["walls"]:
+        side = w["side"]
+        if side not in eave_sides:      # under a gable end: closed by the gable's back, below
+            continue
+        if side in eave_sides:
+            if side in ("east", "west"):
+                xi = (u1 - T) if side == "east" else (u0 + T)
+                hx = -1 if side == "east" else 1
+                y1 = under(xi, 0)
+                pts = [(xi, yt, -v0), (xi, yt, -v1), (xi, y1, -v1), (xi, y1, -v0)]
+                house.poly(F, "sheathing", pts if hx > 0 else pts[::-1], (hx, 0, 0))
+            else:
+                zi = (-v1 + T) if side == "north" else (-v0 - T)
+                hz = 1 if side == "north" else -1
+                y1 = under(0, zi)
+                pts = [(u0, yt, zi), (u1, yt, zi), (u1, y1, zi), (u0, y1, zi)]
+                house.poly(F, "sheathing", pts if hz > 0 else pts[::-1], (0, 0, hz))
+    return {"open": list(op), "posts": len(built), "post_m": S}
+
+
 def frame_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
     """The whole house merged into one sample in the lot plan frame (T-2357)."""
     data = data or load()
@@ -3523,6 +3676,9 @@ def frame_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
             along = roof.get("ridge", "u")
             walls = (u1, u0) if along == "u" else (-v1, -v0)
             ridge[b["id"]] = _gable(house, x0, x1, z0, z1, ye, roof["pitch_deg"], along, walls, fh_m)
+            if b.get("open"):
+                house.meta.setdefault("open", {})[b["id"]] = _open_sides(house, fh, b, data, (x0, x1, z0, z1),
+                                                                         ye, walls)
         else:                   # a flat deck just over the eave's top, its edges closed
             yd = ye + roof.get("deck_m", 0.03)
             house.poly(house.F, "roof_covering", [(x0, yd, z1), (x1, yd, z1), (x1, yd, z0), (x0, yd, z0)], (0, 1, 0))
@@ -3548,10 +3704,15 @@ def frame_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
         house.box(house.F, "chimney", xc - hx, xc + hx, y_foot, y_top - ch_h, zc - hz, zc + hz, skip=("bottom",),
                   roles={"top": "chimney"})
         house.box(house.F, "chimney", xc - hx - cap, xc + hx + cap, y_top - ch_h, y_top, zc - hz - cap, zc + hz + cap)
+    opened = {b["id"] for b in fh["blocks"] if b.get("open")}
     for k, sm in parts.items():
         if k.startswith("_"):
             continue
         for role, pr in sm.prims.items():
+            if role == "interior" and k.split(".")[0] in opened:
+                # T-1935: an open shed shows its walls' insides: boards, not a closed room's plaster
+                absorb(house.prims.setdefault("sheathing", Prim("sheathing")), pr)
+                continue
             if role in ("backdrop", "interior", "cut"):
                 continue
             absorb(house.prims.setdefault(role, Prim(role)), pr)

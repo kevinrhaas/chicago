@@ -1,0 +1,43 @@
+{
+ "source_id": "studebaker_1893_illustrated_souvenir",
+ "scan_leaf": "0095",
+ "camera": "docs/RESEARCH/brougham-body-T-3084/SOURCE-CAMERA-HYPOTHESIS.json (orthographic, fitted on the two near wheel centres)",
+ "verdict": "differs in one kept respect: the box rides about 0.3 m lower than the plate's, held so the fitted coachman still fits; everything else the plate shows at street distance is there and the right shape",
+ "differences": [
+  {
+   "id": "driving-box",
+   "status": "fixed_v20",
+   "what": "V19 seated the coachman on four bare posts with a loose footboard below. Plate 0095 draws a closed black box with an upright dash and a swept iron under it. V20 closes the box sides and front, adds the dash with its iron top rail and stays, and runs the swept irons into the body's lower front."
+  },
+  {
+   "id": "rear-mudguards",
+   "status": "fixed_v20",
+   "what": "V19 had a thin mudguard over each rear wheel; the plate has none. Removed."
+  },
+  {
+   "id": "box-height",
+   "status": "open_kept_for_coachman_fit",
+   "what": "The plate's dash and footboard sit about 0.3 m higher than ours relative to the front wheel. Kept: the seated coachman (Hans and the other 1904 coachmen) and his livery were fitted on this seat and footboard, and moving them would unfit him. At the one-foot bar this counts as open; it is kept on purpose until the coachman is refitted."
+  },
+  {
+   "id": "door-window-sash",
+   "status": "within_tolerance",
+   "what": "The plate's door glass shows a light sash frame; ours is one clear pane with its edge lining."
+  },
+  {
+   "id": "hub-caps",
+   "status": "within_tolerance",
+   "what": "The plate's hub caps read dark; ours are bright trim, which coachwork.js tints per coach (gilt, nickel)."
+  },
+  {
+   "id": "rear-quarter",
+   "status": "unresolved_source",
+   "what": "The plate's dark rear quarter is textured (a blind or lining?); ours is a plain dark panel. One oblique lithograph cannot say what it is."
+  },
+  {
+   "id": "occupied-and-team",
+   "status": "not_claimed",
+   "what": "The plate shows two coachmen, a lady inside and a pair. In town the coachman, team and visitor riders are the driven rows' own; the empty model claims none of them."
+  }
+ ]
+}

@@ -2,36 +2,36 @@
   "subject": "hans_johnson_1904",
   "reference_set": "coachman_1904",
   "shot": {
-    "date": "2026-11-06",
-    "target": "https://chicago.polecat.live/4d/dev/walk/?year=1904",
-    "build": "DEV PREVIEW · dev@75d1a342 · Nov 6, 2026, 8:16 AM CT",
-    "out": "evidence/people-match-2026-11-06/hans_johnson_1904",
+    "date": "2026-11-17",
+    "target": "local published mirror",
+    "build": "build adcffe78b · Nov 16, 2026, 10:53 PM CT",
+    "out": "evidence/people-match-2026-11-17/hans_johnson_1904",
     "evidence_repo": "kevinrhaas/chicago-evidence"
   },
   "bound": {
     "driver_asset": "anonymous_working_driver_1904",
     "driver_clip": "sit_drive_look_v2",
-    "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+    "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
     "driver_livery_file": "transport/driven/driver-livery-1904.json",
     "driver_livery_sha256": "95ca007afd5677d88afc063c7320fcb7740c2ed7cf585d83d4e72d9a2b9cded9",
     "driver_livery_body_sha256": "c3b285d0305559ee5fbe13695985df86cde4c38ca8d7efd8419fcdd2d97bc4b8"
   },
   "stills": {
     "near-desktop": {
-      "file": "evidence/people-match-2026-11-06/hans_johnson_1904/near-desktop.jpg",
-      "sha256": "88da5a04bbbcaeace778c1710045ea3863d21896af38f0cd21157763c26a6acd",
+      "file": "evidence/people-match-2026-11-17/hans_johnson_1904/near-desktop.jpg",
+      "sha256": "9a4503ff888318d3cc91e1dda05ea305dff0232101dd915c3eab78e6734dbf80",
       "detail": "full",
       "camera": {
-        "e": 1286.902,
-        "n": -3479.166,
+        "e": 1287.143,
+        "n": -3479.163,
         "eye_y": 5.802,
         "yaw_deg": 344.38,
-        "pitch_deg": 11.4,
+        "pitch_deg": 11.43,
         "subject_heading_deg": 89.38,
         "head_enu": [
-          1286.094,
-          -3476.277,
-          6.707
+          1286.335,
+          -3476.274,
+          6.709
         ]
       },
       "figure_box_px": [
@@ -42,20 +42,20 @@
       ]
     },
     "far-desktop": {
-      "file": "evidence/people-match-2026-11-06/hans_johnson_1904/far-desktop.jpg",
-      "sha256": "dfe6ef9d0c48ea2c6ee233dd8ae77d5914b2ce0a6e875313f98ca4e60d1abd07",
+      "file": "evidence/people-match-2026-11-17/hans_johnson_1904/far-desktop.jpg",
+      "sha256": "b2652f755247fdf9ffc8ddd5b6f2e39177c99f61581c388d3b3e9e9a63556ded",
       "detail": "full",
       "camera": {
-        "e": 1294.348,
-        "n": -3481.923,
+        "e": 1294.588,
+        "n": -3481.921,
         "eye_y": 5.981,
         "yaw_deg": 304.38,
-        "pitch_deg": -2.71,
+        "pitch_deg": -2.7,
         "subject_heading_deg": 89.38,
         "head_enu": [
-          1286.094,
-          -3476.277,
-          6.707
+          1286.335,
+          -3476.274,
+          6.709
         ]
       },
       "figure_box_px": [
@@ -66,8 +66,8 @@
       ]
     },
     "near-phone": {
-      "file": "evidence/people-match-2026-11-06/hans_johnson_1904/near-phone.jpg",
-      "sha256": "e44973ecc16ea1904ad042efa69e5153349817816a06b961b1550363ed4c4f50",
+      "file": "evidence/people-match-2026-11-17/hans_johnson_1904/near-phone.jpg",
+      "sha256": "046594c736c6cc1277cd33fce15ae8d61f2cffaa3e6c300bd0dcc11506320920",
       "detail": "balanced",
       "camera": {
         "e": 1286.91,
@@ -90,8 +90,8 @@
       ]
     },
     "far-phone": {
-      "file": "evidence/people-match-2026-11-06/hans_johnson_1904/far-phone.jpg",
-      "sha256": "e36f6a52ca851dac810eb42e49cde3ea96e1a0630feeb55c3d82c435607c4744",
+      "file": "evidence/people-match-2026-11-17/hans_johnson_1904/far-phone.jpg",
+      "sha256": "29c7e7edfdf24b54b29f23f87c55f2263cd901b214fa40d53a8c2287f60d2712",
       "detail": "balanced",
       "camera": {
         "e": 1294.356,
@@ -115,11 +115,11 @@
     }
   },
   "sheets": {
-    "near-side-by-side": "evidence/people-match-2026-11-06/hans_johnson_1904/near-side-by-side.jpg",
-    "far-side-by-side": "evidence/people-match-2026-11-06/hans_johnson_1904/far-side-by-side.jpg",
-    "motion-strip": "evidence/people-match-2026-11-06/hans_johnson_1904/motion-strip.jpg"
+    "near-side-by-side": "evidence/people-match-2026-11-17/hans_johnson_1904/near-side-by-side.jpg",
+    "far-side-by-side": "evidence/people-match-2026-11-17/hans_johnson_1904/far-side-by-side.jpg",
+    "motion-strip": "evidence/people-match-2026-11-17/hans_johnson_1904/motion-strip.jpg"
   },
-  "verdict": "matches",
+  "verdict": "unreviewed",
   "checklist": {
     "silhouette": {
       "what": "Silhouette and fit of the clothes",
