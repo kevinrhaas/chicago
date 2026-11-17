@@ -31,7 +31,10 @@ export const INDEX_PATH = 'narration/index.json';
 /** The narrators a visitor chooses between in Settings › Sound (the owner, 2026-11-13: "i have
  *  two narrators, people should be able to select which one they use the essayist is the
  *  default"). The voicer voices every narrator script once for each; data/narration/voices.json
- *  binds each to an ElevenLabs voice, and tools/test_narration.mjs holds the two lists equal. */
+ *  binds each to an ElevenLabs voice, and tools/test_narration.mjs holds the two lists equal.
+ *  T-3627: narrators.js carries the same three for Settings, which must not load this player;
+ *  this file imports nothing (the voicing workflow checks it out alone), so the test holds
+ *  that copy equal to this one too. */
 export const NARRATORS = Object.freeze([
   { id: 'essayist', label: 'Cultivated Essayist' },
   { id: 'storyteller', label: 'Midwestern Storyteller' },

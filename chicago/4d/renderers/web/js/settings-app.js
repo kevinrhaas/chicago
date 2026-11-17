@@ -29,7 +29,7 @@
  */
 import { t as str } from './strings/index.js';
 import './strings/settings.js';
-import { NARRATORS, normalNarrator } from './narration.js';
+import { NARRATORS, normalNarrator } from './narrators.js'; // T-3627: not the player itself
 
 /** Text size: every Navigator app's text, 100 % to 140 % (QA-18). */
 export const TEXT_SCALES = Object.freeze([1, 1.1, 1.2, 1.3, 1.4]);

@@ -70,6 +70,9 @@ LOOKS = "data/humans/variation/looks_1835_town.json"
 # The four of 1835 already drawn with their own days (data/humans/instances/1835/): their looks
 # are given here too (they had none), their days stay theirs.
 DRAWN = ("peck_philip", "rc_bardwell_otis", "rc_flynn_mary", "rc_mahoney_patrick")
+# The teamsters walking 1835's moving teams (data/transport/driven/loops.json, 1835 rows on foot).
+TEAMSTERS = frozenset(row["person_id"] for row in json.loads((ROOT / "data/transport/driven/loops.json").read_text())["rows"]
+                      if row.get("scene") == "1835" and row.get("driver_mode") == "on_foot")
 
 
 def read(rel):
@@ -403,6 +406,19 @@ ROUTINES = {
         S(18.5, 19.5, "home", doing="supper"),
         S(19.5, 21, at="front", activity="talk", doing="the evening at the door"),
         S(21, 24, "home", doing="asleep")],
+    # Kevin, 2026-11-16: wagons "running on loops around the city" at the day's normal traffic.
+    # A teamster who drives one of 1835's moving teams (data/transport/driven/loops.json, laid by
+    # tools/lay_driven_wagons_1835.mjs) is out with it from harnessing to putting up; he takes his
+    # dinner at the noon stand by his wagon, so the road is not emptied at noon. While his team is
+    # out his figure is the one walking at its near horse's head (the row's `hours` are these).
+    "teamster": [
+        S(0, 4.75, "home", doing="asleep"), S(4.75, 5.25, "home", doing="breakfast"),
+        S(5.25, 5.75, at="yard", activity="work", doing="feeding, watering and harnessing the team"),
+        away(5.75, 18.75, "on the road with his team, hauling about the town; dinner at the noon stand"),
+        S(18.75, 19.25, at="yard", activity="work", doing="unharnessing and seeing to the horses"),
+        S(19.25, 20, "home", doing="supper"),
+        S(20, 21, at="front", activity="talk", doing="the evening at the door"),
+        S(21, 24, "home", doing="asleep")],
     "soldier": [
         S(0, 4.75, "home", doing="asleep in barracks"), S(4.75, 5.5, "home", doing="reveille and roll call"),
         S(5.5, 7.5, at="front", activity="work", doing="drill"),
@@ -730,6 +746,8 @@ def generate():
         kind = household_kind(by_household[row["household"]])
         role = role_of(row, per, sex, age, kind)
         dress = dress_for(pid, role, sex, com, age)
+        if pid in TEAMSTERS:
+            role = "teamster"
         asset = dress["asset"]
         door = byhome[home][0]
         prov = {"sources": per.get("sources") or []}

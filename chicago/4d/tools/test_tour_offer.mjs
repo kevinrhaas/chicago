@@ -31,7 +31,7 @@ for (const id of HINT_IDS) {
   assert.doesNotMatch(s, /[a-z0-9]+_[a-z0-9]+|\//i, `${id}: no id, snake_case or path`);
 }
 assert.match(hintText('reconstructed'), /^Reconstructed\b/, 'the locked term, spelled exactly');
-assert.match(hintText('jaunt'), /\bNext Stop\b/, 'names the Jaunt panel\'s own button');
+assert.match(hintText('jaunt'), /\bNext stop\b/, 'names the Jaunt panel\'s own button');
 assert.match(hintText('jump'), /\bJump\b/, 'names the Navigator app that goes back');
 assert.equal(hintText('nope'), '', 'an unknown hint has no words, never its id');
 assert.equal(TOUR_KEY, 'chicago4d.tour', 'the offer reads the Field Check\'s own record');

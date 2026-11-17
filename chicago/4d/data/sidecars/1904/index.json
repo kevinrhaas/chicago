@@ -943,9 +943,9 @@
     },
     {
       "id": "house_2011_prairie",
-      "name": "2011 Prairie Avenue — Romanesque neighbour of Mayer (district draft; refined by T-1915)",
+      "name": "2011 Prairie Avenue — the Romanesque house beside Mayer, rock-faced ashlar under a round corner turret (T-1915)",
       "sidecar": "sidecars/1904/house_2011_prairie.json",
-      "asset": "gltf/house_2011_prairie__draft_1904.glb"
+      "asset": "gltf/house_2011_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2011_prairie_coach_house",
@@ -1003,9 +1003,9 @@
     },
     {
       "id": "house_2018_prairie",
-      "name": "2018 Prairie Avenue — Stone-front masonry (district draft; refined by T-1910)",
+      "name": "2018 Prairie Avenue — three-storey brick house with a stone front and a two-storey stone bow, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_2018_prairie.json",
-      "asset": "gltf/house_2018_prairie__draft_1904.glb"
+      "asset": "gltf/house_2018_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2018_prairie_coach_house",

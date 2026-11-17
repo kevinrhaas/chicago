@@ -1,4 +1,92 @@
 export const CHANGELOG = [ // newest first
+  { v: 3063, ts: '2026-11-17T06:45:42.799Z', date: 'Nov 17, 2026, 12:45 AM CT', title: 'More room for the town\'s detail on a desktop', kind: 'chore',
+    items: [
+      'The triangle budget for each detail setting is raised to fit the schooners and Lake Street\'s new store fronts, as the owner chose. Nothing in the scene changes.',
+      'The weakest setting\'s budget goes up for the fourth time. A phone still fits inside the old one.',
+    ] },
+  { v: 3062, ts: '2026-11-17T06:24:35.520Z', date: 'Nov 17, 2026, 12:24 AM CT', title: 'Name cards hold still when the town is held', kind: 'fix',
+    items: [
+      'The name cards over people now bob and fade on the same clock as the people under them, so a paused frame stays put.',
+    ] },
+  { v: 3061, ts: '2026-11-17T06:24:35.520Z', date: 'Nov 17, 2026, 12:24 AM CT', title: 'Trousers hang straight over the seat; aprons stay whole on the walk', kind: 'fix',
+    items: [
+      'Every pair of trousers, breeches and pantaloons in town now spans the seat from behind, as cloth does, instead of following the body\'s shape.',
+      'A maid\'s apron bow and a cook\'s apron ties now swing with the skirt when she walks; the skirt no longer cuts through them.',
+    ] },
+  { v: 3060, ts: '2026-11-17T06:13:53.037Z', date: 'Nov 17, 2026, 12:13 AM CT', title: 'Wagons and their teams work the streets of 1835', kind: 'feature',
+    items: [
+      'Ten teamsters drive their teams round the town all day, each round his own blocks: South Water and Lake, Market, Randolph and Washington, Canal and Clinton, and North Water and Kinzie.',
+      'They are the town\'s own carters, named from its records: the Kinzies\', Jones\'s and Sabine\'s men, Charles White the drayman, Thomas Reed and Thomas Cook.',
+      'They harness at dawn, put up in the evening, and stand at a door on their round as if loading.',
+      'The wagons are photographic, and they lean and pitch over the ruts of the mud streets.',
+      'Otis Bardwell now walks his Western Hotel team round Clinton and Canal. Climb up and ride on the wagon bed.',
+    ] },
+  { v: 3059, ts: '2026-11-17T05:23:28.812Z', date: 'Nov 16, 2026, 11:23 PM CT', title: 'A cleaner Navigator: labelled tabs, one card per jaunt', kind: 'feature',
+    items: [
+      'The Navigator\'s tabs carry their names under their icons. Move and Jump left the rail: Home\'s Move tile, its new Other years key and the year chip open them. On a phone the tabs sit along the bottom of the sheet, where a thumb reaches them.',
+      'Each jaunt shows once in the list. Pick your grade (or 18+, where Settings lists it) once and every jaunt plays the version told for it; the choice is remembered on this device.',
+      'The jaunt panel has one big Next stop key, with small Back, Jaunts and End keys beside it. Road notes close with a small ×.',
+      'Keys read in sentence case and come in three kinds: filled for the main thing to do, outlined for the rest, and red only for Recall. Inspect has a new icon and shows its E key.',
+      'One close button per screen: the Navigator\'s × also closes the section inside it. Settings\' Show tab is split into On screen and The town. Filters for People and Shops start folded, so the list starts at the top.',
+      'Person-card buttons match the Navigator\'s keys, Settings calls the four looks Appearance, the Move notes sit under their choices, apps no longer wear first-visit dots, and the field log moved to Research.',
+    ] },
+  { v: 3058, ts: '2026-11-17T05:23:28.812Z', date: 'Nov 16, 2026, 11:23 PM CT', title: 'The street-edge check counts what the records lay, not a typed number', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The row of 59 stores up the cross streets added 37 hitching posts and 36 doorstep stoops along the 1835 streets, all 97 of each drawn where they belong, but one of the checks that runs on every change still expected the 60 posts and 61 fittings it was written for. That check failed on every pull request. It now reads the street-edge records itself and confirms the town lays exactly what they hold, every walk, crossing, fence, post and fitting, so the next row of stores cannot leave it a count behind.',
+    ] },
+  { v: 3057, ts: '2026-11-17T05:10:18.236Z', date: 'Nov 16, 2026, 11:10 PM CT', title: 'Ride a horse in 1812, 1835 and 1904', kind: 'feature',
+    items: [
+      'A saddled horse now stands a few steps from where you arrive in every year. Walk up to it and press Interact to mount.',
+      'W walks on, Shift+W trots, S pulls up and, held, backs a few steps, and A and D turn. On a phone, push the stick up to walk, right up to trot, and sideways to turn. V, or Interact, switches between watching from behind the horse and looking from the saddle.',
+      'Each year has its own tack: a plain saddle on a folded blanket with a crupper in 1812, a hunting saddle on a square cloth in 1835, and a flat saddle on a felt numnah with a breastplate and a double bridle in 1904.',
+      'A rider dressed for the year sits in the saddle, feet in the stirrups and hands on the reins, and leans into the trot.',
+      'The horse goes wherever you could walk, but not into the river, through a wall or up a steep bank. Get down from the travel bar or from Interact, and you land beside the horse on its near side.',
+    ] },
+  { v: 3056, ts: '2026-11-17T05:10:18.236Z', date: 'Nov 16, 2026, 11:10 PM CT', title: 'Horses trot, and look the same near and far', kind: 'improvement',
+    items: [
+      'Horses can now trot as well as walk, with their legs moving in diagonal pairs and their hooves planted on the ground, not sliding. The horse you ride trots, and it eases from the walk into the trot and back.',
+      'Horses seen from further off are drawn more lightly, so a street full of teams costs a phone less. The change is made in steps that keep the same horse, coat and stride, so it never jumps as it switches.',
+      'Bay horses now have black manes, tails and lower legs, as bays do.',
+    ] },
+  { v: 3055, ts: '2026-11-17T03:34:47.391Z', date: 'Nov 16, 2026, 9:34 PM CT', title: '1815 Prairie\'s stone chimneys stay stone up to their heads', kind: 'improvement',
+    items: [
+      'A strip of red brick showed under the head of each stone chimney on the Sears-Meeker house at 1815 Prairie Avenue. The chimney kit put that darker band on every stack, but it is meant for brick ones. Both old photographs show these stacks in pale stone right up to the head, so stone stacks now stay stone. No other house had a stone stack, so nothing else changed.',
+    ] },
+  { v: 3054, ts: '2026-11-17T03:32:13.301Z', date: 'Nov 16, 2026, 9:32 PM CT', title: 'A lighter first step into 1835', kind: 'improvement',
+    items: [
+      'Your first visit to 1835 downloads about 74 KB less before you can walk. The boat helm, the story teller, the headset controls, the narration player and an outing\'s staging now load the first time you use them, and everything you see when you arrive is unchanged.',
+    ] },
+  { v: 3053, ts: '2026-11-17T00:59:17.511Z', date: 'Nov 16, 2026, 6:59 PM CT', title: 'An 18+ telling of every jaunt', kind: 'feature',
+    items: [
+      'Every jaunt in 1812, 1835 and 1904 now has an 18+ telling: the same stops, sources and title, told in full for grown-ups, with the harder history left in.',
+      'The Jaunts menu gets an 18+ pill after the grade filters once Settings › 18+ jaunts is on; each 18+ telling sits after the jaunt\'s grade versions.',
+    ] },
+  { v: 3052, ts: '2026-11-17T00:33:39.372Z', date: 'Nov 16, 2026, 6:33 PM CT', title: 'People can run', kind: 'feature',
+    items: [
+      'People now run as well as walk, at four speeds: a jog, a run, a flat-out flight and a sprint. Both feet leave the ground between strides, the knees fold high, the arms pump bent at the elbow and the body leans into the run, all taken from measured runners.',
+      'In the Battle of Fort Dearborn jaunt the regulars now charge up the bank at a run, Captain Wells comes racing back at a sprint and the warriors close at a jog. From Lee\'s Place, Private Kelso and Lee\'s son take to the woods at a run, and the Burns children run out and back.',
+      'In the Killing of Jean Lalime, John Kinzie now leaves the gate at a jog, as the account has him told to run, and walks away fast and bleeding in the opening scene.',
+    ] },
+  { v: 3051, ts: '2026-11-17T00:27:15.982Z', date: 'Nov 16, 2026, 6:27 PM CT', title: '2011 Prairie, the Romanesque house beside Mayer, gets its turret', kind: 'feature',
+    items: [
+      '2011 Prairie, next door to the Meyer house, now stands as two old pictures show it: a narrow front of rough rock-faced stone, a round-arched door at its north end with a cross window over it, a gabled dormer in the slate roof, and a round corner turret rising past the roofline to a slate cone. The turret\'s roof is still one plain cone where the photograph shows a flared skirt under it; that comes next.',
+    ] },
+  { v: 3050, ts: '2026-11-17T00:24:37.898Z', date: 'Nov 16, 2026, 6:24 PM CT', title: 'The boot budget re-measured after the 1835 commercial core\'s new stores', kind: 'fix',
+    items: [
+      'The first visit to the 1835 street now downloads 46.3 MB, 0.9 MB more than this morning. Most of that is the new row of 59 stores up Wells, LaSalle, Clark and Dearborn, the Lake and Dearborn faces rebuilt to Gifford\'s Tremont drawing, and the ground behind each store. The rest is the boats you can steer, the burning of Fort Dearborn and the name cards. The budget moves to 46.6 MB and what grew is written down file by file, so every pull request\'s build can go green again.',
+    ] },
+  { v: 3049, ts: '2026-11-16T23:22:47.575Z', date: 'Nov 16, 2026, 5:22 PM CT', title: 'The ground behind 1835\'s stores', kind: 'feature',
+    items: [
+      'Behind every store in the new row on South Water, Lake and the cross streets, its back lot is now laid out by the kind of store it is. The two-storey stores keep a horse: a stable at the back of the lot, with the open ground between it and the back door left for the wagon and for loading.',
+      'The stores with a family living over the shop have a workshop a few steps out the back door, the small shops and groceries a storehouse for their stock, and the boarding house a stable for its boarders\' horses.',
+      'Worn paths run from each back door to its stable, workshop or storehouse.',
+    ] },
+  { v: 3048, ts: '2026-11-16T23:14:04.638Z', date: 'Nov 16, 2026, 5:14 PM CT', title: '2018 Prairie Avenue built: a stone front with its bow and porch', kind: 'feature',
+    items: [
+      '2018 Prairie Avenue, a placeholder box until now, stands as a three-storey brick house with a brown-sandstone front, drawn to the outline on the 1911 fire-insurance map: about 24 m deep and 8 m wide, where the placeholder was 21 m by 5.5 m and stood a metre too far north.',
+      'The map\'s two-storey stone bow fills most of the front, and the door sits beside it under a one-storey stone porch on two columns, at the top of a high stoop.',
+      'Shallow canted bays on both sides, a small wooden bay on the north side and a wooden porch at the back stand where the map draws them. Heights, windows, the cornice and the stone are our reconstruction: no picture of this house is known.',
+    ] },
   { v: 3047, ts: '2026-11-16T21:51:02.340Z', date: 'Nov 16, 2026, 3:51 PM CT', title: '1812 jaunts: swinging doors, a sally port, and three new stops', kind: 'improvement',
     items: [
       'Staged people open doors to go in or come out, and the doors swing shut behind them.',

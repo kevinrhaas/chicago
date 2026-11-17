@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1153,
+  "count": 1160,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -995,7 +995,7 @@
     },
     {
       "id": "house_2011_prairie",
-      "name": "2011 Prairie Avenue — Romanesque neighbour of Mayer"
+      "name": "2011 Prairie Avenue — the Romanesque house beside Mayer, rock-faced ashlar under a round corner turret"
     },
     {
       "id": "house_2011_prairie_coach_house",
@@ -1035,7 +1035,7 @@
     },
     {
       "id": "house_2018_prairie",
-      "name": "2018 Prairie Avenue — Stone-front masonry"
+      "name": "2018 Prairie Avenue — three-storey brick house with a stone front and a two-storey stone bow"
     },
     {
       "id": "house_2018_prairie_coach_house",
@@ -21299,7 +21299,7 @@
         },
         {
           "label": "Revised",
-          "text": "2026-09-26 (T-1623) — **the refusal above landed after that reversal, so the seats it reports as 112 stand at 108 and the rows handed to T-1614 at 1,372.** The reversal gave the two franklin roofs back to the household layer and left the slot table at four; the refusal then took the table to nothing, because the four roofs it asked for could stand only on the one lot each of two blocks keeps open. So the deal is 108 seats, every one of them an adoption, no order drawn on, nothing baked, and no seat that is a household with an address and no walls. The 4 the reversal counted as requests are OWED to **T-1200** through **T-1214**, and the guard in `seat_platted_ground_1835.py` is an assertion rather than a memory: a seat on a block's last open lot, or beside a standing roof on a free lot, refuses the whole pass. The order book's seated join moves with it, 184 to **180** — this pass's 108 plus the off-plat pass's 72 — and is restated in `build_order_book_1835.py` rather than re-summed. **The deal grew to 109 on 2026-09-27 (T-1651), and the two paragraphs above keep the 108 they were written against.** They are a dated account of what T-1614's reversal did on 2026-09-26 and restating their arithmetic would falsify the account. What moved since is one seat, and it moved for a reason outside this liberty: the street-face business deal (**L212**) was re-ordered to prefer a roof the reconstruction raised as a house of trade, so the dwellings it holds changed, and this deal — which takes from the same pool of anonymous roofs and may not read the other's allocation — reached one more `tradesman_dwellings` seat in the South Division. 108 seats became **109**, owed 1,372 became **1,371**, and the seated join the order book takes off this pass moves with it. Neither deal can see the other's picks, on the reasoning `adopt_street_faces.py` sets out for its refusal 7; that is filed as **T-1669**. **The deal reached 174 on 2026-09-29 (T-1735), and every dated paragraph above keeps the number it was written against** — that convention is the one this entry set for itself two revisions ago, and restating their arithmetic would falsify the accounts they are. What this build changed, measured against dev at `b4c27fa6`, which is the Wells block (**L298**) already landed: the tier's south-west block was raised, so the seven slot requests standing against `blk_washington_lasalle` became roofs and the pass runs **170 → 174** seats, adoptions **120 → 124**, slots unmoved at **50**, rows handed to **T-1614** **1,308 → 1,304**, and the seated join the order book takes off this pass and the off-plat pass together **242 → 246**. The gain is FOUR seats and not seven, for the same reason the Wells deal's was five and not seven: the households that took these roofs vacated roofs elsewhere and the pass cascaded those vacancies down its own ranking — **T-1622**'s precedence again, not a refusal. **AND RAISING A BLOCK RE-APPORTIONS THE TIER, which is the part of this that is not arithmetic — and the third block shows it moving a DIFFERENT way from the second.** The programme's roof total is fixed, so what eleven roofs becoming STANDING moves is the REMAINDER. This time the remainder does not shrink: the tier's slot count is **unmoved at 26** and `blk_washington_clark`'s is **unmoved at 5**, because the seven households the LaSalle block was sized against are re-slotted onto its neighbours as fast as its own roofs take them off the table — 7 on `blk_washington_dearborn`, 7 on `blk_washington_franklin`, 7 on `blk_washington_market`, 5 on Clark. What DID move is the BAND: the tier's 26 slots run **14** tradesmen's against **12** merchant and professional where dev's ran 14 merchant and professional against 12 tradesmen's, the two bands having swapped which of them the tier still owes most. **A block's slot count is not a ratchet and the tier's is not a burn-down**, and a reading of this entry that assumes either will be wrong about the tier. Read at the chain's fixpoint, not one pass in. **AND THE FRANKLIN BLOCK IS THE CLEANEST SUBSTITUTION THE TIER HAS SHOWN (T-1751, 2026-09-29).** `blk_washington_franklin` was dealt out to its lot ceiling — seven dwellings and six yard buildings, see **L304** — and measured against `dev` at `10a1e710`, which is the La Salle block (**L300**) and the Addition's second block already landed, the pass runs **177 → 177** seats: adoptions **131 → 138**, slots **46 → 39**, and rows handed to **T-1614** unmoved at **1,301**. Seven slots became seven adoptions and the seat total did not move a place, which is the substitution this entry has been describing since the Clark block stated in arithmetic at last. All seven dwellings are occupied — the seats file carries seven `adopted` rows on this block and no empty roof — and **not one of the seven households the block was sized against is seated on it**: hh_beaubien_monique re-slots onto `blk_washington_clark`, hh_beddlecome_ash, hh_beech_reuben, hh_benediet_loma, hh_chattin_clark and hh_chevalier_joseph onto `blk_washington_dearborn`, and hh_chiney_ralph onto `blk_washington_market`. The roofs go to hh_bailly_esther, hh_baines_robert, hh_bates_john_jr, hh_beaubien_caroline, hh_beeson_william, hh_bench_reuben and hh_brookes_samuel, who the clause order scored higher on these lots than on the roofs they had been standing under, and **59 households change roof behind them** — the largest cascade any deal here has set off — each taking the one the household above it vacated, not one of them left without a roof. Two rows do change hands at the margin and both are named rather than netted out: hh_blake_levi gains a slot on `blk_washington_market` that the re-apportionment opened and hh_clement_dorcinrk loses one there, so the total holds at 177 by a gain and a loss rather than by nothing happening. THE OUTCOME IS REPORTED RATHER THAN TIDIED, on the same terms as every paragraph above: a roof raised in answer to a request is not reserved to the household that requested it — **T-1622**'s precedence, which **T-1626** carries to the owner. **Restated 2026-10-01 (T-1802), and no seat moved.** The block's recipe now records the seven households that ask for it on `dev` of that date, re-derived by taking the deal off and walking the chain to its fixpoint (**L304**): hh_chapman_george and hh_chandler_catherine stand where hh_chevalier_joseph and hh_chiney_ralph stood, and hh_chattin_clark asks for lot 7 rather than lot 5. With the deal standing, the chain reads **183** seated (**148** adopted, **35** slots) and **1,295** handed on, the same as before the correction, and the same seven households hold the seven roofs. **AND THE TIER'S OWN SLOTS FALL FOR THE FIRST TIME, 26 → 19.** A block that has raised its principal room out can offer no slot, so this block's seven come off the table and the tier is left asking 7 on `blk_washington_dearborn`, 7 on `blk_washington_market` and 5 on `blk_washington_clark`. That is not the tier burning down: the programme's roof total is fixed and what moves is the REMAINDER, which the La Salle deal one paragraph above re-apportioned UPWARD onto this very block. The band runs **10** tradesmen's against **9** merchant and professional. Read at the chain's fixpoint, not one pass in — and this deal's fixpoint took **seven runs of the whole chain**, the address book, the platted deal, the keeper naming, the block infill, the roof re-audit and the order book each feeding the next, with the seat count reading 174 for four of those passes before it settled at 177. **AND THE WEST DIVISION'S FIRST BLOCK DEAL EMPTIES THE WEST'S SLOT TABLE (T-1761, 2026-10-01).** `blk_randolph_clinton` was dealt two dwellings and two yard buildings against the two slot requests standing on it when the deal was cut — see **L312**. Measured at the fixpoint of the chain AND the derived layer together against `dev` at `19c45643`, which carries T-1760's first deal on `blk_lake_clinton` across Lake Street and T-1794's farm cabins and T-1773's warehouse after it, the pass runs **177 → 177** seats: adoptions **142 → 144**, slots **35 → 33**, and rows handed to **T-1614** unmoved at **1,301**. The block's schedule row closes to `at_capacity` behind the deal, and **no slot is requested west of the river any more.** As on every block above, **neither new roof goes to a household whose request it was sized against**, and on this `dev` those requests had themselves moved: T-1760's cascade had left the block asking a D4 for hh_bloget_josiah_i on lot 9 and a D3 for hh_bennett_h_c on lot 7, not the D7 and D4 the deal was cut against. **The deal is not re-cut to chase them**: a request is the cascade's reading on the day, each deal beside it moves it again, and this one has been re-cut once already (D3 to D4); `dealt_against_a_request` keeps the two it answered. The corner house on lot 9 goes to hh_abbot_8_g and the cottage on lot 7 to hh_abbott_titus_h. **hh_adams_james, whom this `dev` seats off the plat at `recon_1835_west_035` (**L271**), moves onto it** — adopting `recon_1835_west_019` on lot 0, the corner house hh_abbot_8_g vacated — and hh_bennett_h_c adopts the D4 at `recon_1835_west_008` on `blk_lake_clinton`. **hh_bloget_josiah_i loses its slot**: the block has no lot left that a slot may name, and it is seated off the plat instead. At the far margin, on `blk_indiana_north_wolcott`, hh_bourassa_noel comes onto the plat with a slot and hh_allen_william leaves it for a seat off it. **17 households change roof** behind them. The off-plat deal holds at **72** across it while four households trade places there (hh_bailey_bennet and hh_forbes_stephen in, hh_bennett_c_h and hh_butterfield_ben out), so the town houses as many households after the deal as before; it moves who is housed where. (Cut against `a45a86aa`, before T-1794 and T-1773, it measured exactly this; against `b18a0346` it moved the same 17 and gained nobody; against `c2dccdcd` it moved 26. The margin is the part of this pass that moves with whatever lands beside it.) THE OUTCOME IS REPORTED RATHER THAN TIDIED, and **T-1626** is still the question. **AND THE INNS DEAL WITH THE TRADE, NOT AFTER THE LABOURERS (T-1777, 2026-10-01).** The order this entry deals in was T-1199's: the commercial front, the better houses, the tradesmen, the labourers, and the lodging houses last. On the committed plat, last meant never. Every block whose plan carries an H3 boarding house had been dealt down to the one lot its sizing keeps open (T-1623) before a tavern keeper was reached, so both households the address book bands `south/lodging_near_the_landings`, hh_beaubien_mark and hh_sweet_alanson, were owed, and all seven planned H3 roofs stood unclaimed. **The clause now deals fourth, after the three business clauses and before the three dwelling clauses**, for two reasons. An inn is a house of trade, and its keeper is banded by his trade as a storekeeper is. And `lodging_near_the_landings` is a DOCUMENTED clause (nine standing lodging roofs, every one on a corner, an approach or the water), where all three dwelling clauses are inferred: where the two contest a lot, the placement the record fixes takes it. Measured at the chain's fixpoint against `dev` at `ee5da30e`, the pass runs **177 → 177** seats, adoptions **144** and slots **33** unmoved. **Both keepers are seated on an H3 slot**: hh_beaubien_mark on `blk_washington_clark#07` and hh_sweet_alanson on `blk_washington_dearborn#07`, each a corner lot. **Six tradesmen's slots shift one lot along** behind them on the three Washington blocks, and **two leave the plat**: hh_clarke_h_b and hh_cleaveland_wm_p are owed to **T-1614** in writing (1,301 owed, unmoved). The off-plat deal holds at 72. **Which corner is the scorer's tie and not a finding**: both lots front Madison Street, which carries no traffic class in 1835, because the clause's `class:principal` reads Washington's `light` and Madison's `none` the same and the lot id breaks the tie. **T-1778** raises the first house on the seat as dealt, or argues the face first. Five of the seven planned H3 roofs are still unclaimed: the north's one on `blk_indiana_north_cass` (no banded row of the north is a lodging keeper), the south's one on `blk_south_water_dearborn` (its last lot is the open one), and three on the Washington blocks with no third keeper to take them. **AND A ROOF THE BOOK ORDERS WITH NO KEEPER TO ASK FOR IT (T-1950, 2026-10-02).** The order book still owes the South's `larger_boarding_houses` cell, and `blk_washington_clark`'s plan still holds an H3 of headroom, but every one of the block's free lots but the reserved one carries a slot request. So the third house (**L345**) takes lot 0, the Washington-and-Clark corner, and a lodging roof takes a lot a dwelling clause had asked for — the same precedence the T-1777 deal order gives a lodging roof over the three inferred dwelling clauses, and paid for the same way. At the chain's fixpoint, measured on `dev` after T-1952, the pass runs **183 → 182** seats, adoptions **150** unmoved and slots **33 → 32**: `hh_beaubien_monique`'s D7 slot moves from `blk_washington_clark#00` to `blk_washington_dearborn#06`, **nine more slots shift a lot** along the Washington blocks behind it, and **one household leaves the plat**: `hh_berger_f_c`'s request, which T-1952's re-apportioned plan had just seated on `blk_washington_market#02`, is owed to **T-1614** in writing again, because every open block that still plans its family has only the lot the schedule keeps open. Nobody standing under a roof moves. **T-1951 (2026-10-02) spends the last three H3s the plan held on the Washington tier, and the price is three households.** `blk_washington_market`'s plan held two H3s and `blk_washington_dearborn`'s one, and every free lot on both blocks but the reserved one carried a slot request. The houses take **mid-block lots** — `blk_washington_market#04` and `#05`, back to back, and `blk_washington_dearborn#02` — and that choice is this pass's own arithmetic: a corner is the one term of the lodging clause's `prefers` a Washington-tier lot can answer, so a new house on any corner of these blocks scores exactly what the Clark block's two corner houses score and wins the tie on its lot id, which on the first try drew `hh_beaubien_mark` and `hh_sweet_alanson` off the houses raised for them. Mid-block, the two keepers stay where they stand. At the chain's fixpoint, measured on `dev` after T-1950, the pass runs **182 → 179** seats: `hh_benediet_loma` moves from `blk_washington_dearborn#02` to `blk_washington_market#06`, four more requests on the Market block shift a lot, `hh_beech_reuben`'s changes family (H1 to H2), and **three households leave the plat** — `hh_bently_wm_t`, `hh_benton_datas_e` and `hh_clarke_h_b` — owed to **T-1614** in writing, because every open block that still plans their families has only the lot the schedule keeps open. Nobody standing under a roof moves. **THE BUSINESS DEAL GOES FIRST, AND WHAT THAT COSTS IS NOW MEASURED (T-1669).** This deal and the street-face business deal (**L212**) spend one pool of anonymous roofs. The business deal's picks reached this one as occupancies on the structure records, and it held all **40** of them back as \"a committed claim about the town\" — which they are not; they are the other deal's allocation. It now reads `street_face_adoptions.json`, upstream of it by the road the occupancies already took, so no cycle closes, and names those 40 `held_by: street_face_business_deal`. The precedence is ruled rather than left to whichever pass ran last: **the narrower placement deals first**, because a business the paper puts on a street can stand on that one face and nowhere else, while a banded household may take any roof of an admitted family in its division. And it is costed by re-dealing, not by counting roofs. Release all 40 and this deal adopts the **14** dwellings among them (the 26 houses of trade it does not want), every one by a household already seated elsewhere moving to a better-scored lot, and seats **1** more household in all — `hh_humphrey_fre_lemuel` into a roof another household vacates. **So the precedence costs the households 1 seat of 1,424**, and 33 would change roof or lot. (It cost 2 until T-2129: the second, `hh_bennet_lyman`, was a household a release put on a slot, and once the Market block's five houses took five slot requests as roofs the deal seats him on a slot itself, at `blk_washington_dearborn#04`, so a release no longer gains him.) Both numbers are tripwires in `seat_platted_ground_1835.py --check`: a re-order of either deal that moves them is red until somebody restates them and says why here. No seat, roof or record moved for this. **Restated by T-2130 (2026-10-05): the cost is 2 seats again, the hold still 40.** The nine roofs T-2130 raised on the plat's last tier are no part of the business deal's pool, so it still holds the same 40. With them standing beside T-2129's Market block, the deal no longer seats `hh_bennet_lyman` itself, and a release of those 40 would seat him again — on `recon_1835_blk_washington_lasalle_d7_05`, a roof another household vacates — as well as `hh_humphrey_fre_lemuel` into `recon_1835_south_d1_033`; 40 seated households would change roof or lot. The precedence is unchanged; what it costs moved because the plat's last tier moved under it, and `BUSINESS_DEAL_COSTS` is restated to 2 for that reason. **Restated by T-2136 (2026-10-05): the cost is 1 seat, the hold still 40.** The keepers pass now runs over the Washington tier, the West blocks and Indiana Street north, so 27 more roofs carry their keeper's household id, and a roof that does is offered to that household and to nobody else — the rule that keeps this deal from un-seating its own keepers on a re-derivation, and it binds the release counterfactual the same way. So those households no longer move when the business deal's roofs are released, the cascade that vacated `recon_1835_blk_washington_lasalle_d7_05` for `hh_bennet_lyman` does not run, and a release seats `hh_humphrey_fre_lemuel` alone; 32 seated households would change roof or lot, not 40. Not one seat in the deal itself moved. What moved is what a release could take back from a pass that has already published its keepers, and `BUSINESS_DEAL_COSTS` is restated to 1 for that reason. **Restated by T-2141 (2026-10-05): the hold is 44, the cost still 1 seat.** The street-face business deal used to read T-2134's four workshops at the back of Dearborn Street corner lots (L389) as yard buildings, because they are ancillary by position. Each stands on the Dearborn street line with its door to it, so it is on that face like any other roof there, and the deal now seats firms in all four: `recon_1835_blk_randolph_clark_w1_10`, `recon_1835_blk_randolph_clark_w2_09`, `recon_1835_blk_randolph_dearborn_w2_18` and `recon_1835_blk_washington_dearborn_w2_10`. That takes the hold from 40 roofs to 44. They are workshops, not dwellings, and this deal seats no household in one. So not one seat in the deal moved (178 dealt, each on the roof or lot it held), and a release still seats `hh_humphrey_fre_lemuel` alone; 32 seated households would change roof or lot, as before. `BUSINESS_DEAL_HOLDS` is restated to 44 for that reason. **Restated by T-2174 (2026-10-08): the hold is 45, the cost still 1 seat.** T-2174's F2 warehouse on lot 0 of `blk_south_water_dearborn` (L406) fronts South Water Street, so the street-face adoption gives it one of that face's documented firms, Briggs & Humphrey's carriage and sleigh making, and the business deal holds one more roof. A warehouse is a roof this deal never seats a household in, so no seat moved and the cost is unchanged. **Restated by T-3605 (2026-11-15 and 2026-11-16): the hold is 47, the cost 0 seats.** The street-face adoption moved the firms the papers place only on Lake or Dearborn into the stores raised to Gifford's drawing of the first Tremont House (L-gifford-street-faces-3605), two of which stand on platted lots, so the business deal holds two more plat roofs, and the roofs those firms left were dealt as houses, which took the cost to 4. Then the commercial core's 56 row-fill stores (L-core-row-fill-3605) stood off the household model's weights, the plat's queue reached the last households still waiting for a roof, and every household present on the scene date is housed. A release of the business deal's roofs would therefore seat nobody who is not already seated, so the precedence now costs the households no seat."
+          "text": "2026-09-26 (T-1623) — **the refusal above landed after that reversal, so the seats it reports as 112 stand at 108 and the rows handed to T-1614 at 1,372.** The reversal gave the two franklin roofs back to the household layer and left the slot table at four; the refusal then took the table to nothing, because the four roofs it asked for could stand only on the one lot each of two blocks keeps open. So the deal is 108 seats, every one of them an adoption, no order drawn on, nothing baked, and no seat that is a household with an address and no walls. The 4 the reversal counted as requests are OWED to **T-1200** through **T-1214**, and the guard in `seat_platted_ground_1835.py` is an assertion rather than a memory: a seat on a block's last open lot, or beside a standing roof on a free lot, refuses the whole pass. The order book's seated join moves with it, 184 to **180** — this pass's 108 plus the off-plat pass's 72 — and is restated in `build_order_book_1835.py` rather than re-summed. **The deal grew to 109 on 2026-09-27 (T-1651), and the two paragraphs above keep the 108 they were written against.** They are a dated account of what T-1614's reversal did on 2026-09-26 and restating their arithmetic would falsify the account. What moved since is one seat, and it moved for a reason outside this liberty: the street-face business deal (**L212**) was re-ordered to prefer a roof the reconstruction raised as a house of trade, so the dwellings it holds changed, and this deal — which takes from the same pool of anonymous roofs and may not read the other's allocation — reached one more `tradesman_dwellings` seat in the South Division. 108 seats became **109**, owed 1,372 became **1,371**, and the seated join the order book takes off this pass moves with it. Neither deal can see the other's picks, on the reasoning `adopt_street_faces.py` sets out for its refusal 7; that is filed as **T-1669**. **The deal reached 174 on 2026-09-29 (T-1735), and every dated paragraph above keeps the number it was written against** — that convention is the one this entry set for itself two revisions ago, and restating their arithmetic would falsify the accounts they are. What this build changed, measured against dev at `b4c27fa6`, which is the Wells block (**L298**) already landed: the tier's south-west block was raised, so the seven slot requests standing against `blk_washington_lasalle` became roofs and the pass runs **170 → 174** seats, adoptions **120 → 124**, slots unmoved at **50**, rows handed to **T-1614** **1,308 → 1,304**, and the seated join the order book takes off this pass and the off-plat pass together **242 → 246**. The gain is FOUR seats and not seven, for the same reason the Wells deal's was five and not seven: the households that took these roofs vacated roofs elsewhere and the pass cascaded those vacancies down its own ranking — **T-1622**'s precedence again, not a refusal. **AND RAISING A BLOCK RE-APPORTIONS THE TIER, which is the part of this that is not arithmetic — and the third block shows it moving a DIFFERENT way from the second.** The programme's roof total is fixed, so what eleven roofs becoming STANDING moves is the REMAINDER. This time the remainder does not shrink: the tier's slot count is **unmoved at 26** and `blk_washington_clark`'s is **unmoved at 5**, because the seven households the LaSalle block was sized against are re-slotted onto its neighbours as fast as its own roofs take them off the table — 7 on `blk_washington_dearborn`, 7 on `blk_washington_franklin`, 7 on `blk_washington_market`, 5 on Clark. What DID move is the BAND: the tier's 26 slots run **14** tradesmen's against **12** merchant and professional where dev's ran 14 merchant and professional against 12 tradesmen's, the two bands having swapped which of them the tier still owes most. **A block's slot count is not a ratchet and the tier's is not a burn-down**, and a reading of this entry that assumes either will be wrong about the tier. Read at the chain's fixpoint, not one pass in. **AND THE FRANKLIN BLOCK IS THE CLEANEST SUBSTITUTION THE TIER HAS SHOWN (T-1751, 2026-09-29).** `blk_washington_franklin` was dealt out to its lot ceiling — seven dwellings and six yard buildings, see **L304** — and measured against `dev` at `10a1e710`, which is the La Salle block (**L300**) and the Addition's second block already landed, the pass runs **177 → 177** seats: adoptions **131 → 138**, slots **46 → 39**, and rows handed to **T-1614** unmoved at **1,301**. Seven slots became seven adoptions and the seat total did not move a place, which is the substitution this entry has been describing since the Clark block stated in arithmetic at last. All seven dwellings are occupied — the seats file carries seven `adopted` rows on this block and no empty roof — and **not one of the seven households the block was sized against is seated on it**: hh_beaubien_monique re-slots onto `blk_washington_clark`, hh_beddlecome_ash, hh_beech_reuben, hh_benediet_loma, hh_chattin_clark and hh_chevalier_joseph onto `blk_washington_dearborn`, and hh_chiney_ralph onto `blk_washington_market`. The roofs go to hh_bailly_esther, hh_baines_robert, hh_bates_john_jr, hh_beaubien_caroline, hh_beeson_william, hh_bench_reuben and hh_brookes_samuel, who the clause order scored higher on these lots than on the roofs they had been standing under, and **59 households change roof behind them** — the largest cascade any deal here has set off — each taking the one the household above it vacated, not one of them left without a roof. Two rows do change hands at the margin and both are named rather than netted out: hh_blake_levi gains a slot on `blk_washington_market` that the re-apportionment opened and hh_clement_dorcinrk loses one there, so the total holds at 177 by a gain and a loss rather than by nothing happening. THE OUTCOME IS REPORTED RATHER THAN TIDIED, on the same terms as every paragraph above: a roof raised in answer to a request is not reserved to the household that requested it — **T-1622**'s precedence, which **T-1626** carries to the owner. **Restated 2026-10-01 (T-1802), and no seat moved.** The block's recipe now records the seven households that ask for it on `dev` of that date, re-derived by taking the deal off and walking the chain to its fixpoint (**L304**): hh_chapman_george and hh_chandler_catherine stand where hh_chevalier_joseph and hh_chiney_ralph stood, and hh_chattin_clark asks for lot 7 rather than lot 5. With the deal standing, the chain reads **183** seated (**148** adopted, **35** slots) and **1,295** handed on, the same as before the correction, and the same seven households hold the seven roofs. **AND THE TIER'S OWN SLOTS FALL FOR THE FIRST TIME, 26 → 19.** A block that has raised its principal room out can offer no slot, so this block's seven come off the table and the tier is left asking 7 on `blk_washington_dearborn`, 7 on `blk_washington_market` and 5 on `blk_washington_clark`. That is not the tier burning down: the programme's roof total is fixed and what moves is the REMAINDER, which the La Salle deal one paragraph above re-apportioned UPWARD onto this very block. The band runs **10** tradesmen's against **9** merchant and professional. Read at the chain's fixpoint, not one pass in — and this deal's fixpoint took **seven runs of the whole chain**, the address book, the platted deal, the keeper naming, the block infill, the roof re-audit and the order book each feeding the next, with the seat count reading 174 for four of those passes before it settled at 177. **AND THE WEST DIVISION'S FIRST BLOCK DEAL EMPTIES THE WEST'S SLOT TABLE (T-1761, 2026-10-01).** `blk_randolph_clinton` was dealt two dwellings and two yard buildings against the two slot requests standing on it when the deal was cut — see **L312**. Measured at the fixpoint of the chain AND the derived layer together against `dev` at `19c45643`, which carries T-1760's first deal on `blk_lake_clinton` across Lake Street and T-1794's farm cabins and T-1773's warehouse after it, the pass runs **177 → 177** seats: adoptions **142 → 144**, slots **35 → 33**, and rows handed to **T-1614** unmoved at **1,301**. The block's schedule row closes to `at_capacity` behind the deal, and **no slot is requested west of the river any more.** As on every block above, **neither new roof goes to a household whose request it was sized against**, and on this `dev` those requests had themselves moved: T-1760's cascade had left the block asking a D4 for hh_bloget_josiah_i on lot 9 and a D3 for hh_bennett_h_c on lot 7, not the D7 and D4 the deal was cut against. **The deal is not re-cut to chase them**: a request is the cascade's reading on the day, each deal beside it moves it again, and this one has been re-cut once already (D3 to D4); `dealt_against_a_request` keeps the two it answered. The corner house on lot 9 goes to hh_abbot_8_g and the cottage on lot 7 to hh_abbott_titus_h. **hh_adams_james, whom this `dev` seats off the plat at `recon_1835_west_035` (**L271**), moves onto it** — adopting `recon_1835_west_019` on lot 0, the corner house hh_abbot_8_g vacated — and hh_bennett_h_c adopts the D4 at `recon_1835_west_008` on `blk_lake_clinton`. **hh_bloget_josiah_i loses its slot**: the block has no lot left that a slot may name, and it is seated off the plat instead. At the far margin, on `blk_indiana_north_wolcott`, hh_bourassa_noel comes onto the plat with a slot and hh_allen_william leaves it for a seat off it. **17 households change roof** behind them. The off-plat deal holds at **72** across it while four households trade places there (hh_bailey_bennet and hh_forbes_stephen in, hh_bennett_c_h and hh_butterfield_ben out), so the town houses as many households after the deal as before; it moves who is housed where. (Cut against `a45a86aa`, before T-1794 and T-1773, it measured exactly this; against `b18a0346` it moved the same 17 and gained nobody; against `c2dccdcd` it moved 26. The margin is the part of this pass that moves with whatever lands beside it.) THE OUTCOME IS REPORTED RATHER THAN TIDIED, and **T-1626** is still the question. **AND THE INNS DEAL WITH THE TRADE, NOT AFTER THE LABOURERS (T-1777, 2026-10-01).** The order this entry deals in was T-1199's: the commercial front, the better houses, the tradesmen, the labourers, and the lodging houses last. On the committed plat, last meant never. Every block whose plan carries an H3 boarding house had been dealt down to the one lot its sizing keeps open (T-1623) before a tavern keeper was reached, so both households the address book bands `south/lodging_near_the_landings`, hh_beaubien_mark and hh_sweet_alanson, were owed, and all seven planned H3 roofs stood unclaimed. **The clause now deals fourth, after the three business clauses and before the three dwelling clauses**, for two reasons. An inn is a house of trade, and its keeper is banded by his trade as a storekeeper is. And `lodging_near_the_landings` is a DOCUMENTED clause (nine standing lodging roofs, every one on a corner, an approach or the water), where all three dwelling clauses are inferred: where the two contest a lot, the placement the record fixes takes it. Measured at the chain's fixpoint against `dev` at `ee5da30e`, the pass runs **177 → 177** seats, adoptions **144** and slots **33** unmoved. **Both keepers are seated on an H3 slot**: hh_beaubien_mark on `blk_washington_clark#07` and hh_sweet_alanson on `blk_washington_dearborn#07`, each a corner lot. **Six tradesmen's slots shift one lot along** behind them on the three Washington blocks, and **two leave the plat**: hh_clarke_h_b and hh_cleaveland_wm_p are owed to **T-1614** in writing (1,301 owed, unmoved). The off-plat deal holds at 72. **Which corner is the scorer's tie and not a finding**: both lots front Madison Street, which carries no traffic class in 1835, because the clause's `class:principal` reads Washington's `light` and Madison's `none` the same and the lot id breaks the tie. **T-1778** raises the first house on the seat as dealt, or argues the face first. Five of the seven planned H3 roofs are still unclaimed: the north's one on `blk_indiana_north_cass` (no banded row of the north is a lodging keeper), the south's one on `blk_south_water_dearborn` (its last lot is the open one), and three on the Washington blocks with no third keeper to take them. **AND A ROOF THE BOOK ORDERS WITH NO KEEPER TO ASK FOR IT (T-1950, 2026-10-02).** The order book still owes the South's `larger_boarding_houses` cell, and `blk_washington_clark`'s plan still holds an H3 of headroom, but every one of the block's free lots but the reserved one carries a slot request. So the third house (**L345**) takes lot 0, the Washington-and-Clark corner, and a lodging roof takes a lot a dwelling clause had asked for — the same precedence the T-1777 deal order gives a lodging roof over the three inferred dwelling clauses, and paid for the same way. At the chain's fixpoint, measured on `dev` after T-1952, the pass runs **183 → 182** seats, adoptions **150** unmoved and slots **33 → 32**: `hh_beaubien_monique`'s D7 slot moves from `blk_washington_clark#00` to `blk_washington_dearborn#06`, **nine more slots shift a lot** along the Washington blocks behind it, and **one household leaves the plat**: `hh_berger_f_c`'s request, which T-1952's re-apportioned plan had just seated on `blk_washington_market#02`, is owed to **T-1614** in writing again, because every open block that still plans its family has only the lot the schedule keeps open. Nobody standing under a roof moves. **T-1951 (2026-10-02) spends the last three H3s the plan held on the Washington tier, and the price is three households.** `blk_washington_market`'s plan held two H3s and `blk_washington_dearborn`'s one, and every free lot on both blocks but the reserved one carried a slot request. The houses take **mid-block lots** — `blk_washington_market#04` and `#05`, back to back, and `blk_washington_dearborn#02` — and that choice is this pass's own arithmetic: a corner is the one term of the lodging clause's `prefers` a Washington-tier lot can answer, so a new house on any corner of these blocks scores exactly what the Clark block's two corner houses score and wins the tie on its lot id, which on the first try drew `hh_beaubien_mark` and `hh_sweet_alanson` off the houses raised for them. Mid-block, the two keepers stay where they stand. At the chain's fixpoint, measured on `dev` after T-1950, the pass runs **182 → 179** seats: `hh_benediet_loma` moves from `blk_washington_dearborn#02` to `blk_washington_market#06`, four more requests on the Market block shift a lot, `hh_beech_reuben`'s changes family (H1 to H2), and **three households leave the plat** — `hh_bently_wm_t`, `hh_benton_datas_e` and `hh_clarke_h_b` — owed to **T-1614** in writing, because every open block that still plans their families has only the lot the schedule keeps open. Nobody standing under a roof moves. **THE BUSINESS DEAL GOES FIRST, AND WHAT THAT COSTS IS NOW MEASURED (T-1669).** This deal and the street-face business deal (**L212**) spend one pool of anonymous roofs. The business deal's picks reached this one as occupancies on the structure records, and it held all **40** of them back as \"a committed claim about the town\" — which they are not; they are the other deal's allocation. It now reads `street_face_adoptions.json`, upstream of it by the road the occupancies already took, so no cycle closes, and names those 40 `held_by: street_face_business_deal`. The precedence is ruled rather than left to whichever pass ran last: **the narrower placement deals first**, because a business the paper puts on a street can stand on that one face and nowhere else, while a banded household may take any roof of an admitted family in its division. And it is costed by re-dealing, not by counting roofs. Release all 40 and this deal adopts the **14** dwellings among them (the 26 houses of trade it does not want), every one by a household already seated elsewhere moving to a better-scored lot, and seats **1** more household in all — `hh_humphrey_fre_lemuel` into a roof another household vacates. **So the precedence costs the households 1 seat of 1,424**, and 33 would change roof or lot. (It cost 2 until T-2129: the second, `hh_bennet_lyman`, was a household a release put on a slot, and once the Market block's five houses took five slot requests as roofs the deal seats him on a slot itself, at `blk_washington_dearborn#04`, so a release no longer gains him.) Both numbers are tripwires in `seat_platted_ground_1835.py --check`: a re-order of either deal that moves them is red until somebody restates them and says why here. No seat, roof or record moved for this. **Restated by T-2130 (2026-10-05): the cost is 2 seats again, the hold still 40.** The nine roofs T-2130 raised on the plat's last tier are no part of the business deal's pool, so it still holds the same 40. With them standing beside T-2129's Market block, the deal no longer seats `hh_bennet_lyman` itself, and a release of those 40 would seat him again — on `recon_1835_blk_washington_lasalle_d7_05`, a roof another household vacates — as well as `hh_humphrey_fre_lemuel` into `recon_1835_south_d1_033`; 40 seated households would change roof or lot. The precedence is unchanged; what it costs moved because the plat's last tier moved under it, and `BUSINESS_DEAL_COSTS` is restated to 2 for that reason. **Restated by T-2136 (2026-10-05): the cost is 1 seat, the hold still 40.** The keepers pass now runs over the Washington tier, the West blocks and Indiana Street north, so 27 more roofs carry their keeper's household id, and a roof that does is offered to that household and to nobody else — the rule that keeps this deal from un-seating its own keepers on a re-derivation, and it binds the release counterfactual the same way. So those households no longer move when the business deal's roofs are released, the cascade that vacated `recon_1835_blk_washington_lasalle_d7_05` for `hh_bennet_lyman` does not run, and a release seats `hh_humphrey_fre_lemuel` alone; 32 seated households would change roof or lot, not 40. Not one seat in the deal itself moved. What moved is what a release could take back from a pass that has already published its keepers, and `BUSINESS_DEAL_COSTS` is restated to 1 for that reason. **Restated by T-2141 (2026-10-05): the hold is 44, the cost still 1 seat.** The street-face business deal used to read T-2134's four workshops at the back of Dearborn Street corner lots (L389) as yard buildings, because they are ancillary by position. Each stands on the Dearborn street line with its door to it, so it is on that face like any other roof there, and the deal now seats firms in all four: `recon_1835_blk_randolph_clark_w1_10`, `recon_1835_blk_randolph_clark_w2_09`, `recon_1835_blk_randolph_dearborn_w2_18` and `recon_1835_blk_washington_dearborn_w2_10`. That takes the hold from 40 roofs to 44. They are workshops, not dwellings, and this deal seats no household in one. So not one seat in the deal moved (178 dealt, each on the roof or lot it held), and a release still seats `hh_humphrey_fre_lemuel` alone; 32 seated households would change roof or lot, as before. `BUSINESS_DEAL_HOLDS` is restated to 44 for that reason. **Restated by T-2174 (2026-10-08): the hold is 45, the cost still 1 seat.** T-2174's F2 warehouse on lot 0 of `blk_south_water_dearborn` (L406) fronts South Water Street, so the street-face adoption gives it one of that face's documented firms, Briggs & Humphrey's carriage and sleigh making, and the business deal holds one more roof. A warehouse is a roof this deal never seats a household in, so no seat moved and the cost is unchanged. **Restated by T-3605 (2026-11-15 and 2026-11-16): the hold is 47, the cost 0 seats.** The street-face adoption moved the firms the papers place only on Lake or Dearborn into the stores raised to Gifford's drawing of the first Tremont House (L-gifford-street-faces-3605), two of which stand on platted lots, so the business deal holds two more plat roofs, and the roofs those firms left were dealt as houses, which took the cost to 4. Then the commercial core's 59 row-fill stores (L-core-row-fill-3605) stood off the household model's weights, the plat's queue reached the last households still waiting for a roof, and every household present on the scene date is housed. A release of the business deal's roofs would therefore seat nobody who is not already seated, so the precedence now costs the households no seat."
         },
         {
           "label": "Recorded",
@@ -34375,12 +34375,17 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2312)."
+        },
+        {
+          "label": "Resolved in part",
+          "text": "2026-11-16, later work: the soot band is now a brick stack's only. A stone stack keeps its own stone up to its corbelled head, because both of 1815 Prairie's Chicagology prints show its stone stacks pale there, where the kit's darker brick band rendered red. The 0.45 m band on a brick stack's leeward faces is still reconstructed, as above."
         }
       ],
       "work_refs": [
         "T-2312",
         "T-2313",
-        "T-1857"
+        "T-1857",
+        "T-3562"
       ]
     },
     {
@@ -35912,18 +35917,6 @@
         },
         {
           "domain": "structure",
-          "structure": "house_2018_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2018_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "house_2018_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -36156,7 +36149,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`buckingham_house_2036_prairie.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie.draft_1904.form.draft`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie.draft_1904.form.draft_elevation`, `house_2018_prairie.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie.draft_1904.form.draft_elevation`, `house_2026_prairie.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie.draft_1904.form.draft_elevation`, `house_2120_prairie.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `rees_house_2110_prairie.draft_1904.form.draft_elevation`, `rees_house_2110_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
+          "text": "`buckingham_house_2036_prairie.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie.draft_1904.form.draft`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie.draft_1904.form.draft_elevation`, `house_2026_prairie.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie.draft_1904.form.draft_elevation`, `house_2120_prairie.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `rees_house_2110_prairie.draft_1904.form.draft_elevation`, `rees_house_2110_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
         },
         {
           "label": "Decision",
@@ -36168,7 +36161,7 @@
         },
         {
           "label": "Retired in part",
-          "text": "2000 and 2010, the two frame dwellings at the 20th Street end, by earlier work, which refined both in place on the K16 timber kit under `“2000 and 2010 Prairie refined from the district draft to two whole K16 clapboard frame houses on the outline the 1911 sheet draws, everything but the plan and the storey counts the kit's”`, under the same ids; their draft attributes are gone (their alley buildings are still the draft's, 's)."
+          "text": "2000 and 2010, the two frame dwellings at the 20th Street end, by earlier work, which refined both in place on the K16 timber kit under `“2000 and 2010 Prairie refined from the district draft to two whole K16 clapboard frame houses on the outline the 1911 sheet draws, everything but the plan and the storey counts the kit's”`, under the same ids; their draft attributes are gone (their alley buildings are still the draft's, 's); and 2018, the stone-front house with its bow, by later work, which refined it in place on the K01 frontage kit under `“2018 Prairie refined from the district draft to a three-storey K01 brick house with a stone front, its two-storey stone bow and one-storey stone porch where the sheet draws them, everything but the plan the kits'”`, under the same id; its draft attributes are gone (its alley building is still the draft's, 's)."
         },
         {
           "label": "Review",
@@ -36188,7 +36181,199 @@
         "T-1842",
         "T-1909",
         "T-1937",
-        "T-1935"
+        "T-1935",
+        "T-1910",
+        "T-3607"
+      ]
+    },
+    {
+      "id": "L-k01-2018-stone-front-3607",
+      "title": "2018 Prairie refined from the district draft to a three-storey K01 brick house with a stone front, its two-storey stone bow and one-storey stone porch where the sheet draws them, everything but the plan the kits'",
+      "section": "per_subject",
+      "subjects": [
+        "house_2018_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.front_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.principal_floor_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_form"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stone_front"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.storey_heights_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_head"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-11-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "2018 Prairie Avenue is no longer a district draft. It stands, under the draft's own id (2018 Prairie Avenue — three-storey brick house with a stone front and a two-storey stone bow), as a k01 frontage record built by the k01 emit generator: K03 common brick on the flanks and rear behind a dressed brown-sandstone front; K06 two-over-two sash under K09 cornice-hood lintels on the two lower storeys and K01's flat stone lintels on the third; the door at the head of a K07 stoop under a stone porch on two columns with a stone balustrade; K08 bays; the frame rear porch on K01's rear wings in timber; and K01's flat roof behind a blocking course over a K10 bracketed timber cornice. **What is read, not invented.** From sheet 35 of the 1911 Sanborn, read at full size off the raster through the fit, and the census (s35-2018-front: '3 brick dwelling (D), long and narrow, with a stone bay on its Prairie front'; s35-2018-wing): three storeys, brick with a stone front; the main body's lines (24.07 m deep, 8.08 m across behind the front block and 8.83 m across it, where the draft's fit drew 21.25 x 5.5 m); the bow's place, size and '2' storeys (5.95 m on its chord from the south corner, 1.95 m out; built 5.45 m and 1.9 m, 0.3 m in from the corner, the kit's least pier); the porch's place, size and '1' storey (2.98 m across, 2.32 m out; built 2.9 m and 2.3 m); the canted bay on each flank; the one-storey frame bay on the north flank and the one-storey frame rear porch. **What is invented.** Every height (a 1.4 m principal floor over a basement the sheet does not print, 4.0, 3.6 and 3.3 m storeys); the walls' thickness; the stone (brown sandstone, smooth, two rusticated base courses) and the side brick's colour and bond; every window's kind, size and place and every head; the door, stoop, columns, porch cornice and balustrade; the flank bays' two storeys and hipped caps and the frame bay's one; the bow's sash and tin cap; the north step built 6.0 m long where the sheet draws 6.6 m (the longest pavilion K08 stands flush with a corner) and stopping 0.4 m under the cornice's bed moulding, its windows and its stone face returned along the flank; the cornice and brackets; the flat roof's form, fall, parapets and tin; the three stacks; the open front with a flagged walk and the yard's north edge (the parcel is one lot for 2000, 2010 and 2018). No picture of 2018 is held."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph, plate or description of 2018 Prairie, ingested as a source, replaces the kit's choices attribute by attribute."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_2018_prairie.as_mapped_1904.form.principal_floor_m`, `house_2018_prairie.as_mapped_1904.form.storey_heights_m`, `house_2018_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2018_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2018_prairie.as_mapped_1904.form.service_wall_brick`, `house_2018_prairie.as_mapped_1904.form.face_brick`, `house_2018_prairie.as_mapped_1904.form.stone_front`, `house_2018_prairie.as_mapped_1904.form.street_front_trim`, `house_2018_prairie.as_mapped_1904.form.wall_head`, `house_2018_prairie.as_mapped_1904.form.roof_form`, `house_2018_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2018_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2018_prairie.as_mapped_1904.form.stair_tread_m`, `house_2018_prairie.as_mapped_1904.form.stoop_width_m`, `house_2018_prairie.as_mapped_1904.form.front_bays`, `house_2018_prairie.as_mapped_1904.form.side_bays`, `house_2018_prairie.as_mapped_1904.form.north_bays`, `house_2018_prairie.as_mapped_1904.form.rear_bays`, `house_2018_prairie.as_mapped_1904.form.sash_by_storey`, `house_2018_prairie.as_mapped_1904.form.basement_lights`, `house_2018_prairie.as_mapped_1904.form.roof_covering`, `house_2018_prairie.as_mapped_1904.form.chimneys`, `house_2018_prairie.as_mapped_1904.form.window_kit`, `house_2018_prairie.as_mapped_1904.form.boundary`, `house_2018_prairie.as_mapped_1904.form.yard`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 2018 stone front."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-15 (T-3607)."
+        }
+      ],
+      "work_refs": [
+        "T-3607",
+        "T-1910",
+        "T-1250",
+        "T-1842"
       ]
     },
     {
@@ -36502,18 +36687,6 @@
         },
         {
           "domain": "structure",
-          "structure": "house_2011_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2011_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "house_2011_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -36782,7 +36955,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie.draft_1904.form.draft_elevation`, `high_house_2021_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie.draft_1904.form.draft_elevation`, `house_2011_prairie.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie.draft_1904.form.draft_elevation`, `house_2017_prairie.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie.draft_1904.form.draft_elevation`, `house_2027_prairie.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie.draft_1904.form.draft_elevation`, `house_2101_prairie.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie.draft_1904.form.draft_elevation`, `otis_house_2033_prairie.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie.draft_1904.form.draft_elevation`, `reid_house_2013_prairie.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie.draft_1904.form.draft_elevation`, `stone_house_2035_prairie.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie.draft_1904.form.draft_elevation`, `high_house_2021_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie.draft_1904.form.draft_elevation`, `house_2017_prairie.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie.draft_1904.form.draft_elevation`, `house_2027_prairie.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie.draft_1904.form.draft_elevation`, `house_2101_prairie.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie.draft_1904.form.draft_elevation`, `otis_house_2033_prairie.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie.draft_1904.form.draft_elevation`, `reid_house_2013_prairie.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie.draft_1904.form.draft_elevation`, `stone_house_2035_prairie.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -36805,6 +36978,10 @@
           "text": "2009 the Max A. Meyer house by earlier work (the S05A envelope package), which refined it in place on the K01 frontage kit under `“2009 Prairie, the Max A. Meyer house, refined from the district draft onto K01: its ogee gable, oriel and storeys read off its photograph”`; its coach house is still this draft's."
         },
         {
+          "label": "Retired in part",
+          "text": "2011, the Romanesque house beside Mayer, by later work (the S06 package), which refined it in place on the K01 frontage kit under `“2011 Prairie, the Romanesque house beside Mayer, refined from the district draft onto K01: rock-faced ashlar, a round-arched door and a round corner turret read off its two pictures”`, under the same id; its draft attributes are gone (its alley building is still the draft's, 's)."
+        },
+        {
           "label": "Recorded",
           "text": "2026-10-11 (T-2352)."
         }
@@ -36819,7 +36996,9 @@
         "T-1938",
         "T-3347",
         "T-3346",
-        "T-1913"
+        "T-1913",
+        "T-1915",
+        "T-3615"
       ]
     },
     {
@@ -42158,7 +42337,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the house at 1815 Prairie Avenue, Joseph Sears's (Arthur Meeker's from 1893;, piece 1), is no longer a district draft. It stands, under the draft's own id 1815 Prairie Avenue — Joseph Sears house (Arthur Meeker's from 1893), as a k01 frontage record built by the k01 emit generator, against the two photographs Chicagology prints side by side ([1815 S. Prairie Ave. (Joseph Sears house, undated; rights check required: forms and proportions only): a smooth light ashlar front two storeys over a raised basement under a slated mansard with a gabled dormer, a pavilion at the front's north end under a steep hipped roof, the door up a stoop in the pavilion's south half, a one-storey corner bay at the south-west corner with a pierced stone balcony on it, a moulded stone cornice, and two tall stacks. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1815-b1, census s28-1815-front): the front block's place and plan (10.47 m along the front between the north wall at lot v -7.12 and the south wall at 3.35), the stair projection on the north flank and the canted bay on the south flank, the house's depth to the coach house, 'stone', '3B'. From the square-on photograph, through its camera (the chicagology square on data): the principal floor, the storey heights and the wall head, the street windows' places and heights, the pavilion's width and its roof's apex, the corner bay's cheek, front and balcony, the dormer, the mansard's curb, the stacks. Every height rests on the print's own scale across the front (its `solve`). **What is invented.** The walls' thickness; the stone (K02's Lemont limestone for the 1973 landmarks report's 'yellow limestone') and its two-course base; the north flank and the rear in brick, where the sheet colours the whole house stone (the south flank is stone since, below); the stair projection's 1.2 m (the sheet's 1.55, past K08's deepest pavilion); the south flank bay's two storeys; the north flank's, the rear's and the rear range's windows (no picture sees them); the rear range's three storeys and flat deck; the mansard's deck; the stacks' plans; the rainwater; the sash pattern. **The attic storey.** The pavilion is carried up an attic storey past the main cornice, its paired transomed lights in its face, and the hipped crown is raised onto its wall head (mansard.crown.attic (m), a K01 option this piece of work added): read off the square-on print, the lights at x 200-325 px and y 390-250 px (9.15-11.0 m), the crown's eave at y 210 px (11.6 m). Invented: the pavilion's 0.45 m projection carried up (the print shows the attic's face, not its depth), the crown's eave 0.5 m past it, its 52-degree faces (fitted to the print's apex within about 0.3 m), and the lights' K06 pattern. The pavilion is now 2.2 m wide and stands 0.3 m in from the north corner (K08's least pier to a corner, and clear of the entrance), so the attic stands about 0.5-0.7 m north of the print's, which is centred over the door's north jamb. **The cornice's consoles and the south stack.** Read off the square-on print: a close row of carved stone consoles under the corona on a plain frieze, twelve across the main front south of the pavilion (about 0.49 m apart, 0.45 m high, 0.17 m wide, their feet at about 8.5 m), carried round the corner along the south flank on the oblique; built as K10's scrolled console (wall head blocks) on a 0.32 m frieze. Invented: the consoles' carving (the kit's generic scroll), their 0.19 m projection, and their feet 0.11 m lower than the print's (the upper lintels leave no more frieze); the rosettes over them are not built. The south stack is triangulated through both cameras: its west face about 1.6 m back from the front, its south face in line with the print's main south wall, its head's foot at about 13.7 m, its cap at about 14.4 m and its pots to about 15.2 m. Invented: it stands on the BUILD's south cornice (on cornice), about 0.75 m south of where the print stands it, because the build's south wall is still flush with the corner bay (the open set-out); its 1.1 x 0.75 m plan, its K15 stone, three corbel courses and 0.15 m cap, and three of the kit's tall pots where the print shows three or four taller ones. The sunk panels the oblique draws on its south face are not built (K15 lays a panel's recess in brick). The north stack takes the same head. **The door's pediment and the stoop's newels.** Read off the square-on print: a stone pediment over the door on two small carved brackets beside the transom, its apex at about 5.86 m and a carved finial to about 6.27 m; and the stoop's cheek walls falling to a square stone newel at each foot under a cap and a ball knob. Built as K01's bracketed door hood with a pediment in place of its railing (entrance kit hood pediment, a K01 option this piece of work added) in the front's stone, and K07's swept cheeks with their newels. Invented: the pediment's width (1.72 m, where the print's is 2.55 m, held clear of the build's narrow pavilion), its 0.3 m projection, its plain tympanum (the print's is carved), the brackets' scroll (the kit's) and the finial's square block (the print's is a carved anthemion); the cheeks' sweep and the newels' heights within K07's ranges. **What is not built.** The pavilion's full 4 m width (K01 cannot cut a door through a projection, so it stands 2.45 m wide north of the door), the basement doorway under the stoop's landing and the stoop's arched underside, the narrow light over the door (built at the storey's sash width), the dormer's finial and the roofs' cresting and cross finial: open on the match record. The oblique print (camera) also shows the corner bay running about 0.75 m south of the main front's south corner, as the square-on does, where the build sets it flush. **The rock-faced south flank and its dormer.** Read off the oblique print: the south flank is stone, rock-faced and dark against the smooth front, its windows dressed in smooth stone; and a gabled dormer stands in the flank's mansard just behind the tall south stack. Built as the front's K02 stone laid round the flank on the front's own beds in the profile's rock face (stone front flanks, a K01 option this piece of work added), and the flank dormer moved from 9.0 m, where no picture put it, to 13.9 m from the rear. Invented: that the flank is the front's Lemont stone (the print is monochrome and draws it darker, which a different stone, soot or the light could each explain); its even courses on the front's lines, where the print lays broken-coursed random ashlar; and the dormer's sash and gable, about 1 m lower than the print's with the mansard's curb (open on the match record). **Which front stood in 1904.** The house was SOLD by Joseph Sears to Mrs. Grace Murray Meeker in March 1902, a \"three-story stone building of fifteen rooms\" (Inter Ocean, 28 March 1902), not owned by the Meekers from 1893 as this record's name says; in May 1915 it had \"twenty-one rooms\" and had \"about ten years ago\" been \"purchased by Mr. Meeker and extensively remodeled by him\" (Chicago Tribune, 1 May 1915; both as transcribed on Chicagology's 1815 page, which names Arthur Heun as the remodelling architect). So the remodel falls between March 1902 and about 1905, and whether it came before 1 July 1904 is not known. The photographs show the Sears house (the interpretive panel draws the 1882 house the same way); the 1911 sheet, which draws a one-storey projection north of the front's centre and no corner bay, is the remodelled house. The 1904 phase is built to the photographs, which is a choice, not a finding."
+          "text": "the house at 1815 Prairie Avenue, Joseph Sears's (Arthur Meeker's from 1893;, piece 1), is no longer a district draft. It stands, under the draft's own id 1815 Prairie Avenue — Joseph Sears house (Arthur Meeker's from 1893), as a k01 frontage record built by the k01 emit generator, against the two photographs Chicagology prints side by side ([1815 S. Prairie Ave. (Joseph Sears house, undated; rights check required: forms and proportions only): a smooth light ashlar front two storeys over a raised basement under a slated mansard with a gabled dormer, a pavilion at the front's north end under a steep hipped roof, the door up a stoop in the pavilion's south half, a one-storey corner bay at the south-west corner with a pierced stone balcony on it, a moulded stone cornice, and two tall stacks. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1815-b1, census s28-1815-front): the front block's place and plan (10.47 m along the front between the north wall at lot v -7.12 and the south wall at 3.35), the stair projection on the north flank and the canted bay on the south flank, the house's depth to the coach house, 'stone', '3B'. From the square-on photograph, through its camera (the chicagology square on data): the principal floor, the storey heights and the wall head, the street windows' places and heights, the pavilion's width and its roof's apex, the corner bay's cheek, front and balcony, the dormer, the mansard's curb, the stacks. Every height rests on the print's own scale across the front (its `solve`). **What is invented.** The walls' thickness; the stone (K02's Lemont limestone for the 1973 landmarks report's 'yellow limestone') and its two-course base; the north flank and the rear in brick, where the sheet colours the whole house stone (the south flank is stone since, below); the stair projection's 1.2 m (the sheet's 1.55, past K08's deepest pavilion); the south flank bay's two storeys; the north flank's, the rear's and the rear range's windows (no picture sees them); the rear range's three storeys and flat deck; the mansard's deck; the stacks' plans; the rainwater; the sash pattern. **The attic storey.** The pavilion is carried up an attic storey past the main cornice, its paired transomed lights in its face, and the hipped crown is raised onto its wall head (mansard.crown.attic (m), a K01 option this piece of work added): read off the square-on print, the lights at x 200-325 px and y 390-250 px (9.15-11.0 m), the crown's eave at y 210 px (11.6 m). Invented: the pavilion's 0.45 m projection carried up (the print shows the attic's face, not its depth), the crown's eave 0.5 m past it, its 52-degree faces (fitted to the print's apex within about 0.3 m), and the lights' K06 pattern. The pavilion is now 2.2 m wide and stands 0.3 m in from the north corner (K08's least pier to a corner, and clear of the entrance), so the attic stands about 0.5-0.7 m north of the print's, which is centred over the door's north jamb. **The cornice's consoles and the south stack.** Read off the square-on print: a close row of carved stone consoles under the corona on a plain frieze, twelve across the main front south of the pavilion (about 0.49 m apart, 0.45 m high, 0.17 m wide, their feet at about 8.5 m), carried round the corner along the south flank on the oblique; built as K10's scrolled console (wall head blocks) on a 0.32 m frieze. Invented: the consoles' carving (the kit's generic scroll), their 0.19 m projection, and their feet 0.11 m lower than the print's (the upper lintels leave no more frieze); the rosettes over them are not built. The south stack is triangulated through both cameras: its west face about 1.6 m back from the front, its south face in line with the print's main south wall, its head's foot at about 13.7 m, its cap at about 14.4 m and its pots to about 15.2 m. Invented: it stands on the BUILD's south cornice (on cornice), about 0.75 m south of where the print stands it, because the build's south wall is still flush with the corner bay (the open set-out); its 1.1 x 0.75 m plan, its K15 stone, three corbel courses and 0.15 m cap, and three of the kit's tall pots where the print shows three or four taller ones. The sunk panels the oblique draws on its south face are not built (K15 lays a panel's recess in brick). The north stack takes the same head. **The door's pediment and the stoop's newels.** Read off the square-on print: a stone pediment over the door on two small carved brackets beside the transom, its apex at about 5.86 m and a carved finial to about 6.27 m; and the stoop's cheek walls falling to a square stone newel at each foot under a cap and a ball knob. Built as K01's bracketed door hood with a pediment in place of its railing (entrance kit hood pediment, a K01 option this piece of work added) in the front's stone, and K07's swept cheeks with their newels. Invented: the pediment's width (1.72 m, where the print's is 2.55 m, held clear of the build's narrow pavilion), its 0.3 m projection, its plain tympanum (the print's is carved), the brackets' scroll (the kit's) and the finial's square block (the print's is a carved anthemion); the cheeks' sweep and the newels' heights within K07's ranges. **What is not built.** The pavilion's full 4 m width (K01 cannot cut a door through a projection, so it stands 2.45 m wide north of the door), the basement doorway under the stoop's landing and the stoop's arched underside, the narrow light over the door (built at the storey's sash width), the dormer's finial and the roofs' cresting and cross finial: open on the match record. The oblique print (camera) also shows the corner bay running about 0.75 m south of the main front's south corner, as the square-on does, where the build sets it flush. **The rock-faced south flank and its dormer.** Read off the oblique print: the south flank is stone, rock-faced and dark against the smooth front, its windows dressed in smooth stone; and a gabled dormer stands in the flank's mansard just behind the tall south stack. Built as the front's K02 stone laid round the flank on the front's own beds in the profile's rock face (stone front flanks, a K01 option this piece of work added), and the flank dormer moved from 9.0 m, where no picture put it, to 13.9 m from the rear. Invented: that the flank is the front's Lemont stone (the print is monochrome and draws it darker, which a different stone, soot or the light could each explain); its even courses on the front's lines, where the print lays broken-coursed random ashlar; and the dormer's sash and gable, about 1 m lower than the print's with the mansard's curb (open on the match record). **Which front stood in 1904.** The house was SOLD by Joseph Sears to Mrs. Grace Murray Meeker in March 1902, a \"three-story stone building of fifteen rooms\" (Inter Ocean, 28 March 1902), not owned by the Meekers from 1893 as this record's name says; in May 1915 it had \"twenty-one rooms\" and had \"about ten years ago\" been \"purchased by Mr. Meeker and extensively remodeled by him\" (Chicago Tribune, 1 May 1915; both as transcribed on Chicagology's 1815 page, which names Arthur Heun as the remodelling architect). So the remodel falls between March 1902 and about 1905, and whether it came before 1 July 1904 is not known. The photographs show the Sears house (the interpretive panel draws the 1882 house the same way); the 1911 sheet, which draws a one-storey projection north of the front's centre and no corner bay, is the remodelled house. The 1904 phase is built to the photographs, which is a choice, not a finding. **The stoop's open south side.** Read off the oblique print: the landing stands on a square pier at its outer corner and is open beneath back to the wall, black under a soffit about 0.3 m deep, and the flight is carried off the pier on a rampant arch springing about 0.82 m over grade and reaching grade about 0.9 m down the run, the lower steps solid on grade to the newel; built as K07's arched swept cheek (cheek form arched) on the stoop's south cheek. Invented: the pier's 0.5 m depth along the run and the arch's span (the print foreshortens both; read off the nosings' spacing), the arch's quarter-ellipse curve, the void running through under the whole stoop to the north cheek, and its dark backing at the north cheek and the wall, which no picture sees past the print's black. The basement doorway in that void, the south cheek's iron hand rail and its stepped top are not built."
         },
         {
           "label": "How to resolve",
@@ -71237,7 +71416,19 @@
         },
         {
           "label": "Recorded",
-          "text": "2026-11-07 (T-3472)."
+          "text": "2026-11-07 (T-3472). **Running (T-3553, Kevin 2026-11-16: \"there should be some running ... during the attack ... Kinzie might have moved quickly from the murder ... there may be different speeds\").** The same layer runs. Past 2.05 m/s a figure goes over into a run within a quarter second (back to a walk below 1.85 m/s), and a jaunt beat can ask for `jog` (2.6 m/s), `run` (3.6), `flee` (4.5) or `sprint` (5.6). Each foot is down a shorter share of the cycle (36, 33 and 31 % at 2.5, 3.5 and 4.5 m/s), so both feet are off the ground between steps and the pelvis flies a ballistic arc between contacts; the stride grows from 1.06 to 1.69 of the runner's height and the cadence from about 160 to 180 steps a minute; the hip, knee and ankle follow the measured running curves (the swing knee folds past 100 degrees, past 120 in a sprint). The arms bend to about 90 degrees at the elbow and pump from the shoulder, the hands loosely closed, and the trunk leans 8-15 degrees forward with speed. A runner gathers into the run over about half a second and pulls up before where it is going."
+        },
+        {
+          "label": "What is read",
+          "text": "the cycle tables, stance share, stride, cadence and pelvis travel are the means of the recreational runners of Fukuchi, Fukuchi & Duarte (2017, *PeerJ* 5:e3298) at 2.5, 3.5 and 4.5 m/s (the normative running data)."
+        },
+        {
+          "label": "What is\ninvented",
+          "text": "that anyone of 1812 ran so (modern runners in running shoes stand in for men in moccasins and brogans and women in long gowns); everything past 4.5 m/s, carried on the measured trend; the arm swing, the elbow, the hands, the lean, the gather and the pull-up; the pace names and which pace each jaunt beat takes; the run's pelvis travel is about half the measured 9-10 cm."
+        },
+        {
+          "label": "How to resolve",
+          "text": "running measured in period footwear and dress."
         }
       ],
       "work_refs": [
@@ -73783,7 +73974,7 @@
         },
         {
           "label": "Two placings are ours outright",
-          "text": "Mrs. Helm's legs, under her skirt in both photographs, stand under its hem, and the surgeon's left arm, which neither photograph shows, lies along his side. **The weapons and ornaments** are modelled since later work as the two plates show them, each read on ICHi-19208 for its outline and on Taylor's print for its depth and hung on the posed body that carries it: the warrior's pipe tomahawk, his feather and the fringed pouch at his hip, Black Partridge's headband with its knot, standing feather and streamer, and his musket. Their outlines, places and lengths are the plates'; their sections and thicknesses, the blade's and the butt's profiles across, the band's wrap round the back of the head and the pouch's four tails as the whole of its fringe are this project's. **Where two figures look and turn** is the plates' since later work: the warrior's face bowed to Mrs. Helm's shoulder and his chest turned to her over hips that face his lunge, Black Partridge's face in profile to the warrior and his chest turned a third of the way to him. The heads stay where they were read and are turned and nodded on the neck; the shoulders keep their read x and height. The depths that set the turns are this project's: the warrior's old reading put his right shoulder 0.13 m behind his left, inside Taylor's 0.15 m depth resolution, and both plates show his chest and belly turned the other way. So are the angles: the chest about 30 degrees right of the street and the hips about 15 degrees left, the spine carrying the difference a third at a time. **Black Partridge's breechcloth and the child's smock** are modelled since later work as the plates show them, in place of the rig's knee-length breechcloth and the child's jacket, collar, trousers and shoes: the breechcloth a short apron off his belt cut into a ragged fringe that ends a quarter of the way down his thighs, the smock a shift from the shoulders to the middle of the thighs with the arms, shins and feet bare. Their lengths are the plates'; the apron's wrap round his hips (it is drawn closed, where a breechcloth's sides are open; neither plate sees his flank clearly), the strands' count and length, and the folds' count and depth are this project's. **The hair** the bands let fall is modelled since later work as the plates show it: Black Partridge's long lock, out from under the back of his band and streaming back and down behind his neck to the back of his left shoulder, and the warrior's curl past his cheek. Their outlines are ICHi-19208's; the lock's depth is this project's, between the two plates' readings (ICHi-19208 and the shoulder it ends over hold its end about 0.2 m behind the head, Taylor's print about 0.6; it is built at 0.35), and so are its width, thickness and section and the strands it is not cut into. Faces, the warrior's and the surgeon's dress folds and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of 1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the photographs are monochrome. - **The panels' reliefs** are flat plates. Since later work they are drawn pale, as ICHi-19208 (c. 1900) shows them weathered lighter than the die, where Taylor's 1893 print has them fresh and dark: the 1904 scene takes the later plate. Their faint green-grey is ours; the plate is monochrome. - **The lettering** under the front panel (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is cut since later work at the widths, heights and places ICHi-19208 gives each line, pale on the granite. The letters are the town's block capitals squeezed to those widths, not the cutter's seriffed roman, and they stand flat on the die rather than sunk into it. The second line is about 4 px tall on the plate; its words are the record's. - **Its place** is set by later work through cameras on the Detroit print (east and west) and ICHi-19208 (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where ICHi-19208 shows its end, which is open in that view's match record. The figures are period sculpture, built as the sculptor made them; the record carries review required with its reason, and the card says how the work was received."
+          "text": "Mrs. Helm's legs, under her skirt in both photographs, stand under its hem, and the surgeon's left arm, which neither photograph shows, lies along his side. **The weapons and ornaments** are modelled since later work as the two plates show them, each read on ICHi-19208 for its outline and on Taylor's print for its depth and hung on the posed body that carries it: the warrior's pipe tomahawk, his feather and the fringed pouch at his hip, Black Partridge's headband with its knot, standing feather and streamer, and his musket. Their outlines, places and lengths are the plates'; their sections and thicknesses, the blade's and the butt's profiles across, the band's wrap round the back of the head and the pouch's four tails as the whole of its fringe are this project's. **Where two figures look and turn** is the plates' since later work: the warrior's face bowed to Mrs. Helm's shoulder and his chest turned to her over hips that face his lunge, Black Partridge's face in profile to the warrior and his chest turned a third of the way to him. The heads stay where they were read and are turned and nodded on the neck; the shoulders keep their read x and height. The depths that set the turns are this project's: the warrior's old reading put his right shoulder 0.13 m behind his left, inside Taylor's 0.15 m depth resolution, and both plates show his chest and belly turned the other way. So are the angles: the chest about 30 degrees right of the street and the hips about 15 degrees left, the spine carrying the difference a third at a time. **Black Partridge's breechcloth and the child's smock** are modelled since later work as the plates show them, in place of the rig's knee-length breechcloth and the child's jacket, collar, trousers and shoes: the breechcloth a short apron off his belt cut into a ragged fringe that ends a quarter of the way down his thighs, the smock a shift from the shoulders to the middle of the thighs with the arms, shins and feet bare. Their lengths are the plates'; the apron's wrap round his hips (it is drawn closed, where a breechcloth's sides are open; neither plate sees his flank clearly), the strands' count and length, and the folds' count and depth are this project's. **The hair** the bands let fall is modelled since later work as the plates show it: Black Partridge's long lock, out from under the back of his band and streaming back and down behind his neck to the back of his left shoulder, and the warrior's curl past his cheek. Their outlines are ICHi-19208's; the lock's depth is this project's, between the two plates' readings (ICHi-19208 and the shoulder it ends over hold its end about 0.2 m behind the head, Taylor's print about 0.6; it is built at 0.35), and so are its width, thickness and section and the strands it is not cut into. **The warrior's sash** is modelled since later work as the plates show it, in place of the rig's thin knee-length breechcloth: a broad band wrapped round his hips, its foot sloping down to his right hip, the fringed ends flying west out of it, and the cloth hanging from it at his right hip and beside the inner side of his raised thigh. Its height on the body, its slope and the hanging cloth's lengths and places across the front are ICHi-19208's; the band's depth (about 0.12 m) is Taylor's print's; its wrap round the back (neither plate sees it), its girth (sized to clear the posed body), the cloth's thickness and section, the strands at the hip cloth's foot and the folds' count and depth are this project's. Faces, the surgeon's dress folds and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of 1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the photographs are monochrome. - **The panels' reliefs** are flat plates. Since later work they are drawn pale, as ICHi-19208 (c. 1900) shows them weathered lighter than the die, where Taylor's 1893 print has them fresh and dark: the 1904 scene takes the later plate. Their faint green-grey is ours; the plate is monochrome. - **The lettering** under the front panel (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is cut since later work at the widths, heights and places ICHi-19208 gives each line, pale on the granite. The letters are the town's block capitals squeezed to those widths, not the cutter's seriffed roman, and they stand flat on the die rather than sunk into it. The second line is about 4 px tall on the plate; its words are the record's. - **Its place** is set by later work through cameras on the Detroit print (east and west) and ICHi-19208 (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where ICHi-19208 shows its end, which is open in that view's match record. The figures are period sculpture, built as the sculptor made them; the record carries review required with its reason, and the card says how the work was received."
         },
         {
           "label": "Recorded",
@@ -75054,6 +75245,41 @@
       ]
     },
     {
+      "id": "L-store-back-lots-3605",
+      "title": "The ground behind each of the commercial core's row stores, laid out by the store's own type: a stable, a workshop or a storehouse, with its back door's loading ground kept open",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-16",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-16, of the commercial core's row of reconstructed stores (“The commercial core's block fronts on South Water and Lake, Wells to State, filled to about 70% with reconstructed stores, the row turning the corner up the cross streets”): *\"I could see places in back of the stores and buildings for horses and wagons and loading and maybe there are workshops based on what kind of business it is but those areas behind the stores I imagine some would be divided into work areas and others might be horse and wagons storage but check my history on this so it is all accurate\"*. His history is earlier work (a stable for the households that kept a horse, goods by trade; “A privy behind every house and a stable for the horse-keepers, dealt to the yards by whose house it is”, “The working trades' yards: casks, barrels, boards, hides, hay ricks and yard wagons, dealt by trade”) and the 2026-08-27 business-front clause (a store at the street with its own ground behind it). The core stores name no firm and no household, so neither rule reached them and the ground behind all fifty-nine stood bare. the yard outbuildings generator now stands one outbuilding behind each, in the town yard outbuildings data, dealt by the store's FAMILY, which is the only thing the town knows about its business: the narrow two-storey store (C3), whose crosswalk entry carries the freight-opening vocabulary of the wholesale and forwarding trade, a 16 × 12 ft two-stall stable at the back of the lot, with the ground between it and the back door left open as the wagon and loading yard (a 12-ft one-stall stable where the store's back lot is too narrow); the boarding house (H3), a keeper's 20 × 14 ft stable; the store-residence (C2), whose entry offers a rear lean-to, a 12 × 10 ft workshop a few steps behind the back door; the small shop, grocery or land office (C1), a 10 × 8 ft storehouse for its stock. 23 stables, 21 workshops and 15 storehouses in all."
+        },
+        {
+          "label": "Not invented",
+          "text": "that a merchant who kept a horse stabled it on his own lot (“A privy behind every house and a stable for the horse-keepers, dealt to the yards by whose house it is”'s norm of the period, 's list), and that a store's goods came in at its back."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "every one of the fifty-nine is reconstructed: which use each store gets (by family, not by any evidence about that store), where it stands (a fixed search behind the store: the stable from the back of the lot inward, the others from the back door outward, square behind the store first and then slid along its back, at least 0.75 m inside every lot line and 2 m clear of every other building's wall, so a house's woodpile keeps its room, keeping 4 m of loading ground at the back wall and clear of every door), its size and finish, and its weather by the store's own age. No source names what stood behind any of these stores. The hay ordinance's limits (“The working trades' yards: casks, barrels, boards, hides, hay ricks and yard wagons, dealt by trade”) still hold: a stable here keeps its hay in the mow, and no rick is drawn."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "any source naming a firm on one of these fronts (its trade then decides its back lot, as 's rule does for named businesses); any source placing a stable, shop or warehouse behind a store on South Water, Lake or the cross streets in 1835."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-16."
+        }
+      ],
+      "work_refs": [
+        "T-1212",
+        "T-3605"
+      ]
+    },
+    {
       "id": "L-t1896-doane-crown-porch-roundel",
       "title": "1827 Prairie's pavilion crown closed to a short pyramid, its porch's south end and its tower roundel, read off the Doane photograph",
       "section": "per_subject",
@@ -75265,6 +75491,125 @@
       ]
     },
     {
+      "id": "L-k01-2011-romanesque-1915",
+      "title": "2011 Prairie, the Romanesque house beside Mayer, refined from the district draft onto K01: rock-faced ashlar, a round-arched door and a round corner turret read off its two pictures",
+      "section": "per_subject",
+      "subjects": [
+        "house_2011_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_2011_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-11-16",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the district draft at 2011 Prairie Avenue — the Romanesque house beside Mayer, rock-faced ashlar under a round corner turret is refined in place, under its own id, to a k01 frontage record built by the k01 emit generator (the S06 package of the programme): a narrow party-wall rowhouse between 2009 (Meyer) and 2013 (Reid), its whole front in rough rock-faced ashlar, with a round-arched door at the north end and a round turret filling the south part of the front, under a slate roof with a gabled dormer. **What is read, not invented.** From the 1911 Sanborn sheet 35 raster at full size (0.186 m a pixel, on the outline's own lines): the '2½B' front block, 12.82 m deep and 7.27 m along the front, its stone front bowing out over the south part; the '2B' rear block behind it, 16.5 m deep along the north line, with a piece 6.5-13.6 m back stepping 2.1 m further south. From the undated Chicagology photograph of 2009-2011 ([2009 and 2011 S. Prairie Ave.] Photograph of the Max A. Meyer house's front…, rights check required: forms and places only), through 2009's solved camera carried into this house's frame (the chicagology photo data): the door's threshold (1.65 m), its round arch's width and height; the cross window over it; the front's head course at about 10.6 m; the turret's outline and its three stages of lights; the dormer's place and height; the slate street slope's top edge. The Inland Architect's February 1895 plate of Reid's house ('Residence of W. H. Reid, Chicago. Beers, Clay & Dutton, Architects.' Plate…, public domain) shows the same front whole and confirms the composition: door at the north end, turret at the south under a cone with a finial, dormer between. **What is invented.** The stone's kind and colour (pale Lemont limestone: both prints are monochrome and print it pale); the walls' thickness; the side and rear walls' common brick; the plain lintels; the roof's form behind the street slope (a gable off a ridge 3.1 m back, the party walls carried up as coped parapets, the rear slope no picture sees) and the eave; the stoop's width, tread and landing (the flight is hidden in both pictures); every rear light; the rear block's storeys, flat roof and lights; the second stack's place; the coped street-line wall and the yard (the photograph's yard is strewn with building stone); no rainwater goods are hung (K01 hangs none on a gable roof). **What is built otherwise than the evidence, and why.** The turret is K08's round tower, 2.0 m in radius on a centre 0.15 m before the wall's face, so it stands 2.15 m proud where the sheet's bow stands about 1.3 m: a smaller tower would no longer fill the photograph's width. Its roof is one plain cone where the photograph shows two stages (a flared skirt, a ledge and a steeper upper cone): K08 cannot flare a tower's cone yet, and later work builds it. The turret's top band carries three small lights on the part of the round the photograph sees, where the Reid plate shows more round its south side: K08's triangle budget for one tower holds no more. The door is the kit's round-arched double door with its arch glazed, where the photograph shows a transom bar and a single leaf. The dormer is a plain face with one sash at the contract's shortest (1.5 m), about 0.25 m taller than the photograph's deep hood over a recessed light. The door stands at 1.4 m along the front (the photograph's 1.35 m) so its voussoirs keep the kit's 0.25 m off the corner. The sheet's small frame bay on the rear block's open south side and its cut rear corner are not built."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work builds the turret's two-stage roof, solves the Reid plate's camera and signs off the image gate; a picture of the rear or a description of the stone would replace the invented parts."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_2011_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2011_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2011_prairie.as_mapped_1904.form.service_wall_brick`, `house_2011_prairie.as_mapped_1904.form.street_front_trim`, `house_2011_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2011_prairie.as_mapped_1904.form.stair_tread_m`, `house_2011_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2011_prairie.as_mapped_1904.form.stoop_width_m`, `house_2011_prairie.as_mapped_1904.form.rear_bays`, `house_2011_prairie.as_mapped_1904.form.sash_by_storey`, `house_2011_prairie.as_mapped_1904.form.rainwater`, `house_2011_prairie.as_mapped_1904.form.boundary`, `house_2011_prairie.as_mapped_1904.form.yard`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-16 (T-3615)."
+        }
+      ],
+      "work_refs": [
+        "T-2352",
+        "T-3615",
+        "T-1915",
+        "T-1837",
+        "T-3616"
+      ]
+    },
+    {
       "id": "L-1812-sally-port",
       "title": "A sally port through both rows of the first fort's pickets into the covered way",
       "section": "per_subject",
@@ -75338,6 +75683,140 @@
       ],
       "work_refs": [
         "T-3553"
+      ]
+    },
+    {
+      "id": "L-seat-3553",
+      "title": "Trousers that bridge the seat, and an apron's bow that rides the skirt",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner's clothing this work (2026-11-12): *\"Seats: no trousers tracing the buttock cleft on any figure in motion\"* and *\"No clothing breaks through in motion... the women's aprons\"*. Every pair of trousers, breeches, pantaloons and overalls in the town (17 bodies) was exported as a shell a few millimetres off the body, and the body's cleft came through into the cloth, 4 to 5 cm deep. **What is reconstructed.** That the cloth spans the hollow from cheek to cheek, as woven cloth over a seat seam does: in level rows from the fork up past the top of the cleft, the rear of each section is taken to its upper convex hull (the settler's linen pair, #1933, was built this way at source), fading out over 3 cm at the fork and at the top, at most 6 cm a vertex, the moved cloth relaxed across the bridge and lit from its own faces (the walkthrough's human seat code). How full a given pair's seat was is not recorded; the hull is the least the cloth can be. A maid's apron bow and a cook's apron ties, skinned to the pelvis alone, ride the skirt's panels below the hips as the skirt does (the walkthrough's human skirt code, kind `ride`), so the skirt no longer cuts through them on the walk."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a cutting pattern or a photograph of the period's working trousers from behind sets the seat's fullness."
+        },
+        {
+          "label": "Review",
+          "text": "the walkthrough's human seat code, the walkthrough's human skirt code (`rides`), the human seat test, the human skirt test §2b."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-17 (T-3553)."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
+      "id": "L-horse-trot-3559",
+      "title": "The driven horse's trot, its mid and far levels, and the bay's black points",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-17: *\"definite prioritize the horse riding\"*, with this work (*\"Finish the photographic horse: near anatomy and coat against cleared views, near, mid and far exports, and a grounded trot beside the delivered walk\"*). The current26 horse (“individual coats and markings (1812, 1835, 1904)” for its coats) gains a trot clip, the walkthrough's horse trot v1 code, generated by the same two-link reaching as its walk (the horse walk v2 tool), and two lighter copies of itself, the horse current26 mid model and -the far model (the horse lods tool), that ride its own bones."
+        },
+        {
+          "label": "Not invented",
+          "text": "the horse's mesh, skin, joints and maps are the near GLB's, bound by bytes; the mid and far copies carry its joints, inverse binds and material names unchanged (their receipt, the current26 lods receipt data). That a trot is a two-beat gait of diagonal pairs with a moment of suspension, and that a bay's mane, tail and lower legs are black, are general horse anatomy and colour, not a source about any Chicago horse."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "the trot's numbers (a 1.5 m cycle, a duty factor of 0.38, the lifts, the joint flexions, the body's drop) are chosen to read as a working horse's trot, not measured from one; the stance hooves are certified planted (the current26 trot v1 hoof domain data). The walk gives way to the trot between 1.6 and 2.1 m/s; the town's teams are held to a walk, so only a ridden horse trots. The mid and far levels are simplified by error budgets and their maps reduced to 512 and 256 pixels (the params data), swapped at 22 and 55 m with a 3 m band. The bay and dark bay coats darken below 0.42 to 0.56 m (their points) and in the mane and tail; the shade is chosen, not measured."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a measured trot of a draft or light-draft horse to fit the clip to; a photograph of a Chicago team's horses at the trot; the owner wanting the teams to trot."
+        },
+        {
+          "label": "Review",
+          "text": "the horse walk v2 tool (trot params), the walkthrough's horse rig code, the params tool, the horse coats recipe data (points linear rgb)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-17."
+        }
+      ],
+      "work_refs": [
+        "T-3559"
+      ]
+    },
+    {
+      "id": "L-riding-tack-3560",
+      "title": "A saddle horse in each year a visitor may ride, its period saddle and bridle, and the figure in the saddle",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-17: *\"definite prioritize the horse riding\"*, with this work (*\"Ride a horse: period saddle and bridle, a fitted rider at walk and trot, and mount, steer and dismount by keyboard and touch\"*). the saddle horses data stands one saddle horse a few steps ahead of where the walk begins in 1812, 1835 and 1904; the walkthrough's riding code lets the visitor mount it, ride it at the walk and the trot, and get down."
+        },
+        {
+          "label": "Not invented",
+          "text": "the horse is the driven teams' current26 horse (“The driven horse's trot, its mid and far levels, and the bay's black points”), with its own individual coat. The tack follows the common riding tack of each period as general horse history describes it: in 1812 a plain hunting-pattern saddle over a folded blanket with a crupper and a plain snaffle bridle; in 1835 the English hunting saddle on a square cloth with a cavesson; in 1904 the English flat saddle on a felt numnah with a breastplate and a double bridle. None of it is a source about a Chicago horse, saddle or rider."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "every horse and its spot: no record places a saddle horse at any of the three, names it or its owner; the walkthrough's riding code moves it to the nearest open ground if its spot is not clear. Every piece of tack is generated (the walkthrough's saddlery code) to fit the horse's own surface, its colours, thickness and proportions chosen, not read from a saddle. The figure in the saddle is an anonymous stand-in of the year (the 1812 settler's figure in 1812 and 1835, the 1904 working driver's in 1904), never a named townsperson, posed by reaching its legs to the irons and its hands to the reins (the walkthrough's rider pose code); the trot is sat, not posted. Speeds, turning rates and where the horse may go (any standable ground, not water, not inside walls, not up a bank steeper than 0.45 m across its length) are chosen for a visitor, not measured."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a record of a horse kept or hired at one of these places; a picture of Chicago riding tack of the period; the owner wanting a named rider, a posting trot, or more horses."
+        },
+        {
+          "label": "Review",
+          "text": "the saddle horses data, the walkthrough's saddlery code, the walkthrough's rider pose code, the walkthrough's riding code."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-17."
+        }
+      ],
+      "work_refs": [
+        "T-3560"
+      ]
+    },
+    {
+      "id": "L-1835-town-wagons",
+      "title": "Ten of the 1835 town's teams on their rounds, each led by its teamster",
+      "section": "per_subject",
+      "subjects": [
+        "western_hotel"
+      ],
+      "covers": [],
+      "recorded": "2026-11-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-16: *\"Yes let's add wagons to 1835, we should have a lot of them running on loops around the city, based on your town analysis put a correct number of wagons and horses in motion around the city based on what would be a normal level of traffic at time of day and year\"*, then *\"Photographic wagons\"*. Ten teams now go round ten districts of the drawn town (the loops data, laid by the lay driven wagons 1835 tool), each the photographic farm-box wagon the 1812 wagons use, with a pair, its teamster walking at the near horse's head. Each goes round its own blocks clockwise, a metre right of the crown, swinging wide at its corners; no two share a street, so they meet only at crossings. Each is out from harnessing at a quarter to six to putting up at a quarter to seven, at its own man's hours, and takes his dinner at the noon stand by the wagon (the town people 1835 tool, the `teamster` routine), so the streets are not emptied at noon. Three stand at a door on their round: J. H. Kinzie's store, the Sauganash and the Western Hotel. Only the teams near the visitor are built; the rest go on round unseen. Otis Bardwell's team (the Western Hotel wagon) leaves its reconstructed 18 m circle (“Reconstructed occupied town circuits”) and the W01 seat for this: he walks it round Clinton and Canal, Randolph to Washington, and a visitor who climbs up sits on the wagon bed (“The visitor climbs up beside a driver and takes the reins of his team”). **What is attested.** The number's basis only. The town's staffing model (the 1835 business staffing model data, on the 1839 directory: 41 teamsters and 30 draymen in 1839) puts eight teamsters with the forwarding houses of B. Jones, J. H. Kinzie, J. S. Kinzie and Wm. Sabine; Charles White is a drayman; Thomas Reed, Thomas Cook and William Smith are teamsters in the 1839 directory. Sabine advertised lumber waggons in June 1835. Eleven of these men have a door in the drawn town; one team a man. **What is invented.** Every team's district, round, stops, dwell and hours; its horses and their coats; the employer of each man where the staffing model assigns him one; and that all of them are out at once on a July weekday. Ten, not eleven: the worked streets hold no eleventh district that keeps off the others' streets (the slough across Dearborn and Randolph and down State, the river bank under South Water east of Wells, Jefferson and Madison unopened), so William Smith stays at home. **The ruts.** The 1835 streets are graded earth, sunk below their lots with gutters at the sides, and a wagon or a horse laid level on them across a gutter is not the plane the level roads are held to. So on these streets (rough road) the wagon leans and pitches with its four wheels' ground, at most 4 degrees, each wheel within 30 mm of the wagon's plane, and its horses walk the ruts, every hoof within 22 mm of its ground (the street ribbon's own lift) and leaning at most 5 degrees, where the certified 2 mm standing plane is not to be had. The ground is read smoothed from the 2.5 m heightfield, as 1812's is (the walkthrough's transport ground code); crossing a gutter that reading can stand a wheel or hoof up to about 3 cm over the drawn street, on about 1 to 4 per cent of a round."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a record of a carter's or forwarding house's rounds, stands or hours in 1835; a count of teams in the streets; a survey of the 1835 street grades that replaces the heightfield's."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-17 (T-3558)."
+        }
+      ],
+      "work_refs": [
+        "T-3558"
       ]
     },
     {

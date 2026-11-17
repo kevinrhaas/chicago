@@ -38,10 +38,11 @@ breechcloth with its fringe and the child's smock; the weapons and ornaments are
 modelled as the plates show them (`ORNAMENTS`): the warrior's pipe tomahawk, his feather
 and the fringed pouch at his hip, Black Partridge's headband with its knot, standing
 feather and streamer, and his musket; and the hair the band lets fall, Black Partridge's
-long lock streaming back to his shoulder and the warrior's curl past his cheek. Only Mrs.
-Helm's knot of hair is still a member below (`monument_figures.PROPS`). The sculpted
-faces, the warrior's and the surgeon's dress and the panels' reliefs are not modelled
-(the record's liberty says so);
+long lock streaming back to his shoulder and the warrior's curl past his cheek; and the
+warrior's sash, a broad band round his hips with its cloth hanging at his right hip and
+beside his raised thigh (`DRAPERY`). Only Mrs. Helm's knot of hair is still a member
+below (`monument_figures.PROPS`). The sculpted faces, the surgeon's dress and the panels'
+reliefs are not modelled (the record's liberty says so);
 the rear, which no photograph used here shows, is the same masses seen from behind.
 """
 
@@ -594,6 +595,41 @@ DRAPERY = {
         "folds": ((6, 0.5, 0.6), (9, 1.3, 0.3)),
         "amp": (0.03, 0.15), "hem": 0.01, "caps": (True, True),
     },
+    # The warrior's sash (T-3594), the "fringed sash at his belt": both plates show a broad
+    # band wrapped round his hips, its fringed ends knotted at his right hip and flying out
+    # to the west (the pouch in `ORNAMENTS`, which now comes out of it), with the cloth
+    # hanging from it either side of his raised left thigh. Read on ICHi-19208 through its
+    # camera: the band's top at about z 0.97-0.98 across the hips (y 293-298 px), its foot
+    # sloping down to the west, z 0.91 at his front (x 522, y 305) to 0.86 at his right hip
+    # (x 490, y 315); on Taylor's print it is a band about 0.12 m deep with folds across it
+    # (x 410-470, y 395-428), where the plate's own fit sets it about 0.2 higher on the
+    # body (the fits' known disagreement, so heights are ICHi-19208's). The rig's thin
+    # knee-length breechcloth is not cast. `tilt` is the slope round the ring: (at the top,
+    # at the foot), the rise toward +x per unit of cos(theta).
+    "warrior_sash": {
+        "path": ((-0.59, -0.15, 0.985), (-0.61, -0.13, 0.93), (-0.61, -0.13, 0.885)),
+        "rx": (0.19, 0.195, 0.20), "ry": (0.175, 0.17, 0.165),
+        "folds": ((4, 0.4, 0.4), (9, 1.2, 0.6)),
+        "amp": (0.025, 0.045), "hem": 0.0, "tilt": (0.01, 0.045), "caps": (False, False),
+    },
+    # the cloth falling from it at his right hip, in front of his stretched right thigh:
+    # dark in both plates, ICHi-19208 x 488-503 from under the band (y 318) to its rounded
+    # foot at y 352 (z 0.84 to 0.63 at its depth), Taylor's print x 405-440, y 425-470,
+    # strands hanging at its foot (to y 478)
+    "warrior_hip_flap": {
+        "path": ((-0.655, -0.10, 0.87), (-0.648, -0.10, 0.75), (-0.638, -0.095, 0.64)),
+        "rx": (0.035, 0.045, 0.050), "ry": (0.028, 0.040, 0.045),
+        "folds": ((3, 0.6, 0.6), (5, 1.9, 0.3)),
+        "amp": (0.06, 0.16), "hem": 0.0, "fringe": (9, 0.035), "sides": 54, "caps": (True, True),
+    },
+    # and its fall beside the inner side of his raised thigh, behind it from the street:
+    # ICHi-19208 x 520-537 from the band (y 300) to y 352, z 0.94 to 0.62 at its depth
+    "warrior_front_flap": {
+        "path": ((-0.43, -0.17, 0.90), (-0.415, -0.15, 0.76), (-0.405, -0.14, 0.625)),
+        "rx": (0.050, 0.045, 0.040), "ry": (0.020, 0.025, 0.025),
+        "folds": ((3, 1.1, 0.5), (6, 0.3, 0.3)),
+        "amp": (0.05, 0.14), "hem": 0.0, "caps": (True, True),
+    },
 }
 DRAPE_RINGS = 14
 DRAPE_SIDES = 40
@@ -614,6 +650,8 @@ def _drape_point(d, s, t):
     a = d["amp"][0] + (d["amp"][1] - d["amp"][0]) * s ** 1.3
     r = 1.0 + a * wave
     z = c[2] - d["hem"] * s * s * math.cos(d["folds"][0][0] * t + d["folds"][0][1])
+    if "tilt" in d:
+        z += (d["tilt"][0] + (d["tilt"][1] - d["tilt"][0]) * s) * math.cos(t)
     if "fringe" in d:
         # the strands: a tooth at the foot to each strand, its tip `length` below the gaps
         # between them, the cut running a short way up the piece

@@ -118,6 +118,20 @@ export const ARM_SWING = Object.freeze({
   person: Object.freeze({ range: [0.85, 1.15], mean_deg: [-3, 3], elbow_deg: [-4, 4], side: [0.92, 1.08] }),
   inward: 0.25, skirt: { scale: 0.5, inward: -0.2 },
 });
+/**
+ * T-3553: the arms of a runner (the gait layer's `run` share, human-gait.js). A runner carries
+ * the elbows bent near a right angle and swings the arms from the shoulder, further the faster,
+ * each with the opposite leg as on the walk: furthest back as its own foot lands, furthest
+ * forward as the other does, the elbow opening a little behind and closing in front, the hands
+ * loosely closed and coming in toward the middle of the chest as they come forward. No arm
+ * motion was in the running dataset the legs come from: these numbers are reconstructed
+ * (liberty L-human-gait-3472), from 28 degrees each way at a jog to 42 at a sprint, about a mean 10 degrees back. A woman in a
+ * full skirt swings less.
+ */
+export const RUN_ARM = Object.freeze({
+  mean_deg: -10, amp_deg: Object.freeze([28, 42]), at_m_s: Object.freeze([2.5, 6.0]),
+  elbow_deg: Object.freeze([82, 94]), elbowSwing_deg: 12, lag: 0.03, curl: 0.55, inward: 0.35, skirt: 0.7,
+});
 /** A periodic table of 21 values (0..100 % of the cycle, the last repeating the first) at cycle fraction `c`. */
 function cycleAt(table, c) {
   const x = (((c % 1) + 1) % 1) * 20, i = Math.floor(x), t = x - i;
@@ -133,7 +147,9 @@ const fin = (x, d = 0) => (Number.isFinite(x) ? x : d);
 export function createHumanActions({ id = 'human', scene = null, greeting = 'brow', skirt = false, carry = null, fightMotions = null } = {}) {
   // The adults jaunts' motions (human-fight.js), handed in by humans.js so this module stays
   // free of imports beyond three; with none, nothing here ever holds a weapon.
-  const FM = fightMotions && typeof fightMotions.fightTargets === 'function' ? fightMotions : null;
+  // T-3627: or a function answering them, since they load with the first outing.
+  const fightOf = typeof fightMotions === 'function' ? fightMotions : () => fightMotions;
+  const motions = () => { const m = fightOf(); return m && typeof m.fightTargets === 'function' ? m : null; };
   const rand = seededRandom(`actions:${id}`);
   // This person's own arm swing (ARM_SWING.person), from its own stream so it moves no other draw.
   const own = (() => {
@@ -629,7 +645,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     wield(kind) { fight.arm = typeof kind === 'string' && kind ? kind : 'none'; return api; },
     /** Adults jaunts: begin a fight motion (strike, stab, aim, fire, lower, struck), or null to let go. */
     act(kind) {
-      if (kind && !FM?.MOTIONS[kind]) return api;
+      if (kind && !motions()?.MOTIONS[kind]) return api;
       fight.from = fight.last; fight.act = kind || null; fight.t = 0;
       return api;
     },
@@ -725,7 +741,12 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       if (gait && gw > 1e-4) {
         const A = ARM_SWING, phase = fin(gait.phase), P = gait.profile ?? {};
         const [rom, at] = A.rom[P.female === true || skirt ? 'female' : P.female === false ? 'male' : 'all'];
-        const speed = fin(gait.speed, at);
+        // T-3553: the speed it is going now where the gait says (a brisk walk swings further), and its run share.
+        const speed = Math.min(2.0, Number.isFinite(gait.speedNow) && gait.speedNow > 0.3 ? gait.speedNow : fin(gait.speed, at));
+        const rr = clamp(fin(gait.run), 0, 1), vRun = fin(gait.speedNow, 3);
+        const runT = clamp((vRun - RUN_ARM.at_m_s[0]) / (RUN_ARM.at_m_s[1] - RUN_ARM.at_m_s[0]), 0, 1);
+        const runAmp = (RUN_ARM.amp_deg[0] + (RUN_ARM.amp_deg[1] - RUN_ARM.amp_deg[0]) * runT) * (skirt ? RUN_ARM.skirt : 1);
+        const runElbow = RUN_ARM.elbow_deg[0] + (RUN_ARM.elbow_deg[1] - RUN_ARM.elbow_deg[0]) * runT;
         // How far this walker swings against the measured mean, by speed (the swing grows
         // about in proportion to it) and age, and half that in a skirt.
         const k = clamp((rom / UPPER_ROM) * (speed / at) * (1 - A.older * clamp(fin(P.old), 0, 1)), 0.2, 1.6) * (skirt ? A.skirt.scale : 1);
@@ -733,8 +754,12 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         for (const s of SIDES) {
           if (s === hold?.side) { gaitArm[s] = 0; continue; } // T-3481: the carrying arm is held, not swung
           const sx = s === 'l' ? 1 : -1, ks = k * own.range * own[s];
-          const shoulderAt = (c) => (UPPER_MEAN + own.mean + (cycleAt(A.upper, c) - UPPER_MEAN) * ks) * DEG;
-          const elbowAt = (c) => Math.max(6, ELBOW_MEAN - A.elbowOffset_deg + own.elbow + (cycleAt(A.elbow, c) - ELBOW_MEAN) * ks) * DEG;
+          const shoulderW = (c) => (UPPER_MEAN + own.mean + (cycleAt(A.upper, c) - UPPER_MEAN) * ks) * DEG;
+          const elbowW = (c) => Math.max(6, ELBOW_MEAN - A.elbowOffset_deg + own.elbow + (cycleAt(A.elbow, c) - ELBOW_MEAN) * ks) * DEG;
+          // A run's swing: back as this side's foot lands (c = 0), forward as the other's does.
+          const wave = (c) => Math.cos(2 * Math.PI * (c - RUN_ARM.lag));
+          const shoulderAt = rr > 0 ? (c) => shoulderW(c) + ((RUN_ARM.mean_deg + own.mean - runAmp * own.range * own[s] * wave(c)) * DEG - shoulderW(c)) * rr : shoulderW;
+          const elbowAt = rr > 0 ? (c) => elbowW(c) + ((runElbow + own.elbow - RUN_ARM.elbowSwing_deg * wave(c)) * DEG - elbowW(c)) * rr : elbowW;
           // The tables run from the same side's heel strike: the left at phase 0, the right at 0.5.
           const c = phase + (s === 'l' ? 0 : 0.5);
           const th = shoulderAt(c), elbow = elbowAt(c);
@@ -742,7 +767,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
           // The upper arm: down, swung about the figure's right, a little out from the side
           // (in a skirt, out over the bell), and in toward the front of the thigh as it comes forward.
           upDir.copy(fig.up).multiplyScalar(-Math.cos(th)).addScaledVector(fig.fwd, Math.sin(th))
-            .addScaledVector(fig.left, sx * (abd - inK * Math.max(0, th))).normalize();
+            .addScaledVector(fig.left, sx * (abd - (inK + (RUN_ARM.inward - inK) * rr) * Math.max(0, th))).normalize();
           // The elbow bends about the figure's right, square to the upper arm.
           bend.copy(fig.left).negate().addScaledVector(upDir, upDir.dot(fig.left)).normalize();
           foreDir.copy(upDir).applyAxisAngle(bend, elbow).addScaledVector(fig.left, sx * carry).normalize();
@@ -761,7 +786,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
           orientHand(s, handDir, palmDir, gw);
           // Fingers loosely closed and the thumb in along the index, as a walking hand is
           // carried (the clip holds them open, which reads as a hand held out).
-          curl(s, A.curl, gw);
+          curl(s, A.curl + (RUN_ARM.curl - A.curl) * rr, gw);
           thumbIn(s, 0.9, gw);
         }
       } else { gaitArm.l = 0; gaitArm.r = 0; }
@@ -860,6 +885,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       // Adults jaunts (owner, 2026-11-15): the weapon in the hand, and the blow, the thrust or the
       // shot it makes (human-fight.js), over everything above; both hands for a long gun.
       {
+        const FM = motions();
         const busy = !!FM && (fight.arm !== 'none' || (fight.act && FM.MOTIONS[fight.act]?.empty));
         fight.w += ((busy ? 1 : 0) - fight.w) * (1 - Math.exp(-7 * dt));
         if (fight.act && FM) {
