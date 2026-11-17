@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1162,
+  "count": 1163,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -75457,6 +75457,44 @@
       ],
       "work_refs": [
         "T-3553"
+      ]
+    },
+    {
+      "id": "L-crowd-3555",
+      "title": "The town at a distance: people past their figures' reach and teams past theirs, drawn cheaply",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-10: every device keeps the living town, people, horses, carriages and wagons are core and are never dropped, a lower resolution or blur instead; and 2026-11-17, finishing this work (*\"far people as impostor cards, middle-distance people instanced, and horse-drawn traffic moving on distant streets, inside measured budgets\"*). A person's full figure is built only within 140 m and a few at a time (the walkthrough's humans code, the walkthrough's human days code), so the town's people beyond that, or beyond the nearest few, were not drawn. Now everyone out of doors within 600 m (450 on Balanced, 320 on Light) who is not built is drawn: from 28 m to 110 m (90, 70) as a body shared by everyone in the same dress, walking from a texture of eight walk frames and one standing frame baked from their own figure, and past that as a card from one atlas of each dress in eight headings and three poses, baked from the same figure. Teams out of their built reach (90, 60, 45 m) are drawn as cards out to 700 m (500, 350), baked from their own vehicle and horse files in sixteen headings."
+        },
+        {
+          "label": "Not invented",
+          "text": "who is out of doors, where and at what hour (each scene's own days, “The 1835 town's people, each in and out of their own home and place of business by the hour” and the 1812 and 1904 households); each person's dress, complexion, hair and height (their own figure and its looks); each team's vehicle, horses and round (transport/driven/the loops data, its round and its teamster's hours)."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "a person at a distance walks to and fro along their way between their day's points, with a pause at each end, rather than the exact steps their built figure would take; a household that shares one standing point stands in a small ring about it, facing in, rather than in one place. The shade of each person's clothes at a distance is varied a little (within an eighth either way) by a hash of their id about their dress's own colour, so a street of one dress does not read as copies; their skin and hair are their own looks where their record gives them. A card is lit flat and lit again where it stands; its picture does not carry its own shadow. The distances, the caps (160 middle bodies and 1,400 cards on Full, 110 and 900 on Balanced, 60 and 500 on Light; 32, 20 and 12 teams) and the fade times are ours, chosen against the measured budgets in the project's notes on this the work crowd data."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a reading of how a person moved about their door or street at an hour, which would replace the to-and-fro; a dress whose far shade is shown wrong by a picture."
+        },
+        {
+          "label": "Review",
+          "text": "the walkthrough's crowd code, the walkthrough's traffic cards code, the walkthrough's human days code (`outdoors`, `templateSpanAt`)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-17 (T-3555)."
+        }
+      ],
+      "work_refs": [
+        "T-3555"
       ]
     },
     {
