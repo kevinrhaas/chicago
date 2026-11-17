@@ -7927,24 +7927,26 @@ for (const [label, viewport, touch] of [
     // all boats." Take the Hiram's helm, put way on her, step the helm by hand (the
     // frame clock is the browser's, not the smoke's), and go ashore: she moves, she
     // stays in her water, and the visitor lands on ground.
-    const helm = await page.evaluate(() => {
+    const helm = await page.evaluate(async () => {
       const a = window.__chicago4d;
       const craft = a.vessels.craftOf('vessel_schr_hiram');
-      const took = a.pilot.take(craft);
+      // T-3627: the helm loads on first use, as Take her loads it.
+      const unloaded = a.pilot == null;
+      const took = (await a.loadPilot()).take(craft);
       const p0 = { ...craft.pose };
       a.pilot.drive({ forward: 1, strafe: 0 });
       for (let i = 0; i < 120; i++) a.pilot.update(0.1);
       const p1 = { ...craft.pose };
       const banner = document.body.innerText.includes('At the helm of');
       const said = a.pilot.leave();
-      return { took, moved: Math.hypot(p1.e - p0.e, p1.n - p0.n), blocked: a.pilot.blocked ?? null,
+      return { took, unloaded, moved: Math.hypot(p1.e - p0.e, p1.n - p0.n), blocked: a.pilot.blocked ?? null,
         wet: a.terrain.isWater(p1.e, p1.n), banner, said, active: a.pilot.active,
         landed: a.terrain.isWater(a.walker.state.e, a.walker.state.n) === false };
     });
     check(`${label}: the visitor can take a schooner's helm and bring her back ashore`,
       helm.took && helm.moved > 3 && helm.wet && helm.landed && !helm.active,
       `took ${helm.took}, moved ${helm.moved?.toFixed(1)} m (blocked: ${helm.blocked ?? 'no'}), `
-      + `${helm.wet ? 'in' : 'OUT OF'} the water, ashore: ${helm.landed} ("${helm.said}")`);
+      + `${helm.wet ? 'in' : 'OUT OF'} the water, ashore: ${helm.landed} ("${helm.said}"; helm loaded on first use: ${helm.unloaded})`);
 
 
     // --- the scene actually draws ----------------------------------------
