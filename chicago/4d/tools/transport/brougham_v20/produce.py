@@ -348,11 +348,22 @@ def simplify_far(source_glb, tools_root):
     return out
 
 
+# V19's generator takes norms and dots of single vectors through numpy, which hands them
+# to OpenBLAS, and OpenBLAS picks its kernel by CPU: an AVX-512 machine (SkylakeX and
+# later) rounds those sums differently from an AVX2 or older one (Haswell, Zen, ...).
+# GitHub's runners are both kinds, so a far made on one failed "every triangle
+# re-derives" on the other at random (PRs 2143, 2154). Every derivation of the far
+# source pins the kernel to the x86-64 baseline every runner has, so the bytes are the
+# same on all of them. V19's own generator and its pinned files are untouched.
+BLAS_ENV = {'OPENBLAS_CORETYPE': 'Prescott', 'OPENBLAS_NUM_THREADS': '1'}
+
+
 def far_source(workdir):
     out = Path(workdir) / 'v19-far'
+    import os
     subprocess.run([sys.executable, str(V19 / 'generate.py'), '--output', str(out), '--detail', 'far',
                     '--lod-recipe', str(HERE / 'far-lods.json'), '--rear-quarter-recipe', str(V19 / 'rear-quarter.json')],
-                   check=True, capture_output=True)
+                   check=True, capture_output=True, env={**os.environ, **BLAS_ENV})
     return out / 'brougham.glb'
 
 

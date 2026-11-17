@@ -98,8 +98,8 @@
   {
    "detail": "far",
    "file": "brougham-v20-far.glb",
-   "sha256": "b4cbec5e4c22c622486b08be449ae187eaca72dfdb4dc98ec22e89512c5ca09d",
-   "bytes": 566660,
+   "sha256": "ceba9b596174aa5b8f548e10bd8ecf1af27607188d9f62793ad77e410f1b9bb3",
+   "bytes": 566564,
    "triangles": 11360,
    "draw_batches": 25,
    "materials": 8,
@@ -117,7 +117,7 @@
      3.825000047683716
     ]
    },
-   "v19_level_sha256": "5b74def8dc8430218e6be7d2bcf9ef1121a1ace90fe87de180797a553c7a3a3b",
+   "v19_level_sha256": "d4e57fd5f2b15c6a959fcf18c91c787fd9d618f64c57370550c28aa724d3401c",
    "v19_level_triangles": 19998,
    "coachman_fit_preserved": true
   }
