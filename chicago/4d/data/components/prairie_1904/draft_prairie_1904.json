@@ -1002,6 +1002,8 @@
     "s20-1613-f": "1613 Prairie now stands as the K01 brick frontage house_1613_prairie under K01's flat roof (T-2417, piece 1 of T-1868), the north half of the pair with 1615, which refines this draft in place under the draft's own id: the four-storey main body on K01 and the sheet's one-storey frame rear porch on K01's rear wings in timber; the draft stands no second building beside it.",
     "s35-2009-front": "2009 Prairie now stands as the K01 brick house mayer_house_2009_prairie (T-1913, the envelope package of the T-1837 programme), the Max A. Meyer house, which refines this draft in place under the draft's own id: the main body on K01 over its stone basement with the photograph's ogee gable on K01's shaped gable, its bowed oriel on K08, the north wall's projection off the sheet, and the sheet's one-storey rear range on K01's rear wings; the draft stands no second building beside it.",
     "s35-2009-wing": "2009 Prairie's one-storey rear range now stands on K01's rear wings of mayer_house_2009_prairie (T-1913); the draft stands no second building.",
+    "s35-2011-front": "2011 Prairie now stands as the K01 stone-fronted house `house_2011_prairie` (T-3615, piece 1 of T-1915, the S06 package of the T-1837 programme), the Romanesque house beside Mayer, which refines this draft in place under the draft's own id: the '2½B' front block off the sheet at full size, its rock-faced ashlar front, round-arched door, cross window, gabled dormer and round corner turret off the Chicagology photograph of 2009-2011 and the Inland Architect's 1895 plate of Reid's house.",
+    "s35-2011-wing": "2011 Prairie's '2B' rear block now stands on K01's rear wings of `house_2011_prairie` (T-3615); the draft stands no second building.",
     "s35-2003-front": "2003 Prairie now stands as the K01 brick house house_2003_prairie under K01's flat roof (T-3346, piece 1 of T-1912), the north half of the pair with 2005, which refines this draft in place under the draft's own id: the three-storey main body on K01 with the sheet's curved front bay on K08, and the sheet's two-storey rear range on K01's rear wings; the draft stands no second building beside it.",
     "s35-2003-wing": "2003 Prairie's two-storey rear range now stands on K01's rear wings of house_2003_prairie (T-3346); the draft stands no second building.",
     "s35-2005-front": "2005 Prairie now stands as the K01 brick house house_2005_prairie under K01's flat roof (T-3346, piece 1 of T-1912), the south half of the pair with 2003, which refines this draft in place under the draft's own id: the three-storey main body on K01 with the sheet's curved front bay on K08, and the sheet's two-storey rear range on K01's rear wings; the draft stands no second building beside it.",
@@ -1901,7 +1903,9 @@
           "cap_m": 4.8
         }
       ],
-      "why": "The Romanesque neighbour of Mayer (the Lambs' in the 1904 Blue Book): the register's 'rough ashlar front, round-arched entrance, rounded corner turret/conical cap' as the Romanesque family's steep hip with dormers over the 2½B body, and a turret under a cone on the south front corner, where the sheet draws its stone rounded bay. Seen in the 1890s Mayer photograph; T-1915 reads it."
+      "why": "The Romanesque neighbour of Mayer (the Lambs' in the 1904 Blue Book): the register's 'rough ashlar front, round-arched entrance, rounded corner turret/conical cap' as the Romanesque family's steep hip with dormers over the 2½B body, and a turret under a cone on the south front corner, where the sheet draws its stone rounded bay. Seen in the 1890s Mayer photograph; T-1915 reads it.",
+      "house_id": "house_2011_prairie",
+      "house_address": "2011"
     },
     "frontage-35-077": {
       "slug": "reid_house",
