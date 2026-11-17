@@ -341,13 +341,13 @@
           "note": "RECONSTRUCTED (L-k01-2036-buckingham-1911): the landing at the door under the porch, as deep as the sheet's porch stands out."
         },
         "stoop_width_m": {
-          "value": 2.0,
+          "value": 2.8,
           "confidence": "inferred",
           "sources": [
             "chicagology_2000_block_prairie_engraving_1880",
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "A broad straight stoop climbing to the front between balustrades of turned balusters on a moulded rail, as the engraving draws it running down to the walk toward the gate's urn piers; its width is the porch's the sheet draws (about 2.8 m) less its balustrades."
+          "note": "A broad straight stoop climbing to the front between balustrades of turned balusters on a moulded rail, as the engraving draws it running down to the walk toward the gate's urn piers; its width is the porch's the sheet draws (about 2.8 m), so the porch's columns stand on its landing."
         },
         "entrance_bay": {
           "value": 2,
@@ -690,16 +690,6 @@
                 },
                 "railing_fabric": "stone"
               },
-              "terrace": [
-                {
-                  "side": "left",
-                  "to_v_m": 6.18
-                },
-                {
-                  "side": "right",
-                  "to_v_m": 8.98
-                }
-              ],
               "balustrade": {
                 "height_m": 0.9,
                 "pitch_m": 0.2,
