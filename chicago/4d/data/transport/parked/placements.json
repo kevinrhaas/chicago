@@ -49,9 +49,41 @@
       "support_file": "transport/parked-carriage/shaft-rest.glb"
     },
     "covered_w01_western_blue": {
-      "file": "transport/covered-wagon/covered_w01_western_blue/covered-w01.glb",
+      "file": "transport/farm-box-master/farm-box-near.glb",
+      "file_light": "transport/farm-box-master/farm-box-mid.glb",
       "type": "Covered wagon",
-      "basis": "Original empty covered-wagon reconstruction with faded blue body and oxide running gear, open canvas ends, bows, restrained seams/folds and a laid-by ox yoke. The original record ID and exact coordinates retain its seeded finish family and canvas aging. Canvas construction, color, wear and bows are reconstructed; no manufacturer, historical owner or load is identified. Source-owned donor bench/footboard were omitted; occupied, driver, hitch, collision, riding and boarding interfaces are unsupported.",
+      "basis": "Covered wagon v2 (T-3558): this wagon's own reconstructed canvas cover, sewn hems, five bows and laid-by ox yoke stand on the licensed photographic farm-box master (Old Cart by Lyskilde/longtail, CC BY 4.0, credited in assets/LICENSES.md), painted with its own seeded faded blue body and oxide running gear over the photographed boards; the canvas carries its own seeded ageing. The original record ID and exact coordinates keep its seeded finish family and canvas ageing. Canvas construction, colour, wear, bows and paint are reconstructed; no manufacturer, historical owner or load is identified. Occupied, driver, hitch, collision, riding and boarding interfaces are unsupported.",
+      "support_file": "transport/covered-wagon/covered_w01_western_blue/covered-v2-cover.glb",
+      "paint": {
+        "body_meshes": [
+          "CartBody_CartBase_0",
+          "CartBody_CartDetails_0"
+        ],
+        "body": {
+          "CartBase": [
+            0.5732,
+            0.9425,
+            1.4639
+          ],
+          "CartDetails": [
+            0.529,
+            0.9099,
+            1.4466
+          ]
+        },
+        "gear": {
+          "CartBase": [
+            1.0154,
+            0.3527,
+            0.2549
+          ],
+          "CartDetails": [
+            0.9371,
+            0.3405,
+            0.2519
+          ]
+        }
+      },
       "wheel_contacts_m": [
         [
           -0.605,
@@ -72,9 +104,41 @@
       ]
     },
     "covered_w01_wolfpoint_oak": {
-      "file": "transport/covered-wagon/covered_w01_wolfpoint_oak/covered-w01.glb",
+      "file": "transport/farm-box-master/farm-box-near.glb",
+      "file_light": "transport/farm-box-master/farm-box-mid.glb",
       "type": "Covered wagon",
-      "basis": "Original empty covered-wagon reconstruction with aged oak body and dark oak running gear, open canvas ends, bows, restrained seams/folds and a laid-by ox yoke. The original record ID and exact coordinates retain its seeded finish family and canvas aging. Canvas construction, color, wear and bows are reconstructed; no manufacturer, historical owner or load is identified. Source-owned donor bench/footboard were omitted; occupied, driver, hitch, collision, riding and boarding interfaces are unsupported.",
+      "basis": "Covered wagon v2 (T-3558): this wagon's own reconstructed canvas cover, sewn hems, five bows and laid-by ox yoke stand on the licensed photographic farm-box master (Old Cart by Lyskilde/longtail, CC BY 4.0, credited in assets/LICENSES.md), painted with its own seeded aged oak body and dark oak running gear over the photographed boards; the canvas carries its own seeded ageing. The original record ID and exact coordinates keep its seeded finish family and canvas ageing. Canvas construction, colour, wear, bows and paint are reconstructed; no manufacturer, historical owner or load is identified. Occupied, driver, hitch, collision, riding and boarding interfaces are unsupported.",
+      "support_file": "transport/covered-wagon/covered_w01_wolfpoint_oak/covered-v2-cover.glb",
+      "paint": {
+        "body_meshes": [
+          "CartBody_CartBase_0",
+          "CartBody_CartDetails_0"
+        ],
+        "body": {
+          "CartBase": [
+            0.9072,
+            0.663,
+            0.4268
+          ],
+          "CartDetails": [
+            0.8372,
+            0.6401,
+            0.4217
+          ]
+        },
+        "gear": {
+          "CartBase": [
+            0.4874,
+            0.3497,
+            0.2467
+          ],
+          "CartDetails": [
+            0.4498,
+            0.3376,
+            0.2438
+          ]
+        }
+      },
       "wheel_contacts_m": [
         [
           -0.605,
@@ -257,7 +321,12 @@
         "note": "Reconstructed parked individual using the 1893 catalogue design reference. The catalogue establishes the maker/type before 1904; neither this particular vehicle, its owner, a household connection nor this curbside stop is documented. A matched pair and their stationary activity are reconstructed when the near carriage team is shown. Closed doors, no occupant, boarding, traffic or driving; no coachman or passenger fit is claimed.",
         "stationary_team": {
           "schema": "chicago4d_parked_draft_team_v1",
-          "horse_appearance": {"recipe_file": "transport/horse-coats.json", "scene": "1904", "grade": "reconstructed", "liberty": "L-horse-individual-coats-2795"},
+          "horse_appearance": {
+            "recipe_file": "transport/horse-coats.json",
+            "scene": "1904",
+            "grade": "reconstructed",
+            "liberty": "L-horse-individual-coats-2795"
+          },
           "driver_present": false,
           "reins_mode": "unheld",
           "pole_node": "vehicle_team_pole",

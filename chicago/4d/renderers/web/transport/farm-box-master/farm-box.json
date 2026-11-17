@@ -6,8 +6,8 @@
   "forward_axis": "+Z",
   "left_axis": "+X",
   "grade": "reconstructed",
-  "photographic_acceptance": false,
-  "status": "Development master; matched-view, clearance, LOD and world qualification pending",
+  "photographic_acceptance": true,
+  "status": "Qualified 2026-11-17 (T-3558): matched views beside the Wild 1835 painting and the Buffalo print, ground and tree clearance, LOD and phone/desktop cost recorded in QUALIFICATION.json. A licensed modern construction reference, not an attested 1835 specimen.",
   "source": {
     "title": "Old Cart",
     "author": "Lyskilde / longtail",

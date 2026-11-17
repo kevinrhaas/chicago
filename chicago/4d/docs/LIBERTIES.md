@@ -24365,7 +24365,7 @@ once.
 
 ### L-draft-prairie-18-20-west-2329 — The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
+**Covers:** `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the owner's district pass (2026-10-08) drafts the whole of Prairie Avenue as a
 serviceable first model that the per-building tickets then refine in place. On the west side of
 the 18th-20th block (Sanborn 1911 sheet 28) it stands nine houses and nine alley buildings —
@@ -24449,6 +24449,10 @@ brick, window marks and one-storey range the sheet draws; its draft attributes a
 **1912's alley building retired from this liberty by T-1935 (2026-11-15):** `moulton_lowden_house_1912_prairie_coach_house`
 now stands as the K12 coach house under `L-k12-1912-barn-1935`, under the same id, on the outline, storeys,
 brick, window mark and hip-and-deck roof plan the sheet draws; its draft attributes are gone.
+**The shed on the strip between 1834 and 1900 retired from this liberty by T-1935 (2026-11-16):** `shed_1834_1900_prairie`
+now stands as an open frame shed on the K16 timber kit under `L-k16-1834-1900-shed-1935`, under the same id, on the
+outline, storey, frame, shingle roof and dashed (open) sides the sheet draws; its draft attributes are gone, and
+with it the last of T-1935's seven alley buildings leaves the draft.
 **Retired in part:** 1936 the Thompson/Allerton house (the sheet's '1918 (1936)') by T-1901 (piece 1), which refined it in place on the K01 frontage kit under `L-k01-1936-allerton-1901`; its coach house is still this draft's.
 **Ticket:** T-2329 (piece 1 of T-2159, the district draft's 18th-20th block).
 **Review:** `docs/RESEARCH/prairie-draft-west-2329/README.md`.
@@ -40693,6 +40697,49 @@ not the alley.
 **Ticket:** T-1935.
 **Recorded:** 2026-11-02 (T-1935).
 
+### L-k16-1834-1900-shed-1935 — The open frame shed on the alley end of the strip between 1834 and 1900 Prairie, built from the K16 timber kit on the outline the 1911 sheet draws, open on the two sides it draws dashed
+
+**Decision:** the district draft's alley building on the narrow unnumbered strip between 1834 and 1900 Prairie
+Avenue (T-1935) is refined in place, under its own id `shed_1834_1900_prairie`, onto the K16 timber kit's
+whole-house builder, as 1630's alley shed on sheet 20 is (L-k16-1630-shed-1932): the last of T-1935's seven alley
+buildings on the west side of Prairie Avenue, 18th to 20th, and the only frame one, so the K12 brick kit the other
+six stand on does not fit it. The K16 kit learns, additively, a gabled block's `open` sides: posts on stone
+footings under a plate, no wall, the roof boarded underneath (`generators/archetypes/k16_timber.py`); the K16
+houses already built rebuild byte-identical.
+**What is read.** From sheet 28 of the 1911 Sanborn: one yellow (frame) building lettered '1', 9.201 m deep from
+the alley line and 3.900 m along it, measured between line centres on the committed raster (darkness profiles:
+the alley line at column 567.47 at the middle row; the east side at 749.46, in line with 1900's east wall below
+it; the north side at row 3547.89, the row 1834's record reads; the south wall at 3625.03, the line it shares
+with 1900's brick stable, where the key's fire-wall sign stands at the alley end) and carried by the sheet's
+fitted similarity; the key's small cross inside its south-east corner (shingle roof); the alley and south lines
+drawn solid and the north and east sides drawn DASHED. The draft had stood an 8.75 x 3.75 m block of its own
+fitting. Inferred for 1904 as every reading of these sheets is.
+**The open sides (inferred).** The 1911 key explains no dashed outer wall: its one dashed line is the frame
+partition, a line inside a building, and these two lines are the building's edges. The sheet draws open porches
+dashed (1726's on sheet 20, T-2934), and that is the reading taken here: the shed is walled on the alley and
+stands against 1900's brick wall on the south, and is open on the north (onto the 3.6 m open strip south of
+1834's barn) and on the east (into the strip's yard). If the dashes mean something else, the two sides are walls.
+**The date.** Robinson's 1886 plate 10 stops at 18th Street, so nothing read here dates the shed before the 1911
+sheet; that it stood by 1904 is the census's carry-back, which the district draft already made.
+**What is invented.** The use: an open yard shed (wagons, wood, coal), from its form and the census's word; no
+source names it. The section: one storey with its plate 2.9 m over grade on a 0.2 m foundation, under a 30-degree
+gable whose ridge runs back from the alley along the shed's length, so its gables face the alley and the yard and
+its slopes shed north onto the open strip and south to the foot of 1900's party wall (the sheet gives no roof
+form; the ridge on the long axis is the same choice 1630's shed takes). The alley wall: clapboard on a water table,
+corner boards, a 0.2 m frieze and a plain boxed eave 0.25 m deep with no brackets, and no opening (the sheet marks
+none on a frame wall; the open sides are the way in). The open sides: square posts the wall's thickness and a
+margin (0.21 m), on brick footings, no more than 3.2 m apart (four on the north side and one more midway along the east, five in all), under
+a 0.25 m plate whose top meets the roof boards; a fascia along the open eave; the roof boarded underneath and the
+walls' and gables' insides boarded where the open sides show them. 1630's shed's fawn paint on the body and the
+weathered cedar of its shingles. Flat colours.
+**What is not.** The outline, its place on the strip, the storey, the frame, the shingle roof and which sides
+are drawn dashed are the map's.
+**How to resolve:** a photograph of the alley behind 1834-1900 Prairie, or a building permit for the shed, entered
+as a source, gives its sides, roof, openings, use and date their true form. The picture T-1935's image gate names
+for it (Clark's c. 1905 view north from 1936) shows the house fronts and not the alley.
+**Recorded:** 2026-11-16 (T-1935).
+**Covers:** `shed_1834_1900_prairie.as_standing_1904.form.stories`, `shed_1834_1900_prairie.as_standing_1904.form.construction`, `shed_1834_1900_prairie.as_standing_1904.form.frame_house`
+
 ### L-k12-1912-barn-1935 — The brick barn on the alley behind 1912 Prairie, built from the K12 kit on the outline the 1911 sheet draws, its window mark and its hip-and-deck roof plan
 
 **Decision:** the district draft's alley building behind 1912 Prairie Avenue, the Moulton/Lowden house (T-1935),
@@ -44598,4 +44645,17 @@ the image gate; a picture of the rear or a description of the stone would replac
 **What is invented.** Every team's district, round, stops, dwell and hours; its horses and their coats; the employer of each man where the staffing model assigns him one; and that all of them are out at once on a July weekday. Ten, not eleven: the worked streets hold no eleventh district that keeps off the others' streets (the slough across Dearborn and Randolph and down State, the river bank under South Water east of Wells, Jefferson and Madison unopened), so William Smith stays at home. **The ruts.** The 1835 streets are graded earth, sunk below their lots with gutters at the sides, and a wagon or a horse laid level on them across a gutter is not the plane the level roads are held to. So on these streets (`rough_road`) the wagon leans and pitches with its four wheels' ground, at most 4 degrees, each wheel within 30 mm of the wagon's plane, and its horses walk the ruts, every hoof within 22 mm of its ground (the street ribbon's own lift) and leaning at most 5 degrees, where the certified 2 mm standing plane is not to be had. The ground is read smoothed from the 2.5 m heightfield, as 1812's is (`transport-ground.js`); crossing a gutter that reading can stand a wheel or hoof up to about 3 cm over the drawn street, on about 1 to 4 per cent of a round.
 **Re-opens on:** a record of a carter's or forwarding house's rounds, stands or hours in 1835; a count of teams in the streets; a survey of the 1835 street grades that replaces the heightfield's.
 **Ticket:** T-3558.
+**Recorded:** 2026-11-17 (T-3558).
+
+### L-wagons-brougham-3558 — the plate-matched Brougham on the 1904 carriages, the covered wagons on the photographic farm box, and the farm box's qualification
+
+**Decision:** the owner, 2026-11-12 and 2026-11-17: *"Finish the photographic wagons and Brougham: the farm-box master qualified, the covered wagons upgraded but kept distinct, and the Brougham matched to its 1893 plate and qualified in town."* Three things change.
+The four driven 1904 broughams (Hans Johnson's on the Prairie loop, Henry Windish's and Joseph Daniels's on the north and south loops, and Charles Nelson's Glessner coach) now draw the V20 Brougham, `renderers/web/transport/parked-brougham/brougham-v20-{near,mid,far}.glb`, derived from V19 by `tools/transport/brougham_v20/produce.py`. Against Studebaker's 1893 catalogue plate (leaf 0095, at its solved camera) V19 seated the coachman on four bare posts above a loose footboard and carried a thin mudguard over each rear wheel. The plate draws a closed black driving box with an upright dash, an iron top rail and stays, a swept iron under the box, and no rear mudguards. V20 closes the box sides and front, adds the dash, rail, stays and swept irons, and removes the mudguards and their two supports. Its register (`tools/transport/brougham_v20/discrepancies.json`) keeps one difference open on purpose: the box rides about 0.3 m lower than the plate's, because every 1904 coachman and his livery were fitted on V19's seat and footboard. Those surfaces are byte-identical in V20 (`check.py` proves it), and each row's driver binding names V19 as the fitted basis (`fitted_on`). Door sash and hub-cap tone are within tolerance, the dark rear quarter is unresolved in the plate, and the plate's coachmen, passenger and pair are not claimed by the empty model.
+The two 1835 covered wagons (the Western Hotel's blue/oxide and Wolf Point's oak/dark oak) stand on the licensed photographic farm-box master instead of the plain W01 gear. Each keeps its own canvas sheet, sewn hems, five bows and laid-by yoke, its own stand, bearing, seed and finish family. Its seeded body and gear colours are now painted over the master's photographed boards as material multipliers, and its own seed draws grime at the hems and ends, rain streaks between the bows and a sun-faded crown into the canvas. The cover's skirt is eased down onto the master's own uneven side boards, which the artist modelled weathered, one top board lower than the other (`tools/transport/wagon_covered/upgrade_v2.py`).
+The farm-box master's `photographic_acceptance` is set true on its record of matched views beside the Wild 1835 painting and the Buffalo print, ground and tree clearance in the scenes that use it, and its levels' costs (`renderers/web/transport/farm-box-master/QUALIFICATION.json`).
+**Not invented:** the Brougham's closed box, dash, rail, stays and swept irons and the absence of rear mudguards are read off the 1893 plate (`studebaker_1893_illustrated_souvenir`). The covered wagon's family (four spoked wheels, smaller in front, a blue box, red-brown gear and a pale canvas cover) is the lower-right wagon of Wild's 1835 *Third and Vine* (`wild_1835_third_vine`).
+**Liberties within it:** the V20 box's panel outline, dash rake, rail and stay sizes and the swept irons' path are drawn to the plate's proportions, not measured; the box height stays V19's. Every covered wagon's paint, the canvas ageing pattern and the skirt fit are reconstructed. Wild's cover is lower and loosely draped where ours stands on five bows; it stays as v1 built it. The painted farm box keeps the artist's weathered boards and iron, which are a modern optical reference, not an 1835 specimen.
+**Re-opens on:** a refit of the 1904 coachmen to a box at the plate's height; a dated picture of a covered wagon in Chicago; a Studebaker drawing that shows the rear quarter.
+**Ticket:** T-3558.
+**Review:** `tools/transport/brougham_v20/discrepancies.json`, `renderers/web/transport/parked-brougham/brougham-v20.json`, `renderers/web/transport/farm-box-master/QUALIFICATION.json`, `data/transport/parked/placements.json` (covered models).
 **Recorded:** 2026-11-17 (T-3558).
