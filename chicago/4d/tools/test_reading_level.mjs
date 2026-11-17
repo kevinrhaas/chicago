@@ -242,6 +242,11 @@ function makeDoc() {
   for (const e of byFamily('notes')) assert(notes.has(keyOf(e.text)), `${e.card.slice(0, 60)}: a note the Details tab shows`);
   assert(byFamily('leads').length > 0, 'the 1904 opening lines are retold');
   for (const e of byFamily('leads')) assert(leads.has(keyOf(e.text)), `${e.card.slice(0, 60)}: a line a card opens on`);
+  // 1835's notes are the most and the longest: every one the Details tab shows at 11+ is retold.
+  const n35 = JSON.parse(read('data/reading/1835.json')).entries.filter((e) => e.card.startsWith('notes:'));
+  const shown35 = new Set(JSON.parse(execFileSync('node', ['tools/reading_notes.mjs', '1835'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 << 20 })).notes.map(keyOf));
+  assert(n35.length > 1700, 'the 1835 evidence notes are retold');
+  for (const e of n35) assert(shown35.has(keyOf(e.text)) && e.levels['8-10'], `${e.card.slice(0, 60)}: a note the 1835 Details tab shows, at 8–10`);
 }
 
 // ---- the wiring: Settings, the Jaunts menu, the cards ------------------------------------------
