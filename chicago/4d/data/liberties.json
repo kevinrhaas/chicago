@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1165,
+  "count": 1166,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -71867,6 +71867,36 @@
         "T-3507",
         "T-3508",
         "T-3509"
+      ]
+    },
+    {
+      "id": "L-1812-names-3553",
+      "title": "A name of ours for everyone of 1812 whom no source names: the counted town people and the unnamed figures of the 1812 story jaunts",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-17: *\"for everyone in 1812 who does not have a name give them a name, they are of course reconstructed people, unless its a known kid or something like that who is inferred, it should show on their hover card\"*. the names 1812 tool, called by the generators that write the cards (people-1812-3461 build tool, people-1812-town cards tool) and the 1812 jaunt stage build tool, adds four things that are ours. (1) **Town names.** Sixteen cards a source counts and nobody names take a name of our making, of the kind the sources say they were: Kinzie's boatman and second engagé French-Canadian names (*François Dumoulin*, *Michel Pelletier*), as his engagés were *\"the Canadian voyageurs in the service of Mr. Kinzie\"* (Andreas p. 73); his second servant (Wau-Bun and Kirkland count two, name only Black Jim) a French-Canadian name, *Louis Gagnon*; the six unnamed militia men, French-Canadian names for the three in an engagé's dress and American names for the three in a settler's (*Amos Whitcomb*, *Ezra Stoddard*, *Pierre Langlois*, *Antoine Bellanger*, *Joseph Desjardins*, *Daniel McCurdy*), the militia being the men of the settlement (Quaife ch. X); the seven unnamed children of the post a first name only (*Reuben*, *Polly*, *Hannah*, *Eli*, *Betsey*, *Ephraim*, *Sally*), because which family a child belonged to is not known and a surname would claim one. No surname is one any 1812 card carries. (2) **Marked as ours.** Each card keeps its old label in also written, says in name basis (graded reconstructed) that no source names the person, and shows a *Name: Reconstructed* fact; the directory row of a real person whose name is ours (the second servant; also Main Poc's runner and Wau-bee-nee-mah's wife, named by “Names, histories and the part on 15 August for every Potawatomi and Miami card of 1812, and three named men who came after the 14th”) carries name grade, and the floating name card's edge shows that grade, not the person's. (3) **Staged figures.** The 51 figures who play the unnamed in the 1812 story jaunts (the eleven men Heald took for Winnebagoes, the Wabash war party and searchers, the two men on the Kinzies' porch, the young men who burned the fort, the gathering come to watch, the warriors of the 18+ telling) each take a name made as the gathering's were (“Names, histories and the part on 15 August for every Potawatomi and Miami card of 1812, and three named men who came after the 14th”), none repeating a card's; those whose nation is not certain (the \"Winnebagoes\", the party \"from the Wabash\") speak of no gens. What each stands for stays on it as `about` (*\"…; name reconstructed\"*), said with the name when the figure is clicked. (4) **Kept as they were.** Children a source places in a named family (the Burns children and baby, the Lee son, daughter and baby, the Holt and Needs children, Cicely's son, the Ouilmette children) keep their honest labels: a name of ours on a real, known child would read as the record's (the owner's exception). Wives the record calls only *Mrs. Burns*, *Mrs. Lee* and the like keep the name the record gives."
+        },
+        {
+          "label": "Not invented",
+          "text": "the counts (Quaife App. IX; Wau-Bun; Kirkland), who the engagés and the militia were (Andreas; Quaife), every card's facts and grades; the names themselves are ours and say so."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "any record naming one of these people, which replaces our name on that card."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-17."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
       ]
     },
     {

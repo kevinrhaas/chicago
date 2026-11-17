@@ -552,7 +552,8 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       const m = hit && cast.find((x) => x.actor.proxy === hit.object);
       if (!m) return null;
       return { actor: m.actor, personId: m.c.person ?? null, person: m.actor.person ?? null,
-        name: m.c.person ? (m.actor.person?.name ?? null) : (m.c.name ?? 'An unnamed figure'), distance: hit.distance, point: hit.point };
+        name: m.c.person ? (m.actor.person?.name ?? null) : (m.c.name ?? 'An unnamed figure'), about: m.c.person ? null : (m.c.about ?? null),
+        distance: hit.distance, point: hit.point };
     },
     meet(hit, visitor = null) {
       const m = cast.find((x) => x.actor === hit?.actor);

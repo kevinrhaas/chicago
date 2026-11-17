@@ -250,7 +250,9 @@ export const GRADE_BORDER = 4;
 /** The grades a card's edge shows, as the Confidence view names them. */
 export const GRADES = Object.freeze(['attested', 'inferred', 'reconstructed']);
 /** Who stands in no record of their own (a jaunt's unnamed extra) is reconstructed. */
-export const gradeOf = (person, extra = false) => (GRADES.includes(person?.grade) ? person.grade : extra ? 'reconstructed' : null);
+// T-3553: a person whose name is ours (`name_grade`, below their own grade) shows the name's grade.
+export const gradeOf = (person, extra = false) => (GRADES.includes(person?.name_grade) ? person.name_grade
+  : GRADES.includes(person?.grade) ? person.grade : extra ? 'reconstructed' : null);
 
 const hex = (c) => { const m = /^#?([0-9a-f]{6})$/i.exec(String(c ?? '').trim()); return m ? parseInt(m[1], 16) : null; };
 /** `a` mixed `t` of the way to `b` (both '#rrggbb'), as '#rrggbb'; `a` when either is not one. */

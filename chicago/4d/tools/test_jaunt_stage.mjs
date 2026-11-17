@@ -146,6 +146,15 @@ console.log('PASS the stage makes its own figures, poses them, plays their beats
   assert.equal(hitW.personId, null); assert.equal(hitW.name, 'One of the warriors; name not recorded', 'an unnamed figure says who it stands for');
   assert.equal(st.meet(hitW, { e: 0, n: 0 }), false, 'one kneeling for the scene keeps their pose');
   assert.equal(w.greets, 0);
+  {
+    // T-3553: an unnamed figure given a name of ours says it with what they stand for.
+    const st2 = createJauntStage({ humans, eye: () => ({ x: 0, y: 1.6, z: 0 }) });
+    st2.sync({ id: 'n', stage: { cast: [{ extra: 'v', dress: 'potawatomi_man_1812', name: 'Red Thunder', about: 'One of the warriors; name reconstructed', at: [3, 10] }] } }, { arrived: true });
+    const hitV = st2.pick(ray(st2.cast[0]));
+    assert.equal(hitV.name, 'Red Thunder'); assert.equal(hitV.about, 'One of the warriors; name reconstructed');
+    assert.equal(st2.named[0].grade, 'reconstructed', 'a name of ours on a staged figure reads reconstructed');
+    st2.release();
+  }
   w.indoors = true;
   assert.equal(st.pick(ray(w)), null, 'one out of sight is not met');
   assert.equal(st.pick(null), null);

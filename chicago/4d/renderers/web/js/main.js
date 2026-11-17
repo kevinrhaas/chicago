@@ -5402,7 +5402,8 @@ async function boot() {
       popup.close();
       api.jauntStage.meet(staged, { e: walker.state.e, n: walker.state.n });
       if (staged.personId) void openPersonCard(staged.personId);
-      else hud.say(staged.name);
+      // An unnamed figure given a name of ours (T-3553) says it with what they stand for.
+      else hud.say(staged.about ? `${staged.name}: ${staged.about}` : staged.name);
       return staged;
     }
     if (figure && (!hit || figure.distance < hit.distance)) {

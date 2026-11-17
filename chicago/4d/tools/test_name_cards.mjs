@@ -46,6 +46,33 @@ for (const year of ['1812', '1835', '1904']) {
   ok(m.cardWidth(short) < m.SLOT_W && m.cardWidth(long) <= m.SLOT_W, 'a card is never wider than its slot');
 }
 
+// T-3553 (the owner, 2026-11-17: "for everyone in 1812 who does not have a name give them a name
+// ... unless its a known kid ... who is inferred"): no 1812 card or staged figure reads "name not
+// recorded" but the known children of named families, and every name of ours says so.
+{
+  const KNOWN_CHILDREN = new Set(['burns_child_a', 'burns_child_b']);
+  const people = JSON.parse(fs.readFileSync(path.join(root, 'data/sidecars/1812/people.json'), 'utf8')).people;
+  const left = people.filter((p) => /names? not recorded/i.test(p.name) && !KNOWN_CHILDREN.has(p.id)).map((p) => p.id);
+  ok(left.length === 0, `1812: every card has a name, the known children aside${left.length ? ` — still unnamed: ${left.join(', ')}` : ''}`);
+  const hh = path.join(root, 'data/residents_1812/households');
+  const ours = [];
+  for (const f of fs.readdirSync(hh)) for (const p of JSON.parse(fs.readFileSync(path.join(hh, f), 'utf8')).persons ?? []) {
+    if ((p.reconstruction?.name_liberty) !== 'L-1812-names-3553') continue;
+    ours.push(p.id);
+    if (p.name_basis?.grade !== 'reconstructed' || !(p.also_written ?? []).some((x) => /not recorded/.test(x))) ok(false, `${p.id}: a name of ours is marked reconstructed and keeps the old label`);
+  }
+  ok(ours.length === 16, `1812: the sixteen counted-and-unnamed town cards carry names of ours (${ours.length})`);
+  const row = people.find((p) => p.id === 'kinzie_servant_second');
+  ok(row?.grade === 'attested' && m.gradeOf(row) === 'reconstructed', "Kinzie's second servant: attested, his name ours, his card's edge reconstructed");
+  const staged = [];
+  for (const f of fs.readdirSync(path.join(root, 'data/jaunts')).filter((x) => /^(battle-of-fort-dearborn|killing-of-jean-lalime)/.test(x))) {
+    for (const s of JSON.parse(fs.readFileSync(path.join(root, 'data/jaunts', f), 'utf8')).stops ?? []) {
+      for (const c of s.stage?.cast ?? []) if (c.extra && (/not recorded/.test(c.name ?? '') || (c.about && !/name reconstructed$/.test(c.about)))) staged.push(`${f}:${c.extra}`);
+    }
+  }
+  ok(staged.length === 0, `1812 jaunts: every unnamed figure has a name of ours, said so with what they stand for${staged.length ? ` — ${staged.slice(0, 4).join(', ')}` : ''}`);
+}
+
 // 2. Who is carded: the nearest in view within reach, at most the tier's number.
 {
   const c = Array.from({ length: 40 }, (_, i) => ({ key: `p${i}`, distance: 50 - i, inView: i % 7 !== 0 }));
@@ -154,6 +181,8 @@ for (const year of ['1812', '1835', '1904']) {
   ok(m.gradeOf({ grade: 'attested' }) === 'attested' && m.gradeOf({ grade: 'inferred' }) === 'inferred'
     && m.gradeOf({ grade: 'reconstructed' }) === 'reconstructed', "a person's own grade is their card's");
   ok(m.gradeOf(null, true) === 'reconstructed' && m.gradeOf({}) === null, "an unnamed extra is reconstructed; a record with no grade shows none");
+  // T-3553: a real person given a name of ours shows the name's grade, never the person's.
+  ok(m.gradeOf({ grade: 'attested', name_grade: 'reconstructed' }) === 'reconstructed', 'a reconstructed name on an attested person reads reconstructed');
   for (const year of ['1812', '1835', '1904']) {
     const people = JSON.parse(fs.readFileSync(path.join(root, 'data/sidecars', year, 'people.json'), 'utf8')).people ?? [];
     const none = people.filter((p) => !m.gradeOf(p));

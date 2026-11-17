@@ -540,7 +540,7 @@
     },
     {
       "id": "kinzie_servant_second",
-      "name": "A second Kinzie servant, name not recorded",
+      "name": "Louis Gagnon",
       "relationship": "servant",
       "grade": "attested",
       "sources": [
@@ -559,7 +559,30 @@
           "quote": "a clerk of Mr. Kinzie's, two servants, the boatman, and two Indians as guard",
           "claim": "count of servants"
         }
-      ]
+      ],
+      "also_written": [
+        "A second Kinzie servant, name not recorded"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "kirkland_1893_chicago_massacre"
+        ],
+        "note": "No source names him: the name is ours. The household's servants and helpers were French, Métis, Black and American; he is given a French-Canadian name, the commonest in the house."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        }
+      ],
+      "reconstruction": {
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
+      }
     }
   ],
   "not_in_this_household": {

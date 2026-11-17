@@ -258,6 +258,9 @@ def main(check=False):
             nc.on_disk([f.stem for f in OUT.glob('hh_*.json') if not f.stem.startswith('hh_potawatomi_lodges_')]))
         nc.apply_households(lodges, families={p['id']: hid for hid, r in lodges.items() for p in r['persons']},
                             reserved=taken)
+    # T-3553 (the owner, 2026-11-17): a name of our making for every card no source names (tools/names_1812.py)
+    import names_1812
+    names_1812.apply_households({n[:-5]: r for n, r in out.items()})
     stale = []
     for name, rec in out.items():
         text = json.dumps(rec, indent=2, ensure_ascii=False) + '\n'

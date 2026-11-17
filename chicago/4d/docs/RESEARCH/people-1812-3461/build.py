@@ -559,6 +559,9 @@ def write(check=False):
     sys.path.insert(0, str(ROOT / 'tools'))
     import native_cards_1812 as nc
     nc.apply_households({n[:-5]: r for n, r in out.items()})
+    # T-3553 (the owner, 2026-11-17): a name of our making for every card no source names (tools/names_1812.py)
+    import names_1812
+    names_1812.apply_households({n[:-5]: r for n, r in out.items()})
     faults = []
     for name, rec in out.items():
         for p in rec['persons']:
