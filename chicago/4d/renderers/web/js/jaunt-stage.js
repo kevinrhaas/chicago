@@ -82,7 +82,13 @@
  * scene's next beat takes them on as written.
  */
 
-export const PACES = Object.freeze({ walk: null, brisk: 1.75, hurry: 2.2, slow: 0.9 });
+/**
+ * A beat's `pace`, m/s (`walk`: the figure's own). T-3553 (the owner, 2026-11-16: "make sure they
+ * can run accurately ... there may be different speeds"): past about 2 m/s the people layer's
+ * gait runs (human-gait.js), so `hurry` is the slowest jog; `jog`, `run` and `flee` are the
+ * running dataset's own speeds (2.5-4.5 m/s, rounded), and `sprint` a flat-out dash past them.
+ */
+export const PACES = Object.freeze({ walk: null, brisk: 1.75, hurry: 2.2, slow: 0.9, jog: 2.6, run: 3.6, flee: 4.5, sprint: 5.6 });
 export const POSES = Object.freeze(['stand', 'kneel', 'kneel2', 'crouch', 'sit', 'prone', 'lie', 'fallen']);
 /** How far beyond the people layer's animation range a posed figure keeps its pose drawn. */
 export const STAGE_ANIMATE_M = 160;

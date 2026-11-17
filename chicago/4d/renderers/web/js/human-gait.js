@@ -85,6 +85,83 @@ export const GAIT = Object.freeze({
 });
 
 /**
+ * Running (T-3553; the owner, 2026-11-16: "improve humans to make sure they can run accurately
+ * ... there may be different speeds"). The same layer runs a figure once it is moving faster
+ * than a walk: people change from a walk to a run at about 2 m/s, so the gait takes the run
+ * from `toRun` and gives it back below `toWalk` (a little lower, so a figure at the edge does
+ * not flicker between them), easing over about a step.
+ *
+ * The run differs from the walk in the ways the measurements show: each foot is down for only
+ * about a third of the cycle (36 % at 2.5 m/s, 33 % at 3.5, 31 % at 4.5), so between the steps
+ * both feet are off the ground and the body is in the air; the stance knee bends to about 43
+ * degrees as the body comes over the foot and straightens to push off; the swing knee folds to
+ * 93-114 degrees and the thigh comes forward to 43-60; the steps are long (a stride of 1.06,
+ * 1.38 and 1.69 of the runner's height at the three speeds) at 159-181 steps a minute; and the
+ * pelvis rises and falls by 9-10 cm a stride. RUN_CURVES are the means of the public running
+ * dataset of Fukuchi, Fukuchi & Duarte 2017 (PeerJ 5:e3298; treadmill running at 2.5, 3.5 and
+ * 4.5 m/s; data/humans/gait/normative_running.json, made by
+ * docs/RESEARCH/human-running-3553/extract_rbds.py), and RUN its events and steps.
+ *
+ * Between the measured speeds every number is interpolated by speed, and past 4.5 m/s (a sprint,
+ * a flight for one's life) it carries on along the trend of the last two up to `maxM_s`; that
+ * extrapolation, the pelvis's forward tilt, the foot's angles at contact and toe-off, the
+ * narrower step and the stiffer, smaller sway of the hips in a run are reconstructed (liberty
+ * L-human-gait-3472). A figure in a floor-length skirt runs with the shorter step her walk has.
+ */
+export const RUN_CURVES = Object.freeze({
+  speeds: Object.freeze([2.5, 3.5, 4.5]),
+  hip: Object.freeze([
+    Object.freeze([32.9, 31.7, 31.7, 29.4, 23.5, 15.5, 7.1, 0.4, -2.9, -2.8, 0.1, 4.1, 10.0, 19.5, 30.1, 38.4, 42.9, 43.1, 39.7, 35.6, 32.9]),
+    Object.freeze([38.0, 35.9, 36.0, 32.4, 23.7, 12.7, 1.9, -4.9, -6.5, -4.7, -1.5, 3.1, 11.6, 24.7, 38.0, 47.3, 51.8, 52.1, 48.4, 42.6, 38.0]),
+    Object.freeze([42.2, 39.0, 38.5, 33.3, 22.4, 9.1, -3.2, -9.7, -9.7, -7.1, -3.7, 1.7, 12.5, 28.4, 43.7, 53.7, 58.7, 59.8, 55.8, 48.4, 42.2]),
+  ]),
+  knee: Object.freeze([
+    Object.freeze([10.7, 20.7, 35.5, 42.6, 41.3, 34.5, 25.2, 17.3, 15.8, 23.7, 39.9, 58.7, 76.0, 88.4, 92.6, 86.9, 72.9, 52.4, 29.7, 13.1, 10.7]),
+    Object.freeze([11.2, 21.6, 37.3, 43.8, 40.8, 32.1, 21.0, 13.9, 17.8, 32.6, 52.7, 73.4, 91.9, 104.0, 105.9, 97.1, 80.3, 57.9, 33.3, 14.7, 11.2]),
+    Object.freeze([13.0, 22.6, 38.2, 44.5, 40.4, 30.3, 17.7, 12.3, 22.0, 40.8, 62.4, 83.8, 102.7, 114.2, 114.4, 103.7, 85.9, 63.4, 38.0, 17.9, 13.0]),
+  ]),
+  ankle: Object.freeze([
+    Object.freeze([2.8, 2.1, 10.2, 18.2, 22.4, 20.6, 11.3, -2.6, -14.0, -18.6, -17.9, -15.5, -12.1, -6.9, -2.4, 0.6, 2.1, 2.8, 3.5, 3.7, 2.8]),
+    Object.freeze([4.0, 1.4, 9.2, 18.7, 23.4, 19.3, 4.8, -13.0, -21.4, -20.2, -18.6, -17.4, -13.1, -7.7, -3.6, -0.8, 0.7, 2.5, 4.5, 5.1, 4.0]),
+    Object.freeze([1.9, -1.0, 7.3, 18.0, 22.5, 15.1, -4.5, -21.8, -24.4, -22.5, -22.5, -20.4, -15.2, -10.0, -6.1, -3.3, -1.5, 1.0, 3.3, 3.6, 1.9]),
+  ]),
+});
+export const RUN = Object.freeze({
+  toRun: 2.05, toWalk: 1.85, blendS: 0.25,      // m/s; the change takes about a step
+  minM_s: 2.0, maxM_s: 6.0,                     // the run's numbers are carried this far past the measured 2.5-4.5
+  stance: Object.freeze([0.36, 0.33, 0.31]),    // toe-off, of the cycle (vertical ground force)
+  strideOverHeight: Object.freeze([1.058, 1.378, 1.686]),
+  pelvisRangeM: Object.freeze([0.102, 0.099, 0.086]), // the pelvis's rise and fall over a stride
+  footFlat: 0.05, heelOffOfStance: 0.45,        // reconstructed: the foot is flat almost at once, the heel up from mid-stance
+  strikeDeg: 8, toeOffDeg: -30, pelvisTiltDeg: 12,
+  stepWidth: 0.5, lateral: 0.5, sway: 0.8,      // shares of the walk's (a run is narrower and its hips steadier)
+  dropM: 0.2,                                   // how far below standing the pelvis may go (a deep stance knee)
+});
+
+/** A run's number at `v` m/s from a row per measured speed: straight between them, and on their trend past them. */
+export function runAt(rows, v) {
+  const S = RUN_CURVES.speeds, x = clamp(v, RUN.minM_s, RUN.maxM_s);
+  const i = x <= S[1] ? 0 : 1, t = (x - S[i]) / (S[i + 1] - S[i]);
+  return rows[i] + (rows[i + 1] - rows[i]) * t;
+}
+/** The run's cycle table for `joint` at `v` m/s (21 values), into `out`. */
+export function runTable(joint, v, out = new Array(21)) {
+  const rows = RUN_CURVES[joint], S = RUN_CURVES.speeds, x = clamp(v, RUN.minM_s, RUN.maxM_s);
+  const i = x <= S[1] ? 0 : 1, t = (x - S[i]) / (S[i + 1] - S[i]);
+  for (let k = 0; k < 21; k++) out[k] = rows[i][k] + (rows[i + 1][k] - rows[i][k]) * t;
+  return out;
+}
+/** The stride of a walk at `v` m/s for a person whose comfortable walk is `P` (README: stride/height = 0.385 + 0.327 v). */
+export function walkStride(P, v) {
+  const at = (u) => 0.385 + 0.327 * clamp(u, 0.3, 2.4);
+  return P.stride * at(v) / at(P.speed);
+}
+/** The stride of a run at `v` m/s for that person: the measured stride for their height, as short again as their walk is for theirs. */
+export function runStride(P, v) {
+  return runAt(RUN.strideOverHeight, v) * P.height * P.strideNorm;
+}
+
+/**
  * A person's walk: comfortable speed (m/s, ground), stride (m, two steps), step width and
  * the pelvis's motion. Bounded by the published adult means: men 1.3-1.45 m/s with a
  * stride of about 0.8-0.85 of their height, women 1.2-1.35 m/s and 0.75-0.8, both slower
@@ -109,7 +186,10 @@ export function gaitProfile({ sex = 'male', age = 35, height = 1.72, skirt = fal
     stride = c.stride + (stride - c.stride) * t;
   }
   return {
-    speed, stride, cadence: (2 * speed) / stride,
+    speed, stride, cadence: (2 * speed) / stride, height,
+    // How long this person's step is against the population's for their height and pace (1 for a
+    // young man; a woman's, a skirt's and an old person's step shorter): a run keeps it.
+    strideNorm: clamp(stride / (height * (0.385 + 0.327 * speed)), 0.7, 1.15),
     stepWidth: female ? 0.083 : 0.095,
     pelvisYawDeg: 5.5 * (skirt ? 0.7 : 1) * (1 - 0.3 * old),
     pelvisRollDeg: 4.5 * (skirt ? 0.7 : 1) * (1 - 0.3 * old),
@@ -302,13 +382,38 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
   let hasLast = false;
   let closing = [];           // the closing steps still to take: side names
   const now = { yaw: 0, roll: 0, bob: 0, lateral: 0 };
-  const foot = () => ({ stance: true, plant: new THREE.Vector3(), yaw: 0, e0: new THREE.Vector3(), pitch0: 0, yaw0: 0, toe0: 0, u0: 0, lastC: 0, step: null });
+  // T-3553: how fast the figure is going now (m/s, eased), its share of a run (0 walking, 1
+  // running), the cycle's events and joint tables for that, and the stride it takes.
+  let vNow = 0, run = 0, strideNow = P.stride;
+  const ev = { stance: GAIT.stance, footFlat: GAIT.footFlat, heelOff: GAIT.heelOff, strikeDeg: GAIT.strikeDeg, toeOffDeg: GAIT.toeOffDeg, tilt: GAIT.pelvisTiltDeg };
+  const tb = { hip: [...GAIT_CURVES.hip], knee: [...GAIT_CURVES.knee], ankle: [...GAIT_CURVES.ankle] };
+  const runTb = { hip: new Array(21), knee: new Array(21), ankle: new Array(21) };
+  let flight = null;          // in a run's flight: { y0, s } the pelvis's height at toe-off and the foot that left
+  /** The cycle for a figure going `v` m/s with run share `r`: events, joint tables and stride. */
+  function regime(v, r) {
+    const st = runAt(RUN.stance, v);
+    ev.stance = GAIT.stance + (st - GAIT.stance) * r;
+    ev.footFlat = GAIT.footFlat + (RUN.footFlat - GAIT.footFlat) * r;
+    ev.heelOff = GAIT.heelOff + (st * RUN.heelOffOfStance - GAIT.heelOff) * r;
+    ev.strikeDeg = GAIT.strikeDeg + (RUN.strikeDeg - GAIT.strikeDeg) * r;
+    ev.toeOffDeg = GAIT.toeOffDeg + (RUN.toeOffDeg - GAIT.toeOffDeg) * r;
+    ev.tilt = GAIT.pelvisTiltDeg + (RUN.pelvisTiltDeg - GAIT.pelvisTiltDeg) * r;
+    for (const j of ['hip', 'knee', 'ankle']) {
+      const w = GAIT_CURVES[j], o = tb[j];
+      if (r <= 0) { for (let k = 0; k < 21; k++) o[k] = w[k]; continue; }
+      const q = runTable(j, v, runTb[j]);
+      for (let k = 0; k < 21; k++) o[k] = w[k] + (q[k] - w[k]) * r;
+    }
+    const sw = walkStride(P, Math.min(v, 2.4)), sr = runStride(P, v);
+    strideNow = Math.max(0.2, sw + (sr - sw) * r);
+  }
+  const foot = () => ({ stance: true, plant: new THREE.Vector3(), yaw: 0, e0: new THREE.Vector3(), pitch0: 0, yaw0: 0, toe0: 0, u0: 0, lastC: 0, step: null, st: null, land: null });
   const feet = { l: foot(), r: foot() };
 
   // Scratch.
   const sceneM = new THREE.Matrix4(), sceneInv = new THREE.Matrix4(), sceneQ = new THREE.Quaternion(), sceneQInv = new THREE.Quaternion();
   const q1 = new THREE.Quaternion(), q2 = new THREE.Quaternion(), qh = new THREE.Quaternion(), qr = new THREE.Quaternion();
-  const v1 = new THREE.Vector3(), v2 = new THREE.Vector3(), v3 = new THREE.Vector3(), vh = new THREE.Vector3();
+  const v1 = new THREE.Vector3(), v2 = new THREE.Vector3(), v3 = new THREE.Vector3(), vh = new THREE.Vector3(), vh2 = new THREE.Vector3();
   const mA = new THREE.Matrix4(), mB = new THREE.Matrix4();
   const out = Object.fromEntries(BONES.map((n) => [n, new THREE.Quaternion()]));
   const pelvisPos = new THREE.Vector3();
@@ -339,12 +444,12 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
   /** The swing's curves at cycle `c`: the ankle relative to its hip, and the foot's pitch. */
   function swingFK(s, c, target) {
     const L = leg[s];
-    const a = (curveAt(GAIT_CURVES.hip, c) - GAIT.pelvisTiltDeg) * DEG;
-    const k = curveAt(GAIT_CURVES.knee, c) * DEG;
+    const a = (curveAt(tb.hip, c) - ev.tilt) * DEG;
+    const k = curveAt(tb.knee, c) * DEG;
     target.set(0, 0, 0)
       .addScaledVector(fwd, L.l1 * Math.sin(a) + L.l2 * Math.sin(a - k))
       .addScaledVector(UP, -(L.l1 * Math.cos(a) + L.l2 * Math.cos(a - k)));
-    return (a - k) + curveAt(GAIT_CURVES.ankle, c) * DEG;
+    return (a - k) + curveAt(tb.ankle, c) * DEG;
   }
 
   /**
@@ -354,14 +459,18 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
    * travel. The rest of the stance's ground passes behind the hip.
    */
   function landing(s, target) {
-    const L = leg[s], stride = P.stride / unit;
+    const L = leg[s], stride = strideNow / unit;
     swingFK(s, 0, v2);
-    const ahead = v2.dot(fwd) * clamp(stride / (1.566 * L.hipHeight), 0.8, 1.2);
+    // A walk's step against the measured walkers' for this leg; a run's against the measured
+    // runners' at this speed for this height (the curves are theirs).
+    const walkK = clamp(stride / (1.566 * L.hipHeight), 0.8, 1.2);
+    const runK = clamp(strideNow / Math.max(0.5, runAt(RUN.strideOverHeight, vNow) * P.height), 0.8, 1.2);
+    const ahead = v2.dot(fwd) * (walkK + (runK - walkK) * run);
     v1.set(0, 0, 0)
-      .addScaledVector(right, -L.side * (P.stepWidth / unit) / 2)
+      .addScaledVector(right, -L.side * (P.stepWidth * (1 + (RUN.stepWidth - 1) * run) / unit) / 2)
       .addScaledVector(fwd, ahead);
     v1.y = L.shape.sole + L.ankleUp - rest.pelvis.p.y;
-    rolled(s, v1, GAIT.strikeDeg * DEG, L.side * GAIT.toeOutDeg * DEG, target);
+    rolled(s, v1, ev.strikeDeg * DEG, L.side * GAIT.toeOutDeg * DEG, target);
     // The roll about the heel draws the ankle back: put it where the curves have it.
     return target.addScaledVector(fwd, ahead + L.hipOff.dot(fwd) - target.dot(fwd));
   }
@@ -376,8 +485,8 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
   function stancePose(s, c, pose) {
     const f = feet[s];
     let pitch = 0;
-    if (c < GAIT.footFlat) pitch = GAIT.strikeDeg * DEG * (1 - smooth(c / GAIT.footFlat));
-    else if (c > GAIT.heelOff) { const t = clamp((c - GAIT.heelOff) / (GAIT.stance - GAIT.heelOff), 0, 1); pitch = GAIT.toeOffDeg * DEG * t * t; }
+    if (c < ev.footFlat) pitch = ev.strikeDeg * DEG * (1 - smooth(c / ev.footFlat));
+    else if (c > ev.heelOff) { const t = clamp((c - ev.heelOff) / (ev.stance - ev.heelOff), 0, 1); pitch = ev.toeOffDeg * DEG * t * t; }
     // Planted in the world across the ground; its height rides the figure's (steps, slopes).
     v2.copy(f.plant).applyMatrix4(sceneInv);
     v2.y = groundAnkle(s);
@@ -397,7 +506,10 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
   function beginSwing(s, A, pitch, yaw, c) {
     const f = feet[s];
     f.stance = false;
-    f.u0 = clamp((c - GAIT.stance) / (1 - GAIT.stance), 0, 0.95);
+    // T-3553: the swing keeps the toe-off it began at, so a walk turning to a run (or back)
+    // under way never jumps a foot in the air back to where it left the ground.
+    f.st = Math.min(c, ev.stance);
+    f.u0 = clamp((c - f.st) / (1 - f.st), 0, 0.95);
     const fkPitch = swingFK(s, c, fk);
     f.e0.copy(A).sub(hipNow(s, vh)).sub(fk);
     f.pitch0 = pitch - fkPitch;
@@ -408,15 +520,26 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
   /** A foot in the air at cycle `c`: the curves, corrected to leave and land where it must. */
   function swingPose(s, c, pose) {
     const f = feet[s], L = leg[s], A = pose.A;
-    const u = clamp((c - GAIT.stance) / (1 - GAIT.stance), 0, 1);
+    const st0 = f.st ?? ev.stance, u = clamp((c - st0) / (1 - st0), 0, 1);
     const m = smooth((u - f.u0) / Math.max(1e-3, 1 - f.u0));
     const fkPitch = swingFK(s, c, A);
     const H = hipNow(s, vh);
     landing(s, land).add(v1.set(pelvisPos.x, rest.pelvis.p.y, pelvisPos.z));
+    (f.land ??= new THREE.Vector3()).copy(land);
     const endPitch = swingFK(s, 1, endFk);
-    // e1 = land - H - FK(1): at c = 1 the ankle is at the landing.
-    A.add(H).addScaledVector(f.e0, 1 - m).add(v1.copy(land).sub(H).sub(endFk).multiplyScalar(m));
-    const pitch = fkPitch + f.pitch0 * (1 - m) + (GAIT.strikeDeg * DEG - endPitch) * m;
+    // e1 = land - H - FK(1): at c = 1 the ankle is at the landing. T-3553: running, the body is in
+    // the air when the foot comes down, so the swing is measured from the hip as it will be at
+    // the contact (as high as the leg, bent as the curves have it then, reaches the landing):
+    // the foot rides down with the body and meets the ground just as it does.
+    vh2.copy(H);
+    if (run > 0) {
+      const d0 = Math.sqrt(L.l1 * L.l1 + L.l2 * L.l2 + 2 * L.l1 * L.l2 * Math.cos(curveAt(tb.knee, 0) * DEG));
+      const dx = land.x - H.x, dz = land.z - H.z;
+      const atContact = land.y + Math.sqrt(Math.max(0, d0 * d0 - dx * dx - dz * dz));
+      vh2.y += (atContact - H.y) * run;
+    }
+    A.add(H).addScaledVector(f.e0, 1 - m).add(v1.copy(land).sub(vh2).sub(endFk).multiplyScalar(m));
+    const pitch = fkPitch + f.pitch0 * (1 - m) + (ev.strikeDeg * DEG - endPitch) * m;
     const yawEnd = L.side * GAIT.toeOutDeg * DEG;
     pose.yaw = f.yaw0 + (yawEnd - f.yaw0) * smooth(u * 1.5);
     pose.toe = f.toe0 * (1 - smooth(u / 0.3));
@@ -473,7 +596,7 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
       const A = bones[`foot_${s}`].getWorldPosition(new THREE.Vector3()).applyMatrix4(sceneInv);
       const c = mod1(phase - OFFSET[s]);
       f.lastC = c; f.step = null;
-      if (c < GAIT.stance) { f.stance = true; A.y = groundAnkle(s); plantAt(s, A, 0, f.yaw); }
+      if (c < ev.stance) { f.stance = true; A.y = groundAnkle(s); plantAt(s, A, 0, f.yaw); }
       else beginSwing(s, A, 0, f.yaw, c);
     }
     closing = [];
@@ -495,7 +618,7 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
     const s = closing.shift();
     if (!s) return;
     const f = feet[s], pose = poses[s];
-    if (f.stance) stancePose(s, Math.min(f.lastC, GAIT.stance - 1e-3), pose);
+    if (f.stance) stancePose(s, Math.min(f.lastC, ev.stance - 1e-3), pose);
     else swingPose(s, f.lastC, pose);
     const to = leg[s].ankle.clone(); to.y = groundAnkle(s);
     const from = pose.A.clone();
@@ -512,6 +635,12 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
     get weight() { return weight; },
     get speed() { return P.speed; },
     get stride() { return P.stride; },
+    /** T-3553: the stride taken now (m): longer the faster, a run's longest. */
+    get strideNow() { return strideNow; },
+    /** T-3553: how fast the figure is going now (m/s, eased over a few frames). */
+    get speedNow() { return vNow; },
+    /** T-3553: its share of a run now, 0 walking to 1 running (eased over about a step). */
+    get run() { return run; },
     get cadence() { return P.cadence; },
     get profile() { return P; },
     get mode() { return mode; },
@@ -530,7 +659,8 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
      */
     apply(dt, { state = 'standing', moved = 0 } = {}) {
       if (!bound) return;
-      dt = Number.isFinite(dt) && dt > 0 ? Math.min(dt, 0.1) : 0;
+      const dtRaw = Number.isFinite(dt) && dt > 0 ? dt : 0;
+      dt = Math.min(dtRaw, 0.1);
       rebase();
       body.updateWorldMatrix(true, false);
       sceneM.copy(body.matrixWorld);
@@ -552,23 +682,31 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
       lastAt.copy(nudge); hasLast = true;
       const walking = state === 'walking';
       let fresh = false;
+      // T-3553: the speed now, from the ground covered (eased: a frame's jitter is not a pace),
+      // and from it whether this is a walk or a run (with a little hysteresis between them).
+      const dsNow = Math.max(0, Number.isFinite(moved) ? moved : 0);
+      if (dtRaw > 0) vNow += (Math.min(dsNow / dtRaw, 12) - vNow) * (1 - Math.exp(-dtRaw / 0.15));
+      if (!walking) vNow *= Math.exp(-dt / 0.2);
+      const runTo = walking && (vNow > RUN.toRun || (run > 0.5 && vNow > RUN.toWalk)) ? 1 : 0;
+      run += clamp(runTo - run, -dt / RUN.blendS, dt / RUN.blendS);
       if (walking && mode !== 'walk') { mode = 'walk'; phase = 0.78; walked = 0; fresh = true; }
       else if (!walking && mode === 'walk') beginClose();
-      if (mode === 'idle') { weight = 0; settle(); return; }
+      if (mode === 'idle') { weight = 0; run = 0; flight = null; settle(); return; }
+      regime(Math.max(vNow, run > 0 ? RUN.minM_s : 0), run);
 
       if (mode === 'walk') {
         weight = Math.min(1, weight + dt / 0.2);
-        const ds = Math.max(0, Number.isFinite(moved) ? moved : 0);
+        const ds = dsNow;
         walked += ds;
-        phase = mod1(phase + ds / P.stride);
+        phase = mod1(phase + ds / strideNow);
       } else closeT += dt;
 
       // ---- the pelvis: turned with the leading leg, dipped on the swing side, over the stance foot ----
-      const w = mode === 'walk' ? 1 : 1 - smooth(closeT / 0.6);
+      const w = (mode === 'walk' ? 1 : 1 - smooth(closeT / 0.6)) * (1 + (RUN.sway - 1) * run);
       const ph = 2 * Math.PI * phase;
       now.yaw = -P.pelvisYawDeg * DEG * Math.cos(ph) * w;                     // left heel strike: left hip forward
       now.roll = P.pelvisRollDeg * DEG * Math.sin(ph + 2 * Math.PI * 0.07) * w; // left stance: the right side dips
-      now.lateral = (P.lateral / unit) * Math.sin(ph + 2 * Math.PI * 0.0) * w;  // toward the left foot in its stance
+      now.lateral = (P.lateral * (1 + (RUN.lateral - 1) * run) / unit) * Math.sin(ph + 2 * Math.PI * 0.0) * w;  // toward the left foot in its stance
       pelvisPos.copy(rest.pelvis.p).addScaledVector(right, -now.lateral);
       if (fresh) startWalking();
 
@@ -586,8 +724,9 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
           continue;
         }
         const c = mod1(phase - OFFSET[s]);
-        if (f.stance && c >= GAIT.stance && f.lastC < GAIT.stance) {
-          stancePose(s, GAIT.stance - 1e-4, pose);
+        // (Or a stance whose end the run's shorter one has already passed: it lifts now.)
+        if (f.stance && c >= ev.stance && (f.lastC < ev.stance || (c >= f.lastC && c < 0.97))) {
+          stancePose(s, ev.stance - 1e-4, pose);
           beginSwing(s, pose.A.clone(), pose.pitch, pose.yaw, c);
         } else if (!f.stance && c < f.lastC) {
           swingPose(s, 1 - 1e-4, pose);          // heel strike: set down where the swing put it
@@ -625,11 +764,39 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
       const lo = Math.min(...ys);
       for (const y of ys) sum += Math.exp(-(y - lo) / k);
       let target = any ? lo - k * Math.log(sum) : rest.pelvis.p.y;
-      // Never lower than a grown leg's 12 cm, in proportion to this leg (T-3520).
-      target = clamp(target, rest.pelvis.p.y - Math.min(0.12 / unit, 0.13 * rest.pelvis.p.y), rest.pelvis.p.y + 0.004);
+      // T-3553: running, the one foot down holds the hips exactly as high as its knee's measured
+      // bend lets them be (lowest as the body passes over it), and between the steps, with both
+      // feet off the ground, the body flies: from where it left the ground to where the next
+      // foot will meet it, on the arc a body thrown that long follows.
+      if (run > 0 && mode === 'walk') {
+        const reachY = (s, A, knee) => {
+          const L = leg[s], d = Math.sqrt(L.l1 * L.l1 + L.l2 * L.l2 + 2 * L.l1 * L.l2 * Math.cos(knee * DEG));
+          const H = hipNow(s, vh), dx = A.x - H.x, dz = A.z - H.z;
+          return A.y + Math.sqrt(Math.max(0, d * d - dx * dx - dz * dz)) - (H.y - pelvisPos.y);
+        };
+        let down = Infinity;
+        for (const s of SIDES) if (poses[s].stance) down = Math.min(down, reachY(s, poses[s].A, curveAt(tb.knee, poses[s].c)));
+        let runY = target;
+        if (Number.isFinite(down)) { runY = down; hard = Math.min(hard, down); flight = { y0: down }; }
+        else if (flight) {
+          // The foot that left last is the one nearest its toe-off; the other lands next.
+          const after = (s) => mod1(poses[s].c - ev.stance);
+          const off = after('l') < after('r') ? 'l' : 'r', next = off === 'l' ? 'r' : 'l';
+          const span = Math.max(1e-3, 0.5 - ev.stance);
+          const u = clamp(after(off) / span, 0, 1);
+          const y1 = feet[next].land ? reachY(next, feet[next].land, curveAt(tb.knee, 0)) : flight.y0;
+          const tau = span * strideNow / Math.max(vNow, 0.5);
+          runY = flight.y0 + (y1 - flight.y0) * u + 4 * (9.81 * tau * tau / 8 / unit) * u * (1 - u);
+        }
+        target += (runY - target) * run;
+      } else flight = null;
+      // Never lower than a grown leg's 12 cm, in proportion to this leg (T-3520); a run's deep
+      // stance knee a little lower.
+      const dropW = Math.min(0.12 / unit, 0.13 * rest.pelvis.p.y), dropR = Math.min(RUN.dropM / unit, 0.22 * rest.pelvis.p.y);
+      target = clamp(target, rest.pelvis.p.y - (dropW + (dropR - dropW) * run), rest.pelvis.p.y + 0.004);
       if (mode === 'close') target += (rest.pelvis.p.y - target) * smooth((closeT - 0.2) / 0.8);
       if (pelvisY === null || !Number.isFinite(pelvisY)) { pelvisY = target; pelvisYV = 0; }
-      const om = 28, x = pelvisY - target, e = Math.exp(-om * dt), tmp = (pelvisYV + om * x) * dt;
+      const om = 28 + 52 * run, x = pelvisY - target, e = Math.exp(-om * dt), tmp = (pelvisYV + om * x) * dt;
       pelvisYV = (pelvisYV - om * tmp) * e;
       pelvisY = target + (x + tmp) * e;
       if (Number.isFinite(hard)) pelvisY = Math.min(pelvisY, hard + 0.003);
@@ -666,6 +833,7 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
     },
     snapshot() {
       return { mode, phase: +phase.toFixed(4), weight: +weight.toFixed(3), speed: +P.speed.toFixed(3), stride: +P.stride.toFixed(3),
+        speed_now: +vNow.toFixed(3), run: +run.toFixed(3), stride_now: +strideNow.toFixed(3),
         cadence_steps_min: +(P.cadence * 60).toFixed(1), bob_m: +(now.bob * unit).toFixed(4),
         yaw_deg: +(now.yaw / DEG).toFixed(2), roll_deg: +(now.roll / DEG).toFixed(2), stance: { l: feet.l.stance, r: feet.r.stance } };
     },
