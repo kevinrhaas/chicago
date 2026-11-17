@@ -15074,52 +15074,52 @@
     {
      "id": "prairie_2021:rear_terrace:0",
      "kind": "rear_terrace",
-     "material": "cement",
+     "material": "yard_brick",
      "polygon_local_m": [
       [
-       1447.39,
-       -3549.83
+       1441.41,
+       -3552.09
       ],
       [
-       1447.41,
-       -3552.27
+       1441.44,
+       -3555.85
       ],
       [
-       1452.6,
-       -3552.23
+       1446.44,
+       -3555.81
       ],
       [
-       1452.58,
-       -3549.79
+       1446.41,
+       -3552.05
       ]
      ],
      "along_deg": 179.55,
      "lift_m": 0.03,
      "order": 0,
      "grade": "reconstructed",
-     "note": "A paved terrace at the back door, in Portland cement walk: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [
     {
      "id": "prairie_2021:back_door",
      "structure": "high_house_2021_prairie",
-     "e": 1447.26,
-     "n": -3551.05,
+     "e": 1441.14,
+     "n": -3553.85,
      "facing_deg": 89.55,
-     "sill_m": 1.4,
+     "sill_m": 1.0,
      "width_m": 0.95,
      "height_m": 2.2,
      "leaf": true,
      "stoop": {
       "depth_m": 1.1,
       "width_m": 1.6,
-      "risers": 8,
-      "run_m": 3.06,
-      "material": "wood"
+      "risers": 6,
+      "run_m": 2.5,
+      "material": "stone"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.00 m up, 6 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
    "posts": [],
