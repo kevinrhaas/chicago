@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "ffb3c5be2cf60c1aef8f8490bcec81f85322eab3d1cc7f97dbb03d57a1475fa0",
+  "glb_sha256": "19ecfb301504a983ebb6e737541e830f3daa5c2de1b83ccf136af831341f0302",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -56,8 +56,13 @@
       "status": "fixed"
     },
     {
-      "what": "the iron hand rail on the stoop's south cheek, the cheek's stepped top under it where the build's sweeps, and the basement doorway in the wall under the landing (x 1045-1260 px, y 960-1150 px)",
+      "what": "the basement doorway in the wall under the landing (x 1045-1260 px, y 960-1150 px): the build's void under the landing is closed at the wall in the kit's dark backing, with no doorway in it",
       "status": "open"
+    },
+    {
+      "what": "the stoop's south cheek stepped level with its treads under an iron hand rail (x 1100-1290 px): the rail leaving a square stone post on the landing's outer corner over the pier (its cap at about 0.75 m over the landing) at about 0.37 m, falling to the foot newel's top on one bar part way down, and a level iron rail from the post back to the wall over the landing's edge",
+      "status": "fixed",
+      "how": "T-3562: K07's railed swept cheek (cheek_form.railed): both cheeks stepped, the rail 0.45 m over the landing at its head and 0.12 m over the newel's cap at its foot, one bar between, the post 0.35 m square and 0.65 m high on the south side, the level rail to the wall on one bar; the rail's head about 0.08 m higher than the print's and the post's cap about 0.1 m lower, both under the bar"
     },
     {
       "what": "the stone balcony's pierced panels on the bay's deck",
