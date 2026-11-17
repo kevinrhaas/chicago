@@ -44569,3 +44569,13 @@ The farm-box master's `photographic_acceptance` is set true on its record of mat
 **Ticket:** T-3558.
 **Review:** `tools/transport/brougham_v20/discrepancies.json`, `renderers/web/transport/parked-brougham/brougham-v20.json`, `renderers/web/transport/farm-box-master/QUALIFICATION.json`, `data/transport/parked/placements.json` (covered models).
 **Recorded:** 2026-11-17 (T-3558).
+
+### L-1835-parked-farm-box — The 1835 town's standing wagons are the photographic farm box, and fewer of them
+
+**Decision:** the owner, 2026-11-16: *"Photographic wagons"*, then *"And replace any parked wagons with these photographic wagons, you may not need to keep all of the parked wagons given the ones in motion"*.
+**What is attested.** Nothing about any one wagon. The Western Hotel's wagon yard (`chicagology_prefire278`) remains the one place a source names for wagons; its stand is unchanged.
+**What is invented.** Which stands keep a wagon. Six farm-box stands of `data/yard/town_trade_goods.json` (the T-0064 town wagon rule's) now draw the licensed photographic farm-box master the moving teams draw, unpainted, at the stand's own position and bearing: the Western Hotel's two and Wolf Point's one in their yards, and the verge stands on Market, Dearborn and Randolph streets. They are the farm-box stands whose four wheels find level ground: the parked layer stands a wagon only on a wheel plane within 30 mm, and most street verges, and the Green Tree's yard, slope too much. Every other farm-box and covered yard wagon (29: 17 farm boxes and 12 covered wagons, among them the South Water Street train) is retired and not drawn, because the ten moving teams now carry the street traffic and only the two qualified covered wagons (L-wagons-brougham-3558) are photographic. The records stay in town_trade_goods.json; `retired_yard_wagons` in `data/transport/parked/placements.json` names them. Carts are not wagons and are untouched.
+**Re-opens on:** a record of where wagons stood in the 1835 town; a photographic covered wagon for the South Water Street train; the owner asking for more or fewer.
+**Ticket:** T-3558.
+**Review:** `data/transport/parked/placements.json` (`farm_box_w01`, `retired_yard_wagons`), `renderers/web/js/parked-transport.js` and `renderers/web/js/yard.js` (`retiredIds`), `tools/transport/check_parked_placements.py`.
+**Recorded:** 2026-11-17 (T-3558).
