@@ -113,7 +113,7 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
   blockedAt = () => false, placeVisitor = null, configFile = 'transport/driven/loops.json',
   visitorEye = null, groundAt = () => NaN, walkEye = () => 1.6, onBoard = () => {}, reducedMotion = () => false, say = () => {},
   reinsHint = undefined, carriagewayFile = CARRIAGEWAY_FILES[String(sceneId)] ?? null,
-  parked = null, coachHouse = () => null, pathHeightAt = null }) {
+  parked = null, coachHouse = () => null, pathHeightAt = null, obstacles = null }) {
   if (!supportsTownTransport(sceneId)) return null;
   sceneId = String(sceneId);
   const json = async (file, expectedSHA256 = null) => {
@@ -457,7 +457,7 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
     if (typeof ch?.clearFor !== 'function' || ch.clearFor(row, from, to) !== true) return false;
     return peopleClear(row)(from, to);
   };
-  town = createTownTransport({ rows, sceneId, heightAt, detail, problems, admit, pathHeightAt,
+  town = createTownTransport({ rows, sceneId, heightAt, detail, problems, admit, pathHeightAt, obstacles,
     prepareAssembly(row) {
       const modules = prepareAssemblyModules();
       // Optional scene UI preparation is metadata-only and cannot block assembly.
