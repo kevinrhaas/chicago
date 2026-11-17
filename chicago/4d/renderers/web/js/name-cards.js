@@ -324,7 +324,7 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
   const at = new THREE.Vector2();
   const entries = new Map();       // key -> { key, actor, name, personId, staged, slot, w, alpha, want, drawn, theme }
   let free = [];
-  let chooseIn = 0, look = null, fontsWaiting = false, disposed = false;
+  let chooseIn = 0, bobT = 0, look = null, fontsWaiting = false, disposed = false;
   // The Confidence view's grade colours, and their signature: a change there draws every card again.
   let colors = null, colorsKey = '';
   const readColors = () => {
@@ -498,6 +498,7 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
     mesh.visible = true;
     const step = Number.isFinite(dt) && dt > 0 ? Math.min(dt, 0.25) : 0;
     chooseIn -= step;
+    bobT += step;
     if (chooseIn <= 0 || !entries.size) { chooseIn = CHOOSE_S; readColors(); choose(); }
     const t = look ?? (look = theme());
     let draws = 0;
@@ -506,7 +507,6 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
     const tanHalf = Math.tan(fov / 2);
     const vh = Math.max(200, viewHeight() || 780);
     const aspect = camera.aspect || 1;
-    const clock = now();
     camera.updateMatrixWorld?.();
     const rows = [];
     for (const e of entries.values()) {
@@ -530,7 +530,8 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
       const depth = Math.max(0.3, -tmp.z);
       const hSlot = cardPx(d, limits.reach) * (2 * depth * tanHalf) / vh;
       const wCard = hSlot * (e.w / SLOT_H);
-      const bob = 0.012 * Math.sin((clock * 1.4 + e.phase) * Math.PI * 2);
+      // T-3630: the bob runs on the cards' own clock, which only `dt` advances, so a held frame holds it.
+      const bob = 0.012 * Math.sin((bobT * 1.4 + e.phase) * Math.PI * 2);
       const cy = head.y + LIFT_M + hSlot / 2 + bob;
       // Its body on the screen: for the stacking, and for a click or a tap.
       const bodyH = hSlot * (BODY_H / SLOT_H);

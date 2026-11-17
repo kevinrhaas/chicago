@@ -7178,7 +7178,9 @@ async function boot() {
     // whatever put the eye where it is, nobody is drawn round it.
     api.humans?.hideAtEye?.(camera.getWorldPosition(eyeAtDraw));
     // T-3614: the name cards over them, where they now stand.
-    api.nameCards?.update(gateOpen ? 0 : elapsed);
+    // T-3630: on the held clock like the people under them. On `elapsed` the cards kept fading
+    // in and bobbing under setAnimationHold, so every 'restores the frame' pair read them moving.
+    api.nameCards?.update(frameDt);
     // The day and spacing engines have finished moving the person. Hands, tool
     // and sound now share this frame's real contact, not a separate hammer timer.
     api.workActivity?.update(frameDt, { paused: visualHeld || transportReducedMotion.matches,

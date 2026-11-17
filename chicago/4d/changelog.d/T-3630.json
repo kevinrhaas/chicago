@@ -1,0 +1,7 @@
+{
+  "title": "Name cards hold still when the town is held",
+  "kind": "fix",
+  "items": [
+    "The name cards over people now bob and fade on the same clock as the people under them, so a paused frame stays put."
+  ]
+}
