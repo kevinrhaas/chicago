@@ -680,7 +680,13 @@ export function createWorld({
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = BASE_EXPOSURE;
   renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = lowSpec ? THREE.PCFShadowMap : THREE.PCFSoftShadowMap;
+  // PCF on every device (T-3643). three r185 deprecates PCFSoftShadowMap: its
+  // first shadow render swaps it for PCFShadowMap, which is what every frame has
+  // drawn with since. Until that swap, a program compiles with BASIC shadows
+  // under the old type's key, so the whole boot compile (main.js compileAsync)
+  // was thrown away and each material compiled again, mid-walk, the first time
+  // it came into view. Booting with the type three draws anyway keeps them.
+  renderer.shadowMap.type = THREE.PCFShadowMap;
 
   let sunDate = sceneJson.target_date;
   // T-3331: the hour the sun is computed for. The scene's own unless the visitor's
