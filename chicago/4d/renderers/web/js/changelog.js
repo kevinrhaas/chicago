@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 3067, ts: '2026-11-17T08:30:37.300Z', date: 'Nov 17, 2026, 2:30 AM CT', title: 'The shed between 1834 and 1900 Prairie stands open on its posts', kind: 'improvement',
+    items: [
+      'The narrow strip between 1834 and 1900 Prairie Avenue now has its frame shed on the alley, built to the outline the 1911 fire-insurance map draws: 9.2 m deep and 3.9 m along the alley, against the brick wall of 1900\'s stable.',
+      'The map draws its north and east sides dashed, so they stand open on five posts under a shingled gable, with only the alley side walled in clapboard.',
+      'Walk into it from the yard: the roof and walls are boarded inside. All seven alley buildings on this side of the block are now refined from the draft.',
+    ] },
+  { v: 3066, ts: '2026-11-17T08:19:15.189Z', date: 'Nov 17, 2026, 2:19 AM CT', title: 'Prairie broughams match their 1893 catalogue plate; covered wagons look real', kind: 'improvement',
+    items: [
+      'The four broughams driven on Prairie Avenue in 1904 now carry the closed driving box, dash and swept irons of Studebaker\'s 1893 plate, and lose the rear mudguards the plate never had. Each coachman still sits exactly where he was fitted.',
+      'The two covered wagons at the Western Hotel and Wolf Point in 1835 now stand on the photographed farm wagon, in their own blue-and-red and oak paints, with canvas weathered its own way.',
+      'Phones draw the covered wagons from the farm wagon\'s lighter level.',
+    ] },
+  { v: 3065, ts: '2026-11-17T07:29:54.203Z', date: 'Nov 17, 2026, 1:29 AM CT', title: 'Fort Dearborn monument: the warrior\'s sash and its hanging cloth', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), the warrior now wears the broad sash both photographs show wrapped round his hips, sloping down to his right hip, with its fringed ends flying out to the west. Before, he had only a thin belt and a narrow strip of cloth.',
+      'The cloth hanging from the sash falls dark at his right hip and beside his raised thigh, as in the photographs.',
+    ] },
+  { v: 3064, ts: '2026-11-17T07:29:54.203Z', date: 'Nov 17, 2026, 1:29 AM CT', title: '1815 Prairie\'s stoop stands open on a pier and an arch', kind: 'improvement',
+    items: [
+      'The front steps of the Sears-Meeker house at 1815 Prairie Avenue were a solid block of stone. The old side-on photograph shows them open underneath on the south side: the landing rests on a square stone pier at its corner with a dark space under it back to the house, and the flight springs off that pier on a curved arch that comes down to the ground partway along the steps. The stoop is now built that way. The basement door in that space, and the iron hand rail on the cheek, are still to come.',
+    ] },
   { v: 3063, ts: '2026-11-17T06:45:42.799Z', date: 'Nov 17, 2026, 12:45 AM CT', title: 'More room for the town\'s detail on a desktop', kind: 'chore',
     items: [
       'The triangle budget for each detail setting is raised to fit the schooners and Lake Street\'s new store fronts, as the owner chose. Nothing in the scene changes.',
