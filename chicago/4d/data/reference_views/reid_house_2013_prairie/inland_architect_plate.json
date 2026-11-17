@@ -1,0 +1,32 @@
+{
+  "structure_id": "reid_house_2013_prairie",
+  "source_id": "inland_architect_1895_02_reid_plate",
+  "library_image": "a20-ia-1895-02-reid-plate",
+  "photo": "../../sources/assets/house_2011_pictures_t1915/ia_1895_02_reid_photo_upright.jpg",
+  "image_px": [
+    890,
+    1220
+  ],
+  "principal_px": [
+    445.0,
+    1063.7
+  ],
+  "focal_px": 2683.0,
+  "eye": [
+    46.23,
+    36.24,
+    0.67
+  ],
+  "yaw_deg": 220.25,
+  "sun_uvy": [
+    1.0,
+    0.6,
+    0.8
+  ],
+  "solve": "Solved by T-3625 on the 1911 sheet's front block read at full size (u 0-18.2 toward the street, v 0-7.62 SOUTH from the north line) and the plate alone, the leaf's upper photograph turned upright (890 x 1220 px; data/sources/inland_architect_1895_02_reid_plate.json). WHICH WAY IT LOOKS: north-east, obliquely, from the west side of Prairie Avenue south of the house: the front's horizontals climb steeply to the south (the cornice's crown from y 281 at x 303 to y 163 at x 600), the portico stands out to the left of the north corner, and 2017's front at the right is seen nearer and larger. FIT: a least-squares fit of the eye (u, v, height), heading, focal length and horizon, the principal point's x held at the picture's centre (the plate's verticals are vertical, so the camera is level), to 14 readings: the front's north and south corners (x 322 and 640 px), two points each on five courses whose heights were fixed first from the nomination's ceilings scaled on the front's own proportions at its middle bay (about 62 px a metre: the cornice's crown 14.2 m, the frieze's foot 13.1 m, the second-floor sill band 6.0 m, the ground-floor caps' tops 5.0 m and sills 2.4 m), and the fence's foot at the street line (x 450, y 1120, at grade). RESULT: the eye 28.0 m out from the front (u 46.2, at the west walk of the avenue) and 36.2 m south of the north corner, 0.67 m over the house's grade, heading 220.3 degrees in the frame, f 2683 px, the horizon at y 1064. RESIDUALS: 3.3 px RMS, 7.0 px at most. UNCERTAINTY: with the heights free the distance and the focal length trade along one valley (fits at 22 m and 30 m out both close within 3 px); the heights' prior holds it. LIGHT: a winter sun from the south-west, the front lit and the portico's columns throwing shadows to the north-east on the door (sun_uvy). CONTEXT: 2011 and 2017 are rendered from the 1904 sidecars on the review's common grade plane, so the plate's neighbours hide the flanks they hid; they are context, not part of this house's match.",
+  "also_render": [
+    "house_2011_prairie",
+    "house_2017_prairie"
+  ],
+  "scene": "1904"
+}

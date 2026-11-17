@@ -7920,7 +7920,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         cf = door_kit_in["cheek_form"]
         if not isinstance(cf, dict) or cf.get("kind") != "swept" \
                 or not {"kind", "head_m", "foot_m", "block_m"} <= set(cf) <= {"kind", "head_m", "foot_m", "block_m",
-                                                                             "flare", "newel", "pierced", "arched"} \
+                                                                             "flare", "newel", "pierced", "arched",
+                                                                             "railed"} \
                 or "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False \
                 or any("parapet" not in t or "loggia" in t
                        for t in ([door_kit_in["terrace"]] if isinstance(door_kit_in.get("terrace"), dict)
@@ -7932,7 +7933,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError("entrance_kit.cheek_form: head_m 0-0.6 m over the landing, foot_m 0.3-1.2 m over "
                              "grade, block_m 0.2-1.0 m")
         door_kit["cheek_form"] = {k: (v if k == "kind" else float(v)) for k, v in cf.items()
-                                  if k not in ("flare", "newel", "pierced", "arched")}
+                                  if k not in ("flare", "newel", "pierced", "arched", "railed")}
         # T-3134: the right cheek flared out `out_m` toward its foot, and each foot block a newel
         # `width_m` across under a cap `cap_m` [high, overhang] and a knob `knob_m` high (1812's
         # stair, the Levy print)
@@ -7976,6 +7977,31 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             door_kit["cheek_form"]["arched"] = {"side": ac["side"], "pier_m": float(ac["pier_m"]),
                                                 "spring_m": float(ac["spring_m"]), "span_m": float(ac["span_m"]),
                                                 "soffit_m": float(ac["soffit_m"])}
+        # T-3562: both cheeks STEPPED, level with each tread, under an iron hand rail from the
+        # landing's edge to each newel's cap, and on one side a stone post on the landing's corner
+        # with a level rail from it back to the wall (1815's, both Chicagology prints); K07 refuses
+        # it beside a flare, a pierced cheek or a foot with no newel
+        if "railed" in cf:
+            rc = cf["railed"]
+            need = {"head_m", "foot_m", "bar_m", "baluster_m", "balusters", "landing_balusters"}
+            if not isinstance(rc, dict) or not need <= set(rc) <= need | {"post"} \
+                    or not 0.2 <= float(rc["head_m"]) <= 1.0 or not 0.0 <= float(rc["foot_m"]) <= 0.3 \
+                    or not 0.02 <= float(rc["bar_m"]) <= 0.08 or not 0.015 <= float(rc["baluster_m"]) <= 0.05 \
+                    or rc["balusters"] not in range(0, 7) or rc["landing_balusters"] not in range(0, 5) \
+                    or "flare" in cf or "pierced" in cf or "newel" not in cf:
+                raise ParamError("entrance_kit.cheek_form.railed is {head_m 0.2-1.0 over the landing, foot_m 0-0.3 "
+                                 "over the newel's cap, bar_m 0.02-0.08, baluster_m 0.015-0.05, balusters 0-6, "
+                                 "landing_balusters 0-4, post}, on an unflared, unpierced stoop with newels")
+            out = {k: (int(rc[k]) if k in ("balusters", "landing_balusters") else float(rc[k])) for k in need}
+            if "post" in rc:
+                po = rc["post"]
+                if not isinstance(po, dict) or set(po) != {"side", "width_m", "height_m"} \
+                        or po["side"] not in ("left", "right") or not 0.2 <= float(po["width_m"]) <= 0.6 \
+                        or not 0.3 <= float(po["height_m"]) <= 1.2:
+                    raise ParamError("entrance_kit.cheek_form.railed.post is {side, width_m 0.2-0.6, height_m "
+                                     "0.3-1.2 over the landing}")
+                out["post"] = {"side": po["side"], "width_m": float(po["width_m"]), "height_m": float(po["height_m"])}
+            door_kit["cheek_form"]["railed"] = out
         if "newel" in cf:
             nw = cf["newel"]
             if set(nw) != {"width_m", "cap_m", "knob_m"} or not 0.3 <= float(nw["width_m"]) <= 0.8 \

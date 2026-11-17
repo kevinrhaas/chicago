@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 3075, ts: '2026-11-17T16:30:14.341Z', date: 'Nov 17, 2026, 10:30 AM CT', title: 'Fort Dearborn monument: the surgeon\'s loose pantaloons', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), the fallen surgeon now wears the loose, heavy pantaloons both photographs show, creased down the leg he stretches out to the west and gathered over his boot. Before, his legs were thin and smooth.',
+    ] },
+  { v: 3074, ts: '2026-11-17T16:30:14.341Z', date: 'Nov 17, 2026, 10:30 AM CT', title: '1815 Prairie\'s front steps show their treads under iron hand rails', kind: 'improvement',
+    items: [
+      'The front steps of the Sears-Meeker house at 1815 Prairie Avenue had solid stone walls sweeping down each side. Both old photographs show something lighter: the ends of the steps showing along each side, with a thin iron hand rail above them running down to the stone post at the foot. On the south side the rail starts at a square stone post on the landing\'s corner, and a low iron rail runs from that post back to the house. The steps are now built that way. The basement door under the landing is still to come.',
+    ] },
+  { v: 3073, ts: '2026-11-17T16:30:14.341Z', date: 'Nov 17, 2026, 10:30 AM CT', title: '2013 Prairie, the Reid house, takes its portico and balustrade', kind: 'feature',
+    items: [
+      '2013 Prairie, William H. Reid\'s house of 1894, now stands as the Inland Architect pictured it a winter later: a narrow pale-brick front over a stone basement, an Ionic portico at its north end carrying a balustraded balcony, two tall capped windows beside it, three-light windows on the floors above under a round-arched light, and a heavy cornice with a balustrade along the roof. The two oval windows and the carved frame round the upper windows come next.',
+    ] },
   { v: 3072, ts: '2026-11-17T13:11:54.127Z', date: 'Nov 17, 2026, 7:11 AM CT', title: 'Riders go about town, and horses canter and gallop', kind: 'feature',
     items: [
       'In 1835 up to seven people ride rounds of the town by day: a farmer, a land-office caller, a man riding for the doctor, an express rider at a trot, a trader\'s man, a boatman on the North Side, and an evening rider in spring and summer.',
