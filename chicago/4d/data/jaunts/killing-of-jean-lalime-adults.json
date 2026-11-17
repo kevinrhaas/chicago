@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 4,
+  "content_version": 5,
   "category": "Fort Dearborn",
   "menu_group": "Stories",
   "grade_band": "6-8",
@@ -84,7 +84,7 @@
                     236.0
                   ]
                 ],
-                "pace": "slow",
+                "pace": "brisk",
                 "hide": true
               }
             ]
@@ -1196,7 +1196,7 @@
                     236.0
                   ]
                 ],
-                "pace": "slow",
+                "pace": "jog",
                 "hide": true
               }
             ]
