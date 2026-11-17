@@ -4064,13 +4064,32 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         if e.get("cornice_across") is True and not v.get("shallow"):
             raise ParamError(f"bays: {e['id']}: cornice_across is a shallow pavilion's (T-1890)")
         flush = e.get("flush_corner")
+        # T-3562: or it may stand SET OUT past that corner, its cheek clear of the side wall's
+        # plane by `set_out_m` (1815's corner bay on both photographs: its south face 0.75 m
+        # past the flank's). Only on the street front, under the eave, and its back over the
+        # stretch past the corner is closed on the front's plane (k08_bays._back_over)
+        set_out = e.get("set_out_m")
+        if set_out is not None:
+            set_out = float(set_out)
+            top_ = sum(float(st["height_m"]) for st in v["storeys"])
+            if flush is None or cant is not None or face is not None or v["kind"] != "projection" \
+                    or v.get("shallow") or e["wall"] != "k01.wall.street_front" or oriel \
+                    or not 0.1 <= set_out <= 1.5 or not top_ < eave - 0.3 or b - a < set_out + BAY_PIER_M:
+                raise ParamError(f"bays: {e['id']}.set_out_m stands a flush projection on the street front, "
+                                 f"under the eave, 0.1-1.5 m past the corner it names, its junction still "
+                                 f"{BAY_PIER_M} m clear of the corner on the wall, not {e.get('set_out_m')}")
         if flush is not None and cant is None:
             if v["kind"] != "projection" or flush not in ("left", "right"):
                 raise ParamError(f"bays: {e['id']}: flush_corner is 'left' or 'right', on a projection only")
             at = a if flush == "left" else wall_len[e["wall"]] - b
-            if abs(at) > 1e-6:
-                raise ParamError(f"bays: {e['id']} is flush with its {flush} corner, and its junction stands "
-                                 f"{at:.3f} m from it")
+            if abs(at + (set_out or 0.0)) > 1e-6:
+                raise ParamError(f"bays: {e['id']} is flush with its {flush} corner"
+                                 f"{f', set out {set_out} m past it,' if set_out else ''} and its junction "
+                                 f"stands {at:.3f} m from it")
+            if set_out:
+                # its back past the corner, in the bay's own frame (x about s_m), grade to wall top
+                x0, x1 = ((a - s, -s) if flush == "left" else (wall_len[e["wall"]] - s, b - s))
+                v["back_over"] = {"x": [round(x0, 6), round(x1, 6)], "y": [0.0, round(top_, 6)]}
         # T-2900: a corner turret: a round tower on a rear wing's wall at one of its ends, its
         # ring standing within TURRET_CORNER_M of the end wall's plane and never past it, its
         # eaves at the wing's own wall top (1801's east range, the Taylor photograph), and its
