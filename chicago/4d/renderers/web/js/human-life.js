@@ -159,6 +159,12 @@ export const TRUNK = Object.freeze({
   lean: { at1: 2, perMS: 3.3, min: 1.5, max: 4.5 }, // degrees of forward lean, by speed
   fixation_m: 2,
 });
+/**
+ * T-3553: running, the trunk leans forward from the ankles more than on the walk, the more the
+ * faster: degrees at a jog (2.5 m/s) and at a sprint (6 m/s). Reconstructed (liberty
+ * L-human-gait-3472): the running dataset the legs come from measured no trunk.
+ */
+export const RUN_LEAN = Object.freeze({ at25: 8, at60: 15 });
 const fin = (x, d = 0) => (Number.isFinite(x) ? x : d);
 
 /** One natural blink, 0..1..0 over its duration: a fast close and a slower open. */
@@ -494,7 +500,11 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
         rollBack = -TRUNK.roll * pRoll;
       }
       const l = TRUNK.lean;
-      const trunkLean = spring(walkLean, gw * clamp(l.at1 + l.perMS * (speed - 1), l.min, l.max) * DEG, 3, dt);
+      // T-3553: a runner leans further into the pace (RUN_LEAN), by the gait's run share.
+      const rr = gait ? clamp(fin(gait.run), 0, 1) : 0, vNow = gait ? fin(gait.speedNow, speed) : 0;
+      const walkLeanDeg = clamp(l.at1 + l.perMS * (Math.min(vNow > 0.3 ? vNow : speed, 2) - 1), l.min, l.max);
+      const runLeanDeg = RUN_LEAN.at25 + (RUN_LEAN.at60 - RUN_LEAN.at25) * clamp((vNow - 2.5) / 3.5, 0, 1);
+      const trunkLean = spring(walkLean, gw * (walkLeanDeg + (runLeanDeg - walkLeanDeg) * rr) * DEG, 3 + 5 * rr, dt);
       // The spine counters the hips so the shoulders sit level; the chest breathes. The
       // walk's lean is a forward (negative) pitch, mostly low in the back.
       turn('spine_01', -wYaw * 0.4, swayPitch * 0.4 - trunkLean * 0.45, -tip * 0.45 + swayRoll * 0.3 + rollBack * 0.45);
