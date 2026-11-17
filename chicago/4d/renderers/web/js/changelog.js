@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 3057, ts: '2026-11-17T05:10:18.236Z', date: 'Nov 16, 2026, 11:10 PM CT', title: 'Ride a horse in 1812, 1835 and 1904', kind: 'feature',
+    items: [
+      'A saddled horse now stands a few steps from where you arrive in every year. Walk up to it and press Interact to mount.',
+      'W walks on, Shift+W trots, S pulls up and, held, backs a few steps, and A and D turn. On a phone, push the stick up to walk, right up to trot, and sideways to turn. V, or Interact, switches between watching from behind the horse and looking from the saddle.',
+      'Each year has its own tack: a plain saddle on a folded blanket with a crupper in 1812, a hunting saddle on a square cloth in 1835, and a flat saddle on a felt numnah with a breastplate and a double bridle in 1904.',
+      'A rider dressed for the year sits in the saddle, feet in the stirrups and hands on the reins, and leans into the trot.',
+      'The horse goes wherever you could walk, but not into the river, through a wall or up a steep bank. Get down from the travel bar or from Interact, and you land beside the horse on its near side.',
+    ] },
+  { v: 3056, ts: '2026-11-17T05:10:18.236Z', date: 'Nov 16, 2026, 11:10 PM CT', title: 'Horses trot, and look the same near and far', kind: 'improvement',
+    items: [
+      'Horses can now trot as well as walk, with their legs moving in diagonal pairs and their hooves planted on the ground, not sliding. The horse you ride trots, and it eases from the walk into the trot and back.',
+      'Horses seen from further off are drawn more lightly, so a street full of teams costs a phone less. The change is made in steps that keep the same horse, coat and stride, so it never jumps as it switches.',
+      'Bay horses now have black manes, tails and lower legs, as bays do.',
+    ] },
   { v: 3055, ts: '2026-11-17T03:34:47.391Z', date: 'Nov 16, 2026, 9:34 PM CT', title: '1815 Prairie\'s stone chimneys stay stone up to their heads', kind: 'improvement',
     items: [
       'A strip of red brick showed under the head of each stone chimney on the Sears-Meeker house at 1815 Prairie Avenue. The chimney kit put that darker band on every stack, but it is meant for brick ones. Both old photographs show these stacks in pale stone right up to the head, so stone stacks now stay stone. No other house had a stone stack, so nothing else changed.',
