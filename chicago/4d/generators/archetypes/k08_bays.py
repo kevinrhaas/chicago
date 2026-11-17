@@ -3405,6 +3405,8 @@ class Bay:
         leans on the wall, a tower's is whole and closed at the back where the wall cuts it.
         T-2900: a corner turret's (`cap_whole`, its eaves at its wing's and its centre maybe
         behind the wall's face) is not cut at all: it stands whole over the wing's roof."""
+        if self.v["roof"].get("upper") is not None:
+            return self._two_stage_cone(world, y_e, ov, pitch, cv, tower)
         c, R = self.plan["centre"], self.plan["R"]
         whole = bool(self.v.get("cap_whole"))
         Re = R + ov
@@ -3478,6 +3480,104 @@ class Bay:
                 world.face("roof_back", [(c[0] + rb, yb, 0.0), (c[0] - rb, yb, 0.0), (c[0], y_e + pitch * Re, 0.0)],
                            (0.0, 0.0, -1.0))
             self.meta["roof"]["back_from_m"] = round(yb, 4)
+
+    def _two_stage_cone(self, world, y_e, ov, pitch, cv, tower):
+        """T-3616: a round tower's cap in TWO STAGES (2011 Prairie's turret in the Chicagology
+        photograph of 2009-2011): a flared SKIRT from the eaves at `pitch` up `upper.from_m`,
+        a LEDGE there — the upper stage's eave standing `upper.out_m` out over the skirt's top,
+        a lip `upper.ledge_m` deep with its soffit under it — and over it a steeper UPPER CONE
+        at `upper.pitch` to the apex. The profile is lathed round the plan's centre in the same
+        slices as the one-stage cone, and cut by the wall plane the same way: a slice keeps the
+        part of each stage in front of the wall, and the back is closed on the wall plane from
+        the eaves up to the cap's top surface."""
+        if not tower or self.v.get("cap_whole"):
+            raise ValueError(f"{self.v['id']}: only a round tower's cone takes an upper stage")
+        up = self.v["roof"]["upper"]
+        c, R = self.plan["centre"], self.plan["R"]
+        Re = R + ov
+        rise, out, lip, p2 = float(up["from_m"]), float(up["out_m"]), float(up["ledge_m"]), float(up["pitch"])
+        r1 = Re - rise / pitch           # the skirt's top ring
+        r2 = r1 + out                    # the upper stage's eave
+        y1 = y_e + rise                  # the ledge's soffit
+        y2 = y1 + lip                    # the upper cone's foot
+        if not (0.0 < r1 < r2 < Re and p2 > 0):
+            raise ValueError(f"{self.v['id']}: an upper stage stands on the skirt, its ledge inside the eaves")
+        apex_y = y2 + p2 * r2
+        cz = 0.0 if abs(c[1]) < 1e-6 else c[1]
+        step = math.radians(cv["max_seg_deg"])
+        base = [2 * math.pi * j / math.ceil(2 * math.pi / step) for j in range(math.ceil(2 * math.pi / step))]
+        # every radius of the profile meets the wall plane at its own two angles: a slice
+        # between them is wholly in front of the wall or wholly behind it at that radius
+        for r in (Re, r1, r2):
+            if abs(cz) < r:
+                a = math.asin(-cz / r)
+                base += [(a + 2 * math.pi) % (2 * math.pi), (math.pi - a) % (2 * math.pi)]
+        phis = sorted(set(round(f, 12) for f in base))
+        phis.append(phis[0] + 2 * math.pi)
+
+        # a tower whose centre stands inside its wall (2011's) carries its cap whole over the
+        # house's roof behind it, as a corner turret's is (T-2900): nothing is cut at the wall
+        whole = cz < 0
+
+        def reach(f):   # how far out from the centre the cap stands in front of the wall
+            s = math.sin(f)
+            return Re if whole or s >= 0 else min(Re, cz / -s)
+
+        def top(r):     # the cap's top surface over radius r
+            return y2 + p2 * (r2 - r) if r <= r2 else y_e + pitch * (Re - r)
+
+        def P(f, r, y):
+            return (c[0] + r * math.cos(f), y, cz + r * math.sin(f))
+
+        # (r_out, y_out, r_in, y_in, normal(f)): skirt, soffit, lip, upper cone
+        segs = [
+            (Re, y_e, r1, y1, lambda f: _unit((pitch * math.cos(f), 1.0, pitch * math.sin(f)))),
+            (r1, y1, r2, y1, lambda f: (0.0, -1.0, 0.0)),
+            (r2, y1, r2, y2, lambda f: (math.cos(f), 0.0, math.sin(f))),
+            (r2, y2, 0.0, apex_y, lambda f: _unit((p2 * math.cos(f), 1.0, p2 * math.sin(f)))),
+        ]
+        pr = world.prims.setdefault("roof", Prim("roof"))
+        for f0, f1 in zip(phis, phis[1:]):
+            h0, h1 = reach(f0), reach(f1)
+            fm = (f0 + f1) / 2
+            for ra, ya, rb, yb, nf in segs:
+                lo, hi = min(ra, rb), max(ra, rb)
+                ends = []
+                for f, h in ((f0, h0), (f1, h1)):
+                    if h < lo - 1e-9 or (ra == rb and h < ra - 1e-9):
+                        ends.append(None)
+                        continue
+                    if ra == rb:
+                        ends.append(((ra, ya), (rb, yb)))
+                    else:
+                        cut = min(hi, h)
+                        t = (cut - ra) / (rb - ra)
+                        yc = ya + t * (yb - ya)
+                        # outer end first, as the profile runs (ra -> rb)
+                        ends.append(((cut, yc), (rb, yb)) if ra > rb else ((ra, ya), (cut, yc)))
+                if None in ends:
+                    continue
+                (o0, i0), (o1, i1) = ends
+                q = [P(f0, *o0), P(f1, *o1), P(f1, *i1), P(f0, *i0)]
+                n = [nf(f0), nf(f1), nf(f1), nf(f0)]
+                if rb == 0.0 and i0[0] == 0.0:
+                    q, n = [q[0], q[1], q[2]], [n[0], n[1], nf(fm)]
+                pts = [p for k, p in enumerate(q) if math.dist(p, q[k - 1]) > 1e-9]
+                if len(pts) < 3:
+                    continue
+                nn = [n[q.index(p)] for p in pts]
+                uv = [(p[0] + p[2], p[1]) if ra == rb else (p[0], p[2]) for p in pts]
+                # the profile runs outside-in, so f0 -> f1 on the outer edge winds it outward as
+                # the one-stage cone's slices are wound (its ring edge runs f1 -> f0 from the apex)
+                add_poly(pr, pts[::-1], nn[::-1], uv[::-1])
+            if h0 < Re - 1e-9 and h1 < Re - 1e-9:
+                a, b = P(f0, h0, top(h0)), P(f1, h1, top(h1))
+                world.face("roof_back", [(a[0], y_e, a[2]), (b[0], y_e, b[2]), (b[0], b[1], b[2]), (a[0], a[1], a[2])],
+                           (0.0, 0.0, -1.0))
+        self.meta["roof"] = {"kind": "cone", "pitch": pitch, "eave_radius_m": round(Re, 4), "segments": len(phis) - 1,
+                             "apex": [round(c[0], 4), round(apex_y, 4), round(cz, 4)],
+                             "upper": {"from_m": rise, "out_m": out, "ledge_m": lip, "pitch": p2,
+                                       "ledge_y_m": round(y1, 4), "eave_radius_m": round(r2, 4), "whole": whole}}
 
     def _deck_cresting(self, world, top, y_d, cr):
         """T-3176: the deck's cresting, an iron band `height_m` tall and `thickness_m` thick
@@ -3562,7 +3662,8 @@ class Bay:
         ax, ay, az = self.meta["roof"]["apex"]
         # T-3293: a turning may be lathed in fewer `segments` (1912's tower: 6, inside its budget)
         r0, H, k = f["radius_m"], f["height_m"], int(f.get("segments", self.TURNED_SEGS))
-        clip = not self.v.get("cap_whole")
+        # T-3616: and so does a two-stage cap whose axis stands behind its wall's face (2011's)
+        clip = not (self.v.get("cap_whole") or self.meta["roof"].get("upper", {}).get("whole"))
         self._lathe(world, ax, az, [(r0 * r, ay + H * y) for r, y in self.TURNED], k, clip=clip)
         top = {"top_m": round(ay + H, 4), "form": "turned"}
         c = f.get("collar_m")
