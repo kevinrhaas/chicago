@@ -338,11 +338,12 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
     r.cancel = false;
     r.building = build(r).then(async b => {
       if (r.cancel) { release(b); return; }
-      r.built = b; r.speed = paceOf(r); onRound(r); place(r);
+      // The horse is not seen until its rider is up: no saddled horse walks its round alone.
+      r.built = b; r.speed = paceOf(r); onRound(r); place(r); b.root.visible = false;
       // A rider sent away while he was being seated (the visitor went off) is not a failure.
       try { await seatRider(r, { asset: r.row.asset, id: `rider:${r.row.id}`, why: r.row.basis }); } catch (error) { if (!r.cancel && r.built === b) { problems.push(`riding: ${r.row.id}: ${error.message}`); r.failed = true; } }
       if (r.cancel || r.failed || !r.built?.rider) { release(r.built); r.built = null; return; }
-      poseRider(r);
+      poseRider(r); b.root.visible = true;
     }).catch(error => { if (!r.cancel) { problems.push(`riding: ${r.row.id}: ${error.message}`); r.failed = true; } })
       .finally(() => { r.building = null; });
   }
