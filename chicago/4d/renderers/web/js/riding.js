@@ -87,7 +87,7 @@ export function findStand(e, n, bearing, ask, { reach = 40, step = 1.5 } = {}) {
 }
 
 /** Where the rider gets down: the near side, the off side, behind, ahead; else the nearest. */
-export function dismountSpot(pose, standable, { side_m = 1.3 } = {}) {
+export function dismountSpot(pose, standable, { side_m = 1.6 } = {}) {
   for (const [x, z] of [[side_m, -.2], [-side_m, -.2], [0, -2.4], [side_m, 1.2], [-side_m, 1.2], [0, 2.8]]) {
     const p = horseLocal(pose.e, pose.n, pose.bearing, x, z);
     if (standable(p.e, p.n)) return p;
@@ -368,7 +368,7 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
       if (land) {
         const to = dismountSpot(h.pose, standable);
         if (!to) { say('Nowhere to get down here'); return null; }
-        landing = { ...to, bearing: (h.pose.bearing + 90) % 360 };
+        landing = { ...to, bearing: h.pose.bearing }; // beside the horse, facing the way it faces
       }
       riding = null; h.speed = 0; blocked = null; lastBearing = null; cmd = { forward: 0, turn: 0, trot: false };
       const r = h.built?.rider;

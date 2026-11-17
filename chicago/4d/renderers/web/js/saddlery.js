@@ -200,7 +200,7 @@ export function fitTack(root, spec, { body = 'Material_HorseMain4k00.png' } = {}
   const trunk = skinnedPoints(root, body, ['horse_body', 'horse_neck', 'fore_l_shoulder', 'fore_r_shoulder', 'hind_l_hip', 'hind_r_hip']);
   const heads = skinnedPoints(root, body, ['horse_head']);
   if (trunk.length < 500 || heads.length < 200) throw Error('saddlery: too little of the horse to fit to');
-  const env = polarEnvelope(trunk, { origin: new THREE.Vector3(0, S.axis_y_m, 0), dir: new THREE.Vector3(0, 0, 1), up: new THREE.Vector3(0, 1, 0), s0: -.7, s1: .7 });
+  const env = polarEnvelope(trunk, { origin: new THREE.Vector3(0, S.axis_y_m, 0), dir: new THREE.Vector3(0, 0, 1), up: new THREE.Vector3(0, 1, 0), s0: -.7, s1: 1 });
   const poll = new THREE.Vector3(...B.poll_m), muzzle = new THREE.Vector3(...B.muzzle_m);
   const headLen = poll.distanceTo(muzzle);
   const hen = polarEnvelope(heads, { origin: poll, dir: muzzle.clone().sub(poll), up: new THREE.Vector3(0, 1, .4), ds: .015, s0: -.05, s1: headLen + .02 });
@@ -252,12 +252,15 @@ export function fitTack(root, spec, { body = 'Material_HorseMain4k00.png' } = {}
     onBody.add(new THREE.Mesh(strapGeometry(pts, nor, .025), mats.leather));
   }
   if (S.breastplate) {
-    // A breast strap round the chest, flap to flap.
-    const pts = [], nor = [];
+    // A breast strap round the chest, flap to flap, laid on the coat (never through the shoulders).
+    const pts = [], nor = [], o = new THREE.Vector3(0, S.axis_y_m, 0), q = new THREE.Vector3();
     for (let i = 0; i <= 16; i++) {
       const t = i / 16, phi = -70 + 140 * t;
       const p = new THREE.Vector3(Math.sin(phi * DEG) * S.breastplate.half_width_m, S.breastplate.y_m - .05 * Math.cos(phi * DEG), S.breastplate.z_m + Math.cos(phi * DEG) * .12);
-      pts.push(p); nor.push(new THREE.Vector3(Math.sin(phi * DEG), 0, Math.cos(phi * DEG)));
+      q.copy(p).sub(o);
+      const sAt = q.z, round = Math.atan2(q.x, q.y) / DEG, r = Math.hypot(q.x, q.y);
+      if (r < env.radius(sAt, round) + .012) env.at(sAt, round, .012, p);
+      pts.push(p); nor.push(p.clone().sub(env.at(sAt, round, 0)).normalize());
     }
     onBody.add(new THREE.Mesh(strapGeometry(pts, nor, .03), mats.leather));
   }
