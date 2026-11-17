@@ -1384,7 +1384,7 @@ async function settledBaseline(page, grid, what) {
   try {
     return (await captureWithRestoreState(page, grid, 'before')).image;
   } catch (err) {
-    console.log(`        ${what}: baseline taken unsettled — ${String(err?.message ?? err).slice(0, 300)}`);
+    console.log(`        ${what}: baseline taken unsettled — ${String(err?.message ?? err).slice(0, 4000)}`);
     return page.evaluate((g) => window.__chicago4d.capture(g), grid);
   }
 }
