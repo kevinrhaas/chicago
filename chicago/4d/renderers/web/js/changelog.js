@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3052, ts: '2026-11-17T00:33:39.372Z', date: 'Nov 16, 2026, 6:33 PM CT', title: 'People can run', kind: 'feature',
+    items: [
+      'People now run as well as walk, at four speeds: a jog, a run, a flat-out flight and a sprint. Both feet leave the ground between strides, the knees fold high, the arms pump bent at the elbow and the body leans into the run, all taken from measured runners.',
+      'In the Battle of Fort Dearborn jaunt the regulars now charge up the bank at a run, Captain Wells comes racing back at a sprint and the warriors close at a jog. From Lee\'s Place, Private Kelso and Lee\'s son take to the woods at a run, and the Burns children run out and back.',
+      'In the Killing of Jean Lalime, John Kinzie now leaves the gate at a jog, as the account has him told to run, and walks away fast and bleeding in the opening scene.',
+    ] },
   { v: 3051, ts: '2026-11-17T00:27:15.982Z', date: 'Nov 16, 2026, 6:27 PM CT', title: '2011 Prairie, the Romanesque house beside Mayer, gets its turret', kind: 'feature',
     items: [
       '2011 Prairie, next door to the Meyer house, now stands as two old pictures show it: a narrow front of rough rock-faced stone, a round-arched door at its north end with a cross window over it, a gabled dormer in the slate roof, and a round corner turret rising past the roofline to a slate cone. The turret\'s roof is still one plain cone where the photograph shows a flared skirt under it; that comes next.',
