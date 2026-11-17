@@ -296,11 +296,18 @@ assert.equal(hairFor(null, 1812), null, 'the 1812 private grows no strand hair u
   const g = growHair({ hair: cap, skin, root, style: { ...row, facial: [] }, lod: 0, seed: 'glessner_john_j' });
   assert(g.grown.scalp > 100, `a fringe grows: ${g.grown.scalp}`);
   const f = headFrame(cap, root), v = new THREE.Vector3();
-  // Every card's root (its first two vertices) is on the fringe.
+  // Every fringe card's root (its first two vertices) is on the fringe; the thin cover over the
+  // crown (T-3553, `cut.crown`) roots only above the line, few and fine.
+  assert(cut.crown && g.grown.crown > 50 && g.grown.crown <= Math.round(CARDS.lods[0].scalp * cut.crown.share), `a thin crown: ${g.grown.crown}`);
+  const crownFrom = g.crownFrom;
+  let crownRoots = 0, crownOnTop = 0;
   for (let i = 0; i < g.card.length / 4; i++) {
     if (g.card[4 * i + 1] !== 0) continue;
-    assert(keepsHair(cut, f, v.fromArray(g.position, 3 * i).addScaledVector(f.y, -.003)), 'no card roots on the bald crown');
+    const onFringe = keepsHair(cut, f, v.fromArray(g.position, 3 * i).addScaledVector(f.y, -.003));
+    if (i < crownFrom) assert(onFringe, 'no fringe card roots on the bald crown');
+    else { crownRoots++; if (!onFringe) crownOnTop++; }
   }
+  assert(crownRoots > 0 && crownOnTop / crownRoots > .9, `the thin cover roots over the crown: ${crownOnTop} of ${crownRoots}`);
   assert(g.undercoat?.length > 30, 'an undercoat where the fringe grows');
   for (const i of g.undercoat) assert(!g.scalp.bare?.[i], 'the undercoat is never on the bald crown');
   const done = dressHair(root, { lod: 0, person: 'glessner_john_j', year: 1904 });

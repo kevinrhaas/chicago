@@ -339,7 +339,22 @@ const hitAlong = (from, dir, far = 3) => { ray.set(from, dir.clone().normalize()
   // Two frames as the loader runs them: restore, mixer, bend.
   for (let i = 0; i < 2; i++) { seat.restore(); mixer.update(1 / 30); seat.apply(); }
   vehicle.updateMatrixWorld(true);
+  // Near enough to touch, he is never the far body (no hair, moustache or spectacles) that a
+  // phone or Light gives the box (Kevin, 2026-11-17).
+  const loaderSrc = fs.readFileSync(new URL('renderers/web/js/driven-assembly-loader.js', ROOT), 'utf8');
+  ok(/const riderLod = Math\.min\(driverLod, 1\)/.test(loaderSrc) && (loaderSrc.match(/riderLod/g) ?? []).length >= 3, 'a passenger is drawn at a near level on every device');
   ok(seat.hidden.length >= 1, `his hat is off indoors (${seat.hidden.map(m => m.name).join(', ')})`);
+  // His hands on his thighs (Kevin, 2026-11-17: "he also sits oddly with his arms under him"):
+  // each wrist over its own thigh, between hip and knee, above the thigh bone, palm down.
+  const at = n => gl.scene.getObjectByName(n).getWorldPosition(new THREE.Vector3()).applyMatrix4(new THREE.Matrix4().copy(vehicle.matrixWorld).invert());
+  const laps = [];
+  for (const s of ['l', 'r']) {
+    const hip = at(`thigh_${s}`), knee = at(`calf_${s}`), wrist = at(`hand_${s}`), knuckle = at(`middle_01_${s}`);
+    const t = (wrist.z - hip.z) / (knee.z - hip.z), under = hip.clone().lerp(knee, t);
+    laps.push(`${s} ${(t * 100).toFixed(0)}% to the knee, ${((wrist.y - under.y) * 100).toFixed(1)} cm over the thigh bone`);
+    ok(t > .4 && t < 1 && wrist.y - under.y > .05 && wrist.y - under.y < .12 && Math.abs(wrist.x - under.x) < .05, `his ${s} hand on his thigh (${laps.at(-1)})`);
+    ok(knuckle.z > wrist.z && Math.abs(knuckle.y - wrist.y) < .04, `the ${s} fingers lie forward along it`);
+  }
   door.set(0);
   const toVehicle = new THREE.Matrix4().copy(vehicle.matrixWorld).invert();
   const points = [];
@@ -386,7 +401,7 @@ const hitAlong = (from, dir, far = 3) => { ray.set(from, dir.clone().normalize()
   ok(up && eyeClear >= .12 && up.distance >= .12, `the visitor's eye ${eyeClear.toFixed(3)} m clear of the cab (${up?.distance.toFixed(3)} m under the roof)`);
   ok(fromHim >= .2, `and ${fromHim.toFixed(2)} m from Mr. Glessner`);
   const head = Math.max(...points.map(q => q.y));
-  lines.push(`seats PASS: Mr. Glessner bent to the cab (${seat.bones.length} bones, hat off), every sampled point inside; roof ${(roof * 100).toFixed(1)} cm over his head (top ${head.toFixed(3)} m), `
+  lines.push(`seats PASS: Mr. Glessner bent to the cab (${seat.bones.length} bones, hat off), hands on his thighs (${laps.join('; ')}), every sampled point inside; roof ${(roof * 100).toFixed(1)} cm over his head (top ${head.toFixed(3)} m), `
     + `walls ${(wall * 100).toFixed(1)} cm, ${cushion} points up to ${(cushionDepth * 100).toFixed(1)} cm into the cushion lip; visitor eye y ${eye.y.toFixed(3)} m (cushion ${row.cab_seat_local_m[1]} + ${row.cab_eye_m}), ${(eyeClear * 100).toFixed(1)} cm clear, roof ${(up.distance * 100).toFixed(1)} cm over, ${fromHim.toFixed(2)} m from him`);
 }
 

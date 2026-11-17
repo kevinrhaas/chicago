@@ -403,6 +403,32 @@ export function growHair({ hair, skin = null, root, style, lod, seed = 'person' 
     });
     grown.scalp++;
   }
+  // T-3553 (Kevin, 2026-11-17, close beside Mr. Glessner in his brougham: "not much if any
+  // hair"): a thinning crown (`cut.crown`) keeps a few fine strands over the top, combed as
+  // the cut combs, lying close, the scalp showing between them. Its own seed, so the fringe and
+  // the face's hair are drawn as before; at most `share` of the level's cards.
+  if (bald && cut.crown && want > 0) {
+    const cr = cut.crown, rc = seeded(`${seed}|${style.cut}|${lod}|crown`), open = { ...scalp, bare: null };
+    const l = new THREE.Vector3();
+    const thin = sampler(scalp, (c, n, tri) => !bald(c) && l.copy(c).sub(f.o).dot(f.z) * 100 < cr.front_z_cm && (!onHair || onHair(c, n, tri)), rc);
+    const wantTop = CARDS.cover * cr.density * thin.area, most = Math.round(level.scalp * cr.share);
+    let laidTop = 0, count = 0;
+    out.crownFrom = out.position.length / 3;
+    for (let c = 0; c < most && laidTop < wantTop; c++) {
+      const s = thin.draw();
+      if (!s) break;
+      const len = cr.length_cm / 100 * (.75 + .5 * rc()), width = cr.card_mm / 1000 * (.7 + .6 * rc());
+      laidTop += len * width * .8;
+      layCard(out, {
+        start: s.p, n0: s.n, length: len, segments: Math.max(2, Math.min(level.segments, Math.round(len / .01) + 1)), width,
+        lift: { root: cr.lift_mm.root / 1000 * (.6 + .8 * rc()), tip: cr.lift_mm.tip / 1000 * (.6 + .8 * rc()) },
+        dir: (p, n) => combed(cut, f, p, n), surface: open, nearest: nearScalp, reach: CARDS.shell_reach_m, rand: rc, curl: cut.curl, hang: false, wave: 0, waveLen: .06,
+        weights: weightsOf(hair, s.vertex, same), seed: rc(), layer: rc(),
+      });
+      count++;
+    }
+    grown.crown = count;
+  }
   // T-3506: the tail or club below a tie, `style.tail_cm` long: a bundle of cards from the tie
   // behind the head, hanging free of the scalp, down and a little back. Bound as the tie's
   // nearest cap vertex, so it moves with the head.
