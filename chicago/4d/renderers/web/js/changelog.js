@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3065, ts: '2026-11-17T07:29:54.203Z', date: 'Nov 17, 2026, 1:29 AM CT', title: 'Fort Dearborn monument: the warrior\'s sash and its hanging cloth', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), the warrior now wears the broad sash both photographs show wrapped round his hips, sloping down to his right hip, with its fringed ends flying out to the west. Before, he had only a thin belt and a narrow strip of cloth.',
+      'The cloth hanging from the sash falls dark at his right hip and beside his raised thigh, as in the photographs.',
+    ] },
+  { v: 3064, ts: '2026-11-17T07:29:54.203Z', date: 'Nov 17, 2026, 1:29 AM CT', title: '1815 Prairie\'s stoop stands open on a pier and an arch', kind: 'improvement',
+    items: [
+      'The front steps of the Sears-Meeker house at 1815 Prairie Avenue were a solid block of stone. The old side-on photograph shows them open underneath on the south side: the landing rests on a square stone pier at its corner with a dark space under it back to the house, and the flight springs off that pier on a curved arch that comes down to the ground partway along the steps. The stoop is now built that way. The basement door in that space, and the iron hand rail on the cheek, are still to come.',
+    ] },
   { v: 3063, ts: '2026-11-17T06:45:42.799Z', date: 'Nov 17, 2026, 12:45 AM CT', title: 'More room for the town\'s detail on a desktop', kind: 'chore',
     items: [
       'The triangle budget for each detail setting is raised to fit the schooners and Lake Street\'s new store fronts, as the owner chose. Nothing in the scene changes.',
