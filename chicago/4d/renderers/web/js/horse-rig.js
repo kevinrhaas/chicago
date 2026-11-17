@@ -2,11 +2,13 @@
 /**
  * horse-rig.js — the driven current26 horse's gaits and distance levels (T-3559).
  *
- * GAITS. The walk (tools/horse_walk_v2.mjs, T-2803) and the trot (the same tool, T-3559) are
- * in-place clips played by travelled metres: time = (metres / cycle_m mod 1) * duration. A
- * horse carries both; `createHorseGait` blends them by pace, each advanced by the SAME metres
- * on its own cycle, so in either gait a stance hoof moves back exactly as fast as the ground
- * goes by. The walk stays as delivered below WALK_TOP_M_S; the trot is full from TROT_FULL_M_S.
+ * GAITS. The walk (tools/horse_walk_v2.mjs, T-2803), the trot (the same tool, T-3559) and the
+ * canter and gallop (the same tool, T-3560) are in-place clips played by travelled metres:
+ * time = (metres / cycle_m mod 1) * duration. A horse carries them all; `createHorseGait`
+ * blends them by pace (`gaitLevel`), each advanced by the SAME metres on its own cycle, so in
+ * any gait a stance hoof moves back exactly as fast as the ground goes by. The walk stays as
+ * delivered below WALK_TOP_M_S; the trot is full from TROT_FULL_M_S, the canter from
+ * CANTER_FULL_M_S, the gallop from GALLOP_FULL_M_S.
  *
  * LEVELS. `horse-current26-mid.glb` and `-far.glb` (tools/transport/horse_lods/) are the near
  * horse's own skin, inverse binds and material names under fewer triangles and smaller maps.
@@ -17,6 +19,8 @@
 import * as THREE from 'three';
 
 export const WALK_TOP_M_S = 1.6, TROT_FULL_M_S = 2.1, GAIT_CHANGE_S = .3;
+/** T-3560 (Kevin, 2026-11-17: "gallop, run"): the canter and gallop bands (m/s). */
+export const TROT_TOP_M_S = 3.6, CANTER_FULL_M_S = 4.2, CANTER_TOP_M_S = 6, GALLOP_FULL_M_S = 6.8;
 /** Swap distances (m): beyond `mid` the mid mesh, beyond `far` the far; back inside less `band`. */
 export const HORSE_LOD = Object.freeze({ mid: 22, far: 55, band: 3 });
 
@@ -43,47 +47,70 @@ export function clipFromJson(clip) {
 }
 
 /** The trot's share at a pace (0 walk .. 1 trot), smooth between the two. */
-export function trotShare(speed_m_s) {
-  const x = Math.min(1, Math.max(0, (Math.abs(speed_m_s) - WALK_TOP_M_S) / (TROT_FULL_M_S - WALK_TOP_M_S)));
+export function trotShare(speed_m_s) { return band(speed_m_s, WALK_TOP_M_S, TROT_FULL_M_S); }
+const band = (speed_m_s, from, full) => {
+  const x = Math.min(1, Math.max(0, (Math.abs(speed_m_s) - from) / (full - from)));
   return x * x * (3 - 2 * x);
+};
+/**
+ * The gait for a pace, as a level: 0 walk, 1 trot, 2 canter, 3 gallop, blended across each
+ * band. The trot is whole from 2.1 to TROT_TOP_M_S, the canter from CANTER_FULL_M_S to
+ * CANTER_TOP_M_S, the gallop from GALLOP_FULL_M_S.
+ */
+export function gaitLevel(speed_m_s) {
+  return trotShare(speed_m_s) + band(speed_m_s, TROT_TOP_M_S, CANTER_FULL_M_S) + band(speed_m_s, CANTER_TOP_M_S, GALLOP_FULL_M_S);
 }
+export const GAIT_NAMES = Object.freeze(['walk', 'trot', 'canter', 'gallop']);
 
 /**
- * Both gaits on one horse's mixer. `advance(step_m, speed_m_s, dt)` moves each gait by the same
- * signed metres on its own cycle and eases the trot's share toward the pace's; then the pose is
+ * Every gait on one horse's mixer. `advance(step_m, speed_m_s, dt)` moves each gait by the same
+ * signed metres on its own cycle and eases the level toward the pace's; then the pose is
  * written (mixer.update(0)). Without a trot it is the walk alone, exactly as before.
  */
-export function createHorseGait(root, { walk, walkCycle_m, trot = null, trotCycle_m = null, mixer = null, gait_m = 0, rest = false }) {
-  if (!walk || !(walkCycle_m > 0) || (trot && !(trotCycle_m > 0))) throw Error('horse gait: a walk and its cycle required');
+export function createHorseGait(root, { walk, walkCycle_m, trot = null, trotCycle_m = null, canter = null, canterCycle_m = null,
+  gallop = null, gallopCycle_m = null, mixer = null, gait_m = 0, rest = false }) {
+  if (!walk || !(walkCycle_m > 0) || (trot && !(trotCycle_m > 0)) || (canter && !(trot && canterCycle_m > 0))
+    || (gallop && !(canter && gallopCycle_m > 0))) throw Error('horse gait: a walk and its cycle required (each faster gait needs the one below it)');
   mixer ??= new THREE.AnimationMixer(root);
-  const walkAction = mixer.clipAction(walk).setLoop(THREE.LoopRepeat, Infinity).play();
-  const trotAction = trot ? mixer.clipAction(trot).setLoop(THREE.LoopRepeat, Infinity).play() : null;
-  for (const a of [walkAction, trotAction]) if (a) { a.paused = true; a.setEffectiveWeight(a === walkAction ? 1 : 0); }
+  // The gaits a horse has, slowest first; a canter needs a trot below it, a gallop a canter.
+  const gaits = [[walk, walkCycle_m], [trot, trotCycle_m], [canter, canterCycle_m], [gallop, gallopCycle_m]]
+    .filter(([clip]) => clip).map(([clip, cycle]) => ({ clip, cycle, action: mixer.clipAction(clip).setLoop(THREE.LoopRepeat, Infinity).play() }));
+  for (const g of gaits) { g.action.paused = true; g.action.setEffectiveWeight(g === gaits[0] ? 1 : 0); }
+  const top = gaits.length - 1;
   // `rest`: a horse that stops stands square in its own rest pose (the GLB's, which the tack
   // was fitted to), the gaits' weights easing out over GAIT_CHANGE_S; a team keeps its walk.
-  let distance = gait_m, share = 0, moving = rest ? 0 : 1;
+  // `level` runs 0 (walk) .. 1 (trot) .. 2 (canter) .. 3 (gallop); between two whole levels
+  // the two gaits are blended. With a walk and a trot alone it is the trot's share, as before.
+  let distance = gait_m, level = 0, moving = rest ? 0 : 1;
   const phase = (d, c) => ((d / c) % 1 + 1) % 1;
+  const weightOf = i => Math.max(0, 1 - Math.abs(level - i));
   const write = () => {
-    walkAction.time = phase(distance, walkCycle_m) * walk.duration;
-    walkAction.setEffectiveWeight((1 - share) * moving);
-    if (trotAction) { trotAction.time = phase(distance, trotCycle_m) * trot.duration; trotAction.setEffectiveWeight(share * moving); }
+    for (const [i, g] of gaits.entries()) {
+      g.action.time = phase(distance, g.cycle) * g.clip.duration;
+      g.action.setEffectiveWeight(weightOf(i) * moving);
+    }
     mixer.update(0);
   };
   write();
   return {
-    mixer, walkAction, trotAction,
+    mixer, walkAction: gaits[0].action, trotAction: gaits[1]?.action ?? null,
+    canterAction: gaits[2]?.action ?? null, gallopAction: gaits[3]?.action ?? null,
     get distance() { return distance; },
-    get trot() { return share; },
+    get trot() { return gaits[1] ? weightOf(1) : 0; },
+    /** 0 walk .. 3 gallop, eased (only as far as this horse's gaits go). */
+    get level() { return level; },
+    /** The gait it is mostly in: 'walk', 'trot', 'canter' or 'gallop'. */
+    get name() { return GAIT_NAMES[Math.round(level)]; },
     /** 0 standing in the rest pose .. 1 in its gait (always 1 without `rest`). */
     get moving() { return moving; },
     /** Signed metres (backing is negative), the pace, and the frame's time for easing the blend. */
     advance(step_m, speed_m_s, dt = 0) {
       distance += Number.isFinite(step_m) ? step_m : 0;
-      if (trotAction) {
-        const want = trotShare(speed_m_s);
-        // At most a third of a second from one gait to the other: quick, but never a jump
+      if (top > 0) {
+        const want = Math.min(top, gaitLevel(speed_m_s));
+        // At most a third of a second from one gait to the next: quick, but never a jump
         // between two leg orders. Without a clock (a first frame, a jump) it is the pace's.
-        share = dt > 0 ? share + Math.max(-dt / GAIT_CHANGE_S, Math.min(dt / GAIT_CHANGE_S, want - share)) : want;
+        level = dt > 0 ? level + Math.max(-dt / GAIT_CHANGE_S, Math.min(dt / GAIT_CHANGE_S, want - level)) : want;
       }
       if (rest) {
         const want = Math.abs(speed_m_s) > .05 || Math.abs(step_m) > 1e-4 ? 1 : 0;

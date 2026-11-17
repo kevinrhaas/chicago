@@ -111,7 +111,7 @@ export function exitWay(row, rear, { r1_m = 10, r2_m = 20, lane_m = 4, step_m = 
 export async function mountTownTransport({ sceneId, dataBase, people, getPeople = null, preparePersonCard = null, humans, confidence,
   heightAt, footprints, visitor, interactions, detail, coarse = false, problems = [],
   blockedAt = () => false, placeVisitor = null, configFile = 'transport/driven/loops.json',
-  visitorEye = null, groundAt = () => NaN, walkEye = () => 1.6, onBoard = () => {}, reducedMotion = () => false,
+  visitorEye = null, groundAt = () => NaN, walkEye = () => 1.6, onBoard = () => {}, reducedMotion = () => false, say = () => {},
   reinsHint = undefined, carriagewayFile = CARRIAGEWAY_FILES[String(sceneId)] ?? null,
   parked = null, coachHouse = () => null, pathHeightAt = null }) {
   if (!supportsTownTransport(sceneId)) return null;
@@ -431,7 +431,7 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
     const v = visitor();
     return v ? { e: v.e, n: v.n, y: v.eyeY ?? v.y, bearing: v.bearing } : null;
   };
-  const ride = createTeamRide({ visitor: visitorEye ?? person, standFor, groundAt, walkEye, onBoard, reducedMotion });
+  const ride = createTeamRide({ visitor: visitorEye ?? person, standFor, groundAt, walkEye, onBoard, reducedMotion, say });
   // T-3557: an on-call team brought round where its parked twin already stands is not refused
   // by the visitor who asked for it, beside its door (`spawning`, only while it is made).
   const spawning = new Set();

@@ -17,11 +17,17 @@
   "ride": {
     "walk_m_s": 1.4,
     "trot_m_s": 2.8,
+    "canter_m_s": 5,
+    "gallop_m_s": 8.5,
+    "urge_s": 1,
+    "accel_fast_share": 0.75,
     "back_m_s": 0.5,
     "accel_m_s2": 1.2,
     "brake_m_s2": 2.4,
     "turn_deg_s": 55,
     "turn_trot_deg_s": 40,
+    "turn_canter_deg_s": 32,
+    "turn_gallop_deg_s": 24,
     "footprint_m": {
       "half_width": 0.4,
       "ahead": 1.5,
@@ -266,6 +272,176 @@
       "liberty": "L-riding-tack-3560",
       "basis": "Reconstructed: no record places a saddle horse at this spot or names this horse. It is stood here so a visitor can ride in 1904; its tack is the year's period pattern (the file's basis).",
       "placement_basis": "Stood a few steps ahead of where a visitor arrives (data/scenes/1904.json spawn), broadside with its near (mounting) side toward them; riding.js moves it to the nearest open ground if that spot is not clear."
+    },
+    {
+      "id": "saddle_horse_sauganash_hotel_stable",
+      "scene": "1835",
+      "name": "Saddle horse at Sauganash Hotel's Stable",
+      "short_name": "the saddle horse",
+      "at": [
+        105.76,
+        -174.51
+      ],
+      "bearing_deg": 0.34,
+      "coat_row": "saddle_horse_sauganash_hotel_stable",
+      "stable": "sauganash_hotel_stable",
+      "grade": "reconstructed",
+      "liberty": "L-riding-tack-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied outside Sauganash Hotel's Stable, on its street side (tools/lay_town_riders.mjs). Kevin, 2026-11-17: \"some stabled parked horses I could ride\". Where it stands, its tack and its coat are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "saddle_horse_tremont_house_1_stable",
+      "scene": "1835",
+      "name": "Saddle horse at Tremont House's Stable",
+      "short_name": "the saddle horse",
+      "at": [
+        676.08,
+        -62.61
+      ],
+      "bearing_deg": 0.36,
+      "coat_row": "saddle_horse_tremont_house_1_stable",
+      "stable": "tremont_house_1_stable",
+      "grade": "reconstructed",
+      "liberty": "L-riding-tack-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied outside Tremont House's Stable, on its street side (tools/lay_town_riders.mjs). Kevin, 2026-11-17: \"some stabled parked horses I could ride\". Where it stands, its tack and its coat are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "saddle_horse_western_hotel_stable",
+      "scene": "1835",
+      "name": "Saddle horse at Western Hotel's Stable",
+      "short_name": "the saddle horse",
+      "at": [
+        -143.19,
+        -302.65
+      ],
+      "bearing_deg": 358.26,
+      "coat_row": "saddle_horse_western_hotel_stable",
+      "stable": "western_hotel_stable",
+      "grade": "reconstructed",
+      "liberty": "L-riding-tack-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied outside Western Hotel's Stable, on its street side (tools/lay_town_riders.mjs). Kevin, 2026-11-17: \"some stabled parked horses I could ride\". Where it stands, its tack and its coat are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "saddle_horse_wolf_point_tavern_stable",
+      "scene": "1835",
+      "name": "Saddle horse at Wolf Point Tavern's Stable",
+      "short_name": "the saddle horse",
+      "at": [
+        -92.54,
+        -62.3
+      ],
+      "bearing_deg": 90.46,
+      "coat_row": "saddle_horse_wolf_point_tavern_stable",
+      "stable": "wolf_point_tavern_stable",
+      "grade": "reconstructed",
+      "liberty": "L-riding-tack-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied outside Wolf Point Tavern's Stable, on its street side (tools/lay_town_riders.mjs). Kevin, 2026-11-17: \"some stabled parked horses I could ride\". Where it stands, its tack and its coat are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "saddle_horse_new_york_house_stable",
+      "scene": "1835",
+      "name": "Saddle horse at New York House's Stable",
+      "short_name": "the saddle horse",
+      "at": [
+        305.16,
+        -59.99
+      ],
+      "bearing_deg": 0.34,
+      "coat_row": "saddle_horse_new_york_house_stable",
+      "stable": "new_york_house_stable",
+      "grade": "reconstructed",
+      "liberty": "L-riding-tack-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied outside New York House's Stable, on its street side (tools/lay_town_riders.mjs). Kevin, 2026-11-17: \"some stabled parked horses I could ride\". Where it stands, its tack and its coat are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "saddle_horse_steamboat_hotel_stable",
+      "scene": "1835",
+      "name": "Saddle horse at Steamboat Hotel's Stable",
+      "short_name": "the saddle horse",
+      "at": [
+        912.66,
+        210.49
+      ],
+      "bearing_deg": 41.41,
+      "coat_row": "saddle_horse_steamboat_hotel_stable",
+      "stable": "steamboat_hotel_stable",
+      "grade": "reconstructed",
+      "liberty": "L-riding-tack-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied outside Steamboat Hotel's Stable, on its street side (tools/lay_town_riders.mjs). Kevin, 2026-11-17: \"some stabled parked horses I could ride\". Where it stands, its tack and its coat are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "saddle_horse_first_fort_outer_stable_north",
+      "scene": "1812",
+      "name": "Saddle horse at the fort's stable, north of three",
+      "short_name": "the saddle horse",
+      "at": [
+        1065.26,
+        142.24
+      ],
+      "bearing_deg": 180,
+      "coat_row": "saddle_horse_first_fort_outer_stable_north",
+      "stable": "first_fort_outer_stable_north",
+      "grade": "reconstructed",
+      "liberty": "L-riding-tack-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied outside First Fort Dearborn — stable, north of three, on its street side (tools/lay_town_riders.mjs). Kevin, 2026-11-17: \"some stabled parked horses I could ride\". Where it stands, its tack and its coat are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "saddle_horse_first_fort_outer_stable_south",
+      "scene": "1812",
+      "name": "Saddle horse at the fort's stable, south of three",
+      "short_name": "the saddle horse",
+      "at": [
+        1064.18,
+        108.42
+      ],
+      "bearing_deg": 180,
+      "coat_row": "saddle_horse_first_fort_outer_stable_south",
+      "stable": "first_fort_outer_stable_south",
+      "grade": "reconstructed",
+      "liberty": "L-riding-tack-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied outside First Fort Dearborn — stable, south of three, on its street side (tools/lay_town_riders.mjs). Kevin, 2026-11-17: \"some stabled parked horses I could ride\". Where it stands, its tack and its coat are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "saddle_horse_kinzie_horse_mill_1812",
+      "scene": "1812",
+      "name": "Saddle horse at old horse mill beside Kinzie's garden",
+      "short_name": "the saddle horse",
+      "at": [
+        1128.59,
+        345.43
+      ],
+      "bearing_deg": 270,
+      "coat_row": "saddle_horse_kinzie_horse_mill_1812",
+      "stable": "kinzie_horse_mill_1812",
+      "grade": "reconstructed",
+      "liberty": "L-riding-tack-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied outside old horse mill beside Kinzie's garden, on its street side (tools/lay_town_riders.mjs). Kevin, 2026-11-17: \"some stabled parked horses I could ride\". Where it stands, its tack and its coat are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "saddle_horse_dexter_house_1721_prairie_coach_house",
+      "scene": "1904",
+      "name": "Saddle horse at 1721 Prairie Avenue: the two-storey brick stable by the tracks, K12 on a slanting plan",
+      "short_name": "the saddle horse",
+      "at": [
+        1475.44,
+        -3138.38
+      ],
+      "bearing_deg": 359.32,
+      "coat_row": "saddle_horse_dexter_house_1721_prairie_coach_house",
+      "stable": "dexter_house_1721_prairie_coach_house",
+      "grade": "reconstructed",
+      "liberty": "L-riding-tack-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied outside 1721 Prairie Avenue: the two-storey brick stable by the tracks, K12 on a slanting plan, on its street side (tools/lay_town_riders.mjs). Kevin, 2026-11-17: \"some stabled parked horses I could ride\". Where it stands, its tack and its coat are reconstructed (L-town-riders-3560)."
     }
   ],
   "fit": {
@@ -282,6 +458,767 @@
     "hands_ahead_m": 0.32,
     "hands_apart_m": 0.16,
     "lean_walk_rad": 0.08,
-    "lean_trot_rad": 0.2
-  }
+    "lean_trot_rad": 0.2,
+    "lean_canter_rad": 0.16,
+    "lean_gallop_rad": 0.3
+  },
+  "riders": [
+    {
+      "id": "rider_farmer_1835",
+      "scene": "1835",
+      "name": "A farmer in from the prairie",
+      "short_name": "a farmer in from the prairie",
+      "asset": "settler_1812",
+      "coat_row": "rider_farmer_1835",
+      "hours": [
+        7,
+        16
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "speed_m_s": 1.45,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            211.29,
+            -114.89
+          ],
+          [
+            448.27,
+            -116.82
+          ],
+          [
+            446.67,
+            -387.92
+          ],
+          [
+            209.68,
+            -386
+          ]
+        ]
+      },
+      "initial_distance_m": 100.5,
+      "ring": [
+        "franklin",
+        "lasalle",
+        "lake",
+        "washington"
+      ],
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Farmers rode in from the Des Plaines and the Fox to trade and to see the land office. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_land_office_1835",
+      "scene": "1835",
+      "name": "A settler come to the land office",
+      "short_name": "a settler come to the land office",
+      "asset": "settler_1812",
+      "coat_row": "rider_land_office_1835",
+      "hours": [
+        8,
+        18
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "speed_m_s": 1.4,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            455.27,
+            -116.88
+          ],
+          [
+            571.69,
+            -117.83
+          ],
+          [
+            569.97,
+            -388.92
+          ],
+          [
+            453.67,
+            -387.98
+          ]
+        ]
+      },
+      "initial_distance_m": 420.5,
+      "ring": [
+        "lasalle",
+        "clark",
+        "lake",
+        "washington"
+      ],
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "The town lots and the government land sold and resold all year in 1835; buyers rode in to bid and to file. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_doctor_1835",
+      "scene": "1835",
+      "name": "A man riding for the doctor",
+      "short_name": "a man riding for the doctor",
+      "asset": "settler_1812",
+      "coat_row": "rider_doctor_1835",
+      "hours": [
+        6,
+        23
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "speed_m_s": 1.5,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            89.38,
+            -113.9
+          ],
+          [
+            326.28,
+            -115.83
+          ],
+          [
+            324.68,
+            -386.93
+          ],
+          [
+            87.77,
+            -385.01
+          ]
+        ]
+      },
+      "initial_distance_m": 301.75,
+      "ring": [
+        "market",
+        "wells",
+        "lake",
+        "washington"
+      ],
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "A rider fetched the doctor to a patient, by night as well as by day. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_express_1835",
+      "scene": "1835",
+      "name": "The express rider",
+      "short_name": "the express rider",
+      "asset": "settler_1812",
+      "coat_row": "rider_express_1835",
+      "hours": [
+        8,
+        12
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "speed_m_s": 1.5,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            210.44,
+            -257.67
+          ],
+          [
+            570.79,
+            -260.61
+          ],
+          [
+            569.97,
+            -388.92
+          ],
+          [
+            209.68,
+            -386
+          ]
+        ]
+      },
+      "initial_distance_m": 773.5,
+      "ring": [
+        "franklin",
+        "clark",
+        "randolph",
+        "washington"
+      ],
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Letters and the eastern papers came on by horse between the stages and the boats. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_engage_1835",
+      "scene": "1835",
+      "name": "A Métis trader's man on horseback",
+      "short_name": "a Métis trader's man on horseback",
+      "asset": "engage_1812",
+      "coat_row": "rider_engage_1835",
+      "hours": [
+        8,
+        18
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "speed_m_s": 1.4,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            -282.8,
+            8.91
+          ],
+          [
+            -169.96,
+            8.36
+          ],
+          [
+            -154.85,
+            -383.04
+          ],
+          [
+            -273.43,
+            -382.08
+          ]
+        ]
+      },
+      "initial_distance_m": 200.75,
+      "ring": [
+        "clinton",
+        "canal",
+        "fulton",
+        "washington"
+      ],
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "The Métis and French Canadian men of the old trade still carried for the traders in 1835, mounted as often as afoot. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_north_side_1835",
+      "scene": "1835",
+      "name": "A boatman riding the North Side",
+      "short_name": "a boatman riding the North Side",
+      "asset": "engage_1812",
+      "coat_row": "rider_north_side_1835",
+      "hours": [
+        9,
+        17
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "speed_m_s": 1.4,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            213.48,
+            255.36
+          ],
+          [
+            574.05,
+            252.49
+          ],
+          [
+            573.16,
+            112.75
+          ],
+          [
+            469.72,
+            116.71
+          ],
+          [
+            464,
+            115.57
+          ],
+          [
+            454.7,
+            111.85
+          ],
+          [
+            410.55,
+            121.56
+          ],
+          [
+            250.18,
+            137.8
+          ],
+          [
+            240.92,
+            137.8
+          ],
+          [
+            212.88,
+            153.64
+          ]
+        ]
+      },
+      "initial_distance_m": 576.25,
+      "ring": [
+        "franklin_north",
+        "clark_north",
+        "kinzie",
+        "north_water"
+      ],
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "The forwarding houses on North Water sent their men between the warehouses and the river. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_evening_1835",
+      "scene": "1835",
+      "name": "A young man out riding in the evening",
+      "short_name": "a young man out riding in the evening",
+      "asset": "settler_1812",
+      "coat_row": "rider_evening_1835",
+      "hours": [
+        17,
+        21.5
+      ],
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "speed_m_s": 1.5,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            89.38,
+            -113.9
+          ],
+          [
+            204.29,
+            -114.84
+          ],
+          [
+            202.68,
+            -385.94
+          ],
+          [
+            87.77,
+            -385.01
+          ]
+        ]
+      },
+      "initial_distance_m": 342.75,
+      "ring": [
+        "market",
+        "franklin",
+        "lake",
+        "washington"
+      ],
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "A summer evening ride along the river streets. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_soldier_1812",
+      "scene": "1812",
+      "name": "A soldier of the garrison riding out",
+      "short_name": "a soldier of the garrison riding out",
+      "asset": "private_first_infantry_1812",
+      "coat_row": "rider_soldier_1812",
+      "hours": [
+        7,
+        19
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "speed_m_s": 1.45,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            1227.54,
+            62.5
+          ],
+          [
+            1167.5,
+            62.5
+          ],
+          [
+            1167.5,
+            2.92
+          ],
+          [
+            1221.34,
+            -7.05
+          ],
+          [
+            1217.51,
+            -59.77
+          ],
+          [
+            1209.51,
+            -129.73
+          ],
+          [
+            1202.52,
+            -199.65
+          ],
+          [
+            1192.57,
+            -254.41
+          ],
+          [
+            1175.66,
+            -309.11
+          ],
+          [
+            1147.54,
+            -371.36
+          ],
+          [
+            1140.7,
+            -452.5
+          ],
+          [
+            1097.5,
+            -452.5
+          ],
+          [
+            1097.5,
+            -407.5
+          ],
+          [
+            1145.03,
+            -407.5
+          ],
+          [
+            1152.39,
+            -372.78
+          ],
+          [
+            1180.34,
+            -310.89
+          ],
+          [
+            1197.43,
+            -255.59
+          ],
+          [
+            1207.48,
+            -200.35
+          ],
+          [
+            1214.49,
+            -130.27
+          ],
+          [
+            1222.49,
+            -60.23
+          ],
+          [
+            1226.5,
+            -5.11
+          ]
+        ]
+      },
+      "initial_distance_m": 615,
+      "follows": "shore_road_wagon_haul_1812",
+      "offset_m": 2.5,
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "The fort kept horses, and its men rode the shore road to the farms south of the fort with messages and stores. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_engage_1812",
+      "scene": "1812",
+      "name": "A Métis engagé riding to the traders",
+      "short_name": "a Métis engagé riding to the traders",
+      "asset": "engage_1812",
+      "coat_row": "rider_engage_1812",
+      "hours": [
+        6,
+        20
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "speed_m_s": 1.4,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            1075,
+            82
+          ],
+          [
+            1201,
+            82
+          ],
+          [
+            1201,
+            150
+          ],
+          [
+            1075,
+            150
+          ]
+        ]
+      },
+      "initial_distance_m": 94.5,
+      "follows": "fort_wagon_loop_1812",
+      "offset_m": 3,
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "The traders' Métis and French Canadian men rode between the fort, the factory and the houses about it. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_officers_horse_1812",
+      "scene": "1812",
+      "name": "A soldier exercising an officer's horse",
+      "short_name": "a soldier exercising an officer's horse",
+      "asset": "private_first_infantry_1812",
+      "coat_row": "rider_officers_horse_1812",
+      "hours": [
+        8,
+        18
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "speed_m_s": 1.4,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            1075,
+            82
+          ],
+          [
+            1201,
+            82
+          ],
+          [
+            1201,
+            150
+          ],
+          [
+            1075,
+            150
+          ]
+        ]
+      },
+      "initial_distance_m": 283.25,
+      "follows": "fort_wagon_loop_1812",
+      "offset_m": 3,
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "The officers' horses were kept at the fort and walked out by the men. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_settler_1812",
+      "scene": "1812",
+      "name": "A settler riding the shore road",
+      "short_name": "a settler riding the shore road",
+      "asset": "settler_1812",
+      "coat_row": "rider_settler_1812",
+      "hours": [
+        6,
+        17
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "speed_m_s": 1.4,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            1227.54,
+            62.5
+          ],
+          [
+            1167.5,
+            62.5
+          ],
+          [
+            1167.5,
+            2.92
+          ],
+          [
+            1221.34,
+            -7.05
+          ],
+          [
+            1217.51,
+            -59.77
+          ],
+          [
+            1209.51,
+            -129.73
+          ],
+          [
+            1202.52,
+            -199.65
+          ],
+          [
+            1192.57,
+            -254.41
+          ],
+          [
+            1175.66,
+            -309.11
+          ],
+          [
+            1147.54,
+            -371.36
+          ],
+          [
+            1140.7,
+            -452.5
+          ],
+          [
+            1097.5,
+            -452.5
+          ],
+          [
+            1097.5,
+            -407.5
+          ],
+          [
+            1145.03,
+            -407.5
+          ],
+          [
+            1152.39,
+            -372.78
+          ],
+          [
+            1180.34,
+            -310.89
+          ],
+          [
+            1197.43,
+            -255.59
+          ],
+          [
+            1207.48,
+            -200.35
+          ],
+          [
+            1214.49,
+            -130.27
+          ],
+          [
+            1222.49,
+            -60.23
+          ],
+          [
+            1226.5,
+            -5.11
+          ]
+        ]
+      },
+      "initial_distance_m": 61.5,
+      "follows": "shore_road_wagon_haul_1812",
+      "offset_m": 2.5,
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "The families south of the fort came up the shore road on horseback. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_groom_1904",
+      "scene": "1904",
+      "name": "A groom exercising a carriage horse",
+      "short_name": "a groom exercising a carriage horse",
+      "asset": "anonymous_working_driver_1904",
+      "coat_row": "rider_groom_1904",
+      "hours": [
+        7,
+        11
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "speed_m_s": 1.4,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            1259.94,
+            -3214.06
+          ],
+          [
+            1406.93,
+            -3212.37
+          ],
+          [
+            1403.71,
+            -2939.89
+          ],
+          [
+            1257.12,
+            -2941.05
+          ]
+        ]
+      },
+      "initial_distance_m": 414.5,
+      "follows": "prairie_driven_brougham_north_loop_1904",
+      "offset_m": 2.5,
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Prairie Avenue went in carriages; its grooms rode the carriage horses out in the morning. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    }
+  ]
 }

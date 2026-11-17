@@ -10,6 +10,12 @@
  * visitor's `steer` is +1 = right, the other way round, and is turned into an angle here.
  */
 export const DRIVE_SPEED_CAP_M_S = 1.5;
+/**
+ * T-3560 (Kevin, 2026-11-17: "Allow the driver of a horse or wagon or carriage to be able to
+ * gallop, run"): the paces a driven team is urged to, by gear: walk (the cap above, as before),
+ * trot, canter, gallop. A farm wagon's team gallops too: he asked for it, and a runaway did.
+ */
+export const DRIVE_GEARS_M_S = Object.freeze([DRIVE_SPEED_CAP_M_S, 3, 5, 7.5]);
 /** Backing: at most this pace, after the reins are held pulled this long at a stand. */
 export const REVERSE_CAP_M_S = .4, BACK_HOLD_S = .4;
 const DEG = Math.PI / 180;
@@ -34,6 +40,9 @@ export function driveLimits({ speed_m_s, steering_limit_deg, wheelbase_m }) {
   const min_radius_m = wheelbase_m / Math.tan(steer_max_rad);
   return Object.freeze({
     max_m_s: Math.min(DRIVE_SPEED_CAP_M_S, Math.max(speed_m_s, DRIVE_SPEED_CAP_M_S)),
+    // Urged on (gear 1..3): the trot, canter and gallop; reached more slowly, and steered with
+    // a lock that narrows as the pace rises, so a galloping team cannot turn on a sixpence.
+    gears_m_s: DRIVE_GEARS_M_S, fast_accel_m_s2: .9,
     route_m_s: Math.min(speed_m_s, DRIVE_SPEED_CAP_M_S),
     accel_m_s2: .5, ease_m_s2: .6, brake_m_s2: 1.5,
     // Backing a few steps (a teamster backs his team off a wall): slow, eased, and only after
@@ -54,15 +63,25 @@ export const easeToward = (value, target, rate, dt) => value + clamp(target - va
  * speed eases toward max(0, throttle) * max. steer -1..1 (+1 right): the steering angle eases,
  * rate-limited, toward the lock, and back to straight when let go.
  */
-export function easeControls({ speed, steering }, { throttle = 0, steer = 0 } = {}, limits, dt) {
+export function easeControls({ speed, steering }, { throttle = 0, steer = 0, gear = 0 } = {}, limits, dt) {
   const t = clamp(Number.isFinite(throttle) ? throttle : 0, -1, 1), s = clamp(Number.isFinite(steer) ? steer : 0, -1, 1);
-  const target = Math.max(0, t) * limits.max_m_s;
-  const rate = t < 0 ? limits.brake_m_s2 : target > speed ? limits.accel_m_s2 : limits.ease_m_s2;
+  // T-3560: urged on (gear 1..), the team goes at that gear's pace while the reins say go on.
+  const gears = limits.gears_m_s ?? [limits.max_m_s];
+  const g = clamp(Number.isFinite(gear) ? Math.round(gear) : 0, 0, gears.length - 1);
+  const top = g > 0 ? gears[g] : limits.max_m_s;
+  const target = g > 0 ? (t > 0 ? top : 0) : Math.max(0, t) * limits.max_m_s;
+  const rate = t < 0 ? limits.brake_m_s2 : target > speed ? (speed >= limits.max_m_s ? limits.fast_accel_m_s2 ?? limits.accel_m_s2 : limits.accel_m_s2) : limits.ease_m_s2;
+  const lock = limits.steer_max_rad * fastLock(speed, limits);
   return {
-    speed: clamp(easeToward(speed, target, rate, dt), 0, limits.max_m_s),
-    steering: clamp(easeToward(steering, -s * limits.steer_max_rad, limits.steer_rate_rad_s, dt),
-      -limits.steer_max_rad, limits.steer_max_rad),
+    speed: clamp(easeToward(speed, target, rate, dt), 0, Math.max(top, limits.max_m_s, speed)),
+    steering: clamp(easeToward(steering, -s * lock, limits.steer_rate_rad_s, dt), -limits.steer_max_rad, limits.steer_max_rad),
   };
+}
+
+/** Of the full lock, what a team at this pace is steered with: all of it at a walk, a third at a gallop. */
+export function fastLock(speed, limits) {
+  const over = Math.max(0, speed - limits.max_m_s), span = DRIVE_GEARS_M_S[3] - limits.max_m_s;
+  return 1 - (2 / 3) * Math.min(1, over / span);
 }
 
 /**
