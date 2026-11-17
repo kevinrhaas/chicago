@@ -44750,3 +44750,27 @@ The farm-box master's `photographic_acceptance` is set true on its record of mat
 **Ticket:** T-3558.
 **Review:** `data/transport/parked/placements.json` (`farm_box_w01`, `retired_yard_wagons`), `renderers/web/js/parked-transport.js` and `renderers/web/js/yard.js` (`retiredIds`), `tools/transport/check_parked_placements.py`.
 **Recorded:** 2026-11-17 (T-3558).
+
+### L-collars-3553 — Collars, straps and crossbelts sit on the cloth beneath them
+
+**Decision:** the owner, 2026-11-17: *"Fix all those clothing issues identified"*, after T-3553's line *"Collars read as shirt collars at conversation distance: neckline and coat junction reshaped on the existing garments"*. The exported collars, apron straps and frills, crossbelts and shirt points were cut out of their garments' faces, so their edges stepped like stairs (the maid's collar edge 15 cm of steps, the cook's 14 cm) and the cloth under them came through (the 1812 coats through their red collars over half their area, the trader's waistcoat through his neckcloth). **What is reconstructed.** At load, once per body (`renderers/web/js/human-collar.js`), these edges are faired by at most 16 mm, a standing collar's foot is folded up onto its coat's neckline (at most 5 cm), the cloth underneath is drawn a few millimetres inside what is worn over it (at most 8 to 15 mm), and the collars, frills and crossbelts take the skin weights of the garment under them so the two move together. The exact lines of each edge are a fit, not a reading of any garment.
+**How to resolve:** garments exported with their collar and strap edges cut along the cloth's own lines, and layered at the source.
+**Ticket:** T-3553.
+**Review:** `renderers/web/js/human-collar.js`, `tools/test_human_collar.mjs`.
+**Recorded:** 2026-11-17 (T-3553).
+
+### L-coat-3553 — A coat closes under the arm and at the back vent
+
+**Decision:** the owner, 2026-11-17: *"Fix all those clothing issues identified"* (a gap at the armpit of coated men on the walk; a sliver at the back vent of Philip Peck's and the trader's coats). **Not invented:** that a coat's back vent or tail split hangs closed with one side lapped over the other, and that nothing under a sleeved coat shows at the armpit, are general tailoring. **Liberties within it:** which side laps (the left over the right), the lap (3 mm across the middle each way, the left 3 mm further out, flush at the vent's top) and its 6 cm fade; and that what lies under the outermost sleeved garment round each armpit (the skin, a shirt, a waistcoat) is drawn up to 4 cm (per 0.4 m of shoulders) thinner there, so that the hanging arm's skinning no longer brings it through the coat. The coat itself is drawn exactly as exported (`renderers/web/js/human-coat.js`).
+**How to resolve:** exports bound with the arms down, or with garment weights fitted to the body at the armpit; a source on the lap of a period coat's vent.
+**Ticket:** T-3553.
+**Review:** `renderers/web/js/human-coat.js` (`ZONE`, `DEPTH_M`, `VENT`), `tools/test_human_coat.mjs`.
+**Recorded:** 2026-11-17 (T-3553).
+
+### L-sleeve-3553 — Sleeve hems turn as one band; the coachman's glove reaches up his sleeve
+
+**Decision:** the owner, 2026-11-17: *"Fix all those clothing issues identified"*, after T-3553's line on *"the soldiers' stripes and trim on bending sleeves"*. The soldiers' cuffs and trim held on every bend tested; what failed was elsewhere. Each sleeve or cuff hem was weighted unevenly round its ring and toothed by decimation (6 to 7 mm), so it sheared into a jagged edge when the wrist turned, and the coachman's glove stopped short inside his livery sleeve, showing the wrist in the sleeve's mouth. **What is reconstructed.** At load (`renderers/web/js/human-sleeve.js`) each hem takes one band of skin weights (its ring's average, blended over 35 mm) and its teeth are moved back onto the hem's line (at most 15 mm); the coachman's gloves are drawn 4 cm further up the forearm inside the sleeve, eased toward the lining and weighted with it, as a gauntlet cuff. The gauntlet's length is not sourced; the added length is never seen outside the sleeve.
+**How to resolve:** garments re-exported with banded hem weights and a glove cuff that reaches under the sleeve; a dated reference for a coachman's livery gloves.
+**Ticket:** T-3553.
+**Review:** `renderers/web/js/human-sleeve.js`, `tools/test_human_sleeve.mjs`.
+**Recorded:** 2026-11-17 (T-3553).

@@ -1,0 +1,55 @@
+{
+  "id": "reynolds_mary_1904_maid",
+  "label": "Mary Reynolds, the Glessners' house maid, in her working dress (1904, catalogue)",
+  "person_id": "pa1904_glessner_john_j_c1900_mary_reynolds",
+  "scene": "1904",
+  "reference_set": "maid_1904",
+  "find": {
+    "kind": "stage",
+    "instance": "hi_pa1904_glessner_john_j_c1900_mary_reynolds_1904",
+    "asset": "reynolds_mary_1904_maid",
+    "lod": 0
+  },
+  "bound": {
+    "file": "data/humans/instances/1904/hi_pa1904_glessner_john_j_c1900_mary_reynolds_1904.json",
+    "keys": [
+      "appearance",
+      "animation"
+    ]
+  },
+  "aim_bone": "head",
+  "stills": [
+    {
+      "name": "near",
+      "distance_m": 3,
+      "bearing_off_heading_deg": 35,
+      "eye_m": 1.68,
+      "aim_below_head_m": 0.75,
+      "pose": "stand",
+      "at_s": 2,
+      "why": "Standing, from her right front at three metres, as E. W. Kelley's 1904 camera stood to the maid at the front door."
+    },
+    {
+      "name": "far",
+      "distance_m": 10,
+      "bearing_off_heading_deg": 35,
+      "eye_m": 1.68,
+      "aim_below_head_m": 0.9,
+      "pose": "stand",
+      "at_s": 2,
+      "why": "The same quarter at ten metres, standing, as Kelley's whole frame holds her small at the door."
+    }
+  ],
+  "pair": {
+    "near": "kelley_1904_maid",
+    "far": "kelley_1904_frame"
+  },
+  "clip": {
+    "still": "near",
+    "viewport": "desktop",
+    "frames": 5,
+    "interval_s": 1.25,
+    "pose": "walk"
+  },
+  "figure_below_head_m": 1.8
+}
