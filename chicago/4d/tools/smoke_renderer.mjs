@@ -14742,7 +14742,7 @@ for (const [label, viewport, touch] of [
       && guideWords.firstTermTap.phase === 'welcome' && guideWords.firstTermTap.journey === 'landed',
       JSON.stringify(guideWords));
     // ---- end T-2662
-    // >>> T-2666: Guide › For teachers — the Field Check's eight steps, read from the tour
+    // >>> T-2666: Guide › For teachers — the Field Check's ten steps, read from the tour
     // itself, and three suggested Jaunts per destination, printed as one page at Letter and
     // at A4. window.print is stubbed for the click (a real dialog would hold the page); the
     // print stylesheet's layout is then printed by the browser itself to PDF and its pages
@@ -14764,7 +14764,7 @@ for (const [label, viewport, touch] of [
       return {
         teachers: !!document.querySelector('#nav-app-guide #guide-teachers'),
         print: document.getElementById('guide-handout-print')?.textContent.trim() ?? null,
-        stepsFromTour: !!steps && steps.length === 9 && rows.length === 9 && rows.every((r, i) =>
+        stepsFromTour: !!steps && steps.length === 10 && rows.length === 10 && rows.every((r, i) =>
           r.querySelector('.handout-task')?.textContent === steps[i].task
           && r.querySelector('.handout-bubble')?.textContent === steps[i].bubble({ scene, front: null })),
         scene,
@@ -14811,7 +14811,7 @@ for (const [label, viewport, touch] of [
     });
     // page.pdf is Chromium-headless only; anywhere else it is reported, not counted.
     const pdfUnsupported = Object.values(sheets).every((s) => s.pages === null && /not supported|headless/i.test(s.error ?? ''));
-    check(`${label}: Guide › For teachers prints the nine tour steps and three Jaunts per destination on one page at Letter and A4 (T-2666)`,
+    check(`${label}: Guide › For teachers prints the ten tour steps and three Jaunts per destination on one page at Letter and A4 (T-2666)`,
       handoutRead.teachers && handoutRead.print === 'Print the handout' && handoutRead.stepsFromTour
       && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn'
       // T-3325..T-3327 gave 1812 its three Fort Dearborn jaunts, so every destination has three.
@@ -18105,7 +18105,8 @@ for (const [label, viewport, touch] of [
     // engine reads the camera and the walker either way; tools/test_tour.mjs holds the
     // thresholds). Reload at 4 is read from storage here and resumed; Skip at 6 ends it
     // cleanly; Replay starts again, and a full pass ends on Finish. T-2954: step 05 is the
-    // release (Esc with a keyboard, the card's Close on touch), 06 opens Move, 07 People, 08 Settings.
+    // release (Esc with a keyboard, the card's Close on touch); T-3642: 06 Interact, 07 Jaunts,
+    // 08 Move, 09 Settings.
     await page.evaluate(() => { window.__chicago4d.navigator.dock(); window.__chicago4d.popup.close(); });
     // T-2620: the drawer's Guide section opens in the Navigator's Guide, under its sheet.
     await openSection('controls');
@@ -18113,6 +18114,8 @@ for (const [label, viewport, touch] of [
     const tourView = () => page.evaluate(() => ({ shown: !document.getElementById('tour').hidden,
       count: document.getElementById('tour-count')?.textContent.trim(), bubble: document.getElementById('tour-bubble')?.textContent.trim(),
       waiting: !document.getElementById('tour-status').hidden, ring: !document.querySelector('#tour .tour-hole').hidden,
+      // T-3642: the row of step segments, and how many are lit.
+      pips: document.querySelectorAll('#tour-pips i').length, lit: document.querySelectorAll('#tour-pips i.done, #tour-pips i.now').length,
       step: window.__chicago4d.tour.step }));
     // Each wait must END IN the step it names before the next action is taken. A step
     // reads its starting point when it is entered (where the visitor stands, the counters),
@@ -18167,8 +18170,9 @@ for (const [label, viewport, touch] of [
     await clickChrome('#tour-skip');
     const skipped = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, shown: !document.getElementById('tour').hidden,
       dim: document.documentElement.hasAttribute('data-tour'), stored: JSON.parse(localStorage.getItem('chicago4d.tour') || 'null') }));
-    // Replay, and a full pass to Finish: 06 on Move, 07 on People (T-3445), 08 on Settings,
-    // 09 on Finish.
+    // Replay, and a full pass to Finish: 06 on the Interact key's use (T-3642; its press is
+    // counted by main.js's onPress, driven here through the key's own module), 07 on Jaunts,
+    // 08 on Move, 09 on Settings, 10 on Finish.
     await page.evaluate(() => { window.__chicago4d.popup.close(); window.__chicago4d.tour.start(); });
     await clickChrome('#tour-next');
     await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e, local_n: w.state.n, yaw_deg: 200 }); });
@@ -18179,15 +18183,20 @@ for (const [label, viewport, touch] of [
     await tourWait(4);
     await page.evaluate(() => window.__chicago4d.popup.close());
     await tourWait(5);
+    const interactStep = await tourView();
+    // A person, gate or horse in reach is not certain where the smoke stands, so the key's
+    // own hook is fired as a press of it would (tools/test_fort_gates.mjs holds the key).
+    await page.evaluate(() => window.__chicago4d.tourInteracted());
+    await tourWait(6);
+    const jauntsStep = await tourView();
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('jaunts'); });
+    await tourWait(7);
     const moveStep = await tourView();
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('move'); });
-    await tourWait(6);
-    const peopleStep = await tourView();
-    await page.evaluate(async () => { await window.__chicago4d.navigator.select('people'); });
-    await tourWait(7);
+    await tourWait(8);
     const settingsStep = await tourView();
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('settings'); });
-    await tourWait(8);
+    await tourWait(9);
     const last = await tourView();
     await clickChrome('#tour-next');
     const done = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, finished: window.__chicago4d.tour.finished,
@@ -18200,18 +18209,19 @@ for (const [label, viewport, touch] of [
       await api.navigator.select('home');
       api.navigator.dock();
     });
-    check(`${label}: the Field Check moves on only on each step's own action — select, release, Move, People, Settings — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954, T-3445)`,
-      t1.shown && t1.count === 'Field check · 1 / 9' && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
+    check(`${label}: the Field Check moves on only on each step's own action — select, release, Interact, Jaunts, Move, Settings — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954, T-3445, T-3642)`,
+      t1.shown && t1.count === 'Field check · 1 / 10' && t1.pips === 10 && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
       && t2.step === 1 && t2.waiting && turned.step === 2 && walked.step === 3
       && new RegExp(`^${touch ? 'Tap' : 'Click'} the `).test(walked.bubble ?? '')
       && stored?.active === true && stored?.step === 3 && resumed === 3
       && inspected.step === 4 && (touch ? /Tap Close/ : /Press Esc/).test(inspected.bubble ?? '') && releaseRing
-      && released.step === 5 && releasedCard === null && /^Open (the Navigator, then )?Move/.test(released.bubble ?? '')
+      && released.step === 5 && releasedCard === null && /^Walk up to .*(R to interact|Tap Interact)\.$/.test(released.bubble ?? '')
       && !skipped.running && !skipped.shown && !skipped.dim && skipped.stored?.active === false
-      && moveStep.step === 5 && peopleStep.step === 6 && /People/.test(peopleStep.bubble ?? '')
-      && settingsStep.step === 7 && /Settings/.test(settingsStep.bubble ?? '')
-      && last.step === 8 && /^Ready\./.test(last.bubble ?? '') && !done.running && done.finished && !done.shown,
-      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, moveStep, peopleStep, settingsStep, last, done }));
+      && interactStep.step === 5 && jauntsStep.step === 6 && /Jaunts/.test(jauntsStep.bubble ?? '')
+      && moveStep.step === 7 && /^Open (the Navigator, then )?Move/.test(moveStep.bubble ?? '')
+      && settingsStep.step === 8 && /Settings/.test(settingsStep.bubble ?? '')
+      && last.step === 9 && /^Ready\./.test(last.bubble ?? '') && last.lit === 10 && !done.running && done.finished && !done.shown,
+      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, interactStep, jauntsStep, moveStep, settingsStep, last, done }));
     // ---- end T-2663
     // >>> T-2664: Home offers the Field Check once per device after the landing; taking it
     // goes into the town and starts step 01 (without Free roam's tip); Home does not offer it

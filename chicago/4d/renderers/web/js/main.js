@@ -3940,7 +3940,10 @@ async function boot() {
   // runs on a tap.
   // T-2663: what the Field Check reads — how often a building's record opened, and (T-2954)
   // how often each Navigator app opened.
-  const tourCounts = { opens: 0, apps: {} };
+  const tourCounts = { opens: 0, acts: 0, apps: {} };
+  /** T-3642: the Interact key used (the smoke fires it too, where nothing may be in reach). */
+  const tourInteracted = () => { tourCounts.acts++; };
+  api.tourInteracted = tourInteracted;
   const popup = createPopup(popupRoot, {
     onBusiness: (id) => openBusiness(id),
     onShow: (record) => {
@@ -6666,7 +6669,10 @@ async function boot() {
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     moreEl: document.getElementById('interact-more'),
+    // T-3642: the Field Check's Interact step waits on the key used: a press, or its list opened.
+    onPress: () => tourInteracted(),
     onExpand: (thing) => {
+      tourInteracted();
       api.navigator?.dock?.();
       return thing?.kind === 'person' ? api.days?.attend?.(thing.actor?.id) : null;
     },
@@ -7043,7 +7049,7 @@ async function boot() {
   }
 
   // ---- T-2663: Tour mode, the Field Check ------------------------------------------
-  // Eight steps (js/tour.js), each completing on its real action, read here every quarter
+  // Ten steps (js/tour.js, T-3642), each completing on its real action, read here every quarter
   // second while it runs; replayed from the section Guide opens (#tour-start); a reload
   // mid-tour resumes at the same step once the visitor is back in the town.
   let tourTimer = null, tourApp = null;
@@ -7063,11 +7069,9 @@ async function boot() {
       tourApp = app;
       const level = navigatorUi?.level ?? 0;
       return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, opens: tourCounts.opens,
-        apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level, app,
+        acts: tourCounts.acts, apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level, app,
         selected: !!popup.openId || (app === 'inspect' && level > 0), card: !!popup.openId,
-        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null,
-        // T-3445: the People step only where the rail carries a People app.
-        people: !!document.querySelector('#navigator .nav-app[data-app="people"]:not([hidden])') };
+        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null };
     },
     render: (v) => {
       tourOverlay.paint(v);
