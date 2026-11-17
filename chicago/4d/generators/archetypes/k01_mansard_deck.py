@@ -130,6 +130,12 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
         out["hoods"] = {"corners": at, "base_m": b, "rise_m": r}
     if not out.keys() & {"cresting", "finials"}:
         raise ParamError("mansard.deck names its cresting, its finials or both")
+    # T-1894: a street dormer whose pediment rises over the curb stands through the street run's
+    # line: the cresting stops CROSS_CLEAR_M short of its body either side (`dress`)
+    over = [d for d in m.get("dormers", ()) if d.get("over_curb")]
+    if over and "cresting" in out:
+        out["dormer_gaps"] = sorted((round(float(d["along_m"]) - d["width_m"] / 2 - CROSS_CLEAR_M, 4),
+                                     round(float(d["along_m"]) + d["width_m"] / 2 + CROSS_CLEAR_M, 4)) for d in over)
     if crown:
         # T-3562: a hipped crown over a pavilion (1815's, Chicagology's square-on print) stands
         # through the curb, and the cresting either side of it stops short of its slates
@@ -560,9 +566,13 @@ def dress(a, dk, conf):
                     s1 = xr["end_u_m"] - CROSS_CLEAR_M
                     if xr.get("hood"):   # ... and short of the hood on its end
                         s1 = min(s1, xr["hood"]["u_m"][0] - CORNER_CLEAR_M)
-            gap = crown_gap(dk, along, at, y_cap)
-            if gap:   # T-3562: and either side of a hipped crown standing through its line
-                pieces = [(s0, min(s1, gap[0])), (max(s0, gap[1]), s1)]
+            gaps = [g for g in [crown_gap(dk, along, at, y_cap)] if g]
+            if side == "street":   # T-1894: and either side of a dormer standing over the curb
+                gaps += [tuple(g) for g in dk.get("dormer_gaps", ())]
+            if gaps:   # T-3562: and either side of a hipped crown standing through its line
+                pieces = [(s0, s1)]
+                for g0, g1 in sorted(gaps):
+                    pieces = [q for a0, a1 in pieces for q in ((a0, min(a1, g0)), (max(a0, g1), a1))]
                 runs += [(side, along, at, a0, a1, k) for k, (a0, a1) in enumerate(pieces)]
             else:
                 runs.append((side, along, at, s0, s1, None))
