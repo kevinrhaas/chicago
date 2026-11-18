@@ -28,12 +28,25 @@ copy and which crop of it, so it can be cut again), `caption` (the sheet's credi
 the subject was: no likeness is asserted.
 
 **A subject** (`<id>.json`): `person_id`, `scene`, `reference_set`, how the rig finds them
-(`find`: `driven`, by their transport row, for now), what figure a verdict is bound to (`bound`:
+(`find`: `driven`, by their transport row; `standing`, by their instance record in town;
+`stage`, below), what figure a verdict is bound to (`bound`:
 the row's asset, clip and livery hashes), and the fixed rig: exactly two `stills`, `near` at 3 m
 and `far` at 10 m, each at a `bearing_off_heading_deg` (clockwise from the way the subject faces),
 a camera height `eye_m` over the ground (1.68 m: someone standing in the street, where the period
 photographers stood) and an aim `aim_below_head_m` under the head bone; and a `clip` of about
 5 seconds at one still.
+
+**A stage subject** (T-3553, the wardrobe catalogue's figures): `find` is `{kind: "stage",
+instance, asset, lod}` and `bound` is the instance record (with `appearance` among its keys; the
+asset's web LOD0 sha256 is bound too, as for a standing figure). The town is not booted: the rig
+serves this tree and stands or walks the record's body on `tools/people_match_stage.html`, through
+humans.js as the town draws a person (so every garment layer on disk is in the still), under a
+perspective camera at the town's default field of view (72°) and the same rig cameras. Each still
+adds `pose` (`stand`: the record's own clip; `walk`: `HumanActor.walkPath`) and `at_s` (the
+figure's own time when it is shot); the clip adds `pose`. An optional `pair` names, per band, the
+one picture of the set the still is laid beside on its `<band>-pair.jpg` (the paired still a
+review is written against). The light is a stage light, not the town's: judge cut, colour and
+fit on it, and judge the figure in the town's light on a standing or driven subject.
 
 **The match record** (`<id>.match.json`): when and against what build it was shot, the `bound`
 values, every still's file and sha256 and camera, the sheets, a `verdict` (`unreviewed` |
@@ -42,7 +55,9 @@ the clothes, folds where cloth gathers, hat and hair, skin at 3 m, hands, how th
 sits, and how it moves. Each item is `{what, status, note}`; status is `open` (a visitor would see
 the figure is not the pictures' kind of person in this respect), `reads`, `not shown` (no picture
 in the set can say: colour in a monochrome print, hands the pictures hide), `within tolerance` or
-`owner ruling`. Only `open` blocks `matches`.
+`owner ruling`. Only `open` blocks `matches`. A record may also carry `differences`, a list of
+`{what, picture, ours, status}` (one garment point each, read off the pair sheets, in the same
+statuses); an `open` one blocks `matches` too, and a reshoot keeps the list.
 
 ## Shooting
 
@@ -54,8 +69,10 @@ It verifies the set's pictures by sha256 in a clone of kevinrhaas/chicago-eviden
 sibling of this repo's clone, or `CHICAGO_EVIDENCE`), boots the app (the dev preview by default;
 `--published` shoots a local `tools/publish.sh` mirror to judge a branch), finds the subject,
 stops them as an approach does, and shoots in the town's own light with the HUD hidden. It writes
-the stills, one side-by-side per band (the band's pictures | desktop | phone), a 5-frame motion
-strip, and the match record. A reshoot of the same figure keeps the verdict; a reshoot of a
+the stills, one side-by-side per band (the band's pictures | desktop | phone), a pair sheet per band
+when the subject names its `pair`, a 5-frame motion strip, and the match record. A stage subject
+takes about 40 s (`node tools/people_match.mjs data/people_match/subjects/<asset>.json
+--evidence <clone>`; it serves the tree itself on an ephemeral port, or `--port N`). A reshoot of the same figure keeps the verdict; a reshoot of a
 changed one keeps the notes and sets the verdict back to `unreviewed`.
 
 `tools/test_people_match.mjs` (in `check.sh`) holds the records: sources resolve, the rig is the
