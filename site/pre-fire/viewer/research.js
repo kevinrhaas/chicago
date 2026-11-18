@@ -67,6 +67,17 @@
     } else {
       body.append(element('p', 'No source is attached to this record. Treat it as an open research item.', 'source-meta'));
     }
+    if (card.notebook_ids?.length) {
+      body.append(element('h3', 'Primary-source field observations'));
+      const observations = element('ul', undefined, 'notebook-links');
+      for (const id of card.notebook_ids) {
+        const item = element('li');
+        const anchor = element('a', titleCase(id));
+        anchor.href = 'notebook.html#record-' + encodeURIComponent(id);
+        item.append(anchor); observations.append(item);
+      }
+      body.append(observations);
+    }
     const permalink = element('a', 'Link to this finding', 'permalink');
     permalink.href = '#' + details.id;
     body.append(permalink);
