@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3112, ts: '2026-11-18T23:24:58.288Z', date: 'Nov 18, 2026, 5:24 PM CT', title: 'Fort Dearborn monument: the faces cut as sculpted', kind: 'change',
+    items: [
+      'The five bronze figures on the Fort Dearborn monument (18th Street, 1904) no longer share one soft, neutral face. Each now has the heavier brow, deep-set eyes, projecting nose and firm mouth the old photographs show, cut deepest on the warrior and Black Partridge and lightest on the child.',
+    ] },
+  { v: 3111, ts: '2026-11-18T21:05:27.360Z', date: 'Nov 18, 2026, 3:05 PM CT', title: '1815 Prairie\'s mansard roof sits low behind its iron cresting', kind: 'fix',
+    items: [
+      'The flat top of 1815 Prairie\'s mansard had been built far steeper than intended, so it rose dark above the iron cresting. It now drops out of sight behind the rail, and the cresting stands against the sky as both old photographs show it.',
+      'The Keith house at 1808 Prairie had the same fault in its 1886 form. Its hidden roof now falls at the intended angle, which shows a little more sky through its pierced parapet.',
+    ] },
   { v: 3110, ts: '2026-11-18T18:11:19.679Z', date: 'Nov 18, 2026, 12:11 PM CT', title: 'Jaunts on a phone: the list shows under its filters again', kind: 'fix',
     items: [
       'On a phone the Jaunts screen\'s filters (search, groups and the new age row) stayed pinned as you scrolled and covered almost the whole list, Start buttons included. Now only the search row stays pinned; the group and age rows scroll away with the list, and a row you tab or scroll to stops clear of the search.',
