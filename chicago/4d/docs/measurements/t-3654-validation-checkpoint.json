@@ -24,27 +24,21 @@
     "scope": "Generated scene counts, not a historical census."
   },
   "completed_validation": [
-    "Final published 1871 acceptance at 390\u00d7780 and 1280\u00d7800, all three detail levels; see t-3654-city-baseline.json for input hashes and measured results.",
-    "All 22 bridges in both directions; 597 quay approaches; walking floors, collisions, source cards and confidence controls; zero 1871 application, page or resource errors.",
-    "Pre-fire viewer, research and notebook browser checks on mobile and desktop: 28, 51 and 114 assertions.",
-    "Registration, source provenance, trace reproduction, deterministic generation and focused runtime checks.",
-    "Local source partitions 17/32 and 1/32 cover 1/16; 3/16 passed. Part 2/16 exposed a measurement-owner assumption now corrected; its focused check passes but the full part awaits rerun.",
-    "Quiet legacy mobile stage 1 passed 95 assertions with zero failures or page errors; this is calibration, not complete commit-bound legacy acceptance.",
-    "Context building and tree cards pass actual popup tests after moving liberty metadata from an undeclared sidecar field to the runtime record; the strict sidecar scanner and negative controls pass.",
-    "Shared year-entry pages pass nine Chromium fixture cases, offline-pack and preview checks; actual 1835/1871 native entry passes at 1280\u00d7800 with zero page/network errors. See t-3654-entry-pages.json.",
-    "Integrated dataset validator --all passes with zero errors and 340 existing warnings after both repairs.",
-    "PR preflight part 2/16 passes all 90 steps; changelog and ticket ID checks pass. Fresh root publication passes check_published.mjs. Full source coverage still pending.",
-    "Existing Today/Google Maps navigation alignment cross-check: nine central-city modern intersections agree within 2.023 m RMS (3.854 m maximum); fourteen inherited targets match exactly. No missing projection or legacy correction. See t-3654-today-registration-audit.json; historical fit uncertainty is unchanged.",
-    "Fresh ae259 published snapshot passes final 1871 mobile and desktop acceptance at all three detail levels: all 22 bridges both directions, all 597 quays, street/walk transitions, actual runtime liberties and source cards. Zero application/page/resource errors. Geometry, lighting and submission counts match the prior accepted snapshot; updated t-3654-city-baseline.json records current runtime and entry hashes.",
-    "Source parts 4/16 and 6/16 pass with exit 0 on 8d59. Part 5/16 has a complete 89-step terminal PASS; its exit status was unavailable after the workspace reconnect and the qualified receipt is preserved. Four part-7 issues and a stale Navigator expectation are repaired with focused proof in t-3654-integration-repairs.json.",
-    "The focused 1812 mobile/desktop entry, 4.47 m walking and readable-canvas probe passed with zero page errors on the frozen ae259 runtime. Its dated evidence is retained; it is separate from the full legacy gate.",
-    "The pacing QA verifier now parses the existing driver-draw suffix while retaining strict numeric/ratio rows. Fifteen exact-helper positive/negative cases pass; see t-3654-pacing-verifier.json. Native attempts 1 and 2 remain failed records; the clean third attempt is pending."
+    "Published ae259 city snapshot passes at 390x780 and 1280x800 across all three detail levels: 22 bridges both directions, all 597 quays, walking floors, collision, source/liberty cards and color-pass confidence filtering, with zero application/page/resource errors. Exact inputs are in t-3654-city-baseline.json; later shadow repair requires separate native proof.",
+    "Pre-fire viewer, research and notebook browser checks pass on mobile/desktop (28, 51 and 114 assertions). Geography overlay additionally passes at exact 8d59 inputs: 36 control markers/rows, 13 features, 22 crossings, accessible details and no overflow or page/request errors.",
+    "Registration, source provenance, trace reproduction and deterministic city/terrain generation pass. Existing Today/Google Maps targets agree with the new modern targets within 2.023 m RMS; actual generated State/Madison remains 22.570953 m from its modern target, preserving the historical fit residual without an additional renderer offset.",
+    "Shared year-entry loaders pass nine Chromium fixtures, offline packs, preview checks and actual 1835/1871 native entry. The focused ae259 1812 probe passes readiness, 4.47 m walking and readable canvas on both widths with zero page errors. These focused probes are separate from full legacy acceptance.",
+    "Integrated dataset validation passes with zero errors and 340 existing warnings. Earlier PR preflight part 2/16 passed all 90 steps plus changelog and ticket ID checks; published-mirror checks also passed at their dated inputs.",
+    "Historical local source coverage includes parts 1-6/16 across dated snapshots. Part 5/16 has a complete terminal PASS but no recoverable process exit after reconnect; its qualified receipt is retained. This is not complete current-tree coverage.",
+    "Repaired source parts 7/16 and 8/16 pass on clean 92ac with 89 steps each, 25/28 self-tests, exit 0 and 408.074/397.617 seconds. Original failures remain preserved. A newly added confidence-shadow check changes the subsequent partition allocation.",
+    "The 1871 pacing poses pass actual-road and all-building clearance checks plus negative controls. Native attempt 3 passes all six move/mode drives, exact state restoration and zero page errors on isolated ae259 publication plus the exact 1dfe pacing module; runtime/verifier bytes match 92ac. Short software-rendered functional proof only; unsuccessful attempts 1 and 2 remain preserved.",
+    "Confidence-shadow repair source test passes against actual context construction, live hide/dither uniforms, per-color depth ownership, map isolation and one-time disposal. The original 92ac renderer fails the new test for the missing caster depth material. Native proof is pending in this draft."
   ],
   "pending_validation": [
-    "Complete the full source gate on the repaired checkpoint",
-    "Fresh legacy browser stages 1 through 15 on both viewports after the source gate passes",
-    "Published 1871 benchmark and citation verification after the repairs",
-    "Final dev CI, merge and preview"
+    "Native published 1871 confidence-shadow proof on the repair",
+    "Complete full source gate on the repaired checkpoint",
+    "Fresh legacy browser stages 1 through 15 on both viewports after full source passes",
+    "Final current-head CI, dev merge and preview"
   ],
   "known_validation_repair": "measure_generator_half.py now attributes the two new terrain assets to city_1871_emit.py: total 1,126 assets, independent emitter reach 2, existing common-module reach 820 and legacy terrain reach 6 retained.",
   "ci_workflow": "chicago-4d-smoke.yml",
@@ -116,8 +110,8 @@
     "bash tools/publish.sh"
   ],
   "limits": "This is the requested generic context baseline. Named properties, people, daily activity and photographic finish remain subsequent work; bank and parcel uncertainty is retained.",
-  "checkpoint_revision": 6,
-  "local_source_followup": "The part-7 failures and stale Navigator fixture have focused repairs. A complete part-7 rerun and local parts 8\u201316 remain pending. Earlier snapshots are not a complete current-source pass.",
+  "checkpoint_revision": 7,
+  "local_source_followup": "Source parts 7 and 8 pass on clean92ac; local checks pause for the confidence-shadow native proof. The new source check changes partition allocation, so dated partial receipts are not a complete patched-tree gate.",
   "superseded_ci": {
     "commit": "1a5b7080f00fc1e7caf06b174f8a3ce25f77d036",
     "reason": "First smoke dispatches were cancelled after the local validator identified the two repairs; they do not count as final acceptance.",
@@ -143,9 +137,9 @@
   },
   "source_ci": {
     "required": "Latest complete source gate on PR #2198",
-    "superseded_run_id": 44388262503,
-    "superseded_commit": "1dfe13b3620fae3aab33e6d772280f1f2fc74920",
-    "state": "This QA-only checkpoint supersedes the prior request. Application runtime is unchanged."
+    "superseded_run_id": 44390455054,
+    "superseded_commit": "92ac20bce062b8804ac7128e5f013aa19ee7ea0f",
+    "state": "This checkpoint repairs city shadow materials and adds a regression check. Complete patched-source CI is required."
   },
   "browser_ci": {
     "commit": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290",
@@ -223,7 +217,7 @@
         "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375984544"
       }
     ],
-    "state": "Superseded after mobile stages 1\u201313 passed; the remaining eight groups were cancelled. Shared source-catalog and benchmark inputs changed; these runs receive no final-current-input coverage credit."
+    "state": "Superseded after mobile stages 1–13 passed; the remaining eight groups were cancelled. Shared source-catalog and benchmark inputs changed; these runs receive no final-current-input coverage credit."
   },
   "tested_runtime_commit": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290",
   "superseded_ci_attempts": [
@@ -236,8 +230,13 @@
   "source_gate_strategy": "Finish full source coverage before fresh browser dispatches, to avoid repeating browser groups when another source contract is discovered.",
   "evidence_backup": {
     "repository": "kevinrhaas/chicago-evidence",
-    "commit": "0b61c477ba24bd600fe1273da27ef64fad1595b0",
+    "commit": "f1f7e12719981c6d9d6323defe7cf24e926509f0",
     "path": "evidence/t3654-1871-city-2026-11-18/",
-    "scope": "Implementation, visual and geography proofs; complete partial-source receipts; the actual part-7 failure; recovery helpers and earlier CI snapshots. Later repair proofs will be appended."
+    "scope": "Research audits, city/native proofs, focused integration repairs, all pacing attempts and superseded CI history. New source7/8 and shadow proof will be appended in the next archive checkpoint."
+  },
+  "shadow_repair": {
+    "measurement": "t-3654-confidence-shadows.json",
+    "scope": "Per-color confidence-patched depth materials for near buildings/trees and bridge batches. Geometry, historical data, lighting and tier policy unchanged.",
+    "native_state": "pending"
   }
 }

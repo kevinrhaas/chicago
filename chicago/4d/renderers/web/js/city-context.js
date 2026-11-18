@@ -113,6 +113,32 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     return out;
   }
   const geometries = new Set(), materials = new Set(), textures = new Set();
+  // Confidence must discard/dither the sun's depth pass as well as the colour
+  // pass. Keep one depth owner per colour material, as buildings.js does: a
+  // global shared owner can retain another caster's cached map uniforms.
+  const depthMaterials = new Map();
+  const depthFor = material => {
+    let depth = depthMaterials.get(material);
+    if (!depth) {
+      depth = new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking });
+      confidence?.patch(depth);
+      Object.assign(depth, {
+        visible: material.visible, wireframe: material.wireframe,
+        // Native getDepthMaterial still chooses PCF/VSM shadow sidedness.
+        side: material.shadowSide !== null ? material.shadowSide : material.side,
+        map: material.map, alphaMap: material.alphaMap,
+        alphaTest: material.alphaToCoverage === true ? 0.5 : material.alphaTest,
+        clipShadows: material.clipShadows, clippingPlanes: material.clippingPlanes,
+        clipIntersection: material.clipIntersection,
+        displacementMap: material.displacementMap,
+        displacementScale: material.displacementScale, displacementBias: material.displacementBias,
+        wireframeLinewidth: material.wireframeLinewidth, linewidth: material.linewidth,
+      });
+      depthMaterials.set(material, depth);
+      materials.add(depth);
+    }
+    return depth;
+  };
   const remember = root => root.traverse(object => {
     if (!object.isMesh) return;
     if (!object.geometry.getAttribute('_confidence')) throw Error(`1871 context mesh ${object.name} lacks confidence`);
@@ -164,6 +190,7 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
       const mesh=new THREE.Mesh(geometry,batch.material);
       mesh.name=`context:1871:infrastructure:${[...batch.layers].join('+')}:${batch.material.name}`;
       mesh.receiveShadow=true; mesh.castShadow=batch.castShadow;
+      if (mesh.castShadow) mesh.customDepthMaterial=depthFor(batch.material);
       mesh.userData={layer:'infrastructure',layers:[...batch.layers],sources:[...batch.sources],confidence:'reconstructed',
         sourceMeshes:batch.parts.length,triangles:(geometry.index?.count ?? geometry.attributes.position.count)/3};
       infrastructureMeshes.push(mesh); group.add(mesh);
@@ -282,6 +309,7 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
         mesh.instanceMatrix.needsUpdate=true; mesh.instanceColor.needsUpdate=true;
         mesh.computeBoundingSphere(); mesh.computeBoundingBox();
         mesh.receiveShadow=true; mesh.castShadow=false; mesh.visible=false;
+        mesh.customDepthMaterial=depthFor(source.material);
         mesh.userData.rows=rows; mesh.userData.contextTier='near';
         mesh.userData.triangles=t.triangles.near*rows.length;
         mesh.userData.buildingCount=t.vegetation?0:rows.length;
@@ -386,7 +414,7 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     for (const geometry of geometries) geometry.dispose();
     for (const material of materials) material.dispose();
     for (const texture of textures) { texture.dispose(); texture.source?.data?.close?.(); }
-    collisions.clear(); tiles.clear(); floors.clear(); group.clear();
+    depthMaterials.clear(); collisions.clear(); tiles.clear(); floors.clear(); group.clear();
   };
   return out;
 }

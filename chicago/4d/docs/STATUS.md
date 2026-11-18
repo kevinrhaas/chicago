@@ -72,6 +72,14 @@ with focused positive and negative checks, preserving the city geometry and hist
 claims; `docs/measurements/t-3654-integration-repairs.json` records their exact scope. Full
 source verification precedes the next browser regression run.
 
+Final review also found that the new context casters used default shadow materials,
+so Confidence-mode dither or hiding did not reach their shadows. Near buildings,
+trees and bridge batches now own confidence-patched depth materials per color
+material, including the existing texture/alpha state and disposal. The focused test
+passes on the repair and fails on the original casters; the existing confidence
+suite also passes. Native shadow rendering and full patched-tree validation remain
+pending at this checkpoint; see `docs/measurements/t-3654-confidence-shadows.json`.
+
 Regenerate with `python3 generators/city_context_emit.py`, then
 `python3 generators/city_1871_emit.py`, `python3 tools/compile_scene.py --scene 1871`
 and `python3 tools/compile_jaunts.py`. Register the terrain entries from
