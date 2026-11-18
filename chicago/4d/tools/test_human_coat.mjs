@@ -44,7 +44,11 @@ const { MeshoptDecoder } = await import(new URL('addons/libs/meshopt_decoder.mod
 const SkeletonUtils = await import(utils.SkeletonUtils);
 await MeshoptDecoder.ready;
 globalThis.self ??= globalThis;
-const js = async (name) => (await fs.readFile(new URL(`renderers/web/js/${name}`, here), 'utf8')).replace("from 'three'", `from '${three}'`);
+// A module loaded from a data: URL cannot resolve its own relative imports (human-skirt.js reads
+// './human-skeletons.js'), so they are pointed at the files beside it.
+const js = async (name) => (await fs.readFile(new URL(`renderers/web/js/${name}`, here), 'utf8'))
+  .replace("from 'three'", `from '${three}'`)
+  .replace(/from '\.\/([\w.-]+\.js)'/g, (_, f) => `from '${new URL(`renderers/web/js/${f}`, here).href}'`);
 const coat = await import(data(await js('human-coat.js')));
 const { createHumanSkirt } = await import(data(await js('human-skirt.js')));
 const OLD = process.env.COAT_OLD === '1';
