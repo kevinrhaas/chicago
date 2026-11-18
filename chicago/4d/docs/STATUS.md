@@ -31,6 +31,25 @@ The rail also keeps one visible Tab stop when Move or Jump is open. It retains t
 previous visible icon, then Home as fallback, without falsely selecting that icon.
 Context changes, unregistering and delayed selection cannot leave the rail unreachable.
 
+The keyboard-ownership continuation keeps arrows and Space with the focused Navigator,
+reader or native control instead of requesting pointer lock, walking or inspecting behind
+it. Moving focus into a reading surface releases already-held movement and any queued
+keyboard inspection; returning focus does not restart those keys. World-focused controls
+still work while the non-modal Navigator is visible. E still closes a legacy building
+popup or a hand-opened Navigator Inspect card, including from their buttons; text entry,
+other apps and nested picture dialogs retain the key. The existing `isTyping` contract is
+unchanged.
+
+Before-fix reproduction at `6ee1a689077839dd9923edbc80269dd2cbaccfb6`, with the actual
+main capture callback and PointerLockControls backend in a small event fixture, measured
+one pointer-lock request and `forward = -1` from ArrowDown on a Navigator button. Space
+on that button set `interact = true` and prevented its native default. The new actual
+capture/backend regression passes UI/world ownership, already-held keys, focus transfer,
+prevented/modifier/composition events, popup/Inspect E exceptions and listener cleanup.
+Navigator and Settings regressions and JavaScript syntax checks pass. This continuation
+has not yet run a browser, official isolation measurement or the complete release gates;
+the earlier browser results below do not validate its new event-ownership path.
+
 Final published-town integration on feature commit `5674d33d` passed at both widths:
 all five actual photograph responses and destination guards, a real Glessner arrival,
 distance score, share/reload, picture dialog and photo/notebook capture/edit flows.

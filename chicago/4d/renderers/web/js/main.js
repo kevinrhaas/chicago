@@ -53,6 +53,7 @@ import { toggleByGrade, restoreLooks } from './confidence-presets.js';
 import { createConfidenceLegend } from './confidence-legend.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
+import { createDesktopKeyCapture } from './controls/keyboard.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { viewportSize } from './viewport.js';
 import { isStandaloneHeadset, vrScale } from './controls/xr-detect.js'; // T-3627: the session half loads where a headset is offered
@@ -5161,6 +5162,7 @@ async function boot() {
       cardTookPointer = false;
     },
     holding: () => !!popup.openId && !gateOpen,
+    inspecting: () => !gateOpen && inspectingByHand(),
     // T-3563: Settings › Look › Mouse sensitivity, read each frame.
     lookSpeed: () => hud.settings.lookSpeed,
   });
@@ -5195,18 +5197,15 @@ async function boot() {
     if (e.pointerType === 'touch') backends.activate(touch);
     else if (e.pointerType === 'mouse') backends.activate(pointerlock);
   }, { capture: true });
-  window.addEventListener('keydown', (e) => {
-    // Not while typing. This capture handler switches the whole control backend
-    // to keyboard-and-mouse, and the first keystroke into the Go-to search box
-    // was doing exactly that — taking a visitor who had been tapping their way
-    // around a phone and handing them a control scheme with no on-screen stick.
-    if (gateOpen || xrMode?.presenting || windowMode?.on || isTyping(e.target) || e.target.closest?.('#jaunt-panel, .pic-viewer')) return;
-    if (!e.metaKey && !e.ctrlKey) {
-      backends.activate(pointerlock);
-      // Not while a card holds the keyboard (T-2954): the arrows scroll the card.
-      if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(e.code) && !popup.openId) pointerlock.lock();
-    }
-  }, { capture: true });
+  // T-3658: rail arrows and native button keys belong to the focused UI, before
+  // its own bubbling handler runs. An open Navigator does not stop world keys.
+  window.addEventListener('keydown', createDesktopKeyCapture({
+    enabled: () => !gateOpen && !xrMode?.presenting && !windowMode?.on,
+    holding: () => !!popup.openId,
+    inspecting: () => !gateOpen && inspectingByHand(),
+    activate: () => backends.activate(pointerlock),
+    lock: () => pointerlock.lock(),
+  }), { capture: true });
 
   /**
    * T-3575: Enter VR (js/controls/xr.js). The key shows only where the browser offers a
