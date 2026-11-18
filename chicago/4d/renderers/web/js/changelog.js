@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3110, ts: '2026-11-18T18:11:19.679Z', date: 'Nov 18, 2026, 12:11 PM CT', title: 'Jaunts on a phone: the list shows under its filters again', kind: 'fix',
+    items: [
+      'On a phone the Jaunts screen\'s filters (search, groups and the new age row) stayed pinned as you scrolled and covered almost the whole list, Start buttons included. Now only the search row stays pinned; the group and age rows scroll away with the list, and a row you tab or scroll to stops clear of the search.',
+    ] },
   { v: 3109, ts: '2026-11-18T17:08:08.589Z', date: 'Nov 18, 2026, 11:08 AM CT', title: 'X-RAY view re-measured for 1835\'s busier streets', kind: 'improvement',
     items: [
       'The 1835 X-RAY view\'s triangle allowance is re-measured at the test\'s own viewpoint now that the townspeople wear their period clothes and ride with full tack: 3,785,000 → 3,870,000. Nothing in the town is drawn differently, and the Light and Balanced settings keep their own limits.',
