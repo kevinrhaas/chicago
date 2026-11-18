@@ -62,6 +62,28 @@ export function createContextFloorIndex(surfaces = [], cellM = 64) {
   };
 }
 
+/** A generated instance's card, distinct from a compiled structure sidecar.
+ * The scene's declared liberty is runtime record metadata, like its instance id;
+ * it does not add a field that the structure-sidecar compiler never emits. */
+export function cityContextCard(r, doc, definition) {
+  const id=`context:1871:${r.id}`;
+  const libertyIds=typeof doc.liberty==='string' && doc.liberty ? [doc.liberty] : [];
+  if (r.isTree) {
+    return {id,libertyIds,sidecar:{name:'Reconstructed deciduous tree',phase:null,
+      change_note:definition.vegetation_note,
+      placement:{symbolic_location:'City context planting',position_confidence:'reconstructed',position_sources:doc.sources ?? [],position_note:'Sparse district planting chosen for the context city; no individual historical tree is identified.'},
+      attributes:{height:{value:`${r.h.toFixed(1)} m`,confidence:'reconstructed',sources:[],note:'A context dimension, not a measured historical tree.'}},
+      citations:doc.citations ?? definition.citations ?? [],research_note:'Generic deciduous form with early-autumn colour, recorded among the city baseline liberties.'}};
+  }
+  const district=doc.districts?.[r.district] ?? {};
+  const sources=[...new Set([...(definition.sources ?? []),...(district.sources ?? [])])];
+  return {id,libertyIds,sidecar:{name:r.t.name,phase:null,
+    change_note:`A reconstructed ${r.t.name.toLowerCase()} in ${district.name ?? r.district}. Its footprint, height, facade and exact position are context choices, not an identified historical parcel.`,
+    placement:{symbolic_location:district.name ?? r.district,position_confidence:'reconstructed',position_sources:district.sources ?? [],position_note:district.note ?? doc.source_limit ?? 'District-scale reconstruction from the pre-fire city evidence.'},
+    attributes:{form:{value:`${r.t.storeys} storeys; ${r.t.roof} roof; ${r.t.material}`,confidence:'reconstructed',sources,note:definition.source_limit},dimensions:{value:`${r.w.toFixed(1)} × ${r.d.toFixed(1)} m; ${r.h.toFixed(1)} m to eaves`,confidence:'reconstructed',sources:[],note:'Bounded dimensions chosen for this context building; no parcel survey is claimed.'}},
+    citations:doc.citations ?? definition.citations ?? [],research_note:'The whole-city context is a liberty recorded in the project’s liberties register. Named, documented structures can replace these forms as research and modelling continue.'}};
+}
+
 /**
  * Doc columns are declared in fields.buildings, enums.kit names kit templates.
  * Width/depth/eave scale the template's physical reference dimensions. Front is
@@ -354,24 +376,8 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     const r=hit.instanceId!=null?hit.object.userData.rows[hit.instanceId]
       :hit.object.userData.ranges.find(range=>hit.faceIndex>=range.first&&hit.faceIndex<range.first+range.count)?.row;
     if (!r) return null;
-    if (r.isTree) {
-      const id=`context:1871:${r.id}`;
-      const record={id,sidecar:{name:'Reconstructed deciduous tree',phase:null,liberty_ids:['L-1871-city-baseline'],
-        change_note:definition.vegetation_note,
-        placement:{symbolic_location:'City context planting',position_confidence:'reconstructed',position_sources:doc.sources ?? [],position_note:'Sparse district planting chosen for the context city; no individual historical tree is identified.'},
-        attributes:{height:{value:`${r.h.toFixed(1)} m`,confidence:'reconstructed',sources:[],note:'A context dimension, not a measured historical tree.'}},
-        citations:doc.citations ?? definition.citations ?? [],research_note:'Generic deciduous form with early-autumn colour, recorded among the city baseline liberties.'}};
-      return {id,record,point:hit.point.clone(),distance:hit.distance};
-    }
-    const district=doc.districts?.[r.district] ?? {};
-    const id=`context:1871:${r.id}`;
-    const sources=[...new Set([...(definition.sources ?? []),...(district.sources ?? [])])];
-    const record={id,sidecar:{name:r.t.name,phase:null,liberty_ids:['L-1871-city-baseline'],
-      change_note:`A reconstructed ${r.t.name.toLowerCase()} in ${district.name ?? r.district}. Its footprint, height, facade and exact position are context choices, not an identified historical parcel.`,
-      placement:{symbolic_location:district.name ?? r.district,position_confidence:'reconstructed',position_sources:district.sources ?? [],position_note:district.note ?? doc.source_limit ?? 'District-scale reconstruction from the pre-fire city evidence.'},
-      attributes:{form:{value:`${r.t.storeys} storeys; ${r.t.roof} roof; ${r.t.material}`,confidence:'reconstructed',sources,note:definition.source_limit},dimensions:{value:`${r.w.toFixed(1)} × ${r.d.toFixed(1)} m; ${r.h.toFixed(1)} m to eaves`,confidence:'reconstructed',sources:[],note:'Bounded dimensions chosen for this context building; no parcel survey is claimed.'}},
-      citations:doc.citations ?? definition.citations ?? [],research_note:'The whole-city context is a liberty recorded in the project’s liberties register. Named, documented structures can replace these forms as research and modelling continue.'}};
-    return {id,record,point:hit.point.clone(),distance:hit.distance};
+    const record=cityContextCard(r,doc,definition);
+    return {id:record.id,record,point:hit.point.clone(),distance:hit.distance};
   };
   let disposed=false;
   out.dispose=()=>{

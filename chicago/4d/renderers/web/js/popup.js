@@ -1383,7 +1383,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     // to read before opening it. Null lists (not loaded) count as nothing, which
     // is the same "claim nothing" rule `libertySection` applies.
     const libertyCount = Array.isArray(liberties)
-      ? libertiesFor(liberties, record.id, s.liberty_ids).length : 0;
+      ? libertiesFor(liberties, record.id, record.libertyIds).length : 0;
     const questionCount = Array.isArray(openQuestions)
       ? openQuestionsFor(openQuestions, record.id).length : 0;
 
@@ -1403,7 +1403,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
       </section>`;
 
     const libertiesPane = `
-      ${libertySection(liberties, record.id, s.liberty_ids)}
+      ${libertySection(liberties, record.id, record.libertyIds)}
       ${openQuestionSection(openQuestions, record.id)}`;
 
     const recordPane = `
@@ -1606,7 +1606,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
         // T-2644: the Sources tab lays these out itself (inspect-sources.js): this building's
         // liberties and open questions as loaded (null: not loaded, which claims nothing), and
         // where its dossier is read. Its facts and their sources come off the sidecar.
-        liberties: Array.isArray(liberties) ? libertiesFor(liberties, record.id, s.liberty_ids) : null,
+        liberties: Array.isArray(liberties) ? libertiesFor(liberties, record.id, record.libertyIds) : null,
         questions: Array.isArray(openQuestions) ? openQuestionsFor(openQuestions, record.id) : null,
         dossier: s.research_doc ? docBase + s.research_doc : null,
         // T-3022: everything the card holds beyond Inspect's own tabs, for its Research tab

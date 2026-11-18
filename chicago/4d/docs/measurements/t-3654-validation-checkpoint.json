@@ -29,9 +29,11 @@
     "Pre-fire viewer, research and notebook browser checks on mobile and desktop: 28, 51 and 114 assertions.",
     "Registration, source provenance, trace reproduction, deterministic generation and focused runtime checks.",
     "Local source partitions 17/32 and 1/32 cover 1/16; 3/16 passed. Part 2/16 exposed a measurement-owner assumption now corrected; its focused check passes but the full part awaits rerun.",
-    "Quiet legacy mobile stage 1 passed 95 assertions with zero failures or page errors; this is calibration, not complete commit-bound legacy acceptance."
+    "Quiet legacy mobile stage 1 passed 95 assertions with zero failures or page errors; this is calibration, not complete commit-bound legacy acceptance.",
+    "Context building and tree cards pass actual popup tests after moving liberty metadata from an undeclared sidecar field to the runtime record; the strict sidecar scanner and negative controls pass."
   ],
   "pending_validation": [
+    "Repair duplicated year-entry HTML with a shared shell while preserving clean URLs and deep links; implementation is under focused browser verification.",
     "Complete full source gate",
     "Legacy browser stages 1 through 15 on both viewports",
     "1812 published readiness, walking and canvas check",
@@ -105,5 +107,25 @@
     "python3 tools/compile_jaunts.py",
     "bash tools/publish.sh"
   ],
-  "limits": "This is the requested generic context baseline. Named properties, people, daily activity and photographic finish remain subsequent work; bank and parcel uncertainty is retained."
+  "limits": "This is the requested generic context baseline. Named properties, people, daily activity and photographic finish remain subsequent work; bank and parcel uncertainty is retained.",
+  "checkpoint_revision": 2,
+  "local_source_followup": "Part 4/16 reported two validator errors. The runtime liberty contract is repaired and tested; duplicate year-entry pages remain under repair. Parts 5–16 have not run locally. Full CI is still required.",
+  "superseded_ci": {
+    "commit": "1a5b7080f00fc1e7caf06b174f8a3ce25f77d036",
+    "reason": "First smoke dispatches were cancelled after the local validator identified the two repairs; they do not count as final acceptance.",
+    "run_ids": [
+      44371260629,
+      44371284030,
+      44371313512,
+      44371340154,
+      44371363658,
+      44371395137,
+      44371418528,
+      44371441425,
+      44371464308,
+      44371489588,
+      44371512699,
+      44371535568
+    ]
+  }
 }

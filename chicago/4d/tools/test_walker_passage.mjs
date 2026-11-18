@@ -28,7 +28,53 @@ const { createIntent } = await import('../renderers/web/js/controls/intent.js');
 const { Heightfield, distantBaseGeometry } = await import('../renderers/web/js/terrain.js');
 const { passageGroundFrom, passageDepth } = await import('../renderers/web/js/passage-ground.js');
 const { structureOutlines } = await import('../renderers/web/js/navigation.js');
-const { createContextFloorIndex } = await import('../renderers/web/js/city-context.js');
+const { createContextFloorIndex, cityContextCard } = await import('../renderers/web/js/city-context.js');
+const { createPopup } = await import('../renderers/web/js/popup.js');
+
+// Generated context has a runtime card, not a compiled structure sidecar. Its
+// scene-level liberty must reach the actual popup count, pane and Sources API.
+{
+  const read=path=>JSON.parse(fs.readFileSync(new URL(`../${path}`,import.meta.url),'utf8'));
+  const doc=read('data/context/1871.json'),definition=read('data/context/1871/kit.json');
+  const liberties=read('data/liberties.json').liberties;
+  const declared=liberties.find(lib=>lib.id===doc.liberty);
+  assert(declared,'the generated document declares an existing liberty');
+  const building=doc.buildings[0],tree=doc.trees[0];
+  const buildingInput={...building,w:building.width_m,d:building.depth_m,h:building.eave_m,
+    t:definition.templates.find(t=>t.id===building.kit)};
+  const records=[
+    cityContextCard(buildingInput,doc,definition),
+    cityContextCard({...tree,h:tree.height_m,isTree:true},doc,definition),
+  ];
+  assert.deepEqual(cityContextCard(buildingInput,{...doc,liberty:'L-scene-fixture'},definition).libertyIds,
+    ['L-scene-fixture'],'the producer follows the scene declaration, not a hardcoded identifier');
+  assert.deepEqual(cityContextCard(buildingInput,{...doc,liberty:null},definition).libertyIds,
+    [],'a missing scene declaration is not invented by the producer');
+  const savedDocument=globalThis.document;
+  globalThis.document={documentElement:{classList:{add(){},remove(){}}}};
+  const mount={innerHTML:'',addEventListener(){},setAttribute(){},removeAttribute(){},dispatchEvent(){}};
+  const popup=createPopup(mount,{});
+  try {
+    popup.setLiberties(liberties);
+    for(const record of records) {
+      assert.deepEqual(record.libertyIds,[doc.liberty],'the card uses the generated document’s declared liberty');
+      assert(!Object.hasOwn(record.sidecar,'liberty_ids'),'runtime metadata does not invent a compiled sidecar field');
+      assert.equal(popup.show(record),true,'the real popup opens the generated context card');
+      assert.match(mount.innerHTML,/Liberties taken here <span class="pop-count">1<\/span>/,'the actual pane counts its liberty');
+      assert(mount.innerHTML.includes(declared.title),'the actual pane renders its declared liberty');
+      assert.deepEqual(popup.sections(record).liberties.map(lib=>lib.id),[doc.liberty],'Inspect Sources receives the same liberty');
+      assert.deepEqual(record.sidecar.citations,definition.citations,'the source citations remain intact');
+      const missing={...record,libertyIds:[]};
+      assert.deepEqual(popup.sections(missing).liberties,[],'a missing runtime binding is observable, never silently guessed');
+      const wrong={...record,libertyIds:['L-unresolved-context-fixture']};
+      assert.deepEqual(popup.sections(wrong).liberties,[],'an unresolved runtime binding does not invent a liberty');
+    }
+    const native={id:'native-liberty-fixture',sidecar:{name:'Native structure',placement:{},attributes:{}}};
+    popup.setLiberties([{id:'L-native-fixture',subjects:[native.id]}]);
+    assert.deepEqual(popup.sections(native).liberties.map(lib=>lib.id),['L-native-fixture'],'ordinary structure subject lookup remains unchanged');
+  } finally {globalThis.document=savedDocument;}
+  console.log('CITY CONTEXT CARDS PASS — building and tree declare the generated scene liberty in actual popup counts, panes and Sources; citations and native subject lookup preserved; missing bindings stay missing');
+}
 
 const flat = { walkHeight: () => 0, surfaceHeight: () => 0, isWater: () => false };
 const inside = (e, n, pts) => {
