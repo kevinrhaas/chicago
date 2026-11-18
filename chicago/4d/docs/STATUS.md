@@ -101,6 +101,18 @@ probes without modifying the repository; the complete isolation census and its s
 pass. Full combined-tree source and browser gates remain required before the authorized
 dev merge.
 
+The saved `871698` checkpoint has complete source-assertion coverage across the
+successful hosted parts and their verified local counterparts: all 1,379 declarations
+were exercised successfully. Its hosted aggregate is not claimed green: one section
+hit the unchanged 600-second limit, and that timeout contributes no coverage. Both
+supporting browser workflows passed. Before fresh legacy browser runs began, `dev`
+advanced with the corrected 1893 monument and its changelog fold. Those changes are
+integrated through `150fb1d3`; all 201 audited 1871/pre-fire/runtime paths are unchanged,
+and the upstream assets/photo proofs are preserved. Full-checkout freshness, derived
+records, source-use and changelog checks pass. The new combined version still needs
+publication and its complete source/browser verification; dated prior-tree results are
+kept as evidence rather than silently credited to the new tree.
+
 Regenerate with `python3 generators/city_context_emit.py`, then
 `python3 generators/city_1871_emit.py`, `python3 tools/compile_scene.py --scene 1871`
 and `python3 tools/compile_jaunts.py`. Register the terrain entries from

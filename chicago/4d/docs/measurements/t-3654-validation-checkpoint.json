@@ -2,7 +2,7 @@
   "ticket": "T-3654",
   "state": "implementation_checkpoint_validation_pending",
   "branch": "steward/t3654-1871-city-baseline",
-  "base_commit": "169404c9f99d2defeca2b05f2364c868a4f4e745",
+  "base_commit": "c676aa2f4ad6ee8cff0521da6ba8add70d55949c",
   "target": "dev",
   "production_promotion": "Owner-dispatched only; no production deployment in this task.",
   "implemented": "Citywide context for 8 October 1871 at 16:00 local mean solar time, corrected map registration and terrain, portable building and infrastructure kit, walking support, research viewer and source overlay.",
@@ -37,12 +37,15 @@
     "Context source-use reader and 16 fixtures pass, including old-compiler negative control, actual kit lookup, scene scoping and confidence preservation. Regeneration retains 720 sources at 295055 index bytes under the unchanged 296000-byte budget; strict confidence audit passes. Edwards now has scene use in 1871.",
     "Empty named-structure boot packing passes actual CLI fixtures, nine corruption refusals, deterministic repacking, sparse positions and stale-part cleanup. Full c0c235 publication passes mirror checks and rehydrates all 1119 named records across existing scenes. Native 1871 startup succeeds with an empty shared table and 33580 context buildings; Edwards appears by default and actual cards plus all 11 new source details resolve with zero application, page, console or network errors. Desktop Light probe scope is retained in t-3654-source-and-boot.json.",
     "The harbor metric trace now uses math.fsum for its projected coordinates. The exact-sum gate passes with zero unconverted rounded sums; trace_harbor_1869.py --check confirms byte-identical derived coordinates. No scene geometry changes.",
-    "All seven new gate tools were measured through the supported step-isolation probes on isolated matching inputs; each command exits successfully with no repository or ignored-product writes. The census audit covers all 1337 keyed declarations across 1068 tools, and its audit/measurer self-tests pass. Initial sparse-fixture setup failures remain preserved and contribute no measured rows."
+    "All seven new gate tools were measured through the supported step-isolation probes on isolated matching inputs; each command exits successfully with no repository or ignored-product writes. The census audit covers all 1337 keyed declarations across 1068 tools, and its audit/measurer self-tests pass. Initial sparse-fixture setup failures remain preserved and contribute no measured rows.",
+    "The dated 871698 source-tree audit covers all 1379 declarations (1376 ordinary plus 3 shared prerequisites) using seven successful hosted parts and exact-current local counterparts for the one hosted timeout. No timeout supplied coverage. Successful PR-only checks and the same Git tree were verified. This is complete assertion coverage on that dated tree, not a successful hosted aggregate or proof of the later combined tree.",
+    "Integrated dev c26d monument/research changes and c676aa2 changelog fold through merge 150fb1d3. All 201 audited 1871/pre-fire/runtime paths remain unchanged; both upstream monument assets and all five photo proofs are preserved. Generated registry/source-use conflicts were resolved by their owning tools. Full-checkout freshness passes with 0 errors and 338 existing warnings; derived manifest, source-use and post-fold changelog checks pass."
   ],
   "pending_validation": [
-    "Complete the full source gate on the combined repaired checkpoint",
-    "Fresh legacy browser stages 1 through 15 on both viewports after full source passes",
-    "Final current-head CI, dev merge and preview"
+    "Full publication and published-mirror checks on the new combined checkpoint",
+    "Complete current combined-tree source verification with required readers and base checks",
+    "Fresh published legacy browser stages 1 through 15 on both viewports with matching inputs",
+    "Final current-head hosted CI, dev merge and development preview"
   ],
   "known_validation_repair": "measure_generator_half.py now attributes the two new terrain assets to city_1871_emit.py: total 1,126 assets, independent emitter reach 2, existing common-module reach 820 and legacy terrain reach 6 retained.",
   "ci_workflow": "chicago-4d-smoke.yml",
@@ -114,8 +117,8 @@
     "bash tools/publish.sh"
   ],
   "limits": "This is the requested generic context baseline. Named properties, people, daily activity and photographic finish remain subsequent work; bank and parcel uncertainty is retained.",
-  "checkpoint_revision": 9,
-  "local_source_followup": "Local source 12/16 on clean c0c235 failed 2 of 89 steps (exit 1, 473.760 seconds): rounded bare sums in the harbor trace and missing measured step-isolation rows for seven new tools. The real failure receipt is preserved; repaired full source verification remains required. Both findings now pass focused checks: precise summation preserves the trace byte-for-byte, and seven real isolation measurements cover every newly declared tool. No complete-current-gate claim is made.",
+  "checkpoint_revision": 10,
+  "local_source_followup": "The earlier 871698 receipts and complete assertion-union audit are historical after upstream integration. New combined-tree evidence must bind its own head/tree/base; old-tree results receive no silent current coverage credit.",
   "superseded_ci": {
     "commit": "1a5b7080f00fc1e7caf06b174f8a3ce25f77d036",
     "reason": "First smoke dispatches were cancelled after the local validator identified the two repairs; they do not count as final acceptance.",
@@ -140,10 +143,10 @@
     "draft": true
   },
   "source_ci": {
-    "required": "Latest complete source gate on PR #2198",
-    "superseded_run_id": 44394942951,
-    "superseded_commit": "3f81ece88f0d57d26063d786e6bccd9658ab89c3",
-    "state": "Prior 3f81 CI had one genuine part-7 boot-packing failure, now repaired and native-verified on c0c235. This checkpoint also repairs the two local source-12 findings; full current-tree source CI and then fresh legacy browser stages remain required."
+    "required": "Complete current combined-head source gate on PR #2198 before merge",
+    "superseded_run_id": 44407494538,
+    "superseded_commit": "871698ae94659100fcb8894f4967d4b15c62150f",
+    "state": "Seven hosted parts passed; part6 timed out at600 seconds without a final verdict. Its source assertions passed locally. The unspent retry was withdrawn when dev advanced; no old hosted aggregate success is claimed. New combined-head CI remains pending."
   },
   "browser_ci": {
     "commit": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290",
@@ -251,5 +254,30 @@
     "checks": "Both new roof assets reproduce byte-for-byte; all 132 audited 1871 paths unchanged. Full-checkout freshness passes with 0 errors and 338 warnings; door, source-use freshness, derived registry and changelog checks pass."
   },
   "source_and_boot_repair": "See t-3654-source-and-boot.json for focused checks and pending native recheck.",
-  "delivery": "Owner requests checkpoint pushes and periodic green PR merges into dev. This integrated baseline is PR #2198; subsequent 1871 detail work should land as smaller coherent milestones, each verified before merge."
+  "delivery": "Owner requests checkpoint pushes and periodic green PR merges into dev. This integrated baseline is PR #2198; subsequent 1871 detail work should land as smaller coherent milestones, each verified before merge.",
+  "upstream_c26": {
+    "merge_commit": "150fb1d3a3b754203e3cf05146232fcc66256fe0",
+    "dev_commit": "c26d33718ecb68cbed172d8b549cce720af71b56",
+    "fold_commit": "c676aa2f4ad6ee8cff0521da6ba8add70d55949c",
+    "audit": "t3654-upstream-c26-integration.json",
+    "preserved_1871_prefire_runtime_paths": 201,
+    "source_use_sources": 720,
+    "source_use_index_bytes": 295055,
+    "global_freshness_errors": 0,
+    "global_freshness_warnings": 338,
+    "derived_steps": 209,
+    "derived_owned_files": 840,
+    "scope": "The source-use resolver could not publish from the sparse integration worktree; its owning compiler regenerated the four derived conflicts, then full-checkout source/freshness checks passed. Full publication and final gates remain pending."
+  },
+  "previous_source_assertion_proof": {
+    "source_commit": "871698ae94659100fcb8894f4967d4b15c62150f",
+    "source_tree": "8a4cf0055119d8dcf4b5bc813590abaf5231944d",
+    "declared_steps": 1379,
+    "missing_ordinals": 0,
+    "report": "t3654-source-assertion-union-871698-bound-complete-dated.json",
+    "sha256": "d5c80a8fa71745811071fb1e9c7d103555cbf4ba01092c7cd338ae6f8ba4c636",
+    "hosted_green": false,
+    "browser_dispatches": 0,
+    "limits": "Dated source assertion coverage only. Live dev changed before browser authorization; the guard correctly refused. Any reusable union path must also verify semantic reader/base prerequisites, and full hosted green remains required before merge."
+  }
 }
