@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 3092, ts: '2026-11-18T06:44:49.243Z', date: 'Nov 18, 2026, 12:44 AM CT', title: 'Pick jaunts by age', kind: 'change',
+    items: [
+      'The Jaunts menu\'s filter row is now "Your age": Any, 8–10, 11–13, 14–15, 16–17 and 18+. Each age picks the telling of every jaunt written for it.',
+      'Every jaunt card now shows its age band beside its grade level, for example "Grades 6–8" and "Ages 11–13".',
+    ] },
+  { v: 3091, ts: '2026-11-18T06:44:49.243Z', date: 'Nov 18, 2026, 12:44 AM CT', title: 'Everyone in 1812 has a name', kind: 'feature',
+    items: [
+      'The people of 1812 whom no record names now have names of their own on their floating name card and their card: Kinzie\'s boatman François Dumoulin and his engagé Michel Pelletier, his second servant Louis Gagnon, six men of the Chicago militia, and seven children of the post, Reuben and Sally Holt, Polly and Betsey Lee, Hannah and Ephraim Needs, and Eli Burns.',
+      'Each of these names is ours, and the card says so: the name card\'s edge shows the reconstructed colour, and the card notes that no source names them and what they were called before.',
+      'In the Battle of Fort Dearborn jaunt, every figure who stood for someone unnamed (the men at Lee\'s Place, the war party from the Wabash, the young men who burned the fort, the people who came to watch) now has a name, and clicking them says who they stand for.',
+      'Children a record places in a known family now carry that family\'s surname with a first name of ours: Eliza, William and Nancy Burns, Elijah, Lillian and Mary Lee, Rachel Holt and Samuel Needs, and Cicely\'s son Peter. Their cards say the first name is reconstructed and the surname is the record\'s. No record says which family the seven children of the post belonged to, only that they were most likely Lees, Burnses, Holts or Needses, so the family each one carries is our guess, and their card says so.',
+      'Documented people of 1812 now read attested on their cards and name cards: John Kinzie (Heald\'s own list of the survivors names him), Pierre Le Clerc, Lee\'s son and Jean Baptiste Mirandeau. Louis Fettle and the Holt child stay inferred, because only Quaife\'s guesswork puts them here.',
+      'Settings › Show has three new boxes under Name cards over people: Attested, Inferred and Reconstructed. Tick any mix to see only those cards, for example only the people the record names, or only the ones we reconstructed.',
+    ] },
   { v: 3090, ts: '2026-11-18T06:33:19.392Z', date: 'Nov 18, 2026, 12:33 AM CT', title: 'See yourself climb up onto carriages and wagons', kind: 'feature',
     items: [
       'Climb up beside a coachman or onto a wagon and you now see yourself walk over, step up by the front wheel with a hand on the rail, and sit down. Getting down is the same climb in reverse, in every year.',
