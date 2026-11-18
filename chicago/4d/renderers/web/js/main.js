@@ -32,6 +32,7 @@ import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
 import { fieldLog, count as countField } from './field-log.js'; // T-2660
 import { normalMoment, parseMoment, momentLink, momentFits, stampMoment } from './moment.js';
+import { huntSpotSafe } from './photo-hunt.js';
 import './strings/moment.js';
 import { wireFieldLogView } from './field-log-view.js';
 import { recall as recallHome } from './recall.js';
@@ -7015,6 +7016,24 @@ async function boot() {
         // and the card itself, on a tab, as the full record until the Inspect tabs (T-2639).
         inspectSummaries: () => Promise.all([ensureInspect(), ensureReaderText().catch(() => null)]).then(([doc]) => doc),
         pictures: () => ensurePictures(),
+        // The hunt reads the same catalogue and canonical photo ownership as Go to.
+        // Its optional visit validates the actual stand before starting ordinary travel.
+        photoHunt: {
+          load: async () => {
+            if (String(YEAR) !== '1904') return null;
+            const doc = await ensurePictures();
+            if (doc) destinations.addPhotos(doc);
+            return { doc, destinations };
+          },
+          position: () => api.welcome?.state === 'world' ? { e: walker.state.e, n: walker.state.n } : null,
+          visit: (id) => {
+            const row = destinations.byId('photo', id);
+            if (!huntSpotSafe(row, { inBounds: (e, n) => terrain.inBounds(e, n),
+              isWater: (e, n) => terrain.isWater(e, n), blockedAt: (e, n) => router.blockedAt(e, n),
+              barrierAt: (e, n) => houseBarriers?.near(e, n, BODY_R_M) })) return false;
+            return goToTarget({ kind: 'photo', id });
+          },
+        },
         // T-2825: the record as the card says it — its notes without a ticket, a record id or
         // a file path, once the scene's reader overlay is in (inspectSummaries waits for it).
         record: (id) => {
