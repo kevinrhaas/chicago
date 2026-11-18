@@ -272,12 +272,14 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     const chip = prefix.find(el => el.dataset?.action === 'daybook');
     if (chip) { prefix = prefix.filter(el => el !== chip); }
     const findRow = node('div', '', 'jaunt-find-row'); findRow.append(find, ...(chip ? [chip] : []));
-    const filters = node('div', '', 'jaunt-filters'); filters.append(findRow, pills, grades);
+    // T-3653: only the search row is pinned (css/walk.css § .jaunt-find-row), so it stands
+    // beside the list rather than inside the filter block; the group and age rows scroll away.
+    const filters = node('div', '', 'jaunt-filters'); filters.append(pills, grades);
     list = node('div', '', 'jaunt-list'); list.setAttribute('aria-label', 'All jaunts');
     previous = button('Earlier outings', () => { offset -= WINDOW_SIZE; windowRows({ focus: true }); });
     more = button('More outings', () => { offset += WINDOW_SIZE; windowRows({ focus: true }); });
     const nav = node('nav', '', 'jaunt-window-nav'); nav.setAttribute('aria-label', 'Browse outings'); nav.append(previous, more);
-    root.replaceChildren(...prefix, filters, list, nav);
+    root.replaceChildren(...prefix, findRow, filters, list, nav);
     windowRows();
     if (returnId) {
       const key = focusKey?.id === returnId ? { ...focusKey } : { id: returnId, section: 'all', action: 'start' };

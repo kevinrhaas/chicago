@@ -2541,8 +2541,15 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 }
 #welcome-jaunts-content { text-align: left; overflow-wrap: anywhere; }
 #welcome-jaunts-region { overflow-y: auto; overscroll-behavior: contain; padding-right: 4px; }
-.jaunt-filters { display: grid; gap: 7px; margin: 0 0 8px; padding-bottom: 6px; position: sticky; top: 0; z-index: 1; background: var(--panel-solid); }
-.jaunt-find-row { display: flex; gap: 6px; align-items: center; }
+/* T-3653: only the search row stays pinned while the list scrolls. The whole filter block
+   used to be sticky, and once the age row joined it (T-3604/T-3645) it stood 208 px tall in a
+   Jaunts screen 233 px tall on a phone, covering nearly every row under it, Start buttons
+   included. The group and age rows now scroll away with the list, and a row scrolled to by
+   focus or a tap stops clear of the pinned search (scroll-margin-top). */
+.jaunt-find-row { display: flex; gap: 6px; align-items: center; position: sticky; top: 0; z-index: 1;
+  padding-bottom: 7px; background: var(--panel-solid); }
+.jaunt-filters { display: grid; gap: 7px; margin: 0 0 8px; padding-bottom: 6px; }
+.jaunt-list > *, .jaunt-window-nav > * { scroll-margin-top: 56px; }
 .jaunt-daybook-chip { flex: none; display: inline-flex; align-items: center; gap: 5px; min-height: 42px; padding: 0 11px; font-size: 12px; border-radius: 999px; white-space: nowrap; color: var(--ink-dim); }
 .jaunt-daybook-chip .menu-icon { color: var(--accent); }
 /* T-3584: every group pill says its name (icons alone did not say what the groups were), and

@@ -1,0 +1,7 @@
+{
+  "title": "Jaunts on a phone: the list shows under its filters again",
+  "kind": "fix",
+  "items": [
+    "On a phone the Jaunts screen's filters (search, groups and the new age row) stayed pinned as you scrolled and covered almost the whole list, Start buttons included. Now only the search row stays pinned; the group and age rows scroll away with the list, and a row you tab or scroll to stops clear of the search."
+  ]
+}
