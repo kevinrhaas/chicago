@@ -1,7 +1,0 @@
-{
-  "title": "The carriage check gives the same answer on every build machine",
-  "kind": "fix",
-  "items": [
-    "The check that rebuilds the plate-matched brougham from its sources now does all of its arithmetic the same way on every build machine. It no longer goes red at random on some of them, so fixes reach the town without waiting on a re-run."
-  ]
-}

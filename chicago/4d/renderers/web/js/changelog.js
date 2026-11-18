@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3102, ts: '2026-11-18T11:12:37.890Z', date: 'Nov 18, 2026, 5:12 AM CT', title: 'The carriage check gives the same answer on every build machine', kind: 'fix',
+    items: [
+      'The check that rebuilds the plate-matched brougham from its sources now does all of its arithmetic the same way on every build machine. It no longer goes red at random on some of them, so fixes reach the town without waiting on a re-run.',
+    ] },
   { v: 3101, ts: '2026-11-18T10:47:12.564Z', date: 'Nov 18, 2026, 4:47 AM CT', title: 'Read every card at your age', kind: 'feature',
     items: [
       'Settings › Display has a Reading age: pick one or more of 8–10, 11–13, 14–15, 16–17 and 18+. Signed in, it follows you to your other devices.',
