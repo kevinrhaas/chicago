@@ -61,7 +61,8 @@ try {
     page.on('pageerror', error => errors.push(error.message));
     await page.route('https://kevinrhaas.github.io/chicago-images/**', route => {
       requests.push(route.request().url());
-      return route.fulfill({ status: failImage ? 503 : 200, contentType: 'image/png', body: imageBytes });
+      return route.fulfill({ status: failImage ? 503 : 200, contentType: failImage ? 'text/plain' : 'image/png',
+        body: failImage ? Buffer.from('Photograph unavailable') : imageBytes });
     });
     const day = '2026-11-18', order = huntOrder(day);
     await page.goto(`${origin}/1904/?year=1904&nav=home&hunt=1&huntDay=${day}`);
@@ -93,6 +94,7 @@ try {
     await page.getByRole('button', { name: 'Visit the camera spot', exact: true }).click();
     assert.deepEqual(await page.evaluate(() => fixture.visits), [order[0]]);
     run.checks.push('lazy single image, no pre-guess reveal/travel, live position, distance score, guarded visit, real source dates');
+    console.log(`${width}: initial photo, score and source reveal pass`);
     await page.getByRole('button', { name: 'Next photograph', exact: true }).click();
     await page.getByRole('button', { name: 'Skip and reveal', exact: true }).click();
     await page.getByRole('button', { name: 'Next photograph', exact: true }).click();
@@ -102,14 +104,20 @@ try {
     assert.equal(await page.locator('.photo-hunt-image').getAttribute('src'), `https://kevinrhaas.github.io/chicago-images/prairie-1904/files/${order[2]}-thumb.jpg`);
     await page.getByRole('button', { name: 'Return to the town', exact: true }).click();
     assert.equal(await page.locator('.photo-hunt-image[src]').count(), 0, 'hidden Home releases the image');
-    failImage = true;
     await page.evaluate(() => fixture.home.shown(document.getElementById('nav-home'), fixture.context));
+    await page.waitForFunction(() => [...document.querySelectorAll('.photo-hunt button')].some(b => b.textContent === 'Guess this spot' && !b.disabled));
+    await page.evaluate(id => { const row = fixture.destinations.byId('photo', id); fixture.pose = { e: row.e, n: row.n }; }, order[2]);
+    await page.getByRole('button', { name: 'Guess this spot', exact: true }).click();
+    // Fail a photograph this document has not decoded, rather than an image Chromium
+    // can legitimately restore from its decoded cache after Home hides and shows it.
+    failImage = true;
+    await page.getByRole('button', { name: 'Next photograph', exact: true }).click();
     await page.getByRole('button', { name: 'Try loading this photo again', exact: true }).waitFor({ state: 'visible' });
     assert(await page.getByRole('button', { name: 'Guess this spot', exact: true }).isDisabled());
     failImage = false;
     await page.getByRole('button', { name: 'Try loading this photo again', exact: true }).click();
     await page.waitForFunction(() => [...document.querySelectorAll('.photo-hunt button')].some(b => b.textContent === 'Guess this spot' && !b.disabled));
-    for (let i = 2; i < 5; i++) {
+    for (let i = 3; i < 5; i++) {
       await page.waitForFunction(() => [...document.querySelectorAll('.photo-hunt button')].some(b => b.textContent === 'Guess this spot' && !b.disabled));
       await page.evaluate(id => { const row = fixture.destinations.byId('photo', id); fixture.pose = { e: row.e, n: row.n }; }, order[i]);
       await page.getByRole('button', { name: 'Guess this spot', exact: true }).click();
@@ -125,6 +133,7 @@ try {
     assert.equal(await page.evaluate(() => document.activeElement.getAttribute('aria-label')), 'Challenge link');
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     run.checks.push('reload preserves round order and score, hidden image cleanup, image failure/retry, five-photo completion, clipboard fallback, no overflow');
+    console.log(`${width}: persistence, image failure/retry and completion pass`);
     if (out) await page.screenshot({ path: path.join(out, `${width}-complete.png`) });
     await page.evaluate(key => localStorage.setItem(key, '{broken'), HUNT_STORAGE_KEY);
     await page.reload(); await page.getByRole('button', { name: 'Open five-photo hunt', exact: true }).click();
@@ -137,6 +146,7 @@ try {
     await page.getByText('Progress could not be saved. You can keep playing in this tab.', { exact: true }).waitFor();
     assert.equal(await page.getByRole('button', { name: 'Next photograph', exact: true }).count(), 1);
     run.checks.push('visible corrupt/blocked storage handling; in-memory play remains possible');
+    console.log(`${width}: corrupt/blocked storage and cleanup pass`);
     await page.evaluate(() => { fixture.home.unmount(document.getElementById('nav-home')); });
     assert.equal(await page.locator('#nav-photo-hunt').count(), 0);
     assert.deepEqual(errors, []);
