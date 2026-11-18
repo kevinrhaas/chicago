@@ -169,7 +169,7 @@ def grade(paragraphs):
 
 def compile_scene(scene, files):
     """The table for one scene, and every problem found on the way."""
-    entries, problems, report = [], [], []
+    entries, problems, report, stale = [], [], [], []
     for path in files:
         family = path.stem.split('-', 1)[1]
         source = FAMILIES.get(family)
@@ -184,7 +184,10 @@ def compile_scene(scene, files):
             where = f'{path.name} {rid}'
             original = records.get(rid)
             if not original:
-                problems.append(f'{where}: no such record in the scene (stale words: the record was removed or renamed)')
+                # The note was edited, renamed or removed since it was told (a house PR that
+                # rewrites a "why" changes its key). That is not an error in the edit: the card
+                # shows the note's own words at every age until the telling is re-keyed.
+                stale.append(f'{where[:140]}')
                 continue
             g0 = grade(original)
             own = AGE_OF_BAND[band_of(g0)]
@@ -217,7 +220,17 @@ def compile_scene(scene, files):
                 levels = {age: ages[age][i] for age in ORDER if age in row['ages']}
                 if levels:
                     entries.append({'card': row['card'], 'text': text, 'own': own, 'levels': levels})
-    return {'_doc': DOC, 'scene': scene, 'entries': entries}, problems, report
+    return {'_doc': DOC, 'scene': scene, 'entries': entries}, problems, report, stale
+
+
+def current_texts(scene, files):
+    """Every paragraph the scene's cards show now, for the families its words files tell."""
+    texts = set()
+    for path in files:
+        source = FAMILIES.get(path.stem.split('-', 1)[1])
+        for paras in (source(scene).values() if source else []):
+            texts.update(paras)
+    return texts
 
 
 def scenes():
@@ -248,16 +261,25 @@ def main():
                    cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
     if args.prepare:
         return 0
-    failures = []
+    failures, waiting = [], []
     wanted = set()
     for scene, files in scenes().items():
-        table, problems, report = compile_scene(scene, files)
+        table, problems, report, stale = compile_scene(scene, files)
         failures += [f'{scene}: {p}' for p in problems]
+        waiting += [f'{scene}: {w}' for w in stale]
         out = OUT / f'{scene}.json'
         wanted.add(out.name)
         text = json.dumps(table, ensure_ascii=False, indent=1) + '\n'
         if args.check:
-            if not out.exists() or out.read_text() != text:
+            fresh = not out.exists() or out.read_text() == text
+            if out.exists() and not fresh and stale:
+                # A table written before a note changed still holds the old note's row, which no
+                # card can match: it is fresh if, past those rows, it is the table written now.
+                shown = current_texts(scene, files)
+                held = json.loads(out.read_text())
+                held['entries'] = [e for e in held['entries'] if e['text'] in shown]
+                fresh = json.dumps(held, ensure_ascii=False, indent=1) + '\n' == text
+            if not out.exists() or not fresh:
                 failures.append(f'{scene}: data/reading/{scene}.json is stale; run python3 tools/reading_levels.py')
         elif not problems:
             OUT.mkdir(parents=True, exist_ok=True)
@@ -270,6 +292,11 @@ def main():
         if path.name not in wanted:
             failures.append(f'data/reading/{path.name} has no words files behind it')
     entries = sum(len(json.loads((OUT / n).read_text())['entries']) for n in wanted if (OUT / n).exists())
+    if waiting:
+        print(f'reading_levels: {len(waiting)} telling(s) wait for a re-key: their note changed since it was told, '
+              'so its card shows the note as written at every age. Key each to the note\'s words now:')
+        for w in waiting:
+            print(f'  {w}')
     if failures:
         print('reading_levels: FAIL')
         for f in failures:
