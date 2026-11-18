@@ -124,9 +124,14 @@ export function likenessSkin(kit, variation) {
  * `lines` is what the face keeps of the drawn age lines, by the face's own age.
  */
 const LUMA = [0.2126, 0.7152, 0.0722], THIRDS = ['young', 'middle', 'old'];
-export function libraryFace(kit, { key, assetId, sex, age, complexion = null, own = false, skinOf = null }) {
+export function libraryFace(kit, { key, assetId, sex, age, complexion = null, own = false, skinOf = null, pick = null }) {
   const F = kit?.header?.faces, body = F?.bodies?.[assetId];
   if (!F || !body || !kit.base || own || !Array.isArray(F.faces)) return null;
+  // T-3644: a face the visitor chose for their own person (visitor-person.js): `body` is the
+  // body's own skin, a library id is that face; anything else is drawn as everyone's is.
+  if (pick === 'body') return null;
+  const chosen = typeof pick === 'string' ? F.faces.findIndex((f) => f.id === pick) : -1;
+  if (chosen >= 0) return libraryEntry(kit, F, chosen, assetId, skinOf, body);
   const child = Number.isFinite(age) && age < F.ages.child_under;
   const third = !Number.isFinite(age) || age < F.ages.middle_from ? 0 : age < F.ages.old_from ? 1 : 2;
   const wears = child || sex !== 'male' ? 'female' : 'male';
@@ -149,6 +154,11 @@ export function libraryFace(kit, { key, assetId, sex, age, complexion = null, ow
   let at = seededRandom(`${F.seed}${key}`)() * draw.reduce((a, d) => a + d[1], 0), index = -1;
   for (const [i, w] of draw) { index = i; if ((at -= w) < 0) break; }
   if (index < 0) return null;
+  return libraryEntry(kit, F, index, assetId, skinOf, body);
+}
+
+/** One face of the library as libraryFace hands it out. */
+function libraryEntry(kit, F, index, assetId, skinOf, body) {
   try {
     return { url: new URL(F.map, kit.base).href, index, id: F.faces[index].id, cols: F.cols, size_px: F.size_px, tile_px: F.tile_px,
       gain: (skinEven(kit, assetId, skinOf) ? F.bodies[skinOf] : body).gain.slice(), lines: F.lines?.[F.faces[index].age] ?? 1 };
@@ -286,7 +296,7 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     skin: face?.values && record?.skin ? record.skin : null,
     // ...or, with no fitted face, a face from the library (libraryFace): by the record's sex
     // and age, and the body's where the record has none; nothing of the body's skin.
-    lib: libraryFace(kit, { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, complexion: record?.looks?.complexion?.drawn ?? null, own: !!face?.values, skinOf: record?.skin_of ?? null }),
+    lib: libraryFace(kit, { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, complexion: record?.looks?.complexion?.drawn ?? null, own: !!face?.values, skinOf: record?.skin_of ?? null, pick: record?.looks?.face_pick ?? null }),
     // ...and, for a person drawn on bodies of more than one skin, this body's skin brought to
     // the one they wear on all of them (skinEven).
     even: face?.values && record?.skin ? null : skinEven(kit, assetId, record?.skin_of ?? null) };

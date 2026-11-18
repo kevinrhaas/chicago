@@ -1,0 +1,29 @@
+{
+ "id": "chicagology_2021_high_photo",
+ "type": "photograph",
+ "citation": "Shirley T. High Residence, 2021 Prairie Avenue. Halftone of a photograph of the house from the walk south-west of it, its street front and south flank under snow; unknown photographer, undated. Reproduced on chicagology.com, Prairie Avenue, 2021 S. Prairie.",
+ "author": "unknown photographer",
+ "date": "undated (the Chicagology file name suggests 1930; Shirley T. High lived there until at least 1940)",
+ "describes_date": "undated, after 1886 (James L. High bought the house that year)",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image a20-chicagology-2021-high-photo, 'Shirley T. High Residence 2021 Prairie Avenue', recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a20-chicagology-2021-high-photo.jpg), committed at data/sources/assets/high_2021_photo_t3633/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/2021prairie/",
+ "locator": "The whole print: the street front with its gable and turret, the arched porch and stoop, the south flank, the gabled south wing to the picture's right edge, the roofs and stacks, and a picket fence in the snow at the right.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-3633) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-17 (T-3633) from the image store's reference copy, 1826 x 1738 px greyscale, sha256 0b34cbeac19178d9f667bca892a9bf5cc692d534ee917d89a3a18e67e3fa05be.",
+ "note": "The one picture of 2021 Prairie this project reads. A coarse halftone caption-titled 'Shirley T. High Residence': a dark brick house of two storeys over a high basement under a steep front gable lit by three attic lights, a round turret with a slate cone at the front's north corner over a round-arched porch reached by a stoop climbing along the front from the north, broad square-headed lights, a gabled wing standing out from the south flank, a tall stack on the south flank and two more on the roof, and a picket fence. The library reads the view as from the north-west with a north wing; the 1911 Sanborn sheet draws the round at the front's north-west corner and the projection on the south flank, so the camera stands south-west and the wing is the south one. It is undated and later than 1886, so it is evidence of its own date; the house stood in 1904 (the 1911 sheet draws the same plan), so its forms are carried to 1904 as inferred.",
+ "what_it_supplies": [
+  "the front gable, the turret and its cone, the arched porch and the stoop, against the 1911 sheet's plan",
+  "the storeys: a high basement, two storeys and an attic in the gable, and the south wing's three storeys of lights",
+  "the lights of the front, the south flank and the south wing's west face",
+  "the roofs' slate and the stacks' places"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is a monochrome halftone",
+  "a date: undated, after 1886",
+  "the north flank, the rear and the rear ranges"
+ ]
+}
