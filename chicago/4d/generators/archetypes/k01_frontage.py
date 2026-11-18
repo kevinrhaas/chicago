@@ -4045,7 +4045,7 @@ class Assembly:
             cf = p.entrance_kit["cheek_form"]
             v["stair"]["cheek_form"] = cf["kind"]
             if cf["kind"] == "swept":   # T-2918: a scrolled cheek takes no sizes of its own
-                v["stair"]["swept"] = {k: cf[k] for k in ("head_m", "foot_m", "block_m", "flare", "newel", "pierced", "arched", "railed") if k in cf}
+                v["stair"]["swept"] = {k: cf[k] for k in ("head_m", "foot_m", "block_m", "flare", "newel", "pierced", "arched", "railed", "wing") if k in cf}
             else:
                 if "foot_block_m" in cf:   # T-2984: but its roll may stand on a foot block
                     v["stair"]["scroll_block_m"] = cf["foot_block_m"]
