@@ -240,7 +240,7 @@ export function createInteractions({ onChange = () => {} } = {}) {
  * @param {Document} [o.doc]             makes those keys (document)
  */
 export function createInteractKey({ interactions, keyEl = null, where, say = () => {}, enabled = () => true,
-  keys = null, isTyping = () => false, moreEl = null, onExpand = () => {},
+  keys = null, isTyping = () => false, moreEl = null, onExpand = () => {}, onPress = () => {},
   now = () => performance.now() / 1000, doc = globalThis.document ?? null } = {}) {
   let near = null;
   let selected = null, lastReach = -Infinity, releaseAttention = null;
@@ -350,6 +350,7 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
     expand(false);
     const res = interactions.act(thing, actionId);
     if (res.refused) say(res.why);
+    else if (res.ok) { try { onPress(thing, res); } catch { /* a watcher never stops the key */ } }
     paint();
     return res;
   }

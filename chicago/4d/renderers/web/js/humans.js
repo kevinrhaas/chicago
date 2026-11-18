@@ -40,11 +40,12 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { registerKTX2 } from './ktx2.js';
 import { shareImageSources } from './shared-images.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
-import { loadVariationKit, personVariation, applyVariation, disposeVariants } from './human-variation.js';
+import { shareSkeletons } from './human-skeletons.js';
+import { loadVariationKit, personVariation, applyVariationSteps, disposeVariants } from './human-variation.js';
 import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
 import { enuToWorld } from './terrain.js';
 import { dressSkin, restingLid } from './human-skin.js';
-import { dressHair, dressHeadcloth } from './human-hair.js';
+import { dressHairSteps, dressHeadcloth } from './human-hair.js';
 import { hairFor } from './human-hair-styles.js';
 import { dressLooks, dressCloth, looksHairStyle, dressInSeason } from './human-looks.js';
 import { dressFinery } from './human-finery.js';
@@ -53,6 +54,9 @@ import { dressSpectacles } from './human-spectacles.js';
 import { fitWaist } from './human-waist.js';
 import { engraveSilver } from './human-silver.js';
 import { easeSeats } from './human-seat.js';
+import { dressCollars } from './human-collar.js';
+import { fitCoats } from './human-coat.js';
+import { fitSleeves } from './human-sleeve.js';
 import { dressGarrison, garrisonCarry, createArmsPiles } from './human-garrison.js';
 import { clothHuman } from './fabric.js';
 // T-3627: the adults jaunts' fight motions (human-fight.js) load with the outing, not with the
@@ -71,6 +75,22 @@ export const LOD_HYSTERESIS = 0.12;
 export const FACE_M = 20;
 export const SHADOW_M = 30;
 export const ANIMATE_M = 70;
+/**
+ * T-3639: how often a figure past these distances is posed, in frames: every second frame
+ * beyond 30 m, every third beyond 50 m, out to ANIMATE_M. The pose (clip, gait, life, hands,
+ * skirt) is computed on that frame with all the time since the last one, so a far figure
+ * moves exactly as far and as fast, in fewer, larger steps; at 30 m a person is some fifty
+ * pixels tall on a 1280 x 800 window. Its place still moves every frame. The owner's rule
+ * (2026-11-10) is lower resolution, never fewer people: this is resolution in time. Figures
+ * are staggered by their id, so a crowd's posing is spread over the frames, not bunched.
+ */
+export const ANIMATE_STRIDE_M = Object.freeze([Object.freeze([30, 2]), Object.freeze([50, 3])]);
+/** Frames between poses at `distance` metres (1 = every frame). */
+export function animateEvery(distance) {
+  let every = 1;
+  for (const [m, n] of ANIMATE_STRIDE_M) if (distance >= m) every = n;
+  return every;
+}
 export const DRAW_M = 140;
 /**
  * T-3463: how far the `light` tier (a phone's) draws a figure. 1812's town put some 160 people
@@ -175,10 +195,15 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
       loader.setMeshoptDecoder(await decoder);
     }
     const gltf = await loader.parseAsync(buf, String(new URL('.', href)));
-    // T-3553: trousers bridge the seat, a belted waist sits on the body, and trade silver is
-    // engraved, once per parse, before any figure is cloned (human-seat.js, human-waist.js,
-    // human-silver.js).
+    // T-3553: collars, straps and belts sit on the cloth beneath, trousers bridge the seat, a
+    // coat closes under the arm and at the back vent, sleeve hems turn with the wrist as one
+    // edge, a belted waist sits on the body, and trade silver is engraved, once per parse,
+    // before any figure is cloned (human-collar.js, human-seat.js, human-coat.js,
+    // human-sleeve.js, human-waist.js, human-silver.js).
+    dressCollars(gltf.scene);
     easeSeats(gltf.scene);
+    fitCoats(gltf.scene);
+    fitSleeves(gltf.scene);
     fitWaist(gltf.scene);
     engraveSilver(gltf.scene);
     return gltf;
@@ -247,6 +272,12 @@ const PROXY_MATERIAL = new THREE.MeshBasicMaterial({ visible: false });
  * waits its turn here; a frame runs builds until BUILD_SLICE_MS has gone (always at least
  * one), the nearest figure first, and the rest wait for the next frame. A walk brings
  * figures through their bands one at a time instead of a crowd at once.
+ *
+ * T-3639: and one build is no longer one frame. Standing by the Kinzie household (2026-11-17)
+ * the garrison walking into its 140 m range built a figure every two seconds, 10-21 ms each in
+ * a single frame. A build is now its steps (buildSteps: the clone, the person's own body, their
+ * looks and dress, the skin, the hair, the hat and arms, the cloth), and a frame takes steps
+ * until BUILD_SLICE_MS has gone; the figure under way keeps its turn until it is done.
  */
 export const BUILD_SLICE_MS = 6;
 const buildQueue = [];
@@ -254,14 +285,27 @@ let buildPumpDue = false;
 function pumpBuilds() {
   buildPumpDue = false;
   if (!buildQueue.length) return;
+  // T-3639: a build under way keeps its turn; the rest wait nearest first.
+  const going = buildQueue[0].steps ? buildQueue.shift() : null;
   buildQueue.sort((a, b) => (a.actor.distance ?? Infinity) - (b.actor.distance ?? Infinity));
+  if (going) buildQueue.unshift(going);
   const t0 = performance.now();
   do {
-    const job = buildQueue.shift();
-    try { job.resolve(job.run()); } catch (err) { job.reject(err); }
+    const job = buildQueue[0];
+    try {
+      if (!job.steps) {
+        const out = job.run();
+        if (!isSteps(out)) { buildQueue.shift(); job.resolve(out); continue; }
+        job.steps = out;
+      }
+      const step = job.steps.next();
+      if (step.done) { buildQueue.shift(); job.resolve(step.value); }
+    } catch (err) { buildQueue.shift(); job.reject(err); }
   } while (buildQueue.length && performance.now() - t0 < BUILD_SLICE_MS);
   if (buildQueue.length) duePump();
 }
+/** T-3639: a build handed in as its steps (HumanActor.buildSteps), taken a step at a time. */
+const isSteps = (v) => !!v && typeof v.next === 'function' && typeof v[Symbol.iterator] === 'function';
 function duePump() {
   if (buildPumpDue) return;
   buildPumpDue = true;
@@ -339,6 +383,10 @@ export class HumanActor {
     this.counters = { updates: 0, animated: 0, faced: 0, swaps: 0, reused: 0 };
     this.expression = {};
     this.blinkClock = hashPhase(instance.id) * 4;
+    // T-3639: a far figure's posing stride (animateEvery): its turn, and the time and ground saved up.
+    this.animTurn = Math.floor(hashPhase(`${instance.id}:pose`) * 6);
+    this.animDt = 0;
+    this.animMoved = 0;
     this.distance = Infinity;
     this.inRange = false;
     this.recheck = 0;
@@ -448,7 +496,9 @@ export class HumanActor {
     const job = Promise.all([this.assets.acquire(assetId, lod), this.assets.variation?.() ?? null]).then(async ([gltf, variation]) => {
       if (this.disposed || this.wanted !== lod) { this.assets.release(assetId, lod); return this.body; }
       // T-3572: built in its turn (queueBuild), and not at all if it is no longer wanted then.
-      const next = await queueBuild(this, () => (this.disposed || this.wanted !== lod ? null : this.build(gltf, lod, variation)));
+      const next = await queueBuild(this, () => (this.disposed || this.wanted !== lod ? null
+        // T-3639: in steps a frame at a time, unless a subclass builds its own way.
+        : this.build === HumanActor.prototype.build ? this.buildSteps(gltf, lod, variation) : this.build(gltf, lod, variation)));
       if (!next) { this.assets.release(assetId, lod); return this.body; }
       if (this.prepare) {
         // Shadows as the level will be drawn, so the programs compiled are the ones it uses.
@@ -542,18 +592,28 @@ export class HumanActor {
     }
   }
 
-  /** T-3412: this person's own face, height and build, from the shared kit, on the clone. */
-  vary(scene, variation) {
+  /** T-3412: this person's own face, height and build, from the shared kit, on the clone (in steps). */
+  *vary(scene, variation) {
     if (!variation?.kit || this.variationScope === 'none') return;
     const assetId = this.instance.appearance.asset_id;
     this.variation ??= personVariation({ kit: variation.kit, key: this.personId ?? this.id,
       record: variation.persons?.[this.personId] ?? null, assetId, sceneYear: Number(this.instance.scene) || null });
-    this.varied = applyVariation(scene, variation.kit, this.variation, { scope: this.variationScope });
+    // T-3639: a body or a garment a step (applyVariationSteps).
+    this.varied = yield* applyVariationSteps(scene, variation.kit, this.variation, { scope: this.variationScope });
   }
 
+  /** One level's build, whole (the harness and a subclass call this; setLod takes buildSteps). */
   build(gltf, lod, variation = null) {
-    const scene = cloneSkinned(gltf.scene);
-    this.vary(scene, variation);   // before dressSkin, which reads the varied rest pose
+    const steps = this.buildSteps(gltf, lod, variation);
+    let r = steps.next();
+    while (!r.done) r = steps.next();
+    return r.value;
+  }
+
+  /** T-3639: the same build, yielding between its steps so a frame can stop between them. */
+  *buildSteps(gltf, lod, variation = null) {
+    const scene = cloneSkinned(gltf.scene); yield;
+    yield* this.vary(scene, variation); // before dressSkin, which reads the varied rest pose
     const meshes = [];
     scene.traverse((o) => {
       if (!o.isSkinnedMesh) return;
@@ -578,14 +638,18 @@ export class HumanActor {
     // every person (human-skin.js; a shader patch, no texture). Bound to the rest pose.
     // T-3493: with the person's age and brows, for the lines and shade of their face.
     dressSkin(scene, { age: this.variation?.age ?? null, person: this.personId ?? null, year: Number(this.instance.scene) || null });
+    yield;
     // Measured through the node transforms: a quantised derivative's positions are not metres.
     scene.updateMatrixWorld(true);
     const height = new THREE.Box3().setFromObject(scene).max.y;
     this.proxy.scale.y = height > 0.3 ? height : 1.7;
+    yield;
     // T-3414: at the near levels, strand-card hair, beard and whiskers grown from this body's
     // own scalp and face, by the person's cut (human-hair-styles.js). Not counted in its height.
     const year = Number(this.instance.scene) || null;
-    const hair = dressHair(scene, { lod, person: this.personId ?? null, year, style });
+    // T-3639: a near level's first head of hair grows over a few frames (dressHairSteps).
+    const hair = yield* dressHairSteps(scene, { lod, person: this.personId ?? null, year, style });
+    yield;
     // T-3506: a handkerchief tied round the head, at every level.
     if (dress?.headcloth) { const cloth = dressHeadcloth(scene, dress.headcloth, { person: this.personId ?? null }); if (cloth) looked.push(cloth.material); }
     // T-3522: their own hat (human-hats.js).
@@ -597,6 +661,7 @@ export class HumanActor {
     // his height. The wearer's own fitted geometries go with the level.
     const armed = dress?.garrison ? dressGarrison(scene, dress.garrison, { lod }) : null;
     if (armed) looked.push(...armed.owned);
+    yield;
     // The same reconstructed linen/wool weave and wear as the drivers, after
     // each resident's colours and any replacement uniform materials are chosen.
     // No texture or material is allocated; a driver's later call is idempotent.
@@ -610,6 +675,9 @@ export class HumanActor {
     const faces = meshes.filter((m) => m.morphTargetDictionary && Object.keys(m.morphTargetDictionary).length);
     // T-3493: brows and lashes that move with the face (a lash shuts with its lid).
     if (hair?.face?.morphTargetDictionary && Object.keys(hair.face.morphTargetDictionary).length) faces.push(hair.face);
+    // T-3639: the pieces skinned to the same bones share one skeleton, so each figure's bone
+    // matrices are computed and uploaded once a frame, not once per piece (human-skeletons.js).
+    shareSkeletons(scene);
     const mixer = new THREE.AnimationMixer(scene);
     mixer.addEventListener('finished', (ev) => { if (ev.action === this.body?.oneShot) this.endGesture(); });
     return { lod, scene, meshes, faces, mixer, clips, hair, looked, extras, garrison: dress?.garrison ?? null, action: null, oneShot: null, assetId: this.instance.appearance.asset_id,
@@ -933,14 +1001,25 @@ export class HumanActor {
     const b = this.body;
     if (this.posture) { this.stepPosture(dt); this.place(); }
     if (!b) { this.visualIdleBody = null; return true; }
-    if (this.distance < (this.animateM ?? ANIMATE_M)) {
+    const every = animateEvery(this.distance);
+    // T-3639: past 30 m a figure is posed every second or third frame, with the time between.
+    const poseNow = this.distance < (this.animateM ?? ANIMATE_M) && (every === 1 || (this.animTurn = (this.animTurn | 0) + 1) % every === 0);
+    if (this.distance < (this.animateM ?? ANIMATE_M) && !poseNow) {
       const naturalStanding = this.state === 'standing' && this.clipName === 'idle_natural_v1' && !b.oneShot;
       const idleDt = Number.isFinite(visualDt) && visualDt >= 0 ? visualDt : 0;
-      const clipDt = naturalStanding ? (this.visualIdleBody === b ? idleDt : 0) : dt;
+      this.animDt = (this.animDt || 0) + (naturalStanding ? (this.visualIdleBody === b ? idleDt : 0) : dt);
+      this.animMoved = (this.animMoved || 0) + moved;
+      this.counters.strided = (this.counters.strided ?? 0) + 1;
+    } else if (poseNow) {
+      const naturalStanding = this.state === 'standing' && this.clipName === 'idle_natural_v1' && !b.oneShot;
+      const idleDt = Number.isFinite(visualDt) && visualDt >= 0 ? visualDt : 0;
+      const clipDt = (naturalStanding ? (this.visualIdleBody === b ? idleDt : 0) : dt) + (this.animDt || 0);
+      const stepped = moved + (this.animMoved || 0);
+      this.animDt = 0; this.animMoved = 0;
       b.mixer.update(clipDt);
       // The walk first (pelvis and legs), then life and the arms over it, reading its phase.
       const gait = this.gait?.bound && !b.oneShot ? this.gait : null;
-      if (gait) gait.apply(clipDt, { state: this.state, root: this.root, moved });
+      if (gait) gait.apply(clipDt, { state: this.state, root: this.root, moved: stepped });
       // Life rides the clip's own clock, so a held clip holds it too.
       if (this.life?.bound && !b.oneShot) this.life.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition, gait, posture: this.posture });
       if (this.actions?.bound && !b.oneShot) {
