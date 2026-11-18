@@ -94,6 +94,14 @@ const rec = person.record('1812');
 ok(rec.sex === 'female' && rec.age.years === 25 && rec.looks.complexion.drawn === 'deep_brown' && rec.looks.eyes.drawn === 'dark_brown', 'the record carries sex, age, complexion and eyes');
 ok(rec.looks.hair.drawn === 'black' && HAIR_CUTS[rec.looks.hair.cut] && rec.looks.hair.facial.includes('brows_fine'), 'and the hair: colour, the year\'s cut and her brows');
 ok(rec.looks.grade === 'reconstructed' && rec.looks.liberty === catalog.liberty, 'graded reconstructed, with its liberty');
+// A riding habit (Kevin, 2026-11-18): a dress worn on its body, carried in the record for humans.js.
+ok(!rec.dress, 'a dress worn as drawn carries no dress of its own');
+person.set({ outfit: 'riding_habit' }, '1835');
+ok(person.record('1835').dress?.hat && person.asset('1835') === 'flynn_mary_1835_dress_study' && person.record('1835').dress.hide.includes('separate_plain_apron'),
+  'the 1835 riding habit: her dress in its own cloth, the apron set aside, a hat of its own');
+ok(catalog.outfits['1904'].female.some((o) => o.id === 'riding_habit' && o.dress?.hat) && !catalog.outfits['1812'].female.some((o) => o.id === 'riding_habit'),
+  'a riding habit in 1835 and 1904 (1812 rides astride in her own dress)');
+person.set({ outfit: 'plain' }, '1835');
 const faces = facesFor(catalog, 'female', 'deep_brown');
 ok(faces.length >= 4 && faces.every((f) => f.sex === 'female' && !f.light_only), 'her faces: the library\'s women\'s, no freckled face for a dark complexion');
 ok(facesFor(catalog, 'male', 'fair').some((f) => f.light_only), 'a fair man may choose a freckled face');
