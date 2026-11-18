@@ -69,7 +69,19 @@ export function stampMoment(canvas, metadata, { doc = globalThis.document } = {}
   const line = (text, row, bold = false) => {
     ctx.font = `${bold ? '600 ' : ''}${font}px sans-serif`;
     let value = String(text ?? '').replace(/[\r\n]+/g, ' ');
-    while (value.length > 1 && ctx.measureText(value).width > out.width - 24) value = `${value.slice(0, -2)}…`;
+    const width = out.width - 24;
+    if (ctx.measureText(value).width > width) {
+      // Full citations can be thousands of characters. Bound text-layout calls
+      // inside the render frame; the returned photo keeps the complete metadata.
+      const chars = Array.from(value);
+      let low = 0, high = chars.length - 1;
+      while (low < high) {
+        const mid = Math.ceil((low + high) / 2);
+        if (ctx.measureText(`${chars.slice(0, mid).join('')}…`).width <= width) low = mid;
+        else high = mid - 1;
+      }
+      value = low ? `${chars.slice(0, low).join('')}…` : ctx.measureText('…').width <= width ? '…' : '';
+    }
     ctx.fillText(value, 12, size.height + 24 + row * 24);
   };
   line(`4D Chicago · ${metadata.year} · ${metadata.place}`, 0, true);

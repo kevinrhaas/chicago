@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
 import { normalMoment, parseMoment, momentLink, momentFits, photoSize, stampMoment } from '../renderers/web/js/moment.js';
 const raw = { year: '1904', e: -156.576, n: -3520, bearing: 270, pitch: -5, altitude: null,
   season: 'winter', hour: '16:35', date: '1904-12-15', person: 'glessner_frances', structure: 'glessner_house' };
@@ -43,4 +45,34 @@ assert.ok(lines.some(s => s.includes('not a historical photograph')));
 assert.ok(lines.some(s => s.includes('1904-12-15')));
 assert.equal(out.width, 1, 'temporary raster released after encoding');
 assert.equal(out.height, 1);
-console.log('MOMENT PASS — private query omitted; bounded scene state round-trips; bounds/collision enforced; stamped PNG released after encoding');
+// Exercise the real source-rich caption, not a short hand-written stand-in.
+const dataRoot = process.env.C4D_TEST_ROOT || path.resolve(new URL('..', import.meta.url).pathname);
+const glessner = JSON.parse(fs.readFileSync(path.join(dataRoot, 'data/sidecars/1904/glessner_house.json')));
+const sources = glessner.citations.filter(c => c.source_id && c.citation)
+  .map(c => Object.freeze({ id: c.source_id, title: c.citation, url: c.url || c.archived_url || '' }));
+Object.freeze(sources);
+const caption = `Sources for ${glessner.name}: ${sources.map(s => s.title).join('; ')}`;
+assert(caption.length >= 9000, 'fixture must retain a genuinely long real citation caption');
+let measures = 0;
+const fitted = [], fittedCalls = [], widths = [];
+const boundedOut = { width: 0, height: 0,
+  getContext: () => ({ drawImage() {}, fillRect() {},
+    measureText(value) { measures++; return { width: Array.from(value).length * 6 }; },
+    fillText(value) { fitted.push(value); fittedCalls.push(measures); widths.push(boundedOut.width - 24); measures = 0; } }),
+  toBlob(callback) { callback(new Blob(['image'])); } };
+const stamped = await stampMoment({ width: 390, height: 780 }, { ...expected, place: glessner.name, sourceSubject: glessner.name, sources },
+  { doc: { createElement: () => boundedOut } });
+assert.equal(stamped.sources, sources, 'fitting the image caption preserves every full source in metadata');
+assert(fitted[2].startsWith(`Sources for ${glessner.name}:`));
+assert(fitted[2].endsWith('…'));
+assert(fitted.every((line, i) => Array.from(line).length * 6 <= widths[i]), 'all caption lines fit the raster');
+assert(fittedCalls[2] <= Math.ceil(Math.log2(caption.length)) + 3,
+  `long source caption took ${fittedCalls[2]} text measurements`);
+const captionMeasurements = fittedCalls[2];
+assert.equal(boundedOut.width, 1); assert.equal(boundedOut.height, 1);
+// Very narrow views must not draw an ellipsis outside the available caption.
+fitted.length = fittedCalls.length = widths.length = 0;
+await stampMoment({ width: 25, height: 50 }, { year: '1904', place: '🪶 Chicago', sources: [] },
+  { doc: { createElement: () => boundedOut } });
+assert(fitted.every(line => line === ''));
+console.log(`MOMENT PASS — private query omitted; bounded scene state round-trips; bounds/collision enforced; ${caption.length}-character real source caption fitted in ${captionMeasurements} measurements with intact metadata; stamped PNG released after encoding`);

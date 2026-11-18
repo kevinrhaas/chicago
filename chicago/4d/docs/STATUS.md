@@ -40,25 +40,44 @@ Earlier reports with skipped notebook assertions and pre-final runtime are retai
 with explicit scope corrections in the evidence archive; these final integrated runs
 supersede them for the photo/notebook/arrival flow.
 
-**Release validation at this checkpoint:** source partitions 1–6 of eight pass
-(175, 174, 174, 174, 175 and 174 checks), and preflight's changelog-entry and ticket-ID
-checks pass. All fifteen published mobile renderer stages pass with zero failures or
-page errors: 921 assertions including repeated always-on checks. Stage 6's second-world
-recovery passed unchanged on quiet CPU. Stage 13 exceeded the local 595-second command
-cap; its unchanged remote run then completed all 157 assertions successfully.
+**Release validation before the final resource repairs:** source partitions 1–7 of
+eight pass (175, 174, 174, 174, 175, 174 and 174 checks), and preflight's changelog-entry
+and ticket-ID checks pass. All fifteen published mobile renderer stages pass on the
+earlier runtime with zero failures or page errors: 921 assertions including repeated
+always-on checks. Stage 6's second-world recovery passed unchanged on quiet CPU. Stage
+13 exceeded the local 595-second command cap; its unchanged remote run then completed
+all 157 assertions successfully.
 
 Source partition 7 exposed a tour test's fixed 200-character source span: inserting the
 notebook exceeded it despite the tour still appearing first. The test now mounts the
 real Guide and verifies that the original tour element leads its controls and hosted
 sections. Focused tests pass; isolated mutations that move or omit the tour are both
-rejected. Its instrumented write measurement remains empty. Full partition 7's rerun
-and partition 8 are still required.
+rejected. Its instrumented write measurement remains empty; complete partition 7's
+rerun passed all 174 checks.
+
+Partition 8, locally and on GitHub, found an ambiguous person callback alias interpreted
+as a placement field by the sidecar scanner, and identical era entry pages at 65,638
+bytes, over the existing 65,536-byte duplicate threshold. The callback now says `person`.
+Photo/notebook styles load once per owning document when their views mount, removing
+104 bytes from the shared entry markup. No validator limit or assertion was weakened.
+Browser checks verify real stylesheet loading, application, remount deduplication and
+iframe isolation. The publisher and full partition 8 must verify the final repair.
+
+Resource review found Glessner's 9,307-character citation caption caused 9,241 text
+measurements. Binary-search fitting preserves full metadata and reduces that to 17
+calls; actual canvas-only Chromium measurements fell from 2–5.6 seconds to 3.6–4.9 ms.
+These are local measurements, not a phone or town performance benchmark. Notebook drafts
+now drop IDs confirmed deleted elsewhere while preserving unsaved writing after storage
+errors. The real cross-tab regression rejects the earlier code and passes after 120
+deleted/recreated IDs. Focused logic and browser tests pass for both repairs. Earlier
+whole-town reports remain evidence for the pre-repair runtime; fresh integrated checks
+are required for these changes before merge.
 
 CI found four missing step-isolation records for the new gate tests. The instrumented
 measurement tool now records all four as writing nothing in-tree, and the isolation
 audit and its self-tests pass. This repairs the measurement registry without changing
-the application or assertions. The full remaining source partitions, complete published
-desktop renderer smoke and exact-head PR CI remain required before DEV
+the application or assertions. The repaired source partition, complete published
+desktop renderer smoke, post-repair browser checks and exact-head PR CI remain required before DEV
 merge. The PR records their final aggregate; GitHub's phone upload/memory-release check
 has also passed on the unchanged runtime.
 

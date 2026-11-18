@@ -5,6 +5,11 @@ import './strings/notebook.js';
 /** Mounted in the Navigator; only a shutter press allocates a photo. */
 export function mountMoment(el, { api, doc = el?.ownerDocument, win = doc?.defaultView } = {}) {
   if (!el || !doc) return null;
+  if (doc.head && !doc.getElementById?.('moment-style')) {
+    const css = doc.createElement('link'); css.id = 'moment-style'; css.rel = 'stylesheet';
+    css.href = new URL('../css/moment.css', import.meta.url).href;
+    doc.head.append(css);
+  }
   const node = (tag, key) => { const n = doc.createElement(tag); if (key) n.textContent = t(`moment.${key}`); return n; };
   const root = node('section'); root.className = 'moment-tools'; root.setAttribute('aria-label', t('moment.title'));
   const status = node('p'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');

@@ -50,6 +50,11 @@ export function printNotebook(entries, doc = globalThis.document) {
 
 export function mountFieldNotebook(container, { notebook = fieldNotebook, context = () => ({}) } = {}) {
   const doc = container.ownerDocument;
+  if (doc.head && !doc.getElementById?.('field-notebook-style')) {
+    const css = doc.createElement('link'); css.id = 'field-notebook-style'; css.rel = 'stylesheet';
+    css.href = new URL('../css/field-notebook.css', import.meta.url).href;
+    doc.head.append(css);
+  }
   const root = node(doc, 'details', null, 'nav-block field-notebook');
   root.id = 'field-notebook';
   root.append(node(doc, 'summary', tr('title'), 'nav-place'), node(doc, 'p', tr('intro'), 'nav-sub'),
@@ -82,6 +87,10 @@ export function mountFieldNotebook(container, { notebook = fieldNotebook, contex
     const state = notebook.read();
     entries.replaceChildren();
     if (state.error) { result({ ok: false, reason: state.error }); return; }
+    // Another tab may remove entries. Keep drafts only for confirmed live IDs;
+    // a failed storage read must not discard the visitor's unsaved writing.
+    const liveIds = new Set(state.entries.map(entry => entry.id));
+    for (const id of drafts.keys()) if (!liveIds.has(id)) drafts.delete(id);
     if (!state.entries.length) entries.append(node(doc, 'p', tr('empty'), 'nav-sub'));
     for (const entry of [...state.entries].reverse()) {
       const article = node(doc, 'article', null, 'field-notebook-entry');
