@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1182,
+  "count": 1183,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1067,7 +1067,7 @@
     },
     {
       "id": "house_2026_prairie",
-      "name": "2026 Prairie Avenue — Stone-front masonry"
+      "name": "2026 Prairie Avenue — the Louis Wahl house: Second Empire, stone front under a mansard, its tower over the north end"
     },
     {
       "id": "house_2026_prairie_coach_house",
@@ -35930,18 +35930,6 @@
         },
         {
           "domain": "structure",
-          "structure": "house_2026_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2026_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "house_2026_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -36150,7 +36138,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`buckingham_house_2036_prairie.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie.draft_1904.form.draft`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie.draft_1904.form.draft_elevation`, `house_2026_prairie.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie.draft_1904.form.draft_elevation`, `house_2120_prairie.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `rees_house_2110_prairie.draft_1904.form.draft_elevation`, `rees_house_2110_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
+          "text": "`buckingham_house_2036_prairie.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie.draft_1904.form.draft`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie.draft_1904.form.draft_elevation`, `house_2120_prairie.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `rees_house_2110_prairie.draft_1904.form.draft_elevation`, `rees_house_2110_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
         },
         {
           "label": "Decision",
@@ -36162,7 +36150,7 @@
         },
         {
           "label": "Retired in part",
-          "text": "2000 and 2010, the two frame dwellings at the 20th Street end, by earlier work, which refined both in place on the K16 timber kit under `“2000 and 2010 Prairie refined from the district draft to two whole K16 clapboard frame houses on the outline the 1911 sheet draws, everything but the plan and the storey counts the kit's”`, under the same ids; their draft attributes are gone (their alley buildings are still the draft's, 's); and 2018, the stone-front house with its bow, by later work, which refined it in place on the K01 frontage kit under `“2018 Prairie refined from the district draft to a three-storey K01 brick house with a stone front, its two-storey stone bow and one-storey stone porch where the sheet draws them, everything but the plan the kits'”`, under the same id; its draft attributes are gone (its alley building is still the draft's, 's)."
+          "text": "2000 and 2010, the two frame dwellings at the 20th Street end, by earlier work, which refined both in place on the K16 timber kit under `“2000 and 2010 Prairie refined from the district draft to two whole K16 clapboard frame houses on the outline the 1911 sheet draws, everything but the plan and the storey counts the kit's”`, under the same ids; their draft attributes are gone (their alley buildings are still the draft's, 's); and 2018, the stone-front house with its bow, by later work, which refined it in place on the K01 frontage kit under `“2018 Prairie refined from the district draft to a three-storey K01 brick house with a stone front, its two-storey stone bow and one-storey stone porch where the sheet draws them, everything but the plan the kits'”`, under the same id; its draft attributes are gone (its alley building is still the draft's, 's); and 2026, the Louis Wahl house, by later work, which refined it in place on the K01 frontage kit to its 1874 Land Owner engraving under `“2026 Prairie, the Louis Wahl house, refined from the district draft to a K01 Second Empire stone-front house built to its 1874 Land Owner engraving and the 1911 sheet's plan: its tower, stoop and balcony, flank bay and stack as the print draws them, everything neither shows the kits'”`, under the same id; its draft attributes are gone (its alley building is still the draft's, 's)."
         },
         {
           "label": "Review",
@@ -36184,7 +36172,120 @@
         "T-1937",
         "T-1935",
         "T-1910",
-        "T-3607"
+        "T-3607",
+        "T-3608"
+      ]
+    },
+    {
+      "id": "L-k01-2026-wahl-3608",
+      "title": "2026 Prairie, the Louis Wahl house, refined from the district draft to a K01 Second Empire stone-front house built to its 1874 Land Owner engraving and the 1911 sheet's plan: its tower, stoop and balcony, flank bay and stack as the print draws them, everything neither shows the kits'",
+      "section": "per_subject",
+      "subjects": [
+        "house_2026_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-11-16",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "2026 Prairie Avenue is no longer a district draft. It stands, under the draft's own id (2026 Prairie Avenue — the Louis Wahl house: Second Empire, stone front under a mansard, its tower over the north end), as a k01 frontage record built by the k01 emit generator: K02 smooth Bedford limestone on the front, laid back along both flanks, K03 common brick behind; K06 round-headed sash; K07's door and stoop under a balcony on K08 consoles with an iron guard; K08 bays (the north tower under its own crested mansard, a canted bay at the front's south end, the south flank's canted bay under its own mansard); a K10 bracketed cornice and a K05 slated mansard; a one-storey brick rear range on K01's rear wings; and K11's scroll-band fence. **What is read, not invented.** From The Land Owner's engraving of May 1874 ('LOUIS WAHL', source 'Louis Wahl.' Wood engraving of the Louis Wahl residence, 964 (now 2026)…), solved into a camera against the sheet's plan (the landowner 1874 data): the style; two storeys over a raised basement under a mansard and their heights (a 2.0 m principal floor, 4.2 and 5.3 m storeys, the mansard's 3.0 m); the tower at the front's north end, its two lights a storey and its crested roof; the door, its straight stoop and the balcony over it; the south flank's one light a storey, its stack and its canted bay's lights and mansard; round heads throughout and the bracketed cornice. From sheet 35 of the 1911 Sanborn, read at full size through the fit, and the census (s35-2026-front: '3B dwelling (D), stone front and brick rear divided on the diagonal'): the main body inside the sheet's dashed outline (22.49 x 10.04 m), the tower's and the south projection's places on the front, the flank bay's place, the one-storey brick rear range and the stone and brick. **What is invented.** The front between the corner and the door, which a tree hides: the south projection built as a canted bay of the tower's lights under a tin cap, and one dormer over the door; the north wall's and the rear's windows and the north dormer; the walls' thickness; the stone's kind and dressing and the brick's colour and bond; the stone's return along both flanks at one depth, 11.3 m, where the sheet's diagonal runs it 8.7 m back on the north and 14.0 m on the south (K01 lays one depth); the two stacks no picture sees; the deck, gutters and pipes; the side passage's gate. **What is not built.** The sheet's outer line, about 1.7 m outside its dashed outline on both flanks and the front, coloured as the house: not read as walls, since the engraving draws the south flank rising sheer from grade inside it; the census's one-storey frame piece on the rear range's face (s35-2026-wing), which K01's rear wings do not host; and the engraving's 1874 low rear wing, veranda and summer house, which the 1911 sheet replaces or draws as open ground (argued in the match record)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph, permit or description of 2026 Prairie nearer 1904, ingested as a source, replaces the kit's choices attribute by attribute; a reading of the sheet's outer band replaces the not-built line."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_2026_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2026_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2026_prairie.as_mapped_1904.form.service_wall_brick`, `house_2026_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2026_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2026_prairie.as_mapped_1904.form.stair_tread_m`, `house_2026_prairie.as_mapped_1904.form.north_bays`, `house_2026_prairie.as_mapped_1904.form.rear_bays`, `house_2026_prairie.as_mapped_1904.form.chimneys`, `house_2026_prairie.as_mapped_1904.form.rainwater`, `house_2026_prairie.as_mapped_1904.form.window_kit`, `house_2026_prairie.as_mapped_1904.form.yard`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 2026 wahl."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-16 (T-3608)."
+        }
+      ],
+      "work_refs": [
+        "T-3608",
+        "T-1910",
+        "T-1250",
+        "T-1842"
       ]
     },
     {

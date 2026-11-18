@@ -1,10 +1,12 @@
 {
   "id": "house_2026_prairie",
-  "name": "2026 Prairie Avenue — Stone-front masonry (district draft; refined by T-1910)",
+  "name": "2026 Prairie Avenue — the Louis Wahl house: Second Empire, stone front under a mansard, its tower over the north end, K01 frontage assembly",
   "aka": [
-    "2026 S. Prairie Avenue"
+    "2026 S. Prairie Avenue",
+    "964 Prairie Avenue (before 1909)",
+    "Louis Wahl residence"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k01_frontage",
   "function": {
     "value": "residence",
     "confidence": "inferred",
@@ -14,33 +16,34 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B dwelling (D), stone front and brick rear divided on the diagonal'. Carried to 1904 on the T-1842 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1910 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2026-b1), the T-1842 census (s35-2026-front, s35-2026-wing, s35-2026-ground) and the T-1837 register row frontage-35-062 (Stone-front masonry); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
+  "research_note": "T-3608 (piece 2 of T-1910) refines the district draft (T-2351) in place under the same id: the main body is rebuilt from the K01 frontage assembly and its kits — K02 smooth Bedford limestone on the front and back along both flanks, K03 common brick behind, K06 round-headed sash, K07 door and stoop under a K08-bracketed balcony, K08 bays (the tower at the front's north end under its own crested mansard, a canted bay at its south end, the canted flank bay under its own mansard), K09 hoods, K10 bracketed cornice and a K05 slated mansard, the one-storey brick rear range on K01's rear wings. What is read: The Land Owner's engraving of May 1874 ('LOUIS WAHL', the only picture of the house), solved into a camera against the 1911 Sanborn sheet 35's plan (data/reference_views/house_2026_prairie/landowner_1874.json) — the style, the storeys and their heights, the tower, the door, stoop and balcony, the flank's lights, stack and bay, the round heads, the cornice and the mansard; and the sheet read at full size through the T-1250 fit (0.186 m a pixel) with the T-1842 census (s35-2026-front: '3B dwelling (D), stone front and brick rear divided on the diagonal'; s35-2026-wing) — the plan and the stone and brick. What the engraving draws that stood in 1874 and not on the 1911 sheet (the low rear wing and its veranda, the summer house on the south lawn) is argued in the match record. Everything neither shows is reconstructed (liberty L-k01-2026-wahl-3608).",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_mapped_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
         "confidence": "inferred",
         "sources": [
-          "sanborn_1911_chicago_v3_sheet_35"
+          "sanborn_1911_chicago_v3_sheet_35",
+          "land_owner_1874_05_homes_of_chicago_2026_wahl"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "note": "The house claims the 1904 target and no more: the 1911 sheet draws it and the T-1842 census rules it present in 1904 (present_as_mapped). The Land Owner engraving of May 1874 shows it standing then; its building and loss dates are not read.",
         "to_is": "seen"
       },
       "position": {
-        "utm_e": 448443.872,
-        "utm_n": 4633836.278,
-        "rotation_deg": -0.612,
+        "utm_e": 448434.106,
+        "utm_n": 4633836.346,
+        "rotation_deg": -0.373,
         "symbolic_location": "2026 S. Prairie Avenue, parcel prairie_2026 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 30.250, v 1.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.612 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The rear corner of the main body on its south side (raster column 586, row 685), read off the 1911 sheet 35 raster at full size (T-3608) through the T-1250 fit of the sheet, which carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, plus about a pixel (0.19 m) of reading on this copy. Rotation -0.373 degrees lays the plan's u axis on the raster's columns, along which the sheet draws the side walls. The draft's corner (the rear of a rectangle fitted inside the traced stone part alone) stood 9.8 m east of this one, toward the street, and within 0.1 m of it north and south.",
         "derivation": {
           "method": "not_derivable",
-          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
+          "reason": "The four derivation methods re-derive from the 1835 files; this position is read off the sheet 35 raster through its committed fit (docs/RESEARCH/k01-2026-wahl-3608/README.md)."
         }
       },
       "footprint": {
@@ -50,251 +53,864 @@
             0.0
           ],
           [
-            11.75,
+            22.49,
             0.0
           ],
           [
-            11.75,
-            10.25
+            22.49,
+            10.04
           ],
           [
             0.0,
-            10.25
+            10.04
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The main body, the three-storey block inside the 1911 sheet's dashed outline (its storeys' walls): 22.49 m from the rear wall (raster column 586) to the front (column 707) and 10.04 m from the south wall (row 685) to the north (row 631), read at full size off the raster. The front's two stone projections, the flank bay and the rear range stand on it as K08 bays and a K01 rear wing. The sheet's outer line, about 1.7 m outside the dashed one on both flanks and the front, coloured as the house, is not read as walls: the 1874 engraving draws the south flank rising sheer from grade inside it (liberty L-k01-2026-wahl-3608)."
       },
       "form": {
         "stories": {
-          "value": 3,
-          "confidence": "attested",
+          "value": 2,
+          "confidence": "inferred",
           "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl",
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "'3B' printed on the 1911 sheet: 3 full storeys."
+          "note": "Two tall storeys over a raised stone basement under a mansard: the engraving's walls stop at a bracketed cornice over the second storey's round-headed windows, and the roof's steep slated lower faces rise over it. The 1911 sheet's '3B' counts the mansard's attic as its third storey, as it does at 1816 and 1620."
         },
         "construction": {
-          "value": "stone_with_brick_rear",
-          "confidence": "attested",
+          "value": "brick_with_stone_front",
+          "confidence": "inferred",
           "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl",
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "The register reads the map's colours as 'stone with brick rear'."
+          "note": "The 1911 sheet: '3B dwelling (D), stone front and brick rear divided on the diagonal' (T-1842 census s35-2026-front): its blue (stone) colour runs back from the front about 8.7 m along the north wall and 14.0 m along the south, its pink (brick) behind. The engraving is monochrome: it shows the front and the south flank's front part dressed alike, with quoined corners. Built as K01's stone front laid back along both flanks (stone_front.flanks) and K03 brick behind it."
         },
-        "draft_plan": {
+        "principal_floor_m": {
+          "value": 2.0,
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "The principal floor at the top of the raised stone basement, 2.0 m over grade: through the engraving's camera (data/reference_views/house_2026_prairie/landowner_1874.json, about 38 px/m at the south-east corner) the basement's top band runs level at y 775-785 px along the flank and under the tower, about 2 m over the grade line under the fence (y 845); the stoop's landing stands on it."
+        },
+        "storey_heights_m": {
+          "value": [
+            4.2,
+            5.3
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "Floor to floor, principal storey first, read through the engraving's camera: the corona of the bracketed cornice at the south-east corner at y 408 px (about 11.9 m over grade), the tower's principal lights from y 665 to 760 and its upper lights from y 525 to 612 px, and the balcony's deck at y 600-640 under the upper floor. A 4.2 m principal storey and a 5.3 m upper one put the wall head at 11.5 m, the cornice's corona over it on the print's."
+        },
+        "wall_thickness_front_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: a stone-faced front wall 0.45 m thick, 1828's."
+        },
+        "wall_thickness_side_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: a brick-and-a-half side wall, as 1816's."
+        },
+        "service_wall_brick": {
+          "value": "common_buff_common_6",
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the K03 common brick panel 1816 wears on the sheet's brick rear; the engraving is monochrome and does not see the rear."
+        },
+        "stone_front": {
           "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  0.0,
-                  0.0,
-                  11.75,
-                  10.25
-                ],
-                "from": "s35fp-2026-b1 p4 (main, stone), rectangle 1 of that part; the part's rectangles cover 83% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "range",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  -10.0,
-                  1.5,
-                  -2.0,
-                  9.75
-                ],
-                "from": "s35fp-2026-b1 p6 (range, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill"
-              },
-              {
-                "id": "r3",
-                "role": "range",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  -2.0,
-                  6.0,
-                  2.5,
-                  11.5
-                ],
-                "from": "s35fp-2026-b1 p6 (range, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill"
-              },
-              {
-                "id": "r4",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  6.5,
-                  -1.5,
-                  13.25,
-                  0.0
-                ],
-                "from": "s35fp-2026-b1 p3 (range, stone), rectangle 1 of that part; the part's rectangles cover 73% of its fill"
-              },
-              {
-                "id": "r5",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  3.5,
-                  -2.5,
-                  6.0,
-                  -1.0
-                ],
-                "from": "s35fp-2026-b1 p3 (range, stone), rectangle 2 of that part; the part's rectangles cover 73% of its fill"
-              },
-              {
-                "id": "r6",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  1.75,
-                  -1.75,
-                  3.5,
-                  0.0
-                ],
-                "from": "s35fp-2026-b1 p3 (range, stone), rectangle 3 of that part; the part's rectangles cover 73% of its fill"
-              },
-              {
-                "id": "r7",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  -11.75,
-                  1.0,
-                  -10.0,
-                  10.25
-                ],
-                "from": "s35fp-2026-b1 p11 (range, brick), rectangle 1 of that part; the part's rectangles cover 79% of its fill"
-              },
-              {
-                "id": "r8",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  6.0,
-                  10.25,
-                  13.25,
-                  12.25
-                ],
-                "from": "s35fp-2026-b1 p2 (range, stone), rectangle 1 of that part; the part's rectangles cover 81% of its fill"
-              },
-              {
-                "id": "r9",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  -10.0,
-                  10.0,
-                  -3.5,
-                  12.0
-                ],
-                "from": "s35fp-2026-b1 p9 (range, brick), rectangle 1 of that part; the part's rectangles cover 81% of its fill"
-              },
-              {
-                "id": "r10",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  -9.5,
-                  -0.5,
-                  -3.75,
-                  1.5
-                ],
-                "from": "s35fp-2026-b1 p10 (range, brick), rectangle 1 of that part; the part's rectangles cover 76% of its fill"
-              },
-              {
-                "id": "r11",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  1.5,
-                  11.5,
-                  4.25,
-                  13.5
-                ],
-                "from": "s35fp-2026-b1 p5 (range, brick), rectangle 1 of that part; the part's rectangles cover 75% of its fill"
-              }
+            "fabric": "limestone_bedford",
+            "dressing": "smooth",
+            "trim_fabric": "dressed_trim",
+            "rusticated_base_courses": 3,
+            "coping_height_m": 0.25,
+            "corner_bond": [],
+            "flanks": {
+              "walls": [
+                "north",
+                "south"
+              ],
+              "dressing": "smooth",
+              "to_m": 11.3
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl",
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The 1911 sheet colours the front blue (stone) and divides it from the pink (brick) rear on a diagonal: the stone runs back about 8.7 m along the north wall and 14.0 m along the south (raster columns 660 and 632 to the front at 707). K01 runs a stone flank back one depth on both sides (stone_front.flanks.to_m): 11.3 m, the two readings' mean, the brick behind it K03 common (liberty L-k01-2026-wahl-3608). The engraving is monochrome; it draws the front and the south flank's front part in level courses alike, with no quoins at the corner. Smooth Bedford limestone, three rusticated base courses to the principal floor: the kit's, as 1816's."
+        },
+        "street_front_trim": {
+          "value": {
+            "by_storey": [
+              "k09.trim.lintel_cornice_hood",
+              "k09.trim.lintel_cornice_hood"
             ],
-            "lot_v": [
+            "crest": {
+              "storeys": [
+                0,
+                1
+              ],
+              "width_m": 1.0,
+              "height_m": 0.35,
+              "proud_m": 0.1
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "Every window of the front and flank under a moulded stone hood on both storeys, as the engraving draws them (the round heads below). K09's cornice-hood lintel is the kit's hood."
+        },
+        "street_front_round_heads": {
+          "value": {
+            "storeys": [
+              0,
+              1
+            ],
+            "key": {
+              "width_m": 0.24,
+              "height_m": 0.28,
+              "proud_m": 0.07
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "Round-headed windows on both storeys, each under an arched hood with a keystone, as the engraving draws every window it shows on the front, the tower and the south flank (EK 1900's K01 round heads)."
+        },
+        "wall_head": {
+          "value": {
+            "cornice": "k10.cornice.bracketed_timber"
+          },
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "A bracketed cornice over a deep frieze round the walls under the mansard: the engraving draws its brackets in pairs along the south flank and round the tower. K10's bracketed timber cornice; its bracket rhythm is the kit's."
+        },
+        "roof_form": {
+          "value": "mansard",
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "A mansard: the engraving's roof rises in steep slated lower faces over the cornice on the south flank and the tower, a tall stack standing up through it."
+        },
+        "roof_pitch_deg": {
+          "value": 10,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the mansard's upper deck at 10 degrees, as 1816's; the engraving does not see it."
+        },
+        "eave_overhang_m": {
+          "value": 0.6,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: 0.6 m, 1816's."
+        },
+        "stair_tread_m": {
+          "value": 0.3,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: 0.3 m treads, as 1816's."
+        },
+        "stair_landing_depth_m": {
+          "value": 1.6,
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "The landing at the door under the balcony, as deep as the balcony over it stands out in the engraving."
+        },
+        "stoop_width_m": {
+          "value": 2.0,
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "The engraving's flight runs straight down from the door toward the walk between a solid stone cheek on the south and an iron rail on the north, about as wide as the door with its jambs."
+        },
+        "entrance_bay": {
+          "value": "south",
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "The door is the one opening of the flat front between the south canted bay and the tower, at the head of the stoop, under the balcony, as the engraving draws it."
+        },
+        "front_bays": {
+          "value": [
+            5.3
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl",
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The flat front between the south bay and the tower holds the door only: the engraving draws it immediately south of the tower (x 790-850 px), the balcony over it and a window over that."
+        },
+        "side_bays": {
+          "value": [
+            {
+              "s_m": 18.7,
+              "sill_m": 2.4,
+              "width_m": 0.9,
+              "height_m": 2.6,
+              "head": "round"
+            },
+            {
+              "s_m": 18.7,
+              "sill_m": 7.2,
+              "width_m": 0.9,
+              "height_m": 2.6,
+              "head": "round"
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "The south flank's one light a storey between its canted bay and the front corner, round-headed, as the engraving draws it (x 535-560 px, its principal light from y 675 to 770 and its upper light from y 525 to 620 px); read once each, at its own sill and size, from the camera (sills 0.4 m over the principal floor and 1.0 m over the upper one, 2.6 m high, 0.9 m wide, as the tower's lights)."
+        },
+        "north_bays": {
+          "value": [
+            5.0,
+            11.0,
+            17.0
+          ],
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: three windows a storey on the north flank, which no picture sees."
+        },
+        "rear_bays": {
+          "value": [
+            3.0,
+            7.0
+          ],
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: two windows a storey on the rear wall; no picture sees the rear."
+        },
+        "sash_by_storey": {
+          "value": [
+            {
+              "sill_above_floor_m": 0.4,
+              "width_m": 0.9,
+              "height_m": 2.6
+            },
+            {
+              "sill_above_floor_m": 1.0,
+              "width_m": 0.9,
+              "height_m": 2.6,
+              "head": "round"
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "Round-headed sash on both storeys, as the engraving draws every window it shows: the principal lights about 2.6 m high from 0.4 m over the floor, the upper ones 2.6 m from 1.0 m, read through the camera on the tower's front (y 665-760 and 525-612 px); their width, about a third of their height, is the print's proportion."
+        },
+        "basement_lights": {
+          "value": {
+            "sill_m": 0.5,
+            "width_m": 0.9,
+            "height_m": 0.85
+          },
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "The engraving's basement lights in the raised stone basement under the principal windows, on the south flank and under the tower."
+        },
+        "roof_covering": {
+          "value": {
+            "fabric": "tin_standing_seam_painted",
+            "flashing": "copper_sheet",
+            "caps": "copper_ridge_roll",
+            "lower_faces": "slate_pennsylvania",
+            "paint": "black"
+          },
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "The mansard's lower faces SLATED, as the engraving draws them in courses on the tower and the south flank; the deck is not seen and is K04's painted tin, as 1816's."
+        },
+        "chimneys": {
+          "value": {
+            "plan_m": [
+              1.4,
+              0.8
+            ],
+            "top_above_ridge_m": 1.6,
+            "cap_proud_m": 0.08,
+            "cap_depth_m": 0.25,
+            "stacks": [
+              {
+                "u_m": 20.8,
+                "v_m": 0.1,
+                "on_cornice": true
+              },
+              {
+                "u_m": 9.0,
+                "v_m": 9.3
+              },
+              {
+                "u_m": 3.0,
+                "v_m": 5.0
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED except the south stack: the engraving draws a broad stack rising from the south flank's cornice straight up the mansard to stand over the deck, behind the corner (its shaft x 560-615 px, its capped top at y 270-290 through the camera), built as a stack on the cornice 1.7 m behind the front at the flank; the other two stand where no picture sees them."
+        },
+        "rainwater": {
+          "value": {
+            "gutter": "half_round",
+            "fabric": "copper_sheet",
+            "downpipe": "round",
+            "ends_at": "grade_with_splash_stone",
+            "downpipes": [
+              {
+                "wall": "k01.wall.side.south",
+                "s_m": 11.0
+              },
+              {
+                "wall": "k01.wall.rear_service",
+                "s_m": 0.35
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: K04 half-round copper gutters and round pipes to splash stones, as 1816's."
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
+            },
+            "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight",
+            "k01.opening.sash_round_plain": "k06.opening.sash_round_fanlight",
+            "k01.opening.balcony_door": "k06.opening.french_pair_transom"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: K06 two-over-two sash with round fanlights under the round heads, and the French window onto the balcony over the door (1816's)."
+        },
+        "entrance_kit": {
+          "value": {
+            "k01.opening.door_leaf": {
+              "variant": "k07.entrance.panel_door_stoop",
+              "front_yard_m": 11.5,
+              "hood": {
+                "soffit_m": 5.5,
+                "width_m": 2.4,
+                "out_m": 1.4,
+                "fascia_m": 0.45,
+                "cornice": {
+                  "height_m": 0.2,
+                  "proud_m": 0.12
+                },
+                "brackets": "k08.bay.canted_hooded",
+                "railing": {
+                  "height_m": 0.9,
+                  "post_m": 0.12,
+                  "baluster_m": 0.03,
+                  "pitch_m": 0.08,
+                  "rail_m": [
+                    0.08,
+                    0.06
+                  ]
+                },
+                "railing_fabric": "iron",
+                "door_over": true
+              }
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "The engraving's door, immediately south of the tower, at the head of a straight flight down toward the walk between a solid stone cheek and an iron rail, under a balcony on large consoles with an iron guard, a pair of narrow lights opening onto it: K07's panel door and stoop under K08's canted-hooded consoles as a bracketed hood (no columns), its railing iron, and the light over the door K06's French pair onto the deck (door_over), as 1816's. The balcony's deck stands 0.05 m under the upper floor; the print draws it at y 600-640 px."
+        },
+        "boundary": {
+          "value": {
+            "street_line_m": 11.3,
+            "lot_s_m": [
               -19.176,
               16.176
             ],
-            "street_u": 24.052
+            "fence": "k11.fence.scroll_band",
+            "entrance_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "leaves": 2,
+              "clear_m": 1.3,
+              "drawn_deg": 70
+            },
+            "side_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "pier_s_m": -16.9,
+              "drawn_deg": 0
+            },
+            "posts": {
+              "section_m": 0.12,
+              "height_m": 1.55
+            }
           },
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "A cast-iron fence along the street line the length of the lot, the engraving's low dark fence with a band of openwork along it (x 40-1340, y 840-885 px): K11's scroll-band fence on a stone curb with the entrance gate at the stoop's foot; the side passage's gate (the kit's, at the lot's south line) is reconstructed. The street line is the 1911 sheet's, 11.3 m before the main front (the sheet's 8.1 m to the outer line of the front's stone projections)."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "none",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.6,
+              "top_m": 0.06,
+              "wear_tone": 0.9
+            },
+            "service_walk": {
+              "surface": "cinder",
+              "to_u_m": 0.0,
+              "wear_tone": 0.78,
+              "band": "gate"
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "K14 condition, as 1816's: flagged walk to the stoop, a cinder service walk to the rear; the app's ground under the house's lowest foot."
+        },
+        "bays": {
+          "value": [
+            {
+              "id": "front_south_canted",
+              "variant": "k08.bay.canted",
+              "wall": "k01.wall.street_front",
+              "s_m": 2.0,
+              "fabric": "front_stone",
+              "plan": {
+                "kind": "polyline",
+                "points": [
+                  [
+                    -1.7,
+                    0.0
+                  ],
+                  [
+                    -0.85,
+                    1.1
+                  ],
+                  [
+                    0.85,
+                    1.1
+                  ],
+                  [
+                    1.7,
+                    0.0
+                  ]
+                ]
+              },
+              "storeys": [
+                {
+                  "height_m": 2.0,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.9,
+                      "clear_height_m": 0.85,
+                      "sill_m": 0.75,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "reconstructed: basement light under the bay's front light, as under the tower's",
+                      "grille": {
+                        "bars": 6,
+                        "set_back_m": 0.05,
+                        "ring_radius_m": 0.15
+                      }
+                    }
+                  ]
+                },
+                {
+                  "height_m": 4.2,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_round_fanlight",
+                      "clear_width_m": 0.9,
+                      "clear_height_m": 2.6,
+                      "sill_m": 0.4,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "reconstructed: the tower's principal window, one in the bay's front; the engraving's tree hides the bay"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 5.04,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_round_fanlight",
+                      "clear_width_m": 0.9,
+                      "clear_height_m": 2.6,
+                      "sill_m": 1.0,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "reconstructed: the tower's upper window; the engraving's tree hides the bay"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.25,
+                "covering": "tin_flat_seam_painted"
+              },
+              "eaves": {
+                "cornice": "k10.cornice.bracketed_timber"
+              }
+            },
+            {
+              "id": "north_tower",
+              "variant": "k08.projection.full_height",
+              "wall": "k01.wall.street_front",
+              "s_m": 8.24,
+              "fabric": "front_stone",
+              "plan": {
+                "width_m": 3.0,
+                "proud_m": 1.1
+              },
+              "storeys": [
+                {
+                  "height_m": 2.0,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 0.85,
+                      "sill_m": 0.75,
+                      "at": [
+                        0.3269,
+                        0.6731
+                      ],
+                      "why_not_ordinary": "the engraving's basement lights under the tower's two principal windows (x 880-960 px)",
+                      "grille": {
+                        "bars": 6,
+                        "set_back_m": 0.05,
+                        "ring_radius_m": 0.15
+                      }
+                    }
+                  ]
+                },
+                {
+                  "height_m": 4.2,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_round_fanlight",
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 2.6,
+                      "sill_m": 0.4,
+                      "at": [
+                        0.3365,
+                        0.6635
+                      ],
+                      "why_not_ordinary": "the engraving's two tall round-headed principal windows in the tower's front, under arched hoods (x 870-910 and 925-960 px)"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 5.04,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_round_fanlight",
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 2.6,
+                      "sill_m": 1.0,
+                      "at": [
+                        0.3365,
+                        0.6635
+                      ],
+                      "why_not_ordinary": "the engraving's two round-headed upper windows in the tower's front, under arched hoods with crests (x 870-910 and 925-960 px)"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.1,
+                "covering": "slate_pennsylvania",
+                "mansard": {
+                  "rise_m": 2.8,
+                  "lower_pitch_deg": 76,
+                  "cresting": {
+                    "height_m": 0.4,
+                    "inset_m": 0.1
+                  }
+                },
+                "slated_as_house": true
+              },
+              "eaves": {
+                "cornice": "k10.cornice.bracketed_timber"
+              }
+            },
+            {
+              "id": "south_flank_canted",
+              "variant": "k08.bay.canted",
+              "wall": "k01.wall.side.south",
+              "s_m": 14.6,
+              "fabric": "front_stone",
+              "plan": {
+                "kind": "polyline",
+                "points": [
+                  [
+                    -1.8,
+                    0.0
+                  ],
+                  [
+                    -0.9,
+                    1.1
+                  ],
+                  [
+                    0.9,
+                    1.1
+                  ],
+                  [
+                    1.8,
+                    0.0
+                  ]
+                ]
+              },
+              "storeys": [
+                {
+                  "height_m": 2.0,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.7,
+                      "clear_height_m": 0.85,
+                      "sill_m": 0.75,
+                      "at": [
+                        0.178,
+                        0.822
+                      ],
+                      "why_not_ordinary": "the engraving's basement lights under the flank bay's cant lights",
+                      "grille": {
+                        "bars": 4,
+                        "set_back_m": 0.05,
+                        "ring_radius_m": 0.15
+                      },
+                      "recess_m": 0.35
+                    },
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 0.85,
+                      "sill_m": 0.75,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the engraving's basement light under the flank bay's front light",
+                      "grille": {
+                        "bars": 6,
+                        "set_back_m": 0.05,
+                        "ring_radius_m": 0.15
+                      }
+                    }
+                  ]
+                },
+                {
+                  "height_m": 4.2,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_round_fanlight",
+                      "clear_width_m": 0.7,
+                      "clear_height_m": 2.6,
+                      "sill_m": 0.4,
+                      "at": [
+                        0.178,
+                        0.822
+                      ],
+                      "why_not_ordinary": "the engraving's round-headed principal light in the flank bay's lit east cant (x 210-240 px); the west cant's, which the print cannot see, as its pair",
+                      "recess_m": 0.35
+                    },
+                    {
+                      "opening": "k06.opening.sash_round_fanlight",
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 2.6,
+                      "sill_m": 0.4,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the engraving's round-headed principal light in the flank bay's south face"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 5.04,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_round_fanlight",
+                      "clear_width_m": 0.7,
+                      "clear_height_m": 2.6,
+                      "sill_m": 1.0,
+                      "at": [
+                        0.178,
+                        0.822
+                      ],
+                      "why_not_ordinary": "the engraving's round-headed upper light in the flank bay's lit east cant; the west cant's as its pair",
+                      "recess_m": 0.35
+                    },
+                    {
+                      "opening": "k06.opening.sash_round_fanlight",
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 2.6,
+                      "sill_m": 1.0,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the engraving's round-headed upper light in the flank bay's south face"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.1,
+                "covering": "slate_pennsylvania",
+                "mansard": {
+                  "rise_m": 3.0,
+                  "lower_pitch_deg": 76,
+                  "cresting": {
+                    "height_m": 0.4,
+                    "inset_m": 0.1
+                  }
+                },
+                "slated_as_house": true
+              },
+              "eaves": {
+                "cornice": "k10.cornice.bracketed_timber"
+              },
+              "mansard_dormers": [
+                {
+                  "head": "round",
+                  "sash": {
+                    "variant": "k06.opening.sash_round_fanlight",
+                    "width_m": 0.5,
+                    "height_m": 1.4,
+                    "sill_m": 0.1
+                  },
+                  "surround_m": 0.15,
+                  "face_setback_m": 0.05,
+                  "at_m": 0.0
+                }
+              ]
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl",
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "Three K08 bays. NORTH TOWER: the engraving's pavilion at the north end of the front, 3.0 m wide and 1.1 m proud on the 1911 sheet's dashed outline (raster rows 627-644 to column 713), its two round-headed lights a storey and two barred basement lights, carried up under a mansard of its own, slated, with iron cresting, over the bracketed cornice (x 858-975 px: its south side face at x 858-880; its roof from y 330 to 440). The kit keeps 0.3 m of wall north of it. SOUTH FRONT BAY: the sheet's matching projection at the front's south end (rows 670-689), hidden in the engraving behind the parkway tree; a canted bay of the tower's lights under a tin cap, RECONSTRUCTED. SOUTH FLANK BAY: the engraving's flank pavilion further back (x 400-500 px), its lit east face, its lights and its own mansard with a dormer; on the sheet the dashed bump on the south wall at raster columns 655-674, 1.1 m out, 7.3 m behind the front: K08's canted bay 3.6 m on its chord, under a 3.0 m mansard with cresting and one dormer, as 1816's flank bay."
+        },
+        "mansard": {
+          "value": {
+            "variant": "k05.roof.mansard_convex",
+            "lower_rise_m": 3.0,
+            "bulge": 0.0,
+            "lower_pitch_deg": 78,
+            "dormers": [
+              {
+                "face": "street",
+                "along_m": 5.3,
+                "sash": {
+                  "variant": "k06.opening.sash_round_fanlight",
+                  "width_m": 0.8,
+                  "height_m": 1.5,
+                  "sill_m": 0.1
+                },
+                "surround_m": 0.2,
+                "face_setback_m": 0.05
+              },
+              {
+                "face": "north",
+                "along_m": 11.0,
+                "sash": {
+                  "variant": "k06.opening.sash_round_fanlight",
+                  "width_m": 0.8,
+                  "height_m": 1.5,
+                  "sill_m": 0.1
+                },
+                "surround_m": 0.2,
+                "face_setback_m": 0.05
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_2026_wahl"
+          ],
+          "note": "A mansard over the bracketed cornice, slated (K05's convex mansard, its lower faces at 78 degrees), its rise read through the camera on the south flank: the curb at about y 300-310 px over the corona at 408 near the corner, about 3.0 m; the engraving's tower stands above it. One round-headed dormer over the door and one in the north face are RECONSTRUCTED: the tree hides the street face and nothing sees the north."
+        },
+        "rear_wings": {
+          "value": [
+            {
+              "id": "rear_range",
+              "rect": [
+                -2.04,
+                0.0,
+                0.3,
+                9.74
+              ],
+              "floor_m": 1.0,
+              "storey_heights_m": [
+                3.2
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.8,
+                  "width_m": 0.9,
+                  "height_m": 1.8
+                }
+              ],
+              "windows": {
+                "rear": [
+                  2.5,
+                  7.0
+                ],
+                "south": [
+                  1.0
+                ]
+              },
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.15,
+                "fascia_m": 0.3,
+                "covering": "painted_tin_sheet"
+              }
+            }
+          ],
           "confidence": "inferred",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2026-b1 p4 (main, stone), rectangle 1 of that part; the part's rectangles cover 83% of its fill; s35fp-2026-b1 p6 (range, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s35fp-2026-b1 p6 (range, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill; s35fp-2026-b1 p3 (range, stone), rectangle 1 of that part; the part's rectangles cover 73% of its fill; s35fp-2026-b1 p3 (range, stone), rectangle 2 of that part; the part's rectangles cover 73% of its fill; s35fp-2026-b1 p3 (range, stone), rectangle 3 of that part; the part's rectangles cover 73% of its fill; s35fp-2026-b1 p11 (range, brick), rectangle 1 of that part; the part's rectangles cover 79% of its fill; s35fp-2026-b1 p2 (range, stone), rectangle 1 of that part; the part's rectangles cover 81% of its fill; s35fp-2026-b1 p9 (range, brick), rectangle 1 of that part; the part's rectangles cover 81% of its fill; s35fp-2026-b1 p10 (range, brick), rectangle 1 of that part; the part's rectangles cover 76% of its fill; s35fp-2026-b1 p5 (range, brick), rectangle 1 of that part; the part's rectangles cover 75% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 2465703285,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 25,
-            "mansard_lower_m": 3.0,
-            "front_bays": 4,
-            "entrance": "south",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": true,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2351",
-              "refined_by": [
-                "T-1910"
-              ]
-            }
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'Stone-front' overlaid with the frontage row: 3B with a stone front and a brick rear divided on the diagonal: the stone-front family's flat roof, bracketed so that it does not repeat 2018's plain cornice next door; its door on the south, onto the wide open ground the sheet leaves beside it. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2465703285 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-west-2351."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2351",
-            "liberty": "L-draft-prairie-20-22-west-2351",
-            "register_row": "frontage-35-062",
-            "census_ids": [
-              "s35-2026-front",
-              "s35-2026-wing",
-              "s35-2026-ground"
-            ],
-            "trace_building": "s35fp-2026-b1",
-            "seed": 2465703285,
-            "replaceable_by": [
-              "T-1910"
-            ],
-            "card": "District draft — refined by T-1910."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "note": "The 1911 sheet's one-storey brick range across the rear wall (s35fp-2026-b1 p11, raster columns 575-586, 2.04 m deep, rows 627-685), built across the main body's width less the kit's 0.3 m at each end. The census's one-storey frame piece on the rear wall (s35-2026-wing, the yellow block west of it) stands on that range's rear face, which K01's rear wings do not host: not built (liberty L-k01-2026-wahl-3608)."
         }
       }
     }

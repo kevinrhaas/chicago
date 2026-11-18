@@ -1,0 +1,108 @@
+{
+ "structure_id": "house_2026_prairie",
+ "view": "landowner_1874",
+ "glb": "assets/gltf/house_2026_prairie__as_mapped_1904.glb",
+ "glb_sha256": "ffd81f724dc49d7a88e8ea74e23e2f70993e7f25d4e8c924b38162acbc5435bd",
+ "camera_sha256": "aac3cd451d0a2066408d0463b91eed5e09bffe23b01fbf0c764e8c0cbcbc5ac7",
+ "photo_sha256": "f09857bdce3dcfe247a804f71d873471ae1ecf2699c66a2be5a02092d09dcd48",
+ "side_by_side": "docs/RESEARCH/photo-match/house_2026_prairie/landowner_1874-side-by-side.jpg",
+ "verdict": "matches",
+ "differences": [
+  {
+   "what": "massing: two tall storeys over a raised stone basement under a slated mansard, the lit street front and the shaded south flank meeting at the corner (x 622 px), a bracketed cornice over a deep frieze round both",
+   "status": "fixed",
+   "how": "T-3608 (2026-11-16): the camera is fitted to the corner, the water table and the corona (its solve); through it the corner, the water table and the flank's cornice draw within about 10 px of the print's"
+  },
+  {
+   "what": "the north tower: a pavilion standing forward of the front at its north end (x 858-975 px), two round-headed lights a storey in its face and basement lights under them, carried up under a mansard of its own with iron cresting, its roof from y 330 to 440",
+   "status": "fixed",
+   "how": "T-3608 (2026-11-16): K08's full-height projection 3.0 m wide and 1.1 m proud at the sheet's place, under a 2.8 m slated mansard with cresting; its faces and lights draw within about 15 px of the print's"
+  },
+  {
+   "what": "no dormer in the tower mansard's street face: a plain slated face (x 880-960, y 340-430 px)",
+   "status": "fixed",
+   "how": "T-3608 (2026-11-16): built without one; a dormer drawn there in the first render was taken out"
+  },
+  {
+   "what": "the door immediately south of the tower at the head of a straight stoop down toward the walk, between a solid cheek and an iron rail (x 780-950, y 650-840 px)",
+   "status": "fixed",
+   "how": "T-3608 (2026-11-16): K07's door and stoop at s 5.3 m; they draw on the print's"
+  },
+  {
+   "what": "the balcony over the door on large consoles with an iron guard (y 600-640 px)",
+   "status": "fixed",
+   "how": "T-3608 (2026-11-16): a bracketed hood with an iron railing, its deck 0.05 m under the upper floor; it draws within about 10 px of the print's"
+  },
+  {
+   "what": "over the balcony a pair of narrow lights with round heads (x 785-845, y 520-600 px)",
+   "status": "within tolerance",
+   "how": "T-3608 (2026-11-16): built as K06's French pair onto the balcony, two leaves, the pair's place and height on the print's; their heads are flat under a hood where the print rounds each narrow light, a rise of about 0.3 m on a light about 0.6 m wide (T-3153); K06 holds no round-headed French pair"
+  },
+  {
+   "what": "the south flank between the bay and the corner: one round-headed light a storey (x 535-560 px), plain wall either side, and basement lights under them",
+   "status": "fixed",
+   "how": "T-3608 (2026-11-16): side_bays read once each, round-headed, in the stone flank; they draw within about 8 px of the print's. A brick strip the kit laid over each round light on a split stone flank was a generator fault, fixed in k01_frontage.py in the same change"
+  },
+  {
+   "what": "the window heads: every light round-headed under an arched moulded hood, the tower's and the front's with a crest over the hood",
+   "status": "within tolerance",
+   "how": "T-3608 (2026-11-16): K01's round heads with keyed arched bands on the front and the tower, plain round heads on the flank; the print's hood mouldings and crests stand under about 0.3 m proud of the arch and are carved detail the kit draws as a band (T-3153)"
+  },
+  {
+   "what": "the south flank's canted bay further back (x 400-500 px): a light in its lit east cant and one in its south face on both storeys, basement lights under them, carried up into a mansard of its own with a dormer, its curb at about the main cornice",
+   "status": "fixed",
+   "how": "T-3608 (2026-11-16): K08's canted bay at the sheet's place (u 14.6, 1.1 m out) with a light in each cant and in its face, under a 3.0 m mansard with cresting and a dormer; the east cant's and the face's lights draw within about 10 px of the print's"
+  },
+  {
+   "what": "the flank bay's projection: the print draws its lit east face about 1.2 m deep where the build's cant reads about 0.8 m",
+   "status": "within tolerance",
+   "how": "T-3608 (2026-11-16): the 1911 sheet's plan (the bay 1.1 m out on its dashed outline) and the engraver's vignette disagree by under half a metre; the sheet's measured plan is kept (T-3153: a gap two sources disagree about)"
+  },
+  {
+   "what": "the tall stack rising from the south flank's cornice up the mansard behind the corner, broad, under a heavy cap (x 560-615, top y 270-290 px)",
+   "status": "fixed",
+   "how": "T-3608 (2026-11-16): a 1.4 x 0.8 m stack on the cornice at u 20.8; its shaft draws within about 10 px of the print's and its top within about 15"
+  },
+  {
+   "what": "the main mansard's rise on the south flank, its curb at about y 300-310 px over the corona at 408",
+   "status": "fixed",
+   "how": "T-3608 (2026-11-16): a 3.0 m mansard (the first build's 4.0 m, 1816's, drew about 1 m too tall)"
+  },
+  {
+   "what": "the tower's cornice: its corona at about y 440 px, with a pierced frieze under it",
+   "status": "within tolerance",
+   "how": "T-3608 (2026-11-16): the corona draws about 17 px (0.45 m) higher than the print's through a camera fitted at 8.8 px RMS to all the points, the corner's corona within 7 px: a fit residual on an engraver's construction, the kind two camera fits disagree about (T-3153); the pierced frieze is drawn by the kit's bracketed frieze"
+  },
+  {
+   "what": "the street front between the south-east corner and the door, and the main mansard's street face over it",
+   "status": "not shown",
+   "how": "a parkway tree hides it (x 630-790 px). The 1911 sheet's projection at the front's south end is built as a canted bay of the tower's lights under a tin cap, and one dormer over the door, both reconstructed (liberty L-k01-2026-wahl-3608)"
+  },
+  {
+   "what": "beyond the flank bay a lower rear wing, its cornice at about the principal storey's head, with a veranda along its south side (x 290-400, y 640-800 px)",
+   "status": "not shown",
+   "how": "T-3608 (2026-11-16): the engraving is of May 1874 and cannot say what stood in 1904; the 1911 sheet draws the house's whole depth, 22.5 m from the front, in its three-storey outline ('3B', brick behind the stone on the diagonal) and the T-1842 census rules it present in 1904, so the 1904 scene is built to the sheet: the brick rear stands full height where the print draws the low wing"
+  },
+  {
+   "what": "an octagonal summer house on the lawn south of the house (x 160-290 px)",
+   "status": "not shown",
+   "how": "T-3608 (2026-11-16): of 1874; the 1911 sheet draws that ground open and the T-1842 census reads it as lawn in 1904 (s35-2026-ground), so it is not built for 1904"
+  },
+  {
+   "what": "the fence: low and dark along the street line, a band of openwork along it, its posts not drawn taller than its rail (y 840-885 px)",
+   "status": "within tolerance",
+   "how": "T-3608 (2026-11-16): K11's cast-iron scroll-band fence on a stone curb at the sheet's street line; its posts stand about 0.4 m over the print's rail and the side passage's gate at the lot's south line, which the print does not reach, is the kit's (T-3153)"
+  },
+  {
+   "what": "materials and colour: the front and flank in level courses, the shaded flank hatched",
+   "status": "not shown",
+   "how": "the engraving is monochrome; the stone front and its return along the flanks and the brick behind are the 1911 sheet's (its blue and pink), the stone's kind and tone the kit's"
+  },
+  {
+   "what": "the north wall and the rear",
+   "status": "not shown",
+   "how": "the engraving sees neither; built at the reconstructed tier (liberty L-k01-2026-wahl-3608)"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
