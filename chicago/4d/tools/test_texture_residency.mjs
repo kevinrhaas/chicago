@@ -122,6 +122,27 @@ check('restored desktop uploads every original mip byte exactly',f.gpuPayloads.a
 check('restored desktop returns to original material slot',f.mat.map===f.tex&&f.residency.state.resident===1&&f.residency.state.pending===0);
 check('refilled arrays release again after upload',f.tex.mipmaps.every(m=>m.data.byteLength===0)&&f.residency.state.released===2);
 check('desktop roundtrip reports zero problems',f.residency.state.problems.length===0);
+// T-3557: a door leaf lifted out of a house and hung to swing draws with the house's own
+// texture from outside the structures group. Unadopted, a draw while the source is away
+// uploads its released (empty) levels and three keeps that upload when the source returns.
+{const s=await fixture();const up=s.renderer.initTexture;s.renderer.initTexture=t=>{if(s.get(t).__version!==t.version)up(t)};s.tex.addEventListener('dispose',()=>Object.assign(s.get(s.tex),{__webglTexture:undefined,__version:undefined}));// as three: only a texture whose version moved uploads, and dispose forgets the GPU copy
+ const leaf=s.mat.clone();const hung=new THREE.Group;hung.add(new THREE.Mesh(new THREE.BoxGeometry(1,1,1),leaf));
+ s.residency.prime(new THREE.Vector3());s.residency.tick(new THREE.Vector3(1000,0,0));
+ // Unadopted, the leaf still holds the disposed full texture; a draw uploads its empty levels.
+ check('unadopted hung leaf keeps the full texture while its source is away',leaf.map===s.tex&&s.mat.map!==s.tex);
+ s.renderer.initTexture(leaf.map);check('that draw uploads the released levels, empty',s.gpuPayloads.at(-1).every(m=>m.length===0));
+ s.residency.tick(new THREE.Vector3());await new Promise(r=>setTimeout(r,0));s.residency.tick(new THREE.Vector3());
+ check('a source drawn while away is uploaded again on its return, every byte',s.residency.state.pending===0&&s.gpuPayloads.at(-1).length===s.payloads.length&&s.payloads.every((b,i)=>b.equals(s.gpuPayloads.at(-1)[i])));
+ const a=await fixture();const leafA=a.mat.clone();const hungA=new THREE.Group;hungA.add(new THREE.Mesh(new THREE.BoxGeometry(1,1,1),leafA));
+ a.residency.prime(new THREE.Vector3());check('adopt takes a hung leaf sharing a batch texture',a.residency.adopt(hungA)===1);
+ a.residency.tick(new THREE.Vector3(1000,0,0));check('an adopted leaf takes the stand-in with the batch',leafA.map===a.mat.map&&leafA.map!==a.tex&&leafA.map.mipmaps.every(m=>m.data.byteLength>0));
+ a.residency.tick(new THREE.Vector3());await new Promise(r=>setTimeout(r,0));a.residency.tick(new THREE.Vector3());
+ check('an adopted leaf gets the full texture back with the batch',leafA.map===a.tex&&a.mat.map===a.tex&&a.residency.state.problems.length===0);
+ const b=await fixture();b.residency.prime(new THREE.Vector3());b.residency.tick(new THREE.Vector3(1000,0,0));
+ const leafB=new THREE.MeshBasicMaterial({map:b.tex});const hungB=new THREE.Group;hungB.add(new THREE.Mesh(new THREE.BoxGeometry(1,1,1),leafB));
+ check('a leaf adopted while its source is away takes the stand-in at once',b.residency.adopt(hungB)===1&&leafB.map===b.mat.map&&leafB.map!==b.tex);
+ const other=new THREE.MeshBasicMaterial({map:texture()});const hungC=new THREE.Group;hungC.add(new THREE.Mesh(new THREE.BoxGeometry(1,1,1),other));
+ check('a texture no batch draws is left alone',b.residency.adopt(hungC)===0);}
 const unencoded=await fixture({encoded:false});unencoded.residency.prime(new THREE.Vector3());check('source without encoded recovery is never released',unencoded.tex.mipmaps.every(m=>m.data.byteLength>0));
 const disabled=await fixture({release:false});disabled.residency.prime(new THREE.Vector3());check('legacy desktop option retains source levels',disabled.tex.mipmaps.every(m=>m.data.byteLength>0));
 const pending=await fixture({uploaded:false});pending.residency.prime(new THREE.Vector3());check('source awaiting GPU upload keeps every byte',pending.tex.mipmaps.every(m=>m.data.byteLength>0));

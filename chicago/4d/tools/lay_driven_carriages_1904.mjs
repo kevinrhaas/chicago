@@ -311,16 +311,16 @@ const GLESSNER = {
   finish: { seed: 'glessner-brougham-1904', gloss: 0.88, dust: 0.3, scuffs: 0.2 },
   note: "Charles Nelson, coachman in John J. Glessner's household at 1800 Prairie Avenue in the 1900 census, drives the Glessner brougham round Prairie, 20th Street, Indiana and 18th Street, and home to the coach house on 18th. The census names him there four years before the scene; Mr. Glessner riding with the visitor, this round, the coach and its team are reconstructed.",
   // The cab (brougham-near.glb, measured: tools/test_glessner_ride.mjs). Vehicle-root metres.
-  cab_seat_local_m: [-0.27, 1.296, -0.45],
-  cab_eye_m: 0.58,
+  cab_seat_local_m: [-0.27, 1.086, -0.62],
+  cab_eye_m: 0.74,
   // The eye's way in (vehicle-root [x, y, z], y over the road): from the kerb's edge (the walk is
   // 0.15 m up) forward of the open leaf, onto the step, stooping through the doorway, to the seat.
   cab_via_local_m: [[-1.4, 1.75, 0.3], [-0.95, 1.75, 0.08], [-0.62, 1.7, -0.05], [-0.35, 1.8, -0.4]],
   cab_stand_local_xz_m: [-1.4, 0.3],
   passengers: [{
     person_id: 'glessner_john_j', short_name: 'Mr. Glessner', asset_id: 'glessner_john_j_1904',
-    instance_id: 'hi_glessner_john_j_1904', seat_local_m: [0.2, 1.307, -0.72], sink_m: 0.06,
-    basis: "John J. Glessner (1843-1936) of 1800 Prairie Avenue, his own 1904 figure and record, seated in his household's brougham beside the visitor. That he rides, when and where, is reconstructed play; his figure plays the coachmen's seated clip (sit_drive_look_v2), bent to the cab's lower seat and roof, hat off (renderers/web/js/cab-passenger.js).",
+    instance_id: 'hi_glessner_john_j_1904', seat_local_m: [0.2, 1.097, -0.88], sink_m: 0.06,
+    basis: "John J. Glessner (1843-1936) of 1800 Prairie Avenue, his own 1904 figure and record, seated in his household's brougham beside the visitor. That he rides, when and where, is reconstructed play; his figure plays the coachmen's seated clip (sit_drive_look_v2), sitting upright against the squab with his knees raised for the cab's low seat and his hands on his thighs, hat off (renderers/web/js/cab-passenger.js).",
   }],
 };
 
@@ -394,7 +394,7 @@ function glessnerRow(base, grid, placements) {
     },
     cab_seat_local_m: spec.cab_seat_local_m, cab_eye_m: spec.cab_eye_m,
     cab_via_local_m: spec.cab_via_local_m, cab_stand_local_xz_m: spec.cab_stand_local_xz_m,
-    cab_basis: 'Inside the brougham, on the kerbside half of its seat (brougham-near.glb: cushion top 1.296 m, roof lining 2.046 m over it), the eye 0.58 m over the cushion: lower than a man sits upright, as the cab is lower than one (tools/test_glessner_ride.mjs measures its clearance to the roof, walls and door).',
+    cab_basis: "Inside the brougham, on the kerbside half of its seat, sitting upright against the squab (brougham-v20-near.glb: cushion top 1.086 m, roof lining about 0.95 m over it, the cab lowered for T-3553), the eye 0.74 m over the cushion, a grown man's seated eye height less the cushion's give (tools/test_glessner_ride.mjs measures its clearance to the roof, walls and door).",
     cab_door: cab,
     passengers: spec.passengers.map(p => ({ ...p, liberty: GLESSNER_LIBERTY })),
     source_ids: ['studebaker_1893_illustrated_souvenir', 'census_1900_chicago_t623_roll245', ...sources],

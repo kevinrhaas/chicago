@@ -68,6 +68,9 @@ export const HAIR_CUTS = Object.freeze({
     flow: 'side_part', part_cm: 3, lengths_cm: Object.freeze({ top: 1.4, side: 1.8, back: 1.5 }),
     bald: Object.freeze({ side_cm: 3.6, back_cm: 3.9, front_z_cm: -2.8 }), card_mm: 2.6,
     lift_mm: Object.freeze({ root: .5, tip: 1.4 }), density: 3.2, curl: .06, hang: false,
+    // T-3553: the plate's crown is not bare: a thin cover of short hair, combed across from the
+    // part and back, shows over it, the scalp through it; the forehead is high and clear.
+    crown: Object.freeze({ density: .9, share: .3, length_cm: 4.2, card_mm: 1.1, front_z_cm: 3.5, lift_mm: Object.freeze({ root: .2, tip: .35 }) }),
   }),
   // T-3553: William L. Grey's hair as the owner's stand-in portrait shows it (a reconstructed
   // likeness, not a picture of him): thick and wavy, worn long over the ears to the collar and
@@ -350,7 +353,7 @@ export const PEOPLE_HAIR = Object.freeze({
   glessner_john_j: Object.freeze({
     cut: 'bald_crown_fringe_1904', facial: Object.freeze(['moustache_full', 'brows_full']), colour: 'white_grey', grade: 'attested',
     source_id: 'glessner_commercial_club_1910_presidents_plate',
-    basis: 'His 1897 portrait plate (The Commercial Club of Chicago, 1910, p. 81) shows the crown bald, short white hair at the sides and back, a full moustache over the upper lip and full brows. The colour, white going grey, is read from the plate\'s light tone (a monochrome halftone) and his age; lengths and fullness are fitted to the plate by eye. Seven years on, in 1904, he is drawn as the plate shows him.',
+    basis: 'His 1897 portrait plate (The Commercial Club of Chicago, 1910, p. 81) shows the crown going bald, a thin cover of short hair combed back over it with the scalp showing through, short white hair fuller at the sides and back, a full moustache over the upper lip and full brows. The colour, white going grey, is read from the plate\'s light tone (a monochrome halftone) and his age; lengths and fullness are fitted to the plate by eye. Seven years on, in 1904, he is drawn as the plate shows him.',
   }),
   glessner_williamson_martha_l: Object.freeze({
     cut: 'drawn_back_bun_1904', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'mid_brown', grade: 'reconstructed',

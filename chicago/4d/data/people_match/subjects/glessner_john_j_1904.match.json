@@ -1,0 +1,238 @@
+{
+  "subject": "glessner_john_j_1904",
+  "reference_set": "gentleman_1904",
+  "shot": {
+    "date": "2026-11-17",
+    "target": "tools/people_match_stage.html on this tree",
+    "build": "stage, tree d4fae0e81 + 5 uncommitted figure file(s)",
+    "out": "evidence/people-match-2026-11-17/glessner_john_j_1904",
+    "evidence_repo": "kevinrhaas/chicago-evidence"
+  },
+  "bound": {
+    "appearance": {
+      "asset_id": "glessner_john_j_1904"
+    },
+    "animation": {
+      "clip": "idle",
+      "loop": true,
+      "phase": 0.4
+    },
+    "asset_lod0_sha256": "53abddd2f2958fe26f14beb5b2782d7a9bbb84c962ae6372dcc0d10895be945a"
+  },
+  "stills": {
+    "near-desktop": {
+      "file": "evidence/people-match-2026-11-17/glessner_john_j_1904/near-desktop.jpg",
+      "sha256": "2a4a58aca986df2a219d354040e9cbc8b01b4af04f8f7b7f519a5c69d86886d7",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 2.99,
+        "n": -0.552,
+        "eye_y": 1.68,
+        "yaw_deg": 280,
+        "pitch_deg": -17.24,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.036,
+          -0.031,
+          1.499
+        ]
+      },
+      "figure_box_px": [
+        527,
+        173,
+        227,
+        409
+      ]
+    },
+    "far-desktop": {
+      "file": "evidence/people-match-2026-11-17/glessner_john_j_1904/far-desktop.jpg",
+      "sha256": "7aa084050dcd8d10104d2bc9ef831cad4b53f11168a73c5a4563d8ec3958dadf",
+      "detail": "stage",
+      "pose": {
+        "pose": "walk",
+        "at_s": 2.4,
+        "clip": "walk",
+        "state": "walking"
+      },
+      "camera": {
+        "e": 12.618,
+        "n": -2.591,
+        "eye_y": 1.68,
+        "yaw_deg": 285,
+        "pitch_deg": -6.4,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          2.959,
+          -0.003,
+          1.458
+        ]
+      },
+      "figure_box_px": [
+        604,
+        324,
+        73,
+        131
+      ]
+    },
+    "near-phone": {
+      "file": "evidence/people-match-2026-11-17/glessner_john_j_1904/near-phone.jpg",
+      "sha256": "39c6869ec6e05c256c55f28a3ce4453ce3acd1a868da7450b88ee302664b03c8",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 2.99,
+        "n": -0.552,
+        "eye_y": 1.68,
+        "yaw_deg": 280,
+        "pitch_deg": -17.24,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.036,
+          -0.031,
+          1.499
+        ]
+      },
+      "figure_box_px": [
+        85,
+        168,
+        221,
+        399
+      ]
+    },
+    "far-phone": {
+      "file": "evidence/people-match-2026-11-17/glessner_john_j_1904/far-phone.jpg",
+      "sha256": "8763e090b09b16b941123bb55d1d5c8ec40e210d39295f3f4468b0f73e7140a2",
+      "detail": "stage",
+      "pose": {
+        "pose": "walk",
+        "at_s": 2.4,
+        "clip": "walk",
+        "state": "walking"
+      },
+      "camera": {
+        "e": 12.618,
+        "n": -2.591,
+        "eye_y": 1.68,
+        "yaw_deg": 285,
+        "pitch_deg": -6.4,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          2.959,
+          -0.003,
+          1.458
+        ]
+      },
+      "figure_box_px": [
+        160,
+        316,
+        71,
+        128
+      ]
+    }
+  },
+  "sheets": {
+    "near-side-by-side": "evidence/people-match-2026-11-17/glessner_john_j_1904/near-side-by-side.jpg",
+    "far-side-by-side": "evidence/people-match-2026-11-17/glessner_john_j_1904/far-side-by-side.jpg",
+    "near-pair": "evidence/people-match-2026-11-17/glessner_john_j_1904/near-pair.jpg",
+    "far-pair": "evidence/people-match-2026-11-17/glessner_john_j_1904/far-pair.jpg",
+    "motion-strip": "evidence/people-match-2026-11-17/glessner_john_j_1904/motion-strip.jpg"
+  },
+  "verdict": "differs",
+  "checklist": {
+    "silhouette": {
+      "what": "Silhouette and fit of the clothes",
+      "status": "open",
+      "note": "The frock coat is buttoned to the throat and falls straight to mid-calf with no waist seam, so at 3 m it reads as a cassock or an overcoat; Taft's frock coat is buttoned high but shows its lapels and stops at the knee, and Root's is worn open over a high waistcoat. At 10 m a dark coat below the knee and a derby read as the State Street men do."
+    },
+    "folds": {
+      "what": "Folds where cloth gathers",
+      "status": "open",
+      "note": "Mid-stride the skirts swing out as one bell with no centre-back vent or pleats; a frock coat's skirts part at the back vent."
+    },
+    "hat_hair": {
+      "what": "Hat and hair",
+      "status": "reads",
+      "note": "A black derby over white hair, white moustache: the State Street men nearly all wear derbies, and his 1897 plate shows the hair and moustache."
+    },
+    "skin": {
+      "what": "Skin at 3 m",
+      "status": "not shown",
+      "note": "Monochrome prints; the face reads at 3 m and the hands are warm in the stage light."
+    },
+    "hands": {
+      "what": "Hands",
+      "status": "reads",
+      "note": "At the sides, white cuffs just showing, as Taft's."
+    },
+    "stance": {
+      "what": "How the figure stands or sits",
+      "status": "reads",
+      "note": "Upright, feet a little apart, as Taft stands."
+    },
+    "motion": {
+      "what": "How it moves (the 5-second strip)",
+      "status": "within tolerance",
+      "note": "A steady walk; the coat skirts swing wide (see folds)."
+    }
+  },
+  "differences": [
+    {
+      "what": "coat length",
+      "picture": "Frock coat skirts to the knee (Taft 1904).",
+      "ours": "Skirts below the knee, to about mid-calf.",
+      "status": "open"
+    },
+    {
+      "what": "lapels and front",
+      "picture": "Long lapels rolling to the waist (Root), or buttoned high with the lapels still showing (Taft); waistcoat and shirt front show in the opening.",
+      "ours": "Buttoned to the throat; the lapels piece does not read; only a narrow shirt collar and tie show; the waistcoat is hidden.",
+      "status": "open"
+    },
+    {
+      "what": "waist",
+      "picture": "Frock coat seamed and suppressed at the waist, the skirts hanging from it.",
+      "ours": "No waist seam or suppression; straight from chest to hem.",
+      "status": "open"
+    },
+    {
+      "what": "back vent",
+      "picture": "A frock coat's skirts part at a centre-back vent with pleats (the walking men on State Street).",
+      "ours": "The skirts are one closed bell that flares as he walks.",
+      "status": "open"
+    },
+    {
+      "what": "collar",
+      "picture": "Tall standing collar (Glessner plate 1897), wing collar (Root).",
+      "ours": "A low pale grey collar; reads grey, not white.",
+      "status": "open"
+    },
+    {
+      "what": "trousers",
+      "picture": "Striped grey trousers breaking over black boots (Taft).",
+      "ours": "Plain grey trousers over black shoes.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "hat",
+      "picture": "Derbies (State Street 1903).",
+      "ours": "Black derby.",
+      "status": "reads"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever laid the stills beside the pictures; each checklist item is {what, status, note} with status open | reads | not shown | within tolerance | owner ruling — open when a visitor would see the figure is not the pictures’ kind of person in that respect. The first figure of each role is the owner’s call (the plan’s \"Your call\"); later figures of the role are held to the one he approved. A reshoot of a changed figure (bound) sets the verdict back to unreviewed."
+}
