@@ -19,6 +19,7 @@ export default register('hunt', {
   skip: 'Skip and reveal',
   retryImage: 'Try loading this photo again',
   imageLoading: 'Loading this photograph…',
+  imageLoaded: 'Photograph loaded.',
   imageFailed: 'This photograph could not be loaded. Try again, or skip it without a score.',
   imageAlt: 'Historical photograph for round {n}. Study the buildings and surroundings to find the camera spot.',
   ready: 'Study the photograph and find its camera spot.',

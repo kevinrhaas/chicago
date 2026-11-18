@@ -43,7 +43,10 @@ export function mountPhotoHunt(host, { context = () => ({}), win = host?.ownerDo
       if (!live || image !== current) return;
       imageReady = true; if (guessButton) guessButton.disabled = false;
       if (retryImage) retryImage.hidden = true;
-      if (!session?.state.answers[session.state.cursor]) status.textContent = t('hunt.ready');
+      // A reveal reloads this image too. Announce completion without replacing a
+      // later copy/visit message or inviting another guess on an answered round.
+      if (status.textContent === t('hunt.imageLoading')) status.textContent = t(
+        session?.state.answers[session.state.cursor] ? 'hunt.imageLoaded' : 'hunt.ready');
     };
     current.onerror = () => {
       if (!live || image !== current) return;

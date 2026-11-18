@@ -64,6 +64,13 @@ const report = { kind: 'DOM fixture; actual catalogue, fixture image bytes, no f
 const out = process.env.HUNT_TEST_OUT;
 if (out) fs.mkdirSync(out, { recursive: true });
 const imageBytes = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aR90AAAAASUVORK5CYII=', 'base64');
+async function loadedReveal(page) {
+  await page.locator('.photo-hunt-image').evaluate(image => image.decode());
+  const status = page.getByText('Photograph loaded.', { exact: true }); await status.waitFor();
+  assert.equal(await status.getAttribute('role'), 'status'); assert.equal(await status.getAttribute('aria-live'), 'polite');
+  assert.equal(await page.getByText('Loading this photograph…', { exact: true }).count(), 0);
+  assert.equal(await page.getByRole('button', { name: 'Guess this spot', exact: true }).count(), 0, 'loaded reveal never invites another guess');
+}
 try {
   for (const width of [390, 1280]) {
     const context = await browser.newContext({ viewport: { width, height: width === 390 ? 780 : 800 } });
@@ -154,6 +161,7 @@ try {
     await page.evaluate(id => { const row = fixture.destinations.byId('photo', id); fixture.pose = { e: row.e + 100, n: row.n }; }, order[0]);
     await page.getByRole('button', { name: 'Guess this spot', exact: true }).click();
     await page.getByText('100 metres from the camera spot · 150 points', { exact: true }).waitFor();
+    await loadedReveal(page);
     assert.equal(await page.evaluate(() => document.activeElement.textContent), 'Photograph 1 of 5', 'reveal focus remains in the hunt');
     assert.equal(await page.getByRole('button', { name: 'Guess this spot', exact: true }).count(), 0);
     assert.equal(await page.getByRole('link', { name: 'Read the source', exact: true }).count(), 1);
@@ -166,8 +174,24 @@ try {
     assert.deepEqual(await page.evaluate(() => fixture.visits), [order[0]]);
     run.checks.push('lazy single image, no pre-guess reveal/travel, live position, distance score, guarded visit, real source dates');
     console.log(`${width}: initial photo, score and source reveal pass`);
+    await page.reload(); await page.getByRole('button', { name: 'Open five-photo hunt', exact: true }).click();
+    await page.getByRole('heading', { name: 'Photograph 1 of 5', exact: true }).waitFor();
+    await loadedReveal(page);
+    await page.getByText('100 metres from the camera spot · 150 points', { exact: true }).waitFor();
+    failImage = true;
     await page.getByRole('button', { name: 'Next photograph', exact: true }).click();
+    await page.getByRole('button', { name: 'Try loading this photo again', exact: true }).waitFor({ state: 'visible' });
     await page.getByRole('button', { name: 'Skip and reveal', exact: true }).click();
+    await page.getByRole('button', { name: 'Try loading this photo again', exact: true }).waitFor({ state: 'visible' });
+    assert.equal(await page.getByRole('button', { name: 'Guess this spot', exact: true }).count(), 0);
+    failImage = false;
+    await page.getByRole('button', { name: 'Try loading this photo again', exact: true }).click();
+    await loadedReveal(page);
+    await page.reload(); await page.getByRole('button', { name: 'Open five-photo hunt', exact: true }).click();
+    await page.getByRole('heading', { name: 'Photograph 2 of 5', exact: true }).waitFor();
+    await loadedReveal(page);
+    await page.getByText('Skipped · 0 points', { exact: true }).waitFor();
+    run.checks.push('guessed, skipped, retried and reloaded answered images announce loaded with polite status and no second guess');
     await page.getByRole('button', { name: 'Next photograph', exact: true }).click();
     await page.reload();
     await page.getByRole('button', { name: 'Open five-photo hunt', exact: true }).click();
