@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3107, ts: '2026-11-18T14:46:32.300Z', date: 'Nov 18, 2026, 8:46 AM CT', title: 'A riding habit, and the second pommel on the 1904 side saddle', kind: 'feature',
+    items: [
+      'Your person can now wear a riding habit in 1835 and 1904: pick it under Settings, You, as her dress. It is a dark green habit with a tall black hat in 1835, and a navy habit with a low black hard hat in 1904.',
+      'The 1904 side saddle now has its second pommel, the leaping head, curving down over her left thigh. She sits a little differently in 1904 so it clears her leg.',
+    ] },
   { v: 3106, ts: '2026-11-18T11:53:49.763Z', date: 'Nov 18, 2026, 5:53 AM CT', title: 'The test of the town now says why a picture was refused', kind: 'chore',
     items: [
       'When the automatic check of the town sees a picture fail to load on a people, horse, wagon or carriage model, or on a building, it now writes down the browser\'s own reason: the picture could not be read, or could not be decoded.',
