@@ -1,7 +1,7 @@
 /** Keyboard ownership follows focus, never whether a non-modal panel is visible.
  * A menu's arrows, a button's Space and a reader's scrolling belong to that UI.
  * The capture handler and the movement backend must make the same decision. */
-const READERS = '#navigator, #popup, #panel, #gate, #jaunt-panel, .pic-viewer, [role="dialog"]';
+const READERS = '#navigator, #popup, #panel, #gate, #jaunt-panel, .pic-viewer, dialog, [role="dialog"]';
 const CONTROLS = 'button, a[href], summary, input, textarea, select, audio[controls], video[controls], [role="button"], [role="tab"], [role="slider"], [role="spinbutton"], [role="listbox"], [role="menuitem"]';
 const element = target => target?.nodeType === 3 ? target.parentElement : target;
 
@@ -28,7 +28,7 @@ export function worldKeyAllowed(event, { holding = false, inspecting = false } =
   // buttons have focus. A nested picture dialog or another app owns its keys.
   if (owned) return event.code === 'KeyE' &&
     ((holding && !!target?.closest?.('#popup')) || (inspecting && !!target?.closest?.('#nav-app-inspect'))) &&
-    !target.closest?.('.pic-viewer, [role="dialog"]');
+    !target.closest?.('.pic-viewer, dialog, [role="dialog"]');
   return !holding || event.code === 'KeyE';
 }
 
