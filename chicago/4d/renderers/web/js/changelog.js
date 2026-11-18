@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 3104, ts: '2026-11-18T11:32:23.450Z', date: 'Nov 18, 2026, 5:32 AM CT', title: 'Clothes cut like their period pictures', kind: 'feature',
+    items: [
+      'John J. Glessner\'s frock coat now stops at the knee, is taken in at the waist and opens on his shirt and tie, with a white standing collar and a vent at the back.',
+      'Frances Glessner\'s skirt sits close at the hips and flares from the knee, the way walking skirts of 1904 did, with gore seams, a cream lace collar and jabot, and lace at her wrists.',
+      'Philip Peck\'s trousers are pleated at the waist and taper to straps under his shoes, and Patrick Mahoney\'s shirt is white linen gathered into cuffs.',
+      'The 1812 soldiers of Fort Dearborn now wear the regular army\'s longer coat, with tape on the breast button holes.',
+    ] },
+  { v: 3103, ts: '2026-11-18T11:32:23.450Z', date: 'Nov 18, 2026, 5:32 AM CT', title: 'Finer tailoring up close', kind: 'feature',
+    items: [
+      'Frances Glessner\'s skirt moves with her as she walks instead of swinging like a bell, and John Glessner\'s coat opens at the back vent with each step.',
+      'Mr. Glessner\'s lapels are faced in silk, with two buttons at the back of his waist, and the seams of Mrs. Glessner\'s skirt now show.',
+      'The 1812 soldiers\' overalls fit close to the leg, and Philip Peck\'s trousers have deeper pleats, more fullness at the hip and wider straps.',
+      'The 1904 maid and cook wear crisp white collars, the 1904 children\'s collars sit close at the neck, the coachman\'s gloves reach up his sleeves, and the 1812 trader\'s coat folds cleanly under the arm.',
+    ] },
   { v: 3102, ts: '2026-11-18T11:12:37.890Z', date: 'Nov 18, 2026, 5:12 AM CT', title: 'The carriage check gives the same answer on every build machine', kind: 'fix',
     items: [
       'The check that rebuilds the plate-matched brougham from its sources now does all of its arithmetic the same way on every build machine. It no longer goes red at random on some of them, so fixes reach the town without waiting on a re-run.',
