@@ -1,0 +1,31 @@
+{
+ "id": "land_owner_1874_05_homes_of_chicago_2026_wahl",
+ "type": "illustration",
+ "citation": "'Louis Wahl.' Wood engraving of the Louis Wahl residence, 964 (now 2026) Prairie Avenue, Chicago, from the oblique front, in 'The Homes of Chicago', The Land Owner (Chicago: J. M. Wing), May 1874; unknown engraver. Reproduced on chicagology.com, Prairie Avenue, 2026 S. Prairie.",
+ "author": "unknown engraver for The Land Owner (J. M. Wing, publisher)",
+ "date": "1874-05",
+ "describes_date": "1874-05",
+ "repository": "chicagology.com (secondary reproduction of the plate). Prairie library image a20-chicagology-2026-wahl-landowner-1874 (chicago/prairie_1904_v1/research/images/stream-2000-2100.json), its file in the image store (STORE.json); the same file is committed at data/sources/assets/wahl_2026_landowner_t3608/wahl_2026_landowner_1874.jpg.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/2026prairie/",
+ "locator": "The whole vignette: the house from the walk south-east of it, its street front from the south corner to the tower at its north end, a parkway tree hiding the front between them; the south flank back to its canted bay; the stoop under the balcony; the low rear wing with a veranda and a summer house on the lawn south of the house; the fence along the walk. The camera solve (data/reference_views/house_2026_prairie/landowner_1874.json) locates every feature read off it.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A US periodical illustration published in 1874, in the public domain; the web reproduction is a faithful copy of a two-dimensional work and adds no right of its own. Read for forms, counts and proportions; no texture or other asset is derived from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-16 (T-3608) from the image store's copy, 1400 x 1125 px, sha256 f09857bdce3dcfe247a804f71d873471ae1ecf2699c66a2be5a02092d09dcd48 (the store's display copy of the library's fetch of 2026-10-02 from chicagology, 1447 x 1163 px). chicagology.com is not reachable from the build containers, so this copy is the one read.",
+ "note": "The only located picture of 2026 Prairie. From the walk south-east of it, it shows a Second Empire house of two tall storeys over a raised stone basement under a slated mansard: every window round-headed under an arched hood; a bracketed cornice over a deep frieze; at the street front's north end a pavilion standing forward of the front, two round-headed lights a storey in its face, carried up under a mansard of its own with iron cresting over a pierced frieze; immediately south of it the door at the head of a straight stoop under a balcony on consoles, a pair of narrow lights over it; the south flank in shadow (the engraver's convention for the turned face) with one light a storey, a tall stack rising from its cornice up the mansard, and a canted bay further back carried up into a mansard of its own with a dormer; beyond the bay a lower rear wing with a veranda, and on the lawn south of the house an octagonal summer house; a low fence on the street line. The street front between the corner and the door is hidden behind a parkway tree. The camera is solved from the 1911 sheet's plan points, so each height read off it is a measurement through that solve.",
+ "what_it_supplies": [
+  "the house's style and its storeys: two over a raised basement under a mansard",
+  "the north pavilion carried up under its own crested mansard, its two lights a storey",
+  "the door, its stoop and the balcony over it, just south of the pavilion",
+  "the south flank's one light a storey, its stack and its canted bay's mansard",
+  "round-headed windows under hoods throughout, and the bracketed cornice"
+ ],
+ "what_it_does_not_supply": [
+  "colour or material: the engraving is monochrome",
+  "the front between the corner and the door, behind a tree",
+  "the north wall and the rear",
+  "what changed between 1874 and 1904: the 1911 sheet is read for that"
+ ]
+}
