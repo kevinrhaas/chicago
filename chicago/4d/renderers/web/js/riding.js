@@ -84,13 +84,29 @@ export const asideOf = (p, aside) => [(p.forwardN ?? -Math.cos(p.yaw)) * aside, 
  * The women's bodies are wider at the hip than the men's the fit was made on, and sit a little
  * deeper with the thigh rolled in (rider-pose.js `thighRoll`); nothing else changes.
  */
-export function fitFor(fit, asset) {
+export function fitFor(fit, asset, seat = 'astride') {
+  if (seat === 'side' && fit?.side) {
+    const { bodies, basis, ...side } = fit.side;
+    return { ...fit, ...side, ...(bodies?.[asset] ?? {}), seat: 'side' };
+  }
   const own = fit?.bodies?.[asset];
   return own ? { ...fit, ...own } : fit;
 }
-/** rider-pose.js `apply`'s knee and thigh for a fit. */
+/** rider-pose.js `apply`'s knee and thigh for a fit (each leg its own on a side saddle). */
 export function bodyPose(fit) {
+  if (fit.seat === 'side' && fit.legs) return { legs: fit.legs };
   return { knee: { forward: fit.knee_forward ?? .6, out: fit.knee_out ?? 1.2 }, thighRoll: fit.thigh_roll_rad ?? 0 };
+}
+/**
+ * T-3644 (Kevin, 2026-11-17, on a card: "Astride in 1812, sidesaddle later"): the tack variant
+ * the visitor's person rides on in `scene`, a side saddle for a woman where the year has one
+ * (`config.side_saddle`), else null (the horse's own saddle, astride).
+ */
+export function sideSaddleFor(config, scene, record) {
+  const S = config?.side_saddle;
+  if (!S || !record?.sex || !(S.sexes ?? []).includes(record.sex)) return null;
+  const key = S.tack?.[scene] ?? null;
+  return key && config.tack_variants?.[key] ? key : null;
 }
 
 /** T-3497's rule: outside [from, to) local hours (`to` may pass midnight); no hour, never. */
@@ -378,7 +394,7 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
       root.traverse(n => { if (n.isMesh) { n.frustumCulled = false; n.castShadow = true; } });
       out.lods = attachHorseLods(root, Object.fromEntries(levels.map((l, i) => [l, leases[i + 1].asset])), { sourceSha256: spec.sha256 });
       out.coat = applyHorseAppearance(root, { recipe: coats, sourceSha: spec.sha256, scene: sceneId, row: h.row.coat_row ?? h.row.id, individual: 'left' });
-      out.tack = fitTack(root, tackFor(config, sceneId, h.row));
+      out.tack = fitTack(root, tackFor(config, sceneId, h.row)); out.tackKey = h.row.tack ?? null;
       out.gait = createHorseGait(root, { walk, walkCycle_m: spec.stride_m, trot, trotCycle_m: spec.trot_stride_m,
         canter: trot && canter, canterCycle_m: spec.canter_stride_m, gallop: trot && canter && gallop, gallopCycle_m: spec.gallop_stride_m, rest: true });
       group.add(root);
@@ -395,6 +411,24 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
     for (const lease of b.leases ?? []) lease.release();
   }
 
+  /**
+   * T-3644: the horse re-saddled (`key` a tack variant, or null for the year's own): a woman of
+   * 1835 or 1904 is put up on a side saddle. The tack is fitted to the horse's rest pose, so the
+   * horse is stood square for the fit and given its gait back after.
+   */
+  function resaddle(h, key) {
+    const b = h.built;
+    if (!b || b.tackKey === key) return;
+    const g = b.gait;
+    for (const a of [g.walkAction, g.trotAction, g.canterAction, g.gallopAction]) a?.setEffectiveWeight(0);
+    g.mixer.update(0);
+    const next = fitTack(b.root, tackFor(config, sceneId, { tack: key }));
+    b.tack.dispose();
+    b.tack = next; b.tackKey = key;
+    g.advance(0, h.speed ?? 0, 0);
+    b.tack.update(null);
+  }
+
   /** The year's period figure in the saddle (an anonymous stand-in), posed by rider-pose.js. */
   async function seatRider(h, { asset = config.rider.assets[sceneId], id = `rider:${h.row.id}`, why = config.rider.why, own = false } = {}) {
     const layer = humans();
@@ -403,6 +437,9 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
     // T-3644: the visitor rides as their own person (visitor-person.js), chosen in Settings.
     const me = own ? self() : null;
     if (me?.asset(sceneId)) asset = me.asset(sceneId);
+    // A woman of 1835 or 1904 rides on a side saddle; anyone else on the horse's own.
+    const seat = own && sideSaddleFor(config, sceneId, me?.record?.(sceneId)) ? 'side' : 'astride';
+    if (own) resaddle(h, seat === 'side' ? sideSaddleFor(config, sceneId, me.record(sceneId)) : h.row.tack ?? null);
     const instance = { id, contract_version: 1, display: 'shown', scene: sceneId, appearance: { asset_id: asset },
       placement: { local_e: 0, local_n: 0, heading_deg: 180, anchor: 'terrain' }, behaviour: { state: 'seated' },
       animation: { clip: 'idle', loop: true, phase: 0 }, lod: { policy: 'fixed', fixed: coarse ? 2 : config.rider.lod },
@@ -425,8 +462,10 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
       // their hanging cloth lies on the horse (rider-drape.js), never through it.
       const meshes = []; actor.body.scene.traverse(n => { if (n.isSkinnedMesh) meshes.push(n); });
       const drape = drapeRider({ meshes, kindOf: m => garmentKind(m, asset).kind, tack: b.tack,
-        seatHalfDeg: tackFor(config, sceneId, h.row).saddle.seat_half_angle_deg, press: pressZone(tackFor(config, sceneId, h.row).saddle) });
-      b.rider = { actor, pose, drape, fit: fitFor(config.fit, asset) };
+        seatHalfDeg: b.tack.spec.saddle.seat_half_angle_deg, press: pressZone(b.tack.spec.saddle),
+        // Aside, her skirt is laid over both legs and down the near side (the habit).
+        habit: seat === 'side' ? { bones: pose.bones } : null });
+      b.rider = { actor, pose, drape, fit: fitFor(config.fit, asset, seat), seat };
       return b.rider;
     } catch (error) { actor.dispose(); actor.root.removeFromParent(); throw error; }
   }
@@ -851,7 +890,7 @@ export async function mountRiding({ sceneId, dataBase, moduleBase = new URL('../
           for (const m of actor.body.meshes ?? []) m.frustumCulled = false;
           const meshes = []; actor.body.scene.traverse(n => { if (n.isSkinnedMesh) meshes.push(n); });
           const drape = drapeRider({ meshes, kindOf: m => garmentKind(m, asset ?? actor.instance?.appearance?.asset_id).kind, tack: b.tack,
-            seatHalfDeg: tackFor(config, sceneId, h.row).saddle.seat_half_angle_deg, press: pressZone(tackFor(config, sceneId, h.row).saddle) });
+            seatHalfDeg: b.tack.spec.saddle.seat_half_angle_deg, press: pressZone(b.tack.spec.saddle) });
           b.rider = { actor, pose, drape, borrowed: true };
           poseRider(h);
           return true;

@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 3096, ts: '2026-11-18T09:04:34.493Z', date: 'Nov 18, 2026, 3:04 AM CT', title: 'Phones no longer hit an error while the distant crowd is prepared', kind: 'fix',
+    items: [
+      'A distant crowd picture could be cleared away while the phone was still preparing it, which raised an error on the page; it now waits until the preparing is done.',
+    ] },
+  { v: 3095, ts: '2026-11-18T08:14:43.074Z', date: 'Nov 18, 2026, 2:14 AM CT', title: '1815 Prairie\'s stoop landing runs north over a basement doorway', kind: 'improvement',
+    items: [
+      'At 1815 Prairie the stoop\'s landing now carries on north of the steps to a stone post, as the old photograph shows, with an iron rail along its front.',
+      'Under it is a shaded opening with the basement door, where a plain basement window used to be.',
+    ] },
+  { v: 3094, ts: '2026-11-18T07:24:53.897Z', date: 'Nov 18, 2026, 1:24 AM CT', title: 'A missing picture on a building now says why', kind: 'fix',
+    items: [
+      'When a building\'s picture does not load and it draws in plain colour, the app now records why: the file did not arrive, or it arrived but could not be read. Before, it only said that a picture had failed.',
+      'Nothing in the town looks different. This is groundwork for finding why some houses briefly lost their pictures after a Jump between years.',
+    ] },
   { v: 3093, ts: '2026-11-18T07:12:39.676Z', date: 'Nov 18, 2026, 1:12 AM CT', title: 'The home page opens on the town\'s best moments', kind: 'feature',
     items: [
       'The film behind the public site\'s home page is now a cut of its most striking shots: the town from the air, Fort Dearborn burning, the carriages on Prairie Avenue, the fort from across the river, the 1835 town and river at dusk, the fort from above, the river crossing and the fort at dawn.',

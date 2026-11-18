@@ -235,22 +235,64 @@ async function fetchAsset(url) {
  * reported by name and flagged `texturesLost` for the page to say so.
  */
 export const TEXTURE_REREADS_MS = Object.freeze([1000, 4000]);
+
+/**
+ * WHY A PICTURE CAME BACK EMPTY — T-3647 (a piece of T-3637).
+ *
+ * GLTFLoader's `loadTextureImage` ends in `.catch(() => null)`, and the only trace it
+ * leaves is `console.error("Couldn't load texture", <blob or sheet URL>)`, which names
+ * no file, no picture and no cause. Dev's mobile smoke stage 15 went red on exactly that
+ * line in four of six content builds (2026-11-17) and nobody could say whether the
+ * bytes were refused, the transcoder refused them, or the page was going away; four
+ * local tries never reproduced it. So the reason is kept where the null is made:
+ * `c4dLostTextureWhy[i]` is why `c4dLostTextures[i]` was lost, it rides into the
+ * problem list beside the name, and each loss is also a `console.warn` beginning
+ * `4D Chicago: picture lost`, so a page that is gone a moment later (a Jump, a
+ * reload) has still said why. Nothing is retried or hidden here that was not before.
+ */
+export const LOST_PICTURE_WARNING = '4D Chicago: picture lost';
+const reasonOf = (error) => String((error && (error.message || error.error)) || error || 'no reason given')
+  .replace(/\s+/g, ' ').slice(0, 160);
+
 export function trackLostTextures(loader) {
   loader.register((parser) => {
     const lost = [];
+    const why = [];
+    const refused = new Map();
     parser.c4dLostTextures = lost;
+    parser.c4dLostTextureWhy = why;
     const own = parser.loadTextureImage.bind(parser);
     parser.loadTextureImage = function loadCountedTextureImage(textureIndex, sourceIndex, imageLoader) {
       return own(textureIndex, sourceIndex, imageLoader).then((texture) => {
         if (!texture) {
           const image = parser.json.images?.[sourceIndex];
           const buffer = parser.json.buffers?.[parser.json.bufferViews?.[image?.bufferView]?.buffer];
-          lost.push(image?.name || buffer?.uri || image?.uri || `image ${sourceIndex}`);
+          const name = image?.name || buffer?.uri || image?.uri || `image ${sourceIndex}`;
+          const reason = refused.get(sourceIndex) ?? 'no reason given';
+          lost.push(name);
+          why.push(reason);
+          console.warn(`${LOST_PICTURE_WARNING}: ${name} — ${reason}`);
         }
         return texture;
       });
     };
-    return { name: 'chicago_lost_textures' };
+    return {
+      name: 'chicago_lost_textures',
+      // Wrapped here, not above: plugins are built in registration order and the
+      // shared-image cache (shared-images.js), registered after this one, replaces
+      // `loadImageSource` too. A parser it hands a cached rejection never reaches the
+      // inner function, so only the outermost one sees every refusal. `beforeRoot`
+      // runs once every plugin of this parse has been built.
+      beforeRoot() {
+        const source = parser.loadImageSource;
+        parser.loadImageSource = function loadReasonedImageSource(sourceIndex, imageLoader) {
+          const p = source.call(parser, sourceIndex, imageLoader);
+          p.catch?.((error) => { if (!refused.has(sourceIndex)) refused.set(sourceIndex, reasonOf(error)); });
+          return p;
+        };
+        return null;
+      },
+    };
   });
   return loader;
 }
@@ -442,6 +484,10 @@ export async function loadScene(year, bases = resolveBases(), {
       // T-3617: a picture that did not arrive is a null texture, not an error. Read
       // the file again (its sheets are asked for afresh) before settling for a white wall.
       let texturesLost = gltf.parser?.c4dLostTextures ?? [];
+      // T-3647: why each was lost — the first read's reasons, kept even when a re-read
+      // recovers, and the last read's for a picture that never arrived.
+      const firstWhy = [...(gltf.parser?.c4dLostTextureWhy ?? [])];
+      let texturesWhy = firstWhy;
       let texturesReread = 0;
       for (const pause of TEXTURE_REREADS_MS) {
         if (!texturesLost.length) break;
@@ -451,6 +497,7 @@ export async function loadScene(year, bases = resolveBases(), {
         texturesReread += 1;
         gltf = await parse();
         texturesLost = gltf.parser?.c4dLostTextures ?? [];
+        texturesWhy = [...(gltf.parser?.c4dLostTextureWhy ?? [])];
       }
       // T-2464: nothing here reads the parser once the scene is built, and it holds
       // the file's whole binary chunk and every buffer view it sliced (embedded
@@ -462,7 +509,8 @@ export async function loadScene(year, bases = resolveBases(), {
       return { gltf, assetUrl: key, assetDetail: level,
         assetIsPlaceholder: !!header?.asset?.extras?.placeholder,
         assetRetried: got.retried, loadFailed: null,
-        texturesLost: texturesLost.length ? [...texturesLost] : null, texturesReread };
+        texturesLost: texturesLost.length ? [...texturesLost] : null, texturesReread,
+        texturesWhy: texturesLost.length ? texturesWhy : (texturesReread ? firstWhy : null) };
     } catch (error) {
       assetBytes.delete(key);
       throw error;
@@ -545,12 +593,14 @@ export async function loadScene(year, bases = resolveBases(), {
     let assetRetried = false;
     let texturesLost = null;
     let texturesReread = 0;
+    let texturesWhy = null;
     try {
       const got = await loadDetailAsset(assetRecord, detail);
       gltf = got.gltf;
       assetRetried = got.assetRetried;
       texturesLost = got.texturesLost;
       texturesReread = got.texturesReread;
+      texturesWhy = got.texturesWhy ?? null;
       if (got.assetIsPlaceholder) {
         assetIsPlaceholder = true;
         problems.push(`${id}: rendering a PLACEHOLDER asset (${sidecar.asset}) — `
@@ -576,10 +626,12 @@ export async function loadScene(year, bases = resolveBases(), {
     if (texturesLost) {
       problems.push(`${id}: ${texturesLost.length} of its pictures did not arrive after `
         + `${texturesReread + 1} reads (${texturesLost.slice(0, 3).join(', ')}`
-        + `${texturesLost.length > 3 ? ', …' : ''}) — those surfaces draw untextured`);
+        + `${texturesLost.length > 3 ? ', …' : ''}) — those surfaces draw untextured`
+        + `${texturesWhy?.length ? `; the last read said: ${texturesWhy[0]}` : ''}`);
     } else if (texturesReread) {
       problems.push(`${id}: a picture of its asset did not arrive on the first read and `
-        + `did on read ${texturesReread + 1} — a dropped request, not a bad file`);
+        + `did on read ${texturesReread + 1} — a dropped request, not a bad file`
+        + `${texturesWhy?.length ? `; the first read said: ${texturesWhy[0]}` : ''}`);
     }
 
     registry.set(id, {
@@ -592,6 +644,8 @@ export async function loadScene(year, bases = resolveBases(), {
       assetRetried,
       /** T-3617: names of the pictures still missing after every read, or null. */
       texturesLost,
+      /** T-3647: why each was lost, in the same order (or, recovered, why the first read failed). */
+      texturesWhy,
       assetUrl: String(assetUrl),
       assetDetail: detail,
       sidecarUrl: String(sidecarUrl),

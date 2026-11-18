@@ -208,4 +208,50 @@ ok(sample.every((x) => !Object.prototype.hasOwnProperty.call(x, 'day')), 'readin
   }
 }
 
+// ── a material warming is never disposed under it (T-3643's compileAsync) ─────────────────
+{
+  // A renderer that warms the way three r185 does: compile, then poll each material's program
+  // on a timer, reading it from the material's properties; a disposed material has none, and
+  // the poll throws outside any promise. Thrown errors are caught by the timer stub here.
+  const props = new Map();
+  let thrown = null, target = 'screen';
+  const renderer = {
+    getRenderTarget: () => target,
+    setRenderTarget: (t) => { target = t; },
+    compileAsync(object, camera, scene) {
+      const mats = new Set();
+      object.traverse((o) => { for (const m of [o.material].flat()) if (m) { mats.add(m); props.set(m, { currentProgram: { polls: 0, isReady() { return ++this.polls > 2; } } }); } });
+      return new Promise((resolve) => {
+        const check = () => {
+          try {
+            for (const m of mats) if ((props.get(m) ?? {}).currentProgram.isReady()) mats.delete(m);
+          } catch (err) { thrown = err; return; }
+          if (!mats.size) resolve(object); else setTimeout(check, 1);
+        };
+        setTimeout(check, 1);
+      });
+    },
+  };
+  const mat = (name) => ({ name, disposed: 0, dispose() { this.disposed++; props.delete(this); } });
+  const mesh = (m) => ({ material: m, traverse(f) { f(this); } });
+  const { warm, release } = crowd.createWarmer(renderer, {}, () => null);
+  const a = mat('card'), b = mat('idle');
+  const warmed = warm(mesh(a), 'atlas');
+  ok(target === 'screen', 'the warm compiles for its target and puts the renderer back');
+  release(a);
+  ok(a.disposed === 0, 'a material still warming is not disposed at once');
+  release(b);
+  ok(b.disposed === 1, 'one not warming is disposed at once');
+  await warmed;
+  await new Promise((r) => setTimeout(r, 5));
+  ok(!thrown, `the warm's poll never reads a disposed material (${thrown?.message ?? 'nothing thrown'})`);
+  ok(a.disposed === 1, 'the warming one is disposed once its warm has settled');
+  release(mat('again'));
+  const c = mat('later');
+  await warm(mesh(c));
+  release(c);
+  ok(c.disposed === 1, 'after its warm, a material is disposed at once');
+  ok(crowd.createWarmer(null, {}).warm(mesh(mat('x'))) instanceof Promise, 'without a renderer the warm settles at once');
+}
+
 console.log(`test_crowd: PASS (${checks} checks)`);

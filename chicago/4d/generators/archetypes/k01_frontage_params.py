@@ -7924,7 +7924,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if not isinstance(cf, dict) or cf.get("kind") != "swept" \
                 or not {"kind", "head_m", "foot_m", "block_m"} <= set(cf) <= {"kind", "head_m", "foot_m", "block_m",
                                                                              "flare", "newel", "pierced", "arched",
-                                                                             "railed"} \
+                                                                             "railed", "wing"} \
                 or "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False \
                 or any("parapet" not in t or "loggia" in t
                        for t in ([door_kit_in["terrace"]] if isinstance(door_kit_in.get("terrace"), dict)
@@ -7936,7 +7936,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError("entrance_kit.cheek_form: head_m 0-0.6 m over the landing, foot_m 0.3-1.2 m over "
                              "grade, block_m 0.2-1.0 m")
         door_kit["cheek_form"] = {k: (v if k == "kind" else float(v)) for k, v in cf.items()
-                                  if k not in ("flare", "newel", "pierced", "arched", "railed")}
+                                  if k not in ("flare", "newel", "pierced", "arched", "railed", "wing")}
         # T-3134: the right cheek flared out `out_m` toward its foot, and each foot block a newel
         # `width_m` across under a cap `cap_m` [high, overhang] and a knob `knob_m` high (1812's
         # stair, the Levy print)
@@ -8005,6 +8005,31 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                      "0.3-1.2 over the landing}")
                 out["post"] = {"side": po["side"], "width_m": float(po["width_m"]), "height_m": float(po["height_m"])}
             door_kit["cheek_form"]["railed"] = out
+        # T-3562: the landing carried on past one cheek to a stone post on its outer corner, open
+        # beneath to a basement doorway in the face behind it (1815's north side, the square-on
+        # print); K07 refuses it beside the arch, a flare or a pierced cheek
+        if "wing" in cf:
+            wg = cf["wing"]
+            need = {"side", "width_m", "soffit_m", "back_m", "post", "doorway"}
+            if not isinstance(wg, dict) or set(wg) != need or wg["side"] not in ("left", "right") \
+                    or not 0.8 <= float(wg["width_m"]) <= 3.0 or not 0.15 <= float(wg["soffit_m"]) <= 0.6 \
+                    or not 0.0 <= float(wg["back_m"]) <= 1.0 \
+                    or not isinstance(wg["post"], dict) or set(wg["post"]) != {"width_m", "height_m"} \
+                    or not 0.2 <= float(wg["post"]["width_m"]) <= 0.6 \
+                    or not 0.3 <= float(wg["post"]["height_m"]) <= 1.2 \
+                    or not isinstance(wg["doorway"], dict) or set(wg["doorway"]) != {"at_m", "width_m", "head_m"} \
+                    or not 0.5 <= float(wg["doorway"]["width_m"]) <= 1.2 \
+                    or not 0.0 <= float(wg["doorway"]["head_m"]) <= 0.4 \
+                    or wg["side"] == (cf.get("arched") or {}).get("side") or "flare" in cf or "pierced" in cf:
+                raise ParamError("entrance_kit.cheek_form.wing is {side (not the arch's), width_m 0.8-3.0 along "
+                                 "the front past the cheek, soffit_m 0.15-0.6 under the floor, back_m 0-1.0 (the face "
+                                 "behind it), post {width_m 0.2-0.6, height_m 0.3-1.2 over the landing}, doorway "
+                                 "{at_m out from the cheek, width_m 0.5-1.2, head_m 0-0.4 under the soffit}}, on an "
+                                 "unflared, unpierced stoop")
+            door_kit["cheek_form"]["wing"] = {
+                "side": wg["side"], **{k: float(wg[k]) for k in ("width_m", "soffit_m", "back_m")},
+                "post": {k: float(x) for k, x in wg["post"].items()},
+                "doorway": {k: float(x) for k, x in wg["doorway"].items()}}
         if "newel" in cf:
             nw = cf["newel"]
             if set(nw) != {"width_m", "cap_m", "knob_m"} or not 0.3 <= float(nw["width_m"]) <= 0.8 \
