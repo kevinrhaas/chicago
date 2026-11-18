@@ -232,6 +232,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--check', action='store_true', help='fail on a stale table or an age out of its band')
     ap.add_argument('--quiet', action='store_true')
+    ap.add_argument('--prepare', action='store_true',
+                    help='only build the ignored records the card readers read (tools/test_reading_level.mjs)')
     args = ap.parse_args()
     # The buildings' Inspect records (data/inspect/<scene>.json, which `places` reads) are derived
     # and ignored, not committed: build them from data/summaries/ first, as publish.sh does, so a
@@ -244,6 +246,8 @@ def main():
     subprocess.run([sys.executable, str(ROOT / 'tools/compile_reader_text.py')]
                    + [a for s in ('1812', '1835', '1904') for a in ('--family', f'structures_{s}')],
                    cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
+    if args.prepare:
+        return 0
     failures = []
     wanted = set()
     for scene, files in scenes().items():
