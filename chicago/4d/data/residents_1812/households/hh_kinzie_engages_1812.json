@@ -42,7 +42,7 @@
   "persons": [
     {
       "id": "kinzie_boatman_1812",
-      "name": "The Kinzie boatman, name not recorded",
+      "name": "François Dumoulin",
       "relationship": "employee",
       "grade": "reconstructed",
       "sources": [
@@ -64,12 +64,15 @@
         "confidence": "inferred",
         "note": "The boatmen of the 15th (Wau-Bun; Currey). No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
-      "note": "Currey and Kirkland count \"a boatman\" in the boat of 15 August; Wau-Bun says \"the boatmen\". French Canadian or Métis, as the Kinzie engagés were (Andreas p. 73: \"the Canadian voyageurs in the service of Mr. Kinzie\"; Kirkland app. D). No name. In the town from 1812-05-01 to 1812-08-18: In the boat on 15 August and with the family to St Joseph on the 18th. Engagés went out to the wintering grounds in the fall (Wau-Bun ch. XVIII, of 1811) and came in with the furs in spring; so from November to April they are taken to be away at an outpost, and back at Chicago from May. Both dates are ours.",
+      "note": "Currey and Kirkland count \"a boatman\" in the boat of 15 August; Wau-Bun says \"the boatmen\". French Canadian or Métis, as the Kinzie engagés were (Andreas p. 73: \"the Canadian voyageurs in the service of Mr. Kinzie\"; Kirkland app. D). No source names him; the name on this card is ours. In the town from 1812-05-01 to 1812-08-18: In the boat on 15 August and with the family to St Joseph on the 18th. Engagés went out to the wintering grounds in the fall (Wau-Bun ch. XVIII, of 1811) and came in with the furs in spring; so from November to April they are taken to be away at an outpost, and back at Chicago from May. Both dates are ours.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "kinzie_waubun_1856",
         "ticket": "T-3466",
-        "liberty": "L-1812-town-days-3463"
+        "liberty": "L-1812-town-days-3463",
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
       },
       "evidence": [
         {
@@ -114,11 +117,29 @@
           "quote": "to toil by day, and laugh, joke, sing, and tell stories when the evening hour brought rest and liberty",
           "claim": "their evenings"
         }
+      ],
+      "also_written": [
+        "The Kinzie boatman, name not recorded"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "No source names him: the name is ours. Kinzie's engagés were Canadians (Andreas p. 73: \"the Canadian voyageurs in the service of Mr. Kinzie\"), so he is given a French-Canadian name."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        }
       ]
     },
     {
       "id": "kinzie_engage_1812",
-      "name": "A second Kinzie engagé, name not recorded",
+      "name": "Michel Pelletier",
       "relationship": "employee",
       "grade": "reconstructed",
       "sources": [
@@ -140,12 +161,15 @@
         "confidence": "inferred",
         "note": "The boatmen of the 15th (Wau-Bun; Currey). No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
-      "note": "Wau-Bun's plural \"the boatmen\" (Currey and Kirkland say one) and the lodging-house \"for the Frenchmen\" make at least a second. French Canadian or Métis, as the Kinzie engagés were (Andreas p. 73: \"the Canadian voyageurs in the service of Mr. Kinzie\"; Kirkland app. D). No name. In the town from 1812-05-01 to 1812-08-18: In the boat on 15 August and with the family to St Joseph on the 18th. Engagés went out to the wintering grounds in the fall (Wau-Bun ch. XVIII, of 1811) and came in with the furs in spring; so from November to April they are taken to be away at an outpost, and back at Chicago from May. Both dates are ours.",
+      "note": "Wau-Bun's plural \"the boatmen\" (Currey and Kirkland say one) and the lodging-house \"for the Frenchmen\" make at least a second. French Canadian or Métis, as the Kinzie engagés were (Andreas p. 73: \"the Canadian voyageurs in the service of Mr. Kinzie\"; Kirkland app. D). No source names him; the name on this card is ours. In the town from 1812-05-01 to 1812-08-18: In the boat on 15 August and with the family to St Joseph on the 18th. Engagés went out to the wintering grounds in the fall (Wau-Bun ch. XVIII, of 1811) and came in with the furs in spring; so from November to April they are taken to be away at an outpost, and back at Chicago from May. Both dates are ours.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "kinzie_waubun_1856",
         "ticket": "T-3466",
-        "liberty": "L-1812-town-days-3463"
+        "liberty": "L-1812-town-days-3463",
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
       },
       "evidence": [
         {
@@ -189,6 +213,24 @@
           "locator": "ch. XVII, PG 51737 (1856 text as reprinted in the 1901 Caxton Club edition) lines 5492-5494",
           "quote": "to toil by day, and laugh, joke, sing, and tell stories when the evening hour brought rest and liberty",
           "claim": "their evenings"
+        }
+      ],
+      "also_written": [
+        "A second Kinzie engagé, name not recorded"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "No source names him: the name is ours. Kinzie's engagés were Canadians (Andreas p. 73: \"the Canadian voyageurs in the service of Mr. Kinzie\"), so he is given a French-Canadian name."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         }
       ]
     }

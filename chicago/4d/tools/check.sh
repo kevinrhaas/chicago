@@ -836,6 +836,8 @@ step "A visitor climbs up beside any driver, takes and hands back the reins, and
   node tools/test_transport_boarding.mjs
 step "Ask the Glessner coachman for a ride: in beside Mr. Glessner, round the block, home to the coach house and out (T-3557)" \
   node tools/test_glessner_ride.mjs
+step "Climb up and get down are drawn: the year's figure walks over, climbs by the hub and the rail and sits, its holds on the real vehicles, both sides, the eye watching (T-3560)" \
+  node tools/test_board_climb.mjs
 step "Every person placed in town is named by the look tag, found, and followed beside them (T-3404)" \
   node tools/test_person_interaction.mjs
 step "Every person's name fits their floating name card; on by default, a tap opens their card (T-3614)" \
