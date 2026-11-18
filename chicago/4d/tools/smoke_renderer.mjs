@@ -2092,10 +2092,16 @@ for (const [label, viewport, touch] of [
     const humanShown = humanExpectedRecords.filter(r => r.display === 'shown');
     const humanEligible = humanL1 ? [] : humanShown.map(r => ({ id: r.id,
       personId: r.person_id ?? null, assetId: r.appearance.asset_id })).sort((a, b) => a.id.localeCompare(b.id));
+    // T-3555: a carded townsperson built for the moment, out near the visitor (a resident's turn
+    // at their door, or the crowd handing over someone the visitor walks up to), is no record:
+    // it is `hi_inside_<their person>` and is let go again. Every other actor is a record's.
+    const humanDynamic = (humans?.actors ?? []).filter(a => a.id.startsWith('hi_inside_'));
+    const humanRecorded = (humans?.actors ?? []).filter(a => !a.id.startsWith('hi_inside_'));
     check(`${label}: the human layer mounts exactly the scene's eligible records`,
-      !!humans && humans.inScene && humans.count === humanEligible.length
+      !!humans && humans.inScene && humans.count - humanDynamic.length === humanEligible.length
+      && humanDynamic.every(a => a.personId && a.id === `hi_inside_${a.personId}` && a.assetId)
       && JSON.stringify(humans.records) === JSON.stringify(humanExpectedRecords.map(r => r.id).sort())
-      && JSON.stringify(humans.actors) === JSON.stringify(humanEligible)
+      && JSON.stringify(humanRecorded) === JSON.stringify(humanEligible)
       && JSON.stringify(humans.withheld) === JSON.stringify(humanExpectedRecords.filter(r => r.display !== 'shown').map(r => r.id).sort())
       && JSON.stringify(humans.refused) === JSON.stringify(humanL1 ? humanShown.map(r => r.id).sort() : []),
       JSON.stringify({ declared: humanDeclared, l1: humanL1, expected: humanEligible, actual: humans }));
@@ -20207,6 +20213,16 @@ for (const [label, viewport, touch] of [
       // down the crosshair, so a test that has not aimed is testing the prairie.
       window.__chicago4d.frame('sauganash_hotel', 26);
     });
+    // T-3614: a floating name card in the crosshair opens that person, which is right — and
+    // the Sauganash's own household now stands at its door, Fullerton's card on the
+    // crosshair. This check is about the key, not about who stands in front of the hotel,
+    // so the name cards are put away for it and brought back after the toggle below.
+    const namesShown = await page.evaluate(() => {
+      const cards = window.__chicago4d.nameCards;
+      const was = !!cards?.shown;
+      cards?.setShown(false);
+      return was;
+    });
     // T-3022: what a visitor opens on a building opens in the Navigator's Inspect, not the
     // card; `api.inspecting` names the building on screen either way.
     await page.evaluate(() => window.__chicago4d.closeBuilding());
@@ -20245,6 +20261,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: the inspect key closes the card it opened`,
       reopened && keyToggled,
       `reopened ${reopened}, closed by the same key ${keyToggled}`);
+    await page.evaluate((was) => window.__chicago4d.nameCards?.setShown(was), namesShown);
 
     // And neither fires from inside the Go-to box: typing is not a command.
     // (Escape in the box still shuts the Go-to PANEL — that is the panel's own
