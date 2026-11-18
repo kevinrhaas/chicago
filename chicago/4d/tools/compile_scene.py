@@ -1433,6 +1433,13 @@ def compile_people(scene_id: str, outdir: Path) -> int:
                 row["present"] = "uncertain"
         if person.get("own_card"):
             row["own_card"] = person["own_card"]
+        # A NAME GRADED BELOW ITS PERSON (T-3553, the owner 2026-11-17): a real person no source
+        # names, given a name of ours, is attested and their name reconstructed. The name card's
+        # edge shows the weaker of the two, so the name never reads as the record's.
+        name_grade = (person.get("name_basis") or {}).get("grade")
+        rank = {"attested": 0, "inferred": 1, "reconstructed": 2}
+        if rank.get(name_grade, -1) > rank.get(row["grade"], 9):
+            row["name_grade"] = name_grade
         seat = seat_for.get(person.get("id"))
         if seat is not None and not row["lives_at"]:
             # THE SEAT IS THE ONLY PLACE THIS PERSON IS GIVEN A ROOF, and it is written
