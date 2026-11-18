@@ -2470,16 +2470,6 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "house_2017_prairie"
     },
-    "house_2017_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
-      "baked_ao": false,
-      "bytes": 265736,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "74d305b348672fb02d03720efbd2320ab70ad4908f01962dfa567eb616559f7e",
-      "kind": "generated",
-      "phase_id": "draft_1904",
-      "structure_id": "house_2017_prairie"
-    },
     "house_2017_prairie_coach_house__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
