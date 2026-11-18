@@ -134,7 +134,15 @@ export function createTouchBackend({ intent, domElement, ui = {}, onViewport, sn
     const rect = domElement.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    const leftHalf = x < rect.width * 0.5;
+    // A magnified browser shows only part of the canvas. Divide the part the
+    // thumbs can actually reach, not the full layout width hidden off-screen.
+    // Pointer client coordinates and visualViewport offsets are layout pixels.
+    const vv = window.visualViewport;
+    const viewportLeft = vv?.offsetLeft ?? 0;
+    const visibleLeft = Math.max(rect.left, viewportLeft);
+    const visibleRight = Math.min(rect.left + rect.width, viewportLeft + (vv?.width ?? window.innerWidth));
+    const middle = visibleRight > visibleLeft ? (visibleLeft + visibleRight) / 2 : rect.left + rect.width / 2;
+    const leftHalf = e.clientX < middle;
 
     // One thumb per role. A second finger in an occupied half is ignored rather
     // than stealing the role out from under the first.

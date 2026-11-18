@@ -59,6 +59,19 @@ const priorYaw = intent.yawDelta;
 fire('pointermove', 2, 340, 490);
 assert(intent.yawDelta < priorYaw, 'releasing the movement thumb preserves the look thumb');
 fire('pointerup', 2, 340, 490);
+// Measured after an off-centre native pinch: both client coordinates are left
+// of the full 390px canvas midpoint, but they straddle the visible midpoint.
+window.visualViewport.offsetLeft = 65;
+window.visualViewport.width = 198;
+intent.clearLook();
+fire('pointerdown', 3, 105, 500);
+fire('pointerdown', 4, 192, 500);
+fire('pointermove', 3, 105, 450);
+fire('pointermove', 4, 212, 490);
+assert(intent.forward > .9 && intent.yawDelta < 0 && intent.pitchDelta > 0,
+  'off-center browser magnification retains independent visible left/right roles');
+fire('pointerup', 3, 105, 450);
+fire('pointerup', 4, 212, 490);
 touch.disable();
 assert.equal(listeners.size, 0);
 console.log('VIEWPORT ACCESSIBILITY PASS — zoom, keyboard, URL bar, orientation, fallback and independent two-thumb input');
