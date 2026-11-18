@@ -120,11 +120,15 @@ assert(/Prairie Walk/.test(text) && /Walk the avenue\./.test(text) && /3 stops/.
   const row = groot.querySelectorAll('.jaunt-grades')[0];
   assert(row && !row.hidden, 'a grade row when the jaunts have more than one band');
   const pills = row.querySelectorAll('.jaunt-grade-pill');
-  // T-3629: "Your grade" — Any, then the bands present, youngest first; one card per jaunt.
-  assert.deepEqual(pills.map((p) => p.textContent), ['Any', '3–5', '6–8', '9–10'], 'Any, then the bands present, youngest first');
-  assert.deepEqual(pills.map((p) => p.getAttribute('aria-label')), ['Any grade', 'Grades 3–5', 'Grades 6–8', 'Grades 9–10']);
+  // T-3629: Any, then the bands present, youngest first; one card per jaunt. The owner,
+  // 2026-11-17: the row is "Your age", each pill the age band its grade band stands for.
+  assert.equal(row.querySelectorAll('.jaunt-grades-label')[0].textContent, 'Your age');
+  assert.deepEqual(pills.map((p) => p.textContent), ['Any', '8–10', '11–13', '14–15'], 'Any, then the age bands present, youngest first');
+  assert.deepEqual(pills.map((p) => p.getAttribute('aria-label')), ['Any age', 'Ages 8–10', 'Ages 11–13', 'Ages 14–15']);
   const shown = () => groot.querySelectorAll('.jaunt-card').map((c) => c.dataset.jaunt);
   assert.deepEqual(shown(), ['tour', 'style'], 'no grade picked: each jaunt once, as first told');
+  const tags = (id) => groot.querySelectorAll('.jaunt-card').find((c) => c.dataset.jaunt === id).querySelectorAll('.jaunt-grade').map((t) => t.textContent);
+  assert.deepEqual(tags('tour'), ['Grades 6–8', 'Ages 11–13'], 'each card: its age band next to its grade level');
   pills[1].click();
   assert.deepEqual(shown(), ['tour-young', 'style'], 'Grades 3–5: the 3–5 telling, and a jaunt with no 3–5 telling stays');
   assert.equal(pills[1].getAttribute('aria-pressed'), 'true');
@@ -142,7 +146,7 @@ assert(/Prairie Walk/.test(text) && /Walk the avenue\./.test(text) && /3 stops/.
   const grown = { ...rows[0], id: 'tour-adults', title: 'The Tour', grade_band: '6-8', menu_group: 'People', version_of: 'tour', audience: 'adults', content_warning: 'Told in full, for adults.' };
   createJauntMenu({ root: aroot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {} }).show([grown, ...graded]);
   const apills = aroot.querySelectorAll('.jaunt-grades')[0].querySelectorAll('.jaunt-grade-pill');
-  assert.deepEqual(apills.map((p) => p.textContent), ['Any', '3–5', '6–8', '9–10', '18+'], 'the 18+ pill comes after the grade bands');
+  assert.deepEqual(apills.map((p) => p.textContent), ['Any', '8–10', '11–13', '14–15', '18+'], 'the 18+ pill comes after the age bands');
   assert.equal(apills[4].getAttribute('aria-label'), '18+ tellings');
   const ashown = () => aroot.querySelectorAll('.jaunt-card').map((c) => c.dataset.jaunt);
   assert.deepEqual(ashown(), ['tour', 'style'], 'one card per jaunt: the 18+ telling waits for its pill');
@@ -152,7 +156,7 @@ assert(/Prairie Walk/.test(text) && /Walk the avenue\./.test(text) && /3 stops/.
   assert.deepEqual(ashown(), ['tour-adults', 'style'], 'the 18+ pill plays each jaunt\'s 18+ telling where it has one');
   const gcard = aroot.querySelectorAll('.jaunt-card').find((c) => c.dataset.jaunt === 'tour-adults');
   assert.equal(gcard.querySelectorAll('.jaunt-adults').length, 1, 'its 18+ tag');
-  assert.equal(gcard.querySelectorAll('.jaunt-grade').length, 0, 'and no grade tag');
+  assert.equal(gcard.querySelectorAll('.jaunt-grade').length, 0, 'and no grade or age tag');
   apills[4].click();
   createJauntMenu({ root: aroot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {} }).show(graded);
   assert(!aroot.querySelectorAll('.jaunt-grade-pill').some((p) => p.textContent === '18+'), 'no 18+ pill when Settings keeps them unlisted');
