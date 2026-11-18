@@ -2160,7 +2160,34 @@ class Bay:
                                         flat.P(sb, y, -pr), flat.P(sa, y, -pr)], (0.0, hy, 0.0))
                 flat.face("cheek", [flat.P(edge, lo, 0.0), flat.P(edge, hi, 0.0), flat.P(edge, hi, -pr),
                                     flat.P(edge, lo, -pr)], (hx, 0.0, 0.0))
+            if ch.get("consoles"):
+                self._cheek_consoles(flat, lo, hi, a0, b1, w, pr, ch["consoles"])
         self.meta["cheeks"] = self.meta.get("cheeks", 0) + 1
+
+    def _cheek_consoles(self, flat, lo, hi, a0, b1, w, pr, cs):
+        """T-1894: a tall scrolled stone console against each cheek beside the stone front
+        (1823 Prairie's pavilion attic in the 1883 vignette, a scroll at either side of its
+        paired lights): its inner edge on the front's edge from `from_m` over the storey's foot
+        up `height_m`, its outer edge sweeping out from `top_m` under its top to `width_m` at its
+        foot, which ends in a roll `roll_m` in radius standing a little prouder, the whole
+        `depth_m` before the slate. K10's dormer console (dress_lower_dormer) in the bay's stone."""
+        W, wt, rr, h, dp = (float(cs[k]) for k in ("width_m", "top_m", "roll_m", "height_m", "depth_m"))
+        y0 = lo + float(cs["from_m"])
+        y1, n = y0 + h, 10
+        if not (y1 <= hi + 1e-9 and 2 * rr + 0.1 <= h and wt + rr <= W and W <= w - 0.05):
+            raise ValueError(f"{self.v['id']}: a cheek's console stands inside its storey and its cheek, "
+                             f"its roll and top inside its width")
+        for e, sd in ((a0, -1.0), (b1, 1.0)):
+            sweep = [(e + sd * (wt + (W - rr - wt) * (i / n) ** 2), y1 - (y1 - y0 - 2 * rr) * i / n)
+                     for i in range(n + 1)]
+            poly = [(e, y1), (e, y0), (e + sd * (W - rr), y0)] + list(reversed(sweep))
+            if area(poly) < 0:
+                poly.reverse()
+            prism(flat, "band", poly, -(pr + dp), -pr)
+            roll = [(e + sd * (W - rr) + rr * math.cos(2 * math.pi * k / 16), y0 + rr + rr * math.sin(2 * math.pi * k / 16))
+                    for k in range(16)]
+            prism(flat, "band", roll, -(pr + dp + 0.03), -pr)
+        self.meta["cheek_consoles"] = self.meta.get("cheek_consoles", 0) + 2
 
     def _corbel_table(self, flat, run, y_floor, ct):
         """T-1890: a corbel table carrying a storey (1801's 18th Street section, the Taylor
@@ -2541,6 +2568,19 @@ class Bay:
         # the kneelers, over the plan's front corners; their backs over the eaves line only,
         # where a host closes a projection's back from its wall top to its eaves
         knees = ((xl - ov - ko, xa), (xb, xr + ov + ko))
+        # T-1894: or, on an inset gable, over the gable's own corners alone (`on: gable`; 1823
+        # Prairie's pavilion in the 1883 vignette, its pediment between the slated cheeks of
+        # a hipped crown whose cornice covers the wall top beside it): each stands `out_m` past
+        # the gable's corner, on the wall, and none runs out over the front's corners
+        on_gable = g["kneeler"].get("on", "front") == "gable"
+        if g["kneeler"].get("on", "front") not in ("front", "gable"):
+            raise ValueError(f"{self.v['id']}: a gable's kneelers stand on the front's corners or the gable's")
+        if on_gable:
+            if shallow or chamfer or g.get("pinnacle") or g.get("behind") or not (min(il, ir) >= ko + 0.3):
+                raise ValueError(f"{self.v['id']}: kneelers on the gable's corners stand on a deep projection's "
+                                 f"inset gable (0.3 m past their out_m in from the front's corners), with no "
+                                 f"chamfer, pinnacle or roof behind")
+            knees = ((gl - ko, xa), (xb, gr + ko))
         for (a, b), (e0, e1) in zip(knees, ((xl - ov, xl), (xr, xr + ov))):
             if shallow:   # T-3047: carried back with the parapet, its back and underside its own
                 self._block(world, "band", a, b, y_top, y_k, zb, zf, under=False)
@@ -2554,6 +2594,8 @@ class Bay:
             # its underside where the return's soffit is not: out past the fascia, and proud
             # of the front
             world.face("band", [(a, y_top, p), (b, y_top, p), (b, y_top, zf), (a, y_top, zf)], D)
+            if on_gable:   # T-1894: it stands on the wall: no underside past the return's fascia
+                continue
             o0, o1 = (a, e0) if a < e0 else (e1, b)
             if shallow:   # T-3047: past the return's fascia on either side (its parapet's is the rest)
                 o0, o1 = (a, e0) if a < xl else (e1, b)

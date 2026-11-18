@@ -2,11 +2,11 @@
   "structure_id": "dent_house_1823_prairie",
   "view": "album_1883",
   "glb": "assets/gltf/dent_house_1823_prairie__as_mapped_1904.glb",
-  "glb_sha256": "1377af38863033fba8e2abb25e7a5bce33d61a3ce74dfbdb995f7738c4156cdc",
+  "glb_sha256": "b75b912ca40a041852eef736a5882624bdebe66c9764f88628249664cb0b6471",
   "camera_sha256": "322562a5d4ab63a8d65232c77d2705d470366c7f2f2529ef84f16dc1f0ee3b49",
   "photo_sha256": "266ad0e2bc64f4ed5e08799f6c974f6a3150a4fa7170145700272596e1611588",
   "side_by_side": "docs/RESEARCH/photo-match/dent_house_1823_prairie/album_1883-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the light stone front against the brick north flank, two storeys over a raised basement under a slated mansard, the rear range lower behind the flank",
@@ -20,12 +20,23 @@
     },
     {
       "what": "the pavilion's crown: a pedimented attic front with its paired lights and finial standing between the slated cheeks of a steep crown; the build carries the pavilion's stone up a full-width attic under a coped gable, so its cheeks are stone where the vignette's are slate",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1894 (sixth revision): the attic storey slated at its sides (K08's storey cheeks: its front's outer 0.8 m at each end and both its returns), so its stone front is 4.1 m, about the 39 of the pavilion's 55 px the vignette draws; the coped gable inset to that front, its kneelers on its own corners (kneeler.on: gable), so the pediment and its finial stand over the stone front alone (its base about 41 px against the vignette's 42); and over the attic K01's hipped crown, its cornice across the attic's top where the vignette draws the entablature and its slates rising behind the pediment to a point just over its apex, the slope the vignette draws left of the pediment. The attic is raised to 2.9 m, so the cornice-to-apex height reads about 65 px in the vignette and in the render, within the plate's half-metre scale"
     },
     {
       "what": "the pavilion's paired attic lights under the pediment, and the finial",
       "status": "fixed",
-      "how": "T-3163: the attic storey's two lights on a mullion under the coped gable and its finial"
+      "how": "T-3163: the attic storey's two lights on a mullion and the finial; T-1894 (sixth revision): the pair widened to 2.3 m and raised to 1.9 m, where the vignette draws it filling most of the stone front (about 26 px)"
+    },
+    {
+      "what": "the scrolls either side of the attic's paired lights, against its cheeks, from about the lights' sill toward the attic's cornice",
+      "status": "fixed",
+      "how": "T-1894 (sixth revision): a scrolled stone console against each cheek (K08's cheek consoles, K10's dormer console form), 0.6 m wide at its roll and 2.3 m high from the lights' sill; their depth and rolls are reconstruction"
+    },
+    {
+      "what": "the pilasters framing the attic's lights and on its mullion",
+      "status": "within tolerance",
+      "how": "the vignette draws them about 3 px (0.25 m) wide; the build frames the pair in K08's 0.15 m stone surround and its stone mullion, which read alike at this plate's half-metre scale"
     },
     {
       "what": "the triple window group on both storeys, the door north of the pavilion with a window over it",
