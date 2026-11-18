@@ -43,7 +43,8 @@ warrior's sash, a broad band round his hips with its cloth hanging at his right 
 beside his raised thigh (`DRAPERY`); and the surgeon's loose pantaloons, rumpled in
 creases from the hip to the boot's top over the leg he stretches west (`ORNAMENTS`, on
 `_sleeve`). Only Mrs. Helm's knot of hair is still a member below
-(`monument_figures.PROPS`). The sculpted faces and the panels' reliefs are not modelled
+(`monument_figures.PROPS`). The faces are each rig's own re-cut to the plates' stronger
+brows, noses and mouths (`monument_figures.FEATURES`); the panels' reliefs are not modelled
 (the record's liberty says so);
 the rear, which no photograph used here shows, is the same masses seen from behind.
 """
