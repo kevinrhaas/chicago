@@ -7757,8 +7757,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 if prof[0][1] != 0.0 or prof[-1][1] != 1.0 or any(b[1] <= a[1] for a, b in zip(prof, prof[1:])):
                     raise ParamError("entrance_kit.terrace.loggia.columns.profile runs [r, fraction of height] from 0 to 1")
                 # the pair's pitch, half the pedestal's width unless the record gives it (T-2845)
-                pitch = float(lg["columns"].get("pitch_m", float(lg["pedestal"]["width_m"]) / 2))
-                if 2 * max(r for r, _ in prof) > pitch:
+                # (its own name: `pitch` is the roof's, read at the top and built from below; T-3562)
+                col_pitch = float(lg["columns"].get("pitch_m", float(lg["pedestal"]["width_m"]) / 2))
+                if 2 * max(r for r, _ in prof) > col_pitch:
                     raise ParamError("entrance_kit.terrace.loggia: two columns do not stand side by side on a pedestal")
                 terraces[-1]["loggia"] = lg
         if len({t["side"] for t in terraces}) != len(terraces):
@@ -8230,10 +8231,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 raise ParamError("entrance_kit.hood.pediment takes rise_m and rake_m, and optionally finial_m "
                                  "[width, height], on a bracketed hood (no columns, no railing)")
             rise, rake = float(pd["rise_m"]), float(pd["rake_m"])
-            pitch = math.degrees(math.atan2(rise, float(hd["width_m"]) / 2))
-            if not 0.2 <= rise <= 1.5 or not 0.08 <= rake <= 0.4 or not 15.0 <= pitch <= 45.0:
+            # (its own name: `pitch` is the roof's, and 1815's mansard deck was built at this
+            # pediment's 31.7 degrees in place of its record's 10 until T-3562 parted them)
+            ped_pitch = math.degrees(math.atan2(rise, float(hd["width_m"]) / 2))
+            if not 0.2 <= rise <= 1.5 or not 0.08 <= rake <= 0.4 or not 15.0 <= ped_pitch <= 45.0:
                 raise ParamError(f"entrance_kit.hood.pediment: a 0.2-1.5 m rise pitched 15-45 degrees over the "
-                                 f"hood's half-width (here {pitch:.1f}), its raking cornice 0.08-0.4 m deep")
+                                 f"hood's half-width (here {ped_pitch:.1f}), its raking cornice 0.08-0.4 m deep")
             door_kit["hood"]["pediment"] = {"rise_m": rise, "rake_m": rake}
             if "finial_m" in pd:
                 fw, fh = (float(x) for x in pd["finial_m"])
@@ -9261,6 +9264,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if len(at) != len(ops):
             raise ParamError(f"an arched group in bay {g['bay']} lost an opening to a piece built over it")
         g["ops"] = tuple(at)
+    # T-3562: the roof is built at the record's pitch and no other. Two parts read a local of
+    # the same name above (a hood pediment's pitch, a loggia's column spacing) and re-pitched
+    # the roof under them: 1815's mansard deck at 31.7 degrees for 10, 1808's 1886 deck at 0.36 for 2
+    if pitch != float(val("roof_pitch_deg")):
+        raise ParamError(f"roof_pitch_deg: the roof would be built at {pitch} degrees, not the record's "
+                         f"{val('roof_pitch_deg')} (a local `pitch` re-used above)")
     params = K01FrontageParams(
         depth_m=depth, width_m=width, stories=stories, principal_floor_m=pf,
         storey_heights_m=heights, front_thickness_m=ft, side_thickness_m=st,
