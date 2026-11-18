@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3094, ts: '2026-11-18T07:24:53.897Z', date: 'Nov 18, 2026, 1:24 AM CT', title: 'A missing picture on a building now says why', kind: 'fix',
+    items: [
+      'When a building\'s picture does not load and it draws in plain colour, the app now records why: the file did not arrive, or it arrived but could not be read. Before, it only said that a picture had failed.',
+      'Nothing in the town looks different. This is groundwork for finding why some houses briefly lost their pictures after a Jump between years.',
+    ] },
   { v: 3093, ts: '2026-11-18T07:12:39.676Z', date: 'Nov 18, 2026, 1:12 AM CT', title: 'The home page opens on the town\'s best moments', kind: 'feature',
     items: [
       'The film behind the public site\'s home page is now a cut of its most striking shots: the town from the air, Fort Dearborn burning, the carriages on Prairie Avenue, the fort from across the river, the 1835 town and river at dusk, the fort from above, the river crossing and the fort at dawn.',
