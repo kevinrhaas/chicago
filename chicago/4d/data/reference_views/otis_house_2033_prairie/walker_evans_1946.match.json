@@ -2,7 +2,7 @@
   "structure_id": "otis_house_2033_prairie",
   "view": "walker_evans_1946",
   "glb": "assets/gltf/otis_house_2033_prairie__as_mapped_1904.glb",
-  "glb_sha256": "fdd20f35ccfd69e455d8acdc849c8b49c8cf64aeb5d61744a7ecb56a5ec2b0aa",
+  "glb_sha256": "e35ad2f47a903e88d1cff8a436e1ce7d91d383592af7f7d901f0536566b987e3",
   "camera_sha256": "ca9c68e5ffdb114ea934ed0ea6bd58249052134610f6273286d717c56314c5f5",
   "photo_sha256": "c964ed0da9b23428147b33bc81fa077b9feb5bac531b5941d17ee35632893346",
   "side_by_side": "docs/RESEARCH/photo-match/otis_house_2033_prairie/walker_evans_1946-side-by-side.jpg",
@@ -33,8 +33,8 @@
       "status": "fixed"
     },
     {
-      "what": "the arched basement light under the bay's front, half hidden by a shrub in the print",
-      "status": "fixed"
+      "what": "the arched basement light under the bay's front, half hidden by a shrub in the print, is not cut: K08 lays one light to each face of a storey and the bay's lowest storey runs from grade (L-k01-2033-otis-3659)",
+      "status": "within tolerance"
     },
     {
       "what": "the flat front's channelled courses: the print lays the whole front in channelled courses about 0.3 m high; K01 lays a street wall smooth or rock-faced, so the build's flat front is smooth ashlar (the bay alone is channelled). A street visitor sees the banding, so it stays open until K01 can lay a channelled street wall (L-k01-2033-otis-3659)",

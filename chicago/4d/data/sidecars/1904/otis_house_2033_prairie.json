@@ -318,7 +318,8 @@
                   "at": [
                     0.16,
                     0.84
-                  ]
+                  ],
+                  "why_not_ordinary": "the principal storey's tall arched lights in the bay, from its lowest band to heads about 4.8 m over the yard, as Walker Evans' 1946 photograph draws all three (y 517-665 px on the wall's 47.5 px a metre): about 3.0 m of light on the parlour floor of an 1869 stone front, taller than the reconstruction rules' ordinary sash because the picture says so"
                 },
                 {
                   "opening": "k06.opening.sash_2over2_segmental",
@@ -327,16 +328,8 @@
                   "sill_m": 1.8,
                   "at": [
                     0.5
-                  ]
-                },
-                {
-                  "opening": "k06.opening.basement_segmental",
-                  "clear_width_m": 1.0,
-                  "clear_height_m": 1.1,
-                  "sill_m": 0.35,
-                  "at": [
-                    0.5
-                  ]
+                  ],
+                  "why_not_ordinary": "the principal storey's tall arched lights in the bay, from its lowest band to heads about 4.8 m over the yard, as Walker Evans' 1946 photograph draws all three (y 517-665 px on the wall's 47.5 px a metre): about 3.0 m of light on the parlour floor of an 1869 stone front, taller than the reconstruction rules' ordinary sash because the picture says so"
                 }
               ]
             },
@@ -351,7 +344,8 @@
                   "at": [
                     0.16,
                     0.84
-                  ]
+                  ],
+                  "why_not_ordinary": "the second storey's arched lights in the bay as Walker Evans' 1946 photograph draws them, sills about 6.1 m and heads about 8.7 m over the yard (y 330-455 px on the wall's 47.5 px a metre), the cants' lights narrower than the front's: read off the picture, not the reconstruction rules' ordinary sash"
                 },
                 {
                   "opening": "k06.opening.sash_2over2_segmental",
@@ -360,7 +354,8 @@
                   "sill_m": 0.6,
                   "at": [
                     0.5
-                  ]
+                  ],
+                  "why_not_ordinary": "the second storey's arched lights in the bay as Walker Evans' 1946 photograph draws them, sills about 6.1 m and heads about 8.7 m over the yard (y 330-455 px on the wall's 47.5 px a metre), the cants' lights narrower than the front's: read off the picture, not the reconstruction rules' ordinary sash"
                 }
               ]
             },
@@ -375,7 +370,8 @@
                   "at": [
                     0.16,
                     0.84
-                  ]
+                  ],
+                  "why_not_ordinary": "the third storey's arched lights in the bay as the 1946 photograph draws them, sills about 9.8 m and heads about 11.8 m (y 185-278 px), the cants' narrower than the front's: read off the picture"
                 },
                 {
                   "opening": "k06.opening.sash_2over2_segmental",
@@ -384,7 +380,8 @@
                   "sill_m": 0.5,
                   "at": [
                     0.5
-                  ]
+                  ],
+                  "why_not_ordinary": "the third storey's arched lights in the bay as the 1946 photograph draws them, sills about 9.8 m and heads about 11.8 m (y 185-278 px), the cants' narrower than the front's: read off the picture"
                 }
               ]
             }
@@ -404,7 +401,7 @@
         "walker_evans_1946_2033_prairie_otis",
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The sheet's stone bay on the front (s35fp-2033-b1 p1) as the photograph draws it through the solved camera (data/reference_views/otis_house_2033_prairie/walker_evans_1946.json): three faces through the basement and all three storeys up to the main cornice, which is carried round it; about 3.0 m across at the wall (s 3.35-6.35), its front face about 1.3 m; one arched light to each face a storey, the front's 0.8 m and the cants' 0.5 m, sills and heads at the photograph's, and the arched basement light under the front's, half hidden by a shrub in the print; a moulded band at each storey line; laid in channelled courses as the photograph shows. Its projection, 1.1 m, is not read by a square-on camera: it is set between the cants' width in the print and the sheet's 1.85 m, whose small bay the coarse raster draws about two pixels wide each way (liberty L-k01-2033-otis-3659)."
+      "note": "The sheet's stone bay on the front (s35fp-2033-b1 p1) as the photograph draws it through the solved camera (data/reference_views/otis_house_2033_prairie/walker_evans_1946.json): three faces through the basement and all three storeys up to the main cornice, which is carried round it; about 3.0 m across at the wall (s 3.35-6.35), its front face about 1.3 m; one arched light to each face a storey, the front's 0.8 m and the cants' 0.5 m, sills and heads at the photograph's; a moulded band at each storey line; laid in channelled courses as the photograph shows. Its projection, 1.1 m, is not read by a square-on camera: it is set between the cants' width in the print and the sheet's 1.85 m, whose small bay the coarse raster draws about two pixels wide each way (liberty L-k01-2033-otis-3659)."
     },
     "side_bays": {
       "value": [],
@@ -510,7 +507,7 @@
         "height_m": 0.65
       },
       "confidence": "reconstructed",
-      "note": "Area lights in the basement where K01 lays them; the photograph's arched basement light under the bay's front is the bay's own (bays)."
+      "note": "Area lights in the basement where K01 lays them. The photograph's arched basement light under the bay's front, half hidden by a shrub, is not cut: K08 lays one light to each face of a storey and the bay's lowest storey runs from grade (liberty L-k01-2033-otis-3659)."
     },
     "chimneys": {
       "value": {

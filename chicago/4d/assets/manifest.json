@@ -4031,9 +4031,9 @@
     "otis_house_2033_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 3743072,
+      "bytes": 3721464,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "bd6f5bc2644329df5eb7f3974394cc9d3ce67eda34ef44557e43af03b500fcbe",
+      "inputs_sha256": "f73caa5ba740f45749302ced6a850c1758feb45226f7ada526bccba854bca450",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "otis_house_2033_prairie"

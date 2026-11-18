@@ -44738,7 +44738,7 @@ deep across the lot's 7.62 m, 7.97 m behind the street line; the stone bay on th
 body on the north line (about 4.3 by 5.2 m). From Walker Evans' 1946 photograph (`walker_evans_1946_2033_prairie_otis`,
 check_required: forms only), through a camera solved on it (`data/reference_views/otis_house_2033_prairie/walker_evans_1946.json`):
 the door at the north end and the bay on the south two-thirds; the bay's place and width, its three faces and its
-arched lights a storey, its storey bands and the arched basement light; the door's two leaves under an arched
+arched lights a storey and its storey bands; the door's two leaves under an arched
 fanlight; the pedimented hood on its consoles; the arched lights over the door under their key blocks; the storeys'
 heights at the sills and heads; the cornice carried round the bay; the fence on its curb along the walk.
 
@@ -44754,7 +44754,8 @@ print's cant widths and the sheet's 1.85 m. The hood's soffit and apex stand abo
 not built: K01 keeps a door hood clear of the light over it, before whose foot the print's urn stands. The hood's
 consoles are K01's longest (1.0 m to the print's 1.3), and the carving of the consoles, the frieze, the key blocks and
 the bay's spandrels is finer than the print, built as plain members. The cornice's frieze is plain and its brackets
-spaced at the kit's rhythm. The yard is K14's 1904 yard on the town's grade; the print's yard stands above the public
+spaced at the kit's rhythm. The arched basement light under the bay, half hidden by a shrub in the print, is not cut:
+K08 lays one light to each face of a storey, and the bay's lowest storey runs from grade. The yard is K14's 1904 yard on the town's grade; the print's yard stands above the public
 walk, so its stoop runs on down to the walk where the build's stops at the yard. The 1946 print is evidence of 1946: its
 forms are carried to 1904 because the Otis family held the house throughout.
 

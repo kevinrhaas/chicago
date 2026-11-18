@@ -10851,19 +10851,35 @@
       }
      },
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
+    },
+    {
+     "id": "otis_house_2033_prairie:back",
+     "leaf": {
+      "local_e": 1441.03,
+      "local_n": -3585.04
+     },
+     "step": {
+      "local_e": 1444.79,
+      "local_n": -3585.01
+     },
+     "outward_deg": 89.5,
+     "width_m": 0.95,
+     "passage": true,
+     "back": true,
+     "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2033:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "bd6f5bc2644329df5eb7f3974394cc9d3ce67eda34ef44557e43af03b500fcbe",
+   "model_inputs_sha256": "f73caa5ba740f45749302ced6a850c1758feb45226f7ada526bccba854bca450",
    "barrier": {
-    "key": "3b13692706a6681f",
+    "key": "79868bcec1844d6a",
     "cell": 0.1,
     "u0": -4.5,
     "v0": -0.1,
     "count": 44,
-    "rects": "2 3 1 54 3 45 1 2 3 45 53 54 174 175 1 78 175 176 34 37 175 176 63 66 175 190 4 5 175 190 7 27 175 190 29 30 176 177 35 37 176 177 38 39 176 177 61 62 176 177 63 65 177 178 36 39 177 178 61 64 178 180 37 39 178 180 61 63 179 184 45 55 180 181 38 40 180 181 41 42 180 181 58 59 180 181 60 62 181 182 39 42 181 182 58 61 182 183 40 42 182 183 58 60 183 185 41 43 183 185 57 59 184 185 44 55 185 186 42 58 186 187 43 57 190 214 4 30 243 245 13 14 243 245 21 22 245 246 12 14 245 246 21 23 246 247 12 13 246 247 22 23 247 248 11 13 247 248 22 24 248 251 1 12 248 251 23 78 251 252 1 11 251 252 24 78"
+    "rects": "2 3 1 54 3 45 1 2 3 45 53 54 174 175 1 78 175 176 34 37 175 176 63 66 175 190 4 5 175 190 7 27 175 190 29 30 176 177 35 37 176 177 38 39 176 177 61 62 176 177 63 65 177 178 36 39 177 178 61 64 178 180 37 39 178 180 61 63 180 181 38 40 180 181 41 42 180 181 58 59 180 181 60 62 181 182 39 42 181 182 58 61 182 183 40 42 182 183 58 60 183 185 41 43 183 185 57 59 184 185 45 46 184 185 53 54 185 186 42 58 186 187 43 57 190 214 4 30 243 245 13 14 243 245 21 22 245 246 12 14 245 246 21 23 246 247 12 13 246 247 22 23 247 248 11 13 247 248 22 24 248 251 1 12 248 251 23 78 251 252 1 11 251 252 24 78"
    },
    "floor": {
-    "key": "a167bf0d38f7d3f8",
+    "key": "ef7d20ea8e94ccfb",
     "cell": 0.1,
     "u0": 12.6,
     "v0": 0.3,
@@ -16435,6 +16451,22 @@
     "local_e": 1439.26,
     "local_n": -3577.64,
     "rotation_deg": 359.56
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": 0.05,
+    "v0": -0.75,
+    "count": 1,
+    "rects": "0 34 0 16"
+   },
+   "what": "back stoop"
+  },
+  {
+   "structure": "prairie_2033:back_door:stoop",
+   "placement": {
+    "local_e": 1441.03,
+    "local_n": -3585.04,
+    "rotation_deg": 359.55
    },
    "barrier": {
     "cell": 0.1,
