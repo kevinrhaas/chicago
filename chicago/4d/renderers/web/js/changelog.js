@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3090, ts: '2026-11-18T06:33:19.392Z', date: 'Nov 18, 2026, 12:33 AM CT', title: 'See yourself climb up onto carriages and wagons', kind: 'feature',
+    items: [
+      'Climb up beside a coachman or onto a wagon and you now see yourself walk over, step up by the front wheel with a hand on the rail, and sit down. Getting down is the same climb in reverse, in every year.',
+    ] },
   { v: 3089, ts: '2026-11-18T05:56:52.608Z', date: 'Nov 17, 2026, 11:56 PM CT', title: 'People in the distance stay put as you walk up to them', kind: 'fix',
     items: [
       'Someone you see down the street no longer fades away as you come close. They stay in view, and once you are near they are there in full, where they were standing, to greet, follow or ask.',
