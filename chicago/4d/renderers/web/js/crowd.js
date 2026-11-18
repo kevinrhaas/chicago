@@ -472,6 +472,45 @@ diffuseColor.rgb *= vCrowdShade;`);
 }
 
 /**
+ * T-3643's off-frame compile, and what may be disposed while it runs. `warm(object, target)`
+ * hands the object's programs to `renderer.compileAsync` for the target it will draw into and
+ * settles once they have linked (or failed). A material three is still warming must not be
+ * disposed: compileAsync polls each one's program on a timer, and a disposed material has
+ * none, so the poll throws outside any promise (a page error, "reading 'isReady'") and the
+ * warm never settles. `release(material)` disposes one at once when it is not warming, else
+ * as soon as its warm has settled.
+ * @param {{compileAsync?: Function, getRenderTarget: Function, setRenderTarget: Function}|null} renderer
+ * @param {object} camera
+ * @param {() => object|null} sceneOf the scene whose lights the programs are keyed to
+ */
+export function createWarmer(renderer, camera, sceneOf = () => null) {
+  const canWarm = typeof renderer?.compileAsync === 'function';
+  const warming = new Map();        // material -> the warm it is in
+  function release(material) {
+    if (!material) return;
+    const pending = warming.get(material);
+    if (pending) pending.then(() => material.dispose());
+    else material.dispose();
+  }
+  function warm(object, target = null) {
+    if (!canWarm) return Promise.resolve();
+    const prev = renderer.getRenderTarget();
+    try {
+      // The program's key reads the target it is compiled for (a render target is linear
+      // and untoned), so compile for the one it will draw into.
+      renderer.setRenderTarget(target);
+      const done = renderer.compileAsync(object, camera, target ? null : sceneOf()).catch(() => {});
+      const mats = new Set();
+      object.traverse?.((o) => { for (const m of [o.material].flat()) if (m) mats.add(m); });
+      const settled = done.then(() => { for (const m of mats) if (warming.get(m) === settled) warming.delete(m); });
+      for (const m of mats) warming.set(m, settled);
+      return settled;
+    } catch { return Promise.resolve(); } finally { renderer.setRenderTarget(prev); }
+  }
+  return { warm, release, get warming() { return warming.size; } };
+}
+
+/**
  * THE LAYER. `humans` is humans.js's layer (its built figures, its asset store, Show › People
  * and a jaunt's hold); `days` is human-days.js's (`outdoors`, the people out and not built).
  * `renderer` bakes the bodies' pictures into the atlas; without one (a test), nothing is baked
@@ -499,16 +538,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
   // it has linked. What is drawn is the same; a dress joins a frame or two later.
   const warmCam = new THREE.PerspectiveCamera();
   const canWarm = typeof renderer?.compileAsync === 'function';
-  function warm(object, target = null) {
-    if (!canWarm) return Promise.resolve();
-    const prev = renderer.getRenderTarget();
-    try {
-      // The program's key reads the target it is compiled for (a render target is linear
-      // and untoned), so compile for the one it will draw into.
-      renderer.setRenderTarget(target);
-      return renderer.compileAsync(object, warmCam, target ? null : group.parent ?? null).catch(() => {});
-    } catch { return Promise.resolve(); } finally { renderer.setRenderTarget(prev); }
-  }
+  const { warm, release } = createWarmer(renderer, warmCam, () => group.parent ?? null);
   let cardWarm = !canWarm, cardWarming = null, bakeWarm = !canWarm, bakeWarming = false;
   /** The cards are compiled when they are first wanted, against the scene as it is then. */
   function cardsReady() {
@@ -567,7 +597,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
     return true;
   }
   function disposeAtlas() {
-    if (cardMesh) { group.remove(cardMesh); cardMesh.geometry.dispose(); cardMesh.material.dispose(); cardMesh = null; cardWarm = !canWarm; cardWarming = null; }
+    if (cardMesh) { group.remove(cardMesh); cardMesh.geometry.dispose(); release(cardMesh.material); cardMesh = null; cardWarm = !canWarm; cardWarming = null; }
     atlas?.dispose(); atlas = null; cardAttrs = null;
   }
 
@@ -968,12 +998,12 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
       for (const b of bodies.values()) dropBody(b);
       bodies.clear();
       disposeAtlas();
-      bakeKept?.dispose(); bakeKept = null;
+      release(bakeKept); bakeKept = null;
       group.removeFromParent();
     },
   };
   function dropBody(b) {
-    if (b.mesh) { group.remove(b.mesh); b.mesh.geometry.dispose(); b.mesh.material.dispose(); b.mesh.dispose?.(); }
+    if (b.mesh) { group.remove(b.mesh); b.mesh.geometry.dispose(); release(b.mesh.material); b.mesh.dispose?.(); }
     if (b.body) { b.body.geometry.dispose(); b.body.vat.dispose(); }
     b.mesh = null; b.body = null; b.status = 'dropped';
   }
