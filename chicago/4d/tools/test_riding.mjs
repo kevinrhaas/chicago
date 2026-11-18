@@ -18,6 +18,7 @@
 //    else the off side, else behind.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { registerHooks } from 'node:module';
 
 const here = new URL('../', import.meta.url);
@@ -29,6 +30,8 @@ const THREE = await import(vendor + 'three.module.js');
 const { clone } = await import(vendor + 'addons/utils/SkeletonUtils.js');
 const { fitTack } = await import('../renderers/web/js/saddlery.js');
 const { createRiderPose, saddleTargets } = await import('../renderers/web/js/rider-pose.js');
+const { drapes, drapePoint, pressPoint, pressZone } = await import('../renderers/web/js/rider-drape.js');
+const { garmentKind } = await import('../renderers/web/js/human-skirt.js');
 const { createHorseGait, clipFromJson } = await import('../renderers/web/js/horse-rig.js');
 const riding = await import('../renderers/web/js/riding.js');
 const { gltfLoader, geometryOnly } = await import('./horse_walk_v2.mjs');
@@ -51,7 +54,7 @@ const liberties = read('docs/LIBERTIES.md').toString();
 ok(liberties.includes(`### ${config.liberty} `), `${config.liberty} recorded in docs/LIBERTIES.md`);
 for (const y of YEARS) {
   const rows = config.rows.filter(r => r.scene === y);
-  ok(rows.length >= 1 && rows.every(r => r.grade === 'reconstructed' && r.liberty === config.liberty && r.at.every(Number.isFinite)), `${y}: a reconstructed saddle horse`);
+  ok(rows.length >= 1 && rows.every(r => r.grade === 'reconstructed' && [config.liberty, 'L-camp-horses-3560'].includes(r.liberty) && r.at.every(Number.isFinite)), `${y}: a reconstructed saddle horse`);
   ok(config.tack[y]?.saddle && config.tack[y]?.bridle, `${y}: its year's tack`);
   ok(fs.existsSync(new URL(`assets/humans/web/${config.rider.assets[y]}.lod${config.rider.lod}.glb`, here)), `${y}: the rider figure exists at its level`);
 }
@@ -67,20 +70,29 @@ const trot = clipFromJson(JSON.parse(read('renderers/web/' + spec.trot_clip_file
 const canter = clipFromJson(JSON.parse(read('renderers/web/' + spec.canter_clip_file)));
 const gallop = clipFromJson(JSON.parse(read('renderers/web/' + spec.gallop_clip_file)));
 const humans = {};
-// The visitor's stand-in and every town rider's figure (tools/lay_town_riders.mjs), each seated and checked.
-const assetsOf = y => [...new Set([config.rider.assets[y], ...(config.riders ?? []).filter(r => r.scene === y).map(r => r.asset)])];
+// Every figure that may ride in the year: the visitor's stand-in, the town's riders, and the
+// figures the year's camps and jaunt scenes put on a horse (config.rider.also).
+// T-3644: and every body the visitor may choose for their own person in that year.
+const person = JSON.parse(read('data/humans/visitor_person.json'));
+const personAssets = y => Object.values(person.outfits?.[y] ?? {}).flat().map(o => o.asset);
+const assetsOf = y => (process.env.RIDER_ASSETS ? process.env.RIDER_ASSETS.split(',') : [...new Set([config.rider.assets[y], ...(config.riders ?? []).filter(r => r.scene === y).map(r => r.asset), ...(config.rider.also?.[y] ?? []), ...personAssets(y)])]);
 for (const y of YEARS) for (const a of assetsOf(y)) humans[a] ??= await parse(read(`assets/humans/web/${a}.lod${config.rider.lod}.glb`));
 
 const v = new THREE.Vector3(), q = new THREE.Vector3();
 const report = [];
-for (const y of YEARS) {
+// Each year's tack, and every variant of it a row of the year rides on (the Potawatomi pad
+// saddle, saddle_horses.json tack_variants): the visitor may mount any of them.
+const tacksOf = y => [null, ...new Set([...config.rows, ...config.riders].filter(r => r.scene === y && r.tack).map(r => r.tack))];
+for (const k of Object.keys(config.tack_variants ?? {})) ok(riding.tackFor(config, '1812', { tack: k }).saddle.seat_half_angle_deg > 0, `the ${k} tack variant lays over the year's`);
+for (const y of YEARS) for (const tk of tacksOf(y)) {
+  const T = riding.tackFor(config, y, tk ? { tack: tk } : null), yt = tk ? `${y} (${tk} tack)` : y;
   const root = clone(near.scene);
   root.updateMatrixWorld(true);
   const bones = {}; root.traverse(n => { if (n.isBone) bones[n.name] = n; });
   const bodyRest = bones.horse_body.matrixWorld.clone();
-  const tack = fitTack(root, config.tack[y]);
+  const tack = fitTack(root, T);
   const env = tack.envelope;
-  const S = config.tack[y].saddle;
+  const S = T.saddle;
   // The tack lies on the coat: every vertex of the cloth, seat and flaps outside the body's surface.
   let sunk = 0, worstSunk = 0;
   tack.parts.onBody.updateMatrixWorld(true);
@@ -96,10 +108,36 @@ for (const y of YEARS) {
       if (d > .002) { sunk++; worstSunk = Math.max(worstSunk, d); if (process.env.DEBUG) console.log(y, pos.count, v.toArray().map(n => n.toFixed(2)), s.toFixed(2), phi.toFixed(0), d.toFixed(3)); }
     }
   });
-  ok(sunk === 0, `${y}: the saddle, cloth and flaps lie on the coat (${sunk} vertices under it, deepest ${(worstSunk * 100).toFixed(1)} cm)`);
+  ok(sunk === 0, `${yt}: the saddle, cloth and flaps lie on the coat (${sunk} vertices under it, deepest ${(worstSunk * 100).toFixed(1)} cm)`);
   const seat = tack.seat(), barL = tack.stirrupBar(1), barR = tack.stirrupBar(-1);
-  ok(seat.z > -.3 && seat.z < .3 && seat.y > 1.4 && seat.y < 1.75 && Math.abs(seat.x) < .01, `${y}: the seat on the back behind the withers (${seat.toArray().map(n => n.toFixed(2))})`);
-  ok(barL.x > .15 && barR.x < -.15 && Math.abs(barL.y - barR.y) < .01 && barL.y < seat.y, `${y}: the stirrup bars at the saddle's two sides`);
+  ok(seat.z > -.3 && seat.z < .3 && seat.y > 1.4 && seat.y < 1.75 && Math.abs(seat.x) < .01, `${yt}: the seat on the back behind the withers (${seat.toArray().map(n => n.toFixed(2))})`);
+  ok(barL.x > .15 && barR.x < -.15 && Math.abs(barL.y - barR.y) < .01 && barL.y < seat.y, `${yt}: the stirrup bars at the saddle's two sides`);
+  // Kevin, 2026-11-17: straps "slice through the horse". With nobody up, the leathers hang and
+  // the reins lie over the neck: no point of them more than 1 cm inside the trunk's coat, and the
+  // reins along the top of the neck (above the bit, never under the jaw or through the throat).
+  {
+    tack.update(null);
+    tack.parts.free.updateMatrixWorld(true);
+    let deep = 0, worst = 0, low = 0;
+    for (const m of tack.parts.free.children) {
+      const pos = m.geometry.attributes.position;
+      if (!pos || m.geometry.type !== 'BufferGeometry') continue;
+      for (let i = 0; i < pos.count; i++) {
+        v.fromBufferAttribute(pos, i).applyMatrix4(m.matrixWorld);
+        q.copy(v).sub(new THREE.Vector3(0, S.axis_y_m, 0));
+        const s = q.dot(env.dir); if (s < -.68 || s > .98) continue;
+        const d = env.radius(s, Math.atan2(q.dot(env.side), q.dot(env.up)) / Math.PI * 180) - Math.hypot(q.dot(env.up), q.dot(env.side));
+        if (d > .01) { deep++; worst = Math.max(worst, d); }
+      }
+    }
+    ok(deep === 0, `${yt}: the hanging leathers and resting reins stay out of the trunk (${deep} points in, deepest ${(worst * 100).toFixed(1)} cm)`);
+    const bit = tack.bit(1);
+    for (const m of tack.parts.free.children.filter((c, i) => i % 3 === 2)) {
+      const pos = m.geometry.attributes.position;
+      for (let i = 0; i < pos.count; i++) { v.fromBufferAttribute(pos, i).applyMatrix4(m.matrixWorld); if (v.z < bit.z - .2 && v.y < bit.y + .05) low++; }
+    }
+    ok(low === 0, `${yt}: the resting reins go up over the neck from the bit (${low} points below it)`);
+  }
   for (const asset of assetsOf(y)) {
   // The rider, on the year's real figure.
   const human = humans[asset];
@@ -111,20 +149,25 @@ for (const y of YEARS) {
   if (idle) { hm.clipAction(idle).play(); hm.update(0); }
   actorRoot.updateMatrixWorld(true);
   const pose = createRiderPose(body, actorRoot);
-  ok(pose, `${y} ${asset}: the rider is the contract skeleton`);
+  ok(pose, `${yt} ${asset}: the rider is the contract skeleton`);
   const skinned = []; body.traverse(n => { if (n.isSkinnedMesh) skinned.push(n); });
   const gait = createHorseGait(root, { walk, walkCycle_m: spec.stride_m, trot, trotCycle_m: spec.trot_stride_m,
     canter, canterCycle_m: spec.canter_stride_m, gallop, gallopCycle_m: spec.gallop_stride_m, rest: true });
-  let worstFoot = 0, worstHand = 0, worstShort = 0, inside = 0, worstInside = 0, sampled = 0; const dbg = {};
+  let worstFoot = 0, worstHand = 0, worstShort = 0, inside = 0, worstInside = 0, sampled = 0, laid = 0, pressed = 0; const dbg = {};
+  const zone = pressZone(S);
   for (const [pace, cycle] of [[config.ride.walk_m_s, spec.stride_m], [config.ride.trot_m_s, spec.trot_stride_m],
     [config.ride.canter_m_s, spec.canter_stride_m], [config.ride.gallop_m_s, spec.gallop_stride_m]]) {
     gait.advance(0, pace, 0);
     for (let k = 0; k < 8; k++) {
       gait.advance(cycle / 8, pace, 0);
       root.updateMatrixWorld(true);
-      const lean = riding.leanAt(config.fit, gait.level);
-      const t = saddleTargets(tack, config.fit, { lean }), w = t.world(root);
-      const short = pose.apply(w);
+      // Moving with the horse (riderLife) and looking hard about, left then right, head down.
+      const look = (k % 2 ? 1 : -1) * riding.LOOK_MAX_RAD;
+      const L = riding.riderLife({ next: Infinity, look, want: look, nod: .12, wantNod: .12 }, { level: gait.level, moving: gait.moving, phase: gait.phase, dt: 0, now: k });
+      const f = riding.fitFor(config.fit, asset);   // T-3644: the body's own fit
+      const lean = riding.leanAt(f, gait.level) + L.lean;
+      const t = saddleTargets(tack, f, { lean, rise: L.rise, give: L.give }), w = t.world(root);
+      const short = pose.apply({ ...w, look: L.look, sway: L.sway, nod: L.nod, ...riding.bodyPose(f) });
       tack.update(t.rootFrame(root, pose));
       worstShort = Math.max(worstShort, ...Object.values(short));
       for (const s of ['l', 'r']) {
@@ -135,10 +178,15 @@ for (const y of YEARS) {
       const back = bodyRest.clone().multiply(bones.horse_body.matrixWorld.clone().invert());
       for (const m of skinned) {
         m.skeleton.update();
+        // Hanging cloth lies on the horse (rider-drape.js, as the shader lays it); legs, skin and boots never move.
+        const draped = drapes(m, garmentKind(m, asset).kind);
         const n = m.geometry.attributes.position.count;
         for (let i = 0; i < n; i += 5) {
           m.getVertexPosition(i, v).applyMatrix4(m.matrixWorld).applyMatrix4(back);
           q.copy(v).sub(new THREE.Vector3(0, S.axis_y_m, 0));
+          if (draped && drapePoint(q, env, { seatHalfDeg: S.seat_half_angle_deg })) laid++;
+          // A leg lying on the saddle is pressed onto its cloth and flaps (the shader's press).
+          else if (!draped && pressPoint(q, env, zone)) pressed++;
           const s = q.dot(env.dir);
           if (s < -.6 || s > .6) continue;
           const r = Math.hypot(q.dot(env.up), q.dot(env.side)), phi = Math.atan2(q.dot(env.side), q.dot(env.up)) / Math.PI * 180;
@@ -152,13 +200,13 @@ for (const y of YEARS) {
     }
   }
   if (process.env.DEBUG_RIDER && inside) console.log(y, asset, JSON.stringify(Object.entries(dbg).sort((a, b) => b[1] - a[1]).slice(0, 25)));
-  report.push(`${y} ${asset}: feet within ${(worstFoot * 100).toFixed(1)} cm of the irons, hands ${(worstHand * 100).toFixed(1)} cm of the reins, `
-    + `${inside} of ${sampled} sampled skin points more than 1 cm inside the horse (deepest ${(worstInside * 100).toFixed(1)} cm)`);
-  ok(worstShort === 0, `${y} ${asset}: every reach of the rider gets there at walk, trot, canter and gallop`);
-  ok(worstFoot < .02 && worstHand < .02, `${y} ${asset}: feet at the irons and hands at the reins (${worstFoot.toFixed(3)}, ${worstHand.toFixed(3)} m)`);
-  ok(inside === 0, `${y} ${asset}: the rider never goes into the horse at walk, trot, canter or gallop (${inside} points, deepest ${(worstInside * 100).toFixed(1)} cm)`);
+  report.push(`${yt} ${asset}: feet within ${(worstFoot * 100).toFixed(1)} cm of the irons, hands ${(worstHand * 100).toFixed(1)} cm of the reins, `
+    + `${inside} of ${sampled} sampled skin points more than 1 cm inside the horse (deepest ${(worstInside * 100).toFixed(1)} cm); ${laid} points of cloth laid on the horse, ${pressed} of leg pressed onto the saddle`);
+  ok(worstShort === 0, `${yt} ${asset}: every reach of the rider gets there at walk, trot, canter and gallop`);
+  ok(worstFoot < .02 && worstHand < .02, `${yt} ${asset}: feet at the irons and hands at the reins (${worstFoot.toFixed(3)}, ${worstHand.toFixed(3)} m)`);
+  ok(inside === 0, `${yt} ${asset}: the rider never goes into the horse at walk, trot, canter or gallop (${inside} points, deepest ${(worstInside * 100).toFixed(1)} cm)`);
   gait.advance(0, 0, .1); gait.advance(0, 0, .5);
-  ok(gait.moving === 0, `${y}: a horse that stops stands in its rest pose`);
+  ok(gait.moving === 0, `${yt}: a horse that stops stands in its rest pose`);
   gait.dispose(); root.remove(actorRoot);
   }
   tack.dispose();
@@ -232,10 +280,11 @@ ok(JSON.stringify(nextRiders(fresh)) === JSON.stringify(fresh), 'the riders and 
 ok(liberties.includes('### L-town-riders-3560 '), 'L-town-riders-3560 recorded in docs/LIBERTIES.md');
 const out = (y, hour, season) => config.riders.filter(r => r.scene === y && riding.riderOut(r, hour, season)).length;
 for (const [y, hour, season, want, words] of [
-  ['1835', 10, 'summer', 6, 'a summer morning'], ['1835', 10, 'winter', 4, 'a winter morning'], ['1835', 19, 'summer', 2, 'a summer evening'],
+  ['1835', 10, 'summer', 9, 'a summer morning'], ['1835', 10, 'winter', 5, 'a winter morning'], ['1835', 19, 'summer', 2, 'a summer evening'],
   ['1835', 22, 'summer', 1, 'ten at night (the doctor)'], ['1835', 23.5, 'summer', 0, 'midnight'],
-  ['1812', 10, 'summer', 4, 'a summer morning'], ['1812', 10, 'winter', 2, 'a winter morning'], ['1812', 21, 'summer', 0, 'night'],
-  ['1904', 9, 'summer', 1, 'a summer morning (a groom)'], ['1904', 14, 'summer', 0, 'the afternoon'], ['1904', 9, 'winter', 0, 'winter']])
+  ['1812', 10, 'summer', 7, 'a summer morning'], ['1812', 10, 'winter', 4, 'a winter morning'], ['1812', 21, 'summer', 0, 'night'],
+  ['1904', 9, 'summer', 1, 'a summer morning (a groom)'], ['1904', 15, 'summer', 1, 'a summer afternoon (a coachman)'],
+  ['1904', 9, 'winter', 1, 'a winter morning (the groom)'], ['1904', 20, 'summer', 0, 'the evening']])
   ok(out(y, hour, season) === want, `${y}: ${want} riders out on ${words} (${out(y, hour, season)})`);
 for (const r of config.riders) {
   const route = routeFor(r.route);
@@ -256,6 +305,44 @@ for (const row of config.rows.filter(r => r.stable)) {
 }
 ok(['1812', '1835', '1904'].every(y => config.rows.filter(r => r.scene === y).length >= 2), 'every year has saddle horses at its stables beside the one where the walk begins');
 
+// Kevin, 2026-11-17: "that horse standing in the middle of the street is odd" ... "standing on the
+// side of the street not the middle". No saddle horse stands in a roadway's middle: in 1835 none on
+// a street's worn track, in 1904 none more than 1.5 m in from a carriageway's edge.
+{
+  const segD = (p, pts) => Math.min(...pts.slice(1).map((b, i) => { const a = pts[i], dx = b[0] - a[0], dy = b[1] - a[1], L2 = dx * dx + dy * dy || 1;
+    const t = Math.max(0, Math.min(1, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / L2)); return Math.hypot(a[0] + t * dx - p[0], a[1] + t * dy - p[1]); }));
+  const streets = JSON.parse(read('data/streets/1835.json')).streets;
+  for (const r of config.rows.filter(r => r.scene === '1835')) {
+    const worst = Math.min(...streets.map(s => segD(r.at, s.path_local_enu_m) - (s.track_width_m ?? 10.5) / 2));
+    ok(worst > 0.4, `${r.id}: off the street's worn track (${worst.toFixed(1)} m beyond its edge)`);
+  }
+  const ways = JSON.parse(read('data/street_grid/1904.json')).carriageways;
+  for (const r of config.rows.filter(r => r.scene === '1904')) {
+    for (const w of ways) {
+      const poly = w.polygon_local_m;
+      let inside = false;
+      for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) { const [xi, yi] = poly[i], [xj, yj] = poly[j];
+        if ((yi > r.at[1]) !== (yj > r.at[1]) && r.at[0] < (xj - xi) * (r.at[1] - yi) / (yj - yi) + xi) inside = !inside; }
+      if (!inside) continue;
+      const edge = segD(r.at, [...poly, poly[0]]);
+      ok(edge < 1.5, `${r.id}: at the side of ${w.id}, not its middle (${edge.toFixed(1)} m from its edge)`);
+    }
+  }
+}
+
+// The camps' horses (Kevin, 2026-11-17: "there would be horses at the native camps"): one at each
+// picket the camps lay, clear of the lodges, there only on the camp's own days.
+ok(liberties.includes('### L-camp-horses-3560 '), 'L-camp-horses-3560 recorded in docs/LIBERTIES.md');
+const campHorses = config.rows.filter(r => r.camp);
+const pickets = JSON.parse(execFileSync('python3', [new URL('camp_pickets_1812.py', import.meta.url).pathname], { encoding: 'utf8' }));
+ok(campHorses.length >= pickets.reduce((n, c) => n + c.stakes.length, 0) - 2 && campHorses.length > 30, `a horse at (nearly) every camp picket (${campHorses.length})`);
+for (const c of pickets) for (const h of campHorses.filter(r => r.camp === c.camp)) {
+  ok(h.dates?.from === c.window?.from && h.dates?.to === c.window?.to && h.tack === 'potawatomi', `${h.id}: its camp's days and the pad saddle`);
+  ok(c.dwellings.every(([e, n, hx, hy]) => Math.hypot(h.at[0] - e, h.at[1] - n) > Math.max(hx, hy) + 1), `${h.id}: clear of the lodges`);
+}
+ok(riding.offDate({ dates: { from: '1812-08-12', to: '1812-08-15' } }, '1812-08-11') && !riding.offDate({ dates: { from: '1812-08-12', to: '1812-08-15' } }, '1812-08-15T09:00')
+  && !riding.offDate({ dates: { from: '1812-08-12', to: '1812-08-15' } }, null) && !riding.offDate({}, '1812-01-01'), 'a camp horse is away off its camp\'s days and there on them');
+
 // Giving way: a rider going east along the south side of a square round.
 const sq = routeFor({ kind: 'path', corner_radius_m: 6, points_enu_m: [[0, 0], [200, 0], [200, 200], [0, 200]] });
 const d0 = 50, p0 = sq.at(d0), east = Math.PI / 2;
@@ -271,4 +358,37 @@ ok(held({ teams: [team(p0.e - 20)] }) === null && held({ teams: [team(p0.e + 6, 
 const other = (e, fwd, index, pace = 0) => ({ index, at: [e, 0], fwd, prints: [0, 1.5, 3].map(t => riding.riderPrint(sq, d0 + (e - p0.e) + fwd[0] * pace * t, .15)) });
 ok(held({ index: 1, others: [other(p0.e + 5, [1, 0], 0)] }) === 'a rider' && held({ index: 0, others: [other(p0.e - 5, [1, 0], 1, 1.4)] }) === null, 'the rider behind gives way to the one ahead, not the one ahead to it');
 ok(held({ index: 0, others: [other(p0.e + 6, [-1, 0], 1, 1.4)] }) === null && held({ index: 1, others: [other(p0.e + 6, [-1, 0], 0, 1.4)] }) === 'a rider', 'head on, the lower index goes and the other waits');
+// Kevin, 2026-11-17: "the person looks pretty stiff riding a horse". The rider moves with the horse.
+{
+  const at = (level, phase, now = 0, moving = 1) => riding.riderLife({ next: Infinity }, { level, moving, phase, now });
+  ok(Math.abs(at(0, .25).sway) > .03 && Math.abs(at(0, .125).give) > .02, 'at the walk his back rolls with the stride and his hands go with the head');
+  ok(at(1, .5).rise > .03 && at(1, 0).rise < 1e-9 && at(0, .5).rise === 0, 'at the trot he rises out of the saddle once a stride, and only at the trot');
+  ok(Math.abs(at(2, .25).lean) > .07 && Math.abs(at(3, .25).give) > .05, 'at the canter his back rocks; at the gallop his hands give and take');
+  ok(Math.abs(at(0, 0, 1.05, 0).lean) > .005 && at(0, .5, 0, 0).rise === 0, 'standing, he breathes');
+  const life = {}, r = riding.riderRand(7);
+  let looked = 0, back = 0;
+  for (let t = 0; t < 120; t += .1) { const L = riding.riderLife(life, { level: 0, moving: 1, phase: (t % 1.6) / 1.6, dt: .1, now: t, rand: r }); if (Math.abs(L.look) > .3) looked++; if (Math.abs(L.look) < .05) back++; }
+  ok(looked > 60 && back > 200, `now and then he looks about, and back ahead (${looked} and ${back} of 1200 frames)`);
+  const fast = {}; let far = 0;
+  for (let t = 0; t < 120; t += .1) { const L = riding.riderLife(fast, { level: 3, moving: 1, dt: .1, now: t, rand: riding.riderRand(7) }); far = Math.max(far, Math.abs(L.look)); }
+  ok(far < riding.LOOK_MAX_RAD * .35, 'at a gallop he keeps his eyes ahead');
+}
+// Kevin, 2026-11-17: a carriage drove through a horse. A rider a team is about to meet pulls aside
+// (right, GIVE_WAY_M) and the team waits for him (town-transport.js obstacles) till he has.
+{
+  const [ae, an] = riding.asideOf(p0, riding.GIVE_WAY_M);
+  ok(Math.abs(ae) < 1e-9 && Math.abs(an + riding.GIVE_WAY_M) < 1e-9, 'aside is to the right of the way he rides (south, riding east)');
+  const meets = teams => riding.teamMeets({ route: sq, distance: d0, pace: 1.4, teams });
+  const headOn = (e, n = 0) => [0, 1.5, 3].map(t => footprintOfPose({ e: e - 3 * t, n, yaw: -east }, [-1.95, -1.86, 1.95, 5.1], .3));
+  ok(meets([headOn(p0.e + 14)]) && meets([team(p0.e - 9, 0, 3)]) && !meets([headOn(p0.e + 14, 9)]) && !meets([headOn(p0.e + 40)]),
+    'a team head on or catching him up meets him; one in its own lane or far off does not');
+  ok(held({ teams: [headOn(p0.e + 8)] }) === 'a team' && held({ teams: [headOn(p0.e + 8)], aside: riding.GIVE_WAY_M }) === null,
+    'on his line he pulls up for a team head on; pulled aside, it goes by him');
+  // Pulled aside, the widest team (its OBSTACLE_M .6 m on) passes clear of him.
+  const fop = footprintOfPose, { overlaps: overlapsPrint } = await import('../renderers/web/js/transport-crossings.js');
+  const me = fop({ e: p0.e + ae, n: p0.n + an, yaw: riding.horseYaw(90) }, [-.5, -1.2, .5, 1.75], 0);
+  ok(!overlapsPrint(fop({ e: p0.e, n: 0, yaw: -east }, [-1.95, -1.86, 1.95, 5.1], .6), me), 'the widest team, with its margin, misses a rider pulled aside');
+  const shifted = riding.shiftPrint(me, 2, -1);
+  ok(Math.abs(shifted.w - me.w - 2) < 1e-9 && Math.abs(shifted.s - me.s + 1) < 1e-9 && shifted.corners[0][0] === me.corners[0][0] + 2, 'a print moves whole');
+}
 console.log(`riding (T-3560): data, tack on the coat, rider seated without clipping, reins, holds, stands, getting down, the town's riders and stabled horses: ${checks} checks PASS`);

@@ -1171,14 +1171,14 @@
       "phase_id": "draft_1904",
       "structure_id": "hibbard_house_1701_prairie_coach_house"
     },
-    "high_house_2021_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "high_house_2021_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 198592,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "99518125e7954f04184a14a062f5bf86d077d808b8c569a21fdaa5cc66ab7e64",
+      "bytes": 3397276,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "41940e1732bcdb6fb9856de307f2c0f7ef6e8d0f817c16adfb30439fd04062bf",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "high_house_2021_prairie"
     },
     "high_house_2021_prairie_coach_house__draft_1904.glb": {

@@ -9,17 +9,19 @@
  * HOW MANY. A frontier town went about on horseback: farmers in from the prairie, land agents,
  * the doctor on his rounds, the express from the east, Potawatomi and Métis men coming to trade
  * (Andreas 1884 vol. 1; the 1833-35 Chicago papers). 1835 (3,265 at the November census) gets
- * seven riders, six out on a summer morning and four in winter, the one riding for the doctor the
+ * ten riders, nine out on a summer morning and five in winter, the one riding for the doctor the
  * last home at night. 1812 had fewer horses about the fort: the garrison's, the traders' and the
- * Potawatomi's, who kept many; four ride, all by day.
+ * Potawatomi's, who kept many; seven ride, all by day.
  *
- * WHO. Each rider is an anonymous figure of the year whose clothes sit a saddle cleanly (the
- * settler, the engagé, the private; the 1904 driver as a groom): tools/test_riding.mjs seats every
- * one at walk and trot and holds its skin out of the horse. The figures with a coat's skirts or
- * tails, a blanket or a breechcloth (the trader, the officers, the Potawatomi man) hang them through
- * the horse's back as they are rigged, so they do not ride yet. By 1904 Prairie Avenue went in carriages, and a groom
- * exercising a carriage horse is the one rider. The counts, rounds, hours and seasons are
- * reconstructed (L-town-riders-3560).
+ * WHO. Each rider is an anonymous figure of the year: the settler, the engagé, the private, the
+ * trader in his capote and the Potawatomi man in his blanket and breechcloth (whose cloth lies on
+ * the horse, rider-drape.js; the Potawatomi on their own pad saddle, `tack: 'potawatomi'`), and in
+ * 1904 the driver as a groom in the mornings and a coachman in the afternoons, Prairie Avenue
+ * having gone in carriages. tools/test_riding.mjs seats every one at every pace and holds its skin
+ * out of the horse. The counts, rounds, hours and seasons are reconstructed (L-town-riders-3560).
+ *
+ * THE CAMPS. A horse is tied at each picket the 1812 camps lay (tools/camp_pickets_1812.py), on
+ * the camp's own days only (`dates`), clear of the lodges and of each other (L-camp-horses-3560).
  *
  * WHERE. In 1835 each rider goes round a ring of the worked streets clockwise, 3.5 m right of
  * the crown, on the kerb side of the wagons (which keep 1 m right, lay_driven_wagons_1835.mjs),
@@ -37,6 +39,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 import { routeFor } from '../renderers/web/js/transport-loop.js';
 import { streetsOf, ring, fit, footprintWorld } from './lay_driven_wagons_1835.mjs';
 
@@ -86,9 +89,39 @@ const RIDERS = [
     follow: 'shore_road_wagon_haul_1812', offset_m: 2.5, hours: [6, 17], seasons: OPEN, pace: 1.4, at: .05,
     why: 'The families south of the fort came up the shore road on horseback.' },
   { id: 'rider_groom_1904', scene: '1904', name: 'A groom exercising a carriage horse', asset: 'anonymous_working_driver_1904',
-    follow: 'prairie_driven_brougham_north_loop_1904', offset_m: 2.5, hours: [7, 11], seasons: OPEN, pace: 1.4, at: .5,
-    why: 'Prairie Avenue went in carriages; its grooms rode the carriage horses out in the morning.' },
+    follow: 'prairie_driven_brougham_north_loop_1904', offset_m: 2.5, hours: [6.5, 12], seasons: ALL, pace: 1.4, at: .5,
+    why: 'Prairie Avenue went in carriages; its grooms rode the carriage horses out in the morning, the year round.' },
+  // Kevin, 2026-11-17: "People in long coats or blankets should be able to ride horses" (their
+  // cloth lies on the horse, rider-drape.js), and "Maybe there would be someone on a circuit on a
+  // horse in 1904?".
+  { id: 'rider_coachman_1904', scene: '1904', name: 'A coachman exercising a horse in the afternoon', asset: 'anonymous_working_driver_1904',
+    follow: 'prairie_driven_brougham_south_loop_1904', offset_m: 2.5, hours: [13.5, 17.5], seasons: OPEN, pace: 1.45, at: .3,
+    why: 'A carriage horse that stood in the stable all day was ridden out in the afternoon to keep it fit.' },
+  { id: 'rider_potawatomi_1835', scene: '1835', name: 'A Potawatomi man riding in to trade', asset: 'potawatomi_man_1812', tack: 'potawatomi',
+    ring: ['franklin', 'lasalle', 'lake', 'washington'], hours: [9, 17], seasons: ['summer', 'fall'], pace: 1.4, at: .62,
+    why: 'Potawatomi men still rode in to the traders and the agency in 1835, the year of the last great gathering at Chicago before the removal.' },
+  { id: 'rider_potawatomi_river_1835', scene: '1835', name: 'A Potawatomi man riding along the river', asset: 'potawatomi_man_1812', tack: 'potawatomi',
+    ring: ['clinton', 'canal', 'fulton', 'washington'], hours: [10, 18], seasons: ['summer', 'fall'], pace: 1.4, at: .7,
+    why: 'Potawatomi men still rode in to the traders and the agency in 1835, the year of the last great gathering at Chicago before the removal.' },
+  { id: 'rider_trader_1835', scene: '1835', name: 'A trader in his capote, riding in', asset: 'trader_1812',
+    ring: ['lasalle', 'clark', 'lake', 'washington'], hours: [8, 16], seasons: ALL, pace: 1.4, at: .1,
+    why: 'The Indian traders of the old trade still rode between their posts and the town in 1835.' },
+  { id: 'rider_potawatomi_1812', scene: '1812', name: 'A Potawatomi man riding to the fort', asset: 'potawatomi_man_1812', tack: 'potawatomi',
+    follow: 'fort_wagon_loop_1812', offset_m: 3, hours: [7, 19], seasons: ALL, pace: 1.45, at: .5,
+    why: 'The Potawatomi kept many horses and rode in to the factory, the traders and the fort.' },
+  { id: 'rider_potawatomi_shore_1812', scene: '1812', name: 'A Potawatomi man riding the shore road', asset: 'potawatomi_man_1812', tack: 'potawatomi',
+    follow: 'shore_road_wagon_haul_1812', offset_m: 2.5, hours: [6, 18], seasons: OPEN, pace: 1.45, at: .75,
+    why: 'The Potawatomi kept many horses and rode the shore road between their villages and the fort.' },
+  { id: 'rider_trader_1812', scene: '1812', name: 'A trader in his capote riding out', asset: 'trader_1812',
+    follow: 'fort_wagon_loop_1812', offset_m: 3, hours: [8, 17], seasons: ALL, pace: 1.4, at: .02,
+    why: 'The traders rode out to the villages and the camps and back to their houses by the river.' },
 ];
+
+// Kevin, 2026-11-17: "there would be horses at the native camps". A horse tied at each of the
+// pickets the camps' grounds already stake out (tools/camp_pickets_1812.py), drawn only on the
+// days its camp is (T-3527), on the Potawatomi pad saddle (saddle_horses.json tack_variants).
+const CAMP_TIE_M = 1.3;     // the horse stands this far from its stake, on its line
+const CAMP_CLEAR_M = 1.2;   // and keeps this clear of a lodge and of another horse
 
 const STABLED = [
   ['1835', 'sauganash_hotel_stable'], ['1835', 'tremont_house_1_stable'], ['1835', 'western_hotel_stable'],
@@ -179,6 +212,38 @@ function stabledRow(scene, id, lines) {
     basis: `Tied outside ${name}, on its street side (${TOOL}). Kevin, 2026-11-17: "some stabled parked horses I could ride". Where it stands, its tack and its coat are reconstructed (${LIBERTY}).` };
 }
 
+// ---- the camps' horses ------------------------------------------------------------------
+const hash = str => { let h = 2166136261; for (const c of str) h = Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0; return h / 4294967296; };
+function campRows() {
+  const camps = JSON.parse(execFileSync('python3', [path.join(ROOT, 'tools/camp_pickets_1812.py')], { encoding: 'utf8' }));
+  const rows = [], taken = [];
+  for (const camp of camps) {
+    const lodges = camp.dwellings.map(([e, n, hx, hy]) => ({ e, n, r: Math.max(hx, hy) }));
+    camp.stakes.forEach((stake, k) => {
+      const id = `camp_horse_${camp.camp.replace(/_1812$/, '')}_${k + 1}`;
+      // Round the stake to the first bearing whose horse stands clear of the lodges and the others.
+      const start = hash(id) * 360;
+      for (let step = 0; step < 12; step++) {
+        const b = (start + step * 30) % 360, rad = b * Math.PI / 180;
+        const at = round2([stake[0] + Math.sin(rad) * CAMP_TIE_M, stake[1] + Math.cos(rad) * CAMP_TIE_M]);
+        // The horse's body along its bearing: its middle, its head 1.2 m on, its quarters 1.1 m back.
+        const body = [-1.1, 0, 1.2].map(d => [at[0] + Math.sin(rad) * d, at[1] + Math.cos(rad) * d]);
+        const clear = body.every(([e, n]) => lodges.every(l => Math.hypot(e - l.e, n - l.n) > l.r + CAMP_CLEAR_M)
+          && taken.every(t => Math.hypot(e - t[0], n - t[1]) > CAMP_CLEAR_M + .5));
+        if (!clear) continue;
+        taken.push(...body);
+        const name = String(camp.name ?? camp.camp).replace(/^The Potawatomi camp of August 1812: /, '').replace(/^The /, '');
+        rows.push({ id, scene: '1812', name: `A horse on its picket at ${camp.camp.startsWith('miami') ? 'the Miami escort\'s camp' : `the Potawatomi camp (${name})`}`,
+          short_name: 'the horse', at, bearing_deg: Math.round(b * 100) / 100, coat_row: id.slice(0, 60), tack: 'potawatomi',
+          camp: camp.camp, ...(camp.window ? { dates: camp.window } : {}), grade: 'reconstructed', liberty: 'L-camp-horses-3560', generated_by: TOOL,
+          basis: `Tied at a picket the camp's ground stakes out (${camp.camp}; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: "there would be horses at the native camps". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560).` });
+        return;
+      }
+    });
+  }
+  return rows;
+}
+
 export function build() {
   const streets = streetsOf();
   const loops = JSON.parse(fs.readFileSync(LOOPS, 'utf8'));
@@ -187,7 +252,7 @@ export function build() {
     const route = riderRoute(spec, streets, teams);
     const length = routeFor(route).length;
     return { id: spec.id, scene: spec.scene, name: spec.name, short_name: spec.name.replace(/^(A|An|The) /, m => m.toLowerCase()),
-      asset: spec.asset, coat_row: spec.id, hours: spec.hours, seasons: spec.seasons, speed_m_s: spec.pace,
+      asset: spec.asset, coat_row: spec.id, ...(spec.tack ? { tack: spec.tack } : {}), hours: spec.hours, seasons: spec.seasons, speed_m_s: spec.pace,
       route, initial_distance_m: Math.round(length * spec.at * 4) / 4,
       ...(spec.ring ? { ring: spec.ring } : { follows: spec.follow, offset_m: spec.offset_m }),
       grade: 'reconstructed', liberty: LIBERTY, generated_by: TOOL, basis: `${spec.why} Who rides, the round, the hours and the seasons are reconstructed (${LIBERTY}).` };
@@ -197,7 +262,7 @@ export function build() {
     1812: ['fort_wagon_loop_1812', 'shore_road_wagon_haul_1812'].map(id => { const c = cornersOf(teams.get(id).route); return [...c, c[0]]; }),
     1904: loops.rows.filter(r => r.scene === '1904' && r.route.kind === 'path').map(r => [...r.route.points_enu_m, r.route.points_enu_m[0]]),
   };
-  const stabled = STABLED.map(([scene, id]) => stabledRow(scene, id, lines[scene]));
+  const stabled = [...STABLED.map(([scene, id]) => stabledRow(scene, id, lines[scene])), ...campRows()];
   return { riders, stabled };
 }
 

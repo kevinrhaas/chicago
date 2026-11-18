@@ -2047,7 +2047,16 @@ async function boot() {
     residency.prime(eye, options);
     api.residency = residency.state;
     api.textureResidency = residency;
+    adoptHungDoors();
   };
+  // T-3557: the door leaves lifted out of the houses and hung to swing (house-doors.js, the
+  // Glessner coach house) draw with the houses' own textures, outside the structures group.
+  // Residency must swap them with the batches' or, drawn while the texture is away, they
+  // upload its released levels and the house's painted wood comes back black.
+  function adoptHungDoors() {
+    if (!residency) return;
+    for (const group of [api.houseDoors?.group, api.coachHouse?.group]) if (group) residency.adopt(group);
+  }
   // Image sharpness for a visitor who never chose one: the profile's choice —
   // on a standard device the T-2110 default, Low on a phone and Medium on a
   // desktop (see sharpness.js).
@@ -3295,6 +3304,7 @@ async function boot() {
       }
     } catch (again) { problems.push(`coach house leaves: ${again.message}`); }
   }
+  adoptHungDoors();
   // ---- end T-3557 coach house
   bootController.end('ground');
   bootController.start('flora');
@@ -4351,6 +4361,8 @@ async function boot() {
           ? (e, n) => streetGrid.carriagewayHeight(e, n)
           : smoothGround ?? ((e, n) => profiledGroundHeight(terrain, decks, e, n)),
         footprints: () => footprints, visitor: () => walker.state,
+        // Kevin, 2026-11-17: a team waits for a horse in its way (riding.js obstacles).
+        obstacles: () => api.riding?.obstacles?.() ?? [],
         interactions, detail: detailLevel, problems,
         // T-3542: every memory-saving device (a phone, an integrated-GPU computer, Light) takes
         // a row's lighter horse, vehicle and driver; it no longer means no team at all.
@@ -4403,9 +4415,13 @@ async function boot() {
       // teams, and go away with the vehicles (Kevin, 2026-11-17).
       hour: () => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; },
       season: () => api.season?.current ?? 'summer',
+      // A camp's horses stand only on the camp's days, the date the Season or a jaunt sets.
+      date: () => world.sunDate ?? null,
       detail: () => detailLevel,
       hidden: () => confidence.hidden.reconstructed || !shownLayers.vehicles,
       teams: () => api.townTransport?.footprintsAhead?.([0, 1.5, 3], .3) ?? [],
+      // T-3644: the visitor rides as their own person.
+      self: () => api.person ?? null,
       onMount: (horse, on) => {
         if (!on) return;
         api.travel?.stop?.('riding');
@@ -4414,6 +4430,22 @@ async function boot() {
     })).then((ride) => { if (ride) { api.riding = ride; scene3d.add(ride.group); } })
       .catch((error) => { problems.push(`riding: ${error.message}`); });
   }
+
+  // T-3644 (Kevin, 2026-11-17: "provide options for users in settings to change the gender
+  // appearance dress, etc."): the visitor's own person, chosen on the Settings card's You tab and
+  // worn in the saddle (visitor-person.js, person-settings.js). Off the boot's path.
+  api.person = null;
+  void (async () => {
+    const [{ loadVisitorPerson }, { wirePersonSettings, personHost }, { createPersonPortrait }, { COMPLEXION_TINT }] = await Promise.all([
+      import('./visitor-person.js'), import('./person-settings.js'), import('./person-portrait.js'), import('./human-looks.js')]);
+    personHost(document);   // the You tab's group, with its "loads with the town" line until then
+    const person = await loadVisitorPerson({ dataBase: bases.dataBase, assetBase: bases.assetBase, storage: safeStorage(),
+      account: api.signIn?.account ?? null });
+    api.person = person;
+    const portrait = createPersonPortrait({ renderer, humans: () => api.humans ?? null, person, lod: 1 });
+    api.personSettings = wirePersonSettings({ doc: document, person, year: YEAR, portrait, tints: COMPLEXION_TINT });
+    person.onChange(() => { void api.riding?.reseat?.(); });
+  })().catch((error) => { problems.push(`person: ${error.message}`); });
 
   /** A structure's ground position in local ENU metres — footprint centroid where
    *  one is drawn, the placement otherwise. Go to measures distance from it;
@@ -6174,6 +6206,8 @@ async function boot() {
               eye: () => camera.getWorldPosition(new THREE.Vector3()),
               // The town's own horse teams, taken for a scene (the 1812 column's wagons).
               teams: { get: (id) => api.townTransport?.actorById?.(id) ?? null, load: () => { void api.townTransport?.ready?.()?.catch?.(() => {}); } },
+              // T-3560: saddle horses for the castmates who ride (Wells, the surgeon's mate, 1812).
+              horses: { create: (spec) => api.riding?.stageHorse?.(spec) ?? null },
               // The adults jaunts (2026-11-15): weapons in the hand, and the guns' flash and smoke.
               fight: humanFight, blood: humanBlood,
               // The burning of the fort (2026-11-16): its buildings' fire, smoke and fall, and the

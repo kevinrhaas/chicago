@@ -319,8 +319,9 @@ def battle(b):
     st['covered-way'] = {'caption': "Watch the soldiers carry the powder and the whiskey out by the sally port and down the covered way to the river.",
                          'cast': cast, 'open_gates': SALLY_PORT}
 
-    # 7 — the gate, 14 August, sunset. Wells comes in at the head of his Miamis (on foot here;
-    # no horse is drawn), his niece and Heald meet him at the open gate, and the three go in
+    # 7 — the gate, 14 August, sunset. Wells rides in at the head of his Miamis (he rode; Kevin,
+    # 2026-11-17: "maybe during the battle of fort Dearborn they would have had horses"), gets
+    # down short of the gate, clear of his men's way, and walks up; his niece and Heald meet him at the open gate, and the three go in
     # through both rows and across the parade to Heald's quarters (its built door, which swings
     # for them). Black Partridge's medal is the next stop's.
     quarters = door_at(b, 'first_fort_dearborn_commanding_officers_barracks:front')
@@ -330,7 +331,9 @@ def battle(b):
                 {'t': 37, 'walk': inside, 'hide': True}]),
             member('heald_rebekah', P(GATE_OUT[0] + 1.6, GATE_OUT[1] + 1.0), heading=240, beats=[{'t': 16, 'face': 'wells_william'}, {'t': 18, 'greet': True},
                 {'t': 34, 'walk': inside, 'hide': True}]),
-            member('wells_william', P(1117.0, 191.5), heading=80, beats=[{'t': 1, 'walk': [P(1132.0, 194.0), P(GATE_OUT[0] - 1.5, GATE_OUT[1] - 0.6)], 'heading': 70},
+            member('wells_william', P(1117.0, 191.5), heading=80, mount={'horse': 'wells_william'}, beats=[
+                {'t': 1, 'walk': [P(1131.0, 192.5), P(1137.0, 192.4)], 'pace': 'brisk'}, {'t': 12.8, 'dismount': True},
+                {'t': 13.2, 'walk': [P(GATE_OUT[0] - 1.5, GATE_OUT[1] - 0.6)], 'pace': 'brisk', 'heading': 70},
                 {'t': 20, 'greet': True}, {'t': 22, 'talk': True}, {'t': 31, 'talk': False}, {'t': 35.5, 'walk': inside, 'hide': True}])]
     for i, who in enumerate(MIAMI[:12]):
         row, k = divmod(i, 3)
@@ -397,6 +400,9 @@ def battle(b):
                 cast.append(member(w, P(*wa), heading=bearing(wa, wz), tier='desktop' if j % 2 else None, beats=beats))
             slot += 2 * TEAM_RANKS
             continue
+        # A rider takes the water-side file of a rank of his own, the other file left clear, so his
+        # horse can turn to the bank (T-3560).
+        if who in MOUNTED: slot += slot % 2
         rank, file = divmod(slot, 2)
         slot += 1
         u_end = -9.0 - 1.7 * rank; u0 = u_end - 34.0
@@ -412,13 +418,16 @@ def battle(b):
             beats += [{'t': 41 + 0.2 * (i % 5), 'face': P(*shore(u_end - 8, 40))}]
         if who == 'heald_nathan':
             beats += [{'t': 30, 'face': 'wells_william'}, {'t': 33, 'talk': True}, {'t': 38, 'talk': False}]
-        cast.append(member(who, P(*a), heading=bearing(a, z), tier='desktop' if i % 3 == 2 and who != 'heald_nathan' else None, beats=beats))
+        horse = MOUNTED.get(who)
+        if horse: slot += 1
+        cast.append(member(who, P(*a), heading=bearing(a, z), tier='desktop' if i % 3 == 2 and who not in ('heald_nathan', *MOUNTED) else None, beats=beats,
+                           **({'mount': dict(horse)} if horse else {})))
         i += 1
     w0 = shore(26.0, 10.0)
-    cast.append(member('wells_william', P(*w0), heading=bearing(w0, shore(60, 10)), beats=[
+    cast.append(member('wells_william', P(*w0), heading=bearing(w0, shore(60, 10)), mount={'horse': 'wells_william'}, beats=[
         {'t': 0.0, 'walk': [P(*shore(34.0, 10.0))], 'pace': MARCH}, {'t': 14, 'face': P(*shore(10, 40))},
-        # He 'came riding furiously back' (Mrs. Helm); no horse is drawn, so he comes at a sprint (T-3553).
-        {'t': 22, 'walk': [P(*shore(-7.5, 12.0))], 'pace': 'sprint'}, {'t': 30, 'face': 'heald_nathan'}, {'t': 31, 'talk': True}, {'t': 38, 'talk': False},
+        # He 'came riding furiously back' (Mrs. Helm): at a gallop (T-3560).
+        {'t': 22, 'walk': [P(*shore(-7.5, 12.0))], 'pace': GALLOP}, {'t': 30, 'face': 'heald_nathan'}, {'t': 31, 'talk': True}, {'t': 38, 'talk': False},
         {'t': 40, 'heading': bearing(shore(0, 12), shore(0, 30))}]))
     for i, who in enumerate(MIAMI[:6]):
         at = shore(30.0 + 1.6 * (i // 2), 9.0 + 1.3 * (i % 2))
@@ -633,6 +642,12 @@ def burning(b):
 TRAIL = [(1148.0, -300.0), (1148.0, -370.0), (1139.0, -412.0), (1141.0, -433.0), (1149.0, -450.0),
          (1151.0, -475.0), (1149.0, -496.0), (1144.0, -527.0), (1143.0, -540.0), (1141.0, -600.0), (1140.0, -640.0)]
 MARCH = 1.3
+GALLOP = 8.0   # T-3560: a ridden horse's gallop (saddle_horses.json ride.gallop_m_s is 8.5)
+# T-3560: who rode, by the accounts: Wells (he 'came riding furiously back', Mrs. Helm; he 'rode
+# up' to his niece, Rebekah Heald's story) and the surgeon's mate Van Voorhis ('His horse was shot
+# under him', Mrs. Helm). Mrs. Heald rode too ('still seated on her horse'), but a woman's figure
+# does not yet sit a saddle, so she walks. A rider takes a rank to himself in the column.
+MOUNTED = {'wells_william': {'horse': 'wells_william'}, 'van_voorhis_isaac': {'horse': 'van_voorhis_isaac'}}
 
 # The column's wagons (T-3553): the town's own two teams (data/transport/driven/loops.json),
 # driven by the men who drive them every day, Mills and Moffett, walking at the near horse.
@@ -706,9 +721,12 @@ def column(b):
         side = (4.0 if file == 0 else 2.6) if file != 0.5 else 3.3
         start = along(line, s0, side)
         way = sub(line, s0, s1, side)[1:]
-        tier = 'desktop' if (i % 3 == 2 and who not in ('heald_nathan', 'wells_william', 'kinzie_john_elder')) else None
+        tier = 'desktop' if (i % 3 == 2 and who not in ('heald_nathan', 'kinzie_john_elder', *MOUNTED)) else None
         i += 1
-        cast.append(member(who, P(*start), heading=b.bearing(start, way[0]), tier=tier, beats=[{'t': 0.0, 'walk': [P(*p) for p in way], 'pace': MARCH}]))
+        horse = MOUNTED.get(who)
+        if horse and who != 'wells_william': slot += 2
+        cast.append(member(who, P(*start), heading=b.bearing(start, way[0]), tier=tier, beats=[{'t': 0.0, 'walk': [P(*p) for p in way], 'pace': MARCH}],
+                           **({'mount': dict(horse)} if horse else {})))
     # The Potawatomi escort walks with them out on the prairie, at a distance.
     for i, who in enumerate(b.take(b.MEN, 24, stride=17, offset=11)):
         rank, k = divmod(i, 4)
