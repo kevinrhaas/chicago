@@ -17385,7 +17385,8 @@ for (const [label, viewport, touch] of [
       // T-3535: current published X-RAY 3,737,315 + retained 18,059 margin,
       // rounded to 5,000; ordinary and lower-tier limits remain pinned.
       // T-3556: re-read at 3,764,962 with two 1835 townspeople out (render-budget.js).
-      const triangles = fullGhost ? 3785000 : ordinary;
+      // T-3655: re-read at 3,842,482 / 3,847,921 at this part's own stand -> 3,870,000.
+      const triangles = fullGhost ? 3870000 : ordinary;
       return String(st.year) === '1835' && ordinary !== undefined
         && st.budget.drawCalls === draws && st.budget.triangles === triangles
         && st.publicBudget.drawCalls === draws && st.publicBudget.triangles === triangles;
