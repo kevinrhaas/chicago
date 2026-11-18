@@ -84,10 +84,11 @@ export function createRiderPose(scene, root) {
      * world targets for the ankles and the palms; `forward` / `up` = the horse's world axes;
      * `lean` = radians forward of upright; `look` = radians the head turns (left +); `sway` =
      * radians the back rolls toward the left with the horse's stride; `nod` = radians the head
-     * drops (riding.js riderLife). `legs` (T-3644, a side saddle) = { l, r }, each leg's own
-     * knee pole { forward, out, up } in the horse's axes (out toward the near side, whichever
-     * leg), its thigh `roll` and its toe's way `toe` = [forward, out, up]; without it both legs
-     * mirror `knee` and `thighRoll` astride.
+     * drops (riding.js riderLife); `knee` = which way the knees bend ({ forward, out, up }: up
+     * -0.1 unless said; board-climb.js lifts them for a seat and a step). `legs` (T-3644, a side
+     * saddle) = { l, r }, each leg's own knee pole { forward, out, up } in the horse's axes (out
+     * toward the near side, whichever leg), its thigh `roll` and its toe's way `toe` = [forward,
+     * out, up]; without it both legs mirror `knee` and `thighRoll` astride.
      */
     apply({ seat, feet, hands, forward, up, lean = .08, look = 0, sway = 0, nod = 0, knee = { forward: .6, out: 1.2 }, thighRoll = 0, legs = null }) {
       for (const [b, q] of base) b.quaternion.copy(q);

@@ -113,7 +113,8 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
   blockedAt = () => false, placeVisitor = null, configFile = 'transport/driven/loops.json',
   visitorEye = null, groundAt = () => NaN, walkEye = () => 1.6, onBoard = () => {}, reducedMotion = () => false, say = () => {},
   reinsHint = undefined, carriagewayFile = CARRIAGEWAY_FILES[String(sceneId)] ?? null,
-  parked = null, coachHouse = () => null, pathHeightAt = null, obstacles = null }) {
+  parked = null, coachHouse = () => null, pathHeightAt = null, obstacles = null,
+  boardingFile = 'transport/driven/boarding.json', visitorFigure = null }) {
   if (!supportsTownTransport(sceneId)) return null;
   sceneId = String(sceneId);
   const json = async (file, expectedSHA256 = null) => {
@@ -400,6 +401,7 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
   /** After each frame: the handover, the trips, and the put-away. */
   function afterUpdate(dt, cameraPosition) {
     bindBlocker();
+    boardFig?.update(dt, cameraPosition);
     stepTrips(dt);
     for (const row of onCall) {
       if (!row.stand_in_for || !parked?.setStandIn) continue;
@@ -431,7 +433,32 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
     const v = visitor();
     return v ? { e: v.e, n: v.n, y: v.eyeY ?? v.y, bearing: v.bearing } : null;
   };
-  const ride = createTeamRide({ visitor: visitorEye ?? person, standFor, groundAt, walkEye, onBoard, reducedMotion, say });
+  // T-3560 (Kevin, 2026-11-17: "he should have a climb up sequence that shows him boarding that
+  // applies all years"): the visitor's figure climbing up and down (board-climb.js). Its file,
+  // module and figure are fetched the first time a climb is asked for, never at boot.
+  let boardMod = null, boardCfg = null, boardFig = null, boardLoad = null;
+  const boarding = {
+    prepare: () => (boardLoad ??= Promise.all([import('./board-climb.js'), json(boardingFile)]).then(([m, c]) => {
+      boardMod = m; boardCfg = c;
+      boardFig = m.createBoardFigure({ humans: () => humans, group, lod: coarse ? 2 : c.lod ?? 1, why: c.why, liberty: c.liberty, problems,
+        asset: () => visitorFigure?.(sceneId) ?? c.figure?.[sceneId] ?? null });
+      return boardFig.prepare();
+    }).catch(error => { problems.push(`town transport boarding: ${error.message}`); return false; })),
+    ready: () => !!boardFig?.ready,
+    plan(a, opts) {
+      const row = rows.find(r => r.id === a?.id), spec = boardFig?.ready ? boardMod.boardSpecFor(boardCfg, row) : null;
+      const p = a?.pose;
+      if (!spec || !p || ![p.e, p.n, p.yaw].every(Number.isFinite) || typeof a.toWorld !== 'function') return null;
+      const c = Math.cos(p.yaw), si = Math.sin(p.yaw);
+      return boardMod.planBoard({ spec, toWorld: q => a.toWorld(q), heading: a.heading_deg, figure: boardFig.figure,
+        // World to vehicle-root local (transport-loop.js localToEnu, inverted).
+        local: (e, n) => [c * (e - p.e) + si * (n - p.n), si * (e - p.e) - c * (n - p.n)],
+        ground: groundAt, standable: (e, n) => !blockedAt(e, n), walk_m_s: boardCfg.walk_m_s ?? 1.3, ...opts });
+    },
+    eye: (plan, u, heading) => boardMod.boardEye(plan, u, { heading }),
+    show(plan, u, hidden) { boardFig?.show(plan, u, { hidden }); },
+  };
+  const ride = createTeamRide({ visitor: visitorEye ?? person, standFor, groundAt, walkEye, onBoard, reducedMotion, say, boarding });
   // T-3557: an on-call team brought round where its parked twin already stands is not refused
   // by the visitor who asked for it, beside its door (`spawning`, only while it is made).
   const spawning = new Set();
@@ -521,7 +548,7 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
       try { afterUpdate(Number.isFinite(dt) ? dt : 0, cameraPosition); } catch (error) { problems.push(`town transport on call: ${error.message}`); }
     },
     dispose() {
-      ride.release('gone'); registration?.dispose(); registration = null;
+      ride.release('gone'); boardFig?.dispose(); registration?.dispose(); registration = null;
       for (const thing of callThings.splice(0)) interactions.remove?.(thing.id);
       if (blockerBound) { try { blockerBound.setBlocker(null); } catch { /* gone with its house */ } blockerBound = null; }
       for (const row of onCall) if (row.stand_in_for) parked?.setStandIn?.(row.stand_in_for, true);
