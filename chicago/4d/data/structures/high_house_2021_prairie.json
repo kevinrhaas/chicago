@@ -1,10 +1,10 @@
 {
   "id": "high_house_2021_prairie",
-  "name": "2021 Prairie Avenue — High brick gabled/turret house (district draft; refined by T-1917)",
+  "name": "2021 Prairie Avenue — the Adams/High house, brick under a steep front gable with a round corner turret (T-3633)",
   "aka": [
     "2021 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k01_frontage",
   "function": {
     "value": "residence",
     "confidence": "inferred",
@@ -14,30 +14,31 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '2½B brick dwelling (D)'. Carried to 1904 on the T-1842 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2352, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1917 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2021-b1), the T-1842 census (s35-2021-front, s35-2021-wing) and the T-1837 register row frontage-35-079 (High brick gabled/turret house); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-east-2352).",
+  "research_note": "Refined in place from the district draft (T-2352) onto the K01 frontage assembly by T-3633, piece 1 of T-1917 (package S08 of the T-1837 programme): the house's plan off the 1911 sheet 35 trace (the main body, the round of its north-west corner and the projection on its south flank, the '2B' and '1B' rear ranges), and its steep front gable, round corner turret over an arched porch, gabled south wing, tall stack and slate roofs off the one photograph of it, Chicagology's undated halftone captioned 'Shirley T. High Residence'. The Daily News of 19 January 1940 (cited in the 1973 Commission report) calls it a 2½-storey, 16-room house built in the late 1870s by Benjamin Adams and sold in 1886 to James L. High, Shirley T. High's father; the photograph's Queen Anne form may be High's of 1886-1887 rather than Adams's, so the picture is evidence of its own date and the record claims the 1904 target only through the 1911 sheet, which draws the same plan. Liberty L-k01-2021-high-3633.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_mapped_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
         "confidence": "inferred",
         "sources": [
-          "sanborn_1911_chicago_v3_sheet_35"
+          "sanborn_1911_chicago_v3_sheet_35",
+          "chicagology_2021_high_photo"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "note": "Drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped), with the plan the photograph shows (the rounded north-west corner, the projection on the south flank). The photograph is undated; the record claims the 1904 target to the sheet's date and no more.",
         "to_is": "seen"
       },
       "position": {
-        "utm_e": 448513.638,
-        "utm_n": 4633851.3,
+        "utm_e": 448503.126,
+        "utm_n": 4633852.388,
         "rotation_deg": 179.389,
         "symbolic_location": "2021 S. Prairie Avenue, parcel prairie_2021 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 29.000, v -6.000 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.389 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The corner of the front block's rear line on the main body's north flank (10.5 m behind the rear wall the draft stood on, where the south wing stands out from the south flank), read off the traced 1911 sheet 35 outline (s35fp-2021-b1, data/traces/prairie_1904_footprints_s35.json) through the T-1250 fit of the sheet, which carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, plus about a pixel (0.19 m) of trace on this coarser copy. The draft's corner stood 10.5 m further back and 1.2 m south: it took the largest rectangle inside the trace, which left out the main body's north 1.2 m. Rotation 179.389 degrees (the draft's) turns the plan's u axis onto the lot's own rear-to-street line.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -50,171 +51,680 @@
             0.0
           ],
           [
-            14.25,
+            7.8,
             0.0
           ],
           [
-            14.25,
-            10.0
+            7.8,
+            9.25
           ],
           [
             0.0,
-            10.0
+            9.25
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The main body the 1911 sheet draws, '2½B', read off the traced outline in this frame: its front 18.3 m from its rear wall and its two flanks 9.25 m apart. The trace's round of the north-west corner (about 1.3 m before the front) is the turret, and its projection on the south flank (u 5.3-10.5 m, 4.15 m out) the south wing, both built as bays; the trace's small cut at the front's south corner (about a metre) is not built (the photograph shows the corner square)."
       },
       "form": {
         "stories": {
           "value": 2,
           "confidence": "attested",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
+            "sanborn_1911_chicago_v3_sheet_35",
+            "chicagology_2021_high_photo"
           ],
-          "note": "'2½B; rear2B/1B' printed on the 1911 sheet: 2 full storeys and a half storey in the roof."
+          "note": "'2½B' printed on the 1911 sheet over the house: two full storeys and a half storey in the roof, the half storey the attic under the front gable, whose three lights the photograph shows."
         },
         "construction": {
           "value": "brick",
           "confidence": "attested",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
+            "sanborn_1911_chicago_v3_sheet_35",
+            "chicagology_2021_high_photo"
           ],
-          "note": "The register reads the map's colours as 'brick'."
+          "note": "The 1911 sheet colours the house brick, and the photograph shows brick walls from the base course to the gable's head, the turret included."
         },
-        "draft_plan": {
+        "principal_floor_m": {
+          "value": 2.2,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "The porch's floor and the front's base course read off the photograph through the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json): both at about y 1430 px, 2.2 m over the yard's grade; the stoop climbs to it in about eleven risers."
+        },
+        "storey_heights_m": {
+          "value": [
+            3.8,
+            3.8
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "Read off the photograph through the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json): the string course under the second-floor lights at about 5.9 m, the second-floor lights from 6.25 to 8.45 m and the eave over the south flank at 9.8-9.9 m (y 610 px at the front corner, 730 px at the side wing), so 2.2 + 3.8 + 3.8 m."
+        },
+        "wall_thickness_front_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "A brick front three bricks thick, the contract's ordinary masonry front. (L-k01-2021-high-3633)"
+        },
+        "wall_thickness_side_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "note": "A 13 in brick side wall, the contract's ordinary. (L-k01-2021-high-3633)"
+        },
+        "eave_overhang_m": {
+          "value": 0.3,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "The slate overhangs the south flank by about a foot in the photograph (y 600-620 px over the wall's head)."
+        },
+        "stair_tread_m": {
+          "value": 0.3,
+          "confidence": "reconstructed",
+          "note": "The contract's ordinary tread. (L-k01-2021-high-3633)"
+        },
+        "stair_landing_depth_m": {
+          "value": 1.2,
+          "confidence": "reconstructed",
+          "note": "A landing before the porch's mouth, the contract's ordinary. (L-k01-2021-high-3633)"
+        },
+        "service_wall_brick": {
+          "value": "common_buff_common_6",
+          "confidence": "reconstructed",
+          "note": "The rear and north walls no picture shows, in the contract's common brick. (L-k01-2021-high-3633)"
+        },
+        "face_brick": {
           "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 2,
-                "roof": "gable",
-                "rect": [
-                  0.0,
-                  0.0,
-                  14.25,
-                  10.0
-                ],
-                "from": "s35fp-2021-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "bay",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  14.25,
-                  1.25,
-                  18.25,
-                  6.0
-                ],
-                "from": "s35fp-2021-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill"
-              },
-              {
-                "id": "r3",
-                "role": "range",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  -6.25,
-                  -0.25,
-                  0.0,
-                  7.5
-                ],
-                "from": "s35fp-2021-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 80% of its fill"
-              },
-              {
-                "id": "r4",
-                "role": "porch",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  17.75,
-                  -0.75,
-                  19.25,
-                  1.25
-                ],
-                "from": "s35fp-2021-b1 p1 (range, brick), rectangle 1 of that part; the part's rectangles cover 70% of its fill"
-              }
-            ],
-            "lot_v": [
-              -1.69,
-              13.69
-            ],
-            "street_u": 25.425
+            "front": "pressed_red",
+            "all_round": true
           },
           "confidence": "inferred",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
+            "chicagology_2021_high_photo"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2021-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s35fp-2021-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill; s35fp-2021-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 80% of its fill; s35fp-2021-b1 p1 (range, brick), rectangle 1 of that part; the part's rectangles cover 70% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "note": "The photograph shows one dark brick on the front, the turret and the south flank alike (a coarse halftone: monochrome, so the red is RECONSTRUCTED, as every pressed brick front on the avenue's K01 houses)."
         },
-        "draft_elevation": {
+        "street_front_trim": {
           "value": {
-            "kind": "house",
-            "seed": 479276475,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
+            "by_storey": [
+              "k09.trim.lintel_cornice_hood",
+              "k09.trim.lintel_cornice_hood"
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "Plain stone heads over the street lights: the halftone shows the heads as pale bands and no carved hood. (L-k01-2021-high-3633)"
+        },
+        "wall_head": {
+          "value": {},
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "No cornice across the front: the front wall runs up into its gable, and the flanks end at a plain slate eave (the photograph)."
+        },
+        "roof_form": {
+          "value": "hip",
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "The main roof runs back from the street under one ridge in the photograph, its south slope seen whole from the front's gable to the tall stack: built as K01's hip over the long, narrow block, its street end hidden behind the front's gable (shaped_gable), so its two long slopes are the photograph's."
+        },
+        "roof_pitch_deg": {
+          "value": 49,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "The front gable's apex at about 15.5 m over grade (y 70 px, x 545 px, through the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json)) over an eave at 9.8 m and a front 9.25 m across: a rise of 5.7 m in 4.6 m, 51 degrees at the gable; the slopes behind it are laid at 49 degrees, so the gable's head stands the kit's 0.3 m (here 0.38 m) over the ridge, as a coped wall gable must (within tolerance: about 0.2 m at the ridge)."
+        },
+        "roof_covering": {
+          "value": {
+            "fabric": "slate_pennsylvania",
+            "flashing": "copper_sheet",
+            "caps": "copper_ridge_roll"
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "The photograph shows slate on every roof, the turret's cone among them, snow lying on it."
+        },
+        "shaped_gable": {
+          "value": {
+            "profile_m": [
+              [
+                4.625,
+                9.8
+              ],
+              [
+                2.3125,
+                12.65
+              ],
+              [
+                0.0,
+                15.5
+              ]
             ],
-            "roof_pitch_deg": 50,
-            "mansard_lower_m": 3.0,
-            "front_bays": 4,
-            "entrance": "south",
-            "side_spacing_m": 2.6,
-            "chimneys": 1,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [
-              {
-                "kind": "corner_tower",
-                "radius_m": 2.0,
-                "above_eave_m": 2.8,
-                "cap_m": 5.2,
-                "at": [
-                  13.55,
-                  0.7
-                ]
-              }
-            ],
-            "draft_label": {
-              "pass": "T-2352",
-              "refined_by": [
-                "T-1917"
+            "foot_m": 9.0,
+            "thickness_m": 0.45,
+            "proud_m": 0.02,
+            "lights": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "sill_m": 9.85,
+              "width_m": 0.6,
+              "height_m": 1.6,
+              "at_m": [
+                -0.5,
+                0.6,
+                1.7
               ]
             },
-            "v_toward": "south"
+            "coping": {
+              "width_m": 0.3,
+              "proud_m": 0.04
+            },
+            "ledge_m": 9.8
           },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'gable' overlaid with the frontage row: The James L. High house (built for Benjamin Adams in the late 1870s; High's from 1886, with his 1887 rear range): the register's 'steep main gable, conical rounded corner tower, arched entry' as a steep gable to the avenue over the 2½B body and a round tower under a cone on the north front corner, where the sheet draws its front projection. Its broad side wing's secondary gable is T-1917's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 479276475 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-east-2352."
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "The steep front gable the register names: the front wall carried up over its whole width to an apex at 15.5 m (see roof_pitch_deg), its raking edges straight, with three attic lights from 9.85 to 11.5 m read off the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json) (x 445-500, 535-590 and 628-688 px, about 0.6 m each, the left two paired), their centres 0.5 m north and 0.6 and 1.7 m south of the front's middle. The photograph's slate runs a little past the rakes; K01's wall gable carries a coping there instead (within tolerance, recorded in the match record)."
         },
-        "draft": {
+        "stoop_width_m": {
+          "value": 2.0,
+          "confidence": "reconstructed",
+          "note": "The flight is seen climbing along the front from the north under snow; its width is set to the arch's 1.8 m opening and its cheeks. The photograph's flight climbs along the front from the north; K01's stoop runs straight out from the door (recorded in the match record). (L-k01-2021-high-3633)"
+        },
+        "entrance_bay": {
+          "value": "south",
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "The arched porch at the front's north end, under the turret (K01's south is the low-v end, the house's north)."
+        },
+        "front_bays": {
+          "value": [
+            2.35,
+            7.4
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "Two bays on the front, read off the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json): the porch's arched mouth at x 235-420 px (v 1.2-3.5 m), its centre 2.35 m from the front's north end, under the turret; and the broad lights of both storeys at x 690-820 px (v 6.7-8.1 m)."
+        },
+        "side_bays": {
+          "value": [
+            3.0,
+            6.4
+          ],
+          "confidence": "reconstructed",
+          "note": "The front block's north flank, which no picture shows: two bays of the kit's sash, the front one level with the south flank's light. (L-k01-2021-high-3633)"
+        },
+        "north_bays": {
+          "value": [
+            1.4
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "The south flank's one narrow light a storey, 1.4 m behind the front corner (x 965-1005 px through the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json)); the rest of the flank to the wing is blank in the photograph."
+        },
+        "rear_bays": {
+          "value": [
+            2.0,
+            5.0,
+            7.25
+          ],
+          "confidence": "reconstructed",
+          "note": "No picture sees the rear wall; the kit's ordinary bays. (L-k01-2021-high-3633)"
+        },
+        "sash_by_storey": {
+          "value": [
+            {
+              "sill_above_floor_m": 0.1,
+              "width_m": 1.15,
+              "height_m": 2.45
+            },
+            {
+              "sill_above_floor_m": 0.25,
+              "width_m": 1.1,
+              "height_m": 2.15
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "The front's lights read off the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json): on the principal floor from 2.3 to 4.75 m (y 1155-1420 px, about 1.3 m wide, built at the contract's widest 1.15 m), on the second floor from 6.25 to 8.45 m (y 755-990 px, about 1.1 m wide)."
+        },
+        "front_bays_by_storey": {
           "value": {
-            "pass": "T-2352",
-            "liberty": "L-draft-prairie-20-22-east-2352",
-            "register_row": "frontage-35-079",
-            "census_ids": [
-              "s35-2021-front",
-              "s35-2021-wing"
+            "1": [
+              3.95,
+              7.4
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "The second floor's lights read off the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json): the light beside the turret (x 410-505 px, v 3.4-4.5 m) and the broad light over the principal floor's (x 700-810 px); over the porch the turret takes the storey."
+        },
+        "basement_lights": {
+          "value": {
+            "sill_m": 0.4,
+            "width_m": 1.1,
+            "height_m": 0.8
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "The basement's lights under the front's broad window and the flank's narrow one, dark openings at about 0.4-1.2 m over the snow (x 665-825 px, y 1530-1620 px, through the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json))."
+        },
+        "street_front_round_heads": {
+          "value": {
+            "storeys": [],
+            "key": {
+              "width_m": 0.25,
+              "height_m": 0.3,
+              "proud_m": 0.03
+            },
+            "door": true
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "The porch's mouth cut round-headed in the brick front (T-3283's brick door arch): the photograph's arch at x 235-420 px; every street light is square-headed, so no storey's lights are rounded."
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
+            },
+            "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight"
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "The kit's two-over-two sash; the halftone shows blinds drawn in most lights and no muntins."
+        },
+        "entrance_kit": {
+          "value": {
+            "k01.opening.door_leaf": {
+              "variant": "k07.entrance.double_door_deep_arch",
+              "front_yard_m": 7.1,
+              "reveal_depth_m": 0.45,
+              "opening_m": [
+                1.8,
+                2.55
+              ]
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "The round-arched porch the register names: in the photograph a broad round arch at x 235-420 px (v 1.2-3.5 m), its crown at about 4.75 m over grade and its opening about 1.8 m wide, opening on a porch with a small light in its north wall and the door at its south end. Built as the kit's round-headed principal entrance cut in the brick front (street_front_round_heads.door) in a 0.45 m reveal: K01 builds an open porch behind an arch (its loggia) only behind a stone front's voussoirs, so the porch's depth, its small north light and its door at the south end are not built, and the match record says so."
+        },
+        "bays": {
+          "value": [
+            {
+              "id": "turret",
+              "variant": "k08.oriel.canted_corbelled",
+              "wall": "k01.wall.street_front",
+              "s_m": 1.6,
+              "fabric": "brick",
+              "base_m": 6.0,
+              "cap_at_eave": true,
+              "plan": {
+                "kind": "bow",
+                "chord_m": 2.4,
+                "rise_m": 1.2
+              },
+              "apron": {
+                "form": "round",
+                "radius_m": 0.5,
+                "foot_m": 5.5
+              },
+              "storeys": [
+                {
+                  "height_m": 3.8,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 1.75,
+                      "sill_m": 0.25,
+                      "at_deg": [
+                        -20
+                      ],
+                      "why_not_ordinary": "the turret's one second-floor light in the photograph (x 200-285 px, y 820-1000 px), from about 6.25 to 8.0 m"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "cone",
+                "pitch": 3.0,
+                "covering": "slate_pennsylvania",
+                "finial": false
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo",
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The turret, read off the photograph and the 1911 sheet: the round corner turret the register names stands at the front's north corner over the porch, its body from the second floor (the ledge over the porch at y 1000-1060 px) to the main eave (y 690 px, 9.8 m) and a slate cone to about 14.2 m (y 245 px) under a finial (not built: K08 sets no finial on a half cone closed against the roof; in the match record); the sheet draws its round about 1.3 m before the front (traced part, 2.8 m across). Built as a round K08 oriel on a rounded apron (its foot 0.5 m under the second floor, where the photograph's ledge runs over the porch) over the porch's mouth, a half round 2.4 m across and 1.2 m out (the kit's deepest round oriel, a half round so its cone closes against the roof; the trace's round is about 2.8 m across, within about 0.2 m a side)."
+        },
+        "chimneys": {
+          "value": {
+            "plan_m": [
+              1.0,
+              0.8
             ],
-            "trace_building": "s35fp-2021-b1",
-            "seed": 479276475,
-            "replaceable_by": [
-              "T-1917"
+            "top_above_ridge_m": 0.9,
+            "cap_proud_m": 0.06,
+            "cap_depth_m": 0.3,
+            "stacks": [
+              {
+                "u_m": 2.7,
+                "v_m": 8.4
+              },
+              {
+                "u_m": 3.8,
+                "v_m": 0.85
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "Two of the photograph's three stacks, placed through the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json): the tall one on the south flank about 5 m behind the front (x 1090-1210 px, its top at about 16.5 m, y 25 px), and one over the north wall behind the turret (x 400-440 px). The third, on the ridge about 11 m back (x 1010-1080 px), stands over the body behind the front block, a rear wing, where K01 lays no stack (recorded in the match record)."
+        },
+        "rainwater": {
+          "value": {
+            "gutter": "half_round",
+            "fabric": "copper_sheet",
+            "downpipe": "round",
+            "ends_at": "grade_with_splash_stone",
+            "downpipes": [
+              {
+                "wall": "k01.wall.side.north",
+                "s_m": 0.4
+              },
+              {
+                "wall": "k01.wall.side.south",
+                "s_m": 0.4
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2021_high_photo"
+          ],
+          "note": "The photograph shows one downpipe, on the south flank where it meets the wing (x 1270-1280 px), from the eave to the ground; K01 hangs a side wall's pipe only by its rear corner, so the pipes stand there (the one the photograph shows is within tolerance in place: about 10 m back along the flank)."
+        },
+        "boundary": {
+          "value": {
+            "street_line_m": 6.85,
+            "lot_s_m": [
+              -0.49,
+              14.89
             ],
-            "card": "District draft — refined by T-1917."
+            "fence": "k11.fence.side_boards",
+            "board_height_m": 1.2,
+            "entrance_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "leaves": 2,
+              "clear_m": 1.3,
+              "drawn_deg": 70
+            }
           },
           "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "note": "A picket fence stands before the south wing in the photograph (x 1320-1826 px) in snow; its line and height, and the front's fence, are RECONSTRUCTED as the kit's lowest boarded fence (1.2 m) with a walk gate on piers (K11 draws no picket fence). (L-k01-2021-high-3633)"
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "none",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.75,
+              "top_m": 0.06,
+              "wear_tone": 0.9
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "The walk to the stoop in stone flags, as the avenue's other K01 fronts; the photograph's yard is under snow. (L-k01-2021-high-3633)"
+        },
+        "rear_wings": {
+          "value": [
+            {
+              "id": "south_wing",
+              "rect": [
+                -5.2,
+                0.0,
+                0.0,
+                13.4
+              ],
+              "past_host": true,
+              "floor_m": 2.2,
+              "storey_heights_m": [
+                3.8,
+                3.0,
+                2.0
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.6,
+                  "width_m": 1.15,
+                  "height_m": 1.5
+                },
+                {
+                  "sill_above_floor_m": 0.25,
+                  "width_m": 1.05,
+                  "height_m": 2.1
+                },
+                {
+                  "sill_above_floor_m": 0.15,
+                  "width_m": 1.0,
+                  "height_m": 1.5
+                }
+              ],
+              "windows": {
+                "front": [
+                  11.05
+                ],
+                "north": [
+                  0.9
+                ],
+                "south": [
+                  2.6
+                ]
+              },
+              "windows_by_storey": {
+                "front": [
+                  [
+                    11.05
+                  ],
+                  [
+                    11.05
+                  ],
+                  [
+                    11.05
+                  ]
+                ],
+                "north": [
+                  [
+                    0.9
+                  ],
+                  [
+                    0.9
+                  ],
+                  []
+                ],
+                "south": [
+                  [
+                    2.6
+                  ],
+                  [
+                    2.6
+                  ],
+                  []
+                ]
+              },
+              "roof": {
+                "kind": "gable",
+                "gable_to": "south",
+                "pitch_deg": 54,
+                "overhang_m": 0.3,
+                "fascia_m": 0.25,
+                "covering": "slate_pennsylvania"
+              }
+            },
+            {
+              "id": "main_rear",
+              "rect": [
+                -10.6,
+                -5.2,
+                0.0,
+                11.2
+              ],
+              "past_host": false,
+              "floor_m": 2.2,
+              "storey_heights_m": [
+                3.8,
+                3.8
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.75,
+                  "width_m": 1.0,
+                  "height_m": 2.2
+                },
+                {
+                  "sill_above_floor_m": 0.6,
+                  "width_m": 1.0,
+                  "height_m": 1.9
+                }
+              ],
+              "windows": {
+                "north": [
+                  2.7
+                ],
+                "south": [
+                  2.7
+                ]
+              },
+              "roof": {
+                "kind": "hip",
+                "pitch_deg": 49,
+                "overhang_m": 0.3,
+                "fascia_m": 0.25,
+                "covering": "slate_pennsylvania"
+              }
+            },
+            {
+              "id": "rear_2b",
+              "rect": [
+                -14.7,
+                -10.6,
+                0.77,
+                8.59
+              ],
+              "floor_m": 2.2,
+              "storey_heights_m": [
+                3.6,
+                3.2
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.75,
+                  "width_m": 0.9,
+                  "height_m": 2.0
+                },
+                {
+                  "sill_above_floor_m": 0.75,
+                  "width_m": 0.9,
+                  "height_m": 1.8
+                }
+              ],
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.1,
+                "fascia_m": 0.25,
+                "covering": "painted_tin_sheet"
+              },
+              "windows": {
+                "north": [
+                  2.1
+                ],
+                "south": [
+                  2.1
+                ]
+              }
+            },
+            {
+              "id": "rear_1b",
+              "rect": [
+                -18.3,
+                -14.7,
+                0.77,
+                7.3
+              ],
+              "floor_m": 1.0,
+              "storey_heights_m": [
+                3.4
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.9,
+                  "width_m": 0.9,
+                  "height_m": 1.6
+                }
+              ],
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.1,
+                "fascia_m": 0.2,
+                "covering": "painted_tin_sheet"
+              },
+              "windows": {
+                "rear": [
+                  3.3
+                ]
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35",
+            "chicagology_2021_high_photo"
+          ],
+          "note": "Everything the 1911 sheet draws behind the front block, as K01 wings (traced parts s35fp-2021-b1 p2-p3). THE SOUTH WING: the broad side wing with a secondary gable the register names, the sheet's projection on the south flank 7.8 m behind the front, 5.2 m along the flank and 4.15 m out, seen in the photograph from x 1287 px to the picture's edge through the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json): a light a storey in its west face (a low broad light of small panes at 3.35-4.25 m, then 6.25-8.35 m and 9.8-10.9 m, built in the wing's one row of sizes a storey, so its lowest light is 2.8-4.3 m and its top light 9.15-10.65 m: each within about half a metre), its eave at 11.0 m (y 590 px) and its slate gable facing south to an apex at about 14.6 m (y 290 px), 54 degrees over its 2.6 m half-width; the light at its south-west corner (x 1610-1700 px) is set in its south face, since the sheet's cut corner there (about a metre) is not built. THE BODY BEHIND IT, 5.4 m to the rear wall and 11.2 m across, two storeys under a slate hip continuing the front's 49 degrees, its lights RECONSTRUCTED. THE '2B' AND '1B' RANGES behind that: the two-storey range 4.1 m deep and the one-storey range 3.6 m behind it, a little narrower, their floors, flat roofs and lights RECONSTRUCTED: no picture sees them."
         }
       }
     }
