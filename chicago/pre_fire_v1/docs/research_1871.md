@@ -516,23 +516,24 @@ IDNR describes Bridgeport pumping and 1867–1871 canal deepening that establish
 
 - [IDNR: History of Flood Control & Drainage in Northeastern Illinois](https://dnr.illinois.gov/waterresources/historyoffloodcontroldrainageinnortheasternillinois.html) — undated page. state water-resources historical synthesis by Arlan Juhl; access: read. Locator: Opening historical section; Bridgeport pumps and 1867–1871 canal-deepening paragraphs.
 
-### Verify the precise July canal opening
+### The Board report dates the canal opening to July 15
 
-`land-1871-river-opening-lead` · sources · **open**
+`land-1871-river-opening-lead` · sources · **documented**
 
-A Google Books search excerpt of the Board of Public Works report identifies July 15, 1871 for opening the temporary Bridgeport dam.
+The 1871 Board of Public Works report, printed p. 17, says that the canal opened on the afternoon of July 15 and reports an exchange of the river’s stagnant contents within 36 hours. The same passage proposes pumping lake water through Fullerton avenue for the North Branch and describes some offal scows already in use.
 
 **Applies to:** 1871 canal chronology
 
 **Rendering implication:** Potential exact epoch boundary, pending inspection.
 
-**Limits:** The volume identity, page image, and context were not inspected; the exact day is a lead rather than an adopted attested date.
+**Limits:** This is the Board’s report, not a flow-gauge series or proof of uniformly clear water. The Fullerton proposal is not evidence of completed pumping works in 1871.
 
-**Next step:** Open the report title page and printed page 17, record publication date and passage, and distinguish any later commentary.
+**Next step:** Use this dated change in the water-state chronology; seek measurements, harbor reports and imagery for local flow, color, level and working-vessel conditions.
 
 **Sources:**
 
 - [Annual Report of the Board of Public Works to the Common Council](https://books.google.com/books/about/Annual_Report_of_the_Board_of_Public_Wor.html?id=QgsAAAAAMAAJ) — volume identity and date require scan confirmation. primary-report discovery lead; access: lead. Locator: Search excerpt for page 17, opening the temporary dam at Bridgeport.
+- [Tenth Annual Report of the Board of Public Works — p. 17](https://archive.org/details/annualreportboa06workgoog/page/n27/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: July 15 canal opening, North Branch proposal and offal scows; printed page 17, scan n27.
 
 ### Street and building levels need block-level evidence
 
@@ -687,7 +688,7 @@ The Olmsted–Vaux report presents proposed lagoons, avenues, boating connection
 
 `plants-1871-distribution-gaps` · plants · **open**
 
-Verified sources establish broad land use, wetness, disturbance, drought, cemetery retention, and tree condition, but not a citywide 1871 species or planting-density inventory.
+Verified sources establish broad land use, wetness, disturbance, drought, cemetery retention, and tree condition, but not a citywide 1871 species or planting-density inventory. The 1870 Board report now provides specific local planting evidence: large elms and shrubbery in Lincoln Park, and deciduous and evergreen trees in Union Park. The 1871 directory identifies florists and a market-garden business, without supplying a citywide planting map.
 
 **Applies to:** Street trees, yards, gardens, cemeteries, industrial lots, parks, and outskirts
 
@@ -695,13 +696,16 @@ Verified sources establish broad land use, wetness, disturbance, drought, cemete
 
 **Limits:** Modern inventories cannot be backdated. A photograph may attest tree presence and silhouette without proving species.
 
-**Next step:** Acquire dated photographs, nursery records, household accounts, and park planting ledgers; label procedural scatter as reconstruction.
+**Next step:** Place documented plant categories only after matching a park plan or image; seek individual species, seasonal appearance, planting positions and survival records. Distinguish a garden company’s office from its growing site.
 
 **Sources:**
 
 - [Olmsted, Vaux & Co.: Report Accompanying Plan for Laying Out the South Park](https://rotunda.upress.virginia.edu/founders/default.xqy?keys=OLMS-print-02-01-02-0008) — 1871-03. primary landscape report in scholarly digital edition; access: read. Locator: Printed pp. 206–207, 211–213, 228–229; descriptions of existing site distinguished from proposals.
 - [Northwestern Hidden Truths: The Chicago Fire](https://hiddentruths.northwestern.edu/lincoln_park/chicago_fire.html) — 2008 site copyright. archival research by Pamela Bannos, linking/reproducing original records; access: read. Locator: Paragraphs on the old cemetery, potter's field, and 1871 commissioners' report.
 - [NWS Chicago: 150th Anniversary of the Great Chicago Fire of 1871](https://www.weather.gov/lot/1871fire) — 2021-10-08. institutional reconstruction using historical weather observations; access: read. Locator: Weather Prior to the Fire; Weather During the Fire—October 8th; Overview observation-record paragraph.
+- [Ninth Annual Report of the Board of Public Works — p. 75](https://archive.org/details/annualreportofbo09chic/page/n90/mode/1up) — 1870. primary publication; scan inspected; access: read. Locator: Elm planting, Union Park evergreens, animal enclosures, fountains and public conveniences; printed page 75, scan n90.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 1016](https://archive.org/details/edwardsannualdir141871chic/page/n1013/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Florists, fish wholesalers, mills and feed dealers; printed page 1016, scan n1013.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 161](https://archive.org/details/edwardsannualdir141871chic/page/n152/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Budlong market garden; women’s occupations; service trades; printed page 161, scan n152.
 
 ### Map publication date and depicted date differ
 
@@ -813,24 +817,27 @@ At the southeast corner of Washington and Clark, Edward Burling's pre-fire build
 
 - [Chicago History Museum / Northwestern: First Methodist Church](https://greatchicagofire.org/landmarks/first-methodist-church/) — Museum interpretation, 2011; stereograph circa 1871. museum interpretation with primary photograph; access: read. Locator: 'First Methodist Episcopal Church Block before the Fire' (ichi-22330).
 
-### Palmer House: unresolved identity, opening-date and image attribution conflict
+### Palmer House: operating location corroborated; opening and image questions remain
 
 `structure-1871-palmer-conflict` · structures · **open**
 
-The museum page identifies its Greene 1871 image as a second Palmer House at State and Monroe that opened in March 1871. Chicagology instead reproduces an 1871 directory entry locating the operating Palmer House at the northwest corner of State and Quincy, a September 27, 1870 newspaper account of its opening, and an editorial statement that the State-and-Monroe hotel was still under construction at the fire. These accounts must remain visibly conflicting.
+The original 1871 directory p. 1031 lists Palmer House, W. P. F. Meserve proprietor, at State, northwest corner Quincy. The same volume lists William Alexander as its waiter and John Tucker with the wording “elevator, Palmer House.” This corroborates the State/Quincy directory identity. The museum’s State/Monroe image identification and March 1871 opening account still require comparison with the September 27, 1870 opening account reproduced by Chicagology.
 
 **Applies to:** 1870–1871 Palmer properties; especially the October 1871 snapshot
 
 **Rendering implication:** Maintain separate candidate physical entities for State/Quincy and State/Monroe. Do not attach all Palmer photographs, floor counts and opening dates to a single hotel.
 
-**Limits:** The museum page also calls the first building four stories, while the period descriptions transcribed by Chicagology describe seven including mansard floors. The original scans and photograph identity were not adjudicated in this pass.
+**Limits:** Directory location and worker entries do not identify the Greene photograph, resolve floor counts or establish the opening day. Keep State/Quincy and State/Monroe as distinct entities pending image and chronology reconciliation.
 
-**Next step:** Read the original 1871 directory entry and September 27, 1870 Tribune scan; compare Greene's photograph with intersection geometry and the 1870 Land Owner engraving. Record a reasoned ruling only after that comparison.
+**Next step:** Read the original September 27, 1870 newspaper page; compare intersection geometry in the Greene photograph and Land Owner engraving. Document each entity separately before attaching a facade model.
 
 **Sources:**
 
 - [Chicago History Museum / Northwestern: Palmer House](https://greatchicagofire.org/landmarks/palmer-house/) — Museum interpretation, 2011; images cataloged 1871. museum interpretation and image captions; access: read. Locator: 'The Palmer House before the Fire' (ichi-39580) and 'The Palmer House after the Fire' (ichi-26749).
 - [Chicagology: Palmer House I & II](https://chicagology.com/prefire/prefire061/) — Period documents 1870–1871, hosted in a modern compilation. transcribed period documents mixed with modern editorial interpretation; access: read. Locator: 1871 Edwards directory entry; Chicago Tribune September 27, 1870; The Land Owner October 1870; opening editorial paragraph.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 1031](https://archive.org/details/edwardsannualdir141871chic/page/n1028/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Hotels, ice dealers, ice-cream makers and advertisements; printed page 1031, scan n1028.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 72](https://archive.org/details/edwardsannualdir141871chic/page/n63/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Alexander and Allan: workers and women physicians; printed page 72, scan n63.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 898](https://archive.org/details/edwardsannualdir141871chic/page/n893/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Tucker, Tully, Tubbs and Tullis: work and household listings; printed page 898, scan n893.
 
 ### Field & Leiter store: pre-fire six-story retail landmark
 
@@ -1157,11 +1164,11 @@ The Library of Congress catalogs A. Ruger's Chicago in 1868 from Schiller Street
 
 - [Library of Congress: Chicago in 1868](https://www.loc.gov/item/73693350/) — 1868. primary-map catalog; access: catalog_only. Locator: Catalog title and creator; resource g4104c.pm001480.
 
-### Edwards' 1871 annual directory: building use, addresses and named occupants
+### Edwards' 1871 directory: extracted addresses, occupations and uses
 
-`source-1871-edwards-directory` · sources · **open**
+`source-1871-edwards-directory` · sources · **documented**
 
-The University of Illinois digital-book catalog identifies volume 14 (1871) of Edwards' annual directory of Chicago. This is the appropriate contemporary acquisition target for reconciling office tenants, hotels, businesses and historical addresses; its catalog existence is verified, but the volume has not been read in this pass.
+The original 1871 Edwards directory has now been read selectively: apparatus, alarm locations, congregations, railway schedules, street numbering, public buildings, residents, florists, stables, food and ice businesses. Page-level observations and original scans are available in the field notebook.
 
 **Applies to:** Directory publication and canvass period in 1871; not a guaranteed October 8 census
 
@@ -1169,11 +1176,14 @@ The University of Illinois digital-book catalog identifies volume 14 (1871) of E
 
 **Limits:** A directory is neither a complete population census nor proof of construction date. Modern address numbers and same-name post-fire businesses cannot be substituted without a crosswalk.
 
-**Next step:** Download the scan and searchable text, record printed-page locators, and verify OCR against page images for every imported name and address.
+**Next step:** Join selected historical addresses to period parcel maps; independently resolve footprint, elevation, facade and exact-date occupancy. Expand extraction by block, preserving omissions and conflicting listings.
 
 **Sources:**
 
 - [University of Illinois: Edwards' annual directory of Chicago, volume 14](https://libsysdigi.library.illinois.edu/oca/Books2008-03/edwardsannualdir/edwardsannualdir141871chic/) — 1871. digitized-primary-book catalog; access: catalog_only. Locator: Catalog title and volume field: 14 (1871).
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 1031](https://archive.org/details/edwardsannualdir141871chic/page/n1028/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Hotels, ice dealers, ice-cream makers and advertisements; printed page 1031, scan n1028.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 72](https://archive.org/details/edwardsannualdir141871chic/page/n63/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Alexander and Allan: workers and women physicians; printed page 72, scan n63.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 56](https://archive.org/details/edwardsannualdir141871chic/page/n47/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Street and avenue guide: numbering rules (unnumbered opening page; indexed as 56); printed page 56, scan n47.
 
 ### Population: use the census as a baseline, not a street crowd count
 
@@ -1217,7 +1227,7 @@ Published summaries disagree on some detailed counts. The Illinois Archives tabl
 
 `life-1871-black-chicago` · people · **open**
 
-The National Park Service reports a Black population of 3,691 in Chicago in 1870. Other historical summaries round this to about 3,700 or 4,000. This establishes an existing community before the fire, not a population that arrived only in the twentieth century.
+The National Park Service reports a Black population of 3,691 in Chicago in 1870. Other historical summaries round this to about 3,700 or 4,000. This establishes an existing community before the fire, not a population that arrived only in the twentieth century. The original 1871 directory additionally locates Quinn Chapel at Jackson/Fourth avenue, Bethel on Third avenue, and Olivet on Fourth between Taylor and Polk, with named ministers and Sunday schedules.
 
 **Applies to:** People and community research for 1871
 
@@ -1225,55 +1235,60 @@ The National Park Service reports a Black population of 3,691 in Chicago in 1870
 
 **Limits:** The exact census count needs page-level reconciliation because some other summaries report 3,696. This source does not establish a particular person's street location or appearance on October 8.
 
-**Next step:** Trace named households and businesses through the 1870 census and 1871 directory; use approximate population context until the original table is checked.
+**Next step:** Use these institution-specific pages to resolve pre-fire parcels and images, then trace named households and businesses through census and directory records. Keep the unresolved population-table discrepancy separate from these documented institutions.
 
 **Sources:**
 
 - [Chicago's Black Metropolis: Understanding History Through a Historic Place](https://www.nps.gov/articles/chicago-s-black-metropolis-understanding-history-through-a-historic-place-teaching-with-historic-places.htm) — Modern NPS historical interpretation; describes 1870. National Park Service historical education resource; access: lead. Locator: Historical background; paragraph beginning 'By 1870'.
 - [African Americans, Encyclopedia of Chicago](https://www.encyclopedia.chicagohistory.org/pages/27.html) — 2005; describes nineteenth-century Chicago. Scholarly historical encyclopedia; access: lead. Locator: Post-Civil War population and civil-rights discussion.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 43](https://archive.org/details/edwardsannualdir141871chic/page/n34/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Methodist, AME, Scandinavian Lutheran and Presbyterian congregations; printed page 43, scan n34.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 41](https://archive.org/details/edwardsannualdir141871chic/page/n32/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Baptist congregations, missions and Mariners’ Bethel; printed page 41, scan n32.
 
-### The 1871 Edwards directory is the principal address-and-occupation extraction target
+### Named people connect occupations to premises and residences
 
 `life-1871-directory-primary-backbone` · people · **documented**
 
-Internet Archive holds Edwards' annual directory of Chicago, volume 14 (1871), contributed by the University of Illinois Urbana-Champaign. Its catalog records 1,148 scanned pages and marks possible copyright status NOT_IN_COPYRIGHT. The scan notes warn of tight margins, skewed pages, and cropped advertising.
+Selective reading of the 1871 directory identifies named waiters, a drayman, women physicians, a washerwoman, a milliner, grocer and dressmaker, alongside business and institution entries. Two William Alexander entries have different occupations and residences and are retained as separate identities.
 
 **Applies to:** Residents, occupations, businesses, institutions, addresses, advertisements, and transport
 
 **Rendering implication:** Use directory entries to connect named activities to particular premises: a shopkeeper needs a shop, a stable needs access, and a transporter needs a destination. Preserve the historical address string before geocoding.
 
-**Limits:** Catalog metadata was read; directory entries were not extracted in this pass. A directory is selective and is not a complete census of women, children, lodgers, or poorer residents. Publication date does not guarantee occupancy on the scene date.
+**Limits:** This is a selective extraction, not a complete census of residents, occupations, women, children, lodgers or poorer households. A listing does not establish race, appearance, work shift or presence on October 8.
 
-**Next step:** Download OCR and page images; extract the introduction, street guide, transport tables, businesses, and selected blocks. Verify each used entry against the scan and join addresses through a historical address crosswalk.
+**Next step:** Cross-check selected people against the census and other contemporary records, then research actual workplace access, tools and schedules before populating a scene.
 
 **Sources:**
 
 - [Edwards' annual directory of Chicago, volume 14 (1871)](https://archive.org/details/edwardsannualdir141871chic) — 1871. Digitized primary city directory; access: catalog_only. Locator: Catalog metadata, volume, contributor, scan notes, download options.
 - [Chicago History Museum: Directories and Census Data](https://libguides.chicagohistory.org/familyhistory/directories) — Current research guide. Museum collection research guide; access: lead. Locator: City directories and their contents.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 72](https://archive.org/details/edwardsannualdir141871chic/page/n63/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Alexander and Allan: workers and women physicians; printed page 72, scan n63.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 898](https://archive.org/details/edwardsannualdir141871chic/page/n893/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Tucker, Tully, Tubbs and Tullis: work and household listings; printed page 898, scan n893.
 
-### Anchor horsecar movement to documented routes
+### 1871 horsecar schedules refine the earlier route baseline
 
 `life-1870-horsecar-routes` · vehicles · **documented**
 
-Chicagology transcribes Edwards' 1870 City Railway and Omnibus Routes. It lists State Street service from State and Randolph, North Chicago services toward the city limits, Sedgwick, Clybourn/Larrabee and Graceland, and West Division services on Randolph, Madison, Blue Island, Milwaukee, and Clinton/Jefferson.
+The 1871 directory p. 53 supplies a contemporary timetable: State/Randolph to 22d every minute, Cottage Grove services every four minutes, Archer every eight, selected North Side services every twelve or fifteen, Graceland hourly, and several West Side services every five. These are nominal service descriptions; the earlier 1870 comparison must retain its own date.
 
 **Applies to:** Transport network baseline immediately preceding 1871
 
 **Rendering implication:** Create route-constrained vehicle paths, terminals and waiting locations. The same source lists a 2½-minute State Street headway to Twenty-second Street; treat that as a dated timetable attribute, not a universal spawning interval.
 
-**Limits:** This is a modern transcription of the 1870 directory, not inspection of the original page and not confirmation of Sunday October 8, 1871 service. Authorized track and operating track must remain distinct.
+**Limits:** A nominal timetable does not establish Sunday frequency, actual October 8 headways, complete track geometry, simultaneous vehicle totals or car capacity.
 
-**Next step:** Check the 1871 directory and map for operating segments, terminal changes, Sunday service and exact track geometry.
+**Next step:** Resolve named route endpoints and track alignments on period maps and seek Sunday service notices; retain the 1870 source only as a dated comparison.
 
 **Sources:**
 
 - [1859–1871—Chicago City Railroad Company](https://chicagology.com/prefire/prefire372/) — Transcribes 1870. Modern transcription of primary directory material; access: read. Locator: Section 'Edwards’ Annual Directory in the City of Chicago, for 1870'; 'CITY RAILWAY AND OMNIBUS ROUTES'.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 53](https://archive.org/details/edwardsannualdir141871chic/page/n44/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Horse railway timetable, omnibus transfers and societies; printed page 53, scan n44.
 
 ### Hotel–depot omnibuses continued alongside street railways
 
 `life-1870-omnibus-transfer` · vehicles · **documented**
 
-The same 1870 directory transcription describes Parmelee omnibuses linking principal hotels with railroad depots at train arrivals and departures.
+The 1871 directory p. 53 states that Frank Parmelee & Co.’s omnibuses run between principal hotels and railroad depots on the arrival and departure of trains. Earlier transfer evidence is now supplemented by the original 1871 timetable.
 
 **Applies to:** Hotel entrances, depot forecourts, transfer traffic
 
@@ -1281,11 +1296,12 @@ The same 1870 directory transcription describes Parmelee omnibuses linking princ
 
 **Limits:** Vehicle dimensions, liveries, precise stops, train times and October 1871 operations remain unverified.
 
-**Next step:** Extract depot timetables, hotel advertisements, operator addresses and dated vehicle imagery.
+**Next step:** Locate contemporary depots, entrances and hotel stops; obtain vehicle images, luggage arrangements and dated train timetables before setting transfers.
 
 **Sources:**
 
 - [1859–1871—Chicago City Railroad Company](https://chicagology.com/prefire/prefire372/) — Transcribes 1870. Modern transcription of primary directory material; access: read. Locator: 1870 directory section; final paragraph headed 'Omnibus Line'.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 53](https://archive.org/details/edwardsannualdir141871chic/page/n44/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Horse railway timetable, omnibus transfers and societies; printed page 53, scan n44.
 
 ### A surviving Chicago horsecar provides a measured comparison
 
@@ -1317,11 +1333,14 @@ The museum's horsecar history describes the support burden of horse traction: fo
 
 **Limits:** These are proposed behavior systems, not witnessed actions at a particular time or proof of stable locations. Do not model all horses as identical or make every horse continuously work.
 
-**Next step:** Find stable and livery entries in the directory and footprints on insurance maps; obtain period harness and vehicle-specific references.
+**Next step:** Use the notebook’s named stables and feed dealers as address anchors; locate yards, doors, water and manure access from parcel sheets. The 1870 report attests public animal troughs but does not locate each one.
 
 **Sources:**
 
 - [North Chicago Street Railroad 8](https://www.irm.org/player/ncsr8/) — Modern museum interpretation. Museum technical history; access: read. Locator: Horse Cars discussion of operational support.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 1044](https://archive.org/details/edwardsannualdir141871chic/page/n1041/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Livery stables and livestock commissions; printed page 1044, scan n1041.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 1016](https://archive.org/details/edwardsannualdir141871chic/page/n1013/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Florists, fish wholesalers, mills and feed dealers; printed page 1016, scan n1013.
+- [Ninth Annual Report of the Board of Public Works — p. 75](https://archive.org/details/annualreportofbo09chic/page/n90/mode/1up) — 1870. primary publication; scan inspected; access: read. Locator: Elm planting, Union Park evergreens, animal enclosures, fountains and public conveniences; printed page 75, scan n90.
 
 ### The river needs commercial schooners as well as steam vessels
 
@@ -1483,12 +1502,15 @@ The museum timeline dates the fire's beginning to Sunday, October 8, 1871. Crosb
 
 **Limits:** Sunday does not prove all shops were closed or that all residents attended church. Churchgoing, visiting and leisure actions remain reconstruction choices until tied to local services or testimony.
 
-**Next step:** Collect October 7–8 newspaper advertisements, church notices, railroad timetables, entertainment listings and eyewitness accounts of the hours before ignition.
+**Next step:** Use the extracted Sunday service times as schedule evidence, then consult October 8 notices to verify actual events. A timetable or monthly society rule is not an eyewitness record of attendance.
 
 **Sources:**
 
 - [Timeline: Chicago in 1871](https://greatchicagofire.org/timeline/index.html) — 2011 interpretation of 1871 events. Museum historical chronology; access: read. Locator: The Great Conflagration; Sunday, October 8, 1871.
 - [Crosby's Opera House](https://greatchicagofire.org/landmarks/crosbys-opera-house/) — 2011 interpretation; describes 1871. Museum landmark history; access: read. Locator: Discussion of refurbishment and planned October 9 reopening.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 43](https://archive.org/details/edwardsannualdir141871chic/page/n34/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Methodist, AME, Scandinavian Lutheran and Presbyterian congregations; printed page 43, scan n34.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 41](https://archive.org/details/edwardsannualdir141871chic/page/n32/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Baptist congregations, missions and Mariners’ Bethel; printed page 41, scan n32.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 53](https://archive.org/details/edwardsannualdir141871chic/page/n44/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Horse railway timetable, omnibus transfers and societies; printed page 53, scan n44.
 
 ### Immediately before the Great Fire was already after another major fire
 
@@ -1544,6 +1566,83 @@ The researched sources establish people, vehicles, commodities, premises and dat
 
 - [Edwards' annual directory of Chicago, volume 14 (1871)](https://archive.org/details/edwardsannualdir141871chic) — 1871. Primary directory; catalog inspected; access: catalog_only. Locator: Directory extraction target for people, businesses and locations.
 - [State & Madison](https://greatchicagofire.org/landmarks/state-madison/) — ca.1871. Dated local visual reference; access: catalog_only. Locator: Prefire Booksellers' Row stereograph ichi-29598.
+
+### Small infrastructure now has specific materials and locations
+
+`primary-1871-small-infrastructure` · land · **documented**
+
+The Board report supplies North Division pine-plank sidewalk work by corridor and newly erected hydrants by intersection, including Chicago avenue at Pine. It also describes street names displayed on lamps.
+
+**Applies to:** Primary publication reporting dates are retained in the linked field observations.
+
+**Rendering implication:** Create separate sidewalk, hydrant and lamp layers with evidence attached to each candidate.
+
+**Limits:** Work footage is not necessarily a full corridor length; corner listings do not specify exact casting position or form.
+
+**Next step:** Join the selected corridors and intersections to 1871 street geometry before modeling.
+
+**Sources:**
+
+- [Tenth Annual Report of the Board of Public Works — p. 44](https://archive.org/details/annualreportboa06workgoog/page/n54/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Sidewalks assessed and built by contractors; pine plank; printed page 44, scan n54.
+- [Tenth Annual Report of the Board of Public Works — p. 84](https://archive.org/details/annualreportboa06workgoog/page/n94/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: New North Division hydrants; printed page 84, scan n94.
+- [Tenth Annual Report of the Board of Public Works — p. 79](https://archive.org/details/annualreportboa06workgoog/page/n89/mode/1up) — 1871. primary publication; OCR text read; scan available; access: read. Locator: New hydrants: date definition and South Division; printed page 79, scan n89.
+- [Tenth Annual Report of the Board of Public Works — p. 116](https://archive.org/details/annualreportboa06workgoog/page/n126/mode/1up) — 1871. primary publication; OCR text read; scan available; access: read. Locator: Street names displayed on lamps; printed page 116, scan n126.
+
+### Municipal records describe built park features
+
+`primary-1871-park-fabric` · landscape · **documented**
+
+The 1871 report describes Lincoln Park rock fountains, drinking hydrants and a rustic carriage bridge; Union Park gas lamps, rustic houses and a Washington street entrance; and Jefferson Park lakes, rustic bridges, music pavilion and fountain basin.
+
+**Applies to:** Primary publication reporting dates are retained in the linked field observations.
+
+**Rendering implication:** Build a feature register separating reported work from proposed park designs.
+
+**Limits:** A prose report does not supply form, dimensions, position or proof every feature operated on October 8.
+
+**Next step:** Match the features to period plans, images and maintenance records.
+
+**Sources:**
+
+- [Tenth Annual Report of the Board of Public Works — p. 52](https://archive.org/details/annualreportboa06workgoog/page/n62/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Completed Lincoln, Union and Jefferson Park improvements; printed page 52, scan n62.
+
+### Fire protection is a distributed network of stations, horses and alarms
+
+`primary-1871-fire-network` · actions · **documented**
+
+The directory lists named engine, hose and ladder companies, alarm-box locations and a repeated digit-group bell code. Its aggregate inventory is 17 steamers, 23 hose carts, seven ladder trucks, 194 men and 91 horses.
+
+**Applies to:** Primary publication reporting dates are retained in the linked field observations.
+
+**Rendering implication:** Research station access, stabling, crew work and alarm sounds as connected systems.
+
+**Limits:** Named companies, apparatus totals and October 8 serviceability are different measures. The previous night’s fire affects readiness.
+
+**Next step:** Cross-check the roster with duty and repair records and contemporary apparatus images.
+
+**Sources:**
+
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 34](https://archive.org/details/edwardsannualdir141871chic/page/n25/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Fire apparatus, personnel, alarm code and South Division boxes; printed page 34, scan n25.
+
+### Food, ice and service work connect people to street activity
+
+`primary-1871-food-and-ice` · people · **documented**
+
+The directory advertises ice-cream rooms, family packs carried in ice, and ice dealers’ offices. Named hotel workers and independent trades provide anchors for service research.
+
+**Applies to:** Primary publication reporting dates are retained in the linked field observations.
+
+**Rendering implication:** Construct short tasks with goods, containers, doorways and transport rather than unconnected pedestrians.
+
+**Limits:** An advertisement is an offer, not proof of sales, a supplier contract or opening on Sunday.
+
+**Next step:** Research container forms, cold storage, delivery vehicles, access and dated business activity.
+
+**Sources:**
+
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 1031](https://archive.org/details/edwardsannualdir141871chic/page/n1028/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Hotels, ice dealers, ice-cream makers and advertisements; printed page 1031, scan n1028.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 72](https://archive.org/details/edwardsannualdir141871chic/page/n63/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Alexander and Allan: workers and women physicians; printed page 72, scan n63.
+- [Edwards’ Annual Directory of the City of Chicago, 1871 — p. 898](https://archive.org/details/edwardsannualdir141871chic/page/n893/mode/1up) — 1871. primary publication; scan inspected; access: read. Locator: Tucker, Tully, Tubbs and Tullis: work and household listings; printed page 898, scan n893.
 
 ## Before rendering 1871
 
