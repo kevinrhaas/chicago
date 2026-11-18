@@ -707,12 +707,10 @@
           </select></label>
       </div>
       <!-- T-3644 (Kevin, 2026-11-17: "provide options for users in settings to change the gender
-           appearance dress, etc. this becomes a person builder eventually"): the visitor's own
-           person, the figure the town draws when they ride. js/person-settings.js writes its heading and
-           body: the published page sits just under validate.py's 64 KB duplicate floor (the year
-           doors are copies of it), so the markup here is kept to the empty group (its heading, "Your person", is written
-           with it). -->
-      <div class="settings-group" data-set-pane="you"></div>
+           appearance dress, etc. this becomes a person builder eventually"): the You tab's group, the
+           visitor's own person, goes here. js/person-settings.js (personHost) makes all of it, the
+           group included: the published page is at validate.py's 64 KB duplicate floor (the year
+           doors are copies of it), so this page carries none of its bytes. -->
       <!-- T-3629: Show in two groups with one job each: what is drawn over the town, and the
            town itself (its season, hour, trees, people and carriages). -->
       <div class="settings-group" data-set-pane="show">
@@ -1022,8 +1020,9 @@
 <div id="tour" class="tour" hidden>
   <div class="tour-hole" aria-hidden="true" hidden></div>
   <section class="tour-card" role="dialog" aria-labelledby="tour-bubble" aria-describedby="tour-task">
-    <header class="tour-head"><span id="tour-count">Field check · 1 / 7</span>
+    <header class="tour-head"><span id="tour-count">Field check · 1 / 10</span>
       <button type="button" class="tour-skip" id="tour-skip">Skip <span aria-hidden="true">×</span></button></header>
+    <div class="tour-pips" id="tour-pips" aria-hidden="true"></div>
     <p class="tour-task" id="tour-task"></p>
     <p class="tour-bubble" id="tour-bubble" aria-live="polite"></p>
     <p class="tour-status" id="tour-status">Waiting for input</p>

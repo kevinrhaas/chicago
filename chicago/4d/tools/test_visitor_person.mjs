@@ -25,7 +25,7 @@ const { HAIR_CUTS, FACIAL_HAIR, HAIR_COLOURS } = await import('../renderers/web/
 const { COMPLEXION_TINT, EYE_COLOUR } = await import('../renderers/web/js/human-looks.js');
 const V = await import('../renderers/web/js/human-variation.js');
 const { SETTINGS_TABS } = await import('../renderers/web/js/settings-app.js');
-const { facesFor, swatchColour } = await import('../renderers/web/js/person-settings.js');
+const { facesFor, swatchColour, personHost } = await import('../renderers/web/js/person-settings.js');
 hooks.deregister();
 
 let n = 0;
@@ -143,7 +143,25 @@ ok(phone.choice.complexion === 'brown' && phone.choice.sex === 'male', 'and come
 // --- the Settings card
 ok(SETTINGS_TABS.includes('you') && SETTINGS_TABS.indexOf('you') === 1, 'the Settings card has a You tab, second');
 const html = read('renderers/web/index.html');
-ok(/<div class="settings-group" data-set-pane="you"><\/div>/.test(html) && !html.includes('id="s-person"'), 'its group is in the page, empty (the script writes its heading and body)');
+ok(!/data-set-pane="you"/.test(html) && !html.includes('id="s-person"'), 'its group is not in the page (person-settings.js personHost makes it: the page is at the 64 KB duplicate floor)');
+{
+  // personHost on a small stand-in page: the group goes before Show's first, hidden unless You is open.
+  const made = [];
+  const node = (tag) => { const n = { tag, kids: [], attrs: {}, hidden: false, className: '', id: '', textContent: '',
+    setAttribute(k, v) { this.attrs[k] = v; }, getAttribute(k) { return this.attrs[k] ?? null; },
+    append(...k) { this.kids.push(...k); }, before(k) { made.push(['before', k, this]); } }; return n; };
+  const show = node('div'), tab = node('button'); tab.attrs['aria-selected'] = 'false';
+  const byId = {};
+  const doc = { createElement: (t) => node(t),
+    getElementById: (id) => byId[id] ?? null,
+    querySelector: (q) => (q.includes('data-set-pane="show"') ? show : q.includes('data-set-tab="you"') ? tab : null) };
+  const host = personHost(doc);
+  const group = made[0]?.[1];
+  ok(made.length === 1 && made[0][2] === show && group?.attrs['data-set-pane'] === 'you' && group.className === 'settings-group',
+    'personHost puts the You group before Show\'s first group');
+  ok(group.hidden === true && host?.id === 's-person' && group.kids[0]?.textContent === 'Your person' && group.kids[1] === host,
+    'hidden while another tab is open, headed "Your person", holding #s-person');
+}
 ok(/^rgb\(\d+, \d+, \d+\)$/.test(swatchColour(COMPLEXION_TINT.deep_brown)), 'complexion swatches are drawn colours');
 const main = read('renderers/web/js/main.js');
 ok(main.includes("import('./visitor-person.js')") && main.includes('wirePersonSettings('), 'main.js mounts the person and its tab');

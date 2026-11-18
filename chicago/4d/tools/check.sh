@@ -770,6 +770,12 @@ step "A Potawatomi man's belt sits on his shirt or blanket at every level, stand
   node tools/test_human_waist.mjs
 step "Trousers, breeches, pantaloons and overalls bridge the seat from cheek to cheek, standing and striding, at every level; nothing else on them moves (T-3553)" \
   node tools/test_human_seat.mjs
+step "Collars, straps and crossbelts sit on the cloth beneath with clean edges, nothing through them standing, walking or turning the head, at every level (T-3553)" \
+  node tools/test_human_collar.mjs
+step "A coat closes under the arm on every sleeved body and its back vent laps shut, standing and walking, at every level (T-3553)" \
+  node tools/test_human_coat.mjs
+step "Sleeve hems and cuffs bend with the wrist as one band, no ragged edge; the soldiers' cuffs never through or parted; a gloved hand shows no skin in the sleeve's mouth, walking, bending, carrying, at every level (T-3553)" \
+  node tools/test_human_sleeve.mjs
 step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \
   node tools/test_human_looks.mjs
 step "1904 people use actual drawn pedestrian tops only beneath enabled terrain-cut masks, preserving decks, positive yards and other epochs (T-2795)" \

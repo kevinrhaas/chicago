@@ -27324,8 +27324,7 @@ their 0.19 m projection, and their feet 0.11 m lower than the print's (the upper
 frieze); the rosettes over them are not built. The south stack is triangulated through both cameras:
 its west face about 1.6 m back from the front, its south face in line with the print's main south
 wall, its head's foot at about 13.7 m, its cap at about 14.4 m and its pots to about 15.2 m. Invented:
-it stands on the BUILD's south cornice (`on_cornice`), about 0.75 m south of where the print stands it,
-because the build's south wall is still flush with the corner bay (the open set-out); its 1.1 x 0.75 m
+its 1.1 x 0.75 m
 plan, its K15 stone, three corbel courses and 0.15 m cap, and three of the kit's tall pots where the
 print shows three or four taller ones. The sunk panels the oblique draws on its south face are not
 built (K15 lays a panel's recess in brick). The north stack takes the same head.
@@ -27341,8 +27340,7 @@ print's is a carved anthemion); the cheeks' sweep and the newels' heights within
 **What is not built.** The pavilion's full 4 m width (K01 cannot cut a door through a
 projection, so it stands 2.45 m wide north of the door), the basement doorway under the stoop's
 landing and the stoop's arched underside, the narrow light over the door (built at the storey's
-sash width), the dormer's finial and the roofs' cresting and cross finial: open on the match record. The oblique print (camera solved by T-3156) also shows the corner bay running about 0.75 m
-south of the main front's south corner, as the square-on does, where the build sets it flush.
+sash width), the dormer's finial and the roofs' cresting and cross finial: open on the match record.
 **The rock-faced south flank and its dormer (T-3562, a piece of T-1893).** Read off the oblique print:
 the south flank is stone, rock-faced and dark against the smooth front, its windows dressed in smooth
 stone; and a gabled dormer stands in the flank's mansard just behind the tall south stack. Built as the
@@ -27363,11 +27361,23 @@ interpretive panel draws the 1882 house the same way); the 1911 sheet, which dra
 projection north of the front's centre and no corner bay, is the remodelled house. The 1904 phase
 is built to the photographs, which is a choice, not a finding.
 **The stoop's open south side (T-3562, a piece of T-1893).** Read off the oblique print: the landing stands on a square pier at its outer corner and is open beneath back to the wall, black under a soffit about 0.3 m deep, and the flight is carried off the pier on a rampant arch springing about 0.82 m over grade and reaching grade about 0.9 m down the run, the lower steps solid on grade to the newel; built as K07's arched swept cheek (`cheek_form.arched`) on the stoop's south cheek. Invented: the pier's 0.5 m depth along the run and the arch's span (the print foreshortens both; read off the nosings' spacing), the arch's quarter-ellipse curve, the void running through under the whole stoop to the north cheek, and its dark backing at the north cheek and the wall, which no picture sees past the print's black. The basement doorway in that void, the south cheek's iron hand rail and its stepped top are not built.
+**The corner bay's set-out (T-3562, a piece of T-1893).** Read off both prints: the corner bay's
+south face stands about 0.75 m south of the main front's south wall (the oblique draws the cornice
+turning onto the flank at about x 1605-1655 px and the bay's south face at x 1745-1790 px; the
+square-on the upper wall's south edge at x 834 px and the bay's at x 905 px). Built with the bay kept
+at its 9.43 m centre and SET OUT 0.75 m past the corner (`bays[].set_out_m`, a K01 option this ticket
+added: its back over the stretch past the corner is closed on the front's plane in its own stone),
+so the front block is 9.72 m along the front, not the 1911 sheet's 10.47 m; the south stack moves in
+with the wall onto the print's line. The sheet is the remodelled house, so its south wall on the line
+of the bay's face is read as the remodel's. Invented: the 0.75 m (the two prints give 0.75-0.85 m);
+that the main south wall runs back on that line the whole depth of the front block and the rear range
+(no picture sees the flank past its two front window columns, and the sheet draws one wall at 10.47 m);
+and the plain stone of the bay's back past the corner, which no picture sees.
 **The stoop's stepped sides and iron rails (T-3562, a piece of T-1893).** Read off both prints: neither cheek is a solid swept wall; the flight's steps show along both sides, each cheek's top level with the tread beside it, under an iron hand rail each side falling to the top of its foot newel; on the oblique the south rail leaves a square stone post on the landing's outer corner, over the pier, and a level iron rail runs from that post back to the wall over the landing's edge. Built as K07's railed swept cheek (`cheek_form.railed`). Invented: the rails' 0.04 m square section and their straight run (the square-on draws them curving down onto the newels), their heights (0.45 m over the landing at the head and 0.12 m over each newel's cap, within about 0.1 m of the oblique's reading), the single bar under each rail and under the landing rail, the post's 0.35 m square plan and 0.65 m height with a plain cap, and the north rail's head standing on a bar at the landing's edge, where the square-on print's north post stands at the north end of a landing carried on over the basement doorway, which is not built. The basement doorway in the void under the landing is not built.
 **How to resolve:** a dated picture or permit for the remodel settles which front stood in 1904;
 the rest stands open on the two match records.
 **Covers:** `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.service_wall_brick`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.roof_pitch_deg`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_tread_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_landing_depth_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.side_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rear_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rainwater`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.window_kit`
-**Ticket:** T-3155 (piece 1 of T-1893), T-3156 (piece 2), T-3561 (the cornice's consoles and the south stack), T-3562 (the door's pediment and the stoop's newels).
+**Ticket:** T-3155 (piece 1 of T-1893), T-3156 (piece 2), T-3561 (the cornice's consoles and the south stack), T-3562 (the door's pediment and the stoop's newels, the corner bay's set-out).
 **Review:** `docs/RESEARCH/k01-1815-sears-1893/README.md`.
 **Recorded:** 2026-10-25 (T-3155).
 
@@ -44741,3 +44751,27 @@ The farm-box master's `photographic_acceptance` is set true on its record of mat
 **Ticket:** T-3644.
 **Review:** `data/humans/visitor_person.json`, `renderers/web/js/visitor-person.js`, `renderers/web/js/person-settings.js`, `tools/test_visitor_person.mjs`.
 **Recorded:** 2026-11-17.
+
+### L-collars-3553 — Collars, straps and crossbelts sit on the cloth beneath them
+
+**Decision:** the owner, 2026-11-17: *"Fix all those clothing issues identified"*, after T-3553's line *"Collars read as shirt collars at conversation distance: neckline and coat junction reshaped on the existing garments"*. The exported collars, apron straps and frills, crossbelts and shirt points were cut out of their garments' faces, so their edges stepped like stairs (the maid's collar edge 15 cm of steps, the cook's 14 cm) and the cloth under them came through (the 1812 coats through their red collars over half their area, the trader's waistcoat through his neckcloth). **What is reconstructed.** At load, once per body (`renderers/web/js/human-collar.js`), these edges are faired by at most 16 mm, a standing collar's foot is folded up onto its coat's neckline (at most 5 cm), the cloth underneath is drawn a few millimetres inside what is worn over it (at most 8 to 15 mm), and the collars, frills and crossbelts take the skin weights of the garment under them so the two move together. The exact lines of each edge are a fit, not a reading of any garment.
+**How to resolve:** garments exported with their collar and strap edges cut along the cloth's own lines, and layered at the source.
+**Ticket:** T-3553.
+**Review:** `renderers/web/js/human-collar.js`, `tools/test_human_collar.mjs`.
+**Recorded:** 2026-11-17 (T-3553).
+
+### L-coat-3553 — A coat closes under the arm and at the back vent
+
+**Decision:** the owner, 2026-11-17: *"Fix all those clothing issues identified"* (a gap at the armpit of coated men on the walk; a sliver at the back vent of Philip Peck's and the trader's coats). **Not invented:** that a coat's back vent or tail split hangs closed with one side lapped over the other, and that nothing under a sleeved coat shows at the armpit, are general tailoring. **Liberties within it:** which side laps (the left over the right), the lap (3 mm across the middle each way, the left 3 mm further out, flush at the vent's top) and its 6 cm fade; and that what lies under the outermost sleeved garment round each armpit (the skin, a shirt, a waistcoat) is drawn up to 4 cm (per 0.4 m of shoulders) thinner there, so that the hanging arm's skinning no longer brings it through the coat. The coat itself is drawn exactly as exported (`renderers/web/js/human-coat.js`).
+**How to resolve:** exports bound with the arms down, or with garment weights fitted to the body at the armpit; a source on the lap of a period coat's vent.
+**Ticket:** T-3553.
+**Review:** `renderers/web/js/human-coat.js` (`ZONE`, `DEPTH_M`, `VENT`), `tools/test_human_coat.mjs`.
+**Recorded:** 2026-11-17 (T-3553).
+
+### L-sleeve-3553 — Sleeve hems turn as one band; the coachman's glove reaches up his sleeve
+
+**Decision:** the owner, 2026-11-17: *"Fix all those clothing issues identified"*, after T-3553's line on *"the soldiers' stripes and trim on bending sleeves"*. The soldiers' cuffs and trim held on every bend tested; what failed was elsewhere. Each sleeve or cuff hem was weighted unevenly round its ring and toothed by decimation (6 to 7 mm), so it sheared into a jagged edge when the wrist turned, and the coachman's glove stopped short inside his livery sleeve, showing the wrist in the sleeve's mouth. **What is reconstructed.** At load (`renderers/web/js/human-sleeve.js`) each hem takes one band of skin weights (its ring's average, blended over 35 mm) and its teeth are moved back onto the hem's line (at most 15 mm); the coachman's gloves are drawn 4 cm further up the forearm inside the sleeve, eased toward the lining and weighted with it, as a gauntlet cuff. The gauntlet's length is not sourced; the added length is never seen outside the sleeve.
+**How to resolve:** garments re-exported with banded hem weights and a glove cuff that reaches under the sleeve; a dated reference for a coachman's livery gloves.
+**Ticket:** T-3553.
+**Review:** `renderers/web/js/human-sleeve.js`, `tools/test_human_sleeve.mjs`.
+**Recorded:** 2026-11-17 (T-3553).

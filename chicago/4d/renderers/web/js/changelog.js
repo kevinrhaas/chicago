@@ -1,4 +1,34 @@
 export const CHANGELOG = [ // newest first
+  { v: 3080, ts: '2026-11-17T23:33:52.711Z', date: 'Nov 17, 2026, 5:33 PM CT', title: 'The first-time tour shows what the town does now', kind: 'feature',
+    items: [
+      'The tour (Guide › Take the tour) is ten quick steps. New: Interact, where you walk up to someone, a horse or a boat and press R (or tap Interact) to talk, ride or take the helm; and Jaunts, the narrated stories told for your grade.',
+      'Look and Walk say how on your device, including Shift or a full push of the thumb to run. Settings names the name cards. A row of segments on the tour card fills as you go, and the card flashes as each step is passed.',
+      'The teachers\' handout prints the ten steps.',
+    ] },
+  { v: 3079, ts: '2026-11-17T23:33:52.711Z', date: 'Nov 17, 2026, 5:33 PM CT', title: 'Clothing holds together: collars, coats and sleeves', kind: 'fix',
+    items: [
+      'Collars, apron straps and crossbelts now sit cleanly on the clothes beneath them, with smooth edges and nothing showing through, from the maid and cook to the 1812 soldiers and the children.',
+      'Men in coats no longer show a gap under the arm as they walk, and the back vents of the tailcoats and soldiers\' coats hang closed.',
+      'Sleeve cuffs turn with the wrist as one clean edge, and the coachman\'s gloves reach up inside his sleeves.',
+    ] },
+  { v: 3078, ts: '2026-11-17T22:51:33.339Z', date: 'Nov 17, 2026, 4:51 PM CT', title: 'Smoother frames where many people stand together', kind: 'fix',
+    items: [
+      'Each person\'s clothes, hair and hat now move on one set of bones instead of a set per piece, so a crowd costs far less to draw every frame. Everyone is still there, dressed and moving as before.',
+      'A short stall that came every three seconds is gone.',
+      'A person coming into view is now dressed over several frames, not all in one. The town no longer catches as people arrive.',
+      'People more than about thirty paces away now take their pose every second or third frame. They walk at the same pace, and up close nobody changes.',
+    ] },
+  { v: 3077, ts: '2026-11-17T22:51:33.339Z', date: 'Nov 17, 2026, 4:51 PM CT', title: '1815 Prairie\'s corner bay steps out past its side wall', kind: 'improvement',
+    items: [
+      'On the Sears-Meeker house at 1815 Prairie Avenue, the one-storey corner bay with the stone balcony sat flush with the house\'s south side. Both old photographs show it standing out about 0.75 m (2.5 ft) past that wall, with the upper storeys and the cornice turning the corner behind it. The bay now steps out that far, and the house\'s south wall has moved in to where the photographs put it. The tall stone chimney on that side moved in with it.',
+    ] },
+  { v: 3076, ts: '2026-11-17T22:22:47.273Z', date: 'Nov 17, 2026, 4:22 PM CT', title: 'The Greys of 2010 Prairie get their real story', kind: 'improvement',
+    items: [
+      'William Grey ran a tannery: a fresh reading of the 1900 census corrects his trade.',
+      'Their cards now give when they married, their three children, and the clubs he belonged to.',
+      'Sarah Grey died between late 1904 and late 1906, read from the society register.',
+      'They owned 2010 outright, with no mortgage, in 1900 and still in 1910.',
+    ] },
   { v: 3075, ts: '2026-11-17T16:30:14.341Z', date: 'Nov 17, 2026, 10:30 AM CT', title: 'Fort Dearborn monument: the surgeon\'s loose pantaloons', kind: 'improvement',
     items: [
       'On the Fort Dearborn monument (18th Street, 1904), the fallen surgeon now wears the loose, heavy pantaloons both photographs show, creased down the leg he stretches out to the west and gathered over his boot. Before, his legs were thin and smooth.',

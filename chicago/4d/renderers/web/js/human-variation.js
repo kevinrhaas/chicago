@@ -786,7 +786,20 @@ export function setLidRest(fn) { lidRest = typeof fn === 'function' ? fn : null;
  * swelled past what that one vertex did, the cloth is pushed out along the skin's normal
  * instead of letting the skin through. An eye moves whole, by the mean of its socket.
  */
-export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
+export function applyVariation(scene, kit, variation, options) {
+  const steps = applyVariationSteps(scene, kit, variation, options);
+  let r = steps.next();
+  while (!r.done) r = steps.next();
+  return r.value;
+}
+
+/**
+ * T-3639: applyVariation in steps, a body or a garment a step, so a figure built in its turn
+ * (humans.js queueBuild) fits its shape over several frames, not in one of up to 30 ms. The same
+ * work in the same order; nothing else fits between two steps of one figure (pumpBuilds keeps
+ * the build under way at the head of the queue), so the shared fits and caches stay its own.
+ */
+export function* applyVariationSteps(scene, kit, variation, { scope = 'full' } = {}) {
   if (!kit || !variation || scope === 'none') return null;
   // T-3553: the skin sheet goes with the fitted face, at every level of detail (human-skin.js reads it).
   const like = likenessSkin(kit, variation);
@@ -864,6 +877,7 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
     const na = g ? vertexNormals(after, idx, at.n) : fit.nb;
     for (let i = 0; i < at.n * 3; i++) { post.pts.push(after[i]); post.nrm.push(na[i]); }
     bodyFits.push(fit);
+    yield;
   }
   // The rest body as one surface (its points, normals, kit vertex and grid): the source's too,
   // kept on the first body's fit for as long as the same bodies make it up.
@@ -960,6 +974,7 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
     const g = moved ? variantGeometry(src, mesh, key, at.raw, out, fit.rawNormals) : null;
     remember(src, key, g);
     assign(mesh, g);
+    yield;
   }
   const height = scope === 'full' ? variation.height : 1;
   if (height !== 1) { scene.scale.setScalar(height); scene.updateMatrixWorld(true); }

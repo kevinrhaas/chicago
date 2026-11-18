@@ -1,0 +1,55 @@
+{
+  "id": "glessner_frances_m_1904",
+  "label": "Frances Glessner in her 1904 day dress (catalogue, lady)",
+  "person_id": "glessner_frances_m",
+  "scene": "1904",
+  "reference_set": "lady_1904",
+  "find": {
+    "kind": "stage",
+    "instance": "hi_glessner_frances_m_1904",
+    "asset": "glessner_frances_m_1904",
+    "lod": 0
+  },
+  "bound": {
+    "file": "data/humans/instances/1904/hi_glessner_frances_m_1904.json",
+    "keys": [
+      "appearance",
+      "animation"
+    ]
+  },
+  "aim_bone": "head",
+  "stills": [
+    {
+      "name": "near",
+      "distance_m": 3,
+      "bearing_off_heading_deg": -25,
+      "eye_m": 1.68,
+      "aim_below_head_m": 0.75,
+      "pose": "stand",
+      "at_s": 2,
+      "why": "Standing, from her left front at three metres, as F. B. Johnston's camera stood to Mrs. Fairbanks at the cornerstone (1905)."
+    },
+    {
+      "name": "far",
+      "distance_m": 10,
+      "bearing_off_heading_deg": 20,
+      "eye_m": 1.68,
+      "aim_below_head_m": 0.9,
+      "pose": "walk",
+      "at_s": 2.4,
+      "why": "Walking towards the camera at ten metres, as the 1904 Easter crowd on Fifth Avenue walks under the Detroit Publishing camera."
+    }
+  ],
+  "pair": {
+    "near": "johnston_fairbanks_near",
+    "far": "detroit_1904_easter"
+  },
+  "clip": {
+    "still": "near",
+    "viewport": "desktop",
+    "frames": 5,
+    "interval_s": 1.25,
+    "pose": "walk"
+  },
+  "figure_below_head_m": 1.8
+}

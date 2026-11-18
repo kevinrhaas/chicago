@@ -1,0 +1,232 @@
+{
+  "subject": "reynolds_mary_1904_maid",
+  "reference_set": "maid_1904",
+  "shot": {
+    "date": "2026-11-17",
+    "target": "tools/people_match_stage.html on this tree",
+    "build": "stage, tree d4fae0e81 + 5 uncommitted figure file(s)",
+    "out": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid",
+    "evidence_repo": "kevinrhaas/chicago-evidence"
+  },
+  "bound": {
+    "appearance": {
+      "asset_id": "reynolds_mary_1904_maid"
+    },
+    "animation": {
+      "clip": "idle",
+      "loop": true,
+      "phase": 0.15
+    },
+    "asset_lod0_sha256": "17c96945ef40e3c47c1318fbfc61f4a91f72b1e7717514fcc51a2eaba511eb8d"
+  },
+  "stills": {
+    "near-desktop": {
+      "file": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/near-desktop.jpg",
+      "sha256": "b276579f4d896a3fe93e80688b9d3f87e753b7001767d8e3d3106fe9bbc70e6d",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 2.473,
+        "n": -1.698,
+        "eye_y": 1.68,
+        "yaw_deg": 305,
+        "pitch_deg": -16.69,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.016,
+          0.022,
+          1.531
+        ]
+      },
+      "figure_box_px": [
+        526,
+        172,
+        228,
+        411
+      ]
+    },
+    "far-desktop": {
+      "file": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/far-desktop.jpg",
+      "sha256": "ffe0361cc3932dfc0325b7030cbdc17fd86cfae35ba34db2dc51325bc408af36",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 8.207,
+        "n": -5.713,
+        "eye_y": 1.68,
+        "yaw_deg": 305,
+        "pitch_deg": -5.99,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.016,
+          0.022,
+          1.531
+        ]
+      },
+      "figure_box_px": [
+        604,
+        324,
+        73,
+        132
+      ]
+    },
+    "near-phone": {
+      "file": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/near-phone.jpg",
+      "sha256": "c2905a502ca85d549d9467a57f690016966c57bd5f092f9a44e710e56da6a4fd",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 2.473,
+        "n": -1.698,
+        "eye_y": 1.68,
+        "yaw_deg": 305,
+        "pitch_deg": -16.69,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.016,
+          0.022,
+          1.531
+        ]
+      },
+      "figure_box_px": [
+        84,
+        168,
+        222,
+        401
+      ]
+    },
+    "far-phone": {
+      "file": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/far-phone.jpg",
+      "sha256": "b1308dae83fd80022010fd48ddf09cef619c9305309e8e3c65bcde5781f83507",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 8.207,
+        "n": -5.713,
+        "eye_y": 1.68,
+        "yaw_deg": 305,
+        "pitch_deg": -5.99,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.016,
+          0.022,
+          1.531
+        ]
+      },
+      "figure_box_px": [
+        159,
+        316,
+        71,
+        128
+      ]
+    }
+  },
+  "sheets": {
+    "near-side-by-side": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/near-side-by-side.jpg",
+    "far-side-by-side": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/far-side-by-side.jpg",
+    "near-pair": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/near-pair.jpg",
+    "far-pair": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/far-pair.jpg",
+    "motion-strip": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/motion-strip.jpg"
+  },
+  "verdict": "differs",
+  "checklist": {
+    "silhouette": {
+      "what": "Silhouette and fit of the clothes",
+      "status": "reads",
+      "note": "Dark long-sleeved dress to the floor under a white bib apron nearly to the hem, as Kelley's 1904 maid at the door; at 10 m she reads as his small figure does: a dark body, a white apron front and straps, a white cap."
+    },
+    "folds": {
+      "what": "Folds where cloth gathers",
+      "status": "open",
+      "note": "Apron and skirt are smooth panels; the picture's apron hangs in soft vertical folds and the skirt breaks at the floor."
+    },
+    "hat_hair": {
+      "what": "Hat and hair",
+      "status": "reads",
+      "note": "Hair drawn up to a bun with a small white cap, as the picture's maid; hers is a larger frilled bow."
+    },
+    "skin": {
+      "what": "Skin at 3 m",
+      "status": "not shown",
+      "note": "Monochrome print."
+    },
+    "hands": {
+      "what": "Hands",
+      "status": "reads",
+      "note": "Clasped at the waist over the apron; the picture's maid holds a letter at the same height."
+    },
+    "stance": {
+      "what": "How the figure stands or sits",
+      "status": "reads",
+      "note": "Upright, feet under the skirt."
+    },
+    "motion": {
+      "what": "How it moves (the 5-second strip)",
+      "status": "within tolerance",
+      "note": "The apron and skirt swing together mid-stride; no picture shows her walking."
+    }
+  },
+  "differences": [
+    {
+      "what": "collar",
+      "picture": "A white collar at the throat over the dark dress (Kelley 1904).",
+      "ours": "The dress's black stand collar shows; the white collar is only a sliver at its top edge (the asset carries a white_collar piece, buried under the black one).",
+      "status": "open"
+    },
+    {
+      "what": "apron straps",
+      "picture": "Broad straps with frilled (scalloped) edges over the shoulders (Kelley).",
+      "ours": "Broad plain white straps; the asset's apron_strap_frills piece does not read at 3 m; the strap edge is ragged over the shoulder point.",
+      "status": "open"
+    },
+    {
+      "what": "cap",
+      "picture": "A small white frilled cap or bow at the crown.",
+      "ours": "Small white cap on the bun; plainer and smaller.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "apron",
+      "picture": "White bib apron nearly to the hem, wrapping the skirt's front and sides, soft folds.",
+      "ours": "White apron nearly to the hem, front panel only, flat; bow and ties at the back.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "cuffs",
+      "picture": "Dark sleeves to the wrist.",
+      "ours": "Black sleeves with white cuffs.",
+      "status": "reads"
+    },
+    {
+      "what": "colour",
+      "picture": "Dark dress, white apron, white cap (monochrome).",
+      "ours": "Black dress, white apron and cap.",
+      "status": "reads"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever laid the stills beside the pictures; each checklist item is {what, status, note} with status open | reads | not shown | within tolerance | owner ruling — open when a visitor would see the figure is not the pictures’ kind of person in that respect. The first figure of each role is the owner’s call (the plan’s \"Your call\"); later figures of the role are held to the one he approved. A reshoot of a changed figure (bound) sets the verdict back to unreviewed."
+}

@@ -36,10 +36,9 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   // Every group names its tab, the tabs come in the bar's order, and What's new (a HUD section of
   // its own) sits between About and Research.
   const panes = [...settingsHtml.matchAll(/<div class="settings-group[^"]*"[^>]*?data-set-pane="(\w+)"/g)].map((m) => m[1]);
-  // T-3644: You's group is on the page empty; person-settings.js writes its "Your person" heading.
-  assert.equal(panes.filter((p) => p !== 'you').length, heads.length, 'every group names its tab');
-  assert.equal(panes.filter((p) => p === 'you').length, 1, 'You has its group');
-  assert.deepEqual([...new Set(panes)], SETTINGS_TABS.filter((k) => k !== 'whatsnew'), 'the groups follow the tabs\' order');
+  assert.equal(panes.length, heads.length, 'every group names its tab');
+  // T-3644: You's group is not on the page; person-settings.js personHost makes it before Show's.
+  assert.deepEqual([...new Set(panes)], SETTINGS_TABS.filter((k) => k !== 'whatsnew' && k !== 'you'), 'the groups follow the tabs\' order');
   // T-3644: You (the visitor's own person) after Display.
   assert.deepEqual(SETTINGS_TABS, ['display', 'you', 'show', 'look', 'graphics', 'sound', 'about', 'whatsnew', 'research']);
   assert.deepEqual(SETTINGS_TABS.slice(-2), ['whatsnew', 'research'], "What's new is one of the last tabs; Research is the last");

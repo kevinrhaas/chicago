@@ -77,7 +77,7 @@ import { createStandingHorses } from './standing-horses.js';
 import { keptGround } from './kept-ground.js';
 import { createFrontage, fetchPrebuiltFrontage, pageBuild } from './frontage.js';
 import { setPickRenderer, setPickLog, pickResources } from './gpu-pick.js';
-import { residentEstimate } from './resident-estimate.js';
+import { createResidentWalk } from './resident-estimate.js';
 import { createFarMerge } from './far-merge.js';
 import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
   closeUploadedImages } from './upload-release.js';
@@ -85,7 +85,7 @@ import { compactStreams } from './compact-streams.js';
 import { createTextureResidency, hasReleasedTextureLevels, hasRequiredSourceTextures } from './texture-residency.js';
 import { createCrashGuard } from './crash-guard.js';
 import { countDriverDraws } from './driver-draws.js';
-import { createBlackbox, wasCut, summary as blackboxSummary, report as blackboxReport } from './blackbox.js';
+import { createBlackbox, wasCut, summary as blackboxSummary, report as blackboxReport, SAMPLE_MS as BLACKBOX_SAMPLE_MS } from './blackbox.js';
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
@@ -2208,14 +2208,16 @@ async function boot() {
   setPickLog((kind, data) => blackbox.log(kind, data));
   api.pickResources = pickResources;
   const blackboxSize = new THREE.Vector2();
+  let residentWalk = null; // T-3639: made with the scene, below
   blackboxSample = () => {
     const { render, memory } = renderer.info;
     renderer.getDrawingBufferSize(blackboxSize);
     const pose = api.walker?.state;
     // T-2828: the bytes behind those counts, as far as the page can read them (MB).
-    const est = residentEstimate(scene3d, renderer);
+    // T-3639: from the last whole walk of the scene, which frames take a slice of at a time.
+    const est = residentWalk?.last ?? null;
     return { calls: render.calls, draws: driverDraws.draws, tris: render.triangles, geo: memory.geometries, tex: memory.textures,
-      geoMB: Math.round(est.geometry / 1048576), texMB: Math.round(est.textures / 1048576),
+      geoMB: est ? Math.round(est.geometry / 1048576) : null, texMB: est ? Math.round(est.textures / 1048576) : null,
       w: blackboxSize.x, h: blackboxSize.y, ratio: +renderer.getPixelRatio().toFixed(2),
       heap: performance.memory ? Math.round(performance.memory.usedJSHeapSize / 1048576) : null,
       at: pose ? `${Math.round(pose.e)},${Math.round(pose.n)}` : null };
@@ -2223,6 +2225,8 @@ async function boot() {
 
   const scene3d = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(62, 1, NEAR.min, 3000);
+  // T-3639: the black box's byte estimate, walked half a millisecond a frame (resident-estimate.js).
+  residentWalk = createResidentWalk(scene3d, renderer, { everyMs: BLACKBOX_SAMPLE_MS });
   // T-2113. While the welcome is up the walk is held, so the town under it is
   // drawn only when something it is made of has changed — see gate-frame.js.
   const gateFrame = createGateFrame({ renderer, scene: scene3d, camera });
@@ -3940,7 +3944,10 @@ async function boot() {
   // runs on a tap.
   // T-2663: what the Field Check reads — how often a building's record opened, and (T-2954)
   // how often each Navigator app opened.
-  const tourCounts = { opens: 0, apps: {} };
+  const tourCounts = { opens: 0, acts: 0, apps: {} };
+  /** T-3642: the Interact key used (the smoke fires it too, where nothing may be in reach). */
+  const tourInteracted = () => { tourCounts.acts++; };
+  api.tourInteracted = tourInteracted;
   const popup = createPopup(popupRoot, {
     onBusiness: (id) => openBusiness(id),
     onShow: (record) => {
@@ -4419,8 +4426,9 @@ async function boot() {
   // worn in the saddle (visitor-person.js, person-settings.js). Off the boot's path.
   api.person = null;
   void (async () => {
-    const [{ loadVisitorPerson }, { wirePersonSettings }, { createPersonPortrait }, { COMPLEXION_TINT }] = await Promise.all([
+    const [{ loadVisitorPerson }, { wirePersonSettings, personHost }, { createPersonPortrait }, { COMPLEXION_TINT }] = await Promise.all([
       import('./visitor-person.js'), import('./person-settings.js'), import('./person-portrait.js'), import('./human-looks.js')]);
+    personHost(document);   // the You tab's group, with its "loads with the town" line until then
     const person = await loadVisitorPerson({ dataBase: bases.dataBase, assetBase: bases.assetBase, storage: safeStorage(),
       account: api.signIn?.account ?? null });
     api.person = person;
@@ -6689,7 +6697,10 @@ async function boot() {
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     moreEl: document.getElementById('interact-more'),
+    // T-3642: the Field Check's Interact step waits on the key used: a press, or its list opened.
+    onPress: () => tourInteracted(),
     onExpand: (thing) => {
+      tourInteracted();
       api.navigator?.dock?.();
       return thing?.kind === 'person' ? api.days?.attend?.(thing.actor?.id) : null;
     },
@@ -7066,7 +7077,7 @@ async function boot() {
   }
 
   // ---- T-2663: Tour mode, the Field Check ------------------------------------------
-  // Eight steps (js/tour.js), each completing on its real action, read here every quarter
+  // Ten steps (js/tour.js, T-3642), each completing on its real action, read here every quarter
   // second while it runs; replayed from the section Guide opens (#tour-start); a reload
   // mid-tour resumes at the same step once the visitor is back in the town.
   let tourTimer = null, tourApp = null;
@@ -7086,11 +7097,9 @@ async function boot() {
       tourApp = app;
       const level = navigatorUi?.level ?? 0;
       return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, opens: tourCounts.opens,
-        apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level, app,
+        acts: tourCounts.acts, apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level, app,
         selected: !!popup.openId || (app === 'inspect' && level > 0), card: !!popup.openId,
-        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null,
-        // T-3445: the People step only where the rail carries a People app.
-        people: !!document.querySelector('#navigator .nav-app[data-app="people"]:not([hidden])') };
+        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null };
     },
     render: (v) => {
       tourOverlay.paint(v);
@@ -7442,6 +7451,7 @@ async function boot() {
     if (card !== seenCard) { blackbox.log(card ? 'card' : 'card-closed', card ? { id: card } : null); seenCard = card; }
     const nav = navigatorUi ? `${navigatorUi.level}:${navigatorUi.app ?? ''}` : null;
     if (nav !== seenNav) { if (seenNav !== null || nav !== '0:home') blackbox.log('nav', { level: navigatorUi?.level, app: navigatorUi?.app ?? null }); seenNav = nav; }
+    residentWalk.step();
     blackbox.tick();
   }
   frameLoop = (t) => {

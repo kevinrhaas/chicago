@@ -38,15 +38,24 @@ const el = (doc, tag, props = {}, kids = []) => {
 };
 
 /**
- * The builder's place: `#s-person` under the "Your person" heading in the You tab's group
- * (`.settings-group[data-set-pane="you"]`, which the page carries empty to keep its bytes down), made once.
+ * The builder's place: `#s-person` under the "Your person" heading, in the You tab's group
+ * (`.settings-group[data-set-pane="you"]`, put before Show's first group), all made here, once:
+ * the page carries none of it (index.html sits at validate.py's 64 KB duplicate floor). The group
+ * starts hidden unless You is the tab open; settings-app.js shows it with its tab from then on.
  */
 export function personHost(doc = globalThis.document) {
   const found = doc?.getElementById?.('s-person');
   if (found) return found;
-  const group = doc?.querySelector?.('.settings-group[data-set-pane="you"]');
-  if (!group) return null;
-  const host = el(doc, 'div', { class: 'person-builder', id: 's-person' });
+  let group = doc?.querySelector?.('.settings-group[data-set-pane="you"]');
+  if (!group) {
+    const show = doc?.querySelector?.('.settings-group[data-set-pane="show"]');
+    if (!show) return null;
+    group = el(doc, 'div', { class: 'settings-group', 'data-set-pane': 'you' });
+    group.hidden = doc.querySelector?.('[data-set-tab="you"]')?.getAttribute?.('aria-selected') !== 'true';
+    show.before(group);
+  }
+  const host = el(doc, 'div', { class: 'person-builder', id: 's-person' }, [
+    el(doc, 'p', { class: 'legend-note', text: 'Your person loads with the town.' })]);
   group.append(el(doc, 'h4', { text: 'Your person' }), host);
   return host;
 }
