@@ -33,11 +33,24 @@
  * sides by their angle round the body, so the two edges, now within a few degrees of each
  * other on the same panels, walk together.
  *
- * Topology, UVs and skin weights are unchanged; only positions move, once per parse (about
- * 25 to 45 ms at LOD0, under 20 at the far levels), before any figure is cloned. No geometry,
- * texture, draw call or program is added. tools/test_human_coat.mjs measures both on every body at every level,
- * standing and walking. The lap's side and the thinned layers are reconstructed (liberty
- * L-coat-3553).
+ * The fold (round 4). Hanging, the coat's own cloth at the front and back folds of the armpit
+ * crumples: skinned point by point, neighbouring points lean to the arm and to the chest by
+ * shares that jump, so about a ninth of the cloth round each armpit turns over on itself and
+ * shades dark (the 1812 trader's green coat showed it most). For the coats listed in EASE_FOLD,
+ * the outer garment's weights are evened out over its own surface round each armpit (FOLD:
+ * repeated neighbour averaging, in full within `full` of a point `below` the shoulder joint,
+ * fading out by `fade`), so the fold turns over a band of cloth instead of one row of points;
+ * and what lies under it there (the thinned layers) takes the coat's new weights at its nearest
+ * point, so it folds with the coat and stays under it. Only those weights change, and only at
+ * the two near levels (a far level's few faces at the shoulder, smoothed, open round it; left
+ * as drawn).
+ *
+ * Topology and UVs are unchanged; skin weights change only at the armpits of an EASE_FOLD coat
+ * and the layers under it; positions move once per parse (about 25 to 45 ms at LOD0, under 20
+ * at the far levels; the fold adds about 40 ms on the trader), before any figure is cloned. No
+ * geometry, texture, draw call or program is added. tools/test_human_coat.mjs measures all three on every body at every level,
+ * standing and walking. The lap's side, the thinned layers and the evened weights are
+ * reconstructed (liberty L-coat-3553).
  */
 import * as THREE from 'three';
 
@@ -60,6 +73,15 @@ const SLEEVE_MIN = 20, SLEEVE_OUT_M = 0.1, DRAPED = /(^|_)(blanket|shawl|wrap|cl
 /** The vent: open edges within `near` of the middle of the back, down at least `minLength`;
  * closed with `lap` across the middle each way, the left `out` behind, fading over `fade`. */
 export const VENT = Object.freeze({ near: 0.012, lap: 0.003, out: 0.003, fade: 0.06, minLength: 0.08 });
+/** The fold: the coats whose weights are evened round the armpit (by the outer garment's material),
+ * and how: `iterations` of neighbour averaging at `rate`, in full within `full` of a point `below`
+ * the shoulder joint and fading out by `fade` (metres per 0.4 m of shoulders); a layer under the
+ * coat takes the coat's weights at its nearest point within `near`, fading out by `far`. Only the
+ * trader's coat so far: every coat folds the same way, but the other coated bodies are tailored
+ * by modules of their own (human-tailor-1835.js, human-regulars.js, human-frockcoat.js) whose
+ * fits read these weights, and are left to them. */
+export const EASE_FOLD = /^garment_outer__tailcoat_green_1810$/;
+export const FOLD = Object.freeze({ iterations: 100, rate: 0.7, below: 0.06, full: 0.09, fade: 0.15, near: 0.04, far: 0.06 });
 const VENT_PIECE = /(^|_)(coat|tailcoat|frock|livery)(_|$)/, VENT_PART = /(^|_)(tails?|skirts?)(_|$)/;
 
 function bindJoint(sk, name) {
@@ -331,11 +353,98 @@ export function closeVents(root) {
   return report;
 }
 
-/** Both, once per loaded body, before any figure is cloned (cloned figures share the result). */
+function weightsOf(m, i) {
+  const si = m.geometry.attributes.skinIndex, sw = m.geometry.attributes.skinWeight, w = new Map();
+  for (let k = 0; k < 4; k++) { const x = sw.getComponent(i, k); if (x > 0) w.set(si.getComponent(i, k), (w.get(si.getComponent(i, k)) ?? 0) + x); }
+  return w;
+}
+function writeWeights(m, i, w) {
+  const si = m.geometry.attributes.skinIndex, sw = m.geometry.attributes.skinWeight;
+  const top = [...w].filter((e) => e[1] > 1e-5).sort((a, b) => b[1] - a[1]).slice(0, 4), s = top.reduce((t, e) => t + e[1], 0) || 1;
+  for (let k = 0; k < 4; k++) { si.setComponent(i, k, top[k]?.[0] ?? 0); sw.setComponent(i, k, (top[k]?.[1] ?? 0) / s); }
+}
+const mixed = (a, b, k) => { const out = new Map(); for (const n of new Set([...a.keys(), ...b.keys()])) out.set(n, (1 - k) * (a.get(n) ?? 0) + k * (b.get(n) ?? 0)); return out; };
+
+/**
+ * Even out the outer coat's weights round each armpit, and give what lies under it there the
+ * coat's new weights (see the head of this file). Returns { mesh, points, under: [{ mesh, points }] }
+ * or null when the body has no EASE_FOLD coat.
+ */
+export function easeFold(root) {
+  if (!root) return null;
+  const outerName = root.userData.chicagoArmpits?.outer;
+  const all = [];
+  root.traverse((o) => { if (o.isSkinnedMesh && o.skeleton && o.geometry?.index) all.push(o); });
+  const m = all.find((o) => o.name === outerName);
+  if (!m || !EASE_FOLD.test(materialName(m))) return null;
+  // the two near levels only: a far level's coat is too coarse to smooth (its few faces at the
+  // shoulder fold as one, and smoothed they open round the shoulder), so it is left as drawn
+  const lod = +(/_lod(\d+)$/.exec(m.name)?.[1] ?? 0);
+  if (lod > 1) return null;
+  const sk = m.skeleton, P = bindPositions(m), n = P.length / 3, idx = m.geometry.index.array;
+  const J = { l: bindJoint(sk, 'upperarm_l'), r: bindJoint(sk, 'upperarm_r') }, hipL = bindJoint(sk, 'thigh_l'), hipR = bindJoint(sk, 'thigh_r'), neck = bindJoint(sk, 'neck_01');
+  if (!J.l || !J.r || !hipL || !hipR || !neck) return null;
+  const U = neck.clone().sub(hipL.clone().add(hipR).multiplyScalar(0.5)).normalize(), scale = J.l.distanceTo(J.r) / ADULT_SHOULDERS_M;
+  const c = SIDES.map((s) => J[s].clone().addScaledVector(U, -FOLD.below * scale));
+  const zoneOf = (x, y, z) => 1 - smooth((Math.min(...c.map((q) => Math.hypot(q.x - x, q.y - y, q.z - z))) - FOLD.full * scale) / ((FOLD.fade - FOLD.full) * scale));
+  const { gid } = rimOf(P, idx);
+  let G = 0; for (let i = 0; i < n; i++) G = Math.max(G, gid[i] + 1);
+  const nb = Array.from({ length: G }, () => new Set());
+  for (let t = 0; t < idx.length / 3; t++) for (let k = 0; k < 3; k++) { const a = gid[idx[t * 3 + k]], b = gid[idx[t * 3 + (k + 1) % 3]]; if (a !== b) { nb[a].add(b); nb[b].add(a); } }
+  // Welded points as one (a UV seam's copies keep one set of weights).
+  let W = new Array(G).fill(null);
+  const zone = new Float64Array(G);
+  for (let i = 0; i < n; i++) { const g = gid[i]; if (W[g]) continue; zone[g] = zoneOf(P[i * 3], P[i * 3 + 1], P[i * 3 + 2]); W[g] = weightsOf(m, i); }
+  for (let it = 0; it < FOLD.iterations; it++) {
+    W = W.map((w, g) => {
+      if (!(zone[g] > 1e-3) || !nb[g].size) return w;
+      const mean = new Map();
+      for (const o of nb[g]) for (const [b, x] of W[o]) mean.set(b, (mean.get(b) ?? 0) + x / nb[g].size);
+      return mixed(w, mean, FOLD.rate * zone[g]);
+    });
+  }
+  let points = 0;
+  for (let i = 0; i < n; i++) if (zone[gid[i]] > 1e-3) { writeWeights(m, i, W[gid[i]]); points++; }
+  m.geometry.attributes.skinIndex.needsUpdate = true; m.geometry.attributes.skinWeight.needsUpdate = true;
+  const report = { mesh: m.name, points, under: [] };
+  // What lies under it there folds with it: the coat's new weights at its nearest point.
+  const cell = 0.02, grid = new Map(), key = (a, b, d) => `${a},${b},${d}`;
+  for (let i = 0; i < n; i++) {
+    if (!(zone[gid[i]] > 1e-3)) continue;
+    const k = key(Math.floor(P[i * 3] / cell), Math.floor(P[i * 3 + 1] / cell), Math.floor(P[i * 3 + 2] / cell));
+    let l = grid.get(k); if (!l) grid.set(k, (l = [])); l.push(i);
+  }
+  const near = FOLD.near * scale, far = FOLD.far * scale, R = Math.ceil(far / cell);
+  for (const u of all) {
+    if (u === m || !/^(garment|skin)/.test(materialName(u)) || u.skeleton.bones.some((b, k) => sk.bones[k] !== b)) continue;
+    const Q = bindPositions(u);
+    let moved = 0;
+    for (let i = 0; i < Q.length / 3; i++) {
+      const x = Q[i * 3], y = Q[i * 3 + 1], z = Q[i * 3 + 2], zz = zoneOf(x, y, z);
+      if (!(zz > 1e-3)) continue;
+      let best = Infinity, bj = -1;
+      const a = Math.floor(x / cell), b = Math.floor(y / cell), d = Math.floor(z / cell);
+      for (let p = -R; p <= R; p++) for (let q = -R; q <= R; q++) for (let r = -R; r <= R; r++) {
+        const l = grid.get(key(a + p, b + q, d + r)); if (!l) continue;
+        for (const j of l) { const e = Math.hypot(P[j * 3] - x, P[j * 3 + 1] - y, P[j * 3 + 2] - z); if (e < best) { best = e; bj = j; } }
+      }
+      if (bj < 0 || best > far) continue;
+      writeWeights(u, i, mixed(weightsOf(u, i), W[gid[bj]], zz * (1 - smooth((best - near) / (far - near)))));
+      moved++;
+    }
+    if (!moved) continue;
+    u.geometry.attributes.skinIndex.needsUpdate = true; u.geometry.attributes.skinWeight.needsUpdate = true;
+    report.under.push({ mesh: u.name, points: moved });
+  }
+  return report;
+}
+
+/** All three, once per loaded body, before any figure is cloned (cloned figures share the result). */
 export function fitCoats(root) {
   if (!root) return null;
   if (root.userData.chicagoCoats) return root.userData.chicagoCoats;
   const report = { armpits: fitArmpits(root), vents: closeVents(root) };
+  report.fold = easeFold(root);
   root.userData.chicagoCoats = report;
   return report;
 }

@@ -20,9 +20,19 @@
 // near levels and a small part of what was drawn at the far ones (FAR_VENT_MM2 at most), from
 // a vent that showed on every level.
 //
-// Topology, UVs and skin weights unchanged; once per loaded body; wired into humans.js's
+// The fold (round 4): on a coat listed in EASE_FOLD (the 1812 trader's), the coat's own cloth
+// round the armpits, posed as above and through the walk, turned over on itself (a triangle
+// facing against its own skinned normals: the crumpled crease that shades dark): at most
+// FOLD_KEEP of what was drawn at the two near levels, never more than drawn further out (left
+// as drawn there); and, its weights evened there and the layers under it given them, no more
+// of what is under it shows round the shoulder and the side (the armpit window doubled) than
+// as drawn, give or take GAP_MM2.
+//
+// Topology and UVs unchanged; skin weights unchanged but for an EASE_FOLD coat and the layers
+// under it, round its armpits (summing to one); once per loaded body; wired into humans.js's
 // parse() before the waist is fitted. COAT_OLD=1 measures the exports as drawn (the code
-// before this file): it fails, and prints what it finds.
+// before this file): it fails, and prints what it finds. COAT_MODULE=<path> measures another
+// copy of the module (the round-3 code fails the fold).
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 const here = new URL('../', import.meta.url);
@@ -46,7 +56,7 @@ await MeshoptDecoder.ready;
 globalThis.self ??= globalThis;
 // A module loaded from a data: URL cannot resolve its own relative imports (human-skirt.js reads
 // './human-skeletons.js'), so they are pointed at the files beside it.
-const js = async (name) => (await fs.readFile(new URL(`renderers/web/js/${name}`, here), 'utf8'))
+const js = async (name) => (await fs.readFile(name === 'human-coat.js' && process.env.COAT_MODULE ? process.env.COAT_MODULE : new URL(`renderers/web/js/${name}`, here), 'utf8'))
   .replace("from 'three'", `from '${three}'`)
   .replace(/from '\.\/([\w.-]+\.js)'/g, (_, f) => `from '${new URL(`renderers/web/js/${f}`, here).href}'`);
 const coat = await import(data(await js('human-coat.js')));
@@ -76,7 +86,9 @@ async function load(asset, lod) {
   return gltf;
 }
 
-export const GAP_MM2 = 8, VENT_MM2 = 8, FAR_VENT_MM2 = 64;
+export const GAP_MM2 = 8, VENT_MM2 = 8, FAR_VENT_MM2 = 64, FOLD_KEEP = 0.4;
+/** The coats whose fold is eased: the module's list, or the trader's when an older module has none. */
+const EASE_FOLD = coat.EASE_FOLD ?? /^garment_outer__tailcoat_green_1810$/;
 const matName = (o) => (Array.isArray(o.material) ? o.material[0] : o.material)?.name ?? '';
 const meshesOf = (scene) => { const out = []; scene.traverse((o) => { if (o.isSkinnedMesh && o.geometry.index) out.push(o); }); return out; };
 const isSkin = (m) => matName(m).split('__')[0] === 'skin';
@@ -213,14 +225,14 @@ function pose(gltf, { t, swing, elbow }) {
   gltf.scene.updateMatrixWorld(true); mixer.stopAllAction();
 }
 /** The most hidden cloth or skin showing at either armpit, mm^2, over the poses and views. */
-function armpitGap(gltf, hidden) {
+function armpitGap(gltf, hidden, wide = 1) {
   const ms = meshesOf(gltf.scene).filter((m) => !/^eyes/.test(matName(m)));
   let worst = 0, at = null;
   for (const p of POSES) {
     pose(gltf, p);
     const layers = ms.map((m, k) => ({ P: posed(m), idx: m.geometry.index.array, tag: k, hidden: hidden.get(m.name) }));
     // The window scales with the body (a child's armpit is nearer its waist).
-    const fr = frameNow(gltf.scene), k = fr.w('upperarm_l').distanceTo(fr.w('upperarm_r')) / 0.4, px = 0.002, half = 0.11 * k;
+    const fr = frameNow(gltf.scene), k = fr.w('upperarm_l').distanceTo(fr.w('upperarm_r')) / 0.4, px = 0.002, half = 0.11 * k * wide;
     for (const s of ['l', 'r']) {
       const side = s === 'l' ? fr.L.clone() : fr.L.clone().negate();
       const centre = fr.w(`upperarm_${s}`).addScaledVector(fr.U, -0.09 * k).addScaledVector(side, -0.03 * k);
@@ -228,13 +240,49 @@ function armpitGap(gltf, hidden) {
         const a = deg * Math.PI / 180, dir = side.clone().multiplyScalar(Math.cos(a)).addScaledVector(fr.F, Math.sin(a)).addScaledVector(fr.U, 0.2);
         const buf = idBuffer(layers, dir, fr.U, centre, half, px);
         // Under the shoulder only (the collar and the neck are another matter).
-        let n = 0; for (let q = Math.round((half - 0.06 * k) / px) * buf.N; q < buf.hidden.length; q++) n += buf.hidden[q];
+        let n = 0; for (let q = Math.round((half - 0.06 * k * wide) / px) * buf.N; q < buf.hidden.length; q++) n += buf.hidden[q];
         const mm2 = n * px * px * 1e6;
         if (mm2 > worst) { worst = mm2; at = `${s} ${deg}deg swing ${p.swing}`; }
       }
     }
   }
   return { worst, at };
+}
+
+// ---- the fold -------------------------------------------------------------------------------
+/** Skinned normal of vertex i (its bind normal through its blended bone matrix, as the GPU does). */
+function skinnedNormal(m, i, M, acc, nm, out) {
+  const si = m.geometry.attributes.skinIndex, sw = m.geometry.attributes.skinWeight;
+  acc.elements.fill(0);
+  for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (!w) continue; const b = si.getComponent(i, k); M.multiplyMatrices(m.skeleton.bones[b].matrixWorld, m.skeleton.boneInverses[b]); for (let e = 0; e < 16; e++) acc.elements[e] += w * M.elements[e]; }
+  acc.multiply(m.bindMatrix);
+  return out.fromBufferAttribute(m.geometry.attributes.normal, i).applyMatrix3(nm.getNormalMatrix(acc)).normalize();
+}
+const FOLD_POSES = [...POSES, { t: 0.25, swing: 12, elbow: 30 }, { t: 0.75, swing: -12, elbow: 15 }];
+/** The outer garment's cloth round the armpits (within 14 cm of a point 7 cm under each shoulder
+ * joint, at bind) turned over on itself, cm^2, summed over FOLD_POSES. */
+function foldArea(gltf, outerName) {
+  const m = meshesOf(gltf.scene).find((o) => o.name === outerName), sk = m.skeleton;
+  const j = (n) => new THREE.Vector3().setFromMatrixPosition(sk.boneInverses[sk.bones.findIndex((b) => b.name === n)].clone().invert());
+  const k = j('upperarm_l').distanceTo(j('upperarm_r')) / 0.4, pits = ['l', 'r'].map((s) => j(`upperarm_${s}`).add(new THREE.Vector3(0, -0.07 * k, 0)));
+  const B = bindPos(m), idx = m.geometry.index.array, near = (i) => Math.min(...pits.map((p) => Math.hypot(p.x - B[i * 3], p.y - B[i * 3 + 1], p.z - B[i * 3 + 2]))) < 0.14 * k;
+  const tris = []; for (let t = 0; t < idx.length / 3; t++) if (near(idx[t * 3]) && near(idx[t * 3 + 1]) && near(idx[t * 3 + 2])) tris.push(t);
+  const M = new THREE.Matrix4(), acc = new THREE.Matrix4(), nm = new THREE.Matrix3(), nv = new THREE.Vector3(), sum = new THREE.Vector3(), e1 = new THREE.Vector3(), e2 = new THREE.Vector3();
+  let total = 0;
+  for (const p of FOLD_POSES) {
+    pose(gltf, p);
+    const P = posed(m), N = new Map();
+    for (const t of tris) {
+      const c = [0, 1, 2].map((q) => idx[t * 3 + q]);
+      e1.set(P[c[1] * 3] - P[c[0] * 3], P[c[1] * 3 + 1] - P[c[0] * 3 + 1], P[c[1] * 3 + 2] - P[c[0] * 3 + 2]);
+      e2.set(P[c[2] * 3] - P[c[0] * 3], P[c[2] * 3 + 1] - P[c[0] * 3 + 1], P[c[2] * 3 + 2] - P[c[0] * 3 + 2]);
+      const f = e1.cross(e2), area = f.length() / 2;
+      sum.set(0, 0, 0);
+      for (const i of c) { if (!N.has(i)) N.set(i, skinnedNormal(m, i, M, acc, nm, nv).clone()); sum.add(N.get(i)); }
+      if (f.dot(sum) < 0) total += area;
+    }
+  }
+  return total * 1e4;
 }
 
 // ---- the vent ------------------------------------------------------------------------------
@@ -309,7 +357,7 @@ for (const f of await fs.readdir(new URL('data/humans/variation/', here))) {
   walk(JSON.parse(await fs.readFile(new URL(`data/humans/variation/${f}`, here), 'utf8')));
 }
 const lines = [], failures = [];
-let pits = 0, vents = 0;
+let pits = 0, vents = 0, folds = 0;
 const check = (ok, msg) => { if (!ok) failures.push(msg); };
 for (const asset of ASSETS) {
   const res = [];
@@ -317,10 +365,23 @@ for (const asset of ASSETS) {
     const before = await load(asset, lod), after = await load(asset, lod);
     const snap = new Map(meshesOf(after.scene).map((m) => [m.name, { pos: m.geometry.attributes.position.array.slice(), uv: m.geometry.attributes.uv?.array.slice(), si: m.geometry.attributes.skinIndex.array.slice(), sw: m.geometry.attributes.skinWeight.array.slice(), idx: m.geometry.index.array.slice() }]));
     const report = fitCoats(after.scene);
+    // Weights change only at the armpits of an eased coat and the layers under it, summing to one.
+    const reweighted = new Set(report?.fold ? [report.fold.mesh, ...report.fold.under.map((u) => u.mesh)] : []);
     for (const m of meshesOf(after.scene)) {
       const s = snap.get(m.name), g = m.geometry;
-      assert.deepEqual(g.attributes.skinIndex.array, s.si, `${asset} LOD${lod} ${m.name}: skin indices kept`);
-      assert.deepEqual(g.attributes.skinWeight.array, s.sw, `${asset} LOD${lod} ${m.name}: skin weights kept`);
+      if (reweighted.has(m.name)) {
+        const sk = m.skeleton, j = (n) => new THREE.Vector3().setFromMatrixPosition(sk.boneInverses[sk.bones.findIndex((b) => b.name === n)].clone().invert());
+        const k = j('upperarm_l').distanceTo(j('upperarm_r')) / 0.4, pits = ['l', 'r'].map((q) => j(`upperarm_${q}`)), B = bindPos(m), p = new THREE.Vector3();
+        for (let i = 0; i < g.attributes.skinWeight.count; i++) {
+          let t = 0, same = true;
+          for (let c = 0; c < 4; c++) { t += g.attributes.skinWeight.getComponent(i, c); same &&= g.attributes.skinWeight.array[i * 4 + c] === s.sw[i * 4 + c] && g.attributes.skinIndex.array[i * 4 + c] === s.si[i * 4 + c]; }
+          assert(Math.abs(t - 1) < 0.01, `${asset} LOD${lod} ${m.name}: weights of ${i} sum to ${t}`);
+          if (!same) assert(Math.min(...pits.map((q) => q.distanceTo(p.fromArray(B, i * 3)))) < (coat.FOLD.below + coat.FOLD.fade) * k + 0.01, `${asset} LOD${lod} ${m.name}: weights changed away from the armpit`);
+        }
+      } else {
+        assert.deepEqual(g.attributes.skinIndex.array, s.si, `${asset} LOD${lod} ${m.name}: skin indices kept`);
+        assert.deepEqual(g.attributes.skinWeight.array, s.sw, `${asset} LOD${lod} ${m.name}: skin weights kept`);
+      }
       if (s.uv) assert.deepEqual(g.attributes.uv.array, s.uv, `${asset} LOD${lod} ${m.name}: UVs kept`);
       assert.deepEqual(g.index.array, s.idx, `${asset} LOD${lod} ${m.name}: topology kept`);
     }
@@ -360,6 +421,16 @@ for (const asset of ASSETS) {
       check(near ? g1.worst <= GAP_MM2 : g1.worst <= Math.max(GAP_MM2, g0.worst + 4), `${asset} LOD${lod} ${piece}: ${g1.worst.toFixed(0)} mm2 of what is under it shows at the armpit (${g1.at}; drawn ${g0.worst.toFixed(0)})`);
       res.push(`L${lod} pit ${g0.worst.toFixed(0)}→${g1.worst.toFixed(0)}`);
       pits++;
+      // The fold, on an eased coat.
+      if (EASE_FOLD.test(matName(found.outer))) {
+        const f0 = foldArea(before, found.outer.name), f1 = foldArea(after, found.outer.name);
+        check(near ? f1 <= FOLD_KEEP * f0 : f1 <= f0 + 1, `${asset} LOD${lod} ${piece}: ${f1.toFixed(0)} cm2 of its cloth turned over at the armpits over the poses (drawn ${f0.toFixed(0)})`);
+        const w0 = armpitGap(before, hidden, 2), w1 = armpitGap(after, hidden, 2);
+        check(w1.worst <= Math.max(GAP_MM2, w0.worst + GAP_MM2), `${asset} LOD${lod} ${piece}: ${w1.worst.toFixed(0)} mm2 of what is under it shows round the shoulder and the side (${w1.at}; drawn ${w0.worst.toFixed(0)})`);
+        res.push(`L${lod} wide ${w0.worst.toFixed(0)}→${w1.worst.toFixed(0)}`);
+        res.push(`L${lod} fold ${f0.toFixed(0)}→${f1.toFixed(0)} cm2`);
+        folds++;
+      }
     }
     // The vent.
     const tails = meshesOf(before.scene).filter(coat.isCoatSkirt);
@@ -382,10 +453,11 @@ if (failures.length) {
 }
 assert(pits >= 60, `sleeved bodies and levels measured: ${pits}`);
 assert.equal(vents, VENTED.length * 4, `vented coats measured at every level`);
+assert(folds >= 4, `eased coats measured at every level: ${folds}`);
 // Wired into humans.js's parse, before the waist (fitWaist stays straight before engraveSilver).
 {
   const humans = await fs.readFile(process.env.HUMANS_JS ?? new URL('renderers/web/js/humans.js', here), 'utf8');
   assert(/import \{ fitCoats \} from '\.\/human-coat\.js';/.test(humans), 'humans.js imports fitCoats');
   assert(/const gltf = await loader\.parseAsync\(.*\);(?:(?!return gltf)[\s\S]){0,1200}fitCoats\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,400}fitWaist\(gltf\.scene\);\s*engraveSilver\(gltf\.scene\);\s*return gltf;/.test(humans), 'parse() fits the coats of the shared source, before the waist');
 }
-console.log(`human-coat: ${pits} sleeved body levels closed at the armpit, ${vents} vents lapped, standing and walking: PASS`);
+console.log(`human-coat: ${pits} sleeved body levels closed at the armpit, ${vents} vents lapped, ${folds} coat levels measured at the fold (eased at the two near levels), standing and walking: PASS`);
