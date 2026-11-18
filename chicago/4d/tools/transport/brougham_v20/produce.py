@@ -12,7 +12,9 @@ own checks stay as they are. Everything else of V19 is carried over byte for byt
 body, door, glass, roof, lamps, wheels, springs, pole, contacts, anchors, the driver's
 cushion, backboard, rails and footboard (the seated coachman's fit rests on those), and the
 passengers' seats. Only the six named V19 parts in REMOVED leave, and the parts in ADDED
-join the black-timber and iron batches of the body.
+join the black-timber and iron batches of the body. The one other change is the cab (CAB,
+T-3553): its seat, squab, floor and seat data lowered and the body's lower rear quarter
+brought down with them, so a passenger sits upright.
 
 Usage (fresh output directory; writes near/mid/far raw + indexed GLBs and a receipt):
 
@@ -39,6 +41,24 @@ REMOVED = {'perch_support', 'footboard_support', 'thin_rear_mudguard'}
 ADDED = ['box_side_panel', 'box_seat_riser', 'box_dash', 'box_dash_rail', 'box_dash_stay', 'box_sweep_iron']
 # Body-frame geometry in V19 is authored, then lifted by its declared vertical affine.
 AFFINE = (1.13, 0.03)
+# The cab, T-3553 (owner, 2026-11-17, beside Mr. Glessner: "I can't believe that it would be
+# normal for a rider to have to crouch while riding"). V19 set the passengers' cushion 1.296 m
+# off the ground, 0.75 m under the roof lining, and its rear quarter stopped at 1.08-1.17 m,
+# so a man could only ride bent double. Real broughams stand about as tall as ours (Carriage
+# Foundation single brougham 6 ft 6.5 in; St. Mary's County brougham 79 in; ours 2.19 m),
+# so the miss is inside: plate 0095 seats the lady with her hat well below the roof and
+# carries the black rear quarter down behind the door nearly to the hind hub. V20 lowers the
+# cushion and seat data by `drop_m` (the squab's foot with them, its top kept, so it still
+# covers the back wall) and the floor by `floor_drop_m`, shortens the
+# bench base onto the rear spring hangers (0.83 m), and lets the body's lower rear come down
+# with them: below `y_fixed` (the waist moulding) and behind `z_none` (the door's back edge)
+# each corner of the body frame moves down by drop * W(z) * S(y), both smoothsteps, so the
+# outline stays smooth and the door, roof, glass and the coachman's box do not move.
+CAB = {'drop_m': 0.21, 'floor_drop_m': 0.20, 'bench_base_bottom_m': 0.84,
+       'warp': {'z_none': -0.45, 'z_full': -0.62, 'y_fixed': 1.45, 'y_full': 1.0}}
+CAB_LOWERED = {'passenger_cushion': 'drop', 'passenger_back': 'squab', 'interior_floor': 'floor',
+               'passenger_bench_base': 'bench'}
+SEATS_LOWERED = ('vehicle_seat_passenger_01', 'vehicle_seat_passenger_02')
 SAMPLES = {'near': {'outline': 28, 'curve': 18, 'tube': 8, 'dash_x': 14},
            'mid': {'outline': 16, 'curve': 10, 'tube': 6, 'dash_x': 8},
            'far': {'outline': 8, 'curve': 6, 'tube': 4, 'dash_x': 4}}
@@ -154,6 +174,64 @@ def tube(path, radius, sides):
     return m
 
 
+def _smooth(t):
+    t = np.clip(t, 0, 1)
+    return t * t * (3 - 2 * t)
+
+
+def _dsmooth(t):
+    return np.where((t > 0) & (t < 1), 6 * t * (1 - t), 0.0)
+
+
+def cab_warp(P, N):
+    """The rear quarter brought down (see CAB): y' = y - drop * W(z) * S(y), normals by J^-T.
+
+    P, N are float32 corner streams (bytes or arrays); corners the warp does not reach keep
+    their exact bytes."""
+    w = CAB['warp']; d = CAB['drop_m']
+    P0 = np.frombuffer(P, '<f4').reshape(-1, 3) if isinstance(P, (bytes, bytearray)) else np.asarray(P, '<f4').reshape(-1, 3)
+    N0 = np.frombuffer(N, '<f4').reshape(-1, 3) if isinstance(N, (bytes, bytearray)) else np.asarray(N, '<f4').reshape(-1, 3)
+    p = P0.astype(np.float64); n = N0.astype(np.float64)
+    zspan = w['z_none'] - w['z_full']; yspan = w['y_fixed'] - w['y_full']
+    tz = (w['z_none'] - p[:, 2]) / zspan; ty = (w['y_fixed'] - p[:, 1]) / yspan
+    hit = (tz > 0) & (ty > 0)
+    if not hit.any():
+        return P0.copy(), N0.copy()
+    W, S = _smooth(tz), _smooth(ty)
+    a = 1 + d * W * _dsmooth(ty) / yspan            # dy'/dy (> 1: the band only stretches)
+    b = d * S * _dsmooth(tz) / zspan                # dy'/dz
+    q = p.copy(); q[:, 1] = p[:, 1] - d * W * S
+    m = np.stack([n[:, 0], n[:, 1] / a, n[:, 2] - b * n[:, 1] / a], axis=1)
+    m /= np.linalg.norm(m, axis=1)[:, None]
+    outP, outN = P0.copy(), N0.copy()
+    outP[hit] = q[hit].astype('<f4'); outN[hit] = m[hit].astype('<f4')
+    return outP, outN
+
+
+def cab_lower(name, P, N):
+    """Cushion and floor moved down, the squab lengthened down to the cushion (its top kept),
+    the bench base shortened onto the spring hangers. Normals follow a vertical stretch."""
+    p = np.frombuffer(P, '<f4').reshape(-1, 3).astype(np.float64).copy()
+    n = np.frombuffer(N, '<f4').reshape(-1, 3).astype(np.float64).copy()
+    kind = CAB_LOWERED[name]; k = 1.0
+    lo, hi = p[:, 1].min(), p[:, 1].max()
+    if kind == 'drop':
+        p[:, 1] -= CAB['drop_m']
+    elif kind == 'floor':
+        p[:, 1] -= CAB['floor_drop_m']
+    elif kind == 'squab':
+        k = (hi - lo + CAB['drop_m']) / (hi - lo)
+        p[:, 1] = hi - (hi - p[:, 1]) * k
+    else:
+        top = hi - CAB['drop_m']; bottom = CAB['bench_base_bottom_m']
+        k = (top - bottom) / (hi - lo)
+        p[:, 1] = bottom + (p[:, 1] - lo) * k
+    if k != 1.0:
+        n[:, 1] /= k; n /= np.linalg.norm(n, axis=1)[:, None]
+        return p.astype('<f4'), n.astype('<f4')
+    return p.astype('<f4'), np.frombuffer(N, '<f4').reshape(-1, 3).copy()
+
+
 def box_parts(detail):
     """The rebuilt driving box, in delivered vehicle-root metres (body frame = root)."""
     s = SAMPLES[detail]; parts = []
@@ -222,7 +300,7 @@ def box_parts(detail):
     return parts
 
 
-def derive(source_glb, detail, out_glb, simplified=None):
+def derive(source_glb, detail, out_glb, simplified=None, simplified_warped=False):
     j, b = read(Path(source_glb))
     rows = bind_parts(j, b)
     names = {p['name'] for p in j['extras']['parts']}
@@ -239,10 +317,18 @@ def derive(source_glb, detail, out_glb, simplified=None):
         if name in REMOVED:
             continue
         chunks = row['chunks']
+        prewarped = False
         if simplified and name in simplified:
             P, N = simplified[name][row['part_index']]
             chunks = {'POSITION': P.tobytes(), 'NORMAL': N.tobytes()}
             tris = len(P) // 9
+            prewarped = simplified_warped
+        if frame == 'vehicle_body' and name in CAB_LOWERED:
+            P, N = cab_lower(name, chunks['POSITION'], chunks['NORMAL'])
+            chunks = {'POSITION': P.tobytes(), 'NORMAL': N.tobytes()}
+        elif frame == 'vehicle_body' and not prewarped:
+            P, N = cab_warp(chunks['POSITION'], chunks['NORMAL'])
+            chunks = {'POSITION': P.tobytes(), 'NORMAL': N.tobytes()}
         batch = batches[row['mesh_index']]
         start = len(batch['P']) // 36 if False else sum(len(c) for c in batch['P']) // 36
         batch['P'].append(chunks['POSITION']); batch['N'].append(chunks['NORMAL'])
@@ -266,7 +352,10 @@ def derive(source_glb, detail, out_glb, simplified=None):
         if 'mesh' in n and n['mesh'] not in remap:
             continue
         old_to_new_node[i] = len(nodes)
-        nodes.append(dict(n))
+        n = dict(n)
+        if n['name'] in SEATS_LOWERED:
+            t = list(n['translation']); t[1] -= CAB['drop_m']; n['translation'] = t
+        nodes.append(n)
     for n in nodes:
         if 'children' in n:
             kids = [old_to_new_node[c] for c in n['children'] if c in old_to_new_node]
@@ -318,6 +407,13 @@ def derive(source_glb, detail, out_glb, simplified=None):
                   'height and rake, the iron section and every hidden joint are reconstructed; the seat, '
                   'footboard and every V19 anchor stand exactly where the seated coachman was fitted.'),
         'far_body_simplified': bool(simplified)}
+    extras['cab_v20'] = {
+        'ticket': 'T-3553', 'grade': 'reconstructed', **CAB,
+        'lowered_parts': sorted(CAB_LOWERED), 'lowered_seats': list(SEATS_LOWERED),
+        'basis': ('The passengers sit upright: cushion lowered and the squab lengthened down to it, the floor with them, the bench base '
+                  'shortened onto the rear spring hangers, and the body\'s lower rear quarter brought down behind '
+                  'the door, as plate 0095 draws it. Roof, glass, door, box and running gear are unchanged; the '
+                  'drop and the warp\'s bounds are reconstructed.')}
     doc = dict(j); doc['nodes'] = nodes; doc['meshes'] = meshes; doc['bufferViews'] = views
     doc['accessors'] = access; doc['buffers'] = [{'byteLength': len(binary)}]; doc['extras'] = extras
     doc['scenes'] = [{'nodes': [old_to_new_node[i] for i in j['scenes'][0]['nodes']]}]
@@ -348,11 +444,22 @@ def simplify_far(source_glb, tools_root):
     return out
 
 
+# V19's generator takes norms and dots of single vectors through numpy, which hands them
+# to OpenBLAS, and OpenBLAS picks its kernel by CPU: an AVX-512 machine (SkylakeX and
+# later) rounds those sums differently from an AVX2 or older one (Haswell, Zen, ...).
+# GitHub's runners are both kinds, so a far made on one failed "every triangle
+# re-derives" on the other at random (PRs 2143, 2154). Every derivation of the far
+# source pins the kernel to the x86-64 baseline every runner has, so the bytes are the
+# same on all of them. V19's own generator and its pinned files are untouched.
+BLAS_ENV = {'OPENBLAS_CORETYPE': 'Prescott', 'OPENBLAS_NUM_THREADS': '1'}
+
+
 def far_source(workdir):
     out = Path(workdir) / 'v19-far'
+    import os
     subprocess.run([sys.executable, str(V19 / 'generate.py'), '--output', str(out), '--detail', 'far',
                     '--lod-recipe', str(HERE / 'far-lods.json'), '--rear-quarter-recipe', str(V19 / 'rear-quarter.json')],
-                   check=True, capture_output=True)
+                   check=True, capture_output=True, env={**os.environ, **BLAS_ENV})
     return out / 'brougham.glb'
 
 
