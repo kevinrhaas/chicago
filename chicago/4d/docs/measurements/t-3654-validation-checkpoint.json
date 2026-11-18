@@ -1,0 +1,109 @@
+{
+  "ticket": "T-3654",
+  "state": "implementation_checkpoint_validation_pending",
+  "branch": "steward/t3654-1871-city-baseline",
+  "base_commit": "bec8fd8d3293c6bd49f7db0dce81aab666a90b77",
+  "target": "dev",
+  "production_promotion": "Owner-dispatched only; no production deployment in this task.",
+  "implemented": "Citywide context for 8 October 1871 at 16:00 local mean solar time, corrected map registration and terrain, portable building and infrastructure kit, walking support, research viewer and source overlay.",
+  "registration_m": {
+    "fitting_rms_before": 37.73,
+    "fitting_rms_after": 18.6689,
+    "reserved_check_count": 8,
+    "reserved_check_rms_before": 49.9676,
+    "reserved_check_rms_after": 15.6189,
+    "reserved_check_max_after": 25.6497,
+    "scope": "Intersection registration, not bank, parcel or elevation accuracy."
+  },
+  "scene_counts": {
+    "buildings": 33580,
+    "trees": 3627,
+    "road_crossings": 22,
+    "quay_bays": 597,
+    "rail_corridors": 5,
+    "scope": "Generated scene counts, not a historical census."
+  },
+  "completed_validation": [
+    "Final published 1871 acceptance at 390×780 and 1280×800, all three detail levels; see t-3654-city-baseline.json for input hashes and measured results.",
+    "All 22 bridges in both directions; 597 quay approaches; walking floors, collisions, source cards and confidence controls; zero 1871 application, page or resource errors.",
+    "Pre-fire viewer, research and notebook browser checks on mobile and desktop: 28, 51 and 114 assertions.",
+    "Registration, source provenance, trace reproduction, deterministic generation and focused runtime checks.",
+    "Local source partitions 17/32 and 1/32 cover 1/16; 3/16 passed. Part 2/16 exposed a measurement-owner assumption now corrected; its focused check passes but the full part awaits rerun.",
+    "Quiet legacy mobile stage 1 passed 95 assertions with zero failures or page errors; this is calibration, not complete commit-bound legacy acceptance."
+  ],
+  "pending_validation": [
+    "Complete full source gate",
+    "Legacy browser stages 1 through 15 on both viewports",
+    "1812 published readiness, walking and canvas check",
+    "PR preflight and final dev CI"
+  ],
+  "known_validation_repair": "measure_generator_half.py now attributes the two new terrain assets to city_1871_emit.py: total 1,126 assets, independent emitter reach 2, existing common-module reach 820 and legacy terrain reach 6 retained.",
+  "ci_workflow": "chicago-4d-smoke.yml",
+  "ci_browser_groups": [
+    {
+      "viewport": "mobile",
+      "stage": "1-4"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "5-8"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "9-12"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "13"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "14-15"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1-2"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3-4"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "5-6"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "7-8"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "9-12"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "13"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "14-15"
+    }
+  ],
+  "resume": [
+    "Inspect this branch and its draft PR; preserve existing implementation and source evidence.",
+    "Use Node 22 and Python with jsonschema, pyproj, openpyxl, pypdf, numpy, scipy and Pillow; GNU bc is required by the existing gate.",
+    "Run the complete existing Chicago 4D CI gate. Local checks support --part k/N through N=32; all declared checks must be covered. Partial or timed-out calls do not count as a complete pass.",
+    "Dispatch the existing smoke workflow for the listed viewport/stage groups on the exact pushed commit; record each run ID and head SHA. No workflow edits are required.",
+    "If gh log retrieval fails, GitHub connector fetch_workflow_job_logs returns decoded text in structuredContent.content.",
+    "Record completed smoke results with tools/dev-smoke-state.mjs, preserving actual CI provenance.",
+    "Only mark ready and merge into dev after complete verification; update this checkpoint with final evidence and settle T-3654."
+  ],
+  "regeneration": [
+    "python3 generators/city_context_emit.py",
+    "python3 generators/city_1871_emit.py",
+    "python3 tools/compile_scene.py --scene 1871",
+    "python3 tools/compile_jaunts.py",
+    "bash tools/publish.sh"
+  ],
+  "limits": "This is the requested generic context baseline. Named properties, people, daily activity and photographic finish remain subsequent work; bank and parcel uncertainty is retained."
+}

@@ -25,8 +25,10 @@ register(`data:text/javascript,${encodeURIComponent(`export function resolve(s, 
 const THREE = await import('three');
 const { createWalker, footprintsFrom, passageLane, WALK, HEADROOM_MARGIN_M, LANE_REACH_M } = await import('../renderers/web/js/walker.js');
 const { createIntent } = await import('../renderers/web/js/controls/intent.js');
+const { Heightfield, distantBaseGeometry } = await import('../renderers/web/js/terrain.js');
 const { passageGroundFrom, passageDepth } = await import('../renderers/web/js/passage-ground.js');
 const { structureOutlines } = await import('../renderers/web/js/navigation.js');
+const { createContextFloorIndex } = await import('../renderers/web/js/city-context.js');
 
 const flat = { walkHeight: () => 0, surfaceHeight: () => 0, isWater: () => false };
 const inside = (e, n, pts) => {
@@ -58,6 +60,38 @@ const reg = (fp) => new Map([['b', { id: 'b', sidecar: { id: 'b', placement: { l
 const speedWas = WALK.speed, eyeWas = WALK.eyeHeight;
 WALK.speed = 1.5;
 try {
+  // The 1871 renderer emits the road and both boardwalks above the heightfield.
+  // Stepping onto a visible walk must raise the same walker's feet, not merely
+  // change a reported number. No floor callback preserves the legacy surface.
+  const floors=createContextFloorIndex([
+    {a:[0,0],b:[20,0],width_m:6,y:3.23},
+    {a:[0,4],b:[20,4],width_m:2,y:3.32},
+    {a:[62,62],b:[70,70],width_m:2,y:3.32},
+  ]);
+  const cityGround={walkHeight:()=>3.20,surfaceHeight:()=>3.20,isWater:()=>false};
+  const cityWalker=createWalker({camera:new THREE.PerspectiveCamera(),terrain:cityGround,
+    spawn:{local_e:5,local_n:2.5,yaw_deg:0},decks:[{id:'higher-deck',y:3.50,pts:[[8,3],[10,3],[10,5],[8,5]]}]});
+  assert.equal(cityWalker.surfaceAt(5,4),3.20,'without the callback, legacy heightfield walking is unchanged');
+  cityWalker.setContextFloor((e,n)=>floors.heightAt(e,n));
+  cityWalker.resettle();
+  assert.equal(cityWalker.state.groundY,3.23,'feet start on the emitted road, not the lower field');
+  const cityIntent=createIntent();
+  for(let i=0;i<60;i++){cityIntent.forward=1;cityWalker.update(1/60,cityIntent);}
+  assert.ok(cityWalker.state.n>3.9&&!cityWalker.state.blocked,'the 9cm step from road onto plank walk is traversable');
+  assert.equal(cityWalker.state.groundY,3.32,'walking onto the plank ribbon raises actual feet to its rendered y');
+  assert.ok(Math.abs(cityWalker.state.eyeY-(3.32+WALK.eyeHeight))<1e-8,'the eye stays one person-height above the planks');
+  assert.equal(cityWalker.surfaceAt(9,4),3.50,'a higher bridge/quay deck still wins over a context walk');
+  assert.equal(cityWalker.surfaceAt(5,6),3.20,'outside the finite ribbons the terrain still wins');
+  assert.equal(floors.heightAt(64,64),3.32,'a diagonal ribbon remains supported across a spatial-cell boundary');
+  assert.equal(floors.heightAt(21,4),null,'no capsule-shaped extension is invented past the actual ribbon end');
+  assert.equal(floors.heightAt(64,66),null,'the diagonal rectangle does not fill its bounding box');
+  cityWalker.setContextFloor(()=>3.1);
+  assert.equal(cityWalker.surfaceAt(5,4),3.20,'a lower context surface cannot sink dry-land feet');
+  cityWalker.setContextFloor(null);
+  assert.equal(cityWalker.surfaceAt(5,4),3.20,'removing the optional callback restores the legacy path');
+  floors.clear();
+  assert.equal(floors.heightAt(5,4),null,'disposed spatial data does not retain a phantom floor');
+
   // Separate occupied components retain one owner and leave the open yard gap
   // walkable. The same compiler rings drive map outlines, routing and keep-outs.
   const compound = reg({ polygon: [[0, 0], [4, 0], [4, 4], [0, 4]],
@@ -159,5 +193,45 @@ try {
   const before = walk(solidG, start, bearing, 14);
   const gone = (court[0] - mouth[0]) * (before.end[0] - mouth[0]) + (court[1] - mouth[1]) * (before.end[1] - mouth[1]);
   assert(gone < 0, 'without the passage the same walk stops on Prairie Avenue, as the owner found it');
+  // The distant city base retains a river narrower than the legacy six-sample stride.
+  {
+    const hf = new Heightfield();
+    const samples = new Float32Array(9 * 9).fill(3.2);
+    for (let row = 0; row < 9; row++) samples[row * 9 + 3] = -3;
+    hf.adopt({ epoch: 'e1871_prefire', cols: 9, rows: 9, cell_m: 25, origin_e: 0, origin_n: 0 }, samples.buffer);
+    const base = distantBaseGeometry(hf);
+    const p = base.getAttribute('position'), grade = base.getAttribute('_confidence');
+    let channel = 0;
+    for (let i = 0; i < p.count; i++) {
+      if (p.getY(i) < 0) channel++;
+      assert.equal(grade.getX(i), 1, 'city ground stays reconstructed at distance');
+    }
+    assert.equal(channel, 9, 'all narrow river samples survive in the aerial base');
+    base.dispose();
+  }
+  // The municipal overview stays at its authored altitude on the next frame.
+  {
+    const w = createWalker({ camera: new THREE.PerspectiveCamera(), terrain: flat, maxFlyAltitude: 4500 });
+    w.teleport({ local_e: 0, local_n: 0, altitude_m: 2200, pitch_deg: -26 });
+    w.update(1 / 60, { ...createIntent(), flying: true });
+    assert.equal(w.state.eyeY, 2200, 'city overview does not snap to the small-scene ceiling');
+  }
+  // City context uses the same capsule/slide rules, with a nearby-only provider.
+  {
+    const w = createWalker({ camera: new THREE.PerspectiveCamera(), terrain: flat,
+      spawn: { local_e: 5, local_n: -3, yaw_deg: 0 } });
+    const intent = createIntent();
+    let queried = 0;
+    w.setContextFootprints((e, n) => {
+      queried++;
+      assert(Number.isFinite(e) && Number.isFinite(n), 'spatial query receives ENU metres');
+      return [{ id: 'context-house', pts: box }];
+    });
+    for (let i = 0; i < 8 * 60; i++) { intent.forward = 1; w.update(1 / 60, intent); }
+    assert(queried > 0 && w.state.n < 0, 'nearby context wall stops the visitor');
+    w.setContextFootprints(null);
+    for (let i = 0; i < 4 * 60; i++) w.update(1 / 60, intent);
+    assert(w.state.n > 1, 'retiring the provider removes its collision');
+  }
 } finally { WALK.speed = speedWas; WALK.eyeHeight = eyeWas; }
 console.log('WALKER PASSAGE PASS — a declared passage is walked through where its soffit clears the eye, held off its reveals, the façade beside it still a wall, a rider stopped; Glessner from Prairie Avenue into the court, which a solid footprint refuses');

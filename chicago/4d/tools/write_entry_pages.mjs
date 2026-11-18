@@ -80,7 +80,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(im
       writeEntryPages(fixture);
       const menu = readFileSync(path.join(fixture, 'index.html'), 'utf8');
       if (menu !== readFileSync(path.join(ROOT4D, 'renderers/web/portal/index.html'), 'utf8')) fail('root menu differs from its authored template');
-      for (const year of ['1835', '1904']) {
+      for (const year of ['1835', '1904', '1871']) {
         if (!menu.includes(`href="${year}/"`)) fail(`${year} is missing its relative destination link`);
         if (readFileSync(path.join(fixture, year, 'index.html'), 'utf8') !== door(html, '../walk/')) fail(`${year} lost the renderer door`);
       }

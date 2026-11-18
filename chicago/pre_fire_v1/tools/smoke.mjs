@@ -62,7 +62,7 @@ const server = http.createServer((req, res) => {
 });
 
 await new Promise((r) => server.listen(PORT, r));
-const base = `http://127.0.0.1:${PORT}${PREFIX}/chicago/pre-fire`;
+const base = `http://127.0.0.1:${PORT}${PREFIX}/pre-fire`;
 console.log(`serving ${ROOT} on ${PORT}\n`);
 
 const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE || undefined });

@@ -1,0 +1,24 @@
+{
+  "id": "war_department_engineer_contracts_1871",
+  "type": "book",
+  "citation": "Army Engineer Contracts. 1871-03-15. https://www.govinfo.gov/app/details/SERIALSET-01470_00_00-007-0006-0000",
+  "author": "United States War Department, Office of the Chief of Engineers",
+  "date": "1871-03-15",
+  "describes_date": "1871-03-15",
+  "repository": "U.S. Government Publishing Office, Congressional Serial Set",
+  "url": "https://www.govinfo.gov/app/details/SERIALSET-01470_00_00-007-0006-0000",
+  "locator": "Printed p.1 title/date and p.3 Chicago contract entry Raster or PDF SHA-256 54462f33631faa03cbaf8d1af234621cdd9fee7caa4f8c5e1dd428cb3606e1f6.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "Public domain \u2014 United States Government publication.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Downloaded and inspected on 2026-11-18. Download: https://www.govinfo.gov/content/pkg/SERIALSET-01470_00_00-007-0006-0000/pdf/SERIALSET-01470_00_00-007-0006-0000.pdf ",
+  "what_it_supplies": [
+    "1870 contract with Fox & Howard under Major D. C. Houston for 800 feet of Chicago breakwater, stone-filled timber cribs and dredging, expires November 30, 1871."
+  ],
+  "what_it_does_not_supply": [
+    "A validated WGS84 positional accuracy; dates of unrecorded construction between survey and 8 October 1871."
+  ],
+  "note": "Proves contracted work and material vocabulary, not completed length by October 8. Requires progress report, pay estimate or dated scene photograph before constructing a precise as-of breakwater."
+}

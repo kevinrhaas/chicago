@@ -6,7 +6,7 @@
 
 Design doc "Field Navigator Mk II", section 05 "Time-stream captions": as the arrival's
 ticker rolls down from the present year to the destination, a one-line caption shows for
-about two seconds as it passes a landmark year. Each destination (1812, 1835, 1904) has
+about two seconds as it passes a landmark year. Each destination (1812, 1835, 1871, 1904) has
 its own deck, data/timestream/<scene>.json, of 8 to 12 captions; js/time-stream.js shows
 at most 3 of them on a fast load (by `importance`) and up to 8 on a slow one. The page
 shows the strings exactly as written, so this gate sits between the author and the
@@ -55,7 +55,7 @@ ROOT = HERE.parent
 DATA = ROOT / "data"
 DECKS = DATA / "timestream"
 
-DESTINATIONS = ("1812", "1835", "1904")
+DESTINATIONS = ("1812", "1835", "1871", "1904")
 MIN_CAPTIONS, MAX_CAPTIONS = 8, 12
 MAX_CHARS, MAX_WORDS = 70, 20
 CAPTION_KEYS = {"year", "text", "grade", "importance", "sources", "note",

@@ -42,6 +42,16 @@ export const SUN_EVENT_DEG = 1.0;
 /** The slider's step: the owner's "10 min interval". */
 export const STEP_MIN = 10;
 
+/**
+ * The measured horizon-ring colour belongs to this timestamp, not to whichever
+ * hour another scene calls `daytime`. Other dates/hours use their own sampled
+ * sky. Keeping this predicate explicit prevents a valid autumn/twilight sky
+ * being rejected in favour of July's fixed haze colour.
+ */
+export function isHorizonReference(date, time) {
+  return date === '1835-07-01' && minutesOf(time) === 12 * 60 + 30;
+}
+
 /** 'HH:MM' -> minutes after midnight, or null. */
 export function minutesOf(hhmm) {
   const m = /^(\d{1,2}):(\d{2})$/.exec(String(hhmm ?? '').trim());

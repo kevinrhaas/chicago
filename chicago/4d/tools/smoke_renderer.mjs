@@ -15046,11 +15046,12 @@ for (const [label, viewport, touch] of [
     });
     // page.pdf is Chromium-headless only; anywhere else it is reported, not counted.
     const pdfUnsupported = Object.values(sheets).every((s) => s.pages === null && /not supported|headless/i.test(s.error ?? ''));
-    check(`${label}: Guide › For teachers prints the ten tour steps and three Jaunts per destination on one page at Letter and A4 (T-2666)`,
+    check(`${label}: Guide › For teachers prints the ten tour steps, available Jaunts and the empty 1871 baseline on one page at Letter and A4 (T-2666)`,
       handoutRead.teachers && handoutRead.print === 'Print the handout' && handoutRead.stepsFromTour
-      && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn'
-      // T-3325..T-3327 gave 1812 its three Fort Dearborn jaunts, so every destination has three.
-      && handoutRead.dests.every((d) => d.jaunts === 3 && d.empty === null)
+      && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn|1871 · Pre-fire Chicago'
+      // The new 1871 baseline has no authored Jaunts; all three earlier destinations retain theirs.
+      && handoutRead.dests.every((d) => d.name.startsWith('1871')
+        ? d.jaunts === 0 && d.empty === 'No Jaunts here yet.' : d.jaunts === 3 && d.empty === null)
       && !handoutRead.snake && !handoutRead.lore
       && printedLayout.shown.join() === 'handout-print'
       && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 10 && s.jaunts === 9)
@@ -18169,7 +18170,7 @@ for (const [label, viewport, touch] of [
       JSON.stringify({ aria, keyOpen, jumpAt, keyJump, tabHome, keyHome, keyShut }));
 
     // --- Jump (T-2655): the year chip opens it; HERE, RECALL, and the ring ---------
-    // The chip is hit-tested like any chrome. The screen shows the three destinations with
+    // The chip is hit-tested like any chrome. The screen shows the four destinations with
     // HERE on this one only, and RECALL as its one signal-red key. Picking another runs
     // the transfer ring and writes the Observatory's stamp; Escape aborts it here, so this
     // page stays (part 15 makes a real jump and lands).
@@ -18220,8 +18221,8 @@ for (const [label, viewport, touch] of [
     await page.waitForTimeout(1300);
     const stayed = await page.evaluate(() => location.href);
     await page.evaluate(() => window.__chicago4d.navigator.dock());
-    check(`${label}: the year chip opens Jump — three era cards, HERE on this one, RECALL the one signal-red key; a pick asks DEPART / CANCEL first (T-3390), runs the ring on DEPART, and Escape aborts it, leaving no transfer stamp (T-2655)`,
-      jumpScreen.app === 'jump' && jumpScreen.years.join() === '1835,1904,1812' && jumpScreen.here.join() === String(YEAR)
+    check(`${label}: the year chip opens Jump — four era cards, HERE on this one, RECALL the one signal-red key; a pick asks DEPART / CANCEL first (T-3390), runs the ring on DEPART, and Escape aborts it, leaving no transfer stamp (T-2655)`,
+      jumpScreen.app === 'jump' && jumpScreen.years.join() === '1835,1904,1812,1871' && jumpScreen.here.join() === String(YEAR)
       && jumpScreen.hereWord === 1 && jumpScreen.keys === 1 && jumpScreen.recall === '../' && jumpScreen.red && !jumpScreen.snake
       // The stamp is written as the page leaves, not as the ring starts (44450de1), so a
       // ring that is aborted leaves none: part 15's real jump reads it on arrival.

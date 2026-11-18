@@ -336,10 +336,12 @@ export function decksFrom(registry) {
  * @param {Array<{id:string, y:number, pts:number[][]}>} o.decks
  * @param {{local_e:number, local_n:number, yaw_deg:number}} o.spawn
  */
-export function createWalker({ camera, terrain, footprints = [], decks = [], spawn = {}, bodies = null }) {
+export function createWalker({ camera, terrain, footprints = [], decks = [], spawn = {}, bodies = null, maxFlyAltitude = FLY.maxAltitude }) {
   /** T-3553: `(e, n, y0, y1) => [{ e, n, r }]`, the drawn people near a point whose bodies
    *  reach the band of heights y0..y1 (the visitor's feet to eye). Null: nobody is solid. */
   let bodiesNear = typeof bodies === 'function' ? bodies : null;
+  let contextFootprints = null;
+  let contextFloor = null;
   const state = {
     e: spawn.local_e ?? 0,
     n: spawn.local_n ?? 0,
@@ -399,6 +401,12 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
    */
   function surfaceAt(e, n) {
     let deckY = null;
+    // A context city's rendered roads/boardwalks are real walk surfaces too.
+    // The optional spatial lookup leaves every earlier scene's path unchanged.
+    if (contextFloor) {
+      const y=contextFloor(e,n);
+      if (Number.isFinite(y)) deckY=y;
+    }
     for (const d of decks) {
       if (!inside(e, n, d.pts)) continue;
       const y = deckHeightAt(d, e, n);
@@ -486,7 +494,8 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
 
   /** Slide the capsule out of any footprint it has ended up inside. */
   function pushOut(e, n) {
-    for (const fp of footprints) {
+    const candidates = contextFootprints ? footprints.concat(contextFootprints(e, n)) : footprints;
+    for (const fp of candidates) {
       // T-3319: a parade is ground; an enclosure is its walls, not its plan.
       if (fp.ground) continue;
       if (fp.walls) { ({ e, n } = keepOffWalls(fp.walls, e, n)); continue; }
@@ -537,6 +546,10 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
     /** The walk surface (decks included) — exposed for the route planner. */
     surfaceAt,
     /** T-3553: who is solid — `(e, n, y0, y1) => [{ e, n, r }]`, or null for nobody. */
+    /** Spatially indexed context buildings, queried only around the current step. */
+    setContextFootprints(fn) { contextFootprints = typeof fn === 'function' ? fn : null; },
+    /** Highest drawn context floor at (e,n), or null where none is present. */
+    setContextFloor(fn) { contextFloor = typeof fn === 'function' ? fn : null; },
     setBodies(fn) { bodiesNear = typeof fn === 'function' ? fn : null; },
     get position() { return world.clone(); },
     get enu() { return { e: state.e, n: state.n, y: state.eyeY }; },
@@ -682,7 +695,7 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
       state.eyeY += dy;
 
       const floor = surfaceAt(state.e, state.n) + FLY.minClearance;
-      state.eyeY = Math.max(floor, Math.min(FLY.maxAltitude, state.eyeY));
+      state.eyeY = Math.max(floor, Math.min(maxFlyAltitude, state.eyeY));
       state.groundY = surfaceAt(state.e, state.n);
       state.altitude = state.eyeY - state.groundY;
       state.speed = Math.hypot(dx, dz, dy) / Math.max(dt, 1e-6);
