@@ -15,6 +15,15 @@
 //     over their jackets and frocks), the share of the over cloth the under
 //     cloth comes through, looking in from outside the body: at most SHOWN_MAX on the full body
 //     in every pose, and never more than drawn on the far levels;
+//   - round 4, the maid's and the cook's white collars: at the two near levels each lies over
+//     at least COVER_MIN of its dress's black stand (12 to 25 mm below the stand's top; drawn,
+//     a white sliver at the top edge with the stand showing below it), never less than drawn
+//     further out (left as drawn there);
+//   - round 4, the 1904 children's collars: at the two near levels the slit down the front is
+//     at most SLIT_MAX_M wide (drawn 16 to 30 mm, the jacket's placket showing through it), and
+//     the jacket's or frock's own neckline shows, more than NECK_SHOW_M wide between neck and
+//     collar, at most NECK_SHOW_MAX of the way round off the front (drawn, a dark band above
+//     the collar a quarter to a half of the way round); never worse than drawn further out;
 // and: nothing but the listed pieces moves; no point moves further than the module's bounds;
 // topology and UVs are kept, and skin weights except on the pieces listed to follow the garment
 // beneath (whose weights still sum to one); it runs once per loaded body; and it is wired into
@@ -48,7 +57,7 @@ globalThis.self ??= globalThis;
 // COLLAR_MODULE=<path> runs the same measurements against another copy (the old code: an empty
 // module that moves nothing must fail them).
 const modURL = process.env.COLLAR_MODULE ? new URL(process.env.COLLAR_MODULE, `file://${process.cwd()}/`) : new URL('renderers/web/js/human-collar.js', here);
-const { dressCollars, LAYERS, FAIR, FAIR_NECK, FAIR_MAX_M, MAX_M, SETTLE_MAX_M = 0 } = await import(modURL);
+const { dressCollars, LAYERS, FAIR, FAIR_NECK, FAIR_MAX_M, MAX_M, SETTLE_MAX_M = 0, HUG = { maxIn: 0, rise: 0 }, FRILL = { lift: 0 } } = await import(modURL);
 
 function geometryOnly(bytes) {
   const n = bytes.readUInt32LE(12), doc = JSON.parse(bytes.subarray(20, 20 + n));
@@ -72,6 +81,14 @@ const matName = (m) => (Array.isArray(m.material) ? m.material[0] : m.material)?
 const piece = (m, asset) => m.name.replace(`${asset}_`, '').replace(/_lod\d*$/, '');
 
 export const RISER_KEEP = 0.35, SHOWN_MAX = 0.01, EPS_M = 0.0003;
+// Round 4: a white collar's share of its dress's stand (12 to 25 mm below the stand's top) that
+// it lies over; a child's collar's front slit; and the share of the way round a child's neck
+// (off the front) where the jacket's or frock's own neckline shows inside the collar's opening.
+export const COVER_MIN = 0.9, SLIT_MAX_M = 0.003, NECK_SHOW_M = 0.004, NECK_SHOW_MAX = 0.15;
+// how far the round-4 passes may carry a point, on top of the module's other bounds: a collar
+// drawn down over the stand; a child's collar's halves brought across (an edge within 3 cm of
+// the middle) and drawn in; a frill stood off
+const COVER_MAX_M = 0.06, HUG_MAX_M = 0.03 + HUG.maxIn + HUG.rise;
 
 // ---- the cut edge ------------------------------------------------------------------------
 /** Boundary loops of a mesh at bind (welded), and the length of their risers: boundary steps
@@ -156,13 +173,15 @@ function hits(g, o, d, L) {
   }
   return out;
 }
-/** Nearest posed skin vertex, for the outward direction at a point of cloth. */
+/** Nearest posed skin vertex, for the outward direction at a point of cloth: of the skin no higher
+ * than the point (round 4: a collar drawn down to the base of the throat has the chin nearer
+ * than the neck it lies on, and the chin's way out is down, into the dress below the collar). */
 function skinNear(body) {
   const P = posed(body), cell = 0.03, map = new Map(), key = (a, b, c) => `${a},${b},${c}`;
   for (let i = 0; i < P.length; i += 3) { const k = key(Math.floor(P[i] / cell), Math.floor(P[i + 1] / cell), Math.floor(P[i + 2] / cell)); let l = map.get(k); if (!l) map.set(k, (l = [])); l.push(i); }
   return (o) => {
     let best = Infinity, bi = -1; const a = Math.floor(o[0] / cell), b = Math.floor(o[1] / cell), c = Math.floor(o[2] / cell);
-    for (let x = -2; x <= 2; x++) for (let y = -2; y <= 2; y++) for (let z = -2; z <= 2; z++) { const l = map.get(key(a + x, b + y, c + z)); if (!l) continue; for (const i of l) { const d = (P[i] - o[0]) ** 2 + (P[i + 1] - o[1]) ** 2 + (P[i + 2] - o[2]) ** 2; if (d < best) { best = d; bi = i; } } }
+    for (let x = -2; x <= 2; x++) for (let y = -2; y <= 2; y++) for (let z = -2; z <= 2; z++) { const l = map.get(key(a + x, b + y, c + z)); if (!l) continue; for (const i of l) { if (P[i + 1] > o[1]) continue; const d = (P[i] - o[0]) ** 2 + (P[i + 1] - o[1]) ** 2 + (P[i + 2] - o[2]) ** 2; if (d < best) { best = d; bi = i; } } }
     return bi < 0 ? null : [P[bi], P[bi + 1], P[bi + 2]];
   };
 }
@@ -189,6 +208,60 @@ function shown(over, under, near) {
     }
   }
   return { area, out, deepest };
+}
+// ---- round 4: the white collar's cover, the children's necklines -------------------------
+function bindOf(m) {
+  const p = m.geometry.attributes.position, v = new THREE.Vector3(), out = new Float64Array(p.count * 3);
+  for (let i = 0; i < p.count; i++) { v.fromBufferAttribute(p, i).applyMatrix4(m.bindMatrix); out[i * 3] = v.x; out[i * 3 + 1] = v.y; out[i * 3 + 2] = v.z; }
+  return out;
+}
+function neckAt(m) {
+  const k = m.skeleton.bones.findIndex((b) => b.name === 'neck_01');
+  return k < 0 ? null : new THREE.Vector3().setFromMatrixPosition(m.skeleton.boneInverses[k].clone().invert());
+}
+/** The share of a dress's stand (its points 12 to 25 mm below the stand's top, in 10-degree
+ * sectors round the neck) that the collar lies over: straight out from the neck, the collar's
+ * surface within 3 cm outside the dress's. */
+function coverShare(collar, dress) {
+  const ax = neckAt(dress); if (!ax) return NaN;
+  const D = bindOf(dress), C = bindOf(collar), g = grid(C, tris(collar), 0.01), top = new Float64Array(36).fill(-Infinity), pts = [];
+  for (let i = 0; i < D.length / 3; i++) {
+    const x = D[i * 3] - ax.x, y = D[i * 3 + 1], z = D[i * 3 + 2] - ax.z, r = Math.hypot(x, z);
+    if (r > 0.14 || y < ax.y - 0.1) continue;
+    const b = Math.floor(((Math.atan2(x, z) + Math.PI) / (2 * Math.PI)) * 36) % 36;
+    top[b] = Math.max(top[b], y); pts.push([i, b, x / r, y, z / r]);
+  }
+  let n = 0, over = 0;
+  for (const [i, b, dx, y, dz] of pts) {
+    if (y < top[b] - 0.025 || y > top[b] - 0.012) continue;
+    n++;
+    if (hits(g, [D[i * 3], y, D[i * 3 + 2]], [dx, 0, dz], 0.03).some((h) => h > EPS_M)) over++;
+  }
+  return n ? over / n : NaN;
+}
+/** A child's collar: the width of its front slit (the nearest of each half to the middle, among
+ * its points in front of the neck), and the share of the way round, 25 degrees or more off the
+ * front, where the garment beneath shows more than NECK_SHOW_M wide between the neck and the
+ * collar's inner edge (its points outside the skin and inside the collar's opening, from 2 cm
+ * below the collar's inner edge to 3 cm above). */
+function neckline(collar, garment, skin) {
+  const ax = neckAt(collar); if (!ax) return null;
+  const C = bindOf(collar), G = bindOf(garment), K = bindOf(skin), B = 72;
+  const bin = (x, z) => Math.floor(((Math.atan2(x - ax.x, z - ax.z) + Math.PI) / (2 * Math.PI)) * B) % B;
+  let rMean = 0; for (let i = 0; i < C.length / 3; i++) rMean += Math.hypot(C[i * 3] - ax.x, C[i * 3 + 2] - ax.z) / (C.length / 3);
+  const e = { 1: Infinity, [-1]: Infinity };
+  for (let i = 0; i < C.length / 3; i++) { if (C[i * 3 + 2] - ax.z <= 0.5 * rMean) continue; const x = C[i * 3] - ax.x, sd = Math.sign(x) || 1; e[sd] = Math.min(e[sd], Math.abs(x)); }
+  const inner = new Float64Array(B).fill(Infinity), iy = new Float64Array(B), neckR = new Float64Array(B), show = new Float64Array(B);
+  for (let i = 0; i < C.length / 3; i++) { const b = bin(C[i * 3], C[i * 3 + 2]), r = Math.hypot(C[i * 3] - ax.x, C[i * 3 + 2] - ax.z); if (r < inner[b]) { inner[b] = r; iy[b] = C[i * 3 + 1]; } }
+  for (let i = 0; i < K.length / 3; i++) { const b = bin(K[i * 3], K[i * 3 + 2]), r = Math.hypot(K[i * 3] - ax.x, K[i * 3 + 2] - ax.z); if (Number.isFinite(inner[b]) && Math.abs(K[i * 3 + 1] - iy[b]) <= 0.01 && r <= inner[b]) neckR[b] = Math.max(neckR[b], r); }
+  for (let i = 0; i < G.length / 3; i++) {
+    const b = bin(G[i * 3], G[i * 3 + 2]), r = Math.hypot(G[i * 3] - ax.x, G[i * 3 + 2] - ax.z), y = G[i * 3 + 1];
+    if (!Number.isFinite(inner[b]) || y < iy[b] - 0.02 || y > iy[b] + 0.03 || r >= inner[b] || r <= neckR[b]) continue;
+    show[b] = Math.max(show[b], inner[b] - r);
+  }
+  let n = 0, shows = 0;
+  for (let b = 0; b < B; b++) { if (Math.abs(((b + 0.5) / B) * 360 - 180) < 25) continue; n++; if (show[b] > NECK_SHOW_M) shows++; }
+  return { slit: (Number.isFinite(e[1]) ? e[1] : 0) + (Number.isFinite(e[-1]) ? e[-1] : 0), share: shows / n };
 }
 function figure(g) {
   const sc = SkeletonUtils.clone(g.scene), root = new THREE.Group(); root.add(sc);
@@ -217,7 +290,7 @@ const POSES = [['idle', 0, 0, 0], ['idle', 0, 30, 0], ['idle', 0, -30, 0], ['wal
 
 const ASSETS = (await fs.readdir(new URL('assets/humans/web/', here))).filter((f) => f.endsWith('.lod0.glb') && !f.startsWith('c4d_fixture')).map((f) => f.replace('.lod0.glb', '')).sort();
 const lines = [];
-let bodies = 0, pairs = 0, faired = 0;
+let bodies = 0, pairs = 0, faired = 0, covers = 0, necks = 0;
 const fails = [];
 const check = (ok, msg) => { if (!ok) fails.push(msg); };
 for (const asset of ASSETS) for (const lod of [0, 1, 2, 3]) {
@@ -259,7 +332,8 @@ for (const asset of ASSETS) for (const lod of [0, 1, 2, 3]) {
     let most = 0;
     for (let i = 0; i < pa.count; i++) { va.fromBufferAttribute(pa, i).applyMatrix4(m.bindMatrix); vb.fromBufferAttribute(s.pos, i).applyMatrix4(m.bindMatrix); most = Math.max(most, va.distanceTo(vb)); }
     if (!listed(names[k])) assert.equal(most, 0, `${asset} LOD${lod} ${m.name}: not listed, moved ${(most * 1000).toFixed(1)} mm`);
-    const bound = Math.max(FAIR_MAX_M + Math.max(MAX_M, ...LAYERS.map((L) => L.max ?? 0)), SETTLE_MAX_M) + 0.002;
+    const extra = (LAYERS.some((L) => L.cover && L.over.test(names[k])) ? COVER_MAX_M : 0) + (LAYERS.some((L) => L.hug && L.over.test(names[k])) ? HUG_MAX_M : 0) + (names[k] === 'apron_strap_frills' ? FRILL.lift : 0);
+    const bound = Math.max(FAIR_MAX_M + Math.max(MAX_M, ...LAYERS.map((L) => L.max ?? 0)), SETTLE_MAX_M) + extra + 0.002;
     assert(most <= bound, `${asset} LOD${lod} ${m.name}: moved ${(most * 1000).toFixed(1)} mm (bound ${(bound * 1000).toFixed(0)})`);
   }
   // the cut edges
@@ -270,6 +344,32 @@ for (const asset of ASSETS) for (const lod of [0, 1, 2, 3]) {
     else check(r1.total <= r0.total + 0.005, `${asset} LOD${lod} ${names[k]}: more risers than drawn (${(r1.total * 100).toFixed(1)} cm, drawn ${(r0.total * 100).toFixed(1)})`);
     if (lod === 0) res.push(`${names[k]} edge ${(r0.total * 100).toFixed(0)}→${(r1.total * 100).toFixed(0)} cm`);
     faired++;
+  }
+  // round 4: the white collar over its dress's stand (the two near levels; never less than
+  // drawn further out), and a child's collar closed at the front and round the neck
+  const near2 = lod <= 1;
+  for (let i = 0; i < ma.length; i++) for (let j = 0; j < ma.length; j++) {
+    if (i === j) continue;
+    if (/^(white_collar|standing_collar)$/.test(names[i]) && /^(maid_bodice|plain_closed_bodice)$/.test(names[j])) {
+      const c0 = coverShare(mb[i], mb[j]), c1 = coverShare(ma[i], ma[j]);
+      if (near2) check(c1 >= COVER_MIN, `${asset} LOD${lod} ${names[i]}: lies over ${(c1 * 100).toFixed(0)}% of the dress's stand (drawn ${(c0 * 100).toFixed(0)}%)`);
+      else check(!(c1 < c0 - 0.02), `${asset} LOD${lod} ${names[i]}: lies over less of the stand than drawn (${(c1 * 100).toFixed(0)}%, drawn ${(c0 * 100).toFixed(0)}%)`);
+      if (near2) res.push(`L${lod} ${names[i]} over the stand ${(c0 * 100).toFixed(0)}→${(c1 * 100).toFixed(0)}%`);
+      covers++;
+    }
+    if (names[i] === 'child_collar' && /^(child_jacket|frock_bodice)$/.test(names[j])) {
+      const skB = mb.find((m) => matName(m) === 'skin'), skA = ma.find((m) => matName(m) === 'skin');
+      const n0 = neckline(mb[i], mb[j], skB), n1 = neckline(ma[i], ma[j], skA);
+      if (near2) {
+        check(n1.slit <= SLIT_MAX_M, `${asset} LOD${lod} child_collar: a slit ${(n1.slit * 1000).toFixed(1)} mm wide down the front (drawn ${(n0.slit * 1000).toFixed(1)})`);
+        check(n1.share <= NECK_SHOW_MAX, `${asset} LOD${lod} child_collar: ${names[j]}'s neckline shows inside it ${(n1.share * 100).toFixed(0)}% of the way round (drawn ${(n0.share * 100).toFixed(0)}%)`);
+      } else {
+        check(n1.slit <= n0.slit + 0.004, `${asset} LOD${lod} child_collar: the slit wider than drawn (${(n1.slit * 1000).toFixed(1)} mm, drawn ${(n0.slit * 1000).toFixed(1)})`);
+        check(n1.share <= Math.max(NECK_SHOW_MAX, n0.share) + 0.04, `${asset} LOD${lod} child_collar: ${names[j]}'s neckline shows more than drawn (${(n1.share * 100).toFixed(0)}%, drawn ${(n0.share * 100).toFixed(0)}%)`);
+      }
+      res.push(`L${lod} slit ${(n0.slit * 1000).toFixed(0)}→${(n1.slit * 1000).toFixed(0)} mm, neckline shows ${(n0.share * 100).toFixed(0)}→${(n1.share * 100).toFixed(0)}%`);
+      necks++;
+    }
   }
   // the layers, standing and walking (LOD0..2; the far level is a few dozen pixels high)
   if (lod <= 2) {
@@ -300,10 +400,12 @@ for (const asset of ASSETS) for (const lod of [0, 1, 2, 3]) {
   assert.equal(dressCollars(after.scene), report, `${asset} LOD${lod}: the second call returns the first report`);
   ma.forEach((m, k) => assert.deepEqual(m.geometry.attributes.position.array, held[k], `${asset} LOD${lod} ${m.name}: a second call moved it`));
   if (lod === 0) lines.push(`${asset} (${ms.toFixed(0)} ms): ${res.join('; ')}`);
+  else if (res.length) lines.push(`${asset} LOD${lod}: ${res.join('; ')}`);
 }
 for (const l of lines) console.log(l);
 if (fails.length) { for (const f of fails) console.log(`FAIL ${f}`); }
 assert(bodies >= 10, `bodies with a collar, strap or belt: ${bodies}`);
+assert(covers >= 8 && necks >= 20, `white collars over a stand measured: ${covers}; children's collars: ${necks}`);
 assert.equal(fails.length, 0, `${fails.length} collar, strap or belt checks failed`);
 // Wired into humans.js's parse, before any figure is cloned, ahead of the seat's cover test.
 {
@@ -311,4 +413,4 @@ assert.equal(fails.length, 0, `${fails.length} collar, strap or belt checks fail
   assert(/import \{ dressCollars \} from '\.\/human-collar\.js';/.test(humans), 'humans.js imports dressCollars');
   assert(/const gltf = await loader\.parseAsync\(.*\);[\s\S]{0,1200}dressCollars\(gltf\.scene\);\s*easeSeats\(gltf\.scene\);/.test(humans), 'parse() dresses the collars of the shared source, before the seats');
 }
-console.log(`${bodies} bodies, ${faired} faired edges and ${pairs} layer pairs over every level: edges clean, nothing through: PASS`);
+console.log(`${bodies} bodies, ${faired} faired edges, ${pairs} layer pairs, ${covers} white collars over the stand and ${necks} children's collars closed, over every level: edges clean, nothing through: PASS`);

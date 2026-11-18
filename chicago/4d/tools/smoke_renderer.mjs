@@ -1284,6 +1284,60 @@ function check(name, cond, detail = '', show = false) {
   } else { failures.push(name); console.log(`  FAIL  ${t}${name}${detail ? ` — ${detail}` : ''}`); }
 }
 
+/**
+ * T-3648 (a piece of T-3637): WHY THE BROWSER REFUSED A PICTURE, for every loader.
+ *
+ * GLTFLoader's `Couldn't load texture blob:…` names only an object URL, and by then the
+ * bytes HAD arrived (the URL is made from the GLB's own bufferView), so the refusal is
+ * the browser's: the blob read, the decode, or a KTX2 worker's transcode. T-3647 kept
+ * the reason for the scene loader's GLBs only; people, horses, wagons, carriages and the
+ * ground load through GLTFLoaders of their own and drop a picture without a word. Eight
+ * local boots on Chromium 141 and on the newer one (2026-11-18) never refused one, so
+ * the reason has to come from the CI run that does. Installed before any page script:
+ * a refusal from any of the three is said once as a console WARNING beginning
+ * `4D Chicago: picture refused`, collected beside the red like `picture lost`, and
+ * then rethrown untouched — nothing is retried, swallowed or counted differently.
+ */
+const pictureRefusalProbe = () => {
+  const say = (what, e) => {
+    try {
+      console.warn(`4D Chicago: picture refused (smoke probe): ${what} — ${e?.name ?? ''} ${e?.message ?? e}`
+        .replace(/\s+/g, ' ').slice(0, 260));
+    } catch { /* a console that refuses is no reason to change the page */ }
+  };
+  const decode = globalThis.createImageBitmap;
+  if (typeof decode === 'function') {
+    globalThis.createImageBitmap = function createImageBitmap(...args) {
+      const src = args[0];
+      return Reflect.apply(decode, globalThis, args).catch((e) => {
+        say(`createImageBitmap(${src?.type || src?.constructor?.name || typeof src}, ${src?.size ?? src?.width ?? '?'})`, e);
+        throw e;
+      });
+    };
+  }
+  const read = globalThis.fetch;
+  if (typeof read === 'function') {
+    globalThis.fetch = function fetch(...args) {
+      const p = Reflect.apply(read, globalThis, args);
+      const url = String(args[0]?.url ?? args[0] ?? '');
+      return url.startsWith('blob:') ? p.catch((e) => { say(`fetch ${url.slice(0, 70)}`, e); throw e; }) : p;
+    };
+  }
+  const W = globalThis.Worker;
+  if (typeof W === 'function') {
+    // three's KTX2 transcoder answers a refusal as { type: 'error', error } (KTX2Loader).
+    globalThis.Worker = class Worker extends W {
+      constructor(...args) {
+        super(...args);
+        this.addEventListener('message', (ev) => {
+          if (ev.data?.type === 'error') say('worker transcode', ev.data.error ?? ev.data.message ?? 'no message');
+        });
+      }
+    };
+  }
+};
+const PICTURE_WARNING = /^4D Chicago: picture (lost|refused)/;
+
 const server = http.createServer((req, res) => {
   const url = decodeURIComponent(req.url.split('?')[0]);
   let file = path.join(ROOT, url);
@@ -1653,6 +1707,7 @@ for (const [label, viewport, touch] of [
   // path to those modules differs between the source tree and the published
   // mirror, so it is handed to the page rather than written into each call.
   await page.addInitScript((b) => { window.__MODULE_BASE = b; }, MODULE_BASE);
+  await page.addInitScript(pictureRefusalProbe); // T-3648
   // Playwright's default 30 s action timeout is not an assertion, and on this
   // scene it had quietly become one. A click waits for the element to be stable
   // across animation frames and then hit-tests it, and every one of those steps
@@ -1954,10 +2009,21 @@ for (const [label, viewport, touch] of [
     const why = r.failure()?.errorText || '';
     if (!/ERR_ABORTED/.test(why)) errors.push(`request failed (${why}) ${r.url()}`);
   });
+  // T-3648: the body's own page says when and where, as part 15's does (T-3647). Dev's
+  // mobile stage-15 reds were all this page's — no `part 15` prefix on any of the four
+  // `Couldn't load texture blob:` lines of 44242219312 — and this listener said neither
+  // which step nor which document, nor kept the scene loader's `picture lost` reason.
+  const atMain = () => {
+    let where = page.url();
+    try { where = new URL(where).pathname || where; } catch { /* about:blank */ }
+    return `after "${lastCheckName.replace(/^[^:]*: /, '').slice(0, 60)}", ${TIMING ? stamp() : ''}${where}`;
+  };
+  const lostPictures = [];
   page.on('console', (m) => {
     const t = m.text();
+    if (m.type() === 'warning' && PICTURE_WARNING.test(t)) lostPictures.push(`(${atMain()}) ${t}`);
     if (m.type() === 'error' && !t.startsWith('Failed to load resource')) {
-      errors.push(`console.error: ${t}`);
+      errors.push(`console.error (${atMain()}): ${t}`);
     }
   });
 
@@ -21713,6 +21779,7 @@ for (const [label, viewport, touch] of [
     const ctx14 = await browser.newContext({
       viewport, hasTouch: touch, isMobile: false, deviceScaleFactor: touch ? 2 : 1,
     });
+    await ctx14.addInitScript(pictureRefusalProbe); // T-3648: this context's refusals say why too
     // T-3579: this context counts every console.error, and the hosted narration index
     // is CORS-refused at localhost; the same empty stand-in the main context has.
     if (wantPublished) await standInNarrationIndex(ctx14, { origin: `http://127.0.0.1:${PORT}` });
@@ -21776,7 +21843,7 @@ for (const [label, viewport, touch] of [
     p14.on('console', (m) => {
       const t = m.text();
       if (m.type() === 'error' && !t.startsWith('Failed to load resource')) errors.push(`part 15 console.error (${at15()}): ${t}`);
-      if (m.type() === 'warning' && t.startsWith('4D Chicago: picture lost')) lostPictures15.push(`(${at15()}) ${t}`);
+      if (m.type() === 'warning' && PICTURE_WARNING.test(t)) lostPictures15.push(`(${at15()}) ${t}`);
     });
     const jaunt = () => p14.evaluate(() => {
       const s = window.__chicago4d.jaunts.state;
@@ -22095,7 +22162,7 @@ for (const [label, viewport, touch] of [
       && backed.same && backed.href === linked.href && backed.app === 'home' && backed.level === 0,
       JSON.stringify({ linked, backed }));
     if (lostPictures15.length) {
-      console.log(`        part 15: ${lostPictures15.length} picture(s) lost by the scene loader, with its reasons (T-3647):`);
+      console.log(`        part 15: ${lostPictures15.length} picture(s) lost or refused, with the reasons (T-3647, T-3648):`);
       for (const l of lostPictures15.slice(0, 6)) console.log(`          ${l}`);
     }
     await ctx14.close();
@@ -22151,7 +22218,13 @@ for (const [label, viewport, touch] of [
   check(`${label}: the suite body ran to completion`, thrown === null,
     String(thrown ?? ''));
   check(`${label}: zero page errors`, errors.length === 0,
-    errors.slice(0, 4).join(' | '));
+    `${errors.length > 4 ? `${errors.length} errors, the first 4: ` : ''}${errors.slice(0, 4).join(' | ')}`);
+  // T-3648: beside a red, the reasons the scene loader gave for any picture it lost on
+  // this page (part 15's own page prints its list where that part ends).
+  if (errors.length && lostPictures.length) {
+    console.log(`        ${lostPictures.length} picture(s) lost or refused on the body's page, with the reasons (T-3648):`);
+    for (const l of lostPictures.slice(0, 6)) console.log(`          ${l}`);
+  }
   await ctx.close();
   await browser.close();
   console.log('');

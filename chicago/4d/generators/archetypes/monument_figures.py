@@ -33,7 +33,7 @@ the photographs read it:
   different face). Where the plates show what a figure looks at (`look`, T-3594) the
   face is turned about the neck's own axis toward it and the head nodded on the neck's
   top to face it: the warrior bowed to Mrs. Helm, Black Partridge in profile to the
-  warrior;
+  warrior, Mrs. Helm bowed to the warrior and the child looking up after his hands;
 - each ARM and LEG is a chain from where the torso puts its root: the upper bone aimed at
   the elbow or knee and stretched along itself to reach it, the lower one aimed at the
   wrist or ankle and stretched to it, the hand carried rigid with the forearm and the foot
@@ -104,9 +104,16 @@ TARGETS = {
         "kn_r": (-0.73, 0.30, 0.53), "an_r": (-0.86, 0.39, 0.17), "to_r": (-0.93, 0.36, 0.10),
         "kn_l": (-0.44, -0.60, 0.44), "an_l": (-0.43, -0.11, 0.11), "to_l": (-0.49, -0.17, 0.05),
     },
-    # the right arm across to the warrior; her legs, unseen, stand under the hem
+    # the right arm across to the warrior; her legs, unseen, stand under the hem. T-3594:
+    # her face turned to the warrior and bowed, as both plates show it: ICHi-19208 draws
+    # her head in profile to the west, the brow, nose and chin at its lower left (x 575-590,
+    # y 222-242) and the knot of hair at its upper right (x 606-618, y 205-216), the face
+    # about 30 degrees below level; Taylor's print, from the west of the front, shows the
+    # same face three-quarter on and bowed (x 625-660, y 300-335), so it is turned a
+    # little to the street from profile
     "helm": {
         "P": (0.03, -0.72, 0.85), "C": (0.03, -0.72, 1.14), "H": (-0.01, -0.72, 1.31),
+        "look": (-0.43, -0.87, 1.06),
         "sh_r": (-0.06, -0.72, 1.11), "el_r": (-0.21, -0.64, 1.01), "wr_r": (-0.45, -0.45, 0.98),
         "sh_l": (0.11, -0.72, 1.13), "el_l": (0.16, -0.62, 1.01), "wr_l": (0.22, -0.52, 1.14),
         "kn_r": (-0.03, -0.80, 0.47), "an_r": (-0.01, -0.70, 0.08), "to_r": (-0.02, -0.82, 0.03),
@@ -133,9 +140,13 @@ TARGETS = {
         "kn_r": (-0.49, -0.05, 0.26), "an_r": (-0.73, -0.25, 0.08), "to_r": (-0.81, -0.28, 0.04),
         "kn_l": (0.16, -0.10, 0.32), "an_l": (0.28, -0.22, 0.05), "to_l": (0.30, -0.30, 0.03),
     },
-    # kneeling at the rock's right edge, both arms out to the right
+    # kneeling at the rock's right edge, both arms out to the right. T-3594: his face lifted
+    # up and to the right, after his hands, as Taylor's print shows it (the face
+    # three-quarter on, the chin up, x 745-780, y 555-585) and ICHi-19208's tilted head
+    # agrees (x 688-715, y 360-385)
     "child": {
         "P": (0.56, -0.72, 0.11), "C": (0.56, -0.72, 0.31), "H": (0.55, -0.72, 0.37),
+        "look": (0.83, -0.95, 0.72),
         "sh_r": (0.52, -0.72, 0.28), "el_r": (0.65, -0.72, 0.34), "wr_r": (0.75, -0.72, 0.39),
         "sh_l": (0.60, -0.72, 0.29), "el_l": (0.79, -0.51, 0.33), "wr_l": (1.00, -0.30, 0.39),
         "kn_r": (0.53, -0.80, 0.02), "an_r": (0.52, -0.50, 0.03), "to_r": (0.52, -0.44, 0.00),

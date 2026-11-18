@@ -36,6 +36,17 @@
  * whole bell a little, the hem trails with the pace, the bell hangs to gravity against
  * most of the pelvis's tilt and swings as a damped pendulum from the pelvis's own motion.
  *
+ * Two cuts the parse makes are read here (T-3553 round 4). Frances Glessner's close walking
+ * skirt (human-gown.js names it in the body's report) takes the CLOSE style: the legs hold it
+ * out exactly as far as they reach, and nothing more (no push carried round, no cone, no shift
+ * of the whole skirt, a little trailing, a 2 degree sway, a quick return), so mid-stride its hem
+ * breaks over the leading foot and drops back instead of swinging fore and aft as a bell. A
+ * frock coat's skirts with a centre-back vent (human-frockcoat.js) hang on panels turned half a
+ * step, one each side of the vent, and below the vent's top each lip is carried by its own
+ * side's panel mostly (VENT_PART): a leg pressing the back parts the vent, standing it hangs as drawn, lapped
+ * at the top. A vertex the panels carry keeps its own weights' total (a parse pass may leave
+ * one a byte off 255), so at rest it is exactly where the asset draws it.
+ *
  * Bounds. Standing, legs where the asset was drawn, every panel is exactly at rest and
  * the skirt is the asset as drawn (the panels are then rigid with the pelvis, which is
  * what the cloth's own weights give with the legs at rest). When the life layer settles
@@ -84,6 +95,29 @@ const SPREAD = 0.45;           // a panel's push carried to its neighbours
 // like a dress.
 export const COAT = Object.freeze({ spread: 0.12, flare: 0, omega: Object.freeze({ waist: 26, hem: 18 }), trail: 0.4 });
 const COAT_PIECE = /^(coat|tailcoat|tails?|livery|shirt|blanket|breechcloth|sash|turnbacks?)$/;
+// T-3553 round 4. A close walking skirt of 1904 (Frances Glessner's gored skirt, taken in at
+// parse by human-gown.js, which names it in its report on the body) is not a bell either: its
+// cloth lies near the legs from the knee down, so a leg pushes it aside where it presses and it
+// falls straight back with the leg, rather than standing out and swinging after it. The legs
+// still hold it out exactly as far as they reach (the contact below is unchanged): what goes is
+// what a bell adds to that, the push carried round to the next panels, the cone, the whole
+// skirt following the mean push, most of the trailing and the pendulum's sway, and the slow
+// return. In the Easter crowds on Fifth Avenue (1904) the women's hems break forward over the
+// leading foot and drop back, without the bell's swing fore and aft.
+export const CLOSE = Object.freeze({ spread: 0.12, flare: 0, omega: Object.freeze({ waist: 30, hem: 24 }), trail: 0.4, swingDeg: 2 });
+// T-3553 round 4. A frock coat's skirts cut with a centre-back vent (human-frockcoat.js splits
+// the skirts up the back at parse, lapped at the top, a little apart at the hem): the two halves
+// are two panels at the vent, so a leg pressing the back parts them, as a frock coat's skirts
+// part at the vent mid-stride, and standing they hang as drawn. For such a coat the panels are
+// turned half a step round the body, so one hangs each side of the vent, and below the vent's
+// top each lip is carried mostly by its own side's panel (VENT_PART of the way, fading in over
+// VENT_FADE_M under the top, where the cloth is whole and lapped): the halves part, and each
+// still keeps a little of the other's motion, as two lapped halves of one cloth do. Other coats' vents (lapped shut at parse by
+// human-coat.js closeVents) are not cut and keep the panels as they were.
+const VENT_SKIRT = /(^|_)frock_coat_skirts$/;
+export const VENT_FADE_M = 0.08;  // under the vent's top, over which its lips come apart
+export const VENT_PART = 0.7;     // how far each lip goes over to its own side's panel
+const VENT_NEAR_M = 0.04;         // a vent's open edges lie this near the middle of the back
 const SHIFT = 1.2;             // the whole bell follows the mean push this much (a closed one)
 const OPEN_GAP = 140 * DEG;    // a garment with a gap wider than this round the body is open
 const TRAIL = { perMS: 0.022, max: 0.035 }; // the hem trails with the pace (m per m/s)
@@ -357,7 +391,14 @@ function makeBinding(scene) {
   let gap = around.length ? TAU - (around[around.length - 1] - around[0]) : TAU;
   for (let i = 1; i < around.length; i++) gap = Math.max(gap, around[i] - around[i - 1]);
   const closed = gap <= OPEN_GAP;
-  const coat = tokens(pieceName(skirt, scene.userData?.chicago4d_human?.asset_id)).some((t) => COAT_PIECE.test(t));
+  const assetId = scene.userData?.chicago4d_human?.asset_id;
+  const coat = tokens(pieceName(skirt, assetId)).some((t) => COAT_PIECE.test(t));
+  // The close walking skirt, where the gown's cut (human-gown.js) took it in; and a vented
+  // frock coat, whose panels are turned half a step so the vent falls between two of them.
+  const close = !coat && (scene.userData?.chicagoGown?.skirts ?? []).some((c) => c?.mesh === skirt.name);
+  const vented = VENT_SKIRT.test(pieceName(skirt, assetId));
+  const off = vented ? 0.5 : 0;
+  const vent = vented ? findVent(S, skirt.geometry.index, { yTop, yHem, scale: len }) : null;
   const rMean = new Float32Array(cells).fill(NaN);
   for (let c = 0; c < cells; c++) { if (rN[c]) rMean[c] = rSum[c] / rN[c]; if (rMin[c] === Infinity) rMin[c] = NaN; }
   fillGrid(rMin); fillGrid(rMean);
@@ -397,7 +438,7 @@ function makeBinding(scene) {
   }
 
   // The panels: a waist bone on the cloth at the waist, a hem bone below it at the knee.
-  const theta = Array.from({ length: N_PANELS }, (_, k) => (k / N_PANELS) * TAU);
+  const theta = Array.from({ length: N_PANELS }, (_, k) => ((k + off) / N_PANELS) * TAU);
   const dir = theta.map((t) => [Math.sin(t), Math.cos(t)]);
   const Wc = fromF(0, yTop, 0);
   const P = theta.map((t) => fromF(Math.sin(t) * lookAngle(rMean, t, yTop), yTop, Math.cos(t) * lookAngle(rMean, t, yTop)));
@@ -413,7 +454,7 @@ function makeBinding(scene) {
   hang.updateMatrixWorld(true);
 
   // Each driven mesh: its own skin weights on the panels, and a skeleton with them.
-  const own = meshes.map((m) => rebind(m, { waist, hem, P, Q, yTop, yHem, len, wA, wB, pelvisIndex: m.mIndex.get('pelvis') }));
+  const own = meshes.map((m) => rebind(m, { waist, hem, P, Q, yTop, yHem, len, wA, wB, off, vent: m === S ? vent : null, pelvisIndex: m.mIndex.get('pelvis') }));
   // T-3639: the pieces whose panel skeletons come out the same (one body skeleton under them,
   // the same panel binds) are bound to one, so the figure's panel bones upload once a frame.
   for (let i = 1; i < own.length; i++) {
@@ -427,7 +468,7 @@ function makeBinding(scene) {
   const rowAllow = new Float64Array(ROWS).fill(Infinity);
   for (let row = 0; row < ROWS; row++) for (let j = 0; j < RAYS; j++) rowAllow[row] = Math.min(rowAllow[row], allow[row * RAYS + j]);
   for (let j = 0; j < RAYS; j++) {
-    const f = (j / RAYS) * N_PANELS, k0 = Math.floor(f) % N_PANELS, k1 = (k0 + 1) % N_PANELS, a = f - Math.floor(f), th = (j / RAYS) * TAU;
+    const f = (j / RAYS) * N_PANELS - off + N_PANELS, k0 = Math.floor(f) % N_PANELS, k1 = (k0 + 1) % N_PANELS, a = f - Math.floor(f), th = (j / RAYS) * TAU;
     rayK[j * 2] = k0; rayK[j * 2 + 1] = k1;
     rayGain[j] = (1 - a) * Math.cos(th - theta[k0]) + a * Math.cos(th - theta[k1]);
     raySin[j] = Math.sin(th); rayCos[j] = Math.cos(th);
@@ -449,9 +490,10 @@ function makeBinding(scene) {
     scene, pelvis, restS, hang, waist, hem, own, bones: { thigh: {}, calf: {}, foot: {}, ball: {} },
     O, U, Lf, Fw, Wc, P, Q, H, dir, yTop, yHem, yMid, len, tMid, tA, tB0, tB1, wA, wB, allow, rMin, rMean, girth,
     rayK, rayGain, raySin, rayCos, rowAllow, pelvisBindQ, upParent, hasParent: parentIdx !== undefined, lod: scene.userData?.chicago4d_human?.lod ?? null,
-    mode: 'bell', freed: false, shift: closed && !coat ? SHIFT : 0,
-    spread: coat ? COAT.spread : SPREAD, flare: coat ? COAT.flare : FLARE, trail: coat ? COAT.trail : 1,
-    omega: coat ? COAT.omega : OMEGA, coat,
+    mode: 'bell', freed: false, shift: closed && !coat && !close ? SHIFT : 0,
+    spread: coat ? COAT.spread : close ? CLOSE.spread : SPREAD, flare: coat ? COAT.flare : close ? CLOSE.flare : FLARE,
+    trail: coat ? COAT.trail : close ? CLOSE.trail : 1, omega: coat ? COAT.omega : close ? CLOSE.omega : OMEGA,
+    swingMax: (close ? CLOSE.swingDeg : PENDULUM.maxDeg) * DEG, coat, close, vent, offset: off,
   };
   for (const s of SIDES) {
     binding.bones.thigh[s] = bone(`thigh_${s}`); binding.bones.calf[s] = bone(`calf_${s}`); binding.bones.foot[s] = bone(`foot_${s}`);
@@ -490,6 +532,63 @@ function fillGrid(g) {
       g[row * RAYS + j] = a < 0 ? g[b * RAYS + j] : b < 0 ? g[a * RAYS + j] : g[a * RAYS + j] + (g[b * RAYS + j] - g[a * RAYS + j]) * (row - a) / (b - a);
     }
   }
+}
+
+/**
+ * A vent up the middle of the back of a garment (figure frame F of its vertices): its two lips,
+ * chains of open edges running down near the middle of the back from one top point. Returns
+ * { top, hem, side, k0, fade } (side +1 left, -1 right, for every vertex behind the hips under
+ * the vent's top: a lip's by its chain, the lip whose foot lies further left being the left one,
+ * any other by the side of the middle it lies on), or null when the cloth is whole there.
+ */
+function findVent(S, index, { yTop, yHem }) {
+  if (!index) return null;
+  const a = index.array, F = S.F, n = S.n, near = VENT_NEAR_M;
+  const uses = new Map(), key = (p, q) => (p < q ? p * n + q : q * n + p);
+  for (let t = 0; t < a.length; t += 3) for (let e = 0; e < 3; e++) { const k = key(a[t + e], a[t + (e + 1) % 3]); uses.set(k, (uses.get(k) ?? 0) + 1); }
+  // Open edges (one triangle's: the cut made a vent's lips separate points) behind the hips,
+  // near the middle, running down.
+  const adj = new Map(), link = (p, q) => { if (!adj.has(p)) adj.set(p, []); adj.get(p).push(q); };
+  for (const [k, u] of uses) {
+    if (u !== 1) continue;
+    const p = Math.floor(k / n), q = k % n;
+    const xp = F[p * 3], yp = F[p * 3 + 1], zp = F[p * 3 + 2], xq = F[q * 3], yq = F[q * 3 + 1], zq = F[q * 3 + 2];
+    if (zp >= 0 || zq >= 0 || Math.abs(xp) > near || Math.abs(xq) > near) continue;
+    if (Math.abs(yp - yq) < Math.max(0.01, 0.5 * Math.hypot(xp - xq, zp - zq))) continue; // across (a hem or a rim), not down
+    link(p, q); link(q, p);
+  }
+  if (!adj.size) return null;
+  // The two lips: the edges' two pieces, or, where the slit ends in one point both lips share,
+  // the two pieces without it.
+  const pieces = (without) => {
+    const lip = new Map(); let count = 0;
+    for (const p of adj.keys()) {
+      if (p === without || lip.has(p)) continue;
+      const stack = [p]; lip.set(p, count);
+      while (stack.length) for (const q of adj.get(stack.pop())) if (q !== without && !lip.has(q)) { lip.set(q, count); stack.push(q); }
+      count++;
+    }
+    return { lip, count };
+  };
+  let { lip, count } = pieces(-1), top = -1;
+  for (const p of adj.keys()) if (top < 0 || F[p * 3 + 1] > F[top * 3 + 1]) top = p;
+  if (count === 1) ({ lip, count } = pieces(top));
+  if (count !== 2) return null;
+  const foot = [null, null], high = [-Infinity, -Infinity];
+  for (const [p, c] of lip) {
+    if (!foot[c] || F[p * 3 + 1] < F[foot[c] * 3 + 1]) foot[c] = p;
+    high[c] = Math.max(high[c], F[p * 3 + 1]);
+  }
+  const yt = F[top * 3 + 1], yl = Math.max(F[foot[0] * 3 + 1], F[foot[1] * 3 + 1]);
+  if (!(yt - yl > 0.1 * (yTop - yHem)) || Math.min(high[0], high[1]) < yt - 0.1 * (yt - yl)) return null;
+  const leftLip = F[foot[0] * 3] > F[foot[1] * 3] ? 0 : 1;
+  const side = new Int8Array(n);
+  for (let i = 0; i < n; i++) {
+    if (F[i * 3 + 2] >= 0 || F[i * 3 + 1] >= yt || Math.abs(F[i * 3]) > 0.5 * Math.abs(F[i * 3 + 2]) + near) continue;
+    side[i] = lip.has(i) ? (lip.get(i) === leftLip ? 1 : -1) : F[i * 3] > 0 ? 1 : -1;
+  }
+  // The panels' pair either side of the middle of the back (turned half a step: k0 left, k1 right).
+  return { top: yt, hem: yl, side, k0: N_PANELS / 2 - 1, fade: VENT_FADE_M };
 }
 
 /** Where a ray from the body's axis at angle `theta` (0 front, + to the left) leaves a disc. */
@@ -549,7 +648,7 @@ function girthAt(g, u) {
 }
 
 /** One garment on the panels: its own skin weights and a skeleton with the panel bones. */
-function rebind(m, { waist, hem, P, Q, yTop, len, wA, wB, pelvisIndex }) {
+function rebind(m, { waist, hem, P, Q, yTop, len, wA, wB, off = 0, vent = null, pelvisIndex }) {
   const { mesh, F, legW, n, Ipm } = m;
   const src = mesh.geometry, osk = mesh.skeleton, nb = osk.bones.length;
   const total = nb + 2 * N_PANELS;
@@ -570,11 +669,17 @@ function rebind(m, { waist, hem, P, Q, yTop, len, wA, wB, pelvisIndex }) {
       const a = wA(t), b = wB(t), keep = 1 - a;
       if (base > 1e-3) { for (let c = 0; c < 4; c++) { const bi = si.getComponent(i, c), w = sw.getComponent(i, c); if (w > 0 && !leg.has(bi)) { ids.push(bi); ws.push(keep * w / base); } } }
       else { ids.push(pelvisIndex); ws.push(keep); }
-      const f = ((Math.atan2(X, Z) / TAU) * N_PANELS % N_PANELS + N_PANELS) % N_PANELS, k0 = Math.floor(f) % N_PANELS, k1 = (k0 + 1) % N_PANELS, s = f - Math.floor(f);
+      const f = (((Math.atan2(X, Z) / TAU) * N_PANELS - off) % N_PANELS + N_PANELS) % N_PANELS, k0 = Math.floor(f) % N_PANELS, k1 = (k0 + 1) % N_PANELS;
+      let s = f - Math.floor(f);
+      // A vent's lip is carried by the panel on its own side of the vent (left: k0, right: k1).
+      if (vent && vent.side[i] && k0 === vent.k0) { const c = VENT_PART * smooth((vent.top - y) / vent.fade); s = vent.side[i] > 0 ? s * (1 - c) : s + (1 - s) * c; }
       ids.push(nb + k0, nb + k1, nb + N_PANELS + k0, nb + N_PANELS + k1);
       ws.push(a * (1 - b) * (1 - s), a * (1 - b) * s, a * b * (1 - s), a * b * s);
     }
-    packWeights(ids, ws, outI, outW, i * 4);
+    // The source's own total (a parse pass may leave a vertex a byte over or under 255): at rest
+    // the panels are the pelvis, and the vertex lands exactly where the asset draws it.
+    let total = 0; for (let c = 0; c < 4; c++) total += sw.getComponent(i, c);
+    packWeights(ids, ws, outI, outW, i * 4, total > 0.5 ? Math.round(total * 255) : 255);
   }
   const g = new THREE.BufferGeometry();
   g.name = `${src.name || mesh.name}~skirt`;
@@ -598,8 +703,8 @@ function rebind(m, { waist, hem, P, Q, yTop, len, wA, wB, pelvisIndex }) {
   return out;
 }
 
-/** Up to four (bone, weight) pairs, the largest, as bytes that sum to exactly 255. */
-function packWeights(ids, ws, outI, outW, o) {
+/** Up to four (bone, weight) pairs, the largest, as bytes that sum to exactly `total` (255). */
+function packWeights(ids, ws, outI, outW, o, total = 255) {
   const pairs = [];
   for (let k = 0; k < ids.length; k++) {
     if (!(ws[k] > 1e-6)) continue;
@@ -609,10 +714,10 @@ function packWeights(ids, ws, outI, outW, o) {
   pairs.sort((a, b) => b[1] - a[1]);
   pairs.length = Math.min(4, pairs.length);
   const sum = pairs.reduce((s, p) => s + p[1], 0) || 1;
-  let left = 255;
+  let left = total;
   for (let c = 0; c < 4; c++) {
     const p = pairs[c];
-    const q = p ? Math.round((p[1] / sum) * 255) : 0;
+    const q = p ? Math.round((p[1] / sum) * total) : 0;
     outI[o + c] = p ? p[0] : 0; outW[o + c] = q; left -= q;
   }
   outW[o] += left; // the rounding goes to the largest
@@ -779,7 +884,7 @@ export function createHumanSkirt({ id = 'human', scene = null, maxLod = 3 } = {}
       prev.v.copy(vel); prev.has = 2;
     } else prev.has = 1;
     prev.p.copy(pw);
-    const { omega, zeta, length } = PENDULUM, max = PENDULUM.maxDeg * DEG;
+    const { omega, zeta, length } = PENDULUM, max = b.swingMax;
     const steps = Math.max(1, Math.ceil(dt * 120)), h = dt / steps;
     for (let i = 0; i < steps; i++) {
       pend.vf += (-omega * omega * pend.f - 2 * zeta * omega * pend.vf - af / length) * h; pend.f += pend.vf * h;

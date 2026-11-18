@@ -27,6 +27,7 @@
  * (hud.js `store`, which swallows a refused storage), so nothing here persists on its own.
  * Light or dark keeps its own key, `chicago4d.theme`, which js/skin.js reads before paint.
  */
+import { readingChoice, LEVEL_IDS, levelLabel } from './reading-level.js';
 import { t as str } from './strings/index.js';
 import './strings/settings.js';
 import { NARRATORS, normalNarrator } from './narrators.js'; // T-3627: not the player itself
@@ -249,6 +250,63 @@ export function applyTextScale(root, value) {
  * `saveTheme(tone)` stores light or dark, `onSetting(key, value)` is main.js's handler, and
  * `openWhatsNew()` shows the What's new section.
  */
+/**
+ * T-3645 (the owner, 2026-11-17: "a person can set a grade level age level in their
+ * settings"): Settings › Display › Reading age, one key per age, as many pressed as the
+ * reader likes. Each press is the shared choice (reading-level.js), so the Jaunts menu and
+ * every card follow it, and a change made there (or by the account) shows here.
+ */
+/**
+ * Settings › Display › Reading age (T-3645), drawn here rather than in index.html: the page is
+ * published once for every year's door, and four copies of it sit at the published tree's
+ * duplicate floor (validate.py SITE_DUPE_FLOOR), so the group costs the page no bytes. It goes
+ * in above Appearance; the tab bar shows and hides it with the rest of Display.
+ */
+export function readingAgesGroup(doc = globalThis.document) {
+  const have = doc?.getElementById?.('s-reading-ages');
+  if (have) return have;
+  const before = doc?.getElementById?.('s-machine');
+  if (!before?.parentNode) return null;
+  const group = doc.createElement('div');
+  group.className = 'settings-group';
+  group.id = 's-reading';
+  group.dataset.setPane = 'display';
+  group.hidden = !!before.hidden;
+  const h = doc.createElement('h4');
+  h.textContent = 'Reading age';
+  const seg = doc.createElement('div');
+  seg.className = 'seg reading-ages';
+  seg.id = 's-reading-ages';
+  seg.setAttribute('role', 'group');
+  seg.setAttribute('aria-label', 'Reading age');
+  for (const id of LEVEL_IDS) {
+    const b = doc.createElement('button');
+    b.type = 'button';
+    b.className = 'seg-btn';
+    b.dataset.readingAge = id;
+    b.setAttribute('aria-pressed', 'false');
+    b.setAttribute('aria-label', id === '18+' ? 'Ages 18 and over' : `Ages ${id.replace('-', ' to ')}`);
+    b.textContent = levelLabel(id);
+    seg.append(b);
+  }
+  const note = doc.createElement('p');
+  note.className = 'legend-note';
+  note.textContent = 'Pick one or more. Jaunts and cards are told for these ages.';
+  group.append(h, seg, note);
+  before.parentNode.insertBefore(group, before);
+  return seg;
+}
+
+export function wireReadingAges(seg, choice = readingChoice()) {
+  if (!seg) return false;
+  const keys = [...seg.querySelectorAll('[data-reading-age]')];
+  const paint = () => { for (const k of keys) k.setAttribute('aria-pressed', String(choice.has(k.dataset.readingAge))); };
+  for (const k of keys) k.addEventListener('click', () => choice.toggle(k.dataset.readingAge));
+  choice.subscribe(paint);
+  paint();
+  return true;
+}
+
 export function wireSettingsApp({
   doc = globalThis.document, settings, device = null, save = () => {}, saveTheme = () => {},
   onSetting = null, openWhatsNew = null, isTouch = false,
@@ -292,6 +350,9 @@ export function wireSettingsApp({
       onSetting?.('textScale', settings.textScale);
     });
   }
+
+  // ---- Display: reading age (T-3645). The Jaunts menu's age row is the same choice.
+  wireReadingAges(readingAgesGroup(doc));
 
   // ---- Performance: Auto.
   const auto = autoChoice(device);
