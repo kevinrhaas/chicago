@@ -1,7 +1,7 @@
 ## T-3656 — Browser-only classroom tools (18 November 2026)
 
-First implementation prepared on `steward/t3656-browser-classroom`, based on development
-commit `169af6421`; release verification is in progress before the DEV pull request.
+Implementation on `steward/t3656-browser-classroom`, based on development commit
+`169af6421`; the associated DEV pull request records the final release verdict.
 
 - Navigator Home offers on-demand stamped PNG capture (maximum 1280-pixel edge) and a
   validated moment link carrying the public position, year, orientation, season, hour,
@@ -38,8 +38,13 @@ Legacy 1835 People cards also pass real-record notebook save, duplicate and deni
 browser checks. Lesson documents use the same readable-text overlay as jaunt previews;
 People and Inspect retain explicit person selections for the Home photo link.
 
-**Remaining verification:** the full four-part gate and complete published renderer smoke
-are running under Node 22. No merge or production promotion is claimed before they pass.
+**Release validation:** preflight's first of eight source partitions passes 175 checks,
+along with the changelog-entry and ticket-ID checks. Published mobile renderer stages
+1–3 pass with zero failures or page errors. All eight source partitions and the complete
+published renderer smoke at both sizes are required before DEV merge; the pull request
+records their aggregate results. The eight-way split keeps work resumable after a workspace
+transition interrupted a longer partition. GitHub holds the implementation checkpoint and
+both full renderer workflow runs. No production promotion is part of this work.
 
 No new server or shared-service activation. Photos/notes stay local until explicitly
 exported. Shared URLs do not contain notebook text or account state. No claim of full
