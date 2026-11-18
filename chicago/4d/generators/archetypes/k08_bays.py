@@ -2177,16 +2177,30 @@ class Bay:
         if not (y1 <= hi + 1e-9 and 2 * rr + 0.1 <= h and wt + rr <= W and W <= w - 0.05):
             raise ValueError(f"{self.v['id']}: a cheek's console stands inside its storey and its cheek, "
                              f"its roll and top inside its width")
+        # It stands on the slate as proud() stands a slab on its wall: front and edges, never a
+        # back, which would lie in the cheek's own plane (a face drawn twice). Its outline is
+        # not convex (the sweep bows in toward the front's edge) and a face is a convex fan, so
+        # its front is cut into convex strips, one per step of the sweep and one for the foot,
+        # and each edge faces out by its own normal, not by the outline's centroid
         for e, sd in ((a0, -1.0), (b1, 1.0)):
             sweep = [(e + sd * (wt + (W - rr - wt) * (i / n) ** 2), y1 - (y1 - y0 - 2 * rr) * i / n)
                      for i in range(n + 1)]
+            strips = [[(e, a[1]), (e, b[1]), b, a] for a, b in zip(sweep, sweep[1:])]
+            strips.append([(e, sweep[-1][1]), (e, y0), (sweep[-1][0], y0), sweep[-1]])
+            for q in strips:
+                flat.plane("band", q if area(q) > 0 else q[::-1], -(pr + dp))
             poly = [(e, y1), (e, y0), (e + sd * (W - rr), y0)] + list(reversed(sweep))
             if area(poly) < 0:
                 poly.reverse()
-            prism(flat, "band", poly, -(pr + dp), -pr)
+            for a, b in zip(poly, poly[1:] + poly[:1]):
+                if math.dist(a, b) > 1e-9:
+                    flat.face("band", [flat.P(a[0], a[1], -(pr + dp)), flat.P(b[0], b[1], -(pr + dp)),
+                                       flat.P(b[0], b[1], -pr), flat.P(a[0], a[1], -pr)],
+                              (b[1] - a[1], a[0] - b[0], 0.0))
             roll = [(e + sd * (W - rr) + rr * math.cos(2 * math.pi * k / 16), y0 + rr + rr * math.sin(2 * math.pi * k / 16))
                     for k in range(16)]
-            prism(flat, "band", roll, -(pr + dp + 0.03), -pr)
+            flat.plane("band", roll, -(pr + dp + 0.03))
+            flat.tube("band", roll, -(pr + dp + 0.03), -pr, inward=False)
         self.meta["cheek_consoles"] = self.meta.get("cheek_consoles", 0) + 2
 
     def _corbel_table(self, flat, run, y_floor, ct):
