@@ -1565,6 +1565,12 @@ class Entrance(Opening):
         self.meta.setdefault("swept_cheeks", {"head_m": h0, "foot_m": sw["foot_m"], "block_m": blk})
         if rl:
             self._cheek_rail(si, sgn, L, o1, F, g, top, yF, nw, rl, side)
+        wg = sw.get("wing") if (sw.get("wing") or {}).get("side") == side else None
+        if wg:   # T-3562: the landing carried on past this cheek, open beneath (1815's north side)
+            if start >= L or ar or self._flares(sw) or holes:
+                raise ValueError("a landing's wing runs past an unflared, unpierced cheek beside its own "
+                                 "landing, on the side the arch is not")
+            self._landing_wing(so, sgn, L, R, top(L - 1e-6), wg, rl, si + sgn * nw["width_m"] / 2 if nw else None)
         if holes:
             self.meta["pierced_cheek"] = {"side": side, "openings": len(holes),
                                           "out_m": [round(holes[0][0], 4), round(holes[-1][1], 4)]}
@@ -1625,6 +1631,68 @@ class Entrance(Opening):
         self.meta.setdefault("railed_cheeks", []).append(
             {"side": side, "head_m": round(yh, 4), "foot_m": round(ye, 4), "post": bool(pst),
              "out_m": [round(oh, 4), round(oe, 4)], "balusters": n_})
+
+    def _landing_wing(self, so, sgn, L, R, y0, wg, rl, sr):
+        """T-3562: 1815's landing, as the Chicagology square-on print draws it: carried on past
+        the flight's cheek `width_m` along the front, its whole depth, to a square stone post
+        `post.width_m` across on its outer front corner that stands from grade to `post.height_m`
+        over the landing under a cap. The wing is open beneath from the post back to the face
+        behind it (`back_m` out of the door's wall: a projection the wing runs across), its
+        soffit `soffit_m` under the floor and its front a fascia that deep, the space under it
+        in the shadow of the deck; in that face a basement doorway `doorway.width_m` wide,
+        centred `doorway.at_m` out from the cheek, up to `doorway.head_m` under the soffit,
+        its dark the kit's backing. Its far end is closed in the stoop's stone. On a railed
+        stoop the cheek's level iron rail runs on along the wing's front edge from the rail's
+        head to the post, on `landing_balusters` bars."""
+        W, ys_, bk = wg["width_m"], -wg["soffit_m"], wg["back_m"]
+        pw, ph = wg["post"]["width_m"], wg["post"]["height_m"]
+        dw = wg["doorway"]
+        out = so + sgn * W                        # the wing's outer end, along the front
+        pin = out - sgn * pw                      # the post's inner face
+        if not 0.5 <= W - pw or not bk + 0.3 <= L - pw or not ys_ > -R + 0.9:
+            raise ValueError(f"a landing's {W} m wing leaves under 0.5 m beside its {pw} m post, under 0.3 m of "
+                             f"void before the post, or under 0.9 m of headroom beneath its {wg['soffit_m']} m soffit")
+        d0, d1 = dw["at_m"] - dw["width_m"] / 2, dw["at_m"] + dw["width_m"] / 2
+        yd = ys_ - dw["head_m"]
+        if not 0.05 <= d0 or not d1 <= W - 0.05 or not -R + 0.6 <= yd:
+            raise ValueError(f"a landing wing's doorway ({d0:.3f}-{d1:.3f} m out from the cheek, head {yd:.3f} m) "
+                             f"does not stand in the {W} m face under its soffit")
+        A, B = sorted((so, out))
+        Ai, Bi = sorted((so, pin))
+        DN = (0.0, -1.0, 0.0)
+        # the deck at the floor, and its fascia down to the soffit across the front
+        self.quad("landing", [(A, 0, 0), (B, 0, 0), (B, 0, L), (A, 0, L)], Y)
+        self.probe((so + pin) / 2, 0.0, L / 2, ("landing",), "the landing's wing")
+        self.quad("cheek", [(Ai, ys_, L), (Bi, ys_, L), (Bi, 0, L), (Ai, 0, L)], OUT)
+        self.probe((so + pin) / 2, ys_ / 2, L, ("cheek",), "the landing wing's fascia")
+        # the soffit over the void, the post's faces to it, and the closed far end
+        self.quad("arch_reveal", [(Ai, ys_, bk), (Bi, ys_, bk), (Bi, ys_, L), (Ai, ys_, L)], DN)
+        a_, b_ = sorted((pin, out))
+        c = 0.04
+        self._box("cheek", a_, b_, -R, y0 + ph - c, L - pw, L, skip=("bottom",))
+        self._box("cheek", a_ - c / 2, b_ + c / 2, y0 + ph - c, y0 + ph, L - pw - c / 2, L + c / 2)
+        self.probe((pin + out) / 2, -R / 2, L, ("cheek",), "the wing's post, from grade")
+        self.quad("cheek", [(out, -R, 0.0), (out, -R, L - pw), (out, 0, L - pw), (out, 0, 0.0)], (sgn, 0.0, 0.0))
+        self.quad("cheek", [(out - sgn * 0.01, -R, 0.0), (out - sgn * 0.01, -R, L - pw), (out - sgn * 0.01, ys_, L - pw),
+                            (out - sgn * 0.01, ys_, 0.0)], (-sgn, 0.0, 0.0))
+        # the basement doorway in the face behind: its dark, a hair proud of that face
+        e0, e1 = sorted((so + sgn * d0, so + sgn * d1))
+        self.quad("arch_back", [(e0, -R, bk + 0.01), (e1, -R, bk + 0.01), (e1, yd, bk + 0.01), (e0, yd, bk + 0.01)], OUT)
+        self.probe((e0 + e1) / 2, (yd - R) / 2, bk + 0.01, ("arch_back",), "the basement doorway under the wing")
+        if rl and sr is not None:   # the cheek's level rail carried on to the post
+            b, bm = rl["bar_m"], rl["baluster_m"]
+            yh, zr = y0 + rl["head_m"], L - 0.05
+            if not rl["head_m"] + b <= ph:
+                raise ValueError(f"a landing wing's post ({ph} m over the landing) stands under its rail")
+            self._tube("hardware", [(sr, yh, zr), (pin, yh, zr)], b / 2, (0.0, 0.0, 1.0), 6)
+            k = rl["landing_balusters"]
+            for i in range(1, k + 1):
+                s_ = sr + (pin - sr) * i / (k + 1)
+                self._box("hardware", s_ - bm / 2, s_ + bm / 2, y0, yh, zr - bm / 2, zr + bm / 2)
+                self.probe(s_, (y0 + yh) / 2, zr + bm / 2, ("hardware",), "a bar of the wing's rail")
+        self.meta["landing_wing"] = {"side": wg["side"], "width_m": W, "soffit_m": wg["soffit_m"], "back_m": bk,
+                                     "post_m": [pw, ph], "doorway_out_m": [round(d0, 4), round(d1, 4)],
+                                     "doorway_head_m": round(yd, 4)}
 
     def _arched_void(self, si, so, sgn, far, L, p0, R, ys_, sp, vcuts, arch, ar):
         """T-3562: 1815's stoop, as the Chicagology oblique shows it: the landing open beneath
