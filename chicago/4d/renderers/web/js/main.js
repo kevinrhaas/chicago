@@ -889,7 +889,13 @@ const DETAIL_DECLARED = {
   // (Lake at Canal, Lake and Market, the aerial) and differed at the three that do
   // (West prairie, the forks, the Sauganash). CI's reading is the higher one and
   // the one priced. docs/measurements/t-3622-detail-ceilings.md has both.
-  full:     { triangles: 3605000, shadowReachM: 240, furnitureCastsShadow: true,
+  // T-3656, 2026-11-18: owner authorized an appropriate budget raise after the
+  // published desktop run read 3,607,087 at West prairie (6,813 calls). Apply
+  // the standing margin: 3,607,087 + 18,059 = 3,625,146, rounded up to 5,000.
+  // This changes only the allowance; scene geometry, other tiers and draw-call
+  // limits stay as measured. Vessel motion remains a likely, unproven source
+  // of the spread. docs/measurements/t-3656-full-detail-budget.md records it.
+  full:     { triangles: 3630000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-3146: Full as well as Light runs T-2529's sun-pass test
               // (shadow-casters.js), unchanged: a structure piece is left out of
@@ -908,7 +914,11 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '3,605,000 set 2026-11-17 (T-3622, owner answer a): the content '
+              measured: '3,630,000 set 2026-11-18 (T-3656, owner authorized): published '
+                + 'desktop West prairie read 3,607,087 with 6,813 calls (run '
+                + '44372747109, stage 5); +18,059 rounded up to 5,000. '
+                + 'docs/measurements/t-3656-full-detail-budget.md. '
+                + 'Previously 3,605,000 set 2026-11-17 (T-3622, owner answer a): the content '
                 + 'build read 3,584,847 at desktop West prairie with T-3612\u2019s schooners '
                 + 'in (run 44005328098, part 5); +18,059 rounded up to 5,000. '
                 + 'Previously 3,495,000 set 2026-11-15 (T-3605): the content build read '
