@@ -59,6 +59,7 @@ const picture = new Element('div', popup, { class: 'pic-viewer', role: 'dialog' 
 const pictureButton = new Element('button', picture);
 const nativeDialog = new Element('dialog', popup);
 const nativeDialogButton = new Element('button', nativeDialog);
+const bodyDialog = new Element('dialog', body);
 let lockRequests = 0, activates = 0, holding = false, inspecting = false, enabled = true;
 canvas.requestPointerLock = () => { lockRequests++; };
 doc.exitPointerLock = () => {};
@@ -94,7 +95,7 @@ assert.equal(lockRequests, 0, 'rail capture must stand down before the rail can 
 assert.equal(activates, 0, 'UI keys do not switch a touch user into keyboard/mouse'); still('rail arrow does not walk');
 assert.equal(down('Space', rail).defaultPrevented, false, 'Space reaches the native button default'); still('rail Space does not inspect');
 
-for (const target of [reading, popupButton, pictureButton, nativeDialog, nativeDialogButton, new Element('button', body),
+for (const target of [reading, popupButton, pictureButton, nativeDialog, nativeDialogButton, bodyDialog, new Element('button', body),
   new Element('a', body, { href: '/source' }), new Element('summary', body),
   new Element('div', body, { role: 'slider' }), new Element('input', body),
   new Element('textarea', body), new Element('select', body), new Element('div', body, { contenteditable: true })]) {
