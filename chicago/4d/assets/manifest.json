@@ -9934,9 +9934,9 @@
     "sears_meeker_house_1815_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 7247444,
+      "bytes": 7285976,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "0d3a0f38f2ba16f7918270399ff7a7fb770e9b1ea505ee89427f26cca6bbe49c",
+      "inputs_sha256": "92432b67e5d1e52a630395afbe508d9a513f10b311e0063166ad89fa87dd506e",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "sears_meeker_house_1815_prairie"
