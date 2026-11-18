@@ -1,0 +1,31 @@
+{
+ "structure_id": "high_house_2021_prairie",
+ "source_id": "chicagology_2021_high_photo",
+ "library_image": "a20-chicagology-2021-high-photo",
+ "photo": "../../sources/assets/high_2021_photo_t3633/high_2021_chicagology_photo.jpg",
+ "image_px": [
+  1826,
+  1738
+ ],
+ "principal_px": [
+  913.0,
+  1586.0
+ ],
+ "focal_px": 4697.6,
+ "eye": [
+  45.54,
+  31.12,
+  0.73
+ ],
+ "yaw_deg": -120.2,
+ "sky": "overcast",
+ "scene": "1904",
+ "solve": "Fitted for T-3633 to the photograph and the 1911 sheet 35 trace of the house's plan (s35fp-2021-b1). A level camera: the photograph's verticals stand upright, so the principal point's row is the horizon, read at y 1586 px where the south flank's string course (x 920-1270 px, y 1040-1110) and base course (y 1430-1450) meet at their vanishing point, x 3649. Its column is held at the print's middle (x 913), the print being a cropped halftone. Four vertical edges fixed the rest by least squares with that vanishing point: the turret's axis (x 232 px; the trace's round, u 8.1, v 1.35 m in this frame), the front's south corner (x 920; u 7.8, v 9.25), the junction of the south flank and the south wing at the downpipe (x 1275; u 0, v 9.25) and the wing's south-west corner (x 1575; u -0.1, v 12.4). Residuals -3, +2, +12 and -10 px. So the eye stands about 38 m before the front and 22 m south of its south corner, on the far walk of Prairie Avenue, 0.73 m over the house's grade (the snow at the front corner's foot, y 1665 px, a street lower than the yard), f 4697.6 px, turned 30.2 degrees south of square. CHECKS: the front gable's apex (x 545, y 70 px) falls 0.4 m south of the front's middle at 15.5 m over grade; the eave over the south flank reads 9.79 m at the front corner and 9.91 m at the wing, level within 0.12 m; the wing's foot reads 0.1 m at the downpipe. WHAT IS SOFT: the print is a coarse halftone with snow on every ledge; the principal column is assumed; the front is seen at a steep angle (about 80 px a metre across it), so places along it are good to about 0.2 m and heights on it to about 0.1 m. The Prairie library's note reads the view as from the north-west with a north wing; the 1911 sheet draws the round at the front's north-west corner and the projection on the south flank, and this camera from the south-west sees both where the photograph draws them. LIGHT: a grey winter sky, no cast shadows: overcast.",
+ "flora": {
+  "front_yards": [
+   "prairie_2021"
+  ],
+  "street_trees_m": 40,
+  "season": "winter"
+ }
+}
