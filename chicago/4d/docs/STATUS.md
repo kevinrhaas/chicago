@@ -1,3 +1,41 @@
+## T-3657, T-3658 — Photo hunt and targeted accessibility (18 November 2026)
+
+Prepared as the next server-free delivery after T-3656, on an isolated branch based on
+classroom checkpoint `03ecd9678`. The first classroom PR must merge before this follow-up.
+
+Home's **Where and when?** uses five licensed historical photographs of four places in
+the 1904 scene. It derives the picture, canonical building, credit, recorded date/range
+and solved camera position from the existing catalogue. The same five photographs have
+a deterministic UTC daily order; a versioned link preserves that challenge after midnight
+without sending guesses or account state. Location scoring measures ground distance, not
+camera height, direction or an invented exact year. Guess or skip before source/date
+reveals and optional travel; visits check bounds, water, router blockers and house barriers.
+Only the current thumbnail has an image source, released when hidden. One bounded local
+progress record reports unreadable or refused storage and supports an explicit restart.
+
+Navigator reading now permits native browser magnification and panning. Viewport sizing
+keeps the drawing buffer stable during pinch zoom while still responding to keyboard,
+URL-bar and orientation changes. World movement and looking retain separate thumb roles
+when the page is magnified off-centre. Picture dialogs cycle keyboard focus, isolate the
+background, close on Escape, restore the opener and release pending image loads.
+
+Focused logic/catalogue and browser fixtures pass on the combined branch at 390×780
+and 1280×800.
+Hunt coverage includes all five rounds, real source dates, distance scoring, saved order
+and scores after reload, keyboard activation, image failure/retry, clipboard fallback,
+corrupt/refused storage, cleanup and zero page errors or horizontal overflow. It uses real
+Home/modules/catalogue with tiny fixture image bytes, not a complete 3D world. Accessibility
+fixtures use the real Navigator CSS, modal and touch controls with a small WebGL canvas
+running the production resize body; native pinch/pan, two-thumb input, orientation and
+modal lifecycle pass. Pure checks cover keyboard/URL-bar viewport dimensions as well.
+These are browser measurements, not physical phone/Chromebook tests or whole-app WCAG
+conformance. The combined regression also passes the four classroom logic suites, existing
+Navigator/link/photo checks, strings and changelog validation. The two newly gated pure
+tests were instrumented separately; both wrote nothing in-tree. The isolation audit and
+its self-test pass, preserving all four T-3656 measurements. Complete source, native-town
+and published-renderer release gates remain pending; no DEV merge or production promotion
+is claimed here.
+
 ## T-3656 — Browser-only classroom tools (18 November 2026)
 
 Implementation on `steward/t3656-browser-classroom`, based on development commit

@@ -1,3 +1,14 @@
+## T-3657, T-3658 — Next browser-only delivery (18 November 2026)
+
+Prepared after the classroom tools: a five-photo 1904 hunt with daily/shareable ordering,
+source/date reveals, ground-distance scores and bounded browser-local progress, plus
+native Navigator zoom/pan and keyboard-safe picture dialogs. Each feature has focused
+logic and browser-fixture coverage; combined release gates and native-town verification
+remain before DEV merge. This is a bounded first hunt and accessibility repair, not an
+all-year game, shared leaderboard, complete WCAG audit or physical-device certification.
+Broader menu/card accessibility and the remaining server-free content items retain their
+scope in [CLASSROOM-FEATURES.md](CLASSROOM-FEATURES.md). Same-spot Jump remains lower priority.
+
 ## T-3656 — Browser-only classroom tools (18 November 2026)
 
 Owner prioritizes photo/share, field notebook, ungraded understanding checks and group

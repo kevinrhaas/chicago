@@ -398,6 +398,10 @@ step "Jaunt reflections use only cited visited claims across all reading bands (
   node tools/test_jaunt_understanding.mjs
 step "Group lesson guides use the selected outing's citations and preserve print cleanup (T-3656)" \
   node tools/test_lesson_guides.mjs
+step "Photo hunts preserve canonical evidence, shared dates, distance scores and bounded local progress (T-3657)" \
+  node tools/test_photo_hunt.mjs
+step "Browser magnification preserves viewport size and independent movement and look controls (T-3658)" \
+  node tools/test_viewport_accessibility.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
   node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \
