@@ -1,0 +1,8 @@
+{
+  "title": "The test of the town now says why a picture was refused",
+  "kind": "chore",
+  "items": [
+    "When the automatic check of the town sees a picture fail to load on a people, horse, wagon or carriage model, or on a building, it now writes down the browser's own reason: the picture could not be read, or could not be decoded.",
+    "Nothing in the town looks different. This is the next step in finding why the phone-sized check sometimes reports pictures that would not load."
+  ]
+}
