@@ -28,29 +28,38 @@ three-page Letter PDFs, and reflection completion. Dark notebook inputs measure
 and denied-storage checks. People and Inspect selections pass through Home sharing
 with the final selection logic; lesson documents use the readable-text overlay.
 
-Earlier source and published whole-town photo/share tests pass at both sizes: bounded
-PNG captures contain nonblank scene pixels, links restore position and season, and a
-saved outing remains stored without automatically resuming. These photo runs precede
-the final person-selection and lesson reader-text changes; a hash-verified diff proves
-the shutter/render path stayed unchanged. Their notebook assertion was skipped despite
-an overbroad report label, so notebook persistence is established by the separate browser
-fixture, not those photo reports. The software-GPU harness pauses continuous drawing
-between interactions and executes the actual normal frame for capture; it is not a
-low-end hardware performance result. The evidence archive retains the exact harnesses,
-reports, hashes and limitations.
+Final-runtime published-town tests now pass at 390×780 and 1280×800. Each uses the
+real People card to save canonical citations, captures a nonblank bounded PNG through
+the normal rendered frame, copies its selected-person/view URL, saves the actual photo
+to the notebook, edits its note, then navigates to the shared link. Exact notebook,
+photo, note and citation data persist; the person and view restore; the saved jaunt
+remains stored and inactive. Both runs report zero page errors, local 404s or overflow.
+The software-GPU harness pauses continuous drawing between interactions and executes
+the actual normal frame for capture; it is not a low-end hardware performance result.
+Earlier reports with skipped notebook assertions and pre-final runtime are retained
+with explicit scope corrections in the evidence archive; these final integrated runs
+supersede them for the photo/notebook/arrival flow.
 
-**Release validation at this checkpoint:** source partitions 1–4 of eight pass
-(175, 174, 174 and 174 checks), and preflight's changelog-entry and ticket-ID checks pass.
-Published mobile renderer stages 1–12 pass with zero failures or page errors. Stage 6's
-second-world recovery initially timed out under CPU contention; its unchanged quiet
-rerun passes both context-loss recoveries and the existing boot limit. All eight source
-partitions and all fifteen published renderer stages at both sizes remain required
-before DEV merge; the pull request records the final aggregate and exact-head CI result.
-The implementation is backed up on GitHub in PR #2197. Completed logs, screenshots and
-recovery details are in
+**Release validation at this checkpoint:** source partitions 1–5 of eight pass
+(175, 174, 174, 174 and 175 checks), and preflight's changelog-entry and ticket-ID checks
+pass. Published mobile renderer stages 1–12, 14 and 15 pass with zero failures or page
+errors. Stage 6's second-world recovery passed unchanged on quiet CPU. Stage 13 reached
+149 passing assertions before the local 595-second command cap terminated it, so that
+stage remains incomplete; its unchanged remote completion run is required.
+
+CI found four missing step-isolation records for the new gate tests. The instrumented
+measurement tool now records all four as writing nothing in-tree, and the isolation
+audit and its self-tests pass. This repairs the measurement registry without changing
+the application or assertions. The full remaining source partitions, complete published
+desktop renderer smoke, mobile stage 13 and exact-head PR CI remain required before DEV
+merge. The PR records their final aggregate; GitHub's phone upload/memory-release check
+has also passed on the unchanged runtime.
+
+Implementation and recovery checkpoints are backed up in PR #2197. Completed logs,
+screenshots, exact source hashes and reproduction harnesses are in
 [chicago-evidence](https://github.com/kevinrhaas/chicago-evidence/tree/main/evidence/t3656-browser-classroom-2026-11-18).
-Later validation receipts are added there and to T-3656 without implying unrun gates
-passed. No production promotion is part of this work.
+Later receipts go there and to T-3656 without implying unrun gates passed. No production
+promotion is part of this work.
 
 No new server or shared-service activation. Photos/notes stay local until explicitly
 exported. Shared URLs do not contain notebook text or account state. No claim of full
