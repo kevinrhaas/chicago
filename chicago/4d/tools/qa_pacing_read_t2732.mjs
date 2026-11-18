@@ -26,6 +26,35 @@ const SECONDS = at > 0 ? Number(process.argv[at + 1]) : 4;
 const doorAt = process.argv.indexOf('--door');
 const DOOR = doorAt > 0 ? process.argv[doorAt + 1] : null;
 
+// The ratio is the ninth numeric column, before drawNotes' optional annotations
+// (T-2829/T-2970). Requiring it at the end rejected every real driver-draw note.
+// Keep the complete numeric row and only the formatter's known suffix grammar.
+function readingRowsHaveRatios(text) {
+  const rows = text.split(/\r?\n/).filter((line) => /^(walk|turn|flight)\s/.test(line));
+  const expected = new Set(['walk fixed', 'walk adaptive', 'turn fixed', 'turn adaptive', 'flight fixed', 'flight adaptive']);
+  const number = /^\d+(?:\.\d+)?$/;
+  return rows.length === 6 && rows.every((line) => {
+    const [core, ...notes] = line.split(',').map((part) => part.trim());
+    const [move, mode, ...values] = core.split(/\s+/);
+    if (!expected.delete(`${move} ${mode}`) || values.length !== 9) return false;
+    if (![values[0], values[6], values[7]].every((value) => /^\d+$/.test(value))
+      || !values.slice(1, 6).every((value) => number.test(value))) return false;
+    const ratio = values[8].split('-');
+    if (ratio.length > 2 || !ratio.every((value) => number.test(value) && Number(value) > 0)
+      || (ratio.length === 2 && Number(ratio[0]) > Number(ratio[1]))) return false;
+    let lastKind = -1;
+    return notes.every((note) => {
+      let kind = -1;
+      if (/^\d+ switch(?:es)? \(\d+ of the >50 on one\)$/.test(note)) kind = 0;
+      else if (/^paced \d+ %$/.test(note)) kind = 1;
+      else if (/^driver draws \d+ \(max \d+\)$/.test(note)) kind = 2;
+      if (kind <= lastKind) return false;
+      lastKind = kind;
+      return true;
+    });
+  });
+}
+
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css',
   '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.glb': 'model/gltf-binary',
   '.svg': 'image/svg+xml', '.ktx2': 'image/ktx2', '.woff2': 'font/woff2' };
@@ -113,7 +142,7 @@ try {
     'the box holds the reading, a verdict per move');
   const scene = await page.evaluate(() => String(window.__chicago4d.scene?.id ?? window.__chicago4d.year));
   check((!DOOR || scene === DOOR) && new RegExp(`^scene ${scene}, sharpness .+, drawn at [\\d.]+ at rest$`, 'm').test(viaButton.text)
-    && (viaButton.text.match(/^(walk|turn|flight) .* [\d.]+(-[\d.]+)?$/gm) ?? []).length === 6,
+    && readingRowsHaveRatios(viaButton.text),
     `the box names scene ${scene}, the Sharpness stop and each drive's drawn ratio (T-2733)`);
   await page.screenshot({ path: '/tmp/qa-pacing-read-t2732.png' });
 

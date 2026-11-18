@@ -37,7 +37,8 @@
     "Existing Today/Google Maps navigation alignment cross-check: nine central-city modern intersections agree within 2.023 m RMS (3.854 m maximum); fourteen inherited targets match exactly. No missing projection or legacy correction. See t-3654-today-registration-audit.json; historical fit uncertainty is unchanged.",
     "Fresh ae259 published snapshot passes final 1871 mobile and desktop acceptance at all three detail levels: all 22 bridges both directions, all 597 quays, street/walk transitions, actual runtime liberties and source cards. Zero application/page/resource errors. Geometry, lighting and submission counts match the prior accepted snapshot; updated t-3654-city-baseline.json records current runtime and entry hashes.",
     "Source parts 4/16 and 6/16 pass with exit 0 on 8d59. Part 5/16 has a complete 89-step terminal PASS; its exit status was unavailable after the workspace reconnect and the qualified receipt is preserved. Four part-7 issues and a stale Navigator expectation are repaired with focused proof in t-3654-integration-repairs.json.",
-    "The focused 1812 mobile/desktop entry, 4.47 m walking and readable-canvas probe passed with zero page errors on the frozen ae259 runtime. Its dated evidence is retained; it is separate from the full legacy gate."
+    "The focused 1812 mobile/desktop entry, 4.47 m walking and readable-canvas probe passed with zero page errors on the frozen ae259 runtime. Its dated evidence is retained; it is separate from the full legacy gate.",
+    "The pacing QA verifier now parses the existing driver-draw suffix while retaining strict numeric/ratio rows. Fifteen exact-helper positive/negative cases pass; see t-3654-pacing-verifier.json. Native attempts 1 and 2 remain failed records; the clean third attempt is pending."
   ],
   "pending_validation": [
     "Complete the full source gate on the repaired checkpoint",
@@ -115,7 +116,7 @@
     "bash tools/publish.sh"
   ],
   "limits": "This is the requested generic context baseline. Named properties, people, daily activity and photographic finish remain subsequent work; bank and parcel uncertainty is retained.",
-  "checkpoint_revision": 5,
+  "checkpoint_revision": 6,
   "local_source_followup": "The part-7 failures and stale Navigator fixture have focused repairs. A complete part-7 rerun and local parts 8\u201316 remain pending. Earlier snapshots are not a complete current-source pass.",
   "superseded_ci": {
     "commit": "1a5b7080f00fc1e7caf06b174f8a3ce25f77d036",
@@ -141,9 +142,10 @@
     "draft": true
   },
   "source_ci": {
-    "run_id": 44377433698,
-    "commit": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290",
-    "state": "Superseded by this repair checkpoint; require the latest complete PR #2198 gate."
+    "required": "Latest complete source gate on PR #2198",
+    "superseded_run_id": 44388262503,
+    "superseded_commit": "1dfe13b3620fae3aab33e6d772280f1f2fc74920",
+    "state": "This QA-only checkpoint supersedes the prior request. Application runtime is unchanged."
   },
   "browser_ci": {
     "commit": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290",
