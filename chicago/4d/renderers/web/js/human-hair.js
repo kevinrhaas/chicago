@@ -351,7 +351,21 @@ function weightsOf(mesh, vi, toBones) {
  * cap and skin meshes (skin may be null), `root` the cloned figure. Returns the geometry's
  * arrays, in the cap's bind pose in metres, and what was grown.
  */
-export function growHair({ hair, skin = null, root, style, lod, seed = 'person' }) {
+export function growHair(options) { return drive(growHairSteps(options)); }
+
+/** T-3639: a generator's whole run, for the callers that want the answer now. */
+function drive(steps) {
+  let r = steps.next();
+  while (!r.done) r = steps.next();
+  return r.value;
+}
+
+/**
+ * T-3639: growHair in steps of 128 cards, so a near figure's first head of hair (up to 80 ms
+ * on a slow machine) is grown over a few frames of its build (humans.js queueBuild) and not in
+ * one. The same cards from the same seed in the same order: only the frame each is laid in moves.
+ */
+export function* growHairSteps({ hair, skin = null, root, style, lod, seed = 'person' }) {
   const level = CARDS.lods[lod];
   const cut = HAIR_CUTS[style?.cut];
   if (!level || !cut || !hair) return null;
@@ -402,6 +416,33 @@ export function growHair({ hair, skin = null, root, style, lod, seed = 'person' 
       weights: weightsOf(hair, s.vertex, same), seed: rand(), layer: rand(),
     });
     grown.scalp++;
+    if ((c & 127) === 127) yield;
+  }
+  // T-3553 (Kevin, 2026-11-17, close beside Mr. Glessner in his brougham: "not much if any
+  // hair"): a thinning crown (`cut.crown`) keeps a few fine strands over the top, combed as
+  // the cut combs, lying close, the scalp showing between them. Its own seed, so the fringe and
+  // the face's hair are drawn as before; at most `share` of the level's cards.
+  if (bald && cut.crown && want > 0) {
+    const cr = cut.crown, rc = seeded(`${seed}|${style.cut}|${lod}|crown`), open = { ...scalp, bare: null };
+    const l = new THREE.Vector3();
+    const thin = sampler(scalp, (c, n, tri) => !bald(c) && l.copy(c).sub(f.o).dot(f.z) * 100 < cr.front_z_cm && (!onHair || onHair(c, n, tri)), rc);
+    const wantTop = CARDS.cover * cr.density * thin.area, most = Math.round(level.scalp * cr.share);
+    let laidTop = 0, count = 0;
+    out.crownFrom = out.position.length / 3;
+    for (let c = 0; c < most && laidTop < wantTop; c++) {
+      const s = thin.draw();
+      if (!s) break;
+      const len = cr.length_cm / 100 * (.75 + .5 * rc()), width = cr.card_mm / 1000 * (.7 + .6 * rc());
+      laidTop += len * width * .8;
+      layCard(out, {
+        start: s.p, n0: s.n, length: len, segments: Math.max(2, Math.min(level.segments, Math.round(len / .01) + 1)), width,
+        lift: { root: cr.lift_mm.root / 1000 * (.6 + .8 * rc()), tip: cr.lift_mm.tip / 1000 * (.6 + .8 * rc()) },
+        dir: (p, n) => combed(cut, f, p, n), surface: open, nearest: nearScalp, reach: CARDS.shell_reach_m, rand: rc, curl: cut.curl, hang: false, wave: 0, waveLen: .06,
+        weights: weightsOf(hair, s.vertex, same), seed: rc(), layer: rc(),
+      });
+      count++;
+    }
+    grown.crown = count;
   }
   // T-3506: the tail or club below a tie, `style.tail_cm` long: a bundle of cards from the tie
   // behind the head, hanging free of the scalp, down and a little back. Bound as the tie's
@@ -432,7 +473,9 @@ export function growHair({ hair, skin = null, root, style, lod, seed = 'person' 
   }
   // Beards, moustaches and whiskers, from the face's own skin.
   if (skin && style.facial?.length && !level.tail_only) {
+    yield;
     const face = metricSurface(skin, root), nearFace = grid(face.P, .01);
+    yield;
     const names = hair.skeleton.bones.map(b => b.name), skinBones = skin.skeleton.bones;
     const toBones = i => Math.max(0, names.indexOf(skinBones[i]?.name));
     out.facialFrom = out.position.length / 3;
@@ -536,6 +579,7 @@ export function growHair({ hair, skin = null, root, style, lod, seed = 'person' 
         });
         out.cards.push({ first, last: out.position.length / 3, vertex: s.vertex, root: s.p });
         grown.facial[name] = (grown.facial[name] ?? 0) + 1;
+        if ((c & 127) === 127) yield;
       }
     }
   }
@@ -868,7 +912,10 @@ const built = new WeakMap();   // source geometry -> Map(person key -> geometry)
  * `person` keys the seed and the material; `year` picks an era default; `style` overrides both (tests).
  * Returns { mesh, grown } or null where nothing is grown (a far level, no cap, no style).
  */
-export function dressHair(root, { lod = 0, person = null, year = null, style: given = null } = {}) {
+export function dressHair(root, options) { return drive(dressHairSteps(root, options)); }
+
+/** T-3639: dressHair in steps (growHairSteps), for a build taken a frame at a time. */
+export function* dressHairSteps(root, { lod = 0, person = null, year = null, style: given = null } = {}) {
   if (!root) return null;
   let style = given ?? hairFor(person, year);
   if (!style) return null;
@@ -906,7 +953,7 @@ export function dressHair(root, { lod = 0, person = null, year = null, style: gi
   }
   let entry = cache.get(key);
   if (!entry) {
-    const grown = growHair({ hair, skin: skin?.skeleton ? skin : null, root, style, lod, seed: person ?? 'anon' });
+    const grown = yield* growHairSteps({ hair, skin: skin?.skeleton ? skin : null, root, style, lod, seed: person ?? 'anon' });
     if (!grown || !grown.index.length) return null;
     // The face's cards are their own mesh (T-3493) where they move with the face's morphs or
     // take a colour of their own: the scalp's cards then carry no morph data.
