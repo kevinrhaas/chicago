@@ -7166,7 +7166,13 @@ def build(params, structure_id: str):
                 a._flank_rock = None
                 if split:   # T-1887: and behind its stone, the flank's brick, cut where the stone stands
                     breaks, cols = breaks_of(cid, side)
-                    a.wall(cid, side, O, R, length, E, t, holes(cid) + [(*split[0], 0.0, E)],
+                    # T-3608: a round-headed light in the stone span is the stone's to cut; passed
+                    # to the brick behind as well, the brick wall laid its head's spandrels inside
+                    # the stone span's own hole (2026's south flank: brick strips over each light)
+                    a.wall(cid, side, O, R, length, E, t,
+                           [h for h in holes(cid) if not (len(h) > 4 and split[0][0] - 1e-6 <= h[0]
+                                                          and h[1] <= split[0][1] + 1e-6)]
+                           + [(*split[0], 0.0, E)],
                            breaks, bands, gaps[cid], cols)
                 if side_arch and side_arch["wall"] == cid:
                     k01_arched_front.side_arch(a, frames[cid][0][0], side_arch["group"])

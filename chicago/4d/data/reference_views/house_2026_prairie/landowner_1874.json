@@ -1,0 +1,27 @@
+{
+ "structure_id": "house_2026_prairie",
+ "source_id": "land_owner_1874_05_homes_of_chicago_2026_wahl",
+ "library_image": "a20-chicagology-2026-wahl-landowner-1874",
+ "photo": "../../sources/assets/wahl_2026_landowner_t3608/wahl_2026_landowner_1874.jpg",
+ "image_px": [
+  1400,
+  1125
+ ],
+ "principal_px": [
+  0.0,
+  856.0
+ ],
+ "focal_px": 1455.9,
+ "eye": [
+  57.04,
+  -25.25,
+  0.0
+ ],
+ "yaw_deg": -77.31,
+ "sun_uvy": [
+  1.0,
+  0.35,
+  0.9
+ ],
+ "solve": "Fitted by T-3608 (2026-11-16) to the engraving alone, the image store's 1400 x 1125 px copy, against the 1911 sheet's plan in the record's footprint frame: u east toward Prairie Avenue, v north, the main body u 0-22.49, v 0-10.04, the north tower u 22.49-23.59, v 6.74-9.74, the south flank's canted bay leaving the flank at u 16.4. POINTS, read on a 10-20 px grid over the print: the vertical edges, which a level camera draws upright whatever their height, of the south-east corner (x 622), the tower's south face where it leaves the front (x 858) and its two front corners (x 880 and about 965), and the flank bay's front junction with the flank (x 500); the corona of the bracketed cornice at the south-east corner (y 408), at the flank bay (y 470) and at the tower (y 440), all taken at 11.9 m; the water table at the corner (y 780) and under the tower (y 788), at the principal floor's 2.0 m; and the grade line at the corner (y 845). A LEVEL pinhole with the eye, heading, lens and principal point all free fits them at 8.8 px RMS (the corner within 10 px, the tower's edges within 14, the flank bay within 6, the heights at the corner within 7, the tower's corona 17 px high): its eye stands 35 m east of the front and 25 m south of the house, at grade, heading 77 degrees west of north, and its principal point at the print's left edge (x 0, y 856), the horizon on the grade line: an engraver's construction, not a standpoint, as 1816's Land Owner plate is. About 38 px/m at the corner. THROUGH IT the corner, the flank's one light a storey, the flank bay's lights and mansard, the stack, the cornice along the flank, the tower's lights and roof, the door, the balcony and the stoop draw on the print's within about 15 px (0.4 m). LIGHT: the front lit and the south flank shaded in close vertical hatching, as engravers turn a face; no cast shadow is drawn to fix the sun, so sun_uvy lights the front and leaves the flank in shade (east-north-east, high), to match which faces the print lights and nothing more. The reviewer stands the house on one flat grade plane."
+}

@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 3110, ts: '2026-11-18T18:11:19.679Z', date: 'Nov 18, 2026, 12:11 PM CT', title: 'Jaunts on a phone: the list shows under its filters again', kind: 'fix',
+    items: [
+      'On a phone the Jaunts screen\'s filters (search, groups and the new age row) stayed pinned as you scrolled and covered almost the whole list, Start buttons included. Now only the search row stays pinned; the group and age rows scroll away with the list, and a row you tab or scroll to stops clear of the search.',
+    ] },
+  { v: 3109, ts: '2026-11-18T17:08:08.589Z', date: 'Nov 18, 2026, 11:08 AM CT', title: 'X-RAY view re-measured for 1835\'s busier streets', kind: 'improvement',
+    items: [
+      'The 1835 X-RAY view\'s triangle allowance is re-measured at the test\'s own viewpoint now that the townspeople wear their period clothes and ride with full tack: 3,785,000 → 3,870,000. Nothing in the town is drawn differently, and the Light and Balanced settings keep their own limits.',
+    ] },
+  { v: 3108, ts: '2026-11-18T15:58:24.276Z', date: 'Nov 18, 2026, 9:58 AM CT', title: '2026 Prairie, the Louis Wahl house, rebuilt to its 1874 engraving', kind: 'feature',
+    items: [
+      '2026 Prairie Avenue is no longer a placeholder draft: the Louis Wahl house now stands as the Second Empire stone-front house The Land Owner engraved in May 1874, matched against that picture from its own camera. It has a tower under a crested mansard at the north end of the front, the door at the head of its stoop under a balcony, round-headed windows throughout, and a bay and tall chimney on the south side. The plan comes from the 1911 fire-insurance map.',
+    ] },
   { v: 3107, ts: '2026-11-18T14:46:32.300Z', date: 'Nov 18, 2026, 8:46 AM CT', title: 'A riding habit, and the second pommel on the 1904 side saddle', kind: 'feature',
     items: [
       'Your person can now wear a riding habit in 1835 and 1904: pick it under Settings, You, as her dress. It is a dark green habit with a tall black hat in 1835, and a navy habit with a low black hard hat in 1904.',
