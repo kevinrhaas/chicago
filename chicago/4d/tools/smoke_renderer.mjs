@@ -17379,7 +17379,8 @@ for (const [label, viewport, touch] of [
     const confidenceBudgetPinned = (st) => {
       // T-3605: ordinary Full re-priced 3,470,000 -> 3,495,000 for the Gifford street faces.
       // T-3622: all three re-priced at West prairie (owner answer a): 3,605,000 / 2,750,000 / 1,305,000.
-      const ordinary = { full: 3605000, balanced: 2750000, light: 1305000 }[st.detail];
+      // T-3656: owner-authorized ordinary Full 3,630,000; retain exact public/stat pins.
+      const ordinary = { full: 3630000, balanced: 2750000, light: 1305000 }[st.detail];
       const fullGhost = st.detail === 'full' && st.ghosting === true;
       const draws = fullGhost ? 8900 : 7800;
       // T-3535: current published X-RAY 3,737,315 + retained 18,059 margin,

@@ -10,7 +10,8 @@ const { createConfidenceView } = await import('data:text/javascript;base64,' + B
 // T-3605: ordinary Full 3,470,000 -> 3,495,000 (main.js, the Gifford street faces).
 // T-3622: Full 3,495,000 -> 3,605,000, Balanced 2,675,000 -> 2,750,000, Light
 // 1,190,000 -> 1,305,000 (main.js, the owner's answer a; West prairie re-priced).
-const full = Object.freeze({ drawCalls: 7800, triangles: 3605000 });
+// T-3656: owner-authorized ordinary Full 3,630,000 (measured peak plus standing margin).
+const full = Object.freeze({ drawCalls: 7800, triangles: 3630000 });
 const expectedGhost = { drawCalls: 8900, triangles: 3870000 };
 let checks = 0;
 function check(name, fn) { fn(); checks++; console.log('PASS ' + name); }
@@ -111,6 +112,11 @@ check('the actual smoke pin rejects stale, inflated and public/stat-divergent al
   assert.equal(predicate(row('full', true, expectedGhost, { ...expectedGhost, triangles: 3785000 })), false);
   assert.equal(predicate(row('full', true, { ...expectedGhost, drawCalls: 8901 })), false);
   assert.equal(predicate(row('full', false, full)), true);
+  for (const triangles of [3605000, 3630001]) {
+    assert.equal(predicate(row('full', false, { drawCalls: 7800, triangles })), false);
+  }
+  assert.equal(predicate(row('full', false, full, { ...full, triangles: 3605000 })), false);
+  assert.equal(predicate(row('full', false, { ...full, drawCalls: 7801 })), false);
   assert.equal(predicate(row('full', false, expectedGhost)), false);
   for (const [detail, triangles] of [['balanced', 2750000], ['light', 1305000]]) {
     assert.equal(predicate(row(detail, true, { drawCalls: 7800, triangles })), true);

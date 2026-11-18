@@ -34,6 +34,16 @@ West prairie reading. Source CI, the uncompleted renderer coverage and the fresh
 budget check remain required before the DEV merge; this permission does not turn
 incomplete runs into passes. No production promotion is authorized here.
 
+Stage 13 run [44403522127](https://github.com/kevinrhaas/chicago/actions/runs/44403522127)
+completed in 27m58s with 155 passing checks, zero page errors and two stale-pin failures:
+returning to NORMAL after X-RAY and after grade-row Ghost restored the authorized
+3,630,000 in both internal and public budgets, but the smoke still expected 3,605,000.
+Actual work was 2,983,651 triangles and 3,328 calls. The smoke's independent ordinary
+pin and the pure transition fixture now require exactly 3,630,000. Negative controls
+reject the old allowance, an extra triangle, an extra draw call and public/stat disagreement.
+Ghost, Balanced and Light pins and all rendered-within-declared checks are unchanged.
+The failed run is retained; the affected stage must pass on both viewports before merge.
+
 ## CI completion allowance
 
 The owner also authorized raising budgets as appropriate to complete the DEV merge.
