@@ -57,6 +57,10 @@ import { easeSeats } from './human-seat.js';
 import { dressCollars } from './human-collar.js';
 import { fitCoats } from './human-coat.js';
 import { fitSleeves } from './human-sleeve.js';
+import { tailor1835 } from './human-tailor-1835.js';
+import { fitRegulars } from './human-regulars.js';
+import { fitFrockCoat } from './human-frockcoat.js';
+import { fitGown } from './human-gown.js';
 import { dressGarrison, garrisonCarry, createArmsPiles } from './human-garrison.js';
 import { clothHuman } from './fabric.js';
 // T-3627: the adults jaunts' fight motions (human-fight.js) load with the outing, not with the
@@ -197,13 +201,19 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
     const gltf = await loader.parseAsync(buf, String(new URL('.', href)));
     // T-3553: collars, straps and belts sit on the cloth beneath, trousers bridge the seat, a
     // coat closes under the arm and at the back vent, sleeve hems turn with the wrist as one
-    // edge, a belted waist sits on the body, and trade silver is engraved, once per parse,
-    // before any figure is cloned (human-collar.js, human-seat.js, human-coat.js,
-    // human-sleeve.js, human-waist.js, human-silver.js).
+    // edge, five bodies are tailored to their period pictures (1830s trousers and shirt, the
+    // 1812 regular's coat, a 1904 frock coat and gown), a belted waist sits on the body, and
+    // trade silver is engraved, once per parse, before any figure is cloned (human-collar.js,
+    // human-seat.js, human-coat.js, human-sleeve.js, human-tailor-1835.js, human-regulars.js,
+    // human-frockcoat.js, human-gown.js, human-waist.js, human-silver.js).
     dressCollars(gltf.scene);
     easeSeats(gltf.scene);
     fitCoats(gltf.scene);
     fitSleeves(gltf.scene);
+    tailor1835(gltf.scene);
+    fitRegulars(gltf.scene, { sceneId });
+    fitFrockCoat(gltf.scene);
+    fitGown(gltf.scene);
     fitWaist(gltf.scene);
     engraveSilver(gltf.scene);
     return gltf;

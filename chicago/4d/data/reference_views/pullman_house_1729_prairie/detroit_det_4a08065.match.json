@@ -42,10 +42,10 @@
         -32.937383464227544
       ],
       "rotation_y": -3.141749733222473,
-      "glb_sha256": "7293fab5f61e2754f802525bddb6067976345aaa8e49fdb8781023681f3be752"
+      "glb_sha256": "866ac8e49cf19879e2bc7596d1d3daab828d15028c5eb8167eb13c0c4678d3dd"
     }
   ],
-  "group_sha256": "f79d85d095cd31309ce907e3349dd86d303aea0aba753872a5209fa54482bd1d",
+  "group_sha256": "635e03d789f5bc9ab744342c094d3e8d8fd4ce79833569bf0c9d42f34af29828",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -107,7 +107,7 @@
       "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
     }
   ],
-  "flora_sha256": "32d86296eb7306ad1c16c79e5a1a274f18d1967aae70c828886e572f8da37cd8",
+  "flora_sha256": "686cdf474af2ab05e1df112332f7932dbaa1564820753174e0f79339eab9fae4",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "matches",
   "differences": [

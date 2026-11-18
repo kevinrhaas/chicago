@@ -24,9 +24,26 @@ The far detail runs the unchanged V19 producer with far-lods.json, then the same
 No Blender, image, texture or download is used.
 """
 from pathlib import Path
-import argparse, hashlib, json, math, struct, subprocess, sys, tempfile
+import argparse, hashlib, json, math, os, struct, subprocess, sys, tempfile
 
-import numpy as np
+# V19's generator, and this file's own coachman's box (tri, orient, tube), take norms and
+# dots of single vectors through numpy, which hands them to OpenBLAS, and OpenBLAS picks
+# its kernel by CPU: an AVX-512 machine (SkylakeX and later) rounds those sums differently
+# from an AVX2 or older one (Haswell, Zen, ...). GitHub's runners are both kinds, so a far
+# made on one failed "every triangle re-derives" on the other at random (PRs 2143, 2151,
+# 2154; T-3641: 12 of 56 gate part 7/8 jobs red on it before the pin, none of 34 after).
+# Every derivation pins the kernel to the x86-64 baseline every runner has, so the bytes
+# are the same on all of them: the far source's V19 run through its subprocess env, and
+# THIS process before numpy loads, since OpenBLAS reads the variable once, at load. A
+# caller that loaded numpy first, unpinned, would silently take the CPU's kernel, so that
+# is refused. V19's own generator and its pinned files are untouched.
+BLAS_ENV = {'OPENBLAS_CORETYPE': 'Prescott', 'OPENBLAS_NUM_THREADS': '1'}
+if 'numpy' in sys.modules and any(os.environ.get(k) != v for k, v in BLAS_ENV.items()):
+    raise RuntimeError('brougham_v20/produce.py must be imported before numpy, or with '
+                       + ' '.join(f'{k}={v}' for k, v in BLAS_ENV.items()) + ' already set (T-3641)')
+os.environ.update(BLAS_ENV)
+
+import numpy as np  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
 V19 = HERE.parent / 'brougham'
@@ -444,19 +461,8 @@ def simplify_far(source_glb, tools_root):
     return out
 
 
-# V19's generator takes norms and dots of single vectors through numpy, which hands them
-# to OpenBLAS, and OpenBLAS picks its kernel by CPU: an AVX-512 machine (SkylakeX and
-# later) rounds those sums differently from an AVX2 or older one (Haswell, Zen, ...).
-# GitHub's runners are both kinds, so a far made on one failed "every triangle
-# re-derives" on the other at random (PRs 2143, 2154). Every derivation of the far
-# source pins the kernel to the x86-64 baseline every runner has, so the bytes are the
-# same on all of them. V19's own generator and its pinned files are untouched.
-BLAS_ENV = {'OPENBLAS_CORETYPE': 'Prescott', 'OPENBLAS_NUM_THREADS': '1'}
-
-
 def far_source(workdir):
     out = Path(workdir) / 'v19-far'
-    import os
     subprocess.run([sys.executable, str(V19 / 'generate.py'), '--output', str(out), '--detail', 'far',
                     '--lod-recipe', str(HERE / 'far-lods.json'), '--rear-quarter-recipe', str(V19 / 'rear-quarter.json')],
                    check=True, capture_output=True, env={**os.environ, **BLAS_ENV})

@@ -330,7 +330,11 @@
             {
               "sill_above_floor_m": 0.9,
               "width_m": 0.75,
-              "height_m": 2.6
+              "height_m": 2.6,
+              "street_front": {
+                "sill_above_floor_m": 0.0,
+                "height_m": 2.85
+              }
             },
             {
               "sill_above_floor_m": 1.0,
@@ -340,9 +344,10 @@
           ],
           "confidence": "inferred",
           "sources": [
-            "chicagology_1823_dent_engraving"
+            "chicagology_1823_dent_engraving",
+            "newberry_new_chicago_album_1883_residences"
           ],
-          "note": "Tall narrow sash: the flank's principal windows 3.3-5.9 m over grade (floor 2.4, so sill 0.9, 2.6 m tall) and its chamber windows 7.4-10.0 m (floor 6.35: sill 1.0; built 2.3 m tall, so the lintel clears the cornice's frieze, which the engraving's heads run up into) on the Chicagology engraving through its solved camera (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json; grade at y 975-995 px); 0.75 m wide (K01's narrowest) so the triple group's three lights stand 1.02 m apart, as drawn."
+          "note": "Tall narrow sash: the flank's principal windows 3.3-5.9 m over grade (floor 2.4, so sill 0.9, 2.6 m tall) and its chamber windows 7.4-10.0 m (floor 6.35: sill 1.0; built 2.3 m tall, so the lintel clears the cornice's frieze, which the engraving's heads run up into) on the Chicagology engraving through its solved camera (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json; grade at y 975-995 px); 0.75 m wide (K01's narrowest) so the triple group's three lights stand 1.02 m apart, as drawn. T-1894: the street front's principal-storey lights stand lower and longer than the flank's (street_front): the Chicagology engraving draws the triple group's and the narrow light's heads level with the door's transom head (y 697-702 px, the door's 5.2 m) and their sills down on the sill course over the landing (about y 858 px, 0.55 m over the door's 1.7 m floor, so about 2.25 m), about 2.9 m of light at the render's 54 px a metre on that face, and the 1883 album draws the door's head level with the triple group's beside it. Laid on the principal floor (sill 0.0 over 2.35 m) to the door's head, 2.85 m; the flank keeps its own 3.3-5.9 m lights, read off the same print."
         },
         "basement_lights": {
           "value": {

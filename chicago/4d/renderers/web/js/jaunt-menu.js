@@ -5,6 +5,7 @@ import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
 import { GROUPS, groupIcon, groupOf, groupSlot, icon } from './menu-icons.js';
 import { TIME_NAMES } from './time-of-day.js';
+import { readingChoice, levelOfGrade, gradeOfLevel, levelLabel, LEVEL_IDS, WRITTEN } from './reading-level.js';
 
 export const WINDOW_SIZE = 30;
 /** A title as it sorts: without a leading A, An or The, so "A Letter Home" sits under L. */
@@ -65,10 +66,13 @@ export function filterJaunts(rows, query = '', group = '', grade = '') {
  * T-3629 (owner, 2026-11-16, the interface sweep: "one card per jaunt, your grade
  * remembered"): every jaunt is told once per grade band (`version_of`), and with no grade
  * picked the list showed each one up to four times. The list keeps ONE telling of each
- * jaunt: the one for the picked band where there is one, else the jaunt itself (no band
- * picked: the jaunt itself). Order is kept; a search or a group filter runs first.
+ * jaunt per band picked: the one for that band where there is one, else the jaunt itself
+ * (no band picked: the jaunt itself). T-3645 (owner, 2026-11-17: "i can add multiple levels
+ * to see and then you would see all jaunts"): `grade` may be several bands, and each jaunt
+ * is then listed in each of their tellings. Order is kept; a search or a group filter runs first.
  */
 export function oneTellingEach(rows, grade = '') {
+  const want = (Array.isArray(grade) ? grade : [grade]).filter(Boolean);
   const groups = new Map();
   for (const row of rows) {
     const key = row.version_of || row.id;
@@ -77,22 +81,27 @@ export function oneTellingEach(rows, grade = '') {
   }
   const keep = new Set();
   for (const tellings of groups.values()) {
-    const picked = grade === ADULTS ? tellings.find(isAdults) : grade && tellings.find((r) => gradeOf(r) === grade);
-    keep.add(picked || tellings.find((r) => !r.version_of) || tellings[0]);
+    const base = tellings.find((r) => !r.version_of) || tellings[0];
+    if (!want.length) { keep.add(base); continue; }
+    for (const g of want) keep.add((g === ADULTS ? tellings.find(isAdults) : tellings.find((r) => gradeOf(r) === g)) || base);
   }
   return rows.filter((row) => keep.has(row));
 }
-/** T-3629: the grade band a visitor picked, kept on this device (a convenience: refused storage forgets it). */
+/** T-3629: the grade band a visitor picked, kept on this device. Since T-3645 the reading
+ *  ages (reading-level.js, `chicago4d.reading.ages`) hold the choice; this key is read once. */
 export const GRADE_KEY = 'chicago4d.jaunts.grade';
-const readGrade = () => { try { const g = globalThis.localStorage?.getItem(GRADE_KEY) ?? ''; return GRADE_BANDS.includes(g) || g === ADULTS ? g : ''; } catch { return ''; } };
-const writeGrade = (g) => { try { if (g) globalThis.localStorage?.setItem(GRADE_KEY, g); else globalThis.localStorage?.removeItem(GRADE_KEY); } catch { /* a convenience */ } };
+/** T-3645: a reading age as the band of tellings it lists (18+: the 18+ tellings). */
+export const bandOfAge = (age) => (age === WRITTEN ? ADULTS : gradeOfLevel(age));
 
 // T-2631: `plateFor(row)` gives a credited picture of the route's stops, or null; `kept(row)`
 // says the visitor holds this outing's keepsake.
-export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor = () => null, kept = () => false, preferredMode = () => null, modeNote = () => '' }) {
+export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor = () => null, kept = () => false, preferredMode = () => null, modeNote = () => '', choice = readingChoice() }) {
   const scroll = root.closest('.welcome-region') || root;
   const modes = new Map(), estimates = new Map(), open = new Set();
-  let query = '', family = '', grade = readGrade(), offset = 0, savedScroll = 0, focusKey = null;
+  let query = '', family = '', offset = 0, savedScroll = 0, focusKey = null;
+  // T-3645: the ages are the reader's (Settings › Display › Reading age); this row is a view of them.
+  const picked = () => choice.get().map(bandOfAge).filter(Boolean);
+  choice.subscribe(() => { if (list?.isConnected !== false && grades) { offset = 0; windowRows(); } });
   let rows = [], list, search, pills, grades, clear, previous, more;
   const node = (tag, text = '', cls = '') => {
     const el = document.createElement(tag); el.textContent = text; el.className = cls; return el;
@@ -205,14 +214,15 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
   function windowRows({ focus = false } = {}) {
     // T-2944/T-3584: ranked first, then by group, featured first within each (jauntOrder); no second sort here.
     // T-3629: one telling of each jaunt, the picked grade's where it has one.
-    const matches = oneTellingEach(filterJaunts(rows, query, family), grade);
+    const matches = oneTellingEach(filterJaunts(rows, query, family), picked());
     offset = Math.min(offset, Math.max(0, Math.floor((matches.length - 1) / WINDOW_SIZE) * WINDOW_SIZE));
     list.replaceChildren(...matches.slice(offset, offset + WINDOW_SIZE).map(row => card(row, 'all')));
     if (!matches.length) list.append(node('p', rows.length ? 'No matching outings.' : 'No jaunts are available yet. You can explore on your own.', 'jaunt-empty'));
     previous.hidden = offset === 0; more.hidden = offset + WINDOW_SIZE >= matches.length;
     clear.hidden = !query.trim() && !family;
     for (const pill of pills.children) if (pill.dataset.family !== undefined) pill.setAttribute('aria-pressed', String(pill.dataset.family === family));
-    for (const pill of grades.children) if (pill.dataset.grade !== undefined) pill.setAttribute('aria-pressed', String(pill.dataset.grade === grade));
+    const ages = choice.get();
+    for (const pill of grades.children) if (pill.dataset.age !== undefined) pill.setAttribute('aria-pressed', String(pill.dataset.age ? ages.includes(pill.dataset.age) : !ages.length));
     if (focus) {
       const target = list.querySelector('button, h3') || list;
       if (!target.matches('button')) target.tabIndex = -1;
@@ -237,18 +247,21 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     grades = node('div', '', 'jaunt-categories jaunt-grades'); grades.setAttribute('role', 'group'); grades.setAttribute('aria-label', 'Age bands');
     grades.append(node('span', 'Your age', 'jaunt-grades-label'));
     const bands = GRADE_BANDS.filter(b => rows.some(row => gradeOf(row) === b));
-    // T-3623: the 18+ tellings get their own pill, last, when Settings lets them be listed.
-    // T-3629: picked, each jaunt plays its 18+ telling where it has one.
-    if (rows.some(isAdults)) bands.push(ADULTS);
-    if (grade && !bands.includes(grade)) grade = '';
-    for (const band of ['', ...bands]) {
-      const pill = button('', () => { grade = grade === band ? '' : band; writeGrade(grade); offset = 0; windowRows(); }, 'jaunt-pill jaunt-grade-pill');
-      // The owner, 2026-11-17: the row picks an age band; each stands for its grade band.
-      const label = band === ADULTS ? '18+ tellings' : band ? ageLabel(band) : 'Any age';
-      pill.append(node('span', band === ADULTS ? ADULTS : band ? AGE_BANDS[band] : 'Any'));
+    // T-3623: the 18+ tellings are listed when Settings lets them be. T-3645: 18+ is also a
+    // reading age, so its pill is always there: each jaunt as first told, or in its 18+ telling.
+    const adults = rows.some(isAdults);
+    const ages = [...new Set(bands.map(levelOfGrade))].filter(Boolean);
+    if (bands.length) ages.push(WRITTEN);
+    for (const age of ['', ...LEVEL_IDS.filter((a) => ages.includes(a))]) {
+      // T-3645: several ages may be picked; Any lets them all go.
+      const pill = button('', () => { if (age) choice.toggle(age); else choice.clear(); }, 'jaunt-pill jaunt-grade-pill');
+      const band = age ? bandOfAge(age) : '';
+      const label = age === WRITTEN ? 'Ages 18 and over' : age ? ageLabel(band) : 'Any age';
+      pill.append(node('span', age ? levelLabel(age) : 'Any'));
       pill.setAttribute('aria-label', label);
-      pill.title = band === ADULTS ? 'Each jaunt in its 18+ telling, where it has one' : band ? `Each jaunt as told for ${ageLabel(band).toLowerCase()} (${gradeLabel(band).toLowerCase()})` : 'Each jaunt as first told';
-      pill.dataset.grade = band; grades.append(pill);
+      pill.title = age === WRITTEN ? (adults ? 'Each jaunt in its 18+ telling, where it has one' : 'Each jaunt as first told')
+        : age ? `Each jaunt as told for ${ageLabel(band).toLowerCase()} (${gradeLabel(band).toLowerCase()})` : 'Each jaunt as first told';
+      pill.dataset.grade = band; pill.dataset.age = age; grades.append(pill);
     }
     grades.hidden = bands.length < 2;
     search.addEventListener('input', () => { query = search.value; offset = 0; windowRows(); });

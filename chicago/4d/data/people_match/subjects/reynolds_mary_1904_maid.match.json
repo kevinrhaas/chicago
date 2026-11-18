@@ -2,10 +2,10 @@
   "subject": "reynolds_mary_1904_maid",
   "reference_set": "maid_1904",
   "shot": {
-    "date": "2026-11-17",
+    "date": "2026-11-18",
     "target": "tools/people_match_stage.html on this tree",
-    "build": "stage, tree d4fae0e81 + 5 uncommitted figure file(s)",
-    "out": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid",
+    "build": "stage, tree 275e17456 + 8 uncommitted figure file(s)",
+    "out": "evidence/people-match-2026-11-18/reynolds_mary_1904_maid",
     "evidence_repo": "kevinrhaas/chicago-evidence"
   },
   "bound": {
@@ -21,8 +21,8 @@
   },
   "stills": {
     "near-desktop": {
-      "file": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/near-desktop.jpg",
-      "sha256": "b276579f4d896a3fe93e80688b9d3f87e753b7001767d8e3d3106fe9bbc70e6d",
+      "file": "evidence/people-match-2026-11-18/reynolds_mary_1904_maid/near-desktop.jpg",
+      "sha256": "6bb13df7d32b8e02558f714d0242ae174d91c869ef415b388c124a4981c22ab4",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -52,8 +52,8 @@
       ]
     },
     "far-desktop": {
-      "file": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/far-desktop.jpg",
-      "sha256": "ffe0361cc3932dfc0325b7030cbdc17fd86cfae35ba34db2dc51325bc408af36",
+      "file": "evidence/people-match-2026-11-18/reynolds_mary_1904_maid/far-desktop.jpg",
+      "sha256": "22a8df6456062b31cc416664af6adb1d01f428ce6ffcf895024e1aefeb90db28",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -83,8 +83,8 @@
       ]
     },
     "near-phone": {
-      "file": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/near-phone.jpg",
-      "sha256": "c2905a502ca85d549d9467a57f690016966c57bd5f092f9a44e710e56da6a4fd",
+      "file": "evidence/people-match-2026-11-18/reynolds_mary_1904_maid/near-phone.jpg",
+      "sha256": "75936a0f6906bf79ea3e75d68537e8a48807f92b96289bf486d5fb6c19468fbb",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -114,8 +114,8 @@
       ]
     },
     "far-phone": {
-      "file": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/far-phone.jpg",
-      "sha256": "b1308dae83fd80022010fd48ddf09cef619c9305309e8e3c65bcde5781f83507",
+      "file": "evidence/people-match-2026-11-18/reynolds_mary_1904_maid/far-phone.jpg",
+      "sha256": "9fd6fd79267838e7ef2efb253c528e34a79d092db0cf7000ee6d802f9c2c8055",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -146,11 +146,11 @@
     }
   },
   "sheets": {
-    "near-side-by-side": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/near-side-by-side.jpg",
-    "far-side-by-side": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/far-side-by-side.jpg",
-    "near-pair": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/near-pair.jpg",
-    "far-pair": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/far-pair.jpg",
-    "motion-strip": "evidence/people-match-2026-11-17/reynolds_mary_1904_maid/motion-strip.jpg"
+    "near-side-by-side": "evidence/people-match-2026-11-18/reynolds_mary_1904_maid/near-side-by-side.jpg",
+    "far-side-by-side": "evidence/people-match-2026-11-18/reynolds_mary_1904_maid/far-side-by-side.jpg",
+    "near-pair": "evidence/people-match-2026-11-18/reynolds_mary_1904_maid/near-pair.jpg",
+    "far-pair": "evidence/people-match-2026-11-18/reynolds_mary_1904_maid/far-pair.jpg",
+    "motion-strip": "evidence/people-match-2026-11-18/reynolds_mary_1904_maid/motion-strip.jpg"
   },
   "verdict": "differs",
   "checklist": {
@@ -194,13 +194,13 @@
     {
       "what": "collar",
       "picture": "A white collar at the throat over the dark dress (Kelley 1904).",
-      "ours": "The dress's black stand collar shows; the white collar is only a sliver at its top edge (the asset carries a white_collar piece, buried under the black one).",
-      "status": "open"
+      "ours": "A white collar band at the throat, drawn down over the black dress's stand at the two near levels (round 4, human-collar.js); at 3 m it reads as a white collar over the dark dress. A hair-thin black line of the stand's top still shows above it close to, and at the far levels (LOD2/3, past about 10 m) the collar is left as drawn, a thin white line.",
+      "status": "reads"
     },
     {
       "what": "apron straps",
       "picture": "Broad straps with frilled (scalloped) edges over the shoulders (Kelley).",
-      "ours": "Broad plain white straps; the asset's apron_strap_frills piece does not read at 3 m; the strap edge is ragged over the shoulder point.",
+      "ours": "Broad plain white straps; the frill piece at each shoulder now stands about a centimetre off the dress at the two near levels, so at 3 m a small white flap shows at the shoulder point, but the scalloped frill down the strap's edge (Kelley) is not modelled, and the strap's outer edge over the shoulder is still uneven close to.",
       "status": "open"
     },
     {

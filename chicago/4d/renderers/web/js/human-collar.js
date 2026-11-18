@@ -49,12 +49,16 @@ const smooth = (t) => { t = Math.min(1, Math.max(0, t)); return t * t * (3 - 2 *
  * The layers: each `over` piece is worn over each `under` piece of the same body (names
  * matched whole). Options: `gap`, `poke`, `max` (metres) override GAP_M, POKE_M, MAX_M for the
  * tuck; `follow` reweights the over piece as the under one; `settle` stands a collar on the
- * coat's neckline; `near` dresses the nearest level only; `byEye` is tucked but judged by eye,
- * not measured, by tools/test_human_collar.mjs.
+ * coat's neckline; `cover` draws a collar down over the dress's stand (coverStand); `hug` closes
+ * a child's collar at the front and draws it in to the neck (hugNeck); `near` dresses the
+ * nearest level only; `byEye` is tucked but judged by eye, not measured, by
+ * tools/test_human_collar.mjs.
  */
 export const LAYERS = Object.freeze([
   // the maid's white collar band, apron bib, straps and their frills, over the black dress
-  Object.freeze({ over: /^(white_collar|standing_collar)$/, under: /^(maid_bodice|plain_closed_bodice)$/, follow: true, poke: 0.015, max: 0.015, gap: 0.006 }),
+  // (round 4: drawn down over the dress's whole stand first, `cover`, so it reads as a white
+  // collar and not a sliver at the stand's top edge)
+  Object.freeze({ over: /^(white_collar|standing_collar)$/, under: /^(maid_bodice|plain_closed_bodice)$/, cover: true, follow: true, poke: 0.015, max: 0.015, gap: 0.006 }),
   Object.freeze({ over: /^(apron_bib|apron_straps)$/, under: /^(maid_bodice|plain_closed_bodice)$/, near: true }),
   // the broad frills lie on the shoulder seam, where the dress's shoulder rises through them
   // (and are skinned as the dress beneath them, so they move with it on the walk)
@@ -69,7 +73,9 @@ export const LAYERS = Object.freeze([
   // the 1812 trader's neckcloth tucked into his waistcoat
   Object.freeze({ over: /^waistcoat_yellow$/, under: /^white_neckcloth$/ }),
   // the children's collars over the jacket or frock; the 1812 girl's pinafore bib over her frock
-  Object.freeze({ over: /^(child_collar|shirt_collar|pinafore_bib)$/, under: /^(child_jacket|frock_bodice|skeleton_jacket)$/ }),
+  // (round 4: the 1904 children's collars closed at the front and drawn in to the neck, `hug`)
+  Object.freeze({ over: /^child_collar$/, under: /^(child_jacket|frock_bodice)$/, hug: true }),
+  Object.freeze({ over: /^(shirt_collar|pinafore_bib)$/, under: /^(child_jacket|frock_bodice|skeleton_jacket)$/ }),
 ]);
 
 /** Clearance kept between the under cloth and the cloth over it, metres. */
@@ -651,6 +657,396 @@ function apply(mesh, W, shift) {
   mesh.geometry.computeBoundingBox(); mesh.geometry.computeBoundingSphere();
 }
 
+// ---- round 4: the maid's white collar, her strap frills, the children's necklines ----------
+
+/** The neck's axis at bind: the middle (x, z) of a garment's neckline, the open loop round the
+ * neck joint (or of all its points above the joint when it has none). */
+function neckAxis(W, neck) {
+  let best = null;
+  for (const loop of W.loops) {
+    const c = [0, 0, 0]; for (const g of loop) for (let k = 0; k < 3; k++) c[k] += W.P[g * 3 + k] / loop.length;
+    const d = Math.hypot(c[0] - neck.x, c[2] - neck.z) + Math.abs(c[1] - neck.y) * 0.5;
+    if (Math.hypot(c[0] - neck.x, c[1] - neck.y, c[2] - neck.z) < 0.16 && (!best || d < best.d)) best = { d, x: c[0], z: c[2] };
+  }
+  return best;
+}
+const BINS = 72;
+const angleOf = (x, z, ax) => Math.atan2(x - ax.x, z - ax.z);
+const binAt = (th) => (((th + Math.PI) / (2 * Math.PI)) * BINS) % BINS;
+/** A per-bin table read at a fractional bin, round the circle. */
+const atBin = (T, fb) => { const i = Math.floor(fb), f = fb - i; return T[((i % BINS) + BINS) % BINS] * (1 - f) + T[(((i + 1) % BINS) + BINS) % BINS] * f; };
+function smoothBins(T, sigma = 1.5) {
+  const out = new Float64Array(BINS);
+  for (let b = 0; b < BINS; b++) { let a = 0, w = 0; for (let k = -4; k <= 4; k++) { const x = T[(b + k + BINS) % BINS]; if (!Number.isFinite(x)) continue; const wk = Math.exp(-(k * k) / (2 * sigma * sigma)); a += wk * x; w += wk; } out[b] = w ? a / w : NaN; }
+  return out;
+}
+function fillBins(T) {
+  for (let pass = 0; pass < BINS && T.some((x) => !Number.isFinite(x)); pass++) {
+    const prev = T.slice();
+    for (let b = 0; b < BINS; b++) if (!Number.isFinite(prev[b])) { const v = [prev[(b + BINS - 1) % BINS], prev[(b + 1) % BINS]].filter(Number.isFinite); if (v.length) T[b] = v.reduce((a, x) => a + x, 0) / v.length; }
+  }
+  return T;
+}
+
+/** Per welded point of a band, its share of the way from its top edge (0) to its bottom edge
+ * (1) over the cloth, or null when the band has not two edges. */
+function edgeShare(W) {
+  const comp = new Map(), runs = [];
+  for (const s0 of W.boundary.keys()) {
+    if (comp.has(s0)) continue;
+    const run = [s0]; comp.set(s0, runs.length);
+    for (let k = 0; k < run.length; k++) for (const o of W.boundary.get(run[k])) if (!comp.has(o)) { comp.set(o, runs.length); run.push(o); }
+    runs.push(run);
+  }
+  if (runs.length < 2) return null;
+  runs.sort((a, b) => b.length - a.length);
+  const meanY = (r) => r.reduce((t, g) => t + W.P[g * 3 + 1], 0) / r.length;
+  const [hi, lo] = meanY(runs[0]) > meanY(runs[1]) ? [runs[0], runs[1]] : [runs[1], runs[0]];
+  const nbr = Array.from({ length: W.G }, () => new Map());
+  for (let t = 0; t < W.idx.length / 3; t++) for (let c = 0; c < 3; c++) {
+    const a = W.groupOf[W.idx[t * 3 + c]], b = W.groupOf[W.idx[t * 3 + (c + 1) % 3]];
+    if (a === b) continue;
+    const d = Math.hypot(W.P[a * 3] - W.P[b * 3], W.P[a * 3 + 1] - W.P[b * 3 + 1], W.P[a * 3 + 2] - W.P[b * 3 + 2]);
+    nbr[a].set(b, d); nbr[b].set(a, d);
+  }
+  const reach = (src) => {
+    const D = new Float64Array(W.G).fill(Infinity), q = [...src];
+    for (const g of src) D[g] = 0;
+    // a small band: a queue relaxed to rest is quick enough
+    while (q.length) { const g = q.shift(); for (const [o, d] of nbr[g]) if (D[g] + d < D[o] - 1e-9) { D[o] = D[g] + d; q.push(o); } }
+    return D;
+  };
+  const a = reach(hi), b = reach(lo), out = new Float64Array(W.G);
+  for (let g = 0; g < W.G; g++) out[g] = Number.isFinite(a[g] + b[g]) && a[g] + b[g] > 0 ? a[g] / (a[g] + b[g]) : 0;
+  for (const g of hi) out[g] = 0;
+  for (const g of lo) out[g] = 1;
+  return out;
+}
+
+/** Ease a band laid out round a neck (u angle, v height) until no face is turned over against
+ * the rest: the points of turned faces and their neighbours averaged with their neighbours, an
+ * edge point round the neck only. At most UNTANGLE_PASSES passes. */
+const UNTANGLE_PASSES = 80;
+const wrap = (d) => (d > Math.PI ? d - 2 * Math.PI : d < -Math.PI ? d + 2 * Math.PI : d);
+function untangle(W, U, V, fixedV) {
+  const T = W.idx.length / 3, tri = (t) => [0, 1, 2].map((c) => W.groupOf[W.idx[t * 3 + c]]);
+  const nbr = Array.from({ length: W.G }, () => new Set());
+  for (let t = 0; t < T; t++) { const q = tri(t); for (let c = 0; c < 3; c++) if (q[c] !== q[(c + 1) % 3]) { nbr[q[c]].add(q[(c + 1) % 3]); nbr[q[(c + 1) % 3]].add(q[c]); } }
+  const sgn = (t) => { const [a, b, c] = tri(t); const x = (wrap(U[b] - U[a])) * (V[c] - V[a]) - (wrap(U[c] - U[a])) * (V[b] - V[a]); return Math.abs(x) < 1e-12 ? 0 : Math.sign(x); };
+  let major = 0; for (let t = 0; t < T; t++) major += sgn(t);
+  major = Math.sign(major) || 1;
+  for (let pass = 0; pass < UNTANGLE_PASSES; pass++) {
+    const bad = new Set();
+    for (let t = 0; t < T; t++) if (sgn(t) === -major) for (const g of tri(t)) { bad.add(g); for (const o of nbr[g]) bad.add(o); }
+    if (!bad.size) return pass;
+    const u1 = U.slice(), v1 = V.slice();
+    for (const g of bad) {
+      if (!nbr[g].size) continue;
+      let du = 0, dv = 0, n = 0;
+      for (const o of nbr[g]) { if (fixedV[g] && !fixedV[o]) continue; du += wrap(U[o] - U[g]); dv += V[o] - V[g]; n++; }
+      if (!n) continue;
+      u1[g] = U[g] + 0.5 * du / n;
+      if (!fixedV[g]) v1[g] = V[g] + 0.5 * dv / n;
+    }
+    U.set(u1); V.set(v1);
+  }
+  return UNTANGLE_PASSES;
+}
+
+/** A band round the neck: each point's normal from its faces, every face turned out from the
+ * neck's axis (bind), copies of a point sharing one. */
+function normalsOut(mesh, W, shift, ax) {
+  const nrm = mesh.geometry.attributes.normal; if (!nrm) return;
+  const Q = Float64Array.from(W.P, (v, i) => v + shift[i]), sum = new Float64Array(W.G * 3);
+  for (let t = 0; t < W.idx.length / 3; t++) {
+    const q = [0, 1, 2].map((c) => W.groupOf[W.idx[t * 3 + c]]), A = q[0] * 3, B = q[1] * 3, Cc = q[2] * 3;
+    const e1 = [Q[B] - Q[A], Q[B + 1] - Q[A + 1], Q[B + 2] - Q[A + 2]], e2 = [Q[Cc] - Q[A], Q[Cc + 1] - Q[A + 1], Q[Cc + 2] - Q[A + 2]];
+    const f = [e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2], e1[0] * e2[1] - e1[1] * e2[0]];
+    const mx = (Q[A] + Q[B] + Q[Cc]) / 3 - ax.x, mz = (Q[A + 2] + Q[B + 2] + Q[Cc + 2]) / 3 - ax.z, sg = f[0] * mx + f[2] * mz < 0 ? -1 : 1;
+    for (const g of q) for (let k = 0; k < 3; k++) sum[g * 3 + k] += sg * f[k];
+  }
+  const back = new THREE.Matrix3().getNormalMatrix(mesh.bindMatrix.clone().invert()), v = new THREE.Vector3();
+  for (let i = 0; i < nrm.count; i++) {
+    const g = W.groupOf[i]; v.set(sum[g * 3], sum[g * 3 + 1], sum[g * 3 + 2]);
+    if (v.lengthSq() < 1e-24) continue;
+    v.normalize().applyMatrix3(back).normalize(); nrm.setXYZ(i, v.x, v.y, v.z);
+  }
+  nrm.needsUpdate = true;
+}
+
+/** The white collar over the dark stand: the collar runs from COVER.lip above the stand's top
+ * down to the stand's foot (where the dress flares out by COVER.flare to the shoulders, between
+ * COVER.minDepth and COVER.depth below its top), COVER.gap outside it. */
+export const COVER = Object.freeze({ lip: 0.002, gap: 0.003, depth: 0.04, minDepth: 0.025, flare: 0.012, reach: 0.14 });
+/**
+ * Draw a collar cut as a narrow band at the top of a dress's standing collar down over the
+ * whole stand. The maid's white collar was cut 6 to 18 mm deep at the top of a black stand
+ * 4 to 5 cm high, so at three metres the dress's black stand read where the picture shows a
+ * white collar at the throat (Kelley, 1904). Each point of the collar keeps its place round
+ * the neck and its share of the way down the band; the band is stretched from just above the
+ * stand's top to its foot, laid COVER.gap outside the dress, its thickness kept. Returns
+ * { moved, max_m, depth_m } or null.
+ */
+export function coverStand(collar, dress) {
+  if (!collar?.isSkinnedMesh || !dress?.isSkinnedMesh) return null;
+  const neck = neckOf(dress);
+  if (!neck) return null;
+  const C = weld(collar), D = weld(dress), ax = neckAxis(D, neck.at);
+  if (!ax) return null;
+  // The dress's stand: per bin round the neck, its top, and its outermost radius by height.
+  const STEP = 0.001, ROWS = 80, top = new Float64Array(BINS).fill(NaN);
+  const near = [];
+  for (let g = 0; g < D.G; g++) {
+    const x = D.P[g * 3], y = D.P[g * 3 + 1], z = D.P[g * 3 + 2], r = Math.hypot(x - ax.x, z - ax.z);
+    if (r > COVER.reach || y < neck.at.y - 0.1) continue;
+    const b = Math.floor(binAt(angleOf(x, z, ax)));
+    near.push([b, y, r]);
+    if (!(top[b] >= y)) top[b] = y;
+  }
+  fillBins(top);
+  if (top.some((x) => !Number.isFinite(x))) return null;
+  const topS = smoothBins(top);
+  // rTab[b][k]: the dress's outermost radius at k mm below that bin's top (within 3 mm, bins either side)
+  const rTab = Array.from({ length: BINS }, () => new Float64Array(ROWS).fill(NaN));
+  for (const [b, y, r] of near) for (const db of [-1, 0, 1]) {
+    const bb = (b + db + BINS) % BINS;
+    const k0 = Math.round((topS[bb] - y) / STEP);
+    for (let k = k0 - 3; k <= k0 + 3; k++) if (k >= 0 && k < ROWS && !(rTab[bb][k] >= r)) rTab[bb][k] = r;
+  }
+  for (const row of rTab) {
+    let last = NaN; for (let k = 0; k < ROWS; k++) { if (Number.isFinite(row[k])) last = row[k]; else row[k] = last; }
+    last = NaN; for (let k = ROWS - 1; k >= 0; k--) { if (Number.isFinite(row[k])) last = row[k]; else row[k] = last; }
+  }
+  if (rTab.some((row) => !Number.isFinite(row[0]))) return null;
+  // The stand's foot: the first height below the top where the dress flares out to the shoulder.
+  const foot = new Float64Array(BINS);
+  for (let b = 0; b < BINS; b++) {
+    let k = Math.round(COVER.minDepth / STEP);
+    while (k < Math.round(COVER.depth / STEP) && rTab[b][k] <= rTab[b][0] + COVER.flare) k++;
+    foot[b] = topS[b] - k * STEP;
+  }
+  const footS = smoothBins(foot);
+  const rAt = (fb, y) => {
+    const i = Math.floor(fb), f = fb - i, q = (b) => { const row = rTab[((b % BINS) + BINS) % BINS], kk = Math.min(ROWS - 1, Math.max(0, (atBin(topS, fb) - y) / STEP)), k = Math.floor(kk), t = kk - k; return row[k] * (1 - t) + row[Math.min(ROWS - 1, k + 1)] * t; };
+    return q(i) * (1 - f) + q(i + 1) * f;
+  };
+  // The collar: per bin its own top, bottom and innermost offset off the dress.
+  const ct = new Float64Array(BINS).fill(NaN), cb = new Float64Array(BINS).fill(NaN), inner = new Float64Array(BINS).fill(NaN);
+  const pts = [];
+  for (let g = 0; g < C.G; g++) {
+    const x = C.P[g * 3], y = C.P[g * 3 + 1], z = C.P[g * 3 + 2], fb = binAt(angleOf(x, z, ax)), b = Math.floor(fb);
+    const off = Math.hypot(x - ax.x, z - ax.z) - rAt(fb, y);
+    pts.push([g, fb, y, off]);
+    if (!(ct[b] >= y)) ct[b] = y;
+    if (!(cb[b] <= y)) cb[b] = y;
+    if (!(inner[b] <= off)) inner[b] = off;
+  }
+  for (const T of [ct, cb, inner]) fillBins(T);
+  if ([ct, cb, inner].some((T) => T.some((x) => !Number.isFinite(x)))) return null;
+  const ctS = smoothBins(ct), cbS = smoothBins(cb), inS = smoothBins(inner);
+  // Each point's share of the way down the band: by its distance over the cloth from the band's
+  // top edge and from its bottom edge (the two largest runs of open edges, the higher the top), so
+  // the cut's own teeth (a bottom edge that climbs to the top here and there) come out on the new
+  // bottom line, not as notches; by height in its bin where the edges cannot be told apart.
+  const share = edgeShare(C);
+  // Laid out on the stand: round it (u, the angle) and down it (v, the height), plus the cloth's
+  // own thickness off its inner face.
+  const U = new Float64Array(C.G), V = new Float64Array(C.G), O = new Float64Array(C.G), edgeOf = new Uint8Array(C.G);
+  let depth = Infinity;
+  for (const [g, fb, y, off] of pts) {
+    const t0 = atBin(ctS, fb), b0 = atBin(cbS, fb), T = Math.max(t0, atBin(topS, fb)) + COVER.lip, F = Math.min(b0, atBin(footS, fb));
+    depth = Math.min(depth, T - F);
+    const f = share ? share[g] : Math.min(1, Math.max(0, (t0 - y) / Math.max(1e-4, t0 - b0)));
+    U[g] = angleOf(C.P[g * 3], C.P[g * 3 + 2], ax); V[g] = T - f * (T - F); O[g] = Math.max(0, off - atBin(inS, fb));
+    edgeOf[g] = share && (share[g] === 0 || share[g] === 1) ? 1 : 0;
+  }
+  // The cut's stair laid out so leaves faces turned over (a riser's faces): eased out by
+  // averaging each point with its neighbours (round; and down, but for the two edges, which keep
+  // their height) until none is.
+  untangle(C, U, V, edgeOf);
+  const shift = new Float64Array(C.G * 3);
+  let moved = 0, far = 0;
+  for (const [g] of pts) {
+    const th = U[g], fb = binAt(th), y1 = V[g], r1 = rAt(fb, Math.min(y1, atBin(topS, fb))) + COVER.gap + O[g];
+    const q = [ax.x + r1 * Math.sin(th), y1, ax.z + r1 * Math.cos(th)];
+    for (let k = 0; k < 3; k++) shift[g * 3 + k] = q[k] - C.P[g * 3 + k];
+    const l = Math.hypot(shift[g * 3], shift[g * 3 + 1], shift[g * 3 + 2]);
+    if (l > 1e-6) { moved++; far = Math.max(far, l); }
+  }
+  if (!moved) return { moved: 0, max_m: 0 };
+  apply(collar, C, shift);
+  // Its normals out from the neck: the cut's risers faced every way, and their points' old
+  // normals would turn half the new band's shading inward (dark teeth on the white).
+  normalsOut(collar, C, shift, ax);
+  return { moved, max_m: far, depth_m: depth };
+}
+
+/** The strap frills: lifted off the dress, in full FRILL.to from the strap's edge, nothing
+ * within FRILL.from of it. */
+export const FRILL = Object.freeze({ lift: 0.012, from: 0.004, to: 0.03 });
+/** Nearest point on a mesh's triangles at bind: (p) => { d, q } within `reach`. */
+function nearestOn(mesh, reach) {
+  const P = bindPositions(mesh), idx = indexOf(mesh), cell = 0.02, map = new Map(), key = (a, b, c) => `${a},${b},${c}`;
+  for (let t = 0; t < idx.length / 3; t++) {
+    const lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity];
+    for (let c = 0; c < 3; c++) for (let k = 0; k < 3; k++) { const x = P[idx[t * 3 + c] * 3 + k]; lo[k] = Math.min(lo[k], x); hi[k] = Math.max(hi[k], x); }
+    for (let a = Math.floor(lo[0] / cell); a <= Math.floor(hi[0] / cell); a++) for (let b = Math.floor(lo[1] / cell); b <= Math.floor(hi[1] / cell); b++) for (let c = Math.floor(lo[2] / cell); c <= Math.floor(hi[2] / cell); c++) {
+      const k = key(a, b, c); let l = map.get(k); if (!l) map.set(k, (l = [])); l.push(t);
+    }
+  }
+  const tri = new THREE.Triangle(), a = new THREE.Vector3(), b = new THREE.Vector3(), c = new THREE.Vector3(), q = new THREE.Vector3(), p = new THREE.Vector3();
+  const R = Math.ceil(reach / cell);
+  return (x, y, z) => {
+    p.set(x, y, z);
+    let best = null; const seen = new Set(), ca = Math.floor(x / cell), cb = Math.floor(y / cell), cc = Math.floor(z / cell);
+    for (let i = -R; i <= R; i++) for (let j = -R; j <= R; j++) for (let k = -R; k <= R; k++) {
+      const l = map.get(key(ca + i, cb + j, cc + k)); if (!l) continue;
+      for (const t of l) {
+        if (seen.has(t)) continue; seen.add(t);
+        tri.set(a.fromArray(P, idx[t * 3] * 3), b.fromArray(P, idx[t * 3 + 1] * 3), c.fromArray(P, idx[t * 3 + 2] * 3)).closestPointToPoint(p, q);
+        const d = q.distanceTo(p); if (!best || d < best.d) best = { d, q: q.toArray() };
+      }
+    }
+    return best && best.d <= reach ? best : null;
+  };
+}
+/**
+ * Stand the maid's strap frills off the dress, as a gathered frill stands: each point of the
+ * frill FRILL.from or more from its strap goes out from the body by up to FRILL.lift, in full at
+ * FRILL.to (not widened across: carried sideways, the frill's outer edge lands where the
+ * dress's shoulder rises, and the dress comes through it). Drawn flat on the dress beside a plain white strap of the same white, the frill read
+ * at three metres as part of a broad plain strap; standing off, it catches the light along its
+ * own edge and shows a lit rim and a shadow against the black, as the frills over Kelley's
+ * maid's shoulders do. Returns { moved, max_m } or null.
+ */
+export function liftFrill(frill, strap, skin) {
+  if (!frill?.isSkinnedMesh || !strap?.isSkinnedMesh) return null;
+  const W = weld(frill), at = nearestOn(strap, FRILL.to * 2), out = skinNear(skin);
+  if (!out) return null;
+  const shift = new Float64Array(W.G * 3);
+  let moved = 0, far = 0;
+  for (let g = 0; g < W.G; g++) {
+    const x = W.P[g * 3], y = W.P[g * 3 + 1], z = W.P[g * 3 + 2], h = at(x, y, z);
+    const d = h ? h.d : FRILL.to * 2, k = smooth((d - FRILL.from) / (FRILL.to - FRILL.from));
+    if (!(k > 1e-3)) continue;
+    const o = out(x, y, z); if (!o) continue;
+    for (let c = 0; c < 3; c++) shift[g * 3 + c] = k * FRILL.lift * o[c];
+    moved++; far = Math.max(far, k * FRILL.lift);
+  }
+  if (!moved) return { moved: 0, max_m: 0 };
+  apply(frill, W, shift);
+  return { moved, max_m: far };
+}
+
+/** A child's collar: its front edges brought together (the slit closed to HUG.meet), and its
+ * inner edge drawn in to HUG.gap off the neck, faded out over HUG.band across the collar,
+ * round the sides and back (from HUG.frontDeg off the front, in full 45 degrees on), only as
+ * far as the garment's own neckline shows inside it (from HUG.below under its inner edge) and
+ * HUG.over past that; the draw-in evened along the collar's edges over HUG.even passes. */
+export const HUG = Object.freeze({ meet: 0.0005, fade: 0.035, gap: 0.005, band: 0.008, rise: 0.006, maxIn: 0.035, frontDeg: 25, below: 0.02, over: 0.006, even: 8 });
+/**
+ * The 1904 children's collars (an Eton collar on the boys, a broad round collar on the girls)
+ * were drawn with a slit a centimetre or more wide down the front, where the jacket's placket
+ * showed through dark, and with their inner edge two or three centimetres off the neck, so
+ * between collar and neck a band of the jacket's or frock's own neckline showed dark above the
+ * white. Here (1) each half's front edge is brought across to the middle, the shift fading out
+ * over HUG.fade round the collar, and (2) the collar's inner part is drawn in toward the neck
+ * until its inner edge lies HUG.gap off the skin (by no more than HUG.maxIn) and a little up
+ * (HUG.rise), fading out over HUG.band across the collar, so the collar closes round the neck
+ * as a collar does (with `pull: false`, only (1)). Returns { moved, max_m, slit_m, in_m } or null.
+ */
+export function hugNeck(collar, garment, skin, { pull: drawIn = true } = {}) {
+  if (!collar?.isSkinnedMesh || !skin) return null;
+  const neck = neckOf(collar);
+  if (!neck) return null;
+  const C = weld(collar), P = C.P.slice(), ax = neckAxis(C, neck.at) ?? { x: neck.at.x, z: neck.at.z };
+  // (1) the slit: points in front of the axis; each half's edge, the nearest of it to the middle
+  // (the exports cut it straight down, parallel to the middle).
+  let rMean = 0;
+  for (let g = 0; g < C.G; g++) rMean += Math.hypot(P[g * 3] - ax.x, P[g * 3 + 2] - ax.z) / C.G;
+  const front = [];
+  for (let g = 0; g < C.G; g++) if (P[g * 3 + 2] - ax.z > 0.5 * rMean) front.push(g);
+  const edge = { 1: Infinity, [-1]: Infinity };
+  for (const g of front) { const x = P[g * 3] - ax.x; edge[Math.sign(x) || 1] = Math.min(edge[Math.sign(x) || 1], Math.abs(x)); }
+  let slit = 0;
+  if (front.length && edge[1] > 0.002 && edge[-1] > 0.002 && edge[1] < 0.03 && edge[-1] < 0.03) {
+    // Brought across, each point keeps its height off the garment's front beneath it (the
+    // chest and the placket stand forward of where the edge lay).
+    const under = garment?.isSkinnedMesh ? triGrid([garment]) : null, fwd = [0, 0, 1];
+    const frontAt = (x, y, z) => { if (!under) return null; const h = cast(under, [x, y, z], fwd, 0.03).filter((q) => q[1] > 0.2); return h.length ? z + Math.max(...h.map((q) => q[0])) : null; };
+    for (const g of front) {
+      const x = P[g * 3] - ax.x, sd = Math.sign(x) || 1, h = edge[sd], w = 1 - smooth((Math.abs(x) - h) / HUG.fade), s = (h - HUG.meet) * w;
+      if (!(s > 0)) continue;
+      const z0 = frontAt(P[g * 3], P[g * 3 + 1], P[g * 3 + 2]);
+      P[g * 3] -= sd * s; slit = Math.max(slit, s);
+      const z1 = frontAt(P[g * 3], P[g * 3 + 1], P[g * 3 + 2]);
+      if (z0 !== null && z1 !== null) P[g * 3 + 2] += Math.max(0, (z1 - z0));
+    }
+  }
+  // (2) the inner edge to the neck: per bin, the collar's inner radius and the skin's inside it.
+  const inner = new Float64Array(BINS).fill(NaN), innerY = new Float64Array(BINS).fill(NaN);
+  for (let g = 0; g < C.G; g++) {
+    const r = Math.hypot(P[g * 3] - ax.x, P[g * 3 + 2] - ax.z), b = Math.floor(binAt(angleOf(P[g * 3], P[g * 3 + 2], ax)));
+    if (!(inner[b] <= r)) { inner[b] = r; innerY[b] = P[g * 3 + 1]; }
+  }
+  fillBins(inner); fillBins(innerY);
+  const SP = bindPositions(skin), neckR = new Float64Array(BINS).fill(NaN);
+  for (let i = 0; i < SP.length / 3; i++) {
+    const x = SP[i * 3], y = SP[i * 3 + 1], z = SP[i * 3 + 2], b = Math.floor(binAt(angleOf(x, z, ax))), r = Math.hypot(x - ax.x, z - ax.z);
+    if (!Number.isFinite(innerY[b]) || Math.abs(y - (innerY[b] + HUG.rise)) > 0.006 || r > inner[b] + 0.005) continue;
+    if (!(neckR[b] >= r)) neckR[b] = r;
+  }
+  fillBins(neckR);
+  if (neckR.some((x) => !Number.isFinite(x))) return null;
+  // ...and the garment's own neckline showing inside the collar's opening (its cloth within
+  // the opening and no lower than HUG.below under the collar's inner edge): only there, and
+  // only as far as it shows (and HUG.over past it), is the collar drawn in. Where the
+  // garment's neckline lies under the collar already (the back, as drawn), nothing moves.
+  const showR = new Float64Array(BINS).fill(NaN);
+  if (garment?.isSkinnedMesh) {
+    const GP = bindPositions(garment);
+    for (let i = 0; i < GP.length / 3; i++) {
+      const x = GP[i * 3], y = GP[i * 3 + 1], z = GP[i * 3 + 2], b = Math.floor(binAt(angleOf(x, z, ax))), r = Math.hypot(x - ax.x, z - ax.z);
+      if (!Number.isFinite(innerY[b]) || y < innerY[b] - HUG.below || r >= inner[b]) continue;
+      if (!(showR[b] <= r)) showR[b] = r;
+    }
+  }
+  const show = new Float64Array(BINS);
+  for (let b = 0; b < BINS; b++) show[b] = Number.isFinite(showR[b]) ? inner[b] - showR[b] + HUG.over : 0;
+  const inS = smoothBins(inner), nS = smoothBins(neckR, 1), shS = smoothBins(show, 2);
+  let pull = 0;
+  const PS = new Float64Array(C.G * 3);
+  for (let g = 0; g < C.G; g++) {
+    const x = P[g * 3] - ax.x, z = P[g * 3 + 2] - ax.z, r = Math.hypot(x, z), fb = binAt(Math.atan2(x, z));
+    // (not at the front: there the collar's edge already meets the throat, and the garment's
+    // front rises to it, so drawing the collar in there would lay it under the garment)
+    const aside = smooth((Math.abs(Math.atan2(x, z)) * 180 / Math.PI - HUG.frontDeg) / 45);
+    const room = aside * Math.min(HUG.maxIn, atBin(shS, fb), Math.max(0, atBin(inS, fb) - atBin(nS, fb) - HUG.gap));
+    const t = 1 - smooth((r - atBin(inS, fb)) / HUG.band);
+    if (!drawIn || !(t > 1e-3) || !(room > 1e-4)) continue;
+    const r1 = r - room * t;
+    PS[g * 3] = (x / r) * (r1 - r); PS[g * 3 + 2] = (z / r) * (r1 - r); PS[g * 3 + 1] = HUG.rise * t;
+  }
+  // The draw-in evened along the collar's edges (HUG.even passes, each edge point half to the
+  // mean of its two neighbours on the edge), so the cut's own small steps at the collar's ends
+  // are carried in with the edge round them instead of stretched.
+  for (let it = 0; it < HUG.even; it++) {
+    const prev = PS.slice();
+    for (const [g, nb] of C.boundary) {
+      if (nb.length !== 2) continue;
+      for (let k = 0; k < 3; k++) PS[g * 3 + k] = 0.5 * prev[g * 3 + k] + 0.25 * (prev[nb[0] * 3 + k] + prev[nb[1] * 3 + k]);
+    }
+  }
+  for (let g = 0; g < C.G; g++) { for (let k = 0; k < 3; k++) P[g * 3 + k] += PS[g * 3 + k]; pull = Math.max(pull, Math.hypot(PS[g * 3], PS[g * 3 + 2])); }
+  const shift = new Float64Array(C.G * 3);
+  let moved = 0, far = 0;
+  for (let i = 0; i < shift.length; i++) shift[i] = P[i] - C.P[i];
+  for (let g = 0; g < C.G; g++) { const l = Math.hypot(shift[g * 3], shift[g * 3 + 1], shift[g * 3 + 2]); if (l > 1e-6) { moved++; far = Math.max(far, l); } }
+  if (!moved) return { moved: 0, max_m: 0, slit_m: 0, in_m: 0 };
+  apply(collar, C, shift);
+  return { moved, max_m: far, slit_m: slit, in_m: pull };
+}
+
 /** Tuck every listed under garment of a loaded body beneath the cloth worn over it, once. */
 export function dressCollars(root) {
   if (!root) return null;
@@ -663,6 +1059,23 @@ export function dressCollars(root) {
   for (const lod of new Set(meshes.map(lodOf))) {
     const at = meshes.filter((m) => lodOf(m) === lod);
     const skin = at.find((m) => materialName(m) === 'skin') ?? null;
+    const pairs = [];
+    const far = lod !== '0' && lod !== '', nearTwo = lod === '0' || lod === '1' || lod === '';
+    // A `near` layer is dressed at the nearest level only: a far level's frill, a few faces,
+    // follows and clears its bodice worse than as drawn.
+    for (const L of LAYERS) if (!(L.near && far)) for (const u of at) {
+      if (!L.under.test(pieceName(u, id))) continue;
+      const cov = at.filter((o) => o !== u && L.over.test(pieceName(o, id)));
+      if (cov.length) pairs.push([L, u, cov]);
+    }
+    // Round 4: a child's collar closed at the front (and, at the two near levels, drawn in
+    // round the neck: a far level's few faces drawn in come out stepped), before its edges are
+    // faired (drawn in, the cut's own steps at the collar's ends stretch, and the fairing
+    // smooths them out as it does any step).
+    for (const [L, u, cov] of pairs) if (L.hug) for (const c of cov) {
+      const q = hugNeck(c, u, skin, { pull: nearTwo });
+      if (q) report.push({ mesh: c.name, hug: pieceName(c, id), on: pieceName(u, id), ...q });
+    }
     for (const m of at) {
       const name = pieceName(m, id);
       if (!FAIR.test(name) && !FAIR_NECK.test(name)) continue;
@@ -671,14 +1084,21 @@ export function dressCollars(root) {
       const r = fairEdges(m, skin, { around: neck });
       if (r) report.push({ mesh: m.name, fair: name, ...r });
     }
-    const pairs = [];
-    const far = lod !== '0' && lod !== '';
-    // A `near` layer is dressed at the nearest level only: a far level's frill, a few faces,
-    // follows and clears its bodice worse than as drawn.
-    for (const L of LAYERS) if (!(L.near && far)) for (const u of at) {
-      if (!L.under.test(pieceName(u, id))) continue;
-      const cov = at.filter((o) => o !== u && L.over.test(pieceName(o, id)));
-      if (cov.length) pairs.push([L, u, cov]);
+    // Round 4: a collar drawn down over its dress's stand (at the two near levels only: a far
+    // level's collar, a few dozen faces, comes out ragged drawn down, and its dress's stand is
+    // too sparse to read; left as drawn), and the strap frills stood off the dress (at the two
+    // near levels: a far level's frill is a few faces, left as drawn), before anything is
+    // reweighted or tucked.
+    if (nearTwo) for (const [L, u, cov] of pairs) if (L.cover) for (const c of cov) {
+      const q = coverStand(c, u);
+      if (q) report.push({ mesh: c.name, cover: pieceName(c, id), on: pieceName(u, id), ...q });
+    }
+    if (nearTwo) {
+      const straps = at.find((m) => pieceName(m, id) === 'apron_straps');
+      for (const f of at.filter((m) => pieceName(m, id) === 'apron_strap_frills')) {
+        const q = liftFrill(f, straps, skin);
+        if (q) report.push({ mesh: f.name, lift: 'apron_strap_frills', ...q });
+      }
     }
     // A collar is settled on its coat, and cloth that follows the garment beneath it is
     // reweighted, before anything is tucked under anything.
