@@ -85,9 +85,12 @@ for (const bad of ['', 'nope', 'a@b', 'a b@c.com', '@example.com', `${'x'.repeat
 // What it writes matches the rules' field lists.
 const doc = readFileSync(new URL('../docs/SIGN-IN.md', import.meta.url), 'utf8');
 const lists = [...doc.matchAll(/hasOnly\(\[([^\]]*)\]\)/g)].map(m => m[1].match(/'([^']+)'/g).map(s => s.slice(1, -1)).sort());
-// T-3644: and people/<uid>'s, the visitor's own person (tools/test_visitor_person.mjs holds its write).
-assert.equal(lists.length, 3, 'docs/SIGN-IN.md holds the visitors, visits and people hasOnly lists');
-const [visitorRule, visitRule] = lists;
+// T-3645 added readers/<uid> (the reading age), whose list tools/test_reading_level.mjs holds;
+// T-3644 people/<uid>'s, the visitor's own person (tools/test_visitor_person.mjs holds its write).
+assert.equal(lists.length, 4, 'docs/SIGN-IN.md holds the visitors, readers, visits and people hasOnly lists');
+const visitorRule = lists.find((l) => l.includes('firstSeen'));
+const visitRule = lists.find((l) => l.includes('uid'));
+assert.deepEqual(lists.find((l) => l.includes('ages')), ['ages', 'at'], 'readers/<uid> holds its ages and when');
 const w = entryWrites({ projectId: 'p', uid: 'u1', email: 'a@b.co', name: 'A', method: 'google', year: '1835', device: 'phone', visitId: 'v1' });
 const fieldsOf = write => [...Object.keys(write.update.fields), ...(write.updateTransforms || []).map(t => t.fieldPath)];
 const visitorWritten = [...new Set([...fieldsOf(w.first[0]), ...fieldsOf(w.every[0])])].sort();

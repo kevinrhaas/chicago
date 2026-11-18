@@ -45,6 +45,7 @@ import { count as countField } from '../field-log.js'; // T-2660
 import { designModel, renderDesign } from '../inspect-design.js';
 import { MODE_ATTR } from '../researcher.js';
 import { personModel, renderPersonCard } from '../person-card.js';
+import { readingTabs } from '../reading-level.js';
 
 const GRADES = ['attested', 'inferred', 'reconstructed'];
 const WORD = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
@@ -395,6 +396,8 @@ function render(root, ctx) {
   head.append(bar);
   root.append(head, panes);
   root._insp = { id, sum, ctx, person, photo };
+  // T-3645: Overview's words at the reader's age, where they are written at more than one.
+  readingTabs(page, { after: page.querySelector('h2, h1') });
   selectTab(root, tab);
   drawnFor = id;
 }
@@ -499,6 +502,8 @@ async function fillPane(root, pane, key) {
     pane.append(html(sec[key]));
   }
   pane.dataset.filled = 'yes';
+  // T-3645: this tab's words at the reader's age (a person's card keeps its own tabs).
+  readingTabs(pane, { into: pane });
 }
 
 /** People: the card's own "who was here" where the record seats anyone, with a way into the
@@ -591,6 +596,8 @@ async function openPersonCard(pane, personId, ctx) {
       atHome: ctx?.actions?.atHome ?? null });
     const was = pane.querySelector('.insp-person-card');
     if (was) was.replaceWith(card); else pane.append(card);
+    // T-3645: the card's age tabs, over the story they change (under the name if it has none).
+    readingTabs(card, { after: card.querySelector('.insp-person-story > h3') ?? card.querySelector('.insp-person-head') });
     return card;
   };
   home.hidden = true;

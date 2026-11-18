@@ -9,6 +9,7 @@
  */
 
 import { iconSvg } from './menu-icons.js';
+import { readingTabs, forgetAge } from './reading-level.js';
 
 /**
  * @param {object} o
@@ -98,6 +99,10 @@ export function createTaleCard({ doc = globalThis.document, parent = null, canFi
         findKey.innerHTML = `${iconSvg('walk', 16)}<span>Find ${meet.name}</span>`;
         if (ok !== true) findKey.append(make('small', 'tale-why', ok));
       }
+      // T-3645: the story at the reader's age, where it is told at more than one; a new story
+      // opens at their age again.
+      forgetAge(card);
+      readingTabs(card, { after: title });
       card.hidden = false;
       body.scrollTop = 0;
       card.scrollTop = 0;

@@ -1,0 +1,69 @@
+{
+ "_doc": "T-3645: every building card's opening line, as the floating card and Inspect's Overview show it (tools/reading_leads.mjs), retold for younger readers. Keyed by the line's own words, since many buildings share a composed line. Only the younger ages are written; no fact enters that the line does not hold, and the build's own talk (record ids, kit names, pixel readings) is left out.",
+ "Built other work (2026-11-12): the monument stands in the 1904 scene, on the new pure-Python monument archetype. Refined other work (2026-11-13): the pedestal's depths read through a camera on Taylor's 1893 view (base 2.85 m, plinth 1.8, die 1.6, were 3.3, 2.3 and 1.9 reconstructed); cameras on ICHi-19208, Taylor 1893 and Detroit LC-D4-12552.": {
+  "8-10": [
+   "This is the statue that stood here in 1904. Its stone base was checked against old photos from 1893 and other years. Now the base is 2.85 meters deep. The next stone up is 1.8 meters, and the one above that is 1.6. Before, they were 3.3, 2.3 and 1.9. Those were guesses."
+  ],
+  "11-13": [
+   "The monument as it stands in 1904. The depths of its stone base were measured from old photos, such as Taylor's view of 1893. Now the base is 2.85 meters deep, the next stone 1.8 and the one above it 1.6. Before, they were 3.3, 2.3 and 1.9, which were best guesses."
+  ],
+  "14-15": [
+   "The monument as it stands in the 1904 scene. The depths of its pedestal were measured from old photographs, including Taylor's view of 1893 and two others. The base is now 2.85 meters deep, the plinth 1.8 and the die 1.6. Before, they were 3.3, 2.3 and 1.9, which were reconstructed."
+  ]
+ },
+ "It was a four-storey stone-fronted brick residence.": {
+  "8-10": [
+   "It was a brick house four floors high, with a stone front."
+  ]
+ },
+ "It was a one-storey brick outbuilding.": {
+  "8-10": [
+   "It was a small brick building out back. It was one floor high."
+  ]
+ },
+ "It was a one-storey frame outbuilding.": {
+  "8-10": [
+   "It was a small wood building out back. It was one floor high."
+  ]
+ },
+ "It was a three-storey brick outbuilding.": {
+  "8-10": [
+   "It was a brick building out back. It was three floors high."
+  ]
+ },
+ "It was a three-storey brick residence.": {
+  "8-10": [
+   "It was a brick house three floors high."
+  ]
+ },
+ "It was a three-storey frame residence.": {
+  "8-10": [
+   "It was a wood house three floors high."
+  ]
+ },
+ "It was a three-storey stone residence.": {
+  "8-10": [
+   "It was a stone house three floors high."
+  ]
+ },
+ "It was a three-storey stone-fronted brick residence.": {
+  "8-10": [
+   "It was a brick house three floors high, with a stone front."
+  ]
+ },
+ "It was a two-storey brick outbuilding.": {
+  "8-10": [
+   "It was a brick building out back. It was two floors high."
+  ]
+ },
+ "It was a two-storey frame outbuilding.": {
+  "8-10": [
+   "It was a wood building out back. It was two floors high."
+  ]
+ },
+ "It was a two-storey stone-fronted brick residence.": {
+  "8-10": [
+   "It was a brick house two floors high, with a stone front."
+  ]
+ }
+}
