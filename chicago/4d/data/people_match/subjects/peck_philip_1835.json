@@ -1,0 +1,55 @@
+{
+  "id": "peck_philip_1835",
+  "label": "Philip Peck, merchant, in his 1835 dress (catalogue)",
+  "person_id": "peck_philip",
+  "scene": "1835",
+  "reference_set": "merchant_1835",
+  "find": {
+    "kind": "stage",
+    "instance": "hi_peck_philip_1835",
+    "asset": "peck_philip_1835",
+    "lod": 0
+  },
+  "bound": {
+    "file": "data/humans/instances/1835/hi_peck_philip_1835.json",
+    "keys": [
+      "appearance",
+      "animation"
+    ]
+  },
+  "aim_bone": "head",
+  "stills": [
+    {
+      "name": "near",
+      "distance_m": 3,
+      "bearing_off_heading_deg": 30,
+      "eye_m": 1.68,
+      "aim_below_head_m": 0.75,
+      "pose": "stand",
+      "at_s": 2,
+      "why": "Standing, from his right front at three metres, as the Met's c.1833 coat is photographed from the front three-quarter."
+    },
+    {
+      "name": "far",
+      "distance_m": 10,
+      "bearing_off_heading_deg": 60,
+      "eye_m": 1.68,
+      "aim_below_head_m": 0.9,
+      "pose": "walk",
+      "at_s": 2.4,
+      "why": "Walking past at ten metres, a little ahead of square, as Hornor's 1836 Broadway shows men on the sidewalk."
+    }
+  ],
+  "pair": {
+    "near": "met_1833_tailcoat",
+    "far": "hornor_1836_broadway"
+  },
+  "clip": {
+    "still": "near",
+    "viewport": "desktop",
+    "frames": 5,
+    "interval_s": 1.25,
+    "pose": "walk"
+  },
+  "figure_below_head_m": 1.8
+}

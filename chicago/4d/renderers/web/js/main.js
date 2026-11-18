@@ -3944,7 +3944,10 @@ async function boot() {
   // runs on a tap.
   // T-2663: what the Field Check reads — how often a building's record opened, and (T-2954)
   // how often each Navigator app opened.
-  const tourCounts = { opens: 0, apps: {} };
+  const tourCounts = { opens: 0, acts: 0, apps: {} };
+  /** T-3642: the Interact key used (the smoke fires it too, where nothing may be in reach). */
+  const tourInteracted = () => { tourCounts.acts++; };
+  api.tourInteracted = tourInteracted;
   const popup = createPopup(popupRoot, {
     onBusiness: (id) => openBusiness(id),
     onShow: (record) => {
@@ -4348,6 +4351,8 @@ async function boot() {
           ? (e, n) => streetGrid.carriagewayHeight(e, n)
           : smoothGround ?? ((e, n) => profiledGroundHeight(terrain, decks, e, n)),
         footprints: () => footprints, visitor: () => walker.state,
+        // Kevin, 2026-11-17: a team waits for a horse in its way (riding.js obstacles).
+        obstacles: () => api.riding?.obstacles?.() ?? [],
         interactions, detail: detailLevel, problems,
         // T-3542: every memory-saving device (a phone, an integrated-GPU computer, Light) takes
         // a row's lighter horse, vehicle and driver; it no longer means no team at all.
@@ -4400,6 +4405,8 @@ async function boot() {
       // teams, and go away with the vehicles (Kevin, 2026-11-17).
       hour: () => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; },
       season: () => api.season?.current ?? 'summer',
+      // A camp's horses stand only on the camp's days, the date the Season or a jaunt sets.
+      date: () => world.sunDate ?? null,
       detail: () => detailLevel,
       hidden: () => confidence.hidden.reconstructed || !shownLayers.vehicles,
       teams: () => api.townTransport?.footprintsAhead?.([0, 1.5, 3], .3) ?? [],
@@ -6171,6 +6178,8 @@ async function boot() {
               eye: () => camera.getWorldPosition(new THREE.Vector3()),
               // The town's own horse teams, taken for a scene (the 1812 column's wagons).
               teams: { get: (id) => api.townTransport?.actorById?.(id) ?? null, load: () => { void api.townTransport?.ready?.()?.catch?.(() => {}); } },
+              // T-3560: saddle horses for the castmates who ride (Wells, the surgeon's mate, 1812).
+              horses: { create: (spec) => api.riding?.stageHorse?.(spec) ?? null },
               // The adults jaunts (2026-11-15): weapons in the hand, and the guns' flash and smoke.
               fight: humanFight, blood: humanBlood,
               // The burning of the fort (2026-11-16): its buildings' fire, smoke and fall, and the
@@ -6670,7 +6679,10 @@ async function boot() {
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     moreEl: document.getElementById('interact-more'),
+    // T-3642: the Field Check's Interact step waits on the key used: a press, or its list opened.
+    onPress: () => tourInteracted(),
     onExpand: (thing) => {
+      tourInteracted();
       api.navigator?.dock?.();
       return thing?.kind === 'person' ? api.days?.attend?.(thing.actor?.id) : null;
     },
@@ -7047,7 +7059,7 @@ async function boot() {
   }
 
   // ---- T-2663: Tour mode, the Field Check ------------------------------------------
-  // Eight steps (js/tour.js), each completing on its real action, read here every quarter
+  // Ten steps (js/tour.js, T-3642), each completing on its real action, read here every quarter
   // second while it runs; replayed from the section Guide opens (#tour-start); a reload
   // mid-tour resumes at the same step once the visitor is back in the town.
   let tourTimer = null, tourApp = null;
@@ -7067,11 +7079,9 @@ async function boot() {
       tourApp = app;
       const level = navigatorUi?.level ?? 0;
       return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, opens: tourCounts.opens,
-        apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level, app,
+        acts: tourCounts.acts, apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level, app,
         selected: !!popup.openId || (app === 'inspect' && level > 0), card: !!popup.openId,
-        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null,
-        // T-3445: the People step only where the rail carries a People app.
-        people: !!document.querySelector('#navigator .nav-app[data-app="people"]:not([hidden])') };
+        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null };
     },
     render: (v) => {
       tourOverlay.paint(v);

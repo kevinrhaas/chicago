@@ -232,6 +232,8 @@ export function createHouseErrands({ days = null, humans, houseDoors, interactio
   const ground = groundAt ? { groundAt } : {};
 
   for (const actor of humans.actors ?? []) {
+    // A coachman on his box is his carriage's: never sent home or called out from it.
+    if (humans.external?.(actor.personId) === actor) continue;
     const person = actor.person ?? actor.identity?.person ?? null;
     if (actor.identity?.kind !== 'person' || !person) continue;
     const doorId = HOUSEHOLD_DOORS[person.household];

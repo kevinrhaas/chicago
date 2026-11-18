@@ -184,6 +184,40 @@ async function measureTextures(renderer, textures) {
   // One pixel a texture, in one row, read back without waiting on the frame (a fence:
   // readLater, above), so a dress joining the crowd never stalls the frame.
   const rt = new THREE.WebGLRenderTarget(list.length, 1, { type: THREE.UnsignedByteType, depthBuffer: false });
+  const { material, scene, cam } = measuringStage(renderer);
+  const px = new Uint8Array(4 * list.length);
+  try {
+    const t0 = performance.now();
+    const prev = renderer.getRenderTarget();
+    rt.scissorTest = true;
+    list.forEach((tex, i) => {
+      material.uniforms.map.value = tex;
+      rt.viewport.set(i, 0, 1, 1); rt.scissor.set(i, 0, 1, 1);
+      renderer.setRenderTarget(rt);
+      renderer.render(scene, cam);
+    });
+    material.uniforms.map.value = null;
+    const gl = renderer.getContext?.();
+    const later = gl && typeof gl.fenceSync === 'function' ? readLater(gl, list.length, px) : null;
+    if (!later) renderer.readRenderTargetPixels(rt, 0, 0, list.length, 1, px);
+    renderer.setRenderTarget(prev);
+    out.ms = performance.now() - t0;
+    if (!later || await later) list.forEach((tex, i) => out.set(tex, [0, 1, 2].map((k) => (px[i * 4 + k] / 255) ** 2)));
+  } catch { /* unmeasured: the material's colour alone */ }
+  rt.dispose();
+  return out;
+}
+
+/**
+ * The measuring pass's material, quad and camera, made once per renderer and kept (T-3643).
+ * Made and disposed per dress, as it was, three released its program with the material and
+ * the next dress compiled the same shader again: a blocking compile each time a dress joined
+ * the crowd. Kept, the program is compiled once; what it draws is unchanged.
+ */
+const MEASURING = new WeakMap();
+function measuringStage(renderer) {
+  let stage = MEASURING.get(renderer);
+  if (stage) return stage;
   const material = new THREE.ShaderMaterial({
     uniforms: { map: { value: null } },
     vertexShader: 'void main() { gl_Position = vec4(position.xy, 0.0, 1.0); }',
@@ -204,26 +238,9 @@ async function measureTextures(renderer, textures) {
   quad.frustumCulled = false;
   const scene = new THREE.Scene(); scene.add(quad);
   const cam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-  const px = new Uint8Array(4 * list.length);
-  try {
-    const t0 = performance.now();
-    const prev = renderer.getRenderTarget();
-    rt.scissorTest = true;
-    list.forEach((tex, i) => {
-      material.uniforms.map.value = tex;
-      rt.viewport.set(i, 0, 1, 1); rt.scissor.set(i, 0, 1, 1);
-      renderer.setRenderTarget(rt);
-      renderer.render(scene, cam);
-    });
-    const gl = renderer.getContext?.();
-    const later = gl && typeof gl.fenceSync === 'function' ? readLater(gl, list.length, px) : null;
-    if (!later) renderer.readRenderTargetPixels(rt, 0, 0, list.length, 1, px);
-    renderer.setRenderTarget(prev);
-    out.ms = performance.now() - t0;
-    if (!later || await later) list.forEach((tex, i) => out.set(tex, [0, 1, 2].map((k) => (px[i * 4 + k] / 255) ** 2)));
-  } catch { /* unmeasured: the material's colour alone */ }
-  rt.dispose(); material.dispose(); quad.geometry.dispose();
-  return out;
+  stage = { material, scene, cam };
+  MEASURING.set(renderer, stage);
+  return stage;
 }
 
 /**
@@ -468,6 +485,43 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
   const people = new Map();         // key -> presence
   let readAt = 0, readFrom = null, clock = 0;
 
+  // T-3643: COMPILED OFF THE FRAME. The crowd's three programs (the middle body, the card,
+  // the bake) were each compiled by the first draw that used them, a blocking compile in the
+  // middle of a walk. Each is now handed to the browser's parallel compile first
+  // (renderer.compileAsync, as humans.js `prepare` does for a figure's levels) and drawn once
+  // it has linked. What is drawn is the same; a dress joins a frame or two later.
+  const warmCam = new THREE.PerspectiveCamera();
+  const canWarm = typeof renderer?.compileAsync === 'function';
+  function warm(object, target = null) {
+    if (!canWarm) return Promise.resolve();
+    const prev = renderer.getRenderTarget();
+    try {
+      // The program's key reads the target it is compiled for (a render target is linear
+      // and untoned), so compile for the one it will draw into.
+      renderer.setRenderTarget(target);
+      return renderer.compileAsync(object, warmCam, target ? null : group.parent ?? null).catch(() => {});
+    } catch { return Promise.resolve(); } finally { renderer.setRenderTarget(prev); }
+  }
+  let cardWarm = !canWarm, cardWarming = null, bakeWarm = !canWarm, bakeWarming = false;
+  /** The cards are compiled when they are first wanted, against the scene as it is then. */
+  function cardsReady() {
+    if (cardWarm || cardWarming === cardMesh) return cardWarm;
+    const mine = cardWarming = cardMesh;
+    warm(mine).then(() => { if (cardMesh === mine) cardWarm = true; });
+    return false;
+  }
+  function bakeReady(body) {
+    if (bakeWarm || bakeWarming) return bakeWarm;
+    bakeWarming = true;
+    const scene = new THREE.Scene();
+    const mesh = new THREE.Mesh(body.geometry, bakeMaterialFor(body));
+    mesh.frustumCulled = false;
+    scene.add(mesh);
+    warm(scene, atlas).then(() => { bakeWarm = true; });
+    bakeUniforms.uVat.value = null;
+    return false;
+  }
+
   // ── the atlas: one row per dress, CARD_YAWS x CARD_POSES pictures a row ─────────────────
   let atlas = null, cardMesh = null, cardAttrs = null, atlasCell = null, atlasRows = 0;
   const cardCols = CARD_YAWS * CARD_POSES;
@@ -506,8 +560,30 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
     return true;
   }
   function disposeAtlas() {
-    if (cardMesh) { group.remove(cardMesh); cardMesh.geometry.dispose(); cardMesh.material.dispose(); cardMesh = null; }
+    if (cardMesh) { group.remove(cardMesh); cardMesh.geometry.dispose(); cardMesh.material.dispose(); cardMesh = null; cardWarm = !canWarm; cardWarming = null; }
     atlas?.dispose(); atlas = null; cardAttrs = null;
+  }
+
+  // T-3643: ONE bake material for the layer, its uniforms pointed at the dress being baked.
+  // A material made and disposed per dress took three's program with it, so every dress
+  // compiled the same shader again, a blocking compile mid-walk for each one that joined the
+  // crowd. The GLSL does not depend on the dress (vatVertex's are all uniforms), so the
+  // pictures are the same.
+  const bakeUniforms = { uVat: { value: null }, uVatW: { value: 1 }, uReps: { value: 1 }, uFrame: { value: WALK_FRAMES } };
+  let bakeKept = null;
+  function bakeMaterialFor(body) {
+    if (!bakeKept) {
+      // Made from a stand-in, so the kept material holds no dress of its own: every value
+      // vatVertex reads from the body is a uniform, pointed at the dress below.
+      bakeKept = bakeMaterial({ vat: { image: { width: 1 } }, reps: 1 });
+      const compile = bakeKept.onBeforeCompile;
+      bakeKept.onBeforeCompile = (shader, r) => { compile(shader, r); Object.assign(shader.uniforms, bakeUniforms); };
+      bakeKept.userData.uFrame = bakeUniforms.uFrame;
+    }
+    bakeUniforms.uVat.value = body.vat;
+    bakeUniforms.uVatW.value = body.vat.image.width;
+    bakeUniforms.uReps.value = body.reps;
+    return bakeKept;
   }
 
   /** Bake one dress's pictures into its atlas row: unlit, its own colours. */
@@ -515,7 +591,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
     if (!ensureAtlas()) return false;
     const row = rows.get(id);
     if (row == null || row >= atlasRows) return false;
-    const material = bakeMaterial(body);
+    const material = bakeMaterialFor(body);
     const mesh = new THREE.Mesh(body.geometry, material);
     mesh.frustumCulled = false;
     const scene = new THREE.Scene(); scene.add(mesh);
@@ -550,7 +626,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
     renderer.setRenderTarget(prevTarget);
     renderer.setClearColor(prevClear, prevAlpha);
     renderer.autoClear = prevAuto;
-    material.dispose();
+    bakeUniforms.uVat.value = null;
     stats.baked++;
     return true;
   }
@@ -576,10 +652,13 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
         const body = buildCrowdBody(gltf, { cell: CLUSTER_M[tier] ?? CLUSTER_M.full, measured });
         if (!body) throw Error('no body');
         b.body = body;
-        b.status = 'ready';
         mountMid(b);
         stats.bodies++;
         stats.buildMs = performance.now() - k0;
+        b.status = 'warming';
+        await warm(b.mesh);
+        if (disposed || bodies.get(id) !== b) return;
+        b.status = 'ready';
       } catch (err) { b.status = 'failed'; problems.push(`crowd: ${id} could not be merged (${err?.message ?? err})`); }
     }, (err) => { b.status = 'failed'; problems.push(`crowd: ${id} did not load (${err?.message ?? err})`); })
       .finally(() => store.release(id, 3));
@@ -793,7 +872,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
         if (b.status !== 'ready') { p.body = b.status === 'loading' ? null : b; continue; }
         p.body = b;
         // At most one dress's pictures baked a frame (24 small draws).
-        if (haveAtlas && !b.baked && baked < 1) {
+        if (haveAtlas && !b.baked && baked < 1 && bakeReady(b.body)) {
           const k0 = performance.now();
           b.baked = bake(p.assetId, b.body); baked++;
           bakeMs += performance.now() - k0;
@@ -841,8 +920,9 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
         tris += b.body.triangles * b.mesh.count;
       }
       if (cardMesh) {
-        cardMesh.geometry.instanceCount = nFar;
-        cardMesh.visible = nFar > 0;
+        const shown = nFar > 0 && cardsReady();
+        cardMesh.geometry.instanceCount = shown ? nFar : 0;
+        cardMesh.visible = shown;
         for (const a of [cardAttrs.pos, cardAttrs.cell]) { a.needsUpdate = true; a.clearUpdateRanges?.(); a.addUpdateRange?.(0, nFar * 4); }
       }
       stats.mid = nMid; stats.far = nFar; stats.midTriangles = tris;
@@ -857,6 +937,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
       for (const b of bodies.values()) dropBody(b);
       bodies.clear();
       disposeAtlas();
+      bakeKept?.dispose(); bakeKept = null;
       group.removeFromParent();
     },
   };
