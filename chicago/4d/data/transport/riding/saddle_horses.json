@@ -12,7 +12,13 @@
       "1835": "settler_1812",
       "1904": "anonymous_working_driver_1904"
     },
-    "lod": 1
+    "lod": 1,
+    "also": {
+      "1812": [
+        "officer_first_infantry_1812"
+      ]
+    },
+    "also_why": "Figures the jaunts' scenes put on a horse besides the year's riders (jaunt-stage.js `mount`): the surgeon's mate Van Voorhis wears the First Infantry officer's coat (Wells wears the engagé's dress). tools/test_riding.mjs seats each of them; tools/compile_jaunts.py refuses a mount on any other."
   },
   "ride": {
     "walk_m_s": 1.4,
@@ -161,7 +167,7 @@
       }
     },
     "1904": {
-      "pattern": "English flat saddle on a shaped white felt numnah, nickel stirrup irons, a breastplate; double bridle (bit and bridoon) with cavesson and browband",
+      "pattern": "English flat saddle on a shaped cream felt numnah, nickel stirrup irons; double bridle (bit and bridoon) with cavesson and browband",
       "metal_hex": "#b9b8b2",
       "stirrup": "iron",
       "saddle": {
@@ -177,7 +183,7 @@
         "leather_m": 0.52,
         "leather_hex": "#7b4a28",
         "seat_hex": "#6e4224",
-        "cloth_hex": "#d9d3c4",
+        "cloth_hex": "#cfc5ae",
         "girth_hex": "#b8ab8e",
         "cloth": {
           "behind_m": 0.06,
@@ -195,11 +201,7 @@
           "width_m": 0.065
         },
         "crupper": null,
-        "breastplate": {
-          "y_m": 1.22,
-          "z_m": 0.5,
-          "half_width_m": 0.27
-        }
+        "breastplate": null
       },
       "bridle": {
         "poll_m": [
@@ -221,6 +223,38 @@
         "bit_ring_m": 0.028,
         "cavesson_at": 0.6,
         "second_bit": true
+      }
+    }
+  },
+  "tack_variants": {
+    "potawatomi": {
+      "why": "Kevin, 2026-11-17: \"there would be horses at the native camps\" and \"People in long coats or blankets should be able to ride horses\". The Potawatomi and Miami horsemen of the lakes rode on a low pad saddle of hide stuffed with hair, or a wooden-framed saddle covered in rawhide, over a trade blanket, with wooden stirrups; how any one horse was rigged is not recorded (L-camp-horses-3560).",
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "set": {
+        "pattern": "low pad saddle of hide over a red stroud trade blanket, rawhide girth and crupper, wooden stirrups; a plain rawhide bridle",
+        "stirrup": "wood",
+        "metal_hex": "#5a4a3a"
+      },
+      "saddle": {
+        "cantle_rise_m": 0.035,
+        "pommel_rise_m": 0.03,
+        "thickness_m": 0.028,
+        "leather_hex": "#6b4a2c",
+        "seat_hex": "#5e4128",
+        "cloth_hex": "#7a2a24",
+        "girth_hex": "#9a7a52",
+        "cloth": {
+          "behind_m": 0.16,
+          "ahead_m": 0.1,
+          "half_angle_deg": 96
+        },
+        "material": "rawhide"
+      },
+      "bridle": {
+        "leather_hex": "#7a5634",
+        "cavesson_at": null,
+        "second_bit": false
       }
     }
   },
@@ -247,15 +281,15 @@
       "name": "Saddle horse",
       "short_name": "the saddle horse",
       "at": [
-        104,
-        -111
+        113.0,
+        -104.6
       ],
-      "bearing_deg": 90,
+      "bearing_deg": 90.47,
       "coat_row": "saddle_horse",
       "grade": "reconstructed",
       "liberty": "L-riding-tack-3560",
       "basis": "Reconstructed: no record places a saddle horse at this spot or names this horse. It is stood here so a visitor can ride in 1835; its tack is the year's period pattern (the file's basis).",
-      "placement_basis": "Stood a few steps ahead of where a visitor arrives (data/scenes/1835.json spawn), broadside with its near (mounting) side toward them; riding.js moves it to the nearest open ground if that spot is not clear."
+      "placement_basis": "Tied at the north side of Lake Street a few steps from where a visitor arrives (data/scenes/1835.json spawn), just off the street's worn track (data/streets/1835.json lake, 10.5 m, centre N -110.5 here), facing east along it with its near (mounting) side to the visitor. Kevin, 2026-11-17, of the 1904 horse: 'standing on the side of the street not the middle'. riding.js moves it to the nearest open ground if that spot is not clear."
     },
     {
       "id": "saddle_horse_1904",
@@ -263,15 +297,15 @@
       "name": "Saddle horse",
       "short_name": "the saddle horse",
       "at": [
-        1401.89,
-        -3215.73
+        1406.7,
+        -3228.0
       ],
-      "bearing_deg": 174.94,
+      "bearing_deg": 179.42,
       "coat_row": "saddle_horse",
       "grade": "reconstructed",
       "liberty": "L-riding-tack-3560",
       "basis": "Reconstructed: no record places a saddle horse at this spot or names this horse. It is stood here so a visitor can ride in 1904; its tack is the year's period pattern (the file's basis).",
-      "placement_basis": "Stood a few steps ahead of where a visitor arrives (data/scenes/1904.json spawn), broadside with its near (mounting) side toward them; riding.js moves it to the nearest open ground if that spot is not clear."
+      "placement_basis": "Tied at the east curb of Prairie Avenue a few steps south of where a visitor arrives (data/scenes/1904.json spawn), 1 m off the curb (the carriageway's east edge, data/street_grid/1904.json prairie_18_20, at E 1407.7), facing down the street with its near (mounting) side to the walk. Kevin, 2026-11-17: the horse 'standing in the middle of the street is odd' ... 'standing on the side of the street not the middle'. riding.js moves it to the nearest open ground if that spot is not clear."
     },
     {
       "id": "saddle_horse_sauganash_hotel_stable",
@@ -442,6 +476,864 @@
       "liberty": "L-riding-tack-3560",
       "generated_by": "tools/lay_town_riders.mjs",
       "basis": "Tied outside 1721 Prairie Avenue: the two-storey brick stable by the tracks, K12 on a slanting plan, on its street side (tools/lay_town_riders.mjs). Kevin, 2026-11-17: \"some stabled parked horses I could ride\". Where it stands, its tack and its coat are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "camp_horse_miami_escort_camp_1",
+      "scene": "1812",
+      "name": "A horse on its picket at the Miami escort's camp",
+      "short_name": "the horse",
+      "at": [
+        1065.5,
+        68.12
+      ],
+      "bearing_deg": 203.28,
+      "coat_row": "camp_horse_miami_escort_camp_1",
+      "tack": "potawatomi",
+      "camp": "miami_escort_camp_1812",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-15"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (miami_escort_camp_1812; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_miami_escort_camp_2",
+      "scene": "1812",
+      "name": "A horse on its picket at the Miami escort's camp",
+      "short_name": "the horse",
+      "at": [
+        1081.51,
+        70.96
+      ],
+      "bearing_deg": 139.06,
+      "coat_row": "camp_horse_miami_escort_camp_2",
+      "tack": "potawatomi",
+      "camp": "miami_escort_camp_1812",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-15"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (miami_escort_camp_1812; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_miami_escort_camp_4",
+      "scene": "1812",
+      "name": "A horse on its picket at the Miami escort's camp",
+      "short_name": "the horse",
+      "at": [
+        1081.63,
+        59.37
+      ],
+      "bearing_deg": 147.5,
+      "coat_row": "camp_horse_miami_escort_camp_4",
+      "tack": "potawatomi",
+      "camp": "miami_escort_camp_1812",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-15"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (miami_escort_camp_1812; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_miami_escort_camp_5",
+      "scene": "1812",
+      "name": "A horse on its picket at the Miami escort's camp",
+      "short_name": "the horse",
+      "at": [
+        1077.77,
+        75.42
+      ],
+      "bearing_deg": 148.9,
+      "coat_row": "camp_horse_miami_escort_camp_5",
+      "tack": "potawatomi",
+      "camp": "miami_escort_camp_1812",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-15"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (miami_escort_camp_1812; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_miami_escort_camp_6",
+      "scene": "1812",
+      "name": "A horse on its picket at the Miami escort's camp",
+      "short_name": "the horse",
+      "at": [
+        1078.5,
+        69.57
+      ],
+      "bearing_deg": 144.68,
+      "coat_row": "camp_horse_miami_escort_camp_6",
+      "tack": "potawatomi",
+      "camp": "miami_escort_camp_1812",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-15"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (miami_escort_camp_1812; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_miami_escort_camp_7",
+      "scene": "1812",
+      "name": "A horse on its picket at the Miami escort's camp",
+      "short_name": "the horse",
+      "at": [
+        1085.6,
+        72.12
+      ],
+      "bearing_deg": 146.09,
+      "coat_row": "camp_horse_miami_escort_camp_7",
+      "tack": "potawatomi",
+      "camp": "miami_escort_camp_1812",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-15"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (miami_escort_camp_1812; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_miami_escort_camp_8",
+      "scene": "1812",
+      "name": "A horse on its picket at the Miami escort's camp",
+      "short_name": "the horse",
+      "at": [
+        1063.72,
+        73.33
+      ],
+      "bearing_deg": 153.12,
+      "coat_row": "camp_horse_miami_escort_camp_8",
+      "tack": "potawatomi",
+      "camp": "miami_escort_camp_1812",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-15"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (miami_escort_camp_1812; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_miami_escort_camp_9",
+      "scene": "1812",
+      "name": "A horse on its picket at the Miami escort's camp",
+      "short_name": "the horse",
+      "at": [
+        1078.2,
+        61.49
+      ],
+      "bearing_deg": 154.53,
+      "coat_row": "camp_horse_miami_escort_camp_9",
+      "tack": "potawatomi",
+      "camp": "miami_escort_camp_1812",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-15"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (miami_escort_camp_1812; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_miami_escort_camp_10",
+      "scene": "1812",
+      "name": "A horse on its picket at the Miami escort's camp",
+      "short_name": "the horse",
+      "at": [
+        1073.53,
+        68.75
+      ],
+      "bearing_deg": 311.39,
+      "coat_row": "camp_horse_miami_escort_camp_10",
+      "tack": "potawatomi",
+      "camp": "miami_escort_camp_1812",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-15"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (miami_escort_camp_1812; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_far_west_1",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges furthest west)",
+      "short_name": "the horse",
+      "at": [
+        607.85,
+        -128.2
+      ],
+      "bearing_deg": 31.95,
+      "coat_row": "camp_horse_potawatomi_camp_1812_far_west_1",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_far_west",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_far_west; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_far_west_2",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges furthest west)",
+      "short_name": "the horse",
+      "at": [
+        594.62,
+        -114.23
+      ],
+      "bearing_deg": 63.35,
+      "coat_row": "camp_horse_potawatomi_camp_1812_far_west_2",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_far_west",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_far_west; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_far_west_3",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges furthest west)",
+      "short_name": "the horse",
+      "at": [
+        606.6,
+        -108.16
+      ],
+      "bearing_deg": 34.76,
+      "coat_row": "camp_horse_potawatomi_camp_1812_far_west_3",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_far_west",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_far_west; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_far_west_4",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges furthest west)",
+      "short_name": "the horse",
+      "at": [
+        580.29,
+        -123.79
+      ],
+      "bearing_deg": 36.17,
+      "coat_row": "camp_horse_potawatomi_camp_1812_far_west_4",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_far_west",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_far_west; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_head_west_1",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges by the creek's head)",
+      "short_name": "the horse",
+      "at": [
+        619.93,
+        -149.99
+      ],
+      "bearing_deg": 117.33,
+      "coat_row": "camp_horse_potawatomi_camp_1812_head_west_1",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_head_west",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_head_west; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_head_west_2",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges by the creek's head)",
+      "short_name": "the horse",
+      "at": [
+        644.42,
+        -167.91
+      ],
+      "bearing_deg": 115.93,
+      "coat_row": "camp_horse_potawatomi_camp_1812_head_west_2",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_head_west",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_head_west; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_head_west_3",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges by the creek's head)",
+      "short_name": "the horse",
+      "at": [
+        648.3,
+        -168.24
+      ],
+      "bearing_deg": 114.52,
+      "coat_row": "camp_horse_potawatomi_camp_1812_head_west_3",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_head_west",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_head_west; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_head_west_4",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges by the creek's head)",
+      "short_name": "the horse",
+      "at": [
+        651.02,
+        -153.49
+      ],
+      "bearing_deg": 113.12,
+      "coat_row": "camp_horse_potawatomi_camp_1812_head_west_4",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_head_west",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_head_west; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_horse_ground_1",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the horse ground)",
+      "short_name": "the horse",
+      "at": [
+        721.63,
+        -135.63
+      ],
+      "bearing_deg": 255.31,
+      "coat_row": "camp_horse_potawatomi_camp_1812_horse_ground_1",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_horse_ground",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_horse_ground; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_horse_ground_2",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the horse ground)",
+      "short_name": "the horse",
+      "at": [
+        711.67,
+        -125.87
+      ],
+      "bearing_deg": 256.72,
+      "coat_row": "camp_horse_potawatomi_camp_1812_horse_ground_2",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_horse_ground",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_horse_ground; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_horse_ground_3",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the horse ground)",
+      "short_name": "the horse",
+      "at": [
+        697.3,
+        -121.89
+      ],
+      "bearing_deg": 258.13,
+      "coat_row": "camp_horse_potawatomi_camp_1812_horse_ground_3",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_horse_ground",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_horse_ground; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_horse_ground_4",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the horse ground)",
+      "short_name": "the horse",
+      "at": [
+        696.41,
+        -130.9
+      ],
+      "bearing_deg": 248.28,
+      "coat_row": "camp_horse_potawatomi_camp_1812_horse_ground_4",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_horse_ground",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_horse_ground; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_horse_ground_5",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the horse ground)",
+      "short_name": "the horse",
+      "at": [
+        701.51,
+        -126.56
+      ],
+      "bearing_deg": 249.69,
+      "coat_row": "camp_horse_potawatomi_camp_1812_horse_ground_5",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_horse_ground",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_horse_ground; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_horse_ground_6",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the horse ground)",
+      "short_name": "the horse",
+      "at": [
+        696.66,
+        -135.15
+      ],
+      "bearing_deg": 251.09,
+      "coat_row": "camp_horse_potawatomi_camp_1812_horse_ground_6",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_horse_ground",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_horse_ground; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_horse_ground_7",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the horse ground)",
+      "short_name": "the horse",
+      "at": [
+        711.51,
+        -132.29
+      ],
+      "bearing_deg": 252.5,
+      "coat_row": "camp_horse_potawatomi_camp_1812_horse_ground_7",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_horse_ground",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_horse_ground; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_horse_ground_8",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the horse ground)",
+      "short_name": "the horse",
+      "at": [
+        692.91,
+        -128.22
+      ],
+      "bearing_deg": 265.16,
+      "coat_row": "camp_horse_potawatomi_camp_1812_horse_ground_8",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_horse_ground",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_horse_ground; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_horse_ground_9",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the horse ground)",
+      "short_name": "the horse",
+      "at": [
+        720.58,
+        -122.96
+      ],
+      "bearing_deg": 266.56,
+      "coat_row": "camp_horse_potawatomi_camp_1812_horse_ground_9",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_horse_ground",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_horse_ground; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_horse_ground_10",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the horse ground)",
+      "short_name": "the horse",
+      "at": [
+        702.81,
+        -132.51
+      ],
+      "bearing_deg": 244.51,
+      "coat_row": "camp_horse_potawatomi_camp_1812_horse_ground_10",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_horse_ground",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_horse_ground; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_north_flat_1",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges on the flat above the mouth)",
+      "short_name": "the horse",
+      "at": [
+        717.24,
+        -81.96
+      ],
+      "bearing_deg": 266.15,
+      "coat_row": "camp_horse_potawatomi_camp_1812_north_flat_1",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_north_flat",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_north_flat; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_north_flat_2",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges on the flat above the mouth)",
+      "short_name": "the horse",
+      "at": [
+        720.17,
+        -97.26
+      ],
+      "bearing_deg": 261.93,
+      "coat_row": "camp_horse_potawatomi_camp_1812_north_flat_2",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_north_flat",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_north_flat; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_north_flat_3",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges on the flat above the mouth)",
+      "short_name": "the horse",
+      "at": [
+        700.4,
+        -80.44
+      ],
+      "bearing_deg": 263.34,
+      "coat_row": "camp_horse_potawatomi_camp_1812_north_flat_3",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_north_flat",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_north_flat; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_north_flat_4",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges on the flat above the mouth)",
+      "short_name": "the horse",
+      "at": [
+        697.41,
+        -88.84
+      ],
+      "bearing_deg": 270.37,
+      "coat_row": "camp_horse_potawatomi_camp_1812_north_flat_4",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_north_flat",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_north_flat; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_north_flat_5",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges on the flat above the mouth)",
+      "short_name": "the horse",
+      "at": [
+        699.68,
+        -74.18
+      ],
+      "bearing_deg": 271.78,
+      "coat_row": "camp_horse_potawatomi_camp_1812_north_flat_5",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_north_flat",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_north_flat; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_north_flat_6",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges on the flat above the mouth)",
+      "short_name": "the horse",
+      "at": [
+        702.35,
+        -85.16
+      ],
+      "bearing_deg": 267.56,
+      "coat_row": "camp_horse_potawatomi_camp_1812_north_flat_6",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_north_flat",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_north_flat; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_prairie_west_1",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges on the west prairie)",
+      "short_name": "the horse",
+      "at": [
+        599.88,
+        -157.72
+      ],
+      "bearing_deg": 246.99,
+      "coat_row": "camp_horse_potawatomi_camp_1812_prairie_west_1",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_prairie_west",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_prairie_west; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_prairie_west_2",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges on the west prairie)",
+      "short_name": "the horse",
+      "at": [
+        587.1,
+        -158.37
+      ],
+      "bearing_deg": 281.21,
+      "coat_row": "camp_horse_potawatomi_camp_1812_prairie_west_2",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_prairie_west",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_prairie_west; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_prairie_west_3",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges on the west prairie)",
+      "short_name": "the horse",
+      "at": [
+        574.44,
+        -150.63
+      ],
+      "bearing_deg": 249.8,
+      "coat_row": "camp_horse_potawatomi_camp_1812_prairie_west_3",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_prairie_west",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_prairie_west; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_prairie_west_4",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges on the west prairie)",
+      "short_name": "the horse",
+      "at": [
+        570.05,
+        -160.66
+      ],
+      "bearing_deg": 242.77,
+      "coat_row": "camp_horse_potawatomi_camp_1812_prairie_west_4",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_prairie_west",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_prairie_west; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_prairie_west_5",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges on the west prairie)",
+      "short_name": "the horse",
+      "at": [
+        569.5,
+        -166.17
+      ],
+      "bearing_deg": 241.37,
+      "coat_row": "camp_horse_potawatomi_camp_1812_prairie_west_5",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_prairie_west",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_prairie_west; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
+    },
+    {
+      "id": "camp_horse_potawatomi_camp_1812_prairie_west_6",
+      "scene": "1812",
+      "name": "A horse on its picket at the Potawatomi camp (the men's lodges on the west prairie)",
+      "short_name": "the horse",
+      "at": [
+        592.94,
+        -169.76
+      ],
+      "bearing_deg": 245.58,
+      "coat_row": "camp_horse_potawatomi_camp_1812_prairie_west_6",
+      "tack": "potawatomi",
+      "camp": "potawatomi_camp_1812_prairie_west",
+      "dates": {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      "grade": "reconstructed",
+      "liberty": "L-camp-horses-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Tied at a picket the camp's ground stakes out (potawatomi_camp_1812_prairie_west; tools/camp_pickets_1812.py), drawn on the camp's own days. Kevin, 2026-11-17: \"there would be horses at the native camps\". The Potawatomi and the Miami kept and rode many horses; this horse, where it stands and its pad saddle are reconstructed (L-camp-horses-3560)."
     }
   ],
   "fit": {
@@ -1181,13 +2073,14 @@
       "asset": "anonymous_working_driver_1904",
       "coat_row": "rider_groom_1904",
       "hours": [
-        7,
-        11
+        6.5,
+        12
       ],
       "seasons": [
         "spring",
         "summer",
-        "fall"
+        "fall",
+        "winter"
       ],
       "speed_m_s": 1.4,
       "route": {
@@ -1218,7 +2111,421 @@
       "grade": "reconstructed",
       "liberty": "L-town-riders-3560",
       "generated_by": "tools/lay_town_riders.mjs",
-      "basis": "Prairie Avenue went in carriages; its grooms rode the carriage horses out in the morning. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+      "basis": "Prairie Avenue went in carriages; its grooms rode the carriage horses out in the morning, the year round. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_coachman_1904",
+      "scene": "1904",
+      "name": "A coachman exercising a horse in the afternoon",
+      "short_name": "a coachman exercising a horse in the afternoon",
+      "asset": "anonymous_working_driver_1904",
+      "coat_row": "rider_coachman_1904",
+      "hours": [
+        13.5,
+        17.5
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "speed_m_s": 1.45,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            1411.57,
+            -3753.38
+          ],
+          [
+            1409.24,
+            -3476.5
+          ],
+          [
+            1535.44,
+            -3475.24
+          ],
+          [
+            1537.6,
+            -3751.58
+          ]
+        ]
+      },
+      "initial_distance_m": 238.5,
+      "follows": "prairie_driven_brougham_south_loop_1904",
+      "offset_m": 2.5,
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "A carriage horse that stood in the stable all day was ridden out in the afternoon to keep it fit. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_potawatomi_1835",
+      "scene": "1835",
+      "name": "A Potawatomi man riding in to trade",
+      "short_name": "a Potawatomi man riding in to trade",
+      "asset": "potawatomi_man_1812",
+      "coat_row": "rider_potawatomi_1835",
+      "tack": "potawatomi",
+      "hours": [
+        9,
+        17
+      ],
+      "seasons": [
+        "summer",
+        "fall"
+      ],
+      "speed_m_s": 1.4,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            211.29,
+            -114.89
+          ],
+          [
+            448.27,
+            -116.82
+          ],
+          [
+            446.67,
+            -387.92
+          ],
+          [
+            209.68,
+            -386
+          ]
+        ]
+      },
+      "initial_distance_m": 623.75,
+      "ring": [
+        "franklin",
+        "lasalle",
+        "lake",
+        "washington"
+      ],
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Potawatomi men still rode in to the traders and the agency in 1835, the year of the last great gathering at Chicago before the removal. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_potawatomi_river_1835",
+      "scene": "1835",
+      "name": "A Potawatomi man riding along the river",
+      "short_name": "a Potawatomi man riding along the river",
+      "asset": "potawatomi_man_1812",
+      "coat_row": "rider_potawatomi_river_1835",
+      "tack": "potawatomi",
+      "hours": [
+        10,
+        18
+      ],
+      "seasons": [
+        "summer",
+        "fall"
+      ],
+      "speed_m_s": 1.4,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            -282.8,
+            8.91
+          ],
+          [
+            -169.96,
+            8.36
+          ],
+          [
+            -154.85,
+            -383.04
+          ],
+          [
+            -273.43,
+            -382.08
+          ]
+        ]
+      },
+      "initial_distance_m": 702.75,
+      "ring": [
+        "clinton",
+        "canal",
+        "fulton",
+        "washington"
+      ],
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "Potawatomi men still rode in to the traders and the agency in 1835, the year of the last great gathering at Chicago before the removal. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_trader_1835",
+      "scene": "1835",
+      "name": "A trader in his capote, riding in",
+      "short_name": "a trader in his capote, riding in",
+      "asset": "trader_1812",
+      "coat_row": "rider_trader_1835",
+      "hours": [
+        8,
+        16
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "speed_m_s": 1.4,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            455.27,
+            -116.88
+          ],
+          [
+            571.69,
+            -117.83
+          ],
+          [
+            569.97,
+            -388.92
+          ],
+          [
+            453.67,
+            -387.98
+          ]
+        ]
+      },
+      "initial_distance_m": 76.5,
+      "ring": [
+        "lasalle",
+        "clark",
+        "lake",
+        "washington"
+      ],
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "The Indian traders of the old trade still rode between their posts and the town in 1835. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_potawatomi_1812",
+      "scene": "1812",
+      "name": "A Potawatomi man riding to the fort",
+      "short_name": "a Potawatomi man riding to the fort",
+      "asset": "potawatomi_man_1812",
+      "coat_row": "rider_potawatomi_1812",
+      "tack": "potawatomi",
+      "hours": [
+        7,
+        19
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "speed_m_s": 1.45,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            1075,
+            82
+          ],
+          [
+            1201,
+            82
+          ],
+          [
+            1201,
+            150
+          ],
+          [
+            1075,
+            150
+          ]
+        ]
+      },
+      "initial_distance_m": 188.75,
+      "follows": "fort_wagon_loop_1812",
+      "offset_m": 3,
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "The Potawatomi kept many horses and rode in to the factory, the traders and the fort. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_potawatomi_shore_1812",
+      "scene": "1812",
+      "name": "A Potawatomi man riding the shore road",
+      "short_name": "a Potawatomi man riding the shore road",
+      "asset": "potawatomi_man_1812",
+      "coat_row": "rider_potawatomi_shore_1812",
+      "tack": "potawatomi",
+      "hours": [
+        6,
+        18
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "speed_m_s": 1.45,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            1227.54,
+            62.5
+          ],
+          [
+            1167.5,
+            62.5
+          ],
+          [
+            1167.5,
+            2.92
+          ],
+          [
+            1221.34,
+            -7.05
+          ],
+          [
+            1217.51,
+            -59.77
+          ],
+          [
+            1209.51,
+            -129.73
+          ],
+          [
+            1202.52,
+            -199.65
+          ],
+          [
+            1192.57,
+            -254.41
+          ],
+          [
+            1175.66,
+            -309.11
+          ],
+          [
+            1147.54,
+            -371.36
+          ],
+          [
+            1140.7,
+            -452.5
+          ],
+          [
+            1097.5,
+            -452.5
+          ],
+          [
+            1097.5,
+            -407.5
+          ],
+          [
+            1145.03,
+            -407.5
+          ],
+          [
+            1152.39,
+            -372.78
+          ],
+          [
+            1180.34,
+            -310.89
+          ],
+          [
+            1197.43,
+            -255.59
+          ],
+          [
+            1207.48,
+            -200.35
+          ],
+          [
+            1214.49,
+            -130.27
+          ],
+          [
+            1222.49,
+            -60.23
+          ],
+          [
+            1226.5,
+            -5.11
+          ]
+        ]
+      },
+      "initial_distance_m": 922.25,
+      "follows": "shore_road_wagon_haul_1812",
+      "offset_m": 2.5,
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "The Potawatomi kept many horses and rode the shore road between their villages and the fort. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
+    },
+    {
+      "id": "rider_trader_1812",
+      "scene": "1812",
+      "name": "A trader in his capote riding out",
+      "short_name": "a trader in his capote riding out",
+      "asset": "trader_1812",
+      "coat_row": "rider_trader_1812",
+      "hours": [
+        8,
+        17
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "speed_m_s": 1.4,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 6,
+        "points_enu_m": [
+          [
+            1075,
+            82
+          ],
+          [
+            1201,
+            82
+          ],
+          [
+            1201,
+            150
+          ],
+          [
+            1075,
+            150
+          ]
+        ]
+      },
+      "initial_distance_m": 7.5,
+      "follows": "fort_wagon_loop_1812",
+      "offset_m": 3,
+      "grade": "reconstructed",
+      "liberty": "L-town-riders-3560",
+      "generated_by": "tools/lay_town_riders.mjs",
+      "basis": "The traders rode out to the villages and the camps and back to their houses by the river. Who rides, the round, the hours and the seasons are reconstructed (L-town-riders-3560)."
     }
   ]
 }

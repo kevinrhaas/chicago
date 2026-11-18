@@ -101,6 +101,8 @@ export function createHorseGait(root, { walk, walkCycle_m, trot = null, trotCycl
     get level() { return level; },
     /** The gait it is mostly in: 'walk', 'trot', 'canter' or 'gallop'. */
     get name() { return GAIT_NAMES[Math.round(level)]; },
+    /** Where in its stride that gait is, 0..1 (a rider moves with it, riding.js riderLife). */
+    get phase() { return phase(distance, gaits[Math.min(top, Math.round(level))].cycle); },
     /** 0 standing in the rest pose .. 1 in its gait (always 1 without `rest`). */
     get moving() { return moving; },
     /** Signed metres (backing is negative), the pace, and the frame's time for easing the blend. */
