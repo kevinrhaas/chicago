@@ -2,7 +2,7 @@
   "ticket": "T-3654",
   "state": "implementation_checkpoint_validation_pending",
   "branch": "steward/t3654-1871-city-baseline",
-  "base_commit": "169af6421e",
+  "base_commit": "169404c9f99d2defeca2b05f2364c868a4f4e745",
   "target": "dev",
   "production_promotion": "Owner-dispatched only; no production deployment in this task.",
   "implemented": "Citywide context for 8 October 1871 at 16:00 local mean solar time, corrected map registration and terrain, portable building and infrastructure kit, walking support, research viewer and source overlay.",
@@ -32,11 +32,14 @@
     "Historical local source coverage includes parts 1-6/16 across dated snapshots. Part 5/16 has a complete terminal PASS but no recoverable process exit after reconnect; its qualified receipt is retained. This is not complete current-tree coverage.",
     "Repaired source parts 7/16 and 8/16 pass on clean 92ac with 89 steps each, 25/28 self-tests, exit 0 and 408.074/397.617 seconds. Original failures remain preserved. A newly added confidence-shadow check changes the subsequent partition allocation.",
     "The 1871 pacing poses pass actual-road and all-building clearance checks plus negative controls. Native attempt 3 passes all six move/mode drives, exact state restoration and zero page errors on isolated ae259 publication plus the exact 1dfe pacing module; runtime/verifier bytes match 92ac. Short software-rendered functional proof only; unsuccessful attempts 1 and 2 remain preserved.",
-    "Confidence-shadow repair source test passes against actual context construction, live hide/dither uniforms, per-color depth ownership, map isolation and one-time disposal. The original 92ac renderer fails the new test for the missing caster depth material. Native proof is pending in this draft."
+    "Confidence-shadow source regression and native desktop Full probe pass against exact 3f81 runtime bytes: building, bridge and tree views preserve normal shadow coverage, reduce coverage under dither and cast no shadow when hidden. Actual GPU programs compile/link with correct live uniforms and zero errors. Candidate scope and sampling limits are retained in t-3654-confidence-shadows.json.",
+    "On 3f81, local source 9/16 has a complete 89-step/28-self-test terminal PASS with unavailable exit status after reconnect; parts 10/16 and 11/16 pass 89 steps each, with 22/27 self-tests, exit 0 and durations of 380.131/440.146 seconds. These are dated partial checks, not combined-tree full coverage.",
+    "Context source-use reader and 16 fixtures pass, including old-compiler negative control, actual kit lookup, scene scoping and confidence preservation. Regeneration retains 720 sources at 295055 index bytes under the unchanged 296000-byte budget; strict confidence audit passes. Edwards now has scene use in 1871.",
+    "Empty named-structure boot packing passes actual CLI fixtures, nine corruption refusals, deterministic repacking, sparse positions and stale-part cleanup. Real 1835 data rehydrates 765 records and a valid empty 1871 index passes; the old tool reproduces the missing-boot failure. Final full publication/native recheck remains pending."
   ],
   "pending_validation": [
-    "Native published 1871 confidence-shadow proof on the repair",
-    "Complete full source gate on the repaired checkpoint",
+    "Publish and verify all boot packs, then rerun native 1871 citations and empty-boot readiness",
+    "Complete the full source gate on the combined repaired checkpoint",
     "Fresh legacy browser stages 1 through 15 on both viewports after full source passes",
     "Final current-head CI, dev merge and preview"
   ],
@@ -110,8 +113,8 @@
     "bash tools/publish.sh"
   ],
   "limits": "This is the requested generic context baseline. Named properties, people, daily activity and photographic finish remain subsequent work; bank and parcel uncertainty is retained.",
-  "checkpoint_revision": 7,
-  "local_source_followup": "Source parts 7 and 8 pass on clean92ac; local checks pause for the confidence-shadow native proof. The new source check changes partition allocation, so dated partial receipts are not a complete patched-tree gate.",
+  "checkpoint_revision": 8,
+  "local_source_followup": "Source 9–11 receipts belong to 3f81 and retain their process-status qualifications. Checks pause for upstream integration and a narrow citation-card probe. The combined tree still needs the complete source gate.",
   "superseded_ci": {
     "commit": "1a5b7080f00fc1e7caf06b174f8a3ce25f77d036",
     "reason": "First smoke dispatches were cancelled after the local validator identified the two repairs; they do not count as final acceptance.",
@@ -137,9 +140,9 @@
   },
   "source_ci": {
     "required": "Latest complete source gate on PR #2198",
-    "superseded_run_id": 44390455054,
-    "superseded_commit": "92ac20bce062b8804ac7128e5f013aa19ee7ea0f",
-    "state": "This checkpoint repairs city shadow materials and adds a regression check. Complete patched-source CI is required."
+    "superseded_run_id": 44394942951,
+    "superseded_commit": "3f81ece88f0d57d26063d786e6bccd9658ab89c3",
+    "state": "Prior 3f81 CI tested base 169af and reported one genuine part-7 boot-packing failure. This checkpoint integrates dev 169404, fixes context citations and empty boot packing, and still requires complete current-tree source CI."
   },
   "browser_ci": {
     "commit": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290",
@@ -230,13 +233,21 @@
   "source_gate_strategy": "Finish full source coverage before fresh browser dispatches, to avoid repeating browser groups when another source contract is discovered.",
   "evidence_backup": {
     "repository": "kevinrhaas/chicago-evidence",
-    "commit": "f1f7e12719981c6d9d6323defe7cf24e926509f0",
+    "commit": "f79eceecb2fbed8c259368dbaafe295b8702c801",
     "path": "evidence/t3654-1871-city-2026-11-18/",
-    "scope": "Research audits, city/native proofs, focused integration repairs, all pacing attempts and superseded CI history. New source7/8 and shadow proof will be appended in the next archive checkpoint."
+    "scope": "Research, city and native-entry proofs, integration repairs, all pacing attempts, full focused confidence-shadow proof, source 7/8 receipts and historical CI metadata. Later combined-tree validation will be appended."
   },
   "shadow_repair": {
     "measurement": "t-3654-confidence-shadows.json",
     "scope": "Per-color confidence-patched depth materials for near buildings/trees and bridge batches. Geometry, historical data, lighting and tier policy unchanged.",
-    "native_state": "pending"
-  }
+    "native_state": "pass; focused exact-runtime proof, not complete combined-tree publication acceptance"
+  },
+  "upstream_integration": {
+    "base_commit": "169404c9f99d2defeca2b05f2364c868a4f4e745",
+    "scope": "Preserve the two newly corrected Prairie roofs and their generator/registry/door/photo-match updates together with the 1871 baseline. Combined-tree verification remains pending.",
+    "roof_merge": "6bdf831c7c5a77d7adaa8a447543cb7b8c07b1bd",
+    "changelog_merge": "7e99cd8c363baced005d691b3eb1eec086a90202",
+    "checks": "Both new roof assets reproduce byte-for-byte; all 132 audited 1871 paths unchanged. Full-checkout freshness passes with 0 errors and 338 warnings; door, source-use freshness, derived registry and changelog checks pass."
+  },
+  "source_and_boot_repair": "See t-3654-source-and-boot.json for focused checks and pending native recheck."
 }

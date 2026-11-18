@@ -1,0 +1,41 @@
+{
+  "ticket": "T-3654",
+  "state": "focused_checks_pass_final_publication_and_native_recheck_pending",
+  "base_dev": "169404c9f99d2defeca2b05f2364c868a4f4e745",
+  "source_library": {
+    "finding": "Actual 1871 building/tree cards cite Edwards, but the default Sources view omits it because context records were not collected. The native reproduction resolves all 11 new detail pages with zero errors and preserves this default-filter omission.",
+    "repair": "Collect actual scene context documents and their city-kit citations, only for published scenes listing the context layer. Preserve scene ownership and reconstructed geometry grades.",
+    "tests": "All 16 fixtures pass; original compiler fails the new regression. Missing kits, empty paths and unknown references are rejected.",
+    "catalog": {
+      "sources": 720,
+      "index_bytes": 295055,
+      "unchanged_budget_bytes": 296000,
+      "edwards_1871_use": "scene",
+      "strict_confidence_audit": "pass"
+    },
+    "native_recheck": "pending on final publication"
+  },
+  "boot_packing": {
+    "failure_run": 44394942951,
+    "failure_job": 135122678123,
+    "finding": "The writer skipped a valid empty named-structure index, leaving 1871 without required boot metadata. Its 33580 buildings are provided by the separate context layer.",
+    "repair": "Write the normal boot descriptor and empty shared values table, with zero part files. Keep rehydration strict and explicitly reject missing indexed records or malformed shared tables.",
+    "tests": "Real CLI tests cover empty and nonempty scenes, the 50-row boundary, deterministic repacking, stable sparse positions, nine corruption refusals and stale-part cleanup. Original writer and original missing-record checker each fail the new fixtures.",
+    "real_data_proof": "All 765 actual 1835 records and an empty 1871 scene rehydrate. Original CLI reproduces the 1871 failure.",
+    "native_recheck": "pending on final publication"
+  },
+  "source_sha256": {
+    "tools/compile_source_use.py": "7445955aebd029bbc5334f117e2805906fea8778783e62f60bdc3cdc41ad9f6d",
+    "tools/test_compile_source_use.py": "46160b5a140d406177718243fe0c89d7866546173b983222553b847b86b4f3fd",
+    "tools/pack_boot_sidecars.mjs": "a6093241d23528411ca898e83d98fe5ef9148c5c026581c2f1d63021e0018102",
+    "data/sidecars/1835/sources/index.json": "7d0189dfd52b1b2cfdd13e87d6914e69c24e362d772bcb101723b4f3d9d3b167",
+    "data/sidecars/1871/sources/uses.json": "149fb6d97d749c099467d744dd21cbfa7fb0e916fa61c524aeecf6c27cd5d918"
+  },
+  "evidence_files": [
+    "t3654-context-source-use.patch",
+    "t3654-citation-proof/",
+    "t3654-empty-boot-final/",
+    "t3654-upstream-integration.json"
+  ],
+  "limits": "Focused checks do not replace the complete combined-tree source and mobile/desktop browser gates. No historical geometry or source attribution has been promoted to photographic or attested status."
+}

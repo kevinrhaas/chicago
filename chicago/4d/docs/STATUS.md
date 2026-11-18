@@ -77,8 +77,21 @@ so Confidence-mode dither or hiding did not reach their shadows. Near buildings,
 trees and bridge batches now own confidence-patched depth materials per color
 material, including the existing texture/alpha state and disposal. The focused test
 passes on the repair and fails on the original casters; the existing confidence
-suite also passes. Native shadow rendering and full patched-tree validation remain
-pending at this checkpoint; see `docs/measurements/t-3654-confidence-shadows.json`.
+suite also passes. A native desktop Full probe confirms unchanged normal shadow
+coverage, reduced dither coverage and zero hidden coverage at building, bridge and
+tree viewpoints, with no errors. Exact runtime bindings and sampling limits are in
+`docs/measurements/t-3654-confidence-shadows.json`.
+
+The source library now collects the actual context records and kit citations, so
+Edwards' 1871 Directory appears in the scene's source-use map. The initial native
+probe reproduced its omission from the default list while all eleven new source
+details resolved correctly. Sixteen compiler fixtures and the strict confidence
+audit pass. The startup packer also handles 1871's empty named-structure index with
+a valid empty shared table, retaining strict missing-record and rehydration checks.
+Both repairs await their final published/native recheck at this checkpoint; see
+`docs/measurements/t-3654-source-and-boot.json`. The latest dev roof corrections and
+changelog fold are integrated; full combined-tree source and browser gates remain
+required before the authorized dev merge.
 
 Regenerate with `python3 generators/city_context_emit.py`, then
 `python3 generators/city_1871_emit.py`, `python3 tools/compile_scene.py --scene 1871`
