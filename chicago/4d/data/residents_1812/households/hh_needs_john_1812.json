@@ -136,7 +136,7 @@
     },
     {
       "id": "needs_child",
-      "name": "The Needs child",
+      "name": "Samuel Needs",
       "relationship": "child",
       "grade": "attested",
       "sources": [
@@ -155,7 +155,30 @@
           "quote": "A child of Mrs. Neads, the wife of John Neads, was tied to a tree to prevent its following and crying after its mother",
           "claim": "Niles 1814."
         }
-      ]
+      ],
+      "also_written": [
+        "The Needs child"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "kirkland_1893_chicago_massacre"
+        ],
+        "note": "A source places the child in this family, so the surname is the record's; no source gives the child's first name, so it is ours, one common in soldier and settler families of the day."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "First name reconstructed; surname from the record",
+          "grade": "reconstructed"
+        }
+      ],
+      "reconstruction": {
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
+      }
     }
   ]
 }

@@ -46,6 +46,41 @@ for (const year of ['1812', '1835', '1904']) {
   ok(m.cardWidth(short) < m.SLOT_W && m.cardWidth(long) <= m.SLOT_W, 'a card is never wider than its slot');
 }
 
+// T-3553 (the owner, 2026-11-17: "for everyone in 1812 who does not have a name give them a name
+// ..." and "if we know their last names we should include them"): no 1812 card or staged figure reads
+// "name not recorded", a child of a named family carries that family's surname, and every name of
+// ours says so.
+{
+  const people = JSON.parse(fs.readFileSync(path.join(root, 'data/sidecars/1812/people.json'), 'utf8')).people;
+  const left = people.filter((p) => /names? not recorded/i.test(p.name)).map((p) => p.id);
+  ok(left.length === 0, `1812: every card has a name${left.length ? ` — still unnamed: ${left.join(', ')}` : ''}`);
+  const FAMILY = { burns_infant: 'Burns', burns_child_a: 'Burns', burns_child_b: 'Burns', lee_son: 'Lee', lee_daughter: 'Lee',
+    lee_infant: 'Lee', holt_child: 'Holt', needs_child: 'Needs' };
+  for (let i = 1; i <= 7; i++) FAMILY[`garrison_child_unnamed_${i}`] = '(Lee|Burns|Holt|Needs)';
+  const off = Object.entries(FAMILY).filter(([id, sur]) => !new RegExp(` ${sur}$`).test(people.find((p) => p.id === id)?.name ?? '')).map(([id]) => id);
+  ok(off.length === 0, `1812: the children of named families carry the family's surname, and the post's children a likely one${off.length ? ` — not: ${off.join(', ')}` : ''}`);
+  const hh = path.join(root, 'data/residents_1812/households');
+  const ours = [];
+  for (const f of fs.readdirSync(hh)) for (const p of JSON.parse(fs.readFileSync(path.join(hh, f), 'utf8')).persons ?? []) {
+    if ((p.reconstruction?.name_liberty) !== 'L-1812-names-3553') continue;
+    ours.push(p.id);
+    if (p.name_basis?.grade !== 'reconstructed' || !(p.also_written ?? []).length) ok(false, `${p.id}: a name of ours is marked reconstructed and keeps the old label`);
+  }
+  ok(ours.length === 25, `1812: the sixteen counted-and-unnamed town cards and nine children of known families carry names of ours (${ours.length})`);
+  // The owner, 2026-11-17: "John kinzie looks silver ... make sure they would be attested when they are documented".
+  const documented = ['kinzie_john_elder', 'leclerc_pierre', 'lee_son', 'mirandeau_jean_baptiste'].filter((id) => people.find((p) => p.id === id)?.grade !== 'attested');
+  ok(documented.length === 0, `1812: John Kinzie, Le Clerc, Lee's son and Mirandeau, all documented, read attested${documented.length ? ` — not: ${documented.join(', ')}` : ''}`);
+  const row = people.find((p) => p.id === 'kinzie_servant_second');
+  ok(row?.grade === 'attested' && m.gradeOf(row) === 'reconstructed', "Kinzie's second servant: attested, his name ours, his card's edge reconstructed");
+  const staged = [];
+  for (const f of fs.readdirSync(path.join(root, 'data/jaunts')).filter((x) => /^(battle-of-fort-dearborn|killing-of-jean-lalime)/.test(x))) {
+    for (const s of JSON.parse(fs.readFileSync(path.join(root, 'data/jaunts', f), 'utf8')).stops ?? []) {
+      for (const c of s.stage?.cast ?? []) if (c.extra && (/not recorded/.test(c.name ?? '') || (c.about && !/name reconstructed$/.test(c.about)))) staged.push(`${f}:${c.extra}`);
+    }
+  }
+  ok(staged.length === 0, `1812 jaunts: every unnamed figure has a name of ours, said so with what they stand for${staged.length ? ` — ${staged.slice(0, 4).join(', ')}` : ''}`);
+}
+
 // 2. Who is carded: the nearest in view within reach, at most the tier's number.
 {
   const c = Array.from({ length: 40 }, (_, i) => ({ key: `p${i}`, distance: 50 - i, inView: i % 7 !== 0 }));
@@ -154,6 +189,8 @@ for (const year of ['1812', '1835', '1904']) {
   ok(m.gradeOf({ grade: 'attested' }) === 'attested' && m.gradeOf({ grade: 'inferred' }) === 'inferred'
     && m.gradeOf({ grade: 'reconstructed' }) === 'reconstructed', "a person's own grade is their card's");
   ok(m.gradeOf(null, true) === 'reconstructed' && m.gradeOf({}) === null, "an unnamed extra is reconstructed; a record with no grade shows none");
+  // T-3553: a real person given a name of ours shows the name's grade, never the person's.
+  ok(m.gradeOf({ grade: 'attested', name_grade: 'reconstructed' }) === 'reconstructed', 'a reconstructed name on an attested person reads reconstructed');
   for (const year of ['1812', '1835', '1904']) {
     const people = JSON.parse(fs.readFileSync(path.join(root, 'data/sidecars', year, 'people.json'), 'utf8')).people ?? [];
     const none = people.filter((p) => !m.gradeOf(p));
@@ -180,6 +217,24 @@ for (const year of ['1812', '1835', '1904']) {
   ok(/key === 'nameCards'[\s\S]{0,120}nameCards\?\.setShown/.test(main), 'a change turns the cards on or off at once');
   ok(/nameCards\?\.pickAt\(ndc\)/.test(main) && /api\.humans\.select\(\{ actor: nameCard\.actor \}\)/.test(main), 'a click or tap on a card opens the person as clicking them does');
   ok(/jauntStage\?\.named/.test(main), "a jaunt stop's castmates are carded too");
+  // The owner, 2026-11-17: "only show the attested cards or the inferred cards or just the
+  // reconstructed cards", "Or attested and inferred at the same time": three boxes, any mix.
+  ok(/nameCardsAttested: true, nameCardsInferred: true, nameCardsReconstructed: true/.test(hud), 'all three grades are carded by default');
+  ok(['attested', 'inferred', 'reconstructed'].every((g) => new RegExp(`wireToggle\\('s-name-cards-${g}', 'nameCards${g[0].toUpperCase()}${g.slice(1)}'\\)`).test(hud)
+    ), 'each grade is a box wired to its setting');
+  ok(/id="s-name-cards-\$\{g\.toLowerCase\(\)\}"/.test(hud) && /\['Attested', 'Inferred', 'Reconstructed'\]/.test(hud),
+    'the three boxes are built by hud.js (the page is copied to every door and has no bytes to spare, T-0722)');
+  ok(/nameCardGradeRow\(\$\('row-name-cards'\)\);\n\s*wireToggle\('s-name-cards-attested'/.test(hud) && /after\.after\(row\)/.test(hud),
+    'the boxes are put under the name-card switch, before they are wired');
+  ok(JSON.stringify(m.nameCardGrades({})) === '["attested","inferred","reconstructed"]'
+    && JSON.stringify(m.nameCardGrades({ nameCardsReconstructed: false })) === '["attested","inferred"]'
+    && JSON.stringify(m.nameCardGrades({ nameCardsAttested: false, nameCardsInferred: false })) === '["reconstructed"]'
+    && m.nameCardGrades({ nameCardsAttested: false, nameCardsInferred: false, nameCardsReconstructed: false }).length === 0,
+    'the boxes give any mix: all, attested and inferred, reconstructed alone, none');
+  ok(/key === 'nameCardsAttested'[\s\S]{0,200}nameCards\?\.setGrades\(nameCardGrades\(hud\.settings\)\)/.test(main)
+    && /grades: nameCardGrades\(hud\.settings\)/.test(main), 'a change re-chooses the cards at once, and a reload starts with the mix chosen');
+  const nc = fs.readFileSync(path.join(root, 'renderers/web/js/name-cards.js'), 'utf8');
+  ok(/if \(p\.grade && !only\.has\(p\.grade\)\) continue;/.test(nc), 'a card of a grade left off is not chosen (and fades out)');
   ok(/!pointerlock\.isLocked && api\.nameCards\?\.shown[\s\S]{0,400}api\.nameCards\.pickAt\(ndc\)\) \{ inspect\(ndc, \{ by: 'hand' \}\); return; \}/.test(main),
     'on a desktop with the mouse free, a click on a card opens the person instead of taking the look');
 }

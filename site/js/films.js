@@ -24,7 +24,7 @@ window.CHICAGO_FILMS = {
     "1904-host": "1904-host.b25c1d25.mp4",
     "1904-stoops": "1904-stoops.dbfb6990.mp4",
     "1904-winter": "1904-winter.9faf9450.mp4",
-    "hero": "hero.1c744901.mp4",
+    "hero": "hero.81b8addc.mp4",
     "long-1812": "long-1812.ccaf6100.mp4",
     "long-1835": "long-1835.3dce3c8d.mp4",
     "long-1904": "long-1904.64b6ea94.mp4",

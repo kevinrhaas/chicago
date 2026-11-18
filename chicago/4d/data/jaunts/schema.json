@@ -906,6 +906,11 @@
                     "type": "string",
                     "maxLength": 120
                   },
+                  "about": {
+                    "type": "string",
+                    "maxLength": 160,
+                    "description": "An unnamed figure given a name of ours (T-3553): what it stands for, said with its name when it is clicked."
+                  },
                   "at": {
                     "type": "array",
                     "items": {

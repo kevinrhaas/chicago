@@ -130,7 +130,7 @@
     },
     {
       "id": "holt_child",
-      "name": "The Holt child",
+      "name": "Rachel Holt",
       "relationship": "child",
       "grade": "inferred",
       "sources": [
@@ -155,7 +155,30 @@
           "quote": "Two of them belonged to Mrs. Burns, and one each to Mrs. Simmons, Mrs. Holt, and Mrs. Lee.",
           "claim": "Survivors (Quaife App. IX)."
         }
-      ]
+      ],
+      "also_written": [
+        "The Holt child"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "A source places the child in this family, so the surname is the record's; no source gives the child's first name, so it is ours, one common in soldier and settler families of the day."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "First name reconstructed; surname from the record",
+          "grade": "reconstructed"
+        }
+      ],
+      "reconstruction": {
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
+      }
     }
   ]
 }
