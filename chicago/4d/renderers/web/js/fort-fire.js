@@ -36,6 +36,7 @@
  */
 import * as THREE from 'three';
 
+const DEG = Math.PI / 180;
 const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
 const smooth = (t) => { t = clamp(t, 0, 1); return t * t * (3 - 2 * t); };
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -892,13 +893,20 @@ export function createFortFire({ parent, buildings, groundAt = () => 0, extras =
         torch.visible = true;
         const lunge = torchKindle ? Math.sin(Math.min(1, torchKindle.t / 1.2) * Math.PI) : 0;
         camera.updateMatrixWorld();
-        // Held where it reads the same at any field of view (the app's is narrower than 60 degrees).
-        const reach = camera.isPerspectiveCamera ? Math.tan(Math.PI / 6) / Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2) : 1;
+        // The owner, 2026-11-17: "make sure as I am holding the torch that you see the top of the
+        // torch and the torch is not hovering in air, position it so that it is being held but
+        // you can't see my hand." The brand is gripped below the bottom of the view, low at the
+        // right, and leans up and away so only its upper shaft and burning head are seen: the
+        // stick runs out of the frame where the hand would be. Laid out for the app's 62-degree
+        // view and scaled with the camera's own, so it reads the same at any field of view.
+        const reach = camera.isPerspectiveCamera ? Math.tan(31 * DEG) / Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2) : 1;
         // A phone held upright sees far less to either side: the brand comes in toward the middle.
-        const side = 0.4 * clamp((camera.aspect ?? 1.6) / 1.6, 0.32, 1);
-        torch.position.set(side, -0.5 + 0.1 * lunge, -1.3 - 0.5 * lunge).multiplyScalar(reach).applyMatrix4(camera.matrixWorld);
+        const side = clamp((camera.aspect ?? 1.6) / 1.6, 0.32, 1);
+        torch.position.set(0.38 * side - 0.06 * lunge, -0.55 + 0.05 * lunge, -0.55 - 0.3 * lunge)
+          .multiplyScalar(reach).applyMatrix4(camera.matrixWorld);
         torch.quaternion.setFromRotationMatrix(camera.matrixWorld).multiply(TORCH_TILT);
-        torch.scale.setScalar((camera.aspect ?? 1.6) < 1 ? 0.72 : 1);
+        if (lunge) torch.quaternion.multiply(TORCH_LUNGE.clone().slerp(TORCH_REST, 1 - lunge));
+        torch.scale.setScalar(((camera.aspect ?? 1.6) < 1 ? 0.8 : 1) * reach);
         torch.updateMatrixWorld(true);
         const tip = torch.userData.tip.getWorldPosition(new THREE.Vector3());
         fx.flame(tip.x, tip.y - 0.04, tip.z, 0.2, 0.36, 0.95, 7.7, true);
@@ -936,15 +944,21 @@ export function createFortFire({ parent, buildings, groundAt = () => 0, extras =
   return api;
 }
 
-const TORCH_TILT = new THREE.Quaternion().setFromEuler(new THREE.Euler(0.55, 0.1, -0.25));
+/** The held brand's lean in the view: its head pitched 50 degrees away from the eye, a little in toward the middle. */
+const TORCH_TILT = new THREE.Quaternion().setFromEuler(new THREE.Euler(-50 * DEG, 0, 6 * DEG));
+/** Put to the logs: it dips further forward. */
+const TORCH_LUNGE = new THREE.Quaternion().setFromEuler(new THREE.Euler(-22 * DEG, 0, 0));
+const TORCH_REST = new THREE.Quaternion();
 /** A firebrand: a split pine stick with a head of bark and pitch wound on it. */
 function makeTorch(parent) {
   const g = new THREE.Group(); g.name = 'fort-fire:torch';
   const wood = new THREE.MeshStandardMaterial({ color: 0x5a3c22, roughness: 0.85 });
   const head = new THREE.MeshStandardMaterial({ color: 0x1a120c, roughness: 0.9, emissive: 0x2a0800 });
-  const stick = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.022, 0.62, 7), wood); stick.position.y = 0.0;
-  const knot = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.035, 0.16, 8), head); knot.position.y = 0.36;
-  const tip = new THREE.Object3D(); tip.position.y = 0.44;
+  // The group's origin is the (unseen) hand's grip: the butt runs 0.25 m below it, the head
+  // 0.6 m above, so the stick always reaches out of the view's bottom edge.
+  const stick = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.022, 0.85, 7), wood); stick.position.y = 0.175;
+  const knot = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.035, 0.16, 8), head); knot.position.y = 0.55;
+  const tip = new THREE.Object3D(); tip.position.y = 0.63;
   g.add(stick, knot, tip);
   g.userData.tip = tip;
   for (const o of [stick, knot]) { o.castShadow = false; o.renderOrder = 8; }
