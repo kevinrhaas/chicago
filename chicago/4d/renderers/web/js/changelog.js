@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3112, ts: '2026-11-18T23:24:58.288Z', date: 'Nov 18, 2026, 5:24 PM CT', title: 'Fort Dearborn monument: the faces cut as sculpted', kind: 'change',
+    items: [
+      'The five bronze figures on the Fort Dearborn monument (18th Street, 1904) no longer share one soft, neutral face. Each now has the heavier brow, deep-set eyes, projecting nose and firm mouth the old photographs show, cut deepest on the warrior and Black Partridge and lightest on the child.',
+    ] },
   { v: 3111, ts: '2026-11-18T21:05:27.360Z', date: 'Nov 18, 2026, 3:05 PM CT', title: '1815 Prairie\'s mansard roof sits low behind its iron cresting', kind: 'fix',
     items: [
       'The flat top of 1815 Prairie\'s mansard had been built far steeper than intended, so it rose dark above the iron cresting. It now drops out of sight behind the rail, and the cresting stands against the sky as both old photographs show it.',

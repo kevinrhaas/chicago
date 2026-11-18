@@ -13,8 +13,8 @@ his rig's breechcloth, are drapery modelled to the plates, `DRAPED`, and the sur
 pantaloons, in place of his rig's tight ones, are cloth hung on his legs,
 `monument.ORNAMENTS`); the project's dress and variation rules do
 not apply to a sculpture (`dress_1812_native.json` is not read), and no face is fitted to a
-portrait of anyone — the faces are the rig's neutral hm08 face, which is what this ticket
-leaves to be modelled to the sculpted ones.
+portrait of anyone — each face is the rig's neutral hm08 face, re-cut since T-3594 to the
+stronger brows, noses and mouths both plates draw (`FEATURES`, `_sculpt`).
 
 ## The pose, bone by bone
 
@@ -249,6 +249,7 @@ def _rest(rig: str, keep):
         for prim in mesh["primitives"]:
             at = prim["attributes"]
             meshes.append({
+                "part": part,
                 "pos": _zup(_acc(gltf, blob, at["POSITION"])),
                 "nrm": _zup(_acc(gltf, blob, at["NORMAL"])),
                 "jnt": _acc(gltf, blob, at["JOINTS_0"]).astype(np.int64),
@@ -363,10 +364,147 @@ def _chain(b: _Bones, J, parent_rot, bones, targets, root_to, stretch):
     return rot, here
 
 
+#: The faces modelled to the sculpture (T-3594). The rigs' hm08 face is a neutral, smoothed
+#: one (its nose stands 7-10 mm proud of the upper lip, its brow and the line of the lips
+#: barely there), and both plates draw Rohl-Smith's faces cut deeper than that: Taylor's
+#: print shows Black Partridge's face in profile with a high-bridged nose standing well out
+#: from the brow and lip, a heavy brow over a sunk eye and a set mouth, the warrior's bowed
+#: face under its hair the same, and ICHi-19208 draws Mrs. Helm's brow, nose and chin
+#: standing out of her profile (x 575-590, y 222-242). So each face is re-cut on the rig's
+#: own head: the nose drawn out along its bridge to the tip, the brow ridge brought forward
+#: over eyes set back into their sockets, the cheekbones raised, the line between the lips
+#: cut in with the lips standing either side of it, the hollow under the lower lip and the
+#: chin brought out. Every move is a smooth field in the head's rest frame (metres, the
+#: face looking -y, `dz` above the nose's tip, `ax` off the face's midline), measured from
+#: the face's own landmarks so it lands on each rig's nose and mouth, and scaled by
+#: `FEATURES` per figure: full on the two men, whose faces both plates show strongest
+#: (Black Partridge's bridge highest, as Taylor's profile draws it); less on the surgeon,
+#: whose face neither plate shows clearly; Mrs. Helm's finer; the child's least, his face
+#: a small round one in both. The plates are under 40 px a face, so the depths are read
+#: as "stronger than the rig's", not measured (L-fort-dearborn-monument-3567).
+FEATURES = {
+    "warrior": {"strength": 1.0, "bridge": 0.002},
+    "black_partridge": {"strength": 1.0, "bridge": 0.004},
+    "surgeon": {"strength": 0.8, "bridge": 0.0},
+    "helm": {"strength": 0.6, "bridge": 0.0},
+    "child": {"strength": 0.35, "bridge": 0.0},
+}
+
+#: The bones a head's vertices ride on: only these are re-cut, by the weight they carry.
+_HEAD_BONES = ("head", "jaw", "eye_l", "eye_r")
+
+
+def _bump(v, at, width):
+    """A smooth bump, 1 at `at` and falling off over `width` (a Gaussian)."""
+    d = (v - at) / width
+    return np.exp(-(d * d))
+
+
+def _ramp(v, lo, hi):
+    """0 at or below lo, 1 at or above hi, smooth between."""
+    t = np.clip((v - lo) / (hi - lo), 0.0, 1.0)
+    return t * t * (3.0 - 2.0 * t)
+
+
+def _landmarks(J, body, head_w):
+    """The face's nose tip and the line between its lips, off the rig's midline profile."""
+    hj = J["head"]
+    p = body["pos"]
+    mid = (np.abs(p[:, 0]) < 0.008) & (head_w > 0.5)
+    rel_z = p[:, 2] - hj[2]
+    near = mid & (rel_z > -0.03) & (rel_z < 0.03)
+    i = int(np.flatnonzero(near)[np.argmin(p[near, 1])])
+    tip = p[i].copy()
+    # the lips' line: the 2 mm band under the nose where the midline's vertices crowd (the
+    # rig closes the mouth with both lips' edges meeting there), taken on the face's
+    # surface (the mouth's inside, further back, is left out)
+    surf = mid & (p[:, 1] < tip[1] + 0.02) & (p[:, 2] < tip[2] - 0.015) & (p[:, 2] > tip[2] - 0.05)
+    zs = p[surf, 2]
+    bins = np.floor((zs - (tip[2] - 0.05)) / 0.002).astype(np.int64)
+    counts = np.bincount(bins, minlength=25)
+    b = int(np.argmax(counts))
+    seam = float(np.sum(np.where(bins == b, zs, 0.0)) / counts[b])
+    return tip, seam
+
+
+def _sculpt(figure, names, J, meshes):
+    """The figure's face re-cut toward the sculpture's (T-3594, `FEATURES`): every kept
+    mesh's head vertices moved in the rest pose, and the body's normals there re-derived
+    from the moved surface so the light reads the new forms."""
+    feat = FEATURES[figure]
+    s = feat["strength"]
+    head_ids = np.array([names.index(n) for n in _HEAD_BONES], dtype=np.int64)
+    weights = []
+    for m in meshes:
+        w = m["wgt"] / np.maximum(np.sum(m["wgt"], axis=1, keepdims=True), 1e-9)
+        weights.append(np.sum(np.where(np.isin(m["jnt"], head_ids), w, 0.0), axis=1))
+    body = next(k for k, m in enumerate(meshes) if m["part"] == "body_0")
+    tip, seam = _landmarks(J, meshes[body], weights[body])
+    # the face's size against the adult rig's (nose tip to the lips' line, 27 mm there)
+    f = max((tip[2] - seam) / 0.027, 0.6)
+    fwd = np.array([0.0, -1.0, 0.0])
+    for m, hw in zip(meshes, weights):
+        p = m["pos"]
+        ax = np.abs(p[:, 0] - tip[0])
+        dz = p[:, 2] - tip[2]
+        ds = p[:, 2] - seam
+        # how far forward each feature is drawn out (metres; negative sets it back)
+        out = np.zeros(len(p))
+        # the nose: drawn out along the bridge, most at the tip, nothing at the root
+        along = (_ramp(dz, -0.014 * f, -0.006 * f) * (1.0 - _ramp(dz, 0.006 * f, 0.036 * f))
+                 * (0.6 + 0.4 * (1.0 - _ramp(dz, -0.004 * f, 0.006 * f))))
+        out += (0.009 * along + feat["bridge"] * _bump(dz, 0.018 * f, 0.008 * f)) * _bump(ax, 0.0, 0.011 * f)
+        # the brow ridge brought forward over the eyes, most above their centres
+        out += 0.005 * _bump(dz, 0.050 * f, 0.008 * f) * _bump(ax, 0.022 * f, 0.030 * f)
+        # the eyes set back into their sockets, under the brow
+        out -= 0.004 * _bump(dz, 0.030 * f, 0.009 * f) * _bump(ax, 0.031 * f, 0.011 * f)
+        # the lips' line cut in, the lips either side of it standing out
+        lips = _bump(ax, 0.0, 0.020 * f)
+        out -= 0.003 * _bump(ds, 0.0, 0.0025 * f) * lips
+        out += 0.002 * (_bump(ds, 0.006 * f, 0.004 * f) + _bump(ds, -0.006 * f, 0.004 * f)) * lips
+        # the hollow under the lower lip, and the chin brought out
+        out -= 0.002 * _bump(ds, -0.014 * f, 0.004 * f) * _bump(ax, 0.0, 0.018 * f)
+        out += 0.004 * _bump(ds, -0.030 * f, 0.007 * f) * _bump(ax, 0.0, 0.016 * f)
+        move = (s * out * hw)[:, None] * fwd[None, :]
+        # the cheekbones raised along the surface's own normal
+        cheek = 0.003 * _bump(dz, 0.012 * f, 0.010 * f) * _bump(ax, 0.045 * f, 0.012 * f)
+        move = move + (s * cheek * hw)[:, None] * m["nrm"]
+        m["pos"] = p + move
+        m["moved"] = np.sqrt(np.sum(move * move, axis=1))
+    _renormal(meshes[body])
+    return names, J, meshes
+
+
+def _renormal(m):
+    """The body's normals re-derived where its face was re-cut: each vertex's the
+    area-weighted sum of its triangles' (shared by every vertex at the same place, so the
+    rig's seams do not show), eased into the rig's own over the first 1.5 mm moved."""
+    p, tri = m["pos"], m["idx"].reshape(-1, 3)
+    a, b, c = p[tri[:, 0]], p[tri[:, 1]], p[tri[:, 2]]
+    e1, e2 = b - a, c - a
+    fn = np.stack([e1[:, 1] * e2[:, 2] - e1[:, 2] * e2[:, 1],
+                   e1[:, 2] * e2[:, 0] - e1[:, 0] * e2[:, 2],
+                   e1[:, 0] * e2[:, 1] - e1[:, 1] * e2[:, 0]], axis=1)
+    key = np.round(p * 1e5).astype(np.int64)
+    _u, place = np.unique(key, axis=0, return_inverse=True)
+    place = place.reshape(-1)
+    acc = np.zeros((int(place.max()) + 1, 3))
+    for corner in range(3):
+        np.add.at(acc, place[tri[:, corner]], fn)
+    new = acc[place]
+    new = new / np.maximum(np.sqrt(np.sum(new * new, axis=1, keepdims=True)), 1e-12)
+    # the rig's normals point the way its triangles wind; keep to them
+    flip = np.sum(new * m["nrm"], axis=1) < 0.0
+    new[flip] = -new[flip]
+    w = np.clip(m["moved"] / 0.0015, 0.0, 1.0)[:, None]
+    n = w * new + (1.0 - w) * m["nrm"]
+    m["nrm"] = n / np.maximum(np.sqrt(np.sum(n * n, axis=1, keepdims=True)), 1e-12)
+
+
 def _posed(figure: str, k: float):
     """The figure's bones posed to its joints: (bone names, rest joints, rest meshes, bones)."""
     rig, keep = RIGS[figure]
-    names, J, meshes = _rest(rig, keep)
+    names, J, meshes = _sculpt(figure, *_rest(rig, keep))
     T = {key: np.array(v, dtype=np.float64) * k for key, v in TARGETS[figure].items()}
     b = _Bones()
 
