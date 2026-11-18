@@ -7,6 +7,7 @@
  */
 import { t } from '../strings/index.js';
 import '../strings/moment.js';
+import '../strings/photo-hunt.js';
 const momentPanels = new WeakMap();
 
 export default {
@@ -33,10 +34,40 @@ export default {
         message.textContent = t('moment.failed'); details.append(message);
       } finally { state.loading = false; }
     });
+    const hunt = doc.createElement('details'); hunt.id = 'nav-photo-hunt';
+    const huntSummary = doc.createElement('summary'); huntSummary.textContent = t('hunt.title');
+    hunt.append(huntSummary); el.append(hunt);
+    state.ctx = ctx; state.on = true; state.hunt = null; state.huntLoading = false;
+    hunt.addEventListener('toggle', async () => {
+      state.hunt?.setVisible(hunt.open && state.on);
+      if (!hunt.open || state.hunt || state.huntLoading) return;
+      state.huntLoading = true;
+      try {
+        const { mountPhotoHunt } = await import('../photo-hunt-view.js');
+        if (state.live) {
+          state.hunt = mountPhotoHunt(hunt, { context: () => state.ctx });
+          state.hunt.setVisible(hunt.open && state.on);
+        }
+      } catch {
+        const message = doc.createElement('p'); message.setAttribute('role', 'status');
+        message.textContent = t('hunt.unavailable'); hunt.append(message);
+      } finally { state.huntLoading = false; }
+    });
+    // A challenge link uses the ordinary Home deep link and its existing arrival flow.
+    if (new URLSearchParams(doc.defaultView?.location?.search).has('hunt')) hunt.open = true;
+  },
+  shown(el, ctx) {
+    const state = momentPanels.get(el);
+    if (state) { state.ctx = ctx; state.on = true; state.hunt?.setVisible(!!el.querySelector('#nav-photo-hunt')?.open); }
+  },
+  hidden(el) {
+    const state = momentPanels.get(el);
+    if (state) { state.on = false; state.hunt?.setVisible(false); }
   },
   unmount(el) {
     const state = momentPanels.get(el);
-    if (state) { state.live = false; state.view?.destroy(); }
+    if (state) { state.live = false; state.view?.destroy(); state.hunt?.destroy(); }
+    el.querySelector('#nav-photo-hunt')?.remove();
     el.querySelector('#nav-moment')?.remove(); momentPanels.delete(el);
   },
 };
