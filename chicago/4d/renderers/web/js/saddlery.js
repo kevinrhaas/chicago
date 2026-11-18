@@ -300,6 +300,23 @@ export function fitTack(root, spec, { body = 'Material_HorseMain4k00.png' } = {}
     const s = zc + u * len, phi = (v * 2 - 1) * S.seat_half_angle_deg;
     return env.at(s, phi, seatLift(u, phi), out);
   }), mats.seat));
+  // T-3644: a side saddle's heads (pommels), all on the near side: each a padded horn from its
+  // root on the seat's front, bowed through `bow_m` to `tip_m` (offsets from the root, metres in
+  // the root frame; +x the near side). The fixed head the right leg hooks over; the leaping head,
+  // where there is one, curving down over the left thigh.
+  for (const H of S.heads ?? []) {
+    const root0 = env.at(zc + len * H.at, H.phi_deg, seatLift(H.at, H.phi_deg) + H.radius_m * .6);
+    const mid = root0.clone().add(new THREE.Vector3(...H.bow_m)), tip = root0.clone().add(new THREE.Vector3(...H.tip_m));
+    const pts = [];
+    for (let i = 0; i <= 10; i++) { const t = i / 10; pts.push(new THREE.Vector3().addScaledVector(root0, (1 - t) * (1 - t)).addScaledVector(mid, 2 * t * (1 - t)).addScaledVector(tip, t * t)); }
+    const head = tubeThrough(pts, H.radius_m, null, 12);
+    // Rounded off at the tip: the last ring drawn in to a point.
+    const pos = head.getAttribute('position');
+    for (let k = 0; k < 12; k++) pos.setXYZ(10 * 12 + k, tip.x, tip.y, tip.z);
+    head.computeVertexNormals();
+    const m = new THREE.Mesh(head, mats.seat); m.name = `tack:head:${H.id}`;
+    onBody.add(m);
+  }
   const F = S.flap;
   for (const sideSign of [1, -1]) {
     onBody.add(new THREE.Mesh(gridGeometry(10, 12, (u, v, out) => {
@@ -381,16 +398,19 @@ export function fitTack(root, spec, { body = 'Material_HorseMain4k00.png' } = {}
   const neckRest = riding(bones.horse_body, env.at(zp + .06, 0, .03));
   // Leathers, irons and reins: redrawn between their ends each frame (root frame).
   const lines = { leather: [], rein: [] };
+  // A side saddle hangs one stirrup, on the near side (spec.stirrups 'near').
+  const stirrupSides = spec.stirrups === 'near' ? [1] : [1, -1];
   for (const sideSign of [1, -1]) {
-    const leather = new THREE.Mesh(new THREE.BufferGeometry(), mats.leather); free.add(leather);
+    const rein = new THREE.Mesh(new THREE.BufferGeometry(), mats.bridle); rein.name = 'tack:rein'; free.add(rein);
+    lines.rein.push({ side: sideSign, mesh: rein });
+    if (!stirrupSides.includes(sideSign)) continue;
+    const leather = new THREE.Mesh(new THREE.BufferGeometry(), mats.leather); leather.name = 'tack:leather'; free.add(leather);
     const iron = spec.stirrup === 'wood'
       ? new THREE.Mesh(new THREE.BoxGeometry(.11, .05, .09), material('#5a3d26', { rough: .8 }))
       : new THREE.Mesh(new THREE.TorusGeometry(.065, .007, 6, 18, Math.PI * 1.15), mats.metal);
     if (spec.stirrup !== 'wood') { const tread = new THREE.Mesh(new THREE.BoxGeometry(.11, .008, .05), mats.metal); tread.position.y = -.0; iron.add(tread); }
     free.add(iron);
     lines.leather.push({ side: sideSign, mesh: leather, iron });
-    const rein = new THREE.Mesh(new THREE.BufferGeometry(), mats.bridle); free.add(rein);
-    lines.rein.push({ side: sideSign, mesh: rein });
   }
   group.add(free);
   root.add(group);

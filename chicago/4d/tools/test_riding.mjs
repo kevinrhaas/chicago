@@ -30,7 +30,7 @@ const THREE = await import(vendor + 'three.module.js');
 const { clone } = await import(vendor + 'addons/utils/SkeletonUtils.js');
 const { fitTack } = await import('../renderers/web/js/saddlery.js');
 const { createRiderPose, saddleTargets } = await import('../renderers/web/js/rider-pose.js');
-const { drapes, drapePoint, pressPoint, pressZone } = await import('../renderers/web/js/rider-drape.js');
+const { drapes, drapePoint, pressPoint, pressZone, HABIT, habitCloth, habitRest, habitSheet, habitVertex, legBalls } = await import('../renderers/web/js/rider-drape.js');
 const { garmentKind } = await import('../renderers/web/js/human-skirt.js');
 const { createHorseGait, clipFromJson } = await import('../renderers/web/js/horse-rig.js');
 const riding = await import('../renderers/web/js/riding.js');
@@ -80,9 +80,40 @@ for (const y of YEARS) for (const a of assetsOf(y)) humans[a] ??= await parse(re
 
 const v = new THREE.Vector3(), q = new THREE.Vector3();
 const report = [];
+// T-3644: how far a point (envelope frame) is outside the habit's sheet, in the upright
+// half-plane of its way round her hips (the nearest of the sheet's ways): 0 when under it.
+function habitOutside(sheet, hips, p) {
+  const { cols, rows } = HABIT;
+  const dx = p.x - hips.x, dz = p.z - hips.z, rho = Math.hypot(dx, dz);
+  const j = ((Math.round(Math.atan2(dx, dz) / (Math.PI * 2) * cols) % cols) + cols) % cols;
+  const at = i => { const o = (i * cols + j) * 4; return [Math.hypot(sheet[o] - hips.x, sheet[o + 2] - hips.z), sheet[o + 1]]; };
+  const poly = [[0, at(0)[1]], ...Array.from({ length: rows }, (_, i) => at(i)), [0, at(rows - 1)[1]]];
+  let inPoly = false;
+  for (let a = 0, b = poly.length - 1; a < poly.length; b = a++) {
+    const [xa, ya] = poly[a], [xb, yb] = poly[b];
+    if ((ya > p.y) !== (yb > p.y) && rho < (xb - xa) * (p.y - ya) / (yb - ya) + xa) inPoly = !inPoly;
+  }
+  if (inPoly) return 0;
+  let best = Infinity;
+  for (let a = 0; a < poly.length - 1; a++) {
+    const [xa, ya] = poly[a], [xb, yb] = poly[a + 1], ex = xb - xa, ey = yb - ya, L2 = ex * ex + ey * ey || 1;
+    const t = Math.max(0, Math.min(1, ((rho - xa) * ex + (p.y - ya) * ey) / L2));
+    best = Math.min(best, Math.hypot(rho - xa - ex * t, p.y - ya - ey * t));
+  }
+  return best;
+}
 // Each year's tack, and every variant of it a row of the year rides on (the Potawatomi pad
 // saddle, saddle_horses.json tack_variants): the visitor may mount any of them.
-const tacksOf = y => [null, ...new Set([...config.rows, ...config.riders].filter(r => r.scene === y && r.tack).map(r => r.tack))];
+const tacksOf = y => [null, ...new Set([...config.rows, ...config.riders].filter(r => r.scene === y && r.tack).map(r => r.tack)),
+  ...(config.side_saddle?.tack?.[y] ? [config.side_saddle.tack[y]] : [])];
+// T-3644: a woman of 1835 or 1904 rides aside on the year's side saddle (and only she does).
+const sideKey = y => config.side_saddle?.tack?.[y] ?? null;
+const womenOf = y => Object.values(person.outfits?.[y]?.female ?? {}).flat().map(o => o.asset);
+ok(['1835', '1904'].every(y => sideKey(y) && config.tack_variants[sideKey(y)]) && !sideKey('1812'), 'a side saddle in 1835 and 1904, none in 1812 (astride, Kevin\'s card)');
+ok(riding.sideSaddleFor(config, '1835', { sex: 'female' }) === sideKey('1835') && riding.sideSaddleFor(config, '1904', { sex: 'female' }) === sideKey('1904')
+  && riding.sideSaddleFor(config, '1812', { sex: 'female' }) === null && riding.sideSaddleFor(config, '1835', { sex: 'male' }) === null && riding.sideSaddleFor(config, '1904', null) === null,
+  'the visitor rides aside as a woman in 1835 and 1904, astride as a man or in 1812');
+ok(riding.bodyPose(riding.fitFor(config.fit, womenOf('1904')[0], 'side')).legs?.r, 'the side seat gives each leg its own pole');
 for (const k of Object.keys(config.tack_variants ?? {})) ok(riding.tackFor(config, '1812', { tack: k }).saddle.seat_half_angle_deg > 0, `the ${k} tack variant lays over the year's`);
 for (const y of YEARS) for (const tk of tacksOf(y)) {
   const T = riding.tackFor(config, y, tk ? { tack: tk } : null), yt = tk ? `${y} (${tk} tack)` : y;
@@ -132,13 +163,20 @@ for (const y of YEARS) for (const tk of tacksOf(y)) {
     }
     ok(deep === 0, `${yt}: the hanging leathers and resting reins stay out of the trunk (${deep} points in, deepest ${(worst * 100).toFixed(1)} cm)`);
     const bit = tack.bit(1);
-    for (const m of tack.parts.free.children.filter((c, i) => i % 3 === 2)) {
+    for (const m of tack.parts.free.children.filter(c => c.name === 'tack:rein')) {
       const pos = m.geometry.attributes.position;
       for (let i = 0; i < pos.count; i++) { v.fromBufferAttribute(pos, i).applyMatrix4(m.matrixWorld); if (v.z < bit.z - .2 && v.y < bit.y + .05) low++; }
     }
     ok(low === 0, `${yt}: the resting reins go up over the neck from the bit (${low} points below it)`);
   }
-  for (const asset of assetsOf(y)) {
+  const side = tk && tk === sideKey(y);
+  if (side) {
+    const heads = tack.parts.onBody.children.filter(m => m.name.startsWith('tack:head:'));
+    ok(heads.length === (T.saddle.heads ?? []).length && heads.length >= 1 && heads.every(m => m.geometry.boundingSphere ?? m.geometry.computeBoundingSphere() ?? true),
+      `${yt}: the side saddle's heads are drawn (${heads.map(m => m.name.slice(10)).join(', ')})`);
+    ok(tack.parts.free.children.filter(c => c.name === 'tack:leather').length === 1, `${yt}: one stirrup, on the near side`);
+  }
+  for (const asset of (side ? womenOf(y).filter(a => assetsOf(y).includes(a)) : assetsOf(y))) {
   // The rider, on the year's real figure.
   const human = humans[asset];
   const actorRoot = new THREE.Group();
@@ -154,6 +192,13 @@ for (const y of YEARS) for (const tk of tacksOf(y)) {
   const gait = createHorseGait(root, { walk, walkCycle_m: spec.stride_m, trot, trotCycle_m: spec.trot_stride_m,
     canter, canterCycle_m: spec.canter_stride_m, gallop, gallopCycle_m: spec.gallop_stride_m, rest: true });
   let worstFoot = 0, worstHand = 0, worstShort = 0, inside = 0, worstInside = 0, sampled = 0, laid = 0, pressed = 0; const dbg = {};
+  // T-3644: aside, her hanging cloth is laid on the habit (rider-drape.js, as the shader does),
+  // and her legs must be under it: every point of her legs' skin and stockings inside the sheet.
+  const habitOf = new Map();
+  if (side) for (const m of skinned) { const kind = garmentKind(m, asset).kind; const rest = habitCloth(m, kind) && habitRest(m); if (rest) habitOf.set(m, { rest, lift: /garment_outer|apron/.test(m.material.name) || kind === 'ride' ? HABIT.lift_m : 0 }); }
+  const habitL = Math.max(.3, ...[...habitOf.values()].map(h => h.rest.below));
+  if (side) ok(habitOf.size >= 1, `${yt} ${asset}: her skirt is laid on the habit (${habitOf.size} pieces)`);
+  let bare = 0, legPts = 0, worstBare = 0, headIn = -Infinity;
   const zone = pressZone(S);
   for (const [pace, cycle] of [[config.ride.walk_m_s, spec.stride_m], [config.ride.trot_m_s, spec.trot_stride_m],
     [config.ride.canter_m_s, spec.canter_stride_m], [config.ride.gallop_m_s, spec.gallop_stride_m]]) {
@@ -164,26 +209,54 @@ for (const y of YEARS) for (const tk of tacksOf(y)) {
       // Moving with the horse (riderLife) and looking hard about, left then right, head down.
       const look = (k % 2 ? 1 : -1) * riding.LOOK_MAX_RAD;
       const L = riding.riderLife({ next: Infinity, look, want: look, nod: .12, wantNod: .12 }, { level: gait.level, moving: gait.moving, phase: gait.phase, dt: 0, now: k });
-      const f = riding.fitFor(config.fit, asset);   // T-3644: the body's own fit
+      const f = riding.fitFor(config.fit, asset, side ? 'side' : 'astride');   // T-3644: the body's own fit, aside on a side saddle
       const lean = riding.leanAt(f, gait.level) + L.lean;
       const t = saddleTargets(tack, f, { lean, rise: L.rise, give: L.give }), w = t.world(root);
       const short = pose.apply({ ...w, look: L.look, sway: L.sway, nod: L.nod, ...riding.bodyPose(f) });
       tack.update(t.rootFrame(root, pose));
       worstShort = Math.max(worstShort, ...Object.values(short));
+      // Aside, the side saddle's heads stay clear of her legs (each leg as a capsule on its bones).
+      if (side) for (const m of tack.parts.onBody.children.filter(c => c.name.startsWith('tack:head:'))) {
+        const W = n => pose.bones[n].getWorldPosition(new THREE.Vector3()), P = m.geometry.attributes.position, p = new THREE.Vector3(), ab = new THREE.Vector3();
+        const caps = [['thigh_r', 'calf_r', .075], ['calf_r', 'foot_r', .055], ['thigh_l', 'calf_l', .075], ['calf_l', 'foot_l', .055]].map(([a, b, r]) => [W(a), W(b), r]);
+        for (let i = 0; i < P.count; i++) {
+          p.fromBufferAttribute(P, i).applyMatrix4(m.matrixWorld);
+          for (const [a, b, r] of caps) {
+            ab.subVectors(b, a); const t = Math.max(0, Math.min(1, p.clone().sub(a).dot(ab) / ab.lengthSq()));
+            headIn = Math.max(headIn, r - a.clone().addScaledVector(ab, t).distanceTo(p));
+          }
+        }
+      }
       for (const s of ['l', 'r']) {
         worstFoot = Math.max(worstFoot, pose.bones[`foot_${s}`].getWorldPosition(v).distanceTo(w.feet[s]));
         worstHand = Math.max(worstHand, pose.bones[`hand_${s}`].getWorldPosition(v).distanceTo(w.hands[s]));
       }
       // The rider's skin, carried back into the trunk's rest frame (where the envelope is), against the coat.
       const back = bodyRest.clone().multiply(bones.horse_body.matrixWorld.clone().invert());
+      const toEnv = new THREE.Matrix4().makeTranslation(0, -S.axis_y_m, 0).multiply(back);
+      let sheet = null, hips = null;
+      if (side) {
+        hips = pose.bones.thigh_l.getWorldPosition(new THREE.Vector3()).add(pose.bones.thigh_r.getWorldPosition(new THREE.Vector3())).multiplyScalar(.5).applyMatrix4(toEnv);
+        sheet = habitSheet(legBalls(pose.bones, toEnv), hips);
+      }
+      const rest = new THREE.Vector3();
       for (const m of skinned) {
         m.skeleton.update();
         // Hanging cloth lies on the horse (rider-drape.js, as the shader lays it); legs, skin and boots never move.
         const draped = drapes(m, garmentKind(m, asset).kind);
+        const H = habitOf.get(m);
+        const legsRest = side && !draped && !/^footwear/.test(m.material.name) ? habitRest(m) : null;
         const n = m.geometry.attributes.position.count;
         for (let i = 0; i < n; i += 5) {
           m.getVertexPosition(i, v).applyMatrix4(m.matrixWorld).applyMatrix4(back);
           q.copy(v).sub(new THREE.Vector3(0, S.axis_y_m, 0));
+          if (H) habitVertex(sheet, rest.fromBufferAttribute(m.geometry.attributes.position, i).applyMatrix4(H.rest.matrix), q, habitL, H.lift);
+          // Her legs (standing, more than 15 cm under the hips) under the habit.
+          if (legsRest && rest.fromBufferAttribute(m.geometry.attributes.position, i).applyMatrix4(legsRest.matrix).y < -.15) {
+            legPts++;
+            const out = habitOutside(sheet, hips, q);
+            if (out > .01) { bare++; worstBare = Math.max(worstBare, out); }
+          }
           if (draped && drapePoint(q, env, { seatHalfDeg: S.seat_half_angle_deg })) laid++;
           // A leg lying on the saddle is pressed onto its cloth and flaps (the shader's press).
           else if (!draped && pressPoint(q, env, zone)) pressed++;
@@ -205,6 +278,11 @@ for (const y of YEARS) for (const tk of tacksOf(y)) {
   ok(worstShort === 0, `${yt} ${asset}: every reach of the rider gets there at walk, trot, canter and gallop`);
   ok(worstFoot < .02 && worstHand < .02, `${yt} ${asset}: feet at the irons and hands at the reins (${worstFoot.toFixed(3)}, ${worstHand.toFixed(3)} m)`);
   ok(inside === 0, `${yt} ${asset}: the rider never goes into the horse at walk, trot, canter or gallop (${inside} points, deepest ${(worstInside * 100).toFixed(1)} cm)`);
+  if (side) {
+    report.push(`  aside: ${bare} of ${legPts} points of her legs outside the habit (furthest ${(worstBare * 100).toFixed(1)} cm)`);
+    ok(legPts > 500 && bare === 0, `${yt} ${asset}: aside, her legs are under the habit at every pace (${bare} of ${legPts} points out, furthest ${(worstBare * 100).toFixed(1)} cm)`);
+    ok(headIn <= 0, `${yt} ${asset}: the side saddle's heads stay clear of her legs (${(Math.max(0, headIn) * 100).toFixed(1)} cm in)`);
+  }
   gait.advance(0, 0, .1); gait.advance(0, 0, .5);
   ok(gait.moving === 0, `${yt}: a horse that stops stands in its rest pose`);
   gait.dispose(); root.remove(actorRoot);
