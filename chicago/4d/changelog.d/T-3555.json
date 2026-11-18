@@ -1,0 +1,7 @@
+{
+  "title": "Phones no longer hit an error while the distant crowd is prepared",
+  "kind": "fix",
+  "items": [
+    "A distant crowd picture could be cleared away while the phone was still preparing it, which raised an error on the page; it now waits until the preparing is done."
+  ]
+}
