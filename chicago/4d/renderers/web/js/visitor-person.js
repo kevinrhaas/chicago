@@ -117,7 +117,7 @@ export function personAsset(choice, year, catalog) {
  * human-variation.js reads `looks.face_pick`). Pure.
  */
 export function personRecord(choice, year, catalog) {
-  const { sex, cut, year: y } = yearChoice(choice, year, catalog);
+  const { sex, cut, outfit, year: y } = yearChoice(choice, year, catalog);
   const age = byId(catalog.ages, choice.age)?.years ?? 35;
   const facial = [...(byId(catalog.facial?.[sex], choice.facial)?.wears ?? []), ...(catalog.brows?.[sex] ?? [])];
   const graded = (value) => ({ value, drawn: value, grade: 'reconstructed' });
@@ -131,6 +131,9 @@ export function personRecord(choice, year, catalog) {
       face_pick: choice.face === 'auto' ? null : choice.face,
       grade: 'reconstructed', basis: PERSON_BASIS, liberty: catalog.liberty,
     },
+    // A dress worn on its body in other colours, pieces set aside, a hat of its own (human-looks.js
+    // dressCloth, human-hats.js): the riding habits.
+    ...(outfit?.dress ? { dress: outfit.dress } : {}),
   };
 }
 
