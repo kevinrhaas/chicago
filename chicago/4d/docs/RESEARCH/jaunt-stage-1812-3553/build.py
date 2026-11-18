@@ -24,6 +24,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(ROOT / 'tools'))
+import names_1812  # noqa: E402
 LIBERTY = 'L-1812-staged-jaunts-3553'
 
 
@@ -102,6 +104,12 @@ def member(who, at, heading=None, pose=None, beats=None, tier=None, face=None, *
     else:
         m['person'] = who
     m.update(extra)
+    if 'extra' in m and m.get('name'):
+        # T-3553 (the owner, 2026-11-17): an unnamed figure takes a name of ours; what it stands
+        # for stays on it as `about` (tools/names_1812.py).
+        m['name'], about = names_1812.stage_name(m['extra'], m['name'])
+        if about:
+            m['about'] = about
     m['at'] = at
     if face is not None:
         heading = bearing(at, face)
@@ -158,6 +166,8 @@ def write(check=False):
                         doc['liberties'].append(stage['fire']['liberty'])
         if LIBERTY not in doc['liberties']:
             doc['liberties'].append(LIBERTY)
+        if any(c.get('about') for st in built.values() for c in st['cast']) and names_1812.LIBERTY not in doc['liberties']:
+            doc['liberties'].append(names_1812.LIBERTY)   # the unnamed figures' names (T-3553)
         doc['content_version'] = dev_version(path) + 1
         body = json.dumps(doc, indent=2, ensure_ascii=False) + '\n'
         if check:
