@@ -37,8 +37,10 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   // its own) sits between About and Research.
   const panes = [...settingsHtml.matchAll(/<div class="settings-group[^"]*"[^>]*?data-set-pane="(\w+)"/g)].map((m) => m[1]);
   assert.equal(panes.length, heads.length, 'every group names its tab');
-  assert.deepEqual([...new Set(panes)], SETTINGS_TABS.filter((k) => k !== 'whatsnew'), 'the groups follow the tabs\' order');
-  assert.deepEqual(SETTINGS_TABS, ['display', 'show', 'look', 'graphics', 'sound', 'about', 'whatsnew', 'research']);
+  // T-3644: You's group is not on the page; person-settings.js personHost makes it before Show's.
+  assert.deepEqual([...new Set(panes)], SETTINGS_TABS.filter((k) => k !== 'whatsnew' && k !== 'you'), 'the groups follow the tabs\' order');
+  // T-3644: You (the visitor's own person) after Display.
+  assert.deepEqual(SETTINGS_TABS, ['display', 'you', 'show', 'look', 'graphics', 'sound', 'about', 'whatsnew', 'research']);
   assert.deepEqual(SETTINGS_TABS.slice(-2), ['whatsnew', 'research'], "What's new is one of the last tabs; Research is the last");
   assert.deepEqual([...SETTINGS_SECTIONS], ['settings', 'whatsnew']);
   assert.match(html, /<nav class="set-tabs" id="settings-tabs" role="tablist" aria-label="Settings" hidden><\/nav>/,
@@ -205,7 +207,7 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   const bar = node('nav'); bar.id = 'settings-tabs'; byId.set(bar.id, bar); bar.hidden = true;
   const body = node('section');
   const groups = {};
-  for (const key of ['display', 'display', 'show', 'look', 'graphics', 'sound', 'about', 'research']) {
+  for (const key of ['display', 'display', 'you', 'show', 'look', 'graphics', 'sound', 'about', 'research']) {
     const g = node('div', body);
     g.dataset.setPane = key;
     (groups[key] ??= []).push(g);
@@ -223,7 +225,7 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   const buttons = bar.querySelectorAll('[data-set-tab]');
   assert.deepEqual(buttons.map((b) => b.dataset.setTab), [...SETTINGS_TABS], 'one button a tab, in order');
   assert.deepEqual(buttons.map((b) => b.children.find((c) => c.className === 'set-tab-label')?.textContent),
-    ['Display', 'Show', 'Look', 'Graphics', 'Sound', 'About', "What's new", 'Research']);
+    ['Display', 'You', 'Show', 'Look', 'Graphics', 'Sound', 'About', "What's new", 'Research']);
   assert(buttons.every((b) => b.getAttribute('role') === 'tab' && /<svg class="set-tab-icon"[^>]*stroke="currentColor"/.test(b.innerHTML)),
     'each an icon (one colour, currentColor) over its label');
   assert(byId.get('settings-whatsnew-dot')?.hidden === true, "What's new carries its unread dot, hidden until there is news");
@@ -234,7 +236,7 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   const shown = () => body.children.filter((g) => !g.hidden).map((g) => g.dataset.setPane);
   assert.deepEqual(selected(), ['display']);
   assert.deepEqual(shown(), ['display', 'display'], 'Display opens first, and only its groups show');
-  bar.fire('click', { target: buttons[2] });
+  bar.fire('click', { target: buttons[3] });
   assert.deepEqual([selected(), shown(), tabs.pane, scroll.scrollTop], [['look'], ['look'], 'look', 0], 'a tap shows its tab at its top');
   assert.deepEqual(asked, [], 'a tab inside Settings asks the HUD for nothing');
   tabs.select('whatsnew');
@@ -401,7 +403,7 @@ function fakePage() {
   assert.equal(applyTextScale(null, 1.2), 1.2);
 }
 
-console.log('SETTINGS APP PASS — eight icon tabs (Display, Show, Look, Graphics, Sound, About, What\'s new, Research last) with every id kept; '
+console.log('SETTINGS APP PASS — nine icon tabs (Display, You, Show, Look, Graphics, Sound, About, What\'s new, Research last) with every id kept; '
   + 'mouse / look sensitivity (Standard 1x, 0.2-3x) stored and read by both backends; '
   + 'light or dark is a two-way choice; text size 100–140 % applies and persists; Auto names and restores the device\'s levels; '
   + 'Sound\'s four levels persist and say what each covers; the machine tiles are each machine\'s own colours');
