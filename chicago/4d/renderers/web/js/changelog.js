@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3109, ts: '2026-11-18T17:08:08.589Z', date: 'Nov 18, 2026, 11:08 AM CT', title: 'X-RAY view re-measured for 1835\'s busier streets', kind: 'improvement',
+    items: [
+      'The 1835 X-RAY view\'s triangle allowance is re-measured at the test\'s own viewpoint now that the townspeople wear their period clothes and ride with full tack: 3,785,000 → 3,870,000. Nothing in the town is drawn differently, and the Light and Balanced settings keep their own limits.',
+    ] },
   { v: 3108, ts: '2026-11-18T15:58:24.276Z', date: 'Nov 18, 2026, 9:58 AM CT', title: '2026 Prairie, the Louis Wahl house, rebuilt to its 1874 engraving', kind: 'feature',
     items: [
       '2026 Prairie Avenue is no longer a placeholder draft: the Louis Wahl house now stands as the Second Empire stone-front house The Land Owner engraved in May 1874, matched against that picture from its own camera. It has a tower under a crested mansard at the north end of the front, the door at the head of its stoop under a balcony, round-headed windows throughout, and a bay and tall chimney on the south side. The plan comes from the 1911 fire-insurance map.',
