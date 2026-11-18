@@ -20300,9 +20300,21 @@ for (const [label, viewport, touch] of [
     });
     // T-3022: what a visitor opens on a building opens in the Navigator's Inspect, not the
     // card; `api.inspecting` names the building on screen either way.
-    await page.evaluate(() => window.__chicago4d.closeBuilding());
-    await page.keyboard.press('Space');
-    await page.waitForTimeout(250);
+    // T-3638: a key is consumed inside a frame (main.js tick → intent.takeInteract), and the
+    // crosshair it inspects down is the camera the LAST frame left. Under SwiftShader a frame
+    // can take seconds, so a fixed wait read the scene before any frame had run — or had the
+    // raycast fired from the camera before `frame()` aimed it — and the check went red on
+    // whichever viewport the runner happened to starve (dev 44076624959 mobile and desktop,
+    // 44193370202 desktop only). One forced frame settles the aim, and one after each key
+    // consumes it, so what is read is what the key did. `stepKey` is the same `api.step()`
+    // the click check below has always used; it never waits any less than before.
+    const stepKey = async (key, ms) => {
+      await page.keyboard.press(key);
+      await page.waitForTimeout(ms);
+      await page.evaluate(() => window.__chicago4d.step());
+    };
+    await page.evaluate(() => { window.__chicago4d.closeBuilding(); window.__chicago4d.step(); });
+    await stepKey('Space', 250);
     const spaceOnFoot = await page.evaluate(() => ({
       alt: window.__chicago4d.player.altitude,
       flying: window.__chicago4d.player.flying,
@@ -20327,11 +20339,9 @@ for (const [label, viewport, touch] of [
     check(`${label}: Escape closes the inspection card`, escClosed,
       `card hidden after Escape: ${escClosed}`);
 
-    await page.keyboard.press('Space');            // same crosshair, reopens
-    await page.waitForTimeout(300);
+    await stepKey('Space', 300);                   // same crosshair, reopens
     const reopened = await page.evaluate(() => !!window.__chicago4d.inspecting);
-    await page.keyboard.press('KeyE');
-    await page.waitForTimeout(300);
+    await stepKey('KeyE', 300);
     const keyToggled = await page.evaluate(() => !window.__chicago4d.inspecting);
     check(`${label}: the inspect key closes the card it opened`,
       reopened && keyToggled,
@@ -20341,15 +20351,15 @@ for (const [label, viewport, touch] of [
     // And neither fires from inside the Go-to box: typing is not a command.
     // (Escape in the box still shuts the Go-to PANEL — that is the panel's own
     // long-standing binding — but the card must not be collateral.)
-    await page.keyboard.press('Space');            // card open again
-    await page.waitForTimeout(300);
+    await stepKey('Space', 300);                   // card open again
     // T-2620: Go to is the Jaunts app's own segment (T-2630); its box is #welcome-search.
     await page.evaluate(async () => {
       await window.__chicago4d.openJaunts('goto');
       document.getElementById('welcome-search')?.focus();
     });
-    await page.keyboard.press('KeyE');
-    await page.waitForTimeout(150);
+    // Stepped too, so an E that leaked out of the box as a command would have had its frame
+    // to inspect in before this reads — without it, "nothing inspected" passed by being early.
+    await stepKey('KeyE', 150);
     // Read the box BEFORE Escape: Chromium natively clears a type=search
     // input on Escape, so reading after would show empty even though the
     // keystroke typed rather than fired.
