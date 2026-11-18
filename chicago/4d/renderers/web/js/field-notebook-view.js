@@ -82,6 +82,10 @@ export function mountFieldNotebook(container, { notebook = fieldNotebook, contex
     const state = notebook.read();
     entries.replaceChildren();
     if (state.error) { result({ ok: false, reason: state.error }); return; }
+    // Another tab may remove entries. Keep drafts only for confirmed live IDs;
+    // a failed storage read must not discard the visitor's unsaved writing.
+    const liveIds = new Set(state.entries.map(entry => entry.id));
+    for (const id of drafts.keys()) if (!liveIds.has(id)) drafts.delete(id);
     if (!state.entries.length) entries.append(node(doc, 'p', tr('empty'), 'nav-sub'));
     for (const entry of [...state.entries].reverse()) {
       const article = node(doc, 'article', null, 'field-notebook-entry');
