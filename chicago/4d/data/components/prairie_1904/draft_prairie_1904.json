@@ -1007,6 +1007,8 @@
     "s35-2009-wing": "2009 Prairie's one-storey rear range now stands on K01's rear wings of mayer_house_2009_prairie (T-1913); the draft stands no second building.",
     "s35-2011-front": "2011 Prairie now stands as the K01 stone-fronted house `house_2011_prairie` (T-3615, piece 1 of T-1915, the S06 package of the T-1837 programme), the Romanesque house beside Mayer, which refines this draft in place under the draft's own id: the '2½B' front block off the sheet at full size, its rock-faced ashlar front, round-arched door, cross window, gabled dormer and round corner turret off the Chicagology photograph of 2009-2011 and the Inland Architect's 1895 plate of Reid's house.",
     "s35-2011-wing": "2011 Prairie's '2B' rear block now stands on K01's rear wings of `house_2011_prairie` (T-3615); the draft stands no second building.",
+    "s35-2017-front": "2017 Prairie now stands as the K01 stone-fronted house `house_2017_prairie` (T-3634, piece 2 of T-1917, the S08 package of the T-1837 programme), the William Armour house, which refines this draft in place under the draft's own id: the sheet's '3B' body with its stone front under the photograph's mansard, two gabled dormers and cresting, the gabled south projection, the columned porch and its deck, and the 'rear 2B' range on K01's rear wings, off Chicagology's photograph of the house.",
+    "s35-2017-wing": "2017 Prairie's '2B' rear range now stands on K01's rear wings of `house_2017_prairie` (T-3634); the draft stands no second building.",
     "s35-2021-front": "2021 Prairie now stands as the K01 brick house `high_house_2021_prairie` (T-3633, piece 1 of T-1917, the S08 package of the T-1837 programme), the Adams/High house, which refines this draft in place under the draft's own id: the sheet's front block under the photograph's steep front gable, its round corner turret over the arched door, the gabled south wing and the body and ranges behind on K01's rear wings, off Chicagology's photograph of the house.",
     "s35-2021-wing": "2021 Prairie's '2B' and '1B' rear ranges now stand on K01's rear wings of `high_house_2021_prairie` (T-3633); the draft stands no second building.",
     "s35-2003-front": "2003 Prairie now stands as the K01 brick house house_2003_prairie under K01's flat roof (T-3346, piece 1 of T-1912), the north half of the pair with 2005, which refines this draft in place under the draft's own id: the three-storey main body on K01 with the sheet's curved front bay on K08, and the sheet's two-storey rear range on K01's rear wings; the draft stands no second building beside it.",
@@ -1927,7 +1929,9 @@
       "slug": "house",
       "brackets": true,
       "entrance": "south",
-      "why": "3B brick with a stone front (the McBeans' in the 1904 Blue Book): the stone-front family's flat roof, bracketed so it does not repeat Reid's plain cornice next door, with the sheet's stone piece as its front bay; the door to the south."
+      "why": "3B brick with a stone front (the McBeans' in the 1904 Blue Book): the stone-front family's flat roof, bracketed so it does not repeat Reid's plain cornice next door, with the sheet's stone piece as its front bay; the door to the south.",
+      "house_id": "house_2017_prairie",
+      "house_address": "2017"
     },
     "frontage-35-079": {
       "slug": "high_house",

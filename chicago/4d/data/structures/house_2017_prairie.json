@@ -111,12 +111,12 @@
     "wall_thickness_front_m": {
      "value": 0.45,
      "confidence": "reconstructed",
-     "note": "A stone-faced brick front of the district's usual thickness (the K01 houses beside it)."
+     "note": "A stone-faced brick front of the district's usual thickness (the K01 houses beside it). (L-k01-2017-armour-3634)"
     },
     "wall_thickness_side_m": {
      "value": 0.33,
      "confidence": "reconstructed",
-     "note": "Common brick flanks, as the K01 houses beside it."
+     "note": "Common brick flanks, as the K01 houses beside it. (L-k01-2017-armour-3634)"
     },
     "stone_front": {
      "value": {
@@ -137,7 +137,7 @@
     "service_wall_brick": {
      "value": "common_buff_common_6",
      "confidence": "reconstructed",
-     "note": "The flanks and rear in common brick, unseen (the K01 default the houses beside it wear)."
+     "note": "The flanks and rear in common brick, unseen (the K01 default the houses beside it wear). (L-k01-2017-armour-3634)"
     },
     "street_front_trim": {
      "value": {
@@ -178,7 +178,7 @@
     "roof_pitch_deg": {
      "value": 10,
      "confidence": "reconstructed",
-     "note": "The mansard's deck, unseen from the street: the district's low tin deck."
+     "note": "The mansard's deck, unseen from the street: the district's low tin deck. (L-k01-2017-armour-3634)"
     },
     "mansard": {
      "value": {
@@ -260,7 +260,7 @@
     "stair_tread_m": {
      "value": 0.3,
      "confidence": "reconstructed",
-     "note": "The stoop's treads, a usual 0.3 m."
+     "note": "The stoop's treads, a usual 0.3 m. (L-k01-2017-armour-3634)"
     },
     "stair_landing_depth_m": {
      "value": 1.75,
@@ -305,7 +305,7 @@
       13.0
      ],
      "confidence": "reconstructed",
-     "note": "The flanks are not seen: three axes along the 16.5 m body, the K01 houses' rule."
+     "note": "The flanks are not seen: three axes along the 16.5 m body, the K01 houses' rule. (L-k01-2017-armour-3634)"
     },
     "north_bays": {
      "value": [
@@ -313,7 +313,7 @@
       12.0
      ],
      "confidence": "reconstructed",
-     "note": "The north flank is not seen."
+     "note": "The north flank is not seen. (L-k01-2017-armour-3634)"
     },
     "rear_bays": {
      "value": [
@@ -321,7 +321,7 @@
       9.6
      ],
      "confidence": "reconstructed",
-     "note": "The rear is not seen: a light either side of the rear range's junction."
+     "note": "The rear is not seen: a light either side of the rear range's junction. (L-k01-2017-armour-3634)"
     },
     "sash_by_storey": {
      "value": [
@@ -547,7 +547,7 @@
       ]
      },
      "confidence": "reconstructed",
-     "note": "No downpipe shows on the front in the photograph; the flanks carry them, unseen."
+     "note": "No downpipe shows on the front in the photograph; the flanks carry them, unseen. (L-k01-2017-armour-3634)"
     },
     "bays": {
      "value": [
@@ -734,7 +734,7 @@
       }
      },
      "confidence": "reconstructed",
-     "note": "The lot's street line off the 1904 parcel (prairie_2017); an iron spear fence on a curb, as the photograph's railing along the front's foot is iron. The photograph's railing stands close before the basement; where the lot line ran is the parcel's."
+     "note": "The lot's street line off the 1904 parcel (prairie_2017); an iron spear fence on a curb, as the photograph's railing along the front's foot is iron. The photograph's railing stands close before the basement; where the lot line ran is the parcel's. (L-k01-2017-armour-3634)"
     },
     "yard": {
      "value": {
@@ -751,7 +751,7 @@
       }
      },
      "confidence": "reconstructed",
-     "note": "Flags to the stoop, as the K01 houses beside it."
+     "note": "Flags to the stoop, as the K01 houses beside it. (L-k01-2017-armour-3634)"
     }
    }
   }

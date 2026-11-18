@@ -54,14 +54,14 @@
  },
  "summary": {
   "lots": 132,
-  "surfaces": 285,
+  "surfaces": 284,
   "doors": 124,
-  "posts": 118,
+  "posts": 116,
   "gardens": 31,
   "by_kind": {
    "alley_walk": 22,
    "coach_walk": 30,
-   "drying_yard": 59,
+   "drying_yard": 58,
    "front_walk": 8,
    "gangway": 30,
    "garden_bed": 31,
@@ -14943,7 +14943,7 @@
     "house_2017_prairie",
     "house_2017_prairie_coach_house"
    ],
-   "scheme": "drying_yard",
+   "scheme": "service_court",
    "grade": "reconstructed",
    "sources": [],
    "note": "",
@@ -14951,68 +14951,40 @@
     {
      "id": "prairie_2017:rear_terrace:0",
      "kind": "rear_terrace",
-     "material": "cement",
+     "material": "yard_brick",
      "polygon_local_m": [
       [
-       1441.31,
-       -3538.83
+       1447.75,
+       -3532.02
       ],
       [
-       1441.32,
-       -3540.99
+       1447.78,
+       -3535.2
       ],
       [
-       1445.87,
-       -3540.95
+       1453.13,
+       -3535.16
       ],
       [
-       1445.86,
-       -3538.8
+       1453.1,
+       -3531.97
       ]
      ],
      "along_deg": 179.55,
      "lift_m": 0.03,
      "order": 0,
      "grade": "reconstructed",
-     "note": "A paved terrace at the back door, in Portland cement walk: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
-    },
-    {
-     "id": "prairie_2017:drying_yard:1",
-     "kind": "drying_yard",
-     "material": "trodden",
-     "polygon_local_m": [
-      [
-       1452.46,
-       -3530.07
-      ],
-      [
-       1452.5,
-       -3534.57
-      ],
-      [
-       1455.7,
-       -3534.55
-      ],
-      [
-       1455.66,
-       -3530.05
-      ]
-     ],
-     "along_deg": 179.55,
-     "lift_m": 0.03,
-     "order": 0,
-     "grade": "reconstructed",
-     "note": "A drying yard of trodden earth, with its clothes posts (L-prairie-back-yards-3488)."
+     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [
     {
      "id": "prairie_2017:back_door",
      "structure": "house_2017_prairie",
-     "e": 1441.16,
-     "n": -3539.91,
+     "e": 1447.59,
+     "n": -3533.61,
      "facing_deg": 89.55,
-     "sill_m": 1.4,
+     "sill_m": 1.45,
      "width_m": 0.95,
      "height_m": 2.2,
      "leaf": true,
@@ -15021,34 +14993,13 @@
       "width_m": 1.6,
       "risers": 8,
       "run_m": 3.06,
-      "material": "wood"
+      "material": "stone"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.45 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
-   "posts": [
-    {
-     "kind": "clothes_post",
-     "e": 1454.07,
-     "n": -3530.36,
-     "height_m": 2.3,
-     "arm_m": 0.9,
-     "facing_deg": 179.55,
-     "line_to": 1,
-     "grade": "reconstructed"
-    },
-    {
-     "kind": "clothes_post",
-     "e": 1454.1,
-     "n": -3534.26,
-     "height_m": 2.3,
-     "arm_m": 0.9,
-     "facing_deg": 179.55,
-     "line_to": null,
-     "grade": "reconstructed"
-    }
-   ],
+   "posts": [],
    "crops": [],
    "shrubs": [],
    "trees": [],
