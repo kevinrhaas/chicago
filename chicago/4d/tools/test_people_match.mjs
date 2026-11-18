@@ -8,10 +8,13 @@
 // - every subject: a set that judges its scene, a transport row that drives that person in that
 //   scene, the fixed rig (one still at 3 m, one at 10 m) and a clip of about 5 seconds;
 // - every match record: each checklist item answered, a verdict its items allow, a still per band
-//   and viewport, and no verdict given on a figure that has since changed.
+//   and viewport, and no verdict given on a figure that has since changed;
+// - a stage subject (T-3553, the catalogue's figures on tools/people_match_stage.html): the body
+//   its instance record wears, a pose and a time for every still and the clip, pair pictures of
+//   the right band, and differences each with a status.
 // Then it breaks a copy of each record in memory, one way at a time, and expects the refusal.
 import assert from 'node:assert/strict';
-import { checkAll, checkSet, checkSubject, checkMatch, readJSON, CHECKLIST } from './people_match_records.mjs';
+import { checkAll, checkSet, checkSubject, checkMatch, readJSON, boundValues, CHECKLIST } from './people_match_records.mjs';
 
 const root = process.cwd();
 const { errs, sets, subjects, counts } = checkAll(root);
@@ -51,5 +54,28 @@ refuses('an unanswered item', () => { const m = clone(match); delete m.checklist
 refuses('a missing phone still', () => { const m = clone(match); delete m.stills['far-phone']; return checkMatch(root, m, subject); }, /far-phone/);
 refuses('an approval of an earlier livery', () => { const m = clone(match); m.bound.driver_livery_sha256 = '0'.repeat(64); return checkMatch(root, m, subject); }, /different figure \(driver_livery_sha256/);
 { const m = clone(match); m.bound.driver_livery_sha256 = '0'.repeat(64); m.verdict = 'unreviewed'; assert.deepEqual(checkMatch(root, m, subject), [], 'an unreviewed record of an earlier figure waits for its reshoot'); }
+
+// ---- a stage subject (T-3553: the catalogue's figures, stood or walked on the stage page) ----
+const stageSubject = [...subjects.values()].find(s => s.find?.kind === 'stage');
+if (stageSubject) {
+  const sset = clone(sets.get(stageSubject.reference_set));
+  const ss = clone(stageSubject);
+  assert.deepEqual(checkSubject(root, ss, setsWith(sset)), [], `${ss.id}: the stage subject on file is accepted`);
+  refuses('a stage body the record does not wear', () => { const s = clone(ss); s.find.asset = 'hans_johnson_1904'; return checkSubject(root, s, setsWith(sset)); }, /wears/);
+  refuses('a stage still with no pose', () => { const s = clone(ss); delete s.stills[0].pose; return checkSubject(root, s, setsWith(sset)); }, /pose must be one of/);
+  refuses('a stage still at no time', () => { const s = clone(ss); s.stills[1].at_s = -1; return checkSubject(root, s, setsWith(sset)); }, /at_s/);
+  refuses('a stage clip with no pose', () => { const s = clone(ss); delete s.clip.pose; return checkSubject(root, s, setsWith(sset)); }, /clip.pose/);
+  refuses('a stage bound without the body', () => { const s = clone(ss); s.bound.keys = ['animation']; return checkSubject(root, s, setsWith(sset)); }, /appearance among the keys/);
+  refuses('a pair picture of the wrong band', () => { const s = clone(ss); const far = sset.pictures.find(p => p.band === 'far'); s.pair = { near: far.name }; return checkSubject(root, s, setsWith(sset)); }, /is a far picture/);
+  refuses('a pair picture not in the set', () => { const s = clone(ss); s.pair = { near: 'no_such_picture' }; return checkSubject(root, s, setsWith(sset)); }, /is not a picture of/);
+  const sbound = (() => { const rec = readJSON(root, ss.bound.file); return Object.fromEntries(ss.bound.keys.map(k => [k, rec[k] ?? null])); })();
+  const smatch = { subject: ss.id, reference_set: sset.id, shot: { date: '2026-11-17', target: 'stage' }, bound: { ...sbound, asset_lod0_sha256: 'f'.repeat(64) }, stills, verdict: 'differs',
+    checklist: { ...answered('reads'), silhouette: { what: CHECKLIST.silhouette, status: 'open', note: 'read' } },
+    differences: [{ what: 'collar', picture: 'high', ours: 'low', status: 'open' }] };
+  refuses('a verdict on a rebuilt body', () => checkMatch(root, smatch, ss), /asset_lod0_sha256/);
+  { const m = clone(smatch); m.verdict = 'unreviewed'; assert.deepEqual(checkMatch(root, m, ss), [], 'an unreviewed stage record of an earlier body waits for its reshoot'); }
+  refuses('a difference with no status', () => { const m = clone(smatch); m.verdict = 'unreviewed'; delete m.differences[0].status; return checkMatch(root, m, ss); }, /differences\[0\]\.status/);
+  refuses('matches with an open difference', () => { const m = clone(smatch); m.verdict = 'matches'; m.checklist = answered('reads'); m.bound = boundValues(root, ss); return checkMatch(root, m, ss); }, /open difference/);
+}
 
 console.log(`OK people match: ${counts.sets} reference set(s), ${counts.subjects} subject(s), ${counts.matches} match record(s); ${refusals} refusals hold`);

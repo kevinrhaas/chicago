@@ -54,6 +54,9 @@ import { dressSpectacles } from './human-spectacles.js';
 import { fitWaist } from './human-waist.js';
 import { engraveSilver } from './human-silver.js';
 import { easeSeats } from './human-seat.js';
+import { dressCollars } from './human-collar.js';
+import { fitCoats } from './human-coat.js';
+import { fitSleeves } from './human-sleeve.js';
 import { dressGarrison, garrisonCarry, createArmsPiles } from './human-garrison.js';
 import { clothHuman } from './fabric.js';
 // T-3627: the adults jaunts' fight motions (human-fight.js) load with the outing, not with the
@@ -192,10 +195,15 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
       loader.setMeshoptDecoder(await decoder);
     }
     const gltf = await loader.parseAsync(buf, String(new URL('.', href)));
-    // T-3553: trousers bridge the seat, a belted waist sits on the body, and trade silver is
-    // engraved, once per parse, before any figure is cloned (human-seat.js, human-waist.js,
-    // human-silver.js).
+    // T-3553: collars, straps and belts sit on the cloth beneath, trousers bridge the seat, a
+    // coat closes under the arm and at the back vent, sleeve hems turn with the wrist as one
+    // edge, a belted waist sits on the body, and trade silver is engraved, once per parse,
+    // before any figure is cloned (human-collar.js, human-seat.js, human-coat.js,
+    // human-sleeve.js, human-waist.js, human-silver.js).
+    dressCollars(gltf.scene);
     easeSeats(gltf.scene);
+    fitCoats(gltf.scene);
+    fitSleeves(gltf.scene);
     fitWaist(gltf.scene);
     engraveSilver(gltf.scene);
     return gltf;

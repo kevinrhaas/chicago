@@ -33,11 +33,20 @@
 //
 // The default target is the dev preview, so a still shows what is merged. --published shoots a
 // local mirror (tools/publish.sh) to judge a branch before it merges.
+//
+// A STAGE subject (find.kind "stage", T-3553: the wardrobe catalogue's figures) is not looked
+// for in the town: the rig serves this tree and stands or walks the instance record's body on
+// tools/people_match_stage.html, through humans.js as the town draws a person, with the same
+// cameras (eye height, bearing off the figure's heading, aim under the head bone) under a
+// perspective camera at the town's default field of view. Each still names its pose (stand |
+// walk) and the figure's own time at_s; the clip names its pose too. --url and --published do
+// not apply; the still shows the garments as they are on disk, in a stage light.
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { createRequire } from 'node:module';
+import { execFileSync } from 'node:child_process';
 import { SETS, VIEWPORTS, CHECKLIST, readJSON, checkSet, checkSubject, boundValues } from './people_match_records.mjs';
 
 const root = process.cwd();
@@ -69,9 +78,10 @@ fs.mkdirSync(out, { recursive: true });
 
 // ---- the target -------------------------------------------------------------------------
 let server = null, target;
-if (flag('--published')) {
-  const site = path.resolve(root, '../../site/4d');
-  if (!fs.existsSync(path.join(site, 'walk', 'index.html'))) { console.error(`no published mirror at ${site} — run tools/publish.sh first`); process.exit(2); }
+const stageKind = subject.find.kind === 'stage';
+if (flag('--published') || stageKind) {
+  const site = stageKind ? root : path.resolve(root, '../../site/4d');
+  if (!stageKind && !fs.existsSync(path.join(site, 'walk', 'index.html'))) { console.error(`no published mirror at ${site} — run tools/publish.sh first`); process.exit(2); }
   const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.json': 'application/json',
     '.glb': 'model/gltf-binary', '.bin': 'application/octet-stream', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml',
     '.wasm': 'application/wasm', '.ktx2': 'image/ktx2', '.geojson': 'application/json', '.woff2': 'font/woff2' };
@@ -83,19 +93,68 @@ if (flag('--published')) {
     res.writeHead(200, { 'content-type': TYPES[path.extname(file)] || 'application/octet-stream' });
     fs.createReadStream(file).pipe(res);
   });
-  await new Promise(r => server.listen(0, '127.0.0.1', r));
-  target = `http://127.0.0.1:${server.address().port}/walk/?year=${subject.scene}`;
+  await new Promise(r => server.listen(Number(opt('--port', 0)), '127.0.0.1', r));
+  target = stageKind
+    ? `http://127.0.0.1:${server.address().port}/tools/people_match_stage.html?asset=${subject.find.asset}&instance=${subject.find.instance}&year=${subject.scene}&lod=${subject.find.lod ?? 0}`
+    : `http://127.0.0.1:${server.address().port}/walk/?year=${subject.scene}`;
 } else {
   target = opt('--url', `https://dev.chicago.polecat.live/4d/dev/walk/?year=${subject.scene}`);
 }
-console.log(`people_match: ${subject.id} against ${set.id}, target ${flag('--published') ? 'local published mirror' : target}`);
+console.log(`people_match: ${subject.id} against ${set.id}, target ${stageKind ? 'this tree on the stage' : flag('--published') ? 'local published mirror' : target}`);
 
 const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE || undefined, args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
 const viewports = Object.entries(VIEWPORTS).filter(([vp]) => !opt('--viewport') || opt('--viewport') === vp);
 const stills = {}, cameras = {};
 let build = null, clipFrames = [], shotBound = null;
 
-for (const [vp, [w, h]] of viewports) {
+// ---- a stage subject: this tree's figure on tools/people_match_stage.html -----------------
+if (stageKind) {
+  const git = (...a) => { try { return execFileSync('git', a, { cwd: root, encoding: 'utf8' }).trim(); } catch { return ''; } };
+  const dirty = git('status', '--porcelain', '--', 'renderers/web/js', 'assets/humans', 'data/humans', 'tools/people_match_stage.html');
+  build = { banner: `stage, tree ${git('rev-parse', '--short=9', 'HEAD') || 'unknown'}${dirty ? ` + ${dirty.split('\n').length} uncommitted figure file(s)` : ''}`, version: null };
+  shotBound = readJSON(root, subject.bound.file);   // the record the stage reads, from this tree
+  const stagePage = async (vp, [w, h], pose) => {
+    const page = await browser.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 1, isMobile: vp === 'phone', hasTouch: vp === 'phone' });
+    const pageErrors = [];
+    page.on('pageerror', e => pageErrors.push(e.message));
+    await page.goto(`${target}&w=${w}&h=${h}`, { waitUntil: 'domcontentloaded', timeout: 180_000 });
+    await page.waitForFunction(() => window.__stage && (window.__stage.actor || window.__stage.error), null, { timeout: 300_000 });
+    const ready = await page.evaluate(() => window.__stage.ready.then(r => r, e => ({ error: String(e?.message ?? e) })));
+    if (ready.error) throw Error(`${subject.find.asset}: the stage drew no figure (${ready.error})`);
+    return { page, pageErrors, pose: await page.evaluate(p => window.__stage.pose(p), pose) };
+  };
+  const box = page => page.evaluate(({ up, down }) => window.__stage.box(up, down), { up: 0.35, down: subject.figure_below_head_m ?? 1.6 });
+  for (const [vp, wh] of viewports) {
+    for (const still of subject.stills) {
+      const { page, pageErrors, pose } = await stagePage(vp, wh, { pose: still.pose, at_s: still.at_s });
+      if (still.pose === 'walk' && pose.state !== 'walking') throw Error(`${subject.find.asset}: asked to walk, the figure is ${pose.state}`);
+      const cam = await page.evaluate(st => window.__stage.shoot(st), still);
+      const file = path.join(out, `${still.name}-${vp}.jpg`);
+      await page.screenshot({ path: file, type: 'jpeg', quality: 88, timeout: 300_000 });
+      stills[`${still.name}-${vp}`] = { file: path.relative(evidence, file), sha256: sha(fs.readFileSync(file)), detail: 'stage', pose: { pose: still.pose, at_s: still.at_s, clip: pose.clip, state: pose.state },
+        camera: cam, figure_box_px: await box(page) };
+      cameras[`${still.name}-${vp}`] = cam;
+      console.log(`  ${vp}: ${still.name} (${still.distance_m} m, ${still.pose} at ${still.at_s} s) shot`);
+      if (pageErrors.length) console.warn(`  ${vp}: page errors: ${pageErrors.join(' | ')}`);
+      await page.close();
+    }
+    if (!flag('--no-clip') && subject.clip.viewport === vp) {
+      // The strip, on the figure's own clock: the camera keeps its place relative to the figure
+      // (a walking one is followed, as a visitor walking alongside sees them).
+      const still = subject.stills.find(st => st.name === subject.clip.still);
+      const { page } = await stagePage(vp, wh, { pose: subject.clip.pose, at_s: still.at_s });
+      for (let i = 0; i < subject.clip.frames; i++) {
+        if (i) await page.evaluate(dt => window.__stage.step(dt), subject.clip.interval_s);
+        await page.evaluate(st => window.__stage.shoot(st), still);
+        clipFrames.push({ t: +(i * subject.clip.interval_s).toFixed(2), jpg: await page.screenshot({ type: 'jpeg', quality: 85, timeout: 300_000 }) });
+      }
+      console.log(`  ${vp}: ${clipFrames.length}-frame ${subject.clip.pose} strip over ${clipFrames.at(-1).t} s of the figure's own time`);
+      await page.close();
+    }
+  }
+}
+
+for (const [vp, [w, h]] of stageKind ? [] : viewports) {
   const page = await browser.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 1, isMobile: vp === 'phone', hasTouch: vp === 'phone' });
   const pageErrors = [];
   page.on('pageerror', e => pageErrors.push(e.message));
@@ -294,17 +353,31 @@ for (const still of subject.stills) {
     const st = allStills[`${still.name}-${vp}`];
     if (!st || !fs.existsSync(path.join(evidence, st.file))) continue;
     const src = dataUrl(path.join(evidence, st.file));
-    figs.push(`<figure class="ours"><img src="${src}"><figcaption>Ours, ${vp} ${VIEWPORTS[vp].join('×')} at ${st.detail} detail, ${still.distance_m} m, ${esc(shotOn)}</figcaption></figure>`);
+    figs.push(`<figure class="ours"><img src="${src}"><figcaption>Ours, ${vp} ${VIEWPORTS[vp].join('×')} ${st.detail === 'stage' ? `on the stage, ${st.pose?.pose === 'walk' ? 'mid-stride' : 'standing'}` : `at ${st.detail} detail`}, ${still.distance_m} m, ${esc(shotOn)}</figcaption></figure>`);
     if (st.figure_box_px) figs.push(`<figure class="ours"><canvas data-src="${src}" data-box="${st.figure_box_px.join(',')}"></canvas><figcaption>The same ${vp} still, cropped to the figure (not enlarged in the app)</figcaption></figure>`);
   }
   sheets[`${still.name}-side-by-side`] = await render(`<div class="sheet"><h1>${esc(subject.label)}: ${still.distance_m} m beside ${esc(set.label)}</h1>
-    <p class="sub">Period pictures on the left (data/people_match/reference_sets/${set.id}.json); our stills in the town's light on the right.</p>
+    <p class="sub">Period pictures on the left (data/people_match/reference_sets/${set.id}.json); our stills ${stageKind ? 'on the stage (this tree\'s figure, a stage light, the town\'s eye height and field of view)' : 'in the town\'s light'} on the right.</p>
     <div class="row">${figs.join('')}</div></div>`, path.join(out, `${still.name}-side-by-side.jpg`), 640, 420);
+}
+// T-3553: a subject's `pair` lays its one chosen picture of each band beside the desktop still
+// cropped to the figure, the two at one height: the paired still a review is written against.
+for (const still of subject.stills) {
+  const pic = subject.pair && set.pictures.find(p => p.name === subject.pair[still.name]);
+  const st = allStills[`${still.name}-desktop`];
+  if (!pic || !st?.figure_box_px || !fs.existsSync(path.join(evidence, st.file))) continue;
+  const src = dataUrl(path.join(evidence, st.file));
+  sheets[`${still.name}-pair`] = await render(`<div class="sheet"><h1>${esc(subject.label)}: ${still.distance_m} m</h1>
+    <p class="sub">Left: ${esc(pic.caption)} [${esc(pic.source_id)}]. Right: ours, ${st.detail === 'stage' ? `on the stage, ${st.pose?.pose === 'walk' ? 'mid-stride' : 'standing'}` : `at ${st.detail} detail`}, desktop still cropped to the figure; ${esc(shotOn)}.</p>
+    <div class="row"><figure><img src="${dataUrl(path.join(setDir, pic.file))}"><figcaption>${esc(pic.shows)}</figcaption></figure>
+    <figure class="ours"><canvas data-src="${src}" data-box="${st.figure_box_px.join(',')}"></canvas><figcaption>Ours at ${still.distance_m} m, ${still.bearing_off_heading_deg}° off the figure's heading, eye ${still.eye_m} m</figcaption></figure>
+    <figure class="ours"><img src="${src}"><figcaption>The whole desktop still, uncropped</figcaption></figure></div></div>`,
+  path.join(out, `${still.name}-pair.jpg`), 640, 420);
 }
 if (clipFrames.length) {
   const figs = clipFrames.map(f => `<figure><img src="data:image/jpeg;base64,${f.jpg.toString('base64')}"><figcaption>t = ${f.t} s</figcaption></figure>`);
   sheets['motion-strip'] = await render(`<div class="sheet strip"><h1>${esc(subject.label)}: ${subject.clip.frames} frames over about ${(subject.clip.frames - 1) * subject.clip.interval_s} s, ${subject.clip.viewport}, ${subject.clip.still} still</h1>
-    <p class="sub">${esc(shotOn)}. ${subject.find.kind === 'standing' ? 'Standing where the scene stands her' : 'Stopped as an approach stops him'}; what moves is the figure's own life.</p><div class="row">${figs.join('')}</div></div>`,
+    <p class="sub">${esc(shotOn)}. ${stageKind ? (subject.clip.pose === 'walk' ? 'Walking on the stage, the camera keeping its place beside the figure' : 'Standing on the stage') : subject.find.kind === 'standing' ? 'Standing where the scene stands her' : 'Stopped as an approach stops him'}; what moves is the figure's own life.</p><div class="row">${figs.join('')}</div></div>`,
   path.join(out, 'motion-strip.jpg'), 300, 480);
 }
 await browser.close();
@@ -316,13 +389,14 @@ const checklist = Object.fromEntries(Object.entries(CHECKLIST).map(([k, what]) =
 const record = {
   subject: subject.id,
   reference_set: set.id,
-  shot: { date: today, target: flag('--published') ? 'local published mirror' : target, build: shotOn,
+  shot: { date: today, target: stageKind ? 'tools/people_match_stage.html on this tree' : flag('--published') ? 'local published mirror' : target, build: shotOn,
     out: path.relative(evidence, out), evidence_repo: set.evidence.repo },
   bound,
   stills: allStills,
   sheets: { ...(sameFigure ? prev.sheets : {}), ...sheets },
   verdict: sameFigure ? prev.verdict : 'unreviewed',
   checklist,
+  ...(prev?.differences ? { differences: prev.differences } : {}),
   _how: 'verdict is unreviewed | differs | matches, set by whoever laid the stills beside the pictures; each checklist item is {what, status, note} with status open | reads | not shown | within tolerance | owner ruling — open when a visitor would see the figure is not the pictures’ kind of person in that respect. The first figure of each role is the owner’s call (the plan’s "Your call"); later figures of the role are held to the one he approved. A reshoot of a changed figure (bound) sets the verdict back to unreviewed.',
 };
 fs.writeFileSync(path.join(root, recFile), JSON.stringify(record, null, 2) + '\n');
