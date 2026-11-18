@@ -1,73 +1,138 @@
 {
-  "structure_id": "house_2017_prairie",
-  "view": "chicagology_photo",
-  "glb": "assets/gltf/house_2017_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e395397a8983b06f7888fc88140e78dcd89dcf3dc12f5d525fd6ea326fd23dde",
-  "camera_sha256": "9d45bcc587e327795d0486d6f4c4a2f1c76c71b9cdbd216d75dcb6c65d79543f",
-  "photo_sha256": "0586ba59683607672112e12b5c3429e8a139820061ffc9189c90826302e2b226",
-  "rendered_flora": {
-    "season": "winter",
-    "lots": [
-      {
-        "parcel": "prairie_2017",
-        "shrubs": 1,
-        "trees": 0,
-        "beds": 0,
-        "creeper": 0
-      }
-    ],
-    "street_trees": 5,
-    "street_trees_m": 40
-  },
-  "flora_anchor": {
-    "local_e": 1441.061,
-    "local_n": -3530.462,
-    "rotation_deg": 179.389,
-    "scene": "1904",
-    "target_date": "1904-07-01",
-    "phase": "draft_1904"
-  },
-  "flora_renderer_sources": [
-    {
-      "file": "tools/photo_match.mjs",
-      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
-    },
-    {
-      "file": "tools/photo_match_flora.mjs",
-      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
-    },
-    {
-      "file": "renderers/web/js/front-yards.js",
-      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
-    },
-    {
-      "file": "renderers/web/js/street-trees.js",
-      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
-    },
-    {
-      "file": "renderers/web/js/tree-instances.js",
-      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
-    },
-    {
-      "file": "renderers/web/js/tree-model.js",
-      "sha256": "1ec46dc2bfb15d13dab2260c022b31d4ee88b7302aab5be62069b2eaf5e198e2"
-    },
-    {
-      "file": "renderers/web/js/tree-surface.js",
-      "sha256": "90a8598a636582d098a0161609b227cd5db06c7cd25d77a330664a226bcceb40"
-    },
-    {
-      "file": "renderers/web/js/season.js",
-      "sha256": "8407ba119eef8e26e1bfb4bf1d9dd2c4786d2981165f2d232fe53d2347a9bda7"
-    },
-    {
-      "file": "renderers/web/js/trees.js",
-      "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
-    }
+ "structure_id": "house_2017_prairie",
+ "view": "chicagology_photo",
+ "glb": "assets/gltf/house_2017_prairie__as_mapped_1904.glb",
+ "glb_sha256": "e395397a8983b06f7888fc88140e78dcd89dcf3dc12f5d525fd6ea326fd23dde",
+ "camera_sha256": "20eacc6a7d22952ef195d0172a210ff5058e5b6bb0df3e7d5447ee8f935f49dd",
+ "photo_sha256": "0586ba59683607672112e12b5c3429e8a139820061ffc9189c90826302e2b226",
+ "rendered_flora": {
+  "season": "winter",
+  "lots": [
+   {
+    "parcel": "prairie_2017",
+    "shrubs": 2,
+    "trees": 0,
+    "beds": 0,
+    "creeper": 0
+   }
   ],
-  "flora_sha256": "307316d8457eefd179bb34ab512204ba92798437447babe60cb96aa9a68791f0",
-  "side_by_side": "docs/RESEARCH/photo-match/house_2017_prairie/chicagology_photo-side-by-side.jpg",
-  "verdict": "unreviewed",
-  "differences": [],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "street_trees": 5,
+  "street_trees_m": 40
+ },
+ "flora_anchor": {
+  "local_e": 1441.061,
+  "local_n": -3530.462,
+  "rotation_deg": 179.389,
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "phase": "as_mapped_1904"
+ },
+ "flora_renderer_sources": [
+  {
+   "file": "tools/photo_match.mjs",
+   "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
+  },
+  {
+   "file": "tools/photo_match_flora.mjs",
+   "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
+  },
+  {
+   "file": "renderers/web/js/front-yards.js",
+   "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
+  },
+  {
+   "file": "renderers/web/js/street-trees.js",
+   "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
+  },
+  {
+   "file": "renderers/web/js/tree-instances.js",
+   "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
+  },
+  {
+   "file": "renderers/web/js/tree-model.js",
+   "sha256": "1ec46dc2bfb15d13dab2260c022b31d4ee88b7302aab5be62069b2eaf5e198e2"
+  },
+  {
+   "file": "renderers/web/js/tree-surface.js",
+   "sha256": "90a8598a636582d098a0161609b227cd5db06c7cd25d77a330664a226bcceb40"
+  },
+  {
+   "file": "renderers/web/js/season.js",
+   "sha256": "8407ba119eef8e26e1bfb4bf1d9dd2c4786d2981165f2d232fe53d2347a9bda7"
+  },
+  {
+   "file": "renderers/web/js/trees.js",
+   "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
+  }
+ ],
+ "flora_sha256": "445d2c8626bbb94571e93f7330b83669a9eb5fc2406352ad0a276ff44470c4a4",
+ "side_by_side": "docs/RESEARCH/photo-match/house_2017_prairie/chicagology_photo-side-by-side.jpg",
+ "verdict": "differs",
+ "differences": [
+  {
+   "what": "massing: the draft's flat-roofed stone-front box is now the photograph's front: the north part under a slated mansard rising from a stone cornice, the south part carried up as a projection under a steep gable, the porch between them; the mansard's curb prints at y 230 px as the photograph's, the gable's apex at y 85 against 70 (0.15 m)",
+   "status": "fixed"
+  },
+  {
+   "what": "every street light: the north part's two pairs a storey and the light over the porch, and the projection's two pairs, print within about 10 px of the photograph's in place, width and height",
+   "status": "fixed"
+  },
+  {
+   "what": "the dormers: two gabled dormers on the mansard on the axes the photograph gives them, a pair of lights in the north one and one in the other, their pediments standing up over the curb to y 150 and 190 px as the photograph's",
+   "status": "fixed"
+  },
+  {
+   "what": "the dormers' dress: the photograph's dormers carry a moulded pediment over an entablature, pilasters either side of the lights and a carved lunette in each pediment; the render's are plain stone faces under a plain gable. The outline and size match; the mouldings and carving are under the bar in size but the carved lunettes are an element missing",
+   "status": "open"
+  },
+  {
+   "what": "the cresting: the photograph's crest along the mansard's curb reads as a row of square crenellations about 0.25 m high (y 222-240 px); the render's is K10's iron scroll cresting, a different shape",
+   "status": "open"
+  },
+  {
+   "what": "the main cornice: the photograph's is a deep cornice with a row of blocks under it (y 410-470 px); the render's is K10's moulded stone cornice without the blocks, shallower by about 0.2 m",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the projection's gable: the photograph's has projecting bargeboards and a dentilled band across its foot (y 360-420 px) with a ventilator in its peak; the render's is K08's coped gable with a kneeler at each foot and no band across",
+   "status": "open"
+  },
+  {
+   "what": "the gable's two attic lights (x 668-808 px, y 240-350): not built, K08 cutting no light in a gable's face",
+   "status": "open"
+  },
+  {
+   "what": "the porch: two columns with carved capitals carrying a stone deck at the photograph's height (render y 655-710 against 665-700 px), on a stoop between newels; built 2.6 m wide against about 2.8 m",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the porch's parapet: the photograph's is a solid band pierced with rings, a ball finial on each front corner (y 610-665 px); the render's is K01's stone railing of posts and balusters, without the finials",
+   "status": "open"
+  },
+  {
+   "what": "the door: the photograph's opening is dark and deep, with a glazed double door and a transom; the render's is a single panelled leaf in a reveal",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the basement: barred lights under each pair of the ground storey's windows, as the photograph's; they stand 0.2-0.8 m over the walk against about 0.33-1.04 m (0.24 m at the head)",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the north stack: the photograph's stands at its left edge (x 0-50 px, top y 80); the render's at x 47-122, top y 120, about 0.7 m south of it and 0.4 m low (K01 stands a stack on a flank's outer face only on a mansard's side parapet)",
+   "status": "open"
+  },
+  {
+   "what": "the railing: the photograph shows a low iron railing along the front's foot before the basement; the render's is the parcel's iron spear fence on the street line, which stands taller in the frame",
+   "status": "open"
+  },
+  {
+   "what": "the stone's colour and the windows' paint: the print is monochrome",
+   "status": "not shown"
+  },
+  {
+   "what": "the flanks, the rear and the rear range: the photograph is square to the front",
+   "status": "not shown"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
