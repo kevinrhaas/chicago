@@ -1,0 +1,22 @@
+{
+  "ticket": "T-3655",
+  "kind": "conscious re-budget (AGENTS.md: measure, then move; never silently)",
+  "scope": "Full detail with active Ghost (the X-RAY preset and Ghost grades) in 1835 only. Ordinary Full/Balanced/Light ceilings, the 8,900 draw allowance and every rendered<=declared check are unchanged. No geometry or rendered work changes.",
+  "previous": {
+    "triangles": 3785000,
+    "basis": "T-3556 (PR #2088): 3,764,962 read at the gate's stand with two 1835 townspeople out, + 18,059 defended margin, rounded up to 5,000"
+  },
+  "readings": [
+    { "tree": "dev aadceb658", "run": 44296188805, "job": 134790424100, "check": "smoke (desktop, 13): Full X-RAY triangles stay inside the declared view budget (T-2981)", "calls": 8188, "triangles": 3842482 },
+    { "tree": "PR #2111 head 0d463bd72 (adds a 1904 building, nothing to 1835)", "run": 44302630485, "job": 134805473962, "calls": 8188, "triangles": 3842482 },
+    { "tree": "PR #2192 head 800d84643", "run": 44309531708, "triangles": 3842482 },
+    { "tree": "PR #2150 head 2dd38a97c (dev 9a36087ff merged in)", "run": 44315277906, "triangles": 3847921 }
+  ],
+  "last_green": { "tree": "dev 0f819ff86", "run": 44193370202, "note": "desktop part 13 passed; the first-parent range 0f819ff86..aadceb658 carries the 1835 people work: T-3553 clothes rounds 3 and 4 (human-tailor-1835.js, human-regulars.js), T-3560 riders, tack and climbing aboard, T-3644 the visitor's own ridden person and drape, T-3555 crowd day rounds. No structure in the range is 1835's." },
+  "not_attributed": "The stand is the state part 13 leaves after ~150 earlier checks (the people card's horse ride to Hogan's store, the people tiers, the sound section's saved pose). A standalone Playwright reading at Hogan's store on dev 4b5debdd4 (published, 1280x800, Full, X-RAY) read 3,716,530 after a horse arrival and 3,733,184 after an instant one, both inside the old allowance; it did not reproduce the gate's 3.84 M, so the rise is not split commit by commit here. The gate's own reading is the number budgeted.",
+  "policy": {
+    "triangles": 3870000,
+    "derivation": "ceil((3847921 + 18059) / 5000) * 5000 = 3870000; margin over the highest reading 22,079",
+    "draws": 8900
+  }
+}
