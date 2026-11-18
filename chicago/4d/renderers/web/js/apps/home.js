@@ -9,6 +9,10 @@ import { t } from '../strings/index.js';
 import '../strings/moment.js';
 import '../strings/photo-hunt.js';
 const momentPanels = new WeakMap();
+const navigatorVisible = ctx => {
+  const level = ctx?.navigator?.level;
+  return Number.isFinite(level) ? level > 0 : true;
+};
 
 export default {
   id: 'home',
@@ -37,7 +41,7 @@ export default {
     const hunt = doc.createElement('details'); hunt.id = 'nav-photo-hunt';
     const huntSummary = doc.createElement('summary'); huntSummary.textContent = t('hunt.title');
     hunt.append(huntSummary); el.append(hunt);
-    state.ctx = ctx; state.on = true; state.hunt = null; state.huntLoading = false;
+    state.ctx = ctx; state.on = navigatorVisible(ctx); state.hunt = null; state.huntLoading = false;
     hunt.addEventListener('toggle', async () => {
       state.hunt?.setVisible(hunt.open && state.on);
       if (!hunt.open || state.hunt || state.huntLoading) return;
@@ -58,7 +62,12 @@ export default {
   },
   shown(el, ctx) {
     const state = momentPanels.get(el);
-    if (state) { state.ctx = ctx; state.on = true; state.hunt?.setVisible(!!el.querySelector('#nav-photo-hunt')?.open); }
+    if (state) {
+      state.ctx = ctx;
+      // A quiet rail selection also calls shown while the Navigator remains docked.
+      state.on = navigatorVisible(ctx);
+      state.hunt?.setVisible(state.on && !!el.querySelector('#nav-photo-hunt')?.open);
+    }
   },
   hidden(el) {
     const state = momentPanels.get(el);

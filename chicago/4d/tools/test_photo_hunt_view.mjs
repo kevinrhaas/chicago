@@ -22,12 +22,13 @@ const pageHTML = `<!doctype html><html><head><meta name="viewport" content="widt
 <link rel="stylesheet" href="/css/photo-hunt.css"><style>
 :root { --ink: #ecf0f3; --panel-raised: #252e38; --edge: #8994a1; color:var(--ink); background:#18212a; font:16px system-ui; }
 body { margin:0; } #nav-home { max-width:400px; box-sizing:border-box; padding:8px; } a { color:#97d6ff; }</style></head>
-<body><div id="nav-home"></div><script type="module">
+<body><nav id="fixture-rail" aria-label="Navigator apps"></nav><div id="fixture-screens"><div id="nav-home"></div></div><script type="module">
 import home from '/js/apps/home.js';
 import { createDestinations } from '/js/destinations.js';
-window.fixture = { loads:0, visits:[], blocked:false, pose:null, home };
-const context = { scene:{id:'1904'}, api:{}, actions:{
- freeRoam:()=>{home.hidden(document.getElementById('nav-home')); fixture.roamed=true;},
+import { createRail } from '/js/nav-rail.js';
+window.fixture = { loads:0, visits:[], blocked:false, pose:null, home, level:1 };
+const context = { scene:{id:'1904'}, api:{}, navigator:{get level(){return fixture.level;}}, actions:{
+ freeRoam:()=>{fixture.level=0; fixture.rail.setVisible(false); fixture.roamed=true;},
  photoHunt:{
   async load(){ fixture.loads++; const data=await fetch('/fixture.json').then(r=>r.json());
    const destinations=createDestinations({scene:{},registry:new Map(data.registry)}); destinations.addPhotos(data.doc);
@@ -35,7 +36,14 @@ const context = { scene:{id:'1904'}, api:{}, actions:{
   position:()=>fixture.pose,
   visit:(id)=>{if(fixture.blocked)return false; fixture.visits.push(id); return true;}
  } } };
-fixture.context=context; home.mount(document.getElementById('nav-home'),context);
+fixture.context=context;
+fixture.rail=createRail({rail:document.getElementById('fixture-rail'),screens:document.getElementById('fixture-screens'),
+ context:()=>context, reduced:()=>true, onOpen:(_id,by)=>{
+  if(by!=='quiet'&&fixture.level===0){fixture.level=1;fixture.rail.setVisible(true);}
+ }});
+fixture.rail.register(home);
+fixture.rail.register({id:'other',label:'Other app',mount(el){el.textContent='Another Navigator app';}});
+fixture.rail.evaluate(); await fixture.rail.select('home');
 Object.defineProperty(navigator,'clipboard',{value:{writeText:()=>Promise.reject(new Error('denied'))},configurable:true});
 </script></body></html>`;
 const server = http.createServer((req, res) => {
@@ -75,6 +83,24 @@ try {
     assert.equal(requests.length, 1, 'only one photo is requested');
     assert(requests[0].endsWith(`${order[0]}-thumb.jpg`));
     assert.equal(await page.locator('.photo-hunt-image[src]').count(), 1);
+    await page.evaluate(async () => {
+      await fixture.rail.select('other'); fixture.level = 0; fixture.rail.setVisible(false);
+    });
+    assert.equal(await page.locator('.photo-hunt-image[src]').count(), 0);
+    const beforeQuiet = requests.length;
+    await page.evaluate(async () => {
+      await fixture.rail.select('home', { by: 'quiet' });
+      fixture.rail.setVisible(false); // Already docked: the registry deliberately does not call hidden again.
+    });
+    assert.equal(await page.evaluate(() => fixture.rail.current), 'home');
+    assert.equal(await page.locator('.photo-hunt-image[src]').count(), 0, 'quiet Home selection while docked must not restore the image');
+    assert.equal(requests.length, beforeQuiet, 'quiet docked Home requests no photograph');
+    await page.evaluate(() => { fixture.level = 1; fixture.rail.setVisible(true); });
+    await page.waitForFunction(() => document.querySelector('.photo-hunt-image[src]')?.complete);
+    assert.equal(await page.locator('.photo-hunt-image[src]').count(), 1, 'opening the Navigator restores its one current image');
+    await page.evaluate(() => fixture.home.shown(document.getElementById('nav-home'), { ...fixture.context, navigator: undefined }));
+    assert.equal(await page.locator('.photo-hunt-image[src]').count(), 1, 'standalone Home contexts without a Navigator remain visible');
+    run.checks.push('actual nav-rail other app → dock → quiet Home keeps image released until reopening; standalone context remains supported');
     assert.equal(await page.getByRole('button', { name: 'Visit the camera spot', exact: true }).count(), 0);
     assert.equal(await page.getByRole('link', { name: 'Read the source', exact: true }).count(), 0);
     await page.getByRole('button', { name: 'Guess this spot', exact: true }).focus();
@@ -104,7 +130,7 @@ try {
     assert.equal(await page.locator('.photo-hunt-image').getAttribute('src'), `https://kevinrhaas.github.io/chicago-images/prairie-1904/files/${order[2]}-thumb.jpg`);
     await page.getByRole('button', { name: 'Return to the town', exact: true }).click();
     assert.equal(await page.locator('.photo-hunt-image[src]').count(), 0, 'hidden Home releases the image');
-    await page.evaluate(() => fixture.home.shown(document.getElementById('nav-home'), fixture.context));
+    await page.evaluate(() => { fixture.level = 1; fixture.rail.setVisible(true); });
     await page.waitForFunction(() => [...document.querySelectorAll('.photo-hunt button')].some(b => b.textContent === 'Guess this spot' && !b.disabled));
     await page.evaluate(id => { const row = fixture.destinations.byId('photo', id); fixture.pose = { e: row.e, n: row.n }; }, order[2]);
     await page.getByRole('button', { name: 'Guess this spot', exact: true }).click();
