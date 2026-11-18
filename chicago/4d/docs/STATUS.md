@@ -88,10 +88,18 @@ probe reproduced its omission from the default list while all eleven new source
 details resolved correctly. Sixteen compiler fixtures and the strict confidence
 audit pass. The startup packer also handles 1871's empty named-structure index with
 a valid empty shared table, retaining strict missing-record and rehydration checks.
-Both repairs await their final published/native recheck at this checkpoint; see
-`docs/measurements/t-3654-source-and-boot.json`. The latest dev roof corrections and
-changelog fold are integrated; full combined-tree source and browser gates remain
-required before the authorized dev merge.
+The full published `c0c235` build passes mirror checks and rehydrates all 1,119 named
+records across the scenes. Native 1871 startup succeeds with 33,580 context buildings
+and the empty named-structure pack; Edwards appears by default, and actual building/tree
+cards plus all eleven new source details resolve with zero errors. This focused desktop
+Light check is recorded in `docs/measurements/t-3654-source-and-boot.json`.
+The latest dev roof corrections and changelog fold are integrated. Local source part 12
+then identified two gate issues: rounded bare sums in the harbor trace and missing
+step-isolation measurements for seven new tools. The trace uses precise summation and
+its derived coordinates remain byte-identical. All seven tools now pass actual write
+probes without modifying the repository; the complete isolation census and its self-tests
+pass. Full combined-tree source and browser gates remain required before the authorized
+dev merge.
 
 Regenerate with `python3 generators/city_context_emit.py`, then
 `python3 generators/city_1871_emit.py`, `python3 tools/compile_scene.py --scene 1871`

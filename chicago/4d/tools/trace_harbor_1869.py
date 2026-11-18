@@ -36,8 +36,8 @@ def derive():
         points = []
         for pixel in record['geometry']['coordinates']:
             delta = [a-b for a,b in zip(pixel, origin)]
-            points.append([round(sum(a*b for a,b in zip(delta,east))*scale,4),
-                           round(sum(a*b for a,b in zip(delta,north))*scale,4)])
+            points.append([round(math.fsum(a*b for a,b in zip(delta,east))*scale,4),
+                           round(math.fsum(a*b for a,b in zip(delta,north))*scale,4)])
         features.append({'type':'Feature','id':record['id'],
                          'properties':{key:value for key,value in record.items() if key not in ('geometry','id')},
                          'geometry':{'type':record['geometry']['type'],'coordinates':points}})

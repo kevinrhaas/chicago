@@ -35,10 +35,11 @@
     "Confidence-shadow source regression and native desktop Full probe pass against exact 3f81 runtime bytes: building, bridge and tree views preserve normal shadow coverage, reduce coverage under dither and cast no shadow when hidden. Actual GPU programs compile/link with correct live uniforms and zero errors. Candidate scope and sampling limits are retained in t-3654-confidence-shadows.json.",
     "On 3f81, local source 9/16 has a complete 89-step/28-self-test terminal PASS with unavailable exit status after reconnect; parts 10/16 and 11/16 pass 89 steps each, with 22/27 self-tests, exit 0 and durations of 380.131/440.146 seconds. These are dated partial checks, not combined-tree full coverage.",
     "Context source-use reader and 16 fixtures pass, including old-compiler negative control, actual kit lookup, scene scoping and confidence preservation. Regeneration retains 720 sources at 295055 index bytes under the unchanged 296000-byte budget; strict confidence audit passes. Edwards now has scene use in 1871.",
-    "Empty named-structure boot packing passes actual CLI fixtures, nine corruption refusals, deterministic repacking, sparse positions and stale-part cleanup. Real 1835 data rehydrates 765 records and a valid empty 1871 index passes; the old tool reproduces the missing-boot failure. Final full publication/native recheck remains pending."
+    "Empty named-structure boot packing passes actual CLI fixtures, nine corruption refusals, deterministic repacking, sparse positions and stale-part cleanup. Full c0c235 publication passes mirror checks and rehydrates all 1119 named records across existing scenes. Native 1871 startup succeeds with an empty shared table and 33580 context buildings; Edwards appears by default and actual cards plus all 11 new source details resolve with zero application, page, console or network errors. Desktop Light probe scope is retained in t-3654-source-and-boot.json.",
+    "The harbor metric trace now uses math.fsum for its projected coordinates. The exact-sum gate passes with zero unconverted rounded sums; trace_harbor_1869.py --check confirms byte-identical derived coordinates. No scene geometry changes.",
+    "All seven new gate tools were measured through the supported step-isolation probes on isolated matching inputs; each command exits successfully with no repository or ignored-product writes. The census audit covers all 1337 keyed declarations across 1068 tools, and its audit/measurer self-tests pass. Initial sparse-fixture setup failures remain preserved and contribute no measured rows."
   ],
   "pending_validation": [
-    "Publish and verify all boot packs, then rerun native 1871 citations and empty-boot readiness",
     "Complete the full source gate on the combined repaired checkpoint",
     "Fresh legacy browser stages 1 through 15 on both viewports after full source passes",
     "Final current-head CI, dev merge and preview"
@@ -113,8 +114,8 @@
     "bash tools/publish.sh"
   ],
   "limits": "This is the requested generic context baseline. Named properties, people, daily activity and photographic finish remain subsequent work; bank and parcel uncertainty is retained.",
-  "checkpoint_revision": 8,
-  "local_source_followup": "Source 9–11 receipts belong to 3f81 and retain their process-status qualifications. Checks pause for upstream integration and a narrow citation-card probe. The combined tree still needs the complete source gate.",
+  "checkpoint_revision": 9,
+  "local_source_followup": "Local source 12/16 on clean c0c235 failed 2 of 89 steps (exit 1, 473.760 seconds): rounded bare sums in the harbor trace and missing measured step-isolation rows for seven new tools. The real failure receipt is preserved; repaired full source verification remains required. Both findings now pass focused checks: precise summation preserves the trace byte-for-byte, and seven real isolation measurements cover every newly declared tool. No complete-current-gate claim is made.",
   "superseded_ci": {
     "commit": "1a5b7080f00fc1e7caf06b174f8a3ce25f77d036",
     "reason": "First smoke dispatches were cancelled after the local validator identified the two repairs; they do not count as final acceptance.",
@@ -142,7 +143,7 @@
     "required": "Latest complete source gate on PR #2198",
     "superseded_run_id": 44394942951,
     "superseded_commit": "3f81ece88f0d57d26063d786e6bccd9658ab89c3",
-    "state": "Prior 3f81 CI tested base 169af and reported one genuine part-7 boot-packing failure. This checkpoint integrates dev 169404, fixes context citations and empty boot packing, and still requires complete current-tree source CI."
+    "state": "Prior 3f81 CI had one genuine part-7 boot-packing failure, now repaired and native-verified on c0c235. This checkpoint also repairs the two local source-12 findings; full current-tree source CI and then fresh legacy browser stages remain required."
   },
   "browser_ci": {
     "commit": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290",
@@ -220,7 +221,7 @@
         "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375984544"
       }
     ],
-    "state": "Superseded after mobile stages 1–13 passed; the remaining eight groups were cancelled. Shared source-catalog and benchmark inputs changed; these runs receive no final-current-input coverage credit."
+    "state": "Superseded after mobile stages 1\u201313 passed; the remaining eight groups were cancelled. Shared source-catalog and benchmark inputs changed; these runs receive no final-current-input coverage credit."
   },
   "tested_runtime_commit": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290",
   "superseded_ci_attempts": [
@@ -249,5 +250,6 @@
     "changelog_merge": "7e99cd8c363baced005d691b3eb1eec086a90202",
     "checks": "Both new roof assets reproduce byte-for-byte; all 132 audited 1871 paths unchanged. Full-checkout freshness passes with 0 errors and 338 warnings; door, source-use freshness, derived registry and changelog checks pass."
   },
-  "source_and_boot_repair": "See t-3654-source-and-boot.json for focused checks and pending native recheck."
+  "source_and_boot_repair": "See t-3654-source-and-boot.json for focused checks and pending native recheck.",
+  "delivery": "Owner requests checkpoint pushes and periodic green PR merges into dev. This integrated baseline is PR #2198; subsequent 1871 detail work should land as smaller coherent milestones, each verified before merge."
 }

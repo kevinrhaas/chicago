@@ -1,6 +1,6 @@
 {
   "ticket": "T-3654",
-  "state": "focused_checks_pass_final_publication_and_native_recheck_pending",
+  "state": "focused_checks_and_full_publication_native_recheck_pass_full_gates_pending",
   "base_dev": "169404c9f99d2defeca2b05f2364c868a4f4e745",
   "source_library": {
     "finding": "Actual 1871 building/tree cards cite Edwards, but the default Sources view omits it because context records were not collected. The native reproduction resolves all 11 new detail pages with zero errors and preserves this default-filter omission.",
@@ -13,7 +13,7 @@
       "edwards_1871_use": "scene",
       "strict_confidence_audit": "pass"
     },
-    "native_recheck": "pending on final publication"
+    "native_recheck": "PASS on full c0c235 publication, desktop Light: Edwards appears by default with reconstructed backlinks; actual building/tree cards and all 11 new source details resolve; zero application, page, console or network errors."
   },
   "boot_packing": {
     "failure_run": 44394942951,
@@ -22,7 +22,7 @@
     "repair": "Write the normal boot descriptor and empty shared values table, with zero part files. Keep rehydration strict and explicitly reject missing indexed records or malformed shared tables.",
     "tests": "Real CLI tests cover empty and nonempty scenes, the 50-row boundary, deterministic repacking, stable sparse positions, nine corruption refusals and stale-part cleanup. Original writer and original missing-record checker each fail the new fixtures.",
     "real_data_proof": "All 765 actual 1835 records and an empty 1871 scene rehydrate. Original CLI reproduces the 1871 failure.",
-    "native_recheck": "pending on final publication"
+    "native_recheck": "PASS on full c0c235 publication: ready=true, 33580 context buildings, zero named structures; empty shared table HTTP 200, no part requests. Full publication rehydrates 1119 named records across all scenes."
   },
   "source_sha256": {
     "tools/compile_source_use.py": "7445955aebd029bbc5334f117e2805906fea8778783e62f60bdc3cdc41ad9f6d",
@@ -35,7 +35,20 @@
     "t3654-context-source-use.patch",
     "t3654-citation-proof/",
     "t3654-empty-boot-final/",
-    "t3654-upstream-integration.json"
+    "t3654-upstream-integration.json",
+    "t3654-citation-proof-after/",
+    "t3654-c0c235-publication.log",
+    "t3654-c0c235-published-check.log",
+    "t3654-c0c235-boot-check.log"
   ],
-  "limits": "Focused checks do not replace the complete combined-tree source and mobile/desktop browser gates. No historical geometry or source attribution has been promoted to photographic or attested status."
+  "limits": "Focused checks do not replace the complete combined-tree source and mobile/desktop browser gates. No historical geometry or source attribution has been promoted to photographic or attested status.",
+  "native_proof": {
+    "tested_source_commit": "c0c235a918b5f328d2e59f6820b5fe8f17ebcf12",
+    "publication_scope": "Full immutable publication; no module overlays. Twenty-five served catalog/runtime files match committed bytes; packed boot outputs separately hash-bound.",
+    "evidence_repository": "kevinrhaas/chicago-evidence",
+    "evidence_commit": "daf4837d9ae469bd45ec0560276941158e229105",
+    "path": "evidence/t3654-1871-city-2026-11-18/",
+    "report_sha256": "51a2ea2f72dd564e94d00ed685974c91bf4e2daa5a6a3acbe51c3769ece8fab1",
+    "limits": "One desktop Light citation/startup probe; does not replace complete geometry, performance or both-viewport legacy acceptance. Library screenshots show the upper scrolled panel; full DOM text and click/request evidence are in the report. External source-host availability was not tested."
+  }
 }
