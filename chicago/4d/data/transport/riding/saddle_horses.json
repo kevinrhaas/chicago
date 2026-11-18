@@ -256,6 +256,82 @@
         "cavesson_at": null,
         "second_bit": false
       }
+    },
+    "sidesaddle_1835": {
+      "why": "Kevin, 2026-11-17, on a card (\"How should your person ride when you choose a woman?\"): \"Astride in 1812, sidesaddle later\". A woman of the town in 1835 or 1904 rode aside, both legs on the near side. The saddle is a reconstructed period pattern, not a particular surviving saddle (L-sidesaddle-3644). Drawn with the fixed head alone, the pommel the right leg lies round: the leaping head (the pommel over the left thigh) was only coming into use in the 1830s and is left out.",
+      "grade": "reconstructed",
+      "liberty": "L-sidesaddle-3644",
+      "set": {
+        "pattern": "side saddle with a flat seat and a fixed head on the near side, one iron stirrup on the near side, on the year's square saddle cloth; the year's snaffle bridle",
+        "stirrups": "near"
+      },
+      "saddle": {
+        "seat_half_angle_deg": 50,
+        "cantle_rise_m": 0.03,
+        "pommel_rise_m": 0.02,
+        "heads": [
+          {
+            "id": "fixed",
+            "at": 0.94,
+            "phi_deg": 16,
+            "bow_m": [
+              0.0,
+              0.07,
+              0.0
+            ],
+            "tip_m": [
+              -0.035,
+              0.11,
+              -0.035
+            ],
+            "radius_m": 0.028
+          }
+        ]
+      }
+    },
+    "sidesaddle_1904": {
+      "why": "Kevin, 2026-11-17, on a card (\"How should your person ride when you choose a woman?\"): \"Astride in 1812, sidesaddle later\". A woman of the town in 1835 or 1904 rode aside, both legs on the near side. The saddle is a reconstructed period pattern, not a particular surviving saddle (L-sidesaddle-3644). A 1904 side saddle had a leaping head as well, curving down over the left thigh; it lies under her skirt and is not drawn.",
+      "grade": "reconstructed",
+      "liberty": "L-sidesaddle-3644",
+      "set": {
+        "pattern": "side saddle with a flat seat and its heads on the near side (the fixed head drawn; the leaping head lies under the skirt), one nickel stirrup on the near side, on the year's felt numnah; the year's double bridle",
+        "stirrups": "near"
+      },
+      "saddle": {
+        "seat_half_angle_deg": 50,
+        "cantle_rise_m": 0.025,
+        "pommel_rise_m": 0.015,
+        "heads": [
+          {
+            "id": "fixed",
+            "at": 0.94,
+            "phi_deg": 16,
+            "bow_m": [
+              0.0,
+              0.07,
+              0.0
+            ],
+            "tip_m": [
+              -0.035,
+              0.11,
+              -0.035
+            ],
+            "radius_m": 0.028
+          }
+        ]
+      }
+    }
+  },
+  "side_saddle": {
+    "why": "Kevin, 2026-11-17, on a card (\"How should your person ride when you choose a woman?\"): \"Astride in 1812, sidesaddle later\". A woman of the town in 1835 or 1904 rode aside, both legs on the near side. The saddle is a reconstructed period pattern, not a particular surviving saddle (L-sidesaddle-3644).",
+    "grade": "reconstructed",
+    "liberty": "L-sidesaddle-3644",
+    "sexes": [
+      "female"
+    ],
+    "tack": {
+      "1835": "sidesaddle_1835",
+      "1904": "sidesaddle_1904"
     }
   },
   "rows": [
@@ -1390,6 +1466,43 @@
         "knee_forward": 0.15,
         "knee_out": 1.2,
         "thigh_roll_rad": -1.0
+      }
+    },
+    "side": {
+      "basis": "T-3644: aside, on a side saddle. The seat square to the front; the right thigh forward round the fixed head, the knee lifted to it and the lower leg down the near shoulder; the left leg under it, its foot in the one, near, iron on a shorter leather. Measured by tools/test_riding.mjs: every woman's body of 1835 and 1904 clear of the horse at every pace, her legs under the habit (rider-drape.js), the fixed head clear of her leg.",
+      "seat_above_m": 0.07,
+      "seat_back_m": -0.04,
+      "leather_m": 0.42,
+      "iron_out_m": 0.1,
+      "iron_back_m": 0.0,
+      "off_foot_m": [
+        0.42,
+        -0.36,
+        0.26
+      ],
+      "legs": {
+        "l": {
+          "forward": 0.5,
+          "out": 0.8,
+          "up": -0.1,
+          "roll": 0,
+          "toe": [
+            1,
+            0.2,
+            -0.1
+          ]
+        },
+        "r": {
+          "forward": 1.0,
+          "out": 0.6,
+          "up": 2.0,
+          "roll": 0,
+          "toe": [
+            0.4,
+            0.3,
+            -0.9
+          ]
+        }
       }
     }
   },

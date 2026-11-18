@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1173,
+  "count": 1175,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -76348,11 +76348,11 @@
         },
         {
           "label": "Liberties within it",
-          "text": "the visitor is a person of no record: their looks, age and dress are the visitor's own choice, graded reconstructed. The lists are a selection (the bodies that sit a saddle without going into the horse). The default person (a man in a settler's dress in 1812 and 1835, a working man's in 1904, a light complexion and a face drawn as everyone's is) is the figure that rode before the choice existed. A woman rides astride in every year for now: right for a frontier woman of 1812, and a stand-in for the sidesaddle 1835 and 1904 ladies rode, which comes next."
+          "text": "the visitor is a person of no record: their looks, age and dress are the visitor's own choice, graded reconstructed. The lists are a selection (the bodies that sit a saddle without going into the horse). The default person (a man in a settler's dress in 1812 and 1835, a working man's in 1904, a light complexion and a face drawn as everyone's is) is the figure that rode before the choice existed. A woman rides astride in 1812, right for a frontier woman, and aside in 1835 and 1904 (“A woman of 1835 or 1904 rides aside, her skirt over her legs”)."
         },
         {
           "label": "Re-opens on",
-          "text": "the sidesaddle; colours of dress and more bodies (the person builder); the owner wanting other choices on offer."
+          "text": "colours of dress and more bodies (the person builder); the owner wanting other choices on offer."
         },
         {
           "label": "Review",
@@ -76361,6 +76361,44 @@
         {
           "label": "Recorded",
           "text": "2026-11-17."
+        }
+      ],
+      "work_refs": [
+        "T-3644"
+      ]
+    },
+    {
+      "id": "L-sidesaddle-3644",
+      "title": "A woman of 1835 or 1904 rides aside, her skirt over her legs",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-18",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-17, on a card (*\"How should your person ride when you choose a woman?\"*): *\"Astride in 1812, sidesaddle later\"*. When the visitor's own person is a woman in 1835 or 1904, the horse she mounts is put up with a side saddle (the saddle horses data side saddle, tack variants sidesaddle 1835 and sidesaddle 1904) and she rides aside; in 1812 she rides astride on the year's saddle. Nobody else is put up aside: the town's riders are all men."
+        },
+        {
+          "label": "Not invented",
+          "text": "no source is cited for any one saddle, habit or rider; nothing here is a claim of evidence."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "the side saddle is a reconstructed period pattern (a flat seat, a fixed head on the near side, one stirrup on the near side, on the year's own cloth and girth, in the year's leather), not a particular surviving saddle. It is drawn with the fixed head alone in both years: the leaping head, the pommel over the left thigh, was only coming into use in the 1830s and is left out of 1835, and in 1904 it lies under her skirt and is not drawn. Her seat (the right thigh round the fixed head, the knee lifted to it and the lower leg down the near shoulder, the left foot in the iron on a shorter leather) is placed by `fit.side`, measured so that her body stays out of the horse at every pace and the fixed head clear of her leg (the riding test). A riding habit is not among the dresses: she rides in the dress she chose, and on the side saddle its skirt is laid over a sheet drawn over her legs and falling to below her foot on the near side and over the saddle on the off side (the walkthrough's rider drape code HABIT), the shape a habit's long skirt took; how it lay is drawn from that general shape, not from a record. The saddle is changed when she mounts (the horse stood still for it)."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a dated reference for a Chicago side saddle or habit of 1835 or 1904; a riding habit among the dresses; the leaping head drawn; women among the town's riders."
+        },
+        {
+          "label": "Review",
+          "text": "the saddle horses data, the walkthrough's saddlery code, the walkthrough's rider pose code, the walkthrough's rider drape code, the walkthrough's riding code, the riding test."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-18."
         }
       ],
       "work_refs": [
