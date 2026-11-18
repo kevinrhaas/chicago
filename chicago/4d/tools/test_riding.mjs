@@ -77,6 +77,18 @@ const person = JSON.parse(read('data/humans/visitor_person.json'));
 const personAssets = y => Object.values(person.outfits?.[y] ?? {}).flat().map(o => o.asset);
 const assetsOf = y => (process.env.RIDER_ASSETS ? process.env.RIDER_ASSETS.split(',') : [...new Set([config.rider.assets[y], ...(config.riders ?? []).filter(r => r.scene === y).map(r => r.asset), ...(config.rider.also?.[y] ?? []), ...personAssets(y)])]);
 for (const y of YEARS) for (const a of assetsOf(y)) humans[a] ??= await parse(read(`assets/humans/web/${a}.lod${config.rider.lod}.glb`));
+// T-3644: a dress worn on another's body (the riding habits, visitor_person.json `dress`) names
+// only that body's own cloth, pieces and hats to set aside: a misspelt name would leave it as it was.
+for (const y of YEARS) for (const s of ['male', 'female']) for (const o of person.outfits?.[y]?.[s] ?? []) {
+  if (!o.dress) continue;
+  const g = humans[o.asset] ?? await parse(read(`assets/humans/web/${o.asset}.lod${config.rider.lod}.glb`));
+  const mats = new Set(), names = [];
+  g.scene.traverse(n => { if (n.isMesh) { names.push(n.name); mats.add(n.material?.name); } });
+  const piece = k => names.some(n => new RegExp(`(^|_)${k}(_lod\\d+)?$`).test(n));
+  ok(Object.keys(o.dress.colours ?? {}).every(m => mats.has(m)), `${y} ${o.id}: its colours name ${o.asset}'s own cloth`);
+  ok([...Object.keys(o.dress.pieces ?? {}), ...(o.dress.hide ?? [])].every(piece), `${y} ${o.id}: the pieces it colours or sets aside are ${o.asset}'s own`);
+  ok(!o.dress.hat || o.dress.hat.kind, `${y} ${o.id}: its hat is a kind human-hats.js makes`);
+}
 
 const v = new THREE.Vector3(), q = new THREE.Vector3();
 const report = [];
