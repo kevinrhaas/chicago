@@ -2,7 +2,7 @@ import { register } from './index.js';
 export default register('hunt', {
   title: 'Where and when?',
   intro: 'Find the camera spots of five historical photographs in 1904.',
-  daily: 'The same five photographs appear in a new order each day, using UTC.',
+  daily: 'The same five photographs have a daily order, using UTC. Their dates differ from the world’s year.',
   local: 'Progress stays in this browser. Sharing sends the challenge, not your answers.',
   open: 'Open five-photo hunt',
   date: 'Challenge date: {day} (UTC)',
@@ -13,6 +13,7 @@ export default register('hunt', {
   round: 'Photograph {n} of 5',
   instructions: 'Walk to where you think the camera stood, then return here to make your guess.',
   rules: 'Each photo earns up to 1,000 points. Within five metres earns full points; time is not scored.',
+  distanceNote: 'Distance is measured on the ground; camera height and direction are not scored.',
   move: 'Return to the town',
   guess: 'Guess this spot',
   skip: 'Skip and reveal',
