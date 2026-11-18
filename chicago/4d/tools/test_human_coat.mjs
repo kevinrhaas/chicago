@@ -45,7 +45,7 @@ const SkeletonUtils = await import(utils.SkeletonUtils);
 await MeshoptDecoder.ready;
 globalThis.self ??= globalThis;
 // A module loaded from a data: URL cannot resolve its own relative imports (human-skirt.js reads
-// './human-skeletons.js'), so they are pointed at the files beside it.
+// './human-skeletons.js' since #2165), so they are pointed at the files beside it.
 const js = async (name) => (await fs.readFile(new URL(`renderers/web/js/${name}`, here), 'utf8'))
   .replace("from 'three'", `from '${three}'`)
   .replace(/from '\.\/([\w.-]+\.js)'/g, (_, f) => `from '${new URL(`renderers/web/js/${f}`, here).href}'`);
