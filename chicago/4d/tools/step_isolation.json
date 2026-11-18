@@ -5226,6 +5226,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/reading_levels.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/readmit_borderline_roster.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6867,6 +6871,10 @@
       "wrote_ignored": []
     },
     "tools/test_reader_text.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_reading_level.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

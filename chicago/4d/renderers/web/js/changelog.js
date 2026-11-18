@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 3097, ts: '2026-11-18T10:17:44.810Z', date: 'Nov 18, 2026, 4:17 AM CT', title: 'Ride sidesaddle as a woman in 1835 and 1904', kind: 'feature',
+    items: [
+      'Choose a woman in Settings and ride in 1835 or 1904: she is put up on a side saddle, both legs on the near side, her foot in the one stirrup.',
+      'Her skirt falls over both knees and down the horse\'s side, as a riding skirt did, instead of leaving her legs bare.',
+      'In 1812 a woman still rides astride, as frontier women did.',
+    ] },
+  { v: 3096, ts: '2026-11-18T09:04:34.493Z', date: 'Nov 18, 2026, 3:04 AM CT', title: 'Phones no longer hit an error while the distant crowd is prepared', kind: 'fix',
+    items: [
+      'A distant crowd picture could be cleared away while the phone was still preparing it, which raised an error on the page; it now waits until the preparing is done.',
+    ] },
   { v: 3095, ts: '2026-11-18T08:14:43.074Z', date: 'Nov 18, 2026, 2:14 AM CT', title: '1815 Prairie\'s stoop landing runs north over a basement doorway', kind: 'improvement',
     items: [
       'At 1815 Prairie the stoop\'s landing now carries on north of the steps to a stone post, as the old photograph shows, with an iron rail along its front.',

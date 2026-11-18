@@ -114,6 +114,158 @@ export function pressPoint(q, env, zone) {
   return true;
 }
 
+// ---- T-3644: a side saddle's habit -------------------------------------------------------------
+//
+// Kevin's card, 2026-11-17: "Astride in 1812, sidesaddle later". Aside, both legs are on the near
+// side, the right thigh forward over the fixed head; a standing figure's skirt, skinned to the
+// thighs, goes up with them and leaves the legs bare. A woman riding aside wore a long skirt that
+// fell over both knees and down the near side to below her foot, and on the off side over the
+// saddle. So, on a side saddle, a figure's hanging cloth (its skirt, its apron: garmentKind
+// 'hang' and what rides on it) is laid on a sheet that covers the legs: round the rider (HABIT.cols
+// ways from the front, toward her left), from her hips over whatever of her legs is that way, as
+// a cloth drawn over them (the upper outline of the legs, seen in that way's upright half-plane,
+// widened by HABIT.margin_m) and then straight down to HABIT.below_foot_m under her lower foot. A
+// vertex of the cloth goes to the sheet by where it was on the standing figure: its way round
+// her body, and its depth under her hips over the longest hanging garment's (so a shorter apron
+// stays a shorter apron, HABIT.lift_m outside the skirt). Over its first HABIT.blend of that depth
+// it is eased in from where the figure's own skin puts it, so the waist is the figure's. After
+// that the drape's own rule lays whatever is in the horse (the off side, the back) on its coat.
+// The legs, skin and stockings stay as posed: under the sheet. `habitSheet` is the sheet, on the
+// CPU (the tests use the same), the vertex shader reads it from a small float texture.
+// Reconstructed: how a habit lay is drawn from the general shape, not from a record
+// (liberty L-sidesaddle-3644).
+export const HABIT = Object.freeze({ cols: 32, rows: 16, margin_m: 0.035, waist_m: 0.17, below_foot_m: 0.1, lift_m: 0.012, blend: 0.14 });
+const HABIT_KINDS = new Set(['hang', 'ride']);
+/** Whether a rider's mesh is laid on the habit (its hanging cloth, and what rides on that). */
+export const habitCloth = (mesh, kind) => !!mesh?.isSkinnedMesh && HABIT_KINDS.has(kind) && drapes(mesh, kind);
+
+/**
+ * A garment's standing frame: bind-space position -> metres from the figure's hips, x to her
+ * left, y up, z ahead. Returns { matrix, below } (`below`: how far its lowest point hangs under
+ * the hips), or null on a mesh without the legs' bones.
+ */
+export function habitRest(mesh) {
+  const sk = mesh?.skeleton;
+  if (!sk) return null;
+  const at = (n) => { const i = sk.bones.findIndex((b) => b?.name === n); return i < 0 ? null : new THREE.Vector3().setFromMatrixPosition(sk.boneInverses[i].clone().invert()); };
+  const tl = at('thigh_l'), tr = at('thigh_r'), fl = at('foot_l'), fr = at('foot_r'), bl = at('ball_l');
+  if (!tl || !tr || !fl || !fr) return null;
+  const O = tl.clone().add(tr).multiplyScalar(0.5);
+  const up = O.clone().sub(fl.clone().add(fr).multiplyScalar(0.5)).normalize();
+  const fwd = bl ? bl.clone().sub(fl) : new THREE.Vector3(0, 0, 1);
+  fwd.addScaledVector(up, -fwd.dot(up)).normalize();
+  const left = new THREE.Vector3().crossVectors(up, fwd).normalize();
+  const matrix = new THREE.Matrix4().makeBasis(left, up, fwd).transpose()
+    .multiply(new THREE.Matrix4().makeTranslation(-O.x, -O.y, -O.z)).multiply(mesh.bindMatrix);
+  const pos = mesh.geometry.attributes.position, v = new THREE.Vector3();
+  let below = 0;
+  for (let i = 0; i < pos.count; i++) below = Math.max(below, -v.fromBufferAttribute(pos, i).applyMatrix4(matrix).y);
+  return { matrix, below };
+}
+
+/**
+ * The legs as balls along their bones, in the envelope's frame (`toEnv`: world -> that frame):
+ * [{ p, r }]. `bones` = rider-pose.js `bones`.
+ */
+export function legBalls(bones, toEnv) {
+  const out = [], a = new THREE.Vector3(), b = new THREE.Vector3();
+  const segs = [['thigh', 'calf', 0.085, 0.06, 8], ['calf', 'foot', 0.058, 0.045, 7], ['foot', 'ball', 0.045, 0.04, 2]];
+  for (const s of ['l', 'r']) for (const [x, y, r0, r1, n] of segs) {
+    const A = bones[`${x}_${s}`], B = bones[`${y}_${s}`];
+    if (!A || !B) continue;
+    A.getWorldPosition(a).applyMatrix4(toEnv); B.getWorldPosition(b).applyMatrix4(toEnv);
+    if (y === 'ball') b.sub(a).multiplyScalar(1.6).add(a); // on to the toe
+    for (let i = 0; i <= n; i++) { const t = i / n; out.push({ p: a.clone().lerp(b, t), r: r0 + (r1 - r0) * t }); }
+  }
+  return out;
+}
+
+/**
+ * The habit's sheet from the legs (`balls`, legBalls) about her hips (`hips`, envelope frame):
+ * HABIT.cols ways round (way j at j / cols of a turn from ahead toward her left, the near side),
+ * HABIT.rows points each from the hips down to the hem. Into `out` (cols x rows x 2 RGBA floats:
+ * the points, then their outward normals). Returns `out`.
+ */
+export function habitSheet(balls, hips, H = HABIT, out = new Float32Array(H.cols * H.rows * 2 * 4)) {
+  const { cols, rows, margin_m: margin, waist_m: waist } = H;
+  let low = Infinity;
+  for (const b of balls) low = Math.min(low, b.p.y - b.r);
+  const yHem = Math.min(hips.y - 0.3, low - H.below_foot_m);
+  const slack = Math.PI / cols;
+  for (let j = 0; j < cols; j++) {
+    const th = (j / cols) * Math.PI * 2, sx = Math.sin(th), sz = Math.cos(th);
+    const pts = [];
+    let yStart = hips.y;
+    for (const { p, r } of balls) {
+      const dx = p.x - hips.x, dz = p.z - hips.z, d = Math.hypot(dx, dz);
+      let D = Math.abs(Math.atan2(dx, dz) - th) % (Math.PI * 2); if (D > Math.PI) D = Math.PI * 2 - D;
+      const sub = d > r ? Math.asin(r / d) : Math.PI / 2;
+      if (D > sub + slack) continue;
+      const rho = d * Math.cos(Math.min(D, Math.PI / 2)), rr = r + margin;
+      for (let k = 0; k < 8; k++) {
+        const a = (k / 8) * Math.PI * 2, q = [rho + rr * Math.cos(a), p.y + rr * Math.sin(a)];
+        if (q[0] <= waist) yStart = Math.max(yStart, q[1]); else pts.push(q);
+      }
+    }
+    // The upper outline from the hips out (a cloth drawn over the legs), then straight down.
+    pts.sort((a, b) => a[0] - b[0] || b[1] - a[1]);
+    const hull = [[waist, yStart]];
+    const cross = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+    for (const q of pts) {
+      while (hull.length >= 2 && cross(hull[hull.length - 2], hull[hull.length - 1], q) >= 0) hull.pop();
+      hull.push(q);
+    }
+    const last = hull[hull.length - 1];
+    hull.push([last[0], Math.min(yHem, last[1] - 0.02)]);
+    // Resampled by length into the rows.
+    const len = [0];
+    for (let i = 1; i < hull.length; i++) len.push(len[i - 1] + Math.hypot(hull[i][0] - hull[i - 1][0], hull[i][1] - hull[i - 1][1]));
+    const total = len[len.length - 1] || 1;
+    let k = 0;
+    for (let i = 0; i < rows; i++) {
+      const want = (i / (rows - 1)) * total;
+      while (k < hull.length - 2 && len[k + 1] < want) k++;
+      const seg = Math.max(1e-9, len[k + 1] - len[k]), f = Math.min(1, Math.max(0, (want - len[k]) / seg));
+      const rho = hull[k][0] + (hull[k + 1][0] - hull[k][0]) * f, y = hull[k][1] + (hull[k + 1][1] - hull[k][1]) * f;
+      const tr = hull[k + 1][0] - hull[k][0], ty = hull[k + 1][1] - hull[k][1], tl = Math.hypot(tr, ty) || 1;
+      const nr = -ty / tl, ny = tr / tl; // the outward side of the outline
+      const o = (i * cols + j) * 4, n = ((rows + i) * cols + j) * 4;
+      out[o] = hips.x + sx * rho; out[o + 1] = y; out[o + 2] = hips.z + sz * rho; out[o + 3] = 1;
+      out[n] = sx * nr; out[n + 1] = ny; out[n + 2] = sz * nr; out[n + 3] = 0;
+    }
+  }
+  return out;
+}
+
+/** A point of the sheet (as the shader reads it): way `u` (0..1, wrapping), depth `t` (0..1). */
+export function habitPoint(sheet, u, t, H = HABIT, out = new THREE.Vector3(), normal = null) {
+  const { cols, rows } = H;
+  const x = (((u % 1) + 1) % 1) * cols, y = Math.min(1, Math.max(0, t)) * (rows - 1);
+  const i0 = Math.floor(x) % cols, i1 = (i0 + 1) % cols, fx = x - Math.floor(x);
+  const j0 = Math.min(rows - 1, Math.floor(y)), j1 = Math.min(rows - 1, j0 + 1), fy = y - j0;
+  const at = (i, j, c, base = 0) => sheet[((base + j) * cols + i) * 4 + c];
+  const mix = (c, base) => (at(i0, j0, c, base) * (1 - fx) + at(i1, j0, c, base) * fx) * (1 - fy) + (at(i0, j1, c, base) * (1 - fx) + at(i1, j1, c, base) * fx) * fy;
+  out.set(mix(0, 0), mix(1, 0), mix(2, 0));
+  normal?.set(mix(0, rows), mix(1, rows), mix(2, rows));
+  return out;
+}
+
+/**
+ * A garment vertex on the habit (the CPU twin of the shader): `rest` its standing place
+ * (habitRest's frame), `now` where the skin puts it (envelope frame), `L` the longest hanging
+ * cloth's depth, `lift` its layer's. Moved in place; returns whether it moved.
+ */
+export function habitVertex(sheet, rest, now, L, lift = 0, H = HABIT) {
+  const t = -rest.y / L;
+  if (!(t > 0)) return false;
+  const u = Math.atan2(rest.x, rest.z) / (Math.PI * 2) + 1;
+  const n = new THREE.Vector3(), p = habitPoint(sheet, u, t, H, new THREE.Vector3(), n);
+  p.addScaledVector(n.normalize(), lift);
+  const w = smooth(0, H.blend, t);
+  now.lerp(p, w);
+  return true;
+}
+
 /** The envelope as a texture: phi across (wrapping), s down; a byte a bin, SCALE_M at 255. */
 function envelopeTexture(env) {
   const { table, ns, na } = env;
@@ -138,6 +290,31 @@ float drapeRad(float s, float phi) {
   float u = phi / 6.28318530718 + 0.5 / drapeK.w;
   float v = ((s - drapeK.x) / drapeK.y + 0.5) / drapeK.z;
   return texture2D(drapeR, vec2(u, v)).r * drapeP.x;
+}
+`;
+const GLSL_HABIT_HEAD = /* glsl */`
+uniform mat4 habitRest;
+uniform vec4 habitK; // the longest hanging cloth's depth, this cloth's lift, cols, rows
+uniform vec2 habitB; // the blend's depth
+uniform sampler2D habitG;
+vec3 habitTex(int i, int j) { return texelFetch(habitG, ivec2(i, j), 0).xyz; }
+`;
+const GLSL_HABIT = /* glsl */`
+{
+  vec3 hr = (habitRest * vec4(position, 1.0)).xyz;
+  float ht = -hr.y / habitK.x;
+  if (ht > 0.0) {
+    int nc = int(habitK.z), nr = int(habitK.w);
+    float hx = fract(atan(hr.x, hr.z) / 6.28318530718 + 1.0) * habitK.z, hy = clamp(ht, 0.0, 1.0) * (habitK.w - 1.0);
+    int i0 = int(floor(hx)) % nc, i1 = (i0 + 1) % nc, j0 = min(nr - 1, int(floor(hy))), j1 = min(nr - 1, j0 + 1);
+    float fx = hx - floor(hx), fy = hy - float(j0);
+    vec3 hp = mix(mix(habitTex(i0, j0), habitTex(i1, j0), fx), mix(habitTex(i0, j1), habitTex(i1, j1), fx), fy);
+    vec3 hn = mix(mix(habitTex(i0, j0 + nr), habitTex(i1, j0 + nr), fx), mix(habitTex(i0, j1 + nr), habitTex(i1, j1 + nr), fx), fy);
+    hp += normalize(hn + vec3(0.0, 1e-6, 0.0)) * habitK.y;
+    vec3 dq = (drapeIn * vec4(transformed, 1.0)).xyz;
+    dq = mix(dq, hp, drapeSmooth(0.0, habitB.x, ht));
+    transformed = (drapeOut * vec4(dq, 1.0)).xyz;
+  }
 }
 `;
 const GLSL_PRESS = /* glsl */`
@@ -189,7 +366,7 @@ const GLSL_BODY = /* glsl */`
  * `envelope`, `bodyBone`, `bodyRest`); `seatHalfDeg`. Returns { update(), dispose() }:
  * call update() each frame after the horse and the rider are posed and their matrices updated.
  */
-export function drapeRider({ meshes, kindOf = null, tack, seatHalfDeg = 45, press = null }) {
+export function drapeRider({ meshes, kindOf = null, tack, seatHalfDeg = 45, press = null, habit = null }) {
   const env = tack?.envelope, body = tack?.bodyBone;
   if (!env?.table || !body || !tack.bodyRest) return null;
   const tex = envelopeTexture(env);
@@ -200,11 +377,28 @@ export function drapeRider({ meshes, kindOf = null, tack, seatHalfDeg = 45, pres
   // Root frame -> envelope frame (origin off, axes onto x side, y up, z along).
   const basis = new THREE.Matrix4().makeBasis(env.side, env.up, env.dir).transpose();
   const toEnv = basis.multiply(new THREE.Matrix4().makeTranslation(-env.origin.x, -env.origin.y, -env.origin.z));
+  // T-3644: `habit` = { bones } (rider-pose.js) on a side saddle: the hanging cloth on the sheet.
+  const habitOf = new Map();
+  if (habit?.bones) {
+    for (const mesh of meshes) {
+      const kind = kindOf?.(mesh) ?? null;
+      if (!habitCloth(mesh, kind)) continue;
+      const rest = habitRest(mesh);
+      if (rest) habitOf.set(mesh, { rest, layer: /garment_outer|apron/.test(materialName(mesh)) || kind === 'ride' ? 1 : 0 });
+    }
+  }
+  const habitL = Math.max(0.3, ...[...habitOf.values()].map((h) => h.rest.below));
+  const sheet = habitOf.size ? new Float32Array(HABIT.cols * HABIT.rows * 2 * 4) : null;
+  const sheetTex = sheet ? new THREE.DataTexture(sheet, HABIT.cols, HABIT.rows * 2, THREE.RGBAFormat, THREE.FloatType) : null;
+  if (sheetTex) { sheetTex.magFilter = sheetTex.minFilter = THREE.NearestFilter; sheetTex.generateMipmaps = false; }
   const items = [];
   for (const mesh of meshes) {
     const draped = drapes(mesh, kindOf?.(mesh) ?? null);
     if (!draped && !(Z && mesh?.isSkinnedMesh)) continue;
-    const body = draped ? GLSL_BODY : GLSL_PRESS;
+    const H = habitOf.get(mesh);
+    const body = draped ? (H ? GLSL_HABIT + GLSL_BODY : GLSL_BODY) : GLSL_PRESS;
+    const habitU = H ? { habitRest: { value: H.rest.matrix }, habitK: { value: new THREE.Vector4(habitL, H.layer * HABIT.lift_m, HABIT.cols, HABIT.rows) },
+      habitB: { value: new THREE.Vector2(HABIT.blend, 0) }, habitG: { value: sheetTex } } : null;
     const uIn = { value: new THREE.Matrix4() }, uOut = { value: new THREE.Matrix4() };
     const was = mesh.material;
     const list = (Array.isArray(was) ? was : [was]).map((m) => {
@@ -212,22 +406,25 @@ export function drapeRider({ meshes, kindOf = null, tack, seatHalfDeg = 45, pres
       c.onBeforeCompile = (shader, renderer) => {
         m.onBeforeCompile?.call(c, shader, renderer);
         Object.assign(shader.uniforms, { drapeIn: uIn, drapeOut: uOut, drapeR: { value: tex }, drapeK: { value: K }, drapeP: { value: P },
-          drapeZ: { value: Z ?? new THREE.Vector4() } });
+          drapeZ: { value: Z ?? new THREE.Vector4() } }, habitU ?? {});
         shader.vertexShader = shader.vertexShader
-          .replace('#include <common>', `#include <common>\n${GLSL_HEAD}`)
+          .replace('#include <common>', `#include <common>\n${GLSL_HEAD}${habitU ? GLSL_HABIT_HEAD : ''}`)
           .replace('#include <skinning_vertex>', `#include <skinning_vertex>\n${body}`);
       };
       const key = m.customProgramCacheKey?.bind(m);
-      c.customProgramCacheKey = () => `${key ? key() : ''}|rider-${draped ? 'drape' : 'press'}`;
+      c.customProgramCacheKey = () => `${key ? key() : ''}|rider-${draped ? (H ? 'habit' : 'drape') : 'press'}`;
       return c;
     });
     mesh.material = Array.isArray(was) ? list : list[0];
     items.push({ mesh, was, list, uIn, uOut });
   }
-  if (!items.length) { tex.dispose(); return null; }
+  if (!items.length) { tex.dispose(); sheetTex?.dispose(); return null; }
   const restNow = new THREE.Matrix4(), M = new THREE.Matrix4();
+  const hips = new THREE.Vector3(), hipR = new THREE.Vector3();
   return {
     meshes: items.map((i) => i.mesh),
+    /** The habit's sheet as last laid (envelope frame), or null off a side saddle. */
+    get sheet() { return sheet; },
     update() {
       // world -> the trunk's rest pose in the root frame -> the envelope's frame
       restNow.copy(tack.bodyRest).multiply(M.copy(body.matrixWorld).invert()).premultiply(toEnv);
@@ -235,13 +432,20 @@ export function drapeRider({ meshes, kindOf = null, tack, seatHalfDeg = 45, pres
         it.uIn.value.copy(restNow).multiply(it.mesh.matrixWorld);
         it.uOut.value.copy(it.uIn.value).invert();
       }
+      if (sheet) {
+        const B = habit.bones;
+        B.thigh_l.getWorldPosition(hips).applyMatrix4(restNow);
+        B.thigh_r.getWorldPosition(hipR).applyMatrix4(restNow);
+        habitSheet(legBalls(B, restNow), hips.add(hipR).multiplyScalar(0.5), HABIT, sheet);
+        sheetTex.needsUpdate = true;
+      }
     },
     dispose() {
       for (const it of items) {
         if (it.mesh.material === (Array.isArray(it.was) ? it.list : it.list[0])) it.mesh.material = it.was;
         for (const c of it.list) c.dispose();
       }
-      tex.dispose();
+      tex.dispose(); sheetTex?.dispose();
     },
   };
 }

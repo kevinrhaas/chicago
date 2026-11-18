@@ -466,6 +466,12 @@ step "the Tell me a story library re-derives from its stories and the drawn town
   python3 tools/build_tales.py --check
 step "everyone in town tells a story, their own first, and none twice until all are told (T-3553)" \
   node tools/test_tales.mjs
+# T-3645: the reader's ages (Settings, the Jaunts menu, the account) and every card's age tabs;
+# each card's words at another age measured inside that age's band, and the scene tables fresh.
+step "a reader picks one or more ages; the Jaunts menu and every card follow, kept on the account (T-3645)" \
+  node tools/test_reading_level.mjs
+step "every card's words at another age read inside that age's band, and data/reading is fresh (T-3645)" \
+  python3 tools/reading_levels.py --check --quiet
 step "both reconstructed second-fort posterns block a real walker shut and pass it after their actual leaves open (T-2388)" \
   node tools/test_second_fort_posterns.mjs
 step "the named commandant gallery preserves its fifteen openings and clears their trim with supported reconstructed timber (T-2388)" \

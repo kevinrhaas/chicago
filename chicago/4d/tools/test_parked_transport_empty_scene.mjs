@@ -209,7 +209,9 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
           // T-3557: the Glessner ride's parked twin, coach house and off-road floor.
           'parked', 'coachHouse', 'pathHeightAt',
           // T-3560: the horses a team waits for (riding.js obstacles; none until riding mounts).
-          'obstacles'].sort());
+          'obstacles',
+          // T-3644: the climb into a seat shows the visitor's own person.
+          'visitorFigure'].sort());
         assert.deepEqual(options.obstacles(), [], 'no horses yet: nothing for a team to wait for');
         assert.equal(options.parked, null, 'no parked layer in this boot: the ride has no stand-in');
         assert.equal(options.coachHouse(), undefined); assert.equal(typeof options.pathHeightAt, 'function');
