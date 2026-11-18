@@ -6,7 +6,7 @@
   "camera_sha256": "7b063a09f2205f420cce6176a8c7382a45287add0bdab32956f5b5b330a11419",
   "photo_sha256": "4a3526daf3d99feda753e5fbcb7b704429949d7ab39f93d3dfef84d1a2189029",
   "side_by_side": "docs/RESEARCH/photo-match/fort_dearborn_massacre_monument_1893/aic_taylor_1893-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the pedestal's front and west faces: the base, plinth and die at the camera's fourteen fitted corners, 10.5 px rms, the largest residual 22 px (0.1 m) on the mouldings",
