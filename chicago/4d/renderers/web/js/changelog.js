@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 3089, ts: '2026-11-18T05:56:52.608Z', date: 'Nov 17, 2026, 11:56 PM CT', title: 'People in the distance stay put as you walk up to them', kind: 'fix',
+    items: [
+      'Someone you see down the street no longer fades away as you come close. They stay in view, and once you are near they are there in full, where they were standing, to greet, follow or ask.',
+      'People you have left far behind go back to being part of the distant town.',
+    ] },
+  { v: 3088, ts: '2026-11-18T04:58:29.426Z', date: 'Nov 17, 2026, 10:58 PM CT', title: 'Choose who you are: your own person in Settings', kind: 'feature',
+    items: [
+      'Settings has a new You tab: pick man or woman, age, complexion, a face, eyes, hair and whiskers, and see your person drawn as you choose.',
+      'Each year offers that year\'s own dress, and your choice is kept for each year.',
+      'When you ride, the rider in the saddle is you. A woman rides astride; sidesaddle for 1835 and 1904 comes next.',
+      'Your person is kept on this device, and follows your sign-in to other devices.',
+    ] },
   { v: 3087, ts: '2026-11-18T03:45:35.496Z', date: 'Nov 17, 2026, 9:45 PM CT', title: '2021 Prairie, the High house, rises to its steep gable and turret', kind: 'feature',
     items: [
       '2021 Prairie, James L. High\'s house, now stands as its one old photograph shows it: dark brick under a steep slate front gable with three attic windows, a round turret at the north corner whose slate cone rises from the roofline over a round-headed door, a tall chimney on the south side, and a broad wing standing out to the south under a gable of its own. Its porch, the stoop that climbs along the front and the turret\'s finial are still simpler than the picture; the next pass on this block takes those on.',

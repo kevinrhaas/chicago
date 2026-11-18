@@ -70,10 +70,12 @@ const trot = clipFromJson(JSON.parse(read('renderers/web/' + spec.trot_clip_file
 const canter = clipFromJson(JSON.parse(read('renderers/web/' + spec.canter_clip_file)));
 const gallop = clipFromJson(JSON.parse(read('renderers/web/' + spec.gallop_clip_file)));
 const humans = {};
-// The visitor's stand-in and every town rider's figure (tools/lay_town_riders.mjs), each seated and checked.
 // Every figure that may ride in the year: the visitor's stand-in, the town's riders, and the
 // figures the year's camps and jaunt scenes put on a horse (config.rider.also).
-const assetsOf = y => (process.env.RIDER_ASSETS ? process.env.RIDER_ASSETS.split(',') : [...new Set([config.rider.assets[y], ...(config.riders ?? []).filter(r => r.scene === y).map(r => r.asset), ...(config.rider.also?.[y] ?? [])])]);
+// T-3644: and every body the visitor may choose for their own person in that year.
+const person = JSON.parse(read('data/humans/visitor_person.json'));
+const personAssets = y => Object.values(person.outfits?.[y] ?? {}).flat().map(o => o.asset);
+const assetsOf = y => (process.env.RIDER_ASSETS ? process.env.RIDER_ASSETS.split(',') : [...new Set([config.rider.assets[y], ...(config.riders ?? []).filter(r => r.scene === y).map(r => r.asset), ...(config.rider.also?.[y] ?? []), ...personAssets(y)])]);
 for (const y of YEARS) for (const a of assetsOf(y)) humans[a] ??= await parse(read(`assets/humans/web/${a}.lod${config.rider.lod}.glb`));
 
 const v = new THREE.Vector3(), q = new THREE.Vector3();
@@ -162,9 +164,10 @@ for (const y of YEARS) for (const tk of tacksOf(y)) {
       // Moving with the horse (riderLife) and looking hard about, left then right, head down.
       const look = (k % 2 ? 1 : -1) * riding.LOOK_MAX_RAD;
       const L = riding.riderLife({ next: Infinity, look, want: look, nod: .12, wantNod: .12 }, { level: gait.level, moving: gait.moving, phase: gait.phase, dt: 0, now: k });
-      const lean = riding.leanAt(config.fit, gait.level) + L.lean;
-      const t = saddleTargets(tack, config.fit, { lean, rise: L.rise, give: L.give }), w = t.world(root);
-      const short = pose.apply({ ...w, look: L.look, sway: L.sway, nod: L.nod });
+      const f = riding.fitFor(config.fit, asset);   // T-3644: the body's own fit
+      const lean = riding.leanAt(f, gait.level) + L.lean;
+      const t = saddleTargets(tack, f, { lean, rise: L.rise, give: L.give }), w = t.world(root);
+      const short = pose.apply({ ...w, look: L.look, sway: L.sway, nod: L.nod, ...riding.bodyPose(f) });
       tack.update(t.rootFrame(root, pose));
       worstShort = Math.max(worstShort, ...Object.values(short));
       for (const s of ['l', 'r']) {

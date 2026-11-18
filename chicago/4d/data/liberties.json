@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1173,
+  "count": 1174,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -75567,7 +75567,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the owner, 2026-11-10: every device keeps the living town, people, horses, carriages and wagons are core and are never dropped, a lower resolution or blur instead; and 2026-11-17, finishing this work (*\"far people as impostor cards, middle-distance people instanced, and horse-drawn traffic moving on distant streets, inside measured budgets\"*). A person's full figure is built only within 140 m and a few at a time (the walkthrough's humans code, the walkthrough's human days code), so the town's people beyond that, or beyond the nearest few, were not drawn. Now everyone out of doors within 600 m (450 on Balanced, 320 on Light) who is not built is drawn: from 28 m to 110 m (90, 70) as a body shared by everyone in the same dress, walking from a texture of eight walk frames and one standing frame baked from their own figure, and past that as a card from one atlas of each dress in eight headings and three poses, baked from the same figure. Teams out of their built reach (90, 60, 45 m) are drawn as cards out to 700 m (500, 350), baked from their own vehicle and horse files in sixteen headings."
+          "text": "the owner, 2026-11-10: every device keeps the living town, people, horses, carriages and wagons are core and are never dropped, a lower resolution or blur instead; and 2026-11-17, finishing this work (*\"far people as impostor cards, middle-distance people instanced, and horse-drawn traffic moving on distant streets, inside measured budgets\"*). A person's full figure is built only within 140 m and a few at a time (the walkthrough's humans code, the walkthrough's human days code), so the town's people beyond that, or beyond the nearest few, were not drawn. Now everyone out of doors within 600 m (450 on Balanced, 320 on Light) who is not built is drawn: from 28 m to 110 m (90, 70) as a body shared by everyone in the same dress, walking from a texture of eight walk frames and one standing frame baked from their own figure, and past that as a card from one atlas of each dress in eight headings and three poses, baked from the same figure. Teams out of their built reach (90, 60, 45 m) are drawn as cards out to 700 m (500, 350), baked from their own vehicle and horse files in sixteen headings. And within 28 m a person not built is built as their whole figure where the crowd drew them, on their own hour (owner, 2026-11-17: far people *\"dissolve like ghosts and i cant get to them\"*), so anyone seen down the street can be walked up to."
         },
         {
           "label": "Not invented",
@@ -76327,6 +76327,44 @@
       "work_refs": [
         "T-0064",
         "T-3558"
+      ]
+    },
+    {
+      "id": "L-visitor-person-3644",
+      "title": "The visitor's own person, chosen in Settings",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-17: *\"the body you have riding the horse is a white man you will need to provide options for users in settings to change the gender appearance dress, etc. this becomes a person builder eventually but the foundation starts with customizing the default person\"*. The Settings card's You tab lets a visitor choose who they are: a man or a woman, young, middle-aged or older, one of nine complexions, a face from the library or Auto, eyes, hair colour and cut, whiskers, and the dress of the year they are in. That person is the figure in the saddle. And, for a woman on a horse (his pick on a card the same day): *\"Astride in 1812, sidesaddle later\"*."
+        },
+        {
+          "label": "Not invented",
+          "text": "nothing about anybody. Every body, dress, face, complexion, cut and colour on offer is one the town's own people are already drawn with, each carrying its own liberty (“People with no pictures of their own wear one of twenty-two faces”, “The women's finery of 1904 and the figured cloth of 1812”, “The 1835 town's people, each in and out of their own home and place of business by the hour”, the recipes' own); a year offers only the dress its townspeople wear."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "the visitor is a person of no record: their looks, age and dress are the visitor's own choice, graded reconstructed. The lists are a selection (the bodies that sit a saddle without going into the horse). The default person (a man in a settler's dress in 1812 and 1835, a working man's in 1904, a light complexion and a face drawn as everyone's is) is the figure that rode before the choice existed. A woman rides astride in every year for now: right for a frontier woman of 1812, and a stand-in for the sidesaddle 1835 and 1904 ladies rode, which comes next."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "the sidesaddle; colours of dress and more bodies (the person builder); the owner wanting other choices on offer."
+        },
+        {
+          "label": "Review",
+          "text": "the visitor person data, the walkthrough's visitor person code, the walkthrough's person settings code, the visitor person test."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-17."
+        }
+      ],
+      "work_refs": [
+        "T-3644"
       ]
     },
     {
