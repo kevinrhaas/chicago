@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3086, ts: '2026-11-18T02:33:08.846Z', date: 'Nov 17, 2026, 8:33 PM CT', title: 'Glessner\'s coach-house doors stay green after you walk away and back', kind: 'fix',
+    items: [
+      'Walking far from the Glessner house and coming back no longer turns its green coach-house doors, their frame, the loft door and the window frames black.',
+      'The north entry\'s oak door and other doors that swing open keep their wood the same way.',
+    ] },
   { v: 3085, ts: '2026-11-18T01:35:28.474Z', date: 'Nov 17, 2026, 7:35 PM CT', title: 'The year cards\' moving pictures play on every phone again', kind: 'fix',
     items: [
       'On an iPhone in Low Power Mode the three year cards on the first screen showed still pictures, because the phone refuses every video there.',
