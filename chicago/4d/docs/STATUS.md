@@ -17,34 +17,40 @@ Implementation on `steward/t3656-browser-classroom`, based on development commit
   with document tasks, discussion and suggested Illinois/C3 connections. These are a
   starting set of guides, not a fully authored curriculum or certified standards mapping.
 
-Validation so far: all four focused logic suites pass under Node 22; reflection coverage
-spans 240 available tellings and five bands, lesson coverage spans 192 school tellings and
-10 available year/group combinations. Existing Navigator, person-card, teacher-handout,
-jaunt-mechanics, string and changelog checks pass. Real-component browser tests pass at
-390×780 and 1280×800 for notebook save/edit/export/print/errors and for lesson selection,
-source links, request races and three-page Letter PDFs; dark notebook inputs measure
-10.62:1 contrast after correction. Reflection completion UI passes at both widths.
-Actual source-town phone testing also confirms notebook persistence and completed-jaunt
-reflections. Published desktop testing passes
-notebook, lesson/PDF and real-jaunt completion flows, with zero page errors, local 404s or
-horizontal overflow. A real WebGL fixture at both widths verifies the production shutter,
-nonblack pixels, stamped PNG download and `preserveDrawingBuffer: false`. Whole-town photo
-and share tests now pass on both source and published trees at both sizes: each shutter
-uses the production normal-frame callback, scene pixels are nonblank, and links restore
-position and season while preserving a saved outing without automatically resuming it.
-The software-GPU harness pauses continuous drawing between interactions and explicitly
-steps the real renderer for capture; this is not a low-end hardware performance result.
-Legacy 1835 People cards also pass real-record notebook save, duplicate and denied-storage
-browser checks. Lesson documents use the same readable-text overlay as jaunt previews;
-People and Inspect retain explicit person selections for the Home photo link.
+Validation checkpoint: all four focused logic suites pass under Node 22; reflection
+coverage spans 240 available tellings and five bands, and lesson coverage spans 192
+school tellings and 10 available year/group combinations. Existing Navigator,
+person-card, teacher-handout, jaunt-mechanics, string and changelog checks pass.
+Real-component browser fixtures pass at 390×780 and 1280×800 for notebook
+save/edit/reload/export/print/errors, lesson selection and source links, request races,
+three-page Letter PDFs, and reflection completion. Dark notebook inputs measure
+10.62:1 contrast. Legacy 1835 People cards pass real-record notebook save, duplicate
+and denied-storage checks. People and Inspect selections pass through Home sharing
+with the final selection logic; lesson documents use the readable-text overlay.
 
-**Release validation:** preflight's first of eight source partitions passes 175 checks,
-along with the changelog-entry and ticket-ID checks. Published mobile renderer stages
-1–3 pass with zero failures or page errors. All eight source partitions and the complete
-published renderer smoke at both sizes are required before DEV merge; the pull request
-records their aggregate results. The eight-way split keeps work resumable after a workspace
-transition interrupted a longer partition. GitHub holds the implementation checkpoint and
-both full renderer workflow runs. No production promotion is part of this work.
+Earlier source and published whole-town photo/share tests pass at both sizes: bounded
+PNG captures contain nonblank scene pixels, links restore position and season, and a
+saved outing remains stored without automatically resuming. These photo runs precede
+the final person-selection and lesson reader-text changes; a hash-verified diff proves
+the shutter/render path stayed unchanged. Their notebook assertion was skipped despite
+an overbroad report label, so notebook persistence is established by the separate browser
+fixture, not those photo reports. The software-GPU harness pauses continuous drawing
+between interactions and executes the actual normal frame for capture; it is not a
+low-end hardware performance result. The evidence archive retains the exact harnesses,
+reports, hashes and limitations.
+
+**Release validation at this checkpoint:** source partitions 1–4 of eight pass
+(175, 174, 174 and 174 checks), and preflight's changelog-entry and ticket-ID checks pass.
+Published mobile renderer stages 1–12 pass with zero failures or page errors. Stage 6's
+second-world recovery initially timed out under CPU contention; its unchanged quiet
+rerun passes both context-loss recoveries and the existing boot limit. All eight source
+partitions and all fifteen published renderer stages at both sizes remain required
+before DEV merge; the pull request records the final aggregate and exact-head CI result.
+The implementation is backed up on GitHub in PR #2197. Completed logs, screenshots and
+recovery details are in
+[chicago-evidence](https://github.com/kevinrhaas/chicago-evidence/tree/main/evidence/t3656-browser-classroom-2026-11-18).
+Later validation receipts are added there and to T-3656 without implying unrun gates
+passed. No production promotion is part of this work.
 
 No new server or shared-service activation. Photos/notes stay local until explicitly
 exported. Shared URLs do not contain notebook text or account state. No claim of full
