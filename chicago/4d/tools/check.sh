@@ -466,6 +466,12 @@ step "the Tell me a story library re-derives from its stories and the drawn town
   python3 tools/build_tales.py --check
 step "everyone in town tells a story, their own first, and none twice until all are told (T-3553)" \
   node tools/test_tales.mjs
+# T-3645: the reader's ages (Settings, the Jaunts menu, the account) and every card's age tabs;
+# each card's words at another age measured inside that age's band, and the scene tables fresh.
+step "a reader picks one or more ages; the Jaunts menu and every card follow, kept on the account (T-3645)" \
+  node tools/test_reading_level.mjs
+step "every card's words at another age read inside that age's band, and data/reading is fresh (T-3645)" \
+  python3 tools/reading_levels.py --check --quiet
 step "both reconstructed second-fort posterns block a real walker shut and pass it after their actual leaves open (T-2388)" \
   node tools/test_second_fort_posterns.mjs
 step "the named commandant gallery preserves its fifteen openings and clears their trim with supported reconstructed timber (T-2388)" \
@@ -776,6 +782,14 @@ step "A coat closes under the arm on every sleeved body and its back vent laps s
   node tools/test_human_coat.mjs
 step "Sleeve hems and cuffs bend with the wrist as one band, no ragged edge; the soldiers' cuffs never through or parted; a gloved hand shows no skin in the sleeve's mouth, walking, bending, carrying, at every level (T-3553)" \
   node tools/test_human_sleeve.mjs
+step "Townsmen's 1830s trousers are full at the waistband, pleated, tapered to the ankle and strapped under the shoe; the shirt is white linen gathered into a wristband, nothing through, standing and walking, at every level, no mesh added (T-3553)" \
+  node tools/test_human_tailor_1835.mjs
+step "The 1812 private wears the regulars' coat: skirts below the coatee's and tape on his breast button holes, at every level, standing and walking; the 1835 garrison as drawn (T-3553)" \
+  node tools/test_human_regulars.mjs
+step "John J. Glessner's frock coat stops at the knee, is taken in at the waist, opens on the shirt front, has a white standing collar and a back vent, standing and walking, at every level (T-3553)" \
+  node tools/test_human_frockcoat.mjs
+step "The 1904 lady's skirt is close at the hips and flares from the knee, with gores, folds, braid, a cream lace front and wrist frills, clear of the legs walking, at every level, no mesh added (T-3553)" \
+  node tools/test_human_gown.mjs
 step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \
   node tools/test_human_looks.mjs
 step "1904 people use actual drawn pedestrian tops only beneath enabled terrain-cut masks, preserving decks, positive yards and other epochs (T-2795)" \

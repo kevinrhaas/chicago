@@ -2,10 +2,10 @@
   "subject": "glessner_john_j_1904",
   "reference_set": "gentleman_1904",
   "shot": {
-    "date": "2026-11-17",
+    "date": "2026-11-18",
     "target": "tools/people_match_stage.html on this tree",
-    "build": "stage, tree d4fae0e81 + 5 uncommitted figure file(s)",
-    "out": "evidence/people-match-2026-11-17/glessner_john_j_1904",
+    "build": "stage, tree f9d353b45 + 8 uncommitted figure file(s)",
+    "out": "evidence/people-match-2026-11-18/glessner_john_j_1904",
     "evidence_repo": "kevinrhaas/chicago-evidence"
   },
   "bound": {
@@ -21,8 +21,8 @@
   },
   "stills": {
     "near-desktop": {
-      "file": "evidence/people-match-2026-11-17/glessner_john_j_1904/near-desktop.jpg",
-      "sha256": "2a4a58aca986df2a219d354040e9cbc8b01b4af04f8f7b7f519a5c69d86886d7",
+      "file": "evidence/people-match-2026-11-18/glessner_john_j_1904/near-desktop.jpg",
+      "sha256": "22a5ddff5b7bcba918ee500a91269a289e1245387380b4b230ea48ab85e6a497",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -52,8 +52,8 @@
       ]
     },
     "far-desktop": {
-      "file": "evidence/people-match-2026-11-17/glessner_john_j_1904/far-desktop.jpg",
-      "sha256": "7aa084050dcd8d10104d2bc9ef831cad4b53f11168a73c5a4563d8ec3958dadf",
+      "file": "evidence/people-match-2026-11-18/glessner_john_j_1904/far-desktop.jpg",
+      "sha256": "8a874d6fef6288a85f486d0e8f33db483f6ca7430989e9c5bfb13a52387acdfa",
       "detail": "stage",
       "pose": {
         "pose": "walk",
@@ -83,8 +83,8 @@
       ]
     },
     "near-phone": {
-      "file": "evidence/people-match-2026-11-17/glessner_john_j_1904/near-phone.jpg",
-      "sha256": "39c6869ec6e05c256c55f28a3ce4453ce3acd1a868da7450b88ee302664b03c8",
+      "file": "evidence/people-match-2026-11-18/glessner_john_j_1904/near-phone.jpg",
+      "sha256": "ede554835c932781f57b231fd3f30294b9dc84a4ba247cc0cd68ec5ec5814a6a",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -114,8 +114,8 @@
       ]
     },
     "far-phone": {
-      "file": "evidence/people-match-2026-11-17/glessner_john_j_1904/far-phone.jpg",
-      "sha256": "8763e090b09b16b941123bb55d1d5c8ec40e210d39295f3f4468b0f73e7140a2",
+      "file": "evidence/people-match-2026-11-18/glessner_john_j_1904/far-phone.jpg",
+      "sha256": "0bbfe74fcc6adb51fc11c77484853b33f2a0d8de861501d2c9ad08ba177ed01f",
       "detail": "stage",
       "pose": {
         "pose": "walk",
@@ -146,23 +146,23 @@
     }
   },
   "sheets": {
-    "near-side-by-side": "evidence/people-match-2026-11-17/glessner_john_j_1904/near-side-by-side.jpg",
-    "far-side-by-side": "evidence/people-match-2026-11-17/glessner_john_j_1904/far-side-by-side.jpg",
-    "near-pair": "evidence/people-match-2026-11-17/glessner_john_j_1904/near-pair.jpg",
-    "far-pair": "evidence/people-match-2026-11-17/glessner_john_j_1904/far-pair.jpg",
-    "motion-strip": "evidence/people-match-2026-11-17/glessner_john_j_1904/motion-strip.jpg"
+    "near-side-by-side": "evidence/people-match-2026-11-18/glessner_john_j_1904/near-side-by-side.jpg",
+    "far-side-by-side": "evidence/people-match-2026-11-18/glessner_john_j_1904/far-side-by-side.jpg",
+    "near-pair": "evidence/people-match-2026-11-18/glessner_john_j_1904/near-pair.jpg",
+    "far-pair": "evidence/people-match-2026-11-18/glessner_john_j_1904/far-pair.jpg",
+    "motion-strip": "evidence/people-match-2026-11-18/glessner_john_j_1904/motion-strip.jpg"
   },
-  "verdict": "differs",
+  "verdict": "matches",
   "checklist": {
     "silhouette": {
       "what": "Silhouette and fit of the clothes",
-      "status": "open",
-      "note": "The frock coat is buttoned to the throat and falls straight to mid-calf with no waist seam, so at 3 m it reads as a cassock or an overcoat; Taft's frock coat is buttoned high but shows its lapels and stops at the knee, and Root's is worn open over a high waistcoat. At 10 m a dark coat below the knee and a derby read as the State Street men do."
+      "status": "within tolerance",
+      "note": "Reshot after the facings (T-3553 round 4): the lapels are now faced in silk (the tie's own silk, appended to its mesh), and at 3 m they read as Taft's do in the Clinedinst print: a lighter band of sheen from the shoulder down each lapel beside the white shirt-and-tie V, his right lapel (toward the stage sun) brighter than his left, so the front is no longer one black mass. The skirts stop at the knee and the coat is taken in at the waist; the waist stays slight at 3 m with the arms down (the coat already lies within a few millimetres of the waistcoat and the body there, so it cannot be drawn in further without the layers under it coming through; tried, squeezing it harder gained little girth and let the waistcoat through). Buttoned high, as Taft; Root's open coat and wide waistcoat are the other way to wear it. At 10 m a dark knee-length coat and a derby read as the State Street men do."
     },
     "folds": {
       "what": "Folds where cloth gathers",
-      "status": "open",
-      "note": "Mid-stride the skirts swing out as one bell with no centre-back vent or pleats; a frock coat's skirts part at the back vent."
+      "status": "within tolerance",
+      "note": "The centre-back vent (human-frockcoat.js: lapped at its top, about 2.4 cm apart at the hem standing) now parts with the stride (human-skirt.js, T-3553 round 4): each half of the skirts hangs on its own panel, so as the trailing leg presses the back the halves part, about 9 cm apart at the hem on the mean over the walk and up to about 16 cm, the trousers showing between them from behind and the rear three-quarter, and lap closed again standing; the top stays lapped and no leg passes through the opening. The front view of the strip does not show it. Two covered hip buttons now sit at the back of the waist seam either side of the vent (silk, 1.7 cm across, 5 mm proud), seen from behind when the light falls on the back; no pleats are modelled under them."
     },
     "hat_hair": {
       "what": "Hat and hair",
@@ -187,39 +187,39 @@
     "motion": {
       "what": "How it moves (the 5-second strip)",
       "status": "within tolerance",
-      "note": "A steady walk; the coat skirts swing wide (see folds)."
+      "note": "A steady walk; the knee-length skirts clear the knee on the stride and part at the vent behind (see folds)."
     }
   },
   "differences": [
     {
       "what": "coat length",
       "picture": "Frock coat skirts to the knee (Taft 1904).",
-      "ours": "Skirts below the knee, to about mid-calf.",
-      "status": "open"
+      "ours": "Skirts to just above the knee (about 3 cm above the knee joint standing; level with it at the deepest stride).",
+      "status": "reads"
     },
     {
       "what": "lapels and front",
       "picture": "Long lapels rolling to the waist (Root), or buttoned high with the lapels still showing (Taft); waistcoat and shirt front show in the opening.",
-      "ours": "Buttoned to the throat; the lapels piece does not read; only a narrow shirt collar and tie show; the waistcoat is hidden.",
-      "status": "open"
+      "ours": "Buttoned high; a narrow V of white shirt and tie at the chest with a sliver of waistcoat beside it; the lapels faced in silk, so they read as a lighter band of sheen beside the V (his right lapel brighter in the stage light, the left fainter), as Taft's do; no wide waistcoat as Root's open coat shows.",
+      "status": "within tolerance"
     },
     {
       "what": "waist",
       "picture": "Frock coat seamed and suppressed at the waist, the skirts hanging from it.",
-      "ours": "No waist seam or suppression; straight from chest to hem.",
-      "status": "open"
+      "ours": "Taken in at the waist (girth about 7 cm less), the skirts hanging from it; slight at 3 m with the arms down, and only on the near levels: the coat already lies within a few millimetres of the waistcoat and body there, so it cannot be drawn in further without what is under it coming through.",
+      "status": "within tolerance"
     },
     {
       "what": "back vent",
       "picture": "A frock coat's skirts part at a centre-back vent with pleats (the walking men on State Street).",
-      "ours": "The skirts are one closed bell that flares as he walks.",
-      "status": "open"
+      "ours": "A centre-back vent, lapped at the top and about 2.4 cm apart at the hem standing; on the walk the two halves part as the legs move (about 9 cm at the hem on the mean, up to 16) and lap closed again standing; two covered hip buttons at the top of it, on the waist seam; no pleats.",
+      "status": "within tolerance"
     },
     {
       "what": "collar",
       "picture": "Tall standing collar (Glessner plate 1897), wing collar (Root).",
-      "ours": "A low pale grey collar; reads grey, not white.",
-      "status": "open"
+      "ours": "A white standing collar, raised at the sides and back to stand clear of the coat collar; lower than the 1897 plate's.",
+      "status": "reads"
     },
     {
       "what": "trousers",

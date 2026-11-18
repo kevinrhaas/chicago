@@ -30,11 +30,12 @@
  *      the hem more than TOOTH_M off the hem's own line (a tooth the decimated edge drew, up
  *      to MAX_TOOTH_M) is taken back along the arm to it. Only the hem's edge moves.
  *   2. gloves: a glove whose wrist ends inside a sleeve has its top BAND_M drawn EXTEND_M on
- *      up the forearm, inside the sleeve, its new edge eased most of the way (REACH) to
- *      LINING_M inside the lining and tapering back to the glove as drawn; the part drawn up
+ *      up the forearm, inside the sleeve, its new edge eased out (REACH) to LINING_M inside
+ *      the lining and tapering back to the glove as drawn; the part drawn up
  *      takes the sleeve's own weights at its new place (one set round the arm), so it moves
  *      with the sleeve that hides it. Looking into the sleeve's mouth one sees glove, not
- *      skin. A reconstructed gauntlet (liberty L-sleeve-3553), never seen outside the sleeve.
+ *      skin, from any side (round 4: eased all the way to the lining, not four fifths of it,
+ *      so no sliver of wrist shows past the glove's edge at a grazing line of sight). A reconstructed gauntlet (liberty L-sleeve-3553), never seen outside the sleeve.
  *
  * Topology and UVs are unchanged. Cost: a few thousand vertices per level, once per parse.
  * No geometry, texture, draw call or program is added.
@@ -49,11 +50,14 @@ export const TOOTH_M = 0.002, MAX_TOOTH_M = 0.015;
 /** A rim counts as the sleeve's end at the wrist when it lies within this of the wrist joint. */
 export const WRIST_REACH_M = 0.07;
 /** A glove ending inside a sleeve: its top BAND_M is drawn EXTEND_M up the forearm, its new
- * edge eased half way to LINING_M inside the sleeve's lining (by no more than MAX_EASE_M); the
+ * edge eased out to LINING_M inside the sleeve's lining (by no more than MAX_EASE_M); the
  * glove's edge must lie at least MOUTH_M inside the sleeve's mouth. */
-export const BAND_M = 0.02, EXTEND_M = 0.04, LINING_M = 0.005, MOUTH_M = 0.003, MAX_EASE_M = 0.02;
-/** How far across the gap to the lining the glove's new edge is eased (a share of it). */
-export const REACH = 0.8;
+export const BAND_M = 0.02, EXTEND_M = 0.04, LINING_M = 0.002, MOUTH_M = 0.003, MAX_EASE_M = 0.02;
+/** How far across the gap to the lining the glove's new edge is eased (a share of it). Round 2
+ * took 0.8 of it with LINING_M 5 mm, and the gap left let a sliver of wrist show past the
+ * glove's edge at grazing lines of sight (T-3553 round 4); the band carries the sleeve's own
+ * weights, so it stays inside the lining in every pose the test takes. */
+export const REACH = 1;
 const ARM_M = 0.54;
 const SKIP = /^(skin|hair|eyes|headwear|footwear)/;
 const FINGER = /^(thumb|index|middle|ring|pinky)_\d+_[lr]$/;
@@ -299,7 +303,7 @@ function castRay(o, d, tris, P, maxT) {
 
 /**
  * Carry a glove that ends inside a sleeve on up the forearm, inside the sleeve: its top band
- * (BAND_M of it) is drawn up EXTEND_M toward the elbow and eased out most of the way (REACH) to
+ * (BAND_M of it) is drawn up EXTEND_M toward the elbow and eased out (REACH) to LINING_M inside
  * the sleeve's lining at its new edge, tapering back to the glove as drawn at the foot of the band; the
  * part drawn up takes the sleeve's own weights at its new place, one set round the arm, so
  * it moves with the sleeve that hides it. `over` are the other cloth meshes of the same

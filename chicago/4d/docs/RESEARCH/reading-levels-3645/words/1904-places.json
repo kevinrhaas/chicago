@@ -1,0 +1,257 @@
+{
+ "_doc": "T-3645: the 1904 authored building records (data/summaries/, compiled into data/inspect/1904.json and shown on Inspect's Overview and Timeline) retold for younger readers. Keyed by building id for the summary, and by id, part and place for each line (glessner_house.notable.2, .story.1, .look.1, .status). Only the younger ages are written; the record itself is never rewritten, and no fact enters that it does not hold. Buildings without an authored record show templated lines, which are not retold.",
+ "armour_house_2115_prairie": {
+  "8-10": [
+   "A stone house with a steep roof, built for David Kelley, who sold wood. Later the family of Philip D. Armour lived here for almost 50 years. He packed meat. His widow was one of the last people still living on the street."
+  ]
+ },
+ "armour_house_2115_prairie.status": {
+  "8-10": [
+   "A sign for the neighborhood lists it with the lost houses of Prairie Avenue. It does not give a year. A photo from 1928 shows it was still standing then."
+  ]
+ },
+ "coleman_ames_house_1811_prairie": {
+  "8-10": [
+   "A house of rough brown stone, with round arches. It was built in 1886 for Joseph G. Coleman. Cobb and Frost drew the plans. It still stands."
+  ]
+ },
+ "coleman_ames_house_1811_prairie.notable.1": {
+  "8-10": [
+   "The men who drew its plans were known for heavy stone houses with round arches. Here they used rough brown stone."
+  ]
+ },
+ "elbridge_keith_house_1900_prairie": {
+  "8-10": [
+   "A stone house with a steep slate roof. It was built for Elbridge Keith. He sold hats, and later he ran a bank. The top floor, inside the roof, was added in the 1880s. It is the last house of its kind left on Prairie Avenue."
+  ]
+ },
+ "elbridge_keith_house_1900_prairie.story.1": {
+  "8-10": [
+   "Elbridge Keith buys a double lot. He hires John W. Roberts to draw the house."
+  ]
+ },
+ "fort_dearborn_massacre_monument_1893": {
+  "8-10": [
+   "A group of bronze statues made by Carl Rohl-Smith. George M. Pullman paid for it. It was set up next to his house in 1893. It shows the Potawatomi leader Black Partridge saving Margaret Helm in the fight of August 1812. For a long time, Indian groups did not like how it showed their people."
+  ]
+ },
+ "fort_dearborn_massacre_monument_1893.notable.2": {
+  "8-10": [
+   "There are five people in it. One attacks. Then there is Margaret Helm and Black Partridge. A doctor lies hurt, and there is a child."
+  ],
+  "11-13": [
+   "Five figures make up the group. There is an attacker, Margaret Helm, Black Partridge, a hurt doctor and a child."
+  ]
+ },
+ "fort_dearborn_massacre_monument_1893.notable.3": {
+  "8-10": [
+   "In 1972 the museum gave it a new name. It called it The Potawatomi Rescue."
+  ]
+ },
+ "fort_dearborn_massacre_monument_1893.story.3": {
+  "8-10": [
+   "The statue goes to a museum."
+  ],
+  "11-13": [
+   "The statue goes to the city's history museum."
+  ],
+  "14-15": [
+   "The statues move to the Chicago History Museum."
+  ]
+ },
+ "fort_dearborn_massacre_monument_1893.story.4": {
+  "8-10": [
+   "The museum gives it a new name. It calls it The Potawatomi Rescue."
+  ],
+  "11-13": [
+   "The museum adds a new name to it: The Potawatomi Rescue."
+  ]
+ },
+ "fort_dearborn_massacre_monument_1893.story.5": {
+  "8-10": [
+   "People protest. They do not like the statue."
+  ]
+ },
+ "fort_dearborn_massacre_monument_1893.story.6": {
+  "8-10": [
+   "Later the city brings it back near Prairie Avenue. Then it puts it away in storage."
+  ]
+ },
+ "glessner_house": {
+  "8-10": [
+   "From the street it looks like a stone fort. Inside there is a sunny yard. People walking by talked about its narrow windows on 18th Street. They did not know the big windows face the yard. By 1904 John and Frances Glessner had lived here since 1887."
+  ]
+ },
+ "glessner_house.notable.1": {
+  "8-10": [
+   "Their daughter Frances later made the Nutshell Studies. They are tiny model rooms where a crime happened. Police still use them to learn."
+  ]
+ },
+ "glessner_house.notable.2": {
+  "8-10": [
+   "On the first day of digging, George and Frances threw out the first dirt. George was 14. Frances was 8."
+  ]
+ },
+ "glessner_house.notable.3": {
+  "8-10": [
+   "Mr. Richardson died in April 1886, about five weeks before the digging began. He never saw the house built."
+  ]
+ },
+ "glessner_house.notable.4": {
+  "8-10": [
+   "The family moved in through the yard door on the alley. The neighbors had not even guessed they were moving."
+  ]
+ },
+ "glessner_house.notable.5": {
+  "8-10": [
+   "In 1904 Frances Glessner set up a work table in the basement. She made things out of silver there."
+  ],
+  "11-13": [
+   "In 1904 Frances Glessner set up a workbench in the basement for making silver."
+  ]
+ },
+ "glessner_house.notable.6": {
+  "8-10": [
+   "In December 1966 a group of people bought the house to save it. They loved old buildings. They paid $35,000."
+  ],
+  "11-13": [
+   "In December 1966 a group of architects and people who save old buildings bought the house. They paid $35,000 to save it."
+  ]
+ },
+ "glessner_house.story.1": {
+  "8-10": [
+   "John J. Glessner buys the land on the corner. It costs $50,000."
+  ]
+ },
+ "glessner_house.story.2": {
+  "8-10": [
+   "H. H. Richardson starts to draw the house."
+  ]
+ },
+ "glessner_house.story.3": {
+  "8-10": [
+   "Mr. Richardson dies before the house is built. Three weeks before, he had marked where its lights would go."
+  ]
+ },
+ "glessner_house.story.5": {
+  "8-10": [
+   "The family sleeps in the new house for the first time. They carry the fire over from the old one."
+  ]
+ },
+ "glessner_house.story.6": {
+  "8-10": [
+   "Their girl Frances gets married in the front room. She weds Blewett Lee."
+  ]
+ },
+ "glessner_house.story.7": {
+  "8-10": [
+   "John Glessner's firm joins some others. Now they are one big firm. He is one of the bosses."
+  ],
+  "11-13": [
+   "John Glessner's firm joins with others. Together they make one big firm, International Harvester. He is made one of its vice presidents."
+  ]
+ },
+ "glessner_house.story.8": {
+  "8-10": [
+   "Frances Glessner sets up a work table in the basement. She makes things out of silver there."
+  ],
+  "11-13": [
+   "Frances Glessner sets up a workbench in the basement for making silver."
+  ]
+ },
+ "glessner_house.story.9": {
+  "8-10": [
+   "The Glessners sign the house over to a club for builders. It will be theirs when the Glessners die."
+  ],
+  "11-13": [
+   "The Glessners sign the house over to the Chicago branch of a club for architects. It goes to them after the Glessners die."
+  ]
+ },
+ "glessner_house.story.11": {
+  "8-10": [
+   "A group that studies printing moves in. It puts labs in the house, but it leaves the rooms the way they were."
+  ],
+  "11-13": [
+   "A group that studies printing moves in and fills the house with labs. It leaves the plan of the rooms as it was."
+  ]
+ },
+ "glessner_house.story.12": {
+  "8-10": [
+   "A new group of people who love old buildings buys the house for $35,000 to save it."
+  ],
+  "11-13": [
+   "A new group of architects and people who save old buildings buys the house for $35,000 to save it."
+  ]
+ },
+ "house_1736_prairie.notable.2": {
+  "8-10": [
+   "Hugh McBirney paid $25,000 for the house and its corner lot. That was in December 1880."
+  ]
+ },
+ "jones_house_1834_prairie": {
+  "8-10": [
+   "A brick house drawn by John M. Van Osdel. It was built in 1866 for Fernando Jones, one of the first people to settle in Chicago. In 1886 it got a new, steep roof, to keep up with the houses next door."
+  ]
+ },
+ "kimball_house_1801_prairie.notable.1": {
+  "8-10": [
+   "The man who built it was well known in Chicago. He made pianos and organs."
+  ]
+ },
+ "moulton_lowden_house_1912_prairie.status": {
+  "8-10": [
+   "A sign put up for the neighborhood lists it with the lost houses of Prairie Avenue. It does not say what year it was torn down."
+  ]
+ },
+ "pullman_house_1729_prairie.status": {
+  "8-10": [
+   "A sign put up for the neighborhood lists it with the lost houses of Prairie Avenue. It does not say what year it was torn down."
+  ]
+ },
+ "pullman_house_1729_prairie.notable.2": {
+  "8-10": [
+   "Later Solon S. Beman added a room for palm trees and a big glass plant house."
+  ]
+ },
+ "sherman_house_2100_prairie": {
+  "8-10": [
+   "Built in 1874 for John B. Sherman. He ran the Union Stock Yards. Burnham and Root drew the plans. While it was being built, Sherman's daughter Margaret married Daniel Burnham."
+  ]
+ },
+ "sherman_house_2100_prairie.status": {
+  "8-10": [
+   "A sign put up for the neighborhood lists it with the lost houses of Prairie Avenue. It does not say what year it was torn down."
+  ]
+ },
+ "sherman_house_2100_prairie.notable.1": {
+  "8-10": [
+   "The man who drew the house wed the owner's girl. Her name was Margaret. His was Daniel Burnham. They wed while the house went up."
+  ],
+  "11-13": [
+   "The architect married the owner's daughter. Margaret Sherman wed Daniel Burnham while the house went up."
+  ]
+ },
+ "sherman_house_2100_prairie.notable.2": {
+  "8-10": [
+   "Sherman kept telling his neighbors to hire his son-in-law. Burnham and Root drew more houses on this street than anyone else."
+  ]
+ },
+ "wheeler_house_1812_prairie.status": {
+  "8-10": [
+   "A sign put up for the neighborhood lists it with the lost houses of Prairie Avenue. It does not say what year it was torn down."
+  ]
+ },
+ "wheeler_house_1812_prairie.notable.1": {
+  "8-10": [
+   "The sign for the neighborhood calls it a pretty row house. It says it looks Dutch."
+  ]
+ },
+ "wheeler_house_1812_prairie.notable.2": {
+  "8-10": [
+   "George Wheeler got rich from grain bins. These were tall buildings. Chicago kept grain from the farms in them."
+  ],
+  "11-13": [
+   "George Wheeler made his money from grain elevators. Those were the tall buildings where Chicago stored grain from the farms."
+  ]
+ }
+}

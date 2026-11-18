@@ -35,6 +35,8 @@ import { wireFieldLogView } from './field-log-view.js';
 import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
 import { signInGate, showAccount } from './sign-in.js';
+import { SIGN_IN } from './sign-in-config.js';
+import { syncReading, setLevelsSource, loadSceneLevels, readingTabs, forgetAge } from './reading-level.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
 import { readVersionRequest } from './structure-versions.js';
@@ -1980,6 +1982,10 @@ async function boot() {
   api.signIn = await signInGate({ year: YEAR, gate });
   // T-3603: "Signed in as … · Sign out" on the Settings card's About tab.
   showAccount(document, api.signIn.account);
+  // T-3645: the reader's ages, kept on the account when someone is signed in; and the cards'
+  // words at each age, fetched the first time a card opens.
+  void syncReading({ account: api.signIn.account, projectId: SIGN_IN.firebase?.projectId });
+  setLevelsSource(() => loadSceneLevels(resolveBases().dataBase, YEAR));
   bootController.start('scene');
   await yieldToPaint();
   const bases = resolveBases();
@@ -3972,11 +3978,17 @@ async function boot() {
     // keyboard: the mouse is let go so the card can be read and clicked, nothing walks or
     // turns behind it (pointerlock.js `holding`), and the keys land on the card, where the
     // arrows scroll it. Esc, the card's Close, or a click or tap on the scene lets go.
-    onShown: () => {
+    onShown: (record) => {
       if (document.pointerLockElement) { cardTookPointer = true; document.exitPointerLock?.(); }
       if (!popupRoot.contains(document.activeElement)) popupRoot.focus?.({ preventScroll: true });
+      // T-3645: the card's words at the reader's age. A redraw of the same card (its
+      // liberties or pictures landing) keeps the tab its reader picked; a new card opens at
+      // the reader's age.
+      if (record?.id !== popupAgeFor) { forgetAge(popupRoot); popupAgeFor = record?.id ?? null; }
+      try { readingTabs(popupRoot, { after: popupRoot.querySelector('.pop-title-row') }); } catch (err) { console.warn('[4D Chicago] reading tabs', err); }
     },
   });
+  let popupAgeFor = null;
   let cardTookPointer = false;
   // T-2825. The scene's reader overlay: the edits that say each research note on a building's
   // card without a ticket number, a record id or a file path (tools/compile_reader_text.py).
@@ -4378,6 +4390,8 @@ async function boot() {
         // (ride.hold in the frame); getting down lands on the ground a visitor stands on.
         visitorEye: () => ({ e: walker.state.e, n: walker.state.n, y: walker.state.eyeY, bearing: walker.bearingDeg, pitch: walker.state.pitch }),
         groundAt: (e, n) => figureGround(e, n),
+        // T-3644: the climb into a seat shows the visitor's own person (Settings, You).
+        visitorFigure: (y) => api.person?.asset?.(y) ?? null,
         walkEye: () => WALK.eyeHeight,
         reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, say: (text) => hud.say(text),
         reinsHint: () => (backends.name === 'touch' || (backends.name === 'none' && coarse)

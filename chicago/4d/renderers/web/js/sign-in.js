@@ -358,6 +358,7 @@ export async function signInGate({
   const accountOf = (user, email) => (user ? {
     email: email || user.email || user.providerData?.find(p => p.email)?.email || '',
     method: methodOf(user),
+    // T-3645: the reader's ages ride the account (reading-level.js § syncReading).
     // T-3644: whose row the visitor's own person is kept in (visitor-person.js), and a token for it.
     uid: user.uid,
     idToken: () => user.getIdToken(),

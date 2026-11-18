@@ -4,7 +4,7 @@
   "shot": {
     "date": "2026-11-17",
     "target": "tools/people_match_stage.html on this tree",
-    "build": "stage, tree d4fae0e81 + 5 uncommitted figure file(s)",
+    "build": "stage, tree c30a40136 + 4 uncommitted figure file(s)",
     "out": "evidence/people-match-2026-11-17/mahoney_patrick_1835",
     "evidence_repo": "kevinrhaas/chicago-evidence"
   },
@@ -22,7 +22,7 @@
   "stills": {
     "near-desktop": {
       "file": "evidence/people-match-2026-11-17/mahoney_patrick_1835/near-desktop.jpg",
-      "sha256": "c0bf0be9ff302260b994f40cc04b6539302c75c9157e8f4c970440cacf27099d",
+      "sha256": "fcaa60f5c27474d2978b8817e98bd404d1ae504342c647e97a15f3e0024607ee",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -53,7 +53,7 @@
     },
     "far-desktop": {
       "file": "evidence/people-match-2026-11-17/mahoney_patrick_1835/far-desktop.jpg",
-      "sha256": "e435091ce330b84184095f6bbdff2b5dc9501c4a40d3f2827715923ad5b8ff1e",
+      "sha256": "2a25a77906ae8ead00eb7e4fa6d7e184e8a9bce673de9296a5cd3ea430d3fb2b",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -84,7 +84,7 @@
     },
     "near-phone": {
       "file": "evidence/people-match-2026-11-17/mahoney_patrick_1835/near-phone.jpg",
-      "sha256": "2fbb1b7960db3a4d471ae08a9ae5aba9fc403ed6712330a6d8692430ef67807b",
+      "sha256": "48a7e09f232be8c8008ed97d4045c1b50685acb0a3f8d19ae63d52461f9e4cf0",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -115,7 +115,7 @@
     },
     "far-phone": {
       "file": "evidence/people-match-2026-11-17/mahoney_patrick_1835/far-phone.jpg",
-      "sha256": "d593e513fe855200b69680b7ccebb418ebc08fe26174b80a6ebfa11d80214b08",
+      "sha256": "e23ddca286222482c62706eb1b1404372b21682aa81d2b98d8aa80abb57ee8e6",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -152,17 +152,17 @@
     "far-pair": "evidence/people-match-2026-11-17/mahoney_patrick_1835/far-pair.jpg",
     "motion-strip": "evidence/people-match-2026-11-17/mahoney_patrick_1835/motion-strip.jpg"
   },
-  "verdict": "differs",
+  "verdict": "matches",
   "checklist": {
     "silhouette": {
       "what": "Silhouette and fit of the clothes",
       "status": "reads",
-      "note": "Shirt sleeves, an open waistcoat, braces, a red neckerchief, full brown trousers and a pale slouch hat: Mount's raffle man and his cider makers, who read at 10 m as ours does (a pale shirt, a dark waistcoat, brown legs, a hat)."
+      "note": "Shirt sleeves, an open waistcoat, braces, a red neckerchief, full brown trousers and a pale slouch hat: Mount's raffle man and his cider makers, who read at 10 m as ours does (a white shirt, a dark waistcoat, brown legs, a hat)."
     },
     "folds": {
       "what": "Folds where cloth gathers",
-      "status": "open",
-      "note": "The shirt sleeves are full but smooth to a plain wrist; every picture gathers them into a wristband with folds down the arm, and the shirt is beige-grey where theirs are white."
+      "status": "reads",
+      "note": "The full sleeves now blouse out over a wristband at each wrist and are drawn into it in gathers, as the Raffle's are; soft folds run on up the forearm, faint at 3 m. The shirt is white linen, as every picture's is."
     },
     "hat_hair": {
       "what": "Hat and hair",
@@ -194,14 +194,14 @@
     {
       "what": "shirt colour",
       "picture": "White shirts (Raffle, Cider Making), white over red (Weir).",
-      "ours": "Unbleached beige-grey; reads greyer than every picture at 3 m and 10 m.",
-      "status": "open"
+      "ours": "White linen, a warm white (sRGB 233, 228, 213 on the stage), not a blue-white; at 3 m and 10 m it reads with the pictures' shirts.",
+      "status": "reads"
     },
     {
       "what": "sleeves",
       "picture": "Full sleeves gathered at the wrist into a band (Raffle).",
-      "ours": "Full sleeves to a plain wrist; no gathering or wristband reads.",
-      "status": "open"
+      "ours": "Full sleeves bloused over a 3.4 cm wristband and gathered into it (nine gathers round the arm), soft folds fading up the forearm; the band reads at 3 m, the folds only up close.",
+      "status": "reads"
     },
     {
       "what": "waistcoat",

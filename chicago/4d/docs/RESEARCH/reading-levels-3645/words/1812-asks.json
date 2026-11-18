@@ -1,0 +1,416 @@
+{
+ "_doc": "T-3645: the 1812 'Ask a question' answers (data/tales/1812.json asks and personal_asks, shown by js/ask-card.js) retold for younger readers. Keyed by the question's id, a follow-up by that id and its place among the follow-ups (a04-md-day.1); each age a list of paragraphs, one for each of the answer's own, in the speaker's own voice. Most answers already read at 8-10 and need nothing here. Only the younger ages are written; the answer itself is never rewritten, and no fact enters that it does not hold.",
+ "a12-pm-river-mouth": {
+  "8-10": [
+   "We call it Shikaakwa, or close to that. It is named for the wild leeks that grow thick on its banks in spring. In April the marsh smells of them. The French wrote it down as Chicagou, and the Americans dropped the end. Chandonnai, the trader's helper, can say it the old way, the French way and the American way. Ask him to say all three."
+  ]
+ },
+ "a12-pm-river-mouth.1": {
+  "8-10": [
+   "For a village, no. It is too wet, there are too many mosquitoes, and the ground floods every spring. But as a crossing, it is the best on the lakes. Every canoe from the north going down to the Illinois River comes through here and over the carrying path. Whoever sits at this river mouth hears all the news first."
+  ]
+ },
+ "a12-pm-horse": {
+  "8-10": [
+   "I traded for him with the Sauk. They got him from someone on the Missouri River, who got him from someone farther west. A horse walks a long way before it gets to you. I gave four good bundles of beaver furs and a gun for him. I have never been sorry."
+  ]
+ },
+ "a12-pm-ottawa": {
+  "8-10": [
+   "Most are, but not all. There are Ottawa from the north, and Ojibwe. A few Winnebago and Kickapoo came to see what would happen. We three, the Potawatomi, Ottawa and Ojibwe, call ourselves brothers. We are the three fires. Long ago we came down the lakes together. We still speak almost the same language."
+  ]
+ },
+ "a12-pm-ottawa.1": {
+  "8-10": [
+   "Brothers never agree. The Ojibwe live far to the north. They hardly see an American from one year to the next. The Ottawa trade with the British at Mackinac. We Potawatomi live right next to the Americans. We have the most to win and the most to lose."
+  ]
+ },
+ "a12-pm-ottawa.2": {
+  "8-10": [
+   "They are angry, and they are not our kin. When something bad happens, people say the Winnebago did it. Sometimes that is true. It is very handy for the rest of us when it is."
+  ]
+ },
+ "a12-pm-guns": {
+  "8-10": [
+   "From the traders, mostly the British ones at Mackinac and Malden. We got them from the Americans here too, when they were selling. Every fall a man needs powder, bullets, flints and a gun that works. Without them his family has no meat in winter. A gun is a tool for getting food, like a hoe."
+  ]
+ },
+ "a12-pm-guns.1": {
+  "8-10": [
+   "Every year the British give presents. They give guns, blankets, kettles, silver and tobacco. They say it keeps the friendship bright. The Americans give presents too, but fewer. And at the end, they want land. A man notices which friend asks for nothing back."
+  ]
+ },
+ "a12-pm-names-places.2": {
+  "8-10": [
+   "After tomorrow, yes. My wife wants the corn in, no matter what. The corn does not care about the Americans."
+  ]
+ },
+ "a12-pm-french": {
+  "8-10": [
+   "Enough to trade, and enough to say bad words. My mother's sister married a Frenchman at St. Joseph. So I grew up with French cousins. They ate their corn on a plate. They made the sign of the cross when it thundered. Half the people at this river have a French grandpa somewhere."
+  ]
+ },
+ "a12-pm-canoe": {
+  "8-10": [
+   "My uncle and I made it, two summers ago. We used birch bark from the north and sewed it with spruce roots. We sealed it with tree sap, over a frame of cedar. A bark canoe is light enough for one man to carry on his shoulders. That is why we can carry it from one river to the next, and so can the French. The Americans, with their heavy boats, cannot."
+  ]
+ },
+ "a12-pm-kinzie": {
+  "8-10": [
+   "We call him Shawneeawkee, the silversmith. When he first came among us, he made things out of silver. He still makes pins for our women. He has lived at this river longer than the fort has. He knows every family. He knows what every family owes him, down to the last muskrat skin."
+  ],
+  "11-13": [
+   "We call him Shawneeawkee, the silversmith. He worked silver when he first came among us, and he still makes pins for our women. He has lived at this river longer than the fort has stood. He knows every family, and what every family owes him, down to the last muskrat."
+  ]
+ },
+ "a12-pw-trader-wife": {
+  "8-10": [
+   "Many do. Archange lives across the river. She is married to the Frenchman Ouilmette. Her own father was a Frenchman too, and her mother was one of us. A trader with a Potawatomi wife has a hundred relatives in the camps. They will trade with him and nobody else. That is good for him. A Potawatomi woman with a trader husband has kettles, cloth, and a house with a floor. That is good for her."
+  ]
+ },
+ "a12-mi-relatives": {
+  "8-10": [
+   "We are neighbors. So sometimes we do, and sometimes we do not. The Potawatomi came south into land that was once ours. For a hundred years we have married each other's daughters. For a hundred years we have also stolen each other's horses. Both things are true at once."
+  ]
+ },
+ "a12-mi-wayne": {
+  "8-10": [
+   "Yes. It was at Fallen Timbers, eighteen summers ago. I was very young. We fought General Wayne's men, and the Americans won. Then the tribes made a treaty at Greenville. Since then the Miami have kept the peace, as Little Turtle said we should."
+  ]
+ },
+ "a12-hs-servant": {
+  "8-10": [
+   "I work for the officers' families. I work in the kitchen, the wash house and the garden, from before sunrise until after dark. I cook, carry, scrub and mind the children. The work does not stop because the army is leaving. If anything, there is twice as much."
+  ]
+ },
+ "a12-so-wells": {
+  "8-10": [
+   "That is Captain Wells. He is the uncle of the captain's wife. He came up from Fort Wayne with about thirty Miami to lead us out. He rode through the gate yesterday afternoon on a fine horse. Every man on the walls cheered. He knows this land and these people better than anyone alive."
+  ]
+ },
+ "a12-so-tecumseh": {
+  "8-10": [
+   "Tecumseh, if you want a name. He is a Shawnee. For years he has ridden from nation to nation. He tells every people from the lakes to the gulf to stand together against the Americans. His brother, the Prophet, has the dreams. Tecumseh has the plan. Now he has joined the British."
+  ]
+ },
+ "a12-so-ronan": {
+  "8-10": [
+   "Ensign Ronan? He came to us straight from the army's school at West Point. He stands as straight as a ramrod, and he bends about as much. He thinks the captain is too timid. He says so out loud. Young officers are not supposed to do that."
+  ]
+ },
+ "a12-so-the-letter": {
+  "8-10": [
+   "A Potawatomi man named Winnemeg brought it from General Hull at Detroit. He came through the woods alone. The letter was sewn into his clothes. He got here on the ninth. That was five days ago. Each day since then, the camps around us have filled up a bit more."
+  ]
+ },
+ "a12-so-cards": {
+  "8-10": [
+   "When the officers are not looking, which is most of the time. We play cards and dice. We play a game with little bones that a Canadian taught us. We bet tobacco, buttons, and the whiskey we were to get tomorrow. Now nobody will get it."
+  ]
+ },
+ "a12-so-cards.1": {
+  "8-10": [
+   "There is a man from Kentucky who never loses. He says a riverboat gambler raised him. He owes no one, and everyone owes him. Tonight he let every man off what he owed. Nobody said why. Nobody had to."
+  ]
+ },
+ "a12-so-irish": {
+  "8-10": [
+   "County Tyrone, in Ireland. Then Philadelphia. Then a sergeant who signed me up with a cup of rum. I signed up for five years, and I have done four of them. I have seen more of America in a blue army coat than most Americans ever will."
+  ],
+  "11-13": [
+   "County Tyrone, in Ireland, then Philadelphia, then a recruiting sergeant and a cup of rum. I signed up for five years and I have served four of them. I have seen more of America from inside a blue coat than most Americans ever will."
+  ]
+ },
+ "a12-off-council.1": {
+  "8-10": [
+   "Some of the old chiefs meant it, I am sure. Black Partridge meant it. But can they make their young men keep the promise? That is another thing. A Potawatomi chief leads by talking people into things. He cannot give orders. And all summer the talking has gone the other way."
+  ]
+ },
+ "a12-ml-lee-farm.2": {
+  "8-10": [
+   "They were not from the villages close by, as far as we could tell. People said they were Winnebago, but no one knows for sure. After that night, every man at the gate was a stranger until he showed he was not. That is a hard way to live next to your neighbors."
+  ]
+ },
+ "a12-ml-north-bank": {
+  "8-10": [
+   "On the north bank of the river, across from the fort. The Kinzies, the Ouilmettes and a few more families have their houses there. We cross by canoe. There is no bridge. The river is deep enough to drown a careless man."
+  ]
+ },
+ "a12-wm-wives": {
+  "8-10": [
+   "Crowded. We have mostly lived inside the walls since April. We sleep in the barracks or the officers' houses. We cook for our families over somebody else's fire. Mrs. Heald and Mrs. Helm keep us in order. Without them, I think we would have been at each other's throats by June."
+  ]
+ },
+ "a12-wm-heald": {
+  "8-10": [
+   "She is a girl from Kentucky. Captain Wells is her uncle. She rides a horse better than her husband does. She married him at twenty and came here on horseback through the woods, with Cicely, the woman who works for her. She has a temper, but she is fair. She has never once looked down on any of us."
+  ]
+ },
+ "a12-en-portage": {
+  "8-10": [
+   "I am a hired man for Mr. Kinzie. I paddle his canoes. I carry his bundles over the path to the Des Plaines River. I take his goods to the winter camps on the Illinois and Rock rivers. Ninety pounds on my back and a song in my mouth. That is how we go."
+  ]
+ },
+ "a12-en-portage.1": {
+  "8-10": [
+   "It is the path from this river to the Des Plaines River. It goes from the South Branch, across a little marsh. The Des Plaines runs down to the Illinois River, and then to the Mississippi. In spring the water is high, so you can paddle most of the way. In August you drag the canoe through mud up to your knees. The bugs eat you alive."
+  ]
+ },
+ "a12-mi-little-turtle": {
+  "8-10": [
+   "He was the greatest war leader the Miami ever had. Twenty-one years ago he beat General St. Clair's army on the Wabash River. It was the worst loss the Americans ever had against our people. Then he saw that we could not keep winning. So he made peace at Greenville. He kept that peace until he died, this July, at Fort Wayne."
+  ]
+ },
+ "a12-pm-camps": {
+  "8-10": [
+   "The captain has said he will give goods to everyone. And we heard the soldiers are leaving. People came from the villages on many rivers. They came from the Fox, the Kankakee, the Calumet, the Des Plaines and the Milwaukee. Some came for the blankets. Some came for other reasons."
+  ]
+ },
+ "a12-pm-camps.1": {
+  "8-10": [
+   "The soldiers poured the whiskey into the river and the powder down the well. They promised, and then they took it back. All summer the young men have listened to messengers from Tecumseh and Main Poc. The British have taken Mackinac. Detroit is next. A young man who wants to be a warrior will not get a better chance than tomorrow."
+  ]
+ },
+ "a12-pm-trade": {
+  "8-10": [
+   "Furs. We trade muskrat, beaver, otter, mink, raccoon and deer skins. We bring them to Kinzie the trader. He gives us cloth, kettles, knives, guns, powder, silver and blankets. In a good winter, a family can trap enough to buy all it needs for a year."
+  ]
+ },
+ "a12-pm-hunting": {
+  "8-10": [
+   "Deer live in the oak woods by the river all year. In spring and fall there are ducks and geese by the thousand on the marshes west of here. There are fish in the lake and the rivers, like sturgeon, whitefish and pike. In winter our men go far out on the prairie for elk and buffalo. But there are fewer buffalo every year."
+  ]
+ },
+ "a12-pm-tecumseh": {
+  "8-10": [
+   "He is the greatest speaker I have ever heard. Two summers ago he came to a meeting on the Fox River. He talked for a whole afternoon, and nobody moved. He said the land belongs to all the nations together. No one nation can sell it. He said the Americans will not stop until they reach the ocean in the west."
+  ]
+ },
+ "a12-pm-tecumseh.1": {
+  "8-10": [
+   "I look at the treaties. Every few years there is a new one. Each time, there is more land lost and one more promise. My father's village was on land the Americans now call theirs. Tecumseh did not make that up. He only said it out loud."
+  ]
+ },
+ "a12-pm-medal": {
+  "8-10": [
+   "It is a silver medal with the American President's face on it. The Americans give it at a treaty to a man they want to treat as a chief. To the Americans it means, \"This man is our friend, and he speaks for his people.\" To us it means, \"This man made a promise, and he wears it on his chest.\""
+  ]
+ },
+ "a12-pm-lodge": {
+  "8-10": [
+   "In summer we live in long houses by the river, near the cornfields. They are made of bark and mats over bent young trees. In winter we split into small family camps in the woods. We live in round lodges covered with cattail mats. They are warm and dark. The fire is in the middle, and the smoke goes out the top."
+  ],
+  "11-13": [
+   "In summer we live in long houses of bark and mats over bent young trees, by the river, near the cornfields. In winter we split into small family camps in the woods. We live in round lodges covered with cattail mats, warm and dark, with the fire in the middle and the smoke going out the top."
+  ]
+ },
+ "a12-pm-lodge.2": {
+  "8-10": [
+   "Go down to the camps by the river, but go with someone people know. Archange Ouilmette is married to the Frenchman across the river. She has family in every lodge here. Go with her, and they will give you food. If you go alone, tonight, nobody can say what will happen."
+  ]
+ },
+ "a12-pm-young": {
+  "8-10": [
+   "You ask me that to my face? You are bold. I will tell you this much. My elders told me to keep the peace. Tecumseh's messengers told me to take back our land. The soldiers told us they would give us whiskey and powder. Then they threw them in the river."
+  ]
+ },
+ "a12-pm-sugar": {
+  "8-10": [
+   "Sugar time, in the spring. The snow is still on the ground, and the maple sap is running. The whole village goes to the maple woods. The women boil sap day and night in big kettles over fires. The kids run around with sticky hands. Nobody sleeps much."
+  ],
+  "11-13": [
+   "Sugar time, in the spring, when the snow is still on the ground and the maple sap is running. The whole village goes to the maple woods. The women boil sap day and night in big kettles over fires, and the children run around with sticky hands, and nobody sleeps much."
+  ]
+ },
+ "a12-pm-sugar.2": {
+  "8-10": [
+   "The end of winter, before sugar time. The dried corn is running out. The hunting is poor. The children are thin. That is when you learn who your family is. Everybody shares, or everybody starves."
+  ]
+ },
+ "a12-pm-names": {
+  "8-10": [
+   "An elder names every child a few days after it is born. The elder has dreamed the name. The name comes from the spirits, so nobody jokes about it. Later a man may get another name for something he does. Then he may use that one instead."
+  ]
+ },
+ "a12-pw-children": {
+  "8-10": [
+   "They used to. They ran races on the beach. They threw sticks into the lake for the dogs. They argued in a language made of everybody's words. My son learned to say \"no\" in English before he could say it right in ours."
+  ]
+ },
+ "a12-pe-greenville": {
+  "8-10": [
+   "I remember the treaty at Greenville, seventeen summers ago. General Wayne's soldiers had beaten us at Fallen Timbers. Then all the nations of the Northwest went to his camp in Ohio. We sat there for weeks. In the end we gave up most of Ohio and a few small pieces of land here and there. One of them was a square of land six miles wide at the mouth of this river."
+  ]
+ },
+ "a12-pe-history": {
+  "8-10": [
+   "Not as long as the Miami. They were here when the French came. My grandpa's people came south from the St. Joseph River and the lakes. That was about a hundred summers ago. The Miami moved east. Now the land from the Milwaukee River to the Kankakee is ours."
+  ]
+ },
+ "a12-ch-fort": {
+  "8-10": [
+   "There are two blockhouses with cannons on top. There are barracks for the soldiers and houses for the officers. There is the powder room, where the powder was. They threw it down the well! There is the store, the bakehouse and the flagpole. Two log walls go all the way around, with sharp points on top."
+  ],
+  "11-13": [
+   "There are two blockhouses with cannons on top. There are barracks for the soldiers, the officers' houses, and the powder room where the powder was kept. (They threw it down the well!) There is the store, the bakehouse and the flagpole. Two walls of logs go all the way around, with sharp points on top."
+  ]
+ },
+ "a12-pc-games": {
+  "8-10": [
+   "The hoop game. You roll a willow hoop and throw a stick through it while it rolls. And lacrosse, with sticks that have nets. The big boys play so hard that someone always gets hurt. And the moccasin game. You hide a stone under one of four moccasins, and the other side guesses. The men bet on it all night."
+  ]
+ },
+ "a12-partridge-friendship.2": {
+  "8-10": [
+   "A stranger who hears it may tell it later, when people ask what Black Partridge did. Somebody should know the truth."
+  ],
+  "11-13": [
+   "Because a stranger who hears it may remember it later, when people ask what Black Partridge did. Somebody should remember the truth."
+  ]
+ },
+ "a12-partridge-peoria": {
+  "8-10": [
+   "At the lake the French call Peoria, on the Illinois River. It is many days south of here. My village is there, and my fields. I came up the rivers for the meeting and for the goods. I also came because Kinzie and I are old friends. I wanted to see him before whatever comes."
+  ]
+ },
+ "a12-partridge-peoria.1": {
+  "8-10": [
+   "The Americans in the south build more cabins every year. Their soldiers ride through our land looking for horse thieves. You can only call people horse thieves so many times before some of them decide to steal horses. My village has stayed quiet. I made it so, and it is getting harder."
+  ]
+ },
+ "a12-burns-orders": {
+  "8-10": [
+   "To stay with the wagons, keep together, and not shoot unless someone shoots at us. There are twelve of us. We are farmers, boatmen and a barrel maker, with guns from the store. Griffith over there was one of us, until he joined the real army in April. He knows our group and the real soldiers both."
+  ]
+ },
+ "a12-chandonnai-languages": {
+  "8-10": [
+   "I speak Potawatomi from my mom and French from my dad. I speak English from the trader's books. I speak Ottawa and Ojibwe, because they are almost the same. And I know enough Miami and Winnebago to buy a horse. That makes six. Or seven, if you count the language of a man who owes you money. Everybody speaks that one."
+  ],
+  "11-13": [
+   "Potawatomi from my mother, French from my father, English from the trader's books. Ottawa and Ojibwe, because they are almost the same. And enough Miami and Winnebago to buy a horse. That is six, if you count the language of a man who owes you money, which everybody speaks."
+  ],
+  "14-15": [
+   "Potawatomi from my mother, French from my father, and English from the trader's books. Ottawa and Ojibwe, since they are almost the same. And enough Miami and Winnebago to buy a horse. That is six, if you count the language of a man who owes you money. Everyone speaks that one."
+  ]
+ },
+ "a12-chandonnai-languages.1": {
+  "8-10": [
+   "I told him this. The trader's family has fed his people for years. They owe them nothing, and they are owed a lot. If the Kinzies are hurt, the traders will not come back to this river for a long, long time. A careful man thinks about next winter, not just tomorrow. Go and ask him if he was listening. He was."
+  ]
+ },
+ "a12-cicely-louisville": {
+  "8-10": [
+   "In Kentucky, at the Wells place near Louisville. I worked in the kitchen from the time I was a girl. Then Miss Rebekah married the captain. I was part of what she brought with her, like the sheets and the silver. We came north on horseback through the woods. I carried my baby on my hip the whole way."
+  ]
+ },
+ "a12-corbin-wife": {
+  "8-10": [
+   "She has heard stories of women taken to the camps and never seen again. And she is the kind of woman who says a thing once and means it forever. I married her for that. Tonight I wish she were a little less sure about everything."
+  ]
+ },
+ "a12-griffith-linden": {
+  "8-10": [
+   "It is what the chief said when he came to me this summer. He said, \"The linden birds have been singing in my ears.\" I did not understand until the man who knew his language told me. The chief had heard something he could not say out loud. He was telling me without telling me. A man can warn you in a way he can say he never did."
+  ]
+ },
+ "a12-heald-wound": {
+  "8-10": [
+   "Line up the men, hold our ground, protect the wagons, and make a deal if a deal can be made. That is all an officer can do. I have fifty-four soldiers, twelve men from the town, and a line of families on a beach between sand hills and the lake. Wells and his Miami will ride ahead and tell me what is coming."
+  ]
+ },
+ "a12-rebekah-uncle": {
+  "8-10": [
+   "He is the most stubborn, gentle and scary man I have ever known. When I was a girl in Kentucky, he told me stories about the Miami villages and his wife, Sweet Breeze. Then he would stop in the middle and go walk around the yard by himself. I did not understand then. He was homesick for a place he had chosen to leave."
+  ]
+ },
+ "a12-margaret-mother": {
+  "8-10": [
+   "My mom is Mrs. Kinzie, and the trader is my stepdad. Johnny and the little ones are my brothers and sisters. I grew up at Detroit and came here as a girl. I learned Potawatomi from the women who came to sell corn. I learned French from the hired men. My mom says my English is the best of the three. That is too bad, because it is the least useful here."
+  ]
+ },
+ "a12-keepotah-harrison": {
+  "8-10": [
+   "Yes, years ago, when he came west as governor, before he was a general fighting us. He was a tall, quiet man who wrote everything down. He asked about my village, my family and my hunting grounds. He wrote that down too. I did not know then that a man who writes down your hunting grounds is counting land."
+  ]
+ },
+ "a12-eleanor-boat": {
+  "8-10": [
+   "Josette will tell them stories in Ottawa and French until they fall asleep. I will give the baby sugar on a cloth. John will sit at the back of the boat and look as if nothing is wrong. Children believe a calm face more than any words. I learned that among the Seneca. When I was small and scared, the women there just kept working and humming. After a while I stopped crying."
+  ]
+ },
+ "a12-kinzie-silver": {
+  "8-10": [
+   "They call me Shawneeawkee. I came to this land as a boy who was learning to make silver things in Quebec. I ran away from that, but the skill stayed in my hands. When I first came among the Potawatomi, I made pins, earrings and arm bands. They named me for it. I still make a pin now and then, for a wife or a daughter in the camps."
+  ]
+ },
+ "a12-kinzie-house": {
+  "8-10": [
+   "Because it was there when I bought it. A Frenchman named Le Mai owned it. Before him, it belonged to Point de Sable, the man from Saint-Domingue. He was the first person who ever really lived here. I bought the house, its poplar trees and its bread oven in 1804. That was the same year the soldiers came to build the fort across the water."
+  ]
+ },
+ "a12-josette-ottawa": {
+  "8-10": [
+   "My mother's people knew Mrs. Kinzie. She needed someone to care for the children who could talk to them the way kids talk at this river. So they sent me. I am the girl in the house who is half French and half Ottawa, and all in charge of the little ones."
+  ]
+ },
+ "a12-naunongee-corn": {
+  "8-10": [
+   "Some of the officers' wives came walking through my corn in the spring, before the trouble. They laughed and pulled off the young ears to look at them. I told them in my language what I thought. One of them asked the man who knew both languages what I had said. He told them something polite."
+  ]
+ },
+ "a12-nuscotnemeg-name.1": {
+  "8-10": [
+   "The Americans at Fort Wayne gave out whiskey to get land. The Americans in Indiana hanged two of my family. Those men had killed a man who stole their horses. The Americans here poured our whiskey in the river last night. They had said it was ours. Pick any one of those. I have more."
+  ]
+ },
+ "a12-ouilmette-garden": {
+  "8-10": [
+   "Corn, squash, beans, tobacco, and a few rows of potatoes. There are some French plants my mother would know, like sorrel and chives. There is a pear tree I grew from a seed I carried from Montreal in my pocket. It has grown pears for three years. This year they will be ripe in September. I plan to be here to eat them."
+  ]
+ },
+ "a12-archange-relations": {
+  "8-10": [
+   "Count the lodges. My mother's people are Potawatomi. They married into every village from here to the Kankakee River. When I walk through the camps, every other woman calls me sister, aunt or daughter. That is why my husband thinks we are safe. I think he is right, mostly."
+  ]
+ },
+ "a12-ronan-academy": {
+  "8-10": [
+   "Math, building forts and bridges, firing cannons, French, and how to stand very straight while being yelled at. There are not many of us yet. Maybe a hundred officers in the whole army went there. We are meant to be the new kind of officer. We are trained for the job, not just some politician's nephew."
+  ],
+  "11-13": [
+   "Math, building forts and bridges, firing cannon, French, and how to stand very straight while being yelled at. There are not many of us yet. Maybe a hundred officers in the whole army went there. We are meant to be a new kind of officer. We are trained for the job, not just some politician's nephew."
+  ]
+ },
+ "a12-topenebe-st-joseph": {
+  "8-10": [
+   "East of here, around the bottom of the lake, on the St. Joseph River. The French had a fort and a church there long ago. My people have lived there for many lifetimes. It is good land. There is rich soil by the river, maple trees for sugar, and sturgeon in the river in spring."
+  ]
+ },
+ "a12-van-voorhis-chest": {
+  "8-10": [
+   "Medicines for fevers, for the stomach and for pain. Some cloth and bandages. A set of tools I bought in New York, and a little book of cures. It is not much against what may come. I spent the afternoon cutting bandages from a roll of cloth from the store. I rolled them all up and put them where I can reach them."
+  ],
+  "11-13": [
+   "Medicines for fever, for the stomach and for pain, some lint and bandages, a set of instruments I bought in New York, and a little book of remedies. It is not much against what may come. I spent the afternoon cutting bandages from a roll of the store's linen. I have rolled them all and put them where I can reach them."
+  ]
+ },
+ "a12-wells-name": {
+  "8-10": [
+   "It means wild carrot, for the color of my hair when I was a boy. I was twelve or thirteen when a Miami war party took me from my family's cabin in Kentucky. A chief adopted me. By the time I was a man, I was Miami in every way except my hair."
+  ],
+  "11-13": [
+   "It means wild carrot, for the color of my hair when I was a boy. I was twelve or thirteen when a Miami war party took me from my family's cabin in Kentucky. A chief adopted me, and by the time I grew up I was Miami in everything except my hair."
+  ]
+ },
+ "a12-wells-sweet-breeze": {
+  "8-10": [
+   "Her name was Wanagapeth. It means Sweet Breeze. She was Little Turtle's daughter. She died some years ago, at Fort Wayne. Our kids are in school in Kentucky now. They are learning to be Americans. My second wife is the daughter of a Kentucky army man. I have lived three or four lives. In each one, someone I loved was on the other side."
+  ]
+ },
+ "a12-winnemeg-road": {
+  "8-10": [
+   "Alone, on foot and in a canoe, from Detroit around the lake. In the day I slept where the bushes were thickest. At night I moved where the trail was good. The letter was sewn inside my leggings. If anybody had found it, I would not be here talking to you."
+  ]
+ }
+}

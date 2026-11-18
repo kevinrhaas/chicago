@@ -5,6 +5,7 @@ import { formatEstimate } from './travel-estimate.js';
 import { groupIcon, groupOf, groupSlot, icon } from './menu-icons.js';
 import { ambienceLabel } from './jaunt-menu.js';
 import { clockText } from './jaunt-pace.js';
+import { readingTabs, forgetAge } from './reading-level.js';
 
 /** T-3432: a jaunt's opening, in paragraphs, without the "JAUNT: ITS TITLE." its welcome
  *  already shows as a heading. */
@@ -433,6 +434,10 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     const open = overlayOpen() || state.phase === 'detail';
     if (open) setCollapsed(true, { focus: false });
     root.classList.toggle('jaunt-detail', open); body.hidden = open; barNext.hidden = open; barReturn.hidden = !open;
+    // T-3645: the stop at the reader's age, from this jaunt's other tellings; an age picked
+    // here holds for the rest of the outing.
+    if (old?.session !== state.session) forgetAge(body);
+    readingTabs(body, opening ? { into: body } : { after: heading });
     body.scrollTop = scroll; key = nextKey;
     if (!open) restoreView();
     narration?.at(state.jaunt, ...(opening ? ['opening', 'opening'] : state.phase === 'atStop' && !state.hostWaiting ? ['stop', stop.id] : [null]));

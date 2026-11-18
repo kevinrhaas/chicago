@@ -13,12 +13,18 @@
 // every ray from the body's axis where that garment is; keep the hem one ring (no panel past
 // its neighbour, no hem edge torn open); carry the front hem forward with the leading leg;
 // leave the asset's shared geometry, and every other figure wearing it, untouched; be
-// deterministic; and keep its state across a LOD swap.
+// deterministic; and keep its state across a LOD swap. Since T-3553 round 4 it measures the
+// shapes the town walks (every parse pass of humans.js applied first; SKIRT_RAW=1 the exports as
+// drawn), and section 1b holds the gown's close skirt to less sway and the frock coat's vent to
+// parting mid-stride (SKIRT_JS=<old human-skirt.js> fails there).
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
+import { registerHooks } from 'node:module';
 const here = new URL('../', import.meta.url);
 const vendor = new URL('renderers/web/vendor/three-0.185.1/', here);
 const three = new URL('three.core.js', vendor).href;
+// The parse passes import 'three' bare: the same module as the rest of this test.
+registerHooks({ resolve: (specifier, context, next) => (specifier === 'three' ? { url: three, shortCircuit: true } : next(specifier, context)) });
 const THREE = await import(three);
 const data = text => `data:text/javascript;base64,${Buffer.from(text).toString('base64')}`;
 const utils = {};
@@ -37,7 +43,19 @@ await MeshoptDecoder.ready;
 globalThis.self ??= globalThis;
 const js = async (name) => (await fs.readFile(new URL(`renderers/web/js/${name}`, here), 'utf8')).replace("from 'three'", `from '${three}'`)
   .replace(/from '\.\/([\w-]+\.js)'/g, (_, f) => `from '${new URL(`renderers/web/js/${f}`, here).href}'`);
-const { createHumanSkirt, skirtMeshes, garmentKind, N_PANELS } = await import(data(await js('human-skirt.js')));
+// SKIRT_JS=<file> measures another copy of the driver (the code before a change: it must fail).
+const skirtSource = process.env.SKIRT_JS ? (await fs.readFile(process.env.SKIRT_JS, 'utf8')).replace("from 'three'", `from '${three}'`)
+  .replace(/from '\.\/([\w-]+\.js)'/g, (_, f) => `from '${new URL(`renderers/web/js/${f}`, here).href}'`) : await js('human-skirt.js');
+const { createHumanSkirt, skirtMeshes, garmentKind, N_PANELS } = await import(data(skirtSource));
+// The shapes the town walks: every parse pass of humans.js, in its order, once per loaded body
+// (round 4: the gown's cut and the frock coat's vent are what the driver binds to). SKIRT_RAW=1
+// measures the exports as drawn.
+const pass = async (f) => import(new URL(`renderers/web/js/${f}`, here).href);
+const PASSES = process.env.SKIRT_RAW === '1' ? [] : [
+  (await pass('human-collar.js')).dressCollars, (await pass('human-seat.js')).easeSeats, (await pass('human-coat.js')).fitCoats,
+  (await pass('human-sleeve.js')).fitSleeves, (await pass('human-tailor-1835.js')).tailor1835, (await pass('human-regulars.js')).fitRegulars,
+  (await pass('human-frockcoat.js')).fitFrockCoat, (await pass('human-gown.js')).fitGown, (await pass('human-waist.js')).fitWaist,
+  (await pass('human-silver.js')).engraveSilver];
 
 function geometryOnly(bytes) {
   const n = bytes.readUInt32LE(12), doc = JSON.parse(bytes.subarray(20, 20 + n));
@@ -58,7 +76,10 @@ async function gltfOf(asset, lod) {
   const key = `${asset}.${lod}`;
   if (!gltfs.has(key)) {
     const bytes = await fs.readFile(new URL(`assets/humans/web/${asset}.lod${lod}.glb`, here));
-    gltfs.set(key, await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(geometryOnly(bytes), ''));
+    const gltf = await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(geometryOnly(bytes), '');
+    gltf.scene.updateMatrixWorld(true);
+    for (const f of PASSES) f(gltf.scene);
+    gltfs.set(key, gltf);
   }
   return gltfs.get(key);
 }
@@ -249,6 +270,158 @@ for (const asset of ASSETS) for (const lod of [0, 1, 2, 3]) {
 console.log(`${ASSETS.length} bodies, LOD0-3: ${TROUSERED.length} in trousers alone, nothing to hang; every tube on its leg; hanging: ${HANGING.map(([a, h]) => `${a} (${h.join(', ')})`).join('; ')}: PASS`);
 const WOMEN = ['glessner_frances_m_1904', 'reynolds_mary_1904_maid', 'williamson_mattie_1904_cook_study', 'flynn_mary_1835_dress_study'];
 const SKIRT = /skirt/;
+
+// 1b. T-3553 round 4, the two cuts the parse makes, as the town walks them (the gait layer's
+// stride, LOD0 and LOD1): Frances Glessner's close walking skirt (human-gown.js) sways less
+// fore and aft than a bell, every leg still inside it; John J. Glessner's frock coat skirts
+// (human-frockcoat.js) part at their centre-back vent as the legs move, lapped at the top and
+// with no leg through the opening, and hang as drawn standing. Every other body's panels are
+// as they were (no other is close or vented). Both are measured before either is asserted, so
+// the code before this change fails on both.
+// The hem's fore-aft span over the walk, past the span standing (m): the mean and the most.
+export const CLOSE_SPAN_MEAN_M = 0.29, CLOSE_SPAN_MAX_M = 0.39;
+// The vent's lips at the hem, apart mid-stride (m): the most over the walk, and the mean; at
+// its top they part no more than VENT_TOP_M past where they lie standing.
+export const VENT_OPEN_MAX_M = 0.08, VENT_OPEN_MEAN_M = 0.06, VENT_TOP_M = 0.01;
+let createGait = null;
+try { ({ createHumanGait: createGait } = await import(data(await js('human-gait.js')))); } catch { /* not here yet */ }
+/** Walk a rig on the gait layer, as humans.js does; `each(i)` after each frame past the first 45. */
+function walkGait(r, sk, profile, frames, each) {
+  const gait = createGait({ id: r.scene.userData?.chicago4d_human?.asset_id ?? 'x', scene: r.scene, profile });
+  const fwd = new THREE.Vector3(0, 0, 1).applyAxisAngle(new THREE.Vector3(0, 1, 0), r.root.rotation.y);
+  for (let i = 0; i < frames; i++) {
+    const dt = 1 / 30, moved = gait.speed * gait.pace * dt;
+    r.mixer.update(dt);
+    r.root.position.addScaledVector(fwd, moved); r.root.updateMatrixWorld(true);
+    gait.apply(dt, { state: 'walking', moved });
+    sk.apply(dt, { state: 'walking', root: r.root });
+    r.root.updateMatrixWorld(true);
+    if (i >= 45) each(i);
+  }
+  return gait;
+}
+/** The two lips of a vent up the back of `mesh` as drawn: chains of open edges near the middle, top to foot. */
+function ventLips(r, mesh) {
+  const rest = restOf(r, mesh), F = rest.F, n = F.length / 3, a = mesh.geometry.index.array, uses = new Map();
+  const key = (p, q) => (p < q ? p * n + q : q * n + p);
+  for (let t = 0; t < a.length; t += 3) for (let e = 0; e < 3; e++) { const k = key(a[t + e], a[t + (e + 1) % 3]); uses.set(k, (uses.get(k) ?? 0) + 1); }
+  const adj = new Map(), link = (p, q) => { if (!adj.has(p)) adj.set(p, []); adj.get(p).push(q); };
+  for (const [k, u] of uses) {
+    if (u !== 1) continue;
+    const p = Math.floor(k / n), q = k % n, X = (i) => F[i * 3] - rest.hx, Z = (i) => F[i * 3 + 2] - rest.hz;
+    if (Z(p) >= 0 || Z(q) >= 0 || Math.abs(X(p)) > 0.04 || Math.abs(X(q)) > 0.04) continue;
+    const dy = Math.abs(F[p * 3 + 1] - F[q * 3 + 1]);
+    if (dy < Math.max(0.01, 0.5 * Math.hypot(X(p) - X(q), Z(p) - Z(q)))) continue;
+    link(p, q); link(q, p);
+  }
+  if (!adj.size) return null;
+  // The open edges are one path through the slit's top point (both lips', split there) or two
+  // paths, one a lip; each lip a chain from its top down.
+  const paths = [], done = new Set();
+  for (const [p, next] of adj) {
+    if (next.length !== 1 || done.has(p)) continue;
+    const path = [p], seen = new Set(path);
+    for (let x = p; ;) { const q = adj.get(x).find((y) => !seen.has(y)); if (q === undefined) break; path.push(q); seen.add(q); x = q; }
+    done.add(p); done.add(path[path.length - 1]); paths.push(path);
+  }
+  const y = (i) => F[i * 3 + 1];
+  let chains;
+  if (paths.length === 1) {
+    const path = paths[0], k = path.reduce((m, i, j) => (y(i) > y(path[m]) ? j : m), 0);
+    chains = [path.slice(0, k + 1).reverse(), path.slice(k)];
+  } else chains = paths.sort((u, v) => v.length - u.length).slice(0, 2).map((c) => (y(c[0]) < y(c[c.length - 1]) ? c.reverse() : c));
+  if (chains.length !== 2 || chains.some((c) => c.length < 2)) return null;
+  const foot = (c) => c[c.length - 1];
+  // Left is +x: the lip whose foot lies further left.
+  if (F[foot(chains[0]) * 3] < F[foot(chains[1]) * 3]) chains.reverse();
+  return { left: chains[0], right: chains[1], rest };
+}
+{
+  const fails = [], lines = [];
+  // Frances Glessner, the close walking skirt.
+  for (const lod of [0, 1]) {
+    const asset = 'glessner_frances_m_1904', r = await rig(asset, lod), found = skirtMeshes(r.scene), skirt = found.skirt;
+    const rest = restOf(r, skirt), hips0 = rest;
+    let yMin = Infinity; for (let i = 0; i < rest.F.length / 3; i++) yMin = Math.min(yMin, rest.F[i * 3 + 1]);
+    const front = [], back = [];
+    for (let i = 0; i < rest.F.length / 3; i++) {
+      if (rest.F[i * 3 + 1] > yMin + 0.04) continue;
+      const th = Math.abs(Math.atan2(rest.F[i * 3] - hips0.hx, rest.F[i * 3 + 2] - hips0.hz));
+      if (th < 30 * Math.PI / 180) front.push(i); else if (th > 150 * Math.PI / 180) back.push(i);
+    }
+    const span = (S, h) => { const z = (list) => list.reduce((s, i) => s + figure(r, new THREE.Vector3(S[i * 3], S[i * 3 + 1], S[i * 3 + 2])).z, 0) / list.length; return z(front) - z(back); };
+    const span0 = span(skinned(skirt));
+    const sk = createHumanSkirt({ id: asset, scene: r.scene });
+    let sum = 0, most = -Infinity, k = 0, worst = Infinity, at = null;
+    walkGait(r, sk, { sex: 'female', age: 45, skirt: true }, 150, (i) => {
+      const g = span(skinned(skirt)) - span0; sum += g; k++; most = Math.max(most, g);
+      if (i % 3) return;
+      const c = containment(r, skirt); if (c.worst < worst) { worst = c.worst; at = c.at; }
+    });
+    const mean = sum / k;
+    assert(worst > 0, `${asset} LOD${lod} gait stride: a leg is ${(-worst * 100).toFixed(1)} cm outside the close skirt at ${JSON.stringify(at)}`);
+    if (!(mean <= CLOSE_SPAN_MEAN_M) || !(most <= CLOSE_SPAN_MAX_M)) fails.push(`${asset} LOD${lod}: the hem sways ${(mean * 100).toFixed(1)} cm fore and aft on the mean (at most ${(CLOSE_SPAN_MEAN_M * 100).toFixed(0)}), ${(most * 100).toFixed(1)} at the most (${(CLOSE_SPAN_MAX_M * 100).toFixed(0)})`);
+    lines.push(`${asset} LOD${lod}: hem span past standing ${(mean * 100).toFixed(1)} cm mean, ${(most * 100).toFixed(1)} most; legs clear by ${(worst * 100).toFixed(1)} cm`);
+  }
+  // John J. Glessner, the frock coat's vent.
+  for (const lod of [0, 1]) {
+    const asset = 'glessner_john_j_1904', r = await rig(asset, lod), found = skirtMeshes(r.scene), skirt = found.skirt;
+    const lips = ventLips(r, skirt);
+    assert(lips, `${asset} LOD${lod}: the parse cut a vent up the back of the skirts`);
+    const at = (S, i) => figure(r, new THREE.Vector3(S[i * 3], S[i * 3 + 1], S[i * 3 + 2]));
+    const L = lips.left, R = lips.right, yTopV = lips.rest.F[L[0] * 3 + 1], yFoot = lips.rest.F[L[L.length - 1] * 3 + 1];
+    const near = (chain) => chain.filter((i) => lips.rest.F[i * 3 + 1] > yTopV - 0.2 * (yTopV - yFoot) && i !== chain[0]);
+    const topL = near(L), topR = near(R);
+    const apart = (S) => at(S, L[L.length - 1]).distanceTo(at(S, R[R.length - 1]));
+    const topApart = (S) => { const c = (list) => list.reduce((v, i) => v.add(at(S, i)), new THREE.Vector3()).multiplyScalar(1 / list.length); return c(topL).distanceTo(c(topR)); };
+    const S0 = skinned(skirt), open0 = apart(S0), top0 = topApart(S0);
+    const sk = createHumanSkirt({ id: asset, scene: r.scene });
+    // Standing, the vent is as drawn.
+    for (let i = 0; i < 20; i++) step(r, sk, 1 / 30, { state: 'standing' });
+    const stand = apart(skinned(skirt));
+    assert(Math.abs(stand - open0) < 0.001, `${asset} LOD${lod}: standing, the vent as drawn (${(stand * 100).toFixed(1)} vs ${(open0 * 100).toFixed(1)} cm)`);
+    let most = 0, sum = 0, k = 0, topMost = 0, through = Infinity, where = null;
+    const legs = [bodyOf(r), ...(found.tubes ?? [])];
+    walkGait(r, sk, { sex: 'male', age: 40 }, 150, (i) => {
+      const S = skinned(skirt), o = apart(S); most = Math.max(most, o); sum += o; k++;
+      topMost = Math.max(topMost, topApart(S) - top0);
+      if (i % 3) return;
+      // No leg through the opening: a leg point behind the hips, between the lips at its
+      // height, lies inside the line from lip to lip.
+      const hips = figure(r, world(r.bone('thigh_l')).add(world(r.bone('thigh_r'))).multiplyScalar(0.5));
+      const lipAt = (chain, y) => { let best = null; for (let c = 1; c < chain.length; c++) { const a = at(S, chain[c - 1]), b = at(S, chain[c]); if ((a.y - y) * (b.y - y) <= 0 && a.y !== b.y) { best = a.clone().lerp(b, (y - a.y) / (b.y - a.y)); break; } } return best; };
+      for (const leg of legs) {
+        const B = skinned(leg), skel = leg.skeleton, si = leg.geometry.attributes.skinIndex, sw = leg.geometry.attributes.skinWeight;
+        const legIdx = new Set(skel.bones.map((b, j) => (/^(thigh|calf)_[lr]$/.test(b.name) ? j : -1)).filter((j) => j >= 0));
+        for (let v = 0; v < si.count; v++) {
+          let w = 0; for (let c = 0; c < 4; c++) if (legIdx.has(si.getComponent(v, c))) w += sw.getComponent(v, c);
+          if (w < 0.5) continue;
+          const p = figure(r, new THREE.Vector3(B[v * 3], B[v * 3 + 1], B[v * 3 + 2]));
+          if (p.z > hips.z) continue;
+          const a = lipAt(L, p.y), b = lipAt(R, p.y);
+          if (!a || !b || a.x <= b.x) continue; // lapped there: no opening
+          if (p.x > a.x || p.x < b.x) continue;  // not between the lips
+          // The line from lip to lip at the leg's x, and the leg behind it (smaller z) is through.
+          const zLine = a.z + (b.z - a.z) * (p.x - a.x) / (b.x - a.x), c = p.z - zLine;
+          if (c < through) { through = c; where = { y: +(p.y - hips.y).toFixed(3), x: +(p.x - hips.x).toFixed(3), gap: +((a.x - b.x) * 100).toFixed(1) }; }
+        }
+      }
+    });
+    const mean = sum / k;
+    assert(through > 0, `${asset} LOD${lod}: a leg comes ${(-through * 100).toFixed(1)} cm through the vent at ${JSON.stringify(where)}`);
+    assert(topMost <= VENT_TOP_M, `${asset} LOD${lod}: the vent's top parts ${(topMost * 100).toFixed(1)} cm (lapped: at most ${VENT_TOP_M * 100})`);
+    if (!(most >= VENT_OPEN_MAX_M) || !(mean >= VENT_OPEN_MEAN_M)) fails.push(`${asset} LOD${lod}: the vent parts to ${(most * 100).toFixed(1)} cm at most, ${(mean * 100).toFixed(1)} on the mean (at least ${VENT_OPEN_MAX_M * 100} and ${VENT_OPEN_MEAN_M * 100}; ${(open0 * 100).toFixed(1)} standing)`);
+    lines.push(`${asset} LOD${lod}: vent ${(open0 * 100).toFixed(1)} cm apart standing, ${(mean * 100).toFixed(1)} mean / ${(most * 100).toFixed(1)} most walking, top +${(Math.max(0, topMost) * 100).toFixed(1)} cm, legs ${Number.isFinite(through) ? `${(through * 100).toFixed(1)} cm inside the opening` : 'never in the opening'}`);
+  }
+  // No other body is close or vented: their panels are as they were.
+  for (const [asset] of HANGING) for (const lod of [0, 2]) {
+    if (asset === 'glessner_frances_m_1904' || asset === 'glessner_john_j_1904') continue;
+    const r = await rig(asset, lod), b = createHumanSkirt({ id: asset, scene: r.scene })?.binding;
+    assert(b && !b.close && !b.vent && !b.offset, `${asset} LOD${lod}: neither close nor vented (${JSON.stringify({ close: b?.close, vent: !!b?.vent, offset: b?.offset })})`);
+  }
+  assert.equal(fails.length, 0, fails.join('; '));
+  console.log(`${lines.join('; ')}; no other body close or vented: PASS`);
+}
 
 // 2. Per woman and level: standing is the asset; the stride and mid-swing hold the legs in.
 const STRIDE = [['l', 30, 10], ['r', -15, 40]];

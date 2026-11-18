@@ -1,4 +1,5 @@
 /** Lazy catalog, route preview and session handoff. */
+import { addTable, tellingTable } from './reading-level.js';
 import { createJauntMenu } from './jaunt-menu.js';
 import { createJournal, presentKeepsake } from './jaunt-journal.js';
 import { icon } from './menu-icons.js';
@@ -200,7 +201,28 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     }
   }
 
+  // T-3645: the jaunt last loaded reads its other tellings' words at the reader's other ages
+  // (reading-level.js § tellingTable): its siblings are fetched alongside, once, and their
+  // table takes the place of the one before.
+  let dropTellings = null, tellingsFor = null;
+  async function tellings(content) {
+    if (tellingsFor === content.id) return;
+    tellingsFor = content.id;
+    const rows = await catalog();
+    const baseOf = (r) => r?.version_of || r?.id;
+    const own = rows.find((r) => r.id === content.id);
+    const ids = rows.filter((r) => r.id !== content.id && baseOf(r) === baseOf(own) && r.audience !== 'adults' && r.availability === 'available').map((r) => r.id);
+    const others = (await Promise.all(ids.map((sid) => fetchContent(sid).catch(() => null)))).filter(Boolean);
+    if (tellingsFor !== content.id) return;
+    dropTellings?.();
+    dropTellings = addTable(tellingTable(content, others));
+  }
   async function load(id, options) {
+    const content = await fetchContent(id, options);
+    void tellings(content).catch((err) => console.warn('[4D Chicago] jaunt tellings for reading ages', err));
+    return content;
+  }
+  async function fetchContent(id, options) {
     const rows = await catalog();
     if (!rows.some(row => row.id === id && row.availability === 'available' && allowed(row)) || !/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test(id)) throw new Error('Jaunt unavailable');
     let content = contents.get(id);
