@@ -427,16 +427,6 @@
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.6,
-                  "clear_height_m": 2.3,
-                  "sill_m": 2.15,
-                  "at": [
-                    0.1,
-                    0.9
-                  ]
-                },
-                {
-                  "opening": "k06.opening.sash_2over2_flat",
                   "clear_width_m": 1.0,
                   "clear_height_m": 2.3,
                   "sill_m": 2.15,
@@ -449,16 +439,6 @@
             {
               "height_m": 2.2,
               "windows": [
-                {
-                  "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.6,
-                  "clear_height_m": 1.5,
-                  "sill_m": 0.4,
-                  "at": [
-                    0.1,
-                    0.9
-                  ]
-                },
                 {
                   "opening": "k06.opening.sash_2over2_flat",
                   "clear_width_m": 1.0,
@@ -482,7 +462,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The plan's two projections, read off sheet 35 of the 1911 Sanborn at full size (T-3635) and carried into this frame through an affine fit of the committed trace's pixel/metre pairs (data/traces/prairie_1904_footprints_s35.json, 0.186 m a pixel). FRONT: the front's south part stands out of its north part, the outer line at column 915-917 against the north part's front wall at 923, from row 723 to row 751 (v 5.39-10.59 from the main north wall, row 694): a full-height K08 projection 5.2 m wide, built 1.2 m out (the sheet's 1.3 m less the double line's width). NORTH FLANK: the sheet's canted bay on the north wall, its foot from column 976 to 1002.5 (u 2.14-7.16 from the rear wall, column 1014), its face from 980 to 998.5 at row 689, 0.93 m out: a K08 canted bay 5.02 m at the wall and 3.54 m at its face, carried two storeys under its own low hip. The front bay rises to the main cornice's bed moulding (8.349 m) and carries the bracketed cornice round its face under the house's eave, so its chamber storey is 2.949 m. Every window, height and roof on both is reconstructed (L-k01-2027-villa-3635)"
+      "note": "The plan's two projections, read off sheet 35 of the 1911 Sanborn at full size (T-3635) and carried into this frame through an affine fit of the committed trace's pixel/metre pairs (data/traces/prairie_1904_footprints_s35.json, 0.186 m a pixel). FRONT: the front's south part stands out of its north part, the outer line at column 915-917 against the north part's front wall at 923, from row 723 to row 751 (v 5.39-10.59 from the main north wall, row 694): a full-height K08 projection 5.2 m wide, built 1.2 m out (the sheet's 1.3 m less the double line's width). NORTH FLANK: the sheet's canted bay on the north wall, its foot from column 976 to 1002.5 (u 2.14-7.16 from the rear wall, column 1014), its face from 980 to 998.5 at row 689, 0.93 m out: a K08 canted bay 5.02 m at the wall and 3.54 m at its face, carried two storeys under its own low hip, one light a storey in its face and its shallow cants blind (a 0.93 m bay leaves no room for a light behind a cant). The front bay rises to the main cornice's bed moulding (8.349 m) and carries the bracketed cornice round its face under the house's eave, so its chamber storey is 2.949 m. Every window, height and roof on both is reconstructed (L-k01-2027-villa-3635)"
     },
     "rear_wings": {
       "value": [
