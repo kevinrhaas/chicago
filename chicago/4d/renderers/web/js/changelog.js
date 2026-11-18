@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3093, ts: '2026-11-18T07:12:39.676Z', date: 'Nov 18, 2026, 1:12 AM CT', title: 'The home page opens on the town\'s best moments', kind: 'feature',
+    items: [
+      'The film behind the public site\'s home page is now a cut of its most striking shots: the town from the air, Fort Dearborn burning, the carriages on Prairie Avenue, the fort from across the river, the 1835 town and river at dusk, the fort from above, the river crossing and the fort at dawn.',
+    ] },
   { v: 3092, ts: '2026-11-18T06:44:49.243Z', date: 'Nov 18, 2026, 12:44 AM CT', title: 'Pick jaunts by age', kind: 'change',
     items: [
       'The Jaunts menu\'s filter row is now "Your age": Any, 8–10, 11–13, 14–15, 16–17 and 18+. Each age picks the telling of every jaunt written for it.',
