@@ -1,0 +1,55 @@
+{
+  "id": "private_first_infantry_1812",
+  "label": "Paul Grummo, private of Heald's company, First Infantry (1812, catalogue)",
+  "person_id": "grummo_paul",
+  "scene": "1812",
+  "reference_set": "soldier_1812",
+  "find": {
+    "kind": "stage",
+    "instance": "hi_heald_company_private_1812",
+    "asset": "private_first_infantry_1812",
+    "lod": 0
+  },
+  "bound": {
+    "file": "data/humans/instances/1812/hi_heald_company_private_1812.json",
+    "keys": [
+      "appearance",
+      "animation"
+    ]
+  },
+  "aim_bone": "head",
+  "stills": [
+    {
+      "name": "near",
+      "distance_m": 3,
+      "bearing_off_heading_deg": 15,
+      "eye_m": 1.68,
+      "aim_below_head_m": 0.75,
+      "pose": "stand",
+      "at_s": 2,
+      "why": "Standing nearly square at three metres, as Krimmel's volunteers stand at the right of his 1811-13 sheet."
+    },
+    {
+      "name": "far",
+      "distance_m": 10,
+      "bearing_off_heading_deg": 20,
+      "eye_m": 1.68,
+      "aim_below_head_m": 0.9,
+      "pose": "stand",
+      "at_s": 2,
+      "why": "Standing at ten metres, as Krimmel's whole sheet holds the crowd of soldiery."
+    }
+  ],
+  "pair": {
+    "near": "krimmel_1813_soldiery",
+    "far": "krimmel_1813_soldiery_whole"
+  },
+  "clip": {
+    "still": "near",
+    "viewport": "desktop",
+    "frames": 5,
+    "interval_s": 1.25,
+    "pose": "walk"
+  },
+  "figure_below_head_m": 1.8
+}

@@ -32,6 +32,11 @@ export const CHECKLIST = {
 export const STATUSES = ['open', 'reads', 'not shown', 'within tolerance', 'owner ruling'];
 export const VERDICTS = ['unreviewed', 'differs', 'matches'];
 export const BANDS = ['near', 'far'];
+/** How a subject is found: driven (a transport row), standing (an instance record, in town),
+ *  stage (an instance record's body on tools/people_match_stage.html, T-3553). */
+export const FIND_KINDS = ['driven', 'standing', 'stage'];
+/** A stage still's pose: the record's own standing clip, or walking (HumanActor.walkPath). */
+export const POSES = ['stand', 'walk'];
 
 const HEX64 = /^[0-9a-f]{64}$/;
 const ID = /^[a-z0-9_]+$/;
@@ -53,9 +58,10 @@ export function listRecords(root) {
 export function boundValues(root, subject, doc = null) {
   const b = subject.bound;
   doc ??= readJSON(root, b.file);
-  if (subject.find?.kind === 'standing') {
+  if (subject.find?.kind === 'standing' || subject.find?.kind === 'stage') {
     // A standing figure (T-3423) is its instance record and the body it wears: the record's
     // keys, and the sha256 of the asset's web LOD0 in this tree (a rebuilt body is a new figure).
+    // A stage figure (T-3553) is bound the same way, to the record it is stood from.
     const out = Object.fromEntries(b.keys.map(k => [k, doc[k] ?? null]));
     const glb = path.join(root, 'assets/humans/web', `${doc.appearance?.asset_id}.lod0.glb`);
     out.asset_lod0_sha256 = fs.existsSync(glb) ? crypto.createHash('sha256').update(fs.readFileSync(glb)).digest('hex') : null;
@@ -106,9 +112,26 @@ export function checkSubject(root, subject, sets, rel = 'subject') {
   if (!set) e(`reference_set ${subject.reference_set} is not in ${SETS}/`);
   else if (!set.scenes?.includes(subject.scene)) e(`reference set ${set.id} does not judge scene ${subject.scene}`);
   if (typeof subject.person_id !== 'string' || !subject.person_id) e('person_id is required');
-  if (!['driven', 'standing'].includes(subject.find?.kind)) e('find.kind must be "driven" (a transport row) or "standing" (an instance record)');
+  if (!FIND_KINDS.includes(subject.find?.kind)) e('find.kind must be "driven" (a transport row), "standing" (an instance record, in town) or "stage" (an instance record\'s body on tools/people_match_stage.html)');
   const b = subject.bound;
-  if (subject.find?.kind === 'standing') {
+  if (subject.find?.kind === 'stage') {
+    // T-3553: a catalogue figure shot on the stage page, stood or walked as humans.js draws it,
+    // its body read from its instance record (the town's placement and schedule are not used).
+    const want = `data/humans/instances/${subject.scene}/${subject.find.instance}.json`;
+    if (!b || b.file !== want || !Array.isArray(b.keys) || !b.keys.includes('appearance')) e(`bound must name {file: ${want}, keys} with appearance among the keys`);
+    else {
+      try {
+        const rec = readJSON(root, b.file);
+        if (rec.id !== subject.find.instance) e(`bound record ${b.file} is not ${subject.find.instance}`);
+        if (rec.person_id !== subject.person_id) e(`bound record stands ${rec.person_id}, not ${subject.person_id}`);
+        if (rec.scene !== subject.scene) e(`bound record is in scene ${rec.scene}, not ${subject.scene}`);
+        if (rec.appearance?.asset_id !== subject.find.asset) e(`bound record wears ${rec.appearance?.asset_id}, not find.asset ${subject.find.asset}`);
+        for (const k of b.keys) if (!(k in rec)) e(`bound key ${k} is not on ${b.file}`);
+      } catch (x) { e(`bound file ${b.file}: ${x.message}`); }
+    }
+    if (!fs.existsSync(path.join(root, 'assets/humans/web', `${subject.find.asset}.lod0.glb`))) e(`find.asset ${subject.find.asset} has no web LOD0 in assets/humans/web/`);
+    if (subject.find.lod !== undefined && ![0, 1, 2, 3].includes(subject.find.lod)) e('find.lod must be 0..3');
+  } else if (subject.find?.kind === 'standing') {
     // T-3423: a figure standing in the scene from data/humans/instances/<scene>/<id>.json.
     const want = `data/humans/instances/${subject.scene}/${subject.find.instance}.json`;
     if (!b || b.file !== want || !Array.isArray(b.keys) || !b.keys.length) e(`bound must name {file: ${want}, keys}`);
@@ -144,6 +167,10 @@ export function checkSubject(root, subject, sets, rel = 'subject') {
     if (!Number.isFinite(s.bearing_off_heading_deg) || Math.abs(s.bearing_off_heading_deg) > 180) e(`${at}: bearing_off_heading_deg must be within ±180`);
     if (!Number.isFinite(s.aim_below_head_m) || s.aim_below_head_m < -0.5 || s.aim_below_head_m > 3) e(`${at}: aim_below_head_m must be between -0.5 and 3`);
     if (!Number.isFinite(s.eye_m) || s.eye_m < 0.5 || s.eye_m > 4) e(`${at}: eye_m (camera height over the ground) must be between 0.5 and 4`);
+    if (subject.find?.kind === 'stage') {
+      if (!POSES.includes(s.pose)) e(`${at}: pose must be one of ${POSES.join(', ')} (a stage still says whether the figure stands or walks)`);
+      if (!(s.at_s >= 0 && s.at_s <= 30)) e(`${at}: at_s (the figure's own time when the still is shot) must be between 0 and 30`);
+    }
   }
   if (stills.find(s => s.name === 'near')?.distance_m !== 3 || stills.find(s => s.name === 'far')?.distance_m !== 10) e('near is the 3 m still and far the 10 m one');
   if (subject.figure_below_head_m !== undefined && !(subject.figure_below_head_m > 0.5 && subject.figure_below_head_m < 2.2)) e('figure_below_head_m (head bone to feet, for the crop) must be between 0.5 and 2.2');
@@ -151,9 +178,20 @@ export function checkSubject(root, subject, sets, rel = 'subject') {
     if (!(vp in VIEWPORTS)) e(`detail.${vp} is not a viewport`);
     if (!['full', 'balanced'].includes(level)) e(`detail.${vp} must be full or balanced (light draws no people)`);
   }
+  // T-3553: `pair` names, per band, the one picture of the set a still is laid beside on its
+  // pair sheet (the rig's <band>-pair.jpg); the side-by-side still shows every picture of the band.
+  if (subject.pair !== undefined) {
+    for (const [band, name] of Object.entries(subject.pair ?? {})) {
+      const pic = set?.pictures?.find(p => p.name === name);
+      if (!BANDS.includes(band)) e(`pair.${band} is not a band`);
+      else if (set && !pic) e(`pair.${band}: ${name} is not a picture of ${set.id}`);
+      else if (pic && pic.band !== band) e(`pair.${band}: ${name} is a ${pic.band} picture`);
+    }
+  }
   const clip = subject.clip;
   if (!clip || !BANDS.includes(clip.still) || !(clip.viewport in VIEWPORTS) || !Number.isInteger(clip.frames) || clip.frames < 3 || !(clip.interval_s > 0)) e('clip must name {still, viewport, frames >= 3, interval_s}');
   else if (Math.abs((clip.frames - 1) * clip.interval_s - 5) > 1.01) e('the clip spans about 5 seconds');
+  else if (subject.find?.kind === 'stage' && !POSES.includes(clip.pose)) e(`clip.pose must be one of ${POSES.join(', ')}`);
   return errs;
 }
 
@@ -179,6 +217,16 @@ export function checkMatch(root, match, subject, rel = 'match record') {
     if (!st || typeof st.file !== 'string' || !HEX64.test(st.sha256 ?? '')) e(`stills.${s.name}-${vp} must record its file and sha256`);
   }
   if (!match.shot?.date || !match.shot?.target) e('shot must say when and against what build it was taken');
+  // T-3553: a review may list its differences ({what, picture, ours, status}), held like the checklist.
+  if (match.differences !== undefined) {
+    if (!Array.isArray(match.differences)) e('differences must be a list');
+    for (const [i, d] of (Array.isArray(match.differences) ? match.differences : []).entries()) {
+      for (const k of ['what', 'picture', 'ours']) if (typeof d?.[k] !== 'string' || !d[k].trim()) e(`differences[${i}].${k} must say what was read`);
+      if (!STATUSES.includes(d?.status)) e(`differences[${i}].status must be one of ${STATUSES.join(', ')}`);
+    }
+    const openDiffs = (Array.isArray(match.differences) ? match.differences : []).filter(d => d?.status === 'open');
+    if (match.verdict === 'matches' && openDiffs.length) e(`verdict matches with ${openDiffs.length} open difference(s)`);
+  }
   // A verdict is about the figure it was shot on. A changed livery, clip or asset is a
   // different figure: the rig sets it back to unreviewed when it reshoots, and an approval
   // that outlived its figure is refused here.
