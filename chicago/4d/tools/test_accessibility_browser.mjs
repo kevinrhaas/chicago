@@ -21,7 +21,7 @@ const server = http.createServer((req, res) => {
   if (url.pathname === '/') {
     res.setHeader('Content-Type', 'text/html');
     res.end(`<!doctype html><html lang="en"><head>${meta}${imports}
-      <link rel="stylesheet" href="/css/walk.css"><link rel="stylesheet" href="/css/navigator.css">
+      <link rel="stylesheet" href="/css/walk.css"><link rel="stylesheet" href="/css/drawer.css"><link rel="stylesheet" href="/css/navigator.css">
       <link rel="stylesheet" href="/css/card.css"></head><body><canvas id="view"></canvas>
       <button id="outside" style="position:fixed;top:0;right:0">Outside control</button>
       <section id="already-inert" inert aria-hidden="true"><button>Unavailable control</button></section>
@@ -103,6 +103,7 @@ try {
     const dialog = page.locator('.pic-viewer');
     assert.equal(await dialog.evaluate(el => el.matches(':modal')), true, 'native modal is in the top layer');
     assert.equal(await page.evaluate(() => document.activeElement.hasAttribute('data-pv-close')), true);
+    if (out) await page.screenshot({ path: path.join(out, `${width}-picture-modal.png`) });
     await page.evaluate(() => document.getElementById('outside').focus());
     assert.equal(await page.evaluate(() => !!document.activeElement.closest('.pic-viewer')), true, 'background cannot receive focus');
     await dialog.locator('[data-pv-full]').focus();
@@ -156,15 +157,39 @@ try {
         getComputedStyle(document.getElementById('nav-home')).touchAction,
         getComputedStyle(document.getElementById('nav-grip')).touchAction, getComputedStyle(view).touchAction] }));
     if (phone) {
-      assert(before.touch[0].includes('pinch-zoom') && before.touch[1].includes('pinch-zoom'));
+      const permitsPinch = value => value.includes('pinch-zoom') || value === 'manipulation' || value === 'auto';
+      assert(before.touch.slice(0, 2).every(permitsPinch), JSON.stringify(before.touch));
       assert.deepEqual(before.touch.slice(2), ['none', 'none'], 'only handles and world reserve gestures');
       const client = await context.newCDPSession(page);
       const box = await opener.boundingBox();
-      await client.send('Input.synthesizePinchGesture', { x: box.x + box.width / 2, y: box.y + box.height / 2,
-        scaleFactor: 2, relativeSpeed: 400, gestureSourceType: 'touch' });
-      await page.waitForFunction(() => visualViewport.scale > 1.5);
+      const pinchAt = { x: 130, y: Math.min(600, box.y + 200) };
+      await page.evaluate(() => {
+        window.pinchStarts = [];
+        document.addEventListener('pointerdown', e => {
+          const ancestors = []; for (let el = e.target; el; el = el.parentElement) ancestors.push([el.tagName, el.id, getComputedStyle(el).touchAction]);
+          pinchStarts.push({ x: e.clientX, y: e.clientY, ancestors });
+        }, { capture: true });
+      });
+      // Chromium's synthesized pinch emitted touches without zoom even on a
+      // plain control page in this environment. Dispatch actual multi-touch;
+      // CDP coordinates are visual-viewport CSS pixels, so keep each physical
+      // finger position stable as the browser's own scale changes underneath it.
+      await client.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [
+        { id: 10, x: pinchAt.x - 45, y: pinchAt.y }, { id: 11, x: pinchAt.x + 45, y: pinchAt.y },
+      ] });
+      for (let step = 1; step <= 35; step++) {
+        const scale = await page.evaluate(() => visualViewport.scale);
+        if (scale >= 1.95) break;
+        await client.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [
+          { id: 10, x: (pinchAt.x - 45 - step * 3) / scale, y: pinchAt.y / scale },
+          { id: 11, x: (pinchAt.x + 45 + step * 3) / scale, y: pinchAt.y / scale },
+        ] });
+        await page.waitForTimeout(20);
+      }
+      await client.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+      await page.waitForFunction(() => visualViewport.scale > 1.8, null, { timeout: 3000 });
       const zoom = await page.evaluate(() => ({ canvas: [view.width, view.height], resizes: fixtureResizeCount, vh: document.documentElement.style.getPropertyValue('--vh'),
-        sheet: document.getElementById('navigator').getBoundingClientRect().height, scale: visualViewport.scale }));
+        sheet: document.getElementById('navigator').getBoundingClientRect().height, scale: visualViewport.scale, starts: pinchStarts }));
       assert.deepEqual(zoom.canvas, before.canvas, 'native pinch does not shrink the GPU drawing buffer');
       assert.equal(zoom.resizes, before.resizes, 'native pinch does not repeatedly reallocate the same drawing buffer');
       assert.equal(zoom.vh, before.vh);
@@ -172,12 +197,58 @@ try {
       await page.locator('#reading-end').focus();
       assert(await page.locator('#nav-home').evaluate(el => el.scrollTop > 0), 'magnified reading still scrolls to its final control');
       if (out) await page.screenshot({ path: path.join(out, '390-native-pinch.png') });
+      await page.evaluate(() => {
+        fixtureNav.dock(); fixtureIntent.clearLook();
+        window.fixtureTouchTrace = [];
+        view.addEventListener('pointerdown', e => fixtureTouchTrace.push({ x: e.clientX, y: e.clientY,
+          offset: visualViewport.offsetLeft, visibleWidth: visualViewport.width, scale: visualViewport.scale }));
+      });
+      const scale = await page.evaluate(() => visualViewport.scale);
+      await client.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [
+        { id: 1, x: 80 / scale, y: 300 / scale }, { id: 2, x: 250 / scale, y: 300 / scale },
+      ] });
+      await client.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [
+        { id: 1, x: 80 / scale, y: 230 / scale }, { id: 2, x: 280 / scale, y: 280 / scale },
+      ] });
+      const thumbs = await page.evaluate(() => ({ forward: fixtureIntent.forward, yaw: fixtureIntent.yawDelta,
+        pitch: fixtureIntent.pitchDelta, trace: fixtureTouchTrace }));
+      await client.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+      assert(thumbs.forward > 0 && thumbs.yaw < 0 && thumbs.pitch > 0,
+        `off-center magnification keeps independent movement and look thumbs: ${JSON.stringify(thumbs)}`);
+      await page.evaluate(() => fixtureNav.open(2));
+      const panBefore = await page.evaluate(() => visualViewport.offsetLeft);
+      await client.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ id: 20, x: 140 / scale, y: 350 / scale }] });
+      for (let step = 1; step <= 8; step++) {
+        await client.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ id: 20, x: (140 - step * 10) / scale, y: 350 / scale }] });
+        await page.waitForTimeout(20);
+      }
+      await client.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+      const panAfter = await page.evaluate(() => visualViewport.offsetLeft);
+      assert(Math.abs(panAfter - panBefore) > 10, `magnified reading permits horizontal browser pan: ${JSON.stringify({ panBefore, panAfter, trace: await page.evaluate(() => pinchStarts.at(-1)) })}`);
+      // Settings and other hosted drawer sections have their own scroll area.
+      // Exercise that real CSS nesting too; an inner contain would trap zoom pan.
+      await page.evaluate(() => {
+        const screen = document.getElementById('nav-home');
+        const panel = document.createElement('section'); panel.className = 'hud-panel';
+        const scroll = document.createElement('div'); scroll.className = 'panel-scroll';
+        scroll.append(...screen.childNodes); panel.append(scroll); screen.append(panel);
+        scroll.scrollTop = scroll.scrollHeight;
+      });
+      await client.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ id: 21, x: 140 / scale, y: 350 / scale }] });
+      for (let step = 1; step <= 8; step++) {
+        await client.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ id: 21, x: (140 - step * 10) / scale, y: 350 / scale }] });
+        await page.waitForTimeout(20);
+      }
+      await client.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+      const nestedPan = await page.evaluate(() => visualViewport.offsetLeft);
+      assert(Math.abs(nestedPan - panAfter) > 10, 'hosted Navigator panel also permits horizontal browser pan');
       await client.send('Emulation.setPageScaleFactor', { pageScaleFactor: 1 });
       await page.setViewportSize({ width: 780, height: 390 });
       await page.waitForFunction(() => view.width === 780 && view.height === 390);
       await page.setViewportSize({ width: 390, height: 780 });
       await page.waitForFunction(() => view.width === 390 && view.height === 780);
-      receipts.push({ width, nativePinch: zoom, orientation: 'passed', modal: 'passed', errors });
+      receipts.push({ width, nativePinch: zoom, magnifiedThumbs: thumbs, nativePan: { before: panBefore, after: panAfter, afterHostedPanel: nestedPan },
+        orientation: 'passed', modal: 'passed', errors });
     } else receipts.push({ width, modal: 'passed', errors });
     assert.deepEqual(errors, []);
     await context.close();

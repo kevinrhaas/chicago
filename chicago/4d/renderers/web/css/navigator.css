@@ -267,7 +267,9 @@ a.nav-jump:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px
   gap: 12px;
   padding: 14px 16px 22px;
   overflow-y: auto;
-  overscroll-behavior: contain;
+  /* At browser zoom, an edge of this scroll area must still allow the visual
+     viewport to pan. The page itself suppresses overscroll outside the town. */
+  overscroll-behavior: auto;
 }
 .nav-block {
   display: flex;
@@ -541,6 +543,7 @@ button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offs
   transition: none;
 }
 .navigator .hud-panel[hidden] { display: none; }
+.navigator .panel-scroll { overscroll-behavior: auto; }
 .navigator .panel-tabs {
   flex-direction: row;
   align-items: stretch;
