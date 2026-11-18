@@ -7196,7 +7196,7 @@ async function boot() {
       let missingPerson = false;
       if (sharedMoment.person) {
         const directory = await peopleDirectory.load().catch(() => null);
-        if (directory?.people?.some(p => p.id === sharedMoment.person)) await openPersonCard(sharedMoment.person);
+        if (directory?.people?.some(person => person.id === sharedMoment.person)) await openPersonCard(sharedMoment.person);
         else missingPerson = true;
       } else if (sharedMoment.structure && loaded.registry.has(sharedMoment.structure)) openBuilding(sharedMoment.structure);
       api.momentRestored = sharedMoment;

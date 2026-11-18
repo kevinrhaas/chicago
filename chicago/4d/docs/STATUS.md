@@ -3,6 +3,11 @@
 Prepared as the next server-free delivery after T-3656, on an isolated branch based on
 classroom checkpoint `03ecd9678`. The first classroom PR must merge before this follow-up.
 
+Integration includes T-3656's later `45b35a2c7` resource/style/person fixes and the mounted
+Guide tour-order regression test. First-delivery history below remains its earlier
+checkpoint until the branch is rebased onto the merged DEV; the first PR records that
+delivery's current verdict. Rebase only commits after `03ecd9678` to avoid duplicating it.
+
 Home's **Where and when?** uses five licensed historical photographs of four places in
 the 1904 scene. It derives the picture, canonical building, credit, recorded date/range
 and solved camera position from the existing catalogue. The same five photographs have
@@ -12,6 +17,10 @@ camera height, direction or an invented exact year. Guess or skip before source/
 reveals and optional travel; visits check bounds, water, router blockers and house barriers.
 Only the current thumbnail has an image source, released when hidden. One bounded local
 progress record reports unreadable or refused storage and supports an explicit restart.
+The actual rail regression covers quiet Home selection while docked: the thumbnail
+remains unloaded until reopened. Hunt styles load once per owning document on mount;
+closed panels and merely importing the module do not request them. Browser fixtures
+verify applied styles, remount deduplication and iframe isolation at both widths.
 
 Navigator reading now permits native browser magnification and panning. Viewport sizing
 keeps the drawing buffer stable during pinch zoom while still responding to keyboard,

@@ -50,6 +50,11 @@ export function printNotebook(entries, doc = globalThis.document) {
 
 export function mountFieldNotebook(container, { notebook = fieldNotebook, context = () => ({}) } = {}) {
   const doc = container.ownerDocument;
+  if (doc.head && !doc.getElementById?.('field-notebook-style')) {
+    const css = doc.createElement('link'); css.id = 'field-notebook-style'; css.rel = 'stylesheet';
+    css.href = new URL('../css/field-notebook.css', import.meta.url).href;
+    doc.head.append(css);
+  }
   const root = node(doc, 'details', null, 'nav-block field-notebook');
   root.id = 'field-notebook';
   root.append(node(doc, 'summary', tr('title'), 'nav-place'), node(doc, 'p', tr('intro'), 'nav-sub'),
