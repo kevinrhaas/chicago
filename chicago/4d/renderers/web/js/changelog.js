@@ -1,4 +1,34 @@
 export const CHANGELOG = [ // newest first
+  { v: 3085, ts: '2026-11-18T01:35:28.474Z', date: 'Nov 17, 2026, 7:35 PM CT', title: 'The year cards\' moving pictures play on every phone again', kind: 'fix',
+    items: [
+      'On an iPhone in Low Power Mode the three year cards on the first screen showed still pictures, because the phone refuses every video there.',
+      'Each card now falls back to a strip of the same frames, so its moving picture keeps playing, in every appearance, on phone and computer.',
+      'A clip that will not play in one format tries the other before giving up.',
+    ] },
+  { v: 3084, ts: '2026-11-18T01:35:28.474Z', date: 'Nov 17, 2026, 7:35 PM CT', title: 'Smoother walking: fewer pauses as the town comes into view', kind: 'fix',
+    items: [
+      'The far-off townspeople no longer make the app stop and prepare their drawing again for every new kind of dress that comes into view, which caused a hitch each time while you walked.',
+      'What they need is now prepared in the background, so a distant figure appears a frame or two later instead of freezing the frame.',
+      'On computers, buildings, camps and doors no longer pause the walk the first time you see them: the drawing prepared while the town loads is now kept instead of being thrown away at the first frame.',
+      'Reading the sky\'s colour for the haze now takes one trip to the graphics card instead of 36, at load and whenever the time of day changes.',
+      'Everything looks exactly as before, on phones and computers.',
+    ] },
+  { v: 3083, ts: '2026-11-18T01:35:28.474Z', date: 'Nov 17, 2026, 7:35 PM CT', title: 'Ride in coat or blanket; horses at the camps and battle', kind: 'feature',
+    items: [
+      'Traders, officers and Potawatomi men now ride: coat skirts, capotes, blankets and breechcloths lie over the horse instead of through it.',
+      'In 1812 and 1835 a trader and two Potawatomi men ride round town, the Potawatomi on a hide pad saddle over a red trade blanket with wooden stirrups.',
+      'A horse stands tied at every picket of the 1812 camps on the days the camps are there, and you can ride any of them.',
+      'In the Battle of Fort Dearborn, Wells rides in at the gate and at the head of the column, and gallops back along the beach at the sand bank. The surgeon\'s mate rides in the column.',
+      'In 1904 the groom is out every morning of the year, a coachman rides a carriage horse out on summer afternoons, and the saddle horse stands at the kerb, not in the road.',
+      'Riders move with their horse and look about, their legs lie over the saddle, and the tack has a leather grain. Carriages stop for a horse in their way, a rider pulls over for a team, and a coachman stays on his box while his carriage is out.',
+    ] },
+  { v: 3082, ts: '2026-11-18T01:35:28.474Z', date: 'Nov 17, 2026, 7:35 PM CT', title: 'Mr. Glessner looks himself and sits upright beside you in the brougham', kind: 'fix',
+    items: [
+      'Riding in the Glessner brougham on a phone or lighter detail, Mr. Glessner had no hair, spectacles or moustache and a coarse face. He now keeps his near figure in the cab on every device.',
+      'The brougham\'s cab is rebuilt inside: its seat and floor sit lower and the back of the body comes down to match the 1893 catalogue plate, so Mr. Glessner, and you beside him, now ride sitting upright instead of crouched under the roof.',
+      'His hands rest on his thighs instead of hanging down beside his shins.',
+      'His crown is no longer bare: a thin cover of short white hair is combed back over it, as his 1897 portrait shows. His card\'s likeness is redrawn to match.',
+    ] },
   { v: 3081, ts: '2026-11-18T00:19:41.222Z', date: 'Nov 17, 2026, 6:19 PM CT', title: 'Torch and paddle held without a floating end; boats wait heading out', kind: 'improvement',
     items: [
       'At the burning of the fort, your torch now comes up from below the view: you see its top and flame, never the end of the stick or where a hand would be.',
