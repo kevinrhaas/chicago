@@ -1,0 +1,55 @@
+{
+  "id": "glessner_john_j_1904",
+  "label": "John J. Glessner in his 1904 day dress (catalogue, gentleman)",
+  "person_id": "glessner_john_j",
+  "scene": "1904",
+  "reference_set": "gentleman_1904",
+  "find": {
+    "kind": "stage",
+    "instance": "hi_glessner_john_j_1904",
+    "asset": "glessner_john_j_1904",
+    "lod": 0
+  },
+  "bound": {
+    "file": "data/humans/instances/1904/hi_glessner_john_j_1904.json",
+    "keys": [
+      "appearance",
+      "animation"
+    ]
+  },
+  "aim_bone": "head",
+  "stills": [
+    {
+      "name": "near",
+      "distance_m": 3,
+      "bearing_off_heading_deg": 10,
+      "eye_m": 1.68,
+      "aim_below_head_m": 0.75,
+      "pose": "stand",
+      "at_s": 2,
+      "why": "Standing nearly square to the camera at three metres, as Clinedinst stood to Taft in 1904."
+    },
+    {
+      "name": "far",
+      "distance_m": 10,
+      "bearing_off_heading_deg": 15,
+      "eye_m": 1.68,
+      "aim_below_head_m": 0.9,
+      "pose": "walk",
+      "at_s": 2.4,
+      "why": "Walking towards the camera at ten metres, as the men on State Street walk under the Underwood camera (1903)."
+    }
+  ],
+  "pair": {
+    "near": "clinedinst_1904_taft",
+    "far": "underwood_1903_state_street"
+  },
+  "clip": {
+    "still": "near",
+    "viewport": "desktop",
+    "frames": 5,
+    "interval_s": 1.25,
+    "pose": "walk"
+  },
+  "figure_below_head_m": 1.8
+}

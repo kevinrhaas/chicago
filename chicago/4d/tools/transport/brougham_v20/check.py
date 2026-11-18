@@ -7,7 +7,8 @@
    committed far itself, whose corners must all be V19 shell corners;
 3. every level keeps the coachman's fit: the cushion, piping, backboard, perch base, side
    rails and footboard are V19's own triangles, and every vehicle_ frame, wheel/pole
-   contact and seat datum is V19's;
+   contact and seat datum is V19's, except the cab's (produce.CAB, T-3553): the passengers'
+   seat data lowered by exactly its drop and their floor by exactly its floor drop;
 4. the sidecar is exactly what this measures (`--write` rewrites it);
 5. every driven row that carries V20 says what its coachman was fitted on (V19) and
    names only V20 files at their real hashes;
@@ -55,6 +56,39 @@ def fit_record(doc, binary):
     return {'parts': parts, 'frames': vehicle_frames(doc), 'contacts': native_contacts(doc, binary), 'seats': seats}
 
 
+def cab_frames(frames):
+    """V19's frames with the passengers' seats lowered by the cab's drop (produce.CAB)."""
+    out = copy.deepcopy(frames)
+    for name in produce.SEATS_LOWERED:
+        out[name][1] -= produce.CAB['drop_m']
+    return out
+
+
+def cab_seats(seats):
+    """V19's seat contract with the passengers' pelvis lowered by the drop, their feet and floor by the floor drop."""
+    out = copy.deepcopy(seats); d, f = produce.CAB['drop_m'], produce.CAB['floor_drop_m']
+    for s in out:
+        if s['node'] in produce.SEATS_LOWERED:
+            s['pelvis_reference_root_m'][1] -= d
+            for foot in s['prospective_feet_root_m']:
+                foot[1] -= f
+            bounds = s['feet_reference_surface_bounds_root_m'] = copy.deepcopy(s['feet_reference_surface_bounds_root_m'])
+            for k in ('min', 'max'):  # (V19 shares one floor record between both seats)
+                bounds[k][1] -= f
+    return out
+
+
+def close(a, b, tol=2e-6):
+    """Equal structure, numbers within float32 rounding of the lowered surfaces."""
+    if isinstance(a, dict):
+        return isinstance(b, dict) and a.keys() == b.keys() and all(close(a[k], b[k], tol) for k in a)
+    if isinstance(a, (list, tuple)):
+        return isinstance(b, (list, tuple)) and len(a) == len(b) and all(close(x, y, tol) for x, y in zip(a, b))
+    if isinstance(a, float) or isinstance(b, float):
+        return abs(a - b) <= tol
+    return a == b
+
+
 def v19_far(tmp):
     return produce.far_source(tmp)
 
@@ -65,9 +99,9 @@ def measure(detail, path, delivered, v19_path):
     base_doc, base_bin = read(Path(v19_path))
     fit, base = fit_record(doc, binary), fit_record(base_doc, base_bin)
     assert fit['parts'] == base['parts'], f'{detail}: the coachman\'s box surfaces must be V19\'s own triangles'
-    assert fit['frames'] == base['frames'], f'{detail}: vehicle frames moved'
+    assert fit['frames'] == cab_frames(base['frames']), f'{detail}: vehicle frames moved (other than the cab seats\' declared drop)'
     assert fit['contacts'] == base['contacts'], f'{detail}: wheel/pole/shoe/hitch contacts moved'
-    assert fit['seats'] == base['seats'], f'{detail}: seat datum or footboard/floor surfaces moved'
+    assert close(fit['seats'], cab_seats(base['seats'])), f'{detail}: seat datum or footboard/floor surfaces moved (other than the cab\'s declared drop)'
     inventory = collections.Counter(p['name'] for p in doc['extras']['parts'])
     v19_inventory = collections.Counter(p['name'] for p in base_doc['extras']['parts'])
     assert not any(inventory[n] for n in produce.REMOVED), f'{detail}: a removed V19 part is still drawn'
@@ -126,14 +160,17 @@ def regenerate(tmp):
         assert len(rows) == len(got), 'far shell count'
         simplified[name] = {}
         for r, (P, N) in zip(rows, got):
-            mine = set(struct.iter_unpack('<fff', P)); theirs = set(struct.iter_unpack('<fff', r['chunks']['POSITION']))
-            assert mine <= theirs, f'far {name}: every simplified corner is a V19 shell corner'
+            # The committed shells carry the cab's warp (produce.cab_warp), so they are held
+            # against V19's shell corners put through the same warp.
+            warped, _ = produce.cab_warp(r['chunks']['POSITION'], r['chunks']['NORMAL'])
+            mine = set(struct.iter_unpack('<fff', P)); theirs = set(struct.iter_unpack('<fff', warped.tobytes()))
+            assert mine <= theirs, f'far {name}: every simplified corner is a (warped) V19 shell corner'
             assert len(P) < len(r['chunks']['POSITION']), f'far {name}: simplified'
             simplified[name][r['part_index']] = (np.frombuffer(P, '<f4').copy(), np.frombuffer(N, '<f4').copy())
     sources = {'near': ASSET / 'brougham-source.glb', 'mid': ASSET / 'brougham-mid-source.glb', 'far': far_src}
     for detail, src in sources.items():
         raw = Path(tmp) / f'{detail}-raw.glb'; idx = Path(tmp) / f'{detail}.glb'
-        produce.derive(src, detail, raw, simplified if detail == 'far' else None)
+        produce.derive(src, detail, raw, simplified if detail == 'far' else None, simplified_warped=True)
         write_indexed(raw, idx)
         out[detail] = (idx, src, raw)
     return out
@@ -148,10 +185,13 @@ def sidecar(levels):
         'design_reference': v19['design_reference'],
         'derived_from': {'revision': v19['revision'], 'sidecar': 'brougham.json',
                          'sidecar_sha256': sha((ASSET / 'brougham.json').read_bytes()),
-                         'note': 'Every V19 part is carried over byte for byte except the six named removals; the V19 files and their own gate stay.'},
+                         'note': 'Every V19 part is carried over byte for byte except the six named removals and the cab (see cab); the V19 files and their own gate stay.'},
         'producer': 'tools/transport/brougham_v20/produce.py', 'gate': 'tools/transport/brougham_v20/check.py',
         'removed_v19_parts': sorted(produce.REMOVED), 'added_parts': produce.ADDED,
         'far_simplified_shells': produce.SIMPLIFY,
+        'cab': {**produce.CAB, 'lowered_parts': sorted(produce.CAB_LOWERED), 'lowered_seats': list(produce.SEATS_LOWERED),
+                'ticket': 'T-3553', 'grade': 'reconstructed',
+                'note': 'Passengers sit upright: cushion and seat data lowered by drop_m, the squab lengthened down to the cushion (its top kept), the floor lowered by floor_drop_m, the bench base shortened onto the rear spring hangers, and the body frame below the waist and behind the door brought down with them by a smooth warp, as plate 0095 draws the rear quarter. Every other part, frame, contact and the coachman\'s box are V19\'s.'},
         'lods': levels,
         'coachman_fit': {'fitted_on_file': V19_NEAR, 'fitted_on_sha256': sha((ROOT / 'renderers/web' / V19_NEAR).read_bytes()),
                          'fitted_on_sidecar_sha256': sha((ASSET / 'brougham.json').read_bytes()),

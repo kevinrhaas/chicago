@@ -507,14 +507,19 @@ const HORIZON_RING_TOLERANCE = 14;
 function sampleHorizonRing(renderer, sky, problems = [], validate = true) {
   const parent = sky.parent;
   const stage = new THREE.Scene();
-  const rt = new THREE.WebGLRenderTarget(1, 1, { colorSpace: THREE.SRGBColorSpace });
+  // One pixel per bearing, side by side in one target, read back once: each step
+  // renders the same 1 x 1 view into its own pixel (viewport and scissor), so the
+  // colours are the ones a 1 x 1 target per step gave, for one GPU round trip
+  // instead of 36 (T-3643).
+  const rt = new THREE.WebGLRenderTarget(HORIZON_RING_STEPS, 1, { colorSpace: THREE.SRGBColorSpace });
   const cam = new THREE.PerspectiveCamera(1, 1, 0.1, 1e6);
   const prevTarget = renderer.getRenderTarget();
-  const px = new Uint8Array(4);
+  const px = new Uint8Array(4 * HORIZON_RING_STEPS);
   const el = HORIZON_SAMPLE_DEG * Math.PI / 180;
   const ring = [];
   try {
     stage.add(sky);
+    rt.scissorTest = true;
     for (let i = 0; i < HORIZON_RING_STEPS; i++) {
       const b = (i / HORIZON_RING_STEPS) * Math.PI * 2;
       // ENU bearing 0 is north and the renderer's north is -Z, so a bearing of
@@ -523,10 +528,14 @@ function sampleHorizonRing(renderer, sky, problems = [], validate = true) {
       cam.up.set(0, 1, 0);
       cam.lookAt(Math.sin(b) * Math.cos(el), Math.sin(el), -Math.cos(b) * Math.cos(el));
       cam.updateMatrixWorld();
+      rt.viewport.set(i, 0, 1, 1);
+      rt.scissor.set(i, 0, 1, 1);
       renderer.setRenderTarget(rt);
       renderer.render(stage, cam);
-      renderer.readRenderTargetPixels(rt, 0, 0, 1, 1, px);
-      ring.push(new THREE.Color().setRGB(px[0] / 255, px[1] / 255, px[2] / 255,
+    }
+    renderer.readRenderTargetPixels(rt, 0, 0, HORIZON_RING_STEPS, 1, px);
+    for (let i = 0; i < HORIZON_RING_STEPS; i++) {
+      ring.push(new THREE.Color().setRGB(px[4 * i] / 255, px[4 * i + 1] / 255, px[4 * i + 2] / 255,
         THREE.SRGBColorSpace));
     }
   } catch (err) {
@@ -671,7 +680,13 @@ export function createWorld({
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = BASE_EXPOSURE;
   renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = lowSpec ? THREE.PCFShadowMap : THREE.PCFSoftShadowMap;
+  // PCF on every device (T-3643). three r185 deprecates PCFSoftShadowMap: its
+  // first shadow render swaps it for PCFShadowMap, which is what every frame has
+  // drawn with since. Until that swap, a program compiles with BASIC shadows
+  // under the old type's key, so the whole boot compile (main.js compileAsync)
+  // was thrown away and each material compiled again, mid-walk, the first time
+  // it came into view. Booting with the type three draws anyway keeps them.
+  renderer.shadowMap.type = THREE.PCFShadowMap;
 
   let sunDate = sceneJson.target_date;
   // T-3331: the hour the sun is computed for. The scene's own unless the visitor's

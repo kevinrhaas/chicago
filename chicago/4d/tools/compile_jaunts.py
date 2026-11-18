@@ -205,6 +205,17 @@ class Compiler:
         if not hasattr(self, '_figures'): self._figures = figure_ids(self.root)
         return self._figures
 
+    def instance_asset(self, pid):
+        """T-3560: the figure (asset id) a person of the scene is drawn in (data/humans/instances)."""
+        if not hasattr(self, '_assets'):
+            self._assets = {}
+            for f in sorted((self.data / f'humans/instances/{self.scene_id}').glob('*.json')):
+                try: r = json.loads(f.read_text())
+                except ValueError: continue
+                if isinstance(r, dict) and r.get('person_id'):
+                    self._assets.setdefault(r['person_id'], (r.get('appearance') or {}).get('asset_id'))
+        return self._assets.get(pid)
+
     def resolve(self, ref, destination=False):
         kind, key = ref['kind'], ref['id']
         require(kind in self.refs, f'unsupported card kind {kind}; no topic registry yet')
@@ -374,6 +385,32 @@ class Compiler:
                 for c in cast:
                     if 'ride' in c:
                         require(c['ride']['team'] in [t['team'] for t in taken], f'{stop["id"]}: {c.get("person") or c.get("extra")} rides {c["ride"]["team"]}, which the stage does not take')
+                # T-3560: a castmate on a saddle horse rides it in their own walks; nothing but a walk,
+                # a turn or talk while up (no pose, no weapon, no door, no boat) until they get down.
+                saddle = json.loads((self.root / 'data/transport/riding/saddle_horses.json').read_text())
+                for c in cast:
+                    who = c.get('person') or c.get('extra')
+                    downs = [b['t'] for b in c.get('beats', []) if b.get('dismount')]
+                    if 'mount' not in c:
+                        require(not downs, f'{stop["id"]}: {who} gets down from a horse they are not on')
+                        fast = [b['t'] for b in c.get('beats', []) if isinstance(b.get('pace'), (int, float)) and b['pace'] > 6.0]
+                        require(not fast, f'{stop["id"]}: {who} goes faster than a man can run at t={fast[:1]}; only a rider gallops')
+                        continue
+                    require('ride' not in c and c.get('pose', 'stand') == 'stand' and not c.get('hidden'), f'{stop["id"]}: {who} is mounted, so stands at the start, shown, on no team')
+                    require(len(downs) <= 1, f'{stop["id"]}: {who} gets down more than once')
+                    require(str(doc['scene']) in saddle['tack'], f'{stop["id"]}: no tack for {doc["scene"]}')
+                    tk = c['mount'].get('tack')
+                    require(tk is None or tk in saddle.get('tack_variants', {}), f'{stop["id"]}: {who} rides on {tk}, which is no tack variant')
+                    asset = (self.instance_asset(c['person']) if c.get('person') else c.get('dress'))
+                    riders = {saddle['rider']['assets'].get(str(doc['scene']))} | {r['asset'] for r in saddle.get('riders', [])} | set(saddle['rider'].get('also', {}).get(str(doc['scene']), []))
+                    require(asset in riders, f'{stop["id"]}: {who} ({asset}) is not a figure tools/test_riding.mjs seats on a horse (saddle_horses.json rider.also)')
+                    up_to = downs[0] if downs else float('inf')
+                    fast = [b['t'] for b in c.get('beats', []) if b['t'] >= up_to and isinstance(b.get('pace'), (int, float)) and b['pace'] > 6.0]
+                    require(not fast, f'{stop["id"]}: {who} is down from the horse at t={fast[:1]}, so cannot gallop')
+                    for b in sorted(c.get('beats', []), key=lambda b: b['t']):
+                        if b['t'] >= up_to: break
+                        bad = sorted(k for k in b if k in ('pose', 'arm', 'act', 'hide', 'place', 'cross', 'borne', 'torch', 'ignite', 'wound', 'door'))
+                        require(not bad, f'{stop["id"]}: {who} is on the horse at t={b["t"]}, so cannot {", ".join(bad)}')
                 # T-3553: a stage's open gates are gates a structure of this scene builds.
                 for gid in stage.get('open_gates', []):
                     sid, side = gid.rsplit(':', 1)
