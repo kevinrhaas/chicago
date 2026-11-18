@@ -10,6 +10,8 @@ import { huntOrder, HUNT_STORAGE_KEY } from '../renderers/web/js/photo-hunt.js';
 const { chromium } = createRequire(import.meta.url)('playwright');
 const root = path.resolve(new URL('..', import.meta.url).pathname);
 const web = path.join(root, 'renderers/web');
+assert(!/<link[^>]+href=["'][^"']*\/photo-hunt\.css["']/.test(fs.readFileSync(path.join(web, 'index.html'), 'utf8')),
+  'photo-hunt.css must not load globally before its panel is mounted');
 const doc = JSON.parse(execFileSync('python3', ['-c',
   'import sys,json;sys.path.insert(0,"tools");import compile_pictures as p;print(json.dumps(p.add_place_names(p.derive(*p.read_tree()),p.load_json(p.PLACE_NAMES))["1904"]))'], { cwd: root, maxBuffer: 4 * 1024 * 1024 }));
 const registry = [];
@@ -19,7 +21,7 @@ for (const id of Object.keys(doc.by_structure)) {
 }
 const fixture = JSON.stringify({ doc, registry });
 const pageHTML = `<!doctype html><html><head><meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/photo-hunt.css"><style>
+<style>
 :root { --ink: #ecf0f3; --panel-raised: #252e38; --edge: #8994a1; color:var(--ink); background:#18212a; font:16px system-ui; }
 body { margin:0; } #nav-home { max-width:400px; box-sizing:border-box; padding:8px; } a { color:#97d6ff; }</style></head>
 <body><nav id="fixture-rail" aria-label="Navigator apps"></nav><div id="fixture-screens"><div id="nav-home"></div></div><script type="module">
@@ -52,7 +54,8 @@ const server = http.createServer((req, res) => {
   if (pathname === '/fixture.json') { res.setHeader('Content-Type', 'application/json'); res.end(fixture); return; }
   const file = path.resolve(web, `.${pathname}`);
   if (!file.startsWith(`${web}/`)) { res.writeHead(403); res.end(); return; }
-  fs.readFile(file, (error, bytes) => { res.writeHead(error ? 404 : 200, { 'Content-Type': file.endsWith('.js') ? 'text/javascript' : 'text/css' }); res.end(error ? '' : bytes); });
+  fs.readFile(file, (error, bytes) => { res.writeHead(error ? 404 : 200, { 'Content-Type': file.endsWith('.js') ? 'text/javascript'
+    : file.endsWith('.css') ? 'text/css' : 'application/octet-stream' }); res.end(error ? '' : bytes); });
 });
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
 const origin = `http://127.0.0.1:${server.address().port}`;
@@ -64,15 +67,57 @@ const imageBytes = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAA
 try {
   for (const width of [390, 1280]) {
     const context = await browser.newContext({ viewport: { width, height: width === 390 ? 780 : 800 } });
-    const page = await context.newPage(); const errors = []; const requests = []; let failImage = false;
+    const page = await context.newPage(); const errors = []; const requests = []; const styles = []; let failImage = false;
     const run = { width, checks: [], errors }; report.runs.push(run);
     page.on('pageerror', error => errors.push(error.message));
+    page.on('request', request => { if (new URL(request.url()).pathname === '/css/photo-hunt.css') styles.push(request.url()); });
     await page.route('https://kevinrhaas.github.io/chicago-images/**', route => {
       requests.push(route.request().url());
       return route.fulfill({ status: failImage ? 503 : 200, contentType: failImage ? 'text/plain' : 'image/png',
         body: failImage ? Buffer.from('Photograph unavailable') : imageBytes });
     });
     const day = '2026-11-18', order = huntOrder(day);
+    await page.goto(`${origin}/1904/?year=1904&nav=home`);
+    await page.locator('#nav-photo-hunt > summary').waitFor();
+    assert.equal(await page.locator('link#photo-hunt-style').count(), 0);
+    assert.deepEqual(styles, [], 'closed Home hunt requests no stylesheet');
+    assert.equal(await page.evaluate(async () => {
+      window.fixture.mountHunt = (await import('/js/photo-hunt-view.js')).mountPhotoHunt;
+      return document.querySelectorAll('link#photo-hunt-style').length;
+    }), 0, 'prefetching the module does not load CSS');
+    assert.deepEqual(styles, []);
+    await page.locator('#nav-photo-hunt > summary').click();
+    await page.getByRole('button', { name: 'Open five-photo hunt', exact: true }).waitFor();
+    await page.waitForFunction(() => getComputedStyle(document.querySelector('.photo-hunt-actions')).display === 'flex');
+    assert.equal(await page.locator('link#photo-hunt-style').count(), 1);
+    assert.equal(await page.getByRole('button', { name: 'Open five-photo hunt', exact: true }).evaluate(el => getComputedStyle(el).minHeight), '44px');
+    assert.equal(styles.length, 1, 'first mount loads one stylesheet');
+    assert.equal(await page.evaluate(() => {
+      const host = document.createElement('div'); document.body.append(host);
+      let mounted = fixture.mountHunt(host, { context: () => fixture.context });
+      mounted.destroy(); mounted = fixture.mountHunt(host, { context: () => fixture.context }); mounted.destroy(); host.remove();
+      return document.querySelectorAll('link#photo-hunt-style').length;
+    }), 1, 'remounts reuse the document stylesheet');
+    assert.equal(styles.length, 1);
+    assert.deepEqual(await page.evaluate(async () => {
+      const frame = document.createElement('iframe'); frame.id = 'hunt-style-frame';
+      const loaded = new Promise(resolve => frame.addEventListener('load', resolve, { once: true }));
+      frame.srcdoc = '<!doctype html><html><head></head><body><div id="hunt"></div></body></html>';
+      document.body.append(frame); await loaded;
+      const doc = frame.contentDocument, host = doc.getElementById('hunt');
+      const before = doc.querySelectorAll('link[rel="stylesheet"]').length;
+      let mounted = fixture.mountHunt(host, { context: () => fixture.context });
+      mounted.destroy(); mounted = fixture.mountHunt(host, { context: () => fixture.context });
+      return { before, count: doc.querySelectorAll('link#photo-hunt-style').length,
+        owner: doc.getElementById('photo-hunt-style')?.ownerDocument === doc,
+        path: new URL(doc.getElementById('photo-hunt-style').href).pathname };
+    }), { before: 0, count: 1, owner: true, path: '/css/photo-hunt.css' });
+    await page.waitForFunction(() => {
+      const doc = document.getElementById('hunt-style-frame').contentDocument;
+      return doc.defaultView.getComputedStyle(doc.querySelector('.photo-hunt-actions')).display === 'flex';
+    });
+    assert.equal(requests.length, 0, 'mounting styles alone loads no photograph');
+    run.checks.push('CSS waits for mount, applies with text/css, deduplicates remounts, and belongs to each owner document');
     await page.goto(`${origin}/1904/?year=1904&nav=home&hunt=1&huntDay=${day}`);
     await page.getByRole('button', { name: 'Open five-photo hunt', exact: true }).waitFor();
     assert.equal(await page.evaluate(() => fixture.loads), 0); assert.equal(requests.length, 0);

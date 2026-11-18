@@ -7,6 +7,11 @@ export function mountPhotoHunt(host, { context = () => ({}), win = host?.ownerDo
   now = () => new Date(), storage = () => win.localStorage } = {}) {
   const doc = host?.ownerDocument;
   if (!doc) return null;
+  if (doc.head && !doc.getElementById?.('photo-hunt-style')) {
+    const css = doc.createElement('link'); css.id = 'photo-hunt-style'; css.rel = 'stylesheet';
+    css.href = new URL('../css/photo-hunt.css', import.meta.url).href;
+    doc.head.append(css);
+  }
   const make = (tag, key, vars) => { const el = doc.createElement(tag); if (key) el.textContent = t(`hunt.${key}`, vars); return el; };
   const root = make('section'); root.className = 'photo-hunt'; root.setAttribute('aria-label', t('hunt.title'));
   const heading = make('h3', 'title'); heading.tabIndex = -1;
