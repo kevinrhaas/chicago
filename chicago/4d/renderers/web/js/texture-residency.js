@@ -383,7 +383,15 @@ export function createTextureResidency({ group, renderer, tier = 'full', closeIm
 
   /** Upload the full textures (paced by the caller) and swap them back in. */
   function restore(entry) {
-    for (const tex of entry.textures.keys()) renderer.initTexture(tex);
+    for (const tex of entry.textures.keys()) {
+      // T-3557: evict() gave this texture's GPU copy back, so it has none now, unless
+      // something drew it while it was away (a material this layer did not know of). That
+      // upload read the released levels, empty, and three counts it as current: initTexture
+      // would keep it, black on a GPU, and every batch sharing the texture with it. Upload
+      // again from the levels refilled for this return.
+      if (renderer.properties.get(tex).__webglTexture !== undefined) tex.needsUpdate = true;
+      renderer.initTexture(tex);
+    }
     for (const [tex, slot] of entry.textures) {
       for (const [material, key] of slot.owners) material[key] = tex;
     }
@@ -535,6 +543,32 @@ export function createTextureResidency({ group, renderer, tier = 'full', closeIm
       await Promise.all([...entries.values()].map((e) => (ready(e) ? null : e.decoding)));
       pump(true);
       tally();
+    },
+    /**
+     * T-3557: meshes another layer draws with the batches' own textures (a door leaf lifted
+     * out of a house and hung to swing: house-doors.js, coach-house.js) follow those textures
+     * here: their slots take the stand-in while the source is distant and the full texture
+     * when it is back, like the batches'. A texture no batch draws is left alone. Their
+     * distance is the house's, which they stand on. Returns how many slots were taken.
+     */
+    adopt(object) {
+      let taken = 0;
+      object?.traverse?.((o) => {
+        if (!o.isMesh) return;
+        for (const material of [].concat(o.material ?? [], o.customDepthMaterial ?? [], o.customDistanceMaterial ?? [])) {
+          for (const key of Object.keys(material)) {
+            const tex = material[key];
+            if (!tex?.isTexture) continue;
+            const entry = entries.get(tex.source);
+            const slot = entry?.textures.get(tex);
+            if (!slot) continue;
+            if (!slot.owners.some(([m, k]) => m === material && k === key)) slot.owners.push([material, key]);
+            if (entry.state !== 'resident' && slot.standIn) material[key] = slot.standIn;
+            taken += 1;
+          }
+        }
+      });
+      return taken;
     },
     /** Put every full texture back in its slot (the batches are being retired). */
     dispose() {

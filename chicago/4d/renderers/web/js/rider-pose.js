@@ -87,7 +87,7 @@ export function createRiderPose(scene, root) {
      * drops (riding.js riderLife); `knee` = which way the knees bend ({ forward, out, up }: up
      * -0.1 unless said; board-climb.js lifts them for a seat and a step).
      */
-    apply({ seat, feet, hands, forward, up, lean = .08, look = 0, sway = 0, nod = 0, knee = { forward: .6, out: 1.2 } }) {
+    apply({ seat, feet, hands, forward, up, lean = .08, look = 0, sway = 0, nod = 0, knee = { forward: .6, out: 1.2 }, thighRoll = 0 }) {
       for (const [b, q] of base) b.quaternion.copy(q);
       root.position.copy(basePos);
       root.updateMatrixWorld(true);
@@ -118,6 +118,19 @@ export function createRiderPose(scene, root) {
         // Knee forward and out, round the barrel; then the heel down, toe a little out.
         const pole = forward.clone().multiplyScalar(knee.forward).addScaledVector(side, sign * knee.out).addScaledVector(up, knee.up ?? -.1);
         short[`leg_${s}`] = reach(bones[`thigh_${s}`], bones[`calf_${s}`], bones[`foot_${s}`], feet[s], pole);
+        // T-3644: the thigh rolled in about its own line, its flat laid to the saddle (a rider is
+        // taught to turn the thigh in from the hip): a wide-hipped figure's inner thigh otherwise
+        // stands in the barrel. The knee stays where it is; the shin is laid back on the iron.
+        if (thighRoll) {
+          const th = bones[`thigh_${s}`], ca = bones[`calf_${s}`], ft = bones[`foot_${s}`];
+          const axis = wp(ca).sub(wp(th)).normalize();
+          th.parent.getWorldQuaternion(_p);
+          _q.setFromAxisAngle(axis, sign * thighRoll);
+          th.quaternion.premultiply(_p.clone().invert().multiply(_q).multiply(_p));
+          th.updateMatrixWorld(true);
+          const knee = wp(ca).clone();
+          turnToward(ca, wp(ft).clone().sub(knee), feet[s].clone().sub(knee));
+        }
         const foot = bones[`foot_${s}`], ball = bones[`ball_${s}`];
         if (ball) {
           const want = forward.clone().addScaledVector(side, sign * .25).addScaledVector(up, .12).normalize();

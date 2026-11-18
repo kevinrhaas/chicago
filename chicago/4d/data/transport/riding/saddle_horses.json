@@ -1352,7 +1352,46 @@
     "lean_walk_rad": 0.08,
     "lean_trot_rad": 0.2,
     "lean_canter_rad": 0.16,
-    "lean_gallop_rad": 0.3
+    "lean_gallop_rad": 0.3,
+    "bodies_basis": "T-3644: a woman's body (wider at the hip than the men's this fit was made on) sits a little deeper, the knee carried more out than forward, and the thigh rolled in from the hip so its flat lies to the saddle, as a rider is taught; with the men's lines her inner thigh stood in the barrel (7.9 cm on woman_working_1812). Measured by tools/test_riding.mjs: every one of these bodies clear of the horse at walk, trot, canter and gallop, rising at the trot and moving with the horse (riderLife).",
+    "bodies": {
+      "woman_working_1812": {
+        "seat_above_m": 0.03,
+        "knee_forward": 0.15,
+        "knee_out": 1.2,
+        "thigh_roll_rad": -1.0
+      },
+      "woman_country_1812": {
+        "seat_above_m": 0.03,
+        "knee_forward": 0.15,
+        "knee_out": 1.2,
+        "thigh_roll_rad": -1.0
+      },
+      "lady_1812": {
+        "seat_above_m": 0.03,
+        "knee_forward": 0.15,
+        "knee_out": 1.2,
+        "thigh_roll_rad": -1.0
+      },
+      "flynn_mary_1835_dress_study": {
+        "seat_above_m": 0.03,
+        "knee_forward": 0.15,
+        "knee_out": 1.2,
+        "thigh_roll_rad": -1.0
+      },
+      "reynolds_mary_1904_maid": {
+        "seat_above_m": 0.03,
+        "knee_forward": 0.15,
+        "knee_out": 1.2,
+        "thigh_roll_rad": -1.0
+      },
+      "nelson_christine_1904_errand": {
+        "seat_above_m": 0.03,
+        "knee_forward": 0.15,
+        "knee_out": 1.2,
+        "thigh_roll_rad": -1.0
+      }
+    }
   },
   "riders": [
     {
