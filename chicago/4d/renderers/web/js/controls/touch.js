@@ -10,8 +10,8 @@
  *  - **`visualViewport`.** On iOS the URL bar slides away and `innerHeight`
  *    lies about it. Sizing the canvas from `window.innerHeight` gives you a
  *    scene that is a bar-height too tall, permanently, with the horizon parked
- *    off-screen. The viewport callback here reports the *visual* viewport, and
- *    main.js resizes the renderer from that.
+ *    off-screen. The viewport callback reports the available layout pixels,
+ *    accounting for the visual viewport's browser magnification separately.
  *
  *  - **Pointer capture and multi-touch.** Walking and looking happen at the same
  *    time, one finger each, and either can be lifted first. Every pointer is
@@ -27,6 +27,7 @@ const TAP_SLOP = 12;               // ...and moved less than this = a tap
 // the view in whole steps — SNAP_DEG for every SNAP_PX of sideways drag — rather than
 // smoothly. Pitch stays smooth: it is the sweep sideways that unsettles.
 import { lookScale } from './intent.js';
+import { viewportSize } from '../viewport.js';
 
 export const SNAP_DEG = 30;
 export const SNAP_PX = 48;
@@ -227,14 +228,13 @@ export function createTouchBackend({ intent, domElement, ui = {}, onViewport, sn
 
   /**
    * The iOS URL bar problem. `visualViewport` is the only honest answer for how
-   * much of the page the user can actually see; `innerHeight` is not.
+   * much of the page is available. Browser magnification must not shrink the
+   * layout or GPU canvas as well as enlarging it.
    */
   function reportViewport() {
-    const vv = window.visualViewport;
-    const width = Math.round(vv?.width ?? window.innerWidth);
-    const height = Math.round(vv?.height ?? window.innerHeight);
+    const { width, height, scale } = viewportSize();
     document.documentElement.style.setProperty('--vh', `${height}px`);
-    onViewport?.({ width, height, scale: vv?.scale ?? 1 });
+    onViewport?.({ width, height, scale });
   }
 
   return {

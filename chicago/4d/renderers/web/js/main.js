@@ -54,6 +54,7 @@ import { createConfidenceLegend } from './confidence-legend.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
+import { viewportSize } from './viewport.js';
 import { isStandaloneHeadset, vrScale } from './controls/xr-detect.js'; // T-3627: the session half loads where a headset is offered
 import { createWindowMode, windowAt } from './controls/window.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
@@ -5180,7 +5181,7 @@ async function boot() {
   // touchscreen must not end up driving both.
   // The arrival and welcome are menus, so neither movement backend is live.
   window.addEventListener('pointerdown', (e) => {
-    if (gateOpen || xrMode?.presenting || windowMode?.on || e.target.closest?.('#jaunt-panel')) return;
+    if (gateOpen || xrMode?.presenting || windowMode?.on || e.target.closest?.('#jaunt-panel, .pic-viewer')) return;
     if (e.pointerType === 'touch') backends.activate(touch);
     else if (e.pointerType === 'mouse') backends.activate(pointerlock);
   }, { capture: true });
@@ -5189,7 +5190,7 @@ async function boot() {
     // to keyboard-and-mouse, and the first keystroke into the Go-to search box
     // was doing exactly that — taking a visitor who had been tapping their way
     // around a phone and handing them a control scheme with no on-screen stick.
-    if (gateOpen || xrMode?.presenting || windowMode?.on || isTyping(e.target) || e.target.closest?.('#jaunt-panel')) return;
+    if (gateOpen || xrMode?.presenting || windowMode?.on || isTyping(e.target) || e.target.closest?.('#jaunt-panel, .pic-viewer')) return;
     if (!e.metaKey && !e.ctrlKey) {
       backends.activate(pointerlock);
       // Not while a card holds the keyboard (T-2954): the arrows scroll the card.
@@ -7274,9 +7275,7 @@ async function boot() {
   // ---- resize ----------------------------------------------------------- //
 
   function resize() {
-    const vv = window.visualViewport;
-    const w = Math.max(1, Math.round(vv?.width ?? window.innerWidth));
-    const h = Math.max(1, Math.round(vv?.height ?? window.innerHeight));
+    const { width: w, height: h } = viewportSize();
     renderer.setSize(w, h, true);
     camera.aspect = w / h;
     // Hor+ : hold the horizontal field of view and let the vertical follow, so a
