@@ -5225,14 +5225,6 @@
   },
   {
    "card": "notes:Rectangles fitted inside the traced parts by the rules' fit…",
-   "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2021-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s35fp-2021-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill; s35fp-2021-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 80% of its fill; s35fp-2021-b1 p1 (range, brick), rectangle 1 of that part; the part's rectangles cover 70% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
-   "own": "16-17",
-   "levels": {
-    "8-10": "The shape is made of boxes fitted inside the outlines drawn from the 1911 map. The boxes cover most of each part. The biggest box is the main house. Some are back wings. How many floors each box has, and its roof, are our guesses."
-   }
-  },
-  {
-   "card": "notes:Rectangles fitted inside the traced parts by the rules' fit…",
    "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2021-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 76% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
    "own": "16-17",
    "levels": {
@@ -10285,6 +10277,166 @@
    "own": "16-17",
    "levels": {
     "8-10": "The main part is 6.2 meters deep, from the 1911 map. Two wings with bays stick out on its south side. The 1886 map draws them stepped. Their size and spacing come from the old photo. How deep they are is our guess."
+   }
+  },
+  {
+   "card": "notes:'2½B' printed on the 1911 sheet over the house: two full sto…",
+   "text": "'2½B' printed on the 1911 sheet over the house: two full storeys and a half storey in the roof, the half storey the attic under the front gable, whose three lights the photograph shows.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The 1911 map marks this house '2½B'. That means two full floors and a half floor in the roof. The half floor is the attic under the front's pointed roof. The photo shows its three windows."
+   }
+  },
+  {
+   "card": "notes:A 13 in brick side wall, the contract's ordinary. (L-k01-2021-high-3633)",
+   "text": "A 13 in brick side wall, the contract's ordinary. (L-k01-2021-high-3633)",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The side wall is brick, 13 inches thick. That was the usual wall."
+   }
+  },
+  {
+   "card": "notes:A brick front three bricks thick, the contract's ordinary ma…",
+   "text": "A brick front three bricks thick, the contract's ordinary masonry front. (L-k01-2021-high-3633)",
+   "own": "14-15",
+   "levels": {
+    "8-10": "The front wall is brick, three bricks thick. That was the usual front."
+   }
+  },
+  {
+   "card": "notes:A landing before the porch's mouth, the contract's ordinary.…",
+   "text": "A landing before the porch's mouth, the contract's ordinary. (L-k01-2021-high-3633)",
+   "own": "11-13",
+   "levels": {
+    "8-10": "A flat step stands in front of the porch door. That was the usual kind."
+   }
+  },
+  {
+   "card": "notes:A picket fence stands before the south wing in the photograp…",
+   "text": "A picket fence stands before the south wing in the photograph (x 1320-1826 px) in snow; its line and height, and the front's fence, are RECONSTRUCTED as the kit's lowest boarded fence (1.2 m) with a walk gate on piers (K11 draws no picket fence). (L-k01-2021-high-3633)",
+   "own": "16-17",
+   "levels": {
+    "8-10": "In the photo, a picket fence stands in the snow in front of the side wing. We do not know just where it ran or how tall it was. So a plain board fence about 4 feet tall stands there, with a gate between two posts. The fence at the front is a guess too."
+   }
+  },
+  {
+   "card": "notes:No cornice across the front: the front wall runs up into its…",
+   "text": "No cornice across the front: the front wall runs up into its gable, and the flanks end at a plain slate eave (the photograph).",
+   "own": "14-15",
+   "levels": {
+    "8-10": "There is no ledge along the top of the front. The front wall goes right up into its pointed roof. The sides end at a plain slate roof edge. The photo shows this."
+   }
+  },
+  {
+   "card": "notes:No picture sees the rear wall; the kit's ordinary bays. (L-k01-2021-high-3633)",
+   "text": "No picture sees the rear wall; the kit's ordinary bays. (L-k01-2021-high-3633)",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No picture shows the back wall. So it has the usual windows."
+   }
+  },
+  {
+   "card": "notes:Plain stone heads over the street lights: the halftone shows…",
+   "text": "Plain stone heads over the street lights: the halftone shows the heads as pale bands and no carved hood. (L-k01-2021-high-3633)",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The tops of the street windows are plain stone. In the photo they look like pale stripes. There is no carving over them."
+   }
+  },
+  {
+   "card": "notes:The 1911 sheet colours the house brick, and the photograph s…",
+   "text": "The 1911 sheet colours the house brick, and the photograph shows brick walls from the base course to the gable's head, the turret included.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "The 1911 map colors the house brick. The photo shows brick walls from the bottom to the top of the pointed roof. The round tower is brick too."
+   }
+  },
+  {
+   "card": "notes:The arched porch at the front's north end, under the turret…",
+   "text": "The arched porch at the front's north end, under the turret (K01's south is the low-v end, the house's north).",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The porch has a round arch. It is at the north end of the front, under the round tower."
+   }
+  },
+  {
+   "card": "notes:The contract's ordinary tread. (L-k01-2021-high-3633)",
+   "text": "The contract's ordinary tread. (L-k01-2021-high-3633)",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The steps are the usual kind."
+   }
+  },
+  {
+   "card": "notes:The flight is seen climbing along the front from the north u…",
+   "text": "The flight is seen climbing along the front from the north under snow; its width is set to the arch's 1.8 m opening and its cheeks. The photograph's flight climbs along the front from the north; K01's stoop runs straight out from the door (recorded in the match record). (L-k01-2021-high-3633)",
+   "own": "14-15",
+   "levels": {
+    "8-10": "In the photo, the steps climb along the front from the north, under snow. They are as wide as the arch, about 6 feet. Here the steps come straight out from the door instead. That is not how the photo shows them."
+   }
+  },
+  {
+   "card": "notes:The front block's north flank, which no picture shows: two b…",
+   "text": "The front block's north flank, which no picture shows: two bays of the kit's sash, the front one level with the south flank's light. (L-k01-2021-high-3633)",
+   "own": "11-13",
+   "levels": {
+    "8-10": "No picture shows the north side of the front part. So it has two windows of the usual kind. The front one lines up with the window on the south side."
+   }
+  },
+  {
+   "card": "notes:The main body the 1911 sheet draws, '2½B', read off the trac…",
+   "text": "The main body the 1911 sheet draws, '2½B', read off the traced outline in this frame: its front 18.3 m from its rear wall and its two flanks 9.25 m apart. The trace's round of the north-west corner (about 1.3 m before the front) is the turret, and its projection on the south flank (u 5.3-10.5 m, 4.15 m out) the south wing, both built as bays; the trace's small cut at the front's south corner (about a metre) is not built (the photograph shows the corner square).",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The 1911 map shows the outline of the main part of the house. It is 60 feet from front to back and 30 feet wide. The round corner at the north-west is the tower. The part that sticks out on the south side is the side wing. The map shows a small cut at the front's south corner, about 3 feet. It is left out, because the photo shows a square corner."
+   }
+  },
+  {
+   "card": "notes:The photograph shows one dark brick on the front, the turret…",
+   "text": "The photograph shows one dark brick on the front, the turret and the south flank alike (a coarse halftone: monochrome, so the red is RECONSTRUCTED, as every pressed brick front on the avenue's K01 houses).",
+   "own": "16-17",
+   "levels": {
+    "8-10": "In the photo, the front, the tower and the south side are all the same dark brick. The photo is black and white. So the red color is a guess, like the other brick fronts on the street."
+   }
+  },
+  {
+   "card": "notes:The photograph shows one downpipe, on the south flank where…",
+   "text": "The photograph shows one downpipe, on the south flank where it meets the wing (x 1270-1280 px), from the eave to the ground; K01 hangs a side wall's pipe only by its rear corner, so the pipes stand there (the one the photograph shows is within tolerance in place: about 10 m back along the flank).",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The photo shows one rain pipe. It runs down the south side from the roof to the ground, where the side wing starts. Here the pipes stand at the back corner of the side wall instead. That is about 33 feet back along the side, close enough."
+   }
+  },
+  {
+   "card": "notes:The photograph shows slate on every roof, the turret's cone…",
+   "text": "The photograph shows slate on every roof, the turret's cone among them, snow lying on it.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "The photo shows slate on every roof. That includes the tower's pointed cap. Snow lies on it."
+   }
+  },
+  {
+   "card": "notes:The slate overhangs the south flank by about a foot in the p…",
+   "text": "The slate overhangs the south flank by about a foot in the photograph (y 600-620 px over the wall's head).",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In the photo, the slate roof hangs out over the south side by about a foot."
+   }
+  },
+  {
+   "card": "notes:The turret, read off the photograph and the 1911 sheet: the…",
+   "text": "The turret, read off the photograph and the 1911 sheet: the round corner turret the register names stands at the front's north corner over the porch, its body from the second floor (the ledge over the porch at y 1000-1060 px) to the main eave (y 690 px, 9.8 m) and a slate cone to about 14.2 m (y 245 px) under a finial (not built: K08 sets no finial on a half cone closed against the roof; in the match record); the sheet draws its round about 1.3 m before the front (traced part, 2.8 m across). Built as a round K08 oriel on a rounded apron (its foot 0.5 m under the second floor, where the photograph's ledge runs over the porch) over the porch's mouth, a half round 2.4 m across and 1.2 m out (the kit's deepest round oriel, a half round so its cone closes against the roof; the trace's round is about 2.8 m across, within about 0.2 m a side).",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The house had a round tower on the north corner of the front, over the porch. A list of the street's houses says so. The tower starts at the second floor and goes up to the roof edge, about 32 feet up. A pointed slate cap tops it at about 47 feet. A small spike sat on the very top. It is left off. The 1911 map shows the tower about 9 feet wide. Here it is a half round, about 8 feet wide and 4 feet out from the wall."
+   }
+  },
+  {
+   "card": "notes:The walk to the stoop in stone flags, as the avenue's other…",
+   "text": "The walk to the stoop in stone flags, as the avenue's other K01 fronts; the photograph's yard is under snow. (L-k01-2021-high-3633)",
+   "own": "14-15",
+   "levels": {
+    "8-10": "A walk of flat stones leads to the steps, like the other houses on the street. In the photo the yard is under snow."
    }
   },
   {
@@ -16208,14 +16360,6 @@
    "own": "16-17",
    "levels": {
     "8-10": "Our rules for this part of town built it. The Rothschild house, with a stone front, three floors high, and a brick back part two floors high. It has a flat roof behind trim with brackets. The map's slanted bay is its stone bay. Every height, roof, window and other part is our guess. We change its color a little so the houses do not all match."
-   }
-  },
-  {
-   "card": "why:RECONSTRUCTED by the draft rules, family row 'gable' overlai…",
-   "text": "RECONSTRUCTED by the draft rules, family row 'gable' overlaid with the frontage row: The James L. High house (built for Benjamin Adams in the late 1870s; High's from 1886, with his 1887 rear range): the register's 'steep main gable, conical rounded corner tower, arched entry' as a steep gable to the avenue over the 2½B body and a round tower under a cone on the north front corner, where the sheet draws its front projection. Its broad side wing's secondary gable is other work's. Heights are the rules' starting values inside the project's notes on reconstruction rules's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 479276475 only tints the fabric inside +-6 %. Liberty “The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open”.",
-   "own": "16-17",
-   "levels": {
-    "8-10": "Our rules for this part of town built it. The James L. High house. It was built for Benjamin Adams in the late 1870s, and High owned it from 1886. He added the back part in 1887. Our list says a steep main roof end, a round corner tower with a pointed roof, and an arched door. So the steep roof end faces the avenue, over two and a half floors of brick. A round tower with a pointed roof stands at the north front corner. The side wing's roof we will add later. Every height, roof, window and other part is our guess. We change its color a little so the houses do not all match."
    }
   },
   {
@@ -23908,14 +24052,6 @@
   },
   {
    "card": "why:The rear corner of the main body's rectangle (lot frame u 29…",
-   "text": "The rear corner of the main body's rectangle (lot frame u 29.000, v -6.000 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.389 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-   "own": "16-17",
-   "levels": {
-    "8-10": "This says where the back corner of the main part of the building stands. We read it off an old fire map. That map lines up very closely with the real ground. We turned the plan to face the street."
-   }
-  },
-  {
-   "card": "why:The rear corner of the main body's rectangle (lot frame u 29…",
    "text": "The rear corner of the main body's rectangle (lot frame u 29.250, v -0.750 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.682 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
    "own": "16-17",
    "levels": {
@@ -26768,6 +26904,134 @@
    "own": "16-17",
    "levels": {
     "8-10": "The front part of the house, from the outline on the 1911 map. It is about 57 feet deep. A part for the stairs on the north side, a corner bay, a slanted side bay and a back wing are added onto it. Later work built the front about 32 feet wide, not the map's 34. Both photos show the corner bay's south face about two and a half feet past the main front's south wall. So the main wall stands that far inside the bay. The 1911 map shows the house after it was changed, with no corner bay. A 1904 front built to the photos does not use it."
+   }
+  },
+  {
+   "card": "why:Drawn on the 1911 sheet, which the census rules present in 1…",
+   "text": "Drawn on the 1911 sheet, which the census rules present in 1904 (present as mapped), with the plan the photograph shows (the rounded north-west corner, the projection on the south flank). The photograph is undated; the record claims the 1904 target to the sheet's date and no more.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "The 1911 map draws this house. So it was there in 1904. The photo shows the same plan, with the round north-west corner and the part that sticks out on the south side. We do not know when the photo was taken."
+   }
+  },
+  {
+   "card": "why:Everything the 1911 sheet draws behind the front block, as K…",
+   "text": "Everything the 1911 sheet draws behind the front block, as K01 wings (traced parts s35fp-2021-b1 p2-p3). THE SOUTH WING: the broad side wing with a secondary gable the register names, the sheet's projection on the south flank 7.8 m behind the front, 5.2 m along the flank and 4.15 m out, seen in the photograph from x 1287 px to the picture's edge through the photograph's solved camera (the chicagology photo data): a light a storey in its west face (a low broad light of small panes at 3.35-4.25 m, then 6.25-8.35 m and 9.8-10.9 m, built in the wing's one row of sizes a storey, so its lowest light is 2.8-4.3 m and its top light 9.15-10.65 m: each within about half a metre), its eave at 11.0 m (y 590 px) and its slate gable facing south to an apex at about 14.6 m (y 290 px), 54 degrees over its 2.6 m half-width; the light at its south-west corner (x 1610-1700 px) is set in its south face, since the sheet's cut corner there (about a metre) is not built. THE BODY BEHIND IT, 5.4 m to the rear wall and 11.2 m across, two storeys under a slate hip continuing the front's 49 degrees, its lights RECONSTRUCTED. THE '2B' AND '1B' RANGES behind that: the two-storey range 4.1 m deep and the one-storey range 3.6 m behind it, a little narrower, their floors, flat roofs and lights RECONSTRUCTED: no picture sees them.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The 1911 map draws more parts behind the front of the house. The list of the street's houses names a wide side wing with its own pointed roof. It sticks out about 14 feet from the south side. It starts about 26 feet behind the front and is about 17 feet long. The photo shows it. It has one window on each floor in its west side. Its roof edge is about 36 feet up. Its pointed slate roof faces south and rises to about 48 feet. Behind it is a part with two floors under a slate roof. Behind that are two back parts. One has two floors and one has one floor. Both have flat roofs. No picture shows them. So their floors, roofs and windows are guesses."
+   }
+  },
+  {
+   "card": "why:Read off the photograph through the photograph's solved came…",
+   "text": "Read off the photograph through the photograph's solved camera (the chicagology photo data): the string course under the second-floor lights at about 5.9 m, the second-floor lights from 6.25 to 8.45 m and the eave over the south flank at 9.8-9.9 m (y 610 px at the front corner, 730 px at the side wing), so 2.2 + 3.8 + 3.8 m.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "We read these heights off the photo. A stripe of brick runs under the second-floor windows, about 19 feet up. The second-floor windows are from about 20 to 28 feet up. The roof edge on the south side is about 32 feet up."
+   }
+  },
+  {
+   "card": "why:The basement's lights under the front's broad window and the…",
+   "text": "The basement's lights under the front's broad window and the flank's narrow one, dark openings at about 0.4-1.2 m over the snow (x 665-825 px, y 1530-1620 px, through the photograph's solved camera (the chicagology photo data)).",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The basement has windows under the big front window and under the narrow side window. In the photo they are dark openings. They are about 1 to 4 feet over the snow."
+   }
+  },
+  {
+   "card": "why:The corner of the front block's rear line on the main body's…",
+   "text": "The corner of the front block's rear line on the main body's north flank (10.5 m behind the rear wall the draft stood on, where the south wing stands out from the south flank), read off the traced 1911 sheet 35 outline (s35fp-2021-b1, the prairie 1904 footprints s35 data) through the fit of the sheet, which carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, plus about a pixel (0.19 m) of trace on this coarser copy. The draft's corner stood 10.5 m further back and 1.2 m south: it took the largest rectangle inside the trace, which left out the main body's north 1.2 m. Rotation 179.389 degrees (the draft's) turns the plan's u axis onto the lot's own rear-to-street line.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The old 1911 map shows where the back of the front part of the house ends. The map was matched to known street crossings. That makes it close, but it was not checked another way. It could be off by less than a foot. An earlier guess put this corner about 34 feet further back and about 4 feet south. It had left out a strip on the north side."
+   }
+  },
+  {
+   "card": "why:The front gable's apex at about 15.5 m over grade (y 70 px,…",
+   "text": "The front gable's apex at about 15.5 m over grade (y 70 px, x 545 px, through the photograph's solved camera (the chicagology photo data)) over an eave at 9.8 m and a front 9.25 m across: a rise of 5.7 m in 4.6 m, 51 degrees at the gable; the slopes behind it are laid at 49 degrees, so the gable's head stands the kit's 0.3 m (here 0.38 m) over the ridge, as a coped wall gable must (within tolerance: about 0.2 m at the ridge).",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The top of the front's pointed roof is about 51 feet over the ground. The roof edge below it is about 32 feet up. The front is about 30 feet wide. So the pointed front is steep. The roof behind it is a little less steep. The top of the front wall stands about a foot over the roof's peak."
+   }
+  },
+  {
+   "card": "why:The front's lights read off the photograph's solved camera (…",
+   "text": "The front's lights read off the photograph's solved camera (the chicagology photo data): on the principal floor from 2.3 to 4.75 m (y 1155-1420 px, about 1.3 m wide, built at the contract's widest 1.15 m), on the second floor from 6.25 to 8.45 m (y 755-990 px, about 1.1 m wide).",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The front windows are read off the photo. On the main floor they run from about 8 to 16 feet up. They are about 4 feet wide. On the second floor they run from about 20 to 28 feet up. They are a bit narrower."
+   }
+  },
+  {
+   "card": "why:The main roof runs back from the street under one ridge in t…",
+   "text": "The main roof runs back from the street under one ridge in the photograph, its south slope seen whole from the front's gable to the tall stack: built as K01's hip over the long, narrow block, its street end hidden behind the front's gable (shaped gable), so its two long slopes are the photograph's.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "In the photo, the main roof runs back from the street under one peak. You can see its whole south slope, from the front's pointed wall to the tall chimney. The street end of the roof hides behind the pointed front. So the two long slopes match the photo."
+   }
+  },
+  {
+   "card": "why:The porch's floor and the front's base course read off the p…",
+   "text": "The porch's floor and the front's base course read off the photograph through the photograph's solved camera (the chicagology photo data): both at about y 1430 px, 2.2 m over the yard's grade; the stoop climbs to it in about eleven risers.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "In the photo, the porch floor and the bottom stripe of the front are at the same height. That is about 7 feet over the yard. The steps climb to it in about eleven steps."
+   }
+  },
+  {
+   "card": "why:The porch's mouth cut round-headed in the brick front ('s br…",
+   "text": "The porch's mouth cut round-headed in the brick front ('s brick door arch): the photograph's arch at x 235-420 px; every street light is square-headed, so no storey's lights are rounded.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The porch door sits under a round arch in the brick front. The photo shows the arch. Every street window has a square top. So no other window is round on top."
+   }
+  },
+  {
+   "card": "why:The round-arched porch the register names: in the photograph…",
+   "text": "The round-arched porch the register names: in the photograph a broad round arch at x 235-420 px (v 1.2-3.5 m), its crown at about 4.75 m over grade and its opening about 1.8 m wide, opening on a porch with a small light in its north wall and the door at its south end. Built as the kit's round-headed principal entrance cut in the brick front (street front round heads door) in a 0.45 m reveal: K01 builds an open porch behind an arch (its loggia) only behind a stone front's voussoirs, so the porch's depth, its small north light and its door at the south end are not built, and the match record says so.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "A list of the street's houses names a round-arched porch. The photo shows a wide round arch. Its top is about 16 feet over the ground. It is about 6 feet wide. Inside it is a porch with a small window in its north wall. The door is at its south end. Here the arch holds the door, set into the brick front. The deep porch, its small window and its south door are left out."
+   }
+  },
+  {
+   "card": "why:The second floor's lights read off the photograph's solved c…",
+   "text": "The second floor's lights read off the photograph's solved camera (the chicagology photo data): the light beside the turret (x 410-505 px, v 3.4-4.5 m) and the broad light over the principal floor's (x 700-810 px); over the porch the turret takes the storey.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The second-floor windows are read off the photo. One is beside the tower. A wide one sits over the main floor's wide window. Over the porch, the tower fills that floor."
+   }
+  },
+  {
+   "card": "why:The south flank's one narrow light a storey, 1.4 m behind th…",
+   "text": "The south flank's one narrow light a storey, 1.4 m behind the front corner (x 965-1005 px through the photograph's solved camera (the chicagology photo data)); the rest of the flank to the wing is blank in the photograph.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The south side has one narrow window on each floor. It is about 5 feet behind the front corner. In the photo the rest of that side is blank, up to the wing."
+   }
+  },
+  {
+   "card": "why:The steep front gable the register names: the front wall car…",
+   "text": "The steep front gable the register names: the front wall carried up over its whole width to an apex at 15.5 m (see roof pitch (deg)), its raking edges straight, with three attic lights from 9.85 to 11.5 m read off the photograph's solved camera (the chicagology photo data) (x 445-500, 535-590 and 628-688 px, about 0.6 m each, the left two paired), their centres 0.5 m north and 0.6 and 1.7 m south of the front's middle. The photograph's slate runs a little past the rakes; K01's wall gable carries a coping there instead (within tolerance, recorded in the match record).",
+   "own": "16-17",
+   "levels": {
+    "8-10": "A list of the street's houses names a steep pointed front. The front wall goes up across its whole width to a point about 51 feet up. Its sloping edges are straight. Three attic windows sit high in it, from about 32 to 38 feet up. Each is about 2 feet wide, and the left two are a pair. In the photo the slate runs a little past the sloping edges. Here a stone cap covers the edge instead."
+   }
+  },
+  {
+   "card": "why:Two bays on the front, read off the photograph's solved came…",
+   "text": "Two bays on the front, read off the photograph's solved camera (the chicagology photo data): the porch's arched mouth at x 235-420 px (v 1.2-3.5 m), its centre 2.35 m from the front's north end, under the turret; and the broad lights of both storeys at x 690-820 px (v 6.7-8.1 m).",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The front has two rows of openings, read off the photo. One is the porch's round arch, under the tower at the north end. The other is the wide windows of both floors."
+   }
+  },
+  {
+   "card": "why:Two of the photograph's three stacks, placed through the pho…",
+   "text": "Two of the photograph's three stacks, placed through the photograph's solved camera (the chicagology photo data): the tall one on the south flank about 5 m behind the front (x 1090-1210 px, its top at about 16.5 m, y 25 px), and one over the north wall behind the turret (x 400-440 px). The third, on the ridge about 11 m back (x 1010-1080 px), stands over the body behind the front block, a rear wing, where K01 lays no stack (recorded in the match record).",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The photo shows three chimneys. Two of them stand here. The tall one is on the south side, about 16 feet behind the front. Its top is about 54 feet up. The other is over the north wall, behind the tower. The third stands on the roof about 36 feet back, over a back part. It is left out."
    }
   }
  ]

@@ -85,8 +85,9 @@ for (const bad of ['', 'nope', 'a@b', 'a b@c.com', '@example.com', `${'x'.repeat
 // What it writes matches the rules' field lists.
 const doc = readFileSync(new URL('../docs/SIGN-IN.md', import.meta.url), 'utf8');
 const lists = [...doc.matchAll(/hasOnly\(\[([^\]]*)\]\)/g)].map(m => m[1].match(/'([^']+)'/g).map(s => s.slice(1, -1)).sort());
-// T-3645 added readers/<uid> (the reading age), whose list tools/test_reading_level.mjs holds.
-assert.equal(lists.length, 3, 'docs/SIGN-IN.md holds the visitors, readers and visits hasOnly lists');
+// T-3645 added readers/<uid> (the reading age), whose list tools/test_reading_level.mjs holds;
+// T-3644 people/<uid>'s, the visitor's own person (tools/test_visitor_person.mjs holds its write).
+assert.equal(lists.length, 4, 'docs/SIGN-IN.md holds the visitors, readers, visits and people hasOnly lists');
 const visitorRule = lists.find((l) => l.includes('firstSeen'));
 const visitRule = lists.find((l) => l.includes('uid'));
 assert.deepEqual(lists.find((l) => l.includes('ages')), ['ages', 'at'], 'readers/<uid> holds its ages and when');

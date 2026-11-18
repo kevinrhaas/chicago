@@ -96,12 +96,14 @@ export function lookSpeedReadout(value) {
  * The card's tabs, in order (T-3563). Each group in the Settings section names its tab with
  * `data-set-pane`; `whatsnew` is the HUD's own What's new section, and Research is last.
  */
-export const SETTINGS_TABS = Object.freeze(['display', 'show', 'look', 'graphics', 'sound', 'about', 'whatsnew', 'research']);
+export const SETTINGS_TABS = Object.freeze(['display', 'you', 'show', 'look', 'graphics', 'sound', 'about', 'whatsnew', 'research']);
 /** The HUD sections the bar stands over. */
 export const SETTINGS_SECTIONS = Object.freeze(['settings', 'whatsnew']);
 /** Each tab's glyph: single-colour line icons in currentColor, 24-unit box (as Inspect's). */
 const SET_TAB_ICON = Object.freeze({
   display: '<rect x="3" y="4.5" width="18" height="12" rx="1.5"/><path d="M8.5 20h7M12 16.5V20"/>',
+  // T-3644: the visitor's own person: a head and shoulders.
+  you: '<circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5c.8-4 3.8-6.2 7.5-6.2s6.7 2.2 7.5 6.2"/>',
   show: '<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/>',
   look: '<rect x="6.5" y="3" width="11" height="18" rx="5.5"/><path d="M12 3v6.5M6.5 9.5h11"/>',
   graphics: '<path d="M4.2 17.5a8.5 8.5 0 1 1 15.6 0"/><path d="m12 13.5 4-4.5"/><circle cx="12" cy="13.5" r="1.3"/>',
