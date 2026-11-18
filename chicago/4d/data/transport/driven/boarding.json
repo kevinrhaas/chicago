@@ -1,0 +1,403 @@
+{
+  "schema": "chicago4d.boarding.v1",
+  "why": "Kevin, 2026-11-17: \"when i stood at a carriage in 1904 and said get up next to the coachman he just appeared on the wagon he should have a climb up sequence that shows him boarding that applies all years\". The visitor is drawn as a period figure of the year (an anonymous stand-in, never a named townsperson) who walks to the vehicle, climbs up by its wheel hub with a hand on its rail, and sits; getting down is the same climb backwards. The eye watches from beside the vehicle while he climbs, then goes to the seat.",
+  "liberty": "L-board-climb-3560",
+  "figure": {
+    "1812": "settler_1812",
+    "1835": "settler_1812",
+    "1904": "anonymous_working_driver_1904"
+  },
+  "lod": 1,
+  "walk_m_s": 1.3,
+  "vehicles": [
+    {
+      "id": "brougham-box",
+      "match": "brougham",
+      "seat": "box",
+      "sides": [
+        1
+      ],
+      "seconds": 3.2,
+      "stand_xz_m": [
+        1.05,
+        1.0
+      ],
+      "rear_z_m": -2.4,
+      "watch_m": {
+        "out": 2.4,
+        "up": 1.75,
+        "back": 2.6
+      },
+      "basis": "brougham-v20-near.glb, measured: the near front wheel's hub cap top 0.58 m at x 0.75, z 1.15; the box footboard 1.09 m (where the coachman's sit_drive_look_v2 feet rest); the box seat's cushion 1.776 m at z 0.76 and its iron side rail at x 0.64, z 0.4 to 0.5, 1.62 to 1.94 m; the dash's timber top 1.465 m at z 1.39 to 1.49. The climb by the front hub to the footboard is reconstructed.",
+      "keys": [
+        {
+          "at": 0.1,
+          "face": 90
+        },
+        {
+          "at": 0.3,
+          "face": 90,
+          "lean": 0.3,
+          "pelvis": [
+            0.92,
+            0.95,
+            1.0
+          ],
+          "foot_l": [
+            0.8,
+            0.59,
+            1.15
+          ],
+          "foot_r": [
+            1.0,
+            0,
+            0.86
+          ],
+          "hand_l": [
+            0.47,
+            1.475,
+            1.42
+          ],
+          "hand_r": [
+            0.62,
+            1.645,
+            0.45
+          ]
+        },
+        {
+          "at": 0.52,
+          "face": 90,
+          "lean": 0.35,
+          "pelvis": [
+            0.68,
+            1.45,
+            1.05
+          ],
+          "foot_l": [
+            0.8,
+            0.59,
+            1.15
+          ],
+          "foot_r": [
+            0.42,
+            1.1,
+            1.1
+          ],
+          "hand_l": [
+            0.47,
+            1.475,
+            1.42
+          ],
+          "hand_r": [
+            0.62,
+            1.645,
+            0.45
+          ],
+          "lift": {
+            "foot_r": 0.25
+          }
+        },
+        {
+          "at": 0.74,
+          "face": 70,
+          "lean": 0.5,
+          "pelvis": [
+            0.42,
+            1.75,
+            1.05
+          ],
+          "foot_l": [
+            0.4,
+            1.1,
+            1.22
+          ],
+          "foot_r": [
+            0.3,
+            1.1,
+            1.05
+          ],
+          "hand_l": [
+            0.4,
+            1.785,
+            0.92
+          ],
+          "hand_r": [
+            0.5,
+            1.785,
+            0.72
+          ],
+          "lift": {
+            "foot_l": 0.3
+          }
+        },
+        {
+          "at": 1.0,
+          "face": 0,
+          "lean": 0.05,
+          "knee": {
+            "forward": 1,
+            "out": 0.25,
+            "up": 0.6
+          },
+          "pelvis": [
+            0.34,
+            1.885,
+            0.85
+          ],
+          "foot_l": [
+            0.44,
+            1.09,
+            1.25
+          ],
+          "foot_r": [
+            0.26,
+            1.09,
+            1.25
+          ],
+          "hand_l": [
+            0.44,
+            1.98,
+            1.12
+          ],
+          "hand_r": [
+            0.26,
+            1.98,
+            1.12
+          ],
+          "air": [
+            "hand_l",
+            "hand_r"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "farm-box",
+      "match": "farm-box",
+      "seat": "box",
+      "sides": [
+        1,
+        -1
+      ],
+      "mirror_x_m": -0.015,
+      "seconds": 3.6,
+      "stand_xz_m": [
+        1.05,
+        0.95
+      ],
+      "rear_z_m": -2.3,
+      "watch_m": {
+        "out": 2.4,
+        "up": 1.75,
+        "back": 2.6
+      },
+      "basis": "farm-box-near.glb, measured: the front wheel's hub top 0.59 m at x 0.75, z 1.175; the box's flared sides, their top edge 1.36 m high at x 0.46; the right side's edge 3 cm further out than the left's (mirror_x_m); its floor 0.95 m, where the visitor's seat is (loops.json passenger_local_m). Up by the hub and over the side is reconstructed.",
+      "keys": [
+        {
+          "at": 0.1,
+          "face": 90
+        },
+        {
+          "at": 0.26,
+          "face": 90,
+          "lean": 0.2,
+          "pelvis": [
+            0.98,
+            0.97,
+            0.92
+          ],
+          "foot_l": [
+            0.76,
+            0.59,
+            1.17
+          ],
+          "foot_r": [
+            1.08,
+            0,
+            0.8
+          ],
+          "hand_l": [
+            0.455,
+            1.355,
+            1.0
+          ],
+          "hand_r": [
+            0.455,
+            1.355,
+            0.55
+          ]
+        },
+        {
+          "at": 0.42,
+          "face": 90,
+          "lean": 0.55,
+          "pelvis": [
+            0.78,
+            1.4,
+            0.92
+          ],
+          "foot_l": [
+            0.76,
+            0.59,
+            1.17
+          ],
+          "foot_r": [
+            0.66,
+            1.5,
+            0.78
+          ],
+          "hand_l": [
+            0.455,
+            1.355,
+            1.0
+          ],
+          "hand_r": [
+            0.455,
+            1.355,
+            0.56
+          ],
+          "lift": {
+            "foot_r": 0.2
+          },
+          "air": [
+            "foot_r"
+          ]
+        },
+        {
+          "at": 0.54,
+          "face": 90,
+          "lean": 0.55,
+          "pelvis": [
+            0.68,
+            1.42,
+            0.9
+          ],
+          "foot_l": [
+            0.76,
+            0.59,
+            1.17
+          ],
+          "foot_r": [
+            0.3,
+            1.12,
+            0.78
+          ],
+          "hand_l": [
+            0.455,
+            1.355,
+            1.0
+          ],
+          "hand_r": [
+            0.455,
+            1.355,
+            0.56
+          ],
+          "lift": {
+            "foot_r": 0.15
+          },
+          "air": [
+            "foot_r"
+          ]
+        },
+        {
+          "at": 0.68,
+          "face": 90,
+          "lean": 0.55,
+          "pelvis": [
+            0.48,
+            1.46,
+            0.88
+          ],
+          "foot_l": [
+            0.62,
+            1.52,
+            1.05
+          ],
+          "foot_r": [
+            0.28,
+            0.95,
+            0.75
+          ],
+          "hand_l": [
+            0.455,
+            1.355,
+            1.0
+          ],
+          "hand_r": [
+            0.455,
+            1.355,
+            0.56
+          ],
+          "lift": {
+            "foot_l": 0.1
+          },
+          "air": [
+            "foot_l"
+          ]
+        },
+        {
+          "at": 0.82,
+          "face": 60,
+          "lean": 0.08,
+          "pelvis": [
+            0.18,
+            1.88,
+            0.75
+          ],
+          "foot_l": [
+            0.2,
+            0.95,
+            0.95
+          ],
+          "foot_r": [
+            0.12,
+            0.95,
+            0.6
+          ],
+          "lift": {
+            "foot_l": 0.22
+          }
+        },
+        {
+          "at": 1.0,
+          "face": 0,
+          "lean": 0.15,
+          "knee": {
+            "forward": 0.3,
+            "out": 0.15,
+            "up": 1
+          },
+          "pelvis": [
+            0,
+            1.075,
+            0.4
+          ],
+          "foot_l": [
+            0.14,
+            0.95,
+            0.95
+          ],
+          "foot_r": [
+            -0.14,
+            0.95,
+            0.95
+          ],
+          "hand_l": [
+            0.17,
+            1.33,
+            0.78
+          ],
+          "hand_r": [
+            -0.17,
+            1.33,
+            0.78
+          ],
+          "air": [
+            "hand_l",
+            "hand_r"
+          ]
+        }
+      ]
+    }
+  ]
+}

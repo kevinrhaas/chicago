@@ -32,10 +32,11 @@
  *
  * NO POP. Each tier boundary is a dithered cross-fade, in time (FADE_S, CROSS_S): the middle body dissolves
  * in as the card dissolves out, by complementary screen-door patterns, so at no distance is a
- * person drawn twice or not at all. The near edge of the middle tier is a fade too (a person not
- * built who is very near the visitor goes in through their door, as human-days.js's own far
- * people do; or, if the visitor comes on them, dissolves; the day's residents near the visitor
- * are built in their turn, as before).
+ * person drawn twice or not at all. The near edge of the middle tier is a HAND-OVER, not a fade
+ * (owner, 2026-11-17: people in the distance "dissolve like ghosts and i cant get to them"):
+ * someone the visitor comes up to is built there as their whole figure (human-days.js
+ * `materialize`), where this layer had them, and drawn here only until that figure stands; so
+ * everyone seen down the street can be walked up to, greeted and followed.
  *
  * WHAT IT COSTS (docs/measurements/T-3555-crowd.json is the measured row): per scene one atlas
  * (CARD_CELL[tier] pixels a picture), and per dress a few hundred KB (its clustered body and
@@ -71,6 +72,8 @@ export const CAPS = Object.freeze({
 export const FADE_S = 0.6;
 export const CROSS_S = 0.5;
 export const HYST_M = 3;
+/** A hand-over refused (too many built, a jaunt holding the town) is asked again after (s). */
+export const HAND_RETRY_S = 2;
 /** The card picture's size, pixels (w x h, one person standing in a 1 m x 2 m frame). */
 export const CARD_CELL = Object.freeze({ full: Object.freeze([32, 64]), balanced: Object.freeze([32, 64]), light: Object.freeze([24, 48]) });
 /** Headings a card is baked from, and the poses: idle, then two strides of the walk. */
@@ -123,8 +126,12 @@ export function tierTargets(d, tier = 'full', { built = false, drawM = 140, was 
   const [m0, m1] = MID[tier] ?? MID.full, f1 = FAR[tier] ?? FAR.full;
   if (!(d >= 0)) return { v: 0, t: was?.t ?? 0 };
   if (built) return { v: d > drawM && d < f1 ? 1 : 0, t: 1 };
+  // Not built: drawn however near, never dissolved for the visitor coming up to them. Inside
+  // the middle tier's near edge (m0) they are handed over to a whole figure (`handOver`) and
+  // drawn here only until that figure stands.
+  void m0;
   const shownNow = was?.v > 0, farNow = was?.t > 0;
-  const v = d >= (shownNow ? m0 - HYST_M : m0) && d < (shownNow ? f1 + HYST_M : f1) ? 1 : 0;
+  const v = d < (shownNow ? f1 + HYST_M : f1) ? 1 : 0;
   const t = d > (farNow ? m1 - HYST_M : m1 + HYST_M) ? 1 : 0;
   return { v, t };
 }
@@ -481,9 +488,9 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
   let shown = true, disposed = false;
   let kit = null;
   void store?.variation?.().then((v) => { kit = v; }, () => {});
-  const stats = { mid: 0, far: 0, outdoors: 0, built: 0, bodies: 0, baked: 0, midTriangles: 0, bytes: 0, reads: 0, ms: 0, readMs: 0, bakeMs: 0, buildMs: 0, groundMs: 0 };
+  const stats = { mid: 0, far: 0, outdoors: 0, built: 0, bodies: 0, baked: 0, midTriangles: 0, bytes: 0, reads: 0, ms: 0, readMs: 0, bakeMs: 0, buildMs: 0, groundMs: 0, handed: 0 };
   const people = new Map();         // key -> presence
-  let readAt = 0, readFrom = null, clock = 0;
+  let readAt = 0, readFrom = null, clock = 0, handedBack = 0;
 
   // T-3643: COMPILED OFF THE FRAME. The crowd's three programs (the middle body, the card,
   // the bake) were each compiled by the first draw that used them, a blocking compile in the
@@ -754,7 +761,9 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
       p.actor = a;
     }
     stats.built = built;
-    for (const k of [...people.keys()]) if (!seen.has(k)) people.delete(k);
+    // Someone being handed over is no longer the day's to list (they are built): kept here until
+    // their figure stands.
+    for (const [k, p] of [...people]) if (!seen.has(k) && !(p.handing && !p.handing.disposed)) people.delete(k);
   }
 
   /**
@@ -822,6 +831,8 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
       if (!(dt > 0) && wrote) return;
       camera.getWorldPosition ? camera.getWorldPosition(eye) : eye.copy(camera.position);
       const v = visitor && Number.isFinite(visitor.e) ? { e: visitor.e, n: visitor.n } : { e: eye.x, n: -eye.z };
+      // A figure let go back to the crowd is drawn again at once, from its day.
+      if ((days?.handedBack ?? 0) !== handedBack) { handedBack = days.handedBack; readAt = -Infinity; }
       if (clock - readAt > READ_S || !readFrom || Math.hypot(v.e - readFrom.e, v.n - readFrom.n) > READ_MOVE_M) {
         const r0 = performance.now();
         read(v); sortAt = -Infinity;
@@ -849,6 +860,19 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
           if (p.tv > 0 || p.v > 0) order.push(p);
         }
         order.sort((a, b) => a.d - b.d);
+        // The hand-over: the nearest not built inside the near edge, one a sort, is built where
+        // they stand (not from the air: a visitor flying over the town walks up to no one).
+        const m0 = (MID[tier] ?? MID.full)[0];
+        if (days?.materialize && !visitor?.flying) {
+          for (const p of order) {
+            if (p.d >= m0) break;
+            if (p.built || p.handing || clock < (p.refused ?? -Infinity) + HAND_RETRY_S) continue;
+            let actor = null;
+            try { actor = days.materialize(p.key, { e: p.e, n: p.n, heading_deg: p.heading }); } catch (err) { problems.push(`crowd: ${p.key} could not be handed over (${err?.message ?? err})`); }
+            if (actor) { p.handing = actor; stats.handed = (stats.handed ?? 0) + 1; } else p.refused = clock;
+            break;
+          }
+        }
       }
       wrote = true;
       // A body made since the last frame joins the scene here, on a frame that runs.
@@ -862,6 +886,13 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
           const a = p.actor;
           if (!a || a.disposed || a.indoors || a.inRange) continue;
           p.e = a.e; p.n = a.n; p.heading = a.heading; p.walk = a.state === 'walking' || a.path || a.route ? 1 : 0;
+        } else if (p.handing) {
+          // Handed over: drawn here, standing where they were, until their figure stands; then
+          // the figure is theirs and this layer lets them go (no fade: the same person, in place).
+          const a = p.handing;
+          if (a.disposed) p.handing = null;
+          else if (a.body || a.indoors) { p.tv = 0; p.v = 0; people.delete(`d:${p.key}`); continue; }
+          else p.walk = 0;
         } else placeWalker(p, clock);
         // The fades, in time: in or out over FADE_S, the middle to the card over CROSS_S.
         p.v = p.tv > p.v ? Math.min(p.tv, p.v + step / FADE_S) : Math.max(p.tv, p.v - step / FADE_S);

@@ -4276,6 +4276,9 @@ async function boot() {
       residentsNear: daysScene === '1835' ? ({ full: 8, balanced: 6 }[detailLevel] ?? 4) : 3,
       // T-3555: of those who may step out near the visitor, one the crowd draws out here first.
       prefer: (id) => api.crowd?.draws?.(id) ?? false,
+      // T-3555: how many people the crowd may hand over as whole figures at once, as the visitor
+      // walks up to them (human-days.js `materialize`); fewer on a lighter detail, never none.
+      crowdNear: ({ full: 12, balanced: 10 }[detailLevel] ?? 8),
       problems: layerProblems('humans') });
     // T-3555 (owner, 2026-11-12: "a living town at a phone's cost"): the town's people beyond
     // the built figures, the middle distance as instanced shared bodies and the far as cards
@@ -4385,7 +4388,7 @@ async function boot() {
           yaw_deg: walker.bearingDeg, pitch_deg: walker.state.pitch / DEG }); },
         // T-3557: Climb up / Take the reins / Get down. The ride holds the eye on the seat
         // (ride.hold in the frame); getting down lands on the ground a visitor stands on.
-        visitorEye: () => ({ e: walker.state.e, n: walker.state.n, y: walker.state.eyeY, bearing: walker.bearingDeg }),
+        visitorEye: () => ({ e: walker.state.e, n: walker.state.n, y: walker.state.eyeY, bearing: walker.bearingDeg, pitch: walker.state.pitch }),
         groundAt: (e, n) => figureGround(e, n),
         walkEye: () => WALK.eyeHeight,
         reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, say: (text) => hud.say(text),
