@@ -364,6 +364,16 @@ console.log(`human days: dates, spans, talk, work, walk, doors and asking hold (
   assert(layer.doors.some((door) => door.actions.shut.some((action) => action.id === 'ask:glessner_john_j')), 'the house door offers to recall him');
   assert(layer.ask(a.id).ok, 'a visitor can recall him from office work');
   assert(layer.request(a.id, activities[0].id).ok, 'then request an outdoor activity');
+  // Kevin, 2026-11-17: "john is riding in the carriage with no driver". The Glessner coachman on
+  // his box is his carriage's (humans.external): his day never sends him indoors off the seat.
+  {
+    const coachman = actorOf(records.find((r) => r.person_id === 'pa1904_glessner_john_j_c1900_charles_nelson'), 'Charles Nelson');
+    let hh = 23;
+    const seated = createHumanDays({ humans: { actors: [coachman], external: (pid) => (pid === coachman.personId ? coachman : null) },
+      hour: () => hh, date: () => '1904-07-01', interactions: createInteractions(), doors: doorData });
+    for (const at of [23, 3, 8, 12, 17, 21]) { hh = at; for (let i = 0; i < 20; i++) seated.update(0.25); }
+    assert(!coachman.indoors && coachman.walks.length === 0, 'a coachman on his box is never sent indoors or walked off it by his day');
+  }
 }
 console.log('1904 seasonal coverage, door calls, temporary activities and jaunt priority hold');
 

@@ -987,7 +987,7 @@
                             {
                               "type": "number",
                               "minimum": 0.4,
-                              "maximum": 6.0
+                              "maximum": 9.0
                             },
                             {
                               "enum": [
@@ -1111,6 +1111,10 @@
                           "maxLength": 90,
                           "description": "T-3553: step into this drawn boat (data/boats/crossings_1812.json) and cross in it to its other bank, seated (renderers/web/js/crossings.js carry); the next beat `place`s the castmate on the far bank."
                         },
+                        "dismount": {
+                          "const": true,
+                          "description": "T-3560: a castmate who `mount`s gets down here on the horse's near side; the horse stands where it is, and the castmate's next beats start beside it."
+                        },
                         "borne": {
                           "oneOf": [
                             {
@@ -1136,6 +1140,26 @@
                       "additionalProperties": false
                     },
                     "maxItems": 24
+                  },
+                  "mount": {
+                    "description": "T-3560: this castmate is on a saddle horse (renderers/web/js/riding.js stageHorse) from the beginning, which goes where their beats take them, at their pace, until a `dismount` beat. `horse` names the horse (its coat); `tack` a saddle_horses.json tack variant (the year's tack when none).",
+                    "type": "object",
+                    "properties": {
+                      "horse": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]+$",
+                        "maxLength": 60
+                      },
+                      "tack": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]+$",
+                        "maxLength": 40
+                      }
+                    },
+                    "required": [
+                      "horse"
+                    ],
+                    "additionalProperties": false
                   },
                   "ride": {
                     "description": "T-3553: this castmate rides one of the stage's teams, sitting at `seat` (vehicle-local metres: x to the left, y up from the vehicle root, z ahead), turned `heading` degrees from the team's facing.",
