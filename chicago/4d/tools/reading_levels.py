@@ -20,8 +20,14 @@ grade-level formulas over a card's words, each number read as one short word: se
 No fact enters a retelling that the record does not hold: a retelling says the same thing in
 other words, for a reader of another age.
 
+A "why", Design or evidence note is keyed by its own words, so a house PR that rewrites one
+leaves its retelling unmatched. That is not an error in the house PR: `--check` lists the
+retelling as waiting for a re-key and passes, and the card shows the note as written at every
+age until someone keys the retelling to the note's new words (adding a sentence for what the
+note added) and runs this tool.
+
     python3 tools/reading_levels.py            # write data/reading/<scene>.json, print each card's measures
-    python3 tools/reading_levels.py --check    # fail on a stale table, a stale words file, or an age out of its band
+    python3 tools/reading_levels.py --check    # fail on a stale table or an age out of its band; list retellings to re-key
 """
 import argparse
 import json
