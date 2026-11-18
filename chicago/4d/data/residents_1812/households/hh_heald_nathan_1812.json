@@ -235,7 +235,7 @@
     },
     {
       "id": "cicely_son",
-      "name": "Cicely's son",
+      "name": "Peter",
       "relationship": "enslaved",
       "grade": "attested",
       "sources": [
@@ -246,7 +246,7 @@
         "confidence": "inferred",
         "note": "Rebekah Heald's memorandum: killed in the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
-      "note": "Cicely's infant son; no source names him. Father not recorded. Name not recorded. After 14 August: Killed in the battle (counted among the 12 children killed).",
+      "note": "Cicely's infant son; no source names him. Father not recorded. No source names him; the name on this card is ours. After 14 August: Killed in the battle (counted among the 12 children killed).",
       "review_required": true,
       "touches_removal": false,
       "review_note": "review_required: an enslaved child, named by no source; see his mother's card.",
@@ -263,7 +263,30 @@
           "quote": "Black Cicely had one child, and Mrs. Simmons two.",
           "claim": "Quaife App. IX: Cicely had one child."
         }
-      ]
+      ],
+      "also_written": [
+        "Cicely's son"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "Cicely's son; no source names him or his father, so he has a first name only, and it is ours."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        }
+      ],
+      "reconstruction": {
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
+      }
     }
   ]
 }

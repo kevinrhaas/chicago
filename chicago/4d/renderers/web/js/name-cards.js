@@ -250,7 +250,11 @@ export const GRADE_BORDER = 4;
 /** The grades a card's edge shows, as the Confidence view names them. */
 export const GRADES = Object.freeze(['attested', 'inferred', 'reconstructed']);
 /** Who stands in no record of their own (a jaunt's unnamed extra) is reconstructed. */
-export const gradeOf = (person, extra = false) => (GRADES.includes(person?.grade) ? person.grade : extra ? 'reconstructed' : null);
+// T-3553: a person whose name is ours (`name_grade`, below their own grade) shows the name's grade.
+/** The grades the Settings' three boxes leave on (a box never chosen reads as on). */
+export const nameCardGrades = (s) => GRADES.filter((g) => s?.[`nameCards${g[0].toUpperCase()}${g.slice(1)}`] !== false);
+export const gradeOf = (person, extra = false) => (GRADES.includes(person?.name_grade) ? person.name_grade
+  : GRADES.includes(person?.grade) ? person.grade : extra ? 'reconstructed' : null);
 
 const hex = (c) => { const m = /^#?([0-9a-f]{6})$/i.exec(String(c ?? '').trim()); return m ? parseInt(m[1], 16) : null; };
 /** `a` mixed `t` of the way to `b` (both '#rrggbb'), as '#rrggbb'; `a` when either is not one. */
@@ -308,12 +312,15 @@ export function drawCard(ctx, fit, theme, grade = null) {
  * returns the appearance in force (cardTheme); `viewHeight()` is the canvas's CSS height.
  */
 export function createNameCards({ THREE, renderer, camera, list, theme, viewHeight = () => 780, gradeColors = () => null,
-  tier = 'full', shown = true, doc = globalThis.document ?? null, now = () => performance.now() / 1000 } = {}) {
+  tier = 'full', shown = true, grades = GRADES, doc = globalThis.document ?? null, now = () => performance.now() / 1000 } = {}) {
   const group = new THREE.Group();
   group.name = 'name-cards';
   let limits = NAME_CARD_TIERS[tier] ?? NAME_CARD_TIERS.full;
   let slotsN = limits.max + SPARE;   // the carded plus a few fading out
   let on = shown !== false;
+  // T-3614 follow-up (the owner, 2026-11-17): which grades are carded; any mix of the three.
+  // A card with no grade is shown whatever the mix.
+  let only = new Set(grades ?? GRADES);
   let atlas = null, mesh = null, geometry = null, material = null;
   let attrs = null;
   const scratch = doc?.createElement?.('canvas') ?? null;
@@ -460,6 +467,7 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
     for (const p of list() ?? []) {
       const a = p.actor;
       if (!p.name || !a?.root) continue;
+      if (p.grade && !only.has(p.grade)) continue;
       const m = a.root.matrixWorld.elements;
       const d = Math.hypot(m[12] - eye.x, m[13] - eye.y, m[14] - eye.z);
       if (!(d <= limits.reach)) continue;
@@ -574,6 +582,13 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
     group,
     get shown() { return on; },
     setShown(next) { on = next !== false; if (mesh) mesh.visible = on; if (!on) { for (const e of entries.values()) e.alpha = 0; } return on; },
+    /** The grades carded, any of attested / inferred / reconstructed; the rest fade out. */
+    get grades() { return [...only]; },
+    setGrades(next) {
+      only = new Set((next ?? GRADES).filter((g) => GRADES.includes(g)));
+      chooseIn = 0;
+      return [...only];
+    },
     setTier(next) {
       const l = NAME_CARD_TIERS[next];
       if (!l || l === limits) return false;
@@ -591,7 +606,7 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
       return pickCard(picked, ndc ?? { x: 0, y: 0 });
     },
     snapshot() {
-      return { shown: on, tier: Object.keys(NAME_CARD_TIERS).find((k) => NAME_CARD_TIERS[k] === limits), slots: slotsN,
+      return { shown: on, grades: [...only], tier: Object.keys(NAME_CARD_TIERS).find((k) => NAME_CARD_TIERS[k] === limits), slots: slotsN,
         atlas: atlas ? [atlas.image.width, atlas.image.height] : null, ...counters,
         cards: picked.map((c) => ({ name: c.name, personId: c.personId, distance: +c.distance.toFixed(1),
           grade: entries.get(c.key)?.grade ?? null, ndc: [+c.cx.toFixed(3), +c.cy.toFixed(3)], cut: entries.get(c.key)?.fit?.cut ?? false,
