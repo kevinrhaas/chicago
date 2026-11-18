@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3087, ts: '2026-11-18T03:45:35.496Z', date: 'Nov 17, 2026, 9:45 PM CT', title: '2021 Prairie, the High house, rises to its steep gable and turret', kind: 'feature',
+    items: [
+      '2021 Prairie, James L. High\'s house, now stands as its one old photograph shows it: dark brick under a steep slate front gable with three attic windows, a round turret at the north corner whose slate cone rises from the roofline over a round-headed door, a tall chimney on the south side, and a broad wing standing out to the south under a gable of its own. Its porch, the stoop that climbs along the front and the turret\'s finial are still simpler than the picture; the next pass on this block takes those on.',
+    ] },
   { v: 3086, ts: '2026-11-18T02:33:08.846Z', date: 'Nov 17, 2026, 8:33 PM CT', title: 'Glessner\'s coach-house doors stay green after you walk away and back', kind: 'fix',
     items: [
       'Walking far from the Glessner house and coming back no longer turns its green coach-house doors, their frame, the loft door and the window frames black.',

@@ -1007,6 +1007,8 @@
     "s35-2009-wing": "2009 Prairie's one-storey rear range now stands on K01's rear wings of mayer_house_2009_prairie (T-1913); the draft stands no second building.",
     "s35-2011-front": "2011 Prairie now stands as the K01 stone-fronted house `house_2011_prairie` (T-3615, piece 1 of T-1915, the S06 package of the T-1837 programme), the Romanesque house beside Mayer, which refines this draft in place under the draft's own id: the '2½B' front block off the sheet at full size, its rock-faced ashlar front, round-arched door, cross window, gabled dormer and round corner turret off the Chicagology photograph of 2009-2011 and the Inland Architect's 1895 plate of Reid's house.",
     "s35-2011-wing": "2011 Prairie's '2B' rear block now stands on K01's rear wings of `house_2011_prairie` (T-3615); the draft stands no second building.",
+    "s35-2021-front": "2021 Prairie now stands as the K01 brick house `high_house_2021_prairie` (T-3633, piece 1 of T-1917, the S08 package of the T-1837 programme), the Adams/High house, which refines this draft in place under the draft's own id: the sheet's front block under the photograph's steep front gable, its round corner turret over the arched door, the gabled south wing and the body and ranges behind on K01's rear wings, off Chicagology's photograph of the house.",
+    "s35-2021-wing": "2021 Prairie's '2B' and '1B' rear ranges now stand on K01's rear wings of `high_house_2021_prairie` (T-3633); the draft stands no second building.",
     "s35-2003-front": "2003 Prairie now stands as the K01 brick house house_2003_prairie under K01's flat roof (T-3346, piece 1 of T-1912), the north half of the pair with 2005, which refines this draft in place under the draft's own id: the three-storey main body on K01 with the sheet's curved front bay on K08, and the sheet's two-storey rear range on K01's rear wings; the draft stands no second building beside it.",
     "s35-2003-wing": "2003 Prairie's two-storey rear range now stands on K01's rear wings of house_2003_prairie (T-3346); the draft stands no second building.",
     "s35-2005-front": "2005 Prairie now stands as the K01 brick house house_2005_prairie under K01's flat roof (T-3346, piece 1 of T-1912), the south half of the pair with 2003, which refines this draft in place under the draft's own id: the three-storey main body on K01 with the sheet's curved front bay on K08, and the sheet's two-storey rear range on K01's rear wings; the draft stands no second building beside it.",
@@ -1942,7 +1944,9 @@
           "cap_m": 5.2
         }
       ],
-      "why": "The James L. High house (built for Benjamin Adams in the late 1870s; High's from 1886, with his 1887 rear range): the register's 'steep main gable, conical rounded corner tower, arched entry' as a steep gable to the avenue over the 2½B body and a round tower under a cone on the north front corner, where the sheet draws its front projection. Its broad side wing's secondary gable is T-1917's."
+      "why": "The James L. High house (built for Benjamin Adams in the late 1870s; High's from 1886, with his 1887 rear range): the register's 'steep main gable, conical rounded corner tower, arched entry' as a steep gable to the avenue over the 2½B body and a round tower under a cone on the north front corner, where the sheet draws its front projection. Its broad side wing's secondary gable is T-1917's.",
+      "house_id": "high_house_2021_prairie",
+      "house_address": "2021"
     },
     "frontage-35-080": {
       "slug": "house",
