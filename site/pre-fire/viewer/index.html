@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chicago Before the Fire — Year Explorer</title>
-  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="style.css?v=7">
   <link rel="stylesheet" href="/notes/notes.css">
   <script src="/notes/notes.js" data-page="pre-fire" defer></script>
 </head>
@@ -16,6 +16,12 @@
   </header>
 
   <main>
+    <section class="research-entry" aria-labelledby="research-entry-title">
+      <div><p class="kicker">Preparing the next reconstruction</p><h2 id="research-entry-title">Chicago just before the fire</h2>
+      <p>Explore the evidence for 1871: land, structures, people, plants, vehicles and daily actions, with lessons from every existing scene and the other Atlas years.</p>
+      <p class="meta">The exact day matters. October 8 already includes damage from the Saturday Night Fire. This dossier separates documented findings, reconstruction proposals and open questions.</p></div>
+      <a class="research-button" href="research.html">Explore the 1871 research →</a>
+    </section>
     <section class="controls" aria-label="Year control">
       <div class="year-entry">
         <label for="year">Reference year <output id="yearOutput">1830</output></label>
@@ -54,7 +60,7 @@
 
     <section class="records">
       <div class="card-heading"><div><p class="kicker">Structures</p><h2 id="recordsHeading" data-note="section:records" data-note-label="Structures (the records table)" data-note-place="inline">Known active records</h2></div><input id="search" type="search" placeholder="Search all years by name or alias" aria-label="Search buildings across all years"></div>
-      <p class="warning">This is an evidence index, not a claim that every historical structure can be individually named. “Active” is computed from available construction and loss years; undated losses remain visible.</p>
+      <p class="warning">This is an evidence index, not a claim that every historical structure can be individually named. “Active” is computed from available construction and loss years; undated losses remain visible. A loss in 1871 remains in that year's list, so this is not an exact-day occupancy or survival ruling. See the <a href="research.html">1871 research dossier</a> for the scene cutoff and source limits.</p>
       <p id="recordsStatus" class="records-status" aria-live="polite"></p>
       <div class="table-wrap"><table><thead><tr><th>Name</th><th>Images</th><th>Known span</th><th>Type</th><th>Historical address</th><th>1871 fire fate</th><th>Confidence</th><th>Timeline</th></tr></thead><tbody id="buildingRows"></tbody></table></div>
     </section>

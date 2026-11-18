@@ -1,4 +1,53 @@
 export const CHANGELOG = [ // newest first
+  { v: 3106, ts: '2026-11-18T11:53:49.763Z', date: 'Nov 18, 2026, 5:53 AM CT', title: 'The test of the town now says why a picture was refused', kind: 'chore',
+    items: [
+      'When the automatic check of the town sees a picture fail to load on a people, horse, wagon or carriage model, or on a building, it now writes down the browser\'s own reason: the picture could not be read, or could not be decoded.',
+      'Nothing in the town looks different. This is the next step in finding why the phone-sized check sometimes reports pictures that would not load.',
+    ] },
+  { v: 3105, ts: '2026-11-18T11:53:49.763Z', date: 'Nov 18, 2026, 5:53 AM CT', title: 'Fort Dearborn monument: Mrs. Helm and the child look as sculpted', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), Margaret Helm now bows her head toward the warrior, her face in profile as the old photographs show it, and the kneeling child lifts his face after his outstretched hands. Before, both stared straight out at the street.',
+    ] },
+  { v: 3104, ts: '2026-11-18T11:32:23.450Z', date: 'Nov 18, 2026, 5:32 AM CT', title: 'Clothes cut like their period pictures', kind: 'feature',
+    items: [
+      'John J. Glessner\'s frock coat now stops at the knee, is taken in at the waist and opens on his shirt and tie, with a white standing collar and a vent at the back.',
+      'Frances Glessner\'s skirt sits close at the hips and flares from the knee, the way walking skirts of 1904 did, with gore seams, a cream lace collar and jabot, and lace at her wrists.',
+      'Philip Peck\'s trousers are pleated at the waist and taper to straps under his shoes, and Patrick Mahoney\'s shirt is white linen gathered into cuffs.',
+      'The 1812 soldiers of Fort Dearborn now wear the regular army\'s longer coat, with tape on the breast button holes.',
+    ] },
+  { v: 3103, ts: '2026-11-18T11:32:23.450Z', date: 'Nov 18, 2026, 5:32 AM CT', title: 'Finer tailoring up close', kind: 'feature',
+    items: [
+      'Frances Glessner\'s skirt moves with her as she walks instead of swinging like a bell, and John Glessner\'s coat opens at the back vent with each step.',
+      'Mr. Glessner\'s lapels are faced in silk, with two buttons at the back of his waist, and the seams of Mrs. Glessner\'s skirt now show.',
+      'The 1812 soldiers\' overalls fit close to the leg, and Philip Peck\'s trousers have deeper pleats, more fullness at the hip and wider straps.',
+      'The 1904 maid and cook wear crisp white collars, the 1904 children\'s collars sit close at the neck, the coachman\'s gloves reach up his sleeves, and the 1812 trader\'s coat folds cleanly under the arm.',
+    ] },
+  { v: 3102, ts: '2026-11-18T11:12:37.890Z', date: 'Nov 18, 2026, 5:12 AM CT', title: 'The carriage check gives the same answer on every build machine', kind: 'fix',
+    items: [
+      'The check that rebuilds the plate-matched brougham from its sources now does all of its arithmetic the same way on every build machine. It no longer goes red at random on some of them, so fixes reach the town without waiting on a re-run.',
+    ] },
+  { v: 3101, ts: '2026-11-18T10:47:12.564Z', date: 'Nov 18, 2026, 4:47 AM CT', title: 'Read every card at your age', kind: 'feature',
+    items: [
+      'Settings › Display has a Reading age: pick one or more of 8–10, 11–13, 14–15, 16–17 and 18+. Signed in, it follows you to your other devices.',
+      'The Jaunts menu\'s age row is the same choice. Pick two ages and every jaunt is listed in both tellings.',
+      'Cards written at more than one age carry a row of age tabs and open at the oldest age you picked. Each jaunt stop reads its other tellings\' words.',
+      'Written for younger readers too: every person\'s story in 1812 and on Prairie Avenue in 1904, every "Tell me a story" tale and "Ask a question" answer in all three years, and the Glessner House and the other written-up 1904 houses\' Overview and Timeline.',
+    ] },
+  { v: 3100, ts: '2026-11-18T10:47:12.564Z', date: 'Nov 18, 2026, 4:47 AM CT', title: 'Building cards and evidence notes read at your age', kind: 'feature',
+    items: [
+      'Every building\'s opening lines, in all three years, now have an 8–10 telling as well as their own words.',
+      'Every note in a building\'s Details tab, the why behind each part of it, is retold for 8–10 readers in 1812, 1835 and 1904: what was read, where it came from, and what is our guess.',
+      'The floating card over a building carries the same age tabs as the people\'s cards.',
+    ] },
+  { v: 3099, ts: '2026-11-18T10:47:12.564Z', date: 'Nov 18, 2026, 4:47 AM CT', title: 'The Design tab and every building\'s longer notes at your age', kind: 'feature',
+    items: [
+      'Inspect\'s Design tab reads at 8–10 in every year: the lines about each building\'s walls, roof, windows and style, and what it was built from.',
+      'In 1812, 1835 and 1904, every longer note a building\'s card folds behind its "why" is retold for 8–10 readers: which old map, picture or book says it, and which parts are our guess.',
+    ] },
+  { v: 3098, ts: '2026-11-18T10:47:12.564Z', date: 'Nov 18, 2026, 4:47 AM CT', title: '1823 Prairie\'s parlour windows drop to the door\'s height', kind: 'improvement',
+    items: [
+      'On the Dent house at 1823 Prairie, the front\'s principal-floor windows now stand lower and longer, from the sill course over the landing up to the door\'s head, so the triple group, the narrow light and the doorway line up under one row of hoods as the Chicagology engraving and the 1883 album both draw them. The north flank keeps its own shorter windows, as the engraving shows that side.',
+    ] },
   { v: 3097, ts: '2026-11-18T10:17:44.810Z', date: 'Nov 18, 2026, 4:17 AM CT', title: 'Ride sidesaddle as a woman in 1835 and 1904', kind: 'feature',
     items: [
       'Choose a woman in Settings and ride in 1835 or 1904: she is put up on a side saddle, both legs on the near side, her foot in the one stirrup.',
