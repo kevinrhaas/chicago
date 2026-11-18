@@ -1299,6 +1299,17 @@ function check(name, cond, detail = '', show = false) {
  * then rethrown untouched — nothing is retried, swallowed or counted differently.
  */
 const pictureRefusalProbe = () => {
+  // T-3650: and how much picture work is IN FLIGHT, so the harness can let a page finish
+  // its pictures before it parks or closes that page (`settlePictureWork`). A side
+  // branch counts; the promise the page holds is the same one it held before.
+  const work = { decoding: 0, reading: 0, transcoding: 0 };
+  Object.defineProperty(globalThis, '__c4dPictureWork', { value: work, enumerable: false });
+  const during = (key, p) => {
+    work[key]++;
+    const done = () => { work[key]--; };
+    p.then(done, done);
+    return p;
+  };
   const say = (what, e) => {
     try {
       console.warn(`4D Chicago: picture refused (smoke probe): ${what} — ${e?.name ?? ''} ${e?.message ?? e}`
@@ -1309,7 +1320,7 @@ const pictureRefusalProbe = () => {
   if (typeof decode === 'function') {
     globalThis.createImageBitmap = function createImageBitmap(...args) {
       const src = args[0];
-      return Reflect.apply(decode, globalThis, args).catch((e) => {
+      return during('decoding', Reflect.apply(decode, globalThis, args)).catch((e) => {
         say(`createImageBitmap(${src?.type || src?.constructor?.name || typeof src}, ${src?.size ?? src?.width ?? '?'})`, e);
         throw e;
       });
@@ -1320,7 +1331,7 @@ const pictureRefusalProbe = () => {
     globalThis.fetch = function fetch(...args) {
       const p = Reflect.apply(read, globalThis, args);
       const url = String(args[0]?.url ?? args[0] ?? '');
-      return url.startsWith('blob:') ? p.catch((e) => { say(`fetch ${url.slice(0, 70)}`, e); throw e; }) : p;
+      return url.startsWith('blob:') ? during('reading', p).catch((e) => { say(`fetch ${url.slice(0, 70)}`, e); throw e; }) : p;
     };
   }
   const W = globalThis.Worker;
@@ -1330,13 +1341,86 @@ const pictureRefusalProbe = () => {
       constructor(...args) {
         super(...args);
         this.addEventListener('message', (ev) => {
+          if (this.c4dTranscoding > 0 && (ev.data?.type === 'transcode' || ev.data?.type === 'error')) {
+            this.c4dTranscoding--;
+            work.transcoding--;
+          }
           if (ev.data?.type === 'error') say('worker transcode', ev.data.error ?? ev.data.message ?? 'no message');
         });
+      }
+
+      postMessage(message, ...rest) {
+        // KTX2Loader asks `{ type: 'transcode' }` and is answered once, by `transcode` or `error`.
+        // Counted once the post is taken: a post that throws is never answered.
+        const sent = super.postMessage(message, ...rest);
+        if (message?.type === 'transcode') { this.c4dTranscoding = (this.c4dTranscoding ?? 0) + 1; work.transcoding++; }
+        return sent;
       }
     };
   }
 };
 const PICTURE_WARNING = /^4D Chicago: picture (lost|refused)/;
+
+/**
+ * T-3650 (the fix T-3637 asked for): LET A PAGE FINISH ITS PICTURES BEFORE IT IS PUT DOWN.
+ *
+ * `Couldn't load texture blob:…` has come only from part 15, at both widths: in content
+ * builds 44205895786 and 44242219312, no other leg of the 60 logged it once. Part 15 is the
+ * one place the harness puts a page down seconds after its boot. It parks the body's page
+ * on about:blank straight after the boot checks, and it closes its own context straight
+ * after the `?nav=jump` reload lands. A booted town is not idle at that moment. Measured on
+ * the published 1835 at 390x780 (2026-11-18): about a second after `ready` the page starts
+ * a fresh run of embedded-picture decodes (16 object URLs, 6 `createImageBitmap` calls in
+ * flight at once, 11 picture files still on the wire), and it is quiet again about 4 s
+ * after `ready`. So the GLTFLoader errors are pictures cut off mid-decode by the harness
+ * leaving, not pictures the town fails to show. That reading is circumstantial: no local
+ * run has made the browser log the error. The probe's `picture refused` reasons and the
+ * step/time/page tags on each error will confirm or overturn it on the next red.
+ *
+ * So before either page is put down, wait (at most SETTLE_CAP_MS) until it has had
+ * SETTLE_QUIET_MS with no decode, no blob read, no KTX2 transcode and no picture file in
+ * flight. Nothing is filtered: an error the page logs while it settles is still a page
+ * error, `zero page errors` is unchanged, and a page that never settles is put down anyway
+ * after a line saying so.
+ */
+const SETTLE_QUIET_MS = 3000;
+const SETTLE_CAP_MS = 60_000;
+const PICTURE_FILE = /\.(glb|ktx2|bin|png|jpe?g|webp)$/i;
+/** Count the picture-bearing files a page has on the wire. Install it when the page is made. */
+function trackPictureFiles(p) {
+  const open = new Set();
+  const gone = (r) => { open.delete(r); };
+  p.on('request', (r) => {
+    try { if (PICTURE_FILE.test(new URL(r.url()).pathname)) open.add(r); } catch { /* not a URL a file has */ }
+  });
+  p.on('requestfinished', gone);
+  p.on('requestfailed', gone);
+  return () => open.size;
+}
+async function settlePictureWork(p, filesOnWire) {
+  const from = Date.now();
+  const peak = { decoding: 0, reading: 0, transcoding: 0, files: 0 };
+  let quietSince = null;
+  let last = null;
+  while (Date.now() - from < SETTLE_CAP_MS) {
+    const w = await p.evaluate(() => ({ ...(globalThis.__c4dPictureWork ?? {}) })).catch(() => null);
+    if (!w) return { ms: Date.now() - from, settled: false, why: 'the page would not answer', peak };
+    w.files = filesOnWire();
+    for (const k of Object.keys(peak)) peak[k] = Math.max(peak[k], w[k] ?? 0);
+    last = w;
+    if (!(w.decoding > 0) && !(w.reading > 0) && !(w.transcoding > 0) && w.files === 0) {
+      quietSince ??= Date.now();
+      if (Date.now() - quietSince >= SETTLE_QUIET_MS) return { ms: Date.now() - from, settled: true, peak };
+    } else {
+      quietSince = null;
+    }
+    await new Promise((r) => setTimeout(r, 200));
+  }
+  return { ms: Date.now() - from, settled: false, why: `still busy at ${SETTLE_CAP_MS / 1000} s: ${JSON.stringify(last)}`, peak };
+}
+const settledLine = (who, s) => `        ${who} ${s.settled ? `finished its pictures in ${(s.ms / 1000).toFixed(1)} s`
+  : `did not finish its pictures (${s.why}); put down anyway`} — peak ${s.peak.decoding} decode(s), `
+  + `${s.peak.reading} blob read(s), ${s.peak.transcoding} transcode(s), ${s.peak.files} picture file(s) on the wire (T-3650)`;
 
 const server = http.createServer((req, res) => {
   const url = decodeURIComponent(req.url.split('?')[0]);
@@ -1703,6 +1787,7 @@ for (const [label, viewport, touch] of [
   // the published app's boot logged a CORS console.error; stand in an empty one.
   if (wantPublished) await standInNarrationIndex(ctx, { origin: `http://127.0.0.1:${PORT}` });
   const page = await ctx.newPage();
+  const bodyPictureFiles = trackPictureFiles(page); // T-3650: read before part 15 parks this page
   // A few checks import an app module directly to exercise a pure function. The
   // path to those modules differs between the source tree and the published
   // mirror, so it is handed to the page rather than written into each call.
@@ -20366,9 +20451,21 @@ for (const [label, viewport, touch] of [
     });
     // T-3022: what a visitor opens on a building opens in the Navigator's Inspect, not the
     // card; `api.inspecting` names the building on screen either way.
-    await page.evaluate(() => window.__chicago4d.closeBuilding());
-    await page.keyboard.press('Space');
-    await page.waitForTimeout(250);
+    // T-3638: a key is consumed inside a frame (main.js tick → intent.takeInteract), and the
+    // crosshair it inspects down is the camera the LAST frame left. Under SwiftShader a frame
+    // can take seconds, so a fixed wait read the scene before any frame had run — or had the
+    // raycast fired from the camera before `frame()` aimed it — and the check went red on
+    // whichever viewport the runner happened to starve (dev 44076624959 mobile and desktop,
+    // 44193370202 desktop only). One forced frame settles the aim, and one after each key
+    // consumes it, so what is read is what the key did. `stepKey` is the same `api.step()`
+    // the click check below has always used; it never waits any less than before.
+    const stepKey = async (key, ms) => {
+      await page.keyboard.press(key);
+      await page.waitForTimeout(ms);
+      await page.evaluate(() => window.__chicago4d.step());
+    };
+    await page.evaluate(() => { window.__chicago4d.closeBuilding(); window.__chicago4d.step(); });
+    await stepKey('Space', 250);
     const spaceOnFoot = await page.evaluate(() => ({
       alt: window.__chicago4d.player.altitude,
       flying: window.__chicago4d.player.flying,
@@ -20393,11 +20490,9 @@ for (const [label, viewport, touch] of [
     check(`${label}: Escape closes the inspection card`, escClosed,
       `card hidden after Escape: ${escClosed}`);
 
-    await page.keyboard.press('Space');            // same crosshair, reopens
-    await page.waitForTimeout(300);
+    await stepKey('Space', 300);                   // same crosshair, reopens
     const reopened = await page.evaluate(() => !!window.__chicago4d.inspecting);
-    await page.keyboard.press('KeyE');
-    await page.waitForTimeout(300);
+    await stepKey('KeyE', 300);
     const keyToggled = await page.evaluate(() => !window.__chicago4d.inspecting);
     check(`${label}: the inspect key closes the card it opened`,
       reopened && keyToggled,
@@ -20407,15 +20502,15 @@ for (const [label, viewport, touch] of [
     // And neither fires from inside the Go-to box: typing is not a command.
     // (Escape in the box still shuts the Go-to PANEL — that is the panel's own
     // long-standing binding — but the card must not be collateral.)
-    await page.keyboard.press('Space');            // card open again
-    await page.waitForTimeout(300);
+    await stepKey('Space', 300);                   // card open again
     // T-2620: Go to is the Jaunts app's own segment (T-2630); its box is #welcome-search.
     await page.evaluate(async () => {
       await window.__chicago4d.openJaunts('goto');
       document.getElementById('welcome-search')?.focus();
     });
-    await page.keyboard.press('KeyE');
-    await page.waitForTimeout(150);
+    // Stepped too, so an E that leaked out of the box as a command would have had its frame
+    // to inspect in before this reads — without it, "nothing inspected" passed by being early.
+    await stepKey('KeyE', 150);
     // Read the box BEFORE Escape: Chromium natively clears a type=search
     // input on Escape, so reading after would show empty even though the
     // keystroke typed rather than fired.
@@ -21765,6 +21860,8 @@ for (const [label, viewport, touch] of [
     // in software at a few frames a second.
     if (stageOn(15)) {
     inStageWork = true;
+    // T-3650: not mid-picture. The body's boot is seconds old here, and still decoding.
+    console.log(settledLine("the body's page", await settlePictureWork(page, bodyPictureFiles)));
     await page.goto('about:blank');
     const ctx14 = await browser.newContext({
       viewport, hasTouch: touch, isMobile: false, deviceScaleFactor: touch ? 2 : 1,
@@ -21813,6 +21910,7 @@ for (const [label, viewport, touch] of [
       } catch { /* storage refused: the default tier stands */ }
     });
     const p14 = await ctx14.newPage();
+    const p14PictureFiles = trackPictureFiles(p14); // T-3650: read before ctx14 closes
     p14.setDefaultTimeout(90_000);
     // Polled on an interval, not on animation frames: Playwright's default waits a
     // frame per poll, and a frame of this town in software costs seconds at 1280x800,
@@ -22151,6 +22249,9 @@ for (const [label, viewport, touch] of [
       linked.app === 'jump' && linked.level > 0 && linked.gate && linked.held === true
       && backed.same && backed.href === linked.href && backed.app === 'home' && backed.level === 0,
       JSON.stringify({ linked, backed }));
+    // T-3650: the `?nav=jump` reload above landed seconds ago; let its pictures finish
+    // before the context closes (and before the list below, so a loss meanwhile is in it).
+    console.log(settledLine("part 15's page", await settlePictureWork(p14, p14PictureFiles)));
     if (lostPictures15.length) {
       console.log(`        part 15: ${lostPictures15.length} picture(s) lost or refused, with the reasons (T-3647, T-3648):`);
       for (const l of lostPictures15.slice(0, 6)) console.log(`          ${l}`);

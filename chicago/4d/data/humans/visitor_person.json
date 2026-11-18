@@ -115,7 +115,8 @@
         { "id": "engage", "label": "Boatman", "asset": "engage_1812", "worn": "A blue calico shirt, a red sash at the hip and deer-skin trousers." }
       ],
       "female": [
-        { "id": "plain", "label": "Plain dress", "asset": "flynn_mary_1835_dress_study", "worn": "A plain day dress of the 1830s, full-sleeved, to the ankle." }
+        { "id": "plain", "label": "Plain dress", "asset": "flynn_mary_1835_dress_study", "worn": "A plain day dress of the 1830s, full-sleeved, to the ankle." },
+        {"id": "riding_habit", "label": "Riding habit", "asset": "flynn_mary_1835_dress_study", "worn": "A dark green wool riding habit, the bodice and its long skirt of one cloth, and a tall black hat.", "dress": {"colours": {"garment_upper__plain_dress": [0.016, 0.032, 0.022], "garment_lower__plain_dress": [0.016, 0.032, 0.022]}, "hide": ["separate_plain_apron"], "hat": {"kind": "round", "rgb": [0.012, 0.011, 0.011], "band": [0.004, 0.004, 0.004], "crown_m": 0.17, "brim_m": 0.035, "taper": 1.04, "roll": 0.5, "droop": 0}}}
       ]
     },
     "1904": {
@@ -125,7 +126,8 @@
       ],
       "female": [
         { "id": "errand", "label": "Shirtwaist and skirt", "asset": "nelson_christine_1904_errand", "worn": "A white shirtwaist with a tall collar and a dark walking skirt, with a straw hat." },
-        { "id": "maid", "label": "House dress", "asset": "reynolds_mary_1904_maid", "worn": "A black long-sleeved dress with a high neck, white collar and cuffs." }
+        { "id": "maid", "label": "House dress", "asset": "reynolds_mary_1904_maid", "worn": "A black long-sleeved dress with a high neck, white collar and cuffs." },
+        {"id": "riding_habit", "label": "Riding habit", "asset": "nelson_christine_1904_errand", "worn": "A dark navy habit, its jacket over the collar and tie of a shirtwaist and its long safety skirt of one cloth, and a low black hard hat.", "dress": {"pieces": {"errand_shirtwaist": [0.011, 0.014, 0.03]}, "colours": {"garment_lower__errand_skirt_navy": [0.011, 0.014, 0.03]}, "hide": ["headwear_errand_boater", "headwear_errand_boater_ribbon", "market_basket", "basket_cloth"], "hat": {"kind": "round", "rgb": [0.01, 0.01, 0.01], "band": [0.004, 0.004, 0.004], "crown_m": 0.11, "brim_m": 0.045, "taper": 0.98, "roll": 0.9, "droop": 0}}}
       ]
     }
   },
