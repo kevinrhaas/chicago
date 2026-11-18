@@ -76119,14 +76119,7 @@
       "subjects": [
         "reid_house_2013_prairie"
       ],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "reid_house_2013_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.street_front_windows"
-        }
-      ],
+      "covers": [],
       "recorded": "2026-11-17",
       "revised": null,
       "fields": [
@@ -76137,10 +76130,6 @@
         {
           "label": "How to resolve",
           "text": "the rest of this work: the capitals, the roundels, the south edge's border, the frieze and dentils and the front's tone, then the flanks and rear off the 2003 nomination photographs, toward the image gate's sign-off."
-        },
-        {
-          "label": "Covers",
-          "text": "`reid_house_2013_prairie.as_mapped_1904.form.street_front_windows`."
         },
         {
           "label": "Review",

@@ -44743,7 +44743,6 @@ stay as L-k01-2013-reid-3625 left them.
 **How to resolve:** the rest of T-3626: the capitals, the roundels, the south edge's border, the frieze and
 dentils and the front's tone, then the flanks and rear off the 2003 nomination photographs, toward the image
 gate's sign-off.
-**Covers:** `reid_house_2013_prairie.as_mapped_1904.form.street_front_windows`.
 **Ticket:** T-3626 (piece 2 of T-1916, S07).
 **Review:** `docs/RESEARCH/photo-match/reid_house_2013_prairie/inland_architect_plate-side-by-side.jpg`.
 **Recorded:** 2026-11-17 (T-3626).
