@@ -27,6 +27,21 @@ keeps the drawing buffer stable during pinch zoom while still responding to keyb
 URL-bar and orientation changes. World movement and looking retain separate thumb roles
 when the page is magnified off-centre. Picture dialogs cycle keyboard focus, isolate the
 background, close on Escape, restore the opener and release pending image loads.
+The rail also keeps one visible Tab stop when Move or Jump is open. It retains the
+previous visible icon, then Home as fallback, without falsely selecting that icon.
+Context changes, unregistering and delayed selection cannot leave the rail unreachable.
+
+Final published-town integration on feature commit `5674d33d` passed at both widths:
+all five actual photograph responses and destination guards, a real Glessner arrival,
+distance score, share/reload, picture dialog and photo/notebook capture/edit flows.
+The phone run also exercised native pinch and horizontal pan with a stable drawing
+buffer. Both report zero page/HTTP errors or overflow; request cancellations are
+recorded separately. The later rail repair passes 36 native keyboard checks at both
+widths with normal and reduced motion: actual Tab/Shift+Tab, arrows, Home/End, Enter,
+Escape, off-rail screens, dock/reopen, context disappearance and unregistering. That
+fixture loads the real Navigator/rail modules with small app bodies, no world or canvas;
+its source hashes match the committed modules. Updated Navigator tests, official
+single-tool isolation measurement and isolation audit pass, with no new in-tree writes.
 
 Focused logic/catalogue and browser fixtures pass on the combined branch at 390×780
 and 1280×800.
@@ -41,8 +56,8 @@ These are browser measurements, not physical phone/Chromebook tests or whole-app
 conformance. The combined regression also passes the four classroom logic suites, existing
 Navigator/link/photo checks, strings and changelog validation. The two newly gated pure
 tests were instrumented separately; both wrote nothing in-tree. The isolation audit and
-its self-test pass, preserving all four T-3656 measurements. Complete source, native-town
-and published-renderer release gates remain pending; no DEV merge or production promotion
+its self-test pass, preserving all four T-3656 measurements. Complete source and
+published-renderer release gates remain pending; no DEV merge or production promotion
 is claimed here.
 
 ## T-3656 — Browser-only classroom tools (18 November 2026)
