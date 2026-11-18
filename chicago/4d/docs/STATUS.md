@@ -66,7 +66,11 @@ offline packs; native 1835/1871 entry and nine browser fixtures pass. See
 
 This implementation is checkpointed while final repository and legacy-scene verification
 continues. `docs/measurements/t-3654-validation-checkpoint.json` records completed checks,
-remaining CI coverage and resumption commands. A checkpoint is not a completed release gate.
+remaining CI coverage and resumption commands. A checkpoint is not a completed release gate. Source part 7 exposed missing 1871 benchmark poses,
+aerial-anchor measurement handling and a stale shared source catalog. These are repaired
+with focused positive and negative checks, preserving the city geometry and historical
+claims; `docs/measurements/t-3654-integration-repairs.json` records their exact scope. Full
+source verification precedes the next browser regression run.
 
 Regenerate with `python3 generators/city_context_emit.py`, then
 `python3 generators/city_1871_emit.py`, `python3 tools/compile_scene.py --scene 1871`
