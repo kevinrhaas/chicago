@@ -60,6 +60,7 @@
  * lead with this file).
  */
 import * as THREE from 'three';
+import { sameSkeleton } from './human-skeletons.js';
 
 const DEG = Math.PI / 180;
 const TAU = Math.PI * 2;
@@ -413,6 +414,14 @@ function makeBinding(scene) {
 
   // Each driven mesh: its own skin weights on the panels, and a skeleton with them.
   const own = meshes.map((m) => rebind(m, { waist, hem, P, Q, yTop, yHem, len, wA, wB, pelvisIndex: m.mIndex.get('pelvis') }));
+  // T-3639: the pieces whose panel skeletons come out the same (one body skeleton under them,
+  // the same panel binds) are bound to one, so the figure's panel bones upload once a frame.
+  for (let i = 1; i < own.length; i++) {
+    const same = own.slice(0, i).find((o) => o.skeleton !== own[i].skeleton && sameSkeleton(o.skeleton, own[i].skeleton));
+    if (!same) continue;
+    own[i].skeleton = same.skeleton;
+    useBell(own[i], true);
+  }
   // The ray weights: a ray's two panels, and how much of their push its cloth gets.
   const rayK = new Int32Array(RAYS * 2), rayGain = new Float64Array(RAYS), raySin = new Float64Array(RAYS), rayCos = new Float64Array(RAYS);
   const rowAllow = new Float64Array(ROWS).fill(Infinity);

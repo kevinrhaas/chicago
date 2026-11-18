@@ -40,8 +40,9 @@ function runTour(tour, probe) {
   probe.e += 6; tour.tick();
   probe.opens += 1; probe.selected = true; tour.tick();
   probe.selected = false; tour.tick();
+  probe.acts = (probe.acts ?? 0) + 1; tour.tick(); // T-3642: Interact
+  probe.apps = { ...probe.apps, jaunts: (probe.apps.jaunts ?? 0) + 1 }; tour.tick(); // T-3642
   probe.apps = { ...probe.apps, move: (probe.apps.move ?? 0) + 1 }; tour.tick();
-  probe.apps = { ...probe.apps, people: (probe.apps.people ?? 0) + 1 }; tour.tick(); // T-3445
   probe.apps = { ...probe.apps, settings: (probe.apps.settings ?? 0) + 1 }; tour.tick();
   assert.equal(tour.step, STEPS.length - 1, 'on the last step');
 }
@@ -54,7 +55,7 @@ function runTour(tour, probe) {
   assert.equal(license.held, false, 'nothing held before the tour');
   assert.equal(license.card(), null, 'and no card');
 
-  // Skip at 08 is not finishing.
+  // Skip at the last step is not finishing.
   runTour(tour, probe);
   tour.skip();
   assert.deepEqual(awards, [], 'Skip never awards it');
@@ -63,7 +64,7 @@ function runTour(tour, probe) {
 
   // A replay finished: awarded, dated, on this device.
   runTour(tour, probe);
-  assert.equal(tour.press(), true, 'Finish on step 08');
+  assert.equal(tour.press(), true, 'Finish on the last step');
   assert.deepEqual(awards, [true], 'Finish awards it');
   assert.equal(license.held, true);
   assert.deepEqual(JSON.parse(s.m.get(LICENSE_KEY)), { earned: WHEN.toISOString() }, 'kept on this device, with the day it was issued');

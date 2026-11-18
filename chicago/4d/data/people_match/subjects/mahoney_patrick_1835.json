@@ -1,0 +1,55 @@
+{
+  "id": "mahoney_patrick_1835",
+  "label": "Patrick Mahoney, labourer, in his 1835 working dress (catalogue)",
+  "person_id": "rc_mahoney_patrick",
+  "scene": "1835",
+  "reference_set": "labourer_1835",
+  "find": {
+    "kind": "stage",
+    "instance": "hi_rc_mahoney_patrick_1835",
+    "asset": "mahoney_patrick_1835",
+    "lod": 0
+  },
+  "bound": {
+    "file": "data/humans/instances/1835/hi_rc_mahoney_patrick_1835.json",
+    "keys": [
+      "appearance",
+      "animation"
+    ]
+  },
+  "aim_bone": "head",
+  "stills": [
+    {
+      "name": "near",
+      "distance_m": 3,
+      "bearing_off_heading_deg": 55,
+      "eye_m": 1.68,
+      "aim_below_head_m": 0.75,
+      "pose": "stand",
+      "at_s": 2,
+      "why": "Standing, from his right front at three metres, as Weir's 1842 wood sawyer is seen whole at two or three metres."
+    },
+    {
+      "name": "far",
+      "distance_m": 10,
+      "bearing_off_heading_deg": 70,
+      "eye_m": 1.68,
+      "aim_below_head_m": 0.9,
+      "pose": "stand",
+      "at_s": 2,
+      "why": "Standing, nearly side-on at ten metres, as Mount's 1840-41 cider makers stand at the press."
+    }
+  ],
+  "pair": {
+    "near": "weir_1842_wood_sawyer",
+    "far": "mount_1841_cider_making"
+  },
+  "clip": {
+    "still": "near",
+    "viewport": "desktop",
+    "frames": 5,
+    "interval_s": 1.25,
+    "pose": "walk"
+  },
+  "figure_below_head_m": 1.8
+}

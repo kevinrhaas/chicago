@@ -16,6 +16,13 @@
   font: 400 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
 .tour-skip { min-height: 44px; min-width: 44px; padding: 0 10px; border: 1px solid var(--edge); border-radius: 999px;
   background: transparent; color: var(--ink); font: inherit; letter-spacing: .1em; cursor: pointer; }
+/* T-3642: one segment a step, lit to the step in hand (as the jaunt meter, T-3620). */
+.tour-pips { display: flex; gap: 3px; margin: 6px 0 0; }
+.tour-pips i { flex: 1; height: 3px; border-radius: 2px; background: var(--edge); }
+.tour-pips i.done { background: var(--accent); opacity: .55; }
+.tour-pips i.now { background: var(--accent); }
+.tour-card.tour-advance { animation: tour-advance .45s ease-out; }
+@keyframes tour-advance { 0% { box-shadow: 0 0 0 0 var(--accent), var(--shadow); } 100% { box-shadow: 0 0 0 10px transparent, var(--shadow); } }
 .tour-task { margin: 6px 0 0; font: 400 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim); }
 .tour-bubble { margin: 4px 0 0; font-size: 16px; line-height: 1.35; font-weight: 600; }
 .tour-status { margin: 8px 0 0; font: 400 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); }
@@ -33,4 +40,5 @@
 @media (prefers-reduced-motion: reduce) {
   .tour-hole { transition: none; }
   .tour-status::before { animation: none; }
+  .tour-card.tour-advance { animation: none; }
 }

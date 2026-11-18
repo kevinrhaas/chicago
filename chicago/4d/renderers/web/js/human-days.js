@@ -1013,6 +1013,10 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     people = []; workSourcePeople.clear();
     for (const actor of actors) {
       if (spawned.some((q) => q.actor === actor)) continue;
+      // Kevin, 2026-11-17: "john is riding in the carriage with no driver". A coachman on his
+      // box (or Mr. Glessner in the cab) is his vehicle's: his day must not send him indoors or
+      // walk him off the seat, so the carriage never drives on without him.
+      if (humans.external?.(actor.personId) === actor) continue;
       const b = actor.instance?.behaviour;
       if (!b || (!Array.isArray(b.day) && !b.presence && !b.quarters)) continue;
       const prior = previous.get(actor);

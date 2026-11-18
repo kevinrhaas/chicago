@@ -14,7 +14,7 @@ const here = new URL('../', import.meta.url);
 const threeURL = new URL('renderers/web/vendor/three-0.185.1/three.module.js', here).href;
 const hooks = registerHooks({ resolve: (specifier, context, next) => (specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context)) });
 const THREE = await import(threeURL);
-const { dressHair, growHair, CARDS, headFrame, keepsHair } = await import(new URL('renderers/web/js/human-hair.js', here));
+const { dressHair, growHair, growHairSteps, CARDS, headFrame, keepsHair } = await import(new URL('renderers/web/js/human-hair.js', here));
 const { dressSpectacles, fitSpectacles, PEOPLE_SPECTACLES, spectaclesFor } = await import(new URL('renderers/web/js/human-spectacles.js', here));
 const { HAIR_CUTS, FACIAL_HAIR, HAIR_COLOURS, PEOPLE_HAIR, ERA_DEFAULT, hairFor } = await import(new URL('renderers/web/js/human-hair-styles.js', here));
 const { dressSkin, domeCornea } = await import(new URL('renderers/web/js/human-skin.js', here));
@@ -88,6 +88,13 @@ function figure() {
   // Same person, same hair; another person, other hair.
   const again = growHair({ hair: cap, root, style: { ...style, facial: [] }, lod: 0, seed: 'a' });
   assert.deepEqual(again.position, g.position, 'seeded: the same every load');
+  // T-3639: grown in steps over a build's frames, the same cards: growHair is their whole run.
+  const steps = growHairSteps({ hair: cap, root, style: { ...style, facial: [] }, lod: 0, seed: 'a' });
+  let r = steps.next(), taken = 1;
+  while (!r.done) { r = steps.next(); taken++; }
+  assert(taken > 2, `grown over ${taken} steps`);
+  assert.deepEqual(r.value.position, g.position, 'in steps, the same cards');
+  assert.deepEqual(r.value.index, g.index);
   const other = growHair({ hair: cap, root, style: { ...style, facial: [] }, lod: 0, seed: 'b' });
   assert.notDeepEqual(other.position.slice(0, 30), g.position.slice(0, 30), 'another person, another head of hair');
   const near1 = growHair({ hair: cap, root, style: { ...style, facial: [] }, lod: 1, seed: 'a' });
@@ -296,11 +303,18 @@ assert.equal(hairFor(null, 1812), null, 'the 1812 private grows no strand hair u
   const g = growHair({ hair: cap, skin, root, style: { ...row, facial: [] }, lod: 0, seed: 'glessner_john_j' });
   assert(g.grown.scalp > 100, `a fringe grows: ${g.grown.scalp}`);
   const f = headFrame(cap, root), v = new THREE.Vector3();
-  // Every card's root (its first two vertices) is on the fringe.
+  // Every fringe card's root (its first two vertices) is on the fringe; the thin cover over the
+  // crown (T-3553, `cut.crown`) roots only above the line, few and fine.
+  assert(cut.crown && g.grown.crown > 50 && g.grown.crown <= Math.round(CARDS.lods[0].scalp * cut.crown.share), `a thin crown: ${g.grown.crown}`);
+  const crownFrom = g.crownFrom;
+  let crownRoots = 0, crownOnTop = 0;
   for (let i = 0; i < g.card.length / 4; i++) {
     if (g.card[4 * i + 1] !== 0) continue;
-    assert(keepsHair(cut, f, v.fromArray(g.position, 3 * i).addScaledVector(f.y, -.003)), 'no card roots on the bald crown');
+    const onFringe = keepsHair(cut, f, v.fromArray(g.position, 3 * i).addScaledVector(f.y, -.003));
+    if (i < crownFrom) assert(onFringe, 'no fringe card roots on the bald crown');
+    else { crownRoots++; if (!onFringe) crownOnTop++; }
   }
+  assert(crownRoots > 0 && crownOnTop / crownRoots > .9, `the thin cover roots over the crown: ${crownOnTop} of ${crownRoots}`);
   assert(g.undercoat?.length > 30, 'an undercoat where the fringe grows');
   for (const i of g.undercoat) assert(!g.scalp.bare?.[i], 'the undercoat is never on the bald crown');
   const done = dressHair(root, { lod: 0, person: 'glessner_john_j', year: 1904 });
@@ -347,11 +361,11 @@ assert.equal(hairFor(null, 1812), null, 'the 1812 private grows no strand hair u
 
 // 5. Every person: humans.js grows each near body's hair after it measures its height.
 const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
-assert(/import \{ dressHair(, dressHeadcloth)? \} from '\.\/human-hair\.js';/.test(humans));
-assert(/this\.proxy\.scale\.y = [^\n]*\n[\s\S]{0,400}dressHair\(scene, \{ lod,/.test(humans), 'build() grows the hair, after the height is measured');
-assert(/dressHair\(scene[^\n]*\n[\s\S]{0,800}dressSpectacles\(scene, \{ lod,/.test(humans), 'build() puts on spectacles after the hair (T-3440)');
+assert(/import \{ dressHair(Steps)?(, dressHeadcloth)? \} from '\.\/human-hair\.js';/.test(humans));
+assert(/this\.proxy\.scale\.y = [^\n]*\n[\s\S]{0,400}dressHair(Steps)?\(scene, \{ lod,/.test(humans), 'build() grows the hair, after the height is measured');
+assert(/dressHair(Steps)?\(scene[^\n]*\n[\s\S]{0,800}dressSpectacles\(scene, \{ lod,/.test(humans), 'build() puts on spectacles after the hair (T-3440)');
 // Liberty: the hair supplement under L418 names this ticket.
 const liberties = await fs.readFile(new URL('docs/LIBERTIES.md', here), 'utf8');
 assert(/\*\*Strand hair, beards and eyes \(2026-11-06, T-3414\):\*\*/.test(liberties), 'L418 carries the hair supplement');
 hooks.deregister();
-console.log('human-hair: cards hug the cap and skin with it, seeded per person, near levels only, facial hair in its region, no texture, spliced once, cut under a hat, table graded, cornea domed, bald crown and spectacles (T-3440), every body: PASS');
+console.log('human-hair: cards hug the cap and skin with it, seeded per person, near levels only, facial hair in its region, no texture, spliced once, cut under a hat, table graded, cornea domed, bald crown and spectacles (T-3440), grown in steps (T-3639), every body: PASS');
