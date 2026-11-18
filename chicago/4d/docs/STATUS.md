@@ -114,6 +114,18 @@ WCAG conformance or low-end Chromebook hardware certification. Same-spot Jump re
 lower priority, with the current single-session replacement default unchanged.
 [CLASSROOM-FEATURES.md](CLASSROOM-FEATURES.md) accounts for all twenty requested items.
 
+**Owner-authorized budget update, 18 November:** the baseline desktop smoke recorded
+3,607,087 Full-detail triangles at West prairie, 2,087 over the previous allowance,
+with draw calls inside their limit. The owner authorized an appropriate increase so
+the DEV merge can proceed. The standing measured-maximum plus 18,059 margin, rounded
+up to 5,000, sets Full to 3,630,000 (a 0.69% increase). Other tiers, calls, reaches,
+shadows and assets stay unchanged; the policy test still rejects extra increases.
+[The measurement and authorization](measurements/t-3656-full-detail-budget.md) record
+the evidence and limits. The baseline desktop run timed out during stage 12; source
+CI partition 1 also hit its 600-second cap without an assertion failure. Neither is
+reported as passing. Fresh budget validation and unfinished renderer/source checks
+remain before merge.
+
 ## T-3580 — Sign-in: Microsoft and email/password beside Google (2026-11-13)
 
 The owner chose Google, Microsoft, email/password and anonymous (email only) to start, Apple
