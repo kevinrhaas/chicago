@@ -497,21 +497,16 @@ export function buildBoat(boat, { tileWood = 4.08, tileBark = 1.2, coarse = fals
     pushBox(paddle, 0, -(len - 0.3), 0, 0.075, 0.3, 0.01, wc(134, 0.3), level, tileWood, 0);
   }
   // At rest the paddle (or the oars) lies in the boat; it is part of the hull's own wood then.
-  const restPaddle = (buf) => {
-    const m = new THREE.Matrix4();
+  const lying = () => {
     if (kind === 'skiff') {
       const y = lines.keel(SEAT_AT.skiff) + 0.37;
-      for (const z of [-0.22, 0.24]) {
-        m.makeRotationY(z > 0 ? 0.04 : -0.03).setPosition(-L * 0.18, y, z);
-        appendTransformed(buf, paddle, m);
-      }
-      return;
+      return [-0.22, 0.24].map((z) => new THREE.Matrix4().makeRotationY(z > 0 ? 0.04 : -0.03).setPosition(-L * 0.18, y, z));
     }
     // The paddle's length runs down its own -y: turn it to lie along the floor, blade aft.
-    m.makeRotationFromEuler(new THREE.Euler(0, 0.06, -Math.PI / 2, 'YXZ'))
-      .setPosition(seatX + 0.9, floorAtSeat + 0.05, 0.1);
-    appendTransformed(buf, paddle, m);
+    return [new THREE.Matrix4().makeRotationFromEuler(new THREE.Euler(0, 0.06, -Math.PI / 2, 'YXZ'))
+      .setPosition(seatX + 0.9, floorAtSeat + 0.05, 0.1)];
   };
+  const restPaddle = (buf) => { for (const m of lying()) appendTransformed(buf, paddle, m); };
 
   // The water lid: the hollow's floor lies below the waterline, and the river is drawn as
   // one plane at Z = 0, so it would show inside the boat. A depth-only sheet across the
@@ -525,7 +520,7 @@ export function buildBoat(boat, { tileWood = 4.08, tileBark = 1.2, coarse = fals
   }
 
   return {
-    wood, bark: outerBuf, paddle, restPaddle, mask: Float32Array.from(mask),
+    wood, bark: outerBuf, paddle, restPaddle, lying: lying(), mask: Float32Array.from(mask),
     seat: [seatX, floorAtSeat + (SEAT_EYE_M[kind] - 0.05), 0],
     lines,
     extent: { L, B: lines.B, keelUnder: 0 },
@@ -790,6 +785,11 @@ function afloatPose(boat, [e, n], bearing) {
   return { e, n, y: WATER_Y - (boat.hull.draft_m ?? 0.15), bearing, pitch: 0, roll: 0 };
 }
 
+/** Where a boat lies on bank `bank` now: turned out over the water, or as it ran ashore. */
+function restOf(entry, bank) {
+  return entry.facing?.[bank] === 'out' ? entry.restOut[bank] : entry.rest[bank];
+}
+
 function mixPose(a, b, t) {
   return {
     e: lerp(a.e, b.e, t), n: lerp(a.n, b.n, t), y: lerp(a.y, b.y, t),
@@ -886,8 +886,18 @@ export async function createCrossings({
     try {
       const built = buildBoat(boat, { tileWood, tileBark, coarse });
       const rest = { a: restPose(boat, boat.banks.a.rest, terrain), b: restPose(boat, boat.banks.b.rest, terrain) };
-      const entry = { boat, built, rest, bank: boat.starts ?? 'a', pose: null, cluster: null };
-      entry.pose = rest[entry.bank];
+      // The owner, 2026-11-17: boarding a canoe "it's an odd movement spin around ... would be
+      // better if they were already heading out". A boat waiting on a bank lies turned round,
+      // its stern drawn up where the record lays its bow and its bow out over the water, so the
+      // one who boards sits facing across and pushes straight off. It runs ashore bow first, as
+      // a boat does, and is turned round again once nobody is looking (`restOf`, `turnUnseen`).
+      const restOut = {};
+      for (const k of ['a', 'b']) {
+        const r = boat.banks[k].rest;
+        restOut[k] = r.afloat ? rest[k] : restPose(boat, { ...r, bearing: (r.bearing + 180) % 360 }, terrain);
+      }
+      const entry = { boat, built, rest, restOut, facing: { a: 'out', b: 'out' }, bank: boat.starts ?? 'a', pose: null, cluster: null };
+      entry.pose = restOf(entry, entry.bank);
       out.boats.push(entry);
       out.census.boats += 1;
       out.census[boat.kind] = (out.census[boat.kind] ?? 0) + 1;
@@ -1027,13 +1037,57 @@ export async function createCrossings({
     return { e: seatV.x, n: -seatV.z, y: seatV.y };
   }
 
+  /**
+   * The visitor's own paddle. The owner, 2026-11-17, of the torch and then the boats: it should
+   * look held, not hover, "but you can't see my hand", and hands are not drawn yet. So the grip
+   * (where the top hand would be) is kept low over the gunwale beside the seat, below and to the
+   * side of anything the eye sees ahead, and the shaft runs from there out over the side: what
+   * shows is the shaft coming into the view from its lower corner and the blade dipping in
+   * ahead, pulled back past the hip, lifted and swung forward again.
+   */
+  const hv = { g: new THREE.Vector3(), w: new THREE.Vector3(), d: new THREE.Vector3(), x: new THREE.Vector3(), z: new THREE.Vector3(), m: new THREE.Matrix4() };
+  function holdPaddle(entry, m, ph, side, working) {
+    const seat = entry.built.seat, lines = entry.built.lines, L = entry.boat.hull.length_m;
+    const draft = entry.boat.hull.draft_m ?? 0.15;            // the waterline, in the boat's frame
+    const tS = SEAT_AT[entry.boat.kind];
+    const hb = lines.half(tS + 0.1), gun = lines.gun(tS + 0.1);
+    const ahead = 1.55, back = 0.15;
+    let gx, wx, wy, out = 0.14;
+    if (!working) { gx = 0.3; wx = 1.0; wy = draft + 0.12; out = 0.3; }
+    else if (ph < 0.55) {                                     // the drive: blade buried, pulled aft
+      const f = smooth(ph / 0.55);
+      gx = lerp(0.5, 0.18, f); wx = lerp(ahead, back, f); wy = draft - 0.32;
+    } else {                                                  // the recovery: lifted, swung forward
+      const f = smooth((ph - 0.55) / 0.45);
+      gx = lerp(0.18, 0.5, f); wx = lerp(back, ahead, f); wy = draft + 0.18 + 0.12 * Math.sin(f * Math.PI);
+    }
+    const gy = Math.max(seat[1] - 0.42, gun + 0.1);
+    hv.g.set(seat[0] + gx, gy, side * (hb + 0.03));
+    hv.w.set(seat[0] + wx, wy, side * (lines.half(clamp(tS + 2 * wx / L, -0.95, 0.95)) + out));
+    hv.d.subVectors(hv.w, hv.g).normalize();                 // grip toward the blade
+    const y = hv.d.clone().negate();                          // the paddle's +y runs blade to grip
+    hv.z.set(1, 0, 0).addScaledVector(y, -y.x).normalize();   // the blade's face square to the stroke
+    hv.x.crossVectors(y, hv.z);
+    hv.m.makeBasis(hv.x, y, hv.z);
+    m.position.copy(hv.g);
+    m.quaternion.setFromRotationMatrix(hv.m);
+  }
+
+  /** The paddle (or the oars) lying in the boat, where it is drawn at rest. */
+  function layTools(entry, tools) {
+    tools.forEach((m, k) => { const at = entry.built.lying[k]; if (at) at.decompose(m.position, m.quaternion, m.scale); });
+  }
+
   /** Lay the paddle or oars for stroke phase `ph` (0..1), working on `side` (+1 starboard). */
-  function workTools(entry, tools, ph, side, working) {
+  function workTools(entry, tools, ph, side, working, held = false) {
     const { kind } = entry.boat;
+    if (held && kind !== 'skiff') { holdPaddle(entry, tools[0], ph, side, working); return; }
     const L = entry.boat.hull.length_m;
     const seat = entry.built.seat;
     if (kind === 'skiff') {
-      const t = SEAT_AT.skiff + 0.18;
+      // The visitor's own oars pivot a little aft of where they sit, so the looms (where the hands
+      // would be) stay beside and behind the eye, and only the oars running out over the sides show.
+      const t = SEAT_AT.skiff + (held ? -0.3 : 0.18);
       const lines = entry.built.lines;
       const hb = lines.half(t);
       const gy = lines.gun(t) + 0.1;
@@ -1068,21 +1122,33 @@ export async function createCrossings({
     m.quaternion.setFromEuler(new THREE.Euler(side * 0.18, 0, lean, 'XYZ'));
   }
 
+  /** At rest, backed off, launched, afloat off the far bank, and run ashore there (bow first). */
+  function launchPlan(entry, from, to, outBearing) {
+    const boat = entry.boat;
+    const ra = restOf(entry, from), rb = entry.rest[to];
+    const la = afloatPose(boat, boat.banks[from].launch, outBearing);
+    const lb = afloatPose(boat, boat.banks[to].launch, outBearing);
+    let backed;
+    if (boat.banks[from].rest.afloat) {
+      backed = { ...afloatPose(boat, [ra.e + Math.sin(outBearing * DEG) * 1.2, ra.n + Math.cos(outBearing * DEG) * 1.2], ra.bearing) };
+    } else if (Math.abs(turn(ra.bearing, outBearing)) < 30) {
+      // Heading out already: shoved straight off the bank, bow first, no turn at all.
+      backed = mixPose({ ...ra }, la, 0.5);
+      backed.bearing = la.bearing;
+    } else {
+      // Bow on the bank (seen run ashore and not yet turned): back straight off, then swing round.
+      const backDir = ra.bearing * DEG;
+      backed = { ...afloatPose(boat, [ra.e - Math.sin(backDir) * boat.hull.length_m * 0.45, ra.n - Math.cos(backDir) * boat.hull.length_m * 0.45], ra.bearing) };
+    }
+    return { ra, rb, la, lb, backed, outBearing };
+  }
+
   /** The poses of a crossing from bank `from` to `to`: at rest, backed off, launched, landing. */
   function crossPlan(entry, from, to) {
     const boat = entry.boat;
     const d = boat.crossing.bearing;
     const outBearing = from === 'a' ? d : (d + 180) % 360;
-    const ra = entry.rest[from], rb = entry.rest[to];
-    const la = afloatPose(boat, boat.banks[from].launch, outBearing);
-    const lb = afloatPose(boat, boat.banks[to].launch, outBearing);
-    const backDir = ra.bearing * DEG;
-    const backed = { ...afloatPose(boat, [ra.e - Math.sin(backDir) * boat.hull.length_m * 0.45, ra.n - Math.cos(backDir) * boat.hull.length_m * 0.45], ra.bearing) };
-    if (boat.banks[from].rest.afloat) {
-      backed.e = ra.e + Math.sin(outBearing * DEG) * 1.2;
-      backed.n = ra.n + Math.cos(outBearing * DEG) * 1.2;
-    }
-    return { ra, rb, la, lb, backed, outBearing };
+    return launchPlan(entry, from, to, outBearing);
   }
 
   /** Begin a crossing from bank `from` to `to`. */
@@ -1090,16 +1156,7 @@ export async function createCrossings({
     const boat = entry.boat;
     const d = boat.crossing.bearing;
     const outBearing = from === 'a' ? d : (d + 180) % 360;
-    const ra = entry.rest[from], rb = entry.rest[to];
-    const la = afloatPose(boat, boat.banks[from].launch, outBearing);
-    const lb = afloatPose(boat, boat.banks[to].launch, outBearing);
-    // Pushing off: back the hull straight off the bank first, then swing it round.
-    const backDir = ra.bearing * DEG;
-    const backed = { ...afloatPose(boat, [ra.e - Math.sin(backDir) * boat.hull.length_m * 0.45, ra.n - Math.cos(backDir) * boat.hull.length_m * 0.45], ra.bearing) };
-    if (boat.banks[from].rest.afloat) {
-      backed.e = ra.e + Math.sin(outBearing * DEG) * 1.2;
-      backed.n = ra.n + Math.cos(outBearing * DEG) * 1.2;
-    }
+    const { ra, rb, la, lb, backed } = launchPlan(entry, from, to, outBearing);
     const { group: g, tools } = riderGroup(entry);
     group.add(g);
     out.riding = entry;
@@ -1125,6 +1182,7 @@ export async function createCrossings({
     if (!ride) return;
     const { entry, to, g } = ride;
     entry.bank = to;
+    entry.facing[to] = 'in';
     entry.pose = entry.rest[to];
     group.remove(g);
     g.children.forEach((m) => m.geometry.dispose());
@@ -1176,6 +1234,8 @@ export async function createCrossings({
             };
             ride.pose = { ...ride.ra, roll: (ride.ra.roll ?? 0) + Math.sin(f * Math.PI) * 2.5 * DEG };
             placeRide();
+            // The paddle (or the oars) lies in the boat until they are down on the seat to take it up.
+            if (f < 0.85) layTools(entry, ride.tools); else workTools(entry, ride.tools, 0, ride.side, false, true);
           },
         },
         {
@@ -1190,7 +1250,7 @@ export async function createCrossings({
             p2.roll = Math.sin(f * Math.PI * 2) * 1.5 * DEG;
             ride.pose = p2;
             placeRide();
-            workTools(entry, ride.tools, (t * 2) % 1, ride.side, t > 0.35);
+            workTools(entry, ride.tools, (t * 2) % 1, ride.side, t > 0.35, true);
             eye = { ...seatOf(entry, ride.pose), bearing: null };
           },
         },
@@ -1219,7 +1279,7 @@ export async function createCrossings({
             p.pitch = Math.sin(time * 1.3) * 0.5 * DEG;
             ride.pose = p;
             placeRide();
-            workTools(entry, ride.tools, ph, ride.side, t < 0.985);
+            workTools(entry, ride.tools, ph, ride.side, t < 0.985, true);
             eye = { ...seatOf(entry, ride.pose), bearing: null };
           },
         },
@@ -1231,7 +1291,7 @@ export async function createCrossings({
             const p = mixPose(ride.lb, ride.rb, f);
             ride.pose = p;
             placeRide();
-            workTools(entry, ride.tools, 0, ride.side, false);
+            workTools(entry, ride.tools, 0, ride.side, false, true);
             eye = { ...seatOf(entry, ride.pose), bearing: null };
           },
         },
@@ -1242,6 +1302,7 @@ export async function createCrossings({
             const seat = seatOf(entry, ride.pose);
             const groundY = terrain.surfaceHeight(standTo[0], standTo[1]);
             const f = smooth(t);
+            if (f > 0.1) layTools(entry, ride.tools);   // put down in the boat before stepping out
             eye = {
               e: lerp(seat.e, standTo[0], f), n: lerp(seat.n, standTo[1], f),
               y: lerp(seat.y, groundY + walkEye(), f) + Math.sin(f * Math.PI) * 0.15,
@@ -1312,7 +1373,7 @@ export async function createCrossings({
           bearing: p.bearing, pitch: Math.sin(clock * 1.3) * 0.5 * DEG,
           roll: working ? Math.sin(ph * Math.PI * 2) * (boat.kind === 'skiff' ? 0.6 : 1.4) * DEG * side : 0 };
         placeRide();
-        workTools(entry, ride.tools, ph, boat.kind === 'skiff' ? 1 : side, working);
+        workTools(entry, ride.tools, ph, boat.kind === 'skiff' ? 1 : side, working, true);
       },
       end() { piloted = null; leftAt = { entry }; workTools(entry, ride?.tools ?? [], 0, 1, false); },
     };
@@ -1445,6 +1506,7 @@ export async function createCrossings({
     carries.delete(c);
     c.done = true;
     c.entry.bank = c.to;
+    c.entry.facing[c.to] = 'in';
     c.entry.pose = c.entry.rest[c.to];
     c.pose = c.entry.pose;
     rebuildClusters();
@@ -1459,8 +1521,9 @@ export async function createCrossings({
     const nearest = Array.isArray(near) && near.length >= 2 ? (d('a') <= d('b') ? 'a' : 'b') : null;
     const home = entry.bank, start = from === 'a' || from === 'b' ? from : nearest ?? entry.bank;
     const to = start === 'a' ? 'b' : 'a';
+    const homeFacing = { ...entry.facing };
     entry.bank = start;
-    entry.pose = entry.rest[start];
+    entry.pose = restOf(entry, start);
     const boat = entry.boat;
     const plan = crossPlan(entry, start, to);
     const { group: g, tools } = riderGroup(entry);
@@ -1486,11 +1549,36 @@ export async function createCrossings({
         carries.delete(c);
         if (out.riding === entry) return;
         entry.bank = home;
-        entry.pose = entry.rest[home];
+        entry.facing = { ...homeFacing };
+        entry.pose = restOf(entry, home);
         rebuildClusters();
       },
     };
   };
+
+  /** A boat lying as it ran ashore, bow on the bank, is turned round to head out again once it
+   *  is out of the view, the way whoever left it would draw it up ready for the next crossing. */
+  const frustum = new THREE.Frustum(), viewM = new THREE.Matrix4(), sphere = new THREE.Sphere();
+  function turnUnseen(camera) {
+    let turned = false, framed = false;
+    for (const entry of out.boats) {
+      const bank = entry.bank;
+      if (entry.facing[bank] === 'out' || out.riding === entry || carried(entry) || entry.boat.banks[bank].rest.afloat) continue;
+      if (!framed) {
+        camera.updateMatrixWorld();
+        frustum.setFromProjectionMatrix(viewM.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse));
+        framed = true;
+      }
+      const p = entry.rest[bank];
+      enuToWorld(p.e, p.n, p.y, sphere.center);
+      sphere.radius = entry.boat.hull.length_m / 2 + 1;
+      if (frustum.intersectsSphere(sphere)) continue;
+      entry.facing[bank] = 'out';
+      entry.pose = restOf(entry, bank);
+      turned = true;
+    }
+    if (turned) rebuildClusters();
+  }
 
   out.update = (dt, camera) => {
     for (const c of [...carries]) stepCarry(c, Math.min(Math.max(dt, 0), 0.25));
@@ -1498,6 +1586,7 @@ export async function createCrossings({
     const ce = camera.position.x, cn = -camera.position.z;
     // T-3612: a boat the visitor left afloat is drawn up on its own bank again once they are away.
     if (leftAt && ride && Math.hypot(ride.pose.e - ce, ride.pose.n - cn) > 150) settleLeft();
+    turnUnseen(camera);
     for (const c of clusters) c.group.visible = Math.hypot(c.e - ce, c.n - cn) < drawM + CLUSTER_M;
     for (const entry of out.boats) {
       const t = thingOf(entry);
