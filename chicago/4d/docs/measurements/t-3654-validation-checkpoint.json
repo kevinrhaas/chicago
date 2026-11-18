@@ -2,7 +2,7 @@
   "ticket": "T-3654",
   "state": "implementation_checkpoint_validation_pending",
   "branch": "steward/t3654-1871-city-baseline",
-  "base_commit": "bec8fd8d3293c6bd49f7db0dce81aab666a90b77",
+  "base_commit": "169af6421e",
   "target": "dev",
   "production_promotion": "Owner-dispatched only; no production deployment in this task.",
   "implemented": "Citywide context for 8 October 1871 at 16:00 local mean solar time, corrected map registration and terrain, portable building and infrastructure kit, walking support, research viewer and source overlay.",
@@ -30,10 +30,11 @@
     "Registration, source provenance, trace reproduction, deterministic generation and focused runtime checks.",
     "Local source partitions 17/32 and 1/32 cover 1/16; 3/16 passed. Part 2/16 exposed a measurement-owner assumption now corrected; its focused check passes but the full part awaits rerun.",
     "Quiet legacy mobile stage 1 passed 95 assertions with zero failures or page errors; this is calibration, not complete commit-bound legacy acceptance.",
-    "Context building and tree cards pass actual popup tests after moving liberty metadata from an undeclared sidecar field to the runtime record; the strict sidecar scanner and negative controls pass."
+    "Context building and tree cards pass actual popup tests after moving liberty metadata from an undeclared sidecar field to the runtime record; the strict sidecar scanner and negative controls pass.",
+    "Shared year-entry pages pass nine Chromium fixture cases, offline-pack and preview checks; actual 1835/1871 native entry passes at 1280×800 with zero page/network errors. See t-3654-entry-pages.json.",
+    "Integrated dataset validator --all passes with zero errors and 340 existing warnings after both repairs."
   ],
   "pending_validation": [
-    "Repair duplicated year-entry HTML with a shared shell while preserving clean URLs and deep links; implementation is under focused browser verification.",
     "Complete full source gate",
     "Legacy browser stages 1 through 15 on both viewports",
     "1812 published readiness, walking and canvas check",
@@ -108,8 +109,8 @@
     "bash tools/publish.sh"
   ],
   "limits": "This is the requested generic context baseline. Named properties, people, daily activity and photographic finish remain subsequent work; bank and parcel uncertainty is retained.",
-  "checkpoint_revision": 2,
-  "local_source_followup": "Part 4/16 reported two validator errors. The runtime liberty contract is repaired and tested; duplicate year-entry pages remain under repair. Parts 5–16 have not run locally. Full CI is still required.",
+  "checkpoint_revision": 3,
+  "local_source_followup": "The two part 4/16 validator failures are repaired: context liberties are runtime metadata, and year doors share one canonical renderer page. Parts 5–16 have not run locally. The full CI gate remains required. The next root publication refreshes the ticket mirror copied from the isolated validation candidate.",
   "superseded_ci": {
     "commit": "1a5b7080f00fc1e7caf06b174f8a3ce25f77d036",
     "reason": "First smoke dispatches were cancelled after the local validator identified the two repairs; they do not count as final acceptance.",

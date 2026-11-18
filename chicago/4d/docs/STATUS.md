@@ -51,6 +51,9 @@ and 682,504/796,657 submitted triangles (mobile/desktop). These are headless
 SwiftShader readings, not physical-device frame-rate or GPU-memory claims;
 `docs/measurements/t-3654-city-baseline.json` retains the inputs and conditions.
 The portal plate is an actual canvas capture of this final dated city.
+Year doors share one renderer page while retaining their clean URLs, deep links and
+offline packs; native 1835/1871 entry and nine browser fixtures pass. See
+`docs/measurements/t-3654-entry-pages.json` for the dated evidence.
 
 This implementation is checkpointed while final repository and legacy-scene verification
 continues. `docs/measurements/t-3654-validation-checkpoint.json` records completed checks,
