@@ -40,18 +40,25 @@ Earlier reports with skipped notebook assertions and pre-final runtime are retai
 with explicit scope corrections in the evidence archive; these final integrated runs
 supersede them for the photo/notebook/arrival flow.
 
-**Release validation at this checkpoint:** source partitions 1–5 of eight pass
-(175, 174, 174, 174 and 175 checks), and preflight's changelog-entry and ticket-ID checks
-pass. Published mobile renderer stages 1–12, 14 and 15 pass with zero failures or page
-errors. Stage 6's second-world recovery passed unchanged on quiet CPU. Stage 13 reached
-149 passing assertions before the local 595-second command cap terminated it, so that
-stage remains incomplete; its unchanged remote completion run is required.
+**Release validation at this checkpoint:** source partitions 1–6 of eight pass
+(175, 174, 174, 174, 175 and 174 checks), and preflight's changelog-entry and ticket-ID
+checks pass. All fifteen published mobile renderer stages pass with zero failures or
+page errors: 921 assertions including repeated always-on checks. Stage 6's second-world
+recovery passed unchanged on quiet CPU. Stage 13 exceeded the local 595-second command
+cap; its unchanged remote run then completed all 157 assertions successfully.
+
+Source partition 7 exposed a tour test's fixed 200-character source span: inserting the
+notebook exceeded it despite the tour still appearing first. The test now mounts the
+real Guide and verifies that the original tour element leads its controls and hosted
+sections. Focused tests pass; isolated mutations that move or omit the tour are both
+rejected. Its instrumented write measurement remains empty. Full partition 7's rerun
+and partition 8 are still required.
 
 CI found four missing step-isolation records for the new gate tests. The instrumented
 measurement tool now records all four as writing nothing in-tree, and the isolation
 audit and its self-tests pass. This repairs the measurement registry without changing
 the application or assertions. The full remaining source partitions, complete published
-desktop renderer smoke, mobile stage 13 and exact-head PR CI remain required before DEV
+desktop renderer smoke and exact-head PR CI remain required before DEV
 merge. The PR records their final aggregate; GitHub's phone upload/memory-release check
 has also passed on the unchanged runtime.
 
