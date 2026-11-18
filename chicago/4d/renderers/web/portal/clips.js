@@ -12,10 +12,10 @@
   const saveData = navigator.connection && navigator.connection.saveData;
   if (reduced.matches || saveData) return;
   // One file per clip is fetched: VP9 WebM where it plays, H.264 MP4 otherwise (Safari, iPhone).
+  // A file that will not decode falls back to the other format, then to the reel (below).
   const probe = document.createElement('video');
-  const ext = probe.canPlayType('video/webm; codecs="vp9"') ? 'webm'
-    : probe.canPlayType('video/mp4; codecs="avc1.42E01E"') ? 'mp4' : '';
-  if (!ext) return;
+  const exts = [probe.canPlayType('video/webm; codecs="vp9"') && 'webm',
+    probe.canPlayType('video/mp4; codecs="avc1.42E01E"') && 'mp4'].filter(Boolean);
   const plates = [...document.querySelectorAll('.era-plate[data-clips]')];
   const rand = (a, b) => a + Math.random() * (b - a);
   const pick = list => list[Math.floor(Math.random() * list.length)];
@@ -26,6 +26,7 @@
     const names = plate.dataset.clips.split(',').map(s => s.trim()).filter(Boolean);
     if (!card || !names.length) return;
     const name = pick(names);
+    if (!exts.length) { feeds.push(reelFeed(plate, card, name)); return; }
     const video = document.createElement('video');
     video.className = 'era-feed';
     video.muted = true; video.defaultMuted = true; video.loop = true; video.playsInline = true;
@@ -33,7 +34,7 @@
     video.preload = 'auto'; video.disablePictureInPicture = true;
     const still = plate.querySelector('img');
     if (still) video.poster = still.currentSrc || still.src;
-    video.src = `walk/portal/clips/${name}.${ext}`;
+    video.src = `walk/portal/clips/${name}.${exts[0]}`;
     // Blocky frames are drawn here: the video at a fraction of its size, scaled back up unsmoothed.
     const canvas = document.createElement('canvas');
     canvas.className = 'era-feed-blocks'; canvas.setAttribute('aria-hidden', 'true');
@@ -42,29 +43,85 @@
     plate.dataset.feed = 'tuning';
     plate.dataset.clip = name;
     const feed = { plate, card, video, canvas, ctx, name, fault: null, until: 0, next: 0, visible: true,
-      shaky: card.classList.contains('era-calibrating') };
+      shaky: card.classList.contains('era-calibrating'), ext: 0, tries: 0 };
     feed.next = performance.now() + rand(2500, 7000);
     video.addEventListener('playing', () => { plate.dataset.feed = 'live'; });
-    video.addEventListener('error', () => { plate.dataset.feed = 'lost'; video.remove(); canvas.remove(); feed.dead = true; });
+    video.addEventListener('error', () => {
+      if (feed.reel) return;
+      if (++feed.ext < exts.length) { video.src = `walk/portal/clips/${name}.${exts[feed.ext]}`; play(feed); }
+      else toReel(feed);
+    });
     feeds.push(feed);
   });
   if (!feeds.length) return;
 
-  function play(feed) {
-    if (feed.dead || !feed.visible || document.hidden) return;
-    const p = feed.video.play();
-    // Autoplay refused (an iPhone in Low Power Mode, a browser setting): the still stays.
-    // A play() cut short by our own pause (scrolled away) is not a refusal.
-    if (p && p.catch) p.catch(err => { if (err && err.name === 'NotAllowedError') feed.plate.dataset.feed = 'still'; });
+  // The reel: the same clip as a strip of small grey frames in one image, stepped onto a canvas
+  // at the clip's 10 fps. An iPhone in Low Power Mode refuses every video, muted or not, and
+  // so does a browser set never to autoplay; an image is not a video, so the feed still runs
+  // there (Kevin, 2026-11-17: the cards showed stills on his phone). tools/portal_clips.mjs
+  // makes `<clip>.reel.webp` beside each clip.
+  function reelFeed(plate, card, name) {
+    const canvas = document.createElement('canvas');
+    canvas.className = 'era-feed-blocks'; canvas.setAttribute('aria-hidden', 'true');
+    plate.prepend(canvas);
+    const feed = { plate, card, canvas, ctx: canvas.getContext('2d'), name, fault: null, until: 0, next: performance.now() + rand(2500, 7000),
+      visible: true, shaky: card.classList.contains('era-calibrating') };
+    plate.dataset.feed = 'tuning'; plate.dataset.clip = name;
+    toReel(feed);
+    return feed;
   }
+  function toReel(feed) {
+    if (feed.reel || feed.dead) return;
+    if (feed.video) { feed.video.pause(); feed.video.removeAttribute('src'); feed.video.load(); feed.video.remove(); feed.video = null; }
+    const view = document.createElement('canvas');
+    view.className = 'era-feed era-feed-reel'; view.setAttribute('aria-hidden', 'true');
+    const img = new Image();
+    img.decoding = 'async';
+    feed.reel = { img, view, ctx: view.getContext('2d'), frames: 0, fw: 0, fh: 0, shown: -1, t0: performance.now() };
+    feed.plate.prepend(view);
+    feed.plate.dataset.reel = '';
+    img.onload = () => {
+      const r = feed.reel; r.fw = img.naturalWidth; r.fh = Math.round(r.fw / 3); r.frames = Math.max(1, Math.floor(img.naturalHeight / r.fh));
+      view.width = r.fw; view.height = r.fh;
+      stepReel(feed, performance.now());
+      feed.plate.dataset.feed = 'live';
+    };
+    img.onerror = () => { feed.plate.dataset.feed = 'lost'; view.remove(); feed.canvas.remove(); feed.dead = true; };
+    img.src = `walk/portal/clips/${feed.name}.reel.webp`;
+  }
+  function stepReel(feed, now) {
+    const r = feed.reel; if (!r.frames) return;
+    const k = Math.floor((now - r.t0) / 100) % r.frames;
+    if (k === r.shown) return;
+    r.shown = k;
+    r.ctx.drawImage(r.img, 0, k * r.fh, r.fw, r.fh, 0, 0, r.fw, r.fh);
+  }
+  const running = feed => !feed.dead && feed.visible && !document.hidden && (feed.reel ? feed.reel.frames > 0 : !feed.video.paused);
+
+  function play(feed) {
+    if (feed.dead || feed.reel || !feed.visible || document.hidden) return;
+    const p = feed.video.play();
+    // Autoplay refused (an iPhone in Low Power Mode, a browser setting): the reel takes over.
+    // A play() cut short by our own pause (scrolled away) is not a refusal.
+    if (p && p.catch) p.catch(err => { if (err && err.name === 'NotAllowedError') toReel(feed); });
+    // Some refusals never answer: a feed that is still not live a while after it was asked to
+    // play, with the page in view, goes to the reel too.
+    clearTimeout(feed.watch);
+    feed.watch = setTimeout(() => {
+      if (!feed.reel && feed.visible && !document.hidden && feed.plate.dataset.feed !== 'live') toReel(feed);
+    }, 6000);
+  }
+  const pause = feed => { clearTimeout(feed.watch); if (feed.video) feed.video.pause(); };
   const seen = 'IntersectionObserver' in window && new IntersectionObserver(entries => entries.forEach(entry => {
     const feed = feeds.find(f => f.plate === entry.target); if (!feed) return;
     feed.visible = entry.isIntersecting;
-    if (feed.visible) play(feed); else feed.video.pause();
+    if (feed.visible) play(feed); else pause(feed);
   }));
   feeds.forEach(feed => { if (seen) seen.observe(feed.plate); play(feed); });
-  document.addEventListener('visibilitychange', () => feeds.forEach(f => (document.hidden ? f.video.pause() : play(f))));
-  reduced.addEventListener('change', () => { if (reduced.matches) feeds.forEach(f => { f.video.pause(); f.video.remove(); f.canvas.remove(); f.dead = true; }); });
+  document.addEventListener('visibilitychange', () => feeds.forEach(f => (document.hidden ? pause(f) : play(f))));
+  reduced.addEventListener('change', () => {
+    if (reduced.matches) feeds.forEach(f => { pause(f); f.video?.remove(); f.reel?.view.remove(); f.canvas.remove(); f.dead = true; });
+  });
 
   // The faults. Each is short; the calm between them is long.
   const FAULTS = ['blocks', 'blocks', 'tear', 'flicker', 'drop', 'blocks-hard'];
@@ -84,24 +141,27 @@
     if (Math.random() < .2) feed.next = now + rand(250, 900);
   }
   function drawBlocks(feed, size) {
-    const v = feed.video; if (v.readyState < 2) return;
+    const v = feed.reel ? feed.reel.view : feed.video;
+    const vw = feed.reel ? v.width : v.videoWidth, vh = feed.reel ? v.height : v.videoHeight;
+    if (feed.reel ? !feed.reel.frames : v.readyState < 2) return;
     const w = feed.plate.clientWidth, h = feed.plate.clientHeight;
     const bw = Math.max(4, Math.round(w / size)), bh = Math.max(2, Math.round(h / size));
     if (feed.canvas.width !== bw || feed.canvas.height !== bh) { feed.canvas.width = bw; feed.canvas.height = bh; }
     // Cover-fit the 3:1 video into the plate's box, as object-fit does for the still.
-    const vr = v.videoWidth / v.videoHeight, pr = w / h;
-    let sw = v.videoWidth, sh = v.videoHeight, sx = 0, sy = 0;
-    if (vr > pr) { sw = sh * pr; sx = (v.videoWidth - sw) / 2; } else { sh = sw / pr; sy = (v.videoHeight - sh) / 2; }
+    const vr = vw / vh, pr = w / h;
+    let sw = vw, sh = vh, sx = 0, sy = 0;
+    if (vr > pr) { sw = sh * pr; sx = (vw - sw) / 2; } else { sh = sw / pr; sy = (vh - sh) / 2; }
     feed.ctx.imageSmoothingEnabled = true;
     feed.ctx.drawImage(v, sx, sy, sw, sh, 0, 0, bw, bh);
   }
   let last = 0;
   function frame(now) {
     requestAnimationFrame(frame);
+    feeds.forEach(feed => { if (feed.reel && running(feed)) stepReel(feed, now); });
     if (now - last < 66) return; // the glitch runs at about 15 fps, like the feed itself
     last = now;
     feeds.forEach(feed => {
-      if (feed.dead || !feed.visible || feed.video.paused) return;
+      if (!running(feed)) return;
       const slipping = feed.card.dataset.hold === 'drift';
       if (!feed.fault && (now > feed.next || (slipping && Math.random() < .18))) begin(feed, now, slipping ? pick(['blocks-hard', 'tear', 'drop']) : null);
       if (!feed.fault) return;

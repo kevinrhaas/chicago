@@ -21,7 +21,7 @@
   "revision": "v19_catalogue_body_and_finish_near_mid_study",
   "sidecar": "brougham.json",
   "sidecar_sha256": "768f849182bb8ca7aa9d28db98a5d2cb3d502ea6c23c6f0b8fbf2a5b329e541f",
-  "note": "Every V19 part is carried over byte for byte except the six named removals; the V19 files and their own gate stay."
+  "note": "Every V19 part is carried over byte for byte except the six named removals and the cab (see cab); the V19 files and their own gate stay."
  },
  "producer": "tools/transport/brougham_v20/produce.py",
  "gate": "tools/transport/brougham_v20/check.py",
@@ -42,12 +42,36 @@
   "cabin_front_lower": 0.2,
   "deep_curved_lower_body": 0.25
  },
+ "cab": {
+  "drop_m": 0.21,
+  "floor_drop_m": 0.2,
+  "bench_base_bottom_m": 0.84,
+  "warp": {
+   "z_none": -0.45,
+   "z_full": -0.62,
+   "y_fixed": 1.45,
+   "y_full": 1.0
+  },
+  "lowered_parts": [
+   "interior_floor",
+   "passenger_back",
+   "passenger_bench_base",
+   "passenger_cushion"
+  ],
+  "lowered_seats": [
+   "vehicle_seat_passenger_01",
+   "vehicle_seat_passenger_02"
+  ],
+  "ticket": "T-3553",
+  "grade": "reconstructed",
+  "note": "Passengers sit upright: cushion and seat data lowered by drop_m, the squab lengthened down to the cushion (its top kept), the floor lowered by floor_drop_m, the bench base shortened onto the rear spring hangers, and the body frame below the waist and behind the door brought down with them by a smooth warp, as plate 0095 draws the rear quarter. Every other part, frame, contact and the coachman's box are V19's."
+ },
  "lods": [
   {
    "detail": "near",
    "file": "brougham-v20-near.glb",
-   "sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
-   "bytes": 1512356,
+   "sha256": "34c14f142cadce1d89fc5ccb43a7d195ae287ab18258e9b1a8463e294e6ec2b7",
+   "bytes": 1513016,
    "triangles": 46796,
    "draw_batches": 25,
    "materials": 8,
@@ -72,8 +96,8 @@
   {
    "detail": "mid",
    "file": "brougham-v20-mid.glb",
-   "sha256": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342",
-   "bytes": 862708,
+   "sha256": "69e3f8bfff45b03d5eb7e267de0d20dd6c8ea3ccadbc976c01e33d6dc5f4004d",
+   "bytes": 863368,
    "triangles": 23660,
    "draw_batches": 25,
    "materials": 8,
@@ -98,8 +122,8 @@
   {
    "detail": "far",
    "file": "brougham-v20-far.glb",
-   "sha256": "b4cbec5e4c22c622486b08be449ae187eaca72dfdb4dc98ec22e89512c5ca09d",
-   "bytes": 566660,
+   "sha256": "e0eda0a61eeb6e585282fcc913c04eb8a9b468bc847d513b79f6be3f37383748",
+   "bytes": 567224,
    "triangles": 11360,
    "draw_batches": 25,
    "materials": 8,
@@ -117,7 +141,7 @@
      3.825000047683716
     ]
    },
-   "v19_level_sha256": "5b74def8dc8430218e6be7d2bcf9ef1121a1ace90fe87de180797a553c7a3a3b",
+   "v19_level_sha256": "d4e57fd5f2b15c6a959fcf18c91c787fd9d618f64c57370550c28aa724d3401c",
    "v19_level_triangles": 19998,
    "coachman_fit_preserved": true
   }
@@ -491,6 +515,11 @@
     "id": "rear-mudguards",
     "status": "fixed_v20",
     "what": "V19 had a thin mudguard over each rear wheel; the plate has none. Removed."
+   },
+   {
+    "id": "cab-interior",
+    "status": "fixed_v20_cab",
+    "what": "V19 set the passengers' cushion 1.296 m off the ground, 0.75 m under the roof lining, so a man could ride only bent double (owner, 2026-11-17, T-3553). The outside height is a real brougham's (Carriage Foundation single brougham 6 ft 6.5 in, St. Mary's County brougham 79 in; ours 2.19 m); the plate seats the lady with her hat well below the roof and carries the black rear quarter down behind the door nearly to the hind hub. V20 lowers the cushion and seat data 0.21 m (the squab lengthened down to it) and the floor 0.20 m, shortens the bench base onto the rear spring hangers, and brings the body's lower rear quarter down with them; roof, glass, door and box are unchanged."
    },
    {
     "id": "box-height",

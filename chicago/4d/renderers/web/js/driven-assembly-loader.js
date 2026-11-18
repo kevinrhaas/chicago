@@ -370,19 +370,25 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
    * seated clip (`clip`) is played on their own body and moved to the cab seat; the figure is
    * bent to fit the cab there (cab-passenger.js); a driver-life layer breathes and looks.
    */
+  // Kevin, 2026-11-17, beside Mr. Glessner in the cab on a lighter detail: "he does not have
+  // glasses or moustache or much if any hair". A passenger sits within arm's reach of the
+  // visitor's eye, so he is drawn at a near level wherever the coachman on the box is not: the
+  // nearest on a full machine, the next (still his hair, beard and spectacles, human-hair.js,
+  // human-spectacles.js) on a phone or Light, never the far body the box takes there.
+  const riderLod = Math.min(driverLod, 1);
   const makeRider = async (row, spec, clip, clipName) => {
     if (!clip || !spec?.person_id || !spec.asset_id || !spec.instance_id) throw Error('driven assembly: a passenger needs a person, figure, standing instance and the seated clip');
     const instance = { id: spec.instance_id, contract_version: 1, display: 'shown', scene: sceneId,
       person_id: spec.person_id, appearance: { asset_id: spec.asset_id },
       placement: { local_e: 0, local_n: 0, heading_deg: 180, anchor: 'terrain' }, behaviour: { state: 'seated' },
-      animation: { clip: clipName, loop: true, phase: 0 }, lod: { policy: 'fixed', fixed: driverLod },
+      animation: { clip: clipName, loop: true, phase: 0 }, lod: { policy: 'fixed', fixed: riderLod },
       interaction: { opens: 'resident_card', selectable: true },
       provenance: { grade: 'reconstructed', basis: spec.basis ?? '', liberty: spec.liberty ?? row.liberty } };
     const identity = resolveHumanIdentity(instance, { sceneId, people, profiles });
     const rider = new HumanActor({ instance, identity, person: identity.person, assets: humanAssets, heightAt: () => 0,
       tier: 'full', variation: 'face', clipLibrary: [clip] });
     try {
-      await rider.setLod(driverLod);
+      await rider.setLod(riderLod);
       if (!rider.body || !rider.play(clipName, { fade: 0, time: 0 })) throw Error('driven assembly: the passenger cannot take the seated clip');
       rider.root.position.fromArray(passengerRoot({ seat_local_m: spec.seat_local_m, clip_seat_local_m: row.driver_seat_node_m, sink_m: spec.sink_m ?? 0 }));
       rider.body.mixer.update(0); rider.root.updateMatrixWorld(true);
