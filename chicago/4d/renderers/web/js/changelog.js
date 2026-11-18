@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3106, ts: '2026-11-18T11:53:49.763Z', date: 'Nov 18, 2026, 5:53 AM CT', title: 'The test of the town now says why a picture was refused', kind: 'chore',
+    items: [
+      'When the automatic check of the town sees a picture fail to load on a people, horse, wagon or carriage model, or on a building, it now writes down the browser\'s own reason: the picture could not be read, or could not be decoded.',
+      'Nothing in the town looks different. This is the next step in finding why the phone-sized check sometimes reports pictures that would not load.',
+    ] },
+  { v: 3105, ts: '2026-11-18T11:53:49.763Z', date: 'Nov 18, 2026, 5:53 AM CT', title: 'Fort Dearborn monument: Mrs. Helm and the child look as sculpted', kind: 'improvement',
+    items: [
+      'On the Fort Dearborn monument (18th Street, 1904), Margaret Helm now bows her head toward the warrior, her face in profile as the old photographs show it, and the kneeling child lifts his face after his outstretched hands. Before, both stared straight out at the street.',
+    ] },
   { v: 3104, ts: '2026-11-18T11:32:23.450Z', date: 'Nov 18, 2026, 5:32 AM CT', title: 'Clothes cut like their period pictures', kind: 'feature',
     items: [
       'John J. Glessner\'s frock coat now stops at the knee, is taken in at the waist and opens on his shirt and tie, with a white standing collar and a vent at the back.',
