@@ -26,7 +26,10 @@ export function mountPhotoHunt(host, { context = () => ({}), win = host?.ownerDo
     const a = make('a', key); a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer'; parent.append(a);
   };
   const releaseImage = () => { if (image) { image.onload = null; image.onerror = null; image.removeAttribute('src'); } image = null; imageSource = null; imageReady = false; };
-  const storageStatus = () => { saved.textContent = session ? t(session.state.issue ? `hunt.storage.${session.state.issue}` : 'hunt.saved') : ''; };
+  const storageStatus = () => {
+    const state = session?.state;
+    saved.textContent = state?.issue ? t(`hunt.storage.${state.issue}`) : state?.persisted ? t('hunt.saved') : '';
+  };
   function loadImage() {
     if (!image || !imageSource || !visible) return;
     const current = image;
@@ -47,6 +50,7 @@ export function mountPhotoHunt(host, { context = () => ({}), win = host?.ownerDo
   }
   function intro() {
     releaseImage(); content.replaceChildren(); foot.replaceChildren();
+    heading.textContent = t('hunt.title'); saved.textContent = '';
     content.append(make('p', 'intro'), make('p', 'daily'), make('p', 'local'), make('p', 'date', { day }));
     if (String(context().scene?.id) !== HUNT_YEAR) { content.append(make('p', 'unavailableYear')); return; }
     if (win.location.search.includes('hunt=') && !shared) content.append(make('p', 'invalidLink'));
@@ -62,7 +66,9 @@ export function mountPhotoHunt(host, { context = () => ({}), win = host?.ownerDo
       catch { field.focus(); field.select(); status.textContent = t('hunt.copyFallback'); }
     });
     button(foot, 'restart', () => { session.reset(); render(true); });
-    if (day !== huntDay(now())) button(foot, 'today', () => { day = huntDay(now()); session = null; void start(); });
+    if (day !== huntDay(now())) button(foot, 'today', () => {
+      day = huntDay(now()); session = null; intro(); void start();
+    });
     foot.append(label);
   }
   function render(focus = false) {
@@ -90,7 +96,7 @@ export function mountPhotoHunt(host, { context = () => ({}), win = host?.ownerDo
     const actions = make('div'); actions.className = 'photo-hunt-actions';
     retryImage = button(actions, 'retryImage', loadImage); retryImage.hidden = true;
     if (!answer) {
-      content.append(make('p', 'instructions'), make('p', 'rules'));
+      content.append(make('p', 'instructions'), make('p', 'rules'), make('p', 'distanceNote'));
       button(actions, 'move', () => context().actions?.freeRoam?.());
       guessButton = button(actions, 'guess', () => {
         if (!imageReady) return;

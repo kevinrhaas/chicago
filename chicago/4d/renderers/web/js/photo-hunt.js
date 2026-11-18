@@ -26,7 +26,7 @@ export function parseHuntLink(search = '') {
   const day = q.get('huntDay');
   return q.getAll('hunt').length === 1 && q.get('hunt') === String(HUNT_VERSION)
     && q.getAll('huntDay').length === 1 && validHuntDay(day)
-    && q.get('year') === HUNT_YEAR ? { day, version: HUNT_VERSION } : null;
+    && q.getAll('year').length === 1 && q.get('year') === HUNT_YEAR ? { day, version: HUNT_VERSION } : null;
 }
 
 export function huntLink(day, href = globalThis.location?.href) {
@@ -102,7 +102,7 @@ export function huntResult(round, guess) {
 /** One five-photo challenge, under 4 KiB. Answers remain usable in memory if storage refuses. */
 export function createHuntSession({ day, rounds, storage = () => globalThis.localStorage } = {}) {
   if (!validHuntDay(day) || rounds?.length !== 5) throw new Error('Invalid photo hunt');
-  let cursor = 0, answers = [], issue = null;
+  let cursor = 0, answers = [], issue = null, persisted = false;
   const store = () => typeof storage === 'function' ? storage() : storage;
   try {
     const raw = store()?.getItem(HUNT_STORAGE_KEY);
@@ -116,23 +116,24 @@ export function createHuntSession({ day, rounds, storage = () => globalThis.loca
       const ids = huntOrder(saved.day);
       if (!saved.answers.every((a, i) => a?.id === ids[i] && (a.skipped === true || (a.skipped === false && position(a)))))
         throw new Error('Invalid answer');
-      if (saved.day === day) { cursor = saved.cursor; answers = saved.answers; }
+      if (saved.day === day) { cursor = saved.cursor; answers = saved.answers; persisted = true; }
     }
   } catch { issue = 'unreadable'; }
   function save() {
+    persisted = false;
     // A corrupt or inaccessible record is not overwritten until the visitor explicitly resets it.
     if (issue === 'unreadable') return;
     try {
       if (!store()?.setItem) throw new Error('No storage');
       store().setItem(HUNT_STORAGE_KEY, JSON.stringify({ version: HUNT_VERSION, day, cursor, answers }));
-      issue = null;
+      issue = null; persisted = true;
     } catch { issue = 'unsaved'; }
   }
   return {
     get state() {
       const results = answers.map((answer, i) => answer.skipped ? { score: 0, distance: null } : huntResult(rounds[i], answer));
       return { day, cursor, answers: answers.map(a => ({ ...a })), results,
-        score: results.reduce((total, result) => total + result.score, 0), issue, complete: cursor === 5 };
+        score: results.reduce((total, result) => total + result.score, 0), issue, persisted, complete: cursor === 5 };
     },
     guess(at) {
       if (cursor >= 5 || answers[cursor] || !position(at)) return false;

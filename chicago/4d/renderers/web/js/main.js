@@ -7023,6 +7023,7 @@ async function boot() {
             if (String(YEAR) !== '1904') return null;
             const doc = await ensurePictures();
             if (doc) destinations.addPhotos(doc);
+            else picturesPromise = null; // The hunt's retry may read a restored connection.
             return { doc, destinations };
           },
           position: () => api.welcome?.state === 'world' ? { e: walker.state.e, n: walker.state.n } : null,
