@@ -1,3 +1,110 @@
+## T-3656 — Browser-only classroom tools (18 November 2026)
+
+Implementation on `steward/t3656-browser-classroom`, based on development commit
+`169af6421`; the associated DEV pull request records the final release verdict.
+
+- Navigator Home offers on-demand stamped PNG capture (maximum 1280-pixel edge) and a
+  validated moment link carrying the public position, year, orientation, season, hour,
+  date and selected person/place. It copies a normal rendered frame; no extra renderer,
+  persistent render target or `preserveDrawingBuffer` is enabled.
+- Guide's local Field notebook saves notes, selected person records with their grades and
+  citations, and small photo copies. It caps storage, reports refused writes, supports
+  deletion, downloads standalone HTML and prints through a small document frame for PDF.
+- Completed jaunts offer three optional typed reflections from visited, cited evidence,
+  with reading-band wording, source comparison, revision and retry. This is self-review,
+  not automatic marking or invented historical dialogue; answers stay in tab memory.
+- For teachers offers group inquiry templates using a selected jaunt's real citations,
+  with document tasks, discussion and suggested Illinois/C3 connections. These are a
+  starting set of guides, not a fully authored curriculum or certified standards mapping.
+
+Validation checkpoint: all four focused logic suites pass under Node 22; reflection
+coverage spans 240 available tellings and five bands, and lesson coverage spans 192
+school tellings and 10 available year/group combinations. Existing Navigator,
+person-card, teacher-handout, jaunt-mechanics, string and changelog checks pass.
+Real-component browser fixtures pass at 390×780 and 1280×800 for notebook
+save/edit/reload/export/print/errors, lesson selection and source links, request races,
+three-page Letter PDFs, and reflection completion. Dark notebook inputs measure
+10.62:1 contrast. Legacy 1835 People cards pass real-record notebook save, duplicate
+and denied-storage checks. People and Inspect selections pass through Home sharing
+with the final selection logic; lesson documents use the readable-text overlay.
+
+Final-runtime published-town tests now pass at 390×780 and 1280×800. Each uses the
+real People card to save canonical citations, captures a nonblank bounded PNG through
+the normal rendered frame, copies its selected-person/view URL, saves the actual photo
+to the notebook, edits its note, then navigates to the shared link. Exact notebook,
+photo, note and citation data persist; the person and view restore; the saved jaunt
+remains stored and inactive. Both runs report zero page errors, local 404s or overflow.
+The software-GPU harness pauses continuous drawing between interactions and executes
+the actual normal frame for capture; it is not a low-end hardware performance result.
+Earlier reports with skipped notebook assertions and pre-final runtime are retained
+with explicit scope corrections in the evidence archive; these final integrated runs
+supersede them for the photo/notebook/arrival flow.
+
+**Release validation before the final resource repairs:** source partitions 1–7 of
+eight pass (175, 174, 174, 174, 175, 174 and 174 checks), and preflight's changelog-entry
+and ticket-ID checks pass. All fifteen published mobile renderer stages pass on the
+earlier runtime with zero failures or page errors: 921 assertions including repeated
+always-on checks. Stage 6's second-world recovery passed unchanged on quiet CPU. Stage
+13 exceeded the local 595-second command cap; its unchanged remote run then completed
+all 157 assertions successfully.
+
+Source partition 7 exposed a tour test's fixed 200-character source span: inserting the
+notebook exceeded it despite the tour still appearing first. The test now mounts the
+real Guide and verifies that the original tour element leads its controls and hosted
+sections. Focused tests pass; isolated mutations that move or omit the tour are both
+rejected. Its instrumented write measurement remains empty; complete partition 7's
+rerun passed all 174 checks.
+
+Partition 8, locally and on GitHub, found an ambiguous person callback alias interpreted
+as a placement field by the sidecar scanner, and identical era entry pages at 65,638
+bytes, over the existing 65,536-byte duplicate threshold. The callback now says `person`.
+Photo/notebook styles load once per owning document when their views mount, removing
+104 bytes from the shared entry markup. No validator limit or assertion was weakened.
+Browser checks verify real stylesheet loading, application, remount deduplication and
+iframe isolation. The publisher and full partition 8 must verify the final repair.
+
+Resource review found Glessner's 9,307-character citation caption caused 9,241 text
+measurements. Binary-search fitting preserves full metadata and reduces that to 17
+calls; actual canvas-only Chromium measurements fell from 2–5.6 seconds to 3.6–4.9 ms.
+These are local measurements, not a phone or town performance benchmark. Notebook drafts
+now drop IDs confirmed deleted elsewhere while preserving unsaved writing after storage
+errors. The real cross-tab regression rejects the earlier code and passes after 120
+deleted/recreated IDs. Focused logic and browser tests pass for both repairs. Earlier
+whole-town reports remain evidence for the pre-repair runtime; fresh integrated checks
+are required for these changes before merge.
+
+CI found four missing step-isolation records for the new gate tests. The instrumented
+measurement tool now records all four as writing nothing in-tree, and the isolation
+audit and its self-tests pass. This repairs the measurement registry without changing
+the application or assertions. The repaired source partition, complete published
+desktop renderer smoke, post-repair browser checks and exact-head PR CI remain required before DEV
+merge. The PR records their final aggregate; GitHub's phone upload/memory-release check
+has also passed on the unchanged runtime.
+
+Implementation and recovery checkpoints are backed up in PR #2197. Completed logs,
+screenshots, exact source hashes and reproduction harnesses are in
+[chicago-evidence](https://github.com/kevinrhaas/chicago-evidence/tree/main/evidence/t3656-browser-classroom-2026-11-18).
+Later receipts go there and to T-3656 without implying unrun gates passed. No production
+promotion is part of this work.
+
+No new server or shared-service activation. Photos/notes stay local until explicitly
+exported. Shared URLs do not contain notebook text or account state. No claim of full
+WCAG conformance or low-end Chromebook hardware certification. Same-spot Jump remains
+lower priority, with the current single-session replacement default unchanged.
+[CLASSROOM-FEATURES.md](CLASSROOM-FEATURES.md) accounts for all twenty requested items.
+
+**Owner-authorized budget update, 18 November:** the baseline desktop smoke recorded
+3,607,087 Full-detail triangles at West prairie, 2,087 over the previous allowance,
+with draw calls inside their limit. The owner authorized an appropriate increase so
+the DEV merge can proceed. The standing measured-maximum plus 18,059 margin, rounded
+up to 5,000, sets Full to 3,630,000 (a 0.69% increase). Other tiers, calls, reaches,
+shadows and assets stay unchanged; the policy test still rejects extra increases.
+[The measurement and authorization](measurements/t-3656-full-detail-budget.md) record
+the evidence and limits. The baseline desktop run timed out during stage 12; source
+CI partition 1 also hit its 600-second cap without an assertion failure. Neither is
+reported as passing. Fresh budget validation and unfinished renderer/source checks
+remain before merge.
+
 ## T-3580 — Sign-in: Microsoft and email/password beside Google (2026-11-13)
 
 The owner chose Google, Microsoft, email/password and anonymous (email only) to start, Apple

@@ -1,3 +1,13 @@
+## T-3656 — Browser-only classroom tools (18 November 2026)
+
+Owner prioritizes photo/share, field notebook, ungraded understanding checks and group
+lesson guides in parallel. Same-spot Jump is lower priority; preserve the Navigator's
+single-session replacement default and avoid loading several worlds at once.
+[CLASSROOM-FEATURES.md](CLASSROOM-FEATURES.md) accounts for all twenty requested items,
+including later browser-only content and the shared-service features deferred for now.
+The first delivery is local capture/export and evidence-based classroom work; it does
+not claim a teacher dashboard, full accessibility conformance or Chromebook certification.
+
 ## T-3580 — Sign-in: Microsoft and email/password (2026-11-13)
 
 Built switched off with T-3576. Next by the owner: the Firebase config, and Microsoft's Azure

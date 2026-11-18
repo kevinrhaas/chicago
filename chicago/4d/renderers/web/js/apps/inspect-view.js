@@ -588,6 +588,7 @@ async function openPersonCard(pane, personId, ctx) {
   const row = pane._people?.get(personId);
   const home = pane.querySelector('.insp-people-home');
   if (!row || !home) return false;
+  ctx?.actions?.onPersonSelected?.(personId, row.name);
   pane.querySelector('.insp-person-card')?.remove();
   const sceneYear = Number(String(ctx?.scene?.id ?? ctx?.scene?.scene_id ?? '').slice(0, 4)) || null;
   const draw = (m) => {

@@ -138,9 +138,12 @@ jobs:
           # number because the runner decides, and CHECK_JOBS=1 anywhere restores the
           # old path exactly if a step ever turns out to share state with another.
           CHECK_JOBS: ${{ steps.jobs.outputs.n }}
-        # The existing native partition retains every assertion. A timed-out
-        # part fails; only the complete eight-part matrix can satisfy gate.
-        run: timeout --kill-after=5s 600s ./tools/check.sh --part "${{ matrix.part }}/8"
+        # The existing native partition retains every assertion. T-3656, owner-
+        # authorized budget adjustment: part 1 passed in 565.647s, then the same
+        # partition hit 600s without an assertion failure (run 44397687385).
+        # Allow 15 minutes in CI; local foreground commands remain separately
+        # bounded. A timed-out part still fails, and all eight must pass.
+        run: timeout --kill-after=5s 900s ./tools/check.sh --part "${{ matrix.part }}/8"
 
       # T-0409 — deliberately NOT inside check.sh. The nightly bake regenerates
       # data/ and correctly ships no entry, so a gate in check.sh would fail
