@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_square_on",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f3ad774997f980a351f6bbfd89f5329fac616dbb6eb15585fb4b716cd3a09bcc",
+  "glb_sha256": "5d6560bf129028df2ae7d1fbf77daf8a7e7712ad3f29305a93ff1334a84122e6",
   "camera_sha256": "cda2578ea5c93de1ed5400ca1f83da8339ea23c273224c6ad760394f98b0fdee",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_square_on-side-by-side.jpg",
@@ -160,8 +160,14 @@
       "how": "T-3562: a stone K15 stack keeps its own stone through the soot band (k15_chimneys.stack_solids), as on the oblique's south stack"
     },
     {
-      "what": "the deck over the curb: the print shows sky straight over the cresting's rail (y 146 px), where the build's low-pitched deck shows dark through and over its cresting (y 120-165 px); the build's curb stands about 0.2 m high on this view and about 0.8 m low on the oblique's, so the curb's height and the deck's pitch are one question across the two views",
-      "status": "open"
+      "what": "the deck over the curb: the print shows sky straight over the cresting's rail (y 146 px), where the build's deck rose dark through and over its cresting (y 105-165 px)",
+      "status": "fixed",
+      "how": "T-3562: the deck was built at 31.7 degrees, not its record's 10: k01_frontage_params read the door hood's pediment pitch into the roof's own `pitch` local, so its ridge stood at 15.09 m for 13.20 m. Parted (and the build now refuses a roof pitch other than the record's); at 10 degrees the deck falls behind the curb from this eye and the cresting stands against the sky, as the print draws it"
+    },
+    {
+      "what": "the curb's height on this view: the build's curb and cresting stand about 0.2 m over the print's",
+      "status": "within tolerance",
+      "how": "under the 1 ft line here; the oblique's record keeps the curb's height open (about 0.8 m low on that camera), one question across the two views"
     },
     {
       "what": "the main front's south wall stands inside the corner bay's south edge: the upper storey's wall ends at x 834 px and the cornice at about 855 px, the bay running on to x 905 px",

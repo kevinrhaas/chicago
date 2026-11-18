@@ -3309,9 +3309,9 @@
     "keith_house_1808_prairie__as_built_1886.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 9151332,
+      "bytes": 9154692,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "9b18b5d538e1155bd9fc3acf7f86b6997f60ff6c0b590fafeea3e7fecc7e5302",
+      "inputs_sha256": "7f1293bbc8e758590824d9564d8d5c3a474b3026b32abbf4cd605fd6fdd58cda",
       "kind": "generated",
       "phase_id": "as_built_1886",
       "structure_id": "keith_house_1808_prairie"
@@ -9934,9 +9934,9 @@
     "sears_meeker_house_1815_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 7256420,
+      "bytes": 7247444,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "313da2705fdf504c45186911d56a364c4998d1eb48a2f9a10b4227371e76061e",
+      "inputs_sha256": "866eefcf48d5783517ee4d891e69f747e46cd8a583747cc5dfb926f317b19fce",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "sears_meeker_house_1815_prairie"

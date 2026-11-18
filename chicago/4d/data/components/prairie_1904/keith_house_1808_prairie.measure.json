@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 9151332,
-      "sha256": "a6182a52cdf1c3c5734c2fe44688c307ea2fcb6c7c527e9f401f4248d69a2fc7",
+      "bytes": 9154692,
+      "sha256": "c400e8591087f9731a82ca22698effc5e26bbb54e7dfff55de55e911baa81c89",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -19,8 +19,8 @@
       "mesh": {
         "draw_primitives": 26,
         "materials": 26,
-        "triangles": 85186,
-        "vertices": 180903
+        "triangles": 85217,
+        "vertices": 180992
       },
       "texture": {
         "images": 11,
@@ -262,8 +262,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 3641208,
-      "sha256": "ade29ce9b44d9a04243e2399df89dadd88a9be090de2b670a0835f6777d8656d",
+      "bytes": 3642392,
+      "sha256": "aa365673651c72aea3a788f132cb7773ff41ad2254019b2f2f8a609a87164bc7",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -282,8 +282,8 @@
       "mesh": {
         "draw_primitives": 26,
         "materials": 26,
-        "triangles": 85186,
-        "vertices": 139181
+        "triangles": 85217,
+        "vertices": 139206
       },
       "texture": {
         "images": 11,
@@ -416,7 +416,7 @@
             0.9
           ],
           "uv_per_m_times_tile_m": 0.9999,
-          "below_quantization_floor": 4048
+          "below_quantization_floor": 4050
         },
         "k11_wall_brick": {
           "median_uv_per_m": 1.203,
@@ -455,7 +455,7 @@
             1.6
           ],
           "uv_per_m_times_tile_m": 0.9989,
-          "below_quantization_floor": 4671
+          "below_quantization_floor": 4670
         },
         "slate_covering": {
           "median_uv_per_m": 0.4803,
@@ -464,7 +464,8 @@
             2.032,
             2.1336
           ],
-          "uv_per_m_times_tile_m": 1
+          "uv_per_m_times_tile_m": 1,
+          "below_quantization_floor": 9
         },
         "stoop_stone": {
           "median_uv_per_m": 1.1107,
