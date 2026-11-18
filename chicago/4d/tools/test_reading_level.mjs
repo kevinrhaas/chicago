@@ -12,7 +12,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import {
   LEVELS, LEVEL_IDS, WRITTEN, levelOfGrade, gradeOfLevel, createReadingChoice, readerFields, remoteAges, READER_FIELDS,
-  syncReading, tableOf, addTable, clearTables, lookup, wordsAt, tellingTable, readingTabs, levelledIn, forgetAge, openingAge, keyOf,
+  syncReading, tableOf, addTable, clearTables, lookup, wordsAt, tellingTable, readingTabs, levelledIn, forgetAge, openingAge, keyOf, slotOf,
 } from '../renderers/web/js/reading-level.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -105,6 +105,11 @@ assert.equal(levelOfGrade('9-10'), '14-15'); assert.equal(levelOfGrade('K-2'), '
   const t = tableOf([{ text: '  Two  words. ', own: '11-13', levels: { '8-10': 'Two.', '11-13': 'same age: dropped' } }, { text: 'none', levels: {} }]);
   assert.equal(t.size, 1, 'an entry with no other age is not a table row');
   assert.deepEqual(t.get('Two words.'), { own: '11-13', levels: { '8-10': 'Two.' } }, 'keyed with its spaces run together; its own age is not a level');
+  const long = 'A long note. '.repeat(20), longer = long + 'And one more.';
+  const lt = tableOf([{ text: long, levels: { '8-10': 'Short.' } }, { text: longer, levels: { '8-10': 'Shorter.' } }]);
+  assert.ok([...lt.keys()].every((k) => k.startsWith('#') && k.length < 30), 'a long key is held as its hash, not the note');
+  assert.equal(lt.get(slotOf(keyOf(long))).levels['8-10'], 'Short.');
+  assert.equal(lt.get(slotOf(keyOf(` ${longer}  `))).levels['8-10'], 'Shorter.', 'two long notes keep two rows; spacing does not matter');
 }
 
 // ---- the tabs, over a small DOM ----------------------------------------------------------------

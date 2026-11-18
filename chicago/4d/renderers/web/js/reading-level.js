@@ -156,9 +156,27 @@ export async function syncReading({ choice = readingChoice(), account, projectId
 export const keyOf = (text) => String(text ?? '').replace(/\s+/g, ' ').trim();
 
 /**
+ * Where a key sits in a table. A long one (a building's "why" note runs to thousands of
+ * characters, and 1835 has 3,368 of them) is held as a 53-bit hash and its length rather
+ * than as the whole string, so a scene's table keeps its tellings and not a second copy of
+ * every note it tells (1835's table held about 23 MB, and 14 MB so).
+ */
+export function slotOf(key) {
+  if (key.length <= 96) return key;
+  let h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+  for (let i = 0; i < key.length; i++) {
+    const c = key.charCodeAt(i);
+    h1 = Math.imul(h1 ^ c, 2654435761); h2 = Math.imul(h2 ^ c, 1597334677);
+  }
+  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+  return `#${(4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(36)}:${key.length}`;
+}
+
+/**
  * A table of entries `{ text, own?, levels: { <age>: words } }`: `own` is the age the text
  * itself is written at (18+ for a card's words as written; a telling's own band for a
- * jaunt). Returns a Map from keyOf(text) to { own, levels }.
+ * jaunt). Returns a Map from slotOf(keyOf(text)) to { own, levels }.
  */
 export function tableOf(entries = []) {
   const map = new Map();
@@ -168,7 +186,7 @@ export function tableOf(entries = []) {
     for (const id of LEVEL_IDS) if (typeof e.levels?.[id] === 'string' && e.levels[id].trim()) levels[id] = e.levels[id];
     const own = LEVEL_IDS.includes(e.own) ? e.own : WRITTEN;
     delete levels[own];
-    if (Object.keys(levels).length) map.set(keyOf(e.text), { own, levels });
+    if (Object.keys(levels).length) map.set(slotOf(keyOf(e.text)), { own, levels });
   }
   return map;
 }
@@ -184,7 +202,8 @@ export function addTable(table) {
 export function lookup(text) {
   const key = keyOf(text);
   if (!key) return null;
-  for (const t of tables) { const hit = t.get(key); if (hit) return hit; }
+  const slot = slotOf(key);
+  for (const t of tables) { const hit = t.get(slot); if (hit) return hit; }
   return null;
 }
 /** Tests only. */
