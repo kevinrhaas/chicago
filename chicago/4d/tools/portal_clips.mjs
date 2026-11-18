@@ -7,6 +7,7 @@
  *                                                           to judge a framing before filming it
  *   node tools/portal_clips.mjs ... --frames 80 --fps 10    defaults: 80 frames at 10 fps (8 s)
  *   node tools/portal_clips.mjs ... --out DIR               PNG frames (default /tmp/portal-clips)
+ *   node tools/portal_clips.mjs --year 1835 --reels         remake the reels from the shipped MP4s
  *
  * The owner, 2026-10-16: the three destination cards on the home page should show a
  * moving image from each year, picked at random per load from a small library, each one a
@@ -22,6 +23,8 @@
  * renderers/web/portal/clips/<year>-<shot>.{mp4,webm} (published as walk/portal/clips/).
  * `--encode` re-encodes from the frames already on disk. A shot written as `{ "film": … }`
  * is cut from a public-site film instead of filmed (T-3611; see cutFromFilm).
+ * Each clip also gets `<year>-<shot>.reel.webp`, its frames as one grey strip (see makeReel);
+ * `--reels` remakes those from the MP4s already in clips/, without filming or cutting.
  */
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
@@ -94,6 +97,27 @@ function poseAt(shot, t) {
 }
 
 /**
+ * The reel: every frame of the clip at half size (240x80), grey, stacked top to bottom in one
+ * WebP. The page steps it onto a canvas when the browser will not play a video at all, as an
+ * iPhone in Low Power Mode will not (Kevin, 2026-11-17); the feed is shown grey anyway, so the
+ * colour is not kept. Made from the MP4, so the reel and the video always show the same loop.
+ */
+function makeReel(stem) {
+  const frames = Number(execFileSync('ffprobe', ['-v', 'error', '-count_frames', '-select_streams', 'v', '-show_entries',
+    'stream=nb_read_frames', '-of', 'csv=p=0', `${stem}.mp4`], { encoding: 'utf8' }));
+  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', `${stem}.mp4`, '-vf', `scale=240:80:flags=area,format=gray,tile=1x${frames}`,
+    '-frames:v', '1', '-c:v', 'libwebp', '-quality', '55', `${stem}.reel.webp`]);
+}
+if (flag('--reels')) {
+  for (const shot of SHOTS) {
+    const stem = path.join(CLIPS, `${YEAR}-${shot.id}`);
+    if (!fs.existsSync(`${stem}.mp4`)) continue;
+    makeReel(stem);
+    console.log(`${YEAR}/${shot.id}: ${path.relative(APP, stem)}.reel.webp ${(fs.statSync(`${stem}.reel.webp`).size / 1024).toFixed(0)} KB`);
+  }
+  process.exit(0);
+}
+/**
  * Two encodings of the same frames, and the page fetches one: VP9 WebM where the browser
  * plays it (Chrome, Firefox, Edge — and the Chromium the smoke test drives, which has no
  * H.264), H.264 MP4 otherwise (Safari, every iPhone browser).
@@ -109,7 +133,8 @@ function encode(shot) {
     '-crf', String(PLAN.crf ?? 30), '-preset', 'veryslow', '-g', String(FRAMES), '-movflags', '+faststart', `${stem}.mp4`]);
   execFileSync('ffmpeg', [...input, '-c:v', 'libvpx-vp9', '-pix_fmt', 'yuv420p', '-b:v', '0', '-crf', String((PLAN.crf ?? 30) + 12),
     '-row-mt', '1', '-deadline', 'good', '-cpu-used', '1', '-g', String(FRAMES), `${stem}.webm`]);
-  return ['mp4', 'webm'].map(x => `${path.relative(APP, stem)}.${x} ${(fs.statSync(`${stem}.${x}`).size / 1024).toFixed(0)} KB`).join(', ');
+  makeReel(stem);
+  return ['mp4', 'webm', 'reel.webp'].map(x => `${path.relative(APP, stem)}.${x} ${(fs.statSync(`${stem}.${x}`).size / 1024).toFixed(0)} KB`).join(', ');
 }
 /**
  * A shot with `film` is not filmed here: it is cut from one of the public site's films
@@ -140,7 +165,8 @@ function cutFromFilm(shot) {
     '-crf', String(PLAN.crf ?? 30), '-preset', 'veryslow', '-g', String(frames), '-movflags', '+faststart', `${stem}.mp4`]);
   execFileSync('ffmpeg', [...input, '-c:v', 'libvpx-vp9', '-pix_fmt', 'yuv420p', '-b:v', '0', '-crf', String((PLAN.crf ?? 30) + 12),
     '-row-mt', '1', '-deadline', 'good', '-cpu-used', '1', '-g', String(frames), `${stem}.webm`]);
-  return ['mp4', 'webm'].map(x => `${path.relative(APP, stem)}.${x} ${(fs.statSync(`${stem}.${x}`).size / 1024).toFixed(0)} KB`).join(', ');
+  makeReel(stem);
+  return ['mp4', 'webm', 'reel.webp'].map(x => `${path.relative(APP, stem)}.${x} ${(fs.statSync(`${stem}.${x}`).size / 1024).toFixed(0)} KB`).join(', ');
 }
 for (const shot of SHOTS.filter(s => s.film)) if (!STILLS) console.log(`${YEAR}/${shot.id}: cut from ${shot.film} → ${cutFromFilm(shot)}`);
 const CAMERA = SHOTS.filter(s => !s.film);
