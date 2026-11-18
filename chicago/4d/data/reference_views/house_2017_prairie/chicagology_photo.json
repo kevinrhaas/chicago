@@ -1,0 +1,36 @@
+{
+ "structure_id": "house_2017_prairie",
+ "source_id": "chicagology_2017_armour_photo",
+ "library_image": "a20-chicagology-2017-armour-photo",
+ "photo": "../../sources/assets/armour_2017_photo_t3634/armour_2017_chicagology_photo.jpg",
+ "image_px": [
+  932,
+  1200
+ ],
+ "principal_px": [
+  466.0,
+  1034.0
+ ],
+ "focal_px": 2275.0,
+ "eye": [
+  41.5,
+  5.12,
+  1.6
+ ],
+ "yaw_deg": -90.0,
+ "sky": "sun",
+ "scene": "1904",
+ "solve": "PROVISIONAL",
+ "flora": {
+  "front_yards": [
+   "prairie_2017"
+  ],
+  "street_trees_m": 40,
+  "season": "winter"
+ },
+ "sun_uvy": [
+  0.55,
+  0.45,
+  0.7
+ ]
+}

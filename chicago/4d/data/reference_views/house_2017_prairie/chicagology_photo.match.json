@@ -1,0 +1,73 @@
+{
+  "structure_id": "house_2017_prairie",
+  "view": "chicagology_photo",
+  "glb": "assets/gltf/house_2017_prairie__as_mapped_1904.glb",
+  "glb_sha256": "e395397a8983b06f7888fc88140e78dcd89dcf3dc12f5d525fd6ea326fd23dde",
+  "camera_sha256": "9d45bcc587e327795d0486d6f4c4a2f1c76c71b9cdbd216d75dcb6c65d79543f",
+  "photo_sha256": "0586ba59683607672112e12b5c3429e8a139820061ffc9189c90826302e2b226",
+  "rendered_flora": {
+    "season": "winter",
+    "lots": [
+      {
+        "parcel": "prairie_2017",
+        "shrubs": 1,
+        "trees": 0,
+        "beds": 0,
+        "creeper": 0
+      }
+    ],
+    "street_trees": 5,
+    "street_trees_m": 40
+  },
+  "flora_anchor": {
+    "local_e": 1441.061,
+    "local_n": -3530.462,
+    "rotation_deg": 179.389,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "draft_1904"
+  },
+  "flora_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
+    },
+    {
+      "file": "tools/photo_match_flora.mjs",
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
+    },
+    {
+      "file": "renderers/web/js/front-yards.js",
+      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
+    },
+    {
+      "file": "renderers/web/js/street-trees.js",
+      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
+    },
+    {
+      "file": "renderers/web/js/tree-instances.js",
+      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
+    },
+    {
+      "file": "renderers/web/js/tree-model.js",
+      "sha256": "1ec46dc2bfb15d13dab2260c022b31d4ee88b7302aab5be62069b2eaf5e198e2"
+    },
+    {
+      "file": "renderers/web/js/tree-surface.js",
+      "sha256": "90a8598a636582d098a0161609b227cd5db06c7cd25d77a330664a226bcceb40"
+    },
+    {
+      "file": "renderers/web/js/season.js",
+      "sha256": "8407ba119eef8e26e1bfb4bf1d9dd2c4786d2981165f2d232fe53d2347a9bda7"
+    },
+    {
+      "file": "renderers/web/js/trees.js",
+      "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
+    }
+  ],
+  "flora_sha256": "307316d8457eefd179bb34ab512204ba92798437447babe60cb96aa9a68791f0",
+  "side_by_side": "docs/RESEARCH/photo-match/house_2017_prairie/chicagology_photo-side-by-side.jpg",
+  "verdict": "unreviewed",
+  "differences": [],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
