@@ -1813,6 +1813,13 @@ step "a K08 oriel takes a carved apron band of rosettes under its lights (T-3365
 step "a K01 named-window front takes moulded hoods, consoles, a key and a pendant (T-3365)" \
   python3 tools/test_k01_window_hoods.py
 
+# T-3626. The stone frame of a K01 named-window front (2013 Prairie, the Inland Architect's 1895
+# plate): pilasters carrying one corniced hood over the top storey's lights, a sunk panel under
+# each of them, a lunette over the hood and two oval lights in moulded rings, every part proud of
+# the brick and clear of every light. Held on the committed record; each part refused out of range.
+step "a K01 named-window front takes a stone frame of pilasters, panels, a hood and oval lights (T-3626)" \
+  python3 tools/test_k01_front_frame.py
+
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on
 # the named walls hooded and no other, a pair meeting ear to ear, every crest under the eave,

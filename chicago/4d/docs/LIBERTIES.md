@@ -44711,3 +44711,39 @@ The farm-box master's `photographic_acceptance` is set true on its record of mat
 **Ticket:** T-3558.
 **Review:** `data/transport/parked/placements.json` (`farm_box_w01`, `retired_yard_wagons`), `renderers/web/js/parked-transport.js` and `renderers/web/js/yard.js` (`retiredIds`), `tools/transport/check_parked_placements.py`.
 **Recorded:** 2026-11-17 (T-3558).
+
+### L-k01-2013-reid-3626 — 2013 Prairie's stone frame round its upper lights and its two oval lights, built on K01 off the Inland Architect's 1895 plate: plain where the plate is carved, and the ovals not cut
+
+**Decision:** T-3626 (piece 2 of T-1916) builds the plate's frame on the front of `reid_house_2013_prairie`
+with a new K01 part, `street_front_windows.frame` (`k01.wall.front_frame`): a dressed limestone pilaster up each
+side of the three-light storeys and one in each pier between their lights (5.95-11.45 m); a raised border round
+a sunk panel under each third-storey light (8.4-9.55 m); one corniced hood across the whole frame (11.45-11.8 m),
+on the pilasters; and the two oval lights, 0.75 by 1.2 m over their moulded rings, at 0.83 and 6.54 m, 7.3 m up.
+The third storey's broad light, which T-3625 built as one round-headed light from 9.7 to 12.6 m, is re-read as
+the plate draws it: a square-headed light 1.2 m wide under the hood (9.7-11.45 m) and a round-headed lunette
+0.9 m wide over it (11.9-12.6 m); the storey's narrow lights are cut to 1.6 m so their heads stand under the
+pilasters' capitals.
+
+**What is read, not invented.** Every part's place, through the camera T-3625 solved on the plate
+(`data/reference_views/reid_house_2013_prairie/inland_architect_plate.json`): the frame's edges, the panels'
+heights, the hood's foot, the lunette, and the ovals' centres and sizes, each checked on the side-by-side to a
+few pixels (the match record lists them).
+
+**What is invented.** Every projection (the pilasters 0.04-0.05 m proud, the panels' borders 0.03 m, the hood's
+frieze 0.08 m and its corona 0.2 m, the ovals' rings 0.06 m); the pilasters' widths in the piers, which the plate
+draws too small to measure; the ornament's material (limestone, after the nomination's 'terra cotta/limestone
+ornament').
+
+**What is built otherwise than the evidence, and why.** The ovals are not cut through the wall: a dark field
+inside each stone ring stands for the grilled light, since K01 cuts no oval in a plain wall. The pilasters'
+carved capitals, the small roundels in the narrow panels and the carved border up the front's south edge are
+not carved; the pilasters are plain strips. The frieze of garlands and the dentils, and the front's pale tone,
+stay as L-k01-2013-reid-3625 left them.
+
+**How to resolve:** the rest of T-3626: the capitals, the roundels, the south edge's border, the frieze and
+dentils and the front's tone, then the flanks and rear off the 2003 nomination photographs, toward the image
+gate's sign-off.
+**Covers:** `reid_house_2013_prairie.as_mapped_1904.form.street_front_windows`.
+**Ticket:** T-3626 (piece 2 of T-1916, S07).
+**Review:** `docs/RESEARCH/photo-match/reid_house_2013_prairie/inland_architect_plate-side-by-side.jpg`.
+**Recorded:** 2026-11-17 (T-3626).
