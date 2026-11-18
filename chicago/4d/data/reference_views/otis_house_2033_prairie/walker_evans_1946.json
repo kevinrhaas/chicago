@@ -1,0 +1,29 @@
+{
+ "structure_id": "otis_house_2033_prairie",
+ "source_id": "walker_evans_1946_2033_prairie_otis",
+ "library_image": "a20-chicagology-2033-walker-evans",
+ "photo": "../../sources/assets/otis_2033_photo_t3659/otis_2033_walker_evans_1946.jpg",
+ "image_px": [
+  696,
+  913
+ ],
+ "principal_px": [
+  348.0,
+  697.0
+ ],
+ "focal_px": 1235.0,
+ "eye": [
+  38.9,
+  2.06,
+  1.0
+ ],
+ "yaw_deg": -90.0,
+ "sky": "sun",
+ "scene": "1904",
+ "solve": "Fitted for T-3659 to the photograph and the 1911 sheet 35 trace of the house's plan (s35fp-2033-b1). A level camera square-on to the front: the print's verticals stand upright and its horizontals run level across the front (the bay's bands, the cornice, the sill of the light over the door), so the camera is not pitched and looks straight at the front, yaw -90 in the plan's frame. Its principal column is held at the print's middle (x 348 px), the print being a cropped reproduction; the front's two party lines, the lot's 7.62 m apart, print at x 250 and 612 px, 47.5 px a metre on the wall's plane, which puts the eye opposite s 2.06 m (x 348) and, with f 1235 px, 26 m before the wall: on the far walk of Prairie Avenue (u 38.9; the front at u 12.9, the street line at u 20.87). Its principal row is 1.0 m over the house's grade at the wall's foot (y 745 px, where the bay's basement meets the yard), y 697 px: about a person's eye over the public walk, which the print draws lower than the yard (the stoop runs down past the fence line to it). CHECKS, render against print: the party lines at x 248 and 615 against 250 and 612; the heads of the lights over the door at y 190 and 335 against 185 and 330; the cornice's crown at y 50 against 48; the hood's apex at y 455 against 452; the bay's edges at x 410 and 553 against 411 and 550. WHAT IS SOFT: the principal column is assumed; a square-on camera does not read depth, so the bay's projection and the front yard's depth are the sheet's and the plan's, not the print's; heights are good to about 0.1 m on the wall's plane. LIGHT: sun from the south-west and high, as the print's reveals throw their shadows to the north and the cornice its shadow down the frieze.",
+ "sun_uvy": [
+  1.0,
+  0.8,
+  1.6
+ ]
+}

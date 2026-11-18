@@ -1,0 +1,77 @@
+{
+  "structure_id": "otis_house_2033_prairie",
+  "view": "walker_evans_1946",
+  "glb": "assets/gltf/otis_house_2033_prairie__as_mapped_1904.glb",
+  "glb_sha256": "fdd20f35ccfd69e455d8acdc849c8b49c8cf64aeb5d61744a7ecb56a5ec2b0aa",
+  "camera_sha256": "ca9c68e5ffdb114ea934ed0ea6bd58249052134610f6273286d717c56314c5f5",
+  "photo_sha256": "c964ed0da9b23428147b33bc81fa077b9feb5bac531b5941d17ee35632893346",
+  "side_by_side": "docs/RESEARCH/photo-match/otis_house_2033_prairie/walker_evans_1946-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the draft's 12.5 x 6.5 m box with a one-storey bay is now the sheet's '3B' body across the whole 7.62 m lot under a flat roof, its party lines at x 248 and 615 px against the print's 250 and 612",
+      "status": "fixed"
+    },
+    {
+      "what": "the bay: three faces carried through the basement and all three storeys up to the main cornice, the cornice turned round it; its edges at x 410 and 553 px against 411 and 550, one arched light to each face a storey, a band at each storey, laid in channelled courses as the print's",
+      "status": "fixed"
+    },
+    {
+      "what": "the lights over the door: arched, 0.9 m wide, their heads at y 190 and 335 px against the print's 185 and 330, each under an arch band with a key block",
+      "status": "fixed"
+    },
+    {
+      "what": "the door: a pair of leaves under an arched fanlight in a segmental head, 1.64 m wide, as the print's double door with its transom",
+      "status": "fixed"
+    },
+    {
+      "what": "the door hood: a pediment on a stone entablature over two scrolled consoles, its apex at y 455 px against 452 and 2.7 m across",
+      "status": "fixed"
+    },
+    {
+      "what": "the cornice: the crown at y 50 px against the print's 48, about 1.8 m from the frieze's foot to the crown, carried round the bay",
+      "status": "fixed"
+    },
+    {
+      "what": "the arched basement light under the bay's front, half hidden by a shrub in the print",
+      "status": "fixed"
+    },
+    {
+      "what": "the flat front's channelled courses: the print lays the whole front in channelled courses about 0.3 m high; K01 lays a street wall smooth or rock-faced, so the build's flat front is smooth ashlar (the bay alone is channelled). A street visitor sees the banding, so it stays open until K01 can lay a channelled street wall (L-k01-2033-otis-3659)",
+      "status": "open"
+    },
+    {
+      "what": "the stoop's run: the print's yard stands above the public walk and its stoop runs down past the fence line to the walk (its foot at y 805 px); the build sets the yard on the town's grade and its stoop stops at the yard, its foot at about y 750. A visitor would see a stoop half the print's length, so it stays open until the yard's level above the walk is built (L-k01-2033-otis-3659)",
+      "status": "open"
+    },
+    {
+      "what": "the fence: K11's spear fence stands about 1.3 m with taller posts against the print's plain pickets about 0.9 m on their curb, about 0.4 m higher than the print's",
+      "status": "open"
+    },
+    {
+      "what": "the urn on the hood's apex is not built (K01 keeps a hood clear of the light over it, before whose foot the urn stands), and the hood stands about 0.15 m under the print's",
+      "status": "within tolerance"
+    },
+    {
+      "what": "carving finer than the print: the hood's consoles and frieze, the key blocks, the bay's spandrels and the cornice's frieze, built as plain members at the print's sizes; the consoles 1.0 m to the print's about 1.3",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the cornice's brackets stand at the kit's spacing, wider apart than the print's close-set brackets, at the print's depth",
+      "status": "within tolerance"
+    },
+    {
+      "what": "tone: the build's buff Lemont limestone and its green sash against a monochrome print, which reads the stone pale and the sash dark",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the neighbours: the print shows the row's two neighbours gone (a vacant lot and a 1940s loft to the north, a tower to the south); in 1904 2031 and 2035 stood against both party walls, so the build is right not to show the print's surroundings",
+      "status": "not shown"
+    },
+    {
+      "what": "the flanks, rear, roof and rear range, which the print does not see",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

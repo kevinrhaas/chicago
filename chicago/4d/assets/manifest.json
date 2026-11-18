@@ -4028,14 +4028,14 @@
       "phase_id": "frame_1834",
       "structure_id": "old_bank_building"
     },
-    "otis_house_2033_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "otis_house_2033_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 82512,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "6bcfcd471a7f94dbb11423d1b934f2e625287cac48e21b6cb6261048c52f1ba4",
+      "bytes": 3743072,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "bd6f5bc2644329df5eb7f3974394cc9d3ce67eda34ef44557e43af03b500fcbe",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "otis_house_2033_prairie"
     },
     "otis_house_2033_prairie_coach_house__draft_1904.glb": {
