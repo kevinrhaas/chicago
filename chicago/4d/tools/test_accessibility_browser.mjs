@@ -48,6 +48,8 @@ try {
     const context = await browser.newContext({ viewport: { width, height: phone ? 780 : 800 },
       isMobile: phone, hasTouch: phone, deviceScaleFactor: 1, reducedMotion: 'reduce' });
     const page = await context.newPage(), errors = [];
+    const pendingPictures = [];
+    await page.route('**/pending-*.svg', route => pendingPictures.push(route));
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(origin);
     await page.evaluate(async resizeBody => {
@@ -80,6 +82,9 @@ try {
       const canvas = document.getElementById('view');
       const renderer = new THREE.WebGLRenderer({ canvas, antialias: false });
       renderer.setClearColor('#28626b'); renderer.setPixelRatio(1);
+      window.fixtureResizeCount = 0;
+      const setSize = renderer.setSize.bind(renderer);
+      renderer.setSize = (...args) => { fixtureResizeCount++; return setSize(...args); };
       window.fixtureRenderer = renderer;
       const camera = new THREE.PerspectiveCamera();
       const resize = new Function('viewportSize', 'renderer', 'camera', 'H_FOV_DEG', 'DEG', 'THREE', 'gate',
@@ -116,12 +121,19 @@ try {
     await page.keyboard.press('ArrowRight');
     assert.equal(await dialog.locator('[data-pv-count]').textContent(), '2 / 2');
     assert.equal(await page.evaluate(() => document.activeElement.hasAttribute('data-pv-close')), true, 'changing credit retains modal focus');
+    assert.equal(await dialog.evaluate(el => !!el._loading), true, 'full-size image is still pending when closed');
     await page.keyboard.press('Escape');
     assert.equal(await dialog.isVisible(), false);
     assert.equal(await page.evaluate(() => document.activeElement.id), 'open-picture');
     assert.equal(await page.evaluate(() => fixtureNav.level), beforeLevel, 'Escape closes only the modal');
     assert.deepEqual(await dialog.evaluate(el => ({ open: el.open, image: el.querySelector('img').getAttribute('src'),
       loading: el._loading, doc: el._doc })), { open: false, image: null, loading: null, doc: null });
+    await page.unroute('**/pending-*.svg');
+    for (const route of pendingPictures) {
+      await route.fulfill({ contentType: 'image/svg+xml', body: svg }).catch(() => {}); // A removed src may already have cancelled it.
+    }
+    await page.waitForTimeout(30);
+    assert.equal(await dialog.locator('img').getAttribute('src'), null, 'late image delivery cannot revive the closed image');
     assert.deepEqual(await page.evaluate(() => ({ inert: document.getElementById('already-inert').inert,
       hidden: document.getElementById('already-inert').getAttribute('aria-hidden'),
       retained: document.getElementById('retained-aria').getAttribute('aria-hidden'),
@@ -138,7 +150,7 @@ try {
     await dialog.evaluate(el => el.close());
     await page.waitForFunction(() => document.querySelector('.pic-viewer').hidden);
 
-    const before = await page.evaluate(() => ({ canvas: [view.width, view.height], vh: document.documentElement.style.getPropertyValue('--vh'),
+    const before = await page.evaluate(() => ({ canvas: [view.width, view.height], resizes: fixtureResizeCount, vh: document.documentElement.style.getPropertyValue('--vh'),
       sheet: document.getElementById('navigator').getBoundingClientRect().height, scale: visualViewport.scale,
       touch: [getComputedStyle(document.getElementById('navigator')).touchAction,
         getComputedStyle(document.getElementById('nav-home')).touchAction,
@@ -151,9 +163,10 @@ try {
       await client.send('Input.synthesizePinchGesture', { x: box.x + box.width / 2, y: box.y + box.height / 2,
         scaleFactor: 2, relativeSpeed: 400, gestureSourceType: 'touch' });
       await page.waitForFunction(() => visualViewport.scale > 1.5);
-      const zoom = await page.evaluate(() => ({ canvas: [view.width, view.height], vh: document.documentElement.style.getPropertyValue('--vh'),
+      const zoom = await page.evaluate(() => ({ canvas: [view.width, view.height], resizes: fixtureResizeCount, vh: document.documentElement.style.getPropertyValue('--vh'),
         sheet: document.getElementById('navigator').getBoundingClientRect().height, scale: visualViewport.scale }));
       assert.deepEqual(zoom.canvas, before.canvas, 'native pinch does not shrink the GPU drawing buffer');
+      assert.equal(zoom.resizes, before.resizes, 'native pinch does not repeatedly reallocate the same drawing buffer');
       assert.equal(zoom.vh, before.vh);
       assert(Math.abs(zoom.sheet - before.sheet) < 1);
       await page.locator('#reading-end').focus();

@@ -389,7 +389,7 @@ button.nav-tile:focus-visible { outline: 2px solid var(--accent); outline-offset
     border-radius: 20px;
     transition: height .28s var(--ease-detent, ease), left .28s var(--ease-detent, ease), right .28s var(--ease-detent, ease);
     /* Reading can scroll and magnify. Only the sheet's drag handles reserve gestures. */
-    touch-action: pan-y pinch-zoom;
+    touch-action: pan-x pan-y pinch-zoom;
     --dock-w: 136px;
   }
   /* T-2619 (DOCK · 64 px): closed, the device is a pill at the bottom centre — lamp and
@@ -410,7 +410,7 @@ button.nav-tile:focus-visible { outline: 2px solid var(--accent); outline-offset
   .navigator[data-detent="half"] { height: calc(var(--vh, 100vh) * .48); }
   .navigator[data-detent="full"] { height: calc(var(--vh, 100vh) * .82); }
   .navigator.is-dragging { transition: none; }
-  .navigator .nav-screen { touch-action: pan-y pinch-zoom; }
+  .navigator .nav-screen { touch-action: pan-x pan-y pinch-zoom; }
   .nav-grip {
     display: block;
     flex: none;

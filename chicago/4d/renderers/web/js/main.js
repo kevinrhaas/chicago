@@ -7276,7 +7276,11 @@ async function boot() {
 
   function resize() {
     const { width: w, height: h } = viewportSize();
-    renderer.setSize(w, h, true);
+    // Pinch/pan emits visual-viewport events without changing the layout. Keep
+    // the existing drawing buffer instead of clearing/reallocating it each time.
+    if (renderer.domElement.style.width !== `${w}px` || renderer.domElement.style.height !== `${h}px`) {
+      renderer.setSize(w, h, true);
+    }
     camera.aspect = w / h;
     // Hor+ : hold the horizontal field of view and let the vertical follow, so a
     // portrait phone does not end up looking down a drinking straw.
