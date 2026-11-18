@@ -4264,6 +4264,9 @@ async function boot() {
       residentsNear: daysScene === '1835' ? ({ full: 8, balanced: 6 }[detailLevel] ?? 4) : 3,
       // T-3555: of those who may step out near the visitor, one the crowd draws out here first.
       prefer: (id) => api.crowd?.draws?.(id) ?? false,
+      // T-3555: how many people the crowd may hand over as whole figures at once, as the visitor
+      // walks up to them (human-days.js `materialize`); fewer on a lighter detail, never none.
+      crowdNear: ({ full: 12, balanced: 10 }[detailLevel] ?? 8),
       problems: layerProblems('humans') });
     // T-3555 (owner, 2026-11-12: "a living town at a phone's cost"): the town's people beyond
     // the built figures, the middle distance as instanced shared bodies and the far as cards
