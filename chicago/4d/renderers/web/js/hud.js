@@ -81,6 +81,8 @@ const DEFAULT_SETTINGS = {
   // T-3614 (owner, 2026-11-16): a small card hovering over each person with their name, on by
   // default; a click or tap on it opens their card (name-cards.js).
   nameCards: true,
+  // The owner, 2026-11-17: which name cards show, by grade, any mix (all three by default).
+  nameCardsAttested: true, nameCardsInferred: true, nameCardsReconstructed: true,
   // '' = never chosen, so main.js's device guess stands (phone light, desktop full).
   detail: '',
   // The drawer's own choices. `pace` is how YOU move (walk, run, wagon, horse) and
@@ -605,6 +607,19 @@ export function createHud({
     });
   }
 
+  function nameCardGradeRow(after) {
+    if (!after || $('row-name-card-grades')) return;
+    const row = document.createElement('div');
+    row.className = 'field row name-card-grades';
+    row.id = 'row-name-card-grades';
+    row.setAttribute('role', 'group');
+    row.setAttribute('aria-label', 'Which name cards');
+    row.innerHTML = '<span>Show cards for</span><span class="name-card-grade-picks">'
+      + ['Attested', 'Inferred', 'Reconstructed'].map((g) =>
+        `<label class="check-field"><input type="checkbox" id="s-name-cards-${g.toLowerCase()}"> ${g}</label>`).join('')
+      + '</span>';
+    after.after(row);
+  }
   function wireToggle(id, key) {
     const el = $(id);
     if (!el) return;
@@ -666,6 +681,13 @@ export function createHud({
   wireToggle('s-today-view', 'todayView');
   wireToggle('s-look-tag', 'lookTag');
   wireToggle('s-name-cards', 'nameCards');
+  // The owner, 2026-11-17: which name cards, by grade, any mix of the three. Built here, not in
+  // index.html: the page is copied to every year's door, and at 64 KiB a copy is a merge refusal
+  // (validate.py SITE_DUPE_FLOOR, T-0722), which index.html had 40 bytes left before.
+  nameCardGradeRow($('row-name-cards'));
+  wireToggle('s-name-cards-attested', 'nameCardsAttested');
+  wireToggle('s-name-cards-inferred', 'nameCardsInferred');
+  wireToggle('s-name-cards-reconstructed', 'nameCardsReconstructed');
   wireSelect('s-look-tag-place', 'lookTagPlace', 'right');
   wireSelect('s-look-tag-hold', 'lookTagHold', 'fade');
   // T-2741: the toggle names the scene's own year — "1904 / current street names" — not
