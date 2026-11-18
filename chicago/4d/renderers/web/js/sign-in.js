@@ -358,6 +358,9 @@ export async function signInGate({
   const accountOf = (user, email) => (user ? {
     email: email || user.email || user.providerData?.find(p => p.email)?.email || '',
     method: methodOf(user),
+    // T-3644: whose row the visitor's own person is kept in (visitor-person.js), and a token for it.
+    uid: user.uid,
+    idToken: () => user.getIdToken(),
     signOut: async () => {
       try { await authMod.signOut(auth); } catch (err) { console.warn('[4D Chicago] sign-out', err); }
       forget(storage, EMAIL_KEY);

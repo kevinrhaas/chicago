@@ -2,7 +2,7 @@
 // T-3555: the town at a distance (renderers/web/js/crowd.js, traffic-cards.js, and the day's
 // `outdoors` reader in human-days.js). Checks, on the real modules:
 //  - every distance has a tier, with no gap and no double: a person not built is drawn from
-//    the middle tier's near edge out to the far edge, the middle body and the card handed
+//    beside the visitor out to the far edge (inside the near edge only until handed over), the middle body and the card handed
 //    over at one boundary, held across it by the hysteresis; a built figure is a card only
 //    past its own drawing range;
 //  - the eased weights are complementary (never both whole, never summing past one);
@@ -49,8 +49,9 @@ for (const tier of ['full', 'balanced', 'light']) {
   let was = { v: 0, t: 0 };
   for (let d = 0; d <= f1 + 20; d += 0.25) {
     const g = tierTargets(d, tier, { was: null });
-    if (d < m0) ok(g.v === 0, `${tier}: nobody drawn at ${d} m, under the middle's near edge`);
-    else if (d < f1) ok(g.v === 1, `${tier}: someone at ${d} m is drawn`);
+    // Nobody dissolves for the visitor coming up to them (T-3555, owner 2026-11-17): inside the
+    // near edge they are drawn until handed over to a whole figure.
+    if (d < f1) ok(g.v === 1, `${tier}: someone at ${d} m is drawn`);
     else ok(g.v === 0, `${tier}: nobody drawn past the far edge (${d} m)`);
     if (g.v) ok(g.t === (d > m1 + HYST_M ? 1 : 0), `${tier}: at ${d} m, coming from nowhere, ${d > m1 + HYST_M ? 'a card' : 'the middle body'}`);
     was = tierTargets(d, tier, { was });
@@ -58,7 +59,8 @@ for (const tier of ['full', 'balanced', 'light']) {
   // Held: a card stays a card until HYST_M inside the boundary, and a body a body until past it.
   ok(tierTargets(m1 - HYST_M + 0.5, tier, { was: { v: 1, t: 1 } }).t === 1, `${tier}: a card is held just inside the boundary`);
   ok(tierTargets(m1 + HYST_M - 0.5, tier, { was: { v: 1, t: 0 } }).t === 0, `${tier}: a body is held just past the boundary`);
-  ok(tierTargets(m0 - HYST_M + 0.5, tier, { was: { v: 1, t: 0 } }).v === 1, `${tier}: someone drawn is held just inside the near edge`);
+  ok(tierTargets(m0 - HYST_M - 0.5, tier, { was: { v: 1, t: 0 } }).v === 1, `${tier}: someone drawn is still drawn inside the near edge`);
+  ok(tierTargets(0.5, tier, { was: { v: 1, t: 0 } }).v === 1 && tierTargets(0.5, tier, { was: { v: 1, t: 0 } }).t === 0, `${tier}: someone close by is the middle body, not nothing`);
   // Built figures: only a card, and only past their own range.
   ok(tierTargets(100, tier, { built: true, drawM: 140 }).v === 0, `${tier}: a built figure in its range is humans.js's`);
   const b = tierTargets(150, tier, { built: true, drawM: 140 });
@@ -109,6 +111,37 @@ ok(sample.every((x) => !Object.prototype.hasOwnProperty.call(x, 'day')), 'readin
     ok(s && !s.indoors && !s.away, `${o.person} is out by their own day`);
   }
   ok(layer.outdoors(v, 300, 5).length === 5, 'a limit keeps the nearest only');
+
+  // The hand-over (owner, 2026-11-17: far people "dissolve like ghosts and i cant get to them"):
+  // someone the crowd draws is built where it draws them, leaves the crowd's list, at most
+  // `crowdNear` at once, and goes back to the crowd once the visitor has left them far behind.
+  const made = [];
+  const stubActor = (entry, door) => {
+    const a = { id: `hi_inside_${entry.person}`, personId: entry.person, e: door.leaf.local_e, n: door.leaf.local_n,
+      heading: door.outward_deg, indoors: false, instance: { scene: '1835', appearance: { asset_id: entry.asset_id } },
+      setIndoors(f) { this.indoors = !!f; }, place() {}, setState() {}, stopPath() {}, turnTo() {}, actions: {},
+      dispose() { this.disposed = true; } };
+    made.push(a); return a;
+  };
+  let at = { ...v };
+  const handLayer = days.createHumanDays({ humans: { ...humansStub, shown: true }, hour: () => 12.5, date: () => '1835-07-01',
+    inside: JSON.parse(JSON.stringify(town)), doors: { structures: [] }, spawn: stubActor, crowdNear: 3, visitor: () => at });
+  const near = handLayer.outdoors(v, 300, 50);
+  const first = near[0];
+  const actor = handLayer.materialize(first.person, { e: first.at.e + 0.4, n: first.at.n, heading_deg: 77 });
+  ok(!!actor && !actor.indoors, 'a far person handed over is built, out of doors');
+  ok(actor && Math.abs(actor.e - (first.at.e + 0.4)) < 1e-9 && Math.abs(actor.n - first.at.n) < 1e-9, 'built where the crowd drew them');
+  ok(!handLayer.outdoors(v, 300, 5000).some((o) => o.person === first.person), 'once built, the crowd no longer lists them');
+  ok(handLayer.materialize(first.person, first.at) === null, 'nobody is built twice');
+  for (const o of near.slice(1, 3)) handLayer.materialize(o.person, o.at);
+  ok(made.length === 3, `three built (${made.length})`);
+  ok(handLayer.materialize(near[3].person, near[3].at) === null, 'past crowdNear, none of the three far enough off to let go: nobody more');
+  at = { e: v.e + 2000, n: v.n };
+  const back = handLayer.handedBack;
+  handLayer.update(0.1);
+  ok(handLayer.handedBack > back, `left far behind, they go back to the crowd (${handLayer.handedBack - back})`);
+  ok(handLayer.outdoors(v, 300, 5000).some((o) => o.person === first.person), 'and the crowd lists them again');
+  handLayer.dispose?.();
   humansStub.shown = false;
   ok(layer.outdoors(v, 300).length === 0, 'Show › People hidden: nobody is read');
 }

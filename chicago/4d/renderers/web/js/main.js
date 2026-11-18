@@ -102,7 +102,7 @@ import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
-import { createNameCards, cardTheme, gradeOf } from './name-cards.js';
+import { createNameCards, cardTheme, gradeOf, nameCardGrades } from './name-cards.js';
 import { supportsTownTransport } from './transport-scenes.js';
 import { createWells } from './wells.js';
 import { createTimeStream } from './time-stream.js';
@@ -4264,6 +4264,9 @@ async function boot() {
       residentsNear: daysScene === '1835' ? ({ full: 8, balanced: 6 }[detailLevel] ?? 4) : 3,
       // T-3555: of those who may step out near the visitor, one the crowd draws out here first.
       prefer: (id) => api.crowd?.draws?.(id) ?? false,
+      // T-3555: how many people the crowd may hand over as whole figures at once, as the visitor
+      // walks up to them (human-days.js `materialize`); fewer on a lighter detail, never none.
+      crowdNear: ({ full: 12, balanced: 10 }[detailLevel] ?? 8),
       problems: layerProblems('humans') });
     // T-3555 (owner, 2026-11-12: "a living town at a phone's cost"): the town's people beyond
     // the built figures, the middle distance as instanced shared bodies and the far as cards
@@ -4373,7 +4376,7 @@ async function boot() {
           yaw_deg: walker.bearingDeg, pitch_deg: walker.state.pitch / DEG }); },
         // T-3557: Climb up / Take the reins / Get down. The ride holds the eye on the seat
         // (ride.hold in the frame); getting down lands on the ground a visitor stands on.
-        visitorEye: () => ({ e: walker.state.e, n: walker.state.n, y: walker.state.eyeY, bearing: walker.bearingDeg }),
+        visitorEye: () => ({ e: walker.state.e, n: walker.state.n, y: walker.state.eyeY, bearing: walker.bearingDeg, pitch: walker.state.pitch }),
         groundAt: (e, n) => figureGround(e, n),
         walkEye: () => WALK.eyeHeight,
         reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, say: (text) => hud.say(text),
@@ -4420,6 +4423,8 @@ async function boot() {
       detail: () => detailLevel,
       hidden: () => confidence.hidden.reconstructed || !shownLayers.vehicles,
       teams: () => api.townTransport?.footprintsAhead?.([0, 1.5, 3], .3) ?? [],
+      // T-3644: the visitor rides as their own person.
+      self: () => api.person ?? null,
       onMount: (horse, on) => {
         if (!on) return;
         api.travel?.stop?.('riding');
@@ -4428,6 +4433,22 @@ async function boot() {
     })).then((ride) => { if (ride) { api.riding = ride; scene3d.add(ride.group); } })
       .catch((error) => { problems.push(`riding: ${error.message}`); });
   }
+
+  // T-3644 (Kevin, 2026-11-17: "provide options for users in settings to change the gender
+  // appearance dress, etc."): the visitor's own person, chosen on the Settings card's You tab and
+  // worn in the saddle (visitor-person.js, person-settings.js). Off the boot's path.
+  api.person = null;
+  void (async () => {
+    const [{ loadVisitorPerson }, { wirePersonSettings, personHost }, { createPersonPortrait }, { COMPLEXION_TINT }] = await Promise.all([
+      import('./visitor-person.js'), import('./person-settings.js'), import('./person-portrait.js'), import('./human-looks.js')]);
+    personHost(document);   // the You tab's group, with its "loads with the town" line until then
+    const person = await loadVisitorPerson({ dataBase: bases.dataBase, assetBase: bases.assetBase, storage: safeStorage(),
+      account: api.signIn?.account ?? null });
+    api.person = person;
+    const portrait = createPersonPortrait({ renderer, humans: () => api.humans ?? null, person, lod: 1 });
+    api.personSettings = wirePersonSettings({ doc: document, person, year: YEAR, portrait, tints: COMPLEXION_TINT });
+    person.onChange(() => { void api.riding?.reseat?.(); });
+  })().catch((error) => { problems.push(`person: ${error.message}`); });
 
   /** A structure's ground position in local ENU metres — footprint centroid where
    *  one is drawn, the placement otherwise. Go to measures distance from it;
@@ -4639,6 +4660,10 @@ async function boot() {
         // T-3614: the name cards over people, on or off.
         api.nameCards?.setShown(value !== false);
         gateFrame.invalidate();
+      } else if (key === 'nameCardsAttested' || key === 'nameCardsInferred' || key === 'nameCardsReconstructed') {
+        // The owner, 2026-11-17: which name cards show, by grade, any mix.
+        api.nameCards?.setGrades(nameCardGrades(hud.settings));
+        gateFrame.invalidate();
       } else if (key === 'units') {
         navigation.setUnits(value);
       }
@@ -4674,7 +4699,7 @@ async function boot() {
   // people, the drivers on their boxes and a jaunt's hosts and castmates, at any hour. One
   // instanced draw over one atlas (name-cards.js); Settings › Show › Name cards over people.
   api.nameCards = createNameCards({
-    THREE, renderer, camera, tier: detailLevel, shown: hud.settings.nameCards !== false,
+    THREE, renderer, camera, tier: detailLevel, shown: hud.settings.nameCards !== false, grades: nameCardGrades(hud.settings),
     viewHeight: () => renderer.domElement.clientHeight,
     // The card's edge and light: the person's grade in the Confidence view's colour for it.
     gradeColors: () => Object.fromEntries(['attested', 'inferred', 'reconstructed'].map((l) => [l, confidence.grade(l)?.color ?? null])),
@@ -5423,7 +5448,8 @@ async function boot() {
       popup.close();
       api.jauntStage.meet(staged, { e: walker.state.e, n: walker.state.n });
       if (staged.personId) void openPersonCard(staged.personId);
-      else hud.say(staged.name);
+      // An unnamed figure given a name of ours (T-3553) says it with what they stand for.
+      else hud.say(staged.about ? `${staged.name}: ${staged.about}` : staged.name);
       return staged;
     }
     if (figure && (!hit || figure.distance < hit.distance)) {

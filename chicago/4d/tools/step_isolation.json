@@ -5710,6 +5710,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_board_climb.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_boot_forecast.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -7159,6 +7163,10 @@
       "wrote_ignored": []
     },
     "tools/test_vessels.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_visitor_person.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
