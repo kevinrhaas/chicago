@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 3080, ts: '2026-11-17T23:33:52.711Z', date: 'Nov 17, 2026, 5:33 PM CT', title: 'The first-time tour shows what the town does now', kind: 'feature',
+    items: [
+      'The tour (Guide › Take the tour) is ten quick steps. New: Interact, where you walk up to someone, a horse or a boat and press R (or tap Interact) to talk, ride or take the helm; and Jaunts, the narrated stories told for your grade.',
+      'Look and Walk say how on your device, including Shift or a full push of the thumb to run. Settings names the name cards. A row of segments on the tour card fills as you go, and the card flashes as each step is passed.',
+      'The teachers\' handout prints the ten steps.',
+    ] },
+  { v: 3079, ts: '2026-11-17T23:33:52.711Z', date: 'Nov 17, 2026, 5:33 PM CT', title: 'Clothing holds together: collars, coats and sleeves', kind: 'fix',
+    items: [
+      'Collars, apron straps and crossbelts now sit cleanly on the clothes beneath them, with smooth edges and nothing showing through, from the maid and cook to the 1812 soldiers and the children.',
+      'Men in coats no longer show a gap under the arm as they walk, and the back vents of the tailcoats and soldiers\' coats hang closed.',
+      'Sleeve cuffs turn with the wrist as one clean edge, and the coachman\'s gloves reach up inside his sleeves.',
+    ] },
   { v: 3078, ts: '2026-11-17T22:51:33.339Z', date: 'Nov 17, 2026, 4:51 PM CT', title: 'Smoother frames where many people stand together', kind: 'fix',
     items: [
       'Each person\'s clothes, hair and hat now move on one set of bones instead of a set per piece, so a crowd costs far less to draw every frame. Everyone is still there, dressed and moving as before.',

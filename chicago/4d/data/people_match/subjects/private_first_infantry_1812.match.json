@@ -1,0 +1,238 @@
+{
+  "subject": "private_first_infantry_1812",
+  "reference_set": "soldier_1812",
+  "shot": {
+    "date": "2026-11-17",
+    "target": "tools/people_match_stage.html on this tree",
+    "build": "stage, tree d4fae0e81 + 5 uncommitted figure file(s)",
+    "out": "evidence/people-match-2026-11-17/private_first_infantry_1812",
+    "evidence_repo": "kevinrhaas/chicago-evidence"
+  },
+  "bound": {
+    "appearance": {
+      "asset_id": "private_first_infantry_1812"
+    },
+    "animation": {
+      "clip": "idle",
+      "loop": true,
+      "phase": 0.85
+    },
+    "asset_lod0_sha256": "bf5de031de4276a607d603f99f9df9db93e35c35b5cd95cae025f98555b172c3"
+  },
+  "stills": {
+    "near-desktop": {
+      "file": "evidence/people-match-2026-11-17/private_first_infantry_1812/near-desktop.jpg",
+      "sha256": "7eb49202fc3e382a488f7bd431ce5cab4d22a7d750481d99a75bdbb7e6f6bcff",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 2.922,
+        "n": -0.797,
+        "eye_y": 1.68,
+        "yaw_deg": 285,
+        "pitch_deg": -13.78,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.024,
+          -0.02,
+          1.694
+        ]
+      },
+      "figure_box_px": [
+        523,
+        169,
+        233,
+        421
+      ]
+    },
+    "far-desktop": {
+      "file": "evidence/people-match-2026-11-17/private_first_infantry_1812/far-desktop.jpg",
+      "sha256": "29a800f0d08a7b8b3026f82618eca016fa2a5ac5910567430baef7f260af35ab",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 9.421,
+        "n": -3.44,
+        "eye_y": 1.68,
+        "yaw_deg": 290,
+        "pitch_deg": -5.06,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.024,
+          -0.02,
+          1.694
+        ]
+      },
+      "figure_box_px": [
+        603,
+        324,
+        73,
+        132
+      ]
+    },
+    "near-phone": {
+      "file": "evidence/people-match-2026-11-17/private_first_infantry_1812/near-phone.jpg",
+      "sha256": "c6d4ab3ee92152256df1bfa71beac7356fb9aa851241bb03d980178d5bb4a452",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 2.922,
+        "n": -0.797,
+        "eye_y": 1.68,
+        "yaw_deg": 285,
+        "pitch_deg": -13.78,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.024,
+          -0.02,
+          1.694
+        ]
+      },
+      "figure_box_px": [
+        81,
+        165,
+        227,
+        411
+      ]
+    },
+    "far-phone": {
+      "file": "evidence/people-match-2026-11-17/private_first_infantry_1812/far-phone.jpg",
+      "sha256": "e3d9ca25bdc7b67916ebc90587c267081ea1a661d5e3a83867604b8533d76cdf",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 9.421,
+        "n": -3.44,
+        "eye_y": 1.68,
+        "yaw_deg": 290,
+        "pitch_deg": -5.06,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.024,
+          -0.02,
+          1.694
+        ]
+      },
+      "figure_box_px": [
+        159,
+        316,
+        71,
+        129
+      ]
+    }
+  },
+  "sheets": {
+    "near-side-by-side": "evidence/people-match-2026-11-17/private_first_infantry_1812/near-side-by-side.jpg",
+    "far-side-by-side": "evidence/people-match-2026-11-17/private_first_infantry_1812/far-side-by-side.jpg",
+    "near-pair": "evidence/people-match-2026-11-17/private_first_infantry_1812/near-pair.jpg",
+    "far-pair": "evidence/people-match-2026-11-17/private_first_infantry_1812/far-pair.jpg",
+    "motion-strip": "evidence/people-match-2026-11-17/private_first_infantry_1812/motion-strip.jpg"
+  },
+  "verdict": "differs",
+  "checklist": {
+    "silhouette": {
+      "what": "Silhouette and fit of the clothes",
+      "status": "open",
+      "note": "A short blue coat, white crossbelts, white overalls and a tall black cap: at 10 m he reads as a soldier of the period. Beside Krimmel's volunteers the coat's breast is plain blue (theirs is faced orange-red down the front), and the legs are loose white overalls (theirs are close blue pantaloons with black gaiters to the knee). Krimmel paints Philadelphia volunteers, not the First Infantry, and Ogden (1888, a later reconstruction) shows white crossbelts: the pattern differences need a ruling, the fit ones do not."
+    },
+    "folds": {
+      "what": "Folds where cloth gathers",
+      "status": "within tolerance",
+      "note": "The overalls are loose with few folds; the tails part and swing mid-stride."
+    },
+    "hat_hair": {
+      "what": "Hat and hair",
+      "status": "within tolerance",
+      "note": "A tall black felt cap with a white plume, as the record's 1813 cap read backwards; Krimmel's men wear bearskins and crested hats, Ogden's crested round hats."
+    },
+    "skin": {
+      "what": "Skin at 3 m",
+      "status": "within tolerance",
+      "note": "Coloured pictures; a reconstructed face, no likeness of Paul Grummo is known."
+    },
+    "hands": {
+      "what": "Hands",
+      "status": "reads",
+      "note": "Bare at the sides; no musket (the pictures' men shoulder muskets)."
+    },
+    "stance": {
+      "what": "How the figure stands or sits",
+      "status": "reads",
+      "note": "Upright at attention in the rank; Krimmel's men stand the same way."
+    },
+    "motion": {
+      "what": "How it moves (the 5-second strip)",
+      "status": "reads",
+      "note": "A plain walk, tails swinging; cartridge box rides the right hip."
+    }
+  },
+  "differences": [
+    {
+      "what": "breast facings",
+      "picture": "Orange-red facings down the breast and a high faced collar (Krimmel 1811-13); faced lapels on Ogden's 1802-10 coats.",
+      "ours": "Plain blue single-breasted breast with white buttons; red only at collar and cuffs.",
+      "status": "open"
+    },
+    {
+      "what": "legwear",
+      "picture": "Close-fitting blue pantaloons and black gaiters to the knee (Krimmel); gaiters (Ogden).",
+      "ours": "Loose white linen overalls to the shoe; the gaiters (footwear__shoes_gaiters_black_1812) do not show under them.",
+      "status": "open"
+    },
+    {
+      "what": "crossbelts",
+      "picture": "Dark crossbelts (Krimmel); white crossbelts (Ogden).",
+      "ours": "White crossbelts crossing mid-chest.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "coat skirts",
+      "picture": "Short coats with white turnbacks on the tails (Krimmel); long-skirted coats (Ogden).",
+      "ours": "Short tails to the upper thigh, plain blue; no turnbacks.",
+      "status": "open"
+    },
+    {
+      "what": "headwear",
+      "picture": "Bearskin caps and crested round hats (Krimmel); crested round hats with a feather (Ogden).",
+      "ours": "Tall black felt cylinder cap, white plume.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "equipment",
+      "picture": "Musket with bayonet, cartridge box (Krimmel).",
+      "ours": "Cartridge box and scabbard at the right hip; no musket.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "collar and stock",
+      "picture": "High faced collar, a black stock (Krimmel).",
+      "ours": "High red collar over a black leather stock.",
+      "status": "reads"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever laid the stills beside the pictures; each checklist item is {what, status, note} with status open | reads | not shown | within tolerance | owner ruling — open when a visitor would see the figure is not the pictures’ kind of person in that respect. The first figure of each role is the owner’s call (the plan’s \"Your call\"); later figures of the role are held to the one he approved. A reshoot of a changed figure (bound) sets the verdict back to unreviewed."
+}

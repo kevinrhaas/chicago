@@ -1,0 +1,238 @@
+{
+  "subject": "mahoney_patrick_1835",
+  "reference_set": "labourer_1835",
+  "shot": {
+    "date": "2026-11-17",
+    "target": "tools/people_match_stage.html on this tree",
+    "build": "stage, tree d4fae0e81 + 5 uncommitted figure file(s)",
+    "out": "evidence/people-match-2026-11-17/mahoney_patrick_1835",
+    "evidence_repo": "kevinrhaas/chicago-evidence"
+  },
+  "bound": {
+    "appearance": {
+      "asset_id": "mahoney_patrick_1835"
+    },
+    "animation": {
+      "clip": "idle",
+      "loop": true,
+      "phase": 0.3
+    },
+    "asset_lod0_sha256": "db880c7f33b04e16f529bf2154c4b14efbca901d75e54127ee09ffe04400b086"
+  },
+  "stills": {
+    "near-desktop": {
+      "file": "evidence/people-match-2026-11-17/mahoney_patrick_1835/near-desktop.jpg",
+      "sha256": "c0bf0be9ff302260b994f40cc04b6539302c75c9157e8f4c970440cacf27099d",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 1.753,
+        "n": -2.448,
+        "eye_y": 1.68,
+        "yaw_deg": 325,
+        "pitch_deg": -17.06,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.032,
+          0.01,
+          1.51
+        ]
+      },
+      "figure_box_px": [
+        527,
+        172,
+        227,
+        410
+      ]
+    },
+    "far-desktop": {
+      "file": "evidence/people-match-2026-11-17/mahoney_patrick_1835/far-desktop.jpg",
+      "sha256": "e435091ce330b84184095f6bbdff2b5dc9501c4a40d3f2827715923ad5b8ff1e",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 3.452,
+        "n": -9.387,
+        "eye_y": 1.68,
+        "yaw_deg": 340,
+        "pitch_deg": -6.11,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.032,
+          0.01,
+          1.51
+        ]
+      },
+      "figure_box_px": [
+        604,
+        324,
+        73,
+        132
+      ]
+    },
+    "near-phone": {
+      "file": "evidence/people-match-2026-11-17/mahoney_patrick_1835/near-phone.jpg",
+      "sha256": "2fbb1b7960db3a4d471ae08a9ae5aba9fc403ed6712330a6d8692430ef67807b",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 1.753,
+        "n": -2.448,
+        "eye_y": 1.68,
+        "yaw_deg": 325,
+        "pitch_deg": -17.06,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.032,
+          0.01,
+          1.51
+        ]
+      },
+      "figure_box_px": [
+        84,
+        168,
+        221,
+        400
+      ]
+    },
+    "far-phone": {
+      "file": "evidence/people-match-2026-11-17/mahoney_patrick_1835/far-phone.jpg",
+      "sha256": "d593e513fe855200b69680b7ccebb418ebc08fe26174b80a6ebfa11d80214b08",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 3.452,
+        "n": -9.387,
+        "eye_y": 1.68,
+        "yaw_deg": 340,
+        "pitch_deg": -6.11,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.032,
+          0.01,
+          1.51
+        ]
+      },
+      "figure_box_px": [
+        159,
+        316,
+        71,
+        128
+      ]
+    }
+  },
+  "sheets": {
+    "near-side-by-side": "evidence/people-match-2026-11-17/mahoney_patrick_1835/near-side-by-side.jpg",
+    "far-side-by-side": "evidence/people-match-2026-11-17/mahoney_patrick_1835/far-side-by-side.jpg",
+    "near-pair": "evidence/people-match-2026-11-17/mahoney_patrick_1835/near-pair.jpg",
+    "far-pair": "evidence/people-match-2026-11-17/mahoney_patrick_1835/far-pair.jpg",
+    "motion-strip": "evidence/people-match-2026-11-17/mahoney_patrick_1835/motion-strip.jpg"
+  },
+  "verdict": "differs",
+  "checklist": {
+    "silhouette": {
+      "what": "Silhouette and fit of the clothes",
+      "status": "reads",
+      "note": "Shirt sleeves, an open waistcoat, braces, a red neckerchief, full brown trousers and a pale slouch hat: Mount's raffle man and his cider makers, who read at 10 m as ours does (a pale shirt, a dark waistcoat, brown legs, a hat)."
+    },
+    "folds": {
+      "what": "Folds where cloth gathers",
+      "status": "open",
+      "note": "The shirt sleeves are full but smooth to a plain wrist; every picture gathers them into a wristband with folds down the arm, and the shirt is beige-grey where theirs are white."
+    },
+    "hat_hair": {
+      "what": "Hat and hair",
+      "status": "reads",
+      "note": "A pale broad-brimmed soft felt, as the Raffle man's; Weir's sawyer wears a battered black hat."
+    },
+    "skin": {
+      "what": "Skin at 3 m",
+      "status": "within tolerance",
+      "note": "Coloured pictures; a reconstructed face and complexion, no likeness asserted."
+    },
+    "hands": {
+      "what": "Hands",
+      "status": "reads",
+      "note": "Bare at the sides."
+    },
+    "stance": {
+      "what": "How the figure stands or sits",
+      "status": "reads",
+      "note": "Upright; the pictures' men are at work (sawing, at the press), which no standing clip shows."
+    },
+    "motion": {
+      "what": "How it moves (the 5-second strip)",
+      "status": "reads",
+      "note": "A plain walk; the trousers break and swing."
+    }
+  },
+  "differences": [
+    {
+      "what": "shirt colour",
+      "picture": "White shirts (Raffle, Cider Making), white over red (Weir).",
+      "ours": "Unbleached beige-grey; reads greyer than every picture at 3 m and 10 m.",
+      "status": "open"
+    },
+    {
+      "what": "sleeves",
+      "picture": "Full sleeves gathered at the wrist into a band (Raffle).",
+      "ours": "Full sleeves to a plain wrist; no gathering or wristband reads.",
+      "status": "open"
+    },
+    {
+      "what": "waistcoat",
+      "picture": "Buff (Raffle), brown (Weir) or dark green (Cider Making), worn open, lining-backed.",
+      "ours": "Dark green, open; the back is green cloth like the front.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "shirt collar",
+      "picture": "Shirt collar under a loose knotted neckerchief (Raffle).",
+      "ours": "Red neckerchief at the throat, no shirt collar shows.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "braces",
+      "picture": "Braces over the shoulders (Cider Making).",
+      "ours": "Brown braces show in the waistcoat's opening.",
+      "status": "reads"
+    },
+    {
+      "what": "trousers",
+      "picture": "Full brown or dark trousers (Cider Making, Weir).",
+      "ours": "Full brown trousers.",
+      "status": "reads"
+    },
+    {
+      "what": "hat",
+      "picture": "Pale broad felt (Raffle); battered black (Weir).",
+      "ours": "Pale drab slouch hat.",
+      "status": "reads"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever laid the stills beside the pictures; each checklist item is {what, status, note} with status open | reads | not shown | within tolerance | owner ruling — open when a visitor would see the figure is not the pictures’ kind of person in that respect. The first figure of each role is the owner’s call (the plan’s \"Your call\"); later figures of the role are held to the one he approved. A reshoot of a changed figure (bound) sets the verdict back to unreviewed."
+}
