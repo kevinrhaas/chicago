@@ -4376,7 +4376,7 @@ async function boot() {
           yaw_deg: walker.bearingDeg, pitch_deg: walker.state.pitch / DEG }); },
         // T-3557: Climb up / Take the reins / Get down. The ride holds the eye on the seat
         // (ride.hold in the frame); getting down lands on the ground a visitor stands on.
-        visitorEye: () => ({ e: walker.state.e, n: walker.state.n, y: walker.state.eyeY, bearing: walker.bearingDeg }),
+        visitorEye: () => ({ e: walker.state.e, n: walker.state.n, y: walker.state.eyeY, bearing: walker.bearingDeg, pitch: walker.state.pitch }),
         groundAt: (e, n) => figureGround(e, n),
         walkEye: () => WALK.eyeHeight,
         reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, say: (text) => hud.say(text),

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1174,
+  "count": 1175,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -76463,6 +76463,45 @@
       ],
       "work_refs": [
         "T-3553"
+      ]
+    },
+    {
+      "id": "L-board-climb-3560",
+      "title": "The visitor seen climbing up onto a carriage's box or into a wagon, and down again",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-17",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-17: *\"when i stood at a carriage in 1904 and said get up next to the coachman he just appeared on the wagon he should have a climb up sequence that shows him boarding that applies all years\"*. Climb up and Get down (“The visitor climbs up beside a driver and takes the reins of his team”) are drawn: the visitor is a period figure of the year (the boarding data `figure`, the same anonymous stand-ins the saddle horses seat, never a named townsperson) who walks from where the visitor stood to the vehicle's side (round behind it from the far side of a carriage whose box seat is on one side), puts a foot on the front wheel's hub, a hand on the rail, steps up and sits on the visitor's seat; the eye goes out beside the vehicle and watches him, then into the seat. Getting down is the same climb backwards and a walk to the clear stand beside the team. Every driven vehicle of every year has its climb: the 1904 broughams' box (by the near front hub, onto the footboard, a hand on the dash and on the seat's iron rail, into the seat beside the coachman), and the 1812 and 1835 farm wagons (by either front hub, over the box's side, down onto its floor). The cab of the Glessner brougham is still got into by the eye alone. Reduced motion draws nothing, as before."
+        },
+        {
+          "label": "Not invented",
+          "text": "the holds are on the vehicles as they are modelled: the brougham's front hub cap (0.58 m), footboard (1.09 m, where the coachman's seated clip rests his feet), the dash's top (1.465 m) and the box seat's iron side rail (the brougham v20 near model); the farm box's hubs (0.59 m), the top edge of its flared sides (1.36 m) and its floor (0.95 m) (the farm box near model). the board climb test checks every sole and hand on them and every ankle clear of the vehicle between holds."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "the way up, every key of it (which foot first, the hub as the first step, where the hands go, how far he leans, the turn to sit), every number of the boarding data `keys`, the timing (3.2 s up the brougham, 3.6 s into the wagon, a walk at 1.3 m/s), and where the eye watches from. No source says how anyone climbed these vehicles; a coachman's step on the boot, which the modelled brougham does not have, is not added. The figure is the year's stand-in, not the visitor's own person yet."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "the visitor's own person to draw in place of the stand-in; a source or photograph of how a brougham's box or a farm wagon was climbed; the brougham modelled with a box step; the cab drawn getting in."
+        },
+        {
+          "label": "Review",
+          "text": "the boarding data, the walkthrough's board climb code (`planBoard`, `climbPose`, `boardEye`, `poseBoardFigure`), the walkthrough's transport interactions code (`createTeamRide` `boarding`), the walkthrough's town transport scene code, the walkthrough's rider pose code (`knee.up`), the board climb test."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-17."
+        }
+      ],
+      "work_refs": [
+        "T-3644",
+        "T-3560"
       ]
     },
     {
