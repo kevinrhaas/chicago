@@ -18,6 +18,9 @@
  *   drop all ....... untextured after every read: `texturesLost` names the sheet
  *                    and the problem list says the surface draws untextured
  *
+ * T-3647: every lost picture also keeps WHY (`texturesWhy`, the problem line's
+ * "the first/last read said: …", a `4D Chicago: picture lost` console warning).
+ *
  * Before T-3617 every case but `drop 0` drew the house white with no problem line:
  * GLTFLoader catches a texture that fails and builds the material without it.
  * Not a check.sh step (a browser, about a minute); run it when touching
@@ -87,7 +90,7 @@ window.run = async () => {
   const scene = new THREE.Scene(); scene.background = new THREE.Color(0x202020);
   scene.add(row.gltf.scene); scene.add(new THREE.AmbientLight(0xffffff, 3));
   const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 10); camera.position.z = 2.6; renderer.render(scene, camera);
-  return { textured: !!material?.map, texturesLost: row.texturesLost, problems: loaded.problems,
+  return { textured: !!material?.map, texturesLost: row.texturesLost, texturesWhy: row.texturesWhy, problems: loaded.problems,
     sheetRetries: loaded.sheetRetries, seconds: +((performance.now() - t0) / 1000).toFixed(1) };
 };
 window.ready = true;
@@ -115,15 +118,29 @@ try {
   for (const [label, n] of cases) {
     const page = await browser.newPage({ viewport: { width: 200, height: 200 } });
     const errors = [];
+    const lostWarnings = [];
     page.on('pageerror', (e) => errors.push(String(e)));
+    page.on('console', (m) => { if (m.type() === 'warning' && m.text().startsWith('4D Chicago: picture lost')) lostWarnings.push(m.text()); });
     await page.goto(`${origin}/walk/index.html`);
     await page.waitForFunction(() => window.ready === true);
     refuse = n; asked = 0;
     const got = await page.evaluate(() => window.run());
     refuse = 0;
     const lines = got.problems.filter((p) => p.startsWith('fixture_house:'));
-    console.log(`${label}: ${JSON.stringify({ ...got, problems: lines, asked })}`);
+    console.log(`${label}: ${JSON.stringify({ ...got, problems: lines, asked, lostWarnings })}`);
     ok(errors.length === 0, `${label}: no page errors`, errors);
+    // T-3647: a lost picture says WHY — the refusal GLTFLoader swallows — in the
+    // registry, the problem line and a console warning; a picture that arrived says nothing.
+    const said = (w) => typeof w === 'string' && w.length > 0 && w !== 'no reason given';
+    if (label === 'drop all' || label === 'drop 5') {
+      ok(said(got.texturesWhy?.[0]), `${label}: the registry keeps why the picture was lost`, got.texturesWhy);
+      ok(lines.some((p) => (label === 'drop all' ? /; the last read said: \S/ : /; the first read said: \S/).test(p)),
+        `${label}: the problem line carries the reason`, lines);
+      ok(lostWarnings.length > 0 && lostWarnings.every((w) => /^4D Chicago: picture lost: limestone_basecolor — \S/.test(w))
+        && !lostWarnings.some((w) => /no reason given/.test(w)), `${label}: each loss is a warning naming the picture and its reason`, lostWarnings);
+    } else {
+      ok(got.texturesWhy === null && lostWarnings.length === 0, `${label}: no reason and no warning when nothing was lost`, { why: got.texturesWhy, lostWarnings });
+    }
     if (label === 'drop all') {
       ok(!got.textured && got.texturesLost?.[0] === 'limestone_basecolor', `${label}: the house is flagged with the picture it lacks`, got);
       ok(lines.some((p) => /1 of its pictures did not arrive after 3 reads \(limestone_basecolor\)/.test(p)), `${label}: the problem list names it`, lines);

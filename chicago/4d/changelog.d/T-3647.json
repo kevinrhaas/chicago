@@ -1,0 +1,8 @@
+{
+  "title": "A missing picture on a building now says why",
+  "kind": "fix",
+  "items": [
+    "When a building's picture does not load and it draws in plain colour, the app now records why: the file did not arrive, or it arrived but could not be read. Before, it only said that a picture had failed.",
+    "Nothing in the town looks different. This is groundwork for finding why some houses briefly lost their pictures after a Jump between years."
+  ]
+}

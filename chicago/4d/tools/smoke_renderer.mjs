@@ -1272,7 +1272,10 @@ function tallyNames(names) {
   return [...counts].map(([n, c]) => (c === 1 ? n : `${n} x${c}`)).join(', ');
 }
 
+// T-3647: the last check taken, so a page error can say which step it came after.
+let lastCheckName = '(before the first check)';
 function check(name, cond, detail = '', show = false) {
+  lastCheckName = name;
   if (inStageWork) stageWorkChecks += 1;
   const t = TIMING ? stamp() : '';
   if (cond) {
@@ -21657,11 +21660,21 @@ for (const [label, viewport, touch] of [
     // so the first desktop run spent a minute or more on each step and was killed at
     // the ceiling with the mode change still running.
     const until = (fn, arg = null) => p14.waitForFunction(fn, arg, { polling: 250 });
-    p14.on('pageerror', (e) => errors.push(`part 15 pageerror: ${e.message || e}`));
-    p14.on('response', (r) => { if (r.status() >= 400) errors.push(`part 15 HTTP ${r.status()} ${r.url()}`); });
+    // T-3647 (a piece of T-3637): each error says which step it came after, when, and
+    // on which page, because this stage loads three documents (1835, the Jump's year,
+    // 1835 again with ?nav=jump) and its red named only a blob URL. A picture the scene
+    // loader lost also leaves a `picture lost` WARNING with its reason (scene-loader.js
+    // trackLostTextures); those are not errors and fail nothing, they are printed
+    // beside a red so the error has its cause next to it.
+    const at15 = () => `after "${lastCheckName.replace(/^[^:]*: /, '').slice(0, 60)}", ${TIMING ? stamp() : ''}`
+      + `${new URL(p14.url(), 'http://x').pathname}`;
+    const lostPictures15 = [];
+    p14.on('pageerror', (e) => errors.push(`part 15 pageerror (${at15()}): ${e.message || e}`));
+    p14.on('response', (r) => { if (r.status() >= 400) errors.push(`part 15 HTTP ${r.status()} (${at15()}) ${r.url()}`); });
     p14.on('console', (m) => {
       const t = m.text();
-      if (m.type() === 'error' && !t.startsWith('Failed to load resource')) errors.push(`part 15 console.error: ${t}`);
+      if (m.type() === 'error' && !t.startsWith('Failed to load resource')) errors.push(`part 15 console.error (${at15()}): ${t}`);
+      if (m.type() === 'warning' && t.startsWith('4D Chicago: picture lost')) lostPictures15.push(`(${at15()}) ${t}`);
     });
     const jaunt = () => p14.evaluate(() => {
       const s = window.__chicago4d.jaunts.state;
@@ -21979,6 +21992,10 @@ for (const [label, viewport, touch] of [
       linked.app === 'jump' && linked.level > 0 && linked.gate && linked.held === true
       && backed.same && backed.href === linked.href && backed.app === 'home' && backed.level === 0,
       JSON.stringify({ linked, backed }));
+    if (lostPictures15.length) {
+      console.log(`        part 15: ${lostPictures15.length} picture(s) lost by the scene loader, with its reasons (T-3647):`);
+      for (const l of lostPictures15.slice(0, 6)) console.log(`          ${l}`);
+    }
     await ctx14.close();
     inStageWork = false;
     } // end PART 15 (T-2044; renumbered from 14 by T-2337)
