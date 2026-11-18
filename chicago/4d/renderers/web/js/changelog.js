@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3089, ts: '2026-11-18T05:56:52.608Z', date: 'Nov 17, 2026, 11:56 PM CT', title: 'People in the distance stay put as you walk up to them', kind: 'fix',
+    items: [
+      'Someone you see down the street no longer fades away as you come close. They stay in view, and once you are near they are there in full, where they were standing, to greet, follow or ask.',
+      'People you have left far behind go back to being part of the distant town.',
+    ] },
   { v: 3088, ts: '2026-11-18T04:58:29.426Z', date: 'Nov 17, 2026, 10:58 PM CT', title: 'Choose who you are: your own person in Settings', kind: 'feature',
     items: [
       'Settings has a new You tab: pick man or woman, age, complexion, a face, eyes, hair and whiskers, and see your person drawn as you choose.',
