@@ -9,10 +9,14 @@
 //   Peck (peck_philip_1835):
 //     - taper: each leg's section a little above the ankle at most TAPER_MAX of its width just
 //       under the knee (the asset drew a straight tube, about 1.0);
-//     - fullness: the front of the thighs under the waistcoat's hem stands out FULL_MIN_M more;
+//     - fullness: the front of the thighs under the waistcoat's hem stands out FULL_MIN_M more
+//       (by level; round 4 raised it past round 3's 17 mm);
 //     - pleats (LOD0, LOD1): folds on the front of each thigh, a relief of at least
-//       PLEAT_RELIEF_M across it under the waistcoat's hem (the asset's cloth: its facets, 4 mm);
-//     - straps (every level): under each shoe, showing below the hem on both sides of the foot,
+//       PLEAT_RELIEF_M across it under the waistcoat's hem (the asset's cloth: its facets, 4 mm;
+//       round 3's faint pleats, 8 mm);
+//     - straps (every level): STRAP_W_MIN_M wide under the foot and STRAP_T_MIN_M thick, of the
+//       trousers' cloth in their mesh (or the shoes' with STRAP_LEATHER), under each shoe,
+//       showing below the hem on both sides of the foot,
 //       through under the sole, on the foot bone below the hem; on the shoe at every pose of the
 //       walk and idle; a garment on the leg to the skirt rig (never driven with the tails);
 //     - nothing comes through: not the shin or the shoe through the drawn-in trousers, not the
@@ -37,6 +41,7 @@
 //   fitSleeves and before fitWaist.
 //
 // TAILOR_BASELINE=1 runs every measure with the pass left out (the code before it): it fails.
+// TAILOR_JS=<an earlier human-tailor-1835.js> runs it on that module (round 3's: it fails).
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
@@ -69,7 +74,8 @@ const { fitWaist } = await js('human-waist.js');
 const { engraveSilver } = await js('human-silver.js');
 const { garmentKind } = await js('human-skirt.js');
 const { dressCloth } = await js('human-looks.js');
-const T = await js('human-tailor-1835.js');
+// TAILOR_JS=<path>: another version of the module (the code before a change).
+const T = process.env.TAILOR_JS ? await import(new URL(`file://${process.env.TAILOR_JS}`).href) : await js('human-tailor-1835.js');
 const BASELINE = process.env.TAILOR_BASELINE === '1';
 const tailor = BASELINE ? () => [] : T.tailor1835;
 
@@ -180,7 +186,7 @@ function facesOut(o) {
   assert(share > 0.97, `${o.name}: faces out (${(share * 100).toFixed(1)}% of ${total} triangles)`);
   return share;
 }
-function keptGarments(before, after, asset, lod, allowMove) {
+function keptGarments(before, after, asset, lod, allowMove, appendTo = []) {
   const piece = (m) => m.name.replace(`${asset}_`, '').replace(/_lod\d+$/, '');
   const bm = new Map(); before.scene.traverse((o) => { if (o.isSkinnedMesh) bm.set(o.name, o); });
   // No mesh more: the pieces go into the garments' own meshes (one draw call each, T-3555).
@@ -196,7 +202,7 @@ function keptGarments(before, after, asset, lod, allowMove) {
     const ga = o.geometry, gb = b.geometry, rec = o.userData.chicagoTailor1835;
     if (rec) {
       tailored++;
-      assert(allowMove.includes(piece(o)), `${asset} LOD${lod} ${o.name}: pieces appended to a garment not tailored`);
+      assert(allowMove.includes(piece(o)) || appendTo.includes(piece(o)), `${asset} LOD${lod} ${o.name}: pieces appended to a garment not tailored`);
       assert.equal(rec.drawn.vertices, gb.attributes.position.count, `${asset} LOD${lod} ${o.name}: its drawn vertices first`);
       assert.equal(rec.drawn.indices, gb.index.count, `${asset} LOD${lod} ${o.name}: its drawn triangles first`);
       assert.equal(o.material.name, b.material.name, `${asset} LOD${lod} ${o.name}: its own material`);
@@ -204,7 +210,11 @@ function keptGarments(before, after, asset, lod, allowMove) {
     const nv = gb.attributes.position.count;
     for (const k of ['uv', 'skinIndex', 'skinWeight']) if (gb.attributes[k]) assert.deepEqual(prefix(ga.attributes[k], nv), gb.attributes[k].array, `${asset} LOD${lod} ${o.name}: ${k} kept`);
     if (gb.index) assert.deepEqual(Array.from(ga.index.array.subarray(0, gb.index.count)), Array.from(gb.index.array), `${asset} LOD${lod} ${o.name}: topology kept`);
-    if (!allowMove.includes(piece(o))) assert.deepEqual(ga.attributes.position.array, gb.attributes.position.array, `${asset} LOD${lod} ${o.name}: not moved`);
+    if (!allowMove.includes(piece(o))) {
+      const pa = ga.attributes.position, pb = gb.attributes.position;
+      if (pa.count === pb.count) assert.deepEqual(pa.array, pb.array, `${asset} LOD${lod} ${o.name}: not moved`);
+      else for (let i = 0; i < nv; i++) assert(pa.getX(i) === pb.getX(i) && pa.getY(i) === pb.getY(i) && pa.getZ(i) === pb.getZ(i), `${asset} LOD${lod} ${o.name}: not moved (vertex ${i})`);
+    }
   });
   return { meshes: n1, exported: after.exported, tailored };
 }
@@ -222,8 +232,18 @@ function legSides(m, shinOnly = 0) {
   return out;
 }
 // ---- Peck ------------------------------------------------------------------------------------
-export const TAPER_MAX = 0.86, TAPER_FAR_MAX = 0.92, FULL_MIN_M = 0.006, PLEAT_RELIEF_M = 0.006, GATHER_RELIEF_M = 0.0024, STRAP_SHOWS_M = 0.02, STRAP_ON_SHOE_M = 0.006, THROUGH_M = 0.002;
-const lines = [];
+// Round 4 (the catalogue: "his pleats read only as faint creases at 3 m and the fullness is less
+// than the Met c.1833 pair's; the straps ... thin pale bands, hard to see from the front"):
+// fullness at least FULL_MIN_M by level (round 3 drew 16.8, 15.7, 13.2 and 7.3 mm), pleat relief
+// at least PLEAT_RELIEF_M (round 3: 7.8 mm), straps at least STRAP_W_MIN_M wide under the foot
+// (round 3: 21 mm as measured) and at least STRAP_T_MIN_M thick (round 3: 2 mm). The lead asked for
+// a dark strap too; one of the shoes' black (STRAP_LEATHER) was built and shot and could not be
+// seen on the black shoe, so the strap stays the trousers' cloth (see the module).
+export const TAPER_MAX = 0.86, TAPER_FAR_MAX = 0.92, FULL_MIN_M = Object.freeze([0.024, 0.024, 0.018, 0.01]), PLEAT_RELIEF_M = 0.011, GATHER_RELIEF_M = 0.0024, STRAP_SHOWS_M = 0.02, STRAP_ON_SHOE_M = 0.006, THROUGH_M = 0.002;
+export const STRAP_W_MIN_M = 0.026, STRAP_T_MIN_M = 0.0028;
+const lines = [], faults = [];
+const check = (ok, msg) => { if (!ok) faults.push(msg); };
+let strapW = Infinity;
 /** A leg's outline radius (mean over angles of the outermost cloth) about its axis at height h above the ankle. */
 function legGirth(points, A, K, sideX, h) {
   const axis = K.clone().sub(A).normalize(), bins = new Map();
@@ -236,13 +256,14 @@ function legGirth(points, A, K, sideX, h) {
   const v = [...bins.values()]; return v.reduce((s, x) => s + x, 0) / Math.max(1, v.length);
 }
 async function peck(lod) {
+  strapW = Infinity;
   const asset = 'peck_philip_1835';
   const before = await prepared(asset, lod, false), after = await prepared(asset, lod, true);
   const report = after.report;
   if (!BASELINE) assert(report.length === 1 && report[0].kind === 'trousers', `${asset} LOD${lod}: the trousers are tailored (${JSON.stringify(report)})`);
-  const kept = keptGarments(before, after, asset, lod, ['full_trousers']);
+  const kept = keptGarments(before, after, asset, lod, ['full_trousers'], ['closed_shoes']);
   const tb = meshOf(before.scene, 'full_trousers'), host = meshOf(after.scene, 'full_trousers'), ta = partOf(host, 'drawn');
-  if (!BASELINE) assert.equal(kept.tailored, 1, `${asset} LOD${lod}: the pieces are in the trousers' own mesh`);
+  if (!BASELINE) assert(kept.tailored >= 1, `${asset} LOD${lod}: the pieces are in the garments' own meshes`);
   const bones = bonesOf(after.scene), A = { l: wpos(bones.foot_l), r: wpos(bones.foot_r) }, K = { l: wpos(bones.calf_l), r: wpos(bones.calf_r) };
   const H = { l: wpos(bones.thigh_l), r: wpos(bones.thigh_r) }, O = H.l.clone().add(H.r).multiplyScalar(0.5);
   const Pb = posed(tb), Pa = posed(ta);
@@ -253,7 +274,7 @@ async function peck(lod) {
   // Fullness: the front of the thighs, under the waistcoat's hem.
   const front = (P) => Math.min(...['l', 'r'].map((s) => Math.max(...P.filter((p) => Math.abs(p.x - H[s].x) < (lod >= 2 ? 0.06 : 0.03) && p.y < O.y - 0.01 && p.y > O.y - (lod >= 2 ? 0.12 : 0.07)).map((p) => p.z))));
   const f0 = front(Pb), f1 = front(Pa);
-  assert(f1 - f0 >= (lod >= 3 ? FULL_MIN_M / 2 : FULL_MIN_M), `${asset} LOD${lod}: the front of the thighs stands out ${((f1 - f0) * 1000).toFixed(1)} mm, not full`);
+  check(f1 - f0 >= FULL_MIN_M[lod], `${asset} LOD${lod}: the front of the thighs stands out ${((f1 - f0) * 1000).toFixed(1)} mm (at least ${(FULL_MIN_M[lod] * 1000).toFixed(0)}), not full`);
   // Pleats: relief across the front of each thigh, a hand under the waistcoat's hem.
   const pl = partOf(host, 'pleats');
   let relief0 = 0, relief1 = 0;
@@ -277,21 +298,24 @@ async function peck(lod) {
       return worst;
     };
     relief0 = reliefOf([tb]); relief1 = reliefOf([ta, pl]);
-    assert(relief1 >= PLEAT_RELIEF_M, `${asset} LOD${lod}: the front of the thighs has a relief of ${(relief1 * 1000).toFixed(1)} mm (drawn ${(relief0 * 1000).toFixed(1)}), no pleats`);
+    check(relief1 >= PLEAT_RELIEF_M, `${asset} LOD${lod}: the front of the thighs has a relief of ${(relief1 * 1000).toFixed(1)} mm (at least ${PLEAT_RELIEF_M * 1000}; drawn ${(relief0 * 1000).toFixed(1)}), pleats too faint`);
     assert.equal(pl.geometry.attributes.position.count, 2 * T.PLEATS * 5 * (lod === 0 ? 14 : 9), `${asset} LOD${lod}: ${2 * T.PLEATS} pleats`);
     facesOut(pl);
   } else assert(!pl, `${asset} LOD${lod}: no pleats this far`);
   // Straps.
-  const st = partOf(host, 'straps'), shoes = meshOf(after.scene, 'closed_shoes');
+  const shoes = meshOf(after.scene, 'closed_shoes'), st = partOf(shoes, 'straps') ?? partOf(host, 'straps');
   assert(st, `${asset} LOD${lod}: straps under the shoes`);
   facesOut(st);
-  {
-    const k = garmentKind(host, asset).kind;
-    assert(k === 'tube', `${asset} LOD${lod} ${host.name}: with its straps and pleats a garment on the leg to the skirt rig, never driven with the tails (${k})`);
-  }
+  // Of the trousers' own cloth, in their mesh (a townsman's own trouser colour reaches it), or
+  // with T.STRAP_LEATHER of the shoes' black in theirs; the shoes stay shoes to the skirt rig.
+  { const inShoes = !!partOf(shoes, 'straps');
+    assert.equal(inShoes, !!T.STRAP_LEATHER, `${asset} LOD${lod}: the strap is in the ${T.STRAP_LEATHER ? 'shoes' : 'trousers'}' mesh`);
+    if (!BASELINE) assert.equal(garmentKind(shoes, asset).kind, garmentKind(meshOf(before.scene, 'closed_shoes'), asset).kind, `${asset} LOD${lod}: the shoes are still shoes to the skirt rig`); }
+  // Thick enough to stand off the shoe and catch the light: its band at least STRAP_T_MIN_M through.
+  check(T.STRAP_T_M >= STRAP_T_MIN_M, `${asset} LOD${lod}: the strap is ${T.STRAP_T_M * 1000} mm thick (at least ${STRAP_T_MIN_M * 1000})`);
   const names = st.skeleton.bones.map((b) => b.name), si = st.geometry.attributes.skinIndex, sw = st.geometry.attributes.skinWeight;
   {
-    const P = posed(st), sole = Math.min(...posed(shoes).map((p) => p.y));
+    const P = posed(st), sole = Math.min(...posed(partOf(shoes, "drawn")).map((p) => p.y));
     for (const s of ['l', 'r']) {
       const sx = Math.sign(H[s].x), mine = P.map((p, i) => [p, i]).filter(([p]) => Math.sign(p.x) === sx);
       const hem = Math.min(...Pa.filter((p) => Math.sign(p.x) === sx && Math.abs(p.z - A[s].z - 0.03) < 0.03).map((p) => p.y));
@@ -300,6 +324,11 @@ async function peck(lod) {
         assert(shown.length >= 4, `${asset} LOD${lod} ${s}: the strap shows ${STRAP_SHOWS_M * 100} cm below the hem on the ${side > 0 ? 'outer' : 'inner'} side of the foot`);
       }
       assert(Math.min(...mine.map(([p]) => p.y)) < sole + 0.01, `${asset} LOD${lod} ${s}: the strap goes under the sole`);
+      // Wide along the foot, under the sole, between the ankle and the ball.
+      const low = mine.filter(([p]) => p.y < sole + 0.012).map(([p]) => p.z);
+      const wide = Math.max(...low) - Math.min(...low);
+      check(wide >= STRAP_W_MIN_M, `${asset} LOD${lod} ${s}: the strap is ${(wide * 1000).toFixed(0)} mm wide under the foot (at least ${STRAP_W_MIN_M * 1000})`);
+      strapW = Math.min(strapW, wide);
       for (const [p, i] of mine) if (p.y < hem - 0.006) {
         let foot = 0; for (let k = 0; k < 4; k++) if (names[si.getComponent(i, k)] === `foot_${s}`) foot += sw.getComponent(i, k);
         assert(foot > 0.999, `${asset} LOD${lod} ${s}: below the hem the strap rides the foot bone (${foot.toFixed(3)})`);
@@ -310,23 +339,26 @@ async function peck(lod) {
   const over = ['waistcoat_buff', 'tailcoat_body', 'tailcoat_tails'].map((p) => meshOf(after.scene, p)).filter(Boolean);
   const body = meshOf(after.scene, 'body_0'), bodyB = meshOf(before.scene, 'body_0'), shoesB = meshOf(before.scene, 'closed_shoes');
   const posesA = poses(after), posesB = poses(before);
-  const sideBody = legSides(body, 0.5), sideShoes = legSides(shoes, 0.3), sideStrap = legSides(st);
-  const T_tr = trisOf(ta), T_sh = trisOf(shoes), T_over = over.map(trisOf);
+  // The shoes as drawn (the straps appended to their mesh are measured against them, not themselves).
+  const sd = partOf(shoes, 'drawn');
+  const sideBody = legSides(body, 0.5), sideShoes = legSides(sd, 0.3), sideStrap = legSides(st);
+  const T_tr = trisOf(ta), T_sh = trisOf(sd), T_over = over.map(trisOf);
   let worstStrap = 0, through0 = 0, through1 = 0, deep1 = 0, cover1 = 0, strapOut = 0;
   for (let k = 0; k < posesA.length; k++) {
     posesA[k][1](); posesB[k][1]();
-    const Ptr = posed(ta), Psh = posed(shoes), Pst = posed(st), Pb2 = posed(tb), Pbd = posed(body), Pbd0 = posed(bodyB), Psh0 = posed(shoesB);
+    const Ptr = posed(ta), Psh = posed(sd), Pst = posed(st), Pb2 = posed(tb), Pbd = posed(body), Pbd0 = posed(bodyB), Psh0 = posed(shoesB);
     const bn = bonesOf(after.scene), bn0 = bonesOf(before.scene);
     // The strap below the hem lies on the shoe: within STRAP_ON_SHOE_M of its surface.
     const shoeTris = T_sh.map((t) => t.map((i) => Psh[i]));
     const closest = new THREE.Vector3(), tri = new THREE.Triangle();
     for (const s of ['l', 'r']) {
       const ankle = wpos(bn[`foot_${s}`]);
-      for (let i = 0; i < Pst.length; i += 4) {
+      // Its face toward the shoe: every point of the band, less the band's own thickness.
+      for (let i = 0; i < Pst.length; i += 2) {
         const p = Pst[i]; if (p.distanceTo(ankle) > 0.25) continue;
         let d = Infinity;
         for (const [a, b, c] of shoeTris) { if (a.distanceToSquared(p) > 0.04) continue; tri.set(a, b, c).closestPointToPoint(p, closest); d = Math.min(d, closest.distanceTo(p)); }
-        if (d < 0.1) worstStrap = Math.max(worstStrap, d);
+        if (d < 0.1) { if (process.env.TAILOR_DEBUG && d - T.STRAP_T_M > 0.005) console.log('strap off', (d * 1000).toFixed(1), lod, posesA[k][0], s, i, (p.y * 1000).toFixed(0), (ankle.y * 1000).toFixed(0)); worstStrap = Math.max(worstStrap, d - T.STRAP_T_M); }
       }
     }
     // The shin, ankle and shoe through the trousers (rays from the shin's axis), before and after.
@@ -375,7 +407,7 @@ async function peck(lod) {
   assert(through1 <= through0, `${asset} LOD${lod}: the shin or shoe comes through the trousers at ${through1} points over the poses (drawn ${through0}), up to ${(deep1 * 1000).toFixed(1)} mm`);
   assert.equal(strapOut, 0, `${asset} LOD${lod}: the strap's top comes out through the hem at ${strapOut} points`);
   assert.equal(cover1, 0, `${asset} LOD${lod}: the trousers or pleats come through the waistcoat, tails or coat at ${cover1} points`);
-  lines.push(`${asset} LOD${lod}: taper ${(r0 * 100).toFixed(0)}→${(r1 * 100).toFixed(0)}%, thigh front +${((f1 - f0) * 1000).toFixed(1)} mm, pleat relief ${(relief0 * 1000).toFixed(1)}→${(relief1 * 1000).toFixed(1)} mm, strap ≤${(worstStrap * 1000).toFixed(1)} mm off the shoe, through ${through0}→${through1} (≤${(deep1 * 1000).toFixed(1)} mm), cover 0; meshes ${kept.exported}→${kept.meshes}, trousers ${tb.geometry.attributes.position.count}→${host.geometry.attributes.position.count} vertices`);
+  lines.push(`${asset} LOD${lod}: taper ${(r0 * 100).toFixed(0)}→${(r1 * 100).toFixed(0)}%, thigh front +${((f1 - f0) * 1000).toFixed(1)} mm, pleat relief ${(relief0 * 1000).toFixed(1)}→${(relief1 * 1000).toFixed(1)} mm, strap ${(strapW * 1000).toFixed(0)} mm wide in ${st.material.name}, ≤${(worstStrap * 1000).toFixed(1)} mm off the shoe, through ${through0}→${through1} (≤${(deep1 * 1000).toFixed(1)} mm), cover 0; meshes ${kept.exported}→${kept.meshes}, trousers ${tb.geometry.attributes.position.count}→${host.geometry.attributes.position.count} vertices`);
   return after;
 }
 
@@ -545,4 +577,5 @@ for (const asset of ['bardwell_otis_1835', 'flynn_mary_1835_dress_study', 'settl
   assert(/const gltf = await loader\.parseAsync\(.*\);[\s\S]{0,1400}fitSleeves\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,200}tailor1835\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,200}fitWaist\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,400}return gltf;/.test(humans), 'parse() tailors the shared source after fitSleeves, before fitWaist (another pass may stand between)');
 }
 console.log(lines.join('\n'));
-console.log(`peck_philip_1835 and mahoney_patrick_1835, LOD0-3: tapered, full, pleated and strapped trousers; a white linen shirt gathered into wristbands; nothing through, nothing else moved: PASS`);
+if (faults.length) { for (const f of faults) console.log(`FAIL ${f}`); assert.fail(`${faults.length} faults${process.env.TAILOR_JS ? ` (TAILOR_JS=${process.env.TAILOR_JS})` : ''}`); }
+console.log(`peck_philip_1835 and mahoney_patrick_1835, LOD0-3: tapered, full (fuller at the hips), deeply pleated and strapped (wide) trousers; a white linen shirt gathered into wristbands; nothing through, nothing else moved: PASS`);

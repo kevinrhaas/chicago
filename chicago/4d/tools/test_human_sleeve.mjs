@@ -8,9 +8,10 @@
 //   - every sleeve's hem at the wrist lies on its own line (no tooth further than TOOTH_M off
 //     it plus a millimetre, LOD0 and LOD1; never worse than drawn further out) and turns as
 //     one band (one set of weights round it);
-//   - looking into a sleeve's mouth past a glove that ends in it, the bare skin seen is gone
-//     but for slivers at grazing lines of sight (SKIN_LEFT of what was drawn, LOD0 and LOD1;
-//     never more than drawn further out);
+//   - looking into a sleeve's mouth past a glove that ends in it, no bare skin is seen from any
+//     of 432 directions round the figure (every 10 degrees round, -45 to 65 up), grazing lines
+//     of sight included (round 4: round 2 left slivers there), LOD0 and LOD1; never more than
+//     drawn further out;
 //   - nothing comes through anything on the forearm and elbow that did not before: for every
 //     pair of pieces there (skin under cloth, cloth under cloth: a cuff facing on its coat
 //     sleeve, a glove under a sleeve), what comes through and can be seen is never more nor
@@ -332,11 +333,13 @@ function through(scene, asset, cov) {
  * show) that a visitor sees out through the mouth from one of VIEWS directions round the
  * figure, nothing of the sleeve, the glove or the body itself in the way. */
 const GLOVE_NEAR = 0.004;
-/** What may still be seen at LOD0 and LOD1, a share of what was drawn (slivers at the
- * mouth's very edge, at grazing lines of sight). */
-const SKIN_LEFT = 0.15;
+/** What may still be seen at LOD0 and LOD1, a share of what was drawn: none (round 2 allowed
+ * 0.15 for slivers at grazing lines of sight, and the review still saw them). */
+const SKIN_LEFT = 0;
 const VIEWS = [];
-for (const el of [-25, 0, 20, 45]) for (let az = 0; az < 360; az += 30) VIEWS.push(new THREE.Vector3(Math.cos(el * DEG) * Math.cos(az * DEG), Math.sin(el * DEG), Math.cos(el * DEG) * Math.sin(az * DEG)));
+// Every 10 degrees round and from 45 below to 65 above, so the grazing lines are among them
+// (round 2 looked from 48 directions, 30 degrees apart, and missed most of them).
+for (let el = -45; el <= 65; el += 10) for (let az = 0; az < 360; az += 10) VIEWS.push(new THREE.Vector3(Math.cos(el * DEG) * Math.cos(az * DEG), Math.sin(el * DEG), Math.cos(el * DEG) * Math.sin(az * DEG)));
 function skinInMouth(scene, asset, sleeveHems) {
   let body = null; const cloth = [];
   scene.traverse(o => { if (!o.isSkinnedMesh) return; if (/^skin/.test(matName(o)) && /body/.test(o.name)) body = o; else if (/^(garment|accessory)/.test(matName(o))) cloth.push(o); });

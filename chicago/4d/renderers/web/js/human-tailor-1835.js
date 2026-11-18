@@ -21,17 +21,27 @@
  *   Peck's trousers (`full_trousers`)
  *     1. fullness: the front of the trousers, from just under the waistcoat's hem down the
  *        thighs, stands out up to FULL_M (a pleated top's fullness), most where the cloth
- *        faces forward, none at the sides or behind (under the tails); never out through a
- *        garment worn over it (COVER_GAP_M inside it).
+ *        faces forward, less at the sides, none behind (under the tails), tapering away down
+ *        the thigh; never out through a garment worn over it (COVER_GAP_M inside it).
  *     2. taper: from the knee to TAPER_FULL_M above the ankle each leg's section is drawn in
  *        to TAPER_MIN of its width, never closer than CLEAR_M to the leg or shoe inside it,
  *        so the hem closes round the shoe and drapes on its instep as a strapped pair does.
  *     3. pleats (LOD0 and LOD1): PLEATS folds a side, laid on the cloth
  *        from under the waistcoat's hem down the front of the thigh, standing up to PLEAT_M
- *        and fading out above mid-thigh; skinned as the cloth under them is.
- *     4. straps (every level): a band of the trousers' cloth under each
- *        shoe's waist, in front of the heel, from inside the hem down both sides of the shoe
- *        and through under its sole, riding the foot bone.
+ *        and fading out above mid-thigh, each rising gently from the fly side and dropping
+ *        steeply toward the hip (a fold laid toward the side seam, which throws a shadow
+ *        line); skinned as the cloth under them is.
+ *     4. straps (every level): a band of the trousers' cloth STRAP_W_M wide and STRAP_T_M
+ *        thick under each shoe's waist, in front of the heel, from inside the hem down both
+ *        sides of the shoe and through under its sole, riding the foot bone.
+ *
+ *   Round 4 (the catalogue's leftovers: "his pleats read only as faint creases at 3 m and the
+ *   fullness is less than the Met c.1833 pair's ... the straps under his shoes are thin pale
+ *   bands, hard to see from the front"): FULL_M 1.8 -> 3 cm, PLEAT_M 7 -> 12 mm with the
+ *   folded profile, straps 1.9 cm by 2 mm -> 3 cm by 3 mm. A strap of the shoes' black
+ *   (STRAP_LEATHER) was asked for, built and shot: on the black shoe it cannot be seen at all,
+ *   so the strap stays the trousers' cloth, and with it each townsman's own trouser colour.
+ *   From the front no strap can show: it passes under the shoe's waist, behind the ball.
  *   Mahoney's shirt (`shirt_full_sleeves`)
  *     5. colour: white linen, a warm white (LINEN_SRGB), not a blue-white, on the shirt's own
  *        flat picture (its colour scaled; the program unchanged). The 1835 townspeople who
@@ -50,8 +60,8 @@
  * material or texture more per figure; human-regulars.js appends its breast tape the same
  * way), after its drawn vertices and triangles, skinned on its skeleton, so a cloned figure,
  * a person's colours and the cloth shader reach them as they reach the garment. Cost: once per parse, some 60 ms at LOD0 and under 15 at LOD2-3 on a desktop core
- * (casts against the garment, as human-sleeve.js does); LOD0 adds about 1,300 vertices to
- * Peck and 2,200 to Mahoney, no texture, no program. Reconstructed tailoring bounded by the
+ * (casts against the garment, as human-sleeve.js does); LOD0 adds about 630 vertices to
+ * Peck and 2,700 to Mahoney, no texture, no program. Reconstructed tailoring bounded by the
  * pictures named (liberty L-tailor-1835-3553).
  */
 import * as THREE from 'three';
@@ -67,8 +77,9 @@ export const SHIRT_PICTURE_SRGB = Object.freeze([158, 147, 125]);
 /** White linen as drawn: a warm white, the red over the blue (sRGB). */
 export const LINEN_SRGB = Object.freeze([233, 228, 213]);
 
-/** Fullness at the front of the hips, metres at most. */
-export const FULL_M = 0.018;
+/** Fullness at the front of the hips, metres at most (round 4: 1.8 cm read as too little
+ * beside the Met pair's, which balloon there). */
+export const FULL_M = 0.03;
 /** Never closer than this inside a garment worn over the trousers. */
 export const COVER_GAP_M = 0.002;
 /** Taper: each leg's section drawn in to TAPER_MIN from the knee down to TAPER_FULL_M above
@@ -77,10 +88,17 @@ export const COVER_GAP_M = 0.002;
 export const TAPER_MIN = 0.62, TAPER_FULL_M = 0.07, CLEAR_M = 0.011, HEM_CLEAR_M = 0.005;
 /** More clearance by level of detail (the far levels' coarser sections). */
 export const FAR_CLEAR_M = Object.freeze([0, 0, 0.003, 0.006]);
-/** Pleats: so many a side, standing up to PLEAT_M off the cloth, PLEAT_DOWN_M long. */
-export const PLEATS = 3, PLEAT_M = 0.007, PLEAT_DOWN_M = 0.3, PLEAT_LIFT_M = 0.0015;
-/** Straps: this wide along the foot, this thick, this far in front of the ankle joint. */
-export const STRAP_W_M = 0.019, STRAP_T_M = 0.002, STRAP_AT_M = 0.03;
+/** Pleats: so many a side, standing up to PLEAT_M off the cloth, PLEAT_DOWN_M long, each
+ * PLEAT_HALF_M (plus PLEAT_SPREAD_M at its foot) either side of its crest. Across a pleat the
+ * cloth rises gently from the fly side to the crest (PLEAT_ACROSS, PLEAT_PROFILE) and drops
+ * steeply on the side-seam side, a fold laid toward the hip, so it throws a shadow line. */
+export const PLEATS = 3, PLEAT_M = 0.012, PLEAT_DOWN_M = 0.3, PLEAT_LIFT_M = 0.0015, PLEAT_HALF_M = 0.016, PLEAT_SPREAD_M = 0.008;
+export const PLEAT_ACROSS = Object.freeze([-1, -0.4, 0.2, 0.6, 1]), PLEAT_PROFILE = Object.freeze([0, 0.33, 0.84, 1, 0]);
+/** Straps: this wide along the foot, this thick, this far in front of the ankle joint (round
+ * 4: 1.9 cm by 2 mm read as thin bands, hardly seen from the front). Of the trousers' cloth;
+ * STRAP_LEATHER draws them in the shoes' black instead, built and shot in round 4 and not
+ * kept: black on the black shoe, the strap could not be seen at all. */
+export const STRAP_W_M = 0.03, STRAP_T_M = 0.003, STRAP_AT_M = 0.03, STRAP_LEATHER = false;
 /** The wristband: this long up the arm, standing this far off the wrist. */
 export const BAND_M = 0.035, BAND_EASE_M = 0.009, BAND_T_M = 0.003;
 /** The gathers: so many folds round the arm, so deep at the band; the puff over the band
@@ -217,8 +235,12 @@ function appendPieces(host, pieces) {
       if (next.uv) { const u = UV?.[i] ?? [0, 0]; next.uv.setXY(k, u[0], u[1]); }
       if (next.skinIndex && next.skinWeight) {
         const top = Object.entries(W[i]).filter(([, w]) => w > 1e-4).sort((x, y) => y[1] - x[1]).slice(0, 4);
-        const sw = top.reduce((s, [, w]) => s + w, 0) || 1;
-        for (let c = 0; c < 4; c++) { next.skinIndex[SET[c]](k, top[c] ? Number(top[c][0]) : 0); next.skinWeight[SET[c]](k, top[c] ? top[c][1] / sw : 0); }
+        // Normalised to one, and for a byte attribute to exactly 255 steps (a rig that keeps
+        // each vertex's own total, human-skirt.js, would carry one a step off short or long).
+        const sw = top.reduce((s, [, w]) => s + w, 0) || 1, max = next.skinWeight.normalized ? ({ Uint8Array: 255, Uint16Array: 65535 })[next.skinWeight.array.constructor.name] : null;
+        const q = top.map(([, w]) => w / sw);
+        if (max && q.length) { const n = q.map((w) => Math.round(w * max)); n[0] += max - n.reduce((s, x) => s + x, 0); n.forEach((x, c) => { q[c] = x / max; }); }
+        for (let c = 0; c < 4; c++) { next.skinIndex[SET[c]](k, top[c] ? Number(top[c][0]) : 0); next.skinWeight[SET[c]](k, q[c] ?? 0); }
       }
     }
     const indexStart = old.length + tris.length;
@@ -403,7 +425,7 @@ function taperLegs(S, Q, frame, inside, lod = 0) {
 /** 3. Pleats down the front of each thigh, from under the waistcoat's hem. */
 function pleats(mesh, S, Q, frame, wcLow, lod) {
   const { legs, O, U, L, F, scale } = frame;
-  const rows = lod === 0 ? 14 : 9, across = [-1, -0.5, 0, 0.5, 1];
+  const rows = lod === 0 ? 14 : 9, across = PLEAT_ACROSS;
   // The cloth as it now is, near the front of the hips and thighs.
   const P = S.P.map((_, i) => Q[S.groupOf[i]]);
   const y0 = wcLow - 0.003 * scale, y1 = y0 - PLEAT_DOWN_M * scale;
@@ -429,21 +451,21 @@ function pleats(mesh, S, Q, frame, wcLow, lod) {
         const o = O.clone().addScaledVector(U, y - O.dot(U)).lerp(leg.H.clone().addScaledVector(U, y - leg.H.dot(U)), m);
         const phi = top + (bot - top) * m;
         const H = PLEAT_M * scale * smooth(v / 0.1) * (1 - smooth((v - 0.2) / 0.8));
-        const half = (0.013 + 0.007 * v) * scale;
+        const half = (PLEAT_HALF_M + PLEAT_SPREAD_M * v) * scale;
         const dirAt = (a) => new THREE.Vector3().addScaledVector(F, Math.cos(a)).addScaledVector(L, sign * Math.sin(a)).normalize();
         const tris = rowTris(y), crest = castRay(o, dirAt(phi), tris, P, 0.4, true);
         if (!crest) return null;
-        for (const u of across) {
+        across.forEach((u, j) => {
           const d = dirAt(phi + (u * half) / crest.t), hit = castRay(o, d, tris, P, 0.4, true) ?? crest;
           const [a, b, c] = hit.tri, wa = 1 - hit.u - hit.v;
           const at = P[a].clone().multiplyScalar(wa).addScaledVector(P[b], hit.u).addScaledVector(P[c], hit.v);
           const fn = new THREE.Vector3().subVectors(P[b], P[a]).cross(new THREE.Vector3().subVectors(P[c], P[a])).normalize();
           if (fn.dot(d) < 0) fn.negate();
-          const lift = PLEAT_LIFT_M * scale + H * Math.cos((u * Math.PI) / 2) ** 2;
+          const lift = PLEAT_LIFT_M * scale + H * PLEAT_PROFILE[j];
           pts.push(at.addScaledVector(fn, lift));
           const h = atHit(mesh, S, hit); W.push(h.weights); UV.push(h.uv);
           outward.push(fn);
-        }
+        });
       }
       const n = across.length;
       for (let r = 0; r < rows - 1; r++) for (let c = 0; c < n - 1; c++) {
@@ -486,7 +508,9 @@ function straps(mesh, S, Q, frame, shoes, lod) {
     // The path round the shoe's waist in the plane across the foot: down the outer side,
     // under the sole, up the inner side. Each point with its outward direction in the plane.
     const path = [];
-    const bottom = sole + 0.004 * scale;
+    // The strap's outer face under the sole stays 1.2 mm above the sole: the far levels' sole
+    // is the lowest point their quantized positions can hold.
+    const bottom = sole + (0.002 + STRAP_T_M) * scale;
     for (const side of [1, -1]) {
       const topY = hemAt(side) + 0.012 * scale, list = [];
       let last = null;
@@ -536,6 +560,9 @@ function straps(mesh, S, Q, frame, shoes, lod) {
   return { key: 'straps', P: pts, index, W, UV: null };
 }
 
+/** Two meshes on one skeleton (bone for bone) and one bind: a piece's weights mean the same on both. */
+const sameRig = (a, b) => a.skeleton.bones.length === b.skeleton.bones.length && a.skeleton.bones.every((x, i) => x === b.skeleton.bones[i]) && a.bindMatrix.equals(b.bindMatrix);
+
 function tailorTrousers(root, assetId, spec, report) {
   const byLod = new Map();
   root.traverse((o) => {
@@ -569,8 +596,12 @@ function tailorTrousers(root, assetId, spec, report) {
     commit(mesh, S, Q, moved);
     let far = 0, nf = 0, nt = 0;
     for (let g = 0; g < Q.length; g++) if (moved[g]) { far = Math.max(far, Q[g].distanceTo(Q0[g])); nf += full[g]; nt += taper[g]; }
-    const pieces = [lod <= 1 ? pleats(mesh, S, Q, frame, wcLow, lod) : null, straps(mesh, S, Q, frame, e.shoes, lod)];
-    const made = Object.keys(appendPieces(mesh, pieces).parts);
+    // The pleats and the straps in the trousers' own mesh (a strap of their cloth, in the
+    // wearer's own trouser colour); with STRAP_LEATHER the straps go in the shoes' mesh
+    // instead (one skeleton and bind for both, so the strap's weights carry over as they are).
+    const strap = straps(mesh, S, Q, frame, e.shoes, lod), leather = STRAP_LEATHER && sameRig(mesh, e.shoes);
+    const made = Object.keys(appendPieces(mesh, [lod <= 1 ? pleats(mesh, S, Q, frame, wcLow, lod) : null, leather ? null : strap]).parts);
+    if (leather) made.push(...Object.keys(appendPieces(e.shoes, [strap]).parts));
     report.push({ mesh: mesh.name, kind: 'trousers', full: nf, taper: nt, max_m: far, added: made });
   }
 }

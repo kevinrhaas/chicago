@@ -39,21 +39,36 @@
  *     VENT.lap over the right and VENT.out behind it at the top, the two hanging apart to
  *     VENT.open at the hem below VENT.openFrom of its length, flush again where the vent
  *     meets the cloth above it.
+ *  6. Facings (round 4: "the lapels are black on black with no facing, so they read only by
+ *     the V's outline"). Taft's lapels in the Clinedinst print are a lighter band than his
+ *     coat, the sheen of a faced lapel; Root's show it along the roll. The lapels' front faces
+ *     are copied FACING.lift over the cloth and drawn in the body's own silk, the tie's
+ *     material (roughness 0.45 against the wool's 0.86), appended to the tie's mesh; their
+ *     normals smoothed (silk shows every facet of a low cloth) and turned FACING.tilt up, as
+ *     a lapel rolls out over the chest, so the facing catches the sky and the sun the coat's
+ *     cloth does not. Every level.
+ *  7. Hip buttons (round 4): two covered buttons at the back of the waist seam, HIP_BUTTONS.apart
+ *     either side of the middle, over the top of the vent's pleats, as a frock coat has; small
+ *     domes in the same silk, skinned as the coat's back there. Near levels.
  *
  * Topology changes only by the vent's split (the skirts gain one vertex per vertex on the
- * line); UVs and skin weights are copied, never changed; the rest moves positions and the
+ * line) and by the silk appended to the tie's mesh (its own vertices and triangles first and
+ * as drawn); UVs and skin weights are copied, never changed; the rest moves positions and the
  * normals of what moved (from the faces, each place's copies sharing one, turned as the
  * asset's own were). human-coat.js's closeVents finds no vent on this coat as drawn (its
  * skirts were closed), so the two never meet: wired after fitCoats, this lap is the vent's.
  * human-skirt.js reads the cloth at bind, after this, so its panels hang from the new hem.
  *
  * Keyed to the pieces of the one body that wears them (frock_coat_body, frock_coat_skirts,
- * frock_coat_lapels, a waistcoat and a shirt with a standing collar on the same level): in
+ * frock_coat_lapels, a waistcoat and a shirt with a standing collar on the same level; the
+ * silk where the level has a silk four-in-hand tie): in
  * 2026-11 only glessner_john_j_1904, worn by hi_glessner_john_j_1904 alone. A body without
  * them is left exactly as drawn.
  *
- * Cost: a few thousand vertices per level, once per parse (milliseconds). No texture, draw
- * call or program. A reconstructed cut after the pictures (liberty L-frockcoat-3553).
+ * Cost: a few thousand vertices per level, once per parse (milliseconds); the silk adds 446
+ * vertices to the tie at the near level, 258 at the next, 83 and 42 farther. No mesh,
+ * texture, material, draw call or program. A reconstructed cut after the pictures (liberty
+ * L-frockcoat-3553).
  */
 import * as THREE from 'three';
 
@@ -84,6 +99,17 @@ export const COLLAR = Object.freeze({ raise: 0.018, frontDeg: 35, fullDeg: 75, b
  * the left `out` behind at the top, `open` apart at the hem below `openFrom` of its length,
  * the shift fading into each side over `fade` and to nothing at its top over `topFade`. */
 export const VENT = Object.freeze({ belowSeam: 0.05, lap: 0.004, out: 0.005, open: 0.024, openFrom: 0.5, fade: 0.05, topFade: 0.04 });
+/** 6. Silk facings: the lapels' front faced in the silk the tie is drawn in, `lift` over the
+ * cloth (its own edges turned `turn` back toward it, so no gap shows at the lapel's edge), on
+ * every level; the silk is the body's own silk-tie mesh, so no mesh, material or draw call. */
+export const FACING = Object.freeze({ lift: 0.0012, minFront: 0.35, turn: 0.0008, smooth: 2, tilt: 0.3 });
+/** 7. Hip buttons: two, at the waist seam over the top of the vent's pleats, `apart` either side
+ * of the middle of the back, `radius` across and domed `dome`, covered in the facings' silk;
+ * `rings` x `segments` points each, on the levels up to `levels`. */
+export const HIP_BUTTONS = Object.freeze({ apart: 0.045, radius: 0.0085, dome: 0.0035, lift: 0.0008, segments: 12, rings: 3, levels: 1 });
+
+/** The silk the facings and buttons are drawn in: the body's own silk tie. */
+export const SILK = Object.freeze({ piece: /(^|_)four_in_hand_tie$/, material: /^accessory__silk_tie/ });
 
 const pieceName = (mesh, assetId) => {
   let n = mesh.name ?? '';
@@ -508,6 +534,170 @@ function splitVent(S, fr, top) {
   return { from: hem, to: ventTop, split: copyOf.size, cut_deg: cut * 180 / Math.PI };
 }
 
+// ---- 6, 7. silk: facings and hip buttons ---------------------------------------------------
+/**
+ * Append pieces given in the body frame (positions, normals; UVs and skin rows given) to
+ * `host`, a skinned mesh of the same skeleton: its own vertices and triangles first and
+ * unchanged, every attribute grown (an interleaved one comes out plain), no mesh, material
+ * or draw call added. Returns the vertices added.
+ */
+function appendInto(host, fr, { P, N, UV, SI, SW, index }, boneOf = (j) => j) {
+  const g = host.geometry, n0 = g.attributes.position.count, add = P.length / 3;
+  if (!add) return 0;
+  const inv = host.bindMatrix.clone().invert(), ni = new THREE.Matrix3().getNormalMatrix(inv), v = new THREE.Vector3();
+  const next = {};
+  for (const [name, attr] of Object.entries(g.attributes)) {
+    const k = attr.itemSize, out = new THREE.BufferAttribute(new attr.array.constructor((n0 + add) * k), k, attr.normalized);
+    for (let i = 0; i < n0; i++) for (let c = 0; c < k; c++) out.setComponent(i, c, attr.getComponent(i, c));
+    next[name] = out;
+  }
+  for (let i = 0; i < add; i++) {
+    const k = n0 + i;
+    v.copy(fr.O).addScaledVector(fr.L, P[i * 3]).addScaledVector(fr.U, P[i * 3 + 1]).addScaledVector(fr.F, P[i * 3 + 2]).applyMatrix4(inv);
+    next.position.setXYZ(k, v.x, v.y, v.z);
+    if (next.normal) { v.set(0, 0, 0).addScaledVector(fr.L, N[i * 3]).addScaledVector(fr.U, N[i * 3 + 1]).addScaledVector(fr.F, N[i * 3 + 2]).applyMatrix3(ni).normalize(); next.normal.setXYZ(k, v.x, v.y, v.z); }
+    if (next.uv) next.uv.setXY(k, UV[i * 2], UV[i * 2 + 1]);
+    if (next.skinIndex && next.skinWeight) for (let c = 0; c < 4; c++) { next.skinIndex.setComponent(k, c, boneOf(SI[i * 4 + c])); next.skinWeight.setComponent(k, c, SW[i * 4 + c]); }
+  }
+  for (const [name, attr] of Object.entries(next)) g.setAttribute(name, attr);
+  const old = g.index ? Array.from(g.index.array) : Array.from({ length: n0 }, (_, i) => i), total = n0 + add;
+  const Idx = total > 65535 ? Uint32Array : (g.index?.array.constructor === Uint32Array ? Uint32Array : Uint16Array);
+  g.setIndex(new THREE.BufferAttribute(Idx.from([...old, ...index.map((i) => i + n0)]), 1));
+  g.computeBoundingBox(); g.computeBoundingSphere();
+  host.boundingBox = null; host.boundingSphere = null;
+  return add;
+}
+/** A mesh's normals in the body frame (each as drawn, or as renormalled after a move). */
+function normalsOf(ly, fr) {
+  const nrm = ly.mesh.geometry.attributes.normal, nm = new THREE.Matrix3().getNormalMatrix(ly.mesh.bindMatrix), v = new THREE.Vector3(), N = new Float64Array(ly.n * 3);
+  for (let i = 0; i < ly.n; i++) { v.fromBufferAttribute(nrm, i).applyMatrix3(nm).normalize(); N[i * 3] = v.dot(fr.L); N[i * 3 + 1] = v.dot(fr.U); N[i * 3 + 2] = v.dot(fr.F); }
+  return N;
+}
+/** Skin rows of vertex i of a geometry (four bone indices and weights). */
+function skinRow(geo, i, SI, SW, k) {
+  const si = geo.attributes.skinIndex, sw = geo.attributes.skinWeight;
+  for (let c = 0; c < 4; c++) { SI[k * 4 + c] = si ? si.getComponent(i, c) : 0; SW[k * 4 + c] = sw ? sw.getComponent(i, c) : c === 0 ? 1 : 0; }
+}
+/** The lapels' front faces, copied `lift` over them in the silk's mesh. */
+function faceLapels(lapels, silk, fr) {
+  const s = fr.scale, geo = lapels.mesh.geometry, a = geo.index.array, N = normalsOf(lapels, fr);
+  const keep = [];
+  for (let t = 0; t < a.length; t += 3) {
+    const i0 = a[t], i1 = a[t + 1], i2 = a[t + 2];
+    const e1 = [lapels.X[i1] - lapels.X[i0], lapels.Y[i1] - lapels.Y[i0], lapels.Z[i1] - lapels.Z[i0]], e2 = [lapels.X[i2] - lapels.X[i0], lapels.Y[i2] - lapels.Y[i0], lapels.Z[i2] - lapels.Z[i0]];
+    const n = [e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2], e1[0] * e2[1] - e1[1] * e2[0]], len = Math.hypot(...n);
+    if (!(len > 1e-12)) continue;
+    // Outward: the side the drawn normals face; the front face is the one turned toward the street.
+    const dn = [0, 1, 2].reduce((acc, k) => acc + (N[a[t + k] * 3] * n[0] + N[a[t + k] * 3 + 1] * n[1] + N[a[t + k] * 3 + 2] * n[2]), 0);
+    const fz = (dn < 0 ? -n[2] : n[2]) / len;
+    if (fz >= FACING.minFront) keep.push(t);
+  }
+  if (!keep.length) return null;
+  const map = new Map(), P = [], NN = [], UV = [], SI = [], SW = [], index = [];
+  const uv = geo.attributes.uv;
+  for (const t of keep) for (let k = 0; k < 3; k++) {
+    const i = a[t + k];
+    if (!map.has(i)) {
+      const j = map.size; map.set(i, j);
+      // Off the cloth along its own normal, turned to face forward.
+      let nx = N[i * 3], ny = N[i * 3 + 1], nz = N[i * 3 + 2];
+      if (nz < 0) { nx = -nx; ny = -ny; nz = -nz; }
+      P.push(lapels.X[i] + nx * FACING.lift * s, lapels.Y[i] + ny * FACING.lift * s, lapels.Z[i] + nz * FACING.lift * s);
+      NN.push(nx, ny, nz);
+      UV.push(uv ? uv.getX(i) : 0, uv ? uv.getY(i) : 0);
+      skinRow(geo, i, SI, SW, j);
+    }
+  }
+  for (const t of keep) {
+    // Wound as the front face faces: outward to the eye (the silk is double-sided either way).
+    index.push(map.get(a[t]), map.get(a[t + 1]), map.get(a[t + 2]));
+  }
+  // The facing's own boundary turned back toward the cloth, so its edge meets the lapel's.
+  const edges = new Map();
+  for (let t = 0; t < index.length; t += 3) for (let k = 0; k < 3; k++) { const p = index[t + k], q = index[t + (k + 1) % 3], key = p < q ? `${p},${q}` : `${q},${p}`; edges.set(key, (edges.get(key) ?? 0) + 1); }
+  const rim = new Set();
+  for (const [key, c] of edges) if (c === 1) for (const v of key.split(',')) rim.add(Number(v));
+  for (const j of rim) for (let c = 0; c < 3; c++) P[j * 3 + c] -= NN[j * 3 + c] * FACING.turn * s;
+  smoothNormals(P, NN, index, FACING.smooth);
+  // The lapel rolls out over the chest from its crease: its face turned `tilt` up toward the sky.
+  for (let j = 0; j < NN.length / 3; j++) {
+    const n = [NN[j * 3], NN[j * 3 + 1] + FACING.tilt, NN[j * 3 + 2]], l = Math.hypot(...n);
+    for (let c = 0; c < 3; c++) NN[j * 3 + c] = n[c] / l;
+  }
+  return { P: Float64Array.from(P), N: Float64Array.from(NN), UV: Float32Array.from(UV), SI: Uint16Array.from(SI), SW: Float32Array.from(SW), index, faces: keep.length };
+}
+/**
+ * The facing's normals from its own faces (area-weighted, a place's copies sharing one, turned
+ * to the side the cloth's faced), then eased `passes` times toward their neighbours': silk shows
+ * every facet of a low cloth's normals as a broken highlight, a pressed facing does not.
+ */
+function smoothNormals(P, N, index, passes) {
+  const n = P.length / 3, gid = new Int32Array(n), ids = new Map();
+  for (let i = 0; i < n; i++) { const k = `${Math.round(P[i * 3] * 2e4)},${Math.round(P[i * 3 + 1] * 2e4)},${Math.round(P[i * 3 + 2] * 2e4)}`; let g = ids.get(k); if (g === undefined) ids.set(k, (g = ids.size)); gid[i] = g; }
+  const G = ids.size, sum = new Float64Array(G * 3), nb = Array.from({ length: G }, () => new Set()), ref = new Float64Array(G * 3);
+  for (let i = 0; i < n; i++) for (let c = 0; c < 3; c++) ref[gid[i] * 3 + c] += N[i * 3 + c];
+  for (let t = 0; t < index.length; t += 3) {
+    const [a, b, c] = [index[t], index[t + 1], index[t + 2]];
+    const e1 = [0, 1, 2].map((k) => P[b * 3 + k] - P[a * 3 + k]), e2 = [0, 1, 2].map((k) => P[c * 3 + k] - P[a * 3 + k]);
+    const f = [e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2], e1[0] * e2[1] - e1[1] * e2[0]];
+    const g = gid[a], sg = f[0] * ref[g * 3] + f[1] * ref[g * 3 + 1] + f[2] * ref[g * 3 + 2] < 0 ? -1 : 1;
+    for (const i of [a, b, c]) { for (let k = 0; k < 3; k++) sum[gid[i] * 3 + k] += sg * f[k]; for (const j of [a, b, c]) if (gid[j] !== gid[i]) nb[gid[i]].add(gid[j]); }
+  }
+  const norm = (A) => { for (let g = 0; g < G; g++) { const l = Math.hypot(A[g * 3], A[g * 3 + 1], A[g * 3 + 2]); if (l > 1e-12) for (let k = 0; k < 3; k++) A[g * 3 + k] /= l; else for (let k = 0; k < 3; k++) A[g * 3 + k] = ref[g * 3 + k]; } };
+  norm(sum);
+  let cur = sum;
+  for (let p = 0; p < passes; p++) {
+    const next = new Float64Array(G * 3);
+    for (let g = 0; g < G; g++) { for (let k = 0; k < 3; k++) next[g * 3 + k] = cur[g * 3 + k]; for (const h of nb[g]) for (let k = 0; k < 3; k++) next[g * 3 + k] += cur[h * 3 + k] / Math.max(1, nb[g].size); }
+    norm(next); cur = next;
+  }
+  for (let i = 0; i < n; i++) for (let k = 0; k < 3; k++) N[i * 3 + k] = cur[gid[i] * 3 + k];
+}
+/** Two covered buttons at the back of the waist seam, over the top of the vent. */
+function hipButtons(body, skirts, seam, fr) {
+  const s = fr.scale, R = HIP_BUTTONS.radius * s, H = HIP_BUTTONS.dome * s, segs = HIP_BUTTONS.segments, rings = HIP_BUTTONS.rings;
+  const NB = normalsOf(body, fr), P = [], N = [], UV = [], SI = [], SW = [], index = [], at = [];
+  for (const side of [1, -1]) {
+    const x0 = side * HIP_BUTTONS.apart * s;
+    // The coat's back there: the farthest back of the body and the skirts' cloth within 1.5 cm.
+    let z0 = Infinity, near = -1, nd = Infinity;
+    for (const ly of [body, skirts]) for (let i = 0; i < ly.n; i++) {
+      if (ly.Z[i] > 0 || Math.abs(ly.X[i] - x0) > 0.015 * s || Math.abs(ly.Y[i] - seam) > 0.015 * s) continue;
+      z0 = Math.min(z0, ly.Z[i]);
+    }
+    for (let i = 0; i < body.n; i++) {
+      if (body.Z[i] > 0) continue;
+      const d = Math.hypot(body.X[i] - x0, body.Y[i] - seam, body.Z[i] - z0); if (d < nd) { nd = d; near = i; }
+    }
+    if (!Number.isFinite(z0) || near < 0) return null;
+    // Its outward normal: the body's, averaged round the place.
+    const n = [0, 0, 0];
+    for (let i = 0; i < body.n; i++) if (body.Z[i] < 0 && Math.hypot(body.X[i] - x0, body.Y[i] - seam) < 0.03 * s) { const sg = NB[i * 3 + 2] > 0 ? -1 : 1; n[0] += sg * NB[i * 3]; n[1] += sg * NB[i * 3 + 1]; n[2] += sg * NB[i * 3 + 2]; }
+    let ln = Math.hypot(...n); if (!(ln > 1e-6)) { n[0] = 0; n[1] = 0; n[2] = -1; ln = 1; }
+    const nz = [n[0] / ln, n[1] / ln, n[2] / ln];
+    // Two directions across the button: one level (across the back), one up it.
+    const ux = [1, 0, 0], d1 = [ux[0] - nz[0] * nz[0], -nz[0] * nz[1], -nz[0] * nz[2]], l1 = Math.hypot(...d1);
+    const a1 = d1.map((c) => c / l1), a2 = [nz[1] * a1[2] - nz[2] * a1[1], nz[2] * a1[0] - nz[0] * a1[2], nz[0] * a1[1] - nz[1] * a1[0]];
+    const base = P.length / 3, c0 = [x0, seam, z0 - HIP_BUTTONS.lift * s];
+    // A dome: its crown, then `rings` rings to its rim, and one more tucked under the rim.
+    const ring = (rr, h, nr, nh) => { for (let k = 0; k < segs; k++) { const ph = (k / segs) * Math.PI * 2, cx = Math.cos(ph), cy = Math.sin(ph);
+      for (let c = 0; c < 3; c++) { P.push(c0[c] + (a1[c] * cx + a2[c] * cy) * rr + nz[c] * h); }
+      const nn = [0, 1, 2].map((c) => (a1[c] * cx + a2[c] * cy) * nr + nz[c] * nh), l = Math.hypot(...nn); N.push(nn[0] / l, nn[1] / l, nn[2] / l);
+      UV.push(0.5 + 0.5 * cx * rr / R, 0.5 + 0.5 * cy * rr / R); skinRow(body.mesh.geometry, near, SI, SW, P.length / 3 - 1); } };
+    for (let c = 0; c < 3; c++) P.push(c0[c] + nz[c] * H);
+    N.push(...nz); UV.push(0.5, 0.5); skinRow(body.mesh.geometry, near, SI, SW, base);
+    for (let r = 1; r <= rings; r++) { const t = r / rings, ang = t * Math.PI / 2 * 0.85; ring(R * Math.sin(ang) / Math.sin(Math.PI / 2 * 0.85), H * (Math.cos(ang) - Math.cos(Math.PI / 2 * 0.85)) / (1 - Math.cos(Math.PI / 2 * 0.85)), Math.sin(ang), Math.cos(ang)); }
+    ring(R * 0.9, -HIP_BUTTONS.lift * s * 2, 0.6, -0.2);
+    for (let k = 0; k < segs; k++) index.push(base, base + 1 + k, base + 1 + (k + 1) % segs);
+    for (let r = 0; r < rings; r++) for (let k = 0; k < segs; k++) {
+      const a = base + 1 + r * segs + k, b = base + 1 + r * segs + (k + 1) % segs, c = a + segs, d = b + segs;
+      index.push(a, c, d, a, d, b);
+    }
+    at.push({ x: x0, y: seam, z: z0 });
+  }
+  return { P: Float64Array.from(P), N: Float64Array.from(N), UV: Float32Array.from(UV), SI: Uint16Array.from(SI), SW: Float32Array.from(SW), index, at };
+}
+
 /**
  * Cut one level's frock coat. `meshes` are that level's skinned meshes. Returns the report, or
  * null when the level has not got the pieces.
@@ -518,13 +708,14 @@ export function fitFrockCoatLevel(meshes, assetId = null, lod = 0) {
     const p = pieceName(m, assetId);
     for (const [k, re] of Object.entries(PIECES)) if (re.test(p) && /^garment/.test(materialName(m))) by[k] = m;
     if (materialName(m).split('__')[0] === 'skin') by.skin = m;
+    if (SILK.piece.test(p) && SILK.material.test(materialName(m))) by.silk = m;
   }
   if (!by.body || !by.skirts || !by.lapels || !by.waistcoat || !by.shirt || !by.skin) return null;
   if (!by.skirts.geometry.index || !by.body.geometry.index) return null;
   const fr = frameOf(by.body.skeleton);
   if (!fr) return null;
   const L = {};
-  for (const k of Object.keys(by)) L[k] = layerOf(by[k], fr);
+  for (const k of Object.keys(by)) if (k !== 'silk') L[k] = layerOf(by[k], fr);
   const report = {};
   report.length = shorten(L.skirts, fr);
   let seam = Infinity;
@@ -536,6 +727,16 @@ export function fitFrockCoatLevel(meshes, assetId = null, lod = 0) {
   report.collar = standCollar(L.shirt, fr);
   for (const k of ['skirts', 'body', 'lapels', 'waistcoat', 'shirt', 'trousers']) if (L[k]) writeBack(L[k], fr);
   report.whitened = whiten(by.shirt);
+  // 6, 7. In silk, appended to the silk tie's own mesh (same skeleton, its bones by name if not the same object).
+  report.facing = null; report.buttons = null;
+  if (by.silk && by.silk.geometry.index) {
+    const same = by.silk.skeleton === by.lapels.skeleton;
+    const boneOf = same ? (j) => j : (j) => Math.max(0, by.silk.skeleton.bones.findIndex((b) => b?.name === by.lapels.skeleton.bones[j]?.name));
+    const face = faceLapels(L.lapels, by.silk, fr);
+    if (face) report.facing = { faces: face.faces, vertices: appendInto(by.silk, fr, face, boneOf), mesh: by.silk.name };
+    const btn = lod > HIP_BUTTONS.levels ? null : hipButtons(L.body, L.skirts, seam, fr);
+    if (btn) report.buttons = { at: btn.at, vertices: appendInto(by.silk, fr, btn, boneOf), mesh: by.silk.name };
+  }
   return report;
 }
 

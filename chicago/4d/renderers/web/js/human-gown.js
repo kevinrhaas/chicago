@@ -29,8 +29,10 @@
  *      moves. Standing, the cloth is held CLEAR_M off the legs and shoes as drawn; the
  *      skirt's own driver (human-skirt.js) reads this shape at bind and keeps the legs inside
  *      it on the walk, so the hem breaks forward over the leading foot.
- *   2. the surface: GORES seams, each a shallow valley SEAM wide, from under the basque to
- *      the hem (the front gore centred, a seam down the back), and below the knee the flare
+ *   2. the surface: GORES seams, each a valley between two low ridges (a seam pressed open,
+ *      SEAM), from under the basque to the hem (the front gore centred, a seam down the
+ *      back), deep enough that the light draws a line at three metres in black wool (round
+ *      3 drew a 5 mm valley, which read only close up); and below the knee the flare
  *      falling into FLUTE soft folds, one or two to a gore, deeper toward the hem; normals
  *      are taken again from the faces (a hem's or a seam's hard edge kept hard), so the light
  *      draws them. Levels too coarse to carry a fold (fewer than FLUTE.minRing points round)
@@ -86,9 +88,19 @@ export const GOWNS = Object.freeze([Object.freeze({
  * `power`; the hem stands `ease` off the hips' line (front, side, back), and the cloth is
  * kept `clearM` off the legs and shoes as drawn. */
 export const CUT = Object.freeze({ holdM: 0.17, kneeShare: 0.1, power: 1.6, ease: Object.freeze({ front: 0.12, side: 0.10, back: 0.16 }), clearM: 0.025 });
-/** Gores round the skirt, the front one centred; each seam a valley this deep and wide. */
+/** Gores round the skirt, the front one centred. Each seam is drawn as a seam pressed open
+ * reads: the seam line a valley `depthM` deep, a ridge `lipM` proud one point of the ring to
+ * either side of it (the turnings under the cloth), each `width` of a point of the ring wide,
+ * the ridges coming in over `lipInM` under the hold line (so the hips keep their width);
+ * the ring's points are what the light can draw, so the profile is laid in them, not in metres
+ * (at the near level a seam falls on a column of points: 84 round, 12 to a gore). */
 export const GORES = 7;
-export const SEAM = Object.freeze({ depthM: 0.005, widthM: 0.02, fadeM: 0.06 });
+export const SEAM = Object.freeze({ depthM: 0.010, lipM: 0.005, width: 0.45, fadeM: 0.06, lipInM: 0.12 });
+/** A seam's relief (metres per 0.85 m of leg, + outward) at `u` points of the ring from its line. */
+export function seamRelief(u, lip = 1) {
+  const a = u / SEAM.width, b = (Math.abs(u) - 1) / SEAM.width;
+  return -SEAM.depthM * Math.exp(-a * a) + lip * SEAM.lipM * Math.exp(-b * b);
+}
 /** Folds of the flare below the knee: this deep (crest to mean) at the hem; two to a gore on a
  * level with 80 points round, one on a level with `minRing`, none below. */
 export const FLUTE = Object.freeze({ depthM: 0.016, minRing: 40, fullRing: 80, power: 1.5 });
@@ -219,6 +231,27 @@ function ringPoints(gy, G, lo, hi) {
   return Math.max(0, ...rows.values());
 }
 
+/** Where the gore seams run: each a meridian of the cloth's own points (a column of the ring)
+ * nearest the seam's nominal angle (the front gore centred), so the valley falls on points the
+ * light can draw rather than between two of them; the nominal angle where no column is found. */
+export function seamLines(gy, gt, G, lo, hi, ring, gores = GORES) {
+  const BIN = 0.25 * Math.PI / 180, NB = Math.round(TAU / BIN), hist = new Float64Array(NB);
+  for (let g = 0; g < G; g++) if (gy[g] > lo && gy[g] < hi) hist[((Math.round((gt[g] + Math.PI) / BIN) % NB) + NB) % NB]++;
+  const reach = Math.floor((TAU / Math.max(ring, 1)) / 2 / BIN);
+  const lines = [];
+  for (let k = 0; k < gores; k++) {
+    const nominal = ((k + 0.5) * TAU / gores + Math.PI) % TAU - Math.PI, b0 = Math.round((nominal + Math.PI) / BIN);
+    let best = -1, count = 0;
+    for (let db = -reach; db <= reach; db++) {
+      const b = ((b0 + db) % NB + NB) % NB, c = hist[b] + 0.5 * (hist[(b + 1) % NB] + hist[(b + NB - 1) % NB]);
+      if (c > count || (c === count && Math.abs(db) < Math.abs(best - b0))) { count = c; best = b0 + db; }
+    }
+    lines.push(count > 2 ? best * BIN - Math.PI : nominal);
+  }
+  return lines;
+}
+const angleTo = (th, lines) => { let d = Infinity; for (const s of lines) { let a = Math.abs(th - s) % TAU; if (a > Math.PI) a = TAU - a; if (a < d) d = a; } return d; };
+
 /** The hem's reach past the hips' line at angle theta (0 front, + left). */
 export function easeAt(theta, ease = CUT.ease) {
   const c = Math.cos(theta);
@@ -258,6 +291,7 @@ export function cutSkirt(mesh, legs = []) {
   const ring = ringPoints(gy, G, yHem + 0.02, yA);
   const flutes = ring >= FLUTE.fullRing ? 2 * GORES : ring >= FLUTE.minRing ? GORES : 0;
   const seams = ring >= FLUTE.minRing;
+  const lines = seams ? seamLines(gy, gt, G, yHem + 0.02, yA, ring) : [];
   // Each fold a little different from the next, smoothly round the body (deterministic).
   const fluteGain = (th) => 1 + 0.2 * Math.sin(3 * th + 0.7) + 0.12 * Math.sin(5 * th + 2.1);
   const out = new Float64Array(G);
@@ -279,10 +313,7 @@ export function cutSkirt(mesh, legs = []) {
     let rel = 0;
     const fade = smooth((yA + SEAM.fadeM * scale - y) / (SEAM.fadeM * scale));
     if (seams && fade > 0) {
-      const gore = TAU / GORES;
-      let d = Math.abs(((th - gore / 2) % gore + gore) % gore); d = Math.min(d, gore - d);
-      const s = d * rn / (SEAM.widthM * scale);
-      rel -= SEAM.depthM * scale * fade * Math.exp(-s * s * 4);
+      rel += seamRelief(angleTo(th, lines) / (TAU / ring), smooth((yA - y) / (SEAM.lipInM * scale))) * scale * fade;
     }
     if (flutes && y < yA) {
       const u = clamp((yA - y) / (yA - yHem), 0, 1), w = Math.max(0, (u - uK) / (1 - uK)) ** FLUTE.power;
@@ -317,7 +348,7 @@ export function cutSkirt(mesh, legs = []) {
   pos.needsUpdate = true;
   renormal(geo, groupOf, G, NP, mesh.bindMatrix);
   geo.computeBoundingBox(); geo.computeBoundingSphere();
-  return { moved, max_m: most, hem_before_m: hem.before, hem_after_m: hem.after, flutes, seams: seams ? GORES : 0, ring };
+  return { moved, max_m: most, hem_before_m: hem.before, hem_after_m: hem.after, flutes, seams: seams ? GORES : 0, ring, seam_deg: lines.map((a) => Math.round(a * 1800 / Math.PI) / 10) };
 }
 
 /**

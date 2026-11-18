@@ -19,9 +19,17 @@
 //    side, standing or walking, more than drawn);
 //  - part the skirts at a centre-back vent on the near levels: an open cut up the middle of
 //    the back at least VENT_MIN_M long, apart at the hem by VENT_HEM_M, lapped left over right
-//    at its top; from behind, the vent's foot shows open and its top does not;
+//    at its top; from behind, the vent's foot shows open and, standing, its top does not;
 //  - stand the collar up and draw it white: the collar at the back at least COLLAR_MIN_M over
 //    the coat's collar, the shirt's cloth in the recipe's linear colour without the picture;
+//  - (round 4: "the lapels are black on black with no facing, so they read only by the V's
+//    outline", and "no hip buttons at the back waist seam") face the lapels in silk: from the
+//    front, standing and walking, at least FACED_SHARE of what shows of the lapels is their
+//    facing, on every level, drawn in the body's own silk (the tie's material, at least
+//    SHEEN_ROUGHNESS smoother than the coat's cloth) and appended to the tie's own mesh, so
+//    no mesh or material is added; and put two covered buttons at the back of the waist seam
+//    on the near levels, BUTTON_PROUD_M proud of the coat, either side of the vent, at least
+//    BUTTON_CM2 of them seen from behind, standing and walking;
 //  - change nothing else: no other piece of the body moves but the trousers' top in the waist,
 //    UVs and skin weights of every drawn vertex kept, the vent's copies equal to their own
 //    point in every attribute; other bodies untouched; human-coat.js's closeVents still finds
@@ -59,13 +67,18 @@ const { fitSleeves } = await mod('human-sleeve.js');
 const { fitWaist } = await mod('human-waist.js');
 const { engraveSilver } = await mod('human-silver.js');
 const { createHumanSkirt } = await mod('human-skirt.js');
-const frock = await mod('human-frockcoat.js');
+// FROCK_JS=<file> measures another copy of the module (the round-3 code, to show the round-4 asks fail on it).
+const frock = process.env.FROCK_JS ? await import(new URL(process.env.FROCK_JS, 'file:///').href) : await mod('human-frockcoat.js');
 const OLD = process.env.FROCK_OLD === '1';
 const fitFrockCoat = OLD ? () => null : frock.fitFrockCoat;
 
 const ASSET = 'glessner_john_j_1904';
 export const HEM_MIN_M = 0.015, STRIDE_HEM_M = 0.03, V_MIN_CM2 = 75, V_FAR_CM2 = 60, WAIST_MIN_M = 0.03;
 export const VENT_MIN_M = 0.35, VENT_HEM_M = 0.015, COLLAR_MIN_M = 0.04, POKE_TOL_CM2 = 1;
+export const FACED_SHARE = 0.7, SHEEN_ROUGHNESS = 0.3, BUTTON_PROUD_M = 0.002, BUTTON_CM2 = 2;
+/** The silk mesh's own triangles, then the facing's, then the buttons' (set per level from the report). */
+let SILK = null;
+const silkTag = (i) => (!SILK || i < SILK.n0 ? 'tie' : i < SILK.n0 + SILK.facing ? 'facing' : 'button');
 
 function geometryOnly(bytes) {
   const n = bytes.readUInt32LE(12), doc = JSON.parse(bytes.subarray(20, 20 + n));
@@ -159,7 +172,15 @@ const where = (buf, fr, k) => {
 /** Measures of one posed frame: hem vs knee, the shirt V and bare chest from the front, things
  * under the coat showing through it at the waist from four sides, and the vent from behind. */
 function measurePosed(scene, ms, frs, seamY, vent) {
-  const fr = frameNow(scene), layers = ms.filter((m) => m.visible && !/^(eyes|hair|headwear)/.test(matName(m))).map((m) => ({ P: posed(m), idx: m.geometry.index.array, tag: tagOf(m.name), m }));
+  const fr = frameNow(scene), layers = [];
+  for (const m of ms.filter((m) => m.visible && !/^(eyes|hair|headwear)/.test(matName(m)))) {
+    const P = posed(m), idx = m.geometry.index.array, tag = tagOf(m.name);
+    if (tag !== 'tie' || !SILK) { layers.push({ P, idx, tag, m }); continue; }
+    // The silk tie's mesh carries the facings and the buttons after its own triangles.
+    const parts = new Map();
+    for (let t = 0; t < idx.length; t += 3) { const k = silkTag(Math.min(idx[t], idx[t + 1], idx[t + 2])); if (!parts.has(k)) parts.set(k, []); parts.get(k).push(idx[t], idx[t + 1], idx[t + 2]); }
+    for (const [k, list] of parts) layers.push({ P, idx: Uint32Array.from(list), tag: k, m });
+  }
   const k = (fr.w('calf_l').sub(fr.O).dot(fr.U) + fr.w('calf_r').sub(fr.O).dot(fr.U)) / 2;
   const sk = layers.find((l) => /frock_coat_skirts/.test(l.m.name));
   let hem = Infinity;
@@ -167,12 +188,12 @@ function measurePosed(scene, ms, frs, seamY, vent) {
   const px = 0.003, cm2 = px * px * 1e4;
   // Front, a little from above (the town's eye over a man at three metres).
   const front = idBuffer(layers, fr.F.clone().addScaledVector(fr.U, 0.15), fr.U, fr.O.clone().addScaledVector(fr.U, frs.neck - 0.2), 0.3, px);
-  let shirtV = 0, chest = 0, lapel = 0;
+  let shirtV = 0, chest = 0, lapel = 0, faced = 0;
   for (let q = 0; q < front.tag.length; q++) {
     const t = front.tag[q]; if (!t) continue;
     const [x, y] = where(front, fr, q);
     if (y > frs.neck - 0.03 || y < frs.neck - 0.32) continue;
-    if (t === 'lapel' && Math.abs(x) < 0.2) lapel++;
+    if ((t === 'lapel' || t === 'facing') && Math.abs(x) < 0.2) { lapel++; if (t === 'facing') faced++; }
     if (Math.abs(x) > 0.13) continue;
     if (t === 'shirt' && y < frs.neck - 0.05) shirtV++;
     if (t === 'skin') chest++;
@@ -182,7 +203,7 @@ function measurePosed(scene, ms, frs, seamY, vent) {
   for (const d of [fr.F, fr.F.clone().negate(), fr.L, fr.L.clone().negate()]) {
     const buf = idBuffer(layers, d, fr.U, fr.O.clone().addScaledVector(fr.U, seamY), 0.3, px), N = buf.N, reach = Math.round(0.02 / px);
     for (let q = 0; q < N * N; q++) {
-      const t = buf.tag[q]; if (!t || t === 'coat' || t === 'lapel' || t === 'other') continue;
+      const t = buf.tag[q]; if (!t || t === 'coat' || t === 'lapel' || t === 'facing' || t === 'button' || t === 'other') continue;
       const [, y] = where(buf, fr, q); if (Math.abs(y - seamY) > 0.06) continue;
       let l = false, r = false; const x = q % N;
       for (let j = 1; j <= reach; j++) { if (x - j >= 0 && buf.tag[q - j] === 'coat') l = true; if (x + j < N && buf.tag[q + j] === 'coat') r = true; }
@@ -198,7 +219,7 @@ function measurePosed(scene, ms, frs, seamY, vent) {
     // the gap), between the skirts' outside on both sides.
     const D = buf.depth;
     for (let q = 0; q < N * N; q++) {
-      const t = buf.tag[q]; if (t === 'other') continue;
+      const t = buf.tag[q]; if (t === 'other' || t === 'button') continue;
       const [x, y] = where(buf, fr, q); if (Math.abs(x) > 0.04 || y > vent.to || y < hem - 0.01) continue;
       // The skirts' outside each side: the nearest of their cloth to the eye within 3 cm along the row.
       let l = -Infinity, r = -Infinity; const c = q % N;
@@ -211,7 +232,13 @@ function measurePosed(scene, ms, frs, seamY, vent) {
       if (y < vent.from + (vent.to - vent.from) * 0.35) ventFoot++; else if (y > vent.from + (vent.to - vent.from) * 0.6) ventTop++;
     }
   }
-  return { hemAboveKnee: hem - k, shirtV: shirtV * cm2, chest: chest * cm2, lapel: lapel * cm2, poke: poke * cm2, ventFoot: ventFoot * cm2, ventTop: ventTop * cm2 };
+  // The hip buttons from behind, at the waist seam.
+  let buttons = 0;
+  {
+    const buf = idBuffer(layers, fr.F.clone().negate(), fr.U, fr.O.clone().addScaledVector(fr.U, seamY), 0.2, px);
+    for (let q = 0; q < buf.tag.length; q++) if (buf.tag[q] === 'button') buttons++;
+  }
+  return { hemAboveKnee: hem - k, shirtV: shirtV * cm2, chest: chest * cm2, lapel: lapel * cm2, faced: lapel ? faced / lapel : 0, buttons: buttons * cm2, poke: poke * cm2, ventFoot: ventFoot * cm2, ventTop: ventTop * cm2 };
 }
 /** Standing (the idle clip, 1 s in) and through the walk (every 6th frame of 2 s). */
 function runPoses(gltf, frs, seamY, vent) {
@@ -294,6 +321,8 @@ function bindMeasures(scene) {
 const failures = [], lines = [];
 const check = (ok, msg) => { if (!ok) failures.push(msg); };
 const r2 = (x) => Math.round(x * 1000) / 1000, c1 = (x) => Math.round(x * 10) / 10;
+const all = (P) => [P.stand, ...P.walk];
+const worst = (P, f, pick = Math.min) => pick(...all(P).map(f));
 for (const lod of [0, 1, 2, 3]) {
   const before = await load(ASSET, lod), after = await load(ASSET, lod);
   passes(before.scene, false);
@@ -346,21 +375,65 @@ for (const lod of [0, 1, 2, 3]) {
       }
       continue;
     }
-    check(m.geometry.attributes.position.count === d.n, `lod${lod}: ${p} vertex count changed`);
-    check(gv.idx.every((v, i) => v === m.geometry.index.array[i]), `lod${lod}: ${p} topology changed`);
-    for (const [k, arr] of Object.entries(gv.keep)) {
-      const now = readAttr(m.geometry.attributes[k]);
-      check(now.every((v, i) => v === arr[i]), `lod${lod}: ${p} ${k} changed`);
+    // The silk tie's mesh: its own vertices and triangles first and as given; the facings and
+    // the buttons after them, skinned to the body (weights summing to one).
+    const grown = p === 'four_in_hand_tie' && !OLD, n0 = d.n, n1 = m.geometry.attributes.position.count;
+    if (grown) {
+      check(n1 >= n0, `lod${lod}: the tie lost vertices`);
+      const now = m.geometry.index.array;
+      check(gv.idx.every((v, i) => v === now[i]), `lod${lod}: the tie's own triangles changed`);
+      for (let t = gv.idx.length; t < now.length; t++) if (now[t] < n0) { failures.push(`lod${lod}: an added triangle uses the tie's own vertex ${now[t]}`); break; }
+      for (const [k, arr] of Object.entries(gv.keep)) {
+        const a = m.geometry.attributes[k], w = a.itemSize; let bad = 0;
+        for (let i = 0; i < n0 * w; i++) if (a.getComponent(Math.floor(i / w), i % w) !== arr[i]) bad++;
+        check(bad === 0, `lod${lod}: the tie's ${k} changed on ${bad} of its own values`);
+      }
+      const sw = m.geometry.attributes.skinWeight;
+      for (let i = n0; i < n1; i++) { let t = 0; for (let c = 0; c < 4; c++) t += sw.getComponent(i, c); if (Math.abs(t - 1) > 0.01) { failures.push(`lod${lod}: added vertex ${i}'s weights sum to ${t}`); break; } }
+      for (let i = 0; i < n0 * 3; i++) if (pos[i] !== gv.pos[i]) { failures.push(`lod${lod}: the tie's own vertices moved`); break; }
+    } else {
+      check(n1 === d.n, `lod${lod}: ${p} vertex count changed`);
+      check(gv.idx.every((v, i) => v === m.geometry.index.array[i]), `lod${lod}: ${p} topology changed`);
+      for (const [k, arr] of Object.entries(gv.keep)) {
+        const now = readAttr(m.geometry.attributes[k]);
+        check(now.every((v, i) => v === arr[i]), `lod${lod}: ${p} ${k} changed`);
+      }
     }
+    if (grown) continue;
     if (!/^(frock_coat_body|frock_coat_lapels|waistcoat_high_cut|shirt_standing_collar|straight_trousers)$/.test(p)) {
       let moved = 0; for (let i = 0; i < pos.length; i++) if (pos[i] !== gv.pos[i]) moved++;
       check(moved === 0, `lod${lod}: ${p} moved (${moved} values)`);
     }
   }
+  // 6. Facings: drawn in the body's own silk (the tie's material), appended to its mesh; no mesh
+  // or material added. 7. Buttons: two, at the back of the waist seam, proud of the coat.
+  const counts = (scene) => { let meshes = 0; const mats = new Set(); scene.traverse((o) => { if (o.isMesh) { meshes++; for (const x of [o.material].flat()) mats.add(x); } }); return { meshes, mats: mats.size }; };
+  const cb = counts(before.scene), ca = counts(after.scene);
+  check(ca.meshes === cb.meshes && ca.mats === cb.mats, `lod${lod}: ${ca.meshes} meshes / ${ca.mats} materials, drawn ${cb.meshes} / ${cb.mats}`);
+  const Mb = byPiece(after.scene), tieN0 = drawn.get(Mb.four_in_hand_tie).n;
+  const rep0 = report?.[0] ?? null, facingV = rep0?.facing?.vertices ?? 0, buttonV = rep0?.buttons?.vertices ?? 0;
+  check(facingV > 0 && rep0.facing.mesh === Mb.four_in_hand_tie.name, `lod${lod}: the lapels are not faced in the tie's silk`);
+  const silkM = [Mb.four_in_hand_tie.material].flat()[0], coatM = [Mb.frock_coat_body.material].flat()[0];
+  check(silkM.roughness <= coatM.roughness - SHEEN_ROUGHNESS, `lod${lod}: the facing's silk ${r2(silkM.roughness)} rough against the cloth's ${r2(coatM.roughness)} (want ${SHEEN_ROUGHNESS} smoother)`);
+  let proud = [];
+  if (near) {
+    check(buttonV > 0, `lod${lod}: no hip buttons`);
+    if (buttonV > 0) {
+      const tieP = bindPoints(Mb.four_in_hand_tie, A.fr), coatPs = [bindPoints(Mb.frock_coat_body, A.fr), bindPoints(Mb.frock_coat_skirts, A.fr)];
+      for (const side of [1, -1]) {
+        let crown = Infinity, cx = 0, cy = 0;
+        for (let i = tieN0 + facingV; i < tieN0 + facingV + buttonV; i++) if (Math.sign(tieP[i * 3]) === side && tieP[i * 3 + 2] < crown) { crown = tieP[i * 3 + 2]; cx = tieP[i * 3]; cy = tieP[i * 3 + 1]; }
+        let back = Infinity; for (const P of coatPs) for (let i = 0; i < P.length / 3; i++) if (Math.hypot(P[i * 3] - cx, P[i * 3 + 1] - cy) < 0.012 && P[i * 3 + 2] < 0) back = Math.min(back, P[i * 3 + 2]);
+        proud.push(back - crown);
+        check(back - crown >= BUTTON_PROUD_M && Math.abs(cy - A.seam) < 0.02 && Math.abs(cx) > 0.02 && Math.abs(cx) < 0.08, `lod${lod}: the ${side > 0 ? 'left' : 'right'} hip button ${r2(back - crown)} m proud at (${r2(cx)}, ${r2(cy)}), the seam at ${r2(A.seam)}`);
+      }
+    }
+  }
   // Posed: standing and through the stride, before and after.
+  SILK = OLD ? null : { n0: tieN0, facing: facingV };
   const PB = runPoses(before, B.fr, B.seam, null), PA = runPoses(after, A.fr, A.seam, near ? A.vent : null);
-  const all = (P) => [P.stand, ...P.walk];
-  const worst = (P, f, pick = Math.min) => pick(...all(P).map(f));
+  check(worst(PA, (m) => m.faced) >= FACED_SHARE, `lod${lod}: ${Math.round(100 * worst(PA, (m) => m.faced))} % of the lapels shown is faced at worst (want >= ${100 * FACED_SHARE} %)`);
+  if (near) check(worst(PA, (m) => m.buttons) >= BUTTON_CM2, `lod${lod}: the hip buttons show ${c1(worst(PA, (m) => m.buttons))} cm2 from behind at worst (want >= ${BUTTON_CM2})`);
   check(PA.stand.hemAboveKnee >= HEM_MIN_M, `lod${lod}: standing, the hem ${r2(PA.stand.hemAboveKnee)} m from the knee (want >= ${HEM_MIN_M})`);
   check(worst(PA, (m) => m.hemAboveKnee) >= -STRIDE_HEM_M, `lod${lod}: walking, the hem ${r2(worst(PA, (m) => m.hemAboveKnee))} m from the knee (want >= -${STRIDE_HEM_M})`);
   const vMin = near ? V_MIN_CM2 : V_FAR_CM2;
@@ -370,10 +443,13 @@ for (const lod of [0, 1, 2, 3]) {
   check(worst(PA, (m) => m.poke, Math.max) <= worst(PB, (m) => m.poke, Math.max) + POKE_TOL_CM2, `lod${lod}: under the coat showing through it at the waist, ${c1(worst(PA, (m) => m.poke, Math.max))} cm2 (drawn ${c1(worst(PB, (m) => m.poke, Math.max))})`);
   if (near) {
     check(PA.stand.ventFoot >= 0.5 && worst(PA, (m) => m.ventFoot) >= 0.5, `lod${lod}: the vent's foot shows ${c1(worst(PA, (m) => m.ventFoot))} cm2 from behind at worst (want >= 0.5)`);
-    check(worst(PA, (m) => m.ventTop, Math.max) <= 1, `lod${lod}: the vent's top shows ${c1(worst(PA, (m) => m.ventTop, Math.max))} cm2 through it (want <= 1)`);
+    // Standing the vent is lapped shut at its top; on the walk human-skirt.js (round 4) parts the
+    // two halves as two panels when a leg presses the back, so its top may open with the stride.
+    check(PA.stand.ventTop <= 1, `lod${lod}: standing, the vent's top shows ${c1(PA.stand.ventTop)} cm2 through it (want <= 1)`);
   }
   lines.push(`lod${lod}: hem ${r2(B.hemAboveKnee)} -> ${r2(A.hemAboveKnee)} m from the knee (standing ${r2(PB.stand.hemAboveKnee)} -> ${r2(PA.stand.hemAboveKnee)}, walking worst ${r2(worst(PB, (m) => m.hemAboveKnee))} -> ${r2(worst(PA, (m) => m.hemAboveKnee))}); `
-    + `waist girth ${r2(B.girth)} -> ${r2(A.girth)} m; shirt V ${c1(worst(PB, (m) => m.shirtV))} -> ${c1(worst(PA, (m) => m.shirtV))} cm2 at worst; lapels ${c1(worst(PA, (m) => m.lapel))} cm2; `
+    + `waist girth ${r2(B.girth)} -> ${r2(A.girth)} m; shirt V ${c1(worst(PB, (m) => m.shirtV))} -> ${c1(worst(PA, (m) => m.shirtV))} cm2 at worst; lapels ${c1(worst(PA, (m) => m.lapel))} cm2, faced ${Math.round(100 * worst(PB, (m) => m.faced))} -> ${Math.round(100 * worst(PA, (m) => m.faced))} % at worst (${facingV} v in the silk); `
+    + (near ? `hip buttons ${proud.map((x) => r2(x)).join(' / ')} m proud, ${c1(worst(PB, (m) => m.buttons))} -> ${c1(worst(PA, (m) => m.buttons))} cm2 from behind at worst; ` : '')
     + `poke ${c1(worst(PB, (m) => m.poke, Math.max))} -> ${c1(worst(PA, (m) => m.poke, Math.max))} cm2; collar ${r2(B.collarOver)} -> ${r2(A.collarOver)} m over the coat, ${r2(B.collarLum)} -> ${r2(A.collarLum)} linear; `
     + (near ? `vent ${r2(A.vent.len)} m, ${r2(A.vent.hemGap)} m apart at the hem, ${r2(A.vent.topGap)} at the top, foot ${c1(worst(PA, (m) => m.ventFoot))} / top ${c1(worst(PA, (m) => m.ventTop, Math.max))} cm2; ` : 'vent as drawn; ')
     + `${Math.round(ms)} ms`);

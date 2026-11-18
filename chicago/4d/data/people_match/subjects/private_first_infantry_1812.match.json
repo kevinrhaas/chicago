@@ -2,10 +2,10 @@
   "subject": "private_first_infantry_1812",
   "reference_set": "soldier_1812",
   "shot": {
-    "date": "2026-11-17",
+    "date": "2026-11-18",
     "target": "tools/people_match_stage.html on this tree",
-    "build": "stage, tree c30a40136 + 4 uncommitted figure file(s), with renderers/web/js/human-regulars.js called in humans.js parse() after fitSleeves (wired on a scratch copy of humans.js; the tree's humans.js gains the same two lines when the lead integrates T-3553 round 3)",
-    "out": "evidence/people-match-2026-11-17/private_first_infantry_1812",
+    "build": "stage, tree 275e17456 + 8 uncommitted figure file(s): T-3553 round 4 in progress (the legwear pass in human-regulars.js and human-tailor-1835.js, and the other round-4 passes' working copies)",
+    "out": "evidence/people-match-2026-11-18/private_first_infantry_1812",
     "evidence_repo": "kevinrhaas/chicago-evidence"
   },
   "bound": {
@@ -21,8 +21,8 @@
   },
   "stills": {
     "near-desktop": {
-      "file": "evidence/people-match-2026-11-17/private_first_infantry_1812/near-desktop.jpg",
-      "sha256": "2f47ce12c47e602bc30f8a7ba6a3dc5f7421b273da10cd2deac29786e58c50d2",
+      "file": "evidence/people-match-2026-11-18/private_first_infantry_1812/near-desktop.jpg",
+      "sha256": "95b84008e6e76382f99aec46266a345e20bf67269ee28ff48f6acdde8bcaa3d1",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -52,8 +52,8 @@
       ]
     },
     "far-desktop": {
-      "file": "evidence/people-match-2026-11-17/private_first_infantry_1812/far-desktop.jpg",
-      "sha256": "6703038714c04195920991ab6863b9a485e101bc32177bdbc87024eb111b6de3",
+      "file": "evidence/people-match-2026-11-18/private_first_infantry_1812/far-desktop.jpg",
+      "sha256": "8ab27fb30e8c8df2685f1007b5807a36c3516232243c38b50f688e1b295bbc46",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -83,8 +83,8 @@
       ]
     },
     "near-phone": {
-      "file": "evidence/people-match-2026-11-17/private_first_infantry_1812/near-phone.jpg",
-      "sha256": "652717daf627140152587c8a99a253b61bc23012178712b67e77d56d6976a2fd",
+      "file": "evidence/people-match-2026-11-18/private_first_infantry_1812/near-phone.jpg",
+      "sha256": "a9234f27bb182b86c8f8532ae7932c023e9968a33ee4bcf3fd19906c3a668890",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -114,8 +114,8 @@
       ]
     },
     "far-phone": {
-      "file": "evidence/people-match-2026-11-17/private_first_infantry_1812/far-phone.jpg",
-      "sha256": "e81027cfb218371a1ea05a8286afe6d2a578c70c1718b56f74524ade0ad723cf",
+      "file": "evidence/people-match-2026-11-18/private_first_infantry_1812/far-phone.jpg",
+      "sha256": "fa99d002b21ece03544b65ad23f584fc1bea6ae98898c8f9b5bc96c0bf6ea918",
       "detail": "stage",
       "pose": {
         "pose": "stand",
@@ -146,23 +146,23 @@
     }
   },
   "sheets": {
-    "near-side-by-side": "evidence/people-match-2026-11-17/private_first_infantry_1812/near-side-by-side.jpg",
-    "far-side-by-side": "evidence/people-match-2026-11-17/private_first_infantry_1812/far-side-by-side.jpg",
-    "near-pair": "evidence/people-match-2026-11-17/private_first_infantry_1812/near-pair.jpg",
-    "far-pair": "evidence/people-match-2026-11-17/private_first_infantry_1812/far-pair.jpg",
-    "motion-strip": "evidence/people-match-2026-11-17/private_first_infantry_1812/motion-strip.jpg"
+    "near-side-by-side": "evidence/people-match-2026-11-18/private_first_infantry_1812/near-side-by-side.jpg",
+    "far-side-by-side": "evidence/people-match-2026-11-18/private_first_infantry_1812/far-side-by-side.jpg",
+    "near-pair": "evidence/people-match-2026-11-18/private_first_infantry_1812/near-pair.jpg",
+    "far-pair": "evidence/people-match-2026-11-18/private_first_infantry_1812/far-pair.jpg",
+    "motion-strip": "evidence/people-match-2026-11-18/private_first_infantry_1812/motion-strip.jpg"
   },
-  "verdict": "differs",
+  "verdict": "matches",
   "checklist": {
     "silhouette": {
       "what": "Silhouette and fit of the clothes",
-      "status": "open",
-      "note": "Owner ruling 2026-11-17: \"i think against the regulars? they are probably closer to a regular and would have been outfitted with uniform?\" The private is judged against the record of the U.S. regulars (us_1812_rules_and_articles_albany, the 1802 issue; us_1814_military_laws_and_regulations, the 1813 change read backwards); the pictures stay as period context for silhouette, the record (text) governs pattern. Against that record he now reads as a regular: a blue coat with red collar and cuffs, white tape on the eight breast button holes (inferred from \"trimmed with tape on the collar only\"), skirts drawn down to a hand above the knee (inferred from \"all the rank and file will wear coatees\"; the length follows Ogden's silhouette), white crossbelts, white linen overalls, a felt cap with a feather. Still open, and a fit point, not pattern: the overalls are the loose workwear shell, straight and wide to the shoe, where both pictures show legwear cut close to the leg (Krimmel's pantaloons, Ogden's gaiters); the record names overalls but not their cut."
+      "status": "reads",
+      "note": "Owner ruling 2026-11-17: \"i think against the regulars? they are probably closer to a regular and would have been outfitted with uniform?\" The private is judged against the record of the U.S. regulars (us_1812_rules_and_articles_albany, the 1802 issue; us_1814_military_laws_and_regulations, the 1813 change read backwards); the pictures stay as period context for silhouette, the record (text) governs pattern. Against that record he reads as a regular: a blue coat with red collar and cuffs, white tape on the eight breast button holes (inferred from \"trimmed with tape on the collar only\"), skirts drawn down to a hand above the knee (inferred from \"all the rank and file will wear coatees\"; the length follows Ogden's silhouette), white crossbelts, white linen overalls, a felt cap with a feather. Round 4: the overalls are now cut close to the leg as both pictures draw legwear (Krimmel's pantaloons and gaiters, Ogden's gaiters): at 3 m the legs read as the knee and calf under the linen, closing on the half gaiters over the shoe, no longer the straight wide workwear tube. The record names linen overalls and half gaiters but not their cut; the close cut is inferred from the pictures, its amount (about 1-1.5 cm off the leg at LOD0) reconstructed. The thigh was already close and is unchanged; no buttons or strap under the shoe are drawn."
     },
     "folds": {
       "what": "Folds where cloth gathers",
       "status": "within tolerance",
-      "note": "The overalls are loose with few folds; the longer tails hang flat behind and part over the trailing leg mid-stride (human-skirt.js), no leg showing through them (tools/test_human_regulars.mjs)."
+      "note": "The close overalls show the knee and calf through the linen, with few folds; at the hem they spread over the heel of the shoe in a short step rather than a smooth gaiter line (a few pixels at 3 m). The longer tails hang flat behind and part over the trailing leg mid-stride (human-skirt.js), no leg showing through them or through the overalls standing or walking (tools/test_human_regulars.mjs)."
     },
     "hat_hair": {
       "what": "Hat and hair",
@@ -206,8 +206,8 @@
     {
       "what": "legwear fit",
       "picture": "Legwear cut close to the leg in both pictures.",
-      "ours": "The overalls are the shared loose workwear shell, straight and wide to the shoe; the record names overalls, not their cut.",
-      "status": "open"
+      "ours": "Cut close to the leg at parse (human-regulars.js, round 4): about 1.8 cm off the knee, 1.4 off the calf and 2.3 above the ankle over the half gaiters at LOD0 (the shell drew 3.6, 1.9 and 5.0), the thigh as drawn (1.3). The record names overalls, not their cut: the close cut is inferred from the two pictures, its amount reconstructed. No buttons up the outside of the leg and no strap under the shoe are drawn; the far levels (LOD2-3) are narrower than drawn but looser than LOD0.",
+      "status": "within tolerance"
     },
     {
       "what": "crossbelts",

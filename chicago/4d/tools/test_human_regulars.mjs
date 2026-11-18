@@ -8,11 +8,18 @@
 // the tails stay over the overalls standing and walking with human-skirt.js); every breast
 // button has a tape loop on the coat beside it toward the wearer's left, within 2.5 mm of
 // the cloth, under the crossbelts where they cross it, and still on the cloth
-// when the figure walks; topology, UVs and skin weights of everything else are kept, the
-// crossbelts' own vertices untouched; it runs once per parse; a scene dated 1813 or later
+// when the figure walks; the linen overalls are cut close to the leg (round 4: both pictures
+// of the set draw the legwear close; the record names overalls, not their cut): their ease
+// over the leg (and the half gaiters, at the ankle) at the thigh, knee, calf and above the ankle
+// at most CLOSE_MAX (the far levels FAR_M more, and never wider than drawn), taken in only
+// (toward the leg, level, below the fork), and no shin, thigh or gaiter top out through them
+// (THROUGH_M) standing or walking, with the lengthened tails still over them; topology, UVs and
+// skin weights of everything else are kept, the crossbelts' own vertices untouched; it runs once per parse; a scene dated 1813 or later
 // (the 1835 garrison wears this asset recoloured) and every other body are left as drawn.
 //   node tools/test_human_regulars.mjs          the tree (must PASS)
 //   REGULARS_OLD=1 node tools/test_human_regulars.mjs   the exports as drawn (must FAIL)
+//   REGULARS_JS=<old human-regulars.js> node tools/test_human_regulars.mjs   an earlier module
+//                                                (round 3's, without the overalls: must FAIL)
 //   HUMANS_JS=<path> ...                         read the wiring from another humans.js
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
@@ -44,7 +51,8 @@ const { easeSeats } = await mod('human-seat.js');
 const { fitCoats } = await mod('human-coat.js');
 const { fitSleeves } = await mod('human-sleeve.js');
 const { createHumanSkirt } = await mod('human-skirt.js');
-const R = await mod('human-regulars.js');
+// REGULARS_JS=<path>: another version of the module (the code before a change), its own imports as the tree's.
+const R = process.env.REGULARS_JS ? await import(data((await fs.readFile(process.env.REGULARS_JS, 'utf8')).replace("from 'three'", `from '${three}'`))) : await mod('human-regulars.js');
 const OLD = process.env.REGULARS_OLD === '1';
 const fitRegulars = OLD ? () => null : R.fitRegulars;
 const ASSET = 'private_first_infantry_1812';
@@ -100,6 +108,54 @@ function hits(P, idx, cz, a, y) {
   return out.sort((x, y) => x - y);
 }
 
+/** Which leg each vertex is carried by ('l', 'r' or null): its thigh, calf, foot and ball weights
+ * at least half; with `shin`, only a vertex its thigh and calf carry at least that much (never the
+ * foot, which leaves by the overalls' open end, not through the cloth). */
+function legSides(m, shin = 0) {
+  const names = m.skeleton.bones.map((b) => b.name), si = m.geometry.attributes.skinIndex, sw = m.geometry.attributes.skinWeight, out = [];
+  for (let i = 0; i < si.count; i++) {
+    let l = 0, r = 0, up = 0;
+    for (let k = 0; k < 4; k++) { const mm = /^(thigh|calf|foot|ball)_([lr])$/.exec(names[si.getComponent(i, k)]), w = sw.getComponent(i, k); if (mm) { if (mm[2] === 'l') l += w; else r += w; if (mm[1] === 'thigh' || mm[1] === 'calf') up += w; } }
+    out.push(up < shin ? null : l > 0.5 ? 'l' : r > 0.5 ? 'r' : null);
+  }
+  return out;
+}
+/** The legwear's ease at a height (bind): over 24 angles round the leg's axis, the mean of the
+ * cloth's outline radius less the body's (each the outermost point within 1.2 cm of the height). */
+function easeAround(cloth, inside, axis, side, y, win = 0.012) {
+  const outline = (...ms) => {
+    const bins = new Map();
+    for (const m of ms) { const P = bindPos(m), sd = legSides(m); for (let i = 0; i < P.length / 3; i++) {
+      if (sd[i] !== side || Math.abs(P[i * 3 + 1] - y) > win) continue;
+      const dx = P[i * 3] - axis.x, dz = P[i * 3 + 2] - axis.z, k = Math.round(Math.atan2(dx, dz) / (Math.PI / 12));
+      bins.set(k, Math.max(bins.get(k) ?? 0, Math.hypot(dx, dz)));
+    } }
+    return bins;
+  };
+  const c = outline(cloth), b = outline(...inside), d = [];
+  for (const [k, r] of c) if (b.has(k)) d.push(r - b.get(k));
+  return d.reduce((x, y) => x + y, 0) / Math.max(1, d.length);
+}
+/** The legwear cut close to the leg: its ease over the body at most this (metres) at the
+ * thigh, the knee, the calf and above the ankle (the loose shell drew 1.3, 3.6, 1.9 and 5.0 cm at LOD0:
+ * its thigh was already close; the half gaiters stand under it at the ankle). */
+export const CLOSE_MAX = Object.freeze({ thigh: 0.016, knee: 0.024, calf: 0.016, ankle: 0.03 }), FAR_M = Object.freeze([0, 0, 0.012, 0.016]);
+/** A leg or shoe point further out than the overalls along a ray from its bone's axis by more than this comes through. */
+export const THROUGH_M = 0.002;
+/** All hits along a ray (distances), within maxT. */
+function rayHits(o, d, tris, P, maxT) {
+  const out = [], e1 = new THREE.Vector3(), e2 = new THREE.Vector3(), p = new THREE.Vector3(), q = new THREE.Vector3(), s = new THREE.Vector3(), A = new THREE.Vector3(), B = new THREE.Vector3(), C = new THREE.Vector3();
+  for (const [a, b, c] of tris) {
+    A.fromArray(P, a * 3); B.fromArray(P, b * 3); C.fromArray(P, c * 3);
+    e1.subVectors(B, A); e2.subVectors(C, A); p.crossVectors(d, e2);
+    const det = e1.dot(p); if (Math.abs(det) < 1e-12) continue;
+    s.subVectors(o, A); const u = s.dot(p) / det; if (u < 0 || u > 1) continue;
+    q.crossVectors(s, e1); const v = d.dot(q) / det; if (v < 0 || u + v > 1) continue;
+    const t = e2.dot(q) / det; if (t > 1e-5 && t < maxT) out.push(t);
+  }
+  return out;
+}
+
 const failures = [], lines = [];
 const check = (ok, msg) => { if (!ok) failures.push(msg); };
 let tapeCount = 0;
@@ -117,7 +173,7 @@ for (const lod of [0, 1, 2, 3]) {
   for (const m of meshesOf(gltf.scene)) {
     const s = snap.get(m.name), a = attrs(m), n0 = s.a.position.length / 3;
     for (const k of Object.keys(s.a)) {
-      if (m === tails && (k === 'position' || k === 'normal')) continue;
+      if ((m === tails || m === overalls) && (k === 'position' || k === 'normal')) continue;
       const kept = m === belts ? a[k].slice(0, s.a[k].length) : a[k];
       assert.deepEqual(kept, s.a[k], `LOD${lod} ${m.name}: ${k} kept`);
     }
@@ -142,6 +198,31 @@ for (const lod of [0, 1, 2, 3]) {
   }
   check(close > 0.004, `LOD${lod} tails: within ${(close * 1000).toFixed(1)} mm of the overalls at rest`);
 
+  // The overalls cut close to the leg: thigh, knee, calf and above the ankle, each leg.
+  const O0 = bindPos(pieceOf(drawn.scene, 'linen_overalls')), body0 = pieceOf(gltf.scene, 'body_0');
+  const cut = {};
+  for (const [part, y] of [['thigh', hip - 0.19], ['knee', joint(tails, 'calf_l').y], ['calf', joint(tails, 'calf_l').y - 0.12], ['ankle', joint(tails, 'foot_l').y + 0.07]]) {
+    for (const s of ['l', 'r']) {
+      const ax = joint(tails, `thigh_${s}`);
+      const win = [0.012, 0.012, 0.025, 0.035][lod];
+      const was = easeAround(pieceOf(drawn.scene, 'linen_overalls'), [pieceOf(drawn.scene, 'body_0'), pieceOf(drawn.scene, 'closed_shoes')], ax, s, y, win);
+      const now = easeAround(overalls, [body0, pieceOf(gltf.scene, 'closed_shoes')], ax, s, y, win);
+      cut[part] = [Math.max(cut[part]?.[0] ?? 0, was), Math.max(cut[part]?.[1] ?? 0, now)];
+    }
+    // The far levels' coarse rings sag between their points and stand further off (FAR_M more), and never wider than drawn.
+    const most = CLOSE_MAX[part] + FAR_M[lod];
+    check(cut[part][1] <= most && cut[part][1] <= cut[part][0] + 1e-4, `LOD${lod} overalls: ${(cut[part][1] * 100).toFixed(1)} cm off the leg at the ${part} (at most ${(most * 100).toFixed(1)}; the shell as drawn ${(cut[part][0] * 100).toFixed(1)})`);
+  }
+  // Taken in only: toward the leg's axis, level, below the fork; the seat and band as they were.
+  { const sd = legSides(overalls); let bad = 0;
+    for (let i = 0; i < O0.length / 3; i++) {
+      const dx = O[i * 3] - O0[i * 3], dy = O[i * 3 + 1] - O0[i * 3 + 1], dz = O[i * 3 + 2] - O0[i * 3 + 2];
+      if (Math.hypot(dx, dy, dz) < 1e-6) continue;
+      const ax = sd[i] ? joint(tails, `thigh_${sd[i]}`) : null;
+      if (!ax || Math.abs(dy) > 1e-4 || O0[i * 3 + 1] > hip - 0.07 || dx * (O0[i * 3] - ax.x) + dz * (O0[i * 3 + 2] - ax.z) >= 0) bad++;
+    }
+    assert.equal(bad, 0, `LOD${lod} overalls: ${bad} vertices moved other than in toward the leg below the fork`); }
+
   // The tape: one loop a button, on the cloth, under the belts.
   const C = bindPos(coat), Ci = coat.geometry.index.array, B = bindPos(belts), Bi = belts.geometry.index.array;
   const cz = (joint(coat, 'spine_02').z + joint(coat, 'spine_03').z) / 2;
@@ -159,6 +240,11 @@ for (const lod of [0, 1, 2, 3]) {
     }
     if (n && on >= n - 1) loops++;
   }
+  // The tape's weights add to exactly the attribute's full scale (a rig that keeps each
+  // vertex's own total, human-skirt.js, would carry a byte-short loop off the coat).
+  { const sw = belts.geometry.attributes.skinWeight, n0b = snap.get(belts.name).a.position.length / 3; let off = 0;
+    for (let i = n0b; i < sw.count; i++) if (Math.abs(sw.getX(i) + sw.getY(i) + sw.getZ(i) + sw.getW(i) - 1) > 1e-6) off++;
+    check(off === 0, `LOD${lod}: ${off} tape vertices' weights do not add to one exactly`); }
   // The belt and the tape are the one white material, so a near tie would not show; it may never cross.
   check(belt >= 0.0005, `LOD${lod}: a crossbelt lies ${(belt * 1000).toFixed(2)} mm over the tape (at least 0.5 mm)`);
   check(loops === ys.length, `LOD${lod}: ${loops} of ${ys.length} breast button holes have a tape loop on the cloth beside them`);
@@ -183,12 +269,39 @@ for (const lod of [0, 1, 2, 3]) {
   const sk = createHumanSkirt({ id: 'regulars-test', scene });
   const ms = meshesOf(scene), pt = ms.find((m) => m.name === tails.name), pc = ms.find((m) => m.name === coat.name), pb = ms.find((m) => m.name === belts.name), legs = ms.filter((m) => /linen_overalls|body_0/.test(m.name));
   let drift = 0, poke = 0, pokeAt = '';
+  // The leg and shoe under the overalls (bind height below the fork, above the hem), each with its leg.
+  const pov = ms.find((m) => m.name === overalls.name), inner = ms.filter((m) => /_(body_0|closed_shoes)_lod\d$/.test(m.name));
+  const ovHem = Math.min(...O.filter((_, i) => i % 3 === 1)), ovTris = [];
+  for (let k = 0; k < pov.geometry.index.count; k += 3) ovTris.push([pov.geometry.index.getX(k), pov.geometry.index.getX(k + 1), pov.geometry.index.getX(k + 2)]);
+  const underPts = inner.map((m) => { const P = bindPos(m), sd = legSides(m, /shoes/.test(m.name) ? 0.3 : 0.5), out = []; for (let i = 0; i < P.length / 3; i += 2) if (sd[i] && P[i * 3 + 1] < hip - 0.12 && P[i * 3 + 1] > ovHem + 0.012) out.push([i, sd[i]]); return { m, out }; });
+  let through = 0, deep = 0, deepAt = '';
   for (let f = 0; f < 66; f++) {
     const standing = f < 12;
     if (!standing) mixer.update(1 / 30);
     sk?.apply(1 / 30, { state: standing ? 'standing' : 'walking', root }); root.updateMatrixWorld(true);
     if (f % 6 !== 5) continue;
     const PB = posed(pb), PC = posed(pc);
+    // No leg or shoe out through the overalls: a ray from the bone's axis (hip to knee, knee to
+    // ankle) out through each point meets the cloth further out than the point.
+    { const POV = posed(pov), w = (nm) => scene.getObjectByName(nm).getWorldPosition(new THREE.Vector3());
+      for (const s of ['l', 'r']) {
+        const segs = [[w(`thigh_${s}`), w(`calf_${s}`)], [w(`calf_${s}`), w(`foot_${s}`)]];
+        const cull = segs.map(([a, b]) => { const ab = b.clone().sub(a), l2 = ab.lengthSq(), d = new THREE.Vector3(), c = (i) => { d.fromArray(POV, i * 3); const t = Math.min(1.2, Math.max(-0.2, d.clone().sub(a).dot(ab) / l2)); return a.clone().addScaledVector(ab, t).distanceTo(d) < 0.2; }; return ovTris.filter((tr) => tr.some(c)); });
+        for (const { m, out } of underPts) {
+          const P = posed(m), v = new THREE.Vector3();
+          for (const [i, sd] of out) {
+            if (sd !== s) continue;
+            v.fromArray(P, i * 3);
+            let best = null;
+            segs.forEach(([a, b], k) => { const ab = b.clone().sub(a), t = Math.min(1, Math.max(0, v.clone().sub(a).dot(ab) / ab.lengthSq())), c = a.clone().addScaledVector(ab, t), r = c.distanceTo(v); if (!best || r < best.r) best = { c, r, k }; });
+            if (best.r < 0.005) continue;
+            const hs = rayHits(best.c, v.clone().sub(best.c).normalize(), cull[best.k], POV, 0.3);
+            if (!hs.length) continue;
+            const out2 = best.r - Math.max(...hs);
+            if (out2 > THROUGH_M) { through++; if (out2 > deep) { deep = out2; deepAt = `${standing ? 'standing' : `walking ${(f / 30).toFixed(1)} s`} ${m.name.replace(`${ASSET}_`, '')} ${s}`; } }
+          }
+        }
+      } }
     for (const [i, [a, b, c, u, v2, w2], d0] of near) {
       const x = PC[a * 3] * u + PC[b * 3] * v2 + PC[c * 3] * w2, y = PC[a * 3 + 1] * u + PC[b * 3 + 1] * v2 + PC[c * 3 + 1] * w2, z = PC[a * 3 + 2] * u + PC[b * 3 + 2] * v2 + PC[c * 3 + 2] * w2;
       drift = Math.max(drift, Math.abs(Math.hypot(PB[i * 3] - x, PB[i * 3 + 1] - y, PB[i * 3 + 2] - z) - d0));
@@ -220,7 +333,8 @@ for (const lod of [0, 1, 2, 3]) {
   // The far levels' coarser coat bends between its corners; a few millimetres there is under a pixel.
   if (!OLD) check(drift <= (lod <= 1 ? 0.003 : 0.006), `LOD${lod}: the tape drifts ${(drift * 1000).toFixed(1)} mm off the coat walking`);
   check(poke <= (lod <= 1 ? 0.006 : 0.012), `LOD${lod}: a leg comes ${(poke * 1000).toFixed(1)} mm out behind the tails (${pokeAt})`);
-  lines.push(`LOD${lod}: hem ${hem0.toFixed(3)} → ${hem1.toFixed(3)} m (knee ${knee.toFixed(3)}), over the overalls by ${(close * 1000).toFixed(0)} mm at rest, legs out behind ${(poke * 1000).toFixed(1)} mm walking; tape ${loops}/${ys.length} loops (${under} samples under a belt, ${(belt * 1000).toFixed(1)} mm under it at least), drift ${(drift * 1000).toFixed(1)} mm`);
+  check(through === 0, `LOD${lod}: the leg or shoe comes out through the overalls at ${through} points, up to ${(deep * 1000).toFixed(1)} mm (${deepAt})`);
+  lines.push(`LOD${lod}: overalls off the leg ${Object.entries(cut).map(([k, [a, b]]) => `${k} ${(a * 100).toFixed(1)}→${(b * 100).toFixed(1)}`).join(', ')} cm, through ${through}; hem ${hem0.toFixed(3)} → ${hem1.toFixed(3)} m (knee ${knee.toFixed(3)}), over the overalls by ${(close * 1000).toFixed(0)} mm at rest, legs out behind ${(poke * 1000).toFixed(1)} mm walking; tape ${loops}/${ys.length} loops (${under} samples under a belt, ${(belt * 1000).toFixed(1)} mm under it at least), drift ${(drift * 1000).toFixed(1)} mm`);
 
   if (!OLD) {
     // Once per parse.
@@ -228,13 +342,15 @@ for (const lod of [0, 1, 2, 3]) {
     assert.equal(R.fitRegulars(gltf.scene, { sceneId: '1812' }), null, `LOD${lod}: a second call does nothing`);
     meshesOf(gltf.scene).forEach((m, k) => { assert.equal(m.geometry.attributes.position.count, held[k][0]); assert.deepEqual(m.geometry.attributes.position.array, held[k][1], `LOD${lod} ${m.name}: a second call moved it`); });
     assert(report && report.loops === ys.length && report.tails > 0.1, `LOD${lod}: report ${JSON.stringify(report)}`);
+    check(report.overalls?.moved > 0, `LOD${lod}: the overalls not taken in (report ${JSON.stringify(report)})`);
     // The 1835 garrison keeps the coatee; a store with no scene dresses the 1812 private.
     for (const [sceneId, applies] of [['1835', false], ['1904', false], ['1812', true], [null, true]]) {
       const g = await load(ASSET, lod); before(g.scene);
-      const counts = meshesOf(g.scene).map((m) => m.geometry.attributes.position.count);
+      const held = meshesOf(g.scene).map((m) => m.geometry.attributes.position.array.slice());
       const r = R.fitRegulars(g.scene, { sceneId });
       assert.equal(!!r, applies, `LOD${lod} scene ${sceneId}: ${applies ? 'dressed' : 'left as drawn'}`);
-      if (!applies) assert.deepEqual(meshesOf(g.scene).map((m) => m.geometry.attributes.position.count), counts);
+      // The 1835 garrison's coatee and loose trousers as exported: no picture of its own says otherwise.
+      if (!applies) meshesOf(g.scene).forEach((m, k) => assert.deepEqual(m.geometry.attributes.position.array, held[k], `LOD${lod} scene ${sceneId} ${m.name}: left as drawn`));
     }
   }
 }
@@ -261,4 +377,4 @@ assert.equal(tapeCount, 32, 'eight loops at each of four levels');
   assert(/import \{ fitRegulars \} from '\.\/human-regulars\.js';/.test(humans), 'humans.js imports fitRegulars');
   assert(/fitSleeves\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,200}fitRegulars\(gltf\.scene, \{ sceneId \}\);(?:(?!return gltf)[\s\S]){0,200}fitWaist\(gltf\.scene\);/.test(humans), 'parse() dresses the regulars after the sleeves and before the waist, with the scene (another pass may stand between)');
 }
-console.log('human-regulars: the private\'s tails to above the knee and tape on his breast button holes, at every level, standing and walking; the 1835 garrison and every other body as drawn: PASS');
+console.log('human-regulars: the private\'s tails to above the knee, tape on his breast button holes and his overalls cut close to the leg, at every level, standing and walking, nothing through; the 1835 garrison and every other body as drawn: PASS');

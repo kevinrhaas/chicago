@@ -11,7 +11,11 @@
 //     other mesh of the asset;
 //   - keep the cloth off the legs and shoes standing (CLEAR_M on every ray, at every height);
 //   - draw gore seams and, at the near levels, folds at the hem (relief the light can catch),
-//     its normals turned outward;
+//     its normals turned outward; and (round 4: "her gore seams are faint in black wool at
+//     3 m") draw each seam as a LINE the light can find: across a seam the normals one point of
+//     the ring either side turn toward each other by at least SEAM_TURN_DEG more than they do
+//     across the middle of a gore, at the near level (round 3 drew 14 degrees: faint), and the
+//     next level's seams no fainter than SEAM_TURN_DEG_1;
 //   - keep topology, UVs and skin weights;
 //   - trim the collar, the jabot and the front in cream lace, the skirt's hem and the coat's
 //     cuffs in braid, and bring the shirtwaist's cloth up to cream;
@@ -45,7 +49,8 @@ const SkeletonUtils = await import(utils.SkeletonUtils);
 await MeshoptDecoder.ready;
 globalThis.self ??= globalThis;
 const js = (name) => import(new URL(`renderers/web/js/${name}`, here).href);
-const { fitGown: realFit, GOWNS, CUT, SEAM, FRILL, gownFrame } = await js('human-gown.js');
+// GOWN_JS=<file> measures another copy of the module (the round-3 code, to show the seam test fails on it).
+const { fitGown: realFit, GOWNS, CUT, SEAM, FRILL, gownFrame } = await import(process.env.GOWN_JS ? new URL(process.env.GOWN_JS, 'file:///').href : new URL('renderers/web/js/human-gown.js', here).href);
 const { createHumanSkirt, skirtMeshes } = await js('human-skirt.js');
 const { TRIMS } = await js('human-finery.js');
 const BEFORE = [(await js('human-collar.js')).dressCollars, (await js('human-seat.js')).easeSeats, (await js('human-coat.js')).fitCoats, (await js('human-sleeve.js')).fitSleeves];
@@ -55,6 +60,39 @@ const fitGown = OFF ? () => null : realFit;
 
 export const HEM_RATIO = 1.6, HEM_DEPTH_M = 0.7, KNEE_SHARE = 0.2, CLEAR_M = 0.012;
 export const SEAM_DIP_M = 0.0015, FOLD_RMS_M = { 0: 0.005, 1: 0.004 }, FRILL_CLEAR_M = 0.002;
+export const SEAM_TURN_DEG = 20, SEAM_TURN_DEG_1 = 3.5;
+const TAU = Math.PI * 2, wrapA = (a) => ((a + Math.PI) % TAU + TAU) % TAU - Math.PI;
+/**
+ * How sharply the light can draw the gore seams: on each ring of the cloth between `lo` and
+ * `hi`, the horizontal turn of the normals one point either side of the point nearest each
+ * seam (the nominal seam angle, any point within one ring spacing of it, the best taken)
+ * toward each other, less the same taken at the middle of each gore (equally generously), in
+ * degrees, averaged. A smooth gore turns its normals apart by its curvature alone at both.
+ */
+function seamTurn(mesh, fr, lo, hi, gores = 7) {
+  const P = inFrame(mesh, fr), nrm = mesh.geometry.attributes.normal, nm = new THREE.Matrix3().getNormalMatrix(mesh.bindMatrix), v = new THREE.Vector3(), rows = new Map();
+  for (let i = 0; i < P.length / 3; i++) {
+    const x = P[i * 3], y = P[i * 3 + 1], z = P[i * 3 + 2]; if (y < lo || y > hi) continue;
+    const th = Math.atan2(x, z);
+    v.fromBufferAttribute(nrm, i).applyMatrix3(nm);
+    let nx = v.dot(fr.L), nz = v.dot(fr.F);
+    if (nx * Math.sin(th) + nz * Math.cos(th) < 0) { nx = -nx; nz = -nz; }   // the asset's normals face in
+    const k = Math.round(y / 0.003), r = rows.get(k) ?? []; r.push([th, wrapA(Math.atan2(nx, nz) - th)]); rows.set(k, r);
+  }
+  let ring = 0; for (const r of rows.values()) ring = Math.max(ring, r.length);
+  const col = TAU / ring;
+  const sig = (r, at) => { let best = -Infinity; for (let j = 0; j < r.length; j++) { if (Math.abs(wrapA(r[j][0] - at)) > col) continue; const a = r[(j + r.length - 1) % r.length], b = r[(j + 1) % r.length]; best = Math.max(best, wrapA(a[1] - b[1]) * 180 / Math.PI); } return best; };
+  let seam = 0, mid = 0, n = 0;
+  for (const r of rows.values()) {
+    if (r.length < ring * 0.8) continue;
+    r.sort((a, b) => a[0] - b[0]);
+    for (let k = 0; k < gores; k++) {
+      const s0 = wrapA((k + 0.5) * TAU / gores), a = sig(r, s0), b = sig(r, wrapA(s0 + Math.PI / gores));
+      if (a > -Infinity && b > -Infinity) { seam += a; mid += b; n++; }
+    }
+  }
+  return n ? (seam - mid) / n : 0;
+}
 
 function geometryOnly(bytes) {
   const n = bytes.readUInt32LE(12), doc = JSON.parse(bytes.subarray(20, 20 + n));
@@ -196,12 +234,15 @@ for (const lod of [0, 1, 2, 3]) {
     });
   };
   const gore = (2 * Math.PI) / 7, seamDist = (th, r) => { let d = Math.abs(((th - gore / 2) % gore + gore) % gore); return Math.min(d, gore - d) * r; };
-  let dip = 0, rms = 0;
+  let dip = 0, rms = 0, turn = 0;
   if (lod <= 1) {
     const band = resid(fr.knee + 0.04, o1.yA - 0.05);
     const near = band.filter(([th, , r]) => seamDist(th, r) < 0.008), far = band.filter(([th, , r]) => seamDist(th, r) > 0.03);
     dip = far.reduce((a, p) => a + p[1], 0) / far.length - near.reduce((a, p) => a + p[1], 0) / near.length;
     assert(dip >= SEAM_DIP_M, `${tag}: the gore seams lie ${(dip * 1000).toFixed(1)} mm in from the gores, at least ${SEAM_DIP_M * 1000}`);
+    turn = seamTurn(sCut, fr, fr.knee + 0.04, o1.yA - 0.05);
+    const want = lod === 0 ? SEAM_TURN_DEG : SEAM_TURN_DEG_1;
+    assert(turn >= want, `${tag}: across a gore seam the normals turn ${turn.toFixed(1)} degrees more than across a gore (the light's line), at least ${want}`);
     const hem = resid(o1.yHem + 0.005, o1.yHem + 0.08);
     rms = Math.sqrt(hem.reduce((a, p) => a + p[1] * p[1], 0) / hem.length);
     assert(rms >= FOLD_RMS_M[lod], `${tag}: the hem's folds are ${(rms * 1000).toFixed(1)} mm (rms), at least ${FOLD_RMS_M[lod] * 1000}`);
@@ -252,7 +293,7 @@ for (const lod of [0, 1, 2, 3]) {
     assert.equal(collar.geometry.attributes.position.count, named(ref.scene, ASSET, 'lady_shirtwaist_collar').geometry.attributes.position.count + (frill?.vertices ?? 0), `${tag}: and adds no second frill`);
     assert.equal(counts(cut.scene).meshes, ex.meshes, `${tag}: nor a mesh`);
   }
-  lines.push(`LOD${lod} hem ${(o0.hem * 100).toFixed(1)} -> ${(o1.hem * 100).toFixed(1)} cm (x${o0.ratio.toFixed(2)} -> x${o1.ratio.toFixed(2)} the hips), depth ${(o0.depth * 100).toFixed(0)} -> ${(o1.depth * 100).toFixed(0)} cm, knee ${(o0.share * 100).toFixed(0)} -> ${(o1.share * 100).toFixed(0)} %, clear ${(clear * 100).toFixed(1)} cm${lod <= 1 ? `, seams ${(dip * 1000).toFixed(1)} mm, folds ${(rms * 1000).toFixed(1)} mm` : ''}, ${frill ? `frill ${frill.vertices} v in the collar ${(frillClear.bent * 1000).toFixed(0)} mm off, ` : 'no frill, '}${cut.ms.toFixed(0)} ms`);
+  lines.push(`LOD${lod} hem ${(o0.hem * 100).toFixed(1)} -> ${(o1.hem * 100).toFixed(1)} cm (x${o0.ratio.toFixed(2)} -> x${o1.ratio.toFixed(2)} the hips), depth ${(o0.depth * 100).toFixed(0)} -> ${(o1.depth * 100).toFixed(0)} cm, knee ${(o0.share * 100).toFixed(0)} -> ${(o1.share * 100).toFixed(0)} %, clear ${(clear * 100).toFixed(1)} cm${lod <= 1 ? `, seams ${(dip * 1000).toFixed(1)} mm turning ${turn.toFixed(1)} deg, folds ${(rms * 1000).toFixed(1)} mm` : ''}, ${frill ? `frill ${frill.vertices} v in the collar ${(frillClear.bent * 1000).toFixed(0)} mm off, ` : 'no frill, '}${cut.ms.toFixed(0)} ms`);
 }
 console.log(`${ASSET}: ${lines.join('; ')}: PASS`);
 console.log(`${ASSET} meshes per level (with the gown / the export): ${meshCounts.join(', ')}; no mesh, draw call or material added: PASS`);
