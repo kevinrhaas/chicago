@@ -29,6 +29,15 @@
 <p>Fourteen original control locations were re-read, and 22 additional intersections were accepted. Of the resulting 36, <strong>28 determine the fitted map</strong>. Eight spatially distributed intersections were set aside before model selection and remain <strong>independent checks</strong>; they do not pull the published map into position.</p>
 <dl class="audit-metrics"><div><dt>Controls used to fit</dt><dd>28<p>Street intersections read on the actual scan</p></dd></div><div><dt>Independent checks</dt><dd>8<p>Excluded from fitting and model selection</p></dd></div><div><dt>Check RMS error</dt><dd>15.62 <small>m</small><p>Previously 49.97 m at these same eight locations</p></dd></div><div><dt>Largest check error</dt><dd>25.65 <small>m</small><p>A measured result, not a citywide maximum</p></dd></div></dl>
 <p class="reading-guide">RMS is the square root of the mean squared horizontal error. It describes these measurements; it is neither a guaranteed distance nor a confidence interval for every point in Chicago.</p>
+<aside class="reading-guide" id="modern-grid-check"><h3>Checking the existing Today alignment</h3><p>The existing <em>Today</em> window provides another check on the modern intersection
+targets. Nine shared corners in the project’s City of Chicago street-centreline data
+and the 1871 fit’s OpenStreetMap targets agree within 2.02 metres RMS, with a largest
+difference of 3.85 metres; State and Madison differs by 0.51 metres. Both use the same
+UTM coordinate frame and origin. The older years’ Google Street View adjustments align
+their particular reconstructions with today’s map, so those shifts are not applied to
+1871. This comparison covers the central-city extract, not the whole city, and does
+not establish that modern and historical street centres coincide. The historic
+street grid and the declared map-alignment uncertainty remain unchanged.</p><p><a href="https://github.com/kevinrhaas/chicago/blob/dev/chicago/4d/docs/measurements/t-3654-today-registration-audit.json">Read all nine comparisons, source coordinates and reproduction instructions →</a></p></aside>
 </section>
 <section id="controls" aria-labelledby="controls-heading">
 <p class="eyebrow">Read the source and the test together</p><h2 id="controls-heading">The 1870 map, with its controls.</h2>

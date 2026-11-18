@@ -20,6 +20,15 @@ for banks, parcels or vertical grades. A newly inspected August 1869 federal har
 provides finer relative shoreline geometry; its absolute placement and changes before
 October 1871 remain separate research questions.
 
+The existing Today/Google Maps navigation alignment supplies a second modern-data
+cross-check: nine shared City-centreline and OSM intersections agree within 2.023 m
+RMS (3.854 m maximum), and fourteen inherited control targets match exactly. Both
+paths use the same local EPSG:26916 frame. The older years’ display shifts belong to
+their own reconstructed grids and are not transplanted into 1871. See
+`docs/measurements/t-3654-today-registration-audit.json` for source hashes, exact
+coordinates and reproduction instructions. This downtown comparison does not reduce
+the historical-map residuals or establish that street centres stayed unchanged.
+
 An independent overlay review also corrected river/fork identities and bends, the
 Goose Island canal, six road or railway routes, shoreline and cemetery boundaries.
 The research viewer retains a reproducible original-pixel overlay. The resulting

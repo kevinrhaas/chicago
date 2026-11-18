@@ -711,5 +711,16 @@
       "status": "Projected work, not confirmed construction by the scene date."
     },
     "geography_status": "Absolute placement and historical water-level elevation remain unresolved. The later outer-harbor breakwater is distinct from the piers drawn on the August 1869 sheet."
+  },
+  "modern_intersection_cross_check": {
+    "date": "2026-11-18",
+    "shared_intersections": 9,
+    "modern_dataset_difference_rms_m": 2.023028533,
+    "modern_dataset_difference_max_m": 3.854101711,
+    "scope": "Comparison of existing City street-centreline Today controls with OSM targets; central-city coverage only. This neither lowers historical-map residuals nor establishes unchanged historical street centres.",
+    "frame": "Both use EPSG:26916 minus origin [447072.7, 4637395.8] metres.",
+    "decision": "Retain 1871 coordinates. Do not transplant older reconstructions’ per-year Today lookup shifts.",
+    "audit_url": "https://github.com/kevinrhaas/chicago/blob/dev/chicago/4d/docs/measurements/t-3654-today-registration-audit.json",
+    "audit_sha256": "244ebb0efa76229bac0d7a64d55b3ded2963ee11fa4d0fa4ad6eb2dbb7509e2f"
   }
 }

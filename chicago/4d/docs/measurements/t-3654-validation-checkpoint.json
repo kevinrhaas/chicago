@@ -24,21 +24,23 @@
     "scope": "Generated scene counts, not a historical census."
   },
   "completed_validation": [
-    "Final published 1871 acceptance at 390×780 and 1280×800, all three detail levels; see t-3654-city-baseline.json for input hashes and measured results.",
+    "Final published 1871 acceptance at 390\u00d7780 and 1280\u00d7800, all three detail levels; see t-3654-city-baseline.json for input hashes and measured results.",
     "All 22 bridges in both directions; 597 quay approaches; walking floors, collisions, source cards and confidence controls; zero 1871 application, page or resource errors.",
     "Pre-fire viewer, research and notebook browser checks on mobile and desktop: 28, 51 and 114 assertions.",
     "Registration, source provenance, trace reproduction, deterministic generation and focused runtime checks.",
     "Local source partitions 17/32 and 1/32 cover 1/16; 3/16 passed. Part 2/16 exposed a measurement-owner assumption now corrected; its focused check passes but the full part awaits rerun.",
     "Quiet legacy mobile stage 1 passed 95 assertions with zero failures or page errors; this is calibration, not complete commit-bound legacy acceptance.",
     "Context building and tree cards pass actual popup tests after moving liberty metadata from an undeclared sidecar field to the runtime record; the strict sidecar scanner and negative controls pass.",
-    "Shared year-entry pages pass nine Chromium fixture cases, offline-pack and preview checks; actual 1835/1871 native entry passes at 1280×800 with zero page/network errors. See t-3654-entry-pages.json.",
-    "Integrated dataset validator --all passes with zero errors and 340 existing warnings after both repairs."
+    "Shared year-entry pages pass nine Chromium fixture cases, offline-pack and preview checks; actual 1835/1871 native entry passes at 1280\u00d7800 with zero page/network errors. See t-3654-entry-pages.json.",
+    "Integrated dataset validator --all passes with zero errors and 340 existing warnings after both repairs.",
+    "PR preflight part 2/16 passes all 90 steps; changelog and ticket ID checks pass. Fresh root publication passes check_published.mjs. Full source coverage still pending.",
+    "Existing Today/Google Maps navigation alignment cross-check: nine central-city modern intersections agree within 2.023 m RMS (3.854 m maximum); fourteen inherited targets match exactly. No missing projection or legacy correction. See t-3654-today-registration-audit.json; historical fit uncertainty is unchanged.",
+    "Fresh ae259 published snapshot passes final 1871 mobile and desktop acceptance at all three detail levels: all 22 bridges both directions, all 597 quays, street/walk transitions, actual runtime liberties and source cards. Zero application/page/resource errors. Geometry, lighting and submission counts match the prior accepted snapshot; updated t-3654-city-baseline.json records current runtime and entry hashes."
   ],
   "pending_validation": [
     "Complete full source gate",
     "Legacy browser stages 1 through 15 on both viewports",
-    "1812 published readiness, walking and canvas check",
-    "PR preflight and final dev CI"
+    "1812 published readiness, walking and canvas check"
   ],
   "known_validation_repair": "measure_generator_half.py now attributes the two new terrain assets to city_1871_emit.py: total 1,126 assets, independent emitter reach 2, existing common-module reach 820 and legacy terrain reach 6 retained.",
   "ci_workflow": "chicago-4d-smoke.yml",
@@ -109,8 +111,8 @@
     "bash tools/publish.sh"
   ],
   "limits": "This is the requested generic context baseline. Named properties, people, daily activity and photographic finish remain subsequent work; bank and parcel uncertainty is retained.",
-  "checkpoint_revision": 3,
-  "local_source_followup": "The two part 4/16 validator failures are repaired: context liberties are runtime metadata, and year doors share one canonical renderer page. Parts 5–16 have not run locally. The full CI gate remains required. The next root publication refreshes the ticket mirror copied from the isolated validation candidate.",
+  "checkpoint_revision": 4,
+  "local_source_followup": "All three known failures are repaired. Part 2/16 and the integrated validator/publication checks now pass; parts 5\u201316 have not run locally. Complete CI coverage remains required.",
   "superseded_ci": {
     "commit": "1a5b7080f00fc1e7caf06b174f8a3ce25f77d036",
     "reason": "First smoke dispatches were cancelled after the local validator identified the two repairs; they do not count as final acceptance.",
@@ -128,5 +130,94 @@
       44371512699,
       44371535568
     ]
-  }
+  },
+  "pull_request": {
+    "number": 2198,
+    "url": "https://github.com/kevinrhaas/chicago/pull/2198",
+    "draft": true
+  },
+  "source_ci": {
+    "run_id": 44377433698,
+    "commit": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290",
+    "state": "queued; this metadata/research checkpoint supersedes that source-gate request. Require the latest PR #2198 gate before merge."
+  },
+  "browser_ci": {
+    "commit": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290",
+    "runs": [
+      {
+        "viewport": "mobile",
+        "stage": "1-4",
+        "run_id": 44375691729,
+        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375691729"
+      },
+      {
+        "viewport": "mobile",
+        "stage": "5-8",
+        "run_id": 44375714232,
+        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375714232"
+      },
+      {
+        "viewport": "mobile",
+        "stage": "9-12",
+        "run_id": 44375735410,
+        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375735410"
+      },
+      {
+        "viewport": "mobile",
+        "stage": "13",
+        "run_id": 44375760118,
+        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375760118"
+      },
+      {
+        "viewport": "mobile",
+        "stage": "14-15",
+        "run_id": 44375783832,
+        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375783832"
+      },
+      {
+        "viewport": "desktop",
+        "stage": "1-2",
+        "run_id": 44375810389,
+        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375810389"
+      },
+      {
+        "viewport": "desktop",
+        "stage": "3-4",
+        "run_id": 44375835405,
+        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375835405"
+      },
+      {
+        "viewport": "desktop",
+        "stage": "5-6",
+        "run_id": 44375862798,
+        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375862798"
+      },
+      {
+        "viewport": "desktop",
+        "stage": "7-8",
+        "run_id": 44375888364,
+        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375888364"
+      },
+      {
+        "viewport": "desktop",
+        "stage": "9-12",
+        "run_id": 44375916807,
+        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375916807"
+      },
+      {
+        "viewport": "desktop",
+        "stage": "13",
+        "run_id": 44375959565,
+        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375959565"
+      },
+      {
+        "viewport": "desktop",
+        "stage": "14-15",
+        "run_id": 44375984544,
+        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375984544"
+      }
+    ],
+    "state": "queued_at_checkpoint"
+  },
+  "tested_runtime_commit": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290"
 }
