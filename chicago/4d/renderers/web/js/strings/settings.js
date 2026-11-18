@@ -28,6 +28,7 @@ export default register('settings', {
   'about': 'About',
   // T-3563: the card's tabs, and the look-sensitivity row.
   'tab.display': 'Display',
+  'tab.you': 'You', // T-3644: the visitor's own person
   'tab.show': 'Show',
   'tab.look': 'Look',
   'tab.graphics': 'Graphics',
