@@ -70,13 +70,25 @@ def drop(c, pred):
 
 
 def rest(c, t):
-    """Where a castmate stands at `t`: the end of the last walk or place begun before it."""
-    at = tuple(c['at'])
+    """Where a castmate stands at `t`: the end of the last walk or place begun before it (and,
+    for a rider who has got down, beside the horse, as jaunt-stage.js castAt has them)."""
+    at, heading = tuple(c['at']), c.get('heading', 0.0)
     for x in sorted(c.get('beats', []), key=lambda y: y['t']):
         if x['t'] > t: break
         if x.get('place'): at = tuple(x['place'])
-        if x.get('walk'): at = tuple(x['walk'][-1])
+        if x.get('dismount') and c.get('mount'):
+            h = math.radians(heading - 90.0)
+            at = (at[0] + DISMOUNT_M * math.sin(h), at[1] + DISMOUNT_M * math.cos(h))
+        if x.get('walk'):
+            way = [at] + [tuple(p) for p in x['walk']]
+            for a, z in zip(way, way[1:]):
+                if dist(a, z) > 1e-9: heading = math.degrees(math.atan2(z[0] - a[0], z[1] - a[1])) % 360
+            at = way[-1]
+        elif isinstance(x.get('heading'), (int, float)): heading = x['heading']
     return at
+
+
+DISMOUNT_M = 1.0  # renderers/web/js/jaunt-stage.js DISMOUNT_M
 
 
 def toward(a, z, gap):
@@ -256,9 +268,9 @@ def bank(st, killed):
     shoot(heald, P(*scenes.shore(-12, 36)), 49.4, 'pistol')
     hp = rest(heald, 48)
     add(heald, {'t': 52.4, 'walk': [P(hp[0] + 7.0 * WEST[0], hp[1] + 7.0 * WEST[1])], 'pace': 'run'})
-    # Wells fires his pistols into the bank, and one of the men there falls.
+    # Wells gets down and fires his pistols into the bank, and one of the men there falls.
     wells = ids['wells_william']
-    add(wells, {'t': 40.2, 'arm': 'pistol'})
+    add(wells, {'t': 39.6, 'dismount': True}, {'t': 40.2, 'arm': 'pistol'})
     near = sorted(guns, key=lambda c: dist(rest(c, 47), rest(wells, 41)))
     target = near[0]
     shoot(wells, P(*rest(target, 47)), 46.5, 'pistol')
@@ -319,6 +331,7 @@ def bank(st, killed):
     # Van Voorhis: 'His horse was shot under him and he had received a ball in his leg.' Then
     # 'Some murderous tomahawk had stretched him upon the very spot'.
     vv = ids['van_voorhis_isaac']
+    if vv.get('mount'): add(vv, {'t': 48.2, 'dismount': True})  # the horse is not drawn falling
     wounded(vv, 48.6, pose='kneel2')
     vp = rest(vv, 50)
     foe = nearest(melee, used, vp, ok=lambda w: arm_of[key(w)] == 'tomahawk')
@@ -398,15 +411,21 @@ def cottonwoods(st):
     W = (heald[0] + 18.0, heald[1] + 14.0)
     mrs = b.member('heald_rebekah', P(*W), heading=50)
     w0 = (W[0] + 15.0, W[1] + 9.0)
-    wells = b.member('wells_william', P(*w0), face=W, beats=[{'t': 0.0, 'arm': 'pistol'}])
-    hand = (W[0] + 0.9, W[1] + 0.5)
-    add(wells, {'t': 1.0, 'walk': [P(*hand)], 'pace': 'slow'})
-    there = 1.0 + dist(w0, hand) / 0.9 + 0.5
-    add(wells, {'t': r1(there), 'face': 'heald_rebekah'}, {'t': r1(there + 0.6), 'greet': True},
+    # He 'rode up and took her hand' (Rebekah Heald's story): up beside her on his horse, she at
+    # its off side; 'His horse ... then fell and caught Captain Wells' leg under him': he goes
+    # down on its near side (the horse is not drawn falling), and fires from there.
+    wells = b.member('wells_william', P(*w0), face=W, mount={'horse': 'wells_william'})
+    u = ((W[0] - w0[0]) / dist(w0, W), (W[1] - w0[1]) / dist(w0, W))
+    left = (-u[1], u[0])
+    beside = (W[0] - 0.4 * u[0] + 1.3 * left[0], W[1] - 0.4 * u[1] + 1.3 * left[1])
+    add(wells, {'t': 1.0, 'walk': [P(*beside)], 'pace': 'slow'})
+    there = 1.0 + dist(w0, beside) / 0.9 + 0.5
+    hand = (beside[0] + DISMOUNT_M * left[0], beside[1] + DISMOUNT_M * left[1])
+    add(wells, {'t': r1(there + 0.6), 'greet': True},
         {'t': r1(there + 1.6), 'talk': True}, {'t': r1(there + 9.0), 'talk': False})
     add(mrs, {'t': r1(there - 1.0), 'face': 'wells_william'}, {'t': r1(there + 0.6), 'greet': True})
     down = there + 10.0
-    add(wells, {'t': r1(down), 'pose': 'kneel2', 'ease': 0.6, 'heading': 50})
+    add(wells, {'t': r1(down - 0.5), 'dismount': True}, {'t': r1(down), 'pose': 'kneel2', 'ease': 0.6, 'heading': 50})
     men = b.take(b.MEN, 4, stride=31, offset=13)
     foes = []
     for i, d in enumerate(men):
