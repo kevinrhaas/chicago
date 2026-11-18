@@ -1,3 +1,52 @@
+## T-3656 — Browser-only classroom tools (18 November 2026)
+
+First implementation prepared on `steward/t3656-browser-classroom`, based on development
+commit `169af6421`; release verification is in progress before the DEV pull request.
+
+- Navigator Home offers on-demand stamped PNG capture (maximum 1280-pixel edge) and a
+  validated moment link carrying the public position, year, orientation, season, hour,
+  date and selected person/place. It copies a normal rendered frame; no extra renderer,
+  persistent render target or `preserveDrawingBuffer` is enabled.
+- Guide's local Field notebook saves notes, selected person records with their grades and
+  citations, and small photo copies. It caps storage, reports refused writes, supports
+  deletion, downloads standalone HTML and prints through a small document frame for PDF.
+- Completed jaunts offer three optional typed reflections from visited, cited evidence,
+  with reading-band wording, source comparison, revision and retry. This is self-review,
+  not automatic marking or invented historical dialogue; answers stay in tab memory.
+- For teachers offers group inquiry templates using a selected jaunt's real citations,
+  with document tasks, discussion and suggested Illinois/C3 connections. These are a
+  starting set of guides, not a fully authored curriculum or certified standards mapping.
+
+Validation so far: all four focused logic suites pass under Node 22; reflection coverage
+spans 240 available tellings and five bands, lesson coverage spans 192 school tellings and
+10 available year/group combinations. Existing Navigator, person-card, teacher-handout,
+jaunt-mechanics, string and changelog checks pass. Real-component browser tests pass at
+390×780 and 1280×800 for notebook save/edit/export/print/errors and for lesson selection,
+source links, request races and three-page Letter PDFs; dark notebook inputs measure
+10.62:1 contrast after correction. Reflection completion UI passes at both widths.
+Actual source-town phone testing also confirms notebook persistence and completed-jaunt
+reflections. Published desktop testing passes
+notebook, lesson/PDF and real-jaunt completion flows, with zero page errors, local 404s or
+horizontal overflow. A real WebGL fixture at both widths verifies the production shutter,
+nonblack pixels, stamped PNG download and `preserveDrawingBuffer: false`. Whole-town photo
+and share tests now pass on both source and published trees at both sizes: each shutter
+uses the production normal-frame callback, scene pixels are nonblank, and links restore
+position and season while preserving a saved outing without automatically resuming it.
+The software-GPU harness pauses continuous drawing between interactions and explicitly
+steps the real renderer for capture; this is not a low-end hardware performance result.
+Legacy 1835 People cards also pass real-record notebook save, duplicate and denied-storage
+browser checks. Lesson documents use the same readable-text overlay as jaunt previews;
+People and Inspect retain explicit person selections for the Home photo link.
+
+**Remaining verification:** the full four-part gate and complete published renderer smoke
+are running under Node 22. No merge or production promotion is claimed before they pass.
+
+No new server or shared-service activation. Photos/notes stay local until explicitly
+exported. Shared URLs do not contain notebook text or account state. No claim of full
+WCAG conformance or low-end Chromebook hardware certification. Same-spot Jump remains
+lower priority, with the current single-session replacement default unchanged.
+[CLASSROOM-FEATURES.md](CLASSROOM-FEATURES.md) accounts for all twenty requested items.
+
 ## T-3580 — Sign-in: Microsoft and email/password beside Google (2026-11-13)
 
 The owner chose Google, Microsoft, email/password and anonymous (email only) to start, Apple

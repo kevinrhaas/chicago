@@ -31,6 +31,8 @@ import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
 import { fieldLog, count as countField } from './field-log.js'; // T-2660
+import { normalMoment, parseMoment, momentLink, momentFits, stampMoment } from './moment.js';
+import './strings/moment.js';
 import { wireFieldLogView } from './field-log-view.js';
 import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
@@ -60,7 +62,7 @@ import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
 import { grownGroupName } from './tree-instances.js';
 import { createPopup } from './popup.js';
-import { loadReaderText } from './reader-text.js';
+import { loadReaderText, readerCopy } from './reader-text.js';
 import { showHumanRoleCard } from './human-role-card.js';
 import { createWelcome } from './welcome.js';
 import { createYearPack } from './year-pack.js';
@@ -1817,6 +1819,7 @@ bootController.forecast = bootForecast;
 const journey = createJourney();
 // T-2621: a shared screen, read once (`?nav=app[:id]&tab=`), opened after the landing.
 const navLink = parseNavLink(location.search);
+const sharedMoment = parseMoment(location.search);
 api.journey = journey;
 // T-2660: the field log, kept on this device only and never sent (js/field-log.js). A landing
 // is the journey reaching `landed`; Settings › About shows the counts, with Clear.
@@ -4124,6 +4127,10 @@ async function boot() {
   // and the People section can filter a thousand of them without a fetch each.
   // Absent (an older mirror, a failed fetch) degrades to "no people listed";
   // it never takes the scene down.
+  let momentSelectedPerson = null;
+  function rememberMomentPerson(id, name = null) {
+    momentSelectedPerson = id ? { id, name } : null;
+  }
   let people = null;
   bootController.start('people');
   // T-1739: only a scene that lists `residents` has a directory compiled for it.
@@ -4864,6 +4871,7 @@ async function boot() {
     registry: loaded.registry,
     dataBase: bases.dataBase,
     sceneId: loaded.scene.id ?? YEAR,
+    onPersonSelected: rememberMomentPerson,
     onGoTo: (target) => { hud.setPanel(false); goToTarget(target); },
     // T-3404: a person placed in town now (Otis Bardwell on his wagon) is found there and
     // can be followed. Read when the card paints; the round is known before the model.
@@ -6455,7 +6463,9 @@ async function boot() {
     if (api.people && !document.querySelector('.panel-tab[data-tab="people"]')?.hidden) {
       hud.setPanel(true); hud.selectTab('people'); api.people.open?.(id); return true;
     }
-    return openSceneDirectoryPerson(id);
+    const opened = await openSceneDirectoryPerson(id);
+    if (opened && momentSelectedPerson?.id !== id) rememberMomentPerson(id);
+    return opened;
   }
   // ---- T-3404: the people placed in town, wherever they are now ------------------- //
   // Kevin, 2026-11-06: "making them fully available to interact with". A driver on their
@@ -6986,6 +6996,13 @@ async function boot() {
         jauntCatalog: (year) => (jauntCatalogs[year] ??= fetch(new URL(`sidecars/${encodeURIComponent(year)}/jaunts/catalog.json`, resolveBases().dataBase), { cache: 'no-cache' })
           .then((res) => { if (res.status === 404) return []; if (!res.ok) throw new Error(String(res.status)); return res.json().then((doc) => doc?.jaunts ?? []); })
           .catch((err) => { delete jauntCatalogs[year]; throw err; })),
+        jauntDocument: async (year, id) => {
+          if (!['1812', '1835', '1904'].includes(String(year)) || !/^[a-z0-9][a-z0-9_-]{0,95}$/i.test(id ?? ''))
+            throw new Error('Unknown outing.');
+          const res = await fetch(new URL(`sidecars/${year}/jaunts/${id}.json`, resolveBases().dataBase), { cache: 'no-cache' });
+          if (!res.ok) throw new Error('The outing could not be read.');
+          return readerCopy(await res.json(), await loadReaderText(resolveBases().dataBase, `jaunts_${year}`));
+        },
         // T-2667: Guide › About this destination opens one of its cards in the section
         // under the Guide's sheet (the old research hub, js/evidence.js).
         aboutCard: (id) => {
@@ -7018,6 +7035,7 @@ async function boot() {
         // (1835), else their own card in Inspect on the house they lived or worked in
         // (T-3265), else the Navigator's People screen (1904, T-1740).
         openPerson: (id) => openPersonCard(id),
+        onPersonSelected: rememberMomentPerson,
         findPerson: !draws('residents')
           ? (id) => findSceneDirectoryPerson(id) : null,
         // T-3404: someone placed in town (a driver on their round) can be followed.
@@ -7091,7 +7109,84 @@ async function boot() {
   // link (?nav=app[:id]&tab=) opens its app once the landing is over. A link to an app the
   // rail does not have, or to a building this scene does not hold, is dropped quietly.
   api.navHistory = createNavHistory({ nav: navigatorUi });
-  if (navLink && navigatorUi?.has(navLink.app)) {
+  // Photo capture queues one copy of a normal frame. It never keeps a second renderer,
+  // drawing buffer or render target alive, and a second request shares the pending work.
+  let pendingPhoto = null, photoPromise = null;
+  function readMoment() {
+    if (!api.ready || gateOpen) return null;
+    const st = walker.state;
+    const structure = popup.openId ?? (navigatorUi?.app === 'inspect' ? inspectHold : null)
+      ?? targetTag?.current?.id ?? null;
+    const record = loaded.registry.get(structure)?.sidecar;
+    const personCards = [...document.querySelectorAll('.insp-person-card[data-person-id]')];
+    const visibleCard = personCards.find(card => card.checkVisibility?.() ?? card.offsetParent !== null);
+    // Keep an explicit selection when Home covers its card, but never read an arbitrary
+    // hidden card from another screen. Its caption must belong to the same person id.
+    const directoryPerson = api.people?.state?.open ?? null;
+    const person = momentSelectedPerson?.id ?? visibleCard?.dataset.personId ?? directoryPerson;
+    const personCard = personCards.find(card => card.dataset.personId === person);
+    const place = eraWhere.at(st.e, st.n, walker.bearingDeg)?.place
+      ?? loaded.scene.title ?? 'Chicago';
+    const pose = normalMoment({ year: YEAR, e: st.e, n: st.n, bearing: walker.bearingDeg,
+      pitch: st.pitch / DEG, altitude: st.flying ? st.altitude : null,
+      season: api.season.current, hour: world.sunTime, date: world.sunDate, person, structure: record ? structure : null });
+    if (!pose) return null;
+    const sources = (record?.citations ?? []).filter(c => c.source_id && c.citation)
+      .map(c => ({ id: c.source_id, title: c.citation, url: c.url || c.archived_url || '' }));
+    return { ...pose, pose, place, title: `${place}, ${YEAR}`, sources,
+      personName: person ? (momentSelectedPerson?.name ?? (person === directoryPerson
+        ? document.querySelector('.people-card-name')?.textContent?.trim() : null)
+        ?? personCard?.querySelector('h3, h4')?.textContent?.trim() ?? null) : null,
+      sourceSubject: record?.name ?? place, url: momentLink(pose) };
+  }
+  api.moment = {
+    read: readMoment,
+    link: () => readMoment()?.url ?? null,
+    capture() {
+      if (photoPromise) return photoPromise;
+      if (!readMoment() || renderer.xr.isPresenting) return Promise.reject(new Error('The town view is not ready.'));
+      const request = {};
+      photoPromise = new Promise((resolve, reject) => {
+        request.resolve = resolve; request.reject = reject;
+        request.timer = setTimeout(() => {
+          if (pendingPhoto === request) { pendingPhoto = null; reject(new Error('No photo frame arrived.')); }
+        }, 10000);
+        pendingPhoto = request;
+      }).finally(() => { photoPromise = null; });
+      return photoPromise;
+    },
+  };
+  // Use the usual arrival gate. Scene coverage and collision checks reject stale views;
+  // a shared link cannot load another world or manufacture an out-of-bounds stand.
+  if (sharedMoment) {
+    const restoreMoment = async () => {
+      if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
+      if (!momentFits(sharedMoment, { year: YEAR, inBounds: (e, n) => terrain.inBounds(e, n),
+        blockedAt: (e, n) => router.blockedAt(e, n) })) {
+        hud.say(t('moment.invalid')); return;
+      }
+      travel.stop('shared-moment'); follow.stop('input');
+      if (sharedMoment.season) await api.season.set(sharedMoment.season, { transient: true });
+      if (sharedMoment.hour) await api.timeOfDay.set(sharedMoment.hour, { date: sharedMoment.date ?? undefined, transient: true });
+      hud.setFly(sharedMoment.altitude !== null, { announce: false });
+      walker.teleport({ local_e: sharedMoment.e, local_n: sharedMoment.n,
+        yaw_deg: sharedMoment.bearing, pitch_deg: sharedMoment.pitch, altitude_m: sharedMoment.altitude });
+      target?.invalidate();
+      let missingPerson = false;
+      if (sharedMoment.person) {
+        const directory = await peopleDirectory.load().catch(() => null);
+        if (directory?.people?.some(p => p.id === sharedMoment.person)) await openPersonCard(sharedMoment.person);
+        else missingPerson = true;
+      } else if (sharedMoment.structure && loaded.registry.has(sharedMoment.structure)) openBuilding(sharedMoment.structure);
+      api.momentRestored = sharedMoment;
+      hud.say(t(missingPerson ? 'moment.personMissing' : 'moment.arrived'));
+    };
+    const open = () => { void restoreMoment().catch(() => hud.say(t('moment.invalid'))); };
+    if (journey.state === 'landed' || journey.state === 'exploring') open();
+    else { const off = journey.on(({ to }) => { if (to === 'landed') { off(); setTimeout(open, 0); } }); }
+  }
+
+  if (!sharedMoment && navLink && navigatorUi?.has(navLink.app)) {
     const link = navLink.app === 'inspect' && navLink.id && !loaded.registry.has(navLink.id)
       ? null : navLink;
     const open = () => {
@@ -7399,7 +7494,7 @@ async function boot() {
     // T-2113. Under the gate, draw only a frame that differs from the last one
     // drawn: the first, one a capture or a test asked for, or one in which
     // something the renderer reads has moved. Out in the town, every frame.
-    if (!gateOpen || force || pendingCapture || gateFrame.due()) {
+    if (!gateOpen || force || pendingCapture || pendingPhoto || gateFrame.due()) {
       // T-2646: `renderer.render(scene3d, camera)`, and — only while a grade is
       // ghosted with the Confidence view on — that grade drawn see-through, last,
       // in a pass of its own (confidence.js § render).
@@ -7416,6 +7511,16 @@ async function boot() {
       const { grid, resolve } = pendingCapture;
       pendingCapture = null;
       resolve(readbackSignature(renderer, grid));
+    }
+
+    if (pendingPhoto) {
+      const request = pendingPhoto;
+      pendingPhoto = null; clearTimeout(request.timer);
+      try {
+        const metadata = readMoment();
+        if (!metadata) throw new Error('The town view is not ready.');
+        stampMoment(renderer.domElement, metadata).then(request.resolve, request.reject);
+      } catch (error) { request.reject(error); }
     }
 
     const st = walker.state;
@@ -7495,7 +7600,7 @@ async function boot() {
       // and are drawn exactly as they were before the governor existed.
       // T-3575: a headset is drawn every frame it asks for — a skipped XR frame is a
       // stale or black eye — and at its own framebuffer scale, never the governor's.
-      if (pendingCapture || gateOpen || animationHold || renderer.xr.isPresenting) governor.rest();
+      if (pendingCapture || pendingPhoto || gateOpen || animationHold || renderer.xr.isPresenting) governor.rest();
       else if (!governor.shouldDraw(t)) return;
       applyGovernor();
       tick();

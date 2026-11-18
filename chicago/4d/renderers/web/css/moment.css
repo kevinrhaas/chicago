@@ -1,0 +1,14 @@
+/* Photo tools are ordinary Navigator content; no overlay or additional canvas. */
+#nav-moment { margin-block: 1rem; }
+#nav-moment > summary { cursor: pointer; padding: .75rem; font-weight: 600; }
+.moment-tools { padding: .75rem; overflow-wrap: anywhere; }
+.moment-tools h3 { margin-top: 0; }
+.moment-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.moment-actions button { min-height: 44px; padding: .5rem .75rem; cursor: pointer; }
+.moment-tools input { display: block; box-sizing: border-box; width: 100%; min-height: 44px; padding: .5rem; }
+.moment-tools input, .moment-actions button { color: var(--ink); background: var(--panel-raised); border: 1px solid var(--edge); border-radius: 4px; font: inherit; }
+.moment-actions button:disabled { opacity: .55; cursor: default; }
+.moment-preview { display: block; width: 100%; height: auto; margin-block: .75rem; }
+.moment-preview[hidden] { display: none; }
+.moment-tools input, .moment-preview { max-width: 100%; }
+#nav-moment summary:focus-visible, .moment-tools :focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
