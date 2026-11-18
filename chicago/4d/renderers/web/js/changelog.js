@@ -1,4 +1,49 @@
 export const CHANGELOG = [ // newest first
+  { v: 3087, ts: '2026-11-18T03:45:35.496Z', date: 'Nov 17, 2026, 9:45 PM CT', title: '2021 Prairie, the High house, rises to its steep gable and turret', kind: 'feature',
+    items: [
+      '2021 Prairie, James L. High\'s house, now stands as its one old photograph shows it: dark brick under a steep slate front gable with three attic windows, a round turret at the north corner whose slate cone rises from the roofline over a round-headed door, a tall chimney on the south side, and a broad wing standing out to the south under a gable of its own. Its porch, the stoop that climbs along the front and the turret\'s finial are still simpler than the picture; the next pass on this block takes those on.',
+    ] },
+  { v: 3086, ts: '2026-11-18T02:33:08.846Z', date: 'Nov 17, 2026, 8:33 PM CT', title: 'Glessner\'s coach-house doors stay green after you walk away and back', kind: 'fix',
+    items: [
+      'Walking far from the Glessner house and coming back no longer turns its green coach-house doors, their frame, the loft door and the window frames black.',
+      'The north entry\'s oak door and other doors that swing open keep their wood the same way.',
+    ] },
+  { v: 3085, ts: '2026-11-18T01:35:28.474Z', date: 'Nov 17, 2026, 7:35 PM CT', title: 'The year cards\' moving pictures play on every phone again', kind: 'fix',
+    items: [
+      'On an iPhone in Low Power Mode the three year cards on the first screen showed still pictures, because the phone refuses every video there.',
+      'Each card now falls back to a strip of the same frames, so its moving picture keeps playing, in every appearance, on phone and computer.',
+      'A clip that will not play in one format tries the other before giving up.',
+    ] },
+  { v: 3084, ts: '2026-11-18T01:35:28.474Z', date: 'Nov 17, 2026, 7:35 PM CT', title: 'Smoother walking: fewer pauses as the town comes into view', kind: 'fix',
+    items: [
+      'The far-off townspeople no longer make the app stop and prepare their drawing again for every new kind of dress that comes into view, which caused a hitch each time while you walked.',
+      'What they need is now prepared in the background, so a distant figure appears a frame or two later instead of freezing the frame.',
+      'On computers, buildings, camps and doors no longer pause the walk the first time you see them: the drawing prepared while the town loads is now kept instead of being thrown away at the first frame.',
+      'Reading the sky\'s colour for the haze now takes one trip to the graphics card instead of 36, at load and whenever the time of day changes.',
+      'Everything looks exactly as before, on phones and computers.',
+    ] },
+  { v: 3083, ts: '2026-11-18T01:35:28.474Z', date: 'Nov 17, 2026, 7:35 PM CT', title: 'Ride in coat or blanket; horses at the camps and battle', kind: 'feature',
+    items: [
+      'Traders, officers and Potawatomi men now ride: coat skirts, capotes, blankets and breechcloths lie over the horse instead of through it.',
+      'In 1812 and 1835 a trader and two Potawatomi men ride round town, the Potawatomi on a hide pad saddle over a red trade blanket with wooden stirrups.',
+      'A horse stands tied at every picket of the 1812 camps on the days the camps are there, and you can ride any of them.',
+      'In the Battle of Fort Dearborn, Wells rides in at the gate and at the head of the column, and gallops back along the beach at the sand bank. The surgeon\'s mate rides in the column.',
+      'In 1904 the groom is out every morning of the year, a coachman rides a carriage horse out on summer afternoons, and the saddle horse stands at the kerb, not in the road.',
+      'Riders move with their horse and look about, their legs lie over the saddle, and the tack has a leather grain. Carriages stop for a horse in their way, a rider pulls over for a team, and a coachman stays on his box while his carriage is out.',
+    ] },
+  { v: 3082, ts: '2026-11-18T01:35:28.474Z', date: 'Nov 17, 2026, 7:35 PM CT', title: 'Mr. Glessner looks himself and sits upright beside you in the brougham', kind: 'fix',
+    items: [
+      'Riding in the Glessner brougham on a phone or lighter detail, Mr. Glessner had no hair, spectacles or moustache and a coarse face. He now keeps his near figure in the cab on every device.',
+      'The brougham\'s cab is rebuilt inside: its seat and floor sit lower and the back of the body comes down to match the 1893 catalogue plate, so Mr. Glessner, and you beside him, now ride sitting upright instead of crouched under the roof.',
+      'His hands rest on his thighs instead of hanging down beside his shins.',
+      'His crown is no longer bare: a thin cover of short white hair is combed back over it, as his 1897 portrait shows. His card\'s likeness is redrawn to match.',
+    ] },
+  { v: 3081, ts: '2026-11-18T00:19:41.222Z', date: 'Nov 17, 2026, 6:19 PM CT', title: 'Torch and paddle held without a floating end; boats wait heading out', kind: 'improvement',
+    items: [
+      'At the burning of the fort, your torch now comes up from below the view: you see its top and flame, never the end of the stick or where a hand would be.',
+      'Boats at the 1812 crossings wait turned round, heading out over the water, so you step in facing across and push straight off with no spin.',
+      'Your paddle is held low over the side and the oars pivot behind your seat, so nothing hangs in the air in front of you; both lie in the boat while you step in and out.',
+    ] },
   { v: 3080, ts: '2026-11-17T23:33:52.711Z', date: 'Nov 17, 2026, 5:33 PM CT', title: 'The first-time tour shows what the town does now', kind: 'feature',
     items: [
       'The tour (Guide › Take the tour) is ten quick steps. New: Interact, where you walk up to someone, a horse or a boat and press R (or tap Interact) to talk, ride or take the helm; and Jaunts, the narrated stories told for your grade.',

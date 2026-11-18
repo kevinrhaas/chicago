@@ -120,7 +120,9 @@ export function createHumanDuties({ humans, three = null, hour = () => null, hel
 
   function collect() {
     const byKey = new Map();
-    for (const a of humans.actors) {
+    // A driver on his seat (or a passenger in a cab) is his vehicle's, never on a duty's round.
+    const own = humans.actors.filter((a) => humans.external?.(a.personId) !== a);
+    for (const a of own) {
       const d = a.instance?.behaviour?.duty;
       if (!d || !DUTY_KINDS.includes(d.kind)) continue;
       const key = d.kind === 'beat' ? `beat:${a.id}` : `${d.kind}:${d.id}`;
@@ -128,13 +130,13 @@ export function createHumanDuties({ humans, three = null, hour = () => null, hel
       byKey.get(key).members.push({ actor: a, duty: d });
     }
     // T-3504: a man out by the hours with no duty, standing at his station, is at a chore.
-    for (const a of humans.actors) {
+    for (const a of own) {
       const b = a.instance?.behaviour;
       if (!b || b.duty || (Array.isArray(b.day) && !b.day.some(d => d.spans.some(s => s.duty))) || !Array.isArray(b.hours) || (b.state ?? 'standing') !== 'standing' || b.route) continue;
       byKey.set(`chore:${a.id}`, { key: `chore:${a.id}`, kind: 'chore', id: a.id, members: [{ actor: a, duty: { kind: 'chore' } }] });
     }
     groups = [...byKey.values()].map(start);
-    timed = humans.actors.filter((a) => Array.isArray(a.instance?.behaviour?.hours) && !Array.isArray(a.instance?.behaviour?.day));
+    timed = own.filter((a) => Array.isArray(a.instance?.behaviour?.hours) && !Array.isArray(a.instance?.behaviour?.day));
     seen = humans.actors.length;
   }
 
