@@ -11279,8 +11279,8 @@
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1418.57,
-        "local_n": -3579.82
+        "local_e": 1418.63,
+        "local_n": -3585.82
        }
       },
       {
@@ -11380,8 +11380,8 @@
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1418.57,
-        "local_n": -3579.82
+        "local_e": 1418.63,
+        "local_n": -3585.82
        }
       },
       {
@@ -11473,8 +11473,8 @@
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1418.57,
-        "local_n": -3579.82
+        "local_e": 1418.63,
+        "local_n": -3585.82
        }
       },
       {
@@ -52031,8 +52031,8 @@
        "activity": "walk",
        "doing": "checking the approach before the next carriage trip",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3578.83
+        "local_e": 1418.62,
+        "local_n": -3584.83
        }
       },
       {
@@ -52132,8 +52132,8 @@
        "activity": "walk",
        "doing": "checking the approach before the next carriage trip",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3578.83
+        "local_e": 1418.62,
+        "local_n": -3584.83
        }
       },
       {
@@ -52225,8 +52225,8 @@
        "activity": "walk",
        "doing": "checking the approach before the next carriage trip",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3578.83
+        "local_e": 1418.62,
+        "local_n": -3584.83
        }
       },
       {
@@ -62642,8 +62642,8 @@
        "activity": "walk",
        "doing": "checking kitchen deliveries at the entrance",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3579.5
+        "local_e": 1418.62,
+        "local_n": -3585.5
        }
       },
       {
@@ -62743,8 +62743,8 @@
        "activity": "walk",
        "doing": "checking kitchen deliveries at the entrance",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3579.5
+        "local_e": 1418.62,
+        "local_n": -3585.5
        }
       },
       {
@@ -62836,8 +62836,8 @@
        "activity": "walk",
        "doing": "checking kitchen deliveries at the entrance",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3579.5
+        "local_e": 1418.62,
+        "local_n": -3585.5
        }
       },
       {
@@ -75161,8 +75161,8 @@
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3578.96
+        "local_e": 1418.62,
+        "local_n": -3584.96
        }
       },
       {
@@ -75262,8 +75262,8 @@
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3578.96
+        "local_e": 1418.62,
+        "local_n": -3584.96
        }
       },
       {
@@ -75355,8 +75355,8 @@
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3578.96
+        "local_e": 1418.62,
+        "local_n": -3584.96
        }
       },
       {
@@ -82494,8 +82494,8 @@
        "to": 9.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.82,
+        "local_e": 1417.5,
+        "local_n": -3581.07,
         "heading_deg": 269.4
        },
        "activity": "work",
@@ -82520,15 +82520,15 @@
        "to": 16.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.82,
+        "local_e": 1417.5,
+        "local_n": -3581.07,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3573.82
+        "local_e": 1417.47,
+        "local_n": -3578.07
        }
       },
       {
@@ -82543,8 +82543,8 @@
        "to": 18.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.82,
+        "local_e": 1417.5,
+        "local_n": -3581.07,
         "heading_deg": 269.4
        },
        "activity": "talk",
@@ -82595,8 +82595,8 @@
        "to": 10.0,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.82,
+        "local_e": 1417.5,
+        "local_n": -3581.07,
         "heading_deg": 269.4
        },
        "activity": "work",
@@ -82621,15 +82621,15 @@
        "to": 17.0,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.82,
+        "local_e": 1417.5,
+        "local_n": -3581.07,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3573.82
+        "local_e": 1417.47,
+        "local_n": -3578.07
        }
       },
       {
@@ -82644,8 +82644,8 @@
        "to": 19,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.82,
+        "local_e": 1417.5,
+        "local_n": -3581.07,
         "heading_deg": 269.4
        },
        "activity": "talk",
@@ -82688,8 +82688,8 @@
        "to": 10.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.82,
+        "local_e": 1417.5,
+        "local_n": -3581.07,
         "heading_deg": 269.4
        },
        "activity": "work",
@@ -82714,15 +82714,15 @@
        "to": 17.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.82,
+        "local_e": 1417.5,
+        "local_n": -3581.07,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3573.82
+        "local_e": 1417.47,
+        "local_n": -3578.07
        }
       },
       {
@@ -82737,8 +82737,8 @@
        "to": 19.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.82,
+        "local_e": 1417.5,
+        "local_n": -3581.07,
         "heading_deg": 269.4
        },
        "activity": "talk",
@@ -86584,8 +86584,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3579.45
+        "local_e": 1418.62,
+        "local_n": -3585.45
        }
       },
       {
@@ -86614,8 +86614,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3579.45
+        "local_e": 1418.62,
+        "local_n": -3585.45
        }
       },
       {
@@ -86689,8 +86689,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3579.45
+        "local_e": 1418.62,
+        "local_n": -3585.45
        }
       },
       {
@@ -86719,8 +86719,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3579.45
+        "local_e": 1418.62,
+        "local_n": -3585.45
        }
       },
       {
@@ -86786,8 +86786,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3579.45
+        "local_e": 1418.62,
+        "local_n": -3585.45
        }
       },
       {
@@ -86816,8 +86816,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3579.45
+        "local_e": 1418.62,
+        "local_n": -3585.45
        }
       },
       {
@@ -86913,8 +86913,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3579.34
+        "local_e": 1418.62,
+        "local_n": -3585.34
        }
       },
       {
@@ -86943,8 +86943,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3579.34
+        "local_e": 1418.62,
+        "local_n": -3585.34
        }
       },
       {
@@ -87018,8 +87018,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3579.34
+        "local_e": 1418.62,
+        "local_n": -3585.34
        }
       },
       {
@@ -87048,8 +87048,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3579.34
+        "local_e": 1418.62,
+        "local_n": -3585.34
        }
       },
       {
@@ -87115,8 +87115,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3579.34
+        "local_e": 1418.62,
+        "local_n": -3585.34
        }
       },
       {
@@ -87145,8 +87145,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3579.34
+        "local_e": 1418.62,
+        "local_n": -3585.34
        }
       },
       {
@@ -87242,8 +87242,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3578.73
+        "local_e": 1418.62,
+        "local_n": -3584.73
        }
       },
       {
@@ -87272,8 +87272,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3578.73
+        "local_e": 1418.62,
+        "local_n": -3584.73
        }
       },
       {
@@ -87347,8 +87347,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3578.73
+        "local_e": 1418.62,
+        "local_n": -3584.73
        }
       },
       {
@@ -87377,8 +87377,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3578.73
+        "local_e": 1418.62,
+        "local_n": -3584.73
        }
       },
       {
@@ -87444,8 +87444,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3578.73
+        "local_e": 1418.62,
+        "local_n": -3584.73
        }
       },
       {
@@ -87474,8 +87474,8 @@
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1418.56,
-        "local_n": -3578.73
+        "local_e": 1418.62,
+        "local_n": -3584.73
        }
       },
       {
@@ -87571,8 +87571,8 @@
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1418.57,
-        "local_n": -3580.54
+        "local_e": 1418.63,
+        "local_n": -3586.54
        }
       },
       {
@@ -87601,8 +87601,8 @@
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1418.57,
-        "local_n": -3580.54
+        "local_e": 1418.63,
+        "local_n": -3586.54
        }
       },
       {
@@ -87676,8 +87676,8 @@
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1418.57,
-        "local_n": -3580.54
+        "local_e": 1418.63,
+        "local_n": -3586.54
        }
       },
       {
@@ -87706,8 +87706,8 @@
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1418.57,
-        "local_n": -3580.54
+        "local_e": 1418.63,
+        "local_n": -3586.54
        }
       },
       {
@@ -87773,8 +87773,8 @@
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1418.57,
-        "local_n": -3580.54
+        "local_e": 1418.63,
+        "local_n": -3586.54
        }
       },
       {
@@ -87803,8 +87803,8 @@
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1418.57,
-        "local_n": -3580.54
+        "local_e": 1418.63,
+        "local_n": -3586.54
        }
       },
       {
@@ -87900,8 +87900,8 @@
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1418.58,
-        "local_n": -3580.92
+        "local_e": 1418.64,
+        "local_n": -3586.92
        }
       },
       {
@@ -87930,8 +87930,8 @@
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1418.58,
-        "local_n": -3580.92
+        "local_e": 1418.64,
+        "local_n": -3586.92
        }
       },
       {
@@ -88005,8 +88005,8 @@
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1418.58,
-        "local_n": -3580.92
+        "local_e": 1418.64,
+        "local_n": -3586.92
        }
       },
       {
@@ -88035,8 +88035,8 @@
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1418.58,
-        "local_n": -3580.92
+        "local_e": 1418.64,
+        "local_n": -3586.92
        }
       },
       {
@@ -88102,8 +88102,8 @@
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1418.58,
-        "local_n": -3580.92
+        "local_e": 1418.64,
+        "local_n": -3586.92
        }
       },
       {
@@ -88132,8 +88132,8 @@
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1418.58,
-        "local_n": -3580.92
+        "local_e": 1418.64,
+        "local_n": -3586.92
        }
       },
       {
@@ -116158,8 +116158,8 @@
        "to": 9.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.59,
+        "local_e": 1417.5,
+        "local_n": -3580.84,
         "heading_deg": 269.4
        },
        "activity": "work",
@@ -116184,15 +116184,15 @@
        "to": 16.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.59,
+        "local_e": 1417.5,
+        "local_n": -3580.84,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "checking the approach before the next carriage trip",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3573.59
+        "local_e": 1417.47,
+        "local_n": -3577.84
        }
       },
       {
@@ -116207,8 +116207,8 @@
        "to": 18.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.59,
+        "local_e": 1417.5,
+        "local_n": -3580.84,
         "heading_deg": 269.4
        },
        "activity": "talk",
@@ -116259,8 +116259,8 @@
        "to": 10.0,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.59,
+        "local_e": 1417.5,
+        "local_n": -3580.84,
         "heading_deg": 269.4
        },
        "activity": "work",
@@ -116285,15 +116285,15 @@
        "to": 17.0,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.59,
+        "local_e": 1417.5,
+        "local_n": -3580.84,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "checking the approach before the next carriage trip",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3573.59
+        "local_e": 1417.47,
+        "local_n": -3577.84
        }
       },
       {
@@ -116308,8 +116308,8 @@
        "to": 19,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.59,
+        "local_e": 1417.5,
+        "local_n": -3580.84,
         "heading_deg": 269.4
        },
        "activity": "talk",
@@ -116352,8 +116352,8 @@
        "to": 10.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.59,
+        "local_e": 1417.5,
+        "local_n": -3580.84,
         "heading_deg": 269.4
        },
        "activity": "work",
@@ -116378,15 +116378,15 @@
        "to": 17.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.59,
+        "local_e": 1417.5,
+        "local_n": -3580.84,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "checking the approach before the next carriage trip",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3573.59
+        "local_e": 1417.47,
+        "local_n": -3577.84
        }
       },
       {
@@ -116401,8 +116401,8 @@
        "to": 19.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.59,
+        "local_e": 1417.5,
+        "local_n": -3580.84,
         "heading_deg": 269.4
        },
        "activity": "talk",
@@ -116475,15 +116475,15 @@
        "to": 8.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.77,
+        "local_e": 1417.5,
+        "local_n": -3581.02,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3573.77
+        "local_e": 1417.47,
+        "local_n": -3578.02
        }
       },
       {
@@ -116505,15 +116505,15 @@
        "to": 15.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.77,
+        "local_e": 1417.5,
+        "local_n": -3581.02,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3573.77
+        "local_e": 1417.47,
+        "local_n": -3578.02
        }
       },
       {
@@ -116528,8 +116528,8 @@
        "to": 18.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.77,
+        "local_e": 1417.5,
+        "local_n": -3581.02,
         "heading_deg": 269.4
        },
        "activity": "talk",
@@ -116580,15 +116580,15 @@
        "to": 9.0,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.77,
+        "local_e": 1417.5,
+        "local_n": -3581.02,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3573.77
+        "local_e": 1417.47,
+        "local_n": -3578.02
        }
       },
       {
@@ -116610,15 +116610,15 @@
        "to": 16.0,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.77,
+        "local_e": 1417.5,
+        "local_n": -3581.02,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3573.77
+        "local_e": 1417.47,
+        "local_n": -3578.02
        }
       },
       {
@@ -116633,8 +116633,8 @@
        "to": 19,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.77,
+        "local_e": 1417.5,
+        "local_n": -3581.02,
         "heading_deg": 269.4
        },
        "activity": "talk",
@@ -116677,15 +116677,15 @@
        "to": 9.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.77,
+        "local_e": 1417.5,
+        "local_n": -3581.02,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3573.77
+        "local_e": 1417.47,
+        "local_n": -3578.02
        }
       },
       {
@@ -116707,15 +116707,15 @@
        "to": 16.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.77,
+        "local_e": 1417.5,
+        "local_n": -3581.02,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3573.77
+        "local_e": 1417.47,
+        "local_n": -3578.02
        }
       },
       {
@@ -116730,8 +116730,8 @@
        "to": 19.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3576.77,
+        "local_e": 1417.5,
+        "local_n": -3581.02,
         "heading_deg": 269.4
        },
        "activity": "talk",
@@ -116804,15 +116804,15 @@
        "to": 8.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3577.01,
+        "local_e": 1417.5,
+        "local_n": -3581.26,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3574.01
+        "local_e": 1417.47,
+        "local_n": -3578.26
        }
       },
       {
@@ -116834,15 +116834,15 @@
        "to": 15.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3577.01,
+        "local_e": 1417.5,
+        "local_n": -3581.26,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3574.01
+        "local_e": 1417.47,
+        "local_n": -3578.26
        }
       },
       {
@@ -116857,8 +116857,8 @@
        "to": 18.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3577.01,
+        "local_e": 1417.5,
+        "local_n": -3581.26,
         "heading_deg": 269.4
        },
        "activity": "talk",
@@ -116909,15 +116909,15 @@
        "to": 9.0,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3577.01,
+        "local_e": 1417.5,
+        "local_n": -3581.26,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3574.01
+        "local_e": 1417.47,
+        "local_n": -3578.26
        }
       },
       {
@@ -116939,15 +116939,15 @@
        "to": 16.0,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3577.01,
+        "local_e": 1417.5,
+        "local_n": -3581.26,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3574.01
+        "local_e": 1417.47,
+        "local_n": -3578.26
        }
       },
       {
@@ -116962,8 +116962,8 @@
        "to": 19,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3577.01,
+        "local_e": 1417.5,
+        "local_n": -3581.26,
         "heading_deg": 269.4
        },
        "activity": "talk",
@@ -117006,15 +117006,15 @@
        "to": 9.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3577.01,
+        "local_e": 1417.5,
+        "local_n": -3581.26,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3574.01
+        "local_e": 1417.47,
+        "local_n": -3578.26
        }
       },
       {
@@ -117036,15 +117036,15 @@
        "to": 16.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3577.01,
+        "local_e": 1417.5,
+        "local_n": -3581.26,
         "heading_deg": 269.4
        },
        "activity": "walk",
        "doing": "taking a walk along the house frontage",
        "to_point": {
-        "local_e": 1420.07,
-        "local_n": -3574.01
+        "local_e": 1417.47,
+        "local_n": -3578.26
        }
       },
       {
@@ -117059,8 +117059,8 @@
        "to": 19.5,
        "indoors": false,
        "at": {
-        "local_e": 1420.1,
-        "local_n": -3577.01,
+        "local_e": 1417.5,
+        "local_n": -3581.26,
         "heading_deg": 269.4
        },
        "activity": "talk",
