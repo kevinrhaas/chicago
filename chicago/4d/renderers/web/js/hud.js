@@ -22,6 +22,7 @@ import { versionBadge } from './structure-versions.js';
 import { wireSettingsApp, wireSettingsTabs, SOUND_DEFAULTS, soundLevelsFrom } from './settings-app.js';
 import { t as str } from './strings/index.js';
 import './strings/hud.js';
+import { languageRow } from './language.js';
 // T-2649: the colouring and the hidden set are kept in the Confidence view's one record,
 // beside its looks, so all three carry to the next page and year together.
 import { readChoices, keepChoices } from './confidence-store.js';
@@ -675,6 +676,8 @@ export function createHud({
   wireSelect('s-lot-lines', 'lotLines', 'hidden');
   wireSelect('s-people', 'people', 'shown');
   wireSelect('s-vehicles', 'vehicles', 'shown');
+  // Gap analysis item 15: Display › Language, English or Español (js/language.js).
+  languageRow(document.querySelector('#s-display .theme-row'));
   wireToggle('s-compass', 'compass');
   wireToggle('s-overview-map', 'overviewMap');
   wireToggle('s-street-names', 'streetNames');

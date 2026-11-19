@@ -262,7 +262,7 @@ export function tellingTable(walked, tellings = []) {
     const each = (list, other, words) => { const A = list ?? [], B = other ?? []; if (A.length === B.length) A.forEach((x, i) => pair(words(x), words(B[i]), id)); };
     pair(walked.opening?.text, other.opening?.text, id);
     // The panel shows the opening without its "JAUNT: ITS TITLE." (jaunt-panel.js openingParagraphs).
-    const head = (t) => paras(t)[0]?.replace(/^JAUNT:\s*[^.!?]*[.!?]\s*/, '') ?? '';
+    const head = (t) => paras(t)[0]?.replace(/^(?:JAUNT|PASEO):\s*[^.!?]*[.!?]\s*/, '') ?? '';
     add(head(walked.opening?.text), id, head(other.opening?.text));
     pair(walked.premise, other.premise, id);
     each(S, T, (s) => s?.text);

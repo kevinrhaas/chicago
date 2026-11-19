@@ -49,7 +49,7 @@ export const clipKey = (textSha, speaker, narrator = DEFAULT_NARRATOR) =>
  *  "JAUNT: ITS TITLE." its first paragraph leads with, which the title replaces). */
 export function openingScript(jaunt) {
   const paragraphs = String(jaunt?.opening?.text ?? '').split(/\n\s*\n/).map(t => t.trim()).filter(Boolean);
-  if (paragraphs.length) paragraphs[0] = paragraphs[0].replace(/^JAUNT:\s*[^.!?]*[.!?]\s*/, '');
+  if (paragraphs.length) paragraphs[0] = paragraphs[0].replace(/^(?:JAUNT|PASEO):\s*[^.!?]*[.!?]\s*/, '');
   const body = paragraphs.filter(Boolean).join('\n\n');
   return body ? `${String(jaunt.title ?? '').trim()}.\n\n${body}`.replace(/^\.\n\n/, '') : '';
 }
