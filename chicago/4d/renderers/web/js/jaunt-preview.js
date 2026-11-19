@@ -2,24 +2,32 @@
 import { addTable, tellingTable } from './reading-level.js';
 import { understandingQuestions, createUnderstandingDraft } from './jaunt-understanding.js';
 import { renderUnderstandingCheck } from './jaunt-understanding-view.js';
+import { gossipInvestigation, createInvestigationDraft } from './jaunt-investigation.js';
+import { renderInvestigation } from './jaunt-investigation-view.js';
 import { createJauntMenu } from './jaunt-menu.js';
 import { createJournal, presentKeepsake } from './jaunt-journal.js';
 import { icon } from './menu-icons.js';
 import { t } from './strings/index.js';
 import './strings/license.js';
 import { loadReaderText, readerCopy } from './reader-text.js';
+import { localCatalog, localJaunt } from './jaunt-language.js';
 
 export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, onDismiss = () => {}, getSession = () => null, estimate = () => null, storage, plateFor = () => null, preferredMode = () => null, modeNote = () => '', license = null, narration = null, allowAdults = () => false }) {
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
   let catalogPromise, daybookPromise, journal = null, serial = 0, outcomeSeen = null;
   const contents = new Map();
-  let checkSession = null, checkDraft = null;
+  let checkSession = null, checkDraft = null, investigationDraft = null;
   const doc = root.ownerDocument ?? globalThis.document;
   if (doc?.head && !doc.getElementById('jaunt-understanding-style')) {
     const checkStyle = doc.createElement('link'); checkStyle.id = 'jaunt-understanding-style';
     checkStyle.rel = 'stylesheet';
     checkStyle.href = new URL('../css/jaunt-understanding.css', import.meta.url);
     doc.head.append(checkStyle);
+  }
+  if (doc?.head && !doc.getElementById('jaunt-investigation-style')) {
+    const style = doc.createElement('link'); style.id = 'jaunt-investigation-style';
+    style.rel = 'stylesheet'; style.href = new URL('../css/jaunt-investigation.css', import.meta.url);
+    doc.head.append(style);
   }
   const menu = createJauntMenu({ root, estimate, onStart, onPreview: select, plateFor,
     kept: row => !!journal?.keepsakes.some(e => e.jaunt === row.id), preferredMode, modeNote });
@@ -47,9 +55,11 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     return response.json();
   }
   function catalog() {
-    if (!catalogPromise) catalogPromise = json('catalog.json').then(data => {
+    if (!catalogPromise) catalogPromise = json('catalog.json').then(async data => {
       if (data.scene !== String(scene) || !Array.isArray(data.jaunts)) throw new Error('Invalid catalog');
-      api.catalog = data.jaunts; return data.jaunts;
+      // Gap analysis item 15: titles and premises in the visitor's language (js/jaunt-language.js).
+      const rows = await localCatalog(data.jaunts, base, fetcher);
+      api.catalog = rows; return rows;
     }).catch(error => { catalogPromise = null; throw error; });
     return catalogPromise;
   }
@@ -143,6 +153,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     if (session?.phase !== 'outcome' || checkSession !== session.session) {
       checkSession = session?.phase === 'outcome' ? session.session : null;
       checkDraft = checkSession ? createUnderstandingDraft() : null;
+      investigationDraft = checkSession ? createInvestigationDraft() : null;
     }
     if (session?.notice) prefix.push(node('p', session.notice, 'jaunt-session-note'));
     if (session?.jaunt && ['menu', 'outcome'].includes(session.phase)) {
@@ -191,6 +202,8 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
         note.append(head, more);
         const check = checkDraft && renderUnderstandingCheck(doc, understandingQuestions(session), checkDraft);
         if (check) note.append(check);
+        const investigation = renderInvestigation(doc, gossipInvestigation(session), investigationDraft);
+        if (investigation) note.append(investigation);
         const row = node('div', '', 'jaunt-outcome-actions');
         if (journal) {
           const book = button('Daybook', () => showDaybook(session.jaunt.id)); book.prepend(icon('News & Knowledge', 15));
@@ -250,6 +263,9 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       // T-2825: a stop's evidence (its locator, its reasoning, its citations) said for a
       // reader, by the overlay the gate lints; the story itself is already a visitor's text.
       content = readerCopy(content, await loadReaderText(dataBase, `jaunts_${scene}`));
+      // Gap analysis item 15: the words in the visitor's language, over the English the reader
+      // overlay just cleaned (its keys are the English strings').
+      content = await localJaunt(content, base, fetcher);
       contents.set(id, content);
     }
     return content;
@@ -264,6 +280,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       const title = node('h3', content.title);
       root.replaceChildren(backButton(() => { ++serial; list(api.catalog, row.id); }), title,
         node('p', 'Route preview', 'jaunt-meta'),
+        ...(content.quotesNote ? [node('p', content.quotesNote, 'jaunt-meta')] : []),
         ...String(content.opening.text).split(/\n\s*\n/).map(text => node('p', text.trim())));
       const stops = node('ol', '', 'jaunt-stops');
       for (const stop of content.stops) {

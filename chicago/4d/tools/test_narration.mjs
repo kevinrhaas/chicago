@@ -9,7 +9,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { narrationScripts, openingScript, textKey, clipFor, clipKey, silentWav, createNarration, NARRATOR, NARRATORS, DEFAULT_NARRATOR, normalNarrator, VOICE, voiceLevel } from '../renderers/web/js/narration.js';
-import { loadConfig, scriptsFor, voiceFor, plan, voice, synthesize, verify, ROOT, spokenWords, sameWords, loadDirection, directionProblems } from './narrate_jaunts.mjs';
+import { loadConfig, scriptsFor, voiceFor, plan, voice, synthesize, verify, ROOT, spokenWords, sameWords, loadDirection, directionProblems, styleProblems, loadDirectionFile, quota, quotaLine } from './narrate_jaunts.mjs';
 
 const sha = s => createHash('sha256').update(s).digest('hex');
 const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jaunts/glessner-household-tour.json'), 'utf8'));
@@ -133,7 +133,31 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   const problems = directionProblems(all, Object.fromEntries(config.jaunts.map(id => [id, loadDirection(id)])));
   assert.deepEqual(problems, [], `data/narration/direction/ is out of step with the jaunts:\n${problems.join('\n')}`);
   assert.equal(config.model_id, 'eleven_v3', 'directions carry v3 audio tags, which only eleven_v3 performs');
+  // T-3696: the smooth style. A file marked "style": "smooth" breathes between subjects and keeps
+  // laughter and whispering down; every direction written from now on is marked so.
+  const twenty = 'one two three four five six seven eight nine ten '.repeat(6);
+  assert.deepEqual(styleProblems('j', { scripts: { 'stop:a': `[whispers] ${twenty}` } }), [], 'an unmarked (older) file is not held to it');
+  const bad = styleProblems('j', { style: 'smooth', scripts: { 'stop:a': `[whispers] ${twenty} [laughs] [chuckles]` } });
+  assert.equal(bad.length, 3, bad.join('; '));
+  assert.deepEqual(styleProblems('j', { style: 'smooth', scripts: { 'stop:a': `${twenty.slice(0, 120)} [short pause] ${twenty.slice(120)}... [laughs] done.` } }), []);
+  for (const id of config.jaunts) {
+    const problems = styleProblems(id, loadDirectionFile(id));
+    assert.deepEqual(problems, [], `data/narration/direction/${id}.json is marked smooth but:\n${problems.join('\n')}`);
+  }
+  assert.equal(loadDirectionFile('glessner-household-tour-grades-3-5')?.style, 'smooth', 'the 3rd-grade Glessner Household is performed in the smooth style (owner, 2026-11-19)');
   assert.ok([0, 0.5, 1].includes(config.voice_settings.stability), 'eleven_v3 takes stability 0, 0.5 or 1');
+}
+
+// ---- the quota (T-3696) ----------------------------------------------------------------
+{
+  const ok = async () => new Response(JSON.stringify({ tier: 'creator', character_count: 40000, character_limit: 100000, next_character_count_reset_unix: 1796083200 }), { status: 200 });
+  const q = await quota('k', ok);
+  assert.deepEqual(q, { tier: 'creator', used: 40000, limit: 100000, resets: new Date(1796083200 * 1000).toISOString() });
+  assert.match(quotaLine(q, 'now'), /40000 of 100000 credits used this period \(60000 left, plan creator, resets /);
+  const denied = await quota('k', async () => new Response('no', { status: 401 }));
+  assert.equal(denied.error, 'HTTP 401');
+  assert.match(quotaLine(denied, 'now'), /not readable/);
+  assert.equal((await quota('k', async () => { throw Error('offline'); })).error, 'offline', 'a failed quota read never fails the run');
 }
 
 // ---- the player ------------------------------------------------------------------------

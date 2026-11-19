@@ -58,4 +58,70 @@ assert.ok(!isResearcherKey('researchers.note'), 'a namespace merely starting wit
 assert.ok(!isResearcherKey('hud.tab.sources'));
 assert.ok(!isResearcherKey(null));
 
+// Gap analysis item 15: Spanish. Every Spanish section key is one the English table has, with
+// the same placeholders; every text pattern keeps its own; the page translator swaps whole
+// strings only; a jaunt's overlay lands on the passages it names and nowhere else.
+{
+  const { readdirSync } = await import('node:fs');
+  const dir = new URL('../renderers/web/js/strings/', import.meta.url);
+  for (const f of readdirSync(dir).filter((f) => f.endsWith('.js')).sort()) await import(new URL(f, dir));
+  const { LANG, LANGUAGES, localeText, localePatterns } = await import('../renderers/web/js/strings/index.js');
+  assert.equal(LANG, 'en', 'with no choice and no browser, the table reads English');
+  assert.deepEqual(LANGUAGES.map(([c]) => c), ['en', 'es']);
+  const es = (await import('../renderers/web/js/strings/es/index.js')).default;
+  const english = new Map(entries());
+  const holes = (s) => [...String(s).matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort().join(',');
+  const bad = [];
+  for (const [ns, table] of Object.entries(es.sections)) {
+    for (const [k, v] of Object.entries(table)) {
+      const key = `${ns}.${k}`;
+      if (!english.has(key)) bad.push(`${key}: no such English string`);
+      else if (typeof v !== 'string' || !v.trim()) bad.push(`${key}: empty`);
+      else if (holes(v) !== holes(english.get(key))) bad.push(`${key}: placeholders {${holes(v)}} but English has {${holes(english.get(key))}}`);
+    }
+  }
+  for (const [en, tr] of Object.entries(es.text)) {
+    if (typeof tr !== 'string' || !tr.trim()) bad.push(`text "${en}": empty`);
+    if (en !== en.trim()) bad.push(`text "${en}": an entry is the trimmed string`);
+  }
+  for (const pair of es.patterns) {
+    if (!Array.isArray(pair) || pair.length !== 2) { bad.push(`pattern ${JSON.stringify(pair)}: not [English, Spanish]`); continue; }
+    const [en, tr] = pair;
+    if (holes(en) !== holes(tr)) bad.push(`pattern "${en}": placeholders differ`);
+    if (!/[A-Za-z]{3}/.test(en.replace(/\{\w+\}/g, ''))) bad.push(`pattern "${en}": too little fixed text to match safely`);
+  }
+  assert.deepEqual(bad, [], `Spanish strings:\n  ${bad.join('\n  ')}`);
+
+  // The page translator (js/i18n-dom.js), fed a small locale by hand.
+  localeText.set('Free roam', 'Recorrido libre');
+  localeText.set('Walk', 'Caminar');
+  localePatterns.push(['{n} stops', '{n} paradas'], ['Going to {place}', 'Rumbo a {place}']);
+  const { translate } = await import('../renderers/web/js/i18n-dom.js');
+  assert.equal(translate('Free roam'), 'Recorrido libre');
+  assert.equal(translate('  Free roam '), '  Recorrido libre ', 'the node keeps its own spacing');
+  assert.equal(translate('Free roaming'), null, 'only a whole string is swapped');
+  assert.equal(translate('12 stops'), '12 paradas');
+  assert.equal(translate('Going to Walk'), 'Rumbo a Caminar', 'a matched value is itself translated when the locale holds it');
+  assert.equal(translate('Recorrido libre'), null, 'a translation is never translated again');
+  assert.equal(translate('— MB'), null);
+  localeText.set('The Lake House was built of brick.', 'La Lake House se construía de ladrillo.');
+  assert.equal(translate('The Lake House was built of brick. — 1883/1902 Recollections'), 'La Lake House se construía de ladrillo. — 1883/1902 Recollections',
+    'a line put together from parts reads part by part');
+  assert.equal(translate('Nothing held · nor this'), null);
+  localeText.clear(); localePatterns.length = 0;
+
+  // A jaunt's Spanish overlay (js/jaunt-language.js).
+  const { applyPassages } = await import('../renderers/web/js/jaunt-language.js');
+  const doc = { title: 'T', premise: 'P', opening: { text: 'O' }, stops: [{ id: 'a', text: 'A', narrative: 'N', choices: [{ id: 'x', label: 'L', consequence: 'C' }] }],
+    legs: [{ story: 'S', note: 'R' }], endings: [{ id: 'e', text: 'E' }], keepsake: { title: 'K', text: 'KT', family: 'F' } };
+  const n = applyPassages(doc, { title: 't', premise: 'p', opening: 'o', 'stop a': 'a', 'narrative a': 'n', 'label a x': 'l', 'consequence a x': 'c',
+    'leg 0': 's', 'note 0': 'r', 'ending e': 'e', 'keepsake title': 'k', 'keepsake text': 'kt', 'stop zz': 'nowhere', 'ending zz': 'nowhere' });
+  assert.equal(n, 12, 'a passage for a stop or ending the jaunt lacks lands nowhere');
+  assert.deepEqual([doc.title, doc.premise, doc.opening.text, doc.stops[0].text, doc.stops[0].narrative, doc.stops[0].choices[0].label,
+    doc.stops[0].choices[0].consequence, doc.legs[0].story, doc.legs[0].note, doc.endings[0].text, doc.keepsake.title, doc.keepsake.text, doc.keepsake.family],
+  ['t', 'p', 'o', 'a', 'n', 'l', 'c', 's', 'r', 'e', 'k', 'kt', 'F']);
+  console.log(`SPANISH PASS — ${Object.values(es.sections).reduce((n, t) => n + Object.keys(t).length, 0)} of ${english.size} table strings, `
+    + `${Object.keys(es.text).length} page strings, ${es.patterns.length} patterns`);
+}
+
 console.log('STRING TABLE PASS — sections register and extend, placeholders fill, no key ever shown, the page fills from the table');

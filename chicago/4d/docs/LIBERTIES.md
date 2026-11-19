@@ -45235,13 +45235,15 @@ balustraded deck; the yard; the rainwater goods.
 south part on the sheet; it is built as one plane at the mean (within the 0.3 m bar each way). The cant is
 K01's at 45 degrees with a 1.3 m cut, where the sheet's runs about 1.7 m along 21st and 2.1 m along Prairie.
 The rear range is decked flat under a K01 wing roof, where the sheet draws a mansard curb on it too. The
-iron fence along 21st Street, which the engraving draws across its foreground, is not built: K11 lays iron only
-on the street line and a side fence only in boards (the match record's one open difference); the 6- and
+iron fence along 21st Street, which the engraving draws across its foreground, is built since T-3632 (K11's
+`side_iron`): the front's scroll-band railing on its own curb along the south lot line, from beside the corner
+post back to an end post level with the rear range's west wall (u -10.67). The engraving shows the run only
+across the front block's 21st Street face; carrying it the length of the house, and stopping it there, is a
+reconstruction bounded by the house's own south face, and the yard behind is left as the draft left it. The 6- and
 8-ft brick walls the 1911 sheet draws along 21st and the alley are 1911 evidence and stay unbuilt, as the
 draft left them. The gate piers carry K11's caps, not the engraving's urns.
 
-**How to resolve:** T-3632 (piece 2 of T-1911) builds the 21st Street iron, solves the 1890s photograph's
-camera and signs off the image gate; a picture of the roof, the north flank or the rear would replace the
+**How to resolve:** a picture of the 21st Street railing's west end would fix where it stops; a picture of the roof, the north flank or the rear would replace the
 invented parts.
 **Covers:** `buckingham_house_2036_prairie.as_mapped_1904.form.wall_thickness_front_m`, `buckingham_house_2036_prairie.as_mapped_1904.form.wall_thickness_side_m`, `buckingham_house_2036_prairie.as_mapped_1904.form.service_wall_brick`, `buckingham_house_2036_prairie.as_mapped_1904.form.face_brick`, `buckingham_house_2036_prairie.as_mapped_1904.form.roof_pitch_deg`, `buckingham_house_2036_prairie.as_mapped_1904.form.eave_overhang_m`, `buckingham_house_2036_prairie.as_mapped_1904.form.roof_covering`, `buckingham_house_2036_prairie.as_mapped_1904.form.wall_head`, `buckingham_house_2036_prairie.as_mapped_1904.form.stair_tread_m`, `buckingham_house_2036_prairie.as_mapped_1904.form.stair_landing_depth_m`, `buckingham_house_2036_prairie.as_mapped_1904.form.window_kit`, `buckingham_house_2036_prairie.as_mapped_1904.form.north_bays`, `buckingham_house_2036_prairie.as_mapped_1904.form.rear_bays`, `buckingham_house_2036_prairie.as_mapped_1904.form.chimneys`, `buckingham_house_2036_prairie.as_mapped_1904.form.rainwater`, `buckingham_house_2036_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3631 (piece 1 of T-1911, the S08 package of the T-1837 programme).

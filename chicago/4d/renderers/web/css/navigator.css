@@ -988,6 +988,40 @@ html[data-text-scale] .navigator:not([data-detent="dock"]):not([data-detent="rai
 .person-face-tile { display: block; width: 100%; height: 100%; transform: rotate(90deg) scale(1.35); background-repeat: no-repeat; }
 .person-worn:empty { display: none; }
 
+/* T-3673: people met, places found. One row on People and on the Map: the toggle with its
+   count, Clear <year> with an inline Clear / Keep, and a status line. The Met badge is a
+   plain word on a tint, readable in every appearance; a problem line takes the alert ink. */
+.mf-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.mf-row .mf-status { flex: 1 0 100%; margin: 0; font-size: 12px; line-height: 1.35; color: var(--ink-dim); }
+.mf-row .mf-status.is-problem { color: var(--alert, var(--ink)); }
+.mf-row .mf-status:empty { display: none; }
+.mf-clear, .mf-yes, .mf-no {
+  min-height: 36px; padding: 0 12px; border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
+  background: transparent; color: var(--ink-dim); cursor: pointer; font: inherit; font-size: 13px;
+}
+.mf-clear[hidden], .mf-ask[hidden] { display: none; }
+.mf-yes { color: var(--ink); border-color: color-mix(in srgb, var(--alert, var(--accent)) 55%, var(--edge)); }
+.mf-clear:focus-visible, .mf-yes:focus-visible, .mf-no:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mf-ask { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.mf-ask-text { flex: 1 0 100%; font-size: 13px; color: var(--ink); }
+.ppl-met .ppl-met-toggle { min-height: 40px; padding: 0 14px; border: 1px solid var(--edge); font-variant-numeric: tabular-nums; }
+.ppl-met .ppl-met-toggle[aria-pressed="true"] { background: var(--lit-wash, color-mix(in srgb, var(--accent) 12%, transparent)); color: var(--lit-ink, var(--accent));
+  border-color: var(--lit-edge, var(--accent)); }
+.ppl-met-badge, .person-met {
+  display: inline-block; flex: none; padding: 1px 7px; border-radius: 999px; white-space: nowrap;
+  font-size: 10px; font-weight: 600; letter-spacing: .04em; line-height: 1.5; color: var(--ink);
+  background: color-mix(in srgb, var(--ok, var(--accent)) 24%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ok, var(--accent)) 60%, transparent);
+}
+.ppl-met-note, .people-card-met { flex: 1 0 100%; margin: 2px 0 0; font-size: 13px; color: var(--ink-dim); }
+.ppl-met-note .ppl-met-badge, .people-card-met .person-met { margin-right: 4px; }
+.nav-map-found { flex: 1 0 100%; }
+.nav-map-found .nav-map-found-toggle { font-variant-numeric: tabular-nums; }
+.nav-map-found .nav-map-found-toggle[aria-pressed="true"] { color: var(--ink); border-color: var(--lit-edge, var(--accent)); box-shadow: inset 3px 0 0 #0b6e79; } /* T-3671 lit edge, 3:1 */
+.people-met { margin: 4px 0 2px; }
+.people-met .people-met-toggle { min-height: 32px; font-variant-numeric: tabular-nums; }
+@media (max-width: 620px) { .mf-clear, .mf-yes, .mf-no, .ppl-met .ppl-met-toggle { min-height: 44px; } }
+
 /* ---- T-3671 (WCAG 2.4.1): the skip link — out of sight until the keyboard reaches it ---- */
 .skip-link {
   position: fixed; top: 8px; left: 8px; z-index: 60;

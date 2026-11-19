@@ -44,7 +44,7 @@
      "local_n": -3226.7
     }
    ],
-   "text": "Good morning! Welcome to my house. I'm John Glessner. In 1870 I came to Chicago from Ohio with my new wife, Frances. My company makes machines that help farmers cut their crops. In 1871 we sold 800 of them. By 1884 we sold 25,000! A man named Mr. Richardson drew the plans for this house. It was the last house he ever made. We slept here for the first time on the first night of December, 1887. Everyone who helps run the house is here this morning. Mrs. Glessner is in the yard in the middle of the house. To find her, walk through the tunnel under the house, just to your left.",
+   "text": "Good morning! Welcome to my house. I'm John Glessner. Let me start with how we got here. In 1870 I came to Chicago from Ohio with my new wife, Frances. My company makes machines that help farmers cut their crops. In 1871 we sold 800 of them. By 1884 we sold 25,000! Now, about this house. A man named Mr. Richardson drew the plans for it. It was the last house he ever made. We slept here for the first time on the first night of December, 1887. And this is a special morning. Everyone who helps run the house is here to meet you. Mrs. Glessner is in the yard in the middle of the house. To find her, walk through the tunnel under the house, just to your left.",
    "evidence": [
     "voices",
     "outing",
@@ -67,7 +67,7 @@
     }
    ],
    "next": "frances",
-   "read_s": 31
+   "read_s": 36
   },
   {
    "id": "frances",
@@ -82,7 +82,7 @@
      "local_n": -3236.22
     }
    ],
-   "text": "You found us! I'm Frances Glessner. See the round part of the wall? That is our hall. Its door has yellow glass, so the hall looks sunny even on a gray day. The green vine on these walls came from our old house. One vine was fifty-five feet long! Every Monday morning my friends and I meet in the library. We sew while one of us reads out loud. This year I am learning to make things out of silver, and I keep bees. I have kept a journal since 1879. In it I write down every helper we hire, and what we pay them. One August night in 1891, all five of our helpers quit at once! So I sent for Mattie. Go and meet her by the kitchen side of the yard.",
+   "text": "You found us! I'm Frances Glessner. Let me show you the yard first. See the round part of the wall? That is our hall. Its door has yellow glass, so the hall looks sunny even on a gray day. The green vine on these walls came from our old house. One vine was fifty-five feet long! Now, about my days. Every Monday morning my friends and I meet in the library. We sew while one of us reads out loud. This year I am learning to make things out of silver, and I keep bees. I have also kept a journal since 1879. In it I write down every helper we hire, and what we pay them. One August night in 1891, all five of them quit at once! So I sent for Mattie. She is by the kitchen side of the yard. Go and meet her.",
    "evidence": [
     "voices",
     "outing",
@@ -101,7 +101,7 @@
     }
    ],
    "next": "mattie",
-   "read_s": 37
+   "read_s": 41
   },
   {
    "id": "mattie",
@@ -116,7 +116,7 @@
      "local_n": -3236.37
     }
    ],
-   "text": "Hello! I'm Mattie Williamson, the cook. This house has just one cook, and that's me. I was born in Canada. My brother runs the Glessners' farm in New Hampshire. Every summer I go there a week before the family, to get the house ready. One winter Mrs. Glessner had seven cooks in seven weeks! Her new gas stove was too hard for them. I had come to work as a maid. In 1892 I tried the cooking, and I stayed. My kitchen is right behind this wall. A board of bells tells us which room needs us. I cook big dinners with eight courses! Last year a whole orchestra came to dinner. They played music on my pots and pans! Christine is back from the market. She is round at the corner.",
+   "text": "Hello! I'm Mattie Williamson, the cook. This house has just one cook, and that's me. First, a little about me. I was born in Canada. My brother runs the Glessners' farm in New Hampshire. Every summer I go there a week before the family, to get the house ready. Now, how did I become the cook? One winter Mrs. Glessner had seven cooks in seven weeks! Her new gas stove was too hard for them. I had come to work as a maid. In 1892 I tried the cooking, and I stayed. My kitchen is right behind this wall. A board of bells tells us which room needs us. I cook big dinners with eight courses! Here is my favorite story. Last year a whole orchestra came to dinner. They played music on my pots and pans! Christine is back from the market. She is round at the corner.",
    "evidence": [
     "voices",
     "outing",
@@ -137,7 +137,7 @@
     }
    ],
    "next": "christine",
-   "read_s": 37
+   "read_s": 42
   },
   {
    "id": "christine",
@@ -152,7 +152,7 @@
      "local_n": -3203.89
     }
    ],
-   "text": "Hej! That means hello in Swedish. I'm Christine Nelson, the parlor maid. I came here from Sweden in 1892. Mattie cooks. Other maids serve the food and care for the ladies' clothes. My job is the cleaning, and in this smoky city it never ends! See the thin windows along this street? People walking by laugh at them. But they only light our hallways. Every big room has two doors or more, so we can do our work and stay out of the family's way. Even the iceman stays outside. He pushes the ice in through a little half-door. Mary keeps the rooms with me. She will be at our door under the big arch.",
+   "text": "Hej! That means hello in Swedish. I'm Christine Nelson, the parlor maid. I came here from Sweden in 1892. In this house, each of us has our own job. Mattie cooks. Other maids serve the food and care for the ladies' clothes. My job is the cleaning, and in this smoky city it never ends! Now, look along this street. See the thin windows? People walking by laugh at them. But they only light our hallways. Inside, the house is clever, too. Every big room has two doors or more, so we can do our work and stay out of the family's way. Even the iceman stays outside. He pushes the ice in through a little half-door. Mary keeps the rooms with me. She will be at our door under the big arch.",
    "evidence": [
     "voices",
     "outing",
@@ -171,7 +171,7 @@
     }
    ],
    "next": "mary",
-   "read_s": 32
+   "read_s": 37
   },
   {
    "id": "mary",
@@ -186,7 +186,7 @@
      "local_n": -3209.32
     }
    ],
-   "text": "Hello, I'm Mary Reynolds, the house maid. I was born here in Illinois. Welcome to our side of the house! Under the big arch is our own front door. We even have our own address, 35 Eighteenth Street. That way our letters never get mixed up with the family's. We women sleep upstairs, over the kitchen. The men sleep over the carriage house. This door is good for surprises, too. For the Glessners' twenty-fifth wedding anniversary, a whole orchestra crept in this way and up the back stairs. Nobody upstairs knew, until the music began! Charles drove the family's horses until 1902. He is back at the stable doors today.",
+   "text": "Hello, I'm Mary Reynolds, the house maid. I was born here in Illinois. Welcome to our side of the house! Under the big arch is our own front door. We even have our own address, 35 Eighteenth Street. That way our letters never get mixed up with the family's. So where do we all sleep? We women sleep upstairs, over the kitchen. The men sleep over the carriage house. This door is good for surprises, too. For the Glessners' twenty-fifth wedding anniversary, a whole orchestra crept in this way and up the back stairs. Nobody upstairs knew, until the music began! Now it is time to meet Charles. He drove the family's horses until 1902, and he is back at the stable doors today.",
    "evidence": [
     "voices",
     "outing",
@@ -203,7 +203,7 @@
     }
    ],
    "next": "charles",
-   "read_s": 31
+   "read_s": 35
   },
   {
    "id": "charles",
@@ -218,7 +218,7 @@
      "local_n": -3211.63
     }
    ],
-   "text": "Good morning! I'm Charles Nelson. I'll tell you a secret: I'm not the coachman here in 1904. I drove the Glessners' horses and carriages from 1878 until 1902. Then I stopped working here. I came back today to show you my old stable. I came to America from Sweden in 1871. By 1900 my wife Martha and I had five children, and we lived here. The stable has six stalls for horses. Its walls are white, shiny brick, so we can wash them clean. The coal furnace is down below, so the dirt stays out of the house. When the house was started in 1886, young George drove a horse and buggy here. He and his sister dug the very first dirt! August is round the corner, at the yard gates.",
+   "text": "Good morning! I'm Charles Nelson. First, I have something to tell you. I'm not the coachman here in 1904. I drove the Glessners' horses and carriages from 1878 until 1902. Then I stopped working here. I came back today to show you my old stable. A little about me: I came to America from Sweden in 1871. By 1900 my wife Martha and I had five children, and we lived here. Now, let's look at the stable. It has six stalls for horses. Its walls are white, shiny brick, so we can wash them clean. The coal furnace is down below, so the dirt stays out of the house. One last story. When the house was started in 1886, young George drove a horse and buggy here. He and his sister dug the very first dirt! August is round the corner, at the yard gates.",
    "evidence": [
     "voices",
     "outing",
@@ -237,7 +237,7 @@
     }
    ],
    "next": "august",
-   "read_s": 36
+   "read_s": 40
   },
   {
    "id": "august",
@@ -252,7 +252,7 @@
      "local_n": -3229.29
     }
    ],
-   "text": "Hallo! I'm August Billings, the stable helper. I came from Sweden in 1892, the same year as Christine. I clean the harness and wash the carriage. I take care of the doves, too. There are almost sixty of them, and their eggs go to the family's table! These gates are the back way into the yard. Here is a story from before my time. In December 1887 the family carried everything they owned in through these gates. The neighbors did not even know they were moving! That night they lit the new fireplace with fire from their old house. That's the whole household. Thank you for visiting!",
+   "text": "Hallo! I'm August Billings, the stable helper. I came from Sweden in 1892, the same year as Christine. Here is what I do all day. I clean the harness and wash the carriage. I take care of the doves, too. There are almost sixty of them, and their eggs go to the family's table! Now, look at these gates. They are the back way into the yard, and they have a story from before my time. In December 1887 the family carried everything they owned in through these gates. The neighbors did not even know they were moving! That night they lit the new fireplace with fire from their old house. Well, that's the whole household. Thank you for visiting!",
    "evidence": [
     "voices",
     "outing",
@@ -268,7 +268,7 @@
     }
    ],
    "next": "finish",
-   "read_s": 30
+   "read_s": 34
   }
  ],
  "legs": [
