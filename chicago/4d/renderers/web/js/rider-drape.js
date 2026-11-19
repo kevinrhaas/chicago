@@ -134,7 +134,18 @@ export function pressPoint(q, env, zone) {
 // CPU (the tests use the same), the vertex shader reads it from a small float texture.
 // Reconstructed: how a habit lay is drawn from the general shape, not from a record
 // (liberty L-sidesaddle-3644).
-export const HABIT = Object.freeze({ cols: 32, rows: 16, margin_m: 0.035, waist_m: 0.17, below_foot_m: 0.1, lift_m: 0.012, blend: 0.14 });
+//
+// Kevin, 2026-11-19 (1904, aside in the habit): "you can see her leg through the riding habit".
+// Every point of her legs was under the sheet, but the skirt is drawn with only so many
+// vertices: each panel between two of them is flat, and over the knees and the forward thigh
+// (the sheet's tightest bends) a flat panel cut further in than the 3.5 cm the sheet stood off
+// the leg. And over its first 14 % of depth (about 13 cm along the thigh) the cloth was still
+// mostly where the standing figure's skin put it, which a thigh raised over the head leaves
+// behind. So the sheet stands 8 cm off the legs, starts 10 cm round the hips (at 17 the thigh
+// top came up under its first row), and the cloth is on it by 4 % of its depth. Measured by
+// drawing her, cloth panels and all, from five sides at each pace (tools/test_riding.mjs with
+// rider_drawn.mjs): bare leg went from 460 to 550 pixels in the worst view to none.
+export const HABIT = Object.freeze({ cols: 32, rows: 16, margin_m: 0.08, waist_m: 0.10, below_foot_m: 0.1, lift_m: 0.012, blend: 0.04 });
 const HABIT_KINDS = new Set(['hang', 'ride']);
 /** Whether a rider's mesh is laid on the habit (its hanging cloth, and what rides on that). */
 export const habitCloth = (mesh, kind) => !!mesh?.isSkinnedMesh && HABIT_KINDS.has(kind) && drapes(mesh, kind);

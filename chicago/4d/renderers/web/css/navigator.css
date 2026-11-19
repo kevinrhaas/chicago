@@ -940,6 +940,9 @@ html[data-text-scale="1.3"] .navigator .nav-guide-keys dt, html[data-text-scale=
   background: radial-gradient(120% 90% at 50% 30%, color-mix(in srgb, var(--ink) 10%, transparent), transparent 70%); }
 .person-pic:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
 .person-portrait { display: block; width: 160px; height: 240px; }
+/* Kevin, 2026-11-19: the face up close beside the whole figure. */
+.person-pics { display: flex; align-items: flex-start; justify-content: center; gap: 8px; }
+.person-face-close { width: 128px; height: 128px; }
 .person-status:empty { display: none; }
 .person-builder .person-row[role="radiogroup"] { display: flex; flex-direction: column; align-items: stretch; gap: 6px; margin: 0; }
 .person-builder .person-label { display: block; position: static; font-size: 0.8125rem; color: var(--ink-dim); }

@@ -38,6 +38,7 @@ const { gltfLoader, geometryOnly } = await import('./horse_walk_v2.mjs');
 const { routeFor } = await import('../renderers/web/js/transport-loop.js');
 const { footprintOfPose } = await import('../renderers/web/js/team-drive.js');
 const { footprintWorld } = await import('./lay_driven_wagons_1835.mjs');
+const { drawnCounts } = await import('./rider_drawn.mjs');
 hooks.deregister();
 
 let checks = 0;
@@ -92,6 +93,7 @@ for (const y of YEARS) for (const s of ['male', 'female']) for (const o of perso
 
 const v = new THREE.Vector3(), q = new THREE.Vector3();
 const report = [];
+const DRAWN_LEG_PX = +(process.env.DRAWN_LEG_PX ?? 10);
 // T-3644: how far a point (envelope frame) is outside the habit's sheet, in the upright
 // half-plane of its way round her hips (the nearest of the sheet's ways): 0 when under it.
 function habitOutside(sheet, hips, p) {
@@ -210,7 +212,7 @@ for (const y of YEARS) for (const tk of tacksOf(y)) {
   if (side) for (const m of skinned) { const kind = garmentKind(m, asset).kind; const rest = habitCloth(m, kind) && habitRest(m); if (rest) habitOf.set(m, { rest, lift: /garment_outer|apron/.test(m.material.name) || kind === 'ride' ? HABIT.lift_m : 0 }); }
   const habitL = Math.max(.3, ...[...habitOf.values()].map(h => h.rest.below));
   if (side) ok(habitOf.size >= 1, `${yt} ${asset}: her skirt is laid on the habit (${habitOf.size} pieces)`);
-  let bare = 0, legPts = 0, worstBare = 0, headIn = -Infinity;
+  let bare = 0, legPts = 0, worstBare = 0, headIn = -Infinity, drawnLeg = 0, drawnWorst = '', drawnSeen = 0;
   const zone = pressZone(S);
   for (const [pace, cycle] of [[config.ride.walk_m_s, spec.stride_m], [config.ride.trot_m_s, spec.trot_stride_m],
     [config.ride.canter_m_s, spec.canter_stride_m], [config.ride.gallop_m_s, spec.gallop_stride_m]]) {
@@ -252,6 +254,51 @@ for (const y of YEARS) for (const tk of tacksOf(y)) {
         sheet = habitSheet(legBalls(pose.bones, toEnv), hips);
       }
       const rest = new THREE.Vector3();
+      // Kevin, 2026-11-19: "you can see her leg through the riding habit". Every point of her
+      // legs was under the sheet, yet a flat panel of the skirt between two of its vertices cut
+      // across a knee. So she is drawn too, cloth panels and all, with the horse and its tack
+      // (rider_drawn.mjs), from five sides at two moments of each pace: her bare legs must not show.
+      if (side && (k === 0 || k === 4)) {
+        const tris = [], p = new THREE.Vector3(), r = new THREE.Vector3();
+        for (const m of skinned) {
+          if (/^(eyes|hair|headwear|accessory)/.test(m.material.name)) continue;
+          m.skeleton.update();
+          const kind = garmentKind(m, asset).kind, draped = drapes(m, kind), H = habitOf.get(m);
+          const legsRest = !draped && !/^footwear/.test(m.material.name) ? habitRest(m) : null;
+          const pos = m.geometry.attributes.position, P = [], leg = [];
+          for (let i = 0; i < pos.count; i++) {
+            m.getVertexPosition(i, p).applyMatrix4(m.matrixWorld).applyMatrix4(back);
+            const qq = p.clone().sub(new THREE.Vector3(0, S.axis_y_m, 0));
+            if (H) habitVertex(sheet, r.fromBufferAttribute(pos, i).applyMatrix4(H.rest.matrix), qq, habitL, H.lift);
+            if (draped) drapePoint(qq, env, { seatHalfDeg: S.seat_half_angle_deg }); else pressPoint(qq, env, zone);
+            P.push(qq);
+            leg.push(!!legsRest && r.fromBufferAttribute(pos, i).applyMatrix4(legsRest.matrix).y < -.15);
+          }
+          const idx = m.geometry.index;
+          for (let i = 0; i < idx.count; i += 3) {
+            const a = idx.getX(i), b = idx.getX(i + 1), c = idx.getX(i + 2);
+            tris.push([P[a], P[b], P[c], leg[a] && leg[b] && leg[c] ? 'leg' : 'figure']);
+          }
+        }
+        root.traverse(m => {
+          if (!m.isMesh || m.isSkinnedMesh && skinned.includes(m)) return;
+          let o = m; while (o && o !== actorRoot) o = o.parent; if (o === actorRoot) return;
+          const pos = m.geometry.attributes.position; if (!pos) return;
+          const P = [];
+          for (let i = 0; i < pos.count; i++) {
+            (m.isSkinnedMesh ? m.getVertexPosition(i, p) : p.fromBufferAttribute(pos, i)).applyMatrix4(m.matrixWorld).applyMatrix4(back);
+            P.push(p.clone().sub(new THREE.Vector3(0, S.axis_y_m, 0)));
+          }
+          const idx = m.geometry.index, n = idx ? idx.count : P.length - P.length % 3;
+          for (let i = 0; i < n; i += 3) tris.push([P[idx ? idx.getX(i) : i], P[idx ? idx.getX(i + 1) : i + 1], P[idx ? idx.getX(i + 2) : i + 2], 'horse']);
+        });
+        const seen = drawnCounts(tris, { centre: hips.clone().add(new THREE.Vector3(0, -.15, 0)), size: 260, scale: 300,
+          views: [['near side', 90, 10], ['near front', 40, 15], ['from above', 80, 50], ['near back', 130, 20], ['ahead', 10, 25]] });
+        for (const [view, n] of Object.entries(seen)) {
+          drawnSeen += n.figure ?? 0;
+          if ((n.leg ?? 0) > drawnLeg) { drawnLeg = n.leg; drawnWorst = `${view} at ${pace} m/s`; }
+        }
+      }
       for (const m of skinned) {
         m.skeleton.update();
         // Hanging cloth lies on the horse (rider-drape.js, as the shader lays it); legs, skin and boots never move.
@@ -294,6 +341,10 @@ for (const y of YEARS) for (const tk of tacksOf(y)) {
     report.push(`  aside: ${bare} of ${legPts} points of her legs outside the habit (furthest ${(worstBare * 100).toFixed(1)} cm)`);
     ok(legPts > 500 && bare === 0, `${yt} ${asset}: aside, her legs are under the habit at every pace (${bare} of ${legPts} points out, furthest ${(worstBare * 100).toFixed(1)} cm)`);
     ok(headIn <= 0, `${yt} ${asset}: the side saddle's heads stay clear of her legs (${(Math.max(0, headIn) * 100).toFixed(1)} cm in)`);
+    // At 300 pixels a metre a pixel is about 3 mm square: DRAWN_LEG_PX is about 1 cm² of leg
+    // (a knee through the skirt was 460 to 550; the 2026-11-19 habit draws none).
+    report.push(`  aside, drawn: at most ${drawnLeg} pixels of bare leg in a view (${drawnWorst || 'none'}), of ${drawnSeen} of her drawn`);
+    ok(drawnSeen > 20000 && drawnLeg <= DRAWN_LEG_PX, `${yt} ${asset}: aside, drawn from five sides at every pace, her bare legs do not show through the habit (${drawnLeg} pixels at most, ${drawnWorst || 'none'})`);
   }
   gait.advance(0, 0, .1); gait.advance(0, 0, .5);
   ok(gait.moving === 0, `${yt}: a horse that stops stands in its rest pose`);
