@@ -1,0 +1,1398 @@
+{
+ "kind": "fire_timeline",
+ "scene": "1871",
+ "ticket": "T-3687",
+ "title": "The Great Fire of 8-10 October 1871: where it burned, and when",
+ "liberty": "L-1871-great-fire-3687",
+ "derived_by": "tools/fire_1871.py",
+ "clock": "Chicago local time as the accounts give it (the city kept its own mean time in 1871; railway standard time came in 1883), the same clock as the scene's hours (time-of-day.js, local mean solar time).",
+ "start": "1871-10-08T21:00",
+ "end": "1871-10-10T04:00",
+ "sources": [
+  "andreas_1885_v2",
+  "chicago_board_police_fire_1871_report",
+  "sheahan_upton_1871_great_conflagration",
+  "chm_great_conflagration_web_of_memory",
+  "conzen_2004_progress_of_the_chicago_fire",
+  "mitchell_1870_chicago_map"
+ ],
+ "wind": {
+  "from_deg": 225,
+  "speed_mps": 12,
+  "grade": "inferred",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "locator": "p. 727, the Times: 'the wind was blowing a gale from a southwesterly direction; and, above the tops of the buildings, its course, from midnight until 4 or 5 o'clock, varied but little'.",
+  "note": "The direction is the accounts'; the speed (about 27 miles an hour) is reconstructed for a 'gale' and only sets how far the smoke leans."
+ },
+ "rain": {
+  "t": "1871-10-09T23:00",
+  "grade": "attested",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "locator": "p. 757: 'The rain, which began about eleven o'clock Monday night, effected a perceptible check on the flames.'",
+  "note": "After the rain the flames die down over about three hours and nothing new catches; the ruins smoulder on."
+ },
+ "conversion": {
+  "method": "Modern latitude and longitude of the 1871 street corners and places named below are carried into the scene's local east/north metres by an affine fit to the modern OpenStreetMap controls of data/context/1871/plan.json (the same controls the 1871 city's map alignment rests on). Rivers and the lake shore are the scene's own (data/terrain/epochs/e1871_prefire).",
+  "controls": "data/context/1871/plan.json map_control.controls[].modern_control",
+  "rms_m": 0.43
+ },
+ "zones": [
+  {
+   "id": "west_division",
+   "name": "The West Division, from the O'Leary barn north to Van Buren Street and east to the South Branch",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2",
+    "chicago_board_police_fire_1871_report",
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "note": "The fire ran north and east from the barn between Jefferson Street and the river (Andreas pp. 717-718: the houses on the west side of Jefferson Street stood; its two columns between Clinton and Jefferson and between Clinton and Canal). Its south edge is DeKoven Street at the barn and its north edge Van Buren Street, against the ground the Saturday fire had cleared. The Board gives about 160 acres for the West Division.",
+   "reported_acres": 160,
+   "outline": [
+    {
+     "at": "Jefferson Street at DeKoven Street",
+     "lat": 41.8685,
+     "lon": -87.643
+    },
+    {
+     "at": "Jefferson Street at Van Buren Street",
+     "lat": 41.8768,
+     "lon": -87.643
+    },
+    {
+     "river": "south_branch",
+     "from_n": -1061,
+     "to_n": -2000,
+     "at": "the South Branch from Van Buren Street down to DeKoven Street"
+    }
+   ],
+   "acres": 141,
+   "local": [
+    [
+     -433.8,
+     -2019.7
+    ],
+    [
+     -426.9,
+     -1098.2
+    ],
+    [
+     51.6,
+     -1061.0
+    ],
+    [
+     102.0,
+     -1284.7
+    ],
+    [
+     267.4,
+     -1817.9
+    ],
+    [
+     314.0,
+     -2000.0
+    ]
+   ]
+  },
+  {
+   "id": "south_division",
+   "name": "The South Division, from the South Branch to the lake, north of Taylor and Congress streets to the main river",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2",
+    "chicago_board_police_fire_1871_report",
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "note": "Andreas pp. 738-740: the line of ruin ran from Harrison Street to the main river, and the fire was stopped at Harrison Street between State Street and Wabash Avenue (the block between Congress, Harrison, State and Wabash given up) and along Congress Street from Wabash Avenue to the lake. South of Harrison it burned back along the river to about Taylor Street (Andreas p. 720, the fire 'which reached Polk Street at a later hour than one o'clock'; Conzen's plate C2), held on the east by the railroad tracks by Clark Street. The Board gives nearly 500 acres for the South Division.",
+   "reported_acres": 500,
+   "outline": [
+    {
+     "river": "south_branch",
+     "from_n": -33,
+     "to_n": -1900,
+     "at": "the South Branch from the forks down to Taylor Street"
+    },
+    {
+     "at": "Taylor Street at the railroad tracks by Clark Street",
+     "lat": 41.8696,
+     "lon": -87.6316
+    },
+    {
+     "at": "Congress Street at the railroad tracks by Clark Street",
+     "lat": 41.8755,
+     "lon": -87.6316
+    },
+    {
+     "at": "Congress Street at State Street",
+     "lat": 41.8755,
+     "lon": -87.628
+    },
+    {
+     "at": "Harrison Street at State Street",
+     "lat": 41.8742,
+     "lon": -87.628
+    },
+    {
+     "at": "Harrison Street at Wabash Avenue",
+     "lat": 41.8742,
+     "lon": -87.6262
+    },
+    {
+     "at": "Congress Street at Wabash Avenue",
+     "lat": 41.8756,
+     "lon": -87.6262
+    },
+    {
+     "at": "Congress Street, in the lake beyond the shore",
+     "local": [
+      1460,
+      -1180
+     ]
+    },
+    {
+     "at": "the lake beyond the river's mouth",
+     "local": [
+      2200,
+      120
+     ]
+    },
+    {
+     "river": "main_stem",
+     "from_e": 2091,
+     "to_e": -34,
+     "at": "the main river from its mouth to the forks"
+    }
+   ],
+   "acres": 668,
+   "local": [
+    [
+     -34.2,
+     -33.4
+    ],
+    [
+     -44.3,
+     -484.7
+    ],
+    [
+     18.8,
+     -915.5
+    ],
+    [
+     102.0,
+     -1284.7
+    ],
+    [
+     267.4,
+     -1817.9
+    ],
+    [
+     288.4,
+     -1900.0
+    ],
+    [
+     513.1,
+     -1904.8
+    ],
+    [
+     518.1,
+     -1249.8
+    ],
+    [
+     816.8,
+     -1252.1
+    ],
+    [
+     815.7,
+     -1396.4
+    ],
+    [
+     965.1,
+     -1397.5
+    ],
+    [
+     966.3,
+     -1242.1
+    ],
+    [
+     1460.0,
+     -1180.0
+    ],
+    [
+     2200.0,
+     120.0
+    ],
+    [
+     2091.0,
+     160.2
+    ],
+    [
+     1724.5,
+     160.0
+    ],
+    [
+     1317.1,
+     176.3
+    ],
+    [
+     1054.2,
+     215.2
+    ],
+    [
+     843.1,
+     69.5
+    ],
+    [
+     686.3,
+     61.2
+    ],
+    [
+     566.2,
+     61.1
+    ],
+    [
+     360.5,
+     61.1
+    ],
+    [
+     323.9,
+     57.0
+    ],
+    [
+     128.4,
+     48.7
+    ],
+    [
+     -34.0,
+     -33.3
+    ]
+   ]
+  },
+  {
+   "id": "north_division",
+   "name": "The North Division, from the main river and the North Branch to the lake, north to Fullerton Avenue",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2",
+    "chm_great_conflagration_web_of_memory",
+    "chicago_board_police_fire_1871_report",
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "note": "The whole North Division from the main river to North Avenue between the North Branch and the lake, and beyond North Avenue the ground between about Larrabee Street and Clark Street, where Lincoln Park and the cemetery stood unburnt to the east, to Dr. Foster's house at Fullerton Avenue (Andreas p. 754; Conzen's plate C2 for the west edge and the stop at Clark Street). The Board gives more than 1,400 acres for the North Division.",
+   "reported_acres": 1400,
+   "outline": [
+    {
+     "river": "main_stem",
+     "from_e": -34,
+     "to_e": 2091,
+     "at": "the main river from the forks to its mouth"
+    },
+    {
+     "at": "the lake beyond the river's mouth",
+     "local": [
+      2200,
+      200
+     ]
+    },
+    {
+     "at": "the lake off Oak Street",
+     "local": [
+      1500,
+      2000
+     ]
+    },
+    {
+     "at": "North Avenue at the lake shore",
+     "lat": 41.9105,
+     "lon": -87.6262
+    },
+    {
+     "at": "North Avenue at Clark Street",
+     "lat": 41.9108,
+     "lon": -87.6326
+    },
+    {
+     "at": "Clark Street at Fullerton Avenue (Dr. Foster's house)",
+     "lat": 41.9258,
+     "lon": -87.6405
+    },
+    {
+     "at": "Fullerton Avenue west of Clark Street",
+     "lat": 41.9258,
+     "lon": -87.6418
+    },
+    {
+     "at": "west of Clark Street, south of Fullerton Avenue",
+     "lat": 41.9197,
+     "lon": -87.6418
+    },
+    {
+     "at": "Larrabee Street north of Armitage Avenue",
+     "lat": 41.9197,
+     "lon": -87.6434
+    },
+    {
+     "at": "Larrabee Street at Armitage Avenue",
+     "lat": 41.9177,
+     "lon": -87.6434
+    },
+    {
+     "at": "east of Halsted Street, south of Armitage Avenue",
+     "lat": 41.9158,
+     "lon": -87.6464
+    },
+    {
+     "at": "east of Halsted Street, south of North Avenue",
+     "lat": 41.9082,
+     "lon": -87.6464
+    },
+    {
+     "at": "Halsted Street at Division Street",
+     "lat": 41.9036,
+     "lon": -87.6474
+    },
+    {
+     "river": "north_branch_canal",
+     "from_n": 1734,
+     "to_n": 1238,
+     "at": "the North Branch canal from above Division Street down to Chicago Avenue"
+    },
+    {
+     "river": "north_branch",
+     "from_n": 1238,
+     "to_n": -33,
+     "at": "the North Branch from Chicago Avenue down to the forks"
+    }
+   ],
+   "acres": 1674,
+   "local": [
+    [
+     -34.0,
+     -33.3
+    ],
+    [
+     128.4,
+     48.7
+    ],
+    [
+     323.9,
+     57.0
+    ],
+    [
+     360.5,
+     61.1
+    ],
+    [
+     566.2,
+     61.1
+    ],
+    [
+     686.3,
+     61.2
+    ],
+    [
+     843.1,
+     69.5
+    ],
+    [
+     1054.2,
+     215.2
+    ],
+    [
+     1317.1,
+     176.3
+    ],
+    [
+     1724.5,
+     160.0
+    ],
+    [
+     2091.0,
+     160.2
+    ],
+    [
+     2200.0,
+     200.0
+    ],
+    [
+     1500.0,
+     2000.0
+    ],
+    [
+     995.6,
+     2632.6
+    ],
+    [
+     464.7,
+     2670.0
+    ],
+    [
+     -178.3,
+     4340.3
+    ],
+    [
+     -286.2,
+     4341.2
+    ],
+    [
+     -291.3,
+     3663.9
+    ],
+    [
+     -424.0,
+     3664.9
+    ],
+    [
+     -425.7,
+     3442.9
+    ],
+    [
+     -676.3,
+     3233.9
+    ],
+    [
+     -682.7,
+     2390.1
+    ],
+    [
+     -769.5,
+     1880.0
+    ],
+    [
+     -836.3,
+     1734.0
+    ],
+    [
+     -775.1,
+     1644.2
+    ],
+    [
+     -725.8,
+     1545.8
+    ],
+    [
+     -692.8,
+     1459.7
+    ],
+    [
+     -676.1,
+     1373.5
+    ],
+    [
+     -663.5,
+     1283.3
+    ],
+    [
+     -630.7,
+     1238.2
+    ],
+    [
+     -630.2,
+     1238.0
+    ],
+    [
+     -589.9,
+     1225.9
+    ],
+    [
+     -532.6,
+     1160.2
+    ],
+    [
+     -538.6,
+     1135.6
+    ],
+    [
+     -528.1,
+     1084.3
+    ],
+    [
+     -515.3,
+     951.0
+    ],
+    [
+     -510.7,
+     840.2
+    ],
+    [
+     -283.2,
+     530.6
+    ],
+    [
+     -109.2,
+     335.8
+    ],
+    [
+     -34.2,
+     -33.0
+    ]
+   ]
+  },
+  {
+   "id": "saturday_fire",
+   "name": "The ground the Saturday fire of 7 October had already cleared, Van Buren to Adams Street between Clinton Street and the river",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2",
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "note": "Andreas pp. 705-706: Lull & Holmes's planing mill on Canal Street took fire between ten and eleven on Saturday night, and 'the area between Jackson and Adams streets and Clinton Street and the river was ablaze', its south line a quarter of a block north of Van Buren Street. It lies in ruins from the start of every fire time.",
+   "burnt_at": "1871-10-07T22:30",
+   "outline": [
+    {
+     "at": "Clinton Street a quarter block north of Van Buren Street",
+     "lat": 41.8771,
+     "lon": -87.641
+    },
+    {
+     "at": "Clinton Street at Adams Street",
+     "lat": 41.8794,
+     "lon": -87.641
+    },
+    {
+     "river": "south_branch",
+     "from_n": -827,
+     "to_n": -1090,
+     "at": "the South Branch from Adams Street down to Van Buren Street"
+    }
+   ],
+   "acres": 18,
+   "local": [
+    [
+     -260.6,
+     -1066.2
+    ],
+    [
+     -258.7,
+     -810.8
+    ],
+    [
+     5.9,
+     -827.0
+    ],
+    [
+     18.8,
+     -915.5
+    ],
+    [
+     58.2,
+     -1090.0
+    ]
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "oleary_barn",
+   "label": "The O'Leary barn, DeKoven Street",
+   "lat": 41.869,
+   "lon": -87.6414,
+   "t": "1871-10-08T21:00",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2",
+    "chicago_board_police_fire_1871_report"
+   ],
+   "locator": "Andreas p. 719, 'At 8:45 the incipient blaze began'; the Board: flames seen 'not more than twenty or twenty-five minutes past nine', the alarm 'at 9:30'.",
+   "note": "Nine o'clock, between Andreas's 8:45 and the Board's 9:20.",
+   "local": [
+    -300.6,
+    -1965.2
+   ]
+  },
+  {
+   "id": "taylor_street",
+   "label": "Taylor Street, between Jefferson and Clinton",
+   "lat": 41.8696,
+   "lon": -87.6418,
+   "t": "1871-10-08T21:30",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 717: 'By half-past nine o'clock the flames crossed Taylor Street'.",
+   "local": [
+    -333.3,
+    -1898.3
+   ]
+  },
+  {
+   "id": "st_pauls_church",
+   "label": "St. Paul's church, Clinton and Mather streets",
+   "lat": 41.8733,
+   "lon": -87.6408,
+   "t": "1871-10-08T21:50",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 717: the wooden church on the north-east corner of Clinton and Mather streets; 'At ten o'clock ... the church had gone down in ruins'.",
+   "note": "Caught some minutes before it was down at ten.",
+   "local": [
+    -247.2,
+    -1488.2
+   ]
+  },
+  {
+   "id": "batehams_mills",
+   "label": "Bateham's mills, Canal Street near Harrison",
+   "lat": 41.874,
+   "lon": -87.6396,
+   "t": "1871-10-08T22:20",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 717: 'At half-past ten the heroic men were driven from Bateham's works by the intense heat'; p. 719, 'At 10:30 Bateham's mills ... were deserted'.",
+   "local": [
+    -147.1,
+    -1411.2
+   ]
+  },
+  {
+   "id": "garrick_corner",
+   "label": "Garrick's corner, Harrison and Clinton streets",
+   "lat": 41.8741,
+   "lon": -87.6413,
+   "t": "1871-10-08T23:00",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 718: 'At eleven o'clock the fire reached Garrick's property' (south-west corner of Harrison and Clinton).",
+   "local": [
+    -288.1,
+    -1399.0
+   ]
+  },
+  {
+   "id": "west_harrison",
+   "label": "Harrison Street at Jefferson, the western column",
+   "lat": 41.8742,
+   "lon": -87.6427,
+   "t": "1871-10-09T01:15",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 718, the Tribune: 'the advance on the west had only reached West Harrison Street ... It was now about 1:15 o'clock'.",
+   "local": [
+    -404.2,
+    -1387.1
+   ]
+  },
+  {
+   "id": "chapin_foss_yard",
+   "label": "Chapin & Foss's lumber yard, Van Buren Street at the river",
+   "lat": 41.8767,
+   "lon": -87.639,
+   "t": "1871-10-09T00:45",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 718: the eastern column's 'onslaught upon the barrier of lumber and frame buildings on VanBuren Street (from Clinton to the river)', before the 1:15 the passage closes on.",
+   "note": "Before 1:15, and after the brands had already crossed to the South Side at 11:30.",
+   "local": [
+    -95.0,
+    -1111.8
+   ]
+  },
+  {
+   "id": "parmelee_stables",
+   "label": "Parmelee's new stable, Jackson and Franklin streets",
+   "lat": 41.8778,
+   "lon": -87.635,
+   "t": "1871-10-08T23:30",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 719: 'At half-past eleven, October 8, 1871, the fire swept down upon them' — the first building to ignite on the South Side.",
+   "local": [
+    237.8,
+    -992.3
+   ]
+  },
+  {
+   "id": "gas_works",
+   "label": "The South Division gas works, Adams and Market streets",
+   "lat": 41.8795,
+   "lon": -87.637,
+   "t": "1871-10-09T00:00",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2",
+    "sheahan_upton_1871_great_conflagration"
+   ],
+   "locator": "Andreas p. 719: 'At about twelve o'clock, the gas works and Conley's Patch were on fire'.",
+   "local": [
+    73.3,
+    -802.3
+   ]
+  },
+  {
+   "id": "conleys_patch",
+   "label": "Conley's Patch, Adams to Monroe between Wells and Market",
+   "lat": 41.88,
+   "lon": -87.6356,
+   "t": "1871-10-09T00:20",
+   "grade": "attested",
+   "sources": [
+    "sheahan_upton_1871_great_conflagration",
+    "andreas_1885_v2"
+   ],
+   "locator": "Sheahan and Upton, quoted by Andreas p. 719: 'At just twenty minutes past twelve, a huge blazing brand was blown across the river ... about midway between Adams, Monroe, Wells (Fifth Avenue) and Market streets'.",
+   "local": [
+    189.9,
+    -747.6
+   ]
+  },
+  {
+   "id": "lasalle_street",
+   "label": "LaSalle Street at Monroe",
+   "lat": 41.8807,
+   "lon": -87.6325,
+   "t": "1871-10-09T01:00",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 720, the Tribune: 'working eastward even more rapidly than the other had done, by one o'clock had reached LaSalle Street'.",
+   "local": [
+    447.7,
+    -671.9
+   ]
+  },
+  {
+   "id": "chamber_of_commerce",
+   "label": "The Chamber of Commerce, LaSalle and Washington",
+   "lat": 41.883,
+   "lon": -87.6321,
+   "t": "1871-10-09T01:20",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 739: among the buildings in ruins by four o'clock.",
+   "note": "Interpolated between LaSalle Street at one and the Court House across the street at half past one.",
+   "local": [
+    482.9,
+    -416.8
+   ]
+  },
+  {
+   "id": "court_house",
+   "label": "The Court House, Court House Square",
+   "lat": 41.8838,
+   "lon": -87.6317,
+   "t": "1871-10-09T01:30",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2",
+    "chm_great_conflagration_web_of_memory"
+   ],
+   "locator": "Andreas p. 719: 'At 1:30, the men in the tower barely escaped with their lives. At 2:05, the famous Court-house bell went clanging down.'",
+   "local": [
+    516.7,
+    -328.2
+   ]
+  },
+  {
+   "id": "sherman_house",
+   "label": "The Sherman House, Clark and Randolph",
+   "lat": 41.8847,
+   "lon": -87.6311,
+   "t": "1871-10-09T01:45",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 739: in ruins by four o'clock; p. 726, the hotels' guests asleep 'up to two o'clock'.",
+   "note": "Across Randolph Street from the burning Court House.",
+   "local": [
+    567.3,
+    -228.7
+   ]
+  },
+  {
+   "id": "state_street_bridge",
+   "label": "State Street bridge",
+   "lat": 41.8875,
+   "lon": -87.6279,
+   "t": "1871-10-09T01:30",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 719: 'At not later than 1:30, Judge Lambert Tree crossed State-street bridge, which was then burning in spots'.",
+   "local": [
+    835.2,
+    80.2
+   ]
+  },
+  {
+   "id": "lills_brewery",
+   "label": "Lill's brewery, Chicago Avenue at the lake",
+   "lat": 41.8962,
+   "lon": -87.6222,
+   "t": "1871-10-09T01:30",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 719: 'At 1:30, the paint and carpenter shop ... near the Water-Works, burned. Lill's immense brewery ignited at this time'.",
+   "local": [
+    1315.5,
+    1042.4
+   ]
+  },
+  {
+   "id": "crosbys_opera_house",
+   "label": "Crosby's Opera House, Washington Street",
+   "lat": 41.8834,
+   "lon": -87.6286,
+   "t": "1871-10-09T02:20",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 739: in ruins by four o'clock.",
+   "note": "Interpolated along the wind between the Court House at 1:30 and the Tremont House.",
+   "local": [
+    773.7,
+    -374.6
+   ]
+  },
+  {
+   "id": "tremont_house",
+   "label": "The Tremont House, Lake and Dearborn",
+   "lat": 41.8856,
+   "lon": -87.6296,
+   "t": "1871-10-09T02:15",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 739: in ruins by four o'clock.",
+   "local": [
+    692.5,
+    -129.7
+   ]
+  },
+  {
+   "id": "wrights_stable",
+   "label": "Wright's stable, State and Kinzie",
+   "lat": 41.8891,
+   "lon": -87.6275,
+   "t": "1871-10-09T02:30",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 719: 'At 2:30, Wright's stable on the south-east corner of State and Kinzie streets ... took fire'.",
+   "local": [
+    869.7,
+    257.5
+   ]
+  },
+  {
+   "id": "water_works",
+   "label": "The Water Works, Chicago Avenue and Pine Street",
+   "lat": 41.8972,
+   "lon": -87.6237,
+   "t": "1871-10-09T03:20",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2",
+    "chm_great_conflagration_web_of_memory"
+   ],
+   "locator": "Andreas p. 742: 'Mr. Fuller glanced at his watch; the time was exactly twenty minutes past three.'",
+   "local": [
+    1191.9,
+    1154.4
+   ]
+  },
+  {
+   "id": "field_leiter",
+   "label": "Field, Leiter & Co., State and Washington",
+   "lat": 41.8834,
+   "lon": -87.6277,
+   "t": "1871-10-09T03:45",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "pp. 733-734 (Horace White): the store's own pumps kept it wet until the water stopped after the Water Works fell at 3:20.",
+   "note": "After the water stopped, before daylight.",
+   "local": [
+    848.3,
+    -375.2
+   ]
+  },
+  {
+   "id": "dearborn_at_four",
+   "label": "Dearborn Street at Van Buren, the line at four o'clock",
+   "lat": 41.8768,
+   "lon": -87.6297,
+   "t": "1871-10-09T04:00",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2",
+    "sheahan_upton_1871_great_conflagration"
+   ],
+   "locator": "p. 738, Sheahan: 'At four o'clock in the morning the line of flame and ruin in the South Division extended above Harrison Street northward to the main branch ... To the eastward, it had reached Dearborn Street'.",
+   "local": [
+    676.8,
+    -1106.6
+   ]
+  },
+  {
+   "id": "polk_back_fire",
+   "label": "Polk Street by the river, the fire that set back south",
+   "lat": 41.8716,
+   "lon": -87.6345,
+   "t": "1871-10-09T02:30",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2",
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "locator": "Andreas p. 720: 'the back-setting of the fire, which reached Polk Street at a later hour than one o'clock'; plate C2: an origin marked 2:30 a.m. south of Harrison Street by the river.",
+   "note": "Later than one, as Andreas has it, at the hour the plate marks.",
+   "local": [
+    274.1,
+    -1680.9
+   ]
+  },
+  {
+   "id": "palmer_house",
+   "label": "The Palmer House, State and Quincy",
+   "lat": 41.8787,
+   "lon": -87.6276,
+   "t": "1871-10-09T07:20",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 739: at four o'clock 'the Palmer House the only first-class hotel' left; p. 726, it 'fell at nearly the same time as the Academy of Design', after the Bigelow House fell as 'the day was fully ushered in'.",
+   "note": "In the renewal from Dearborn and Jackson at about seven.",
+   "local": [
+    852.7,
+    -897.0
+   ]
+  },
+  {
+   "id": "dearborn_jackson_renewal",
+   "label": "Dearborn and Jackson, the renewal at seven",
+   "lat": 41.878,
+   "lon": -87.6296,
+   "t": "1871-10-09T07:00",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2",
+    "sheahan_upton_1871_great_conflagration"
+   ],
+   "locator": "p. 739, Sheahan: 'At about seven o'clock in the morning, a sudden gust of wind swept and eddied through Dearborn Street, beginning at Jackson ... All that had been left untouched between Jackson and Madison streets, from Dearborn Street to the lake shore, was doomed'.",
+   "local": [
+    686.1,
+    -973.5
+   ]
+  },
+  {
+   "id": "tribune_building",
+   "label": "The Tribune building, Dearborn and Madison",
+   "lat": 41.8817,
+   "lon": -87.6293,
+   "t": "1871-10-09T07:30",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 739: at four o'clock 'the Tribune office was the only newspaper property left untouched'.",
+   "note": "Taken in the sweep north and east from Dearborn and Jackson after seven.",
+   "local": [
+    714.1,
+    -562.9
+   ]
+  },
+  {
+   "id": "michigan_terrace_row",
+   "label": "Terrace Row, Michigan Avenue at Van Buren",
+   "lat": 41.8763,
+   "lon": -87.6245,
+   "t": "1871-10-09T08:30",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "pp. 739-740: 'Terrace Row was the last to yield'.",
+   "note": "Last of the sweep to the lake after seven.",
+   "local": [
+    1107.9,
+    -1165.5
+   ]
+  },
+  {
+   "id": "congress_stop",
+   "label": "Wabash Avenue at Congress, where the fire was stopped",
+   "lat": 41.8754,
+   "lon": -87.6262,
+   "t": "1871-10-09T09:30",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 739: the fire 'arrived at Congress Street' and was stopped at Harrison Street and on the line of Congress Street with gunpowder.",
+   "note": "The end of the morning sweep south down Wabash and State.",
+   "local": [
+    966.1,
+    -1264.3
+   ]
+  },
+  {
+   "id": "kinzie_wells",
+   "label": "Kinzie and Wells, a new fire at the river",
+   "lat": 41.8892,
+   "lon": -87.634,
+   "t": "1871-10-09T07:00",
+   "grade": "inferred",
+   "sources": [
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "locator": "Plate C2: an origin marked 7:00 a.m. at the river by Wells Street.",
+   "local": [
+    330.4,
+    272.8
+   ]
+  },
+  {
+   "id": "ogden_neighbourhood",
+   "label": "Washington Square, round the Ogden house",
+   "lat": 41.8995,
+   "lon": -87.6318,
+   "t": "1871-10-09T05:00",
+   "grade": "inferred",
+   "sources": [
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "locator": "Plate C2: inside the 9 October midnight-6 a.m. band's north edge.",
+   "note": "Its neighbours burned; the Ogden house itself is spared (data spared).",
+   "local": [
+    521.6,
+    1414.9
+   ]
+  },
+  {
+   "id": "division_wells",
+   "label": "Division and Wells",
+   "lat": 41.9036,
+   "lon": -87.6343,
+   "t": "1871-10-09T09:00",
+   "grade": "inferred",
+   "sources": [
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "locator": "Plate C2: the 6 a.m.-noon band.",
+   "local": [
+    317.6,
+    1871.7
+   ]
+  },
+  {
+   "id": "chicago_av_river",
+   "label": "Chicago Avenue at the North Branch",
+   "lat": 41.8966,
+   "lon": -87.644,
+   "t": "1871-10-09T14:00",
+   "grade": "inferred",
+   "sources": [
+    "conzen_2004_progress_of_the_chicago_fire",
+    "andreas_1885_v2"
+   ],
+   "locator": "Plate C2: the noon-6 p.m. band along the North Branch; Andreas p. 757, 'It was not until Monday evening that Chicago-avenue bridge fell into the river'.",
+   "local": [
+    -493.2,
+    1100.7
+   ]
+  },
+  {
+   "id": "division_larrabee",
+   "label": "Division and Larrabee",
+   "lat": 41.9036,
+   "lon": -87.6432,
+   "t": "1871-10-09T15:00",
+   "grade": "inferred",
+   "sources": [
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "locator": "Plate C2: the noon-6 p.m. band.",
+   "local": [
+    -421.0,
+    1877.3
+   ]
+  },
+  {
+   "id": "north_avenue_clark",
+   "label": "North Avenue at Clark Street",
+   "lat": 41.9107,
+   "lon": -87.633,
+   "t": "1871-10-09T12:00",
+   "grade": "attested",
+   "sources": [
+    "chm_great_conflagration_web_of_memory"
+   ],
+   "locator": "'By noon on Monday the North Division fires had reached North Avenue'.",
+   "local": [
+    431.4,
+    2659.1
+   ]
+  },
+  {
+   "id": "north_avenue_sedgwick",
+   "label": "North Avenue at Sedgwick",
+   "lat": 41.9107,
+   "lon": -87.6388,
+   "t": "1871-10-09T13:00",
+   "grade": "inferred",
+   "sources": [
+    "chm_great_conflagration_web_of_memory",
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "locator": "Noon at North Avenue; plate C2 has the ground west of Wells in the noon-6 p.m. band.",
+   "local": [
+    -49.9,
+    2662.8
+   ]
+  },
+  {
+   "id": "st_michaels_church",
+   "label": "St. Michael's church, Eugenie and Cleveland",
+   "lat": 41.9116,
+   "lon": -87.6411,
+   "t": "1871-10-09T14:30",
+   "grade": "inferred",
+   "sources": [
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "locator": "Plate C2: the noon-6 p.m. band north of North Avenue.",
+   "local": [
+    -240.0,
+    2764.2
+   ]
+  },
+  {
+   "id": "north_avenue_larrabee",
+   "label": "North Avenue at Larrabee",
+   "lat": 41.9107,
+   "lon": -87.644,
+   "t": "1871-10-09T17:00",
+   "grade": "inferred",
+   "sources": [
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "locator": "Plate C2: the edge of the noon-6 p.m. band.",
+   "local": [
+    -481.4,
+    2666.1
+   ]
+  },
+  {
+   "id": "armitage_larrabee",
+   "label": "Armitage and Larrabee",
+   "lat": 41.918,
+   "lon": -87.643,
+   "t": "1871-10-09T20:00",
+   "grade": "inferred",
+   "sources": [
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "locator": "Plate C2: the 6 p.m.-4 a.m. band.",
+   "local": [
+    -392.3,
+    3475.9
+   ]
+  },
+  {
+   "id": "lincoln_park_south",
+   "label": "Clark Street at Wisconsin, by the cemetery",
+   "lat": 41.915,
+   "lon": -87.635,
+   "t": "1871-10-09T16:00",
+   "grade": "inferred",
+   "sources": [
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "locator": "Plate C2: the noon-6 p.m. band along Clark Street.",
+   "local": [
+    269.1,
+    3137.8
+   ]
+  },
+  {
+   "id": "fosters_house",
+   "label": "Dr. Foster's house, Fullerton Avenue at Lincoln Park",
+   "lat": 41.9254,
+   "lon": -87.6408,
+   "t": "1871-10-09T22:30",
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 754: 'The fire finally spent itself in burning the residence of Dr. John H. Foster, on the north end of Lincoln Park, as then located, being on Fullerton Avenue ... burned at half past ten o'clock on Monday night'.",
+   "local": [
+    -203.5,
+    4296.1
+   ]
+  },
+  {
+   "id": "fullerton_west",
+   "label": "Fullerton Avenue west of Clark",
+   "lat": 41.925,
+   "lon": -87.6416,
+   "t": "1871-10-09T23:00",
+   "grade": "inferred",
+   "sources": [
+    "andreas_1885_v2",
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "locator": "The last ground burned as the rain began at eleven (Andreas p. 757; plate C2, 'fire burned out during rainfall early October 10').",
+   "local": [
+    -270.2,
+    4252.2
+   ]
+  }
+ ],
+ "spared": [
+  {
+   "id": "ogden_house",
+   "label": "M. D. Ogden's house and grounds, Washington Square",
+   "lat": 41.8999,
+   "lon": -87.6312,
+   "r_m": 45,
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2",
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "locator": "Andreas p. 754: 'M. D. Ogden's house had escaped, and stood in almost perfect order, surrounded by large elm trees'.",
+   "local": [
+    571.7,
+    1458.9
+   ]
+  },
+  {
+   "id": "water_tower",
+   "label": "The Water Tower, Chicago Avenue",
+   "lat": 41.8972,
+   "lon": -87.6244,
+   "r_m": 12,
+   "grade": "attested",
+   "sources": [
+    "conzen_2004_progress_of_the_chicago_fire"
+   ],
+   "locator": "Plate C2: 'Water Tower not burned'.",
+   "local": [
+    1133.8,
+    1154.9
+   ]
+  },
+  {
+   "id": "oleary_cottage",
+   "label": "The O'Leary cottage, 137 DeKoven Street",
+   "lat": 41.8687,
+   "lon": -87.6414,
+   "r_m": 8,
+   "grade": "attested",
+   "sources": [
+    "andreas_1885_v2"
+   ],
+   "locator": "p. 719: 'the O'Leary house, yet standing ... at No. 137 DeKoven Street'.",
+   "local": [
+    -300.9,
+    -1998.5
+   ]
+  }
+ ],
+ "survivors": [
+  "chicago_water_tower_1871",
+  "oleary_cottage_1871",
+  "ogden_house_1871"
+ ],
+ "structures": {
+  "st_michaels_church_1871": {
+   "fate": "walls_stand",
+   "note": "Burned out; its walls stood and the church was rebuilt within them."
+  },
+  "chicago_pumping_station_1871": {
+   "fate": "roof_burns",
+   "note": "Andreas p. 742: the roof caught at 3:20 and fell on the engines; the stone walls stood."
+  },
+  "oleary_barn_1871": {
+   "fate": "collapses",
+   "note": "A frame barn: burned to the ground."
+  },
+  "parmelee_stables_1871": {
+   "fate": "walls_stand"
+  },
+  "south_side_gas_works_1871": {
+   "fate": "walls_stand"
+  },
+  "cook_county_court_house_1871": {
+   "fate": "walls_stand",
+   "note": "Andreas p. 719: the bell fell at 2:05; the stone walls stood as a shell."
+  },
+  "sherman_house_1871": {
+   "fate": "walls_stand"
+  },
+  "tremont_house_1871": {
+   "fate": "walls_stand"
+  },
+  "chamber_of_commerce_1871": {
+   "fate": "walls_stand"
+  },
+  "crosbys_opera_house_1871": {
+   "fate": "walls_stand"
+  },
+  "field_leiter_1871": {
+   "fate": "walls_stand"
+  },
+  "palmer_house_1871": {
+   "fate": "walls_stand"
+  },
+  "tribune_building_1871": {
+   "fate": "walls_stand"
+  },
+  "st_pauls_church_1871": {
+   "fate": "collapses",
+   "note": "Andreas p. 717: a wooden church, 'gone down in ruins' by ten."
+  }
+ },
+ "model": {
+  "grade": "reconstructed",
+  "interpolation": "A place's hour is read linearly across a Delaunay triangulation of the timed places in its own division (no triangle spans a river), laid out with the across-wind distance stretched 1.8 times (the fire ran down the wind from the south-west); beyond the outermost timed places it takes the nearest edge's hours. Each building adds up to six minutes either way of its own seeded jitter. Interpolated hours are inferred; the jitter is reconstructed.",
+  "across_wind_stretch": 1.8,
+  "jitter_min": 6,
+  "frame": {
+   "rise_min": 5,
+   "full_min": 22,
+   "fall_start_min": 20,
+   "fall_min": 10,
+   "embers_min": 150,
+   "smoke_min": 1440
+  },
+  "masonry": {
+   "rise_min": 9,
+   "full_min": 55,
+   "roof_fall_min": 40,
+   "fade_min": 45,
+   "embers_min": 240,
+   "smoke_min": 2400,
+   "walls_fall_share": 0.3
+  },
+  "note": "How long a building burned and when it fell is reconstructed: frame houses burned through in about half an hour, the 'fire-proof' business blocks of stone and brick held their walls while their floors and roofs burned out over about an hour (Andreas p. 720, 'Stone, brick and wooden structures fell alike'). About a third of the masonry walls are brought down."
+ }
+}
