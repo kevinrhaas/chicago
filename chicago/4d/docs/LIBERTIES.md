@@ -44813,6 +44813,7 @@ rear, or K08 lights in a gable's face, would replace the invented and unbuilt pa
 **Ticket:** T-3634 (piece 2 of T-1917, S08).
 **Review:** `docs/RESEARCH/photo-match/house_2017_prairie/chicagology_photo-side-by-side.jpg`.
 **Recorded:** 2026-11-18 (T-3634).
+**Resolved in part:** 2026-11-19, T-3634: the cresting along the curb is now the photograph's row of square merlons (the mansard deck's crenellated pattern: 0.15 m merlons at 0.34 m centres, rising 0.09 m over a solid band, 0.2 m in all, measured off the print) where it was K10's iron scroll cresting; that it is iron is inferred, the print being monochrome. The projection's two basement lights now carry the north part's grille, as the photograph's are barred. The rest of what is built otherwise than the evidence stands as written above.
 
 ### L-k01-2027-villa-3635 — 2027 Prairie, the Cobb-associated villa, refined from the district draft onto K01 as a bounded design off the 1911 sheet: a brick body of two and a half storeys with a full-height front bay, a canted north bay and a two-storey rear range, everything but the plan the kits'
 

@@ -224,8 +224,12 @@
       ],
       "deck": {
        "cresting": {
-        "height_m": 0.3,
-        "inset_m": 0.08
+        "height_m": 0.2,
+        "inset_m": 0.08,
+        "pattern": "crenellated",
+        "merlon_m": 0.15,
+        "pitch_m": 0.34,
+        "rise_m": 0.09
        }
       },
       "dormer_fabric": "front_stone"
@@ -234,7 +238,7 @@
      "sources": [
       "chicagology_2017_armour_photo"
      ],
-     "note": "The photograph's mansard: its slated lower slope from the cornice (y 410 px) to the curb (y 230 px, about 2 m), steep; the north dormer (x 45-255 px) with a pair of lights (x 90-205, y 300-400) and the south one (x 375-515) with one light (x 415-475), each under a stone pediment of about 48 degrees between pilasters standing up over the curb (their apexes at y 150 and 190 px, about 0.8 and 0.4 m over it; K01's over_curb, carried 1 m back over the deck), on the axes of the windows below them; along the curb a crenellated cresting about 0.25 m high (y 222-240), built as K10's cresting. The pediments' carved lunettes are not built (the match record)."
+     "note": "The photograph's mansard: its slated lower slope from the cornice (y 410 px) to the curb (y 230 px, about 2 m), steep; the north dormer (x 45-255 px) with a pair of lights (x 90-205, y 300-400) and the south one (x 375-515) with one light (x 415-475), each under a stone pediment of about 48 degrees between pilasters standing up over the curb (their apexes at y 150 and 190 px, about 0.8 and 0.4 m over it; K01's over_curb, carried 1 m back over the deck), on the axes of the windows below them; along the curb a crenellated cresting (y 222-240): square merlons about 0.15 m wide (13-14 px) at about 0.34 m centres (31 px) rising about 0.09 m over a solid band, about 0.2 m in all, built in iron as the deck's crenellated pattern (T-3634); its material is not shown in the print and is inferred. The pediments' carved lunettes are not built (the match record)."
     },
     "roof_covering": {
      "value": {
@@ -578,7 +582,12 @@
             0.69
            ],
            "recess_m": 0.33,
-           "why_not_ordinary": "the projection's two basement lights in the photograph (x 660-745 and 795-880 px, y 1085-1150); their iron grilles are not built here (two grilled lights in one K08 storey draw their iron twice; the match record)"
+           "why_not_ordinary": "the projection's two basement lights in the photograph (x 660-745 and 795-880 px, y 1085-1150), barred as the north part's are, with the north part's grille",
+           "grille": {
+            "bars": 7,
+            "set_back_m": 0.04,
+            "ring_radius_m": 0.1
+           }
           }
          ]
         },

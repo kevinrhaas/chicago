@@ -2,7 +2,7 @@
   "structure_id": "house_2017_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_2017_prairie__as_mapped_1904.glb",
-  "glb_sha256": "fccf0a88e74e4a86d4f0e1bc59a6ae5409b3287064facb0f61280bc784f4b32e",
+  "glb_sha256": "8d35b5c8d79b8e54848d182dd98108a2ee8eb1970d5b5fb5d362b5be97007b4d",
   "camera_sha256": "20eacc6a7d22952ef195d0172a210ff5058e5b6bb0df3e7d5447ee8f935f49dd",
   "photo_sha256": "0586ba59683607672112e12b5c3429e8a139820061ffc9189c90826302e2b226",
   "rendered_flora": {
@@ -86,8 +86,8 @@
       "status": "open"
     },
     {
-      "what": "the cresting: the photograph's crest along the mansard's curb reads as a row of square crenellations about 0.25 m high (y 222-240 px); the render's is K10's iron scroll cresting, a different shape",
-      "status": "open"
+      "what": "the cresting: the photograph's crest along the mansard's curb is a row of square crenellations (y 222-240 px), merlons about 13-14 px wide at about 31 px centres over a solid band; the render's is now the deck's crenellated iron cresting, merlons 0.15 m wide at 0.34 m centres rising 0.09 m over a band, 0.2 m in all, printing along the curb in the photograph's rhythm and stopping either side of each dormer as the photograph's does (T-3634; it was K10's iron scroll cresting, a different shape)",
+      "status": "fixed"
     },
     {
       "what": "the main cornice: the photograph's is a deep cornice with a row of blocks under it (y 410-470 px); the render's is K10's moulded stone cornice without the blocks, shallower by about 0.2 m",
@@ -114,8 +114,8 @@
       "status": "within tolerance"
     },
     {
-      "what": "the basement: lights under each pair of the ground storey's windows, as the photograph's; the north part's are barred, the projection's two are not (two grilled lights in one K08 storey draw their iron twice, refused by the bay kit's gate); they stand 0.2-0.8 m over the walk against about 0.33-1.04 m (0.24 m at the head)",
-      "status": "open"
+      "what": "the basement: lights under each pair of the ground storey's windows, as the photograph's, every one barred: the projection's two now carry the north part's grille in their K08 reveals (T-3634; refused before as drawing its iron twice, which the bay kit and the K01 coincident-face gate no longer find). They stand 0.2-0.8 m over the walk against about 0.33-1.04 m (0.24 m at the head), under the bar",
+      "status": "fixed"
     },
     {
       "what": "the north stack: the photograph's stands at its left edge (x 0-50 px, top y 80); the render's at x 47-122, top y 120, about 0.7 m south of it and 0.4 m low (K01 stands a stack on a flank's outer face only on a mansard's side parapet)",
