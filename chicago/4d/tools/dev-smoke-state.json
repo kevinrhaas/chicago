@@ -3,70 +3,6 @@
   "readings": [
     {
       "viewport": "mobile",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 107,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 134,
-      "takenAt": "2026-11-18T13:35:22.247Z",
-      "ref": "steward/t3616-2011-turret-roof",
-      "commit": "f12dbc71dd17",
-      "devCommit": "9a36087ff6dc",
-      "treeHash": "sha256:c4bb7fc6a17c7a0e",
-      "treeDirty": false,
-      "changelogHash": "sha256:242eb983ccc9153e",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.3,
-        "loadavg": [
-          3,
-          3.6,
-          3.9
-        ]
-      },
-      "source": "/tmp/smoke-m3.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "15",
-      "parts": [
-        15
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 19,
-      "failed": 1,
-      "failures": [
-        "mobile 390x780: the suite body ran to completion — Error: part 15 tap: [data-jaunt=\"new-in-chicago\"] [data-action=\"start\"] is covered at its centre by <div class=\"jaunt-categories jaunt-grades\">"
-      ],
-      "wallSeconds": 99,
-      "takenAt": "2026-11-18T13:33:04.607Z",
-      "ref": "steward/t3616-2011-turret-roof",
-      "commit": "f12dbc71dd17",
-      "devCommit": "9a36087ff6dc",
-      "treeHash": "sha256:c4bb7fc6a17c7a0e",
-      "treeDirty": false,
-      "changelogHash": "sha256:242eb983ccc9153e",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.3,
-        "loadavg": [
-          2.5,
-          4,
-          4
-        ]
-      },
-      "source": "/tmp/smoke-m15.log"
-    },
-    {
-      "viewport": "desktop",
       "stage": "1",
       "parts": [
         1
@@ -76,25 +12,60 @@
       "passed": 95,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 490,
-      "takenAt": "2026-11-18T13:33:04.513Z",
-      "ref": "steward/t3616-2011-turret-roof",
-      "commit": "f12dbc71dd17",
-      "devCommit": "9a36087ff6dc",
-      "treeHash": "sha256:c4bb7fc6a17c7a0e",
-      "treeDirty": false,
-      "changelogHash": "sha256:242eb983ccc9153e",
+      "wallSeconds": 400,
+      "takenAt": "2026-11-18T18:05:35.358Z",
+      "ref": "steward/t3654-1871-city-baseline",
+      "commit": "bec8fd8d3293",
+      "devCommit": "bec8fd8d3293",
+      "treeHash": "sha256:c3ebcfb87afe766a",
+      "treeDirty": true,
+      "changelogHash": "sha256:5797a5519c7dc5a2",
       "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.3,
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
         "loadavg": [
-          2.5,
-          4,
-          4
+          3.8,
+          4.1,
+          3.6
         ]
       },
-      "source": "/tmp/smoke-d1.log"
+      "source": "/tmp/t3654-legacy-mobile-1-quiet.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 85,
+      "failed": 2,
+      "failures": [
+        "mobile 390x780: the benchmark costs at most a second cold and nothing warm (T-2559) — cold 981 ms (fill 0.001 Mpx/ms, verts 0.002 Mvert/ms, wall-clock); warm cached=true in 69.0 ms",
+        "mobile 390x780: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-11-18T17:58:35.926Z",
+      "ref": "steward/t3654-1871-city-baseline",
+      "commit": "bec8fd8d3293",
+      "devCommit": "bec8fd8d3293",
+      "treeHash": "sha256:c3ebcfb87afe766a",
+      "treeDirty": true,
+      "changelogHash": "sha256:5797a5519c7dc5a2",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          4.7,
+          4.8,
+          3.5
+        ]
+      },
+      "source": "/tmp/t3654-legacy-mobile-1-2.log"
     },
     {
       "viewport": "mobile",
@@ -1765,6 +1736,34 @@
         "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
       },
       "source": "https://github.com/kevinrhaas/chicago/actions/runs/42868094947/job/130011738999"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "7-8",
+      "parts": [
+        7,
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 48,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1865,
+      "takenAt": "2026-11-10T16:35:47.6772601Z",
+      "ref": "steward/t-3536-household-interact-social-breaks",
+      "commit": "f7d095735c49",
+      "devCommit": "565e5a35d1bc",
+      "treeHash": "sha256:7832e1738471bc1e",
+      "treeDirty": false,
+      "changelogHash": "sha256:6371fb14b303cd87",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; hardware/load not recovered from job log"
+      },
+      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42855177518/job/129966150703"
     },
     {
       "viewport": "mobile",

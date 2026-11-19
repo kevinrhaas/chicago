@@ -717,10 +717,12 @@ for (const phone of [true, false]) {
   assert(jump && !jump.hidden, 'Jump opens in its own screen');
   assert.equal(dom.byId.get('nav-code').textContent, 'SCR 08 · JUMP');
   const cards = jump.children[0].children;
-  // T-2655: all three destinations, in the Observatory's order (1812 is a link too).
-  assert.deepEqual(cards.map((c) => c.tagName), ['A', 'DIV', 'A'], '1835 and 1812 are links, 1904 (here) is not');
+  // All four built destinations, in the Observatory's order; HERE is not a link.
+  assert.deepEqual(cards.map((c) => c.tagName), ['A', 'DIV', 'A', 'A'], '1835, 1812 and 1871 are links, 1904 (here) is not');
   assert.equal(cards[1].getAttribute('aria-current'), 'page');
   assert.equal(cards[0].href, '../1835/');
+  assert.equal(cards[2].href, '../1812/');
+  assert.equal(cards[3].href, '../1871/');
   assert.equal(jump.children[1].href, '../', 'Recall goes back to the Observatory');
   await nav.select('home');
   assert.equal(dom.byId.get('nav-code').textContent, 'SCR 01 · HOME');
