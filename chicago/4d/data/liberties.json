@@ -36178,12 +36178,6 @@
           "domain": "structure",
           "structure": "mark_kimball_house_2108_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.basement_lights"
-        },
-        {
-          "domain": "structure",
-          "structure": "mark_kimball_house_2108_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.chimneys"
         },
         {
@@ -36209,12 +36203,6 @@
           "structure": "mark_kimball_house_2108_prairie",
           "phase": "as_mapped_1904",
           "aspect": "form.rear_bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "mark_kimball_house_2108_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.rear_wings"
         },
         {
           "domain": "structure",
@@ -36296,7 +36284,7 @@
         },
         {
           "label": "Covers",
-          "text": "`mark_kimball_house_2108_prairie.as_mapped_1904.form.storey_heights_m`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.wall_thickness_front_m`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.wall_thickness_side_m`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.service_wall_brick`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.face_brick`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.wall_head`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.roof_pitch_deg`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.eave_overhang_m`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.roof_covering`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.window_kit`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.stair_tread_m`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.stair_landing_depth_m`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.north_bays`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.rear_bays`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.rear_wings`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.basement_lights`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.chimneys`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.yard`."
+          "text": "`mark_kimball_house_2108_prairie.as_mapped_1904.form.storey_heights_m`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.wall_thickness_front_m`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.wall_thickness_side_m`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.service_wall_brick`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.face_brick`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.wall_head`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.roof_pitch_deg`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.eave_overhang_m`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.roof_covering`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.window_kit`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.stair_tread_m`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.stair_landing_depth_m`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.north_bays`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.rear_bays`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.chimneys`, `mark_kimball_house_2108_prairie.as_mapped_1904.form.yard`."
         },
         {
           "label": "Review",

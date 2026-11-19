@@ -16878,6 +16878,22 @@
    "what": "back stoop"
   },
   {
+   "structure": "prairie_2108:back_door:stoop",
+   "placement": {
+    "local_e": 1367.24,
+    "local_n": -3642.07,
+    "rotation_deg": 179.42
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": 0.05,
+    "v0": -0.75,
+    "count": 1,
+    "rects": "0 34 0 16"
+   },
+   "what": "back stoop"
+  },
+  {
    "structure": "prairie_2109:back_door:stoop",
    "placement": {
     "local_e": 1439.92,
