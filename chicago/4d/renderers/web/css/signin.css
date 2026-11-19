@@ -117,7 +117,7 @@
 }
 .signin-link:hover { color: var(--ink-dim); }
 .signin-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
-.signin-msg.signin-msg-ok { color: var(--ok, var(--accent)); }
+.signin-msg.signin-msg-ok { color: var(--ok-ink, var(--ok, var(--accent))); }
 .signin-email input {
   min-width: 0;
   min-height: 46px;
@@ -138,7 +138,7 @@
   background: transparent;
 }
 .signin :disabled { opacity: .55; cursor: progress; }
-.signin-msg { min-height: 1.3em; margin: 0; font-size: 13px; line-height: 1.3; color: var(--alert, var(--signal)); }
+.signin-msg { min-height: 1.3em; margin: 0; font-size: 13px; line-height: 1.3; color: var(--alert-ink, var(--alert, var(--signal))); }
 .signin-msg:empty { min-height: 0; }
 
 @media (max-width: 420px) {
