@@ -22,6 +22,7 @@ const web = path.join(root, 'renderers/web');
 const xr = await import(pathToFileURL(path.join(web, 'js/controls/xr.js')).href);
 const THREE = await import(pathToFileURL(path.join(web, 'vendor/three-0.185.1/three.module.js')).href);
 const { createIntent, createBackendSwitch } = await import(pathToFileURL(path.join(web, 'js/controls/intent.js')).href);
+const { createDesktopKeyCapture } = await import(pathToFileURL(path.join(web, 'js/controls/keyboard.js')).href);
 const main = await readFile(path.join(web, 'js/main.js'), 'utf8');
 const html = await readFile(path.join(web, 'index.html'), 'utf8');
 
@@ -261,9 +262,75 @@ check('the governor never skips or rescales a headset frame, and the space follo
   assert.ok(sync > 0 && draw > sync, 'sync runs before the render');
 });
 
-check('the page\'s own keys and pointer do not take the controls from a headset session', () => {
+check('the page\'s pointer does not take the controls from a headset session', () => {
   assert.match(main, /pointerdown', \(e\) => \{\n\s*if \(gateOpen \|\| xrMode\?\.presenting/);
-  assert.match(main, /if \(gateOpen \|\| xrMode\?\.presenting \|\|[^\n]*isTyping\(e\.target\)/);
+});
+
+// Run the actual registration, including its live enabled callback, with the
+// imported capture handler. No copied predicate can hide a missing main.js guard.
+assert.match(main, /import \{ createDesktopKeyCapture \} from '\.\/controls\/keyboard\.js';/);
+const registrations = [...main.matchAll(/window\.addEventListener\('keydown', createDesktopKeyCapture\(\{[\s\S]*?\}\), \{ capture: true \}\);/g)];
+assert.equal(registrations.length, 1, 'main registers exactly one desktop key capture');
+const keyWiring = registrations[0][0];
+
+function exercisePageKeys(wiring) {
+  const previousElement = Object.getOwnPropertyDescriptor(globalThis, 'HTMLElement');
+  class WorldElement { tagName = 'CANVAS'; closest() { return null; } }
+  globalThis.HTMLElement = WorldElement;
+  try {
+    let activates = 0, locks = 0;
+    const handlers = [];
+    const pointerlock = { lock() { locks++; } };
+    const backends = { activate(backend) { assert.equal(backend, pointerlock); activates++; } };
+    const window = { addEventListener(type, handler, options) { handlers.push({ type, handler, options }); } };
+    const modes = new Function('createDesktopKeyCapture', 'window', 'backends', 'pointerlock', `
+      let gateOpen = false;
+      const xrMode = { presenting: false }, windowMode = { on: false }, popup = { openId: null };
+      const inspectingByHand = () => false;
+      ${wiring}
+      return { xrMode, windowMode, setGateOpen(value) { gateOpen = value; } };
+    `)(createDesktopKeyCapture, window, backends, pointerlock);
+    assert.equal(handlers.length, 1);
+    assert.equal(handlers[0].type, 'keydown');
+    assert.equal(handlers[0].options.capture, true, 'desktop ownership runs before bubbling UI handlers');
+    const target = new WorldElement();
+    const press = () => {
+      const before = [activates, locks];
+      handlers[0].handler({ code: 'ArrowUp', target, defaultPrevented: false });
+      return [activates - before[0], locks - before[1]];
+    };
+    assert.deepEqual(press(), [1, 1], 'unblocked world key activates and locks');
+    modes.xrMode.presenting = true;
+    assert.deepEqual(press(), [0, 0], 'XR presenting blocks activation and lock');
+    modes.xrMode.presenting = false;
+    assert.deepEqual(press(), [1, 1], 'returning from XR restores page input');
+    modes.setGateOpen(true);
+    assert.deepEqual(press(), [0, 0], 'arrival gate independently blocks activation and lock');
+    modes.setGateOpen(false);
+    modes.windowMode.on = true;
+    assert.deepEqual(press(), [0, 0], 'window mode independently blocks activation and lock');
+    modes.windowMode.on = false;
+    assert.deepEqual(press(), [1, 1], 'ending window mode restores page input');
+  } finally {
+    if (previousElement) Object.defineProperty(globalThis, 'HTMLElement', previousElement);
+    else delete globalThis.HTMLElement;
+  }
+}
+
+check('the actual page key capture respects XR, arrival and window mode, then restores input', () => {
+  exercisePageKeys(keyWiring);
+});
+
+check('the page key check rejects a missing XR guard', () => {
+  const broken = keyWiring.replace('!xrMode?.presenting && ', '');
+  assert.notEqual(broken, keyWiring, 'the negative control removes the actual XR guard');
+  assert.throws(() => exercisePageKeys(broken), { code: 'ERR_ASSERTION', message: /XR presenting blocks activation and lock/ });
+});
+
+check('the page key check rejects a callback that always disables input', () => {
+  const broken = keyWiring.replace(/enabled: \(\) => [^\n]+,/, 'enabled: () => false,');
+  assert.notEqual(broken, keyWiring, 'the negative control replaces the actual enabled callback');
+  assert.throws(() => exercisePageKeys(broken), { code: 'ERR_ASSERTION', message: /unblocked world key activates and locks/ });
 });
 
 for (const name of checks) console.log(`ok - ${name}`);

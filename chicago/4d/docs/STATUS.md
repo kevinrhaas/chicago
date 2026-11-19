@@ -1,12 +1,42 @@
+## T-3656, T-3657, T-3658 — Combined browser-only delivery (19 November 2026)
+
+PR #2197 now carries all three completed implementations so the new classroom
+controls, photo hunt and keyboard ownership fix can land together. PR #2199 is
+superseded after its tickets are retargeted. The candidate preserves the runtime
+from `ddc786069`, a direct child of classroom checkpoint `b1f507400`, and incorporates
+DEV `d47d9550b`, including the T-3635 house and its stamped changelog. Only our two
+pending entry files are consolidated into one T-3656 group entry; upstream records
+and the folded changelog are preserved.
+
+Earlier evidence retains its original commit, viewport and scope. The complete
+b1/c676 renderer cohort and its eight passing source partitions are historical
+baselines, not a gate for the later DEV inputs. Completed ddc renderer stages 1–12
+may carry forward only under the explicit source/data/behavior review. The new
+global source/liberty records, 1904 house and changelog require fresh published
+stages 13–15 at both widths. The final combined head must also pass all eight
+source partitions and their aggregate, moving-frame and upload-release checks.
+Incomplete or capped groups never establish coverage. PR #2197 and the linked
+evidence repository record those final results; this checkpoint claims no merge.
+
+The ddc local source gate passed parts 1–6. Part 7 found an XR wiring assertion
+that still expected the old inline keyboard guard. The repair from `fd27937a0`
+executes the actual main registration and imported callback: XR, arrival and
+Window mode each block activation/locking, and ending the modes restores input.
+Negative controls reject a missing XR guard and an always-disabled callback.
+All 20 XR checks, keyboard regressions, syntax and official no-write measurement
+pass; the original pointer guard remains. Full part 7 and preflight's part 8
+are repeated on that test-only cohort; final combined CI still runs all eight.
+The incoming unique-ID checker was also officially remeasured against the new
+data: both declared commands wrote nothing in-tree, and its existing row is
+unchanged. Its actual unique-ID check and the consolidated changelog checks pass.
+
 ## T-3657, T-3658 — Photo hunt and targeted accessibility (18 November 2026)
 
-Prepared as the next server-free delivery after T-3656, on an isolated branch based on
-classroom checkpoint `03ecd9678`. The first classroom PR must merge before this follow-up.
-
-Integration includes T-3656's later `45b35a2c7` resource/style/person fixes and the mounted
-Guide tour-order regression test. First-delivery history below remains its earlier
-checkpoint until the branch is rebased onto the merged DEV; the first PR records that
-delivery's current verdict. Rebase only commits after `03ecd9678` to avoid duplicating it.
+Originally prepared on an isolated branch after classroom checkpoint `03ecd9678`.
+The normalized `ddc786069` checkpoint incorporates the later T-3656 repairs and all
+keyboard ownership work; it is now part of the combined PR #2197 above. Keep the
+original checkpoints as evidence, rather than replaying the earlier branch history
+over a folded changelog.
 
 Home's **Where and when?** uses five licensed historical photographs of four places in
 the 1904 scene. It derives the picture, canonical building, credit, recorded date/range

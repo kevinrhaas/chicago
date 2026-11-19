@@ -1,6 +1,7 @@
 # Browser-only classroom work
 
-Owner request, 18 November 2026; first implementation tracked by T-3656.
+Owner request, 18 November 2026; delivery tracked by T-3656, T-3657 and T-3658
+in PR #2197.
 The source is the owner's “4D Chicago: features that would make it compelling”
 list dated 17 November. This records the whole list without treating every item
 as delivered in the first implementation.
@@ -21,13 +22,15 @@ tab or window. A hidden or paused tab still holds GPU resources; it is not a
 released session. Same-ground transfer also requires destination bounds and
 ground validation. Do not preload multiple years to implement it.
 
-## Next browser-only delivery
+## Photo hunt and accessibility in the same delivery
 
-T-3657 and T-3658 prepare **7** and a bounded first slice of **10** after the first
+T-3657 and T-3658 add **7** and a bounded first slice of **10** to the same
 classroom PR: a five-photo hunt in 1904, native browser magnification/panning in the
 Navigator, keyboard-safe picture dialogs, and a visible rail Tab stop while Move or
 Jump is open. Pure, browser-fixture and native-town integration checks pass;
-complete release validation remains before this follow-up merges.
+complete release validation remains before the combined PR merges. Keyboard ownership
+also keeps arrows and Space with focused controls and releases held world movement
+when focus enters a reader. The earlier draft PR #2199 is superseded by #2197.
 The hunt reuses five photographs of four places, with a daily order and shared date,
 and reveals their recorded dates rather than treating them as photographs taken in 1904.
 
@@ -41,7 +44,7 @@ and reveals their recorded dates rather than treating them as photographs taken 
 | 4 | Understanding checks | First delivery: three optional cited reflection prompts, grade-aware wording and evidence self-review. No scoring or automatic assertion that a student's answer is correct. Authored guide-voice quizzes remain a content refinement. |
 | 5 | Lesson guides | First delivery: current catalog groups, document tasks, discussion and suggested standards connections; preserve source type and provenance. |
 | 6 | Class codes and teacher view | Defer shared class storage, authentication and cross-device submissions. Local exports are useful now but are not a dashboard. |
-| 7 | Where and when? | T-3657 follow-up implemented: five licensed 1904-scene photographs, deterministic daily/shareable order, ground-distance scores, source/date reveals and bounded local progress. One image at a time; no leaderboard service. Native-town integration passes; complete release gates pending. |
+| 7 | Where and when? | T-3657 implemented in the combined delivery: five licensed 1904-scene photographs, deterministic daily/shareable order, ground-distance scores, source/date reveals and bounded local progress. One image at a time; no leaderboard service. Native-town integration passes; complete release gates pending. |
 | 8 | Mysteries with sources | Later content work using evidence/confidence and existing jaunt branching. Needs authored, reviewed investigations. |
 | 9 | Play a part | Existing engine already supports choices and alternate endings. Later authored historical-role stories, with reconstruction labelled. |
 | 10 | Accessibility | T-3658 follow-up implemented: native Navigator zoom/pan with stable canvas sizing and usable movement controls; keyboard-contained picture dialogs with Escape, background isolation and focus return; a visible rail Tab stop while Move or Jump is open. Browser fixtures and native-town integration pass; complete release gates pending. Broader menu/card and assistive-technology audit remains; no full WCAG 2.1 AA claim. |
