@@ -44756,7 +44756,7 @@ curb is K10's iron scroll cresting where the photograph's reads as crenellated b
 pediments are plain stone without their mouldings, pilasters or carved lunettes. The porch's parapet is
 K01's stone railing, not a solid band pierced with rings, and its ball finials are not built. The
 projection is built 3.9 m wide against about 4.1 m and the porch 2.6 m against about 2.8 m, so the deck's
-frame stands clear of the projection's flank. The basement lights stand 0.2-0.8 m over grade against about
+frame stands clear of the projection's flank. The projection's two basement lights carry no grille (two grilled lights in one K08 storey draw their iron twice). The basement lights stand 0.2-0.8 m over grade against about
 0.33-1.04 m, under the rusticated base's coping. The north stack stands inside the north flank, about 0.7 m
 south of where the photograph's left edge puts it (K01 stands a stack on a flank's outer face only on a
 mansard's side parapet). The trace's third rectangle, along the north flank's rear half (the sheet's 1B),

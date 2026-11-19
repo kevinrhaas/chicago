@@ -555,7 +555,9 @@
           "wall": "k01.wall.street_front",
           "s_m": 8.3,
           "flush_corner": "right",
+          "seat_walls": true,
           "fabric": "front_stone",
+          "plinth_m": 0.1,
           "plan": {
             "width_m": 3.9,
             "proud_m": 0.4
@@ -573,12 +575,8 @@
                     0.34,
                     0.69
                   ],
-                  "grille": {
-                    "bars": 7,
-                    "set_back_m": 0.04,
-                    "ring_radius_m": 0.1
-                  },
-                  "why_not_ordinary": "the projection's two barred basement lights in the photograph (x 660-745 and 795-880 px, y 1085-1150)"
+                  "recess_m": 0.33,
+                  "why_not_ordinary": "the projection's two basement lights in the photograph (x 660-745 and 795-880 px, y 1085-1150); their iron grilles are not built here (two grilled lights in one K08 storey draw their iron twice; the match record)"
                 }
               ]
             },
@@ -594,6 +592,7 @@
                     0.34,
                     0.69
                   ],
+                  "recess_m": 0.33,
                   "why_not_ordinary": "the projection's ground-storey pair in the photograph (x 655-740 and 780-865 px, y 770-990)"
                 }
               ]
@@ -610,6 +609,7 @@
                     0.34,
                     0.69
                   ],
+                  "recess_m": 0.33,
                   "why_not_ordinary": "the projection's chamber pair in the photograph (x 645-728 and 765-850 px, y 470-655)"
                 }
               ]
