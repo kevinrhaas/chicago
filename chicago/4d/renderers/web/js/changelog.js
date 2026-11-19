@@ -1,4 +1,31 @@
 export const CHANGELOG = [ // newest first
+  { v: 3142, ts: '2026-11-19T22:45:20.199Z', date: 'Nov 19, 2026, 4:45 PM CT', title: 'Your person: body types, a close-up face, a closed habit', kind: 'improvement',
+    items: [
+      'Settings, You now asks for a body type instead of a gender: Masculine, Feminine or Androgynous. Androgynous can wear any of the year\'s clothes and hair, and any face.',
+      'The face you choose is shown up close beside the whole figure. Tap either picture to turn it.',
+      'Riding aside in the habit, her legs no longer show through the skirt at any pace, and the skirt lies over the saddle cloth instead of showing through it.',
+    ] },
+  { v: 3141, ts: '2026-11-19T22:45:20.199Z', date: 'Nov 19, 2026, 4:45 PM CT', title: '1871 Chicago is a city of wood again', kind: 'improvement',
+    items: [
+      'Outside downtown, nine buildings in ten are now wood frame, as an 1868 count of the city\'s buildings found; brick and stone stay in the business centre and the better South Side streets.',
+      'Frame houses wear painted weatherboard, mostly white with some buff, grey and unpainted, so they no longer read as stone.',
+      'Neighbourhood corner shops are two-storey frame stores; every building stays where it stood.',
+    ] },
+  { v: 3140, ts: '2026-11-19T21:56:54.614Z', date: 'Nov 19, 2026, 3:56 PM CT', title: 'Every jaunt can now be read in Spanish', kind: 'feature',
+    items: [
+      'With Language set to Español, all 246 jaunts read in Spanish: titles, openings, every stop, choice, ending and keepsake, at every age level.',
+      'Quotations from the old sources are given in Spanish too, and each Spanish jaunt says so once.',
+      'If a jaunt\'s English is corrected later, that passage shows the corrected English until its Spanish catches up, so the two never disagree.',
+      'The jaunt search box on phones has its rounded shape back and no longer runs under the daybook button.',
+    ] },
+  { v: 3139, ts: '2026-11-19T21:56:54.614Z', date: 'Nov 19, 2026, 3:56 PM CT', title: 'Chromebooks run the town, and a class can be prepared ahead', kind: 'feature',
+    items: [
+      'A classroom Chromebook is recognised as a computer and starts at Balanced detail with softer pictures, so every person, horse, carriage and wagon is still there.',
+      'A touch-screen Chromebook keeps its keyboard and trackpad controls; touching the screen still switches to touch.',
+      'The loading screen names the Chromebook and says what it will draw.',
+      'Prepare for class: on a Chromebook the welcome offers the year\'s offline copy with its size, shows its progress and says when it is ready to open with no connection. Settings › Graphics has the same download on every device.',
+      'Each device keeps its own copy, so a class set is prepared one device at a time; nothing is downloaded once for the whole room.',
+    ] },
   { v: 3138, ts: '2026-11-19T21:29:46.668Z', date: 'Nov 19, 2026, 3:29 PM CT', title: 'Hear the Battle of Fort Dearborn and the 1904 story walks', kind: 'feature',
     items: [
       'The Battle of Fort Dearborn and the ten 1904 story walks are being read aloud, in the Cultivated Essayist\'s voice.',

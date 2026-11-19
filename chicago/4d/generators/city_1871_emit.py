@@ -29,7 +29,22 @@ EPOCH = ROOT / "data/terrain/epochs/e1871_prefire"
 GENERATOR = "generators/city_1871_emit.py"
 SOURCES = ["mitchell_1870_chicago_map", "ruger_1868_chicago_panorama",
            "chicago_public_works_1871", "edwards_chicago_directory_1871",
-           "chicago_evening_post_1869_city_limits"]
+           "chicago_evening_post_1869_city_limits",
+           "colbert_chamberlin_1871_great_conflagration"]
+# T-3683: the city was built of wood. Colbert and Chamberlin (1871, pp. 146-147)
+# count 35,654 wooden buildings to 3,712 of brick and stone in spring 1868, and
+# call the West Side's burned blocks "nearly all frame" (p. 286); the costly
+# masonry stood in the South Division's business centre. Each masonry form
+# drawn outside the centre is turned to its frame counterpart with the
+# district's share below. The recipe draws are unchanged, so every footprint,
+# height draw and yard keeps its place; only the building type changes.
+FRAME_OF = {"brick_cottage": "timber_cottage", "brick_rowhouse": "timber_house",
+            "brick_mansard": "timber_hip", "villa_hip": "timber_hip",
+            "commercial_2": "frame_shop", "commercial_3": "frame_shop",
+            "warehouse": "industrial_shed", "factory": "industrial_shed"}
+FRAME_SHARE = {"central_business": 0., "south_residential": .45, "river_industry": .75,
+               "north_residential": .85, "mixed_neighborhood": .8,
+               "west_residential": .92, "outer_settlement": 1.}
 BOUNDS = (-7300., 3500., -7100., 4350.)
 GRADE, ROAD_Y, WALK_Y, DECK_Y = 3.2, 3.23, 3.32, 3.34
 CELL = 10.
@@ -498,7 +513,7 @@ class City:
             "west_residential":(.72,["timber_cottage","timber_cottage","timber_house","timber_hip","brick_cottage","commercial_2"]),
             "mixed_neighborhood":(.78,["timber_house","timber_cottage","brick_rowhouse","commercial_2","commercial_3","stable"]),
             "outer_settlement":(.19,["timber_cottage","timber_house","timber_hip","industrial_shed","stable"])}
-        heights={"timber_cottage":3.3,"timber_house":6.3,"timber_hip":5.8,"brick_cottage":3.7,"brick_rowhouse":7.3,"brick_mansard":7.6,"villa_hip":7.4,"commercial_2":7.5,"commercial_3":11.2,"commercial_4":14.7,"commercial_5":18.3,"commercial_6":21.6,"warehouse":12.1,"factory":10.5,"industrial_shed":4.6,"stable":4.4}
+        heights={"timber_cottage":3.3,"timber_house":6.3,"timber_hip":5.8,"brick_cottage":3.7,"brick_rowhouse":7.3,"brick_mansard":7.6,"villa_hip":7.4,"commercial_2":7.5,"commercial_3":11.2,"commercial_4":14.7,"commercial_5":18.3,"commercial_6":21.6,"warehouse":12.1,"factory":10.5,"industrial_shed":4.6,"stable":4.4,"frame_shop":7.0}
         for bi,(u0,u1) in enumerate(zip(us,us[1:])):
             for bj,(v0,v1) in enumerate(zip(vs,vs[1:])):
                 if u1-u0<45 or v1-v0<75:continue
@@ -516,6 +531,8 @@ class City:
                     for j in range(count):
                         if rng.random()>density:continue
                         kit=rng.choice(kits)
+                        if kit in FRAME_OF and random.Random(f"1871-fabric-{bi}-{bj}-{side}-{j}").random()<FRAME_SHARE[district]:
+                            kit=FRAME_OF[kit]
                         width=pitch*rng.uniform(.65,.93)
                         depth=rng.uniform(23,39) if commercial or industrial else rng.uniform(13,23)
                         setback=rng.uniform(0.8,2.5) if commercial else rng.uniform(3,9)

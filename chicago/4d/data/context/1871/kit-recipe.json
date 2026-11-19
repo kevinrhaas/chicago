@@ -3,8 +3,8 @@
   "year": 1871,
   "confidence": "reconstructed",
   "sources": ["ruger_1868_chicago_panorama"],
-  "citation_sources": ["ruger_1868_chicago_panorama", "mitchell_1870_chicago_map", "chicago_evening_post_1869_city_limits", "chicago_public_works_1871", "edwards_chicago_directory_1871"],
-  "source_limit": "Ruger's contemporary bird's-eye lithograph supports a varied low-rise city with frame dwellings, masonry business blocks and industrial buildings. It does not establish these footprints, storey heights, window patterns, colours or individual addresses. Every kit dimension and facade is a bounded reconstruction, and no template represents a named building.",
+  "citation_sources": ["ruger_1868_chicago_panorama", "colbert_chamberlin_1871_great_conflagration", "mitchell_1870_chicago_map", "chicago_evening_post_1869_city_limits", "chicago_public_works_1871", "edwards_chicago_directory_1871"],
+  "source_limit": "Ruger's contemporary bird's-eye lithograph supports a varied low-rise city with frame dwellings, masonry business blocks and industrial buildings. Colbert and Chamberlin (1871, pp. 146-147) report a spring 1868 enumeration of 35,654 wooden buildings to 3,712 of brick and stone, so frame forms dominate outside the business centre. Neither source establishes these footprints, storey heights, window patterns, colours or individual addresses. Every kit dimension and facade is a bounded reconstruction, and no template represents a named building.",
   "license": "Original procedural geometry and textures; project license. No third-party image pixels are embedded or sampled.",
   "units": "metres",
   "coordinates": "Y up; footprint centred at origin; width +X; front -Z; base Y=0; bearing clockwise from grid north",
@@ -18,6 +18,7 @@
   "templates": [
     {"id":"timber_cottage","name":"Frame cottage","material":"timber","roof":"gable","width_m":7.2,"depth_m":12,"eave_m":3.6,"rise_m":2.6,"storeys":1,"front_bays":3,"side_bays":4},
     {"id":"timber_house","name":"Two-storey frame house","material":"timber","roof":"gable","width_m":7.5,"depth_m":13,"eave_m":6.4,"rise_m":2.8,"storeys":2,"front_bays":3,"side_bays":4},
+    {"id":"frame_shop","name":"Two-storey frame store","material":"timber","roof":"flat","width_m":7.5,"depth_m":18,"eave_m":7.4,"rise_m":0.5,"storeys":2,"front_bays":3,"side_bays":5,"shop":true},
     {"id":"timber_hip","name":"Frame house with hipped roof","material":"timber","roof":"hip","width_m":9,"depth_m":12,"eave_m":6.4,"rise_m":2.6,"storeys":2,"front_bays":3,"side_bays":4},
     {"id":"brick_cottage","name":"Brick cottage","material":"brick","roof":"gable","width_m":7.5,"depth_m":13,"eave_m":4,"rise_m":2.5,"storeys":1,"front_bays":3,"side_bays":4},
     {"id":"brick_rowhouse","name":"Brick town house","material":"brick","roof":"flat","width_m":7.2,"depth_m":15,"eave_m":9.2,"rise_m":0.4,"storeys":3,"front_bays":3,"side_bays":4},

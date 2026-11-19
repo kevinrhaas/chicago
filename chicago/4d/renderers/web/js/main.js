@@ -31,7 +31,7 @@ import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
 import { fieldLog, count as countField } from './field-log.js'; // T-2660
-import { normalMoment, parseMoment, momentLink, momentFits, stampMoment } from './moment.js';
+import { normalMoment, parseMoment, momentLink, momentFits, nearestOpen, stampMoment } from './moment.js';
 import { huntSpotSafe } from './photo-hunt.js';
 import './strings/moment.js';
 // T-3672: a teacher's route, read from its link once and opened after the landing.
@@ -60,7 +60,7 @@ import { createDesktopKeyCapture } from './controls/keyboard.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { viewportSize } from './viewport.js';
 import { isStandaloneHeadset, vrScale } from './controls/xr-detect.js'; // T-3627: the session half loads where a headset is offered
-import { createWindowMode, windowAt } from './controls/window.js';
+import { createWindowMode, windowAt, toLocal as toLocalLL } from './controls/window.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
 import { profiledGroundHeight, figureGroundHeight } from './deck-surface.js';
 import { passageGroundFrom } from './passage-ground.js';
@@ -5343,11 +5343,48 @@ async function boot() {
     onChange: (on) => {
       windowKey?.setAttribute('aria-pressed', String(on));
       blackbox.log(on ? 'window' : 'window-end');
-      if (on) { travel.stop('input'); hud.setFly(false, { announce: false }); }
-      else hud.say('Window closed');
+      if (on) { travel.stop('input'); hud.setFly(false, { announce: false }); offerOnsite(); }
+      else { onsite?.end(); hud.say('Window closed'); }
     },
   });
   api.window = windowMode;
+
+  /**
+   * T-3674: the on-site tour (js/onsite.js, its card js/onsite-view.js) — in 1904, Window mode
+   * offers a walk on today's Prairie Avenue to the Glessner House: each stop's distance and
+   * direction from the fix, arrival inside a radius scaled to the fix's accuracy, and a fix off
+   * the tour's ground held where the visitor stands. The card and its data load the first time
+   * Window mode starts in that year, never at boot.
+   */
+  // The tour's year is onsite.js's ONSITE_YEAR, said here so the boot imports nothing of it
+  // (tools/check_onsite_tour.mjs holds the two equal).
+  const ONSITE_YEAR = '1904';
+  let onsite = null, onsiteLoad = null, onsiteData = null, onsiteUnwatch = null;
+  const loadOnsite = () => onsiteLoad ??= import('./onsite-view.js')
+    .then(({ mountOnsite }) => (onsite = mountOnsite(document.body, {
+      load: () => onsiteData ??= fetch(new URL('onsite/prairie_1904.json', bases.dataBase), { cache: 'no-cache' })
+        .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
+        .catch((err) => { onsiteData = null; problems.push(`onsite/prairie_1904.json: ${err.message} — the on-site tour is not offered`); throw err; }),
+      toLocal: (lat, lon) => toLocalLL(lat, lon, loaded.datum),
+      heading: () => walker.bearingDeg,
+      where: () => ({ e: walker.state.e, n: walker.state.n }),
+      lastFix: () => windowMode.lastFix,
+      pinned: windowMode.pinned,
+      openHouse: (id) => pick(id),
+      say: (line) => hud.say(line),
+      onRun: (running) => {
+        blackbox.log(running ? 'onsite' : 'onsite-end');
+        onsiteUnwatch?.(); onsiteUnwatch = null;
+        if (running) onsiteUnwatch = windowMode.watchFix((fix, at) => onsite.fix(fix, at));
+      },
+    })))
+    .catch((error) => { onsiteLoad = null; problems.push(`on-site tour: ${error.message}`); return null; });
+  function offerOnsite() {
+    if (String(loaded.scene.id ?? YEAR) !== ONSITE_YEAR) return;
+    void loadOnsite().then((o) => { if (o && windowMode.on && !o.running) o.offer(); });
+  }
+  api.onsite = { get state() { return onsite?.state ?? null; }, get running() { return !!onsite?.running; },
+    offer: offerOnsite, end: () => onsite?.end() };
   if (windowKey) windowKey.hidden = !((coarse || windowAt(location.search)) && windowMode.supported());
   windowKey?.addEventListener('click', () => {
     if (windowMode.on) { windowMode.stop(); return; }
@@ -7183,6 +7220,13 @@ async function boot() {
         recall: (href) => recallHome?.ask(href),
         // T-3390: a Jump to another year asks the same way before its ring runs.
         confirmJump: (to, go) => (recallHome ? recallHome.askJump(to, go) : go()),
+        // T-3669: where you stand, for Jump to land on the same ground in the far year.
+        jumpPose: () => {
+          if (!api.ready || gateOpen) return null;
+          const st = walker.state;
+          return { e: st.e, n: st.n, bearing: walker.bearingDeg, pitch: st.pitch / DEG,
+            altitude: st.flying ? st.altitude : null, season: api.season.current, hour: world.sunTime };
+        },
         peopleDirectory: () => peopleDirectory.load(),
         onControls: (fn) => backends.onChange(fn),
         // T-2662: the Guide's questions, read the first time Guide opens, never at boot.
@@ -7383,11 +7427,29 @@ async function boot() {
   // a shared link cannot load another world or manufacture an out-of-bounds stand.
   if (sharedMoment) {
     const restoreMoment = async () => {
-      if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
-      if (!momentFits(sharedMoment, { year: YEAR, inBounds: (e, n) => terrain.inBounds(e, n),
-        blockedAt: (e, n) => router.blockedAt(e, n) })) {
-        hud.say(t('moment.invalid')); return;
+      const ground = { inBounds: (e, n) => terrain.inBounds(e, n), blockedAt: (e, n) => router.blockedAt(e, n) };
+      const jumped = sharedMoment.via === 'jump';
+      let moved = 0;
+      if (!momentFits(sharedMoment, { year: YEAR, ...ground })) {
+        // T-3669: a Jump keeps your ground where this year has it: a house or the river
+        // where you stood moves you to the nearest open ground; land this year's town does
+        // not cover leaves this year's own arrival (its Welcome) in place, and says so.
+        // A shared link never moves.
+        const open = jumped && sharedMoment.year === String(YEAR) && sharedMoment.altitude === null
+          ? nearestOpen(sharedMoment.e, sharedMoment.n, ground) : null;
+        if (!open) {
+          if (jumped) {
+            api.jumpLanding = { kept: false, outside: true, from: sharedMoment.from ?? null };
+            hud.say(t('moment.jumpOutside', { from: sharedMoment.from ?? t('moment.thatYear'), year: YEAR }));
+          } else {
+            if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
+            hud.say(t('moment.invalid'));
+          }
+          return;
+        }
+        sharedMoment.e = open.e; sharedMoment.n = open.n; moved = open.moved;
       }
+      if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
       travel.stop('shared-moment'); follow.stop('input');
       if (sharedMoment.season) await api.season.set(sharedMoment.season, { transient: true });
       if (sharedMoment.hour) await api.timeOfDay.set(sharedMoment.hour, { date: sharedMoment.date ?? undefined, transient: true });
@@ -7402,7 +7464,11 @@ async function boot() {
         else missingPerson = true;
       } else if (sharedMoment.structure && loaded.registry.has(sharedMoment.structure)) openBuilding(sharedMoment.structure);
       api.momentRestored = sharedMoment;
-      hud.say(t(missingPerson ? 'moment.personMissing' : 'moment.arrived'));
+      if (jumped) {
+        api.jumpLanding = { kept: true, outside: false, moved, e: sharedMoment.e, n: sharedMoment.n, from: sharedMoment.from ?? null };
+        hud.say(t(moved ? 'moment.jumpNear' : 'moment.jumpSame', { year: YEAR, m: moved }));
+      }
+      else hud.say(t(missingPerson ? 'moment.personMissing' : 'moment.arrived'));
     };
     const open = () => { void restoreMoment().catch(() => hud.say(t('moment.invalid'))); };
     if (journey.state === 'landed' || journey.state === 'exploring') open();

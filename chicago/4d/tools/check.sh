@@ -258,6 +258,11 @@ step "A VR headset walks the town through WebXR: hidden without one, booted as a
 step "Window mode sets a phone or iPad down where it stands and turns with it: the datum projection, the compass, the GPS hysteresis (T-3577)" \
   node tools/check_window_mode.mjs
 
+step "The on-site tour walks Prairie Avenue to the Glessner House in Window mode: stops where their parcels put them, in order, arrival by the fix's accuracy, a fix off its ground held (T-3674)" \
+  node tools/check_onsite_tour.mjs
+selftest "…and an invented source, a paraphrased citation, a source no record lends or a stop resting on framing is refused (T-3674)" \
+  node tools/check_onsite_tour.mjs --self-test
+
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
 
