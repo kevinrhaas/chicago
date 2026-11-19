@@ -31,7 +31,7 @@ import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
 import { fieldLog, count as countField } from './field-log.js'; // T-2660
-import { normalMoment, parseMoment, momentLink, momentFits, stampMoment } from './moment.js';
+import { normalMoment, parseMoment, momentLink, momentFits, nearestOpen, stampMoment } from './moment.js';
 import { huntSpotSafe } from './photo-hunt.js';
 import './strings/moment.js';
 import { wireFieldLogView } from './field-log-view.js';
@@ -6996,6 +6996,13 @@ async function boot() {
         recall: (href) => recallHome?.ask(href),
         // T-3390: a Jump to another year asks the same way before its ring runs.
         confirmJump: (to, go) => (recallHome ? recallHome.askJump(to, go) : go()),
+        // T-3669: where you stand, for Jump to land on the same ground in the far year.
+        jumpPose: () => {
+          if (!api.ready || gateOpen) return null;
+          const st = walker.state;
+          return { e: st.e, n: st.n, bearing: walker.bearingDeg, pitch: st.pitch / DEG,
+            altitude: st.flying ? st.altitude : null, season: api.season.current, hour: world.sunTime };
+        },
         peopleDirectory: () => peopleDirectory.load(),
         onControls: (fn) => backends.onChange(fn),
         // T-2662: the Guide's questions, read the first time Guide opens, never at boot.
@@ -7190,11 +7197,29 @@ async function boot() {
   // a shared link cannot load another world or manufacture an out-of-bounds stand.
   if (sharedMoment) {
     const restoreMoment = async () => {
-      if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
-      if (!momentFits(sharedMoment, { year: YEAR, inBounds: (e, n) => terrain.inBounds(e, n),
-        blockedAt: (e, n) => router.blockedAt(e, n) })) {
-        hud.say(t('moment.invalid')); return;
+      const ground = { inBounds: (e, n) => terrain.inBounds(e, n), blockedAt: (e, n) => router.blockedAt(e, n) };
+      const jumped = sharedMoment.via === 'jump';
+      let moved = 0;
+      if (!momentFits(sharedMoment, { year: YEAR, ...ground })) {
+        // T-3669: a Jump keeps your ground where this year has it: a house or the river
+        // where you stood moves you to the nearest open ground; land this year's town does
+        // not cover leaves this year's own arrival (its Welcome) in place, and says so.
+        // A shared link never moves.
+        const open = jumped && sharedMoment.year === String(YEAR) && sharedMoment.altitude === null
+          ? nearestOpen(sharedMoment.e, sharedMoment.n, ground) : null;
+        if (!open) {
+          if (jumped) {
+            api.jumpLanding = { kept: false, outside: true, from: sharedMoment.from ?? null };
+            hud.say(t('moment.jumpOutside', { from: sharedMoment.from ?? t('moment.thatYear'), year: YEAR }));
+          } else {
+            if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
+            hud.say(t('moment.invalid'));
+          }
+          return;
+        }
+        sharedMoment.e = open.e; sharedMoment.n = open.n; moved = open.moved;
       }
+      if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
       travel.stop('shared-moment'); follow.stop('input');
       if (sharedMoment.season) await api.season.set(sharedMoment.season, { transient: true });
       if (sharedMoment.hour) await api.timeOfDay.set(sharedMoment.hour, { date: sharedMoment.date ?? undefined, transient: true });
@@ -7209,7 +7234,11 @@ async function boot() {
         else missingPerson = true;
       } else if (sharedMoment.structure && loaded.registry.has(sharedMoment.structure)) openBuilding(sharedMoment.structure);
       api.momentRestored = sharedMoment;
-      hud.say(t(missingPerson ? 'moment.personMissing' : 'moment.arrived'));
+      if (jumped) {
+        api.jumpLanding = { kept: true, outside: false, moved, e: sharedMoment.e, n: sharedMoment.n, from: sharedMoment.from ?? null };
+        hud.say(t(moved ? 'moment.jumpNear' : 'moment.jumpSame', { year: YEAR, m: moved }));
+      }
+      else hud.say(t(missingPerson ? 'moment.personMissing' : 'moment.arrived'));
     };
     const open = () => { void restoreMoment().catch(() => hud.say(t('moment.invalid'))); };
     if (journey.state === 'landed' || journey.state === 'exploring') open();

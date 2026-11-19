@@ -7,6 +7,8 @@
  * motion), the Observatory's transfer stamp is written, and the destination's page takes
  * it from there with its own time-stream and landing (T-2610, T-2611, T-2613), the ring's
  * tail on screen as it would be from the Observatory (skin.js, `chicago4d.transfer`).
+ * Since T-3669 the page lands where you stood (same spot, another year): the far page
+ * checks the ground against its own town and says so when it cannot keep it.
  * Escape, or Abort, during the ring stays put. A plain pick asks first (T-3390): the page's
  * DEPART / CANCEL prompt, the one Recall uses, and the ring starts only on DEPART.
  *
@@ -15,6 +17,7 @@
  * choice that changes nothing would be a fake one.
  */
 import { scenePresentation } from '../scene-presentation.js';
+import { jumpHref } from '../moment.js';
 
 /** The Observatory's destinations, in its order, with the plate each card wears there
  * (portal/plates/SOURCES.md says where each came from). */
@@ -105,7 +108,9 @@ export function mount(el, ctx = {}, opts = {}) {
         // T-3390: and asks first, as Recall does: one tap must not leave the year. The page's
         // prompt (js/recall.js `askJump`) runs the ring only on DEPART; without one (a
         // harness with no page), the jump goes as before.
-        const go = () => jumpTo(d, opts);
+        // T-3669: and lands on the ground you stand on, where the far year has it. The pose
+        // is read as the ring starts, so a prompt left open does not send a stale spot.
+        const go = () => jumpTo({ ...d, href: jumpHref(d.href, ctx.actions?.jumpPose?.(), { year: d.year, from: here }) }, opts);
         const ask = opts.confirm ?? ctx.actions?.confirmJump;
         if (ask) ask({ year: d.year, date: d.date, when: dateWords(d.date) }, go);
         else go();

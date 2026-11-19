@@ -1,3 +1,11 @@
+## T-3669, T-3670 — The rest of the top five (19 November 2026)
+
+The owner asked to finish the top five. Same spot, another year (T-3669): Jump lands on the
+ground you stand on where the far year has it, on the existing moment link and the far
+page's own bounds and obstruction checks; no extra world is loaded. The guide's three
+questions (T-3670): one settled answer each, every option drawn from the jaunt itself,
+unlimited retry, no score. [CLASSROOM-FEATURES.md](CLASSROOM-FEATURES.md) has the detail.
+
 ## T-3657, T-3658 — Next browser-only delivery (18 November 2026)
 
 Prepared after the classroom tools: a five-photo 1904 hunt with daily/shareable ordering,
