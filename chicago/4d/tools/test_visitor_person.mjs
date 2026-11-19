@@ -25,7 +25,8 @@ const { HAIR_CUTS, FACIAL_HAIR, HAIR_COLOURS } = await import('../renderers/web/
 const { COMPLEXION_TINT, EYE_COLOUR } = await import('../renderers/web/js/human-looks.js');
 const V = await import('../renderers/web/js/human-variation.js');
 const { SETTINGS_TABS } = await import('../renderers/web/js/settings-app.js');
-const { facesFor, swatchColour, personHost } = await import('../renderers/web/js/person-settings.js');
+const { facesFor, swatchColour, personHost, FACE_TURNS } = await import('../renderers/web/js/person-settings.js');
+const ridingCode = await import('../renderers/web/js/riding.js');
 hooks.deregister();
 
 let n = 0;
@@ -47,15 +48,27 @@ for (const s of catalog.sexes.map((x) => x.id)) {
 }
 // test_riding seats every body the visitor may choose (its assetsOf reads this catalog).
 ok(read('tools/test_riding.mjs').includes('data/humans/visitor_person.json'), 'test_riding seats the visitor\'s own bodies');
+// Body types (Kevin, 2026-11-19): named for the person's style, not their gender, and a third.
+ok(catalog.body_label && !/gender|sex/i.test(catalog.body_label) && !/'Gender'/.test(read('renderers/web/js/person-settings.js')), `the control is "${catalog.body_label}", not "Gender"`);
+ok(catalog.sexes.length >= 3 && catalog.sexes.every((t) => !/^(man|woman|male|female)$/i.test(t.label)), `three body types: ${catalog.sexes.map((t) => t.label).join(', ')}`);
+const bodies = ['male', 'female'];
+for (const t of catalog.sexes) {
+  ok(P.bodiesOf(catalog, t.id).every((b) => bodies.includes(b)), `${t.id}: worn on the bodies the town draws`);
+  for (const [b, build] of Object.entries(t.build ?? {})) {
+    ok(bodies.includes(b) && Object.entries(build).every(([k, v]) => kit.axes.some((a) => a.id === k && a.scope === 'full') && Math.abs(v) <= kit.limit),
+      `${t.id} on a ${b} body: its build is the kit's own axes, within its limit`);
+  }
+}
 for (const y of catalog.years) {
   for (const s of catalog.sexes.map((x) => x.id)) {
-    const cuts = catalog.cuts[y]?.[s] ?? [], outfits = catalog.outfits[y]?.[s] ?? [];
+    const cuts = P.wardrobe(catalog, 'cuts', y, s), outfits = P.wardrobe(catalog, 'outfits', y, s);
     ok(cuts.length && outfits.length, `${y} ${s}: at least one cut and one dress`);
+    ok(new Set(outfits.map((o) => o.id)).size === outfits.length && new Set(cuts.map((o) => o.id)).size === cuts.length, `${y} ${s}: no two dresses or cuts share an id`);
     for (const c of cuts) ok(HAIR_CUTS[c.id], `${y} ${s}: cut ${c.id} is one human-hair-styles.js grows`);
     for (const o of outfits) {
       for (const l of [0, 1, 2, 3]) ok(fs.existsSync(new URL(`assets/humans/web/${o.asset}.lod${l}.glb`, here)), `${y} ${s} ${o.id}: ${o.asset} at level ${l}`);
       const a = kit.assets[o.asset];
-      ok(a && (a.sex === s), `${y} ${s} ${o.id}: ${o.asset} is a ${s} body the variation kit knows`);
+      ok(a && (a.sex === o.body), `${y} ${s} ${o.id}: ${o.asset} is a ${o.body} body the variation kit knows`);
       ok(kit.faces.bodies[o.asset], `${y} ${s} ${o.id}: the face library fits ${o.asset}`);
       ok(o.worn && o.label, `${y} ${s} ${o.id}: says what is worn`);
     }
@@ -121,6 +134,33 @@ ok(V.libraryFace(based, { key: 'k', assetId: asset, sex: 'female', age: 30, pick
 const seeded = V.libraryFace(based, { key: 'someone', assetId: asset, sex: 'female', age: 30, complexion: 'light' });
 ok(V.libraryFace(based, { key: 'someone', assetId: asset, sex: 'female', age: 30, complexion: 'light', pick: null })?.id === seeded?.id, 'no pick: everyone else\'s face is drawn as before');
 
+// --- the third body type (Kevin, 2026-11-19): either body's dress and hair, any face, its own build
+{
+  const box3 = new Map();
+  const them = P.createVisitorPerson({ catalog, storage: { getItem: (k) => box3.get(k) ?? null, setItem: (k, v) => box3.set(k, v) } });
+  them.set({ sex: 'neutral' });
+  const dress = P.wardrobe(catalog, 'outfits', '1904', 'neutral');
+  ok(['male', 'female'].every((b) => dress.some((o) => o.body === b)), 'Androgynous: the year\'s dresses of both bodies to choose among');
+  them.set({ outfit: 'riding_habit' }, '1904');
+  const r1 = them.record('1904');
+  ok(r1.sex === 'female' && r1.body_type === 'neutral' && them.asset('1904') === 'nelson_christine_1904_errand' && r1.looks.build?.muscle > 0,
+    'in the riding habit: drawn on its body, with the type\'s own build');
+  ok(ridingCode.sideSaddleFor(riding, '1904', r1) === riding.side_saddle.tack['1904'], 'and rides aside, as a skirt does');
+  them.set({ outfit: 'working' }, '1904');
+  const r2 = them.record('1904');
+  ok(r2.sex === 'male' && them.asset('1904') === 'anonymous_working_driver_1904' && r2.looks.build?.muscle < 0, 'in working clothes: a man\'s frame, drawn leaner');
+  ok(ridingCode.sideSaddleFor(riding, '1904', r2) === null, 'and rides astride');
+  const theirFaces = facesFor(catalog, 'neutral', 'light');
+  ok(['male', 'female'].every((b) => theirFaces.some((f) => f.sex === b)), 'any of the library\'s faces');
+  them.set({ face: theirFaces.find((f) => f.sex === 'female').id });
+  const pv2 = V.personVariation({ kit: based, key: P.VISITOR_PERSON_ID, record: them.record('1904'), assetId: them.asset('1904'), sceneYear: 1904 });
+  ok(pv2.lib?.id === them.choice.face && pv2.sex === 'male', 'a woman\'s face of the library on a man\'s frame, as chosen');
+  them.set({ sex: 'female' });
+  ok(them.asset('1904') === catalog.outfits['1904'].female[0].asset && !them.record('1904').body_type && !them.record('1904').looks.build, 'Feminine keeps its own dress, and no build of the third type');
+  them.set({ sex: 'neutral' });
+  ok(them.asset('1904') === 'anonymous_working_driver_1904', 'and back: the third type\'s own dress again');
+}
+
 // --- keeping it with the account
 const w = P.personWrite({ projectId: 'p', uid: 'u1', choice: person.choice })[0];
 const fields = [...Object.keys(w.update.fields), ...w.updateTransforms.map((x) => x.fieldPath)];
@@ -169,6 +209,12 @@ ok(!/data-set-pane="you"/.test(html) && !html.includes('id="s-person"'), 'its gr
     'personHost puts the You group before Show\'s first group');
   ok(group.hidden === true && host?.id === 's-person' && group.kids[0]?.textContent === 'Your person' && group.kids[1] === host,
     'hidden while another tab is open, headed "Your person", holding #s-person');
+}
+// The face up close beside the figure (Kevin, 2026-11-19), from the same figure (no second build).
+{
+  const ps = read('renderers/web/js/person-settings.js'), pp = read('renderers/web/js/person-portrait.js');
+  ok(FACE_TURNS[0] === 0 && ps.includes("frame: 'face'") && /person-face-close/.test(read('renderers/web/css/navigator.css')), 'the You tab draws the face up close beside the figure');
+  ok(/frame === 'face'/.test(pp) && /eye_l/.test(pp) && (pp.match(/visitorActor\(/g) ?? []).length === 1, 'person-portrait.js frames the face on the eyes of the one figure it builds');
 }
 ok(/^rgb\(\d+, \d+, \d+\)$/.test(swatchColour(COMPLEXION_TINT.deep_brown)), 'complexion swatches are drawn colours');
 const main = read('renderers/web/js/main.js');
