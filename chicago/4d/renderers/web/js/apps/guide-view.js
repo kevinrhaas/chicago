@@ -38,13 +38,20 @@ import { createLessonGuides } from './lesson-guides.js';
 
 const state = { scheme: null, chosen: false, off: null, host: null };
 
+/** T-3671 (WCAG 1.3.1): a block's title is a heading to a screen reader; it looks as it did. */
+function asHeading(el, level = 3) {
+  el.setAttribute('role', 'heading');
+  el.setAttribute('aria-level', String(level));
+  return el;
+}
+
 /** The glossary: every locked term, exactly as written, and its one line. */
 function glossary(doc) {
   const block = doc.createElement('section');
   block.className = 'nav-block nav-guide-glossary';
   block.id = 'guide-glossary';
   const k = Object.assign(doc.createElement('span'), { className: 'nav-k', textContent: 'Glossary' });
-  const title = Object.assign(doc.createElement('strong'), { className: 'nav-place', textContent: 'The words we use' });
+  const title = asHeading(Object.assign(doc.createElement('strong'), { className: 'nav-place', textContent: 'The words we use' }));
   const list = Object.assign(doc.createElement('dl'), { className: 'nav-glossary' });
   for (const [term, meaning] of LOCKED_TERMS) {
     const dt = Object.assign(doc.createElement('dt'), { textContent: term });
@@ -61,7 +68,7 @@ function questions(doc, ctx) {
   block.className = 'nav-block nav-guide-faq';
   block.id = 'guide-faq';
   const k = Object.assign(doc.createElement('span'), { className: 'nav-k', textContent: 'Questions' });
-  const title = Object.assign(doc.createElement('strong'), { className: 'nav-place', textContent: 'Is this real?' });
+  const title = asHeading(Object.assign(doc.createElement('strong'), { className: 'nav-place', textContent: 'Is this real?' }));
   const body = Object.assign(doc.createElement('div'), { className: 'nav-faq' });
   body.append(Object.assign(doc.createElement('p'), { className: 'nav-sub', textContent: 'Reading the answers…' }));
   block.append(k, ' ', title, ' ', body);
@@ -98,7 +105,7 @@ function about(doc, ctx) {
     b.addEventListener('click', () => { ctx.actions?.aboutCard?.(card.id); });
     list.append(b, ' ');
   }
-  block.append(node('span', 'nav-k', t('guide-about.k')), ' ', node('strong', 'nav-place', t('guide-about.title')), ' ',
+  block.append(node('span', 'nav-k', t('guide-about.k')), ' ', asHeading(node('strong', 'nav-place', t('guide-about.title'))), ' ',
     node('p', 'nav-sub', t('guide-about.intro')), ' ', list);
   return block;
 }
@@ -119,7 +126,7 @@ function teachers(doc, ctx) {
   const draw = () => renderHandout(doc, handoutModel({ steps: STEPS, scene, destinations: DESTINATIONS, catalogs }));
   let handout = draw();
   fold.append(summary, handout);
-  block.append(node('span', 'nav-k', t('teachers.k')), ' ', node('strong', 'nav-place', t('teachers.title')), ' ',
+  block.append(node('span', 'nav-k', t('teachers.k')), ' ', asHeading(node('strong', 'nav-place', t('teachers.title'))), ' ',
     node('p', 'nav-sub', t('teachers.intro')), ' ', button, ' ', fold);
   const ready = Promise.all(DESTINATIONS.map((d) => Promise.resolve()
     .then(() => ctx.actions?.jauntCatalog?.(d.year))
@@ -149,7 +156,7 @@ function render(el) {
   const k = node('span', 'nav-k nav-k-row');
   k.append(node('span', null, 'Guide'), ' ',
     node('span', 'nav-step', state.chosen ? 'Your choice' : 'On this device'));
-  const title = node('strong', 'nav-place', 'The controls');
+  const title = asHeading(node('strong', 'nav-place', 'The controls'));
   const seg = node('div', 'seg nav-guide-seg');
   seg.id = 'guide-scheme';
   seg.setAttribute('role', 'radiogroup');

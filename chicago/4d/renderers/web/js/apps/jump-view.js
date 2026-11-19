@@ -15,6 +15,7 @@
  * choice that changes nothing would be a fake one.
  */
 import { scenePresentation } from '../scene-presentation.js';
+import { reducedMotion } from '../motion.js';
 
 /** The Observatory's destinations, in its order, with the plate each card wears there
  * (portal/plates/SOURCES.md says where each came from). */
@@ -36,7 +37,7 @@ let pending = null;   // the jump under way: { timer, overlay, onKey }
 /** Run the in-world jump to `d`: the ring, the transfer stamp, then the page. */
 export function jumpTo(d, {
   doc = globalThis.document,
-  reduced = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false,
+  reduced = reducedMotion(), // T-3671: Settings › Look › Motion (js/motion.js)
   go = (href) => globalThis.location?.assign(href),
   wait = (fn, ms) => setTimeout(fn, ms),
   cancel = (id) => clearTimeout(id),

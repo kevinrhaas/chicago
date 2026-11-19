@@ -59,6 +59,7 @@ const TAU = Math.PI * 2;
  */
 export { PACES, paceSpeed } from './travel-settings.js';
 import { PACES, paceSpeed, ARRIVAL_SETTLE_S, WALK, FLY } from './travel-settings.js';
+import { motionQuery } from './motion.js'; // T-3671: the one motion choice
 
 /**
  * What a speed is CALLED, per pace — the word a slider shows as it moves. Metres
@@ -170,8 +171,8 @@ export function createTravel({
   /** True between an update() that steered and the afterWalk() that cleaned up. */
   let wrote = false;
   let bobPhase = 0;
-  const reduceMotion = typeof matchMedia === 'function'
-    ? matchMedia('(prefers-reduced-motion: reduce)') : null;
+  // T-3671: Settings › Look › Motion (js/motion.js), which follows the device by default.
+  const reduceMotion = motionQuery;
 
   // ---- pace ---------------------------------------------------------------
 
