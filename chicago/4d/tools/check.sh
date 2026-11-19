@@ -415,6 +415,8 @@ step "Browser magnification preserves viewport size and independent movement and
   node tools/test_viewport_accessibility.mjs
 step "Focused menus own arrows and Space while world controls and card closing remain available (T-3658)" \
   node tools/test_keyboard_ownership.mjs
+step "People met and places found count only talks and footsteps in town, per year, bounded and local (T-3673)" \
+  node tools/test_met_found.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
   node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \

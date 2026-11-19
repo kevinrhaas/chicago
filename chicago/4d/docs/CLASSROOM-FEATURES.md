@@ -71,13 +71,24 @@ Nothing about the route is recorded or sent anywhere.
 | 11 | Assign/build a jaunt | T-3672 implemented the browser-only subset: Guide › For teachers builds a route from a jaunt or from one year's buildings, viewpoints and people (up to 20 stops, a note and a question each), as one bounded `?route=` link and a reopenable route file; the student's Route panel in Jaunts gives Go there per stop, shows the teacher's words as theirs, and saves answers to the local field notebook. Shared authoring libraries and submission tracking still need storage. |
 | 12 | Classroom/Clever/Canvas | Ordinary links/files can be assigned manually now. Defer provider setup, SSO, add-ons and grade sync. |
 | 13 | Follow the teacher | Defer live cross-device coordination. Projection works now. |
-| 14 | People met, places found | Notebook saves selected person cards now. Automatic visited/met collections in Map and People are later work; opening a card must not be reported as entering a building or physically meeting someone. |
+| 14 | People met, places found | T-3673 implemented: a bounded browser-local list per year (`chicago4d.metfound.v1`, an id and its first day only, never evicted). **Met** = a Greet, Tell me a story or Ask a question finished in town, on foot (not flying) within 8 m of someone standing outside; a card opened from People, search, Inspect, a jaunt or a link never counts. **Found** = on foot (not flying, riding, aboard, at a helm, in Inspect or on the arrival screen) inside a named place's footprint or within 3 m of its walls, checked once a second; unnamed buildings, privies and sheds are not places. People (1812, 1835, 1904) shows a Met badge and a "Met N of M" filter; the Map outlines found places with "Found N of M places" and a toggle; both have Clear <year> with an inline confirm. Damaged or unavailable storage is said on screen. No streaks, scores, leaderboards or network. Notebook still saves chosen person cards. |
 | 15 | Spanish | Later browser-only localization infrastructure and reviewed UI/narrative translations. Existing string registries are a foundation, not a complete locale system. |
 | 16 | On-site mode | Later extension of GPS Window mode, with real location/accuracy and mobile field testing. |
 | 17 | Chromebook class set | Preserve low-detail/device governor and offline-copy behavior. Bound new capture/storage work. Actual Chromebook and school-network testing remains; a device cache is not a room-wide download-once cache. |
 | 18 | Ask your own question | Existing authored questions remain. A local cited-record search is possible later; generated free-form answers require separate cost/grounding decisions. |
 | 19 | Classmates in town | Defer shared presence/signaling service. |
 | 20 | Watch a block grow | Later bounded single-block timeline, one state at a time, subject to historical coverage. No three-world preload. |
+
+## People met, places found (T-3673)
+
+Item **14** keeps its two words literal. You *met* someone when you talked with them here:
+the Interact engine finished a Greet, Tell me a story or Ask a question with a person standing
+in the town, and you were on foot within 8 m of them (their 2.5 m reach plus the few metres the
+Interact key holds them while they turn to you). You *found* a place when you stood there:
+inside its footprint or within 3 m of its walls, on foot. Cards opened from the directory,
+search, Inspect, jaunt cards and shared links never add anyone or anywhere, and a Map preview
+or Go to card is not a visit. The check is a box test over the Map's footprints once a second,
+with no new GPU work. The list is per year, bounded and kept in this browser only.
 
 ## Resource and privacy boundaries
 
