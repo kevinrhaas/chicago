@@ -1,0 +1,24 @@
+{
+  "structure_id": "mark_kimball_house_2108_prairie",
+  "source_id": "chicago_tribune_1898_01_09_residence_district",
+  "library_image": "cgs-tribune-1898-01-09-death-strip",
+  "photo": "../../sources/assets/kimball_2108_pictures_t3667/tribune_1898_2108_panel.jpg",
+  "image_px": [
+    264,
+    310
+  ],
+  "principal_px": [
+    132.0,
+    191.8
+  ],
+  "focal_px": 678.0,
+  "pixel_aspect": 0.743,
+  "eye": [
+    32.35,
+    4.25,
+    1.6
+  ],
+  "yaw_deg": 270.0,
+  "sky": "overcast",
+  "solve": "Fitted by T-3667 (piece 1 of T-1921) to the 2108 panel of the Tribune strip of 9 January 1898 (the strip's pixels x 1128-1392, y 42-352 of the image store's 1400 px copy, its frame lines included, cropped unscaled into tribune_1898_2108_panel.jpg). A freehand pen sketch whose upper storey is covered by the numerals' cartouche, not a true perspective, so this camera is approximate and says how far. Its courses, ledge and treads are level and its verticals vertical, so the camera is level and square to the front (heading 270 in the footprint frame, looking west at the front), the eye 1.6 m over grade. Horizontally, the front's two edges at x 25 and 205 px against the sheet's 7.15 m front: about 25.2 px a metre at the wall, the principal column held at the panel's middle (x 132, v 4.25 from the south wall). The sketch's depth cannot be solved from itself, so the eye is held 20 m before the front on the roadway, as the 1906, 1923 and 2035 panels of the same strip are, which gives a horizontal focal length of 504 px. Vertically the sketch is drawn tall: the door's arch top at y 63 over the wall's foot at y 246 against the record's 5.4 m gives a vertical focal length of 678 px, so PIXEL ASPECT 0.743 IS THE DRAUGHTSMAN'S, NOT A RESAMPLING (the 2035 panel of the same strip is drawn wide, 1.247), and the horizon at y 191.8. CHECKS, render against sketch: the lights' round heads at y 68 against 71; the parlour floor's ledge at y 172 against the sketch's 150, and the basement lights' heads at y 211 against 176 (the sketch draws its basement storey about 0.7 m taller than the record's 2.2 m and its basement lights twice as tall). Widths are read from this panel as proportions between the front's two edges, heights only as which storey a thing stands in; no shadow falls in the sketch, so it renders overcast."
+}

@@ -54,7 +54,7 @@
  },
  "summary": {
   "lots": 133,
-  "surfaces": 283,
+  "surfaces": 284,
   "doors": 125,
   "posts": 114,
   "gardens": 30,
@@ -65,7 +65,7 @@
    "front_walk": 8,
    "gangway": 30,
    "garden_bed": 30,
-   "rear_terrace": 106
+   "rear_terrace": 107
   }
  },
  "lots": [
@@ -15809,15 +15809,44 @@
    "grade": "reconstructed",
    "sources": [],
    "note": "",
-   "surfaces": [],
+   "surfaces": [
+    {
+     "id": "prairie_2108:rear_terrace:0",
+     "kind": "rear_terrace",
+     "material": "yard_brick",
+     "polygon_local_m": [
+      [
+       1366.89,
+       -3640.75
+      ],
+      [
+       1366.93,
+       -3643.89
+      ],
+      [
+       1361.21,
+       -3643.95
+      ],
+      [
+       1361.18,
+       -3640.81
+      ]
+     ],
+     "along_deg": 179.42,
+     "lift_m": 0.03,
+     "order": 0,
+     "grade": "reconstructed",
+     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+    }
+   ],
    "doors": [
     {
      "id": "prairie_2108:back_door",
      "structure": "mark_kimball_house_2108_prairie",
-     "e": 1370.59,
-     "n": -3642.03,
+     "e": 1367.24,
+     "n": -3642.07,
      "facing_deg": 269.42,
-     "sill_m": 1.4,
+     "sill_m": 1.5,
      "width_m": 0.95,
      "height_m": 2.2,
      "leaf": true,
@@ -15826,25 +15855,17 @@
       "width_m": 1.6,
       "risers": 8,
       "run_m": 3.06,
-      "material": "wood"
+      "material": "stone"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.50 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
    "posts": [],
    "crops": [],
    "shrubs": [],
    "trees": [],
-   "creeper": [
-    [
-     1352.01,
-     -3645.22,
-     89.42,
-     3.29,
-     4.68
-    ]
-   ],
+   "creeper": [],
    "beds": []
   },
   {
