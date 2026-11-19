@@ -4071,6 +4071,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/fire_1871.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/fit_1871_city_map.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5069,6 +5073,10 @@
       "wrote_by": [
         "../prairie_1904_v1/tools/publish.py ../../site/4d/prairie-1904"
       ]
+    },
+    "tools/qa_city_fire_1871.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/qualify_later_trades.py": {
       "wrote": [],
@@ -6414,6 +6422,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_jaunt_investigation.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_jaunt_mechanics.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6710,6 +6722,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_met_found.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_modern_streets.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6974,6 +6990,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_route_unreachable.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_scene_selection.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -7107,6 +7127,10 @@
       "wrote_ignored": []
     },
     "tools/test_teacher_handout.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_teacher_route.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

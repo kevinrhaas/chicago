@@ -1,4 +1,53 @@
 export const CHANGELOG = [ // newest first
+  { v: 3136, ts: '2026-11-19T21:12:28.904Z', date: 'Nov 19, 2026, 3:12 PM CT', title: '2036 Prairie\'s iron railing now runs along 21st Street', kind: 'feature',
+    items: [
+      'At the corner of Prairie and 21st Street, the Buckingham house\'s iron railing now turns the corner and runs back along 21st Street, the full length of the house\'s side, as the c. 1880 engraving draws it across its foreground. The railing has the same spear-headed bars, ornamented band and stone curb as the Prairie front.',
+      'The house\'s second picture, a photograph of the next block from the early 1890s with 2036 in the distance, is now matched against the model too, and the house\'s card can show you the spot in the roadway it was taken from.',
+    ] },
+  { v: 3135, ts: '2026-11-19T20:51:01.064Z', date: 'Nov 19, 2026, 2:51 PM CT', title: 'Teachers can build a route and share it as one link', kind: 'feature',
+    items: [
+      'Guide\'s For teachers has Make a route for your class: start from a jaunt, or find buildings, viewpoints and people of this year and put them in your own order.',
+      'Add a short note and a question to any stop, give the route a title, then copy one share link or download a route file you can open again.',
+      'A student who opens the link lands in that year with the route pinned at the top of Jaunts: each stop in order with Go there, and the teacher\'s note and question marked as the teacher\'s words.',
+      'Answers save to the student\'s own field notebook, ready to download and hand in. Nothing is uploaded and no account is needed.',
+      'A link for another year offers that year\'s link; a broken or too-long link, or stops this town does not hold, leave you in the town with a message saying so.',
+    ] },
+  { v: 3134, ts: '2026-11-19T19:53:50.791Z', date: 'Nov 19, 2026, 1:53 PM CT', title: '1812 runs smoothly again after you open the Jaunts list', kind: 'fix',
+    items: [
+      'In 1812, opening the Jaunts list could leave every frame after it taking seconds. It now stays as smooth as before you opened it.',
+      'People whose way is closed off no longer hold up the whole town while their path is worked out.',
+    ] },
+  { v: 3133, ts: '2026-11-19T19:53:50.791Z', date: 'Nov 19, 2026, 1:53 PM CT', title: 'The Glessner Household for young readers flows when read aloud', kind: 'improvement',
+    items: [
+      'Each person in the 3rd-grade telling now moves from one subject to the next with a short joining line, instead of listing facts.',
+      'Their voices pause between subjects, and there is less whispering and laughing.',
+      'Mattie, the cook, takes her time: who she is, how she became the cook, her kitchen, then her favourite story.',
+      'The same smoother style is now the rule for every jaunt as it is read aloud.',
+    ] },
+  { v: 3132, ts: '2026-11-19T19:28:43.217Z', date: 'Nov 19, 2026, 1:28 PM CT', title: 'Take a Jaunt opens at once, without a second wait', kind: 'improvement',
+    items: [
+      'The Jaunts list now opens straight away after the town has loaded. Before, choosing Take a Jaunt meant a second wait, which could run to many seconds in 1835 and 1904.',
+      'While you are on the home screen, the list and its code are fetched quietly in the background. Nothing extra loads while you walk.',
+      'Opening the list no longer works out a walking route for every stop of every card. That work held up the list and used a lot of memory, which mattered most on phones and older computers. A card\'s time is now worked out from the distances between its stops, and an outing still times its real routes once it starts.',
+    ] },
+  { v: 3131, ts: '2026-11-19T19:28:43.217Z', date: 'Nov 19, 2026, 1:28 PM CT', title: 'Chicago in Spanish: a language setting', kind: 'feature',
+    items: [
+      'Settings, Display has a new Language · Idioma row: English or Español. The page reloads in the language you pick.',
+      'In Spanish, the menus, buttons, cards and messages read in Spanish. Names of people, streets and businesses stay as they were.',
+      'A browser set to Spanish starts in Spanish, and a link ending in ?lang=es opens the town in Spanish for a class.',
+      'Anything not yet translated still reads in English, never as a code. What\'s new stays in English.',
+    ] },
+  { v: 3130, ts: '2026-11-19T19:28:43.217Z', date: 'Nov 19, 2026, 1:28 PM CT', title: 'People you met and places you found, kept for each year', kind: 'feature',
+    items: [
+      'Talk with someone in town (greet them, hear a story or ask a question) and People marks them Met.',
+      'People has a Met filter with its count, in 1812, 1835 and 1904. Opening a card never counts.',
+      'Stand inside a building or at its door on foot and the Map outlines it as found, with a count.',
+      'Clear a year\'s list from People or the Map. It is kept in this browser only, with no scores or streaks.',
+    ] },
+  { v: 3129, ts: '2026-11-19T19:28:43.217Z', date: 'Nov 19, 2026, 1:28 PM CT', title: 'Make a case from two newspapers', kind: 'feature',
+    items: [
+      'After Gossip or Printed Notice?, compare two newspaper readings, choose support for your claim and name what remains uncertain. Review an ungraded guide, then save your answer and its sources to your notebook.',
+    ] },
   { v: 3128, ts: '2026-11-19T19:04:43.895Z', date: 'Nov 19, 2026, 1:04 PM CT', title: 'People keep their clothes as you walk up to them', kind: 'fix',
     items: [
       'Down the street and across the square, people now wear their own clothes: the lady in the white lingerie dress is in white from a block away, not in black until you are close.',

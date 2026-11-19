@@ -9,7 +9,7 @@ export default register('notebook', {
   saved: 'Saved in this browser.', deleted: 'Entry deleted.', duplicate: 'This person is already in your notebook.',
   download: 'Download notebook', print: 'Print / save PDF',
   personSave: 'Save to field notebook', personSaved: 'Saved. Open Guide to read your field notebook.',
-  sources: 'Sources', evidence: 'From the person’s card', moment: 'Open this moment',
+  sources: 'Sources', evidence: 'Source context', moment: 'Open this moment',
   'error.full': 'Your notebook is full. Download a copy, then delete an entry to make room.',
   'error.storage': 'This browser could not save your notebook. Check its storage settings and try again.',
   'error.damaged': 'Your saved notebook could not be read. Its stored copy has been left unchanged.',

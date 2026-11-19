@@ -12,7 +12,7 @@ import { narrationScripts } from './narration.js';
  *  already shows as a heading. */
 export function openingParagraphs(jaunt) {
   const paragraphs = String(jaunt?.opening?.text ?? '').split(/\n\s*\n/).map(t => t.trim()).filter(Boolean);
-  if (paragraphs.length) paragraphs[0] = paragraphs[0].replace(/^JAUNT:\s*[^.!?]*[.!?]\s*/, '');
+  if (paragraphs.length) paragraphs[0] = paragraphs[0].replace(/^(?:JAUNT|PASEO):\s*[^.!?]*[.!?]\s*/, '');
   return paragraphs.filter(Boolean);
 }
 /** T-3432: road notes are read in the leg they belong to, or not at all: the lines of
@@ -358,6 +358,8 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     const hear = listen('opening', 'opening'); if (hear) story.append(hear);
     const told = paragraphs.map(text => node('p', text));
     story.append(...told);
+    // Gap analysis item 15: a translated jaunt says once that its quotations are translated.
+    if (state.jaunt.quotesNote) story.append(node('p', state.jaunt.quotesNote, 'jaunt-meta'));
     body.append(story);
     transcript('opening', 'opening', [named, ...told], hear);
   }
