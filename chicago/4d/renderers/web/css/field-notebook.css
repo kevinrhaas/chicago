@@ -1,0 +1,13 @@
+.field-notebook { margin: 12px 0; }
+.field-notebook > summary { cursor: pointer; min-height: 44px; padding: 10px 0; }
+.field-notebook label { display: flex; flex-direction: column; gap: 6px; margin: 10px 0; }
+.field-notebook input, .field-notebook textarea { box-sizing: border-box; width: 100%; max-width: 100%; color: var(--ink); background: var(--panel-raised, var(--panel-solid, #fff)); border: 1px solid currentColor; border-radius: 4px; padding: 8px; font: inherit; }
+.field-notebook textarea { resize: vertical; min-height: 80px; }
+.field-notebook button { min-height: 44px; white-space: normal; }
+.field-notebook-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.field-notebook-entry { border-top: 1px solid var(--rule, currentColor); padding: 12px 0; overflow-wrap: anywhere; }
+.field-notebook-entry h3 { margin: 0 0 6px; }
+.field-notebook-entry img { display: block; width: 100%; height: auto; margin: 8px 0; }
+.field-notebook-excerpt { white-space: pre-wrap; }
+.field-notebook-status { min-height: 1.5em; }
+.field-notebook-print-frame { position: fixed; width: 1px; height: 1px; border: 0; left: -10000px; top: 0; }

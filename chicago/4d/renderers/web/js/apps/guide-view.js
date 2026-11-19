@@ -34,6 +34,7 @@ import { CARDS } from '../evidence.js';
 import { STEPS } from '../tour.js';
 import { DESTINATIONS } from './jump-view.js';
 import { handoutModel, renderHandout, printHandout } from './teacher-handout.js';
+import { createLessonGuides } from './lesson-guides.js';
 
 const state = { scheme: null, chosen: false, off: null, host: null };
 
@@ -129,6 +130,7 @@ function teachers(doc, ctx) {
       handout = next;
     });
   button.addEventListener('click', () => { ready.then(() => printHandout(handout, { doc })); });
+  block.append(createLessonGuides(doc, ctx, { catalogs, ready, destinations: DESTINATIONS }));
   return block;
 }
 

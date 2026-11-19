@@ -1,0 +1,22 @@
+import { register } from './index.js';
+export default register('moment', {
+  title: 'Photo and share',
+  note: 'Save your view or share a link to this spot. Photos show the town without menus.',
+  capture: 'Take photo',
+  retake: 'Retake photo',
+  download: 'Save picture',
+  notebook: 'Save to notebook',
+  copy: 'Copy spot link',
+  link: 'Link to this spot',
+  busy: 'Framing your view…',
+  ready: 'Your photo is ready.',
+  saved: 'Photo saved in your field notebook on this device.',
+  copied: 'Link copied.',
+  copyFallback: 'Select and copy the link below.',
+  failed: 'The photo could not be taken. Try again when the town is ready.',
+  notReady: 'Enter the town before taking a photo.',
+  alt: 'Your saved view of {place}, {year}',
+  invalid: 'This shared spot is outside the walkable town. You have arrived at the usual starting place.',
+  personMissing: 'You have arrived at the shared spot. This person’s card is no longer available here.',
+  arrived: 'You have arrived at the shared spot.',
+});

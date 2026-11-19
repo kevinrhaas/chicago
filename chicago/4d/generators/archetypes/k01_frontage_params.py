@@ -3568,13 +3568,29 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             ch = st.get("cheeks")
             if ch is None:
                 continue
-            if not isinstance(ch, dict) or set(ch) != {"front_run", "width_m", "proud_m"} \
+            if not isinstance(ch, dict) or set(ch) - {"consoles"} != {"front_run", "width_m", "proud_m"} \
                     or not (0 <= int(ch["front_run"]) and 0.3 <= float(ch["width_m"]) <= 2.0
                             and 0.01 <= float(ch["proud_m"]) <= 0.06):
                 raise ParamError(f"bays: {e['id']}'s cheeks take front_run, width_m (0.3-2.0 m) and proud_m "
-                                 f"(0.01-0.06 m), not {ch}")
+                                 f"(0.01-0.06 m), and may name consoles, not {ch}")
+            cs = ch.get("consoles")
+            # T-1894: a scrolled stone console against each cheek beside the stone front (1823's
+            # pavilion attic, the 1883 vignette), K10's dormer console in the bay's stone
+            ck = {"from_m", "width_m", "top_m", "roll_m", "height_m", "depth_m"}
+            if cs is not None and (not isinstance(cs, dict) or set(cs) != ck
+                                   or not (0.2 <= float(cs["width_m"]) <= float(ch["width_m"]) - 0.05
+                                           and 0.05 <= float(cs["top_m"]) and 0.05 <= float(cs["roll_m"])
+                                           and float(cs["top_m"]) + float(cs["roll_m"]) <= float(cs["width_m"])
+                                           and 2 * float(cs["roll_m"]) + 0.1 <= float(cs["height_m"])
+                                           and 0.0 <= float(cs["from_m"])
+                                           and float(cs["from_m"]) + float(cs["height_m"]) <= float(st["height_m"])
+                                           and 0.05 <= float(cs["depth_m"]) <= 0.4)):
+                raise ParamError(f"bays: {e['id']}'s cheek consoles take {', '.join(sorted(ck))}: 0.2 m wide to "
+                                 f"0.05 m inside the cheek, top and roll inside that width, standing from from_m "
+                                 f"inside the storey, 0.05-0.4 m deep, not {cs}")
             st["cheeks"] = {"front_run": int(ch["front_run"]), "width_m": float(ch["width_m"]),
-                            "proud_m": float(ch["proud_m"])}
+                            "proud_m": float(ch["proud_m"]),
+                            **({"consoles": {k: float(cs[k]) for k in sorted(ck)}} if cs is not None else {})}
         # T-3002: a dressed band across one run over a storey's windows, under its top, with a
         # roundel on it (1801's south pavilion under its gable's shelf, the Taylor photograph)
         for st in v["storeys"]:
