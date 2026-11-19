@@ -427,11 +427,11 @@
               "balustrade": {
                 "height_m": 0.85,
                 "pitch_m": 0.14,
-                "newel_m": 0.3,
-                "newel_cap_m": 0.06,
+                "newel_m": 0.2,
+                "newel_cap_m": 0.05,
                 "rail_m": [
-                  0.12,
-                  0.08
+                  0.1,
+                  0.06
                 ],
                 "segments": 6,
                 "profile": [
