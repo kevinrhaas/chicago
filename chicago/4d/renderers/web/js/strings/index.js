@@ -26,6 +26,61 @@
 const sections = new Map();
 
 /**
+ * The visitor's language (gap analysis item 15: Spanish). English is the table above and below;
+ * another language is a set of locale sections under js/strings/<code>/, keyed exactly as the
+ * English ones, loaded only when that language is chosen, so an English visitor never fetches
+ * a byte of it. t() reads the locale first and falls back to English key by key, so a string
+ * not yet translated still reads, in English, never as its key. A locale file holds data
+ * only (no import of this module, which would deadlock under the await below).
+ *
+ * The choice is `chicago.lang` in localStorage (Settings › Display › Language), or `?lang=es`
+ * on the address, which also keeps it; with neither, a browser set to Spanish starts in Spanish.
+ * Changing it reloads the page: every panel paints once in the language in force.
+ */
+export const LANGUAGES = Object.freeze([['en', 'English'], ['es', 'Español']]);
+export const LANG_KEY = 'chicago.lang';
+const LOCALES = new Set(LANGUAGES.map(([code]) => code));
+function readLang() {
+  const g = globalThis;
+  let code = '';
+  try {
+    const asked = new URLSearchParams(g.location?.search || '').get('lang');
+    if (asked && LOCALES.has(asked)) { code = asked; g.localStorage?.setItem(LANG_KEY, asked); }
+    code ||= g.localStorage?.getItem(LANG_KEY) || '';
+  } catch { /* private mode, or no window: the browser's own language decides */ }
+  if (!LOCALES.has(code)) code = /^es\b/i.test(g.navigator?.language || '') && g.document ? 'es' : 'en';
+  return code;
+}
+export const LANG = readLang();
+const locale = new Map();
+/** Text the page or a module writes in English, whole, mapped to this language's words; and
+ * the same for patterns with {placeholders} (js/i18n-dom.js applies both to the live page). */
+export const localeText = new Map();
+export const localePatterns = [];
+if (LANG !== 'en') {
+  try {
+    const pack = (await import(`./${LANG}/index.js`)).default;
+    for (const [ns, table] of Object.entries(pack.sections || {})) locale.set(ns, table);
+    for (const [en, tr] of Object.entries(pack.text || {})) localeText.set(en, tr);
+    localePatterns.push(...(pack.patterns || []));
+  } catch (e) { console.warn('[strings] the', LANG, 'strings did not load; reading English', e); }
+  if (globalThis.document?.documentElement) {
+    globalThis.document.documentElement.lang = LANG;
+    import('../i18n-dom.js').then((m) => m.start()).catch(() => {});
+  }
+}
+/** Set the language and reload (Settings › Display › Language). */
+export function chooseLanguage(code) {
+  if (!LOCALES.has(code) || code === LANG) return;
+  try { globalThis.localStorage?.setItem(LANG_KEY, code); } catch { /* private mode */ }
+  try {
+    const url = new URL(globalThis.location.href);
+    url.searchParams.delete('lang');
+    globalThis.location.replace(url.href);
+  } catch { globalThis.location?.reload(); }
+}
+
+/**
  * T-2668 — Researcher mode's strings. A string only Researcher mode (T-2657) shows — the
  * order book, a full "Why this default" essay — lives under a key with a `researcher`
  * segment: the `researcher` namespace, or `researcher` inside an app's own section
@@ -56,8 +111,10 @@ export function register(namespace, table) {
 /** The string at `namespace.key`, with {placeholders} filled from `vars`. */
 export function t(key, vars = null, fallback = '') {
   const dot = String(key).indexOf('.');
-  const value = dot > 0 ? sections.get(key.slice(0, dot))?.[key.slice(dot + 1)] : undefined;
-  if (typeof value !== 'string') return fallback;
+  const ns = dot > 0 ? key.slice(0, dot) : '';
+  const local = ns && locale.get(ns)?.[key.slice(dot + 1)];
+  const value = typeof local === 'string' && local ? local : ns ? sections.get(ns)?.[key.slice(dot + 1)] : undefined;
+  if (typeof value !== 'string') return typeof fallback === 'string' && fallback ? (localeText.get(fallback) ?? fallback) : fallback;
   return vars ? value.replace(/\{(\w+)\}/g, (m, name) => (vars[name] ?? m)) : value;
 }
 

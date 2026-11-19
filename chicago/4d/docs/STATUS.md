@@ -1,3 +1,39 @@
+## T-3663 — Gossip source comparison checkpoint (19 November 2026)
+
+Integrated onto DEV `38f51fcda` after the T-3656/T-3657/T-3658 delivery merged in
+PR #2197. The prior feature checkpoint remains on `backup/t3663-before-dev`. Eligible
+Gossip completions offer a collapsed **Make your case** beside the existing reflection:
+two newspaper readings, selected support, a claim, an uncertainty and an ungraded
+reading guide. Save explicitly adds an ordinary note to the existing bounded notebook;
+a revised save keeps a new copy. Failed saves retain the draft and earlier entries.
+
+The current telling supplies all historical text and citations. The Democrat's second
+sale figure stays lost; the Chicago branch decision does not establish an operating
+bank; the Springfield building remains Inferred with its reasoning and shared American
+item locator. Both sources are text-only with no public URL. No witnesses, scans,
+source links, route, service or notebook schema are added.
+
+Focused pure checks pass for all five tellings, exclusions, complete provenance,
+bounded/duplicate/revised saves, edited notebook entries, storage failures and escaped
+HTML export. Existing reflection/notebook regressions and the string lint pass.
+The registered pure gate step was officially measured with `--tool`: no tracked or
+ignored writes, and the isolation audit passes. The native no-world fixture passed
+53 checks across 390×780 and 1280×800 with no page, console or HTTP errors: native
+summary/checkbox/textarea and Space behavior, saves/revisions, retained drafts after
+quota failure, repaint/replay/dismissal, 200% text and HTML/PDF export. Notebook excerpts
+now use the neutral heading **Source context**, so newspaper readings are not labelled
+as a person's card. The actual-store export regression and native fixture cover both
+the saved context and heading. Its first attempt
+incorrectly forbade the rejected editorial supply even in the source locator's explicit
+warning; that failed fixture attempt is preserved. The corrected check separately
+verifies the quotation's missing figure and the locator's rejection of that supply.
+
+The real published Gossip completion flow and the final combined source/release gates
+remain pending at this checkpoint. Latest DEV also changes the served changelog and
+1823 Prairie's 1904 model, so fresh published stages 13–15 at both widths are required.
+Earlier renderer evidence carries only under explicit input and behavior review.
+PR #2205 and its linked evidence record the final results; this is not a release verdict.
+
 ## T-3671 — accessibility pass toward WCAG 2.1 AA (19 November 2026)
 
 Keyboard and screen-reader paths through every menu, Settings tab, jaunt and card; Text size to 200 % across the interface; contrast and one focus ring in all four appearances and both tones; grades told by shape as well as colour (and patterns in the town's Confidence view); narration highlighted as it plays, with a Transcript where an age tab shows other words, and a Pause key; Settings › Look › Motion (System / Reduce / Full) and Letter keys (2.1.4). docs/ACCESSIBILITY.md lists each criterion, the browser fixture that holds it (tools/test_a11y_*.mjs, Chromium at 390 and 1280, no town load) and the known gaps. Unverified: no physical screen reader (NVDA, JAWS, VoiceOver) and no Chromebook has been tried; the WebGL town and its name cards are not themselves readable. This is not a third-party audit or a legal conformance claim.

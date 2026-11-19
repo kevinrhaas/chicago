@@ -27,12 +27,23 @@ ground validation. Do not preload multiple years to implement it.
 T-3657 and T-3658 add **7** and a bounded first slice of **10** to the same
 classroom PR: a five-photo hunt in 1904, native browser magnification/panning in the
 Navigator, keyboard-safe picture dialogs, and a visible rail Tab stop while Move or
-Jump is open. Pure, browser-fixture and native-town integration checks pass;
-complete release validation remains before the combined PR merges. Keyboard ownership
+Jump is open. The combined PR #2197 merged to DEV after its source and renderer gates
+passed. Keyboard ownership
 also keeps arrows and Space with focused controls and releases held world movement
 when focus enters a reader. The earlier draft PR #2199 is superseded by #2197.
 The hunt reuses five photographs of four places, with a daily order and shared date,
 and reveals their recorded dates rather than treating them as photographs taken in 1904.
+
+## Next separate delivery: one source investigation
+
+T-3663 uses the existing *Gossip or Printed Notice?* route and its five tellings.
+**Make your case** stays collapsed until requested and preserves the general reflection.
+It displays our readings of two newspaper transcriptions, with dates, locators,
+citations and uncertainty. The lost sale figure remains lost; the Springfield building
+is an inference. Save keeps the student's chosen support and answer with both readings
+in the existing notebook. No new account, service, route or source image is involved.
+This separate implementation follows the merged first delivery and still requires
+its own complete release gates in PR #2205.
 
 ## Teacher routes (item 11)
 
@@ -64,8 +75,8 @@ Nothing about the route is recorded or sent anywhere.
 | 4 | Understanding checks | First delivery: three optional cited reflection prompts, grade-aware wording and evidence self-review. No scoring or automatic assertion that a student's answer is correct. Authored guide-voice quizzes remain a content refinement. |
 | 5 | Lesson guides | First delivery: current catalog groups, document tasks, discussion and suggested standards connections; preserve source type and provenance. |
 | 6 | Class codes and teacher view | Defer shared class storage, authentication and cross-device submissions. Local exports are useful now but are not a dashboard. |
-| 7 | Where and when? | T-3657 implemented in the combined delivery: five licensed 1904-scene photographs, deterministic daily/shareable order, ground-distance scores, source/date reveals and bounded local progress. One image at a time; no leaderboard service. Native-town integration passes; complete release gates pending. |
-| 8 | Mysteries with sources | Later content work using evidence/confidence and existing jaunt branching. Needs authored, reviewed investigations. |
+| 7 | Where and when? | T-3657 merged to DEV in #2197: five licensed 1904-scene photographs, deterministic daily/shareable order, ground-distance scores, source/date reveals and bounded local progress. One image at a time; no leaderboard service. |
+| 8 | Mysteries with sources | T-3663: first bounded case in progress, attached to eligible Gossip completion. Compare two cited newspaper readings, choose support, write a claim/uncertainty, review an ungraded guide and explicitly save to Notebook. No invented witnesses or new engine; browser and release validation pending. |
 | 9 | Play a part | Existing engine already supports choices and alternate endings. Later authored historical-role stories, with reconstruction labelled. |
 | 10 | Accessibility | T-3658 first slice (Navigator zoom, keyboard picture viewers, rail Tab stop), then T-3671 the full pass toward WCAG 2.1 AA: keyboard and screen-reader paths through every menu, Settings tab, jaunt and card; Text size to 200 %; contrast and focus ring in every appearance; grades told by shape as well as colour; narration transcripts and Pause; Settings › Look › Motion and Letter keys. Criterion by criterion with its tests and the known gaps (the canvas itself; no physical screen-reader run yet): docs/ACCESSIBILITY.md. No third-party audit or legal conformance claim. |
 | 11 | Assign/build a jaunt | T-3672 implemented the browser-only subset: Guide › For teachers builds a route from a jaunt or from one year's buildings, viewpoints and people (up to 20 stops, a note and a question each), as one bounded `?route=` link and a reopenable route file; the student's Route panel in Jaunts gives Go there per stop, shows the teacher's words as theirs, and saves answers to the local field notebook. Shared authoring libraries and submission tracking still need storage. |
