@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1186,
+  "count": 1187,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -3519,7 +3519,7 @@
     },
     {
       "id": "stone_house_2035_prairie",
-      "name": "2035 Prairie Avenue — Corner of limestone row"
+      "name": "2035 Prairie Avenue — Mrs. H. O. Stone's house, the 21st Street corner of the 1869 limestone row"
     },
     {
       "id": "stone_house_2035_prairie_rear_building",
@@ -36952,18 +36952,6 @@
         },
         {
           "domain": "structure",
-          "structure": "stone_house_2035_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "stone_house_2035_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "stone_house_2035_prairie_rear_building",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -37004,7 +36992,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie.draft_1904.form.draft_elevation`, `house_2101_prairie.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie.draft_1904.form.draft_elevation`, `otis_house_2033_prairie.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie.draft_1904.form.draft_elevation`, `stone_house_2035_prairie.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie.draft_1904.form.draft_elevation`, `house_2101_prairie.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie.draft_1904.form.draft_elevation`, `otis_house_2033_prairie.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -37047,6 +37035,10 @@
           "text": "2027, the Cobb-associated villa, by later work (the S08 package), which refined it in place on the K01 frontage kit under `“2027 Prairie, the Cobb-associated villa, refined from the district draft onto K01 as a bounded design off the 1911 sheet: a brick body of two and a half storeys with a full-height front bay, a canted north bay and a two-storey rear range, everything but the plan the kits'”`, under the same id; its draft attributes are gone (its alley barn is still the draft's, 's)."
         },
         {
+          "label": "Retired in part",
+          "text": "2035, the 21st Street corner of the limestone row, by later work (the S09 package), which refined it in place on the K01 frontage kit under `“2035 Prairie, the 21st Street corner of the 1869 limestone row, refined from the district draft onto K01: its plan off the 1911 sheet, its entrance off the Tribune's 1898 vignette, its heights the row's”`, under the same id; its draft attributes are gone (its detached rear building is still the draft's, 's)."
+        },
+        {
           "label": "Recorded",
           "text": "2026-10-11 (T-2352)."
         }
@@ -37069,7 +37061,9 @@
         "T-1917",
         "T-3633",
         "T-3634",
-        "T-3635"
+        "T-3635",
+        "T-1918",
+        "T-3661"
       ]
     },
     {
@@ -76003,6 +75997,167 @@
         "T-1917",
         "T-1837",
         "T-3635"
+      ]
+    },
+    {
+      "id": "L-k01-2035-stone-3661",
+      "title": "2035 Prairie, the 21st Street corner of the 1869 limestone row, refined from the district draft onto K01: its plan off the 1911 sheet, its entrance off the Tribune's 1898 vignette, its heights the row's",
+      "section": "per_subject",
+      "subjects": [
+        "stone_house_2035_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.principal_floor_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_form"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.storey_heights_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_head"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "stone_house_2035_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-11-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the district draft at 2035 Prairie Avenue — Mrs. H. O. Stone's house, the 21st Street corner of the 1869 limestone row is refined in place, under its own id, to a k01 frontage record built by the k01 emit generator (the S09 package of the programme): Mrs. H. O. Stone's house of 1869, the corner house of the Lemont-limestone row 2031-2035. **What is read, not invented.** From the 1911 Sanborn sheet 35 raster at full size (0.186 m a pixel, through the committed trace's fit): the '3B' main body, 15.9 m from the rear range to the stone front, the front on the line of 2033's (lot u 46.5), 7.6 m between the north party line and the 21st Street wall; the stone front; the curved stone bay at the front's south end (chord about 3.7 m, out about 1.1 m); the attached rear range, 9.9 m deep, lettered 'BRICK 1ST'. From the Chicago Tribune's vignette of 9 January 1898 ('Select residence district where wealth has not prevented death from visiting…, public domain), through an approximate camera (the tribune 1898 front data): the round-arched door at the north end of the front, the flat-roofed portico on slender columns with a deep plain entablature, the deck beside the stoop under the same roof railed with a pierced band, the stoop's swept cheeks, the round-headed light over the porch roof and the low iron fence on its curb. **What is invented.** The floor, storey and cornice heights are 2033's (read off its 1946 photograph), so the row keeps one cornice line; no picture of 2035 shows its upper storeys. The stone's dressing, the walls' thickness, the common brick of the flanks and rear, the flat tin roof, every light of the bay, the 21st Street flank and the rear (four a storey on the flank: the register's 'exact corner fenestration is reconstructed'), the two stacks on the north party wall, the stoop's tread, the rear range's two storeys, flat roof and lights, and the yard. **What is built otherwise than the evidence, and why.** The vignette's porch roof and deck run on across the whole front, before the bay's principal storey; K01 lays a door hood beside a bay, not before it, so the portico and its deck stop at the bay's north foot (2.95 m of the vignette's roughly full-width porch). K01's hood takes a railed top or a pediment, so the portico's plain top carries the kit's lowest railing (0.35 m). The pierced band is K07's parapet with two holes, not the print's scrolls. The flat roof is corniced on the street front only: the 21st Street flank stands under a coped brick parapet, where a corner house may have returned its cornice. The rear range is laid in brick whole; the sheet's frame upper storey, the one-storey brick strip beside the range and the flank's two small frame projections are not built (K01 lays a wing in one fabric, no wing beside a wing, and no frame bay on a flank)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of the row or of 21st Street before 1911 reads the flank, the cornice's return and the porch's extent; the undated Chicagology engraving of the 2031-2035 walk (rights unknown, link only) is the first picture to weigh."
+        },
+        {
+          "label": "Covers",
+          "text": "`stone_house_2035_prairie.as_mapped_1904.form.principal_floor_m`, `stone_house_2035_prairie.as_mapped_1904.form.storey_heights_m`, `stone_house_2035_prairie.as_mapped_1904.form.wall_thickness_front_m`, `stone_house_2035_prairie.as_mapped_1904.form.wall_thickness_side_m`, `stone_house_2035_prairie.as_mapped_1904.form.service_wall_brick`, `stone_house_2035_prairie.as_mapped_1904.form.face_brick`, `stone_house_2035_prairie.as_mapped_1904.form.street_front_trim`, `stone_house_2035_prairie.as_mapped_1904.form.wall_head`, `stone_house_2035_prairie.as_mapped_1904.form.roof_form`, `stone_house_2035_prairie.as_mapped_1904.form.roof_pitch_deg`, `stone_house_2035_prairie.as_mapped_1904.form.eave_overhang_m`, `stone_house_2035_prairie.as_mapped_1904.form.roof_covering`, `stone_house_2035_prairie.as_mapped_1904.form.window_kit`, `stone_house_2035_prairie.as_mapped_1904.form.stair_tread_m`, `stone_house_2035_prairie.as_mapped_1904.form.north_bays`, `stone_house_2035_prairie.as_mapped_1904.form.rear_bays`, `stone_house_2035_prairie.as_mapped_1904.form.sash_by_storey`, `stone_house_2035_prairie.as_mapped_1904.form.basement_lights`, `stone_house_2035_prairie.as_mapped_1904.form.chimneys`, `stone_house_2035_prairie.as_mapped_1904.form.yard`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 2035 stone."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-19 (T-3661)."
+        }
+      ],
+      "work_refs": [
+        "T-2352",
+        "T-3661",
+        "T-1918",
+        "T-1837",
+        "T-3659"
       ]
     },
     {
