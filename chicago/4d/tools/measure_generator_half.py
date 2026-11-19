@@ -707,8 +707,12 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # core's fifty-nine row-fill stores and boarding block on South Water, Lake and the cross
 # streets' corners, on the same shared path.
 #
+# 1124 -> 1126 on 2026-11-18 (T-3654): the pre-fire 1871 ground and water use
+# city_1871_emit.py's independent standard-library recipe. That recipe hashes its
+# own module, plan and datum; neither terrain_gen.py nor common/*.py is an input.
+# Their reaches therefore remain 6 and 820; the new emitter's reach is 2.
 STATED = {
-    "assets": 1124,
+    "assets": 1126,
     "restales": {
         "generators/common/*.py": 820,
         "generators/common/__init__.py": 0,
@@ -716,6 +720,7 @@ STATED = {
         "generators/emit.py": 814,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
+        "generators/city_1871_emit.py": 2,
         "generators/archetypes/pier_crib.py": 3,
     },
     "layers_drawn_at_load": 10,
@@ -786,6 +791,9 @@ def restale_reach() -> tuple[dict, int, list]:
         covers: `emit.py`, that archetype's builder, and `common/*.py`.
       * `terrain_inputs._code_shas()` names what a TERRAIN asset's covers:
         `terrain_gen.py` and `common/*.py`.
+      * The independent `city_1871_emit.inputs_sha()` recipe hashes its own
+        module as code, plus the plan and datum as data. Its terrain must not
+        be attributed to the legacy terrain recipe merely because it is ground.
 
     So a site's reach is the count of assets whose recipe names it.
     """
@@ -813,6 +821,8 @@ def restale_reach() -> tuple[dict, int, list]:
             except Exception as e:                        # noqa: BLE001
                 problems.append(f"archetype {arch}: {e}")
                 continue
+        elif entry.get("generator") == "generators/city_1871_emit.py":
+            names = ("city_1871_emit.py",)
         elif entry.get("terrain_epoch"):
             names = terrain_inputs._code_shas()           # noqa: SLF001
         else:

@@ -1,0 +1,489 @@
+{
+  "type": "FeatureCollection",
+  "coordinate_space": "Local paper-derived east/north metres about the 1869 lighthouse symbol; not WGS84 or project ENU.",
+  "source_id": "usace_chicago_harbor_august_1869",
+  "observed_date": "1869-08",
+  "scene_adoption": "pending_absolute_registration_and_1869_to_1871_reconciliation",
+  "derivation": {
+    "command": "python3 tools/trace_harbor_1869.py",
+    "image_sha256": "f9175b992b397008c49fa957ee5b4bea09aae1ec472cad9de7feb08d3cbf6872",
+    "pixel_metres": 0.303581893,
+    "origin_pixel": [
+      3400,
+      1454
+    ],
+    "north_unit_pixel": [
+      0.0027210783615222375,
+      -0.9999962978594222
+    ],
+    "east_unit_pixel": [
+      0.9999962978594222,
+      0.0027210783615222375
+    ],
+    "absolute_registration_rms_m": null,
+    "manual_pixel_read_tolerance_m": 1.821,
+    "uncertainty_note": "Manual read tolerance is not a ground accuracy result. The paper may be distorted, survey errors remain unknown, and source date precedes scene."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "north_river_quay",
+      "properties": {
+        "source_id": "usace_chicago_harbor_august_1869",
+        "kind": "water_facing_quay_edge",
+        "status": "survey_only",
+        "note": "Existing northern river edge, including the lighthouse pier frontage. Ends at the Chicago Dock and Canal basin turn; not a present-day shoreline control."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -884.1073,
+            27.0418
+          ],
+          [
+            -836.4732,
+            37.4933
+          ],
+          [
+            -797.6281,
+            42.4563
+          ],
+          [
+            -722.5966,
+            25.3562
+          ],
+          [
+            -649.6918,
+            8.8575
+          ],
+          [
+            -591.9627,
+            -8.8968
+          ],
+          [
+            -470.4998,
+            -19.7988
+          ],
+          [
+            -373.3292,
+            -28.6419
+          ],
+          [
+            -276.7492,
+            -43.5583
+          ],
+          [
+            -209.3931,
+            -29.1066
+          ],
+          [
+            -132.0329,
+            -9.4668
+          ],
+          [
+            -94.1018,
+            -3.2919
+          ],
+          [
+            -63.7454,
+            -2.6021
+          ],
+          [
+            -36.4099,
+            -7.3851
+          ],
+          [
+            -4.5083,
+            -16.7093
+          ],
+          [
+            21.3167,
+            -24.2286
+          ],
+          [
+            150.2543,
+            7.0877
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "south_river_quay_and_slips",
+      "properties": {
+        "source_id": "usace_chicago_harbor_august_1869",
+        "kind": "water_facing_quay_edge",
+        "status": "survey_only",
+        "note": "Existing south bank and two long water-filled slips; each slip is a water indentation in land. The final east dock edge continues south to the map frame. Building hatching inside the piers is not traced as bank."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -880.257,
+            -49.147
+          ],
+          [
+            -877.8102,
+            -55.8192
+          ],
+          [
+            -872.0281,
+            -60.9644
+          ],
+          [
+            -863.5212,
+            -63.3699
+          ],
+          [
+            -716.2846,
+            -62.9693
+          ],
+          [
+            -688.9582,
+            -64.4128
+          ],
+          [
+            -655.556,
+            -67.3578
+          ],
+          [
+            -620.0239,
+            -72.1184
+          ],
+          [
+            -619.5249,
+            -255.4812
+          ],
+          [
+            -580.6691,
+            -254.4647
+          ],
+          [
+            -565.0534,
+            -80.1656
+          ],
+          [
+            -528.9191,
+            -83.1031
+          ],
+          [
+            -543.3303,
+            -253.7559
+          ],
+          [
+            -502.9573,
+            -252.4317
+          ],
+          [
+            -481.8541,
+            -86.618
+          ],
+          [
+            -435.0878,
+            -91.9552
+          ],
+          [
+            -434.617,
+            -488.1298
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "illinois_central_outer_fill_enclosure",
+      "properties": {
+        "source_id": "usace_chicago_harbor_august_1869",
+        "kind": "enclosure_edge",
+        "status": "survey_only",
+        "note": "The western/eastern walls enclose an area marked in progress of being filled with earth. This is not proof the enclosed area was already dry land; the irregular interior waterline is traced separately."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -434.617,
+            -488.1298
+          ],
+          [
+            -380.8832,
+            -487.9836
+          ],
+          [
+            -382.2276,
+            -105.4726
+          ],
+          [
+            -300.8498,
+            -111.93
+          ],
+          [
+            -299.8271,
+            -487.763
+          ],
+          [
+            -380.8832,
+            -487.9836
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "illinois_central_fill_waterline",
+      "properties": {
+        "source_id": "usace_chicago_harbor_august_1869",
+        "kind": "natural_or_fill_waterline",
+        "status": "survey_only",
+        "note": "Approximate irregular line inside the enclosure, consistent with fill in progress. Do not use the enclosure east wall as a complete 1869 dry-land shoreline."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -380.397,
+            -108.8071
+          ],
+          [
+            -376.113,
+            -121.2423
+          ],
+          [
+            -368.1844,
+            -134.2748
+          ],
+          [
+            -365.7252,
+            -145.5007
+          ],
+          [
+            -369.6271,
+            -161.9048
+          ],
+          [
+            -372.3106,
+            -179.8235
+          ],
+          [
+            -370.4313,
+            -201.0692
+          ],
+          [
+            -366.7289,
+            -222.9171
+          ],
+          [
+            -362.1157,
+            -244.7625
+          ],
+          [
+            -358.0923,
+            -272.9848
+          ],
+          [
+            -360.435,
+            -304.5638
+          ],
+          [
+            -360.3475,
+            -336.7434
+          ],
+          [
+            -363.6125,
+            -364.0747
+          ],
+          [
+            -368.0745,
+            -397.7846
+          ],
+          [
+            -371.012,
+            -433.9189
+          ],
+          [
+            -376.6991,
+            -463.6855
+          ],
+          [
+            -379.6705,
+            -487.3731
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "north_lake_sand_shore",
+      "properties": {
+        "source_id": "usace_chicago_harbor_august_1869",
+        "kind": "natural_waterline",
+        "status": "survey_only",
+        "note": "Solid irregular 1869 natural sand shoreline west of basin. Older parallel shoreline overlays farther west and offshore dotted depth contours are excluded. First point lies near the sheet top boundary."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -168.1086,
+            195.05
+          ],
+          [
+            -149.2122,
+            167.779
+          ],
+          [
+            -136.4032,
+            146.2594
+          ],
+          [
+            -119.3341,
+            121.1085
+          ],
+          [
+            -109.5889,
+            109.9024
+          ],
+          [
+            -96.5102,
+            100.8305
+          ],
+          [
+            -87.0934,
+            98.7311
+          ],
+          [
+            -76.1496,
+            93.2964
+          ],
+          [
+            -70.0491,
+            82.6876
+          ],
+          [
+            -60.0152,
+            76.9468
+          ],
+          [
+            -54.5219,
+            66.3363
+          ],
+          [
+            -48.7315,
+            58.1553
+          ],
+          [
+            -31.4216,
+            56.0774
+          ],
+          [
+            -25.0365,
+            52.4517
+          ],
+          [
+            -21.6525,
+            36.0675
+          ],
+          [
+            -12.2192,
+            27.8964
+          ],
+          [
+            -0.9636,
+            19.4267
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "north_basin_inner_pier",
+      "properties": {
+        "source_id": "usace_chicago_harbor_august_1869",
+        "kind": "pier_water_edge",
+        "status": "survey_only",
+        "note": "Existing basin inner arm, observed1869. Separately reconstruct timber/crib width from the two ink edges if built; this polyline alone is only the water-facing edge."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            22.4447,
+            119.0656
+          ],
+          [
+            146.2999,
+            121.5277
+          ],
+          [
+            150.2543,
+            7.0877
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "north_basin_outer_pier",
+      "properties": {
+        "source_id": "usace_chicago_harbor_august_1869",
+        "kind": "pier_water_edge",
+        "status": "survey_only",
+        "note": "Existing Chicago Dock and Canal basin outer arm and U.S. pier ending at Beacon, as drawn1869. Not Navy Pier or a modern breakwater."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -140.066,
+            153.5355
+          ],
+          [
+            239.0866,
+            161.8532
+          ],
+          [
+            242.5288,
+            12.4997
+          ],
+          [
+            352.7229,
+            14.9246
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "south_us_pier_1869",
+      "properties": {
+        "source_id": "usace_chicago_harbor_august_1869",
+        "kind": "pier_water_edge",
+        "status": "survey_only",
+        "note": "Existing south U.S. pier explicitly labeled built in1869. The1870proposal for a4000ftouterbreakwater and1870contract for800ftare not traced here."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -300.8498,
+            -111.93
+          ],
+          [
+            -118.6823,
+            -118.4167
+          ],
+          [
+            -118.6675,
+            -123.8812
+          ],
+          [
+            -300.8333,
+            -118.0016
+          ]
+        ]
+      }
+    }
+  ]
+}

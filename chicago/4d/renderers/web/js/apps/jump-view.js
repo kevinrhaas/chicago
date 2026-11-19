@@ -1,7 +1,7 @@
 /**
  * Jump (SCR 08), loaded the first time it opens (T-2618; T-2655, DESIGN §07 "Jump").
  *
- * The three destinations as small era cards — the Observatory's own plates, the
+ * The four destinations as small era cards — the Observatory's own plates, the
  * destination, its date — with the one you are in marked HERE. Picking another runs the
  * short in-world jump: the transfer ring closes over the town (1.2 s; at once with reduced
  * motion), the Observatory's transfer stamp is written, and the destination's page takes
@@ -22,6 +22,7 @@ export const DESTINATIONS = [
   { year: 1835, date: '1835-07-01', href: '../1835/', plate: 'portal/plates/dearborn-drawbridge-1834.jpg' },
   { year: 1904, date: '1904-07-01', href: '../1904/', plate: 'portal/plates/glessner-house-habs.jpg' },
   { year: 1812, date: '1812-08-14', href: '../1812/', plate: 'portal/plates/fort-dearborn-1812.jpg' },
+  { year: 1871, date: '1871-10-08', href: '../1871/', plate: 'portal/plates/chicago-1871-baseline.jpg' },
 ];
 export const RING_MS = 1200;
 const TRANSFER_KEY = 'chicago4d.transfer';

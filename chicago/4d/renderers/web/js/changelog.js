@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 3125, ts: '2026-11-19T16:53:10.415Z', date: 'Nov 19, 2026, 10:53 AM CT', title: '2108 Prairie, the Mark Kimball house, built from the Tribune\'s 1898 sketch', kind: 'feature',
+    items: [
+      '2108 Prairie Avenue, the Mark Kimball house, replaces its rough draft with a finished house: two storeys of brick behind a pale stone front over a high basement, with two round-headed windows and a round-arched double door at the head of a long stoop between iron rails.',
+      'Its front follows the Chicago Tribune\'s sketch of January 1898 and a street photograph of the block from the early 1890s. Its plan follows the 1911 fire-insurance map, which also shows the two-storey rear wing.',
+    ] },
+  { v: 3124, ts: '2026-11-19T14:45:46.529Z', date: 'Nov 19, 2026, 8:45 AM CT', title: 'Explore the pre-fire city in 1871', kind: 'feature',
+    items: [
+      'Enter 8 October 1871 and explore a citywide baseline with varied commercial, residential and industrial buildings.',
+      'Streets, walks, bridges, rail corridors and riverfront structures give the buildings their setting.',
+      'New city and district viewpoints, source notes and reconstruction labels explain what is known and what remains to be researched.',
+      'Compare the corrected terrain traces with the original map, and read the independent alignment checks in the pre-fire research viewer.',
+    ] },
+  { v: 3123, ts: '2026-11-19T12:43:36.570Z', date: 'Nov 19, 2026, 6:43 AM CT', title: '2017 Prairie\'s mansard gets its crenellated crest and barred basement lights', kind: 'improvement',
+    items: [
+      'The William Armour house at 2017 Prairie now carries a row of square crenellations along the top of its mansard, as its photograph shows, in place of the scrolled iron cresting it had.',
+      'The two basement windows under its gabled south projection are now barred like the rest of the front\'s.',
+    ] },
+  { v: 3122, ts: '2026-11-19T12:37:52.776Z', date: 'Nov 19, 2026, 6:37 AM CT', title: '2031 Prairie stands in stone at the head of its row', kind: 'feature',
+    items: [
+      '2031 Prairie, Samuel Tolman\'s house at the north end of the 1869 limestone row, is no longer a rough placeholder. It now follows the 1911 fire-insurance map: a three-storey pale limestone front with a tall three-sided bay on its north half, a high stoop to the door on its south half beside 2033\'s, a bracketed cornice level with its neighbour\'s, an iron fence, and a two-storey range behind. The 1887 drawing once filed under this address shows a different house, so no picture of 2031 is known and its windows and trim are a careful, labelled guess.',
+    ] },
   { v: 3121, ts: '2026-11-19T11:44:49.365Z', date: 'Nov 19, 2026, 5:44 AM CT', title: 'Closing the Navigator never takes you off the page', kind: 'fix',
     items: [
       'Closing the Navigator and opening it again straight away could leave it holding a Back step that was already gone, so the next close went Back to the page before the walk. A reopen now waits for the earlier close to finish before it holds its Back step.',

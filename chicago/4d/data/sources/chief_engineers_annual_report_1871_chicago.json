@@ -1,0 +1,30 @@
+{
+  "id": "chief_engineers_annual_report_1871_chicago",
+  "type": "book",
+  "citation": "United States Army, Office of the Chief of Engineers. Report of the Chief of Engineers, 1871. Washington: Government Printing Office, 1871. Printed pp.35 and117 (Appendix A16, Improvement of Chicago Harbor, Illinois); Appendix A heading p.107.",
+  "author": "A. A. Humphreys, Chief of Engineers; Major D. C. Houston, Corps of Engineers",
+  "date": "1871",
+  "describes_date": "1870-09/1871-06-30",
+  "repository": "USACE Digital Library, Chief\u2019s Annual Reports, item 1832",
+  "url": "https://usace.contentdm.oclc.org/digital/collection/p16021coll6/id/1832/",
+  "locator": "Printed p.35 (PDF page44): Chicago Harbor paragraph16, not the preceding harbor paragraph. Printed p.117 (PDF page126): Appendix A16. Printed p.107 (PDF page116): Houston annual-report heading, for year ending June30,1871. Printed p.106 states main annual report was dated October20,1871.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "USACE catalog explicitly states: This document was published by a federal government agency and is in the public domain.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Relevant pages downloaded and visually inspected on 2026-11-18. Direct PDF: https://usace.contentdm.oclc.org/digital/api/collection/p16021coll6/id/1832/download . Metadata: https://usace.contentdm.oclc.org/digital/api/singleitem/collection/p16021coll6/id/1832 . This is a 1,041-page compiled report; only specified relevant pages and their date context were inspected. Complete PDF: 179,241,965 bytes; SHA-256 a0d7d188d28a71aad180c263b976b5b96868d496ab367546c41eaacac8a4eb08.",
+  "what_it_supplies": [
+    "Outer-harbor breakwater started September 1870.",
+    "Twenty-three 50\u00d730-foot cribs placed during 1870, 18\u201326 feet deep, making 1,150 feet up to water surface.",
+    "Six additional 50\u00d730-foot cribs in spring 1871; total 29 cribs and 1,450 feet, including a 300-foot westward return at the north end.",
+    "May 30, 1871 contract with Illinois Central Railroad Company for continuation.",
+    "Reported and projected superstructure and extension quantities, with distinct dating limits."
+  ],
+  "what_it_does_not_supply": [
+    "A registered footprint or absolute coordinates for the 1870\u20131871 outer breakwater.",
+    "A reconciled 8 October 1871 superstructure extent: summary reports about 200 feet, while Appendix A16 reports 1,000 feet at writing.",
+    "Proof that the projected 900-foot extension or roughly 2,000-foot completed structure existed by the fire."
+  ],
+  "note": "Post-fire publication: use explicitly dated 1870 and spring 1871 construction statements. Houston\u2019s Appendix A covers the fiscal year ending June 30, 1871, but at writing has no separate date on A16. The 200/1,000-foot superstructure reporting difference remains unresolved. Evidence ledger: data/traces/harbor_1869/construction_ledger_1870_1871.json. This source supersedes relying solely on the earlier 800-foot contract as evidence of built work."
+}

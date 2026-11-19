@@ -19,7 +19,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const deckDir = path.join(here, '../data/timestream');
 const decks = Object.fromEntries(readdirSync(deckDir).filter(f => f.endsWith('.json'))
   .map(f => [f.replace('.json', ''), JSON.parse(readFileSync(path.join(deckDir, f), 'utf8'))]));
-assert.deepEqual(Object.keys(decks).sort(), ['1812', '1835', '1904'], 'one deck per destination');
+assert.deepEqual(Object.keys(decks).sort(), ['1812', '1835', '1871', '1904'], 'one deck per destination');
 
 /** A fake clock and timer queue, so a 60-second trip runs in a millisecond. */
 function clock() {
