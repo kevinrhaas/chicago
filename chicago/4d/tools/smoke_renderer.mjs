@@ -20461,13 +20461,52 @@ for (const [label, viewport, touch] of [
     // 44193370202 desktop only). One forced frame settles the aim, and one after each key
     // consumes it, so what is read is what the key did. `stepKey` is the same `api.step()`
     // the click check below has always used; it never waits any less than before.
-    const stepKey = async (key, ms) => {
+    const stepKey = async (key, ms, worldFocus = '') => {
+      if (worldFocus) {
+        // T-3658: closing a reader focuses its reopening control. Camera-only
+        // goTo/frame calls do not return the keyboard to the world. Establish
+        // this precondition explicitly; focused UI must retain its native keys.
+        const focus = await page.evaluate(() => {
+          const before = document.activeElement;
+          const from = `${before?.tagName ?? 'none'}#${before?.id ?? ''}`;
+          before?.blur?.();
+          const after = document.activeElement;
+          return { from, to: `${after?.tagName ?? 'none'}#${after?.id ?? ''}`,
+            world: after === document.body || after?.tagName === 'CANVAS' };
+        });
+        check(`${label}: ${worldFocus} has world keyboard focus`, focus.world,
+          `${focus.from} → ${focus.to}`);
+      }
       await page.keyboard.press(key);
       await page.waitForTimeout(ms);
       await page.evaluate(() => window.__chicago4d.step());
     };
     await page.evaluate(() => { window.__chicago4d.closeBuilding(); window.__chicago4d.step(); });
+    // The complementary UI case is real native activation, not a swallowed key:
+    // Space on the focused Navigator handle opens it without inspecting/moving.
+    const uiSpaceBefore = await page.evaluate(async () => {
+      const a = window.__chicago4d;
+      await a.navigator.select('home');
+      a.navigator.dock();
+      const handle = ['nav-grip', 'nav-collapse'].map(id => document.getElementById(id))
+        .find(el => el?.getClientRects().length && getComputedStyle(el).visibility !== 'hidden');
+      handle?.focus({ preventScroll: true });
+      return { e: a.player.e, n: a.player.n, focused: !!handle && document.activeElement === handle,
+        focus: document.activeElement?.id, level: a.navigator.level };
+    });
     await stepKey('Space', 250);
+    const uiSpaceAfter = await page.evaluate(() => {
+      const a = window.__chicago4d;
+      return { e: a.player.e, n: a.player.n, flying: a.player.flying, inspected: !!a.inspecting,
+        focus: document.activeElement?.id, level: a.navigator.level };
+    });
+    check(`${label}: Space activates a focused Navigator control without inspecting or moving`,
+      uiSpaceBefore.focused && uiSpaceBefore.level === 0 && uiSpaceAfter.level > 0
+      && !uiSpaceAfter.flying && !uiSpaceAfter.inspected
+      && Math.hypot(uiSpaceAfter.e - uiSpaceBefore.e, uiSpaceAfter.n - uiSpaceBefore.n) < 0.05,
+      `${uiSpaceBefore.focus} → ${uiSpaceAfter.focus}, level ${uiSpaceAfter.level}, inspected ${uiSpaceAfter.inspected}`);
+    await page.evaluate(() => window.__chicago4d.navigator.dock());
+    await stepKey('Space', 250, 'on-foot Space');
     const spaceOnFoot = await page.evaluate(() => ({
       alt: window.__chicago4d.player.altitude,
       flying: window.__chicago4d.player.flying,
@@ -20492,7 +20531,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: Escape closes the inspection card`, escClosed,
       `card hidden after Escape: ${escClosed}`);
 
-    await stepKey('Space', 300);                   // same crosshair, reopens
+    await stepKey('Space', 300, 'Space reopening the card'); // same crosshair, reopens
     const reopened = await page.evaluate(() => !!window.__chicago4d.inspecting);
     await stepKey('KeyE', 300);
     const keyToggled = await page.evaluate(() => !window.__chicago4d.inspecting);
@@ -20504,7 +20543,7 @@ for (const [label, viewport, touch] of [
     // And neither fires from inside the Go-to box: typing is not a command.
     // (Escape in the box still shuts the Go-to PANEL — that is the panel's own
     // long-standing binding — but the card must not be collateral.)
-    await stepKey('Space', 300);                   // card open again
+    await stepKey('Space', 300, 'Space before the typing check'); // card open again
     // T-2620: Go to is the Jaunts app's own segment (T-2630); its box is #welcome-search.
     await page.evaluate(async () => {
       await window.__chicago4d.openJaunts('goto');
