@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1191,
+  "count": 1192,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -77917,6 +77917,48 @@
         "T-2934",
         "T-3632",
         "T-3631"
+      ]
+    },
+    {
+      "id": "L-1871-great-fire-3687",
+      "title": "The Great Fire burns the 1871 city hour by hour",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner asked to follow the Great Fire as a timeline, watching it engulf the city and its landmarks with the time of day right (2026-11-19). This work draws it on the 1871 city at any fire time from 21:00 on Sunday 8 October 1871 to the morning of Tuesday 10 October. Free walk stays the city before the fire, at 16:00 on 8 October."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "the burnt district is the mapped one: the West, South and North Side outlines follow the Board of Police and Fire Commissioners' report, Andreas vol. 2 and the Encyclopedia of Chicago's plate of the fire's progress (Conzen), drawn along the scene's own rivers and shoreline. Forty-one places carry an hour, each graded attested or inferred with its source and page in the 1871 fire data (the barn about 21:00, St. Paul's, Bateham's mills, Parmelee's stables, the gas works, the Court House about 01:30, the Water Works 03:20, the North Avenue front about noon Monday, Fullerton late Monday night). The Ogden house, the Water Tower and the O'Leary cottage are spared, as the accounts say. The wind is the south-westerly gale the accounts describe; the rain on Monday night is Andreas's."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "the hour at any place between the timed ones is read linearly across a triangulation of its own division's timed places (no triangle spans a river), the distance across the wind counted 1.8 times, with a few minutes' seeded difference between blocks and between neighbours; it is a model of the front, not a record of when a given building caught. How long a building burns, when its roof goes and whether its walls stand (masonry walls fall at three in ten, at random) are a reconstruction from the accounts' general descriptions, not from any one building. The flames, smoke, plume, ember glow, firelight and the sky's glow are drawn effects; their colours and sizes are not measurements. A frame building brought down is drawn as a black slab with one chimney standing; the chimney's place is chosen at random."
+        },
+        {
+          "label": "Evidence and limits",
+          "text": "Board of Police and Fire Commissioners of the City of Chicago, Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time, Smith, Carl. 'The Great Conflagration', Conzen, Michael P. 'Progress of the Chicago Fire of 1871' (map). The accounts' hours are approximate and sometimes disagree (Holden's 8:45 start against the Board's 9:20-9:25); the inferred hours say so in their notes. The district edge is drawn to the plate's scale, not surveyed. No casualties are drawn."
+        },
+        {
+          "label": "How to resolve",
+          "text": "add timed places from further contemporary accounts (Colbert and Chamberlin's and Sheahan and Upton's books of 1871) and check the district edge against their maps; give named structures their own recorded hours and fates as their models arrive."
+        },
+        {
+          "label": "Review",
+          "text": "the 1871 fire data, the fire 1871 tool, the walkthrough's fire map code, the walkthrough's city fire code."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-19."
+        }
+      ],
+      "work_refs": [
+        "T-3687"
       ]
     },
     {
