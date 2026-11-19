@@ -1,6 +1,6 @@
 import { t } from './strings/index.js';
 import './strings/understanding.js';
-import { ANSWER_LIMIT, CHECK_AGES, answerQuestion } from './jaunt-understanding.js';
+import { ANSWER_LIMIT, CHECK_AGES, answerQuestion, shortCitation } from './jaunt-understanding.js';
 
 /** Native details, labels and buttons keep the optional check usable with keyboard and
  * screen reader. `draft` belongs to the completed session, never browser or remote storage. */
@@ -70,26 +70,31 @@ export function renderUnderstandingCheck(doc, questions, draft) {
       if (draft.solved[i]) feedback.textContent = t('understanding.answerIs', { answer: ask.options.find(o => o.id === ask.answer)?.label ?? '' });
       paintChoices();
     }
-    const label = node('label', t('understanding.answer', { n: question.number }));
+    const label = node('label', t('understanding.answer', { n: question.number, prompt: question.prompt }));
     const field = node('textarea'); field.rows = 3; field.maxLength = ANSWER_LIMIT;
     field.value = draft.answers[i]; field.dataset.checkAnswer = String(i);
     label.append(field); section.append(label); fields.push(field);
     field.addEventListener('input', () => { draft.answers[i] = field.value.slice(0, ANSWER_LIMIT); });
     const review = node('div', null, 'jaunt-check-review'); review.hidden = !draft.reviewed[i];
-    review.append(node('p', t('understanding.review')), node('p', t(`understanding.grade.${question.claim.confidence}`)));
+    // Plain words first: what kind of claim it is, where we read it, where in that record.
+    review.append(node('p', t('understanding.review')),
+      node('p', t(`understanding.choice.${question.claim.confidence}`, null, t(`understanding.grade.${question.claim.confidence}`))));
     if (question.place && ask?.kind === 'where') review.append(node('p', question.place, 'jaunt-meta'));
-    if (question.claim.locator) review.append(node('p', question.claim.locator));
-    if (question.claim.reasoning) review.append(node('p', question.claim.reasoning));
+    if (question.speaker && ask?.kind === 'who') review.append(node('p', question.speaker, 'jaunt-meta'));
+    review.append(node('h5', t('understanding.from')));
     const sources = node('ul');
     for (const ref of question.sources) {
-      const item = node('li', ref.citation);
+      const item = node('li', shortCitation(ref.citation));
       if (ref.url) {
         const link = node('a', t('understanding.source')); link.href = ref.url;
         link.target = '_blank'; link.rel = 'noopener noreferrer'; item.append(' ', link);
       } else item.append(' ', node('span', t('understanding.unavailable')));
       sources.append(item);
     }
-    review.append(sources, button('revise', () => { field.focus(); }));
+    review.append(sources);
+    if (question.claim.locator) review.append(node('p', t('understanding.locator', { locator: question.claim.locator })));
+    if (question.claim.reasoning) review.append(node('p', question.claim.reasoning));
+    review.append(button('revise', () => { field.focus(); }));
     function showReview() { draft.reviewed[i] = true; review.hidden = false; compare.setAttribute('aria-expanded', 'true'); }
     const compare = button('compare', () => {
       showReview();

@@ -51,27 +51,43 @@ export function understandingQuestions(session, { placeOf = null } = {}) {
   if (!candidates.length) return [];
   const band = checkBand(jaunt);
   const places = [...new Set(candidates.map(c => c.place).filter(Boolean))];
-  // Every place on the route that tells a claim: none of them is a wrong answer for it.
-  const told = new Map();
+  // Every place on the route, and every host, that tells a claim: none of them is a wrong
+  // answer for it.
+  const told = new Map(), toldBy = new Map(), add = (map, id, v) => (map.get(id) ?? map.set(id, new Set()).get(id)).add(v);
   for (const visit of session.visited ?? []) {
-    const stop = stops.get(visit.id), place = stop && nameOf(stop);
-    if (!stop || !visit.committed || !place) continue;
-    for (const id of stop.evidence ?? []) (told.get(id) ?? told.set(id, new Set()).get(id)).add(place);
+    const stop = stops.get(visit.id), place = stop && nameOf(stop), who = stop && speakerOf(stop);
+    if (!stop || !visit.committed) continue;
+    for (const id of stop.evidence ?? []) { if (place) add(told, id, place); if (who) add(toldBy, id, who); }
   }
+  for (const c of candidates) c.speaker = speakerOf(stops.get(c.stop));
+  const speakers = [...new Set(candidates.map(c => c.speaker).filter(Boolean))];
   return [0, 1, 2].map(index => {
     const picked = candidates[Math.round(index * (candidates.length - 1) / 2)];
     const id = `${jaunt.id}:reflection:${index}`;
     return { ...picked, id, number: index + 1, band,
       prompt: t(`understanding.prompt.${band}.${index}`),
-      ask: askFor(KINDS[index], picked, { places, told: told.get(picked.claim.id) ?? new Set(), citations: jaunt.citations ?? [], band, id }) };
+      ask: askFor(PREFER[index], picked, { places, told: told.get(picked.claim.id) ?? new Set(),
+        speakers, toldBy: toldBy.get(picked.claim.id) ?? new Set(), band, id }) };
   });
 }
 
+/** The one person who hosts a stop, by the name its own card link gives; a stop with no
+ * host, or several, has no single teller to ask about. */
+function speakerOf(stop) {
+  const hosts = (stop?.hosts ?? []).map(h => h?.person).filter(Boolean);
+  if (hosts.length !== 1) return '';
+  return (stop.links ?? []).find(l => l?.kind === 'person' && l.id === hosts[0])?.label ?? '';
+}
+
 /** T-3670, the guide's three questions. Each has one answer the jaunt's own data settles,
- * and every option is a real thing from this jaunt: a stop we visited, a confidence grade,
- * a source it cites. No option is a made-up fact, so a wrong choice is never a lie told
- * to the student, only a place, a grade or a source that does not go with this claim. */
-export const KINDS = Object.freeze(['where', 'sure', 'source']);
+ * and every option is a real thing from this jaunt: a stop we visited, a person who told
+ * us something, a confidence grade. No option is a made-up fact, so a wrong choice is
+ * never a lie told to the student, only a place, a teller or a grade that does not go with
+ * this claim. (A "which source" question was tried and dropped on the owner's reading,
+ * 19 November: a bibliographic citation is not something a student can recall or weigh,
+ * and the record behind a line can differ from the book the telling echoes.) */
+export const KINDS = Object.freeze(['where', 'who', 'sure']);
+const PREFER = Object.freeze([['where', 'who'], ['sure'], ['who', 'where']]);
 const GRADES = Object.freeze(['attested', 'inferred', 'reconstructed']);
 /** A citation's own words, without the reading note ("Read 5 November 2026."). */
 export const shortCitation = citation => String(citation ?? '').replace(/\s*Read \d{1,2} \w+ \d{4}\.?\s*$/, '').trim();
@@ -82,20 +98,17 @@ function order(items, seed) {
   return items.map((item, i) => ({ item, k: Math.imul(h ^ (i + 1) * 2654435761, 2246822519) >>> 0 }))
     .sort((a, b) => a.k - b.k).map(x => x.item);
 }
-function askFor(kind, q, { places, told, citations, band, id }) {
+function askFor(kinds, q, { places, told, speakers, toldBy, band, id }) {
   const stem = k => t(`understanding.ask.${k}.${band}`);
-  if (kind === 'where' && q.place) {
-    const others = order(places.filter(p => p !== q.place && !told.has(p)), `${id}:others`).slice(0, 2);
-    if (others.length === 2) return { kind, stem: stem(kind), answer: 'a',
-      options: order([{ id: 'a', label: q.place }, { id: 'b', label: others[0] }, { id: 'c', label: others[1] }], id) };
-  }
-  if (kind === 'source') {
-    const mine = new Set(q.sources.map(s => s.id));
-    const right = shortCitation(q.sources[0]?.citation);
-    const others = order([...new Set(citations.filter(c => c?.citation && c.source_id && !mine.has(c.source_id))
-      .map(c => shortCitation(c.citation)).filter(c => c && c !== right))], `${id}:others`).slice(0, 2);
-    if (right && others.length === 2) return { kind, stem: stem(kind), answer: 'a',
-      options: order([{ id: 'a', label: right }, { id: 'b', label: others[0] }, { id: 'c', label: others[1] }], id) };
+  const three = (kind, right, pool, taken) => {
+    const others = order(pool.filter(p => p !== right && !taken.has(p)), `${id}:others`).slice(0, 2);
+    return right && others.length === 2 ? { kind, stem: stem(kind), answer: 'a',
+      options: order([{ id: 'a', label: right }, { id: 'b', label: others[0] }, { id: 'c', label: others[1] }], id) } : null;
+  };
+  for (const kind of kinds) {
+    const ask = kind === 'where' ? three(kind, q.place, places, told)
+      : kind === 'who' ? three(kind, q.speaker, speakers, toldBy) : null;
+    if (ask) return ask;
   }
   // How sure can we be? Always answerable: the claim's own grade.
   return { kind: 'sure', stem: stem('sure'), answer: q.claim.confidence,

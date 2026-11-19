@@ -5,7 +5,7 @@ import { CHECK_BANDS, checkBand, understandingQuestions, sourceURL, createUnders
 
 const root = process.env.C4D_TEST_ROOT || path.resolve(new URL('..', import.meta.url).pathname);
 let count = 0;
-const bands = new Set(), kinds = { where: 0, sure: 0, source: 0 };
+const bands = new Set(), kinds = { where: 0, who: 0, sure: 0 };
 for (const year of ['1812', '1835', '1904']) {
   const dir = path.join(root, 'data/sidecars', year, 'jaunts');
   const catalog = JSON.parse(fs.readFileSync(path.join(dir, 'catalog.json')));
@@ -51,12 +51,16 @@ for (const year of ['1812', '1835', '1904']) {
           assert(!toldAt.has(o.label), `${row.id}: a wrong place never also tells the claim`);
           assert(jaunt.stops.some(st => nm(st) === o.label), 'a real stop of this jaunt');
         }
-      } else if (ask.kind === 'source') {
-        assert.equal(answer, shortCitation(q.sources[0].citation));
-        const mine = new Set(q.sources.map(s => shortCitation(s.citation)));
+      } else if (ask.kind === 'who') {
+        // The one host of the stop that told it, by its own card link; no other teller of it.
+        const stop = jaunt.stops.find(st => st.id === q.stop);
+        const host = stop.hosts?.length === 1 ? stop.hosts[0].person : null;
+        assert(host && answer === stop.links.find(l => l.kind === 'person' && l.id === host).label, `${row.id}: the stop's own host`);
+        const tellers = new Set(jaunt.stops.filter(st => st.evidence?.includes(q.claim.id) && st.hosts?.length === 1)
+          .map(st => st.links?.find(l => l.kind === 'person' && l.id === st.hosts[0].person)?.label));
         for (const o of ask.options.filter(o => o.id !== ask.answer)) {
-          assert(!mine.has(o.label), 'a wrong source is not one this claim cites');
-          assert(jaunt.citations.some(c => shortCitation(c.citation) === o.label), 'a real citation of this jaunt');
+          assert(!tellers.has(o.label), `${row.id}: a wrong person never also told the claim`);
+          assert(jaunt.stops.some(st => st.links?.some(l => l.kind === 'person' && l.label === o.label)), 'a real host of this jaunt');
         }
       } else {
         assert.equal(ask.answer, q.claim.confidence);
@@ -88,8 +92,9 @@ for (const year of ['1812', '1835', '1904']) {
   }
 }
 assert.deepEqual([...bands].sort(), [...CHECK_BANDS].sort());
-assert.deepEqual(KINDS, ['where', 'sure', 'source']);
-assert(kinds.where > count / 2 && kinds.source > count / 2, `most tellings ask all three kinds: ${JSON.stringify(kinds)}`);
+assert.deepEqual(KINDS, ['where', 'who', 'sure']);
+assert(kinds.where + kinds.who >= count, `most tellings ask a place or person question as well as a grade: ${JSON.stringify(kinds)}`);
+assert(!Object.keys(kinds).includes('source'), 'no citation-recall question (owner, 19 November)');
 assert.equal(shortCitation("A. Author, 'Title', 2017. Read 5 November 2026."), "A. Author, 'Title', 2017.");
 for (const value of ['javascript:alert(1)', 'data:text/html,test', '/relative', null, '']) assert.equal(sourceURL(value), null);
 assert.equal(sourceURL('https://example.org/a'), 'https://example.org/a');

@@ -78,7 +78,7 @@ try {
       assert.equal(await q2.locator('.jaunt-check-review').isVisible(), true);
     }
     await page.locator('textarea').first().fill('<script>not markup</script> My own words');
-    await page.getByRole('button', { name: 'Compare with the sources', exact: true }).first().click();
+    await page.getByRole('button', { name: 'Where does this come from?', exact: true }).first().click();
     assert.equal(await page.locator('.jaunt-check-review').first().isVisible(), true);
     assert.equal(await page.locator('.jaunt-check-review a').first().getAttribute('rel'), 'noopener noreferrer');
     await page.getByRole('button', { name: 'Revise your answer', exact: true }).first().click();

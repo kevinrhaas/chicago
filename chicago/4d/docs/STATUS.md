@@ -7,9 +7,9 @@ does not reach it, the year's Welcome stays and a line says why. Shared links ne
 Checked: `test_moment.mjs`, `test_nav_jump.mjs` (pure and DOM-fake), and smoke part 14's
 new Jump-landing check, which accepts either outcome and requires the page to say which.
 
-The understanding check's questions (where / how sure / which source) were checked over all
+The understanding check's questions (where / who told us / how sure) were checked over all
 240 catalog tellings: exactly one answer, no repeated option, a wrong place never also tells
-the claim, a wrong source is never one the claim cites, stable order on repaint
+the claim, a wrong teller never also tells it, stable order on repaint
 (`test_jaunt_understanding.mjs`), and in the browser at 390×780 and 1280×800 with retry,
 reveal and start-again (`test_jaunt_understanding_view.mjs`). Not checked: assistive
 technology beyond native buttons, groups and status lines.
