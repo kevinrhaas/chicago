@@ -46,9 +46,16 @@ one pointer-lock request and `forward = -1` from ArrowDown on a Navigator button
 on that button set `interact = true` and prevented its native default. The new actual
 capture/backend regression passes UI/world ownership, already-held keys, focus transfer,
 prevented/modifier/composition events, popup/Inspect E exceptions and listener cleanup.
-Navigator and Settings regressions and JavaScript syntax checks pass. This continuation
-has not yet run a browser, official isolation measurement or the complete release gates;
-the earlier browser results below do not validate its new event-ownership path.
+Navigator and Settings regressions and JavaScript syntax checks pass. The continuation's
+native browser fixture passes 20 checks at source `3131c7986`, ten each at 390×780 and
+1280×800, with zero page errors, HTTP errors or external requests. It uses the actual
+Navigator, capture callback, PointerLockControls and backend, native button/summary Space
+activation, rail arrows, role-less dialogs and real held-W-to-Tab focus transfer. World
+keys, already-prevented keys, popup/Inspect E and text entry pass. It counts pointer-lock
+requests at the canvas method without granting mouse capture; no world or WebGL is loaded.
+The new regression's official isolation measurement records no in-tree writes, and the
+isolation audit passes. Complete source and published-renderer release gates still remain
+pending for the combined branch.
 
 Final published-town integration on feature commit `5674d33d` passed at both widths:
 all five actual photograph responses and destination guards, a real Glessner arrival,
