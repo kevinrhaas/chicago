@@ -146,7 +146,16 @@ if (args.includes('--self-test')) {
   const expect = (label, cond) => { console.log(`   self-test | ${cond ? 'ok  ' : 'FAIL'} ${label}`); if (!cond) failures++; };
   expect('the tree as it stands passes', run(skinsCss, navCss).bad.length === 0);
   const noBlock = navCss.replace(/\/\* contrast:begin \*\/[\s\S]*?\/\* contrast:end \*\//, '');
-  const without = run(skinsCss, noBlock).bad;
+  // T-3671 raised these tokens in skins.css itself (the whole interface reads them, not only
+  // the device), so the block is now a second line of defence. The block's own work is still
+  // proved: against the machines' pre-T-3671 tokens, without the block, each pair fails.
+  const before = [['--ink-faint:#949DAA', '--ink-faint:#6C7C96'], ['--accent:#0F7178;--accent-ink:#FFFFFF;--brass:#0F7178', '--accent:#138A92;--accent-ink:#FFFFFF;--brass:#138A92'],
+    ['--accent:#0B6386;--accent-ink:#FFFFFF;--brass:#0B6386', '--accent:#0E6F92;--accent-ink:#FFFFFF;--brass:#0E6F92'],
+    ['--signal:#D6352B;--signal-ink:#FFFFFF', '--signal:#D6352B;--signal-ink:#FFF1EC'], ['--signal:#EC6A1E;--signal-ink:#1A1006', '--signal:#EC6A1E;--signal-ink:#FFFFFF']]
+    .reduce((css, [now, was]) => css.replace(now, was), skinsCss);
+  expect('the pre-T-3671 tokens are rebuilt (each raised value found)', before !== skinsCss && !before.includes('--ink-faint:#949DAA'));
+  expect('…and with the block they pass', run(before, navCss).bad.length === 0);
+  const without = run(before, noBlock).bad;
   expect('without the Navigator’s overrides the faint ink fails', without.some((r) => r.what === 'ink-faint on panel'));
   expect('…Retro Future’s light accent fails', without.some((r) => r.skin === 'worlds-fair' && r.theme === 'light' && r.what === 'accent on panel'));
   expect('…the wash under Deep Space’s light accent fails', without.some((r) => r.skin === 'deep-space' && r.theme === 'light' && r.what === 'accent on its wash'));

@@ -11,9 +11,10 @@
   "target_date": "1904-07-01",
   "grade": {
     "value": "attested",
-    "why": "Pictured: a picture on the Images tab shows it.",
+    "why": "Pictured: 2 of the pictures on the Images tab show it.",
     "pictures": [
-      "a20-chicagology-2036-street-engraving-1880"
+      "a20-chicagology-2036-street-engraving-1880",
+      "a20-glessner-2100-block-west-side-1890s"
     ]
   },
   "documented_range": {
@@ -774,6 +775,9 @@
           "pier_s_m": 0.0,
           "drawn_deg": 0
         },
+        "side_iron": {
+          "to_u_m": -10.67
+        },
         "posts": {
           "section_m": 0.12,
           "height_m": 1.2
@@ -783,7 +787,7 @@
       "sources": [
         "chicagology_2000_block_prairie_engraving_1880"
       ],
-      "note": "The engraving's iron fence along the walk: spear-headed bars over a band of rings, on a stone curb, with stone gate piers carrying urns at the stoop's foot; K11's scroll band on its curb. The 6 ft brick wall the 1911 sheet draws along 21st west of the house is 1911 evidence the engraving's iron fence predates; it is not built (liberty L-k01-2036-buckingham-1911)."
+      "note": "The engraving's iron fence along the walk: spear-headed bars over a band of rings, on a stone curb, with stone gate piers carrying urns at the stoop's foot; K11's scroll band on its curb. The same railing runs along 21st Street across the whole foreground from the corner past the house's south face (T-3632, `side_iron`), on the south lot line from beside the corner post back to the rear range's west wall (u -10.67): the engraving shows it across the front block's face, and its west end is bounded by the house's own length, not read. The 6 ft brick wall the 1911 sheet draws along 21st west of the house is 1911 evidence the engraving's iron fence predates; it is not built (liberty L-k01-2036-buckingham-1911)."
     },
     "rear_wings": {
       "value": [

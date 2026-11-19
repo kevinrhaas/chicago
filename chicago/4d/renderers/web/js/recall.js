@@ -22,6 +22,9 @@
  */
 import { t } from './strings/index.js';
 import './strings/recall.js';
+import { reducedMotion } from './motion.js';
+// T-3671 (WCAG 2.1.4): loaded here so its key filter is registered before every other key handler.
+import './letter-keys.js';
 
 export const RECALL_MS = 1100;
 export const RECALL_KEY = 'chicago4d.recall';
@@ -42,7 +45,7 @@ export function createRecall({
   doc = globalThis.document,
   win = doc?.defaultView ?? globalThis,
   year = pageYear(),
-  reduced = () => globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false,
+  reduced = () => reducedMotion(), // T-3671: Settings › Look › Motion (js/motion.js)
   go = (href) => globalThis.location?.assign(href),
   wait = (fn, ms) => setTimeout(fn, ms),
   cancel = (id) => clearTimeout(id),
