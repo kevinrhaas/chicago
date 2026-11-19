@@ -17,6 +17,7 @@
  * Pure planning (`plan`) is separate from running it (`createShowMe`), so the test drives
  * both with fakes; no THREE here.
  */
+import { reducedMotion } from './motion.js';
 export const TURN_MS = 900;
 export const PULSE_MS = 2000;
 /** How far outside the wall the stand is, and how far it may step back to find a clear spot. */
@@ -116,7 +117,7 @@ export function createShowMe({
   land = () => {},            // leave free-fly (a viewpoint is on the ground)
   outline = () => {},         // ({ on, pulse }) => void | Promise — the outline on the building;
                               // a promise resolves once it is drawn, and the 2 s run from then
-  reduced = () => globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false,
+  reduced = () => reducedMotion(), // T-3671: Settings › Look › Motion (js/motion.js)
   frame = (fn) => globalThis.requestAnimationFrame?.(fn) ?? globalThis.setTimeout(() => fn(now()), 16),
   wait = (fn, ms) => globalThis.setTimeout(fn, ms),
   now = () => (globalThis.performance?.now?.() ?? Date.now()),

@@ -464,6 +464,7 @@ const COVERAGE = [
   ['renderers/web/js/today-view.js', [7], 'the Today window under the compass readout (T-3601)'],
   ['renderers/web/js/today-view-config.js', [7], 'the Today window\'s key and hosts (T-3601)'],
   ['renderers/web/js/today-geo.js', [7], 'the Today window\'s latitude, longitude and heading (T-3601)'],
+  ['renderers/web/js/today-register.js', [7], 'the Today window\'s registration onto today\'s ground, year by year (T-3618, T-3682)'],
   ['data/modern/', [7], 'today\'s streets (the City\'s centrelines), under the compass and on the maps'],
 
   // --- PART 9: what the light does to the town
