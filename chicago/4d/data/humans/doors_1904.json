@@ -7126,7 +7126,7 @@
   },
   {
    "structure": "house_2017_prairie",
-   "name": "2017 Prairie Avenue \u2014 Stone-front masonry (district draft; refined by T-1917)",
+   "name": "2017 Prairie Avenue \u2014 the William Armour house, a stone front under a mansard with a gabled south projection and a columned porch (T-3634)",
    "placement": {
     "local_e": 1441.061,
     "local_n": -3530.462,
@@ -7136,26 +7136,174 @@
     {
      "id": "house_2017_prairie:front",
      "leaf": {
-      "local_e": 1424.62,
-      "local_n": -3535.76
+      "local_e": 1424.79,
+      "local_n": -3535.54
      },
      "step": {
-      "local_e": 1421.82,
-      "local_n": -3535.79
+      "local_e": 1420.03,
+      "local_n": -3535.59
      },
      "outward_deg": 269.4,
      "width_m": 1.2,
-     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+     "passage": true,
+     "plan": {
+      "name": "Front door",
+      "origin": [
+       16.385,
+       4.9
+      ],
+      "outward": [
+       1,
+       0
+      ],
+      "along": [
+       0,
+       1
+      ],
+      "jambs": [
+       -0.61,
+       0.61
+      ],
+      "sill": 1.45,
+      "head": 4.2,
+      "leaf": {
+       "front": 0,
+       "back": -0.13,
+       "s": [
+        -0.6,
+        0.6
+       ],
+       "foot": 1.45,
+       "top": 4.2
+      },
+      "hinge": "right",
+      "pair": false,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.16,
+      "leafMaterials": [
+       "door_leaf"
+      ],
+      "way": [
+       [
+        21.085,
+        4.9,
+        null
+       ],
+       [
+        20.755,
+        4.9,
+        null
+       ],
+       [
+        20.515,
+        4.9,
+        0.161
+       ],
+       [
+        20.455,
+        4.9,
+        0.161
+       ],
+       [
+        20.215,
+        4.9,
+        0.322
+       ],
+       [
+        20.155,
+        4.9,
+        0.322
+       ],
+       [
+        19.915,
+        4.9,
+        0.483
+       ],
+       [
+        19.855,
+        4.9,
+        0.483
+       ],
+       [
+        19.615,
+        4.9,
+        0.644
+       ],
+       [
+        19.555,
+        4.9,
+        0.644
+       ],
+       [
+        19.315,
+        4.9,
+        0.806
+       ],
+       [
+        19.255,
+        4.9,
+        0.806
+       ],
+       [
+        19.015,
+        4.9,
+        0.967
+       ],
+       [
+        18.955,
+        4.9,
+        0.967
+       ],
+       [
+        18.715,
+        4.9,
+        1.128
+       ],
+       [
+        18.655,
+        4.9,
+        1.128
+       ],
+       [
+        18.415,
+        4.9,
+        1.289
+       ],
+       [
+        18.355,
+        4.9,
+        1.289
+       ],
+       [
+        18.115,
+        4.9,
+        1.45
+       ],
+       [
+        16.885,
+        4.9,
+        1.45
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "inferred"
+      }
+     },
+     "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     },
     {
      "id": "house_2017_prairie:back",
      "leaf": {
-      "local_e": 1441.16,
-      "local_n": -3539.91
+      "local_e": 1447.59,
+      "local_n": -3533.61
      },
      "step": {
-      "local_e": 1444.92,
-      "local_n": -3539.88
+      "local_e": 1451.35,
+      "local_n": -3533.58
      },
      "outward_deg": 89.5,
      "width_m": 0.95,
@@ -7164,14 +7312,26 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2017:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "74d305b348672fb02d03720efbd2320ab70ad4908f01962dfa567eb616559f7e",
+   "model_inputs_sha256": "77491ff6801fdcaf3b1174c6e63f4a3f13f70b6e7a153a833f7d0f14925cc7e5",
    "barrier": {
-    "key": "ae7c98e7144ac11c",
+    "key": "110c42fe795eac3e",
     "cell": 0.1,
-    "u0": -6.7,
-    "v0": -2.7,
-    "count": 5,
-    "rects": "2 67 42 103 67 232 130 131 69 148 2 27 232 233 14 131 233 251 14 91"
+    "u0": -6.6,
+    "v0": -3.0,
+    "count": 31,
+    "rects": "1 2 45 106 2 66 45 46 2 66 105 106 66 70 30 31 70 71 28 31 71 231 30 31 227 228 133 136 231 232 30 134 232 234 102 110 232 235 63 96 232 235 118 127 232 235 132 134 234 235 101 111 235 236 63 134 236 237 100 112 236 237 117 128 236 273 63 96 315 316 75 76 315 316 83 84 316 318 74 76 316 318 83 85 318 319 74 75 318 319 84 85 319 320 73 75 319 320 84 86 320 321 1 4 320 321 15 74 320 323 85 154 321 322 1 74 322 323 1 4 322 323 15 74"
+   },
+   "floor": {
+    "key": "580b6e63910ab56e",
+    "cell": 0.1,
+    "u0": 16.3,
+    "v0": 3.2,
+    "ni": 44,
+    "nj": 35,
+    "count": 36,
+    "rects": "1 2 12 21 145 2 3 12 23 145 3 4 10 26 145 3 20 1 5 175 4 7 30 31 175 4 15 5 30 145 7 20 30 34 175 15 16 5 6 185 15 16 29 30 185 15 19 9 10 185 15 19 25 26 185 15 20 10 25 145 19 20 5 10 185 19 20 25 30 185 20 21 1 5 172 20 21 30 34 172 20 23 5 30 129 21 22 1 5 167 21 22 30 34 167 22 23 1 5 162 22 23 30 34 162 23 24 1 5 156 23 24 30 34 156 23 26 5 30 113 24 25 1 5 151 24 25 30 34 151 25 26 1 5 145 25 26 30 34 145 26 27 1 5 140 26 27 30 34 140 26 29 5 30 97 29 32 5 30 81 32 35 5 30 64 35 38 5 30 48 38 41 5 30 32 41 44 5 30 16",
+    "wall_count": 38,
+    "walls": "0 1 12 13 245 1 2 11 12 245 1 2 21 24 245 2 3 0 6 275 2 3 9 12 245 2 3 23 27 245 3 4 5 6 275 3 4 6 10 245 3 4 26 29 245 3 4 29 32 275 4 6 31 32 275 6 7 31 35 275 15 16 6 7 285 15 16 7 8 245 15 16 27 28 245 15 16 28 29 285 15 18 8 9 285 15 18 26 27 285 16 17 5 7 285 16 17 28 30 285 17 18 5 6 275 17 18 29 30 275 18 19 5 9 285 18 19 26 30 285 27 28 1 5 240 27 28 30 34 240 28 30 4 5 197 28 30 30 31 197 30 33 4 5 181 30 33 30 31 181 33 36 4 5 164 33 36 30 31 164 36 39 4 5 148 36 39 30 31 148 39 42 4 5 132 39 42 30 31 132 42 44 4 5 116 42 44 30 31 116"
    }
   },
   {
@@ -16238,8 +16398,8 @@
   {
    "structure": "prairie_2017:back_door:stoop",
    "placement": {
-    "local_e": 1441.16,
-    "local_n": -3539.91,
+    "local_e": 1447.59,
+    "local_n": -3533.61,
     "rotation_deg": 359.55
    },
    "barrier": {
