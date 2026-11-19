@@ -4,7 +4,7 @@ PR #2197 now carries all three completed implementations so the new classroom
 controls, photo hunt and keyboard ownership fix can land together. PR #2199 is
 superseded after its tickets are retargeted. The candidate preserves the runtime
 from `ddc786069`, a direct child of classroom checkpoint `b1f507400`, and incorporates
-DEV `d47d9550b`, including the T-3635 house and its stamped changelog. Only our two
+DEV `c23d8a9e8`, including the T-3635 and T-3562 houses. Only our two
 pending entry files are consolidated into one T-3656 group entry; upstream records
 and the folded changelog are preserved.
 
@@ -29,6 +29,22 @@ are repeated on that test-only cohort; final combined CI still runs all eight.
 The incoming unique-ID checker was also officially remeasured against the new
 data: both declared commands wrote nothing in-tree, and its existing row is
 unchanged. Its actual unique-ID check and the consolidated changelog checks pass.
+
+The first ddc desktop 13–15 group completed with 308 passing and two failing
+assertions; it establishes no release coverage. Stage 14 left a Navigator button
+focused before pressing Space, which correctly activated that control instead of
+inspecting the world. The smoke now proves native button activation separately,
+establishes world focus explicitly, and retains the original inspection/no-flight,
+Escape and E-close assertions. The exact repaired block passed 11 checks in the
+published town at each width, with zero page/console or HTTP errors. The first
+desktop diagnostic attempt lost its execution context and remains recorded as an
+incomplete failure; the bounded retry passed. No runtime change was needed.
+
+The upstream T-3662 smoke repair drains pending picture work before stage 15's
+intermediate page reload, using its existing bounded settling helper. Error
+listeners and the zero-page-errors assertion remain intact. The old texture error
+and both harness changes require a fresh full 13–15 result at each width; the
+focused checks above do not replace it.
 
 ## T-3657, T-3658 — Photo hunt and targeted accessibility (18 November 2026)
 

@@ -1382,6 +1382,11 @@ const PICTURE_WARNING = /^4D Chicago: picture (lost|refused)/;
  * flight. Nothing is filtered: an error the page logs while it settles is still a page
  * error, `zero page errors` is unchanged, and a page that never settles is put down anyway
  * after a line saying so.
+ *
+ * T-3662: THE NEXT RED NAMED A THIRD PUT-DOWN. After #2190 both widths still went red,
+ * and the tags put every refusal on /1904/, in the seconds after the Confidence check:
+ * the far year's page, walked into at the Jump's landing and still loading, which the
+ * `?nav=jump` reload replaces. It settles before that reload too.
  */
 const SETTLE_QUIET_MS = 3000;
 const SETTLE_CAP_MS = 60_000;
@@ -20461,13 +20466,52 @@ for (const [label, viewport, touch] of [
     // 44193370202 desktop only). One forced frame settles the aim, and one after each key
     // consumes it, so what is read is what the key did. `stepKey` is the same `api.step()`
     // the click check below has always used; it never waits any less than before.
-    const stepKey = async (key, ms) => {
+    const stepKey = async (key, ms, worldFocus = '') => {
+      if (worldFocus) {
+        // T-3658: closing a reader focuses its reopening control. Camera-only
+        // goTo/frame calls do not return the keyboard to the world. Establish
+        // this precondition explicitly; focused UI must retain its native keys.
+        const focus = await page.evaluate(() => {
+          const before = document.activeElement;
+          const from = `${before?.tagName ?? 'none'}#${before?.id ?? ''}`;
+          before?.blur?.();
+          const after = document.activeElement;
+          return { from, to: `${after?.tagName ?? 'none'}#${after?.id ?? ''}`,
+            world: after === document.body || after?.tagName === 'CANVAS' };
+        });
+        check(`${label}: ${worldFocus} has world keyboard focus`, focus.world,
+          `${focus.from} → ${focus.to}`);
+      }
       await page.keyboard.press(key);
       await page.waitForTimeout(ms);
       await page.evaluate(() => window.__chicago4d.step());
     };
     await page.evaluate(() => { window.__chicago4d.closeBuilding(); window.__chicago4d.step(); });
+    // The complementary UI case is real native activation, not a swallowed key:
+    // Space on the focused Navigator handle opens it without inspecting/moving.
+    const uiSpaceBefore = await page.evaluate(async () => {
+      const a = window.__chicago4d;
+      await a.navigator.select('home');
+      a.navigator.dock();
+      const handle = ['nav-grip', 'nav-collapse'].map(id => document.getElementById(id))
+        .find(el => el?.getClientRects().length && getComputedStyle(el).visibility !== 'hidden');
+      handle?.focus({ preventScroll: true });
+      return { e: a.player.e, n: a.player.n, focused: !!handle && document.activeElement === handle,
+        focus: document.activeElement?.id, level: a.navigator.level };
+    });
     await stepKey('Space', 250);
+    const uiSpaceAfter = await page.evaluate(() => {
+      const a = window.__chicago4d;
+      return { e: a.player.e, n: a.player.n, flying: a.player.flying, inspected: !!a.inspecting,
+        focus: document.activeElement?.id, level: a.navigator.level };
+    });
+    check(`${label}: Space activates a focused Navigator control without inspecting or moving`,
+      uiSpaceBefore.focused && uiSpaceBefore.level === 0 && uiSpaceAfter.level > 0
+      && !uiSpaceAfter.flying && !uiSpaceAfter.inspected
+      && Math.hypot(uiSpaceAfter.e - uiSpaceBefore.e, uiSpaceAfter.n - uiSpaceBefore.n) < 0.05,
+      `${uiSpaceBefore.focus} → ${uiSpaceAfter.focus}, level ${uiSpaceAfter.level}, inspected ${uiSpaceAfter.inspected}`);
+    await page.evaluate(() => window.__chicago4d.navigator.dock());
+    await stepKey('Space', 250, 'on-foot Space');
     const spaceOnFoot = await page.evaluate(() => ({
       alt: window.__chicago4d.player.altitude,
       flying: window.__chicago4d.player.flying,
@@ -20492,7 +20536,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: Escape closes the inspection card`, escClosed,
       `card hidden after Escape: ${escClosed}`);
 
-    await stepKey('Space', 300);                   // same crosshair, reopens
+    await stepKey('Space', 300, 'Space reopening the card'); // same crosshair, reopens
     const reopened = await page.evaluate(() => !!window.__chicago4d.inspecting);
     await stepKey('KeyE', 300);
     const keyToggled = await page.evaluate(() => !window.__chicago4d.inspecting);
@@ -20504,7 +20548,7 @@ for (const [label, viewport, touch] of [
     // And neither fires from inside the Go-to box: typing is not a command.
     // (Escape in the box still shuts the Go-to PANEL — that is the panel's own
     // long-standing binding — but the card must not be collateral.)
-    await stepKey('Space', 300);                   // card open again
+    await stepKey('Space', 300, 'Space before the typing check'); // card open again
     // T-2620: Go to is the Jaunts app's own segment (T-2630); its box is #welcome-search.
     await page.evaluate(async () => {
       await window.__chicago4d.openJaunts('goto');
@@ -22238,6 +22282,16 @@ for (const [label, viewport, touch] of [
     // the visitor is set down in the town with Jump open on the Navigator; Back closes
     // the app and stays on this page; a link to an app the rail does not have would have
     // been dropped quietly (test_nav_link.mjs, test_navigator.mjs).
+    // T-3662: this reload is part 15's third put-down, and the one T-3650 left unsettled.
+    // On the published mirror the page it replaces is the far year's, walked into seconds
+    // ago and still loading its pictures. Every red dev logged after #2190 falls in that
+    // window: the refusals are stamped /1904/, 3-16 s after the Confidence check and
+    // before this load commits (runs 44340476884 desktop [18:51 -> 19:07], 44385234168
+    // mobile [9:25 -> 9:28] and desktop [14:09 -> 14:20]), and none comes from the
+    // pages part 15 had already settled. So the page finishes its pictures first, as
+    // the body's page does before its park; an error it logs meanwhile still counts.
+    console.log(settledLine(`part 15's ${new URL(p14.url()).pathname} page before the ?nav=jump reload`,
+      await settlePictureWork(p14, p14PictureFiles)));
     await p14.goto(`${base}&nav=jump`, { waitUntil: 'domcontentloaded' });
     await p14.waitForFunction(() => window.__chicago4d?.navLinkOpened?.app === 'jump' && window.__chicago4d.navigator?.app === 'jump',
       null, { timeout: 240_000, polling: 500 });
