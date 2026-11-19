@@ -1,3 +1,10 @@
+## T-3678 — More Make your case mysteries (19 November 2026)
+
+A case table now drives Make your case; four more completed jaunts offer a case from their
+own cited claims (the 1812 attack's place, the 1812 trading-post sale, the 1835 Chappel
+school, the 1904 bronze). Next: more cases only where a jaunt's evidence argues both ways;
+the 18+ tellings stay out until a case is written for them.
+
 ## T-3663 — First source investigation (19 November 2026)
 
 Use the completed Gossip route for one optional claim-and-evidence comparison of its

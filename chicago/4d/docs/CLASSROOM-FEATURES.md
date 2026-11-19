@@ -45,6 +45,11 @@ in the existing notebook. No new account, service, route or source image is invo
 This separate implementation follows the merged first delivery and still requires
 its own complete release gates in PR #2205.
 
+T-3678 generalizes it: a small case table names each case's jaunt, year, readings and
+evidence, and four more completed outings offer one (1812 twice, 1835, 1904). Each case is
+refused unless every named claim is still cited, visited and graded as recorded.
+`docs/RESEARCH/investigations-3678.md` records each case's evidence and why it conflicts.
+
 ## Disposition of all twenty items
 
 | # | Feature | Delivery / next step |
@@ -56,7 +61,7 @@ its own complete release gates in PR #2205.
 | 5 | Lesson guides | First delivery: current catalog groups, document tasks, discussion and suggested standards connections; preserve source type and provenance. |
 | 6 | Class codes and teacher view | Defer shared class storage, authentication and cross-device submissions. Local exports are useful now but are not a dashboard. |
 | 7 | Where and when? | T-3657 merged to DEV in #2197: five licensed 1904-scene photographs, deterministic daily/shareable order, ground-distance scores, source/date reveals and bounded local progress. One image at a time; no leaderboard service. |
-| 8 | Mysteries with sources | T-3663: first bounded case in progress, attached to eligible Gossip completion. Compare two cited newspaper readings, choose support, write a claim/uncertainty, review an ungraded guide and explicitly save to Notebook. No invented witnesses or new engine; browser and release validation pending. |
+| 8 | Mysteries with sources | T-3663: the Gossip case (two cited newspaper readings). T-3678: a case table drives it, with four more cases built only from each jaunt's own cited claims: where the 1812 attack began, who bought Du Sable's trading post (1812), where Eliza Chappel's school met (1835) and whether the 1893 bronze shows what happened (1904). Student bands; the 18+ tellings are left out of the later cases. Claim, chosen support, uncertainty and ungraded review, saved to Notebook only on request. No invented witnesses, engine or service. |
 | 9 | Play a part | Existing engine already supports choices and alternate endings. Later authored historical-role stories, with reconstruction labelled. |
 | 10 | Accessibility | T-3658 merged to DEV in #2197: native Navigator zoom/pan with stable canvas sizing and usable movement controls; keyboard-contained picture dialogs with Escape, background isolation and focus return; a visible rail Tab stop while Move or Jump is open. Broader menu/card and assistive-technology audit remains; no full WCAG 2.1 AA claim. |
 | 11 | Assign/build a jaunt | Later browser-only subset: assignment links and portable route/question files. Shared authoring libraries and submission tracking need storage. |
