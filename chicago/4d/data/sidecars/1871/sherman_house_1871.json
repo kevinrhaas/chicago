@@ -33,7 +33,7 @@
       "andreas_1885_v2_buildings",
       "mitchell_1870_chicago_map"
     ],
-    "position_note": "The footprint's south-west corner (local E 518.25, N -248.41). The south-east corner stands where the 1871 plan's Clark Street west line (centre E 573.97 - 10 m) meets Randolph Street's north line (centre N -260.03 + 12 m): Andreas puts its 180-foot front on Clark and its 150-foot front on Randolph, the latter overlooking the public square, and the stereograph shows the square's fence across Randolph from it. Squared to Randolph Street (89.53 degrees). Good to the plan's tracing of Mitchell's map, a few metres.",
+    "position_note": "The footprint's south-west corner (local E 518.25, N -248.41). The south-east corner stands where the 1871 plan's Clark Street west line (centre E 573.97 - 10 m) meets Randolph Street's north line (centre N -260.03 + 12 m): Andreas puts its 180-foot front on Clark and its 150-foot front on Randolph, the latter overlooking the public square, and the stereograph shows the square's fence across Randolph from it. Squared to Randolph Street (89.53 degrees). Good to the plan's tracing of Mitchell's map, a few metres. IT LAPS THE 1835 PLAT'S RANDOLPH STREET BY 3.92 m, AND THAT IS REFUSED IN WRITING, NOT REPAIRED (T-3688; tools/corridor_intrusion_baseline.json `refused`). The corridor is derived from the 1835 street control; this corner is set on the 1871 plan's Randolph and Clark Streets, traced from Mitchell's 1870 map, which are the streets the 1871 scene draws. The two tracings disagree by about 4 m here, and moving the house 3.9 m north to clear the older one would set it back from the street it fronts in its own scene.",
     "symbolic_location": "North-west corner of Clark and Randolph Streets, its Randolph Street front overlooking the Court House square.",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -443,7 +443,8 @@
               },
               "N": "blank",
               "W": "blank"
-            }
+            },
+            "note": "Six storeys (Andreas: 'six stories high') on the 180-foot Clark and 150-foot Randolph fronts (Andreas vol. 2); the storey heights are read through the stereograph's camera, the wall head about 30 m over the street."
           },
           {
             "name": "the attic over the corner",
@@ -473,7 +474,8 @@
               "kind": "light",
               "proj": 0.35
             },
-            "confidence": "inferred"
+            "confidence": "inferred",
+            "note": "The balustraded attic over the south-east corner with its flagstaff, as the stereograph shows it; its height and extent are read through the stereograph's camera."
           }
         ],
         "porches": [
@@ -545,7 +547,8 @@
             ],
             "h": 9.0
           }
-        ]
+        ],
+        "note": "Read off the Library of Congress stereograph 1s12371 (Carbutt No. 52) through its solved camera; Andreas gives the six storeys and the two fronts."
       },
       "confidence": "inferred",
       "sources": [

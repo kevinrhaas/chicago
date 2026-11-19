@@ -377,7 +377,8 @@
                 "awnings": null
               },
               "S": "blank"
-            }
+            },
+            "note": "The three storeys under the mansard and the wall head 22 m above the street, scaled off Carbutt's stereograph on the front's 93 feet; the hall's 44 feet floor to ceiling from Andreas (vol. 2, p. 358)."
           },
           {
             "name": "centre bay",
@@ -441,7 +442,12 @@
               "E": "blank",
               "W": "blank",
               "S": "none"
-            }
+            },
+            "sources": [
+              "andreas_1885_v2_buildings",
+              "nypl_carbutt_140_chamber_of_commerce"
+            ],
+            "note": "Andreas (vol. 2, p. 358): the facade above the first storey divided in three by bold quoins, the middle a circular-topped triple window thirty feet high and twelve wide; the projecting bay and its triple-arched entrance are in Carbutt's stereograph and Jevne & Almini's lithograph."
           }
         ],
         "pediments": [
@@ -455,7 +461,12 @@
             "clock": true,
             "depth": 1.2,
             "z": 24.18,
-            "confidence": "attested"
+            "confidence": "attested",
+            "sources": [
+              "nypl_carbutt_140_chamber_of_commerce",
+              "jevne_almini_1866_chicago_illustrated"
+            ],
+            "note": "The scrolled pediment with its clock over the centre bay, above the cornice, as Carbutt's stereograph and Jevne & Almini's lithograph both show it."
           }
         ],
         "steps": [
@@ -588,7 +599,8 @@
             "d": 0.8,
             "material": "marble_wall"
           }
-        ]
+        ],
+        "note": "Read off Carbutt's stereograph No. 140 and Jevne & Almini's lithograph, which agree, scaled on the front's 93 feet; Andreas (vol. 2, p. 358) gives the hall's height and the triple window."
       },
       "confidence": "inferred",
       "sources": [

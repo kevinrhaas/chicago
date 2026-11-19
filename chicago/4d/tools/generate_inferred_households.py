@@ -1149,6 +1149,12 @@ def reserved_slots() -> list[tuple[str, list]]:
     return out
 
 
+#: The day the 1835 ground's epoch (e1834_harbor_cut) closes, read from the epochs file.
+TOWN_EPOCH_TO = next(e["to"] for e in json.loads(
+    (ROOT / "data" / "terrain" / "epochs.json").read_text(encoding="utf-8"))["epochs"]
+    if e["id"] == "e1834_harbor_cut")
+
+
 def validate(records: list[dict], households: list[dict], programme: dict, datum: dict) -> None:
     origin = (float(datum["origin_utm_e"]), float(datum["origin_utm_n"]))
 
@@ -1185,6 +1191,10 @@ def validate(records: list[dict], households: list[dict], programme: dict, datum
             pos = phase.get("position") or {}
             poly = (phase.get("footprint") or {}).get("polygon")
             if pos.get("utm_e") is None or not poly:
+                continue
+            # T-3688: a phase that opened after the 1835 ground's epoch closed (the 1871
+            # Sherman House) shares no yard with an 1835 roof. Same rule as plat_occupancy.
+            if (phase.get("documented_range") or {}).get("from", "0000") > TOWN_EPOCH_TO:
                 continue
             existing.append((doc["id"], world_polygon(pos, poly, origin)))
     for name, poly in existing + reserved_slots():

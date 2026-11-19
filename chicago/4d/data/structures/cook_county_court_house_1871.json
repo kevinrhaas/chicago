@@ -47,7 +47,7 @@
      "mitchell_1870_chicago_map",
      "andreas_1884_v1"
     ],
-    "note": "The footprint's south-west corner (local E 475.11, N -348.02): the building is centred in the square as both pictures show it, the square being the block the 1871 plan's LaSalle, Clark, Randolph and Washington Streets enclose (lot lines E 474.4-566.0, N -384.3 to -273.0), squared to Washington Street (89.53 degrees). Good to the plan's tracing of Mitchell's map, a few metres.",
+    "note": "The footprint's south-west corner (local E 475.11, N -348.02): the building is centred in the square as both pictures show it, the square being the block the 1871 plan's LaSalle, Clark, Randolph and Washington Streets enclose (lot lines E 474.4-566.0, N -384.3 to -273.0), squared to Washington Street (89.53 degrees). Good to the plan's tracing of Mitchell's map, a few metres. IT LAPS THE 1835 PLAT'S CLARK STREET BY 4.06 m, AND THAT IS REFUSED IN WRITING, NOT REPAIRED (T-3688; tools/corridor_intrusion_baseline.json `refused`). The corridor is derived from the 1835 street control; the square is the 1871 plan's, traced from Mitchell's 1870 map, which is what the 1871 scene draws. The two tracings disagree by about 4 m here, and moving the building 4.1 m west to clear the older one would take it off the centre of the square both pictures show it on.",
     "derivation": {
      "method": "not_derivable",
      "reason": "Centred in the Court House square as drawn by the 1871 plan's street lines (traced from Mitchell's 1870 map); no platted corner or traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
@@ -245,7 +245,8 @@
           ]
          }
         },
-        "confidence": "inferred"
+        "confidence": "inferred",
+        "note": "The 1870 wing (Andreas vol. 2, p. 66: Lemont stone): a rusticated basement and three storeys of round-arched bays, read off the Lovejoy & Foster stereograph and Andreas's 'Court-House before the fire' plate and scaled on the 1853 house's 100-foot front (vol. 1, p. 181). No dimension of the wings was found, so its length is the room the square leaves beside the 1853 house (L-1871-landmarks-3688)."
        },
        {
         "name": "west wing N pavilion",
@@ -320,7 +321,8 @@
          "W": "blank",
          "S": "none"
         },
-        "confidence": "inferred"
+        "confidence": "inferred",
+        "note": "The wing's projecting centre pavilion, crowned by a scrolled crest, as Andreas's plate draws it on the north and south fronts; its width and projection are scaled off the plate against the 1853 house's 100-foot front."
        },
        {
         "name": "west wing S pavilion",
@@ -395,7 +397,8 @@
          "W": "blank",
          "N": "none"
         },
-        "confidence": "inferred"
+        "confidence": "inferred",
+        "note": "The wing's projecting centre pavilion, crowned by a scrolled crest, as Andreas's plate draws it on the north and south fronts; its width and projection are scaled off the plate against the 1853 house's 100-foot front."
        },
        {
         "name": "the 1853 house",
@@ -851,7 +854,8 @@
          },
          "W": "blank"
         },
-        "confidence": "inferred"
+        "confidence": "inferred",
+        "note": "The 1870 wing (Andreas vol. 2, p. 66: Lemont stone): a rusticated basement and three storeys of round-arched bays, read off the Lovejoy & Foster stereograph and Andreas's 'Court-House before the fire' plate and scaled on the 1853 house's 100-foot front (vol. 1, p. 181). No dimension of the wings was found, so its length is the room the square leaves beside the 1853 house (L-1871-landmarks-3688)."
        },
        {
         "name": "east wing N pavilion",
@@ -926,7 +930,8 @@
          "W": "blank",
          "S": "none"
         },
-        "confidence": "inferred"
+        "confidence": "inferred",
+        "note": "The wing's projecting centre pavilion, crowned by a scrolled crest, as Andreas's plate draws it on the north and south fronts; its width and projection are scaled off the plate against the 1853 house's 100-foot front."
        },
        {
         "name": "east wing S pavilion",
@@ -1001,7 +1006,8 @@
          "W": "blank",
          "N": "none"
         },
-        "confidence": "inferred"
+        "confidence": "inferred",
+        "note": "The wing's projecting centre pavilion, crowned by a scrolled crest, as Andreas's plate draws it on the north and south fronts; its width and projection are scaled off the plate against the 1853 house's 100-foot front."
        }
       ],
       "pediments": [
@@ -1389,7 +1395,8 @@
         "n": 6
        }
       ],
-      "flagpoles": []
+      "flagpoles": [],
+      "note": "Each part is read off the Lovejoy & Foster stereograph and Andreas's plate, scaled on the 1853 house's 100-foot front (Andreas vol. 1, p. 181); where a part has its own grade its note says what else it rests on."
      },
      "confidence": "inferred",
      "sources": [

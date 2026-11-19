@@ -77,8 +77,10 @@ const isProse = ([s, key]) => /\S\s+\S/.test(s) || (PROSE_KEYS.has(key) && s.tri
 
 for (const [family, files] of Object.entries(families)) {
   const overlay = JSON.parse(readFileSync(path.join(dir, `${family}.json`), 'utf8'));
-  if (family === 'structures_1871') {
-    expect(files.length === 0 && overlay.count === 0 && Object.keys(overlay.edits).length === 0,
+  if (family === 'structures_1871' && files.length === 0) {
+    // Until 1871 has researched records of its own (T-3688) its overlay must be empty; once it
+    // has them, the loop below holds every entry to those records, so none is borrowed.
+    expect(overlay.count === 0 && Object.keys(overlay.edits).length === 0,
       '1871 has a valid empty overlay and does not borrow another year’s authored cards');
     const prose = 'A reconstructed timber house beside the walk.';
     expect(readerCopy({ note: prose }, overlay).note === prose, 'an empty overlay preserves a context card’s own prose');
