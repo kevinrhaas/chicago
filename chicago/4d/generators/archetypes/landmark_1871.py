@@ -25,7 +25,8 @@ Every material carries a role in the node's `extras.fire.roles` — `roof` (slat
 domes, cupolas: what burns and falls), `glazing` (glass and sash: what breaks), `walls`
 (the masonry that stood afterwards), `trim` and `iron` — so the fire renderer (T-3687) can
 hide what fell, char what stood and leave the shell, without a second mesh. A record's
-`fire` block (on the structure, not the phase) says which shell this building left.
+`fire` block (inside `form.composition`) says which shell this building left — its `fate`,
+what was `left` standing and the `time` — and lands in `extras.fire.shell`.
 """
 
 from __future__ import annotations
@@ -941,6 +942,9 @@ def _pad(b: bytes, fill: bytes = b"\x00") -> bytes:
 
 
 def glb(params: LandmarkParams, structure_id: str, phase_id: str, fire: dict | None = None) -> bytes:
+    # The shell this building left: the composition's own `fire` block unless one is passed.
+    src = fire if fire is not None else (params.composition.get("fire") or {})
+    shell = {k: src[k] for k in ("fate", "left", "time") if k in src}
     """The structure's GLB, glTF y-up: the frame's (x, y, z) is written as (x, z, -y)."""
     m = build(params)
     tint = params.composition.get("tint") or {}
@@ -1006,7 +1010,7 @@ def glb(params: LandmarkParams, structure_id: str, phase_id: str, fire: dict | N
             "material": len(materials) - 1})
     name = f"{structure_id}__{phase_id}"
     extras = {"structure_id": structure_id, "phase_id": phase_id,
-              "fire": {"roles": roles, **({"shell": fire} if fire else {})}}
+              "fire": {"roles": roles, **({"shell": shell} if shell else {})}}
     gltf = {"asset": {"version": "2.0", "generator": GENERATOR}, "scene": 0, "scenes": [{"nodes": [0]}],
             "nodes": [{"name": name, "mesh": 0, "extras": extras}],
             "meshes": [{"name": name, "primitives": primitives}], "materials": materials,
