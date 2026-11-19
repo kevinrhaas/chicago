@@ -14,6 +14,50 @@ the claim, a wrong teller never also tells it, every quoted line is one the stop
 reveal and start-again (`test_jaunt_understanding_view.mjs`). Not checked: assistive
 technology beyond native buttons, groups and status lines.
 
+## T-3675 — Chromebook class set (19 November 2026)
+
+Gap-analysis item 17. A classroom Chromebook is recognised (ChromeOS from the user agent `CrOS`
+or Chrome's userAgentData) and profiled as a computer, touch screen or not: class `weak`, so
+Balanced detail, Sharpness Low, light textures and the memory diet, with people, horses,
+carriages and wagons drawn and never Light. Before this, a touch-screen Chromebook in a window
+under 900 px wide (or in tablet mode) was profiled as a phone: the emulated one booted 1835 at
+Light ("modest phone or tablet"), and an Arm Mali Chromebook's GPU only counted as shared memory
+on a non-touch one. Its controls stay keyboard and trackpad unless its pointer is coarse
+(tablet mode); a touch on the screen still switches to touch controls. PowerVR (MediaTek
+MT8173 Chromebooks) joins the shared-memory GPUs, Mesa's prefix and chip codename are dropped
+from the GPU name, and the loading screen reads "Chromebook · Intel UHD Graphics 600 · shared
+memory · 4 GB · 4 cores".
+
+The year's offline copy is the "Prepare for class" path: on a Chromebook the welcome line reads
+"Prepare for class · 374 MB" (1835), and Settings › Graphics carries the same download on every
+device, with progress, a "ready offline" state and how to check it (Wi-Fi off, reload). The
+copy says the honest thing: do this on each device before the lesson; each keeps its own copy
+and nothing is shared across the room. No server, no new assets.
+
+**Memory, emulated Chromebook** (`tools/chromebook_emulation.mjs`: ChromeOS user agent,
+`deviceMemory` 4, 4 threads, Intel UHD 600 renderer string, 1366×768 at 1×, nothing forced),
+build ccf78e0ce + this change, every year measured, `docs/measurements/T-3675-memory-chromebook.json`:
+
+| Year | Chromebook (Balanced, diet) | New ceiling | Same build, desktop at Full | People drawn at spawn, Chromebook / desktop |
+|---|---|---|---|---|
+| 1812 | 452.1 MB | 500 MiB | 786.0 MB | 284 / 284 |
+| 1835 | 677.1 MB | 750 MiB | 1,327.5 MB | 10 / 10 |
+| 1904 | 595.3 MB | 675 MiB | 1,433.8 MB | 10 / 10, and the parked carriage with its team on both |
+
+Every Chromebook row was routed by the town itself ("a Chromebook: graphics sharing the
+system's memory (Intel(R) UHD Graphics 600, 4 GB)"). The `chromebook` row is in the CI memory
+matrix for every year, and `measure_memory.mjs --gate` fails it unless it boots routed so.
+The same run read the desktop rows over their ceilings on dev's code path (1835 1,327.5 against
+1,325; 1904 1,433.8 against 1,425): a desktop on SwiftShader is untouched by this change (the
+software-renderer branch returns before any ChromeOS rule), so those are dev's growth, recorded
+here rather than raised. `tools/check_chromebook.mjs` (in check.sh) holds the routing, the
+controls rule, the loading-screen words, the "Prepare for class" words and the ceilings.
+
+**Not tested here:** a real Chromebook (Intel and Arm), its real frame rate and its tab
+limit; a school network and its filters; Cache Storage quotas on a 32 GB Chromebook with
+other users; a teacher-side view of which devices are ready; any room-wide cache (that needs
+a local server). SwiftShader draws the pixels, so the readings are bytes, never timings.
+
 ## T-3663 — Gossip source comparison checkpoint (19 November 2026)
 
 Integrated onto DEV `38f51fcda` after the T-3656/T-3657/T-3658 delivery merged in
@@ -77,6 +121,19 @@ The map-fit and both deterministic generator checks are in `tools/check.sh`; the
 published scene has a dedicated `tools/smoke_city_1871.mjs` browser check. This is the
 complete context baseline, not a claim of individually surveyed buildings, populated
 daily activity or photographic finish.
+
+## T-3672 — Teacher routes (19 November 2026)
+
+Guide › For teachers builds a route from a jaunt or from one year's buildings, viewpoints
+and people, with a note and a question per stop, as one bounded share link and a route
+file; Jaunts shows a student the Route panel, with Go there per stop and answers saved to
+the local field notebook ([CLASSROOM-FEATURES.md](CLASSROOM-FEATURES.md) § Teacher routes).
+`tools/test_teacher_route.mjs` covers the round trip, the bounds, malformed, over-long,
+other-year and unknown-id links, text-only rendering and the notebook save, against the
+real 1812, 1835 and 1904 directories and catalogs: every offered jaunt fits one link with
+a question at every stop. Screenshots of the running 1904 town at 1280×800 and 390×780 were
+taken under SwiftShader. Not verified: physical phones, assistive technology, and the
+full gate and smoke on this change, which run before merge.
 
 ## T-3656, T-3657, T-3658 — Combined browser-only delivery (19 November 2026)
 

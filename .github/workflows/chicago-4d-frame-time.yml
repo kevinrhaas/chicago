@@ -113,7 +113,9 @@ jobs:
         year: ['1812', '1835', '1904']
         # T-3537 / T-3552: `shared` is a desktop on integrated graphics (?device=weak:
         # Balanced + the phone's memory diet), the owner's Inspiron 3880, every year.
-        viewport: [desktop, mobile, shared]
+        # T-3675: `chromebook` is a classroom set's low-end Chromebook, emulated (ChromeOS
+        # user agent, 4 GB, Intel UHD 600), and the gate fails unless it boots routed as one.
+        viewport: [desktop, mobile, shared, chromebook]
         include:
           - year: '1835'
             viewport: self-test

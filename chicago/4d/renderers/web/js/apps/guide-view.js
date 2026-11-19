@@ -22,7 +22,8 @@
  * Last (T-2666, NAV-806, design doc section 11): For teachers, the Field Check's ten steps
  * and three suggested Jaunts for each destination as a one-page handout to print
  * (teacher-handout.js). The steps are the tour engine's own; each destination's Jaunts are
- * read from its catalog the first time Guide opens, never at boot.
+ * read from its catalog the first time Guide opens, never at boot. Under the lesson guides
+ * (T-3672), Make a route for your class (teacher-route-view.js): one share link, one file.
  */
 import { CONTROL_SHEETS, SCHEMES } from '../controls/sheet.js';
 import { controlScheme } from '../controls/intent.js';
@@ -35,6 +36,7 @@ import { STEPS } from '../tour.js';
 import { DESTINATIONS } from './jump-view.js';
 import { handoutModel, renderHandout, printHandout } from './teacher-handout.js';
 import { createLessonGuides } from './lesson-guides.js';
+import { mountRouteBuilder } from '../teacher-route-view.js';
 
 const state = { scheme: null, chosen: false, off: null, host: null };
 
@@ -138,6 +140,8 @@ function teachers(doc, ctx) {
     });
   button.addEventListener('click', () => { ready.then(() => printHandout(handout, { doc })); });
   block.append(createLessonGuides(doc, ctx, { catalogs, ready, destinations: DESTINATIONS }));
+  // T-3672: a route of this year's places and people, shared as one link or one file.
+  mountRouteBuilder(block, ctx);
   return block;
 }
 

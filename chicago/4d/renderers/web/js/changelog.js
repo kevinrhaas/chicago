@@ -1,4 +1,43 @@
 export const CHANGELOG = [ // newest first
+  { v: 3138, ts: '2026-11-19T21:29:46.668Z', date: 'Nov 19, 2026, 3:29 PM CT', title: 'Hear the Battle of Fort Dearborn and the 1904 story walks', kind: 'feature',
+    items: [
+      'The Battle of Fort Dearborn and the ten 1904 story walks are being read aloud, in the Cultivated Essayist\'s voice.',
+      'The Glessner Household and Meet the Glessner House are re-read in the smoother style, with pauses between subjects and less whispering and laughing.',
+      'The Battle of Fort Dearborn\'s opening no longer talks about how the walk works.',
+    ] },
+  { v: 3137, ts: '2026-11-19T21:29:46.668Z', date: 'Nov 19, 2026, 3:29 PM CT', title: 'The Great Fire burns the 1871 city, hour by hour', kind: 'feature',
+    items: [
+      'From 9 p.m. on 8 October 1871 the fire spreads from the O\'Learys\' barn across the West, South and North Sides, at the hours the accounts give.',
+      'Buildings burn at their windows and over their roofs, then stand as blackened walls or fall to smoking heaps with a chimney left.',
+      'Smoke leans away on the south-west gale, the fire lights the walls and street around you, and the night sky glows red over the burning district.',
+      'The Water Tower, the Ogden house and the O\'Leary cottage are spared, as they were.',
+      'Free walk is still the city on the afternoon before the fire.',
+    ] },
+  { v: 3136, ts: '2026-11-19T21:12:28.904Z', date: 'Nov 19, 2026, 3:12 PM CT', title: '2036 Prairie\'s iron railing now runs along 21st Street', kind: 'feature',
+    items: [
+      'At the corner of Prairie and 21st Street, the Buckingham house\'s iron railing now turns the corner and runs back along 21st Street, the full length of the house\'s side, as the c. 1880 engraving draws it across its foreground. The railing has the same spear-headed bars, ornamented band and stone curb as the Prairie front.',
+      'The house\'s second picture, a photograph of the next block from the early 1890s with 2036 in the distance, is now matched against the model too, and the house\'s card can show you the spot in the roadway it was taken from.',
+    ] },
+  { v: 3135, ts: '2026-11-19T20:51:01.064Z', date: 'Nov 19, 2026, 2:51 PM CT', title: 'Teachers can build a route and share it as one link', kind: 'feature',
+    items: [
+      'Guide\'s For teachers has Make a route for your class: start from a jaunt, or find buildings, viewpoints and people of this year and put them in your own order.',
+      'Add a short note and a question to any stop, give the route a title, then copy one share link or download a route file you can open again.',
+      'A student who opens the link lands in that year with the route pinned at the top of Jaunts: each stop in order with Go there, and the teacher\'s note and question marked as the teacher\'s words.',
+      'Answers save to the student\'s own field notebook, ready to download and hand in. Nothing is uploaded and no account is needed.',
+      'A link for another year offers that year\'s link; a broken or too-long link, or stops this town does not hold, leave you in the town with a message saying so.',
+    ] },
+  { v: 3134, ts: '2026-11-19T19:53:50.791Z', date: 'Nov 19, 2026, 1:53 PM CT', title: '1812 runs smoothly again after you open the Jaunts list', kind: 'fix',
+    items: [
+      'In 1812, opening the Jaunts list could leave every frame after it taking seconds. It now stays as smooth as before you opened it.',
+      'People whose way is closed off no longer hold up the whole town while their path is worked out.',
+    ] },
+  { v: 3133, ts: '2026-11-19T19:53:50.791Z', date: 'Nov 19, 2026, 1:53 PM CT', title: 'The Glessner Household for young readers flows when read aloud', kind: 'improvement',
+    items: [
+      'Each person in the 3rd-grade telling now moves from one subject to the next with a short joining line, instead of listing facts.',
+      'Their voices pause between subjects, and there is less whispering and laughing.',
+      'Mattie, the cook, takes her time: who she is, how she became the cook, her kitchen, then her favourite story.',
+      'The same smoother style is now the rule for every jaunt as it is read aloud.',
+    ] },
   { v: 3132, ts: '2026-11-19T19:28:43.217Z', date: 'Nov 19, 2026, 1:28 PM CT', title: 'Take a Jaunt opens at once, without a second wait', kind: 'improvement',
     items: [
       'The Jaunts list now opens straight away after the town has loaded. Before, choosing Take a Jaunt meant a second wait, which could run to many seconds in 1835 and 1904.',

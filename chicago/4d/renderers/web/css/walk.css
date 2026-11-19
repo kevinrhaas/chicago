@@ -2402,6 +2402,12 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .welcome-pack[data-state="downloading"] .welcome-pack-bar { visibility: visible; }
 .gate.welcome-compact .welcome-pack { margin-top: 0; }
 .gate.welcome-compact .welcome-pack-toggle { min-height: 30px; }
+/* T-3675: the same download in Settings › Performance, "Prepare for class". */
+.pack-settings-actions { display: inline-flex; gap: 6px; }
+.pack-settings-actions [hidden] { display: none; }
+.pack-settings-bar { display: block; height: 2px; margin-top: 6px; border-radius: 1px; visibility: hidden;
+  background: linear-gradient(90deg, var(--accent) calc(var(--f, 0) * 100%), var(--edge) 0); }
+.pack-settings[data-state="downloading"] .pack-settings-bar { visibility: visible; }
 /* Inside a choice: eyebrow and intro step aside, the title shrinks, the choices become tabs. */
 .gate[data-region] .gate-eyebrow, .gate[data-region] .welcome-intro { display: none; }
 .gate[data-state="welcome"][data-region] h1 { font-size: 17px; margin: 0 0 10px; }
@@ -2428,7 +2434,8 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .welcome-quick-start .menu-icon { color: var(--accent); flex: none; }
 .welcome-find, .jaunt-find { position: relative; flex: 1 1 auto; min-width: 0; }
 .welcome-find .menu-icon, .jaunt-find .menu-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--ink-faint, var(--ink-dim)); pointer-events: none; }
-#welcome-search, .jaunt-filters input {
+/* The jaunt search moved from the filters into the pinned row (T-3653); it keeps their shape. */
+#welcome-search, .jaunt-filters input, .jaunt-find-row input {
   box-sizing: border-box; width: 100%; min-width: 0; min-height: 42px; padding: 8px 12px 8px 33px;
   font: inherit; font-size: 16px; color: var(--ink); background: var(--panel-solid);
   border: 1px solid var(--edge); border-radius: 999px;

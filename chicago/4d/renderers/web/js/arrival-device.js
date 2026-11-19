@@ -41,9 +41,11 @@ export function arrivalDeviceStatus({ profile, detail, sharpness, lowMemory = fa
   const touch = !!profile?.touch;
   const software = /software rasteriser/.test(profile?.why || '');
   const gpu = software ? t('arrival.device.software') : clip(shortGpu(s.renderer).replace(/\s*\((?:R|TM)\)|[®™]/gi, ''), 28);
+  const chromebook = !!s.chromeos;   // T-3675: said first, so a teacher sees the class set was recognised
   const assess = [
+    chromebook ? t('arrival.device.chromebook') : null,
     gpu === 'GPU not reported' ? null : gpu,
-    !touch && sharesSystemMemory(s.renderer) ? t('arrival.device.shared') : null,
+    chromebook || (!touch && sharesSystemMemory(s.renderer)) ? t('arrival.device.shared') : null,
     s.memoryGB ? t('arrival.device.memory', { gb: s.memoryGB >= 8 ? '8+' : String(s.memoryGB) }) : null,
     s.cores ? t('arrival.device.cores', { n: s.cores }) : null,
   ].filter(Boolean);

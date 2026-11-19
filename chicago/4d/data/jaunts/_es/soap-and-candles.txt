@@ -1,0 +1,97 @@
+== title @5caf8216
+Jabón y velas
+
+== premise @88a6bf22
+Mira desde Wolf Point lo que hacía la fábrica de Daniel Elston & Co. río arriba por el brazo norte, haz una lista corta en South Water Street, elige qué llevar y llévalo a casa, a una casa de huéspedes detrás de la tienda de Peck.
+
+== opening @fec055ea
+PASEO: JABÓN Y VELAS. Ahora oscurece temprano. El otoño significa que la larga oscuridad está cerca: en cuanto el lago se congela, 'durante los largos seis meses de invierno los habitantes quedaban aislados del resto del mundo'. La luz y el jabón son lo que permite a una casa de huéspedes abarrotada pasarlo.
+
+Te hospedas en la casa de troncos detrás de la tienda de Peck. Mira río arriba por el brazo norte hacia la fábrica de jabón y velas, haz una lista corta en South Water Street, elige qué llevar y llévalo a casa antes de que oscurezca del todo.
+
+== stop the-works @74a1bb6a
+Empieza en Wolf Point y mira río arriba por el brazo norte hacia su orilla este, donde la escena sitúa la fábrica de Daniel Elston & Co.; ninguna fuente da el lugar. Su aviso, impreso en 1833–34, ofrecía jabón duro y blando, velas de cera y de otras clases, y pagaba en efectivo por sebo y ceniza de hogar. Los restos de cocina y la ceniza del fuego de cada casa vuelven a ella convertidos en jabón y luz.
+
+== narrative the-works @d7b26bcf
+Entran sebo y ceniza, salen jabón y luz.
+
+== label the-works light-first @075d7ce1
+Lo más importante es la luz para las noches
+
+== consequence the-works light-first @1421b9bf
+Las velas van al principio de la lista.
+
+== label the-works soap-first @55d303f3
+Lo más importante es el jabón para el día de lavar
+
+== consequence the-works soap-first @ca388c6a
+El jabón va al principio de la lista.
+
+== stop the-list @24d1736a
+Al otro lado del río, a la tienda de abarrotes de Jones en South Water Street. Su aviso de noviembre de 1833 ofrecía azúcar y la mayoría de las clases de provisiones a los precios más bajos; si tenía jabón o velas, no lo dice. Solo la calle es evidencia. Las velas significan fuego, y el pueblo lo sabe: desde 1833 un tubo de estufa que atraviese un techo debe estar 'protegido con hojalata o lámina de hierro'.
+
+== narrative the-list @38053b2e
+Haz la lista y decide qué llevar.
+
+== label the-list candles @61ccae48
+Lleva velas a casa
+
+== consequence the-list candles @bf0554ec
+Un manojo de velas, sumergidas en sebo y atadas con cordel.
+
+== label the-list soap @87d89db0
+Lleva una pastilla de jabón duro
+
+== consequence the-list soap @d3e33a25
+Una pastilla de jabón duro, pesada como un ladrillo.
+
+== label the-list both @dd808eb8
+Lleva un poco de cada uno
+
+== consequence the-list both @d01808ff
+Una brazada más pesada, y toda la lista en ella.
+
+== stop lake-street @c7214506
+Sube hasta Lake Street y la tienda de armazón de madera de dos pisos que construyó Thomas Church, de la que se dice que fue el primer edificio comercial de la calle. Church llegó en 1834, el año en que el comercio 'empezó a extenderse a la calle Lake'. Una sola frase sin fecha es toda la evidencia, y no menciona mercancía, así que aquí no se compra nada.
+
+== narrative lake-street @5374c6b5
+Acomoda el bulto y cuenta lo que llevas.
+
+== stop home @2ebe431d
+De vuelta a casa, a la casa de troncos detrás de la tienda de Peck, que según Andreas es la de la señora Rufus Brown, una de las casas de huéspedes de primera clase. En 1834, escribe, esas casas siempre estaban llenas, a veces con tres en una cama. Aun así, Moses y Kirkland insisten en que los meses de nieve eran 'quizás los más agradables de todo el año'.
+
+== narrative home @4f0f71b3
+Una vela rinde mucho en un cuarto abarrotado.
+
+== leg 0 @6b004224
+Ya decidido si jabón o luz, sigue la lista.
+
+== note 0 @c486c201
+Sobre el brazo sur por un puente y al este hasta South Water Street.
+
+== note 1 @0f22eab8
+Una cuadra al sur, hasta Lake Street.
+
+== leg 2 @4c2d3c28
+Los últimos pasos con el bulto.
+
+== note 2 @c775cb7c
+De vuelta hacia la parte de atrás de la esquina de Peck, en South Water y LaSalle.
+
+== ending an-armful @bb2d86af
+Jabón y velas, los dos, llevados a casa, a la casa de troncos detrás de la de Peck. Toda la lista está hecha, sin importar qué cosa estaba al principio. Que venga el invierno.
+
+== ending candle-lit @a9eb9ade
+Velas al principio de la lista, y velas llevadas a casa. Esta noche el cuarto abarrotado detrás de la tienda de Peck tiene luz para leer y remendar, y la oscuridad llega un poco más tarde.
+
+== ending washing-day @c7cc0b09
+Jabón al principio de la lista, y jabón llevado a casa. Las camisas ya no podían esperar más, y ahora ya no tienen que hacerlo.
+
+== ending the-other-errand @1cb06d65
+Saliste por una cosa y llevaste a casa la otra. Pronto hará falta, y la lista se guarda para la próxima vez.
+
+== keepsake title @e33a2a5c
+Luz para la noche
+
+== keepsake text @1d2805ba
+Una nota ficticia de una lista corta y de lo que llevaste a casa con ella en julio de 1835. No tiene escrita ninguna venta, precio o cliente real de ninguna tienda.

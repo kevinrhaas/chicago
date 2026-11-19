@@ -1,0 +1,106 @@
+== title @2b909f3f
+Repara los arreos
+
+== premise @6628dcd5
+Encuentra una correa agrietada mientras enganchas los caballos detrás del Western Hotel. Lleva el cuero al talabartero y el hierro al herrero en Lake Street y Canal Street. Luego decide en la posada Green Tree si tu carreta está lista para el camino.
+
+== opening @ff937e95
+PASEO: REPARA LOS ARREOS. Es el atardecer en el patio de carretas detrás del Western Hotel. Sales por el largo camino al oeste con la primera luz. En este patio hay más caballos que huéspedes en el hotel. Mientras enganchas para dar una vuelta de prueba, ves una grieta en una de las largas correas de cuero que jalan la carreta. La grieta está junto a la hebilla.
+
+Dos clases de trabajadores pueden arreglar el equipo de una carreta. El talabartero arregla el cuero. El herrero arregla el hierro. Los dos llegaron a Chicago en 1833, cuando llegó más gente nueva de la que nadie esperaba. Los dos tienen su taller en la misma esquina. Encuentra el problema, hazlo arreglar antes de que oscurezca, y decide durante la cena en el Green Tree si estás listo para el camino.
+
+== stop stable @b4f0bdd9
+Detrás del Western Hotel, en Randolph Street y Canal Street, hay un establo grande. Al lado está el patio donde entran las caravanas de carretas. El dueño decía que el establo era una de las partes más importantes del hotel, porque había tantos caballos como huéspedes. En 1831 el condado fijó los precios. Guardar un caballo toda la noche costaba cincuenta centavos, y una comida para un caballo costaba veinticinco. No sale barato tener un tiro de caballos esperando.
+
+== narrative stable @64708dce
+La correa está agrietada junto a la hebilla. ¿Vas a buscar más problemas?
+
+== label stable look-over @2b46c053
+Revisa cada correa, hebilla y gancho
+
+== consequence stable look-over @c97499db
+La correa está agrietada. Y el gancho de hierro donde se engancha está muy gastado.
+
+== label stable trace-only @86cecb86
+Desabrocha el tirante agrietado y vete
+
+== consequence stable trace-only @be062c28
+Quitas una correa. No miras nada más.
+
+== stop saddler @78ee5deb
+Sube por Canal Street hasta Lake Street. Dos hombres abrieron una tienda de sillas de montar y arreos en esta esquina en 1833. Prometían arreglar enseguida cualquier cosa que llevaran a su tienda. Uno de ellos era Silas Cobb, que llegó al pueblo ese año. Los dos hombres dejaron de trabajar juntos en febrero de 1835. Ahora Cobb lleva la tienda solo. Esta noche, como todas las noches, hay correas esperando a que las arreglen.
+
+== narrative saddler @4846f4d0
+¿Le dejas la correa al talabartero, o la amarras tú mismo?
+
+== label saddler restitch @e5ad12d7
+Deja el tirante para que lo vuelvan a coser
+
+== consequence saddler restitch @1323dbf5
+Esto es trabajo de cuero, y la tienda promete arreglarlo. La correa vuelve fuerte.
+
+== label saddler bind @0db50540
+Amarra tú mismo la grieta con cordel
+
+== consequence saddler bind @5b516370
+Aguantará un viaje corto, pero no un camino largo.
+
+== stop smithy @106640e5
+El talabartero arregla el cuero. El herrero arregla el hierro. En la misma esquina, Asahel Pierce abrió una herrería en octubre de 1833. Él también llegó al pueblo ese año. En enero de 1834 hizo el trabajo de hierro para la primera línea de diligencias de Chicago a St. Louis. Un hombre que puede arreglar una diligencia puede arreglar un gancho gastado.
+
+== narrative smithy @2beaee2b
+¿Hay hierro que arreglar?
+
+== label smithy hook @150dee6e
+Deja el gancho gastado para la fragua
+
+== consequence smithy hook @738ed5bc
+Esto es trabajo de hierro, no de cuero. El gancho vuelve a quedar fuerte.
+
+== stop tavern @a47f81bb
+Camina al este por Lake Street hasta West Water Street y el Green Tree. James Kinzie lo construyó en 1833. Fue la primera casa de aquí construida para ser un hotel. Le pusieron el nombre por un roble que estaba muy cerca. Chester Ingersoll lo atendió de 1834 a 1837. Durará más que casi todo lo que puedes ver. Lo trasladaron en 1880, y todavía seguía en pie en 1895.
+
+== narrative tavern @42714a8e
+¿Listo para el camino largo, o un viaje corto mañana?
+
+== label tavern ready @53c96b6b
+Declara el equipo listo para el camino
+
+== consequence tavern ready @c53e45a7
+Será el camino largo.
+
+== label tavern keep-short @7da7a5bb
+Haz corto el viaje de mañana
+
+== consequence tavern keep-short @bd8b5ca3
+A algún lugar cerca del pueblo, y de vuelta antes de que oscurezca.
+
+== leg 0 @4c3679cd
+La correa agrietada viaja en el asiento a tu lado.
+
+== note 0 @84c7d689
+Fuera del patio y una cuadra al norte por Canal Street hasta Lake.
+
+== note 1 @66ff06a4
+Unos pasos por el mismo cruce.
+
+== note 2 @6d01a113
+Al este por Lake Street hasta West Water, en la orilla oeste del brazo sur.
+
+== ending short-run @9d96eaba
+Así que mañana haces un viaje corto cerca del pueblo, y el camino largo otro día. Todo lo que no revisaste, o que solo amarraste con cordel, se pondrá a prueba cerca de donde hay ayuda. Tener cuidado no es del todo estar listo, pero tampoco es arriesgado.
+
+== ending sound-tack @8723f27c
+El cuero al talabartero y el hierro al herrero. La correa está arreglada, el gancho está fuerte, y revisaste cada correa y hebilla antes de que oscureciera. Con la primera luz tomas el camino largo, listo para lo que traiga la pradera.
+
+== ending hook-left @e03e34ba
+La correa vuelve a estar fuerte. Pero encontraste el gancho gastado y no se lo llevaste al herrero. El cuero aguantará en el camino largo. ¿Y el hierro? Lo sabrás en el primer tirón fuerte, muy lejos de cualquier herrero.
+
+== ending leather-only @d883a482
+La correa está arreglada y tomas el camino largo. Nadie miró el hierro, así que nadie sabe que el gancho está muy gastado. Cuero fuerte, hierro sin probar. La próxima vez, revísalo todo.
+
+== keepsake title @fc7d8560
+Arreos firmes
+
+== keepsake text @abb51117
+Una nota inventada sobre una revisión de arreos: una correa agrietada, un gancho gastado, y lo que se hizo con cada uno. No lleva escrita ninguna reparación, precio ni cliente real de ninguno de los dos talleres.
