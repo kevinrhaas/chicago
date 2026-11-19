@@ -1012,6 +1012,8 @@
     "s35-2017-wing": "2017 Prairie's '2B' rear range now stands on K01's rear wings of `house_2017_prairie` (T-3634); the draft stands no second building.",
     "s35-2021-front": "2021 Prairie now stands as the K01 brick house `high_house_2021_prairie` (T-3633, piece 1 of T-1917, the S08 package of the T-1837 programme), the Adams/High house, which refines this draft in place under the draft's own id: the sheet's front block under the photograph's steep front gable, its round corner turret over the arched door, the gabled south wing and the body and ranges behind on K01's rear wings, off Chicagology's photograph of the house.",
     "s35-2021-wing": "2021 Prairie's '2B' and '1B' rear ranges now stand on K01's rear wings of `high_house_2021_prairie` (T-3633); the draft stands no second building.",
+    "s35-2033-front": "2033 Prairie now stands as the K01 stone-fronted house `otis_house_2033_prairie` (T-3659, piece 1 of T-1918, the S09 package of the T-1837 programme), the Otis house, the middle house of the 1869 limestone row, which refines this draft in place under the draft's own id: the sheet's '3B' main body across its whole lot, its full-height canted stone bay, door, stoop, cornice and fence off Walker Evans' 1946 photograph of the front.",
+    "s35-2033-wing": "2033 Prairie's 'rear2B' range now stands on K01's rear wings of `otis_house_2033_prairie` (T-3659); the draft stands no second building.",
     "s35-2027-front": "2027 Prairie now stands as the K01 brick house `house_2027_prairie` (T-3635, piece 3 of T-1917, the S08 package of the T-1837 programme), the Cobb-associated villa, which refines this draft in place under the draft's own id: the sheet's main body under a painted tin hip with a street dormer, its full-height front bay and canted north bay, the open stoop at the front's south corner, all a bounded design off the 1911 sheet (no picture is held).",
     "s35-2027-wing": "2027 Prairie's '2B' rear range now stands on K01's rear wing of `house_2027_prairie` (T-3635); its one-storey frame bay and frame shed are not built (liberty L-k01-2027-villa-3635), and the draft stands no second building.",
     "s35-2035-front": "2035 Prairie now stands as the K01 stone-front house `stone_house_2035_prairie` (T-3661, piece 3 of T-1918, the S09 package of the T-1837 programme), the 21st Street corner of the 1869 limestone row, which refines this draft in place under the draft's own id: the sheet's three-storey body with its bowed stone bay, the Tribune vignette's round-arched door under a portico on columns beside a railed deck, the swept stoop, the row's cornice, the 21st Street flank and the attached rear range on K01's rear wings. Its detached rear building (s35-2035-rear) is still the draft's, T-1938's to refine.",
@@ -1973,7 +1975,9 @@
     "frontage-35-082": {
       "slug": "otis_house",
       "entrance": "south",
-      "why": "2033, the Otis homestead in the middle of the 1869 limestone row (Tribune, February 1904): the row's bracketed flat cornice over three storeys and the sheet's full-height canted stone bay, which the fit carries as a bay; the pedimented double-door hood the Walker Evans photograph shows is T-1918's."
+      "why": "2033, the Otis homestead in the middle of the 1869 limestone row (Tribune, February 1904): the row's bracketed flat cornice over three storeys and the sheet's full-height canted stone bay, which the fit carries as a bay; the pedimented double-door hood the Walker Evans photograph shows is T-1918's.",
+      "house_id": "otis_house_2033_prairie",
+      "house_address": "2033"
     },
     "frontage-35-083": {
       "slug": "stone_house",

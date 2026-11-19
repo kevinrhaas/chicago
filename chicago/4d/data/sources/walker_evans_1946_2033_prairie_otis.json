@@ -1,0 +1,30 @@
+{
+ "id": "walker_evans_1946_2033_prairie_otis",
+ "type": "photograph",
+ "citation": "Walker Evans, '2033 Prairie Avenue, Chicago', 1946, gelatin silver print, image 26.3 x 21.7 cm, from Evans' 1946 Chicago series for Fortune. Art Institute of Chicago, Photography and Media, Gift of David C. and Sarajean Ruttenberg, 1991.1475 (https://www.artic.edu/artworks/118616); the same image reproduced on chicagology.com, Prairie Avenue, 2033 S. Prairie.",
+ "author": "Walker Evans",
+ "date": "1946",
+ "describes_date": "1946",
+ "repository": "Art Institute of Chicago, 1991.1475 (the original print); chicagology.com (the reproduction read here). Prairie library images a20-aic-walker-evans-2033 (the AIC print, 'copyright - link only', no local copy) and a20-chicagology-2033-walker-evans (the reproduction, 'copyright - link only'); the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a20-chicagology-2033-walker-evans.jpg), committed at data/sources/assets/otis_2033_photo_t3659/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/2033prairie/",
+ "locator": "The whole print: the street front of 2033 square-on from the far walk of Prairie Avenue, from the cornice to the public walk; the vacant lot and a concrete loft to the north, a later tower to the south.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A 1946 photograph by Walker Evans that the Art Institute of Chicago lists as not in the public domain (AIC API: is_public_domain false); the Prairie library rules it 'copyright - link only'. Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-3659) is the image store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-18 (T-3659) from the image store's reference copy, 696 x 913 px, sha256 c964ed0da9b23428147b33bc81fa077b9feb5bac531b5941d17ee35632893346.",
+ "note": "The one picture of 2033 Prairie this project reads, and it is late: 1946, after both neighbours of the row had gone. A narrow three-storey front of pale stone laid in channelled courses, the whole lot's 25 ft wide, over a raised basement: a full-height three-sided bay on the south two-thirds, one light to each face of it a storey, with a heavy moulded band at each storey's sill; the north third with the double door at the head of a long straight stoop under a pedimented hood on two scrolled consoles with an urn on its apex, and one light a storey over it under a carved keystone block; every light arched; a deep bracketed cornice over a carved frieze carried round the bay; an arched light in the basement under the bay; an iron picket fence on a curb along the walk. The Otis family lived here from 1869 to 1934, so the front is read as the 1904 front unless a picture of nearer date says otherwise: its forms are carried to 1904 as inferred.",
+ "what_it_supplies": [
+  "the front's width, its storeys and its heights, through the solved camera",
+  "the bay: its place, its three faces, its lights and its storey bands",
+  "the door, its hood, the stoop and its run to the walk",
+  "the lights over the door, their arched heads and keystone blocks",
+  "the cornice, the frieze, the basement light and the fence"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "1904: it is evidence of 1946",
+  "the flanks, the rear, the roof and the rear range"
+ ]
+}
