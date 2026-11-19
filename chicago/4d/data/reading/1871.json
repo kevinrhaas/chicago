@@ -1,0 +1,5 @@
+{
+ "_doc": "T-3645: the cards' words at the reader's other ages, written by tools/reading_levels.py from docs/RESEARCH/reading-levels-3645/words. Each entry is one paragraph as a card shows it (`text`), the age it measures at (`own`), and its words at other ages (`levels`); js/reading-level.js lays them under a card's age tabs. Do not edit: edit the words files and run the tool.",
+ "scene": "1871",
+ "entries": []
+}

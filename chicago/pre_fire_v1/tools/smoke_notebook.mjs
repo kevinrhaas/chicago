@@ -28,7 +28,7 @@ try {
     const context = await browser.newContext({viewport}); const page = await context.newPage(); const errors = [];
     page.on('pageerror',e => errors.push(String(e)));
     page.on('response',r => { if(r.url().startsWith(origin) && r.status() >= 400) errors.push(r.status()+' '+r.url()); });
-    await page.goto(base+'research.html'); await page.locator('.notebook-entry a').click(); await page.waitForSelector('.record-card');
+    await page.goto(base+'research.html'); await page.locator('.notebook-entry a[href="notebook.html"]').click(); await page.waitForSelector('.record-card');
     const cards = page.locator('.record-card');
     check(await cards.count() === model.records.length, size+': dossier opens full notebook');
     check(await page.locator('.scene-card').count() === model.scene_packets.length,size+': all scene studies render');

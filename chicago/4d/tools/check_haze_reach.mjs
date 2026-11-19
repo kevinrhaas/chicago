@@ -119,7 +119,17 @@ export function read(root, overrides = {}) {
         + 'visible at its outer edge. Thicken the air or widen the apron.');
     }
   }
-  return { densities, aprons: found, density, totalM, fails };
+  // The citywide scene has its own wider apron and no legacy timber layer.
+  const cityApron = found.find(a => a.epoch === 'e1871_prefire');
+  let cityDensity = null, cityTotalM = null;
+  if (cityApron) {
+    const source = fs.readFileSync(path.join(root, 'renderers/web/js/world.js'), 'utf8');
+    cityDensity = Number(/^const CITY_HAZE_DENSITY = ([0-9.eE+-]+);$/m.exec(source)?.[1]);
+    cityTotalM = cityDensity > 0 ? hazeTotalM(cityDensity) : null;
+    if (!(cityDensity > 0)) fails.push('1871: no CITY_HAZE_DENSITY literal');
+    else if (!(cityApron.marginM >= cityTotalM)) fails.push(`1871: city haze reaches ${cityTotalM.toFixed(1)} m beyond its ${cityApron.marginM} m apron`);
+  }
+  return { densities, aprons: found, density, totalM, cityDensity, cityTotalM, fails };
 }
 
 function selfTest() {
@@ -129,6 +139,7 @@ function selfTest() {
     ['the two literals drifting apart',
       { 'renderers/web/js/trees.js': 0.00125 }],
     ['an apron that has shrunk under the air', { e1834_harbor_cut: 900 }],
+    ['the city apron shrinking below its own clearer air', { e1871_prefire: 3000 }],
     ['a missing density literal', { 'renderers/web/js/world.js': null }],
   ];
   let bad = 0;
@@ -152,8 +163,10 @@ const r = read(ROOT);
 if (process.argv.includes('--json')) console.log(JSON.stringify(r, null, 1));
 else {
   console.log(`haze density ${r.density} — total at ${r.totalM?.toFixed(1)} m`);
+  if (r.cityDensity) console.log(`1871 city haze density ${r.cityDensity} — total at ${r.cityTotalM.toFixed(1)} m`);
   for (const a of r.aprons) {
-    const slack = a.marginM === null || r.totalM === null ? null : a.marginM - r.totalM;
+    const reach = a.epoch === 'e1871_prefire' ? r.cityTotalM : r.totalM;
+    const slack = a.marginM === null || reach === null ? null : a.marginM - reach;
     console.log(`  ${a.epoch}: apron ${a.marginM?.toFixed(2)} m`
       + (slack === null ? '' : `  (total ${slack.toFixed(1)} m inside its edge)`));
   }

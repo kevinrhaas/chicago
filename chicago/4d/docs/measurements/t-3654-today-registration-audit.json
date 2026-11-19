@@ -1,0 +1,2293 @@
+{
+  "id": "t-3654-today-registration-audit",
+  "schema": 1,
+  "recorded_utc": "2026-11-18T19:13:08.032Z",
+  "source_base": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290",
+  "scope": "Read-only comparison of existing 1871 modern targets with the project Today/Google Street View registration and committed survey-control lineage. No Google API, network request, coordinate mutation, fitting or historical geometry change.",
+  "conclusion": "No missing global or legacy coordinate correction. 1871 and Today use the same EPSG:26916 local-metre frame. The old per-year Today shifts correct particular older reconstructions and must not be transplanted into the 1871 map fit.",
+  "source_sha256": {
+    "data/datum.json": "7695fa312b4e302dda9e62e85f4407346960886b5db04b34b5c661dd2db897c1",
+    "data/context/1871/plan.json": "795610cb42defeb130f571f2ccb4157460e34ee1e3a4af607ac0d207b1a53a3f",
+    "data/modern/streets.json": "18279692f6ed39e74db280cc858613040cafa73ab3e0f8b217620a6306e1b12a",
+    "data/streets/1835.json": "30c25746d0e6ba2e5c6675f19b7de5684c92d0406ab404134d988b30b0d4dd53",
+    "data/street_grid/1904.json": "5573de2f05537c88ba51fc446ddeda362c1e6f26121755f2111307e3e864acd7",
+    "data/modern/landmark_sites.json": "21018c9720482fbd80eebe67e87de91aa353be10d8428673ae2564ec82f21e0b",
+    "data/structures/first_fort_dearborn_pickets_outer.json": "7a0d6f2672cfdf2265b31cc9d06d584fc9c15bf7d2313e8d07ccf9ed401595c4",
+    "data/structures/fort_dearborn_palisade.json": "684d5fc95a145e4f5926e88a5b62ce9f2409fb295416b24b04e3b336c1597b9b",
+    "data/traces/street_control.json": "28c76b24d920fb8afc348f74196ed76b2d242dbd9e6eea06f9dd42b9455de7e7",
+    "data/traces/gcp/wright_1834_gcps.json": "3d7bedd002abed0b0328d997f32aefea1724ec270a21e03847af0c0df4317e89",
+    "data/traces/gcp/rees_rucker_1849_gcps.json": "e002f20cb8f5e419fb4fc9f0de16e41a2ca2627f6844ecd7f3af54e5b5323099",
+    "data/traces/gcp/mitchell_1870_modern_targets.json": "3b544814468ff662ba6a038bbb929e26589d666905c4cff9165d17caee4bb0e6",
+    "data/traces/gcp/mitchell_1870_osm_primitives.json": "fb09fb6a0060500273d833b7ce5b01a09281fe5cd92481ba3f33aba21b090aa3",
+    "renderers/web/js/today-register.js": "518b83383b39ef9d9a2bd79985c0864e2bc9472ff7ff550965904e85d1b0513c",
+    "renderers/web/js/today-geo.js": "c7d50eaaca9fa4c04517156f7c875eaf5666c840d5fd0e395fae96e1b3fbb3f6",
+    "renderers/web/js/today-view.js": "36356f771ff1c3d377bc40ab84d7331d68a88d46f15bfa96c7a4b317b6373428",
+    "renderers/web/js/modern-streets.js": "6fc7d2532eaa5f4488c7dfe7af1b907e1ae8fc3754e75d6bff3f0bcc767c478e",
+    "renderers/web/js/main.js": "f8d273d27d9ec94828008513c3408d0a6cf3db6b3ce05ee150d00b3f113c88db",
+    "tools/today_registration.mjs": "3622cfbbeb1c628db3c04084f932396f6c0b75d87c441be1b18b2545f2ff879a",
+    "tools/build_modern_streets.py": "a024629f31a30b6fc7e4022c5945fa5f7f7f3387ee84dab11bf0a22acf9c518e",
+    "tools/fit_1871_city_map.py": "5922120d828edff0059b2ccc07353575949eb66224d2243e2469b773d46398b2",
+    "docs/CORRIDOR-LINES.md": "47faafed8f691f4d03f3b830f230431fb772969eda98b7c6db86eb5708c5c42e",
+    "data/sources/osm_streets_2026.json": "5689605486782744b1996c3eccfd9ae9ba602ad2711f9dad2d6c012723fc9ba9",
+    "data/sources/chicago_street_center_lines.json": "7935f355a43909fd0d1b9844916fa54d73ff40003d0d0daf212967bdd4daa136",
+    "data/sources/wright_1834.json": "393ce214cac62d36255f6c72f1e72c0e8af343fdb57d361f8ed71eeaebf4e0af",
+    "data/sources/rees_rucker_1849.json": "b7c3ef85a5b18837fde5bf2f03b44a2b1d55196154bef135d673286c76d8520f",
+    "data/sources/mitchell_1870_chicago_map.json": "454ad232586b08eafe1700bad7fc112e6e80fc9695426170ac8131a669c1266f"
+  },
+  "sources": [
+    {
+      "id": "osm_streets_2026",
+      "path": "data/sources/osm_streets_2026.json",
+      "sha256": "5689605486782744b1996c3eccfd9ae9ba602ad2711f9dad2d6c012723fc9ba9",
+      "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+      "url": "https://www.openstreetmap.org/",
+      "role_in_this_audit": "Modern intersection targets; not historical proof."
+    },
+    {
+      "id": "chicago_street_center_lines",
+      "path": "data/sources/chicago_street_center_lines.json",
+      "sha256": "7935f355a43909fd0d1b9844916fa54d73ff40003d0d0daf212967bdd4daa136",
+      "citation": "City of Chicago, Department of Innovation and Technology. Street Center Lines (Transportation.geojson), osd-street-center-line release, last edited 2014-10-15.",
+      "url": "https://github.com/Chicago/osd-street-center-line",
+      "role_in_this_audit": "Second modern dataset used by the existing Today navigation registration; not historical proof."
+    },
+    {
+      "id": "wright_1834",
+      "path": "data/sources/wright_1834.json",
+      "sha256": "393ce214cac62d36255f6c72f1e72c0e8af343fdb57d361f8ed71eeaebf4e0af",
+      "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+      "role_in_this_audit": "Identifies the historical-map/GCP lineage; this audit does not re-fit or re-read the map."
+    },
+    {
+      "id": "rees_rucker_1849",
+      "path": "data/sources/rees_rucker_1849.json",
+      "sha256": "b7c3ef85a5b18837fde5bf2f03b44a2b1d55196154bef135d673286c76d8520f",
+      "citation": "Rees & Rucker, land agents. Map of Chicago and Vicinity. Drawn by Wm. Clogher. Chicago, 1849. Scale 1000 feet to one inch.",
+      "url": "https://commons.wikimedia.org/wiki/File:1849_Rees_%26_Rucker_Map_of_Chicago_and_Vicinity.jpg",
+      "role_in_this_audit": "Identifies the historical-map/GCP lineage; this audit does not re-fit or re-read the map."
+    },
+    {
+      "id": "mitchell_1870_chicago_map",
+      "path": "data/sources/mitchell_1870_chicago_map.json",
+      "sha256": "454ad232586b08eafe1700bad7fc112e6e80fc9695426170ac8131a669c1266f",
+      "citation": "S. Augustus Mitchell, Jr. Chicago. 1870. Approximately 1:31,000. University of Illinois Map and Geography Library; Wikimedia Commons surrogate.",
+      "url": "https://commons.wikimedia.org/wiki/File:1870_Chicago_map_by_Mitchell.jpg",
+      "role_in_this_audit": "Identifies the historical-map/GCP lineage; this audit does not re-fit or re-read the map."
+    }
+  ],
+  "frame": {
+    "crs": "EPSG:26916",
+    "units": "metres",
+    "axis": "local east, local north; renderer x=e, z=-n",
+    "origin_utm_m": [
+      447072.7,
+      4637395.8
+    ],
+    "plan_coordinate_system": "EPSG:26916 local East/North metres from data/datum.json",
+    "today_origin_utm_m": [
+      447072.7,
+      4637395.8
+    ],
+    "today_utm_zone": 16,
+    "formula": "local_e = EPSG:26916.easting - 447072.7; local_n = EPSG:26916.northing - 4637395.8",
+    "inverse_formula": "latitude/longitude = today-geo.js.localToLatLng(local_e, local_n); latLngToLocal is its numerical inverse",
+    "epsg_3435_used_by_these_paths": false,
+    "all_origin_and_crs_checks_pass": true
+  },
+  "formulas": {
+    "comparison_delta": "delta = City current intersection [E,N] - 1871 OSM target [E,N]",
+    "comparison_distance": "sqrt(delta_E^2 + delta_N^2)",
+    "comparison_rmse": "sqrt(sum(distance_i^2) / 9), calculated before reporting-rounding",
+    "legacy_match": "Compare M1..M14 local and lat/lon against R1..R14 modern targets; no historic Rees/Rucker pixel or affine transform reused.",
+    "wright_g1": "[447910.33,4636870.53] - [447072.7,4637395.8] = [837.63,-525.27]",
+    "today_shift": "For each year select only CONTROLS rows naming it. Shift is inverse-distance blend of (today - scene); 1871 has zero rows and returns [0,0]."
+  },
+  "modern_dataset_comparison": {
+    "count": 9,
+    "named_pair_selection": [
+      [
+        "M1",
+        "1835:statexmadison"
+      ],
+      [
+        "lasalle_lake",
+        "1835:lakexlasalle"
+      ],
+      [
+        "lasalle_randolph",
+        "1835:randolphxlasalle"
+      ],
+      [
+        "lasalle_washington",
+        "1835:washingtonxlasalle"
+      ],
+      [
+        "lasalle_madison",
+        "1835:lasallexmadison"
+      ],
+      [
+        "clark_madison",
+        "1835:clarkxmadison"
+      ],
+      [
+        "wells_madison",
+        "1835:wellsxmadison"
+      ],
+      [
+        "clark_lake",
+        "1835:lakexclark"
+      ],
+      [
+        "wells_randolph",
+        "1835:randolphxwells"
+      ]
+    ],
+    "rmse_m": 2.023028533,
+    "max_m": 3.854101711,
+    "pairs": [
+      {
+        "control_1871_id": "M1",
+        "feature": "State Street x Madison Street",
+        "role_in_1871_fit": "fit",
+        "modern_target_id": null,
+        "osm_latitude": 41.8820455,
+        "osm_longitude": -87.6278089,
+        "osm_node_ids": [
+          27446720
+        ],
+        "osm_node_id_provenance": "Wright G1 records the identical latitude/longitude; the inherited Rees R1 target does not itself list node IDs.",
+        "osm_way_ids": null,
+        "osm_local_enu_m": [
+          837.63,
+          -525.27
+        ],
+        "today_control_id": "1835:statexmadison",
+        "today_control_years": [
+          "1812",
+          "1835",
+          "1904"
+        ],
+        "city_today_local_enu_m": [
+          837.9,
+          -525.7
+        ],
+        "city_minus_osm_enu_m": [
+          0.27,
+          -0.43
+        ],
+        "modern_dataset_difference_m": 0.507740091,
+        "legacy_drawn_scene_local_enu_m": [
+          823.6,
+          -519
+        ],
+        "legacy_drawn_scene_minus_osm_enu_m": [
+          -14.03,
+          6.27
+        ],
+        "legacy_drawn_scene_difference_m": 15.367296444,
+        "today_minus_legacy_drawn_scene_enu_m": [
+          14.3,
+          -6.7
+        ],
+        "osm_source_id": "osm_streets_2026",
+        "city_source_id": "chicago_street_center_lines"
+      },
+      {
+        "control_1871_id": "lasalle_lake",
+        "feature": "LaSalle Street x Lake Street",
+        "role_in_1871_fit": "check",
+        "modern_target_id": "lasalle_lake",
+        "osm_latitude": 41.8857419,
+        "osm_longitude": -87.6324743,
+        "osm_node_ids": [
+          258957340,
+          6991303059
+        ],
+        "osm_node_id_provenance": "1871 retained modern_control",
+        "osm_way_ids": {
+          "vertical": [
+            48785109,
+            435704684,
+            747171895,
+            1137194391
+          ],
+          "horizontal": [
+            1137194390,
+            1137194392,
+            1137194396
+          ]
+        },
+        "osm_local_enu_m": [
+          453.57,
+          -112.02
+        ],
+        "today_control_id": "1835:lakexlasalle",
+        "today_control_years": [
+          "1812",
+          "1835",
+          "1904"
+        ],
+        "city_today_local_enu_m": [
+          455.8,
+          -112.5
+        ],
+        "city_minus_osm_enu_m": [
+          2.23,
+          -0.48
+        ],
+        "modern_dataset_difference_m": 2.281074308,
+        "legacy_drawn_scene_local_enu_m": [
+          451.8,
+          -113.4
+        ],
+        "legacy_drawn_scene_minus_osm_enu_m": [
+          -1.77,
+          -1.38
+        ],
+        "legacy_drawn_scene_difference_m": 2.244393014,
+        "today_minus_legacy_drawn_scene_enu_m": [
+          4,
+          0.9
+        ],
+        "osm_source_id": "osm_streets_2026",
+        "city_source_id": "chicago_street_center_lines"
+      },
+      {
+        "control_1871_id": "lasalle_randolph",
+        "feature": "LaSalle Street x Randolph Street",
+        "role_in_1871_fit": "fit",
+        "modern_target_id": "lasalle_randolph",
+        "osm_latitude": 41.8844738,
+        "osm_longitude": -87.63246444999999,
+        "osm_node_ids": [
+          10923165759,
+          10923165760
+        ],
+        "osm_node_id_provenance": "1871 retained modern_control",
+        "osm_way_ids": {
+          "vertical": [
+            48785109,
+            747171895,
+            1285031389,
+            1285031390
+          ],
+          "horizontal": [
+            1028896250,
+            1028896252,
+            1285031391
+          ]
+        },
+        "osm_local_enu_m": [
+          453.35,
+          -252.82
+        ],
+        "today_control_id": "1835:randolphxlasalle",
+        "today_control_years": [
+          "1812",
+          "1835",
+          "1904"
+        ],
+        "city_today_local_enu_m": [
+          455.8,
+          -253
+        ],
+        "city_minus_osm_enu_m": [
+          2.45,
+          -0.18
+        ],
+        "modern_dataset_difference_m": 2.456603346,
+        "legacy_drawn_scene_local_enu_m": [
+          450.9,
+          -256.1
+        ],
+        "legacy_drawn_scene_minus_osm_enu_m": [
+          -2.45,
+          -3.28
+        ],
+        "legacy_drawn_scene_difference_m": 4.094007816,
+        "today_minus_legacy_drawn_scene_enu_m": [
+          4.9,
+          3.1
+        ],
+        "osm_source_id": "osm_streets_2026",
+        "city_source_id": "chicago_street_center_lines"
+      },
+      {
+        "control_1871_id": "lasalle_washington",
+        "feature": "LaSalle Street x Washington Street",
+        "role_in_1871_fit": "fit",
+        "modern_target_id": "lasalle_washington",
+        "osm_latitude": 41.883243,
+        "osm_longitude": -87.6324167,
+        "osm_node_ids": [
+          28290296
+        ],
+        "osm_node_id_provenance": "1871 retained modern_control",
+        "osm_way_ids": {
+          "vertical": [
+            134319743,
+            1285031389,
+            1285031390
+          ],
+          "horizontal": [
+            624405242,
+            983233556
+          ]
+        },
+        "osm_local_enu_m": [
+          456.3,
+          -389.51
+        ],
+        "today_control_id": "1835:washingtonxlasalle",
+        "today_control_years": [
+          "1812",
+          "1835",
+          "1904"
+        ],
+        "city_today_local_enu_m": [
+          457,
+          -393.3
+        ],
+        "city_minus_osm_enu_m": [
+          0.7,
+          -3.79
+        ],
+        "modern_dataset_difference_m": 3.854101711,
+        "legacy_drawn_scene_local_enu_m": [
+          450.2,
+          -391.4
+        ],
+        "legacy_drawn_scene_minus_osm_enu_m": [
+          -6.1,
+          -1.89
+        ],
+        "legacy_drawn_scene_difference_m": 6.386086439,
+        "today_minus_legacy_drawn_scene_enu_m": [
+          6.8,
+          -1.9
+        ],
+        "osm_source_id": "osm_streets_2026",
+        "city_source_id": "chicago_street_center_lines"
+      },
+      {
+        "control_1871_id": "lasalle_madison",
+        "feature": "LaSalle Street x Madison Street",
+        "role_in_1871_fit": "fit",
+        "modern_target_id": "lasalle_madison",
+        "osm_latitude": 41.881953,
+        "osm_longitude": -87.6323622,
+        "osm_node_ids": [
+          28289318
+        ],
+        "osm_node_id_provenance": "1871 retained modern_control",
+        "osm_way_ids": {
+          "vertical": [
+            134319745,
+            1191329603
+          ],
+          "horizontal": [
+            435724112,
+            435724113
+          ]
+        },
+        "osm_local_enu_m": [
+          459.77,
+          -532.76
+        ],
+        "today_control_id": "1835:lasallexmadison",
+        "today_control_years": [
+          "1812",
+          "1835",
+          "1904"
+        ],
+        "city_today_local_enu_m": [
+          459.9,
+          -531.9
+        ],
+        "city_minus_osm_enu_m": [
+          0.13,
+          0.86
+        ],
+        "modern_dataset_difference_m": 0.869770085,
+        "legacy_drawn_scene_local_enu_m": [
+          449.4,
+          -519
+        ],
+        "legacy_drawn_scene_minus_osm_enu_m": [
+          -10.37,
+          13.76
+        ],
+        "legacy_drawn_scene_difference_m": 17.230046431,
+        "today_minus_legacy_drawn_scene_enu_m": [
+          10.5,
+          -12.9
+        ],
+        "osm_source_id": "osm_streets_2026",
+        "city_source_id": "chicago_street_center_lines"
+      },
+      {
+        "control_1871_id": "clark_madison",
+        "feature": "Clark Street x Madison Street",
+        "role_in_1871_fit": "check",
+        "modern_target_id": "clark_madison",
+        "osm_latitude": 41.8819838,
+        "osm_longitude": -87.6308753,
+        "osm_node_ids": [
+          28289310
+        ],
+        "osm_node_id_provenance": "1871 retained modern_control",
+        "osm_way_ids": {
+          "vertical": [
+            5263032,
+            805911051
+          ],
+          "horizontal": [
+            435724110,
+            435724119
+          ]
+        },
+        "osm_local_enu_m": [
+          583.16,
+          -530.25
+        ],
+        "today_control_id": "1835:clarkxmadison",
+        "today_control_years": [
+          "1812",
+          "1835",
+          "1904"
+        ],
+        "city_today_local_enu_m": [
+          582.5,
+          -531
+        ],
+        "city_minus_osm_enu_m": [
+          -0.66,
+          -0.75
+        ],
+        "modern_dataset_difference_m": 0.999049548,
+        "legacy_drawn_scene_local_enu_m": [
+          572.6,
+          -519
+        ],
+        "legacy_drawn_scene_minus_osm_enu_m": [
+          -10.56,
+          11.25
+        ],
+        "legacy_drawn_scene_difference_m": 15.429714839,
+        "today_minus_legacy_drawn_scene_enu_m": [
+          9.9,
+          -12
+        ],
+        "osm_source_id": "osm_streets_2026",
+        "city_source_id": "chicago_street_center_lines"
+      },
+      {
+        "control_1871_id": "wells_madison",
+        "feature": "Wells Street x Madison Street",
+        "role_in_1871_fit": "fit",
+        "modern_target_id": "wells_madison",
+        "osm_latitude": 41.8819407,
+        "osm_longitude": -87.6338476,
+        "osm_node_ids": [
+          27477590
+        ],
+        "osm_node_id_provenance": "1871 retained modern_control",
+        "osm_way_ids": {
+          "vertical": [
+            24220202,
+            1191328879
+          ],
+          "horizontal": [
+            59678310,
+            435724112
+          ]
+        },
+        "osm_local_enu_m": [
+          336.51,
+          -533.22
+        ],
+        "today_control_id": "1835:wellsxmadison",
+        "today_control_years": [
+          "1812",
+          "1835",
+          "1904"
+        ],
+        "city_today_local_enu_m": [
+          338.5,
+          -532.7
+        ],
+        "city_minus_osm_enu_m": [
+          1.99,
+          0.52
+        ],
+        "modern_dataset_difference_m": 2.056817931,
+        "legacy_drawn_scene_local_enu_m": [
+          327.4,
+          -519
+        ],
+        "legacy_drawn_scene_minus_osm_enu_m": [
+          -9.11,
+          14.22
+        ],
+        "legacy_drawn_scene_difference_m": 16.88788027,
+        "today_minus_legacy_drawn_scene_enu_m": [
+          11.1,
+          -13.7
+        ],
+        "osm_source_id": "osm_streets_2026",
+        "city_source_id": "chicago_street_center_lines"
+      },
+      {
+        "control_1871_id": "clark_lake",
+        "feature": "Clark Street x Lake Street",
+        "role_in_1871_fit": "fit",
+        "modern_target_id": "clark_lake",
+        "osm_latitude": 41.885747,
+        "osm_longitude": -87.6309862,
+        "osm_node_ids": [
+          258957339
+        ],
+        "osm_node_id_provenance": "1871 retained modern_control",
+        "osm_way_ids": {
+          "vertical": [
+            758223624,
+            1137194393
+          ],
+          "horizontal": [
+            1137194392,
+            1137194394
+          ]
+        },
+        "osm_local_enu_m": [
+          577.03,
+          -112.37
+        ],
+        "today_control_id": "1835:lakexclark",
+        "today_control_years": [
+          "1812",
+          "1835",
+          "1904"
+        ],
+        "city_today_local_enu_m": [
+          577.9,
+          -113
+        ],
+        "city_minus_osm_enu_m": [
+          0.87,
+          -0.63
+        ],
+        "modern_dataset_difference_m": 1.074150827,
+        "legacy_drawn_scene_local_enu_m": [
+          575.2,
+          -114.4
+        ],
+        "legacy_drawn_scene_minus_osm_enu_m": [
+          -1.83,
+          -2.03
+        ],
+        "legacy_drawn_scene_difference_m": 2.733093485,
+        "today_minus_legacy_drawn_scene_enu_m": [
+          2.7,
+          1.4
+        ],
+        "osm_source_id": "osm_streets_2026",
+        "city_source_id": "chicago_street_center_lines"
+      },
+      {
+        "control_1871_id": "wells_randolph",
+        "feature": "Wells Street x Randolph Street",
+        "role_in_1871_fit": "fit",
+        "modern_target_id": "wells_randolph",
+        "osm_latitude": 41.884468,
+        "osm_longitude": -87.6339164,
+        "osm_node_ids": [
+          27477592
+        ],
+        "osm_node_id_provenance": "1871 retained modern_control",
+        "osm_way_ids": {
+          "vertical": [
+            48785101,
+            1028896255
+          ],
+          "horizontal": [
+            23810320,
+            1028896254
+          ]
+        },
+        "osm_local_enu_m": [
+          332.88,
+          -252.58
+        ],
+        "today_control_id": "1835:randolphxwells",
+        "today_control_years": [
+          "1812",
+          "1835",
+          "1904"
+        ],
+        "city_today_local_enu_m": [
+          334.7,
+          -252.4
+        ],
+        "city_minus_osm_enu_m": [
+          1.82,
+          0.18
+        ],
+        "modern_dataset_difference_m": 1.828879438,
+        "legacy_drawn_scene_local_enu_m": [
+          329,
+          -255.1
+        ],
+        "legacy_drawn_scene_minus_osm_enu_m": [
+          -3.88,
+          -2.52
+        ],
+        "legacy_drawn_scene_difference_m": 4.626532179,
+        "today_minus_legacy_drawn_scene_enu_m": [
+          5.7,
+          2.7
+        ],
+        "osm_source_id": "osm_streets_2026",
+        "city_source_id": "chicago_street_center_lines"
+      }
+    ],
+    "city_data_source_edited": "2014-10-15",
+    "city_data_source_url": "https://raw.githubusercontent.com/Chicago/osd-street-center-line/master/data/Transportation.geojson",
+    "city_data_source_sha256": "212bfb7e1adc160c66b80d791a2f5f4387dc2fbf1a934ed76b5db8f4f88a2904",
+    "city_extract_bbox_local_enu_m": [
+      -800,
+      -4000,
+      2300,
+      1250
+    ],
+    "city_extract_bbox_order": [
+      "min_e",
+      "min_n",
+      "max_e",
+      "max_n"
+    ],
+    "city_extract_counts": {
+      "segments": 2153,
+      "names": 237
+    }
+  },
+  "inherited_target_matches": {
+    "count": 14,
+    "all_exact": true,
+    "pairs": [
+      {
+        "control_1871_id": "M1",
+        "legacy_gcp_id": "R1",
+        "feature": "State Street x Madison Street",
+        "legacy_feature": "State Street x Madison Street",
+        "latitude": 41.8820455,
+        "longitude": -87.6278089,
+        "target_1871_local_enu_m": [
+          837.63,
+          -525.27
+        ],
+        "legacy_target_local_enu_m": [
+          837.63,
+          -525.27
+        ],
+        "difference_m": 0,
+        "exact_stored_coordinates_match": true,
+        "exact_stored_latlon_match": true,
+        "source_path": "data/traces/gcp/rees_rucker_1849_gcps.json"
+      },
+      {
+        "control_1871_id": "M2",
+        "legacy_gcp_id": "R2",
+        "feature": "State Street x Cermak Road (Twenty-Second Street)",
+        "legacy_feature": "State Street x Cermak Road (Twenty-Second Street)",
+        "latitude": 41.8528741,
+        "longitude": -87.6270931,
+        "target_1871_local_enu_m": [
+          873.37,
+          -3764.52
+        ],
+        "legacy_target_local_enu_m": [
+          873.37,
+          -3764.52
+        ],
+        "difference_m": 0,
+        "exact_stored_coordinates_match": true,
+        "exact_stored_latlon_match": true,
+        "source_path": "data/traces/gcp/rees_rucker_1849_gcps.json"
+      },
+      {
+        "control_1871_id": "M3",
+        "legacy_gcp_id": "R3",
+        "feature": "State Street x Roosevelt Road (Twelfth Street)",
+        "legacy_feature": "State Street x Roosevelt Road (Twelfth Street)",
+        "latitude": 41.8674222,
+        "longitude": -87.6274484,
+        "target_1871_local_enu_m": [
+          855.68,
+          -2149.07
+        ],
+        "legacy_target_local_enu_m": [
+          855.68,
+          -2149.07
+        ],
+        "difference_m": 0,
+        "exact_stored_coordinates_match": true,
+        "exact_stored_latlon_match": true,
+        "source_path": "data/traces/gcp/rees_rucker_1849_gcps.json"
+      },
+      {
+        "control_1871_id": "M4",
+        "legacy_gcp_id": "R4",
+        "feature": "State Street x Thirty-First Street",
+        "legacy_feature": "State Street x Thirty-First Street",
+        "latitude": 41.8382958,
+        "longitude": -87.626689,
+        "target_1871_local_enu_m": [
+          895.1,
+          -5383.34
+        ],
+        "legacy_target_local_enu_m": [
+          895.1,
+          -5383.34
+        ],
+        "difference_m": 0,
+        "exact_stored_coordinates_match": true,
+        "exact_stored_latlon_match": true,
+        "source_path": "data/traces/gcp/rees_rucker_1849_gcps.json"
+      },
+      {
+        "control_1871_id": "M5",
+        "legacy_gcp_id": "R5",
+        "feature": "Halsted Street x Madison Street",
+        "legacy_feature": "Halsted Street x Madison Street",
+        "latitude": 41.8817821,
+        "longitude": -87.6473605,
+        "target_1871_local_enu_m": [
+          -784.8,
+          -542.46
+        ],
+        "legacy_target_local_enu_m": [
+          -784.8,
+          -542.46
+        ],
+        "difference_m": 0,
+        "exact_stored_coordinates_match": true,
+        "exact_stored_latlon_match": true,
+        "source_path": "data/traces/gcp/rees_rucker_1849_gcps.json"
+      },
+      {
+        "control_1871_id": "M6",
+        "legacy_gcp_id": "R6",
+        "feature": "Halsted Street x Cermak Road (Twenty-Second Street)",
+        "legacy_feature": "Halsted Street x Cermak Road (Twenty-Second Street)",
+        "latitude": 41.8526658,
+        "longitude": -87.6464988,
+        "target_1871_local_enu_m": [
+          -737.65,
+          -3775.7
+        ],
+        "legacy_target_local_enu_m": [
+          -737.65,
+          -3775.7
+        ],
+        "difference_m": 0,
+        "exact_stored_coordinates_match": true,
+        "exact_stored_latlon_match": true,
+        "source_path": "data/traces/gcp/rees_rucker_1849_gcps.json"
+      },
+      {
+        "control_1871_id": "M7",
+        "legacy_gcp_id": "R7",
+        "feature": "Halsted Street x Roosevelt Road (Twelfth Street)",
+        "legacy_feature": "Halsted Street x Roosevelt Road (Twelfth Street)",
+        "latitude": 41.8671754,
+        "longitude": -87.6469439,
+        "target_1871_local_enu_m": [
+          -762.46,
+          -2164.46
+        ],
+        "legacy_target_local_enu_m": [
+          -762.46,
+          -2164.46
+        ],
+        "difference_m": 0,
+        "exact_stored_coordinates_match": true,
+        "exact_stored_latlon_match": true,
+        "source_path": "data/traces/gcp/rees_rucker_1849_gcps.json"
+      },
+      {
+        "control_1871_id": "M8",
+        "legacy_gcp_id": "R8",
+        "feature": "Halsted Street x North Avenue",
+        "legacy_feature": "Halsted Street x North Avenue",
+        "latitude": 41.9109266,
+        "longitude": -87.6482861,
+        "target_1871_local_enu_m": [
+          -837.15,
+          2693.96
+        ],
+        "legacy_target_local_enu_m": [
+          -837.15,
+          2693.96
+        ],
+        "difference_m": 0,
+        "exact_stored_coordinates_match": true,
+        "exact_stored_latlon_match": true,
+        "source_path": "data/traces/gcp/rees_rucker_1849_gcps.json"
+      },
+      {
+        "control_1871_id": "M9",
+        "legacy_gcp_id": "R9",
+        "feature": "Western Avenue x Madison Street",
+        "legacy_feature": "Western Avenue x Madison Street",
+        "latitude": 41.8811659,
+        "longitude": -87.6864316,
+        "target_1871_local_enu_m": [
+          -4027.13,
+          -585.68
+        ],
+        "legacy_target_local_enu_m": [
+          -4027.13,
+          -585.68
+        ],
+        "difference_m": 0,
+        "exact_stored_coordinates_match": true,
+        "exact_stored_latlon_match": true,
+        "source_path": "data/traces/gcp/rees_rucker_1849_gcps.json"
+      },
+      {
+        "control_1871_id": "M10",
+        "legacy_gcp_id": "R10",
+        "feature": "Western Avenue x Roosevelt Road (Twelfth Street)",
+        "legacy_feature": "Western Avenue x Roosevelt Road (Twelfth Street)",
+        "latitude": 41.8666148,
+        "longitude": -87.6860446,
+        "target_1871_local_enu_m": [
+          -4007.93,
+          -2201.51
+        ],
+        "legacy_target_local_enu_m": [
+          -4007.93,
+          -2201.51
+        ],
+        "difference_m": 0,
+        "exact_stored_coordinates_match": true,
+        "exact_stored_latlon_match": true,
+        "source_path": "data/traces/gcp/rees_rucker_1849_gcps.json"
+      },
+      {
+        "control_1871_id": "M11",
+        "legacy_gcp_id": "R11",
+        "feature": "Ashland Avenue x Chicago Avenue",
+        "legacy_feature": "Ashland Avenue x Chicago Avenue",
+        "latitude": 41.8960697,
+        "longitude": -87.6673033,
+        "target_1871_local_enu_m": [
+          -2427.15,
+          1056.53
+        ],
+        "legacy_target_local_enu_m": [
+          -2427.15,
+          1056.53
+        ],
+        "difference_m": 0,
+        "exact_stored_coordinates_match": true,
+        "exact_stored_latlon_match": true,
+        "source_path": "data/traces/gcp/rees_rucker_1849_gcps.json"
+      },
+      {
+        "control_1871_id": "M12",
+        "legacy_gcp_id": "R12",
+        "feature": "Ashland Avenue x Madison Street",
+        "legacy_feature": "Ashland Avenue x Madison Street",
+        "latitude": 41.8814645,
+        "longitude": -87.666806,
+        "target_1871_local_enu_m": [
+          -2398.49,
+          -565.37
+        ],
+        "legacy_target_local_enu_m": [
+          -2398.49,
+          -565.37
+        ],
+        "difference_m": 0,
+        "exact_stored_coordinates_match": true,
+        "exact_stored_latlon_match": true,
+        "source_path": "data/traces/gcp/rees_rucker_1849_gcps.json"
+      },
+      {
+        "control_1871_id": "M13",
+        "legacy_gcp_id": "R13",
+        "feature": "Ashland Avenue x Roosevelt Road (Twelfth Street)",
+        "legacy_feature": "Ashland Avenue x Roosevelt Road (Twelfth Street)",
+        "latitude": 41.8668483,
+        "longitude": -87.6664075,
+        "target_1871_local_enu_m": [
+          -2378.03,
+          -2188.42
+        ],
+        "legacy_target_local_enu_m": [
+          -2378.03,
+          -2188.42
+        ],
+        "difference_m": 0,
+        "exact_stored_coordinates_match": true,
+        "exact_stored_latlon_match": true,
+        "source_path": "data/traces/gcp/rees_rucker_1849_gcps.json"
+      },
+      {
+        "control_1871_id": "M14",
+        "legacy_gcp_id": "R14",
+        "feature": "Ashland Avenue x North Avenue",
+        "legacy_feature": "Ashland Avenue x North Avenue",
+        "latitude": 41.9106343,
+        "longitude": -87.6677009,
+        "target_1871_local_enu_m": [
+          -2447.54,
+          2673.86
+        ],
+        "legacy_target_local_enu_m": [
+          -2447.54,
+          2673.86
+        ],
+        "difference_m": 0,
+        "exact_stored_coordinates_match": true,
+        "exact_stored_latlon_match": true,
+        "source_path": "data/traces/gcp/rees_rucker_1849_gcps.json"
+      }
+    ]
+  },
+  "wright_g1_check": {
+    "id": "G1",
+    "feature": "State St & Madison St",
+    "feature_note": "PLSS section corner: sections 9/10/15/16, T39N R14E. The town plat's SE corner; Madison's line continues east as the reservation's south boundary.",
+    "osm_node_ids": [
+      27446720
+    ],
+    "latitude": 41.8820455,
+    "longitude": -87.6278089,
+    "stored_utm_m": [
+      447910.33,
+      4636870.53
+    ],
+    "local_enu_m": [
+      837.63,
+      -525.27
+    ],
+    "target_1871_id": "M1",
+    "target_1871_local_enu_m": [
+      837.63,
+      -525.27
+    ],
+    "difference_m": 0,
+    "exact_stored_latlon_match": true,
+    "source_path": "data/traces/gcp/wright_1834_gcps.json"
+  },
+  "today_projection_check": {
+    "method": "Call the shipped today-geo.js.latLngToLocal on each retained 1871 modern_control latitude/longitude, then compare to its stored local target. This is projection/rounding agreement, not historical-position validation.",
+    "count": 36,
+    "max_difference_m": 0.0062239,
+    "points": [
+      {
+        "id": "M1",
+        "feature": "State Street x Madison Street",
+        "role": "fit",
+        "latitude": 41.8820455,
+        "longitude": -87.6278089,
+        "stored_target_local_enu_m": [
+          837.63,
+          -525.27
+        ],
+        "today_geo_local_enu_m": [
+          837.634774848,
+          -525.268388661
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.004774848,
+          0.001611339
+        ],
+        "difference_m": 0.005039404
+      },
+      {
+        "id": "M2",
+        "feature": "State Street x Cermak Road (Twenty-Second Street)",
+        "role": "fit",
+        "latitude": 41.8528741,
+        "longitude": -87.6270931,
+        "stored_target_local_enu_m": [
+          873.37,
+          -3764.52
+        ],
+        "today_geo_local_enu_m": [
+          873.365887453,
+          -3764.516265245
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.004112547,
+          0.003734755
+        ],
+        "difference_m": 0.005555307
+      },
+      {
+        "id": "M3",
+        "feature": "State Street x Roosevelt Road (Twelfth Street)",
+        "role": "fit",
+        "latitude": 41.8674222,
+        "longitude": -87.6274484,
+        "stored_target_local_enu_m": [
+          855.68,
+          -2149.07
+        ],
+        "today_geo_local_enu_m": [
+          855.67714383,
+          -2149.070633282
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.00285617,
+          -0.000633282
+        ],
+        "difference_m": 0.002925535
+      },
+      {
+        "id": "M4",
+        "feature": "State Street x Thirty-First Street",
+        "role": "fit",
+        "latitude": 41.8382958,
+        "longitude": -87.626689,
+        "stored_target_local_enu_m": [
+          895.1,
+          -5383.34
+        ],
+        "today_geo_local_enu_m": [
+          895.098649224,
+          -5383.340256332
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.001350776,
+          -0.000256332
+        ],
+        "difference_m": 0.001374882
+      },
+      {
+        "id": "M5",
+        "feature": "Halsted Street x Madison Street",
+        "role": "fit",
+        "latitude": 41.8817821,
+        "longitude": -87.6473605,
+        "stored_target_local_enu_m": [
+          -784.8,
+          -542.46
+        ],
+        "today_geo_local_enu_m": [
+          -784.800835031,
+          -542.461034843
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.000835031,
+          -0.001034843
+        ],
+        "difference_m": 0.001329728
+      },
+      {
+        "id": "M6",
+        "feature": "Halsted Street x Cermak Road (Twenty-Second Street)",
+        "role": "fit",
+        "latitude": 41.8526658,
+        "longitude": -87.6464988,
+        "stored_target_local_enu_m": [
+          -737.65,
+          -3775.7
+        ],
+        "today_geo_local_enu_m": [
+          -737.649979832,
+          -3775.697277862
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.000020168,
+          0.002722138
+        ],
+        "difference_m": 0.002722213
+      },
+      {
+        "id": "M7",
+        "feature": "Halsted Street x Roosevelt Road (Twelfth Street)",
+        "role": "fit",
+        "latitude": 41.8671754,
+        "longitude": -87.6469439,
+        "stored_target_local_enu_m": [
+          -762.46,
+          -2164.46
+        ],
+        "today_geo_local_enu_m": [
+          -762.45849499,
+          -2164.46274271
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.00150501,
+          -0.00274271
+        ],
+        "difference_m": 0.0031285
+      },
+      {
+        "id": "M8",
+        "feature": "Halsted Street x North Avenue",
+        "role": "fit",
+        "latitude": 41.9109266,
+        "longitude": -87.6482861,
+        "stored_target_local_enu_m": [
+          -837.15,
+          2693.96
+        ],
+        "today_geo_local_enu_m": [
+          -837.148619889,
+          2693.963325651
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.001380111,
+          0.003325651
+        ],
+        "difference_m": 0.003600647
+      },
+      {
+        "id": "M9",
+        "feature": "Western Avenue x Madison Street",
+        "role": "fit",
+        "latitude": 41.8811659,
+        "longitude": -87.6864316,
+        "stored_target_local_enu_m": [
+          -4027.13,
+          -585.68
+        ],
+        "today_geo_local_enu_m": [
+          -4027.130115046,
+          -585.684717063
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.000115046,
+          -0.004717063
+        ],
+        "difference_m": 0.004718466
+      },
+      {
+        "id": "M10",
+        "feature": "Western Avenue x Roosevelt Road (Twelfth Street)",
+        "role": "fit",
+        "latitude": 41.8666148,
+        "longitude": -87.6860446,
+        "stored_target_local_enu_m": [
+          -4007.93,
+          -2201.51
+        ],
+        "today_geo_local_enu_m": [
+          -4007.932757418,
+          -2201.510676192
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.002757418,
+          -0.000676192
+        ],
+        "difference_m": 0.002839118
+      },
+      {
+        "id": "M11",
+        "feature": "Ashland Avenue x Chicago Avenue",
+        "role": "fit",
+        "latitude": 41.8960697,
+        "longitude": -87.6673033,
+        "stored_target_local_enu_m": [
+          -2427.15,
+          1056.53
+        ],
+        "today_geo_local_enu_m": [
+          -2427.145310779,
+          1056.529772368
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.004689221,
+          -0.000227632
+        ],
+        "difference_m": 0.004694743
+      },
+      {
+        "id": "M12",
+        "feature": "Ashland Avenue x Madison Street",
+        "role": "fit",
+        "latitude": 41.8814645,
+        "longitude": -87.666806,
+        "stored_target_local_enu_m": [
+          -2398.49,
+          -565.37
+        ],
+        "today_geo_local_enu_m": [
+          -2398.493921331,
+          -565.370182473
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.003921331,
+          -0.000182473
+        ],
+        "difference_m": 0.003925574
+      },
+      {
+        "id": "M13",
+        "feature": "Ashland Avenue x Roosevelt Road (Twelfth Street)",
+        "role": "fit",
+        "latitude": 41.8668483,
+        "longitude": -87.6664075,
+        "stored_target_local_enu_m": [
+          -2378.03,
+          -2188.42
+        ],
+        "today_geo_local_enu_m": [
+          -2378.029081756,
+          -2188.4234304
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.000918244,
+          -0.0034304
+        ],
+        "difference_m": 0.003551171
+      },
+      {
+        "id": "M14",
+        "feature": "Ashland Avenue x North Avenue",
+        "role": "fit",
+        "latitude": 41.9106343,
+        "longitude": -87.6677009,
+        "stored_target_local_enu_m": [
+          -2447.54,
+          2673.86
+        ],
+        "today_geo_local_enu_m": [
+          -2447.540859975,
+          2673.861978624
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.000859975,
+          0.001978624
+        ],
+        "difference_m": 0.002157431
+      },
+      {
+        "id": "ashland_fullerton",
+        "feature": "Ashland Avenue x Fullerton Avenue",
+        "role": "check",
+        "latitude": 41.9251508,
+        "longitude": -87.6681499,
+        "stored_target_local_enu_m": [
+          -2472.22,
+          4285.89
+        ],
+        "today_geo_local_enu_m": [
+          -2472.221271247,
+          4285.89117622
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.001271247,
+          0.00117622
+        ],
+        "difference_m": 0.001731925
+      },
+      {
+        "id": "halsted_fullerton",
+        "feature": "Halsted Street x Fullerton Avenue",
+        "role": "fit",
+        "latitude": 41.9254527,
+        "longitude": -87.6487665,
+        "stored_target_local_enu_m": [
+          -864.79,
+          4307.07
+        ],
+        "today_geo_local_enu_m": [
+          -864.789147559,
+          4307.069057046
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.000852441,
+          -0.000942954
+        ],
+        "difference_m": 0.001271148
+      },
+      {
+        "id": "western_north",
+        "feature": "Western Avenue x North Avenue",
+        "role": "check",
+        "latitude": 41.9103236,
+        "longitude": -87.687207,
+        "stored_target_local_enu_m": [
+          -4065.54,
+          2652.14
+        ],
+        "today_geo_local_enu_m": [
+          -4065.536770353,
+          2652.142853578
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.003229647,
+          0.002853578
+        ],
+        "difference_m": 0.004309701
+      },
+      {
+        "id": "western_division",
+        "feature": "Western Avenue x Division Street",
+        "role": "fit",
+        "latitude": 41.9030255,
+        "longitude": -87.6870176,
+        "stored_target_local_enu_m": [
+          -4056.32,
+          1841.72
+        ],
+        "today_geo_local_enu_m": [
+          -4056.318797564,
+          1841.724160661
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.001202436,
+          0.004160661
+        ],
+        "difference_m": 0.00433093
+      },
+      {
+        "id": "ashland_division",
+        "feature": "Ashland Avenue x Division Street",
+        "role": "fit",
+        "latitude": 41.9033503,
+        "longitude": -87.6675056,
+        "stored_target_local_enu_m": [
+          -2437.64,
+          1865.01
+        ],
+        "today_geo_local_enu_m": [
+          -2437.637179508,
+          1865.008856896
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.002820492,
+          -0.001143104
+        ],
+        "difference_m": 0.003043331
+      },
+      {
+        "id": "halsted_division",
+        "feature": "Halsted Street x Division Street",
+        "role": "check",
+        "latitude": 41.9036431,
+        "longitude": -87.6480864,
+        "stored_target_local_enu_m": [
+          -826.7,
+          1885.17
+        ],
+        "today_geo_local_enu_m": [
+          -826.69662265,
+          1885.166931684
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.00337735,
+          -0.003068316
+        ],
+        "difference_m": 0.004563009
+      },
+      {
+        "id": "western_chicago",
+        "feature": "Western Avenue x Chicago Avenue",
+        "role": "fit",
+        "latitude": 41.8957505,
+        "longitude": -87.6868353,
+        "stored_target_local_enu_m": [
+          -4047.66,
+          1033.88
+        ],
+        "today_geo_local_enu_m": [
+          -4047.66475412,
+          1033.875983126
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.00475412,
+          -0.004016874
+        ],
+        "difference_m": 0.0062239
+      },
+      {
+        "id": "state_chicago",
+        "feature": "State Street x Chicago Avenue",
+        "role": "check",
+        "latitude": 41.8966783,
+        "longitude": -87.6282103,
+        "stored_target_local_enu_m": [
+          816.22,
+          1099.62
+        ],
+        "today_geo_local_enu_m": [
+          816.22444327,
+          1099.617708936
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.00444327,
+          -0.002291064
+        ],
+        "difference_m": 0.004999162
+      },
+      {
+        "id": "ashland_16th",
+        "feature": "Ashland Avenue x 16th Street",
+        "role": "check",
+        "latitude": 41.8596262,
+        "longitude": -87.66619764999999,
+        "stored_target_local_enu_m": [
+          -2366.84,
+          -2990.41
+        ],
+        "today_geo_local_enu_m": [
+          -2366.835764483,
+          -2990.406960287
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.004235517,
+          0.003039713
+        ],
+        "difference_m": 0.005213392
+      },
+      {
+        "id": "halsted_16th",
+        "feature": "Halsted Street x 16th Street",
+        "role": "fit",
+        "latitude": 41.8599052,
+        "longitude": -87.6467031,
+        "stored_target_local_enu_m": [
+          -748.55,
+          -2971.8
+        ],
+        "today_geo_local_enu_m": [
+          -748.554894233,
+          -2971.801766538
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.004894233,
+          -0.001766538
+        ],
+        "difference_m": 0.005203285
+      },
+      {
+        "id": "state_16th",
+        "feature": "State Street x 16th Street",
+        "role": "fit",
+        "latitude": 41.860181,
+        "longitude": -87.62726905,
+        "stored_target_local_enu_m": [
+          864.69,
+          -2953.15
+        ],
+        "today_geo_local_enu_m": [
+          864.687168139,
+          -2953.147772462
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.002831861,
+          0.002227538
+        ],
+        "difference_m": 0.003602966
+      },
+      {
+        "id": "halsted_31st",
+        "feature": "Halsted Street x 31st Street",
+        "role": "fit",
+        "latitude": 41.8380408,
+        "longitude": -87.6462682,
+        "stored_target_local_enu_m": [
+          -730.73,
+          -5399.61
+        ],
+        "today_geo_local_enu_m": [
+          -730.727154762,
+          -5399.606039003
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.002845238,
+          0.003960997
+        ],
+        "difference_m": 0.004876974
+      },
+      {
+        "id": "western_cermak",
+        "feature": "Western Avenue x Cermak Road",
+        "role": "check",
+        "latitude": 41.8520386,
+        "longitude": -87.6856273,
+        "stored_target_local_enu_m": [
+          -3986.22,
+          -3820.14
+        ],
+        "today_geo_local_enu_m": [
+          -3986.224194247,
+          -3820.13927006
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.004194247,
+          0.00072994
+        ],
+        "difference_m": 0.00425729
+      },
+      {
+        "id": "ashland_cermak",
+        "feature": "Ashland Avenue x Cermak Road",
+        "role": "fit",
+        "latitude": 41.8523357,
+        "longitude": -87.66602209999999,
+        "stored_target_local_enu_m": [
+          -2358.54,
+          -3799.96
+        ],
+        "today_geo_local_enu_m": [
+          -2358.543767506,
+          -3799.961593627
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.003767506,
+          -0.001593627
+        ],
+        "difference_m": 0.00409069
+      },
+      {
+        "id": "lasalle_lake",
+        "feature": "LaSalle Street x Lake Street",
+        "role": "check",
+        "latitude": 41.8857419,
+        "longitude": -87.6324743,
+        "stored_target_local_enu_m": [
+          453.57,
+          -112.02
+        ],
+        "today_geo_local_enu_m": [
+          453.566795158,
+          -112.02463388
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.003204842,
+          -0.00463388
+        ],
+        "difference_m": 0.005634168
+      },
+      {
+        "id": "lasalle_randolph",
+        "feature": "LaSalle Street x Randolph Street",
+        "role": "fit",
+        "latitude": 41.8844738,
+        "longitude": -87.63246444999999,
+        "stored_target_local_enu_m": [
+          453.35,
+          -252.82
+        ],
+        "today_geo_local_enu_m": [
+          453.346348393,
+          -252.824468096
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.003651607,
+          -0.004468096
+        ],
+        "difference_m": 0.005770452
+      },
+      {
+        "id": "lasalle_washington",
+        "feature": "LaSalle Street x Washington Street",
+        "role": "fit",
+        "latitude": 41.883243,
+        "longitude": -87.6324167,
+        "stored_target_local_enu_m": [
+          456.3,
+          -389.51
+        ],
+        "today_geo_local_enu_m": [
+          456.301020399,
+          -389.506125348
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.001020399,
+          0.003874652
+        ],
+        "difference_m": 0.004006762
+      },
+      {
+        "id": "lasalle_madison",
+        "feature": "LaSalle Street x Madison Street",
+        "role": "fit",
+        "latitude": 41.881953,
+        "longitude": -87.6323622,
+        "stored_target_local_enu_m": [
+          459.77,
+          -532.76
+        ],
+        "today_geo_local_enu_m": [
+          459.767491531,
+          -532.764694739
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.002508469,
+          -0.004694739
+        ],
+        "difference_m": 0.005322875
+      },
+      {
+        "id": "clark_madison",
+        "feature": "Clark Street x Madison Street",
+        "role": "check",
+        "latitude": 41.8819838,
+        "longitude": -87.6308753,
+        "stored_target_local_enu_m": [
+          583.16,
+          -530.25
+        ],
+        "today_geo_local_enu_m": [
+          583.162311532,
+          -530.253028039
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.002311532,
+          -0.003028039
+        ],
+        "difference_m": 0.003809488
+      },
+      {
+        "id": "wells_madison",
+        "feature": "Wells Street x Madison Street",
+        "role": "fit",
+        "latitude": 41.8819407,
+        "longitude": -87.6338476,
+        "stored_target_local_enu_m": [
+          336.51,
+          -533.22
+        ],
+        "today_geo_local_enu_m": [
+          336.51217618,
+          -533.22113784
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.00217618,
+          -0.00113784
+        ],
+        "difference_m": 0.002455695
+      },
+      {
+        "id": "clark_lake",
+        "feature": "Clark Street x Lake Street",
+        "role": "fit",
+        "latitude": 41.885747,
+        "longitude": -87.6309862,
+        "stored_target_local_enu_m": [
+          577.03,
+          -112.37
+        ],
+        "today_geo_local_enu_m": [
+          577.032910773,
+          -112.367275172
+        ],
+        "today_geo_minus_stored_enu_m": [
+          0.002910773,
+          0.002724828
+        ],
+        "difference_m": 0.00398714
+      },
+      {
+        "id": "wells_randolph",
+        "feature": "Wells Street x Randolph Street",
+        "role": "fit",
+        "latitude": 41.884468,
+        "longitude": -87.6339164,
+        "stored_target_local_enu_m": [
+          332.88,
+          -252.58
+        ],
+        "today_geo_local_enu_m": [
+          332.876480214,
+          -252.57957948
+        ],
+        "today_geo_minus_stored_enu_m": [
+          -0.003519786,
+          0.00042052
+        ],
+        "difference_m": 0.003544818
+      }
+    ]
+  },
+  "today_registration_1871": {
+    "control_count": 0,
+    "identity": true,
+    "existing_table_count": 74,
+    "existing_table_matches_rederived_city_controls": true,
+    "derived_from": "tools/today_registration.mjs::deriveControls; controlTable",
+    "existing_years": [
+      "1812",
+      "1835",
+      "1904"
+    ],
+    "identity_checks": [
+      {
+        "id": "M1",
+        "input_local_enu_m": [
+          837.63,
+          -525.27
+        ],
+        "to_today_local_enu_m": [
+          837.63,
+          -525.27
+        ],
+        "to_scene_local_enu_m": [
+          837.63,
+          -525.27
+        ]
+      },
+      {
+        "id": "M2",
+        "input_local_enu_m": [
+          873.37,
+          -3764.52
+        ],
+        "to_today_local_enu_m": [
+          873.37,
+          -3764.52
+        ],
+        "to_scene_local_enu_m": [
+          873.37,
+          -3764.52
+        ]
+      },
+      {
+        "id": "M3",
+        "input_local_enu_m": [
+          855.68,
+          -2149.07
+        ],
+        "to_today_local_enu_m": [
+          855.68,
+          -2149.07
+        ],
+        "to_scene_local_enu_m": [
+          855.68,
+          -2149.07
+        ]
+      },
+      {
+        "id": "M4",
+        "input_local_enu_m": [
+          895.1,
+          -5383.34
+        ],
+        "to_today_local_enu_m": [
+          895.1,
+          -5383.34
+        ],
+        "to_scene_local_enu_m": [
+          895.1,
+          -5383.34
+        ]
+      },
+      {
+        "id": "M5",
+        "input_local_enu_m": [
+          -784.8,
+          -542.46
+        ],
+        "to_today_local_enu_m": [
+          -784.8,
+          -542.46
+        ],
+        "to_scene_local_enu_m": [
+          -784.8,
+          -542.46
+        ]
+      },
+      {
+        "id": "M6",
+        "input_local_enu_m": [
+          -737.65,
+          -3775.7
+        ],
+        "to_today_local_enu_m": [
+          -737.65,
+          -3775.7
+        ],
+        "to_scene_local_enu_m": [
+          -737.65,
+          -3775.7
+        ]
+      },
+      {
+        "id": "M7",
+        "input_local_enu_m": [
+          -762.46,
+          -2164.46
+        ],
+        "to_today_local_enu_m": [
+          -762.46,
+          -2164.46
+        ],
+        "to_scene_local_enu_m": [
+          -762.46,
+          -2164.46
+        ]
+      },
+      {
+        "id": "M8",
+        "input_local_enu_m": [
+          -837.15,
+          2693.96
+        ],
+        "to_today_local_enu_m": [
+          -837.15,
+          2693.96
+        ],
+        "to_scene_local_enu_m": [
+          -837.15,
+          2693.96
+        ]
+      },
+      {
+        "id": "M9",
+        "input_local_enu_m": [
+          -4027.13,
+          -585.68
+        ],
+        "to_today_local_enu_m": [
+          -4027.13,
+          -585.68
+        ],
+        "to_scene_local_enu_m": [
+          -4027.13,
+          -585.68
+        ]
+      },
+      {
+        "id": "M10",
+        "input_local_enu_m": [
+          -4007.93,
+          -2201.51
+        ],
+        "to_today_local_enu_m": [
+          -4007.93,
+          -2201.51
+        ],
+        "to_scene_local_enu_m": [
+          -4007.93,
+          -2201.51
+        ]
+      },
+      {
+        "id": "M11",
+        "input_local_enu_m": [
+          -2427.15,
+          1056.53
+        ],
+        "to_today_local_enu_m": [
+          -2427.15,
+          1056.53
+        ],
+        "to_scene_local_enu_m": [
+          -2427.15,
+          1056.53
+        ]
+      },
+      {
+        "id": "M12",
+        "input_local_enu_m": [
+          -2398.49,
+          -565.37
+        ],
+        "to_today_local_enu_m": [
+          -2398.49,
+          -565.37
+        ],
+        "to_scene_local_enu_m": [
+          -2398.49,
+          -565.37
+        ]
+      },
+      {
+        "id": "M13",
+        "input_local_enu_m": [
+          -2378.03,
+          -2188.42
+        ],
+        "to_today_local_enu_m": [
+          -2378.03,
+          -2188.42
+        ],
+        "to_scene_local_enu_m": [
+          -2378.03,
+          -2188.42
+        ]
+      },
+      {
+        "id": "M14",
+        "input_local_enu_m": [
+          -2447.54,
+          2673.86
+        ],
+        "to_today_local_enu_m": [
+          -2447.54,
+          2673.86
+        ],
+        "to_scene_local_enu_m": [
+          -2447.54,
+          2673.86
+        ]
+      },
+      {
+        "id": "ashland_fullerton",
+        "input_local_enu_m": [
+          -2472.22,
+          4285.89
+        ],
+        "to_today_local_enu_m": [
+          -2472.22,
+          4285.89
+        ],
+        "to_scene_local_enu_m": [
+          -2472.22,
+          4285.89
+        ]
+      },
+      {
+        "id": "halsted_fullerton",
+        "input_local_enu_m": [
+          -864.79,
+          4307.07
+        ],
+        "to_today_local_enu_m": [
+          -864.79,
+          4307.07
+        ],
+        "to_scene_local_enu_m": [
+          -864.79,
+          4307.07
+        ]
+      },
+      {
+        "id": "western_north",
+        "input_local_enu_m": [
+          -4065.54,
+          2652.14
+        ],
+        "to_today_local_enu_m": [
+          -4065.54,
+          2652.14
+        ],
+        "to_scene_local_enu_m": [
+          -4065.54,
+          2652.14
+        ]
+      },
+      {
+        "id": "western_division",
+        "input_local_enu_m": [
+          -4056.32,
+          1841.72
+        ],
+        "to_today_local_enu_m": [
+          -4056.32,
+          1841.72
+        ],
+        "to_scene_local_enu_m": [
+          -4056.32,
+          1841.72
+        ]
+      },
+      {
+        "id": "ashland_division",
+        "input_local_enu_m": [
+          -2437.64,
+          1865.01
+        ],
+        "to_today_local_enu_m": [
+          -2437.64,
+          1865.01
+        ],
+        "to_scene_local_enu_m": [
+          -2437.64,
+          1865.01
+        ]
+      },
+      {
+        "id": "halsted_division",
+        "input_local_enu_m": [
+          -826.7,
+          1885.17
+        ],
+        "to_today_local_enu_m": [
+          -826.7,
+          1885.17
+        ],
+        "to_scene_local_enu_m": [
+          -826.7,
+          1885.17
+        ]
+      },
+      {
+        "id": "western_chicago",
+        "input_local_enu_m": [
+          -4047.66,
+          1033.88
+        ],
+        "to_today_local_enu_m": [
+          -4047.66,
+          1033.88
+        ],
+        "to_scene_local_enu_m": [
+          -4047.66,
+          1033.88
+        ]
+      },
+      {
+        "id": "state_chicago",
+        "input_local_enu_m": [
+          816.22,
+          1099.62
+        ],
+        "to_today_local_enu_m": [
+          816.22,
+          1099.62
+        ],
+        "to_scene_local_enu_m": [
+          816.22,
+          1099.62
+        ]
+      },
+      {
+        "id": "ashland_16th",
+        "input_local_enu_m": [
+          -2366.84,
+          -2990.41
+        ],
+        "to_today_local_enu_m": [
+          -2366.84,
+          -2990.41
+        ],
+        "to_scene_local_enu_m": [
+          -2366.84,
+          -2990.41
+        ]
+      },
+      {
+        "id": "halsted_16th",
+        "input_local_enu_m": [
+          -748.55,
+          -2971.8
+        ],
+        "to_today_local_enu_m": [
+          -748.55,
+          -2971.8
+        ],
+        "to_scene_local_enu_m": [
+          -748.55,
+          -2971.8
+        ]
+      },
+      {
+        "id": "state_16th",
+        "input_local_enu_m": [
+          864.69,
+          -2953.15
+        ],
+        "to_today_local_enu_m": [
+          864.69,
+          -2953.15
+        ],
+        "to_scene_local_enu_m": [
+          864.69,
+          -2953.15
+        ]
+      },
+      {
+        "id": "halsted_31st",
+        "input_local_enu_m": [
+          -730.73,
+          -5399.61
+        ],
+        "to_today_local_enu_m": [
+          -730.73,
+          -5399.61
+        ],
+        "to_scene_local_enu_m": [
+          -730.73,
+          -5399.61
+        ]
+      },
+      {
+        "id": "western_cermak",
+        "input_local_enu_m": [
+          -3986.22,
+          -3820.14
+        ],
+        "to_today_local_enu_m": [
+          -3986.22,
+          -3820.14
+        ],
+        "to_scene_local_enu_m": [
+          -3986.22,
+          -3820.14
+        ]
+      },
+      {
+        "id": "ashland_cermak",
+        "input_local_enu_m": [
+          -2358.54,
+          -3799.96
+        ],
+        "to_today_local_enu_m": [
+          -2358.54,
+          -3799.96
+        ],
+        "to_scene_local_enu_m": [
+          -2358.54,
+          -3799.96
+        ]
+      },
+      {
+        "id": "lasalle_lake",
+        "input_local_enu_m": [
+          453.57,
+          -112.02
+        ],
+        "to_today_local_enu_m": [
+          453.57,
+          -112.02
+        ],
+        "to_scene_local_enu_m": [
+          453.57,
+          -112.02
+        ]
+      },
+      {
+        "id": "lasalle_randolph",
+        "input_local_enu_m": [
+          453.35,
+          -252.82
+        ],
+        "to_today_local_enu_m": [
+          453.35,
+          -252.82
+        ],
+        "to_scene_local_enu_m": [
+          453.35,
+          -252.82
+        ]
+      },
+      {
+        "id": "lasalle_washington",
+        "input_local_enu_m": [
+          456.3,
+          -389.51
+        ],
+        "to_today_local_enu_m": [
+          456.3,
+          -389.51
+        ],
+        "to_scene_local_enu_m": [
+          456.3,
+          -389.51
+        ]
+      },
+      {
+        "id": "lasalle_madison",
+        "input_local_enu_m": [
+          459.77,
+          -532.76
+        ],
+        "to_today_local_enu_m": [
+          459.77,
+          -532.76
+        ],
+        "to_scene_local_enu_m": [
+          459.77,
+          -532.76
+        ]
+      },
+      {
+        "id": "clark_madison",
+        "input_local_enu_m": [
+          583.16,
+          -530.25
+        ],
+        "to_today_local_enu_m": [
+          583.16,
+          -530.25
+        ],
+        "to_scene_local_enu_m": [
+          583.16,
+          -530.25
+        ]
+      },
+      {
+        "id": "wells_madison",
+        "input_local_enu_m": [
+          336.51,
+          -533.22
+        ],
+        "to_today_local_enu_m": [
+          336.51,
+          -533.22
+        ],
+        "to_scene_local_enu_m": [
+          336.51,
+          -533.22
+        ]
+      },
+      {
+        "id": "clark_lake",
+        "input_local_enu_m": [
+          577.03,
+          -112.37
+        ],
+        "to_today_local_enu_m": [
+          577.03,
+          -112.37
+        ],
+        "to_scene_local_enu_m": [
+          577.03,
+          -112.37
+        ]
+      },
+      {
+        "id": "wells_randolph",
+        "input_local_enu_m": [
+          332.88,
+          -252.58
+        ],
+        "to_today_local_enu_m": [
+          332.88,
+          -252.58
+        ],
+        "to_scene_local_enu_m": [
+          332.88,
+          -252.58
+        ]
+      }
+    ],
+    "runtime_integration": "main.js passes createRegistration(scene id) to both loadModernStreets(toScene) and createTodayView(register)."
+  },
+  "native_survey_constraint": {
+    "source": "docs/CORRIDOR-LINES.md; data/traces/street_control.json",
+    "ruling": "The drawn line controls blocks/lots/roofs. The survey-controlled line answers roadway corridor questions. Neither is a citywide correction and neither rewrites the other.",
+    "kinzie_recentering_m": 2.91,
+    "south_water_recentering_m": 8.58,
+    "action": "Preserve native historical street geometry; do not copy legacy Today shifts, corridor offsets, or an extra warp into the 1871 fitter."
+  },
+  "limitations": [
+    "Agreement of two modern datasets is not independent survey truth; their source lineages may overlap. Neither establishes unchanged historical street centres.",
+    "The City extract is bounded to [-800,-4000,2300,1250] local metres and the nine named comparisons are concentrated downtown. This does not validate the full 1871 municipal extent.",
+    "The City file was last edited 2014-10-15; modern OSM controls have separately recorded retrieval dates. Street widening, reconstruction and changed node definitions can affect comparisons.",
+    "The committed Today controls are rounded to 0.1 m, the 1871 targets generally to 0.01 m. Numerical precision is not surveying accuracy.",
+    "today-geo.js uses the GRS80 ellipsoid for NAD83/WGS84 at this scale. The sub-centimetre code agreement is not a claim of sub-centimetre geodetic or historical accuracy.",
+    "The 1871 map still has its declared affine-fit and reserved-check residuals. This comparison neither lowers those errors nor validates individual buildings, riverbanks, shoreline or generic lots.",
+    "1871 currently has no scene-specific Today correction. Any future display alignment needs explicit 1871 correspondences and its own evidence; copying older-year corrections would import their reconstruction offsets.",
+    "No actual Google Maps or Street View imagery was queried or used as historical evidence. Google is the destination of the existing navigation feature."
+  ],
+  "reproduction": {
+    "command": "node /tmp/t3654-audit-today-registration.mjs /workspace/chicago/chicago/4d > /tmp/t3654-today-registration-audit.json",
+    "portable_command": "node <saved-script.mjs> <checkout>/chicago/4d > <audit.json>",
+    "prerequisites": "Node.js with ESM support; the source paths listed in source_sha256. No packages, network, browser, Python, Google API or generators required.",
+    "comparison_note": "recorded_utc and source_base may change on reproduction; source hashes and calculated values identify the measured bytes and result.",
+    "script_sha256": "95b28de95c861bb51d2c6a68e7ddcd37d61ab6165b575286ad4081d2fa7f047b",
+    "embedded_script": "#!/usr/bin/env node\n// Read-only reproduction of the T-3654 modern-intersection/frame comparison.\n// Usage: node t3654-audit-today-registration.mjs /path/to/chicago/4d > audit.json\nimport fs from 'node:fs';\nimport path from 'node:path';\nimport crypto from 'node:crypto';\nimport { pathToFileURL, fileURLToPath } from 'node:url';\nimport { execFileSync } from 'node:child_process';\n\nconst root = path.resolve(process.argv[2] || '.');\nconst read = rel => JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8'));\nconst sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');\nconst round = n => Number(n.toFixed(9));\nconst sub = (a, b) => a.map((v, i) => round(v - b[i]));\nconst dist = (a, b) => Math.hypot(...a.map((v, i) => v - b[i]));\nconst must = (condition, message) => { if (!condition) throw Error(message); };\nconst moduleAt = rel => import(pathToFileURL(path.join(root, rel)).href);\nconst { CONTROLS, createRegistration } = await moduleAt('renderers/web/js/today-register.js');\nconst { DATUM, latLngToLocal } = await moduleAt('renderers/web/js/today-geo.js');\nconst { deriveControls, controlTable } = await moduleAt('tools/today_registration.mjs');\nconst datum = read('data/datum.json');\nconst plan = read('data/context/1871/plan.json');\nconst modern = read('data/modern/streets.json');\nconst targets = read('data/traces/gcp/mitchell_1870_modern_targets.json');\nconst rees = read('data/traces/gcp/rees_rucker_1849_gcps.json');\nconst wright = read('data/traces/gcp/wright_1834_gcps.json');\nconst origin = [datum.origin_utm_e, datum.origin_utm_n];\nconst controlById = new Map(plan.map_control.controls.map(c => [c.id, c]));\nconst todayById = new Map(CONTROLS.map(c => [c[0], c]));\nconst targetById = new Map(targets.targets.map(t => [t.id, t]));\n\n// Explicit named pairs, not an arbitrary nearest-coordinate match.\nconst pairs = [\n  ['M1', '1835:statexmadison'],\n  ['lasalle_lake', '1835:lakexlasalle'],\n  ['lasalle_randolph', '1835:randolphxlasalle'],\n  ['lasalle_washington', '1835:washingtonxlasalle'],\n  ['lasalle_madison', '1835:lasallexmadison'],\n  ['clark_madison', '1835:clarkxmadison'],\n  ['wells_madison', '1835:wellsxmadison'],\n  ['clark_lake', '1835:lakexclark'],\n  ['wells_randolph', '1835:randolphxwells'],\n];\nconst comparisons = pairs.map(([id, todayId]) => {\n  const c = controlById.get(id), row = todayById.get(todayId);\n  must(c && row, `Missing named comparison ${id} / ${todayId}`);\n  const current = row.slice(4, 6), drawn = row.slice(2, 4);\n  const osm = c.modern_control;\n  return {\n    control_1871_id: id, feature: c.feature, role_in_1871_fit: c.role,\n    modern_target_id: c.modern_target_id ?? null,\n    osm_latitude: osm.lat, osm_longitude: osm.lon,\n    osm_node_ids: osm.osm_node_ids ?? (id === 'M1' ? wright.gcps.find(g => g.id === 'G1').modern.osm_node_ids : []),\n    osm_node_id_provenance: id === 'M1' ? 'Wright G1 records the identical latitude/longitude; the inherited Rees R1 target does not itself list node IDs.' : '1871 retained modern_control',\n    osm_way_ids: osm.osm_way_ids ?? null,\n    osm_local_enu_m: c.local,\n    today_control_id: todayId, today_control_years: row[1].split(' '),\n    city_today_local_enu_m: current,\n    city_minus_osm_enu_m: sub(current, c.local),\n    modern_dataset_difference_m: round(dist(current, c.local)),\n    legacy_drawn_scene_local_enu_m: drawn,\n    legacy_drawn_scene_minus_osm_enu_m: sub(drawn, c.local),\n    legacy_drawn_scene_difference_m: round(dist(drawn, c.local)),\n    today_minus_legacy_drawn_scene_enu_m: sub(current, drawn),\n    osm_source_id: 'osm_streets_2026', city_source_id: modern.source,\n  };\n});\n\nconst legacyMatches = Array.from({ length: 14 }, (_, i) => {\n  const id = i + 1;\n  const c = controlById.get(`M${id}`), g = rees.gcps.find(row => row.id === `R${id}`);\n  must(c && g, `Missing legacy pair M${id}/R${id}`);\n  const local = [g.modern.local_e, g.modern.local_n];\n  const sameCoordinates = c.local[0] === local[0] && c.local[1] === local[1];\n  const sameLatLon = c.modern_control.lat === g.modern.lat && c.modern_control.lon === g.modern.lon;\n  must(sameCoordinates && sameLatLon, `Inherited target changed at M${id}`);\n  return {\n    control_1871_id: c.id, legacy_gcp_id: g.id, feature: c.feature,\n    legacy_feature: g.map_feature,\n    latitude: g.modern.lat, longitude: g.modern.lon,\n    target_1871_local_enu_m: c.local, legacy_target_local_enu_m: local,\n    difference_m: round(dist(c.local, local)), exact_stored_coordinates_match: sameCoordinates,\n    exact_stored_latlon_match: sameLatLon,\n    source_path: 'data/traces/gcp/rees_rucker_1849_gcps.json',\n  };\n});\nconst g1 = wright.gcps.find(c => c.id === 'G1');\nconst m1 = controlById.get('M1');\nconst g1local = [g1.modern.utm_e - origin[0], g1.modern.utm_n - origin[1]];\nconst wrightCheck = {\n  id: 'G1', feature: g1.map_feature, feature_note: g1.feature_note,\n  osm_node_ids: g1.modern.osm_node_ids,\n  latitude: g1.modern.lat, longitude: g1.modern.lon,\n  stored_utm_m: [g1.modern.utm_e, g1.modern.utm_n],\n  local_enu_m: g1local.map(round), target_1871_id: 'M1', target_1871_local_enu_m: m1.local,\n  difference_m: round(dist(g1local, m1.local)),\n  exact_stored_latlon_match: g1.modern.lat === m1.modern_control.lat && g1.modern.lon === m1.modern_control.lon,\n  source_path: 'data/traces/gcp/wright_1834_gcps.json',\n};\nmust(dist(g1local, m1.local) < 1e-8 && wrightCheck.exact_stored_latlon_match, 'Wright G1 frame check changed');\n\nconst projectionChecks = plan.map_control.controls.map(c => {\n  const t = c.modern_control;\n  must(Number.isFinite(t.lat) && Number.isFinite(t.lon), `Missing lat/lon: ${c.id}`);\n  const projected = latLngToLocal(t.lat, t.lon);\n  return {\n    id: c.id, feature: c.feature, role: c.role, latitude: t.lat, longitude: t.lon,\n    stored_target_local_enu_m: c.local, today_geo_local_enu_m: projected.map(round),\n    today_geo_minus_stored_enu_m: sub(projected, c.local), difference_m: round(dist(projected, c.local)),\n  };\n});\nconst generatedToday = controlTable(deriveControls().controls);\nconst todayTableMatches = JSON.stringify(generatedToday) === JSON.stringify(CONTROLS);\nmust(todayTableMatches, 'Committed Today controls differ from their City-centreline derivation');\nconst registration = createRegistration('1871');\nconst identityChecks = plan.map_control.controls.map(c => ({\n  id: c.id, input_local_enu_m: c.local,\n  to_today_local_enu_m: registration.toToday(...c.local),\n  to_scene_local_enu_m: registration.toScene(...c.local),\n}));\nmust(registration.count === 0 && identityChecks.every(c =>\n  dist(c.input_local_enu_m, c.to_today_local_enu_m) === 0 &&\n  dist(c.input_local_enu_m, c.to_scene_local_enu_m) === 0), '1871 no longer uses identity registration');\nmust(datum.crs === 'EPSG:26916' && targets.crs === datum.crs, 'Unexpected coordinate reference system');\nmust(JSON.stringify(origin) === JSON.stringify(plan.origin_utm) &&\n  JSON.stringify(origin) === JSON.stringify(targets.origin_utm_m) &&\n  DATUM.origin_utm_e === origin[0] && DATUM.origin_utm_n === origin[1] && DATUM.zone === 16,\n  'Datum origins disagree');\n\nconst sources = ['osm_streets_2026', 'chicago_street_center_lines', 'wright_1834', 'rees_rucker_1849', 'mitchell_1870_chicago_map'].map(id => {\n  const rel = `data/sources/${id}.json`, source = read(rel);\n  return { id, path: rel, sha256: sha(fs.readFileSync(path.join(root, rel))),\n    citation: source.citation, url: source.url,\n    role_in_this_audit: id === 'osm_streets_2026' ? 'Modern intersection targets; not historical proof.'\n      : id === 'chicago_street_center_lines' ? 'Second modern dataset used by the existing Today navigation registration; not historical proof.'\n      : 'Identifies the historical-map/GCP lineage; this audit does not re-fit or re-read the map.' };\n});\nconst paths = [\n  'data/datum.json', 'data/context/1871/plan.json', 'data/modern/streets.json',\n  'data/streets/1835.json', 'data/street_grid/1904.json', 'data/modern/landmark_sites.json',\n  'data/structures/first_fort_dearborn_pickets_outer.json', 'data/structures/fort_dearborn_palisade.json',\n  'data/traces/street_control.json', 'data/traces/gcp/wright_1834_gcps.json',\n  'data/traces/gcp/rees_rucker_1849_gcps.json', 'data/traces/gcp/mitchell_1870_modern_targets.json',\n  targets.portable_primitive_extract,\n  'renderers/web/js/today-register.js', 'renderers/web/js/today-geo.js',\n  'renderers/web/js/today-view.js', 'renderers/web/js/modern-streets.js', 'renderers/web/js/main.js',\n  'tools/today_registration.mjs', 'tools/build_modern_streets.py', 'tools/fit_1871_city_map.py',\n  'docs/CORRIDOR-LINES.md', ...sources.map(s => s.path),\n];\nconst hashes = Object.fromEntries(paths.map(rel => [rel, sha(fs.readFileSync(path.join(root, rel)))]));\nconst mse = comparisons.reduce((sum, c) => sum + dist(c.city_today_local_enu_m, c.osm_local_enu_m) ** 2, 0) / comparisons.length;\nconst script = fs.readFileSync(fileURLToPath(import.meta.url), 'utf8');\nconst audit = {\n  id: 't-3654-today-registration-audit', schema: 1,\n  recorded_utc: new Date().toISOString(),\n  source_base: execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim(),\n  scope: 'Read-only comparison of existing 1871 modern targets with the project Today/Google Street View registration and committed survey-control lineage. No Google API, network request, coordinate mutation, fitting or historical geometry change.',\n  conclusion: 'No missing global or legacy coordinate correction. 1871 and Today use the same EPSG:26916 local-metre frame. The old per-year Today shifts correct particular older reconstructions and must not be transplanted into the 1871 map fit.',\n  source_sha256: hashes, sources,\n  frame: {\n    crs: datum.crs, units: 'metres', axis: 'local east, local north; renderer x=e, z=-n',\n    origin_utm_m: origin, plan_coordinate_system: plan.coordinate_system,\n    today_origin_utm_m: [DATUM.origin_utm_e, DATUM.origin_utm_n], today_utm_zone: DATUM.zone,\n    formula: 'local_e = EPSG:26916.easting - 447072.7; local_n = EPSG:26916.northing - 4637395.8',\n    inverse_formula: 'latitude/longitude = today-geo.js.localToLatLng(local_e, local_n); latLngToLocal is its numerical inverse',\n    epsg_3435_used_by_these_paths: false,\n    all_origin_and_crs_checks_pass: true,\n  },\n  formulas: {\n    comparison_delta: 'delta = City current intersection [E,N] - 1871 OSM target [E,N]',\n    comparison_distance: 'sqrt(delta_E^2 + delta_N^2)',\n    comparison_rmse: 'sqrt(sum(distance_i^2) / 9), calculated before reporting-rounding',\n    legacy_match: 'Compare M1..M14 local and lat/lon against R1..R14 modern targets; no historic Rees/Rucker pixel or affine transform reused.',\n    wright_g1: '[447910.33,4636870.53] - [447072.7,4637395.8] = [837.63,-525.27]',\n    today_shift: 'For each year select only CONTROLS rows naming it. Shift is inverse-distance blend of (today - scene); 1871 has zero rows and returns [0,0].',\n  },\n  modern_dataset_comparison: {\n    count: comparisons.length, named_pair_selection: pairs,\n    rmse_m: round(Math.sqrt(mse)), max_m: Math.max(...comparisons.map(c => c.modern_dataset_difference_m)),\n    pairs: comparisons,\n    city_data_source_edited: modern.source_edited,\n    city_data_source_url: modern.source_url, city_data_source_sha256: modern.source_sha256,\n    city_extract_bbox_local_enu_m: modern.box_local_m,\n    city_extract_bbox_order: ['min_e', 'min_n', 'max_e', 'max_n'],\n    city_extract_counts: modern.counts,\n  },\n  inherited_target_matches: { count: legacyMatches.length, all_exact: true, pairs: legacyMatches },\n  wright_g1_check: wrightCheck,\n  today_projection_check: {\n    method: 'Call the shipped today-geo.js.latLngToLocal on each retained 1871 modern_control latitude/longitude, then compare to its stored local target. This is projection/rounding agreement, not historical-position validation.',\n    count: projectionChecks.length,\n    max_difference_m: Math.max(...projectionChecks.map(c => c.difference_m)),\n    points: projectionChecks,\n  },\n  today_registration_1871: {\n    control_count: registration.count, identity: true,\n    existing_table_count: CONTROLS.length, existing_table_matches_rederived_city_controls: todayTableMatches,\n    derived_from: 'tools/today_registration.mjs::deriveControls; controlTable',\n    existing_years: [...new Set(CONTROLS.flatMap(c => c[1].split(' ')))].sort(),\n    identity_checks: identityChecks,\n    runtime_integration: 'main.js passes createRegistration(scene id) to both loadModernStreets(toScene) and createTodayView(register).',\n  },\n  native_survey_constraint: {\n    source: 'docs/CORRIDOR-LINES.md; data/traces/street_control.json',\n    ruling: 'The drawn line controls blocks/lots/roofs. The survey-controlled line answers roadway corridor questions. Neither is a citywide correction and neither rewrites the other.',\n    kinzie_recentering_m: 2.91, south_water_recentering_m: 8.58,\n    action: 'Preserve native historical street geometry; do not copy legacy Today shifts, corridor offsets, or an extra warp into the 1871 fitter.',\n  },\n  limitations: [\n    'Agreement of two modern datasets is not independent survey truth; their source lineages may overlap. Neither establishes unchanged historical street centres.',\n    'The City extract is bounded to [-800,-4000,2300,1250] local metres and the nine named comparisons are concentrated downtown. This does not validate the full 1871 municipal extent.',\n    'The City file was last edited 2014-10-15; modern OSM controls have separately recorded retrieval dates. Street widening, reconstruction and changed node definitions can affect comparisons.',\n    'The committed Today controls are rounded to 0.1 m, the 1871 targets generally to 0.01 m. Numerical precision is not surveying accuracy.',\n    'today-geo.js uses the GRS80 ellipsoid for NAD83/WGS84 at this scale. The sub-centimetre code agreement is not a claim of sub-centimetre geodetic or historical accuracy.',\n    'The 1871 map still has its declared affine-fit and reserved-check residuals. This comparison neither lowers those errors nor validates individual buildings, riverbanks, shoreline or generic lots.',\n    '1871 currently has no scene-specific Today correction. Any future display alignment needs explicit 1871 correspondences and its own evidence; copying older-year corrections would import their reconstruction offsets.',\n    'No actual Google Maps or Street View imagery was queried or used as historical evidence. Google is the destination of the existing navigation feature.',\n  ],\n  reproduction: {\n    command: 'node /tmp/t3654-audit-today-registration.mjs /workspace/chicago/chicago/4d > /tmp/t3654-today-registration-audit.json',\n    portable_command: 'node <saved-script.mjs> <checkout>/chicago/4d > <audit.json>',\n    prerequisites: 'Node.js with ESM support; the source paths listed in source_sha256. No packages, network, browser, Python, Google API or generators required.',\n    comparison_note: 'recorded_utc and source_base may change on reproduction; source hashes and calculated values identify the measured bytes and result.',\n    script_sha256: sha(script), embedded_script: script,\n  },\n};\nprocess.stdout.write(JSON.stringify(audit, null, 2) + '\\n');\n"
+  }
+}

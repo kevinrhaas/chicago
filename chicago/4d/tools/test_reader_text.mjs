@@ -41,8 +41,8 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const COMPILER = path.join(ROOT, 'tools/compile_reader_text.py');
 // The households and the 1835 cards are the two big families; the default run leaves them to
 // --all (and to the gate's lint, which reads every family's records through the same rewrite).
-const SMALL = ['flora', 'fauna', 'residents_index', 'businesses', 'structures_1812', 'structures_1904',
-  'jaunts_1812', 'jaunts_1835', 'jaunts_1904'];
+const SMALL = ['flora', 'fauna', 'residents_index', 'businesses', 'structures_1812', 'structures_1871', 'structures_1904',
+  'jaunts_1812', 'jaunts_1835', 'jaunts_1871', 'jaunts_1904'];
 const args = process.argv.slice(2);
 const given = args.find((a) => !a.startsWith('--'));
 let families = JSON.parse(execFileSync('python3', [COMPILER, '--list'],
@@ -77,6 +77,12 @@ const isProse = ([s, key]) => /\S\s+\S/.test(s) || (PROSE_KEYS.has(key) && s.tri
 
 for (const [family, files] of Object.entries(families)) {
   const overlay = JSON.parse(readFileSync(path.join(dir, `${family}.json`), 'utf8'));
+  if (family === 'structures_1871') {
+    expect(files.length === 0 && overlay.count === 0 && Object.keys(overlay.edits).length === 0,
+      '1871 has a valid empty overlay and does not borrow another year’s authored cards');
+    const prose = 'A reconstructed timber house beside the walk.';
+    expect(readerCopy({ note: prose }, overlay).note === prose, 'an empty overlay preserves a context card’s own prose');
+  }
   const keys = new Set(Object.keys(overlay.edits || {}));
   const found = new Set();
   const left = [];
@@ -186,12 +192,12 @@ if (args.includes('--all') || given) {
   globalThis.document = { documentElement: { classList: { add() {}, remove() {} } } };
   const { createPopup } = await js('popup.js');
   const { displayName } = await js('display-name.js');
-  for (const scene of ['1812', '1835', '1904']) {
+  for (const scene of ['1812', '1835', '1871', '1904']) {
     const root = { innerHTML: '', addEventListener() {}, setAttribute() {}, removeAttribute() {}, dispatchEvent() {} };
     const popup = createPopup(root, {});
     popup.setReader(ov(`structures_${scene}`));
-    const cards = tally(`building cards, ${scene}`, 40);
-    const titles = tally(`building titles, ${scene}`, 40);
+    const cards = tally(`building cards, ${scene}`, scene === '1871' ? 0 : 40);
+    const titles = tally(`building titles, ${scene}`, scene === '1871' ? 0 : 40);
     for (const f of readdirSync(path.join(ROOT, 'data/sidecars', scene)).filter((x) => x.endsWith('.json'))) {
       const sc = R(`data/sidecars/${scene}/${f}`);
       if (!sc?.attributes || !sc.phase) continue;

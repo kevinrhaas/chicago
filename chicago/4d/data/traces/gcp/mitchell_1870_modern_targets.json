@@ -1,0 +1,3700 @@
+{
+  "purpose": "Additional modern map-control targets for an independent 1870 Mitchell pixel audit. No historic-map transform or historic street geometry reused.",
+  "created_at": "2026-11-18T15:29:06.808364+00:00",
+  "crs": "EPSG:26916",
+  "origin_utm_m": [
+    447072.7,
+    4637395.8
+  ],
+  "method": "Exact named surface-roadway shared nodes; service, path, footway, cycleway, construction, proposed, pedestrian, tunnel and negative-layer ways excluded. Distinct nodes are projected WGS84 to NAD83/UTM16N and arithmetic mean taken; local frame subtracts the stated origin. Way-pair multiplicity does not weight the mean. Both named road families must continue through every node before it is selected.",
+  "rights": "OpenStreetMap contributors, ODbL 1.0.",
+  "inputs": [
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.66870,41.85840,-87.66530,41.86180",
+        "retrieved_at": "2026-11-18T15:28:43.469221+00:00",
+        "bytes": 1412070,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "51916d3ebc17794ca3cf5afd2bbfd5c0658515f08d646a324cebe78e0adeb31d",
+      "capture_id": "modern_ashland_16th_osm",
+      "capture_original_basename": "modern_ashland_16th_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.66870,41.83610,-87.66530,41.83950",
+        "retrieved_at": "2026-11-18T15:28:45.075876+00:00",
+        "bytes": 1802341,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "5701b5dbedfa57aa4b7474574654f12d18a3471729dd94ca8fb92fa9df0312ee",
+      "capture_id": "modern_ashland_31st_osm",
+      "capture_original_basename": "modern_ashland_31st_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.66770,41.85070,-87.66430,41.85410",
+        "retrieved_at": "2026-11-18T15:28:49.005880+00:00",
+        "bytes": 906285,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "85cd1178a161d2fb8611145feadfa6a769e151afb53072a6dfdca31108fb0039",
+      "capture_id": "modern_ashland_cermak_osm",
+      "capture_original_basename": "modern_ashland_cermak_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.66870,41.90130,-87.66530,41.90470",
+        "retrieved_at": "2026-11-18T15:28:41.915298+00:00",
+        "bytes": 1093204,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "7fc719b571691b84e806feb65c2c3eb653bdfac23cbb7ed324bffe666351bfc4",
+      "capture_id": "modern_ashland_division_osm",
+      "capture_original_basename": "modern_ashland_division_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.66870,41.92390,-87.66530,41.92730",
+        "retrieved_at": "2026-11-18T15:28:39.693296+00:00",
+        "bytes": 957484,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "1f0d9d3cafdcfddc98024f75605b9ba533977487369959caca547a5a5952580a",
+      "capture_id": "modern_ashland_fullerton_osm",
+      "capture_original_basename": "modern_ashland_fullerton_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.6360,41.8805,-87.6270,41.8870",
+        "retrieved_at": "2026-11-18T15:26:02.052390+00:00",
+        "bytes": 4700725
+      },
+      "sha256": "f5212fac0bf6b1ca2de0336d4828aba40fcfd458a2f15b93f84b0dcb5b8a2799",
+      "capture_id": "modern_core_osm",
+      "capture_original_basename": "modern_core_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.64920,41.85840,-87.64580,41.86180",
+        "retrieved_at": "2026-11-18T15:28:43.593391+00:00",
+        "bytes": 1468245,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "d467678d9a9f2f3344dc83128e3618d618d5368dc15ebe0d480e5368bdd6ba65",
+      "capture_id": "modern_halsted_16th_osm",
+      "capture_original_basename": "modern_halsted_16th_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.64920,41.83610,-87.64580,41.83950",
+        "retrieved_at": "2026-11-18T15:28:45.427084+00:00",
+        "bytes": 801398,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "d9df0a2d58102a83a88a2969e8800708712ae9f309eabeee0b9265a49cdda9a9",
+      "capture_id": "modern_halsted_31st_osm",
+      "capture_original_basename": "modern_halsted_31st_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.64960,41.89460,-87.64620,41.89800",
+        "retrieved_at": "2026-11-18T15:28:47.168257+00:00",
+        "bytes": 871746,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "a895eb6cb374b679c32bb35f46faa5cad39c13a652581ad7e2a54276b988493c",
+      "capture_id": "modern_halsted_chicago_osm",
+      "capture_original_basename": "modern_halsted_chicago_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.64920,41.90130,-87.64580,41.90470",
+        "retrieved_at": "2026-11-18T15:28:41.501848+00:00",
+        "bytes": 633057,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "e894986475ee892b6ff83cafcf36a44165b73767c6840c26706ffe241401b1d5",
+      "capture_id": "modern_halsted_division_osm",
+      "capture_original_basename": "modern_halsted_division_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.64920,41.92390,-87.64580,41.92730",
+        "retrieved_at": "2026-11-18T15:28:41.124579+00:00",
+        "bytes": 773207,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "d72ad1203b31dc031066558478a3fc50a4509ab6c2afa1d7cbe809c60b9d5215",
+      "capture_id": "modern_halsted_fullerton_osm",
+      "capture_original_basename": "modern_halsted_fullerton_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.62900,41.85860,-87.62560,41.86200",
+        "retrieved_at": "2026-11-18T15:28:48.729235+00:00",
+        "bytes": 776919,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "b92086653ba6807808bf4f46f587ac68ea237931a81e11e2b4a86c4384aba2e7",
+      "capture_id": "modern_state_16th_osm",
+      "capture_original_basename": "modern_state_16th_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.62980,41.89520,-87.62640,41.89860",
+        "retrieved_at": "2026-11-18T15:28:46.873451+00:00",
+        "bytes": 699006,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "5b7fb9500dfbcdf487efbb8765f2a1dbcbad269e5478fd288fe69936fe6dd910",
+      "capture_id": "modern_state_chicago_osm",
+      "capture_original_basename": "modern_state_chicago_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.63010,41.90220,-87.62670,41.90560",
+        "retrieved_at": "2026-11-18T15:28:47.219940+00:00",
+        "bytes": 729693,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "4e12384294d41b8df623c363713d1addfcb0bc96ed16043f94205064bde8e81b",
+      "capture_id": "modern_state_division_osm",
+      "capture_original_basename": "modern_state_division_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.68770,41.85840,-87.68430,41.86180",
+        "retrieved_at": "2026-11-18T15:28:41.818544+00:00",
+        "bytes": 350213,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "6980608a9d021eb4cce585fd10a60d523db06899e0dee168a2df1afeacc700b3",
+      "capture_id": "modern_western_16th_osm",
+      "capture_original_basename": "modern_western_16th_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.68770,41.83610,-87.68430,41.83950",
+        "retrieved_at": "2026-11-18T15:28:45.055256+00:00",
+        "bytes": 741632,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "d079f36dfbb9fbb0ac46924b04ded99b206bbc5181a218c9741d6631a2e79a97",
+      "capture_id": "modern_western_31st_osm",
+      "capture_original_basename": "modern_western_31st_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.68740,41.85040,-87.68400,41.85380",
+        "retrieved_at": "2026-11-18T15:28:48.550264+00:00",
+        "bytes": 626221,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "65b3119eaebe4598c5e524a0dd8a68bdff75c06669ae8d9145979826e16ae12e",
+      "capture_id": "modern_western_cermak_osm",
+      "capture_original_basename": "modern_western_cermak_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.68840,41.89410,-87.68500,41.89750",
+        "retrieved_at": "2026-11-18T15:28:45.785984+00:00",
+        "bytes": 827077,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "67407edf7c24d2c806a3de5cd8cb12062161f665f6978f31227a3610a35545c9",
+      "capture_id": "modern_western_chicago_osm",
+      "capture_original_basename": "modern_western_chicago_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.68770,41.90130,-87.68430,41.90470",
+        "retrieved_at": "2026-11-18T15:28:40.365158+00:00",
+        "bytes": 587869,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "329e9ac0100c495def168bfaf102154891b581bbe28801d2683bda95d7670f7c",
+      "capture_id": "modern_western_division_osm",
+      "capture_original_basename": "modern_western_division_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.68770,41.92390,-87.68430,41.92730",
+        "retrieved_at": "2026-11-18T15:28:39.866155+00:00",
+        "bytes": 1004177,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "df7d334ca9b928568cef4b73f49c44ad819a4bddf9105677972ec7631f86eeee",
+      "capture_id": "modern_western_fullerton_osm",
+      "capture_original_basename": "modern_western_fullerton_osm.xml"
+    },
+    {
+      "metadata": {
+        "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.68890,41.90850,-87.68550,41.91190",
+        "retrieved_at": "2026-11-18T15:28:46.522477+00:00",
+        "bytes": 953354,
+        "bbox_note": "Approximate search area only. No coordinate from this search box is used as a target; target coordinates are derived from returned shared roadway nodes."
+      },
+      "sha256": "fc5fb808a5208ca7ca2b92bdf2cf3042b09aa110d6c4163d497b9620011c7fb0",
+      "capture_id": "modern_western_north_osm",
+      "capture_original_basename": "modern_western_north_osm.xml"
+    }
+  ],
+  "selected_count": 23,
+  "targets": [
+    {
+      "id": "western_fullerton",
+      "modern_streets": [
+        "Western Avenue",
+        "Fullerton Avenue"
+      ],
+      "osm_node_ids": [
+        48991450
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 48991450,
+          "version": 140,
+          "timestamp": "2022-09-27T20:26:18Z",
+          "lat": 41.924902,
+          "lon": -87.6876447,
+          "utm_e": 442983.8412,
+          "utm_n": 4641666.8462,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_western_fullerton_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          435347557,
+          435347558
+        ],
+        "horizontal": [
+          406711314,
+          435347568
+        ]
+      },
+      "way_tags": {
+        "435347557": {
+          "highway": "secondary",
+          "lanes": "6",
+          "lanes:backward": "3",
+          "lanes:forward": "4",
+          "loc_ref": "2400 W",
+          "maxspeed": "30 mph",
+          "name": "North Western Avenue",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left|||",
+          "wikidata": "Q7987601",
+          "wikipedia": "en:Western Avenue (Chicago)"
+        },
+        "435347558": {
+          "highway": "secondary",
+          "lanes": "6",
+          "lanes:backward": "4",
+          "lanes:forward": "3",
+          "loc_ref": "2400 W",
+          "maxspeed": "30 mph",
+          "name": "North Western Avenue",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left|||",
+          "wikidata": "Q7987601",
+          "wikipedia": "en:Western Avenue (Chicago)"
+        },
+        "406711314": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "3",
+          "lanes:forward": "2",
+          "lit": "yes",
+          "loc_ref": "2400 N",
+          "maxspeed": "30 mph",
+          "name": "West Fullerton Avenue",
+          "name:etymology:wikidata": "Q61780442",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left||",
+          "wikidata": "Q5508285",
+          "wikipedia": "en:Fullerton Avenue"
+        },
+        "435347568": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "2",
+          "lanes:forward": "3",
+          "loc_ref": "2400 N",
+          "name": "West Fullerton Avenue",
+          "name:etymology:wikidata": "Q61780442",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left||",
+          "wikidata": "Q5508285",
+          "wikipedia": "en:Fullerton Avenue"
+        }
+      },
+      "local_e": -4088.86,
+      "local_n": 4271.05,
+      "utm_e": 442983.84,
+      "utm_n": 4641666.85,
+      "lat": 41.924902,
+      "lon": -87.6876447,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "ashland_fullerton",
+      "modern_streets": [
+        "Ashland Avenue",
+        "Fullerton Avenue"
+      ],
+      "osm_node_ids": [
+        2480840763
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 2480840763,
+          "version": 4,
+          "timestamp": "2024-09-30T19:28:13Z",
+          "lat": 41.9251508,
+          "lon": -87.6681499,
+          "utm_e": 444600.4787,
+          "utm_n": 4641681.6911,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_ashland_fullerton_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          1319707138,
+          1377959832
+        ],
+        "horizontal": [
+          435350924,
+          623883000
+        ]
+      },
+      "way_tags": {
+        "1319707138": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "3",
+          "lanes:forward": "2",
+          "loc_ref": "1600 W",
+          "name": "North Ashland Avenue",
+          "name:etymology:wikidata": "Q4805218",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left||",
+          "wikidata": "Q94955589",
+          "wikipedia": "en:Ashland Avenue"
+        },
+        "1377959832": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "5",
+          "loc_ref": "1600 W",
+          "name": "North Ashland Avenue",
+          "name:etymology:wikidata": "Q4805218",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q94955589",
+          "wikipedia": "en:Ashland Avenue"
+        },
+        "435350924": {
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "2",
+          "lanes:forward": "3",
+          "loc_ref": "2400 N",
+          "maxspeed": "30 mph",
+          "name": "West Fullerton Avenue",
+          "name:etymology:wikidata": "Q61780442",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left||",
+          "wikidata": "Q5508285",
+          "wikipedia": "en:Fullerton Avenue"
+        },
+        "623883000": {
+          "cycleway": "shared_lane",
+          "cycleway:both": "shared_lane",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "3",
+          "lanes:forward": "2",
+          "loc_ref": "2400 N",
+          "maxspeed": "30 mph",
+          "name": "West Fullerton Avenue",
+          "name:etymology:wikidata": "Q61780442",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left||",
+          "wikidata": "Q5508285",
+          "wikipedia": "en:Fullerton Avenue"
+        }
+      },
+      "local_e": -2472.22,
+      "local_n": 4285.89,
+      "utm_e": 444600.48,
+      "utm_n": 4641681.69,
+      "lat": 41.9251508,
+      "lon": -87.6681499,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map.",
+        "Reuben Street/Ashland Avenue naming must be matched to the historic map; no old name is inferred from the OSM geometry."
+      ]
+    },
+    {
+      "id": "halsted_fullerton",
+      "modern_streets": [
+        "Halsted Street",
+        "Fullerton Avenue"
+      ],
+      "osm_node_ids": [
+        26817974
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 26817974,
+          "version": 6,
+          "timestamp": "2026-08-11T21:11:01Z",
+          "lat": 41.9254527,
+          "lon": -87.6487665,
+          "utm_e": 446207.9109,
+          "utm_n": 4641702.869,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_halsted_fullerton_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          435545058,
+          435545061
+        ],
+        "horizontal": [
+          231603343,
+          435720296
+        ]
+      },
+      "way_tags": {
+        "435545058": {
+          "cycleway:left": "shared_lane",
+          "cycleway:right": "lane",
+          "cycleway:right:buffer": "no",
+          "highway": "secondary",
+          "lanes": "4",
+          "lanes:backward": "1",
+          "lanes:forward": "3",
+          "loc_ref": "800 W",
+          "name": "North Halsted Street",
+          "name:etymology:wikidata": "Q119522049",
+          "name:zh": "\u8c6a\u65af\u7279\u8def",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left||right",
+          "wikidata": "Q5643579",
+          "wikipedia": "en:Halsted Street"
+        },
+        "435545061": {
+          "cycleway:both": "shared_lane",
+          "highway": "secondary",
+          "lanes": "4",
+          "lanes:backward": "3",
+          "lanes:forward": "1",
+          "loc_ref": "800 W",
+          "name": "North Halsted Street",
+          "name:etymology:wikidata": "Q119522049",
+          "name:zh": "\u8c6a\u65af\u7279\u8def",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left||right",
+          "wikidata": "Q5643579",
+          "wikipedia": "en:Halsted Street"
+        },
+        "231603343": {
+          "cycleway": "shared_lane",
+          "hgv": "no",
+          "highway": "secondary",
+          "lanes": "3",
+          "lanes:backward": "2",
+          "lanes:forward": "1",
+          "loc_ref": "2400 N",
+          "maxspeed": "30 mph",
+          "name": "West Fullerton Avenue",
+          "name:etymology:wikidata": "Q61780442",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left|",
+          "wikidata": "Q5508285",
+          "wikipedia": "en:Fullerton Avenue"
+        },
+        "435720296": {
+          "cycleway:both": "shared_lane",
+          "highway": "secondary",
+          "lanes": "4",
+          "lanes:backward": "1",
+          "lanes:forward": "3",
+          "loc_ref": "2400 N",
+          "maxspeed": "30 mph",
+          "name": "West Fullerton Avenue",
+          "name:etymology:wikidata": "Q61780442",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left||right",
+          "wikidata": "Q5508285",
+          "wikipedia": "en:Fullerton Avenue"
+        }
+      },
+      "local_e": -864.79,
+      "local_n": 4307.07,
+      "utm_e": 446207.91,
+      "utm_n": 4641702.87,
+      "lat": 41.9254527,
+      "lon": -87.6487665,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "western_north",
+      "modern_streets": [
+        "Western Avenue",
+        "North Avenue"
+      ],
+      "osm_node_ids": [
+        258967486
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 258967486,
+          "version": 104,
+          "timestamp": "2014-12-22T07:09:39Z",
+          "lat": 41.9103236,
+          "lon": -87.687207,
+          "utm_e": 443007.1632,
+          "utm_n": 4640047.9428,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_western_north_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          435570566,
+          435570904
+        ],
+        "horizontal": [
+          435570925,
+          1418541171,
+          1418541172
+        ]
+      },
+      "way_tags": {
+        "435570566": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "6",
+          "lanes:backward": "2",
+          "lanes:forward": "3",
+          "loc_ref": "2400 W",
+          "maxspeed": "30 mph",
+          "name": "North Western Avenue",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left||",
+          "wikidata": "Q7987601",
+          "wikipedia": "en:Western Avenue (Chicago)"
+        },
+        "435570904": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "2",
+          "lanes:forward": "3",
+          "loc_ref": "2400 W",
+          "maxspeed": "30 mph",
+          "name": "North Western Avenue",
+          "oneway": "no",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left||",
+          "wikidata": "Q7987601",
+          "wikipedia": "en:Western Avenue (Chicago)"
+        },
+        "435570925": {
+          "cycleway": "lane",
+          "cycleway:both": "lane",
+          "cycleway:both:buffer": "no",
+          "cycleway:buffer": "no",
+          "hgv": "designated",
+          "highway": "primary",
+          "lanes": "3",
+          "lanes:backward": "1",
+          "lanes:forward": "2",
+          "name": "West North Avenue",
+          "name_1": "North Ave",
+          "ref": "IL 64",
+          "sidewalk:both": "separate",
+          "source:hgv": "https://gis-idot.opendata.arcgis.com/datasets/IDOT::designated-truck-routes-state-jurisdiction-truck-route/explore?location=40.542466%2C-88.991188%2C14.60;https://www.gettingaroundillinois.com/MapViewer/?config=DTRconfig.json",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left|",
+          "wikidata": "Q7054023",
+          "wikipedia": "en:North Avenue (Chicago)"
+        },
+        "1418541171": {
+          "cycleway:left": "no",
+          "cycleway:right": "lane",
+          "hgv": "designated",
+          "highway": "primary",
+          "lanes": "2",
+          "name": "West North Avenue",
+          "oneway": "yes",
+          "ref": "IL 64",
+          "source:hgv": "https://gis-idot.opendata.arcgis.com/datasets/IDOT::designated-truck-routes-state-jurisdiction-truck-route/explore?location=40.542466%2C-88.991188%2C14.60;https://www.gettingaroundillinois.com/MapViewer/?config=DTRconfig.json",
+          "surface": "asphalt",
+          "turn:lanes": "left||",
+          "wikidata": "Q7054023",
+          "wikipedia": "en:North Avenue (Chicago)"
+        },
+        "1418541172": {
+          "cycleway:left": "no",
+          "cycleway:right": "lane",
+          "hgv": "designated",
+          "highway": "primary",
+          "lanes": "2",
+          "name": "West North Avenue",
+          "oneway": "yes",
+          "ref": "IL 64",
+          "source:hgv": "https://gis-idot.opendata.arcgis.com/datasets/IDOT::designated-truck-routes-state-jurisdiction-truck-route/explore?location=40.542466%2C-88.991188%2C14.60;https://www.gettingaroundillinois.com/MapViewer/?config=DTRconfig.json",
+          "surface": "asphalt",
+          "turn:lanes": "left||",
+          "wikidata": "Q7054023",
+          "wikipedia": "en:North Avenue (Chicago)"
+        }
+      },
+      "local_e": -4065.54,
+      "local_n": 2652.14,
+      "utm_e": 443007.16,
+      "utm_n": 4640047.94,
+      "lat": 41.9103236,
+      "lon": -87.687207,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "western_division",
+      "modern_streets": [
+        "Western Avenue",
+        "Division Street"
+      ],
+      "osm_node_ids": [
+        346054074
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 346054074,
+          "version": 25,
+          "timestamp": "2026-09-04T20:28:21Z",
+          "lat": 41.9030255,
+          "lon": -87.6870176,
+          "utm_e": 443016.3812,
+          "utm_n": 4639237.5241,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_western_division_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          435570903,
+          435570912
+        ],
+        "horizontal": [
+          253740834,
+          435570916
+        ]
+      },
+      "way_tags": {
+        "435570903": {
+          "cycleway:both": "no",
+          "hazard": "school_zone",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "3",
+          "lanes:forward": "2",
+          "loc_ref": "2400 W",
+          "maxspeed": "30 mph",
+          "maxspeed:conditional": "20 mph @ children_present",
+          "name": "North Western Avenue",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left||",
+          "wikidata": "Q7987601",
+          "wikipedia": "en:Western Avenue (Chicago)"
+        },
+        "435570912": {
+          "cycleway:both": "no",
+          "hazard": "school_zone",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "2",
+          "lanes:forward": "3",
+          "loc_ref": "2400 W",
+          "maxspeed": "30 mph",
+          "maxspeed:conditional": "20 mph @ children_present",
+          "name": "North Western Avenue",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left||",
+          "wikidata": "Q7987601",
+          "wikipedia": "en:Western Avenue (Chicago)"
+        },
+        "253740834": {
+          "cycleway:left": "shared_lane",
+          "cycleway:left:lane": "pictogram",
+          "cycleway:right": "lane",
+          "cycleway:right:buffer": "no",
+          "highway": "secondary",
+          "lanes": "4",
+          "lanes:backward": "3",
+          "lanes:forward": "1",
+          "loc_ref": "1200 N",
+          "name": "West Division Street",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left||right",
+          "wikidata": "Q5284470",
+          "wikipedia": "en:Division Street (Chicago)"
+        },
+        "435570916": {
+          "cycleway:left": "lane",
+          "cycleway:left:buffer": "no",
+          "cycleway:right": "shared_lane",
+          "cycleway:right:lane": "pictogram",
+          "highway": "secondary",
+          "lanes": "3",
+          "lanes:backward": "1",
+          "lanes:forward": "2",
+          "loc_ref": "1200 N",
+          "name": "West Division Street",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left|",
+          "wikidata": "Q5284470",
+          "wikipedia": "en:Division Street (Chicago)"
+        }
+      },
+      "local_e": -4056.32,
+      "local_n": 1841.72,
+      "utm_e": 443016.38,
+      "utm_n": 4639237.52,
+      "lat": 41.9030255,
+      "lon": -87.6870176,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "ashland_division",
+      "modern_streets": [
+        "Ashland Avenue",
+        "Division Street"
+      ],
+      "osm_node_ids": [
+        5891694372,
+        5891694373
+      ],
+      "nodes_averaged": 2,
+      "nodes": [
+        {
+          "id": 5891694372,
+          "version": 2,
+          "timestamp": "2024-04-25T16:35:31Z",
+          "lat": 41.9033513,
+          "lon": -87.6674395,
+          "utm_e": 444640.5462,
+          "utm_n": 4639260.8771,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_ashland_division_osm"
+        },
+        {
+          "id": 5891694373,
+          "version": 2,
+          "timestamp": "2024-04-25T16:35:31Z",
+          "lat": 41.9033493,
+          "lon": -87.6675717,
+          "utm_e": 444629.5794,
+          "utm_n": 4639260.7404,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_ashland_division_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          623940511,
+          623940514,
+          623940525,
+          623940526
+        ],
+        "horizontal": [
+          231307557,
+          318749976,
+          623940517,
+          623940523
+        ]
+      },
+      "way_tags": {
+        "623940511": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "4",
+          "lit": "yes",
+          "loc_ref": "1600 W",
+          "name": "North Ashland Avenue",
+          "name:etymology:wikidata": "Q4805218",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "left|||",
+          "wikidata": "Q94955589",
+          "wikipedia": "en:Ashland Avenue"
+        },
+        "623940514": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "3",
+          "lit": "yes",
+          "loc_ref": "1600 W",
+          "name": "North Ashland Avenue",
+          "name:etymology:wikidata": "Q4805218",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "left|none|none",
+          "wikidata": "Q94955589",
+          "wikipedia": "en:Ashland Avenue"
+        },
+        "623940525": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "2",
+          "lit": "yes",
+          "loc_ref": "1600 W",
+          "name": "North Ashland Avenue",
+          "name:etymology:wikidata": "Q4805218",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q94955589",
+          "wikipedia": "en:Ashland Avenue"
+        },
+        "623940526": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "2",
+          "lit": "yes",
+          "loc_ref": "1600 W",
+          "name": "North Ashland Avenue",
+          "name:etymology:wikidata": "Q4805218",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q94955589",
+          "wikipedia": "en:Ashland Avenue"
+        },
+        "231307557": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "6",
+          "lanes:backward": "3",
+          "lanes:forward": "3",
+          "lit": "yes",
+          "loc_ref": "1200 N",
+          "name": "West Division Street",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left||",
+          "turn:lanes:forward": "left||",
+          "wikidata": "Q5284470",
+          "wikipedia": "en:Division Street (Chicago)"
+        },
+        "318749976": {
+          "cycleway:left": "lane",
+          "cycleway:left:buffer": "no",
+          "cycleway:right": "shared_lane",
+          "cycleway:right:lane": "pictogram",
+          "highway": "secondary",
+          "lanes": "6",
+          "lanes:backward": "2",
+          "lanes:forward": "4",
+          "lit": "yes",
+          "loc_ref": "1200 N",
+          "name": "West Division Street",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left|||right",
+          "wikidata": "Q5284470",
+          "wikipedia": "en:Division Street (Chicago)"
+        },
+        "623940517": {
+          "bus_bay": "right",
+          "cycleway:left": "no",
+          "cycleway:right": "lane",
+          "cycleway:right:buffer": "no",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "3",
+          "lanes:forward": "2",
+          "lit": "yes",
+          "loc_ref": "1200 N",
+          "name": "West Division Street",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left||",
+          "wikidata": "Q5284470",
+          "wikipedia": "en:Division Street (Chicago)"
+        },
+        "623940523": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "6",
+          "lanes:backward": "3",
+          "lanes:forward": "3",
+          "lit": "yes",
+          "loc_ref": "1200 N",
+          "name": "West Division Street",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left||",
+          "turn:lanes:forward": "left||",
+          "wikidata": "Q5284470",
+          "wikipedia": "en:Division Street (Chicago)"
+        }
+      },
+      "local_e": -2437.64,
+      "local_n": 1865.01,
+      "utm_e": 444635.06,
+      "utm_n": 4639260.81,
+      "lat": 41.9033503,
+      "lon": -87.6675056,
+      "crossing_spread_m": 10.968,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map.",
+        "Reuben Street/Ashland Avenue naming must be matched to the historic map; no old name is inferred from the OSM geometry.",
+        "The target is the unweighted mean of distinct shared roadway nodes, not an average of duplicated way-pair crossings."
+      ]
+    },
+    {
+      "id": "halsted_division",
+      "modern_streets": [
+        "Halsted Street",
+        "Division Street"
+      ],
+      "osm_node_ids": [
+        102713547
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 102713547,
+          "version": 13,
+          "timestamp": "2018-08-31T21:55:17Z",
+          "lat": 41.9036431,
+          "lon": -87.6480864,
+          "utm_e": 446246.0034,
+          "utm_n": 4639280.9668,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_halsted_division_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          435397261,
+          435397266
+        ],
+        "horizontal": [
+          621623498,
+          1376948656
+        ]
+      },
+      "way_tags": {
+        "435397261": {
+          "cycleway": "shared_lane",
+          "cycleway:both": "shared_lane",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "2",
+          "lanes:forward": "3",
+          "lit": "yes",
+          "loc_ref": "800 W",
+          "name": "North Halsted Street",
+          "name:etymology:wikidata": "Q119522049",
+          "name:zh": "\u8c6a\u65af\u7279\u8def",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left|through|right",
+          "wikidata": "Q5643579",
+          "wikipedia": "en:Halsted Street"
+        },
+        "435397266": {
+          "cycleway:both": "shared_lane",
+          "cycleway:left:lane": "pictogram",
+          "highway": "secondary",
+          "lanes": "3",
+          "lanes:backward": "2",
+          "lanes:forward": "1",
+          "lit": "yes",
+          "loc_ref": "800 W",
+          "name": "North Halsted Street",
+          "name:etymology:wikidata": "Q119522049",
+          "name:zh": "\u8c6a\u65af\u7279\u8def",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left|",
+          "wikidata": "Q5643579",
+          "wikipedia": "en:Halsted Street"
+        },
+        "621623498": {
+          "check_date:surface": "2023-05-16",
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "2",
+          "lanes:forward": "3",
+          "lit": "yes",
+          "loc_ref": "1200 N",
+          "name": "West Division Street",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left||",
+          "wikidata": "Q5284470",
+          "wikipedia": "en:Division Street (Chicago)"
+        },
+        "1376948656": {
+          "bicycle": "designated",
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "3",
+          "lanes:backward": "2",
+          "lanes:forward": "1",
+          "lit": "yes",
+          "loc_ref": "1200 N",
+          "name": "West Division Street",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left|none",
+          "wikidata": "Q5284470",
+          "wikipedia": "en:Division Street (Chicago)"
+        }
+      },
+      "local_e": -826.7,
+      "local_n": 1885.17,
+      "utm_e": 446246.0,
+      "utm_n": 4639280.97,
+      "lat": 41.9036431,
+      "lon": -87.6480864,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "western_chicago",
+      "modern_streets": [
+        "Western Avenue",
+        "Chicago Avenue"
+      ],
+      "osm_node_ids": [
+        261163631
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 261163631,
+          "version": 8,
+          "timestamp": "2016-07-17T18:48:22Z",
+          "lat": 41.8957505,
+          "lon": -87.6868353,
+          "utm_e": 443025.0352,
+          "utm_n": 4638429.6759,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_western_chicago_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          435384628,
+          435384650
+        ],
+        "horizontal": [
+          435384669,
+          435384674
+        ]
+      },
+      "way_tags": {
+        "435384628": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "3",
+          "lanes:forward": "2",
+          "lit": "yes",
+          "loc_ref": "2400 W",
+          "maxspeed": "30 mph",
+          "name": "North Western Avenue",
+          "oneway": "no",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left||",
+          "wikidata": "Q7987601",
+          "wikipedia": "en:Western Avenue (Chicago)"
+        },
+        "435384650": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "2",
+          "lanes:forward": "3",
+          "lit": "yes",
+          "loc_ref": "2400 W",
+          "maxspeed": "30 mph",
+          "name": "North Western Avenue",
+          "oneway": "no",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left||",
+          "wikidata": "Q7987601",
+          "wikipedia": "en:Western Avenue (Chicago)"
+        },
+        "435384669": {
+          "cycleway": "share_busway",
+          "cycleway:both": "share_busway",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "2",
+          "lanes:bus": "2",
+          "lanes:forward": "3",
+          "lit": "yes",
+          "loc_ref": "800 N",
+          "name": "West Chicago Avenue",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left||",
+          "wikidata": "Q5095493",
+          "wikipedia": "en:Chicago Avenue"
+        },
+        "435384674": {
+          "cycleway": "share_busway",
+          "cycleway:both": "share_busway",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "3",
+          "lanes:bus": "2",
+          "lanes:forward": "2",
+          "lit": "yes",
+          "loc_ref": "800 N",
+          "name": "West Chicago Avenue",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left||",
+          "wikidata": "Q5095493",
+          "wikipedia": "en:Chicago Avenue"
+        }
+      },
+      "local_e": -4047.66,
+      "local_n": 1033.88,
+      "utm_e": 443025.04,
+      "utm_n": 4638429.68,
+      "lat": 41.8957505,
+      "lon": -87.6868353,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "state_chicago",
+      "modern_streets": [
+        "State Street",
+        "Chicago Avenue"
+      ],
+      "osm_node_ids": [
+        27440586
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 27440586,
+          "version": 16,
+          "timestamp": "2026-06-17T21:17:02Z",
+          "lat": 41.8966783,
+          "lon": -87.6282103,
+          "utm_e": 447888.9244,
+          "utm_n": 4638495.4176,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_state_chicago_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          435555353,
+          435555354
+        ],
+        "horizontal": [
+          435556071,
+          435556089
+        ]
+      },
+      "way_tags": {
+        "435555353": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "3",
+          "lanes:backward": "2",
+          "lanes:forward": "1",
+          "loc_ref": "0 E/W",
+          "name": "North State Street",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left|",
+          "wikidata": "Q986343",
+          "wikipedia": "en:State Street (Chicago)"
+        },
+        "435555354": {
+          "cycleway:both": "no",
+          "highway": "secondary",
+          "lanes": "3",
+          "lanes:backward": "1",
+          "lanes:forward": "2",
+          "loc_ref": "0 E/W",
+          "name": "North State Street",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left|",
+          "wikidata": "Q986343",
+          "wikipedia": "en:State Street (Chicago)"
+        },
+        "435556071": {
+          "highway": "secondary",
+          "lanes": "3",
+          "lanes:backward": "2",
+          "lanes:bus": "2",
+          "lanes:forward": "1",
+          "lit": "yes",
+          "loc_ref": "800 N",
+          "name": "East Chicago Avenue",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left|",
+          "wikidata": "Q5095493",
+          "wikipedia": "en:Chicago Avenue"
+        },
+        "435556089": {
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "2",
+          "lanes:bus": "2",
+          "lanes:forward": "3",
+          "lit": "yes",
+          "loc_ref": "800 N",
+          "name": "West Chicago Avenue",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left||right",
+          "wikidata": "Q5095493",
+          "wikipedia": "en:Chicago Avenue"
+        }
+      },
+      "local_e": 816.22,
+      "local_n": 1099.62,
+      "utm_e": 447888.92,
+      "utm_n": 4638495.42,
+      "lat": 41.8966783,
+      "lon": -87.6282103,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "ashland_16th",
+      "modern_streets": [
+        "Ashland Avenue",
+        "16th Street"
+      ],
+      "osm_node_ids": [
+        5893011181,
+        5893011182
+      ],
+      "nodes_averaged": 2,
+      "nodes": [
+        {
+          "id": 5893011181,
+          "version": 4,
+          "timestamp": "2026-04-29T01:24:24Z",
+          "lat": 41.8596266,
+          "lon": -87.6661451,
+          "utm_e": 444710.2262,
+          "utm_n": 4634405.4035,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_ashland_16th_osm"
+        },
+        {
+          "id": 5893011182,
+          "version": 4,
+          "timestamp": "2026-04-29T01:24:24Z",
+          "lat": 41.8596258,
+          "lon": -87.6662502,
+          "utm_e": 444701.5022,
+          "utm_n": 4634405.3824,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_ashland_16th_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          624087919,
+          624087920,
+          624087921,
+          624087922
+        ],
+        "horizontal": [
+          1125075881
+        ]
+      },
+      "way_tags": {
+        "624087919": {
+          "highway": "secondary",
+          "lanes": "2",
+          "loc_ref": "1600 W",
+          "name": "South Ashland Avenue",
+          "name:etymology:wikidata": "Q4805218",
+          "oneway": "yes",
+          "wikidata": "Q94955589",
+          "wikipedia": "en:Ashland Avenue"
+        },
+        "624087920": {
+          "highway": "secondary",
+          "lanes": "3",
+          "loc_ref": "1600 W",
+          "name": "South Ashland Avenue",
+          "name:etymology:wikidata": "Q4805218",
+          "oneway": "yes",
+          "surface": "asphalt",
+          "turn:lanes": "left||",
+          "wikidata": "Q94955589",
+          "wikipedia": "en:Ashland Avenue"
+        },
+        "624087921": {
+          "highway": "secondary",
+          "lanes": "1",
+          "loc_ref": "1600 W",
+          "name": "South Ashland Avenue",
+          "name:etymology:wikidata": "Q4805218",
+          "oneway": "yes",
+          "surface": "asphalt",
+          "wikidata": "Q94955589",
+          "wikipedia": "en:Ashland Avenue"
+        },
+        "624087922": {
+          "highway": "secondary",
+          "lanes": "2",
+          "loc_ref": "1600 W",
+          "name": "South Ashland Avenue",
+          "name:etymology:wikidata": "Q4805218",
+          "oneway": "yes",
+          "surface": "asphalt",
+          "wikidata": "Q94955589",
+          "wikipedia": "en:Ashland Avenue"
+        },
+        "1125075881": {
+          "highway": "residential",
+          "name": "West 16th Street",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "tiger:cfcc": "A41",
+          "tiger:county": "Cook, IL",
+          "tiger:name_base": "16th",
+          "tiger:name_direction_prefix": "W",
+          "tiger:name_type": "St",
+          "tiger:zip_left": "60608",
+          "tiger:zip_right": "60608"
+        }
+      },
+      "local_e": -2366.84,
+      "local_n": -2990.41,
+      "utm_e": 444705.86,
+      "utm_n": 4634405.39,
+      "lat": 41.8596262,
+      "lon": -87.66619764999999,
+      "crossing_spread_m": 8.724,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map.",
+        "Reuben Street/Ashland Avenue naming must be matched to the historic map; no old name is inferred from the OSM geometry.",
+        "The target is the unweighted mean of distinct shared roadway nodes, not an average of duplicated way-pair crossings."
+      ]
+    },
+    {
+      "id": "halsted_16th",
+      "modern_streets": [
+        "Halsted Street",
+        "16th Street"
+      ],
+      "osm_node_ids": [
+        261200011
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 261200011,
+          "version": 9,
+          "timestamp": "2018-09-04T14:16:10Z",
+          "lat": 41.8599052,
+          "lon": -87.6467031,
+          "utm_e": 446324.1451,
+          "utm_n": 4634423.9981,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_halsted_16th_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          202375200,
+          231365447,
+          255624936
+        ],
+        "horizontal": [
+          421854831,
+          1125075879
+        ]
+      },
+      "way_tags": {
+        "202375200": {
+          "cycleway:right": "shared_lane",
+          "cycleway:right:shared_lane": "pictogram",
+          "highway": "secondary",
+          "loc_ref": "800 W",
+          "name": "South Halsted Street",
+          "name:etymology:wikidata": "Q119522049",
+          "name:zh": "\u8c6a\u65af\u7279\u8def",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q5643579",
+          "wikipedia": "en:Halsted Street"
+        },
+        "231365447": {
+          "cycleway": "lane",
+          "cycleway:both": "lane",
+          "cycleway:both:buffer": "no",
+          "cycleway:buffer": "no",
+          "highway": "secondary",
+          "loc_ref": "800 W",
+          "name": "South Halsted Street",
+          "name:etymology:wikidata": "Q119522049",
+          "name:zh": "\u8c6a\u65af\u7279\u8def",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q5643579",
+          "wikipedia": "en:Halsted Street"
+        },
+        "255624936": {
+          "cycleway:right": "shared_lane",
+          "cycleway:right:shared_lane": "pictogram",
+          "highway": "secondary",
+          "loc_ref": "800 W",
+          "name": "South Halsted Street",
+          "name:etymology:wikidata": "Q119522049",
+          "name:zh": "\u8c6a\u65af\u7279\u8def",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q5643579",
+          "wikipedia": "en:Halsted Street"
+        },
+        "421854831": {
+          "highway": "residential",
+          "name": "West 16th Street",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "tiger:cfcc": "A41",
+          "tiger:county": "Cook, IL",
+          "tiger:name_base": "16th",
+          "tiger:name_direction_prefix": "W",
+          "tiger:name_type": "St",
+          "tiger:zip_left": "60608",
+          "tiger:zip_right": "60608"
+        },
+        "1125075879": {
+          "highway": "residential",
+          "name": "West 16th Street",
+          "sidewalk": "separate",
+          "tiger:cfcc": "A41",
+          "tiger:county": "Cook, IL",
+          "tiger:name_base": "16th",
+          "tiger:name_direction_prefix": "W",
+          "tiger:name_type": "St",
+          "tiger:zip_left": "60608",
+          "tiger:zip_right": "60608"
+        }
+      },
+      "local_e": -748.55,
+      "local_n": -2971.8,
+      "utm_e": 446324.15,
+      "utm_n": 4634424.0,
+      "lat": 41.8599052,
+      "lon": -87.6467031,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "state_16th",
+      "modern_streets": [
+        "State Street",
+        "16th Street"
+      ],
+      "osm_node_ids": [
+        917877781,
+        2281926030
+      ],
+      "nodes_averaged": 2,
+      "nodes": [
+        {
+          "id": 917877781,
+          "version": 6,
+          "timestamp": "2026-06-17T21:17:02Z",
+          "lat": 41.8601735,
+          "lon": -87.6273573,
+          "utm_e": 447930.0564,
+          "utm_n": 4634441.8729,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_state_16th_osm"
+        },
+        {
+          "id": 2281926030,
+          "version": 9,
+          "timestamp": "2026-06-17T21:17:02Z",
+          "lat": 41.8601885,
+          "lon": -87.6271808,
+          "utm_e": 447944.7179,
+          "utm_n": 4634443.4313,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_state_16th_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          435562594,
+          435562600,
+          435562601,
+          1214149814
+        ],
+        "horizontal": [
+          218985839,
+          1011106974,
+          1530459132
+        ]
+      },
+      "way_tags": {
+        "435562594": {
+          "highway": "secondary",
+          "lanes": "3",
+          "loc_ref": "0 E/W",
+          "name": "South State Street",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "left||",
+          "wikidata": "Q986343",
+          "wikipedia": "en:State Street (Chicago)"
+        },
+        "435562600": {
+          "highway": "secondary",
+          "lanes": "3",
+          "loc_ref": "0 E/W",
+          "name": "South State Street",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "left||",
+          "wikidata": "Q986343",
+          "wikipedia": "en:State Street (Chicago)"
+        },
+        "435562601": {
+          "highway": "secondary",
+          "lanes": "2",
+          "loc_ref": "0 E/W",
+          "name": "South State Street",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q986343",
+          "wikipedia": "en:State Street (Chicago)"
+        },
+        "1214149814": {
+          "highway": "secondary",
+          "lanes": "2",
+          "loc_ref": "0 E/W",
+          "name": "South State Street",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q986343",
+          "wikipedia": "en:State Street (Chicago)"
+        },
+        "218985839": {
+          "highway": "residential",
+          "name": "East 16th Street",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "tiger:cfcc": "A41",
+          "tiger:county": "Cook, IL",
+          "tiger:name_base": "16th",
+          "tiger:name_direction_prefix": "E",
+          "tiger:name_type": "St",
+          "tiger:reviewed": "no",
+          "tiger:zip_left": "60616"
+        },
+        "1011106974": {
+          "highway": "residential",
+          "name": "West 16th Street",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "tiger:cfcc": "A41",
+          "tiger:county": "Cook, IL",
+          "tiger:name_base": "16th",
+          "tiger:name_direction_prefix": "E",
+          "tiger:name_type": "St",
+          "tiger:reviewed": "no",
+          "tiger:zip_left": "60616"
+        },
+        "1530459132": {
+          "highway": "residential",
+          "name": "East 16th Street",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "tiger:cfcc": "A41",
+          "tiger:county": "Cook, IL",
+          "tiger:name_base": "16th",
+          "tiger:name_direction_prefix": "E",
+          "tiger:name_type": "St",
+          "tiger:reviewed": "no",
+          "tiger:zip_left": "60616"
+        }
+      },
+      "local_e": 864.69,
+      "local_n": -2953.15,
+      "utm_e": 447937.39,
+      "utm_n": 4634442.65,
+      "lat": 41.860181,
+      "lon": -87.62726905,
+      "crossing_spread_m": 14.744,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map.",
+        "The target is the unweighted mean of distinct shared roadway nodes, not an average of duplicated way-pair crossings."
+      ]
+    },
+    {
+      "id": "halsted_31st",
+      "modern_streets": [
+        "Halsted Street",
+        "31st Street"
+      ],
+      "osm_node_ids": [
+        256181100
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 256181100,
+          "version": 20,
+          "timestamp": "2022-08-08T07:58:28Z",
+          "lat": 41.8380408,
+          "lon": -87.6462682,
+          "utm_e": 446341.9728,
+          "utm_n": 4631996.1939,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_halsted_31st_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          435331449,
+          488118931
+        ],
+        "horizontal": [
+          56242433,
+          1159822838
+        ]
+      },
+      "way_tags": {
+        "435331449": {
+          "cycleway:both": "shared_lane",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "2",
+          "lanes:forward": "3",
+          "loc_ref": "800 W",
+          "name": "South Halsted Street",
+          "name:etymology:wikidata": "Q119522049",
+          "name:zh": "\u8c6a\u65af\u7279\u8def",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left||right",
+          "wikidata": "Q5643579",
+          "wikipedia": "en:Halsted Street"
+        },
+        "488118931": {
+          "cycleway:both": "shared_lane",
+          "highway": "secondary",
+          "loc_ref": "800 W",
+          "name": "South Halsted Street",
+          "name:etymology:wikidata": "Q119522049",
+          "name:zh": "\u8c6a\u65af\u7279\u8def",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q5643579",
+          "wikipedia": "en:Halsted Street"
+        },
+        "56242433": {
+          "bicycle": "designated",
+          "highway": "secondary",
+          "lanes": "2",
+          "maxspeed": "30 mph",
+          "name": "West 31st Street",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q99729519"
+        },
+        "1159822838": {
+          "bicycle": "designated",
+          "highway": "secondary",
+          "lanes": "2",
+          "maxspeed": "30 mph",
+          "name": "West 31st Street",
+          "sidewalk": "separate",
+          "wikidata": "Q99729519"
+        }
+      },
+      "local_e": -730.73,
+      "local_n": -5399.61,
+      "utm_e": 446341.97,
+      "utm_n": 4631996.19,
+      "lat": 41.8380408,
+      "lon": -87.6462682,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "western_cermak",
+      "modern_streets": [
+        "Western Avenue",
+        "Cermak Road"
+      ],
+      "osm_node_ids": [
+        261292497
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 261292497,
+          "version": 9,
+          "timestamp": "2019-03-02T01:10:32Z",
+          "lat": 41.8520386,
+          "lon": -87.6856273,
+          "utm_e": 443086.4758,
+          "utm_n": 4633575.6606,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_western_cermak_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          435373204,
+          435373212
+        ],
+        "horizontal": [
+          435329602,
+          435329604
+        ]
+      },
+      "way_tags": {
+        "435373204": {
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "3",
+          "lanes:forward": "2",
+          "loc_ref": "2400 W",
+          "name": "South Western Avenue",
+          "oneway": "no",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left||",
+          "wikidata": "Q7987601",
+          "wikipedia": "en:Western Avenue (Chicago)"
+        },
+        "435373212": {
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "2",
+          "lanes:forward": "3",
+          "loc_ref": "2400 W",
+          "name": "South Western Avenue",
+          "oneway": "no",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left||",
+          "wikidata": "Q7987601",
+          "wikipedia": "en:Western Avenue (Chicago)"
+        },
+        "435329602": {
+          "cycleway": "shared_lane",
+          "cycleway:both": "shared_lane",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "2",
+          "lanes:forward": "3",
+          "lit": "yes",
+          "loc_ref": "2200 S",
+          "maxspeed": "30 mph",
+          "name": "West Cermak Road",
+          "name:etymology:wikidata": "Q295318",
+          "name:zh": "\u820d\u9ea5\u8def",
+          "name:zh-Hans": "\u820d\u9ea6\u8def",
+          "name:zh-Hant": "\u820d\u9ea5\u8def",
+          "sidewalk:both": "separate",
+          "source:maxspeed": "sign",
+          "surface": "asphalt",
+          "turn:lanes:forward": "left||",
+          "wikidata": "Q2946688",
+          "wikipedia": "en:Cermak Road"
+        },
+        "435329604": {
+          "cycleway": "shared_lane",
+          "cycleway:both": "shared_lane",
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "3",
+          "lanes:forward": "2",
+          "lit": "yes",
+          "loc_ref": "2200 S",
+          "maxspeed": "30 mph",
+          "name": "West Cermak Road",
+          "name:etymology:wikidata": "Q295318",
+          "name:zh": "\u820d\u9ea5\u8def",
+          "name:zh-Hans": "\u820d\u9ea6\u8def",
+          "name:zh-Hant": "\u820d\u9ea5\u8def",
+          "sidewalk:both": "separate",
+          "source:maxspeed": "sign",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left||",
+          "wikidata": "Q2946688",
+          "wikipedia": "en:Cermak Road"
+        }
+      },
+      "local_e": -3986.22,
+      "local_n": -3820.14,
+      "utm_e": 443086.48,
+      "utm_n": 4633575.66,
+      "lat": 41.8520386,
+      "lon": -87.6856273,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map.",
+        "Modern Cermak Road is the successor of Twenty-second Street; widening and divided carriageways can move its modern centre. Use caution fitting an 1870 line."
+      ]
+    },
+    {
+      "id": "ashland_cermak",
+      "modern_streets": [
+        "Ashland Avenue",
+        "Cermak Road"
+      ],
+      "osm_node_ids": [
+        261174717,
+        5893065622
+      ],
+      "nodes_averaged": 2,
+      "nodes": [
+        {
+          "id": 261174717,
+          "version": 11,
+          "timestamp": "2018-09-08T15:49:26Z",
+          "lat": 41.8523341,
+          "lon": -87.6660893,
+          "utm_e": 444708.5766,
+          "utm_n": 4633595.7039,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_ashland_cermak_osm"
+        },
+        {
+          "id": 5893065622,
+          "version": 3,
+          "timestamp": "2024-10-22T03:32:13Z",
+          "lat": 41.8523373,
+          "lon": -87.6659549,
+          "utm_e": 444719.7358,
+          "utm_n": 4633595.9727,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_ashland_cermak_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          624092992,
+          624092995,
+          624092996,
+          624092997
+        ],
+        "horizontal": [
+          435329574,
+          641710618,
+          843677703
+        ]
+      },
+      "way_tags": {
+        "624092992": {
+          "highway": "secondary",
+          "lanes": "3",
+          "loc_ref": "1600 W",
+          "name": "South Ashland Avenue",
+          "name:etymology:wikidata": "Q4805218",
+          "oneway": "yes",
+          "surface": "asphalt",
+          "wikidata": "Q94955589",
+          "wikipedia": "en:Ashland Avenue"
+        },
+        "624092995": {
+          "highway": "secondary",
+          "lanes": "4",
+          "loc_ref": "1600 W",
+          "name": "South Ashland Avenue",
+          "name:etymology:wikidata": "Q4805218",
+          "oneway": "yes",
+          "surface": "asphalt",
+          "turn:lanes": "left|||",
+          "wikidata": "Q94955589",
+          "wikipedia": "en:Ashland Avenue"
+        },
+        "624092996": {
+          "highway": "secondary",
+          "lanes": "2",
+          "loc_ref": "1600 W",
+          "name": "South Ashland Avenue",
+          "name:etymology:wikidata": "Q4805218",
+          "oneway": "yes",
+          "surface": "asphalt",
+          "wikidata": "Q94955589",
+          "wikipedia": "en:Ashland Avenue"
+        },
+        "624092997": {
+          "highway": "secondary",
+          "lanes": "4",
+          "loc_ref": "1600 W",
+          "name": "South Ashland Avenue",
+          "name:etymology:wikidata": "Q4805218",
+          "oneway": "yes",
+          "turn:lanes": "left|||",
+          "wikidata": "Q94955589",
+          "wikipedia": "en:Ashland Avenue"
+        },
+        "435329574": {
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "3",
+          "lanes:forward": "2",
+          "lit": "yes",
+          "loc_ref": "2200 S",
+          "maxspeed": "30 mph",
+          "name": "West Cermak Road",
+          "name:etymology:wikidata": "Q295318",
+          "name:zh": "\u820d\u9ea5\u8def",
+          "name:zh-Hans": "\u820d\u9ea6\u8def",
+          "name:zh-Hant": "\u820d\u9ea5\u8def",
+          "sidewalk:both": "separate",
+          "source:maxspeed": "sign",
+          "surface": "asphalt",
+          "turn:lanes:backward": "left||",
+          "wikidata": "Q2946688",
+          "wikipedia": "en:Cermak Road"
+        },
+        "641710618": {
+          "highway": "secondary",
+          "lanes": "3",
+          "loc_ref": "2200 S",
+          "name": "West Cermak Road",
+          "name:etymology:wikidata": "Q295318",
+          "name:zh": "\u820d\u9ea5\u8def",
+          "name:zh-Hans": "\u820d\u9ea6\u8def",
+          "name:zh-Hant": "\u820d\u9ea5\u8def",
+          "sidewalk": "separate",
+          "turn:lanes": "left||",
+          "wikidata": "Q2946688",
+          "wikipedia": "en:Cermak Road"
+        },
+        "843677703": {
+          "highway": "secondary",
+          "lanes": "3",
+          "loc_ref": "2200 S",
+          "name": "West Cermak Road",
+          "name:etymology:wikidata": "Q295318",
+          "name:zh": "\u820d\u9ea5\u8def",
+          "name:zh-Hans": "\u820d\u9ea6\u8def",
+          "name:zh-Hant": "\u820d\u9ea5\u8def",
+          "sidewalk": "separate",
+          "turn:lanes": "left||",
+          "wikidata": "Q2946688",
+          "wikipedia": "en:Cermak Road"
+        }
+      },
+      "local_e": -2358.54,
+      "local_n": -3799.96,
+      "utm_e": 444714.16,
+      "utm_n": 4633595.84,
+      "lat": 41.8523357,
+      "lon": -87.66602209999999,
+      "crossing_spread_m": 11.162,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map.",
+        "Modern Cermak Road is the successor of Twenty-second Street; widening and divided carriageways can move its modern centre. Use caution fitting an 1870 line.",
+        "Reuben Street/Ashland Avenue naming must be matched to the historic map; no old name is inferred from the OSM geometry.",
+        "The target is the unweighted mean of distinct shared roadway nodes, not an average of duplicated way-pair crossings."
+      ]
+    },
+    {
+      "id": "lasalle_lake",
+      "modern_streets": [
+        "LaSalle Street",
+        "Lake Street"
+      ],
+      "osm_node_ids": [
+        258957340,
+        6991303059
+      ],
+      "nodes_averaged": 2,
+      "nodes": [
+        {
+          "id": 258957340,
+          "version": 9,
+          "timestamp": "2026-05-10T06:23:50Z",
+          "lat": 41.8857414,
+          "lon": -87.632562,
+          "utm_e": 447518.9903,
+          "utm_n": 4637283.7734,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        },
+        {
+          "id": 6991303059,
+          "version": 4,
+          "timestamp": "2026-05-10T06:23:50Z",
+          "lat": 41.8857424,
+          "lon": -87.6323866,
+          "utm_e": 447533.5433,
+          "utm_n": 4637283.7772,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          48785109,
+          435704684,
+          747171895,
+          1137194391
+        ],
+        "horizontal": [
+          1137194390,
+          1137194392,
+          1137194396
+        ]
+      },
+      "way_tags": {
+        "48785109": {
+          "highway": "secondary",
+          "loc_ref": "140 W",
+          "name": "North LaSalle Street",
+          "name:etymology:wikidata": "Q298156",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q4444755",
+          "wikipedia": "en:LaSalle Street"
+        },
+        "435704684": {
+          "cycleway:right": "no",
+          "highway": "secondary",
+          "lanes": "3",
+          "loc_ref": "140 W",
+          "maxheight:signed": "no",
+          "name": "North LaSalle Street",
+          "name:etymology:wikidata": "Q298156",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "left||",
+          "wikidata": "Q4444755",
+          "wikipedia": "en:LaSalle Street"
+        },
+        "747171895": {
+          "highway": "secondary",
+          "lanes": "2",
+          "loc_ref": "140 W",
+          "name": "North LaSalle Street",
+          "name:etymology:wikidata": "Q298156",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q4444755",
+          "wikipedia": "en:LaSalle Street"
+        },
+        "1137194391": {
+          "cycleway:right": "no",
+          "highway": "secondary",
+          "lanes": "2",
+          "loc_ref": "140 W",
+          "name": "North LaSalle Street",
+          "name:etymology:wikidata": "Q298156",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q4444755",
+          "wikipedia": "en:LaSalle Street"
+        },
+        "1137194390": {
+          "highway": "secondary",
+          "lanes": "4",
+          "loc_ref": "200 N",
+          "maxheight:signed": "no",
+          "name": "West Lake Street",
+          "name:etymology:wikidata": "Q1169",
+          "oneway": "yes",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "left|||right",
+          "wikidata": "Q3216465",
+          "wikipedia": "en:Lake Street (Chicago)"
+        },
+        "1137194392": {
+          "highway": "secondary",
+          "lanes": "4",
+          "loc_ref": "200 N",
+          "name": "West Lake Street",
+          "name:etymology:wikidata": "Q1169",
+          "oneway": "yes",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "|||right",
+          "wikidata": "Q3216465",
+          "wikipedia": "en:Lake Street (Chicago)"
+        },
+        "1137194396": {
+          "highway": "secondary",
+          "loc_ref": "200 N",
+          "name": "West Lake Street",
+          "name:etymology:wikidata": "Q1169",
+          "oneway": "yes",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q3216465",
+          "wikipedia": "en:Lake Street (Chicago)"
+        }
+      },
+      "local_e": 453.57,
+      "local_n": -112.02,
+      "utm_e": 447526.27,
+      "utm_n": 4637283.78,
+      "lat": 41.8857419,
+      "lon": -87.6324743,
+      "crossing_spread_m": 14.553,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map.",
+        "The target is the unweighted mean of distinct shared roadway nodes, not an average of duplicated way-pair crossings."
+      ]
+    },
+    {
+      "id": "lasalle_randolph",
+      "modern_streets": [
+        "LaSalle Street",
+        "Randolph Street"
+      ],
+      "osm_node_ids": [
+        10923165759,
+        10923165760
+      ],
+      "nodes_averaged": 2,
+      "nodes": [
+        {
+          "id": 10923165759,
+          "version": 3,
+          "timestamp": "2023-05-26T17:46:23Z",
+          "lat": 41.8844738,
+          "lon": -87.6324021,
+          "utm_e": 447531.2194,
+          "utm_n": 4637142.9373,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        },
+        {
+          "id": 10923165760,
+          "version": 3,
+          "timestamp": "2023-05-26T17:20:17Z",
+          "lat": 41.8844738,
+          "lon": -87.6325268,
+          "utm_e": 447520.8733,
+          "utm_n": 4637143.0136,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          48785109,
+          747171895,
+          1285031389,
+          1285031390
+        ],
+        "horizontal": [
+          1028896250,
+          1028896252,
+          1285031391
+        ]
+      },
+      "way_tags": {
+        "48785109": {
+          "highway": "secondary",
+          "loc_ref": "140 W",
+          "name": "North LaSalle Street",
+          "name:etymology:wikidata": "Q298156",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q4444755",
+          "wikipedia": "en:LaSalle Street"
+        },
+        "747171895": {
+          "highway": "secondary",
+          "lanes": "2",
+          "loc_ref": "140 W",
+          "name": "North LaSalle Street",
+          "name:etymology:wikidata": "Q298156",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q4444755",
+          "wikipedia": "en:LaSalle Street"
+        },
+        "1285031389": {
+          "cycleway:right": "no",
+          "highway": "secondary",
+          "lanes": "2",
+          "loc_ref": "140 W",
+          "name": "North LaSalle Street",
+          "name:etymology:wikidata": "Q298156",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q4444755",
+          "wikipedia": "en:LaSalle Street"
+        },
+        "1285031390": {
+          "cycleway:right": "no",
+          "highway": "secondary",
+          "loc_ref": "140 W",
+          "name": "North LaSalle Street",
+          "name:etymology:wikidata": "Q298156",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q4444755",
+          "wikipedia": "en:LaSalle Street"
+        },
+        "1028896250": {
+          "bicycle": "use_sidepath",
+          "cycleway:right": "separate",
+          "highway": "secondary",
+          "lanes": "4",
+          "lit": "yes",
+          "loc_ref": "150 N",
+          "name": "West Randolph Street",
+          "name:etymology:wikidata": "Q486499",
+          "oneway": "yes",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "left|none|none|right",
+          "wikidata": "Q7291867",
+          "wikipedia": "en:Randolph Street"
+        },
+        "1028896252": {
+          "bicycle": "use_sidepath",
+          "cycleway:right": "separate",
+          "highway": "secondary",
+          "lanes": "4",
+          "lit": "yes",
+          "loc_ref": "150 N",
+          "name": "West Randolph Street",
+          "name:etymology:wikidata": "Q486499",
+          "oneway": "yes",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "left|none|none|right",
+          "wikidata": "Q7291867",
+          "wikipedia": "en:Randolph Street"
+        },
+        "1285031391": {
+          "bicycle": "use_sidepath",
+          "cycleway:right": "separate",
+          "highway": "secondary",
+          "lanes": "4",
+          "lit": "yes",
+          "loc_ref": "150 N",
+          "name": "West Randolph Street",
+          "name:etymology:wikidata": "Q486499",
+          "oneway": "yes",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "left|none|none|right",
+          "wikidata": "Q7291867",
+          "wikipedia": "en:Randolph Street"
+        }
+      },
+      "local_e": 453.35,
+      "local_n": -252.82,
+      "utm_e": 447526.05,
+      "utm_n": 4637142.98,
+      "lat": 41.8844738,
+      "lon": -87.63246444999999,
+      "crossing_spread_m": 10.346,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map.",
+        "The target is the unweighted mean of distinct shared roadway nodes, not an average of duplicated way-pair crossings."
+      ]
+    },
+    {
+      "id": "lasalle_washington",
+      "modern_streets": [
+        "LaSalle Street",
+        "Washington Street"
+      ],
+      "osm_node_ids": [
+        28290296
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 28290296,
+          "version": 12,
+          "timestamp": "2025-08-15T13:53:39Z",
+          "lat": 41.883243,
+          "lon": -87.6324167,
+          "utm_e": 447529.001,
+          "utm_n": 4637006.2938,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          134319743,
+          1285031389,
+          1285031390
+        ],
+        "horizontal": [
+          624405242,
+          983233556
+        ]
+      },
+      "way_tags": {
+        "134319743": {
+          "highway": "secondary",
+          "lanes": "5",
+          "lanes:backward": "3",
+          "lanes:forward": "2",
+          "loc_ref": "140 W",
+          "name": "North LaSalle Street",
+          "name:etymology:wikidata": "Q298156",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes:backward": "||right",
+          "wikidata": "Q4444755",
+          "wikipedia": "en:LaSalle Street"
+        },
+        "1285031389": {
+          "cycleway:right": "no",
+          "highway": "secondary",
+          "lanes": "2",
+          "loc_ref": "140 W",
+          "name": "North LaSalle Street",
+          "name:etymology:wikidata": "Q298156",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q4444755",
+          "wikipedia": "en:LaSalle Street"
+        },
+        "1285031390": {
+          "cycleway:right": "no",
+          "highway": "secondary",
+          "loc_ref": "140 W",
+          "name": "North LaSalle Street",
+          "name:etymology:wikidata": "Q298156",
+          "oneway": "yes",
+          "sidewalk:left": "no",
+          "sidewalk:right": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q4444755",
+          "wikipedia": "en:LaSalle Street"
+        },
+        "624405242": {
+          "bicycle": "use_sidepath",
+          "cycleway:right": "separate",
+          "highway": "secondary",
+          "lanes": "3",
+          "lanes:bus": "1",
+          "loc_ref": "100 N",
+          "name": "West Washington Street",
+          "name:etymology:wikidata": "Q23",
+          "oneway": "yes",
+          "parking": "no",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "through|through|right"
+        },
+        "983233556": {
+          "bicycle": "use_sidepath",
+          "cycleway:right": "separate",
+          "highway": "secondary",
+          "lanes": "3",
+          "lanes:bus": "1",
+          "loc_ref": "100 N",
+          "name": "West Washington Street",
+          "name:etymology:wikidata": "Q23",
+          "oneway": "yes",
+          "parking": "no",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "left;through|through|"
+        }
+      },
+      "local_e": 456.3,
+      "local_n": -389.51,
+      "utm_e": 447529.0,
+      "utm_n": 4637006.29,
+      "lat": 41.883243,
+      "lon": -87.6324167,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "lasalle_madison",
+      "modern_streets": [
+        "LaSalle Street",
+        "Madison Street"
+      ],
+      "osm_node_ids": [
+        28289318
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 28289318,
+          "version": 13,
+          "timestamp": "2025-08-15T13:53:39Z",
+          "lat": 41.881953,
+          "lon": -87.6323622,
+          "utm_e": 447532.4675,
+          "utm_n": 4636863.0352,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          134319745,
+          1191329603
+        ],
+        "horizontal": [
+          435724112,
+          435724113
+        ]
+      },
+      "way_tags": {
+        "134319745": {
+          "highway": "secondary",
+          "loc_ref": "140 W",
+          "name": "South LaSalle Street",
+          "name:etymology:wikidata": "Q298156",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q4444755",
+          "wikipedia": "en:LaSalle Street"
+        },
+        "1191329603": {
+          "highway": "secondary",
+          "loc_ref": "140 W",
+          "name": "North LaSalle Street",
+          "name:etymology:wikidata": "Q298156",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q4444755",
+          "wikipedia": "en:LaSalle Street"
+        },
+        "435724112": {
+          "alt_name": "Lee Miglin Way",
+          "highway": "secondary",
+          "lanes": "3",
+          "lanes:bus": "1",
+          "loc_ref": "0 N/S",
+          "name": "West Madison Street",
+          "name:etymology:wikidata": "Q11813",
+          "oneway": "yes",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "left;through|through|none",
+          "wikidata": "Q3276131",
+          "wikipedia": "en:Madison Street (Chicago)"
+        },
+        "435724113": {
+          "highway": "secondary",
+          "lanes": "3",
+          "lanes:bus": "1",
+          "loc_ref": "0 N/S",
+          "name": "West Madison Street",
+          "name:etymology:wikidata": "Q11813",
+          "oneway": "yes",
+          "sidewalk:left": "separate",
+          "sidewalk:right": "no",
+          "surface": "asphalt",
+          "turn:lanes": "left;through|through|none",
+          "wikidata": "Q3276131",
+          "wikipedia": "en:Madison Street (Chicago)"
+        }
+      },
+      "local_e": 459.77,
+      "local_n": -532.76,
+      "utm_e": 447532.47,
+      "utm_n": 4636863.04,
+      "lat": 41.881953,
+      "lon": -87.6323622,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "clark_madison",
+      "modern_streets": [
+        "Clark Street",
+        "Madison Street"
+      ],
+      "osm_node_ids": [
+        28289310
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 28289310,
+          "version": 9,
+          "timestamp": "2025-08-15T13:53:39Z",
+          "lat": 41.8819838,
+          "lon": -87.6308753,
+          "utm_e": 447655.8623,
+          "utm_n": 4636865.5469,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          5263032,
+          805911051
+        ],
+        "horizontal": [
+          435724110,
+          435724119
+        ]
+      },
+      "way_tags": {
+        "5263032": {
+          "cycleway:right": "no",
+          "highway": "secondary",
+          "lanes": "3",
+          "lit": "yes",
+          "loc_ref": "100 W",
+          "name": "South Clark Street",
+          "name:etymology:wikidata": "Q918990",
+          "oneway": "yes",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q5127389",
+          "wikipedia": "en:Clark Street (Chicago)"
+        },
+        "805911051": {
+          "cycleway:right": "no",
+          "highway": "secondary",
+          "lanes": "4",
+          "lit": "yes",
+          "loc_ref": "100 W",
+          "name": "North Clark Street",
+          "name:etymology:wikidata": "Q918990",
+          "oneway": "yes",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "|||right",
+          "wikidata": "Q5127389",
+          "wikipedia": "en:Clark Street (Chicago)"
+        },
+        "435724110": {
+          "cycleway:right": "no",
+          "highway": "secondary",
+          "lanes": "2",
+          "lanes:bus": "1",
+          "loc_ref": "0 N/S",
+          "name": "West Madison Street",
+          "name:etymology:wikidata": "Q11813",
+          "oneway": "yes",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "none|right",
+          "wikidata": "Q3276131",
+          "wikipedia": "en:Madison Street (Chicago)"
+        },
+        "435724119": {
+          "cycleway:right": "no",
+          "highway": "secondary",
+          "lanes": "4",
+          "lanes:bus": "1",
+          "loc_ref": "0 N/S",
+          "maxspeed:type": "US-IL:urban",
+          "name": "West Madison Street",
+          "name:etymology:wikidata": "Q11813",
+          "oneway": "yes",
+          "parking:both": "no",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "left|through|through|",
+          "wikidata": "Q3276131",
+          "wikipedia": "en:Madison Street (Chicago)"
+        }
+      },
+      "local_e": 583.16,
+      "local_n": -530.25,
+      "utm_e": 447655.86,
+      "utm_n": 4636865.55,
+      "lat": 41.8819838,
+      "lon": -87.6308753,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "wells_madison",
+      "modern_streets": [
+        "Wells Street",
+        "Madison Street"
+      ],
+      "osm_node_ids": [
+        27477590
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 27477590,
+          "version": 11,
+          "timestamp": "2025-08-15T13:53:39Z",
+          "lat": 41.8819407,
+          "lon": -87.6338476,
+          "utm_e": 447409.2122,
+          "utm_n": 4636862.5788,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          24220202,
+          1191328879
+        ],
+        "horizontal": [
+          59678310,
+          435724112
+        ]
+      },
+      "way_tags": {
+        "24220202": {
+          "cycleway:right": "shared_lane",
+          "cycleway:right:shared_lane": "pictogram",
+          "cycleway:right:traffic_sign": "US:R4-11",
+          "highway": "secondary",
+          "lanes": "2",
+          "loc_ref": "200 W",
+          "name": "South Wells Street",
+          "name:etymology:wikidata": "Q8020175",
+          "oneway": "yes",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q3567198",
+          "wikipedia": "en:Wells Street (Chicago)"
+        },
+        "1191328879": {
+          "cycleway:right": "shared_lane",
+          "cycleway:right:shared_lane": "pictogram",
+          "cycleway:right:traffic_sign": "US:R4-11",
+          "highway": "secondary",
+          "lanes": "2",
+          "loc_ref": "200 W",
+          "name": "North Wells Street",
+          "name:etymology:wikidata": "Q8020175",
+          "oneway": "yes",
+          "parking": "lane",
+          "parking:both": "yes",
+          "parking:both:orientation": "parallel",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q3567198",
+          "wikipedia": "en:Wells Street (Chicago)"
+        },
+        "59678310": {
+          "alt_name": "Ben Gurion Way",
+          "highway": "secondary",
+          "lanes": "3",
+          "lanes:bus": "1",
+          "loc_ref": "0 N/S",
+          "name": "West Madison Street",
+          "name:etymology:wikidata": "Q11813",
+          "oneway": "yes",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "none|none|right",
+          "wikidata": "Q3276131",
+          "wikipedia": "en:Madison Street (Chicago)"
+        },
+        "435724112": {
+          "alt_name": "Lee Miglin Way",
+          "highway": "secondary",
+          "lanes": "3",
+          "lanes:bus": "1",
+          "loc_ref": "0 N/S",
+          "name": "West Madison Street",
+          "name:etymology:wikidata": "Q11813",
+          "oneway": "yes",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "left;through|through|none",
+          "wikidata": "Q3276131",
+          "wikipedia": "en:Madison Street (Chicago)"
+        }
+      },
+      "local_e": 336.51,
+      "local_n": -533.22,
+      "utm_e": 447409.21,
+      "utm_n": 4636862.58,
+      "lat": 41.8819407,
+      "lon": -87.6338476,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "clark_lake",
+      "modern_streets": [
+        "Clark Street",
+        "Lake Street"
+      ],
+      "osm_node_ids": [
+        258957339
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 258957339,
+          "version": 12,
+          "timestamp": "2025-08-15T06:24:22Z",
+          "lat": 41.885747,
+          "lon": -87.6309862,
+          "utm_e": 447649.7329,
+          "utm_n": 4637283.4326,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          758223624,
+          1137194393
+        ],
+        "horizontal": [
+          1137194392,
+          1137194394
+        ]
+      },
+      "way_tags": {
+        "758223624": {
+          "highway": "secondary",
+          "lanes": "3",
+          "lit": "yes",
+          "loc_ref": "100 W",
+          "maxheight:signed": "no",
+          "name": "North Clark Street",
+          "name:etymology:wikidata": "Q918990",
+          "oneway": "yes",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q5127389",
+          "wikipedia": "en:Clark Street (Chicago)"
+        },
+        "1137194393": {
+          "highway": "secondary",
+          "lanes": "3",
+          "lit": "yes",
+          "loc_ref": "100 W",
+          "maxheight:signed": "no",
+          "name": "North Clark Street",
+          "name:etymology:wikidata": "Q918990",
+          "oneway": "yes",
+          "sidewalk:both": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q5127389",
+          "wikipedia": "en:Clark Street (Chicago)"
+        },
+        "1137194392": {
+          "highway": "secondary",
+          "lanes": "4",
+          "loc_ref": "200 N",
+          "name": "West Lake Street",
+          "name:etymology:wikidata": "Q1169",
+          "oneway": "yes",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "|||right",
+          "wikidata": "Q3216465",
+          "wikipedia": "en:Lake Street (Chicago)"
+        },
+        "1137194394": {
+          "highway": "secondary",
+          "lanes": "3",
+          "loc_ref": "200 N",
+          "name": "West Lake Street",
+          "name:etymology:wikidata": "Q1169",
+          "oneway": "yes",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "left||",
+          "wikidata": "Q3216465",
+          "wikipedia": "en:Lake Street (Chicago)"
+        }
+      },
+      "local_e": 577.03,
+      "local_n": -112.37,
+      "utm_e": 447649.73,
+      "utm_n": 4637283.43,
+      "lat": 41.885747,
+      "lon": -87.6309862,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "wells_randolph",
+      "modern_streets": [
+        "Wells Street",
+        "Randolph Street"
+      ],
+      "osm_node_ids": [
+        27477592
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 27477592,
+          "version": 15,
+          "timestamp": "2025-08-15T13:53:39Z",
+          "lat": 41.884468,
+          "lon": -87.6339164,
+          "utm_e": 447405.5765,
+          "utm_n": 4637143.2203,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          48785101,
+          1028896255
+        ],
+        "horizontal": [
+          23810320,
+          1028896254
+        ]
+      },
+      "way_tags": {
+        "48785101": {
+          "cycleway:right": "shared_lane",
+          "cycleway:right:shared_lane": "pictogram",
+          "cycleway:right:traffic_sign": "US:R4-11",
+          "highway": "secondary",
+          "lanes": "2",
+          "loc_ref": "200 W",
+          "name": "North Wells Street",
+          "name:etymology:wikidata": "Q8020175",
+          "oneway": "yes",
+          "parking": "lane",
+          "parking:both": "yes",
+          "parking:both:orientation": "parallel",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q3567198",
+          "wikipedia": "en:Wells Street (Chicago)"
+        },
+        "1028896255": {
+          "cycleway:right": "shared_lane",
+          "cycleway:right:shared_lane": "pictogram",
+          "cycleway:right:traffic_sign": "US:R4-11",
+          "highway": "secondary",
+          "lanes": "2",
+          "loc_ref": "200 W",
+          "name": "North Wells Street",
+          "name:etymology:wikidata": "Q8020175",
+          "oneway": "yes",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q3567198",
+          "wikipedia": "en:Wells Street (Chicago)"
+        },
+        "23810320": {
+          "bicycle": "use_sidepath",
+          "cycleway:right": "separate",
+          "highway": "secondary",
+          "lanes": "2",
+          "lit": "yes",
+          "loc_ref": "150 N",
+          "name": "West Randolph Street",
+          "name:etymology:wikidata": "Q486499",
+          "oneway": "yes",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "wikidata": "Q7291867",
+          "wikipedia": "en:Randolph Street"
+        },
+        "1028896254": {
+          "bicycle": "use_sidepath",
+          "cycleway:right": "separate",
+          "highway": "secondary",
+          "lanes": "3",
+          "lit": "yes",
+          "loc_ref": "150 N",
+          "name": "West Randolph Street",
+          "name:etymology:wikidata": "Q486499",
+          "oneway": "yes",
+          "sidewalk": "separate",
+          "surface": "asphalt",
+          "turn:lanes": "left||",
+          "wikidata": "Q7291867",
+          "wikipedia": "en:Randolph Street"
+        }
+      },
+      "local_e": 332.88,
+      "local_n": -252.58,
+      "utm_e": 447405.58,
+      "utm_n": 4637143.22,
+      "lat": 41.884468,
+      "lon": -87.6339164,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    }
+  ],
+  "additional_crossings": [
+    {
+      "id": "western_16th",
+      "modern_streets": [
+        "Western Avenue",
+        "16th Street"
+      ],
+      "osm_node_ids": [
+        261237939
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 261237939,
+          "version": 7,
+          "timestamp": "2018-10-05T17:08:09Z",
+          "lat": 41.8593777,
+          "lon": -87.685838,
+          "utm_e": 443075.4942,
+          "utm_n": 4634390.6381,
+          "vertical_continues": true,
+          "horizontal_continues": false,
+          "capture_id": "modern_western_16th_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          433281735,
+          433281736
+        ],
+        "horizontal": [
+          467838851
+        ]
+      },
+      "local_e": -3997.21,
+      "local_n": -3005.16,
+      "utm_e": 443075.49,
+      "utm_n": 4634390.64,
+      "lat": 41.8593777,
+      "lon": -87.685838,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": false,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "western_31st",
+      "modern_streets": [
+        "Western Avenue",
+        "31st Street"
+      ],
+      "osm_node_ids": [
+        261120575
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 261120575,
+          "version": 7,
+          "timestamp": "2018-08-07T06:29:14Z",
+          "lat": 41.8390814,
+          "lon": -87.6852303,
+          "utm_e": 443107.9523,
+          "utm_n": 4632136.8018,
+          "vertical_continues": true,
+          "horizontal_continues": false,
+          "capture_id": "modern_western_31st_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          435373206,
+          435373222
+        ],
+        "horizontal": [
+          24071662
+        ]
+      },
+      "local_e": -3964.75,
+      "local_n": -5259.0,
+      "utm_e": 443107.95,
+      "utm_n": 4632136.8,
+      "lat": 41.8390814,
+      "lon": -87.6852303,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": false,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "ashland_31st",
+      "modern_streets": [
+        "Ashland Avenue",
+        "31st Street"
+      ],
+      "osm_node_ids": [
+        5893114044,
+        13375178046
+      ],
+      "nodes_averaged": 2,
+      "nodes": [
+        {
+          "id": 5893114044,
+          "version": 2,
+          "timestamp": "2025-12-15T16:48:09Z",
+          "lat": 41.8387727,
+          "lon": -87.6657025,
+          "utm_e": 444729.0134,
+          "utm_n": 4632089.7775,
+          "vertical_continues": true,
+          "horizontal_continues": false,
+          "capture_id": "modern_ashland_31st_osm"
+        },
+        {
+          "id": 13375178046,
+          "version": 2,
+          "timestamp": "2025-12-15T16:48:09Z",
+          "lat": 41.8387247,
+          "lon": -87.6658402,
+          "utm_e": 444717.5393,
+          "utm_n": 4632084.5368,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_ashland_31st_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          624099616,
+          624100477,
+          624100480,
+          1523092969
+        ],
+        "horizontal": [
+          624679831,
+          1033721765
+        ]
+      },
+      "local_e": -2349.42,
+      "local_n": -5308.64,
+      "utm_e": 444723.28,
+      "utm_n": 4632087.16,
+      "lat": 41.8387487,
+      "lon": -87.66577135,
+      "crossing_spread_m": 12.614,
+      "all_nodes_through_both_named_road_families": false,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map.",
+        "Reuben Street/Ashland Avenue naming must be matched to the historic map; no old name is inferred from the OSM geometry.",
+        "The target is the unweighted mean of distinct shared roadway nodes, not an average of duplicated way-pair crossings."
+      ]
+    },
+    {
+      "id": "state_division",
+      "modern_streets": [
+        "State Street",
+        "Division Street"
+      ],
+      "osm_node_ids": [
+        102713553
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 102713553,
+          "version": 14,
+          "timestamp": "2026-06-17T21:17:02Z",
+          "lat": 41.9039455,
+          "lon": -87.6286906,
+          "utm_e": 447854.9955,
+          "utm_n": 4639302.5696,
+          "vertical_continues": false,
+          "horizontal_continues": true,
+          "capture_id": "modern_state_division_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          435832376
+        ],
+        "horizontal": [
+          24203446,
+          435397300
+        ]
+      },
+      "local_e": 782.3,
+      "local_n": 1906.77,
+      "utm_e": 447855.0,
+      "utm_n": 4639302.57,
+      "lat": 41.9039455,
+      "lon": -87.6286906,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": false,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "state_madison",
+      "modern_streets": [
+        "State Street",
+        "Madison Street"
+      ],
+      "osm_node_ids": [
+        27446720
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 27446720,
+          "version": 15,
+          "timestamp": "2026-06-17T21:17:02Z",
+          "lat": 41.8820455,
+          "lon": -87.6278089,
+          "utm_e": 447910.3348,
+          "utm_n": 4636870.5315,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          435724066,
+          1191329601
+        ],
+        "horizontal": [
+          433781984,
+          1002803297
+        ]
+      },
+      "local_e": 837.63,
+      "local_n": -525.27,
+      "utm_e": 447910.33,
+      "utm_n": 4636870.53,
+      "lat": 41.8820455,
+      "lon": -87.6278089,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "state_lake",
+      "modern_streets": [
+        "State Street",
+        "Lake Street"
+      ],
+      "osm_node_ids": [
+        258957342
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 258957342,
+          "version": 17,
+          "timestamp": "2026-06-17T21:17:02Z",
+          "lat": 41.8857554,
+          "lon": -87.627936,
+          "utm_e": 447902.8031,
+          "utm_n": 4637282.509,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          1281994716,
+          1282602029,
+          1282602030
+        ],
+        "horizontal": [
+          23810302,
+          48785421
+        ]
+      },
+      "local_e": 830.1,
+      "local_n": -113.29,
+      "utm_e": 447902.8,
+      "utm_n": 4637282.51,
+      "lat": 41.8857554,
+      "lon": -87.627936,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "state_randolph",
+      "modern_streets": [
+        "State Street",
+        "Randolph Street"
+      ],
+      "osm_node_ids": [
+        28290265
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 28290265,
+          "version": 17,
+          "timestamp": "2026-06-17T21:17:02Z",
+          "lat": 41.884489,
+          "lon": -87.6279024,
+          "utm_e": 447904.562,
+          "utm_n": 4637141.8835,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          48785113,
+          255563525
+        ],
+        "horizontal": [
+          320480949,
+          1051036583
+        ]
+      },
+      "local_e": 831.86,
+      "local_n": -253.92,
+      "utm_e": 447904.56,
+      "utm_n": 4637141.88,
+      "lat": 41.884489,
+      "lon": -87.6279024,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "state_washington",
+      "modern_streets": [
+        "State Street",
+        "Washington Street"
+      ],
+      "osm_node_ids": [
+        28290256
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 28290256,
+          "version": 15,
+          "timestamp": "2026-06-17T21:17:02Z",
+          "lat": 41.8832481,
+          "lon": -87.6278661,
+          "utm_e": 447906.5657,
+          "utm_n": 4637004.0877,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          433785009,
+          620293814
+        ],
+        "horizontal": [
+          488107951,
+          1376975503
+        ]
+      },
+      "local_e": 833.87,
+      "local_n": -391.71,
+      "utm_e": 447906.57,
+      "utm_n": 4637004.09,
+      "lat": 41.8832481,
+      "lon": -87.6278661,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "clark_randolph",
+      "modern_streets": [
+        "Clark Street",
+        "Randolph Street"
+      ],
+      "osm_node_ids": [
+        28290286
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 28290286,
+          "version": 13,
+          "timestamp": "2025-08-15T06:24:22Z",
+          "lat": 41.8844774,
+          "lon": -87.6309528,
+          "utm_e": 447651.4676,
+          "utm_n": 4637142.4519,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          435706056,
+          435724014
+        ],
+        "horizontal": [
+          1028896245,
+          1028896248
+        ]
+      },
+      "local_e": 578.77,
+      "local_n": -253.35,
+      "utm_e": 447651.47,
+      "utm_n": 4637142.45,
+      "lat": 41.8844774,
+      "lon": -87.6309528,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "clark_washington",
+      "modern_streets": [
+        "Clark Street",
+        "Washington Street"
+      ],
+      "osm_node_ids": [
+        28290281
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 28290281,
+          "version": 12,
+          "timestamp": "2023-07-17T02:57:56Z",
+          "lat": 41.8832472,
+          "lon": -87.6309343,
+          "utm_e": 447651.9983,
+          "utm_n": 4637005.8548,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          435724013,
+          932951026
+        ],
+        "horizontal": [
+          620366464,
+          981135345
+        ]
+      },
+      "local_e": 579.3,
+      "local_n": -389.95,
+      "utm_e": 447652.0,
+      "utm_n": 4637005.85,
+      "lat": 41.8832472,
+      "lon": -87.6309343,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "wells_lake",
+      "modern_streets": [
+        "Wells Street",
+        "Lake Street"
+      ],
+      "osm_node_ids": [
+        258957316
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 258957316,
+          "version": 7,
+          "timestamp": "2023-05-26T15:24:07Z",
+          "lat": 41.8857353,
+          "lon": -87.6339477,
+          "utm_e": 447404.019,
+          "utm_n": 4637283.9445,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          1028896255,
+          1137194389
+        ],
+        "horizontal": [
+          1137194388,
+          1137194390
+        ]
+      },
+      "local_e": 331.32,
+      "local_n": -111.86,
+      "utm_e": 447404.02,
+      "utm_n": 4637283.94,
+      "lat": 41.8857353,
+      "lon": -87.6339477,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    },
+    {
+      "id": "wells_washington",
+      "modern_streets": [
+        "Wells Street",
+        "Washington Street"
+      ],
+      "osm_node_ids": [
+        27477591
+      ],
+      "nodes_averaged": 1,
+      "nodes": [
+        {
+          "id": 27477591,
+          "version": 13,
+          "timestamp": "2025-08-15T06:24:22Z",
+          "lat": 41.8832423,
+          "lon": -87.6338816,
+          "utm_e": 447407.4586,
+          "utm_n": 4637007.1128,
+          "vertical_continues": true,
+          "horizontal_continues": true,
+          "capture_id": "modern_core_osm"
+        }
+      ],
+      "osm_way_ids": {
+        "vertical": [
+          48785101,
+          1175442346
+        ],
+        "horizontal": [
+          620366462,
+          620366463
+        ]
+      },
+      "local_e": 334.76,
+      "local_n": -388.69,
+      "utm_e": 447407.46,
+      "utm_n": 4637007.11,
+      "lat": 41.8832423,
+      "lon": -87.6338816,
+      "crossing_spread_m": 0.0,
+      "all_nodes_through_both_named_road_families": true,
+      "notes": [
+        "Modern surface-road centreline intersection only; continuity of the historic street line must be judged independently from the 1870 map."
+      ]
+    }
+  ],
+  "requested_priority_not_selected": [
+    "state_division",
+    "halsted_chicago",
+    "western_16th",
+    "western_31st",
+    "ashland_31st"
+  ],
+  "existing_control_review": {
+    "street_control.json": "Only Canal/Upper Wacker and Franklin controls; modern Upper Wacker has explicit historic-line caveats, so not chosen for new Mitchell fit.",
+    "west_division_spacing_control.json": "Derived historical street-spacing measurement, not independent modern intersection nodes; not reused.",
+    "prairie_1904_control.json": "Reusable recorded OSM intersections on Prairie/Indiana/Calumet, outside requested modern axes; not needed for this selection.",
+    "gcp/rees_rucker_1849_gcps.json": "Fourteen existing modern grid targets noted, but no map pixels, fit, or transformed geometry reused. These new selections mostly fill other rows/columns and retain actual OSM element IDs."
+  },
+  "fetch_fallback": {
+    "overpass_api_de": "HTTP 502",
+    "overpass_kumi": "Read timed out after 110 s",
+    "fallback": "OSM editing API map bounding-box reads; original XML and retrieval URL/time retained."
+  },
+  "ambiguities": {
+    "state_division": "Node 102713553 is a real crossing, but North State Street becomes North State Parkway north of Division. The strict exact-name through-route check refuses it; usable only after explicit successor-name adjudication.",
+    "halsted_chicago": "Current OSM ways at the crossing carry highway=construction (including 56631005, 435655135, 621625475). Excluded, rather than silently using planned/current construction geometry.",
+    "western_16th": "Node 261237939 is a real T-junction: West 16th Street does not continue through Western under the same named roadway family. Kept in additional_crossings, not the selected two-through-streets set.",
+    "western_31st": "Node 261120575 is a real crossing/terminus amid Western Avenue, Western Boulevard, 31st Street and 31st Boulevard. Exact West 31st Street does not continue through that node, so no successor-name/parallel-road conflation is made.",
+    "ashland_31st": "The two shared nodes are staggered; node 5893114044 fails horizontal through-route continuity while node 13375178046 passes. Their mean is retained only as an unselected candidate, pending inspection of the current divided-road arrangement.",
+    "cermak": "Twenty-second Street was later renamed Cermak Road and widened. The newly measured modern target can constrain a fit only with that later alteration declared; it does not attest the historic centreline.",
+    "ashland": "The historic map may label the corridor Reuben Street. Modern Ashland geometry is measured here; the historic name equivalence belongs to the map reading, not this coordinate extraction."
+  },
+  "numeric_precision_note": "Coordinates rounded to 0.01 m preserve reproducible arithmetic, not surveyed centimetre accuracy. OSM positional accuracy, historic street widening, and the map pixel read require independent uncertainty allowances.",
+  "portable_primitive_extract": "data/traces/gcp/mitchell_1870_osm_primitives.json",
+  "capture_availability": "Full rawXML captures are audit-only named captures, not repository paths. Their URLs andSHA256 values are retained; exact selected nodes/ways and every referenced neighbor node are shipped in the portable extract. Additional unselected intersections remain candidate metadata only."
+}

@@ -1,0 +1,28 @@
+{
+  "id": "usace_chicago_harbor_1865",
+  "type": "map",
+  "citation": "Map of Chicago Harbor. Survey of July, Aug. & Sept. 1865. 1865-07/1865-09. https://catalog.archives.gov/id/122206806",
+  "author": "United States War Department, Office of the Chief of Engineers",
+  "date": "1865-07/1865-09",
+  "describes_date": "1865-07/1865-09",
+  "repository": "National Archives and Records Administration / Wikimedia Commons",
+  "url": "https://catalog.archives.gov/id/122206806",
+  "locator": "Lakefront north of river mouth through waterworks basin to Whitney Street; river mouth and part of south Illinois Central frontage. Raster or PDF SHA-256 f8a2214d79ed4ce0550538d5e1c580930d733d2e859b76dc53a6d66ea4537a75.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "Public domain \u2014 federal government work; NARA/Commons mark.",
+  "asset_use": "geometry",
+  "verified": true,
+  "access_notes": "Downloaded and inspected on 2026-11-18. Download: https://upload.wikimedia.org/wikipedia/commons/e/e0/Map_of_Chicago_Harbor,_Illinois_-_NARA_-_122206806.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org ",
+  "what_it_supplies": [
+    "Pine Street, St. Clair Street, Ontario Street, North Water Street, Whitney Street",
+    "Water Works Basin and line of lake tunnel",
+    "North pier extension of 1865",
+    "Earlier shorelines explicitly labeled 1821, 1833, 1837, 1839, 1845 and 1864",
+    "Graphic scale, true meridian, soundings, south slips"
+  ],
+  "what_it_does_not_supply": [
+    "A validated WGS84 positional accuracy; dates of unrecorded construction between survey and 8 October 1871."
+  ],
+  "note": "Historical shoreline evolution and cross-map registration evidence. Six-year temporal gap; not direct October 1871 shoreline. Check street renaming/widening before assigning modern point coordinates."
+}

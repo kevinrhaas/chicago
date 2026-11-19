@@ -1,0 +1,25 @@
+{
+  "id": "edwards_chicago_directory_1871",
+  "type": "book",
+  "citation": "Edwards’ Annual Directory of the City of Chicago, 1871. Fourteenth annual issue. Chicago: Richard Edwards, 1871.",
+  "author": "Richard Edwards, publisher/compiler",
+  "date": "1871",
+  "describes_date": "1871",
+  "repository": "Internet Archive, digitized citydirectory",
+  "url": "https://archive.org/details/edwardsannualdir141871chic",
+  "locator": "Printed pages 34, 43, 53, 161, 1016 and 1031, plus other inspected pages identified in chicago/pre_fire_v1/data/field_notebook_1871.json. Preserved page images in chicago/pre_fire_v1/media/research/.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "Original United States publication dated 1871, public domain by age. The existing notebook records Internet Archive metadata NOT_IN_COPYRIGHT and University of Illinois Urbana-Champaign provenance.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Uses the existing inspected primary-page notebook. Historical addresses retain their original numbering; they have not been substituted with modern geocodes.",
+  "what_it_supplies": [
+    "Occupations, business categories, institution names and historical addresses for further location research.",
+    "Evidence for varied commercial, residential and industrial uses."
+  ],
+  "what_it_does_not_supply": [
+    "Modern coordinates, measured footprints, facades, exact people present at 16:30 or guaranteed October occupancy for every listing."
+  ],
+  "note": "Used for district character and future property research. Generic context buildings are not assigned invented directory occupants. The directory is not an exhaustive resident census."
+}
