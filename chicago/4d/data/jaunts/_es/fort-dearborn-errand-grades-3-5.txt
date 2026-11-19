@@ -1,0 +1,88 @@
+== title @fdfd18bf
+Un encargo en el fuerte Dearborn
+
+== premise @4c5c2f4c
+Lleva una lista corta de provisiones por los edificios de trabajo del fuerte y hasta su taller.
+
+== opening @20a507f8
+PASEO: UN ENCARGO EN EL FUERTE DEARBORN. Es una mañana de invierno donde el río se junta con el lago. El lago está gris como el hierro. Los barcos ya no navegan. Un hombre recordaba que no podía entrar nada al pueblo, y no se podía mandar nada afuera. Allá afuera, en los pastizales, decía, había muchísimos lobos por todo el pueblo. Dentro de la alta cerca de troncos, el fuerte guarda sus provisiones.
+
+Llevas una nota. Elige una pequeña provisión en la tienda del fuerte. Revisa el paquete contra tu nota en el almacén. Luego llévalo al taller del fuerte junto al lago.
+
+== stop errand @a2a7f136
+Esta es la puerta sur del fuerte. Hay soldados en el fuerte desde junio de 1832. Juliette Kinzie vivió adentro en 1831. Escribió sobre su alta cerca de troncos y sus grandes puertas en los lados norte y sur. Un hombre dibujó un mapa en 1827. Muestra el cuarto de guardia y el almacén a cada lado de esta puerta. En un invierno helado, lo que hay en el almacén es todo lo que hay hasta la primavera.
+
+== narrative errand @f78c92b4
+Di a qué vienes, y sigue hasta la tienda del fuerte.
+
+== stop supply @98c95f02
+Al este de la puerta norte está la tienda del comerciante. Vende cosas que no venían en la comida y las provisiones de los soldados. Un mapa de 1827 la puso aquí. Una foto vieja de 1855 todavía la marca como la tienda. Nadie sabe quién la llevaba en 1835.
+
+== narrative supply @d6cbaf4f
+Elige una provisión, o sigue sin ella.
+
+== label supply candles @8633bcc9
+Un manojo de velas
+
+== consequence supply candles @d16ca81d
+Luz para las cortas tardes de invierno en un banco de trabajo.
+
+== label supply thread @21abc443
+Hilo y un paquete de agujas
+
+== consequence supply thread @e736c845
+Pequeño y ligero, y siempre hay alguien que necesita más.
+
+== stop account @88a0f56e
+Al este de la puerta sur está el almacén, donde el ejército guarda la comida. Unos avisos del ejército de 1834 hablan de él. La carne fresca de res llegaba en pedazos grandes hasta tres veces por semana. Eso era probablemente unas cuatrocientas libras cada semana. Revisa tu paquete contra tu nota.
+
+== narrative account @6984edfc
+Revisa el paquete antes de que salga del fuerte.
+
+== label account tally @a2e6955e
+Cotejar el paquete con la nota
+
+== consequence account tally @631f03a1
+Lo que pedía la nota está en el paquete, y lo anotas.
+
+== stop deliver @13200773
+Afuera de la cerca de troncos, hacia el lago, un mapa de 1830 muestra un edificio marcado Taller. No dice qué tipo de taller, así que era un taller de trabajo. Puede que sea este. Un ministro llamado Jeremiah Porter dio una plática religiosa en el taller del carpintero del fuerte el 19 de mayo de 1833. Deja el paquete.
+
+== narrative deliver @186c5fcc
+Entrega lo que pedía la nota, o lleva de vuelta lo que falta.
+
+== label deliver hand-over @e2453eee
+Dejar el paquete cotejado en el taller
+
+== consequence deliver hand-over @84145005
+El trabajo está hecho. La nota regresa doblada en tu bolsillo.
+
+== leg 0 @70f08544
+La primera línea de la nota dice una pequeña provisión de la tienda del fuerte.
+
+== note 0 @f7fe86d4
+Cruza el fuerte hasta los edificios al este de la puerta norte.
+
+== leg 1 @d8415e5a
+Antes de que el paquete salga del fuerte, revísalo contra la nota.
+
+== note 1 @1ceab13c
+Regresa a la puerta sur, al edificio de su lado este.
+
+== leg 2 @b4810dda
+La última línea de la nota dice que lleves el paquete al taller.
+
+== note 2 @89b9db84
+Esta es la caminata más larga. Sal pasando la esquina de la cerca de troncos hacia la orilla del lago.
+
+== ending accounted @08651e05
+Elegiste una provisión, revisaste el paquete y lo dejaste en el taller. El fuerte es un vecino muy ocupado donde el río se junta con el lago. Tiene provisiones que guardar y un largo invierno que pasar guardándolas.
+
+== ending unfinished @016caa65
+Parte de la nota regresa contigo. Los edificios de trabajo del fuerte seguirán aquí mañana. También el resto de la lista, y también la nieve.
+
+== keepsake title @6383fa8b
+Cuentas claras en el fuerte
+
+== keepsake text @ada3dda4
+Una nota de provisiones inventada, revisada afuera del almacén del fuerte Dearborn y llevada al taller fuera del fuerte.

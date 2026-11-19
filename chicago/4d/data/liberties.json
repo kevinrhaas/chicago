@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1192,
+  "count": 1193,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -77921,11 +77921,11 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the district draft at 2036 Prairie Avenue — the Ebenezer Buckingham house, a Second Empire corner house on 21st Street is refined in place, under its own id, to a k01 frontage record built by the k01 emit generator (the S08 package's corner house of the programme): a brick house of two storeys over a high stone basement under a mansard, on the north corner of Prairie and 21st Street, its south-east corner cut on a canted face, a canted bay on each flank, a stone porch on one column a side at the head of a balustraded stoop, and the rear range behind. **What is read, not invented.** From the 1911 Sanborn sheet 35 raster at full size (0.186 m a pixel, through the fit): the front block, 14.35 m deep and 15.43 m along the front; its '3S.B.' and the dashed curb line with its corner diagonals, the sheet's mark for a mansard, so two masonry storeys and a mansard storey; the canted corner at Prairie and 21st; the canted bays to 21st Street (3.7 m at the wall, 1.27 m out) and to the north (2.8 m, 0.77 m); the one-storey porch on the front (about 2.8 m along it and 2 m out) with the door behind it; the rear range, 10.7 m deep and 12.2 m across, set in from both flanks. From the c. 1880 engraved street view ([The 2000 block of Prairie Avenue looking north from 21st Street, c. 1880.]…, rights check required: forms and places only), through the camera solved on the house's own features (the chicagology engraving data): the brick walls over a stone basement; the 21st Street face's tall principal light under a hood on consoles, the chamber light over it on a stone sill course, the barred basement light; the principal floor (1.8 m) and storey heights; the porch's pale column and the stoop's turned balustrade; the iron fence of spear bars over a band of rings. **What is invented.** The front's window columns other than the door's (the engraving sees the front only edge-on); the second light on the 21st Street face, which the engraving's tree hides; the north flank's and the rear's lights; every light in the bays; the cornice (K10's bracketed timber, carried round the blank cant), the mansard's rise, pitch and dormers, its slate and tin, and the two stacks (the engraving's frame stops above the chamber storey; 1945 Prairie's corner mansion gives the numbers); the stone's kind and the brick's colour (the print is monochrome); the walls' thickness; the stoop's tread, landing and width; the porch's entablature and balustraded deck; the yard; the rainwater goods. **What is built otherwise than the evidence, and why.** The front stands about 0.5 m further out over its south part on the sheet; it is built as one plane at the mean (within the 0.3 m bar each way). The cant is K01's at 45 degrees with a 1.3 m cut, where the sheet's runs about 1.7 m along 21st and 2.1 m along Prairie. The rear range is decked flat under a K01 wing roof, where the sheet draws a mansard curb on it too. The iron fence along 21st Street, which the engraving draws across its foreground, is not built: K11 lays iron only on the street line and a side fence only in boards (the match record's one open difference); the 6- and 8-ft brick walls the 1911 sheet draws along 21st and the alley are 1911 evidence and stay unbuilt, as the draft left them. The gate piers carry K11's caps, not the engraving's urns."
+          "text": "the district draft at 2036 Prairie Avenue — the Ebenezer Buckingham house, a Second Empire corner house on 21st Street is refined in place, under its own id, to a k01 frontage record built by the k01 emit generator (the S08 package's corner house of the programme): a brick house of two storeys over a high stone basement under a mansard, on the north corner of Prairie and 21st Street, its south-east corner cut on a canted face, a canted bay on each flank, a stone porch on one column a side at the head of a balustraded stoop, and the rear range behind. **What is read, not invented.** From the 1911 Sanborn sheet 35 raster at full size (0.186 m a pixel, through the fit): the front block, 14.35 m deep and 15.43 m along the front; its '3S.B.' and the dashed curb line with its corner diagonals, the sheet's mark for a mansard, so two masonry storeys and a mansard storey; the canted corner at Prairie and 21st; the canted bays to 21st Street (3.7 m at the wall, 1.27 m out) and to the north (2.8 m, 0.77 m); the one-storey porch on the front (about 2.8 m along it and 2 m out) with the door behind it; the rear range, 10.7 m deep and 12.2 m across, set in from both flanks. From the c. 1880 engraved street view ([The 2000 block of Prairie Avenue looking north from 21st Street, c. 1880.]…, rights check required: forms and places only), through the camera solved on the house's own features (the chicagology engraving data): the brick walls over a stone basement; the 21st Street face's tall principal light under a hood on consoles, the chamber light over it on a stone sill course, the barred basement light; the principal floor (1.8 m) and storey heights; the porch's pale column and the stoop's turned balustrade; the iron fence of spear bars over a band of rings. **What is invented.** The front's window columns other than the door's (the engraving sees the front only edge-on); the second light on the 21st Street face, which the engraving's tree hides; the north flank's and the rear's lights; every light in the bays; the cornice (K10's bracketed timber, carried round the blank cant), the mansard's rise, pitch and dormers, its slate and tin, and the two stacks (the engraving's frame stops above the chamber storey; 1945 Prairie's corner mansion gives the numbers); the stone's kind and the brick's colour (the print is monochrome); the walls' thickness; the stoop's tread, landing and width; the porch's entablature and balustraded deck; the yard; the rainwater goods. **What is built otherwise than the evidence, and why.** The front stands about 0.5 m further out over its south part on the sheet; it is built as one plane at the mean (within the 0.3 m bar each way). The cant is K01's at 45 degrees with a 1.3 m cut, where the sheet's runs about 1.7 m along 21st and 2.1 m along Prairie. The rear range is decked flat under a K01 wing roof, where the sheet draws a mansard curb on it too. The iron fence along 21st Street, which the engraving draws across its foreground, is built since later work (K11's side iron): the front's scroll-band railing on its own curb along the south lot line, from beside the corner post back to an end post level with the rear range's west wall (u -10.67). The engraving shows the run only across the front block's 21st Street face; carrying it the length of the house, and stopping it there, is a reconstruction bounded by the house's own south face, and the yard behind is left as the draft left it. The 6- and 8-ft brick walls the 1911 sheet draws along 21st and the alley are 1911 evidence and stay unbuilt, as the draft left them. The gate piers carry K11's caps, not the engraving's urns."
         },
         {
           "label": "How to resolve",
-          "text": "Later work builds the 21st Street iron, solves the 1890s photograph's camera and signs off the image gate; a picture of the roof, the north flank or the rear would replace the invented parts."
+          "text": "a picture of the 21st Street railing's west end would fix where it stops; a picture of the roof, the north flank or the rear would replace the invented parts."
         },
         {
           "label": "Covers",
@@ -77948,6 +77948,48 @@
         "T-2934",
         "T-3632",
         "T-3631"
+      ]
+    },
+    {
+      "id": "L-1871-great-fire-3687",
+      "title": "The Great Fire burns the 1871 city hour by hour",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner asked to follow the Great Fire as a timeline, watching it engulf the city and its landmarks with the time of day right (2026-11-19). This work draws it on the 1871 city at any fire time from 21:00 on Sunday 8 October 1871 to the morning of Tuesday 10 October. Free walk stays the city before the fire, at 16:00 on 8 October."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "the burnt district is the mapped one: the West, South and North Side outlines follow the Board of Police and Fire Commissioners' report, Andreas vol. 2 and the Encyclopedia of Chicago's plate of the fire's progress (Conzen), drawn along the scene's own rivers and shoreline. Forty-one places carry an hour, each graded attested or inferred with its source and page in the 1871 fire data (the barn about 21:00, St. Paul's, Bateham's mills, Parmelee's stables, the gas works, the Court House about 01:30, the Water Works 03:20, the North Avenue front about noon Monday, Fullerton late Monday night). The Ogden house, the Water Tower and the O'Leary cottage are spared, as the accounts say. The wind is the south-westerly gale the accounts describe; the rain on Monday night is Andreas's."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "the hour at any place between the timed ones is read linearly across a triangulation of its own division's timed places (no triangle spans a river), the distance across the wind counted 1.8 times, with a few minutes' seeded difference between blocks and between neighbours; it is a model of the front, not a record of when a given building caught. How long a building burns, when its roof goes and whether its walls stand (masonry walls fall at three in ten, at random) are a reconstruction from the accounts' general descriptions, not from any one building. The flames, smoke, plume, ember glow, firelight and the sky's glow are drawn effects; their colours and sizes are not measurements. A frame building brought down is drawn as a black slab with one chimney standing; the chimney's place is chosen at random."
+        },
+        {
+          "label": "Evidence and limits",
+          "text": "Board of Police and Fire Commissioners of the City of Chicago, Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time, Smith, Carl. 'The Great Conflagration', Conzen, Michael P. 'Progress of the Chicago Fire of 1871' (map). The accounts' hours are approximate and sometimes disagree (Holden's 8:45 start against the Board's 9:20-9:25); the inferred hours say so in their notes. The district edge is drawn to the plate's scale, not surveyed. No casualties are drawn."
+        },
+        {
+          "label": "How to resolve",
+          "text": "add timed places from further contemporary accounts (Colbert and Chamberlin's and Sheahan and Upton's books of 1871) and check the district edge against their maps; give named structures their own recorded hours and fates as their models arrive."
+        },
+        {
+          "label": "Review",
+          "text": "the 1871 fire data, the fire 1871 tool, the walkthrough's fire map code, the walkthrough's city fire code."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-19."
+        }
+      ],
+      "work_refs": [
+        "T-3687"
       ]
     },
     {

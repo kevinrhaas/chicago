@@ -380,7 +380,7 @@ console.log(`transport loop: ${count} checks PASS`);
   const clockBody = required(main.match(/function tick\([^\n]*\) \{([\s\S]*?)\n    if \(!gateOpen\)/), 'tick clock')
     .replace(/^function tick[^\n]*\{\n/, '').replace(/\n    if \(!gateOpen\)$/, '');
   const latch = required(main.match(/  let visualClockReset = true;\n  const resetVisualClock = [^\n]+/), 'visible latch');
-  const media = required(main.match(/  const transportReducedMotion = window.matchMedia\([^\n]+\n  transportReducedMotion.addEventListener\([^\n]+/), 'motion preference binding');
+  const media = required(main.match(/  const transportReducedMotion = (?:window\.matchMedia\([^\n]+|motionQuery;[^\n]*)\n  transportReducedMotion.addEventListener\([^\n]+/), 'motion preference binding');
   const forwarding = required(main.match(/api\.townTransport\?\.update\(visualDt, camera.position, \{[\s\S]*?\n    \}\);/), 'elapsed town forwarding');
   const hide = required(main.match(/onHideLevel: \(level, hide\) => \{[^}]*\},/), 'confidence hide callback')
     .replace(/^onHideLevel: \(level, hide\) => \{/, '').replace(/\s*\},$/, '');
@@ -391,11 +391,12 @@ console.log(`transport loop: ${count} checks PASS`);
   // T-3439: Settings › Show › Carriages and horses hides the teams the way the Confidence view does.
   const shownLayers = { people: true, vehicles: true };
   const world = { sunTime: '12:30' }; // T-3497: the sun clock the teams' hours are read on
-  const native = new Function('clock', 'document', 'window', 'api', 'camera', 'confidence', 'gateFrame', 'shownLayers', 'world', `
+  // T-3671: main reads Settings › Look › Motion through js/motion.js's MediaQueryList stand-in.
+  const native = new Function('motionQuery', 'clock', 'document', 'window', 'api', 'camera', 'confidence', 'gateFrame', 'shownLayers', 'world', `
     let animationHold = false, gateOpen = false;
     ${latch}\n${media}
     return {tick() { ${clockBody}\n${forwarding} }, hide(level, hide) { ${hide} }};
-  `)(clock, { hidden: false }, { matchMedia: () => motion },
+  `)(motion, clock, { hidden: false }, { matchMedia: () => motion },
     { townTransport: { update(dt, camera, options) { assert.strictEqual(camera, eye); calls.push({dt, options}); } } },
     { position: eye }, confidence, { invalidate() {} }, shownLayers, world);
   const tick = delta => { clock.delta = delta; const reads = clock.reads; native.tick(); assert.equal(clock.reads, reads + 1); return calls.at(-1); };

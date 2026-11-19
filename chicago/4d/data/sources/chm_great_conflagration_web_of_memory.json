@@ -1,0 +1,24 @@
+{
+  "id": "chm_great_conflagration_web_of_memory",
+  "type": "website",
+  "citation": "Smith, Carl. 'The Great Conflagration'. The Great Chicago Fire and the Web of Memory. Chicago History Museum and Northwestern University, 2011.",
+  "author": "Carl Smith",
+  "date": "2011",
+  "describes_date": "1871-10-08/1871-10-10",
+  "repository": "Chicago History Museum and Northwestern University",
+  "url": "https://greatchicagofire.org/great-conflagration/",
+  "locator": "'By 1:30 it reached the Court House tower'; 'By 3:30 a.m., the roof collapsed on the Pumping Station at Chicago Avenue'; 'By noon on Monday the North Division fires had reached North Avenue', and continued 'the better part of a mile to Fullerton Avenue'; 'Tuesday morning a rain began to fall'.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "A modern scholarly essay; cited for facts in text only, nothing derived from its images.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-19 (T-3687).",
+  "note": "Modern scholarship. Its noon hour at North Avenue is the one stated hour for the middle of the North Division's burning.",
+  "what_it_supplies": [
+    "the fire at North Avenue by noon on Monday 9 October"
+  ],
+  "what_it_does_not_supply": [
+    "street boundaries of the burnt district"
+  ]
+}

@@ -1,0 +1,100 @@
+== title @7dc37f04
+De compras en South Water Street
+
+== premise @16f5c3d4
+Completa una modesta lista de la casa a lo largo de la orilla comercial del río sin sucumbir a cada tentación en exhibición.
+
+== opening @5d47d3a1
+PASEO: DE COMPRAS EN SOUTH WATER STREET. Esta es la vía principal del asentamiento, y apenas es pintoresca: el río de un lado, aceras de tablones y lodo del otro, y cada establecimiento atiborrado de mercancía descargada de las embarcaciones. En 1833 el Democrat cotizaba el té de 87 centavos a $1.25 la libra y los calicós "de 15 a 38 centavos" la yarda.
+
+Posees tres dólares y una lista concisa para la casa: algo para la tos, un artículo básico y té. Tres establecimientos de South Water los surten, y conciliarás tus compras en Lake Street, hacia donde migra el comercio del pueblo.
+
+== stop remedy @4bf59314
+Comienza en lo de Philo Carpenter, el boticario bajo la enseña del Golden Mortar. Desembarcó en 1832 mientras el cólera afligía al fuerte, despachó sus medicinas en una casa de troncos junto al río y construyó esta tienda el verano siguiente. También "preparó y puso en circulación el primer juramento de templanza" del pueblo, combinando el comercio con la reforma moral. Su aviso de junio enumera áloe, ipecacuana, bolitas de regaliz y polvo para los dientes.
+
+== narrative remedy @b7f8c376
+Compra el remedio de inmediato, o confía en que la tos de la casa termine cediendo por sí sola.
+
+== label remedy liquorice @369fb246
+Bolitas de regaliz para la tos — 25¢
+
+== consequence remedy liquorice @d8b4be00
+Un pequeño papel con ellas se deposita en la canasta junto a la lista de la casa.
+
+== stop staples @49d8d164
+A poca distancia al este, la tienda de Peck ocupa la esquina de LaSalle y South Water. Su anuncio de 1833 enumera telas, ferretería, abarrotes y loza, con cincuenta barriles de harina superfina en existencia, y un aviso de 1834 complementa el inventario con franelas, guingas y calicós.
+
+== narrative staples @95e28b2f
+Selecciona el único artículo básico que la casa requiere con más urgencia, o conserva el monedero.
+
+== label staples flour @7283f884
+Harina para el cajón — $2
+
+== consequence staples flour @81cb0982
+El artículo básico indispensable, que consume la mayor parte del monedero.
+
+== label staples calico @fde1e8b3
+Un corte de calicó — $1.25
+
+== consequence staples calico @5b97c290
+Tela para remendar, mientras el pan aguarda un viaje posterior.
+
+== stop compare @9d2c1eae
+Más al este, en Clark Street, está Harmon, Loomis and Company, cuyo aviso de junio de 1835 ofrece té Young Hyson y Souchong, azúcar en pan, loza y cristalería. Andreas especifica la intersección de Clark y South Water, aunque no cuál de las esquinas. Su negocio prospera: el año que viene la firma construirá "el bloque Harmon and Loomis de tiendas de ladrillo de cuatro pisos en South Water street".
+
+== narrative compare @45a70fc9
+Compara la mercancía del estante con los fondos que quedan, y decide en consecuencia.
+
+== label compare hyson @bdf3dc71
+Té Young Hyson y azúcar en pan — $1
+
+== consequence compare hyson @b15a1be2
+El artículo que cierra la lista, acompañado de azúcar.
+
+== label compare souchong @7c79b555
+Un papel más pequeño de Souchong — 40¢
+
+== consequence compare souchong @5f17c923
+El monedero es insuficiente, así que un té más económico sustituye al Hyson.
+
+== label compare bowl @58010470
+Mejor un tazón de loza — 50¢
+
+== consequence compare bowl @4f4887a0
+No está en la lista, pero el tazón de la casa está rajado, así que el té se pospone.
+
+== stop receipt @8fc46f8e
+Avanza en carruaje al sur por Clark hasta Lake Street, adonde en 1834, escriben Moses y Kirkland, los negocios "empezaron a extenderse a Lake street", y Thomas Church estuvo entre los que llegaron ese año. Una nota moderna le atribuye el primer edificio de tienda de esta calle, uno de madera de dos pisos, aunque no especifica mercancías, así que aquí no se compra nada. Concilia tu canasta meticulosamente.
+
+== narrative receipt @66948e52
+Calcula lo que contiene la canasta y lo que conserva el monedero.
+
+== leg 0 @13f21d43
+Ya resuelta la tos, selecciona el artículo básico esencial que la casa requiere con más urgencia.
+
+== note 0 @884d27f6
+Un corto trayecto en carruaje al este por el lado sur de South Water Street hasta la esquina de Peck en LaSalle.
+
+== leg 1 @b39aacaa
+El té constituye el último artículo de la lista, y el monedero está considerablemente mermado.
+
+== note 1 @d3d6d6de
+El tramo largo: más al este por South Water Street hasta Clark.
+
+== leg 2 @bf119a94
+Sin nada más que comprar, busca un rincón tranquilo lejos del río y concilia los gastos.
+
+== note 2 @ae64400d
+Al sur por Clark Street, alejándote del río, hasta Lake Street.
+
+== ending list-filled @955e09a7
+Un artículo básico, un remedio y té: con la lista completa y unas monedas de sobra, la casa queda abastecida para esta semana, y comprendes South Water Street mejor que la mayoría de los recién llegados.
+
+== ending list-short @996116d9
+Una parte de la lista tendrá que aguardar otra expedición, así que vuelves a casa con lo que el monedero permitió, y South Water Street, con todo y lodo, perdurará.
+
+== keepsake title @b02ce6b5
+La lista de la casa
+
+== keepsake text @3d313669
+Una lista de la casa y un recibo ficticios de tres establecimientos de South Water Street, conciliados en Lake Street.
