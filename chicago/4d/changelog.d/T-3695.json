@@ -1,0 +1,8 @@
+{
+  "title": "1812 runs smoothly again after you open the Jaunts list",
+  "kind": "fix",
+  "items": [
+    "In 1812, opening the Jaunts list could leave every frame after it taking seconds. It now stays as smooth as before you opened it.",
+    "People whose way is closed off no longer hold up the whole town while their path is worked out."
+  ]
+}
