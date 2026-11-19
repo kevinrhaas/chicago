@@ -49,7 +49,7 @@ export const clipKey = (textSha, speaker, narrator = DEFAULT_NARRATOR) =>
  *  "JAUNT: ITS TITLE." its first paragraph leads with, which the title replaces). */
 export function openingScript(jaunt) {
   const paragraphs = String(jaunt?.opening?.text ?? '').split(/\n\s*\n/).map(t => t.trim()).filter(Boolean);
-  if (paragraphs.length) paragraphs[0] = paragraphs[0].replace(/^JAUNT:\s*[^.!?]*[.!?]\s*/, '');
+  if (paragraphs.length) paragraphs[0] = paragraphs[0].replace(/^(?:JAUNT|PASEO):\s*[^.!?]*[.!?]\s*/, '');
   const body = paragraphs.filter(Boolean).join('\n\n');
   return body ? `${String(jaunt.title ?? '').trim()}.\n\n${body}`.replace(/^\.\n\n/, '') : '';
 }
@@ -152,6 +152,7 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
   let index = null, indexUrl = null, loading = null, failed = false;
   let el = null, routed = null, primed = false, playing = null, queued = null, at = null, error = null, starved = false;
   let heard = false;               // the part `at` names has been played or queued once
+  let paused = false;              // T-3671: the visitor paused the voice speaking (WCAG 1.4.2); it keeps its place
   let ended = null;                // the last clip that played to its end
   let opening = null;              // an outing's opening it showed that has not been heard yet
   const keys = new Map();          // `${jaunt}:${part}:${id}` → { sha, speaker } of the words shown there
@@ -244,7 +245,7 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     const a = element(); queued = null; error = null;
     // A clip's file is named from the host's root, as the index's own path is (INDEX_PATH).
     a.src = new URL(c.file, new URL('../', indexUrl)).href;
-    playing = key; if (ended === key) ended = null; duck(true); changed();
+    playing = key; paused = false; if (ended === key) ended = null; duck(true); changed();
     routed.heard = false;   // the ear has heard nothing of this clip yet (`voice()`)
     starved = false;
     const own = key;
@@ -252,7 +253,7 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     return true;
   }
   function finish(next) {
-    playing = null; duck(false);
+    playing = null; paused = false; duck(false);
     const then = next ? queued : null; queued = null;
     if (!(then && start(then))) changed();
   }
@@ -260,11 +261,30 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     queued = null;
     if (!playing) return;
     try { el.pause(); el.removeAttribute('src'); el.load?.(); } catch {}
-    playing = null; duck(false); changed();
+    playing = null; paused = false; duck(false); changed();
+  }
+  /** T-3671 (WCAG 1.4.2): hold the voice where it is, or let it go on from there. A held voice
+   *  is still the part's own (`isPlaying`), so the closing scene waits for it, and nobody's
+   *  mouth moves (`voice()` reads a paused element as silence). */
+  function pause() {
+    if (!playing || paused) return false;
+    try { el.pause(); } catch {}
+    paused = true; duck(false); changed(); return true;
+  }
+  function resume() {
+    if (!playing || !paused) return false;
+    paused = false; duck(true); changed();
+    const own = playing;
+    try { el.play()?.catch?.(() => { if (playing === own) { paused = true; duck(false); changed(); } }); } catch {}
+    return true;
   }
   return {
     prepare, clip, prime,
-    get state() { return { index: index ? Object.keys(index.clips).length : failed ? 'unavailable' : 'pending', playing, queued, at, error, primed }; },
+    get state() { return { index: index ? Object.keys(index.clips).length : failed ? 'unavailable' : 'pending', playing, paused, queued, at, error, primed }; },
+    pause, resume,
+    /** T-3671: whether a voice of this jaunt is speaking (or held), and held: for the panel's Pause key. */
+    speaking: jaunt => !!playing && !!jaunt?.id && playing.startsWith(`${jaunt.id}:`),
+    get paused() { return !!playing && paused; },
     on(fn) { listeners.add(fn); return () => listeners.delete(fn); },
     isPlaying: (jaunt, part, id) => playing === slot(jaunt, part, id),
     /** The owner, 2026-11-16: how far this part's voice has spoken, for the stop's meter:

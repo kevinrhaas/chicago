@@ -12,6 +12,7 @@
 
 import { iconSvg } from './menu-icons.js';
 import { readingTabs, forgetAge } from './reading-level.js';
+import { openerOf, giveBack, focusHeading } from './card-a11y.js';
 
 /**
  * @param {object} o
@@ -30,9 +31,11 @@ export function createAskCard({ doc = globalThis.document, parent = null, canFin
   card.hidden = true;
   card.setAttribute('role', 'dialog');
   card.setAttribute('aria-label', 'Ask a question');
+  // T-3671: "Ask <Name>" names the card once it is shown (4.1.2).
   const head = make('div', 'tale-head');
   const tag = make('span', 'tale-tag', 'Ask');
   const who = make('span', 'tale-who');
+  who.id = 'ask-card-who';
   const shut = button('tale-close');
   shut.textContent = '×';
   shut.setAttribute('aria-label', 'Close the questions');
@@ -48,15 +51,28 @@ export function createAskCard({ doc = globalThis.document, parent = null, canFin
   (parent ?? doc.body).append(card);
 
   let showing = null;   // { teller, personId, persona, asks, done, manner, ask? }
+  let opener = null;
   function close() {
     if (card.hidden) return;
+    const active = doc.activeElement;
+    const focusHere = !active || active === doc.body || !!card.contains?.(active);
     card.hidden = true;
     const was = showing;
     showing = null;
     closed(was);
+    // 2.4.3: focus back to what opened the questions, or the scene.
+    if (focusHere) giveBack(opener, doc);
+    opener = null;
   }
   shut.addEventListener('click', close);
-  backKey.addEventListener('click', () => { if (showing) list(); });
+  backKey.addEventListener('click', () => {
+    if (!showing) return;
+    const was = showing.ask?.id;
+    const ol = list();
+    // Focus back on the question just answered (2.4.3).
+    const i = was ? showing.asks.findIndex((a) => a.id === was) : 0;
+    ol.querySelectorAll?.('button')?.[Math.max(0, i)]?.focus?.({ preventScroll: true });
+  });
   findKey.addEventListener('click', () => {
     const p = showing?.ask?.meet?.person;
     if (p && canFind(p) === true) find(p);
@@ -72,7 +88,12 @@ export function createAskCard({ doc = globalThis.document, parent = null, canFin
       const li = make('li');
       const b = button(`ask-q${showing.done.has(a.id) ? ' ask-done' : ''}`);
       b.append(make('span', 'ask-q-text', a.q));
-      if (showing.done.has(a.id)) b.append(make('span', 'ask-tick', '✓'));
+      if (showing.done.has(a.id)) {
+        const tick = make('span', 'ask-tick', '✓');
+        tick.setAttribute('aria-hidden', 'true');
+        // 1.1.1: the tick, said.
+        b.append(tick, make('span', 'visually-hidden', ' (asked)'));
+      }
       b.addEventListener('click', () => answer(a));
       li.append(b);
       ol.append(li);
@@ -82,6 +103,14 @@ export function createAskCard({ doc = globalThis.document, parent = null, canFin
     findKey.hidden = true;
     backKey.hidden = true;
     body.scrollTop = 0;
+    return ol;
+  }
+  /** 2.4.3: the key that was pressed went with the body it was in; focus lands in the new one. */
+  function land(target) {
+    if (card.hidden || !target) return;
+    const active = doc.activeElement;
+    if (active && active !== doc.body && active.isConnected !== false && card.contains?.(active)) return;
+    focusHeading(target);
   }
 
   function answer(a) {
@@ -100,6 +129,7 @@ export function createAskCard({ doc = globalThis.document, parent = null, canFin
         block.append(make('p', 'ask-you', m.q), ...m.a.map((t) => make('p', null, t)));
         more.replaceChildren(...[...more.children].map((c) => (c === b ? block : c)));
         readingTabs(card, { after: persona }); // T-3645: the follow-up at the age shown
+        land(block.firstChild);
       });
       more.append(b);
     }
@@ -119,6 +149,7 @@ export function createAskCard({ doc = globalThis.document, parent = null, canFin
     readingTabs(card, { after: persona });
     body.scrollTop = 0;
     card.scrollTop = 0;
+    land(parts[0]);
   }
 
   return {
@@ -140,8 +171,13 @@ export function createAskCard({ doc = globalThis.document, parent = null, canFin
       who.textContent = `Ask ${teller || 'them'}`;
       persona.textContent = [p?.label, p?.who].filter(Boolean).join('. ').replace(/\.\./g, '.');
       persona.hidden = !persona.textContent;
-      list();
+      if (card.hidden) opener = openerOf(card);
+      const ol = list();
+      card.removeAttribute?.('aria-label');
+      card.setAttribute('aria-labelledby', who.id);
       card.hidden = false;
+      // 2.4.3: focus on the first question; the card's name is read as focus enters it.
+      ol.querySelector?.('button')?.focus?.({ preventScroll: true });
       return card;
     },
     /** Answer one of the questions showing (as a tap would). */

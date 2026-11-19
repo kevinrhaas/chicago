@@ -6414,6 +6414,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_jaunt_investigation.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_jaunt_mechanics.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6710,6 +6714,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_met_found.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_modern_streets.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6971,6 +6979,10 @@
       "wrote_ignored": []
     },
     "tools/test_roam_tip.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_route_unreachable.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
