@@ -31,9 +31,9 @@
     },
     {
       "id": "buckingham_house_2036_prairie",
-      "name": "2036 Prairie Avenue — Buckingham map-led corner mansion (district draft; refined by T-1911)",
+      "name": "2036 Prairie Avenue — the Ebenezer Buckingham house, a Second Empire corner house on 21st Street (K01; refined by T-3631, piece 1 of T-1911)",
       "sidecar": "sidecars/1904/buckingham_house_2036_prairie.json",
-      "asset": "gltf/buckingham_house_2036_prairie__draft_1904.glb"
+      "asset": "gltf/buckingham_house_2036_prairie__as_mapped_1904.glb"
     },
     {
       "id": "buckingham_house_2036_prairie_coach_house",
@@ -1459,9 +1459,9 @@
     },
     {
       "id": "otis_house_2033_prairie",
-      "name": "2033 Prairie Avenue — Otis Italianate rowhouse (district draft; refined by T-1918)",
+      "name": "2033 Prairie Avenue — the Otis house (Italianate stone-front rowhouse, 1869), K01 frontage assembly",
       "sidecar": "sidecars/1904/otis_house_2033_prairie.json",
-      "asset": "gltf/otis_house_2033_prairie__draft_1904.glb"
+      "asset": "gltf/otis_house_2033_prairie__as_mapped_1904.glb"
     },
     {
       "id": "otis_house_2033_prairie_coach_house",
@@ -1645,9 +1645,9 @@
     },
     {
       "id": "stone_house_2035_prairie",
-      "name": "2035 Prairie Avenue — Corner of limestone row (district draft; refined by T-1918)",
+      "name": "2035 Prairie Avenue — Mrs. H. O. Stone's house, the 21st Street corner of the 1869 limestone row, K01 frontage assembly",
       "sidecar": "sidecars/1904/stone_house_2035_prairie.json",
-      "asset": "gltf/stone_house_2035_prairie__draft_1904.glb"
+      "asset": "gltf/stone_house_2035_prairie__as_mapped_1904.glb"
     },
     {
       "id": "stone_house_2035_prairie_rear_building",
@@ -1657,9 +1657,9 @@
     },
     {
       "id": "tolman_house_2031_prairie",
-      "name": "2031 Prairie Avenue — Lemont-limestone Italianate row (district draft; refined by T-1918)",
+      "name": "2031 Prairie Avenue — Lemont-limestone row house of three storeys with a full-height canted bay and a two-storey rear range, K01 frontage assembly",
       "sidecar": "sidecars/1904/tolman_house_2031_prairie.json",
-      "asset": "gltf/tolman_house_2031_prairie__draft_1904.glb"
+      "asset": "gltf/tolman_house_2031_prairie__as_mapped_1904.glb"
     },
     {
       "id": "tolman_house_2031_prairie_coach_house",

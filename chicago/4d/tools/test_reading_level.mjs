@@ -246,6 +246,9 @@ function makeDoc() {
   // The cards' readers read the Inspect records and the reader's overlay, both derived and
   // ignored: build them first, so a fresh clone (CI) reads what a working tree does.
   execFileSync('python3', ['tools/reading_levels.py', '--prepare'], { cwd: ROOT, stdio: 'ignore' });
+  const prefire = JSON.parse(read('data/reading/1871.json'));
+  assert.equal(prefire.scene, '1871');
+  assert.deepEqual(prefire.entries, [], '1871 publishes a valid empty age table until its own retellings are authored');
   const doc = JSON.parse(read('data/reading/1904.json'));
   const stories = JSON.parse(read('data/residents_1904/stories.json')).stories;
   assert(doc.entries.length > 0);

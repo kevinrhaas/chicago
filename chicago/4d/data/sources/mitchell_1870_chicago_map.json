@@ -1,0 +1,26 @@
+{
+  "id": "mitchell_1870_chicago_map",
+  "type": "map",
+  "citation": "S. Augustus Mitchell, Jr. Chicago. 1870. Approximately 1:31,000. University of Illinois Map and Geography Library; Wikimedia Commons surrogate.",
+  "author": "S. Augustus Mitchell, Jr. (printed copyright line)",
+  "date": "1870",
+  "describes_date": "1870",
+  "repository": "University of Illinois at Urbana-Champaign, Map and Geography Library; Wikimedia Commons",
+  "url": "https://commons.wikimedia.org/wiki/File:1870_Chicago_map_by_Mitchell.jpg",
+  "locator": "Existing local chicago/pre_fire_v1/maps/images/1870_mitchell_map.jpg, 2405 \u00d7 3000 pixels, 2,019,860 bytes. Printed copyright date 1870; handwritten 1871 annotation is not the publication date.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "The Commons item explicitly declares Public Domain Mark 1.0 and PD-old. This United States publication is also public domain by age. The Commons rights record was inspected on 2026-11-18.",
+  "asset_use": "geometry",
+  "verified": true,
+  "access_notes": "Actual raster and Commons catalog inspected2026-11-18. Corrected manual readings and independent OSM targets are retained in data/traces/gcp/mitchell_1870_controls.json. The shipped affine uses28fit controls (training RMSE18.67m) and8reserved checks (RMSE15.62m, maximum25.65m). The prior transform scored49.97m on those same reserved intersections. Candidate models, geographic holdouts and geometry reprojection are retained in data/traces/mitchell_1870_fit_audit.json and mitchell_1870_reprojection.json.",
+  "what_it_supplies": [
+    "Named streets and diagonals, river courses, lake edge, lakefront railroad and lagoon relationships, rail corridors and named parks.",
+    "Coverage from Fullerton Avenue to Thirty-first Street and Western Avenue to Lake Michigan."
+  ],
+  "what_it_does_not_supply": [
+    "Individual building footprints, occupants, exact paving, engineered widths or elevations.",
+    "The western extension to Fortieth Avenue or southern continuation to Egan Avenue; these require separate evidence and reconstructed geometry."
+  ],
+  "note": "Small-scale city plan, not cadastral survey. Modern target coordinates are independently verified; no1849map transform or historical geometry is reused. The8reserved checks never influence the shipped transform or road corrections. Map bank/shore generalization remains roughly40\u201380m; out-of-coverage geometry is reconstructed and less certain. Individual building placements remain generic reconstruction."
+}

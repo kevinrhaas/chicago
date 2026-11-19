@@ -34,6 +34,30 @@ remain pending at this checkpoint. Latest DEV also changes the served changelog 
 Earlier renderer evidence carries only under explicit input and behavior review.
 PR #2205 and its linked evidence record the final results; this is not a release verdict.
 
+## T-3654 — 1871 context city (19 November 2026)
+
+PR #2198 adds a walkable baseline for 8 October 1871 at 16:00 local mean solar time: 33,580 varied generic buildings, 3,627 trees, streets and plank walks, 22 road crossings, 597 quay bays and five rail corridors on dedicated pre-fire terrain. Six additional report bridges remain withheld pending opening-date or placement evidence. These are model counts, not a historical census. Identified properties, people, vehicles, daily activity and photographic finish remain subsequent smaller milestones.
+
+The Mitchell-map fit improves from 37.73 m to 18.67 m RMS; eight reserved checks improve from 49.97 m to 15.62 m RMS, with a 25.65 m maximum. River branches, canal, shoreline and transport geography were checked against retained source pixels and records. Bank, parcel and elevation uncertainty remains separate. Modern Today/Google Maps and OSM targets agree within 2.023 m RMS in the same coordinate frame; the generated historical State/Madison crossing remains 22.57 m from its modern target. Older scenes’ display shifts are not applied to 1871.
+
+The saved 6409dda build passed full publication, mirror and boot checks, all eight hosted source parts and their aggregate, and both supporting workflows. Its mobile browser stages 1–12 passed 468 checks, covering 12 of the 30 required stage/viewport pairs. Nine unfinished browser groups were cancelled after upstream runtime changes; their partial output supplies no pass. These results remain dated evidence for 6409, not acceptance of the later combined build.
+
+At the 19 November 2026, 02:26 UTC checkpoint, the branch included dev through c23d8a9, including the 2027 villa, 1815 chimney correction and smoke-stage 15 settling repair. The owning compilers regenerated shared records; both integration audits preserve all 899 audited 1871/pre-fire/renderer files and the incoming assets and photo proofs. Focused freshness, derived-record, source-use, unique-ID and changelog-entry-file checks pass; all 1,126 assets match their inputs. Full publication and fresh source/browser verification were pending at that checkpoint. After publication checks, the source gate and six browser groups may run concurrently, covering all 15 stages on both viewports. The complete hosted source gate and all 30 browser pairs must pass before merge.
+
+Recorded focused city checks cover both viewports, all detail levels, bridge and quay walking, collision, source/liberty cards, confidence shadows and context startup. Their exact inputs and limits remain in docs/measurements/ and the versioned evidence. SwiftShader results do not establish physical-device performance or photographic quality. PR #2198 was draft at that checkpoint; delivery targets dev and its preview, with production promotion reserved to the owner. The concise validation checkpoint records the current checks and evidence; earlier failures and intermediate steps remain archived.
+
+The first subsequent source-CI part found a stale generated liberty count after the dev merge: both parents declared 1,184, but the merged document contains 1,185 entries. The owning compiler regenerated the count; all entries and names remain unchanged. This repair checkpoint precedes its fresh source and browser verification. Completed results will be filed in the versioned evidence and the immediate research follow-up.
+
+Regenerate with `python3 generators/city_context_emit.py`, then
+`python3 generators/city_1871_emit.py`, `python3 tools/compile_scene.py --scene 1871`
+and `python3 tools/compile_jaunts.py`. Register the terrain entries from
+`data/context/1871/generated-assets.json` in `assets/manifest.json`, then run
+`tools/web_derivatives.sh --only terrain__e1871_prefire.glb,water__e1871_prefire.glb`.
+The map-fit and both deterministic generator checks are in `tools/check.sh`; the
+published scene has a dedicated `tools/smoke_city_1871.mjs` browser check. This is the
+complete context baseline, not a claim of individually surveyed buildings, populated
+daily activity or photographic finish.
+
 ## T-3656, T-3657, T-3658 — Combined browser-only delivery (19 November 2026)
 
 PR #2197 now carries all three completed implementations so the new classroom

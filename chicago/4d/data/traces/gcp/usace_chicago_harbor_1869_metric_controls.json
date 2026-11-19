@@ -1,0 +1,78 @@
+{
+  "id": "chicago_harbor_1869_metric_controls",
+  "source_ids": [
+    "usace_chicago_harbor_august_1869",
+    "lake_survey_chicago_1872"
+  ],
+  "coordinate_space": "local paper-derived metres, NOT project ENU and NOT WGS84",
+  "fitted_on": "2026-11-18",
+  "status": "relative_metric_frame_only; absolute_registration_unvalidated",
+  "scale_bar": {
+    "id": "scale_bar_0_to_1000ft",
+    "source_id": "usace_chicago_harbor_august_1869",
+    "pixel_zero": [
+      3670,
+      3052
+    ],
+    "pixel_1000ft": [
+      4674,
+      3057
+    ],
+    "length_feet": 1000,
+    "feet_to_metres": 0.3048,
+    "reading_tolerance_pixels": 3,
+    "note": "Endpoint picks from actual horizontal graphic scale; nominal printed scale 1 inch = 300 ft. The slight scan tilt is retained."
+  },
+  "north_orientation": {
+    "id": "true_meridian",
+    "source_id": "usace_chicago_harbor_august_1869",
+    "pixel_south": [
+      3884,
+      2980
+    ],
+    "pixel_north": [
+      3888,
+      1510
+    ],
+    "reading_tolerance_pixels": 5,
+    "note": "Printed true-meridian line, not a modern street grid. Physical sheet deformation and survey convention remain uncertain."
+  },
+  "origin": {
+    "id": "iron_lighthouse_circle",
+    "source_id": "usace_chicago_harbor_august_1869",
+    "pixel": [
+      3400,
+      1454
+    ],
+    "note": "Centre of circular tower symbol inside pier enclosure. Relative metre origin only."
+  },
+  "historic_coordinate_candidate": {
+    "id": "iron_lighthouse_1872_printed_coordinate",
+    "source_id": "lake_survey_chicago_1872",
+    "latitude_dms": [
+      41,
+      53,
+      22.88
+    ],
+    "longitude_west_dms": [
+      87,
+      36,
+      49.2
+    ],
+    "accepted_as_wgs84": false,
+    "note": "The 1872 trigonometrical map prints this historic iron lighthouse position. Identification across 1869/1872 is plausible, but the historical astronomical/geodetic datum has not been converted to WGS84. Do not treat it as a validated absolute anchor."
+  },
+  "modern_control_candidates": {
+    "status": "not fitted",
+    "note": "Ontario/Ohio/Grand at St Clair are modern candidate nodes; nearly collinear and outside or partly outside the 1869 sheet. The modern Illinois node is rejected because it connects to a tunnel at layer=-1. Historic street identification and changes in width must be established before use.",
+    "retained_audit": "data/traces/harbor_1869/registration_audit.json"
+  },
+  "fit": null,
+  "independent_check_rms_m": null,
+  "absolute_registration_uncertainty_m": null,
+  "prohibitions": [
+    "Do not report the local trace tolerance as geographic accuracy.",
+    "Do not assign zero residual merely because printed scale, meridian and one origin define a frame.",
+    "Do not label 1869 observations as measured October 1871 coast."
+  ]
+}

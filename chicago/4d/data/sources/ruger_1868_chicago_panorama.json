@@ -1,0 +1,26 @@
+{
+  "id": "ruger_1868_chicago_panorama",
+  "type": "map",
+  "citation": "A. Ruger. Chicago in 1868 from Schiller Street north side to 12th Street south side. Chicago Lithographing Co., 1868. Library of Congress 73693350.",
+  "author": "A. Ruger; Chicago Lithographing Co.",
+  "date": "1868",
+  "describes_date": "1868",
+  "repository": "Library of Congress, Geography and Map Division",
+  "url": "https://www.loc.gov/item/73693350/",
+  "locator": "Existing local surrogate chicago/pre_fire_v1/maps/images/1868_ruger_view.jpg, 2800 × 1740 pixels. Printed title and 1868 publication date; LOC resource g4104c.pm001480.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "Original 1868 United States lithograph is public domain by publication age. The project map registry identifies the existing LOC surrogate as Free to Use and Reuse. This record includes no CHM photographs or licensed CHM scans.",
+  "asset_use": "geometry",
+  "verified": true,
+  "access_notes": "Actual local image inspected on 2026-11-18. The LOC item page returned HTTP 403 on this pass; the resource catalog and printed sheet confirm the title and date. This raster predates the current task.",
+  "what_it_supplies": [
+    "Contemporary pictorial context: dense commercial buildings, low gabled dwellings, churches, warehouses, railway facilities and waterfront activity.",
+    "Central-city spatial relationships from Schiller Street to Twelfth Street."
+  ],
+  "what_it_does_not_supply": [
+    "Surveyed footprints, accurate heights, calibrated roof pitches or unchanged October 1871 appearance for individual properties.",
+    "Photographic color or an exhaustive citywide building inventory."
+  ],
+  "note": "Contemporary 1868 perspective lithograph, not a postfire reconstruction or photograph. It bounds the generic 1871 building palette at reconstructed grade. Metric dimensions, floor counts, architectural details, colors, textures and placements remain explicit liberties. No named building or exact camera is claimed to match this image."
+}

@@ -155,10 +155,10 @@ const TRANSFORMED = [
     verify: () => { try { checkAudio(SITE); } catch(e) { return e.message; } return null; } },
   { re: /^(?:\d{4}\/)?index\.html$/,
     what: 'the front doors — /4d/ and /4d/<year>/ on chicago.polecat.live. tools/write_entry_pages.mjs '
-        + 'copies the temporal observatory to the root and writes year doors as the stamped renderer plus a base into walk/, so the address '
+        + 'copies the temporal observatory to the root and writes small stamped year doors that load one shared renderer, adding a base into walk/ before parsing, so the address '
         + 'bar keeps the short path and every relative URL resolves from walk/',
-    gate: 'write_entry_pages.mjs --self-test (check.sh) asserts the <base> is the first child of '
-        + '<head>, exact root-template copying, working year doors and the honest 1812 status; the deploy URL smoke '
+    gate: 'write_entry_pages.mjs --self-test (check.sh) asserts the inserted <base>, exact root-template copying, small shared doors, build markers and the honest 1812 status; '
+        + 'strip_page_comments.mjs --check holds every door to its canonical loader; the deploy URL smoke '
         + '(.github/chicago-4d-url-check.json) requests /4d/, /4d/1835/ and /4d/dev/1835/ live.' },
   { re: /^(?:prairie-1904|pre-fire)\/viewer\/root-served\.js$/,
     what: 'tools/serve_from_root.py (T-1828) names the asset directories it removed from the mirror because '

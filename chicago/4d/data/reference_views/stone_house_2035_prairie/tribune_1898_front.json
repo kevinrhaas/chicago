@@ -1,0 +1,24 @@
+{
+  "structure_id": "stone_house_2035_prairie",
+  "source_id": "chicago_tribune_1898_01_09_residence_district",
+  "library_image": "cgs-tribune-1898-01-09-death-strip",
+  "photo": "../../sources/assets/stone_2035_pictures_t3661/tribune_1898_2035_panel.jpg",
+  "image_px": [
+    264,
+    310
+  ],
+  "principal_px": [
+    132.0,
+    177.0
+  ],
+  "focal_px": 409.0,
+  "pixel_aspect": 1.247,
+  "eye": [
+    35.9,
+    3.53,
+    1.6
+  ],
+  "yaw_deg": 270.0,
+  "sky": "overcast",
+  "solve": "Fitted by T-3661 (piece 3 of T-1918) to the 2035 panel of the Tribune strip of 9 January 1898 (the strip's pixels x 846-1110, y 42-352 of the image store's 1400 px copy, cropped unscaled into tribune_1898_2035_panel.jpg, its frame lines included). A freehand pen sketch whose top left is covered by the numerals' cartouche and whose right is cut by its frame and a street tree, not a true perspective, so this camera is approximate and says how far. Its courses, the porch's entablature and the stoop's treads are level and its verticals vertical, so the camera is level and square to the front (heading 270, due west in the footprint frame), the eye 1.6 m over grade. Horizontally, three readings along the front: the north party line's edge at x 40 px (v 0), the door's centre at x 79 (v 1.2 in the record) and the column past the stoop's south cheek at x 113 (v 2.95): about 25.5 px a metre at the wall, the principal point at the panel's middle (x 132, v 3.53). Vertically, the column bases on the landing's front edge at y 175 (1.7 m) and the portico's soffit over them at y 101 (4.95 m), both on the porch's face 1.9 m out from the wall: about 22.6 px a metre there and the horizon at y 177. The sketch's depth cannot be solved from itself (its stoop's foot at y 261 would put the eye about 8 m before the front, inside the iron fence, while the fence and posts it draws stand low and well before the eye), so the eye is held 20 m before the front, on the roadway, as the 1906 and 1923 panels of the same strip are, which gives a vertical focal length of 409 px; the stoop's foot then falls at y 220 against the sketch's 261 (the sketch lengthens the flight, as it does at 1923). PIXEL ASPECT 1.247 IS THE DRAUGHTSMAN'S, NOT A RESAMPLING: the sketch draws the entrance about 1.25 times wider for its height than the record's heights allow, and draws the porch and its deck running on across the whole front past the panel's right edge, about 10 m at that scale, against the sheet's 7.6 m front. Widths are read from this panel only as proportions about the door, and heights only as which storey a thing stands in, never as metres; no shadow falls in the sketch, so it renders overcast."
+}

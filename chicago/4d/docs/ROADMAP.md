@@ -6,6 +6,26 @@ figure, the Springfield inference and the story's declared liberties. This is th
 bounded slice of requested item 8; it adds no mystery engine, invented witnesses or service.
 The separate ticket owns implementation and validation; STATUS records what is checked.
 
+## T-3654 — Build the city first, then replace its context (2026-11-18)
+
+The owner's choice is a complete 1871 context city with district-appropriate generic
+buildings and infrastructure. The pre-fire field notebook's individual scene studies
+remain useful research targets, but do not limit the rest of the city. A distinct
+8 October terrain epoch and explicit structure membership keep the baseline dated.
+The corrected 1870 map uses 28 fitting controls (18.67 m RMS) and eight reserved
+checks (15.62 m RMS). This measures intersection registration, not parcel or bank
+accuracy; the outskirts and generic lots retain a reconstructed grade. The newly
+inspected August 1869 federal harbor survey provides finer relative bank geometry,
+with absolute registration and intervening construction still to resolve.
+
+Replace context from located properties and primary images or surveys: align each
+footprint, derive a portable mesh, and remove the overlapping generic buildings.
+Refine crossings, paving, grade and prior fire damage from their own records. The
+directory and public-works notebook supply candidates for businesses, inhabitants,
+transport and actions; their totals are not allocations to generated lots.
+Photographic street scenes require researched facades, detailed surfaces, planting
+and activity in addition to this citywide baseline.
+
 ## T-3657, T-3658 — Next browser-only delivery (18 November 2026)
 
 Prepared after the classroom tools: a five-photo 1904 hunt with daily/shareable ordering,

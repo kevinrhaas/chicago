@@ -1,4 +1,29 @@
 export const CHANGELOG = [ // newest first
+  { v: 3123, ts: '2026-11-19T12:43:36.570Z', date: 'Nov 19, 2026, 6:43 AM CT', title: '2017 Prairie\'s mansard gets its crenellated crest and barred basement lights', kind: 'improvement',
+    items: [
+      'The William Armour house at 2017 Prairie now carries a row of square crenellations along the top of its mansard, as its photograph shows, in place of the scrolled iron cresting it had.',
+      'The two basement windows under its gabled south projection are now barred like the rest of the front\'s.',
+    ] },
+  { v: 3122, ts: '2026-11-19T12:37:52.776Z', date: 'Nov 19, 2026, 6:37 AM CT', title: '2031 Prairie stands in stone at the head of its row', kind: 'feature',
+    items: [
+      '2031 Prairie, Samuel Tolman\'s house at the north end of the 1869 limestone row, is no longer a rough placeholder. It now follows the 1911 fire-insurance map: a three-storey pale limestone front with a tall three-sided bay on its north half, a high stoop to the door on its south half beside 2033\'s, a bracketed cornice level with its neighbour\'s, an iron fence, and a two-storey range behind. The 1887 drawing once filed under this address shows a different house, so no picture of 2031 is known and its windows and trim are a careful, labelled guess.',
+    ] },
+  { v: 3121, ts: '2026-11-19T11:44:49.365Z', date: 'Nov 19, 2026, 5:44 AM CT', title: 'Closing the Navigator never takes you off the page', kind: 'fix',
+    items: [
+      'Closing the Navigator and opening it again straight away could leave it holding a Back step that was already gone, so the next close went Back to the page before the walk. A reopen now waits for the earlier close to finish before it holds its Back step.',
+    ] },
+  { v: 3120, ts: '2026-11-19T11:01:15.187Z', date: 'Nov 19, 2026, 5:01 AM CT', title: '2033 Prairie, the Otis house, takes its stone front and bay', kind: 'feature',
+    items: [
+      '2033 Prairie, the Otis family\'s home for sixty-five years and the middle house of the 1869 limestone row, now stands as Walker Evans photographed it in 1946: a narrow pale stone front across its whole lot, a bay rising through all three storeys to a deep bracketed cornice that turns round it, every window arched, and a double door under a pediment on carved brackets at the head of its stoop. The front\'s banded stonework, the stoop\'s long run down to the walk and the fence\'s height are still not quite the picture\'s; its neighbours at 2031 and 2035 come next.',
+    ] },
+  { v: 3119, ts: '2026-11-19T09:56:47.549Z', date: 'Nov 19, 2026, 3:56 AM CT', title: '2035 Prairie, the corner of the limestone row, is built', kind: 'feature',
+    items: [
+      '2035 Prairie, the 21st Street corner of the 1869 limestone row, now stands as a full house in place of its draft. Its plan comes from the 1911 map: a stone front in line with 2033\'s, a bowed stone bay at the south end, a windowed flank along 21st Street and a two-storey brick range behind. Its entrance comes from the Tribune\'s 1898 sketch: a round-arched door under a columned porch beside a railed deck, at the top of a swept stoop. Its floors and cornice match 2033\'s, so the row keeps one roofline.',
+    ] },
+  { v: 3118, ts: '2026-11-19T08:37:19.982Z', date: 'Nov 19, 2026, 2:37 AM CT', title: 'The Buckingham house at Prairie and 21st Street', kind: 'feature',
+    items: [
+      '2036 Prairie, the Ebenezer Buckingham house on the 21st Street corner, is no longer a rough draft: a red-brick house over a stone basement under a slate mansard, its corner cut on a slant, a bay on each side, and a stone porch at the head of a stoop with turned stone balusters. Its 21st Street side follows an engraving of about 1880: tall windows under carved hoods, a stone sill course, a barred basement window. The iron fence the engraving draws along 21st Street comes next.',
+    ] },
   { v: 3117, ts: '2026-11-19T07:28:52.621Z', date: 'Nov 19, 2026, 1:28 AM CT', title: '2017 Prairie, the Armour house, gets its mansard, gable and porch', kind: 'feature',
     items: [
       '2017 Prairie, William Armour\'s house between the Reid and High houses, now stands as its one old photograph shows it: a smooth stone front of two storeys over a high basement, a slate mansard with two gabled dormers and a crest along its top, the south part carried up into a steep gable with a finial, and a porch of two columns carrying a stone balcony before the front door, with barred basement windows either side of the stoop. The gable\'s two attic windows, the carved dormer pediments and the porch\'s ring-pierced parapet are still simpler than the picture; the sign-off pass on this block takes those on.',

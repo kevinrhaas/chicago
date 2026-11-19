@@ -2552,6 +2552,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/audit_1871_city_map.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/audit_businesses.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2745,6 +2749,10 @@
       "wrote_ignored": []
     },
     "tools/check_chimney_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_city_1871.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -4060,6 +4068,10 @@
       "wrote_ignored": []
     },
     "tools/fergus_1839_street_faces.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/fit_1871_city_map.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5516,6 +5528,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/smoke_city_1871.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/sort_land_sales_onto_tracts.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5755,6 +5771,10 @@
       "wrote_ignored": []
     },
     "tools/test_check_visitor_ui.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_city_context_depth.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6442,6 +6462,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k01_deck_crenellation.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k01_doane_crown_porch_roundel.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6954,6 +6978,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_scene_selection.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_second_fort_commandants_gallery.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -7294,6 +7322,10 @@
       "wrote_ignored": []
     },
     "tools/town_people_1835.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/trace_harbor_1869.py": {
       "wrote": [],
       "wrote_ignored": []
     },

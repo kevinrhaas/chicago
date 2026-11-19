@@ -8,6 +8,9 @@
 export function adaptiveGroundGrid(hf, stride = 6, tolerance = 0.025, footprints = []) {
   stride = Math.max(1, Math.floor(stride));
   const { cols, rows, cellM, originE, originN, data } = hf;
+  // The city field uses 10 m samples: a six-sample coarse face can erase an
+  // entire river channel. Refine its non-planar cells even without a boardwalk.
+  const preserveRelief = hf.meta?.epoch === 'e1871_prefire';
   const xs = [], ys = [];
   for (let c = 0; c < cols - 1; c += stride) xs.push(c);
   for (let r = 0; r < rows - 1; r += stride) ys.push(r);
@@ -27,7 +30,7 @@ export function adaptiveGroundGrid(hf, stride = 6, tolerance = 0.025, footprints
   const height = (c, r) => data[r * cols + c];
   let refinedCells = 0, maxOverrun = 0;
   for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) {
-    if (!protectedCells.has(j * w + i)) continue;
+    if (!preserveRelief && !protectedCells.has(j * w + i)) continue;
     const x0 = xs[i], x1 = xs[i + 1], y0 = ys[j], y1 = ys[j + 1];
     const a = height(x0, y0), b = height(x1, y0);
     const c = height(x0, y1), d = height(x1, y1);
@@ -36,7 +39,8 @@ export function adaptiveGroundGrid(hf, stride = 6, tolerance = 0.025, footprints
       const u = (x - x0) / (x1 - x0), v = (y - y0) / (y1 - y0);
       const coarse = u + v <= 1 ? a + (b - a) * u + (c - a) * v
         : d + (c - d) * (1 - u) + (b - d) * (1 - v);
-      error = Math.max(error, coarse - height(x, y));
+      const delta = coarse - height(x, y);
+      error = Math.max(error, preserveRelief ? Math.abs(delta) : delta);
     }
     maxOverrun = Math.max(maxOverrun, error);
     if (error > tolerance) { refined[j * w + i] = 1; refinedCells++; }

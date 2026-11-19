@@ -57,6 +57,15 @@
 # Making the K-kit checks share their builds is the cut that would bring the WHOLE
 # gate back down, and it is a ticket of its own.
 #
+# T-3654, 2026-11-18: this sandbox's part 1/16 timed out at 590 s twice,
+# with two jobs beside browser acceptance and then four jobs without a browser.
+# The hanging-garment step took 262/211 s and publishing took 204/139 s. The
+# existing raise-N rule therefore needs a parser allowance through 32. A costly
+# k/16 slot can be replaced by k/32 and (k+16)/32: those two ordinal sets are its
+# exact partition, with every prerequisite repeated. The harness fixture checks
+# that equivalence for every k, including a prerequisite in the middle. No
+# assertion or timeout changes; CI keeps all eight parts and its required gate.
+#
 #   tools/check.sh                the gate, whole (CI runs it this way)
 #   tools/check.sh --part k/N     every N-th step from the k-th; all N parts are the gate
 #   tools/check.sh --strict       warnings are errors (used before a release)
@@ -476,6 +485,8 @@ selftest "The jaunt-view gate sees a stop behind a trunk when the stand-off rule
   node tools/check_jaunt_views.mjs --self-test
 step "a visitor walks through a building's modelled passage where it clears the eye (T-2943)" \
   node tools/test_walker_passage.mjs
+step "1871 context shadows use the same confidence controls as their surfaces (T-3654)" \
+  node tools/test_city_context_depth.mjs
 step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and 1812 (T-3319)" \
   node tools/test_fort_gates.mjs
 step "the Tell me a story library re-derives from its stories and the drawn town (T-3553)" \
@@ -1618,6 +1629,11 @@ step "a K01 hooded dormer's shelf may be slated as its hood is (T-1890)" \
 # (HABS photograph 1; the Taylor print sets its rise through the finial's top).
 step "a K01 mansard deck's cross roof may end under a slated hood, its finial on the apex (T-1890)" \
   python3 tools/test_k01_cross_roof_hood.py
+
+# T-3634. 2017 Prairie's mansard curb carries a row of square merlons in Chicagology's
+# photograph, not the K10 kit's scroll cresting.
+step "a K01 mansard deck's cresting may be crenellated, square merlons on a band in iron (T-3634)" \
+  python3 tools/test_k01_deck_crenellation.py
 
 # T-1890. 1801 Prairie's south return (HABS photograph 1): the chamfer's stone cheek run back to
 # the slate with a light in it and a capped top, and the house's slate set back behind it over
@@ -4703,6 +4719,34 @@ selftest "…and its own assertions still fire when broken" \
 # a failure here rather than a discovery on the deployed site.
 step "sidecars derived from data/" \
   python3 tools/compile_scene.py --all --check
+
+step "scene membership prevents another year's reconstructions from being backcast (T-3654)" \
+  python3 tools/test_scene_selection.py
+
+# T-3654: a citywide context is generated from a graded map plan and portable kit.
+step "1871 map controls still match the historical raster" \
+  python3 tools/fit_1871_city_map.py --check
+
+step "1871 registration comparison and independent checks reproduce" \
+  python3 tools/audit_1871_city_map.py --check
+
+step "1871 research overlay preserves the original map pixels and current plan" \
+  python3 ../pre_fire_v1/tools/build_geography_overlay.py --check
+
+step "1869 harbor relative traces retain their verified raster and unregistered status" \
+  python3 tools/trace_harbor_1869.py --check
+
+step "1871 portable period kit is reproducible" \
+  python3 generators/city_context_emit.py --check
+
+step "1871 city, infrastructure and terrain are reproducible" \
+  python3 generators/city_1871_emit.py --check
+
+step "1871 buildings, crossings and generated surfaces are spatially coherent" \
+  python3 tools/check_city_1871.py
+
+selftest "1871 browser acceptance harness rejects broken contracts" \
+  node tools/smoke_city_1871.mjs --self-test
 
 # T-2747: the 1904 built-so-far walk is written from the building records, so a building
 # that gains detail without the walk being rewritten is red here, and the walk stays current.
