@@ -6788,10 +6788,10 @@ async function boot() {
   let metFoundPlaces = null;
   api.metFound = createMetFoundWatch({ year: String(loaded.scene.id ?? YEAR).slice(0, 4),
     walker: () => {
-      const p = metFoundPose, s = walker.state;
-      p.e = s.e; p.n = s.n; p.flying = !!s.flying; p.aboard = !!api.townTransport?.ride?.aboard;
-      p.riding = !!api.riding?.active; p.piloting = !!api.pilot?.active; p.inspecting = inspectingByHand(); p.gate = gateOpen;
-      return p;
+      const pose = metFoundPose, ws = walker.state;
+      pose.e = ws.e; pose.n = ws.n; pose.flying = !!ws.flying; pose.aboard = !!api.townTransport?.ride?.aboard;
+      pose.riding = !!api.riding?.active; pose.piloting = !!api.pilot?.active; pose.inspecting = inspectingByHand(); pose.gate = gateOpen;
+      return pose;
     },
     places: () => (metFoundPlaces ??= navigation.outlines ? placeIndex(navigation.outlines, (id) => sceneTitle(loaded.registry, id)) : null) });
   interactions.on((thing, event) => { if (event === 'done') try { api.metFound.talked(thing, thing.last?.id); } catch { /* nor a talk */ } });
