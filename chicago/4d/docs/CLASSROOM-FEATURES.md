@@ -34,6 +34,16 @@ when focus enters a reader. The earlier draft PR #2199 is superseded by #2197.
 The hunt reuses five photographs of four places, with a daily order and shared date,
 and reveals their recorded dates rather than treating them as photographs taken in 1904.
 
+## Next separate delivery: one source investigation
+
+T-3663 uses the existing *Gossip or Printed Notice?* route and its five tellings.
+**Make your case** stays collapsed until requested and preserves the general reflection.
+It displays our readings of two newspaper transcriptions, with dates, locators,
+citations and uncertainty. The lost sale figure remains lost; the Springfield building
+is an inference. Save keeps the student's chosen support and answer with both readings
+in the existing notebook. No new account, service, route or source image is involved.
+This separate implementation waits for the first delivery to land and for its own gates.
+
 ## Disposition of all twenty items
 
 | # | Feature | Delivery / next step |
@@ -45,7 +55,7 @@ and reveals their recorded dates rather than treating them as photographs taken 
 | 5 | Lesson guides | First delivery: current catalog groups, document tasks, discussion and suggested standards connections; preserve source type and provenance. |
 | 6 | Class codes and teacher view | Defer shared class storage, authentication and cross-device submissions. Local exports are useful now but are not a dashboard. |
 | 7 | Where and when? | T-3657 implemented in the combined delivery: five licensed 1904-scene photographs, deterministic daily/shareable order, ground-distance scores, source/date reveals and bounded local progress. One image at a time; no leaderboard service. Native-town integration passes; complete release gates pending. |
-| 8 | Mysteries with sources | Later content work using evidence/confidence and existing jaunt branching. Needs authored, reviewed investigations. |
+| 8 | Mysteries with sources | T-3663: first bounded case in progress, attached to eligible Gossip completion. Compare two cited newspaper readings, choose support, write a claim/uncertainty, review an ungraded guide and explicitly save to Notebook. No invented witnesses or new engine; browser and release validation pending. |
 | 9 | Play a part | Existing engine already supports choices and alternate endings. Later authored historical-role stories, with reconstruction labelled. |
 | 10 | Accessibility | T-3658 follow-up implemented: native Navigator zoom/pan with stable canvas sizing and usable movement controls; keyboard-contained picture dialogs with Escape, background isolation and focus return; a visible rail Tab stop while Move or Jump is open. Browser fixtures and native-town integration pass; complete release gates pending. Broader menu/card and assistive-technology audit remains; no full WCAG 2.1 AA claim. |
 | 11 | Assign/build a jaunt | Later browser-only subset: assignment links and portable route/question files. Shared authoring libraries and submission tracking need storage. |

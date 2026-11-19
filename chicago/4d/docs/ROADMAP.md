@@ -1,3 +1,11 @@
+## T-3663 — First source investigation (19 November 2026)
+
+Use the completed Gossip route for one optional claim-and-evidence comparison of its
+Democrat and American readings, with explicit notebook save. Preserve the missing sale
+figure, the Springfield inference and the story's declared liberties. This is the first
+bounded slice of requested item 8; it adds no mystery engine, invented witnesses or service.
+The separate ticket owns implementation and validation; STATUS records what is checked.
+
 ## T-3657, T-3658 — Next browser-only delivery (18 November 2026)
 
 Prepared after the classroom tools: a five-photo 1904 hunt with daily/shareable ordering,
