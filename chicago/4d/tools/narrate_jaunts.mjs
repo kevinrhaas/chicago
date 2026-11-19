@@ -6,6 +6,7 @@
  *   node tools/narrate_jaunts.mjs --list-voices          the owner's ElevenLabs voices and their ids
  *   node tools/narrate_jaunts.mjs --voice --out DIR      voice what changed into DIR/narration/
  *   node tools/narrate_jaunts.mjs --verify DIR           check DIR's upload on the public media host
+ *   node tools/narrate_jaunts.mjs --quota                the account's ElevenLabs credits used, limit, reset
  *
  *   --jaunt ID        only this jaunt (it must be listed in data/narration/voices.json)
  *   --max-chars N     refuse a run that would spend more characters (default: the config's)
@@ -69,6 +70,35 @@ export function directionProblems(scripts, directions) {
   for (const [jaunt, map] of Object.entries(directions))
     for (const k of Object.keys(map)) if (!seen.has(`${jaunt}/${k}`)) problems.push(`${jaunt}/${k}: direction for a part the jaunt does not have`);
   return [...new Set(problems)];
+}
+
+/** The smooth style (owner, 2026-11-19, T-3696: "not a lot of transition between topics and also
+ *  pauses between subjects"; "the parts where they whisper and laugh could be toned down"; "that
+ *  smoother narration rule applies for all the jaunts"). A direction file marked
+ *  `"style": "smooth"` is held to it: no whispering, at most one laugh in a script, and a pause
+ *  ([short pause], [long pause] or an ellipsis) at least every SMOOTH.words_per_pause words, so
+ *  a speaker breathes between subjects. docs/AUDIO.md § Narration style. Every new or re-made
+ *  direction is written in it; older files say nothing, and are brought to it when next voiced. */
+export const SMOOTH = { words_per_pause: 50, laughs: 1 };
+const LAUGH = /\[(?:laughs?|laughing|chuckles?|chuckling|giggles?|giggling|snickers?)[^\]]*\]/gi;
+const WHISPER = /\[(?:whispers?|whispering)[^\]]*\]/gi;
+const PAUSE = /\[(?:short |long )?pause\]|\.\.\.|…/gi;
+export function styleProblems(id, file) {
+  if (file?.style !== 'smooth') return [];
+  const out = [];
+  for (const [k, text] of Object.entries(file.scripts ?? {})) {
+    const words = spokenWords(text).length, pauses = (text.match(PAUSE) ?? []).length;
+    if ((text.match(WHISPER) ?? []).length) out.push(`${id}/${k}: whispers (the smooth style has none)`);
+    const laughs = (text.match(LAUGH) ?? []).length;
+    if (laughs > SMOOTH.laughs) out.push(`${id}/${k}: ${laughs} laughs (the smooth style allows ${SMOOTH.laughs})`);
+    const need = Math.floor(words / SMOOTH.words_per_pause);
+    if (pauses < need) out.push(`${id}/${k}: ${pauses} pause(s) in ${words} words (the smooth style wants ${need})`);
+  }
+  return out;
+}
+export function loadDirectionFile(id, root = ROOT) {
+  const file = path.join(root, 'data/narration/direction', `${id}.json`);
+  return fs.existsSync(file) ? read(file) : null;
 }
 
 export function publicBase(root = ROOT) {
@@ -148,6 +178,22 @@ export async function listVoices(key, fetcher = fetch) {
   return (await r.json()).voices.map(v => ({ name: v.name, id: v.voice_id, category: v.category }));
 }
 
+/** The account's ElevenLabs quota (T-3696): credits used this billing period, its limit and when it
+ *  resets. A key without the user_read permission gets null, and the run says so; it never fails a
+ *  run, which still voices. Asked before and after voicing, the difference is what the run spent. */
+export async function quota(key, fetcher = fetch) {
+  try {
+    const r = await fetcher(`${API}/v1/user/subscription`, { headers: { 'xi-api-key': key } });
+    if (!r.ok) return { error: `HTTP ${r.status}` };
+    const q = await r.json();
+    if (!Number.isFinite(q.character_count) || !Number.isFinite(q.character_limit)) return { error: 'unknown shape' };
+    return { tier: q.tier ?? null, used: q.character_count, limit: q.character_limit,
+      resets: Number.isFinite(q.next_character_count_reset_unix) ? new Date(q.next_character_count_reset_unix * 1000).toISOString() : null };
+  } catch (e) { return { error: e.message }; }
+}
+export const quotaLine = (q, when) => (q.error ? `ElevenLabs quota ${when}: not readable (${q.error}; the key needs the user_read permission)`
+  : `ElevenLabs quota ${when}: ${q.used} of ${q.limit} credits used this period (${q.limit - q.used} left${q.tier ? `, plan ${q.tier}` : ''}${q.resets ? `, resets ${q.resets}` : ''})`);
+
 export async function synthesize(key, script, fetcher = fetch, { tries = 4, wait = ms => new Promise(r => setTimeout(r, ms)) } = {}) {
   const { voice_id, output_format, ...body } = script.voice.params;
   for (let attempt = 1; ; attempt++) {
@@ -224,6 +270,11 @@ async function main(argv) {
     note(['Your ElevenLabs voices (name · id · kind):', ...voices.map(v => `  ${v.name} · ${v.id} · ${v.category}`)].join('\n'));
     return;
   }
+  if (has('--quota')) {
+    if (!key) throw Error('--quota needs ELEVENLABS_API_KEY');
+    note(quotaLine(await quota(key), 'now'));
+    return;
+  }
   if (has('--verify')) {
     const errors = await verify(arg('--verify'));
     if (errors.length) throw Error(`NARRATION VERIFY FAIL\n${errors.join('\n')}`);
@@ -239,15 +290,22 @@ async function main(argv) {
     ? new Map((await listVoices(key)).map(v => [v.name.replace(/\s+/g, ' ').trim().toLowerCase(), v.id])) : null;
   const p = plan(scripts, config, index, names);
   note(report(p, scripts, config));
+  const before = key ? await quota(key) : null;
+  if (before) note(quotaLine(before, 'before this run'));
   const max = Number(arg('--max-chars') ?? config.max_chars_per_run);
   if (has('--voice')) {
     const out = arg('--out'); if (!out) throw Error('--voice needs --out DIR');
     if (!p.todo.length) { fs.mkdirSync(out, { recursive: true }); fs.writeFileSync(path.join(out, 'made.json'), '[]\n'); note('Nothing to voice.'); return; }
     if (!key) throw Error('--voice needs ELEVENLABS_API_KEY');
     if (p.chars > max) throw Error(`this run would spend ${p.chars} characters, over the ${max} cap; raise --max-chars (or max_chars_per_run) to allow it`);
+    if (before && !before.error && p.chars > before.limit - before.used)
+      throw Error(`this run would spend ${p.chars} characters, more than the ${before.limit - before.used} left this period; nothing was voiced`);
     const { made } = await voice(p.todo, index, out, key, { narrators: { default: DEFAULT_NARRATOR,
       choices: Object.fromEntries(Object.entries(config.narrators).map(([id, n]) => [id, n.label ?? id])) } });
     note(`Voiced ${made.length} clip(s), ${p.chars} characters.`);
+    const after = await quota(key);
+    note(quotaLine(after, 'after this run'));
+    if (!before.error && !after.error) note(`This run used ${after.used - before.used} ElevenLabs credits (${p.chars} characters sent).`);
   }
 }
 
