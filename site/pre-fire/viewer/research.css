@@ -68,6 +68,10 @@ summary:hover { background:#eee9dd66; }
 .sources li { padding:0 0 16px 4px; font-size:.88rem; }
 .sources li > a,.audit-references a { font-weight:700; }
 .sources li > p { font-size:.8rem; color:var(--muted); margin:4px 0 0; }
+.source-image { max-width:900px; margin:18px 0; }
+.source-image img { display:block; width:100%; height:auto; border:1px solid var(--line); }
+.source-image figcaption { margin:10px 0; font-size:.82rem; color:var(--muted); }
+.source-image figcaption p { margin:8px 0; }
 .source-meta { color:var(--muted); font-size:.79rem; margin-bottom:12px; }
 .permalink { font-size:.78rem; }
 .empty-state,.load-status { padding:28px; border:1px solid var(--line); border-radius:10px; margin-top:28px; background:var(--card); color:var(--muted); }

@@ -1,0 +1,47 @@
+{
+  "id": "carbutt_chamber_nypl_G90F172_009F",
+  "title": "Chamber of Commerce. Views of Chicago.140.",
+  "creator": "John Carbutt (1832–1905)",
+  "observed_card_text": [
+    "Views of Chicago",
+    "J. Carbutt, Photographer",
+    "140.—Chamber of Commerce."
+  ],
+  "catalog_date": "1865?–1885? (coverage and source imprint; not an exact photograph date)",
+  "publication_date": null,
+  "phase_identification": "Direct visual inspection of both stereo halves identifies the original 1865 building by five upper front arches in a 2/1/2 arrangement, triple portal, broad curved mansard apron, quoins and long west elevation. This form identification is distinct from catalog date and does not establish exact capture date.",
+  "repository": "New York Public Library, Robert N. Dennis collection of stereoscopic views; Photography Collection, Miriam and Ira D. Wallach Division of Art, Prints and Photographs",
+  "catalog_identifiers": {
+    "call_number": "MFY Dennis Coll90-F172",
+    "record": "653332",
+    "digital_id": "G90F172_009F"
+  },
+  "commons_file_record": "https://commons.wikimedia.org/wiki/File:Chamber_of_Commerce,_by_Carbutt,_John,_1832-1905.png",
+  "commons_version": "https://commons.wikimedia.org/w/index.php?title=File:Chamber_of_Commerce,_by_Carbutt,_John,_1832-1905.png&oldid=1120193839",
+  "download_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Chamber_of_Commerce%2C_by_Carbutt%2C_John%2C_1832-1905.png",
+  "rights_status": "public_domain",
+  "rights_basis": "Public-domain original and mechanical scan: Commons file-specific PD-US / PD-scan (PD-US) declaration. No CC0 license is asserted.",
+  "provider_access_limit": "The linked current NYPL search returned HTTP 403 during acquisition. Its current item policy was not independently read; the documented rights route is the file-specific Commons declaration.",
+  "image": {
+    "file": "carbutt-nypl-G90F172_009F.png",
+    "bytes": 4864514,
+    "sha256": "14406b8c30a955da8431e505e518067b84ed54010f3e7cd6bdf31706f0e45e7e",
+    "sha1": "55a8d2b30da38c7e7ba3d921d5a2ff1d4dfd1c16",
+    "width": 2737,
+    "height": 1360,
+    "unaltered_full_stereo_card": true
+  },
+  "metadata_bindings": {
+    "source_record_sha256": "e12e218a983a183e357645146ad08c8ae52b1d7f5769a5f6ddbeb295a087cb52",
+    "acquisition_record_sha256": "2c39976bdf194ae1badf2d4e824082b7b5983c22acf9cad2310854a0794a2421"
+  },
+  "inspection": "Full card directly inspected on 2026-11-19. Original building phase identified from architecture; the catalogue span does not fix negative exposure or surviving-card publication date.",
+  "limits": [
+    "No exact 1865 exposure or publication date is established.",
+    "No clock time, October 8 tenancy, presence or action follows from this view.",
+    "Pale upper circles do not establish opaque windows; reflection or glare remains possible.",
+    "Monochrome tone is not evidence of exact material colour.",
+    "East and south facades and metric heights remain unresolved; poles, trees and foreground structures obscure parts of the view."
+  ],
+  "use": "Reference display and bounded architectural reading. No photographic pixels are used as a model texture."
+}
