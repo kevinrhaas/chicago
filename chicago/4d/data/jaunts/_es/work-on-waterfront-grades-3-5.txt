@@ -1,0 +1,130 @@
+== title @a1c03c4f
+Trabajo en la ribera
+
+== premise @cb6469d2
+Lee los avisos del pueblo que piden trabajadores. Pregunta por trabajo en dos de los almacenes de Newberry y Dole. Vete con un papel de trabajo, o con una buena idea de dónde probar después.
+
+== opening @3691c723
+PASEO: TRABAJO EN LA RIBERA. Es de mañana y necesitas un trabajo. La buena noticia es que el Chicago de 1835 necesita a todo el mundo. Los edificios se levantan tan rápido como llegan las tablas. Cada barco hay que descargarlo. Los periódicos tienen avisos que dicen que se necesitan trabajadores enseguida. La mala noticia es que sigue llegando gente nueva por tierra y por agua. La mitad también quiere trabajo.
+
+Elige lo que sabes hacer. Lee los avisos. Pregunta en dos de los edificios de Newberry y Dole. Luego planea tu siguiente paso durante el desayuno.
+
+== stop notices @f2b9b9a8
+El periódico Democrat busca un ayudante joven que aprenda el oficio de imprenta. El 17 de junio, una ferretería también imprimió un aviso. Quería un trabajador del cobre y un trabajador de la hojalata enseguida. Un pueblo que crece así de rápido necesita impresores para sus avisos. Necesita hojalateros para sus tubos de estufa. Desde 1833, todo tubo de estufa que atraviese un techo debe tener hojalata o hierro alrededor, o el dueño paga una multa de cinco dólares.
+
+== narrative notices @2300f5ff
+Elige el oficio que puedes ofrecer.
+
+== label notices type @8553de9a
+Tipos e imprenta
+
+== consequence notices type @32967a17
+Sabes acomodar las letras para imprimir y manejar una imprenta.
+
+== label notices metal @819c1372
+Hojalata y cobre
+
+== consequence notices metal @6f846bea
+Sabes trabajar con láminas delgadas de metal.
+
+== label notices back @68925212
+Una espalda fuerte
+
+== consequence notices back @dae9ae9a
+Sabes levantar, cargar y estibar.
+
+== stop packing @5636d4dc
+Un libro de historia sitúa el almacén y el patio de carne de George Dole, de 1832, cerca de las calles Lake y Dearborn. Dole empezó aquí el negocio de empacar carne del pueblo. Creció hasta ser uno de los negocios gigantes que hicieron famoso a Chicago. Pero empacar carne es trabajo de invierno. Los cerdos llegaban para empacarlos en diciembre. Para 1834 ese trabajo se había ido al brazo sur del río. En julio no hay nada que empacar.
+
+== narrative packing @cf7cf59a
+¿Les pides que se acuerden de ti, o sigues hacia el río?
+
+== label packing remember @1ca8c432
+Pide que te tengan en cuenta para el empacado
+
+== consequence packing remember @f604478b
+Una promesa de volver a preguntar cuando haya carne que empacar.
+
+== label packing go-on @d1bf51ec
+Sigue hacia el río
+
+== consequence packing go-on @e7729e38
+Aquí no hay nada por qué preguntar en julio.
+
+== stop forwarding @35b35505
+Newberry y Dole ponen anuncios en el periódico desde noviembre de 1833. Reciben mercancías y las mandan a otros lugares. En junio los nombraron agentes del pueblo para el vapor Michigan. En julio de 1834, un gran barco de vela llamado Illinois entró por el nuevo puerto. La gente lo recibió con vítores en el muelle de esta empresa. Desde entonces, cada barco ha necesitado trabajadores para descargarlo. Nadie pone anuncios en el periódico para esos trabajos.
+
+== narrative forwarding @f2cbb5f8
+¿Preguntas por trabajo, o miras el muelle?
+
+== label forwarding offer @0e9e4f77
+Ofrece un día de carga
+
+== consequence forwarding offer @596f32bb
+Te dan un papel de trabajo por un día de carga cuando el próximo barco descargue. No dice cuánto te pagarán.
+
+== label forwarding watch @7e62f409
+Mira el muelle y no preguntes nada
+
+== consequence forwarding watch @af257ce9
+Miras cómo bajan las mercancías del agua, y sigues adelante.
+
+== stop breakfast @4da75bee
+Desayuna en el Exchange Coffee House, en las calles Lake y Wells. Mark Beaubien lo construyó, y los Murphy lo atienden desde agosto de 1834. Hace tiempo, el condado fijó el precio del desayuno en veinticinco centavos. Piensa en tu mañana. Viste dos avisos para trabajadores con oficio, un patio de carne que espera el invierno y un muelle que nunca para.
+
+== narrative breakfast @2e5375c2
+¿Dónde preguntarás primero mañana?
+
+== label breakfast answer @a8a7c7a7
+Responde a un aviso impreso
+
+== consequence breakfast answer @fb2ee66d
+Te presentarás donde un aviso pidió trabajadores.
+
+== label breakfast boat @4a3bd198
+Espera un barco en el muelle
+
+== consequence breakfast boat @5ecb20b7
+Estarás en el río cuando llegue una vela.
+
+== label breakfast around @29372ab1
+Sigue preguntando por el pueblo
+
+== consequence breakfast around @1f27e1ed
+Irás a las tiendas y los patios a preguntar en persona.
+
+== leg 0 @7bf02824
+Lleva tu oficio a los almacenes.
+
+== note 0 @a40ed47c
+Al este por South Water Street hasta Dearborn, y luego una cuadra al sur hasta Lake Street.
+
+== note 1 @2812b898
+De vuelta al norte hasta el río y al oeste por South Water Street hasta la orilla del río.
+
+== note 2 @447933e2
+Una cuadra al sur hasta Lake Street, en la esquina de Wells.
+
+== ending apprentice @6232024b
+Responderás al aviso del periódico que busca un ayudante joven de imprenta. Se imprimió hace seis semanas, así que quizá alguien ya tenga el trabajo. Pregunta de todos modos, y pregunta temprano.
+
+== ending tin-and-copper @e5ea2829
+Llevarás lo que sabes de hojalata y cobre a la ferretería. Su aviso pedía los dos tipos de trabajadores enseguida. Pero eso fue hace dos semanas, y quizá alguien respondió primero. Ve antes de que se enfríe tu desayuno.
+
+== ending no-notice-for-a-back @e017fca3
+Ningún aviso de los que leíste pedía una espalda fuerte. Los periódicos piden trabajadores con oficio. Los trabajos de carga se encuentran en el muelle, preguntando en persona. Mañana, prueba primero en el río.
+
+== ending chit-for-the-boat @d10bc8ed
+Tienes un papel de trabajo por un día de carga cuando el próximo barco descargue. No dice cuánto te pagarán. Ponte en el muelle cuando llegue una vela.
+
+== ending remembered-for-the-winter @ac0f811b
+Les pediste que se acuerden de ti cuando haya carne que empacar. Es una promesa de invierno, sin paga, sin nombre y sin fecha. Guárdala hasta diciembre, cuando lleguen los cerdos.
+
+== ending a-days-work-in-prospect @9825ab4f
+Hoy no hay trabajo, pero sí un plan para mañana. Viste dos avisos que pedían trabajadores con oficio, un patio de carne que espera el invierno y una empresa que mueve mercancías por barcadas enteras. Un día de trabajo está por llegar.
+
+== keepsake title @cc7403cf
+Un día de trabajo a la vista
+
+== keepsake text @cdc06cb0
+Una nota inventada sobre una mañana dedicada a buscar trabajo. Muestra los avisos que pedían trabajadores, y dónde volver a preguntar. No dice ninguna paga ni oferta de trabajo.

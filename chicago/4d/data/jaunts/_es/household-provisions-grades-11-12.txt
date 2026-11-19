@@ -1,0 +1,118 @@
+== title @27bbc48d
+Abastece la casa
+
+== premise @3a76ba8d
+Establece una alacena propia en una sola cuadra de South Water Street, con una lista concisa y una bolsa modesta.
+
+== opening @9ea261e7
+PASEO: ABASTECE LA CASA. Recientemente conseguiste un lugar en un cuarto compartido de una casa de huéspedes detrás de la tienda de Peck, junto con dos dólares para establecer una alacena propia, una suma que no rendirá mucho. Cuando el Democrat comenzó a publicarse en 1833, la harina costaba $6 el barril, la mantequilla 17 centavos la libra, el café 17 y el azúcar en pan 20.
+
+La excursión consta de cuatro paradas, todas a lo largo de una sola cuadra de South Water Street, donde determinarás qué propósito cumple la lista y luego la completarás metódicamente en la tienda de abarrotes, en la botica y en la esquina de Peck.
+
+== stop the-room @5fd6521e
+Comienza tu expedición detrás de la tienda de Peck, en la casa de huéspedes de troncos de la señora Rufus Brown, donde ocupas parte de un cuarto, y que Andreas identifica como una de las casas de huéspedes de primera clase del pueblo. Un cuarto compartido no es una cocina, así que todo lo que poseas debe caber en un estante. Determina qué pretende lograr tu lista concisa.
+
+== narrative the-room @112a7595
+Determina si la lista sirve principalmente a la mesa común o a tu porción privada del cuarto.
+
+== label the-room table @1e67ce2f
+Una lista para la mesa
+
+== consequence the-room table @5e360561
+Algo vigorizante para tomar cada mañana, y un ingrediente para lo que se hornea en la casa.
+
+== label the-room room @ebf5ec5e
+Una lista para el cuarto
+
+== consequence the-room room @bbfe4e60
+Algo agradablemente cálido para la noche, y algo indispensable para el lavabo.
+
+== stop provisions @bb516d28
+Al oeste por la cuadra, hasta la tienda de abarrotes y provisiones de Jones, cuyo anuncio de noviembre de 1833 garantiza "té, café y azúcar" y la mayoría de las variedades de provisiones en existencia. Ninguna fuente establece con precisión dónde estaba la tienda, y hasta su inicial, B o H, sigue en disputa entre los historiadores. Los precios del Democrat de 1833 cotizaban el café a 17 centavos la libra y el té de 87 centavos a $1.25.
+
+== narrative provisions @4c7a193a
+Compra algo para tomar, o conserva la bolsa para necesidades posteriores.
+
+== label provisions coffee @36910e2b
+Café y azúcar — 50¢
+
+== consequence provisions coffee @0ec76d99
+La cafetera de la mañana queda debidamente abastecida para el futuro previsible.
+
+== label provisions tea @a6548e2c
+Un paquete de té — 40¢
+
+== consequence provisions tea @177eadb6
+Té para las noches, con un poco más de dinero restante en la bolsa.
+
+== stop the-druggist @9ba21340
+Regresa hacia el este, a la tienda de Philo Carpenter, el boticario del letrero del Golden Mortar, quien comenzó a vender medicinas en 1832 en "una pequeña casa de troncos que estaba cerca del río", posteriormente construyó este establecimiento y diversificó su negocio con sal, azúcar y ferretería. Su aviso del 27 de junio de 1835 enumera crémor tártaro, jarabe de limón, plomo negro y polvo dental.
+
+== narrative the-druggist @0a8211c7
+Selecciona un artículo modesto del extenso inventario del boticario, o declina por completo.
+
+== label the-druggist tartar @28964bb0
+Crémor tártaro para hornear — 15¢
+
+== consequence the-druggist tartar @4e536334
+Un paquetito, colocado convenientemente en el estante de la alacena.
+
+== label the-druggist tooth-powder @913e11af
+Polvo dental para el lavabo — 20¢
+
+== consequence the-druggist tooth-powder @55ed260e
+Una cajita, colocada convenientemente junto a la palangana.
+
+== stop the-corner @3bc2c4f2
+Concluye en la esquina de Peck, en LaSalle y South Water, a apenas unos pasos de tu punto de partida original. Su tienda fue la primera estructura de armazón de madera de dos pisos del poblado, construida con madera "traída de Detroit en un barco". Su anuncio enumera telas, ferretería, abarrotes y loza, y un aviso de diciembre de 1834 los complementa con franelas y percales.
+
+== narrative the-corner @bca1ffd5
+Completa la canasta, o conserva lo que quede, y luego llévala a la casa de huéspedes.
+
+== label the-corner crockery @4bd08ae6
+Una taza y un plato de loza — 30¢
+
+== consequence the-corner crockery @15e086fe
+Tu propia taza y tu propio plato en una mesa que, por lo demás, es compartida.
+
+== label the-corner flannel @c0ea2378
+Un corte de franela — 75¢
+
+== consequence the-corner flannel @796f0bf7
+Un abrigo considerable para las noches frías, aunque consume la mayor parte del dinero restante.
+
+== leg 0 @86de1cc4
+Comienza por adquirir lo que la lista de la casa requiera con más urgencia.
+
+== note 0 @a5fda5ba
+Da la vuelta hasta South Water Street y ve al oeste por su lado sur, hasta el extremo de la cuadra que da a Wells; toda la salida se queda en esta misma acera de la cuadra.
+
+== leg 1 @2b3e06a7
+Algo económico para el estante de la alacena o el lavabo, según tus prioridades.
+
+== note 1 @ded0d044
+De vuelta al este por la misma acera, hasta la mitad de la cuadra.
+
+== leg 2 @d35c8d45
+Una última adquisición, y la canasta estará lo bastante llena para llevarla a casa, a la casa de huéspedes.
+
+== note 2 @8017f529
+Sigue al este hasta la esquina de Peck, en LaSalle, junto a la casa de huéspedes donde empezaste.
+
+== ending table-laid @9c75c892
+Algo para tomar y una taza propia en la cual tomarlo: tu lugar en la mesa común de la casa de huéspedes queda establecido, y la alacena junto con él.
+
+== ending room-kept @f2f8ea7a
+Franela para las noches y polvo dental junto a la palangana, así que tu parte del cuarto empieza a sentirse auténticamente tuya.
+
+== ending purse-kept @639cf12f
+Compraste relativamente poco y conservaste la mayor parte de la bolsa, porque un hogar puede comenzar con paciencia, y los establecimientos de la cuadra seguirán disponibles mañana.
+
+== ending basket-begun @364bdb3e
+La canasta no corresponde exactamente a la lista con la que saliste, lo cual es característico de la mayoría de los primeros días, y la alacena está comenzada, aunque desde luego todavía no completa.
+
+== keepsake title @e304e079
+Una alacena empezada
+
+== keepsake text @f7dc7817
+Un recibo ficticio de una primera canasta de artículos para la casa, comprados a lo largo de una sola cuadra de South Water Street y llevados a una casa de huéspedes.

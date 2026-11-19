@@ -1,0 +1,61 @@
+== title @bf8b4408
+Un recorrido dominical
+
+== premise @c6d9b178
+Una salida tranquila pasando por las dos iglesias del pueblo y su casa de reuniones de troncos, que termina con una visita al Sauganash.
+
+== opening @bf12a0b4
+PASEO: UN RECORRIDO DOMINICAL. Una mañana de domingo en primavera. Hace tres años, este pueblo no tenía ninguna iglesia. Luego, en una sola temporada, la de 1833, llegaron todas a la vez: un sacerdote católico dijo misa en una de las cabañas de troncos de Mark Beaubien, un ministro presbiteriano predicó en el taller de carpintería del fuerte y los metodistas se reunieron en un cuarto de troncos en Wolf Point. Pronto los síndicos del pueblo incluso prohibirán 'la venta de licores en domingo'.
+
+Un vecino te espera en el Sauganash. En el camino pasas por todos los lugares donde el pueblo rinde culto. Mira desde el camino y ve cuánto se ha avanzado en tres años.
+
+== stop st-marys @680ac8e6
+St. Mary's, en Lake Street al oeste de State, la primera iglesia católica del pueblo. El padre St. Cyr 'celebró su primera misa en una cabaña de troncos que pertenecía a Mark Beaubien' en mayo de 1833; ese agosto, Augustine D. Taylor levantó este edificio de madera, de veinticinco por treinta y cinco pies, con tablas traídas en chalana a través del lago desde St. Joseph, a $12 el millar. Costó unos $400. Adentro, bancos toscos en lugar de reclinatorios; afuera, nada de pintura, ni campanario ni torre.
+
+== narrative st-marys @08099170
+La iglesia más sencilla del pueblo.
+
+== stop presbyterian @76cbad8c
+Dos cuadras al oeste, en Lake y Clark, la iglesia presbiteriana, dedicada el 4 de enero de 1834. Su pastor, Jeremiah Porter, 'el ministro protestante pionero de Chicago', llegó con las tropas desde el fuerte Brady y 'predicó un sermón en el taller de carpintería de la guarnición el 19 de mayo de 1833'. Hasta que se levantó la iglesia, vivió y estudió en el piso de arriba de la tienda de Peck. También es un salón de reuniones: el Distrito Escolar n.º 4 está convocado aquí para el 7 de julio.
+
+== narrative presbyterian @a654ce25
+Iglesia y salón de reuniones.
+
+== stop walker @45c1e524
+Al otro lado del brazo sur del río, en Wolf Point, donde Wau-Bun recordaba 'un pequeño edificio cuadrado de troncos, pensado originalmente como escuela, pero usado de vez en cuando como lugar de culto siempre que se presentaba algún ministro itinerante'. Un relato de los pioneros atribuye su construcción al padre Jesse Walker, el misionero metodista, y su propia casa de troncos 'servía de casa parroquial, sala, cocina y sala de audiencias'. Un predicador de la frontera hizo que un solo cuarto sirviera para todo.
+
+== narrative walker @26c1cad6
+Un cuarto de troncos, dondequiera que estuviera.
+
+== stop the-call @4f1f3b90
+De vuelta por el puente hasta Lake y Market y el Sauganash, blanco con postigos azules en Wau-Bun, recién acondicionado según el Democrat del 10 de junio de 1835. Tu vecino te espera. En domingo, el violín del posadero debería estar en silencio, aunque Moses y Kirkland recuerdan a Mark Beaubien como 'un católico ferviente, aunque no siempre devoto', y 'un contribuyente generoso' de St. Mary's.
+
+== narrative the-call @60d21543
+Llega a donde te esperan.
+
+== leg 0 @deef0c02
+Dos cuadras al oeste, del sencillo edificio de madera del sacerdote a la iglesia del ministro.
+
+== note 0 @9e0fd255
+Dos cuadras al oeste por Lake Street, desde State, pasando Dearborn, hasta Clark.
+
+== leg 1 @ab57d6a1
+Deja las iglesias de madera del pueblo por su lugar de culto más antiguo.
+
+== note 1 @3f8264a8
+Al oeste por Lake Street hasta el brazo sur del río, por el puente entre Lake y Randolph, y al norte por la orilla oeste hasta la bifurcación.
+
+== leg 2 @dfd78765
+Cruza una vez más, hacia la visita por la que saliste.
+
+== note 2 @a14a6204
+De vuelta por la orilla oeste y por el mismo puente hasta Lake Street y la esquina de Market Street.
+
+== ending among-neighbors @67177727
+Llegas a la puerta del Sauganash con toda la religión del pueblo a tus espaldas: el sencillo edificio de madera de un sacerdote, la iglesia de un ministro que también sirve de salón de reuniones y un cuarto de troncos en la bifurcación que sirvió a la vez de escuela y de lugar de culto. Hace tres años no había nada de esto.
+
+== keepsake title @b004ba0a
+Una mañana entre vecinos
+
+== keepsake text @834d8f3b
+Una nota ficticia de una caminata tranquila pasando por los lugares de culto del pueblo, que termina con una visita al Sauganash.

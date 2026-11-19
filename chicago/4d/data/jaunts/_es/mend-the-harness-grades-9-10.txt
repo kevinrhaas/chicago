@@ -1,0 +1,106 @@
+== title @2b909f3f
+Repara los arreos
+
+== premise @7d8d8798
+Descubre un tirante agrietado mientras enganchas detrás del Western Hotel, lleva el cuero al talabartero y el hierro al herrero en Lake y Canal, y decide en el Green Tree si el equipo está listo para el camino.
+
+== opening @cbc9cdba
+PASEO: REPARA LOS ARREOS. Atardece en el patio de carretas detrás del Western Hotel, y tú partes por el largo camino al oeste con la primera luz; en este patio hay más tiros de caballos que huéspedes. Mientras enganchas para una vuelta de prueba, el tirante izquierdo revela una grieta junto a la hebilla.
+
+Dos oficios mantienen un equipo: el talabartero atiende el cuero y el herrero el hierro. Los dos llegaron a Chicago en 1833, el año en que la inmigración "alcanzó proporciones que superaban toda expectativa", y los dos tienen su taller en el mismo cruce. Identifica el problema, hazlo reparar antes de que oscurezca, y decide durante la cena en el Green Tree si el equipo está listo para el camino.
+
+== stop stable @de39a18f
+Detrás del Western Hotel de W. H. Stow, en Randolph y Canal, hay un gran establo y el patio al que entran las caravanas de carretas, con entradas desde las dos calles. El relato de Stow lo llama una de las partes más importantes de la casa, ya que los tiros eran tan numerosos como los huéspedes. Según la tarifa del condado de 1831, guardar un caballo durante la noche costaba 50 centavos y una ración de pienso 25, así que resulta caro tener un tiro parado.
+
+== narrative stable @217e0db3
+El tirante izquierdo está agrietado junto a la hebilla; ¿investigarás más?
+
+== label stable look-over @2b46c053
+Revisa cada correa, hebilla y gancho
+
+== consequence stable look-over @c5461332
+El tirante está agrietado, y el gancho de hierro al que se sujeta en el balancín se ha gastado de manera peligrosa.
+
+== label stable trace-only @86cecb86
+Desabrocha el tirante agrietado y vete
+
+== consequence stable trace-only @57a9c114
+Una correa retirada de los arreos, y nada más examinado.
+
+== stop saddler @ccfde286
+Subiendo por Canal hasta Lake Street, donde Goss y Cobb abrieron una tienda de sillas y arreos en 1833, y prometían que las reparaciones serían "atendidas de inmediato" cuando se llevaran a su tienda. Silas B. Cobb fue uno de los que llegaron ese año. Los socios se separaron en febrero de 1835, y el aviso de Cobb de junio anuncia que continuará solo. Esta noche, como todas las noches, hay tirantes esperando.
+
+== narrative saddler @ea7303a4
+¿Le dejarás el tirante al talabartero, o lo amarrarás tú mismo?
+
+== label saddler restitch @e5ad12d7
+Deja el tirante para que lo vuelvan a coser
+
+== consequence saddler restitch @fec1d6fb
+Trabajo de cuero, justo las reparaciones que promete el aviso, y el tirante regresa en buen estado.
+
+== label saddler bind @0db50540
+Amarra tú mismo la grieta con cordel
+
+== consequence saddler bind @631001e4
+Aguantará un viaje corto, aunque no un camino largo.
+
+== stop smithy @5f48c2ac
+El cuero le corresponde al talabartero; el hierro le corresponde al herrero. En el mismo cruce, Asahel Pierce, otro de los que llegaron en 1833, abrió una herrería en octubre de ese año, y Andreas registra que hizo los herrajes de la primera línea de diligencias entre Chicago y St Louis en enero de 1834. Un hombre que pone los herrajes a la diligencia de St Louis sin duda puede restaurar un gancho gastado.
+
+== narrative smithy @bb92335a
+¿Hay algún trabajo de hierro que necesite atención?
+
+== label smithy hook @150dee6e
+Deja el gancho gastado para la fragua
+
+== consequence smithy hook @3c6260e8
+Trabajo de hierro y no de cuero, y el gancho del balancín queda restaurado.
+
+== stop tavern @ed73acb0
+Al este por Lake hasta West Water y el Green Tree, que James Kinzie construyó en 1833 como la primera casa de aquí levantada para servir de hotel, "llamado así por un roble que estaba muy cerca". Los viejos pobladores recordaban que Chester Ingersoll lo atendió de 1834 a 1837. Durará más que casi todo lo que se ve: lo reubicaron en 1880, y todavía seguía en pie en 1895, "el recuerdo más antiguo de las primeras tabernas".
+
+== narrative tavern @afc0ce04
+¿Estás listo para el camino largo, o solo para un viaje corto mañana?
+
+== label tavern ready @53c96b6b
+Declara el equipo listo para el camino
+
+== consequence tavern ready @f75b669d
+Será el camino largo, desde la primera luz.
+
+== label tavern keep-short @7da7a5bb
+Haz corto el viaje de mañana
+
+== consequence tavern keep-short @b9152192
+A algún lugar cerca del pueblo, con regreso antes de que oscurezca.
+
+== leg 0 @9e495451
+El tirante agrietado viaja en el asiento a tu lado.
+
+== note 0 @84c7d689
+Fuera del patio y una cuadra al norte por Canal Street hasta Lake.
+
+== note 1 @66ff06a4
+Unos pasos por el mismo cruce.
+
+== note 2 @6d01a113
+Al este por Lake Street hasta West Water, en la orilla oeste del brazo sur.
+
+== ending short-run @0e00f7ce
+Entonces, mañana un viaje corto cerca del pueblo, y el camino largo otro día. Lo que quedó sin revisar o solo amarrado con cordel se pondrá a prueba cerca de donde hay ayuda, lo cual no es del todo estar listo, pero tampoco es imprudencia.
+
+== ending sound-tack @9d2bd2ff
+El cuero al talabartero y el hierro al herrero: el tirante cosido de nuevo, el gancho del balancín restaurado, y cada correa y hebilla examinada antes de que oscurezca. Con la primera luz el equipo toma el camino largo, preparado para lo que la pradera le depare.
+
+== ending hook-left @11feb73d
+El tirante vuelve a estar en buen estado, pero descubriste el gancho gastado y pasaste de largo la fragua con él. El cuero aguantará en el camino largo; si el hierro aguantará es una pregunta para el primer tirón fuerte, muy lejos de Asahel Pierce.
+
+== ending leather-only @16fe96f7
+El tirante está cosido de nuevo y el equipo toma el camino largo, pero nadie examinó el hierro, así que nadie sabe que el gancho del balancín está muy gastado. Cuero en buen estado y hierro sin probar son una lección: la próxima vez, examínalo todo.
+
+== keepsake title @fc7d8560
+Arreos firmes
+
+== keepsake text @5aba8433
+Una nota ficticia de una revisión de arreos: un tirante agrietado, un gancho gastado, y lo que se hizo con cada uno. No lleva escrita ninguna reparación, cobro ni cliente real de ninguno de los dos talleres.
