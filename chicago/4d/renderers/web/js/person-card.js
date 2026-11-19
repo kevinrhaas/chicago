@@ -428,6 +428,7 @@ function el(doc, tag, cls, text) {
   return n;
 }
 
+let cardSeq = 0;
 /** Draw a model. `dot(doc, grade)` is Inspect's grade dot. */
 export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), onFind = null, onFollow = null, inTown = null, atHome = null } = {}) {
   const card = el(doc, 'article', 'insp-person-card');
@@ -442,6 +443,9 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
 
   const head = el(doc, 'header', 'insp-person-head');
   const name = el(doc, 'h2', 'insp-name insp-person-name', m.name);
+  // T-3671 (1.3.1, 4.1.2): the card is named by the person's name.
+  name.id = `person-card-name-${++cardSeq}`;
+  card.setAttribute('aria-labelledby', name.id);
   head.append(name);
   const chips = el(doc, 'ul', 'insp-chips');
   const chip = (text, grade) => { const li = el(doc, 'li', 'insp-chip', text); if (grade) li.append(dot(doc, grade)); chips.append(li); };

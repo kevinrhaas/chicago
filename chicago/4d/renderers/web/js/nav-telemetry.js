@@ -24,6 +24,7 @@
  * nothing else, so it costs no frame time worth measuring.
  */
 import './machine-drift.js';
+import { motionQuery } from './motion.js';
 
 const D = globalThis.chicagoMachineDrift;
 export const TICK_MS = D.TICK_MS;
@@ -63,7 +64,7 @@ export function mountTelemetry({
   host,
   open = () => true,
   doc = host?.ownerDocument,
-  reducedMotion = doc?.defaultView?.matchMedia?.('(prefers-reduced-motion: reduce)') ?? null,
+  reducedMotion = motionQuery, // T-3671: Settings › Look › Motion (js/motion.js)
   random = Math.random,
   now = () => Date.now(),
   setTimer = (fn, ms) => setInterval(fn, ms),

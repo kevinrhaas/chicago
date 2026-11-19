@@ -6,6 +6,7 @@ import { groupIcon, groupOf, groupSlot, icon } from './menu-icons.js';
 import { ambienceLabel } from './jaunt-menu.js';
 import { clockText } from './jaunt-pace.js';
 import { readingTabs, forgetAge } from './reading-level.js';
+import { narrationScripts } from './narration.js';
 
 /** T-3432: a jaunt's opening, in paragraphs, without the "JAUNT: ITS TITLE." its welcome
  *  already shows as a heading. */
@@ -29,6 +30,32 @@ export function readableLines(lines = [], seconds) {
   }
   return kept;
 }
+/** T-3671 (WCAG 1.2.1): words compared as words, for whether a card shows what its voice says. */
+export const sameWords = (a, b) => {
+  const norm = t => String(t ?? '').toLocaleLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  return norm(a) === norm(b);
+};
+/** T-3671: the words a voiced part of a jaunt says (narration.js narrationScripts), or ''. */
+export const scriptFor = (jaunt, part, id) => narrationScripts(jaunt).find(s => s.part === part && s.id === id)?.text ?? '';
+/** T-3671: the polite status line's words for where an outing is now, and the key that says it once. */
+export function outingNews(state, place = '', where = '') {
+  const s = state?.session, j = state?.jaunt;
+  where = where.replace(/ · /g, ', ');
+  if (!j) return null;
+  if (state.phase === 'opening') return { key: `${s}:opening`, text: `Jaunt started: ${j.title}. Flying to the start, ${place}.` };
+  if (state.phase === 'travelling') return { key: `${s}:${state.leg}:way`, text: `On the way to ${place}, ${where.toLowerCase()}.` };
+  if (state.phase === 'paused') return { key: `${s}:${state.leg}:paused`, text: 'Ride paused.' };
+  if (state.phase === 'atStop') return { key: `${s}:${state.leg}:at`, text: `Arrived at ${place}. ${where}.`,
+    waiting: state.hostWaiting ? { key: `${s}:${state.leg}:waiting`, text: 'Your guide is approaching.' } : null };
+  if (state.phase === 'closing') return { key: `${s}:closing`, text: `Closing: ${j.title}.` };
+  if (state.phase === 'outcome' && state.outcome) return { key: `${s}:outcome`, text: `${state.outcome.fallback ? 'Outing interrupted' : 'Outing complete'}: ${j.title}.` };
+  return null;
+}
+const pauseIcon = size => {
+  const t = document.createElement('template');
+  t.innerHTML = `<svg class="menu-icon" viewBox="0 0 24 24" width="${size}" height="${size}" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 6.5v11M15 6.5v11"/></svg>`;
+  return t.content.firstChild;
+};
 
 /** The scrollable story and persistent controls have separate layout ownership. */
 export function createJauntPanel({ destinations, actions, catalogRow = () => null, narration = null }) {
@@ -67,6 +94,27 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   straight.setAttribute('aria-label', 'Go straight to next stop'); straight.title = 'Go straight to next stop';
   straight.className = 'jaunt-straight';
   controls.prepend(mode, straight);
+  // T-3671 (WCAG 1.4.2): while a voice of this outing speaks, Pause on the controls and on the
+  // collapsed bar holds it, and Resume lets it go on, whatever card or phase is up. Settings ›
+  // Sound's Narration level (and the Navigator's mute keys) set its volume apart from the rest.
+  const voiceKeys = [false, true].map(onBar => {
+    const b = button('', () => { if (narration?.paused) narration.resume(); else narration?.pause?.(); });
+    b.dataset.action = onBar ? 'bar-voice' : 'voice'; b.className = onBar ? 'jaunt-voice' : 'jaunt-key jaunt-voice'; b.hidden = true;
+    return b;
+  });
+  straight.after(voiceKeys[0]);
+  function paintVoice() {
+    const on = !!state?.jaunt && !!narration?.speaking?.(state.jaunt), held = on && !!narration.paused;
+    voiceKeys.forEach((b, i) => {
+      b.hidden = !on;
+      if (!on) return;
+      const name = held ? 'Resume narration' : 'Pause narration';
+      b.replaceChildren(held ? icon('play', 16) : pauseIcon(16), ...(i === 0 ? [node('span', held ? 'Resume' : 'Pause')] : []));
+      if (b.getAttribute('aria-label') !== name) { b.setAttribute('aria-label', name); b.title = name; }
+    });
+    voiceKeys[0].classList.toggle('jaunt-voice-wide', mode.hidden);
+    mode.classList.toggle('jaunt-mode-wide', straight.hidden && voiceKeys[0].hidden);
+  }
   // Collapsing folds the panel to one bar — where you are, Next Stop, and a tap to
   // open it again — so the world can be looked at from a stop on a phone, where the
   // open panel covers most of the screen. Arriving at a new stop opens it again.
@@ -78,13 +126,62 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   const barNext = button('Next stop', () => goNext()); barNext.dataset.action = 'bar-next'; barNext.classList.add('jaunt-primary');
   const barReturn = button('Return', () => { if (state?.phase === 'detail') actions.returnFromDetail(); else actions.closeOverlay(); }); barReturn.hidden = true; barReturn.dataset.action = 'return';
   const barEnd = button('End', actions.end); barEnd.setAttribute('aria-label', 'End Jaunt');
-  bar.append(barLabel, barNext, barReturn, barEnd);
+  bar.append(barLabel, voiceKeys[1], barNext, barReturn, barEnd);
   // The owner, 2026-11-16: a quiet meter of the jaunt, one hairline segment a stop, the
   // stop under way filling as its scene plays (and, fainter, as the way to it is covered),
   // with the scene's time left beside it. On the controls, and along the collapsed bar.
   const meters = [makeMeter(true), makeMeter(false)];
   controls.prepend(meters[0].el); bar.prepend(meters[1].el);
-  root.append(collapse, body, controls, bar); document.body.append(root);
+  // T-3671 (WCAG 4.1.3): one polite status line for where the outing is (started, on the way,
+  // arrived, closing, complete). It stands outside the panel, which is hidden between outings,
+  // so it is in the page before anything is said in it; each news is said once a session.
+  const status = node('div', '', 'jaunt-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
+  status.dataset.jauntStatus = '';
+  let toldKeys = new Set(), toldSession = null;
+  function tell(news) {
+    if (!news || !state) return;
+    if (toldSession !== state.session) { toldSession = state.session; toldKeys = new Set(); }
+    const parts = [news, news.waiting].filter(n => n && !toldKeys.has(n.key));
+    if (!parts.length) return;
+    for (const n of parts) toldKeys.add(n.key);
+    status.textContent = parts.map(n => n.text).join(' ');
+  }
+  // T-3671 (WCAG 1.2.1): the words on a voiced card are the words its voice says (narration.js
+  // keys each clip to them; tools/narrate_jaunts.mjs holds a performance's words to the
+  // script's), so the card is its own transcript, lit while it is read. Where the card shows
+  // other words (a reading-age tab on another telling), a Transcript fold beside Listen gives
+  // the words the voice reads.
+  const voiceNote = node('span', 'Read aloud in a synthetic voice: the words on this card.', 'jaunt-status'); voiceNote.id = 'jaunt-voice-card';
+  const voiceNoteOther = node('span', 'Read aloud in a synthetic voice: the words in its Transcript.', 'jaunt-status'); voiceNoteOther.id = 'jaunt-voice-transcript';
+  let voiced = [];
+  function transcript(part, id, els, hear) {
+    if (!hear) return;
+    const script = scriptFor(state.jaunt, part, id);
+    if (!script) return;
+    const fold = node('details', '', 'jaunt-transcript'); fold.dataset.readingSkip = ''; fold.dataset.transcript = `${part}:${id}`; fold.hidden = true;
+    fold.append(node('summary', 'Transcript'), node('p', 'The voice reads the words as first written:', 'jaunt-transcript-note'),
+      ...script.split(/\n\s*\n/).map(t => node('p', t.trim())));
+    hear.after(fold);
+    const on = narration.isPlaying(state.jaunt, part, id);
+    for (const el of els) { el.dataset.voiced = part; el.classList.toggle('jaunt-voicing', on); }
+    voiced.push({ els, fold, script, hear });
+  }
+  function syncTranscripts() {
+    for (const v of voiced) {
+      if (!v.fold.isConnected) continue;
+      const same = sameWords(v.els.map(el => el.textContent).join(' '), v.script);
+      v.fold.hidden = same; if (same) v.fold.open = false;
+      v.hear.setAttribute('aria-describedby', same ? voiceNote.id : voiceNoteOther.id);
+    }
+  }
+  let syncing = false;
+  const swaps = new MutationObserver(() => { if (syncing) return; syncing = true; queueMicrotask(() => { syncing = false; syncTranscripts(); }); });
+  swaps.observe(body, { characterData: true, subtree: true });
+  // T-3671 (WCAG 2.2.1): the closing scene goes on to Outing complete by itself; a visitor who
+  // touches, scrolls or keys in the panel while it is up holds it there until Finish jaunt.
+  let engaged = false;
+  for (const type of ['pointerdown', 'keydown', 'wheel', 'touchstart']) root.addEventListener(type, () => { if (root.classList.contains('jaunt-closing')) engaged = true; }, { passive: true });
+  root.append(collapse, body, controls, bar, voiceNote, voiceNoteOther); document.body.append(root, status);
   // Native controls and translated/wrapped labels can make this row taller.
   // Reserve its measured height for cards and drawers instead of guessing it —
   // the controls' when the panel is open, the bar's when it is collapsed.
@@ -127,7 +224,13 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   root.addEventListener('keydown', e => e.stopPropagation());
   let state, key, overlayView = null, needsChoice = false;
   // T-3578: a voiced part shows Listen; the voice repaints the panel as it starts and stops.
-  const offNarration = narration?.on?.(() => { if (state?.jaunt) render(state); });
+  // T-3671: on the next microtask, not inside a render that started the voice (a nested
+  // repaint replaced the stop's heading as it took focus, and focus fell to the page).
+  let repaint = false;
+  const offNarration = narration?.on?.(() => {
+    if (!state?.jaunt || repaint) return;
+    repaint = true; queueMicrotask(() => { repaint = false; if (state?.jaunt) render(state); });
+  });
   function listen(part, id) {
     if (!narration?.clip(state.jaunt, part, id)) return null;
     const on = narration.isPlaying(state.jaunt, part, id);
@@ -186,7 +289,8 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     // ahead of the date and hour its text starts with.
     if (since && !unsafe) paragraph.prepend(node('strong', `${since}.`, 'jaunt-since'), ' ');
     paragraph.title = paragraph.textContent; parent.append(paragraph);
-    if (!claims.length) return;
+    if (unsafe) paragraph.dataset.withheld = '';
+    if (!claims.length) return paragraph;
     // T-2120: the sourcing folds behind one quiet toggle per passage instead of a row of
     // [DOC]/[INF]/[CONJ] chips under the story; every claim and source is one tap away.
     const chips = node('div', '', 'jaunt-evidence'); chips.hidden = true;
@@ -204,6 +308,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
       chips.append(fold);
     }
     parent.append(chips);
+    return paragraph;
   }
   function contextLines(parent, lines = state.context?.lines || []) {
     for (const line of lines) {
@@ -247,11 +352,14 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     if (!paragraphs.length) return;
     const fresh = opening || state.visited.length === 1;
     const story = node(fresh ? 'section' : 'details', '', 'jaunt-welcome-story');
-    const head = node(fresh ? 'h3' : 'summary', '', 'jaunt-welcome-story-k'); head.append(icon('story', 16), node('span', state.jaunt.title));
+    const named = node('span', state.jaunt.title);
+    const head = node(fresh ? 'h3' : 'summary', '', 'jaunt-welcome-story-k'); head.append(icon('story', 16), named);
     story.append(head);
     const hear = listen('opening', 'opening'); if (hear) story.append(hear);
-    story.append(...paragraphs.map(text => node('p', text)));
+    const told = paragraphs.map(text => node('p', text));
+    story.append(...told);
     body.append(story);
+    transcript('opening', 'opening', [named, ...told], hear);
   }
   /**
    * The owner, 2026-11-16: "you should see that text as the final scene of the jaunt and then
@@ -263,14 +371,19 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     const nextKey = `${state.session}:closing`, same = key === nextKey;
     const scroll = same ? body.scrollTop : 0;
     const listening = same && document.activeElement?.dataset.action === 'listen' && body.contains(document.activeElement);
+    const onHeading = same && document.activeElement?.tagName === 'H2' && body.contains(document.activeElement);
     root.classList.add('jaunt-final'); root.classList.add('jaunt-closing');
     straight.hidden = true; mode.hidden = true; // nothing is left to travel by
     const progress = node('p', '', 'jaunt-progress jaunt-stop-k jaunt-final-k');
     progress.append(icon('finish', 15), node('span', 'Closing'));
     const heading = node('h2', state.jaunt.title); heading.tabIndex = -1;
     body.replaceChildren(progress, heading);
+    voiced = [];
+    if (!same) engaged = false;
     const hear = listen('ending', state.outcome.id); if (hear) body.append(hear);
-    body.append(...String(state.outcome.text).split(/\n\s*\n/).map(t => node('p', t.trim(), 'jaunt-closing-text')));
+    const ending = String(state.outcome.text).split(/\n\s*\n/).map(t => node('p', t.trim(), 'jaunt-closing-text'));
+    body.append(...ending);
+    transcript('ending', state.outcome.id, ending, hear);
     buttons.prev.disabled = true; buttons.next.disabled = barNext.disabled = false;
     for (const b of [buttons.next, barNext]) {
       b.textContent = 'Finish jaunt'; b.classList.remove('jaunt-needs-choice'); b.classList.add('jaunt-finish', 'jaunt-closing-finish');
@@ -283,8 +396,9 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     body.hidden = false; root.classList.remove('jaunt-detail'); barNext.hidden = false; barReturn.hidden = true;
     body.scrollTop = scroll; key = nextKey;
     narration?.at(state.jaunt, 'ending', state.outcome.id);
+    syncTranscripts(); paintVoice(); tell(outingNews(state));
     if (listening) body.querySelector('[data-action="listen"]')?.focus({ preventScroll: true });
-    else if (!same) heading.focus({ preventScroll: true });
+    else if (!same || onHeading) heading.focus({ preventScroll: true });
   }
   function render(next) {
     const old = state;
@@ -297,9 +411,11 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     if (!active) {
       if (state.phase === 'outcome' && state.outcome?.id) narration?.at(state.jaunt, 'ending', state.outcome.id);
       else narration?.end();
+      tell(outingNews(state));
       key = null; overlayView = null; setCollapsed(false, { focus: false }); return;
     }
     if (state.phase === 'closing') { closingScene(old); return; }
+    voiced = [];
     const stop = currentStop(state), nextKey = `${state.session}:${stop.id}`, same = key === nextKey;
     if (old?.session !== state.session) {
       mode.replaceChildren(...state.jaunt.allowed_modes.map(id => {
@@ -311,13 +427,16 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     mode.classList.toggle('jaunt-mode-wide', straight.hidden);
     const scroll = same ? (overlayView?.scroll ?? body.scrollTop) : 0, focused = document.activeElement?.dataset.choice;
     const listening = same && document.activeElement?.dataset.action === 'listen' && body.contains(document.activeElement);
+    // T-3671: a repaint keeps focus on the stop's heading where it was (a voice starting or stopping repaints).
+    const onHeading = same && document.activeElement?.tagName === 'H2' && body.contains(document.activeElement);
     const opening = state.phase === 'opening' || (state.phase === 'detail' && state.detailPhase === 'opening');
     const final = !opening && isFinalStop(state), count = state.jaunt.stops.length;
     root.classList.toggle('jaunt-final', final); root.classList.remove('jaunt-closing');
     const heading = node('h2', stopName(state, stop));
     heading.tabIndex = -1;
+    // T-3671: arriving is said once in the panel's status line (`tell`), not by this line,
+    // which is drawn anew each time.
     const progress = node('p', '', 'jaunt-progress jaunt-stop-k');
-    progress.setAttribute('aria-live', 'polite');
     // T-3432: the last stop says it is the last, on the page and on the bar.
     if (final) { progress.classList.add('jaunt-final-k'); progress.append(icon('finish', 15)); }
     if (state.stopIndex > 0) progress.append(node('span', state.jaunt.title, 'jaunt-progress-title'), ' · ');
@@ -333,9 +452,10 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     if (state.estimate && !(opening || state.stopIndex === 0)) {
       const eta = node('p', `${formatEstimate(state.estimate)} remaining`, 'jaunt-progress'); eta.dataset.jauntRemaining = ''; body.append(eta);
     }
+    let withheld = false;
     const travelling = ['travelling', 'paused'].includes(state.phase) || (state.phase === 'detail' && ['travelling', 'paused'].includes(state.detailPhase));
     if (opening) {
-      const flying = node('p', '', 'jaunt-flying'); flying.setAttribute('aria-live', 'polite');
+      const flying = node('p', '', 'jaunt-flying');
       flying.append(icon('fly', 18), node('span', `Flying to the start · ${stopName(state, stop)}`));
       body.append(flying);
     } else if (travelling) {
@@ -352,17 +472,24 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
         const shut = button('', actions.dismissContext); shut.className = 'jaunt-notes-close';
         shut.setAttribute('aria-label', 'Dismiss road notes'); shut.title = 'Dismiss road notes'; shut.append(icon('close', 16));
         notes.prepend(shut); contextLines(notes, readable); body.append(notes);
+        // T-3671: Esc in the notes closes them too, and leaves focus on the outing's controls.
+        notes.addEventListener('keydown', e => {
+          if (e.key !== 'Escape') return;
+          e.preventDefault(); actions.dismissContext();
+          [straight, buttons.next, collapse].find(b => b.isConnected && !b.hidden && !b.disabled)?.focus({ preventScroll: true });
+        });
       }
       if (state.phase === 'paused') body.append(button('Resume ride', actions.resumeRide));
       if (state.error) body.append(button('Try this stop again', actions.retry));
     } else if (state.hostWaiting) {
-      const waiting = node('p', 'Your guide is approaching. You can wait here, continue to the next stop, or leave the jaunt.', 'jaunt-meta');
-      waiting.setAttribute('role', 'status'); waiting.setAttribute('aria-live', 'polite');
-      body.append(waiting);
+      body.append(node('p', 'Your guide is approaching. You can wait here, continue to the next stop, or leave the jaunt.', 'jaunt-meta'));
     } else {
-      const hear = listen('stop', stop.id); if (hear) body.append(hear);
+      let hear = listen('stop', stop.id); if (hear) body.append(hear);
       const historicalClaims = stop.narrative ? stop.evidence.filter(id => state.jaunt.evidence.find(c => c.id === id)?.confidence !== 'reconstructed') : stop.evidence;
-      prose(body, stop.text, historicalClaims, historicalClaims?.every(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'), [], stop.since);
+      const told = prose(body, stop.text, historicalClaims, historicalClaims?.every(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'), [], stop.since);
+      // T-3671: words the card withholds are not read aloud either.
+      if (told.dataset.withheld !== undefined) { withheld = true; hear?.remove(); hear = null; }
+      transcript('stop', stop.id, [told], hear);
       if (stop.narrative) prose(body, stop.narrative, stop.evidence.filter(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'), true);
       // T-3553: a stop played by its people (jaunt-stage.js) can be watched again from the start.
       if (stop.stage?.cast?.length && actions.replay) {
@@ -440,13 +567,16 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     readingTabs(body, opening ? { into: body } : { after: heading });
     body.scrollTop = scroll; key = nextKey;
     if (!open) restoreView();
-    narration?.at(state.jaunt, ...(opening ? ['opening', 'opening'] : state.phase === 'atStop' && !state.hostWaiting ? ['stop', stop.id] : [null]));
+    narration?.at(state.jaunt, ...(opening ? ['opening', 'opening'] : state.phase === 'atStop' && !state.hostWaiting && !withheld ? ['stop', stop.id] : [null]));
+    syncTranscripts(); paintVoice(); tell(outingNews(state, place, where));
     if (listening) body.querySelector('[data-action="listen"]')?.focus({ preventScroll: true });
     else if (focused && same) [...body.querySelectorAll('[data-choice]')].find(el => el.dataset.choice === focused)?.focus();
-    else if (state.phase === 'atStop' && (!same || old?.phase === 'travelling')) heading.focus({ preventScroll: true });
+    else if (onHeading || (state.phase === 'atStop' && (!same || old?.phase === 'travelling'))) heading.focus({ preventScroll: true });
   }
   return { render, get collapsed() { return collapsed; }, collapse: value => setCollapsed(value, { focus: false }),
+    /** T-3671: the visitor is at the closing scene (jaunt-pace.js createClosingClock `hold`). */
+    get holding() { return engaged && root.classList.contains('jaunt-closing'); },
     /** The owner, 2026-11-16: the meter, from jaunt-pace.js meterReading (null hides it). */
     meter(m) { for (const x of meters) x.set(m); },
-    destroy() { offNarration?.(); narration?.end(); observer.disconnect(); controlSize.disconnect(); root.remove(); sheet.remove(); document.documentElement.removeAttribute('data-jaunt-active'); document.documentElement.removeAttribute('data-jaunt-collapsed'); document.documentElement.style.removeProperty('--jaunt-nav'); } };
+    destroy() { offNarration?.(); narration?.end(); observer.disconnect(); swaps.disconnect(); controlSize.disconnect(); root.remove(); status.remove(); sheet.remove(); document.documentElement.removeAttribute('data-jaunt-active'); document.documentElement.removeAttribute('data-jaunt-collapsed'); document.documentElement.style.removeProperty('--jaunt-nav'); } };
 }

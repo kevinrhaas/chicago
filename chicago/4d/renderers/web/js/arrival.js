@@ -2,6 +2,7 @@ import { t } from './strings/index.js';
 import './strings/arrival.js';
 import { createLoadingContent } from './loading-content.js';
 import { arrivalTitles, scenePresentation } from './scene-presentation.js';
+import { reducedMotion as reducedMotionNow } from './motion.js';
 /** Arrival presentation over the real boot controller (T-1247). */
 const clamp01 = n => Math.max(0, Math.min(1, Number.isFinite(n) ? n : 0));
 
@@ -123,8 +124,7 @@ export function createArrival({
   // T-2611: told each year the ticker shows, as it shows it (the time-stream captions).
   onYear = () => {},
   currentYear = new Date().getFullYear(),
-  reducedMotion = typeof matchMedia === 'function'
-    ? matchMedia('(prefers-reduced-motion: reduce)').matches : false,
+  reducedMotion = reducedMotionNow(), // T-3671: Settings › Look › Motion (js/motion.js)
   now = () => performance.now(),
   reload = () => location.reload(),
   requestFrame = typeof requestAnimationFrame === 'function' ? requestAnimationFrame : null,
