@@ -3680,14 +3680,14 @@
       "phase_id": "stable_1833",
       "structure_id": "mansion_house_stable"
     },
-    "mark_kimball_house_2108_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "mark_kimball_house_2108_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 97524,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "387cede9b87c1601c7fb60b4710f8723e1df8742f16677fa96fff5667094eeb4",
+      "bytes": 3105272,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "ef393a3791e960d7d1985f66b881c96a02da1be2b44d2390d1035d05243c444e",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "mark_kimball_house_2108_prairie"
     },
     "mark_kimball_house_2108_prairie_coach_house__draft_1904.glb": {

@@ -153,15 +153,15 @@
  },
  "summary": {
   "lots": 149,
-  "shrubs": 153,
+  "shrubs": 155,
   "trees": 13,
   "beds": 11,
   "creeper_patches": 55,
   "attested_plants": 38,
-  "lots_with_a_door": 116,
+  "lots_with_a_door": 115,
   "schemes": {
-   "corners": 75,
-   "group": 23,
+   "corners": 76,
+   "group": 22,
    "lawn": 34,
    "pictured": 3,
    "pictured bare": 7,
@@ -6990,16 +6990,26 @@
     ],
     "width_m": 7.88
    },
-   "front_m": 7.27,
-   "doors": [
+   "front_m": 7.28,
+   "doors": [],
+   "scheme": "corners",
+   "grade": "reconstructed",
+   "shrubs": [
     [
-     3.43,
-     7.34
+     1388.18,
+     -3641.59,
+     "lilac",
+     2.26,
+     1.84
+    ],
+    [
+     1389.93,
+     -3642.59,
+     "lilac",
+     2.21,
+     1.8
     ]
    ],
-   "scheme": "group",
-   "grade": "reconstructed",
-   "shrubs": [],
    "trees": [],
    "beds": [],
    "creeper": []

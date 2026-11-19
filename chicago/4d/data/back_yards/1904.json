@@ -53,9 +53,9 @@
   "garden_bed": "kitchen garden bed"
  },
  "summary": {
-  "lots": 133,
+  "lots": 132,
   "surfaces": 283,
-  "doors": 125,
+  "doors": 124,
   "posts": 114,
   "gardens": 30,
   "by_kind": {
@@ -15790,59 +15790,6 @@
      269.58,
      4.31,
      3.61
-    ]
-   ],
-   "beds": []
-  },
-  {
-   "parcel": "prairie_2108",
-   "addresses": [
-    "2108"
-   ],
-   "street": "prairie",
-   "side": "west",
-   "structures": [
-    "mark_kimball_house_2108_prairie",
-    "mark_kimball_house_2108_prairie_coach_house"
-   ],
-   "scheme": "service_court",
-   "grade": "reconstructed",
-   "sources": [],
-   "note": "",
-   "surfaces": [],
-   "doors": [
-    {
-     "id": "prairie_2108:back_door",
-     "structure": "mark_kimball_house_2108_prairie",
-     "e": 1370.59,
-     "n": -3642.03,
-     "facing_deg": 269.42,
-     "sill_m": 1.4,
-     "width_m": 0.95,
-     "height_m": 2.2,
-     "leaf": true,
-     "stoop": {
-      "depth_m": 1.1,
-      "width_m": 1.6,
-      "risers": 8,
-      "run_m": 3.06,
-      "material": "wood"
-     },
-     "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
-    }
-   ],
-   "posts": [],
-   "crops": [],
-   "shrubs": [],
-   "trees": [],
-   "creeper": [
-    [
-     1352.01,
-     -3645.22,
-     89.42,
-     3.29,
-     4.68
     ]
    ],
    "beds": []
