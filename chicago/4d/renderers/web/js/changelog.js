@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3116, ts: '2026-11-19T04:22:32.326Z', date: 'Nov 18, 2026, 10:22 PM CT', title: '1823 Prairie\'s pavilion crowned as the 1883 album draws it', kind: 'improvement',
+    items: [
+      'The Dent house\'s south pavilion now ends in a stone attic front with wide paired lights, a scrolled console either side, between slated cheeks.',
+      'A pediment and finial stand over that front alone, and a steep slated crown rises behind them, where the attic used to be stone from corner to corner under a plain gable.',
+      'Both of the house\'s pictures now match the building: nothing on either comparison is still open.',
+    ] },
   { v: 3115, ts: '2026-11-19T04:15:58.034Z', date: 'Nov 18, 2026, 10:15 PM CT', title: 'Save discoveries and explore Chicago with a photo hunt', kind: 'feature',
     items: [
       'Save a stamped photo and share a view from Home. Guide\'s Field notebook keeps notes, selected people, citations and small photos in this browser, with download and print to PDF. Completed jaunts offer optional cited reflections; For teachers adds printable lesson guides with suggested Illinois and C3 connections.',
