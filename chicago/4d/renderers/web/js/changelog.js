@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3135, ts: '2026-11-19T20:51:01.064Z', date: 'Nov 19, 2026, 2:51 PM CT', title: 'Teachers can build a route and share it as one link', kind: 'feature',
+    items: [
+      'Guide\'s For teachers has Make a route for your class: start from a jaunt, or find buildings, viewpoints and people of this year and put them in your own order.',
+      'Add a short note and a question to any stop, give the route a title, then copy one share link or download a route file you can open again.',
+      'A student who opens the link lands in that year with the route pinned at the top of Jaunts: each stop in order with Go there, and the teacher\'s note and question marked as the teacher\'s words.',
+      'Answers save to the student\'s own field notebook, ready to download and hand in. Nothing is uploaded and no account is needed.',
+      'A link for another year offers that year\'s link; a broken or too-long link, or stops this town does not hold, leave you in the town with a message saying so.',
+    ] },
   { v: 3134, ts: '2026-11-19T19:53:50.791Z', date: 'Nov 19, 2026, 1:53 PM CT', title: '1812 runs smoothly again after you open the Jaunts list', kind: 'fix',
     items: [
       'In 1812, opening the Jaunts list could leave every frame after it taking seconds. It now stays as smooth as before you opened it.',
