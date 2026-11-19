@@ -22,11 +22,20 @@ passes with the new step registered. Test SHA256:
 A separate foreground timing measured 0.128 seconds (exit 0); no budget increase.
 This is one tree's no-write measurement, not a full gate verdict.
 
-A native DOM fixture is prepared at `/tmp/t3663-investigation-browser.mjs`, not yet
-run. It targets the actual completion view at 390×780 and 1280×800: native summary,
+A native DOM fixture passed 53 checks at 390×780 and 1280×800 using the actual
+completion view: native summary,
 checkbox and textarea traversal, Space activation, review/revise focus, save statuses,
 quota refusal, same-session repaint, replay/dismissal, 200% text and exported HTML/PDF.
-The existing renderer owns CPU; no browser, publisher or full source gate was started.
-Complete source/preflight and required published smoke remain before merge, after the
-current classroom delivery lands. No hardware or complete assistive-technology audit
-is claimed.
+It recorded no page, console or HTTP errors. The first fixture attempt incorrectly
+forbade the rejected editorial supply inside the source locator's explicit warning;
+that attempt is preserved, and the corrected check distinguishes the quotation from
+the locator. No application change was needed. This is a no-world fixture, not a
+substitute for the actual published Gossip route and committed completion.
+
+PR #2197 has landed; this feature is integrated on DEV `38f51fcda`, preserving its
+folded changelog and latest 1904 geometry. Complete source/preflight and required
+published checks remain before merge. Fresh stages 13–15 cover the changed feed,
+1904 inputs and Jaunts integration; dedicated completed-Gossip flows cover this case.
+Earlier evidence requires an exact input/behavior review. No hardware or complete
+assistive-technology audit is claimed. PR #2205 and the evidence repository carry
+the final results without treating this checkpoint as a release verdict.

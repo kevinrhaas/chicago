@@ -27,8 +27,8 @@ ground validation. Do not preload multiple years to implement it.
 T-3657 and T-3658 add **7** and a bounded first slice of **10** to the same
 classroom PR: a five-photo hunt in 1904, native browser magnification/panning in the
 Navigator, keyboard-safe picture dialogs, and a visible rail Tab stop while Move or
-Jump is open. Pure, browser-fixture and native-town integration checks pass;
-complete release validation remains before the combined PR merges. Keyboard ownership
+Jump is open. The combined PR #2197 merged to DEV after its source and renderer gates
+passed. Keyboard ownership
 also keeps arrows and Space with focused controls and releases held world movement
 when focus enters a reader. The earlier draft PR #2199 is superseded by #2197.
 The hunt reuses five photographs of four places, with a daily order and shared date,
@@ -42,7 +42,8 @@ It displays our readings of two newspaper transcriptions, with dates, locators,
 citations and uncertainty. The lost sale figure remains lost; the Springfield building
 is an inference. Save keeps the student's chosen support and answer with both readings
 in the existing notebook. No new account, service, route or source image is involved.
-This separate implementation waits for the first delivery to land and for its own gates.
+This separate implementation follows the merged first delivery and still requires
+its own complete release gates in PR #2205.
 
 ## Disposition of all twenty items
 
@@ -54,10 +55,10 @@ This separate implementation waits for the first delivery to land and for its ow
 | 4 | Understanding checks | First delivery: three optional cited reflection prompts, grade-aware wording and evidence self-review. No scoring or automatic assertion that a student's answer is correct. Authored guide-voice quizzes remain a content refinement. |
 | 5 | Lesson guides | First delivery: current catalog groups, document tasks, discussion and suggested standards connections; preserve source type and provenance. |
 | 6 | Class codes and teacher view | Defer shared class storage, authentication and cross-device submissions. Local exports are useful now but are not a dashboard. |
-| 7 | Where and when? | T-3657 implemented in the combined delivery: five licensed 1904-scene photographs, deterministic daily/shareable order, ground-distance scores, source/date reveals and bounded local progress. One image at a time; no leaderboard service. Native-town integration passes; complete release gates pending. |
+| 7 | Where and when? | T-3657 merged to DEV in #2197: five licensed 1904-scene photographs, deterministic daily/shareable order, ground-distance scores, source/date reveals and bounded local progress. One image at a time; no leaderboard service. |
 | 8 | Mysteries with sources | T-3663: first bounded case in progress, attached to eligible Gossip completion. Compare two cited newspaper readings, choose support, write a claim/uncertainty, review an ungraded guide and explicitly save to Notebook. No invented witnesses or new engine; browser and release validation pending. |
 | 9 | Play a part | Existing engine already supports choices and alternate endings. Later authored historical-role stories, with reconstruction labelled. |
-| 10 | Accessibility | T-3658 follow-up implemented: native Navigator zoom/pan with stable canvas sizing and usable movement controls; keyboard-contained picture dialogs with Escape, background isolation and focus return; a visible rail Tab stop while Move or Jump is open. Browser fixtures and native-town integration pass; complete release gates pending. Broader menu/card and assistive-technology audit remains; no full WCAG 2.1 AA claim. |
+| 10 | Accessibility | T-3658 merged to DEV in #2197: native Navigator zoom/pan with stable canvas sizing and usable movement controls; keyboard-contained picture dialogs with Escape, background isolation and focus return; a visible rail Tab stop while Move or Jump is open. Broader menu/card and assistive-technology audit remains; no full WCAG 2.1 AA claim. |
 | 11 | Assign/build a jaunt | Later browser-only subset: assignment links and portable route/question files. Shared authoring libraries and submission tracking need storage. |
 | 12 | Classroom/Clever/Canvas | Ordinary links/files can be assigned manually now. Defer provider setup, SSO, add-ons and grade sync. |
 | 13 | Follow the teacher | Defer live cross-device coordination. Projection works now. |

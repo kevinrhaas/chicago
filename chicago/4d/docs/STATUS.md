@@ -1,6 +1,7 @@
 ## T-3663 — Gossip source comparison checkpoint (19 November 2026)
 
-Implemented separately after the T-3656/T-3657/T-3658 delivery candidate. Eligible
+Integrated onto DEV `38f51fcda` after the T-3656/T-3657/T-3658 delivery merged in
+PR #2197. The prior feature checkpoint remains on `backup/t3663-before-dev`. Eligible
 Gossip completions offer a collapsed **Make your case** beside the existing reflection:
 two newspaper readings, selected support, a claim, an uncertainty and an ungraded
 reading guide. Save explicitly adds an ordinary note to the existing bounded notebook;
@@ -16,10 +17,19 @@ Focused pure checks pass for all five tellings, exclusions, complete provenance,
 bounded/duplicate/revised saves, edited notebook entries, storage failures and escaped
 HTML export. Existing reflection/notebook regressions and the string lint pass.
 The registered pure gate step was officially measured with `--tool`: no tracked or
-ignored writes, and the isolation audit passes. Native keyboard/mobile/magnification and
-readable export validation, complete source/preflight and required published smoke remain pending.
-No browser, publisher or full source gate ran while the current release owned the CPU.
-This checkpoint is not a release verdict and must not merge before PR #2197 lands green.
+ignored writes, and the isolation audit passes. The native no-world fixture passed
+53 checks across 390×780 and 1280×800 with no page, console or HTTP errors: native
+summary/checkbox/textarea and Space behavior, saves/revisions, retained drafts after
+quota failure, repaint/replay/dismissal, 200% text and HTML/PDF export. Its first attempt
+incorrectly forbade the rejected editorial supply even in the source locator's explicit
+warning; that failed fixture attempt is preserved. The corrected check separately
+verifies the quotation's missing figure and the locator's rejection of that supply.
+
+The real published Gossip completion flow and the final combined source/release gates
+remain pending at this checkpoint. Latest DEV also changes the served changelog and
+1823 Prairie's 1904 model, so fresh published stages 13–15 at both widths are required.
+Earlier renderer evidence carries only under explicit input and behavior review.
+PR #2205 and its linked evidence record the final results; this is not a release verdict.
 
 ## T-3656, T-3657, T-3658 — Combined browser-only delivery (19 November 2026)
 
