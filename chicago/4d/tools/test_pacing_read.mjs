@@ -4,7 +4,7 @@
 // T-2733: the readout's scene, Sharpness and drawn ratio, the longer run, and every
 // scene's own poses walked against that scene's structure footprints.
 import assert from 'node:assert/strict';
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -192,7 +192,9 @@ assert.equal(sceneOf(undefined), '');
 // the poses knew only 1835's anchor ids. The footprints are the walker's own
 // (walker.js footprintsFrom — copied here because that module imports three, which
 // node does not resolve): each sidecar's polygon turned by its placement, skipping
-// decks on water, records another layer draws, and camps.
+// decks on water, records another layer draws, and camps. Context buildings use
+// city-context.js's own rectangle/rotation convention; an empty named-structure
+// registry must not leave a context city's reading route unchecked.
 const CLEARANCE_M = 1.5; // the walker's 0.34 m shoulder, and room to spare
 const inside = (e, n, pts) => {
   let hit = false;
@@ -227,7 +229,29 @@ function footprints(scene) {
     const e0 = p.local_e ?? 0; const n0 = p.local_n ?? 0;
     out.push({ id: sc.id, pts: poly.map(([u, v]) => [e0 + u * cos + v * sin, n0 - u * sin + v * cos]) });
   }
-  return out;
+  const contextPath = join(ROOT, 'data/context', `${scene}.json`);
+  if (existsSync(contextPath)) {
+    const context = JSON.parse(readFileSync(contextPath, 'utf8'));
+    const columns = Object.fromEntries((context.fields?.buildings ?? []).map((key, i) => [key, i]));
+    const value = (row, key, fallback) => Array.isArray(row)
+      ? (columns[key] == null ? fallback : row[columns[key]]) : (row[key] ?? fallback);
+    for (const row of context.buildings ?? []) {
+      const e = +value(row, 'e'); const n = +value(row, 'n');
+      const w = +value(row, 'width_m'); const d = +value(row, 'depth_m');
+      const th = -value(row, 'bearing_deg', 0) * Math.PI / 180;
+      assert.ok([e, n, w, d, th].every(Number.isFinite) && w > 0 && d > 0,
+        `${scene} context footprint has finite positive dimensions`);
+      const cos = Math.cos(th); const sin = Math.sin(th);
+      out.push({ id: value(row, 'id', `${e},${n}`),
+        pts: [[-w / 2, -d / 2], [w / 2, -d / 2], [w / 2, d / 2], [-w / 2, d / 2]]
+          .map(([x, z]) => [e + cos * x + sin * z, n + sin * x - cos * z]) });
+    }
+  }
+  // A bounding box rejects only points already farther away than the required
+  // clearance. Near every footprint the unchanged polygon/edge checks still run.
+  return out.map((f) => ({ ...f,
+    e0: Math.min(...f.pts.map(([e]) => e)), e1: Math.max(...f.pts.map(([e]) => e)),
+    n0: Math.min(...f.pts.map(([, n]) => n)), n1: Math.max(...f.pts.map(([, n]) => n)) }));
 }
 const scenes = readdirSync(join(ROOT, 'data/scenes')).filter((f) => /^\d+\.json$/.test(f)).map((f) => f.replace('.json', ''));
 assert.ok(scenes.length >= 3);
@@ -238,6 +262,8 @@ for (const scene of scenes) {
   assert.ok(fps.length > 0, `scene ${scene} has footprints to walk against`);
   const clear = (e, n, what) => {
     for (const fp of fps) {
+      if (e < fp.e0 - CLEARANCE_M || e > fp.e1 + CLEARANCE_M
+        || n < fp.n0 - CLEARANCE_M || n > fp.n1 + CLEARANCE_M) continue;
       assert.ok(!inside(e, n, fp.pts), `${scene} ${what} at ${e.toFixed(1)},${n.toFixed(1)} is inside ${fp.id}`);
       const d = edgeDistance(e, n, fp.pts);
       assert.ok(d >= CLEARANCE_M, `${scene} ${what} at ${e.toFixed(1)},${n.toFixed(1)} is ${d.toFixed(2)} m from ${fp.id}`);
@@ -261,6 +287,36 @@ for (const scene of scenes) {
   for (const move of MOVES) {
     const p = poseFrom(poses, move, WALK.speed)(LONG_SECONDS);
     assert.ok(Number.isFinite(p.local_e) && Number.isFinite(p.local_n) && Number.isFinite(p.yaw_deg));
+  }
+}
+
+// 1871's context is collision geometry, even though it has no named structures.
+// Its full benchmark walk stays on the actual mapped Madison road ribbon, with
+// room for the walker's shoulder, and uses its own downtown/river anchors.
+{
+  const context = JSON.parse(readFileSync(join(ROOT, 'data/context/1871.json'), 'utf8'));
+  const scene = JSON.parse(readFileSync(join(ROOT, 'data/scenes/1871.json'), 'utf8'));
+  const anchor = (id) => scene.anchors.find((a) => a.id === id);
+  const poses = SCENE_POSES[1871];
+  const downtown = anchor('downtown'); const above = anchor('river_from_above');
+  assert.equal(footprints('1871').length, context.buildings.length,
+    'every generated context building participates in the clearance check');
+  assert.deepEqual(poses.walk.from, [downtown.local_e, downtown.local_n]);
+  assert.deepEqual(poses.turn, { at: [downtown.local_e, downtown.local_n], yaw_deg: downtown.yaw_deg });
+  assert.deepEqual(poses.flight, { from: [above.local_e, above.local_n], yaw_deg: above.yaw_deg,
+    altitude_m: above.altitude_m, pitch_deg: above.pitch_deg });
+  const roads = context.walk_surfaces.filter((r) => r.kind === 'road' && r.id.startsWith('madison_street__'));
+  assert.ok(roads.length > 0, 'mapped Madison Street has emitted road ribbons');
+  const onRoad = (e, n) => roads.some(({ a, b, width_m: width }) => {
+    const de = b[0] - a[0]; const dn = b[1] - a[1]; const len = Math.hypot(de, dn);
+    const along = ((e - a[0]) * de + (n - a[1]) * dn) / len;
+    const across = (-(e - a[0]) * dn + (n - a[1]) * de) / len;
+    return along >= 0 && along <= len && Math.abs(across) + 0.34 <= width / 2;
+  });
+  const length = poses.walk.legs.reduce((sum, [, len]) => sum + len, 0);
+  for (let d = 0; d <= length; d += 0.5) {
+    const p = walkAt(poses.walk, d);
+    assert.ok(onRoad(p.local_e, p.local_n), `1871 walk at ${d} m stays on mapped Madison Street`);
   }
 }
 

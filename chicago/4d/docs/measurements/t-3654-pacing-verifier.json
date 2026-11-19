@@ -1,0 +1,44 @@
+{
+  "ticket": "T-3654",
+  "recorded_utc": "2026-11-18T20:22:56.140516+00:00",
+  "base_commit": "1dfe13b3620fae3aab33e6d772280f1f2fc74920",
+  "scope": "QA verifier only; application runtime is unchanged.",
+  "file": "tools/qa_pacing_read_t2732.mjs",
+  "sha256": "7f09ad04410f3b59f4001e27cca0e563c136270f4a907360137ae87e54567d03",
+  "problem": "The old regex required the drawn ratio at the end of each row, although the established formatter appends driver-draw statistics.",
+  "repair": "Require six distinct move/mode rows, all nine numeric columns including a positive ratio or ordered ratio range, and only the known switch, pacing and driver-draw suffix grammar in order.",
+  "focused_proof": {
+    "cases": 15,
+    "result": "pass",
+    "source_receipt_sha256": "8ed2d99d1bdf18d3e3272abd5af97c7809096ff1225b927eac864a23a8eccc2d",
+    "negative_examples": [
+      "missing ratio",
+      "malformed numeric field",
+      "malformed driver suffix",
+      "unknown trailing text",
+      "duplicate move/mode pair",
+      "out-of-order suffix"
+    ]
+  },
+  "native_attempts": [
+    {
+      "attempt": 1,
+      "verdict": "failed",
+      "reason": "The old row-format assertion rejected the valid existing driver-draw suffix. Six drives, visible context and restoration otherwise passed."
+    },
+    {
+      "attempt": 2,
+      "verdict": "failed",
+      "reason": "The repaired matcher passed all six actual rows, but an artifact-only scroll in the temporary harness targeted an inactive Settings subsection and timed out. Unreached assertions are not credited."
+    },
+    {
+      "attempt": 3,
+      "verdict": "pending",
+      "scope": "Fresh canonical assertions without the optional capture scroll. Candidate is ae259 publication plus the exact committed 1dfe pacing module, not a complete 1dfe publication."
+    }
+  ],
+  "limits": [
+    "The complete native proof and full source/legacy gates remain pending at this checkpoint.",
+    "Earlier failed attempts are retained rather than relabeled."
+  ]
+}

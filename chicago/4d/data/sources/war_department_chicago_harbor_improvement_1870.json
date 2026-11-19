@@ -1,0 +1,27 @@
+{
+  "id": "war_department_chicago_harbor_improvement_1870",
+  "type": "book",
+  "citation": "Improvement of the Chicago Harbor. 1870-02-07. https://www.govinfo.gov/app/details/SERIALSET-01417_00_00-065-0114-0000",
+  "author": "United States War Department, Office of the Chief of Engineers",
+  "date": "1870-02-07",
+  "describes_date": "1870-02-07",
+  "repository": "U.S. Government Publishing Office, Congressional Serial Set",
+  "url": "https://www.govinfo.gov/app/details/SERIALSET-01417_00_00-065-0114-0000",
+  "locator": "Printed pp. 1\u20136, report and proposal; pp. 7\u20138 not yet closely read Raster or PDF SHA-256 ebd472f22c65d186b34ec93800bbcc01788f10c3c02f61695bbd2f42f104641e.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "Public domain \u2014 United States Government publication.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Downloaded and inspected on 2026-11-18. Download: https://www.govinfo.gov/content/pkg/SERIALSET-01417_00_00-065-0114-0000/pdf/SERIALSET-01417_00_00-065-0114-0000.pdf ",
+  "what_it_supplies": [
+    "Wheeler reports actual harbor entrance and lakefront survey in July and August 1869; accompanying tracing W at 400 feet to one inch (1:4800), extending about three-quarters mile north and one-and-one-quarter miles south of entrance.",
+    "Report describes accompanying chronological sketches of 1858, 1865 and end of 1869; matching 1869 sketch found separately as NARA86744439.",
+    "Proposed outer harbor is indicated by red dotted lines. Proposal is not proof of built works.",
+    "If appropriation made in 1870, material delivery and construction proposed to start early in 1871."
+  ],
+  "what_it_does_not_supply": [
+    "A validated WGS84 positional accuracy; dates of unrecorded construction between survey and 8 October 1871."
+  ],
+  "note": "The survey and proposed improvement are distinguished; the cited eight-page scan omits its referenced tracing W. New source reading; only the named pages were closely read."
+}

@@ -1,0 +1,323 @@
+{
+  "map_control": {
+    "source": "mitchell_1870_chicago_map",
+    "raster": "../pre_fire_v1/maps/images/1870_mitchell_map.jpg",
+    "width": 2405,
+    "height": 3000,
+    "sha256": "7c9284f406e799c1e9968d737140218c089489bb7b1f3c7dcbeb5735b069219a",
+    "fit_type": "affine_least_squares",
+    "coefficients": {
+      "a": 4.028554693764356,
+      "b": -0.0001714573603983638,
+      "c": -4831.649749569166,
+      "d": -0.004651224684253193,
+      "e": -4.095352933611701,
+      "f": 5562.725215391524
+    },
+    "formula": "E=a*px+b*py+c; N=d*px+e*py+f",
+    "rms_m": 37.73,
+    "max_residual_m": 62.64,
+    "picking_uncertainty_m": 20,
+    "context_uncertainty_m": 80,
+    "controls": [
+      {
+        "id": "M1",
+        "feature": "State Street x Madison Street",
+        "pixel": [
+          1420,
+          1484
+        ],
+        "local": [
+          837.63,
+          -525.27
+        ],
+        "modern_control": {
+          "lon": -87.6278089,
+          "lat": 41.8820455,
+          "local_e": 837.63,
+          "local_n": -525.27,
+          "osm_crossings": 4,
+          "crossing_spread_m": 0.0
+        },
+        "residual_m": 51.16
+      },
+      {
+        "id": "M2",
+        "feature": "State Street x Cermak Road (Twenty-Second Street)",
+        "pixel": [
+          1416,
+          2272
+        ],
+        "local": [
+          873.37,
+          -3764.52
+        ],
+        "modern_control": {
+          "lon": -87.6270931,
+          "lat": 41.8528741,
+          "local_e": 873.37,
+          "local_n": -3764.52,
+          "osm_crossings": 8,
+          "crossing_spread_m": 6.0
+        },
+        "residual_m": 16.05
+      },
+      {
+        "id": "M3",
+        "feature": "State Street x Roosevelt Road (Twelfth Street)",
+        "pixel": [
+          1420,
+          1888
+        ],
+        "local": [
+          855.68,
+          -2149.07
+        ],
+        "modern_control": {
+          "lon": -87.6274484,
+          "lat": 41.8674222,
+          "local_e": 855.68,
+          "local_n": -2149.07,
+          "osm_crossings": 15,
+          "crossing_spread_m": 7.5
+        },
+        "residual_m": 42.45
+      },
+      {
+        "id": "M4",
+        "feature": "State Street x Thirty-First Street",
+        "pixel": [
+          1414,
+          2669
+        ],
+        "local": [
+          895.1,
+          -5383.34
+        ],
+        "modern_control": {
+          "lon": -87.626689,
+          "lat": 41.8382958,
+          "local_e": 895.1,
+          "local_n": -5383.34,
+          "osm_crossings": 7,
+          "crossing_spread_m": 7.7
+        },
+        "residual_m": 32.12
+      },
+      {
+        "id": "M5",
+        "feature": "Halsted Street x Madison Street",
+        "pixel": [
+          1005,
+          1490
+        ],
+        "local": [
+          -784.8,
+          -542.46
+        ],
+        "modern_control": {
+          "lon": -87.6473605,
+          "lat": 41.8817821,
+          "local_e": -784.8,
+          "local_n": -542.46,
+          "osm_crossings": 3,
+          "crossing_spread_m": 0.0
+        },
+        "residual_m": 2.23
+      },
+      {
+        "id": "M6",
+        "feature": "Halsted Street x Cermak Road (Twenty-Second Street)",
+        "pixel": [
+          1015,
+          2274
+        ],
+        "local": [
+          -737.65,
+          -3775.7
+        ],
+        "modern_control": {
+          "lon": -87.6464988,
+          "lat": 41.8526658,
+          "local_e": -737.65,
+          "local_n": -3775.7,
+          "osm_crossings": 4,
+          "crossing_spread_m": 0.0
+        },
+        "residual_m": 21.56
+      },
+      {
+        "id": "M7",
+        "feature": "Halsted Street x Roosevelt Road (Twelfth Street)",
+        "pixel": [
+          1010,
+          1892
+        ],
+        "local": [
+          -762.46,
+          -2164.46
+        ],
+        "modern_control": {
+          "lon": -87.6469439,
+          "lat": 41.8671754,
+          "local_e": -762.46,
+          "local_n": -2164.46,
+          "osm_crossings": 10,
+          "crossing_spread_m": 10.2
+        },
+        "residual_m": 25.93
+      },
+      {
+        "id": "M8",
+        "feature": "Halsted Street x North Avenue",
+        "pixel": [
+          991,
+          698
+        ],
+        "local": [
+          -837.15,
+          2693.96
+        ],
+        "modern_control": {
+          "lon": -87.6482861,
+          "lat": 41.9109266,
+          "local_e": -837.15,
+          "local_n": 2693.96,
+          "osm_crossings": 3,
+          "crossing_spread_m": 0.0
+        },
+        "residual_m": 6.06
+      },
+      {
+        "id": "M9",
+        "feature": "Western Avenue x Madison Street",
+        "pixel": [
+          215,
+          1498
+        ],
+        "local": [
+          -4027.13,
+          -585.68
+        ],
+        "modern_control": {
+          "lon": -87.6864316,
+          "lat": 41.8811659,
+          "local_e": -4027.13,
+          "local_n": -585.68,
+          "osm_crossings": 4,
+          "crossing_spread_m": 0.0
+        },
+        "residual_m": 62.64
+      },
+      {
+        "id": "M10",
+        "feature": "Western Avenue x Roosevelt Road (Twelfth Street)",
+        "pixel": [
+          216,
+          1898
+        ],
+        "local": [
+          -4007.93,
+          -2201.51
+        ],
+        "modern_control": {
+          "lon": -87.6860446,
+          "lat": 41.8666148,
+          "local_e": -4007.93,
+          "local_n": -2201.51,
+          "osm_crossings": 6,
+          "crossing_spread_m": 0.0
+        },
+        "residual_m": 47.14
+      },
+      {
+        "id": "M11",
+        "feature": "Ashland Avenue x Chicago Avenue",
+        "pixel": [
+          590,
+          1102
+        ],
+        "local": [
+          -2427.15,
+          1056.53
+        ],
+        "modern_control": {
+          "lon": -87.6673033,
+          "lat": 41.8960697,
+          "local_e": -2427.15,
+          "local_n": 1056.53,
+          "osm_crossings": 7,
+          "crossing_spread_m": 6.8
+        },
+        "residual_m": 29.46
+      },
+      {
+        "id": "M12",
+        "feature": "Ashland Avenue x Madison Street",
+        "pixel": [
+          592,
+          1494
+        ],
+        "local": [
+          -2398.49,
+          -565.37
+        ],
+        "modern_control": {
+          "lon": -87.666806,
+          "lat": 41.8814645,
+          "local_e": -2398.49,
+          "local_n": -565.37,
+          "osm_crossings": 8,
+          "crossing_spread_m": 7.1
+        },
+        "residual_m": 49.0
+      },
+      {
+        "id": "M13",
+        "feature": "Ashland Avenue x Roosevelt Road (Twelfth Street)",
+        "pixel": [
+          596,
+          1895
+        ],
+        "local": [
+          -2378.03,
+          -2188.42
+        ],
+        "modern_control": {
+          "lon": -87.6664075,
+          "lat": 41.8668483,
+          "local_e": -2378.03,
+          "local_n": -2188.42,
+          "osm_crossings": 16,
+          "crossing_spread_m": 8.8
+        },
+        "residual_m": 54.34
+      },
+      {
+        "id": "M14",
+        "feature": "Ashland Avenue x North Avenue",
+        "pixel": [
+          586,
+          702
+        ],
+        "local": [
+          -2447.54,
+          2673.86
+        ],
+        "modern_control": {
+          "lon": -87.6677009,
+          "lat": 41.9106343,
+          "local_e": -2447.54,
+          "local_n": 2673.86,
+          "osm_crossings": 8,
+          "crossing_spread_m": 4.9
+        },
+        "residual_m": 26.03
+      }
+    ],
+    "control_provenance": "Modern section-intersection targets only, from data/traces/gcp/rees_rucker_1849_gcps.json (OpenStreetMap contributors, ODbL). Fresh manual pixel readings on Mitchell 1870. No 1849 transform, shoreline or street geometry is reused.",
+    "limitations": "Approximately 1:31,000 scale with varying engraved widths. The manual affine fit is contextual registration, not cadastral control. Coverage is Fullerton to Thirty-first and Western to the lake; extensions west and south are reconstructed.",
+    "raster_path_base": "chicago/4d/"
+  },
+  "purpose": "Immutable audit baseline before corrected pixel readings; original RMS37.73m was training error only."
+}

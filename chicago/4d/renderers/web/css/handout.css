@@ -33,7 +33,7 @@
 .handout-print { display: none; }
 
 @media print {
-  /* Three destinations of three Jaunts each (1812's since T-3325) on one Letter page. */
+  /* Four destinations: nine Jaunts and the empty 1871 baseline, on one Letter page. */
   @page { margin: 10mm; }
   html.is-printing-handout, html.is-printing-handout body {
     height: auto !important; min-height: 0 !important; overflow: visible !important;
