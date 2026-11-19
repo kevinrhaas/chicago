@@ -1,0 +1,9 @@
+{
+  "title": "Take a Jaunt opens at once, without a second wait",
+  "kind": "improvement",
+  "items": [
+    "The Jaunts list now opens straight away after the town has loaded. Before, choosing Take a Jaunt meant a second wait, which could run to many seconds in 1835 and 1904.",
+    "While you are on the home screen, the list and its code are fetched quietly in the background. Nothing extra loads while you walk.",
+    "Opening the list no longer works out a walking route for every stop of every card. That work held up the list and used a lot of memory, which mattered most on phones and older computers. A card's time is now worked out from the distances between its stops, and an outing still times its real routes once it starts."
+  ]
+}
