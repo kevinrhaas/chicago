@@ -81,6 +81,114 @@
       "yaw_deg": 100,
       "altitude_m": 350,
       "pitch_deg": -22
+    },
+    {
+      "id": "fire_oleary_barn",
+      "label": "DeKoven Street, before the O'Leary cottage, looking at the barn behind it",
+      "short": "O'Leary barn",
+      "glyph": "street",
+      "local_e": -300.0,
+      "local_n": -2004.0,
+      "yaw_deg": 0.0
+    },
+    {
+      "id": "fire_st_pauls",
+      "label": "Clinton Street south of Mather, looking at St. Paul's church and Bateham's mills",
+      "short": "St. Paul's church",
+      "glyph": "street",
+      "local_e": -266.0,
+      "local_n": -1560.0,
+      "yaw_deg": 16.7
+    },
+    {
+      "id": "fire_parmelee_stables",
+      "label": "Franklin Street at Jackson, looking at the new Parmelee stable",
+      "short": "Parmelee stable",
+      "glyph": "street",
+      "local_e": 192.0,
+      "local_n": -902.0,
+      "yaw_deg": 149.3
+    },
+    {
+      "id": "fire_court_house",
+      "label": "Clark Street at Washington, looking at the Court House in its square",
+      "short": "Court House",
+      "glyph": "street",
+      "local_e": 580.0,
+      "local_n": -408.0,
+      "yaw_deg": 316.9
+    },
+    {
+      "id": "fire_sherman_house",
+      "label": "The Court House square at Clark and Randolph, looking at the Sherman House",
+      "short": "Sherman House",
+      "glyph": "street",
+      "local_e": 560.0,
+      "local_n": -284.0,
+      "yaw_deg": 39.3
+    },
+    {
+      "id": "fire_crosbys",
+      "label": "Washington Street between Dearborn and State, looking at Crosby's Opera House",
+      "short": "Crosby's Opera House",
+      "glyph": "street",
+      "local_e": 770.0,
+      "local_n": -400.0,
+      "yaw_deg": 0.0
+    },
+    {
+      "id": "fire_state_kinzie",
+      "label": "The foot of the State Street viaduct, looking at the corner of Kinzie Street",
+      "short": "State and Kinzie",
+      "glyph": "street",
+      "local_e": 835.0,
+      "local_n": 210.0,
+      "yaw_deg": 12.6
+    },
+    {
+      "id": "fire_water_works",
+      "label": "Chicago Avenue at the lake shore, looking at the Water Tower and the pumping works",
+      "short": "Water Works",
+      "glyph": "street",
+      "local_e": 1090.0,
+      "local_n": 1100.0,
+      "yaw_deg": 53.3
+    },
+    {
+      "id": "fire_tribune",
+      "label": "Dearborn and Madison, looking at the Tribune building on its corner",
+      "short": "Tribune building",
+      "glyph": "street",
+      "local_e": 683.0,
+      "local_n": -497.0,
+      "yaw_deg": 140.9
+    },
+    {
+      "id": "fire_field_leiter",
+      "label": "State and Washington, looking at Field, Leiter and Co.'s marble store",
+      "short": "Field, Leiter & Co.",
+      "glyph": "street",
+      "local_e": 832.0,
+      "local_n": -402.0,
+      "yaw_deg": 38.7
+    },
+    {
+      "id": "fire_ogden_house",
+      "label": "Washington Park, looking at the house of Mahlon D. Ogden",
+      "short": "Ogden house",
+      "glyph": "street",
+      "local_e": 570.0,
+      "local_n": 1359.0,
+      "yaw_deg": 7.7
+    },
+    {
+      "id": "fire_old_cemetery",
+      "label": "The old City Cemetery in Lincoln Park, looking south over the burning North Side",
+      "short": "Old cemetery",
+      "glyph": "street",
+      "local_e": 470.0,
+      "local_n": 2870.0,
+      "yaw_deg": 186.3
     }
   ],
   "layers": [
