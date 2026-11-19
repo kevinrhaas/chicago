@@ -520,6 +520,8 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
     const fov = (camera.fov ?? 72) * Math.PI / 180;
     const tanHalf = Math.tan(fov / 2);
     const vh = Math.max(200, viewHeight() || 780);
+    // T-3671 (WCAG 1.4.4): Settings › Display › Text size (--text-scale, 100-200 %) sizes the names too.
+    const textScale = Math.min(2, Math.max(1, Number(doc?.documentElement?.style?.getPropertyValue?.('--text-scale')) || 1));
     const aspect = camera.aspect || 1;
     camera.updateMatrixWorld?.();
     const rows = [];
@@ -542,7 +544,7 @@ export function createNameCards({ THREE, renderer, camera, list, theme, viewHeig
       // Its depth in the view, for the size that keeps CARD_PX on the screen.
       tmp.copy(head).applyMatrix4(camera.matrixWorldInverse);
       const depth = Math.max(0.3, -tmp.z);
-      const hSlot = cardPx(d, limits.reach) * (2 * depth * tanHalf) / vh;
+      const hSlot = cardPx(d, limits.reach) * textScale * (2 * depth * tanHalf) / vh;
       const wCard = hSlot * (e.w / SLOT_H);
       // T-3630: the bob runs on the cards' own clock, which only `dt` advances, so a held frame holds it.
       const bob = 0.012 * Math.sin((bobT * 1.4 + e.phase) * Math.PI * 2);

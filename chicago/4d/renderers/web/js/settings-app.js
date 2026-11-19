@@ -32,8 +32,9 @@ import { t as str } from './strings/index.js';
 import './strings/settings.js';
 import { NARRATORS, normalNarrator } from './narrators.js'; // T-3627: not the player itself
 
-/** Text size: every Navigator app's text, 100 % to 140 % (QA-18). */
-export const TEXT_SCALES = Object.freeze([1, 1.1, 1.2, 1.3, 1.4]);
+/** Text size: 100 % to 140 % (QA-18), and on to 200 % (T-3671, WCAG 1.4.4) — the Navigator's apps,
+ * its rail and head, the HUD, the cards, a Jaunt's panel, the tour, the hints and the name cards. */
+export const TEXT_SCALES = Object.freeze([1, 1.1, 1.2, 1.3, 1.4, 1.6, 1.8, 2]);
 export function normalTextScale(value) {
   const n = Number(value);
   return TEXT_SCALES.includes(n) ? n : 1;
@@ -230,8 +231,9 @@ export function themeOf(root) {
   return root?.getAttribute?.('data-theme') === 'light' ? 'light' : 'dark';
 }
 
-/** Set the text scale the Navigator's screens read (css/navigator.css, --text-scale), and
- * mark the page while it is above 100 % (html[data-text-scale]). */
+/** Set the text scale the whole interface reads (--text-scale: css/navigator.css for the
+ * Navigator, css/walk.css § T-3671 for the rest), and mark the page while it is above 100 %
+ * (html[data-text-scale]). */
 export function applyTextScale(root, value) {
   const v = normalTextScale(value);
   root?.style?.setProperty?.('--text-scale', String(v));
