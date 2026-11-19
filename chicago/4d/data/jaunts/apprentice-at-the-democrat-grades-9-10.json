@@ -1,0 +1,697 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Newspapers and trades",
+  "menu_group": "Work",
+  "grade_band": "9-10",
+  "review_required": false,
+  "id": "apprentice-at-the-democrat-grades-9-10",
+  "scene": "1835",
+  "title": "Apprentice at the Democrat",
+  "premise": "Play the Chicago Democrat's newest apprentice on publication day, 1 July 1835: decide where the paper goes first and where you linger, and return to the office with an account of the morning that is entirely your own.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: APPRENTICE AT THE DEMOCRAT. Wednesday, 1 July 1835, and you are thirteen years old. Six weeks ago the Chicago Democrat printed a notice: 'Wanted immediately, an apprentice at this office to the printing business'. You answered it, and the printing office took you on. Your days are spent sweeping, inking the type and folding the printed sheets; on Wednesdays, when the paper comes off the press, you carry it through a town that grows a little larger every week.\n\nToday's number is folded and tucked under your arm. Where it travels first, and where you allow yourself to linger, is your decision. The places and the newspapers are genuine; the apprentice is you.",
+    "read_s": 35
+  },
+  "variables": {
+    "first": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "last": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "old-corner",
+      "destination": {
+        "kind": "structure",
+        "id": "chicago_democrat_office"
+      },
+      "text": "At this corner of South Water and Clark, John Calhoun printed the first number of the Democrat on 26 November 1833. The office has since moved: by May its colophon placed it upstairs over Jones & King's hardware store, a short distance along South Water Street, which is where you now work. The paper appears every Wednesday, and today's is No. 11 of its second volume. It also has competition. Since 8 June the town has supported a second weekly, the Chicago American, published on Saturday mornings.",
+      "narrative": "West to the river, or east toward the competition?",
+      "read_s": 29,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "chicago_democrat_office",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_chicago_democrat_printing_office",
+          "label": "The printing office's card"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the Democrat source"
+        }
+      ],
+      "evidence": [
+        "apprentice-wanted",
+        "democrat-corner",
+        "democrat-moved",
+        "democrat-weekly",
+        "two-weeklies",
+        "places",
+        "role"
+      ],
+      "choices": [
+        {
+          "id": "west-first",
+          "label": "Westward to the Sauganash",
+          "consequence": "The river end of town reads the news before anyone else.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "first",
+              "value": 1
+            }
+          ],
+          "next": "sauganash"
+        },
+        {
+          "id": "east-first",
+          "label": "Investigate the rival",
+          "consequence": "You will study the rival paper before anyone has seen yours.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "first",
+              "value": 2
+            }
+          ],
+          "next": "rival"
+        }
+      ]
+    },
+    {
+      "id": "sauganash",
+      "destination": {
+        "kind": "structure",
+        "id": "sauganash_hotel"
+      },
+      "text": "West along the river to Lake and Market, where the branches meet, stands the Sauganash. Juliette Kinzie remembered 'a pretentious white two-story building, with bright-blue wooden shutters'. Your own paper inspected it this June and reported it repaired, fitted up and furnished with neatness and taste. Moses and Kirkland call it 'the most attractive hostlery the city possessed', and remember Mark Beaubien as 'the fiddler par excellence of the town'. Before Chicago had a newspaper, news arrived with the mail, and somebody with a good voice read it aloud standing on 'a dry goods box'. Now it arrives under your arm.",
+      "narrative": "Where the town's travellers gather to read the news.",
+      "read_s": 33,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "sauganash_hotel",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the Democrat source"
+        }
+      ],
+      "evidence": [
+        "sauganash-look",
+        "sauganash-refit",
+        "sauganash-place",
+        "mk-sauganash",
+        "mk-fiddle",
+        "mk-mail-box",
+        "places",
+        "role"
+      ],
+      "next": "the-wharf"
+    },
+    {
+      "id": "rival",
+      "destination": {
+        "kind": "structure",
+        "id": "chicago_american_office"
+      },
+      "text": "East along South Water Street, near the drawbridge, is the office of the Chicago American. T. O. Davis established it on 8 June, so it is barely three weeks old. Its most recent number, of 27 June, carries a druggist's advertisement for the Fire King's Specific, a cholera elixir offered as a certain preventive and cure. The Democrat's own number of 24 June had collected the cholera reports from Alton and Springfield, a Springfield paper and the Alton Spectator among them, and pronounced Chicago uncommonly healthy, promising the facts if the disease appeared. Two newspapers in one small town, each reading the other every week.",
+      "narrative": "Where the competing paper is set and printed.",
+      "read_s": 34,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "chicago_american_office",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_american_1835",
+          "label": "Read the American source"
+        }
+      ],
+      "evidence": [
+        "american-office",
+        "two-weeklies",
+        "american-elixir",
+        "democrat-cholera",
+        "places",
+        "role"
+      ],
+      "next": "the-wharf"
+    },
+    {
+      "id": "the-wharf",
+      "destination": {
+        "kind": "structure",
+        "id": "newberry_dole_warehouse"
+      },
+      "text": "On to the river and Newberry & Dole's warehouse. The firm advertised in the Democrat's very first issue as forwarding and commission merchants, and its card appears in today's number as well, on page four: storage, forwarding and commission merchants, agents for the Merchants' Line, wholesale and retail dealers in dry goods, groceries and provisions. When the schooner Illinois, the first vessel through the new harbour cut, came upriver on 12 July 1834, she was cheered at their wharf. Which bank the warehouse occupied is still disputed. A few copies remain, and the morning is slipping away.",
+      "narrative": "Linger by the river, or complete the round?",
+      "read_s": 32,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "newberry_dole_warehouse",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_newberry_dole",
+          "label": "Newberry & Dole's card"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the Democrat source"
+        }
+      ],
+      "evidence": [
+        "nd-trade",
+        "nd-notice",
+        "illinois-wharf",
+        "nd-bank",
+        "places",
+        "role"
+      ],
+      "choices": [
+        {
+          "id": "watch-sails",
+          "label": "Wait for a sail",
+          "consequence": "You will observe whatever comes upriver and carry it back in your memory.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "last",
+              "value": 1
+            }
+          ],
+          "next": "the-draw"
+        },
+        {
+          "id": "finish-round",
+          "label": "Hurry to the Tremont",
+          "consequence": "The hotel's readers receive their paper before noon.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "last",
+              "value": 2
+            }
+          ],
+          "next": "the-tremont"
+        }
+      ]
+    },
+    {
+      "id": "the-draw",
+      "destination": {
+        "kind": "structure",
+        "id": "dearborn_street_drawbridge"
+      },
+      "text": "East to the foot of Dearborn Street and the town's first drawbridge, which the ship-carpenter Nelson R. Norton began building in March 1834. Moses and Kirkland describe it as '300 feet in length, by sixteen in width', with 'a double draw'; Andreas gives an opening of about sixty feet for passing craft, with gallows frames at either end of the draw. Vessels repeatedly struck it, and it was paid for repairs in September 1834 and mended again this year. Every sail bound for the wharves upriver must pass through this gap, and a newspaper wants to know about each one. Remain on the south bank.",
+      "narrative": "Where the river is crossed by people and passed by vessels.",
+      "read_s": 34,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "dearborn_street_drawbridge",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Andreas, History of Chicago"
+        }
+      ],
+      "evidence": [
+        "draw-built",
+        "draw-size",
+        "draw-repairs",
+        "draw-place",
+        "mk-draw",
+        "places",
+        "role"
+      ],
+      "next": "$end"
+    },
+    {
+      "id": "the-tremont",
+      "destination": {
+        "kind": "structure",
+        "id": "tremont_house_1"
+      },
+      "text": "Up to Lake and Dearborn and the Tremont House, the frame hotel Alanson Sweet built in 1833, kept since 1834 by Ira Couch. Its brick successor of 1850 would be considered so 'absurdly large' that people nicknamed it Couch's Folly. Last week's Democrat announced a new auction and commission house on South Water Street, with its first public sale scheduled for 'the 1st day of July'. That is today, and the hotel's guests will certainly want to know where to go.",
+      "narrative": "Where the final copies are delivered.",
+      "read_s": 27,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "tremont_house_1",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the Democrat source"
+        }
+      ],
+      "evidence": [
+        "tremont-house",
+        "mk-tremont",
+        "auction-today",
+        "places",
+        "role"
+      ],
+      "next": "$end"
+    }
+  ],
+  "legs": [
+    {
+      "from": "old-corner",
+      "to": "sauganash",
+      "note": "West along South Water Street to the forks, then a little south to Lake and Market.",
+      "evidence": [
+        "sauganash-place",
+        "places"
+      ],
+      "story": "The river end of town comes first.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "old-corner",
+      "to": "rival",
+      "note": "A block east along South Water Street, toward the Dearborn Street drawbridge.",
+      "evidence": [
+        "american-office",
+        "places"
+      ],
+      "story": "Keep the bundle tucked tightly: not one of these copies belongs to the competition.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "sauganash",
+      "to": "the-wharf",
+      "note": "Back north and east to the river frontage on South Water Street.",
+      "evidence": [
+        "nd-bank",
+        "places"
+      ]
+    },
+    {
+      "from": "rival",
+      "to": "the-wharf",
+      "note": "West along South Water Street, past the old corner, to the river frontage.",
+      "evidence": [
+        "nd-bank",
+        "places"
+      ],
+      "story": "Back past your own office, running.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "the-wharf",
+      "to": "the-draw",
+      "note": "East along the south bank to the foot of Dearborn Street.",
+      "evidence": [
+        "draw-place",
+        "places"
+      ]
+    },
+    {
+      "from": "the-wharf",
+      "to": "the-tremont",
+      "note": "East along South Water Street, then a block south to Lake and Dearborn.",
+      "evidence": [
+        "tremont-house",
+        "places"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "two-papers",
+      "text": "Back up the stairs over Jones & King's, with ink on your fingers and two newspapers' worth of information in your head: what the American is advertising, and what came upriver through the draw. Nobody instructed you to examine either. A capable apprentice notices anyway, and one day you may be the person who writes it up.",
+      "read_s": 16,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "first",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "var": "last",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-river-news",
+      "text": "Back to the office with empty arms and the river in your head: the Sauganash supplied first, and the sails at the draw observed last of all. The Democrat appears again next Wednesday, and whatever arrived on the river this week will need reporting.",
+      "read_s": 13,
+      "completion_eligible": true,
+      "when": {
+        "var": "last",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "sale-day",
+      "text": "Every copy delivered, and both newspapers read before noon: the American's elixir at one end of the morning, the auction house's first public sale at the other. Upstairs over Jones & King's there is type to clean and an entire week to fill before next Wednesday.",
+      "read_s": 13,
+      "completion_eligible": true,
+      "when": {
+        "var": "first",
+        "op": "==",
+        "value": 2
+      }
+    },
+    {
+      "id": "the-round-done",
+      "text": "The round is complete: the Sauganash first, the Tremont last, and every copy delivered where it belongs before noon. Upstairs over Jones & King's, next week's type is waiting to be set. Six weeks ago you answered a notice in the newspaper; this morning the whole town read the newspaper you carried.",
+      "read_s": 14,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "an-apprentices-round-grades-9-10",
+    "title": "An Apprentice's Round",
+    "text": "A fictional note of one apprentice's round with the Democrat of 1 July 1835: where the first copies went and where the last. No real apprentice, wage or delivery is recorded on it."
+  },
+  "secondary_family": "Livelihood",
+  "evidence": [
+    {
+      "id": "apprentice-wanted",
+      "text": "The Democrat printed: ‘Wanted immediately, an apprentice at this office to the printing business. A good opportunity is offered by an immediate application. May 20th, 1835.’",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "20 May 1835 (Vol. II No. 5), p. 3, col. 2 (transcription lines 2238–2243, interleaved; extracted claim chicago_democrat_1835_05_20#c007). Transcription-mediated reading. ‘This office’ is the paper’s own, which the same issue’s colophon places over Jones & King’s hardware."
+    },
+    {
+      "id": "democrat-corner",
+      "text": "The Democrat’s first issue, 26 November 1833, gives its office as the building on the corner of South Water and Clark streets; John Calhoun printed it there.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "andreas_1884_v1"
+      ],
+      "locator": "26 Nov 1833 (Vol. I No. 1), the imprint; Andreas vol. 1, the press chapter on Calhoun’s office."
+    },
+    {
+      "id": "democrat-moved",
+      "text": "By 20 May 1835 the Democrat’s colophon gives the office as over Messrs. Jones & King’s hardware store, in South Water Street, so the corner is a former office on the scene date.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "20 May 1835 (Vol. II No. 5), p. 4, col. 6, the colophon (transcription lines 4177–4180). Transcription-mediated reading."
+    },
+    {
+      "id": "democrat-weekly",
+      "text": "The Democrat came out once a week, on Wednesdays, and the number dated 1 July 1835 is No. 11 of its second volume.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "reasoning": "Read off the issue numbers this project already cites from the same transcription: 20 May 1835 is Vol. II No. 5, 27 May No. 6, 10 June No. 8, 24 June No. 10 and 1 July No. 11. The numbers advance by one for every seven days, and 1 July 1835 fell on a Wednesday, so each of those dates is a Wednesday. No masthead statement of the paper's terms or day of issue has been read for this claim."
+    },
+    {
+      "id": "two-weeklies",
+      "text": "In June 1835 Chicago had two weekly papers: the Democrat, published every Wednesday, and the American, established by T. O. Davis on 8 June 1835 and published on Saturday mornings.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "andreas_1884_v1"
+      ],
+      "locator": "Democrat, 20 May 1835 (Vol. II No. 5), p. 4, col. 6, the colophon ('Is published every W[ednesday]', transcription lines 4177–4180); Andreas vol. 1, scan p. 767, the Chicago American’s establishment."
+    },
+    {
+      "id": "sauganash-look",
+      "text": "Wau-Bun describes the Sauganash in 1831 as 'a pretentious white two-story building, with bright-blue wooden shutters'.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Ch. XVII, 'Chicago in 1831' — the Wolf Point houses, Mark Beaubien's house just completed."
+    },
+    {
+      "id": "sauganash-refit",
+      "text": "The Chicago Democrat of 10 June 1835 reported that the Sauganash had been repaired, fitted up and furnished with neatness and taste.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "10 June 1835 (Vol. II No. 8), p. 2, col. 5, the paragraph on the town's public houses (claim chicago_democrat_1835_06_10#c001). Transcription-mediated reading."
+    },
+    {
+      "id": "sauganash-place",
+      "text": "The Sauganash stood at the south-east corner of Lake and Market Streets, on the east bank of the South Branch.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_hotels",
+        "chicago_landmark_sauganash"
+      ],
+      "reasoning": "The corner is given by the hotel chronology and the Chicago Landmark designation; the building's coordinate in the scene is the structure record's platted-corner derivation and carries the georeference's uncertainty of about 20 m."
+    },
+    {
+      "id": "mk-sauganash",
+      "text": "Moses and Kirkland call the Sauganash 'the most attractive hostlery the city possessed', and its genial landlord, 'with his merry fiddle, the most popular of hosts'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 87, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 11879-11886 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-fiddle",
+      "text": "The life and soul of the town's dancing parties was Mark Beaubien, 'the fiddler par excellence of the town'. Judge Caton remembered: 'He used to play the fiddle at our dances in such a way as to set every heel and toe in the room in active motion. He would lift the sluggard from his seat, and set him whirling over the floor like mad.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 100, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13480-13495 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-mail-box",
+      "text": "When the mail came, 'often irregular and long delayed', the town gathered at the post office, where 'some one with a good voice would mount a dry goods box' and read the news from Washington and New York; 'If politics ran high, two dry-goods boxes and two readers of opposite parties would be utilized.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 99-100, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13378-13395 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "american-office",
+      "text": "The Chicago American’s office was on Water Street near the drawbridge; this project places it on the south side of South Water Street just east of Dearborn, by the south landing of the Dearborn Street bridge.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Andreas gives a street and a landmark, not a lot. The structure record’s inferred position reads the drawbridge as the 1834 Dearborn Street bridge, so the stop says ‘near the drawbridge’ and claims no front door."
+    },
+    {
+      "id": "american-elixir",
+      "text": "The American of 27 June 1835 carries an advertisement headed ‘The Cholera El[ixir]’, offering the Fire King’s Specific as a certain preventive and cure of the asphyxiated cholera, signed by Frederick Thomas, druggist, Water Street, and dated Chicago, 24 June 1835.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_american_1835"
+      ],
+      "locator": "27 June 1835 (Vol. I No. 4), p. 3, col. 5 (transcription lines 362–365; extracted claim chicago_american_1835_06_27#c011). Transcription-mediated reading: the signature prints ‘FREDERICK THO[…]’, completed from the same druggist’s 20 June notice; the column is crowded and partly illegible."
+    },
+    {
+      "id": "democrat-cholera",
+      "text": "Under the heading CHOLERA the Democrat lays out rumours of the disease in the state: a Springfield paper on the state of health there, the Alton Spectator’s count of about twenty deaths in three weeks with most cases recovering, no mention in the Galenian, and an Ottawa rumour it could not trace. It calls Chicago uncommonly healthy and promises to print the facts if the disease appears.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "24 June 1835 (Vol. II No. 10), p. 2, col. 5, the paragraph headed ‘CHOLERA.’ (transcription lines 1481–1505; extracted claim chicago_democrat_1835_06_24#c003). Transcription-mediated reading."
+    },
+    {
+      "id": "nd-trade",
+      "text": "Newberry & Dole advertised in the Democrat’s first issue as forwarding and commission merchants, with an assortment of dry goods, hardware and crockery for cash.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "andreas_1884_v1"
+      ],
+      "locator": "26 Nov 1833 (Vol. I No. 1), p. 3, col. 4 (extracted claim chicago_democrat_1833_11_26#c013); Andreas vol. 1, scan p. 755, the summary of the paper’s early advertising columns."
+    },
+    {
+      "id": "nd-notice",
+      "text": "In the Chicago Democrat of 1 July 1835, Newberry & Dole advertise as storage, forwarding and commission merchants and agents for the Merchants' Line, and also as wholesale and retail dealers in dry goods, groceries and provisions.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "1 July 1835, p. 4, col. 4, the card headed 'NEWBERRY & [DOLE,] Storage, Forwarding and C[ommission] MERCHAN[TS]' (extracted claim chicago_democrat_1835_07_01#c015). Transcription-mediated reading; the brackets are the transcription's."
+    },
+    {
+      "id": "illinois-wharf",
+      "text": "On 12 July 1834 the schooner Illinois, the first vessel through the new harbour cut, was cheered at Newberry & Dole’s wharf.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1, scan p. 503, the opening of the harbour."
+    },
+    {
+      "id": "nd-bank",
+      "text": "Where Newberry & Dole's warehouse stood is disputed: one dossier reads the south bank on South Water Street, Andreas puts the firm's warehouse on the north bank east of the later Rush Street bridge. The scene places it on the south bank as a reconstruction, so the stop claims the firm, not the spot.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Follows the structure record newberry_dole_warehouse, whose position is reconstructed and whose note carries both readings without settling them. The stop says the bank is disputed and claims no front door."
+    },
+    {
+      "id": "draw-built",
+      "text": "Nelson R. Norton, a ship-carpenter, writes in a letter Andreas prints that he cut the lumber for a drawbridge over the winter of 1833-34 and began building it in March 1834; Andreas notes the Democrat has it formally accepted by the Trustees in August. It was the first drawbridge across the river.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_dearborn_st_bridges"
+      ],
+      "locator": "Andreas vol. 1, the bridges section, Norton's letter beginning 'I came to Chicago November 16, 1833' and Andreas's correction 'Mr. Norton is evidently in error as to the time of the completion of the bridge'; with 'The first drawbridge thrown across the river was at Dearborn Street'. Read in the chicagology Dearborn Street bridges transcription."
+    },
+    {
+      "id": "draw-size",
+      "text": "Andreas: 'From various sources it is learned that it was about three hundred feet long, and the opening for the passage of craft about sixty feet.' It was of the 'gallows pattern', with frames one at either end of the draw.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_dearborn_st_bridges"
+      ],
+      "locator": "Andreas vol. 1, scan p. 415 (per docs/research/04-structures-south.md section 4), the paragraph on the Dearborn Street drawbridge, read verbatim in the chicagology Dearborn Street bridges transcription."
+    },
+    {
+      "id": "draw-repairs",
+      "text": "The bridge was paid for repairs in September 1834 and repaired again in 1835 and 1837; vessels passing the draw struck it.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Follows the structure record's change note, which reads the repairs from Andreas and says no source dates or describes them closely enough to model; the stop says only that it was struck and patched more than once."
+    },
+    {
+      "id": "draw-place",
+      "text": "The bridge crosses the main stem in line with Dearborn Street, its south abutment at the foot of Dearborn on South Water Street.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "wright_1834",
+        "osm_streets_2026"
+      ],
+      "reasoning": "Follows the structure record dearborn_street_drawbridge, which places the crossing on the street it is named for and grades the position inferred. The jaunt stops at the south end and does not cross."
+    },
+    {
+      "id": "mk-draw",
+      "text": "The first drawbridge, at Dearborn Street, built in 1834 with Nelson R. Norton as contractor, 'was 300 feet in length, by sixteen in width, and had a double draw'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 95, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12811-12817 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "tremont-house",
+      "text": "Alanson Sweet built the first Tremont House, a frame building, in 1833 on the north-west corner of Lake and Dearborn streets. Ira Couch took the house in 1834, and Andreas names the Couch brothers among its keepers before it burned on 27 October 1839.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_prefire021"
+      ],
+      "locator": "Andreas vol. 1, printed p. 635, the hotel chapter (builder, corner, proprietors, the 1839 fire); the Chicago Tribune letter of 2 February 1874 transcribed on chicagology_prefire021, for Ira Couch taking the house in 1834. The structure record tremont_house_1 carries both readings."
+    },
+    {
+      "id": "mk-tremont",
+      "text": "In the early 1830s Alanson Sweet opened a saloon and boarding house at the north-west corner of Lake and Dearborn, 'the nucleus of the present Tremont House'; its brick successor of 1850 was thought 'absurdly large', and people called it Couch's Folly.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 561, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 98839-98872 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "auction-today",
+      "text": "A notice headed ‘[Auction an]d Commission House’ announces a store taken on South Water Street for auction and commission business, its first public sale to be held ‘the 1st day of July’, which is the scene date.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "24 June 1835 (Vol. II No. 10), p. 3, col. 3 (transcription lines 2540–2559, interleaved; extracted claim chicago_democrat_1835_06_24#c008). Transcription-mediated reading; the auctioneer’s surname reads MONTGOMERY and his initials are lost. The American’s 27 June copy of the notice is ambiguous between the first and the last day of July, so only the Democrat’s reading is used."
+    },
+    {
+      "id": "places",
+      "text": "The six places are exterior stops in the 1 July 1835 scene. The Democrat's corner is visited as its former office, and the office over Jones & King's hardware, which the paper names only by its street, is not placed in the town; the American's office is placed near the drawbridge and Newberry & Dole's house on a disputed bank. No interior, front door, keeper or reader on the morning is claimed.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "andreas_1884_v1",
+        "drloih_hotels"
+      ],
+      "reasoning": "Uses the existing structure records' scene-date phases and positions, as the published jaunts that stop at these places do (News Before Breakfast, Along the Working Harbor, Work on the Waterfront). The printing office's business record reads South Water Street and nothing narrower, so the jaunt starts at the corner it left. The notices are read from the papers, not from the places."
+    },
+    {
+      "id": "role",
+      "text": "The apprentice the visitor plays, their age and duties, the bundle of papers and the round it is carried on, the order of the route, the choices, the four endings, the timing inputs and the An Apprentice's Round keepsake are invented connective narrative. The Democrat's notice for an apprentice is real (20 May 1835); who answered it is not recorded, no apprentice is named, and no named person is met or speaks.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-play-a-part-3679"
+    }
+  ],
+  "liberties": [
+    "L-play-a-part-3679"
+  ],
+  "version_of": "apprentice-at-the-democrat"
+}

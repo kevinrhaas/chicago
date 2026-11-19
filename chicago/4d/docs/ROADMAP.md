@@ -1,3 +1,7 @@
+## T-3679 — Play a part (19 November 2026)
+
+Item 9 of the classroom list has its first three role jaunts (1812 runner at Fort Dearborn, 1835 apprentice, 1904 iceman's helper), each with two route-changing choices and four endings, every band and 18+ telling built. Further roles (a household's youngest servant, a store clerk's helper) are content work on the same engine; each needs its own cited stops and an entry in LIBERTIES. A role with staged hosts or narration voices is a separate parcel.
+
 ## T-3654 — Build the city first, then replace its context (2026-11-18)
 
 The owner's choice is a complete 1871 context city with district-appropriate generic

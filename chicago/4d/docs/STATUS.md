@@ -1,3 +1,7 @@
+## T-3679 — Play a part: three choice-driven role jaunts (19 November 2026)
+
+Three new jaunts put the visitor in a young person's place, on the existing jaunt engine with no engine change. *Errands Before the March* (1812, Errands, `errands-before-the-march`): a runner of the settlement outside Fort Dearborn hears the evacuation order read on the parade on 10 August 1812 and carries it either across the river to the Kinzie house or out to the Agency House, sees the council of the 12th, then spends the evening of the 13th either helping carry the ammunition and liquor to the well and the river or at the main gate when William Wells rides in on the 14th; it ends on the eve of the march, and the fighting is neither told nor staged. *Apprentice at the Democrat* (1835, Work, `apprentice-at-the-democrat`): the Chicago Democrat's new apprentice carries the number of 1 July 1835 from the paper's old corner either west to the Sauganash or east to the rival American, then to Newberry & Dole's, then either to the drawbridge to watch for a sail or to the Tremont with the last copies. *Ice for Prairie Avenue* (1904, Work, `ice-for-prairie-avenue`): an iceman's helper on a Monday in October 1904 tries either the Glessners' front door or the alley gates, reaches the service entrance under the great arch, then either waits for the kitchen's order at the stable doors or runs ahead to the Kimball house. Each has two forks that change the next stop and four endings from the pair. Every stop's facts are claims already published in other jaunts, copied word for word; the roles, routes, choices, endings and keepsakes are reconstructed (L-play-a-part-3679). All three are tellings for grades 6-8 by measure (7.5, 7.9 and 7.5), with versions for 3-5, 9-10, 11-12 and 18+ built by versions.py, each measuring inside its band. Text only: no narration voice and no stage. The 1904 Jaunts menu gains a Work group and the 1812 menu an Errands group, so the lesson guides cover 12 year/group combinations.
+
 ## T-3654 — 1871 context city (19 November 2026)
 
 PR #2198 adds a walkable baseline for 8 October 1871 at 16:00 local mean solar time: 33,580 varied generic buildings, 3,627 trees, streets and plank walks, 22 road crossings, 597 quay bays and five rail corridors on dedicated pre-fire terrain. Six additional report bridges remain withheld pending opening-date or placement evidence. These are model counts, not a historical census. Identified properties, people, vehicles, daily activity and photographic finish remain subsequent smaller milestones.
@@ -177,7 +181,7 @@ Implementation on `steward/t3656-browser-classroom`, based on development commit
 
 Validation checkpoint: all four focused logic suites pass under Node 22; reflection
 coverage spans 240 available tellings and five bands, and lesson coverage spans 192
-school tellings and 10 available year/group combinations. Existing Navigator,
+school tellings and 10 available year/group combinations (12 since T-3679 gave 1904 a Work jaunt and 1812 an Errands jaunt). Existing Navigator,
 person-card, teacher-handout, jaunt-mechanics, string and changelog checks pass.
 Real-component browser fixtures pass at 390×780 and 1280×800 for notebook
 save/edit/reload/export/print/errors, lesson selection and source links, request races,
