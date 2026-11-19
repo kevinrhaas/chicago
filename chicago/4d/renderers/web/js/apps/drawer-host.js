@@ -56,6 +56,25 @@ function paintTabs(doc, appId) {
 }
 
 /**
+ * T-3671 (WCAG 4.1.2): the sections' tab row names what each tab controls, and each section
+ * is a tabpanel named by its tab. Settings and What's new are named by the Settings card's
+ * own tabs instead (settings-app.js), which leave a name already given alone.
+ */
+export function wireSectionTabs(doc) {
+  for (const tab of doc.querySelectorAll?.('.panel-tab[data-tab]') ?? []) {
+    const key = tab.dataset.tab;
+    const body = doc.querySelector?.(`.panel-body[data-panel="${key}"]`);
+    if (!body) continue;
+    tab.id ||= `panel-tab-${key}`;
+    body.id ||= `panel-body-${key}`;
+    tab.setAttribute('aria-controls', body.id);
+    tab.tabIndex = tab.getAttribute('aria-selected') === 'true' ? 0 : -1;
+    body.setAttribute('role', 'tabpanel');
+    if (!body.getAttribute('aria-labelledby')) body.setAttribute('aria-labelledby', tab.id);
+  }
+}
+
+/**
  * The part of an app that holds sections: `shown` moves #panel into this app's screen and
  * opens its section; `hidden` closes it when the app leaves the screen or the device docks.
  */
@@ -126,6 +145,21 @@ export function install({ hud, navigator, doc = globalThis.document, openGoTo = 
     openGoTo?.();
   };
   const appFor = (tab) => SECTION_HOME[tab] ?? null;
+  wireSectionTabs(doc);
+  // T-3671 (WCAG 2.4.3): the HUD puts a section away by taking focus off it first (hud.js
+  // setPanel), so when its close key or Escape docks the device, focus would fall to the
+  // page. A blur out of #panel with nowhere to go, in the same task as the close, means the
+  // visitor closed it from inside: the device closes as by its own key and hands focus back.
+  const panel = panelEl(doc);
+  let blurredOut = false;
+  panel?.addEventListener?.('focusout', (e) => {
+    if (e.relatedTarget) return;
+    blurredOut = true;
+    queueMicrotask(() => { blurredOut = false; });
+  });
+  const dockFromHud = () => {
+    if (blurredOut && navigator.close) { blurredOut = false; navigator.close(); } else navigator.dock();
+  };
   // An app opened for the first time may mount asynchronously (People loads a module): a
   // close that arrives before it has finished must still win, so every open and close
   // is counted, and an open that finishes after a later close is put away again.
@@ -146,7 +180,7 @@ export function install({ hud, navigator, doc = globalThis.document, openGoTo = 
     },
     close() {
       closes++;
-      if (APP_SECTIONS[navigator.app]) navigator.dock();
+      if (APP_SECTIONS[navigator.app]) dockFromHud();
     },
     show(tab) {
       if (tab === 'goto') return goTo();

@@ -80,8 +80,15 @@
 .city-census .gc-seg { display: block; height: 100%; }
 .city-census .gc-seg-built { background: var(--accent); }
 .city-census .gc-seg-att { background: var(--grade-attested); }
-.city-census .gc-seg-inf { background: var(--grade-inferred); }
-.city-census .gc-seg-rec { background: var(--grade-reconstructed); }
+/* T-3671 (WCAG 1.4.1): each grade's share of a bar has a texture of its own as well as its
+   colour — attested solid, inferred striped upright, reconstructed hatched — and the key's
+   swatches wear the same (css/confidence-overlays.css § grade marks). */
+.city-census .gc-seg-inf {
+  background: repeating-linear-gradient(90deg, var(--grade-inferred) 0 3px, color-mix(in srgb, var(--grade-inferred) 40%, transparent) 3px 4.5px);
+}
+.city-census .gc-seg-rec {
+  background: repeating-linear-gradient(45deg, var(--grade-reconstructed) 0 2px, color-mix(in srgb, var(--grade-reconstructed) 25%, transparent) 2px 4px);
+}
 .city-census .gc-of,
 .city-census .gc-definition,
 .city-census .gc-note {
@@ -107,8 +114,8 @@
 .city-census .gc-key li { display: flex; align-items: center; gap: 5px; }
 .city-census .gc-sw { width: 8px; height: 8px; border-radius: 2px; display: block; }
 .city-census .gc-sw-att { background: var(--grade-attested); }
-.city-census .gc-sw-inf { background: var(--grade-inferred); }
-.city-census .gc-sw-rec { background: transparent; border: 1px solid var(--grade-reconstructed); }
+.city-census .gc-sw-inf { background: repeating-linear-gradient(90deg, var(--grade-inferred) 0 3px, color-mix(in srgb, var(--grade-inferred) 40%, transparent) 3px 4.5px); }
+.city-census .gc-sw-rec { background: repeating-linear-gradient(45deg, var(--grade-reconstructed) 0 2px, transparent 2px 4px); border: 1px solid var(--grade-reconstructed); }
 /* T-2154: the dwellings against the November census, inside the buildings row, and the
    people split into townspeople and garrison, inside the people row. The dwellings bar is
    the census's 398: solid for the dwelling houses, hatched for the boarding houses and
@@ -163,8 +170,8 @@
 }
 .city-census .gc-done-seg { display: block; height: 100%; }
 .city-census .gc-done-att { background: var(--grade-attested); }
-.city-census .gc-done-inf { background: var(--grade-inferred); }
-.city-census .gc-done-rec { background: var(--grade-reconstructed); }
+.city-census .gc-done-inf { background: repeating-linear-gradient(90deg, var(--grade-inferred) 0 3px, color-mix(in srgb, var(--grade-inferred) 40%, transparent) 3px 4.5px); }
+.city-census .gc-done-rec { background: repeating-linear-gradient(45deg, var(--grade-reconstructed) 0 2px, color-mix(in srgb, var(--grade-reconstructed) 25%, transparent) 2px 4px); } /* T-3671 */
 .city-census .gc-done-shares,
 .city-census .gc-done-def { margin: 0; font-size: 11px; line-height: 1.45; color: var(--ink-dim); }
 .city-meta {
