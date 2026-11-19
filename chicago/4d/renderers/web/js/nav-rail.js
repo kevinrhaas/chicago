@@ -42,6 +42,7 @@
  * the device's `context()` returns at that moment, so an app reads the page through
  * it and never imports main.js.
  */
+import { reducedMotion } from './motion.js';
 export const MAX_ICONS = 10;
 export const SLIDE_MS = 240;
 export const WARM_MS = 160;
@@ -88,7 +89,7 @@ export function createRail({
   before = null,                 // the element new buttons go in front of (the collapse key)
   onOpen = () => {},             // the device opens to show an app's screen
   onLaunch = () => {},           // a launch stub ran: the device docks
-  reduced = () => globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false,
+  reduced = () => reducedMotion(), // T-3671: Settings › Look › Motion (js/motion.js)
   storage = (() => { try { return globalThis.localStorage; } catch { return null; } })(),
   now = () => (globalThis.performance?.now?.() ?? Date.now()),
   wait = (fn, ms) => setTimeout(fn, ms),

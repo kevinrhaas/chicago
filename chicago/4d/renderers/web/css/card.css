@@ -213,6 +213,11 @@
 .fact-attested { color: var(--grade-attested); }
 .fact-inferred { color: var(--grade-inferred); }
 .fact-reconstructed { color: var(--grade-reconstructed); }
+/* T-3671 (WCAG 1.4.1): the grade is in the dot's SHAPE as well as its colour — the app's one
+   mark language (css/confidence-overlays.css § grade marks): attested a full dot, inferred a
+   half-filled one, reconstructed an empty ring. */
+.fact-dot.fact-inferred { background: linear-gradient(90deg, currentColor 0 50%, transparent 50%); box-shadow: inset 0 0 0 1.5px currentColor; }
+.fact-dot.fact-reconstructed { background: transparent; box-shadow: inset 0 0 0 1.5px currentColor; }
 
 .popup .pop-residents { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--edge); }
 .popup .pop-lodging { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--edge); }

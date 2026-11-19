@@ -184,6 +184,7 @@ import { advanceGust, syncGustUniform } from './wind-gust.js';
 import { createTodayView } from './today-view.js';
 import { createRegistration } from './today-register.js';
 import { withStory } from './tale-actions.js'; // T-3627: the teller itself (tale-teller.js) loads when first asked
+import { reducedMotion, motionQuery } from './motion.js'; // T-3671: the one motion choice
 
 const VERSION = '0.1.0';
 
@@ -3318,7 +3319,7 @@ async function boot() {
     api.coachHouse = createCoachHouse({ registry: loaded.registry, buildings, footprints, decks, interactions,
       visitor: () => (walker.state.flying || api.townTransport?.ride?.actor ? null : { e: walker.state.e, n: walker.state.n }),
       carriageways: streetGrid.grid?.carriageways ?? [], drives: streetGrid.section?.carriage_drives?.drives ?? [],
-      reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, confidence, problems });
+      reducedMotion: () => reducedMotion(), confidence, problems });
     if (api.coachHouse) { scene3d.add(api.coachHouse.group); houseDoors.attach(api.coachHouse); }
   } catch (error) {
     problems.push(`coach house: ${error.message}`);
@@ -4426,7 +4427,7 @@ async function boot() {
         // T-3644: the climb into a seat shows the visitor's own person (Settings, You).
         visitorFigure: (y) => api.person?.asset?.(y) ?? null,
         walkEye: () => WALK.eyeHeight,
-        reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, say: (text) => hud.say(text),
+        reducedMotion: () => reducedMotion(), say: (text) => hud.say(text),
         reinsHint: () => (backends.name === 'touch' || (backends.name === 'none' && coarse)
           ? t('hud.ride.reins.touch') : t('hud.ride.reins.keys')),
         // T-3557: the Glessner brougham waits as the parked carriage at its stand until asked
@@ -4459,7 +4460,7 @@ async function boot() {
       visitor: () => (walker.state.flying ? null : walker.state),
       humans: () => api.humans ?? null,
       say: (text) => hud.say(text),
-      reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      reducedMotion: () => reducedMotion(),
       coarse: lowMem || detailLevel === 'light', problems,
       // The town's riders keep the sun clock's hour and the Season setting, give way to the
       // teams, and go away with the vehicles (Kevin, 2026-11-17).
@@ -6872,7 +6873,7 @@ async function boot() {
     if (!api.riding?.active || isTyping(e.target) || e.repeat || e.key.toLowerCase() !== 'v') return;
     e.preventDefault(); api.riding.toggleView();
   });
-  const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const transportReducedMotion = motionQuery; // T-3671: Settings › Look › Motion (js/motion.js)
   transportReducedMotion.addEventListener('change', resetVisualClock);
   let interactPaintAt = 0;
   /** T-3527: the date and the buildings the dated structures were last drawn for. */
