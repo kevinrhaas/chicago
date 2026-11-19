@@ -7,6 +7,8 @@ export function createJauntCards({ registry, popup, hud, api, sources, onReturn 
   heading.textContent = 'No card yet'; message.textContent = 'This detail is unavailable. Your outing is unchanged.';
   back.type = 'button'; back.textContent = 'Return to outing'; back.addEventListener('click', onReturn);
   fallback.append(heading, message, back); document.body.append(fallback);
+  // T-3671: Esc returns from the stand-in card as its key does.
+  fallback.addEventListener('keydown', e => { if (e.key === 'Escape' && !fallback.hidden) { e.preventDefault(); onReturn(); } });
   let owned = null;
   function close() {
     const previous = owned; owned = null;

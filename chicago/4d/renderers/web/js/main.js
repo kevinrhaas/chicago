@@ -6126,6 +6126,7 @@ async function boot() {
         voice: { playing: () => { const outing = jauntRuntime?.state; return !!outing?.outcome && narration.isPlaying(outing.jaunt, 'ending', outing.outcome.id); },
           ended: () => { const outing = jauntRuntime?.state; return !!outing?.outcome && narration.ended(outing.jaunt, 'ending', outing.outcome.id); } },
         flying: () => travel.state?.phase === 'gliding',
+        hold: () => !!jauntPanel?.holding, // T-3671 (WCAG 2.2.1): a visitor still at the scene keeps it
         finish: () => jauntRuntime?.finish() });
       // The owner, 2026-11-16: the jaunt's meter, the stop's scene filling as it plays.
       let meterTimer = null, meterLeg = null, meterWay = 0, meterSince = 0;
