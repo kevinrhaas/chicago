@@ -8322,12 +8322,12 @@
     {
      "id": "house_2101_prairie:back",
      "leaf": {
-      "local_e": 1449.74,
-      "local_n": -3630.64
+      "local_e": 1449.82,
+      "local_n": -3628.39
      },
      "step": {
-      "local_e": 1453.5,
-      "local_n": -3630.61
+      "local_e": 1453.58,
+      "local_n": -3628.36
      },
      "outward_deg": 89.6,
      "width_m": 0.95,
@@ -16876,8 +16876,8 @@
   {
    "structure": "prairie_2101:back_door:stoop",
    "placement": {
-    "local_e": 1449.74,
-    "local_n": -3630.64,
+    "local_e": 1449.82,
+    "local_n": -3628.39,
     "rotation_deg": 359.58
    },
    "barrier": {
