@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3121, ts: '2026-11-19T11:44:49.365Z', date: 'Nov 19, 2026, 5:44 AM CT', title: 'Closing the Navigator never takes you off the page', kind: 'fix',
+    items: [
+      'Closing the Navigator and opening it again straight away could leave it holding a Back step that was already gone, so the next close went Back to the page before the walk. A reopen now waits for the earlier close to finish before it holds its Back step.',
+    ] },
   { v: 3120, ts: '2026-11-19T11:01:15.187Z', date: 'Nov 19, 2026, 5:01 AM CT', title: '2033 Prairie, the Otis house, takes its stone front and bay', kind: 'feature',
     items: [
       '2033 Prairie, the Otis family\'s home for sixty-five years and the middle house of the 1869 limestone row, now stands as Walker Evans photographed it in 1946: a narrow pale stone front across its whole lot, a bay rising through all three storeys to a deep bracketed cornice that turns round it, every window arched, and a double door under a pediment on carved brackets at the head of its stoop. The front\'s banded stonework, the stoop\'s long run down to the walk and the fence\'s height are still not quite the picture\'s; its neighbours at 2031 and 2035 come next.',

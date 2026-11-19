@@ -1,7 +1,0 @@
-{
-  "title": "Closing the Navigator never takes you off the page",
-  "kind": "fix",
-  "items": [
-    "Closing the Navigator and opening it again straight away could leave it holding a Back step that was already gone, so the next close went Back to the page before the walk. A reopen now waits for the earlier close to finish before it holds its Back step."
-  ]
-}
