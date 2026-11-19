@@ -25,6 +25,7 @@
 .route-stop-head > div:first-child { min-width: 0; flex: 1 1 12rem; }
 .route-stop-tools { display: flex; flex-wrap: wrap; gap: .35rem; }
 .route-tool { min-width: 44px; padding-inline: .5rem; }
+.route-tool:disabled { opacity: .4; cursor: default; }
 .route-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
 .nav-route-build button, .route-panel button, .route-year-link { min-height: 44px; white-space: normal; }
 .route-status { min-height: 1.4em; margin: .25rem 0; }
@@ -37,6 +38,7 @@
 .route-teacher { margin-top: .5rem; padding-left: .7rem; border-left: 3px solid var(--accent, #2c5275); }
 .route-teacher-k { margin: 0; font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; opacity: .8; }
 .route-teacher-words { margin: .15rem 0 .35rem; white-space: pre-wrap; font-style: italic; }
+.route-answer { margin-top: .35rem; }
 .route-answer-row { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
 .route-answer-row .route-status { flex: 1 1 10rem; }
 .route-year-link { display: inline-flex; align-items: center; text-decoration: none; }

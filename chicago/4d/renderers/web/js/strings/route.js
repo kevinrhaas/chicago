@@ -83,7 +83,7 @@ export default register('route', {
   arrived: 'Your teacher’s route is open in Jaunts.',
   arrivedSkippedOne: 'Your teacher’s route is open in Jaunts. 1 stop is not in this town and was skipped.',
   arrivedSkipped: 'Your teacher’s route is open in Jaunts. {n} stops are not in this town and were skipped.',
-  otherYear: 'This route is for {year}. Open Jaunts for its link.',
+  otherYear: 'This route is for {year}. The link that opens it there is in Jaunts.',
   nothing: 'None of this route’s stops are in this town. You are in the town as usual.',
   invalid: 'This route link could not be read. You are in the town as usual.',
   long: 'This route link is too long to read. You are in the town as usual.',

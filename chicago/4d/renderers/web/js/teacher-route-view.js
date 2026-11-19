@@ -153,7 +153,10 @@ export function mountRouteBuilder(container, ctx = {}, { win = container?.ownerD
         const row = catalog.get(stop.kind, stop.id);
         const li = n('li', 'route-stop'); li.dataset.routeStop = String(i);
         const head = n('div', 'route-stop-head');
-        head.append(n('strong', null, row?.label ?? stop.id), ' ', n('span', 'route-kind', tr(`kind.${stop.kind}`)));
+        const words = n('div');
+        words.append(n('span', 'nav-k', tr('panel.stop', { n: i + 1 })), ' ', n('strong', 'route-stop-name', row?.label ?? stop.id), ' ',
+          n('span', 'route-kind', tr(`kind.${stop.kind}`)));
+        head.append(words);
         const tools = n('div', 'route-stop-tools');
         const tool = (key, glyph, run, disabled) => {
           const b = n('button', 'setting-button route-tool', glyph); b.type = 'button'; b.dataset.tool = key;
@@ -338,8 +341,10 @@ export function mountRoutePanel(host, ctx = {}, { notebook = fieldNotebook, stor
           if (r.ok) drafts.delete(key);
         });
         saveRow.append(save, said);
-        q.append(label, saveRow);
-        li.append(q);
+        // The student's answer sits under the teacher's words, outside their mark.
+        const answer = n('div', 'route-answer');
+        answer.append(label, saveRow);
+        li.append(q, answer);
       }
       list.append(li);
     }
