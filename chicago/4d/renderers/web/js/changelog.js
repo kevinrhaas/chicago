@@ -1,4 +1,36 @@
 export const CHANGELOG = [ // newest first
+  { v: 3147, ts: '2026-11-19T23:52:38.310Z', date: 'Nov 19, 2026, 5:52 PM CT', title: 'Your guide asks three questions at a jaunt\'s end', kind: 'feature',
+    items: [
+      'Check your understanding now asks three questions with real answers: where on the walk you heard something, who told you, and how sure we can be of it.',
+      'Every question quotes a line you actually heard on the walk. Records that sit behind a stop but were never said aloud are no longer used.',
+      'Every choice is a real stop, person or grade from that jaunt. Try again as often as you like, or see the answer after two tries.',
+      'After you answer, "Where does this come from?" shows the record behind the line and where we read it. Nothing is scored or saved.',
+    ] },
+  { v: 3146, ts: '2026-11-19T23:52:38.310Z', date: 'Nov 19, 2026, 5:52 PM CT', title: 'Jump keeps your ground: same spot, another year', kind: 'feature',
+    items: [
+      'Jump to another year and you land on the same ground you stood on, facing the same way, in the same season and hour.',
+      'If a house or the river stands there in that year, you are set down at the nearest open ground and told how far.',
+      'If that year\'s town does not reach your spot, you arrive at its usual start, and it says so.',
+    ] },
+  { v: 3145, ts: '2026-11-19T23:52:38.310Z', date: 'Nov 19, 2026, 5:52 PM CT', title: 'Walk Prairie Avenue for real, with 1904 on your phone', kind: 'feature',
+    items: [
+      'In 1904, Window mode now offers an on-site tour: seven stops on today\'s Prairie Avenue, ending at the Glessner House.',
+      'Each stop shows how far it is and which way to turn, from your phone\'s location.',
+      'You arrive when your location is close enough for its accuracy; a rough fix says so, and "I\'m here" always works.',
+      'Every stop\'s card tells what stood there in 1904, with its sources.',
+      'Away from Prairie Avenue, the tour says how far you are and leaves the view where it is.',
+      'No motion access needed: drag sideways to turn the view and line it up with the street.',
+    ] },
+  { v: 3144, ts: '2026-11-19T23:52:38.310Z', date: 'Nov 19, 2026, 5:52 PM CT', title: '1815 Prairie\'s pavilion runs across its door, as both photographs draw it', kind: 'improvement',
+    items: [
+      'The Sears house\'s north pavilion is now its full width, from the corner across the door\'s north half, standing barely proud so the door sits in one flat stone face.',
+      'Its windows, its attic\'s paired lights and the steep crown over them now stand where the photographs put them, about half a metre further south than before.',
+      'The attic\'s stone front stands between slated cheeks, and the carved pediment over the door is its full width at last.',
+    ] },
+  { v: 3143, ts: '2026-11-19T23:52:38.310Z', date: 'Nov 19, 2026, 5:52 PM CT', title: 'Phones draw the middle-distance crowd again', kind: 'fix',
+    items: [
+      'On some phones the town\'s people a short way off failed to draw after the last crowd update, because their figures asked the graphics chip for more inputs than a phone allows. They now fit, and draw as before.',
+    ] },
   { v: 3142, ts: '2026-11-19T22:45:20.199Z', date: 'Nov 19, 2026, 4:45 PM CT', title: 'Your person: body types, a close-up face, a closed habit', kind: 'improvement',
     items: [
       'Settings, You now asks for a body type instead of a gender: Masculine, Feminine or Androgynous. Androgynous can wear any of the year\'s clothes and hair, and any face.',
