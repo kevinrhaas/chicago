@@ -9,7 +9,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { narrationScripts, openingScript, textKey, clipFor, clipKey, silentWav, createNarration, NARRATOR, NARRATORS, DEFAULT_NARRATOR, normalNarrator, VOICE, voiceLevel } from '../renderers/web/js/narration.js';
-import { loadConfig, scriptsFor, voiceFor, plan, voice, synthesize, verify, ROOT, spokenWords, sameWords, loadDirection, directionProblems, styleProblems, loadDirectionFile, quota, quotaLine } from './narrate_jaunts.mjs';
+import { loadConfig, scriptsFor, voiceFor, plan, voice, synthesize, verify, ROOT, spokenWords, sameWords, loadDirection, directionProblems, styleProblems, loadDirectionFile, quota, quotaLine, jauntEntries, jauntIds, takeWithin } from './narrate_jaunts.mjs';
 
 const sha = s => createHash('sha256').update(s).digest('hex');
 const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jaunts/glessner-household-tour.json'), 'utf8'));
@@ -130,7 +130,7 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   // Every voiced jaunt's direction still matches the words its panel shows. A script edited
   // without its direction fails here: bring the direction along (same words, tags kept).
   const config = loadConfig(), all = await scriptsFor(config);
-  const problems = directionProblems(all, Object.fromEntries(config.jaunts.map(id => [id, loadDirection(id)])));
+  const problems = directionProblems(all, Object.fromEntries(jauntIds(config).map(id => [id, loadDirection(id)])));
   assert.deepEqual(problems, [], `data/narration/direction/ is out of step with the jaunts:\n${problems.join('\n')}`);
   assert.equal(config.model_id, 'eleven_v3', 'directions carry v3 audio tags, which only eleven_v3 performs');
   // T-3696: the smooth style. A file marked "style": "smooth" breathes between subjects and keeps
@@ -140,12 +140,23 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   const bad = styleProblems('j', { style: 'smooth', scripts: { 'stop:a': `[whispers] ${twenty} [laughs] [chuckles]` } });
   assert.equal(bad.length, 3, bad.join('; '));
   assert.deepEqual(styleProblems('j', { style: 'smooth', scripts: { 'stop:a': `${twenty.slice(0, 120)} [short pause] ${twenty.slice(120)}... [laughs] done.` } }), []);
-  for (const id of config.jaunts) {
+  for (const id of jauntIds(config)) {
     const problems = styleProblems(id, loadDirectionFile(id));
     assert.deepEqual(problems, [], `data/narration/direction/${id}.json is marked smooth but:\n${problems.join('\n')}`);
   }
   assert.equal(loadDirectionFile('glessner-household-tour-grades-3-5')?.style, 'smooth', 'the 3rd-grade Glessner Household is performed in the smooth style (owner, 2026-11-19)');
   assert.ok([0, 0.5, 1].includes(config.voice_settings.stability), 'eleven_v3 takes stability 0, 0.5 or 1');
+}
+
+// ---- narrators per jaunt (T-3696: Essayist only first, the owner 2026-11-19) ----------------
+{
+  const cfg = { narrators: { essayist: {}, storyteller: {} }, jaunts: ['a', { id: 'b', narrators: ['essayist'] }, { id: 'c' }] };
+  assert.deepEqual(jauntEntries(cfg), [{ id: 'a', narrators: ['essayist', 'storyteller'] }, { id: 'b', narrators: ['essayist'] }, { id: 'c', narrators: ['essayist', 'storyteller'] }]);
+  const config = loadConfig(), all = await scriptsFor(config);
+  for (const j of jauntEntries(config)) {
+    const told = new Set(all.filter(s => s.jaunt === j.id && s.narrator).map(s => s.narrator));
+    assert.deepEqual([...told].sort(), [...j.narrators].sort(), `${j.id}: narrator scripts are voiced in exactly its narrators`);
+  }
 }
 
 // ---- the quota (T-3696) ----------------------------------------------------------------
@@ -158,6 +169,12 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   assert.equal(denied.error, 'HTTP 401');
   assert.match(quotaLine(denied, 'now'), /not readable/);
   assert.equal((await quota('k', async () => { throw Error('offline'); })).error, 'offline', 'a failed quota read never fails the run');
+  const todo = [{ text: 'a'.repeat(400) }, { spoken: 'b'.repeat(500), text: 'b' }, { text: 'c'.repeat(100) }];
+  assert.deepEqual(takeWithin(todo, 1000).chars, 1000, 'everything fits');
+  const part = takeWithin(todo, 850);
+  assert.equal(part.batch.length, 1, 'stops at the first clip that does not fit, keeping the order');
+  assert.equal(part.rest.length, 2);
+  assert.equal(takeWithin(todo, 0).batch.length, 0, 'no credits left: nothing voiced, nothing fails');
 }
 
 // ---- the player ------------------------------------------------------------------------

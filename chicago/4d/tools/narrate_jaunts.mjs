@@ -40,8 +40,21 @@ export function loadConfig(root = ROOT) {
   if (config.version !== 1 || !Array.isArray(config.jaunts) || typeof config.voices !== 'object' || typeof config.narrators !== 'object') throw Error('voices.json: unknown shape');
   const ids = Object.keys(config.narrators).join(), app = NARRATORS.map(n => n.id).join();
   if (ids !== app) throw Error(`voices.json narrators (${ids}) differ from the app's choices in narration.js (${app})`);
+  for (const j of jauntEntries(config)) {
+    if (!j.id) throw Error('voices.json: a jaunts entry has no id');
+    for (const n of j.narrators) if (!config.narrators[n]) throw Error(`voices.json: ${j.id} names narrator "${n}", which is not in narrators`);
+  }
   return config;
 }
+/** The voiced jaunts and the narrators each is voiced in. An entry is a jaunt id (every narrator)
+ *  or { id, narrators: [...] }. The owner, 2026-11-19 (T-3696): new jaunts are voiced in the
+ *  Cultivated Essayist only, the Storyteller later, to keep inside the ElevenLabs budget; the app
+ *  plays the default narrator's clip when the chosen one has none (narration.js clipFor). */
+export function jauntEntries(config) {
+  return config.jaunts.map(j => (typeof j === 'string' ? { id: j, narrators: Object.keys(config.narrators) }
+    : { id: j.id, narrators: j.narrators ?? Object.keys(config.narrators) }));
+}
+export const jauntIds = config => jauntEntries(config).map(j => j.id);
 /** The words of a text, and nothing else: what a performance copy must keep unchanged. Tags in
  *  square brackets are directions; case, punctuation and spacing are the performance's. */
 export function spokenWords(text) {
@@ -109,7 +122,7 @@ export function publicBase(root = ROOT) {
  *  narrator script is listed once for each narrator (`narrator` names which). */
 export async function scriptsFor(config, { root = ROOT, only = null } = {}) {
   const out = [];
-  for (const id of config.jaunts) {
+  for (const { id, narrators } of jauntEntries(config)) {
     if (only && id !== only) continue;
     const source = read(path.join(root, 'data/jaunts', `${id}.json`));
     const jaunt = read(path.join(root, 'data/sidecars', source.scene, 'jaunts', `${id}.json`));
@@ -119,7 +132,7 @@ export async function scriptsFor(config, { root = ROOT, only = null } = {}) {
       const directed = direction[`${script.part}:${script.id}`];
       const spoken = directed != null && sameWords(directed, script.text) ? directed : script.text;
       const spoken_sha256 = sha(spoken);
-      for (const narrator of script.speaker === NARRATOR ? Object.keys(config.narrators) : [null]) {
+      for (const narrator of script.speaker === NARRATOR ? narrators : [null]) {
         out.push({ ...script, jaunt: id, scene: source.scene, text_sha256, spoken, spoken_sha256, directed: spoken !== script.text, narrator,
           key: clipKey(text_sha256, script.speaker, narrator ?? DEFAULT_NARRATOR) });
       }
@@ -159,6 +172,18 @@ export function plan(scripts, config, index, names = null) {
     (have?.settings_sha256 === v.settings_sha256 && performed === (s.spoken_sha256 ?? sha(s.text)) ? current : todo).push({ ...s, voice: v });
   }
   return { todo, current, skipped, chars: todo.reduce((n, s) => n + (s.spoken ?? s.text).length, 0) };
+}
+
+/** The longest start of the plan (in its order) that fits `budget` characters; a clip is never
+ *  split, and one that does not fit ends the batch so the order is kept. */
+export function takeWithin(todo, budget) {
+  let chars = 0, i = 0;
+  for (; i < todo.length; i++) {
+    const n = (todo[i].spoken ?? todo[i].text).length;
+    if (chars + n > budget) break;
+    chars += n;
+  }
+  return { batch: todo.slice(0, i), rest: todo.slice(i), chars };
 }
 
 async function readIndex(where, fetcher = fetch) {
@@ -283,7 +308,7 @@ async function main(argv) {
   }
   const config = loadConfig();
   const scripts = await scriptsFor(config, { only: arg('--jaunt') });
-  const stale = directionProblems(scripts, Object.fromEntries(config.jaunts.map(id => [id, loadDirection(id)])));
+  const stale = directionProblems(scripts, Object.fromEntries(jauntIds(config).map(id => [id, loadDirection(id)])));
   if (stale.length) note(['Direction set aside (the plain words are voiced instead):', ...stale.map(x => `  ${x}`)].join('\n'));
   const index = await readIndex(arg('--index'));
   const names = key && [...Object.values(config.voices), ...Object.values(config.narrators)].some(v => (typeof v === 'string' ? v : v?.voice) && !looksLikeId(typeof v === 'string' ? v : v.voice))
@@ -297,15 +322,22 @@ async function main(argv) {
     const out = arg('--out'); if (!out) throw Error('--voice needs --out DIR');
     if (!p.todo.length) { fs.mkdirSync(out, { recursive: true }); fs.writeFileSync(path.join(out, 'made.json'), '[]\n'); note('Nothing to voice.'); return; }
     if (!key) throw Error('--voice needs ELEVENLABS_API_KEY');
-    if (p.chars > max) throw Error(`this run would spend ${p.chars} characters, over the ${max} cap; raise --max-chars (or max_chars_per_run) to allow it`);
-    if (before && !before.error && p.chars > before.limit - before.used)
-      throw Error(`this run would spend ${p.chars} characters, more than the ${before.limit - before.used} left this period; nothing was voiced`);
-    const { made } = await voice(p.todo, index, out, key, { narrators: { default: DEFAULT_NARRATOR,
+    // T-3696 (the owner, 2026-11-19: "work towards the full budget"): a run voices the plan in
+    // order (voices.json's jaunt order, which is the budget plan's) up to the per-run cap and what
+    // the quota has left above its reserve; the rest waits for the next run, which takes up
+    // where this one stopped. A run never fails for want of credits.
+    const left = before && !before.error ? before.limit - before.used - (config.quota_reserve ?? 0) : Infinity;
+    const { batch, rest, chars } = takeWithin(p.todo, Math.min(max, left));
+    if (rest.length) note(`Over ${Math.min(max, left) === max ? `the ${max}-character cap per run` : `what the quota has left (${Math.max(0, left)} above the ${config.quota_reserve ?? 0} reserve)`}: `
+      + `${rest.length} clip(s), ${rest.reduce((n, s) => n + (s.spoken ?? s.text).length, 0)} characters, wait for the next run:\n`
+      + [...new Set(rest.map(s => s.jaunt))].map(j => `  ${j}`).join('\n'));
+    if (!batch.length) { fs.mkdirSync(out, { recursive: true }); fs.writeFileSync(path.join(out, 'made.json'), '[]\n'); note('Nothing voiced this run.'); return; }
+    const { made } = await voice(batch, index, out, key, { narrators: { default: DEFAULT_NARRATOR,
       choices: Object.fromEntries(Object.entries(config.narrators).map(([id, n]) => [id, n.label ?? id])) } });
-    note(`Voiced ${made.length} clip(s), ${p.chars} characters.`);
+    note(`Voiced ${made.length} clip(s), ${chars} characters.`);
     const after = await quota(key);
     note(quotaLine(after, 'after this run'));
-    if (!before.error && !after.error) note(`This run used ${after.used - before.used} ElevenLabs credits (${p.chars} characters sent).`);
+    if (!before.error && !after.error) note(`This run used ${after.used - before.used} ElevenLabs credits (${chars} characters sent).`);
   }
 }
 
