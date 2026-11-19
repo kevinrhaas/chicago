@@ -101,6 +101,48 @@ for (const y of ['1812', '1835', '1904']) {
     return [g.position.utm_e - 447072.7 + u * Math.cos(th) + v * Math.sin(th), g.position.utm_n - 4637395.8 - u * Math.sin(th) + v * Math.cos(th)]; }).concat([[0, 0]]));
   expect(`${y}: Glessner House stays on the City's Glessner House lot`, inRing(reg.toToday(gc[0], gc[1]), glessnerRing), reg.toToday(gc[0], gc[1]));
 }
+// 1871 (Kevin, 2026-11-19: "we are standing on the shore and in today view we are in the
+// river"). The 1871 city was read off Mitchell's 1870 map; its river runs 20 to 80 m from
+// today's channel. It takes the map fit's own corners and today's river, none of the 1835 plat's.
+{
+  const reg = createRegistration('1871');
+  const rows = CONTROLS.filter((r) => r[1].split(' ').includes('1871'));
+  expect('1871: its controls are its own (every map-fit corner and the river), no 1835 or 1904 row',
+    rows.every((r) => r[1] === '1871') && rows.filter((r) => r[0].startsWith('1871:map_')).length === 36
+    && rows.filter((r) => r[0].startsWith('1871:river_')).length >= 100, rows.length);
+  const water = json('data/modern/chicago_river.json').polygons
+    .map((p) => p.rings.map((r) => r.map(([lng, lat]) => latLngToLocal(lat, lng))));
+  // Inside the outer ring and no hole (an island) — or inside any other polygon.
+  const wet = (q) => water.some(([outer, ...holes]) => inRing(q, outer) && !holes.some((h) => inRing(q, h)));
+  // Two banks the 1871 river drew off today's: the North Branch's north bank at Goose
+  // Island (50 m south of today's channel) and the South Branch's east bank at Randolph
+  // (40 m west of today's). Standing on each, Today asked for the river; now for the bank.
+  for (const [label, at] of [['the North Branch\'s north bank at Goose Island', [-1186, 1482.5]],
+    ['the South Branch\'s east bank at Randolph', [1.4, -233.4]]]) {
+    expect(`1871: on ${label}, Today without the registration was in today's river`, wet(at), at);
+    expect(`1871: and with it, on today's ground`, !wet(reg.toToday(at[0], at[1])), reg.toToday(at[0], at[1]));
+  }
+  // Mid-channel in the 1871 river (between the controls too) is mid-channel today, along every
+  // reach paired: the main stem, both Branches and the canal.
+  const plan = json('data/context/1871/plan.json');
+  let n = 0, inToday = 0;
+  for (const id of ['main_stem', 'north_branch', 'north_branch_canal', 'south_branch']) {
+    const P = plan.rivers.find((r) => r.id === id).points;
+    for (let i = 0; i + 1 < P.length; i++) {
+      const [a, b] = [P[i], P[i + 1]], L = Math.hypot(b[0] - a[0], b[1] - a[1]);
+      for (let s = 0; s < L; s += 25) {
+        const c = [a[0] + (b[0] - a[0]) * s / L, a[1] + (b[1] - a[1]) * s / L];
+        if ((id === 'south_branch' && c[1] < -1620 && c[1] > -3250) || (id === 'main_stem' && c[0] > 1560)) continue;
+        n++; if (wet(reg.toToday(c[0], c[1]))) inToday++;
+      }
+    }
+  }
+  expect('1871: at least 95% of the 1871 river\'s middle lands in today\'s river', inToday / n >= 0.95, { n, inToday });
+  const back = [[-1186, 1482.5], [1.4, -233.4], [900, -534], [-2435, -558]].map(([e, nn]) => {
+    const [te, tn] = reg.toToday(e, nn); const [se, sn] = reg.toScene(te, tn); return Math.hypot(se - e, sn - nn);
+  });
+  expect('1871: toScene undoes toToday to 5 cm', back.every((d) => d < 0.05), back);
+}
 expect('a year with no controls is the identity', (() => { const r = createRegistration('1999'); const [e, n] = r.toToday(12, 34); return r.count === 0 && e === 12 && n === 34; })(), null);
 // The window turns with the registration: grid north at the fort stays near north.
 const fortLook = onToday(createRegistration('1812'), { e: 1140, n: 250, bearingDeg: 0 });

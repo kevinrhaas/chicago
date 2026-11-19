@@ -1,4 +1,40 @@
 export const CHANGELOG = [ // newest first
+  { v: 3132, ts: '2026-11-19T19:28:43.217Z', date: 'Nov 19, 2026, 1:28 PM CT', title: 'Take a Jaunt opens at once, without a second wait', kind: 'improvement',
+    items: [
+      'The Jaunts list now opens straight away after the town has loaded. Before, choosing Take a Jaunt meant a second wait, which could run to many seconds in 1835 and 1904.',
+      'While you are on the home screen, the list and its code are fetched quietly in the background. Nothing extra loads while you walk.',
+      'Opening the list no longer works out a walking route for every stop of every card. That work held up the list and used a lot of memory, which mattered most on phones and older computers. A card\'s time is now worked out from the distances between its stops, and an outing still times its real routes once it starts.',
+    ] },
+  { v: 3131, ts: '2026-11-19T19:28:43.217Z', date: 'Nov 19, 2026, 1:28 PM CT', title: 'Chicago in Spanish: a language setting', kind: 'feature',
+    items: [
+      'Settings, Display has a new Language · Idioma row: English or Español. The page reloads in the language you pick.',
+      'In Spanish, the menus, buttons, cards and messages read in Spanish. Names of people, streets and businesses stay as they were.',
+      'A browser set to Spanish starts in Spanish, and a link ending in ?lang=es opens the town in Spanish for a class.',
+      'Anything not yet translated still reads in English, never as a code. What\'s new stays in English.',
+    ] },
+  { v: 3130, ts: '2026-11-19T19:28:43.217Z', date: 'Nov 19, 2026, 1:28 PM CT', title: 'People you met and places you found, kept for each year', kind: 'feature',
+    items: [
+      'Talk with someone in town (greet them, hear a story or ask a question) and People marks them Met.',
+      'People has a Met filter with its count, in 1812, 1835 and 1904. Opening a card never counts.',
+      'Stand inside a building or at its door on foot and the Map outlines it as found, with a count.',
+      'Clear a year\'s list from People or the Map. It is kept in this browser only, with no scores or streaks.',
+    ] },
+  { v: 3129, ts: '2026-11-19T19:28:43.217Z', date: 'Nov 19, 2026, 1:28 PM CT', title: 'Make a case from two newspapers', kind: 'feature',
+    items: [
+      'After Gossip or Printed Notice?, compare two newspaper readings, choose support for your claim and name what remains uncertain. Review an ungraded guide, then save your answer and its sources to your notebook.',
+    ] },
+  { v: 3128, ts: '2026-11-19T19:04:43.895Z', date: 'Nov 19, 2026, 1:04 PM CT', title: 'People keep their clothes as you walk up to them', kind: 'fix',
+    items: [
+      'Down the street and across the square, people now wear their own clothes: the lady in the white lingerie dress is in white from a block away, not in black until you are close.',
+      'This holds in every year: the 1812 men\'s own shirts and leggings, the 1835 town\'s shirts, waistcoats and dresses, and 1904\'s dresses, aprons, liveries and straw hats.',
+      'Printed and checked cloth reads as its mixed colour from afar, as it does on the full figure, and the colours follow the season you have chosen.',
+    ] },
+  { v: 3127, ts: '2026-11-19T18:12:15.143Z', date: 'Nov 19, 2026, 12:12 PM CT', title: 'In 1871 the Today window stands on your bank, not midstream', kind: 'fix',
+    items: [
+      'The 1871 city was drawn from Mitchell\'s 1870 map, and its river runs 20 to 80 m off today\'s channel. Standing on its bank, the Today window looked out from the middle of the river.',
+      '1871 is now lined up with today\'s map on the map\'s own street corners and along the river, so Today opens on the bank you stand on.',
+      'Where the river really moved, the South Branch straightened between Polk and 18th Streets in 1928-30, Today still shows where the old bend now lies.',
+    ] },
   { v: 3126, ts: '2026-11-19T17:55:33.246Z', date: 'Nov 19, 2026, 11:55 AM CT', title: 'The whole interface works by keyboard, screen reader and larger text', kind: 'feature',
     items: [
       'Every menu, Settings tab, jaunt and card opens, moves and closes from the keyboard, and focus comes back to where you started.',
