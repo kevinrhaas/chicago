@@ -1,0 +1,70 @@
+/* T-3674: the on-site tour's card, over Window mode in 1904 (js/onsite-view.js). Loaded with
+   the card, never at boot. It sits at the foot of the screen so the window above it stays
+   the view: on a phone the full width less the gutters, on a tablet or computer a column
+   at the bottom left. The machine lines (head, GPS, badge) are the tour card's mono caps. */
+/* Beside the Navigator's rail on a wide screen (58 px at 12 px in), and above its docked pill
+   (64 px at 8 px up) on a phone; z under an open Navigator (33). */
+.onsite { position: fixed; z-index: 32; left: 84px; right: 12px; bottom: calc(12px + var(--safe-b, 0px));
+  pointer-events: none; display: flex; justify-content: flex-start; }
+.onsite[hidden] { display: none; }
+/* A column: the head, the way and the actions stay put, the stop's text scrolls between them. */
+.onsite-card { pointer-events: auto; width: min(380px, 100%); max-height: calc(var(--vh, 100vh) * 0.5);
+  display: flex; flex-direction: column; overflow: hidden; padding: 10px 12px 10px;
+  color: var(--ink); background: var(--panel-solid); border: 1px solid var(--accent);
+  border-radius: 14px; box-shadow: var(--shadow); }
+.onsite-head { display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  font: 400 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.onsite-dim { color: var(--ink-dim); }
+.onsite-head .onsite-dim { letter-spacing: .1em; }
+.onsite-close { flex: none; min-width: 44px; min-height: 36px; margin: -6px -6px -6px 0; padding: 0 10px; border: 1px solid var(--edge);
+  border-radius: 999px; background: transparent; color: var(--ink); font: 400 18px/1 var(--font-ui, inherit); cursor: pointer; }
+.onsite-pips { display: flex; gap: 3px; margin: 7px 0 0; }
+.onsite-pips i { flex: 1; height: 3px; border-radius: 2px; background: var(--edge); }
+.onsite-pips i.done { background: var(--accent); opacity: .55; }
+.onsite-pips i.now { background: var(--accent); }
+.onsite-gps { margin: 7px 0 0; font: 400 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-dim); }
+.onsite-gps::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%;
+  vertical-align: 0; background: var(--grade-inferred, #c9d0d8); }
+.onsite-gps-fix::before { background: #5fb36b; }
+.onsite-gps-rough::before, .onsite-gps-wait::before { background: var(--amber, #e2a63f); }
+.onsite-gps-off::before { background: #d0614f; }
+.onsite-badge { display: inline-block; align-self: flex-start; margin: 8px 0 0; padding: 2px 7px; border: 1px solid var(--edge); border-radius: 999px;
+  font: 400 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); }
+.onsite-badge-here { border-color: var(--accent); color: var(--accent); }
+.onsite-address { margin: 6px 0 0; font-size: 12px; color: var(--ink-dim); }
+.onsite-title { margin: 1px 0 0; font-size: 17px; line-height: 1.25; font-weight: 650; outline: none; }
+.onsite-dir { display: flex; align-items: center; gap: 10px; margin: 8px 0 0; padding: 7px 9px; border: 1px solid var(--edge); border-radius: 10px; }
+.onsite-arrow { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+  color: var(--accent); border: 1px solid var(--accent); transition: transform .25s ease-out; }
+.onsite-dir-words { display: grid; gap: 1px; min-width: 0; font-size: 13px; }
+.onsite-dir-words span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 12px; }
+.onsite-away { font-weight: 600; font-variant-numeric: tabular-nums; }
+.onsite-note { margin: 7px 0 0; font-size: 13px; line-height: 1.4; color: var(--ink-dim); }
+.onsite-card > * { flex: none; }
+.onsite-card > .onsite-body { flex: 0 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.onsite-body { margin: 6px 0 0; }
+.onsite-body > p { margin: 4px 0 0; }
+.onsite-body > .onsite-dim { font: 400 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .12em; text-transform: uppercase; }
+.onsite-text { font-size: 14px; line-height: 1.45; }
+.onsite-sources { margin: 6px 0 0; font-size: 12px; color: var(--ink-dim); }
+.onsite-sources summary { min-height: 32px; display: flex; align-items: center; cursor: pointer; color: var(--accent); }
+.onsite-sources ol { margin: 2px 0 4px; padding-left: 18px; }
+.onsite-sources li { margin: 3px 0; line-height: 1.35; }
+.onsite-complete { margin: 8px 0 0; font-weight: 600; color: var(--accent); }
+.onsite-links { display: flex; gap: 6px; margin: 6px 0 0; }
+.onsite-offer-text { margin: 6px 0 0; font-size: 14px; line-height: 1.4; }
+.onsite-status { margin: 4px 0 0; min-height: 0; font-size: 12px; color: var(--ink-dim); }
+.onsite-status:empty { display: none; }
+.onsite-actions { display: grid; grid-template-columns: 1fr 1.6fr; gap: 6px; margin: 9px 0 0; }
+.onsite button:not(.onsite-close) { min-height: 44px; padding: 0 12px; border: 1px solid var(--edge); border-radius: 10px;
+  background: transparent; color: var(--ink); font: 500 14px/1.1 var(--font-ui, inherit); cursor: pointer; }
+.onsite .onsite-link { min-height: 36px; padding: 0 10px; font-size: 13px; color: var(--accent); }
+.onsite button.onsite-primary { border: 0; background: var(--accent); color: var(--accent-ink, var(--panel-solid)); font-weight: 650; }
+.onsite button:disabled { opacity: .45; cursor: default; }
+.onsite button:focus-visible, .onsite summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 620px) {
+  .onsite { left: 8px; right: 8px; bottom: calc(80px + var(--safe-b, 0px)); }
+  .onsite-card { width: 100%; max-height: calc(var(--vh, 100vh) * 0.42); }
+}
+@media (prefers-reduced-motion: reduce) { .onsite-arrow { transition: none; } }

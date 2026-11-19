@@ -1,0 +1,209 @@
+{
+  "_doc": "The on-site tour of Prairie Avenue (T-3674): a walk on today's street, holding a phone or tablet in Window mode, through seven stops of the 1700 to 1900 blocks to the Glessner House. renderers/web/js/onsite.js runs it; tools/check_onsite_tour.mjs holds it. Each stop's lat/lon is where the visitor stands TODAY: the middle of the walk band in front of its 1904 parcel's street front (data/street_grid/1904.json, from the 1911 Sanborn sheets), carried to today's ground through the 1904 registration (renderers/web/js/today-register.js) and turned to WGS84 by today-geo.js. The check re-derives every position from its parcel and holds the last against the City's own landmark lot for 1800 S. Prairie. Every factual line of a stop's text is one of the existing records it names under `evidence` (a jaunt's evidence row or a 1904 household), and its `sources` are theirs; `citations` copies each source's citation verbatim from data/sources/. The route, its order and its stands are modern interpretation (L-onsite-prairie-1904); no visit in 1904 is asserted.",
+  "id": "prairie-1904",
+  "scene": "1904",
+  "title": "Prairie Avenue on foot",
+  "premise": "Seven stops on today's Prairie Avenue, 18th Street to the 1900 block and back, ending at the Glessner House. Stand where each stop says and look through the screen at the street as it stood in 1904.",
+  "liberty": "L-onsite-prairie-1904",
+  "ground_margin_m": 150,
+  "stops": [
+    {
+      "id": "pullman",
+      "address": "1729 S. Prairie Avenue",
+      "title": "The Pullman house",
+      "structure": "pullman_house_1729_prairie",
+      "household": "hh_pullman_mrs_george_m",
+      "stand": {
+        "parcel": "prairie_1729",
+        "walk": "the east walk, north of 18th Street"
+      },
+      "lat": 41.85822,
+      "lon": -87.620663,
+      "text": "George M. Pullman's mansion, built 1870 to 1876, with a theatre of about 200 seats, a pipe organ and a bowling alley, the district marker says. Pullman died in 1897; the 1904 Blue Book lists his widow here. He had complained of the house across the corner: 'I do not know what I have ever done to have that thing staring me in the face every time I go out of my door'. Razed 1922.",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700",
+        "wikipedia_george_pullman",
+        "chicago_blue_book_1904",
+        "wikipedia_glessner_house"
+      ],
+      "evidence": [
+        "jaunt:prairie-famous-names#pullman-marker",
+        "jaunt:prairie-famous-names#pullman-strike",
+        "jaunt:prairie-famous-names#pullman-widow",
+        "jaunt:prairie-architects#pullman-glare",
+        "jaunt:bronze-at-eighteenth#pullman-razed",
+        "household:hh_pullman_mrs_george_m"
+      ]
+    },
+    {
+      "id": "kimball",
+      "address": "1801 S. Prairie Avenue",
+      "title": "The Kimball house",
+      "structure": "kimball_house_1801_prairie",
+      "household": "hh_kimball_william_w",
+      "stand": {
+        "parcel": "prairie_1801",
+        "walk": "the east walk, across 18th Street"
+      },
+      "lat": 41.85772,
+      "lon": -87.620656,
+      "text": "W. W. Kimball's house, built 1890 to Solon S. Beman's design 'in the French Chateauesque style' for the piano and organ maker, the district marker says. Kimball started in Chicago in 1857, 'beginning with only four pianos'. The 1904 Blue Book lists the Kimballs here; he 'died at his home in Chicago on December 16, 1904'.",
+      "sources": [
+        "hmdb_prairie_heritage_preserved",
+        "wikipedia_william_wallace_kimball",
+        "chicago_blue_book_1904"
+      ],
+      "evidence": [
+        "jaunt:prairie-architects#kimball-marker",
+        "jaunt:monday-reading-class#kimball-start",
+        "household:hh_kimball_william_w"
+      ]
+    },
+    {
+      "id": "coleman",
+      "address": "1811 S. Prairie Avenue",
+      "title": "The Coleman house",
+      "structure": "coleman_ames_house_1811_prairie",
+      "stand": {
+        "parcel": "prairie_1811",
+        "walk": "the east walk"
+      },
+      "lat": 41.857542,
+      "lon": -87.62065,
+      "text": "Joseph G. Coleman's house, built 1886 by Cobb & Frost, 'well known for their designs in the Romanesque style, executed here in rough-faced brown sandstone' (the district marker). A plate of 1888 shows its deep round arch on clustered columns over a broad stair, and a corbelled oriel over the arch.",
+      "sources": [
+        "hmdb_prairie_heritage_preserved",
+        "inland_architect_1888_10_ames_residence"
+      ],
+      "evidence": [
+        "jaunt:prairie-architects#ames-marker",
+        "jaunt:prairie-style-romanesque#ames-plate"
+      ]
+    },
+    {
+      "id": "field",
+      "address": "1905 S. Prairie Avenue",
+      "title": "Marshall Field's house",
+      "structure": "marshall_field_house_1905_prairie",
+      "household": "hh_field_marshall",
+      "stand": {
+        "parcel": "prairie_1905",
+        "walk": "the east walk, a block south"
+      },
+      "lat": 41.856442,
+      "lon": -87.620606,
+      "text": "Built in 1876 and called 'the first in Chicago to be completely wired for electricity'; its plans came from the office of Richard Morris Hunt. The 1904 Blue Book lists Marshall Field here, 'the wealthiest and most powerful businessman in Chicago'. Razed 1955.",
+      "sources": [
+        "chicago_treasure_houses_2017_other_mrs_field",
+        "hunt_field_1905_principal_floor_plan",
+        "chicago_blue_book_1904",
+        "wikipedia_marshall_field",
+        "hmdb_prairie_lost_houses_1800_1900_east"
+      ],
+      "evidence": [
+        "jaunt:field-and-mrs-caton#field-children",
+        "structure:marshall_field_house_1905_prairie",
+        "jaunt:field-and-mrs-caton#field-rich",
+        "jaunt:field-and-mrs-caton#field-razed",
+        "household:hh_field_marshall"
+      ]
+    },
+    {
+      "id": "elbridge-keith",
+      "address": "1900 S. Prairie Avenue",
+      "title": "The Elbridge Keith house",
+      "structure": "elbridge_keith_house_1900_prairie",
+      "household": "hh_keith_elbridge_g",
+      "stand": {
+        "parcel": "prairie_1900",
+        "walk": "the west walk, across the avenue"
+      },
+      "lat": 41.856646,
+      "lon": -87.620819,
+      "text": "Built 1870 to John W. Roberts's design. The district marker calls it 'the last surviving example of the popular Second Empire style, which dominated the street by the 1880s'. The 1904 Blue Book lists the Elbridge G. Keiths here; the 1900 census calls him a bank president.",
+      "sources": [
+        "hmdb_prairie_heritage_preserved",
+        "chicago_blue_book_1904",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "evidence": [
+        "jaunt:prairie-ghosts-at-night#ekeith-marker",
+        "jaunt:prairie-style-second-empire#ekeith-banker",
+        "household:hh_keith_elbridge_g"
+      ]
+    },
+    {
+      "id": "osborn-keith",
+      "address": "1808 S. Prairie Avenue",
+      "title": "The Keith house",
+      "structure": "keith_house_1808_prairie",
+      "household": "hh_field_stanley",
+      "stand": {
+        "parcel": "prairie_1808",
+        "walk": "the west walk, back north"
+      },
+      "lat": 41.85757,
+      "lon": -87.620859,
+      "text": "The Inland Architect announced it in September 1886: 'For O. R. Keith, three story dwelling, 38 by 80 feet, 1808 Prairie avenue, granite front; cost $40,000.' The 1904 Blue Book lists Mr. and Mrs. Stanley Field here. When it was pulled down in 1968, its north wall was kept to preserve the Glessner House's private courtyard.",
+      "sources": [
+        "inland_architect_1886_09_keith_notice",
+        "chicago_blue_book_1904",
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "evidence": [
+        "jaunt:prairie-architects#keith-notice",
+        "jaunt:the-walk-to-the-lake#stanley-1808",
+        "jaunt:prairie-architects#keith-razed",
+        "household:hh_field_stanley"
+      ]
+    },
+    {
+      "id": "glessner",
+      "address": "1800 S. Prairie Avenue",
+      "title": "The Glessner House",
+      "structure": "glessner_house",
+      "household": "hh_glessner_john_j",
+      "stand": {
+        "parcel": "prairie_1800",
+        "walk": "the west walk, at the corner of 18th Street"
+      },
+      "lat": 41.857725,
+      "lon": -87.620865,
+      "text": "Henry Hobson Richardson's last work, its street walls faced in granite. He held that the windows of a city house were 'not to look out of'; a 1958 plaque praised the plan 'which opens the family rooms to the quiet serenity of an inner yard'. John J. Glessner, of the farm-machinery firm Warder, Bushnell & Glessner, and his wife Frances first slept here on 1 December 1887, and live here in 1904.",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_story_of_a_house_1923",
+        "wikipedia_glessner_house",
+        "glessner_house_family_page"
+      ],
+      "evidence": [
+        "jaunt:prairie-avenue-orientation#richardson",
+        "jaunt:prairie-avenue-orientation#granite-skin",
+        "jaunt:prairie-avenue-orientation#not-to-look-out",
+        "jaunt:prairie-avenue-orientation#inner-yard",
+        "jaunt:prairie-avenue-orientation#glessner-firm",
+        "jaunt:glessner-household-tour#first-night",
+        "household:hh_glessner_john_j"
+      ]
+    }
+  ],
+  "citations": {
+    "hmdb_prairie_lost_houses_1600_1700": "'Lost Houses of Prairie Avenue: 1600-1700 Blocks', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308722.",
+    "wikipedia_george_pullman": "Wikipedia, 'George Pullman'. Read 5 November 2026.",
+    "chicago_blue_book_1904": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1904. Chicago: The Chicago Directory Company, 1903.",
+    "wikipedia_glessner_house": "Wikipedia, 'John J. Glessner House'. Read 5 November 2026.",
+    "hmdb_prairie_heritage_preserved": "'A Heritage Preserved', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308723.",
+    "wikipedia_william_wallace_kimball": "Wikipedia, 'William Wallace Kimball'. Read 30 October 2026.",
+    "inland_architect_1888_10_ames_residence": "\"Residence of Miner T. Ames, Chicago. Cobb & Frost, Architects.\" Photographic plate. The Inland Architect and News Record, vol. XII, no. 3 (October 1888), plate section ('Our Illustrations').",
+    "chicago_treasure_houses_2017_other_mrs_field": "Chicago Treasure Houses (M.K.E.), 'The Other Mrs. Field (and she didn't make cookies)', 17 September 2017. Read 15 November 2026.",
+    "hunt_field_1905_principal_floor_plan": "[Residence for Marshall and Nannie S. Field, 1905 South Prairie Avenue, Chicago, Illinois]. [First floor plan]. Office of Richard Morris Hunt, architect, [between 1871 and 1873]. Ink and watercolour wash; sheet headed 'Office Copy', 'No 2', 'M. FIELD', 'House for Marshall Field - Chicago Ill.', 'Plan of Principal Floor', 'Scale 1/4\" = 1 ft'.",
+    "wikipedia_marshall_field": "Wikipedia, 'Marshall Field'. Read 5 November 2026.",
+    "hmdb_prairie_lost_houses_1800_1900_east": "'Lost Houses of Prairie Avenue: 1800-1900 Blocks (East Side)', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308709.",
+    "census_1900_chicago_t623_roll245": "Twelfth Census of the United States, 1900: Schedule No. 1, Population. Illinois, Cook County, City of Chicago (South Town). NARA microfilm publication T623, roll 245 (\"Cook County, City of Chicago (cont'd: ED 9, sheet 8--end, EDs 10-35, 1199, 36--42, and ED 43, sheets 1-10)\"), digitised from the film and republished by the Internet Archive as item 12thcensusofpopu245unit, 917 leaves.",
+    "inland_architect_1886_09_keith_notice": "The Inland Architect and News Builder, vol. VIII, no. 3 (September 1886), p. 28, Chicago building news, Cobb & Frost notice for O. R. Keith, 1808 Prairie Avenue.",
+    "hmdb_prairie_lost_houses_1800_1900_west": "'Lost Houses of Prairie Avenue: 1800-1900 Blocks (West Side)', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308706.",
+    "habs_glessner_house_il_1015_data_pages": "Historic American Buildings Survey. John J. Glessner House (Now Chicago School of Architecture Foundation), 1800 Prairie Avenue. HABS No. ILL-1015. Photographs; Written Historical and Descriptive Data, data pages 1-23 (prepared by David T. Van Zanten, student assistant architect, and Osmund Overby, supervisory architect, August 1963) and addendum data pages 24-25 (inventory of photogrammetric images, 1985-1986). National Park Service; Library of Congress, Prints and Photographs Division.",
+    "glessner_story_of_a_house_1923": "Glessner, John J. The Story of a House. Unpublished typescript booklet written for his children George and Frances, signed 'Faithfully your father, John J. Glessner', March 1923. Transcribed in full in HABS No. ILL-1015, Written Historical and Descriptive Data, data pages 7-21 (1963).",
+    "glessner_house_family_page": "Glessner House, Glessner Family (biographies of John J., Frances M., George M. and Frances Glessner Lee). Read 16 October 2026."
+  }
+}

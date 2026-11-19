@@ -172,7 +172,8 @@ ok(sample.every((x) => !Object.prototype.hasOwnProperty.call(x, 'day')), 'readin
   ok(made && made.reps > 0 && made.triangles > 0, `a body is made (${made?.reps} points, ${made?.triangles} triangles)`);
   const all = body.geometry.attributes.position.count + coat.geometry.attributes.position.count;
   ok(made.reps < all / 3, `clustered: ${made.reps} of ${all} points`);
-  const region = made.geometry.attributes.aRegion.array;
+  // aRegion is region + 4 x (slot + 1) (T-3553); the region is its remainder.
+  const region = [...made.geometry.attributes.aRegion.array].map((x) => x % 4);
   const skinShare = region.filter((r) => r === 1).length / region.length;
   ok(skinShare < 0.15, `the body under the coat is folded into it (skin points ${(skinShare * 100).toFixed(1)}%, MERGE_M ${MERGE_M} m)`);
   ok(made.vat.image.width * made.vat.image.height >= made.reps * (WALK_FRAMES + 1), 'the walk texture holds every frame');
@@ -188,7 +189,10 @@ ok(sample.every((x) => !Object.prototype.hasOwnProperty.call(x, 'day')), 'readin
   const { dressSlots, CROWD_SLOTS, CARD_SLOTS } = crowd;
   ok(made.slots.length === 1 && made.slots[0].material === 'garment_outer__coat', 'the coat is the body\'s one cloth slot');
   ok(made.slots[0].under === '#skin', `what lies under the coat is skin (${made.slots[0].under})`);
-  const slotAttr = made.geometry.attributes.aSlot.array, maskAttr = made.geometry.attributes.aMask.array;
+  const slotAttr = made.slotOf, maskAttr = made.geometry.attributes.aMask.array;
+  ok(!made.geometry.attributes.aSlot, 'no attribute of its own for the slot: a phone has 16 (T-3553)');
+  ok([...made.geometry.attributes.aRegion.array].every((x, r) => Math.floor(x / 4) - 1 === slotAttr[r]),
+    'aRegion carries region + 4 x (slot + 1)');
   for (let r = 0; r < made.reps; r++) {
     const cloth = region[r] === 0;
     if (cloth !== (slotAttr[r] === 0)) { ok(false, `point ${r}: cloth ${cloth}, slot ${slotAttr[r]}`); break; }
