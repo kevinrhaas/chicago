@@ -5233,14 +5233,6 @@
   },
   {
    "card": "notes:Rectangles fitted inside the traced parts by the rules' fit…",
-   "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2031-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 81% of its fill; s35fp-2031-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 62% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
-   "own": "16-17",
-   "levels": {
-    "8-10": "The shape is made of boxes fitted inside the outlines drawn from the 1911 map. The boxes cover most of each part. The biggest box is the main house. How many floors each box has, and its roof, are our guesses."
-   }
-  },
-  {
-   "card": "notes:Rectangles fitted inside the traced parts by the rules' fit…",
    "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2031-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 81% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
    "own": "16-17",
    "levels": {
@@ -16132,14 +16124,6 @@
   },
   {
    "card": "why:RECONSTRUCTED by the draft rules, family row 'Italianate' ov…",
-   "text": "RECONSTRUCTED by the draft rules, family row 'Italianate' overlaid with the frontage row: 2031, the north house of the 1869 Lemont-limestone row (census ruling r35-2031-2035-row; Samuel A. Tolman's in the 1904 Blue Book): the Italianate family's flat roof behind a bracketed cornice over three storeys, its stone street face. The row shares a cornice line and is not three copies, so its doors differ: 2031's north, 2033's south, 2035's toward the corner. Heights are the rules' starting values inside the project's notes on reconstruction rules's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 4040658004 only tints the fabric inside +-6 %. Liberty “The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open”.",
-   "own": "16-17",
-   "levels": {
-    "8-10": "Our rules for this part of town built it. This is 2031, the north house of the row of Lemont limestone houses built in 1869. A book of 1904 lists Samuel A. Tolman here. It has a flat roof behind trim with brackets over three floors, with a stone front. The row shares one roof line but the houses are not copies. Their doors differ: 2031's is to the north, 2033's to the south, and 2035's toward the corner. Every height, roof, window and other part is our guess. We change its color a little so the houses do not all match."
-   }
-  },
-  {
-   "card": "why:RECONSTRUCTED by the draft rules, family row 'Italianate' ov…",
    "text": "RECONSTRUCTED by the draft rules, family row 'Italianate' overlaid with the frontage row: other work's brief for a 1635 house: 'a compact earlier villa with simple bracketed cornice, high stoop and bounded rear service roof'. Built in 1863, the same years as 1637's 'typical two-story brick Italianate' next door, so the draft's Italianate brackets under a low hip; two bays on the plate's 6.7 m front; the door on the north flank toward the open lots 3-5 the plate draws beside it, the Forsyth grounds a neighbour remembered for their lawn and fountain. Every one of these is RECONSTRUCTED. Heights are the rules' starting values inside the project's notes on reconstruction rules's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2943950489 only tints the fabric inside +-6 %. Liberty “The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate”.",
    "own": "16-17",
    "levels": {
@@ -24080,14 +24064,6 @@
    "own": "16-17",
    "levels": {
     "8-10": "This says where the back corner of the main part of the building stands. We read it off an old fire map. It could be off by about 3 meters. We turned the plan to face the street."
-   }
-  },
-  {
-   "card": "why:The rear corner of the main body's rectangle (lot frame u 33…",
-   "text": "The rear corner of the main body's rectangle (lot frame u 33.750, v -3.500 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.39 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-   "own": "16-17",
-   "levels": {
-    "8-10": "This says where the back corner of the main part of the building stands. We read it off an old fire map. That map lines up very closely with the real ground. We turned the plan to face the street."
    }
   },
   {
