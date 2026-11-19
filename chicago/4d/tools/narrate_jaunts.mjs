@@ -242,8 +242,12 @@ export async function voice(work, index, out, key, { fetcher = fetch, now = () =
   fs.mkdirSync(dir, { recursive: true });
   const next = { version: 1, updated: now(), clips: { ...index.clips } }, made = [];
   if (narrators) next.narrators = narrators;
+  let stopped = null;
   for (const s of work) {
-    const bytes = await synthesize(key, s, fetcher);
+    // T-3696: a clip ElevenLabs refuses (out of credits, most likely) ends the run, but what was
+    // already voiced is paid for: it is kept, indexed and uploaded, and the rest waits.
+    let bytes;
+    try { bytes = await synthesize(key, s, fetcher); } catch (e) { stopped = { at: `${s.jaunt}/${s.part}:${s.id}`, error: e.message }; break; }
     const digest = sha(bytes), file = `narration/${digest}.mp3`;
     fs.writeFileSync(path.join(out, file), bytes);
     next.clips[s.key] = { text_sha256: s.text_sha256, file, bytes: bytes.length, sha256: digest,
@@ -257,7 +261,7 @@ export async function voice(work, index, out, key, { fetcher = fetch, now = () =
   }
   fs.writeFileSync(path.join(out, INDEX_PATH), JSON.stringify(next, null, 1) + '\n');
   fs.writeFileSync(path.join(out, 'made.json'), JSON.stringify(made) + '\n');
-  return { index: next, made };
+  return { index: next, made, stopped };
 }
 
 /** After upload: every made clip and the index are served, whole, from the public host. */
@@ -332,12 +336,18 @@ async function main(argv) {
       + `${rest.length} clip(s), ${rest.reduce((n, s) => n + (s.spoken ?? s.text).length, 0)} characters, wait for the next run:\n`
       + [...new Set(rest.map(s => s.jaunt))].map(j => `  ${j}`).join('\n'));
     if (!batch.length) { fs.mkdirSync(out, { recursive: true }); fs.writeFileSync(path.join(out, 'made.json'), '[]\n'); note('Nothing voiced this run.'); return; }
-    const { made } = await voice(batch, index, out, key, { narrators: { default: DEFAULT_NARRATOR,
+    const { made, stopped } = await voice(batch, index, out, key, { narrators: { default: DEFAULT_NARRATOR,
       choices: Object.fromEntries(Object.entries(config.narrators).map(([id, n]) => [id, n.label ?? id])) } });
-    note(`Voiced ${made.length} clip(s), ${chars} characters.`);
+    const spent = batch.slice(0, made.length).reduce((n, s) => n + (s.spoken ?? s.text).length, 0);
+    note(`Voiced ${made.length} clip(s), ${spent} characters.`);
+    if (stopped) {
+      note(`Stopped at ${stopped.at}: ${stopped.error}. The ${made.length} clip(s) voiced before it are kept and uploaded; the other ${batch.length - made.length} wait for the next run.`);
+      if (!made.length) throw Error(`nothing voiced: ${stopped.error}`);
+      console.log(`::warning::narration stopped early at ${stopped.at} (${stopped.error.slice(0, 160)})`);
+    }
     const after = await quota(key);
     note(quotaLine(after, 'after this run'));
-    if (!before.error && !after.error) note(`This run used ${after.used - before.used} ElevenLabs credits (${chars} characters sent).`);
+    if (!before.error && !after.error) note(`This run used ${after.used - before.used} ElevenLabs credits (${spent} characters sent).`);
   }
 }
 

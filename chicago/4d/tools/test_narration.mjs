@@ -176,6 +176,23 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   assert.equal(part.rest.length, 2);
   assert.equal(takeWithin(todo, 0).batch.length, 0, 'no credits left: nothing voiced, nothing fails');
 }
+{
+  // A refusal part way (credits run out) keeps and indexes what was already voiced.
+  const config = loadConfig(), all = await scriptsFor(config);
+  const names = new Map([...Object.values(config.voices), ...Object.values(config.narrators).map(n => n.voice)].map((v, i) => [v.replace(/\s+/g, ' ').trim().toLowerCase(), `v${String(i).padStart(19, '0')}`]));
+  const work = plan(all, config, { version: 1, clips: {} }, names).todo.slice(0, 3);
+  assert.equal(work.length, 3);
+  {
+    let n = 0;
+    const out = fs.mkdtempSync(path.join(os.tmpdir(), 'narr-stop-'));
+    const twoThenBroke = async () => (++n <= 2 ? new Response(Buffer.alloc(2000 + n), { status: 200 }) : new Response('{"detail":{"status":"quota_exceeded"}}', { status: 401 }));
+    const r = await voice(work, { version: 1, clips: {} }, out, 'k', { fetcher: twoThenBroke });
+    assert.equal(r.made.length, 2, 'the two voiced clips are kept');
+    assert.match(r.stopped.error, /HTTP 401/);
+    assert.equal(Object.keys(JSON.parse(fs.readFileSync(path.join(out, 'narration/index.json'), 'utf8')).clips).length, 2, 'and indexed for the upload');
+    fs.rmSync(out, { recursive: true, force: true });
+  }
+}
 
 // ---- the player ------------------------------------------------------------------------
 {
