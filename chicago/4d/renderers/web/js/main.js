@@ -6477,7 +6477,11 @@ async function boot() {
   };
   // T-2561: "Keep <year> on this device" on the welcome — the year's pack in Cache
   // Storage behind a service worker, so a kept year boots from disk, offline too.
-  api.pack = createYearPack({ year: YEAR, mount: document.getElementById('welcome-pack'), dev: resolveBases().dev });
+  // T-3675: on a Chromebook the welcome line reads "Prepare for class" with its size, and
+  // Settings › Graphics carries the same download, for a teacher readying a class set.
+  api.pack = createYearPack({ year: YEAR, mount: document.getElementById('welcome-pack'), dev: resolveBases().dev,
+    classroom: !!device.signals?.chromeos });
+  api.pack.attachSettings(document.querySelector('.panel-body[data-panel="settings"] .settings-group[data-set-pane="graphics"]'));
   // The Jaunts list, for the Welcome card's Jaunts choice and for the Navigator's Jaunts
   // app (T-2630), which shows the same list wherever it is.
   let jauntPictures = null;
