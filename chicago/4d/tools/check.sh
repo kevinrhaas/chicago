@@ -405,6 +405,8 @@ step "Field notebook preserves evidence and notes, bounds storage, and reports f
   node tools/test_field_notebook.mjs
 step "Jaunt reflections use only cited visited claims across all reading bands (T-3656)" \
   node tools/test_jaunt_understanding.mjs
+step "Gossip investigations preserve cited uncertainty and explicit bounded notebook saves (T-3663)" \
+  node tools/test_jaunt_investigation.mjs
 step "Group lesson guides use the selected outing's citations and preserve print cleanup (T-3656)" \
   node tools/test_lesson_guides.mjs
 step "Photo hunts preserve canonical evidence, shared dates, distance scores and bounded local progress (T-3657)" \

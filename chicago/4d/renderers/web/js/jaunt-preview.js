@@ -2,6 +2,8 @@
 import { addTable, tellingTable } from './reading-level.js';
 import { understandingQuestions, createUnderstandingDraft } from './jaunt-understanding.js';
 import { renderUnderstandingCheck } from './jaunt-understanding-view.js';
+import { gossipInvestigation, createInvestigationDraft } from './jaunt-investigation.js';
+import { renderInvestigation } from './jaunt-investigation-view.js';
 import { createJauntMenu } from './jaunt-menu.js';
 import { createJournal, presentKeepsake } from './jaunt-journal.js';
 import { icon } from './menu-icons.js';
@@ -14,13 +16,18 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
   let catalogPromise, daybookPromise, journal = null, serial = 0, outcomeSeen = null;
   const contents = new Map();
-  let checkSession = null, checkDraft = null;
+  let checkSession = null, checkDraft = null, investigationDraft = null;
   const doc = root.ownerDocument ?? globalThis.document;
   if (doc?.head && !doc.getElementById('jaunt-understanding-style')) {
     const checkStyle = doc.createElement('link'); checkStyle.id = 'jaunt-understanding-style';
     checkStyle.rel = 'stylesheet';
     checkStyle.href = new URL('../css/jaunt-understanding.css', import.meta.url);
     doc.head.append(checkStyle);
+  }
+  if (doc?.head && !doc.getElementById('jaunt-investigation-style')) {
+    const style = doc.createElement('link'); style.id = 'jaunt-investigation-style';
+    style.rel = 'stylesheet'; style.href = new URL('../css/jaunt-investigation.css', import.meta.url);
+    doc.head.append(style);
   }
   const menu = createJauntMenu({ root, estimate, onStart, onPreview: select, plateFor,
     kept: row => !!journal?.keepsakes.some(e => e.jaunt === row.id), preferredMode, modeNote });
@@ -146,6 +153,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     if (session?.phase !== 'outcome' || checkSession !== session.session) {
       checkSession = session?.phase === 'outcome' ? session.session : null;
       checkDraft = checkSession ? createUnderstandingDraft() : null;
+      investigationDraft = checkSession ? createInvestigationDraft() : null;
     }
     if (session?.notice) prefix.push(node('p', session.notice, 'jaunt-session-note'));
     if (session?.jaunt && ['menu', 'outcome'].includes(session.phase)) {
@@ -194,6 +202,8 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
         note.append(head, more);
         const check = checkDraft && renderUnderstandingCheck(doc, understandingQuestions(session), checkDraft);
         if (check) note.append(check);
+        const investigation = renderInvestigation(doc, gossipInvestigation(session), investigationDraft);
+        if (investigation) note.append(investigation);
         const row = node('div', '', 'jaunt-outcome-actions');
         if (journal) {
           const book = button('Daybook', () => showDaybook(session.jaunt.id)); book.prepend(icon('News & Knowledge', 15));
