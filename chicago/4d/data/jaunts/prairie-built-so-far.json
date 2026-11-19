@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 396646237,
+  "content_version": 841905027,
   "category": "Build log",
   "menu_group": "Build log",
   "grade_band": "6-8",
@@ -21,7 +21,7 @@
     "season": "summer"
   },
   "opening": {
-    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 106 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 56 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
+    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 107 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 57 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
     "read_s": 28
   },
   "stops": [
@@ -1035,8 +1035,8 @@
         "kind": "structure",
         "id": "high_house_2021_prairie"
       },
-      "text": "High House, 2021 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: 2035 Prairie.",
-      "read_s": 14,
+      "text": "High House, 2021 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: Buckingham House, 2036 Prairie.",
+      "read_s": 15,
       "evidence": [
         "stood-48",
         "tour"
@@ -1054,10 +1054,10 @@
       "id": "stop-49",
       "destination": {
         "kind": "structure",
-        "id": "stone_house_2035_prairie"
+        "id": "buckingham_house_2036_prairie"
       },
-      "text": "2035 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: Elbridge Keith House, 1900 Prairie.",
-      "read_s": 14,
+      "text": "Buckingham House, 2036 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: Elbridge Keith House, 1900 Prairie.",
+      "read_s": 15,
       "evidence": [
         "stood-49",
         "tour"
@@ -1065,7 +1065,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "stone_house_2035_prairie",
+          "id": "buckingham_house_2036_prairie",
           "label": "About this building"
         }
       ],
@@ -1728,12 +1728,13 @@
     },
     {
       "id": "stood-49",
-      "text": "2035 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "text": "Buckingham House, 2036 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_35"
+        "sanborn_1911_chicago_v3_sheet_35",
+        "chicagology_2000_block_prairie_engraving_1880"
       ],
       "confidence": "inferred",
-      "reasoning": "Standing in 1904 as Mrs. H. O. Stone's home (the Tribune of 4 February 1904 has it occupied; the 1904 Blue Book lists her at 2035) and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). The Tribune draws its entrance in January 1898. The record claims the 1904 target to the sheet's date and no more."
+      "reasoning": "The house stands in the c. 1880 engraving and on the 1911 sheet, and the T-1842 census rules it present in 1904 (present_as_mapped); this phase claims the 1904 target and the sheet's date, no more. Its building and loss dates are not read."
     },
     {
       "id": "stood-50",

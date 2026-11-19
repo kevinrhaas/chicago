@@ -1,0 +1,69 @@
+{
+  "structure_id": "buckingham_house_2036_prairie",
+  "view": "chicagology_engraving",
+  "glb": "assets/gltf/buckingham_house_2036_prairie__as_mapped_1904.glb",
+  "glb_sha256": "8eb6714e1fde2575909843c3e40f349779b87f6f19e5977ea6ce594dd4e3f4f3",
+  "camera_sha256": "f60ae62bb230f511180c7453cf0264406621ea7a158d23f9a73bad822abe5c95",
+  "photo_sha256": "9247cf9c0e5a7a890e21fe96b256f9067b45256822aebef55e376de67e1d036a",
+  "side_by_side": "docs/RESEARCH/photo-match/buckingham_house_2036_prairie/chicagology_engraving-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the draft's 20 x 9.5 m hipped box is now the sheet's front block, 14.35 m deep and 15.43 m along the front, with its canted south-east corner, a canted bay on each flank and the rear range behind; the 21st Street face fills the picture's left edge as the engraving's does",
+      "status": "fixed"
+    },
+    {
+      "what": "the 21st Street face's principal light: render x 1135-1245 px, sill y 755, head y 395, against the engraving's x 135-225, sill y 790, head y 380; drawn about 20 px narrower in the render (the engraver draws it wider than the perspective of its own heights gives)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the hood over that light: the render's architrave and cornice hood (K09's restrained surround) over the light, against the engraving's cornice over a frieze carved with a running vine on two consoles; the frieze panel stands taller in the engraving (about 0.2 m) and its carving is the kit's plainer moulding",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the stone sill course under the chamber light across the 21st Street face: render y 245-260 px, engraving y 205-235, about 0.2 m apart through the camera",
+      "status": "fixed"
+    },
+    {
+      "what": "the chamber light over it on the sill course, in a plain stone frame: render x 1135-1245, the engraving's x 150-235; its head is out of both frames",
+      "status": "fixed"
+    },
+    {
+      "what": "the stone basement under the brick, to the principal floor, with a barred light under the window column (render x 1125-1240, y 855-970; engraving x 140-225, y 890-1000); the engraving cuts the basement in broad horizontal bands where the render's side facing is plain ashlar, the same stone and tone",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the canted south-east corner: in the render it spans x 1275-1470 px, in the engraving x 300-370; the cut is the 1911 sheet's (1.3 m at K01's 45 degrees), and the engraving's foreground is not in one perspective with its house (the camera's solve), so the two disagree on how wide it prints",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the porch on the Prairie front: a pale stone column at the stoop's head (engraving x 410-460 px, render x 1620-1680 on the near column) under the porch's roof; the porch's entablature and deck the engraving's tree hides",
+      "status": "fixed"
+    },
+    {
+      "what": "the stoop's turned balustrade down its cheeks to the walk, the stoop as broad as the sheet's porch (2.8 m): engraving x 370-760 px, render x 1600-2000; bulbous turned balusters on a moulded rail in both; the place differs by the camera's disagreement on the front (above)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the iron fence along the walk: spear-headed bars over a band of rings on a stone curb (K11's scroll band) with the entrance gate; the engraving's corner pier at x 1125 px, the render's at x 1470, the camera's disagreement on the foreground",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the iron fence ALONG 21st STREET, across the whole foreground from the corner pier past the house's south face (engraving x 0-1125 px, y 985-1090): not built. K11 lays its iron runs along the street line only, and a side fence only in boards, so the corner lot's side-street iron cannot be built yet; the 1911 sheet draws a 6 ft brick wall on that line west of the house, later evidence",
+      "status": "open"
+    },
+    {
+      "what": "the urns on the gate's piers (engraving x 760-900 px): not built; K11's walk-gate piers carry caps",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the cornice, the mansard and its dormers, the chimneys: out of the engraving's frame",
+      "status": "not shown"
+    },
+    {
+      "what": "colour: the engraving is monochrome; the brick's red and the stone's buff are the kits'",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
