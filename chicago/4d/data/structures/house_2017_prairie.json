@@ -582,11 +582,11 @@
             0.69
            ],
            "recess_m": 0.33,
-           "why_not_ordinary": "the projection's two basement lights in the photograph (x 660-745 and 795-880 px, y 1085-1150), barred as the north part's are, with the north part's grille",
+           "why_not_ordinary": "the projection's two basement lights in the photograph (x 660-745 and 795-880 px, y 1085-1150), barred as the north part's are, with the north part's grille but a 0.15 m ring (at its 0.1 m the ring's legs lie on the third and fifth of seven bars, a face drawn twice in the bay kit; the 5 cm is under the bar)",
            "grille": {
             "bars": 7,
             "set_back_m": 0.04,
-            "ring_radius_m": 0.1
+            "ring_radius_m": 0.15
            }
           }
          ]
