@@ -216,8 +216,10 @@
 /* Scoped to the dot: unscoped, these filled the card's `.grade` text chips too
    (walk.css), and an ATTESTED chip read as gold text on a gold slab. */
 .grade-dot.grade-attested { background: var(--grade-attested); }
-.grade-dot.grade-inferred { background: var(--grade-inferred); }
-.grade-dot.grade-reconstructed { background: transparent; border: 1px solid var(--grade-reconstructed); }
+.grade-dot.grade-inferred { background: linear-gradient(90deg, var(--grade-inferred) 0 50%, transparent 50%); box-shadow: inset 0 0 0 1.5px var(--grade-inferred); }
+.grade-dot.grade-reconstructed { background: transparent; border: 1.5px solid var(--grade-reconstructed); box-sizing: border-box; }
+/* T-3671 (WCAG 1.4.1): the shape says the grade too — full, half, empty
+   (css/confidence-overlays.css § grade marks). */
 
 /* A static mark saying which KIND of person a row is. The letter-list and
    projected marks take the conjectural colour, the same way the household

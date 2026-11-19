@@ -255,7 +255,7 @@ await check('the wiring: hud.js keeps its part in the record, main.js binds the 
   assert.match(hud, /readChoices\(\)\.hidden/, 'the hidden set read from the record');
   assert(!/store\(CONF_KEY/.test(hud) && !/CONF_KEY = /.test(hud), 'no second writer of the key');
   const main = await read('renderers/web/js/main.js');
-  assert.match(main, /createConfidenceLegend\(\{ el: document\.getElementById\('conf-legend'\), hud, view: confidence,\s*open: \(\) => \{ void navigatorUi\?\.select\('confidence'\); \} \}\)/);
+  assert.match(main, /createConfidenceLegend\(\{ el: document\.getElementById\('conf-legend'\), hud, view: confidence,\s*open: \(\) => \{ void navigatorUi\?\.select\('confidence', \{ focus: true \}\); \} \}\)/);
   assert(main.indexOf('restoreLooks(confidence, safeStorage())') < main.indexOf('hud.applyHidden();'), 'the looks before the first frame');
   const html = await read('renderers/web/index.html');
   const chips = html.slice(html.indexOf('<div class="hud-chips">'), html.indexOf('<div class="hud-actions">'));

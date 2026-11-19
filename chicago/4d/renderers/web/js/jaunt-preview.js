@@ -10,6 +10,7 @@ import { icon } from './menu-icons.js';
 import { t } from './strings/index.js';
 import './strings/license.js';
 import { loadReaderText, readerCopy } from './reader-text.js';
+import { localCatalog, localJaunt } from './jaunt-language.js';
 
 export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, onDismiss = () => {}, getSession = () => null, estimate = () => null, storage, plateFor = () => null, preferredMode = () => null, modeNote = () => '', license = null, narration = null, allowAdults = () => false }) {
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
@@ -54,9 +55,11 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     return response.json();
   }
   function catalog() {
-    if (!catalogPromise) catalogPromise = json('catalog.json').then(data => {
+    if (!catalogPromise) catalogPromise = json('catalog.json').then(async data => {
       if (data.scene !== String(scene) || !Array.isArray(data.jaunts)) throw new Error('Invalid catalog');
-      api.catalog = data.jaunts; return data.jaunts;
+      // Gap analysis item 15: titles and premises in the visitor's language (js/jaunt-language.js).
+      const rows = await localCatalog(data.jaunts, base, fetcher);
+      api.catalog = rows; return rows;
     }).catch(error => { catalogPromise = null; throw error; });
     return catalogPromise;
   }
@@ -185,6 +188,8 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
             const on = narration.isPlaying(session.jaunt, 'ending', session.outcome.id);
             hear.setAttribute('aria-pressed', String(on)); hear.replaceChildren(icon(on ? 'stop' : 'listen', 15), node('span', on ? 'Stop' : 'Listen'));
             hear.title = on ? 'Stop the narration' : 'Listen: read aloud in a synthetic voice';
+            // T-3671 (WCAG 1.2.1): an ending read aloud here is on screen while it is read.
+            if (on) more.open = true;
           };
           paint();
           const off = narration.on(() => { if (!hear.isConnected) off(); else paint(); });
@@ -258,6 +263,9 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       // T-2825: a stop's evidence (its locator, its reasoning, its citations) said for a
       // reader, by the overlay the gate lints; the story itself is already a visitor's text.
       content = readerCopy(content, await loadReaderText(dataBase, `jaunts_${scene}`));
+      // Gap analysis item 15: the words in the visitor's language, over the English the reader
+      // overlay just cleaned (its keys are the English strings').
+      content = await localJaunt(content, base, fetcher);
       contents.set(id, content);
     }
     return content;
@@ -272,6 +280,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       const title = node('h3', content.title);
       root.replaceChildren(backButton(() => { ++serial; list(api.catalog, row.id); }), title,
         node('p', 'Route preview', 'jaunt-meta'),
+        ...(content.quotesNote ? [node('p', content.quotesNote, 'jaunt-meta')] : []),
         ...String(content.opening.text).split(/\n\s*\n/).map(text => node('p', text.trim())));
       const stops = node('ol', '', 'jaunt-stops');
       for (const stop of content.stops) {
