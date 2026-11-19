@@ -9878,7 +9878,7 @@
       "baked_ao": false,
       "bytes": 5030072,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "87fc0f81a2112ff8cba04ef43dfb1f045705009059e83797fecfa92bfe69dad1",
+      "inputs_sha256": "7e23b2c13ab7fc3f7af19fdeb979cbae1f93cfebb991a514662da4602ce71dd3",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "roloson_house_2109_prairie"
@@ -10194,7 +10194,7 @@
       "baked_ao": false,
       "bytes": 3448988,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "1177a3a6d8dfcabec8b68a6ad6ac0e97529f03fcf3bda3afa6218ddfa4c45732",
+      "inputs_sha256": "c73aaac4fdd411fac7bc46e66548d86a209cd54e1575746e7b280a36edabe726",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "tolman_house_2031_prairie"
