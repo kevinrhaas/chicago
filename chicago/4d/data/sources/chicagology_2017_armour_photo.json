@@ -1,0 +1,29 @@
+{
+ "id": "chicagology_2017_armour_photo",
+ "type": "photograph",
+ "citation": "2017 S. Prairie (William Armour residence). Photograph of the house's street front, taken square to it from Prairie Avenue; unknown photographer, undated. Reproduced on chicagology.com, Prairie Avenue, 2017 S. Prairie.",
+ "author": "unknown photographer",
+ "date": "undated (19th century, the Prairie library's reading)",
+ "describes_date": "undated; the house as William Armour's (the library's caption)",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image a20-chicagology-2017-armour-photo, '2017 S. Prairie (William Armour residence)', recorded there as 'unknown — link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a20-chicagology-2017-armour-photo.jpg), committed at data/sources/assets/armour_2017_photo_t3634/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/2017prairie/",
+ "locator": "The whole print: the street front from the walk to the gable's finial, the mansard and its two dormers, the gabled south projection, the columned porch and its parapet, the stoop and the basement's barred lights behind an iron railing; the north stack at the left edge.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown — link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-3634) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-18 (T-3634) from the image store's reference copy, 932 x 1200 px greyscale, sha256 0586ba59683607672112e12b5c3429e8a139820061ffc9189c90826302e2b226.",
+ "note": "The one picture of 2017 Prairie this project reads whole (the Inland Architect's 1895 plate of Reid's house, next door at 2013, catches its north edge). A smooth stone front of two storeys over a high basement: on the north part, two pairs of tall square-headed lights a storey under a moulded cornice with a row of blocks, and over it a slated mansard with two gabled dormers (a pair of lights in the north one, one light in the other), each with pilasters and a carved lunette in its pediment, and a crenellated cresting along the mansard's curb; on the south part, a projection carried up into a steep gable with a finial and two attic lights; between them a porch of two columns with carved capitals carrying a deck whose parapet is pierced with rings, a ball finial on each corner; a high stoop with iron rails between stone newels; the basement's lights barred with iron grilles behind an iron railing along the front. It is undated and evidence of its own date; the 1911 Sanborn sheet draws the house in 1911 and the T-1842 census rules it present in 1904, so its forms are carried to 1904 as inferred.",
+ "what_it_supplies": [
+  "the street front's composition: the north part under its mansard, the gabled south projection, the porch between them",
+  "the storeys: a high basement, two storeys and the mansard's attic, and the gable's attic",
+  "every street opening's place, width and height, the dormers', and the basement's barred lights",
+  "the porch's columns, deck and pierced parapet, the stoop and its rails, the cornice, the cresting and the north stack's place"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "a date: undated",
+  "the flanks, the rear and the rear ranges"
+ ]
+}
