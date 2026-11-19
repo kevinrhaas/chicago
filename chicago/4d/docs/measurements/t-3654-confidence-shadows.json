@@ -1,0 +1,139 @@
+{
+  "ticket": "T-3654",
+  "state": "source_and_focused_native_checks_pass_full_validation_pending",
+  "previous_commit": "92ac20bce062b8804ac7128e5f013aa19ee7ea0f",
+  "finding": "Near building/tree instances and bridge batches cast shadows using unpatched default depth materials. Confidence dither/hide therefore reached their color surfaces but not their shadows.",
+  "repair": "Own one confidence-patched MeshDepthMaterial per color material, mirror its map/alpha/clipping/displacement state, assign to each eligible caster and dispose exactly once with the context layer.",
+  "unchanged": "City geometry, historical registration, materials in the ordinary color pass, lighting and existing detail-level shadow policy.",
+  "source_checks": [
+    {
+      "command": "node tools/test_city_context_depth.mjs",
+      "result": "pass",
+      "coverage": "Actual createCityContext construction, building/tree and bridge casters, confidence attributes, live shared hide/dither uniforms, per-color map isolation, tier policy, hidden picking and one-time disposal."
+    },
+    {
+      "command": "node tools/test_confidence_looks.mjs",
+      "result": "pass",
+      "coverage": "Existing 17 confidence appearance, ghost-pass and lifecycle cases."
+    },
+    {
+      "command": "Original 92ac city-context.js with the new focused regression test",
+      "result": "expected_failure",
+      "reason": "Actual caster lacks confidence-patched customDepthMaterial."
+    },
+    {
+      "command": "bash tools/test_check_harness.sh",
+      "result": "pass",
+      "coverage": "178 fixtures, including native CI partition coverage and 14 refusal controls."
+    }
+  ],
+  "native_proof": {
+    "state": "pass",
+    "tested_source_commit": "3f81ece88f0d57d26063d786e6bccd9658ab89c3",
+    "candidate_origin_commit": "92ac20bce062b8804ac7128e5f013aa19ee7ea0f",
+    "candidate_construction": "Copy of published 92ac mirror, with only walk/js/city-context.js replaced by the approved patch; that runtime file and other listed runtime modules match 3f81 exactly.",
+    "viewport": [
+      1280,
+      800
+    ],
+    "detail": "full",
+    "poses": [
+      "commercial",
+      "bridge",
+      "tree"
+    ],
+    "states": [
+      "off",
+      "dither",
+      "hidden"
+    ],
+    "actual_render_states": 18,
+    "screenshots": 9,
+    "sampling": "512x512 texel-center native PCF depth-texture comparison samples at reference depth 0.99999. Counts/hashes measure occupied-shadow coverage, not recovered floating-point depth values. Off-state occupancy hashes are identical; dither has fewer occupied samples; hidden coverage is zero.",
+    "counts": [
+      {
+        "pose": "commercial",
+        "mode": "off",
+        "candidate_occupied": 104283,
+        "fallback_occupied": 104283,
+        "coverage_hash_equal": true
+      },
+      {
+        "pose": "commercial",
+        "mode": "dither",
+        "candidate_occupied": 32560,
+        "fallback_occupied": 104283,
+        "coverage_hash_equal": false
+      },
+      {
+        "pose": "commercial",
+        "mode": "hidden",
+        "candidate_occupied": 0,
+        "fallback_occupied": 104283,
+        "coverage_hash_equal": false
+      },
+      {
+        "pose": "bridge",
+        "mode": "off",
+        "candidate_occupied": 6664,
+        "fallback_occupied": 6664,
+        "coverage_hash_equal": true
+      },
+      {
+        "pose": "bridge",
+        "mode": "dither",
+        "candidate_occupied": 2123,
+        "fallback_occupied": 6664,
+        "coverage_hash_equal": false
+      },
+      {
+        "pose": "bridge",
+        "mode": "hidden",
+        "candidate_occupied": 0,
+        "fallback_occupied": 6664,
+        "coverage_hash_equal": false
+      },
+      {
+        "pose": "tree",
+        "mode": "off",
+        "candidate_occupied": 56883,
+        "fallback_occupied": 56883,
+        "coverage_hash_equal": true
+      },
+      {
+        "pose": "tree",
+        "mode": "dither",
+        "candidate_occupied": 17782,
+        "fallback_occupied": 56883,
+        "coverage_hash_equal": false
+      },
+      {
+        "pose": "tree",
+        "mode": "hidden",
+        "candidate_occupied": 0,
+        "fallback_occupied": 56883,
+        "coverage_hash_equal": false
+      }
+    ],
+    "shader_evidence": "depth-14 and depth-15 are actual patched bridge and instanced caster GPU shaders; depth-17 and depth-18 are the native unpatched negative controls. All compile and link; per-frame uniform readbacks are in report.json.",
+    "errors": [],
+    "limitations": [
+      "Focused software-rendered native shadow acceptance; no hardware FPS or GPU-memory measurement.",
+      "Does not replace complete city, other-year, source, or CI gates. Earlier complete city acceptance continues to cover unchanged geometry, terrain, floor support, lighting, and dates.",
+      "Generic context buildings, trees and bridge forms remain an explicitly approximate baseline; this is not photographic or individually identified historical reconstruction.",
+      "Adding test_city_context_depth.mjs changes check.sh step ordinals and partition assignment. Old source-gate receipts remain bound to their old source revisions; supplemental/new gates must be recorded separately."
+    ],
+    "evidence": "repairs/confidence-shadows/native-proof/ in the T3654 evidence archive"
+  },
+  "source_sha256": {
+    "renderers/web/js/city-context.js": "84c81bb02f8dc611c192d534c97853930310206b07d717b5d5dcdc40ccaf21d8",
+    "tools/test_city_context_depth.mjs": "eca9119dddea2eaa1a86f1fc03e0159554426db116bd8f192a63e195ea85117b",
+    "tools/check.sh": "6a397dc10dfbd8cfde670ad118fcb1f24661943acccb5da128d209d1b279ed4a"
+  },
+  "evidence_files": [
+    "t3654-confidence-depth.patch",
+    "t3654-depth-confidence-unit.log",
+    "t3654-depth-negative-control.log"
+  ],
+  "gate_note": "The new regression check changes partition allocation. Previous partial source receipts remain dated evidence; the patched tree still requires the full source gate and full legacy browser coverage before merge."
+}

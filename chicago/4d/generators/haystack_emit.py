@@ -31,8 +31,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "generators"))
+sys.path.insert(0, str(ROOT / "tools"))
 
 import mesh_inputs  # noqa: E402
+from scene_selection import structure_is_selected  # noqa: E402
 from archetypes import haystack  # noqa: E402
 from archetypes import haystack_params  # noqa: E402
 
@@ -41,11 +43,11 @@ MANIFEST = ROOT / "assets" / "manifest.json"
 GLTF = ROOT / "assets" / "gltf"
 
 
-def _scenes() -> list[tuple[str, dt.date]]:
+def _scenes(structure: dict) -> list[tuple[str, dt.date]]:
     out = []
     for p in sorted((ROOT / "data" / "scenes").glob("*.json")):
         s = json.loads(p.read_text())
-        if s.get("target_date"):
+        if s.get("target_date") and structure_is_selected(s, structure["id"]):
             out.append((s["id"], dt.date.fromisoformat(s["target_date"])))
     return out
 
@@ -64,7 +66,7 @@ def records(only=None):
         if only and st["id"] not in only:
             continue
         for phase in st.get("phases", []):
-            scenes = [sid for sid, day in _scenes() if _covers(phase, day)]
+            scenes = [sid for sid, day in _scenes(st) if _covers(phase, day)]
             if scenes:
                 yield st, phase, scenes
 

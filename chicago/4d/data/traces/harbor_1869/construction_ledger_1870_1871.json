@@ -1,0 +1,106 @@
+{
+  "id": "chicago_outer_harbor_construction_1870_1871",
+  "source_ids": [
+    "chief_engineers_annual_report_1871_chicago",
+    "war_department_engineer_contracts_1871"
+  ],
+  "target_date": "1871-10-08",
+  "status": "primary_documented_construction; geographic_placement_pending",
+  "date_context": {
+    "main_chief_report": "1871-10-20",
+    "evidence": "Printed p.106, letter dated November 2, 1871, refers to main annual report of the 20th ultimo.",
+    "houston_period_end": "1871-06-30",
+    "period_evidence": "Printed p.107: Annual report of Major D. C. Houston, Corps of Engineers, for the year ending June 30, 1871.",
+    "caution": "The compiled report includes later material. Each claim requires its own dated wording."
+  },
+  "events": [
+    {
+      "id": "construction_started",
+      "locator": "Printed p.35 paragraph16; PDF page44",
+      "date": "1870-09",
+      "status": "confirmed_pre_fire",
+      "quote": "was commenced in September, 1870"
+    },
+    {
+      "id": "1870_cribwork",
+      "locator": "Printed p.35 paragraph16; PDF page44",
+      "date": "1870",
+      "status": "placed_up_to_water_surface",
+      "count": 23,
+      "dimensions_feet": {
+        "length": 50,
+        "width": 30,
+        "depth_min": 18,
+        "depth_max": 26
+      },
+      "length_feet": 1150,
+      "quote": "During the season 23 cribs, each 50 feet long by 30 feet wide and from 18 to 26 feet deep, were placed in position, making 1,150 feet of breakwater up to the water surface.",
+      "prefire_status": "confirmed"
+    },
+    {
+      "id": "spring_1871_return",
+      "locator": "Printed pp.35 and117; PDF pages44 and126",
+      "date": "1871-spring",
+      "status": "placed",
+      "count_added": 6,
+      "dimensions_feet": {
+        "length": 50,
+        "width": 30
+      },
+      "length_added_feet": 300,
+      "direction": "westward return at north end",
+      "combined_count": 29,
+      "combined_length_feet": 1450,
+      "quotes": [
+        "This spring 6 cribs 50 by 30 feet were placed on the return at the north end of the breakwater, making 29 cribs placed during the year.",
+        "During the year, twenty-nine cribs 50 by 30 feet have been sunk, making 1,450 feet of breakwater. Three hundred feet of this is a return of the north end of the breakwater running west."
+      ],
+      "prefire_status": "confirmed_by_explicit_spring_and_fiscal_year"
+    },
+    {
+      "id": "ic_continuation_contract",
+      "locator": "Printed p.117 AppendixA16; PDF page126",
+      "date": "1871-05-30",
+      "status": "contract_not_completion",
+      "contractor": "Illinois Central Railroad Company"
+    },
+    {
+      "id": "superstructure_reporting_difference",
+      "locator": "Printed pp.35 and117; PDF pages44 and126",
+      "date": null,
+      "status": "target_date_extent_unresolved",
+      "summary_length_feet_approx": 200,
+      "appendix_length_feet": 1000,
+      "appendix_height_feet": 6,
+      "quotes": [
+        "The work, including about 200 feet of superstructure, exhausted the original appropriation of $100,000.",
+        "At the writing of this report the superstructure, 6 feet high, has been completed over 1,000 feet of the work done last fall."
+      ],
+      "prefire_status": "Do not assign 1,000 feet as of October 8 without date reconciliation."
+    },
+    {
+      "id": "projected_extension",
+      "locator": "Printed p.117 AppendixA16; PDF page126",
+      "date": "1871-season/1872-06-30",
+      "status": "projected_not_confirmed_built",
+      "extension_feet": 900,
+      "completed_total_feet_approx": 2000,
+      "quote": "it is estimated that the breakwater will be extended 900 feet up to water-surface the present season, and the superstructure be put on all by June 30, 1872",
+      "prefire_status": "excluded_from_built_geometry_without_further_evidence"
+    }
+  ],
+  "scene_adoption": {
+    "absolute_footprint": null,
+    "eligible_now": "Research chronology and evidence for 29 cribs/1,450 feet of low cribwork by spring 1871.",
+    "deferred": "Placement, elevation relative to historical lake level, precise 8 October superstructure extent, and any additional 1871 extension.",
+    "not_same_as": "The existing north basin/U.S. piers on the August 1869 harbor sheet. The outer-harbor breakwater began later and must not be confused with those structures."
+  },
+  "document": {
+    "source_id": "chief_engineers_annual_report_1871_chicago",
+    "url": "https://usace.contentdm.oclc.org/digital/api/collection/p16021coll6/id/1832/download",
+    "bytes": 179241965,
+    "sha256": "a0d7d188d28a71aad180c263b976b5b96868d496ab367546c41eaacac8a4eb08",
+    "page_count": 1041,
+    "reading_scope": "Printed pp.35,106,107,117 and their local date context, not the entire 1,041-page report."
+  }
+}
