@@ -8,7 +8,7 @@
   const MACHINES = [
     { id: 'control-room', name: 'Control Room', tone: 'dark', tile: ['#12233F', '#ECE6D8', '#8CF5A8', '#D6352B'] },
     { id: 'brass', name: 'Precision Brass', tone: 'dark', tile: ['#2A1E15', '#F4E6CD', '#F2B154', '#D4A85A'] },
-    { id: 'worlds-fair', name: 'Retro Future', tone: 'light', tile: ['#F8F4EA', '#1E3A3D', '#138A92', '#EC6A1E'] },
+    { id: 'worlds-fair', name: 'Retro Future', tone: 'light', tile: ['#F8F4EA', '#1E3A3D', '#0F7178', '#EC6A1E'] },
     { id: 'deep-space', name: 'Deep Space', tone: 'dark', tile: ['#11141A', '#E4E2DC', '#7AD7F6', '#F5A742'] },
   ];
   const LEGACY = { scifi: 'control-room', spaceage: 'worlds-fair', steampunk: 'brass' };
