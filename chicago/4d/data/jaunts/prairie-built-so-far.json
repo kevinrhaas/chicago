@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 833200737,
+  "content_version": 289759443,
   "category": "Build log",
   "menu_group": "Build log",
   "grade_band": "6-8",
@@ -21,7 +21,7 @@
     "season": "summer"
   },
   "opening": {
-    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 107 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 57 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
+    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 108 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 58 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
     "read_s": 28
   },
   "stops": [
@@ -993,8 +993,8 @@
         "kind": "structure",
         "id": "house_2011_prairie"
       },
-      "text": "2011 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: Reid House, 2013 Prairie.",
-      "read_s": 14,
+      "text": "2011 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: 2017 Prairie.",
+      "read_s": 13,
       "evidence": [
         "stood-46",
         "tour"
@@ -1012,33 +1012,12 @@
       "id": "stop-47",
       "destination": {
         "kind": "structure",
-        "id": "reid_house_2013_prairie"
-      },
-      "text": "Reid House, 2013 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 7 of the pictures on the Images tab show it. Next: 2017 Prairie.",
-      "read_s": 15,
-      "evidence": [
-        "stood-47",
-        "tour"
-      ],
-      "links": [
-        {
-          "kind": "structure",
-          "id": "reid_house_2013_prairie",
-          "label": "About this building"
-        }
-      ],
-      "next": "stop-48"
-    },
-    {
-      "id": "stop-48",
-      "destination": {
-        "kind": "structure",
         "id": "house_2017_prairie"
       },
       "text": "2017 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: High House, 2021 Prairie.",
       "read_s": 14,
       "evidence": [
-        "stood-48",
+        "stood-47",
         "tour"
       ],
       "links": [
@@ -1048,16 +1027,37 @@
           "label": "About this building"
         }
       ],
+      "next": "stop-48"
+    },
+    {
+      "id": "stop-48",
+      "destination": {
+        "kind": "structure",
+        "id": "high_house_2021_prairie"
+      },
+      "text": "High House, 2021 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: Otis House, 2033 Prairie.",
+      "read_s": 15,
+      "evidence": [
+        "stood-48",
+        "tour"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "high_house_2021_prairie",
+          "label": "About this building"
+        }
+      ],
       "next": "stop-49"
     },
     {
       "id": "stop-49",
       "destination": {
         "kind": "structure",
-        "id": "high_house_2021_prairie"
+        "id": "otis_house_2033_prairie"
       },
-      "text": "High House, 2021 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: Elbridge Keith House, 1900 Prairie.",
-      "read_s": 15,
+      "text": "Otis House, 2033 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Elbridge Keith House, 1900 Prairie.",
+      "read_s": 16,
       "evidence": [
         "stood-49",
         "tour"
@@ -1065,7 +1065,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "high_house_2021_prairie",
+          "id": "otis_house_2033_prairie",
           "label": "About this building"
         }
       ],
@@ -1708,16 +1708,6 @@
     },
     {
       "id": "stood-47",
-      "text": "Reid House, 2013 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_35",
-        "inland_architect_1895_02_reid_plate"
-      ],
-      "confidence": "inferred",
-      "reasoning": "Standing in February 1895, when the Inland Architect publishes its plate of the house, and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). The record claims the 1904 target to the sheet's date and no more."
-    },
-    {
-      "id": "stood-48",
       "text": "2017 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35",
@@ -1727,7 +1717,7 @@
       "reasoning": "Drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped); the undated photograph shows the house as William Armour's. The record claims the 1904 target to the sheet's date and no more."
     },
     {
-      "id": "stood-49",
+      "id": "stood-48",
       "text": "High House, 2021 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35",
@@ -1735,6 +1725,15 @@
       ],
       "confidence": "inferred",
       "reasoning": "Drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped), with the plan the photograph shows (the rounded north-west corner, the projection on the south flank). The photograph is undated; the record claims the 1904 target to the sheet's date and no more."
+    },
+    {
+      "id": "stood-49",
+      "text": "Otis House, 2033 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "confidence": "inferred",
+      "reasoning": "Standing in 1904 as the Otis homestead (the Tribune of February 1904 reports the will that keeps it; the 1904 Blue Book lists the F. R. Otis household) and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). Walker Evans photographs its front in 1946. The record claims the 1904 target to the sheet's date and no more."
     },
     {
       "id": "stood-50",
