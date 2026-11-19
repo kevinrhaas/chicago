@@ -30,7 +30,7 @@ const THREE = await import(vendor + 'three.module.js');
 const { clone } = await import(vendor + 'addons/utils/SkeletonUtils.js');
 const { fitTack } = await import('../renderers/web/js/saddlery.js');
 const { createRiderPose, saddleTargets } = await import('../renderers/web/js/rider-pose.js');
-const { drapes, drapePoint, pressPoint, pressZone, HABIT, habitCloth, habitRest, habitSheet, habitVertex, legBalls } = await import('../renderers/web/js/rider-drape.js');
+const { drapes, drapePoint, pressPoint, pressZone, pressLift, HABIT, habitCloth, habitRest, habitSheet, habitVertex, legBalls } = await import('../renderers/web/js/rider-drape.js');
 const { garmentKind } = await import('../renderers/web/js/human-skirt.js');
 const { createHorseGait, clipFromJson } = await import('../renderers/web/js/horse-rig.js');
 const riding = await import('../renderers/web/js/riding.js');
@@ -212,7 +212,7 @@ for (const y of YEARS) for (const tk of tacksOf(y)) {
   if (side) for (const m of skinned) { const kind = garmentKind(m, asset).kind; const rest = habitCloth(m, kind) && habitRest(m); if (rest) habitOf.set(m, { rest, lift: /garment_outer|apron/.test(m.material.name) || kind === 'ride' ? HABIT.lift_m : 0 }); }
   const habitL = Math.max(.3, ...[...habitOf.values()].map(h => h.rest.below));
   if (side) ok(habitOf.size >= 1, `${yt} ${asset}: her skirt is laid on the habit (${habitOf.size} pieces)`);
-  let bare = 0, legPts = 0, worstBare = 0, headIn = -Infinity, drawnLeg = 0, drawnWorst = '', drawnSeen = 0;
+  let bare = 0, legPts = 0, worstBare = 0, headIn = -Infinity, drawnLeg = 0, drawnWorst = '', drawnSeen = 0, habitUnder = 0, worstUnder = 0;
   const zone = pressZone(S);
   for (const [pace, cycle] of [[config.ride.walk_m_s, spec.stride_m], [config.ride.trot_m_s, spec.trot_stride_m],
     [config.ride.canter_m_s, spec.canter_stride_m], [config.ride.gallop_m_s, spec.gallop_stride_m]]) {
@@ -270,7 +270,7 @@ for (const y of YEARS) for (const tk of tacksOf(y)) {
             m.getVertexPosition(i, p).applyMatrix4(m.matrixWorld).applyMatrix4(back);
             const qq = p.clone().sub(new THREE.Vector3(0, S.axis_y_m, 0));
             if (H) habitVertex(sheet, r.fromBufferAttribute(pos, i).applyMatrix4(H.rest.matrix), qq, habitL, H.lift);
-            if (draped) drapePoint(qq, env, { seatHalfDeg: S.seat_half_angle_deg }); else pressPoint(qq, env, zone);
+            if (draped) drapePoint(qq, env, { seatHalfDeg: S.seat_half_angle_deg, over: H ? zone : null }); else pressPoint(qq, env, zone);
             P.push(qq);
             leg.push(!!legsRest && r.fromBufferAttribute(pos, i).applyMatrix4(legsRest.matrix).y < -.15);
           }
@@ -316,7 +316,14 @@ for (const y of YEARS) for (const tk of tacksOf(y)) {
             const out = habitOutside(sheet, hips, q);
             if (out > .01) { bare++; worstBare = Math.max(worstBare, out); }
           }
-          if (draped && drapePoint(q, env, { seatHalfDeg: S.seat_half_angle_deg })) laid++;
+          // The habit lies over the saddle cloth and flaps (rider-drape.js `over`), as the shader lays it.
+          if (draped && drapePoint(q, env, { seatHalfDeg: S.seat_half_angle_deg, over: H ? zone : null })) {
+            laid++;
+            // ...and so is never under the saddle cloth's outside, where it came through in patches.
+            if (H) { const s = q.dot(env.dir), x = q.dot(env.side), yy = q.dot(env.up), a = Math.abs(Math.atan2(x, yy)) / Math.PI * 180;
+              const under = env.radius(s, Math.atan2(x, yy) / Math.PI * 180) + pressLift(zone, s, a) - Math.hypot(x, yy);
+              if (under > .001) { habitUnder++; worstUnder = Math.max(worstUnder, under); } }
+          }
           // A leg lying on the saddle is pressed onto its cloth and flaps (the shader's press).
           else if (!draped && pressPoint(q, env, zone)) pressed++;
           const s = q.dot(env.dir);
@@ -344,6 +351,7 @@ for (const y of YEARS) for (const tk of tacksOf(y)) {
     // At 300 pixels a metre a pixel is about 3 mm square: DRAWN_LEG_PX is about 1 cm² of leg
     // (a knee through the skirt was 460 to 550; the 2026-11-19 habit draws none).
     report.push(`  aside, drawn: at most ${drawnLeg} pixels of bare leg in a view (${drawnWorst || 'none'}), of ${drawnSeen} of her drawn`);
+    ok(habitUnder === 0, `${yt} ${asset}: aside, her skirt lies over the saddle cloth and flaps, never under their outside (${habitUnder} points, deepest ${(worstUnder * 1000).toFixed(0)} mm)`);
     ok(drawnSeen > 20000 && drawnLeg <= DRAWN_LEG_PX, `${yt} ${asset}: aside, drawn from five sides at every pace, her bare legs do not show through the habit (${drawnLeg} pixels at most, ${drawnWorst || 'none'})`);
   }
   gait.advance(0, 0, .1); gait.advance(0, 0, .5);
