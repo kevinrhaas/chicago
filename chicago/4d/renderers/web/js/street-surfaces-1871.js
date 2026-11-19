@@ -66,64 +66,95 @@ export function paintSurface(kind, px = 512, doc = globalThis.document) {
     ctx.globalAlpha = 1;
   };
   h.fillStyle = grey(128); h.fillRect(0, 0, px, px);
+  // Every mark that crosses an edge is drawn again on the far side, so the tile repeats without a seam.
+  const wrapped = (x, y, r, draw) => {
+    for (const dx of [0, -px, px]) for (const dy of [0, -px, px]) {
+      if (x + dx + r < 0 || x + dx - r > px || y + dy + r < 0 || y + dy - r > px) continue;
+      draw(x + dx, y + dy);
+    }
+  };
+  const blotsWrapped = (ctx, n, size, tone, alpha, stretch = 1) => {
+    for (let i = 0; i < n; i++) {
+      const x = R() * px, y = R() * px, r = size * (0.4 + R()), t = typeof tone === 'function' ? tone() : tone;
+      const a = alpha * (0.4 + R() * 0.6), ry = r * (0.5 + R() * 0.5) / stretch, rot = (R() - 0.5) * 0.4;
+      wrapped(x, y, r, (X, Y) => { ctx.fillStyle = t; ctx.globalAlpha = a; ctx.beginPath(); ctx.ellipse(X, Y, r, ry, rot, 0, Math.PI * 2); ctx.fill(); });
+    }
+    ctx.globalAlpha = 1;
+  };
   if (kind === 'woodblock') {
-    // Courses of end-grain blocks across the street (x runs along it), tar between.
-    c.fillStyle = rgb(48, 41, 33); c.fillRect(0, 0, px, px);
+    // Courses of end-grain blocks laid across the street (x runs along it), tar and grit
+    // between; worn brown-grey tops, a few darker where wet or oiled.
+    c.fillStyle = rgb(44, 36, 28); c.fillRect(0, 0, px, px);
     h.fillStyle = grey(40); h.fillRect(0, 0, px, px);
-    const course = 0.165 * s;
-    for (let x = 0; x < px; x += course) {
-      let y = -R() * 0.2 * s;
-      while (y < px) {
-        const len = (0.12 + R() * 0.14) * s, k = 0.75 + R() * 0.45;
-        c.fillStyle = rgb(112, 98, 80, k); c.fillRect(x + 1.5, y + 1.5, course - 3, len - 3);
-        c.strokeStyle = rgb(70, 60, 48, k); c.globalAlpha = 0.35; c.lineWidth = Math.max(1, px / 512);
-        for (let r = 0; r < 3; r++) { // growth rings on the end grain
-          c.beginPath(); c.arc(x + course * R(), y + len * R(), (0.03 + R() * 0.06) * s, 0, Math.PI * 2); c.stroke();
+    const courses = Math.round(SURFACES[kind].metres / 0.16), course = px / courses;
+    for (let k = 0; k < courses; k++) {
+      const x = k * course, lens = [];
+      let total = 0;
+      while (total < px) { const l = (0.13 + R() * 0.12) * s; lens.push(l); total += l; }
+      const scale = px / total; let y = R() * 0.1 * s; // blocks fill the course exactly, then wrap
+      for (const l0 of lens) {
+        const l = l0 * scale, tone = 0.72 + R() * 0.4, warm = R() * 10;
+        for (const Y of [y, y - px]) {
+          c.fillStyle = rgb(120 + warm, 98 + warm * 0.6, 72, tone); c.fillRect(x + 1.5, Y + 1.5, course - 3, l - 3);
+          h.fillStyle = grey(150 + R() * 60); h.fillRect(x + 2, Y + 2, course - 4, l - 4);
+        }
+        c.strokeStyle = rgb(72, 58, 44, tone); c.globalAlpha = 0.3; c.lineWidth = Math.max(1, px / 512);
+        for (let r = 0; r < 2; r++) { // growth rings on the end grain
+          const cx = x + course * (0.2 + R() * 0.6), cy = (y + l * (0.2 + R() * 0.6)) % px;
+          c.beginPath(); c.arc(cx, cy, (0.02 + R() * 0.04) * s, 0, Math.PI * 2); c.stroke();
         }
         c.globalAlpha = 1;
-        h.fillStyle = grey(150 + R() * 60); h.fillRect(x + 2, y + 2, course - 4, len - 4);
-        y += len;
+        y += l;
       }
     }
-    blots(c, 900, 0.05 * s, rgb(140, 128, 108), 0.18); // dust in the joints, worn tops
+    blotsWrapped(c, 500, 0.04 * s, rgb(150, 134, 108), 0.16); // dust and grit, worn tops
+    blotsWrapped(c, 30, 0.3 * s, rgb(40, 32, 24), 0.12, 2);   // damp and oil stains
   } else if (kind === 'dirt') {
     // Packed earth; across (y) the tile spans 16 m centred on the street's line.
-    c.fillStyle = rgb(112, 96, 72); c.fillRect(0, 0, px, px);
-    blots(c, 2600, 0.12 * s, () => rgb(120 + R() * 30, 102 + R() * 26, 76 + R() * 20), 0.35);
-    blots(c, 60, 0.9 * s, rgb(84, 70, 52), 0.25); // damp patches and puddle stains
-    blots(c, 220, 0.25 * s, rgb(70, 58, 42), 0.3); // hoof-worn and dung-darkened centre
+    c.fillStyle = rgb(118, 98, 70); c.fillRect(0, 0, px, px);
+    blotsWrapped(c, 5000, 0.05 * s, () => rgb(124 + R() * 30, 104 + R() * 24, 74 + R() * 18), 0.3);
+    blotsWrapped(c, 40, 1.2 * s, rgb(92, 76, 54), 0.1, 3);  // damp ground and dried puddles, long with the street
+    blotsWrapped(c, 400, 0.12 * s, rgb(78, 64, 46), 0.12, 1.5); // hoof marks and droppings, mostly mid-lane
     const mid = px / 2;
     for (const lane of [-4.6, -2.6, -0.95, 0.95, 2.6, 4.6]) { // wheel ruts, about 1.65 m gauge a lane
-      const y0 = mid + lane * s;
+      const y0 = mid + lane * s, phase = R() * Math.PI * 2;
       for (let x = 0; x < px; x += 2) {
-        const wob = Math.sin((x / px) * Math.PI * 4 + lane) * 0.06 * s;
-        c.globalAlpha = 0.55; c.fillStyle = rgb(78, 64, 48); c.fillRect(x, y0 + wob - 0.07 * s, 2, 0.14 * s);
-        c.globalAlpha = 0.3; c.fillStyle = rgb(140, 122, 94); c.fillRect(x, y0 + wob + 0.08 * s, 2, 0.05 * s); // the rut's lip
+        const wob = Math.sin((x / px) * Math.PI * 4 + phase) * 0.06 * s; // two whole waves: seamless along
+        c.globalAlpha = 0.45; c.fillStyle = rgb(80, 64, 46); c.fillRect(x, y0 + wob - 0.07 * s, 2, 0.14 * s);
+        c.globalAlpha = 0.25; c.fillStyle = rgb(146, 126, 96); c.fillRect(x, y0 + wob + 0.08 * s, 2, 0.06 * s); // the rut's lip
         h.fillStyle = grey(70); h.fillRect(x, y0 + wob - 0.08 * s, 2, 0.16 * s);
       }
       c.globalAlpha = 1;
     }
-    blots(h, 1600, 0.08 * s, () => grey(100 + R() * 70), 0.6);
+    blotsWrapped(h, 1600, 0.06 * s, () => grey(100 + R() * 70), 0.5);
   } else if (kind === 'setts') {
-    c.fillStyle = rgb(58, 54, 48); c.fillRect(0, 0, px, px);
-    h.fillStyle = grey(50); h.fillRect(0, 0, px, px);
-    const step = 0.2 * s;
-    for (let y = 0, row = 0; y < px + step; y += step * 0.86, row++) {
-      for (let x = (row % 2) * step / 2; x < px + step; x += step) {
-        const k = 0.75 + R() * 0.5, r = step * (0.4 + R() * 0.08);
-        c.fillStyle = rgb(130, 126, 116, k);
-        c.beginPath(); c.ellipse(x, y, r, r * (0.8 + R() * 0.2), R() * 3, 0, Math.PI * 2); c.fill();
-        const g = h.createRadialGradient(x, y, 0, x, y, r);
-        g.addColorStop(0, grey(230)); g.addColorStop(1, grey(90));
-        h.fillStyle = g; h.beginPath(); h.arc(x, y, r, 0, Math.PI * 2); h.fill();
+    // Rounded boulders set close in sand: irregular, mostly grey and buff, the joints
+    // filled with dirt rather than open.
+    c.fillStyle = rgb(92, 80, 62); c.fillRect(0, 0, px, px);
+    h.fillStyle = grey(60); h.fillRect(0, 0, px, px);
+    const n = Math.round(SURFACES[kind].metres / 0.17), step = px / n;
+    for (let row = 0; row < n; row++) {
+      for (let col = 0; col < n; col++) {
+        const x = (col + (row % 2) * 0.5 + (R() - 0.5) * 0.25) * step, y = (row + (R() - 0.5) * 0.25) * step;
+        const r = step * (0.44 + R() * 0.1), k = 0.7 + R() * 0.45, buff = R() < 0.35 ? 14 : 0;
+        const rx = r * (0.85 + R() * 0.2), ry = r * (0.8 + R() * 0.2), rot = R() * Math.PI;
+        wrapped(x, y, r * 1.2, (X, Y) => {
+          c.fillStyle = rgb(118 + buff, 112 + buff * 0.7, 102, k); c.beginPath(); c.ellipse(X, Y, rx, ry, rot, 0, Math.PI * 2); c.fill();
+          c.fillStyle = rgb(150 + buff, 144 + buff * 0.7, 132, k); c.globalAlpha = 0.35; // the worn top
+          c.beginPath(); c.ellipse(X - rx * 0.15, Y - ry * 0.15, rx * 0.55, ry * 0.5, rot, 0, Math.PI * 2); c.fill(); c.globalAlpha = 1;
+          const g = h.createRadialGradient(X, Y, 0, X, Y, r);
+          g.addColorStop(0, grey(220)); g.addColorStop(0.7, grey(170)); g.addColorStop(1, grey(70));
+          h.fillStyle = g; h.beginPath(); h.ellipse(X, Y, rx, ry, rot, 0, Math.PI * 2); h.fill();
+        });
       }
     }
+    blotsWrapped(c, 300, 0.05 * s, rgb(96, 82, 62), 0.25); // sand and dirt over the stones
   } else if (kind === 'plank') {
     // Boards laid across the walk: their long side runs across (y), joints along (x).
     const board = 0.24 * s;
     for (let x = 0; x < px; x += board) {
       const k = 0.78 + R() * 0.35;
-      c.fillStyle = rgb(122, 106, 84, k); c.fillRect(x, 0, board, px);
+      c.fillStyle = rgb(132, 110, 82, k); c.fillRect(x, 0, board, px);
       c.strokeStyle = rgb(88, 74, 58, k); c.globalAlpha = 0.25; c.lineWidth = 1;
       for (let g = 0; g < 7; g++) {
         const gx = x + R() * board;
