@@ -45,6 +45,26 @@ in the existing notebook. No new account, service, route or source image is invo
 This separate implementation follows the merged first delivery and still requires
 its own complete release gates in PR #2205.
 
+## Teacher routes (item 11)
+
+T-3672 adds a teacher's own route without a server, account or upload. In Guide ›
+For teachers, *Make a route for your class* starts from a jaunt (its buildings and
+viewpoints, in order; the jaunt itself stays startable) or from places and people found
+by name in the year the teacher is in. Each stop may carry a note and a question of up to
+280 characters; the title is up to 80; a route holds up to 20 stops. The route is one
+object (`renderers/web/js/teacher-route.js`): a `?route=` link carries it as base64url of
+compact UTF-8 JSON, bounded to 6,000 characters, and a downloaded route file carries the
+same object in readable JSON for the teacher to open again and change.
+
+A student who opens the link lands in that year with the Route panel pinned above the
+Jaunts list: stops in order, Go there for each (a person found in town, else at the house
+they live or work in, else their card), and the teacher's note and question labelled as
+the teacher's words, drawn as text only. Answers save to the field notebook under the
+route's and stop's names; its existing download or print is how they are handed in. A
+malformed or over-long link lands in the town with a message; a link for another year
+names that year and offers its link; ids this town does not hold are dropped and counted.
+Nothing about the route is recorded or sent anywhere.
+
 ## Disposition of all twenty items
 
 | # | Feature | Delivery / next step |
@@ -59,7 +79,7 @@ its own complete release gates in PR #2205.
 | 8 | Mysteries with sources | T-3663: first bounded case in progress, attached to eligible Gossip completion. Compare two cited newspaper readings, choose support, write a claim/uncertainty, review an ungraded guide and explicitly save to Notebook. No invented witnesses or new engine; browser and release validation pending. |
 | 9 | Play a part | Existing engine already supports choices and alternate endings. Later authored historical-role stories, with reconstruction labelled. |
 | 10 | Accessibility | T-3658 first slice (Navigator zoom, keyboard picture viewers, rail Tab stop), then T-3671 the full pass toward WCAG 2.1 AA: keyboard and screen-reader paths through every menu, Settings tab, jaunt and card; Text size to 200 %; contrast and focus ring in every appearance; grades told by shape as well as colour; narration transcripts and Pause; Settings › Look › Motion and Letter keys. Criterion by criterion with its tests and the known gaps (the canvas itself; no physical screen-reader run yet): docs/ACCESSIBILITY.md. No third-party audit or legal conformance claim. |
-| 11 | Assign/build a jaunt | Later browser-only subset: assignment links and portable route/question files. Shared authoring libraries and submission tracking need storage. |
+| 11 | Assign/build a jaunt | T-3672 implemented the browser-only subset: Guide › For teachers builds a route from a jaunt or from one year's buildings, viewpoints and people (up to 20 stops, a note and a question each), as one bounded `?route=` link and a reopenable route file; the student's Route panel in Jaunts gives Go there per stop, shows the teacher's words as theirs, and saves answers to the local field notebook. Shared authoring libraries and submission tracking still need storage. |
 | 12 | Classroom/Clever/Canvas | Ordinary links/files can be assigned manually now. Defer provider setup, SSO, add-ons and grade sync. |
 | 13 | Follow the teacher | Defer live cross-device coordination. Projection works now. |
 | 14 | People met, places found | T-3673 implemented: a bounded browser-local list per year (`chicago4d.metfound.v1`, an id and its first day only, never evicted). **Met** = a Greet, Tell me a story or Ask a question finished in town, on foot (not flying) within 8 m of someone standing outside; a card opened from People, search, Inspect, a jaunt or a link never counts. **Found** = on foot (not flying, riding, aboard, at a helm, in Inspect or on the arrival screen) inside a named place's footprint or within 3 m of its walls, checked once a second; unnamed buildings, privies and sheds are not places. People (1812, 1835, 1904) shows a Met badge and a "Met N of M" filter; the Map outlines found places with "Found N of M places" and a toggle; both have Clear <year> with an inline confirm. Damaged or unavailable storage is said on screen. No streaks, scores, leaderboards or network. Notebook still saves chosen person cards. |
