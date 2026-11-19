@@ -31,6 +31,7 @@ import { readingChoice, LEVEL_IDS, levelLabel } from './reading-level.js';
 import { t as str } from './strings/index.js';
 import './strings/settings.js';
 import { NARRATORS, normalNarrator } from './narrators.js'; // T-3627: not the player itself
+import { MOTION_CHOICES, MOTION_LABELS, motionChoice, setMotionChoice, onMotionChange } from './motion.js'; // T-3671
 
 /** Text size: every Navigator app's text, 100 % to 140 % (QA-18). */
 export const TEXT_SCALES = Object.freeze([1, 1.1, 1.2, 1.3, 1.4]);
@@ -320,6 +321,77 @@ export function wireReadingAges(seg, choice = readingChoice()) {
   return true;
 }
 
+/**
+ * T-3671 (WCAG 2.2.2, 2.3.3; the owner asked for "motion-comfort settings"): Settings › Look ›
+ * Motion — System, Reduce or Full (js/motion.js). Drawn here, under the look speed, rather than
+ * in index.html. Three radios in one group: Tab reaches the one chosen, the arrows move the
+ * choice, Space or Enter takes the one focused.
+ */
+export function motionGroup(doc = globalThis.document) {
+  const have = doc?.getElementById?.('s-motion');
+  if (have) return have;
+  const look = doc?.getElementById?.('s-look');
+  if (!look) return null;
+  const row = doc.createElement('div');
+  row.className = 'field row theme-row motion-row'; // the theme row's segmented look
+  row.id = 'row-motion';
+  const label = doc.createElement('span');
+  label.id = 's-motion-label';
+  label.textContent = 'Motion';
+  const seg = doc.createElement('div');
+  seg.className = 'seg';
+  seg.id = 's-motion';
+  seg.setAttribute('role', 'radiogroup');
+  seg.setAttribute('aria-labelledby', 's-motion-label');
+  for (const id of MOTION_CHOICES) {
+    const b = doc.createElement('button');
+    b.type = 'button';
+    b.className = 'seg-btn';
+    b.dataset.motion = id;
+    b.setAttribute('role', 'radio');
+    b.setAttribute('aria-checked', 'false');
+    b.textContent = MOTION_LABELS[id];
+    seg.append(b);
+  }
+  const note = doc.createElement('p');
+  note.className = 'legend-note';
+  note.id = 's-motion-note';
+  note.textContent = 'Reduce: no head bob, no fly-ins, no pulsing or ticking. System follows your device.';
+  seg.setAttribute('aria-describedby', note.id);
+  row.append(label, seg);
+  look.append(row, note);
+  return seg;
+}
+
+export function wireMotion(seg, { choose = setMotionChoice, current = motionChoice, subscribe = onMotionChange } = {}) {
+  if (!seg) return false;
+  const keys = [...seg.querySelectorAll('[data-motion]')];
+  const paint = () => {
+    const now = current();
+    for (const k of keys) {
+      const on = k.dataset.motion === now;
+      k.setAttribute('aria-checked', String(on));
+      k.classList.toggle('is-on', on);
+      k.tabIndex = on ? 0 : -1;
+    }
+  };
+  for (const k of keys) k.addEventListener('click', () => { choose(k.dataset.motion); paint(); });
+  seg.addEventListener('keydown', (e) => {
+    const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+    const at = keys.indexOf(e.target);
+    if (!step || at < 0) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const next = keys[(at + step + keys.length) % keys.length];
+    choose(next.dataset.motion);
+    paint();
+    next.focus();
+  });
+  subscribe(paint);
+  paint();
+  return true;
+}
+
 export function wireSettingsApp({
   doc = globalThis.document, settings, device = null, save = () => {}, saveTheme = () => {},
   onSetting = null, openWhatsNew = null, isTouch = false,
@@ -449,6 +521,9 @@ export function wireSettingsApp({
       onSetting?.('lookSpeed', settings.lookSpeed);
     });
   }
+
+  // ---- Look: motion (T-3671). One choice, kept by js/motion.js, read by everything that moves.
+  wireMotion(motionGroup(doc));
 
   // ---- About & What's new.
   $('s-open-whatsnew')?.addEventListener('click', () => openWhatsNew?.());

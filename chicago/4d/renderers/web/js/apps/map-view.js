@@ -25,6 +25,28 @@ const TICK_MS = 250;
 export const NEAR_K = 1.25;
 
 /** Is the field point [e, n] inside the ring (even-odd)? */
+/** T-3671: the map's grade textures, a dark stroke pattern laid over the grade's fill —
+ * upright stripes for inferred, a 45° hatch for reconstructed, none for attested. */
+let textures = null;
+function gradeTextures(g) {
+  if (textures) return textures;
+  textures = {};
+  const doc = g?.canvas?.ownerDocument ?? globalThis.document;
+  const tile = (draw) => {
+    const c = doc?.createElement?.('canvas');
+    if (!c?.getContext) return null;
+    c.width = c.height = 6;
+    const t = c.getContext('2d');
+    if (!t) return null;
+    t.strokeStyle = 'rgba(20, 16, 10, .55)'; t.lineWidth = 1.5;
+    draw(t);
+    return g.createPattern?.(c, 'repeat') ?? null;
+  };
+  textures.inferred = tile((t) => { t.beginPath(); t.moveTo(1.5, 0); t.lineTo(1.5, 6); t.stroke(); });
+  textures.reconstructed = tile((t) => { t.beginPath(); t.moveTo(0, 6); t.lineTo(6, 0); t.moveTo(-1, 1); t.lineTo(1, -1); t.moveTo(5, 7); t.lineTo(7, 5); t.stroke(); });
+  return textures;
+}
+
 export function inside([e, n], ring) {
   let hit = false;
   for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
@@ -208,9 +230,13 @@ export function mount(el, ctx = {}) {
       const colours = Object.fromEntries(GRADES.map((gr) => [gr, token(`--grade-${gr}`, { attested: '#d4ae38', inferred: '#c9d0d8', reconstructed: '#a86a3a' }[gr])]));
       g.save();
       g.globalAlpha = 0.9;
+      // T-3671 (WCAG 1.4.1): inferred and reconstructed lots are textured as well as coloured
+      // — upright stripes and a hatch, as the legend's swatches are (css/confidence-overlays.css).
+      const texture = gradeTextures(g);
       for (const r of navigation.outlines ?? []) {
         if (!colours[r.grade]) continue;
         ring(r); g.fillStyle = colours[r.grade]; g.fill();
+        if (texture[r.grade]) { g.fillStyle = texture[r.grade]; g.fill(); }
       }
       g.restore();
     }

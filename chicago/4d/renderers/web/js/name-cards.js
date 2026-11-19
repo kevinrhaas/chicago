@@ -265,6 +265,17 @@ export function mixHex(a, b, t) {
   const out = [16, 8, 0].map((sh) => Math.round(ch(x, sh) + (ch(y, sh) - ch(x, sh)) * t));
   return `#${out.map((v) => v.toString(16).padStart(2, '0')).join('')}`;
 }
+/**
+ * T-3671 (WCAG 1.4.1): a card's grade is not its colour alone. Its edge is solid, dashed or
+ * dotted, and its status light is a full, half-filled or empty disc — the app's one mark
+ * language (css/confidence-overlays.css § grade marks). Atlas pixels.
+ */
+export const GRADE_CUE = Object.freeze({
+  attested: Object.freeze({ edge: 'solid', dash: Object.freeze([]), light: 'full' }),
+  inferred: Object.freeze({ edge: 'dashed', dash: Object.freeze([10, 6]), light: 'half' }),
+  reconstructed: Object.freeze({ edge: 'dotted', dash: Object.freeze([2, 6]), light: 'ring' }),
+});
+
 /** The grade's colour, lightened: a quarter of the way to white on a dark panel; kept on a light one. */
 export function softGrade(grade, theme) {
   const lum = (c) => { const v = hex(c); return v == null ? 0 : (0.2126 * ((v >> 16) & 255) + 0.7152 * ((v >> 8) & 255) + 0.0722 * (v & 255)) / 255; };
@@ -290,12 +301,23 @@ export function drawCard(ctx, fit, theme, grade = null) {
   // The body: the appearance's own panel, edge and corner.
   roundRect(ctx, b, b, w - BORDER, h - BORDER, Math.max(0, theme.radius - b), theme.chamfer);
   ctx.globalAlpha = 0.94; ctx.fillStyle = theme.panel; ctx.fill(); ctx.globalAlpha = 1;
+  const cue = grade ? GRADE_CUE[grade.level] ?? null : null;
+  if (cue?.dash.length) { ctx.setLineDash?.(cue.dash); ctx.lineCap = cue.edge === 'dotted' ? 'round' : 'butt'; }
   ctx.lineWidth = gradeEdge ? GRADE_BORDER : BORDER; ctx.strokeStyle = gradeEdge ?? theme.edge; ctx.stroke();
+  ctx.setLineDash?.([]); ctx.lineCap = 'butt';
   // The notch's join with the body is the panel's, not a line across it.
   ctx.fillStyle = theme.panel; ctx.fillRect(mid - NOTCH_H + 3, h - BORDER - 1, NOTCH_H * 2 - 6, BORDER + 2);
   // The status light: the grade's own colour, or the appearance's accent for a card with none.
-  ctx.beginPath(); ctx.arc(PAD_L + LIGHT_D / 2, h / 2, LIGHT_D / 2, 0, Math.PI * 2);
-  ctx.fillStyle = grade ? grade.color : theme.accent; ctx.fill();
+  const lx = PAD_L + LIGHT_D / 2, ly = h / 2, lr = LIGHT_D / 2;
+  ctx.fillStyle = grade ? grade.color : theme.accent;
+  if (cue && cue.light !== 'full') {
+    // Half: the left half filled and the whole rimmed. Ring: the rim alone.
+    if (cue.light === 'half') { ctx.beginPath(); ctx.arc(lx, ly, lr, Math.PI / 2, Math.PI * 1.5); ctx.closePath(); ctx.fill(); }
+    ctx.beginPath(); ctx.arc(lx, ly, lr - 1.25, 0, Math.PI * 2);
+    ctx.lineWidth = 2.5; ctx.strokeStyle = grade.color; ctx.stroke();
+  } else {
+    ctx.beginPath(); ctx.arc(lx, ly, lr, 0, Math.PI * 2); ctx.fill();
+  }
   // The name.
   ctx.fillStyle = theme.ink;
   ctx.font = `${theme.weight} ${fit.size}px ${theme.font}`;

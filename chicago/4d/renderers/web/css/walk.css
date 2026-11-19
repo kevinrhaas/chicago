@@ -2831,3 +2831,12 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   .tale-body p { font-size: 15px; }
   .ask-q { min-height: 44px; }
 }
+
+/* T-3671 (WCAG 2.2.2, 2.3.3): Settings › Look › Motion, Reduce — or System on a device that
+   asks for less (js/motion.js puts html[data-motion]). Every transition and animation runs to
+   its end at once: nothing slides, pulses, blinks or rolls, and a blink stops lit. One rule,
+   last in the sheet, so no panel has to remember it. */
+html[data-motion="reduce"] *, html[data-motion="reduce"] *::before, html[data-motion="reduce"] *::after {
+  animation-duration: 0.01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important;
+}
