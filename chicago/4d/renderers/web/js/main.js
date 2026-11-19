@@ -183,7 +183,9 @@ import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfil
 import { advanceGust, syncGustUniform } from './wind-gust.js';
 import { createTodayView } from './today-view.js';
 import { createRegistration } from './today-register.js';
+import { announce } from './a11y-announce.js'; // T-3671: the screen reader's status line
 import { withStory } from './tale-actions.js'; // T-3627: the teller itself (tale-teller.js) loads when first asked
+import { reducedMotion, motionQuery } from './motion.js'; // T-3671: the one motion choice
 
 const VERSION = '0.1.0';
 
@@ -3318,7 +3320,7 @@ async function boot() {
     api.coachHouse = createCoachHouse({ registry: loaded.registry, buildings, footprints, decks, interactions,
       visitor: () => (walker.state.flying || api.townTransport?.ride?.actor ? null : { e: walker.state.e, n: walker.state.n }),
       carriageways: streetGrid.grid?.carriageways ?? [], drives: streetGrid.section?.carriage_drives?.drives ?? [],
-      reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, confidence, problems });
+      reducedMotion: () => reducedMotion(), confidence, problems });
     if (api.coachHouse) { scene3d.add(api.coachHouse.group); houseDoors.attach(api.coachHouse); }
   } catch (error) {
     problems.push(`coach house: ${error.message}`);
@@ -4143,10 +4145,10 @@ async function boot() {
   const navigation = createNavigation({
     root: hudRoot, terrain, registry: loaded.registry, streets, year: loaded.scene.id ?? YEAR, where: eraWhere,
     // T-2626: the round instrument opens the Map app (its stub opens the whole field).
-    onOpen: () => (navigatorUi ? navigatorUi.select('map') : navigation.setFullVisible(true)),
+    onOpen: () => (navigatorUi ? navigatorUi.select('map', { focus: true }) : navigation.setFullVisible(true)),
   });
   // T-2626: the year chip opens the Jump app.
-  document.getElementById('year-badge')?.addEventListener('click', () => { void navigatorUi?.select('jump'); });
+  document.getElementById('year-badge')?.addEventListener('click', () => { void navigatorUi?.select('jump', { focus: true }); });
 
   // The people directory, compiled by tools/compile_scene.py compile_people from
   // data/residents/ — one row per person, so the Go to list can offer a person
@@ -4426,7 +4428,7 @@ async function boot() {
         // T-3644: the climb into a seat shows the visitor's own person (Settings, You).
         visitorFigure: (y) => api.person?.asset?.(y) ?? null,
         walkEye: () => WALK.eyeHeight,
-        reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, say: (text) => hud.say(text),
+        reducedMotion: () => reducedMotion(), say: (text) => hud.say(text),
         reinsHint: () => (backends.name === 'touch' || (backends.name === 'none' && coarse)
           ? t('hud.ride.reins.touch') : t('hud.ride.reins.keys')),
         // T-3557: the Glessner brougham waits as the parked carriage at its stand until asked
@@ -4459,7 +4461,7 @@ async function boot() {
       visitor: () => (walker.state.flying ? null : walker.state),
       humans: () => api.humans ?? null,
       say: (text) => hud.say(text),
-      reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      reducedMotion: () => reducedMotion(),
       coarse: lowMem || detailLevel === 'light', problems,
       // The town's riders keep the sun clock's hour and the Season setting, give way to the
       // teams, and go away with the vehicles (Kevin, 2026-11-17).
@@ -5038,7 +5040,7 @@ async function boot() {
   // each time either says the view moved, so after the colouring is restored on the way in
   // it is already right.
   api.confidenceLegend = createConfidenceLegend({ el: document.getElementById('conf-legend'), hud, view: confidence,
-    open: () => { void navigatorUi?.select('confidence'); } });
+    open: () => { void navigatorUi?.select('confidence', { focus: true }); } });
 
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
@@ -6016,6 +6018,8 @@ async function boot() {
     hudRoot.inert = false;
     hud.show();
     if (firstEntry) hud.restore();
+    // T-3671 (WCAG 4.1.3): a screen reader hears where the visitor has arrived.
+    announce(t('nav.a11y.arrived', { year: String(loaded.scene?.id ?? loaded.scene?.target_date ?? '').slice(0, 4) }));
     // T-2617: into the town with the Navigator docked (§07: Free roam docks it), and
     // the probe looks again at whatever the eye has just been set down in front of.
     navigatorUi?.dock();
@@ -6123,6 +6127,7 @@ async function boot() {
         voice: { playing: () => { const outing = jauntRuntime?.state; return !!outing?.outcome && narration.isPlaying(outing.jaunt, 'ending', outing.outcome.id); },
           ended: () => { const outing = jauntRuntime?.state; return !!outing?.outcome && narration.ended(outing.jaunt, 'ending', outing.outcome.id); } },
         flying: () => travel.state?.phase === 'gliding',
+        hold: () => !!jauntPanel?.holding, // T-3671 (WCAG 2.2.1): a visitor still at the scene keeps it
         finish: () => jauntRuntime?.finish() });
       // The owner, 2026-11-16: the jaunt's meter, the stop's scene filling as it plays.
       let meterTimer = null, meterLeg = null, meterWay = 0, meterSince = 0;
@@ -6872,7 +6877,7 @@ async function boot() {
     if (!api.riding?.active || isTyping(e.target) || e.repeat || e.key.toLowerCase() !== 'v') return;
     e.preventDefault(); api.riding.toggleView();
   });
-  const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const transportReducedMotion = motionQuery; // T-3671: Settings › Look › Motion (js/motion.js)
   transportReducedMotion.addEventListener('change', resetVisualClock);
   let interactPaintAt = 0;
   /** T-3527: the date and the buildings the dated structures were last drawn for. */

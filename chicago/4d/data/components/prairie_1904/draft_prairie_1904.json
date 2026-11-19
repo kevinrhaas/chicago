@@ -1066,7 +1066,9 @@
     "s20-1706-f": "1706 Prairie, the George Glessner townhouse, the south unit of the pair, now stands as the K01 frontage george_glessner_house_1706_prairie (T-3211, piece 1 of T-1871), which refines this draft in place under the draft's own id: the sheet's front block and the three-storey range behind its south end, its front read off the same two photographs, mirrored on 1700's; the draft stands no second building beside it.",
     "s20-1701-f": "1701 Prairie, the Hibbard house, now stands as the K01 frontage hibbard_house_1701_prairie (T-3240, piece 1 of T-1875), which refines this draft in place under the draft's own id: the sheet's main block with its canted bay and the 1874 rear range behind its north half, read off the sheet and two photographs (Chicagology's of the front from the south-west, the Glessner House Museum's of the rear); the porch, the lower south range and the veranda are T-3241's and T-3242's; the draft stands no second building beside it. Its coach house stays a draft.",
     "s20-1701-r1": "1701's two-storey brick building by the tracks now stands refined in place on this builder as `hibbard_house_1701_prairie_coach_house` (T-3316, piece 2 of T-3310): the sheet's parallelogram outline, its walls on the slant of the Illinois Central right-of-way (the builder's skew_per_m), and its elevation read off the Chicagology photograph of the Hibbard house through the house's solved camera (a hipped roof on a bracketed cornice, a square lantern, a curved wall gable over a framed window, low oculi, stacks); its record written from that reading and no longer by these rules (L-t3316-hibbard-1701-stable).",
-    "s20-1701-r2": "1701's storey-and-a-half crossed brick stable joined to the south end of its building by the tracks stands with it in `hibbard_house_1701_prairie_coach_house` (T-3316), on the sheet's own outline and slant, its gable to the yard with the lunette and oculus the Chicagology photograph shows; the draft stands no second building in its place."
+    "s20-1701-r2": "1701's storey-and-a-half crossed brick stable joined to the south end of its building by the tracks stands with it in `hibbard_house_1701_prairie_coach_house` (T-3316), on the sheet's own outline and slant, its gable to the yard with the lunette and oculus the Chicagology photograph shows; the draft stands no second building in its place.",
+    "s35-2108-front": "2108 Prairie now stands as the K01 stone-front house `mark_kimball_house_2108_prairie` (T-3667, piece 1 of T-1921, the S11 package of the T-1837 programme), the Mark Kimball house, which refines this draft in place under the draft's own id: the sheet's two-storey main body behind a pale stone front, its round-arched door at the north end at the head of an iron-railed stoop and two round-headed lights south of it, off the Tribune's 1898 cut and the early-1890s street photograph.",
+    "s35-2108-wing": "2108 Prairie's '2B' rear range now stands on K01's rear wing of `mark_kimball_house_2108_prairie` (T-3667), built square where the sheet chamfers its rear corners (liberty L-k01-2108-kimball-3667), and the draft stands no second building."
   },
   "frontages": {
     "frontage-28-038": {
@@ -1778,7 +1780,9 @@
       "slug": "mark_kimball_house",
       "roof": "flat",
       "entrance": "north",
-      "why": "The Mark Kimball house, empty and to let in the spring of 1904 (not W. W. Kimball's at 1801): the register's 'two-storey/basement brick house with simple cornice/roof' as a flat roof behind a plain cornice over the 2B body and its rear range. The to-let notice calls it a stone front and the sheet colours it brick; the draft keeps the sheet's brick, and T-1921 chooses."
+      "why": "The Mark Kimball house, empty and to let in the spring of 1904 (not W. W. Kimball's at 1801): the register's 'two-storey/basement brick house with simple cornice/roof' as a flat roof behind a plain cornice over the 2B body and its rear range. The to-let notice calls it a stone front and the sheet colours it brick; the draft keeps the sheet's brick, and T-1921 chooses.",
+      "house_id": "mark_kimball_house_2108_prairie",
+      "house_address": "2108"
     },
     "frontage-35-066": {
       "slug": "rees_house",

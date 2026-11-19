@@ -18,7 +18,7 @@
  * repaints at once when the HUD says the colouring or the hidden set moved, and twice a
  * second besides (for a look set from a test hook), so what it shows is the scene.
  */
-import { PRESETS, LEVELS, applyPreset, presetOf, saveLooks } from '../confidence-presets.js';
+import { PRESETS, LEVELS, applyPreset, presetOf, saveLooks, setPatterns } from '../confidence-presets.js';
 import { count as countField } from '../field-log.js'; // T-2660
 import { LOOKS, SAFE_SET, swatchesOf, swatchOf, setInForce, setSwatch, applySet, setLook, setOpacity, percentOf } from '../confidence-rows.js';
 import { t as str } from '../strings/index.js';
@@ -129,6 +129,16 @@ export function mount(el, ctx = {}) {
     d.hud?.say?.(str('confidence.safe.on'));
     done();
   });
+  // T-3671 (WCAG 1.4.1): the grade patterns — Inferred striped, Reconstructed hatched — so a
+  // grade is told by more than its colour. On by default; one key turns them off and on.
+  const patterns = make('button', { type: 'button', className: 'nav-safe nav-patterns', id: 'cm-patterns',
+    title: str('confidence.patterns.note') }, str('confidence.patterns.set'));
+  patterns.setAttribute('aria-pressed', 'true');
+  patterns.addEventListener('click', () => {
+    const on = setPatterns(d.view, !(d.view?.patterns ?? true), d.storage);
+    if (on !== null) d.hud?.say?.(str(on ? 'confidence.patterns.on' : 'confidence.patterns.off'));
+    done(false);
+  });
   const reset = make('button', { type: 'button', className: 'nav-showall', id: 'cm-reset' }, str('confidence.show.all'));
   reset.addEventListener('click', () => {
     for (const level of LEVELS) d.hud?.setHidden(level, false, { announce: false });
@@ -139,7 +149,7 @@ export function mount(el, ctx = {}) {
   const readout = make('div', { className: 'nav-readout', 'aria-hidden': 'true' });
   const mask = make('span'), meshCell = make('span'), clock = make('span');
   readout.append(mask, meshCell, clock);
-  el.append(presets, rows, safe, reset, note, readout);
+  el.append(presets, rows, safe, patterns, reset, note, readout);
 
   // The counts walk the whole registry, so they are taken again only when it changes size
   // (a scene's records arriving), not on every repaint.
@@ -177,6 +187,7 @@ export function mount(el, ctx = {}) {
       if (!hidden.has(level)) meshes += Number(counts[level] ?? 0);
     }
     safe.setAttribute('aria-pressed', String(setInForce(view) === SAFE_SET));
+    patterns.setAttribute('aria-pressed', String(view.patterns ?? true));
     const fps = d.api?.stats?.().fps;
     mask.textContent = `GRADE MASK ${LEVELS.length - hidden.size}/3`;
     meshCell.textContent = `MESHES ${meshes.toLocaleString('en-US')}`;

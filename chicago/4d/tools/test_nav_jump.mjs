@@ -164,7 +164,7 @@ const text = (el) => [el.textContent, ...el.children.map(text)].join('');
   assert.match(css, /\.nav-key[\s\S]*?background: var\(--signal/, 'the key is signal red');
   const main = readFileSync(path.join(web, 'js/main.js'), 'utf8');
   assert.match(main, /confirmJump: \(to, go\) => \(recallHome \? recallHome\.askJump\(to, go\) : go\(\)\)/, 'the page asks before a Jump (T-3390)');
-  assert.match(main, /getElementById\('year-badge'\)\?\.addEventListener\('click', \(\) => \{ void navigatorUi\?\.select\('jump'\)/, 'the year chip opens Jump (T-2626\'s #year-badge button)');
+  assert.match(main, /getElementById\('year-badge'\)\?\.addEventListener\('click', \(\) => \{ void navigatorUi\?\.select\('jump', \{ focus: true \}\)/, 'the year chip opens Jump (T-2626\'s #year-badge button), focus into it (T-3671)');
 }
 
 

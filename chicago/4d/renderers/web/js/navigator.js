@@ -31,6 +31,7 @@ import { mountTelemetry } from './nav-telemetry.js';
 import { formatDistance } from './units.js';
 import { displayName } from './display-name.js';
 import { createRail } from './nav-rail.js';
+import { announce, setPageTitle } from './a11y-announce.js';
 
 export const PHONE_DETENTS = Object.freeze(['dock', 'half', 'full']);
 export const DESK_DETENTS = Object.freeze(['rail', 'open']);
@@ -132,7 +133,15 @@ export function createNavigator({
   // T-2619: the closed device always shows its lamp, its label, the year and the icon of
   // the app it will open to (the last one opened; Home at first).
   const dockYearEl = $('nav-dock-year'), dockAppEl = $('nav-dock-app');
-  if (dockYearEl) dockYearEl.textContent = dockYear(scene);
+  const year = dockYear(scene);
+  if (dockYearEl) dockYearEl.textContent = year;
+  // T-3671 (WCAG 2.4.2, 1.1.1): the tab's title names the year and the open screen, and the
+  // town's canvas says which year it shows (the markup's label was 1835's in every year).
+  const view = root.ownerDocument?.getElementById?.('view');
+  if (view && year) {
+    view.setAttribute('role', 'img');
+    view.setAttribute('aria-label', str('nav.a11y.view', { year }));
+  }
   let dockApp = null;
   const appButton = (id) => [...(rail?.querySelectorAll?.('.nav-app') ?? [])].find((b) => b.dataset?.app === id) ?? null;
   const appLabel = (id) => appButton(id)?.getAttribute?.('aria-label') ?? '';
@@ -165,7 +174,13 @@ export function createNavigator({
   };
   // T-2621: who wants to hear the device change (nav-link.js holds Back for it).
   const changeFns = new Set();
-  const changed = () => { for (const fn of changeFns) { try { fn({ app: registry?.current ?? null, level }); } catch { /* a listener never stops the device */ } } };
+  const paintTitle = () => {
+    const doc = root.ownerDocument;
+    if (!doc || !('title' in doc)) return;
+    const open = level > 0 && registry?.current;
+    setPageTitle({ year, screen: open ? appLabel(registry.current) : '' }, doc);
+  };
+  const changed = () => { paintTitle(); for (const fn of changeFns) { try { fn({ app: registry?.current ?? null, level }); } catch { /* a listener never stops the device */ } } };
   const registry = createRail({
     rail, screens: root.querySelector('.nav-body'), codeEl: $('nav-code'), doc: root.ownerDocument,
     context: ctx, before: collapse ?? null, storage,
@@ -178,6 +193,9 @@ export function createNavigator({
       if (by === 'quiet') return;
       if (level === 0) setLevel(1, { by, focus: false });
       if (by === 'hand') focusTarget(id)?.focus?.({ preventScroll: true });
+      // T-3671 (4.1.3): a screen opened without focus going into it (a link, the code)
+      // says so; one opened by hand is announced by the focus that lands in it.
+      else announce(str('nav.a11y.opened', { app: appLabel(id) || id }), { doc: root.ownerDocument });
       if (id === 'home') refresh(true);
     },
     onLaunch: () => setLevel(0, { by: 'app' }),
@@ -207,6 +225,8 @@ export function createNavigator({
       else { html.dataset.navigator = detent; delete html.dataset.sheet; }
     }
     const open = level > 0;
+    // T-3671: the phone's rail is a bottom tab bar, the desktop's a column.
+    rail?.querySelector?.('.nav-tabs')?.setAttribute?.('aria-orientation', isPhone() ? 'horizontal' : 'vertical');
     grip?.setAttribute('aria-expanded', String(open));
     paintGrip();
     collapse?.setAttribute('aria-label', str(open ? 'nav.collapse' : 'nav.open'));
@@ -223,6 +243,7 @@ export function createNavigator({
     level = Math.max(0, Math.min(max, next));
     if (level === 0) registry.dockPending();
     paintLevel();
+    if (was > 0 && level === 0 && (by === 'hand' || by === 'back')) announce(str('nav.a11y.closed'), { doc: root.ownerDocument });
     listen(level > 0);
     listenNear();
     // T-2620: an app holding the drawer's sections closes them while the screen is out of sight.
@@ -368,9 +389,11 @@ export function createNavigator({
   const onScene = (el) => !el || el === root.ownerDocument?.body || el.tagName === 'CANVAS';
   function close(by = 'hand') {
     setLevel(0, { by });
-    // The handle that reopens it: the grip on a phone, the collapse key on the rail.
-    const shown = (el) => !!el && (el.offsetParent !== null || el.getClientRects?.().length > 0);
-    (shown(grip) ? grip : collapse ?? grip)?.focus?.({ preventScroll: true });
+    // The handle that reopens it: the grip on a phone; on a desktop, whose rail stays, the
+    // rail key of the app that was open (T-3671, WCAG 2.4.3), else the collapse key.
+    const shown = (el) => !!el && !el.hidden && (el.offsetParent !== null || el.getClientRects?.().length > 0);
+    const railKey = [...(rail?.querySelectorAll?.('.nav-app') ?? [])].find((b) => b !== collapse && b.tabIndex === 0 && shown(b));
+    (shown(grip) ? grip : railKey ?? collapse ?? grip)?.focus?.({ preventScroll: true });
   }
   function onKey(e) {
     if (!e?.key || e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey || !keysActive()) return;
@@ -402,13 +425,23 @@ export function createNavigator({
     }
   }
   keyTarget?.addEventListener?.('keydown', onKey);
+  // T-3671 (WCAG 2.4.1): the page's skip link goes past the HUD's keys into the open device.
+  root.ownerDocument?.getElementById?.('skip-navigator')?.addEventListener?.('click', (e) => {
+    e.preventDefault?.();
+    if (level === 0) setLevel(1, { by: 'hand' });
+    else focusTarget(registry.current)?.focus?.({ preventScroll: true });
+  });
 
   api = {
     /** Add an app to the rail (nav-rail.js says what an app is); returns its unregister. */
     register: (app) => registry.register(app),
     unregister: (id) => registry.unregister(id),
-    /** Open an app by id: the device opens to show it (or, for a stub, runs it and docks). */
-    select: (id) => registry.select(id, { by: 'code' }),
+    /** Open an app by id: the device opens to show it (or, for a stub, runs it and docks).
+     *  T-3671: `{ focus: true }` when a visitor's own key asked (the year chip, the map),
+     *  so focus goes into the screen as it does from the rail. */
+    select: (id, { focus = false } = {}) => registry.select(id, { by: focus ? 'hand' : 'code' }),
+    /** Close the device as its own close key does: focus goes back to the key that reopens it. */
+    close: () => { if (level > 0) close(); return root.dataset.detent; },
     /** Prepare an app's module without opening the device or mounting its screen. */
     preload: (id) => registry.preload(id),
     has: (id) => registry.has(id),
