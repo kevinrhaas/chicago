@@ -2685,7 +2685,7 @@
       "baked_ao": false,
       "bytes": 3642544,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "b45dfa2a99735988088e3d3aa096d069932432db8aeb4e58a24d39eff393adc4",
+      "inputs_sha256": "0773682b3ab8af39f34abf4766099611ee0e30d23cf4c1a4dd5352bba40265b9",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_2101_prairie"
@@ -10180,6 +10180,14 @@
       "terrain_epoch": "e1871_postfire",
       "triangles": 97749
     },
+    "terrain__e1871_prefire.glb": {
+      "baked_ao": false,
+      "bytes": 20666808,
+      "generator": "generators/city_1871_emit.py",
+      "inputs_sha256": "184bc8afc05fd71cd2e42ae601be377fb6a6e8624705d3ad42e363a63ec039d9",
+      "kind": "generated",
+      "terrain_epoch": "e1871_prefire"
+    },
     "thomas_church_store__frame_1834.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
@@ -10194,7 +10202,7 @@
       "baked_ao": false,
       "bytes": 3448988,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "c73aaac4fdd411fac7bc46e66548d86a209cd54e1575746e7b280a36edabe726",
+      "inputs_sha256": "bbf4058c241c0d010baa72b74dcf61e7dc47a94746a738bc68b952a9bdb72cf8",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "tolman_house_2031_prairie"
@@ -10334,6 +10342,14 @@
       "terrain_epoch": "e1871_postfire",
       "triangles": 2
     },
+    "water__e1871_prefire.glb": {
+      "baked_ao": false,
+      "bytes": 1784,
+      "generator": "generators/city_1871_emit.py",
+      "inputs_sha256": "184bc8afc05fd71cd2e42ae601be377fb6a6e8624705d3ad42e363a63ec039d9",
+      "kind": "generated",
+      "terrain_epoch": "e1871_prefire"
+    },
     "watkins_school_house__house_1833.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
@@ -10454,22 +10470,6 @@
       "kind": "generated",
       "phase_id": "documented_1835",
       "structure_id": "wright_building_to_let_b"
-    },
-    "terrain__e1871_prefire.glb": {
-      "baked_ao": false,
-      "bytes": 20666808,
-      "generator": "generators/city_1871_emit.py",
-      "inputs_sha256": "184bc8afc05fd71cd2e42ae601be377fb6a6e8624705d3ad42e363a63ec039d9",
-      "kind": "generated",
-      "terrain_epoch": "e1871_prefire"
-    },
-    "water__e1871_prefire.glb": {
-      "baked_ao": false,
-      "bytes": 1784,
-      "generator": "generators/city_1871_emit.py",
-      "inputs_sha256": "184bc8afc05fd71cd2e42ae601be377fb6a6e8624705d3ad42e363a63ec039d9",
-      "kind": "generated",
-      "terrain_epoch": "e1871_prefire"
     }
   },
   "blender": "4.5.3",
