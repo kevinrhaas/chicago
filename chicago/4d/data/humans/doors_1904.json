@@ -8336,9 +8336,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2101:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "b45dfa2a99735988088e3d3aa096d069932432db8aeb4e58a24d39eff393adc4",
+   "model_inputs_sha256": "0773682b3ab8af39f34abf4766099611ee0e30d23cf4c1a4dd5352bba40265b9",
    "barrier": {
-    "key": "45bdb6ff8a49cc9d",
+    "key": "a1804e49aa5a9041",
     "cell": 0.1,
     "u0": -4.8,
     "v0": -1.1,
@@ -8346,7 +8346,7 @@
     "rects": "1 2 69 157 2 48 69 70 2 48 156 157 46 48 119 120 48 49 123 157 51 53 10 11 125 126 10 11 126 127 9 11 127 128 8 11 128 129 7 10 129 130 6 8 130 131 5 8 131 132 4 7 132 133 3 6 133 134 2 5 134 135 1 4 135 162 1 3 162 163 1 4 163 164 2 5 164 165 3 6 165 166 4 7 166 167 5 8 167 168 6 8 168 169 7 10 169 170 8 11 170 171 9 11 171 172 10 11 174 175 123 136 175 219 135 136 195 196 10 11 196 197 9 11 197 198 8 11 198 199 7 10 199 200 6 8 200 201 5 7 201 202 4 6 202 203 3 5 203 204 2 4 204 205 1 4 205 230 1 3 219 220 123 136 230 231 2 4 231 232 3 5 232 233 4 6 233 234 5 7 234 235 6 8 235 236 7 9 236 237 8 10 237 238 9 11 238 239 10 11 263 265 123 125 268 269 51 64 268 269 77 90 268 269 103 116 268 271 119 120 268 283 17 18 268 283 20 36 268 283 38 39 283 307 17 39"
    },
    "floor": {
-    "key": "e055e4c1a739b670",
+    "key": "d58770db04902f76",
     "cell": 0.1,
     "u0": 21.8,
     "v0": 0.5,
@@ -13335,9 +13335,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2031:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "c73aaac4fdd411fac7bc46e66548d86a209cd54e1575746e7b280a36edabe726",
+   "model_inputs_sha256": "bbf4058c241c0d010baa72b74dcf61e7dc47a94746a738bc68b952a9bdb72cf8",
    "barrier": {
-    "key": "25f2f5b4cf3a80b2",
+    "key": "6933cf13ce98ac83",
     "cell": 0.1,
     "u0": -4.4,
     "v0": -0.1,
@@ -13345,7 +13345,7 @@
     "rects": "1 2 32 80 2 44 32 33 2 186 79 80 186 187 6 8 186 187 47 49 186 187 75 80 186 202 52 53 186 202 55 73 187 188 6 9 187 188 46 49 187 202 75 76 188 189 7 9 188 189 46 48 189 190 8 10 189 190 45 47 190 191 9 11 190 191 44 46 191 192 9 12 191 192 43 46 192 193 10 13 192 193 42 45 193 194 11 13 193 194 42 44 194 195 12 14 194 195 41 43 195 197 13 42 202 225 52 76 244 245 59 61 244 245 67 69 245 246 59 60 245 246 68 69 246 247 58 60 246 247 68 70 247 248 58 59 247 248 69 70 248 252 1 59 248 252 69 80"
    },
    "floor": {
-    "key": "1c584b6382c28c0a",
+    "key": "d5b263402af8a8ee",
     "cell": 0.1,
     "u0": 14.0,
     "v0": 5.0,
