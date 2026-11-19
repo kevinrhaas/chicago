@@ -53,9 +53,9 @@
   "garden_bed": "kitchen garden bed"
  },
  "summary": {
-  "lots": 133,
+  "lots": 132,
   "surfaces": 286,
-  "doors": 125,
+  "doors": 124,
   "posts": 118,
   "gardens": 31,
   "by_kind": {
@@ -15372,51 +15372,6 @@
       "risers": 8,
       "run_m": 3.06,
       "material": "stone"
-     },
-     "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
-    }
-   ],
-   "posts": [],
-   "crops": [],
-   "shrubs": [],
-   "trees": [],
-   "creeper": [],
-   "beds": []
-  },
-  {
-   "parcel": "prairie_2031",
-   "addresses": [
-    "2031"
-   ],
-   "street": "prairie",
-   "side": "east",
-   "structures": [
-    "tolman_house_2031_prairie",
-    "tolman_house_2031_prairie_coach_house"
-   ],
-   "scheme": "service_court",
-   "grade": "reconstructed",
-   "sources": [],
-   "note": "",
-   "surfaces": [],
-   "doors": [
-    {
-     "id": "prairie_2031:back_door",
-     "structure": "tolman_house_2031_prairie",
-     "e": 1439.26,
-     "n": -3577.64,
-     "facing_deg": 89.56,
-     "sill_m": 1.4,
-     "width_m": 0.95,
-     "height_m": 2.2,
-     "leaf": true,
-     "stoop": {
-      "depth_m": 1.1,
-      "width_m": 1.6,
-      "risers": 8,
-      "run_m": 3.06,
-      "material": "wood"
      },
      "grade": "reconstructed",
      "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."

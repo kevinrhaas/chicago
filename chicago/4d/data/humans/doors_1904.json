@@ -12491,22 +12491,22 @@
   },
   {
    "structure": "tolman_house_2031_prairie",
-   "name": "2031 Prairie Avenue \u2014 Lemont-limestone Italianate row (district draft; refined by T-1918)",
+   "name": "2031 Prairie Avenue \u2014 Lemont-limestone row house of three storeys with a full-height canted bay and a two-storey rear range, K01 frontage assembly",
    "placement": {
-    "local_e": 1436.465,
-    "local_n": -3573.84,
+    "local_e": 1436.76,
+    "local_n": -3573.407,
     "rotation_deg": 179.39
    },
    "doors": [
     {
      "id": "tolman_house_2031_prairie:front",
      "leaf": {
-      "local_e": 1424.71,
-      "local_n": -3575.56
+      "local_e": 1422.86,
+      "local_n": -3579.81
      },
      "step": {
-      "local_e": 1420.89,
-      "local_n": -3575.6
+      "local_e": 1418.29,
+      "local_n": -3579.85
      },
      "outward_deg": 269.4,
      "width_m": 1.2,
@@ -12514,8 +12514,8 @@
      "plan": {
       "name": "Front door",
       "origin": [
-       11.79,
-       1.592
+       14.035,
+       6.25
       ],
       "outward": [
        1,
@@ -12529,115 +12529,135 @@
        -0.61,
        0.61
       ],
-      "sill": 1.4,
-      "head": 4.1,
+      "sill": 1.7,
+      "head": 4.4,
       "leaf": {
        "front": 0,
-       "back": -0.04,
+       "back": -0.13,
        "s": [
         -0.6,
         0.6
        ],
-       "foot": 1.4,
-       "top": 4.1
+       "foot": 1.7,
+       "top": 4.4
       },
       "hinge": "right",
       "pair": false,
       "revealBack": -0.005,
-      "leafBoxBack": -0.07,
+      "leafBoxBack": -0.16,
       "leafMaterials": [
-       "draft_door"
+       "door_leaf"
       ],
       "way": [
        [
-        15.59,
-        1.592,
+        18.535,
+        6.25,
         null
        ],
        [
-        15.16,
-        1.592,
+        18.205,
+        6.25,
         null
        ],
        [
-        14.92,
-        1.592,
-        0.175
+        17.965,
+        6.25,
+        0.17
        ],
        [
-        14.86,
-        1.592,
-        0.175
+        17.905,
+        6.25,
+        0.17
        ],
        [
-        14.62,
-        1.592,
-        0.35
+        17.665,
+        6.25,
+        0.34
        ],
        [
-        14.56,
-        1.592,
-        0.35
+        17.605,
+        6.25,
+        0.34
        ],
        [
-        14.32,
-        1.592,
-        0.525
+        17.365,
+        6.25,
+        0.51
        ],
        [
-        14.26,
-        1.592,
-        0.525
+        17.305,
+        6.25,
+        0.51
        ],
        [
-        14.02,
-        1.592,
-        0.7
+        17.065,
+        6.25,
+        0.68
        ],
        [
-        13.96,
-        1.592,
-        0.7
+        17.005,
+        6.25,
+        0.68
        ],
        [
-        13.72,
-        1.592,
-        0.875
+        16.765,
+        6.25,
+        0.85
        ],
        [
-        13.66,
-        1.592,
-        0.875
+        16.705,
+        6.25,
+        0.85
        ],
        [
-        13.42,
-        1.592,
-        1.05
+        16.465,
+        6.25,
+        1.02
        ],
        [
-        13.36,
-        1.592,
-        1.05
+        16.405,
+        6.25,
+        1.02
        ],
        [
-        13.12,
-        1.592,
-        1.225
+        16.165,
+        6.25,
+        1.19
        ],
        [
-        13.06,
-        1.592,
-        1.225
+        16.105,
+        6.25,
+        1.19
        ],
        [
-        12.82,
-        1.592,
-        1.4
+        15.865,
+        6.25,
+        1.36
        ],
        [
-        12.29,
-        1.592,
-        1.4
+        15.805,
+        6.25,
+        1.36
+       ],
+       [
+        15.565,
+        6.25,
+        1.53
+       ],
+       [
+        15.505,
+        6.25,
+        1.53
+       ],
+       [
+        15.265,
+        6.25,
+        1.7
+       ],
+       [
+        14.535,
+        6.25,
+        1.7
        ]
       ],
       "grades": {
@@ -12649,44 +12669,28 @@
       }
      },
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
-    },
-    {
-     "id": "tolman_house_2031_prairie:back",
-     "leaf": {
-      "local_e": 1439.26,
-      "local_n": -3577.64
-     },
-     "step": {
-      "local_e": 1443.02,
-      "local_n": -3577.61
-     },
-     "outward_deg": 89.6,
-     "width_m": 0.95,
-     "passage": true,
-     "back": true,
-     "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2031:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "70a4a6a6a36ea2ca0277f7a3485d342f3efb9386a4c8122121cbc9a80abbe15f",
+   "model_inputs_sha256": "1177a3a6d8dfcabec8b68a6ad6ac0e97529f03fcf3bda3afa6218ddfa4c45732",
    "barrier": {
-    "key": "323c989cb6d6f9e1",
+    "key": "ae69831cd763638c",
     "cell": 0.1,
-    "u0": -2.9,
-    "v0": -0.2,
-    "count": 5,
-    "rects": "1 29 32 76 29 30 70 76 30 147 70 71 147 148 2 71 148 181 9 28"
+    "u0": -4.4,
+    "v0": -0.1,
+    "count": 37,
+    "rects": "1 2 32 80 2 44 32 33 2 186 79 80 186 187 6 8 186 187 47 49 186 187 75 80 186 202 52 53 186 202 55 73 187 188 6 9 187 188 46 49 187 202 75 76 188 189 7 9 188 189 46 48 189 190 8 10 189 190 45 47 190 191 9 11 190 191 44 46 191 192 9 12 191 192 43 46 192 193 10 13 192 193 42 45 193 194 11 13 193 194 42 44 194 195 12 14 194 195 41 43 195 197 13 42 202 225 52 76 244 245 59 61 244 245 67 69 245 246 59 60 245 246 68 69 246 247 58 60 246 247 68 70 247 248 58 59 247 248 69 70 248 252 1 59 248 252 69 80"
    },
    "floor": {
-    "key": "63098192c92a7eed",
+    "key": "6ccff1f84e10e81d",
     "cell": 0.1,
-    "u0": 11.7,
-    "v0": 0.6,
-    "ni": 34,
-    "nj": 20,
-    "count": 9,
-    "rects": "1 2 1 4 140 2 13 1 19 140 13 16 1 19 123 16 19 1 19 105 19 22 1 19 88 22 25 1 19 70 25 28 1 19 52 28 31 1 19 35 31 34 1 19 17",
-    "wall_count": 9,
-    "walls": "0 1 0 5 240 1 2 0 1 240 1 2 4 20 240 2 14 19 20 240 14 17 19 20 223 17 20 19 20 205 20 23 19 20 188 23 26 19 20 170 26 28 19 20 152"
+    "u0": 14.0,
+    "v0": 5.0,
+    "ni": 41,
+    "nj": 26,
+    "count": 23,
+    "rects": "1 2 8 17 170 2 14 1 5 200 2 14 5 21 170 2 14 21 25 200 14 15 1 5 197 14 15 21 25 197 14 17 5 21 153 15 16 1 5 192 15 16 21 25 192 16 17 1 5 186 16 17 21 25 186 17 18 1 5 180 17 18 21 25 180 17 20 5 21 136 18 19 1 5 175 18 19 21 25 175 20 23 5 21 119 23 26 5 21 102 26 29 5 21 85 29 32 5 21 68 32 35 5 21 51 35 38 5 21 34 38 41 5 21 17",
+    "wall_count": 24,
+    "walls": "0 1 7 8 270 1 2 0 6 300 1 2 6 8 270 1 2 17 20 270 1 2 20 26 300 2 3 25 26 300 19 20 1 5 275 19 20 21 25 275 20 21 4 5 236 20 21 21 22 236 21 24 4 5 219 21 24 21 22 219 24 27 4 5 202 24 27 21 22 202 27 30 4 5 185 27 30 21 22 185 30 33 4 5 168 30 33 21 22 168 33 36 4 5 151 33 36 21 22 151 36 39 4 5 134 36 39 21 22 134 39 41 4 5 117 39 41 21 22 117"
    }
   },
   {
@@ -16309,22 +16313,6 @@
     "local_e": 1449.29,
     "local_n": -3565.91,
     "rotation_deg": 359.58
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": 0.05,
-    "v0": -0.75,
-    "count": 1,
-    "rects": "0 34 0 16"
-   },
-   "what": "back stoop"
-  },
-  {
-   "structure": "prairie_2031:back_door:stoop",
-   "placement": {
-    "local_e": 1439.26,
-    "local_n": -3577.64,
-    "rotation_deg": 359.56
    },
    "barrier": {
     "cell": 0.1,
