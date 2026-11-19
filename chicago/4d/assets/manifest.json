@@ -108,7 +108,7 @@
       "baked_ao": false,
       "bytes": 6633432,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "2eb7d319da74b563408a9b927703cf0af47ac5ff06fee1315fc5b4cc2c435367",
+      "inputs_sha256": "fc9356c45dd74c229bd6c8605b44bbf3b2d398239f16471bfa210efddc503ca1",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "buckingham_house_2036_prairie"
@@ -2465,7 +2465,7 @@
       "baked_ao": false,
       "bytes": 4785352,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "d19ee1e628d465045f08ff64815ed1cfa07614903d3654c89421dc8e64f757a5",
+      "inputs_sha256": "39861488f9c456afe863eae0c2f6230fe021a7b34e1c75bd06261eec4534cc8e",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_2017_prairie"
@@ -4033,7 +4033,7 @@
       "baked_ao": false,
       "bytes": 3721464,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "4da659f3850ad1551b31ae1e6b7b5d66682d9389210c6c4063481c3ecb5a0781",
+      "inputs_sha256": "cd6ff76d0369c21b54d6468cdb699579b64780b4b6a6b5a83afaed451a05329d",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "otis_house_2033_prairie"
@@ -10099,7 +10099,7 @@
       "baked_ao": false,
       "bytes": 5130920,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "3b81e53c7f26ed5c84d45a0aa12984770e1f9461683013bbf56a4b916fa45888",
+      "inputs_sha256": "f7d12a8ba6aa2ebe448e839d449a142aab9d4ad983064855f5c0fd2ea5ed6114",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "stone_house_2035_prairie"
@@ -10202,7 +10202,7 @@
       "baked_ao": false,
       "bytes": 3448988,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "bbf4058c241c0d010baa72b74dcf61e7dc47a94746a738bc68b952a9bdb72cf8",
+      "inputs_sha256": "5be5ec2d14810d43888165ae617f6cb82e8156b47659d6da51678e1e913478d0",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "tolman_house_2031_prairie"
