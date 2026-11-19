@@ -3426,7 +3426,9 @@ class Assembly:
                 closes = [c for c in (((x0, x1), (y0, y_c)), (tuple(sg["junctions_x"]), (y_c, y1)))
                           if c[1][1] - c[1][0] > 1e-6]
             # T-3156: a pavilion under a raised crown has no soffit of its own: the crown's is over it
-            if not shallow and "soffit" in built.prims and not (sg or {}).get("whole"):
+            # T-3562: and a shallow one's under a flat hipped top (1815's), which no parapet closes
+            if (not shallow or (v.get("roof") or {}).get("kind") != "gable") \
+                    and "soffit" in built.prims and not (sg or {}).get("whole"):
                 on = [q[0] for q in built.prims["soffit"].pos if abs(q[2]) < 1e-6]
                 closes.append(((min(on), max(on)), (wall_top, eave)))
             for (x0, x1), (y0, y1) in closes:
