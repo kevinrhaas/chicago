@@ -101,7 +101,7 @@ export function createFireMap(doc) {
   const spared = (doc.spared ?? []).filter((s) => Array.isArray(s.local)).map((s) => ({ id: s.id, e: s.local[0], n: s.local[1], r: s.r_m ?? 10 }));
   // The wind blows FROM `from_deg` (clockwise from north); the fire runs the other way.
   const toward = ((doc.wind?.from_deg ?? 225) + 180) * Math.PI / 180;
-  const wind = { e: Math.sin(toward), n: Math.cos(toward), mps: doc.wind?.speed_mps ?? 10 };
+  const wind = { e: Math.sin(toward), n: Math.cos(toward), mps: doc.wind?.gale_mps ?? 10 };
   const model = doc.model ?? {};
   const stretch = model.across_wind_stretch ?? 1.8, jitter = model.jitter_min ?? 6;
   const survivors = new Set(doc.survivors ?? []);

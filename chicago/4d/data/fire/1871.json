@@ -18,7 +18,7 @@
  ],
  "wind": {
   "from_deg": 225,
-  "speed_mps": 12,
+  "gale_mps": 12,
   "grade": "inferred",
   "sources": [
    "andreas_1885_v2"
