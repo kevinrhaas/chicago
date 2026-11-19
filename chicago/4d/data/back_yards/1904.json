@@ -15721,7 +15721,7 @@
     "house_2101_prairie",
     "house_2101_prairie_coach_house"
    ],
-   "scheme": "drying_yard",
+   "scheme": "side_lawn",
    "grade": "reconstructed",
    "sources": [
     "census_1900_chicago_t623_roll245"
@@ -15734,20 +15734,20 @@
      "material": "yard_brick",
      "polygon_local_m": [
       [
-       1450.0,
-       -3629.34
+       1449.98,
+       -3626.1
       ],
       [
-       1450.02,
-       -3631.93
+       1450.01,
+       -3630.67
       ],
       [
-       1454.97,
-       -3631.9
+       1457.06,
+       -3630.62
       ],
       [
-       1454.96,
-       -3629.3
+       1457.02,
+       -3626.05
       ]
      ],
      "along_deg": 179.58,
@@ -15762,20 +15762,20 @@
      "material": "trodden",
      "polygon_local_m": [
       [
-       1454.75,
-       -3619.1
+       1455.74,
+       -3618.09
       ],
       [
-       1454.8,
-       -3625.1
+       1455.79,
+       -3624.09
       ],
       [
-       1458.8,
-       -3625.07
+       1459.79,
+       -3624.06
       ],
       [
-       1458.75,
-       -3619.07
+       1459.74,
+       -3618.06
       ]
      ],
      "along_deg": 179.58,
@@ -15789,10 +15789,10 @@
     {
      "id": "prairie_2101:back_door",
      "structure": "house_2101_prairie",
-     "e": 1449.74,
-     "n": -3630.64,
+     "e": 1449.82,
+     "n": -3628.39,
      "facing_deg": 89.58,
-     "sill_m": 1.4,
+     "sill_m": 1.5,
      "width_m": 0.95,
      "height_m": 2.2,
      "leaf": true,
@@ -15801,17 +15801,17 @@
       "width_m": 1.6,
       "risers": 8,
       "run_m": 3.06,
-      "material": "wood"
+      "material": "stone"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.50 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
    "posts": [
     {
      "kind": "clothes_post",
-     "e": 1456.75,
-     "n": -3619.39,
+     "e": 1457.75,
+     "n": -3618.38,
      "height_m": 2.3,
      "arm_m": 0.9,
      "facing_deg": 179.58,
@@ -15820,8 +15820,8 @@
     },
     {
      "kind": "clothes_post",
-     "e": 1456.79,
-     "n": -3624.79,
+     "e": 1457.79,
+     "n": -3623.78,
      "height_m": 2.3,
      "arm_m": 0.9,
      "facing_deg": 179.58,
@@ -15832,15 +15832,7 @@
    "crops": [],
    "shrubs": [],
    "trees": [],
-   "creeper": [
-    [
-     1462.42,
-     -3627.8,
-     269.58,
-     4.31,
-     3.61
-    ]
-   ],
+   "creeper": [],
    "beds": []
   },
   {
