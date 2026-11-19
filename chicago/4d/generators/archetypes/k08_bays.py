@@ -4177,7 +4177,10 @@ class Bay:
         if self.v.get("shallow"):
             # T-3047: a shallow bay's host is opened round its recesses, deeper than they reach,
             # and stops under its parapet, which closes its own top
-            top = self.meta["wall_top_m"]
+            # T-3562: a shallow bay under a flat hipped top has no parapet (1815's pavilion, under
+            # its house's crown), so its host runs on past its eave box as a deep bay's does
+            if (self.v.get("roof") or {}).get("kind") == "gable":
+                top = self.meta["wall_top_m"]
             D = max(D, -min(p[2] for p in self.prims["backing"].pos) + 0.1)
         b = strip(f"{self.v['id']}|board")
         for (a0, a1), (b0, b1) in host_cells((x0, x1), (0.0, top), self.host_holes):

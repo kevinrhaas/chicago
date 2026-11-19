@@ -1,3 +1,19 @@
+## T-3669, T-3670 — Same spot, another year; the guide's questions (19 November 2026)
+
+Jump passes the walker's ground, facing, season and hour (never a date, person or
+building) to the far year. That page checks the spot with `momentFits`; if a structure or
+water now holds it, `nearestOpen` searches rings out to 24 m inside coverage; if the town
+does not reach it, the year's Welcome stays and a line says why. Shared links never move.
+Checked: `test_moment.mjs`, `test_nav_jump.mjs` (pure and DOM-fake), and smoke part 14's
+new Jump-landing check, which accepts either outcome and requires the page to say which.
+
+The understanding check's questions (where / who told us / how sure) were checked over all
+240 catalog tellings: exactly one answer, no repeated option, a wrong place never also tells
+the claim, a wrong teller never also tells it, every quoted line is one the stop said and shares its words with the record behind it (238 tellings quizzed; Lalime and 1612 for ages 8-10 are retold too loosely and get none), the quoted line never names who told it, stable order on repaint
+(`test_jaunt_understanding.mjs`), and in the browser at 390×780 and 1280×800 with retry,
+reveal and start-again (`test_jaunt_understanding_view.mjs`). Not checked: assistive
+technology beyond native buttons, groups and status lines.
+
 ## T-3677 — Where and when? in 1835; 1812 and 1871 left out (19 November 2026)
 
 Owner request, 19 November 2026 (the 17 November list, item 7, "anything that does not
@@ -33,6 +49,7 @@ camera to that copy only while the camera's own photo file hashes to the copy's
 in kevinrhaas/chicago-images (served, but cited by no record) and are reused unchanged.
 `prairie_1904_v1/tools/test_evidence_review.py` fails on dev before this change (184 ≠ 181
 Glessner records); it is unrelated and not run by `check.sh`.
+
 ## T-3675 — Chromebook class set (19 November 2026)
 
 Gap-analysis item 17. A classroom Chromebook is recognised (ChromeOS from the user agent `CrOS`
@@ -140,6 +157,8 @@ The map-fit and both deterministic generator checks are in `tools/check.sh`; the
 published scene has a dedicated `tools/smoke_city_1871.mjs` browser check. This is the
 complete context baseline, not a claim of individually surveyed buildings, populated
 daily activity or photographic finish.
+
+T-3683 (19 November 2026) corrects the building materials. Colbert and Chamberlin (1871, pp. 146-147) count 35,654 wooden buildings to 3,712 of brick and stone in spring 1868. The business centre stays masonry; elsewhere masonry picks turn to frame by district, so about one house or shop in ten is masonry (2,942 of 33,580 footprints, down from 10,770). Every footprint is unchanged. Frame walls are pale weatherboard with a per-house reconstructed paint. A seventeenth form, the two-storey frame store, replaces the brick shop block outside the centre.
 
 ## T-3672 — Teacher routes (19 November 2026)
 

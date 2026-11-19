@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { normalMoment, parseMoment, momentLink, momentFits, photoSize, stampMoment } from '../renderers/web/js/moment.js';
+import { normalMoment, parseMoment, momentLink, momentFits, photoSize, stampMoment, jumpHref, nearestOpen } from '../renderers/web/js/moment.js';
 const raw = { year: '1904', e: -156.576, n: -3520, bearing: 270, pitch: -5, altitude: null,
   season: 'winter', hour: '16:35', date: '1904-12-15', person: 'glessner_frances', structure: 'glessner_house' };
 const expected = { ...raw, e: -156.58 };
@@ -75,4 +75,31 @@ fitted.length = fittedCalls.length = widths.length = 0;
 await stampMoment({ width: 25, height: 50 }, { year: '1904', place: '🪶 Chicago', sources: [] },
   { doc: { createElement: () => boundedOut } });
 assert(fitted.every(line => line === ''));
-console.log(`MOMENT PASS — private query omitted; bounded scene state round-trips; bounds/collision enforced; ${caption.length}-character real source caption fitted in ${captionMeasurements} measurements with intact metadata; stamped PNG released after encoding`);
+
+// T-3669, same spot another year: Jump carries only the ground, facing, season and hour.
+{
+  const pose = { e: 1410.123, n: -3218, bearing: 90, pitch: -3, altitude: null, season: 'summer', hour: '15:20',
+    date: '1904-07-01', person: 'glessner_frances', structure: 'glessner_house' };
+  const href = jumpHref('../1812/', pose, { year: 1812, from: '1904' });
+  assert(href.startsWith('../1812/?moment=1&'), href);
+  const m = parseMoment(href.slice(href.indexOf('?')));
+  assert.deepEqual(m, { date: null, year: '1812', e: 1410.12, n: -3218, bearing: 90, pitch: -3, altitude: null,
+    season: 'summer', person: null, structure: null, hour: '15:20', via: 'jump', from: '1904' },
+    'a date, a person and a building stay with the year that holds them');
+  assert.equal(jumpHref('../1835/?x=1#y', null, { year: 1835, from: 1904 }), '../1835/?x=1#y', 'no pose, the plain page');
+  assert.equal(jumpHref('../1835/', { e: 'x', n: 1 }, { year: 1835, from: 1904 }), '../1835/', 'a malformed pose, the plain page');
+  assert.equal(parseMoment('?moment=1&year=1835&e=1&n=2&via=jump&from=1835').from, null, 'a year is never its own origin');
+  assert.equal(parseMoment('?moment=1&year=1835&e=1&n=2&via=elsewhere').via, undefined, 'only a Jump says it is one');
+  assert(!momentLink({ ...raw }, 'https://x.test/1904/').includes('via='), 'a shared link never claims to be a Jump');
+  // Nearest open ground: the closest free ring point, inside coverage; null when none.
+  const inBounds = (e, n) => Math.abs(e) <= 100 && Math.abs(n) <= 100;
+  assert.deepEqual(nearestOpen(5, 5, { inBounds, blockedAt: () => false }), { e: 5, n: 5, moved: 0 });
+  const house = (e, n) => Math.hypot(e, n) < 7;
+  const near = nearestOpen(0, 0, { inBounds, blockedAt: house });
+  assert(near && near.moved === 8 && !house(near.e, near.n), JSON.stringify(near));
+  assert.equal(nearestOpen(500, 500, { inBounds, blockedAt: () => false }), null, 'outside the town is not moved into it');
+  assert.equal(nearestOpen(0, 0, { inBounds, blockedAt: () => true }), null, 'no open ground within reach');
+  const edge = nearestOpen(99, 0, { inBounds, blockedAt: (e) => e > 90 });
+  assert(edge && inBounds(edge.e, edge.n) && edge.e <= 90);
+}
+console.log(`MOMENT PASS — private query omitted; Jump keeps only ground, facing, season and hour, nearest open ground in coverage; bounded scene state round-trips; bounds/collision enforced; ${caption.length}-character real source caption fitted in ${captionMeasurements} measurements with intact metadata; stamped PNG released after encoding`);
