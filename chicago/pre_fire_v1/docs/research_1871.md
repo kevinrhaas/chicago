@@ -223,13 +223,13 @@ Date: No single implemented scene date
 
 `chamber-verified-dimensions` · structures · **open**
 
-The acquired Chicago Illustrated plate and companion text identify the original 1865 building. The contemporary text gives 93 × 181 feet and 100 feet in height without a height datum. Andreas’s retrospective 1885 account gives 93 × 180 feet and prints both the roof extreme and cornice at 99 feet above the basement floor while also giving a 23-foot roof rise. This is a real printed contradiction, not an OCR error.
+The acquired Chicago Illustrated plate and companion text identify the original 1865 building. The contemporary text gives 93 × 181 feet and 100 feet in height without a height datum. Andreas’s retrospective 1885 account gives 93 × 180 feet and prints both the roof extreme and cornice at 99 feet above the basement floor while also giving a 23-foot roof rise. This is a real printed contradiction, not an OCR error. A newly inspected John Carbutt stereograph, card 140 in Views of Chicago, depicts the same original building. Its photographed basement apertures are rectangular, and its central roof roundel has a pale face with dark marks; no clock time can be read with confidence.
 
 **Applies to:** Original Chamber completed August 28 and dedicated August 30, 1865; destroyed in October 1871. Exact destruction time is not established here.
 
-**Rendering implication:** The reusable plate is now inspectable in the notebook with its full margins and scan provenance. Reconstruct the visible portal, upper arch rhythm, quoins, cornice and mansard through a solved camera; make any selected height/depth an explicit inference or reconstruction.
+**Rendering implication:** The reusable plate is now inspectable in the notebook with its full margins and scan provenance. Reconstruct the visible portal, upper arch rhythm, quoins, cornice and mansard through a solved camera; make any selected height/depth an explicit inference or reconstruction. Compare the actual photograph as a separate view: it clarifies basement apertures and stone courses, while upper-window brightness may reflect glare rather than opaque fabric.
 
-**Limits:** Andreas wrote retrospectively in 1885; the plate and companion text were published in 1866–67. The engraving caption “CHAMBER OF COMMERCE.” does not date its creation; surrounding text and the matching facade identify the original phase. Neither image is a survey or October 8 witness. The CHM digital poster remains restricted; the displayed plate was independently obtained from the PD HathiTrust/University of Michigan scan through Commons. These sources do not yet supply a completed reconstruction.
+**Limits:** Andreas wrote retrospectively in 1885; the plate and companion text were published in 1866–67. The engraving caption “CHAMBER OF COMMERCE.” does not date its creation; surrounding text and the matching facade identify the original phase. Neither image is a survey or October 8 witness. The CHM digital poster remains restricted; the displayed plate was independently obtained from the PD HathiTrust/University of Michigan scan through Commons. These sources do not yet supply a completed reconstruction. The Carbutt card’s catalogue span is 1865?–1885?; architectural identification of the original building does not date the exposure or surviving print exactly. Its signs and street scene establish no October 8 tenancy or activity. The linked current NYPL record was inaccessible during acquisition; this copy’s rights declaration comes from the specific Commons file record.
 
 **Next step:** Choose a working depth and vertical profile with stated bounds and confidence, preserving both source reports. Reconcile the period parcel; unpictured faces and uncertain details may be reconstructed with their reasoning recorded.
 
@@ -237,6 +237,12 @@ The acquired Chicago Illustrated plate and companion text identify the original 
 
 - [Chicago Illustrated — Chamber plate and English text](https://commons.wikimedia.org/wiki/File:Chicago_Illustrated_by_Sheahan,_Jevne_%26_Almini,_1866-67.pdf) — 1866–67 catalogue edition. primary lithograph and contemporary description; access: read. Locator: PDF pages 8–10, one-based positions; full pages retained locally.
 - [Andreas, History of Chicago II](https://archive.org/download/historyofchicago02andr/page/358_w1600.jpg) — 1885, retrospective account of the 1865 building. retrospective history; original scan inspected; access: read. Locator: Printed p.358, engraving and right-column dimension/height paragraph; p.357 supplies 1865–66 context.
+- [John Carbutt — Chamber of Commerce, Views of Chicago, no. 140](https://commons.wikimedia.org/w/index.php?title=File:Chamber_of_Commerce,_by_Carbutt,_John,_1832-1905.png&oldid=1120193839) — Catalogue span 1865?–1885?; exact exposure and surviving-card publication dates unresolved. photograph; original-building phase identified visually, distinct from catalogue dating; access: read. Locator: Full stereo card; printed “Views of Chicago”, “J. Carbutt, Photographer”, and “140.—Chamber of Commerce.” NYPL digital ID G90F172_009F; catalogue record 653332..
+
+  [Open reference image](../media/research/carbutt-nypl-G90F172_009F.png) — John Carbutt, Views of Chicago, no. 140, “Chamber of Commerce.” Catalogue span: 1865?–1885?. The photograph depicts the original pre-fire building; that identification does not supply an exact exposure or card-publication date.
+  Credit: New York Public Library, Robert N. Dennis collection of stereoscopic views; digital ID G90F172_009F. Unaltered full card acquired through Wikimedia Commons. Rights: Public-domain original and mechanical scan: Commons file-specific PD-US / PD-scan (PD-US) declaration. No CC0 license is asserted.
+  SHA-256: `14406b8c30a955da8431e505e518067b84ed54010f3e7cd6bdf31706f0e45e7e`.
+
 
 ### Chicago & Pine: hydrant and street-lamp evidence
 

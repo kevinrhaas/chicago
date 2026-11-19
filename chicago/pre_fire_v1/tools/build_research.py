@@ -2,6 +2,7 @@
 """Validate the 1871 research dossier and derive its viewer/Markdown exports."""
 import argparse
 import csv
+import hashlib
 import io
 import json
 import re
@@ -30,6 +31,20 @@ def validate(data):
                 assert isinstance(source.get(key), str) and source[key].strip(), (card['id'], key)
             assert urlparse(source['url']).scheme == 'https', source['url']
             assert source['access'] in ('read', 'catalog_only', 'lead'), source['access']
+            if 'reference_image' in source:
+                image = source['reference_image']
+                assert isinstance(image, dict) and source['access'] == 'read', card['id']
+                for key in ('local_image', 'alt', 'caption', 'credit', 'rights', 'sha256'):
+                    assert isinstance(image.get(key), str) and image[key].strip(), (card['id'], key)
+                assert not urlparse(image['local_image']).scheme, card['id']
+                path = (ROOT / 'viewer' / image['local_image']).resolve()
+                assert path.is_relative_to((ROOT / 'media/research').resolve()), path
+                assert path.suffix.lower() in ('.png', '.jpg', '.jpeg', '.webp'), path
+                assert type(image.get('bytes')) is int and image['bytes'] > 0, card['id']
+                assert all(type(image.get(k)) is int and image[k] > 0 for k in ('width', 'height')), card['id']
+                assert re.fullmatch('[a-f0-9]{64}', image['sha256']), card['id']
+                assert path.is_file() and path.stat().st_size == image['bytes'], path
+                assert hashlib.sha256(path.read_bytes()).hexdigest() == image['sha256'], path
     for year in data['year_audit']:
         assert all(year.get(k) for k in ('year', 'status', 'summary', 'lessons', 'references'))
         assert 'date' in year and (year['date'] is None or isinstance(year['date'], str))
@@ -56,6 +71,10 @@ def markdown(data):
                   f"**Limits:** {card['limits']}", '', f"**Next step:** {card['next_step']}", '', '**Sources:**', '']
         for s in card['sources']:
             lines += [f"- [{s['title']}]({s['url']}) — {s['source_date']}. {s['source_kind']}; access: {s['access']}. Locator: {s['locator']}."]
+            if image := s.get('reference_image'):
+                lines += ['', f"  [Open reference image]({image['local_image']}) — {image['caption']}",
+                          f"  Credit: {image['credit']} Rights: {image['rights']}",
+                          f"  SHA-256: `{image['sha256']}`.", '']
         lines += ['']
     lines += ['## Before rendering 1871', '']
     for item in data['readiness']:
