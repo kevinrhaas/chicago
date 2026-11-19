@@ -1,0 +1,26 @@
+{
+ "id": "census_1870_us_vol1",
+ "type": "book",
+ "citation": "United States Census Office, Ninth Census, Volume I: The Statistics of the Population of the United States (Washington: Government Printing Office, 1872); the count of Chicago restated in the Census Bureau's 'History and the Census: 1871 Great Chicago Fire' (October 2021).",
+ "author": "United States Census Office (Francis A. Walker, Superintendent)",
+ "date": "1872",
+ "describes_date": "1870",
+ "repository": "United States Census Bureau, publication 1870a; the Bureau's history page for October 2021.",
+ "url": "https://www.census.gov/library/publications/1872/dec/1870a.html",
+ "locator": "Volume I, population of cities; the Bureau's page https://www.census.gov/about/history/stories/monthly/2021/october-2021.html: 'the 1870 Census counted 298,977 people living in Chicago'.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A work of the United States government, public domain.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-19 (T-3690) at the Census Bureau's history page; the volume's tables are linked from the publication page.",
+ "what_it_supplies": [
+  "the city's population in 1870 (298,977), the bound the 1871 town's drawn people are scaled to",
+  "the city's broad nativity: about half foreign-born, Germans and Irish the most"
+ ],
+ "what_it_does_not_supply": [
+  "any person's name on any street on 8 October 1871",
+  "ward populations at a block's grain"
+ ],
+ "note": "The density bound of the 1871 town people (tools/town_people_1871.py, L-town-people-1871)."
+}

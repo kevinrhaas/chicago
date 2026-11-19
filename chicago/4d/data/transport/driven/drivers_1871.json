@@ -1,0 +1,411 @@
+{
+ "format": "chicago4d_drivers_1871_v1",
+ "ticket": "T-3690",
+ "liberty": "L-1871-town-traffic",
+ "doc": "The 1871 city's teams on Sunday 8 October: each row a round of four streets, each at least 20 m between kerbs (data/context/1871.json), its corners the crossings of their centre lines as the context city lays them today (frozen here, so the round does not move under a regeneration; tools/lay_driven_1871.mjs --audit reads them against the context city again), and the household its driver comes from. tools/town_people_1871.py cards the driver and his household; tools/lay_driven_1871.mjs writes the round into data/transport/driven/loops.json. The trades, the rounds and the men are reconstructed (L-1871-town-traffic).",
+ "drivers": [
+  {
+   "row": "express_wagon_state_madison_1871",
+   "home_hub": "state_madison",
+   "trade": "expressman",
+   "words": "an express wagon",
+   "name": "An express wagon round State, Madison, Wabash and Monroe",
+   "streets": [
+    "State Street",
+    "Wabash Avenue",
+    "Madison Street",
+    "Monroe Street"
+   ],
+   "corners": [
+    [
+     860.12,
+     -523.36
+    ],
+    [
+     977.16,
+     -522.14
+    ],
+    [
+     978.75,
+     -649.86
+    ],
+    [
+     860.56,
+     -650.84
+    ]
+   ]
+  },
+  {
+   "row": "milk_wagon_court_house_1871",
+   "home_hub": "court_house",
+   "trade": "milkman",
+   "words": "a milk wagon",
+   "name": "A milk wagon round Dearborn, Randolph, State and Washington",
+   "streets": [
+    "Dearborn Street",
+    "State Street",
+    "Randolph Street",
+    "Washington Street"
+   ],
+   "corners": [
+    [
+     690.26,
+     -258.99
+    ],
+    [
+     860.11,
+     -257.58
+    ],
+    [
+     860.11,
+     -393.05
+    ],
+    [
+     693.58,
+     -394.43
+    ]
+   ]
+  },
+  {
+   "row": "express_wagon_clark_dearborn_1871",
+   "home_hub": "court_house",
+   "trade": "expressman",
+   "words": "an express wagon",
+   "name": "An express wagon round Clark, Madison, Dearborn and Adams",
+   "streets": [
+    "Clark Street",
+    "Dearborn Street",
+    "Madison Street",
+    "Adams Street"
+   ],
+   "corners": [
+    [
+     579.01,
+     -524.91
+    ],
+    [
+     696.77,
+     -524.26
+    ],
+    [
+     703.33,
+     -791.62
+    ],
+    [
+     584.14,
+     -792.61
+    ]
+   ]
+  },
+  {
+   "row": "hotel_baggage_wagon_wells_1871",
+   "home_hub": "state_madison",
+   "trade": "baggage man",
+   "words": "a hotel's baggage wagon",
+   "name": "A hotel baggage wagon round Wells, Washington, LaSalle and Monroe",
+   "streets": [
+    "Wells Street",
+    "LaSalle Street",
+    "Washington Street",
+    "Monroe Street"
+   ],
+   "corners": [
+    [
+     322.93,
+     -397.49
+    ],
+    [
+     464.44,
+     -396.32
+    ],
+    [
+     467.16,
+     -654.09
+    ],
+    [
+     327.67,
+     -655.24
+    ]
+   ]
+  },
+  {
+   "row": "grocer_wagon_lake_street_1871",
+   "home_hub": "lake_street",
+   "trade": "grocer's driver",
+   "words": "a grocer's wagon",
+   "name": "A grocer's wagon round Franklin, Lake, Wells and Madison",
+   "streets": [
+    "Franklin Street",
+    "Wells Street",
+    "Lake Street",
+    "Madison Street"
+   ],
+   "corners": [
+    [
+     177.54,
+     -112.35
+    ],
+    [
+     320.56,
+     -111.17
+    ],
+    [
+     324.54,
+     -527.65
+    ],
+    [
+     187.76,
+     -528.96
+    ]
+   ]
+  },
+  {
+   "row": "brewery_wagon_canal_1871",
+   "home_hub": "canal_street",
+   "trade": "brewery driver",
+   "words": "a brewery wagon",
+   "name": "A brewery wagon round Desplaines, Randolph, Canal and Washington",
+   "streets": [
+    "Desplaines Street",
+    "Canal Street",
+    "Randolph Street",
+    "Washington Street"
+   ],
+   "corners": [
+    [
+     -402.57,
+     -269.02
+    ],
+    [
+     -205.74,
+     -267.39
+    ],
+    [
+     -203.2,
+     -401.83
+    ],
+    [
+     -400.37,
+     -403.46
+    ]
+   ]
+  },
+  {
+   "row": "milk_wagon_west_madison_1871",
+   "home_hub": "west_madison",
+   "trade": "milkman",
+   "words": "a milk wagon",
+   "name": "A milk wagon round Halsted, Madison, Desplaines and Adams",
+   "streets": [
+    "Halsted Street",
+    "Desplaines Street",
+    "Madison Street",
+    "Adams Street"
+   ],
+   "corners": [
+    [
+     -791.42,
+     -538.31
+    ],
+    [
+     -398.21,
+     -534.56
+    ],
+    [
+     -393.84,
+     -800.68
+    ],
+    [
+     -785.26,
+     -803.92
+    ]
+   ]
+  },
+  {
+   "row": "livery_wagon_west_lake_1871",
+   "home_hub": "west_madison",
+   "trade": "livery driver",
+   "words": "a livery stable's wagon",
+   "name": "A livery wagon round Halsted, Lake, Desplaines and Randolph",
+   "streets": [
+    "Halsted Street",
+    "Desplaines Street",
+    "Lake Street",
+    "Randolph Street"
+   ],
+   "corners": [
+    [
+     -799.28,
+     -120.42
+    ],
+    [
+     -405.07,
+     -117.16
+    ],
+    [
+     -402.57,
+     -269.02
+    ],
+    [
+     -796.42,
+     -272.27
+    ]
+   ]
+  },
+  {
+   "row": "milk_wagon_dekoven_1871",
+   "home_hub": "dekoven",
+   "trade": "milkman",
+   "words": "a milk wagon",
+   "name": "A milk wagon round Desplaines, Taylor, Canal and Twelfth",
+   "streets": [
+    "Desplaines Street",
+    "Canal Street",
+    "Taylor Street",
+    "Twelfth Street"
+   ],
+   "corners": [
+    [
+     -376.13,
+     -1879.55
+    ],
+    [
+     -175.22,
+     -1877.89
+    ],
+    [
+     -169.49,
+     -2179.91
+    ],
+    [
+     -371.16,
+     -2182.54
+    ]
+   ]
+  },
+  {
+   "row": "hay_wagon_dekoven_1871",
+   "home_hub": "dekoven",
+   "trade": "teamster",
+   "words": "a hay wagon for the barns",
+   "name": "A hay wagon round Halsted, Taylor, Desplaines and Twelfth",
+   "streets": [
+    "Halsted Street",
+    "Desplaines Street",
+    "Taylor Street",
+    "Twelfth Street"
+   ],
+   "corners": [
+    [
+     -760.24,
+     -1882.72
+    ],
+    [
+     -376.13,
+     -1879.55
+    ],
+    [
+     -371.16,
+     -2182.54
+    ],
+    [
+     -753.17,
+     -2187.52
+    ]
+   ]
+  },
+  {
+   "row": "express_wagon_south_clark_1871",
+   "home_hub": "south_clark",
+   "trade": "expressman",
+   "words": "an express wagon",
+   "name": "An express wagon round Clark, Harrison, State and Polk",
+   "streets": [
+    "Clark Street",
+    "State Street",
+    "Harrison Street",
+    "Polk Street"
+   ],
+   "corners": [
+    [
+     594.51,
+     -1334.08
+    ],
+    [
+     862.89,
+     -1331.86
+    ],
+    [
+     863.85,
+     -1610.84
+    ],
+    [
+     599.86,
+     -1613.02
+    ]
+   ]
+  },
+  {
+   "row": "livery_wagon_south_wabash_1871",
+   "home_hub": "south_wabash",
+   "trade": "livery driver",
+   "words": "a livery stable's wagon",
+   "name": "A livery wagon round Wabash, Van Buren, Michigan and Harrison",
+   "streets": [
+    "Wabash Avenue",
+    "Michigan Avenue",
+    "Van Buren Street",
+    "Harrison Street"
+   ],
+   "corners": [
+    [
+     983.95,
+     -1068.29
+    ],
+    [
+     1146.86,
+     -1066.95
+    ],
+    [
+     1150.12,
+     -1329.49
+    ],
+    [
+     987.22,
+     -1330.84
+    ]
+   ]
+  },
+  {
+   "row": "grocer_wagon_twelfth_1871",
+   "home_hub": "twelfth_street",
+   "trade": "grocer's driver",
+   "words": "a grocer's wagon",
+   "name": "A grocer's wagon round State, Twelfth, Wabash and Sixteenth",
+   "streets": [
+    "State Street",
+    "Wabash Avenue",
+    "Twelfth Street",
+    "Sixteenth Street"
+   ],
+   "corners": [
+    [
+     865.75,
+     -2166.42
+    ],
+    [
+     997.58,
+     -2164.55
+    ],
+    [
+     1007.64,
+     -2973.81
+    ],
+    [
+     865.38,
+     -2972.59
+    ]
+   ]
+  }
+ ]
+}
