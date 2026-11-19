@@ -1,0 +1,76 @@
+== title @7e128a07
+Por el puente levadizo al North Side
+
+== premise @26b2580b
+Cruza el primer puente levadizo del pueblo hacia el North Side y observa lo que había en la otra orilla: una ladrillera, la primera casa construida para una escuela y un hotel de ladrillo en construcción, sin nada que contar ni que cargar.
+
+== opening @a068c325
+PASEO: POR EL PUENTE LEVADIZO AL NORTH SIDE. En esta tarde de otoño, la mayor parte del comercio del pueblo ocupa la orilla sur, pero el North Side es donde el dinero piensa vivir: para 1836 "La mayor parte de las familias de riqueza, educación y alta posición social" residían allí, y la nueva Lake House era su "cuartel general de moda".
+
+Cruza el primer puente levadizo del pueblo y mira cómo se construye el North Side: una ladrillera, la primera casa construida para una escuela y un hotel de ladrillo que va subiendo.
+
+== stop the-draw @9fccbc2d
+Comienza al final de Dearborn Street, en el primer puente levadizo del pueblo, construido en 1834 por el carpintero naval Nelson R. Norton. Moses y Kirkland lo registran con "300 pies de largo, por dieciséis de ancho", con "un doble levadizo", mientras que Andreas da una abertura de sesenta pies para las embarcaciones y armazones de horca en cada extremo. Cada vez que una goleta sube por el río, el puente se levanta y todo el mundo espera. Cruza con cuidado a la orilla norte.
+
+== narrative the-draw @a6dfe43d
+La única manera confiable de cruzar el río desde el distrito comercial.
+
+== stop the-brickyard @4b9c2ae1
+Al bajar del puente y a poca distancia al oeste por la orilla, Andreas sitúa la ladrillera de Tyler K. Blodgett de la primavera de 1833, entre Dearborn y Clark, con Henry S. Lampman como el primer ladrillero del pueblo. El primer edificio de ladrillo fuera del fuerte se levantó ese año para John Noble, en el terreno contiguo a donde ahora sube la Lake House. Un solo cobertizo de secado representa toda la ladrillera.
+
+== narrative the-brickyard @addab093
+Donde empezó en un principio la industria del ladrillo del pueblo.
+
+== stop the-school-house @405394fd
+Unos pasos más allá, justo al este de Clark Street, Andreas informa que Hamilton y Owen construyeron una casa escuela en 1833, la primera casa construida para una escuela en Chicago, y que en 1835 John Watkins daba aquí clases en la escuela pública del North Side. El propio Watkins no recordaba el edificio, cosa que pasa en un pueblo que se transforma así de rápido. Su primera clase, en 1832, se reunió "en una casa de troncos de unos doce pies por lado", con doce alumnos.
+
+== narrative the-school-house @709729c6
+Un edificio escolar en la orilla del río.
+
+== stop the-lake-house @a7f3efb8
+Hacia el este por la orilla hasta Rush Street y la Lake House. Andreas describe el hotel terminado como de ladrillo, de tres pisos con sótano, inaugurado en el otoño de 1836. "Aspiraba a atender solo a huéspedes de la más alta clase", y se convertirá en el "cuartel general de moda del North Side, donde se daban fiestas selectas". Por ahora consiste en muros sin terminar y andamios. Elige cómo prefieres concluir la salida.
+
+== narrative the-lake-house @19673706
+Un hotel en construcción, y una elección de dónde parar.
+
+== label the-lake-house end-here @5c03e09c
+Terminar en el sitio de la Lake House
+
+== consequence the-lake-house end-here @aafb2226
+Concluye en el North Side, en la esquina de Rush Street.
+
+== label the-lake-house back-over @a8759a63
+Volver por el puente levadizo
+
+== consequence the-lake-house back-over @6e981a8b
+Regresa hacia el oeste por la orilla y por el puente levadizo de Dearborn Street hasta donde empezaste.
+
+== leg 0 @17d11a8c
+Al otro lado del río, hacia el North Side en desarrollo.
+
+== note 0 @84d41498
+Por el puente levadizo hasta la orilla norte y un poco hacia el oeste, en dirección a Clark Street, unos 0.12 km.
+
+== leg 1 @9b79be0e
+Continúa de la ladrillera a la casa escuela vecina.
+
+== note 1 @e7264a92
+Unos pasos hacia el oeste por la orilla, unos 20 m; los dos lugares están donde los ubican los registros.
+
+== leg 2 @8666e422
+Avanza por la orilla del río hasta el edificio en construcción.
+
+== note 2 @991b7989
+Hacia el este por la orilla norte hasta Rush Street, unos 0.5 km.
+
+== ending on-the-north-side @d33f5549
+Concluyes la salida en el North Side, en la Lake House junto a Rush Street, después de cruzar por el puente levadizo y observar una ladrillera, una casa escuela y el hotel más elegante del pueblo en construcción. Dentro de un año esta será la dirección más prestigiosa de Chicago.
+
+== ending back-on-south-water @dd9d8110
+Regresas hacia el oeste por la orilla y por el puente levadizo de Dearborn Street hasta South Water Street, donde empezó la salida, mientras detrás de ti el North Side se va llenando, ladrillo a ladrillo.
+
+== keepsake title @6bffeb79
+Al norte del río
+
+== keepsake text @dddb4c48
+Una nota ficticia de un cruce por el puente levadizo de Dearborn Street hasta una ladrillera, una casa escuela y el sitio de un hotel en la otra orilla.

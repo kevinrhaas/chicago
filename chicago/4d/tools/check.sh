@@ -4777,6 +4777,13 @@ step "Jaunt schema, destinations and reachable state graph (T-1253)" \
 step "Jaunt refusal and data-only expansion fixtures (T-1253)" \
   python3 tools/test_compile_jaunts.py
 
+# T-3681: each jaunt's Spanish telling (data/jaunts/_es/<id>.txt) compiles to the overlay beside
+# its English (sidecars/<scene>/jaunts/es/). Each passage carries the mark of the English it was
+# translated from, and the app shows it only while that English stands, so a change to a jaunt's
+# English never stales this step.
+step "Spanish jaunt overlays are as built from their words files (T-3681)" \
+  python3 tools/jaunts_es.py --check
+
 # T-3590: every jaunt's school grade band is measured from its own words (the mean of five
 # grade-level formulas); a jaunt for grades K-2 or 3-5 reads inside its band, any other within one.
 step "Jaunt grade bands match the reading level of their words (T-3590)" \

@@ -2428,7 +2428,8 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .welcome-quick-start .menu-icon { color: var(--accent); flex: none; }
 .welcome-find, .jaunt-find { position: relative; flex: 1 1 auto; min-width: 0; }
 .welcome-find .menu-icon, .jaunt-find .menu-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--ink-faint, var(--ink-dim)); pointer-events: none; }
-#welcome-search, .jaunt-filters input {
+/* The jaunt search moved from the filters into the pinned row (T-3653); it keeps their shape. */
+#welcome-search, .jaunt-filters input, .jaunt-find-row input {
   box-sizing: border-box; width: 100%; min-width: 0; min-height: 42px; padding: 8px 12px 8px 33px;
   font: inherit; font-size: 16px; color: var(--ink); background: var(--panel-solid);
   border: 1px solid var(--edge); border-radius: 999px;
