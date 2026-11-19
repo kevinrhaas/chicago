@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1191,
+  "count": 1192,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -77917,6 +77917,38 @@
         "T-2934",
         "T-3632",
         "T-3631"
+      ]
+    },
+    {
+      "id": "L-1871-last-sunday-3692",
+      "title": "The Last Sunday: one afternoon's walk through the city on 8 October 1871",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-19, chose \"The Last Sunday\" from three proposed 1871 jaunts (decision card, thread \"Build the 1871 Great Fire jaunt and streetscapes\"): a walk through Chicago at its peak on Sunday 8 October 1871, from mid-afternoon to dusk, ending at DeKoven Street on a hook into the Great Fire jaunt. Nine stops, written by the research notes on jaunt stories from the claims tool and the last sunday tool, with its four school tellings and an 18+ telling made by the research notes on jaunt grade versions. **What is read.** Every fact the narrator tells comes from the claim the stop cites: A. T. Andreas's *History of Chicago*, vol. II (1885), which prints the Board of Police and Fire Commissioners' report, the O'Learys' and Dennis Sullivan's affidavits of 15 October 1871 and the Tribune of 8 October on Crosby's Opera House; Sheahan and Upton (1871) and Colbert and Chamberlin (1871); the Chicago History Museum and Northwestern University's *Great Chicago Fire and the Web of Memory* (its landmark pages and Catherine O'Leary's testimony); and the National Weather Service's reconstruction of the weather. Every quotation stands verbatim in a claim the stop cites. **What is invented.** The walk itself: its route, its order and the hour at each stop (14:00 at Lake Street to 17:45 at DeKoven Street) are a reconstruction, chosen so the afternoon light moves toward dusk; only the O'Learys' milking (4:30 p.m.), the horse fed at about seven, and the firemen home from the Saturday fire at three are hours a source gives. That the streets are quiet and the stores shut for a Sunday, and that the morning's Tribune is about, are the walk's scene-setting, not a record of that afternoon. So is the look of the streets in the telling (stone fronts with arched windows and mansard roofs, iron awnings and fences, the square's fountain, telegraph wires): it is drawn from pre-fire views the owner sent on 2026-11-19 (a late-1860s Lake Street stereoview, Louis Kurz's print \"La Salle Street from Court House Square\" of 1865, and a view from the Court House cupola of about 1858), held as visual references only (rights check required) and not cited until a holding institution is found for each. The stops are told, not staged: no figure stands for anyone named, and no word anyone says is staged. **Left out on purpose.** The Palmer House's opening date, which the sources give three ways (Andreas: 26 September 1870 at State and Quincy; the museum: March 1871 at State and Monroe; later accounts: 26 September 1871), is not told; the hotel is only \"a few blocks south\". The fire itself belongs to the Great Fire jaunt, which this walk hands on to."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a dated record of who was on these streets that afternoon replaces the scene-setting; the 1871 people may stage the stops under their own cards in a later revision."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on jaunt stories (the build tool, the claims tool, the last sunday tool)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-19 (T-3692)."
+        }
+      ],
+      "work_refs": [
+        "T-3691",
+        "T-3690",
+        "T-3692"
       ]
     },
     {
