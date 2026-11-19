@@ -1,3 +1,11 @@
+## T-3663 — First source investigation (19 November 2026)
+
+Use the completed Gossip route for one optional claim-and-evidence comparison of its
+Democrat and American readings, with explicit notebook save. Preserve the missing sale
+figure, the Springfield inference and the story's declared liberties. This is the first
+bounded slice of requested item 8; it adds no mystery engine, invented witnesses or service.
+The separate ticket owns implementation and validation; STATUS records what is checked.
+
 ## T-3654 — Build the city first, then replace its context (2026-11-18)
 
 The owner's choice is a complete 1871 context city with district-appropriate generic
@@ -24,6 +32,12 @@ The hunt runs in 1835 (three Green Tree Tavern prints and drawings) with its own
 order and progress. 1812 has two pictures with a camera on safe ground and needs a third;
 1871 has no catalogued picture. Both open when a ground camera is solved on a held,
 public-domain picture of that year.
+## T-3672 — Teacher routes (19 November 2026)
+
+Item 11's browser-only subset is in: a teacher's route as one link or one file, and a
+student's Route panel whose answers go to the local field notebook. Next, only with
+storage the owner chooses: a shared library of routes and a way to collect answers.
+A route names places and people the town already holds; it never adds a historical claim.
 
 ## T-3657, T-3658 — Next browser-only delivery (18 November 2026)
 

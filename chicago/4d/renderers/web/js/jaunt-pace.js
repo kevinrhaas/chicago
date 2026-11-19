@@ -90,8 +90,11 @@ export function closingView(stand) {
  * up for its reading time. A voice the visitor stopped leaves the reading time to run.
  * `voice` = { playing() -> bool, ended() -> bool } for this ending; `flying()` says the
  * closing flight is still in the air; `finish()` ends the scene (the runtime's FINISH).
+ * T-3671 (WCAG 2.2.1): `hold()` says the visitor is still at the scene (they have touched,
+ * scrolled or keyed in the panel since it opened); a held scene waits for Finish jaunt. A
+ * voice the visitor paused is still playing, so it holds the scene too.
  */
-export function createClosingClock({ now = () => Date.now() / 1000, voice, flying = () => false, finish }) {
+export function createClosingClock({ now = () => Date.now() / 1000, voice, flying = () => false, hold = () => false, finish }) {
   let key = null, began = 0, read = READ_MIN_S, heard = false, doneAt = null, closed = false;
   function update(state) {
     if (state?.phase !== 'closing' || !state.outcome) { key = null; return; }
@@ -105,7 +108,7 @@ export function createClosingClock({ now = () => Date.now() / 1000, voice, flyin
     if (playing) { heard = true; doneAt = null; return false; }
     if (heard && doneAt === null) doneAt = voice.ended() ? t + CLOSING_HOLD_S : Math.max(t + CLOSING_HOLD_S, began + read);
     const due = doneAt ?? began + read;
-    if (t < due || flying()) return false;
+    if (t < due || flying() || hold()) return false;
     closed = true; finish();
     return true;
   }

@@ -1,0 +1,15 @@
+{
+  "id": "chicago_waterways_2026",
+  "type": "dataset",
+  "citation": "City of Chicago. Hydro (waterways in Chicago, including Lake Michigan, rivers and lakes; Chicago Data Portal dataset knfe-65pw), water polygons, rows dated 2014-10-17; retrieved 2026-11-19.",
+  "date": "2014-10-17",
+  "describes_date": "2014",
+  "repository": "City of Chicago Data Portal",
+  "url": "https://data.cityofchicago.org/resource/knfe-65pw.geojson",
+  "tier": 4,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "City of Chicago open data, published under the Data Portal's terms of use.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "MODERN control, not historical evidence: the City's own polygons of today's Chicago River, its Branches and the North Branch Canal, in WGS84. Used by the Today window's 1871 registration (data/modern/chicago_river.json) to say where the river the 1871 scene draws runs on today's ground. Nothing in a period layer is placed from it."
+}

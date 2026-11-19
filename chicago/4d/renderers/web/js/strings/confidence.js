@@ -33,6 +33,11 @@ export default register('confidence', {
   'safe.set': 'Colour-blind-safe colours',
   'safe.note': 'Blue, yellow and vermilion: told apart with the common kinds of colour blindness.',
   'safe.on': 'Colour-blind-safe colours on',
+  // T-3671 (WCAG 1.4.1): the grade patterns in the town, so colour is never the only cue.
+  'patterns.set': 'Grade patterns',
+  'patterns.note': 'Inferred striped, Reconstructed hatched, Attested plain: each grade told by more than its colour.',
+  'patterns.on': 'Grade patterns on',
+  'patterns.off': 'Grade patterns off',
   'show.all': 'Show everything',
   'note': 'Turning a grade off removes it from the view entirely, with the colouring on or off.',
   // T-2649: the legend chip under the year chip while the view is not Normal. The mark is
