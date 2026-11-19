@@ -8140,26 +8140,184 @@
   },
   {
    "structure": "house_2101_prairie",
-   "name": "2101 Prairie Avenue \u2014 Brick masonry (district draft; refined by T-1924)",
+   "name": "2101 Prairie Avenue \u2014 brick corner house of two and a half storeys on 21st Street, K01 frontage assembly",
    "placement": {
-    "local_e": 1445.103,
-    "local_n": -3617.722,
+    "local_e": 1445.048,
+    "local_n": -3617.548,
     "rotation_deg": 179.38
    },
    "doors": [
     {
      "id": "house_2101_prairie:front",
      "leaf": {
-      "local_e": 1424.66,
-      "local_n": -3622.82
+      "local_e": 1423.32,
+      "local_n": -3619.43
      },
      "step": {
-      "local_e": 1420.61,
-      "local_n": -3622.86
+      "local_e": 1418.75,
+      "local_n": -3619.48
      },
      "outward_deg": 269.4,
      "width_m": 1.2,
-     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+     "passage": true,
+     "plan": {
+      "name": "Front door",
+      "origin": [
+       21.815,
+       1.65
+      ],
+      "outward": [
+       1,
+       0
+      ],
+      "along": [
+       0,
+       1
+      ],
+      "jambs": [
+       -0.61,
+       0.61
+      ],
+      "sill": 1.7,
+      "head": 4.4,
+      "leaf": {
+       "front": 0,
+       "back": -0.13,
+       "s": [
+        -0.6,
+        0.6
+       ],
+       "foot": 1.7,
+       "top": 4.4
+      },
+      "hinge": "right",
+      "pair": false,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.16,
+      "leafMaterials": [
+       "door_leaf"
+      ],
+      "way": [
+       [
+        26.315,
+        1.65,
+        null
+       ],
+       [
+        25.985,
+        1.65,
+        null
+       ],
+       [
+        25.745,
+        1.65,
+        0.17
+       ],
+       [
+        25.685,
+        1.65,
+        0.17
+       ],
+       [
+        25.445,
+        1.65,
+        0.34
+       ],
+       [
+        25.385,
+        1.65,
+        0.34
+       ],
+       [
+        25.145,
+        1.65,
+        0.51
+       ],
+       [
+        25.085,
+        1.65,
+        0.51
+       ],
+       [
+        24.845,
+        1.65,
+        0.68
+       ],
+       [
+        24.785,
+        1.65,
+        0.68
+       ],
+       [
+        24.545,
+        1.65,
+        0.85
+       ],
+       [
+        24.485,
+        1.65,
+        0.85
+       ],
+       [
+        24.245,
+        1.65,
+        1.02
+       ],
+       [
+        24.185,
+        1.65,
+        1.02
+       ],
+       [
+        23.945,
+        1.65,
+        1.19
+       ],
+       [
+        23.885,
+        1.65,
+        1.19
+       ],
+       [
+        23.645,
+        1.65,
+        1.36
+       ],
+       [
+        23.585,
+        1.65,
+        1.36
+       ],
+       [
+        23.345,
+        1.65,
+        1.53
+       ],
+       [
+        23.285,
+        1.65,
+        1.53
+       ],
+       [
+        23.045,
+        1.65,
+        1.7
+       ],
+       [
+        22.315,
+        1.65,
+        1.7
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "inferred"
+      }
+     },
+     "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     },
     {
      "id": "house_2101_prairie:back",
@@ -8178,14 +8336,26 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2101:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "2d4ec98e3b249fd07e7c1223487c3a913f5a56680e049f5d8bb9aa68302d7e99",
+   "model_inputs_sha256": "ab0d290ecf2ea0a43b333a475d8308bebad04f9cce0e8877d04e1110769fe006",
    "barrier": {
-    "key": "dcc095c7e8d1dae1",
+    "key": "9aa963eba61d8ae6",
     "cell": 0.1,
-    "u0": -4.7,
-    "v0": -0.2,
-    "count": 7,
-    "rects": "2 47 62 141 47 48 100 141 48 252 100 101 239 252 109 133 252 253 2 133 253 271 39 133 271 283 39 123"
+    "u0": -4.8,
+    "v0": -1.1,
+    "count": 59,
+    "rects": "1 2 69 157 2 48 69 70 2 48 156 157 46 48 119 120 48 49 123 157 51 53 10 11 125 126 10 11 126 127 9 11 127 128 8 11 128 129 7 10 129 130 6 8 130 131 5 8 131 132 4 7 132 133 3 6 133 134 2 5 134 135 1 4 135 162 1 3 162 163 1 4 163 164 2 5 164 165 3 6 165 166 4 7 166 167 5 8 167 168 6 8 168 169 7 10 169 170 8 11 170 171 9 11 171 172 10 11 174 175 123 136 175 219 135 136 195 196 10 11 196 197 9 11 197 198 8 11 198 199 7 10 199 200 6 8 200 201 5 7 201 202 4 6 202 203 3 5 203 204 2 4 204 205 1 4 205 230 1 3 219 220 123 136 230 231 2 4 231 232 3 5 232 233 4 6 233 234 5 7 234 235 6 8 235 236 7 9 236 237 8 10 237 238 9 11 238 239 10 11 263 265 123 125 268 269 51 64 268 269 77 90 268 269 103 116 268 271 119 120 268 283 17 18 268 283 20 36 268 283 38 39 283 307 17 39"
+   },
+   "floor": {
+    "key": "1f1d66e2b0ab46cc",
+    "cell": 0.1,
+    "u0": 21.8,
+    "v0": 0.5,
+    "ni": 41,
+    "nj": 24,
+    "count": 23,
+    "rects": "1 2 6 16 170 2 14 1 5 200 2 14 5 19 170 2 14 19 23 200 14 15 1 5 196 14 15 19 23 196 14 17 5 19 153 15 16 1 5 190 15 16 19 23 190 16 17 1 5 185 16 17 19 23 185 17 18 1 5 179 17 18 19 23 179 17 20 5 19 136 18 19 1 5 173 18 19 19 23 173 20 23 5 19 119 23 26 5 19 102 26 29 5 19 85 29 32 5 19 68 32 35 5 19 51 35 38 5 19 34 38 41 5 19 17",
+    "wall_count": 22,
+    "walls": "0 1 5 6 270 1 2 0 6 300 1 2 16 18 270 1 2 18 24 300 19 20 1 5 273 19 20 19 23 273 20 21 4 5 236 20 21 19 20 236 21 24 4 5 219 21 24 19 20 219 24 27 4 5 202 24 27 19 20 202 27 30 4 5 185 27 30 19 20 185 30 33 4 5 168 30 33 19 20 168 33 36 4 5 151 33 36 19 20 151 36 39 4 5 134 36 39 19 20 134 39 41 4 5 117 39 41 19 20 117"
    }
   },
   {
