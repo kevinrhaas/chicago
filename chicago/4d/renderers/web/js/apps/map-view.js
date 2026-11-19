@@ -16,6 +16,7 @@
  */
 import { formatDistance } from '../units.js';
 import { displayName } from '../display-name.js';
+import { mountBlockGrowEntry } from '../block-grow-entry.js';
 
 export const GRADES = Object.freeze(['attested', 'inferred', 'reconstructed']);
 const GRADE_LABEL = Object.freeze({ attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' });
@@ -131,6 +132,8 @@ export function mount(el, ctx = {}) {
   const foot = make('p', 'nav-sub nav-map-foot');
   // The preview sits right under the map, so Go is in reach at HALF on a phone.
   el.append(scope, preview, bar, foot);
+  // T-3676: Watch a block grow, a closed section under the map until it is opened (1904 only).
+  if (ctx.actions?.blockGrow?.available) mountBlockGrowEntry(el, ctx);
 
   let legendOn = false;
   try { legendOn = win.localStorage?.getItem(LEGEND_KEY) === '1'; } catch { /* a convenience */ }

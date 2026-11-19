@@ -409,6 +409,8 @@ step "Group lesson guides use the selected outing's citations and preserve print
   node tools/test_lesson_guides.mjs
 step "Photo hunts preserve canonical evidence, shared dates, distance scores and bounded local progress (T-3657)" \
   node tools/test_photo_hunt.mjs
+step "Watch a block grow shows each year only the buildings recorded standing by then, never guesses an undated one, and Leave restores the town exactly (T-3676)" \
+  node tools/check_block_grow.mjs
 step "Browser magnification preserves viewport size and independent movement and look controls (T-3658)" \
   node tools/test_viewport_accessibility.mjs
 step "Focused menus own arrows and Space while world controls and card closing remain available (T-3658)" \

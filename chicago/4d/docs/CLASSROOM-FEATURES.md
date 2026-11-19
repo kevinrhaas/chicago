@@ -57,7 +57,7 @@ and reveals their recorded dates rather than treating them as photographs taken 
 | 17 | Chromebook class set | Preserve low-detail/device governor and offline-copy behavior. Bound new capture/storage work. Actual Chromebook and school-network testing remains; a device cache is not a room-wide download-once cache. |
 | 18 | Ask your own question | Existing authored questions remain. A local cited-record search is possible later; generated free-form answers require separate cost/grounding decisions. |
 | 19 | Classmates in town | Defer shared presence/signaling service. |
-| 20 | Watch a block grow | Later bounded single-block timeline, one state at a time, subject to historical coverage. No three-world preload. |
+| 20 | Watch a block grow | T-3676 implemented in 1904 (Map › Watch a block grow): the 1800 block of Prairie Avenue, west side (Glessner) first, plus the 1700 block east and the 1900 block west — the blocks where at least half the lots carry a sourced `built` year. A year slider and Play step one state at a time through the already-loaded town: a building is held out until its recorded year, a recorded span is an outline until its last year, an undated building is a pale outline until 1904 and listed as undated (never given a year), and an undated coach house or shed follows its lot's dated house. Each house appearing has a card with its year, confidence and source; Leave restores the town and the eye exactly. Remaining: yards, walks, fences, trees and people stay as 1904 has them; houses are drawn as in 1904 (no earlier fronts); buildings gone before 1904 are not shown; other blocks wait on recorded years. |
 
 ## Resource and privacy boundaries
 
