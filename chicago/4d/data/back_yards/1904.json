@@ -54,17 +54,17 @@
  },
  "summary": {
   "lots": 133,
-  "surfaces": 286,
+  "surfaces": 285,
   "doors": 125,
   "posts": 118,
-  "gardens": 31,
+  "gardens": 30,
   "by_kind": {
    "alley_walk": 22,
    "coach_walk": 30,
    "drying_yard": 59,
    "front_walk": 8,
    "gangway": 30,
-   "garden_bed": 31,
+   "garden_bed": 30,
    "rear_terrace": 106
   }
  },
@@ -15563,7 +15563,7 @@
     "buckingham_house_2036_prairie",
     "buckingham_house_2036_prairie_coach_house"
    ],
-   "scheme": "drying_yard",
+   "scheme": "side_lawn",
    "grade": "reconstructed",
    "sources": [
     "census_1900_chicago_t623_roll245"
@@ -15576,20 +15576,20 @@
      "material": "yard_brick",
      "polygon_local_m": [
       [
-       1361.65,
-       -3586.43
+       1361.63,
+       -3583.56
       ],
       [
        1361.67,
-       -3588.56
+       -3588.68
       ],
       [
-       1356.72,
-       -3588.61
+       1354.94,
+       -3588.75
       ],
       [
-       1356.7,
-       -3586.48
+       1354.89,
+       -3583.62
       ]
      ],
      "along_deg": 179.48,
@@ -15604,20 +15604,20 @@
      "material": "trodden",
      "polygon_local_m": [
       [
-       1356.61,
-       -3589.92
+       1358.61,
+       -3590.4
       ],
       [
-       1356.66,
-       -3595.92
+       1358.67,
+       -3596.4
       ],
       [
-       1352.66,
-       -3595.95
+       1354.67,
+       -3596.44
       ],
       [
-       1352.61,
-       -3589.95
+       1354.61,
+       -3590.44
       ]
      ],
      "along_deg": 179.48,
@@ -15625,44 +15625,16 @@
      "order": 0,
      "grade": "inferred",
      "note": "The drying yard: the 1900 census enumerates a laundress in this household, so the wash was done and hung at home; the yard's place and size are reconstructed (L-prairie-back-yards-3488)."
-    },
-    {
-     "id": "prairie_2036:garden_bed:2",
-     "kind": "garden_bed",
-     "material": "loam",
-     "polygon_local_m": [
-      [
-       1361.65,
-       -3579.11
-      ],
-      [
-       1361.67,
-       -3581.64
-      ],
-      [
-       1358.39,
-       -3581.67
-      ],
-      [
-       1358.37,
-       -3579.14
-      ]
-     ],
-     "along_deg": 269.48,
-     "lift_m": 0.03,
-     "order": 0,
-     "grade": "reconstructed",
-     "note": "A kitchen garden of a few dug rows against the sunny fence. No source names a garden on any lot of the district: this one is reconstructed (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [
     {
      "id": "prairie_2036:back_door",
      "structure": "buckingham_house_2036_prairie",
-     "e": 1361.82,
-     "n": -3587.37,
+     "e": 1361.74,
+     "n": -3586.12,
      "facing_deg": 269.48,
-     "sill_m": 1.4,
+     "sill_m": 1.5,
      "width_m": 0.95,
      "height_m": 2.2,
      "leaf": true,
@@ -15671,17 +15643,17 @@
       "width_m": 1.6,
       "risers": 8,
       "run_m": 3.06,
-      "material": "wood"
+      "material": "stone"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.50 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
    "posts": [
     {
      "kind": "clothes_post",
-     "e": 1354.61,
-     "n": -3590.24,
+     "e": 1356.62,
+     "n": -3590.72,
      "height_m": 2.3,
      "arm_m": 0.9,
      "facing_deg": 179.48,
@@ -15690,8 +15662,8 @@
     },
     {
      "kind": "clothes_post",
-     "e": 1354.66,
-     "n": -3595.64,
+     "e": 1356.66,
+     "n": -3596.12,
      "height_m": 2.3,
      "arm_m": 0.9,
      "facing_deg": 179.48,
@@ -15699,41 +15671,7 @@
      "grade": "inferred"
     }
    ],
-   "crops": [
-    {
-     "bed": "prairie_2036:garden_bed:2",
-     "rows": [
-      [
-       1361.4,
-       -3579.41,
-       1358.62,
-       -3579.44,
-       "onion"
-      ],
-      [
-       1361.41,
-       -3580.05,
-       1358.63,
-       -3580.08,
-       "pole_bean"
-      ],
-      [
-       1361.41,
-       -3580.7,
-       1358.64,
-       -3580.72,
-       "cabbage"
-      ],
-      [
-       1361.42,
-       -3581.34,
-       1358.64,
-       -3581.36,
-       "onion"
-      ]
-     ]
-    }
-   ],
+   "crops": [],
    "shrubs": [],
    "trees": [],
    "creeper": [],
