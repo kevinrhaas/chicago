@@ -92,6 +92,10 @@ export function buildRows() {
   const drivers = JSON.parse(fs.readFileSync(DRIVERS, 'utf8')).drivers;
   const inside = JSON.parse(fs.readFileSync(INSIDE, 'utf8')).people;
   const byRow = new Map(inside.filter(p => p.drives).map(p => [p.drives, p]));
+  // The ride bar names the wagon by its driver's first name, or by his surname where two
+  // drivers share one: every team has its own ride name (test_transport_boarding.mjs).
+  const firsts = new Map();
+  for (const p of byRow.values()) { const f = p.name.split(' ')[0]; firsts.set(f, (firsts.get(f) ?? 0) + 1); }
   return drivers.map((d, k) => {
     const who = byRow.get(d.row);
     if (!who?.asset_id) throw Error(`lay_driven_1871: ${d.row} has no driver in data/humans/inside_1871.json (run tools/town_people_1871.py)`);
@@ -100,10 +104,11 @@ export function buildRows() {
     const route = routeFor(spec);
     const shift = Number(who.shift) || 0;
     const first = who.name.split(' ')[0];
+    const called = firsts.get(first) > 1 ? `${who.name.split(' ').at(-1)}` : first;
     const note = `${who.name} drives ${d.words} round ${d.streets[0].replace(/ Street| Avenue/, '')}, ${d.streets[2].replace(/ Street| Avenue/, '')}, ${d.streets[1].replace(/ Street| Avenue/, '')} and ${d.streets[3].replace(/ Street| Avenue/, '')} on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see ${LIBERTY}).`;
     return {
       ...VEHICLE,
-      id: d.row, name: `${d.name}, ${who.name} at the horses' heads`, ride_name: `${first}'s wagon`, scene: '1871',
+      id: d.row, name: `${d.name}, ${who.name} at the horses' heads`, ride_name: `${called}'s wagon`, scene: '1871',
       driver_mode: 'on_foot', streamed: true,
       route: spec, stops: [],
       initial_distance_m: Math.round(route.length * ((k * 0.37) % 1) * 4) / 4,
