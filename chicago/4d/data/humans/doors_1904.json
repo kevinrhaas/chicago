@@ -12287,12 +12287,12 @@
     {
      "id": "roloson_house_2109_prairie:back",
      "leaf": {
-      "local_e": 1439.92,
-      "local_n": -3649.9
+      "local_e": 1441.4,
+      "local_n": -3647.14
      },
      "step": {
-      "local_e": 1443.68,
-      "local_n": -3649.87
+      "local_e": 1445.16,
+      "local_n": -3647.11
      },
      "outward_deg": 89.5,
      "width_m": 0.95,
@@ -17054,8 +17054,8 @@
   {
    "structure": "prairie_2109:back_door:stoop",
    "placement": {
-    "local_e": 1439.92,
-    "local_n": -3649.9,
+    "local_e": 1441.4,
+    "local_n": -3647.14,
     "rotation_deg": 359.55
    },
    "barrier": {
