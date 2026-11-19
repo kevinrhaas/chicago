@@ -3,6 +3,7 @@
  * The atlas notes API is stubbed: these checks exercise static research, not notes.
  */
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
@@ -91,6 +92,20 @@ try {
     check((await firstBody.textContent()).includes(first.sources[0].locator), `${label}: source locator is readable`);
     const sourceLinks = firstBody.locator('a[href^="https://"]');
     check(await sourceLinks.count() > 0, `${label}: citations link to sources`);
+    for (const card of model.cards) {
+      const references = card.sources.filter(source => source.reference_image).map(source => source.reference_image);
+      for (const [index, reference] of references.entries()) {
+        const figure = page.locator(`#claim-${card.id} .source-image`).nth(index);
+        const img = figure.locator('img');
+        await img.scrollIntoViewIfNeeded();
+        await img.evaluate(image => image.decode());
+        check(await img.getAttribute('alt') === reference.alt && await img.evaluate(image => image.naturalWidth > 0), `${label}: reference image loads with descriptive alt text`);
+        check((await figure.innerText()).includes(reference.caption) && (await figure.innerText()).includes(reference.credit) && (await figure.innerText()).includes(reference.rights), `${label}: reference caption, credit and rights are visible`);
+        const file = await context.request.get(new URL(reference.local_image, viewerURL).href);
+        const bytes = await file.body();
+        check(file.ok() && bytes.length === reference.bytes && createHash('sha256').update(bytes).digest('hex') === reference.sha256, `${label}: served reference is the exact documented file`);
+      }
+    }
     await noOverflow(page, `${label} expanded research`);
     await page.locator('#collapse-all').click();
     check(await page.locator('details.research-card[open]').count() === 0, `${label}: collapse works`);
