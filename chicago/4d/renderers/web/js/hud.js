@@ -466,6 +466,7 @@ export function createHud({
       const on = x.dataset.tab === want;
       x.classList.toggle('is-on', on);
       x.setAttribute('aria-selected', String(on));
+      x.tabIndex = on ? 0 : -1; // T-3671: one Tab stop in the row; the arrows walk it
     });
     doc.querySelectorAll('.panel-body').forEach((s) => {
       s.toggleAttribute('hidden', s.dataset.panel !== want);
@@ -485,13 +486,14 @@ export function createHud({
 
   // The rail is a list of sections: the arrow keys walk it when one has focus.
   doc.querySelector('.panel-tabs')?.addEventListener('keydown', (e) => {
-    const tabs = [...doc.querySelectorAll('.panel-tab')].filter((t) => !t.hidden);
+    // T-3671: only this app's tabs (another app's would switch the screen on a key press).
+    const tabs = [...doc.querySelectorAll('.panel-tab')].filter((t) => !t.hidden && !t.classList.contains('is-elsewhere'));
     const i = tabs.indexOf(document.activeElement);
     if (i < 0) return;
-    const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
-    if (!step) return;
+    const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1, Home: 0, End: 0 }[e.key];
+    if (step == null || e.altKey || e.ctrlKey || e.metaKey) return;
     e.preventDefault();
-    const next = tabs[(i + step + tabs.length) % tabs.length];
+    const next = e.key === 'Home' ? tabs[0] : e.key === 'End' ? tabs.at(-1) : tabs[(i + step + tabs.length) % tabs.length];
     next.focus();
     selectTab(next.dataset.tab);
   });

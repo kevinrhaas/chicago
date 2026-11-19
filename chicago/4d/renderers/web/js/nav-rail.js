@@ -42,6 +42,10 @@
  * the device's `context()` returns at that moment, so an app reads the page through
  * it and never imports main.js.
  */
+import { t as str } from './strings/index.js';
+import './strings/navigator.js';
+import { reducedMotion } from './motion.js';
+
 export const MAX_ICONS = 10;
 export const SLIDE_MS = 240;
 export const WARM_MS = 160;
@@ -88,7 +92,7 @@ export function createRail({
   before = null,                 // the element new buttons go in front of (the collapse key)
   onOpen = () => {},             // the device opens to show an app's screen
   onLaunch = () => {},           // a launch stub ran: the device docks
-  reduced = () => globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false,
+  reduced = () => reducedMotion(), // T-3671: Settings › Look › Motion (js/motion.js)
   storage = (() => { try { return globalThis.localStorage; } catch { return null; } })(),
   now = () => (globalThis.performance?.now?.() ?? Date.now()),
   wait = (fn, ms) => setTimeout(fn, ms),
@@ -206,7 +210,7 @@ export function createRail({
         b.classList.add('is-entering');
         wait(() => b.classList.remove('is-entering'), SLIDE_MS);
       }
-      if (s.app.when && !seen.has(s.app.id)) b.classList.add('is-new');
+      if (s.app.when && !seen.has(s.app.id)) { b.classList.add('is-new'); describe(s); }
     } else if (reduced()) {
       b.hidden = true;
     } else {
@@ -241,11 +245,42 @@ export function createRail({
       try { glow = !!s.app.glow?.(ctx); } catch { /* so is a glow */ }
       s.button.classList.toggle('is-badged', badge);
       s.button.classList.toggle('is-glowing', glow);
+      describe(s);
     }
     // An open app whose `when` let go closes back to Home.
     if (current && !apps.get(current)?.shown && apps.has('home')) void select('home', { by: 'quiet' });
     syncTabStop();
     return [...show];
+  }
+
+  // T-3671 (WCAG 1.3.1, 1.4.1): what the lamp dot and the glow say by colour alone, said in
+  // words too. A description, not a change of name, so the name stays the label you see.
+  function describe(s) {
+    const b = s.button;
+    const words = [b.classList.contains('is-glowing') && str('nav.a11y.on'),
+      b.classList.contains('is-new') && str('nav.a11y.new'),
+      b.classList.contains('is-badged') && str('nav.a11y.unread')].filter(Boolean).join(', ');
+    if (words) b.setAttribute('aria-description', words);
+    else b.removeAttribute?.('aria-description');
+  }
+
+  // T-3671 (1.3.1): every app's screen opens on a heading that names it (visually hidden:
+  // the device's header already shows the name). Home's is in the markup. Some screens
+  // redraw themselves whole, so it is put back each time the screen shows.
+  function headScreen(s) {
+    const panel = s.panel;
+    if (!panel || s.app.panel || !panel.prepend) return;
+    const id = `nav-app-${s.app.id}-title`;
+    let h = doc.getElementById?.(id) ?? null;
+    // A screen that carries a top heading of its own (the sections' head, a building's
+    // name) needs no second one.
+    if ([...(panel.querySelectorAll?.('h1, h2') ?? [])].some((x) => x !== h)) { h?.remove?.(); return; }
+    if (h && h.parentElement === panel && panel.firstElementChild === h) return;
+    h ??= doc.createElement('h2');
+    h.id = id;
+    h.className = 'visually-hidden nav-screen-title';
+    h.textContent = s.app.label;
+    panel.prepend(h);
   }
 
   function panelFor(s) {
@@ -295,6 +330,7 @@ export function createRail({
     const ctx = context();
     if (s.app.when && !seen.has(id)) { seen.add(id); writeSeen(storage, seen); }
     s.button.classList.remove('is-new');
+    describe(s);
     // Await only what is asynchronous: an app already mounted (or mounted synchronously)
     // switches in the same task, so a caller can focus into it at once (G and Go to).
     const settle = (v) => (v && typeof v.then === 'function' ? v : null);
@@ -314,6 +350,7 @@ export function createRail({
       s.mounted = true;
       if (ticket !== switching) return false;
     }
+    headScreen(s);
     const was = current;
     const prev = was && was !== id ? apps.get(was) : null;
     if (prev?.mounted) (prev.module ?? prev.app).hidden?.(prev.panel, ctx);
@@ -331,6 +368,7 @@ export function createRail({
     // A later selection has its own ticket and retains its ordinary opening.
     onOpen(id, ticket === dockedSelection ? 'quiet' : by);
     (s.module ?? s.app).shown?.(panel, ctx);
+    headScreen(s);
     return true;
   }
 
@@ -349,6 +387,7 @@ export function createRail({
   // Enter or Space opens one, as the button it is. Moving focus never opens an app on
   // its own: some apps are launches that dock the device.
   list?.addEventListener?.('keydown', (e) => {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
     const tabs = railOrder([...apps.values()].map((s) => s.app)).map((a) => apps.get(a.id)).filter((s) => s.shown && s.app.inRail !== false).map((s) => s.button);
     const at = tabs.indexOf(e.target);
     if (at < 0) return;

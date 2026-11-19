@@ -1,3 +1,7 @@
+## T-3671 — accessibility pass toward WCAG 2.1 AA (19 November 2026)
+
+Keyboard and screen-reader paths through every menu, Settings tab, jaunt and card; Text size to 200 % across the interface; contrast and one focus ring in all four appearances and both tones; grades told by shape as well as colour (and patterns in the town's Confidence view); narration highlighted as it plays, with a Transcript where an age tab shows other words, and a Pause key; Settings › Look › Motion (System / Reduce / Full) and Letter keys (2.1.4). docs/ACCESSIBILITY.md lists each criterion, the browser fixture that holds it (tools/test_a11y_*.mjs, Chromium at 390 and 1280, no town load) and the known gaps. Unverified: no physical screen reader (NVDA, JAWS, VoiceOver) and no Chromebook has been tried; the WebGL town and its name cards are not themselves readable. This is not a third-party audit or a legal conformance claim.
+
 ## T-3654 — 1871 context city (19 November 2026)
 
 PR #2198 adds a walkable baseline for 8 October 1871 at 16:00 local mean solar time: 33,580 varied generic buildings, 3,627 trees, streets and plank walks, 22 road crossings, 597 quay bays and five rail corridors on dedicated pre-fire terrain. Six additional report bridges remain withheld pending opening-date or placement evidence. These are model counts, not a historical census. Identified properties, people, vehicles, daily activity and photographic finish remain subsequent smaller milestones.
