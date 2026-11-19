@@ -2,7 +2,9 @@
 """T-3684: the clip of the City's street centrelines the 1871 city is drawn on.
 
     python3 tools/build_streets_1871.py --source Transportation.geojson --write
-    python3 tools/build_streets_1871.py --check    the committed clip holds its shape
+
+The committed clip's shape (its box, counts and source) is checked by
+tools/check_city_1871.py, which the gate runs, through clip_errors() below.
 
 WHY A MODERN FILE DRAWS AN 1871 STREET. Inside the old city -- Halsted Street to the
 lake, Twenty-second Street to North Avenue -- the streets of 1871 were the streets of
@@ -54,7 +56,7 @@ def build(source: Path) -> dict:
     return doc
 
 
-def check(doc: dict) -> list[str]:
+def clip_errors(doc: dict) -> list[str]:
     errs = []
     if doc.get("box_local_m") != list(BOX):
         errs.append("box differs from the tool's BOX: rerun --write")
@@ -72,21 +74,18 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--source", type=Path)
     ap.add_argument("--write", action="store_true")
-    ap.add_argument("--check", action="store_true")
     a = ap.parse_args()
-    if a.write:
-        if not a.source:
-            ap.error("--write needs --source Transportation.geojson")
-        doc = build(a.source)
-        OUT.write_text(json.dumps(doc, separators=(",", ":")) + "\n")
-        print(f"wrote {OUT.relative_to(ROOT)}: {doc['counts']}")
-        return 0
-    errs = check(json.loads(OUT.read_text()))
+    if not (a.write and a.source):
+        ap.error("usage: --source Transportation.geojson --write")
+    doc = build(a.source)
+    errs = clip_errors(doc)
     for e in errs:
         print("FAIL", e)
-    if not errs:
-        print("1871 street clip OK")
-    return 1 if errs else 0
+    if errs:
+        return 1
+    OUT.write_text(json.dumps(doc, separators=(",", ":")) + "\n")
+    print(f"wrote {OUT.relative_to(ROOT)}: {doc['counts']}")
+    return 0
 
 
 if __name__ == "__main__":
