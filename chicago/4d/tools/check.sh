@@ -1628,6 +1628,11 @@ step "a K01 hooded dormer's shelf may be slated as its hood is (T-1890)" \
 step "a K01 mansard deck's cross roof may end under a slated hood, its finial on the apex (T-1890)" \
   python3 tools/test_k01_cross_roof_hood.py
 
+# T-3634. 2017 Prairie's mansard curb carries a row of square merlons in Chicagology's
+# photograph, not the K10 kit's scroll cresting.
+step "a K01 mansard deck's cresting may be crenellated, square merlons on a band in iron (T-3634)" \
+  python3 tools/test_k01_deck_crenellation.py
+
 # T-1890. 1801 Prairie's south return (HABS photograph 1): the chamfer's stone cheek run back to
 # the slate with a light in it and a capped top, and the house's slate set back behind it over
 # the corner: bad returns and lights refused, no slate left in front of the return's back edge,
