@@ -15355,22 +15355,22 @@
     {
      "id": "prairie_2031:back_door",
      "structure": "tolman_house_2031_prairie",
-     "e": 1439.26,
-     "n": -3577.64,
+     "e": 1436.79,
+     "n": -3575.91,
      "facing_deg": 89.56,
-     "sill_m": 1.4,
+     "sill_m": 0.18,
      "width_m": 0.95,
-     "height_m": 2.2,
+     "height_m": 1.9,
      "leaf": true,
      "stoop": {
-      "depth_m": 1.1,
-      "width_m": 1.6,
-      "risers": 8,
-      "run_m": 3.06,
-      "material": "wood"
+      "depth_m": 0.0,
+      "width_m": 1.2,
+      "risers": 1,
+      "run_m": 0.28,
+      "material": "stone"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 0.18 m up, 1 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
    "posts": [],
