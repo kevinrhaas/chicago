@@ -75,7 +75,8 @@ const read = (p) => fs.readFileSync(path.join(WEB, p), 'utf8');
   const nav = read('css/navigator.css');
   assert.match(nav, /\.navigator\[data-detent="dock"\] :is\([^)]*\.nav-mute[^)]*\) \{ display: none; \}/, 'the docked device hides the mute keys');
   const skins = read('css/skins.css');
-  assert.match(skins, /--lit-ink:var\(--accent\);/);
+  // T-3671: the lit word is the accent drawn 30 % toward the ink (WCAG 1.4.3 on every machine).
+  assert.match(skins, /--lit-ink:color-mix\(in srgb,var\(--accent\) 70%,var\(--ink\)\);/);
   assert.match(skins, /--lit-wash:color-mix\(in srgb,var\(--accent\) 12%,transparent\);/);
   // Every lit control: no solid accent fill, no signal colour.
   const lit = [
@@ -101,20 +102,14 @@ const read = (p) => fs.readFileSync(path.join(WEB, p), 'utf8');
   const tone = (sel) => Object.fromEntries([...(new RegExp(`${sel.replace(/[[\]"]/g, '\\$&')} \\{([^}]*)\\}`).exec(skins)?.[1] ?? '')
     .matchAll(/--([\w-]+):(#[0-9A-Fa-f]{6})/g)].map((m) => [m[1], m[2]]));
   const machines = { 'control-room': 'light', brass: 'light', 'worlds-fair': 'dark', 'deep-space': 'light' };
-  const deep = { 'worlds-fair:light': '#0F7178', 'deep-space:light': '#0B6386' };
   for (const [skin, other] of Object.entries(machines)) {
     const base = tone(`html[data-skin="${skin}"]`);
     for (const theme of ['dark', 'light']) {
       const t = theme === (skin === 'worlds-fair' ? 'light' : 'dark') ? base : { ...base, ...tone(`html[data-skin="${skin}"][data-theme="${other}"]`) };
-      const ink = deep[`${skin}:${theme}`] ?? t.accent;
+      const ink = mix(t.accent, t.ink, 0.7);
       const r = contrast(ink, mix(t.accent, t['panel-solid'], 0.12));
       assert.ok(r >= 4.5, `${skin} ${theme}: the lit word ${ink} on its wash is ${r.toFixed(2)}:1, under 4.5`);
     }
-  }
-  for (const [k, v] of Object.entries(deep)) {
-    const [skin, theme] = k.split(':');
-    const sel = skin === 'worlds-fair' ? 'html[data-skin="worlds-fair"]:not([data-theme="dark"])' : `html[data-skin="${skin}"][data-theme="${theme}"]`;
-    assert.ok(skins.includes(`${sel} { --lit-ink:${v}; }`), `${k} deepens its lit word to ${v}`);
   }
 }
 
