@@ -42,7 +42,7 @@ def markdown(data):
     lines = [f"# {data['title']}", '', f"Research snapshot: {data['updated']}", '', data['scope'], '',
              'This document is generated from `data/research_1871.json` by `tools/build_research.py`.', '',
              '## Reading the evidence', '',
-             'Documented means the cited source supports the stated claim; it does not certify measured geometry, primary-source status, or exact presence on the scene date. Inferred marks a reasoned reconstruction. Open marks an unresolved question. Source access is recorded separately: read, catalog only, or lead. Rendering implications are proposals unless independently attested. No new image assets or geometry are claimed by this dossier.', '',
+             'Documented means the cited source supports the stated claim; it does not certify measured geometry, primary-source status, or exact presence on the scene date. Inferred marks a reasoned reconstruction. Open marks an unresolved question. Source access is recorded separately: read, catalog only, or lead. Rendering implications are proposals unless independently attested. Linked reference scans document the evidence; they do not establish completed geometry, a solved camera or scene-time presence.', '',
              '## Other years: what the existing project teaches', '', data.get('audit_snapshot', ''), '']
     for item in data['year_audit']:
         lines += [f"### {item['year']} — {item['status']}", '', f"Date: {item['date'] or 'No single implemented scene date'}", '', item['summary'], '']

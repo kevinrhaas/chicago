@@ -1,6 +1,6 @@
 # Chicago immediately before the fire — 1871 reconstruction research
 
-Research snapshot: 2026-11-18
+Research snapshot: 2026-11-19
 
 Prepare Chicago for October 8, 1871 before the evening outbreak, with the exact local hour still open. An October 7 intact-city baseline is a separate state: Sunday already includes damage from the Saturday Night Fire.
 
@@ -8,7 +8,7 @@ This document is generated from `data/research_1871.json` by `tools/build_resear
 
 ## Reading the evidence
 
-Documented means the cited source supports the stated claim; it does not certify measured geometry, primary-source status, or exact presence on the scene date. Inferred marks a reasoned reconstruction. Open marks an unresolved question. Source access is recorded separately: read, catalog only, or lead. Rendering implications are proposals unless independently attested. No new image assets or geometry are claimed by this dossier.
+Documented means the cited source supports the stated claim; it does not certify measured geometry, primary-source status, or exact presence on the scene date. Inferred marks a reasoned reconstruction. Open marks an unresolved question. Source access is recorded separately: read, catalog only, or lead. Rendering implications are proposals unless independently attested. Linked reference scans document the evidence; they do not establish completed geometry, a solved camera or scene-time presence.
 
 ## Other years: what the existing project teaches
 
@@ -218,6 +218,80 @@ Date: No single implemented scene date
 - [Project records](https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/data/buildings.csv)
 
 ## Evidence and rendering requirements
+
+### Original Chamber: source images and conflicting dimensions
+
+`chamber-verified-dimensions` · structures · **open**
+
+The acquired Chicago Illustrated plate and companion text identify the original 1865 building. The contemporary text gives 93 × 181 feet and 100 feet in height without a height datum. Andreas’s retrospective 1885 account gives 93 × 180 feet and prints both the roof extreme and cornice at 99 feet above the basement floor while also giving a 23-foot roof rise. This is a real printed contradiction, not an OCR error.
+
+**Applies to:** Original Chamber completed August 28 and dedicated August 30, 1865; destroyed in October 1871. Exact destruction time is not established here.
+
+**Rendering implication:** The reusable plate is now inspectable in the notebook with its full margins and scan provenance. Reconstruct the visible portal, upper arch rhythm, quoins, cornice and mansard through a solved camera; make any selected height/depth an explicit inference or reconstruction.
+
+**Limits:** Andreas wrote retrospectively in 1885; the plate and companion text were published in 1866–67. The engraving caption “CHAMBER OF COMMERCE.” does not date its creation; surrounding text and the matching facade identify the original phase. Neither image is a survey or October 8 witness. The CHM digital poster remains restricted; the displayed plate was independently obtained from the PD HathiTrust/University of Michigan scan through Commons. These sources do not yet supply a completed reconstruction.
+
+**Next step:** Choose a working depth and vertical profile with stated bounds and confidence, preserving both source reports. Reconcile the period parcel; unpictured faces and uncertain details may be reconstructed with their reasoning recorded.
+
+**Sources:**
+
+- [Chicago Illustrated — Chamber plate and English text](https://commons.wikimedia.org/wiki/File:Chicago_Illustrated_by_Sheahan,_Jevne_%26_Almini,_1866-67.pdf) — 1866–67 catalogue edition. primary lithograph and contemporary description; access: read. Locator: PDF pages 8–10, one-based positions; full pages retained locally.
+- [Andreas, History of Chicago II](https://archive.org/download/historyofchicago02andr/page/358_w1600.jpg) — 1885, retrospective account of the 1865 building. retrospective history; original scan inspected; access: read. Locator: Printed p.358, engraving and right-column dimension/height paragraph; p.357 supplies 1865–66 context.
+
+### Chicago & Pine: hydrant and street-lamp evidence
+
+`utility-verified-corner` · ground & utilities · **documented**
+
+The re-read report names one new hydrant at the northeast Chicago/Pine corner and a separate hydrant at the Gund Engine House. Its street-name-on-lamps passage describes a citywide practice, not a lamp documented at that corner.
+
+**Applies to:** New hydrants in the year ending April 1, 1871; Streets and Bridges report dated April 1, covering the year ending March 31.
+
+**Rendering implication:** Use the exact historical corner identification while separately reconstructing curb setback, hydrant casting and finish. Treat a lamp and street label at this corner as a distinct evidence question.
+
+**Limits:** Continued presence on October 8 is an inference. No pressure, casting, lamp fuel/burner, lettering, operating state or action at 16:00 is established. Historic Pine does not inherit modern widened Michigan Avenue curb geometry. The inspected CHM Pine Street photograph is restricted and is not published here.
+
+**Next step:** Match the historic curb and find a usable period fixture reference before placement.
+
+**Sources:**
+
+- [Board of Public Works, Tenth Annual Report](https://archive.org/details/annualreportboa06workgoog) — 1871, year ending March 31; hydrant section says April 1. primary municipal report; access: read. Locator: Printed pp.48–49, 79, 84, 112–113 and 116; each claim names its pages.
+
+### Municipal bridge inventory and baseline crossings
+
+`bridge-count-reconciled` · water & transport · **documented**
+
+The report’s 27 named rows reconcile with its 16 iron-chord/wooden-brace, one all-iron and ten wooden-bridge categories. The current foundation plan represents 21 of those rows and explicitly omits Erie, Twenty-second, Main, Fuller, Archer and Western. Its separately map-backed Division Street canal crossing makes 22 rendered road crossings. The difference follows the baseline’s documented scope.
+
+**Applies to:** Report evidence through spring 1871; baseline plan inspected November 19, 2026.
+
+**Rendering implication:** Keep rendered crossings, dated report inventory and explicit omissions separate. Preserve stable identities when resolving an omitted crossing.
+
+**Limits:** Erie and Twenty-second were “Not in use” in the March traffic-count context; October openings remain unresolved. Four other rows lack confidently matched period-map placements. Western’s 1869 “W. fork of S. Branch” table row and the narrative’s new canal bridge require identity work; “No account” is not “Not in use”. Traffic arithmetic and the complete private/railway/October inventory were not verified.
+
+**Next step:** Resolve the six existing omissions individually; do not change placements or operational status from counts alone.
+
+**Sources:**
+
+- [Board of Public Works, Tenth Annual Report](https://archive.org/details/annualreportboa06workgoog) — 1871, year ending March 31; hydrant section says April 1. primary municipal report; access: read. Locator: Printed pp.48–49, 79, 84, 112–113 and 116; each claim names its pages.
+- [Baseline crossing plan, inspected November 19, 2026](https://github.com/kevinrhaas/chicago/blob/6409dda1222e1284e111ab0efde1c471f3284d60/chicago/4d/data/context/1871/plan.json) — 2026 reconstruction checkpoint. project model inventory, not a historical source; access: read. Locator: bridge inventory note, 21 report-backed rows, six explicit omissions and separately map-backed Division crossing.
+
+### J. C. Alexander, a carpenter linked to McVicker’s
+
+`person-alexander-jc` · people & daily life · **documented**
+
+Edwards’ 1871 directory lists J. C. Alexander as a carpenter associated with McVicker’s Theatre, residing at historical 75 Huron. The theatre list puts McVicker’s on Madison between Dearborn and State. This is a distinct entry from the William Alexander waiter and drayman.
+
+**Applies to:** 1871 directory compilation; no exact canvass date, October 8 presence or 16:00 activity is established.
+
+**Rendering implication:** Use the listed identity and occupation for a future evidence card. Appearance, clothing, exact position and any exterior routine require separate reconstructed choices and clear walk support.
+
+**Limits:** Do not expand the initials or infer age, race, tools, household, payroll status, exact duties, shift, commute, stage work or a performance. Neither the historic residence number nor the workplace corridor supplies modern coordinates. No person, portrait or routine is created by this research pass.
+
+**Next step:** Match the historical theatre frontage and street surfaces before proposing an explicitly reconstructed depiction.
+
+**Sources:**
+
+- [Edwards’ Fourteenth Annual Directory, 1871](https://archive.org/details/edwardsannualdir141871chic) — 1871. primary commercial directory; access: read. Locator: Printed p.72 left-column J. C. entry; p.54 upper-left theatre list. Local scans retained..
 
 ### Choose the hour before choosing the scenery
 
