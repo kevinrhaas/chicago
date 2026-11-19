@@ -172,6 +172,31 @@
         "robinson_1886_chicago_plate_10"
       ],
       "note": "Supplied by T-1250. Two sheets bracket 1904 and neither is it: Sanborn 1911 (sheets 20 and 28) inks the water's edge beside the Illinois Central in two short runs, and Robinson 1886 (plate 10) draws it from above 16th Street to 18th. Where both draw it the 1911 edge stands EAST of the 1886 one \u2014 14.0-18.7 m (mean 17.0) at the 16th Street run and 17.8-21.2 m (mean 19.9) at the 18th \u2014 which the two fits' few metres of uncertainty cannot explain: the right-of-way widened into the lake between them. Both sheets are therefore BOUNDS, 1886 from before and 1911 from after, and the spread between them is the named band, not a midpoint. The scene still needs one waterline, so `scene_line` is one, reconstructed (L287) on the band's eastern bound - the nearer date, and Glessner House reads everything on these sheets but two houses as standing in 1904 - with six segments saying which stretch stands on the traced 1911 edge, which on the 1886 planform moved by measured offsets, and which (F, south of where sheet 28's easternmost track leaves the paper) on a bearing alone. It is deliberately not an alias of either earlier state, and tools/check_shoreline_states.py compares coordinates to prove it."
+    },
+    {
+      "id": "shore_1871_prefire",
+      "label": "8 October 1871 \u2014 reconstructed pre-fire lakefront",
+      "epoch_id": "e1871_prefire",
+      "address_date": "1871-10-08",
+      "status": "traced",
+      "geometry": {
+        "scene_line": {
+          "path": "epochs/e1871_prefire/shoreline.geojson",
+          "feature_id": "shore_1871_prefire",
+          "confidence": "reconstructed",
+          "note": "A bounded reconstruction from the pre-fire city plan and public-works evidence; not a measured survey trace, and not a later filled shoreline.",
+          "liberty": "L-1871-city-baseline"
+        },
+        "derivation": {
+          "tool": "generators/city_1871_emit.py",
+          "check": "python3 generators/city_1871_emit.py --check"
+        }
+      },
+      "sources": [
+        "mitchell_1870_chicago_map",
+        "chicago_public_works_1871"
+      ],
+      "note": "This is an independently generated 1871 shoreline state. Its coordinates describe the broad reconstructed lakefront used by the city context, with uncertainty retained in its confidence and liberties. The later 1904 Prairie Avenue shoreline remains a separate state. The registry word traced identifies a state with its own geometry; it does not upgrade this reconstruction to a measured historic survey."
     }
   ]
 }

@@ -1983,7 +1983,7 @@ boot().catch((err) => {
   // is not a broken build, and should not read like one. T-2616: a year the Observatory
   // offers HAS a scene, so its scene file missing is a stalled jump, not an unbuilt year.
   const unbuilt = /^404\b/.test(api.error) && api.error.includes(`scenes/${YEAR}.json`)
-    && !['1812', '1835', '1904'].includes(YEAR);
+    && !['1812', '1835', '1871', '1904'].includes(YEAR);
   // T-2616: the visitor reads "the jump stalled"; what failed goes under the folded details.
   arrival.fail(err, {
     message: t('arrival.fail.scene', { error: api.error }),
@@ -2255,7 +2255,7 @@ async function boot() {
   };
 
   const scene3d = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(62, 1, NEAR.min, 3000);
+  const camera = new THREE.PerspectiveCamera(62, 1, NEAR.min, YEAR === '1871' ? 28000 : 3000);
   // T-3639: the black box's byte estimate, walked half a millisecond a frame (resident-estimate.js).
   residentWalk = createResidentWalk(scene3d, renderer, { everyMs: BLACKBOX_SAMPLE_MS });
   // T-2113. While the welcome is up the walk is held, so the town under it is
@@ -2561,7 +2561,9 @@ async function boot() {
   }
   const spawn = anchorFor(loaded.scene, params.get('anchor'))
     ?? groundProof?.STRIP_ANCHORS[0] ?? loaded.scene.spawn ?? {};
-  const walker = createWalker({ camera, terrain, footprints, decks, spawn });
+  const walker = createWalker({ camera, terrain, footprints, decks, spawn,
+    ...(YEAR === '1871' ? { maxFlyAltitude: 4500 } : {}),
+  });
   walker.apply();
   // Shared with the fort gates: one engine and one keyboard/touch Interact key.
   const interactions = createInteractions();
@@ -2626,6 +2628,14 @@ async function boot() {
   });
   scene3d.add(contextCity.group);
   api.contextCity = contextCity;
+  // T-3654: bridge surfaces share the walker’s deck contract; nearby context
+  // footprints are spatially indexed, never a full-city scan on each footstep.
+  decks.push(...(contextCity.decks ?? []));
+  walker.setContextFootprints(typeof contextCity.footprintsNear === 'function'
+    ? (e, n) => contextCity.footprintsNear(e, n) : null);
+  walker.setContextFloor(typeof contextCity.floorHeight === 'function'
+    ? (e, n) => contextCity.floorHeight(e, n) : null);
+  walker.resettle();
   const streetTrees = await createStreetTrees({
     dataBase: layerBase('street_trees'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
     problems: layerProblems('street_trees'), lowSpec: lowMem,
@@ -2747,7 +2757,8 @@ async function boot() {
   // uniforms), the elms, the context city's crowns and the sun's date. A viewing
   // choice; the scene keeps its own date. T-2864 offers it in every year, and the
   // woods and the prairie take it too (`seasonPlants`, set once they are planted).
-  const seasonal = true;
+  // The new city kit currently models only its early-autumn scene day.
+  const seasonal = YEAR !== '1871';
 
   // T-3331 — Time of day (Settings › Show), and the setter a jaunt stop calls. The
   // visitor's own choice is `own` (stored); a jaunt's is `transient` (never stored)
@@ -3890,6 +3901,7 @@ async function boot() {
     }
     if (!DETAIL[level] || level === detailLevel) return;
     detailLevel = level;
+    contextCity.setDetail?.(level);
     blackbox.log('detail', { to: level });
     residency?.setTier(level);
     BUDGET.triangles = detailLevels[level].triangles;
@@ -4119,6 +4131,7 @@ async function boot() {
   // past it, the context city's named centrelines; 1812 has none — shared by the compass
   // readout and Navigator Home. Today's streets load after the scene (navigation.setModern).
   const contextStreetLines = (() => {
+    if (contextCity.streetLines) return contextCity.streetLines();
     const doc = contextCity?.doc;
     const S = Object.fromEntries((doc?.fields?.streets ?? []).map((k, i) => [k, i]));
     const names = doc?.enums?.street_name ?? [];
@@ -4772,7 +4785,9 @@ async function boot() {
       .toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
     document.getElementById('s-season')?.setAttribute('title', `A viewing choice: the scene is dated ${day}`);
     const summer = document.querySelector('#s-season option[value="summer"]');
-    if (summer) summer.textContent = `Summer — ${day.replace(/ \d{4}$/, '')}, full leaf`;
+    if (summer) summer.textContent = YEAR === '1871'
+      ? `Scene day — ${day.replace(/ \d{4}$/, '')}, early autumn`
+      : `Summer — ${day.replace(/ \d{4}$/, '')}, full leaf`;
     // T-3437: and each other season names the day it shows (season.js SEASON_DAY).
     for (const [season, name, look] of [['spring', 'Spring', 'first leaf'], ['fall', 'Fall', 'turned leaves'], ['winter', 'Winter', 'snow, bare limbs']]) {
       const opt = document.querySelector(`#s-season option[value="${season}"]`);
@@ -6546,7 +6561,11 @@ async function boot() {
   // T-2618: whether this scene has a people directory, without paying for it at boot.
   const peopleDirectory = (() => {
     const url = new URL(`sidecars/${loaded.scene.id ?? YEAR}/people.json`, bases.dataBase);
-    let known = people ? true : false, asked = !!people, loading = null;
+    // A context-only scene explicitly has no researched population yet. Avoid a
+    // speculative HEAD request for a directory its compiler does not produce.
+    const contextOnly = Array.isArray(loaded.scene.structure_ids)
+      && loaded.scene.structure_ids.length === 0 && !draws('residents') && !draws('humans');
+    let known = people ? true : false, asked = !!people || contextOnly, loading = null;
     return {
       get known() { return known; },
       /** After ready: a HEAD, so a scene with no `residents` layer can still show People. */
@@ -6560,6 +6579,7 @@ async function boot() {
         }).catch(() => { known = false; });
       },
       load() {
+        if (contextOnly) return Promise.resolve(null);
         if (people) return Promise.resolve(people);
         loading ??= fetch(url, { cache: 'no-cache' }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
         return loading;
@@ -7442,6 +7462,7 @@ async function boot() {
     // ground's reach holds back is a function of where the eye ended up this
     // frame (T-1154).
     terrain.updateGroundReach(camera.position);
+    contextCity.update?.(dt, camera);
     flora.update(dt, camera, floraBudget);
     trees.update(dt, camera, scene3d.fog?.color);
     streetTrees.update(dt, camera);

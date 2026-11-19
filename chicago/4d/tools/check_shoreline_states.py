@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Hold dated shoreline states apart and preserve source disagreement as a band.
 
-This is a contract check, not a terrain generator.  It proves four things:
+This is a contract check, not a terrain generator. It proves these invariants:
 
-* 1812, 1835 and the 1880s resolve through their terrain epochs to three
+* 1812, 1835, 1871 and the 1880s resolve through their terrain epochs to four
   different shoreline-state ids, and 1904 -- the Prairie Avenue scene, since the
   owner's ruling of 2026-09-26 -- resolves to the 1880s one;
+* the pre-fire 1871 city has its own reconstructed line, dated to 8 October,
+  carrying its sources and liberty rather than silently importing a later fill;
 * a state without its own trace does not borrow the active 1835 geometry while
   waiting for its own ticket, and a state that HAS one does not alias it either;
 * every active geometry reference resolves to the named feature and source;
@@ -69,6 +71,7 @@ def scene_date_1880s() -> date:
 ADDRESS_DATES = {
     "1812": date(1812, 8, 15),
     "1835": date(1835, 7, 1),
+    "1871": date(1871, 10, 8),
     "1880s": scene_date_1880s(),
     # The owner's ruling of 2026-09-26: Prairie Avenue is centred on 1904, and the
     # scene takes the project's 1 July. It addresses the same state as the 1880s.
@@ -77,14 +80,15 @@ ADDRESS_DATES = {
 EXPECTED_IDS = {
     "1812": "shore_1812_pre_cut",
     "1835": "shore_1835_harbor_cut",
+    "1871": "shore_1871_prefire",
     "1880s": "shore_1880s_ic_edge",
     "1904": "shore_1880s_ic_edge",
 }
-SEPARATE = ("1812", "1835", "1880s")
+SEPARATE = ("1812", "1835", "1871", "1880s")
 # The three status words, and which state is entitled to which one. `planned` is
 # no geometry at all; `traced` is the state's own sourced geometry with no ground
 # generated from it; `active` is the state the scene renders.
-EXPECTED_STATUS = {"1812": "traced", "1835": "active", "1880s": "traced"}
+EXPECTED_STATUS = {"1812": "traced", "1835": "active", "1871": "traced", "1880s": "traced"}
 
 
 def load(path: Path) -> dict:
@@ -153,7 +157,7 @@ def validate(states_doc: dict, bands_doc: dict, epochs_doc: dict,
                        f"{epoch.get('id')!r}")
 
     if len({addressed.get(k) for k in SEPARATE}) != len(SEPARATE):
-        bad.append("1812, 1835 and the 1880s do not have separate shoreline-state ids")
+        bad.append("1812, 1835, 1871 and the 1880s do not have separate shoreline-state ids")
 
     active = states.get(EXPECTED_IDS["1835"], {})
     if active.get("status") != "active" or not active.get("geometry"):
@@ -182,6 +186,9 @@ def validate(states_doc: dict, bands_doc: dict, epochs_doc: dict,
     frozen = active_coords | {json.dumps(f.get("geometry", {}).get("coordinates"))
                               for f in derived_1812.get("features", [])}
     bad += check_1904(s1904, shore_1904, frozen)
+    frozen |= {json.dumps(f.get("geometry", {}).get("coordinates"))
+               for f in shore_1904.get("features", [])}
+    bad += check_1871(states.get(EXPECTED_IDS["1871"], {}), frozen)
 
     source_ids = {p.stem for p in (ROOT / "data" / "sources").glob("*.json")}
     geometry = active.get("geometry") or {}
@@ -343,6 +350,35 @@ def check_1904(state: dict, shore: dict, frozen: set[str]) -> list[str]:
     return bad
 
 
+def check_1871(state: dict, frozen: set[str]) -> list[str]:
+    """The pre-fire city has a dated reconstruction, never another epoch's coast."""
+    bad = []
+    line = (state.get("geometry") or {}).get("scene_line") or {}
+    if (line.get("path") != "epochs/e1871_prefire/shoreline.geojson"
+            or line.get("feature_id") != "shore_1871_prefire"):
+        bad.append("1871 must address its own e1871_prefire shoreline feature")
+    if line.get("confidence") != "reconstructed" or not line.get("liberty"):
+        bad.append("1871 scene line must declare reconstructed confidence and its liberty")
+    feature = feature_at(line.get("path", ""), line.get("feature_id", ""))
+    if feature is None:
+        bad.append("1871 scene line does not resolve to committed geometry")
+    else:
+        coordinates = feature.get("geometry", {}).get("coordinates")
+        if not coordinates:
+            bad.append("1871 shoreline has no coordinates")
+        elif json.dumps(coordinates) in frozen:
+            bad.append("1871 shoreline copies another epoch's coordinates")
+    source_ids = {p.stem for p in (ROOT / "data" / "sources").glob("*.json")}
+    if not state.get("sources"):
+        bad.append("1871 shoreline has no cited basis")
+    for sid in state.get("sources", []):
+        if sid not in source_ids:
+            bad.append(f"1871 shoreline source {sid!r} does not resolve")
+    if state.get("address_date") != "1871-10-08":
+        bad.append("1871 shoreline is not addressed to the pre-fire scene date")
+    return bad
+
+
 def documents() -> tuple[dict, dict, dict, dict, dict, dict, dict]:
     return (load(STATES_PATH), load(BANDS_PATH), load(EPOCHS_PATH),
             load(DATUM_PATH), load(OVERLAP_PATH), load(DERIVED_1812_PATH), load(SHORE_1904_PATH))
@@ -350,6 +386,18 @@ def documents() -> tuple[dict, dict, dict, dict, dict, dict, dict]:
 
 def self_test(docs: tuple[dict, dict, dict, dict, dict, dict, dict]) -> int:
     cases = []
+
+    baseline = validate(*docs)
+    cases.append(("the committed shoreline states pass before negative controls", not baseline))
+
+    d = copy.deepcopy(docs)
+    next(s for s in d[0]["states"] if s["id"] == "shore_1871_prefire")["geometry"]["scene_line"]["path"] = \
+        "epochs/e1871_postfire/shoreline.geojson"
+    cases.append(("the pre-fire state taking the post-fire shoreline path fails", bool(validate(*d))))
+
+    d = copy.deepcopy(docs)
+    next(s for s in d[0]["states"] if s["id"] == "shore_1871_prefire")["geometry"]["scene_line"]["confidence"] = "attested"
+    cases.append(("a reconstructed 1871 shoreline claiming attested fails", bool(validate(*d))))
 
     d = copy.deepcopy(docs)
     d[0]["states"][2]["id"] = d[0]["states"][0]["id"]
@@ -422,7 +470,7 @@ def main() -> int:
     for problem in bad:
         print("FAIL", problem)
     if not bad:
-        print("OK 1812, 1835 and 1880s resolve to separate shoreline states and 1904 to the 1880s one; "
+        print("OK 1812, 1835, 1871 and 1880s resolve to separate shoreline states and 1904 to the 1880s one; "
               "the 1834/1849 spread remains an unresolved 50.0-134.4 m band; "
               "the 1812 shore re-derives, carries no pier and adopts a reading; "
               "1904 is bounded by 1886 and 1911 and its scene line says it is reconstructed")

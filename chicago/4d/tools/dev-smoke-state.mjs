@@ -99,6 +99,8 @@ const SMOKE_INPUTS = [
   'chicago/4d/data',
   'chicago/4d/assets',
   'chicago/4d/tools/smoke_renderer.mjs',
+  // Year doors are generated, ignored pages; their loader is authored here.
+  'chicago/4d/tools/write_entry_pages.mjs',
   'chicago/4d/tools/audio_hosting.mjs',
   'chicago/4d/tools/audio_smoke_replay.mjs',
   'chicago/4d/tools/audio-hosting.json',

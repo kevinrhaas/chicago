@@ -101,7 +101,7 @@
             var p = (location.pathname.match(/\/(\d{4})\/?(?:index\.html)?$/) || [])[1], to = '1835', t = document.getElementById('arrival-destination'), b = document.createElement('b');
             try { to = String(new URLSearchParams(location.search).get('year') || p || '1835').replace(/[^0-9a-z_-]/gi, ''); } catch (e) { to = p || '1835'; }
             if (!/^\d{4}$/.test(to)) to = '1835'; b.textContent = to;
-            t.textContent = 'Destination '; t.appendChild(b); t.appendChild(document.createTextNode(' \u00b7 ' + ({ 1812: 'Fort Dearborn', 1835: 'River settlement', 1904: 'Prairie Ave' }[to] || 'Chicago')));
+            t.textContent = 'Destination '; t.appendChild(b); t.appendChild(document.createTextNode(' \u00b7 ' + ({ 1812: 'Fort Dearborn', 1835: 'River settlement', 1904: 'Prairie Ave', 1871: 'Pre-fire Chicago' }[to] || 'Chicago')));
             h.textContent = ''; for (var i = 0; i < 4; i++) { var d = document.createElement('span'); d.className = 'arrival-digit'; d.dataset.value = y[i];
             d.innerHTML = '<span class="arrival-digit-half arrival-digit-top"><span>' + y[i] + '</span></span><span class="arrival-digit-half arrival-digit-bottom"><span>' + y[i] + '</span></span><span class="arrival-digit-half arrival-digit-flap"><span>' + y[i] + '</span></span>';
             h.appendChild(d); } h.dataset.year = y;
@@ -1067,7 +1067,7 @@
            Jump left the rail. -->
       <div class="nav-choices" role="group" aria-label="What next">
         <button class="nav-choice" type="button" data-segment="goto"><strong>Go to…</strong><span>A house, a person, a shop</span></button>
-        <button class="nav-choice" type="button" id="nav-choice-years" data-app="jump"><strong>Other years</strong><span>1812, 1835, 1904</span></button>
+        <button class="nav-choice" type="button" id="nav-choice-years" data-app="jump"><strong>Other years</strong><span>1812, 1835, 1871, 1904</span></button>
         <button class="nav-choice" type="button" data-segment="roam"><strong>Free roam</strong><span>Wander on your own</span></button>
       </div>
       <section class="nav-block nav-front" id="nav-front" aria-labelledby="nav-front-k" aria-live="polite">

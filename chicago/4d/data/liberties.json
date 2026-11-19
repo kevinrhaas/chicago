@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1190,
+  "count": 1191,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -77702,6 +77702,82 @@
       "work_refs": [
         "T-3644",
         "T-3560"
+      ]
+    },
+    {
+      "id": "L-1871-city-baseline",
+      "title": "A complete context city on the afternoon before the Great Fire",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [
+        {
+          "domain": "terrain",
+          "epoch": "e1871_prefire",
+          "claim": "bank"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_prefire",
+          "claim": "graded_ground"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_prefire",
+          "claim": "lake_shelf"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_prefire",
+          "claim": "lake_surface"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1871_prefire",
+          "claim": "surface_texture"
+        }
+      ],
+      "recorded": "2026-11-18",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner asked for the entire city as a baseline, with varied generic buildings appropriate to business and residential districts, streets, walks, bridges and other structures. This work dates this baseline to 8 October 1871 at 16:00 local mean solar time. It is a scaffold for researched properties, not an assertion that every parcel or facade has been identified."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "the city boundary and historic geography are interpreted from the 1869 ward map and 1870 Mitchell map. The fitted map is not a survey: its control residuals and the distinction between mapped and extended geometry are in the plan data. District boundaries, occupancy, lot subdivision, each anonymous building's footprint, orientation, height, roof, facade, colour and surface weathering are reconstructed. The recipe varies timber cottages and houses, brick houses and rows, villas, commercial blocks, warehouses, factories, sheds and stables. The count is a generated scene count, not the number of buildings recorded in the 1870 census. Streets beyond mapped detail, carriageway and walk widths, paving assignments, curbs, bridge engineering and heights, wharf decks, rail spacing and embankments, plants and street furnishings are reconstructed. Their numeric bounds are the generator inputs, not measurements from a historical parcel."
+        },
+        {
+          "label": "Ground and water",
+          "text": "the dedicated the 1871 prefire ground field uses the historical shoreline and river plan with reconstructed raised land grades, bank slopes, lake shelf and water datum. The corrected Mitchell affine uses 28 fitting intersections (18.67 m RMS) and eight reserved checks (15.62 m RMS, maximum 25.65 m). Those statistics measure intersection registration, not historical bank accuracy. Modern street widening, map generalization, unrecorded waterfront changes and reconstructed outskirts retain separate uncertainty; the fine numerical agreement between mesh and heightfield is not historical precision. The field uses none of the post-fire epoch's modern terrain or later lake fill. Surface colours and textures are original procedural reconstructions. The outer ground apron is only a horizon closure, not an extension of the historical city. Atmospheric visibility and the afternoon lighting choice are a rendering liberty, not a weather observation of 8 October. Sun direction is calculated from that date, time and datum."
+        },
+        {
+          "label": "Covers",
+          "text": "terrain.e1871_prefire.graded_ground, terrain.e1871_prefire.bank, terrain.e1871_prefire.lake_surface, terrain.e1871_prefire.lake_shelf, terrain.e1871_prefire.surface_texture."
+        },
+        {
+          "label": "Evidence and limits",
+          "text": "S. Augustus Mitchell, Jr. Chicago. 1870, A New Map of Chicago. Chicago Evening Post, April 9, 1869, A. Ruger. Chicago in 1868 from Schiller Street north side to 12th Street south…, Chicago Board of Public Works. Tenth Annual Report to the Common Council, for…, Edwards’ Annual Directory of the City of Chicago, 1871. Maps support broad geography and street connections; the panorama supports broad period forms. Directory entries and public-works totals do not identify the generated buildings or allocate materials to particular blocks. This baseline does not claim photographed facades, complete residents, moving traffic or documented daily actions. Named structures from other years are excluded by the scene's explicit empty structure ids allowlist. The field notebook remains the record for replacing context with identified properties and activity."
+        },
+        {
+          "label": "Prior damage",
+          "text": "a broad uncertainty mask excludes intact buildings in the Saturday Night Fire area. It represents the earlier fire’s approximate extent, not a parcel-by-parcel survival ruling; no damage from the Great Fire later on 8 October is drawn."
+        },
+        {
+          "label": "How to resolve",
+          "text": "replace generated lots and generic infrastructure with dated surveyed footprints, images and specific records; retain the surrounding context. Refine the shoreline, grade, crossings and paving independently as more evidence resolves. Add inhabitants and traffic only with their own dated provenance."
+        },
+        {
+          "label": "Review",
+          "text": "the 1871 scenes data, the plan data, the 1871 context data, the kit data, the e1871 prefire data, the walkthrough's city context code."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-18."
+        }
+      ],
+      "work_refs": [
+        "T-3654"
       ]
     },
     {

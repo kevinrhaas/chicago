@@ -176,12 +176,12 @@ check_set_part() { # "k/N" (or empty) -> sets the part; 2 on a malformed spec
   if [ -z "$spec" ]; then _CHECK_PART_K=0; _CHECK_PART_N=0; return 0; fi
   if [[ "$spec" =~ ^([0-9]{1,2})/([0-9]{1,2})$ ]]; then
     local k=$((10#${BASH_REMATCH[1]})) n=$((10#${BASH_REMATCH[2]}))
-    if [ "$n" -ge 1 ] && [ "$n" -le 16 ] && [ "$k" -ge 1 ] && [ "$k" -le "$n" ]; then
+    if [ "$n" -ge 1 ] && [ "$n" -le 32 ] && [ "$k" -ge 1 ] && [ "$k" -le "$n" ]; then
       _CHECK_PART_K=$k; _CHECK_PART_N=$n
       return 0
     fi
   fi
-  printf 'check: a part is k/N with 1 <= k <= N <= 16, as in --part 2/4; got "%s"\n' "$spec" >&2
+  printf 'check: a part is k/N with 1 <= k <= N <= 32, as in --part 2/4; got "%s"\n' "$spec" >&2
   return 2
 }
 
