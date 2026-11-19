@@ -1,0 +1,100 @@
+== title @f42ed30a
+Equipo para el Oeste
+
+== premise @3471daa9
+Parte del pueblo con un equipo práctico, herrajes confiables y capital suficiente para el viaje.
+
+== opening @3aabbd41
+PASEO: EQUIPO PARA EL OESTE. Amanece en primavera, y los caminos hacia el oeste se están secando. Chicago no es tu destino; para miles de personas funciona como una puerta de entrada, ya que "muchos inmigrantes pasaban por el pueblo con la idea de establecerse más al oeste", y llegaban "por tierra y por agua", en goletas de la pradera, "a caballo y a pie".
+
+Posees quince dólares y una distancia considerable por atravesar. Redacta tu inventario en el Green Tree, haz que atiendan los arreos y los herrajes en Lake y Canal, y luego cruza el río para conseguir provisiones e implementos. Gasta con prudencia, porque la pradera no ofrece comerciantes.
+
+== stop the-list @7bd5c0a9
+Comienza afuera del Green Tree, la taberna de Lake y West Water, "llamada así por un roble que había muy cerca". Los primeros pobladores recordaban que Chester Ingersoll la administró de 1834 a 1837. Los viajeros que van al oeste se congregan en establecimientos como este, intercambiando información sobre los caminos y sobre las oficinas federales de tierras que hay más adelante.
+
+== narrative the-list @84c0f54b
+Redacta un inventario conciso: algo para transportar la carga, varios implementos, provisiones para el viaje y herrajes confiables.
+
+== stop carrying @14e6f2d9
+Una cuadra al oeste por Lake Street, en Canal, Goss and Cobb anunciaban sillas de montar, arreos, bridas y baúles en 1833, el año en que llegó Silas B. Cobb. La sociedad se disolvió en febrero de 1835, y el anuncio de Cobb informa que él seguirá por su cuenta. Todo lo que posees debe transportarse de alguna manera.
+
+== narrative carrying @19832b03
+Determina primero cómo va a viajar la carga, o conserva tu dinero.
+
+== label carrying pack @1fc67a3f
+Una mochila y correas — $3
+
+== consequence carrying pack @f25f11ef
+Económico, aunque todo el peso va sobre tus propios hombros.
+
+== label carrying harness @40cb9de8
+Arreos reparados para una yunta — $6
+
+== consequence carrying harness @c47aab71
+Más costoso, pero una carreta alquilada transporta bastante más de lo que tú podrías.
+
+== stop ironwork @990dc43e
+En el mismo cruce está la herrería de Asahel Pierce, establecida en octubre de 1833. Andreas registra que él hizo los herrajes de la primera línea de diligencias de Chicago a St. Louis y que fabricaba arados "Bull" desde 1834, justo el artesano al que un emigrante que va al oeste debería consultar antes de partir.
+
+== narrative ironwork @3d8a39de
+Haz que examinen los herrajes antes del largo camino, o confía en ellos en su estado actual.
+
+== label ironwork repair @64b307fc
+Hacer revisar los herrajes — $2
+
+== consequence ironwork repair @29cc6225
+Llantas, ganchos y cadenas inspeccionados antes del arduo viaje.
+
+== stop provisions @42587ef4
+Al otro lado del río, en South Water, una tienda de abarrotes y provisiones de Jones se anunciaba en 1833, y Andreas añade que para 1834 ofrecía servicios de envío y comisión. Los primeros números del Democrat ese año cotizaban la harina a $6 el barril, el café a 17 centavos y el té hasta a $1.25 la libra. Hasta la inicial de Jones sigue siendo históricamente disputada.
+
+== narrative provisions @303f8aac
+Aprovisiónate ahora, o planea comprar a lo largo de la ruta.
+
+== label provisions provisions @c45cc487
+Harina, cerdo y café — $5
+
+== consequence provisions provisions @6120bd12
+Provisiones suficientes para los días iniciales del viaje.
+
+== stop tools @1e069823
+Una cuadra al este, la tienda de Peck ocupa la esquina de South Water y LaSalle. Sus propios anuncios, de diciembre de 1833 y durante todo 1834, enumeran telas, ferretería, abarrotes, loza, botas, zapatos y sombreros, prácticamente todo lo que un emigrante a punto de partir pudo haber descuidado.
+
+== narrative tools @9fc3b5c3
+Lo último del inventario: implementos para el viaje, o confiar en lo que ya posees.
+
+== label tools tools @33f4550a
+Un hacha y unas cuantas herramientas — $4
+
+== consequence tools tools @9bf6b1c5
+Ferretería de los estantes del comerciante en lugar de la fragua del herrero.
+
+== leg 0 @3dc1715c
+Antes de comprar nada, determina cómo va a viajar la carga.
+
+== note 0 @0855753e
+Una cuadra al oeste por Lake Street hasta el cruce de Canal Street, donde la esquina de la talabartería está atestiguada y su cuadrante no.
+
+== leg 1 @390b4da8
+Los arreos y los herrajes se atienden en el mismo cruce.
+
+== note 1 @06d36bce
+Unos pasos: el cruce documentado de Pierce es el mismo cruce de Lake y Canal.
+
+== leg 2 @9e4a17ba
+Resuelto el transporte, completa la carga en la orilla oriental.
+
+== note 2 @586da6c3
+El tramo largo, y el único cruce del río: al este sobre el brazo sur hasta la manzana comercial de South Water Street.
+
+== ending prepared @cb264c8d
+Tu inventario está completo y la carga está empacada. Emprendes el camino del oeste preparado, con lo que quede de tu capital y un asentamiento que se achica detrás de ti en el horizonte sin rasgos.
+
+== ending light @288ef4aa
+Partes con poco equipo, con dinero en la mano y carencias en el equipo. El camino tendrá que proporcionarte el resto, y el camino difícilmente es famoso por sus comerciantes.
+
+== keepsake title @1d4a592e
+Listo para el camino
+
+== keepsake text @873f559b
+Un inventario de provisiones ficticio de cinco oficios de Chicago, completado para el viaje hacia el oeste.

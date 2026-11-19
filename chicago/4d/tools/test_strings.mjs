@@ -111,7 +111,7 @@ assert.ok(!isResearcherKey(null));
   localeText.clear(); localePatterns.length = 0;
 
   // A jaunt's Spanish overlay (js/jaunt-language.js).
-  const { applyPassages } = await import('../renderers/web/js/jaunt-language.js');
+  const { applyPassages, current, markOf } = await import('../renderers/web/js/jaunt-language.js');
   const doc = { title: 'T', premise: 'P', opening: { text: 'O' }, stops: [{ id: 'a', text: 'A', narrative: 'N', choices: [{ id: 'x', label: 'L', consequence: 'C' }] }],
     legs: [{ story: 'S', note: 'R' }], endings: [{ id: 'e', text: 'E' }], keepsake: { title: 'K', text: 'KT', family: 'F' } };
   const n = applyPassages(doc, { title: 't', premise: 'p', opening: 'o', 'stop a': 'a', 'narrative a': 'n', 'label a x': 'l', 'consequence a x': 'c',
@@ -120,6 +120,12 @@ assert.ok(!isResearcherKey(null));
   assert.deepEqual([doc.title, doc.premise, doc.opening.text, doc.stops[0].text, doc.stops[0].narrative, doc.stops[0].choices[0].label,
     doc.stops[0].choices[0].consequence, doc.legs[0].story, doc.legs[0].note, doc.endings[0].text, doc.keepsake.title, doc.keepsake.text, doc.keepsake.family],
   ['t', 'p', 'o', 'a', 'n', 'l', 'c', 's', 'r', 'e', 'k', 'kt', 'F']);
+  // A passage lands only while the English it was translated from (its mark, tools/jaunts_es.py)
+  // is the English shown; a corrected English reads as corrected.
+  assert.equal(await markOf('Lake Street'), '31cf42c7', 'the mark is what tools/jaunts_es.py writes (sha1, first eight hex)');
+  const shown = { title: 'Old title', premise: 'Changed premise', stops: [] };
+  const live = await current(shown, { title: [await markOf('Old title'), 'Título'], premise: [await markOf('The premise as it was'), 'Premisa'] });
+  assert.deepEqual(live, { title: 'Título' }, 'a passage whose English changed since translation stays English');
   console.log(`SPANISH PASS — ${Object.values(es.sections).reduce((n, t) => n + Object.keys(t).length, 0)} of ${english.size} table strings, `
     + `${Object.keys(es.text).length} page strings, ${es.patterns.length} patterns`);
 }

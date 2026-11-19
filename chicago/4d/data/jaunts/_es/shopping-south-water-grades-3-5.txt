@@ -1,0 +1,100 @@
+== title @7dc37f04
+De compras en South Water Street
+
+== premise @d0382665
+Completa una lista corta de compras para tu familia a lo largo de la orilla del río, llena de movimiento, sin comprar todo lo que veas.
+
+== opening @5e80e801
+PASEO: DE COMPRAS EN SOUTH WATER STREET. Esta es la calle principal del pueblo, y no es bonita. El río está de un lado. Del otro lado hay aceras de tablones y lodo. Cada tienda está repleta de mercancías bajadas de los barcos. En 1833 el periódico decía que el té costaba como un dólar la libra. La tela de algodón de colores costaba unos centavos la yarda.
+
+Tienes tres dólares y una lista corta para tu familia. Necesitas algo para la tos, un alimento básico o tela, y té. Tres tiendas de South Water Street los venden. Luego suma lo que compraste en Lake Street, adonde se están mudando ahora las tiendas del pueblo.
+
+== stop remedy @899265c3
+Empieza en la botica de Philo Carpenter, bajo la enseña del Golden Mortar. Llegó al pueblo en 1832, cuando una enfermedad llamada cólera estaba en el fuerte. Vendía medicinas en una casa de troncos junto al río. El verano siguiente construyó esta tienda. También escribió la primera promesa del pueblo de no tomar alcohol. Su aviso de junio enumera medicinas, bolitas de regaliz y polvo para los dientes.
+
+== narrative remedy @f6e0bbf7
+Compra la medicina, o espera que la tos se quite sola.
+
+== label remedy liquorice @369fb246
+Bolitas de regaliz para la tos — 25¢
+
+== consequence remedy liquorice @e3e80281
+Un pequeño papel con ellas va a tu canasta.
+
+== stop staples @25e79633
+Camina un poco al este hasta la tienda de Peck, en la esquina de las calles LaSalle y South Water. Su anuncio de 1833 enumera telas, herramientas, comida y platos. También tenía cincuenta barriles de harina fina. Un anuncio de 1834 añade más clases de tela, como franela y algodón de colores.
+
+== narrative staples @fe74ecc0
+Escoge la cosa que tu familia más necesita, o guarda tu dinero para después.
+
+== label staples flour @7283f884
+Harina para el cajón — $2
+
+== consequence staples flour @91da323b
+Tu familia no puede estar sin harina. Cuesta casi todo tu dinero.
+
+== label staples calico @fde1e8b3
+Un corte de calicó — $1.25
+
+== consequence staples calico @1d57fcce
+Tela para arreglar la ropa. El pan puede esperar al próximo viaje.
+
+== stop compare @d2672ee4
+Sigue caminando al este hasta Clark Street y Harmon, Loomis and Company. Su aviso de junio de 1835 vende dos clases de té, azúcar, platos y vidrio. Un libro de historia dice que la tienda estaba en la esquina de Clark y South Water, pero no en cuál esquina. El negocio va bien. El año que viene esta compañía construirá una hilera de tiendas de ladrillo de cuatro pisos en South Water Street.
+
+== narrative compare @87038f47
+Mira lo que hay en el estante y cuánto dinero te queda. Luego escoge.
+
+== label compare hyson @bdf3dc71
+Té Young Hyson y azúcar en pan — $1
+
+== consequence compare hyson @809d249b
+Lo último de tu lista, con azúcar para acompañarlo.
+
+== label compare souchong @7c79b555
+Un papel más pequeño de Souchong — 40¢
+
+== consequence compare souchong @4a1dc887
+No te alcanza el dinero, así que compras un té más barato.
+
+== label compare bowl @58010470
+Mejor un tazón de loza — 50¢
+
+== consequence compare bowl @df439868
+No está en tu lista, pero el tazón viejo está rajado. El té puede esperar.
+
+== stop receipt @3e7b87bb
+Sube en carruaje hasta Lake Street. En 1834, dice un libro de historia, las tiendas empezaron a extenderse hasta Lake Street. Thomas Church llegó ese año. Una nota moderna dice que él construyó la primera tienda de esta calle, un edificio de madera de dos pisos. No dice qué vendía, así que aquí no compras nada. Suma tu canasta.
+
+== narrative receipt @cc77a194
+Cuenta lo que hay en tu canasta y cuánto dinero te queda.
+
+== leg 0 @e7ab2060
+Tu tos ya está atendida. Ahora escoge el alimento o la tela que tu familia más necesita.
+
+== note 0 @884d27f6
+Un corto trayecto en carruaje al este por el lado sur de South Water Street hasta la esquina de Peck en LaSalle.
+
+== leg 1 @d99d4a64
+El té es lo último de tu lista, y ahora tienes menos dinero.
+
+== note 1 @d3d6d6de
+El tramo largo: más al este por South Water Street hasta Clark.
+
+== leg 2 @029774a0
+No queda nada por comprar. Busca un rincón tranquilo y suma tu canasta.
+
+== note 2 @ae64400d
+Al sur por Clark Street, alejándote del río, hasta Lake Street.
+
+== ending list-filled @73eab4c1
+Un artículo básico, una medicina y té. Tu lista está tachada, y te quedan unas monedas. Tu familia tiene lo que necesita esta semana. Y conoces South Water Street mejor que la mayoría de la gente nueva en el pueblo.
+
+== ending list-short @4f801ebb
+Parte de tu lista tendrá que esperar otro día. Te vas a casa con lo que tu dinero pudo comprar. South Water Street, con todo y lodo, seguirá ahí.
+
+== keepsake title @b02ce6b5
+La lista de la casa
+
+== keepsake text @81989012
+Una lista de compras y un recibo inventados de tres tiendas de South Water Street, sumados en Lake Street.
