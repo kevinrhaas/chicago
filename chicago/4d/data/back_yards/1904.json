@@ -54,14 +54,14 @@
  },
  "summary": {
   "lots": 133,
-  "surfaces": 284,
+  "surfaces": 283,
   "doors": 125,
-  "posts": 116,
+  "posts": 114,
   "gardens": 30,
   "by_kind": {
    "alley_walk": 22,
    "coach_walk": 30,
-   "drying_yard": 58,
+   "drying_yard": 57,
    "front_walk": 8,
    "gangway": 30,
    "garden_bed": 30,
@@ -15391,7 +15391,7 @@
     "otis_house_2033_prairie",
     "otis_house_2033_prairie_coach_house"
    ],
-   "scheme": "drying_yard",
+   "scheme": "service_court",
    "grade": "reconstructed",
    "sources": [],
    "note": "",
@@ -15399,68 +15399,40 @@
     {
      "id": "prairie_2033:rear_terrace:0",
      "kind": "rear_terrace",
-     "material": "yard_brick",
+     "material": "flags",
      "polygon_local_m": [
       [
-       1439.66,
-       -3584.72
+       1441.15,
+       -3583.44
       ],
       [
-       1439.67,
-       -3586.87
+       1441.17,
+       -3586.62
       ],
       [
-       1444.45,
-       -3586.83
+       1446.74,
+       -3586.58
       ],
       [
-       1444.43,
-       -3584.68
+       1446.72,
+       -3583.4
       ]
      ],
      "along_deg": 179.55,
      "lift_m": 0.03,
      "order": 0,
      "grade": "reconstructed",
-     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
-    },
-    {
-     "id": "prairie_2033:drying_yard:1",
-     "kind": "drying_yard",
-     "material": "trodden",
-     "polygon_local_m": [
-      [
-       1447.12,
-       -3582.74
-      ],
-      [
-       1447.15,
-       -3587.24
-      ],
-      [
-       1450.35,
-       -3587.21
-      ],
-      [
-       1450.32,
-       -3582.71
-      ]
-     ],
-     "along_deg": 179.55,
-     "lift_m": 0.03,
-     "order": 0,
-     "grade": "reconstructed",
-     "note": "A drying yard of trodden earth, with its clothes posts (L-prairie-back-yards-3488)."
+     "note": "A paved terrace at the back door, in stone flagging: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [
     {
      "id": "prairie_2033:back_door",
      "structure": "otis_house_2033_prairie",
-     "e": 1439.33,
-     "n": -3585.8,
+     "e": 1441.03,
+     "n": -3585.04,
      "facing_deg": 89.55,
-     "sill_m": 1.4,
+     "sill_m": 1.5,
      "width_m": 0.95,
      "height_m": 2.2,
      "leaf": true,
@@ -15469,34 +15441,13 @@
       "width_m": 1.6,
       "risers": 8,
       "run_m": 3.06,
-      "material": "wood"
+      "material": "stone"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.50 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
-   "posts": [
-    {
-     "kind": "clothes_post",
-     "e": 1448.72,
-     "n": -3583.02,
-     "height_m": 2.3,
-     "arm_m": 0.9,
-     "facing_deg": 179.55,
-     "line_to": 1,
-     "grade": "reconstructed"
-    },
-    {
-     "kind": "clothes_post",
-     "e": 1448.75,
-     "n": -3586.92,
-     "height_m": 2.3,
-     "arm_m": 0.9,
-     "facing_deg": 179.55,
-     "line_to": null,
-     "grade": "reconstructed"
-    }
-   ],
+   "posts": [],
    "crops": [],
    "shrubs": [],
    "trees": [],

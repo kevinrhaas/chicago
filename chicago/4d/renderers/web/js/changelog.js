@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3121, ts: '2026-11-19T11:44:49.365Z', date: 'Nov 19, 2026, 5:44 AM CT', title: 'Closing the Navigator never takes you off the page', kind: 'fix',
+    items: [
+      'Closing the Navigator and opening it again straight away could leave it holding a Back step that was already gone, so the next close went Back to the page before the walk. A reopen now waits for the earlier close to finish before it holds its Back step.',
+    ] },
+  { v: 3120, ts: '2026-11-19T11:01:15.187Z', date: 'Nov 19, 2026, 5:01 AM CT', title: '2033 Prairie, the Otis house, takes its stone front and bay', kind: 'feature',
+    items: [
+      '2033 Prairie, the Otis family\'s home for sixty-five years and the middle house of the 1869 limestone row, now stands as Walker Evans photographed it in 1946: a narrow pale stone front across its whole lot, a bay rising through all three storeys to a deep bracketed cornice that turns round it, every window arched, and a double door under a pediment on carved brackets at the head of its stoop. The front\'s banded stonework, the stoop\'s long run down to the walk and the fence\'s height are still not quite the picture\'s; its neighbours at 2031 and 2035 come next.',
+    ] },
   { v: 3119, ts: '2026-11-19T09:56:47.549Z', date: 'Nov 19, 2026, 3:56 AM CT', title: '2035 Prairie, the corner of the limestone row, is built', kind: 'feature',
     items: [
       '2035 Prairie, the 21st Street corner of the 1869 limestone row, now stands as a full house in place of its draft. Its plan comes from the 1911 map: a stone front in line with 2033\'s, a bowed stone bay at the south end, a windowed flank along 21st Street and a two-storey brick range behind. Its entrance comes from the Tribune\'s 1898 sketch: a round-arched door under a columned porch beside a railed deck, at the top of a swept stoop. Its floors and cornice match 2033\'s, so the row keeps one roofline.',

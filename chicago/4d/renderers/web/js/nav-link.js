@@ -16,6 +16,16 @@
  * and closes the app (to Home, docked), and the next Back leaves as it always did.
  * Closing the device by hand gives the entry back, so Back never has to be pressed twice
  * for nothing.
+ *
+ * T-3664: giving the entry back is `history.back()`, and a traversal is ASYNCHRONOUS — it
+ * lands, and its popstate fires, a task (on a starved frame, seconds) after the call. The
+ * device reopened inside that gap used to push its new entry at once: the pending Back
+ * then landed on the page's own entry, took the new one with it, and its popstate was
+ * swallowed as ours, so the device believed it held an entry that was gone. The next close
+ * went Back off the page altogether (smoke part 14: dock, Space reopens, dock again — the
+ * walk left for the previous page and the next evaluate died with "Execution context was
+ * destroyed"). A reopen while our own Back is still travelling now waits for it to land
+ * and holds its entry then; closed again before it lands, it asks for nothing.
  */
 
 const APP = /^[a-z][a-z0-9-]{0,31}$/;
@@ -50,20 +60,33 @@ export function createNavHistory({ nav, win = globalThis } = {}) {
   let held = false;      // our entry is on top of the history
   let skip = 0;          // popstates we caused ourselves, to be ignored
   let closing = false;   // closing because of Back, so do not give the entry back again
+  let wanted = false;    // reopened while our own Back was still travelling (T-3664)
+  const hold = () => {
+    try {
+      win.history.pushState({ ...(win.history.state ?? {}), c4dNavigator: true }, '', win.location?.href);
+      held = true;
+    } catch { /* a sandboxed frame may refuse; Back then leaves, as before */ }
+  };
   const off = nav.onChange((state) => {
-    if (navHoldsBack(state) && !held) {
-      try {
-        win.history.pushState({ ...(win.history.state ?? {}), c4dNavigator: true }, '', win.location?.href);
-        held = true;
-      } catch { /* a sandboxed frame may refuse; Back then leaves, as before */ }
-    } else if (!navHoldsBack(state) && held && !closing) {
-      held = false;
-      skip += 1;
-      win.history.back();
+    if (navHoldsBack(state)) {
+      if (held) return;
+      // Pushing now would put the entry where the pending Back is about to land.
+      if (skip > 0) wanted = true; else hold();
+    } else {
+      wanted = false;
+      if (held && !closing) {
+        held = false;
+        skip += 1;
+        win.history.back();
+      }
     }
   });
   const onPop = () => {
-    if (skip > 0) { skip -= 1; return; }
+    if (skip > 0) {
+      skip -= 1;
+      if (skip === 0 && wanted) { wanted = false; hold(); }
+      return;
+    }
     if (!held) return;
     held = false;
     closing = true;
