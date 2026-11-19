@@ -77760,6 +77760,10 @@
           "text": "S. Augustus Mitchell, Jr. Chicago. 1870, A New Map of Chicago. Chicago Evening Post, April 9, 1869, A. Ruger. Chicago in 1868 from Schiller Street north side to 12th Street south…, Chicago Board of Public Works. Tenth Annual Report to the Common Council, for…, Edwards’ Annual Directory of the City of Chicago, 1871. Maps support broad geography and street connections; the panorama supports broad period forms. Directory entries and public-works totals do not identify the generated buildings or allocate materials to particular blocks. This baseline does not claim photographed facades, complete residents, moving traffic or documented daily actions. Named structures from other years are excluded by the scene's explicit empty structure ids allowlist. The field notebook remains the record for replacing context with identified properties and activity."
         },
         {
+          "label": "Materials",
+          "text": "the share of frame and masonry stand-ins follows Colbert and Chamberlin (1871, pp. 146-147: in spring 1868, 35,654 wooden buildings to 3,712 of brick and stone), their West Side burned blocks \"nearly all frame\" (p. 286) and the costly business centre of the South Division (p. 286). The business centre stays masonry; elsewhere each masonry pick is turned to its frame counterpart with a district share (West Side 92%, North Side 85%, mixed streets 80%, river yards 75%, South Side residences 45%, outskirts all frame), leaving about one house or shop in ten masonry. These district shares are reconstructions fitted to that citywide ratio; the source gives no ratio for any district or block. Each frame house's paint (mostly white, some buff, grey, drab or grey-green, a few unpainted or barn red) and the weatherboard width are reconstructed, not taken from a recorded house."
+        },
+        {
           "label": "Prior damage",
           "text": "a broad uncertainty mask excludes intact buildings in the Saturday Night Fire area. It represents the earlier fire’s approximate extent, not a parcel-by-parcel survival ruling; no damage from the Great Fire later on 8 October is drawn."
         },
@@ -77777,7 +77781,8 @@
         }
       ],
       "work_refs": [
-        "T-3654"
+        "T-3654",
+        "T-3683"
       ]
     },
     {

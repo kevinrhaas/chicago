@@ -22,6 +22,8 @@ published scene has a dedicated `tools/smoke_city_1871.mjs` browser check. This 
 complete context baseline, not a claim of individually surveyed buildings, populated
 daily activity or photographic finish.
 
+T-3683 (19 November 2026) corrects the building materials. Colbert and Chamberlin (1871, pp. 146-147) count 35,654 wooden buildings to 3,712 of brick and stone in spring 1868. The business centre stays masonry; elsewhere masonry picks turn to frame by district, so about one house or shop in ten is masonry (2,942 of 33,580 footprints, down from 10,770). Every footprint is unchanged. Frame walls are pale weatherboard with a per-house reconstructed paint. A seventeenth form, the two-storey frame store, replaces the brick shop block outside the centre.
+
 ## T-3656, T-3657, T-3658 — Combined browser-only delivery (19 November 2026)
 
 PR #2197 now carries all three completed implementations so the new classroom
