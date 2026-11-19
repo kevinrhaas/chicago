@@ -1,6 +1,50 @@
 ## T-3679 — Play a part: three choice-driven role jaunts (19 November 2026)
 
 Three new jaunts put the visitor in a young person's place, on the existing jaunt engine with no engine change. *Errands Before the March* (1812, Errands, `errands-before-the-march`): a runner of the settlement outside Fort Dearborn hears the evacuation order read on the parade on 10 August 1812 and carries it either across the river to the Kinzie house or out to the Agency House, sees the council of the 12th, then spends the evening of the 13th either helping carry the ammunition and liquor to the well and the river or at the main gate when William Wells rides in on the 14th; it ends on the eve of the march, and the fighting is neither told nor staged. *Apprentice at the Democrat* (1835, Work, `apprentice-at-the-democrat`): the Chicago Democrat's new apprentice carries the number of 1 July 1835 from the paper's old corner either west to the Sauganash or east to the rival American, then to Newberry & Dole's, then either to the drawbridge to watch for a sail or to the Tremont with the last copies. *Ice for Prairie Avenue* (1904, Work, `ice-for-prairie-avenue`): an iceman's helper on a Monday in October 1904 tries either the Glessners' front door or the alley gates, reaches the service entrance under the great arch, then either waits for the kitchen's order at the stable doors or runs ahead to the Kimball house. Each has two forks that change the next stop and four endings from the pair. Every stop's facts are claims already published in other jaunts, copied word for word; the roles, routes, choices, endings and keepsakes are reconstructed (L-play-a-part-3679). All three are tellings for grades 6-8 by measure (7.5, 7.9 and 7.5), with versions for 3-5, 9-10, 11-12 and 18+ built by versions.py, each measuring inside its band. Text only: no narration voice and no stage. The 1904 Jaunts menu gains a Work group and the 1812 menu an Errands group, so the lesson guides cover 12 year/group combinations.
+## T-3675 — Chromebook class set (19 November 2026)
+
+Gap-analysis item 17. A classroom Chromebook is recognised (ChromeOS from the user agent `CrOS`
+or Chrome's userAgentData) and profiled as a computer, touch screen or not: class `weak`, so
+Balanced detail, Sharpness Low, light textures and the memory diet, with people, horses,
+carriages and wagons drawn and never Light. Before this, a touch-screen Chromebook in a window
+under 900 px wide (or in tablet mode) was profiled as a phone: the emulated one booted 1835 at
+Light ("modest phone or tablet"), and an Arm Mali Chromebook's GPU only counted as shared memory
+on a non-touch one. Its controls stay keyboard and trackpad unless its pointer is coarse
+(tablet mode); a touch on the screen still switches to touch controls. PowerVR (MediaTek
+MT8173 Chromebooks) joins the shared-memory GPUs, Mesa's prefix and chip codename are dropped
+from the GPU name, and the loading screen reads "Chromebook · Intel UHD Graphics 600 · shared
+memory · 4 GB · 4 cores".
+
+The year's offline copy is the "Prepare for class" path: on a Chromebook the welcome line reads
+"Prepare for class · 374 MB" (1835), and Settings › Graphics carries the same download on every
+device, with progress, a "ready offline" state and how to check it (Wi-Fi off, reload). The
+copy says the honest thing: do this on each device before the lesson; each keeps its own copy
+and nothing is shared across the room. No server, no new assets.
+
+**Memory, emulated Chromebook** (`tools/chromebook_emulation.mjs`: ChromeOS user agent,
+`deviceMemory` 4, 4 threads, Intel UHD 600 renderer string, 1366×768 at 1×, nothing forced),
+build ccf78e0ce + this change, every year measured, `docs/measurements/T-3675-memory-chromebook.json`:
+
+| Year | Chromebook (Balanced, diet) | New ceiling | Same build, desktop at Full | People drawn at spawn, Chromebook / desktop |
+|---|---|---|---|---|
+| 1812 | 452.1 MB | 500 MiB | 786.0 MB | 284 / 284 |
+| 1835 | 677.1 MB | 750 MiB | 1,327.5 MB | 10 / 10 |
+| 1904 | 595.3 MB | 675 MiB | 1,433.8 MB | 10 / 10, and the parked carriage with its team on both |
+
+Every Chromebook row was routed by the town itself ("a Chromebook: graphics sharing the
+system's memory (Intel(R) UHD Graphics 600, 4 GB)"). The `chromebook` row is in the CI memory
+matrix for every year, and `measure_memory.mjs --gate` fails it unless it boots routed so.
+The same run read the desktop rows over their ceilings on dev's code path (1835 1,327.5 against
+1,325; 1904 1,433.8 against 1,425): a desktop on SwiftShader is untouched by this change (the
+software-renderer branch returns before any ChromeOS rule), so those are dev's growth, recorded
+here rather than raised. `tools/check_chromebook.mjs` (in check.sh) holds the routing, the
+controls rule, the loading-screen words, the "Prepare for class" words and the ceilings.
+
+**Not tested here:** a real Chromebook (Intel and Arm), its real frame rate and its tab
+limit; a school network and its filters; Cache Storage quotas on a 32 GB Chromebook with
+other users; a teacher-side view of which devices are ready; any room-wide cache (that needs
+a local server). SwiftShader draws the pixels, so the readings are bytes, never timings.
+
 ## T-3663 — Gossip source comparison checkpoint (19 November 2026)
 
 Integrated onto DEV `38f51fcda` after the T-3656/T-3657/T-3658 delivery merged in
