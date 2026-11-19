@@ -23,8 +23,8 @@
   color: var(--ink, #edf0ec); background: var(--panel-solid, #182326); border: 1px solid var(--edge, #64716e); border-radius: .4rem; cursor: pointer; }
 .jaunt-check-choice:disabled { cursor: default; opacity: 1; }
 .jaunt-check-choice.is-right { border: 2px solid var(--accent, #ead09e); font-weight: 600; }
-.jaunt-check-choice.is-right::before { content: "✓ " / ""; }
+.jaunt-check-choice.is-right::before { content: "\2713\00a0" / ""; }
 .jaunt-check-choice.is-wrong { border-style: dashed; color: var(--ink-dim, #b9c2bf); }
-.jaunt-check-choice.is-wrong::before { content: "✗ " / ""; }
+.jaunt-check-choice.is-wrong::before { content: "\2717\00a0" / ""; }
 .jaunt-check-feedback { min-height: 1.4em; margin: .25rem 0; font-weight: 600; }
 .jaunt-check-reveal[hidden] { display: none; }
