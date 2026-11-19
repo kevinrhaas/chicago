@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 3138, ts: '2026-11-19T21:29:46.668Z', date: 'Nov 19, 2026, 3:29 PM CT', title: 'Hear the Battle of Fort Dearborn and the 1904 story walks', kind: 'feature',
+    items: [
+      'The Battle of Fort Dearborn and the ten 1904 story walks are being read aloud, in the Cultivated Essayist\'s voice.',
+      'The Glessner Household and Meet the Glessner House are re-read in the smoother style, with pauses between subjects and less whispering and laughing.',
+      'The Battle of Fort Dearborn\'s opening no longer talks about how the walk works.',
+    ] },
+  { v: 3137, ts: '2026-11-19T21:29:46.668Z', date: 'Nov 19, 2026, 3:29 PM CT', title: 'The Great Fire burns the 1871 city, hour by hour', kind: 'feature',
+    items: [
+      'From 9 p.m. on 8 October 1871 the fire spreads from the O\'Learys\' barn across the West, South and North Sides, at the hours the accounts give.',
+      'Buildings burn at their windows and over their roofs, then stand as blackened walls or fall to smoking heaps with a chimney left.',
+      'Smoke leans away on the south-west gale, the fire lights the walls and street around you, and the night sky glows red over the burning district.',
+      'The Water Tower, the Ogden house and the O\'Leary cottage are spared, as they were.',
+      'Free walk is still the city on the afternoon before the fire.',
+    ] },
   { v: 3136, ts: '2026-11-19T21:12:28.904Z', date: 'Nov 19, 2026, 3:12 PM CT', title: '2036 Prairie\'s iron railing now runs along 21st Street', kind: 'feature',
     items: [
       'At the corner of Prairie and 21st Street, the Buckingham house\'s iron railing now turns the corner and runs back along 21st Street, the full length of the house\'s side, as the c. 1880 engraving draws it across its foreground. The railing has the same spear-headed bars, ornamented band and stone curb as the Prairie front.',
