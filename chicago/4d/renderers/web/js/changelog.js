@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3127, ts: '2026-11-19T18:12:15.143Z', date: 'Nov 19, 2026, 12:12 PM CT', title: 'In 1871 the Today window stands on your bank, not midstream', kind: 'fix',
+    items: [
+      'The 1871 city was drawn from Mitchell\'s 1870 map, and its river runs 20 to 80 m off today\'s channel. Standing on its bank, the Today window looked out from the middle of the river.',
+      '1871 is now lined up with today\'s map on the map\'s own street corners and along the river, so Today opens on the bank you stand on.',
+      'Where the river really moved, the South Branch straightened between Polk and 18th Streets in 1928-30, Today still shows where the old bend now lies.',
+    ] },
   { v: 3126, ts: '2026-11-19T17:55:33.246Z', date: 'Nov 19, 2026, 11:55 AM CT', title: 'The whole interface works by keyboard, screen reader and larger text', kind: 'feature',
     items: [
       'Every menu, Settings tab, jaunt and card opens, moves and closes from the keyboard, and focus comes back to where you started.',
