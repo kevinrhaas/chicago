@@ -403,6 +403,8 @@ step "Moment links contain only bounded public scene state and photos release th
   node tools/test_moment.mjs
 step "Field notebook preserves evidence and notes, bounds storage, and reports failed writes (T-3656)" \
   node tools/test_field_notebook.mjs
+step "A teacher's route travels whole in one bounded link or file, degrades with a message, and shows the teacher's words as text (T-3672)" \
+  node tools/test_teacher_route.mjs
 step "Jaunt reflections use only cited visited claims across all reading bands (T-3656)" \
   node tools/test_jaunt_understanding.mjs
 step "Gossip investigations preserve cited uncertainty and explicit bounded notebook saves (T-3663)" \
@@ -491,6 +493,8 @@ step "1871 context shadows use the same confidence controls as their surfaces (T
   node tools/test_city_context_depth.mjs
 step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and 1812 (T-3319)" \
   node tools/test_fort_gates.mjs
+step "a goal nobody can walk to is refused at once, and only such a goal (T-3695)" \
+  node tools/test_route_unreachable.mjs
 step "the Tell me a story library re-derives from its stories and the drawn town (T-3553)" \
   python3 tools/build_tales.py --check
 step "everyone in town tells a story, their own first, and none twice until all are told (T-3553)" \

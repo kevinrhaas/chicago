@@ -6982,6 +6982,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_route_unreachable.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_scene_selection.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -7115,6 +7119,10 @@
       "wrote_ignored": []
     },
     "tools/test_teacher_handout.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_teacher_route.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
