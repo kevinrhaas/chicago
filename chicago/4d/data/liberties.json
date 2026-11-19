@@ -77764,6 +77764,10 @@
           "text": "the share of frame and masonry stand-ins follows Colbert and Chamberlin (1871, pp. 146-147: in spring 1868, 35,654 wooden buildings to 3,712 of brick and stone), their West Side burned blocks \"nearly all frame\" (p. 286) and the costly business centre of the South Division (p. 286). The business centre stays masonry; elsewhere each masonry pick is turned to its frame counterpart with a district share (West Side 92%, North Side 85%, mixed streets 80%, river yards 75%, South Side residences 45%, outskirts all frame), leaving about one house or shop in ten masonry. These district shares are reconstructions fitted to that citywide ratio; the source gives no ratio for any district or block. Each frame house's paint (mostly white, some buff, grey, drab or grey-green, a few unpainted or barn red) and the weatherboard width are reconstructed, not taken from a recorded house."
         },
         {
+          "label": "Fronts",
+          "text": "in the business centre, and on Lake, Randolph, Clark, Wells, Madison, Canal, Milwaukee and North Clark within about 2.6 km of the city centre, the generated blocks are built as attached rows: party wall to party wall, each front 2.2-3.3 m a bay (about 7-20 m), three to six storeys downtown and two or three on the strips, now and then two or three identical fronts in one run. Residential faces keep their yards and side gaps. The pre-fire stereographs of Lake, State and Clark streets and of a North Side street (John Carbutt, '70. Lake street, East from Clark.' Stereograph from Carbutt's…, John Carbutt, '11. Book Seller's Row, State Street.' Stereograph from Carbutt's…, '58. Clark street, North from Washington.' Stereograph from Carbutt's Views of…, 'No. 101 Pine street north from Erie.' Stereograph, c. 1866-1871) support those period forms, not any generated front. Reconstructed: each row's widths, heights and order; the shares of brick, pale stone and painted brick fronts (business centre 42/36/22, strips 55/15/30, frame shops on the strips by the shares); every tint (brick kilns, cream \"Athens marble\" and Joliet stone, paint colours, awnings); the paved strip between a row and its walk, drawn in the walk's planking; and every front's detail inside the jaunt stops' rings (the detail rings data): storefront bays, a door in every shop, the cast-iron piers, plate glass, signboards and awnings, window counts, sills, segmental or round heads and hoods, string courses, bracketed cornices; each house's door, its steps or porch (K07 risers), and, where its yard is deep enough, a picket fence with a gate on the 1835 town's dimensions. Sign words are trades legible in those views or common in the directories, never a firm's name, and no sign is placed at its recorded address. Wall textures are the project's own 1835 brick and clapboard and 1904 Lemont limestone; painted brick is the 1835 brick under a reconstructed coat. Beyond the rings each front is the instanced stand-in in the same colour and outline."
+        },
+        {
           "label": "Prior damage",
           "text": "a broad uncertainty mask excludes intact buildings in the Saturday Night Fire area. It represents the earlier fire’s approximate extent, not a parcel-by-parcel survival ruling; no damage from the Great Fire later on 8 October is drawn."
         },
@@ -77773,7 +77777,7 @@
         },
         {
           "label": "Review",
-          "text": "the 1871 scenes data, the plan data, the 1871 context data, the kit data, the e1871 prefire data, the walkthrough's city context code."
+          "text": "the 1871 scenes data, the plan data, the 1871 context data, the kit data, the e1871 prefire data, the walkthrough's city context code, the walkthrough's city fronts code, the detail rings data."
         },
         {
           "label": "Recorded",
@@ -77782,7 +77786,8 @@
       ],
       "work_refs": [
         "T-3654",
-        "T-3683"
+        "T-3683",
+        "T-3686"
       ]
     },
     {

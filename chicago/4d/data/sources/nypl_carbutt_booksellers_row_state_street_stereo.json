@@ -1,0 +1,27 @@
+{
+ "id": "nypl_carbutt_booksellers_row_state_street_stereo",
+ "type": "photograph",
+ "citation": "John Carbutt, '11. Book Seller's Row, State Street.' Stereograph from Carbutt's Views of Chicago, c. 1868-1871. New York Public Library, Robert N. Dennis collection of stereoscopic views, MFY Dennis Coll 90-F169 (digital ID G90F169_004F).",
+ "author": "John Carbutt, photographer, Chicago",
+ "date": "c. 1866-1871 (before the fire of October 1871)",
+ "describes_date": "c. 1866-1871",
+ "repository": "New York Public Library, Miriam and Ira D. Wallach Division of Art, Prints and Photographs: Photography Collection; catalog record b11707456.",
+ "url": "https://images.nypl.org/index.php?id=G90F169_004F&t=w",
+ "locator": "Booksellers' Row on State Street: a five-storey pale stone ('Athens marble') commercial palace front of identical units, round-arched windows, a heavy bracketed cornice, a cast-iron ground floor with plate glass and awnings.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Created before 1871; public domain. NYPL marks the Dennis collection 'No known copyright restrictions'. Read for period forms only; no pixels are sampled and no geometry is traced.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-19 (T-3686) from NYPL's image server, digital ID G90F169_004F.",
+ "note": "A street view, not a survey: it shows how the pre-fire business streets and residential blocks were built, not the fronts of the generated lots.",
+ "what_it_supplies": [
+  "pale stone fronts of five storeys built as runs of identical units",
+  "round-arched upper windows and a heavy bracketed cornice",
+  "cast-iron ground-floor storefronts with plate glass, awnings"
+ ],
+ "what_it_does_not_supply": [
+  "the dimensions of any generated front",
+  "the colour of any particular stone front"
+ ]
+}
