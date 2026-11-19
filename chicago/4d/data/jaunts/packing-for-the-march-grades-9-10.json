@@ -1,0 +1,546 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Fort Dearborn",
+  "menu_group": "Stories",
+  "grade_band": "9-10",
+  "featured": false,
+  "review_required": false,
+  "id": "packing-for-the-march-grades-9-10",
+  "scene": "1812",
+  "title": "Packing for the March",
+  "premise": "Play a young person of the settlement around Fort Dearborn during the last two days before the garrison's evacuation, 13 and 14 August 1812: choose your errands, and pack for the march.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "opening": {
+    "text": "JAUNT: PACKING FOR THE MARCH. August 1812, and you are twelve years old. Your household occupies a log house outside the pickets of Fort Dearborn, on the south bank of the Chicago River. The United States has declared war on Britain, and the general commanding at Detroit has ordered the garrison to abandon the post. In two days the soldiers march out, and your household marches with them.\n\nThe places and the documents are genuine; the young person is you. You will not converse with the captain or the chief, and nobody will explain everything to you. Observe, carry, and decide which errands come first.",
+    "read_s": 32
+  },
+  "variables": {
+    "errand": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "evening": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "the-order",
+      "destination": {
+        "kind": "anchor",
+        "id": "kinzie_house_front"
+      },
+      "text": "Thursday, 13 August 1812, morning, on the north bank. Across the river stands the fort, and on this side 'the dwelling-house and trading-establishment of Mr. Kinzie', who with his partner holds the exclusive right to sell to the garrison. On the 9th, according to Heald's journal, the general's order arrived: evacuate the post. 'The order for evacuating the post was read next morning upon parade', and the officers' unanimous advice was to remain and fortify. Captain Heald intends to obey. At nine on the 15th the garrison marches for Detroit, accompanied by the women and children and the twelve men of the town's militia. Your household must decide what is carried, what is distributed, and what is abandoned. Your mother has two errands for you across the river.",
+      "narrative": "Which errand takes priority: the government factory, or the garrison's gate?",
+      "read_s": 43,
+      "evidence": [
+        "kinzie",
+        "order-arrives",
+        "march",
+        "days",
+        "places",
+        "role"
+      ],
+      "hour": "morning",
+      "date": "1812-08-13",
+      "hour_evidence": [
+        "days"
+      ],
+      "action_s": 10,
+      "choices": [
+        {
+          "id": "to-factory",
+          "label": "To the factory, where the goods are being distributed",
+          "consequence": "You will witness exactly what the departing garrison surrenders.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "errand",
+              "value": 1
+            }
+          ],
+          "next": "factory"
+        },
+        {
+          "id": "to-gate",
+          "label": "To the garrison's gate, to gather information",
+          "consequence": "You will learn who is arriving before anyone announces it.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "errand",
+              "value": 2
+            }
+          ],
+          "next": "the-gate"
+        }
+      ]
+    },
+    {
+      "id": "factory",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_factory_front"
+      },
+      "text": "Afternoon at the factory, the government's trading house, one of two log houses a short distance south-west of the fort. Everything on its shelves is being distributed: 'blankets, broadcloths, calicoes, paints'. Heald's official report says he delivered 'all the goods in the factory store, and a considerable quantity of provisions which we could not take away with us', though Wau-Bun dates the distribution a day earlier than his report does. General Hull's order permitted it, naming 'the Friendly Indians' who might escort the garrison to Fort Wayne. It also named 'the Poor & needy of your Post.' Your household qualifies as needy. Beside the factory stands the agent's house, its piazzas 'planked up, for greater security', with port-holes cut. You carry home a bolt of calico, and nothing more.",
+      "narrative": "Whatever the departing garrison cannot transport, it distributes deliberately.",
+      "read_s": 46,
+      "evidence": [
+        "goods",
+        "hull-order",
+        "agency",
+        "days",
+        "places",
+        "role"
+      ],
+      "hour": "14:00",
+      "date": "1812-08-13",
+      "hour_evidence": [
+        "days"
+      ],
+      "action_s": 10,
+      "next": "covered-way"
+    },
+    {
+      "id": "the-gate",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_gate"
+      },
+      "text": "Afternoon at the main gateway, in the middle of the south side, flanked by the soldiers' barracks. The fort is a quadrangle of barracks with blockhouses at its north-western and south-eastern corners, 'inclosed within a double row of palisades'. Riders arrive: Captain William Wells of Fort Wayne, who according to Heald's report came 'with about 30 Miamies, for the purpose of escorting us in'. Wau-Bun places his arrival a day later and insists he came 'all too late', since the ammunition had already been destroyed. Wells is the uncle of Rebekah Heald, the commander's wife. Nobody at the gate pauses to explain any of this to you. You listen, and carry the news home with the water bucket.",
+      "narrative": "Information arrives at the gate considerably before it reaches anyone's household.",
+      "read_s": 39,
+      "evidence": [
+        "wells",
+        "plan",
+        "inside",
+        "days",
+        "places",
+        "role"
+      ],
+      "hour": "15:00",
+      "date": "1812-08-13",
+      "hour_evidence": [
+        "days"
+      ],
+      "action_s": 10,
+      "next": "covered-way"
+    },
+    {
+      "id": "covered-way",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_covered_way"
+      },
+      "text": "Evening, on the river side of the fort's north-east corner, where a covered way descends to the water so the garrison can reach it safely under attack. Tonight soldiers are working inside it. 'The same evening the ammunition and liquor were carried, part into the sally-port, and thrown into a well'. The muskets 'were broken up and thrown into the well' as well. The remaining liquor leaves through the northern gate, 'the heads of the barrels knocked in, and the contents poured into the river.' Heald feared 'they would make bad use of it'. The operation is meant to be secret, but the knocking carries across the water, and the following morning the water tastes of 'strong grog'. Your household draws its water from this river.",
+      "narrative": "Should you draw uncontaminated water upstream tonight, or postpone it until morning?",
+      "read_s": 44,
+      "evidence": [
+        "destroyed",
+        "covered-way",
+        "days",
+        "places",
+        "role"
+      ],
+      "hour": "dusk",
+      "date": "1812-08-13",
+      "hour_evidence": [
+        "days"
+      ],
+      "action_s": 10,
+      "choices": [
+        {
+          "id": "draw-water",
+          "label": "Fill the keg upstream tonight",
+          "consequence": "Your household will have uncontaminated water for the march.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "evening",
+              "value": 1
+            }
+          ],
+          "next": "river-mouth"
+        },
+        {
+          "id": "keep-watch",
+          "label": "Remain near the fort tomorrow",
+          "consequence": "You will observe who arrives and departs on the final day.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "evening",
+              "value": 2
+            }
+          ],
+          "next": "the-medal"
+        }
+      ]
+    },
+    {
+      "id": "river-mouth",
+      "destination": {
+        "kind": "anchor",
+        "id": "river_mouth_1812"
+      },
+      "text": "Friday, 14 August, morning, where the river enters the lake, half a mile below the fort. In 1808 Captain Whistler drew 'John Kinzie Esq. House on the opisite side River' and declared the garrison 'perfectly secure from any ambuscade or Barrier', apart from the houses across the river standing somewhat in the way. Wau-Bun says Mrs. Kinzie's boat will descend to this river mouth tomorrow while the column marches. Your keg is filled and stoppered, and today you sort everything else: a blanket apiece, the cooking pot, the calico or the news, and the possessions that must remain behind. Tomorrow the column takes the beach south, 'with the lake on our left'.",
+      "narrative": "The final complete day, devoted entirely to deliberate packing.",
+      "read_s": 38,
+      "evidence": [
+        "secure",
+        "march",
+        "kinzie",
+        "days",
+        "places",
+        "role"
+      ],
+      "hour": "morning",
+      "date": "1812-08-14",
+      "hour_evidence": [
+        "days"
+      ],
+      "action_s": 10,
+      "next": "$end"
+    },
+    {
+      "id": "the-medal",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_parade"
+      },
+      "text": "Friday, 14 August, evening, on the parade inside the fort, near the commanding officer's quarters on its east side. Black Partridge, 'a Pottawatomie chief from the Illinois River', has arrived. According to Wau-Bun he 'entered the quarters of the commanding officer' and surrendered his peace medal: 'I will not wear a token of peace while I am compelled to act as an enemy.' Lieutenant Helm and Sergeant Griffith both recorded his warning, though only Helm mentions the medal. You witness nothing more than a door closing across the parade, and you hear about the medal afterwards, as everyone does. Tomorrow at nine the gate opens.",
+      "narrative": "An unmistakable warning, delivered on the garrison's final evening.",
+      "read_s": 38,
+      "evidence": [
+        "medal",
+        "gate-evening",
+        "inside",
+        "days",
+        "places",
+        "role"
+      ],
+      "hour": "dusk",
+      "date": "1812-08-14",
+      "hour_evidence": [
+        "gate-evening",
+        "days"
+      ],
+      "action_s": 10,
+      "next": "$end"
+    }
+  ],
+  "legs": [
+    {
+      "from": "the-order",
+      "to": "factory",
+      "note": "Across the river by canoe, then south past the fort to the factory.",
+      "evidence": [
+        "places"
+      ],
+      "story": "Across the river by canoe first, then southward along the entire length of the pickets.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "the-order",
+      "to": "the-gate",
+      "note": "Across the river by canoe, then round the pickets to the main gate on the south.",
+      "evidence": [
+        "places",
+        "plan"
+      ],
+      "story": "Around the stockade to the gateway where the information arrives.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "factory",
+      "to": "covered-way",
+      "note": "North round the pickets to the river side of the fort.",
+      "evidence": [
+        "places"
+      ]
+    },
+    {
+      "from": "the-gate",
+      "to": "covered-way",
+      "note": "Round the east side of the pickets to the river corner.",
+      "evidence": [
+        "places"
+      ]
+    },
+    {
+      "from": "covered-way",
+      "to": "river-mouth",
+      "note": "Down the bank to the river mouth, half a mile below the fort.",
+      "evidence": [
+        "places",
+        "march"
+      ]
+    },
+    {
+      "from": "covered-way",
+      "to": "the-medal",
+      "note": "In at the gate to the parade.",
+      "evidence": [
+        "places",
+        "plan"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "ready-to-walk",
+      "text": "Night on the 14th. The bundle is tied, with the calico folded beneath the blankets and the keg stoppered beside the cooking pot, because you completed both errands and kept your household's water uncontaminated. Tomorrow at nine the gate opens and the column marches south along the beach. What happened there that morning is told in the jaunt The Battle of Fort Dearborn.",
+      "read_s": 20,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "errand",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "var": "evening",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-warning",
+      "text": "Night on the 14th. You brought home the news from the gate, and tonight you bring home the account of the medal, which everyone in the settlement is repeating. Nobody can unpack now: tomorrow at nine the gate opens and the column marches south along the beach. What happened there that morning is told in the jaunt The Battle of Fort Dearborn.",
+      "read_s": 18,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "errand",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "var": "evening",
+            "op": "==",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-gift",
+      "text": "Night on the 14th. The calico from the factory lies folded on top of the bundle, and you observed the final evening at the fort. You understand now how much was surrendered, and why. Tomorrow at nine the gate opens. What happened on the beach that morning is told in the jaunt The Battle of Fort Dearborn.",
+      "read_s": 17,
+      "completion_eligible": true,
+      "when": {
+        "var": "errand",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "packed",
+      "default": true,
+      "text": "Night on the 14th. The keg is filled, the bundle is tied, and you know exactly who rode in at the gate, and which way the column will walk in the morning. At nine the gate opens and the column marches south. What happened on the beach that morning is told in the jaunt The Battle of Fort Dearborn.",
+      "read_s": 20,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "a-bundle-for-the-march-grades-9-10",
+    "title": "A Bundle for the March",
+    "text": "A fictional list of what one household outside the pickets packed for the march of 15 August 1812. No real household, bundle or child is recorded on it."
+  },
+  "evidence": [
+    {
+      "id": "order-arrives",
+      "text": "Heald's journal: 'On the 9th of Augt, 1812, rec'd orders from Genl Wm. Hull to evacuate the Post of Chicago and proceed with my Command to Detroit.' Quaife: 'The next day the Indian runner. Winnemac, delivered to Captain Heald at Fort Dearborn his order for the evacuation.' Wau-Bun puts the runner, Winnemeg or Catfish, a Potawatomi, at the post on the 7th, bringing despatches that 'announced the declaration of war between the United States and Great Britain'. Wau-Bun: 'The order for evacuating the post was read next morning upon parade', and the officers' 'unanimous advice was, to remain where they were, and fortify themselves as strongly as possible.' Quaife defends Heald: 'Obedience to orders is the primary duty of a soldier.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Quaife Appendix III (Heald's journal) and the evacuation chapter; Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "kinzie",
+      "text": "Wau-Bun (1856): 'On the north side of the main stream, but quite near its junction with Lake Michigan, stood (as has already been described) the dwelling-house and trading-establishment of Mr. Kinzie.' 'The fort was situated on the southern bank, directly opposite this mansion'. The Chicago Reader (2018): in January 1812 Heald made 'Messrs. Kinzie & Forsyth' the exclusive fort sutlers. Kirkland (1893): Margaret Helm was the 'step-daughter of old John Kinzie'.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "dailing_2018_chicago_reader_lalime",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "locator": "Wau-Bun, the April section; the Reader, the sutler paragraph; Kirkland, the Helm narrative"
+    },
+    {
+      "id": "march",
+      "text": "Heald's report: 'On the 15th, at 9 o'clock in the morning, we commenced our march: a part of the Miamies were detached in front, and the remainder in our rear, as guards, under the direction of Captain Wells. The situation of the country rendered it necessary for us to take the beach, with the lake on our left, and a high sand bank on our right, at about 100 yards distance.' Wau-Bun: 'As the troops left the fort, the band struck up the Dead March', and Wells 'had blackened his face before leaving the garrison, in token of his impending fate.' Mrs. Kinzie's boat 'had scarcely reached the mouth of the river, which, it will be recollected, was here half a mile below the fort, when another messenger from To-pee-nee-bee arrived to detain them where they were.' Quaife lists the order: Wells and part of the Miamis, the garrison, the women and children, the twelve Chicago militia.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Appendix IV, Captain Heald's official report, Pittsburg, 23 October 1812 (from Brannan, Official Military and Naval Letters, 1823, p. 84), Project Gutenberg eBook #69274 plain text; Quaife, the battle chapter; Wau-Bun ch. XIX, Narrative of the Massacre, Continued, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "goods",
+      "text": "Heald's report: 'On the 14th, I delivered the Indians all the goods in the factory store, and a considerable quantity of provisions which we could not take away with us.' Wau-Bun, which dates it the 13th: 'the goods, consisting of blankets, broadcloths, calicoes, paints, etc., were distributed, as stipulated.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Appendix IV, Captain Heald's official report, Pittsburg, 23 October 1812 (from Brannan, Official Military and Naval Letters, 1823, p. 84), Project Gutenberg eBook #69274 plain text; Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "hull-order",
+      "text": "General William Hull's order, Sandwich, 29 July 1812, found among the Heald papers and first printed by Quaife: 'It is with regret I order the Evacuation of your Post owing to the want of Provisions only a neglect of the Commandant' ... 'You will therefore Destroy all arms & ammunition, but the Goods of the Factory you may give to the Friendly Indians who may be desirous of Escorting you on to Fort Wayne & to the Poor & needy of your Post.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "note 583, Gutenberg #69274 plain text, the evacuation chapter"
+    },
+    {
+      "id": "agency",
+      "text": "Quaife (1913): 'A short distance to the southwest were two log houses, one occupied by Matthew Irwin, the United States factor, and the other by Charles Jouett, the Indian agent.' Wau-Bun (1856) on the Agency House in April 1812: 'It was an old-fashioned log building, with a hall running through the centre, and one large room on each side. Piazzas extended the whole length of the building in front and rear. These were planked up, for greater security, port-holes were cut, and sentinels posted at night.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure'); Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text, the paragraph beginning 'It was an old-fashioned log building'"
+    },
+    {
+      "id": "wells",
+      "text": "Heald's report: 'On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in, by the request of General Hull.' Wau-Bun has him arrive on the 14th 'with fifteen friendly Miamis' to save 'his relative, Captain Heald', and says he came 'all too late': the ammunition was already destroyed. Quaife: Heald's wife Rebekah was 'the niece of Captain Wells'.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Appendix IV, Captain Heald's official report, Pittsburg, 23 October 1812 (from Brannan, Official Military and Naval Letters, 1823, p. 84), Project Gutenberg eBook #69274 plain text; Quaife, the evacuation chapter; Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "plan",
+      "text": "Quaife (1913), from Cooper and Whistler's draught: 'The barracks and other structures for the accommodation of the garrison were built around the four sides of a quadrangle, facing inward toward the center. Two blockhouses, one containing two small cannon, the other containing one, stood at the northwestern and southeastern corners of the quadrangle, and the whole was inclosed within a double row of palisades'. 'Thus if an enemy should scale the first row he would only find himself within a narrow inclosure between that and the second which was swept at every point by the fire from the blockhouses.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "whistler_1808_fort_dearborn_draught"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure')"
+    },
+    {
+      "id": "inside",
+      "text": "Quaife (1913): the barracks 'were two stories in height, with shingled roofs and covered galleries, and occupied the middle of each side of the inclosure facing toward the parade ground, in the center of which stood a lofty flagstaff. The commanding officer's quarters stood on the east side, and directly opposite were those for the subordinate officers. The main gateway of the stockade was at the middle of the south side and was flanked on either side by the main barracks for the common soldiers.' Whistler's own note: 'the Barracks are two storeys high with shingled Roofs and Galliaries fronting the parade.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "whistler_1808_fort_dearborn_draught"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure'); Quaife, ch. VI, footnote 413, 'Index annexed to the draught of Fort Dearborn &c.', Whistler, 20 February 1808 (Gutenberg #69274 plain text)"
+    },
+    {
+      "id": "destroyed",
+      "text": "Heald's report: 'The surplus arms and ammunition I thought proper to destroy, fearing they would make bad use of it if put in their possession. I also destroyed all the liquor on hand after they began to collect.' Wau-Bun: 'The same evening the ammunition and liquor were carried, part into the sally-port, and thrown into a well which had been dug there to supply the garrison with water in case of emergency; the remainder was transported as secretly as possible through the northern gate, the heads of the barrels knocked in, and the contents poured into the river.' The muskets 'were broken up and thrown into the well'. The noise betrayed it, and 'the taste of the water the next morning was, as one expressed it, \"strong grog.\"'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Appendix IV, Captain Heald's official report, Pittsburg, 23 October 1812 (from Brannan, Official Military and Naval Letters, 1823, p. 84), Project Gutenberg eBook #69274 plain text; Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "covered-way",
+      "text": "Quaife (1913): 'From the northeast corner of the stockade a covered way led to the river, securing thus to the garrison access in safety to the water in time of attack.' Whistler's index lists 'Covered Way to procure Water' and 'Gutters to carry off the Water' as 'Omited in their places'. Wau-Bun remembers 'a sally-port, or subterranean passage from the parade-ground to the river', and on 13 August 1812 'the ammunition and liquor were carried, part into the sally-port, and thrown into a well which had been dug there to supply the garrison with water in case of emergency'.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "whistler_1808_fort_dearborn_draught",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure'); Quaife, ch. VI, footnote 413, 'Index annexed to the draught of Fort Dearborn &c.', Whistler, 20 February 1808 (Gutenberg #69274 plain text); Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "medal",
+      "text": "Wau-Bun: on the evening after the second council 'Black Partridge, a conspicuous chief, entered the quarters of the commanding officer' and gave back his medal: 'I will not wear a token of peace while I am compelled to act as an enemy.' Quaife: Black Partridge was 'a Pottawatomie chief from the Illinois River' (a Potawatomi leader); of the two contemporary versions, Lieutenant Helm's and Sergeant Griffith's through McAfee, both record his warning and 'Helm alone mentions the surrender of the medal.'",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "locator": "ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text; Quaife, the evacuation chapter and note 591"
+    },
+    {
+      "id": "gate-evening",
+      "text": "Wells reached the fort on the 13th by Heald's report or the 14th by Wau-Bun; Black Partridge came to the commanding officer 'on the evening' after the second council. This stop is set at sunset on 14 August, the eve of the march.",
+      "confidence": "inferred",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "reasoning": "Wau-Bun's 'evening succeeding the council' and the march next morning; the hour is a reading of 'evening'."
+    },
+    {
+      "id": "secure",
+      "text": "Whistler, 20 February 1808, closing his note to the draught: 'At this time the Garrison (except the Houses on the Opisite side of the river being somewhat in the way) is perfectly secure from any ambuscade or Barrier.' His index numbers the 'Wharf of said River' and 'John Kinzie Esq. House on the opisite side River'. He had already had a picket fence across the river taken up, since it 'might serve as a Barrier against the Garrison', and 'replaced with a common rail fence.'",
+      "confidence": "attested",
+      "sources": [
+        "whistler_1808_fort_dearborn_draught",
+        "quaife_1913"
+      ],
+      "locator": "Quaife, ch. VI, footnote 413, 'Index annexed to the draught of Fort Dearborn &c.', Whistler, 20 February 1808 (Gutenberg #69274 plain text), Whistler's note"
+    },
+    {
+      "id": "days",
+      "confidence": "inferred",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "text": "The walk runs over the last two days before the march of 15 August 1812: the 13th, when Wau-Bun has the factory goods given out and, that evening, the ammunition and liquor sunk, and Heald's report has Wells come in; and the 14th, the evening Black Partridge gave back his medal. The hours of the stops are the jaunt's pacing; no source gives them.",
+      "reasoning": "Wau-Bun dates the goods to the 13th and the well 'The same evening'; Heald's report dates the goods to the 14th and Wells to the 13th, and Wau-Bun has Wells on the 14th. The medal came on the evening after the second council, read as the 14th as The Battle of Fort Dearborn reads it. The hours are chosen to walk the two days in order, not recorded."
+    },
+    {
+      "id": "places",
+      "confidence": "inferred",
+      "sources": [
+        "whistler_1808_fort_dearborn_draught",
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "text": "The six stops are scene anchors of 1812 that the published 1812 jaunts already use: the front of the Kinzie house on the north bank, the factory front, the main gate, the covered way at the north-east corner, the parade and the river mouth. No interior is entered and no doorway is claimed.",
+      "reasoning": "The anchors and their positions are the ones The Battle of Fort Dearborn and Fort Dearborn, Building by Building stand on, read from Whistler's 1808 draught, Quaife's description of the fort and Wau-Bun's placing of the Kinzie house opposite it. This jaunt adds no place."
+    },
+    {
+      "id": "role",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-play-a-part-1812-3678",
+      "text": "The young person the visitor plays, their age, their household outside the pickets and its packing, the errands, the order of the route, the two choices, the four endings, the timing inputs and the A Bundle for the March keepsake are invented connective narrative. No such young person is recorded or named, no named person is met or speaks to them, no known child of a named family is given a part, and nothing is staged at any stop."
+    }
+  ],
+  "liberties": [
+    "L-play-a-part-1812-3678"
+  ],
+  "version_of": "packing-for-the-march"
+}

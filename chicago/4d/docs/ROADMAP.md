@@ -3,7 +3,8 @@
 A case table now drives Make your case; four more completed jaunts offer a case from their
 own cited claims (the 1812 attack's place, the 1812 trading-post sale, the 1835 Chappel
 school, the 1904 bronze). Next: more cases only where a jaunt's evidence argues both ways;
-the 18+ tellings stay out until a case is written for them.
+the 18+ tellings stay out until a case is written for them. *Packing for the March* adds
+an 1812 play-a-part jaunt (build-up only, two choices, four endings).
 
 ## T-3663 — First source investigation (19 November 2026)
 

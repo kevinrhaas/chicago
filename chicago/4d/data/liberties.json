@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1190,
+  "count": 1191,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -75535,6 +75535,49 @@
       "work_refs": [
         "T-1896",
         "T-3191"
+      ]
+    },
+    {
+      "id": "L-play-a-part-1812-3678",
+      "title": "Packing for the March: the young person the visitor plays in 1812, and what they choose",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "one choice-driven jaunt of 1812, `packing-for-the-march` (Stories), in which the visitor plays a young person, aged twelve, of a household that lives outside the pickets of Fort Dearborn, over the last two days before the garrison leaves: 13 and 14 August 1812. From the front of the Kinzie house on the north bank the visitor chooses an errand, either to the factory, where the goods are given out, or to the main gate, where Wells comes in. The evening at the covered way, where the ammunition and liquor are sunk, comes next, and then a second choice: fill the household's keg upstream and spend the 14th packing at the river mouth, or stay near the fort and be on the parade on the evening Black Partridge gives back his medal. Four endings follow from the two choices. The same walk retold for grades 3-5, 9-10 and 11-12 (`packing-for-the-march-grades-<band>`, the research notes on jaunt grade versions) carries the same stops, choices, endings, facts and this liberty in other words. The 18+ telling (`packing-for-the-march-adults`, which the gate asks of every jaunt) is the same walk told plainly for grown readers: it quotes more of the same evidence (Hull's blame of the commandant, Heald's reason for destroying the liquor, the Dead March of the next morning) and stages nothing; the march itself is still not played."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-11-19, on item 9 (\"Play a part\") of the 2026-11-17 classroom gap list, asking for a play-a-part jaunt in 1812 beside those of 1835 and 1904. **What is read, not invented.** Every fact a stop tells is a claim already cited by The Battle of Fort Dearborn or Fort Dearborn, Building by Building, copied word for word: Heald's journal and report, Hull's order, Quaife's description of the fort and the agency houses, Whistler's draught and note, and Wau-Bun on the order read on parade, the goods, the well and the river, Wells's coming, the medal and Mrs. Kinzie's boat. Where Heald and Wau-Bun date the goods or Wells a day apart, the stop says so. **What is invented.** The young person: their age, household, its house outside the pickets and its packing, the errands, the calico and the keg, and every thought put to them; the order of the route and the two choices; the four endings, which are what the young person has packed, not a historical outcome; the A Bundle for the March keepsake; the hours of the stops and the reading and action seconds. No such young person is recorded, so none is named and no card is made; no known child of a named family is given a part, and no choice puts anyone in danger. No named person is met, speaks to the visitor or is quoted except in their own recorded words; no interior is entered."
+        },
+        {
+          "label": "Left out on purpose",
+          "text": "the march itself and everything after it. The walk ends on the night of the 14th and points to The Battle of Fort Dearborn for the morning; nothing is staged, and no blow, shot or blood is told."
+        },
+        {
+          "label": "Bounds",
+          "text": "the 1812 scene's anchors as the published 1812 jaunts use them, and the claims listed above."
+        },
+        {
+          "label": "How to resolve",
+          "text": "these are interpretive choices and cannot be upgraded into historical claims; revise them openly. A record naming a child of a household outside the pickets in August 1812, and what that household carried, would let a stop name what is now invented."
+        },
+        {
+          "label": "Applies to",
+          "text": "the packing for the march data and its grade-band versions."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-19 (T-3678)."
+        }
+      ],
+      "work_refs": [
+        "T-3623",
+        "T-3678"
       ]
     },
     {

@@ -15,6 +15,19 @@ Karamanski's essay). The 18+ tellings are left out of these cases. Evidence and 
 `docs/RESEARCH/investigations-3678.md`. The existing test now drives every case, telling
 and refusal; its isolation row was re-measured (no writes).
 
+Also in T-3678, a play-a-part jaunt of 1812, *Packing for the March*
+(`packing-for-the-march`, Stories, 6-8, with 3-5, 9-10, 11-12 and 18+ tellings built by
+versions.py): the visitor is an unnamed twelve-year-old of a household outside the
+pickets on 13 and 14 August 1812. Two choices (factory or gate; water upstream or the
+last day near the fort) lead to four endings. It shows the build-up only, with no stage:
+the order, the goods given out, Wells's arrival, the ammunition and liquor sunk, the
+medal given back. Every fact is a claim copied word for word from *Fort Dearborn,
+Building by Building* or *The Battle of Fort Dearborn*. No named person speaks to the
+visitor, no known child is given a part, and no unnamed person besides the visitor
+appears, so no new card is made. Liberty `L-play-a-part-1812-3678`. The 18+ telling exists
+because the T-3623 gate asks one of every jaunt; it quotes more of the same evidence and
+stages nothing.
+
 ## T-3663 — Gossip source comparison checkpoint (19 November 2026)
 
 Integrated onto DEV `38f51fcda` after the T-3656/T-3657/T-3658 delivery merged in
