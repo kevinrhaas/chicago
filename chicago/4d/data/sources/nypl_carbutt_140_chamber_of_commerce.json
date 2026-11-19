@@ -1,0 +1,28 @@
+{
+  "id": "nypl_carbutt_140_chamber_of_commerce",
+  "type": "photograph",
+  "citation": "John Carbutt, '140.—Chamber of Commerce', stereograph, Views of Chicago series (Chicago: J. Carbutt, c. 1866-1871). New York Public Library, Robert N. Dennis collection of stereoscopic views, MFY Dennis Coll 90-F172, image G90F172_009F.",
+  "author": "John Carbutt (1832-1905)",
+  "date": "c. 1866-1871 (the library catalogues the card 1865?-1885?; the building it shows stood from August 1865 to 9 October 1871)",
+  "describes_date": "between the Chamber of Commerce's dedication on 30 August 1865 and the fire of 9 October 1871",
+  "repository": "New York Public Library, Miriam and Ira D. Wallach Division of Art, Prints and Photographs, Photography Collection (record 653332), via Wikimedia Commons (File:Chamber_of_Commerce,_by_Carbutt,_John,_1832-1905.png, oldid 1120193839). The left half of the card is committed at data/sources/assets/landmarks_1871_t3688/carbutt_140_chamber_of_commerce_left.jpg.",
+  "url": "https://commons.wikimedia.org/wiki/File:Chamber_of_Commerce,_by_Carbutt,_John,_1832-1905.png",
+  "locator": "The left half of the stereo card: the Chamber of Commerce from the north-west, across Washington Street from the Court House square's south-west corner, its Washington Street front (five bays, two, one, two) at left and its long LaSalle Street side receding to the right; the Court House square's iron fence in the foreground at left, a brick hotel with a mansard behind at far left.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "A photograph published before 1872; public domain in the United States. Commons carries the file under its PD-US / PD-scan declaration.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-19 (T-3688) from the Commons PNG of the whole card (2737 x 1360 px, sha256 14406b8c30a955da8431e505e518067b84ed54010f3e7cd6bdf31706f0e45e7e, committed with its provenance at chicago/pre_fire_v1/media/research/carbutt-nypl-G90F172_009F.png). Its left half (x 0-1368) is committed as a JPEG for the image gate: sha256 53b78652b3ce588b4eb6fac09ad6e080c08d1bc8fad89bb35e61b42e33dc2350.",
+  "note": "The one photograph found of the 1865 building's two street fronts together. It shows the banded rustication over the whole wall, the corner piers, the triple-arched entrance in the projecting centre bay, the tall round-arched windows of the exchange room in the upper storey, the bracketed cornice, and the curved mansard with oval dormers in front and small dormers along the side; at street level on LaSalle the shop fronts under the ground storey's paired arched windows. Monochrome.",
+  "what_it_supplies": [
+    "the massing, storeys and bay rhythm of the Washington and LaSalle fronts",
+    "the mansard, its dormers and the centre bay's clock pediment",
+    "the street-level shop fronts on LaSalle Street"
+  ],
+  "what_it_does_not_supply": [
+    "the east and south walls",
+    "colour",
+    "a date of exposure"
+  ]
+}

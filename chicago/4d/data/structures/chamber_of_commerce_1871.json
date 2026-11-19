@@ -1,0 +1,643 @@
+{
+ "id": "chamber_of_commerce_1871",
+ "name": "The Chamber of Commerce (E. Burling, 1865), LaSalle and Washington Streets",
+ "aka": [
+  "Board of Trade building",
+  "Chamber of Commerce building"
+ ],
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "commercial_exchange",
+  "confidence": "attested",
+  "sources": [
+   "jevne_almini_1866_chicago_illustrated"
+  ],
+  "note": "Built and owned by an incorporated company of members of the Board of Trade; its grand hall upstairs was the exchange room, and the floors under it were let to merchants, banks and insurance companies (Chicago Illustrated's letterpress)."
+ },
+ "built": {
+  "value": 1865,
+  "confidence": "attested",
+  "sources": [
+   "jevne_almini_1866_chicago_illustrated"
+  ],
+  "note": "Dedicated 30 August 1865 (Chicago Illustrated's letterpress)."
+ },
+ "research_note": "THE CHAMBER OF COMMERCE, built by T-3688 for the 1871 scene (the fire's South Side landmarks). Its two street fronts are built from Carbutt's stereograph (No. 140) and Jevne & Almini's lithograph, which agree element by element; its size, height and place are the lithograph's letterpress. The east wall on Exchange Place is built like the LaSalle side and the south wall blank, neither seen in any picture found (docs/LIBERTIES.md, T-3688).",
+ "phases": [
+  {
+   "id": "chamber_1865_1871",
+   "documented_range": {
+    "from": "1865-08-30",
+    "to": "1871-10-09",
+    "confidence": "attested",
+    "sources": [
+     "jevne_almini_1866_chicago_illustrated",
+     "andreas_1885_v2_buildings"
+    ],
+    "note": "Completed 28 August 1865 and dedicated on the 30th (Andreas vol. 2, p. 358; Chicago Illustrated); destroyed between one and two o'clock on the morning of 9 October 1871, when the flames broke in the west windows near the south end and seized the roof and cornices (Andreas vol. 2, p. 368)."
+   },
+   "position": {
+    "utm_e": 447547.59,
+    "utm_n": 4636932.31,
+    "rotation_deg": 359.53,
+    "symbolic_location": "South-east corner of LaSalle and Washington Streets, facing the Court House square across Washington Street.",
+    "confidence": "inferred",
+    "sources": [
+     "jevne_almini_1866_chicago_illustrated",
+     "mitchell_1870_chicago_map"
+    ],
+    "note": "The footprint's south-west corner (local E 474.89, N -463.49). The building's north-west corner is set where the 1871 plan's LaSalle Street east line (centre E 464.44 + 10 m) meets Washington Street's south line (centre N -396.32 - 12 m), the corner Chicago Illustrated names; the front is squared to Washington Street's bearing on the plan (89.53 degrees). The plan's streets are traced from Mitchell's 1870 map, so the corner is good to that tracing (a few metres), not to a survey.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Set on the 1871 plan's street lines (themselves traced from Mitchell's 1870 map) at the corner Chicago Illustrated names; no platted corner or traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      28.35,
+      0
+     ],
+     [
+      28.35,
+      55.17
+     ],
+     [
+      0,
+      55.17
+     ]
+    ],
+    "confidence": "attested",
+    "sources": [
+     "jevne_almini_1866_chicago_illustrated"
+    ],
+    "note": "93 by 181 feet (28.35 by 55.17 m), the main building's dimensions in Chicago Illustrated; 93 feet on Washington Street and 181 on LaSalle, as both pictures show the short front on Washington."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "inferred",
+      "fire": {
+       "fate": "burned",
+       "left": "walls",
+       "note": "Destroyed about 1:20 a.m. on 9 October 1871: the flames broke the west windows near the south end and seized the roof and the overhanging cornices; gutted in minutes, part of the walls melted away (Andreas vol. 2, p. 368).",
+       "time": "1871-10-09T01:20",
+       "sources": [
+        "andreas_1885_v2_buildings"
+       ]
+      },
+      "blocks": [
+       {
+        "name": "main",
+        "box": [
+         0,
+         0,
+         28.35,
+         55.17
+        ],
+        "storeys": [
+         2.6,
+         6.5,
+         15.0
+        ],
+        "wall": "marble",
+        "course_m": 0.5,
+        "rustic_storeys": 2,
+        "belts": [
+         1,
+         2
+        ],
+        "water_table": 0.6,
+        "confidence": "inferred",
+        "cornice": {
+         "kind": "bracketed",
+         "proj": 0.9,
+         "brackets": 1.15
+        },
+        "roof": {
+         "kind": "mansard",
+         "h": 5.0,
+         "inset": 0.45,
+         "run": 1.5,
+         "curve": 0.15,
+         "covering": "slate",
+         "cresting": true,
+         "dormers": {
+          "N": {
+           "kind": "oculus",
+           "w": 1.5,
+           "h": 1.9,
+           "at": [
+            3.6,
+            7.6,
+            20.75,
+            24.75
+           ]
+          },
+          "W": {
+           "kind": "flat",
+           "head": "flat",
+           "w": 0.9,
+           "h": 1.4,
+           "at": [
+            4.7,
+            9.3,
+            13.9,
+            20.68,
+            25.28,
+            29.88,
+            34.48,
+            41.26,
+            45.86,
+            50.46
+           ]
+          },
+          "E": {
+           "kind": "flat",
+           "head": "flat",
+           "w": 0.9,
+           "h": 1.4,
+           "at": [
+            4.7,
+            9.3,
+            13.9,
+            20.68,
+            25.28,
+            29.88,
+            34.48,
+            41.26,
+            45.86,
+            50.46
+           ]
+          }
+         }
+        },
+        "faces": {
+         "N": {
+          "bays": {
+           "at": [
+            3.6,
+            7.6,
+            20.75,
+            24.75
+           ]
+          },
+          "levels": [
+           1.5,
+           7.6,
+           15.0
+          ],
+          "belts": [
+           2
+          ],
+          "storeys": [
+           null,
+           {
+            "kind": "pair_round",
+            "w": 1.9,
+            "h": 6.3,
+            "sill": 0.6,
+            "hood": "arch"
+           },
+           {
+            "kind": "pair_round",
+            "w": 1.9,
+            "h": 8.85,
+            "sill": 1.15,
+            "hood": "pediment"
+           }
+          ],
+          "pilasters": [
+           {
+            "s": 1.2,
+            "w": 2.4
+           },
+           {
+            "s": 27.15,
+            "w": 2.4
+           }
+          ]
+         },
+         "W": {
+          "bays": {
+           "at": [
+            4.7,
+            9.3,
+            13.9,
+            20.68,
+            25.28,
+            29.88,
+            34.48,
+            41.26,
+            45.86,
+            50.46
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "store",
+            "w": 3.4,
+            "h": 2.25,
+            "sill": 0.15
+           },
+           {
+            "kind": "round",
+            "w": 0.95,
+            "h": 3.7,
+            "sill": 1.5,
+            "hood": "arch",
+            "bays": {
+             "at": [
+              3.65,
+              5.75,
+              8.25,
+              10.35,
+              12.85,
+              14.95,
+              19.63,
+              21.73,
+              24.23,
+              26.33,
+              28.83,
+              30.93,
+              33.43,
+              35.53,
+              40.21,
+              42.31,
+              44.81,
+              46.91,
+              49.41,
+              51.51
+             ]
+            }
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 8.85,
+            "sill": 1.15,
+            "hood": "pediment"
+           }
+          ],
+          "pilasters": [
+           {
+            "s": 1.2,
+            "w": 2.4
+           },
+           {
+            "s": 53.97,
+            "w": 2.4
+           },
+           {
+            "s": 17.29,
+            "w": 2.18
+           },
+           {
+            "s": 37.87,
+            "w": 2.18
+           }
+          ],
+          "awnings": null
+         },
+         "E": {
+          "bays": {
+           "at": [
+            4.7,
+            9.3,
+            13.9,
+            20.68,
+            25.28,
+            29.88,
+            34.48,
+            41.26,
+            45.86,
+            50.46
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "flat",
+            "w": 1.2,
+            "h": 1.3,
+            "sill": 0.8
+           },
+           {
+            "kind": "round",
+            "w": 0.95,
+            "h": 3.7,
+            "sill": 1.5,
+            "hood": "arch",
+            "bays": {
+             "at": [
+              3.65,
+              5.75,
+              8.25,
+              10.35,
+              12.85,
+              14.95,
+              19.63,
+              21.73,
+              24.23,
+              26.33,
+              28.83,
+              30.93,
+              33.43,
+              35.53,
+              40.21,
+              42.31,
+              44.81,
+              46.91,
+              49.41,
+              51.51
+             ]
+            }
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 8.85,
+            "sill": 1.15,
+            "hood": "pediment"
+           }
+          ],
+          "pilasters": [
+           {
+            "s": 1.2,
+            "w": 2.4
+           },
+           {
+            "s": 53.97,
+            "w": 2.4
+           },
+           {
+            "s": 17.29,
+            "w": 2.18
+           },
+           {
+            "s": 37.87,
+            "w": 2.18
+           }
+          ],
+          "awnings": null
+         },
+         "S": "blank"
+        }
+       },
+       {
+        "name": "centre bay",
+        "box": [
+         9.675,
+         55.17,
+         18.675,
+         55.77
+        ],
+        "storeys": [
+         9.1,
+         15.0
+        ],
+        "wall": "marble",
+        "course_m": 0.5,
+        "rustic_storeys": 1,
+        "belts": [
+         1
+        ],
+        "confidence": "attested",
+        "cornice": {
+         "kind": "bracketed",
+         "proj": 0.9,
+         "brackets": 1.15
+        },
+        "roof": {
+         "kind": "flat"
+        },
+        "faces": {
+         "N": {
+          "bays": {
+           "at": [
+            4.5
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "door_round",
+            "w": 2.1,
+            "h": 6.8,
+            "sill": 0.9,
+            "bays": {
+             "at": [
+              1.75,
+              4.5,
+              7.25
+             ]
+            }
+           },
+           {
+            "kind": "pair_round",
+            "w": 3.6,
+            "h": 8.6,
+            "sill": 1.5,
+            "hood": "arch",
+            "depth": 0.25,
+            "back": 0.25
+           }
+          ]
+         },
+         "E": "blank",
+         "W": "blank",
+         "S": "none"
+        }
+       }
+      ],
+      "pediments": [
+       {
+        "block": 1,
+        "face": "N",
+        "s": 4.5,
+        "w": 6.6,
+        "h": 4.4,
+        "kind": "scroll",
+        "clock": true,
+        "depth": 1.2,
+        "z": 24.18,
+        "confidence": "attested"
+       }
+      ],
+      "steps": [
+       {
+        "block": 1,
+        "face": "N",
+        "s0": 0.4,
+        "s1": 8.6,
+        "n": 4
+       }
+      ],
+      "flagpoles": [
+       {
+        "at": [
+         14.175,
+         55.27,
+         28.4
+        ],
+        "h": 8.0
+       }
+      ],
+      "chimneys": [
+       {
+        "at": [
+         2.3,
+         4.7
+        ],
+        "z0": 28.9,
+        "h": 1.3,
+        "w": 0.8,
+        "d": 0.8,
+        "material": "marble_wall"
+       },
+       {
+        "at": [
+         2.3,
+         13.9
+        ],
+        "z0": 28.9,
+        "h": 1.3,
+        "w": 0.8,
+        "d": 0.8,
+        "material": "marble_wall"
+       },
+       {
+        "at": [
+         2.3,
+         25.28
+        ],
+        "z0": 28.9,
+        "h": 1.3,
+        "w": 0.8,
+        "d": 0.8,
+        "material": "marble_wall"
+       },
+       {
+        "at": [
+         2.3,
+         34.48
+        ],
+        "z0": 28.9,
+        "h": 1.3,
+        "w": 0.8,
+        "d": 0.8,
+        "material": "marble_wall"
+       },
+       {
+        "at": [
+         2.3,
+         45.86
+        ],
+        "z0": 28.9,
+        "h": 1.3,
+        "w": 0.8,
+        "d": 0.8,
+        "material": "marble_wall"
+       },
+       {
+        "at": [
+         26.05,
+         4.7
+        ],
+        "z0": 28.9,
+        "h": 1.3,
+        "w": 0.8,
+        "d": 0.8,
+        "material": "marble_wall"
+       },
+       {
+        "at": [
+         26.05,
+         13.9
+        ],
+        "z0": 28.9,
+        "h": 1.3,
+        "w": 0.8,
+        "d": 0.8,
+        "material": "marble_wall"
+       },
+       {
+        "at": [
+         26.05,
+         25.28
+        ],
+        "z0": 28.9,
+        "h": 1.3,
+        "w": 0.8,
+        "d": 0.8,
+        "material": "marble_wall"
+       },
+       {
+        "at": [
+         26.05,
+         34.48
+        ],
+        "z0": 28.9,
+        "h": 1.3,
+        "w": 0.8,
+        "d": 0.8,
+        "material": "marble_wall"
+       },
+       {
+        "at": [
+         26.05,
+         45.86
+        ],
+        "z0": 28.9,
+        "h": 1.3,
+        "w": 0.8,
+        "d": 0.8,
+        "material": "marble_wall"
+       }
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "nypl_carbutt_140_chamber_of_commerce",
+      "jevne_almini_1866_chicago_illustrated",
+      "andreas_1885_v2_buildings"
+     ],
+     "note": "Read off Carbutt's stereograph and Jevne & Almini's lithograph, which agree. THREE STOREYS under a mansard: a basement of shops at street level (iron shop fronts on LaSalle, small windows on the front), the first storey of business rooms lit by round-arched windows (singles on the front, pairs on the sides), and the grand hall, 44 feet floor to ceiling (13.4 m, the letterpress; built 13.0 m), lit by tall round-arched windows; the wall head 22 m above the street (the photograph, scaled on the front's 93 feet). THE FRONT on Washington Street: five bays, two and one and two, the centre bay projecting with the triple-arched entrance up a short flight of steps, a great triple window over it and a scrolled pediment with a clock above the cornice; the outer bays' hall windows are paired lights under one arch. Andreas (vol. 2, p. 358) agrees: the facade above the first storey divided in three by bold quoins, the middle a circular-topped triple window thirty feet high and twelve wide (built 9.2 by 3.6 m), the side spaces two windows each. THE SIDE on LaSalle: ten bays in three groups (three, four, three) divided by rusticated pilaster strips, rusticated corner piers; the letterpress's eighteen hall windows are nine a side over the 143-foot hall. The whole wall is banded with channelled joints. A bracketed cornice, and a curved mansard of slate with oval dormers on the front and small square dormers along the sides, iron cresting at its curb. The east wall on Exchange Place is built like the LaSalle side without shop fronts and the south wall blank (reconstructed: no picture found shows them)."
+    },
+    "wall_material": {
+     "value": "marble",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1885_v2_buildings"
+     ],
+     "note": "Andreas (vol. 2, p. 358): cut stone (Athens marble) on the three sides fronting north, east and west, and brick on the south side, which faced Calhoun Place. Athens marble is the Lemont limestone; built in the K02 library's pale Bedford-type limestone. The south wall is built blank in the same stone (its brick is a liberty, docs/LIBERTIES.md).",
+     "geometry": "simplified"
+    },
+    "storeys": {
+     "value": 3,
+     "confidence": "attested",
+     "sources": [
+      "nypl_carbutt_140_chamber_of_commerce",
+      "jevne_almini_1866_chicago_illustrated"
+     ],
+     "note": "Basement, first storey and grand hall, under the mansard.",
+     "geometry": "simplified"
+    },
+    "height_m": {
+     "value": 29.0,
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1885_v2_buildings",
+      "jevne_almini_1866_chicago_illustrated",
+      "nypl_carbutt_140_chamber_of_commerce"
+     ],
+     "note": "Andreas (vol. 2, p. 358): the mansard's extreme height twenty-three feet (7.0 m) above the cornice and ninety-nine feet from the basement floor; Chicago Illustrated gives one hundred feet in height. The wall head stands about 22 m over the street in the photograph (scaled on the 93-foot front), so the roof is built 6.6 m with its 0.4 m cresting over the cornice, the top 29 m over the street.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3688 (2026-11-19): the Chamber of Commerce stands in the 1871 scene on the new landmark_1871 archetype, from Carbutt's stereograph and Chicago Illustrated."
+  }
+ ]
+}

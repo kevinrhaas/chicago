@@ -1,0 +1,586 @@
+{
+ "id": "sherman_house_1871",
+ "name": "The Sherman House (W. W. Boyington, 1861), Clark and Randolph Streets",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "hotel",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2_buildings"
+  ],
+  "note": "Francis C. Sherman's hotel, opened 8 July 1861 on the site of his older City Hotel (Andreas vol. 2, pp. 502-503); over three hundred guests were lodged there the night of the fire (p. 727)."
+ },
+ "built": {
+  "value": 1861,
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2_buildings"
+  ],
+  "note": "The old house pulled down from May 1861; the new hotel opened to the public on 8 July 1861 (Andreas vol. 2, pp. 502-503)."
+ },
+ "research_note": "THE SHERMAN HOUSE, built by T-3688 for the 1871 scene, from Carbutt's stereograph (No. 52) taken from a window across Clark Street: six storeys of Athens marble over a ground storey of arched shop fronts, three groups of windows on each front between pilaster strips, round heads in the end groups and flat heads under little cornices in the middle, a heavy bracketed cornice, an iron balcony over the shop fronts round both streets, a two-storey columned porch at the hotel's entrance on Clark Street and a balustraded attic over the south-east corner. The north and west walls (against neighbours) are built blank (docs/LIBERTIES.md, T-3688).",
+ "phases": [
+  {
+   "id": "sherman_1861_1871",
+   "documented_range": {
+    "from": "1861-07-08",
+    "to": "1871-10-09",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1885_v2_buildings"
+    ],
+    "note": "Opened 8 July 1861 (Andreas vol. 2, p. 503); burned in the small hours of 9 October 1871 (pp. 723-727)."
+   },
+   "position": {
+    "utm_e": 447590.95,
+    "utm_n": 4637147.39,
+    "rotation_deg": 359.53,
+    "symbolic_location": "North-west corner of Clark and Randolph Streets, its Randolph Street front overlooking the Court House square.",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2_buildings",
+     "mitchell_1870_chicago_map"
+    ],
+    "note": "The footprint's south-west corner (local E 518.25, N -248.41). The south-east corner stands where the 1871 plan's Clark Street west line (centre E 573.97 - 10 m) meets Randolph Street's north line (centre N -260.03 + 12 m): Andreas puts its 180-foot front on Clark and its 150-foot front on Randolph, the latter overlooking the public square, and the stereograph shows the square's fence across Randolph from it. Squared to Randolph Street (89.53 degrees). Good to the plan's tracing of Mitchell's map, a few metres.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Set on the 1871 plan's street lines (traced from Mitchell's 1870 map) at the corner Andreas names; no platted corner or traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      45.72,
+      0
+     ],
+     [
+      45.72,
+      54.86
+     ],
+     [
+      0,
+      54.86
+     ]
+    ],
+    "confidence": "attested",
+    "sources": [
+     "andreas_1885_v2_buildings"
+    ],
+    "note": "One hundred and fifty feet on Randolph Street by one hundred and eighty on Clark (45.72 by 54.86 m), Andreas vol. 2, p. 503; built as one solid block (a courtyard or light well, if it had one, is not seen)."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "inferred",
+      "fire": {
+       "fate": "burned",
+       "left": "walls",
+       "sources": [
+        "andreas_1885_v2_buildings"
+       ],
+       "note": "Its awnings were being torn down against the sparks soon after half past eleven on 8 October; it held for nearly an hour with the flames round it, then fire broke from a third-storey window on the south (Randolph Street) face and from every window after, and the roof went; the guests got out (Andreas vol. 2, pp. 723-724, 727)."
+      },
+      "blocks": [
+       {
+        "name": "the hotel",
+        "box": [
+         0,
+         0,
+         45.72,
+         54.86
+        ],
+        "storeys": [
+         6.0,
+         5.2,
+         5.0,
+         4.8,
+         4.6,
+         4.4
+        ],
+        "wall": "marble",
+        "rustic_storeys": 0,
+        "belts": [
+         1
+        ],
+        "water_table": 0.4,
+        "confidence": "inferred",
+        "cornice": {
+         "kind": "bracketed",
+         "proj": 1.1,
+         "brackets": 0.95
+        },
+        "roof": {
+         "kind": "flat",
+         "covering": "tin"
+        },
+        "faces": {
+         "S": {
+          "bays": {
+           "at": [
+            1.9,
+            5.71,
+            9.53,
+            13.34,
+            17.14,
+            20.95,
+            24.77,
+            28.58,
+            32.38,
+            36.19,
+            40.01,
+            43.82
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "round",
+            "w": 2.7,
+            "h": 4.9,
+            "sill": 0.25
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 3.6,
+            "sill": 1.1,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 3.4,
+            "sill": 1.0,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 3.2,
+            "sill": 1.0,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 3.0,
+            "sill": 1.0,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 2.8,
+            "sill": 1.0,
+            "hood": "arch"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             4,
+             5,
+             6,
+             7
+            ],
+            "storeys": [
+             1
+            ],
+            "kind": "flat",
+            "hood": "cornice",
+            "h": 3.4
+           },
+           {
+            "bays": [
+             4,
+             5,
+             6,
+             7
+            ],
+            "storeys": [
+             2
+            ],
+            "kind": "flat",
+            "hood": "cornice",
+            "h": 3.1999999999999997
+           },
+           {
+            "bays": [
+             4,
+             5,
+             6,
+             7
+            ],
+            "storeys": [
+             3
+            ],
+            "kind": "flat",
+            "hood": "cornice",
+            "h": 3.0
+           },
+           {
+            "bays": [
+             4,
+             5,
+             6,
+             7
+            ],
+            "storeys": [
+             4
+            ],
+            "kind": "flat",
+            "hood": "cornice",
+            "h": 2.8
+           },
+           {
+            "bays": [
+             4,
+             5,
+             6,
+             7
+            ],
+            "storeys": [
+             5
+            ],
+            "kind": "flat",
+            "hood": "cornice",
+            "h": 2.5999999999999996
+           }
+          ],
+          "pilasters": [
+           {
+            "s": 0.5,
+            "w": 1.0,
+            "to": 6
+           },
+           {
+            "s": 15.24,
+            "w": 0.9,
+            "to": 6
+           },
+           {
+            "s": 30.48,
+            "w": 0.9,
+            "to": 6
+           },
+           {
+            "s": 45.22,
+            "w": 1.0,
+            "to": 6
+           }
+          ],
+          "awnings": [
+           9,
+           6,
+           2,
+           5
+          ]
+         },
+         "E": {
+          "bays": {
+           "at": [
+            1.9,
+            5.52,
+            9.14,
+            12.76,
+            16.39,
+            20.19,
+            23.81,
+            27.43,
+            31.05,
+            34.67,
+            38.47,
+            42.09,
+            45.72,
+            49.34,
+            52.96
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "round",
+            "w": 2.7,
+            "h": 4.9,
+            "sill": 0.25
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 3.6,
+            "sill": 1.1,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 3.4,
+            "sill": 1.0,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 3.2,
+            "sill": 1.0,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 3.0,
+            "sill": 1.0,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 2.8,
+            "sill": 1.0,
+            "hood": "arch"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             5,
+             6,
+             7,
+             8,
+             9
+            ],
+            "storeys": [
+             1
+            ],
+            "kind": "flat",
+            "hood": "cornice",
+            "h": 3.4
+           },
+           {
+            "bays": [
+             5,
+             6,
+             7,
+             8,
+             9
+            ],
+            "storeys": [
+             2
+            ],
+            "kind": "flat",
+            "hood": "cornice",
+            "h": 3.1999999999999997
+           },
+           {
+            "bays": [
+             5,
+             6,
+             7,
+             8,
+             9
+            ],
+            "storeys": [
+             3
+            ],
+            "kind": "flat",
+            "hood": "cornice",
+            "h": 3.0
+           },
+           {
+            "bays": [
+             5,
+             6,
+             7,
+             8,
+             9
+            ],
+            "storeys": [
+             4
+            ],
+            "kind": "flat",
+            "hood": "cornice",
+            "h": 2.8
+           },
+           {
+            "bays": [
+             5,
+             6,
+             7,
+             8,
+             9
+            ],
+            "storeys": [
+             5
+            ],
+            "kind": "flat",
+            "hood": "cornice",
+            "h": 2.5999999999999996
+           }
+          ],
+          "pilasters": [
+           {
+            "s": 0.5,
+            "w": 1.0,
+            "to": 6
+           },
+           {
+            "s": 18.29,
+            "w": 0.9,
+            "to": 6
+           },
+           {
+            "s": 36.57,
+            "w": 0.9,
+            "to": 6
+           },
+           {
+            "s": 54.36,
+            "w": 1.0,
+            "to": 6
+           }
+          ],
+          "awnings": [
+           12,
+           9,
+           2,
+           5
+          ]
+         },
+         "N": "blank",
+         "W": "blank"
+        }
+       },
+       {
+        "name": "the attic over the corner",
+        "box": [
+         30.6,
+         0.6,
+         45.1,
+         15.0
+        ],
+        "z0": 30.08,
+        "storeys": [
+         2.4
+        ],
+        "wall": "marble",
+        "parapet": 1.1,
+        "roof": {
+         "kind": "flat",
+         "covering": "tin"
+        },
+        "faces": {
+         "S": "blank",
+         "E": "blank",
+         "N": "blank",
+         "W": "blank"
+        },
+        "cornice": {
+         "kind": "light",
+         "proj": 0.35
+        },
+        "confidence": "inferred"
+       }
+      ],
+      "porches": [
+       {
+        "block": 0,
+        "face": "S",
+        "s0": 0.3,
+        "s1": 45.42,
+        "h": 5.85,
+        "depth": 1.1,
+        "columns": 0,
+        "material": "iron",
+        "balcony": true,
+        "slab": 0.2
+       },
+       {
+        "block": 0,
+        "face": "E",
+        "s0": 0.3,
+        "s1": 54.56,
+        "h": 5.85,
+        "depth": 1.1,
+        "columns": 0,
+        "material": "iron",
+        "balcony": true,
+        "slab": 0.2
+       },
+       {
+        "block": 0,
+        "face": "E",
+        "s0": 22.0,
+        "s1": 32.9,
+        "h": 10.85,
+        "depth": 3.0,
+        "columns": 4,
+        "material": "stone_trim",
+        "balcony": true,
+        "slab": 0.5
+       }
+      ],
+      "chimneys": [
+       {
+        "at": [
+         8.0,
+         40.0
+        ],
+        "z0": 30.0,
+        "h": 2.2,
+        "w": 1.6,
+        "d": 0.8
+       },
+       {
+        "at": [
+         24.0,
+         48.0
+        ],
+        "z0": 30.0,
+        "h": 2.2,
+        "w": 1.6,
+        "d": 0.8
+       }
+      ],
+      "flagpoles": [
+       {
+        "at": [
+         38.0,
+         8.0,
+         32.5
+        ],
+        "h": 9.0
+       }
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "loc_stereo_1s12371_sherman_house",
+      "andreas_1885_v2_buildings"
+     ],
+     "note": "Read off the stereograph: a ground storey of round-arched shop fronts with striped awnings, six storeys in all (Andreas: 'six stories high'), the Randolph front in three groups of four bays and the Clark front in three groups of five between plain pilaster strips, the end groups' windows round-headed and the middle groups' square-headed under small cornices, a deep bracketed cornice, a continuous iron balcony at the first floor, a balustraded attic over the south-east corner with its flagstaff. Storey heights are read through the stereograph's camera (no dimension of them was found): fitted on the cornice's three corners and the front's two feet, the wall head stands about 30 m over the street (a 6.0 m shop storey, then 5.2 to 4.4 m)."
+    },
+    "wall_material": {
+     "value": "Athens marble",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1885_v2_buildings"
+     ],
+     "note": "'The material of the structure was the finest Athens marble, from the quarries at Lemont' (Andreas vol. 2, p. 503). Built in the K02 library's pale Bedford-type limestone.",
+     "geometry": "simplified"
+    },
+    "storeys": {
+     "value": 6,
+     "confidence": "attested",
+     "sources": [
+      "andreas_1885_v2_buildings"
+     ],
+     "note": "'Six stories high' (Andreas vol. 2, p. 503); the stereograph shows the ground storey and five above it.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3688 (2026-11-19): the Sherman House stands in the 1871 scene on the landmark_1871 archetype, from Carbutt's stereograph No. 52."
+  }
+ ]
+}

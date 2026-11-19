@@ -1,0 +1,33 @@
+{
+  "structure_id": "cook_county_court_house_1871",
+  "view": "loc_1s12325",
+  "glb": "assets/gltf/cook_county_court_house_1871__court_house_1870_1871.glb",
+  "glb_sha256": "6abb9af44adbb79d58703789e65f9d858396e7bbab07844b10a22b866457931a",
+  "camera_sha256": "950a0ded5198e62a2be057644e98f473a28f22678b121a7b53ddd37d8fb387e0",
+  "photo_sha256": "e0950504e4fa06d6e9360f453e405719a588a1287fefb92bf0a54cf758f45c8c",
+  "side_by_side": "docs/RESEARCH/photo-match/cook_county_court_house_1871/loc_1s12325-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "The camera is not fitted: no dimension of the 1870 wings was found, so the pictures cannot be scaled against each other and the model is set by eye",
+      "status": "open"
+    },
+    {
+      "what": "The wings are a storey short of the photograph's and lack its attic of round windows under the scrolled crests and the urns along the parapet",
+      "status": "open"
+    },
+    {
+      "what": "The great cupola stands lower and narrower than in the photograph, and its clock stage is missing",
+      "status": "open"
+    },
+    {
+      "what": "Tones: the 1853 house dark and the wings pale, as the photograph shows them",
+      "status": "fixed"
+    },
+    {
+      "what": "The trees, fence and wagons of the square",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

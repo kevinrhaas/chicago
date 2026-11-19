@@ -1,0 +1,33 @@
+{
+  "structure_id": "chamber_of_commerce_1871",
+  "view": "nypl_carbutt_140",
+  "glb": "assets/gltf/chamber_of_commerce_1871__chamber_1865_1871.glb",
+  "glb_sha256": "23627c9b629a576dfa11fdcdb18f4ce92e605979ea0b2eadbaf093d5af03bb26",
+  "camera_sha256": "4a54c7ae0a954a763e11c8dc53ac0c494488ac51b351a10edc180cba667fdbc8",
+  "photo_sha256": "53b78652b3ce588b4eb6fac09ad6e080c08d1bc8fad89bb35e61b42e33dc2350",
+  "side_by_side": "docs/RESEARCH/photo-match/chamber_of_commerce_1871/nypl_carbutt_140-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Massing, the 2/1/2 bays of the Washington Street front and the 3/4/3 groups of the LaSalle Street side, the belt and sill lines, the mansard with its oval dormers and the clock crest",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The balustraded balcony over the three-arched entrance of the centre pavilion is not built",
+      "status": "open"
+    },
+    {
+      "what": "The upper windows' crowns: the photograph shows large curved pediments on consoles; the model carries small triangular pediments",
+      "status": "open"
+    },
+    {
+      "what": "The cornice's urns and the mansard's iron cresting read lighter in the photograph",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The fence, horse cars, sign boards and the Court House square in the foreground",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

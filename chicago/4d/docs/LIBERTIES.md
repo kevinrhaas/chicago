@@ -45246,3 +45246,21 @@ invented parts.
 **Ticket:** T-3631 (piece 1 of T-1911, the S08 package of the T-1837 programme).
 **Review:** `docs/RESEARCH/photo-match/buckingham_house_2036_prairie/chicagology_engraving-side-by-side.jpg`.
 **Recorded:** 2026-11-17 (T-3631).
+
+### L-1871-landmarks-3688 — The 1871 fire landmarks round the Court House square (the Court House, the Chamber of Commerce, the Sherman House): what their pictures and texts do not say
+
+**Decision:** three of the pre-fire city's named masonry landmarks stand in the 1871 scene on a new pure-Python archetype, `landmark_1871` (`generators/archetypes/landmark_1871.py`), each built as a composition of blocks, faces, openings, cornices, roofs, towers and crests read off its pictures, in the 1904 kits' materials (K02 stone, K03 brick, K04 slate and tin): `cook_county_court_house_1871` (Lovejoy & Foster's 1871 stereograph; Andreas's engraving), `chamber_of_commerce_1871` (Carbutt's stereograph No. 140; Chicago Illustrated's lithograph) and `sherman_house_1871` (Carbutt's stereograph No. 52). **What the sources give** — each building's corner, frontages, storeys, stone, architect, dates and the hour it burned — is cited attribute by attribute in its record. **These are this project's:**
+
+- **Places.** Each stands on the 1871 plan's street lines at the corner its texts name (the Court House centred in its square); the plan's streets are a tracing of Mitchell's 1870 map, so a building is good to a few metres, and moves if the streets do.
+- **Walls no picture shows.** The Chamber of Commerce's east wall on Exchange Place is built like its LaSalle side without shop fronts, and its south wall (brick, Andreas says) is built blank in the front's stone; the Sherman House's north and west walls are built blank; the Court House's south and west fronts are built as mirrors of the north and east.
+- **The Court House's wings.** No dimension of the 1870 wings was found: each is built about 30 m by 38 m, nearly square as Andreas's engraving draws the east wing, and their bays, storey heights and corner domes are read off the stereograph by eye. Its camera does not yet fit the building (see its match record): the wings' size and the cupola's height are the open questions.
+- **Heights.** No storey height was found in any text. The Chamber of Commerce's are read through its photograph's camera against Andreas's 44-foot hall and 23-foot roof; the Sherman House's through its camera (about 30 m to the cornice); the Court House's by eye.
+- **Detail.** Ornament is simplified to the archetype's vocabulary: carved crests and scrolled pediments are flat profiles, window tracery is a sash bar, the clock faces are blank discs, statuary and lettered signs are left out, the Court House's and Sherman House's channelled rustication is left out (the Chamber of Commerce's is drawn as joint strips), and the Chamber of Commerce's south wall is stone rather than brick.
+- **Tones.** The stone textures are the 1904 kits' (Lemont and Bedford limestone); the Court House's 1853 house is the Lemont texture darkened to the smoke-stained grey the 1871 stereograph shows, and its 1870 wings the paler Bedford texture, the colours of the photograph rather than of the quarries.
+- **Stated, not built twice.** Each record's `wall_material`, `storeys` and `height_m` are the evidence its composition was read against; the composition, not those attributes, drives the mesh.
+
+**Covers:** `chamber_of_commerce_1871.chamber_1865_1871.form.wall_material`, `chamber_of_commerce_1871.chamber_1865_1871.form.storeys`, `chamber_of_commerce_1871.chamber_1865_1871.form.height_m`, `cook_county_court_house_1871.court_house_1870_1871.form.wall_material`, `sherman_house_1871.sherman_1861_1871.form.wall_material`, `sherman_house_1871.sherman_1861_1871.form.storeys`
+**How to resolve:** a plan or dimension of the Court House wings (the county's or city's reports of 1869-1870, a Sanborn or Rascher sheet of 1870-1871), a picture of the Chamber of Commerce's Exchange Place side or the Sherman House's rear, or a measured drawing of any of them, replaces the parts above.
+**Ticket:** T-3688.
+**Review:** `docs/RESEARCH/photo-match/chamber_of_commerce_1871/`, `docs/RESEARCH/photo-match/cook_county_court_house_1871/`, `docs/RESEARCH/photo-match/sherman_house_1871/`.
+**Recorded:** 2026-11-19 (T-3688).

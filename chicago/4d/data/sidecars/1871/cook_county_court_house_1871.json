@@ -1,0 +1,1501 @@
+{
+  "id": "cook_county_court_house_1871",
+  "phase": "court_house_1870_1871",
+  "name": "The Court House and City Hall (J. M. Van Osdel 1853; wings 1870), Court House square",
+  "aka": [
+    "City Hall",
+    "the Court House",
+    "Cook County Court House"
+  ],
+  "archetype": "landmark_1871",
+  "asset": "gltf/cook_county_court_house_1871__court_house_1870_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "loc_stereo_1s12325_court_house"
+    ]
+  },
+  "documented_range": {
+    "from": "1870-12-31",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "The wings and the added storey were completed during 1870 (Andreas vol. 2, p. 66; the day is not given, so the phase opens at the year's end), and the building burned on the morning of 9 October 1871 (vol. 2, pp. 368, 719)."
+  },
+  "change_note": "Built T-3688 (2026-11-19): the Court House stands in the 1871 scene on the landmark_1871 archetype, from Lovejoy & Foster's 1871 stereograph and Andreas's engraving.",
+  "placement": {
+    "local_e": 475.11,
+    "local_n": -348.02,
+    "rotation_deg": 359.53,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "mitchell_1870_chicago_map",
+      "andreas_1884_v1"
+    ],
+    "position_note": "The footprint's south-west corner (local E 475.11, N -348.02): the building is centred in the square as both pictures show it, the square being the block the 1871 plan's LaSalle, Clark, Randolph and Washington Streets enclose (lot lines E 474.4-566.0, N -384.3 to -273.0), squared to Washington Street (89.53 degrees). Good to the plan's tracing of Mitchell's map, a few metres.",
+    "symbolic_location": "The middle of the Court House square, bounded by Clark, Randolph, LaSalle and Washington Streets.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        90.5,
+        0
+      ],
+      [
+        90.5,
+        38.0
+      ],
+      [
+        0,
+        38.0
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "loc_stereo_1s12325_court_house",
+      "andreas_1885_v2_court_house_plate"
+    ],
+    "note": "The whole building's bounding rectangle, 90.5 by 38 m: the 1853 house's 100-foot main part with its north and south porticoes 60 feet wide (130 feet north to south, Andreas vol. 1, p. 181), and the two 1870 wings against its east and west sides, each read off the pictures as about 30 m east to west and 38 m north to south, nearly square as Andreas's engraving draws the east wing's two fronts (reconstructed sizes: no dimension of the wings was found)."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "inferred",
+        "fire": {
+          "fate": "burned",
+          "left": "walls",
+          "time": "1871-10-09T02:05",
+          "sources": [
+            "andreas_1885_v2_buildings"
+          ],
+          "note": "The cupola caught about midnight; the watchmen left the tower about 1:30 and the great bell fell through the building at 2:05 a.m. on 9 October 1871; the walls of the wings stood as a shell (Andreas vol. 2, pp. 368, 719)."
+        },
+        "blocks": [
+          {
+            "name": "west wing",
+            "box": [
+              0.0,
+              0,
+              30.0,
+              38.0
+            ],
+            "storeys": [
+              3.2,
+              6.2,
+              6.0,
+              5.6
+            ],
+            "wall": "limestone_pale",
+            "rustic_storeys": 1,
+            "belts": [
+              1,
+              2,
+              3
+            ],
+            "water_table": 0.5,
+            "cornice": {
+              "kind": "bracketed",
+              "proj": 0.8,
+              "brackets": 1.0
+            },
+            "parapet": 1.0,
+            "roof": {
+              "kind": "flat",
+              "covering": "tin"
+            },
+            "faces": {
+              "N": {
+                "bays": {
+                  "at": [
+                    3.2,
+                    8.8,
+                    21.2,
+                    26.8
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.0,
+                    "sill": 0.9
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.5,
+                    "h": 3.9,
+                    "sill": 1.3,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.5,
+                    "h": 3.8,
+                    "sill": 1.1,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.5,
+                    "sill": 1.0,
+                    "hood": "arch"
+                  }
+                ]
+              },
+              "S": {
+                "bays": {
+                  "at": [
+                    3.2,
+                    8.8,
+                    21.2,
+                    26.8
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.0,
+                    "sill": 0.9
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.5,
+                    "h": 3.9,
+                    "sill": 1.3,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.5,
+                    "h": 3.8,
+                    "sill": 1.1,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.5,
+                    "sill": 1.0,
+                    "hood": "arch"
+                  }
+                ]
+              },
+              "E": "blank",
+              "W": {
+                "bays": {
+                  "n": 7,
+                  "margin": [
+                    3.5,
+                    3.5
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.0,
+                    "sill": 0.9
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.5,
+                    "h": 3.9,
+                    "sill": 1.3,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.5,
+                    "h": 3.8,
+                    "sill": 1.1,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.5,
+                    "sill": 1.0,
+                    "hood": "arch"
+                  }
+                ]
+              }
+            },
+            "confidence": "inferred"
+          },
+          {
+            "name": "west wing N pavilion",
+            "box": [
+              12.0,
+              38.0,
+              18.0,
+              38.5
+            ],
+            "storeys": [
+              3.2,
+              6.2,
+              6.0,
+              5.6
+            ],
+            "wall": "limestone_pale",
+            "rustic_storeys": 1,
+            "belts": [
+              1,
+              2,
+              3
+            ],
+            "cornice": {
+              "kind": "bracketed",
+              "proj": 0.8,
+              "brackets": 1.0
+            },
+            "parapet": 1.0,
+            "roof": {
+              "kind": "flat",
+              "covering": "tin"
+            },
+            "faces": {
+              "N": {
+                "bays": {
+                  "at": [
+                    2.1,
+                    3.9
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.0,
+                    "h": 1.0,
+                    "sill": 0.9
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.9,
+                    "sill": 1.3,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.8,
+                    "sill": 1.1,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.3,
+                    "h": 3.5,
+                    "sill": 1.0,
+                    "hood": "arch"
+                  }
+                ]
+              },
+              "E": "blank",
+              "W": "blank",
+              "S": "none"
+            },
+            "confidence": "inferred"
+          },
+          {
+            "name": "west wing S pavilion",
+            "box": [
+              12.0,
+              -0.5,
+              18.0,
+              0
+            ],
+            "storeys": [
+              3.2,
+              6.2,
+              6.0,
+              5.6
+            ],
+            "wall": "limestone_pale",
+            "rustic_storeys": 1,
+            "belts": [
+              1,
+              2,
+              3
+            ],
+            "cornice": {
+              "kind": "bracketed",
+              "proj": 0.8,
+              "brackets": 1.0
+            },
+            "parapet": 1.0,
+            "roof": {
+              "kind": "flat",
+              "covering": "tin"
+            },
+            "faces": {
+              "S": {
+                "bays": {
+                  "at": [
+                    2.1,
+                    3.9
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.0,
+                    "h": 1.0,
+                    "sill": 0.9
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.9,
+                    "sill": 1.3,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.8,
+                    "sill": 1.1,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.3,
+                    "h": 3.5,
+                    "sill": 1.0,
+                    "hood": "arch"
+                  }
+                ]
+              },
+              "E": "blank",
+              "W": "blank",
+              "N": "none"
+            },
+            "confidence": "inferred"
+          },
+          {
+            "name": "the 1853 house",
+            "box": [
+              30.0,
+              3.75,
+              60.5,
+              34.25
+            ],
+            "storeys": [
+              3.0,
+              5.8,
+              5.4,
+              5.0
+            ],
+            "wall": "lockport_weathered",
+            "rustic_storeys": 1,
+            "belts": [
+              1
+            ],
+            "cornice": {
+              "kind": "bracketed",
+              "proj": 0.9,
+              "brackets": 1.1
+            },
+            "roof": {
+              "kind": "hip",
+              "h": 4.2,
+              "eave": 0.2,
+              "covering": "tin_dark"
+            },
+            "faces": {
+              "N": {
+                "bays": {
+                  "at": [
+                    3.0,
+                    7.0,
+                    23.5,
+                    27.5
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.0,
+                    "sill": 0.9
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.8,
+                    "sill": 1.1,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.3,
+                    "h": 3.4,
+                    "sill": 1.0,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.3,
+                    "h": 3.0,
+                    "sill": 1.0
+                  }
+                ]
+              },
+              "S": {
+                "bays": {
+                  "at": [
+                    3.0,
+                    7.0,
+                    23.5,
+                    27.5
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.0,
+                    "sill": 0.9
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.8,
+                    "sill": 1.1,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.3,
+                    "h": 3.4,
+                    "sill": 1.0,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.3,
+                    "h": 3.0,
+                    "sill": 1.0
+                  }
+                ]
+              },
+              "E": "none",
+              "W": "none"
+            }
+          },
+          {
+            "name": "north portico",
+            "box": [
+              36.1,
+              34.25,
+              54.4,
+              38.0
+            ],
+            "storeys": [
+              3.0,
+              5.8,
+              5.4,
+              5.0
+            ],
+            "wall": "lockport_weathered",
+            "rustic_storeys": 1,
+            "belts": [
+              1
+            ],
+            "cornice": {
+              "kind": "bracketed",
+              "proj": 0.9,
+              "brackets": 1.1
+            },
+            "roof": {
+              "kind": "flat",
+              "covering": "tin_dark"
+            },
+            "faces": {
+              "N": {
+                "bays": {
+                  "at": [
+                    3.1,
+                    6.3,
+                    9.15,
+                    12.0,
+                    15.2
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.0,
+                    "sill": 0.9
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.8,
+                    "sill": 1.1,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.5,
+                    "sill": 1.0,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.3,
+                    "h": 3.0,
+                    "sill": 1.0
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      2
+                    ],
+                    "storeys": [
+                      0
+                    ],
+                    "kind": "blank"
+                  },
+                  {
+                    "bays": [
+                      2
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_round",
+                    "w": 2.6,
+                    "h": 5.4,
+                    "sill": 0.1
+                  }
+                ]
+              },
+              "E": "blank",
+              "W": "blank",
+              "S": "none"
+            }
+          },
+          {
+            "name": "south portico",
+            "box": [
+              36.1,
+              0.0,
+              54.4,
+              3.75
+            ],
+            "storeys": [
+              3.0,
+              5.8,
+              5.4,
+              5.0
+            ],
+            "wall": "lockport_weathered",
+            "rustic_storeys": 1,
+            "belts": [
+              1
+            ],
+            "cornice": {
+              "kind": "bracketed",
+              "proj": 0.9,
+              "brackets": 1.1
+            },
+            "roof": {
+              "kind": "flat",
+              "covering": "tin_dark"
+            },
+            "faces": {
+              "S": {
+                "bays": {
+                  "at": [
+                    3.1,
+                    6.3,
+                    9.15,
+                    12.0,
+                    15.2
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.0,
+                    "sill": 0.9
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.8,
+                    "sill": 1.1,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.5,
+                    "sill": 1.0,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.3,
+                    "h": 3.0,
+                    "sill": 1.0
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      2
+                    ],
+                    "storeys": [
+                      0
+                    ],
+                    "kind": "blank"
+                  },
+                  {
+                    "bays": [
+                      2
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_round",
+                    "w": 2.6,
+                    "h": 5.4,
+                    "sill": 0.1
+                  }
+                ]
+              },
+              "E": "blank",
+              "W": "blank",
+              "N": "none"
+            }
+          },
+          {
+            "name": "east wing",
+            "box": [
+              60.5,
+              0,
+              90.5,
+              38.0
+            ],
+            "storeys": [
+              3.2,
+              6.2,
+              6.0,
+              5.6
+            ],
+            "wall": "limestone_pale",
+            "rustic_storeys": 1,
+            "belts": [
+              1,
+              2,
+              3
+            ],
+            "water_table": 0.5,
+            "cornice": {
+              "kind": "bracketed",
+              "proj": 0.8,
+              "brackets": 1.0
+            },
+            "parapet": 1.0,
+            "roof": {
+              "kind": "flat",
+              "covering": "tin"
+            },
+            "faces": {
+              "N": {
+                "bays": {
+                  "at": [
+                    3.2,
+                    8.8,
+                    21.2,
+                    26.8
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.0,
+                    "sill": 0.9
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.5,
+                    "h": 3.9,
+                    "sill": 1.3,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.5,
+                    "h": 3.8,
+                    "sill": 1.1,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.5,
+                    "sill": 1.0,
+                    "hood": "arch"
+                  }
+                ]
+              },
+              "S": {
+                "bays": {
+                  "at": [
+                    3.2,
+                    8.8,
+                    21.2,
+                    26.8
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.0,
+                    "sill": 0.9
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.5,
+                    "h": 3.9,
+                    "sill": 1.3,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.5,
+                    "h": 3.8,
+                    "sill": 1.1,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.5,
+                    "sill": 1.0,
+                    "hood": "arch"
+                  }
+                ]
+              },
+              "E": {
+                "bays": {
+                  "n": 7,
+                  "margin": [
+                    3.5,
+                    3.5
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.0,
+                    "sill": 0.9
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.5,
+                    "h": 3.9,
+                    "sill": 1.3,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.5,
+                    "h": 3.8,
+                    "sill": 1.1,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.5,
+                    "sill": 1.0,
+                    "hood": "arch"
+                  }
+                ]
+              },
+              "W": "blank"
+            },
+            "confidence": "inferred"
+          },
+          {
+            "name": "east wing N pavilion",
+            "box": [
+              72.5,
+              38.0,
+              78.5,
+              38.5
+            ],
+            "storeys": [
+              3.2,
+              6.2,
+              6.0,
+              5.6
+            ],
+            "wall": "limestone_pale",
+            "rustic_storeys": 1,
+            "belts": [
+              1,
+              2,
+              3
+            ],
+            "cornice": {
+              "kind": "bracketed",
+              "proj": 0.8,
+              "brackets": 1.0
+            },
+            "parapet": 1.0,
+            "roof": {
+              "kind": "flat",
+              "covering": "tin"
+            },
+            "faces": {
+              "N": {
+                "bays": {
+                  "at": [
+                    2.1,
+                    3.9
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.0,
+                    "h": 1.0,
+                    "sill": 0.9
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.9,
+                    "sill": 1.3,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.8,
+                    "sill": 1.1,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.3,
+                    "h": 3.5,
+                    "sill": 1.0,
+                    "hood": "arch"
+                  }
+                ]
+              },
+              "E": "blank",
+              "W": "blank",
+              "S": "none"
+            },
+            "confidence": "inferred"
+          },
+          {
+            "name": "east wing S pavilion",
+            "box": [
+              72.5,
+              -0.5,
+              78.5,
+              0
+            ],
+            "storeys": [
+              3.2,
+              6.2,
+              6.0,
+              5.6
+            ],
+            "wall": "limestone_pale",
+            "rustic_storeys": 1,
+            "belts": [
+              1,
+              2,
+              3
+            ],
+            "cornice": {
+              "kind": "bracketed",
+              "proj": 0.8,
+              "brackets": 1.0
+            },
+            "parapet": 1.0,
+            "roof": {
+              "kind": "flat",
+              "covering": "tin"
+            },
+            "faces": {
+              "S": {
+                "bays": {
+                  "at": [
+                    2.1,
+                    3.9
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.0,
+                    "h": 1.0,
+                    "sill": 0.9
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.9,
+                    "sill": 1.3,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.4,
+                    "h": 3.8,
+                    "sill": 1.1,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.3,
+                    "h": 3.5,
+                    "sill": 1.0,
+                    "hood": "arch"
+                  }
+                ]
+              },
+              "E": "blank",
+              "W": "blank",
+              "N": "none"
+            },
+            "confidence": "inferred"
+          }
+        ],
+        "pediments": [
+          {
+            "block": 1,
+            "face": "N",
+            "s": 3.0,
+            "w": 6.0,
+            "h": 3.4,
+            "kind": "scroll",
+            "depth": 0.8,
+            "z": 22.08,
+            "oculus": true
+          },
+          {
+            "block": 2,
+            "face": "S",
+            "s": 3.0,
+            "w": 6.0,
+            "h": 3.4,
+            "kind": "scroll",
+            "depth": 0.8,
+            "z": 22.08,
+            "oculus": true
+          },
+          {
+            "block": 7,
+            "face": "N",
+            "s": 3.0,
+            "w": 6.0,
+            "h": 3.4,
+            "kind": "scroll",
+            "depth": 0.8,
+            "z": 22.08,
+            "oculus": true
+          },
+          {
+            "block": 8,
+            "face": "S",
+            "s": 3.0,
+            "w": 6.0,
+            "h": 3.4,
+            "kind": "scroll",
+            "depth": 0.8,
+            "z": 22.08,
+            "oculus": true
+          },
+          {
+            "block": 4,
+            "face": "N",
+            "s": 9.15,
+            "w": 18.3,
+            "h": 3.2,
+            "kind": "pediment",
+            "depth": 4.5,
+            "z": 19.28
+          },
+          {
+            "block": 5,
+            "face": "S",
+            "s": 9.15,
+            "w": 18.3,
+            "h": 3.2,
+            "kind": "pediment",
+            "depth": 4.5,
+            "z": 19.28
+          }
+        ],
+        "towers": [
+          {
+            "name": "the cupola",
+            "at": [
+              45.25,
+              19.0
+            ],
+            "z0": 19.2,
+            "plan": "square",
+            "wall": "lockport_weathered",
+            "stages": [
+              {
+                "w": 9.0,
+                "h": 5.4,
+                "openings": {
+                  "kind": "round",
+                  "count": 2,
+                  "w": 1.2,
+                  "h": 3.0,
+                  "sill": 1.2
+                }
+              }
+            ]
+          },
+          {
+            "name": "the cupola's drum",
+            "at": [
+              45.25,
+              19.0
+            ],
+            "z0": 24.9,
+            "plan": "round",
+            "wall": "lockport_weathered",
+            "stages": [
+              {
+                "w": 7.4,
+                "h": 5.2,
+                "openings": {
+                  "kind": "round",
+                  "w": 1.1,
+                  "h": 3.4,
+                  "sill": 0.9
+                },
+                "balustrade": true
+              },
+              {
+                "w": 6.6,
+                "h": 3.2,
+                "clock": true,
+                "clock_at": 0.5,
+                "clock_r": 1.1
+              }
+            ],
+            "cap": {
+              "kind": "lantern_dome",
+              "h": 4.0,
+              "covering": "tin_dark",
+              "lantern_w": 1.6,
+              "lantern_h": 2.0
+            },
+            "finial": 9.0
+          },
+          {
+            "name": "the octagonal belfry",
+            "at": [
+              54.0,
+              26.0
+            ],
+            "z0": 20.2,
+            "plan": "octagon",
+            "wall": "lockport_weathered",
+            "stages": [
+              {
+                "w": 3.6,
+                "h": 3.4,
+                "openings": {
+                  "kind": "round",
+                  "w": 0.9,
+                  "h": 2.2,
+                  "sill": 0.6
+                }
+              }
+            ],
+            "cap": {
+              "kind": "bell",
+              "h": 2.6,
+              "covering": "tin_dark"
+            },
+            "finial": 1.2
+          },
+          {
+            "name": "the small domed cupola",
+            "at": [
+              36.5,
+              26.0
+            ],
+            "z0": 20.2,
+            "plan": "octagon",
+            "wall": "lockport_weathered",
+            "stages": [
+              {
+                "w": 2.6,
+                "h": 2.6,
+                "openings": {
+                  "kind": "round",
+                  "w": 0.7,
+                  "h": 1.6,
+                  "sill": 0.5
+                }
+              }
+            ],
+            "cap": {
+              "kind": "dome",
+              "h": 1.6,
+              "covering": "tin_dark"
+            },
+            "finial": 1.0
+          },
+          {
+            "name": "corner dome",
+            "at": [
+              2.6,
+              2.6
+            ],
+            "z0": 21.08,
+            "plan": "square",
+            "wall": "limestone_pale",
+            "stages": [
+              {
+                "w": 4.2,
+                "h": 1.6,
+                "cornice": true
+              }
+            ],
+            "cap": {
+              "kind": "dome",
+              "h": 2.4,
+              "covering": "tin_dark"
+            },
+            "finial": 1.4
+          },
+          {
+            "name": "corner dome",
+            "at": [
+              2.6,
+              35.4
+            ],
+            "z0": 21.08,
+            "plan": "square",
+            "wall": "limestone_pale",
+            "stages": [
+              {
+                "w": 4.2,
+                "h": 1.6,
+                "cornice": true
+              }
+            ],
+            "cap": {
+              "kind": "dome",
+              "h": 2.4,
+              "covering": "tin_dark"
+            },
+            "finial": 1.4
+          },
+          {
+            "name": "corner dome",
+            "at": [
+              27.4,
+              2.6
+            ],
+            "z0": 21.08,
+            "plan": "square",
+            "wall": "limestone_pale",
+            "stages": [
+              {
+                "w": 4.2,
+                "h": 1.6,
+                "cornice": true
+              }
+            ],
+            "cap": {
+              "kind": "dome",
+              "h": 2.4,
+              "covering": "tin_dark"
+            },
+            "finial": 1.4
+          },
+          {
+            "name": "corner dome",
+            "at": [
+              27.4,
+              35.4
+            ],
+            "z0": 21.08,
+            "plan": "square",
+            "wall": "limestone_pale",
+            "stages": [
+              {
+                "w": 4.2,
+                "h": 1.6,
+                "cornice": true
+              }
+            ],
+            "cap": {
+              "kind": "dome",
+              "h": 2.4,
+              "covering": "tin_dark"
+            },
+            "finial": 1.4
+          },
+          {
+            "name": "corner dome",
+            "at": [
+              63.1,
+              2.6
+            ],
+            "z0": 21.08,
+            "plan": "square",
+            "wall": "limestone_pale",
+            "stages": [
+              {
+                "w": 4.2,
+                "h": 1.6,
+                "cornice": true
+              }
+            ],
+            "cap": {
+              "kind": "dome",
+              "h": 2.4,
+              "covering": "tin_dark"
+            },
+            "finial": 1.4
+          },
+          {
+            "name": "corner dome",
+            "at": [
+              63.1,
+              35.4
+            ],
+            "z0": 21.08,
+            "plan": "square",
+            "wall": "limestone_pale",
+            "stages": [
+              {
+                "w": 4.2,
+                "h": 1.6,
+                "cornice": true
+              }
+            ],
+            "cap": {
+              "kind": "dome",
+              "h": 2.4,
+              "covering": "tin_dark"
+            },
+            "finial": 1.4
+          },
+          {
+            "name": "corner dome",
+            "at": [
+              87.9,
+              2.6
+            ],
+            "z0": 21.08,
+            "plan": "square",
+            "wall": "limestone_pale",
+            "stages": [
+              {
+                "w": 4.2,
+                "h": 1.6,
+                "cornice": true
+              }
+            ],
+            "cap": {
+              "kind": "dome",
+              "h": 2.4,
+              "covering": "tin_dark"
+            },
+            "finial": 1.4
+          },
+          {
+            "name": "corner dome",
+            "at": [
+              87.9,
+              35.4
+            ],
+            "z0": 21.08,
+            "plan": "square",
+            "wall": "limestone_pale",
+            "stages": [
+              {
+                "w": 4.2,
+                "h": 1.6,
+                "cornice": true
+              }
+            ],
+            "cap": {
+              "kind": "dome",
+              "h": 2.4,
+              "covering": "tin_dark"
+            },
+            "finial": 1.4
+          }
+        ],
+        "steps": [
+          {
+            "block": 4,
+            "face": "N",
+            "s0": 7.4,
+            "s1": 10.9,
+            "n": 6
+          },
+          {
+            "block": 5,
+            "face": "S",
+            "s0": 7.4,
+            "s1": 10.9,
+            "n": 6
+          }
+        ],
+        "flagpoles": []
+      },
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "andreas_1885_v2_buildings",
+        "loc_stereo_1s12325_court_house",
+        "andreas_1885_v2_court_house_plate"
+      ],
+      "note": "THE 1853 HOUSE (Andreas vol. 1, p. 181: Lockport gray marble, the main part 100 feet square, porticoes north and south with stone steps): a rusticated basement and three storeys after the storey added in 1870 (vol. 2, p. 66), round-headed windows below and square above, the porticoes carrying low pediments, a low roof; on it THE CUPOLA, a square base, then a round drum of tall arched openings with a balustraded gallery (the fire watch's), a second drum with the clock and a ribbed dome with a lantern and staff, as the stereograph shows it; and the smaller octagonal belfry with a bell-shaped cap and the small domed cupola beside it (vol. 1: 'two domes and a cupola'). THE WINGS of 1870 (Lemont stone, vol. 2, p. 66): a rusticated basement and three storeys of round-arched windows with moulded heads, a bracketed cornice and balustraded parapet, a projecting centre pavilion on the north and south fronts crowned by a scrolled crest, and low domes on the corners. Storey heights and the wings' bays are read off the stereograph against the 1853 house's 100-foot front (reconstructed where the pictures cannot say)."
+    },
+    "wall_material": {
+      "value": "Lockport marble (1853), Lemont stone (1870)",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings",
+        "andreas_1884_v1"
+      ],
+      "note": "The original building of marble from the Lockport quarries of New York; the additions of stone from the Lemont quarries of Cook County (Andreas vol. 2, p. 66). Both built in the K02 library's limestones: the 1853 house darkened by smoke and the 1870 wings still pale, as the stereograph of 1871 shows them.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "county_court_house",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ],
+      "note": "The joint building of the city and the county since 1853: the county's courts and offices in the east half, the city's in the west half, bought by the city in the enlargement of 1869-1870 (Andreas vol. 2, p. 66)."
+    },
+    "built": {
+      "value": 1853,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "andreas_1885_v2_buildings"
+      ],
+      "note": "Completed 1853 by the city and county (Andreas vol. 1, p. 181; vol. 2, p. 66); its two wings and an additional storey were added in 1869-1870 and completed during 1870 (vol. 2, p. 66)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "andreas_1885_v2_buildings",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the size, storeys, stone, architect, cost and date of the 1871 scene's landmark buildings",
+        "when and how each burned on 8-9 October 1871"
+      ],
+      "what_it_does_not_supply": [
+        "measured drawings or surveyed positions: street corners only",
+        "the walls no writer describes"
+      ]
+    },
+    {
+      "source_id": "andreas_1885_v2_court_house_plate",
+      "citation": "'The Court-House before the fire', wood engraving, in A. T. Andreas, History of Chicago, vol. 2 (Chicago: A. T. Andreas, 1885), p. 65.",
+      "url": "https://archive.org/details/historyofchicago02andr/page/n66/mode/1up",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the Court House's south and east fronts, drawn",
+        "the south portico and its steps"
+      ],
+      "what_it_does_not_supply": [
+        "measured proportions (an engraving)",
+        "the north and west fronts"
+      ]
+    },
+    {
+      "source_id": "loc_stereo_1s12325_court_house",
+      "citation": "'Court House', stereograph, No. 22 [of a Chicago series; the mount names Lovejoy & Foster's 'Chicago and Vicinity'], [1871]. Library of Congress Prints and Photographs Division, Stereograph Cards collection, LC-DIG-stereo-1s12325.",
+      "url": "https://www.loc.gov/pictures/item/2018649162/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the Court House's massing, storeys and bays from the north-east",
+        "the cupola, the belfry and the wings' crests and domes"
+      ],
+      "what_it_does_not_supply": [
+        "the south and west fronts",
+        "measured sizes",
+        "colour"
+      ]
+    },
+    {
+      "source_id": "mitchell_1870_chicago_map",
+      "citation": "S. Augustus Mitchell, Jr. Chicago. 1870. Approximately 1:31,000. University of Illinois Map and Geography Library; Wikimedia Commons surrogate.",
+      "url": "https://commons.wikimedia.org/wiki/File:1870_Chicago_map_by_Mitchell.jpg",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Named streets and diagonals, river courses, lake edge, lakefront railroad and lagoon relationships, rail corridors and named parks.",
+        "Coverage from Fullerton Avenue to Thirty-first Street and Western Avenue to Lake Michigan."
+      ],
+      "what_it_does_not_supply": [
+        "Individual building footprints, occupants, exact paving, engineered widths or elevations.",
+        "The western extension to Fortieth Avenue or southern continuation to Egan Avenue; these require separate evidence and reconstructed geometry."
+      ]
+    }
+  ],
+  "research_note": "THE COURT HOUSE, built by T-3688 for the 1871 scene. From Lovejoy & Foster's stereograph of 1871 from Clark and Randolph Streets and Andreas's engraving 'The Court-House before the fire' (vol. 2, p. 65) from Clark and Washington: the 1853 house of Lockport marble in the middle under its domed cupola with the fire watch's balcony and the clock, a smaller octagonal belfry and domed cupola on its roof, and the two Lemont-stone wings of 1870 east and west, each with a scrolled crest over its centre pavilion and low domes on its corners. The plan sizes are the 1853 house's (Andreas vol. 1, p. 181) and the wings read off the two pictures (docs/LIBERTIES.md, T-3688).",
+  "research_doc": "",
+  "review_required": false
+}

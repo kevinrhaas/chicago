@@ -150,6 +150,16 @@
       "phase_id": "frame_1833",
       "structure_id": "carpenter_south_water_store"
     },
+    "chamber_of_commerce_1871__chamber_1865_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 1909212,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "50d81bf38530c86b2b692fc0259fcd62bb4ad3d1ae51118b8683da7bb154a84a",
+      "kind": "generated",
+      "phase_id": "chamber_1865_1871",
+      "structure_id": "chamber_of_commerce_1871"
+    },
     "chappel_infant_school__log_1833.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
@@ -241,6 +251,16 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "coleman_ames_house_1811_prairie_coach_house"
+    },
+    "cook_county_court_house_1871__court_house_1870_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 3465672,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "e57412bb949fe05bfdb3ccff71dbdc2a7c533705c28f92522d047ee016ba53c6",
+      "kind": "generated",
+      "phase_id": "court_house_1870_1871",
+      "structure_id": "cook_county_court_house_1871"
     },
     "council_house__log_1834.glb": {
       "archetype": "log_dwelling",
@@ -9970,6 +9990,16 @@
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "shed_1834_1900_prairie"
+    },
+    "sherman_house_1871__sherman_1861_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 2084324,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "1ec2954f1e0c47e9f2ec35c61267fc609cb115308ccd751881319fb456fcec2f",
+      "kind": "generated",
+      "phase_id": "sherman_1861_1871",
+      "structure_id": "sherman_house_1871"
     },
     "sherman_house_2100_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",

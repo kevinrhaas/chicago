@@ -1,0 +1,26 @@
+{
+  "id": "andreas_1885_v2_buildings",
+  "type": "book",
+  "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+  "author": "Alfred Theodore Andreas",
+  "date": "1885",
+  "describes_date": "1857 to the fire of 8-10 October 1871",
+  "repository": "Internet Archive, item historyofchicago02andr",
+  "url": "https://archive.org/details/historyofchicago02andr",
+  "locator": "The landmark buildings of the 1871 scene, by printed page: the Court House as City Hall (the joint building of 1853, the two wings and additional storey of 1869-1870, Lockport marble and Lemont stone), p. 66; the Court House bell falling at 2:05 a.m. on 9 October, pp. 368 and 719; the Chamber of Commerce's corner-stone and completion, pp. 357-358, its description (Athens marble on the north, east and west fronts, brick on the south facing Calhoun Place, 93 by 180 feet, the triple window thirty feet high and twelve wide, the mansard twenty-three feet above the cornice), p. 358, and its burning about 1:20 a.m. on 9 October, p. 368; the Tremont House (Couch's hotel of 1850, five and a half stories, 140 feet on Lake by 180 on Dearborn, J. M. Van Osdel), pp. 501-502; the Sherman House (1861, six stories, 180 feet on Clark by 150 on Randolph overlooking the public square, Athens marble from Lemont, a little over $200,000), pp. 502-503.",
+  "tier": 3,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1885 in the United States; public domain.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-19 (T-3688) in the Internet Archive's plain-text OCR of this scan (historyofchicago02andr_djvu.txt), at the passages the locator names, with page images of the plates opened at the leaves the plates fall on; printed page numbers are read from the OCR's running heads and folios.",
+  "note": "A compiled history fourteen years after the fire, built on the city's newspapers, the Board of Trade's records and the builders' own accounts, so secondary; but it is the fullest single description of the pre-fire buildings' size, stone, architects and cost, and of the hour each burned.",
+  "what_it_supplies": [
+    "the size, storeys, stone, architect, cost and date of the 1871 scene's landmark buildings",
+    "when and how each burned on 8-9 October 1871"
+  ],
+  "what_it_does_not_supply": [
+    "measured drawings or surveyed positions: street corners only",
+    "the walls no writer describes"
+  ]
+}

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1191,
+  "count": 1192,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -70,6 +70,10 @@
       "name": "Philo Carpenter's South Water Street Store"
     },
     {
+      "id": "chamber_of_commerce_1871",
+      "name": "The Chamber of Commerce (E. Burling, 1865), LaSalle and Washington Streets"
+    },
+    {
       "id": "chappel_infant_school",
       "name": "Eliza Chappel's infant school"
     },
@@ -108,6 +112,10 @@
     {
       "id": "coleman_ames_house_1811_prairie_coach_house",
       "name": "1811 S. Prairie Avenue — the alley building of the house at 1811"
+    },
+    {
+      "id": "cook_county_court_house_1871",
+      "name": "The Court House and City Hall (J. M. Van Osdel 1853; wings 1870), Court House square"
     },
     {
       "id": "cook_county_courthouse_1835",
@@ -3464,6 +3472,10 @@
     {
       "id": "shed_1834_1900_prairie",
       "name": "The strip between 1834 and 1900 Prairie Avenue: the one-storey open frame shed on the alley"
+    },
+    {
+      "id": "sherman_house_1871",
+      "name": "The Sherman House (W. W. Boyington, 1861), Clark and Randolph Streets"
     },
     {
       "id": "sherman_house_2100_prairie",
@@ -77917,6 +77929,85 @@
         "T-2934",
         "T-3632",
         "T-3631"
+      ]
+    },
+    {
+      "id": "L-1871-landmarks-3688",
+      "title": "The 1871 fire landmarks round the Court House square (the Court House, the Chamber of Commerce, the Sherman House): what their pictures and texts do not say",
+      "section": "per_subject",
+      "subjects": [
+        "chamber_of_commerce_1871",
+        "cook_county_court_house_1871",
+        "sherman_house_1871"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "chamber_of_commerce_1871",
+          "phase": "chamber_1865_1871",
+          "aspect": "form.height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "chamber_of_commerce_1871",
+          "phase": "chamber_1865_1871",
+          "aspect": "form.storeys"
+        },
+        {
+          "domain": "structure",
+          "structure": "chamber_of_commerce_1871",
+          "phase": "chamber_1865_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "cook_county_court_house_1871",
+          "phase": "court_house_1870_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "sherman_house_1871",
+          "phase": "sherman_1861_1871",
+          "aspect": "form.storeys"
+        },
+        {
+          "domain": "structure",
+          "structure": "sherman_house_1871",
+          "phase": "sherman_1861_1871",
+          "aspect": "form.wall_material"
+        }
+      ],
+      "recorded": "2026-11-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "three of the pre-fire city's named masonry landmarks stand in the 1871 scene on a new pure-Python archetype, landmark 1871 (the landmark 1871 generator), each built as a composition of blocks, faces, openings, cornices, roofs, towers and crests read off its pictures, in the 1904 kits' materials (K02 stone, K03 brick, K04 slate and tin): The Court House and City Hall (J. M. Van Osdel 1853; wings 1870), Court House square (Lovejoy & Foster's 1871 stereograph; Andreas's engraving), The Chamber of Commerce (E. Burling, 1865), LaSalle and Washington Streets (Carbutt's stereograph No. 140; Chicago Illustrated's lithograph) and The Sherman House (W. W. Boyington, 1861), Clark and Randolph Streets (Carbutt's stereograph No. 52). **What the sources give** — each building's corner, frontages, storeys, stone, architect, dates and the hour it burned — is cited attribute by attribute in its record."
+        },
+        {
+          "label": "These are this project's",
+          "text": "- **Places.** Each stands on the 1871 plan's street lines at the corner its texts name (the Court House centred in its square); the plan's streets are a tracing of Mitchell's 1870 map, so a building is good to a few metres, and moves if the streets do. - **Walls no picture shows.** The Chamber of Commerce's east wall on Exchange Place is built like its LaSalle side without shop fronts, and its south wall (brick, Andreas says) is built blank in the front's stone; the Sherman House's north and west walls are built blank; the Court House's south and west fronts are built as mirrors of the north and east. - **The Court House's wings.** No dimension of the 1870 wings was found: each is built about 30 m by 38 m, nearly square as Andreas's engraving draws the east wing, and their bays, storey heights and corner domes are read off the stereograph by eye. Its camera does not yet fit the building (see its match record): the wings' size and the cupola's height are the open questions. - **Heights.** No storey height was found in any text. The Chamber of Commerce's are read through its photograph's camera against Andreas's 44-foot hall and 23-foot roof; the Sherman House's through its camera (about 30 m to the cornice); the Court House's by eye. - **Detail.** Ornament is simplified to the archetype's vocabulary: carved crests and scrolled pediments are flat profiles, window tracery is a sash bar, the clock faces are blank discs, statuary and lettered signs are left out, the Court House's and Sherman House's channelled rustication is left out (the Chamber of Commerce's is drawn as joint strips), and the Chamber of Commerce's south wall is stone rather than brick. - **Tones.** The stone textures are the 1904 kits' (Lemont and Bedford limestone); the Court House's 1853 house is the Lemont texture darkened to the smoke-stained grey the 1871 stereograph shows, and its 1870 wings the paler Bedford texture, the colours of the photograph rather than of the quarries. - **Stated, not built twice.** Each record's wall material, `storeys` and height (m) are the evidence its composition was read against; the composition, not those attributes, drives the mesh."
+        },
+        {
+          "label": "Covers",
+          "text": "`chamber_of_commerce_1871.chamber_1865_1871.form.wall_material`, `chamber_of_commerce_1871.chamber_1865_1871.form.storeys`, `chamber_of_commerce_1871.chamber_1865_1871.form.height_m`, `cook_county_court_house_1871.court_house_1870_1871.form.wall_material`, `sherman_house_1871.sherman_1861_1871.form.wall_material`, `sherman_house_1871.sherman_1861_1871.form.storeys`"
+        },
+        {
+          "label": "How to resolve",
+          "text": "a plan or dimension of the Court House wings (the county's or city's reports of 1869-1870, a Sanborn or Rascher sheet of 1870-1871), a picture of the Chamber of Commerce's Exchange Place side or the Sherman House's rear, or a measured drawing of any of them, replaces the parts above."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on photo match, the research notes on photo match, the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-19 (T-3688)."
+        }
+      ],
+      "work_refs": [
+        "T-3688"
       ]
     },
     {

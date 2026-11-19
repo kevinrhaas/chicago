@@ -1,0 +1,33 @@
+{
+  "structure_id": "sherman_house_1871",
+  "view": "loc_1s12371",
+  "glb": "assets/gltf/sherman_house_1871__sherman_1861_1871.glb",
+  "glb_sha256": "d6457b460d9ac4306a9141488850dad925af5913ebb65d1668c4857d32dd27ce",
+  "camera_sha256": "4ec642c4e3270ff7d95d5369867b8f1336c45bda07eb0539e331f294cc9890dd",
+  "photo_sha256": "f2896201165ff9c92a8386805bd7ed8ba22893600a47b13fe3fa6a1219ee0ed6",
+  "side_by_side": "docs/RESEARCH/photo-match/sherman_house_1871/loc_1s12371-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Massing, six storeys to the cornice, the Randolph and Clark Street fronts' bay groups and the arcaded ground storey",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The second-storey balcony reads as a solid dark band; the photograph shows a light iron railing",
+      "status": "open"
+    },
+    {
+      "what": "The attic belvedere's balustrade on top is not built",
+      "status": "open"
+    },
+    {
+      "what": "The Clark Street portico's columns and balcony are lighter and fewer in the model than in the photograph",
+      "status": "open"
+    },
+    {
+      "what": "Awnings, signs, telegraph poles and carriages",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
