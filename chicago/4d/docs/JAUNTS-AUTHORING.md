@@ -58,6 +58,16 @@ hyphens or underscores, beginning with a letter or digit.
 Families: **Provisions**, **Livelihood**, **Wayfinding**, **News & Knowledge**,
 **Neighbors**. No global score is required. Preserve IDs when revising prose.
 
+## Spoken words
+
+Every jaunt may be read aloud (docs/AUDIO.md § Narration), so write every stop, opening and
+ending to be heard as well as read, in every grade band and language (owner, 2026-11-19, T-3696:
+the smooth style "applies for all the jaunts"). Group a stop's facts into a few subjects and join
+them with a short line that carries no fact (*"Now, about this house."*, *"Here is my favorite
+story."*); never more than about five bare facts in a row; end on the hand-on to the next stop.
+Its performance copy marks a pause at each change of subject, keeps laughter to one at most, and
+does not whisper (`"style": "smooth"`, checked by `tools/test_narration.mjs`).
+
 ## Branches and state
 
 `next` names a stop, an ending, or `$end`. At `$end`, select the **first** matching

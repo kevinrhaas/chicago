@@ -282,6 +282,8 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
   const position=new THREE.Vector3(), scale=new THREE.Vector3(), color=new THREE.Color();
   const transformed=new THREE.Vector3(), normalMatrix=new THREE.Matrix3();
   const meshes=[];
+  const FRAME_PAINT=[[.98,.97,.94],[.98,.97,.94],[.96,.95,.91],[.98,.97,.94],[.95,.94,.90],
+    [.97,.88,.70],[.83,.83,.81],[.80,.76,.64],[.76,.80,.72],[.62,.55,.45],[.66,.58,.48],[.72,.50,.40]];
   const farMaterial=kit.scene.getObjectByName(definition.templates[0].nodes.far).material.clone();
   farMaterial.vertexColors=true; confidence?.patch(farMaterial); materials.add(farMaterial);
   const place=r=>{
@@ -291,6 +293,10 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     const tone=Number(value(r.row,'tone',0));
     const jitter=((Math.sin(r.e*12.9898+r.n*78.233)*43758.5453)%1+1)%1;
     color.setRGB(.84+.14*jitter,.84+.12*jitter+.012*(tone%3),.80+.14*jitter+.018*(tone%5));
+    // T-3683: a frame house wears its own paint over the pale weatherboard:
+    // mostly white, some buff, grey or drab, a few unpainted or barn red.
+    // Reconstructed colours (L-1871-city-baseline), not a recorded house.
+    if (r.t.material==='timber') { const [pr,pg,pb]=FRAME_PAINT[tone%FRAME_PAINT.length]; color.setRGB(pr*(.95+.05*jitter),pg*(.95+.05*jitter),pb*(.95+.05*jitter)); }
     if (r.isTree) color.setRGB(.83+.17*jitter,.82+.15*jitter,.72+.16*jitter);
   };
   for (const tile of tiles.values()) {

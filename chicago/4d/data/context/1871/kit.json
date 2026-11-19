@@ -7,10 +7,10 @@
   "sources": [
     "ruger_1868_chicago_panorama"
   ],
-  "source_limit": "Ruger's contemporary bird's-eye lithograph supports a varied low-rise city with frame dwellings, masonry business blocks and industrial buildings. It does not establish these footprints, storey heights, window patterns, colours or individual addresses. Every kit dimension and facade is a bounded reconstruction, and no template represents a named building.",
+  "source_limit": "Ruger's contemporary bird's-eye lithograph supports a varied low-rise city with frame dwellings, masonry business blocks and industrial buildings. Colbert and Chamberlin (1871, pp. 146-147) report a spring 1868 enumeration of 35,654 wooden buildings to 3,712 of brick and stone, so frame forms dominate outside the business centre. Neither source establishes these footprints, storey heights, window patterns, colours or individual addresses. Every kit dimension and facade is a bounded reconstruction, and no template represents a named building.",
   "license": "Original procedural geometry and textures; project license. No third-party image pixels are embedded or sampled.",
   "coordinates": "Y up; footprint centred at origin; width +X; front -Z; base Y=0; bearing clockwise from grid north",
-  "input_sha256": "32ed735c294734b0b9955a0ce1067d4fe24aa4e1ca0e1589660d1c4d9a381df8",
+  "input_sha256": "692bb737dd4059876ab7cb8f8478139b3d35a969f754a0a835a85fa4bbdbbc83",
   "citations": [
     {
       "source_id": "chicago_evening_post_1869_city_limits",
@@ -41,6 +41,22 @@
       "what_it_does_not_supply": [
         "October 8 operating conditions, Sunday traffic volume, exact truss members, road widths or continuous pavement on every block.",
         "Individual building footprints or facades."
+      ]
+    },
+    {
+      "source_id": "colbert_chamberlin_1871_great_conflagration",
+      "citation": "Elias Colbert and Everett Chamberlin, Chicago and the Great Conflagration. Cincinnati and New York: C. F. Vent; Chicago: J. S. Goodman & Co., 1871.",
+      "url": "https://archive.org/details/chicagogreatconf1871colb",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "A citywide ratio of building materials before the fire: in spring 1868, 35,654 wooden buildings to 3,712 of brick and stone (about nine in ten wooden).",
+        "The city's 59,500 buildings in 1871 by division, with the West Division largest (29,400).",
+        "Descriptions that the West Side's burned blocks were nearly all frame, and that the South Division's burned centre held the city's most expensive structures."
+      ],
+      "what_it_does_not_supply": [
+        "A material for any particular lot, block or street; a material ratio by division or for 1871 itself; paint colours."
       ]
     },
     {
@@ -91,8 +107,8 @@
       ]
     }
   ],
-  "asset_sha256": "09d790bba8547f5c812653f8fe2659925fa5f9de98d7d3bd64e786ff4f4b92bf",
-  "asset_bytes": 1131944,
+  "asset_sha256": "fc94be8faeacdd3db59cc6a30e7776884ea2162728e9796a40bfe64629d34057",
+  "asset_bytes": 1172472,
   "templates": [
     {
       "id": "timber_cottage",
@@ -134,6 +150,28 @@
       "triangles": {
         "near": 102,
         "far": 14
+      }
+    },
+    {
+      "id": "frame_shop",
+      "name": "Two-storey frame store",
+      "material": "timber",
+      "roof": "flat",
+      "width_m": 7.5,
+      "depth_m": 18,
+      "eave_m": 7.4,
+      "rise_m": 0.5,
+      "storeys": 2,
+      "front_bays": 3,
+      "side_bays": 5,
+      "shop": true,
+      "nodes": {
+        "near": "frame_shop__near",
+        "far": "frame_shop__far"
+      },
+      "triangles": {
+        "near": 124,
+        "far": 18
       }
     },
     {
