@@ -403,6 +403,8 @@ step "Moment links contain only bounded public scene state and photos release th
   node tools/test_moment.mjs
 step "Field notebook preserves evidence and notes, bounds storage, and reports failed writes (T-3656)" \
   node tools/test_field_notebook.mjs
+step "A teacher's route travels whole in one bounded link or file, degrades with a message, and shows the teacher's words as text (T-3672)" \
+  node tools/test_teacher_route.mjs
 step "Jaunt reflections use only cited visited claims across all reading bands (T-3656)" \
   node tools/test_jaunt_understanding.mjs
 step "Group lesson guides use the selected outing's citations and preserve print cleanup (T-3656)" \

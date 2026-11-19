@@ -22,6 +22,19 @@ published scene has a dedicated `tools/smoke_city_1871.mjs` browser check. This 
 complete context baseline, not a claim of individually surveyed buildings, populated
 daily activity or photographic finish.
 
+## T-3672 — Teacher routes (19 November 2026)
+
+Guide › For teachers builds a route from a jaunt or from one year's buildings, viewpoints
+and people, with a note and a question per stop, as one bounded share link and a route
+file; Jaunts shows a student the Route panel, with Go there per stop and answers saved to
+the local field notebook ([CLASSROOM-FEATURES.md](CLASSROOM-FEATURES.md) § Teacher routes).
+`tools/test_teacher_route.mjs` covers the round trip, the bounds, malformed, over-long,
+other-year and unknown-id links, text-only rendering and the notebook save, against the
+real 1812, 1835 and 1904 directories and catalogs: every offered jaunt fits one link with
+a question at every stop. Screenshots of the running 1904 town at 1280×800 and 390×780 were
+taken under SwiftShader. Not verified: physical phones, assistive technology, and the
+full gate and smoke on this change, which run before merge.
+
 ## T-3656, T-3657, T-3658 — Combined browser-only delivery (19 November 2026)
 
 PR #2197 now carries all three completed implementations so the new classroom

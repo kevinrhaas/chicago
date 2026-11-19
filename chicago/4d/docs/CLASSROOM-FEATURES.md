@@ -34,6 +34,26 @@ when focus enters a reader. The earlier draft PR #2199 is superseded by #2197.
 The hunt reuses five photographs of four places, with a daily order and shared date,
 and reveals their recorded dates rather than treating them as photographs taken in 1904.
 
+## Teacher routes (item 11)
+
+T-3672 adds a teacher's own route without a server, account or upload. In Guide ›
+For teachers, *Make a route for your class* starts from a jaunt (its buildings and
+viewpoints, in order; the jaunt itself stays startable) or from places and people found
+by name in the year the teacher is in. Each stop may carry a note and a question of up to
+280 characters; the title is up to 80; a route holds up to 20 stops. The route is one
+object (`renderers/web/js/teacher-route.js`): a `?route=` link carries it as base64url of
+compact UTF-8 JSON, bounded to 6,000 characters, and a downloaded route file carries the
+same object in readable JSON for the teacher to open again and change.
+
+A student who opens the link lands in that year with the Route panel pinned above the
+Jaunts list: stops in order, Go there for each (a person found in town, else at the house
+they live or work in, else their card), and the teacher's note and question labelled as
+the teacher's words, drawn as text only. Answers save to the field notebook under the
+route's and stop's names; its existing download or print is how they are handed in. A
+malformed or over-long link lands in the town with a message; a link for another year
+names that year and offers its link; ids this town does not hold are dropped and counted.
+Nothing about the route is recorded or sent anywhere.
+
 ## Disposition of all twenty items
 
 | # | Feature | Delivery / next step |
@@ -48,7 +68,7 @@ and reveals their recorded dates rather than treating them as photographs taken 
 | 8 | Mysteries with sources | Later content work using evidence/confidence and existing jaunt branching. Needs authored, reviewed investigations. |
 | 9 | Play a part | Existing engine already supports choices and alternate endings. Later authored historical-role stories, with reconstruction labelled. |
 | 10 | Accessibility | T-3658 follow-up implemented: native Navigator zoom/pan with stable canvas sizing and usable movement controls; keyboard-contained picture dialogs with Escape, background isolation and focus return; a visible rail Tab stop while Move or Jump is open. Browser fixtures and native-town integration pass; complete release gates pending. Broader menu/card and assistive-technology audit remains; no full WCAG 2.1 AA claim. |
-| 11 | Assign/build a jaunt | Later browser-only subset: assignment links and portable route/question files. Shared authoring libraries and submission tracking need storage. |
+| 11 | Assign/build a jaunt | T-3672 implemented the browser-only subset: Guide › For teachers builds a route from a jaunt or from one year's buildings, viewpoints and people (up to 20 stops, a note and a question each), as one bounded `?route=` link and a reopenable route file; the student's Route panel in Jaunts gives Go there per stop, shows the teacher's words as theirs, and saves answers to the local field notebook. Shared authoring libraries and submission tracking still need storage. |
 | 12 | Classroom/Clever/Canvas | Ordinary links/files can be assigned manually now. Defer provider setup, SSO, add-ons and grade sync. |
 | 13 | Follow the teacher | Defer live cross-device coordination. Projection works now. |
 | 14 | People met, places found | Notebook saves selected person cards now. Automatic visited/met collections in Map and People are later work; opening a card must not be reported as entering a building or physically meeting someone. |
