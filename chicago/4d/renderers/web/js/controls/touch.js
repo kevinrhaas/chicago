@@ -10,8 +10,8 @@
  *  - **`visualViewport`.** On iOS the URL bar slides away and `innerHeight`
  *    lies about it. Sizing the canvas from `window.innerHeight` gives you a
  *    scene that is a bar-height too tall, permanently, with the horizon parked
- *    off-screen. The viewport callback here reports the *visual* viewport, and
- *    main.js resizes the renderer from that.
+ *    off-screen. The viewport callback reports the available layout pixels,
+ *    accounting for the visual viewport's browser magnification separately.
  *
  *  - **Pointer capture and multi-touch.** Walking and looking happen at the same
  *    time, one finger each, and either can be lifted first. Every pointer is
@@ -27,6 +27,7 @@ const TAP_SLOP = 12;               // ...and moved less than this = a tap
 // the view in whole steps — SNAP_DEG for every SNAP_PX of sideways drag — rather than
 // smoothly. Pitch stays smooth: it is the sweep sideways that unsettles.
 import { lookScale } from './intent.js';
+import { viewportSize } from '../viewport.js';
 
 export const SNAP_DEG = 30;
 export const SNAP_PX = 48;
@@ -133,7 +134,15 @@ export function createTouchBackend({ intent, domElement, ui = {}, onViewport, sn
     const rect = domElement.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    const leftHalf = x < rect.width * 0.5;
+    // A magnified browser shows only part of the canvas. Divide the part the
+    // thumbs can actually reach, not the full layout width hidden off-screen.
+    // Pointer client coordinates and visualViewport offsets are layout pixels.
+    const vv = window.visualViewport;
+    const viewportLeft = vv?.offsetLeft ?? 0;
+    const visibleLeft = Math.max(rect.left, viewportLeft);
+    const visibleRight = Math.min(rect.left + rect.width, viewportLeft + (vv?.width ?? window.innerWidth));
+    const middle = visibleRight > visibleLeft ? (visibleLeft + visibleRight) / 2 : rect.left + rect.width / 2;
+    const leftHalf = e.clientX < middle;
 
     // One thumb per role. A second finger in an occupied half is ignored rather
     // than stealing the role out from under the first.
@@ -227,14 +236,13 @@ export function createTouchBackend({ intent, domElement, ui = {}, onViewport, sn
 
   /**
    * The iOS URL bar problem. `visualViewport` is the only honest answer for how
-   * much of the page the user can actually see; `innerHeight` is not.
+   * much of the page is available. Browser magnification must not shrink the
+   * layout or GPU canvas as well as enlarging it.
    */
   function reportViewport() {
-    const vv = window.visualViewport;
-    const width = Math.round(vv?.width ?? window.innerWidth);
-    const height = Math.round(vv?.height ?? window.innerHeight);
+    const { width, height, scale } = viewportSize();
     document.documentElement.style.setProperty('--vh', `${height}px`);
-    onViewport?.({ width, height, scale: vv?.scale ?? 1 });
+    onViewport?.({ width, height, scale });
   }
 
   return {

@@ -1,5 +1,7 @@
 /** Lazy catalog, route preview and session handoff. */
 import { addTable, tellingTable } from './reading-level.js';
+import { understandingQuestions, createUnderstandingDraft } from './jaunt-understanding.js';
+import { renderUnderstandingCheck } from './jaunt-understanding-view.js';
 import { createJauntMenu } from './jaunt-menu.js';
 import { createJournal, presentKeepsake } from './jaunt-journal.js';
 import { icon } from './menu-icons.js';
@@ -11,6 +13,14 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
   let catalogPromise, daybookPromise, journal = null, serial = 0, outcomeSeen = null;
   const contents = new Map();
+  let checkSession = null, checkDraft = null;
+  const doc = root.ownerDocument ?? globalThis.document;
+  if (doc?.head && !doc.getElementById('jaunt-understanding-style')) {
+    const checkStyle = doc.createElement('link'); checkStyle.id = 'jaunt-understanding-style';
+    checkStyle.rel = 'stylesheet';
+    checkStyle.href = new URL('../css/jaunt-understanding.css', import.meta.url);
+    doc.head.append(checkStyle);
+  }
   const menu = createJauntMenu({ root, estimate, onStart, onPreview: select, plateFor,
     kept: row => !!journal?.keepsakes.some(e => e.jaunt === row.id), preferredMode, modeNote });
   const node = (tag, text, className) => {
@@ -130,6 +140,10 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       entry.dataset.action = 'daybook'; entry.classList.add('jaunt-daybook-chip'); entry.prepend(icon('News & Knowledge', 15)); prefix.push(entry);
     }
     const session = getSession();
+    if (session?.phase !== 'outcome' || checkSession !== session.session) {
+      checkSession = session?.phase === 'outcome' ? session.session : null;
+      checkDraft = checkSession ? createUnderstandingDraft() : null;
+    }
     if (session?.notice) prefix.push(node('p', session.notice, 'jaunt-session-note'));
     if (session?.jaunt && ['menu', 'outcome'].includes(session.phase)) {
       const note = node('section', '', 'jaunt-session-note');
@@ -173,6 +187,8 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
         if (awarded) more.append(awarded);
         else if (!fallback) more.append(node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
         note.append(head, more);
+        const check = checkDraft && renderUnderstandingCheck(doc, understandingQuestions(session), checkDraft);
+        if (check) note.append(check);
         const row = node('div', '', 'jaunt-outcome-actions');
         if (journal) {
           const book = button('Daybook', () => showDaybook(session.jaunt.id)); book.prepend(icon('News & Knowledge', 15));

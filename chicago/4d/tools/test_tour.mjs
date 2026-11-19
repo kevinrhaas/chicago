@@ -12,6 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createTour, STEPS, TOUR_KEY, YAW_DEG, WALK_M } from '../renderers/web/js/tour.js';
+import GUIDE from '../renderers/web/js/apps/guide.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
@@ -175,8 +176,50 @@ for (const id of ['tour', 'tour-count', 'tour-skip', 'tour-task', 'tour-bubble',
 }
 // T-3021: the tour can be taken any time — its block leads Guide, whatever became of the offer.
 assert(/id="guide-tour"[\s\S]{0,400}id="tour-start"[^>]*>Take the tour/.test(html), 'Guide\u2019s tour block carries Take the tour');
-assert(/getElementById\('guide-tour'\)[\s\S]{0,80}el\.append\(tour\)[\s\S]{0,200}nav-guide-sheet/.test(read('renderers/web/js/apps/guide.js')),
-  'Guide lifts the tour block to the top of its screen, ahead of the controls sheet');
+// Mount the real Guide: additional lazy sections must not change the tour's position.
+// Reparenting keeps the existing tour element (and its bound start listener) intact.
+const guideDoc = {
+  createElement() {
+    return {
+      ownerDocument: guideDoc, children: [], parentElement: null, className: '',
+      classList: { toggle() {} },
+      append(...children) {
+        for (const child of children) {
+          if (child.parentElement) {
+            const siblings = child.parentElement.children;
+            siblings.splice(siblings.indexOf(child), 1);
+          }
+          this.children.push(child);
+          child.parentElement = this;
+        }
+      },
+    };
+  },
+  getElementById(id) { return ({ 'guide-tour': tourBlock, panel: guidePanel })[id] ?? null; },
+  querySelectorAll() { return []; },
+  querySelector() { return null; },
+};
+const tourBlock = guideDoc.createElement('div');
+const guidePanel = guideDoc.createElement('div');
+guidePanel.append(tourBlock);
+const guideHost = guideDoc.createElement('div');
+const guideScreen = GUIDE.load();
+const guideContext = { api: { hud: { tab: 'controls', panelOpen: () => true } } };
+try {
+  guideScreen.mount(guideHost, guideContext);
+  guideScreen.shown(guideHost, guideContext);
+  assert.equal(guideHost.children[0], tourBlock, 'the existing tour block leads Guide');
+  assert.equal(guideHost.children.filter(child => child === tourBlock).length, 1, 'the tour is moved exactly once');
+  assert(!guidePanel.children.includes(tourBlock), 'the tour leaves the legacy panel');
+  const controls = guideHost.children.filter(child => child.className === 'nav-guide-sheet');
+  assert.equal(controls.length, 1, 'Guide mounts one controls sheet');
+  assert(guideHost.children.indexOf(controls[0]) > 0, 'the controls sheet follows the tour');
+  assert(guideHost.children.indexOf(guidePanel) > guideHost.children.indexOf(controls[0]), 'the hosted sections follow the controls sheet');
+} finally {
+  // Invalidate pending lazy imports before they try to paint this minimal DOM.
+  guideScreen.hidden(guideHost, { api: {} });
+  guideScreen.unmount();
+}
 const main = read('renderers/web/js/main.js');
 assert(/if \(firstEntry && !api\.tour\?\.running\) api\.tour\?\.resume\(\);/.test(main), 'a reload resumes once back in the town');
 assert(/tourCounts\.apps\[now\] = \(tourCounts\.apps\[now\] \?\? 0\) \+ 1/.test(main), 'each Navigator app opening is counted');

@@ -418,6 +418,8 @@ want "$(CHECK_JOBS=1 bash -c 'source tools/check_harness.sh; printf "%s" "$CHECK
      "…and an explicit CHECK_JOBS still wins, which is the escape hatch"
 
 # The CI partition keeps the same required gate and refuses incomplete verdicts.
+# T-3656: the owner-authorized CI completion allowance is 900s; the matrix and
+# assertions remain mandatory, and the timeout itself may not be removed.
 if python3 - ../../.github/workflows/chicago-4d-check.yml <<'PY_GATE_PARTITION'
 from pathlib import Path
 import json, re, sys
@@ -440,7 +442,7 @@ def valid(text):
         '          fetch-depth: 0', '          filter: blob:none',
         "          C4D_GATE_REQUIRE_READERS: '1'", "          C4D_GATE_REQUIRE_BASE: '1'",
         '          CHECK_JOBS: ${{ steps.jobs.outputs.n }}',
-        '        run: timeout --kill-after=5s 600s ./tools/check.sh --part "${{ matrix.part }}/8"',
+        '        run: timeout --kill-after=5s 900s ./tools/check.sh --part "${{ matrix.part }}/8"',
         '          node chicago/4d/tools/check-changelog-entry.mjs',
         '          "${{ github.event.pull_request.base.sha }}"',
         '          "${{ github.event.pull_request.head.sha }}"',
@@ -459,9 +461,9 @@ def valid(text):
 assert valid(source), 'native CI partition or final required gate changed'
 controls = [
     source.replace('part: [1, 2, 3, 4, 5, 6, 7, 8]', 'part: [1, 2, 3, 4, 5, 6, 7]'),
-    source.replace('600s ./tools/check.sh', '601s ./tools/check.sh'),
+    source.replace('900s ./tools/check.sh', '901s ./tools/check.sh'),
     source.replace('/8"', '/4"'),
-    source.replace('timeout --kill-after=5s 600s ./tools/check.sh --part "${{ matrix.part }}/8"', 'true'),
+    source.replace('timeout --kill-after=5s 900s ./tools/check.sh --part "${{ matrix.part }}/8"', 'true'),
     source.replace("C4D_GATE_REQUIRE_READERS: '1'", "C4D_GATE_REQUIRE_READERS: '0'"),
     source.replace("C4D_GATE_REQUIRE_BASE: '1'", "C4D_GATE_REQUIRE_BASE: '0'"),
     source.replace('fetch-depth: 0', 'fetch-depth: 1'),
@@ -474,6 +476,7 @@ controls = [
     source.replace('    if: ${{ always() }}\n', '    if: ${{ always() }}\n    if: false\n'),
 ]
 for i, broken in enumerate(controls, 1):
+    assert broken != source, f'CI shape control {i} did not alter the workflow'
     assert not valid(broken), f'unsafe CI shape control {i} passed'
 print(f'CI partition: required gate and all eight native parts; {len(controls)} refusal controls pass')
 PY_GATE_PARTITION

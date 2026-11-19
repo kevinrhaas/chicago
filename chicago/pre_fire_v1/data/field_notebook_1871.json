@@ -1,6 +1,6 @@
 {
   "title": "1871 primary-source field notebook",
-  "updated": "2026-11-18",
+  "updated": "2026-11-19",
   "scope": "Selected, traceable observations for reconstructing Chicago before the Great Fire. This is an expanding extraction, not a complete city census or a certified October 8 inventory.",
   "books": [
     {
@@ -35,6 +35,17 @@
       "date_scope": "Fiscal year ending March 31, 1870. Earlier baseline, not an October 1871 inspection.",
       "rights": "Public-domain 1870 municipal publication; Internet Archive digitized copy.",
       "bias": "Administrative account of work. Archive metadata gives an erroneous 1861 date; the title page identifies the ninth report for the fiscal year ending March 31, 1870. Continuity into October 1871 requires checking."
+    },
+    {
+      "id": "illustrated1866-67",
+      "title": "Chicago Illustrated — Sheahan, Jevne & Almini (1866–67)",
+      "author": "James W. Sheahan; lithographs published by Jevne & Almini",
+      "publication_year": 1867,
+      "archive_id": "HathiTrust mdp.69015000002622, Commons PDF",
+      "url": "https://commons.wikimedia.org/wiki/File:Chicago_Illustrated_by_Sheahan,_Jevne_%26_Almini,_1866-67.pdf",
+      "date_scope": "Catalogue edition 1866–67; 1867 is the upper year of that range, not an exact publication date. These three pages do not print a month. The Chamber text describes the original building dedicated August 30, 1865.",
+      "rights": "Original U.S. 1866–67 publication, public domain by age. Independently acquired University of Michigan / HathiTrust scan through Commons, whose file record declares PD-scan, PD-old-70 and Public Domain Mark. The full pages retain their Public Domain watermark. This is not the restricted CHM digital poster and is not labeled CC0.",
+      "bias": "A pictorial city publication, not a measured survey or an October 8, 1871 witness. The lithograph may idealize perspective and colour; the 100-foot height gives neither datum nor endpoint. The 181-foot depth differs from the later Andreas account."
     }
   ],
   "pages": [
@@ -102,11 +113,11 @@
       "title": "Public halls, blocks and buildings",
       "url": "https://archive.org/details/edwardsannualdir141871chic/page/n45/mode/1up",
       "image_url": "https://archive.org/download/edwardsannualdir141871chic/page/n45.jpg",
-      "verification": "scan inspected",
-      "inspected_on": "2026-11-18",
+      "verification": "Scan inspected; independently re-read in the 19 November evidence pass",
+      "inspected_on": "2026-11-19",
       "sha256": "97ae3b5488ca07d821ab4ced1c8fe2934c11ef4a3f87190e2275330a96f5f4b4",
       "bytes": 847958,
-      "local_image": null
+      "local_image": "../media/research/dir-1871-p54.jpg"
     },
     {
       "id": "dir-56",
@@ -200,11 +211,11 @@
       "title": "Swing bridge construction and traffic-count method",
       "url": "https://archive.org/details/annualreportboa06workgoog/page/n58/mode/1up",
       "image_url": "https://archive.org/download/annualreportboa06workgoog/page/n58.jpg",
-      "verification": "OCR text read; scan available",
-      "inspected_on": "2026-11-18",
+      "verification": "Scan inspected; independently re-read in the 19 November evidence pass",
+      "inspected_on": "2026-11-19",
       "sha256": "e536f41447752d9ce346806d6cef50fa4ae147242d469af359d28a1e3dc55e08",
       "bytes": 914421,
-      "local_image": null
+      "local_image": "../media/research/works-1871-p48.jpg"
     },
     {
       "id": "works-49",
@@ -256,11 +267,11 @@
       "title": "New hydrants: date definition and South Division",
       "url": "https://archive.org/details/annualreportboa06workgoog/page/n89/mode/1up",
       "image_url": "https://archive.org/download/annualreportboa06workgoog/page/n89.jpg",
-      "verification": "OCR text read; scan available",
-      "inspected_on": "2026-11-18",
+      "verification": "Scan inspected; independently re-read in the 19 November evidence pass",
+      "inspected_on": "2026-11-19",
       "sha256": "7cb24e0dfa4c3c02ea2c946ac672876e851296321216f60aa7f8a4e84ad22f33",
       "bytes": 1310965,
-      "local_image": null
+      "local_image": "../media/research/works-1871-p79.jpg"
     },
     {
       "id": "works-84",
@@ -298,11 +309,11 @@
       "title": "Street names displayed on lamps",
       "url": "https://archive.org/details/annualreportboa06workgoog/page/n126/mode/1up",
       "image_url": "https://archive.org/download/annualreportboa06workgoog/page/n126.jpg",
-      "verification": "OCR text read; scan available",
-      "inspected_on": "2026-11-18",
+      "verification": "Scan inspected; independently re-read in the 19 November evidence pass",
+      "inspected_on": "2026-11-19",
       "sha256": "784a632109795b363690131564f5d85b730aeb16019190f9df623e3700ac9260",
       "bytes": 587560,
-      "local_image": null
+      "local_image": "../media/research/works-1871-p116.jpg"
     },
     {
       "id": "works1870-75",
@@ -340,11 +351,11 @@
       "title": "Alexander and Allan: workers and women physicians",
       "url": "https://archive.org/details/edwardsannualdir141871chic/page/n63/mode/1up",
       "image_url": "https://archive.org/download/edwardsannualdir141871chic/page/n63.jpg",
-      "verification": "scan inspected",
-      "inspected_on": "2026-11-18",
+      "verification": "Scan inspected; independently re-read in the 19 November evidence pass",
+      "inspected_on": "2026-11-19",
       "sha256": "f8aa01501493ce3de853a9eae90172647d140b2c4eeaeab50ff0b8b05c47c9e0",
       "bytes": 846115,
-      "local_image": null
+      "local_image": "../media/research/dir-1871-p72.jpg"
     },
     {
       "id": "dir-898",
@@ -359,6 +370,82 @@
       "sha256": "820bbc9af43939459bbcd6841f5f2265adf5b44f35ea3788cd5f6daa46798210",
       "bytes": 897609,
       "local_image": null
+    },
+    {
+      "id": "works-112",
+      "book_id": "works1871",
+      "printed_page": "112",
+      "scan_index": 122,
+      "title": "Streets and Bridges: report date and 27 pivot bridges",
+      "url": "https://archive.org/details/annualreportboa06workgoog/page/n122/mode/1up",
+      "image_url": "https://archive.org/download/annualreportboa06workgoog/page/n122.jpg",
+      "verification": "Scan inspected in the bounded bridge-count pass",
+      "inspected_on": "2026-11-19",
+      "sha256": "1c9b3bdffb1b90e6c1c10d35f4bef18d6a5fa94e58b8d67b5b47fb4f50541062",
+      "bytes": 1570402,
+      "local_image": "../media/research/works-1871-p112.jpg"
+    },
+    {
+      "id": "works-113",
+      "book_id": "works1871",
+      "printed_page": "113",
+      "scan_index": 123,
+      "title": "Bridge construction and spring condition assessments",
+      "url": "https://archive.org/details/annualreportboa06workgoog/page/n123/mode/1up",
+      "image_url": "https://archive.org/download/annualreportboa06workgoog/page/n123.jpg",
+      "verification": "Scan inspected in the bounded bridge-count pass",
+      "inspected_on": "2026-11-19",
+      "sha256": "5fd9cb0440a957bdcc641f617df977e3dae8a72d35b9e91b30a6e3ce18431024",
+      "bytes": 666728,
+      "local_image": "../media/research/works-1871-p113.jpg"
+    },
+    {
+      "id": "illustrated-chamber-8",
+      "book_id": "illustrated1866-67",
+      "printed_page": "unnumbered; PDF page 8",
+      "scan_index": 7,
+      "scan_label": "PDF page 8 (one-based position; no printed folio)",
+      "image_note": "Full-page render of the independently acquired public-domain PDF; margins and watermark retained. A rendering, not an unmodified downloaded JPEG.",
+      "title": "Chamber of Commerce lithograph",
+      "url": "https://commons.wikimedia.org/wiki/File:Chicago_Illustrated_by_Sheahan,_Jevne_%26_Almini,_1866-67.pdf#page=8",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Chicago_Illustrated_by_Sheahan,_Jevne_&_Almini,_1866-67.pdf#page=8",
+      "verification": "Full-page render visually inspected; PDF identity and extraction provenance preserved",
+      "inspected_on": "2026-11-19",
+      "sha256": "95c87b08f7a84e5ee3d12dea0064afb99c7c26d8c72eea7a595f2e74706846fa",
+      "bytes": 1773572,
+      "local_image": "../media/research/illustrated-pdfpage8.png"
+    },
+    {
+      "id": "illustrated-chamber-9",
+      "book_id": "illustrated1866-67",
+      "printed_page": "unnumbered; PDF page 9",
+      "scan_index": 8,
+      "scan_label": "PDF page 9 (one-based position; no printed folio)",
+      "image_note": "Full-page render of the independently acquired public-domain PDF; margins and watermark retained. A rendering, not an unmodified downloaded JPEG.",
+      "title": "Chamber of Commerce: dimensions and architectural description",
+      "url": "https://commons.wikimedia.org/wiki/File:Chicago_Illustrated_by_Sheahan,_Jevne_%26_Almini,_1866-67.pdf#page=9",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Chicago_Illustrated_by_Sheahan,_Jevne_&_Almini,_1866-67.pdf#page=9",
+      "verification": "Full-page render visually inspected; PDF identity and extraction provenance preserved",
+      "inspected_on": "2026-11-19",
+      "sha256": "72068ff969ad8c1c0f4e746cba65dbd8b1f5d4bdbc34a5105f76f5b929387d57",
+      "bytes": 1691067,
+      "local_image": "../media/research/illustrated-pdfpage9.png"
+    },
+    {
+      "id": "illustrated-chamber-10",
+      "book_id": "illustrated1866-67",
+      "printed_page": "unnumbered; PDF page 10",
+      "scan_index": 9,
+      "scan_label": "PDF page 10 (one-based position; no printed folio)",
+      "image_note": "Full-page render of the independently acquired public-domain PDF; margins and watermark retained. A rendering, not an unmodified downloaded JPEG.",
+      "title": "Chamber of Commerce: architect and dedication",
+      "url": "https://commons.wikimedia.org/wiki/File:Chicago_Illustrated_by_Sheahan,_Jevne_%26_Almini,_1866-67.pdf#page=10",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Chicago_Illustrated_by_Sheahan,_Jevne_&_Almini,_1866-67.pdf#page=10",
+      "verification": "Full-page render visually inspected; PDF identity and extraction provenance preserved",
+      "inspected_on": "2026-11-19",
+      "sha256": "8b0edd203a00aaee88bab96153364921716b1e89cce522df6434c3299f41001f",
+      "bytes": 1783940,
+      "local_image": "../media/research/illustrated-pdfpage10.png"
     }
   ],
   "records": [
@@ -4449,6 +4536,178 @@
       "render_use": "Use a named hat-making business to research women’s retail and craft work.",
       "limitations": "Historical address only. Resolve against the directory street guide and period maps before geocoding. The entry supplies no footprint, facade or room dimensions. No particular hat, shop window, inventory or opening hour is established.",
       "quantities": []
+    },
+    {
+      "id": "chamber-contemporary-dimensions",
+      "topic": "Buildings & addresses",
+      "title": "Chamber of Commerce — contemporary dimensions, unresolved height",
+      "historical_location": "Southeast corner of Washington and LaSalle; sides toward LaSalle and Exchange Place",
+      "date_scope": "1866–67 publication describing the original building dedicated August 30, 1865; not an October 1871 measurement.",
+      "evidence_type": "reported-condition",
+      "finding": "Chicago Illustrated reports a main building 93 by 181 feet and 100 feet high. The description gives no lower height datum or upper endpoint. Both the 181-foot depth and undatumed height must remain distinct from the later Andreas account.",
+      "source_ids": [
+        "illustrated-chamber-9",
+        "illustrated-chamber-10"
+      ],
+      "locator": "English companion text, PDF page 9 left column; dedication on PDF page 10",
+      "excerpt": "The dimensions of the main building are ninety-three by one hundred and eighty-one feet, and one hundred feet in height.",
+      "render_use": "Use 93-foot frontage as a reported scale constraint. Compare the source-reported depth and visible proportions before choosing a separately graded working model.",
+      "limitations": "No absolute cornice/roof datum is established. Andreas wrote retrospectively in 1885 and reports 180-foot depth and internally contradictory 99-foot cornice/roof statements. Do not silently average depths or infer a precise height.",
+      "quantities": [
+        {
+          "name": "reported frontage",
+          "value": 93,
+          "unit": "feet",
+          "qualifier": "source-reported, not a modern survey"
+        },
+        {
+          "name": "reported depth",
+          "value": 181,
+          "unit": "feet",
+          "qualifier": "differs from Andreas’s later 180-foot report"
+        },
+        {
+          "name": "reported height",
+          "value": 100,
+          "unit": "feet",
+          "qualifier": "lower datum and upper endpoint unspecified"
+        }
+      ]
+    },
+    {
+      "id": "chamber-contemporary-view",
+      "topic": "Buildings & addresses",
+      "title": "Chamber of Commerce — a reusable pre-fire lithograph",
+      "historical_location": "North facade on Washington and west side on LaSalle, viewed from an inferred northwest direction",
+      "date_scope": "Chicago Illustrated, catalogue edition 1866–67; original 1865 building, not its 1872 replacement.",
+      "evidence_type": "reported-condition",
+      "finding": "The inspected plate depicts the triple-arched front portal, five tall upper arch heads grouped two/one/two, projecting quoins, a decorated cornice and a mansard front with circular features. A tree partly obscures the west side. The independently acquired HathiTrust scan supplies a public-domain reference route.",
+      "source_ids": [
+        "illustrated-chamber-8",
+        "illustrated-chamber-10"
+      ],
+      "locator": "Complete Chamber plate, PDF page 8; architect/dedication text, PDF page 10",
+      "excerpt": "CHAMBER OF COMMERCE. [Plate title; the architectural observations above are visual readings, not a quoted description.]",
+      "render_use": "Solve the print’s camera and compare a future model against the actual image. Keep exact dimensions, colours and unpictured faces separately graded.",
+      "limitations": "A lithograph is not a photograph or measured elevation. Its signs, people, flags, horses and vehicles do not establish October 8 tenancy or activity. The CHM poster is restricted and is not this file. No camera, model or image-gate acceptance is claimed.",
+      "quantities": []
+    },
+    {
+      "id": "utility-corner-evidence-scope",
+      "topic": "Water & utilities",
+      "title": "Chicago & Pine — one hydrant, no documented corner lamp",
+      "historical_location": "Historic northeast corner of Chicago avenue and Pine street; citywide lamp-label practice is a separate claim",
+      "date_scope": "Hydrant list: year ending April 1, 1871. Streets and Bridges report: April 1, covering the year ending March 31.",
+      "evidence_type": "reported-condition",
+      "finding": "The report lists the northeast-corner hydrant separately from the Chicago avenue hydrant at the Gund Engine House. Its praise of names on city lamps does not identify a lamp at either location. The dating headings and lamp passage have now been visually checked.",
+      "source_ids": [
+        "works-79",
+        "works-84",
+        "works-112",
+        "works-116"
+      ],
+      "locator": "Hydrants introduction p.79; consecutive North Division entries p.84; report heading p.112; Street Signs p.116",
+      "excerpt": "One northeast corner Chicago avenue and Pine street. / One on Chicago avenue at the Gund Engine House. / placing the names of streets upon the lamps of the city",
+      "render_use": "Keep the two hydrant locations distinct. Reconstruct any exact curb position, casting and finish explicitly; investigate a corner lamp as a separate placement.",
+      "limitations": "New installations are not a full hydrant inventory. Continued presence on October 8 is an inference. Historic Pine is not today’s widened Michigan Avenue curb. Casting, paint, pressure, offsets, lamp lettering and any action at 16:00 remain unestablished.",
+      "quantities": []
+    },
+    {
+      "id": "bridge-report-count",
+      "topic": "Bridges & river",
+      "title": "Twenty-seven bridge rows — the report’s material count reconciles",
+      "historical_location": "Main river and branches; named rows on report p.49",
+      "date_scope": "Municipal report for the year ending March 31, 1871; p.49 traffic observations March 31, 6 a.m.–7 p.m.",
+      "evidence_type": "reported-condition",
+      "finding": "The 27 named rows in the table agree with the narrative count: 16 wooden-brace/iron-chord bridges, one entirely iron bridge (Madison), and ten wooden-brace/wooden-chord bridges. This resolves the report’s named-row/material count without adding anonymous railway or private crossings.",
+      "source_ids": [
+        "works-48",
+        "works-49",
+        "works-112"
+      ],
+      "locator": "p.48 introduction; p.49 complete named-row table; p.112 Streets and Bridges report",
+      "excerpt": "The city bridges crossing the river are 27 in number. / twenty-seven pivot bridges",
+      "render_use": "Crosswalk named source rows to rendered or explicitly omitted crossings; keep a model inventory separate from a complete historical census.",
+      "limitations": "This pass does not revalidate traffic arithmetic, dimensions or geographic placement. The count is not an October inventory or proof that all 27 were open. Existing traffic transcription warnings remain.",
+      "quantities": [
+        {
+          "name": "named report rows",
+          "value": 27,
+          "unit": "bridges",
+          "qualifier": "p.49 table, not an October operational census"
+        },
+        {
+          "name": "iron chords with wooden braces",
+          "value": 16,
+          "unit": "bridges",
+          "qualifier": "table material descriptions agree with p.112 categories"
+        },
+        {
+          "name": "entirely iron",
+          "value": 1,
+          "unit": "bridge",
+          "qualifier": "Madison"
+        },
+        {
+          "name": "wooden chords and braces",
+          "value": 10,
+          "unit": "bridges",
+          "qualifier": "table material descriptions"
+        }
+      ]
+    },
+    {
+      "id": "bridge-spring-conditions",
+      "topic": "Bridges & river",
+      "title": "Spring bridge conditions do not establish October openings",
+      "historical_location": "Erie, Twenty-second, Western, South Halsted, Wells and Clybourn crossings",
+      "date_scope": "March 31 traffic-count context and Streets and Bridges report dated April 1, 1871.",
+      "evidence_type": "reported-condition",
+      "finding": "Erie and Twenty-second are marked “Not in use” in the traffic table, although the report describes new construction. South Halsted is called unsafe for heavy travel; Wells and Clybourn are expected to serve one or two years longer. Western’s table row and construction narrative require further identity work.",
+      "source_ids": [
+        "works-49",
+        "works-112",
+        "works-113"
+      ],
+      "locator": "p.49 rows; p.113 continuation of Streets and Bridges report",
+      "excerpt": "Not in use [Erie and Twenty-second, table]. / No account [Western, table].",
+      "render_use": "Keep uncertain opening dates and unmatched crossings explicit. Treat spring condition reports as dated evidence, not automatic October closures or repairs.",
+      "limitations": "Western is described on p.49 as “W. fork of S. Branch”, built 1869, while p.113 describes a new Western Avenue bridge over the Illinois and Michigan Canal. This does not establish a 28th bridge or permit a modern-coordinate placement. No October opening or repair outcome was verified.",
+      "quantities": []
+    },
+    {
+      "id": "worker-alexander-jc-carpenter",
+      "topic": "People & daily life",
+      "title": "J. C. Alexander — carpenter associated with McVicker’s Theatre",
+      "historical_location": "McVicker’s Theatre; residence 75 Huron in the historical numbering system",
+      "date_scope": "1871 directory edition; entry/canvass date and October 8 presence unestablished.",
+      "evidence_type": "listed",
+      "finding": "The directory lists J. C. Alexander as a carpenter associated with McVicker’s Theatre and gives a residence at 75 Huron. Keep the initials: these are not either of the separate William Alexander entries.",
+      "source_ids": [
+        "dir-72"
+      ],
+      "locator": "Printed p.72, left column near bottom, Alexander J. C. entry",
+      "excerpt": "Alexander J. C. carpenter, McVicker's Theatre, r. 75 Huron,",
+      "render_use": "A future evidence card can preserve the listed identity and occupation while grading appearance, presence and any routine as separate reconstructions.",
+      "limitations": "The row supplies no full given name, age, race, appearance, clothing, tools, household, payroll status, employment duration, schedule or route. No person/model/portrait is created here. Sunday October 8 at 16:00 is not a witnessed work shift.",
+      "quantities": []
+    },
+    {
+      "id": "mcvicker-directory-corridor",
+      "topic": "Buildings & addresses",
+      "title": "McVicker’s Theatre — a directory street corridor",
+      "historical_location": "Madison between Dearborn and State",
+      "date_scope": "1871 directory compilation; exact listing date unknown.",
+      "evidence_type": "listed",
+      "finding": "The theatre register places McVicker’s Theatre on Madison between Dearborn and State. Combined with the separate Alexander entry, this supplies a historical workplace corridor, not a doorway or commute.",
+      "source_ids": [
+        "dir-54"
+      ],
+      "locator": "Printed p.54, upper left theatre list before Public Halls, Blocks and Buildings",
+      "excerpt": "McVICKER’S THEATRE—Madison, bet. Dearborn and State.",
+      "render_use": "Resolve a period map and clear walk surface before proposing an exterior routine for the directory-backed carpenter.",
+      "limitations": "No street number, side of Madison, parcel outline, entrance or service door is supplied. Do not translate 75 Huron directly into present-day numbering or infer stage work, a performance, a crowd or a home-to-work route.",
+      "quantities": []
     }
   ],
   "scene_packets": [
@@ -4678,6 +4937,51 @@
         "No modern Grant Park shoreline or mature formal planting."
       ],
       "status": "Research packet — not a completed model or witnessed event"
+    },
+    {
+      "id": "chamber-exterior",
+      "title": "Chamber of Commerce: evidence before geometry",
+      "historical_location": "Southeast Washington/LaSalle corner",
+      "purpose": "Compare the contemporary plate and dimensions before reconstructing the original 1865 main-building exterior. Retrospective source conflicts remain in the linked research dossier.",
+      "record_ids": [
+        "building-chamber",
+        "chamber-contemporary-dimensions",
+        "chamber-contemporary-view"
+      ],
+      "proposed_actions": [
+        "Inspect the retained plate and text, reconcile the period footprint and solve the reference camera before selecting a working vertical profile."
+      ],
+      "unresolved": [
+        "180 versus 181 feet of depth across sources; absolute cornice/roof datum and the undatumed 100-foot report.",
+        "East/south details, exact materials/colours, rear ancillary structures and October sign continuity."
+      ],
+      "exclude": [
+        "The 1872 replacement and later Board of Trade buildings.",
+        "An accepted model, measured survey, resolved height or October 8 street activity is not supplied by this study."
+      ],
+      "status": "Evidence study only — no model or camera acceptance"
+    },
+    {
+      "id": "mcvicker-carpenter",
+      "title": "McVicker’s Theatre: a named carpenter without an invented shift",
+      "historical_location": "Madison between Dearborn and State; historical residence 75 Huron",
+      "purpose": "Keep a directory-backed identity linked to its workplace corridor while separating the unknown appearance, presence and actions.",
+      "record_ids": [
+        "worker-alexander-jc-carpenter",
+        "mcvicker-directory-corridor"
+      ],
+      "proposed_actions": [
+        "Investigate the period street/entrance and walk surface before proposing any separately labeled exterior depiction."
+      ],
+      "unresolved": [
+        "Full given name, appearance and household are unknown.",
+        "Exact workplace entrance, historical residence location, commute and Sunday schedule are unknown."
+      ],
+      "exclude": [
+        "Do not merge J. C. with either William Alexander entry.",
+        "No witnessed presence, carpentry task, stage work, performance, tool load or fire response is established."
+      ],
+      "status": "Identity and address evidence only — no actor or witnessed event"
     }
   ],
   "corrections": [
@@ -4746,6 +5050,20 @@
         "park-union-entrance",
         "lakepark-plan",
         "bridge-state"
+      ]
+    },
+    {
+      "title": "A second pass separates source counts, dimensions and identities",
+      "before": "The notebook linked selected source pages but did not include the Chamber’s contemporary dimension text, a named-row bridge count comparison or J. C. Alexander’s theatre connection.",
+      "after": "Seven supplemental observations retain the original entries and their limits, add locally inspectable public scans, preserve source conflicts and distinguish J. C. Alexander from the William Alexander entries. No model, exact placement or scene-time presence follows from these additions.",
+      "record_ids": [
+        "chamber-contemporary-dimensions",
+        "chamber-contemporary-view",
+        "utility-corner-evidence-scope",
+        "bridge-report-count",
+        "bridge-spring-conditions",
+        "worker-alexander-jc-carpenter",
+        "mcvicker-directory-corridor"
       ]
     }
   ],
