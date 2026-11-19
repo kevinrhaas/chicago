@@ -19,7 +19,9 @@ assert.deepEqual(parseNavLink('?nav=inspect:<script>&tab=../x'), { app: 'inspect
   'an id or a tab that is not well formed is dropped, the app kept');
 
 // ---- Back ---------------------------------------------------------------------------
-function fakeWindow() {
+// `slowBack`: a traversal the way a browser runs it — the target is the entry behind the
+// one Back was called on, and it lands, popstate and all, on a LATER task (T-3664).
+function fakeWindow({ slowBack = false } = {}) {
   const stack = [{ state: null }];
   let at = 0;
   const fns = [];
@@ -29,7 +31,18 @@ function fakeWindow() {
       get state() { return stack[at].state; },
       get length() { return stack.length; },
       pushState(state) { stack.splice(at + 1); stack.push({ state }); at += 1; },
-      back() { if (at > 0) { at -= 1; queueMicrotask(() => fns.forEach((fn) => fn({ state: stack[at].state }))); } else win.left = true; },
+      back() {
+        if (slowBack) {
+          const to = at - 1;
+          setTimeout(() => {
+            if (to < 0) { win.left = true; return; }
+            at = to;
+            fns.forEach((fn) => fn({ state: stack[at].state }));
+          }, 5);
+          return;
+        }
+        if (at > 0) { at -= 1; queueMicrotask(() => fns.forEach((fn) => fn({ state: stack[at].state }))); } else win.left = true;
+      },
     },
     addEventListener(type, fn) { if (type === 'popstate') fns.push(fn); },
     removeEventListener() {},
@@ -84,7 +97,39 @@ assert.equal(navHoldsBack({ app: 'jump', level: 0 }), true);
   win.pressBack();
   assert.equal(win.left, true, 'so the next Back leaves at once');
 }
+{
+  // T-3664: closed and reopened before the Back that gave the entry back has landed. The
+  // reopen used to push at once; the Back then landed on the page's own entry, its popstate
+  // was swallowed as ours, and the next close went Back off the page (smoke part 14).
+  const win = fakeWindow({ slowBack: true }), nav = fakeNav();
+  const h = createNavHistory({ nav, win });
+  const settle = () => new Promise((r) => setTimeout(r, 20));
+  nav.set({ level: 1 });
+  assert.equal(win.at, 1);
+  nav.set({ level: 0 });           // docked: our Back is now travelling
+  nav.set({ level: 1 });           // reopened inside the gap
+  assert.equal(win.history.length, 2, 'the reopen does not push while our Back is still travelling');
+  await settle();
+  assert.equal(win.at, 1, 'once the Back lands the reopened device holds its entry again');
+  assert.equal(h.held, true);
+  assert.deepEqual(nav.state, { app: 'home', level: 1 }, 'and the landing is not read as a visitor\'s Back');
+  nav.set({ level: 0 });           // docked again
+  await settle();
+  assert.equal(win.left, false, 'so the next close stays on the page');
+  assert.equal(win.at, 0, 'having given back the one entry it held');
+  // Closed again before the Back lands: nothing is pushed, nothing is owed.
+  nav.set({ level: 1 });
+  nav.set({ level: 0 });
+  nav.set({ level: 1 });
+  nav.set({ level: 0 });
+  await settle();
+  assert.equal(win.at, 0, 'opened and closed inside the gap, the device asks for nothing');
+  assert.equal(h.held, false);
+  win.pressBack();
+  await settle();
+  assert.equal(win.left, true, 'and the visitor\'s own Back leaves at once');
+}
 assert.equal(createNavHistory({ nav: null }), null);
 assert.equal(createNavHistory({ nav: fakeNav(), win: {} }), null, 'no history api, nothing held');
 
-console.log('NAV LINK PASS — ?nav=app[:id]&tab= parsed and bad parts dropped quietly; Back closes the open app and stays, the next Back leaves');
+console.log('NAV LINK PASS — ?nav=app[:id]&tab= parsed and bad parts dropped quietly; Back closes the open app and stays, the next Back leaves; a reopen while our own Back travels waits for it to land (T-3664)');

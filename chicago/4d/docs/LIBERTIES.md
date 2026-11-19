@@ -25311,7 +25311,7 @@ darker than its brown sandstone, which a buff brick cannot do) and laid in the f
 
 ### L-draft-prairie-20-22-east-2352 — The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open
 
-**Covers:** `armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie.draft_1904.form.draft_elevation`, `otis_house_2033_prairie.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the district draft's 20th-22nd block, east side (T-2352, piece 2 of T-2161), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 35's trace (T-2340) and the T-1842
@@ -25350,6 +25350,7 @@ buildings are T-1938's.
 **Retired in part:** 2009 the Max A. Meyer house by T-1913 (the S05A envelope package), which refined it in place on the K01 frontage kit under `L-k01-2009-meyer-1913`; its coach house is still this draft's.
 **Retired in part:** 2011, the Romanesque house beside Mayer, by T-3615 (piece 1 of T-1915, the S06 package), which refined it in place on the K01 frontage kit under `L-k01-2011-romanesque-1915`, under the same id; its draft attributes are gone (its alley building is still the draft's, T-1938's).
 **Retired in part:** 2021, the Adams/High house, by T-3633 (piece 1 of T-1917, the S08 package), which refined it in place on the K01 frontage kit under `L-k01-2021-high-3633`, under the same id; its draft attributes are gone (its alley building is still the draft's, T-1938's).
+**Retired in part:** 2033, the Otis house, by T-3659 (piece 1 of T-1918, the S09 package), which refined it in place on the K01 frontage kit under `L-k01-2033-otis-3659`, under the same id; its draft attributes are gone (its alley building is still the draft's, T-1938's).
 **Retired in part:** 2017, the William Armour house, by T-3634 (piece 2 of T-1917, the S08 package), which refined it in place on the K01 frontage kit under `L-k01-2017-armour-3634`, under the same id; its draft attributes are gone (its alley building is still the draft's, T-1938's).
 **Retired in part:** 2027, the Cobb-associated villa, by T-3635 (piece 3 of T-1917, the S08 package), which refined it in place on the K01 frontage kit under `L-k01-2027-villa-3635`, under the same id; its draft attributes are gone (its alley barn is still the draft's, T-1938's).
 **Retired in part:** 2035, the 21st Street corner of the limestone row, by T-3661 (piece 3 of T-1918, the S09 package), which refined it in place on the K01 frontage kit under `L-k01-2035-stone-3661`, under the same id; its draft attributes are gone (its detached rear building is still the draft's, T-1938's).
@@ -44763,6 +44764,47 @@ would read first.
 **Ticket:** T-3665 (piece 1 of T-1924, S13).
 **Review:** `docs/RESEARCH/k01-2101-corner-3665/README.md`.
 **Recorded:** 2026-11-19 (T-3665).
+
+### L-k01-2033-otis-3659 — 2033 Prairie, the Otis house, refined from the district draft onto K01: its stone front, full-height bay, door and cornice read off Walker Evans' 1946 photograph, its flanks and rear still the kits'
+
+**Decision:** the district draft at `otis_house_2033_prairie` (T-2352) is refined in place, under its own id, to a
+`k01_frontage` record built by `generators/k01_emit.py` (T-3659, piece 1 of T-1918, the S09 package of the T-1837
+programme): the middle house of the 1869 Lemont limestone row at 2031-2035, the Otis homestead from 1869 to 1934, a
+narrow three-storey stone front across its whole 25 ft lot with a full-height canted bay, a pedimented door hood and a
+deep bracketed cornice.
+
+**What is read, not invented.** From the 1911 Sanborn sheet 35 trace (`s35fp-2033-b1`): the '3B' main body, 12.9 m
+deep across the lot's 7.62 m, 7.97 m behind the street line; the stone bay on the front; the 'rear2B' range behind the
+body on the north line (about 4.3 by 5.2 m). From Walker Evans' 1946 photograph (`walker_evans_1946_2033_prairie_otis`,
+check_required: forms only), through a camera solved on it (`data/reference_views/otis_house_2033_prairie/walker_evans_1946.json`):
+the door at the north end and the bay on the south two-thirds; the bay's place and width, its three faces and its
+arched lights a storey and its storey bands; the door's two leaves under an arched
+fanlight; the pedimented hood on its consoles; the arched lights over the door under their key blocks; the storeys'
+heights at the sills and heads; the cornice carried round the bay; the fence on its curb along the walk.
+
+**What is invented.** The stone's colour (the census's Lemont limestone; the print is monochrome); the walls'
+thickness; the party walls' and rear's common brick; the flat roof and its tin, which no picture sees; two stacks on
+the north party wall; the stoop's tread and landing; the rear wall's one light and the rear range's floors, sash and
+flat roof; the walk gate's leaves; the yard.
+
+**What is built otherwise than the evidence, and why.** The photograph lays the whole front in channelled courses;
+K01 lays a street wall smooth or rock-faced, so the flat front is smooth Lemont ashlar over two rusticated base courses
+and only the bay is channelled. The bay's projection (1.1 m) is not read by a square-on camera: it sits between the
+print's cant widths and the sheet's 1.85 m. The hood's soffit and apex stand about 0.2 m under the print's and its urn is
+not built: K01 keeps a door hood clear of the light over it, before whose foot the print's urn stands. The hood's
+consoles are K01's longest (1.0 m to the print's 1.3), and the carving of the consoles, the frieze, the key blocks and
+the bay's spandrels is finer than the print, built as plain members. The cornice's frieze is plain and its brackets
+spaced at the kit's rhythm. The arched basement light under the bay, half hidden by a shrub in the print, is not cut:
+K08 lays one light to each face of a storey, and the bay's lowest storey runs from grade. The yard is K14's 1904 yard on the town's grade; the print's yard stands above the public
+walk, so its stoop runs on down to the walk where the build's stops at the yard. The 1946 print is evidence of 1946: its
+forms are carried to 1904 because the Otis family held the house throughout.
+
+**How to resolve:** a picture of the row nearer 1904, or of the flanks or rear, moves what it shows; K01 learning a
+channelled street wall lays the front's courses; T-3661 closes the image gate for the row after 2031 and 2035.
+**Covers:** `otis_house_2033_prairie.as_mapped_1904.form.wall_thickness_front_m`, `otis_house_2033_prairie.as_mapped_1904.form.wall_thickness_side_m`, `otis_house_2033_prairie.as_mapped_1904.form.service_wall_brick`, `otis_house_2033_prairie.as_mapped_1904.form.face_brick`, `otis_house_2033_prairie.as_mapped_1904.form.street_front_trim`, `otis_house_2033_prairie.as_mapped_1904.form.roof_form`, `otis_house_2033_prairie.as_mapped_1904.form.roof_pitch_deg`, `otis_house_2033_prairie.as_mapped_1904.form.roof_covering`, `otis_house_2033_prairie.as_mapped_1904.form.stair_tread_m`, `otis_house_2033_prairie.as_mapped_1904.form.stair_landing_depth_m`, `otis_house_2033_prairie.as_mapped_1904.form.rear_bays`, `otis_house_2033_prairie.as_mapped_1904.form.basement_lights`, `otis_house_2033_prairie.as_mapped_1904.form.chimneys`, `otis_house_2033_prairie.as_mapped_1904.form.yard`
+**Ticket:** T-3659 (piece 1 of T-1918, S09).
+**Review:** `docs/RESEARCH/photo-match/otis_house_2033_prairie/walker_evans_1946-side-by-side.jpg`.
+**Recorded:** 2026-11-18 (T-3659).
 
 ### L-k01-2035-stone-3661 — 2035 Prairie, the 21st Street corner of the 1869 limestone row, refined from the district draft onto K01: its plan off the 1911 sheet, its entrance off the Tribune's 1898 vignette, its heights the row's
 
