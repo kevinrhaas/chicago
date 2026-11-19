@@ -66,6 +66,7 @@ import { createTrees } from './trees.js';
 import { grownGroupName } from './tree-instances.js';
 import { createPopup } from './popup.js';
 import { loadReaderText, readerCopy } from './reader-text.js';
+import { localCatalog, localJaunt } from './jaunt-language.js';
 import { showHumanRoleCard } from './human-role-card.js';
 import { createWelcome } from './welcome.js';
 import { createYearPack } from './year-pack.js';
@@ -7121,14 +7122,15 @@ async function boot() {
         // T-2666: a destination's Jaunt catalog, for the teacher handout's suggested Jaunts;
         // read the first time Guide opens, never at boot. No catalog is no Jaunts.
         jauntCatalog: (year) => (jauntCatalogs[year] ??= fetch(new URL(`sidecars/${encodeURIComponent(year)}/jaunts/catalog.json`, resolveBases().dataBase), { cache: 'no-cache' })
-          .then((res) => { if (res.status === 404) return []; if (!res.ok) throw new Error(String(res.status)); return res.json().then((doc) => doc?.jaunts ?? []); })
+          .then((res) => { if (res.status === 404) return []; if (!res.ok) throw new Error(String(res.status)); return res.json().then((doc) => localCatalog(doc?.jaunts ?? [], new URL(`sidecars/${encodeURIComponent(year)}/jaunts/`, resolveBases().dataBase))); })
           .catch((err) => { delete jauntCatalogs[year]; throw err; })),
         jauntDocument: async (year, id) => {
           if (!['1812', '1835', '1904'].includes(String(year)) || !/^[a-z0-9][a-z0-9_-]{0,95}$/i.test(id ?? ''))
             throw new Error('Unknown outing.');
           const res = await fetch(new URL(`sidecars/${year}/jaunts/${id}.json`, resolveBases().dataBase), { cache: 'no-cache' });
           if (!res.ok) throw new Error('The outing could not be read.');
-          return readerCopy(await res.json(), await loadReaderText(resolveBases().dataBase, `jaunts_${year}`));
+          return localJaunt(readerCopy(await res.json(), await loadReaderText(resolveBases().dataBase, `jaunts_${year}`)),
+            new URL(`sidecars/${year}/jaunts/`, resolveBases().dataBase));
         },
         // T-2667: Guide › About this destination opens one of its cards in the section
         // under the Guide's sheet (the old research hub, js/evidence.js).
