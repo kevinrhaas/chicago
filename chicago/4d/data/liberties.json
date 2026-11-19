@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1192,
+  "count": 1193,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -77816,6 +77816,44 @@
       ],
       "work_refs": [
         "T-3684"
+      ]
+    },
+    {
+      "id": "L-1871-street-surfaces",
+      "title": "What the 1871 streets are made of: wood block, boulders and dirt, under raised plank walks",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work surfaces each 1871 street from the Board of Public Works' Tenth Annual Report, for the year to 31 March 1871 (Chicago Board of Public Works. Tenth Annual Report to the Common Council, for…), read into the paving 1871 data."
+        },
+        {
+          "label": "Attested",
+          "text": "the stretches its warrant table (pp. 25-27) and its text (pp. 22-23: Clark Street from the river to Polk Street and Lake Street from the river to Clark, \"completely worn out in many places\"; Lake Street from Clark to Wabash, relaid) name as wooden-block paved, drawn as Nicholson wood block wherever both ends meet the drawn network (surface basis \"report 1871\"); and the city's totals by division, in lineal feet of wooden block (North 66,195, South 105,385, West 129,533; p. 37) and of boulders (North 1,250, South 19,900; p. 37)."
+        },
+        {
+          "label": "Reconstructed",
+          "text": "the report does not list by street the 37 miles of wood block laid before April 1870, so the rest of each division's wood block is drawn on its principal thoroughfares, the widest named streets first and nearest the Court House among equals, until that division's figure is reached (principal thoroughfare); its boulder pavement is drawn on the named streets within 45 m of the river, nearest the water first, up to each division's figure (river street); every other street is dirt (`unpaved`), as the report's own count implies: about 87 of the city's 534 miles of streets were improved (p. 22, and the totals beside the lineal feet: 87.72 of 533.99 miles). The fill follows the Board's own rule, \"to recommend only the pavement of the main or principal thoroughfares\" (p. 22). Stretches whose ends are lots, railways or parks, or lie off the drawn network, are listed in `paving.unlocated` and not drawn. The walks are raised plank walks a step (15 cm) above the roadway with a kerb board along the street and risers at their ends, and where a walk is cut by a dirt street in the town, planks are laid across that street on the walk's line. The textures (end-grain blocks in courses with tar joints, rounded boulders, packed earth with wheel ruts, boards laid across the walk) are painted in the browser from a seeded generator, bounded by period photographs of Lake and La Salle streets (late 1860s) and the Court House cupola views (about 1858), not copied from them; their tones, the kerb and step heights, the plank widths and which corners have crossings are reconstructed."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a street-by-street list of pre-1870 paving (the Board's earlier annual reports) would replace the principal-thoroughfare fill; the boulder and block-stone streets, and the macadam, gravel and cinder streets the report counts by division, could then be placed from the same reports."
+        },
+        {
+          "label": "Review",
+          "text": "the city 1871 emit generator (surface plan, `infrastructure`), the paving 1871 data, the walkthrough's street surfaces 1871 code, the city 1871 check."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-19 (T-3685)."
+        }
+      ],
+      "work_refs": [
+        "T-3685"
       ]
     },
     {

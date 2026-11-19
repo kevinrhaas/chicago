@@ -127,6 +127,38 @@ def main():
     check(len(roads_ids)==len(set(roads_ids))==len(doc["streets"]),"road ribbons lack exact floor descriptors")
     road_set=set(roads_ids)
     check(all(x["id"].split("_walk_")[0] in road_set for x in surfaces if x["kind"]=="walk"),"walk ribbon belongs to no road")
+    # T-3685: a plank crossing belongs to the walk line of a drawn segment and
+    # lies only on a dirt street; paved streets were crossed on their paving.
+    crossing_ids=[x["id"].rsplit("_x",1)[0] for x in surfaces if x["kind"]=="crossing"]
+    check(bool(crossing_ids) and all(x in road_set for x in crossing_ids),"plank crossings are missing or belong to no road")
+    check(doc["surface_heights_m"]["road"]<doc["surface_heights_m"]["crossing"]<doc["surface_heights_m"]["walk"]
+          and doc["surface_heights_m"]["walk"]-doc["surface_heights_m"]["road"]<=.35,"raised walks are not a step above the road and its crossings")
+    # T-3685: what each street is made of, and the report that bounds it.
+    paving=json.loads((ROOT/doc["paving"]["rules"]).read_text())
+    check((ROOT/"data/sources"/(paving["source"]+".json")).exists(),"street paving cites an unresolved source")
+    check(doc["paving"]["liberty"] in (ROOT/"docs/LIBERTIES.md").read_text(),"street surfaces carry no recorded liberty")
+    pairs={("woodblock","report_1871"),("woodblock","principal_thoroughfare"),("setts","river_street"),("dirt","unpaved")}
+    check(all((x.get("surface"),x.get("surface_basis")) in pairs for x in doc["streets"]),"a street surface has no declared basis")
+    check(any(x["surface_basis"]=="report_1871" for x in doc["streets"]),"no street is paved where the 1871 report puts its wood block")
+    # Pieces are budgeted block by block in their own division; a drawn segment
+    # may join blocks across a division line, so the city total is the check.
+    drawn=collections.Counter()
+    for x in doc["streets"]:drawn[x["surface"]]+=math.dist(x["a"],x["b"])
+    for kind,key in (("woodblock","woodblock_lineal_ft"),("setts","boulder_lineal_ft")):
+        allowed=sum(v for k,v in paving["totals"][key].items() if k!="locator")*.3048
+        check(drawn[kind]<=allowed+1,f"more {kind} drawn ({drawn[kind]:.0f} m) than the report's {allowed:.0f} m")
+        for div,kinds in doc["paving"]["lengths_m"].items():
+            check(kinds.get(kind,0)<=paving["totals"][key].get(div,0)*.3048+1,f"more {kind} budgeted in the {div} division than the report's figure")
+    street_bins=collections.defaultdict(list)
+    for x in doc["streets"]:
+        h=x["width_m"]/2
+        for i in range(math.floor((min(x["a"][0],x["b"][0])-h)/100),math.floor((max(x["a"][0],x["b"][0])+h)/100)+1):
+            for j in range(math.floor((min(x["a"][1],x["b"][1])-h)/100),math.floor((max(x["a"][1],x["b"][1])+h)/100)+1):street_bins[i,j].append(x)
+    for x in surfaces:
+        if x["kind"]=="crossing":
+            m=((x["a"][0]+x["b"][0])/2,(x["a"][1]+x["b"][1])/2)
+            under=[s for s in street_bins[math.floor(m[0]/100),math.floor(m[1]/100)] if recipe.segdist(m,s["a"],s["b"])<=s["width_m"]/2]
+            check(bool(under) and any(s["surface"]=="dirt" for s in under),f"plank crossing not over a dirt street: {x['id']}")
     surface_bins=collections.defaultdict(list);unsupported_walks=[]
     for surface in surfaces:
         a,b=surface["a"],surface["b"];width=surface["width_m"]
@@ -160,8 +192,8 @@ def main():
                 for i in range(accessor["count"]):
                     e,y,z=struct.unpack_from("<fff",blob,offset+12*i)
                     check(height(e,-z)>=recipe.GRADE-.015,"fire-clearance overlay paints solid ground across water or an unsupported bank")
-        if layer not in ("streets","walks"):continue
-        kind="road" if layer=="streets" else "walk"
+        if layer not in ("streets","walks","crossings"):continue
+        kind={"streets":"road","walks":"walk","crossings":"crossing"}[layer]
         for primitive in road_gltf["meshes"][node["mesh"]]["primitives"]:
             accessor=road_gltf["accessors"][primitive["attributes"]["POSITION"]]
             view=road_gltf["bufferViews"][accessor["bufferView"]];offset=bin_start+view.get("byteOffset",0)+accessor.get("byteOffset",0)
