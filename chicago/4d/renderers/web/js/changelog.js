@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3128, ts: '2026-11-19T19:04:43.895Z', date: 'Nov 19, 2026, 1:04 PM CT', title: 'People keep their clothes as you walk up to them', kind: 'fix',
+    items: [
+      'Down the street and across the square, people now wear their own clothes: the lady in the white lingerie dress is in white from a block away, not in black until you are close.',
+      'This holds in every year: the 1812 men\'s own shirts and leggings, the 1835 town\'s shirts, waistcoats and dresses, and 1904\'s dresses, aprons, liveries and straw hats.',
+      'Printed and checked cloth reads as its mixed colour from afar, as it does on the full figure, and the colours follow the season you have chosen.',
+    ] },
   { v: 3127, ts: '2026-11-19T18:12:15.143Z', date: 'Nov 19, 2026, 12:12 PM CT', title: 'In 1871 the Today window stands on your bank, not midstream', kind: 'fix',
     items: [
       'The 1871 city was drawn from Mitchell\'s 1870 map, and its river runs 20 to 80 m off today\'s channel. Standing on its bank, the Today window looked out from the middle of the river.',
