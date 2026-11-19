@@ -1,0 +1,445 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Great Fire 1871",
+  "menu_group": "Stories",
+  "grade_band": "3-5",
+  "review_required": false,
+  "id": "who-started-the-fire-grades-3-5",
+  "scene": "1871",
+  "title": "Who Started the Fire?",
+  "premise": "Sunday night, 8 October 1871: a fire starts in the O'Leary barn, and the cow gets the blame. Hear what everyone said, and decide for yourself who started it. Eight stops.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "night",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: WHO STARTED THE FIRE? It is Sunday night, 8 October 1871, on DeKoven Street on the West Side. Everyone knows the story. Mrs. O'Leary's cow kicked over a lamp and burned Chicago down. But the people who looked into it found no proof. A newspaper reporter later said he and his friends made the story up. And in 1997 the city said the cow did not do it.\n\nSo who did? There are eight stops: the barn, the yard, the party next door, the watchman in the tower, the hearing, the cow story, the other suspects, and the city's answer. You will hear each person in their own words. Start across the street from the barn, just as the fire is found.",
+    "read_s": 32
+  },
+  "stops": [
+    {
+      "id": "the-barn",
+      "destination": {
+        "kind": "anchor",
+        "id": "case_sullivan_seat"
+      },
+      "text": "This is DeKoven Street, at about half past nine on Sunday night. Flames are coming out of the hayloft of the barn behind house No. 137. Patrick and Catherine O'Leary live in that house. Daniel Sullivan, a wagon driver from across the street, later called 'Peg Leg', has just run over. He shouted 'Fire, fire,' and went into the barn. The hay in the loft was burning. He tried to set the animals free, but he saved only a calf. While the city was still burning, people said Mrs. O'Leary had been milking, and her cow kicked over a lamp. That story went all around the world. Was it true? Start with the woman who owned the cow.",
+      "evidence": [
+        "sullivan-affidavit",
+        "first-seen",
+        "peg-leg",
+        "legend",
+        "case-walk"
+      ],
+      "next": "catherine",
+      "read_s": 31,
+      "hour": "21:30",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "sullivan-affidavit"
+      ]
+    },
+    {
+      "id": "catherine",
+      "destination": {
+        "kind": "anchor",
+        "id": "case_oleary_yard"
+      },
+      "text": "This is the yard behind the house. Catherine O'Leary milks five cows and sells the milk. Now she is watching everything she owns burn. Later she said: 'I was in bed myself and my husband and five children when this fire commenced.' Two men came to the door. Her husband Patrick ran back to the bedroom and said, 'Kate the barn is afire.' A neighbor, Dennis Rogan, said the same thing. At half past eight he had found them in bed already. She said her foot was sore. A week later the O'Learys swore she milked the cows at 4:30, fed the horse at about seven, and had no lamp lit that evening. But in the front of this house, there was a party.",
+      "evidence": [
+        "oleary-testimony",
+        "oleary-affidavit",
+        "rogan",
+        "case-walk"
+      ],
+      "next": "the-party",
+      "read_s": 32,
+      "hour": "21:35",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "case-walk"
+      ]
+    },
+    {
+      "id": "the-party",
+      "destination": {
+        "kind": "anchor",
+        "id": "case_oleary_front"
+      },
+      "text": "This is the front of the house, on DeKoven Street. The McLaughlin family rents the two front rooms. Tonight they are having a party for a cousin who just came from Ireland. Mr. McLaughlin plays the fiddle. Through the wall, Catherine O'Leary could hear the music. Later, a neighbor named Mrs. White told her that someone from the party went to the barn to milk her cows. Why? 'Some said it was for oysters.' Catharine McLaughlin said no one from her family went to the barn. She said they were all inside when the fire started. More than a mile away, in the Court House tower, the watchman has seen a glow.",
+      "evidence": [
+        "oleary-testimony",
+        "mclaughlin",
+        "party",
+        "case-walk"
+      ],
+      "next": "the-alarm",
+      "read_s": 29,
+      "hour": "21:40",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "case-walk"
+      ]
+    },
+    {
+      "id": "the-alarm",
+      "destination": {
+        "kind": "anchor",
+        "id": "case_court_tower"
+      },
+      "text": "This is the top of the Court House tower, at 9:28. Mathias Schaffer, the fire watchman, sees the light of a fire to the southwest. He looks through his spyglass. He thinks the fire is near Canalport Avenue and Halsted Street, so he asks the man below, William J. Brown, to ring for Box 342. But that box is a mile past the real fire. Soon Schaffer sees the fire is closer, but no new alarm is sent. Some fire engines that could have come stay home. The historian A. T. Andreas called it 'a fatal mistake'. And something else is strange. No one near the barn rang an alarm at all.",
+      "evidence": [
+        "watchman",
+        "box-342",
+        "case-walk"
+      ],
+      "next": "the-inquiry",
+      "read_s": 29,
+      "hour": "21:28",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "box-342"
+      ]
+    },
+    {
+      "id": "the-inquiry",
+      "destination": {
+        "kind": "anchor",
+        "id": "case_oleary_front"
+      },
+      "text": "Now it is weeks later, back on DeKoven Street. On 23 November 1871, the men in charge of the police and firemen began a hearing about how the fire started. About fifty people came to answer questions. Catherine O'Leary was one of the most important. She had lost her cows, her horse and her wagon, and she had no insurance to pay her back. The board decided the fire started in the O'Leary barn. But they said no one could prove anyone had been in the barn after dark. Was it a spark from a chimney, or a person? They could not tell. On paper, Mrs. O'Leary was cleared. But the story did not go away.",
+      "evidence": [
+        "board-finding",
+        "oleary-testimony"
+      ],
+      "next": "the-cow",
+      "read_s": 31
+    },
+    {
+      "id": "the-cow",
+      "destination": {
+        "kind": "anchor",
+        "id": "case_barn_alley"
+      },
+      "text": "This is the alley behind the barn. While the city still burned, someone said the cow kicked over a lamp. Artists drew Mrs. O'Leary as a silly, clumsy woman. Later painters named the cow Daisy. Historians say the story stuck because some people already looked down on poor immigrant families like hers, and it was easy to blame her. Then a reporter, Michael Ahern, said that he and two friends had made up the cow story. The Chicago History Museum says he said it on the fire's fortieth birthday. Other books say it was in 1893. Another reporter later said he wrote Ahern's story for him. If not the cow, who was it?",
+      "evidence": [
+        "legend",
+        "scapegoat",
+        "ahern"
+      ],
+      "next": "other-suspects",
+      "read_s": 28
+    },
+    {
+      "id": "other-suspects",
+      "destination": {
+        "kind": "anchor",
+        "id": "case_sullivan_seat"
+      },
+      "text": "This is across the street, a few houses east, where Daniel Sullivan said he was sitting. In 1997 a lawyer named Richard Bales checked Sullivan's story against old land records. He said another house would have blocked Sullivan's view from here. He also said a man with a wooden leg could not have gotten to the barn as fast as Sullivan said. Bales thought Sullivan started the fire himself. A newspaper writer, Anthony DeBartolo, pointed to someone else, Louis M. Cohn. Cohn said that he, Mrs. O'Leary's son and other boys were playing dice in the hayloft when one of them knocked over a lantern. Some people even blame a meteor. The historian Carl Smith says none of these ideas can be proved.",
+      "evidence": [
+        "peg-leg",
+        "cohn",
+        "meteor",
+        "sullivan-affidavit"
+      ],
+      "next": "the-council",
+      "read_s": 33
+    },
+    {
+      "id": "the-council",
+      "destination": {
+        "kind": "anchor",
+        "id": "case_fire_academy"
+      },
+      "text": "This is the corner of Jefferson and DeKoven, today. The O'Leary house was gone by the 1880s. Since 1961 the Chicago Fire Academy, where firefighters learn their job, has stood here. In 1971, a group of Chicago business leaders said Mrs. O'Leary was not to blame. They blamed Sullivan instead. Here, in October 1997, a group from the City Council held a hearing, half serious and half fun. They decided that Mrs. O'Leary and her cow had been treated unfairly. Then the whole City Council voted to clear them of all blame. Her great-great-granddaughter said, 'We always knew that she was innocent'. The city had made up its mind. But the facts had not changed.",
+      "evidence": [
+        "exoneration",
+        "fire-academy"
+      ],
+      "next": "your-verdict",
+      "read_s": 30
+    }
+  ],
+  "legs": [
+    {
+      "story": "Across DeKoven Street and around the side of the house to the yard.",
+      "evidence": [
+        "oleary-place"
+      ],
+      "story_evidence": [
+        "oleary-place"
+      ]
+    },
+    {
+      "story": "Back around the house to its front door on DeKoven Street.",
+      "evidence": [
+        "party"
+      ],
+      "story_evidence": [
+        "party"
+      ]
+    },
+    {
+      "note": "Up to the top of the Court House tower, more than a mile away: this leg goes Instantly.",
+      "mode": "instantly",
+      "evidence": [
+        "watchman"
+      ]
+    },
+    {
+      "note": "Back to DeKoven Street, and ahead to November: this leg goes Instantly.",
+      "mode": "instantly",
+      "evidence": [
+        "board-finding"
+      ]
+    },
+    {
+      "story": "Around to the alley behind the house, where the barn stood.",
+      "evidence": [
+        "oleary-place"
+      ],
+      "story_evidence": [
+        "oleary-place"
+      ]
+    },
+    {
+      "story": "Out to DeKoven Street, across, and a few houses east.",
+      "evidence": [
+        "sullivan-affidavit"
+      ],
+      "story_evidence": [
+        "sullivan-affidavit"
+      ]
+    },
+    {
+      "story": "West along DeKoven Street to the corner of Jefferson.",
+      "evidence": [
+        "fire-academy"
+      ],
+      "story_evidence": [
+        "fire-academy"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "your-verdict",
+      "text": "So who started the fire? Here is what we know.\n\nCatherine O'Leary said she was in bed. A neighbor found her there at half past eight with a sore foot. The hearing believed her. In 1997 the city cleared her and her cow.\n\nSomeone from the McLaughlin party might have gone for milk, as Mrs. White heard. Catharine McLaughlin said no one did.\n\nDaniel Sullivan was the first one in the barn. Richard Bales says his story does not fit the land records. Sullivan said he saw the fire from across the street and ran to save the animals.\n\nLouis Cohn's dice story only came out after he died.\n\nA spark from a chimney, on a windy night, could have done it too.\n\nNo one has ever been sure. Who do you think it was? And what would you need to know to be sure?",
+      "read_s": 38,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "who-started-the-fire-card-grades-3-5",
+    "title": "The Board's finding, 1871",
+    "text": "'Whether it originated from a spark blown from a chimney on that windy night, or was set on fire by human agency, we are unable to determine.'"
+  },
+  "evidence": [
+    {
+      "id": "sullivan-affidavit",
+      "text": "Dennis Sullivan's affidavit of 15 October 1871, printed by Andreas: 'he was at Patrick O'Leary's house, No. 137 DeKoven Street, on Sunday night, the 8th of October, 1871, from about 8:30 to 9 o'clock at night, during which time Mr. O'Leary and wife were in bed; that he went a few lots east of O'Leary's, on the opposite side of DeKoven Street, until about half-past nine o'clock, when he saw the fire. He went across the street, and cried \"Fire, fire,\" and went into O'Leary's barn, where he found the hay in the loft on fire. He then attempted to cut loose the horse and cows, but failed to save anything but a half-burned calf.' Andreas's note: 'Mr. Sullivan's statement before the commissioners places the time at about 9:30. He now says \"about nine o'clock.\"' The Board names him 'a drayman by the name of Daniel [Dennis] Sullivan'.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, 'The Burning of Chicago', pp. 708-709, the affidavits taken by Michael McDermott and the footnote on Sullivan's time; the report's first paragraph."
+    },
+    {
+      "id": "first-seen",
+      "text": "The Board's report (printed by Andreas): the fire 'was first discovered by a drayman by the name of Daniel [Dennis] Sullivan, who saw it while sitting on the sidewalk on the south side of DeKoven Street, and nearly opposite O'Leary's premises. He fixes the time at not more than twenty or twenty-five minutes past nine o'clock'. Andreas's own account, from interviews of 1884-1885, has the fire discovered 'About fifteen minutes before nine o'clock'; 'within thirty minutes' it 'was beyond the control of the Fire Department.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, 'The Burning of Chicago', pp. 707-709, the paragraphs beginning 'About fifteen minutes before nine', 'Who first discovered the fire' and 'Before organized resistance'; the report's first paragraph."
+    },
+    {
+      "id": "peg-leg",
+      "text": "The Tribune, 6 October 1997: the City Council's Committee on Police and Fire voted to exonerate Catherine O'Leary, and 'the actions of Daniel \"Peg Leg\" Sullivan, who had implicated Mrs. O'Leary in the Oct. 8, 1871 fire, should be scrutinized.' The Tribune, 3 March 1998: the City Council's pardon 'will do little more than shift the mantle of guilt from a poor, immigrant Irish woman to a poor, immigrant (as well as disabled) Irish man, Daniel \"Peg Leg\" Sullivan'; 'amateur historian Dick Bales, a Wheaton attorney' (the Tribune, 8 October 1997), writing in the Spring 1997 journal of the Illinois State Historical Society, compared land records of 1871 with his testimony and 'theorized Sullivan could not, as he had testified, have been sitting two houses down when he initially spotted the blaze – another house would have blocked his view. Nor could a man with a wooden leg have hobbled the 193 feet to the O'Leary barn in the short time he said he had.' Bales concluded 'that Peg Leg had actually started the fire himself, perhaps while feeding his own family cow on the O'Learys' hay, and lied to cover it up.'",
+      "confidence": "attested",
+      "sources": [
+        "chicago_tribune_1997_10_06_oleary_cleared",
+        "chicago_tribune_1997_10_08_col_mustard",
+        "chicago_tribune_1998_03_03_odds_improve"
+      ],
+      "locator": "Tribune 1997-10-06 (Steve Mills), paragraph 3; Tribune 1997-10-08, paragraph 4; Tribune 1998-03-03, paragraphs 3-5."
+    },
+    {
+      "id": "legend",
+      "text": "Andreas (1885): 'For all time, the legend of Mrs. O'Leary's cow will be accepted. While the city was still enveloped in flames, some now-forgotten tongue declared that Mrs. O'Leary was engaged in milking a cow, when the unruly animal kicked over a lighted lamp'. 'There is no proof that Mrs. O'Leary is responsible for the fire.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, 'The Burning of Chicago', p. 708, the paragraphs beginning 'The Origin of the Fire must ever remain a mystery' and 'But even the existence'."
+    },
+    {
+      "id": "case-walk",
+      "text": "The case is told as a walk: the order of its stops, and the hour at each of the four on the night itself (21:28 to 21:40 on 8 October 1871), are chosen for the telling, from the hours the witnesses gave (Schaffer 9:28; Sullivan about half past nine, or 'about nine o'clock' in 1884; the Board 9:20-9:25; Andreas a quarter to nine). The later stops (the inquiry, the legend, the later theories, the City Council) are narration over the place, and carry no date.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1871-who-started-3693"
+    },
+    {
+      "id": "oleary-testimony",
+      "text": "Catherine O'Leary before the Board of Police and Fire Commissioners, November 1871: 'I was in bed myself and my husband and five children when this fire commenced.' Asked how it caught: 'I could not tell anything of the fire only that two men came by the door. I guess it was my husband got outside the door and he ran back to the bedroom and said \"Kate the barn is afire.\" I ran out and the whole barn was on fire.' On the party in the front rooms: 'There was a little music there.' 'Her husband was a fiddler.' The time: 'As near as I can guess it was a little after nine o'clock.' What she had heard: 'There was one out of the party went in for to milk my cows.' From whom: 'Mrs. White.' Why milk: 'Some said it was for oysters. I could not tell anything only what I heard from the outside.' Mrs. McLaughlin 'said she never was in the stable.' Insurance: 'Never had five cents insurance' ... 'and upon my word I worked so hard for them.' The museum: the Board 'interviewed some fifty individuals. Catherine O'Leary was naturally a star witness'.",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_oleary_legend_2011"
+      ],
+      "locator": "O'Leary Legend Library, '“Kate the barn is afire”', the introduction and her answers in order."
+    },
+    {
+      "id": "oleary-affidavit",
+      "text": "The O'Learys' affidavit of 15 October 1871, sworn before Michael McDermott and printed by Andreas: 'they had five cows, a horse and wagon, on all of which they had not one cent of insurance. She milked her cows at 4:30 p.m. and 5 a.m., as Mrs. O'Leary peddled her milk. Mrs. O'Leary fed the horse beside the fence at about 7 o'clock p.m., and then put him in the barn. She had no lighted lamp in the house or barn that evening.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, 'The Burning of Chicago', p. 708, the affidavit beginning 'Patrick O'Leary and Catharine, his wife, being duly sworn'."
+    },
+    {
+      "id": "rogan",
+      "text": "Andreas, condensing the inquiry: 'Dennis Rogan, of No. 112 DeKoven Street, testified that he was at the O'Leary house about half past eight Sunday evening. Mr. and Mrs. O'Leary were in bed. Rogan inquired why they had gone to bed so early, and Mrs. O'Leary replied that it was because she had a \"sore foot.\"' He heard music at McLaughlin's 'at the time of the fire', and thought it was fifteen minutes after the fire was discovered before the engines arrived. Patrick O'Leary's affidavit says they were 'awakened by Dennis Rogan, of No. 112 DeKoven'. Andreas: it 'does not seem at all probable that Mrs. O'Leary, who was then suffering from a wounded foot, would leave her bed and go into the barn at nine o'clock to do work which she was accustomed to do at an earlier hour.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, p. 709, the testimony of Dennis Rogan and the affidavit of Patrick O'Leary; p. 708, the paragraph beginning 'It is possible that some petty pilferer'."
+    },
+    {
+      "id": "mclaughlin",
+      "text": "Andreas, condensing the inquiry: 'Catharine McLaughlin, who lived in the front part of O'Leary's house, testified that no member of her family went to the barn that night to obtain milk for punch. She knew nothing about the origin of the fire. Some young people were celebrating the arrival of a cousin from Ireland that evening, but all were in the house when the fire broke out.' Andreas sums up the testimony: the McLaughlins' party 'indulged in the use of beer, but had no whisky or milk punch', and 'none of the McLaughlins visited the barn that evening for the purpose of obtaining milk'. 'It is possible that some petty pilferer entered the barn; it is possible that some member of the McLaughlin family did attempt to procure milk, and met with an accident, causing the fire'.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, pp. 708-709, the paragraph beginning 'That Dennis Sullivan discovered the fire' and the testimony of Catharine McLaughlin."
+    },
+    {
+      "id": "party",
+      "text": "Andreas, condensing the testimony: a family named McLaughlin, who lived in the front of the O'Leary house, 'was enjoying a social party in honor of the arrival of a relative from Ireland'; Catharine McLaughlin testified that 'Some young people were celebrating the arrival of a cousin from Ireland that evening'. Catherine O'Leary to the Board: 'There was a little music there.' 'Her husband was a fiddler.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "greatchicagofire_oleary_legend_2011"
+      ],
+      "locator": "Andreas vol. II, pp. 708-709, the paragraph beginning 'That Dennis Sullivan discovered the fire' and the testimony of Catharine McLaughlin; museum, O'Leary Legend Library, '“Kate the barn is afire”', the questions on the party."
+    },
+    {
+      "id": "watchman",
+      "text": "The Board of Police and Fire Commissioners' report, printed by Andreas: the first alarm 'was given by Mathias Schaffer, from the Court-house cupola, he being the night watchman on duty at the time, and having sighted the fire.' Schaffer's own statement, as Andreas condenses it: 'Observing it through his spy-glass, he located the scene near the corner of Canalport Avenue and Halsted Street, and rang up the night operator, signaling him to give Box 342. Brown struck the alarm. A short time after that, Schaefer called to Brown, and told him the fire was not so far off; but as the engines would have to pass the spot, it was decided not to send a different alarm'. Andreas: 'The error made by Mr. Schaffer consisted in not sounding a correct alarm, when his mistake was discovered by himself. Had he done so, several engines not in service under the call of 342 would have been brought out.' William J. Brown was the night operator. The fire-alarm telegraph office was 'in the Court-house tower'.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, 'The Burning of Chicago', pp. 709-711: the report's paragraph beginning 'The first information received by the Fire Department', and the statements of William J. Brown and Mathias Schaffer."
+    },
+    {
+      "id": "box-342",
+      "text": "The Board's report: 'The first information received by the Fire Department came from the alarm struck in the fire-alarm office at 9:30. The alarm sounded Box No. 342, at the corner of Canalport Avenue and Halsted Street, a point in the direction of the fire, but a mile beyond it.' 'There was no signal given by any box to the central office, but the box was given by Mathias Schaffer, from the Court house cupola'. 'If any person set the fire, either by accident or design, he was careful not to give the alarm.' Andreas: Schaffer said 'it was 9:28 p.m., when he first discovered the light of the fire'; 'the error in judgment which located the fire, after it had been going about forty-three minutes, a mile beyond its actual site, was a fatal mistake.' The still alarm sent to engine No. 6 'was about seventeen minutes earlier than the first public alarm from the Court-house tower.'",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_oleary_legend_2011",
+        "andreas_1885_v2"
+      ],
+      "locator": "Museum, O'Leary Legend Library, 'The Official Report', second paragraph; Andreas vol. II pp. 709-711, the paragraphs beginning 'The Press, and the earlier writers' and 'This statement would show', and Schaffer's statement."
+    },
+    {
+      "id": "board-finding",
+      "text": "The Board of Police and Fire Commissioners' report: 'The Board find that the fire originated in a two-story barn in the rear of No. 137 DeKoven Street, the premises being owned by Patrick O'Leary.' 'There is no proof that any person had been in the barn after nightfall that evening. Whether it originated from a spark blown from a chimney on that windy night, or was set on fire by human agency, we are unable to determine. Mr. O'Leary and all his family prove to have been in bed and asleep at the time. There was a small party in the front part of O'Leary's house, which was occupied by Mr. McLaughlin and wife. But we fail to find any evidence that anybody from McLaughlin's part of the house went near the barn that night.' The museum: 'The report as a whole was criticized at the time, not for clearing Mrs. O'Leary but for covering up incompetence, and perhaps even some corruption, in the department.' Andreas: the inquiry 'was begun November 23, 1871, under the direction of the Board of Police and Fire Commissioners'; 'Some fifty witnesses were interrogated'; 'the investigation lasted several days, and naturally produced a mass of irrelevant matter'; 'The report appears to be little more than an attempt to quiet the too loud expressions of dissatisfaction with the Department.'",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_oleary_legend_2011",
+        "andreas_1885_v2"
+      ],
+      "locator": "Museum, O'Leary Legend Library, 'The Official Report', the introduction and first paragraph; Andreas vol. II pp. 708-711, the paragraphs beginning 'But even the existence', 'The official inquiry into the origin' and 'The foregoing report states'."
+    },
+    {
+      "id": "scapegoat",
+      "text": "The museum: 'Most of the many contemporary depictions of the origin of the fire presented a comic caricature of Catherine O'Leary as a hapless figure.' She 'was a familiar and recognizable type who could readily be made to stand for careless building, sloppy conduct, and a shiftless immigrant underclass. Blaming her adapted existing anti-Catholic, anti-immigrant, and possibly anti-female sentiments to the terrible calamity'. 'As a poor clumsy Irishwoman and not a sworn enemy of the social order, she was a disempowered comic stereotype'. Painters and cartoonists named the cow Daisy; Norman Rockwell painted 'Mrs. Catherine O'Leary Milking Daisy' about 1935. 'It is highly unlikely that we will ever have definitive knowledge of the cause of the fire.'",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_oleary_legend_2011"
+      ],
+      "locator": "'The O'Leary Legend', the essay's paragraphs beginning 'But Mrs. O'Leary offered' and 'It is highly unlikely'; the galleries 'A Star is Born' (ichi-02945) and the next one (ichi-64474)."
+    },
+    {
+      "id": "ahern",
+      "text": "The museum: 'on the fortieth anniversary of the great conflagration a reporter named Michael Ahern, who was working for the Chicago Republican at the time of the fire, boasted in the Tribune that he and two now-deceased cronies made the whole thing up.' 'Ahern opined that one of the revelers went out to get milk and ended up burning Chicago down.' 'after Ahern's revelation appeared a long-time colleague stated that he had ghost-written the Tribune story under Ahern's byline. As for Ahern himself, this other reporter confided, \"The booze got him many years ago, and he has not been able to do any newspaper work.\"' Wikipedia gives the year differently: 'In 1893 the reporter Michael Ahern retracted the \"cow-and-lantern\" story, admitting it was fabricated'.",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_oleary_legend_2011",
+        "wikipedia_great_chicago_fire"
+      ],
+      "locator": "Museum, 'The O'Leary Legend', the paragraph beginning 'On top of this'; Wikipedia, 'Great Chicago Fire', section 'Origin'."
+    },
+    {
+      "id": "cohn",
+      "text": "The Tribune, 8 October 1997: Louis M. Cohn's claim 'first surfaced Sept. 28, 1944 when his $35,000 estate, bequeathed in his name to Northwestern University's Medill School of Journalism, was ceremoniously handed over'. The university's press release: 'He asserted that he and Mrs. O'Leary's son, in the company of several other boys, were shooting dice in the hayloft . . . by the light of a lantern, when one of the boys accidently overturned the lantern, thus setting the barn afire. Mr. Cohn never denied that when the other boys fled, he stopped long enough to scoop up the money.' 'He was born March 10, 1853 in Breslau, Prussia'; he 'died in 1942'. 'Cohn's recorded nine-page will, signed five months before his death, contains no reference to the fire.' Everything else said about the origin, 'the cow, the comet, and most recently, Daniel “Peg Leg” Sullivan', is, says the Northwestern professor Carl Smith, 'interesting, but ultimately unprovable theory'. Wikipedia credits the Tribune's articles of 8 October 1997 and 3 March 1998 to Anthony DeBartolo.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_tribune_1997_10_08_col_mustard",
+        "chicago_tribune_1998_03_03_odds_improve",
+        "wikipedia_great_chicago_fire"
+      ],
+      "locator": "Tribune 1997-10-08, paragraphs 2, 7-8, 11-13, 25; Tribune 1998-03-03 on the same release; Wikipedia, 'Great Chicago Fire', section 'Origin' (the DeBartolo citations)."
+    },
+    {
+      "id": "meteor",
+      "text": "The museum lists, among the theories since 1871: 'A meteor split into pieces as it fell to earth October 8, setting off the simultaneous catastrophic fires in Chicago and Peshtigo, Wisconsin, plus a lesser conflagration in Michigan.' Wikipedia: the idea goes back to 1882, to Ignatius L. Donnelly's Ragnarok, and was revived in 2004 by the engineer and physicist Robert Wood, who tied it to Biela's Comet; small meteorites 'are cool to the touch after reaching the ground, so this theory has not found favor in the scientific community.'",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_oleary_legend_2011",
+        "wikipedia_great_chicago_fire"
+      ],
+      "locator": "Museum, 'The O'Leary Legend', the paragraph beginning 'Several additional theories'; Wikipedia, 'Great Chicago Fire', section 'Origin', the comet paragraph."
+    },
+    {
+      "id": "exoneration",
+      "text": "The museum: 'At the hundredth anniversary of the fire in 1971, the Chicago Association of Commerce and Industry absolved Mrs. O'Leary and pointed the finger of blame ... at Daniel Sullivan'. 'In October of 1997, the City Council committee on the police and fire departments held a somewhat tongue-in-cheek hearing that culminated in the official exoneration of Catherine O'Leary. The hearing was held at the Chicago Fire Academy, which stands on the site where the O'Leary cottage was located.' The Tribune, 6 October 1997: Ald. William Beavers and Edward Burke decided 'that O'Leary and her cow had been unfairly maligned'; Nancy Knight Connolly, her great-great-granddaughter: 'We always knew that she was innocent'. The Tribune, 3 March 1998: 'Ald. Edward M. Burke ushered through the City Council a resolution exonerating Catherine O'Leary and her cow of all blame'.",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_oleary_legend_2011",
+        "chicago_tribune_1997_10_06_oleary_cleared",
+        "chicago_tribune_1998_03_03_odds_improve"
+      ],
+      "locator": "Museum, gallery following 'A Star is Born', the caption to McCutcheon's cartoon of 1934; Tribune 1997-10-06 paragraphs 1-2 and 4; Tribune 1998-03-03 paragraph 1."
+    },
+    {
+      "id": "fire-academy",
+      "text": "The museum: 'The Chicago Fire Academy, whose footprint includes the site of the O'Leary Cottage, was dedicated on May 15, 1961. Egon Weiner's representation of a flame stands just to the west of the entrance at Jefferson and DeKoven.' 'By the 1880s the O'Leary cottage was gone'.",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_oleary_legend_2011"
+      ],
+      "locator": "Gallery following 'A Star is Born', the captions 'Full Circle' and 'Sacred Site'."
+    },
+    {
+      "id": "oleary-place",
+      "text": "The museum: 'The O'Learys and their five children lived in the rear section of this double cottage, renting the front to a family named McLaughlin.' Behind it was the barn, with 'a horse and the five cows that provided the milk that Catherine O'Leary sold locally'; 'a calf was saved'. Andreas: the barn, on the rear of lot No. 137 DeKoven Street, 'was constructed of wood, sixteen by twenty feet in size, and fourteen feet in height'; 'The upper portion of the building had recently been filled with hay', and 'High wooden fences ran from the barn to sheds on contiguous lots'. Catherine O'Leary told the Board: 'I had two tons of coal and two tons of hay. I had everything that I wanted in for the winter.'",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_touring_the_fire_2011",
+        "andreas_1885_v2",
+        "greatchicagofire_oleary_legend_2011"
+      ],
+      "locator": "Museum, landmark 'O'Leary Home', caption 'The Cottage of Patrick and Catherine O'Leary' (ichi-02741); Andreas vol. II, 'The Burning of Chicago', pp. 707-708, the paragraphs beginning 'About fifteen minutes before nine' and 'The barn contained several cows'; museum, O'Leary Legend Library, '“Kate the barn is afire”', her first answer."
+    }
+  ],
+  "liberties": [
+    "L-1871-who-started-3693"
+  ],
+  "version_of": "who-started-the-fire"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "wikipedia_great_chicago_fire",
+  "type": "website",
+  "citation": "Wikipedia, 'Great Chicago Fire'. Read 19 November 2026.",
+  "author": "Wikipedia contributors",
+  "date": "accessed 2026-11-19",
+  "describes_date": "1871-10-08 to 1871-10-10; the theories of its origin to 2004",
+  "url": "https://en.wikipedia.org/wiki/Great_Chicago_Fire",
+  "locator": "Section 'Origin': the Ahern paragraph, the Cohn and DeBartolo paragraph, and the comet paragraph.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied beyond short quoted fragments).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-19 (T-3693) as the article's raw wikitext.",
+  "note": "Used for three things only: that it dates Michael Ahern's retraction to 1893 (the Chicago History Museum dates it to the fortieth anniversary; the two disagree and both are told); that it credits the Tribune's Cohn articles of 1997 and 1998 to Anthony DeBartolo; and the meteor theory's history (Ignatius Donnelly, 1882; Robert Wood, 2004) and why scientists reject it.",
+  "what_it_supplies": [
+    "Ahern's retraction dated 1893",
+    "Anthony DeBartolo as the author of the Tribune's Cohn articles",
+    "the meteor theory: Donnelly 1882, Wood 2004, meteorites cool on landing"
+  ],
+  "what_it_does_not_supply": [
+    "a primary record of any of these"
+  ]
+}

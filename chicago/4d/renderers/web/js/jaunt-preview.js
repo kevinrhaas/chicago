@@ -2,7 +2,7 @@
 import { addTable, tellingTable } from './reading-level.js';
 import { understandingQuestions, createUnderstandingDraft } from './jaunt-understanding.js';
 import { renderUnderstandingCheck } from './jaunt-understanding-view.js';
-import { gossipInvestigation, createInvestigationDraft } from './jaunt-investigation.js';
+import { jauntInvestigation, createInvestigationDraft } from './jaunt-investigation.js';
 import { renderInvestigation } from './jaunt-investigation-view.js';
 import { createJauntMenu } from './jaunt-menu.js';
 import { createJournal, presentKeepsake } from './jaunt-journal.js';
@@ -202,7 +202,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
         note.append(head, more);
         const check = checkDraft && renderUnderstandingCheck(doc, understandingQuestions(session), checkDraft);
         if (check) note.append(check);
-        const investigation = renderInvestigation(doc, gossipInvestigation(session), investigationDraft);
+        const investigation = renderInvestigation(doc, jauntInvestigation(session), investigationDraft);
         if (investigation) note.append(investigation);
         const row = node('div', '', 'jaunt-outcome-actions');
         if (journal) {

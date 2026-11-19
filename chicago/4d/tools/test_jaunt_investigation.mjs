@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { gossipInvestigation, createInvestigationDraft, investigationNote, saveInvestigation, CASE_LIMITS } from '../renderers/web/js/jaunt-investigation.js';
+import { gossipInvestigation, jauntInvestigation, createInvestigationDraft, investigationNote, saveInvestigation, CASE_LIMITS } from '../renderers/web/js/jaunt-investigation.js';
 import { createFieldNotebook, NOTEBOOK_KEY, LIMITS } from '../renderers/web/js/field-notebook.js';
 import { notebookHTML } from '../renderers/web/js/field-notebook-view.js';
 
@@ -101,4 +101,42 @@ assert.equal(corrupt.getItem(NOTEBOOK_KEY), '{"version":99,"entries":[]}');
 const full = createFieldNotebook({ storage: storage(), id: () => `full-${++id}` });
 for (let n = 0; n < LIMITS.entries; n++) assert(full.add({ kind: 'note', title: `Earlier ${n}` }).ok);
 assert.equal(saveInvestigation(model, unsaved, full).reason, 'full'); assert.equal(full.read().entries.length, LIMITS.entries);
-console.log('GOSSIP INVESTIGATION PASS — five bands; eligible visited citations; missing figure and shared-item inference; explicit bounded saves, duplicates/failures, escaped full-context export');
+// T-3693: Who Started the Fire? ends on the same case, four sworn or reported accounts
+// from the telling's own claims, each on the stop that cites it.
+const fireDir = path.join(root, 'data/sidecars/1871/jaunts');
+const fireNames = fs.readdirSync(fireDir).filter(name => /^who-started-the-fire(?:-.+)?\.json$/.test(name));
+const FIRE = ['oleary-testimony', 'sullivan-affidavit', 'board-finding', 'peg-leg'];
+const fireBands = new Set(); let fireModel;
+assert.equal(fireNames.length, 5, 'exercise every Who Started the Fire? telling');
+for (const name of fireNames) {
+  const jaunt = JSON.parse(fs.readFileSync(path.join(fireDir, name)));
+  const done = session(jaunt); fireModel = jauntInvestigation(done);
+  assert(fireModel, name); fireBands.add(fireModel.band);
+  assert.equal(gossipInvestigation(done), null, 'the Gossip name offers only the Gossip case');
+  assert.equal(fireModel.year, '1871');
+  assert.deepEqual(fireModel.claims.map(c => c.id), FIRE);
+  assert.equal(fireModel.readings.length, 4, 'one reading per account');
+  for (const claim of fireModel.claims) {
+    const authored = jaunt.evidence.find(c => c.id === claim.id);
+    assert.equal(claim.text, authored.text); assert.equal(claim.confidence, 'attested');
+    assert.deepEqual(claim.sources.map(s => s.id), authored.sources);
+    assert(claim.locator && claim.sources.every(s => s.title && s.url === ''));
+  }
+  assert(fireModel.question && !fireModel.question.includes('bank'), 'the fire case asks its own question');
+  for (const modify of [s => { s.visited = s.visited.filter(v => v.id !== 'the-inquiry'); },
+    s => { s.jaunt.scene = '1835'; }, s => { s.jaunt.evidence.find(c => c.id === 'peg-leg').confidence = 'inferred'; },
+    s => { s.jaunt.stops.find(x => x.id === 'catherine').evidence = []; },
+    s => { s.jaunt.evidence.find(c => c.id === 'sullivan-affidavit').locator = ''; },
+    s => { s.jaunt.version_of = 'constructor'; s.jaunt.id = 'constructor'; }]) {
+    const bad = clone(done); modify(bad); assert.equal(jauntInvestigation(bad), null);
+  }
+}
+assert.deepEqual([...fireBands].sort(), ['11-12', '18+', '3-5', '6-8', '9-10']);
+const fireDraft = { ...createInvestigationDraft(), claim: 'The Board could not say.', uncertainty: 'Nobody saw it start.', selected: ['board-finding'] };
+const fireNote = investigationNote(fireModel, fireDraft);
+assert(fireNote.ok); assert(fireNote.entry.place.includes('DeKoven'));
+assert(fireNote.entry.excerpt.includes('Our reading of the cited source') && !fireNote.entry.excerpt.includes('newspaper transcription'));
+assert(!fireNote.entry.excerpt.includes('million-dollar'), 'the fire case carries its own liberties, not Gossip’s');
+assert(fireNote.entry.excerpt.includes('Attested: the source records this') && !fireNote.entry.excerpt.includes('the paper reports'), 'testimony is not called a newspaper report');
+for (const claim of fireModel.claims) assert(fireNote.entry.excerpt.includes(claim.text));
+console.log('GOSSIP INVESTIGATION PASS — Gossip and the Great Fire case; five bands each; eligible visited citations; missing figure and shared-item inference; explicit bounded saves, duplicates/failures, escaped full-context export');

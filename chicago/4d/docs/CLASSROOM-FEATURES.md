@@ -45,6 +45,13 @@ in the existing notebook. No new account, service, route or source image is invo
 This separate implementation follows the merged first delivery and still requires
 its own complete release gates in PR #2205.
 
+T-3693 gives the 1871 case jaunt *Who Started the Fire?* the same **Make your case**,
+in all five of its tellings. It compares four accounts, each the telling's own cited
+claim on the stop that cites it: Catherine O'Leary's testimony, Sullivan's affidavit, the
+Board's finding and the Tribune's account of Richard Bales's case against Sullivan. The
+cases are one table in `js/jaunt-investigation.js` (`jauntInvestigation`); each carries its
+own question per band, reading label, place and liberties note in `strings/investigation.js`.
+
 ## Teacher routes (item 11)
 
 T-3672 adds a teacher's own route without a server, account or upload. In Guide ›
