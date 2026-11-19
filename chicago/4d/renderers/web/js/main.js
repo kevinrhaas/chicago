@@ -183,7 +183,9 @@ import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfil
 import { advanceGust, syncGustUniform } from './wind-gust.js';
 import { createTodayView } from './today-view.js';
 import { createRegistration } from './today-register.js';
+import { announce } from './a11y-announce.js'; // T-3671: the screen reader's status line
 import { withStory } from './tale-actions.js'; // T-3627: the teller itself (tale-teller.js) loads when first asked
+import { reducedMotion, motionQuery } from './motion.js'; // T-3671: the one motion choice
 
 const VERSION = '0.1.0';
 
@@ -3318,7 +3320,7 @@ async function boot() {
     api.coachHouse = createCoachHouse({ registry: loaded.registry, buildings, footprints, decks, interactions,
       visitor: () => (walker.state.flying || api.townTransport?.ride?.actor ? null : { e: walker.state.e, n: walker.state.n }),
       carriageways: streetGrid.grid?.carriageways ?? [], drives: streetGrid.section?.carriage_drives?.drives ?? [],
-      reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, confidence, problems });
+      reducedMotion: () => reducedMotion(), confidence, problems });
     if (api.coachHouse) { scene3d.add(api.coachHouse.group); houseDoors.attach(api.coachHouse); }
   } catch (error) {
     problems.push(`coach house: ${error.message}`);
@@ -4143,10 +4145,10 @@ async function boot() {
   const navigation = createNavigation({
     root: hudRoot, terrain, registry: loaded.registry, streets, year: loaded.scene.id ?? YEAR, where: eraWhere,
     // T-2626: the round instrument opens the Map app (its stub opens the whole field).
-    onOpen: () => (navigatorUi ? navigatorUi.select('map') : navigation.setFullVisible(true)),
+    onOpen: () => (navigatorUi ? navigatorUi.select('map', { focus: true }) : navigation.setFullVisible(true)),
   });
   // T-2626: the year chip opens the Jump app.
-  document.getElementById('year-badge')?.addEventListener('click', () => { void navigatorUi?.select('jump'); });
+  document.getElementById('year-badge')?.addEventListener('click', () => { void navigatorUi?.select('jump', { focus: true }); });
 
   // The people directory, compiled by tools/compile_scene.py compile_people from
   // data/residents/ — one row per person, so the Go to list can offer a person
@@ -4426,7 +4428,7 @@ async function boot() {
         // T-3644: the climb into a seat shows the visitor's own person (Settings, You).
         visitorFigure: (y) => api.person?.asset?.(y) ?? null,
         walkEye: () => WALK.eyeHeight,
-        reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, say: (text) => hud.say(text),
+        reducedMotion: () => reducedMotion(), say: (text) => hud.say(text),
         reinsHint: () => (backends.name === 'touch' || (backends.name === 'none' && coarse)
           ? t('hud.ride.reins.touch') : t('hud.ride.reins.keys')),
         // T-3557: the Glessner brougham waits as the parked carriage at its stand until asked
@@ -4459,7 +4461,7 @@ async function boot() {
       visitor: () => (walker.state.flying ? null : walker.state),
       humans: () => api.humans ?? null,
       say: (text) => hud.say(text),
-      reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      reducedMotion: () => reducedMotion(),
       coarse: lowMem || detailLevel === 'light', problems,
       // The town's riders keep the sun clock's hour and the Season setting, give way to the
       // teams, and go away with the vehicles (Kevin, 2026-11-17).
@@ -5038,7 +5040,7 @@ async function boot() {
   // each time either says the view moved, so after the colouring is restored on the way in
   // it is already right.
   api.confidenceLegend = createConfidenceLegend({ el: document.getElementById('conf-legend'), hud, view: confidence,
-    open: () => { void navigatorUi?.select('confidence'); } });
+    open: () => { void navigatorUi?.select('confidence', { focus: true }); } });
 
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
@@ -6016,6 +6018,8 @@ async function boot() {
     hudRoot.inert = false;
     hud.show();
     if (firstEntry) hud.restore();
+    // T-3671 (WCAG 4.1.3): a screen reader hears where the visitor has arrived.
+    announce(t('nav.a11y.arrived', { year: String(loaded.scene?.id ?? loaded.scene?.target_date ?? '').slice(0, 4) }));
     // T-2617: into the town with the Navigator docked (§07: Free roam docks it), and
     // the probe looks again at whatever the eye has just been set down in front of.
     navigatorUi?.dock();
@@ -6059,12 +6063,70 @@ async function boot() {
     message.textContent = `The outing could not start: ${error.message}. Choose Start Jaunt to try again.`;
     jauntRoot.append(message);
   }
+  // T-3694: a jaunt stop's own place and building, from the destination list's record, without
+  // the stand-off destinations.resolve works out (that plans on the route grid, and builds it).
+  const jauntPlace = (target) => {
+    const t = target && destinations.byId(target.kind, target.id);
+    if (!t || !Number.isFinite(t.e) || !Number.isFinite(t.n)) return null;
+    return { e: t.e, n: t.n, structureId: t.kind === 'structure' ? t.id : (t.at || null) };
+  };
+  // T-3694 (the owner, 2026-11-19: "after all that app loading when you click on jaunts it waits
+  // and needs to load again ... i dont want to blow everyones memory up again"): what the Jaunts
+  // list reads is fetched while Home shows, once the town is ready and settled, in idle time:
+  // the outing's code (imported, not run: nobody's hands take the fight motions up until a list
+  // opens), the year's catalog and daybook, and the cards' pictures file. About 0.1 to 0.2 MB
+  // on the wire and a few megabytes held; no route, stage, voice or picture is fetched or
+  // built. In the town it waits until Home shows again, so nothing is added while the visitor
+  // walks. A tap that comes first loads the same files, as before.
+  let jauntModules = null;
+  const loadJauntModules = () => (jauntModules ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js'), import('./jaunt-context.js'), import('./jaunt-cards.js'), import('./narration.js'), import('./jaunt-pace.js'),
+    // T-3627: a stop's stage and what it plays with load with the outing, not with the town:
+    // the cast (jaunt-stage.js), the adults jaunts' weapons and motions (human-fight.js) and
+    // wounds (human-blood.js), the burning of the first fort (fort-fire.js) and the bier.
+    import('./jaunt-stage.js'), import('./human-fight.js'), import('./human-blood.js'), import('./fort-fire.js'), import('./stage-props.js'),
+    // What the list's own modules import, so they arrive in the same round, not one after another.
+    import('./jaunt-menu.js'), import('./jaunt-journal.js'), import('./jaunt-understanding-view.js')])
+    .catch((error) => { jauntModules = null; throw error; }));
+  // A catalog or daybook read ahead, handed to the list's first read of it, then forgotten.
+  const jauntWarm = new Map();
+  const jauntFileUrl = (name) => String(new URL(`sidecars/${encodeURIComponent(YEAR)}/jaunts/${name}`, bases.dataBase));
+  const warmJauntFile = (name) => {
+    const url = jauntFileUrl(name);
+    if (!jauntWarm.has(url)) jauntWarm.set(url, fetch(url, { cache: 'no-cache' })
+      .then((res) => res.blob().then((body) => new Response(body, { status: res.status, statusText: res.statusText, headers: res.headers })))
+      .catch(() => null));
+  };
+  const jauntFetch = (url, options) => {
+    const key = String(url), warm = jauntWarm.get(key);
+    if (!warm) return fetch(url, options);
+    jauntWarm.delete(key);
+    return warm.then((res) => res ?? fetch(url, options));
+  };
+  let jauntsWarmed = false;
+  function warmJaunts() {
+    if (jauntsWarmed || jauntReady) return;
+    jauntsWarmed = true;
+    warmJauntFile('catalog.json'); warmJauntFile('daybook.json');
+    void ensurePictures();
+    loadJauntModules().catch(() => { jauntsWarmed = false; });
+  }
+  // After ready, past the boot's settle (measure_boot_payload.mjs reads 3 s past ready), when the
+  // page is next idle and Home is up.
+  const JAUNT_WARM_AFTER_MS = 3500;
+  let jauntWarmTimer = null;
+  function warmJauntsSoon(delay = JAUNT_WARM_AFTER_MS) {
+    if (jauntsWarmed || jauntReady || jauntWarmTimer) return;
+    jauntWarmTimer = setTimeout(() => {
+      const go = () => { jauntWarmTimer = null; if (api.ready && gateOpen) warmJaunts(); };
+      if (typeof requestIdleCallback === 'function') requestIdleCallback(go, { timeout: 2000 }); else go();
+    }, delay);
+  }
+  // A hand on its way to Take a Jaunt starts the reads at once.
+  for (const type of ['pointerenter', 'pointerdown', 'focus']) {
+    document.getElementById('welcome-jaunts')?.addEventListener(type, () => { if (api.ready) warmJaunts(); }, { passive: true });
+  }
   function ensureJaunts() {
-    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js'), import('./jaunt-context.js'), import('./jaunt-cards.js'), import('./narration.js'), import('./jaunt-pace.js'),
-      // T-3627: a stop's stage and what it plays with load with the outing, not with the town:
-      // the cast (jaunt-stage.js), the adults jaunts' weapons and motions (human-fight.js) and
-      // wounds (human-blood.js), the burning of the first fort (fort-fire.js) and the bier.
-      import('./jaunt-stage.js'), import('./human-fight.js'), import('./human-blood.js'), import('./fort-fire.js'), import('./stage-props.js')])
+    return jauntReady ??= loadJauntModules()
       .then(([preview, runtime, panel, estimates, context, cards, voices, pace, { createJauntStage }, humanFight, humanBlood, { createFortFire }, { createBier }]) => {
       useFightMotions(humanFight); // every hand in town takes the fight motions up
       const resolveJaunt = target => {
@@ -6074,6 +6136,21 @@ async function boot() {
       const estimateOptions = mode => ({ resolve: target => {
         const resolved = resolveJaunt(target); return resolved && travel.destinationOf(resolved, { mode, card: false });
       }, settings: hud.settings, router: travel.router });
+      // T-3694 (the owner, 2026-11-19: "i dont want to blow everyones memory up again"): the
+      // Jaunts list times its cards from the stops' own places, building to building, and never
+      // plans a route. Planning one built the whole town's route grid (11.9 million cells, about
+      // 270 MB and 2 s in 1835) just to show the list, then ran a plan for every leg of thirty
+      // cards before any card showed: most of the wait after Take a Jaunt. The outing itself
+      // still times its legs by the routes it walks once it starts (`estimate` below).
+      const menuEstimateOptions = () => ({ resolve: target => {
+        const place = jauntPlace(target);
+        return place && { e: place.e, n: place.n };
+      }, settings: hud.settings, router: null });
+      const menuEstimate = (row, mode) => {
+        const e = estimates.estimateJaunt(row, mode, menuEstimateOptions(mode));
+        // Building to building is the list's way of timing, not a route that failed to plan.
+        return e && { ...e, approx: false };
+      };
       // T-3578: the jaunt voices. A Listen tap turns sound on (and Narration up) if it is off;
       // with sound on, each stop's voice starts as you arrive.
       const narration = api.narration = voices.createNarration({
@@ -6089,6 +6166,7 @@ async function boot() {
         narrator: () => api.hud?.settings?.narrator ?? soundNow().saved.narrator,
       });
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, scene: YEAR, dataBase: bases.dataBase, destinations, api: api.jaunts,
+        fetcher: jauntFetch, // T-3694: the catalog and daybook Home read ahead
         // T-3578: a jaunt's Start (or Continue) tap primes the narration, so its opening and each
         // arrival can speak without another tap on an iPhone.
         onStart: (id, options) => { narration.prime(); return jauntRuntime.start(id, options); },
@@ -6096,8 +6174,9 @@ async function boot() {
         onDismiss: () => jauntRuntime?.end(), // T-3432: Close on Outing complete
         // T-2631: each card's plate, a credited picture of its stops (pictures.js § plateFor).
         // T-3584: a route of anchors (the Glessner walks) names its building and picture itself.
+        // T-3694: the stop's own record, not its resolved stand, which builds the route grid.
         plateFor: (row) => (row.plate ? jauntPlate(jauntPictures, [row.plate.structure], row.plate.picture) : jauntPlate(jauntPictures, (row.destinations ?? [])
-          .map((d) => (d.kind === 'structure' ? d.id : destinations.resolve(d)?.structureId)).filter(Boolean))),
+          .map((d) => (d.kind === 'structure' ? d.id : jauntPlace(d)?.structureId)).filter(Boolean))),
         // T-2652/T-2727: with Jaunts use my choice on, the getting-there choice picks a Jaunt's
         // mode where the Jaunt allows it; one that cannot go that way keeps its own and says so.
         preferredMode: (jaunt) => jauntModeFor(hud.gettingThere, jaunt),
@@ -6105,7 +6184,7 @@ async function boot() {
         license, narration,
         // The owner, 2026-11-15: the adults-only jaunts, listed only once Move › Adults-only jaunts is on.
         allowAdults: () => hud.adultJaunts === true,
-        estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
+        estimate: menuEstimate });
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext', 'replay', 'kindle', 'skip', 'finish'].map(name => [name, (...args) => {
         // T-3578: Next, Previous and End are the visitor moving on: the voice still speaking stops
         // (and nothing it had queued plays), rather than talking over the next part. So are
@@ -6123,6 +6202,7 @@ async function boot() {
         voice: { playing: () => { const outing = jauntRuntime?.state; return !!outing?.outcome && narration.isPlaying(outing.jaunt, 'ending', outing.outcome.id); },
           ended: () => { const outing = jauntRuntime?.state; return !!outing?.outcome && narration.ended(outing.jaunt, 'ending', outing.outcome.id); } },
         flying: () => travel.state?.phase === 'gliding',
+        hold: () => !!jauntPanel?.holding, // T-3671 (WCAG 2.2.1): a visitor still at the scene keeps it
         finish: () => jauntRuntime?.finish() });
       // The owner, 2026-11-16: the jaunt's meter, the stop's scene filling as it plays.
       let meterTimer = null, meterLeg = null, meterWay = 0, meterSince = 0;
@@ -6319,6 +6399,7 @@ async function boot() {
     return { mode: c.mode ?? jaunt?.default_mode ?? 'walk', kept: c.kept,
       note: c.kept ? t('hud.jaunt.keeps', { way: styleWords(hud.gettingThere, labels) }) : '' };
   }
+  api.warmJaunts = () => warmJauntsSoon(); // T-3694: called once the town is ready
   api.jaunts = { catalog: null, get state() { return jauntRuntime?.state ?? null; },
     modeFor: (jaunt) => jauntWay(jaunt),
     async daybook() { await ensureJaunts(); return jauntPreview.daybook(); },
@@ -6368,6 +6449,7 @@ async function boot() {
     }),
     resume: () => { const ok = enterWorld({ resume: true }); if (ok) journey.go(jauntEntering ? 'on-jaunt' : 'exploring'); return ok; },
     pause: () => {
+      warmJauntsSoon(500); // T-3694: back at Home, the Jaunts list's files, if not read yet
       if (jauntRuntime?.state.jaunt && !['menu', 'outcome'].includes(jauntRuntime.state.phase)) jauntRuntime.menu();
       gateOpen = true;
       visualClockReset = true;
@@ -6872,7 +6954,7 @@ async function boot() {
     if (!api.riding?.active || isTyping(e.target) || e.repeat || e.key.toLowerCase() !== 'v') return;
     e.preventDefault(); api.riding.toggleView();
   });
-  const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const transportReducedMotion = motionQuery; // T-3671: Settings › Look › Motion (js/motion.js)
   transportReducedMotion.addEventListener('change', resetVisualClock);
   let interactPaintAt = 0;
   /** T-3527: the date and the buildings the dated structures were last drawn for. */
@@ -8023,6 +8105,7 @@ async function boot() {
   refreshGlessnerOcclusion();
   api.ready = true;
   setTimeout(() => peopleDirectory.ask(), 0);
+  api.warmJaunts?.(); // T-3694
   if (!bootController.finish()) {
     api.ready = false;
     if (gateBtn) gateBtn.disabled = true;

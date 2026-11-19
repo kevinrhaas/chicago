@@ -40,9 +40,10 @@
   box-shadow: var(--shadow), var(--inset-bezel, none);
   font-family: var(--font-body, inherit);
   overflow: hidden;
-  outline: none;
   pointer-events: auto;
 }
+/* T-3671 (WCAG 2.4.7): no ring for a pointer's focus, but the keyboard's always shows. */
+.navigator:focus:not(:focus-visible) { outline: none; }
 .hud[hidden] ~ .navigator { display: none; }
 .hud[inert] ~ .navigator { visibility: hidden; pointer-events: none; }
 /* Open, it reads above a Jaunt's panel (z 31); docked, it sits under it. */
@@ -117,9 +118,11 @@
   font: 500 9px/1.1 var(--font-body, inherit); letter-spacing: 0; text-transform: none; }
 .nav-app:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 7%, transparent); }
 .nav-app:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.nav-app.is-on { color: var(--accent); background: var(--wash, color-mix(in srgb, var(--accent) 16%, transparent));
+.nav-app.is-on { color: var(--lit-ink, var(--accent)); background: var(--wash, color-mix(in srgb, var(--accent) 16%, transparent));
   border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
 .nav-app[hidden] { display: none; }
+/* T-3671: in a light tone the rail is shaded, not darkened, so its names keep 4.5:1. */
+html[data-theme="light"] .nav-rail, html[data-skin="worlds-fair"]:not([data-theme="dark"]) .nav-rail { background: color-mix(in srgb, var(--ink) 5%, transparent); }
 .nav-collapse { margin-top: 4px; }
 /* The rail's foot: Guide and Settings (T-2618), with the collapse key under them. */
 .nav-app-foot-first { margin-top: auto; }
@@ -718,7 +721,7 @@ html[data-jaunt-active] .navigator:not([data-detent="dock"]):not([data-detent="r
   user-select: none;
 }
 .nav-tm-cell { display: inline-flex; align-items: center; gap: 5px; }
-.nav-tm-k { opacity: .62; }
+.nav-tm-k { opacity: .75; } /* T-3671: 4.5:1 on every machine's screen */
 .nav-tm-cell b { font-weight: 400; }
 .nav-telemetry[data-state="drift"] .nav-tm-cell[data-t="drift"] b { color: var(--lamp, #f3a43b); }
 .nav-tm-recall { margin-left: auto; }
@@ -800,7 +803,7 @@ html[data-jaunt-active] .navigator:not([data-detent="dock"]):not([data-detent="r
    rail as if it were not there. Focus is always visible: on a tab, on an app's screen when
    focus moves into it on open, and on Home's heading. */
 .nav-tabs { display: contents; }
-.nav-screen:focus { outline: none; }
+.nav-screen:focus:not(:focus-visible) { outline: none; }
 .nav-screen:focus-visible, .nav-screen > h2:focus-visible, #nav-home-title:focus-visible {
   outline: 2px solid var(--accent); outline-offset: -3px; border-radius: 8px;
 }
@@ -862,7 +865,7 @@ html[data-skin="control-room"] .navigator { --signal-ink: #FFFFFF; }
 html[data-skin="worlds-fair"] .navigator { --signal-ink: #1A1006; }
 /* contrast:end */
 
-/* ---- T-2656: text size 100-140 % (QA-18) ---------------------------------------------
+/* ---- T-2656: text size 100-140 % (QA-18), to 200 % since T-3671 (WCAG 1.4.4) ---------------
    Settings › Display › Text size sets --text-scale on the page (js/settings-app.js), and
    every Navigator screen scales by it and reflows inside the device: the screen keeps its
    width and its rows wrap rather than run past the edge. */
@@ -896,12 +899,42 @@ html[data-text-scale] .navigator .people-frow { flex-wrap: wrap; }
 html[data-text-scale] .navigator .jaunt-card { grid-template-columns: 38px minmax(0, 1fr); }
 html[data-text-scale] .navigator .jaunt-card .jaunt-actions { grid-column: 1 / -1; justify-content: flex-end; }
 /* A two-column list of keys or terms stacks into one at 130 % and above, so its words keep a line's width. */
-html[data-text-scale="1.3"] .navigator :is(.keys, .nav-glossary), html[data-text-scale="1.4"] .navigator :is(.keys, .nav-glossary) {
+html[data-text-scale="1.3"] .navigator :is(.keys, .nav-glossary), html[data-text-scale="1.4"] .navigator :is(.keys, .nav-glossary), html[data-text-scale="1.6"] .navigator :is(.keys, .nav-glossary), html[data-text-scale="1.8"] .navigator :is(.keys, .nav-glossary), html[data-text-scale="2"] .navigator :is(.keys, .nav-glossary) {
   grid-template-columns: minmax(0, 1fr); row-gap: 2px; }
-html[data-text-scale="1.3"] .navigator :is(.keys dd, .nav-glossary dd), html[data-text-scale="1.4"] .navigator :is(.keys dd, .nav-glossary dd) {
+html[data-text-scale="1.3"] .navigator :is(.keys dd, .nav-glossary dd), html[data-text-scale="1.4"] .navigator :is(.keys dd, .nav-glossary dd), html[data-text-scale="1.6"] .navigator :is(.keys dd, .nav-glossary dd), html[data-text-scale="1.8"] .navigator :is(.keys dd, .nav-glossary dd), html[data-text-scale="2"] .navigator :is(.keys dd, .nav-glossary dd) {
   margin-bottom: 8px; }
-html[data-text-scale="1.3"] .navigator .nav-guide-keys dt, html[data-text-scale="1.4"] .navigator .nav-guide-keys dt { max-width: none; }
+html[data-text-scale="1.3"] .navigator .nav-guide-keys dt, html[data-text-scale="1.4"] .navigator .nav-guide-keys dt, html[data-text-scale="1.6"] .navigator .nav-guide-keys dt, html[data-text-scale="1.8"] .navigator .nav-guide-keys dt, html[data-text-scale="2"] .navigator .nav-guide-keys dt { max-width: none; }
 .navigator .nav-map-scope { zoom: var(--text-unscale, 1); }
+/* T-3671: the device's own chrome reads at the same size as its screens: the head's words, the
+   rail's names and (on a desktop) the telemetry strip. Closed on a phone the device is a 136 x 64
+   pill kept clear of the thumb's corner (navigator.js); it keeps its size, and opens to the same
+   words at full size. */
+html[data-text-scale] .navigator:not([data-detent="dock"]) :is(.nav-head > :is(.nav-label, .nav-code, .nav-date, .nav-dock-year), .nav-rail) { zoom: var(--text-scale); }
+@media (min-width: 621px) { html[data-text-scale] .navigator .nav-telemetry { zoom: var(--text-scale); } }
+@media (min-width: 621px) {
+  /* Open, the panel widens with its words, to as much as 60 % of a wide screen; closed, the
+     rail is as wide as its magnified keys. The compass, the map and a Jaunt's panel keep clear. */
+  html[data-text-scale] { --nav-open-w: min(calc(400px * var(--text-scale)), max(400px, 60vw)); --nav-rail-w: calc(58px * var(--text-scale)); }
+  html[data-text-scale] .navigator { width: var(--nav-open-w); }
+  html[data-text-scale] .navigator[data-detent="rail"] { width: var(--nav-rail-w); }
+  html[data-text-scale] body.has-navigator .navigation-stack { left: calc(var(--nav-rail-w) + 20px); }
+  html[data-text-scale][data-navigator="open"] .navigation-stack { left: calc(var(--nav-open-w) + 20px); }
+  html[data-text-scale][data-navigator] :is(.jaunt-panel, .jaunt-context-card) { left: calc(var(--nav-rail-w) + 18px); }
+}
+/* Past 140 % a pair of tiles stacks, so each keeps a line's width. */
+html[data-text-scale]:is([data-text-scale="1.6"], [data-text-scale="1.8"], [data-text-scale="2"]) .navigator .nav-tiles { grid-template-columns: minmax(0, 1fr); }
+html[data-text-scale] .navigator .nav-tile { min-width: 0; overflow-wrap: anywhere; }
+/* Magnified, the head's parts wrap to a second line rather than cut a word. */
+html[data-text-scale] .navigator:not([data-detent="dock"]):not([data-detent="rail"]) .nav-head { flex-wrap: wrap; row-gap: 2px; }
+html[data-text-scale] .navigator:not([data-detent="dock"]):not([data-detent="rail"]) .nav-head > .nav-label { flex: 0 0 auto; max-width: 100%; }
+@media (min-width: 621px) { html[data-text-scale] .navigator:not([data-detent="rail"]) .nav-head > .nav-code { flex: 0 0 auto; max-width: 100%; } }
+/* On a phone the tab bar's six names, magnified past 140 %, take two rows of three. */
+@media (max-width: 620px) {
+  html[data-text-scale]:is([data-text-scale="1.6"], [data-text-scale="1.8"], [data-text-scale="2"]) .nav-rail { flex-wrap: wrap; row-gap: 2px; overflow-x: visible; }
+  html[data-text-scale]:is([data-text-scale="1.6"], [data-text-scale="1.8"], [data-text-scale="2"]) .nav-app:has(.nav-app-label) { flex: 1 1 30%; max-width: none; }
+  /* …and a row of three choices or looks stacks, so no word is broken to fit a third of the sheet. */
+  html[data-text-scale]:is([data-text-scale="1.6"], [data-text-scale="1.8"], [data-text-scale="2"]) .navigator :is(.nav-choices, .nav-looks, .insp-person-pair) { grid-template-columns: minmax(0, 1fr); }
+}
 
 /* ---- T-2656: Settings › Machine, the four machines as preview tiles (js/skin.js) ----- */
 .skin-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 4px; }
@@ -954,3 +987,16 @@ html[data-text-scale="1.3"] .navigator .nav-guide-keys dt, html[data-text-scale=
   border-radius: 50%; overflow: hidden; }
 .person-face-tile { display: block; width: 100%; height: 100%; transform: rotate(90deg) scale(1.35); background-repeat: no-repeat; }
 .person-worn:empty { display: none; }
+
+/* ---- T-3671 (WCAG 2.4.1): the skip link — out of sight until the keyboard reaches it ---- */
+.skip-link {
+  position: fixed; top: 8px; left: 8px; z-index: 60;
+  padding: 10px 14px; border-radius: 10px;
+  background: var(--panel-solid, var(--panel)); color: var(--ink);
+  border: 1px solid var(--accent); font: 600 14px/1.2 var(--font-body, inherit);
+  text-decoration: none;
+  transform: translateY(calc(-100% - 16px));
+}
+.skip-link:focus, .skip-link:focus-visible { transform: none; outline: 2px solid var(--accent); outline-offset: 2px; }
+body:has(#hud[hidden]) .skip-link, body:has(#hud[inert]) .skip-link { display: none; }
+@media (prefers-reduced-motion: no-preference) { .skip-link { transition: transform 120ms ease-out; } }

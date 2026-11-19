@@ -213,6 +213,11 @@
 .fact-attested { color: var(--grade-attested); }
 .fact-inferred { color: var(--grade-inferred); }
 .fact-reconstructed { color: var(--grade-reconstructed); }
+/* T-3671 (WCAG 1.4.1): the grade is in the dot's SHAPE as well as its colour — the app's one
+   mark language (css/confidence-overlays.css § grade marks): attested a full dot, inferred a
+   half-filled one, reconstructed an empty ring. */
+.fact-dot.fact-inferred { background: linear-gradient(90deg, currentColor 0 50%, transparent 50%); box-shadow: inset 0 0 0 1.5px currentColor; }
+.fact-dot.fact-reconstructed { background: transparent; box-shadow: inset 0 0 0 1.5px currentColor; }
 
 .popup .pop-residents { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--edge); }
 .popup .pop-lodging { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--edge); }
@@ -472,3 +477,12 @@ body.is-touch .pop-firm { min-height: 44px; }
   .pic-viewer-step { margin-top: 8px; }
   .pic-viewer-credit { font-size: 12px; max-height: 30vh; }
 }
+
+/* T-3671 (2.4.3, 2.4.7): a card's title takes focus when the card opens, so a screen reader
+   reads its name first. A ring only for a keyboard visitor; the scene canvas, focus's place to
+   come back to from a card opened in the town, draws none (it is the whole screen). */
+.pop-title-row h2:focus, .tale-title:focus, .ask-card .ask-you:focus, .ask-reveal > p:focus,
+.insp-swipe:focus { outline: none; }
+.pop-title-row h2:focus-visible, .tale-title:focus-visible, .ask-card .ask-you:focus-visible,
+.ask-reveal > p:focus-visible, .insp-swipe:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+canvas#view:focus { outline: none; }

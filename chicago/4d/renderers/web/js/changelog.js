@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 3128, ts: '2026-11-19T19:04:43.895Z', date: 'Nov 19, 2026, 1:04 PM CT', title: 'People keep their clothes as you walk up to them', kind: 'fix',
+    items: [
+      'Down the street and across the square, people now wear their own clothes: the lady in the white lingerie dress is in white from a block away, not in black until you are close.',
+      'This holds in every year: the 1812 men\'s own shirts and leggings, the 1835 town\'s shirts, waistcoats and dresses, and 1904\'s dresses, aprons, liveries and straw hats.',
+      'Printed and checked cloth reads as its mixed colour from afar, as it does on the full figure, and the colours follow the season you have chosen.',
+    ] },
+  { v: 3127, ts: '2026-11-19T18:12:15.143Z', date: 'Nov 19, 2026, 12:12 PM CT', title: 'In 1871 the Today window stands on your bank, not midstream', kind: 'fix',
+    items: [
+      'The 1871 city was drawn from Mitchell\'s 1870 map, and its river runs 20 to 80 m off today\'s channel. Standing on its bank, the Today window looked out from the middle of the river.',
+      '1871 is now lined up with today\'s map on the map\'s own street corners and along the river, so Today opens on the bank you stand on.',
+      'Where the river really moved, the South Branch straightened between Polk and 18th Streets in 1928-30, Today still shows where the old bend now lies.',
+    ] },
+  { v: 3126, ts: '2026-11-19T17:55:33.246Z', date: 'Nov 19, 2026, 11:55 AM CT', title: 'The whole interface works by keyboard, screen reader and larger text', kind: 'feature',
+    items: [
+      'Every menu, Settings tab, jaunt and card opens, moves and closes from the keyboard, and focus comes back to where you started.',
+      'Screen readers hear names for every key, the year you arrive in, each jaunt stop, and the picture descriptions.',
+      'Text size now goes to 200 % across all panels and cards, with a clear focus ring and stronger text contrast in every appearance.',
+      'Attested, inferred and reconstructed are told apart by shape and pattern as well as colour, also in the town.',
+      'Jaunt narration shows its words while it plays and has its own Pause key.',
+      'Settings › Look has Motion (System, Reduce, Full) and Letter keys, which turns single-key shortcuts off.',
+    ] },
   { v: 3125, ts: '2026-11-19T16:53:10.415Z', date: 'Nov 19, 2026, 10:53 AM CT', title: '2108 Prairie, the Mark Kimball house, built from the Tribune\'s 1898 sketch', kind: 'feature',
     items: [
       '2108 Prairie Avenue, the Mark Kimball house, replaces its rough draft with a finished house: two storeys of brick behind a pale stone front over a high basement, with two round-headed windows and a round-arched double door at the head of a long stoop between iron rails.',
