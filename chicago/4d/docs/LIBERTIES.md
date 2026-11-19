@@ -31590,6 +31590,22 @@ docstring together.
 **Applies to:** `data/jaunts/prairie-built-so-far.json`.
 **Recorded:** 2026-10-17 (T-2747); the 50-stop bound 2026-10-27 (T-3187).
 
+### L-onsite-prairie-1904 — The on-site tour of Prairie Avenue: its stops, order and stands
+
+**Decision:** The on-site tour, a walk on today's Prairie Avenue in Window mode, chooses seven houses of the
+1700 to 1900 blocks, their order (north of 18th Street, south down the east walk, back up the west walk to the
+Glessner House), where on the walk each stop stands, its arrival radius and its framing. These are modern
+interpretation, not history. No visit, occupant or event on a day in 1904 is asserted beyond what each stop's
+cited record says.
+**Bounds:** Each stand is derived, not chosen by eye: the middle of the walk band in front of the stop's parcel
+on the 1911 Sanborn sheets, carried to today's ground through the 1904 registration; `check.sh` re-derives
+every one and holds the last against the City's landmark lot for 1800 S. Prairie. Every factual line of a
+stop is an existing jaunt evidence row, 1904 household or structure record, and cites its sources.
+**How to resolve:** Revise as interpretation. The stands, the radius and the off-ground margin are tested at
+the desk only; a walk on the real street with a phone may move them, and that field test is the owner's.
+**Applies to:** `data/onsite/prairie_1904.json`.
+**Recorded:** 2026-11-19 (T-3674).
+
 ### L-glessner-cupola-body-2228 — Glessner's stable cupola raised so its dovecote body stands clear of the ridge
 
 **Decision:** HABS photograph 1 (`habs_glessner_photo_01_nw_1963`) and the Cornell A. D. White northwest view (`cornell_adw_glessner_stable_1887`, c. 1887) both show the stable cupola's body in open air above the ridge, its two tiers of pigeon holes visible, under a pyramid whose apex stands well above the north gable's. The model carried a cap-only silhouette (body top 38.9, apex 43.3 ft above north grade) that hid the whole band below the 38.6 ft ridge and set the apex level with the gable. The body top is now 41.0 ft (eave 40.9 ft), the pigeon-hole band 39.1–40.8 ft and the apex 47.0 ft.

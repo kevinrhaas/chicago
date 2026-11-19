@@ -57,7 +57,7 @@ import { createDesktopKeyCapture } from './controls/keyboard.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { viewportSize } from './viewport.js';
 import { isStandaloneHeadset, vrScale } from './controls/xr-detect.js'; // T-3627: the session half loads where a headset is offered
-import { createWindowMode, windowAt } from './controls/window.js';
+import { createWindowMode, windowAt, toLocal as toLocalLL } from './controls/window.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
 import { profiledGroundHeight, figureGroundHeight } from './deck-surface.js';
 import { passageGroundFrom } from './passage-ground.js';
@@ -5284,11 +5284,48 @@ async function boot() {
     onChange: (on) => {
       windowKey?.setAttribute('aria-pressed', String(on));
       blackbox.log(on ? 'window' : 'window-end');
-      if (on) { travel.stop('input'); hud.setFly(false, { announce: false }); }
-      else hud.say('Window closed');
+      if (on) { travel.stop('input'); hud.setFly(false, { announce: false }); offerOnsite(); }
+      else { onsite?.end(); hud.say('Window closed'); }
     },
   });
   api.window = windowMode;
+
+  /**
+   * T-3674: the on-site tour (js/onsite.js, its card js/onsite-view.js) — in 1904, Window mode
+   * offers a walk on today's Prairie Avenue to the Glessner House: each stop's distance and
+   * direction from the fix, arrival inside a radius scaled to the fix's accuracy, and a fix off
+   * the tour's ground held where the visitor stands. The card and its data load the first time
+   * Window mode starts in that year, never at boot.
+   */
+  // The tour's year is onsite.js's ONSITE_YEAR, said here so the boot imports nothing of it
+  // (tools/check_onsite_tour.mjs holds the two equal).
+  const ONSITE_YEAR = '1904';
+  let onsite = null, onsiteLoad = null, onsiteData = null, onsiteUnwatch = null;
+  const loadOnsite = () => onsiteLoad ??= import('./onsite-view.js')
+    .then(({ mountOnsite }) => (onsite = mountOnsite(document.body, {
+      load: () => onsiteData ??= fetch(new URL('onsite/prairie_1904.json', bases.dataBase), { cache: 'no-cache' })
+        .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
+        .catch((err) => { onsiteData = null; problems.push(`onsite/prairie_1904.json: ${err.message} — the on-site tour is not offered`); throw err; }),
+      toLocal: (lat, lon) => toLocalLL(lat, lon, loaded.datum),
+      heading: () => walker.bearingDeg,
+      where: () => ({ e: walker.state.e, n: walker.state.n }),
+      lastFix: () => windowMode.lastFix,
+      pinned: windowMode.pinned,
+      openHouse: (id) => pick(id),
+      say: (line) => hud.say(line),
+      onRun: (running) => {
+        blackbox.log(running ? 'onsite' : 'onsite-end');
+        onsiteUnwatch?.(); onsiteUnwatch = null;
+        if (running) onsiteUnwatch = windowMode.watchFix((fix, at) => onsite.fix(fix, at));
+      },
+    })))
+    .catch((error) => { onsiteLoad = null; problems.push(`on-site tour: ${error.message}`); return null; });
+  function offerOnsite() {
+    if (String(loaded.scene.id ?? YEAR) !== ONSITE_YEAR) return;
+    void loadOnsite().then((o) => { if (o && windowMode.on && !o.running) o.offer(); });
+  }
+  api.onsite = { get state() { return onsite?.state ?? null; }, get running() { return !!onsite?.running; },
+    offer: offerOnsite, end: () => onsite?.end() };
   if (windowKey) windowKey.hidden = !((coarse || windowAt(location.search)) && windowMode.supported());
   windowKey?.addEventListener('click', () => {
     if (windowMode.on) { windowMode.stop(); return; }
