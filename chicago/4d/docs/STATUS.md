@@ -1,3 +1,91 @@
+## T-3657, T-3658 — Photo hunt and targeted accessibility (18 November 2026)
+
+Prepared as the next server-free delivery after T-3656, on an isolated branch based on
+classroom checkpoint `03ecd9678`. The first classroom PR must merge before this follow-up.
+
+Integration includes T-3656's later `45b35a2c7` resource/style/person fixes and the mounted
+Guide tour-order regression test. First-delivery history below remains its earlier
+checkpoint until the branch is rebased onto the merged DEV; the first PR records that
+delivery's current verdict. Rebase only commits after `03ecd9678` to avoid duplicating it.
+
+Home's **Where and when?** uses five licensed historical photographs of four places in
+the 1904 scene. It derives the picture, canonical building, credit, recorded date/range
+and solved camera position from the existing catalogue. The same five photographs have
+a deterministic UTC daily order; a versioned link preserves that challenge after midnight
+without sending guesses or account state. Location scoring measures ground distance, not
+camera height, direction or an invented exact year. Guess or skip before source/date
+reveals and optional travel; visits check bounds, water, router blockers and house barriers.
+Only the current thumbnail has an image source, released when hidden. One bounded local
+progress record reports unreadable or refused storage and supports an explicit restart.
+The actual rail regression covers quiet Home selection while docked: the thumbnail
+remains unloaded until reopened. Hunt styles load once per owning document on mount;
+closed panels and merely importing the module do not request them. Browser fixtures
+verify applied styles, remount deduplication and iframe isolation at both widths.
+
+Navigator reading now permits native browser magnification and panning. Viewport sizing
+keeps the drawing buffer stable during pinch zoom while still responding to keyboard,
+URL-bar and orientation changes. World movement and looking retain separate thumb roles
+when the page is magnified off-centre. Picture dialogs cycle keyboard focus, isolate the
+background, close on Escape, restore the opener and release pending image loads.
+The rail also keeps one visible Tab stop when Move or Jump is open. It retains the
+previous visible icon, then Home as fallback, without falsely selecting that icon.
+Context changes, unregistering and delayed selection cannot leave the rail unreachable.
+
+The keyboard-ownership continuation keeps arrows and Space with the focused Navigator,
+reader or native control instead of requesting pointer lock, walking or inspecting behind
+it. Moving focus into a reading surface releases already-held movement and any queued
+keyboard inspection; returning focus does not restart those keys. World-focused controls
+still work while the non-modal Navigator is visible. E still closes a legacy building
+popup or a hand-opened Navigator Inspect card, including from their buttons; text entry,
+other apps and nested picture dialogs retain the key. The existing `isTyping` contract is
+unchanged.
+
+Before-fix reproduction at `6ee1a689077839dd9923edbc80269dd2cbaccfb6`, with the actual
+main capture callback and PointerLockControls backend in a small event fixture, measured
+one pointer-lock request and `forward = -1` from ArrowDown on a Navigator button. Space
+on that button set `interact = true` and prevented its native default. The new actual
+capture/backend regression passes UI/world ownership, already-held keys, focus transfer,
+prevented/modifier/composition events, popup/Inspect E exceptions and listener cleanup.
+Navigator and Settings regressions and JavaScript syntax checks pass. The continuation's
+native browser fixture passes 20 checks at source `3131c7986`, ten each at 390×780 and
+1280×800, with zero page errors, HTTP errors or external requests. It uses the actual
+Navigator, capture callback, PointerLockControls and backend, native button/summary Space
+activation, rail arrows, role-less dialogs and real held-W-to-Tab focus transfer. World
+keys, already-prevented keys, popup/Inspect E and text entry pass. It counts pointer-lock
+requests at the canvas method without granting mouse capture; no world or WebGL is loaded.
+The new regression's official isolation measurement records no in-tree writes, and the
+isolation audit passes. Complete source and published-renderer release gates still remain
+pending for the combined branch.
+
+Final published-town integration on feature commit `5674d33d` passed at both widths:
+all five actual photograph responses and destination guards, a real Glessner arrival,
+distance score, share/reload, picture dialog and photo/notebook capture/edit flows.
+The phone run also exercised native pinch and horizontal pan with a stable drawing
+buffer. Both report zero page/HTTP errors or overflow; request cancellations are
+recorded separately. The later rail repair passes 36 native keyboard checks at both
+widths with normal and reduced motion: actual Tab/Shift+Tab, arrows, Home/End, Enter,
+Escape, off-rail screens, dock/reopen, context disappearance and unregistering. That
+fixture loads the real Navigator/rail modules with small app bodies, no world or canvas;
+its source hashes match the committed modules. Updated Navigator tests, official
+single-tool isolation measurement and isolation audit pass, with no new in-tree writes.
+
+Focused logic/catalogue and browser fixtures pass on the combined branch at 390×780
+and 1280×800.
+Hunt coverage includes all five rounds, real source dates, distance scoring, saved order
+and scores after reload, keyboard activation, image failure/retry, clipboard fallback,
+corrupt/refused storage, cleanup and zero page errors or horizontal overflow. It uses real
+Home/modules/catalogue with tiny fixture image bytes, not a complete 3D world. Accessibility
+fixtures use the real Navigator CSS, modal and touch controls with a small WebGL canvas
+running the production resize body; native pinch/pan, two-thumb input, orientation and
+modal lifecycle pass. Pure checks cover keyboard/URL-bar viewport dimensions as well.
+These are browser measurements, not physical phone/Chromebook tests or whole-app WCAG
+conformance. The combined regression also passes the four classroom logic suites, existing
+Navigator/link/photo checks, strings and changelog validation. The two newly gated pure
+tests were instrumented separately; both wrote nothing in-tree. The isolation audit and
+its self-test pass, preserving all four T-3656 measurements. Complete source and
+published-renderer release gates remain pending; no DEV merge or production promotion
+is claimed here.
+
 ## T-3656 — Browser-only classroom tools (18 November 2026)
 
 Implementation on `steward/t3656-browser-classroom`, based on development commit

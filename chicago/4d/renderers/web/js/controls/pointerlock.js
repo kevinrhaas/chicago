@@ -17,6 +17,8 @@
 import * as THREE from 'three';
 import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
 import { lookScale } from './intent.js';
+import { ownsKeyboard, worldKeyAllowed } from './keyboard.js';
+export { isTyping } from './keyboard.js';
 
 const KEYS = {
   KeyW: 'ahead', ArrowUp: 'ahead',
@@ -25,28 +27,7 @@ const KEYS = {
   KeyD: 'right', ArrowRight: 'right',
 };
 
-/**
- * Is the visitor typing rather than driving?
- *
- * W, A, S, D, E, F, G and Q are movement keys AND ordinary letters. The Go-to
- * search asks for a building by name, so typing "Sauganash" walked the camera
- * forward, sidestepped, inspected twice and toggled free-fly — behind the open
- * panel, where none of it was visible until the panel closed and the visitor was
- * somewhere else entirely. Every keyboard handler in the app has to stand down
- * while a text field has focus.
- *
- * `isContentEditable` is in here for the same reason as the input check: it is
- * the other way a browser can be receiving text.
- */
-export function isTyping(target) {
-  const el = target instanceof HTMLElement ? target : null;
-  if (!el) return false;
-  if (el.isContentEditable) return true;
-  const tag = el.tagName;
-  return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
-}
-
-export function createPointerLockBackend({ intent, domElement, onLockChange, holding = () => false, lookSpeed = () => 1 }) {
+export function createPointerLockBackend({ intent, domElement, onLockChange, holding = () => false, inspecting = () => false, lookSpeed = () => 1 }) {
   // PointerLockControls connects its document listeners in the constructor, so
   // enabling and disabling this backend flips `controls.enabled` rather than
   // reconnecting — connect() twice would double-register every listener.
@@ -85,12 +66,7 @@ export function createPointerLockBackend({ intent, domElement, onLockChange, hol
   }
 
   function onKeyDown(e) {
-    if (e.metaKey || e.ctrlKey || e.altKey) return;
-    // Typing a building name is not a walk instruction. See isTyping.
-    if (isTyping(e.target)) return;
-    // T-2954: an open building card holds the keyboard. Nothing walks or turns behind
-    // it, and the keys go to the card (arrows and Space scroll it); E still closes it.
-    if (holding() && e.code !== 'KeyE') return;
+    if (!worldKeyAllowed(e, { holding: holding(), inspecting: inspecting() })) return;
     if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') { held.add('sprint'); return; }
     // Vertical, free-fly only. Space is overloaded — it inspects on foot and
     // ascends in the air — which is why the backend has to see intent.flying.
@@ -128,6 +104,17 @@ export function createPointerLockBackend({ intent, domElement, onLockChange, hol
 
   function onBlur() { held.clear(); }
 
+  function onFocus(e) {
+    if (!ownsKeyboard(e.target)) return;
+    held.clear();
+    intent.forward = intent.strafe = intent.rise = 0;
+    intent.sprint = false;
+    // A key queued just before the UI took focus must not inspect behind it.
+    if (intent.interactSource === 'key') {
+      intent.interact = false; intent.interactPoint = null; intent.interactSource = null;
+    }
+  }
+
   function onLock() { onLockChange?.(true); }
   function onUnlock() { onLockChange?.(false); }
 
@@ -148,6 +135,7 @@ export function createPointerLockBackend({ intent, domElement, onLockChange, hol
       window.addEventListener('mousedown', onMouseDown);
       window.addEventListener('keyup', onKeyUp);
       window.addEventListener('blur', onBlur);
+      window.addEventListener('focusin', onFocus);
       controls.addEventListener('lock', onLock);
       controls.addEventListener('unlock', onUnlock);
       controls.enabled = true;
@@ -163,6 +151,7 @@ export function createPointerLockBackend({ intent, domElement, onLockChange, hol
       window.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('keyup', onKeyUp);
       window.removeEventListener('blur', onBlur);
+      window.removeEventListener('focusin', onFocus);
       controls.removeEventListener('lock', onLock);
       controls.removeEventListener('unlock', onUnlock);
       if (controls.isLocked) controls.unlock();
@@ -172,7 +161,7 @@ export function createPointerLockBackend({ intent, domElement, onLockChange, hol
     /** Write this frame's intent. Called once per frame by main.js. */
     update() {
       if (!enabled) return;
-      if (holding()) held.clear();
+      if (holding() || ownsKeyboard(domElement.ownerDocument.activeElement)) held.clear();
       intent.forward = (held.has('ahead') ? 1 : 0) - (held.has('back') ? 1 : 0);
       intent.strafe = (held.has('right') ? 1 : 0) - (held.has('left') ? 1 : 0);
       intent.rise = (held.has('up') ? 1 : 0) - (held.has('down') ? 1 : 0);

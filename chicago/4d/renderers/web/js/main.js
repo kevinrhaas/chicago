@@ -32,6 +32,7 @@ import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
 import { fieldLog, count as countField } from './field-log.js'; // T-2660
 import { normalMoment, parseMoment, momentLink, momentFits, stampMoment } from './moment.js';
+import { huntSpotSafe } from './photo-hunt.js';
 import './strings/moment.js';
 import { wireFieldLogView } from './field-log-view.js';
 import { recall as recallHome } from './recall.js';
@@ -52,7 +53,9 @@ import { toggleByGrade, restoreLooks } from './confidence-presets.js';
 import { createConfidenceLegend } from './confidence-legend.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
+import { createDesktopKeyCapture } from './controls/keyboard.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
+import { viewportSize } from './viewport.js';
 import { isStandaloneHeadset, vrScale } from './controls/xr-detect.js'; // T-3627: the session half loads where a headset is offered
 import { createWindowMode, windowAt } from './controls/window.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
@@ -5159,6 +5162,7 @@ async function boot() {
       cardTookPointer = false;
     },
     holding: () => !!popup.openId && !gateOpen,
+    inspecting: () => !gateOpen && inspectingByHand(),
     // T-3563: Settings › Look › Mouse sensitivity, read each frame.
     lookSpeed: () => hud.settings.lookSpeed,
   });
@@ -5189,22 +5193,19 @@ async function boot() {
   // touchscreen must not end up driving both.
   // The arrival and welcome are menus, so neither movement backend is live.
   window.addEventListener('pointerdown', (e) => {
-    if (gateOpen || xrMode?.presenting || windowMode?.on || e.target.closest?.('#jaunt-panel')) return;
+    if (gateOpen || xrMode?.presenting || windowMode?.on || e.target.closest?.('#jaunt-panel, .pic-viewer')) return;
     if (e.pointerType === 'touch') backends.activate(touch);
     else if (e.pointerType === 'mouse') backends.activate(pointerlock);
   }, { capture: true });
-  window.addEventListener('keydown', (e) => {
-    // Not while typing. This capture handler switches the whole control backend
-    // to keyboard-and-mouse, and the first keystroke into the Go-to search box
-    // was doing exactly that — taking a visitor who had been tapping their way
-    // around a phone and handing them a control scheme with no on-screen stick.
-    if (gateOpen || xrMode?.presenting || windowMode?.on || isTyping(e.target) || e.target.closest?.('#jaunt-panel')) return;
-    if (!e.metaKey && !e.ctrlKey) {
-      backends.activate(pointerlock);
-      // Not while a card holds the keyboard (T-2954): the arrows scroll the card.
-      if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(e.code) && !popup.openId) pointerlock.lock();
-    }
-  }, { capture: true });
+  // T-3658: rail arrows and native button keys belong to the focused UI, before
+  // its own bubbling handler runs. An open Navigator does not stop world keys.
+  window.addEventListener('keydown', createDesktopKeyCapture({
+    enabled: () => !gateOpen && !xrMode?.presenting && !windowMode?.on,
+    holding: () => !!popup.openId,
+    inspecting: () => !gateOpen && inspectingByHand(),
+    activate: () => backends.activate(pointerlock),
+    lock: () => pointerlock.lock(),
+  }), { capture: true });
 
   /**
    * T-3575: Enter VR (js/controls/xr.js). The key shows only where the browser offers a
@@ -7025,6 +7026,25 @@ async function boot() {
         // and the card itself, on a tab, as the full record until the Inspect tabs (T-2639).
         inspectSummaries: () => Promise.all([ensureInspect(), ensureReaderText().catch(() => null)]).then(([doc]) => doc),
         pictures: () => ensurePictures(),
+        // The hunt reads the same catalogue and canonical photo ownership as Go to.
+        // Its optional visit validates the actual stand before starting ordinary travel.
+        photoHunt: {
+          load: async () => {
+            if (String(YEAR) !== '1904') return null;
+            const doc = await ensurePictures();
+            if (doc) destinations.addPhotos(doc);
+            else picturesPromise = null; // The hunt's retry may read a restored connection.
+            return { doc, destinations };
+          },
+          position: () => api.welcome?.state === 'world' ? { e: walker.state.e, n: walker.state.n } : null,
+          visit: (id) => {
+            const row = destinations.byId('photo', id);
+            if (!huntSpotSafe(row, { inBounds: (e, n) => terrain.inBounds(e, n),
+              isWater: (e, n) => terrain.isWater(e, n), blockedAt: (e, n) => router.blockedAt(e, n),
+              barrierAt: (e, n) => houseBarriers?.near(e, n, BODY_R_M) })) return false;
+            return goToTarget({ kind: 'photo', id });
+          },
+        },
         // T-2825: the record as the card says it — its notes without a ticket, a record id or
         // a file path, once the scene's reader overlay is in (inspectSummaries waits for it).
         record: (id) => {
@@ -7264,10 +7284,12 @@ async function boot() {
   // ---- resize ----------------------------------------------------------- //
 
   function resize() {
-    const vv = window.visualViewport;
-    const w = Math.max(1, Math.round(vv?.width ?? window.innerWidth));
-    const h = Math.max(1, Math.round(vv?.height ?? window.innerHeight));
-    renderer.setSize(w, h, true);
+    const { width: w, height: h } = viewportSize();
+    // Pinch/pan emits visual-viewport events without changing the layout. Keep
+    // the existing drawing buffer instead of clearing/reallocating it each time.
+    if (renderer.domElement.style.width !== `${w}px` || renderer.domElement.style.height !== `${h}px`) {
+      renderer.setSize(w, h, true);
+    }
     camera.aspect = w / h;
     // Hor+ : hold the horizontal field of view and let the vertical follow, so a
     // portrait phone does not end up looking down a drinking straw.

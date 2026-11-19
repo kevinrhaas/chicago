@@ -112,6 +112,18 @@ export function createRail({
   let current = null;
   let switching = 0;
   let dockedSelection = -1;
+  let tabStop = null;
+
+  // Jump and Move have screens but no rail icon. Keep the rail reachable by Tab
+  // while either is open, without calling its visible fallback the selected app.
+  // A contextual icon that leaves, or an app that unregisters, must not strand it.
+  function syncTabStop() {
+    const eligible = (s) => s?.shown && s.app.inRail !== false && !s.button.hidden;
+    const next = [apps.get(current), apps.get(tabStop), apps.get('home'),
+      ...railOrder([...apps.values()].map((s) => s.app)).map((a) => apps.get(a.id))].find(eligible);
+    tabStop = next?.app.id ?? null;
+    for (const s of apps.values()) s.button.tabIndex = s === next ? 0 : -1;
+  }
 
   function makeButton(app) {
     const b = doc.createElement('button');
@@ -122,7 +134,7 @@ export function createRail({
     b.setAttribute('role', 'tab');
     b.setAttribute('aria-label', app.label);
     b.setAttribute('aria-selected', 'false');
-    // Roving focus: Tab reaches the rail once, at the open app; the arrows move along it.
+    // Tab reaches one visible rail icon; the arrows move along it without opening an app.
     b.tabIndex = -1;
     b.title = app.label;
     if (app.pin === 'bottom') b.classList.add('nav-app-foot');
@@ -168,6 +180,7 @@ export function createRail({
     const s = { app, button: makeButton(app), shown: !app.when, leaveAt: null, panel: null, mounted: false, module: null, loading: null };
     apps.set(app.id, s);
     place();
+    syncTabStop();
     return () => unregister(app.id);
   }
 
@@ -179,6 +192,7 @@ export function createRail({
     if (s.panel && !s.app.panel) s.panel.remove?.();
     apps.delete(id);
     if (current === id) current = null;
+    syncTabStop();
     return true;
   }
 
@@ -230,6 +244,7 @@ export function createRail({
     }
     // An open app whose `when` let go closes back to Home.
     if (current && !apps.get(current)?.shown && apps.has('home')) void select('home', { by: 'quiet' });
+    syncTabStop();
     return [...show];
   }
 
@@ -307,9 +322,9 @@ export function createRail({
       const on = other.app.id === id;
       other.button.classList.toggle('is-on', on);
       other.button.setAttribute('aria-selected', String(on));
-      other.button.tabIndex = on ? 0 : -1;
       if (other.panel) other.panel.hidden = !on;
     }
+    syncTabStop();
     if (codeEl && s.app.code) codeEl.textContent = s.app.code;
     if (was !== id && was !== null) warm(panel);
     // Docking while this selection loads keeps its eventual screen pocketed.
