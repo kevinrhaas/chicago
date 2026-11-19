@@ -157,6 +157,25 @@
           "reading": "docs/measurements/T-3552-memory-shared.json",
           "note": "The owner's Inspiron 3880 (Intel UHD 630, 12 GB, Windows 11) on every year, not only 1904: a desktop on integrated graphics (?device=weak, 1920x1080) boots Balanced at Sharpness Low with the phone's memory diet, people, horses and carriages kept. 1812 read 479.2 MB here (1904 the same run: 545.9, under its 600). Reading x1.1 rounded up to 25 MiB = 550 MiB."
         }
+      },
+      "chromebook": {
+        "total_bytes": 524288000,
+        "reading_bytes": 474075076,
+        "tier": "balanced",
+        "reading_mb": {
+          "total": 452.1,
+          "js_heap": 68.6,
+          "arraybuffers": 106.4,
+          "gpu_buffers": 145.5,
+          "gpu_textures": 131.5
+        },
+        "set_by": {
+          "ticket": "T-3675",
+          "on": "2026-11-19T16:29:06.153Z",
+          "build": "ccf78e0ce+T-3675",
+          "reading": "docs/measurements/T-3675-memory-chromebook.json",
+          "note": "A classroom set's low-end Chromebook, emulated (tools/chromebook_emulation.mjs: ChromeOS user agent, deviceMemory 4, 4 threads, Intel UHD 600 renderer string, 1366x768 at 1x; nothing forced). The town routed it itself: a Chromebook: graphics sharing the system's memory (Intel(R) UHD Graphics 600, 4 GB); Balanced at Sharpness Low, light textures, the memory diet. 284 people drawn at spawn, as the same build's desktop at Full (284; 786.0 MB there). Reading x1.1 rounded up to 25 MiB."
+        }
       }
     },
     "1835": {
@@ -236,6 +255,25 @@
           "build": "5a7302d8d",
           "reading": "docs/measurements/T-3552-memory-shared.json",
           "note": "The owner's Inspiron 3880 (Intel UHD 630, 12 GB, Windows 11) on every year, not only 1904: a desktop on integrated graphics (?device=weak, 1920x1080) boots Balanced at Sharpness Low with the phone's memory diet, people, horses and carriages kept. 1835 read 681.2 MB here (1904 the same run: 545.9, under its 600). Reading x1.1 rounded up to 25 MiB = 750 MiB."
+        }
+      },
+      "chromebook": {
+        "total_bytes": 786432000,
+        "reading_bytes": 710037812,
+        "tier": "balanced",
+        "reading_mb": {
+          "total": 677.1,
+          "js_heap": 131.0,
+          "arraybuffers": 118.0,
+          "gpu_buffers": 298.8,
+          "gpu_textures": 129.3
+        },
+        "set_by": {
+          "ticket": "T-3675",
+          "on": "2026-11-19T16:29:06.153Z",
+          "build": "ccf78e0ce+T-3675",
+          "reading": "docs/measurements/T-3675-memory-chromebook.json",
+          "note": "A classroom set's low-end Chromebook, emulated (tools/chromebook_emulation.mjs: ChromeOS user agent, deviceMemory 4, 4 threads, Intel UHD 600 renderer string, 1366x768 at 1x; nothing forced). The town routed it itself: a Chromebook: graphics sharing the system's memory (Intel(R) UHD Graphics 600, 4 GB); Balanced at Sharpness Low, light textures, the memory diet. 10 people drawn at spawn, as the same build's desktop at Full (10; 1327.5 MB there). Reading x1.1 rounded up to 25 MiB."
         }
       }
     },
@@ -514,6 +552,25 @@
           "build": "565e5a35d+T-3537",
           "reading": "docs/measurements/T-3537-memory-1904-shared.json",
           "note": "A desktop on integrated graphics (?device=weak, 1920x1080): the owner's Inspiron 3880 (Intel UHD 630, 12 GB) crashed 1904 at Full ('Aw, Snap'). Same build before: Full 1292.3 MB, the old weak boot (Balanced, every page array kept) 1009.3. Now Balanced at Sharpness Low with the phone's memory diet (upload-release, lowSpec layers, light textures): 539.6 MB, with people, carriages, horses and wagons still drawn (owner, 2026-11-10: losing them is not an option). Reading x1.1 rounded up to 25 MiB."
+        }
+      },
+      "chromebook": {
+        "total_bytes": 707788800,
+        "reading_bytes": 624213785,
+        "tier": "balanced",
+        "reading_mb": {
+          "total": 595.3,
+          "js_heap": 110.4,
+          "arraybuffers": 105.2,
+          "gpu_buffers": 233.0,
+          "gpu_textures": 146.7
+        },
+        "set_by": {
+          "ticket": "T-3675",
+          "on": "2026-11-19T16:29:06.153Z",
+          "build": "ccf78e0ce+T-3675",
+          "reading": "docs/measurements/T-3675-memory-chromebook.json",
+          "note": "A classroom set's low-end Chromebook, emulated (tools/chromebook_emulation.mjs: ChromeOS user agent, deviceMemory 4, 4 threads, Intel UHD 600 renderer string, 1366x768 at 1x; nothing forced). The town routed it itself: a Chromebook: graphics sharing the system's memory (Intel(R) UHD Graphics 600, 4 GB); Balanced at Sharpness Low, light textures, the memory diet. 10 people drawn at spawn, as the same build's desktop at Full (10; 1433.8 MB there). Reading x1.1 rounded up to 25 MiB."
         }
       }
     }

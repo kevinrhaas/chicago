@@ -30,6 +30,13 @@ ceiling and the first reading.
   Both run in `.github/workflows/chicago-4d-frame-time.yml`, one job per year × viewport plus
   the self-test, nightly and on any push that touches the tool or its ceilings. Never in
   `check.sh`, never in the smoke.
+- Two further rows are read only when named in `--only`: `shared` (T-3537/T-3552, a desktop on
+  integrated graphics, `?device=weak` at 1920×1080) and `chromebook` (T-3675, a classroom
+  set's low-end Chromebook at 1366×768, EMULATED by `tools/chromebook_emulation.mjs`: the
+  ChromeOS user agent, `deviceMemory` 4, `hardwareConcurrency` 4 and Intel UHD 600's
+  renderer string told to the page before it runs, nothing forced). The `chromebook` row
+  also fails the gate unless the town booted it as a Chromebook: weak, Balanced, the memory
+  diet, people drawn. CI reads both in every year.
 
 **What the figures are.** Headless Chromium on SwiftShader, so nothing is a timing; bytes are
 bytes, and the same arrays and textures are made on a phone. A driver's own copies and
