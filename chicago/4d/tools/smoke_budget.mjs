@@ -720,6 +720,14 @@ const COVERAGE = [
   // reads from it, and parts all over the body assert those words, so a change to it is
   // priced at the whole gate. tools/check_strings.py holds it in check.sh.
   ['renderers/web/js/strings/', ALL, 'the words every panel and part reads (T-2624)'],
+  // T-3687: the Great Fire is drawn only in 1871, and only once a fire time is set (a jaunt
+  // stop dated in the fire, or api.fire.set); the smoke body walks 1835 and never sets one.
+  // tools/qa_city_fire_1871.mjs drives it at both viewports; tools/fire_1871.py holds the data.
+  ['renderers/web/js/city-fire.js', NONE, 'the 1871 Great Fire as drawn: qa_city_fire_1871.mjs'],
+  ['renderers/web/js/fire-map.js', NONE, 'the 1871 Great Fire\u2019s map and clock: qa_city_fire_1871.mjs, fire_1871.py --check'],
+  ['data/fire/', NONE, 'the 1871 Great Fire\u2019s district and hours: fire_1871.py --check'],
+  // The fort's burning (T-3553) and the city's share these flames; a jaunt stage loads them.
+  ['renderers/web/js/fort-fire.js', [15], 'the flames, smoke and sparks a jaunt stage burns with'],
 ];
 
 /** T-1519 — WHERE A MODULE'S CHECKS ACTUALLY ARE, read off the gate rather than
