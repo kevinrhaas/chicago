@@ -1083,7 +1083,7 @@
     },
     {
       "id": "house_2027_prairie",
-      "name": "2027 Prairie Avenue — Cobb-associated villa"
+      "name": "2027 Prairie Avenue — brick villa of two and a half storeys with a front bay, a canted north bay and a two-storey rear range"
     },
     {
       "id": "house_2027_prairie_coach_house",
@@ -36813,18 +36813,6 @@
         },
         {
           "domain": "structure",
-          "structure": "house_2027_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2027_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "house_2027_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -37033,7 +37021,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie.draft_1904.form.draft_elevation`, `house_2017_prairie.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie.draft_1904.form.draft_elevation`, `house_2027_prairie.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie.draft_1904.form.draft_elevation`, `house_2101_prairie.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie.draft_1904.form.draft_elevation`, `otis_house_2033_prairie.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie.draft_1904.form.draft_elevation`, `stone_house_2035_prairie.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie.draft_1904.form.draft_elevation`, `house_2017_prairie.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie.draft_1904.form.draft_elevation`, `house_2101_prairie.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie.draft_1904.form.draft_elevation`, `otis_house_2033_prairie.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie.draft_1904.form.draft_elevation`, `stone_house_2035_prairie.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -37068,6 +37056,10 @@
           "text": "2021, the Adams/High house, by later work (the S08 package), which refined it in place on the K01 frontage kit under `“2021 Prairie, the Adams/High house, refined from the district draft onto K01: a steep front gable, a round corner turret and a gabled south wing read off its one photograph”`, under the same id; its draft attributes are gone (its alley building is still the draft's, 's)."
         },
         {
+          "label": "Retired in part",
+          "text": "2027, the Cobb-associated villa, by later work (the S08 package), which refined it in place on the K01 frontage kit under `“2027 Prairie, the Cobb-associated villa, refined from the district draft onto K01 as a bounded design off the 1911 sheet: a brick body of two and a half storeys with a full-height front bay, a canted north bay and a two-storey rear range, everything but the plan the kits'”`, under the same id; its draft attributes are gone (its alley barn is still the draft's, 's)."
+        },
+        {
           "label": "Recorded",
           "text": "2026-10-11 (T-2352)."
         }
@@ -37088,7 +37080,8 @@
         "T-1915",
         "T-3615",
         "T-1917",
-        "T-3633"
+        "T-3633",
+        "T-3635"
       ]
     },
     {
@@ -42631,11 +42624,11 @@
         }
       ],
       "recorded": "2026-10-26",
-      "revised": "2026-11-16",
+      "revised": "2026-11-18",
       "fields": [
         {
           "label": "Decision",
-          "text": "the house at 1823 Prairie Avenue, Thomas Dent's, is no longer a district draft. It stands, under the draft's own id 1823 Prairie Avenue — Thomas Dent house, as a k01 frontage record built by the k01 emit generator, against its two pictures: the Chicagology engraving after a photograph ([1823 S. Prairie Ave., the Thomas Dent residence.] Halftone engraving after a…, undated; rights check required: forms and proportions only) and the 1883 New Chicago Album vignette of the same view ('Private Residences of Chicago.' Plate in The New Chicago Album (Chicago…, no known restrictions). A smooth light stone front on brick flanks, two storeys over a raised basement under a slated mansard with dormers; a pavilion at the front's south end, flush with the south wall, under a steep hipped crown (since, an attic under a coped gable); a group of three windows to a storey in the front's north part; the door beside the pavilion up its stoop; a moulded cornice; tall stacks; a two-storey rear range. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1823-b1, census s28-1823-front and s28-1823-wing): the front block's place and plan (13.88 m along the front between the north wall at lot v -7.71 and the south wall at 6.17, the front's main plane at lot u 32.85), the pavilion's projection (lot v 0.43-6.15, 1.12 m forward), the rear range's narrowing and depth, 'brick', '3B; rear2B'. From the engraving, through its camera (the chicagology engraving data): the principal floor, the storey heights and the wall head, the street windows' places, the pavilion's windows, the north flank's window columns, the dormers' places, the mansard's curb, the north stack's place and top (re-read the openings through a re-solved camera, and the box bay, the cresting, the stoop's run and the moulded heads off both pictures). From the vignette: the stone front against the brick flank, and the same composition dated 1883. **What is invented.** The walls' thickness; which stone (K02's Bedford limestone: the pictures say light and smooth, and K02's Lemont profile cannot course a 2.35 m base) and its two-course base; the brick's colour; the south flank's and the rear's windows (no picture sees them); the rear range's windows on its south flank and rear and its flat deck; the mansard's deck; the south stack's place; the stacks' plans; the rainwater; the sash pattern. **What is not built.** the stack at the north flank's rear, over the rear range, where K01 stands no stack; the grilled arched basement doorway under the landing (built since, 2026-11-15); the narrow light beside the door on the principal storey; the slated cheeks the vignette draws either side of the pavilion's pedimented attic; the box bay's corbelled foot (built since, 2026-11-15, second revision); the flank's basement lights under its 0.25 m column and under the rear range (built since, 2026-11-15, third revision): open on the match records."
+          "text": "the house at 1823 Prairie Avenue, Thomas Dent's, is no longer a district draft. It stands, under the draft's own id 1823 Prairie Avenue — Thomas Dent house, as a k01 frontage record built by the k01 emit generator, against its two pictures: the Chicagology engraving after a photograph ([1823 S. Prairie Ave., the Thomas Dent residence.] Halftone engraving after a…, undated; rights check required: forms and proportions only) and the 1883 New Chicago Album vignette of the same view ('Private Residences of Chicago.' Plate in The New Chicago Album (Chicago…, no known restrictions). A smooth light stone front on brick flanks, two storeys over a raised basement under a slated mansard with dormers; a pavilion at the front's south end, flush with the south wall, under a steep hipped crown (since, an attic under a coped gable); a group of three windows to a storey in the front's north part; the door beside the pavilion up its stoop; a moulded cornice; tall stacks; a two-storey rear range. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1823-b1, census s28-1823-front and s28-1823-wing): the front block's place and plan (13.88 m along the front between the north wall at lot v -7.71 and the south wall at 6.17, the front's main plane at lot u 32.85), the pavilion's projection (lot v 0.43-6.15, 1.12 m forward), the rear range's narrowing and depth, 'brick', '3B; rear2B'. From the engraving, through its camera (the chicagology engraving data): the principal floor, the storey heights and the wall head, the street windows' places, the pavilion's windows, the north flank's window columns, the dormers' places, the mansard's curb, the north stack's place and top (re-read the openings through a re-solved camera, and the box bay, the cresting, the stoop's run and the moulded heads off both pictures). From the vignette: the stone front against the brick flank, and the same composition dated 1883. **What is invented.** The walls' thickness; which stone (K02's Bedford limestone: the pictures say light and smooth, and K02's Lemont profile cannot course a 2.35 m base) and its two-course base; the brick's colour; the south flank's and the rear's windows (no picture sees them); the rear range's windows on its south flank and rear and its flat deck; the mansard's deck; the south stack's place; the stacks' plans; the rainwater; the sash pattern. **What is not built.** the stack at the north flank's rear, over the rear range, where K01 stands no stack; the grilled arched basement doorway under the landing (built since, 2026-11-15); the narrow light beside the door on the principal storey; the slated cheeks the vignette draws either side of the pavilion's pedimented attic (built since, 2026-11-18, sixth revision); the box bay's corbelled foot (built since, 2026-11-15, second revision); the flank's basement lights under its 0.25 m column and under the rear range (built since, 2026-11-15, third revision): open on the match records."
         },
         {
           "label": "Revised",
@@ -42666,8 +42659,12 @@
           "text": "2026-11-16 (T-1894, fifth revision). The triple group's broad dormer is built as both pictures draw it: K01's gabled street dormer may now rise over the mansard's curb (`over_curb`), and K10's dressed pediment carries a scrolled console against each side of its face (`dress.consoles`). Read through the engraving's camera: its place over the triple group (v 2.7 m, moved from 3.1 m), its paired lights (1.5 m by 2.4 m), the entablature's height and the apex about 16.0 m, 0.95 m over the curb, and the consoles' reach. Invented: the body's run 1.0 m back over the deck and its slated back end (no picture sees behind the pediment), the cornice's and rake's profiles (the print's dentils and carved tympanum are not built), the consoles' depth and the size of their rolls, and the 42-degree pitch, read between the engraving's steeper rake and the vignette's lower one."
         },
         {
+          "label": "Revised",
+          "text": "2026-11-18 (T-1894, sixth revision). The pavilion's crown as the 1883 vignette draws it: a pedimented attic front between the slated cheeks of a steep crown, where T-3163 had carried the pavilion's stone up a full-width attic under a coped gable. The attic storey is 2.9 m and slated at its sides (K08's storey cheeks: the front's outer 0.8 m at each end and both returns), leaving a 4.1 m stone front with its paired lights widened to 2.3 m by 1.9 m; a scrolled stone console stands against each cheek from the lights' sill (K08's cheek consoles, in K10's dormer-console form); the coped gable is inset to the stone front with its kneelers on its own corners (K08's `kneeler.on: gable`), rising 1.2 m a metre in to its finial; and over the attic K01's hipped crown (`mansard.crown`, form hip) runs its cornice across the attic's top and closes its slates to a point just over and about 1.0 m behind the pediment's apex. Read off the vignette at its half-metre scale: the stone front's and the pediment's widths against the pavilion's, the lights' size, the consoles' place and the attic's height. Invented: the crown's pitches (47 degrees on the sides, 60 on the street end), its 1.0 m ledge, 0.35 m cornice and 2.4 m depth back, the pediment's pitch, the consoles' depth and rolls, and the cheeks' slate on the returns, which neither picture sees square."
+        },
+        {
           "label": "How to resolve",
-          "text": "the remaining open items need K01 to stand a pavilion crown with slated cheeks round a pedimented attic, and the principal storey's lights laid lower and longer beside the door; only the owner opens new work on a photo-gated house."
+          "text": "nothing on either match record is open; a sharper print of the pavilion's crown (its pitches, its depth back over the main roof, the consoles' carving) would replace the invented numbers above. Only the owner opens new work on a photo-gated house."
         },
         {
           "label": "Covers",
@@ -74205,7 +74202,7 @@
         },
         {
           "label": "Two placings are ours outright",
-          "text": "Mrs. Helm's legs, under her skirt in both photographs, stand under its hem, and the surgeon's left arm, which neither photograph shows, lies along his side. **The weapons and ornaments** are modelled since later work as the two plates show them, each read on ICHi-19208 for its outline and on Taylor's print for its depth and hung on the posed body that carries it: the warrior's pipe tomahawk, his feather and the fringed pouch at his hip, Black Partridge's headband with its knot, standing feather and streamer, and his musket. Their outlines, places and lengths are the plates'; their sections and thicknesses, the blade's and the butt's profiles across, the band's wrap round the back of the head and the pouch's four tails as the whole of its fringe are this project's. **Where two figures look and turn** is the plates' since later work: the warrior's face bowed to Mrs. Helm's shoulder and his chest turned to her over hips that face his lunge, Black Partridge's face in profile to the warrior and his chest turned a third of the way to him. The heads stay where they were read and are turned and nodded on the neck; the shoulders keep their read x and height. The depths that set the turns are this project's: the warrior's old reading put his right shoulder 0.13 m behind his left, inside Taylor's 0.15 m depth resolution, and both plates show his chest and belly turned the other way. So are the angles: the chest about 30 degrees right of the street and the hips about 15 degrees left, the spine carrying the difference a third at a time. **Black Partridge's breechcloth and the child's smock** are modelled since later work as the plates show them, in place of the rig's knee-length breechcloth and the child's jacket, collar, trousers and shoes: the breechcloth a short apron off his belt cut into a ragged fringe that ends a quarter of the way down his thighs, the smock a shift from the shoulders to the middle of the thighs with the arms, shins and feet bare. Their lengths are the plates'; the apron's wrap round his hips (it is drawn closed, where a breechcloth's sides are open; neither plate sees his flank clearly), the strands' count and length, and the folds' count and depth are this project's. **The hair** the bands let fall is modelled since later work as the plates show it: Black Partridge's long lock, out from under the back of his band and streaming back and down behind his neck to the back of his left shoulder, and the warrior's curl past his cheek. Their outlines are ICHi-19208's; the lock's depth is this project's, between the two plates' readings (ICHi-19208 and the shoulder it ends over hold its end about 0.2 m behind the head, Taylor's print about 0.6; it is built at 0.35), and so are its width, thickness and section and the strands it is not cut into. **The warrior's sash** is modelled since later work as the plates show it, in place of the rig's thin knee-length breechcloth: a broad band wrapped round his hips, its foot sloping down to his right hip, the fringed ends flying west out of it, and the cloth hanging from it at his right hip and beside the inner side of his raised thigh. Its height on the body, its slope and the hanging cloth's lengths and places across the front are ICHi-19208's; the band's depth (about 0.12 m) is Taylor's print's; its wrap round the back (neither plate sees it), its girth (sized to clear the posed body), the cloth's thickness and section, the strands at the hip cloth's foot and the folds' count and depth are this project's. **The surgeon's pantaloons** are modelled since later work as the plates show them, in place of the rig's tight ones: loose heavy cloth on both legs from the hip past the knee to the boot's top, rumpled in creases and gathered wider over the boot. Their thickness at the shin (about 0.15 m through) is the plates', read on ICHi-19208 and Taylor's print on the leg he stretches west; the creases' count, depth and run, the cloth's gathering over the boot and the other leg, under Mrs. Helm's skirt in both plates, are this project's. **Where Mrs. Helm and the child look** is the plates' since later work: her face turned to the warrior and bowed, in profile to the west on ICHi-19208 and three-quarter on in Taylor's print, and the child's face lifted up and to the right after his hands. The heads stay where they were read and are turned and nodded on the neck, as the warrior's and Black Partridge's are; the point each face is aimed at, and so the angles (hers about 30 degrees below level and a little toward the street from profile, his about 45 degrees up), are this project's, set inside what the two plates show. The faces' sculpted features (brows, noses, mouths) and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of 1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the photographs are monochrome. - **The panels' reliefs** are flat plates. Since later work they are drawn pale, as ICHi-19208 (c. 1900) shows them weathered lighter than the die, where Taylor's 1893 print has them fresh and dark: the 1904 scene takes the later plate. Their faint green-grey is ours; the plate is monochrome. - **The lettering** under the front panel (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is cut since later work at the widths, heights and places ICHi-19208 gives each line, pale on the granite. The letters are the town's block capitals squeezed to those widths, not the cutter's seriffed roman, and they stand flat on the die rather than sunk into it. The second line is about 4 px tall on the plate; its words are the record's. - **Its place** is set by later work through cameras on the Detroit print (east and west) and ICHi-19208 (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where ICHi-19208 shows its end, which is open in that view's match record. The figures are period sculpture, built as the sculptor made them; the record carries review required with its reason, and the card says how the work was received."
+          "text": "Mrs. Helm's legs, under her skirt in both photographs, stand under its hem, and the surgeon's left arm, which neither photograph shows, lies along his side. **The weapons and ornaments** are modelled since later work as the two plates show them, each read on ICHi-19208 for its outline and on Taylor's print for its depth and hung on the posed body that carries it: the warrior's pipe tomahawk, his feather and the fringed pouch at his hip, Black Partridge's headband with its knot, standing feather and streamer, and his musket. Their outlines, places and lengths are the plates'; their sections and thicknesses, the blade's and the butt's profiles across, the band's wrap round the back of the head and the pouch's four tails as the whole of its fringe are this project's. **Where two figures look and turn** is the plates' since later work: the warrior's face bowed to Mrs. Helm's shoulder and his chest turned to her over hips that face his lunge, Black Partridge's face in profile to the warrior and his chest turned a third of the way to him. The heads stay where they were read and are turned and nodded on the neck; the shoulders keep their read x and height. The depths that set the turns are this project's: the warrior's old reading put his right shoulder 0.13 m behind his left, inside Taylor's 0.15 m depth resolution, and both plates show his chest and belly turned the other way. So are the angles: the chest about 30 degrees right of the street and the hips about 15 degrees left, the spine carrying the difference a third at a time. **Black Partridge's breechcloth and the child's smock** are modelled since later work as the plates show them, in place of the rig's knee-length breechcloth and the child's jacket, collar, trousers and shoes: the breechcloth a short apron off his belt cut into a ragged fringe that ends a quarter of the way down his thighs, the smock a shift from the shoulders to the middle of the thighs with the arms, shins and feet bare. Their lengths are the plates'; the apron's wrap round his hips (it is drawn closed, where a breechcloth's sides are open; neither plate sees his flank clearly), the strands' count and length, and the folds' count and depth are this project's. **The hair** the bands let fall is modelled since later work as the plates show it: Black Partridge's long lock, out from under the back of his band and streaming back and down behind his neck to the back of his left shoulder, and the warrior's curl past his cheek. Their outlines are ICHi-19208's; the lock's depth is this project's, between the two plates' readings (ICHi-19208 and the shoulder it ends over hold its end about 0.2 m behind the head, Taylor's print about 0.6; it is built at 0.35), and so are its width, thickness and section and the strands it is not cut into. **The warrior's sash** is modelled since later work as the plates show it, in place of the rig's thin knee-length breechcloth: a broad band wrapped round his hips, its foot sloping down to his right hip, the fringed ends flying west out of it, and the cloth hanging from it at his right hip and beside the inner side of his raised thigh. Its height on the body, its slope and the hanging cloth's lengths and places across the front are ICHi-19208's; the band's depth (about 0.12 m) is Taylor's print's; its wrap round the back (neither plate sees it), its girth (sized to clear the posed body), the cloth's thickness and section, the strands at the hip cloth's foot and the folds' count and depth are this project's. **The surgeon's pantaloons** are modelled since later work as the plates show them, in place of the rig's tight ones: loose heavy cloth on both legs from the hip past the knee to the boot's top, rumpled in creases and gathered wider over the boot. Their thickness at the shin (about 0.15 m through) is the plates', read on ICHi-19208 and Taylor's print on the leg he stretches west; the creases' count, depth and run, the cloth's gathering over the boot and the other leg, under Mrs. Helm's skirt in both plates, are this project's. **Where Mrs. Helm and the child look** is the plates' since later work: her face turned to the warrior and bowed, in profile to the west on ICHi-19208 and three-quarter on in Taylor's print, and the child's face lifted up and to the right after his hands. The heads stay where they were read and are turned and nodded on the neck, as the warrior's and Black Partridge's are; the point each face is aimed at, and so the angles (hers about 30 degrees below level and a little toward the street from profile, his about 45 degrees up), are this project's, set inside what the two plates show. **The faces' features** are cut since later work stronger than the rigs' neutral face, as both plates draw them: on every figure the nose is drawn out along its bridge to the tip, the brow ridge brought forward over eyes set back in their sockets, the cheekbones raised, the line between the lips cut in with the lips standing either side of it, and the hollow under the lower lip and the chin brought out, most on the warrior and Black Partridge (his bridge highest, as Taylor's profile of him draws it), less on the surgeon, finer on Mrs. Helm and least on the child. That they are stronger is the plates'; every depth is this project's (the nose up to about 9 mm further out at its tip, the brow 5 mm, the eyes 4 mm back, the lips' line 3 mm in), because no face in either plate is 40 px across, and so is each face's character beyond them: no portrait of anyone is fitted, and the faces are still each rig's own under the cut. The whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of 1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the photographs are monochrome. - **The panels' reliefs** are flat plates. Since later work they are drawn pale, as ICHi-19208 (c. 1900) shows them weathered lighter than the die, where Taylor's 1893 print has them fresh and dark: the 1904 scene takes the later plate. Their faint green-grey is ours; the plate is monochrome. - **The lettering** under the front panel (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is cut since later work at the widths, heights and places ICHi-19208 gives each line, pale on the granite. The letters are the town's block capitals squeezed to those widths, not the cutter's seriffed roman, and they stand flat on the die rather than sunk into it. The second line is about 4 px tall on the plate; its words are the record's. - **Its place** is set by later work through cameras on the Detroit print (east and west) and ICHi-19208 (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where ICHi-19208 shows its end, which is open in that view's match record. The figures are period sculpture, built as the sculptor made them; the record carries review required with its reason, and the card says how the work was received."
         },
         {
           "label": "Recorded",
@@ -76018,6 +76015,197 @@
         "T-1917",
         "T-1837",
         "T-3635"
+      ]
+    },
+    {
+      "id": "L-k01-2027-villa-3635",
+      "title": "2027 Prairie, the Cobb-associated villa, refined from the district draft onto K01 as a bounded design off the 1911 sheet: a brick body of two and a half storeys with a full-height front bay, a canted north bay and a two-storey rear range, everything but the plan the kits'",
+      "section": "per_subject",
+      "subjects": [
+        "house_2027_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.dormer"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.principal_floor_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_form"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.storey_heights_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_head"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-11-18",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the district draft at 2027 Prairie Avenue — brick villa of two and a half storeys with a front bay, a canted north bay and a two-storey rear range is refined in place, under its own id, to a k01 frontage record built by the k01 emit generator (the S08 package of the programme): K03 brick on every wall (a brown pressed front, dun commons behind); K06 two-over-two sash under K09 cornice-hood lintels on the front and K01 openings elsewhere; the door at the head of a K07 stoop at the front's south corner; a full-height K08 front bay carrying K10's bracketed timber cornice round its face; a two-storey K08 canted bay on the north flank under its own low hip; a K04/K05 hip in painted tin with one gabled K05 dormer on the street slope for the half storey; and the sheet's two-storey rear range on K01's rear wings under a flat tin deck. **What is read, not invented.** From sheet 35 of the 1911 Sanborn, read at full size off the raster through the committed trace's affine fit (0.186 m a pixel), and the census (s35-2027-front: '2½B brick dwelling (D)'; s35-2027-wing: 'Rear two-storey range (\"rear2B\") and a one-storey frame shed'): two storeys and a half storey in the roof; brick all round; the main body 16.91 m from the rear wall (column 1014) to the front's north part (column 923) and 12.82 m along the front (rows 694-763), its south wall on the lot line with 2029; the front's south part standing out about 1.3 m (column 915-917, rows 723-751), built 1.2 m out and 5.2 m wide; the canted north bay (columns 976-1002.5 at the wall, 980-998.5 at its face, 0.93 m out); the open stoop at the front's south corner (the uncoloured box, rows 751-763); and the rear range, 8.27 m deep and 8.0 m wide (columns 1014-1058.5, rows 705-748). The draft's rectangle fit drew the body 22.5 m by 11.5 m, across the rear range's line, its corner 5.9 m too far east. **What is invented.** No photograph, plate or description of 2027 is known (the brief: 'no picture'), so this is a bounded design on the brief's 'restrained roof and openings': every height (a 1.4 m principal floor, 4.0 and 3.6 m storeys, the rear range's 3.6 and 3.2 m); the walls' thickness; the brick's colours; every window's kind, size and place and every head; the door, the stoop's width and treads; the cornice; the hip's pitch, eaves, covering and its dormer; the bays' roofs; the two stacks against the blank south flank; the gutters and downpipes; the open front with a flagged walk. The south flank is built blank: 2029's north wall stands about 0.4 m from it on the sheet. The register associates the house with Silas B. Cobb's household, an open association, so the id and the card name no one and no named mansion's front is borrowed. **What is not built.** The rear range's one-storey frame (yellow) canted bay on its east end, and the one-storey frame shed south of it (rows 748-763, columns 1047-1072): K01 stands a wing only on the main rear wall or a wing's rear, and hosts no frame bay on a wing's end."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph, plate or description of 2027 Prairie, ingested as a source, replaces the kits' choices attribute by attribute; a K01 wing hosted beside another wing builds the frame shed."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_2027_prairie.as_mapped_1904.form.principal_floor_m`, `house_2027_prairie.as_mapped_1904.form.storey_heights_m`, `house_2027_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2027_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2027_prairie.as_mapped_1904.form.service_wall_brick`, `house_2027_prairie.as_mapped_1904.form.face_brick`, `house_2027_prairie.as_mapped_1904.form.street_front_trim`, `house_2027_prairie.as_mapped_1904.form.wall_head`, `house_2027_prairie.as_mapped_1904.form.roof_form`, `house_2027_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2027_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2027_prairie.as_mapped_1904.form.roof_covering`, `house_2027_prairie.as_mapped_1904.form.dormer`, `house_2027_prairie.as_mapped_1904.form.stair_tread_m`, `house_2027_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2027_prairie.as_mapped_1904.form.side_bays`, `house_2027_prairie.as_mapped_1904.form.rear_bays`, `house_2027_prairie.as_mapped_1904.form.sash_by_storey`, `house_2027_prairie.as_mapped_1904.form.basement_lights`, `house_2027_prairie.as_mapped_1904.form.window_kit`, `house_2027_prairie.as_mapped_1904.form.rainwater`, `house_2027_prairie.as_mapped_1904.form.chimneys`, `house_2027_prairie.as_mapped_1904.form.entrance_kit`, `house_2027_prairie.as_mapped_1904.form.boundary`, `house_2027_prairie.as_mapped_1904.form.yard`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 2027 villa."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-18 (T-3635)."
+        }
+      ],
+      "work_refs": [
+        "T-2352",
+        "T-3635",
+        "T-1917",
+        "T-1837",
+        "T-1842"
       ]
     },
     {

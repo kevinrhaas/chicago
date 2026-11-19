@@ -24,7 +24,7 @@ export default {
 };
 
 const sections = sectionScreen('guide');
-const state = { sheet: null, view: null, ctx: null, on: false };
+const state = { sheet: null, view: null, ctx: null, on: false, notebook: null, notebookHost: null };
 const screen = {
   mount(el, ctx) {
     // T-3021 (the owner, 2026-10-22: "there should be an option to take the tour anytime
@@ -32,12 +32,28 @@ const screen = {
     // section it was written into, so its key keeps the id and listener main.js gave it.
     const tour = el.ownerDocument.getElementById('guide-tour');
     if (tour) el.append(tour);
+    const notebookHost = el.ownerDocument.createElement('div');
+    el.append(notebookHost);
+    state.notebookHost = notebookHost;
     const sheet = el.ownerDocument.createElement('div');
     sheet.className = 'nav-guide-sheet';
     el.append(sheet);
     state.sheet = sheet;
     state.ctx = ctx;
     sections.mount(el, ctx);
+    // The notebook's views and export code load only when Guide is first opened.
+    import('../field-notebook-view.js').then(({ mountFieldNotebook }) => {
+      if (state.notebookHost !== notebookHost) return;
+      state.notebook = mountFieldNotebook(notebookHost, { context: () => state.ctx });
+    }).catch(() => {
+      if (state.notebookHost !== notebookHost) return;
+      const retry = el.ownerDocument.createElement('button');
+      retry.type = 'button';
+      retry.className = 'setting-button';
+      retry.textContent = 'Field notebook unavailable — reload to try again';
+      retry.addEventListener('click', () => el.ownerDocument.defaultView?.location.reload());
+      notebookHost.append(retry);
+    });
     // Not returned: the rail would wait for it, and the point is that it does not.
     import('./guide-view.js').then((view) => {
       if (state.sheet !== sheet) return;
@@ -50,6 +66,7 @@ const screen = {
     state.on = true;
     state.ctx = ctx;
     state.view?.shown?.(state.sheet, ctx);
+    state.notebook?.refresh();
     sections.shown(el, ctx);
   },
   hidden(el, ctx) {
@@ -57,6 +74,9 @@ const screen = {
     sections.hidden(el, ctx);
   },
   unmount() {
+    state.notebook?.destroy();
+    state.notebook = null;
+    state.notebookHost = null;
     state.view?.unmount?.(state.sheet);
     state.sheet = null;
     state.view = null;

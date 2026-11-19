@@ -1,0 +1,16 @@
+#nav-photo-hunt { margin-block: 1rem; }
+#nav-photo-hunt > summary { cursor: pointer; padding: .75rem; font-weight: 600; }
+.photo-hunt { padding: .75rem; overflow-wrap: anywhere; }
+.photo-hunt h3 { margin-top: 0; }
+.photo-hunt figure { margin: .75rem 0; }
+.photo-hunt-image { display: block; width: 100%; max-height: 340px; object-fit: contain; }
+.photo-hunt figcaption { margin-top: .5rem; font-size: .875em; }
+.photo-hunt-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-block: .75rem; }
+.photo-hunt button, .photo-hunt input { font: inherit; color: var(--ink); background: var(--panel-raised); border: 1px solid var(--edge); border-radius: 4px; min-height: 44px; padding: .5rem .75rem; }
+.photo-hunt button { cursor: pointer; }
+.photo-hunt button:disabled { opacity: .6; cursor: default; }
+.photo-hunt-actions a { display: inline-flex; align-items: center; min-height: 44px; }
+.photo-hunt input, .photo-hunt label { width: 100%; max-width: 100%; box-sizing: border-box; }
+.photo-hunt input { display: block; }
+.photo-hunt [hidden] { display: none; }
+#nav-photo-hunt summary:focus-visible, .photo-hunt :focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }

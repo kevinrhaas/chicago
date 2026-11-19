@@ -25,6 +25,9 @@
  */
 
 import { sourceTitle } from './inspect-sources.js';
+import { fieldNotebook } from './field-notebook.js';
+import { t } from './strings/index.js';
+import './strings/notebook.js';
 
 const GRADE_WORD = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
 const PLACE = {
@@ -267,6 +270,7 @@ export function personModel({ row, person = null, household = null, citations = 
 
   return {
     id: p.id ?? row?.id ?? null,
+    year,
     name: p.name ?? row?.name ?? '',
     grade,
     place: PLACE[relationship] ?? capital(words(relationship)),
@@ -446,6 +450,19 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
   head.append(chips);
   if (m.household) head.append(el(doc, 'p', 'insp-address insp-person-hh', m.household));
   card.append(head);
+  if (m.read) {
+    const save = el(doc, 'button', 'setting-button insp-person-notebook', t('notebook.personSave'));
+    save.type = 'button';
+    const status = el(doc, 'p', 'nav-sub'); status.setAttribute('role', 'status');
+    save.addEventListener('click', e => {
+      e?.stopPropagation?.();
+      const result = fieldNotebook.add({ kind: 'person', person: m.id, title: m.name, year: m.year,
+        place: m.household, grade: m.grade, sources: m.sources,
+        excerpt: [m.storyMark?.text, m.lead, ...m.story, m.why?.text].filter(Boolean).join('\n\n') });
+      status.textContent = t(result.ok ? (result.duplicate ? 'notebook.duplicate' : 'notebook.personSaved') : `notebook.error.${result.reason}`);
+    });
+    card.append(save, status);
+  }
   // T-3531 (the owner, 2026-11-09: "if somebody is looked for and you try to find them and
   // they cant be found because they are not in the area you should not be able to select the
   // find this person or follow and where those buttons are you should know they cant be found
