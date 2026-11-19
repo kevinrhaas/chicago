@@ -11,7 +11,7 @@
   "sexes": [
     { "id": "male", "label": "Masculine" },
     { "id": "female", "label": "Feminine" },
-    { "id": "neutral", "label": "Androgynous", "of": ["female", "male"],
+    { "id": "neutral", "label": "Androgynous", "of": ["male", "female"],
       "build": { "male": { "muscle": -0.4, "weight": -0.2, "neck_width": -0.35 }, "female": { "muscle": 0.25, "weight": -0.15 } },
       "basis": "Kevin, 2026-11-19: a third body type, and the control named for the person's style rather than their gender. It wears either body (the dress of the year is any the town's men or women wear, and the hair of either), drawn leaner on a man's frame and less rounded on a woman's (the variation kit's own build axes), with any of the library's faces. Riding follows the clothes: a skirt rides aside in 1835 and 1904." }
   ],
