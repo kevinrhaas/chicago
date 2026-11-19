@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3115, ts: '2026-11-19T04:15:58.034Z', date: 'Nov 18, 2026, 10:15 PM CT', title: 'Save discoveries and explore Chicago with a photo hunt', kind: 'feature',
+    items: [
+      'Save a stamped photo and share a view from Home. Guide\'s Field notebook keeps notes, selected people, citations and small photos in this browser, with download and print to PDF. Completed jaunts offer optional cited reflections; For teachers adds printable lesson guides with suggested Illinois and C3 connections.',
+      'Home\'s Where and when? offers five historical photographs to locate in 1904, with daily challenge links, source dates and progress saved in this browser.',
+      'Magnify Navigator reading with browser zoom. Picture viewers keep keyboard focus inside, close with Escape and return to the opener. The app rail remains reachable with Tab while Move or Jump is open. Arrow keys and Space stay with focused controls, and entering a reader stops held movement.',
+    ] },
   { v: 3114, ts: '2026-11-19T02:45:00.014Z', date: 'Nov 18, 2026, 8:45 PM CT', title: 'A fourth chimney pot on 1815 Prairie\'s south chimney', kind: 'improvement',
     items: [
       'The south chimney of the Sears-Meeker house at 1815 Prairie now carries four tall clay pots in a row, as its photograph from the south-west shows, instead of three. The fourth pot is the pale one nearest the street, lit by the afternoon sun, and the chimney is a little wider to hold it.',
