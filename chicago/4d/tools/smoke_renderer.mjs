@@ -1382,6 +1382,11 @@ const PICTURE_WARNING = /^4D Chicago: picture (lost|refused)/;
  * flight. Nothing is filtered: an error the page logs while it settles is still a page
  * error, `zero page errors` is unchanged, and a page that never settles is put down anyway
  * after a line saying so.
+ *
+ * T-3662: THE NEXT RED NAMED A THIRD PUT-DOWN. After #2190 both widths still went red,
+ * and the tags put every refusal on /1904/, in the seconds after the Confidence check:
+ * the far year's page, walked into at the Jump's landing and still loading, which the
+ * `?nav=jump` reload replaces. It settles before that reload too.
  */
 const SETTLE_QUIET_MS = 3000;
 const SETTLE_CAP_MS = 60_000;
@@ -22238,6 +22243,16 @@ for (const [label, viewport, touch] of [
     // the visitor is set down in the town with Jump open on the Navigator; Back closes
     // the app and stays on this page; a link to an app the rail does not have would have
     // been dropped quietly (test_nav_link.mjs, test_navigator.mjs).
+    // T-3662: this reload is part 15's third put-down, and the one T-3650 left unsettled.
+    // On the published mirror the page it replaces is the far year's, walked into seconds
+    // ago and still loading its pictures. Every red dev logged after #2190 falls in that
+    // window: the refusals are stamped /1904/, 3-16 s after the Confidence check and
+    // before this load commits (runs 44340476884 desktop [18:51 -> 19:07], 44385234168
+    // mobile [9:25 -> 9:28] and desktop [14:09 -> 14:20]), and none comes from the
+    // pages part 15 had already settled. So the page finishes its pictures first, as
+    // the body's page does before its park; an error it logs meanwhile still counts.
+    console.log(settledLine(`part 15's ${new URL(p14.url()).pathname} page before the ?nav=jump reload`,
+      await settlePictureWork(p14, p14PictureFiles)));
     await p14.goto(`${base}&nav=jump`, { waitUntil: 'domcontentloaded' });
     await p14.waitForFunction(() => window.__chicago4d?.navLinkOpened?.app === 'jump' && window.__chicago4d.navigator?.app === 'jump',
       null, { timeout: 240_000, polling: 500 });

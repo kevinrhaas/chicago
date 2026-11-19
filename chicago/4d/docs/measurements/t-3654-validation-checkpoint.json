@@ -1,11 +1,26 @@
 {
   "ticket": "T-3654",
-  "state": "implementation_checkpoint_validation_pending",
+  "checkpoint_revision": 11,
+  "recorded_utc": "2026-11-19T02:26:37.376553+00:00",
+  "state": "combined_build_validation_pending",
   "branch": "steward/t3654-1871-city-baseline",
-  "base_commit": "c676aa2f4ad6ee8cff0521da6ba8add70d55949c",
+  "base_commit": "c23d8a9e85bf37de9c2eb2dce9118cb709edf0da",
   "target": "dev",
-  "production_promotion": "Owner-dispatched only; no production deployment in this task.",
-  "implemented": "Citywide context for 8 October 1871 at 16:00 local mean solar time, corrected map registration and terrain, portable building and infrastructure kit, walking support, research viewer and source overlay.",
+  "pull_request": {
+    "number": 2198,
+    "url": "https://github.com/kevinrhaas/chicago/pull/2198",
+    "draft": true
+  },
+  "implemented": "Generic citywide context for 8 October 1871 at 16:00 local mean solar time; dedicated terrain and walkable infrastructure, district-based buildings and research/source overlay.",
+  "scene_counts": {
+    "buildings": 33580,
+    "trees": 3627,
+    "rendered_road_crossings": 22,
+    "quay_bays": 597,
+    "rail_corridors": 5,
+    "additional_report_bridges_withheld": 6,
+    "meaning": "Generated model counts, not a historical census."
+  },
   "registration_m": {
     "fitting_rms_before": 37.73,
     "fitting_rms_after": 18.6689,
@@ -13,78 +28,66 @@
     "reserved_check_rms_before": 49.9676,
     "reserved_check_rms_after": 15.6189,
     "reserved_check_max_after": 25.6497,
-    "scope": "Intersection registration, not bank, parcel or elevation accuracy."
+    "modern_target_comparison_rms": 2.023028533,
+    "generated_state_madison_modern_target_distance": 22.570953,
+    "scope": "Historical intersection registration, modern target consistency and rendered location are distinct measurements. None establishes bank, parcel or elevation accuracy.",
+    "fitting_control_count": 28
   },
-  "scene_counts": {
-    "buildings": 33580,
-    "trees": 3627,
-    "road_crossings": 22,
-    "quay_bays": 597,
-    "rail_corridors": 5,
-    "scope": "Generated scene counts, not a historical census."
+  "current_validation": {
+    "scope": "Fresh verification of the combined build after integrating the latest dev runtime, smoke-stage 15 and 1815 pot changes. Earlier 6409 passes are dated evidence only.",
+    "focused_integration_checks": {
+      "state": "pass",
+      "staged_runtime_tree": "852dde5df062ff770cddc19b1c9afef45aab16ad",
+      "checks": [
+        "freshness",
+        "derived",
+        "source-use",
+        "unique-ids",
+        "changelog-entries",
+        "ticket-ids"
+      ],
+      "receipt": "t3654-c23-focused-canonical-receipt.json",
+      "receipt_sha256": "4643ad4119376981608e5097c64730f7487a70bcb34ce88d33662f3bb3987896",
+      "assets_matching_inputs": 1126,
+      "stale_assets": 0,
+      "validator_errors": 0,
+      "existing_warnings": 338,
+      "scope": "Canonical validator flags; complete hosted source gate remains pending."
+    },
+    "source_gate": {
+      "state": "pending",
+      "run_id": null,
+      "required": "All eight hosted parts and the aggregate must pass on the new combined build."
+    },
+    "browser_gate": {
+      "state": "pending",
+      "verified_stage_viewport_pairs": 0,
+      "required_stage_viewport_pairs": 30,
+      "run_ids": []
+    },
+    "scheduling": "After focused integration and publication checks, the full source gate and six browser groups may run concurrently. Both complete results remain required before merge.",
+    "publication": {
+      "state": "pending",
+      "required": "Full publication, published mirror and boot checks on the clean committed checkpoint."
+    }
   },
-  "completed_validation": [
-    "Published ae259 city snapshot passes at 390x780 and 1280x800 across all three detail levels: 22 bridges both directions, all 597 quays, walking floors, collision, source/liberty cards and color-pass confidence filtering, with zero application/page/resource errors. Exact inputs are in t-3654-city-baseline.json; later shadow repair requires separate native proof.",
-    "Pre-fire viewer, research and notebook browser checks pass on mobile/desktop (28, 51 and 114 assertions). Geography overlay additionally passes at exact 8d59 inputs: 36 control markers/rows, 13 features, 22 crossings, accessible details and no overflow or page/request errors.",
-    "Registration, source provenance, trace reproduction and deterministic city/terrain generation pass. Existing Today/Google Maps targets agree with the new modern targets within 2.023 m RMS; actual generated State/Madison remains 22.570953 m from its modern target, preserving the historical fit residual without an additional renderer offset.",
-    "Shared year-entry loaders pass nine Chromium fixtures, offline packs, preview checks and actual 1835/1871 native entry. The focused ae259 1812 probe passes readiness, 4.47 m walking and readable canvas on both widths with zero page errors. These focused probes are separate from full legacy acceptance.",
-    "Integrated dataset validation passes with zero errors and 340 existing warnings. Earlier PR preflight part 2/16 passed all 90 steps plus changelog and ticket ID checks; published-mirror checks also passed at their dated inputs.",
-    "Historical local source coverage includes parts 1-6/16 across dated snapshots. Part 5/16 has a complete terminal PASS but no recoverable process exit after reconnect; its qualified receipt is retained. This is not complete current-tree coverage.",
-    "Repaired source parts 7/16 and 8/16 pass on clean 92ac with 89 steps each, 25/28 self-tests, exit 0 and 408.074/397.617 seconds. Original failures remain preserved. A newly added confidence-shadow check changes the subsequent partition allocation.",
-    "The 1871 pacing poses pass actual-road and all-building clearance checks plus negative controls. Native attempt 3 passes all six move/mode drives, exact state restoration and zero page errors on isolated ae259 publication plus the exact 1dfe pacing module; runtime/verifier bytes match 92ac. Short software-rendered functional proof only; unsuccessful attempts 1 and 2 remain preserved.",
-    "Confidence-shadow source regression and native desktop Full probe pass against exact 3f81 runtime bytes: building, bridge and tree views preserve normal shadow coverage, reduce coverage under dither and cast no shadow when hidden. Actual GPU programs compile/link with correct live uniforms and zero errors. Candidate scope and sampling limits are retained in t-3654-confidence-shadows.json.",
-    "On 3f81, local source 9/16 has a complete 89-step/28-self-test terminal PASS with unavailable exit status after reconnect; parts 10/16 and 11/16 pass 89 steps each, with 22/27 self-tests, exit 0 and durations of 380.131/440.146 seconds. These are dated partial checks, not combined-tree full coverage.",
-    "Context source-use reader and 16 fixtures pass, including old-compiler negative control, actual kit lookup, scene scoping and confidence preservation. Regeneration retains 720 sources at 295055 index bytes under the unchanged 296000-byte budget; strict confidence audit passes. Edwards now has scene use in 1871.",
-    "Empty named-structure boot packing passes actual CLI fixtures, nine corruption refusals, deterministic repacking, sparse positions and stale-part cleanup. Full c0c235 publication passes mirror checks and rehydrates all 1119 named records across existing scenes. Native 1871 startup succeeds with an empty shared table and 33580 context buildings; Edwards appears by default and actual cards plus all 11 new source details resolve with zero application, page, console or network errors. Desktop Light probe scope is retained in t-3654-source-and-boot.json.",
-    "The harbor metric trace now uses math.fsum for its projected coordinates. The exact-sum gate passes with zero unconverted rounded sums; trace_harbor_1869.py --check confirms byte-identical derived coordinates. No scene geometry changes.",
-    "All seven new gate tools were measured through the supported step-isolation probes on isolated matching inputs; each command exits successfully with no repository or ignored-product writes. The census audit covers all 1337 keyed declarations across 1068 tools, and its audit/measurer self-tests pass. Initial sparse-fixture setup failures remain preserved and contribute no measured rows.",
-    "The dated 871698 source-tree audit covers all 1379 declarations (1376 ordinary plus 3 shared prerequisites) using seven successful hosted parts and exact-current local counterparts for the one hosted timeout. No timeout supplied coverage. Successful PR-only checks and the same Git tree were verified. This is complete assertion coverage on that dated tree, not a successful hosted aggregate or proof of the later combined tree.",
-    "Integrated dev c26d monument/research changes and c676aa2 changelog fold through merge 150fb1d3. All 201 audited 1871/pre-fire/runtime paths remain unchanged; both upstream monument assets and all five photo proofs are preserved. Generated registry/source-use conflicts were resolved by their owning tools. Full-checkout freshness passes with 0 errors and 338 existing warnings; derived manifest, source-use and post-fold changelog checks pass."
-  ],
-  "pending_validation": [
-    "Full publication and published-mirror checks on the new combined checkpoint",
-    "Complete current combined-tree source verification with required readers and base checks",
-    "Fresh published legacy browser stages 1 through 15 on both viewports with matching inputs",
-    "Final current-head hosted CI, dev merge and development preview"
-  ],
-  "known_validation_repair": "measure_generator_half.py now attributes the two new terrain assets to city_1871_emit.py: total 1,126 assets, independent emitter reach 2, existing common-module reach 820 and legacy terrain reach 6 retained.",
   "ci_workflow": "chicago-4d-smoke.yml",
   "ci_browser_groups": [
     {
-      "viewport": "mobile",
-      "stage": "1-4"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "5-8"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "9-12"
-    },
-    {
-      "viewport": "mobile",
+      "viewport": "desktop",
       "stage": "13"
     },
     {
+      "viewport": "desktop",
+      "stage": "1-8"
+    },
+    {
       "viewport": "mobile",
-      "stage": "14-15"
+      "stage": "1-12"
     },
     {
-      "viewport": "desktop",
-      "stage": "1-2"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3-4"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "5-6"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "7-8"
+      "viewport": "mobile",
+      "stage": "13-15"
     },
     {
       "viewport": "desktop",
@@ -92,192 +95,84 @@
     },
     {
       "viewport": "desktop",
-      "stage": "13"
-    },
-    {
-      "viewport": "desktop",
       "stage": "14-15"
     }
   ],
-  "resume": [
-    "Inspect this branch and its draft PR; preserve existing implementation and source evidence.",
-    "Use Node 22 and Python with jsonschema, pyproj, openpyxl, pypdf, numpy, scipy and Pillow; GNU bc is required by the existing gate.",
-    "Use a real nested tickets checkout created by tools/tickets.sh. A symlink here is not traversed by Path.rglob and causes the existing roof-pin reach check to fail; do not waive that check.",
-    "Run the complete existing Chicago 4D CI gate. Local checks support --part k/N through N=32; all declared checks must be covered. Partial or timed-out calls do not count as a complete pass.",
-    "Dispatch the existing smoke workflow for the listed viewport/stage groups on the exact pushed commit; record each run ID and head SHA. No workflow edits are required.",
-    "If gh log retrieval fails, GitHub connector fetch_workflow_job_logs returns decoded text in structuredContent.content.",
-    "Record completed smoke results with tools/dev-smoke-state.mjs, preserving actual CI provenance.",
-    "Only mark ready and merge into dev after complete verification; update this checkpoint with final evidence and settle T-3654."
+  "browser_group_plan": {
+    "report": "t3654-proposed-six-smoke-groups.json",
+    "sha256": "3264c53d04ad9aaed8c0bddcf95dc7393f9eddb518aef0a368fc06a2def579c3",
+    "coverage": "Each of stages 1–15 on mobile and desktop exactly once; existing assertions and job limits unchanged."
+  },
+  "previous_verified_build": {
+    "source_commit": "6409dda1222e1284e111ab0efde1c471f3284d60",
+    "source_tree": "eeaaefef97d3275b048f308c57c3df5514dbb028",
+    "included_dev_base": "c676aa2f4ad6ee8cff0521da6ba8add70d55949c",
+    "date": "2026-11-19",
+    "publication": "Full publication, mirror and boot-packing checks passed.",
+    "source_gate": {
+      "state": "pass",
+      "run_id": 44421763389,
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/44421763389",
+      "successful_parts": 8,
+      "aggregate": "pass",
+      "declarations": 1379,
+      "receipt": "t3654-source-6409-full-hosted-pass-receipt.json"
+    },
+    "supporting_workflows": "Both passed.",
+    "browser_gate": {
+      "state": "partial_then_superseded",
+      "passed_mobile_stages": "1–12",
+      "passed_checks": 468,
+      "verified_stage_viewport_pairs": 12,
+      "required_stage_viewport_pairs": 30,
+      "successful_run_ids": [
+        44435608683,
+        44435626669,
+        44435642854
+      ],
+      "unfinished_groups_cancelled": 9,
+      "reason": "Upstream runtime changes require fresh combined-build browser validation."
+    },
+    "scope": "Preserved historical results. They do not satisfy the new combined build’s source or browser gates."
+  },
+  "focused_measurements": [
+    "t-3654-city-baseline.json",
+    "t-3654-entry-pages.json",
+    "t-3654-confidence-shadows.json",
+    "t-3654-source-and-boot.json",
+    "t-3654-pacing-verifier.json",
+    "t-3654-today-registration-audit.json"
   ],
-  "regeneration": [
-    "python3 generators/city_context_emit.py",
-    "python3 generators/city_1871_emit.py",
-    "python3 tools/compile_scene.py --scene 1871",
-    "python3 tools/compile_jaunts.py",
-    "bash tools/publish.sh"
-  ],
-  "limits": "This is the requested generic context baseline. Named properties, people, daily activity and photographic finish remain subsequent work; bank and parcel uncertainty is retained.",
-  "checkpoint_revision": 10,
-  "local_source_followup": "The earlier 871698 receipts and complete assertion-union audit are historical after upstream integration. New combined-tree evidence must bind its own head/tree/base; old-tree results receive no silent current coverage credit.",
-  "superseded_ci": {
-    "commit": "1a5b7080f00fc1e7caf06b174f8a3ce25f77d036",
-    "reason": "First smoke dispatches were cancelled after the local validator identified the two repairs; they do not count as final acceptance.",
-    "run_ids": [
-      44371260629,
-      44371284030,
-      44371313512,
-      44371340154,
-      44371363658,
-      44371395137,
-      44371418528,
-      44371441425,
-      44371464308,
-      44371489588,
-      44371512699,
-      44371535568
-    ]
-  },
-  "pull_request": {
-    "number": 2198,
-    "url": "https://github.com/kevinrhaas/chicago/pull/2198",
-    "draft": true
-  },
-  "source_ci": {
-    "required": "Complete current combined-head source gate on PR #2198 before merge",
-    "superseded_run_id": 44407494538,
-    "superseded_commit": "871698ae94659100fcb8894f4967d4b15c62150f",
-    "state": "Seven hosted parts passed; part6 timed out at600 seconds without a final verdict. Its source assertions passed locally. The unspent retry was withdrawn when dev advanced; no old hosted aggregate success is claimed. New combined-head CI remains pending."
-  },
-  "browser_ci": {
-    "commit": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290",
-    "runs": [
-      {
-        "viewport": "mobile",
-        "stage": "1-4",
-        "run_id": 44375691729,
-        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375691729"
-      },
-      {
-        "viewport": "mobile",
-        "stage": "5-8",
-        "run_id": 44375714232,
-        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375714232"
-      },
-      {
-        "viewport": "mobile",
-        "stage": "9-12",
-        "run_id": 44375735410,
-        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375735410"
-      },
-      {
-        "viewport": "mobile",
-        "stage": "13",
-        "run_id": 44375760118,
-        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375760118"
-      },
-      {
-        "viewport": "mobile",
-        "stage": "14-15",
-        "run_id": 44375783832,
-        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375783832"
-      },
-      {
-        "viewport": "desktop",
-        "stage": "1-2",
-        "run_id": 44375810389,
-        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375810389"
-      },
-      {
-        "viewport": "desktop",
-        "stage": "3-4",
-        "run_id": 44375835405,
-        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375835405"
-      },
-      {
-        "viewport": "desktop",
-        "stage": "5-6",
-        "run_id": 44375862798,
-        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375862798"
-      },
-      {
-        "viewport": "desktop",
-        "stage": "7-8",
-        "run_id": 44375888364,
-        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375888364"
-      },
-      {
-        "viewport": "desktop",
-        "stage": "9-12",
-        "run_id": 44375916807,
-        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375916807"
-      },
-      {
-        "viewport": "desktop",
-        "stage": "13",
-        "run_id": 44375959565,
-        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375959565"
-      },
-      {
-        "viewport": "desktop",
-        "stage": "14-15",
-        "run_id": 44375984544,
-        "url": "https://github.com/kevinrhaas/chicago/actions/runs/44375984544"
-      }
-    ],
-    "state": "Superseded after mobile stages 1\u201313 passed; the remaining eight groups were cancelled. Shared source-catalog and benchmark inputs changed; these runs receive no final-current-input coverage credit."
-  },
-  "tested_runtime_commit": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290",
-  "superseded_ci_attempts": [
-    {
-      "commit": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290",
-      "reason": "The source catalog and 1871 benchmark inputs changed. Four completed mobile groups are retained as historical passes; the remaining eight groups were cancelled.",
-      "ledger_artifact": "t3654-superseded-ae259-ci-ledger.json"
-    }
-  ],
-  "source_gate_strategy": "Finish full source coverage before fresh browser dispatches, to avoid repeating browser groups when another source contract is discovered.",
   "evidence_backup": {
     "repository": "kevinrhaas/chicago-evidence",
-    "commit": "f79eceecb2fbed8c259368dbaafe295b8702c801",
+    "commit": "0d1f5e53589613a86907a1f0082ce3aa6f5bf45d",
     "path": "evidence/t3654-1871-city-2026-11-18/",
-    "scope": "Research, city and native-entry proofs, integration repairs, all pacing attempts, full focused confidence-shadow proof, source 7/8 receipts and historical CI metadata. Later combined-tree validation will be appended."
+    "scope": "Dated 6409 full hosted source and supporting passes, mobile stages1–12 and nine cancellations; research follow-up and Chamber model candidates; staged d47 integration audit. New combined-build receipts are pending the next archive."
   },
-  "shadow_repair": {
-    "measurement": "t-3654-confidence-shadows.json",
-    "scope": "Per-color confidence-patched depth materials for near buildings/trees and bridge batches. Geometry, historical data, lighting and tier policy unchanged.",
-    "native_state": "pass; focused exact-runtime proof, not complete combined-tree publication acceptance"
-  },
-  "upstream_integration": {
-    "base_commit": "169404c9f99d2defeca2b05f2364c868a4f4e745",
-    "scope": "Preserve the two newly corrected Prairie roofs and their generator/registry/door/photo-match updates together with the 1871 baseline. Combined-tree verification remains pending.",
-    "roof_merge": "6bdf831c7c5a77d7adaa8a447543cb7b8c07b1bd",
-    "changelog_merge": "7e99cd8c363baced005d691b3eb1eec086a90202",
-    "checks": "Both new roof assets reproduce byte-for-byte; all 132 audited 1871 paths unchanged. Full-checkout freshness passes with 0 errors and 338 warnings; door, source-use freshness, derived registry and changelog checks pass."
-  },
-  "source_and_boot_repair": "See t-3654-source-and-boot.json for focused checks and pending native recheck.",
-  "delivery": "Owner requests checkpoint pushes and periodic green PR merges into dev. This integrated baseline is PR #2198; subsequent 1871 detail work should land as smaller coherent milestones, each verified before merge.",
-  "upstream_c26": {
-    "merge_commit": "150fb1d3a3b754203e3cf05146232fcc66256fe0",
-    "dev_commit": "c26d33718ecb68cbed172d8b549cce720af71b56",
-    "fold_commit": "c676aa2f4ad6ee8cff0521da6ba8add70d55949c",
-    "audit": "t3654-upstream-c26-integration.json",
-    "preserved_1871_prefire_runtime_paths": 201,
-    "source_use_sources": 720,
-    "source_use_index_bytes": 295055,
-    "global_freshness_errors": 0,
-    "global_freshness_warnings": 338,
-    "derived_steps": 209,
-    "derived_owned_files": 840,
-    "scope": "The source-use resolver could not publish from the sparse integration worktree; its owning compiler regenerated the four derived conflicts, then full-checkout source/freshness checks passed. Full publication and final gates remain pending."
-  },
-  "previous_source_assertion_proof": {
-    "source_commit": "871698ae94659100fcb8894f4967d4b15c62150f",
-    "source_tree": "8a4cf0055119d8dcf4b5bc813590abaf5231944d",
-    "declared_steps": 1379,
-    "missing_ordinals": 0,
-    "report": "t3654-source-assertion-union-871698-bound-complete-dated.json",
-    "sha256": "d5c80a8fa71745811071fb1e9c7d103555cbf4ba01092c7cd338ae6f8ba4c636",
-    "hosted_green": false,
-    "browser_dispatches": 0,
-    "limits": "Dated source assertion coverage only. Live dev changed before browser authorization; the guard correctly refused. Any reusable union path must also verify semantic reader/base prerequisites, and full hosted green remains required before merge."
-  }
+  "remaining": [
+    "Finish and record focused integration/publication checks on the combined build",
+    "Pass the complete combined-build hosted source gate and all 30 browser stage/viewport pairs",
+    "Review results, update PR readiness, merge to dev and verify the development preview"
+  ],
+  "limits": [
+    "Generic forms and reconstructed lots, heights, finishes and planting; no individual-property accuracy claim",
+    "People, vehicles, daily activity, documented landmarks and photographic finish remain subsequent work",
+    "Six report bridges withheld; finer harbor absolute registration and intervening works remain unresolved",
+    "Software-rendered acceptance does not establish physical-device performance"
+  ],
+  "production_promotion": "Owner-dispatched only; no production deployment authorized by this checkpoint.",
+  "integrations": [
+    {
+      "base": "d47d9550bf914d33860a56b99fd11ad2f6f6018b",
+      "checkpoint": "7c1c1dda52d130b5d4545fd26e384a8711634e08",
+      "receipt": "t3654-upstream-21f609-integration.json",
+      "protected_files_unchanged": 899
+    },
+    {
+      "base": "c23d8a9e85bf37de9c2eb2dce9118cb709edf0da",
+      "receipt": "t3654-upstream-c23-integration.json",
+      "protected_files_unchanged": 899,
+      "scope": "Incoming 1815 assets and photo proofs preserved; only upstream 15-line smoke settling addition applied to the harness."
+    }
+  ]
 }
