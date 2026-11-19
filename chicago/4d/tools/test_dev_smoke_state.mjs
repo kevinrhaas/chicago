@@ -41,6 +41,7 @@ try {
     'chicago/4d/data/town.json': '{"town":1}\n',
     'chicago/4d/assets/town.glb': 'fixture asset bytes',
     'chicago/4d/tools/smoke_renderer.mjs': '// fixture probe\n',
+    'chicago/4d/tools/write_entry_pages.mjs': '// fixture shared year-door loader\n',
     'chicago/4d/tools/audio_hosting.mjs': '// fixture publisher\n',
     'chicago/4d/tools/audio_smoke_replay.mjs': '// fixture replay\n',
     'chicago/4d/tools/audio-hosting.json': '{"public_base":"https://media.example/"}\n',

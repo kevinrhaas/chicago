@@ -68,7 +68,7 @@ const text = (el) => [el.textContent, ...el.children.map(text)].join('');
   });
   const all = walk(panel);
   const cards = all.filter((e) => e.className.split(' ').includes('nav-jump'));
-  assert.deepEqual(cards.map((c) => c.dataset.year), ['1835', '1904', '1812'], 'the three destinations, in the Observatory\'s order');
+  assert.deepEqual(cards.map((c) => c.dataset.year), ['1835', '1904', '1812', '1871'], 'the four destinations, in the Observatory\'s order');
   const herecard = cards.find((c) => c.getAttribute('aria-current') === 'page');
   assert.equal(herecard.dataset.year, '1904', 'the one you are in is marked');
   assert.equal(herecard.tagName, 'DIV', 'and is not a link');
@@ -81,6 +81,8 @@ const text = (el) => [el.textContent, ...el.children.map(text)].join('');
   }
   assert.match(text(cards[0]), /River|Chicago|water/i);
   assert.match(text(cards[2]), /14 August 1812/, 'the 1812 card carries its scene date');
+  assert.match(text(cards[3]), /8 October 1871/, 'the pre-fire card carries its scene date');
+  assert.equal(cards[3].href, '../1871/');
   const keys = all.filter((e) => e.className.split(' ').includes('nav-key'));
   assert.equal(keys.length, 1, 'RECALL is the screen\'s one key, so its one signal-red one');
   assert.match(keys[0].className, /\bnav-recall\b/);

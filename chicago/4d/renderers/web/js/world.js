@@ -21,7 +21,7 @@
 import * as THREE from 'three';
 import { Sky } from 'three/addons/objects/Sky.js';
 import {
-  gradeAt, resolveTime, minutesOf, publishDaylight, NIGHT_KEY, NIGHT_KEY_COLOR,
+  gradeAt, resolveTime, minutesOf, isHorizonReference, publishDaylight, NIGHT_KEY, NIGHT_KEY_COLOR,
   NIGHT_KEY_AZIMUTH, NIGHT_KEY_ELEVATION, LOW_SUN_COLOR, NIGHT_SKY_ZENITH,
   NIGHT_SKY_HORIZON, TWILIGHT_GLOW, DUSK_SKY_ZENITH, DUSK_SKY_HORIZON,
 } from './time-of-day.js';
@@ -378,6 +378,9 @@ const FILL_UP = SKY_FILL_UP.map((v) => v * ENV_INTENSITY);
  * frame did not.
  */
 const HAZE_DENSITY = 0.00089;
+// T-3654: the 1871 municipal field has a 20 km horizon apron.
+// A visual reconstruction, not recorded weather; checked against that apron.
+const CITY_HAZE_DENSITY = 0.00012;
 
 /**
  * ROADMAP R-W3b(a) — HOW FAR FROM THE VISITOR THE SUN'S SHADOW REACHES, in
@@ -547,8 +550,8 @@ function sampleHorizonRing(renderer, sky, problems = [], validate = true) {
     rt.dispose();
     parent?.add(sky);
   }
-  // T-3331: the committed reading is of the scene's own hour. Any other hour's sky
-  // is a different sky, so it is taken as rendered and not held to that reading.
+  // The committed reading is of 1 July 1835 at 12:30 local mean solar time.
+  // Other dates and hours are taken as rendered, not held to that July reading.
   if (!validate) return ring;
   const north = ring[0].getHex(THREE.SRGBColorSpace);
   const got = [(north >> 16) & 255, (north >> 8) & 255, north & 255];
@@ -688,6 +691,11 @@ export function createWorld({
   // it came into view. Booting with the type three draws anyway keeps them.
   renderer.shadowMap.type = THREE.PCFShadowMap;
 
+  // T-3654: an explicitly declared presentation calibration, independent of
+  // the dated solar position. The 1871 afternoon uses 6x; omitted is exactly
+  // the established 1812/1835/1904 exposure. Dome, PMREM and sampled haze share
+  // this value, including after a time change or the visitor's brightness aid.
+  const sceneSkyExposure = SKY_EXPOSURE * (sceneJson.lighting?.sky_exposure_multiplier ?? 1);
   let sunDate = sceneJson.target_date;
   // T-3331: the hour the sun is computed for. The scene's own unless the visitor's
   // Time of day (or a jaunt stop) moved it.
@@ -729,7 +737,7 @@ export function createWorld({
   // vendor/MANIFEST, so this marker cannot move underneath us without a
   // deliberate three bump — and if a bump ever does move it, say so out loud
   // instead of silently rendering the white sky again.
-  sky.material.uniforms.skyExposure = { value: SKY_EXPOSURE };
+  sky.material.uniforms.skyExposure = { value: sceneSkyExposure };
   sky.material.uniforms.horizonAmount = {
     value: new THREE.Vector2(HORIZON_RESTORE.redAmount, HORIZON_RESTORE.greenAmount),
   };
@@ -976,14 +984,14 @@ export function createWorld({
   // green survives in the mix because the fog only reaches 95 % at the far edge
   // of what is drawn, not because the fog itself is green. See the constant for
   // what the green-tinted haze it replaces did to the horizon.
-  scene.fog = new THREE.FogExp2(HORIZON_HAZE, HAZE_DENSITY);
+  scene.fog = new THREE.FogExp2(HORIZON_HAZE, sceneJson.id === '1871' ? CITY_HAZE_DENSITY : HAZE_DENSITY);
 
   // The haze COLOUR is not this constant for long: `aim()` below replaces it
   // every time the view turns far enough, with the colour this scene's own sky
   // is at the horizon the visitor is looking at. See HORIZON_RING. The constant
   // is what the fog is installed with, what it falls back to if the ring cannot
   // be sampled, and the solar-side reading the ring is checked against.
-  let ring = sampleHorizonRing(renderer, sky, problems);
+  let ring = sampleHorizonRing(renderer, sky, problems, isHorizonReference(sunDate, sunTime));
 
   const offset = new THREE.Vector3();
   const lastFollow = new THREE.Vector3();
@@ -1079,7 +1087,7 @@ export function createWorld({
   const atCalibratedSky = (fn) => {
     const u = sky.material.uniforms.skyExposure;
     const held = u.value;
-    u.value = SKY_EXPOSURE;
+    u.value = sceneSkyExposure;
     try { return fn(); } finally { u.value = held; }
   };
   function applyGrade() {
@@ -1093,7 +1101,7 @@ export function createWorld({
     sky.material.uniforms.nightHorizon.value.set(...NIGHT_SKY_HORIZON)
       .lerp(new THREE.Vector3(...DUSK_SKY_HORIZON), grade.dusk);
     scene.environmentIntensity = ENV_INTENSITY * grade.envBoost * fillLift();
-    sky.material.uniforms.skyExposure.value = SKY_EXPOSURE * skyHold();
+    sky.material.uniforms.skyExposure.value = sceneSkyExposure * skyHold();
     if (grade.sunK > 0) {
       // A sun on the horizon is held a degree up for the shadow map: a light from
       // under the ground plane would cast every shadow through it.
@@ -1324,9 +1332,9 @@ export function createWorld({
       envRT = atCalibratedSky(bakeEnvironment);
       scene.environment = envRT.texture;
       old.dispose();
-      // The committed horizon reading is of the scene's own hour; at any other
-      // hour the sky is taken as rendered (sampleHorizonRing § validate).
-      ring = atCalibratedSky(() => sampleHorizonRing(renderer, sky, [], sunTime === sceneTime)) ?? ring;
+      // A scene's own hour is not necessarily the measured July 1835 timestamp.
+      // Keep its guard exactly there; every other sky supplies its own haze.
+      ring = atCalibratedSky(() => sampleHorizonRing(renderer, sky, [], isHorizonReference(sunDate, sunTime))) ?? ring;
       hazeSlot = -1;
       snapBasis();
       this.follow(lastFollow);

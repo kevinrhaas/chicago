@@ -178,6 +178,71 @@ class SourceUseTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'cannot read them yet'):
             Compiler(self.root).collect()
 
+    def test_context_document_and_kit_sources_belong_only_to_the_drawn_scene(self):
+        """A source cited only by a context card must reach that scene's default library."""
+        self.put('data/scenes/1871.json', {'target_date': '1871-10-08', 'layers': ['context']})
+        self.put('data/sidecars/1871/index.json', {'structures': []})
+        self.put('data/context/1871.json', {
+            'kind': 'city_context_1871', 'confidence': 'reconstructed', 'sources': ['map'],
+            'kit_definition': 'context/1871/custom-kit.json',
+            'districts': {'central': {'sources': ['memory']}}})
+        self.put('data/context/1871/custom-kit.json', {
+            'citations': [{'source_id': 'paper', 'tier': 1}]})
+        # Files for a disabled layer and an unpublished scene are not evidence
+        # that either renderer draws them. Their bad references must stay unread.
+        for year in ['1868', '1904']:
+            self.put(f'data/scenes/{year}.json', {'target_date': f'{year}-07-01',
+                'layers': ['context'] if year == '1868' else ['terrain']})
+            self.put(f'data/context/{year}.json', {'sources': ['missing']})
+        self.put('data/sidecars/1904/index.json', {'structures': []})
+        self.put('data/loading/statuses.json', {'entries': [{'kind': 'fact', 'id': 'old_fact',
+            'source_ids': ['map'], 'fact': {'locator': 'p. 1', 'confidence': 'attested'}}]})
+        c = Compiler(self.root)
+        c.collect()
+        outputs = c.outputs()
+        uses = {s: json.loads(body)['uses'] for s, body in c.scene_outputs(outputs).items()}
+        self.assertEqual(uses['1871'], {'map': 'scene', 'memory': 'scene', 'paper': 'scene', 'unused': 'unused'})
+        self.assertEqual(uses['1904'], {'map': 'other_scene', 'memory': 'other_scene', 'paper': 'other_scene', 'unused': 'unused'})
+        self.assertNotIn('1868', uses)
+        self.assertEqual(self.rows(c)['map']['use'], 'scene', 'the 1835 source keeps its own use')
+        self.assertEqual(self.rows(c)['paper']['use'], 'other_scene')
+        edge, = json.loads(outputs['paper.json'])['edges']
+        self.assertEqual((edge['entity_type'], edge['entity_id'], edge['claim']),
+                         ('context', 'context/1871', 'kit.citations[0]'))
+        self.assertEqual((edge['confidence'], edge['use'], edge['scenes']),
+                         ('reconstructed', 'other_scene', ['1871']),
+                         'a first-hand source does not upgrade the generic context geometry')
+        self.assertEqual(json.loads(outputs['paper.json'])['names']['context/1871'], '1871 city context')
+        old_edge = next(e for e in json.loads(outputs['map.json'])['edges'] if e['entity_id'] == 'old_fact')
+        self.assertNotIn('scenes', old_edge)
+        again = Compiler(self.root)
+        again.collect()
+        self.assertEqual(outputs, again.outputs())
+
+    def test_context_kit_fallback_and_unresolved_inputs_are_checked(self):
+        self.put('data/scenes/1871.json', {'target_date': '1871-10-08', 'layers': ['context']})
+        self.put('data/sidecars/1871/index.json', {'structures': []})
+        self.put('data/context/1871.json', {'kind': 'city_context_1871'})
+        self.put('data/context/1871/kit.json', {'citations': [{'source_id': 'paper'}]})
+        c = Compiler(self.root)
+        c.collect()
+        self.assertEqual(json.loads(c.scene_outputs(c.outputs())['1871'])['uses']['paper'], 'scene')
+        self.put('data/context/1871.json', {'kind': 'city_context_1871', 'kit_definition': None})
+        c = Compiler(self.root)
+        c.collect()
+        self.assertEqual(json.loads(c.scene_outputs(c.outputs())['1871'])['uses']['paper'], 'scene')
+        self.put('data/context/1871.json', {'kind': 'city_context_1871', 'kit_definition': ''})
+        with self.assertRaises((OSError, ValueError)):
+            Compiler(self.root).collect()
+        self.put('data/context/1871.json', {'kind': 'city_context_1871', 'kit_definition': None})
+        self.put('data/context/1871/kit.json', {'citations': [{'source_id': 'missing'}]})
+        with self.assertRaisesRegex(ValueError, 'unresolved source missing'):
+            Compiler(self.root).collect()
+        self.put('data/context/1871.json', {'kind': 'city_context_1871',
+                                          'kit_definition': 'context/1871/absent.json'})
+        with self.assertRaisesRegex(ValueError, 'missing context kit context/1871/absent.json'):
+            Compiler(self.root).collect()
+
     def test_confidence_audit_validates_backlinks_and_still_rejects_authored_errors(self):
         self.put('data/exclusions.json', {'excluded': [{'id': 'x', 'sources': ['map'], 'confidence': 'attested'}]})
         outputs, _ = compile_outputs(self.root)

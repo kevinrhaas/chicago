@@ -1,0 +1,145 @@
+{
+  "method": "Complete published-app acceptance after runtime liberty and shared year-entry repairs. Both widths, all three detail levels. Headless Chromium with SwiftShader on a shared host. Draw/triangle counters are actual submissions; boot wall time is this test environment, not hardware FPS. JS heap is not GPU memory. Additional entry-page and popup hashes were checked unchanged before and after both runs.",
+  "source_commit": "ae259f9a5ddd4e79e1c82cd40e5084d6dcf42290",
+  "readings": [
+    {
+      "viewport": "mobile",
+      "started_utc": "2026-11-18T19:08:57.278Z",
+      "failures": [],
+      "boot_ms": 36733,
+      "driverDraws": 460,
+      "triangles": 682504,
+      "submittedBuildingInstances": 25781,
+      "js_heap_bytes": 73482944,
+      "chromium_backing_storage_bytes": 103585913,
+      "frames": 14,
+      "bridge_crossings": 44,
+      "quay_entries": 597,
+      "page_errors": 0,
+      "failed_responses": 0,
+      "failed_requests": 0,
+      "runtime_liberty_binding": {
+        "ids": [
+          "L-1871-city-baseline"
+        ],
+        "sidecar_has_liberty_ids": false,
+        "actual_card_contains_baseline_liberty": true
+      },
+      "snapshot": {
+        "data/scenes/1871.json": "9848915aee21d0daae95a6fc6066ef3e9076a932dfcc23b2d7872ec1acb1442d",
+        "data/context/1871.json": "02b9b76437c43da78c0d76579b9bb56e8cf8a8ebcc4a9488cee9f31bfd78d93f",
+        "data/context/1871/kit.glb": "09d790bba8547f5c812653f8fe2659925fa5f9de98d7d3bd64e786ff4f4b92bf",
+        "data/context/1871/kit.json": "d738734dab23afa4792fdce106e04a7ec1b5d632b8465c6ea58e19106e10bd7f",
+        "data/context/1871/generated-assets.json": "6cbeebf0a09fd1866d819080d70d72a1b299ed333d5cfca72092343491dc79ea",
+        "data/context/1871/streets.glb": "f7851f336c63df15fae3af80e574deddf9f4ebb6f962fec888e89002118138e6",
+        "data/context/1871/bridges.glb": "0278e54c82d23116f8a4f1cf40c5ea69ff1c7df4b68de44bc45a80e13d1108ce",
+        "data/context/1871/rail.glb": "c3a8608b0c67babdca93df8cde0395e106ebb80b66c096c20d495041c1670aed",
+        "data/terrain/epochs/e1871_prefire/heightfield.json": "ae9135556988700ca2558b88c9fc84177391ebe7db06e034e2e6eaedc9c069ae",
+        "data/terrain/epochs/e1871_prefire/heightfield.bin": "165a88b945fcc1cd38d4cf8b5e3aeeec1f78dbada3e5b12e50c62290df78befc",
+        "walk/js/main.js": "f8d273d27d9ec94828008513c3408d0a6cf3db6b3ce05ee150d00b3f113c88db",
+        "walk/js/city-context.js": "d775a20e1d907e5b50c04f6f02f9b5adcc15a0db31c5903d9685aa428fc1214d",
+        "walk/js/walker.js": "bb7dfa81e2aa74c06101a433eba6097380a94e2e38c8a60f4decd8aefdd99028",
+        "walk/js/world.js": "ce3631b29c5b5cd8e739d8cb782f0094b9130266e0b73bd0e6286deccf551d98",
+        "walk/js/time-of-day.js": "4e575b6b62126d1bf2992255a3cd6f8b082ec3b4a5dab7fb7915ea5dfc4e06b9",
+        "walk/js/popup.js": "be93fd62be670c30233c127fc4a73853b205a17571fecfe6dcf83db075e40a53",
+        "walk/index.html": "7b552651fd1bfe917d8ed33ba56c397efbc1bcf6ab1e3e51638ea5e664e59dd8",
+        "1871/index.html": "64794f5c4550d968a7e447fa298e00c462d4b423b8d2f545f17f9571df6b41c4"
+      }
+    },
+    {
+      "viewport": "desktop",
+      "started_utc": "2026-11-18T19:12:05.079Z",
+      "failures": [],
+      "boot_ms": 50699,
+      "driverDraws": 548,
+      "triangles": 796657,
+      "submittedBuildingInstances": 30561,
+      "js_heap_bytes": 89357688,
+      "chromium_backing_storage_bytes": 123910979,
+      "frames": 14,
+      "bridge_crossings": 44,
+      "quay_entries": 597,
+      "page_errors": 0,
+      "failed_responses": 0,
+      "failed_requests": 0,
+      "runtime_liberty_binding": {
+        "ids": [
+          "L-1871-city-baseline"
+        ],
+        "sidecar_has_liberty_ids": false,
+        "actual_card_contains_baseline_liberty": true
+      },
+      "snapshot": {
+        "data/scenes/1871.json": "9848915aee21d0daae95a6fc6066ef3e9076a932dfcc23b2d7872ec1acb1442d",
+        "data/context/1871.json": "02b9b76437c43da78c0d76579b9bb56e8cf8a8ebcc4a9488cee9f31bfd78d93f",
+        "data/context/1871/kit.glb": "09d790bba8547f5c812653f8fe2659925fa5f9de98d7d3bd64e786ff4f4b92bf",
+        "data/context/1871/kit.json": "d738734dab23afa4792fdce106e04a7ec1b5d632b8465c6ea58e19106e10bd7f",
+        "data/context/1871/generated-assets.json": "6cbeebf0a09fd1866d819080d70d72a1b299ed333d5cfca72092343491dc79ea",
+        "data/context/1871/streets.glb": "f7851f336c63df15fae3af80e574deddf9f4ebb6f962fec888e89002118138e6",
+        "data/context/1871/bridges.glb": "0278e54c82d23116f8a4f1cf40c5ea69ff1c7df4b68de44bc45a80e13d1108ce",
+        "data/context/1871/rail.glb": "c3a8608b0c67babdca93df8cde0395e106ebb80b66c096c20d495041c1670aed",
+        "data/terrain/epochs/e1871_prefire/heightfield.json": "ae9135556988700ca2558b88c9fc84177391ebe7db06e034e2e6eaedc9c069ae",
+        "data/terrain/epochs/e1871_prefire/heightfield.bin": "165a88b945fcc1cd38d4cf8b5e3aeeec1f78dbada3e5b12e50c62290df78befc",
+        "walk/js/main.js": "f8d273d27d9ec94828008513c3408d0a6cf3db6b3ce05ee150d00b3f113c88db",
+        "walk/js/city-context.js": "d775a20e1d907e5b50c04f6f02f9b5adcc15a0db31c5903d9685aa428fc1214d",
+        "walk/js/walker.js": "bb7dfa81e2aa74c06101a433eba6097380a94e2e38c8a60f4decd8aefdd99028",
+        "walk/js/world.js": "ce3631b29c5b5cd8e739d8cb782f0094b9130266e0b73bd0e6286deccf551d98",
+        "walk/js/time-of-day.js": "4e575b6b62126d1bf2992255a3cd6f8b082ec3b4a5dab7fb7915ea5dfc4e06b9",
+        "walk/js/popup.js": "be93fd62be670c30233c127fc4a73853b205a17571fecfe6dcf83db075e40a53",
+        "walk/index.html": "7b552651fd1bfe917d8ed33ba56c397efbc1bcf6ab1e3e51638ea5e664e59dd8",
+        "1871/index.html": "64794f5c4550d968a7e447fa298e00c462d4b423b8d2f545f17f9571df6b41c4"
+      }
+    }
+  ],
+  "recorded_utc": "2026-11-18T19:17:24.964410Z",
+  "comparison_to_previous_acceptance": {
+    "previous_recorded_utc": "2026-11-18T17:10:58.730Z",
+    "geometry_and_lighting_unchanged": true,
+    "unchanged_geometry_and_lighting_inputs": [
+      "data/scenes/1871.json",
+      "data/context/1871.json",
+      "data/context/1871/kit.glb",
+      "data/context/1871/kit.json",
+      "data/context/1871/generated-assets.json",
+      "data/context/1871/streets.glb",
+      "data/context/1871/bridges.glb",
+      "data/context/1871/rail.glb",
+      "data/terrain/epochs/e1871_prefire/heightfield.json",
+      "data/terrain/epochs/e1871_prefire/heightfield.bin",
+      "walk/js/world.js",
+      "walk/js/time-of-day.js"
+    ],
+    "changed_previously_bound_runtime_inputs": {
+      "walk/js/city-context.js": {
+        "before": "64ee4dedcb761023b549290e2cc45e5ab6a87893071006761959c8bd5f32f49e",
+        "after": "d775a20e1d907e5b50c04f6f02f9b5adcc15a0db31c5903d9685aa428fc1214d"
+      }
+    },
+    "additional_bound_inputs": [
+      "walk/js/popup.js",
+      "walk/index.html",
+      "1871/index.html"
+    ],
+    "previous_max_frame_submissions": {
+      "mobile": {
+        "driverDraws": 460,
+        "triangles": 682504,
+        "submittedBuildingInstances": 25781
+      },
+      "desktop": {
+        "driverDraws": 548,
+        "triangles": 796657,
+        "submittedBuildingInstances": 30561
+      }
+    },
+    "compared_frames": 28,
+    "unchanged_frame_submission_counts": true,
+    "frame_submission_differences": [],
+    "portal_recapture": "Not repeated: generated geometry, lighting and all evidence-frame submission counts are unchanged; the accepted daylight portal images remain applicable."
+  },
+  "reproduce": [
+    "bash tools/publish.sh",
+    "node tools/smoke_city_1871.mjs --viewport mobile --out /tmp/city-1871-mobile",
+    "node tools/smoke_city_1871.mjs --viewport desktop --out /tmp/city-1871-desktop --portal /tmp/city-1871-portal"
+  ]
+}
