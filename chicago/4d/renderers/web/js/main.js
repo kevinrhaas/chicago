@@ -183,6 +183,7 @@ import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfil
 import { advanceGust, syncGustUniform } from './wind-gust.js';
 import { createTodayView } from './today-view.js';
 import { createRegistration } from './today-register.js';
+import { announce } from './a11y-announce.js'; // T-3671: the screen reader's status line
 import { withStory } from './tale-actions.js'; // T-3627: the teller itself (tale-teller.js) loads when first asked
 
 const VERSION = '0.1.0';
@@ -4143,10 +4144,10 @@ async function boot() {
   const navigation = createNavigation({
     root: hudRoot, terrain, registry: loaded.registry, streets, year: loaded.scene.id ?? YEAR, where: eraWhere,
     // T-2626: the round instrument opens the Map app (its stub opens the whole field).
-    onOpen: () => (navigatorUi ? navigatorUi.select('map') : navigation.setFullVisible(true)),
+    onOpen: () => (navigatorUi ? navigatorUi.select('map', { focus: true }) : navigation.setFullVisible(true)),
   });
   // T-2626: the year chip opens the Jump app.
-  document.getElementById('year-badge')?.addEventListener('click', () => { void navigatorUi?.select('jump'); });
+  document.getElementById('year-badge')?.addEventListener('click', () => { void navigatorUi?.select('jump', { focus: true }); });
 
   // The people directory, compiled by tools/compile_scene.py compile_people from
   // data/residents/ — one row per person, so the Go to list can offer a person
@@ -5038,7 +5039,7 @@ async function boot() {
   // each time either says the view moved, so after the colouring is restored on the way in
   // it is already right.
   api.confidenceLegend = createConfidenceLegend({ el: document.getElementById('conf-legend'), hud, view: confidence,
-    open: () => { void navigatorUi?.select('confidence'); } });
+    open: () => { void navigatorUi?.select('confidence', { focus: true }); } });
 
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
@@ -6016,6 +6017,8 @@ async function boot() {
     hudRoot.inert = false;
     hud.show();
     if (firstEntry) hud.restore();
+    // T-3671 (WCAG 4.1.3): a screen reader hears where the visitor has arrived.
+    announce(t('nav.a11y.arrived', { year: String(loaded.scene?.id ?? loaded.scene?.target_date ?? '').slice(0, 4) }));
     // T-2617: into the town with the Navigator docked (§07: Free roam docks it), and
     // the probe looks again at whatever the eye has just been set down in front of.
     navigatorUi?.dock();

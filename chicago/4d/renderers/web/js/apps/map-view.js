@@ -126,7 +126,9 @@ export function mount(el, ctx = {}) {
   const psub = make('span', 'nav-sub');
   const go = make('button', 'nav-key nav-map-go', 'Go');
   go.type = 'button';
-  preview.append(make('span', 'nav-k', 'On the map'), pname, psub, go);
+  const pk = make('span', 'nav-k', 'On the map');
+  pk.setAttribute('role', 'heading'); pk.setAttribute('aria-level', '3'); // T-3671 (WCAG 1.3.1)
+  preview.append(pk, pname, psub, go);
 
   const foot = make('p', 'nav-sub nav-map-foot');
   // The preview sits right under the map, so Go is in reach at HALF on a phone.

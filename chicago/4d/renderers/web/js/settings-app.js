@@ -149,6 +149,14 @@ export function wireSettingsTabs({ doc = globalThis.document, selectSection = ()
     }
   }
   const buttons = () => [...bar.querySelectorAll('[data-set-tab]')];
+  // T-3671 (WCAG 4.1.2): each tab names the section it shows, and that section is a tabpanel
+  // named by the tab in force (the Settings section holds every tab's groups but What's new's).
+  const news = doc.querySelector?.('.panel-body[data-panel="whatsnew"]') ?? null;
+  for (const el of [body, news]) if (el && !el.id) el.id = `panel-body-${el.dataset?.panel}`;
+  for (const b of buttons()) {
+    const to = b.dataset.setTab === 'whatsnew' ? news : body;
+    if (to?.id) b.setAttribute('aria-controls', to.id);
+  }
   const paint = (now = section()) => {
     const shown = SETTINGS_SECTIONS.includes(now);
     bar.hidden = !shown;
@@ -158,6 +166,10 @@ export function wireSettingsTabs({ doc = globalThis.document, selectSection = ()
       b.setAttribute('aria-selected', String(on));
       b.tabIndex = on ? 0 : -1;
     }
+    body?.setAttribute?.('role', 'tabpanel');
+    body?.setAttribute?.('aria-labelledby', `set-tab-${pane}`);
+    news?.setAttribute?.('role', 'tabpanel');
+    news?.setAttribute?.('aria-labelledby', 'set-tab-whatsnew');
     for (const g of body?.querySelectorAll?.('.settings-group[data-set-pane]') ?? []) g.hidden = g.dataset.setPane !== pane;
     return sel;
   };
@@ -181,13 +193,14 @@ export function wireSettingsTabs({ doc = globalThis.document, selectSection = ()
     if (b) select(b.dataset.setTab);
   });
   bar.addEventListener('keydown', (e) => {
-    const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
-    if (!step) return;
-    const list = buttons();
+    // T-3671: Home and End go to the row's ends, as in every tab row (WAI-ARIA tabs).
+    const step = { ArrowRight: 1, ArrowLeft: -1, Home: 0, End: 0 }[e.key];
+    if (step == null || e.altKey || e.ctrlKey || e.metaKey) return;
+    const list = buttons().filter((b) => !b.hidden);
     const i = list.indexOf(doc.activeElement);
     if (i < 0) return;
     e.preventDefault();
-    const next = list[(i + step + list.length) % list.length];
+    const next = e.key === 'Home' ? list[0] : e.key === 'End' ? list.at(-1) : list[(i + step + list.length) % list.length];
     select(next.dataset.setTab);
     next.focus?.();
   });
