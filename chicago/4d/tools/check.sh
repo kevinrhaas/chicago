@@ -4754,6 +4754,18 @@ step "1871 buildings, crossings and generated surfaces are spatially coherent" \
 selftest "1871 browser acceptance harness rejects broken contracts" \
   node tools/smoke_city_1871.mjs --self-test
 
+# T-3687: the Great Fire's map and clock. Every timed place cites a source and lies in the
+# burnt district, every hour falls inside the fire, and the local outlines are re-derived
+# from the scene's rivers and shoreline, so a moved river is red here, not a wrong fire.
+step "1871 Great Fire district and hours are sourced and current (T-3687)" \
+  python3 tools/fire_1871.py --check
+
+selftest "…and its own checks fire when broken" \
+  python3 tools/fire_1871.py --self-test
+
+selftest "1871 Great Fire picture harness keeps its stands inside the fire" \
+  node tools/qa_city_fire_1871.mjs --self-test
+
 # T-2747: the 1904 built-so-far walk is written from the building records, so a building
 # that gains detail without the walk being rewritten is red here, and the walk stays current.
 step "1904 built-so-far walk matches the building records (T-2747)" \
