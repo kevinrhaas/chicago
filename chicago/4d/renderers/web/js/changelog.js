@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3119, ts: '2026-11-19T09:56:47.549Z', date: 'Nov 19, 2026, 3:56 AM CT', title: '2035 Prairie, the corner of the limestone row, is built', kind: 'feature',
+    items: [
+      '2035 Prairie, the 21st Street corner of the 1869 limestone row, now stands as a full house in place of its draft. Its plan comes from the 1911 map: a stone front in line with 2033\'s, a bowed stone bay at the south end, a windowed flank along 21st Street and a two-storey brick range behind. Its entrance comes from the Tribune\'s 1898 sketch: a round-arched door under a columned porch beside a railed deck, at the top of a swept stoop. Its floors and cornice match 2033\'s, so the row keeps one roofline.',
+    ] },
+  { v: 3118, ts: '2026-11-19T08:37:19.982Z', date: 'Nov 19, 2026, 2:37 AM CT', title: 'The Buckingham house at Prairie and 21st Street', kind: 'feature',
+    items: [
+      '2036 Prairie, the Ebenezer Buckingham house on the 21st Street corner, is no longer a rough draft: a red-brick house over a stone basement under a slate mansard, its corner cut on a slant, a bay on each side, and a stone porch at the head of a stoop with turned stone balusters. Its 21st Street side follows an engraving of about 1880: tall windows under carved hoods, a stone sill course, a barred basement window. The iron fence the engraving draws along 21st Street comes next.',
+    ] },
   { v: 3117, ts: '2026-11-19T07:28:52.621Z', date: 'Nov 19, 2026, 1:28 AM CT', title: '2017 Prairie, the Armour house, gets its mansard, gable and porch', kind: 'feature',
     items: [
       '2017 Prairie, William Armour\'s house between the Reid and High houses, now stands as its one old photograph shows it: a smooth stone front of two storeys over a high basement, a slate mansard with two gabled dormers and a crest along its top, the south part carried up into a steep gable with a finial, and a porch of two columns carrying a stone balcony before the front door, with barred basement windows either side of the stoop. The gable\'s two attic windows, the carved dormer pediments and the porch\'s ring-pierced parapet are still simpler than the picture; the sign-off pass on this block takes those on.',

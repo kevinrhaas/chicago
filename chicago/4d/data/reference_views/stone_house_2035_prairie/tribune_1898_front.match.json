@@ -1,0 +1,53 @@
+{
+  "structure_id": "stone_house_2035_prairie",
+  "view": "tribune_1898_front",
+  "glb": "assets/gltf/stone_house_2035_prairie__as_mapped_1904.glb",
+  "glb_sha256": "ff96ac88a79d1a657f5a1e5b6ea6db92ef2a1fd5c7b526a9f681604b0f3da2fd",
+  "camera_sha256": "faad7b2490e92864870f526531787c26b6507357737a100fabd439ccecbcde34",
+  "photo_sha256": "5be80ad4cfc96a56f7a39e5e569798d42330308ded4100b71a0c669a28c34ab8",
+  "side_by_side": "docs/RESEARCH/photo-match/stone_house_2035_prairie/tribune_1898_front-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "The porch: the vignette's flat roof and the railed deck under it run on from the door across the whole front, past the panel's right edge; the build's portico and deck stop at the bowed bay's north foot, 2.95 m across. K01 lays a door hood beside a bay, not before it (liberty L-k01-2035-stone-3661).",
+      "status": "open"
+    },
+    {
+      "what": "The bay: the sheet's full-height bowed stone bay at the front's south end shows in the render; the vignette shows no bay, its principal storey behind the deck and porch roof, its upper part cut by the frame and a street tree. The 1911 sheet and the census ('a full-height bay') are held over the freehand sketch; a bay rising behind the porch roof is consistent with what the sketch leaves visible.",
+      "status": "open"
+    },
+    {
+      "what": "The portico's top: the vignette draws a plain flat top over a deep entablature; K01's hood carries a railing or a pediment, so it wears the kit's lowest railing, 0.35 m.",
+      "status": "open"
+    },
+    {
+      "what": "The deck's railing: the vignette's band of scrolls between the stoop's right cheek and the panel's edge; the build's pierced stone parapet with two holes, 1.05 m long.",
+      "status": "open"
+    },
+    {
+      "what": "The door: a round-arched opening with a fanlight at the head of the stoop, at the north end of the front, as drawn; its width against the porch is the sketch's proportion, about 1.25 times wider than the record's heights allow (the camera's pixel aspect).",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The stoop: the vignette's swept cheeks flaring to the walk, the left the wider, and a flight drawn longer than a 1.7 m floor gives (its foot at y 261 against the camera's 220); built as K07's swept cheeks with newels. The fence hides the flight in the render.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The light over the porch roof: a tall round-headed light, drawn about 1.5 m south of the door's axis; built over the door's axis under a round head and key. The sketch's horizontal placing is not reliable to that margin.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The fence: the vignette's low railing on a curb either side of the stoop and a capped post at the stoop's foot; built as K11's spear fence on a curb with a walk gate on iron posts, about 0.3 m taller.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Colour and the stone's tone: a monochrome pen sketch.",
+      "status": "not shown"
+    },
+    {
+      "what": "The cornice, the upper storeys' heights, the 21st Street flank and the rear: outside the panel or under its numerals' cartouche.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

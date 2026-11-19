@@ -6862,8 +6862,8 @@
    "front_m": 6.25,
    "doors": [
     [
-     4.62,
-     9.71
+     1.17,
+     8.29
     ]
    ],
    "scheme": "group",
@@ -6895,8 +6895,13 @@
     ],
     "width_m": 18.68
    },
-   "front_m": 7.03,
-   "doors": [],
+   "front_m": 3.77,
+   "doors": [
+    [
+     9.41,
+     8.82
+    ]
+   ],
    "scheme": "lawn",
    "grade": "reconstructed",
    "shrubs": [],
