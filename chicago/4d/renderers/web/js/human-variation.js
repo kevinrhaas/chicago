@@ -124,9 +124,14 @@ export function likenessSkin(kit, variation) {
  * `lines` is what the face keeps of the drawn age lines, by the face's own age.
  */
 const LUMA = [0.2126, 0.7152, 0.0722], THIRDS = ['young', 'middle', 'old'];
-export function libraryFace(kit, { key, assetId, sex, age, complexion = null, own = false, skinOf = null }) {
+export function libraryFace(kit, { key, assetId, sex, age, complexion = null, own = false, skinOf = null, pick = null }) {
   const F = kit?.header?.faces, body = F?.bodies?.[assetId];
   if (!F || !body || !kit.base || own || !Array.isArray(F.faces)) return null;
+  // T-3644: a face the visitor chose for their own person (visitor-person.js): `body` is the
+  // body's own skin, a library id is that face; anything else is drawn as everyone's is.
+  if (pick === 'body') return null;
+  const chosen = typeof pick === 'string' ? F.faces.findIndex((f) => f.id === pick) : -1;
+  if (chosen >= 0) return libraryEntry(kit, F, chosen, assetId, skinOf, body);
   const child = Number.isFinite(age) && age < F.ages.child_under;
   const third = !Number.isFinite(age) || age < F.ages.middle_from ? 0 : age < F.ages.old_from ? 1 : 2;
   const wears = child || sex !== 'male' ? 'female' : 'male';
@@ -149,6 +154,11 @@ export function libraryFace(kit, { key, assetId, sex, age, complexion = null, ow
   let at = seededRandom(`${F.seed}${key}`)() * draw.reduce((a, d) => a + d[1], 0), index = -1;
   for (const [i, w] of draw) { index = i; if ((at -= w) < 0) break; }
   if (index < 0) return null;
+  return libraryEntry(kit, F, index, assetId, skinOf, body);
+}
+
+/** One face of the library as libraryFace hands it out. */
+function libraryEntry(kit, F, index, assetId, skinOf, body) {
   try {
     return { url: new URL(F.map, kit.base).href, index, id: F.faces[index].id, cols: F.cols, size_px: F.size_px, tile_px: F.tile_px,
       gain: (skinEven(kit, assetId, skinOf) ? F.bodies[skinOf] : body).gain.slice(), lines: F.lines?.[F.faces[index].age] ?? 1 };
@@ -286,7 +296,7 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     skin: face?.values && record?.skin ? record.skin : null,
     // ...or, with no fitted face, a face from the library (libraryFace): by the record's sex
     // and age, and the body's where the record has none; nothing of the body's skin.
-    lib: libraryFace(kit, { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, complexion: record?.looks?.complexion?.drawn ?? null, own: !!face?.values, skinOf: record?.skin_of ?? null }),
+    lib: libraryFace(kit, { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, complexion: record?.looks?.complexion?.drawn ?? null, own: !!face?.values, skinOf: record?.skin_of ?? null, pick: record?.looks?.face_pick ?? null }),
     // ...and, for a person drawn on bodies of more than one skin, this body's skin brought to
     // the one they wear on all of them (skinEven).
     even: face?.values && record?.skin ? null : skinEven(kit, assetId, record?.skin_of ?? null) };
@@ -776,7 +786,20 @@ export function setLidRest(fn) { lidRest = typeof fn === 'function' ? fn : null;
  * swelled past what that one vertex did, the cloth is pushed out along the skin's normal
  * instead of letting the skin through. An eye moves whole, by the mean of its socket.
  */
-export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
+export function applyVariation(scene, kit, variation, options) {
+  const steps = applyVariationSteps(scene, kit, variation, options);
+  let r = steps.next();
+  while (!r.done) r = steps.next();
+  return r.value;
+}
+
+/**
+ * T-3639: applyVariation in steps, a body or a garment a step, so a figure built in its turn
+ * (humans.js queueBuild) fits its shape over several frames, not in one of up to 30 ms. The same
+ * work in the same order; nothing else fits between two steps of one figure (pumpBuilds keeps
+ * the build under way at the head of the queue), so the shared fits and caches stay its own.
+ */
+export function* applyVariationSteps(scene, kit, variation, { scope = 'full' } = {}) {
   if (!kit || !variation || scope === 'none') return null;
   // T-3553: the skin sheet goes with the fitted face, at every level of detail (human-skin.js reads it).
   const like = likenessSkin(kit, variation);
@@ -854,6 +877,7 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
     const na = g ? vertexNormals(after, idx, at.n) : fit.nb;
     for (let i = 0; i < at.n * 3; i++) { post.pts.push(after[i]); post.nrm.push(na[i]); }
     bodyFits.push(fit);
+    yield;
   }
   // The rest body as one surface (its points, normals, kit vertex and grid): the source's too,
   // kept on the first body's fit for as long as the same bodies make it up.
@@ -950,6 +974,7 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
     const g = moved ? variantGeometry(src, mesh, key, at.raw, out, fit.rawNormals) : null;
     remember(src, key, g);
     assign(mesh, g);
+    yield;
   }
   const height = scope === 'full' ? variation.height : 1;
   if (height !== 1) { scene.scale.setScalar(height); scene.updateMatrixWorld(true); }

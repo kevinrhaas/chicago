@@ -60,8 +60,23 @@ export function alongKeys(keys, t) {
  *   reducedMotion()  true: the team does not move (prefers-reduced-motion)
  */
 export function createTeamRide({ visitor = () => null, standFor = () => null, groundAt = () => NaN,
-  walkEye = () => 1.6, onBoard = () => {}, reducedMotion = () => false } = {}) {
+  walkEye = () => 1.6, onBoard = () => {}, reducedMotion = () => false, say = () => {}, boarding = null } = {}) {
   let actor = null, phase = null, eye = null, landing = null, pulling = false;
+  // T-3560 (Kevin, 2026-11-17: "he should have a climb up sequence that shows him boarding that
+  // applies all years"): with a `boarding` (town-transport-scene.js over board-climb.js), the box
+  // climb and the get down are drawn: the visitor's figure walks over, climbs by the hub and
+  // the rail and sits, the eye watching from beside the vehicle. `plan` is the one under way.
+  let plan = null;
+  const drawn = (a, opts) => {
+    if (!boarding || reducedMotion()) return null;
+    try { return boarding.plan(a, opts) ?? null; } catch { return null; }
+  };
+  const drawAt = (p, a, t) => {
+    const e = boarding.eye(p, t, headingOf(a) ?? 0);
+    boarding.show(p, t, e.hide);
+    return e;
+  };
+  const undraw = () => { if (plan) { plan = null; try { boarding.show(null, 0, true); } catch { /* the figure is the scene's */ } } };
   // T-3557: which seat: 'box' (beside the driver) or 'cab' (inside a closed carriage, by its
   // door: `via` the eye's way in, vehicle-local [x, y, z] keyframes from outside the door).
   let seatKind = 'box', via = null, outside = null;
@@ -69,6 +84,11 @@ export function createTeamRide({ visitor = () => null, standFor = () => null, gr
   // until the reins are taken: then it starts at the pace the team had, so taking them from a
   // team on its round lets it walk on as it was rather than ease to a stand.
   let cruise = null;
+  // T-3560: urged on (Shift, or the stick pushed right out), a team goes up a pace at once and
+  // another each URGE_S held: trot, canter, gallop (team-drive.js DRIVE_GEARS_M_S). Let go, it
+  // keeps its pace, as its walk is kept; a pull back pulls it up and it walks on next time.
+  let gear = 0, urging = false, urgedAt = 0;
+  const URGE_S = 1, GEAR_WORDS = ['Walk', 'Trot', 'Canter', 'Gallop'];
   let from = null, lastHeading = null, still = 0, lastAt = null;
   const seatOf = (a, kind = seatKind) => {
     try {
@@ -103,6 +123,7 @@ export function createTeamRide({ visitor = () => null, standFor = () => null, gr
     }
     // The visitor's hands leave the reins with them: the driver takes his team home.
     if (a && (a.mode === 'reins' || a.mode === 'returning') && !a.disposed) { try { a.handBack(); } catch { /* the actor stays authoritative */ } }
+    undraw();
     actor = null; phase = null; eye = null; pulling = false; lastHeading = null; from = null;
     seatKind = 'box'; via = null; outside = null;
     onBoard(a, false, why);
@@ -134,6 +155,15 @@ export function createTeamRide({ visitor = () => null, standFor = () => null, gr
     get landing() { return landing; },
     reducedMotion: () => !!reducedMotion(),
     seatOf,
+    /** T-3560: true while the figure is drawn climbing (a boarding plan is under way). */
+    get drawn() { return !!plan; },
+    /** T-3560: a boarding whose figure is still loading is waited for (Climb up's first step). */
+    hasBoarding: !!boarding,
+    prepare() { try { return Promise.resolve(boarding?.prepare?.()).then(v => !!v, () => false); } catch { return Promise.resolve(false); } },
+    ready() { try { return !boarding || reducedMotion() || !!boarding.ready(); } catch { return true; } },
+    /** T-3560: how long the climb up (or down) under way takes: its plan's, else RIDE_S. */
+    get climbSeconds() { return plan?.mode === 'up' ? plan.seconds : RIDE_S.climb; },
+    get alightSeconds() { return plan?.mode === 'down' ? plan.seconds : RIDE_S.alight; },
 
     /** Climb: the eye eases from where the visitor stands, up over the wheel, onto the seat.
      *  T-3557: `{ kind: 'cab', via, stand }` gets in by the cab's door instead: up its step,
@@ -148,7 +178,9 @@ export function createTeamRide({ visitor = () => null, standFor = () => null, gr
         seatKind = kind === 'cab' && typeof a?.seat === 'function' && seatOf(a, 'cab') ? 'cab' : 'box';
         via = seatKind === 'cab' && Array.isArray(way) ? way : null;
         outside = seatKind === 'cab' && Array.isArray(stand) ? stand : null;
-        from = v && [v.e, v.n, v.y].every(Number.isFinite) ? { e: v.e, n: v.n, y: v.y, bearing: v.bearing ?? 0 } : null;
+        from = v && [v.e, v.n, v.y].every(Number.isFinite) ? { e: v.e, n: v.n, y: v.y, bearing: v.bearing ?? 0, pitch: v.pitch ?? 0 } : null;
+        undraw();
+        if (seatKind === 'box' && from) plan = drawn(a, { mode: 'up', from, seat: seatOf(a) });
         onBoard(a, true, 'climb');
       }
       if (seatKind === 'cab') {
@@ -156,6 +188,11 @@ export function createTeamRide({ visitor = () => null, standFor = () => null, gr
         if (!keys.length) return false;
         eye = alongKeys(keys, t);
         if (t >= 1) { phase = 'seated'; eye = null; lastHeading = headingOf(a); }
+        return true;
+      }
+      if (plan?.mode === 'up') {
+        eye = drawAt(plan, a, Math.max(0, Math.min(1, t)));
+        if (t >= 1) { phase = 'seated'; eye = null; undraw(); lastHeading = headingOf(a); }
         return true;
       }
       const s = seatOf(a);
@@ -217,6 +254,19 @@ export function createTeamRide({ visitor = () => null, standFor = () => null, gr
         phase = 'alighting'; pulling = false;
         const start = s ?? (from && Number.isFinite(from.y) ? from : { e: to.e, n: to.n, y: eyeOn(to.e, to.n) });
         from = { e: start.e, n: start.n, y: start.y, bearing: from?.bearing ?? 0, stand: to };
+        undraw();
+        if (s) plan = drawn(a, { mode: 'down', seat: s, land: to });
+      }
+      if (plan?.mode === 'down') {
+        eye = drawAt(plan, a, Math.max(0, Math.min(1, t)));
+        if (t >= 1) {
+          const to = plan.land ?? from.stand;
+          undraw();
+          landing = { e: to.e, n: to.n }; actor = null; phase = null; eye = null; from = null; lastHeading = null;
+          if (a.mode === 'reins' && !a.disposed) { try { a.handBack(); } catch { /* the actor stays authoritative */ } }
+          onBoard(a, false, 'get-down');
+        }
+        return true;
       }
       const s = from, to = from.stand, f = smooth(Math.max(0, Math.min(1, t)));
       eye = { e: lerp(s.e, to.e, f), n: lerp(s.n, to.n, f), y: lerp(s.y, eyeOn(to.e, to.n), f) + Math.sin(f * Math.PI) * 0.15, bearing: null };
@@ -252,9 +302,9 @@ export function createTeamRide({ visitor = () => null, standFor = () => null, gr
      * (sideways; +1 right), anything else is dropped. Look stays the visitor's.
      */
     drive(intent) {
-      if (!actor || !intent) { cruise = null; return false; }
+      if (!actor || !intent) { cruise = null; gear = 0; urging = false; return false; }
       const a = actor;
-      if (a.mode !== 'reins') cruise = null;
+      if (a.mode !== 'reins') { cruise = null; gear = 0; urging = false; }
       else if (cruise === null) {
         const pace = Number.isFinite(a.speed_m_s) ? a.speed_m_s / DRIVE_SPEED_CAP_M_S : 0;
         cruise = Math.max(0, Math.min(1, pace));
@@ -270,14 +320,20 @@ export function createTeamRide({ visitor = () => null, standFor = () => null, gr
         const push = Math.min(1, Math.hypot(f, s));
         const along = push > 0.15 && Math.abs(f) >= Math.abs(s) - 1e-9;
         const ahead = along && f > 0, back = along && f < 0;
-        if (pulling || back) cruise = 0;
+        if (pulling || back) { cruise = 0; gear = 0; }
         else if (ahead) cruise = push;
+        if (ahead && intent.sprint && !pulling) {
+          const now = (globalThis.performance?.now?.() ?? Date.now()) / 1000, was = gear;
+          if (!urging || now - urgedAt >= URGE_S - 1e-9) { gear = Math.min(3, gear + 1); urgedAt = now; }
+          urging = true;
+          if (gear !== was) say?.(GEAR_WORDS[gear]);
+        } else urging = false;
         // Pulling up to get down: whoa while it goes on, then nothing held, so a team that has
         // stood is never backed (a held pull back backs a standing team, team-drive.js) while
         // the visitor climbs down.
         const going = Number.isFinite(a.speed_m_s) && a.speed_m_s > 1e-6 && !a.reversing;
         const input = pulling ? { throttle: going ? -1 : 0, steer: 0 }
-          : { throttle: back ? -1 : cruise ?? 0, steer: s };
+          : { throttle: back ? -1 : cruise ?? 0, steer: s, gear: back ? 0 : gear };
         try { a.drive(input); } catch { /* a refused step pulls the team up inside the actor */ }
       } else if (phase === 'alighting' && a.mode === 'reins') {
         // Climbing down from a team that has stood: nothing held, so the last whoa of the pull
@@ -319,6 +375,8 @@ export function createTeamRide({ visitor = () => null, standFor = () => null, gr
       s.groundY = at.y - (WALK?.eyeHeight ?? 1.6);
       s.altitude = 0; s.stepEase = 0; s.bob = 0;
       if (bearing !== null && bearing !== undefined) s.yaw = bearingToYaw(bearing);
+      // T-3560: watching the figure climb, the eye looks down or up at him.
+      if (phase !== 'seated' && Number.isFinite(at.pitch)) s.pitch = at.pitch;
       walker.apply();
       return true;
     },
@@ -421,11 +479,16 @@ export function registerTransportInteraction(interactions, actor, { reach = 6, g
       if (ride.actor && ride.actor !== live) return 'Already aboard';
       return ride.seatOf(live) ? null : `No seat on this ${vehicle}`;
     },
+    // T-3560: with the visitor's figure drawn, it is fetched first (the first climb only; a
+    // climb with it ready, or reduced motion, passes at once), and the climb takes as long as
+    // his walk over and his climb (ride.climbSeconds).
     steps: [
+      ...(ride?.hasBoarding ? [{ label: 'Coming over', timeout: 4,
+        run(t) { if (t === 0) void ride.prepare(); }, until: () => ride.ready() }] : []),
       { label: 'Pulling up', seconds: 0, run: run(a => { wasMoving = a.state === 'moving'; if (wasMoving) a.stop('boarding'); ride.climb(a, 0); }) },
       // Seated, the team moves off in the same step, and the climb ends there: a press the
       // moment the visitor is up works the seat (no zero-second step left running to swallow it).
-      { label: 'Climbing up', seconds: RIDE_S.climb, run(t) {
+      { label: 'Climbing up', get seconds() { return ride.climbSeconds ?? RIDE_S.climb; }, run(t) {
         if (!live) return;
         ride.climb(live, t);
         if (t < 1) return;
@@ -448,9 +511,10 @@ export function registerTransportInteraction(interactions, actor, { reach = 6, g
       { label: 'Pulling up', timeout: RIDE_S.pullUp,
         run(t) { if (t === 0 && live) { wasMoving = live.mode === 'route' && live.state === 'moving'; ride.pullUp(live); } },
         until: () => !live || ride.stilled(live) },
-      { label: 'Getting down', seconds: RIDE_S.alight, run(t) { if (live) ride.alight(live, t); } },
+      { label: 'Getting down', get seconds() { return ride.alightSeconds ?? RIDE_S.alight; }, run(t) { if (live) ride.alight(live, t); } },
       { label: 'Down', seconds: 0, run: run(a => {
-        // A team on its own round goes on once the visitor is clear of it.
+        // A team on its own round goes on once the visitor is clear of it, at its own walk.
+        a.setPace?.(0);
         if (wasMoving && a.mode === 'route' && a.canResume()) a.resume();
         wasMoving = false;
       }) },
@@ -498,6 +562,7 @@ export function registerTransportInteraction(interactions, actor, { reach = 6, g
       { label: 'Getting out', seconds: RIDE_S.unboard, run(t) { if (live) ride.alight(live, t); } },
       doorStep('Closing the door', 'shut'),
       { label: 'Down', seconds: 0, run: run(a => {
+        a.setPace?.(0);
         if (cabWasMoving && a.mode === 'route' && a.canResume()) a.resume();
         cabWasMoving = false;
       }) },
@@ -517,16 +582,29 @@ export function registerTransportInteraction(interactions, actor, { reach = 6, g
     if (home.isHome?.(live)) return [bringOut];
     return home.canGoHome?.(live) ? [goHome] : [];
   };
+  // T-3560 (Kevin, 2026-11-17: "They would normally walk I think but you could direct them to
+  // gallop etc"): aboard a team on its round, ask the driver on to a trot, a canter or a gallop,
+  // or back to a walk. Getting down, it goes back to its walk.
+  const PACE_ASK = ['a trot', 'a canter', 'a gallop'], PACE_SAID = ['walks on', 'trots on', 'canters on', 'gallops'];
+  const paced = () => typeof live?.setPace === 'function';
+  const faster = { id: 'faster', get label() { return `Ask for ${PACE_ASK[Math.min(live?.pace ?? 0, 2)]}`; },
+    refuse: () => (!paced() ? `The ${driver} keeps his pace` : live.pace >= 3 ? 'At a gallop already' : null),
+    steps: [{ label: 'Asking', seconds: 0, run: run(a => a.setPace(a.pace + 1)) }],
+    said: () => `The ${driver} ${PACE_SAID[live?.pace ?? 0]}` };
+  const walkOn = { id: 'walk-on', label: 'Ask for a walk',
+    steps: [{ label: 'Asking', seconds: 0, run: run(a => a.setPace(0)) }],
+    said: () => `The ${driver} walks the team on` };
+  const paceActions = () => (!paced() || live.mode !== 'route' ? [] : [...(live.pace < 3 ? [faster] : []), ...(live.pace > 0 ? [walkOn] : [])]);
   const aboardActions = () => {
     const mode = live.mode;
     if (cab && ride.inCab) {
       const journey = mode === 'route' ? (live.state === 'moving' ? stop : live.canResume() ? resume : null) : null;
-      return [...(journey ? [journey] : []), getOut, ...homeActions()];
+      return [...(journey ? [journey] : []), ...paceActions(), getOut, ...homeActions()];
     }
     if (mode === 'reins') return [handBack, getDown];
     if (mode === 'returning') return [reins, getDown];
     const journey = live.state === 'moving' ? stop : live.canResume() ? resume : null;
-    return [reins, ...(journey ? [journey] : []), getDown];
+    return [reins, ...(journey ? [journey] : []), ...paceActions(), getDown];
   };
 
   const thing = {

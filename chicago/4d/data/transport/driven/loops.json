@@ -49,6 +49,14 @@
       "trot_clip_sha256": "3e0f55810cb2fcf3d3a30beccb6bbd59d0de88e752f109a4b9212e493b8658cc",
       "trot_clip_producer": "tools/horse_walk_v2.mjs",
       "trot_stride_m": 1.5,
+      "canter_clip": "reconstructed_current26_canter_v1",
+      "canter_clip_file": "transport/driven/horse-canter-v1.json",
+      "canter_clip_sha256": "558e5fec19f54840cb291b4775360811edd02d56aff5271016003c1ed771141a",
+      "canter_stride_m": 2,
+      "gallop_clip": "reconstructed_current26_gallop_v1",
+      "gallop_clip_file": "transport/driven/horse-gallop-v1.json",
+      "gallop_clip_sha256": "16b7701f88e20fcd219e5fd0cb9e648157b6237b98509b14c6431ec7f17d6084",
+      "gallop_stride_m": 3.2,
       "lods": {
         "mid": {
           "file": "transport/driven/horse-current26-mid.glb",
@@ -1894,9 +1902,9 @@
         ]
       ],
       "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
-      "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
+      "vehicle_glb_sha256": "34c14f142cadce1d89fc5ccb43a7d195ae287ab18258e9b1a8463e294e6ec2b7",
       "vehicle_file_light": "transport/parked-brougham/brougham-v20-mid.glb",
-      "vehicle_glb_sha256_light": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342",
+      "vehicle_glb_sha256_light": "69e3f8bfff45b03d5eb7e267de0d20dd6c8ea3ccadbc976c01e33d6dc5f4004d",
       "driver_asset": "anonymous_working_driver_1904",
       "driver_clip": "sit_drive_look_v2",
       "person_id": "pa1904_otis_f_r_c1900_hans_johnson",
@@ -1921,8 +1929,8 @@
         "scene": "1904",
         "asset_id": "anonymous_working_driver_1904",
         "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
-        "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
-        "vehicle_sidecar_sha256": "b6308cfd92a273ab549d6f8b59b536dba93c92fc5eab169ccad52782546a2982",
+        "vehicle_glb_sha256": "34c14f142cadce1d89fc5ccb43a7d195ae287ab18258e9b1a8463e294e6ec2b7",
+        "vehicle_sidecar_sha256": "bb08d6a3c3ca2475ce454268e8fe402b03c1fadd5a78781f8d6cf41e1c2db0bd",
         "root_offset_m": [
           0,
           0,
@@ -1937,7 +1945,7 @@
         "also_carries": [
           {
             "file": "transport/parked-brougham/brougham-v20-mid.glb",
-            "sha256": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342"
+            "sha256": "69e3f8bfff45b03d5eb7e267de0d20dd6c8ea3ccadbc976c01e33d6dc5f4004d"
           }
         ]
       },
@@ -2182,9 +2190,9 @@
         ]
       },
       "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
-      "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
+      "vehicle_glb_sha256": "34c14f142cadce1d89fc5ccb43a7d195ae287ab18258e9b1a8463e294e6ec2b7",
       "vehicle_file_light": "transport/parked-brougham/brougham-v20-mid.glb",
-      "vehicle_glb_sha256_light": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342",
+      "vehicle_glb_sha256_light": "69e3f8bfff45b03d5eb7e267de0d20dd6c8ea3ccadbc976c01e33d6dc5f4004d",
       "driver_asset": "anonymous_working_driver_1904",
       "driver_clip": "sit_drive_look_v2",
       "person_id": "pa1904_pullman_mrs_george_m_c1900_henry_windish",
@@ -2210,8 +2218,8 @@
         "scene": "1904",
         "asset_id": "anonymous_working_driver_1904",
         "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
-        "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
-        "vehicle_sidecar_sha256": "b6308cfd92a273ab549d6f8b59b536dba93c92fc5eab169ccad52782546a2982",
+        "vehicle_glb_sha256": "34c14f142cadce1d89fc5ccb43a7d195ae287ab18258e9b1a8463e294e6ec2b7",
+        "vehicle_sidecar_sha256": "bb08d6a3c3ca2475ce454268e8fe402b03c1fadd5a78781f8d6cf41e1c2db0bd",
         "root_offset_m": [
           0,
           0,
@@ -2226,7 +2234,7 @@
         "also_carries": [
           {
             "file": "transport/parked-brougham/brougham-v20-mid.glb",
-            "sha256": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342"
+            "sha256": "69e3f8bfff45b03d5eb7e267de0d20dd6c8ea3ccadbc976c01e33d6dc5f4004d"
           }
         ]
       },
@@ -2533,9 +2541,9 @@
         ]
       },
       "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
-      "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
+      "vehicle_glb_sha256": "34c14f142cadce1d89fc5ccb43a7d195ae287ab18258e9b1a8463e294e6ec2b7",
       "vehicle_file_light": "transport/parked-brougham/brougham-v20-mid.glb",
-      "vehicle_glb_sha256_light": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342",
+      "vehicle_glb_sha256_light": "69e3f8bfff45b03d5eb7e267de0d20dd6c8ea3ccadbc976c01e33d6dc5f4004d",
       "driver_asset": "anonymous_working_driver_1904",
       "driver_clip": "sit_drive_look_v2",
       "person_id": "pa1904_armour_mrs_philip_d_c1900_joseph_daniels",
@@ -2561,8 +2569,8 @@
         "scene": "1904",
         "asset_id": "anonymous_working_driver_1904",
         "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
-        "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
-        "vehicle_sidecar_sha256": "b6308cfd92a273ab549d6f8b59b536dba93c92fc5eab169ccad52782546a2982",
+        "vehicle_glb_sha256": "34c14f142cadce1d89fc5ccb43a7d195ae287ab18258e9b1a8463e294e6ec2b7",
+        "vehicle_sidecar_sha256": "bb08d6a3c3ca2475ce454268e8fe402b03c1fadd5a78781f8d6cf41e1c2db0bd",
         "root_offset_m": [
           0,
           0,
@@ -2577,7 +2585,7 @@
         "also_carries": [
           {
             "file": "transport/parked-brougham/brougham-v20-mid.glb",
-            "sha256": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342"
+            "sha256": "69e3f8bfff45b03d5eb7e267de0d20dd6c8ea3ccadbc976c01e33d6dc5f4004d"
           }
         ]
       },
@@ -2905,9 +2913,9 @@
         ]
       },
       "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
-      "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
+      "vehicle_glb_sha256": "34c14f142cadce1d89fc5ccb43a7d195ae287ab18258e9b1a8463e294e6ec2b7",
       "vehicle_file_light": "transport/parked-brougham/brougham-v20-mid.glb",
-      "vehicle_glb_sha256_light": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342",
+      "vehicle_glb_sha256_light": "69e3f8bfff45b03d5eb7e267de0d20dd6c8ea3ccadbc976c01e33d6dc5f4004d",
       "driver_asset": "anonymous_working_driver_1904",
       "driver_clip": "sit_drive_look_v2",
       "person_id": "pa1904_glessner_john_j_c1900_charles_nelson",
@@ -2933,8 +2941,8 @@
         "scene": "1904",
         "asset_id": "anonymous_working_driver_1904",
         "vehicle_file": "transport/parked-brougham/brougham-v20-near.glb",
-        "vehicle_glb_sha256": "58dac3772ed122c23a17cb0a721b054d14354643453a377fd87e08bdc726bc79",
-        "vehicle_sidecar_sha256": "b6308cfd92a273ab549d6f8b59b536dba93c92fc5eab169ccad52782546a2982",
+        "vehicle_glb_sha256": "34c14f142cadce1d89fc5ccb43a7d195ae287ab18258e9b1a8463e294e6ec2b7",
+        "vehicle_sidecar_sha256": "bb08d6a3c3ca2475ce454268e8fe402b03c1fadd5a78781f8d6cf41e1c2db0bd",
         "root_offset_m": [
           0,
           0,
@@ -2949,7 +2957,7 @@
         "also_carries": [
           {
             "file": "transport/parked-brougham/brougham-v20-mid.glb",
-            "sha256": "0d8a498069ea340557f0258794e5fb8f2049e22266598725c4fbacf738238342"
+            "sha256": "69e3f8bfff45b03d5eb7e267de0d20dd6c8ea3ccadbc976c01e33d6dc5f4004d"
           }
         ]
       },
@@ -3185,10 +3193,10 @@
       },
       "cab_seat_local_m": [
         -0.27,
-        1.296,
-        -0.45
+        1.086,
+        -0.62
       ],
-      "cab_eye_m": 0.58,
+      "cab_eye_m": 0.74,
       "cab_via_local_m": [
         [
           -1.4,
@@ -3215,7 +3223,7 @@
         -1.4,
         0.3
       ],
-      "cab_basis": "Inside the brougham, on the kerbside half of its seat (brougham-near.glb: cushion top 1.296 m, roof lining 2.046 m over it), the eye 0.58 m over the cushion: lower than a man sits upright, as the cab is lower than one (tools/test_glessner_ride.mjs measures its clearance to the roof, walls and door).",
+      "cab_basis": "Inside the brougham, on the kerbside half of its seat, sitting upright against the squab (brougham-v20-near.glb: cushion top 1.086 m, roof lining about 0.95 m over it, the cab lowered for T-3553), the eye 0.74 m over the cushion, a grown man's seated eye height less the cushion's give (tools/test_glessner_ride.mjs measures its clearance to the roof, walls and door).",
       "cab_door": {
         "hinge_local_m": [
           -0.655,
@@ -3450,11 +3458,11 @@
           "instance_id": "hi_glessner_john_j_1904",
           "seat_local_m": [
             0.2,
-            1.307,
-            -0.72
+            1.097,
+            -0.88
           ],
           "sink_m": 0.06,
-          "basis": "John J. Glessner (1843-1936) of 1800 Prairie Avenue, his own 1904 figure and record, seated in his household's brougham beside the visitor. That he rides, when and where, is reconstructed play; his figure plays the coachmen's seated clip (sit_drive_look_v2), bent to the cab's lower seat and roof, hat off (renderers/web/js/cab-passenger.js).",
+          "basis": "John J. Glessner (1843-1936) of 1800 Prairie Avenue, his own 1904 figure and record, seated in his household's brougham beside the visitor. That he rides, when and where, is reconstructed play; his figure plays the coachmen's seated clip (sit_drive_look_v2), sitting upright against the squab with his knees raised for the cab's low seat and his hands on his thighs, hat off (renderers/web/js/cab-passenger.js).",
           "liberty": "L-glessner-ride-3557"
         }
       ]

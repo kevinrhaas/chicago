@@ -154,6 +154,10 @@ MULTISETS: dict[tuple[str, str], str] = {
         "one K09 head per storey, principal storey first: the upper two wear the same surround (T-3188)",
     ("data/sidecars/1904/house_1708_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K09 head per storey (T-3188)",
+    ("data/structures/house_2027_prairie.json", "by_storey"):
+        "one K09 head per storey, principal storey first: both storeys wear the same lintel (T-3635)",
+    ("data/sidecars/1904/house_2027_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3635)",
     ("data/structures/house_2001_prairie.json", "by_storey"):
         "one K09 head per storey, principal storey first: both storeys wear the same surround (T-3347)",
     ("data/sidecars/1904/house_2001_prairie.json", "by_storey"):
@@ -234,6 +238,14 @@ MULTISETS: dict[tuple[str, str], str] = {
         "one K09 head per storey of a K01 front (T-3615); two storeys may take the same head",
     ("data/sidecars/1904/house_2011_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K09 head per storey (T-3615)",
+    ("data/structures/high_house_2021_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3633); two storeys may take the same head",
+    ("data/sidecars/1904/high_house_2021_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3633)",
+    ("data/structures/reid_house_2013_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3625); two storeys may take the same head",
+    ("data/sidecars/1904/reid_house_2013_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3625)",
     ("data/structures/mayer_house_2009_prairie.json", "by_storey"):
         "one K09 head per storey of a K01 front (T-1913); two storeys may take the same head",
     ("data/sidecars/1904/mayer_house_2009_prairie.json", "by_storey"):
@@ -246,6 +258,10 @@ MULTISETS: dict[tuple[str, str], str] = {
         "one K09 head per storey of a K01 front (T-3346); two storeys may take the same head",
     ("data/sidecars/1904/house_2005_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K09 head per storey (T-3346)",
+    ("data/structures/house_2026_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3608); two storeys may take the same head",
+    ("data/sidecars/1904/house_2026_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3608)",
     ("data/structures/house_2018_prairie.json", "by_storey"):
         "one K09 head per storey of a K01 front (T-3607); two storeys may take the same head",
     ("data/sidecars/1904/house_2018_prairie.json", "by_storey"):

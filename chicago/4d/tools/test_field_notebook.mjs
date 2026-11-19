@@ -1,0 +1,62 @@
+#!/usr/bin/env node
+import assert from 'node:assert/strict';
+import { createFieldNotebook, NOTEBOOK_KEY, LIMITS, safeNotebookURL, saveNotebookPhoto } from '../renderers/web/js/field-notebook.js';
+import { notebookHTML } from '../renderers/web/js/field-notebook-view.js';
+const store = () => {
+  const data = new Map();
+  return { getItem: key => data.get(key) ?? null, setItem: (key, value) => data.set(key, value), data };
+};
+const storage = store(); let seq = 0;
+const book = createFieldNotebook({ storage, now: () => '2026-11-18T00:00:00Z', id: () => `entry-${++seq}` });
+assert.deepEqual(book.read(), { entries: [], error: null });
+assert.equal(book.add({ kind: 'note', text: '' }).reason, 'empty');
+const a = book.add({ kind: 'note', title: 'By the river', text: 'I wonder why?', year: '1835', sources: [{ id: 'real-source', title: 'Source title', url: 'https://example.org/evidence' }] });
+assert.equal(a.ok, true);
+assert.equal(a.entry.year, '1835');
+assert.equal(a.entry.createdAt, '2026-11-18T00:00:00Z');
+const another = createFieldNotebook({ storage, id: () => `entry-${++seq}` });
+another.add({ kind: 'note', title: 'Second tab' });
+book.update(a.entry.id, 'My revised observation');
+assert.equal(book.read().entries.length, 2, 'a later save keeps other tabs’ persisted entries');
+assert.equal(another.read().entries[0].text, 'My revised observation');
+assert.equal(book.add({ kind: 'person', person: 'person-a', title: 'A person', year: 1835 }).ok, true);
+assert.equal(book.add({ kind: 'person', person: 'person-a', title: 'A person', year: 1835 }).duplicate, true);
+assert.equal(book.add({ kind: 'person', person: 'person-a', title: 'A person', year: 1904 }).duplicate, undefined);
+let calls = 0; const unsub = book.subscribe(() => calls++);
+book.remove(a.entry.id); assert.equal(calls, 1); unsub();
+assert.equal(book.read().entries.some(e => e.id === a.entry.id), false);
+assert.equal(book.update('missing', 'Lost note').reason, 'missing');
+const photo = 'data:image/jpeg;base64,AAAA';
+for (let i = 0; i < LIMITS.photos; i++) assert.equal(book.add({ kind: 'photo', title: `Photo ${i}`, photo }).ok, true);
+const beforeFull = storage.getItem(NOTEBOOK_KEY);
+assert.equal(book.add({ kind: 'photo', title: 'Too many', photo }).reason, 'full');
+assert.equal(storage.getItem(NOTEBOOK_KEY), beforeFull, 'never silently evict an earlier entry');
+assert.equal(book.add({ kind: 'photo', title: 'Unsafe photo', photo: 'data:image/svg+xml,<svg/>' }).ok, false);
+assert.equal(book.add({ kind: 'photo', title: 'Oversize photo', photo: `data:image/jpeg;base64,${'A'.repeat(LIMITS.photoChars)}` }).ok, false);
+const capped = createFieldNotebook({ storage: store(), id: () => `entry-${++seq}` });
+for (let i = 0; i < LIMITS.entries; i++) assert.equal(capped.add({ kind: 'note', title: `Note ${i}` }).ok, true);
+assert.equal(capped.add({ kind: 'note', title: 'Too many' }).reason, 'full');
+const quota = createFieldNotebook({ storage: { getItem: storage.getItem, setItem() { throw new Error('QuotaExceeded'); } } });
+assert.equal(quota.add({ kind: 'note', title: 'Unsaved' }).reason, 'storage');
+assert.equal(storage.getItem(NOTEBOOK_KEY), beforeFull);
+assert.equal(createFieldNotebook({ storage: null }).add({ kind: 'note', title: 'Unsaved' }).reason, 'storage');
+const damaged = store(); damaged.setItem(NOTEBOOK_KEY, '{"version":99,"entries":[]}');
+assert.equal(createFieldNotebook({ storage: damaged }).add({ kind: 'note', title: 'Do not overwrite' }).reason, 'damaged');
+assert.equal(damaged.getItem(NOTEBOOK_KEY), '{"version":99,"entries":[]}');
+const html = notebookHTML([{ ...a.entry, title: '<script>alert(1)</script>', text: '<img src=x onerror=alert(1)>', excerpt: 'Attested & inferred', link: 'javascript:alert(1)',
+  sources: [{ id: 'x', title: '<bad>', url: 'javascript:alert(1)' }], photo: 'data:image/svg+xml,<svg onload=alert(1)>' }]);
+assert.match(html, /&lt;script&gt;/); assert.match(html, /&lt;img/); assert.match(html, /Attested &amp; inferred/);
+assert.doesNotMatch(html, /<script|javascript:|data:image\/svg|<img src=x/);
+assert.equal(safeNotebookURL('https://example.org/source'), 'https://example.org/source');
+assert.equal(safeNotebookURL('//example.org'), '');
+const contexts = []; let canvas;
+const doc = { createElement(tag) {
+  if (tag === 'img') return { naturalWidth: 1280, naturalHeight: 800, set src(_) { queueMicrotask(() => this.onload()); } };
+  if (tag === 'canvas') { canvas = { width: 0, height: 0, getContext: () => ({ drawImage() { contexts.push([canvas.width, canvas.height]); } }), toDataURL: () => photo }; return canvas; }
+  throw Error(tag);
+} };
+const saved = [];
+const result = await saveNotebookPhoto(new Blob(['test']), { title: 'Photo', year: '1835' }, { doc, notebook: { add(value) { saved.push(value); return { ok: true }; } } });
+assert.equal(result.ok, true); assert.deepEqual(contexts, [[640, 400]]); assert.equal(canvas.width, 1);
+assert.equal(saved[0].kind, 'photo'); assert.equal(saved[0].photo, photo);
+console.log('Field notebook: persistence, limits, quota failures, cross-tab reads, evidence export and bounded photo copies pass.');

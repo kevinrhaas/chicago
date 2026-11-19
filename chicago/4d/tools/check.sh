@@ -390,6 +390,20 @@ step "Each Jaunt card shows a credited plate of its own stops or none, its keeps
   node tools/test_nav_jaunt_cards.mjs
 step "Navigator deep links (?nav=app[:id]&tab=) and Back closing the open app before the page (T-2621)" \
   node tools/test_nav_link.mjs
+step "Moment links contain only bounded public scene state and photos release their temporary raster (T-3656)" \
+  node tools/test_moment.mjs
+step "Field notebook preserves evidence and notes, bounds storage, and reports failed writes (T-3656)" \
+  node tools/test_field_notebook.mjs
+step "Jaunt reflections use only cited visited claims across all reading bands (T-3656)" \
+  node tools/test_jaunt_understanding.mjs
+step "Group lesson guides use the selected outing's citations and preserve print cleanup (T-3656)" \
+  node tools/test_lesson_guides.mjs
+step "Photo hunts preserve canonical evidence, shared dates, distance scores and bounded local progress (T-3657)" \
+  node tools/test_photo_hunt.mjs
+step "Browser magnification preserves viewport size and independent movement and look controls (T-3658)" \
+  node tools/test_viewport_accessibility.mjs
+step "Focused menus own arrows and Space while world controls and card closing remain available (T-3658)" \
+  node tools/test_keyboard_ownership.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
   node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \
@@ -466,6 +480,12 @@ step "the Tell me a story library re-derives from its stories and the drawn town
   python3 tools/build_tales.py --check
 step "everyone in town tells a story, their own first, and none twice until all are told (T-3553)" \
   node tools/test_tales.mjs
+# T-3645: the reader's ages (Settings, the Jaunts menu, the account) and every card's age tabs;
+# each card's words at another age measured inside that age's band, and the scene tables fresh.
+step "a reader picks one or more ages; the Jaunts menu and every card follow, kept on the account (T-3645)" \
+  node tools/test_reading_level.mjs
+step "every card's words at another age read inside that age's band, and data/reading is fresh (T-3645)" \
+  python3 tools/reading_levels.py --check --quiet
 step "both reconstructed second-fort posterns block a real walker shut and pass it after their actual leaves open (T-2388)" \
   node tools/test_second_fort_posterns.mjs
 step "the named commandant gallery preserves its fifteen openings and clears their trim with supported reconstructed timber (T-2388)" \
@@ -682,6 +702,8 @@ step "The 1812 fort wagons' rows are what their layer writes: roads, stops and h
   node tools/lay_driven_wagons_1812.mjs --check
 step "The 1835 town's ten wagons' rows are what their layer writes: one district each, their teamsters, stops and hours (T-3558)" \
   node tools/lay_driven_wagons_1835.mjs --check
+step "The town's riders and stabled saddle horses are what their layer writes: rounds on the worked streets, hours, seasons and stables (T-3560)" \
+  node tools/lay_town_riders.mjs --check
 step "The two more 1904 carriages' rows are what their layer writes: lanes off the street grid, counter-clockwise, their coachmen, stops and finishes (T-3555)" \
   node tools/lay_driven_carriages_1904.mjs --check
 step "Where the 1904 carriages' roads cross one gives way and waits for the other: no overlap, no lock, everyone keeps going round (T-3555)" \
@@ -714,6 +736,8 @@ step "Each 1812 building's doors are where its model draws the leaf, and where o
   python3 tools/derive_doors_1812.py --check
 step "1812 people keep their day: off their dates nowhere (Lalime gone by 14 August, there in February), indoors or out by the hour, talking, at work, walking; a door offers Ask for whoever is inside, soldiers in quarters too, and the one asked for comes out to the visitor and goes back in (T-3463..T-3467)" \
   node tools/test_human_days.mjs
+step "The town at a distance: every person has one tier at every distance, middle bodies and far cards handed over without a gap or a double, a templated day read one span at a time is its whole day's, only people out and not built are read, a shared body folds inner layers under outer ones and walks, and every team has a card to bake (T-3555)" \
+  node tools/test_crowd.mjs
 step "Someone at home is found and followed: they come out of their own door on a walk round the block by its sidewalks (a walk about the place in 1812), on while followed, back in after; away people stay away (T-3573)" \
   node tools/test_step_out.mjs
 step "Prairie Avenue roster casting, aliases, portraits and seasonal days remain consistent (T-3548)" \
@@ -766,6 +790,20 @@ step "A Potawatomi man's belt sits on his shirt or blanket at every level, stand
   node tools/test_human_waist.mjs
 step "Trousers, breeches, pantaloons and overalls bridge the seat from cheek to cheek, standing and striding, at every level; nothing else on them moves (T-3553)" \
   node tools/test_human_seat.mjs
+step "Collars, straps and crossbelts sit on the cloth beneath with clean edges, nothing through them standing, walking or turning the head, at every level (T-3553)" \
+  node tools/test_human_collar.mjs
+step "A coat closes under the arm on every sleeved body and its back vent laps shut, standing and walking, at every level (T-3553)" \
+  node tools/test_human_coat.mjs
+step "Sleeve hems and cuffs bend with the wrist as one band, no ragged edge; the soldiers' cuffs never through or parted; a gloved hand shows no skin in the sleeve's mouth, walking, bending, carrying, at every level (T-3553)" \
+  node tools/test_human_sleeve.mjs
+step "Townsmen's 1830s trousers are full at the waistband, pleated, tapered to the ankle and strapped under the shoe; the shirt is white linen gathered into a wristband, nothing through, standing and walking, at every level, no mesh added (T-3553)" \
+  node tools/test_human_tailor_1835.mjs
+step "The 1812 private wears the regulars' coat: skirts below the coatee's and tape on his breast button holes, at every level, standing and walking; the 1835 garrison as drawn (T-3553)" \
+  node tools/test_human_regulars.mjs
+step "John J. Glessner's frock coat stops at the knee, is taken in at the waist, opens on the shirt front, has a white standing collar and a back vent, standing and walking, at every level (T-3553)" \
+  node tools/test_human_frockcoat.mjs
+step "The 1904 lady's skirt is close at the hips and flares from the knee, with gores, folds, braid, a cream lace front and wrist frills, clear of the legs walking, at every level, no mesh added (T-3553)" \
+  node tools/test_human_gown.mjs
 step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \
   node tools/test_human_looks.mjs
 step "1904 people use actual drawn pedestrian tops only beneath enabled terrain-cut masks, preserving decks, positive yards and other epochs (T-2795)" \
@@ -780,6 +818,8 @@ step "The driven horse's mid and far levels ride its own bones through the trot,
   node tools/test_horse_rig.mjs
 step "Ride a horse: each year's saddle horse, its tack on the coat, the rider seated at walk and trot without going into the horse, the reins, holds and getting down (T-3560)" \
   node tools/test_riding.mjs
+step "The visitor's own person: every choice one the renderer draws and a body the saddle seats, kept per year and sex, the chosen face drawn, kept with the account (T-3644)" \
+  node tools/test_visitor_person.mjs
 step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
   node tools/test_fabric.mjs
 step "Every person's skin has pores, blood and a glow, hair a strand sheen and eyes a wet glint: shader patch, no texture (T-3400)" \
@@ -824,6 +864,8 @@ step "A visitor climbs up beside any driver, takes and hands back the reins, and
   node tools/test_transport_boarding.mjs
 step "Ask the Glessner coachman for a ride: in beside Mr. Glessner, round the block, home to the coach house and out (T-3557)" \
   node tools/test_glessner_ride.mjs
+step "Climb up and get down are drawn: the year's figure walks over, climbs by the hub and the rail and sits, its holds on the real vehicles, both sides, the eye watching (T-3560)" \
+  node tools/test_board_climb.mjs
 step "Every person placed in town is named by the look tag, found, and followed beside them (T-3404)" \
   node tools/test_person_interaction.mjs
 step "Every person's name fits their floating name card; on by default, a tap opens their card (T-3614)" \

@@ -259,6 +259,7 @@ export function offHours(hours, hour) {
 const envelopeOf = row => Array.isArray(row?.envelope_local_xz_m) ? row.envelope_local_xz_m
   : Array.isArray(row?.envelope_measured_local_xz_m) ? row.envelope_measured_local_xz_m : null;
 const TEAM_MARGIN_M = .3;
+const OBSTACLE_M = .6;
 
 /**
  * Kevin, 2026-11-16, of 1835: "we should have a lot of them running on loops around the city".
@@ -302,11 +303,13 @@ export function advanceGhost(ghost, { length, speed_m_s, stops = [] }, dt) {
  * `clearWhy(row)` (optional) names what last refused `clear(row, ...)`: 'visitor' or a footprint id.
  * `carriageway(row, pose)` (optional, T-3557): false when a wheel or hoof of that row's team at a
  * vehicle-root pose leaves the scene's carriageways, true on them, null while they are unread;
- * a driven team is refused the kerb by it. A scene without carriageway data passes none. */
+ * a driven team is refused the kerb by it. A scene without carriageway data passes none.
+ * `obstacles()` (optional) lists what moves or stands in the street that a team must not drive
+ * through (riding.js obstacles: saddle horses, town riders, stage horses), as { id, word, print }. */
 export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssembly = null, heightAt,
   clear, routeClear = clear, routeSupport = null, clearWhy = null, carriageway = null, detail = 'full',
   reach = { full: 90, balanced: 60, light: 45 }, problems = [], onActorsChanged = () => {},
-  admit = null, pathHeightAt = null, stream = STREAM }) {
+  admit = null, pathHeightAt = null, stream = STREAM, obstacles = null }) {
   // T-3542: a tier draws the teams when its reach is above zero; since the owner's ruling
   // (2026-11-10) Light's is, so a phone keeps its horses, carriages and wagons, nearer.
   const draws = t => (reach[t] ?? 0) > 0;
@@ -348,7 +351,7 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
     ? createCrossings(circuits) : { gateFor: () => null, snapshot: () => ({}), zones: [] });
   // T-3557: while a team is driven (or steered home) it is an obstruction to the others, and
   // they to it. A route team pulled up only for a driven team goes on by itself once it can.
-  const heldByTeam = new Set();
+  const heldByTeam = new Set(), heldByHorse = new Set();
   const teamsClear = (row, self, from, to) => {
     const mine = envelopeOf(row);
     if (!mine) return true;
@@ -367,6 +370,29 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
     }
     return true;
   };
+  // Kevin, 2026-11-17: "i also just saw a carriage on its route drive through a horse, they
+  // should either stop and wait for the horse to move". A team pulls up OBSTACLE_M short of a
+  // horse in its way and goes on by itself once it has moved (heldByHorse, as heldByTeam); one
+  // already touching may only draw apart.
+  const obstacleClear = (row, from, to) => {
+    let list = null;
+    try { list = obstacles?.() ?? null; } catch { list = null; }
+    if (!list?.length) return null;
+    const mine = envelopeOf(row);
+    if (!mine) return null;
+    let at = null, was = null;
+    for (const o of list) {
+      const p = o?.print;
+      if (!p) continue;
+      at ??= footprintOfPose(to, mine, OBSTACLE_M);
+      if (!overlaps(at, p)) continue;
+      was ??= footprintOfPose(from, mine, OBSTACLE_M);
+      const ce = (p.w + p.e) / 2, cn = (p.s + p.n) / 2;
+      if (overlaps(was, p) && Math.hypot(to.e - ce, to.n - cn) > Math.hypot(from.e - ce, from.n - cn)) continue;
+      return o.word ?? 'a horse';
+    }
+    return null;
+  };
   const liveClear = row => {
     let self = null, word = null;
     const check = (from, to) => {
@@ -380,11 +406,14 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
         try { admitted = blocker !== 'visitor' && !!self && self.mode !== 'route' && admit?.(row, from, to) === true; } catch { admitted = false; }
         if (!admitted) {
           word = blocker === 'visitor' ? 'someone in the way' : 'a wall';
-          heldByTeam.delete(row.id); return false;
+          heldByTeam.delete(row.id); heldByHorse.delete(row.id); return false;
         }
       }
-      if (!teamsClear(row, self, from, to)) { word = 'another team'; heldByTeam.add(row.id); return false; }
+      if (!teamsClear(row, self, from, to)) { word = 'another team'; heldByTeam.add(row.id); heldByHorse.delete(row.id); return false; }
       heldByTeam.delete(row.id);
+      const horse = obstacleClear(row, from, to);
+      if (horse) { word = horse; heldByHorse.add(row.id); return false; }
+      heldByHorse.delete(row.id);
       // An admitted pose's hooves are the admitting way's to read (on its drive and floor). The
       // way admits a pose where no wall refuses it too: on the drive the horses are over the walk
       // and its ramp before the coach reaches the doorway, off the road's support domain.
@@ -578,7 +607,7 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
         // up outside them: not drawn, not moving, its place on the road kept for the morning.
         // T-3553: a team a jaunt's stage has taken keeps no hours: it is where the scene needs it.
         const away = hidden || (actor.mode !== 'staged' && offHours(rowById.get(actor.id)?.hours, hour));
-        if (heldByTeam.has(actor.id) && actor.mode === 'route' && actor.state === 'stopped'
+        if ((heldByTeam.has(actor.id) || heldByHorse.has(actor.id)) && actor.mode === 'route' && actor.state === 'stopped'
           && actor.reason === 'obstruction' && !away && !paused && actor.canResume()) actor.resume();
         actor.assembly?.setReducedMotion?.(reducedMotion);
         actor.update(dt, { enabled: !away, drawn, paused, reducedMotion, elapsedFrame, motionFrame });
@@ -637,6 +666,33 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
         const d = ghost?.distance ?? saved.get(row.id)?.distance_m ?? row.initial_distance_m ?? 0;
         const p = route.at(((d % route.length) + route.length) % route.length);
         list.push({ id: row.id, kind, e: p.e, n: p.n, heading_deg: heading(p.yaw), moving: !!ghost && !(ghost.dwell > 0) });
+      }
+      return list;
+    },
+    /**
+     * T-3560: every team out on the road, as its footprint now and where its round takes it at
+     * each of `times` seconds ahead (a team stopped or driven stays where it stands): for the
+     * town's riders (riding.js) to give way to. Built teams and the streamed teams' ghosts.
+     */
+    footprintsAhead(times = [0], margin = 0) {
+      if (disposed) return [];
+      const hour = lastUpdate?.[2]?.hour ?? null, built = new Map(actors.map(actor => [actor.id, actor])), list = [];
+      for (const { row, route } of circuits) {
+        const envelope = envelopeOf(row);
+        if (!envelope) continue;
+        const actor = built.get(row.id);
+        if (actor) {
+          if (actor.disposed || !actor.pose || (actor.mode !== 'staged' && offHours(row.hours, hour))) continue;
+          const snap = actor.snapshot();
+          const pace = actor.mode === 'route' && actor.state === 'moving' && !(snap.dwell_s > 0) ? (actor.speed_m_s ?? row.speed_m_s ?? 0) : 0;
+          list.push(times.map(t => (actor.mode === 'route' && pace ? footprintAt(route, row, snap.distance_m + pace * t, margin)
+            : footprintOfPose(actor.pose, envelope, margin))));
+          continue;
+        }
+        const ghost = ghosts.get(row.id);
+        if (!ghost || row.on_call || offHours(row.hours, hour)) continue;
+        const pace = ghost.dwell > 0 ? 0 : (row.speed_m_s ?? 0);
+        list.push(times.map(t => footprintAt(route, row, ghost.distance + pace * t, margin)));
       }
       return list;
     },

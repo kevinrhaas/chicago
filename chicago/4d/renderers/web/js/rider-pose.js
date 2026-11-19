@@ -82,9 +82,15 @@ export function createRiderPose(scene, root) {
     /**
      * Pose for this frame. `seat` = where the pelvis sits (world); `feet` / `hands` = { l, r }
      * world targets for the ankles and the palms; `forward` / `up` = the horse's world axes;
-     * `lean` = radians forward of upright; `look` = radians the head turns (left +).
+     * `lean` = radians forward of upright; `look` = radians the head turns (left +); `sway` =
+     * radians the back rolls toward the left with the horse's stride; `nod` = radians the head
+     * drops (riding.js riderLife); `knee` = which way the knees bend ({ forward, out, up }: up
+     * -0.1 unless said; board-climb.js lifts them for a seat and a step). `legs` (T-3644, a side
+     * saddle) = { l, r }, each leg's own knee pole { forward, out, up } in the horse's axes (out
+     * toward the near side, whichever leg), its thigh `roll` and its toe's way `toe` = [forward,
+     * out, up]; without it both legs mirror `knee` and `thighRoll` astride.
      */
-    apply({ seat, feet, hands, forward, up, lean = .08, look = 0, knee = { forward: .6, out: 1.2 } }) {
+    apply({ seat, feet, hands, forward, up, lean = .08, look = 0, sway = 0, nod = 0, knee = { forward: .6, out: 1.2 }, thighRoll = 0, legs = null }) {
       for (const [b, q] of base) b.quaternion.copy(q);
       root.position.copy(basePos);
       root.updateMatrixWorld(true);
@@ -103,16 +109,40 @@ export function createRiderPose(scene, root) {
         bone.updateMatrixWorld(true);
       };
       tip(bones.spine_01, lean * .5); tip(bones.spine_02, lean * .5);
-      tip(bones.neck_01, -lean * .5); tip(bones.head, -lean * .5);
+      tip(bones.neck_01, -lean * .5); tip(bones.head, -lean * .5 + nod);
+      if (sway) {
+        // The back rolls with the stride from the waist up; the neck takes most of it back.
+        const roll = (bone, a) => { bone.parent.getWorldQuaternion(_p); _q.setFromAxisAngle(forward, a); bone.quaternion.premultiply(_p.clone().invert().multiply(_q).multiply(_p)); bone.updateMatrixWorld(true); };
+        roll(bones.spine_01, sway * .5); roll(bones.spine_02, sway * .5); roll(bones.neck_01, -sway * .7);
+      }
       if (look) { bones.head.parent.getWorldQuaternion(_p); _q.setFromAxisAngle(up, look); bones.head.quaternion.premultiply(_p.clone().invert().multiply(_q).multiply(_p)); bones.head.updateMatrixWorld(true); }
       const short = {};
       for (const [s, sign] of [['l', 1], ['r', -1]]) {
-        // Knee forward and out, round the barrel; then the heel down, toe a little out.
-        const pole = forward.clone().multiplyScalar(knee.forward).addScaledVector(side, sign * knee.out).addScaledVector(up, -.1);
+        // Knee forward and out, round the barrel; then the heel down, toe a little out. On a side
+        // saddle each leg has its own: both knees to the near side.
+        const leg = legs?.[s];
+        const pole = leg ? forward.clone().multiplyScalar(leg.forward).addScaledVector(side, leg.out).addScaledVector(up, leg.up ?? 0)
+          : forward.clone().multiplyScalar(knee.forward).addScaledVector(side, sign * knee.out).addScaledVector(up, knee.up ?? -.1);
+        const roll = leg ? leg.roll ?? 0 : thighRoll;
         short[`leg_${s}`] = reach(bones[`thigh_${s}`], bones[`calf_${s}`], bones[`foot_${s}`], feet[s], pole);
+        // T-3644: the thigh rolled in about its own line, its flat laid to the saddle (a rider is
+        // taught to turn the thigh in from the hip): a wide-hipped figure's inner thigh otherwise
+        // stands in the barrel. The knee stays where it is; the shin is laid back on the iron.
+        if (roll) {
+          const th = bones[`thigh_${s}`], ca = bones[`calf_${s}`], ft = bones[`foot_${s}`];
+          const axis = wp(ca).sub(wp(th)).normalize();
+          th.parent.getWorldQuaternion(_p);
+          _q.setFromAxisAngle(axis, sign * roll);
+          th.quaternion.premultiply(_p.clone().invert().multiply(_q).multiply(_p));
+          th.updateMatrixWorld(true);
+          const knee = wp(ca).clone();
+          turnToward(ca, wp(ft).clone().sub(knee), feet[s].clone().sub(knee));
+        }
         const foot = bones[`foot_${s}`], ball = bones[`ball_${s}`];
         if (ball) {
-          const want = forward.clone().addScaledVector(side, sign * .25).addScaledVector(up, .12).normalize();
+          const toe = leg?.toe;
+          const want = toe ? forward.clone().multiplyScalar(toe[0]).addScaledVector(side, toe[1]).addScaledVector(up, toe[2]).normalize()
+            : forward.clone().addScaledVector(side, sign * .25).addScaledVector(up, .12).normalize();
           turnToward(foot, wp(ball).sub(wp(foot)), want);
         }
         // Elbow back at the side and a little out; the hand to the rein.
@@ -132,18 +162,26 @@ export function createRiderPose(scene, root) {
  * +z ahead, +x the near side). `world(root)` gives `apply`'s targets; `rootFrame(root, pose)`
  * gives the tack's `update` its irons and the solved hands, so the reins end in the hands.
  */
-export function saddleTargets(tack, fit, { lean = fit.lean_walk_rad ?? .08 } = {}) {
+export function saddleTargets(tack, fit, { lean = fit.lean_walk_rad ?? .08, rise = 0, give = 0 } = {}) {
   const seat = tack.seat().add(new THREE.Vector3(0, fit.seat_above_m, fit.seat_back_m));
   const iron = side => tack.stirrupBar(side).add(new THREE.Vector3(side * fit.iron_out_m, -fit.leather_m, fit.iron_back_m));
   const ankle = side => iron(side).add(new THREE.Vector3(side * fit.ankle_out_m, fit.ankle_above_iron_m, -fit.ankle_behind_iron_m));
-  const hand = side => seat.clone().add(new THREE.Vector3(side * fit.hands_apart_m / 2, fit.hands_above_m, fit.hands_ahead_m));
+  // T-3644: on a side saddle (fit.seat 'side') the left foot is in the one, near, iron and the
+  // right leg is over the fixed head, its foot hanging down the near shoulder `off_foot_m` from
+  // the seat (moving with it).
+  const sideSeat = fit.seat === 'side';
+  // `rise`: the seat lifted out of the saddle (a rising trot); `give`: the hands carried forward
+  // with the horse's head as it nods (riding.js riderLife). Both 0 is the fitted seat.
+  const hand = side => seat.clone().add(new THREE.Vector3(side * fit.hands_apart_m / 2, fit.hands_above_m + rise * .5, fit.hands_ahead_m + give));
   const W = (root, v) => root.localToWorld(v.clone());
   return {
     seat, iron, hand, lean,
     world(root) {
       root.updateMatrixWorld(true);
       const q = root.getWorldQuaternion(new THREE.Quaternion());
-      return { seat: W(root, seat), feet: { l: W(root, ankle(1)), r: W(root, ankle(-1)) }, hands: { l: W(root, hand(1)), r: W(root, hand(-1)) },
+      const up = seat.clone().add(new THREE.Vector3(0, rise, 0));
+      const right = sideSeat ? up.clone().add(new THREE.Vector3(...fit.off_foot_m)) : ankle(-1);
+      return { seat: W(root, up), feet: { l: W(root, ankle(1)), r: W(root, right) }, hands: { l: W(root, hand(1)), r: W(root, hand(-1)) },
         forward: new THREE.Vector3(0, 0, 1).applyQuaternion(q), up: new THREE.Vector3(0, 1, 0).applyQuaternion(q), lean };
     },
     rootFrame(root, pose) {

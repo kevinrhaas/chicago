@@ -330,7 +330,7 @@
     },
     {
       "id": "burns_infant",
-      "name": "The Burns baby",
+      "name": "Eliza Burns",
       "relationship": "daughter",
       "grade": "attested",
       "sources": [
@@ -389,11 +389,35 @@
           "quote": "Mrs. Burns 2",
           "claim": "Heald list: children yet in captivity"
         }
-      ]
+      ],
+      "also_written": [
+        "The Burns baby"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "kinzie_waubun_1856",
+          "quaife_1913"
+        ],
+        "note": "A source places the child in this family, so the surname is the record's; no source gives the child's first name, so it is ours, one common in soldier and settler families of the day."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "First name reconstructed; surname from the record",
+          "grade": "reconstructed"
+        }
+      ],
+      "reconstruction": {
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
+      }
     },
     {
       "id": "burns_child_a",
-      "name": "A child of Mrs. Burns, name not recorded",
+      "name": "William Burns",
       "relationship": "child",
       "grade": "attested",
       "sources": [
@@ -412,11 +436,34 @@
           "quote": "To complete the tale of the mother's bereavement, her two children next in age perished in the massacre.",
           "claim": "Quaife ch. XI."
         }
-      ]
+      ],
+      "also_written": [
+        "A child of Mrs. Burns, name not recorded"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "A source places the child in this family, so the surname is the record's; no source gives the child's first name, so it is ours, one common in soldier and settler families of the day. Whether the child was a Burns or a Cooper (Mrs. Burns's first husband's name, which her elder children Joseph and Isabella bore) is not known; Burns is taken."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "First name reconstructed; surname from the record",
+          "grade": "reconstructed"
+        }
+      ],
+      "reconstruction": {
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
+      }
     },
     {
       "id": "burns_child_b",
-      "name": "A second child of Mrs. Burns, name not recorded",
+      "name": "Nancy Burns",
       "relationship": "child",
       "grade": "attested",
       "sources": [
@@ -435,7 +482,30 @@
           "quote": "To complete the tale of the mother's bereavement, her two children next in age perished in the massacre.",
           "claim": "Quaife ch. XI."
         }
-      ]
+      ],
+      "also_written": [
+        "A second child of Mrs. Burns, name not recorded"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "A source places the child in this family, so the surname is the record's; no source gives the child's first name, so it is ours, one common in soldier and settler families of the day. Whether the child was a Burns or a Cooper (Mrs. Burns's first husband's name, which her elder children Joseph and Isabella bore) is not known; Burns is taken."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "First name reconstructed; surname from the record",
+          "grade": "reconstructed"
+        }
+      ],
+      "reconstruction": {
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
+      }
     }
   ]
 }

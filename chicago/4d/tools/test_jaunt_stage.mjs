@@ -146,6 +146,15 @@ console.log('PASS the stage makes its own figures, poses them, plays their beats
   assert.equal(hitW.personId, null); assert.equal(hitW.name, 'One of the warriors; name not recorded', 'an unnamed figure says who it stands for');
   assert.equal(st.meet(hitW, { e: 0, n: 0 }), false, 'one kneeling for the scene keeps their pose');
   assert.equal(w.greets, 0);
+  {
+    // T-3553: an unnamed figure given a name of ours says it with what they stand for.
+    const st2 = createJauntStage({ humans, eye: () => ({ x: 0, y: 1.6, z: 0 }) });
+    st2.sync({ id: 'n', stage: { cast: [{ extra: 'v', dress: 'potawatomi_man_1812', name: 'Red Thunder', about: 'One of the warriors; name reconstructed', at: [3, 10] }] } }, { arrived: true });
+    const hitV = st2.pick(ray(st2.cast[0]));
+    assert.equal(hitV.name, 'Red Thunder'); assert.equal(hitV.about, 'One of the warriors; name reconstructed');
+    assert.equal(st2.named[0].grade, 'reconstructed', 'a name of ours on a staged figure reads reconstructed');
+    st2.release();
+  }
   w.indoors = true;
   assert.equal(st.pick(ray(w)), null, 'one out of sight is not met');
   assert.equal(st.pick(null), null);
@@ -240,8 +249,8 @@ for (const name of ['battle-of-fort-dearborn', 'killing-of-jean-lalime']) {
       const poses = [c.pose, ...(c.beats || []).map((x) => x.pose)].filter(Boolean);
       for (const p of poses) assert.ok(POSES.includes(p), `${where}: ${p} is a pose`);
       if (c.person && young.test(c.person)) assert.ok(!poses.includes('lie'), `${where}: no child is ever shown fallen (${c.person})`);
-      for (const b of c.beats || []) assert.deepEqual(Object.keys(b).filter((k) => !['t', 'walk', 'pace', 'heading', 'face', 'pose', 'ease', 'talk', 'greet', 'hide', 'show', 'place', 'torch', 'ignite', 'cross', 'borne'].includes(k)), [],
-        `${where}: a beat is only a move, a turn, a pose, a word of the hand, a way in or out, a boat crossed in, a bier carried, or a torch put to a building`);
+      for (const b of c.beats || []) assert.deepEqual(Object.keys(b).filter((k) => !['t', 'walk', 'pace', 'heading', 'face', 'pose', 'ease', 'talk', 'greet', 'hide', 'show', 'place', 'torch', 'ignite', 'cross', 'borne', 'dismount'].includes(k)), [],
+        `${where}: a beat is only a move, a turn, a pose, a word of the hand, a way in or out, a boat crossed in, a bier carried, a torch put to a building, or getting down from a horse`);
       if ((c.beats || []).some((b) => b.torch || b.ignite)) assert.ok(st.stage.fire, `${where}: a torch only where the stop burns`);
     }
     assert.ok(stageLength(st) < 300, `${where}: the scene plays out in minutes`);
@@ -588,3 +597,55 @@ console.log('PASS the adults tellings stage the fighting behind their warning, a
   assert.ok(calls.some((c) => c[0] === 'clear'), 'Watch again washes the blood away');
 }
 console.log('PASS a wound beat bleeds the one hit, from the armed side, once the figure is drawn');
+
+// ---- T-3560 (Kevin, 2026-11-17: "maybe during the battle of fort Dearborn they would have had
+// horses"): a castmate who mounts rides a horse their own way, and gets down beside it.
+{
+  const c = { person: 'w', at: [0, 0], heading: 0, mount: { horse: 'wells' }, beats: [{ t: 1, walk: [[0, 20]], pace: 8 }, { t: 2, talk: true }, { t: 5, dismount: true }, { t: 6, walk: [[-5, 20]] }] };
+  let s = castAt(c, 0);
+  assert.ok(s.mounted && s.speed === 0, 'up from the start');
+  s = castAt(c, 2.5);
+  near(s.n, 12, 'galloping their way'); assert.equal(s.speed, 8, 'at their pace, a talk beat on the way does not stop it');
+  s = castAt(c, 5.5);
+  assert.ok(!s.mounted && s.horse && s.horse.n === 20, 'down where the horse stands');
+  near(s.e, -1, 'on its near side'); near(s.n, 20, 'beside it');
+  s = castAt(c, 20);
+  near(s.e, -5, 'walking on from there'); assert.deepEqual([s.horse.e, s.horse.n], [0, 20], 'the horse stays');
+  const fig = (instance) => { const a = { instance, e: 0, n: 0, heading: 0, posture: null, indoors: false, disposed: false, path: null, updates: 0,
+    root: { visible: true }, body: {}, person: { id: 'w', name: 'Wells' }, proxy: { name: 'proxy' },
+    setState() {}, place() {}, setIndoors(v) { a.indoors = v; }, turnTo(h) { a.heading = h; },
+    setPosture(kind) { a.posture = kind === 'stand' ? null : { kind }; }, walkPath(pts) { a.path = pts; return true; },
+    actions: { talking: false, setTalk(v) { a.actions.talking = v; }, greet() {} }, update() { a.updates++; }, dispose() { a.disposed = true; } };
+    return a; };
+  const moves = [], events = [];
+  const horse = { seated: false, visible: true, move(p) { moves.push(p); }, async seat(a) { horse.seated = true; events.push(['seat', a.instance.id]); return true; },
+    unseat(parent) { horse.seated = false; events.push(['unseat', !!parent]); }, dispose() { events.push(['dispose']); } };
+  const humans = { shown: true, get: (id) => ({ instance: { id: `hi_${id}`, scene: '1812', appearance: { asset_id: 'engage_1812' } }, person: { id, name: 'Wells' } }), createActor: (i) => fig(i) };
+  const asked = [];
+  const st = createJauntStage({ humans, parent: { add() {} }, eye: () => ({ x: 0, y: 1.6, z: 0 }), horses: { create: (spec) => { asked.push(spec); return horse; } } });
+  st.sync({ id: 'ride', stage: { cast: [c] } }, { arrived: true });
+  const [a] = st.cast;
+  st.update(0.1); await new Promise((r) => setTimeout(r, 0)); st.update(0.1); await new Promise((r) => setTimeout(r, 0));
+  assert.equal(asked.length, 1, 'the horse asked for once'); assert.equal(asked[0].coat_row, 'wells');
+  assert.ok(horse.seated && events[0][0] === 'seat', 'seated in the saddle');
+  for (let i = 0; i < 20; i++) st.update(0.1);
+  const u = a.updates;
+  st.update(0.1);
+  assert.equal(a.updates, u, 'up, the figure is the horse\'s, not walked by the people layer');
+  near(a.n, castAt(c, st.clock).n, 'the figure where the beats have them'); assert.ok(moves.at(-1).speed === 8, 'the horse at their gallop');
+  assert.equal(st.snapshot().cast[0].mount, 'up');
+  assert.equal(st.meet({ actor: a }, { e: 0, n: 0 }), false, 'a rider does not stop to greet');
+  for (let i = 0; i < 40; i++) st.update(0.1);
+  assert.ok(!horse.seated && events.some((x) => x[0] === 'unseat'), 'down at the dismount');
+  near(a.e, -1, 'stood beside the horse (this stand-in walks nowhere after)'); assert.ok(a.updates > u, 'and walked by the people layer again');
+  assert.equal(moves.at(-1).speed, 0); near(moves.at(-1).n, 20, 'the horse standing where they got down');
+  st.release();
+  assert.ok(events.some((x) => x[0] === 'dispose'), 'the horse let go with the stage');
+  // No horses handed in: they walk it.
+  const foot = createJauntStage({ humans, parent: { add() {} }, eye: () => ({ x: 0, y: 1.6, z: 0 }) });
+  foot.sync({ id: 'ride', stage: { cast: [c] } }, { arrived: true });
+  foot.update(0.1); foot.update(1.5);
+  assert.ok(foot.cast[0].updates >= 2 && !foot.snapshot().cast[0].mount, 'with no horses, on foot');
+  foot.release();
+}
+console.log('PASS a castmate on a horse rides their own way at their pace, seated, and gets down beside it, where it stands');

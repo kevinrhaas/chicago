@@ -153,12 +153,12 @@
  },
  "summary": {
   "lots": 149,
-  "shrubs": 154,
+  "shrubs": 152,
   "trees": 13,
   "beds": 11,
   "creeper_patches": 55,
   "attested_plants": 38,
-  "lots_with_a_door": 113,
+  "lots_with_a_door": 115,
   "schemes": {
    "corners": 76,
    "group": 23,
@@ -6544,11 +6544,11 @@
     ],
     "width_m": 8.08
    },
-   "front_m": 7.27,
+   "front_m": 7.3,
    "doors": [
     [
-     5.31,
-     7.35
+     1.83,
+     7.46
     ]
    ],
    "scheme": "corners",
@@ -6620,7 +6620,12 @@
     "width_m": 15.38
    },
    "front_m": 5.86,
-   "doors": [],
+   "doors": [
+    [
+     2.82,
+     7.56
+    ]
+   ],
    "scheme": "lawn",
    "grade": "reconstructed",
    "shrubs": [],
@@ -6653,37 +6658,23 @@
    "front_m": 8.17,
    "doors": [
     [
-     14.39,
-     12.26
+     10.81,
+     11.43
     ]
    ],
    "scheme": "group",
    "grade": "reconstructed",
    "shrubs": [
     [
-     1382.18,
-     -3562.59,
+     1386.43,
+     -3561.09,
      "arborvitae",
      3.19,
      1.35
     ],
     [
-     1387.68,
-     -3551.09,
-     "hydrangea",
-     1.1,
-     1.33
-    ],
-    [
-     1387.93,
-     -3549.84,
-     "hydrangea",
-     1.1,
-     1.33
-    ],
-    [
-     1387.68,
-     -3548.59,
+     1387.43,
+     -3560.34,
      "hydrangea",
      1.1,
      1.33
@@ -6693,7 +6684,7 @@
    "beds": [
     [
      1389.68,
-     -3573.09,
+     -3571.09,
      1.3,
      0.73,
      179.47,
@@ -6725,26 +6716,26 @@
     ],
     "width_m": 15.15
    },
-   "front_m": 7.44,
+   "front_m": 7.18,
    "doors": [
     [
-     4.51,
-     8.65
+     14.14,
+     8.55
     ]
    ],
    "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [
     [
-     1422.93,
-     -3572.09,
+     1421.43,
+     -3566.84,
      "lilac",
      2.33,
      1.9
     ],
     [
-     1421.93,
-     -3568.59,
+     1422.68,
+     -3564.59,
      "lilac",
      2.42,
      1.97
@@ -6884,8 +6875,13 @@
     ],
     "width_m": 18.68
    },
-   "front_m": 7.03,
-   "doors": [],
+   "front_m": 3.77,
+   "doors": [
+    [
+     9.41,
+     8.82
+    ]
+   ],
    "scheme": "lawn",
    "grade": "reconstructed",
    "shrubs": [],

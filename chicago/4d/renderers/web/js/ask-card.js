@@ -11,6 +11,7 @@
  */
 
 import { iconSvg } from './menu-icons.js';
+import { readingTabs, forgetAge } from './reading-level.js';
 
 /**
  * @param {object} o
@@ -77,6 +78,7 @@ export function createAskCard({ doc = globalThis.document, parent = null, canFin
       ol.append(li);
     }
     body.replaceChildren(make('p', 'ask-prompt', `What would you like to ask ${showing.teller || 'them'}?`), ol);
+    readingTabs(card, { after: persona });
     findKey.hidden = true;
     backKey.hidden = true;
     body.scrollTop = 0;
@@ -97,6 +99,7 @@ export function createAskCard({ doc = globalThis.document, parent = null, canFin
         const block = make('div', 'ask-reveal');
         block.append(make('p', 'ask-you', m.q), ...m.a.map((t) => make('p', null, t)));
         more.replaceChildren(...[...more.children].map((c) => (c === b ? block : c)));
+        readingTabs(card, { after: persona }); // T-3645: the follow-up at the age shown
       });
       more.append(b);
     }
@@ -112,6 +115,8 @@ export function createAskCard({ doc = globalThis.document, parent = null, canFin
       if (ok !== true) findKey.append(make('small', 'tale-why', ok));
     }
     backKey.hidden = false;
+    // T-3645: the answer at the reader's age, where it is written at more than one.
+    readingTabs(card, { after: persona });
     body.scrollTop = 0;
     card.scrollTop = 0;
   }
@@ -131,6 +136,7 @@ export function createAskCard({ doc = globalThis.document, parent = null, canFin
      */
     show({ teller, personId, persona: p = null, asks, done = new Set(), manner = null }) {
       showing = { teller, personId, persona: p, asks, done: new Set(done), manner, ask: null };
+      forgetAge(card);
       who.textContent = `Ask ${teller || 'them'}`;
       persona.textContent = [p?.label, p?.who].filter(Boolean).join('. ').replace(/\.\./g, '.');
       persona.hidden = !persona.textContent;

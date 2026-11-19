@@ -3988,7 +3988,7 @@ class Assembly:
             cf = p.entrance_kit["cheek_form"]
             v["stair"]["cheek_form"] = cf["kind"]
             if cf["kind"] == "swept":   # T-2918: a scrolled cheek takes no sizes of its own
-                v["stair"]["swept"] = {k: cf[k] for k in ("head_m", "foot_m", "block_m", "flare", "newel", "pierced", "arched") if k in cf}
+                v["stair"]["swept"] = {k: cf[k] for k in ("head_m", "foot_m", "block_m", "flare", "newel", "pierced", "arched", "railed", "wing") if k in cf}
             else:
                 if "foot_block_m" in cf:   # T-2984: but its roll may stand on a foot block
                     v["stair"]["scroll_block_m"] = cf["foot_block_m"]
@@ -5605,6 +5605,11 @@ class Assembly:
         back = fascia - sg * (run + 0.3) if back_at is None else back_at
         P = k5.frame(axis)
         ends = ("hidden", "dormer_face") if sg > 0 else ("dormer_face", "hidden")
+        if d.get("over_curb"):
+            # T-1894: a pediment over the curb: the body carried `back_m` behind the curb's line,
+            # over the deck, and its back end slated as its cheeks are (it stands out of the deck)
+            back = fascia - sg * (run + d["over_curb"]["back_m"])
+            ends = ("cheek", "dormer_face") if sg > 0 else ("dormer_face", "cheek")
         # T-2866: a hipped dormer's cheeks are its face's (1625's print draws both pale, where
         # its slates read dark); the others' are slated, as the K01 dormer's are
         slated = (d.get("hood") or {}).get("face") == "slate"   # T-1890: 1801's slated faces
@@ -7104,7 +7109,13 @@ def build(params, structure_id: str):
                 a._flank_rock = None
                 if split:   # T-1887: and behind its stone, the flank's brick, cut where the stone stands
                     breaks, cols = breaks_of(cid, side)
-                    a.wall(cid, side, O, R, length, E, t, holes(cid) + [(*split[0], 0.0, E)],
+                    # T-3608: a round-headed light in the stone span is the stone's to cut; passed
+                    # to the brick behind as well, the brick wall laid its head's spandrels inside
+                    # the stone span's own hole (2026's south flank: brick strips over each light)
+                    a.wall(cid, side, O, R, length, E, t,
+                           [h for h in holes(cid) if not (len(h) > 4 and split[0][0] - 1e-6 <= h[0]
+                                                          and h[1] <= split[0][1] + 1e-6)]
+                           + [(*split[0], 0.0, E)],
                            breaks, bands, gaps[cid], cols)
                 if side_arch and side_arch["wall"] == cid:
                     k01_arched_front.side_arch(a, frames[cid][0][0], side_arch["group"])

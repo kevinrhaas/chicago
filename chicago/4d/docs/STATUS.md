@@ -1,3 +1,244 @@
+## T-3656, T-3657, T-3658 — Combined browser-only delivery (19 November 2026)
+
+PR #2197 now carries all three completed implementations so the new classroom
+controls, photo hunt and keyboard ownership fix can land together. PR #2199 is
+superseded after its tickets are retargeted. The candidate preserves the runtime
+from `ddc786069`, a direct child of classroom checkpoint `b1f507400`, and incorporates
+DEV `c23d8a9e8`, including the T-3635 and T-3562 houses. Only our two
+pending entry files are consolidated into one T-3656 group entry; upstream records
+and the folded changelog are preserved.
+
+Earlier evidence retains its original commit, viewport and scope. The complete
+b1/c676 renderer cohort and its eight passing source partitions are historical
+baselines, not a gate for the later DEV inputs. Completed ddc renderer stages 1–12
+may carry forward only under the explicit source/data/behavior review. The new
+global source/liberty records, 1904 house and changelog require fresh published
+stages 13–15 at both widths. The final combined head must also pass all eight
+source partitions and their aggregate, moving-frame and upload-release checks.
+Incomplete or capped groups never establish coverage. PR #2197 and the linked
+evidence repository record those final results; this checkpoint claims no merge.
+
+The ddc local source gate passed parts 1–6. Part 7 found an XR wiring assertion
+that still expected the old inline keyboard guard. The repair from `fd27937a0`
+executes the actual main registration and imported callback: XR, arrival and
+Window mode each block activation/locking, and ending the modes restores input.
+Negative controls reject a missing XR guard and an always-disabled callback.
+All 20 XR checks, keyboard regressions, syntax and official no-write measurement
+pass; the original pointer guard remains. Full part 7 and preflight's part 8
+are repeated on that test-only cohort; final combined CI still runs all eight.
+The incoming unique-ID checker was also officially remeasured against the new
+data: both declared commands wrote nothing in-tree, and its existing row is
+unchanged. Its actual unique-ID check and the consolidated changelog checks pass.
+
+The first ddc desktop 13–15 group completed with 308 passing and two failing
+assertions; it establishes no release coverage. Stage 14 left a Navigator button
+focused before pressing Space, which correctly activated that control instead of
+inspecting the world. The smoke now proves native button activation separately,
+establishes world focus explicitly, and retains the original inspection/no-flight,
+Escape and E-close assertions. The exact repaired block passed 11 checks in the
+published town at each width, with zero page/console or HTTP errors. The first
+desktop diagnostic attempt lost its execution context and remains recorded as an
+incomplete failure; the bounded retry passed. No runtime change was needed.
+
+The upstream T-3662 smoke repair drains pending picture work before stage 15's
+intermediate page reload, using its existing bounded settling helper. Error
+listeners and the zero-page-errors assertion remain intact. The old texture error
+and both harness changes require a fresh full 13–15 result at each width; the
+focused checks above do not replace it.
+
+## T-3657, T-3658 — Photo hunt and targeted accessibility (18 November 2026)
+
+Originally prepared on an isolated branch after classroom checkpoint `03ecd9678`.
+The normalized `ddc786069` checkpoint incorporates the later T-3656 repairs and all
+keyboard ownership work; it is now part of the combined PR #2197 above. Keep the
+original checkpoints as evidence, rather than replaying the earlier branch history
+over a folded changelog.
+
+Home's **Where and when?** uses five licensed historical photographs of four places in
+the 1904 scene. It derives the picture, canonical building, credit, recorded date/range
+and solved camera position from the existing catalogue. The same five photographs have
+a deterministic UTC daily order; a versioned link preserves that challenge after midnight
+without sending guesses or account state. Location scoring measures ground distance, not
+camera height, direction or an invented exact year. Guess or skip before source/date
+reveals and optional travel; visits check bounds, water, router blockers and house barriers.
+Only the current thumbnail has an image source, released when hidden. One bounded local
+progress record reports unreadable or refused storage and supports an explicit restart.
+The actual rail regression covers quiet Home selection while docked: the thumbnail
+remains unloaded until reopened. Hunt styles load once per owning document on mount;
+closed panels and merely importing the module do not request them. Browser fixtures
+verify applied styles, remount deduplication and iframe isolation at both widths.
+
+Navigator reading now permits native browser magnification and panning. Viewport sizing
+keeps the drawing buffer stable during pinch zoom while still responding to keyboard,
+URL-bar and orientation changes. World movement and looking retain separate thumb roles
+when the page is magnified off-centre. Picture dialogs cycle keyboard focus, isolate the
+background, close on Escape, restore the opener and release pending image loads.
+The rail also keeps one visible Tab stop when Move or Jump is open. It retains the
+previous visible icon, then Home as fallback, without falsely selecting that icon.
+Context changes, unregistering and delayed selection cannot leave the rail unreachable.
+
+The keyboard-ownership continuation keeps arrows and Space with the focused Navigator,
+reader or native control instead of requesting pointer lock, walking or inspecting behind
+it. Moving focus into a reading surface releases already-held movement and any queued
+keyboard inspection; returning focus does not restart those keys. World-focused controls
+still work while the non-modal Navigator is visible. E still closes a legacy building
+popup or a hand-opened Navigator Inspect card, including from their buttons; text entry,
+other apps and nested picture dialogs retain the key. The existing `isTyping` contract is
+unchanged.
+
+Before-fix reproduction at `6ee1a689077839dd9923edbc80269dd2cbaccfb6`, with the actual
+main capture callback and PointerLockControls backend in a small event fixture, measured
+one pointer-lock request and `forward = -1` from ArrowDown on a Navigator button. Space
+on that button set `interact = true` and prevented its native default. The new actual
+capture/backend regression passes UI/world ownership, already-held keys, focus transfer,
+prevented/modifier/composition events, popup/Inspect E exceptions and listener cleanup.
+Navigator and Settings regressions and JavaScript syntax checks pass. The continuation's
+native browser fixture passes 20 checks at source `3131c7986`, ten each at 390×780 and
+1280×800, with zero page errors, HTTP errors or external requests. It uses the actual
+Navigator, capture callback, PointerLockControls and backend, native button/summary Space
+activation, rail arrows, role-less dialogs and real held-W-to-Tab focus transfer. World
+keys, already-prevented keys, popup/Inspect E and text entry pass. It counts pointer-lock
+requests at the canvas method without granting mouse capture; no world or WebGL is loaded.
+The new regression's official isolation measurement records no in-tree writes, and the
+isolation audit passes. Complete source and published-renderer release gates still remain
+pending for the combined branch.
+
+Final published-town integration on feature commit `5674d33d` passed at both widths:
+all five actual photograph responses and destination guards, a real Glessner arrival,
+distance score, share/reload, picture dialog and photo/notebook capture/edit flows.
+The phone run also exercised native pinch and horizontal pan with a stable drawing
+buffer. Both report zero page/HTTP errors or overflow; request cancellations are
+recorded separately. The later rail repair passes 36 native keyboard checks at both
+widths with normal and reduced motion: actual Tab/Shift+Tab, arrows, Home/End, Enter,
+Escape, off-rail screens, dock/reopen, context disappearance and unregistering. That
+fixture loads the real Navigator/rail modules with small app bodies, no world or canvas;
+its source hashes match the committed modules. Updated Navigator tests, official
+single-tool isolation measurement and isolation audit pass, with no new in-tree writes.
+
+Focused logic/catalogue and browser fixtures pass on the combined branch at 390×780
+and 1280×800.
+Hunt coverage includes all five rounds, real source dates, distance scoring, saved order
+and scores after reload, keyboard activation, image failure/retry, clipboard fallback,
+corrupt/refused storage, cleanup and zero page errors or horizontal overflow. It uses real
+Home/modules/catalogue with tiny fixture image bytes, not a complete 3D world. Accessibility
+fixtures use the real Navigator CSS, modal and touch controls with a small WebGL canvas
+running the production resize body; native pinch/pan, two-thumb input, orientation and
+modal lifecycle pass. Pure checks cover keyboard/URL-bar viewport dimensions as well.
+These are browser measurements, not physical phone/Chromebook tests or whole-app WCAG
+conformance. The combined regression also passes the four classroom logic suites, existing
+Navigator/link/photo checks, strings and changelog validation. The two newly gated pure
+tests were instrumented separately; both wrote nothing in-tree. The isolation audit and
+its self-test pass, preserving all four T-3656 measurements. Complete source and
+published-renderer release gates remain pending; no DEV merge or production promotion
+is claimed here.
+
+## T-3656 — Browser-only classroom tools (18 November 2026)
+
+Implementation on `steward/t3656-browser-classroom`, based on development commit
+`169af6421`; the associated DEV pull request records the final release verdict.
+
+- Navigator Home offers on-demand stamped PNG capture (maximum 1280-pixel edge) and a
+  validated moment link carrying the public position, year, orientation, season, hour,
+  date and selected person/place. It copies a normal rendered frame; no extra renderer,
+  persistent render target or `preserveDrawingBuffer` is enabled.
+- Guide's local Field notebook saves notes, selected person records with their grades and
+  citations, and small photo copies. It caps storage, reports refused writes, supports
+  deletion, downloads standalone HTML and prints through a small document frame for PDF.
+- Completed jaunts offer three optional typed reflections from visited, cited evidence,
+  with reading-band wording, source comparison, revision and retry. This is self-review,
+  not automatic marking or invented historical dialogue; answers stay in tab memory.
+- For teachers offers group inquiry templates using a selected jaunt's real citations,
+  with document tasks, discussion and suggested Illinois/C3 connections. These are a
+  starting set of guides, not a fully authored curriculum or certified standards mapping.
+
+Validation checkpoint: all four focused logic suites pass under Node 22; reflection
+coverage spans 240 available tellings and five bands, and lesson coverage spans 192
+school tellings and 10 available year/group combinations. Existing Navigator,
+person-card, teacher-handout, jaunt-mechanics, string and changelog checks pass.
+Real-component browser fixtures pass at 390×780 and 1280×800 for notebook
+save/edit/reload/export/print/errors, lesson selection and source links, request races,
+three-page Letter PDFs, and reflection completion. Dark notebook inputs measure
+10.62:1 contrast. Legacy 1835 People cards pass real-record notebook save, duplicate
+and denied-storage checks. People and Inspect selections pass through Home sharing
+with the final selection logic; lesson documents use the readable-text overlay.
+
+Final-runtime published-town tests now pass at 390×780 and 1280×800. Each uses the
+real People card to save canonical citations, captures a nonblank bounded PNG through
+the normal rendered frame, copies its selected-person/view URL, saves the actual photo
+to the notebook, edits its note, then navigates to the shared link. Exact notebook,
+photo, note and citation data persist; the person and view restore; the saved jaunt
+remains stored and inactive. Both runs report zero page errors, local 404s or overflow.
+The software-GPU harness pauses continuous drawing between interactions and executes
+the actual normal frame for capture; it is not a low-end hardware performance result.
+Earlier reports with skipped notebook assertions and pre-final runtime are retained
+with explicit scope corrections in the evidence archive; these final integrated runs
+supersede them for the photo/notebook/arrival flow.
+
+**Release validation before the final resource repairs:** source partitions 1–7 of
+eight pass (175, 174, 174, 174, 175, 174 and 174 checks), and preflight's changelog-entry
+and ticket-ID checks pass. All fifteen published mobile renderer stages pass on the
+earlier runtime with zero failures or page errors: 921 assertions including repeated
+always-on checks. Stage 6's second-world recovery passed unchanged on quiet CPU. Stage
+13 exceeded the local 595-second command cap; its unchanged remote run then completed
+all 157 assertions successfully.
+
+Source partition 7 exposed a tour test's fixed 200-character source span: inserting the
+notebook exceeded it despite the tour still appearing first. The test now mounts the
+real Guide and verifies that the original tour element leads its controls and hosted
+sections. Focused tests pass; isolated mutations that move or omit the tour are both
+rejected. Its instrumented write measurement remains empty; complete partition 7's
+rerun passed all 174 checks.
+
+Partition 8, locally and on GitHub, found an ambiguous person callback alias interpreted
+as a placement field by the sidecar scanner, and identical era entry pages at 65,638
+bytes, over the existing 65,536-byte duplicate threshold. The callback now says `person`.
+Photo/notebook styles load once per owning document when their views mount, removing
+104 bytes from the shared entry markup. No validator limit or assertion was weakened.
+Browser checks verify real stylesheet loading, application, remount deduplication and
+iframe isolation. The publisher and full partition 8 must verify the final repair.
+
+Resource review found Glessner's 9,307-character citation caption caused 9,241 text
+measurements. Binary-search fitting preserves full metadata and reduces that to 17
+calls; actual canvas-only Chromium measurements fell from 2–5.6 seconds to 3.6–4.9 ms.
+These are local measurements, not a phone or town performance benchmark. Notebook drafts
+now drop IDs confirmed deleted elsewhere while preserving unsaved writing after storage
+errors. The real cross-tab regression rejects the earlier code and passes after 120
+deleted/recreated IDs. Focused logic and browser tests pass for both repairs. Earlier
+whole-town reports remain evidence for the pre-repair runtime; fresh integrated checks
+are required for these changes before merge.
+
+CI found four missing step-isolation records for the new gate tests. The instrumented
+measurement tool now records all four as writing nothing in-tree, and the isolation
+audit and its self-tests pass. This repairs the measurement registry without changing
+the application or assertions. The repaired source partition, complete published
+desktop renderer smoke, post-repair browser checks and exact-head PR CI remain required before DEV
+merge. The PR records their final aggregate; GitHub's phone upload/memory-release check
+has also passed on the unchanged runtime.
+
+Implementation and recovery checkpoints are backed up in PR #2197. Completed logs,
+screenshots, exact source hashes and reproduction harnesses are in
+[chicago-evidence](https://github.com/kevinrhaas/chicago-evidence/tree/main/evidence/t3656-browser-classroom-2026-11-18).
+Later receipts go there and to T-3656 without implying unrun gates passed. No production
+promotion is part of this work.
+
+No new server or shared-service activation. Photos/notes stay local until explicitly
+exported. Shared URLs do not contain notebook text or account state. No claim of full
+WCAG conformance or low-end Chromebook hardware certification. Same-spot Jump remains
+lower priority, with the current single-session replacement default unchanged.
+[CLASSROOM-FEATURES.md](CLASSROOM-FEATURES.md) accounts for all twenty requested items.
+
+**Owner-authorized budget update, 18 November:** the baseline desktop smoke recorded
+3,607,087 Full-detail triangles at West prairie, 2,087 over the previous allowance,
+with draw calls inside their limit. The owner authorized an appropriate increase so
+the DEV merge can proceed. The standing measured-maximum plus 18,059 margin, rounded
+up to 5,000, sets Full to 3,630,000 (a 0.69% increase). Other tiers, calls, reaches,
+shadows and assets stay unchanged; the policy test still rejects extra increases.
+[The measurement and authorization](measurements/t-3656-full-detail-budget.md) record
+the evidence and limits. The baseline desktop run timed out during stage 12; source
+CI partition 1 also hit its 600-second cap without an assertion failure. Neither is
+reported as passing. Fresh budget validation and unfinished renderer/source checks
+remain before merge.
+
 ## T-3580 — Sign-in: Microsoft and email/password beside Google (2026-11-13)
 
 The owner chose Google, Microsoft, email/password and anonymous (email only) to start, Apple
@@ -27073,7 +27314,7 @@ The existing Charles1904 coat is the only proposed visible adoption. Four valida
 
 ### T-3558 — photographic wagons and the plate-matched Brougham (2026-11-17)
 
-**Brougham V20.** The four driven 1904 broughams (Hans Johnson, Henry Windish, Joseph Daniels, Charles Nelson) draw `parked-brougham/brougham-v20-near.glb` (46,796 triangles, 1.51 MB) and, on Light/phones, `brougham-v20-mid.glb` (23,660, 0.86 MB); a far level (11,360, 0.57 MB) is exported beside them. V20 is derived from V19 by `tools/transport/brougham_v20/produce.py`: a closed driving box, dash, iron rail, stays and swept irons from the 1893 plate, and no rear mudguards. `check.py` (run inside the existing Brougham gate step) rebuilds all three levels byte-exact, proves the coachman's seat, cushion, piping, backboard, footboard and side rails identical to V19 at each level, checks the four rows' bindings and refuses three negative controls. The register (`discrepancies.json`) keeps the box about 0.3 m lower than the plate's, for the fitted coachmen. Khronos validator: 0 errors, 0 warnings on all three files. The unchanged parked Brougham (`prairie_parked_studebaker_brougham`) still draws its V19 delivery files.
+**Brougham V20.** The four driven 1904 broughams (Hans Johnson, Henry Windish, Joseph Daniels, Charles Nelson) draw `parked-brougham/brougham-v20-near.glb` (46,796 triangles, 1.51 MB) and, on Light/phones, `brougham-v20-mid.glb` (23,660, 0.86 MB); a far level (11,360, 0.57 MB) is exported beside them. V20 is derived from V19 by `tools/transport/brougham_v20/produce.py`: a closed driving box, dash, iron rail, stays and swept irons from the 1893 plate, and no rear mudguards. Inside, the cab is lowered (T-3553, 2026-11-17): cushion and seat data 0.21 m, floor 0.20 m, the squab lengthened down to the cushion and the body's lower rear quarter brought down behind the door, so a passenger sits upright; `check.py` holds every other frame and seat datum to V19's. `check.py` (run inside the existing Brougham gate step) rebuilds all three levels byte-exact, proves the coachman's seat, cushion, piping, backboard, footboard and side rails identical to V19 at each level, checks the four rows' bindings and refuses three negative controls. The register (`discrepancies.json`) keeps the box about 0.3 m lower than the plate's, for the fitted coachmen. Khronos validator: 0 errors, 0 warnings on all three files. The unchanged parked Brougham (`prairie_parked_studebaker_brougham`) still draws its V19 delivery files.
 **Covered wagons v2.** The Western Hotel and Wolf Point covered wagons stand on the photographic farm-box master (desktop near, phones mid), painted in their own seeded colours, each carrying its own v1 cover with seeded weathering and a skirt fitted to the master's uneven boards (`tools/transport/wagon_covered/upgrade_v2.py`; identity checks now also refuse a swapped cover, swapped paint or the plain W01 gear). `parked-transport.js` now decodes meshopt, caches ordinary models by file and takes an optional `file_light` and `paint`. The v1 covered GLBs stay published and gate-checked as the covers' source.
 **Farm box qualified.** `farm-box-master/QUALIFICATION.json` holds the matched views, ground and tree clearance (1812 routes: no trunk within 60 m of the fort loop, 33.6 m at the nearest on the shore road; 1835 stands: none within 30 m, 4.1 m), the levels and their costs; `check_farm_box_master.py` now ties `photographic_acceptance` to it.
 **Measured in the published site, swiftshader, same pose before/after** (frames also hold moving people): 1904 desktop quarter 1,054 → 1,052 draws; 1904 phone 480 → 491 draws, 731k → 666k triangles; 1835 desktop Wolf Point 825 → 844 draws, 1.08M → 1.15M triangles; 1835 phone 612 → 610 draws. **Not measured here:** the resident-memory gate (`measure_memory.mjs`) was not re-run in this container; the parked layer does not load at spawn. Pictures: kevinrhaas/chicago-evidence `evidence/T-3558-wagons-brougham-2026-11-17/`.

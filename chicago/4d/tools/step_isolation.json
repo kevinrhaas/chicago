@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Each in-repo write is then CLASSIFIED by `git check-ignore` at measure time (T-2075): an ignored path is a build product and is listed under `wrote_ignored`; any other path is a tree mutation and is listed under `wrote`, which the audit refuses. A tracked path is never ignored, so no write to one is excused. An ignored build product is still SHARED STATE a concurrent step can read mid-write, and its regeneration is idempotent rather than atomic: classifying it says which question the gate may ask, not that it is safe. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it. ticket.mjs check was one — it wrote nothing on a consistent tree and REPAIRED tickets.json on a stale one — until T-1341 made it compare instead of write (probed both ways: wrote [] on each). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
-  "measured": "2026-11-17",
+  "measured": "2026-11-19",
   "gate_verdict": "CHECK FAIL",
   "declared_steps": 861,
   "tools": {
@@ -4375,6 +4375,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/lay_town_riders.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/lay_vessels.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5222,6 +5226,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/reading_levels.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/readmit_borderline_roster.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5706,6 +5714,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_board_climb.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_boot_forecast.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5794,6 +5806,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_crowd.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_daybook.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5863,6 +5879,10 @@
       "wrote_ignored": []
     },
     "tools/test_field_log.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_field_notebook.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6102,6 +6122,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_coat.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_collar.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_cook_1904.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6154,6 +6182,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_frockcoat.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_gait.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6167,6 +6199,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_gentleman_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_gown.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6270,6 +6306,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_regulars.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_rounds.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6294,6 +6334,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_sleeve.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_soldier_1812.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6311,6 +6355,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_stable_helper_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_tailor_1835.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6355,6 +6403,10 @@
       "wrote_ignored": []
     },
     "tools/test_jaunt_start_finish.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_jaunt_understanding.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6578,6 +6630,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_keyboard_ownership.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_kinzie_end_door.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6587,6 +6643,10 @@
       "wrote_ignored": []
     },
     "tools/test_leg_notes.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_lesson_guides.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6627,6 +6687,10 @@
       "wrote_ignored": []
     },
     "tools/test_modern_streets.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_moment.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6758,6 +6822,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_photo_hunt.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_photo_match_enclosures.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6843,6 +6911,10 @@
       "wrote_ignored": []
     },
     "tools/test_reader_text.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_reading_level.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -7139,6 +7211,14 @@
       "wrote_ignored": []
     },
     "tools/test_vessels.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_viewport_accessibility.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_visitor_person.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

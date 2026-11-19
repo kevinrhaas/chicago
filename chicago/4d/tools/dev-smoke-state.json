@@ -3,6 +3,509 @@
   "readings": [
     {
       "viewport": "mobile",
+      "stage": "15",
+      "parts": [
+        15
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 34,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 568,
+      "takenAt": "2026-11-18T20:24:17.471Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "7969031f049f",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          0.9,
+          2.7,
+          3.2
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-15.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 145,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 311,
+      "takenAt": "2026-11-18T20:24:17.293Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "7969031f049f",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          0.9,
+          2.7,
+          3.2
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-14.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 29,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 340,
+      "takenAt": "2026-11-18T19:47:49.809Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          4.3,
+          5.3,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-12.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "11",
+      "parts": [
+        11
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 21,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 199,
+      "takenAt": "2026-11-18T19:47:18.580Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.2,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-11.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "10",
+      "parts": [
+        10
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 31,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 192,
+      "takenAt": "2026-11-18T19:47:18.356Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.2,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-10.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "9",
+      "parts": [
+        9
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 27,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 216,
+      "takenAt": "2026-11-18T19:47:18.169Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.2,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-9.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 22,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 364,
+      "takenAt": "2026-11-18T19:47:17.899Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.2,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-8.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "7",
+      "parts": [
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 39,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 289,
+      "takenAt": "2026-11-18T19:47:17.731Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.2,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-7.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "6",
+      "parts": [
+        6
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 24,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 332,
+      "takenAt": "2026-11-18T19:47:17.546Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.2,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-6.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "5",
+      "parts": [
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 30,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 491,
+      "takenAt": "2026-11-18T19:47:17.350Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.1,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-5.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "4",
+      "parts": [
+        4
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 45,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 410,
+      "takenAt": "2026-11-18T19:47:17.129Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.1,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-4.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 257,
+      "takenAt": "2026-11-18T18:58:34.285Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "6c83e8cf9558",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          4.5,
+          5.2,
+          4.7
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-3.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "2",
+      "parts": [
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 115,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 407,
+      "takenAt": "2026-11-18T18:58:33.952Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "6c83e8cf9558",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          4.5,
+          5.2,
+          4.7
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-2.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 295,
+      "takenAt": "2026-11-18T18:58:33.551Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "6c83e8cf9558",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          4.5,
+          5.2,
+          4.7
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-1.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 192,
+      "failed": 5,
+      "failures": [
+        "mobile 390x780: the yard layer stands the record's goods — 151 object(s) on 28 frontage(s) from 8 record(s), 52 wagon(s), 1 bench(es), 0 shed(s), 547884 vertices, 110 frontage(s) refused; reading {\"enclosed\":true,\"sheds\":0,\"coveredWagons\":0,\"ghostSpans\":0,\"refusal\":true,\"shoulderGeometry\":true}",
+        "mobile 390x780: the Green Tree's yard wagons stand clear, square to its rear wall — 0 wagon(s), clearances , bearings",
+        "mobile 390x780: the town's wagons are spread across its streets, not at two doors — 47 town wagon(s) on 23 street(s) plus the working yards, spanning 1738 m east-west and 1356 m north-south",
+        "mobile 390x780: the town's wagons vary in type — 6 farm_box, 39 cart, 2 covered",
+        "mobile 390x780: the town's wagons stand at the slew the rule dealt them — 45 dealt and 2 held by hand; 0 outside their own envelope; envelopes 6/12/15 degrees; 9 of 9 steps used along the road, commonest step 6 of 45"
+      ],
+      "wallSeconds": 374,
+      "takenAt": "2026-11-17T13:59:57.150Z",
+      "ref": "HEAD",
+      "commit": "285b22502dfa",
+      "devCommit": "285b22502dfa",
+      "treeHash": "sha256:f040d7dacbb042aa",
+      "treeDirty": false,
+      "changelogHash": "sha256:6335b79da5bbfb9f",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.9,
+          3.7,
+          2.6
+        ]
+      },
+      "source": "/tmp/smoke-dev-m12.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 484,
+      "takenAt": "2026-11-17T13:36:58.307Z",
+      "ref": "steward/t1894-dent-principal-lights",
+      "commit": "35a32e80878d",
+      "devCommit": "057a59243c35",
+      "treeHash": "sha256:84ba897142252675",
+      "treeDirty": false,
+      "changelogHash": "sha256:650929ff8240904e",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.3,
+        "loadavg": [
+          4.2,
+          4.7,
+          4.3
+        ]
+      },
+      "source": "/tmp/smoke_d1.log"
+    },
+    {
+      "viewport": "mobile",
       "stage": "1-2",
       "parts": [
         1,
@@ -1295,452 +1798,6 @@
         "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
       },
       "source": "https://github.com/kevinrhaas/chicago/actions/runs/42868296466/job/130012437868"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "9-10",
-      "parts": [
-        9,
-        10
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 45,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 914,
-      "takenAt": "2026-11-10T17:51:17Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "6f5dfa7de1d9",
-      "devCommit": "565e5a35d1bc",
-      "treeHash": "sha256:de159f920dc579d1",
-      "treeDirty": false,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42868280621/job/130012384205"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "7-8",
-      "parts": [
-        7,
-        8
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 48,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 280,
-      "takenAt": "2026-11-10T17:49:09Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "6f5dfa7de1d9",
-      "devCommit": "565e5a35d1bc",
-      "treeHash": "sha256:de159f920dc579d1",
-      "treeDirty": false,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42868264267/job/130012323318"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "7-8",
-      "parts": [
-        7,
-        8
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 48,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1388,
-      "takenAt": "2026-11-10T17:46:55Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "6f5dfa7de1d9",
-      "devCommit": "565e5a35d1bc",
-      "treeHash": "sha256:de159f920dc579d1",
-      "treeDirty": false,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42868242498/job/130012249056"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "5-6",
-      "parts": [
-        5,
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 41,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 667,
-      "takenAt": "2026-11-10T17:45:44Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "6f5dfa7de1d9",
-      "devCommit": "565e5a35d1bc",
-      "treeHash": "sha256:de159f920dc579d1",
-      "treeDirty": false,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42868225894/job/130012189474"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "5-6",
-      "parts": [
-        5,
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 37,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 770,
-      "takenAt": "2026-11-10T17:45:39Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "6f5dfa7de1d9",
-      "devCommit": "565e5a35d1bc",
-      "treeHash": "sha256:de159f920dc579d1",
-      "treeDirty": false,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42868208447/job/130012137388"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "3-4",
-      "parts": [
-        3,
-        4
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 139,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 440,
-      "takenAt": "2026-11-10T17:45:32Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "6f5dfa7de1d9",
-      "devCommit": "565e5a35d1bc",
-      "treeHash": "sha256:de159f920dc579d1",
-      "treeDirty": false,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42868191779/job/130012069229"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3-4",
-      "parts": [
-        3,
-        4
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 136,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1031,
-      "takenAt": "2026-11-10T17:45:26Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "6f5dfa7de1d9",
-      "devCommit": "565e5a35d1bc",
-      "treeHash": "sha256:de159f920dc579d1",
-      "treeDirty": false,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42868174458/job/130012009584"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1-2",
-      "parts": [
-        1,
-        2
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 198,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 437,
-      "takenAt": "2026-11-10T17:45:19Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "6f5dfa7de1d9",
-      "devCommit": "565e5a35d1bc",
-      "treeHash": "sha256:de159f920dc579d1",
-      "treeDirty": false,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42868153896/job/130011938538"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1-2",
-      "parts": [
-        1,
-        2
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 198,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1461,
-      "takenAt": "2026-11-10T17:45:13Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "6f5dfa7de1d9",
-      "devCommit": "565e5a35d1bc",
-      "treeHash": "sha256:de159f920dc579d1",
-      "treeDirty": false,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42868136609/job/130011880727"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "13",
-      "parts": [
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 158,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1560,
-      "takenAt": "2026-11-10T17:45:05Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "6f5dfa7de1d9",
-      "devCommit": "565e5a35d1bc",
-      "treeHash": "sha256:de159f920dc579d1",
-      "treeDirty": false,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42868115593/job/130011807878"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "13",
-      "parts": [
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 158,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 3056,
-      "takenAt": "2026-11-10T17:44:58Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "6f5dfa7de1d9",
-      "devCommit": "565e5a35d1bc",
-      "treeHash": "sha256:de159f920dc579d1",
-      "treeDirty": false,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42868094947/job/130011738999"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "7-8",
-      "parts": [
-        7,
-        8
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 48,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1865,
-      "takenAt": "2026-11-10T16:35:47.6772601Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "f7d095735c49",
-      "devCommit": "565e5a35d1bc",
-      "treeHash": "sha256:7832e1738471bc1e",
-      "treeDirty": false,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42855177518/job/129966150703"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "7-8",
-      "parts": [
-        7,
-        8
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 48,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 487,
-      "takenAt": "2026-11-10T16:35:15.0385877Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "f7d095735c49",
-      "devCommit": "565e5a35d1bc",
-      "treeHash": "sha256:7832e1738471bc1e",
-      "treeDirty": false,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42855177518/job/129966150290"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "5-6",
-      "parts": [
-        5,
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 37,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1037,
-      "takenAt": "2026-11-10T16:09:19.9628870Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "3438c7c74fd1",
-      "devCommit": "b9a87a9a4ac1",
-      "treeHash": "sha256:021a56065f497ab4",
-      "treeDirty": true,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42851675727/job/129953743583"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "9-10",
-      "parts": [
-        9,
-        10
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 45,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 253,
-      "takenAt": "2026-11-10T16:09:19.9420785Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "3438c7c74fd1",
-      "devCommit": "b9a87a9a4ac1",
-      "treeHash": "sha256:021a56065f497ab4",
-      "treeDirty": true,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42851675727/job/129953743706"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "11-12",
-      "parts": [
-        11,
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 37,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 374,
-      "takenAt": "2026-11-10T16:09:19.8989023Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "3438c7c74fd1",
-      "devCommit": "b9a87a9a4ac1",
-      "treeHash": "sha256:021a56065f497ab4",
-      "treeDirty": true,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42851675727/job/129953743727"
     }
   ]
 }

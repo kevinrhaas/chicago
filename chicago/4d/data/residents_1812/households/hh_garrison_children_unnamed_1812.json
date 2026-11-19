@@ -34,7 +34,7 @@
   "persons": [
     {
       "id": "garrison_child_unnamed_1",
-      "name": "A child of the post, name not recorded (1 of 7)",
+      "name": "Reuben Holt",
       "relationship": "child",
       "grade": "reconstructed",
       "sources": [
@@ -50,13 +50,34 @@
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3461",
-        "liberty": "L-1812-people-3461"
+        "liberty": "L-1812-people-3461",
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
       },
-      "evidence": []
+      "evidence": [],
+      "also_written": [
+        "A child of the post, name not recorded (1 of 7)"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "No source names him: the name is ours. Which family the child belonged to no source says; Quaife's count leaves them 'most likely more Lee, Burns, Holt or Needs children', so the child takes one of those surnames, a guess of ours like the first name, which is one common in the soldier and settler families of the day."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed; the surname is a likely family, not the record's",
+          "grade": "reconstructed"
+        }
+      ]
     },
     {
       "id": "garrison_child_unnamed_2",
-      "name": "A child of the post, name not recorded (2 of 7)",
+      "name": "Polly Lee",
       "relationship": "child",
       "grade": "reconstructed",
       "sources": [
@@ -72,13 +93,34 @@
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3461",
-        "liberty": "L-1812-people-3461"
+        "liberty": "L-1812-people-3461",
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
       },
-      "evidence": []
+      "evidence": [],
+      "also_written": [
+        "A child of the post, name not recorded (2 of 7)"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "No source names her: the name is ours. Which family the child belonged to no source says; Quaife's count leaves them 'most likely more Lee, Burns, Holt or Needs children', so the child takes one of those surnames, a guess of ours like the first name, which is one common in the soldier and settler families of the day."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed; the surname is a likely family, not the record's",
+          "grade": "reconstructed"
+        }
+      ]
     },
     {
       "id": "garrison_child_unnamed_3",
-      "name": "A child of the post, name not recorded (3 of 7)",
+      "name": "Hannah Needs",
       "relationship": "child",
       "grade": "reconstructed",
       "sources": [
@@ -94,13 +136,34 @@
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3461",
-        "liberty": "L-1812-people-3461"
+        "liberty": "L-1812-people-3461",
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
       },
-      "evidence": []
+      "evidence": [],
+      "also_written": [
+        "A child of the post, name not recorded (3 of 7)"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "No source names her: the name is ours. Which family the child belonged to no source says; Quaife's count leaves them 'most likely more Lee, Burns, Holt or Needs children', so the child takes one of those surnames, a guess of ours like the first name, which is one common in the soldier and settler families of the day."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed; the surname is a likely family, not the record's",
+          "grade": "reconstructed"
+        }
+      ]
     },
     {
       "id": "garrison_child_unnamed_4",
-      "name": "A child of the post, name not recorded (4 of 7)",
+      "name": "Eli Burns",
       "relationship": "child",
       "grade": "reconstructed",
       "sources": [
@@ -116,13 +179,34 @@
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3461",
-        "liberty": "L-1812-people-3461"
+        "liberty": "L-1812-people-3461",
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
       },
-      "evidence": []
+      "evidence": [],
+      "also_written": [
+        "A child of the post, name not recorded (4 of 7)"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "No source names him: the name is ours. Which family the child belonged to no source says; Quaife's count leaves them 'most likely more Lee, Burns, Holt or Needs children', so the child takes one of those surnames, a guess of ours like the first name, which is one common in the soldier and settler families of the day."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed; the surname is a likely family, not the record's",
+          "grade": "reconstructed"
+        }
+      ]
     },
     {
       "id": "garrison_child_unnamed_5",
-      "name": "A child of the post, name not recorded (5 of 7)",
+      "name": "Betsey Lee",
       "relationship": "child",
       "grade": "reconstructed",
       "sources": [
@@ -138,13 +222,34 @@
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3461",
-        "liberty": "L-1812-people-3461"
+        "liberty": "L-1812-people-3461",
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
       },
-      "evidence": []
+      "evidence": [],
+      "also_written": [
+        "A child of the post, name not recorded (5 of 7)"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "No source names her: the name is ours. Which family the child belonged to no source says; Quaife's count leaves them 'most likely more Lee, Burns, Holt or Needs children', so the child takes one of those surnames, a guess of ours like the first name, which is one common in the soldier and settler families of the day."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed; the surname is a likely family, not the record's",
+          "grade": "reconstructed"
+        }
+      ]
     },
     {
       "id": "garrison_child_unnamed_6",
-      "name": "A child of the post, name not recorded (6 of 7)",
+      "name": "Ephraim Needs",
       "relationship": "child",
       "grade": "reconstructed",
       "sources": [
@@ -160,13 +265,34 @@
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3461",
-        "liberty": "L-1812-people-3461"
+        "liberty": "L-1812-people-3461",
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
       },
-      "evidence": []
+      "evidence": [],
+      "also_written": [
+        "A child of the post, name not recorded (6 of 7)"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "No source names him: the name is ours. Which family the child belonged to no source says; Quaife's count leaves them 'most likely more Lee, Burns, Holt or Needs children', so the child takes one of those surnames, a guess of ours like the first name, which is one common in the soldier and settler families of the day."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed; the surname is a likely family, not the record's",
+          "grade": "reconstructed"
+        }
+      ]
     },
     {
       "id": "garrison_child_unnamed_7",
-      "name": "A child of the post, name not recorded (7 of 7)",
+      "name": "Sally Holt",
       "relationship": "child",
       "grade": "reconstructed",
       "sources": [
@@ -182,9 +308,30 @@
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3461",
-        "liberty": "L-1812-people-3461"
+        "liberty": "L-1812-people-3461",
+        "name": "reconstructed",
+        "name_ticket": "T-3553",
+        "name_liberty": "L-1812-names-3553"
       },
-      "evidence": []
+      "evidence": [],
+      "also_written": [
+        "A child of the post, name not recorded (7 of 7)"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "No source names her: the name is ours. Which family the child belonged to no source says; Quaife's count leaves them 'most likely more Lee, Burns, Holt or Needs children', so the child takes one of those surnames, a guess of ours like the first name, which is one common in the soldier and settler families of the day."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed; the surname is a likely family, not the record's",
+          "grade": "reconstructed"
+        }
+      ]
     }
   ]
 }

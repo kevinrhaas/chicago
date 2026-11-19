@@ -73,11 +73,16 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
     return lease.asset;
   };
   const lodsOf = template => horseLeases.find(lease => lease.asset === template)?.lods ?? {};
-  // T-3559: the trot (tools/horse_walk_v2.mjs), when the horse's spec carries one.
-  let trotClip = null;
-  const acquireTrotClip = () => horseSpecCopy.trot_clip_file ? (trotClip ??= loadGaitClip(assetURL(horseSpecCopy.trot_clip_file), {
-    sha256: horseSpecCopy.trot_clip_sha256, name: horseSpecCopy.trot_clip, modelSha256: horseSpecCopy.sha256, cycle_m: horseSpecCopy.trot_stride_m,
-  }).catch(error => { trotClip = null; throw error; })) : Promise.resolve(null);
+  // T-3559: the trot, and T-3560 the canter and gallop (tools/horse_walk_v2.mjs), when the
+  // horse's spec carries them: a team the visitor drives can be urged on (team-drive.js).
+  const fastClips = {};
+  const acquireGaitClip = g => horseSpecCopy[`${g}_clip_file`] ? (fastClips[g] ??= loadGaitClip(assetURL(horseSpecCopy[`${g}_clip_file`]), {
+    sha256: horseSpecCopy[`${g}_clip_sha256`], name: horseSpecCopy[`${g}_clip`], modelSha256: horseSpecCopy.sha256, cycle_m: horseSpecCopy[`${g}_stride_m`],
+  }).catch(error => { delete fastClips[g]; throw error; })) : Promise.resolve(null);
+  const acquireFastClips = async () => {
+    const [trot, canter, gallop] = await Promise.all(['trot', 'canter', 'gallop'].map(acquireGaitClip));
+    return { trot, canter: trot && canter, gallop: trot && canter && gallop };
+  };
   // T-2803: a walk generated for this GLB (tools/horse_walk_v2.mjs), bound by its
   // bytes, played by travelled metres exactly as the embedded careful walk is.
   let walkClip = null;
@@ -110,7 +115,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
     horseLeases.splice(index, 1)[0].release();
   };
   // The two-horse team, its distance-driven walk and its support on the ground (T-2803).
-  const makeTeam = (row, template, walk, trot = null) => {
+  const makeTeam = (row, template, walk, { trot = null, canter = null, gallop = null } = {}) => {
     const group = new THREE.Group(); group.name = `team:${row.id}`;
     const horses = [];
     const hoofAssembly = ++nextHoofAssembly; let hoofEpoch = 0;
@@ -135,9 +140,11 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       root.position.set(side * row.team_half_spacing_m, 0, 0);
       group.add(root);
       const savedHorse = row.initial_assembly_state?.horse?.[side === -1 ? 0 : 1];
-      // T-3559: the walk and (where the spec has one) the trot, blended by pace (horse-rig.js).
+      // T-3559: the walk and (where the spec has them) the trot, canter and gallop, blended by
+      // pace (horse-rig.js).
       const gaits = horse.gaits = createHorseGait(root, { walk, walkCycle_m: horseSpecCopy.stride_m,
-        trot, trotCycle_m: horseSpecCopy.trot_stride_m ?? null, gait_m: savedHorse?.distance_m ?? 0 });
+        trot, trotCycle_m: horseSpecCopy.trot_stride_m ?? null, canter, canterCycle_m: horseSpecCopy.canter_stride_m ?? null,
+        gallop, gallopCycle_m: horseSpecCopy.gallop_stride_m ?? null, gait_m: savedHorse?.distance_m ?? 0 });
       const mixer = horse.mixer = gaits.mixer, action = gaits.walkAction;
       horse.audioId = side === 1 ? 'left' : 'right';
       horse.hoofNodes = Object.fromEntries(['fore_l', 'hind_r', 'fore_r', 'hind_l']
@@ -303,7 +310,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       const walk = horseSpecCopy.walk_clip_file ? await acquireWalkClip()
         : template.animations.find(a => a.name === horseSpecCopy.walk_clip);
       if (!walk) throw Error('driven assembly: selected in-place WALK is missing');
-      team = makeTeam(row, template, walk, await acquireTrotClip());
+      team = makeTeam(row, template, walk, await acquireFastClips());
       // His lead runs from his right hand (the inside one, toward the horse) to the near
       // horse's bit; the hand is read off his bones each frame, after he has walked.
       const hitchRow = { ...row };
@@ -363,19 +370,25 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
    * seated clip (`clip`) is played on their own body and moved to the cab seat; the figure is
    * bent to fit the cab there (cab-passenger.js); a driver-life layer breathes and looks.
    */
+  // Kevin, 2026-11-17, beside Mr. Glessner in the cab on a lighter detail: "he does not have
+  // glasses or moustache or much if any hair". A passenger sits within arm's reach of the
+  // visitor's eye, so he is drawn at a near level wherever the coachman on the box is not: the
+  // nearest on a full machine, the next (still his hair, beard and spectacles, human-hair.js,
+  // human-spectacles.js) on a phone or Light, never the far body the box takes there.
+  const riderLod = Math.min(driverLod, 1);
   const makeRider = async (row, spec, clip, clipName) => {
     if (!clip || !spec?.person_id || !spec.asset_id || !spec.instance_id) throw Error('driven assembly: a passenger needs a person, figure, standing instance and the seated clip');
     const instance = { id: spec.instance_id, contract_version: 1, display: 'shown', scene: sceneId,
       person_id: spec.person_id, appearance: { asset_id: spec.asset_id },
       placement: { local_e: 0, local_n: 0, heading_deg: 180, anchor: 'terrain' }, behaviour: { state: 'seated' },
-      animation: { clip: clipName, loop: true, phase: 0 }, lod: { policy: 'fixed', fixed: driverLod },
+      animation: { clip: clipName, loop: true, phase: 0 }, lod: { policy: 'fixed', fixed: riderLod },
       interaction: { opens: 'resident_card', selectable: true },
       provenance: { grade: 'reconstructed', basis: spec.basis ?? '', liberty: spec.liberty ?? row.liberty } };
     const identity = resolveHumanIdentity(instance, { sceneId, people, profiles });
     const rider = new HumanActor({ instance, identity, person: identity.person, assets: humanAssets, heightAt: () => 0,
       tier: 'full', variation: 'face', clipLibrary: [clip] });
     try {
-      await rider.setLod(driverLod);
+      await rider.setLod(riderLod);
       if (!rider.body || !rider.play(clipName, { fade: 0, time: 0 })) throw Error('driven assembly: the passenger cannot take the seated clip');
       rider.root.position.fromArray(passengerRoot({ seat_local_m: spec.seat_local_m, clip_seat_local_m: row.driver_seat_node_m, sink_m: spec.sink_m ?? 0 }));
       rider.body.mixer.update(0); rider.root.updateMatrixWorld(true);
@@ -478,7 +491,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         || travel.intendedCycleDistanceM !== horseSpecCopy.stride_m
         || travel.rootZInClipM?.join(',') !== '0,0'
         || Math.abs(travel.serializedClipDurationSeconds - walk.duration) > 1e-12)) throw Error('driven assembly: actual horse clip lacks the exact external-travel-once contract');
-      team = makeTeam(row, template, walk, await acquireTrotClip());
+      team = makeTeam(row, template, walk, await acquireFastClips());
       if (Number.isFinite(row.initial_assembly_state?.driver?.time_s)) actor.body.mixer.setTime(row.initial_assembly_state.driver.time_s);
       // T-3398/T-3409: the driver's loose garments, skinned to his own bones; their spring
       // tails swing each frame after the clip and the driver-life layer have moved him.

@@ -330,7 +330,11 @@
         {
           "sill_above_floor_m": 0.9,
           "width_m": 0.75,
-          "height_m": 2.6
+          "height_m": 2.6,
+          "street_front": {
+            "sill_above_floor_m": 0.0,
+            "height_m": 2.85
+          }
         },
         {
           "sill_above_floor_m": 1.0,
@@ -340,9 +344,10 @@
       ],
       "confidence": "inferred",
       "sources": [
-        "chicagology_1823_dent_engraving"
+        "chicagology_1823_dent_engraving",
+        "newberry_new_chicago_album_1883_residences"
       ],
-      "note": "Tall narrow sash: the flank's principal windows 3.3-5.9 m over grade (floor 2.4, so sill 0.9, 2.6 m tall) and its chamber windows 7.4-10.0 m (floor 6.35: sill 1.0; built 2.3 m tall, so the lintel clears the cornice's frieze, which the engraving's heads run up into) on the Chicagology engraving through its solved camera (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json; grade at y 975-995 px); 0.75 m wide (K01's narrowest) so the triple group's three lights stand 1.02 m apart, as drawn."
+      "note": "Tall narrow sash: the flank's principal windows 3.3-5.9 m over grade (floor 2.4, so sill 0.9, 2.6 m tall) and its chamber windows 7.4-10.0 m (floor 6.35: sill 1.0; built 2.3 m tall, so the lintel clears the cornice's frieze, which the engraving's heads run up into) on the Chicagology engraving through its solved camera (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json; grade at y 975-995 px); 0.75 m wide (K01's narrowest) so the triple group's three lights stand 1.02 m apart, as drawn. T-1894: the street front's principal-storey lights stand lower and longer than the flank's (street_front): the Chicagology engraving draws the triple group's and the narrow light's heads level with the door's transom head (y 697-702 px, the door's 5.2 m) and their sills down on the sill course over the landing (about y 858 px, 0.55 m over the door's 1.7 m floor, so about 2.25 m), about 2.9 m of light at the render's 54 px a metre on that face, and the 1883 album draws the door's head level with the triple group's beside it. Laid on the principal floor (sill 0.0 over 2.35 m) to the door's head, 2.85 m; the flank keeps its own 3.3-5.9 m lights, read off the same print."
     },
     "basement_lights": {
       "value": {
@@ -565,17 +570,17 @@
               ]
             },
             {
-              "height_m": 2.4,
+              "height_m": 2.9,
               "windows": [
                 {
                   "opening": "k06.opening.casement_pair_mullioned",
-                  "clear_width_m": 1.1,
-                  "clear_height_m": 1.6,
+                  "clear_width_m": 2.3,
+                  "clear_height_m": 1.9,
                   "sill_m": 0.45,
                   "at": [
                     0.5
                   ],
-                  "why_not_ordinary": "the pavilion's paired attic lights under its pediment, two lights on a mullion, as the 1883 New Chicago Album vignette draws them between the pavilion's cornice and its pedimented gable (the Chicagology engraving's are behind the trees)",
+                  "why_not_ordinary": "the pavilion's paired attic lights under its pediment, two lights on a mullion, as the 1883 New Chicago Album vignette draws them between the pavilion's cornice and its pedimented crown (the Chicagology engraving's, x 1070-1190 px, are seen through the trees); T-1894: 2.3 m across and 1.9 m high, where the vignette draws the pair filling most of the attic front (about 26 of the pavilion's 55 px) and the engraving about 120 px at 54 px a metre",
                   "surround": {
                     "band_m": 0.15,
                     "proud_m": 0.04,
@@ -583,17 +588,30 @@
                     "head_proud_m": 0.06
                   }
                 }
-              ]
+              ],
+              "cheeks": {
+                "front_run": 1,
+                "width_m": 0.8,
+                "proud_m": 0.03,
+                "consoles": {
+                  "from_m": 0.45,
+                  "width_m": 0.6,
+                  "top_m": 0.12,
+                  "roll_m": 0.18,
+                  "height_m": 2.3,
+                  "depth_m": 0.25
+                }
+              }
             }
           ],
           "roof": {
             "kind": "gable",
-            "pitch": 1.0,
+            "pitch": 1.2,
             "covering": "slate_pennsylvania",
             "gable": {
               "inset_m": [
-                0.0,
-                0.0
+                0.8,
+                0.8
               ],
               "upstand_m": 0.15,
               "coping": {
@@ -603,7 +621,8 @@
               },
               "kneeler": {
                 "width_m": 0.4,
-                "out_m": 0.03
+                "out_m": 0.03,
+                "on": "gable"
               },
               "finial": {
                 "width_m": 0.22,
@@ -611,9 +630,6 @@
                 "cap_m": 0.35
               }
             }
-          },
-          "eaves": {
-            "cornice": "k10.cornice.moulded_stone"
           },
           "plinth_m": 0.05,
           "masonry": {
@@ -690,7 +706,7 @@
         "newberry_new_chicago_album_1883_residences",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "The south pavilion: the 1911 sheet's front projection (lot v 0.43-6.15, 1.12 m forward of the front's main plane at u 32.85) on K08, 5.74 m wide and flush with the south wall, in the front's stone; one broad window to a storey under a stone surround and two grilled basement lights, read off the engraving (x 1035-1233 px through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json)) and drawn the same in the 1883 vignette. T-3163: carried up past the main cornice as an attic storey 2.4 m high with its paired lights (two lights on a mullion, 1.1 m clear), under a coped stone gable rising 1.0 m a metre in to a finial, as the vignette draws the pavilion's pedimented attic with its finial (the engraving's is behind the trees); the gable's pitch and the attic's height are reconstruction, read to put the finial near the engraving's pavilion top (y 150 px, about 18 m). The north flank's one-storey box bay on the principal storey, the engraving's x 377-455 px (its front x 385-445 px, its street-side cheek beyond): 2.4 m wide and 0.5 m out at u 5.5-7.9 m (its depth reconstruction, enough for K08's window recesses), its broad light 2.6-5.5 m over grade and its hood's top about 6.3 m (y 645 px); the vignette draws the same hooded window. Built under a low hipped hood. T-1894: as the print draws it, on a corbelled foot, not carried to grade: K08's corbelled oriel standing on the principal floor at 2.35 m (K01 now lets an oriel stand there when its courses clear grade by a metre), its plan the bay's 2.4 m by 0.5 m and its one storey the principal one, on three 0.2 m courses stepped back into the wall, so the foot stands at 1.75 m where the print's is about 1.8 m (y 895 px; the render's y 900 px); the 1883 vignette draws the same block under the window. The basement light that was cut in the bay's foot (x 404-438 px) is now in the flank's wall under it (side_bays). The courses' number and profile are reconstruction; the print shows a moulded block about 0.6 m deep. Its stone and depth are reconstruction."
+      "note": "The south pavilion: the 1911 sheet's front projection (lot v 0.43-6.15, 1.12 m forward of the front's main plane at u 32.85) on K08, 5.74 m wide and flush with the south wall, in the front's stone; one broad window to a storey under a stone surround and two grilled basement lights, read off the engraving (x 1035-1233 px through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json)) and drawn the same in the 1883 vignette. T-3163: carried up past the main cornice as an attic storey 2.4 m high with its paired lights (two lights on a mullion, 1.1 m clear), under a coped stone gable rising 1.0 m a metre in to a finial, as the vignette draws the pavilion's pedimented attic with its finial (the engraving's is behind the trees); the gable's pitch and the attic's height are reconstruction, read to put the finial near the engraving's pavilion top (y 150 px, about 18 m). The north flank's one-storey box bay on the principal storey, the engraving's x 377-455 px (its front x 385-445 px, its street-side cheek beyond): 2.4 m wide and 0.5 m out at u 5.5-7.9 m (its depth reconstruction, enough for K08's window recesses), its broad light 2.6-5.5 m over grade and its hood's top about 6.3 m (y 645 px); the vignette draws the same hooded window. Built under a low hipped hood. T-1894: as the print draws it, on a corbelled foot, not carried to grade: K08's corbelled oriel standing on the principal floor at 2.35 m (K01 now lets an oriel stand there when its courses clear grade by a metre), its plan the bay's 2.4 m by 0.5 m and its one storey the principal one, on three 0.2 m courses stepped back into the wall, so the foot stands at 1.75 m where the print's is about 1.8 m (y 895 px; the render's y 900 px); the 1883 vignette draws the same block under the window. The basement light that was cut in the bay's foot (x 404-438 px) is now in the flank's wall under it (side_bays). The courses' number and profile are reconstruction; the print shows a moulded block about 0.6 m deep. Its stone and depth are reconstruction. T-1894 (sixth revision): the pavilion's crown as the 1883 vignette draws it, a pedimented attic front between the slated cheeks of a steep crown, where T-3163 had carried the pavilion's stone up a full-width attic under a coped gable. The attic storey is 2.9 m (its paired lights 2.3 m by 1.9 m) and its outer 0.8 m at each end of the front, and both its returns, are slated (K08's storey cheeks, 1827's), so the stone front is 4.1 m: the vignette draws the attic's stone front about 39 of the pavilion's 55 px and its pediment's base about 42 px. Against each cheek, a scrolled stone console from the lights' sill most of the way to the crown's cornice, the scroll the vignette draws at either side of the lights (K10's dormer console, now K08's on a cheek). The coped gable is inset to the stone front (inset_m 0.8) and its kneelers stand on its own corners (kneeler.on: gable), so the pediment stands over the stone front alone, rising 1.2 m a metre in to its finial; over the attic the K01 mansard's hipped crown (mansard.crown) closes to a point behind the pediment, its cornice running across the attic's top as the vignette's entablature does. The cheeks' and consoles' sizes, the attic's height and the pediment's pitch are read off the vignette at its half-metre scale; the consoles' depth and rolls are reconstruction."
     },
     "mansard": {
       "value": {
@@ -698,20 +714,65 @@
         "lower_rise_m": 4.5,
         "bulge": 0.0,
         "lower_pitch_deg": 72,
+        "crown": {
+          "form": "hip",
+          "over_bay": "south_pavilion",
+          "depth_m": 2.4,
+          "overhang_m": 0.35,
+          "side_inset_m": 1.0,
+          "point": true,
+          "pitch_deg": 47,
+          "end_pitch_deg": 60,
+          "attic_m": 3.09
+        },
         "dormers": [
           {
             "face": "street",
-            "along_m": 3.1,
+            "along_m": 2.7,
             "sash": {
               "variant": "k06.opening.casement_pair_mullioned",
-              "width_m": 1.1,
-              "height_m": 2.1,
-              "sill_m": 0.15
+              "width_m": 1.5,
+              "height_m": 2.4,
+              "sill_m": 0.5
             },
             "surround_m": 0.4,
-            "face_setback_m": 0.05,
+            "face_setback_m": 0.12,
             "head": "gable",
-            "gable_pitch_deg": 50
+            "gable_pitch_deg": 42,
+            "frieze_m": 0.55,
+            "dress": {
+              "cornice_m": [
+                0.3,
+                0.3
+              ],
+              "return_m": 0.2,
+              "rake": [
+                [
+                  0.12,
+                  0.12
+                ],
+                [
+                  0.08,
+                  0.06
+                ]
+              ],
+              "pilasters": {
+                "width_m": 0.25,
+                "proud_m": 0.05,
+                "cap_m": 0.12
+              },
+              "cheeks": "slate",
+              "consoles": {
+                "width_m": 0.55,
+                "top_m": 0.12,
+                "roll_m": 0.18,
+                "depth_m": 0.3,
+                "proud_m": 0.03
+              }
+            },
+            "over_curb": {
+              "back_m": 1.0
+            }
           },
           {
             "face": "street",
@@ -768,7 +829,7 @@
         "chicagology_1823_dent_engraving",
         "newberry_new_chicago_album_1883_residences"
       ],
-      "note": "The slated mansard rising 4.5 m over the wall head to its curb at 15.05 m (K05's most for a one-storey face): through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json) the curb at the front's north corner reads about 14.7-15.0 m, and the 1883 vignette draws it at the same height. On the curb, an iron cresting 0.55 m high round the deck (K10's iron ridge, the pattern the kit's), which both pictures draw. On the street face the pedimented dormer over the triple group, at v 3.1 m (its lights x 690-770 px) with paired lights, and the small dormer over the door (x 855-880 px, 5.6 m); on the north flank (K01's 'south' face) the broad dormer with paired lights under one pediment (x 375-445 px, u 4.2 m) and a small one behind it (x 300-340 px), at 2.05 m, the nearest the hip lets it stand. Open on the match records: the triple group's dormer is drawn broad (its pediment x 620-800 px) rising about 1.3 m over the curb, where K05's dormer is at most 2.0 m wide and stops under the curb. T-3162's hipped crown over the pavilion is gone: the pavilion carries its own attic and gable (bays), which lets the deck carry its cresting."
+      "note": "The slated mansard rising 4.5 m over the wall head to its curb at 15.05 m (K05's most for a one-storey face): through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json) the curb at the front's north corner reads about 14.7-15.0 m, and the 1883 vignette draws it at the same height. On the curb, an iron cresting 0.55 m high round the deck (K10's iron ridge, the pattern the kit's), which both pictures draw. On the street face the broad dormer over the triple group (T-1894), at v 2.7 m, read through the engraving's camera: paired lights 1.5 m by 2.4 m (x 700-770 px, y 200-345 px) between a scrolled console against each side of the face (the print's scrolls reach x 625-820 px), under an entablature and a dressed pediment whose apex stands about 16.0 m (y 80 px), 0.95 m over the curb, so the body is carried 1.0 m back over the deck under a slated back and the deck's cresting stops either side of it, where both pictures draw the pediment standing through the rail's line; the body's run back, the profiles, the consoles' depth and rolls and the 42-degree pitch are reconstruction (L-k01-1823-dent-1894). And the small dormer over the door (x 855-880 px, 5.6 m); on the north flank (K01's 'south' face) the broad dormer with paired lights under one pediment (x 375-445 px, u 4.2 m) and a small one behind it (x 300-340 px), at 2.05 m, the nearest the hip lets it stand. T-3162's hipped crown over the pavilion is gone: the pavilion carries its own attic and gable (bays), which lets the deck carry its cresting. T-1894 (sixth revision): over the south pavilion a hipped crown (mansard.crown, form hip, 1827's), its eave 3.09 m over the main eave on the pavilion's attic, its cornice 0.35 m out, its slates rising from a 1.0 m ledge at 47 degrees on the sides and 60 on the street end and closed to a point about 1.0 m behind the pavilion's face and about 16.0 m up, just over and behind the pediment's apex (its coping's top about 16.0 m, its finial's 16.6 m), as the 1883 vignette draws the slated crown rising behind the pavilion's pedimented attic front; the Chicagology engraving's is behind the trees. Its pitches, ledge and depth back (2.4 m) are reconstruction (L-k01-1823-dent-1894); the deck's cresting stops either side of it."
     },
     "rear_wings": {
       "value": [

@@ -2254,6 +2254,13 @@
       "measured": "2026-11-13",
       "finding": "Run bare it prints each jaunt's measured reading grade, its band and its tag; --check refuses a jaunt whose grade_band is too far from its words; both write nothing (git status --porcelain identical before and after). It declares no write mode: the grade_band it gates is written by hand in data/jaunts/*.json, and by tools/jaunt_built_so_far.py, which imports its measure (T-3590)."
     },
+    "reading_levels.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-17",
+      "finding": "Reproduces: two bare writes rewrote data/reading/1904.json with identical bytes (git status unchanged after the second); the file cut short fails --check and the bare write restores it byte for byte. It never reads its own output.",
+      "placed": "Reads data/residents_<scene>/stories.json and data/tales/<scene>.json (written by build_tales.py) and the hand-written docs/RESEARCH/reading-levels-3645/words; nothing reads its output at build time. Not yet in the full rederive manifest (T-3645)."
+    },
     "jaunt_built_so_far.py": {
       "placement": "manifest",
       "write_mode": "(bare)",

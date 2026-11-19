@@ -2,7 +2,7 @@
   "structure_id": "fort_dearborn_massacre_monument_1893",
   "view": "detroit_det_4a08066",
   "glb": "assets/gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb",
-  "glb_sha256": "a2952f6b7714536a5a3a8932f5ee5bd965ab181efab1a8c04bb01775a0248188",
+  "glb_sha256": "e9117c04d3ebb784dbec3112814faa76e0f96d594df0c457f6082cd4fe32e626",
   "camera_sha256": "f442661842cd73a16ed87d59d1b81b37aaf93a1f242e235c75f946dd56a5c401",
   "photo_sha256": "297e4d7b05312c70ddea6e5dbb24a74cffd0db743f3bb9cdcbb1f4c0edc5f4fb",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "a2952f6b7714536a5a3a8932f5ee5bd965ab181efab1a8c04bb01775a0248188"
+      "glb_sha256": "e9117c04d3ebb784dbec3112814faa76e0f96d594df0c457f6082cd4fe32e626"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -83,7 +83,7 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "e01c991c58a2eba32cb1e71acb0ed220b458ec878d746df21f9ac7abafe95cd6",
+  "group_sha256": "9c645e1c4a823723d8a7f29642b65d69bae8c28b4eaa0f52a1cb9a4769c79376",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -156,7 +156,7 @@
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "920c7ab7c1d197b682152a2717559f31576fed72a9da440b5be638c98ba3026c",
+  "flora_sha256": "92ce4cb44a46e29eed80b2460ed6f667ea4f7f38afb5a695c24d70807f9dea88",
   "side_by_side": "docs/RESEARCH/photo-match/fort_dearborn_massacre_monument_1893/detroit_det_4a08066-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -169,7 +169,7 @@
       "status": "open"
     },
     {
-      "what": "THE GROUP IS NOT ON THE PEDESTAL in this print: the lettered die stands with the stable's lit wall, a window and the tree's branches above it, and nothing over the cap; the render draws the group. Barnes-Crosby's ICHi-19208 (c. 1900), the 1905 Views of Chicago and the Detroit print LC-D4-12551 (detroit_det_4a08065, 1893-1901) all show it standing, so the print records a time the bronze was off its pedestal, which no text read here explains or dates (the Library of Congress dates the print c. 1900). The 1904 scene keeps the group; this stays open until the print's date or the reason is found [T-3594: the weapons and ornaments are modelled on the group since (the tomahawk, the feathers, the headband, the hip ornament, the musket); a few pixels at this distance, nothing in this view moved] [T-3594: the warrior's and Black Partridge's heads and chests are turned as the plates show since; at this distance 23-52 px of the group change and nothing else in this view moved] [T-3594: Black Partridge's short fringed breechcloth and the child's smock are modelled since; at this distance 13 px of the group change and nothing else in this view moved]",
+      "what": "THE GROUP IS NOT ON THE PEDESTAL in this print: the lettered die stands with the stable's lit wall, a window and the tree's branches above it, and nothing over the cap; the render draws the group. Barnes-Crosby's ICHi-19208 (c. 1900), the 1905 Views of Chicago and the Detroit print LC-D4-12551 (detroit_det_4a08065, 1893-1901) all show it standing, so the print records a time the bronze was off its pedestal, which no text read here explains or dates (the Library of Congress dates the print c. 1900). The 1904 scene keeps the group; this stays open until the print's date or the reason is found [T-3594: the weapons and ornaments are modelled on the group since (the tomahawk, the feathers, the headband, the hip ornament, the musket); a few pixels at this distance, nothing in this view moved] [T-3594: the warrior's and Black Partridge's heads and chests are turned as the plates show since; at this distance 23-52 px of the group change and nothing else in this view moved] [T-3594: Black Partridge's short fringed breechcloth and the child's smock are modelled since; at this distance 13 px of the group change and nothing else in this view moved [T-3594: the faces' brows, noses and lips are re-cut on the group since; under a pixel at this distance, nothing in this view moved]]",
       "status": "open"
     },
     {

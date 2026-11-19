@@ -5,6 +5,7 @@ import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
 import { GROUPS, groupIcon, groupOf, groupSlot, icon } from './menu-icons.js';
 import { TIME_NAMES } from './time-of-day.js';
+import { readingChoice, levelOfGrade, gradeOfLevel, levelLabel, LEVEL_IDS, WRITTEN } from './reading-level.js';
 
 export const WINDOW_SIZE = 30;
 /** A title as it sorts: without a leading A, An or The, so "A Letter Home" sits under L. */
@@ -22,6 +23,11 @@ const rank = (r) => (Number.isInteger(r.menu_rank) ? r.menu_rank : Infinity);
 /** T-3590: the US school grade bands a jaunt is written for (data/jaunts/schema.json grade_band). */
 export const GRADE_BANDS = ['K-2', '3-5', '6-8', '9-10', '11-12'];
 export const gradeLabel = (band) => (GRADE_BANDS.includes(band) ? `Grades ${band.replace('-', '–')}` : '');
+/** The owner, 2026-11-17: "make it age band filters and not grade level, add age band to each
+ *  card next to grade level". Each US grade band read as the ages its pupils are when the
+ *  school year starts, one age band to a grade band, so a picked age is still a grade_band. */
+export const AGE_BANDS = { 'K-2': '5–7', '3-5': '8–10', '6-8': '11–13', '9-10': '14–15', '11-12': '16–17' };
+export const ageLabel = (band) => (AGE_BANDS[band] ? `Ages ${AGE_BANDS[band]}` : '');
 /** T-3623: the grade filter's last pill picks the 18+ tellings (audience adults), which no grade pill lists. */
 export const ADULTS = '18+';
 const isAdults = (row) => row?.audience === 'adults';
@@ -52,7 +58,7 @@ export function filterJaunts(rows, query = '', group = '', grade = '') {
   const words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
   const byId = new Map(rows.map(row => [row.id, row]));
   return rows.filter(row => (!group || groupOf(row) === group) && (!grade || (grade === ADULTS ? isAdults(row) : gradeOf(row) === grade)) && words.every(word =>
-    `${row.title} ${row.premise} ${row.category} ${groupOf(row)} ${row.primary_family} ${isAdults(row) ? ADULTS : gradeLabel(row.grade_band)}`.toLocaleLowerCase().includes(word)))
+    `${row.title} ${row.premise} ${row.category} ${groupOf(row)} ${row.primary_family} ${isAdults(row) ? ADULTS : `${gradeLabel(row.grade_band)} ${ageLabel(row.grade_band)}`}`.toLocaleLowerCase().includes(word)))
     .sort((a, b) => jauntOrder(a, b, row => byId.get(row.version_of)));
 }
 
@@ -60,10 +66,13 @@ export function filterJaunts(rows, query = '', group = '', grade = '') {
  * T-3629 (owner, 2026-11-16, the interface sweep: "one card per jaunt, your grade
  * remembered"): every jaunt is told once per grade band (`version_of`), and with no grade
  * picked the list showed each one up to four times. The list keeps ONE telling of each
- * jaunt: the one for the picked band where there is one, else the jaunt itself (no band
- * picked: the jaunt itself). Order is kept; a search or a group filter runs first.
+ * jaunt per band picked: the one for that band where there is one, else the jaunt itself
+ * (no band picked: the jaunt itself). T-3645 (owner, 2026-11-17: "i can add multiple levels
+ * to see and then you would see all jaunts"): `grade` may be several bands, and each jaunt
+ * is then listed in each of their tellings. Order is kept; a search or a group filter runs first.
  */
 export function oneTellingEach(rows, grade = '') {
+  const want = (Array.isArray(grade) ? grade : [grade]).filter(Boolean);
   const groups = new Map();
   for (const row of rows) {
     const key = row.version_of || row.id;
@@ -72,22 +81,27 @@ export function oneTellingEach(rows, grade = '') {
   }
   const keep = new Set();
   for (const tellings of groups.values()) {
-    const picked = grade === ADULTS ? tellings.find(isAdults) : grade && tellings.find((r) => gradeOf(r) === grade);
-    keep.add(picked || tellings.find((r) => !r.version_of) || tellings[0]);
+    const base = tellings.find((r) => !r.version_of) || tellings[0];
+    if (!want.length) { keep.add(base); continue; }
+    for (const g of want) keep.add((g === ADULTS ? tellings.find(isAdults) : tellings.find((r) => gradeOf(r) === g)) || base);
   }
   return rows.filter((row) => keep.has(row));
 }
-/** T-3629: the grade band a visitor picked, kept on this device (a convenience: refused storage forgets it). */
+/** T-3629: the grade band a visitor picked, kept on this device. Since T-3645 the reading
+ *  ages (reading-level.js, `chicago4d.reading.ages`) hold the choice; this key is read once. */
 export const GRADE_KEY = 'chicago4d.jaunts.grade';
-const readGrade = () => { try { const g = globalThis.localStorage?.getItem(GRADE_KEY) ?? ''; return GRADE_BANDS.includes(g) || g === ADULTS ? g : ''; } catch { return ''; } };
-const writeGrade = (g) => { try { if (g) globalThis.localStorage?.setItem(GRADE_KEY, g); else globalThis.localStorage?.removeItem(GRADE_KEY); } catch { /* a convenience */ } };
+/** T-3645: a reading age as the band of tellings it lists (18+: the 18+ tellings). */
+export const bandOfAge = (age) => (age === WRITTEN ? ADULTS : gradeOfLevel(age));
 
 // T-2631: `plateFor(row)` gives a credited picture of the route's stops, or null; `kept(row)`
 // says the visitor holds this outing's keepsake.
-export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor = () => null, kept = () => false, preferredMode = () => null, modeNote = () => '' }) {
+export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor = () => null, kept = () => false, preferredMode = () => null, modeNote = () => '', choice = readingChoice() }) {
   const scroll = root.closest('.welcome-region') || root;
   const modes = new Map(), estimates = new Map(), open = new Set();
-  let query = '', family = '', grade = readGrade(), offset = 0, savedScroll = 0, focusKey = null;
+  let query = '', family = '', offset = 0, savedScroll = 0, focusKey = null;
+  // T-3645: the ages are the reader's (Settings › Display › Reading age); this row is a view of them.
+  const picked = () => choice.get().map(bandOfAge).filter(Boolean);
+  choice.subscribe(() => { if (list?.isConnected !== false && grades) { offset = 0; windowRows(); } });
   let rows = [], list, search, pills, grades, clear, previous, more;
   const node = (tag, text = '', cls = '') => {
     const el = document.createElement(tag); el.textContent = text; el.className = cls; return el;
@@ -123,6 +137,8 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     if (row.audience === 'adults') { const tag = node('span', '18+', 'jaunt-adults'); tag.title = row.content_warning || '18+: the fighting is shown'; meta.append(tag); }
     const grades = gradeLabel(gradeOf(row));
     if (grades) { const tag = node('span', grades, 'jaunt-grade'); tag.title = `Written for US school ${grades.toLowerCase()}`; meta.append(tag); }
+    const ages = ageLabel(gradeOf(row));
+    if (ages) { const tag = node('span', ages, 'jaunt-grade jaunt-age'); tag.title = `Written for readers ${ages.toLowerCase()}`; meta.append(tag); }
     const light = ambienceLabel(row.ambience);
     if (light) { const tag = node('span', light, 'jaunt-light'); tag.title = 'The jaunt sets this time of day and season, and gives yours back at the end'; meta.append(tag); }
     // T-2631: the keepsake, once earned, on the outing's own card.
@@ -198,14 +214,15 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
   function windowRows({ focus = false } = {}) {
     // T-2944/T-3584: ranked first, then by group, featured first within each (jauntOrder); no second sort here.
     // T-3629: one telling of each jaunt, the picked grade's where it has one.
-    const matches = oneTellingEach(filterJaunts(rows, query, family), grade);
+    const matches = oneTellingEach(filterJaunts(rows, query, family), picked());
     offset = Math.min(offset, Math.max(0, Math.floor((matches.length - 1) / WINDOW_SIZE) * WINDOW_SIZE));
     list.replaceChildren(...matches.slice(offset, offset + WINDOW_SIZE).map(row => card(row, 'all')));
     if (!matches.length) list.append(node('p', rows.length ? 'No matching outings.' : 'No jaunts are available yet. You can explore on your own.', 'jaunt-empty'));
     previous.hidden = offset === 0; more.hidden = offset + WINDOW_SIZE >= matches.length;
     clear.hidden = !query.trim() && !family;
     for (const pill of pills.children) if (pill.dataset.family !== undefined) pill.setAttribute('aria-pressed', String(pill.dataset.family === family));
-    for (const pill of grades.children) if (pill.dataset.grade !== undefined) pill.setAttribute('aria-pressed', String(pill.dataset.grade === grade));
+    const ages = choice.get();
+    for (const pill of grades.children) if (pill.dataset.age !== undefined) pill.setAttribute('aria-pressed', String(pill.dataset.age ? ages.includes(pill.dataset.age) : !ages.length));
     if (focus) {
       const target = list.querySelector('button, h3') || list;
       if (!target.matches('button')) target.tabIndex = -1;
@@ -227,20 +244,24 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     }
     // T-3604 (owner, 2026-11-15: "include grade level filters for the jaunts"): the school grades
     // each jaunt is written for (its grade_band), only those this year's jaunts have.
-    grades = node('div', '', 'jaunt-categories jaunt-grades'); grades.setAttribute('role', 'group'); grades.setAttribute('aria-label', 'Grade levels');
-    grades.append(node('span', 'Your grade', 'jaunt-grades-label'));
+    grades = node('div', '', 'jaunt-categories jaunt-grades'); grades.setAttribute('role', 'group'); grades.setAttribute('aria-label', 'Age bands');
+    grades.append(node('span', 'Your age', 'jaunt-grades-label'));
     const bands = GRADE_BANDS.filter(b => rows.some(row => gradeOf(row) === b));
-    // T-3623: the 18+ tellings get their own pill, last, when Settings lets them be listed.
-    // T-3629: picked, each jaunt plays its 18+ telling where it has one.
-    if (rows.some(isAdults)) bands.push(ADULTS);
-    if (grade && !bands.includes(grade)) grade = '';
-    for (const band of ['', ...bands]) {
-      const pill = button('', () => { grade = grade === band ? '' : band; writeGrade(grade); offset = 0; windowRows(); }, 'jaunt-pill jaunt-grade-pill');
-      const label = band === ADULTS ? '18+ tellings' : band ? gradeLabel(band) : 'Any grade';
-      pill.append(node('span', band ? band.replace('-', '–') : 'Any'));
+    // T-3623: the 18+ tellings are listed when Settings lets them be. T-3645: 18+ is also a
+    // reading age, so its pill is always there: each jaunt as first told, or in its 18+ telling.
+    const adults = rows.some(isAdults);
+    const ages = [...new Set(bands.map(levelOfGrade))].filter(Boolean);
+    if (bands.length) ages.push(WRITTEN);
+    for (const age of ['', ...LEVEL_IDS.filter((a) => ages.includes(a))]) {
+      // T-3645: several ages may be picked; Any lets them all go.
+      const pill = button('', () => { if (age) choice.toggle(age); else choice.clear(); }, 'jaunt-pill jaunt-grade-pill');
+      const band = age ? bandOfAge(age) : '';
+      const label = age === WRITTEN ? 'Ages 18 and over' : age ? ageLabel(band) : 'Any age';
+      pill.append(node('span', age ? levelLabel(age) : 'Any'));
       pill.setAttribute('aria-label', label);
-      pill.title = band === ADULTS ? 'Each jaunt in its 18+ telling, where it has one' : band ? `Each jaunt as told for ${gradeLabel(band).toLowerCase()}` : 'Each jaunt as first told';
-      pill.dataset.grade = band; grades.append(pill);
+      pill.title = age === WRITTEN ? (adults ? 'Each jaunt in its 18+ telling, where it has one' : 'Each jaunt as first told')
+        : age ? `Each jaunt as told for ${ageLabel(band).toLowerCase()} (${gradeLabel(band).toLowerCase()})` : 'Each jaunt as first told';
+      pill.dataset.grade = band; pill.dataset.age = age; grades.append(pill);
     }
     grades.hidden = bands.length < 2;
     search.addEventListener('input', () => { query = search.value; offset = 0; windowRows(); });
@@ -251,12 +272,14 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     const chip = prefix.find(el => el.dataset?.action === 'daybook');
     if (chip) { prefix = prefix.filter(el => el !== chip); }
     const findRow = node('div', '', 'jaunt-find-row'); findRow.append(find, ...(chip ? [chip] : []));
-    const filters = node('div', '', 'jaunt-filters'); filters.append(findRow, pills, grades);
+    // T-3653: only the search row is pinned (css/walk.css § .jaunt-find-row), so it stands
+    // beside the list rather than inside the filter block; the group and age rows scroll away.
+    const filters = node('div', '', 'jaunt-filters'); filters.append(pills, grades);
     list = node('div', '', 'jaunt-list'); list.setAttribute('aria-label', 'All jaunts');
     previous = button('Earlier outings', () => { offset -= WINDOW_SIZE; windowRows({ focus: true }); });
     more = button('More outings', () => { offset += WINDOW_SIZE; windowRows({ focus: true }); });
     const nav = node('nav', '', 'jaunt-window-nav'); nav.setAttribute('aria-label', 'Browse outings'); nav.append(previous, more);
-    root.replaceChildren(...prefix, filters, list, nav);
+    root.replaceChildren(...prefix, findRow, filters, list, nav);
     windowRows();
     if (returnId) {
       const key = focusKey?.id === returnId ? { ...focusKey } : { id: returnId, section: 'all', action: 'start' };

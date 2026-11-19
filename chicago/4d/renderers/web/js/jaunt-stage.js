@@ -20,7 +20,12 @@
  * (`talk`), greet, go out of sight (`hide`: into a house, a boat) and come back (`show`), or
  * be found somewhere else (`place`, out of sight: across the river after a crossing). The stage is built at
  * the beginning (t = 0) while the visitor travels to the stop and plays when they arrive;
- * Watch again plays it from the beginning. A stage may also take the town's horse teams
+ * Watch again plays it from the beginning. A castmate who `mount`s is on a saddle horse
+ * (Kevin, 2026-11-17: "maybe during the battle of fort Dearborn they would have had horses"):
+ * the horse goes where the castmate's own walks take them, at their pace (a gallop where they
+ * hurry), with them seated in the saddle and their coat laid over it (riding.js stageHorse,
+ * handed in as `horses`), until a `dismount` beat sets them down on its near side and the horse
+ * stands. With no horses handed in, they walk their way on foot. A stage may also take the town's horse teams
  * (`teams`: a team by its row id in data/transport/driven/loops.json, with its own mark and
  * walking beats, its vehicle root walked along them): the 1812 column's wagons, driven by the
  * men who drive them every day, and castmates who `ride` one sit at a seat on it (vehicle-local
@@ -88,6 +93,10 @@
  * gait runs (human-gait.js), so `hurry` is the slowest jog; `jog`, `run` and `flee` are the
  * running dataset's own speeds (2.5-4.5 m/s, rounded), and `sprint` a flat-out dash past them.
  */
+/** T-3560: how far from the horse's spine a castmate who gets down stands, on its near side. */
+export const DISMOUNT_M = 1.0;
+/** ... and how fast a ridden horse turns to a new heading, degrees a second. */
+export const HORSE_TURN_DEG_S = 90;
 export const PACES = Object.freeze({ walk: null, brisk: 1.75, hurry: 2.2, slow: 0.9, jog: 2.6, run: 3.6, flee: 4.5, sprint: 5.6 });
 export const POSES = Object.freeze(['stand', 'kneel', 'kneel2', 'crouch', 'sit', 'prone', 'lie', 'fallen']);
 /** How far beyond the people layer's animation range a posed figure keeps its pose drawn. */
@@ -126,12 +135,20 @@ export function castFor(stop, tier = 'full') {
 export function castAt(c, t, { walkSpeed = 1.3 } = {}) {
   const at = pt(c.at);
   const s = { e: at.e, n: at.n, heading: Number.isFinite(c.heading) ? c.heading : 0, pose: c.pose ?? 'stand', hidden: !!c.hidden, talk: !!c.talk,
-    arm: c.arm ?? 'none', act: null };
+    arm: c.arm ?? 'none', act: null, mounted: !!c.mount, horse: null, speed: 0 };
   for (const b of sortedBeats(c)) {
     if (b.t > t) break;
     const to = pt(b.place);
     if (to) { s.e = to.e; s.n = to.n; }
+    if (b.dismount && s.mounted) {
+      // T-3560: down on the horse's near (left) side; the horse stands where it is.
+      s.mounted = false; s.horse = { e: s.e, n: s.n, heading: s.heading };
+      const h = ((s.heading - 90) * Math.PI) / 180;
+      s.e += Math.sin(h) * DISMOUNT_M; s.n += Math.cos(h) * DISMOUNT_M;
+    }
+    if (to || b.dismount) s.speed = 0;
     if (Array.isArray(b.walk)) {
+      s.speed = 0;
       const way = [{ e: s.e, n: s.n }, ...b.walk.map(pt).filter(Boolean)];
       const speed = Number.isFinite(b.pace) ? b.pace : PACES[b.pace] ?? walkSpeed;
       let left = Math.max(0, t - b.t) * speed;
@@ -139,7 +156,7 @@ export function castAt(c, t, { walkSpeed = 1.3 } = {}) {
         const a = way[i], z = way[i + 1], len = Math.hypot(z.e - a.e, z.n - a.n);
         if (len > 1e-9) s.heading = bearing(z.e - a.e, z.n - a.n);
         if (left >= len) { s.e = z.e; s.n = z.n; left -= len; continue; }
-        s.e = a.e + ((z.e - a.e) * left) / len; s.n = a.n + ((z.n - a.n) * left) / len; left = 0; break;
+        s.e = a.e + ((z.e - a.e) * left) / len; s.n = a.n + ((z.n - a.n) * left) / len; left = 0; s.speed = speed; break;
       }
       if (Number.isFinite(b.heading) && left > 0) s.heading = b.heading;
     } else if (Number.isFinite(b.heading)) s.heading = b.heading;
@@ -194,7 +211,7 @@ export function stageLength(stop, { walkSpeed = 1.3 } = {}) {
  * tier now; `eye()` the eye (a world Vector3) each figure is updated from.
  */
 export function createJauntStage({ humans, parent = null, resolve = () => null, tier = () => 'full', eye = () => null, teams = null, fight = null, blood = null, fire = null, view = () => null,
-  doors = () => null, gates = null, boats = null, bier = null } = {}) {
+  doors = () => null, gates = null, boats = null, bier = null, horses = null } = {}) {
   let stopKey = null, stop = null, cast = [], clock = 0, playing = false;
   // T-3553: the hung doors' ways (house-doors.js passages), read once a build; the gates a stage opened.
   let ways = new Map(), shutGates = null;
@@ -371,6 +388,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
         m.ride = c.ride;
         actor.setPosture?.(c.pose ?? 'sit', { seconds: 0 });
       }
+      if (c.mount && typeof c.mount.horse === 'string' && horses?.create) m.mount = { spec: c.mount, handle: null, loading: false, seating: false, failed: false, heading: null, face: null };
       begin(c, actor);
       arm(m, castAt(c, 0).arm);
       cast.push(m);
@@ -387,7 +405,11 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
   /** Let the stage go. A boat crossed in is left on the bank it was going to (the story goes on
    *  from there), or laid back where it set out when the stop is watched `again`. */
   function teardown(again = false) {
-    for (const m of cast) { leaveDoor(m); if (m.emerging) m.emerging.p.release?.(doorKey(m)); m.weapon?.removeFromParent?.(); try { m.actor.dispose(); } catch { /* gone already */ } }
+    for (const m of cast) {
+      leaveDoor(m); if (m.emerging) m.emerging.p.release?.(doorKey(m)); m.weapon?.removeFromParent?.();
+      if (m.mount) { m.mount.gone = true; try { m.mount.handle?.dispose(); } catch { /* gone already */ } }
+      try { m.actor.dispose(); } catch { /* gone already */ }
+    }
     ways = new Map();
     for (const h of crossed) { try { if (again) h.restore(); else h.settle?.(); } catch { /* gone already */ } }
     crossed = [];
@@ -423,6 +445,49 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     // Asked again every two seconds of the page's own time (a held stage's frames carry none).
     const now = Date.now();
     if (missing && now - askedLoad >= 2000) { askedLoad = now; try { teams?.load?.(); } catch { /* asked again later */ } }
+  }
+
+  /**
+   * T-3560: a castmate on a saddle horse. The horse is asked for once; until it comes the
+   * castmate walks their way on foot. Up, the horse goes where the castmate's beats have them
+   * (castAt: the same place a late arrival or a replay finds), turning at a horse's rate, with
+   * the castmate seated; at their `dismount` they are stood beside it and walk on from there.
+   * Returns whether the castmate's own figure is held by the horse this frame.
+   */
+  function mountFrame(m, step, shown, eyeAt) {
+    const M = m.mount, a = m.actor;
+    // Asked again every two seconds of the page's own time while the riding layer is not up.
+    if (!M.handle && !M.loading && !M.failed && Date.now() >= (M.askAt ?? 0)) {
+      M.loading = true; M.askAt = Date.now() + 2000;
+      Promise.resolve(horses.create({ id: `${stopKey}:${m.c.person ?? m.c.extra}`, coat_row: M.spec.horse, tack: M.spec.tack ?? null }))
+        .then((h) => { if (M.gone) h?.dispose?.(); else if (h) M.handle = h; }, () => { M.failed = true; })
+        .finally(() => { M.loading = false; });
+    }
+    const h = M.handle;
+    if (!h) return false;
+    h.visible = shown;
+    const s = castAt(m.c, clock);
+    if (s.mounted) {
+      const want = M.face ?? s.heading;
+      M.heading ??= s.heading;
+      const d = ((want - M.heading + 540) % 360) - 180, most = HORSE_TURN_DEG_S * step;
+      M.heading = (M.heading + Math.max(-most, Math.min(most, d)) + 360) % 360;
+      h.move({ e: s.e, n: s.n, bearing: M.heading, speed: s.speed, eye: eyeAt }, step);
+      if (!h.seated && !M.seating && !M.failed) {
+        M.seating = true;
+        h.seat(a, { asset: a.instance?.appearance?.asset_id }).catch(() => { M.failed = true; }).finally(() => { M.seating = false; });
+      }
+      if (!h.seated) return false;
+      a.path = null; a.e = s.e; a.n = s.n; a.heading = M.heading;
+      return true;
+    }
+    if (h.seated) {
+      h.unseat(parent);
+      a.path = null; a.e = s.e; a.n = s.n; a.heading = s.heading; a.standY = null; a.place?.();
+    }
+    const at = s.horse ?? { e: s.e, n: s.n, heading: s.heading };
+    h.move({ e: at.e, n: at.n, bearing: M.heading ?? at.heading, speed: 0, eye: eyeAt }, step);
+    return false;
   }
 
   /** A rider sits where their seat on the team is now. */
@@ -552,13 +617,14 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       const m = hit && cast.find((x) => x.actor.proxy === hit.object);
       if (!m) return null;
       return { actor: m.actor, personId: m.c.person ?? null, person: m.actor.person ?? null,
-        name: m.c.person ? (m.actor.person?.name ?? null) : (m.c.name ?? 'An unnamed figure'), distance: hit.distance, point: hit.point };
+        name: m.c.person ? (m.actor.person?.name ?? null) : (m.c.name ?? 'An unnamed figure'), about: m.c.person ? null : (m.c.about ?? null),
+        distance: hit.distance, point: hit.point };
     },
     meet(hit, visitor = null) {
       const m = cast.find((x) => x.actor === hit?.actor);
       if (!m) return false;
       const a = m.actor;
-      const free = (a.posture?.kind ?? 'stand') === 'stand' && !a.path && !m.ride && (!m.arm || m.arm === 'none') && !a.actions?.talking;
+      const free = (a.posture?.kind ?? 'stand') === 'stand' && !a.path && !m.ride && !m.mount?.handle?.seated && (!m.arm || m.arm === 'none') && !a.actions?.talking;
       if (!free) return false;
       if (visitor && Number.isFinite(visitor.e)) a.turnTo?.(bearing(visitor.e - a.e, visitor.n - a.n));
       a.actions?.greet?.();
@@ -606,7 +672,12 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       if (playing) {
         clock += step;
         for (const m of cast) {
-          while (m.next < m.beats.length && m.beats[m.next].t <= clock) play(m, m.beats[m.next++]);
+          while (m.next < m.beats.length && m.beats[m.next].t <= clock) {
+            const b = m.beats[m.next++];
+            // T-3560: on a horse, a beat that faces someone turns the horse; a walk ends it.
+            if (m.mount) { if (Array.isArray(b.walk)) m.mount.face = null; else if (b.face != null) m.mount.face = faceOf(m, b) ?? m.mount.face; else if (Number.isFinite(b.heading)) m.mount.face = b.heading; }
+            play(m, b);
+          }
           if (m.pendingIgnite && clock >= m.pendingIgnite.at) { burn?.ignite(m.pendingIgnite.id, torchPoint(m)); m.pendingIgnite = null; }
         }
       }
@@ -627,7 +698,9 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       const at = eye();
       for (const m of cast) {
         if (m.ride) seatRider(m);
+        const up = m.mount ? mountFrame(m, step, shown, at) : false;
         if (!shown) { m.actor.root.visible = false; if (m.weapon) m.weapon.visible = false; continue; }
+        if (up) { m.actor.root.visible = !m.actor.indoors; continue; }
         if (at) m.actor.update(step, at, step);
         wieldFrame(m);
         if (m.pendingWounds && m.actor.body && m.actor.root.visible) { const due = m.pendingWounds; m.pendingWounds = null; for (const k of due) wound(m, k); }
@@ -640,6 +713,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       return { stop: stopKey, playing, clock: +clock.toFixed(2), cast: cast.map((m) => ({ person: m.c.person ?? null, extra: m.c.extra ?? null,
         e: +m.actor.e.toFixed(2), n: +m.actor.n.toFixed(2), heading: +m.actor.heading.toFixed(1), posture: m.actor.posture?.kind ?? 'stand',
         hidden: !!m.actor.indoors, drawn: !!m.actor.root.visible, lod: m.actor.lod, ...(m.ride ? { ride: m.ride.team } : {}),
+        ...(m.mount ? { mount: m.mount.handle ? (m.mount.handle.seated ? 'up' : 'down') : m.mount.failed ? 'failed' : 'coming' } : {}),
         ...(m.arm && m.arm !== 'none' ? { arm: m.arm, armed: !!m.weapon?.visible, act: m.actor.actions?.fight?.act ?? null } : {}) })),
         smoke: fx?.count ?? 0,
         doors: cast.filter((m) => m.door || m.emerging).map((m) => ({ door: (m.door ?? m.emerging).p.id, swing: +((m.door ?? m.emerging).p.swing ?? 0).toFixed(2),

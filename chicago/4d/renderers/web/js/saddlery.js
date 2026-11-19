@@ -63,6 +63,8 @@ export function polarEnvelope(points, { origin, dir, up, ds = .02, dphi = 10, s0
       return target.copy(origin).addScaledVector(d, s).addScaledVector(u, Math.cos(a) * rr).addScaledVector(w, Math.sin(a) * rr);
     },
     dir: d, up: u, side: w,
+    // The bins themselves (rider-drape.js draws them as a texture): r[i * na + a], s = s0 + i * ds.
+    origin: origin.clone(), table: r, ns, na, s0, ds, dphi,
   };
 }
 
@@ -150,8 +152,41 @@ export function catenary(a, b, sag, n = 12, out = []) {
   return out;
 }
 
-const material = (hex, { rough = .7, metal = 0, side = THREE.FrontSide } = {}) =>
-  new THREE.MeshStandardMaterial({ color: new THREE.Color(hex), roughness: rough, metalness: metal, side });
+/**
+ * Kevin, 2026-11-17: the tack had "no texture". Leather and felt carry a grain: a fine pore and a
+ * broader mottle in the material's own object space (the straps have no UVs), darkening and
+ * lightening the colour and roughening it a little. `grain` = [fine cycles a metre, broad cycles
+ * a metre, colour depth, roughness depth]; none for metal. Every face is drawn both sides, so a
+ * flap or strap seen from behind is never a hole.
+ */
+const GRAIN = { leather: [190, 28, .2, .18], felt: [420, 22, .12, .08], rawhide: [140, 18, .26, .2] };
+const GRAIN_GLSL = `
+varying vec3 vTackP;
+float tackHash(vec3 p) { p = fract(p * .1031); p += dot(p, p.yzx + 33.33); return fract((p.x + p.y) * p.z); }
+float tackNoise(vec3 p) {
+  vec3 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f);
+  return mix(mix(mix(tackHash(i), tackHash(i + vec3(1, 0, 0)), f.x), mix(tackHash(i + vec3(0, 1, 0)), tackHash(i + vec3(1, 1, 0)), f.x), f.y),
+    mix(mix(tackHash(i + vec3(0, 0, 1)), tackHash(i + vec3(1, 0, 1)), f.x), mix(tackHash(i + vec3(0, 1, 1)), tackHash(i + vec3(1, 1, 1)), f.x), f.y), f.z);
+}`;
+export function material(hex, { rough = .7, metal = 0, grain = null } = {}) {
+  const m = new THREE.MeshStandardMaterial({ color: new THREE.Color(hex), roughness: rough, metalness: metal, side: THREE.DoubleSide });
+  const g = grain ? GRAIN[grain] : null;
+  if (!g) return m;
+  const f = x => x.toFixed(4);
+  m.onBeforeCompile = (shader) => {
+    shader.vertexShader = shader.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vTackP;')
+      .replace('#include <begin_vertex>', '#include <begin_vertex>\nvTackP = position;');
+    shader.fragmentShader = shader.fragmentShader.replace('#include <common>', `#include <common>\n${GRAIN_GLSL}`)
+      .replace('#include <color_fragment>', `#include <color_fragment>
+  float tackG = tackNoise(vTackP * ${f(g[0])}) * .55 + tackNoise(vTackP * ${f(g[1])}) * .45;
+  diffuseColor.rgb *= 1.0 + ${f(g[2])} * (tackG - .5) * 2.0;`)
+      .replace('#include <roughnessmap_fragment>', `#include <roughnessmap_fragment>
+  roughnessFactor = clamp(roughnessFactor + ${f(g[3])} * (tackG - .5) * 2.0, .05, 1.0);`);
+  };
+  m.customProgramCacheKey = () => `tack-grain|${grain}`;
+  m.userData.tackGrain = grain;
+  return m;
+}
 
 /**
  * Points on the coat (at the current pose, in the root's frame) of the meshes whose material is
@@ -197,6 +232,8 @@ export function fitTack(root, spec, { body = 'Material_HorseMain4k00.png' } = {}
   for (const b of ['horse_body', 'horse_head', 'horse_neck']) if (!bones[b]) throw Error(`saddlery: the horse lacks ${b}`);
   const S = spec.saddle, B = spec.bridle;
   // The trunk's coat: the body, and the tops of the shoulders and quarters the panels lie on.
+  root.updateMatrixWorld(true);
+  const bodyRest = root.matrixWorld.clone().invert().multiply(bones.horse_body.matrixWorld);
   const trunk = skinnedPoints(root, body, ['horse_body', 'horse_neck', 'fore_l_shoulder', 'fore_r_shoulder', 'hind_l_hip', 'hind_r_hip']);
   const heads = skinnedPoints(root, body, ['horse_head']);
   if (trunk.length < 500 || heads.length < 200) throw Error('saddlery: too little of the horse to fit to');
@@ -204,11 +241,45 @@ export function fitTack(root, spec, { body = 'Material_HorseMain4k00.png' } = {}
   const poll = new THREE.Vector3(...B.poll_m), muzzle = new THREE.Vector3(...B.muzzle_m);
   const headLen = poll.distanceTo(muzzle);
   const hen = polarEnvelope(heads, { origin: poll, dir: muzzle.clone().sub(poll), up: new THREE.Vector3(0, 1, .4), ds: .015, s0: -.05, s1: headLen + .02 });
+  const hide = S.material === 'rawhide' ? 'rawhide' : 'leather';
   const mats = {
-    leather: material(S.leather_hex, { rough: .55 }), seat: material(S.seat_hex ?? S.leather_hex, { rough: .5 }),
-    cloth: material(S.cloth_hex, { rough: .95, side: THREE.DoubleSide }), metal: material(spec.metal_hex, { rough: .35, metal: .85 }),
-    bridle: material(B.leather_hex, { rough: .55 }), girth: material(S.girth_hex ?? S.leather_hex, { rough: .8 }),
+    leather: material(S.leather_hex, { rough: .55, grain: hide }), seat: material(S.seat_hex ?? S.leather_hex, { rough: .45, grain: hide }),
+    cloth: material(S.cloth_hex, { rough: .95, grain: 'felt' }), metal: material(spec.metal_hex, { rough: .35, metal: .85 }),
+    bridle: material(B.leather_hex, { rough: .55, grain: 'leather' }), girth: material(S.girth_hex ?? S.leather_hex, { rough: .8, grain: 'felt' }),
   };
+  // Kevin, 2026-11-17: straps "slice through the horse". A point of a hanging strap (a stirrup
+  // leather, a rein) inside the trunk or the neck is laid on the coat `lift` out instead.
+  const necks = skinnedPoints(root, body, ['horse_neck']);
+  // The neck's core: from over the top of the chest, inside the withers, up to just under the poll.
+  const withers = new THREE.Vector3(0, S.axis_y_m + .2, S.pommel_z_m + .2), pollTop = poll.clone().add(new THREE.Vector3(0, -.08, 0));
+  const neckLen = withers.distanceTo(pollTop);
+  const nen = necks.length > 200 ? polarEnvelope(necks, { origin: withers, dir: pollTop.clone().sub(withers), up: new THREE.Vector3(0, 1, -.3), ds: .03, s0: -.05, s1: neckLen }) : null;
+  const q0 = new THREE.Vector3();
+  const outside = (e, p, lift, s0, s1) => {
+    if (!e) return p;
+    q0.copy(p).sub(e.origin);
+    const s = q0.dot(e.dir);
+    if (s < s0 || s > s1) return p;
+    const y = q0.dot(e.up), x = q0.dot(e.side), phi = Math.atan2(x, y) / DEG;
+    if (Math.hypot(x, y) < e.radius(s, phi) + lift) e.at(s, phi, lift, p);
+    return p;
+  };
+  // The envelopes are the rest pose's; a point as the horse now stands is taken back to its
+  // bone's rest frame, laid on, and brought forward again (frames() each update).
+  const neckBoneRest = root.matrixWorld.clone().invert().multiply(bones.horse_neck.matrixWorld);
+  const F4 = { bodyIn: new THREE.Matrix4(), bodyOut: new THREE.Matrix4(), neckIn: new THREE.Matrix4(), neckOut: new THREE.Matrix4(), inv: new THREE.Matrix4() };
+  const frames = () => {
+    F4.inv.copy(root.matrixWorld).invert();
+    F4.bodyOut.copy(F4.inv).multiply(bones.horse_body.matrixWorld).multiply(new THREE.Matrix4().copy(bodyRest).invert());
+    F4.bodyIn.copy(F4.bodyOut).invert();
+    F4.neckOut.copy(F4.inv).multiply(bones.horse_neck.matrixWorld).multiply(new THREE.Matrix4().copy(neckBoneRest).invert());
+    F4.neckIn.copy(F4.neckOut).invert();
+  };
+  const clear = (p, lift = .012) => {
+    outside(env, p.applyMatrix4(F4.bodyIn), lift, -.68, .98).applyMatrix4(F4.bodyOut);
+    return outside(nen, p.applyMatrix4(F4.neckIn), lift, .02, neckLen - .03).applyMatrix4(F4.neckOut);
+  };
+  const neckAt = (s, phi) => nen.at(s, phi, .016).applyMatrix4(F4.neckOut);
   const group = new THREE.Group(); group.name = 'tack';
   const onBody = new THREE.Group(); onBody.name = 'tack:body';
   const onHead = new THREE.Group(); onHead.name = 'tack:head';
@@ -229,6 +300,23 @@ export function fitTack(root, spec, { body = 'Material_HorseMain4k00.png' } = {}
     const s = zc + u * len, phi = (v * 2 - 1) * S.seat_half_angle_deg;
     return env.at(s, phi, seatLift(u, phi), out);
   }), mats.seat));
+  // T-3644: a side saddle's heads (pommels), all on the near side: each a padded horn from its
+  // root on the seat's front, bowed through `bow_m` to `tip_m` (offsets from the root, metres in
+  // the root frame; +x the near side). The fixed head the right leg hooks over; the leaping head,
+  // where there is one, curving down over the left thigh.
+  for (const H of S.heads ?? []) {
+    const root0 = env.at(zc + len * H.at, H.phi_deg, seatLift(H.at, H.phi_deg) + H.radius_m * .6);
+    const mid = root0.clone().add(new THREE.Vector3(...H.bow_m)), tip = root0.clone().add(new THREE.Vector3(...H.tip_m));
+    const pts = [];
+    for (let i = 0; i <= 10; i++) { const t = i / 10; pts.push(new THREE.Vector3().addScaledVector(root0, (1 - t) * (1 - t)).addScaledVector(mid, 2 * t * (1 - t)).addScaledVector(tip, t * t)); }
+    const head = tubeThrough(pts, H.radius_m, null, 12);
+    // Rounded off at the tip: the last ring drawn in to a point.
+    const pos = head.getAttribute('position');
+    for (let k = 0; k < 12; k++) pos.setXYZ(10 * 12 + k, tip.x, tip.y, tip.z);
+    head.computeVertexNormals();
+    const m = new THREE.Mesh(head, mats.seat); m.name = `tack:head:${H.id}`;
+    onBody.add(m);
+  }
   const F = S.flap;
   for (const sideSign of [1, -1]) {
     onBody.add(new THREE.Mesh(gridGeometry(10, 12, (u, v, out) => {
@@ -310,22 +398,27 @@ export function fitTack(root, spec, { body = 'Material_HorseMain4k00.png' } = {}
   const neckRest = riding(bones.horse_body, env.at(zp + .06, 0, .03));
   // Leathers, irons and reins: redrawn between their ends each frame (root frame).
   const lines = { leather: [], rein: [] };
+  // A side saddle hangs one stirrup, on the near side (spec.stirrups 'near').
+  const stirrupSides = spec.stirrups === 'near' ? [1] : [1, -1];
   for (const sideSign of [1, -1]) {
-    const leather = new THREE.Mesh(new THREE.BufferGeometry(), mats.leather); free.add(leather);
+    const rein = new THREE.Mesh(new THREE.BufferGeometry(), mats.bridle); rein.name = 'tack:rein'; free.add(rein);
+    lines.rein.push({ side: sideSign, mesh: rein });
+    if (!stirrupSides.includes(sideSign)) continue;
+    const leather = new THREE.Mesh(new THREE.BufferGeometry(), mats.leather); leather.name = 'tack:leather'; free.add(leather);
     const iron = spec.stirrup === 'wood'
       ? new THREE.Mesh(new THREE.BoxGeometry(.11, .05, .09), material('#5a3d26', { rough: .8 }))
       : new THREE.Mesh(new THREE.TorusGeometry(.065, .007, 6, 18, Math.PI * 1.15), mats.metal);
     if (spec.stirrup !== 'wood') { const tread = new THREE.Mesh(new THREE.BoxGeometry(.11, .008, .05), mats.metal); tread.position.y = -.0; iron.add(tread); }
     free.add(iron);
     lines.leather.push({ side: sideSign, mesh: leather, iron });
-    const rein = new THREE.Mesh(new THREE.BufferGeometry(), mats.bridle); free.add(rein);
-    lines.rein.push({ side: sideSign, mesh: rein });
   }
   group.add(free);
   root.add(group);
   const scratch = [];
   const api = {
     group, parts: { onBody, onHead, free }, envelope: env, head: hen, spec,
+    /** The trunk bone, and where it stood in the root's frame when the tack was fitted (the envelope's pose). */
+    bodyBone: bones.horse_body, bodyRest,
     /** The middle of the seat, in the horse root's frame, as the trunk now rides. */
     seat: () => seatAt(),
     stirrupBar: side => barAt[side](),
@@ -338,17 +431,34 @@ export function fitTack(root, spec, { body = 'Material_HorseMain4k00.png' } = {}
      */
     update(rider = null) {
       root.updateMatrixWorld(true);
+      frames();
       for (const l of lines.leather) {
         const top = barAt[l.side](), foot = rider?.feet?.[l.side] ?? api.hanging(l.side);
-        const ironAt = rider ? foot.clone().add(new THREE.Vector3(0, -.015, 0)) : foot;
-        tubeThrough([top, top.clone().lerp(ironAt, .5), ironAt.clone().add(new THREE.Vector3(0, .06, 0))], .006, l.mesh.geometry, 4);
+        const ironAt = rider ? foot.clone().add(new THREE.Vector3(0, -.015, 0)) : clear(foot, .03);
+        const end = ironAt.clone().add(new THREE.Vector3(0, .06, 0)), way = [top];
+        if (!rider) clear(end, .016);
+        for (let i = 1; i < 8; i++) way.push(clear(top.clone().lerp(end, i / 8), .016));
+        way.push(end);
+        tubeThrough(way, .006, l.mesh.geometry, 4);
         l.iron.position.copy(ironAt).add(new THREE.Vector3(0, spec.stirrup === 'wood' ? 0 : .058, 0));
         l.iron.rotation.set(0, Math.PI / 2, spec.stirrup === 'wood' ? 0 : Math.PI);
       }
       for (const r of lines.rein) {
         const from = bitAt[r.side]();
+        if (!rider && nen) {
+          // Nobody up: the reins lie over the neck from the bit back to the withers, on the crest.
+          const way = [from];
+          for (let i = 1; i <= 12; i++) {
+            const t = 1 - i / 12;
+            way.push(clear(neckAt(t * (neckLen - .1) + .05, r.side * 38), .016));
+          }
+          tubeThrough(way, .0055, r.mesh.geometry, 4);
+          continue;
+        }
         const to = rider?.hands?.[r.side] ?? neckRest().add(new THREE.Vector3(r.side * .05, 0, 0));
-        tubeThrough(catenary(from, to, rider ? .015 : .05, 14, scratch), .0055, r.mesh.geometry, 4);
+        const way = catenary(from, to, rider ? .015 : .05, 14, scratch);
+        for (let i = 1; i < way.length - 1; i++) clear(way[i], .012);
+        tubeThrough(way, .0055, r.mesh.geometry, 4);
       }
     },
     dispose() {

@@ -204,8 +204,15 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
           // T-3557: the ride's readers (where the eye is, the ground to get down to, the standing
           // eye, reduced motion, the reins' words) and the boarding hook (ends a Go to / follow).
           'visitorEye', 'groundAt', 'walkEye', 'reducedMotion', 'reinsHint', 'onBoard',
+          // T-3560: the pace word said as the visitor urges a driven team on.
+          'say',
           // T-3557: the Glessner ride's parked twin, coach house and off-road floor.
-          'parked', 'coachHouse', 'pathHeightAt'].sort());
+          'parked', 'coachHouse', 'pathHeightAt',
+          // T-3560: the horses a team waits for (riding.js obstacles; none until riding mounts).
+          'obstacles',
+          // T-3644: the climb into a seat shows the visitor's own person.
+          'visitorFigure'].sort());
+        assert.deepEqual(options.obstacles(), [], 'no horses yet: nothing for a team to wait for');
         assert.equal(options.parked, null, 'no parked layer in this boot: the ride has no stand-in');
         assert.equal(options.coachHouse(), undefined); assert.equal(typeof options.pathHeightAt, 'function');
         // T-3475: Step back reads the router's walkable grid (none yet: nothing blocks) and moves the walker.

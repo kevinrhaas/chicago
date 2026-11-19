@@ -1,0 +1,232 @@
+{
+  "subject": "peck_philip_1835",
+  "reference_set": "merchant_1835",
+  "shot": {
+    "date": "2026-11-18",
+    "target": "tools/people_match_stage.html on this tree",
+    "build": "stage, tree 275e17456 + 8 uncommitted figure file(s): T-3553 round 4 in progress (the legwear pass in human-regulars.js and human-tailor-1835.js, and the other round-4 passes' working copies)",
+    "out": "evidence/people-match-2026-11-18/peck_philip_1835",
+    "evidence_repo": "kevinrhaas/chicago-evidence"
+  },
+  "bound": {
+    "appearance": {
+      "asset_id": "peck_philip_1835"
+    },
+    "animation": {
+      "clip": "idle",
+      "loop": true,
+      "phase": 0.55
+    },
+    "asset_lod0_sha256": "c9870d61b248c0ca61cde1cb2e50e711f8366403dcb4e8f5cc4153dc1f6ce1e6"
+  },
+  "stills": {
+    "near-desktop": {
+      "file": "evidence/people-match-2026-11-18/peck_philip_1835/near-desktop.jpg",
+      "sha256": "134a5046760c7c30d23403a9b8babcf24862b29c2d9840c160fec79fe23ee137",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 2.641,
+        "n": -1.514,
+        "eye_y": 1.68,
+        "yaw_deg": 300,
+        "pitch_deg": -15.66,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.043,
+          -0.014,
+          1.589
+        ]
+      },
+      "figure_box_px": [
+        525,
+        171,
+        230,
+        415
+      ]
+    },
+    "far-desktop": {
+      "file": "evidence/people-match-2026-11-18/peck_philip_1835/far-desktop.jpg",
+      "sha256": "28710fe22c2184f91361d47dd989ecbf80aeabce6b601e21fd707c00b59d0ac2",
+      "detail": "stage",
+      "pose": {
+        "pose": "walk",
+        "at_s": 2.4,
+        "clip": "walk",
+        "state": "walking"
+      },
+      "camera": {
+        "e": 8.177,
+        "n": -8.667,
+        "eye_y": 1.68,
+        "yaw_deg": 330,
+        "pitch_deg": -5.99,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          3.177,
+          -0.007,
+          1.531
+        ]
+      },
+      "figure_box_px": [
+        604,
+        324,
+        73,
+        132
+      ]
+    },
+    "near-phone": {
+      "file": "evidence/people-match-2026-11-18/peck_philip_1835/near-phone.jpg",
+      "sha256": "38d6f8be0b72503a0b4df38b56963c765405f679bf3bd66e61c81bb7d209e919",
+      "detail": "stage",
+      "pose": {
+        "pose": "stand",
+        "at_s": 2,
+        "clip": "idle",
+        "state": "standing"
+      },
+      "camera": {
+        "e": 2.641,
+        "n": -1.514,
+        "eye_y": 1.68,
+        "yaw_deg": 300,
+        "pitch_deg": -15.66,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          0.043,
+          -0.014,
+          1.589
+        ]
+      },
+      "figure_box_px": [
+        83,
+        167,
+        224,
+        405
+      ]
+    },
+    "far-phone": {
+      "file": "evidence/people-match-2026-11-18/peck_philip_1835/far-phone.jpg",
+      "sha256": "a62595a3aa024528c938ced9be4305a9ed37c08c0ebd8bacc595ab2a818176cf",
+      "detail": "stage",
+      "pose": {
+        "pose": "walk",
+        "at_s": 2.4,
+        "clip": "walk",
+        "state": "walking"
+      },
+      "camera": {
+        "e": 8.177,
+        "n": -8.667,
+        "eye_y": 1.68,
+        "yaw_deg": 330,
+        "pitch_deg": -5.99,
+        "fov_deg": 72,
+        "subject_heading_deg": 90,
+        "head_enu": [
+          3.177,
+          -0.007,
+          1.531
+        ]
+      },
+      "figure_box_px": [
+        159,
+        316,
+        71,
+        128
+      ]
+    }
+  },
+  "sheets": {
+    "near-side-by-side": "evidence/people-match-2026-11-18/peck_philip_1835/near-side-by-side.jpg",
+    "far-side-by-side": "evidence/people-match-2026-11-18/peck_philip_1835/far-side-by-side.jpg",
+    "near-pair": "evidence/people-match-2026-11-18/peck_philip_1835/near-pair.jpg",
+    "far-pair": "evidence/people-match-2026-11-18/peck_philip_1835/far-pair.jpg",
+    "motion-strip": "evidence/people-match-2026-11-18/peck_philip_1835/motion-strip.jpg"
+  },
+  "verdict": "matches",
+  "checklist": {
+    "silhouette": {
+      "what": "Silhouette and fit of the clothes",
+      "status": "reads",
+      "note": "Blue double-breasted tailcoat cut square at the waist, buff waistcoat, pale trousers, black stock and top hat: the Met c.1833 outfit and Hornor's 1836 man on Broadway, who reads at street distance as ours does at 10 m (a dark blue body, pale legs, a top hat). The trousers narrow from the knee to a hem that closes on the shoe, so the legs taper as the Met pair does. Round 4: fuller at the hips (the front of the thighs stands out about 2.8 cm under the waistcoat's hem, tapering away down the thigh); still less than the Met pair, which balloon there."
+    },
+    "folds": {
+      "what": "Folds where cloth gathers",
+      "status": "within tolerance",
+      "note": "The tails hang straight and part at the back as the Met coat's do. Round 4: three pleats a side run down from under the waistcoat's hem, each rising gently from the fly side and dropping steeply toward the hip, about 1.2 cm deep (relief 13 mm at LOD0, was 8): at 3 m they read as folds with shadow lines, not faint creases. The Met pair's pleats are deeper and run further into a fuller seat; within tolerance. The taper to the ankle and the hem lying on the instep read."
+    },
+    "hat_hair": {
+      "what": "Hat and hair",
+      "status": "reads",
+      "note": "Black top hat, as Hornor's men."
+    },
+    "skin": {
+      "what": "Skin at 3 m",
+      "status": "within tolerance",
+      "note": "Coloured pictures; a reconstructed face and complexion, no likeness asserted."
+    },
+    "hands": {
+      "what": "Hands",
+      "status": "reads",
+      "note": "Bare at the sides; the Met outfit is shown with gloves."
+    },
+    "stance": {
+      "what": "How the figure stands or sits",
+      "status": "reads",
+      "note": "Upright, feet a little apart."
+    },
+    "motion": {
+      "what": "How it moves (the 5-second strip)",
+      "status": "reads",
+      "note": "The tails swing and part mid-stride; the tapered legs read through the trousers, and the hems stay on the shoes with the straps under them (seen from the side and three-quarter)."
+    }
+  },
+  "differences": [
+    {
+      "what": "trousers",
+      "picture": "Full trousers pleated into the waistband, tapering to straps under the shoes (Met c.1833).",
+      "ours": "Tapered from the knee to a hem on the instep, fuller at the front of the hips (about 2.8 cm, was 1.7) with three folded pleats a side under the waistcoat, and a strap of the trousers' cloth under each shoe's waist, now 3 cm wide and 3 mm thick (was 1.9 cm by 2 mm): pale bands that read on the black shoe from the side and three-quarter. From the front they cannot show: the strap passes under the shoe's waist, behind the ball of the foot, as on the Met pair, where only the taut hem reads. A strap of the shoes' black leather was built and shot and could not be seen at all, so it is not kept. Still slimmer at the hip than the Met pair; the hem's bottom edge stands a little out over the shoe and is ragged as drawn.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "waistcoat",
+      "picture": "Buff waistcoat showing in the coat's opening and below its square-cut front (Met).",
+      "ours": "Buff waistcoat V at the chest and a wide buff band at the waist below the coat front; the band reads as a sash.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "collar and stock",
+      "picture": "Dark velvet coat collar, high rolled (Met; Reed's rolls to the jaw), black stock tied in a bow, white collar points at the cheeks (Reed).",
+      "ours": "Dark high collar, black stock; no shirt collar points show.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "lapels",
+      "picture": "Notched lapels on the Met coat.",
+      "ours": "A V-opening with no lapels drawn.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "colour",
+      "picture": "Blue coat, buff waistcoat, pale linen trousers (Met, Hornor).",
+      "ours": "Navy blue coat, buff, off-white trousers.",
+      "status": "reads"
+    },
+    {
+      "what": "tails",
+      "picture": "Tails to the back of the knee (Met).",
+      "ours": "Tails to about the knee, split at the back.",
+      "status": "reads"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever laid the stills beside the pictures; each checklist item is {what, status, note} with status open | reads | not shown | within tolerance | owner ruling — open when a visitor would see the figure is not the pictures’ kind of person in that respect. The first figure of each role is the owner’s call (the plan’s \"Your call\"); later figures of the role are held to the one he approved. A reshoot of a changed figure (bound) sets the verdict back to unreviewed."
+}

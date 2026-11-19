@@ -1,4 +1,7 @@
 /** Lazy catalog, route preview and session handoff. */
+import { addTable, tellingTable } from './reading-level.js';
+import { understandingQuestions, createUnderstandingDraft } from './jaunt-understanding.js';
+import { renderUnderstandingCheck } from './jaunt-understanding-view.js';
 import { createJauntMenu } from './jaunt-menu.js';
 import { createJournal, presentKeepsake } from './jaunt-journal.js';
 import { icon } from './menu-icons.js';
@@ -10,6 +13,14 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
   let catalogPromise, daybookPromise, journal = null, serial = 0, outcomeSeen = null;
   const contents = new Map();
+  let checkSession = null, checkDraft = null;
+  const doc = root.ownerDocument ?? globalThis.document;
+  if (doc?.head && !doc.getElementById('jaunt-understanding-style')) {
+    const checkStyle = doc.createElement('link'); checkStyle.id = 'jaunt-understanding-style';
+    checkStyle.rel = 'stylesheet';
+    checkStyle.href = new URL('../css/jaunt-understanding.css', import.meta.url);
+    doc.head.append(checkStyle);
+  }
   const menu = createJauntMenu({ root, estimate, onStart, onPreview: select, plateFor,
     kept: row => !!journal?.keepsakes.some(e => e.jaunt === row.id), preferredMode, modeNote });
   const node = (tag, text, className) => {
@@ -129,6 +140,10 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       entry.dataset.action = 'daybook'; entry.classList.add('jaunt-daybook-chip'); entry.prepend(icon('News & Knowledge', 15)); prefix.push(entry);
     }
     const session = getSession();
+    if (session?.phase !== 'outcome' || checkSession !== session.session) {
+      checkSession = session?.phase === 'outcome' ? session.session : null;
+      checkDraft = checkSession ? createUnderstandingDraft() : null;
+    }
     if (session?.notice) prefix.push(node('p', session.notice, 'jaunt-session-note'));
     if (session?.jaunt && ['menu', 'outcome'].includes(session.phase)) {
       const note = node('section', '', 'jaunt-session-note');
@@ -172,6 +187,8 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
         if (awarded) more.append(awarded);
         else if (!fallback) more.append(node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
         note.append(head, more);
+        const check = checkDraft && renderUnderstandingCheck(doc, understandingQuestions(session), checkDraft);
+        if (check) note.append(check);
         const row = node('div', '', 'jaunt-outcome-actions');
         if (journal) {
           const book = button('Daybook', () => showDaybook(session.jaunt.id)); book.prepend(icon('News & Knowledge', 15));
@@ -200,7 +217,28 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     }
   }
 
+  // T-3645: the jaunt last loaded reads its other tellings' words at the reader's other ages
+  // (reading-level.js § tellingTable): its siblings are fetched alongside, once, and their
+  // table takes the place of the one before.
+  let dropTellings = null, tellingsFor = null;
+  async function tellings(content) {
+    if (tellingsFor === content.id) return;
+    tellingsFor = content.id;
+    const rows = await catalog();
+    const baseOf = (r) => r?.version_of || r?.id;
+    const own = rows.find((r) => r.id === content.id);
+    const ids = rows.filter((r) => r.id !== content.id && baseOf(r) === baseOf(own) && r.audience !== 'adults' && r.availability === 'available').map((r) => r.id);
+    const others = (await Promise.all(ids.map((sid) => fetchContent(sid).catch(() => null)))).filter(Boolean);
+    if (tellingsFor !== content.id) return;
+    dropTellings?.();
+    dropTellings = addTable(tellingTable(content, others));
+  }
   async function load(id, options) {
+    const content = await fetchContent(id, options);
+    void tellings(content).catch((err) => console.warn('[4D Chicago] jaunt tellings for reading ages', err));
+    return content;
+  }
+  async function fetchContent(id, options) {
     const rows = await catalog();
     if (!rows.some(row => row.id === id && row.availability === 'available' && allowed(row)) || !/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test(id)) throw new Error('Jaunt unavailable');
     let content = contents.get(id);
