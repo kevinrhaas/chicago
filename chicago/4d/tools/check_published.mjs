@@ -102,6 +102,8 @@ const COPIES = [
   ['data/wells/', 'data/wells/'],
   ['data/street_grid/', 'data/street_grid/'],
   ['data/context/', 'data/context/'],
+  // T-3687: the Great Fire's district and hours, read by city-fire.js once a fire time is set.
+  ['data/fire/', 'data/fire/'],
   ['data/street_surfaces/', 'data/street_surfaces/'],
   ['data/street_section/', 'data/street_section/'],
   ['data/street_trees/', 'data/street_trees/'],

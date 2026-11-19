@@ -5297,14 +5297,6 @@
   },
   {
    "card": "notes:Rectangles fitted inside the traced parts by the rules' fit…",
-   "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2108-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 76% of its fill; s35fp-2108-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 76% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
-   "own": "16-17",
-   "levels": {
-    "8-10": "The shape is made of boxes fitted inside the outlines drawn from the 1911 map. The boxes cover most of each part. The biggest box is the main house. How many floors each box has, and its roof, are our guesses."
-   }
-  },
-  {
-   "card": "notes:Rectangles fitted inside the traced parts by the rules' fit…",
    "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2108-b2 s35fp-2108-b2+s35fp-2110-b2 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
    "own": "16-17",
    "levels": {
@@ -16044,14 +16036,6 @@
   },
   {
    "card": "why:RECONSTRUCTED by the draft rules, family row '(default)' ove…",
-   "text": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The Mark Kimball house, empty and to let in the spring of 1904 (not W. W. Kimball's at 1801): the register's 'two-storey/basement brick house with simple cornice/roof' as a flat roof behind a plain cornice over the 2B body and its rear range. The to-let notice calls it a stone front and the sheet colours it brick; the draft keeps the sheet's brick, and other work chooses. Heights are the rules' starting values inside the project's notes on reconstruction rules's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 356965068 only tints the fabric inside +-6 %. Liberty “The west side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, the Robbins house rising, one coach house for 2108 and 2110, and 2140's towers in one roof state”.",
-   "own": "16-17",
-   "levels": {
-    "8-10": "Our rules for this part of town built it. The Mark Kimball house. It was empty and for rent in spring 1904. This is not W. W. Kimball's house at 1801. Our list says it was brick, two floors over a basement, with a plain roof edge. So it has a flat roof behind plain trim, with its back part. The for-rent notice calls it a stone front, but the map colors it brick. We kept the map's brick. Every height, roof, window and other part is our guess. We change its color a little so the houses do not all match."
-   }
-  },
-  {
-   "card": "why:RECONSTRUCTED by the draft rules, family row '(default)' ove…",
    "text": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The Robbins house (Mann, MacNeille & Lindeberg) RISING on 1 July 1904, in the one working phase census ruling r35-robbins-2126 declares: the brick shell two storeys up over its stone basement, the street wall and its returns 1.6 m into the third, openings empty, no roof, a deck at the principal floor and a pole scaffold along the street and the open side. The five-bay front and central entrance are the register's for the finished house (its 'five-bay red-brick front... fanlit central entry'), laid out as openings only. The May 1905 plate is the finished design and is not read as July 1904 evidence; a 1904 permit or a dated progress photograph replaces this phase. Heights are the rules' starting values inside the project's notes on reconstruction rules's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2929825281 only tints the fabric inside +-6 %. Liberty “The west side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, the Robbins house rising, one coach house for 2108 and 2110, and 2140's towers in one roof state”.",
    "own": "16-17",
    "levels": {
@@ -24104,14 +24088,6 @@
    "own": "16-17",
    "levels": {
     "8-10": "This says where the back corner of the main part of the building stands. We read it off an old fire map. It could be off by about a meter. We turned the plan to face the street."
-   }
-  },
-  {
-   "card": "why:The rear corner of the main body's rectangle (lot frame u 35…",
-   "text": "The rear corner of the main body's rectangle (lot frame u 35.000, v -3.250 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.682 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-   "own": "16-17",
-   "levels": {
-    "8-10": "This says where the back corner of the main part of the building stands. We read it off an old fire map. That map lines up very closely with the real ground. We turned the plan to face the street."
    }
   },
   {

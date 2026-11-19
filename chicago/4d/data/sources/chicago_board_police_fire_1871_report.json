@@ -1,0 +1,25 @@
+{
+  "id": "chicago_board_police_fire_1871_report",
+  "type": "article",
+  "citation": "Board of Police and Fire Commissioners of the City of Chicago. Report of the inquiry into the fire of October 8-9, 1871 (November-December 1871). Transcribed in 'The Official Report', The Great Chicago Fire and the Web of Memory, Chicago History Museum and Northwestern University.",
+  "author": "Board of Police and Fire Commissioners, Chicago",
+  "date": "1871",
+  "describes_date": "1871-10-08/1871-10-10",
+  "repository": "Chicago History Museum and Northwestern University, The Great Chicago Fire and the Web of Memory",
+  "url": "https://greatchicagofire.org/oleary-legend-library/official-report/",
+  "locator": "The report's findings: the first flames seen 'not more than twenty or twenty-five minutes past nine o'clock'; 'the alarm struck in the fire-alarm office at 9:30'; the crossing of the river between Van Buren and Adams streets; 'The area burned over by the fire is about two thousand one hundred and fifty acres', about 160 in the West Division, nearly 500 in the South and more than 1,400 in the North.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "A public report of 1871; the web page is a transcription, cited for its text only.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-19 (T-3687) on the transcription page named in url.",
+  "note": "The official record of the first hour, from the inquiry testimony of November and December 1871. Its acreages are the check on the burnt-district outline in data/fire/1871.json.",
+  "what_it_supplies": [
+    "the hour of the first flames and of the first alarm",
+    "the burnt area by division, in acres"
+  ],
+  "what_it_does_not_supply": [
+    "hours for the later course of the fire"
+  ]
+}

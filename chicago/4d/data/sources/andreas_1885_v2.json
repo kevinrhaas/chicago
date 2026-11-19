@@ -1,0 +1,28 @@
+{
+  "id": "andreas_1885_v2",
+  "type": "book",
+  "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+  "author": "Alfred Theodore Andreas",
+  "date": "1885",
+  "describes_date": "1857-1871, and the fire of 7-10 October 1871 (chapter 'The Burning of Chicago', pp. 701-760)",
+  "repository": "Internet Archive",
+  "url": "https://archive.org/details/historyofchicago02andr",
+  "locator": "Chapter 'The Burning of Chicago': the Saturday fire of 7 October, pp. 705-706; the progress on the West Side (Taylor Street crossed by half past nine; the church at Clinton and Mather down by ten; Bateham's mills given up at half past ten; Garrick's corner at Harrison and Clinton reached at eleven; Chapin & Foss's yard on Van Buren about 1:15), pp. 717-718; the epitome of hours (Parmelee's stable, Jackson and Franklin, 11:30; the gas works and Conley's Patch about twelve; the Court House tower abandoned 1:30 and its bell down at 2:05; State Street bridge burning by 1:30; Lill's shop and brewery 1:30; Wright's stable, State and Kinzie, 2:30; the Water Works roof 3:20), p. 719; LaSalle Street reached by one o'clock, p. 720; the South Division line at four o'clock and the renewal at Dearborn and Jackson about seven, pp. 738-739; the stop at Harrison and Congress, pp. 739-740; the pumping works, p. 742; M. D. Ogden's house spared and Dr. Foster's house at Fullerton Avenue burned at half past ten Monday night, p. 754; the rain about eleven Monday night, p. 757.",
+  "tier": 3,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1885 in the United States; public domain.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-19 (T-3687) from the Internet Archive's OCR text of this scan (historyofchicago02andr_djvu.txt), at the printed page numbers the OCR carries in its running heads; the page images were not opened. Times are quoted as Andreas prints them; where he prints two writers' differing hours (Sheahan and Upton, Colbert, Walker, the Post) the hour used is named in data/fire/1871.json.",
+  "note": "A compiled history thirteen years after the fire, built on the Board of Police and Fire Commissioners' inquiry, the newspapers of October 1871 and eyewitness letters, which it quotes at length. Its 'epitome' on p. 719 is the most compact statement of the fire's hours along its spine from DeKoven Street to the Water Works.",
+  "what_it_supplies": [
+    "clock hours at named places along the fire's path, 8-9 October 1871",
+    "the south line of the South Division ruin (Harrison and Congress streets) and where the fire was stopped",
+    "that M. D. Ogden's house on the North Side escaped",
+    "the gale from the south-west and the rain about eleven o'clock Monday night"
+  ],
+  "what_it_does_not_supply": [
+    "a surveyed outline of the burnt district",
+    "an hour for most individual buildings, which are interpolated between its stated hours"
+  ]
+}

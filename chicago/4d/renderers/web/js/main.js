@@ -34,6 +34,9 @@ import { fieldLog, count as countField } from './field-log.js'; // T-2660
 import { normalMoment, parseMoment, momentLink, momentFits, stampMoment } from './moment.js';
 import { huntSpotSafe } from './photo-hunt.js';
 import './strings/moment.js';
+// T-3672: a teacher's route, read from its link once and opened after the landing.
+import { parseRouteLink, routeSession, routeCatalog, activeRoute } from './teacher-route.js';
+import './strings/route.js';
 import { wireFieldLogView } from './field-log-view.js';
 import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
@@ -66,6 +69,7 @@ import { createTrees } from './trees.js';
 import { grownGroupName } from './tree-instances.js';
 import { createPopup } from './popup.js';
 import { loadReaderText, readerCopy } from './reader-text.js';
+import { localCatalog, localJaunt } from './jaunt-language.js';
 import { showHumanRoleCard } from './human-role-card.js';
 import { createWelcome } from './welcome.js';
 import { createYearPack } from './year-pack.js';
@@ -107,6 +111,7 @@ import { createJauntHosts } from './jaunt-hosts.js';
 import { createHumanSpacing, BODY_R_M } from './human-spacing.js';
 import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
+import { createMetFoundWatch, placeIndex, sceneTitle } from './met-found.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
 import { createNameCards, cardTheme, gradeOf, nameCardGrades } from './name-cards.js';
@@ -1835,6 +1840,7 @@ const journey = createJourney();
 // T-2621: a shared screen, read once (`?nav=app[:id]&tab=`), opened after the landing.
 const navLink = parseNavLink(location.search);
 const sharedMoment = parseMoment(location.search);
+const sharedRoute = sharedMoment ? null : parseRouteLink(location.search);
 api.journey = journey;
 // T-2660: the field log, kept on this device only and never sent (js/field-log.js). A landing
 // is the journey reaching `landed`; Settings › About shows the counts, with Clear.
@@ -2867,6 +2873,57 @@ async function boot() {
       gateFrame.invalidate();
       return this.current;
     },
+  };
+  // T-3687: the Great Fire on its own clock (city-fire.js; when and where it burned is
+  // data/fire/1871.json). Free walk is the city before it: nothing loads until a fire time
+  // is set (a jaunt stop dated on or after 1871-10-08T21:00, or api.fire.set by hand).
+  const fireState = { engine: null, loading: null, want: null, rate: 0, lit: false, listeners: new Set() };
+  const fireEngine = () => fireState.loading ??= Promise.all([
+    import('./city-fire.js'),
+    fetch(new URL('fire/1871.json', resolveBases().dataBase)).then((r) => { if (!r.ok) throw Error(`fire 1871: ${r.status}`); return r.json(); }),
+  ]).then(([{ createCityFire }, doc]) => {
+    fireState.engine = createCityFire({ doc, parent: scene3d, context: () => contextCity, buildings: () => buildings,
+      tier: () => api.humans?.tier ?? 'full', groundAt: (e, n) => terrain.surfaceHeight(e, n) });
+    fireState.engine.onFire((iso) => { for (const fn of fireState.listeners) { try { fn(iso); } catch { /* its own */ } } });
+    return fireState.engine;
+  }).catch((err) => { fireState.loading = null; console.warn('[fire] not drawn:', err?.message ?? err); return null; });
+  api.fire = {
+    /** The fire time in force ('YYYY-MM-DDTHH:MM', the accounts' Chicago clock), or null: the city before it. */
+    time: () => fireState.engine?.iso ?? (fireState.want === null ? null : fireState.want),
+    get active() { return fireState.want !== null; },
+    /**
+     * Set the fire time ('1871-10-09T01:45') or null for the city before the fire. `rate`
+     * runs it on, in fire seconds to the real second (0 holds it). `light` (default true)
+     * sets the sky's hour and day to match; a jaunt that sets its own hour passes false.
+     * Resolves to the engine's snapshot once the city is drawn at that time.
+     */
+    async set(iso, { rate = 0, light = true } = {}) {
+      if (YEAR !== '1871') return null;
+      const at = iso === null || iso === undefined || iso === '' ? null : String(iso).slice(0, 16);
+      fireState.want = at; fireState.rate = rate;
+      if (at === null) {
+        fireState.engine?.set(null);
+        if (fireState.lit) { fireState.lit = false; await api.timeOfDay.restore(); }
+        gateFrame.invalidate?.();
+        return null;
+      }
+      if (light) { fireState.lit = true; await api.timeOfDay.set(at.slice(11, 16), { date: at.slice(0, 10), transient: true }); }
+      const engine = await fireEngine();
+      if (!engine || fireState.want !== at) return engine?.snapshot() ?? null;
+      engine.set(at, { rate });
+      gateFrame.invalidate?.();
+      return engine.snapshot();
+    },
+    /** fn(iso | null) whenever the fire time moves a minute, or the fire is put out. Returns an unsubscribe. */
+    onFire(fn) { fireState.listeners.add(fn); try { fn(api.fire.time()); } catch { /* its own */ } return () => fireState.listeners.delete(fn); },
+    /** When the fire reaches a place (local east/north metres): 'YYYY-MM-DDTHH:MM', or null where it never burned. */
+    async catchAt(e, n) { return (await fireEngine())?.catchTime(e, n) ?? null; },
+    /** What the fire is doing at a place at the fire time: { phase: 'none'|'before'|'burning'|'burnt', heat, minutesToFront, … }. */
+    stateAt: (e, n) => fireState.engine?.stateAt(e, n) ?? { phase: 'none' },
+    snapshot: () => fireState.engine?.snapshot() ?? null,
+    /** QA: run the drawn fire on (smoke and sparks fill in) without moving the fire time. */
+    warm: (seconds = 8) => fireState.engine?.warm(seconds, camera),
+    update(dt, cam) { fireState.engine?.update(dt, cam); },
   };
   // T-3377: `own` is the visitor's Season; `held` is a jaunt's, set for the outing and
   // given back by api.season.restore() (a choice made by hand ends the hold).
@@ -6100,12 +6157,70 @@ async function boot() {
     message.textContent = `The outing could not start: ${error.message}. Choose Start Jaunt to try again.`;
     jauntRoot.append(message);
   }
+  // T-3694: a jaunt stop's own place and building, from the destination list's record, without
+  // the stand-off destinations.resolve works out (that plans on the route grid, and builds it).
+  const jauntPlace = (target) => {
+    const t = target && destinations.byId(target.kind, target.id);
+    if (!t || !Number.isFinite(t.e) || !Number.isFinite(t.n)) return null;
+    return { e: t.e, n: t.n, structureId: t.kind === 'structure' ? t.id : (t.at || null) };
+  };
+  // T-3694 (the owner, 2026-11-19: "after all that app loading when you click on jaunts it waits
+  // and needs to load again ... i dont want to blow everyones memory up again"): what the Jaunts
+  // list reads is fetched while Home shows, once the town is ready and settled, in idle time:
+  // the outing's code (imported, not run: nobody's hands take the fight motions up until a list
+  // opens), the year's catalog and daybook, and the cards' pictures file. About 0.1 to 0.2 MB
+  // on the wire and a few megabytes held; no route, stage, voice or picture is fetched or
+  // built. In the town it waits until Home shows again, so nothing is added while the visitor
+  // walks. A tap that comes first loads the same files, as before.
+  let jauntModules = null;
+  const loadJauntModules = () => (jauntModules ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js'), import('./jaunt-context.js'), import('./jaunt-cards.js'), import('./narration.js'), import('./jaunt-pace.js'),
+    // T-3627: a stop's stage and what it plays with load with the outing, not with the town:
+    // the cast (jaunt-stage.js), the adults jaunts' weapons and motions (human-fight.js) and
+    // wounds (human-blood.js), the burning of the first fort (fort-fire.js) and the bier.
+    import('./jaunt-stage.js'), import('./human-fight.js'), import('./human-blood.js'), import('./fort-fire.js'), import('./stage-props.js'),
+    // What the list's own modules import, so they arrive in the same round, not one after another.
+    import('./jaunt-menu.js'), import('./jaunt-journal.js'), import('./jaunt-understanding-view.js')])
+    .catch((error) => { jauntModules = null; throw error; }));
+  // A catalog or daybook read ahead, handed to the list's first read of it, then forgotten.
+  const jauntWarm = new Map();
+  const jauntFileUrl = (name) => String(new URL(`sidecars/${encodeURIComponent(YEAR)}/jaunts/${name}`, bases.dataBase));
+  const warmJauntFile = (name) => {
+    const url = jauntFileUrl(name);
+    if (!jauntWarm.has(url)) jauntWarm.set(url, fetch(url, { cache: 'no-cache' })
+      .then((res) => res.blob().then((body) => new Response(body, { status: res.status, statusText: res.statusText, headers: res.headers })))
+      .catch(() => null));
+  };
+  const jauntFetch = (url, options) => {
+    const key = String(url), warm = jauntWarm.get(key);
+    if (!warm) return fetch(url, options);
+    jauntWarm.delete(key);
+    return warm.then((res) => res ?? fetch(url, options));
+  };
+  let jauntsWarmed = false;
+  function warmJaunts() {
+    if (jauntsWarmed || jauntReady) return;
+    jauntsWarmed = true;
+    warmJauntFile('catalog.json'); warmJauntFile('daybook.json');
+    void ensurePictures();
+    loadJauntModules().catch(() => { jauntsWarmed = false; });
+  }
+  // After ready, past the boot's settle (measure_boot_payload.mjs reads 3 s past ready), when the
+  // page is next idle and Home is up.
+  const JAUNT_WARM_AFTER_MS = 3500;
+  let jauntWarmTimer = null;
+  function warmJauntsSoon(delay = JAUNT_WARM_AFTER_MS) {
+    if (jauntsWarmed || jauntReady || jauntWarmTimer) return;
+    jauntWarmTimer = setTimeout(() => {
+      const go = () => { jauntWarmTimer = null; if (api.ready && gateOpen) warmJaunts(); };
+      if (typeof requestIdleCallback === 'function') requestIdleCallback(go, { timeout: 2000 }); else go();
+    }, delay);
+  }
+  // A hand on its way to Take a Jaunt starts the reads at once.
+  for (const type of ['pointerenter', 'pointerdown', 'focus']) {
+    document.getElementById('welcome-jaunts')?.addEventListener(type, () => { if (api.ready) warmJaunts(); }, { passive: true });
+  }
   function ensureJaunts() {
-    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js'), import('./jaunt-context.js'), import('./jaunt-cards.js'), import('./narration.js'), import('./jaunt-pace.js'),
-      // T-3627: a stop's stage and what it plays with load with the outing, not with the town:
-      // the cast (jaunt-stage.js), the adults jaunts' weapons and motions (human-fight.js) and
-      // wounds (human-blood.js), the burning of the first fort (fort-fire.js) and the bier.
-      import('./jaunt-stage.js'), import('./human-fight.js'), import('./human-blood.js'), import('./fort-fire.js'), import('./stage-props.js')])
+    return jauntReady ??= loadJauntModules()
       .then(([preview, runtime, panel, estimates, context, cards, voices, pace, { createJauntStage }, humanFight, humanBlood, { createFortFire }, { createBier }]) => {
       useFightMotions(humanFight); // every hand in town takes the fight motions up
       const resolveJaunt = target => {
@@ -6115,6 +6230,21 @@ async function boot() {
       const estimateOptions = mode => ({ resolve: target => {
         const resolved = resolveJaunt(target); return resolved && travel.destinationOf(resolved, { mode, card: false });
       }, settings: hud.settings, router: travel.router });
+      // T-3694 (the owner, 2026-11-19: "i dont want to blow everyones memory up again"): the
+      // Jaunts list times its cards from the stops' own places, building to building, and never
+      // plans a route. Planning one built the whole town's route grid (11.9 million cells, about
+      // 270 MB and 2 s in 1835) just to show the list, then ran a plan for every leg of thirty
+      // cards before any card showed: most of the wait after Take a Jaunt. The outing itself
+      // still times its legs by the routes it walks once it starts (`estimate` below).
+      const menuEstimateOptions = () => ({ resolve: target => {
+        const place = jauntPlace(target);
+        return place && { e: place.e, n: place.n };
+      }, settings: hud.settings, router: null });
+      const menuEstimate = (row, mode) => {
+        const e = estimates.estimateJaunt(row, mode, menuEstimateOptions(mode));
+        // Building to building is the list's way of timing, not a route that failed to plan.
+        return e && { ...e, approx: false };
+      };
       // T-3578: the jaunt voices. A Listen tap turns sound on (and Narration up) if it is off;
       // with sound on, each stop's voice starts as you arrive.
       const narration = api.narration = voices.createNarration({
@@ -6130,6 +6260,7 @@ async function boot() {
         narrator: () => api.hud?.settings?.narrator ?? soundNow().saved.narrator,
       });
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, scene: YEAR, dataBase: bases.dataBase, destinations, api: api.jaunts,
+        fetcher: jauntFetch, // T-3694: the catalog and daybook Home read ahead
         // T-3578: a jaunt's Start (or Continue) tap primes the narration, so its opening and each
         // arrival can speak without another tap on an iPhone.
         onStart: (id, options) => { narration.prime(); return jauntRuntime.start(id, options); },
@@ -6137,8 +6268,9 @@ async function boot() {
         onDismiss: () => jauntRuntime?.end(), // T-3432: Close on Outing complete
         // T-2631: each card's plate, a credited picture of its stops (pictures.js § plateFor).
         // T-3584: a route of anchors (the Glessner walks) names its building and picture itself.
+        // T-3694: the stop's own record, not its resolved stand, which builds the route grid.
         plateFor: (row) => (row.plate ? jauntPlate(jauntPictures, [row.plate.structure], row.plate.picture) : jauntPlate(jauntPictures, (row.destinations ?? [])
-          .map((d) => (d.kind === 'structure' ? d.id : destinations.resolve(d)?.structureId)).filter(Boolean))),
+          .map((d) => (d.kind === 'structure' ? d.id : jauntPlace(d)?.structureId)).filter(Boolean))),
         // T-2652/T-2727: with Jaunts use my choice on, the getting-there choice picks a Jaunt's
         // mode where the Jaunt allows it; one that cannot go that way keeps its own and says so.
         preferredMode: (jaunt) => jauntModeFor(hud.gettingThere, jaunt),
@@ -6146,7 +6278,7 @@ async function boot() {
         license, narration,
         // The owner, 2026-11-15: the adults-only jaunts, listed only once Move › Adults-only jaunts is on.
         allowAdults: () => hud.adultJaunts === true,
-        estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
+        estimate: menuEstimate });
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext', 'replay', 'kindle', 'skip', 'finish'].map(name => [name, (...args) => {
         // T-3578: Next, Previous and End are the visitor moving on: the voice still speaking stops
         // (and nothing it had queued plays), rather than talking over the next part. So are
@@ -6263,7 +6395,18 @@ async function boot() {
         },
         onComplete: state => jauntPreview.award(state),
         // T-3328: a stop's own hour, set for the stop and given back after (T-3331).
-        hour: api.timeOfDay,
+        // T-3687: a stop dated on or after the fire's first hour (1871-10-08T21:00) burns
+        // the city at that hour, the front running on while the stop is held.
+        hour: {
+          get current() { return api.timeOfDay.current; },
+          async set(value, opts = {}) {
+            const at = YEAR === '1871' && opts.date && /^\d{1,2}:\d{2}$/.test(String(value))
+              ? `${opts.date}T${String(value).padStart(5, '0')}` : null;
+            void api.fire.set(at && at >= '1871-10-08T21:00' ? at : null, { rate: 12, light: false });
+            return api.timeOfDay.set(value, opts);
+          },
+          async restore() { void api.fire.set(null, { light: false }); return api.timeOfDay.restore(); },
+        },
         // T-3377: a jaunt's own season, held for the outing and given back after.
         season: api.season,
         // T-3495: the everyday people held out while a jaunt is on, but for those its stop
@@ -6361,6 +6504,7 @@ async function boot() {
     return { mode: c.mode ?? jaunt?.default_mode ?? 'walk', kept: c.kept,
       note: c.kept ? t('hud.jaunt.keeps', { way: styleWords(hud.gettingThere, labels) }) : '' };
   }
+  api.warmJaunts = () => warmJauntsSoon(); // T-3694: called once the town is ready
   api.jaunts = { catalog: null, get state() { return jauntRuntime?.state ?? null; },
     modeFor: (jaunt) => jauntWay(jaunt),
     async daybook() { await ensureJaunts(); return jauntPreview.daybook(); },
@@ -6369,7 +6513,11 @@ async function boot() {
   };
   // T-2561: "Keep <year> on this device" on the welcome — the year's pack in Cache
   // Storage behind a service worker, so a kept year boots from disk, offline too.
-  api.pack = createYearPack({ year: YEAR, mount: document.getElementById('welcome-pack'), dev: resolveBases().dev });
+  // T-3675: on a Chromebook the welcome line reads "Prepare for class" with its size, and
+  // Settings › Graphics carries the same download, for a teacher readying a class set.
+  api.pack = createYearPack({ year: YEAR, mount: document.getElementById('welcome-pack'), dev: resolveBases().dev,
+    classroom: !!device.signals?.chromeos });
+  api.pack.attachSettings(document.querySelector('.panel-body[data-panel="settings"] .settings-group[data-set-pane="graphics"]'));
   // The Jaunts list, for the Welcome card's Jaunts choice and for the Navigator's Jaunts
   // app (T-2630), which shows the same list wherever it is.
   let jauntPictures = null;
@@ -6410,6 +6558,7 @@ async function boot() {
     }),
     resume: () => { const ok = enterWorld({ resume: true }); if (ok) journey.go(jauntEntering ? 'on-jaunt' : 'exploring'); return ok; },
     pause: () => {
+      warmJauntsSoon(500); // T-3694: back at Home, the Jaunts list's files, if not read yet
       if (jauntRuntime?.state.jaunt && !['menu', 'outcome'].includes(jauntRuntime.state.phase)) jauntRuntime.menu();
       gateOpen = true;
       visualClockReset = true;
@@ -6823,6 +6972,19 @@ async function boot() {
     say: text => hud.say(text), enabled: () => !gateOpen, keys: window, isTyping,
   });
   api.interactKey = interactKey;
+  // T-3673: people met and places found, by the two rules in met-found.js: a talk that ends
+  // with you on foot within 8 m of them, and standing at or inside a place, about once a second.
+  const metFoundPose = { e: 0, n: 0, flying: false, aboard: false, riding: false, piloting: false, inspecting: false, gate: false };
+  let metFoundPlaces = null;
+  api.metFound = createMetFoundWatch({ year: String(loaded.scene.id ?? YEAR).slice(0, 4),
+    walker: () => {
+      const pose = metFoundPose, ws = walker.state;
+      pose.e = ws.e; pose.n = ws.n; pose.flying = !!ws.flying; pose.aboard = !!api.townTransport?.ride?.aboard;
+      pose.riding = !!api.riding?.active; pose.piloting = !!api.pilot?.active; pose.inspecting = inspectingByHand(); pose.gate = gateOpen;
+      return pose;
+    },
+    places: () => (metFoundPlaces ??= navigation.outlines ? placeIndex(navigation.outlines, (id) => sceneTitle(loaded.registry, id)) : null) });
+  interactions.on((thing, event) => { if (event === 'done') try { api.metFound.talked(thing, thing.last?.id); } catch { /* nor a talk */ } });
   /** T-3557: Get down, from the travel bar's key: true when the visitor was aboard. */
   api.getDown = () => {
     // T-3612: at the helm of a boat, the bar's key is Go ashore.
@@ -6916,7 +7078,7 @@ async function boot() {
   });
   const transportReducedMotion = motionQuery; // T-3671: Settings › Look › Motion (js/motion.js)
   transportReducedMotion.addEventListener('change', resetVisualClock);
-  let interactPaintAt = 0;
+  let interactPaintAt = 0, metFoundAt = 0;
   /** T-3527: the date and the buildings the dated structures were last drawn for. */
   const datedFor = { date: undefined, buildings: null };
   let interactHinted = false;
@@ -7067,14 +7229,15 @@ async function boot() {
         // T-2666: a destination's Jaunt catalog, for the teacher handout's suggested Jaunts;
         // read the first time Guide opens, never at boot. No catalog is no Jaunts.
         jauntCatalog: (year) => (jauntCatalogs[year] ??= fetch(new URL(`sidecars/${encodeURIComponent(year)}/jaunts/catalog.json`, resolveBases().dataBase), { cache: 'no-cache' })
-          .then((res) => { if (res.status === 404) return []; if (!res.ok) throw new Error(String(res.status)); return res.json().then((doc) => doc?.jaunts ?? []); })
+          .then((res) => { if (res.status === 404) return []; if (!res.ok) throw new Error(String(res.status)); return res.json().then((doc) => localCatalog(doc?.jaunts ?? [], new URL(`sidecars/${encodeURIComponent(year)}/jaunts/`, resolveBases().dataBase))); })
           .catch((err) => { delete jauntCatalogs[year]; throw err; })),
         jauntDocument: async (year, id) => {
           if (!['1812', '1835', '1904'].includes(String(year)) || !/^[a-z0-9][a-z0-9_-]{0,95}$/i.test(id ?? ''))
             throw new Error('Unknown outing.');
           const res = await fetch(new URL(`sidecars/${year}/jaunts/${id}.json`, resolveBases().dataBase), { cache: 'no-cache' });
           if (!res.ok) throw new Error('The outing could not be read.');
-          return readerCopy(await res.json(), await loadReaderText(resolveBases().dataBase, `jaunts_${year}`));
+          return localJaunt(readerCopy(await res.json(), await loadReaderText(resolveBases().dataBase, `jaunts_${year}`)),
+            new URL(`sidecars/${year}/jaunts/`, resolveBases().dataBase));
         },
         // T-2667: Guide › About this destination opens one of its cards in the section
         // under the Guide's sheet (the old research hub, js/evidence.js).
@@ -7153,6 +7316,11 @@ async function boot() {
         // T-2640: Show me — only along a camera the building's own summary record names.
         showMe: (id, item) => showMeFor(id, item),
         fromSpot: (id, picture) => fromSpotFor(id, picture),
+        // T-3672: a teacher's route — what this year can name, Go there for a stop, and a
+        // route a teacher built in Guide opened here as a student will see it.
+        routeCatalog: () => routeCatalogFor(),
+        routeGo: (stop) => goRouteStop(stop),
+        beginRoute: (route) => beginRoute({ route }),
       },
     }),
   });
@@ -7278,7 +7446,62 @@ async function boot() {
     else { const off = journey.on(({ to }) => { if (to === 'landed') { off(); setTimeout(open, 0); } }); }
   }
 
-  if (!sharedMoment && navLink && navigatorUi?.has(navLink.app)) {
+  // ---- T-3672: a teacher's route ------------------------------------------------------
+  // The route travels whole in its link (`?route=`, teacher-route.js) or a file a teacher
+  // opens in Guide. What it names is read against this year's own Go to rows, people
+  // directory and jaunt catalog; a stop this town does not hold is left out and counted, a
+  // route for another year offers that year's link, and a link that cannot be read leaves the
+  // visitor in the town with a line that says so. Nothing is sent anywhere.
+  let routeCatalogMemo = null;
+  const routeJaunts = () => (jauntCatalogs[YEAR] ??= fetch(new URL(`sidecars/${encodeURIComponent(YEAR)}/jaunts/catalog.json`, resolveBases().dataBase), { cache: 'no-cache' })
+    .then((res) => { if (res.status === 404) return []; if (!res.ok) throw new Error(String(res.status)); return res.json().then((doc) => doc?.jaunts ?? []); })
+    .catch((err) => { delete jauntCatalogs[YEAR]; throw err; }));
+  function routeCatalogFor() {
+    return routeCatalogMemo ??= Promise.all([peopleDirectory.load().catch(() => null), routeJaunts().catch(() => [])])
+      .then(([dir, jaunts]) => routeCatalog({ year: YEAR, targets: destinations.targets,
+        people: dir?.people ?? dir?.persons ?? [], jaunts, has: (id) => loaded.registry.has(id) }))
+      .catch((err) => { routeCatalogMemo = null; throw err; });
+  }
+  /** Go there: a building or viewpoint as Go to goes; a person found where they are in town,
+   *  else at the house they live or work in, else their card. */
+  function goRouteStop(stop) {
+    if (stop?.kind === 'place') return goToTarget({ kind: 'structure', id: stop.id });
+    if (stop?.kind === 'spot') return goToTarget({ kind: 'anchor', id: stop.id });
+    if (stop?.kind !== 'person') return false;
+    const home = stop.home && loaded.registry.has(stop.home) ? stop.home : null;
+    if (placedInTown(stop.id)) {
+      const found = goToTarget({ kind: 'person', id: stop.id, label: stop.label, home });
+      if (found) return found;
+    }
+    if (home) { hud.say(t('route.atHouse', { name: stop.label })); return goToTarget({ kind: 'structure', id: home }); }
+    void openPersonCard(stop.id);
+    return true;
+  }
+  async function beginRoute(parsed) {
+    const here = parsed?.route?.year === String(YEAR);
+    let catalog = null;
+    if (here) {
+      try { catalog = await routeCatalogFor(); } catch { hud.say(t('route.unread')); return false; }
+    }
+    const { session, message } = routeSession(parsed, { year: YEAR, catalog, href: location.href });
+    activeRoute.set(session);
+    if (session) await api.openJaunts?.('jaunts');
+    if (message) hud.say(t(message.key, message.params));
+    return !!session;
+  }
+  api.teacherRoute = { store: activeRoute, begin: (route) => beginRoute({ route }) };
+  if (sharedRoute) {
+    const open = () => {
+      // Into the town first, as a moment link does: an unreadable route still lands there.
+      if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
+      void beginRoute(sharedRoute).catch(() => hud.say(t('route.invalid')));
+      api.routeOpened = sharedRoute;
+    };
+    if (journey.state === 'landed' || journey.state === 'exploring') open();
+    else { const off = journey.on(({ to }) => { if (to === 'landed') { off(); setTimeout(open, 0); } }); }
+  }
+
+  if (!sharedMoment && !sharedRoute && navLink && navigatorUi?.has(navLink.app)) {
     const link = navLink.app === 'inspect' && navLink.id && !loaded.registry.has(navLink.id)
       ? null : navLink;
     const open = () => {
@@ -7542,6 +7765,8 @@ async function boot() {
     // Contacts follow the loaded horses' accepted gait advance in this frame.
     // Held/hidden frames clear the baseline rather than replaying missed steps.
     api.sound?.transportFrame({ active: !visualHeld && visualDt > 0 });
+    // T-3673: where you stand, against the places' footprints, about once a second.
+    if ((metFoundAt += elapsed) >= 1) { metFoundAt = 0; try { api.metFound?.tick(); } catch { /* a count never stops the town */ } }
     // T-3445: the first time the key offers something, once per device, what it is.
     if ((interactPaintAt += elapsed) >= .25) { interactPaintAt = 0; if (interactKey.refresh() && !interactHinted) interactHinted = hints.show('interact') || hints.seen('interact'); }
     if (shownLayers.vehicles) standingHorses.update(camera, visualDt, { paused: animationHold || gateOpen, visualFrame: true });
@@ -7569,6 +7794,8 @@ async function boot() {
     api.jauntHosts?.speak(api.narration?.voice?.() ?? null);
     // T-3553: a jaunt stop's staged history plays on the same clock as the people.
     api.jauntStage?.update(frameDt);
+    // T-3687: the Great Fire, at the fire time a stop set (nothing at all in free walk).
+    api.fire?.update(frameDt, camera);
     // T-3524: the doors people hold open swing toward open, or shut behind them.
     api.houseDoors?.update?.(frameDt);
     // T-3504: and then nobody stands in anybody else (human-spacing.js).
@@ -8065,6 +8292,7 @@ async function boot() {
   refreshGlessnerOcclusion();
   api.ready = true;
   setTimeout(() => peopleDirectory.ask(), 0);
+  api.warmJaunts?.(); // T-3694
   if (!bootController.finish()) {
     api.ready = false;
     if (gateBtn) gateBtn.disabled = true;

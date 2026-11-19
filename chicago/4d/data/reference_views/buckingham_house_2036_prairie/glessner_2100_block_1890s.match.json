@@ -1,0 +1,41 @@
+{
+  "structure_id": "buckingham_house_2036_prairie",
+  "view": "glessner_2100_block_1890s",
+  "glb": "assets/gltf/buckingham_house_2036_prairie__as_mapped_1904.glb",
+  "glb_sha256": "8ff624c02fcbf3749449c1c1ad638a4a3eebf09261e1ff33349e64a8cd806e55",
+  "camera_sha256": "e4ae284e6c3129c254a594e5b312b3a0aa6b828a60e9da4404b9525b0585d8b2",
+  "photo_sha256": "9d936e3e201541032818196815fd833a033d11f65b4de87758a7a71315789908",
+  "side_by_side": "docs/RESEARCH/photo-match/buckingham_house_2036_prairie/glessner_2100_block_1890s-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "what the picture shows of 2036 at all: the house stands about 80 m off across 21st Street, behind 2100's north-east corner (photo x 545 px), two street trees and a closed carriage, some 80 px wide in a 900 px copy; the render (2036 alone, 2100 not drawn) puts its front block between 2100's corner and x 626 px, its porch at x 605-630 and its cornice at y 158, which is where the picture's pale house stands behind the carriage. Everything west of x 545 in the render (the rear range, most of the 21st Street face) the picture's 2100 hides",
+      "status": "not shown"
+    },
+    {
+      "what": "the roofline: the picture's pale house carries a strong horizontal band at y 116-122 px across x 542-590, where the render's mansard top stands at y 130-140 (about 2 m through this camera at 80 m); the camera's eye height, distance and focal length trade against one another by more than that (the solve), so the two are not told apart at this size",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the porch on the Prairie front: the picture shows a pale, columned porch at the front's south end (x 626-654 px, y 185-215), the render its stone porch at x 605-630, y 195-215: about 20 px, some 3 m along the front at 80 m, in the direction the fit's yaw and eye trade most (2100's corner, its only fitted point near 2036, is read off a soft edge)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the openings: a row of lights with arched heads at y 174-194 px (x 582-606), each 3 or 4 px wide, at the height of the render's principal and chamber storeys; their heads, hoods and number cannot be read at this size",
+      "status": "not shown"
+    },
+    {
+      "what": "the iron along Prairie and along 21st Street, the stoop and the gate piers: behind the carriage and its horse",
+      "status": "not shown"
+    },
+    {
+      "what": "colour and tone: a sepia print, and at 80 m every front in it, brick or stone, is washed pale by the haze, so it says nothing of the brick's red against the stone's buff",
+      "status": "not shown"
+    },
+    {
+      "what": "alterations of its own date (early 1890s) against 1904: none the picture can show at this size",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

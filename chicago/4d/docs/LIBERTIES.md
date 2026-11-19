@@ -45250,15 +45250,28 @@ balustraded deck; the yard; the rainwater goods.
 south part on the sheet; it is built as one plane at the mean (within the 0.3 m bar each way). The cant is
 K01's at 45 degrees with a 1.3 m cut, where the sheet's runs about 1.7 m along 21st and 2.1 m along Prairie.
 The rear range is decked flat under a K01 wing roof, where the sheet draws a mansard curb on it too. The
-iron fence along 21st Street, which the engraving draws across its foreground, is not built: K11 lays iron only
-on the street line and a side fence only in boards (the match record's one open difference); the 6- and
+iron fence along 21st Street, which the engraving draws across its foreground, is built since T-3632 (K11's
+`side_iron`): the front's scroll-band railing on its own curb along the south lot line, from beside the corner
+post back to an end post level with the rear range's west wall (u -10.67). The engraving shows the run only
+across the front block's 21st Street face; carrying it the length of the house, and stopping it there, is a
+reconstruction bounded by the house's own south face, and the yard behind is left as the draft left it. The 6- and
 8-ft brick walls the 1911 sheet draws along 21st and the alley are 1911 evidence and stay unbuilt, as the
 draft left them. The gate piers carry K11's caps, not the engraving's urns.
 
-**How to resolve:** T-3632 (piece 2 of T-1911) builds the 21st Street iron, solves the 1890s photograph's
-camera and signs off the image gate; a picture of the roof, the north flank or the rear would replace the
+**How to resolve:** a picture of the 21st Street railing's west end would fix where it stops; a picture of the roof, the north flank or the rear would replace the
 invented parts.
 **Covers:** `buckingham_house_2036_prairie.as_mapped_1904.form.wall_thickness_front_m`, `buckingham_house_2036_prairie.as_mapped_1904.form.wall_thickness_side_m`, `buckingham_house_2036_prairie.as_mapped_1904.form.service_wall_brick`, `buckingham_house_2036_prairie.as_mapped_1904.form.face_brick`, `buckingham_house_2036_prairie.as_mapped_1904.form.roof_pitch_deg`, `buckingham_house_2036_prairie.as_mapped_1904.form.eave_overhang_m`, `buckingham_house_2036_prairie.as_mapped_1904.form.roof_covering`, `buckingham_house_2036_prairie.as_mapped_1904.form.wall_head`, `buckingham_house_2036_prairie.as_mapped_1904.form.stair_tread_m`, `buckingham_house_2036_prairie.as_mapped_1904.form.stair_landing_depth_m`, `buckingham_house_2036_prairie.as_mapped_1904.form.window_kit`, `buckingham_house_2036_prairie.as_mapped_1904.form.north_bays`, `buckingham_house_2036_prairie.as_mapped_1904.form.rear_bays`, `buckingham_house_2036_prairie.as_mapped_1904.form.chimneys`, `buckingham_house_2036_prairie.as_mapped_1904.form.rainwater`, `buckingham_house_2036_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3631 (piece 1 of T-1911, the S08 package of the T-1837 programme).
 **Review:** `docs/RESEARCH/photo-match/buckingham_house_2036_prairie/chicagology_engraving-side-by-side.jpg`.
 **Recorded:** 2026-11-17 (T-3631).
+
+### L-1871-great-fire-3687 — The Great Fire burns the 1871 city hour by hour
+
+**Decision:** the owner asked to follow the Great Fire as a timeline, watching it engulf the city and its landmarks with the time of day right (2026-11-19). T-3687 draws it on the 1871 city at any fire time from 21:00 on Sunday 8 October 1871 to the morning of Tuesday 10 October. Free walk stays the city before the fire, at 16:00 on 8 October.
+**What is read, not invented:** the burnt district is the mapped one: the West, South and North Side outlines follow the Board of Police and Fire Commissioners' report, Andreas vol. 2 and the Encyclopedia of Chicago's plate of the fire's progress (Conzen), drawn along the scene's own rivers and shoreline. Forty-one places carry an hour, each graded attested or inferred with its source and page in `data/fire/1871.json` (the barn about 21:00, St. Paul's, Bateham's mills, Parmelee's stables, the gas works, the Court House about 01:30, the Water Works 03:20, the North Avenue front about noon Monday, Fullerton late Monday night). The Ogden house, the Water Tower and the O'Leary cottage are spared, as the accounts say. The wind is the south-westerly gale the accounts describe; the rain on Monday night is Andreas's.
+**What is reconstructed:** the hour at any place between the timed ones is read linearly across a triangulation of its own division's timed places (no triangle spans a river), the distance across the wind counted 1.8 times, with a few minutes' seeded difference between blocks and between neighbours; it is a model of the front, not a record of when a given building caught. How long a building burns, when its roof goes and whether its walls stand (masonry walls fall at three in ten, at random) are a reconstruction from the accounts' general descriptions, not from any one building. The flames, smoke, plume, ember glow, firelight and the sky's glow are drawn effects; their colours and sizes are not measurements. A frame building brought down is drawn as a black slab with one chimney standing; the chimney's place is chosen at random.
+**Evidence and limits:** `chicago_board_police_fire_1871_report`, `andreas_1885_v2`, `chm_great_conflagration_web_of_memory`, `conzen_2004_progress_of_the_chicago_fire`. The accounts' hours are approximate and sometimes disagree (Holden's 8:45 start against the Board's 9:20-9:25); the inferred hours say so in their notes. The district edge is drawn to the plate's scale, not surveyed. No casualties are drawn.
+**How to resolve:** add timed places from further contemporary accounts (Colbert and Chamberlin's and Sheahan and Upton's books of 1871) and check the district edge against their maps; give named structures their own recorded hours and fates as their models arrive.
+**Ticket:** T-3687.
+**Review:** `data/fire/1871.json`, `tools/fire_1871.py`, `renderers/web/js/fire-map.js`, `renderers/web/js/city-fire.js`.
+**Recorded:** 2026-11-19.
