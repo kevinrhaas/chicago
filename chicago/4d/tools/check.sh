@@ -249,6 +249,9 @@ step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choic
 step "The device profile chooses per device, and a stored choice still wins (T-2559)" \
   node tools/check_device_profile.mjs
 
+step "A classroom Chromebook boots as a computer on the memory diet, people and teams kept, and is offered Prepare for class (T-3675)" \
+  node tools/check_chromebook.mjs
+
 step "A VR headset walks the town through WebXR: hidden without one, booted as a phone, every headset frame drawn (T-3575)" \
   node tools/check_xr_mode.mjs
 
