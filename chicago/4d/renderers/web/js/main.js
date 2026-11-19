@@ -107,6 +107,7 @@ import { createJauntHosts } from './jaunt-hosts.js';
 import { createHumanSpacing, BODY_R_M } from './human-spacing.js';
 import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
+import { createMetFoundWatch, placeIndex, sceneTitle } from './met-found.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
 import { createNameCards, cardTheme, gradeOf, nameCardGrades } from './name-cards.js';
@@ -6781,6 +6782,19 @@ async function boot() {
     say: text => hud.say(text), enabled: () => !gateOpen, keys: window, isTyping,
   });
   api.interactKey = interactKey;
+  // T-3673: people met and places found, by the two rules in met-found.js: a talk that ends
+  // with you on foot within 8 m of them, and standing at or inside a place, about once a second.
+  const metFoundPose = { e: 0, n: 0, flying: false, aboard: false, riding: false, piloting: false, inspecting: false, gate: false };
+  let metFoundPlaces = null;
+  api.metFound = createMetFoundWatch({ year: String(loaded.scene.id ?? YEAR).slice(0, 4),
+    walker: () => {
+      const p = metFoundPose, s = walker.state;
+      p.e = s.e; p.n = s.n; p.flying = !!s.flying; p.aboard = !!api.townTransport?.ride?.aboard;
+      p.riding = !!api.riding?.active; p.piloting = !!api.pilot?.active; p.inspecting = inspectingByHand(); p.gate = gateOpen;
+      return p;
+    },
+    places: () => (metFoundPlaces ??= navigation.outlines ? placeIndex(navigation.outlines, (id) => sceneTitle(loaded.registry, id)) : null) });
+  interactions.on((thing, event) => { if (event === 'done') api.metFound.talked(thing, thing.last?.id); });
   /** T-3557: Get down, from the travel bar's key: true when the visitor was aboard. */
   api.getDown = () => {
     // T-3612: at the helm of a boat, the bar's key is Go ashore.
@@ -6874,7 +6888,7 @@ async function boot() {
   });
   const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   transportReducedMotion.addEventListener('change', resetVisualClock);
-  let interactPaintAt = 0;
+  let interactPaintAt = 0, metFoundAt = 0;
   /** T-3527: the date and the buildings the dated structures were last drawn for. */
   const datedFor = { date: undefined, buildings: null };
   let interactHinted = false;
@@ -7500,6 +7514,8 @@ async function boot() {
     // Contacts follow the loaded horses' accepted gait advance in this frame.
     // Held/hidden frames clear the baseline rather than replaying missed steps.
     api.sound?.transportFrame({ active: !visualHeld && visualDt > 0 });
+    // T-3673: where you stand, against the places' footprints, about once a second.
+    if ((metFoundAt += elapsed) >= 1) { metFoundAt = 0; api.metFound?.tick(); }
     // T-3445: the first time the key offers something, once per device, what it is.
     if ((interactPaintAt += elapsed) >= .25) { interactPaintAt = 0; if (interactKey.refresh() && !interactHinted) interactHinted = hints.show('interact') || hints.seen('interact'); }
     if (shownLayers.vehicles) standingHorses.update(camera, visualDt, { paused: animationHold || gateOpen, visualFrame: true });
