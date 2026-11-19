@@ -1609,9 +1609,9 @@
     },
     {
       "id": "sherman_house_2100_prairie",
-      "name": "2100 Prairie Avenue — Sherman Victorian Gothic (district draft; refined by T-1919, T-1920)",
+      "name": "2100 Prairie Avenue — John B. Sherman house (Burnham & Root, 1874)",
       "sidecar": "sidecars/1904/sherman_house_2100_prairie.json",
-      "asset": "gltf/sherman_house_2100_prairie__draft_1904.glb"
+      "asset": "gltf/sherman_house_2100_prairie__as_mapped_1904.glb"
     },
     {
       "id": "sherman_house_2100_prairie_coach_house",

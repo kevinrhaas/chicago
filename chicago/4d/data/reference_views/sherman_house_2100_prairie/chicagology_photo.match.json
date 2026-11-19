@@ -1,0 +1,77 @@
+{
+  "structure_id": "sherman_house_2100_prairie",
+  "view": "chicagology_photo",
+  "glb": "assets/gltf/sherman_house_2100_prairie__as_mapped_1904.glb",
+  "glb_sha256": "86b4437ef8769d18770cab955ffc9f187c345fdab87996e0d73b817e30a6e614",
+  "camera_sha256": "c776cca76448468f8084f619fd51b3817bd61c7398bae7aca31dc5cddf7b41de",
+  "photo_sha256": "2a55ae43e36b6db91dccb451cc478d04f1ef272e04ffa0255ca5e4874f38a563",
+  "side_by_side": "docs/RESEARCH/photo-match/sherman_house_2100_prairie/chicagology_photo-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the draft's 13 m hipped box is now the photograph's house: two tall storeys over a high basement under a slated mansard with a crested deck, the library pavilion at the south end carried up into a steep gable with a finial, the porch and balcony before the hall, and the steep slated pyramid over the north-east corner; the pavilion's finial prints at y 115 px against the photograph's 290 (the gable steeper and about 2 m taller than the photograph's), the pyramid's at y 45 against 100",
+      "status": "fixed"
+    },
+    {
+      "what": "the front's width: the body is widened to the 1911 outline's 14.2 m, and the pavilion's south edge, the porch and the corner now print within about 30-60 px of the photograph together",
+      "status": "fixed"
+    },
+    {
+      "what": "heights: the balcony's floor and the cornice's foot print within about 20 px of the photograph's (y 893 and 640 px)",
+      "status": "fixed"
+    },
+    {
+      "what": "the corner: the photograph's oriel at the second storey on a column over the cut corner, under its own small stone gable; the record stands a square brick tower across the corner from grade, its windowless base where the photograph shows the column and the open corner",
+      "status": "open"
+    },
+    {
+      "what": "the corner's pyramid: the photograph's springs from the mansard behind the oriel, wider at its foot and flared; the record's springs from the tower's own cornice",
+      "status": "open"
+    },
+    {
+      "what": "the library pavilion's gable: the photograph's has slated, flared cheeks with a carved panel and kneeler blocks; the record's is a plain coped brick gable, and the pavilion stands 0.8 m out where the plan draws about 1.25",
+      "status": "open"
+    },
+    {
+      "what": "the porch: the photograph's balcony runs from the pavilion to the parlour on stone piers and a cluster of three columns, with a carved stone balustrade about 0.85 m high; the record's hood is the hall's width on one column a side, railed 0.55 m with balusters",
+      "status": "open"
+    },
+    {
+      "what": "the stoop: the photograph's curved flight from the walk and second flight from the south, with carved stone cheeks; the record's single straight flight",
+      "status": "open"
+    },
+    {
+      "what": "the stone bands: the photograph's pale stone sill and spring courses, the stone panels under the principal lights and the stone dressings round every opening against the dark brick; the record shows only the stone basement and the kit's surrounds",
+      "status": "open"
+    },
+    {
+      "what": "the openings' heads: the photograph's principal-storey lights under stone arches and the pavilion's paired lights; the record's are square-headed two-over-two sash",
+      "status": "open"
+    },
+    {
+      "what": "the cornice: the photograph's paired blocks over a dentil band; the record's plain moulded stone cornice",
+      "status": "open"
+    },
+    {
+      "what": "the front dormers: the photograph's small flat-topped dormer over the hall and the large stone dormer with a roundel in its gable; the record's two gabled dormers without the roundel",
+      "status": "open"
+    },
+    {
+      "what": "the 21st Street flank: the photograph's narrow lights, its projecting bay with a balustraded top and the basement lights under sloped stone hoods; the record's lights at the kit's spacing and its one-storey canted bay",
+      "status": "open"
+    },
+    {
+      "what": "the iron fence: the photograph's low scrolled panels on a stone curb between square stone piers with pyramidal caps, turning along 21st Street; the record's K11 scroll band on taller posts along Prairie Avenue only",
+      "status": "open"
+    },
+    {
+      "what": "the great stack: the photograph's clustered flues in carved stone; the record's plain brick stack in the same place",
+      "status": "open"
+    },
+    {
+      "what": "colour: the print is monochrome; the brick's red and the stone's fawn are the kit's",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

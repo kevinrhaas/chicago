@@ -1,0 +1,29 @@
+{
+ "id": "chicagology_2100_sherman_photo",
+ "type": "photograph",
+ "citation": "2100 S. Prairie Avenue (John B. Sherman residence). Photograph of the street front and the 21st Street flank from the north-east, taken with the camera square to the front; unknown photographer, undated (people on the walk and the stoop). Reproduced on chicagology.com, Prairie Avenue, 2100 S. Prairie. A print of the same view is J. W. Taylor's, 'Sherman, John B., Residence', Art Institute of Chicago, Ryerson & Burnham Archives (mqc 29581).",
+ "author": "unknown photographer (the Art Institute's print is J. W. Taylor's)",
+ "date": "undated (the Prairie library reads c. 1885-1895 from the costume; the Art Institute's print c. 1890s)",
+ "describes_date": "undated; the house as John B. Sherman's",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image a20-chicagology-2100-sherman-photo, '2100 S. Prairie Avenue', recorded there as 'unknown — link only'; the same view is the library's a20-aic-taylor-sherman-residence (Art Institute of Chicago, Ryerson & Burnham Archives, mqc 29581, 'For publication/rights information please contact the Ryerson and Burnham Archives', also link only). The project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a20-chicagology-2100-sherman-photo.jpg), committed at data/sources/assets/sherman_2100_pictures_t1919/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/2100prairie/",
+ "locator": "The whole print: the front from the iron fence on the walk to the pavilion's finial and the corner roof's, the library pavilion at the left, the porch and its balcony, the parlour and the oriel over the corner, and the 21st Street flank receding at the right to its second dormer.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's ruling: 'unknown — link only'); the Art Institute's print of the same view is likewise unresolved. Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-1919) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-19 (T-1919) from the image store's reference copy, 1428 x 1741 px greyscale, sha256 2a55ae43e36b6db91dccb451cc478d04f1ef272e04ffa0255ca5e4874f38a563; the Art Institute's 759 x 792 px copy (sha256 51369548aef7d28531e295ff52d88b49fd0745184b3f4fbccabdf55e27830eef) was compared and shows the same view.",
+ "note": "The one photograph of 2100 Prairie this project reads whole. A house of two tall storeys over a high basement in dark pressed brick between pale stone bands, under a steep slated mansard: at the front's south end a pavilion carried up through the cornice into a steep slated gable with a finial; between it and the parlour a porch of stone piers and clustered columns carrying a balcony behind a carved stone balustrade, reached by a curved flight from the walk and a straight flight from the south; over the parlour's north-east corner an oriel at the second storey under its own small gable, and behind it a steep slated pyramid with a finial; a great clustered stack on the 21st Street flank; gabled stone dormers on both faces; a low scrolled iron fence on a stone curb between square stone piers along the walk. It is undated and evidence of its own date; the 1911 Sanborn sheet draws the house and the T-1842 census rules it present in 1904, so its forms are carried to 1904 as inferred.",
+ "what_it_supplies": [
+  "the street front's composition: the library pavilion, the porch and balcony, the parlour and the corner oriel",
+  "the storeys: the high basement, the two storeys, the mansard's attic and the pavilion's gable",
+  "the roof: the mansard's faces, the dormers, the pavilion's gable, the corner pyramid and the great stack",
+  "the 21st Street flank's nearer half, the stoop's two flights and the iron fence"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "a date: undated",
+  "the south flank, the rear and the 21st Street flank's far half"
+ ]
+}
