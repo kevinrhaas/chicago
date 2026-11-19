@@ -95,23 +95,3 @@ telling's own text, grade, locator, reasoning and sources (each source a record 
 evidence removed, source added unresolved or removed, grade changed, locator or reasoning
 removed, or text emptied refuses the whole case. Saves go to the real notebook store and
 export, escaped, with no links.
-
-## Also in T-3678 — Packing for the March (1812, play a part)
-
-The owner asked, in the same ticket, for a play-a-part jaunt of 1812. `packing-for-the-march`
-(Stories, grades 6–8; 3–5, 9–10, 11–12 and 18+ tellings from
-`docs/RESEARCH/jaunt-grade-versions-3621/words/`) has the visitor play an unnamed
-twelve-year-old of a household outside the pickets on 13 and 14 August 1812. Six stops at
-existing 1812 anchors (the Kinzie house front, the factory, the main gate, the covered way,
-the river mouth, the parade); two choices; four endings, each handing on to *The Battle of
-Fort Dearborn*. Only the build-up is told and nothing is staged.
-
-Every attested claim is copied word for word from *Fort Dearborn, Building by Building*
-(`order-arrives`, `kinzie`, `march`, `goods`, `agency`, `plan`, `inside`, `destroyed`,
-`covered-way`, `secure`) or *The Battle of Fort Dearborn* (`hull-order`, `wells`, `medal`,
-`gate-evening`). Three claims are new: `days` and `places` (Inferred: the two-day frame and
-the anchors) and `role` (Reconstructed, `L-play-a-part-1812-3678`). No named person speaks
-to the visitor, no known child of a named family is given a part, and no unnamed person
-besides the visitor is used, so no person card is added. The 18+ telling exists because
-the T-3623 gate asks one of every jaunt; it quotes more of the same evidence and still
-stages nothing.
