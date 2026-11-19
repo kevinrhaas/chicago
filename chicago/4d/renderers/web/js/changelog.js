@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 3126, ts: '2026-11-19T17:55:33.246Z', date: 'Nov 19, 2026, 11:55 AM CT', title: 'The whole interface works by keyboard, screen reader and larger text', kind: 'feature',
+    items: [
+      'Every menu, Settings tab, jaunt and card opens, moves and closes from the keyboard, and focus comes back to where you started.',
+      'Screen readers hear names for every key, the year you arrive in, each jaunt stop, and the picture descriptions.',
+      'Text size now goes to 200 % across all panels and cards, with a clear focus ring and stronger text contrast in every appearance.',
+      'Attested, inferred and reconstructed are told apart by shape and pattern as well as colour, also in the town.',
+      'Jaunt narration shows its words while it plays and has its own Pause key.',
+      'Settings › Look has Motion (System, Reduce, Full) and Letter keys, which turns single-key shortcuts off.',
+    ] },
+  { v: 3125, ts: '2026-11-19T16:53:10.415Z', date: 'Nov 19, 2026, 10:53 AM CT', title: '2108 Prairie, the Mark Kimball house, built from the Tribune\'s 1898 sketch', kind: 'feature',
+    items: [
+      '2108 Prairie Avenue, the Mark Kimball house, replaces its rough draft with a finished house: two storeys of brick behind a pale stone front over a high basement, with two round-headed windows and a round-arched double door at the head of a long stoop between iron rails.',
+      'Its front follows the Chicago Tribune\'s sketch of January 1898 and a street photograph of the block from the early 1890s. Its plan follows the 1911 fire-insurance map, which also shows the two-storey rear wing.',
+    ] },
   { v: 3124, ts: '2026-11-19T14:45:46.529Z', date: 'Nov 19, 2026, 8:45 AM CT', title: 'Explore the pre-fire city in 1871', kind: 'feature',
     items: [
       'Enter 8 October 1871 and explore a citywide baseline with varied commercial, residential and industrial buildings.',

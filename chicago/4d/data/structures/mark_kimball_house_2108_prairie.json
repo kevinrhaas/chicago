@@ -1,184 +1,466 @@
 {
-  "id": "mark_kimball_house_2108_prairie",
-  "name": "2108 Prairie Avenue — Mark Kimball compact brick house (district draft; refined by T-1921)",
-  "aka": [
-    "2108 S. Prairie Avenue"
+ "id": "mark_kimball_house_2108_prairie",
+ "name": "2108 Prairie Avenue — the Mark Kimball house, two storeys of brick behind a pale stone front over a high basement, its round-arched door at the head of an iron-railed stoop",
+ "aka": [
+  "2108 S. Prairie Avenue"
+ ],
+ "archetype": "k01_frontage",
+ "function": {
+  "value": "residence",
+  "confidence": "inferred",
+  "sources": [
+   "sanborn_1911_chicago_v3_sheet_35"
   ],
-  "archetype": "prairie_draft",
-  "function": {
-    "value": "residence",
+  "note": "The 1911 sheet marks the building 'D' (dwelling): '2B brick dwelling (D)'. Carried to 1904 on the T-1842 census ruling (present_as_mapped)."
+ },
+ "review_required": false,
+ "research_note": "T-3667 (piece 1 of T-1921, S11) refines the district draft (T-2351) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits, its plan off sheet 35 of the 1911 Sanborn read at full size, its front off the Tribune's cut of 9 January 1898 (the strip's 2108 vignette, solved into data/reference_views/mark_kimball_house_2108_prairie/tribune_1898_front.json) and the early-1890s street photograph of the 2100 block: a pale stone front of three bays, two round-headed lights and a round-arched door at its north end over a high basement, the stoop square out from the door between iron rails, and the two-storey rear range. Not W. W. Kimball's house at 1801. The shared coach house on the alley (mark_kimball_house_2108_prairie_coach_house) is T-1937's and is untouched; the 2014 photograph of the Rees coach house the library lists against this house shows that building, not this one (data/structure_grades.json).",
+ "phases": [
+  {
+   "id": "as_mapped_1904",
+   "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_35"
+     "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The 1911 sheet marks the building 'D' (dwelling): '2B brick dwelling (D)'. Carried to 1904 on the T-1842 census ruling (present_as_mapped)."
-  },
-  "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1921 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2108-b1), the T-1842 census (s35-2108-front, s35-2108-wing) and the T-1837 register row frontage-35-065 (Mark Kimball compact brick house); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
-  "phases": [
-    {
-      "id": "draft_1904",
-      "documented_range": {
-        "from": "1904-07-01",
-        "to": "1911-12-31",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_35"
-        ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
-        "to_is": "seen"
-      },
-      "position": {
-        "utm_e": 448449.106,
-        "utm_n": 4633748.227,
-        "rotation_deg": -0.682,
-        "symbolic_location": "2108 S. Prairie Avenue, parcel prairie_2108 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_35"
-        ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 35.000, v -3.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.682 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-        "derivation": {
-          "method": "not_derivable",
-          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
-        }
-      },
-      "footprint": {
-        "polygon": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            12.25,
-            0.0
-          ],
-          [
-            12.25,
-            5.5
-          ],
-          [
-            0.0,
-            5.5
-          ]
-        ],
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_35"
-        ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
-      },
-      "form": {
-        "stories": {
-          "value": 2,
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
-          ],
-          "note": "'2B' printed on the 1911 sheet: 2 full storeys."
-        },
-        "construction": {
-          "value": "brick",
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
-          ],
-          "note": "The register reads the map's colours as 'brick'."
-        },
-        "draft_plan": {
-          "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  0.0,
-                  0.0,
-                  12.25,
-                  5.5
-                ],
-                "from": "s35fp-2108-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 76% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  -5.75,
-                  2.0,
-                  0.0,
-                  6.25
-                ],
-                "from": "s35fp-2108-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 76% of its fill"
-              }
-            ],
-            "lot_v": [
-              -0.69,
-              7.19
-            ],
-            "street_u": 19.621
-          },
-          "confidence": "inferred",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
-          ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2108-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 76% of its fill; s35fp-2108-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 76% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 356965068,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 38,
-            "mansard_lower_m": 3.0,
-            "front_bays": 2,
-            "entrance": "north",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2351",
-              "refined_by": [
-                "T-1921"
-              ]
-            }
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The Mark Kimball house, empty and to let in the spring of 1904 (not W. W. Kimball's at 1801): the register's 'two-storey/basement brick house with simple cornice/roof' as a flat roof behind a plain cornice over the 2B body and its rear range. The to-let notice calls it a stone front and the sheet colours it brick; the draft keeps the sheet's brick, and T-1921 chooses. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 356965068 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-west-2351."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2351",
-            "liberty": "L-draft-prairie-20-22-west-2351",
-            "register_row": "frontage-35-065",
-            "census_ids": [
-              "s35-2108-front",
-              "s35-2108-wing"
-            ],
-            "trace_building": "s35fp-2108-b1",
-            "seed": 356965068,
-            "replaceable_by": [
-              "T-1921"
-            ],
-            "card": "District draft — refined by T-1921."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
-        }
-      }
+    "note": "Standing in 1904 (empty and to let that spring, the register's note) and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped); the Tribune drew it in January 1898 and the street photograph of the early 1890s shows it. The record claims the 1904 target to the sheet's date and no more.",
+    "to_is": "seen"
+   },
+   "position": {
+    "utm_e": 448449.113,
+    "utm_n": 4633747.677,
+    "rotation_deg": -0.682,
+    "symbolic_location": "2108 S. Prairie Avenue, parcel prairie_2108 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "note": "The rear corner of the '2B' main body on its south wall (lot frame u 35.0, v -3.8 from the middle of the rear lot line): the rear wall at the sheet's column 663.5 and the south wall at row 1162.5, through the T-1250 fit of the sheet, which carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, plus about a pixel (0.19 m) of reading on this copy. Rotation -0.682 degrees (the draft's) turns the plan's u axis onto the lot's own rear-to-street line. The draft's rectangle stood its corner 0.55 m further north.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
     }
-  ]
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      12.35,
+      0.0
+     ],
+     [
+      12.35,
+      7.15
+     ],
+     [
+      0.0,
+      7.15
+     ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "note": "The '2B' main body, read off sheet 35 of the 1911 Sanborn at full size (dark-line profiles, the committed trace's affine fit, 0.186 m a pixel; docs/RESEARCH/k01-2108-kimball-3667/README.md): 12.35 m from the rear wall (column 663.5, lot u 35.0) to the front (column 730, lot u 47.35), and 7.15 m from the south wall on the lot line with 2110 (row 1162.5, lot v -3.8) to the north wall (row 1124, lot v 3.35), 0.6 m inside the north lot line. The draft's largest rectangle had it 12.25 x 5.5 m. The rear range stands on K01's rear wings."
+   },
+   "form": {
+    "stories": {
+     "value": 2,
+     "confidence": "attested",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+     ],
+     "note": "'2B' printed on the 1911 sheet over the main body and again over the rear range: two full storeys over a basement; the Tribune's 1898 cut and the early-1890s street photograph both draw two storeys of windows over a high basement."
+    },
+    "construction": {
+     "value": "brick_with_stone_front",
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35",
+      "chicago_tribune_1898_01_09_residence_district",
+      "glessner_blog_2100_block_looking_nw_1890s"
+     ],
+     "note": "A brick house with a stone street front. The 1911 sheet colours the whole building pink (brick) and marks no stone front, as it does next door at 2110; but the early-1890s street photograph of the 2100 block (Glessner House blog, which names the houses) shows 2108's front in pale coursed ashlar between 2110's bay and 2100's brick, the Tribune's 1898 cut draws it in large coursed blocks, and the draft's register notes a to-let notice of spring 1904 calling it a stone front (T-1837 register; not ingested). Two pictures outweigh the sheet's colour on the street face; the party walls and rear stay the sheet's brick."
+    },
+    "principal_floor_m": {
+     "value": 2.2,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district",
+      "glessner_blog_2100_block_looking_nw_1890s"
+     ],
+     "note": "The parlour floor about 2.2 m over the yard, at the head of a long straight stoop: the cut draws a basement storey nearly as tall as its round-headed lights, its barred basement lights about three fifths of the basement's height, and some fifteen treads to the door; the photograph's landing stands about a man's height over the stoop's foot. Above the K01 contract's 0.8-1.8 m starting range, which binds only a reconstructed floor; the cut's heights are a sketch's, so the figure is held to the low end of what it draws."
+    },
+    "storey_heights_m": {
+     "value": [
+      4.0,
+      3.6
+     ],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: floor to floor, the principal storey the taller as the cut's tall round-headed lights need; the wall head at 9.8 m. The upper storey is under the cut's numerals and the photograph's trees (L-k01-2108-kimball-3667)"
+    },
+    "wall_thickness_front_m": {
+     "value": 0.45,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: a stone front on its brick backing, as every K01 stone front (L-k01-2108-kimball-3667)"
+    },
+    "wall_thickness_side_m": {
+     "value": 0.33,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: a brick-and-a-half wall, as every K01 brick house (L-k01-2108-kimball-3667)"
+    },
+    "service_wall_brick": {
+     "value": "common_buff_common_6",
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the one K03 panel k03_brick lays (L-k01-2108-kimball-3667)"
+    },
+    "face_brick": {
+     "value": {
+      "sides": "common_salmon"
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the party walls and the rear are common brick, which no picture shows: a Chicago common brick, salmon run (L-k01-2108-kimball-3667)"
+    },
+    "stone_front": {
+     "value": {
+      "fabric": "limestone_lemont",
+      "dressing": "smooth",
+      "trim_fabric": "dressed_trim",
+      "rusticated_base_courses": 2,
+      "coping_height_m": 0.25,
+      "corner_bond": []
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_2100_block_looking_nw_1890s",
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "Pale smooth ashlar in tall courses, as the photograph shows it and the cut draws it, two base courses up to the basement lights' heads, as K02 lays a stone basement. Lemont limestone is the district's pale stone (the row at 2031-2035); the quarry is not read off either picture."
+    },
+    "street_front_trim": {
+     "value": {
+      "by_storey": [
+       "k01.flat_lintel",
+       "k01.flat_lintel"
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_2100_block_looking_nw_1890s"
+     ],
+     "note": "The upper storey's lights are tall and square-headed in the photograph (the two south of the door, x 285-320 of 900 px, the third behind a tree); the principal storey's are round-headed (street_front_round_heads), so its flat lintel is the kit's fallback and is not cut."
+    },
+    "street_front_round_heads": {
+     "value": {
+      "storeys": [
+       0
+      ],
+      "key": {
+       "width_m": 0.22,
+       "height_m": 0.3,
+       "proud_m": 0.04
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district",
+      "glessner_blog_2100_block_looking_nw_1890s"
+     ],
+     "note": "The principal storey's two lights and its door are round-headed, the door's arch the highest, each under a ring of voussoirs radiating to a key: the cut draws the radiating joints over all three, and the photograph shows the round-arched door with a man in it and a round-headed light south of it."
+    },
+    "wall_head": {
+     "value": {
+      "cornice": "k10.cornice.moulded_stone"
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the register's 'simple cornice': K10's moulded stone cornice along the stone front, the stone family's own; neither picture shows the wall head (the cut's numerals and the photograph's trees cover it) (L-k01-2108-kimball-3667)"
+    },
+    "roof_form": {
+     "value": "flat",
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+     ],
+     "note": "The sheet's '2B' body drawn without a roof symbol or a dormer, as the register's 'simple cornice/roof' and the draft have it (k01.roof.flat): a deck behind the front's cornice."
+    },
+    "roof_pitch_deg": {
+     "value": 2,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the deck's fall to the rear, the K05 variant's own (L-k01-2108-kimball-3667)"
+    },
+    "eave_overhang_m": {
+     "value": 0.45,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the deck's eave 0.45 m out over the front, room for the stone cornice under its fascia, as 1708's (L-k01-2108-kimball-3667)"
+    },
+    "roof_covering": {
+     "value": {
+      "fabric": "tin_flat_seam_painted",
+      "flashing": "painted_tin_sheet"
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: K04's flat-seam painted tin, the covering of a low-slope deck (L-k01-2108-kimball-3667)"
+    },
+    "window_kit": {
+     "value": {
+      "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+      "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight",
+      "k01.opening.area_light": {
+       "variant": "k06.opening.area_light",
+       "well": false
+      }
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: K06 two-over-two double-hung sash, round-headed under a fanlight in the parlour storey, flat-headed above and on the rear; the basement lights the kit's area lights (L-k01-2108-kimball-3667)"
+    },
+    "stair_tread_m": {
+     "value": 0.3,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the kit's tread (L-k01-2108-kimball-3667)"
+    },
+    "stair_landing_depth_m": {
+     "value": 1.3,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: a landing before the door, as the photograph's railed landing (L-k01-2108-kimball-3667)"
+    },
+    "stoop_width_m": {
+     "value": 1.9,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "A straight stoop as wide as the door's arch, running square out from the front to the walk at the door's bay: the cut draws its treads level across the door's width and its foot on the walk."
+    },
+    "entrance_bay": {
+     "value": "north",
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district",
+      "glessner_blog_2100_block_looking_nw_1890s"
+     ],
+     "note": "The door at the NORTH end of the front, the two round-headed lights south of it: the cut draws the arched door at the right of the front (the viewer faces west, so right is north) and the photograph, looking north-north-west up the block, shows the door at the front's north end with the stoop's iron rails running down past 2100's side."
+    },
+    "front_bays": {
+     "value": [
+      1.23,
+      3.11,
+      5.63
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district",
+      "sanborn_1911_chicago_v3_sheet_35"
+     ],
+     "note": "Three bays across the sheet's 7.15 m front, read off the cut as proportions about the front's two edges (x 25 and 205 of its 264 px panel, about 25 px a metre): the south light's centre at x 56, the middle light's at 103.5 and the door's at 167, s 1.23, 3.11 and 5.63 m from the south wall."
+    },
+    "side_bays": {
+     "value": [],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+     ],
+     "note": "None: the south wall stands on the lot line against 2110's north wall (the sheet's row 1162.5), built blank."
+    },
+    "north_bays": {
+     "value": [
+      3.0,
+      9.5
+     ],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: one window a storey in the north wall, over the 0.6 m strip the sheet leaves between the house and the north lot line (rows 1121-1124); no picture shows that wall (L-k01-2108-kimball-3667)"
+    },
+    "rear_bays": {
+     "value": [
+      1.2
+     ],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: one window a storey in the rear wall's open strip south of the rear range (K01 counts this wall from its south end, so the range covers s 2.45-7.15) (L-k01-2108-kimball-3667)"
+    },
+    "rear_wings": {
+     "value": [
+      {
+       "id": "rear_range",
+       "rect": [
+        -9.1,
+        0.0,
+        2.45,
+        7.15
+       ],
+       "floor_m": 2.2,
+       "storey_heights_m": [
+        4.0,
+        3.4
+       ],
+       "sash_by_storey": [
+        {
+         "sill_above_floor_m": 0.75,
+         "width_m": 0.9,
+         "height_m": 2.3
+        },
+        {
+         "sill_above_floor_m": 0.7,
+         "width_m": 0.9,
+         "height_m": 1.9
+        }
+       ],
+       "windows": {
+        "south": [
+         2.0,
+         5.5
+        ],
+        "rear": [
+         2.35
+        ]
+       },
+       "roof": {
+        "kind": "flat",
+        "overhang_m": 0.15,
+        "fascia_m": 0.3,
+        "covering": "painted_tin_sheet"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+     ],
+     "note": "The sheet's rear range (census s35-2108-wing, '2B'), read off sheet 35 of the 1911 Sanborn at full size (dark-line profiles, the committed trace's affine fit, 0.186 m a pixel; docs/RESEARCH/k01-2108-kimball-3667/README.md): 9.1 m from the main body's rear wall (column 663.5, lot u 35.0) to its own rear (column 614.5, lot u 25.9), and 4.7 m across, from its south wall (row 1149.5, lot v -1.34) to the north wall it shares with the main body (row 1124). The sheet chamfers both its rear corners about 1.2 m; K01's rear wings are rectangles, so they are built square (L-k01-2108-kimball-3667)."
+    },
+    "sash_by_storey": {
+     "value": [
+      {
+       "sill_above_floor_m": 0.15,
+       "width_m": 0.95,
+       "height_m": 2.9
+      },
+      {
+       "sill_above_floor_m": 0.6,
+       "width_m": 0.95,
+       "height_m": 2.0
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district",
+      "glessner_blog_2100_block_looking_nw_1890s"
+     ],
+     "note": "The principal storey's lights tall and narrow, their sills on the ledge at the parlour floor and their round heads level with the door's springing, as the cut draws them (each about 0.9 m across against the door's 1.8 m); the upper storey's shorter, as the photograph's two square-headed lights over them."
+    },
+    "basement_lights": {
+     "value": {
+      "sill_m": 0.25,
+      "width_m": 1.0,
+      "height_m": 0.8
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "A barred light under each of the two parlour lights, as the cut draws them, a little wider than the lights over them. The cut draws them taller, about three fifths of the basement's height; K02 tops its two base courses at the area lights' heads and lays a course no taller than 0.41 m, so they are built 0.8 m high (L-k01-2108-kimball-3667), and the bars are not built, K01 laying a basement light without a grille."
+    },
+    "chimneys": {
+     "value": {
+      "plan_m": [
+       0.9,
+       0.75
+      ],
+      "top_above_ridge_m": 0.9,
+      "cap_proud_m": 0.05,
+      "cap_depth_m": 0.15,
+      "stacks": [
+       {
+        "u_m": 3.5,
+        "v_m": 0.7
+       },
+       {
+        "u_m": 9.0,
+        "v_m": 0.7
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: two brick stacks against the south party wall, where the flues of a side-hall house rise between front, middle and back rooms; neither picture shows the roof (L-k01-2108-kimball-3667)"
+    },
+    "entrance_kit": {
+     "value": {
+      "k01.opening.door_leaf": {
+       "variant": "k07.entrance.double_door_deep_arch",
+       "front_yard_m": 7.27,
+       "cheeks": false,
+       "opening_m": [
+        1.7,
+        3.2
+       ],
+       "reveal_depth_m": 0.45,
+       "arch": {
+        "ring_m": 0.3,
+        "keystone_top_m": 5.85,
+        "keystone_m": [
+         0.22,
+         0.32
+        ]
+       }
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district",
+      "glessner_blog_2100_block_looking_nw_1890s"
+     ],
+     "note": "A pair of leaves in a deep round-arched opening at the head of the stoop, as the cut draws the door (a double door under a fanlight in an arch about 1.8 m wide) and the photograph shows it; the stoop between iron rails, not stone cheeks (street_front_iron.stoop_rails). The front wall stands 7.27 m from Prairie Avenue's 1904 street line (parcel prairie_2108: front at lot u 47.35, street line u 54.62). Its arch a ring of stone voussoirs about 0.3 m deep to a key, as the cut draws the radiating joints over the door (`arch`)."
+    },
+    "street_front_iron": {
+     "value": {
+      "stoop_rails": {
+       "kit": "k11.rail.stoop_rail",
+       "scroll_m": 0.25
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_2100_block_looking_nw_1890s",
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "The stoop's iron rails: the photograph shows a railed landing before the door and two iron rails running down the flight; the cut draws the south rail."
+    },
+    "boundary": {
+     "value": {
+      "layout": "open",
+      "lot_s_m": [
+       -0.14,
+       7.74
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "No fence, wall or coping across the front yard: the Tribune's cut draws 2108's stoop and basement standing straight onto an open walk, where the same strip draws iron fences before 1905, 1923 and 2035 (`layout: open`). The early-1890s photograph's 2108 yard is behind its trees. The parcel's 1904 street line 7.27 m before the front (prairie_2108)."
+    },
+    "yard": {
+     "value": {
+      "kit": "k14_condition",
+      "built": 1904,
+      "lawn": "none",
+      "grass_edge": "street_front",
+      "under_stoop": "earth",
+      "front_walk": {
+       "surface": "stone_flags",
+       "flag_m": 0.75,
+       "top_m": 0.06,
+       "wear_tone": 0.9,
+       "width_m": 1.9
+      }
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the 1904 yard as K14 conditions it, a flagged walk from the open front out to the stoop's foot, as wide as the stoop (L-k01-2108-kimball-3667)"
+    }
+   }
+  }
+ ]
 }

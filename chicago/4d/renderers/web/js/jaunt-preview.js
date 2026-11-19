@@ -185,6 +185,8 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
             const on = narration.isPlaying(session.jaunt, 'ending', session.outcome.id);
             hear.setAttribute('aria-pressed', String(on)); hear.replaceChildren(icon(on ? 'stop' : 'listen', 15), node('span', on ? 'Stop' : 'Listen'));
             hear.title = on ? 'Stop the narration' : 'Listen: read aloud in a synthetic voice';
+            // T-3671 (WCAG 1.2.1): an ending read aloud here is on screen while it is read.
+            if (on) more.open = true;
           };
           paint();
           const off = narration.on(() => { if (!hear.isConnected) off(); else paint(); });
