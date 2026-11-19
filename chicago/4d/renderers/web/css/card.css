@@ -472,3 +472,12 @@ body.is-touch .pop-firm { min-height: 44px; }
   .pic-viewer-step { margin-top: 8px; }
   .pic-viewer-credit { font-size: 12px; max-height: 30vh; }
 }
+
+/* T-3671 (2.4.3, 2.4.7): a card's title takes focus when the card opens, so a screen reader
+   reads its name first. A ring only for a keyboard visitor; the scene canvas, focus's place to
+   come back to from a card opened in the town, draws none (it is the whole screen). */
+.pop-title-row h2:focus, .tale-title:focus, .ask-card .ask-you:focus, .ask-reveal > p:focus,
+.insp-swipe:focus { outline: none; }
+.pop-title-row h2:focus-visible, .tale-title:focus-visible, .ask-card .ask-you:focus-visible,
+.ask-reveal > p:focus-visible, .insp-swipe:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+canvas#view:focus { outline: none; }

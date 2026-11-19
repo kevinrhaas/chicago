@@ -26,6 +26,7 @@
  * The swap is of text nodes, never of markup: a grade dot, a link or a Find key beside the
  * words stays where it was, and the words as written come back on the tab that holds them.
  */
+import { rovingTabs, syncRoving } from './card-a11y.js';
 
 /** The five ages, youngest first. `grade` is the US school band each stands for (T-3640:
  *  the age pupils are when the school year starts); 18+ is the words as written. */
@@ -430,6 +431,7 @@ export function readingTabs(root, { after = null, into = null, choice = readingC
       root.dataset.readingAge = id;
       sayAt(root, id);
       for (const t of row.querySelectorAll('.reading-tab')) t.setAttribute('aria-selected', String(t.dataset.readingAge === id));
+      syncRoving(row);
     });
     return b;
   });
@@ -437,6 +439,9 @@ export function readingTabs(root, { after = null, into = null, choice = readingC
   root.dataset.readingAge = age;
   sayAt(root, age, found);
   for (const t of tabs) t.setAttribute('aria-selected', String(t.dataset.readingAge === age));
+  // T-3671: one Tab stop for the row, the arrows and Home/End along it.
+  syncRoving(row);
+  rovingTabs(row);
   return age;
 }
 
