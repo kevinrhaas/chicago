@@ -52,7 +52,7 @@ ANCHORS = [
     ('fire_water_works', 'Chicago Avenue at the lake shore, looking at the Water Tower and the pumping works', 'Water Works', (1090.0, 1100.0), (1165.0, 1156.0)),
     ('fire_tribune', 'Dearborn and Madison, looking at the Tribune building on its corner', 'Tribune building', (683.0, -497.0), (718.0, -540.0)),
     ('fire_field_leiter', "State and Washington, looking at Field, Leiter and Co.'s marble store", 'Field, Leiter & Co.', (832.0, -402.0), (856.0, -372.0)),
-    ('fire_ogden_house', 'Washington Park, looking at the house of Mahlon D. Ogden', 'Ogden house', (570.0, 1359.0), (579.0, 1426.0)),
+    ('fire_ogden_house', 'Washington Park, looking at the house of Mahlon D. Ogden', 'Ogden house', (575.0, 1416.0), (572.0, 1457.0)),
     ('fire_old_cemetery', 'The old City Cemetery in Lincoln Park, looking south over the burning North Side', 'Old cemetery', (470.0, 2870.0), (420.0, 2420.0)),
 ]
 ANCHOR = {a[0]: a for a in ANCHORS}
