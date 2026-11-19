@@ -1,0 +1,88 @@
+== title @b00c8ded
+Una carta a casa
+
+== premise @7cc7ef79
+Redacta una carta imaginaria a casa, lee la lista del periódico de cartas no reclamadas y averigua dónde echar al correo la tuya.
+
+== opening @74a355cd
+PASEO: UNA CARTA A CASA. Has pasado unos días en Chicago, y les debes una carta a los que dejaste atrás, porque el correo es el salvavidas del pueblo. En invierno, recuerdan Moses y Kirkland, "No entraba nada, y no había manera de mandar nada fuera del pueblo", y cada vez que el correo sí llegaba, todo el pueblo se reunía a oírlo leer en voz alta desde "una caja de mercancías".
+
+Decide qué propósito cumple tu carta, consigue papel y tinta, aprende cómo maneja el pueblo su correspondencia y determina dónde echarla al correo.
+
+== stop purpose @1b55d79b
+Empieza en la casa de huéspedes de troncos de la señora de Rufus Brown, que Andreas sitúa detrás de la tienda de Peck. Siéntate a la mesa común, si encuentras un rincón libre, y decide primero qué debe lograr la carta: unas breves palabras de que llegaste bien, una descripción extensa para quien esté considerando seguirte al oeste, o una página de preguntas que requerirán una respuesta capaz de encontrarte aquí.
+
+== label purpose safe @cc378673
+Diles que llegaste bien
+
+== consequence purpose safe @81a08b24
+Una carta breve que describe el viaje, el pueblo y tu buena salud.
+
+== label purpose prospects @62aa2b74
+Describe el porvenir del pueblo
+
+== consequence purpose prospects @09c77a53
+Una carta más larga, destinada a quien en casa esté considerando seguirte.
+
+== label purpose news @143788ee
+Pide noticias de casa
+
+== consequence purpose news @2f9cdba1
+Una carta de preguntas, que requerirá una respuesta capaz de encontrarte.
+
+== stop paper @2e16dd54
+Al frente está la tienda de Peck, cuyos anuncios impresos ofrecen telas y mercancías, ferretería, abarrotes y loza. Para el papel, sin embargo, el Chicago American del 20 de junio de 1835 señala otro lugar: la nueva botica de Frederick Thomas en Water Street anunciaba papel de carta, obleas, lacre y tinta negra y roja. Una oblea o una gota de lacre sella la hoja doblada, ya que aquí nadie usa sobres todavía.
+
+== narrative paper @1ab6f297
+Papel del boticario, entonces.
+
+== stop notice @59fefbc9
+En la esquina donde se originó el Democrat, lee sus avisos; para mayo su oficina se había mudado encima de la ferretería de Jones and King. El 27 de mayo de 1835 publicó una Lista de Cartas que quedaban en la oficina de correos de Chicago el 31 de marzo, formada por nombres que nadie había venido a reclamar. Cada nombre representa a alguien que se fue más lejos, o que nunca llegó, o que nunca pensó en preguntar.
+
+== narrative notice @e7057eca
+Pídele a tu familia que escriba la dirección de su respuesta con claridad y de forma legible.
+
+== stop mail-corner @28260699
+Termina en la vieja esquina del correo, donde se juntan Lake y South Water. John S. C. Hogan fue nombrado administrador de correos en noviembre de 1832 y repartía el correo desde "un cuarto separado con un tabique" en su tienda de troncos, de cuarenta y cinco pies por dieciocho. Andreas sitúa la oficina aquí hasta más o menos julio de 1834. Esta primavera el anuncio de Hogan ofrece mercancías "una puerta más abajo de la Oficina de Correos", y el Democrat todavía lo identifica como administrador de correos.
+
+== narrative mail-corner @04464174
+El mostrador está a una puerta de distancia, así que ¿dónde lo vas a buscar?
+
+== label mail-corner south-water @cae2760a
+Búscalo junto a la tienda de Hogan
+
+== consequence mail-corner south-water @aef22333
+Preguntarás a lo largo de South Water Street, una puerta más abajo del establecimiento de Hogan.
+
+== label mail-corner keep @3a92ec2a
+Guarda la carta hasta que alguien te muestre
+
+== consequence mail-corner keep @0fcf0d00
+Doblas el borrador y lo guardas hasta que un vecino pueda dirigirte al mostrador.
+
+== leg 0 @236bc0b6
+Lleva tu propósito a la vuelta, al lado de la cuadra que da a la calle.
+
+== note 0 @3071fe5e
+La casa de Brown está situada justo detrás de la tienda de Peck, así que este tramo es de unos pocos pasos.
+
+== note 1 @c62376fa
+Una cuadra al este por South Water Street, de LaSalle a Clark.
+
+== note 2 @f75594cf
+Al oeste por South Water hasta donde se encuentra con Lake Street, cerca de la bifurcación del río.
+
+== ending safe-and-well @59a2a224
+Tu carta informa que llegaste bien y que sigues bien. Está doblada, sellada con una oblea y lista para el mostrador de South Water Street.
+
+== ending come-west @48467d64
+Tu carta describe un pueblo ajetreado, lleno de lodo y en pleno auge, y su considerable porvenir. La leerán en voz alta en casa, y alguien de seguro se subirá al próximo barco.
+
+== ending write-back @09d834ba
+Tu carta pide noticias de casa, y ahora entiendes lo que le pasa a una carta que nadie reclama. Está lista para enviarse.
+
+== keepsake title @12f65103
+Una carta lista para enviar
+
+== keepsake text @2003490d
+Una carta doblada ficticia, escrita en el pueblo y todavía sin echar al correo.

@@ -1,0 +1,53 @@
+{
+  "structure_id": "mark_kimball_house_2108_prairie",
+  "view": "tribune_1898_front",
+  "glb": "assets/gltf/mark_kimball_house_2108_prairie__as_mapped_1904.glb",
+  "glb_sha256": "6cd202d7ed761f4485ba938f06b50cb09f7248529e87cae2743a41d65640fcc7",
+  "camera_sha256": "fb57957a52f57d7b2278c2258e0ad8de475146d3b6062e4488e05d4c9db44b60",
+  "photo_sha256": "9194d7d5e0f629bf52cf1415c0a3bb06ea699ec8d38af86b02f8d351f55256db",
+  "side_by_side": "docs/RESEARCH/photo-match/mark_kimball_house_2108_prairie/tribune_1898_front-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the draft's 12.25 x 5.5 m box is now the sheet's '2B' body across 7.15 m of the lot, its front's edges at x 25 and 205 px as the cut's, two storeys over a high basement",
+      "status": "fixed"
+    },
+    {
+      "what": "the front: pale coursed ashlar on the street face, as the cut draws its courses and the early-1890s street photograph shows it, where the draft laid the sheet's brick",
+      "status": "fixed"
+    },
+    {
+      "what": "the parlour storey: two tall round-headed lights south of the door, their centres at x 56 and 103.5 px as the cut's, their heads at y 68 against 71",
+      "status": "fixed"
+    },
+    {
+      "what": "the door: a pair of leaves under a fanlight in a deep round-arched opening at the front's north end, under a ring of voussoirs to a key, its centre at x 166 against 167 and its arch's crown at y 63",
+      "status": "fixed"
+    },
+    {
+      "what": "the stoop: straight, square out from the door to the walk, between iron rails, where the draft had none",
+      "status": "fixed"
+    },
+    {
+      "what": "the front yard: open to the walk, no fence or coping, as the cut draws it",
+      "status": "fixed"
+    },
+    {
+      "what": "the parlour floor's ledge at y 172 px against the cut's 150: the cut draws every height tall (its pixel aspect 0.743) and its basement storey about 0.7 m taller again; the early-1890s photograph's landing stands about a man's height over the stoop's foot, as the record's 2.2 m does",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the round lights' heads: the cut draws radiating joints over each light; K01 lays a key in a dressed stone head, so the voussoirs read as one pale block about the arch at the street's distance",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the basement lights: the cut draws two tall barred lights, about 1.6 m high on its scale; K02 tops its two base courses at the area lights' heads and lays no course over 0.41 m, so they are built 0.8 m high and without bars (L-k01-2108-kimball-3667). A street visitor sees the shorter lights, so this stays open until K02 can lay a taller base or K01 a grille in an area light",
+      "status": "open"
+    },
+    {
+      "what": "the upper storey and the wall head: under the cut's numerals (three dark lights show over its three bays, as the build has them)",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

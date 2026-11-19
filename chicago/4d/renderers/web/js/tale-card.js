@@ -10,6 +10,7 @@
 
 import { iconSvg } from './menu-icons.js';
 import { readingTabs, forgetAge } from './reading-level.js';
+import { openerOf, giveBack, focusHeading } from './card-a11y.js';
 
 /**
  * @param {object} o
@@ -26,10 +27,12 @@ export function createTaleCard({ doc = globalThis.document, parent = null, canFi
   const card = make('section', 'tale-card');
   card.hidden = true;
   card.setAttribute('role', 'dialog');
+  // T-3671: named by its title once one is shown (4.1.2); "A story" until then.
   card.setAttribute('aria-label', 'A story');
   const head = make('div', 'tale-head');
   const tag = make('span', 'tale-tag', 'Story');
   const who = make('span', 'tale-who');
+  who.id = 'tale-card-who';
   const shut = make('button', 'tale-close', '×');
   shut.type = 'button';
   shut.setAttribute('aria-label', 'Close the story');
@@ -37,6 +40,7 @@ export function createTaleCard({ doc = globalThis.document, parent = null, canFi
   const persona = make('p', 'ask-persona');
   persona.hidden = true;
   const title = make('h3', 'tale-title');
+  title.id = 'tale-card-title';
   const body = make('div', 'tale-body');
   const note = make('p', 'tale-note');
   const keys = make('div', 'tale-keys');
@@ -50,12 +54,18 @@ export function createTaleCard({ doc = globalThis.document, parent = null, canFi
   (parent ?? doc.body).append(card);
 
   let showing = null;
+  let opener = null;
   function close() {
     if (card.hidden) return;
+    const active = doc.activeElement;
+    const focusHere = !active || active === doc.body || !!card.contains?.(active);
     card.hidden = true;
     const was = showing;
     showing = null;
     closed(was);
+    // 2.4.3: focus back to what opened the story, or the scene.
+    if (focusHere) giveBack(opener, doc);
+    opener = null;
   }
   shut.addEventListener('click', close);
   againKey.addEventListener('click', () => { if (showing) another(showing); });
@@ -103,9 +113,14 @@ export function createTaleCard({ doc = globalThis.document, parent = null, canFi
       // opens at their age again.
       forgetAge(card);
       readingTabs(card, { after: title });
+      if (card.hidden) opener = openerOf(card);
+      card.removeAttribute?.('aria-label');
+      card.setAttribute('aria-labelledby', `${who.id} ${title.id}`);
       card.hidden = false;
       body.scrollTop = 0;
       card.scrollTop = 0;
+      // 2.4.3: the story's title takes focus, so it is read first and Tab goes on into the card.
+      focusHeading(title);
       return card;
     },
     close,

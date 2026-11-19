@@ -374,7 +374,14 @@ export function createOverlays(doc) {
           el = make('span', 'cv-label');
           el.setAttribute('aria-hidden', 'true');
           el.textContent = b.name;
-          if (b.grade) el.dataset.grade = b.grade;
+          if (b.grade) {
+            el.dataset.grade = b.grade;
+            // T-3671 (WCAG 1.4.1): the grade's mark leads the name — full, half or empty —
+            // and the edge is solid, dashed or dotted, so the colour is never the only cue.
+            const mark = make('i', 'cv-label-mark');
+            mark.dataset.grade = b.grade;
+            el.prepend(mark);
+          }
           layer.append(el);
           pool.labels.set(b.id, el);
         }
