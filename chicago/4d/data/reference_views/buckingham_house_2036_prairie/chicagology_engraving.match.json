@@ -2,11 +2,11 @@
   "structure_id": "buckingham_house_2036_prairie",
   "view": "chicagology_engraving",
   "glb": "assets/gltf/buckingham_house_2036_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8eb6714e1fde2575909843c3e40f349779b87f6f19e5977ea6ce594dd4e3f4f3",
+  "glb_sha256": "8ff624c02fcbf3749449c1c1ad638a4a3eebf09261e1ff33349e64a8cd806e55",
   "camera_sha256": "f60ae62bb230f511180c7453cf0264406621ea7a158d23f9a73bad822abe5c95",
   "photo_sha256": "9247cf9c0e5a7a890e21fe96b256f9067b45256822aebef55e376de67e1d036a",
   "side_by_side": "docs/RESEARCH/photo-match/buckingham_house_2036_prairie/chicagology_engraving-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the draft's 20 x 9.5 m hipped box is now the sheet's front block, 14.35 m deep and 15.43 m along the front, with its canted south-east corner, a canted bay on each flank and the rear range behind; the 21st Street face fills the picture's left edge as the engraving's does",
@@ -49,8 +49,12 @@
       "status": "within tolerance"
     },
     {
-      "what": "the iron fence ALONG 21st STREET, across the whole foreground from the corner pier past the house's south face (engraving x 0-1125 px, y 985-1090): not built. K11 lays its iron runs along the street line only, and a side fence only in boards, so the corner lot's side-street iron cannot be built yet; the 1911 sheet draws a 6 ft brick wall on that line west of the house, later evidence",
-      "status": "open"
+      "what": "the iron fence ALONG 21st STREET, across the whole foreground from the corner past the house's south face (engraving x 0-1125 px, y 975-1080): built since T-3632 (K11 side_iron), the front's scroll-band railing on its own curb on the south lot line, across the render's foreground from x 0 to the corner post at x 1470; spear-headed bars, top rail under the heads and an ornamented band under it, as the engraving draws",
+      "status": "fixed"
+    },
+    {
+      "what": "that railing's detail and height: the engraving's band is of rings about a third of the railing's height under the top rail, the kit's is a 0.17 m band of C-scrolls; and through this camera the render's pickets stand about 140 px taller than the engraving's over the same basement window (spear tips y 835 against 975), the engraver's foreground standing out of the house's perspective as the corner pier does (the camera's solve)",
+      "status": "within tolerance"
     },
     {
       "what": "the urns on the gate's piers (engraving x 760-900 px): not built; K11's walk-gate piers carry caps",
