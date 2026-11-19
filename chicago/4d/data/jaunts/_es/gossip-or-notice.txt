@@ -1,0 +1,112 @@
+== title @51d78e50
+¿Chisme o aviso impreso?
+
+== premise @cc2aa658
+Dos rumores corren por la confluencia. Llévalos, pasando por el Exchange, a las dos imprentas del pueblo, lee lo que los periódicos dijeron de verdad y decide qué vas a llevar de vuelta.
+
+== opening @fd30ba36
+PASEO: ¿CHISME O AVISO IMPRESO? Es de mañana en la confluencia, y ya corren dos rumores: la venta de tierras recaudó un millón de dólares, y un banco va a abrir en una casa de ladrillo en la plaza. En un pueblo así de agitado, los rumores viajan más rápido que el correo, que llega 'a menudo irregular y con mucho retraso'. Cuando por fin llega, 'alguien con buena voz se subía a un cajón de mercancías' y leía las noticias en voz alta.
+
+Este verano hay dos periódicos en el pueblo. Lleva los rumores a las dos imprentas y lee lo que los periódicos dijeron de verdad antes de repetir una sola palabra.
+
+== stop the-forks @afe11223
+Empieza en la confluencia, bajo el letrero pintado con un lobo de la Wolf Point Tavern, colgado hacia 1833. Un relato dice que William Walters llevó la casa hasta 1836; otro dice que dejó de recibir huéspedes en 1834. En la puerta solo se habla de dinero: un millón de dólares recaudados en la venta de tierras, y un banco que abrirá en la plaza dentro de unas semanas. Desde que la oficina de tierras abrió en mayo, nadie en el pueblo habla de otra cosa.
+
+== narrative the-forks @1d13d566
+Escucha los rumores, y todavía no creas ninguno.
+
+== stop the-exchange @bb7f38a0
+Cruza el río hasta el Exchange Coffee House, que Mark Beaubien construyó en Lake y Wells y que el señor y la señora Murphy llevan desde agosto de 1834. Los rumores llegaron antes que tú, y crecieron en el camino. Alguien en la puerta quiere saber si son ciertos.
+
+== narrative the-exchange @b1974ae0
+Escucha los rumores otra vez, un río más tarde.
+
+== label the-exchange promise @303223a7
+Prometer averiguarlo
+
+== consequence the-exchange promise @a96cb4e4
+Debes una respuesta cuando termines.
+
+== label the-exchange just-listen @f8704dc7
+Solo escuchar
+
+== consequence the-exchange just-listen @80106bc9
+No le debes nada a nadie.
+
+== stop the-democrat @032b3f25
+En South Water y Clark, la primera oficina del Democrat; para el 20 de mayo ya se imprimía arriba de la ferretería de Jones & King. El número de hoy admite que no puede decir cuánto recaudó la Oficina de Tierras, y solo está 'inclinado a creer' que fue entre cinco y algunos cientos de miles de dólares; en el ejemplar que se conserva se perdió la segunda cifra. De cualquier modo, no es un millón.
+
+== narrative the-democrat @b64cb6b2
+Encuentra el primer rumor impreso.
+
+== label the-democrat note-the-guess @d0c1991f
+Anotar el cálculo del periódico, con todo y dudas
+
+== consequence the-democrat note-the-guess @95f9b50f
+No es un millón, y no es seguro: el propio periódico lo dice.
+
+== label the-democrat skip-the-sale @90859e65
+Dejarles la venta de tierras a los habladores
+
+== consequence the-democrat skip-the-sale @96048534
+Aquí no anotas nada.
+
+== stop the-american @f3d21953
+Cerca del puente levadizo, el American de T. O. Davis tiene tres semanas de vida. Su número del 27 de junio reproduce el Sangamon Journal: los directores del State Bank decidieron abrir una sucursal en Chicago, pero todavía no se sabe quiénes serán sus funcionarios. El edificio de ladrillo en la plaza cerca del juzgado es de Springfield, no de Chicago. La mitad del rumor es cierta, que es el tipo más peligroso.
+
+== narrative the-american @778eda40
+Decide qué vas a llevar de vuelta.
+
+== label the-american carry-the-print @0aa8b735
+Llevar lo que se imprimió, con todo y dudas
+
+== consequence the-american carry-the-print @adc3ccc7
+Solo lo que leíste, con las propias reservas de los periódicos.
+
+== label the-american not-settled @9e54ed76
+Llevar que nada está decidido
+
+== consequence the-american not-settled @1c261cf3
+La incertidumbre, dicha en voz alta.
+
+== label the-american say-nothing @504f5eb3
+No llevar nada por ahora
+
+== consequence the-american say-nothing @d9a0f5d7
+Los rumores viajan sin ti.
+
+== leg 0 @d3fd5a89
+Dos rumores, que caminan más rápido que tú.
+
+== note 0 @c858a98f
+Al este, cruzando el río, hasta Lake y Wells.
+
+== leg 1 @4033cd43
+Un periódico con el cual comparar cada rumor.
+
+== note 1 @1375f10e
+Al norte hasta South Water Street y al este hasta la esquina de Clark.
+
+== note 2 @b4003b6d
+Al este por South Water Street hasta el final de Dearborn, junto al puente levadizo.
+
+== ending true-to-the-page @ad1a06e2
+Llevas de vuelta las dos noticias tal como se imprimieron: una recaudación de la venta de tierras que el Democrat solo se atrevió a calcular, y una sucursal bancaria decidida sin funcionarios nombrados y todavía sin casa en Chicago. Menos de lo que decían en la confluencia, y fiel a la página. Antes de que termine el año, el censo contará un banco en el pueblo, 'una sucursal del State bank'.
+
+== ending one-checked @6baa3b94
+Llevas de vuelta la noticia del banco tal como se imprimió y dejas en paz la venta de tierras, porque no la anotaste. Media corrección, hecha con honestidad.
+
+== ending not-yet-known @870f1ce6
+Llevas de vuelta que nada está decidido: un periódico solo se atrevió a calcular, y el otro no nombra a ningún funcionario ni ninguna casa. La incertidumbre también es una respuesta.
+
+== ending owed-an-answer @a3b5b422
+Prometiste una respuesta en el Exchange y no llevas ninguna. Los rumores se repetirán allí sin ti hasta que el American del sábado o el Democrat de la próxima semana publiquen más.
+
+== ending held-tongue @c88d0b4c
+No dices nada, y los rumores corren sin ti. El American del sábado y el Democrat de la próxima semana publicarán más; mientras tanto, callarte es una forma justa de leer las noticias.
+
+== keepsake title @e6025ecb
+Un lector cuidadoso
+
+== keepsake text @7d1e99e4
+Una nota ficticia de dos rumores oídos en la confluencia en julio de 1835, puesta junto a lo que imprimieron el Democrat y el American. Ninguna persona real dijo ninguno de los dos rumores, y a ningún periódico se le hace resolver lo que dejó incierto.

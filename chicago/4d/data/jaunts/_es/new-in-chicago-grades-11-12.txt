@@ -1,0 +1,91 @@
+== title @a8138569
+Recién llegado a Chicago
+
+== premise @19f7388c
+Establece tu orientación, asegura alojamiento e identifica un siguiente paso práctico en un primer día imaginado en el pueblo.
+
+== opening @ec41693a
+PASEO: RECIÉN LLEGADO A CHICAGO. Esta es tu primera mañana en un pueblo incorporado hace menos de dos años, cuando registraba veintiocho votantes legales; este verano sostiene dos periódicos, una oficina federal de tierras y bastantes más forasteros que camas, y tú estás entre ellos.
+
+Cinco paradas van de la confluencia a South Water Street: un punto de referencia para la navegación, la esquina original del correo, la tienda que todos frecuentan, un mapa del pueblo, y alojamiento para esta noche, en caso de que pueda obtenerse. Las casas de 1834 "siempre estaban llenas", y lleno significaba tres en una cama.
+
+== stop arrival @e3633cc3
+Comienza frente al Sauganash. Al rememorar 1831, Juliette Kinzie describió una casa blanca de dos pisos con postigos azules. Moses y Kirkland lo caracterizan como "la hostería más atractiva que poseía la ciudad", y a su propietario, Mark Beaubien, "con su alegre violín, el más popular de los anfitriones". Todo recién llegado aprende este cruce antes que ningún otro.
+
+== narrative arrival @8f2320f6
+Deja que ese punto de referencia te sirva de punto de partida: mientras tú estableces tu orientación, el pueblo te va dando cabida.
+
+== stop mail-corner @dca04072
+Esta es la esquina original del correo. John S. C. Hogan, nombrado administrador de correos en 1832, repartía la correspondencia "en un cuarto separado con un tabique para ese propósito" dentro de su tienda de troncos. Andreas informa que la oficina se trasladó hacia julio de 1834, y el anuncio de Hogan ahora ofrece mercancías "una puerta más abajo de la Oficina de Correos". Solicita tus cartas allá y no aquí.
+
+== narrative mail-corner @0292dba5
+Conserva la esquina original como punto de referencia para orientarte, pero no la confundas con el mostrador de correo actual del pueblo.
+
+== stop store @f9d1268a
+En la tienda de Peck, en South Water y LaSalle, identifica un establecimiento de suministros confiable. Fue la primera estructura de madera de dos pisos del poblado, construida con madera de nogal negro "traída de Detroit en un barco". Sus anuncios enumeran géneros textiles, ferretería, abarrotes, loza, botas, zapatos y sombreros. En el piso de arriba, Peck le proporcionó al joven ministro Jeremiah Porter "un lugar donde alojarse y estudiar", un ejemplo temprano del comercio dando refugio a la religión.
+
+== narrative store @8fac1d23
+Recuerda dónde pueden conseguirse los artículos de primera necesidad de todos los días.
+
+== stop newspaper @aa5c3ec7
+Este edificio conserva la dirección original del Democrat, aunque para mayo de 1835 el periódico se imprimía encima de la ferretería de Jones and King. Esa primavera seguía publicando el aviso de Kinzie and Forsyth sobre mapas litografiados del pueblo, que también podían obtenerse en la oficina del periódico.
+
+== narrative newspaper @188adb58
+Un mapa del pueblo constituye un siguiente paso práctico, así que examina el aviso con atención.
+
+== stop lodging @4c4487bc
+Concluye en la casa de huéspedes de Brown. Andreas identifica a la señora de Rufus Brown como dueña de una casa de huéspedes y sitúa su casa de troncos detrás de la tienda de Peck, por la que pasaste hace una cuadra. Él informa que las casas de 1834 "siempre estaban llenas; y lleno significaba a veces tres en una cama, y además el piso cubierto". Un espacio en el piso califica, en tales circunstancias, como cama.
+
+== narrative lodging @afae624a
+Determina qué importa más en un primer día: la economía o la comodidad.
+
+== label lodging by-the-week @f4de238b
+Hospedaje por semana
+
+== consequence lodging by-the-week @f79a761d
+Tu nota de ruta da prioridad a la economía: un solo arreglo para toda la duración.
+
+== label lodging near-the-stores @11df82d6
+Una cama cerca de las tiendas
+
+== consequence lodging near-the-stores @5b5f6d18
+Tu nota de ruta da prioridad a la comodidad, ya que lo de Peck está inmediatamente enfrente.
+
+== leg 0 @16ffb9a8
+Sigue la ruta hacia la esquina original del correo mientras tu primer día adquiere forma.
+
+== note 0 @bb8ced67
+Un paso corto: el Sauganash y la vieja tienda de troncos de Hogan están los dos junto a la confluencia.
+
+== leg 1 @696cfd74
+Recorre la calle del río hacia las tiendas y descubre dónde se venden las mercancías de todos los días.
+
+== note 1 @ce5d6a6b
+El tramo largo: al este por South Water Street, unos trescientos metros, hasta las tiendas de LaSalle.
+
+== leg 2 @c2237d1f
+Busca noticias, y algo que te sirva para orientarte.
+
+== note 2 @15bee453
+Una cuadra más por South Water, hasta la primera esquina del Democrat, en Clark.
+
+== leg 3 @9f05b5a8
+Con un mapa en mente, contempla dónde dormirás esta noche.
+
+== note 3 @502b05c2
+Una cuadra de regreso, hasta la casa que Andreas sitúa detrás de la tienda de Peck.
+
+== ending settled-by-cost @31f5c3e7
+Tu nota de ruta concluye con hospedaje por semana detrás de lo de Peck, así que la economía ha determinado la cuestión. Puede que compartas el piso, pero posees una dirección en el pueblo de más rápida expansión del Oeste.
+
+== ending settled-by-convenience @b94d8375
+Tu nota de ruta concluye con una cama a varios pasos de las tiendas, así que la comodidad ha determinado la cuestión, y mañana comienza en la proximidad de todo.
+
+== ending finding-your-feet @a54ce429
+Has acumulado varios nombres y esquinas que conectar. Todos los primeros pobladores de este pueblo comenzaron precisamente aquí: recién llegados, salpicados de lodo y buscando alojamiento.
+
+== keepsake title @390a0e38
+Encontrar tu lugar
+
+== keepsake text @af2e00e2
+Una nota de ruta ficticia que conecta cinco puntos de referencia del primer día, un aviso de mapas del pueblo y un lugar donde dormir.

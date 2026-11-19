@@ -1,0 +1,88 @@
+== title @725966f0
+Materiales para un techo
+
+== premise @f3b4a82f
+Haz la lista de un constructor para un techo pequeño: lo que llega por el lago a Newberry & Dole's, clavos o varillas para clavos en la esquina de Peck, ladrillo o nada en la primera ladrillera del pueblo, y un vistazo al terreno del Lake House.
+
+== opening @88f56a65
+PASEO: MATERIALES PARA UN TECHO. Estás levantando una casita de madera, y la estás haciendo a la nueva manera de Chicago. La vieja estructura de vigas pesadas 'resultó demasiado lenta', así que el pueblo construye con 'el armazón de globo, creado por George W. Snow': maderos livianos 'de dos por cuatro pulgadas', bien clavados. La gente predijo que estas casas 'se las llevaría el primer viento fuerte'. Se equivocaron.
+
+Ahora sigue el techo. Mira lo que llega por el lago, elige la ferretería en la esquina de Peck, asómate a la primera ladrillera y termina en el Lake House, el edificio más grandioso del pueblo, que todavía se está levantando.
+
+== stop the-wharf @5bb172b3
+Empieza en el almacén de Newberry & Dole's junto al río. En el Democrat del 1 de julio de 1835 anuncian almacenaje, envíos y comisiones, como agentes de la Merchants' Line. Un armazón de globo necesita clavos por barriles, y los clavos, el vidrio y el hierro no crecen en la pradera: lo que el pueblo no puede hacer llega por el lago y desembarca en casas como esta.
+
+== narrative the-wharf @ba0ed75a
+Lo que el pueblo no puede hacer, lo trae el lago.
+
+== stop the-ironwork @729856b6
+Por South Water Street hasta la esquina de Peck en LaSalle. En septiembre de 1834 anunció clavos, varillas para clavos, hierro en barras y acero inglés ampollado y fundido, mercancía 'recién llegada de Nueva York'. Un techo necesita clavos, y un armazón de globo necesita muchísimos más. Elige cómo comprarlos.
+
+== narrative the-ironwork @344f5c66
+Resuelve el hierro antes que el ladrillo.
+
+== label the-ironwork cut-nails @937f5b9b
+Un barril de clavos, listos para clavar
+
+== consequence the-ironwork cut-nails @6eb92fa3
+Los clavos van a la lista.
+
+== label the-ironwork nail-rods @34f5088c
+Varillas para clavos, para que un herrero les haga la cabeza
+
+== consequence the-ironwork nail-rods @7545e433
+Las varillas van a la lista, y después el trabajo de un herrero.
+
+== stop the-brickyard @07fc8831
+Cruza el río hasta el North Side, donde Andreas sitúa la ladrillera de Tyler K. Blodgett de la primavera de 1833 cerca de la orilla, con Henry S. Lampman, 'sin duda el primer fabricante de ladrillos'. El primer edificio de ladrillo fuera del fuerte se levantó ese mismo año, para John Noble, en el lote junto al lugar donde se está levantando el Lake House. En un pueblo de 165 estructuras de madera nuevas, una casa de ladrillo era noticia. Un cobertizo representa la ladrillera.
+
+== narrative the-brickyard @77864f6a
+Ladrillo o nada, y la lista está lista.
+
+== label the-brickyard brick-chimney @b5c8d088
+Ladrillo para una chimenea
+
+== consequence the-brickyard brick-chimney @70a97ce5
+El ladrillo va a la lista.
+
+== label the-brickyard no-brick @723b900b
+Sin ladrillo esta temporada
+
+== consequence the-brickyard no-brick @17f89ef0
+La chimenea puede esperar otro verano.
+
+== stop the-lake-house @d5a4a2ed
+Hacia el este por la orilla hasta Rush Street y el Lake House. Andreas describe el hotel terminado: de ladrillo, tres pisos y un sótano, abierto en el otoño de 1836, y 'pretendía atender solo a huéspedes de la más alta clase'. Antes de que estuviera terminado, se celebró adentro el primer servicio unitario de Chicago, con la escritora inglesa Harriet Martineau entre los fieles. Mira desde la calle las paredes que se levantan.
+
+== narrative the-lake-house @dd34bac7
+De quién es el ladrillo que lleva, nadie lo anotó.
+
+== leg 0 @6762f1a4
+Con la carga en mente, sigue hacia la ferretería.
+
+== note 0 @a310cc3a
+Hacia el este por South Water Street hasta la esquina de Peck en LaSalle.
+
+== note 1 @d0f36a0f
+Cruza el río por un puente hasta el North Side.
+
+== leg 2 @9f7cf12f
+Resuelto el ladrillo, mira en qué se convierte una gran cantidad de él.
+
+== note 2 @00557b58
+Hacia el este por la orilla norte, hacia Rush Street.
+
+== ending nails-and-brick @ca1b6353
+Clavos para clavar y ladrillo para una chimenea: la lista es corta y está completa. El Lake House va a necesitar muchísimo más de ambos.
+
+== ending rods-and-brick @291c0700
+Varillas para un herrero y ladrillo para una chimenea: la lista está lista, y parte del trabajo todavía hay que forjarlo a martillazos.
+
+== ending a-plain-roof @57d482b5
+Hierro para las tejas de madera y sin ladrillo esta temporada: primero un techo sencillo, y la chimenea otro año. Aguantará el primer viento fuerte.
+
+== keepsake title @92466e7b
+La lista de un constructor
+
+== keepsake text @ddd6cc19
+Una lista ficticia de lo que necesitaba un techo pequeño en julio de 1835. No lleva escrito ningún pedido, precio ni venta real de ningún comerciante ni ladrillero.

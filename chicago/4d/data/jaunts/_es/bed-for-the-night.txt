@@ -1,0 +1,97 @@
+== title @02f7a00a
+Una cama para pasar la noche
+
+== premise @12ad4fe4
+Compara desde la calle cuatro de las casas de hospedaje del pueblo y elige dónde debería preguntar primero un bolsillo modesto.
+
+== opening @b1bf1776
+PASEO: UNA CAMA PARA PASAR LA NOCHE. El sol se está poniendo sobre el verano más ajetreado que Chicago ha visto jamás, y no tienes dónde dormir. La oficina de tierras abrió en mayo, y los compradores y especuladores 'llenaron las calles y desbordaron los campamentos improvisados en las praderas vecinas'. El American contó unos cuantos cientos de forasteros además de los dos o tres mil habitantes del propio pueblo.
+
+Entre los patios de carretas del lado oeste y Lake Street hay cuatro casas que reciben forasteros. Mira cómo es cada una, decide si primero va el costo o la comodidad, y elige dónde tocar. Ten cuidado: en este pueblo, 'lleno significaba a veces tres en una cama, y además el piso cubierto'.
+
+== stop west-side @d250c769
+El Western Hotel, Randolph y Canal. W. H. Stow lo construyó con un frente de cuarenta pies, un ala de sesenta pies y un patio de carretas, la parada de los granjeros y carreteros que llegaban del oeste; él lo fecha en 1834, una cronología, en 1835. Ya en 1831 el condado fijó lo que un posadero podía cobrar: 12½ centavos por el alojamiento de los hombres, 25 por la cena, 50 por guardar un caballo toda la noche. En un verano como este, buena suerte encontrando una cama a esos precios.
+
+== narrative west-side @37a99174
+Costo o comodidad: decídelo antes de tocar.
+
+== label west-side cost @7c5e40c0
+Primero el costo
+
+== consequence west-side cost @af92f7df
+Preguntarás por la cama más sencilla y barata.
+
+== label west-side convenience @1c585adf
+Primero la comodidad
+
+== consequence west-side convenience @0f737aed
+Preguntarás por una cama cerca de los negocios del pueblo.
+
+== stop the-sauganash @27da27c8
+Al otro lado del brazo sur hasta Lake y Market y el Sauganash, reparado y recién acondicionado en junio. Una semana después el Democrat describió 'la inmensa congregación de forasteros que atesta cada cuarto de nuestras posadas', algunos 'durmiendo en el piso'. El posadero, Mark Beaubien, tenía su propia respuesta para una casa llena. Le gustaba decir que 'llevaba el hotel como el —' de un lugar que no se menciona entre gente educada, y contaba que acostaba a un hombre a dormir en el piso, le daba una manta y, una vez que el viajero estaba 'profundamente dormido', se la quitaba para el siguiente huésped.
+
+== narrative the-sauganash @dedfc067
+Una casa recién acondicionada, y un posadero que cuenta sus mantas.
+
+== stop the-boarding-house @40e053f8
+Al este hasta LaSalle, detrás de la tienda de Peck: la casa de troncos de la señora de Rufus Brown, una de las casas de huéspedes de primera clase, según Andreas. Una casa de huéspedes te da de comer por semana en una mesa común, y está repleta: 'lleno significaba a veces tres en una cama, y además el piso cubierto.' El 13 de junio el American encontró forasteros llenando las posadas y las calles, y almacenes abiertos para los emigrantes que no tenían ningún techo.
+
+== narrative the-boarding-house @521bbbb4
+Una cama y una mesa por semana: la opción más sencilla.
+
+== stop lake-street @1c64a3d7
+Siguiendo por Lake hasta Dearborn: la Mansion House, la taberna de troncos de Dexter Graves de 1831, a la que dos años después le pusieron un frente de madera hasta la línea de la calle. Haddock, su yerno, la llevó hasta 1835, y luego se hizo cargo Abram Markle; nadie anotó el mes, así que cualquiera de los dos puede estar detrás de la barra esta noche. Casi enfrente está la primera Tremont House. Es hora de elegir.
+
+== narrative lake-street @5bab81f7
+Elige dónde preguntar primero. Nadie promete un cuarto libre.
+
+== label lake-street ask-browns @e66e0c44
+Pregunta primero en lo de Brown
+
+== consequence lake-street ask-browns @aec8d413
+Un lugar en la casa de huéspedes detrás de lo de Peck, si hay alguno libre.
+
+== label lake-street ask-here @d68122af
+Pregunta primero aquí en Lake Street
+
+== consequence lake-street ask-here @e68e40fd
+Una cama de taberna en la Mansion House, si hay alguna libre.
+
+== label lake-street ask-sauganash @b9830c6a
+Pregunta primero en el Sauganash
+
+== consequence lake-street ask-sauganash @12a08812
+Una cama en la casa recién acondicionada, si hay alguna libre.
+
+== leg 0 @21cda595
+Pasa del comercio de carretas a la esquina del río.
+
+== note 0 @17bb2f5c
+Al este hasta el río y por el puente del brazo sur entre Lake y Randolph, luego al norte hasta la esquina de Lake Street.
+
+== leg 1 @18b6de4b
+De un hotel a una casa de huéspedes: otra clase de cama.
+
+== note 1 @d7467ab4
+Al este por Lake Street hasta LaSalle; lo de Brown está detrás de la tienda de la esquina de Peck.
+
+== leg 2 @26c1e314
+La última casa, y luego tu elección.
+
+== note 2 @b4470e8e
+Siguiendo al este por Lake Street hasta Dearborn.
+
+== ending thrift @a52a3d50
+Primero el costo, y tocas primero en lo de la señora Brown. Si hay un rincón de una cama, es tuyo, y puede que tengas compañía en él: en junio de 1835 todas las casas del pueblo estaban llenas.
+
+== ending close-at-hand @85f7973c
+Primero la comodidad, y preguntas primero en Lake Street. Si la casa está llena siempre queda el piso, y en junio de 1835 muchos forasteros durmieron en él.
+
+== ending second-thoughts @b52e4b9c
+Saliste queriendo una cosa y elegiste por otra, algo que un pueblo lleno facilita. Duerme con una mano sobre tu manta: Mark Beaubien no es el único posadero que las cuenta.
+
+== keepsake title @50363e92
+Un lugar donde recostar la cabeza
+
+== keepsake text @3c593d6b
+Una nota ficticia de dónde pensabas pedir una cama en julio de 1835. No es un recibo por un cuarto.
