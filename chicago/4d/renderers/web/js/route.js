@@ -671,6 +671,7 @@ export function createRouter({
       g: new Float32Array(N), parent: new Int32Array(N),
       seen: new Uint32Array(N), done: new Uint32Array(N), gen: 0,
       heap: makeHeap(),
+      reach: [],   // T-3695: reach sets of plain searches that ran out (remember)
     };
     stats.buildMs = now() - t0;
     return grid;
@@ -783,23 +784,33 @@ export function createRouter({
     return (dx > dy ? dx + (SQRT2 - 1) * dy : dy + (SQRT2 - 1) * dx) * cell * MIN_COST;
   }
 
-  /** Search from cell `s` to cell `t`. Returns the cell index list or null. */
-  function search(s, t, { allowed = null, cost = k => COST[grid.cls[k]], stopWhen = null, reverse = false } = {}) {
+  /**
+   * Search from cell `s` to cell `t`. Returns the cell index list or null.
+   * T-3695: `limit` stops it after that many expansions; `searched` then says why a null
+   * came back: 'limit', or 'exhausted' (every cell it may reach was expanded, which a
+   * plain search records as a reach set, below), or 'found'.
+   */
+  function search(s, t, { allowed = null, cost = k => COST[grid.cls[k]], stopWhen = null, reverse = false, limit = Infinity } = {}) {
     const { cols, rows, cls, hgt, fine, g, parent, seen, done, heap } = grid;
     const gen = ++grid.gen;
+    const plain = !allowed && !stopWhen;
+    const kept = plain && limit < Infinity ? [] : null;   // a probe's few cells, kept as it goes
     const gi = t % cols, gj = (t / cols) | 0;
     const heuristic = (i, j) => stopWhen ? 0 : octile(i, j, gi, gj);
     heap.clear();
     g[s] = 0; parent[s] = -1; seen[s] = gen;
     heap.push(heuristic(s % cols, (s / cols) | 0), s);
-    let expanded = 0;
+    let expanded = 0, reached = false;
+    searched = 'exhausted';
 
     while (heap.size) {
+      if (expanded >= limit) { searched = 'limit'; break; }
       const cur = heap.pop();
       if (done[cur] === gen) continue;
       done[cur] = gen;
       expanded++;
-      if (stopWhen ? stopWhen(cur) : cur === t) { t = cur; break; }
+      kept?.push(cur);
+      if (stopWhen ? stopWhen(cur) : cur === t) { t = cur; reached = true; searched = 'found'; break; }
 
       const ci = cur % cols, cj = (cur / cols) | 0;
       const hc = hgt[cur];
@@ -832,12 +843,56 @@ export function createRouter({
       }
     }
     stats.lastExpanded = expanded;
+    if (!reached && searched === 'exhausted' && plain) remember(s, reverse, kept, gen, expanded);
     if (done[t] !== gen || (stopWhen && !stopWhen(t))) return null;
     const out = [];
     for (let k = t; k !== -1; k = parent[k]) out.push(k);
     out.reverse();
     return out;
   }
+
+  // ------------------------------------------------- what cannot be reached (T-3695)
+
+  /**
+   * A plain search that runs out of cells has expanded every cell its start can walk to
+   * (forward), or every cell that can walk to it (reverse): a reach set. Kept, it answers
+   * later plans at once, exactly: with F the cells some seed reaches, a start in F cannot
+   * reach a goal outside F (else the seed would, through it); with T the cells that reach a
+   * seed, a start outside T cannot reach a goal in T. In 1812 two people's rounds asked for
+   * a doorstep in a closed pocket of the fort over and over, every half second: each ask
+   * expanded the 5.8 million cells of the town before giving up (2.5 s), so once the route
+   * grid was built (opening the Jaunts list prices every card by route) frames took
+   * seconds. `unreachable` is a lookup; nothing it refuses was ever found by a search.
+   * Small sets are kept as the cells themselves, large ones as a bitset; a few of each.
+   */
+  let searched = 'found';
+  const REACH_SMALL = 24, REACH_LARGE = 4, REACH_SMALL_CELLS = 65536;
+  function remember(seed, reverse, kept, gen, expanded) {
+    const sets = grid.reach;
+    let has;
+    if (kept && kept.length <= REACH_SMALL_CELLS) {
+      const cells = new Set(kept);
+      has = (k) => cells.has(k);
+    } else {
+      const { N, done } = grid;
+      const bits = new Uint8Array((N + 7) >> 3);
+      for (let k = 0; k < N; k++) if (done[k] === gen) bits[k >> 3] |= 1 << (k & 7);
+      has = (k) => (bits[k >> 3] & (1 << (k & 7))) !== 0;
+    }
+    const entry = { reverse, has, large: !(kept && kept.length <= REACH_SMALL_CELLS), cells: expanded };
+    const same = sets.filter((x) => x.large === entry.large);
+    if (same.length >= (entry.large ? REACH_LARGE : REACH_SMALL)) sets.splice(sets.indexOf(same[0]), 1);
+    sets.push(entry);
+    stats.reachSets = sets.length;
+  }
+  function unreachable(a, b) {
+    for (const x of grid.reach) {
+      if (x.reverse ? (x.has(b) && !x.has(a)) : (x.has(a) && !x.has(b))) return true;
+    }
+    return false;
+  }
+  /** Cells a goal-side probe expands before the full search is left to decide. */
+  const PROBE_CELLS = 4096;
 
   /**
    * Resolve a metre point to the cell the search should use: its own cell when
@@ -955,6 +1010,15 @@ export function createRouter({
     const b = anchor(to, 4, true);
     if (!a || !b) { stats.lastPlanMs = now() - t0; return null; }
     if (mode === 'run') mode = 'walk'; // running is on foot: the walker's network (T-2651)
+    // T-3695: a goal a kept reach set rules out, or one in a small closed pocket (a look back
+    // from it runs out of cells before PROBE_CELLS), is refused before any long search. Every
+    // route of any mode is a walk the plain search allows, so the refusal holds for them all.
+    if (a.k !== b.k) {
+      if (unreachable(a.k, b.k)) { stats.refused = (stats.refused ?? 0) + 1; stats.lastPlanMs = now() - t0; return null; }
+      if (!search(b.k, a.k, { reverse: true, limit: PROBE_CELLS }) && searched === 'exhausted') {
+        stats.refused = (stats.refused ?? 0) + 1; stats.lastPlanMs = now() - t0; return null;
+      }
+    }
 
     let cells;
     const mask = mode === 'walk' ? 3 : 1;

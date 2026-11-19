@@ -33,6 +33,13 @@ transport and actions; their totals are not allocations to generated lots.
 Photographic street scenes require researched facades, detailed surfaces, planting
 and activity in addition to this citywide baseline.
 
+## T-3672 — Teacher routes (19 November 2026)
+
+Item 11's browser-only subset is in: a teacher's route as one link or one file, and a
+student's Route panel whose answers go to the local field notebook. Next, only with
+storage the owner chooses: a shared library of routes and a way to collect answers.
+A route names places and people the town already holds; it never adds a historical claim.
+
 ## T-3657, T-3658 — Next browser-only delivery (18 November 2026)
 
 Prepared after the classroom tools: a five-photo 1904 hunt with daily/shareable ordering,

@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 3134, ts: '2026-11-19T19:53:50.791Z', date: 'Nov 19, 2026, 1:53 PM CT', title: '1812 runs smoothly again after you open the Jaunts list', kind: 'fix',
+    items: [
+      'In 1812, opening the Jaunts list could leave every frame after it taking seconds. It now stays as smooth as before you opened it.',
+      'People whose way is closed off no longer hold up the whole town while their path is worked out.',
+    ] },
+  { v: 3133, ts: '2026-11-19T19:53:50.791Z', date: 'Nov 19, 2026, 1:53 PM CT', title: 'The Glessner Household for young readers flows when read aloud', kind: 'improvement',
+    items: [
+      'Each person in the 3rd-grade telling now moves from one subject to the next with a short joining line, instead of listing facts.',
+      'Their voices pause between subjects, and there is less whispering and laughing.',
+      'Mattie, the cook, takes her time: who she is, how she became the cook, her kitchen, then her favourite story.',
+      'The same smoother style is now the rule for every jaunt as it is read aloud.',
+    ] },
   { v: 3132, ts: '2026-11-19T19:28:43.217Z', date: 'Nov 19, 2026, 1:28 PM CT', title: 'Take a Jaunt opens at once, without a second wait', kind: 'improvement',
     items: [
       'The Jaunts list now opens straight away after the town has loaded. Before, choosing Take a Jaunt meant a second wait, which could run to many seconds in 1835 and 1904.',
