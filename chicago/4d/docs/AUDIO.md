@@ -115,6 +115,34 @@ the index also records the performed text's (`spoken_sha256`), so a changed dire
 that clip alone. A laugh or a whisper is a reading, not evidence of how anyone spoke
 (L-jaunt-voices-3578).
 
+**Narration style: smooth (owner, 2026-11-19, T-3696).** Of the 3rd-grade Glessner Household:
+*"there is not a lot of transition between topics and also pauses between subjects topics as they
+speak. mattie seems like she is delivering a lot of facts and does not pause"*, and *"the parts
+where they whisper and laugh could be toned down a bit"*; then *"that smother narration rule
+applies for all the jaunts"*. So every spoken script, in every jaunt, band and language:
+
+- **Words** (the jaunt or words file): a speaker groups their facts into a few subjects (who I am,
+  what I do, this place, one story, where to go next) and walks from one to the next with a short
+  joining line (*"Let me start with how we got here."*, *"Now, about this house."*, *"Here is my
+  favorite story."*). A joining line carries no fact of its own. No run of more than about five
+  bare facts in a row. The hand-on to the next stop is its own last subject.
+- **Direction** (`data/narration/direction/<jaunt>.json`): a `[short pause]` (or `[long pause]`
+  after a long subject) at every change of subject, ellipses for a breath inside one, a warm tag
+  at the start; at most one laugh or chuckle in a script, and no whispering. A file written this
+  way says `"style": "smooth"`, and `tools/test_narration.mjs` holds it to that (no
+  `[whispers]`, at most one laugh, a pause at least every 50 words; `SMOOTH` in
+  `tools/narrate_jaunts.mjs`). Every new or re-made direction is marked smooth. Older voiced
+  files are brought to it when they are next voiced, since re-directing a voiced script re-voices
+  it and spends ElevenLabs credits (the narration budget plan says when).
+
+**Credits.** ElevenLabs bills a character of the performed text (tags and ellipses included) as
+a credit; a re-voiced script costs its whole length again. Every run, push or by hand, prints the
+account's quota before it voices (credits used this period, the limit, the reset date), refuses
+a run that would spend more than is left, and after voicing prints the credits that run used, so
+a re-recording's cost is read off the run, not estimated. `node tools/narrate_jaunts.mjs --quota`
+prints it alone. It needs an API key with the `user_read` permission; without it the run says the
+quota is not readable and voices as before.
+
 **Voicing.** `.github/workflows/chicago-4d-narration.yml` runs on a push to dev that touches a
 compiled jaunt, the voice file or the script function, and by hand (plan / voice / list-voices).
 `tools/narrate_jaunts.mjs` reads the media host's `narration/index.json` and sends ElevenLabs
