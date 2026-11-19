@@ -31,6 +31,9 @@ import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
 import { fieldLog, count as countField } from './field-log.js'; // T-2660
+import { normalMoment, parseMoment, momentLink, momentFits, stampMoment } from './moment.js';
+import { huntSpotSafe } from './photo-hunt.js';
+import './strings/moment.js';
 import { wireFieldLogView } from './field-log-view.js';
 import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
@@ -50,7 +53,9 @@ import { toggleByGrade, restoreLooks } from './confidence-presets.js';
 import { createConfidenceLegend } from './confidence-legend.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
+import { createDesktopKeyCapture } from './controls/keyboard.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
+import { viewportSize } from './viewport.js';
 import { isStandaloneHeadset, vrScale } from './controls/xr-detect.js'; // T-3627: the session half loads where a headset is offered
 import { createWindowMode, windowAt } from './controls/window.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
@@ -60,7 +65,7 @@ import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
 import { grownGroupName } from './tree-instances.js';
 import { createPopup } from './popup.js';
-import { loadReaderText } from './reader-text.js';
+import { loadReaderText, readerCopy } from './reader-text.js';
 import { showHumanRoleCard } from './human-role-card.js';
 import { createWelcome } from './welcome.js';
 import { createYearPack } from './year-pack.js';
@@ -887,7 +892,13 @@ const DETAIL_DECLARED = {
   // (Lake at Canal, Lake and Market, the aerial) and differed at the three that do
   // (West prairie, the forks, the Sauganash). CI's reading is the higher one and
   // the one priced. docs/measurements/t-3622-detail-ceilings.md has both.
-  full:     { triangles: 3605000, shadowReachM: 240, furnitureCastsShadow: true,
+  // T-3656, 2026-11-18: owner authorized an appropriate budget raise after the
+  // published desktop run read 3,607,087 at West prairie (6,813 calls). Apply
+  // the standing margin: 3,607,087 + 18,059 = 3,625,146, rounded up to 5,000.
+  // This changes only the allowance; scene geometry, other tiers and draw-call
+  // limits stay as measured. Vessel motion remains a likely, unproven source
+  // of the spread. docs/measurements/t-3656-full-detail-budget.md records it.
+  full:     { triangles: 3630000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-3146: Full as well as Light runs T-2529's sun-pass test
               // (shadow-casters.js), unchanged: a structure piece is left out of
@@ -906,7 +917,11 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '3,605,000 set 2026-11-17 (T-3622, owner answer a): the content '
+              measured: '3,630,000 set 2026-11-18 (T-3656, owner authorized): published '
+                + 'desktop West prairie read 3,607,087 with 6,813 calls (run '
+                + '44372747109, stage 5); +18,059 rounded up to 5,000. '
+                + 'docs/measurements/t-3656-full-detail-budget.md. '
+                + 'Previously 3,605,000 set 2026-11-17 (T-3622, owner answer a): the content '
                 + 'build read 3,584,847 at desktop West prairie with T-3612\u2019s schooners '
                 + 'in (run 44005328098, part 5); +18,059 rounded up to 5,000. '
                 + 'Previously 3,495,000 set 2026-11-15 (T-3605): the content build read '
@@ -1817,6 +1832,7 @@ bootController.forecast = bootForecast;
 const journey = createJourney();
 // T-2621: a shared screen, read once (`?nav=app[:id]&tab=`), opened after the landing.
 const navLink = parseNavLink(location.search);
+const sharedMoment = parseMoment(location.search);
 api.journey = journey;
 // T-2660: the field log, kept on this device only and never sent (js/field-log.js). A landing
 // is the journey reaching `landed`; Settings › About shows the counts, with Clear.
@@ -4124,6 +4140,10 @@ async function boot() {
   // and the People section can filter a thousand of them without a fetch each.
   // Absent (an older mirror, a failed fetch) degrades to "no people listed";
   // it never takes the scene down.
+  let momentSelectedPerson = null;
+  function rememberMomentPerson(id, name = null) {
+    momentSelectedPerson = id ? { id, name } : null;
+  }
   let people = null;
   bootController.start('people');
   // T-1739: only a scene that lists `residents` has a directory compiled for it.
@@ -4864,6 +4884,7 @@ async function boot() {
     registry: loaded.registry,
     dataBase: bases.dataBase,
     sceneId: loaded.scene.id ?? YEAR,
+    onPersonSelected: rememberMomentPerson,
     onGoTo: (target) => { hud.setPanel(false); goToTarget(target); },
     // T-3404: a person placed in town now (Otis Bardwell on his wagon) is found there and
     // can be followed. Read when the card paints; the round is known before the model.
@@ -5141,6 +5162,7 @@ async function boot() {
       cardTookPointer = false;
     },
     holding: () => !!popup.openId && !gateOpen,
+    inspecting: () => !gateOpen && inspectingByHand(),
     // T-3563: Settings › Look › Mouse sensitivity, read each frame.
     lookSpeed: () => hud.settings.lookSpeed,
   });
@@ -5171,22 +5193,19 @@ async function boot() {
   // touchscreen must not end up driving both.
   // The arrival and welcome are menus, so neither movement backend is live.
   window.addEventListener('pointerdown', (e) => {
-    if (gateOpen || xrMode?.presenting || windowMode?.on || e.target.closest?.('#jaunt-panel')) return;
+    if (gateOpen || xrMode?.presenting || windowMode?.on || e.target.closest?.('#jaunt-panel, .pic-viewer')) return;
     if (e.pointerType === 'touch') backends.activate(touch);
     else if (e.pointerType === 'mouse') backends.activate(pointerlock);
   }, { capture: true });
-  window.addEventListener('keydown', (e) => {
-    // Not while typing. This capture handler switches the whole control backend
-    // to keyboard-and-mouse, and the first keystroke into the Go-to search box
-    // was doing exactly that — taking a visitor who had been tapping their way
-    // around a phone and handing them a control scheme with no on-screen stick.
-    if (gateOpen || xrMode?.presenting || windowMode?.on || isTyping(e.target) || e.target.closest?.('#jaunt-panel')) return;
-    if (!e.metaKey && !e.ctrlKey) {
-      backends.activate(pointerlock);
-      // Not while a card holds the keyboard (T-2954): the arrows scroll the card.
-      if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(e.code) && !popup.openId) pointerlock.lock();
-    }
-  }, { capture: true });
+  // T-3658: rail arrows and native button keys belong to the focused UI, before
+  // its own bubbling handler runs. An open Navigator does not stop world keys.
+  window.addEventListener('keydown', createDesktopKeyCapture({
+    enabled: () => !gateOpen && !xrMode?.presenting && !windowMode?.on,
+    holding: () => !!popup.openId,
+    inspecting: () => !gateOpen && inspectingByHand(),
+    activate: () => backends.activate(pointerlock),
+    lock: () => pointerlock.lock(),
+  }), { capture: true });
 
   /**
    * T-3575: Enter VR (js/controls/xr.js). The key shows only where the browser offers a
@@ -6455,7 +6474,9 @@ async function boot() {
     if (api.people && !document.querySelector('.panel-tab[data-tab="people"]')?.hidden) {
       hud.setPanel(true); hud.selectTab('people'); api.people.open?.(id); return true;
     }
-    return openSceneDirectoryPerson(id);
+    const opened = await openSceneDirectoryPerson(id);
+    if (opened && momentSelectedPerson?.id !== id) rememberMomentPerson(id);
+    return opened;
   }
   // ---- T-3404: the people placed in town, wherever they are now ------------------- //
   // Kevin, 2026-11-06: "making them fully available to interact with". A driver on their
@@ -6986,6 +7007,13 @@ async function boot() {
         jauntCatalog: (year) => (jauntCatalogs[year] ??= fetch(new URL(`sidecars/${encodeURIComponent(year)}/jaunts/catalog.json`, resolveBases().dataBase), { cache: 'no-cache' })
           .then((res) => { if (res.status === 404) return []; if (!res.ok) throw new Error(String(res.status)); return res.json().then((doc) => doc?.jaunts ?? []); })
           .catch((err) => { delete jauntCatalogs[year]; throw err; })),
+        jauntDocument: async (year, id) => {
+          if (!['1812', '1835', '1904'].includes(String(year)) || !/^[a-z0-9][a-z0-9_-]{0,95}$/i.test(id ?? ''))
+            throw new Error('Unknown outing.');
+          const res = await fetch(new URL(`sidecars/${year}/jaunts/${id}.json`, resolveBases().dataBase), { cache: 'no-cache' });
+          if (!res.ok) throw new Error('The outing could not be read.');
+          return readerCopy(await res.json(), await loadReaderText(resolveBases().dataBase, `jaunts_${year}`));
+        },
         // T-2667: Guide › About this destination opens one of its cards in the section
         // under the Guide's sheet (the old research hub, js/evidence.js).
         aboutCard: (id) => {
@@ -6998,6 +7026,25 @@ async function boot() {
         // and the card itself, on a tab, as the full record until the Inspect tabs (T-2639).
         inspectSummaries: () => Promise.all([ensureInspect(), ensureReaderText().catch(() => null)]).then(([doc]) => doc),
         pictures: () => ensurePictures(),
+        // The hunt reads the same catalogue and canonical photo ownership as Go to.
+        // Its optional visit validates the actual stand before starting ordinary travel.
+        photoHunt: {
+          load: async () => {
+            if (String(YEAR) !== '1904') return null;
+            const doc = await ensurePictures();
+            if (doc) destinations.addPhotos(doc);
+            else picturesPromise = null; // The hunt's retry may read a restored connection.
+            return { doc, destinations };
+          },
+          position: () => api.welcome?.state === 'world' ? { e: walker.state.e, n: walker.state.n } : null,
+          visit: (id) => {
+            const row = destinations.byId('photo', id);
+            if (!huntSpotSafe(row, { inBounds: (e, n) => terrain.inBounds(e, n),
+              isWater: (e, n) => terrain.isWater(e, n), blockedAt: (e, n) => router.blockedAt(e, n),
+              barrierAt: (e, n) => houseBarriers?.near(e, n, BODY_R_M) })) return false;
+            return goToTarget({ kind: 'photo', id });
+          },
+        },
         // T-2825: the record as the card says it — its notes without a ticket, a record id or
         // a file path, once the scene's reader overlay is in (inspectSummaries waits for it).
         record: (id) => {
@@ -7018,6 +7065,7 @@ async function boot() {
         // (1835), else their own card in Inspect on the house they lived or worked in
         // (T-3265), else the Navigator's People screen (1904, T-1740).
         openPerson: (id) => openPersonCard(id),
+        onPersonSelected: rememberMomentPerson,
         findPerson: !draws('residents')
           ? (id) => findSceneDirectoryPerson(id) : null,
         // T-3404: someone placed in town (a driver on their round) can be followed.
@@ -7091,7 +7139,84 @@ async function boot() {
   // link (?nav=app[:id]&tab=) opens its app once the landing is over. A link to an app the
   // rail does not have, or to a building this scene does not hold, is dropped quietly.
   api.navHistory = createNavHistory({ nav: navigatorUi });
-  if (navLink && navigatorUi?.has(navLink.app)) {
+  // Photo capture queues one copy of a normal frame. It never keeps a second renderer,
+  // drawing buffer or render target alive, and a second request shares the pending work.
+  let pendingPhoto = null, photoPromise = null;
+  function readMoment() {
+    if (!api.ready || gateOpen) return null;
+    const st = walker.state;
+    const structure = popup.openId ?? (navigatorUi?.app === 'inspect' ? inspectHold : null)
+      ?? targetTag?.current?.id ?? null;
+    const record = loaded.registry.get(structure)?.sidecar;
+    const personCards = [...document.querySelectorAll('.insp-person-card[data-person-id]')];
+    const visibleCard = personCards.find(card => card.checkVisibility?.() ?? card.offsetParent !== null);
+    // Keep an explicit selection when Home covers its card, but never read an arbitrary
+    // hidden card from another screen. Its caption must belong to the same person id.
+    const directoryPerson = api.people?.state?.open ?? null;
+    const person = momentSelectedPerson?.id ?? visibleCard?.dataset.personId ?? directoryPerson;
+    const personCard = personCards.find(card => card.dataset.personId === person);
+    const place = eraWhere.at(st.e, st.n, walker.bearingDeg)?.place
+      ?? loaded.scene.title ?? 'Chicago';
+    const pose = normalMoment({ year: YEAR, e: st.e, n: st.n, bearing: walker.bearingDeg,
+      pitch: st.pitch / DEG, altitude: st.flying ? st.altitude : null,
+      season: api.season.current, hour: world.sunTime, date: world.sunDate, person, structure: record ? structure : null });
+    if (!pose) return null;
+    const sources = (record?.citations ?? []).filter(c => c.source_id && c.citation)
+      .map(c => ({ id: c.source_id, title: c.citation, url: c.url || c.archived_url || '' }));
+    return { ...pose, pose, place, title: `${place}, ${YEAR}`, sources,
+      personName: person ? (momentSelectedPerson?.name ?? (person === directoryPerson
+        ? document.querySelector('.people-card-name')?.textContent?.trim() : null)
+        ?? personCard?.querySelector('h3, h4')?.textContent?.trim() ?? null) : null,
+      sourceSubject: record?.name ?? place, url: momentLink(pose) };
+  }
+  api.moment = {
+    read: readMoment,
+    link: () => readMoment()?.url ?? null,
+    capture() {
+      if (photoPromise) return photoPromise;
+      if (!readMoment() || renderer.xr.isPresenting) return Promise.reject(new Error('The town view is not ready.'));
+      const request = {};
+      photoPromise = new Promise((resolve, reject) => {
+        request.resolve = resolve; request.reject = reject;
+        request.timer = setTimeout(() => {
+          if (pendingPhoto === request) { pendingPhoto = null; reject(new Error('No photo frame arrived.')); }
+        }, 10000);
+        pendingPhoto = request;
+      }).finally(() => { photoPromise = null; });
+      return photoPromise;
+    },
+  };
+  // Use the usual arrival gate. Scene coverage and collision checks reject stale views;
+  // a shared link cannot load another world or manufacture an out-of-bounds stand.
+  if (sharedMoment) {
+    const restoreMoment = async () => {
+      if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
+      if (!momentFits(sharedMoment, { year: YEAR, inBounds: (e, n) => terrain.inBounds(e, n),
+        blockedAt: (e, n) => router.blockedAt(e, n) })) {
+        hud.say(t('moment.invalid')); return;
+      }
+      travel.stop('shared-moment'); follow.stop('input');
+      if (sharedMoment.season) await api.season.set(sharedMoment.season, { transient: true });
+      if (sharedMoment.hour) await api.timeOfDay.set(sharedMoment.hour, { date: sharedMoment.date ?? undefined, transient: true });
+      hud.setFly(sharedMoment.altitude !== null, { announce: false });
+      walker.teleport({ local_e: sharedMoment.e, local_n: sharedMoment.n,
+        yaw_deg: sharedMoment.bearing, pitch_deg: sharedMoment.pitch, altitude_m: sharedMoment.altitude });
+      target?.invalidate();
+      let missingPerson = false;
+      if (sharedMoment.person) {
+        const directory = await peopleDirectory.load().catch(() => null);
+        if (directory?.people?.some(person => person.id === sharedMoment.person)) await openPersonCard(sharedMoment.person);
+        else missingPerson = true;
+      } else if (sharedMoment.structure && loaded.registry.has(sharedMoment.structure)) openBuilding(sharedMoment.structure);
+      api.momentRestored = sharedMoment;
+      hud.say(t(missingPerson ? 'moment.personMissing' : 'moment.arrived'));
+    };
+    const open = () => { void restoreMoment().catch(() => hud.say(t('moment.invalid'))); };
+    if (journey.state === 'landed' || journey.state === 'exploring') open();
+    else { const off = journey.on(({ to }) => { if (to === 'landed') { off(); setTimeout(open, 0); } }); }
+  }
+
+  if (!sharedMoment && navLink && navigatorUi?.has(navLink.app)) {
     const link = navLink.app === 'inspect' && navLink.id && !loaded.registry.has(navLink.id)
       ? null : navLink;
     const open = () => {
@@ -7159,10 +7284,12 @@ async function boot() {
   // ---- resize ----------------------------------------------------------- //
 
   function resize() {
-    const vv = window.visualViewport;
-    const w = Math.max(1, Math.round(vv?.width ?? window.innerWidth));
-    const h = Math.max(1, Math.round(vv?.height ?? window.innerHeight));
-    renderer.setSize(w, h, true);
+    const { width: w, height: h } = viewportSize();
+    // Pinch/pan emits visual-viewport events without changing the layout. Keep
+    // the existing drawing buffer instead of clearing/reallocating it each time.
+    if (renderer.domElement.style.width !== `${w}px` || renderer.domElement.style.height !== `${h}px`) {
+      renderer.setSize(w, h, true);
+    }
     camera.aspect = w / h;
     // Hor+ : hold the horizontal field of view and let the vertical follow, so a
     // portrait phone does not end up looking down a drinking straw.
@@ -7399,7 +7526,7 @@ async function boot() {
     // T-2113. Under the gate, draw only a frame that differs from the last one
     // drawn: the first, one a capture or a test asked for, or one in which
     // something the renderer reads has moved. Out in the town, every frame.
-    if (!gateOpen || force || pendingCapture || gateFrame.due()) {
+    if (!gateOpen || force || pendingCapture || pendingPhoto || gateFrame.due()) {
       // T-2646: `renderer.render(scene3d, camera)`, and — only while a grade is
       // ghosted with the Confidence view on — that grade drawn see-through, last,
       // in a pass of its own (confidence.js § render).
@@ -7416,6 +7543,16 @@ async function boot() {
       const { grid, resolve } = pendingCapture;
       pendingCapture = null;
       resolve(readbackSignature(renderer, grid));
+    }
+
+    if (pendingPhoto) {
+      const request = pendingPhoto;
+      pendingPhoto = null; clearTimeout(request.timer);
+      try {
+        const metadata = readMoment();
+        if (!metadata) throw new Error('The town view is not ready.');
+        stampMoment(renderer.domElement, metadata).then(request.resolve, request.reject);
+      } catch (error) { request.reject(error); }
     }
 
     const st = walker.state;
@@ -7495,7 +7632,7 @@ async function boot() {
       // and are drawn exactly as they were before the governor existed.
       // T-3575: a headset is drawn every frame it asks for — a skipped XR frame is a
       // stale or black eye — and at its own framebuffer scale, never the governor's.
-      if (pendingCapture || gateOpen || animationHold || renderer.xr.isPresenting) governor.rest();
+      if (pendingCapture || pendingPhoto || gateOpen || animationHold || renderer.xr.isPresenting) governor.rest();
       else if (!governor.shouldDraw(t)) return;
       applyGovernor();
       tick();

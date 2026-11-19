@@ -1011,6 +1011,8 @@
     "s35-2021-wing": "2021 Prairie's '2B' and '1B' rear ranges now stand on K01's rear wings of `high_house_2021_prairie` (T-3633); the draft stands no second building.",
     "s35-2033-front": "2033 Prairie now stands as the K01 stone-fronted house `otis_house_2033_prairie` (T-3659, piece 1 of T-1918, the S09 package of the T-1837 programme), the Otis house, the middle house of the 1869 limestone row, which refines this draft in place under the draft's own id: the sheet's '3B' main body across its whole lot, its full-height canted stone bay, door, stoop, cornice and fence off Walker Evans' 1946 photograph of the front.",
     "s35-2033-wing": "2033 Prairie's 'rear2B' range now stands on K01's rear wings of `otis_house_2033_prairie` (T-3659); the draft stands no second building.",
+    "s35-2027-front": "2027 Prairie now stands as the K01 brick house `house_2027_prairie` (T-3635, piece 3 of T-1917, the S08 package of the T-1837 programme), the Cobb-associated villa, which refines this draft in place under the draft's own id: the sheet's main body under a painted tin hip with a street dormer, its full-height front bay and canted north bay, the open stoop at the front's south corner, all a bounded design off the 1911 sheet (no picture is held).",
+    "s35-2027-wing": "2027 Prairie's '2B' rear range now stands on K01's rear wing of `house_2027_prairie` (T-3635); its one-storey frame bay and frame shed are not built (liberty L-k01-2027-villa-3635), and the draft stands no second building.",
     "s35-2003-front": "2003 Prairie now stands as the K01 brick house house_2003_prairie under K01's flat roof (T-3346, piece 1 of T-1912), the north half of the pair with 2005, which refines this draft in place under the draft's own id: the three-storey main body on K01 with the sheet's curved front bay on K08, and the sheet's two-storey rear range on K01's rear wings; the draft stands no second building beside it.",
     "s35-2003-wing": "2003 Prairie's two-storey rear range now stands on K01's rear wings of house_2003_prairie (T-3346); the draft stands no second building.",
     "s35-2005-front": "2005 Prairie now stands as the K01 brick house house_2005_prairie under K01's flat roof (T-3346, piece 1 of T-1912), the south half of the pair with 2003, which refines this draft in place under the draft's own id: the three-storey main body on K01 with the sheet's curved front bay on K08, and the sheet's two-storey rear range on K01's rear wings; the draft stands no second building beside it.",
@@ -1953,7 +1955,9 @@
     "frontage-35-080": {
       "slug": "house",
       "entrance": "north",
-      "why": "2½B brick on a wide lot, the house the register associates with Silas B. Cobb (an open association, so the id names no one): the villa family's low hip with dormers over the traced body, its frame porch as the sheet draws it, restrained as the register asks ('no borrowed named mansion facade'). T-1917 reads it."
+      "why": "2½B brick on a wide lot, the house the register associates with Silas B. Cobb (an open association, so the id names no one): the villa family's low hip with dormers over the traced body, its frame porch as the sheet draws it, restrained as the register asks ('no borrowed named mansion facade'). T-1917 reads it.",
+      "house_id": "house_2027_prairie",
+      "house_address": "2027"
     },
     "frontage-35-081": {
       "slug": "tolman_house",

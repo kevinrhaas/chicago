@@ -40,6 +40,21 @@
       const meta = [source.source_date, source.source_kind && titleCase(source.source_kind), source.access && ('Access: ' + titleCase(source.access))].filter(Boolean);
       if (meta.length) li.append(element('p', meta.join(' · '), 'source-meta'));
       paragraph(li, 'Locator:', source.locator);
+      const reference = source.reference_image;
+      if (reference && safeUrl(reference.local_image)) {
+        const figure = element('figure', undefined, 'source-image');
+        const preview = link('', reference.local_image);
+        const img = element('img');
+        img.src = safeUrl(reference.local_image); img.alt = reference.alt;
+        img.width = reference.width; img.height = reference.height;
+        img.loading = 'lazy'; img.decoding = 'async';
+        preview.append(img);
+        const caption = element('figcaption', reference.caption);
+        paragraph(caption, 'Credit:', reference.credit);
+        paragraph(caption, 'Rights:', reference.rights);
+        figure.append(preview, caption, link('Open full reference image', reference.local_image));
+        li.append(figure);
+      }
       list.append(li);
     });
     return list;

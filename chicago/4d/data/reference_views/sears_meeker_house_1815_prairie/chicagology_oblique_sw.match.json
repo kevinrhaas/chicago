@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5d6560bf129028df2ae7d1fbf77daf8a7e7712ad3f29305a93ff1334a84122e6",
+  "glb_sha256": "c4e88d771a247ee6c1a2bb919246b4c33284912cb5910bfbee1b5f0aa2fe491a",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -98,8 +98,8 @@
     },
     {
       "what": "a fourth pot: a pale shape nearest the street on the stack's head (x 1717-1740 px, y 72-130 px), lit on its west side with a rim at its top, may be a fourth pot in the row or the head's lit side",
-      "status": "open",
-      "how": "the build keeps three: four of K15's 0.21 m flues need a 1.24 m face and the stack is 1.1 m along the flank as both prints read it (the flue spacing rule in k01_frontage_params._k15_heads), so a fourth pot is a wider stack or a smaller flue, and the shape's reading is not settled"
+      "status": "fixed",
+      "how": "T-3562: read as a fourth pot. Enlarged, the pale shape carries a rolled lip at its top (y 70-77 px) and its top continues the row's perspective (the three dark pots' tops at y 82, 90 and 98 px, about 8-10 px a pot; this one's at 72, the next step nearer). It is pale where they are dark because, with the sun and the camera both south-west, the nearest pot is the one seen whole, its lit west side to the camera, while each pot behind it shows only the shaded sliver it leaves past the one in front. Built: the stack widened along the flank from 1.1 m to 1.26 m (the least that holds four of K15's 0.21 m flues with 0.1 m of stone between, made a whole 12 half-bricks), its west face kept at u 15.86, and four long pots on its head; the 1.1 m had been read through this camera, whose scale on the bay's side of the house is not settled (below). The flank's dormer moved 0.07 m back with it (13.83 m), still 1.4 m behind the stack's centre. The render now draws four pots in the row, its tops stepping down as the print's do."
     },
     {
       "what": "the band under the stack's head: the build's K15 soot band lays the top 0.45 m of the shaft under the corbels in dark brick, which renders red on this stone stack; the print shows the head's pale stone and its shadowed mouldings there (x 1730-1830 px, y 140-185 px)",
@@ -119,7 +119,7 @@
     {
       "what": "the corner bay's front renders about 100-170 px west of the print's on this view (its two lights at x 1515-1585 px against the print's 1565-1740, its south edge at 1615 against 1790), and narrower",
       "status": "open",
-      "how": "T-3562: the square-on puts the same bay's edges within 20-25 px of its print (below the 0.5 m it notes as within tolerance), and this camera is solved on the front's plane, where its distance and focal length trade against each other (its solve), so a face 1.2 m proud of that plane is where it is least sure; whether the camera or the bay is wrong here is not settled"
+      "how": "T-3562: the square-on puts the same bay's edges within 20-25 px of its print (below the 0.5 m it notes as within tolerance), and this camera is solved on the front's plane, where its distance and focal length trade against each other (its solve), so a face 1.2 m proud of that plane is where it is least sure; whether the camera or the bay is wrong here is not settled T-3562 (2026-11-18) measured both prints to see whether a better camera could settle it, and no single pinhole camera can: on the oblique the bay's two front lights stand 121 px apart (centres x 1590 and 1711 px) and 188 px tall (y 775-963), where the square-on places them 0.9 m apart and 2.37 m tall; so on the bay's face the print's horizontal scale is about 1.7 times its vertical (135 against 79 px/m), while on the front behind it, at about the same depth (the light right of the door, 78 px/m tall), it is under 0.8 times, and on the attic lights 0.8 times. For a level camera the ratio on a plane parallel to the front is its distance from the eye across the front over its depth along the view, which cannot rise from under 0.8 to 1.7 between two planes 0.75 m apart at the same depth; least-squares fits on 30 points from both prints (attic, pavilion and principal-storey lights, the narrow light, the right window, the bay's lights and corner, the main south corner at x 1656) left 14-16 px rms and 40-60 px at the bay with every parameter free, the eye pulled to the street line in front of the house. So either the oblique print is not a single undistorted exposure of this front (a copy, a crop of a distorted plate) or the bay as the square-on reads it is not the bay this print shows; the camera alone does not settle it, and it is left as it was."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

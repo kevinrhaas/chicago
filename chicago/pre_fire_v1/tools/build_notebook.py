@@ -38,6 +38,9 @@ def validate(data):
         assert isinstance(book['publication_year'], int) and book['publication_year'] <= 1871
     for page in pages.values():
         require_strings(page, ('title', 'printed_page', 'verification', 'inspected_on', 'sha256'))
+        for key in ('scan_label', 'image_note'):
+            if key in page:
+                require_strings(page, (key,))
         assert page['book_id'] in books, page['id']
         assert isinstance(page['scan_index'], int) and page['scan_index'] >= 0
         for key in ('url', 'image_url'):
@@ -114,6 +117,10 @@ def exports(data):
             if page['book_id'] != book['id']:
                 continue
             out += [f'<p id="source-{e(page["id"])}"><a href="{e(page["url"])}">p. {e(page["printed_page"])} · {e(page["title"])}</a> · {e(page["verification"])} · <a href="{e(page["local_image"] or page["image_url"])}">Open original scan</a></p>']
+            if page.get('scan_label'):
+                out.append(para('Scan locator:', page['scan_label']))
+            if page.get('image_note'):
+                out.append(para('Local image:', page['image_note']))
         out.append('</article>')
     out.append('</section><section id="revisions"><h2>What this pass changes</h2>')
     for correction in data['corrections']:

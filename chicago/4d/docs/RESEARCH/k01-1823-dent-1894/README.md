@@ -223,3 +223,29 @@ with its transom, is about 3.8 m from the landing against the build's 3.2 m, and
 glazing and no hood. The door stood about as far under the print's transom before this change
 (its head at about y 721 px), and nothing recorded it. Still open, as before: the triple group's
 broad pedimented dormer over the curb and the pavilion attic's slated cheeks.
+
+## T-1894, sixth revision (2026-11-18): the pavilion's crown
+
+The 1883 New Chicago Album vignette draws the pavilion over the main cornice as an attic front of
+paired lights, a scroll at either side, under a pediment with a finial, standing between slated
+cheeks under a steep slated crown that rises behind the pediment. The build had carried the
+pavilion's stone up a full-width attic under a coped gable, so its cheeks were stone. Read through
+the vignette's camera at its half-metre scale (the pavilion's front is about 55 px for 5.74 m):
+the stone front about 39 px, the pediment's base about 42 px, the paired lights about 26 px, the
+cornice-to-apex height about 65 px, and the scrolls from about the lights' sill toward the attic's
+cornice.
+
+Built: the attic storey 2.9 m, its front's outer 0.8 m at each end and both its returns slated
+(K08's storey `cheeks`, 1827's), so the stone front is 4.1 m; its lights 2.3 m by 1.9 m; a scrolled
+stone console against each cheek from the lights' sill, 2.3 m high (K08 `cheeks.consoles`, new: the
+form of K10's dormer console); the coped gable inset 0.8 m to the stone front, its kneelers on its
+own corners (K08 `kneeler.on: gable`, new), rising 1.2 m a metre in; and K01's hipped crown
+(`mansard.crown`, form hip, attic_m 3.09) over the attic, its cornice across the attic's top and its
+slates closed to a point just over and about 1.0 m behind the pediment's apex (about 16.0 m). Through
+the vignette's camera the render's stone front, pediment and cornice-to-apex height land within a
+few px of the vignette's; through the engraving's, the attic's lights land within about 15 px of
+the print's x 1070-1190 px, and the crown's top is behind the trees there as before.
+
+Both match records now read `matches`. Invented (L-k01-1823-dent-1894): the crown's pitches,
+ledge, cornice and depth back, the pediment's pitch, the consoles' depth and rolls, and the slate on
+the returns, which neither picture sees square.

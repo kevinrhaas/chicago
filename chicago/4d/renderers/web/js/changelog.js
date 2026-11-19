@@ -1,4 +1,28 @@
 export const CHANGELOG = [ // newest first
+  { v: 3116, ts: '2026-11-19T04:22:32.326Z', date: 'Nov 18, 2026, 10:22 PM CT', title: '1823 Prairie\'s pavilion crowned as the 1883 album draws it', kind: 'improvement',
+    items: [
+      'The Dent house\'s south pavilion now ends in a stone attic front with wide paired lights, a scrolled console either side, between slated cheeks.',
+      'A pediment and finial stand over that front alone, and a steep slated crown rises behind them, where the attic used to be stone from corner to corner under a plain gable.',
+      'Both of the house\'s pictures now match the building: nothing on either comparison is still open.',
+    ] },
+  { v: 3115, ts: '2026-11-19T04:15:58.034Z', date: 'Nov 18, 2026, 10:15 PM CT', title: 'Save discoveries and explore Chicago with a photo hunt', kind: 'feature',
+    items: [
+      'Save a stamped photo and share a view from Home. Guide\'s Field notebook keeps notes, selected people, citations and small photos in this browser, with download and print to PDF. Completed jaunts offer optional cited reflections; For teachers adds printable lesson guides with suggested Illinois and C3 connections.',
+      'Home\'s Where and when? offers five historical photographs to locate in 1904, with daily challenge links, source dates and progress saved in this browser.',
+      'Magnify Navigator reading with browser zoom. Picture viewers keep keyboard focus inside, close with Escape and return to the opener. The app rail remains reachable with Tab while Move or Jump is open. Arrow keys and Space stay with focused controls, and entering a reader stops held movement.',
+    ] },
+  { v: 3114, ts: '2026-11-19T02:45:00.014Z', date: 'Nov 18, 2026, 8:45 PM CT', title: 'A fourth chimney pot on 1815 Prairie\'s south chimney', kind: 'improvement',
+    items: [
+      'The south chimney of the Sears-Meeker house at 1815 Prairie now carries four tall clay pots in a row, as its photograph from the south-west shows, instead of three. The fourth pot is the pale one nearest the street, lit by the afternoon sun, and the chimney is a little wider to hold it.',
+    ] },
+  { v: 3113, ts: '2026-11-19T02:05:54.710Z', date: 'Nov 18, 2026, 8:05 PM CT', title: '2027 Prairie becomes a brick villa with its bays', kind: 'feature',
+    items: [
+      '2027 Prairie, the house linked to the Cobb family, is no longer a rough placeholder. It now follows the 1911 fire-insurance map: a brick house of two and a half storeys whose front pushes forward in a tall bay, with a three-sided bay on its north side, an open stoop at the south corner, a two-storey range behind and a dormer in its hipped roof. No photograph of the house is known, so its windows, trim and colours are a careful, labelled guess.',
+    ] },
+  { v: 3112, ts: '2026-11-18T23:24:58.288Z', date: 'Nov 18, 2026, 5:24 PM CT', title: 'Fort Dearborn monument: the faces cut as sculpted', kind: 'change',
+    items: [
+      'The five bronze figures on the Fort Dearborn monument (18th Street, 1904) no longer share one soft, neutral face. Each now has the heavier brow, deep-set eyes, projecting nose and firm mouth the old photographs show, cut deepest on the warrior and Black Partridge and lightest on the child.',
+    ] },
   { v: 3111, ts: '2026-11-18T21:05:27.360Z', date: 'Nov 18, 2026, 3:05 PM CT', title: '1815 Prairie\'s mansard roof sits low behind its iron cresting', kind: 'fix',
     items: [
       'The flat top of 1815 Prairie\'s mansard had been built far steeper than intended, so it rose dark above the iron cresting. It now drops out of sight behind the rail, and the cresting stands against the sky as both old photographs show it.',

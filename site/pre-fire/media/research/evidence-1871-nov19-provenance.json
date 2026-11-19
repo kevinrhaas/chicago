@@ -1,0 +1,93 @@
+{
+  "scope": "Selected public reference pages added for the 19 November 1871 research pass. No restricted CHM images, whole books, app models or actor placements.",
+  "files": [
+    {
+      "path": "media/research/dir-1871-p54.jpg",
+      "bytes": 847958,
+      "sha256": "97ae3b5488ca07d821ab4ced1c8fe2934c11ef4a3f87190e2275330a96f5f4b4",
+      "source_packet": "t3654-people-source-packet",
+      "whitelist_sha256": "cf7704604e598cc6a64b062c36f41bbad75443f7ef979b4406dae3f2ee7fb552",
+      "source_name": "dir-1871-p54.jpg"
+    },
+    {
+      "path": "media/research/dir-1871-p72.jpg",
+      "bytes": 846115,
+      "sha256": "f8aa01501493ce3de853a9eae90172647d140b2c4eeaeab50ff0b8b05c47c9e0",
+      "source_packet": "t3654-people-source-packet",
+      "whitelist_sha256": "cf7704604e598cc6a64b062c36f41bbad75443f7ef979b4406dae3f2ee7fb552",
+      "source_name": "dir-1871-p72.jpg"
+    },
+    {
+      "path": "media/research/works-1871-p79.jpg",
+      "bytes": 1310965,
+      "sha256": "7cb24e0dfa4c3c02ea2c946ac672876e851296321216f60aa7f8a4e84ad22f33",
+      "source_packet": "t3654-utility-source-packet",
+      "whitelist_sha256": "09e2dc0a1bf0dcc994b713b38085343a505121116f9c99ce4a4f0751ae3c1542",
+      "source_name": "works-1871-p79.jpg"
+    },
+    {
+      "path": "media/research/works-1871-p116.jpg",
+      "bytes": 587560,
+      "sha256": "784a632109795b363690131564f5d85b730aeb16019190f9df623e3700ac9260",
+      "source_packet": "t3654-utility-source-packet",
+      "whitelist_sha256": "09e2dc0a1bf0dcc994b713b38085343a505121116f9c99ce4a4f0751ae3c1542",
+      "source_name": "works-1871-p116.jpg"
+    },
+    {
+      "path": "media/research/works-1871-p48.jpg",
+      "bytes": 914421,
+      "sha256": "e536f41447752d9ce346806d6cef50fa4ae147242d469af359d28a1e3dc55e08",
+      "source_packet": "t3654-bridge-count-supplement",
+      "whitelist_sha256": "ba036ee7a747fd8bbdcaeb61569b5bb8094b1fd979b09fc317bb5c8d28d4ddb5",
+      "source_name": "works-1871-p48.jpg"
+    },
+    {
+      "path": "media/research/works-1871-p112.jpg",
+      "bytes": 1570402,
+      "sha256": "1c9b3bdffb1b90e6c1c10d35f4bef18d6a5fa94e58b8d67b5b47fb4f50541062",
+      "source_packet": "t3654-bridge-count-supplement",
+      "whitelist_sha256": "ba036ee7a747fd8bbdcaeb61569b5bb8094b1fd979b09fc317bb5c8d28d4ddb5",
+      "source_name": "works-1871-p112.jpg"
+    },
+    {
+      "path": "media/research/works-1871-p113.jpg",
+      "bytes": 666728,
+      "sha256": "5fd9cb0440a957bdcc641f617df977e3dae8a72d35b9e91b30a6e3ce18431024",
+      "source_packet": "t3654-bridge-count-supplement",
+      "whitelist_sha256": "ba036ee7a747fd8bbdcaeb61569b5bb8094b1fd979b09fc317bb5c8d28d4ddb5",
+      "source_name": "works-1871-p113.jpg"
+    },
+    {
+      "path": "media/research/illustrated-pdfpage8.png",
+      "bytes": 1773572,
+      "sha256": "95c87b08f7a84e5ee3d12dea0064afb99c7c26d8c72eea7a595f2e74706846fa",
+      "source_packet": "t3654-chamber-height-followup",
+      "whitelist_sha256": "e970b2f5058097a49ca2a79b7572cd9c1fe592a0c1dae8b53aff3873e2b3d6ad",
+      "source_name": "illustrated-pdfpage8.png"
+    },
+    {
+      "path": "media/research/illustrated-pdfpage9.png",
+      "bytes": 1691067,
+      "sha256": "72068ff969ad8c1c0f4e746cba65dbd8b1f5d4bdbc34a5105f76f5b929387d57",
+      "source_packet": "t3654-chamber-height-followup",
+      "whitelist_sha256": "e970b2f5058097a49ca2a79b7572cd9c1fe592a0c1dae8b53aff3873e2b3d6ad",
+      "source_name": "illustrated-pdfpage9.png"
+    },
+    {
+      "path": "media/research/illustrated-pdfpage10.png",
+      "bytes": 1783940,
+      "sha256": "8b0edd203a00aaee88bab96153364921716b1e89cce522df6434c3299f41001f",
+      "source_packet": "t3654-chamber-height-followup",
+      "whitelist_sha256": "e970b2f5058097a49ca2a79b7572cd9c1fe592a0c1dae8b53aff3873e2b3d6ad",
+      "source_name": "illustrated-pdfpage10.png"
+    }
+  ],
+  "rights": "Directory/report originals are public-domain 1871 U.S. publications, with University of Illinois and Google/Internet Archive attribution respectively. Chicago Illustrated original and mechanical scan are documented PD via the HathiTrust/University of Michigan and Commons route. No CC0 license is asserted.",
+  "illustrated_pdf": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Chicago_Illustrated_by_Sheahan,_Jevne_&_Almini,_1866-67.pdf",
+    "sha256": "4e3270e98afa44308398b39090a7d3d6b0d094c2671bc6b71011f1c42d4270d8",
+    "source_id": "mdp.69015000002622",
+    "pages": "8–10, one-based PDF positions",
+    "method": "Full-page PNG renders; margins/watermark retained, no CHM bytes. Whole PDF excluded."
+  }
+}

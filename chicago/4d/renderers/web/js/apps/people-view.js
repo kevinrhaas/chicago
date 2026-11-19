@@ -341,6 +341,7 @@ async function drawPerson(st, id) {
   const row = st.model.byId.get(id);
   if (!row) { back(st); return; }
   const a = st.ctx.actions ?? {};
+  a.onPersonSelected?.(id, row.name);
   const h = householdOf(st.model, id);
   const render = (m) => {
     // Find and Follow are live for someone placed in town now, greyed with the reason for
