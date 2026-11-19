@@ -2600,14 +2600,14 @@
       "phase_id": "draft_1904",
       "structure_id": "house_2027_indiana_coach_house"
     },
-    "house_2027_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "house_2027_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 219916,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "1cc7ca26f4a4a9e0baed62d676e148923ffd965b7e39a96e61d693e7c8b53a9b",
+      "bytes": 3464544,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "528ccd2c14d3912e5f906fc0f15ed50d0c53535614c2d4dba41aeabf2058266c",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "house_2027_prairie"
     },
     "house_2027_prairie_coach_house__draft_1904.glb": {

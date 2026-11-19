@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3113, ts: '2026-11-19T02:05:54.710Z', date: 'Nov 18, 2026, 8:05 PM CT', title: '2027 Prairie becomes a brick villa with its bays', kind: 'feature',
+    items: [
+      '2027 Prairie, the house linked to the Cobb family, is no longer a rough placeholder. It now follows the 1911 fire-insurance map: a brick house of two and a half storeys whose front pushes forward in a tall bay, with a three-sided bay on its north side, an open stoop at the south corner, a two-storey range behind and a dormer in its hipped roof. No photograph of the house is known, so its windows, trim and colours are a careful, labelled guess.',
+    ] },
   { v: 3112, ts: '2026-11-18T23:24:58.288Z', date: 'Nov 18, 2026, 5:24 PM CT', title: 'Fort Dearborn monument: the faces cut as sculpted', kind: 'change',
     items: [
       'The five bronze figures on the Fort Dearborn monument (18th Street, 1904) no longer share one soft, neutral face. Each now has the heavier brow, deep-set eyes, projecting nose and firm mouth the old photographs show, cut deepest on the warrior and Black Partridge and lightest on the child.',
