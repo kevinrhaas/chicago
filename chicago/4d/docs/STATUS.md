@@ -1,6 +1,19 @@
-## T-3679 — Play a part: three choice-driven role jaunts (19 November 2026)
+## T-3669, T-3670 — Same spot, another year; the guide's questions (19 November 2026)
 
-Three new jaunts put the visitor in a young person's place, on the existing jaunt engine with no engine change. *Errands Before the March* (1812, Errands, `errands-before-the-march`): a runner of the settlement outside Fort Dearborn hears the evacuation order read on the parade on 10 August 1812 and carries it either across the river to the Kinzie house or out to the Agency House, sees the council of the 12th, then spends the evening of the 13th either helping carry the ammunition and liquor to the well and the river or at the main gate when William Wells rides in on the 14th; it ends on the eve of the march, and the fighting is neither told nor staged. *Apprentice at the Democrat* (1835, Work, `apprentice-at-the-democrat`): the Chicago Democrat's new apprentice carries the number of 1 July 1835 from the paper's old corner either west to the Sauganash or east to the rival American, then to Newberry & Dole's, then either to the drawbridge to watch for a sail or to the Tremont with the last copies. *Ice for Prairie Avenue* (1904, Work, `ice-for-prairie-avenue`): an iceman's helper on a Monday in October 1904 tries either the Glessners' front door or the alley gates, reaches the service entrance under the great arch, then either waits for the kitchen's order at the stable doors or runs ahead to the Kimball house. Each has two forks that change the next stop and four endings from the pair. Every stop's facts are claims already published in other jaunts, copied word for word; the roles, routes, choices, endings and keepsakes are reconstructed (L-play-a-part-3679). All three are tellings for grades 6-8 by measure (7.5, 7.9 and 7.5), with versions for 3-5, 9-10, 11-12 and 18+ built by versions.py, each measuring inside its band. Text only: no narration voice and no stage. The 1904 Jaunts menu gains a Work group and the 1812 menu an Errands group, so the lesson guides cover 12 year/group combinations.
+Jump passes the walker's ground, facing, season and hour (never a date, person or
+building) to the far year. That page checks the spot with `momentFits`; if a structure or
+water now holds it, `nearestOpen` searches rings out to 24 m inside coverage; if the town
+does not reach it, the year's Welcome stays and a line says why. Shared links never move.
+Checked: `test_moment.mjs`, `test_nav_jump.mjs` (pure and DOM-fake), and smoke part 14's
+new Jump-landing check, which accepts either outcome and requires the page to say which.
+
+The understanding check's questions (where / who told us / how sure) were checked over all
+240 catalog tellings: exactly one answer, no repeated option, a wrong place never also tells
+the claim, a wrong teller never also tells it, every quoted line is one the stop said and shares its words with the record behind it (238 tellings quizzed; Lalime and 1612 for ages 8-10 are retold too loosely and get none), the quoted line never names who told it, stable order on repaint
+(`test_jaunt_understanding.mjs`), and in the browser at 390×780 and 1280×800 with retry,
+reveal and start-again (`test_jaunt_understanding_view.mjs`). Not checked: assistive
+technology beyond native buttons, groups and status lines.
+
 ## T-3675 — Chromebook class set (19 November 2026)
 
 Gap-analysis item 17. A classroom Chromebook is recognised (ChromeOS from the user agent `CrOS`
@@ -44,6 +57,10 @@ controls rule, the loading-screen words, the "Prepare for class" words and the c
 limit; a school network and its filters; Cache Storage quotas on a 32 GB Chromebook with
 other users; a teacher-side view of which devices are ready; any room-wide cache (that needs
 a local server). SwiftShader draws the pixels, so the readings are bytes, never timings.
+
+## T-3679 — Play a part: three choice-driven role jaunts (19 November 2026)
+
+Three new jaunts put the visitor in a young person's place, on the existing jaunt engine with no engine change. *Errands Before the March* (1812, Errands, `errands-before-the-march`): a runner of the settlement outside Fort Dearborn hears the evacuation order read on the parade on 10 August 1812 and carries it either across the river to the Kinzie house or out to the Agency House, sees the council of the 12th, then spends the evening of the 13th either helping carry the ammunition and liquor to the well and the river or at the main gate when William Wells rides in on the 14th; it ends on the eve of the march, and the fighting is neither told nor staged. *Apprentice at the Democrat* (1835, Work, `apprentice-at-the-democrat`): the Chicago Democrat's new apprentice carries the number of 1 July 1835 from the paper's old corner either west to the Sauganash or east to the rival American, then to Newberry & Dole's, then either to the drawbridge to watch for a sail or to the Tremont with the last copies. *Ice for Prairie Avenue* (1904, Work, `ice-for-prairie-avenue`): an iceman's helper on a Monday in October 1904 tries either the Glessners' front door or the alley gates, reaches the service entrance under the great arch, then either waits for the kitchen's order at the stable doors or runs ahead to the Kimball house. Each has two forks that change the next stop and four endings from the pair. Every stop's facts are claims already published in other jaunts, copied word for word; the roles, routes, choices, endings and keepsakes are reconstructed (L-play-a-part-3679). All three are tellings for grades 6-8 by measure (7.5, 7.9 and 7.5), with versions for 3-5, 9-10, 11-12 and 18+ built by versions.py, each measuring inside its band. Text only: no narration voice and no stage. The 1904 Jaunts menu gains a Work group and the 1812 menu an Errands group, so the lesson guides cover 12 year/group combinations.
 
 ## T-3663 — Gossip source comparison checkpoint (19 November 2026)
 
