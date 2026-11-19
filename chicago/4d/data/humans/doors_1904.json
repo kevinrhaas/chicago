@@ -286,36 +286,204 @@
   },
   {
    "structure": "buckingham_house_2036_prairie",
-   "name": "2036 Prairie Avenue \u2014 Buckingham map-led corner mansion (district draft; refined by T-1911)",
+   "name": "2036 Prairie Avenue \u2014 the Ebenezer Buckingham house, a Second Empire corner house on 21st Street (K01; refined by T-3631, piece 1 of T-1911)",
    "placement": {
-    "local_e": 1363.889,
-    "local_n": -3593.629,
+    "local_e": 1372.512,
+    "local_n": -3595.664,
     "rotation_deg": -0.632
    },
    "doors": [
     {
      "id": "buckingham_house_2036_prairie:front",
      "leaf": {
-      "local_e": 1383.84,
-      "local_n": -3588.66
+      "local_e": 1386.6,
+      "local_n": -3587.93
      },
      "step": {
-      "local_e": 1386.89,
-      "local_n": -3588.63
+      "local_e": 1392.36,
+      "local_n": -3587.86
      },
      "outward_deg": 89.4,
      "width_m": 1.2,
-     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+     "passage": true,
+     "plan": {
+      "name": "Front door",
+      "origin": [
+       14.235,
+       7.58
+      ],
+      "outward": [
+       1,
+       0
+      ],
+      "along": [
+       0,
+       1
+      ],
+      "jambs": [
+       -0.61,
+       0.61
+      ],
+      "sill": 1.8,
+      "head": 4.5,
+      "leaf": {
+       "front": 0,
+       "back": -0.13,
+       "s": [
+        -0.6,
+        0.6
+       ],
+       "foot": 1.8,
+       "top": 4.5
+      },
+      "hinge": "right",
+      "pair": false,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.16,
+      "leafMaterials": [
+       "door_leaf"
+      ],
+      "way": [
+       [
+        19.935,
+        7.58,
+        null
+       ],
+       [
+        19.505,
+        7.58,
+        null
+       ],
+       [
+        19.265,
+        7.58,
+        0.164
+       ],
+       [
+        19.205,
+        7.58,
+        0.164
+       ],
+       [
+        18.965,
+        7.58,
+        0.327
+       ],
+       [
+        18.905,
+        7.58,
+        0.327
+       ],
+       [
+        18.665,
+        7.58,
+        0.491
+       ],
+       [
+        18.605,
+        7.58,
+        0.491
+       ],
+       [
+        18.365,
+        7.58,
+        0.655
+       ],
+       [
+        18.305,
+        7.58,
+        0.655
+       ],
+       [
+        18.065,
+        7.58,
+        0.818
+       ],
+       [
+        18.005,
+        7.58,
+        0.818
+       ],
+       [
+        17.765,
+        7.58,
+        0.982
+       ],
+       [
+        17.705,
+        7.58,
+        0.982
+       ],
+       [
+        17.465,
+        7.58,
+        1.145
+       ],
+       [
+        17.405,
+        7.58,
+        1.145
+       ],
+       [
+        17.165,
+        7.58,
+        1.309
+       ],
+       [
+        17.105,
+        7.58,
+        1.309
+       ],
+       [
+        16.865,
+        7.58,
+        1.473
+       ],
+       [
+        16.805,
+        7.58,
+        1.473
+       ],
+       [
+        16.565,
+        7.58,
+        1.636
+       ],
+       [
+        16.505,
+        7.58,
+        1.636
+       ],
+       [
+        16.265,
+        7.58,
+        1.8
+       ],
+       [
+        14.735,
+        7.58,
+        1.8
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "inferred"
+      }
+     },
+     "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     },
     {
      "id": "buckingham_house_2036_prairie:back",
      "leaf": {
-      "local_e": 1361.82,
-      "local_n": -3587.37
+      "local_e": 1361.74,
+      "local_n": -3586.12
      },
      "step": {
-      "local_e": 1358.06,
-      "local_n": -3587.4
+      "local_e": 1357.98,
+      "local_n": -3586.15
      },
      "outward_deg": 269.5,
      "width_m": 0.95,
@@ -324,14 +492,26 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2036:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "fe1a79496ff304ad26ca836fa81d7c07c03d2281cf34e4882e7ff1805f062fec",
+   "model_inputs_sha256": "10000581a87616eb36c45f062131f29bf0e5580a353eb7ba9d9528de9fbf9a4b",
    "barrier": {
-    "key": "8ca17040b5af5778",
+    "key": "af0d00d4fa365808",
     "cell": 0.1,
-    "u0": -2.2,
-    "v0": -3.2,
-    "count": 17,
-    "rects": "2 17 49 133 17 21 49 153 21 114 132 153 22 114 127 128 114 116 127 153 116 139 127 148 119 146 2 32 139 158 127 171 158 164 127 148 164 188 127 163 188 222 127 128 188 231 147 163 192 222 9 32 222 223 9 146 223 238 9 61 223 243 74 146 238 251 32 61"
+    "u0": -10.8,
+    "v0": -1.9,
+    "count": 61,
+    "rects": "1 2 38 161 2 108 38 39 2 108 160 161 106 107 170 171 107 108 169 171 108 140 174 175 111 112 18 19 112 113 17 19 113 114 15 18 114 115 14 16 115 116 13 15 116 117 11 14 117 118 10 12 118 119 8 11 119 120 7 10 120 121 6 8 121 139 6 7 139 140 6 8 140 141 7 10 140 141 174 177 141 142 8 11 141 142 175 178 142 143 10 12 142 143 177 179 143 144 11 14 143 144 178 181 144 145 13 15 144 145 179 182 145 146 14 16 145 162 181 182 146 147 15 18 147 148 17 19 148 149 18 19 162 163 180 182 163 164 179 182 164 165 177 180 165 166 176 179 166 167 175 177 167 168 174 176 168 248 174 175 224 237 18 19 248 249 174 176 249 252 174 175 252 253 32 175 253 273 78 79 253 273 81 110 253 273 112 113 273 303 78 113 329 330 90 92 329 330 99 100 330 332 90 91 330 332 99 101 332 333 89 91 332 333 100 101 333 334 1 4 333 334 18 90 333 334 100 190 334 336 1 90 334 337 101 190 336 337 1 4 336 337 18 90"
+   },
+   "floor": {
+    "key": "14f79a714e4a569a",
+    "cell": 0.1,
+    "u0": 14.2,
+    "v0": 6.2,
+    "ni": 53,
+    "nj": 30,
+    "count": 21,
+    "rects": "1 2 9 18 180 2 3 9 20 180 3 4 6 23 180 4 16 0 28 180 5 16 28 29 210 16 17 0 1 180 16 17 1 6 210 16 17 23 29 210 16 21 6 23 180 20 21 5 6 210 21 22 1 28 180 22 25 1 28 164 25 28 1 28 147 28 31 1 28 131 31 34 1 28 115 34 37 1 28 98 37 40 1 28 82 40 43 1 28 65 43 46 1 28 49 46 49 1 28 33 49 52 1 28 16",
+    "wall_count": 38,
+    "walls": "0 2 8 9 280 1 2 18 21 280 2 3 5 9 280 2 3 20 24 280 3 4 0 6 280 3 4 23 29 280 4 5 28 30 310 5 17 29 30 310 17 18 0 6 310 17 18 23 30 310 18 19 5 6 280 18 20 23 24 280 19 20 4 6 310 20 21 0 4 280 20 21 4 5 310 20 21 23 29 280 21 23 0 1 280 21 23 28 29 280 23 26 0 1 264 23 26 28 29 264 26 29 0 1 247 26 29 28 29 247 29 32 0 1 231 29 32 28 29 231 32 35 0 1 215 32 35 28 29 215 35 38 0 1 198 35 38 28 29 198 38 41 0 1 182 38 41 28 29 182 41 44 0 1 165 41 44 28 29 165 44 47 0 1 149 44 47 28 29 149 47 50 0 1 133 47 50 28 29 133 50 53 0 1 116 50 53 28 29 116"
    }
   },
   {
@@ -16514,8 +16694,8 @@
   {
    "structure": "prairie_2036:back_door:stoop",
    "placement": {
-    "local_e": 1361.82,
-    "local_n": -3587.37,
+    "local_e": 1361.74,
+    "local_n": -3586.12,
     "rotation_deg": 179.48
    },
    "barrier": {

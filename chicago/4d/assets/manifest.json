@@ -103,14 +103,14 @@
       "phase_id": "documented_1835",
       "structure_id": "brown_boarding_house"
     },
-    "buckingham_house_2036_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "buckingham_house_2036_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 212416,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "fe1a79496ff304ad26ca836fa81d7c07c03d2281cf34e4882e7ff1805f062fec",
+      "bytes": 6633432,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "10000581a87616eb36c45f062131f29bf0e5580a353eb7ba9d9528de9fbf9a4b",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "buckingham_house_2036_prairie"
     },
     "buckingham_house_2036_prairie_coach_house__draft_1904.glb": {
