@@ -15,8 +15,9 @@ source links, route, service or notebook schema are added.
 Focused pure checks pass for all five tellings, exclusions, complete provenance,
 bounded/duplicate/revised saves, edited notebook entries, storage failures and escaped
 HTML export. Existing reflection/notebook regressions and the string lint pass.
-Native keyboard/mobile/magnification and readable export validation, official gate-step
-isolation, complete source/preflight and required published smoke remain pending.
+The registered pure gate step was officially measured with `--tool`: no tracked or
+ignored writes, and the isolation audit passes. Native keyboard/mobile/magnification and
+readable export validation, complete source/preflight and required published smoke remain pending.
 No browser, publisher or full source gate ran while the current release owned the CPU.
 This checkpoint is not a release verdict and must not merge before PR #2197 lands green.
 
