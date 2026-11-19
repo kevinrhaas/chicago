@@ -178,17 +178,23 @@ function drawInView(st, ctx) {
  * People (a household is never a row among people). Returns the ids it shows, which the list
  * under it leaves out, so nothing is said twice (T-3438).
  */
+/** T-3671 (WCAG 1.3.1): the In view label heads its rows for a screen reader too. */
+const inViewHeading = (doc, text) => {
+  const k = el(doc, 'span', 'nav-k', text);
+  k.setAttribute('role', 'heading'); k.setAttribute('aria-level', '3');
+  return k;
+};
 function pinFor(st, doc) {
   const h = st.pinned;
   st.inView.replaceChildren();
   if (!h) return new Set();
   if (st.seg === 'households') {
-    st.inView.append(el(doc, 'span', 'nav-k', 'In view'), householdRow(doc, h));
+    st.inView.append(inViewHeading(doc, 'In view'), householdRow(doc, h));
     return new Set([h.id]);
   }
   const here = [...h.family, ...h.staff].map((p) => st.model.byId.get(p.id) ?? p);
   if (!here.length) return new Set();
-  st.inView.append(el(doc, 'span', 'nav-k', `In view · ${h.short}`), ...here.map((p) => personRow(doc, p, { withHousehold: false })));
+  st.inView.append(inViewHeading(doc, `In view · ${h.short}`), ...here.map((p) => personRow(doc, p, { withHousehold: false })));
   return new Set(here.map((p) => p.id));
 }
 

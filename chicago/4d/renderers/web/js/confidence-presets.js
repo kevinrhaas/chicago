@@ -117,9 +117,20 @@ export function saveLooks(view, storage = globalThis.localStorage) {
   try { globalThis.document?.dispatchEvent(new CustomEvent('chicago4d-confidence')); } catch { /* no page */ }
 }
 
+/** T-3671 (WCAG 1.4.1): the grade patterns on or off, kept for the next visit. */
+export function setPatterns(view, on, storage = globalThis.localStorage) {
+  const now = view?.setPatterns?.(!!on) ?? null;
+  if (now === null) return null;
+  keepChoices({ patterns: now }, storage);
+  try { globalThis.document?.dispatchEvent(new CustomEvent('chicago4d-confidence')); } catch { /* no page */ }
+  return now;
+}
+
 /** Put the kept looks back on the renderer at boot (before the HUD restores the colouring). */
 export function restoreLooks(view, storage = globalThis.localStorage) {
   const kept = readChoices(storage);
+  // T-3671: the grade patterns are on unless the visitor turned them off.
+  if (typeof kept.patterns === 'boolean') view.setPatterns?.(kept.patterns);
   if (!kept.looks) return false;
   let any = false;
   for (const level of LEVELS) {
