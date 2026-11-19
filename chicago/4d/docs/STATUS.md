@@ -1,3 +1,25 @@
+## T-3663 — Gossip source comparison checkpoint (19 November 2026)
+
+Implemented separately after the T-3656/T-3657/T-3658 delivery candidate. Eligible
+Gossip completions offer a collapsed **Make your case** beside the existing reflection:
+two newspaper readings, selected support, a claim, an uncertainty and an ungraded
+reading guide. Save explicitly adds an ordinary note to the existing bounded notebook;
+a revised save keeps a new copy. Failed saves retain the draft and earlier entries.
+
+The current telling supplies all historical text and citations. The Democrat's second
+sale figure stays lost; the Chicago branch decision does not establish an operating
+bank; the Springfield building remains Inferred with its reasoning and shared American
+item locator. Both sources are text-only with no public URL. No witnesses, scans,
+source links, route, service or notebook schema are added.
+
+Focused pure checks pass for all five tellings, exclusions, complete provenance,
+bounded/duplicate/revised saves, edited notebook entries, storage failures and escaped
+HTML export. Existing reflection/notebook regressions and the string lint pass.
+Native keyboard/mobile/magnification and readable export validation, official gate-step
+isolation, complete source/preflight and required published smoke remain pending.
+No browser, publisher or full source gate ran while the current release owned the CPU.
+This checkpoint is not a release verdict and must not merge before PR #2197 lands green.
+
 ## T-3656, T-3657, T-3658 — Combined browser-only delivery (19 November 2026)
 
 PR #2197 now carries all three completed implementations so the new classroom
