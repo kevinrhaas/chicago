@@ -20,7 +20,10 @@ The registered pure gate step was officially measured with `--tool`: no tracked 
 ignored writes, and the isolation audit passes. The native no-world fixture passed
 53 checks across 390×780 and 1280×800 with no page, console or HTTP errors: native
 summary/checkbox/textarea and Space behavior, saves/revisions, retained drafts after
-quota failure, repaint/replay/dismissal, 200% text and HTML/PDF export. Its first attempt
+quota failure, repaint/replay/dismissal, 200% text and HTML/PDF export. Notebook excerpts
+now use the neutral heading **Source context**, so newspaper readings are not labelled
+as a person's card. The actual-store export regression and native fixture cover both
+the saved context and heading. Its first attempt
 incorrectly forbade the rejected editorial supply even in the source locator's explicit
 warning; that failed fixture attempt is preserved. The corrected check separately
 verifies the quotation's missing figure and the locator's rejection of that supply.

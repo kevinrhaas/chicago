@@ -83,6 +83,9 @@ const restored = saveInvestigation(model, draft, book);
 assert(restored.ok && !restored.duplicate, 'an edited Notebook entry is no longer the saved case version');
 assert(restored.entry.text.includes(draft.claim));
 const html = notebookHTML(book.read().entries);
+assert.equal((html.match(/<h3>Source context<\/h3>/g) || []).length, book.read().entries.length,
+  'each saved newspaper case labels its cited excerpt as source context');
+assert(!html.includes('From the person’s card'), 'newspaper readings are not identified as a person card');
 assert(html.includes('&lt;script&gt;My reading&lt;/script&gt;')); assert(!html.includes('<script>'));
 for (const source of prepared.entry.sources) assert(html.includes(source.title.replaceAll('&', '&amp;')));
 assert(html.includes('Fi[v]e and […]red')); assert(html.includes('Springfield'));
