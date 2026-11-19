@@ -55,7 +55,10 @@ def make_atlas(recipe):
     color = Image.new("RGB", (size, size), (125, 119, 106))
     height = Image.new("L", (size, size), 128)
     orm = Image.new("RGB", (size, size), (255, 235, 0))
-    families = {"brick": (145, 82, 60), "timber": (180, 168, 139),
+    # T-3683: frame walls are painted weatherboard, pale enough for each
+    # house's own paint (city-context.js) to tint; the old buff was a near
+    # match for the stone row and read as stone at any distance.
+    families = {"brick": (145, 82, 60), "timber": (228, 223, 209),
                 "stone": (181, 163, 132), "weathered": (123, 113, 94)}
     slots = {}
     rand = random.Random(18711008)
@@ -80,16 +83,19 @@ def make_atlas(recipe):
                         d.rectangle(rect, fill=tone)
                         h.rectangle(rect, fill=128 + rand.randint(-2, 2))
             else:
-                for y in range(0, tile, 9):
-                    v = rand.randint(-8, 8)
-                    d.rectangle((0, y, tile, y + 8), fill=tuple(c + v for c in base))
-                    d.line((0, y + 8, tile, y + 8), fill=tuple(int(c * .72) for c in base))
-                    h.line((0, y + 8, tile, y + 8), fill=108)
+                # Lapped weatherboards: about 0.13 m to the course on a
+                # 3 m storey tile (painted frame); sheds keep wider boards.
+                board = 6 if family == "timber" else 9
+                for y in range(0, tile, board):
+                    v = rand.randint(-5, 5) if family == "timber" else rand.randint(-8, 8)
+                    d.rectangle((0, y, tile, y + board - 1), fill=tuple(max(0, min(255, c + v)) for c in base))
+                    d.line((0, y + board - 1, tile, y + board - 1), fill=tuple(int(c * .66) for c in base))
+                    h.line((0, y + board - 1, tile, y + board - 1), fill=104)
             if kind in ("window", "door", "shop", "loading"):
                 rect = {"window": (.29, .20, .71, .78), "door": (.29, .24, .71, 1.0),
                         "shop": (.12, .20, .88, .91), "loading": (.15, .22, .85, 1.0)}[kind]
                 a, b, c, e = [round(v * tile) for v in rect]
-                frame = (192, 178, 146) if family in ("brick", "stone") else (208, 197, 165)
+                frame = (192, 178, 146) if family in ("brick", "stone") else (241, 238, 228) if family == "timber" else (208, 197, 165)
                 d.rectangle((a - 4, b - 4, c + 4, e + 3), fill=(73, 65, 53))
                 d.rectangle((a - 2, b - 3, c + 3, e + 1), fill=frame)
                 d.rectangle((a, b, c, e), fill=(40, 48, 46))
