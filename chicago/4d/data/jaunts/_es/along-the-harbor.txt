@@ -1,0 +1,73 @@
+== title @77692385
+Por el puerto en plena faena
+
+== premise @f80a55fe
+Sigue la carga de vuelta hasta el lago: una casa de expedición junto al río, el puente levadizo de Dearborn Street, el faro de la desembocadura y los dos muelles que todavía se siguen extendiendo dentro del lago. Llévate una nota de ruta.
+
+== opening @5e49312a
+PASEO: POR EL PUERTO EN PLENA FAENA. Una mañana de verano, y el lago es la carretera del pueblo. Hace tres años, Chicago no tenía ningún puerto, solo un río tapado por un banco de arena. Luego el ejército abrió un corte en el banco, los muelles se adentraron en el lago, y en 1834 'la goleta Illinois, la primera embarcación grande en entrar al río, llegó al puerto entre el regocijo de la gente'. Ese año, 180 embarcaciones descargaron aquí.
+
+Sigue la carga de vuelta por donde vino: desde una casa de expedición junto al río, bajo el puente levadizo de Dearborn Street y pasando el faro, hasta los muelles, que todavía siguen avanzando dentro del lago.
+
+== stop the-forwarding-house @3d504d1a
+Empieza en el almacén de Newberry & Dole, junto al río. En el Democrat del 1 de julio de 1835 anuncian almacenaje, expedición y comisión, como agentes de la Merchants' Line: las mercancías que llegan por el lago desembarcan en casas como la suya y siguen a todas las tiendas del pueblo. Cuando la goleta Illinois subió por el nuevo canal en julio de 1834, la recibieron con vítores en el muelle de Newberry & Dole. Todavía se discute en qué orilla estaba el almacén; el negocio, no.
+
+== narrative the-forwarding-house @ba0ed75a
+Lo que el pueblo no puede hacer, lo trae el lago.
+
+== stop the-draw @7173fac6
+Al este, hasta Dearborn Street y el primer puente levadizo del pueblo, construido en 1834 por el carpintero de barcos Nelson R. Norton. Moses y Kirkland le dan '300 pies de largo, por dieciséis de ancho', con 'un doble levadizo'; Andreas menciona una abertura de sesenta pies para las embarcaciones y armazones en forma de horca en cada extremo. Las embarcaciones lo chocaban una y otra vez, y lo remendaron en 1834 y de nuevo este año. Esta semana, el Marine Journal del American registra las goletas Hiram, llegada de Míchigan con madera, Philips, Whig y Jesse Smith; goletas como ellas están amarradas en los muelles y salen al lago por este levadizo. Quédate en la orilla sur.
+
+== narrative the-draw @8d4b7151
+Donde el río se cruza, y se deja pasar.
+
+== stop the-light @14ac3d2d
+Sigue por la orilla sur hasta el faro de la desembocadura del río, el primero del lago Míchigan. La primera torre se derrumbó en 1831 antes de terminarse; el señor Jackson levantó esta, de cuarenta pies de alto, en 1832, con un reflector de catorce pulgadas en la linterna de arriba. Moses y Kirkland añaden una sorpresa: 'Samuel S. Lasby fue el primero, y Mark Beaubien el último guardián del viejo faro.' El violinista y tabernero del pueblo también cuidaba el faro.
+
+== narrative the-light @f97b2feb
+Una señal para las embarcaciones que buscan el río.
+
+== stop the-piers @7b80353e
+Sal hasta el arranque del muelle sur. Al otro lado del canal está el muelle norte, el muelle de barlovento que detiene la arena. El Democrat publicó el informe federal: 180 embarcaciones llegaron y descargaron aquí en 1834, y el Congreso ha aprobado $32,800 más para el puerto. Los dos muelles crecen todo el verano; al final de la temporada, el muelle norte llegará a 1,260 pies dentro del lago. Una embarcación de demasiado calado para el banco todavía fondea mar afuera: en mayo, el bergantín Illinois estuvo fondeado aquí afuera mientras franco-canadienses en botes Mackinaw llevaban a tierra a su gente y su carga. Elige la señal para tu nota de ruta.
+
+== narrative the-piers @d2b0e978
+Donde el puerto se encuentra con el lago.
+
+== label the-piers mark-the-light @dd4007b9
+Marca el faro
+
+== consequence the-piers mark-the-light @34d0910a
+El faro queda en tu nota: seguirá donde lo viste.
+
+== label the-piers mark-the-pier-end @a4807622
+Marca el extremo del muelle norte
+
+== consequence the-piers mark-the-pier-end @20d8944b
+El extremo del muelle norte queda en tu nota: para el otoño estará más lejos.
+
+== leg 0 @0ac80078
+Sigue la carga de vuelta hacia el lago.
+
+== note 0 @6970df43
+Al este por la orilla sur hasta el pie de Dearborn Street.
+
+== note 1 @3729c913
+Sigue al este por la orilla sur hacia el fuerte.
+
+== leg 2 @36647c9d
+Hasta donde el canal se encuentra con el lago.
+
+== note 2 @d1548223
+Un corto trecho al este hasta el arranque del muelle sur; el muelle norte está al otro lado del canal.
+
+== ending a-note-to-redraw @cb87434d
+Tu nota dice: entrar por el extremo del muelle norte, pasar el faro, subir bajo el levadizo de Dearborn. Para el otoño, ese muelle llegará a 1,260 pies dentro del lago, así que tu señal habrá que volver a dibujarla. Un puerto que no deja de crecer es un buen problema.
+
+== ending a-note-that-keeps @e05ccc7a
+Tu nota dice: entrar entre los muelles, pasar el faro de la desembocadura, subir bajo el levadizo de Dearborn hasta las casas de expedición. De todo lo que tiene, el faro es la única señal que no se mueve este verano.
+
+== keepsake title @bcbdd4b3
+Conoce el puerto
+
+== keepsake text @baa555e2
+Una nota de ruta ficticia de un paseo de julio de 1835: la casa de expedición, el levadizo de Dearborn, el faro y los dos muelles. No nombra ninguna embarcación, carga, guardián ni puentero.

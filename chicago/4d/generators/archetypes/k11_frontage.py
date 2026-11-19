@@ -62,6 +62,13 @@ What the record's `boundary` names, and what is built for it:
             the line `x_m`, its rails and curb lowered to the picture's (1815's north side,
             its square-on photograph: a low railing from the lot line to the stair projection).
 
+  side iron (T-3632) a corner lot's iron along its SIDE street: `side_iron: {to_u_m}` lays the
+            front's own fence on its own curb along the south lot line, the curb's street face
+            on the line, from the corner's pier (or, where the front hangs its gates on posts,
+            a post of its own beside the corner's) back to an end post at `to_u_m` (2036's
+            21st Street face, the c. 1880 engraving: the railing across the whole foreground
+            from the corner pier past the house's south face).
+
   open      (T-3215) `layout: open`: no boundary at all. 1621's and 1623's 1886 drawings
             and 1625's 1890 photograph show each front yard running straight out to the
             public walk with no fence, wall or coping across it, so nothing is laid; the
@@ -186,6 +193,15 @@ def spec(params) -> dict | None:
         raise ValueError("a scroll-panel fence names its bay, boundary.scroll_pitch_m, 0.3-0.8 m")
     if t.get("lattice_span_bays", 2) not in (2, 3, 4):
         raise ValueError("boundary.lattice_span_bays: an arch spans 2, 3 or 4 bays")
+    si = t.get("side_iron")
+    if si is not None:
+        # T-3632: a corner lot's side-street railing, on the south lot line where a wall would stand
+        if set(si) != {"to_u_m"} or FENCES[t["fence"]] == "boards" or len(runs) != 2 or t.get("wall") \
+                or "side_gate" not in t:
+            raise ValueError("boundary.side_iron: {to_u_m} alone, on an iron front with both runs and a side "
+                             "gate at its corner, and no wall on the south lot line")
+        if not -60.0 <= si["to_u_m"] <= params.depth_m - 2.0:
+            raise ValueError(f"boundary.side_iron.to_u_m {si['to_u_m']}: back from the front, inside the lot's 60 m")
     b = t.get("side_fence")
     if b:
         if b.get("variant") != BOARDS:
@@ -341,7 +357,8 @@ def dress(a):
             raise ValueError(f"the side passage's gate has {sb - sa:.3f} m clear, under the kit's {G['clear_min_m']} m")
         ps1 = pier(sb + ps / 2)
         # hung on the wall's street pier, or with no wall on a stone pier on the lot line
-        hxs, hs = var.hinges("wall pier" if t.get("wall") else pier(s_south + ps / 2).name, sa)
+        corner = "wall pier" if t.get("wall") else pier(s_south + ps / 2).name
+        hxs, hs = var.hinges(corner, sa)
         k = G["keeper_proud_m"]
         var.member("latch keeper", "iron", ps1.name, sb - k, sb + 0.06, 0.88, 0.92, -0.015, 0.015, gate=True)
         leaf_s = var.leaf(hs, hxs, (sb - k - G["keeper_gap_m"]) - hxs, S["drawn_deg"], tag=" side")
@@ -394,6 +411,22 @@ def dress(a):
     if reach > walk - CLEAR_M:
         raise ValueError(f"the boundary reaches X {reach:.3f}, onto the walk at {walk:.3f}")
 
+    # T-3632: the side street's railing, on the south lot line from the corner back to `to_u_m`,
+    # in the front's own style; built in the kit's frame along +X and moved onto the line with
+    # its curb's street face on the lot line. A stone corner pier takes its rails; a corner
+    # post (`posts`) is too slight to, so the run stands its own post beside it.
+    SI = t.get("side_iron")
+    side_posts = []
+    if SI:
+        n0 = len(var.pieces)
+        cw = P["curb"]["width_m"]
+        if po:
+            side_posts = var.fence_run(SI["to_u_m"], line - ps / 2 - 0.01, style, "side run")
+        else:
+            side_posts = var.fence_run(SI["to_u_m"], line - ps / 2, style, "side run", host_b=corner)
+        for pc in var.pieces[n0:]:
+            _to_wall(pc.mesh, -(s_south + cw / 2))
+
     # the wall, on the south lot line from the street pier back toward 1812's front
     W = t.get("wall")
     wv = K.Variant({"id": WALL, "kind": "wall"}, data)
@@ -412,6 +445,9 @@ def dress(a):
     posts = len(south) + len(north) - hosted
     laid = (((ea - ps) - s0) if south else 0.0) + ((n_end - (eb + ps)) if north else 0.0)
     run = {"length_m": round(laid, 4), "runs": len(runs) if style != "boards" else 2, "posts": posts}
+    if SI:
+        run["side_iron"] = {"length_m": round(line - ps / 2 - SI["to_u_m"], 4),
+                            "posts": len(side_posts) - (0 if po else 1)}
     if style == "boards":
         run["height_m"] = t["board_height_m"]
     a.instance(fence, "fence", run, {"line_south": (line, 0.0, -s0), "line_north": (line, 0.0, -n_end)})
@@ -433,6 +469,7 @@ def dress(a):
                   "entrance_s_m": [round(ea, 4), round(eb, 4)], "side_gate_s_m": [round(sa, 4), round(sb, 4)] if S else None,
                   "fence_posts_s_m": [round(x, 3) for x in south + north],
                   "wall_piers_x_m": [round(x, 3) for x in wv.meta["piers"]] if W else [],
+                  **({"side_iron_posts_x_m": [round(x, 3) for x in side_posts]} if SI else {}),
                   # T-3206: the curb's house face, and every opening a visitor walks through
                   "inner_x_m": round(line - P["curb"]["width_m"] / 2, 4),
                   "openings_s_m": [[round(ea, 4), round(eb, 4)]] + ([[round(sa, 4), round(sb, 4)]] if S else [])

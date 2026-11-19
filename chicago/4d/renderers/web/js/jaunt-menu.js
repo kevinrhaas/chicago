@@ -115,6 +115,7 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
   function card(row, section) {
     const group = groupOf(row), slot = groupSlot(group), available = row.availability === 'available';
     const el = node('article', '', `jaunt-card jaunt-type-${slot}`); el.dataset.jaunt = row.id; el.dataset.section = section;
+    el.setAttribute('role', 'listitem'); // T-3671: one item of the list of jaunts
     const badge = node('span', '', 'jaunt-type'); badge.append(icon(groupIcon(group), 20));
     badge.title = group;
     // T-2631: a credited picture of the route's own stops, where the project holds one.
@@ -126,7 +127,7 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
       badge.replaceChildren(img); badge.classList.add('has-plate'); badge.title = plate.full;
     }
     const body = node('div', '', 'jaunt-row-body'), head = node('div', '', 'jaunt-head');
-    const title = node('h3', row.title);
+    const title = node('h3', row.title); title.id = `jaunt-title-${section}-${row.id}`;
     if (row.featured) title.append(node('span', '★', 'jaunt-star'));
     head.append(title);
     const length = node('span', '', 'jaunt-length'); length.dataset.jauntLength = row.id;
@@ -172,8 +173,18 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
       duration.textContent = `${text} at ${PACES[current]?.label || current}`;
       length.textContent = Number.isFinite(s) ? `${Math.max(1, Math.round(s / 60))} min` : '';
       length.dataset.size = !Number.isFinite(s) ? '' : s < 600 ? 's' : s < 1200 ? 'm' : 'l';
-      for (const b of mode.children) b.setAttribute('aria-checked', String(b.dataset.mode === current));
+      // T-3671: one Tab stop for the row of modes, the one picked; the arrows move the pick.
+      for (const b of mode.children) { b.setAttribute('aria-checked', String(b.dataset.mode === current)); b.tabIndex = b.dataset.mode === current ? 0 : -1; }
     };
+    mode.addEventListener('keydown', e => {
+      const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+      if (!step) return;
+      const picks = [...mode.children].filter(b => !b.disabled), at = picks.indexOf(e.target);
+      if (at < 0) return;
+      e.preventDefault();
+      const to = picks[(at + step + picks.length) % picks.length];
+      to.click(); to.focus();
+    });
     for (const id of row.allowed_modes || ['walk']) {
       const b = button('', () => { if (b.disabled) return; current = id; modes.set(row.id, id); price(); }, 'jaunt-mode-pick');
       b.dataset.mode = id; b.setAttribute('role', 'radio'); b.append(icon(id, 18));
@@ -200,6 +211,7 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
         }, 'jaunt-start');
         start.append(icon('play', 16)); start.setAttribute('aria-label', 'Start Jaunt');
         start.title = `Start ${row.title}`; start.dataset.action = 'start'; actions.append(start);
+        start.setAttribute('aria-describedby', title.id); // T-3671: which jaunt this Start starts
       }
     }
     if (available) {
@@ -218,6 +230,7 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     offset = Math.min(offset, Math.max(0, Math.floor((matches.length - 1) / WINDOW_SIZE) * WINDOW_SIZE));
     list.replaceChildren(...matches.slice(offset, offset + WINDOW_SIZE).map(row => card(row, 'all')));
     if (!matches.length) list.append(node('p', rows.length ? 'No matching outings.' : 'No jaunts are available yet. You can explore on your own.', 'jaunt-empty'));
+    list.querySelector('.jaunt-empty')?.setAttribute('role', 'listitem');
     previous.hidden = offset === 0; more.hidden = offset + WINDOW_SIZE >= matches.length;
     clear.hidden = !query.trim() && !family;
     for (const pill of pills.children) if (pill.dataset.family !== undefined) pill.setAttribute('aria-pressed', String(pill.dataset.family === family));
@@ -275,7 +288,7 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     // T-3653: only the search row is pinned (css/walk.css § .jaunt-find-row), so it stands
     // beside the list rather than inside the filter block; the group and age rows scroll away.
     const filters = node('div', '', 'jaunt-filters'); filters.append(pills, grades);
-    list = node('div', '', 'jaunt-list'); list.setAttribute('aria-label', 'All jaunts');
+    list = node('div', '', 'jaunt-list'); list.setAttribute('aria-label', 'All jaunts'); list.setAttribute('role', 'list');
     previous = button('Earlier outings', () => { offset -= WINDOW_SIZE; windowRows({ focus: true }); });
     more = button('More outings', () => { offset += WINDOW_SIZE; windowRows({ focus: true }); });
     const nav = node('nav', '', 'jaunt-window-nav'); nav.setAttribute('aria-label', 'Browse outings'); nav.append(previous, more);

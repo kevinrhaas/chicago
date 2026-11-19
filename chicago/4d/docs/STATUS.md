@@ -1,3 +1,87 @@
+## T-3675 — Chromebook class set (19 November 2026)
+
+Gap-analysis item 17. A classroom Chromebook is recognised (ChromeOS from the user agent `CrOS`
+or Chrome's userAgentData) and profiled as a computer, touch screen or not: class `weak`, so
+Balanced detail, Sharpness Low, light textures and the memory diet, with people, horses,
+carriages and wagons drawn and never Light. Before this, a touch-screen Chromebook in a window
+under 900 px wide (or in tablet mode) was profiled as a phone: the emulated one booted 1835 at
+Light ("modest phone or tablet"), and an Arm Mali Chromebook's GPU only counted as shared memory
+on a non-touch one. Its controls stay keyboard and trackpad unless its pointer is coarse
+(tablet mode); a touch on the screen still switches to touch controls. PowerVR (MediaTek
+MT8173 Chromebooks) joins the shared-memory GPUs, Mesa's prefix and chip codename are dropped
+from the GPU name, and the loading screen reads "Chromebook · Intel UHD Graphics 600 · shared
+memory · 4 GB · 4 cores".
+
+The year's offline copy is the "Prepare for class" path: on a Chromebook the welcome line reads
+"Prepare for class · 374 MB" (1835), and Settings › Graphics carries the same download on every
+device, with progress, a "ready offline" state and how to check it (Wi-Fi off, reload). The
+copy says the honest thing: do this on each device before the lesson; each keeps its own copy
+and nothing is shared across the room. No server, no new assets.
+
+**Memory, emulated Chromebook** (`tools/chromebook_emulation.mjs`: ChromeOS user agent,
+`deviceMemory` 4, 4 threads, Intel UHD 600 renderer string, 1366×768 at 1×, nothing forced),
+build ccf78e0ce + this change, every year measured, `docs/measurements/T-3675-memory-chromebook.json`:
+
+| Year | Chromebook (Balanced, diet) | New ceiling | Same build, desktop at Full | People drawn at spawn, Chromebook / desktop |
+|---|---|---|---|---|
+| 1812 | 452.1 MB | 500 MiB | 786.0 MB | 284 / 284 |
+| 1835 | 677.1 MB | 750 MiB | 1,327.5 MB | 10 / 10 |
+| 1904 | 595.3 MB | 675 MiB | 1,433.8 MB | 10 / 10, and the parked carriage with its team on both |
+
+Every Chromebook row was routed by the town itself ("a Chromebook: graphics sharing the
+system's memory (Intel(R) UHD Graphics 600, 4 GB)"). The `chromebook` row is in the CI memory
+matrix for every year, and `measure_memory.mjs --gate` fails it unless it boots routed so.
+The same run read the desktop rows over their ceilings on dev's code path (1835 1,327.5 against
+1,325; 1904 1,433.8 against 1,425): a desktop on SwiftShader is untouched by this change (the
+software-renderer branch returns before any ChromeOS rule), so those are dev's growth, recorded
+here rather than raised. `tools/check_chromebook.mjs` (in check.sh) holds the routing, the
+controls rule, the loading-screen words, the "Prepare for class" words and the ceilings.
+
+**Not tested here:** a real Chromebook (Intel and Arm), its real frame rate and its tab
+limit; a school network and its filters; Cache Storage quotas on a 32 GB Chromebook with
+other users; a teacher-side view of which devices are ready; any room-wide cache (that needs
+a local server). SwiftShader draws the pixels, so the readings are bytes, never timings.
+
+## T-3663 — Gossip source comparison checkpoint (19 November 2026)
+
+Integrated onto DEV `38f51fcda` after the T-3656/T-3657/T-3658 delivery merged in
+PR #2197. The prior feature checkpoint remains on `backup/t3663-before-dev`. Eligible
+Gossip completions offer a collapsed **Make your case** beside the existing reflection:
+two newspaper readings, selected support, a claim, an uncertainty and an ungraded
+reading guide. Save explicitly adds an ordinary note to the existing bounded notebook;
+a revised save keeps a new copy. Failed saves retain the draft and earlier entries.
+
+The current telling supplies all historical text and citations. The Democrat's second
+sale figure stays lost; the Chicago branch decision does not establish an operating
+bank; the Springfield building remains Inferred with its reasoning and shared American
+item locator. Both sources are text-only with no public URL. No witnesses, scans,
+source links, route, service or notebook schema are added.
+
+Focused pure checks pass for all five tellings, exclusions, complete provenance,
+bounded/duplicate/revised saves, edited notebook entries, storage failures and escaped
+HTML export. Existing reflection/notebook regressions and the string lint pass.
+The registered pure gate step was officially measured with `--tool`: no tracked or
+ignored writes, and the isolation audit passes. The native no-world fixture passed
+53 checks across 390×780 and 1280×800 with no page, console or HTTP errors: native
+summary/checkbox/textarea and Space behavior, saves/revisions, retained drafts after
+quota failure, repaint/replay/dismissal, 200% text and HTML/PDF export. Notebook excerpts
+now use the neutral heading **Source context**, so newspaper readings are not labelled
+as a person's card. The actual-store export regression and native fixture cover both
+the saved context and heading. Its first attempt
+incorrectly forbade the rejected editorial supply even in the source locator's explicit
+warning; that failed fixture attempt is preserved. The corrected check separately
+verifies the quotation's missing figure and the locator's rejection of that supply.
+
+The real published Gossip completion flow and the final combined source/release gates
+remain pending at this checkpoint. Latest DEV also changes the served changelog and
+1823 Prairie's 1904 model, so fresh published stages 13–15 at both widths are required.
+Earlier renderer evidence carries only under explicit input and behavior review.
+PR #2205 and its linked evidence record the final results; this is not a release verdict.
+
+## T-3671 — accessibility pass toward WCAG 2.1 AA (19 November 2026)
+
+Keyboard and screen-reader paths through every menu, Settings tab, jaunt and card; Text size to 200 % across the interface; contrast and one focus ring in all four appearances and both tones; grades told by shape as well as colour (and patterns in the town's Confidence view); narration highlighted as it plays, with a Transcript where an age tab shows other words, and a Pause key; Settings › Look › Motion (System / Reduce / Full) and Letter keys (2.1.4). docs/ACCESSIBILITY.md lists each criterion, the browser fixture that holds it (tools/test_a11y_*.mjs, Chromium at 390 and 1280, no town load) and the known gaps. Unverified: no physical screen reader (NVDA, JAWS, VoiceOver) and no Chromebook has been tried; the WebGL town and its name cards are not themselves readable. This is not a third-party audit or a legal conformance claim.
+
 ## T-3654 — 1871 context city (19 November 2026)
 
 PR #2198 adds a walkable baseline for 8 October 1871 at 16:00 local mean solar time: 33,580 varied generic buildings, 3,627 trees, streets and plank walks, 22 road crossings, 597 quay bays and five rail corridors on dedicated pre-fire terrain. Six additional report bridges remain withheld pending opening-date or placement evidence. These are model counts, not a historical census. Identified properties, people, vehicles, daily activity and photographic finish remain subsequent smaller milestones.
@@ -21,6 +105,21 @@ The map-fit and both deterministic generator checks are in `tools/check.sh`; the
 published scene has a dedicated `tools/smoke_city_1871.mjs` browser check. This is the
 complete context baseline, not a claim of individually surveyed buildings, populated
 daily activity or photographic finish.
+
+T-3683 (19 November 2026) corrects the building materials. Colbert and Chamberlin (1871, pp. 146-147) count 35,654 wooden buildings to 3,712 of brick and stone in spring 1868. The business centre stays masonry; elsewhere masonry picks turn to frame by district, so about one house or shop in ten is masonry (2,942 of 33,580 footprints, down from 10,770). Every footprint is unchanged. Frame walls are pale weatherboard with a per-house reconstructed paint. A seventeenth form, the two-storey frame store, replaces the brick shop block outside the centre.
+
+## T-3672 — Teacher routes (19 November 2026)
+
+Guide › For teachers builds a route from a jaunt or from one year's buildings, viewpoints
+and people, with a note and a question per stop, as one bounded share link and a route
+file; Jaunts shows a student the Route panel, with Go there per stop and answers saved to
+the local field notebook ([CLASSROOM-FEATURES.md](CLASSROOM-FEATURES.md) § Teacher routes).
+`tools/test_teacher_route.mjs` covers the round trip, the bounds, malformed, over-long,
+other-year and unknown-id links, text-only rendering and the notebook save, against the
+real 1812, 1835 and 1904 directories and catalogs: every offered jaunt fits one link with
+a question at every stop. Screenshots of the running 1904 town at 1280×800 and 390×780 were
+taken under SwiftShader. Not verified: physical phones, assistive technology, and the
+full gate and smoke on this change, which run before merge.
 
 ## T-3656, T-3657, T-3658 — Combined browser-only delivery (19 November 2026)
 

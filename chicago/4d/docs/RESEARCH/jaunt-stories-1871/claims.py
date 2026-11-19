@@ -11,7 +11,7 @@ must cite the claim holding the quotation (tools/audit_jaunt_refusals.py).
 
 A = 'andreas_1885_v2'
 SU = 'sheahan_upton_1871_great_conflagration'
-CC = 'colbert_chamberlin_1871_chicago_great_conflagration'
+CC = 'colbert_chamberlin_1871_great_conflagration'
 TF = 'greatchicagofire_touring_the_fire_2011'
 OL = 'greatchicagofire_oleary_legend_2011'
 NWS = 'nws_chicago_2021_great_fire_weather'

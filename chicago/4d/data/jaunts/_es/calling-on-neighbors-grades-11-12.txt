@@ -1,0 +1,88 @@
+== title @7be66355
+De visita con los vecinos
+
+== premise @59921e65
+Realiza varias visitas sociales imaginarias: presenta una carta de recomendación desde la casa de huéspedes de Brown, interpreta a la familia Peck a partir de su tarjeta, localiza dónde se reúne el pueblo en el Exchange y deposita una tarjeta de visita.
+
+== opening @4ff20ad0
+PASEO: DE VISITA CON LOS VECINOS. Has conseguido un cuarto en el pueblo este verano y llevas dos cartas de recomendación, que en 1835 constituyen el mecanismo convencional por el que un forastero se convierte en vecino. Chicago es, rotundamente, una comunidad de forasteros, y el Democrat los encontró "llenando todos los cuartos de nuestras posadas": todo el mundo acaba de llegar, todo el mundo se está presentando y todo el mundo deposita una tarjeta.
+
+Presenta una carta, interpreta la casa de un comerciante, descubre dónde se reúne el pueblo y deja tu tarjeta. Cuando llega el invierno, este pueblo baila, y en un baile Charles Hoffman observó "a un oficial veterano en uniforme de gala bailando con la hija de un comerciante", una mezcla de rangos característica de la frontera, pero en verano el pueblo se ocupa del comercio. Respeta las normas del decoro.
+
+== stop the-room @ffc7ece7
+Comienza detrás de la tienda de Peck, en la casa de huéspedes de troncos de la señora Rufus Brown, que Andreas cuenta entre las casas de huéspedes de primera clase del pueblo. Aquí te alojas, con dos cartas de recomendación de tu tierra. En un asentamiento donde casi todos los residentes llegaron en los tres años anteriores, una carta de un corresponsal respetable del Este es la manera en que la comunidad establece quién eres y si mereces su confianza. Decide cuál presentar primero.
+
+== narrative the-room @c123f325
+Una carta primero; la otra puede esperar.
+
+== label the-room merchant-letter @58230e9b
+Una carta de un comerciante del Este
+
+== consequence the-room merchant-letter @7951fe77
+Te presenta a los establecimientos comerciales del pueblo.
+
+== label the-room minister-letter @14c13608
+Una carta de tu pastor de casa
+
+== consequence the-room minister-letter @f6679a88
+Te presenta a las congregaciones religiosas del pueblo.
+
+== stop the-merchant @3d653aa3
+Varios pasos a la vuelta, hasta la esquina de Peck en South Water y LaSalle. P. F. W. Peck llegó en julio de 1831 con un surtido de mercancías, y cuando el reverendo Jeremiah Porter vino en 1833 Peck le proporcionó "alojamiento y un estudio en el segundo piso del edificio de su tienda", donde se reunía "una de las primeras escuelas dominicales organizadas en el pueblo", una muestra de cómo el comercio y la congregación compartían espacio en el joven asentamiento. Este es también el año en que Peck se casa con Mary K. Wythe, de Filadelfia. Interpreta a la familia a partir de su tarjeta.
+
+== narrative the-merchant @35fc9468
+Interpreta a la familia por su tarjeta, no por su puerta.
+
+== stop the-exchange @4741bb66
+Hacia el oeste hasta Lake y Wells y el Exchange Coffee House, administrado por el señor y la señora Murphy desde agosto de 1834. Los demócratas del pueblo se reunieron aquí en abril y otra vez en junio de 1835 para nominar a sus candidatos, y en 1834 el maestro de baile J. A. Marshall pidió que los posibles alumnos depositaran aquí sus direcciones. Una posada de la frontera funciona a la vez como oficina de correos, tablero de avisos y sala de asambleas. Deposita tu tarjeta, o llévala contigo.
+
+== narrative the-exchange @5a09287c
+Donde se reúne el pueblo, se descubre una tarjeta.
+
+== label the-exchange card-at-exchange @46c0d933
+Dejar tu tarjeta en el Exchange
+
+== consequence the-exchange card-at-exchange @6a0d40cb
+Depositada donde el aviso de 1834 pedía que se dejaran las direcciones, aunque no se documenta ningún visitante.
+
+== label the-exchange card-kept @00278f1f
+Guardarla para el Sauganash
+
+== consequence the-exchange card-kept @45cfcb1b
+La tarjeta te acompaña hasta la visita final.
+
+== stop the-sauganash @673e3956
+Por Lake Street, en Market, está el Sauganash, recién renovado en junio y, según Moses y Kirkland, "la posada más atractiva que poseía la ciudad". Una semana después de la renovación, el Democrat encontró forasteros llenando todos los cuartos del pueblo, y cada uno de ellos, como tú, existe socialmente como apenas un nombre en una tarjeta. Una tarjeta que todavía queda en tu bolsillo se deposita aquí.
+
+== narrative the-sauganash @2a4327d3
+Una comunidad de forasteros, presentándose sin cesar.
+
+== leg 0 @7b4328fa
+Con la carta en la mano, a la vuelta hasta el frente de la cuadra.
+
+== note 0 @8395450a
+Unos pasos desde la casa de huéspedes, a la vuelta, hasta la tienda que está delante.
+
+== leg 1 @37328107
+Con una familia ya interpretada, sigue hacia donde se reúne el pueblo.
+
+== note 1 @0a9eb7f8
+Hacia el oeste por South Water Street hasta Wells y una cuadra al sur hasta Lake.
+
+== note 2 @f46a6fc0
+Hacia el oeste por Lake Street hasta la esquina de Market Street, junto al brazo sur.
+
+== ending merchant-at-the-exchange @ce1799f3
+Has presentado la carta de un comerciante y has depositado tu tarjeta en el Exchange, donde se reúnen los demócratas y donde el maestro de baile recopilaba sus nombres. Para la próxima semana, las personas adecuadas sabrán exactamente quién eres.
+
+== ending minister-at-the-exchange @a4e57faf
+Has presentado la carta de un pastor y has depositado tu tarjeta en el Exchange, donde se reúne el pueblo. Con fortuna, una congregación te visitará antes del domingo.
+
+== ending card-at-the-sauganash @373f5acc
+Tu tarjeta queda depositada en el Sauganash, entre la multitud de forasteros de un verano. Dentro de un año la mayoría serán vecinos establecidos, y unos pocos afortunados serán ricos.
+
+== keepsake title @b5bb794f
+Una presentación hecha
+
+== keepsake text @c3b0ba15
+Una tarjeta de visita ficticia de julio de 1835. No lleva inscrita ninguna presentación, visitante ni respuesta auténticos, y no se conoce a ninguna persona con nombre.

@@ -8,7 +8,8 @@
  * colour-space encode there, as world.js's horizon ring relies on), read back and laid on a 2D
  * canvas. Nothing is drawn every frame and no second WebGL context is made: a phone keeps its
  * one. The figure is kept while the person is unchanged so a turn is one render; `forget` lets
- * it go.
+ * it go. `frame: 'face'` draws the same figure's face up close (Kevin, 2026-11-19: "the face
+ * would be nice in addition to the body to see the face up close"), framed on its eyes.
  */
 import * as THREE from 'three';
 import { visitorActor } from './visitor-person.js';
@@ -45,19 +46,29 @@ export function createPersonPortrait({ renderer, humans, person, lod = 1 }) {
     held = null;
   }
 
-  /** Draw the person in `year`, turned `turn` degrees, onto `canvas`. False with no people layer. */
-  async function draw(canvas, { year, turn = 0 } = {}) {
+  /** Draw the person in `year`, turned `turn` degrees, onto `canvas`: whole, or (`frame: 'face'`)
+   * the face up close. False with no people layer. */
+  async function draw(canvas, { year, turn = 0, frame = 'whole' } = {}) {
     if (!humans()?.createActor) return false;
     const actor = await figure(String(year));
     if (!actor) return false;
-    turnGroup.rotation.y = THREE.MathUtils.degToRad(20 + turn);   // a little turned, toward the light
-    stage.updateMatrixWorld(true);
-    const box = new THREE.Box3().setFromObject(actor.root);
-    const h = Math.max(1.2, box.max.y - Math.min(0, box.min.y));
-    const mid = new THREE.Vector3(0, h * 0.52, 0);
-    const dist = (h * 0.62) / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
-    camera.position.set(0, mid.y + 0.05, dist);
-    camera.lookAt(mid);
+    camera.aspect = canvas.width / canvas.height;
+    camera.updateProjectionMatrix();
+    const face = frame === 'face' ? faceAt(actor, turn) : null;
+    if (face) {
+      // On the eyes, a little under them: the face from brow to chin, the hair and hat over it.
+      camera.position.set(face.x, face.y, face.z + FACE_HALF_M / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)));
+      camera.lookAt(face);
+    } else {
+      turnGroup.rotation.y = THREE.MathUtils.degToRad(20 + turn);   // a little turned, toward the light
+      stage.updateMatrixWorld(true);
+      const box = new THREE.Box3().setFromObject(actor.root);
+      const h = Math.max(1.2, box.max.y - Math.min(0, box.min.y));
+      const mid = new THREE.Vector3(0, h * 0.52, 0);
+      const dist = (h * 0.62) / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+      camera.position.set(0, mid.y + 0.05, dist);
+      camera.lookAt(mid);
+    }
     camera.updateMatrixWorld();
     const W = canvas.width, H = canvas.height;
     const rt = new THREE.WebGLRenderTarget(W, H, { colorSpace: THREE.SRGBColorSpace, samples: 4 });
@@ -82,5 +93,21 @@ export function createPersonPortrait({ renderer, humans, person, lod = 1 }) {
     return true;
   }
 
+  /** The face's centre (between the eyes, a little under them) with the figure turned `turn`
+   * degrees from the front (and a touch toward the key light); null on a body without eyes. */
+  function faceAt(actor, turn) {
+    turnGroup.rotation.y = THREE.MathUtils.degToRad(8 + turn);
+    stage.updateMatrixWorld(true);
+    const eyes = ['eye_l', 'eye_r'].map((n) => actor.root.getObjectByName(n)).filter(Boolean);
+    if (!eyes.length) return null;
+    const at = new THREE.Vector3(), p = new THREE.Vector3();
+    for (const e of eyes) at.add(e.getWorldPosition(p));
+    return at.multiplyScalar(1 / eyes.length).add(new THREE.Vector3(0, -FACE_BELOW_EYES_M, 0));
+  }
+
   return { draw, forget, dispose: forget };
 }
+
+/** The close face: half its frame's height, and how far under the eyes its centre sits (m). */
+export const FACE_HALF_M = 0.16;
+export const FACE_BELOW_EYES_M = 0.025;

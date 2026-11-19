@@ -16,6 +16,7 @@ import { createRail, railOrder, capped, MAX_ICONS } from '../renderers/web/js/na
 import { APPS } from '../renderers/web/js/apps/index.js';
 import { install as installDrawerHost, SECTION_HOME, APP_SECTIONS, goToPick } from '../renderers/web/js/apps/drawer-host.js';
 import * as mapView from '../renderers/web/js/apps/map-view.js';
+import { metFound } from '../renderers/web/js/met-found.js';
 import { createTargetTag, tagWords, DWELL_MS, TAG_WITHIN_M, HOLD_MS, FADE_MS, TAG_PLACES, TAG_HOLDS, normalTagPlace, normalTagHold, addressKey, sameAddress } from '../renderers/web/js/target-tag.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -855,7 +856,7 @@ for (const phone of [true, false]) {
   // the People side pins that household's people, never a household row among the people.
   const dom5 = miniDom();
   const nav5 = createNavigator({ root: dom5.root, scene: json('data/scenes/1904.json'), isPhone: () => false, storage: fakeStorage(),
-    apps: APPS, context: () => ({ hasPeople: true, peopleSection: false, selected: 'house_1600_prairie',
+    apps: APPS, context: () => ({ hasPeople: true, peopleSection: false, selected: 'house_1600_prairie', scene: { id: '1904' },
       actions: { peopleDirectory: async () => dir, record: () => null } }) });
   await nav5.select('people');
   const list5 = dom5.byId.get('nav-app-people').children[0];
@@ -872,6 +873,21 @@ for (const phone of [true, false]) {
   const pplRows = list5.querySelectorAll('.ppl-results .ppl-row').map((b) => b.dataset.pplOpen);
   assert(!pplRows.includes('pa1904_shortall_john_g') && pplRows.every((id) => !id.startsWith('hh_')), 'and they are not listed again under it');
   assert.equal(list5.querySelector('.ppl-rest').textContent, 'Everyone else');
+
+  // T-3673: Met N of M, the Met filter and the badge, from the browser's own list (never a card).
+  const metToggle = list5.querySelector('.ppl-met-toggle');
+  assert.equal(metToggle.textContent, 'Met 0 of 445', 'nobody met before any talk');
+  assert.equal(list5.querySelectorAll('.ppl-met-badge').length, 0);
+  metFound.record('1904', 'met', 'pa1904_shortall_john_g');
+  assert.equal(metToggle.textContent, 'Met 1 of 445', 'a talk in town counts, and the screen repaints');
+  assert.equal(pin.querySelectorAll('.ppl-met-badge').length, 1, 'the Met badge on their row');
+  metToggle.dispatch('click', { target: metToggle });
+  assert.equal(metToggle.getAttribute('aria-pressed'), 'true');
+  assert.deepEqual(list5.querySelectorAll('.ppl-results .ppl-row').map((b) => b.dataset.pplOpen), ['pa1904_shortall_john_g'], 'Met lists only who you met');
+  assert(pin.hidden, 'and drops the pin');
+  metToggle.dispatch('click', { target: metToggle });
+  assert.equal(metFound.clearYear('1904').ok, true);
+  assert.equal(metToggle.textContent, 'Met 0 of 445', 'Clear 1904 forgets them');
 }
 
 // ---- T-2627: the HUD's target tag — 400 ms of rest on a building, then its name and distance;
@@ -1287,7 +1303,7 @@ for (const phone of [true, false]) {
   const went = [];
   const navigation = { field: () => field, player, outlines: [yard, shed, far], drawView: (dest, view) => calls.push(['field', view.eMin]), drawMarker: (dest, x, y) => calls.push(['arrow', Math.round(x), Math.round(y)]), units: 'imperial' };
   const docked = [], opened = [];
-  const ctx = { api: { navigation, registry: new Map([['shed', { sidecar: { name: 'Tool shed' } }]]) },
+  const ctx = { scene: { id: '1904' }, api: { navigation, registry: new Map([['shed', { sidecar: { name: 'Tool shed' } }], ['far', { sidecar: { name: 'Far House' } }]]) },
     navigator: { level: 1, detent: 'half', dock: () => docked.push(1), open: (l) => opened.push(l) },
     actions: { goTo: (id) => { went.push(id); return true; }, jauntRoute: () => ({ stops: [[0, 0], [20, 10], [40, 0]], at: 1 }), travelRoute: () => [] } };
   mapView.mount(el, ctx);
@@ -1317,6 +1333,21 @@ for (const phone of [true, false]) {
   listeners.get('nav-key nav-map-go|click')();
   assert.deepEqual(went, ['shed'], 'Go travels there');
   assert.deepEqual(docked, [1], 'and on a phone the device steps down so the ride is in view');
+  // T-3673: the places you stood at, outlined, and their count; a shed is not a place.
+  const foundToggle = bar.children[3].children[0];
+  assert.equal(foundToggle.textContent, 'Found 0 of 1 places');
+  assert.equal(foundToggle.attrs['aria-pressed'], 'true', 'shown by default');
+  calls.length = 0;
+  metFound.record('1904', 'found', 'far');
+  assert.equal(foundToggle.textContent, 'Found 1 of 1 places');
+  el._mapApi.setZoom('field');
+  assert(calls.some((c) => c[0] === 'set' && c[1] === 'strokeStyle' && c[2] === '#0b6e79'), 'a found place is outlined');
+  calls.length = 0;
+  listeners.get('nav-map-toggle nav-map-found-toggle|click')();
+  assert.equal(foundToggle.attrs['aria-pressed'], 'false');
+  assert(!calls.some((c) => c[0] === 'set' && c[1] === 'strokeStyle' && c[2] === '#0b6e79'), 'and the toggle hides the outlines');
+  metFound.clearYear('1904');
+  assert.equal(foundToggle.textContent, 'Found 0 of 1 places');
   el._mapApi.setZoom('field');
   assert.equal(zoomBtn.textContent, 'Close up');
   assert.match(foot.textContent, /east to west/);

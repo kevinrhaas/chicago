@@ -42,4 +42,13 @@ export default register('nav', {
   'move.wagon': 'By wagon',
   'move.horse': 'On horseback',
   'move.riding': '{how}, on the way',
+  // T-3671: what a screen reader hears, and the skip link (WCAG 2.4.1, 4.1.3).
+  'a11y.view': 'Chicago in {year}, a walkable 3-D view',
+  'a11y.opened': '{app} open',
+  'a11y.closed': 'Navigator closed',
+  'a11y.arrived': 'Arrived: Chicago, {year}',
+  'a11y.skip': 'Skip to the Navigator',
+  'a11y.new': 'New',
+  'a11y.unread': 'Unread news',
+  'a11y.on': 'On',
 });

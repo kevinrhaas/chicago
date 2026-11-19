@@ -4,12 +4,16 @@
   "liberty": "L-visitor-person-3644",
   "grade": "reconstructed",
   "basis": "The visitor's own person (Kevin, 2026-11-17: \"the body you have riding the horse is a white man you will need to provide options for users in settings to change the gender appearance dress, etc. this becomes a person builder eventually but the foundation starts with customizing the default person\"). It is nobody of the town: an anonymous figure the visitor makes, from the bodies, dress, faces, complexions and hair the town's own people are drawn with. Each year offers only that year's dress (the bodies its townspeople already wear), so the choice can never put a visitor in clothes of another time. renderers/web/js/visitor-person.js reads this file; the Settings card's You tab writes the choice.",
-  "_doc": "Edit the lists to offer more; every id must be one the renderer already draws: `outfits[].asset` a body in assets/humans/web (and one test_riding seats), `cuts` a key of human-hair-styles.js HAIR_CUTS, `facial` keys of FACIAL_HAIR, `hair_colours` keys of HAIR_COLOURS, `complexions` keys of human-looks.js COMPLEXION_TINT, `eyes` keys of EYE_COLOUR. tools/test_visitor_person.mjs holds every id to its table. `defaults` is the person every visitor starts as: the figure that rode before this choice existed.",
+  "_doc": "Edit the lists to offer more; `sexes` are the body types (the stored field keeps its name): one with `of` wears the outfits and cuts of those it names, any library face, and its `build` (human-variation.js looks.build) on each body; every id must be one the renderer already draws: `outfits[].asset` a body in assets/humans/web (and one test_riding seats), `cuts` a key of human-hair-styles.js HAIR_CUTS, `facial` keys of FACIAL_HAIR, `hair_colours` keys of HAIR_COLOURS, `complexions` keys of human-looks.js COMPLEXION_TINT, `eyes` keys of EYE_COLOUR. tools/test_visitor_person.mjs holds every id to its table. `defaults` is the person every visitor starts as: the figure that rode before this choice existed.",
   "storage_key": "chicago4d.person",
   "years": ["1812", "1835", "1904"],
+  "body_label": "Body type",
   "sexes": [
-    { "id": "male", "label": "Man" },
-    { "id": "female", "label": "Woman" }
+    { "id": "male", "label": "Masculine" },
+    { "id": "female", "label": "Feminine" },
+    { "id": "neutral", "label": "Androgynous", "of": ["male", "female"],
+      "build": { "male": { "muscle": -0.4, "weight": -0.2, "neck_width": -0.35 }, "female": { "muscle": 0.25, "weight": -0.15 } },
+      "basis": "Kevin, 2026-11-19: a third body type, and the control named for the person's style rather than their gender. It wears either body (the dress of the year is any the town's men or women wear, and the hair of either), drawn leaner on a man's frame and less rounded on a woman's (the variation kit's own build axes), with any of the library's faces. Riding follows the clothes: a skirt rides aside in 1835 and 1904." }
   ],
   "ages": [
     { "id": "young", "label": "Young", "years": 25 },
@@ -92,9 +96,13 @@
     ],
     "female": [
       { "id": "none", "label": "None", "wears": [] }
+    ],
+    "neutral": [
+      { "id": "none", "label": "None", "wears": [] },
+      { "id": "moustache", "label": "Moustache", "wears": ["moustache"] }
     ]
   },
-  "brows": { "male": ["brows_full"], "female": ["brows_fine", "lashes_upper"] },
+  "brows": { "male": ["brows_full"], "female": ["brows_fine", "lashes_upper"], "neutral": ["brows_fine"] },
   "outfits": {
     "1812": {
       "male": [
