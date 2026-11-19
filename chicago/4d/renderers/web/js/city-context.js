@@ -260,6 +260,9 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
       return {name:enumValue('street',get('name')) ?? get('name'),e0:get('e0'),n0:get('n0'),e1:get('e1'),n1:get('n1')};
     }).filter(r=>[r.e0,r.n0,r.e1,r.n1].every(Number.isFinite));
   };
+  // T-3684: where two named 1871 streets meet, `[e, n, name, name]`, for the
+  // where card's "State and Madison streets".
+  out.junctions = () => (doc.junctions ?? []).filter(j=>Array.isArray(j) && j.length>=4 && Number.isFinite(j[0]) && Number.isFinite(j[1]));
   // The city's own sparse planting positions, with generic portable deciduous
   // crowns. No other year's species palette or planting record is imported.
   const treeFields=Object.fromEntries((doc.fields?.trees ?? []).map((key,index)=>[key,index]));

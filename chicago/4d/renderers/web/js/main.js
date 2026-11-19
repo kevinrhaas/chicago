@@ -4139,7 +4139,8 @@ async function boot() {
       name: names[r[S.name]] ?? null, e0: r[S.e0], n0: r[S.n0], e1: r[S.e1], n1: r[S.n1],
     })).filter((l) => l.name);
   })();
-  const eraWhere = createWhere({ streets, grid: streetGrid?.grid ?? null, lines: contextStreetLines });
+  const eraWhere = createWhere({ streets, grid: streetGrid?.grid ?? null, lines: contextStreetLines,
+    junctions: contextCity?.junctions?.() ?? [] });
   const navigation = createNavigation({
     root: hudRoot, terrain, registry: loaded.registry, streets, year: loaded.scene.id ?? YEAR, where: eraWhere,
     // T-2626: the round instrument opens the Map app (its stub opens the whole field).
