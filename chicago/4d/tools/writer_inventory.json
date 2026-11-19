@@ -2452,6 +2452,13 @@
       "measured": "2026-11-18",
       "finding": "Writes nothing: bare and --check runs of the exact current root tool in an isolated 15-file Git index fixture changed no file bytes or mtimes and created no files. Both exited 0. The fixture matched its own index; no application index or HEAD commit was used. Python bytecode generation was explicitly disabled. T-3654."
     },
+    "fire_1871.py": {
+      "placement": "pending",
+      "write_mode": "--write",
+      "measured": "2026-11-19",
+      "finding": "Reproduces: --write on the committed tree rewrote data/fire/1871.json byte for byte. Shifting one zone's derived local vertex by 1.0 m made --check exit 1, and --write then restored the exact committed bytes. --check and --self-test write nothing. T-3687.",
+      "placed": "Only the `local` and `acres` fields of data/fire/1871.json and the `conversion` block are derived. It reads data/context/1871/plan.json's modern controls and river.geojson/shoreline.geojson, and the authored outlines, controls and model are its inputs. Before it can be placed in the manifest, its order after the 1871 plan and geography writers (fit_1871_city_map.py, city_1871_emit.py) has to be settled."
+    },
     "audit_1871_city_map.py": {
       "placement": "pending",
       "write_mode": "--write",
