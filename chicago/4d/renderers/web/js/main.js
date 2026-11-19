@@ -34,6 +34,9 @@ import { fieldLog, count as countField } from './field-log.js'; // T-2660
 import { normalMoment, parseMoment, momentLink, momentFits, stampMoment } from './moment.js';
 import { huntSpotSafe } from './photo-hunt.js';
 import './strings/moment.js';
+// T-3672: a teacher's route, read from its link once and opened after the landing.
+import { parseRouteLink, routeSession, routeCatalog, activeRoute } from './teacher-route.js';
+import './strings/route.js';
 import { wireFieldLogView } from './field-log-view.js';
 import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
@@ -1837,6 +1840,7 @@ const journey = createJourney();
 // T-2621: a shared screen, read once (`?nav=app[:id]&tab=`), opened after the landing.
 const navLink = parseNavLink(location.search);
 const sharedMoment = parseMoment(location.search);
+const sharedRoute = sharedMoment ? null : parseRouteLink(location.search);
 api.journey = journey;
 // T-2660: the field log, kept on this device only and never sent (js/field-log.js). A landing
 // is the journey reaching `landed`; Settings › About shows the counts, with Clear.
@@ -7210,6 +7214,11 @@ async function boot() {
         // T-2640: Show me — only along a camera the building's own summary record names.
         showMe: (id, item) => showMeFor(id, item),
         fromSpot: (id, picture) => fromSpotFor(id, picture),
+        // T-3672: a teacher's route — what this year can name, Go there for a stop, and a
+        // route a teacher built in Guide opened here as a student will see it.
+        routeCatalog: () => routeCatalogFor(),
+        routeGo: (stop) => goRouteStop(stop),
+        beginRoute: (route) => beginRoute({ route }),
       },
     }),
   });
@@ -7335,7 +7344,62 @@ async function boot() {
     else { const off = journey.on(({ to }) => { if (to === 'landed') { off(); setTimeout(open, 0); } }); }
   }
 
-  if (!sharedMoment && navLink && navigatorUi?.has(navLink.app)) {
+  // ---- T-3672: a teacher's route ------------------------------------------------------
+  // The route travels whole in its link (`?route=`, teacher-route.js) or a file a teacher
+  // opens in Guide. What it names is read against this year's own Go to rows, people
+  // directory and jaunt catalog; a stop this town does not hold is left out and counted, a
+  // route for another year offers that year's link, and a link that cannot be read leaves the
+  // visitor in the town with a line that says so. Nothing is sent anywhere.
+  let routeCatalogMemo = null;
+  const routeJaunts = () => (jauntCatalogs[YEAR] ??= fetch(new URL(`sidecars/${encodeURIComponent(YEAR)}/jaunts/catalog.json`, resolveBases().dataBase), { cache: 'no-cache' })
+    .then((res) => { if (res.status === 404) return []; if (!res.ok) throw new Error(String(res.status)); return res.json().then((doc) => doc?.jaunts ?? []); })
+    .catch((err) => { delete jauntCatalogs[YEAR]; throw err; }));
+  function routeCatalogFor() {
+    return routeCatalogMemo ??= Promise.all([peopleDirectory.load().catch(() => null), routeJaunts().catch(() => [])])
+      .then(([dir, jaunts]) => routeCatalog({ year: YEAR, targets: destinations.targets,
+        people: dir?.people ?? dir?.persons ?? [], jaunts, has: (id) => loaded.registry.has(id) }))
+      .catch((err) => { routeCatalogMemo = null; throw err; });
+  }
+  /** Go there: a building or viewpoint as Go to goes; a person found where they are in town,
+   *  else at the house they live or work in, else their card. */
+  function goRouteStop(stop) {
+    if (stop?.kind === 'place') return goToTarget({ kind: 'structure', id: stop.id });
+    if (stop?.kind === 'spot') return goToTarget({ kind: 'anchor', id: stop.id });
+    if (stop?.kind !== 'person') return false;
+    const home = stop.home && loaded.registry.has(stop.home) ? stop.home : null;
+    if (placedInTown(stop.id)) {
+      const found = goToTarget({ kind: 'person', id: stop.id, label: stop.label, home });
+      if (found) return found;
+    }
+    if (home) { hud.say(t('route.atHouse', { name: stop.label })); return goToTarget({ kind: 'structure', id: home }); }
+    void openPersonCard(stop.id);
+    return true;
+  }
+  async function beginRoute(parsed) {
+    const here = parsed?.route?.year === String(YEAR);
+    let catalog = null;
+    if (here) {
+      try { catalog = await routeCatalogFor(); } catch { hud.say(t('route.unread')); return false; }
+    }
+    const { session, message } = routeSession(parsed, { year: YEAR, catalog, href: location.href });
+    activeRoute.set(session);
+    if (session) await api.openJaunts?.('jaunts');
+    if (message) hud.say(t(message.key, message.params));
+    return !!session;
+  }
+  api.teacherRoute = { store: activeRoute, begin: (route) => beginRoute({ route }) };
+  if (sharedRoute) {
+    const open = () => {
+      // Into the town first, as a moment link does: an unreadable route still lands there.
+      if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
+      void beginRoute(sharedRoute).catch(() => hud.say(t('route.invalid')));
+      api.routeOpened = sharedRoute;
+    };
+    if (journey.state === 'landed' || journey.state === 'exploring') open();
+    else { const off = journey.on(({ to }) => { if (to === 'landed') { off(); setTimeout(open, 0); } }); }
+  }
+
+  if (!sharedMoment && !sharedRoute && navLink && navigatorUi?.has(navLink.app)) {
     const link = navLink.app === 'inspect' && navLink.id && !loaded.registry.has(navLink.id)
       ? null : navLink;
     const open = () => {

@@ -12,6 +12,8 @@ import sys
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"generators"))
 import city_1871_emit as recipe
+sys.path.insert(0,str(ROOT/"tools"))
+import build_streets_1871 as street_clip
 
 
 def main():
@@ -41,6 +43,8 @@ def main():
     check(meta["cell_m"]<=10,"navigation field is too coarse for the refined bank trace")
     check(meta["reconstruction"]["horizontal_map_rms_m"]==plan["map_control"]["rms_m"],"terrain has stale training residual metadata")
     check(meta["reconstruction"]["held_out_rmse_m"]==plan["map_control"]["held_out_rms_m"],"terrain has stale reserved-check accuracy metadata")
+    # T-3684: the City centreline clip the platted core is drawn on keeps its shape.
+    for problem in street_clip.clip_errors(json.loads(street_clip.OUT.read_text())):check(False,f"1871 street clip: {problem}")
     check(len(doc["buildings"])>=25000,"city context has shrunk to a neighborhood")
     check(len({b["kit"] for b in doc["buildings"]})==16,"one or more period kit families is absent")
     check(set(b["id"] for b in doc["bridges"])==set(b["id"] for b in plan["bridges"]),"mapped bridge inventory was dropped")
